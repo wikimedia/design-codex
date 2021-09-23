@@ -1,0 +1,16 @@
+{
+	"name": "@wikimedia/vue-component-library",
+	"author": "Wikimedia",
+	"description": "Temporary home of the new Vue component library, until we decide on a name",
+	"version": "0.0.0",
+	"keywords": [
+		"Vue.js",
+		"components",
+		"Wikimedia"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/wikimedia/vue-component-library"
+	},
+	"license": "GPL-2.0+"
+}
