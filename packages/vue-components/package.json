@@ -1,11 +1,11 @@
 {
-    "name": "vue-components",
-    "scripts": {
-        "lint": "eslint --max-warnings 0",
-        "test": "yarn run lint"
-    },
-    "devDependencies": {
-        "eslint": "^7.32.0",
-        "eslint-config-wikimedia": "^0.20.0"
-    }
+	"name": "vue-components",
+	"scripts": {
+		"lint": "eslint --max-warnings 0",
+		"test": "yarn run lint"
+	},
+	"devDependencies": {
+		"eslint": "^7.32.0",
+		"eslint-config-wikimedia": "^0.20.0"
+	}
 }

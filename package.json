@@ -1,9 +1,9 @@
 {
-    "name": "@wikimedia/codex",
-    "author": "Wikimedia Foundation",
-    "packageManager": "yarn@3.0.2",
-    "private": true,
-    "workspaces": [
-        "packages/*"
-    ]
+	"name": "@wikimedia/codex",
+	"author": "Wikimedia Foundation",
+	"packageManager": "yarn@3.0.2",
+	"private": true,
+	"workspaces": [
+		"packages/*"
+	]
 }
