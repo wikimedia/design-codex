@@ -1,0 +1,99 @@
+{
+	"dimension": {
+		"min-height": {
+			"xsmall": {
+				"value": "{dimension.static.size.250.value}"
+			},
+			"small": {
+				"value": "{dimension.static.size.300.value}"
+			},
+			"medium": {
+				"value": "{dimension.static.size.400.value}"
+			},
+			"large": {
+				"value": "{dimension.static.size.500.value}"
+			},
+			"xlarge": {
+				"value": "{dimension.static.size.600.value}"
+			}
+		},
+		"width": {
+			"xsmall": {
+				"value": "{dimension.static.size.300.value}"
+			},
+			"small": {
+				"value": "{dimension.static.size.1600.value}"
+			},
+			"medium": {
+				"value": "{dimension.static.size.3200.value}"
+			},
+			"large": {
+				"value": "{dimension.static.size.4800.value}"
+			},
+			"xlarge": {
+				"value": "{dimension.static.size.6400.value}"
+			},
+			"full": {
+				"value": "{dimension.dynamic.percentage.100.value}"
+			},
+			"double": {
+				"value": "{dimension.dynamic.percentage.200.value}"
+			}
+		},
+		"padding": {
+			"vertical": {
+				"medium": {
+					"value": "{dimension.dynamic.em.30.value}",
+					"comment": "will be replaced by a spacing token in the future"
+				},
+				"large": {
+					"value": "{dimension.dynamic.em.56.value}",
+					"comment": "will be replaced by a spacing token in the future"
+				}
+			}
+		},
+		"spacing": {
+			"none": {
+				"value": "{dimension.dynamic.em.0.value}"
+			},
+			"xxsmall": {
+				"value": "{dimension.dynamic.em.12.value}"
+			},
+			"xsmall": {
+				"value": "{dimension.dynamic.em.25.value}"
+			},
+			"small": {
+				"value": "{dimension.dynamic.em.50.value}"
+			},
+			"medium": {
+				"value": "{dimension.dynamic.em.75.value}"
+			},
+			"large": {
+				"value": "{dimension.dynamic.em.100.value}"
+			},
+			"xlarge": {
+				"value": "{dimension.dynamic.em.150.value}"
+			},
+			"xxlarge": {
+				"value": "{dimension.dynamic.em.200.value}"
+			}
+		},
+		"layout": {
+			"xxsmall": {
+				"value": "{dimension.dynamic.rem.50.value}"
+			},
+			"xsmall": {
+				"value": "{dimension.dynamic.rem.100.value}"
+			},
+			"small": {
+				"value": "{dimension.dynamic.rem.150.value}"
+			},
+			"medium": {
+				"value": "{dimension.dynamic.rem.200.value}"
+			},
+			"large": {
+				"value": "{dimension.dynamic.rem.250.value}"
+			}
+		}
+	}
+}
