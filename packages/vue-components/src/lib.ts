@@ -1,5 +1,5 @@
-import Button from './components/button/Button.vue';
+import CdxButton from './components/button/Button.vue';
 
 export {
-	Button
+	CdxButton
 };

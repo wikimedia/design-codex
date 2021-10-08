@@ -11,7 +11,8 @@
 		"node": ">=12"
 	},
 	"scripts": {
-		"test": "npm run test --workspaces --if-present",
-		"dev": "npm run dev -w vue-components"
+		"dev": "npm run dev -w vue-components",
+		"docs": "npm run docs:dev -w vitepress",
+		"test": "npm run test --workspaces --if-present"
 	}
 }
