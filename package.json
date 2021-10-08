@@ -1,6 +1,7 @@
 {
 	"name": "@wikimedia/codex",
 	"author": "Wikimedia Foundation",
+	"license": "GPL-2.0+",
 	"private": true,
 	"workspaces": [
 		"packages/*"
