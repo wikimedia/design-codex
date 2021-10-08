@@ -11,6 +11,7 @@
 		"node": ">=12"
 	},
 	"scripts": {
+		"docs": "npm run docs:dev -w vitepress",
 		"test": "npm run test --workspaces --if-present"
 	}
 }

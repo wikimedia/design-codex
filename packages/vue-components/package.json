@@ -1,6 +1,12 @@
 {
 	"name": "vue-components",
 	"license": "GPL-2.0+",
+	"exports": {
+		".": {
+			"import": "./dist/codex.es.js",
+			"require": "./dist/codex.cjs.js"
+		}
+	},
 	"scripts": {
 		"lint": "eslint --max-warnings 0",
 		"test": "npm run lint",
