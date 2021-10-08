@@ -5,5 +5,8 @@
 	"private": true,
 	"workspaces": [
 		"packages/*"
-	]
+	],
+	"scripts": {
+		"dev": "npm run dev -w vue-components"
+	}
 }
