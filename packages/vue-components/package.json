@@ -1,6 +1,12 @@
 {
 	"name": "vue-components",
 	"license": "GPL-2.0+",
+	"exports": {
+		".": {
+			"import": "./dist/codex.es.js",
+			"require": "./dist/codex.cjs.js"
+		}
+	},
 	"scripts": {
 		"lint": "eslint --max-warnings 0",
 		"test": "npm run lint",
@@ -14,7 +20,8 @@
 		"eslint": "^7.32.0",
 		"eslint-config-wikimedia": "^0.20.0",
 		"typescript": "^4.4.3",
-		"vite": "^2.6.5"
+		"vite": "^2.6.5",
+		"design-tokens": "*"
 	},
 	"peerDependencies": {
 		"vue": "^3.2.19"
