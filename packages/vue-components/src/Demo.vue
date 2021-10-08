@@ -5,15 +5,15 @@
 	</header>
 
 	<main>
-		<codex-button @click="onClick">
+		<cdx-button @click="onClick">
 			Click me!
-		</codex-button>
+		</cdx-button>
 	</main>
 </div>
 </template>
 
 <script lang="ts" setup>
-import { Button as CodexButton } from './lib';
+import { CdxButton } from './lib';
 
 function onClick ( e: Event ) {
 	console.log( e );
