@@ -67,6 +67,7 @@ export default defineComponent( {
 } );
 </script>
 
-<style>
+<style lang="postcss">
 /* TODO set up CSS infrastructure, then put styles here */
+@import 'design-tokens/dist/_variables.css';
 </style>
