@@ -2,7 +2,7 @@
 	"name": "design-tokens",
 	"author": "Wikimedia Foundation",
 	"description": "Design tokens for Codex in different formats",
-	"license": "BSD-3-Clause",
+	"license": "GPL-2.0+",
 	"files": [
 		"dist"
 	],

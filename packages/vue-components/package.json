@@ -1,5 +1,6 @@
 {
 	"name": "vue-components",
+	"license": "GPL-2.0+",
 	"scripts": {
 		"lint": "eslint --max-warnings 0",
 		"test": "npm run lint",
