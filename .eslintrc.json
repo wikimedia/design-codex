@@ -1,0 +1,41 @@
+{
+	"root": true,
+	"extends": [
+		"wikimedia",
+		"wikimedia/language/es2019"
+	],
+	"overrides": [
+		{
+			"files": [ "**/*.vue", "**/*.ts" ],
+			"plugins": [
+				"@typescript-eslint/eslint-plugin"
+			],
+			"parserOptions": {
+				"parser": "@typescript-eslint/parser",
+				"sourceType": "module"
+			},
+			"extends": [
+				"plugin:@typescript-eslint/recommended"
+			]
+		},
+		{
+			"files": [ "**/*.vue" ],
+			"parser": "vue-eslint-parser",
+			"extends": [
+				"wikimedia/vue-common",
+				"wikimedia/client-common"
+			],
+			"rules": {
+				"vue/no-unsupported-features": [ "error", {
+					"version": "^3.2.19"
+				} ]
+			}
+		},
+		{
+			"files": [ "**/*.spec.[jt]s", "**/*.test.[jt]s" ],
+			"extends": [
+				"plugin:jest/recommended"
+			]
+		}
+	]
+}

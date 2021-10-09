@@ -13,6 +13,7 @@
 		"build": "npm run clean && npm run build:tokens",
 		"build:tokens": "node ./.style-dictionary/config.js",
 		"clean": "rm -rf ./dist",
+		"test": "npm run test:unit",
 		"test:unit": "jest ."
 	},
 	"devDependencies": {

@@ -1,0 +1,28 @@
+{
+	"overrides": [
+		{
+			"files": [ "src/**" ],
+			"extends": [
+				"wikimedia/client-es6"
+			],
+			"rules": {
+				"vue/no-unsupported-features": [ "error", {
+					"version": "^3.2.19"
+				} ]
+			}
+		},
+		{
+			"files": [ "**/*.ts", "**/*.js" ],
+			"excludedFiles": "src/**",
+			"extends": [
+				"wikimedia/server"
+			],
+			"rules": {
+				"strict": "off"
+			}
+		}
+	],
+	"ignorePatterns": [
+		"src/env.d.ts"
+	]
+}

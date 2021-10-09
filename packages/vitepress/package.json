@@ -2,8 +2,6 @@
 	"name": "vitepress",
 	"license": "GPL-2.0+",
 	"scripts": {
-		"lint": "eslint --max-warnings 0",
-		"test": "npm run lint",
 		"dev": "vite",
 		"build": "vite build",
 		"serve": "vite preview",
@@ -20,8 +18,6 @@
 	"devDependencies": {
 		"@vitejs/plugin-vue": "^1.9.3",
 		"concurrently": "^6.3.0",
-		"eslint": "^7.32.0",
-		"eslint-config-wikimedia": "^0.20.0",
 		"typescript": "^4.4.3",
 		"vite": "^2.6.5",
 		"vitepress": "^0.20.0",

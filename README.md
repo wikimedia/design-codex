@@ -13,8 +13,8 @@ in the `packages/` directory with their own `package.json` and an appropriate `n
 To run a command in a specific workspace, do the following:
 
 ```
-# Run the "lint" command in the "vue-components" workspace
-npm run lint --workspace vue-components
+# Run the "build" command in the "vue-components" workspace
+npm run build --workspace vue-components
 
 # Install a dependency for one workspace
 npm install vite --workspace vue-components --save-dev
@@ -32,6 +32,10 @@ npm run test --workspaces
 # this is equivalent
 npm run test -ws
 ```
+
+Note that the `lint` command is global, it has to be run in the root directory.
+Running `npm test` in the root directory will lint everything and run the tests
+in all workspaces.
 
 NPM v7.0 or greater is required to support workspaces; it is not included by
 default in older versions of Node (prior to v15) and will need to be upgraded

@@ -6,7 +6,7 @@ describe( 'kebabCase', () => {
 
 	it( 'builds a token name from a path', () => {
 		expect( kebabCase( {
-			path: [ 'font', 'weight', 'style', 'h1' ],
+			path: [ 'font', 'weight', 'style', 'h1' ]
 		} ) ).toBe( 'font-weight-style-h1' );
 	} );
 
