@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, computed } from 'vue';
 
 // TODO maybe move this stuff to a separate file and export it?
 type ButtonAction = 'default' | 'progressive' | 'destructive';
@@ -45,7 +45,7 @@ export default defineComponent( {
 	},
 	emits: [ 'click' ],
 	setup( props, { emit } ) {
-		const rootClasses = () => ( {
+		const rootClasses = computed( () => ( {
 			'cdx-button--action-default': props.action === 'default',
 			'cdx-button--action-progressive': props.action === 'progressive',
 			'cdx-button--action-destructive': props.action === 'destructive',
@@ -53,7 +53,7 @@ export default defineComponent( {
 			'cdx-button--type-normal': props.type === 'normal',
 			'cdx-button--type-quiet': props.type === 'quiet',
 			'cdx-button--framed': props.type !== 'quiet'
-		} );
+		} ) );
 
 		const onClick = ( event: Event ) => {
 			emit( 'click', event );
