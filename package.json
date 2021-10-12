@@ -13,7 +13,8 @@
 	"scripts": {
 		"dev": "npm run dev -w vue-components",
 		"docs": "npm run docs:dev -w vitepress",
-		"lint": "eslint --max-warnings 0 .",
+		"lint": "npm run lint:eslint && npm run lint --workspaces --if-present",
+		"lint:eslint": "eslint --max-warnings 0 .",
 		"test": "npm run lint && npm run test --workspaces --if-present"
 	},
 	"devDependencies": {

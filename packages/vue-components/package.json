@@ -11,8 +11,10 @@
 		"dev": "vite",
 		"build": "vite build",
 		"serve": "vite preview",
-		"test": "npm -s run build && npm -s run test:unit",
-		"test:unit": "jest -c .jest/jest.config.json"
+		"test": "npm run lint && npm -s run build && npm -s run test:unit",
+		"test:unit": "jest -c .jest/jest.config.json",
+		"lint": "npm run lint:ts",
+		"lint:ts": "vue-tsc --noEmit"
 	},
 	"devDependencies": {
 		"@types/jest": "^27.0.2",
@@ -29,6 +31,7 @@
 		"ts-jest": "^27.0.5",
 		"typescript": "^4.4.3",
 		"vite": "^2.6.5",
+		"vue-tsc": "^0.28.3",
 		"wikimedia-ui-base": "^0.19.0"
 	},
 	"peerDependencies": {
