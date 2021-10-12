@@ -15,11 +15,10 @@
 	"devDependencies": {
 		"@vitejs/plugin-vue": "^1.9.3",
 		"@vue/compiler-sfc": "^3.2.19",
-		"autoprefixer": "^10.3.7",
+		"browserslist-config-wikimedia": "^0.2.0",
 		"design-tokens": "*",
 		"postcss": "^8.3.9",
-		"postcss-custom-properties": "^11.0.0",
-		"postcss-nested": "^5.0.6",
+		"postcss-preset-env": "^6.7.0",
 		"postcss-remove-root": "^0.0.2",
 		"typescript": "^4.4.3",
 		"vite": "^2.6.5",

@@ -1,10 +1,12 @@
-const customProperties = require( 'postcss-custom-properties' );
+const postcssPresetEnv = require( 'postcss-preset-env' );
+const postcssRemoveRoot = require( 'postcss-remove-root' );
 
 module.exports = {
 	plugins: [
-		require( 'autoprefixer' ),
-		require( 'postcss-nested' ),
-		customProperties( { preserve: false } ),
-		require( 'postcss-remove-root' )
+		postcssPresetEnv( {
+			stage: 0,
+			preserve: false
+		} ),
+		postcssRemoveRoot()
 	]
 };
