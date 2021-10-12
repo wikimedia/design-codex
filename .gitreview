@@ -4,4 +4,4 @@ port=29418
 project=design/codex.git
 track=1
 defaultrebase=0
-defaultbranch=master
+defaultbranch=main
