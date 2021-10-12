@@ -1,0 +1,13 @@
+{
+	"overrides": [
+		{
+			"files": [ "**/*.ts", "**/*.js" ],
+			"extends": [
+				"wikimedia/server"
+			],
+			"rules": {
+				"strict": "off"
+			}
+		}
+	]
+}

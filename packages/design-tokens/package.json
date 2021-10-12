@@ -1,0 +1,23 @@
+{
+	"name": "design-tokens",
+	"author": "Wikimedia Foundation",
+	"description": "Design tokens for Codex in different formats",
+	"license": "GPL-2.0+",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "npm run clean && npm run build:tokens",
+		"build:tokens": "node ./.style-dictionary/config.js",
+		"clean": "rm -rf ./dist",
+		"test": "npm run test:unit",
+		"test:unit": "jest ."
+	},
+	"devDependencies": {
+		"jest": "^27.2.4",
+		"style-dictionary": "^3.0.2"
+	}
+}

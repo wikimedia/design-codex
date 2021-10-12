@@ -1,0 +1,45 @@
+/* Custom CSS variables and rules for VitePress docs. */
+
+:root {
+	--c-brand: #36c;
+	--c-brand-light: #447ff5;
+
+	--font-family-base: 'Helvetica Neue', 'Helvetica', 'Liberation Sans', 'Arial', sans-serif;
+	--font-family-serif: 'Charter', 'Georgia', serif;
+}
+
+h1 {
+	font-family: var( --font-family-serif );
+	font-weight: 400;
+}
+
+h4 {
+    margin-top: 1.15rem;
+}
+
+/* TODO: These should probably use design tokens. */
+.custom-block.info {
+    border-color: #a2a9b1;
+	color: #000;
+	background-color: #eaecf0;
+}
+
+.custom-block.warning {
+    border-color: #fc3;
+    color: #000;
+    background-color: #fef6e7;
+}
+
+.custom-block.warning .custom-block-title {
+    color: #ac6600;
+}
+
+.custom-block.danger {
+    border-color: #d33;
+    color: #b32424;
+    background-color: #fee7e6;
+}
+
+.custom-block.danger .custom-block-title {
+    color: #b32424;
+}
