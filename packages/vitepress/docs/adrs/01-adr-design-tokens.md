@@ -4,7 +4,7 @@ Date: 2021-10-11
 
 ## Status
 
-accepted
+Accepted
 
 ## Context
 
@@ -33,20 +33,20 @@ This option means specifying tokens in a format understood by CSS, Less or Scss.
 * Entails manual work to support several output formats
 * Limited possibilities of providing specific information about the tokens
 
-### Technology-agnostic token definition 
+### Technology-agnostic token definition
 
 This option means specifying tokens in a generic format (e.g. JSON/YML) which have to be converted to files as understood by specific technology (CSS, Less, Scss etc.)
 
 #### Advantages
 
-* shows on the conceptual level system design comes before concrete implementation
-* allows us to store meta information (e.g. comments) alongside the token values
-* allows us to support different technologies at the same time
-* it is the future-proof option - we can easily add more output formats when/if we need them
+* Shows on the conceptual level system design comes before concrete implementation
+* Allows us to store additional information (e.g. comments) alongside the token values
+* Allows us to support different technologies at the same time
+* It is the future-proof option - we can easily add more output formats when/if we need them
 
 #### Downsides
 
-* possibly bad IDE/intellisense support
+* Possibly bad IDE/IntelliSense support
 
 ## Decision
 
