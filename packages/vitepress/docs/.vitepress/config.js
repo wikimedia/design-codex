@@ -42,6 +42,7 @@ module.exports = {
 					children: [
 						{ text: 'Introduction', link: '/adrs/introduction' },
 						{ text: 'ADR 1 - Design Tokens', link: '/adrs/01-adr-design-tokens' },
+						{ text: 'ADR 2 - Demo tool', link: '/adrs/02-adr-demo-tool' }
 					]
 				}
 			]
