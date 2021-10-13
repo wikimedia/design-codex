@@ -10,21 +10,12 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from 'vue';
+import { ButtonActions, ButtonTypes } from '../../constants';
+import { ButtonAction, ButtonType } from '../../types';
+import { makeStringTypeValidator } from '../../utils';
 
-// TODO maybe move this stuff to a separate file and export it?
-type ButtonAction = 'default' | 'progressive' | 'destructive';
-type ButtonType = 'normal' | 'primary' | 'quiet';
-
-function isButtonAction( s: unknown ): s is ButtonAction {
-	// TODO upstream eslint-config-wikimedia needs a mode that allows ES2016+ syntax in Vue files
-	// eslint-disable-next-line no-restricted-syntax
-	return typeof s === 'string' && [ 'default', 'progressive', 'destructive' ].includes( s );
-}
-
-function isButtonType( s: unknown ): s is ButtonType {
-	// eslint-disable-next-line no-restricted-syntax
-	return typeof s === 'string' && [ 'normal', 'primary', 'quiet' ].includes( s );
-}
+const buttonTypeValidator = makeStringTypeValidator( ButtonTypes );
+const buttonActionValidator = makeStringTypeValidator( ButtonActions );
 
 /**
  * A button wrapping slotted content.
@@ -35,12 +26,12 @@ export default defineComponent( {
 		action: {
 			type: String as PropType<ButtonAction>,
 			default: 'default',
-			validator: isButtonAction
+			validator: buttonActionValidator
 		},
 		type: {
 			type: String as PropType<ButtonType>,
 			default: 'normal',
-			validator: isButtonType
+			validator: buttonTypeValidator
 		}
 	},
 	emits: [ 'click' ],
