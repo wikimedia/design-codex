@@ -23,6 +23,7 @@ module.exports = {
 						{ text: 'Guidelines', link: '/contributing/guidelines' },
 						{ text: 'Designing components', link: '/contributing/designing-components' },
 						{ text: 'Contributing code', link: '/contributing/contributing-code' },
+						{ text: 'Working with TypeScript', link: '/contributing/typescript' }
 					]
 				},
 				{
