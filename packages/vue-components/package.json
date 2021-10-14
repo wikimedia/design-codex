@@ -3,6 +3,7 @@
 	"license": "GPL-2.0+",
 	"main": "dist/codex.cjs.js",
 	"module": "dist/codex.es.js",
+	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
 	],
@@ -30,6 +31,7 @@
 		"ts-jest": "^27.0.5",
 		"typescript": "^4.4.3",
 		"vite": "^2.6.5",
+		"vite-plugin-dts": "^0.8.3",
 		"vue-tsc": "^0.28.3",
 		"wikimedia-ui-base": "^0.19.0"
 	},

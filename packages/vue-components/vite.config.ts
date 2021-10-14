@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import dts from 'vite-plugin-dts';
 import path from 'path';
 
 // https://vitejs.dev/config/
@@ -24,5 +25,12 @@ export default defineConfig( {
 			external: [ 'vue' ]
 		}
 	},
-	plugins: [ vue() ]
+	plugins: [
+		vue(),
+		dts( {
+			insertTypesEntry: true,
+			logDiagnostics: true,
+			noEmitOnError: true
+		} )
+	]
 } );
