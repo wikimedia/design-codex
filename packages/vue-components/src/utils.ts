@@ -31,8 +31,9 @@ import { StringTypeValidator } from './types';
  *         }
  *     }
  *
- * @param {string[]} allowedValues Allowed values
- * @return {Function} Function that takes a value and returns whether it is one of allowedValues
+ * @param allowedValues Allowed values
+ * @return Function that takes a value and returns whether it is
+ *   one of allowedValues
  */
 export function makeStringTypeValidator<T extends string>(
 	allowedValues: readonly T[]
