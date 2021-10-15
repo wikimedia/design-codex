@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
-import CdxButton from '../../../vue-components/src/components/button/Button.vue';
+import CdxButton from 'vue-components/src/components/button/Button.vue';
 
 export default defineComponent( {
 	name: 'Wrapper',
@@ -41,29 +41,28 @@ export default defineComponent( {
 </script>
 
 <style>
-/* TODO: Use design tokens */
-/* TODO: nesting */
+/*
+TODO: Remove references to wikimedia-ui-base once we have
+the proper tokens in place
+*/
+@import 'wikimedia-ui-base/wikimedia-ui-base.css';
 
 .vp-wrapper {
 	margin-top: 16px;
 }
 
 .vp-wrapper__demo {
-	border: 1px solid #c8ccd1;
-	border-radius: 2px;
+	border: var( --border-width-base ) var( --border-style-base ) var( --border-color-heading );
+	border-radius: var( --border-radius-base );
 	padding: 24px;
 	position: relative;
-
-	/* Similar to our wikis, font size should be 1em on mobile and 0.875em on larger screens. */
-	@media screen and ( min-width: 720px ) {
-		font-size: 0.875em;
-	}
 }
 
-.vp-wrapper__demo__button {
+.vp-wrapper__demo .vp-wrapper__demo__button {
 	position: absolute;
 	right: 0;
 	bottom: 0;
+	font-size: 0.875em;
 }
 
 .vp-wrapper__code div[class*="language-"] {

@@ -1,12 +1,11 @@
 {
 	"name": "vue-components",
 	"license": "GPL-2.0+",
-	"exports": {
-		".": {
-			"import": "./dist/codex.es.js",
-			"require": "./dist/codex.cjs.js"
-		}
-	},
+	"main": "dist/codex.cjs.js",
+	"module": "dist/codex.es.js",
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",

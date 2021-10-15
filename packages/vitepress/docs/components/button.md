@@ -11,7 +11,7 @@ A button wrapping slotted content.
 <a href="https://github.com/wikimedia/design-codex/edit/main/vitepress/docs/component-demos/button/button.md" class="docgen-edit-link"></a>
 
 <script setup>
-import { CdxButton } from 'vue-components';
+import CdxButton from 'vue-components/src/components/button/Button.vue';
 </script>
 
 ## Demos

@@ -1,5 +1,5 @@
 <script setup>
-import { CdxButton } from 'vue-components';
+import CdxButton from 'vue-components/src/components/button/Button.vue';
 </script>
 
 ## Demos
