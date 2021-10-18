@@ -105,7 +105,9 @@ the proper tokens in place
 
 	/* Contents are single line. */
 	white-space: nowrap;
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	transition-property: border-color, background-color, color, box-shadow;
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	transition-duration: var( --transition-base );
 
 	/*
@@ -139,6 +141,7 @@ the proper tokens in place
 			/* In Windows high contrast mode the outline becomes visible. */
 			outline: var( --outline-base--focus );
 		}
+
 		&:active {
 			background-color: var( --background-color-framed--active );
 			color: var( --color-base--emphasized );
@@ -168,6 +171,7 @@ the proper tokens in place
 			border-color: var( --border-color-base--active );
 		}
 	}
+
 	&[ disabled ] {
 		background-color: var( --background-color-filled--disabled );
 		color: var( --color-filled--disabled );
@@ -338,7 +342,7 @@ the proper tokens in place
 		&:hover {
 			/* FIXME @background-color-destructive--hover should exist but doesn't */
 			/* FIXME the LESS version used fade() but we need a CSS-compatible alternative */
-			background-color: rgba(209, 29, 19, 0.2);
+			background-color: rgba( 209, 29, 19, 0.2 );
 			color: var( --color-destructive--hover );
 		}
 

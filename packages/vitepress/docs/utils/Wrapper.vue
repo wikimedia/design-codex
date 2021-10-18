@@ -52,10 +52,10 @@ the proper tokens in place
 }
 
 .vp-wrapper__demo {
+	position: relative;
 	border: var( --border-width-base ) var( --border-style-base ) var( --border-color-heading );
 	border-radius: var( --border-radius-base );
 	padding: 24px;
-	position: relative;
 }
 
 .vp-wrapper__demo .vp-wrapper__demo__button {
@@ -65,9 +65,9 @@ the proper tokens in place
 	font-size: 0.875em;
 }
 
-.vp-wrapper__code div[class*="language-"] {
+.vp-wrapper__code div[ class*='language-' ] {
+	margin-top: 0;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
-	margin-top: 0;
 }
 </style>

@@ -13,8 +13,9 @@
 	"scripts": {
 		"dev": "npm run dev -w vue-components",
 		"docs": "npm run docs:dev -w vitepress",
-		"lint": "npm run lint:eslint && npm run lint --workspaces --if-present",
+		"lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint --workspaces --if-present",
 		"lint:eslint": "eslint --max-warnings 0 .",
+		"lint:stylelint": "stylelint --report-needless-disables --max-warnings 0 .",
 		"test": "npm run lint && npm run test --workspaces --if-present"
 	},
 	"devDependencies": {
@@ -23,6 +24,10 @@
 		"eslint": "^7.32.0",
 		"eslint-config-wikimedia": "^0.20.0",
 		"eslint-plugin-jest": "^24.5.2",
+		"stylelint": "^13.13.1",
+		"stylelint-config-wikimedia": "^0.11.1",
+		"stylelint-no-unsupported-browser-features": "^5.0.2",
+		"stylelint-order": "^4.1.0",
 		"typescript": "^4.4.3"
 	}
 }
