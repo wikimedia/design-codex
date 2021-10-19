@@ -4,6 +4,83 @@ TypeScript can sometimes be difficult or confusing to work with. This page docum
 working with TypeScript, understanding errors, common pitfalls, and particular ways that Codex uses
 TypeScript.
 
+## Template refs
+
+When using [template refs](https://v3.vuejs.org/guide/component-template-refs.html) to access an
+HTML element or component, we need to tell TypeScript what the type of the element or component is.
+For example, we might have `<input ref="textInput">` and want to call `.focus()` on that input in
+one of your component's methods. We'll need to tell TypeScript that the ref is of the type
+`HTMLInputElement`, so that it can verify that `.focus()` exists and is being called with the right
+number and types of arguments.
+
+### Finding the correct type
+For HTML elements, use the type that contains the name of the element, e.g. `HTMLInputElement`
+for `<input>` or `HTMLParagraphElement` for `<p>`. To find the type name, go to
+`https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tagname`, and search for "DOM interface".
+For example, https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre indicates that its DOM
+interface is `HTMLPreElement`. For basic functionality, the generic `HTMLElement` type can also
+be used, but this is not recommended except in complex cases (e.g. when creating an array of
+HTML elements of different types).
+
+For components, use the name of the component, e.g. `CdxButton`. This is also the name of the
+variable that is imported from the `.vue` file and passed through in the `components:` option.
+
+### Options API
+When using a template ref in a computed function or method in the options API, you have to add
+a type assertion as follows:
+```typescript
+methods: {
+	focusSearchInput() {
+		// This assumes the template contains <input ref="searchInput">
+		const searchInput = this.$refs.searchInput as HTMLInputElement;
+		searchInput.focus();
+
+		// Alternatively, you can inline the type assertion:
+		( this.$refs.searchInput as HTMLInputElement ).focus();
+	}
+}
+```
+If you don't include the `as HTMLInputElement` assertion, you will get a TypeScript error like
+`Object is of type 'unknown'`.
+
+### Composition API
+When using the composition API, you have to define the type when you create the template ref.
+When you use it, you won't need to use a type assertion, but you will need to use the `!` operator
+(the [non-null assertion operator](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-))
+to tell TypeScript that the value of the template ref can't be undefined.
+```typescript
+setup( props, { emits } ) {
+	// This assumes the template contains <input ref="searchInput">
+	const searchInput = ref<HTMLInputElement>();
+
+	const focusSearchInput = () => {
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+		searchInput.value!.focus();
+
+		// If you need to use searchInput.value multiple times,
+		// you can also store it in a variable as follows:
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+		const searchInputValue = searchInput.value!;
+		searchInputValue.focus();
+	};
+
+	return {
+		searchInput,
+		focusSearchInput
+	};
+}
+```
+The `!` operator should be used *very sparingly*, and in Codex we use it **only** for template refs.
+Because of this, ESLint warns whenever it's used, and you have to add a comment silencing the
+ESLint warning. The `!` operator **should not be used** in other situations.
+
+You should be careful to access template refs only in methods, computed property functions, and
+other code that runs after the setup function has finished. They can't be accessed in the setup
+function itself, because the `.value` property will still be undefined at that time.
+
+If you don't use a `!` when accessing `searchInput.value`, you will get an error like `Object is
+possibly undefined`.
+
 ## String types
 Some components have props that take only certain predefined string values. For example, the Button
 component has a `action` prop that can be one of `'default'`, `'progressive'` or `'destructive'`.
