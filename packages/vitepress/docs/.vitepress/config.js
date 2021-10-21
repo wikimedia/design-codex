@@ -7,7 +7,7 @@ module.exports = {
 		repo: 'wikimedia/design-codex',
 		docsDir: 'vitepress/docs',
 		lastUpdated: 'Last updated',
-	
+
 		sidebar: {
 			'/': [
 			 	{
