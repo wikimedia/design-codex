@@ -4,6 +4,7 @@
 		:class="rootClasses"
 		@click="onClick"
 	>
+		<!-- @slot Button content -->
 		<slot />
 	</button>
 </template>
@@ -23,11 +24,21 @@ const buttonActionValidator = makeStringTypeValidator( ButtonActions );
 export default defineComponent( {
 	name: 'CdxButton',
 	props: {
+		/**
+		 * The kind of action that will be taken on click.
+		 *
+		 * @values 'default', 'progressive', 'destructive'
+		 */
 		action: {
 			type: String as PropType<ButtonAction>,
 			default: 'default',
 			validator: buttonActionValidator
 		},
+		/**
+		 * Button type. See the [Design Style Guide](https://design.wikimedia.org/style-guide/components/buttons.html).
+		 *
+		 * @values 'normal', 'primary', 'quiet'
+		 */
 		type: {
 			type: String as PropType<ButtonType>,
 			default: 'normal',
