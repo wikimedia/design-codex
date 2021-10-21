@@ -20,7 +20,8 @@
 	},
 	"dependencies": {
 		"vue": "^3.2.19",
-		"vue-components": "*"
+		"vue-components": "*",
+		"icons": "*"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-vue": "^1.9.3",

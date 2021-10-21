@@ -36,7 +36,16 @@ module.exports = {
 					text: 'Components',
 					children: [
 						{ text: 'Button', link: '/components/button' },
+						{ text: 'Icon', link: '/components/icon' },
 						{ text: 'Radio', link: '/components/radio' }
+					]
+				},
+				{
+					text: 'Icons',
+					children: [
+						{ text: 'Introduction', link: '/icons/introduction' },
+						{ text: 'Icon directory', link: '/icons/directory' },
+						{ text: 'Adding new icons', link: '/icons/adding-new' }
 					]
 				},
 				{

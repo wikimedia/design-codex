@@ -20,6 +20,10 @@
 		"lint": "npm run lint:ts",
 		"lint:ts": "vue-tsc --noEmit"
 	},
+	"dependencies": {
+		"design-tokens": "*",
+		"icons": "*"
+	},
 	"devDependencies": {
 		"@types/jest": "^27.0.2",
 		"@vitejs/plugin-vue": "^1.9.3",

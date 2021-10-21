@@ -20,12 +20,12 @@
 		"node": ">=12"
 	},
 	"scripts": {
-		"dev": "npm run dev -w vue-components",
-		"docs": "npm run docs:dev -w vitepress",
+		"dev": "npm run build-if-missing -w icons && npm run dev -w vue-components",
+		"docs": "npm run build-if-missing -w icons && npm run docs:dev -w vitepress",
 		"lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint --workspaces --if-present",
 		"lint:eslint": "eslint --max-warnings 0 .",
 		"lint:stylelint": "stylelint --report-needless-disables --max-warnings 0 .",
-		"test": "npm run lint && npm run test --workspaces --if-present"
+		"test": "npm run build-if-missing -w icons && npm run lint && npm run test --workspaces --if-present"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^4.33.0",
