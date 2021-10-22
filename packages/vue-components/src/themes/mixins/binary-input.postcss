@@ -1,0 +1,94 @@
+@import 'wikimedia-ui-base/wikimedia-ui-base.css';
+
+:root {
+	/* TODO: At least these first few should be design tokens. */
+	--font-size-browser: 16;
+	--font-size-base--pixels: 14;
+	--size-input-binary: calc( 20em / var( --font-size-base--pixels ) );
+
+	--border-color-input-binary: var( --border-color-base--active );
+	--border-color-input-binary--checked: var( --color-primary );
+	--border-color-input-binary--hover: var( --color-primary--hover );
+	--border-color-input-binary--active: var( --color-primary--active );
+	--border-color-input-binary--focus: var( --color-primary--focus );
+	--border-width-input-radio--checked: calc( 6em / var( --font-size-base--pixels ) );
+
+	--box-shadow-input-binary--focus: inset 0 0 0 1px var( --color-primary--focus );
+	--box-shadow-input-checkbox--focus-checked: var( --box-shadow-primary--focus );
+	--box-shadow-input-binary--active: inset 0 0 0 1px var( --color-primary--active );
+}
+
+/* Common styles for checkboxes and radios. */
+@define-mixin binary-input {
+	position: relative;
+	/* Create a stacking context. */
+	z-index: 0;
+	line-height: var( --size-input-binary );
+	cursor: pointer;
+
+	&__label-content {
+		/* Necessary to ensure label is indented properly if it spans multiple lines. */
+		display: inline-block;
+		padding-left: calc( var( --size-input-binary ) + 0.5em );
+	}
+
+	&:not( &--inline ) {
+		display: block;
+		/* Since we have to use margin-right for inline inputs, use margin-bottom for stacked inputs
+		for consistency's sake. */
+		margin-bottom: 12px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&--inline {
+		/* Use margin-right instead of left to avoid extra space at the beginning of a new line if
+		the inputs span multiple lines. */
+		margin-right: 16px;
+		/* Avoid line break between icon and label text. */
+		white-space: nowrap;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		/* Target span with class ending in '__label-content'. */
+		span[ class$='__label-content' ] {
+			/* Reset to inline to avoid extra space between input and label. */
+			display: inline;
+		}
+	}
+
+	&[ aria-disabled='true' ] {
+		cursor: var( --cursor-base--disabled );
+	}
+
+	/* Custom-styled input that's visible to the user. */
+	&__icon {
+		background-color: var( --background-color-base );
+		position: absolute;
+		left: 0;
+		box-sizing: border-box;
+		width: var( --size-input-binary );
+		height: var( --size-input-binary );
+		border: var( --border-width-base ) var( --border-style-base ) var( --border-color-input-binary );
+	}
+
+	/* HTML input element. */
+	&__input {
+		/* The actual input is visually hidden. */
+		opacity: 0;
+		position: absolute;
+		left: 0;
+		/* Render "on top of" the span, so that it's still clickable. */
+		z-index: 1;
+		width: var( --size-input-binary );
+		height: var( --size-input-binary );
+		/* Support Blink, Firefox, Safari: Normalize by removing user-agent stylesheet `margin`. */
+		margin: 0;
+		font-size: inherit;
+		cursor: inherit;
+	}
+}

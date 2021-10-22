@@ -1,4 +1,5 @@
 dist/
+coverage/
 
 # Ignore .json files, no idea why stylelint tries to lint them
 *.json

@@ -8,6 +8,12 @@
 				"ignore": ["pseudo-classes"]
 			}
 		],
+		"at-rule-no-unknown": [
+			true,
+			{
+				"ignoreAtRules": ["mixin", "define-mixin"]
+			}
+		],
 		"order/order": ["custom-properties", "declarations"],
 		"order/properties-order": [
 			"content",

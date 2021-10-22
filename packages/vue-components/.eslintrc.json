@@ -33,7 +33,8 @@
 					{
 						"definedTags": [ "values" ]
 					}
-				]
+				],
+				"vue/no-boolean-default": [ "error", "default-false" ]
 			}
 		}
 	],

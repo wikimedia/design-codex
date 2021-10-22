@@ -13,7 +13,9 @@
 			"files": [ "**/*.ts" ],
 			"rules": {
 				"no-unused-vars": "off",
-				"@typescript-eslint/no-unused-vars": "error"
+				"@typescript-eslint/no-unused-vars": "error",
+				"jsdoc/require-param-type": "off",
+				"jsdoc/require-returns-type": "off"
 			}
 		}
 	]

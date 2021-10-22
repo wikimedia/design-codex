@@ -74,6 +74,11 @@ Example using a markdown code block:
 Example using an imported code snippet:
 
 ```
+<script setup>
+// This import is relative to the generated markdown file in docs/components.
+import RadioGroup from './../../component-demos/radio/examples/RadioGroup.vue';
+</script>
+
 <Wrapper>
 <template v-slot:demo>
 <RadioGroup />
@@ -81,7 +86,8 @@ Example using an imported code snippet:
 
 <template v-slot:code>
 
-<<< @/../../component-demos/radio/examples/RadioGroup.vue
+// This is relative to the docs directory.
+<<< @/../component-demos/radio/examples/RadioGroup.vue
 
 </template>
 </Wrapper>
