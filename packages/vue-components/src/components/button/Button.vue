@@ -69,93 +69,75 @@ export default defineComponent( {
 } );
 </script>
 
-<style lang="postcss">
-/*
-TODO: Remove references to wikimedia-ui-base once we have
-the proper tokens in place
-*/
-@import 'wikimedia-ui-base/wikimedia-ui-base.css';
+<style lang="less">
+// TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
+@import 'wikimedia-ui-base/wikimedia-ui-base.less';
 
 .cdx-button {
 	box-sizing: border-box;
 
-	/* Interactive elements have a minimum touch area. */
-	min-width: var( --min-size-base );
-	min-height: var( --min-size-base );
-	max-width: var( --max-width-button );
+	// Interactive elements have a minimum touch area.
+	min-width: @min-size-base;
+	min-height: @min-size-base;
+	max-width: @max-width-button;
 
-	/* Support Firefox, Safari: Normalize by removing the `margin`. */
+	// Support Firefox, Safari: Normalize by removing the `margin`.
 	margin: 0;
-	border-width: var( --border-width-base );
-	border-style: var( --border-style-base );
-	border-radius: var( --border-radius-base );
-	padding-right: var( --padding-horizontal-base );
-	padding-left: var( --padding-horizontal-base );
+	border-width: @border-width-base;
+	border-style: @border-style-base;
+	border-radius: @border-radius-base;
+	padding-right: @padding-horizontal-base;
+	padding-left: @padding-horizontal-base;
 
-	/* Support IE 11: Normalize by showing `overflow`. */
+	// Support IE 11: Normalize by showing `overflow`.
 	overflow: visible;
 
-	/*
-	Support all browsers: Normalize by inheriting `font-family`.
-	Initial value depends on user-agent.
-	*/
+	// Support all browsers: Normalize by inheriting `font-family`.
+	// Initial value depends on user-agent.
 	font-family: inherit;
 
-	/*
-	Support all browsers: Normalize by inheriting `font-size` over initial value
-	of `none`.
-	*/
+	// Support all browsers: Normalize by inheriting `font-size` over initial value of `none`.
 	font-size: inherit;
 	font-weight: bold;
 
-	/*
-	Support Edge, Firefox, and IE: Normalize by removing the inheritance of
-	`text-transform`.
-	*/
+	// Support Edge, Firefox, and IE: Normalize by removing the inheritance of `text-transform`.
 	text-transform: none;
 
-	/* Contents are single line. */
+	// Contents are single line.
 	white-space: nowrap;
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	transition-property: border-color, background-color, color, box-shadow;
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-	transition-duration: var( --transition-base );
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
+	transition-duration: @transition-base;
 
-	/*
-	Support Firefox: Normalize by hiding the inner focus `border` and `padding`.
-	*/
+	// Support Firefox: Normalize by hiding the inner focus `border` and `padding`.
 	&::-moz-focus-inner {
 		border: 0;
 		padding: 0;
 	}
 
 	&:focus {
-		/*
-		Hide the standard focus outline. A border and box-shadow representation
-		is added below.
-		*/
+		// Hide the standard focus outline. A border and box-shadow representation is added below.
 		outline: 0;
 	}
 
 	&:not( [ disabled ] ) {
-		color: var( --color-base );
+		color: @color-base;
 
-		/*
-		Use hand cursor. This is nonstandard for a button but allows for a
-		visible interactivity distinction from the disabled state.
-		*/
+		// Use hand cursor. This is nonstandard for a button but allows for a visible
+		// interactivity distinction from the disabled state.
 		cursor: pointer;
 
 		&:focus {
-			border-color: var( --color-primary--focus );
-			box-shadow: var( --box-shadow-base--focus );
-			/* In Windows high contrast mode the outline becomes visible. */
-			outline: var( --outline-base--focus );
+			border-color: @color-primary--focus;
+			box-shadow: @box-shadow-base--focus;
+			// In Windows high contrast mode the outline becomes visible.
+			outline: @outline-base--focus;
 		}
 
 		&:active {
-			background-color: var( --background-color-framed--active );
-			color: var( --color-base--emphasized );
+			background-color: @background-color-framed--active;
+			color: @color-base--emphasized;
 			box-shadow: none;
 		}
 	}
@@ -174,214 +156,204 @@ the proper tokens in place
 	}
 }
 
-/* Non-quiet “framed” buttons (normal and primary types) */
+// Non-quiet “framed” buttons (normal and primary types)
 .cdx-button--framed {
 	&:not( [ disabled ] ) {
-		background-color: var( --background-color-framed );
-		border-color: var( --border-color-base );
+		background-color: @background-color-framed;
+		border-color: @border-color-base;
 
 		&:hover {
-			background-color: var( --background-color-framed--hover );
-			color: var( --color-base--hover );
+			background-color: @background-color-framed--hover;
+			color: @color-base--hover;
 		}
 
 		&:active {
-			background-color: var( --background-color-framed--active );
-			color: var( --color-base--active );
-			border-color: var( --border-color-base--active );
+			background-color: @background-color-framed--active;
+			color: @color-base--active;
+			border-color: @border-color-base--active;
 		}
 	}
 
 	&[ disabled ] {
-		background-color: var( --background-color-filled--disabled );
-		color: var( --color-filled--disabled );
+		background-color: @background-color-filled--disabled;
+		color: @color-filled--disabled;
 	}
 }
 
 .cdx-button--type-primary {
-	/* Progressive primary buttons */
+	// Progressive primary buttons
 	&.cdx-button--action-progressive:not( [ disabled ] ) {
-		background-color: var( --color-primary );
-		color: var( --color-base--inverted );
-		border-color: var( --color-primary );
+		background-color: @color-primary;
+		color: @color-base--inverted;
+		border-color: @color-primary;
 
 		&:hover {
-			background-color: var( --color-primary--hover );
-			border-color: var( --color-primary--hover );
+			background-color: @color-primary--hover;
+			border-color: @color-primary--hover;
 		}
 
 		&:focus {
-			background-color: var( --color-primary--focus );
-			border-color: var( --color-primary--focus );
-			box-shadow: var( --box-shadow-primary--focus );
+			background-color: @color-primary--focus;
+			border-color: @color-primary--focus;
+			box-shadow: @box-shadow-primary--focus;
 		}
 
 		&:active {
-			background-color: var( --color-primary--active );
-			border-color: var( --color-primary--active );
-			/* Reset `:focus` box shadow to amplify 'interaction' feeling when pressed. */
+			background-color: @color-primary--active;
+			border-color: @color-primary--active;
+			// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
 			box-shadow: none;
 		}
 	}
 
-	/* Destructive primary buttons */
+	// Destructive primary buttons
 	&.cdx-button--action-destructive:not( [ disabled ] ) {
-		background-color: var( --color-destructive );
-		color: var( --color-base--inverted );
-		border-color: var( --color-destructive );
+		background-color: @color-destructive;
+		color: @color-base--inverted;
+		border-color: @color-destructive;
 
 		&:hover {
-			background-color: var( --color-destructive--hover );
-			border-color: var( --color-destructive--hover );
+			background-color: @color-destructive--hover;
+			border-color: @color-destructive--hover;
 		}
 
 		&:focus {
-			background-color: var( --color-destructive--focus );
-			border-color: var( --color-destructive--focus );
-			box-shadow: var( --box-shadow-destructive--focus );
+			background-color: @color-destructive--focus;
+			border-color: @color-destructive--focus;
+			box-shadow: @box-shadow-destructive--focus;
 		}
 
 		&:active {
-			background-color: var( --color-destructive--active );
-			border-color: var( --color-destructive--active );
-			/* Reset `:focus` box shadow to amplify 'interaction' feeling when pressed. */
+			background-color: @color-destructive--active;
+			border-color: @color-destructive--active;
+			// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
 			box-shadow: none;
 		}
 	}
 }
 
 .cdx-button--type-normal {
-	/* Normal progressive buttons */
+	// Normal progressive buttons
 	&.cdx-button--action-progressive:not( [ disabled ] ) {
-		color: var( --color-primary );
+		color: @color-primary;
 
 		&:hover {
-			color: var( --color-primary--hover );
-			border-color: var( --border-color-primary--hover );
+			color: @color-primary--hover;
+			border-color: @border-color-primary--hover;
 		}
 
 		&:focus {
-			color: var( --color-primary--focus );
-			border-color: var( --border-color-primary--focus );
-			box-shadow: var( --box-shadow-primary--focus );
+			color: @color-primary--focus;
+			border-color: @border-color-primary--focus;
+			box-shadow: @box-shadow-primary--focus;
 		}
 
 		&:active {
-			/*
-			FIXME this was done in LESS via lighten(color, 60%);
-			we need a css-compatible alternative
-			*/
-			background-color: #eff3fa;
-			color: var( --color-primary--active );
-			border-color: var( --border-color-primary--active );
-			/* Reset `:focus` box shadow to amplify 'interaction' feeling when pressed. */
+			background-color: lighten( @color-primary--active, 60% );
+			color: @color-primary--active;
+			border-color: @border-color-primary--active;
+			// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
 			box-shadow: none;
 		}
 	}
 
-	/* Normal destructive buttons */
+	// Normal destructive buttons
 	&.cdx-button--action-destructive:not( [ disabled ] ) {
-		color: var( --color-destructive );
+		color: @color-destructive;
 
 		&:hover {
-			color: var( --color-destructive--hover );
-			border-color: var( --border-color-destructive--hover );
+			color: @color-destructive--hover;
+			border-color: @border-color-destructive--hover;
 		}
 
 		&:focus {
-			color: var( --color-destructive--focus );
-			border-color: var( --border-color-destructive--focus );
-			box-shadow: var( --box-shadow-destructive--focus );
+			color: @color-destructive--focus;
+			border-color: @border-color-destructive--focus;
+			box-shadow: @box-shadow-destructive--focus;
 		}
 
 		&:active {
-			/*
-			FIXME this was done in LESS via lighten(color, 60%);
-			we need a css-compatible alternative
-			*/
-			background-color: #fff;
-			color: var( --color-destructive--active );
-			border-color: var( --border-color-destructive--active );
-			/* Reset `:focus` box shadow to amplify 'interaction' feeling when pressed. */
+			background-color: lighten( @color-destructive--active, 60% );
+			color: @color-destructive--active;
+			border-color: @border-color-destructive--active;
+			// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
 			box-shadow: none;
 		}
 	}
 }
 
-/* Quiet buttons. */
+// Quiet buttons.
 .cdx-button--type-quiet {
 	background-color: transparent;
 	border-color: transparent;
 
 	&:not( [ disabled ] ) {
 		&:hover {
-			background-color: var( --background-color-quiet--hover );
+			background-color: @background-color-quiet--hover;
 		}
 
 		&:focus {
-			border-color: var( --border-color-primary--focus );
-			box-shadow: var( --box-shadow-primary--focus );
+			border-color: @border-color-primary--focus;
+			box-shadow: @box-shadow-primary--focus;
 		}
 
 		&:active {
-			background-color: var( --background-color-quiet--active );
-			border-color: var( --border-color-base--active );
+			background-color: @background-color-quiet--active;
+			border-color: @border-color-base--active;
 			box-shadow: none;
 		}
 	}
 
-	/* Progressive quiet buttons. */
+	// Progressive quiet buttons.
 	&.cdx-button--action-progressive:not( [ disabled ] ) {
-		color: var( --color-primary );
+		color: @color-primary;
 
 		&:hover {
-			/* FIXME @background-color-primary--hover exists but is a little lighter */
-			/* FIXME the LESS version used fade() but we need a CSS-compatible alternative */
-			background-color: rgba( 52, 123, 255, 0.2 );
-			color: var( --color-primary--hover );
+			// FIXME: @background-color-primary--hover exists but is a little lighter.
+			background-color: fade( #347bff, 20% );
+			color: @color-primary--hover;
 		}
 
 		&:focus {
-			color: var( --color-primary--focus );
-			border-color: var( --border-color-primary--focus );
-			box-shadow: var( --box-shadow-primary--focus );
+			color: @color-primary--focus;
+			border-color: @border-color-primary--focus;
+			box-shadow: @box-shadow-primary--focus;
 		}
 
 		&:active {
-			background-color: var( --color-primary--active );
-			color: var( --color-base--inverted );
-			border-color: var( --color-primary--active );
+			background-color: @color-primary--active;
+			color: @color-base--inverted;
+			border-color: @color-primary--active;
 			box-shadow: none;
 		}
 	}
 
-	/* Destructive quiet buttons. */
+	// Destructive quiet buttons.
 	&.cdx-button--action-destructive:not( [ disabled ] ) {
-		color: var( --color-destructive );
+		color: @color-destructive;
 
 		&:hover {
-			/* FIXME @background-color-destructive--hover should exist but doesn't */
-			/* FIXME the LESS version used fade() but we need a CSS-compatible alternative */
-			background-color: rgba( 209, 29, 19, 0.2 );
-			color: var( --color-destructive--hover );
+			// FIXME: @background-color-destructive--hover should exist but doesn't.
+			background-color: fade( #d11d13, 20% );
+			color: @color-destructive--hover;
 		}
 
 		&:focus {
-			color: var( --color-destructive--focus );
-			border-color: var( --border-color-destructive--focus );
-			box-shadow: var( --box-shadow-destructive--focus );
+			color: @color-destructive--focus;
+			border-color: @border-color-destructive--focus;
+			box-shadow: @box-shadow-destructive--focus;
 		}
 
 		&:active {
-			background-color: var( --color-destructive--active );
-			color: var( --color-base--inverted );
-			border-color: var( --color-destructive--active );
+			background-color: @color-destructive--active;
+			color: @color-base--inverted;
+			border-color: @color-destructive--active;
 			box-shadow: none;
 		}
 	}
 
 	&[ disabled ] {
-		color: var( --color-base--disabled );
+		color: @color-base--disabled;
 	}
 }
 </style>

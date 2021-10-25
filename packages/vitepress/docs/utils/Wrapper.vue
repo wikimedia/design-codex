@@ -40,34 +40,31 @@ export default defineComponent( {
 } );
 </script>
 
-<style>
-/*
-TODO: Remove references to wikimedia-ui-base once we have
-the proper tokens in place
-*/
-@import 'wikimedia-ui-base/wikimedia-ui-base.css';
+<style lang="less">
+// TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
+@import 'wikimedia-ui-base/wikimedia-ui-base.less';
 
 .vp-wrapper {
 	margin-top: 16px;
-}
 
-.vp-wrapper__demo {
-	position: relative;
-	border: var( --border-width-base ) var( --border-style-base ) var( --border-color-heading );
-	border-radius: var( --border-radius-base );
-	padding: 24px;
-}
+	&__demo {
+		position: relative;
+		border: @border-width-base @border-style-base @border-color-heading;
+		border-radius: @border-radius-base;
+		padding: 24px;
 
-.vp-wrapper__demo .vp-wrapper__demo__button {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	font-size: 0.875em;
-}
+		&__button {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			font-size: 0.875em;
+		}
+	}
 
-.vp-wrapper__code div[ class*='language-' ] {
-	margin-top: 0;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
+	&__code div[ class*='language-' ] {
+		margin-top: 0;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
 }
 </style>

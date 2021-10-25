@@ -124,95 +124,90 @@ export default defineComponent( {
 } );
 </script>
 
-<style lang="postcss">
-/*
-* TODO: Remove references to wikimedia-ui-base once we have
-* the proper tokens in place
-*/
-@import './../../themes/mixins/binary-input.postcss';
+<style lang="less">
+// TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
+@import './../../themes/mixins/binary-input.less';
 
-/* Wrapper `label`. */
+// Wrapper `label`.
 .cdx-radio {
-	/* Common binary input styles. */
-	@mixin binary-input;
+	// Common binary input styles.
+	.cdx-mixin-binary-input();
 
-	/* Custom-styled radio that's visible to the user. */
+	// Custom-styled radio that's visible to the user.
 	&__icon {
-		border-radius: var( --border-radius-input-radio );
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		border-radius: @border-radius-input-radio;
+		// stylelint-disable-next-line plugin/no-unsupported-browser-features
 		transition-property: background-color, border-color, border-width;
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-		transition-duration: var( --transition-base );
+		// stylelint-disable-next-line plugin/no-unsupported-browser-features
+		transition-duration: @transition-base;
 
-		/* Add `:focus` state's inner circle. */
+		// Add `:focus` state's inner circle.
 		&:before {
 			content: ' ';
 			position: absolute;
-			top: var( --position-offset-input-radio-focus );
-			right: var( --position-offset-input-radio-focus );
-			bottom: var( --position-offset-input-radio-focus );
-			left: var( --position-offset-input-radio-focus );
-			border: var( --border-width-base ) var( --border-style-base ) transparent;
-			border-radius: var( --border-radius-input-radio );
+			top: @position-offset-input-radio-focus;
+			right: @position-offset-input-radio-focus;
+			bottom: @position-offset-input-radio-focus;
+			left: @position-offset-input-radio-focus;
+			border: @border-width-base @border-style-base transparent;
+			border-radius: @border-radius-input-radio;
 		}
 	}
 
-	/*
-	* HTML `<input type="radio">`.
-	* Based on the HTML attributes of the radio input, we can change the style of the adjacent
-	* `span`, which will look like a custom-styled radio.
-	*/
+	// HTML `<input type="radio">`.
+	// Based on the HTML attributes of the radio input, we can change the style of the adjacent
+	// `span`, which will look like a custom-styled radio.
 	&__input {
 		&:disabled {
 			& ~ .cdx-radio__label-content {
-				color: var( --color-base--disabled );
+				color: @color-base--disabled;
 			}
 
 			& + .cdx-radio__icon {
-				background-color: var( --background-color-filled--disabled );
-				border-color: var( --border-color-base--disabled );
+				background-color: @background-color-filled--disabled;
+				border-color: @border-color-base--disabled;
 			}
 
 			&:checked + .cdx-radio__icon {
-				background-color: var( --background-color-base );
-				border-width: var( --border-width-input-radio--checked );
+				background-color: @background-color-base;
+				border-width: @border-width-input-radio--checked;
 			}
 		}
 
 		&:enabled {
 			&:checked + .cdx-radio__icon {
-				border-width: var( --border-width-input-radio--checked );
-				border-color: var( --border-color-input-binary--checked );
+				border-width: @border-width-input-radio--checked;
+				border-color: @border-color-input-binary--checked;
 			}
 
-			/* Note: there is no focus behavior for the input in its unchecked state because you
-			can't focus on it without selecting it. */
+			// Note: there is no focus behavior for the input in its unchecked state because you
+			// can't focus on it without selecting it.
 			&:hover + .cdx-radio__icon,
 			&:checked:hover + .cdx-radio__icon {
-				border-color: var( --border-color-input-binary--hover );
+				border-color: @border-color-input-binary--hover;
 			}
 
 			&:checked:focus + .cdx-radio__icon {
 				&:before {
-					border-color: var( --border-color-inset--focus );
+					border-color: @border-color-inset--focus;
 				}
 			}
 		}
 	}
 
-	/* Styles for when `label` is active (being pressed). */
+	// Styles for when `label` is active (being pressed).
 	&:active &__input:enabled {
 		& + .cdx-radio__icon {
-			background-color: var( --background-color-input-binary--active );
-			border-color: var( --border-color-input-binary--active );
+			background-color: @background-color-input-binary--active;
+			border-color: @border-color-input-binary--active;
 		}
 
 		&:checked + .cdx-radio__icon {
-			background-color: var( --background-color-base );
-			border-color: var( --border-color-input-binary--active );
+			background-color: @background-color-base;
+			border-color: @border-color-input-binary--active;
 
 			&:before {
-				border-color: var( --border-color-input-binary--active );
+				border-color: @border-color-input-binary--active;
 			}
 		}
 	}
