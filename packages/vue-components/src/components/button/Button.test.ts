@@ -1,24 +1,25 @@
-import { shallowMount, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { ButtonAction, ButtonType } from '../../types';
 import { ButtonActions, ButtonTypes } from '../../constants';
 import CdxButton from './Button.vue';
 
 describe( 'matches the snapshot', () => {
-	type Case = [msg: string, props: Record<keyof unknown, unknown>, slot: string];
+	type Case = [msg: string, props: { action?: ButtonAction, type?: ButtonType }, slot: string];
 
 	const cases: Case[] = [
 		[ 'No props and no slot', {}, '' ],
 		// eslint-disable-next-line es/no-object-values
-		...( Object.values( ButtonActions ).map( ( action ) => [
+		...( Object.values( ButtonActions ).map( ( action ) : Case => [
 			`${action} action`,
 			{ action },
 			''
-		] ) as Case[] ),
+		] ) ),
 		// eslint-disable-next-line es/no-object-values
-		...( Object.values( ButtonTypes ).map( ( type ) => [
+		...( Object.values( ButtonTypes ).map( ( type ) : Case => [
 			`${type} type`,
 			{ type },
 			''
-		] ) as Case [] ),
+		] ) ),
 		[ 'Slotted', {}, '<span>Label</span>' ]
 	];
 
@@ -29,7 +30,7 @@ describe( 'matches the snapshot', () => {
 } );
 
 it( 'emits click events', () => {
-	const wrapper = shallowMount( CdxButton );
+	const wrapper = mount( CdxButton );
 	wrapper.get( 'button' ).trigger( 'click' );
 	expect( wrapper.emitted().click ).toBeTruthy();
 } );

@@ -98,3 +98,56 @@ const myPropNameValidator = makeStringTypeValidator( SomeStringTypeValues );
 Alternatively, if you really really need to inline the validator, you can do so by specifying
 the type, with `makeStringTypeValidator<SomeStringType>( SomeStringTypeValues )`, but this is
 not recommended. For readability, it is recommended that you use a variable instead.
+
+### Wrong types for props in Jest tests
+If you have a prop definition like this:
+```typescript
+	props: {
+		myPropName: {
+			type: String as PropType<SomeStringType>,
+			// default: '...',
+			// validator: ...
+		}
+	}
+```
+And you have a Jest unit test testing this component that looks like this:
+```typescript
+describe( 'matches the snapshot', () => {
+	type Case = [msg: string, myPropName: string, /* ...other props... */ ];
+	const cases: Case[] = [
+		// ... test cases ...
+	];
+	test.each( cases )( 'Case %# %s', ( _, myPropName, /* ... */ ) => {
+		const wrapper = mount( CdxComponentName, { props: { myPropName, /* ... */ } } );
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+} );
+```
+Then you will get a lengthy and confusing error message that likely doesn't appear in your IDE, but
+only when running `npm test` on the command line (or in CI). The error looks something like this:
+```
+src/components/component-name/ComponentName.test.ts:27:26 - error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'DefineComponent<{ myPropName: { myPropName: PropType<"foo" | "bar" | "baz">; default: string; validator: StringTypeValidator<"foo" | "bar" | "baz">; }; }, ... 10 more ..., { ...; }>' is not assignable to parameter of type 'ComponentOptionsWithObjectProps<Readonly<ComponentPropsOptions<Data>>, { rootClasses: ComputedRef<{ 'cdx-button--action-default': boolean; 'cdx-button--action-progressive': boolean; ... 4 more ...; 'cdx-button--framed': boolean; }>; onClick: (event: Event) => void; }, ... 8 more ..., { ...; } | {}>'.
+      Type 'DefineComponent<{ myPropName: { type: PropType<"foo" | "bar" | "baz">; default: string; validator: StringTypeValidator<"foo" | "bar" | "baz">; }; }, ... 10 more ..., { ...; }>' is not assignable to type 'ComponentOptionsBase<Readonly<(readonly unknown[] & { [x: number]: string; } & { [iterator]?: IterableIterator<string> | undefined; length?: number | undefined; toString?: string | undefined; concat?: string[] | undefined; ... 19 more ...; flat?: unknown[] | undefined; }) | ({ ...; } & ... 1 more ... & { ...; })> & ...'.
+        Types of property 'setup' are incompatible.
+          Type '((this: void, props: Readonly<LooseRequired<Readonly<{ myPropName?: unknown; } & { myPropName: "foo" | "bar" | "baz"; } & {}> & { onClick?: ((...args: any[]) => any) | undefined; }>>, ctx: SetupContext<...>) => void | ... 2 more ... | Promise<...>) | ...' is not assignable to type '((this: void, props: Readonly<LooseRequired<(Readonly<(readonly unknown[] & { [x: number]: string; } & { [iterator]?: IterableIterator<string> | undefined; length?: number | undefined; toString?: string | undefined; ... 20 more ...; flat?: unknown[] | undefined; }) | ({ ...; } & ... 1 more ... & { ...; })> & { ...; ...'.
+            Type '(this: void, props: Readonly<LooseRequired<Readonly<{ myPropName?: unknown; } & { action: "foo" | "bar" | "baz"; } & {}> & { onClick?: ((...args: any[]) => any) | undefined; }>>, ctx: SetupContext<...>) => void | ... 2 more ... | Promise<...>' is not assignable to type '(this: void, props: Readonly<LooseRequired<(Readonly<(readonly unknown[] & { [x: number]: string; } & { [iterator]?: IterableIterator<string> | undefined; length?: number | undefined; toString?: string | undefined; ... 20 more ...; flat?: unknown[] | undefined; }) | ({ ...; } & ... 1 more ... & { ...; })> & { ...; }...'.
+              Types of parameters 'props' and 'props' are incompatible.
+                Type 'Readonly<LooseRequired<(Readonly<(readonly unknown[] & { [x: number]: string; } & { [iterator]?: IterableIterator<string> | undefined; length?: number | undefined; toString?: string | undefined; ... 20 more ...; flat?: unknown[] | undefined; }) | ({ ...; } & ... 1 more ... & { ...; })> & { ...; }) & {}>>' is missing the following properties from type 'Readonly<LooseRequired<Readonly<{ myPropName?: unknown; } & { myPropName: "foo" | "bar" | "baz"; } & {}> & { onClick?: ((...args: any[]) => any) | undefined; }>>': myPropName
+
+27   const wrapper = mount( CdxComponentName, { props: { myPropName } } );
+                            ~~~~~~~~~~~~~~~~
+```
+This happens because the type of `myPropName` in the `type Case` definition is too broad: it's
+defined as a `string` there, but the component expects `SomeStringType`. All possible
+values of `SomeStringType` are strings, but not all strings are valid `SomeStringType` values.
+TypeScript is warning you that you are passing a value that could be an arbitrary string into
+something that only takes a limited set of strings. To fix the error, use the correct type for each
+prop in your `Case` definition:
+```typescript
+type Case = [msg: string, myPropName: SomeStringType /* not string! */, /* ... */ ];
+```
+Frustratingly, the error message doesn't tell you *which* prop has the incorrect type (instead, it
+lists all of the component's props), so you'll have to check them all manually. The types of each
+prop in your test case definition should exactly match the types used in the component definition.
