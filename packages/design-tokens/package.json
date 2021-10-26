@@ -3,6 +3,10 @@
 	"author": "Wikimedia Foundation",
 	"description": "Design tokens for Codex in different formats",
 	"license": "GPL-2.0+",
+	"engines": {
+		"npm": ">=7.14.0",
+		"node": ">=12"
+	},
 	"files": [
 		"dist"
 	],
