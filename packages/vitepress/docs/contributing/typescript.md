@@ -228,3 +228,46 @@ type Case = [msg: string, myPropName: SomeStringType /* not string! */, /* ... *
 Frustratingly, the error message doesn't tell you *which* prop has the incorrect type (instead, it
 lists all of the component's props), so you'll have to check them all manually. The types of each
 prop in your test case definition should exactly match the types used in the component definition.
+
+### Incorrect event name passed to `useModelWrapper`
+The third argument to `useModelWrapper` is an event name. If that event name isn't listed in the
+component's `emits` property, TypeScript will complain.
+
+For example, this code:
+```ts
+emits: [ 'click', 'update:foo' ],
+setup( props, { emit } ) {
+	const wrappedFoo = useModelWrapper( toRef( props, 'foo' ), emit, 'update:ofo' );
+}
+```
+will result in the following error, because `update:ofo` is not a valid event name:
+```{7}
+src/components/foo-bar/FooBar.vue:117:24 - error TS2769: No overload matches this call.
+  Overload 1 of 2, '(modelValueRef: Ref<ModelValue>, emit: EmitFunc<"update:modelValue">, eventName?: "update:modelValue" | undefined): WritableComputedRef<ModelValue>', gave the following error.
+    Argument of type '(event: "click" | "update:foo", ...args: any[]) => void' is not assignable to parameter of type 'EmitFunc<"update:modelValue">'.
+      Types of parameters 'event' and 'event' are incompatible.
+        Type '"update:modelValue"' is not assignable to type '"click" | "update:foo"'.
+  Overload 2 of 2, '(modelValueRef: Ref<ModelValue>, emit: EmitFunc<"click" | "update:foo">, eventName: "click" | "update:foo"): WritableComputedRef<ModelValue>', gave the following error.
+    Argument of type '"update:ofo"' is not assignable to parameter of type '"click" | "update:foo"'
+```
+
+`useModelWrapper` also allows its third argument to be omitted, in which case it defaults to using
+`update:modelValue` as the event name. If `update:modelValue` isn't one of the component's emitted
+events, TypeScript will also complain, but the error message will look different.
+
+For example, this code:
+```ts
+emits: [ 'click', 'update:foo' ],
+setup( props, { emit } ) {
+	const wrappedFoo = useModelWrapper( toRef( props, 'foo' ), emit );
+}
+```
+will result in the following error complaining that the `emit` function has the wrong type:
+```
+src/components/foo-bar/FooBar.vue:117:71 - error TS2345: Argument of type '(event: "click" | "update:foo", ...args: any[]) => void' is not assignable to parameter of type 'EmitFunc<"update:modelValue">'.
+  Types of parameters 'event' and 'event' are incompatible.
+    Type '"update:modelValue"' is not assignable to type '"click" | "update:foo"'.
+```
+
+In both cases, the solution is to ensure that the event name passed to `useModelWrapper` matches
+one of the event names in the component's `emits` array.
