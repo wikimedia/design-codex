@@ -6,17 +6,16 @@
 		"node": ">=12"
 	},
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"serve": "vite preview",
-		"vitepress:dev": "vitepress dev docs",
+		"build": "npm run docgen:build && npm run vitepress:build",
+		"serve": "vitepress serve docs",
+		"dev": "concurrently \"npm run docgen:dev\" \"npm run vitepress:dev\"",
 		"vitepress:build": "vitepress build docs",
-		"vitepress:serve": "vitepress serve docs",
-		"docs:dev": "concurrently \"vue-docgen --watch\" \"vitepress dev docs\"",
-		"docs:build": "vue-docgen && vitepress build docs",
+		"vitepress:dev": "vitepress dev docs",
+		"docgen:build": "vue-docgen",
+		"docgen:dev": "vue-docgen --watch",
 		"lint": "npm run lint:ts",
 		"lint:ts": "vue-tsc --noEmit",
-		"test": "npm run lint"
+		"test": "npm run build && npm run lint"
 	},
 	"dependencies": {
 		"vue": "^3.2.19",

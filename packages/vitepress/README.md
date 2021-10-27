@@ -8,7 +8,7 @@ built with Vite and Vue 3. The code in this package is used to build our live do
 In the root of the Codex monorepo, run:
 
 ```
-npm run docs
+npm run doc:dev
 ```
 
 This will serve the VitePress site locally at http://localhost:3000.
