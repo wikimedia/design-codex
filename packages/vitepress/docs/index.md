@@ -4,8 +4,7 @@ sidebarDepth: 3
 
 # About
 
-Codex is a toolkit for building user interfaces within the Wikimedia Design System. Codex contains
-two packages:
+Codex is a toolkit for building user interfaces within the Wikimedia Design System. Codex contains:
 
 - **Design tokens**: for writing styles consistent with the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html) 
 - **Vue 3 components**: for building usable, accessible, translatable [Vue 3](https://v3.vuejs.org/) applications

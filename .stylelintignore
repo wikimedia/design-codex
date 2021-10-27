@@ -3,3 +3,6 @@ coverage/
 
 # Ignore .json files, no idea why stylelint tries to lint them
 *.json
+
+# Ignore markdown files to avoid issues with code samples in docs.
+*.md

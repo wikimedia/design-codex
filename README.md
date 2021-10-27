@@ -1,42 +1,36 @@
 # Codex
 
-Toolkit for the Wikimedia Design System. Contains Vue components, design tokens,
-and documentation.
+Codex is a toolkit for building user interfaces within the Wikimedia Design System. Codex contains
+three packages:
 
-Proper README TBD
+- **Design tokens**: for writing styles consistent with the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html) 
+- **Vue 3 components**: for building usable, accessible, translatable [Vue 3](https://v3.vuejs.org/)
+  applications
+- **Vitepress site**: for documentation, Vue component demos, and design token visualization
 
-## Development Notes
+Codex features:
+- Wide-ranging support for internationalization and global usage
+- Web accessibility baked in
+- Comprehensive browser and device support
 
-This package is configured as a monorepo using NPM. Sub-projects should be defined
-in the `packages/` directory with their own `package.json` and an appropriate `name`.
+TODO: link to live VitePress site
 
-To run a command in a specific workspace, do the following:
+## Quick start
 
-```
-# Run the "build" command in the "vue-components" workspace
-npm run build --workspace vue-components
+TODO: basic usage info, then link to further info in the docs
 
-# Install a dependency for one workspace
-npm install vite --workspace vue-components --save-dev
+## Contributing
 
-# This can be shortened to -w
-npm install vue -w vue-components --save-peer
-```
+If you'd like to contribute, head over to the [contributing docs](/packages/vitepress/docs/contributing/guidelines.md)
+to learn about ways you can contribute and our processes. Learn how to develop this library in the
+[developer docs](/packages/vitepress/docs/contributing/contributing-code.md).
+	
+## Maintainers
 
-To run a command for all workspaces, do this instead:
+Codex is maintained by the Design Systems Team of the Wikimedia Foundation. It is designed and
+developed by contributors from the Wikimedia Foundation, Wikimedia Deutschland, and the Wikimedia
+volunteer community.
 
-```
-# Run the "test" command in all workspaces"
-npm run test --workspaces
-
-# this is equivalent
-npm run test -ws
-```
-
-Note that the `lint` command is global, it has to be run in the root directory.
-Running `npm test` in the root directory will lint everything and run the tests
-in all workspaces.
-
-NPM v7.0 or greater is required to support workspaces; it is not included by
-default in older versions of Node (prior to v15) and will need to be upgraded
-manually.
+To contact us or to learn more about current and future work, visit our [workboard](https://phabricator.wikimedia.org/project/board/5587/)
+or the [Design Systems Team page](https://www.mediawiki.org/wiki/Design_Systems_Team) on
+mediawiki.org.

@@ -10,36 +10,42 @@
 
 h1 {
 	font-family: var( --font-family-serif );
-	font-weight: 400;
+	font-weight: normal;
 }
 
 h4 {
-    margin-top: 1.15rem;
+	/* This is to match h3 styles from VitePress. */
+	/* stylelint-disable-next-line unit-disallowed-list, plugin/no-unsupported-browser-features */
+	margin-top: 1.15rem;
 }
 
 /* TODO: These should probably use design tokens. */
 .custom-block.info {
-    border-color: #a2a9b1;
-	color: #000;
 	background-color: #eaecf0;
+	color: #000;
+	border-color: #a2a9b1;
 }
 
 .custom-block.warning {
-    border-color: #fc3;
-    color: #000;
-    background-color: #fef6e7;
+	background-color: #fef6e7;
+	color: #000;
+	border-color: #fc3;
+}
+
+.custom-block.warning a {
+	color: var( --c-brand );
 }
 
 .custom-block.warning .custom-block-title {
-    color: #ac6600;
+	color: #ac6600;
 }
 
 .custom-block.danger {
-    border-color: #d33;
-    color: #b32424;
-    background-color: #fee7e6;
+	background-color: #fee7e6;
+	color: #b32424;
+	border-color: #d33;
 }
 
 .custom-block.danger .custom-block-title {
-    color: #b32424;
+	color: #b32424;
 }
