@@ -1,8 +1,12 @@
 dist/
 coverage/
 
-# Ignore .json files, no idea why stylelint tries to lint them
+# Ignore JSON files.
 *.json
 
-# Ignore markdown files to avoid issues with code samples in docs.
+# Ignore Markdown files to avoid issues with code samples in docs.
 *.md
+
+# Ignore JavaScript and TypeScript files.
+*.js
+*.ts
