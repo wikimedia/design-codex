@@ -1,6 +1,15 @@
 {
 	"name": "@wikimedia/codex",
 	"author": "Wikimedia Foundation",
+	"keywords": [
+		"Codex",
+		"Wikimedia",
+		"Vue.js",
+		"user-interface",
+		"components",
+		"Wikipedia",
+		"MediaWiki"
+	],
 	"license": "GPL-2.0+",
 	"private": true,
 	"workspaces": [
