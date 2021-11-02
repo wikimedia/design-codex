@@ -146,6 +146,49 @@ Using an intermediate variable, as shown in the example above, avoids these erro
 
 ## Common errors and pitfalls
 
+### Empty objects and empty arrays
+When you specify an empty array (`[]`) or an empty object (`{}`), TypeScript can't infer the type
+of the values in that array or object, and you may have to explicitly tell it what type the values
+are. Specifying the type can also help TypeScript check that your array or object contains what
+you want it to.
+
+For example, this code:
+```ts
+const idToElementMap = {};
+for ( const obj of arrayOfHTMLElements ) {
+	idToElementMap[ obj.id ] = obj;
+}
+```
+will result in the following confusing error:
+```
+error TS7053: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{}'.
+  No index signature with a parameter of type 'string' was found on type '{}'.
+
+3    idToObjectMap[ obj.id ] = obj;
+      ~~~~~~~~~~~~~~~~~~~~~~~
+```
+To fix this error, explicitly declare the types of the keys and values of `idToElementMap`,
+as follows:
+```ts
+const idToElementMap : Record<string, HTMLElement> = {};
+```
+
+Similarly, if you're using an empty object or an empty array as the second argument to a `.reduce()`
+call, you may need a type assertion:
+```ts
+arrayOfObjects.reduce( ( prev, current ) => {
+	prev.push( current.id );
+	return prev;
+}, [] as string[] );
+```
+Without the `as string[]` type assertion, you'll get the following error:
+```
+error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+
+67    prev.push( current.id );
+                 ~~~~~~~~~~
+```
+
 ### Inlining a string type validator function
 Code like this:
 ```typescript
