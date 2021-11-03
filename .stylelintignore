@@ -10,3 +10,6 @@ coverage/
 # Ignore JavaScript and TypeScript files.
 *.js
 *.ts
+
+# Ignore LICENSE file
+LICENSE
