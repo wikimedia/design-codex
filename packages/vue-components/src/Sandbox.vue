@@ -5,6 +5,13 @@
 		</header>
 
 		<main>
+			<h2>Icons</h2>
+			<p dir="rtl">
+				<cdx-icon :icon="cdxIconArrowNext" /> next
+			</p>
+			<p lang="nl">
+				<cdx-icon :icon="cdxIconBold" /> Bold
+			</p>
 			<h2>Codex Button</h2>
 			<table>
 				<thead>
@@ -93,7 +100,8 @@
 </template>
 
 <script lang="ts" setup>
-import { CdxButton } from './lib';
+import { CdxButton, CdxIcon } from './lib';
+import { cdxIconArrowNext, cdxIconBold } from 'icons';
 import { ButtonActions, ButtonTypes } from './constants';
 
 function onClick( e: Event ) {

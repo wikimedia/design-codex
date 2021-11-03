@@ -30,9 +30,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref, computed, onMounted } from 'vue';
+import { defineComponent, PropType, ref, computed } from 'vue';
 import { Icon } from 'icons';
 import { resolveIcon, shouldIconFlip } from 'icons';
+import useComputedDirection from '../../composables/useComputedDirection';
+import useComputedLanguage from '../../composables/useComputedLanguage';
+import { HTMLDirection } from '../../types';
 
 export default defineComponent( {
 	name: 'CdxIcon',
@@ -67,7 +70,7 @@ export default defineComponent( {
 		 * Defaults to the computed direction at mount time.
 		 */
 		dir: {
-			type: String as PropType<'ltr' | 'rtl' | null>,
+			type: String as PropType<HTMLDirection|null>,
 			default: null
 		}
 	},
@@ -75,38 +78,18 @@ export default defineComponent( {
 	setup( props, { emit } ) {
 		const rootElement = ref<HTMLSpanElement>();
 
-		const ancestorDir = ref( '' );
-		const ancestorLang = ref( '' );
-		onMounted( () => {
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			const root = rootElement.value!;
-
-			// Get the direction and language that we inherited when we were mounted
-			// For direction, we can compute the 'direction' CSS property
-			const computedStyle = window.getComputedStyle( root );
-			ancestorDir.value = computedStyle.direction || 'ltr';
-
-			// There's no equivalent CSS property for language, so we have to traverse up the tree
-			// until we find an ancestor with the 'lang' attribute set
-			let ancestor : HTMLElement | null = root;
-			while ( ancestor && ancestor.lang === '' ) {
-				ancestor = ancestor.parentElement;
-			}
-			ancestorLang.value = ancestor ? ancestor.lang : '';
-		} );
-
-		// Use the dir and lang set in the props if they are set, or the ancestor ones otherwise
-		const resolvedDir = computed( () => props.dir === null ? ancestorDir.value : props.dir );
-		const resolvedLang = computed( () =>
-			props.lang === null ? ancestorLang.value : props.lang
-		);
+		const computedDir = useComputedDirection( rootElement );
+		const computedLang = useComputedLanguage( rootElement );
+		const overriddenDir = computed( () => props.dir || computedDir.value );
+		const overriddenLang = computed( () => props.lang || computedLang.value );
 
 		const rootClasses = computed( () => ( {
-			'cdx-icon--flipped': shouldIconFlip( props.icon, resolvedLang.value ) && resolvedDir.value === 'rtl'
+			'cdx-icon--flipped': overriddenDir.value === 'rtl' && overriddenLang.value !== null &&
+				shouldIconFlip( props.icon, overriddenLang.value )
 		} ) );
 
 		const resolvedIcon = computed( () =>
-			resolveIcon( props.icon, resolvedLang.value, resolvedDir.value )
+			resolveIcon( props.icon, overriddenLang.value || '', overriddenDir.value || 'ltr' )
 		);
 		const iconSvg = computed( () => typeof resolvedIcon.value === 'string' ? resolvedIcon.value : '' );
 		const iconPath = computed( () => typeof resolvedIcon.value !== 'string' ? resolvedIcon.value.path : '' );

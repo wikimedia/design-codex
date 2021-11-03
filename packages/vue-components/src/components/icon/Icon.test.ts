@@ -3,6 +3,7 @@ import { nextTick } from 'vue';
 import { Icon, IconFlipForRtl } from 'icons';
 import CdxIcon from './Icon.vue';
 import { cdxIconAlert } from 'icons';
+import { HTMLDirection } from '../../types';
 
 const examplePathIcon = { path: 'M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z' };
 const exampleSvgIcon = '<path d="M3 3H1v16h18v-2H3z"/><path d="M11 11L8 9l-4 4v3h14V5z"/>';
@@ -15,7 +16,7 @@ const exampleFlipIcon = {
 describe( 'matches the snapshot', () => {
 	type Case = [
 		msg: string,
-		props: { icon: Icon, iconLabel?: string, dir?: 'ltr'|'rtl'|null, lang?: string|null }
+		props: { icon: Icon, iconLabel?: string, dir?: HTMLDirection|null, lang?: string|null }
 	];
 
 	const cases: Case[] = [
