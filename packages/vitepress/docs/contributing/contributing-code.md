@@ -299,7 +299,7 @@ expects. For more on how these errors happen and how to fix them, see
 
 ::: tip TL;DR
 - Codex uses [VitePress](https://vitepress.vuejs.org/) to demo components
-- Run `npm run docs` to serve the demo site locally
+- Run `npm run doc:dev` to serve the demo site locally
 - Each component should have a demo page. Demos should cover realistic use cases and variations of
   props and slots
 - Demos are written in Markdown files in `packages/vitepress/component-demos` then compiled to
@@ -328,7 +328,7 @@ the generated file in `packages/vitepress/docs/components`.
 To serve the VitePress site locally, run this command in the root of the Codex repository:
 
 ```bash
-npm run docs
+npm run doc:dev
 ```
 
 This will both serve the VitePress site at http://localhost:3000 and compile component usage docs.
