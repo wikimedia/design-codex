@@ -9,3 +9,8 @@ export const ButtonTypes = [
 	'primary',
 	'quiet'
 ] as const;
+
+export const TextInputTypes = [
+	'text',
+	'search'
+] as const;

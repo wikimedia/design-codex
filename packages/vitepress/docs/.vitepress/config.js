@@ -38,7 +38,8 @@ module.exports = {
 					children: [
 						{ text: 'Button', link: '/components/button' },
 						{ text: 'Icon', link: '/components/icon' },
-						{ text: 'Radio', link: '/components/radio' }
+						{ text: 'Radio', link: '/components/radio' },
+						{ text: 'TextInput', link: '/components/text-input' }
 					]
 				},
 				{
