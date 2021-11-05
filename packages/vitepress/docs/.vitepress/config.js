@@ -2,6 +2,7 @@ module.exports = {
 	lang: 'en-US',
 	title: 'Codex',
 	description: 'Toolkit for building user interfaces within the Wikimedia Design System',
+	base: '/codex/main',
 
 	themeConfig: {
 		repo: 'wikimedia/design-codex',
