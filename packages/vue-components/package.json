@@ -40,7 +40,7 @@
 		"autoprefixer": "^10.3.7",
 		"browserslist-config-wikimedia": "^0.2.0",
 		"design-tokens": "*",
-		"jest": "^27.2.5",
+		"jest": "^27.3.1",
 		"less": "^4.1.2",
 		"postcss": "^8.3.9",
 		"ts-jest": "^27.0.5",
