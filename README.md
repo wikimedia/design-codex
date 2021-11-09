@@ -3,17 +3,15 @@
 Codex is a toolkit for building user interfaces within the Wikimedia Design System. Codex contains
 three packages:
 
-- **Design tokens**: for writing styles consistent with the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html) 
+- **Design tokens**: for writing styles consistent with the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html)
 - **Vue 3 components**: for building usable, accessible, translatable [Vue 3](https://v3.vuejs.org/)
   applications
-- **Vitepress site**: for documentation, Vue component demos, and design token visualization
+- **VitePress site**: for [Codex documentation, Vue component demos, and design token visualization](https://doc.wikimedia.org/codex/main/)
 
 Codex features:
 - Wide-ranging support for internationalization and global usage
-- Web accessibility baked in
+- Web accessibility – Web Content Accessibility Guidelines 2.1 level AA compliance – baked in
 - Comprehensive browser and device support
-
-TODO: link to live VitePress site
 
 ## Quick start
 
@@ -24,7 +22,7 @@ TODO: basic usage info, then link to further info in the docs
 If you'd like to contribute, head over to the [contributing docs](/packages/vitepress/docs/contributing/guidelines.md)
 to learn about ways you can contribute and our processes. Learn how to develop this library in the
 [developer docs](/packages/vitepress/docs/contributing/contributing-code.md).
-	
+
 ## Maintainers
 
 Codex is maintained by the Design Systems Team of the Wikimedia Foundation. It is designed and
