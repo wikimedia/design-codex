@@ -1,7 +1,11 @@
 <template>
 	<div class="vp-wrapper">
 		<div class="vp-wrapper__demo">
-			<slot name="demo" />
+			<slot
+				name="demo"
+				:prop-values="propValues"
+				:slot-values="slotValues"
+			/>
 			<cdx-button
 				v-if="hasCodeSample"
 				class="vp-wrapper__demo__button"
@@ -18,16 +22,43 @@
 		>
 			<slot name="code" />
 		</div>
+		<div v-if="hasControls" class="vp-wrapper__controls">
+			<Controls
+				:controls-with-values="controlsWithValues"
+				@control-change="handleControlChange"
+			/>
+		</div>
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue';
+import { defineComponent, reactive, ref, computed, PropType } from 'vue';
+import { ControlsConfig, ControlConfigWithValue, PropValues, SlotValues } from '../../types';
+import Controls from '../controls/Controls.vue';
 import CdxButton from 'vue-components/src/components/button/Button.vue';
 
+/**
+ * Wrapper for component demos.
+ *
+ * Includes:
+ *  - Formatting for the demo itself
+ *  - Show/hide code button and functionality
+ *  - Optional controls for configurable demos
+ */
 export default defineComponent( {
 	name: 'Wrapper',
-	components: { CdxButton },
+	components: { Controls, CdxButton },
+	props: {
+		/**
+		 * Data for configurable props and slots.
+		 */
+		controlsConfig: {
+			type: Array as PropType<ControlsConfig>,
+			default: () => {
+				return [];
+			}
+		}
+	},
 	setup( props, { slots } ) {
 		// Set up show code/hide code button.
 		const hasCodeSample = slots && slots.code;
@@ -39,11 +70,81 @@ export default defineComponent( {
 			showCode.value = !showCode.value;
 		};
 
+		// Set up controls if config is provided.
+		const hasControls = props.controlsConfig.length > 0;
+
+		/**
+		 * Create a copy of the controls config and add a value property to each control. The
+		 * initial value will either be the provided default or an  appropriate default based on
+		 * the control type.
+		 */
+		const controlsWithValues = reactive( props.controlsConfig.map(
+			( config ) : ControlConfigWithValue => {
+				switch ( config.type ) {
+					case 'radio':
+						return { ...config, value: config.default ?? config.options[ 0 ] };
+					case 'boolean':
+						return { ...config, value: config.default ?? false };
+					case 'slot':
+						return { ...config, value: config.default };
+					case 'text':
+					default:
+						return { ...config, value: config.default ?? '' };
+				}
+			}
+		) );
+
+		/**
+		 * Store new control value so it can be passed back into the controls
+		 * and to the component via the demo slot.
+		 *
+		 * @param name The prop or slot name
+		 * @param value The new value
+		 */
+		const handleControlChange = ( name: string, value: string | number | boolean ) => {
+			const control = controlsWithValues.find( ( c ) => c.name === name );
+			if ( control ) {
+				control.value = value;
+			}
+		};
+
+		/**
+		 * Pull out prop values so we can pass them to the scoped slot, for use in component demos.
+		 * It will be easier to write a demo if the props and slots are separated.
+		 */
+		const propValues = computed( () => {
+			const constructedPropValues = {} as PropValues;
+			for ( const control of controlsWithValues ) {
+				if ( control.type !== 'slot' ) {
+					constructedPropValues[ control.name ] = control.value;
+				}
+			}
+			return constructedPropValues;
+		} );
+
+		/**
+		 * Pull out slot values for the same reason.
+		 */
+		const slotValues = computed( () => {
+			const constructedSlotValues = {} as SlotValues;
+			for ( const control of controlsWithValues ) {
+				if ( control.type === 'slot' ) {
+					constructedSlotValues[ control.name ] = control.value;
+				}
+			}
+			return constructedSlotValues;
+		} );
+
 		return {
 			hasCodeSample,
 			showCode,
 			buttonLabel,
-			onClick
+			onClick,
+			hasControls,
+			controlsWithValues,
+			propValues,
+			slotValues,
+			handleControlChange
 		};
 	}
 } );

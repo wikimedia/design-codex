@@ -429,6 +429,68 @@ actually have to match the code used in the demo: for example, you might display
 component for the demo but include a simplified version of that example component to display as the
 code snippet.
 
+#### Configurable demos
+
+If a component has several variations depending on prop and slot input, it may benefit from a
+configurable demo that enables users to input different prop and slot values and see the results on
+the fly. This can be achieved within the Wrapper component, which can take in configuration for prop
+and slot controls, then provide the current values of those props and slots to the component demo
+via a [scoped slot](https://v3.vuejs.org/guide/component-slots.html#scoped-slots).
+
+To set this up, create an array of config objects, one for each prop or slot you want to allow
+the user to control. The following control types are available:
+
+- `radio`: for props with several known value options. Displays a radio for each provided value
+option.
+- `boolean`: For boolean props. Displays a true/false toggle that defaults to false.
+- `text`: For props with string or number values. Displays a text input for the value.
+- `slot`: For slots. Displays a text input for the slot content.
+
+You can set a default value for each control (required for slots), otherwise the value will default
+to the first option (for `radio` controls), `false` (for `boolean` controls), or an empty string
+(for `text` controls)
+
+See `packages/vitepress/docs/utils/types.ts` for full details on control configuration, or check out
+the configuration for the Button demo:
+
+```js
+const controlsConfig = [
+	{
+		name: 'action',
+		type: 'radio',
+		options: [ 'default', 'progressive', 'destructive' ],
+	},
+	{
+		name: 'type',
+		type: 'radio',
+		options: [ 'normal', 'primary', 'quiet' ],
+	},
+	{
+		name: 'disabled',
+		type: 'boolean'
+	},
+	{
+		name: 'default',
+		type: 'slot',
+		default: 'Click me'
+	}
+];
+```
+
+Next, set up the component demo. Pass the controls config to the Wrapper component via its
+`controlsConfig` prop, then use the `demo` slot with `propValues` and `slotValues` bindings to wrap
+your component demo. `propValues` is an object keyed on prop name with the current value of each
+prop, and `slotValues` is an object keyed on slot name with the current content of each slot. This
+is how the configurable Button demo is set up:
+
+```vue
+<Wrapper :controls-config="controlsConfig">
+<template v-slot:demo="{ propValues, slotValues }">
+<CdxButton v-bind="propValues">{{ slotValues.default }}</CdxButton>
+</template>
+</Wrapper>
+```
+
 ### Working with browser tests
 
 TODO - possibly not needed if writing browser tests is a straightforward process

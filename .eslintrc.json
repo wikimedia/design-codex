@@ -39,7 +39,8 @@
 		{
 			"files": [ "**/*.spec.[jt]s", "**/*.test.[jt]s" ],
 			"extends": [
-				"plugin:jest/recommended"
+				"plugin:jest/recommended",
+				"wikimedia/client-common"
 			]
 		}
 	]
