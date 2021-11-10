@@ -1,5 +1,5 @@
 const path = require( 'path' );
-const componentTemplate = require( './docs/utils/templates/component' );
+const componentTemplate = require( './docs/templates/component' );
 const componentDemoPath = 'component-demos';
 
 /**

@@ -1,0 +1,23 @@
+{
+	"rootDir": "..",
+	"transform": {
+		".+\\.ts$": "ts-jest",
+		".+\\.vue$": "@vue/vue3-jest"
+	},
+	"testEnvironment": "jsdom",
+	"collectCoverage": true,
+	"coverageThreshold": {
+		"global": {
+			"branches": 80,
+			"functions": 80,
+			"lines": 80
+		}
+	},
+	"collectCoverageFrom": [
+		"<rootDir>/src/**/*.(ts|vue)",
+		"!<rootDir>/src/env.d.ts",
+		"!<rootDir>/src/types.ts"
+	],
+	"coverageDirectory": "<rootDir>/coverage",
+	"errorOnDeprecated": true
+}

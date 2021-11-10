@@ -3,6 +3,7 @@
 		<div class="vp-wrapper__demo">
 			<slot name="demo" />
 			<cdx-button
+				v-if="hasCodeSample"
 				class="vp-wrapper__demo__button"
 				type="quiet"
 				@click="onClick"
@@ -10,7 +11,11 @@
 				{{ buttonLabel }}
 			</cdx-button>
 		</div>
-		<div v-show="showCode" class="vp-wrapper__code">
+		<div
+			v-if="hasCodeSample"
+			v-show="showCode"
+			class="vp-wrapper__code"
+		>
 			<slot name="code" />
 		</div>
 	</div>
@@ -23,7 +28,9 @@ import CdxButton from 'vue-components/src/components/button/Button.vue';
 export default defineComponent( {
 	name: 'Wrapper',
 	components: { CdxButton },
-	setup() {
+	setup( props, { slots } ) {
+		// Set up show code/hide code button.
+		const hasCodeSample = slots && slots.code;
 		const showCode = ref( false );
 		const buttonLabel = computed( () => {
 			return showCode.value === true ? 'Hide code' : 'Show code';
@@ -31,7 +38,9 @@ export default defineComponent( {
 		const onClick = (): void => {
 			showCode.value = !showCode.value;
 		};
+
 		return {
+			hasCodeSample,
 			showCode,
 			buttonLabel,
 			onClick

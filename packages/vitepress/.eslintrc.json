@@ -10,7 +10,7 @@
 			}
 		},
 		{
-			"files": [ "**/*.ts" ],
+			"files": [ "**/*.ts", "**/*.vue" ],
 			"rules": {
 				"no-unused-vars": "off",
 				"@typescript-eslint/no-unused-vars": "error",
@@ -18,5 +18,8 @@
 				"jsdoc/require-returns-type": "off"
 			}
 		}
+	],
+	"ignorePatterns": [
+		"src/env.d.ts"
 	]
 }
