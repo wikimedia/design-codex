@@ -1,7 +1,13 @@
 {
 	"name": "design-tokens",
-	"author": "Wikimedia Foundation",
 	"description": "Design tokens for Codex in different formats",
+	"author": "Wikimedia Foundation (https://wikimediafoundation.org/)",
+	"homepage": "https://doc.wikimedia.org/codex/",
+	"repository": {
+		"type": "git",
+		"url": "https://gerrit.wikimedia.org/g/design/codex/"
+	},
+	"bugs": "https://phabricator.wikimedia.org/tag/codex/",
 	"license": "GPL-2.0+",
 	"engines": {
 		"npm": ">=7.14.0",
@@ -10,9 +16,6 @@
 	"files": [
 		"dist"
 	],
-	"publishConfig": {
-		"access": "public"
-	},
 	"scripts": {
 		"prepare": "npm run build",
 		"build": "npm run clean && npm run build:tokens",
