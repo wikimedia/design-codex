@@ -36,10 +36,11 @@ sub-tasks for the minimum viable solution and additional features.
 Patches for new components should include all of the following. Patches that introduce changes
 should include or update the following as needed.
 
-- **Commit message:** The first line of the commit message should be prefixed by the type of work
-  (build, test, style, docs, etc.) or the component name (Button, Icon), e.g. `docs: Add more docs.`
+- **Commit message:** The first line of the commit message has to be prefixed by the component name
+(Button, Icon) or the type of work (build, tests, styles, docs, etc.), e.g. `docs: Add more docs.`
   If the commit covers multiple things, include them in a comma-delineated list, e.g.
-  `style, docs: Fix Button styles and document new convention`
+  `styles, docs: Fix Button styles and document new convention`.
+  In general, Codex is following the [MediaWiki commit message guidelines](https://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines).
 - **Unit tests:** Attempt to meet the established coverage threshold, which will be calculated and
   output in the command line interface when you run tests.
 - **Jest snapshots:** Include snapshots for all variations of props and slots.
