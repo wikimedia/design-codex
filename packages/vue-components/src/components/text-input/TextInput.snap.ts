@@ -40,7 +40,7 @@ exports[`matches the snapshot Case 2 Disabled: ({"disabled": true}) => HTML 1`] 
 </div>
 `;
 
-exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path fill-rule=\\"evenodd\\" d=\\"M12.2 13.6a7 7 0 1 1 1.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM13 8A5 5 0 1 1 3 8a5 5 0 0 1 10 0z\\"/>"}) => HTML 1`] = `
+exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path d=\\"M12.2 13.6a7 7 0 1 1 1.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1 0 10 0A5 5 0 1 0 3 8z\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--has-start-icon"
 >
@@ -64,8 +64,7 @@ exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path fill
         fill="currentColor"
       >
         <path
-          d="M12.2 13.6a7 7 0 1 1 1.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM13 8A5 5 0 1 1 3 8a5 5 0 0 1 10 0z"
-          fill-rule="evenodd"
+          d="M12.2 13.6a7 7 0 1 1 1.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1 0 10 0A5 5 0 1 0 3 8z"
         />
       </g>
     </svg>

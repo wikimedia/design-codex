@@ -202,6 +202,9 @@ export const cdxIconCode = svgCode;
 import svgCollapse from './images/collapse.svg';
 export const cdxIconCollapse = svgCollapse;
 
+import svgDatabase from './images/database.svg';
+export const cdxIconDatabase = svgDatabase;
+
 import svgDie from './images/die.svg';
 export const cdxIconDie = svgDie;
 
@@ -576,6 +579,12 @@ export const cdxIconMoveLast: IconFlipForRtl = {
 import svgMusicalScore from './images/musicalScore.svg';
 export const cdxIconMusicalScore = svgMusicalScore;
 
+import svgNetwork from './images/network.svg';
+export const cdxIconNetwork = svgNetwork;
+
+import svgNetworkOff from './images/networkOff.svg';
+export const cdxIconNetworkOff = svgNetworkOff;
+
 import svgNewWindow from './images/newWindow.svg';
 export const cdxIconNewWindow: IconFlipForRtl = {
 	ltr: svgNewWindow,
@@ -696,6 +705,9 @@ export const cdxIconRestore = svgRestore;
 
 import svgRobot from './images/robot.svg';
 export const cdxIconRobot = svgRobot;
+
+import svgSandbox from './images/sandbox.svg';
+export const cdxIconSandbox = svgSandbox;
 
 import svgSearch from './images/search.svg';
 export const cdxIconSearch = svgSearch;
