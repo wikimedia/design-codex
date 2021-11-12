@@ -2,7 +2,7 @@
 	"rootDir": "..",
 	"transform": {
 		".+\\.ts$": "ts-jest",
-		"src/svgs/.+\\.svg$": "<rootDir>/.jest/svgTransform.js"
+		"src/images/.+\\.svg$": "<rootDir>/.jest/svgTransform.js"
 	},
 	"testEnvironment": "jsdom",
 	"collectCoverage": true,
@@ -19,7 +19,7 @@
 		"!<rootDir>/src/index.ts",
 		"!<rootDir>/src/icons.ts",
 		"!<rootDir>/src/types.ts",
-		"!<rootDir>/src/svgs/**"
+		"!<rootDir>/src/images/**"
 	],
 	"coverageDirectory": "<rootDir>/coverage",
 	"errorOnDeprecated": true

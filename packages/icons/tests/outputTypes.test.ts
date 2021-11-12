@@ -10,7 +10,7 @@ describe( 'type definitions', () => {
 	const iconDefs = readFileSync( iconDefsPath, { encoding: 'utf-8' } );
 
 	// The generated type definitions are fragile: if the right syntax isn't used, TypeScript might
-	// generate something like import svgAdd from './svgs/add.svg';, and that would fail because
+	// generate something like import svgAdd from './images/add.svg';, and that would fail because
 	// the module declaration for *.svg isn't considered. Using the correct syntax ensures that
 	// the type definitions look like export declare const cdxIconAdd: string;
 	it( 'does not refer to .svg file paths', () => {

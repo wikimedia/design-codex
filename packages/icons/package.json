@@ -23,7 +23,7 @@
 		"build": "npm run build:vite && npm run build:json && npm run build:svg && npm run test:unit -- tests/outputTypes.test.ts --coverage=false",
 		"build:vite": "vite build",
 		"build:json": "node ./buildIconsJson.js",
-		"build:svg": "cp -a src/svgs dist/",
+		"build:svg": "cp -a src/images dist/",
 		"build-if-missing": "test -e dist/codex-icons.json || npm run build",
 		"lint": "npm run lint:ts",
 		"lint:ts": "tsc --noEmit --emitDeclarationOnly false",

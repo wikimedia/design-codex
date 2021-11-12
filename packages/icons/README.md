@@ -29,4 +29,4 @@ The build process outputs the following files in the `dist/` directory:
 - `codex-icons.es.js`: All icons and utility functions, in ES module format
 - `codex-icons.json`: All icons, in JSON format
 - `index.d.ts` and other `.d.ts` files: TypeScript type definitions
-- `svgs/*.svg`: All icons as raw SVG files
+- `images/*.svg`: All icons as raw SVG files

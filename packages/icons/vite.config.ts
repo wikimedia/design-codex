@@ -25,7 +25,7 @@ export default defineConfig( {
 	},
 	plugins: [
 		rawSvg( {
-			include: 'src/svgs/*.svg'
+			include: 'src/images/*.svg'
 		} ),
 		typescript()
 	]

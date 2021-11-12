@@ -16,7 +16,7 @@ const cdxIconListNumberedWronglyFlipped = {
 # Adding new icons
 
 When adding a new icon, you should:
-- Add the `.svg` file(s) for the icon to the `packages/icons/src/svgs/` directory
+- Add the `.svg` file(s) for the icon to the `packages/icons/src/images/` directory
 - Add the icon definition to `packages/icons/src/icons.ts`
 
 ## Icon naming
@@ -30,7 +30,7 @@ For a simple icon that doesn't vary by directionality (LTR/RTL) or language, use
 file named in lowerCamelCase, e.g. `fullScreen.svg`. Add an icon definition to `icons.ts`
 that looks like this:
 ```ts
-import svgAdd from './svgs/add.svg';
+import svgAdd from './images/add.svg';
 export const cdxIconAdd = svgAdd;
 ```
 
@@ -47,7 +47,7 @@ For these icons, use a single `.svg` file named in lowerCamelCase, e.g. `listBul
 This file contains the LTR version of the icon (but despite that, it doesn't have a `-ltr` suffix).
 Add an icon definition to `icons.ts` that looks like this:
 ```ts
-import svgListBullet from './svgs/listBullet.svg';
+import svgListBullet from './images/listBullet.svg';
 export const cdxIconListBullet: IconFlipForRtl = {
 	ltr: svgListBullet,
 	shouldFlip: true
@@ -61,7 +61,7 @@ marks are flipped in most RTL languages, but not in Hebrew and Yiddish, so icons
 languages. To indicate this, list the RTL languages in which the icon shouldn't be flipped
 in the `shouldFlipExceptions` property, like this:
 ```ts
-import svgHelp from './svgs/help.svg';
+import svgHelp from './images/help.svg';
 export const cdxIconHelp: IconFlipForRtl = {
 	ltr: svgHelp,
 	shouldFlip: true,
@@ -79,8 +79,8 @@ SVG file for the RTL version of the icon: <cdx-icon :icon="cdxIconListNumbered" 
 For these icons, use two SVG files named with `-ltr` and `-rtl` suffixes, e.g. `listNumbered-ltr.svg`
 and `listNumbered-rtl.svg`. Add an icon definition to `icons.ts` that looks like this:
 ```ts
-import svgListNumberedLtr from './svgs/listNumbered-ltr.svg';
-import svgListNumberedRtl from './svgs/listNumbered-rtl.svg';
+import svgListNumberedLtr from './images/listNumbered-ltr.svg';
+import svgListNumberedRtl from './images/listNumbered-rtl.svg';
 export const cdxIconListNumbered: IconVariedByDir = {
 	ltr: svgListNumberedLtr,
 	rtl: svgListNumberedRtl
@@ -102,9 +102,9 @@ then define which variant to use for which language, and the default variant to 
 languages.
 
 ```ts
-import svgBoldA from './svgs/bold-a.svg';
-import svgBoldB from './svgs/bold-b.svg';
-import svgBoldCyrlZhe from './svgs/bold-cyrl-zhe.svg';
+import svgBoldA from './images/bold-a.svg';
+import svgBoldB from './images/bold-b.svg';
+import svgBoldCyrlZhe from './images/bold-cyrl-zhe.svg';
 // ... many more ...
 
 export const cdxIconBold: IconVariedByLang = {
