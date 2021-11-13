@@ -6,7 +6,6 @@ exports[`matches the snapshot Case 0 Input type: text : ({"type": "text"}) => HT
 >
   <input
     class="cdx-text-input__input"
-    dir="auto"
     type="text"
   />
   <!--v-if-->
@@ -20,7 +19,6 @@ exports[`matches the snapshot Case 1 Input type: search : ({"type": "search"}) =
 >
   <input
     class="cdx-text-input__input"
-    dir="auto"
     type="search"
   />
   <!--v-if-->
@@ -34,7 +32,6 @@ exports[`matches the snapshot Case 2 Disabled: ({"disabled": true}) => HTML 1`] 
 >
   <input
     class="cdx-text-input__input"
-    dir="auto"
     disabled=""
     type="text"
   />
@@ -49,7 +46,6 @@ exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path fill
 >
   <input
     class="cdx-text-input__input"
-    dir="auto"
     type="text"
   />
   <span
@@ -84,7 +80,6 @@ exports[`matches the snapshot Case 4 With end icon: ({"endIcon": [Object]}) => H
 >
   <input
     class="cdx-text-input__input"
-    dir="auto"
     type="text"
   />
   <!--v-if-->
@@ -118,7 +113,6 @@ exports[`matches the snapshot Case 5 Clearable, no input: ({"clearable": true}) 
 >
   <input
     class="cdx-text-input__input"
-    dir="auto"
     type="text"
   />
   <!--v-if-->
@@ -132,7 +126,6 @@ exports[`matches the snapshot Case 6 Clearable, with input: ({"clearable": true,
 >
   <input
     class="cdx-text-input__input"
-    dir="auto"
     type="text"
   />
   <!--v-if-->
@@ -166,7 +159,6 @@ exports[`matches the snapshot Case 7 With end icon, clearable, no input: ({"clea
 >
   <input
     class="cdx-text-input__input"
-    dir="auto"
     type="text"
   />
   <!--v-if-->
@@ -200,7 +192,6 @@ exports[`matches the snapshot Case 8 With end icon, clearable, with input: ({"cl
 >
   <input
     class="cdx-text-input__input"
-    dir="auto"
     type="text"
   />
   <!--v-if-->
@@ -234,7 +225,6 @@ exports[`matches the snapshot Case 9 With attributes: ({}) => HTML 1`] = `
 >
   <input
     class="cdx-text-input__input"
-    dir="auto"
     placeholder="Start typing..."
     size="30"
     type="text"

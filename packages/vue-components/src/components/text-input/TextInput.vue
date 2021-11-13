@@ -6,7 +6,6 @@
 		<input
 			ref="input"
 			v-model="wrappedModel"
-			dir="auto"
 			class="cdx-text-input__input"
 			v-bind="$attrs"
 			:type="type"
