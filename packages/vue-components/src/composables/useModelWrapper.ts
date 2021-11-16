@@ -1,16 +1,6 @@
 import { computed, WritableComputedRef, Ref } from 'vue';
 
 /**
- * Type for the prop added via v-model, modelValue.
- *
- * The value we're modeling could be one of these simple types, or an array of
- * values of those types.
- *
- * See Radio for an example of a modelValue prop definition.
- */
-export type ModelValue = string | number | boolean | unknown[];
-
-/**
  * Type for Vue's emit function, used below in the useModelWrapper function.
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,13 +8,13 @@ type EmitFunc<EventName extends string> = ( event: EventName, ...args: any[] ) =
 
 // See the docblock comment below for details on these function signatures.
 /* eslint-disable no-redeclare */
-export default function useModelWrapper<EventName extends 'update:modelValue'>(
+export default function useModelWrapper<ModelValue, EventName extends 'update:modelValue'>(
 	modelValueRef: Ref<ModelValue>,
 	emit: EmitFunc<EventName>,
 	eventName?: EventName
 ) : WritableComputedRef<ModelValue>;
 
-export default function useModelWrapper<EventName extends string>(
+export default function useModelWrapper<ModelValue, EventName extends string>(
 	modelValueRef: Ref<ModelValue>,
 	emit: EmitFunc<EventName>,
 	eventName: EventName
@@ -61,7 +51,7 @@ export default function useModelWrapper<EventName extends string>(
  *                  names defined in the emits option must be provided.
  * @return The computed property
  */
-export default function useModelWrapper<EventName extends string>(
+export default function useModelWrapper<ModelValue, EventName extends string>(
 	modelValueRef: Ref<ModelValue>,
 	emit: EmitFunc<EventName>,
 	eventName: EventName extends 'update:modelValue' ? EventName | undefined : EventName
