@@ -1,3 +1,8 @@
+/**
+ * String prefix for use in namespacing, etc
+ */
+export const LibraryPrefix = 'cdx';
+
 export const ButtonActions = [
 	'default',
 	'progressive',

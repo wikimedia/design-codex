@@ -5,6 +5,7 @@ import CdxTextInput from './components/text-input/TextInput.vue';
 import useModelWrapper from './composables/useModelWrapper';
 import useComputedDirection from './composables/useComputedDirection';
 import useComputedLanguage from './composables/useComputedLanguage';
+import useGeneratedId from './composables/useGeneratedId';
 
 export {
 	CdxButton,
@@ -14,5 +15,6 @@ export {
 
 	useComputedDirection,
 	useComputedLanguage,
-	useModelWrapper
+	useModelWrapper,
+	useGeneratedId
 };
