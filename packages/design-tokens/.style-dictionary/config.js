@@ -3,44 +3,44 @@
 const StyleDictionary = require( 'style-dictionary' ),
 	{ getReferencedTokens, kebabCase } = require( './lib' ),
 	codexStyleDictionary = StyleDictionary.extend( {
-		source: [ 'properties/**/*.json' ],
+		source: [ 'src/**/*.json' ],
 		platforms: {
 			scss: {
 				transforms: [
-					...StyleDictionary.transformGroup.scss,
 					'name/kebabCase',
 				],
 				buildPath: 'dist/',
 				files: [ {
-					destination: '_variables.scss',
+					destination: 'theme-wikimedia-ui.scss',
 					format: 'scss/variables',
 				} ],
 			},
 			css: {
 				transforms: [
-					...StyleDictionary.transformGroup.css,
 					'name/kebabCase',
 				],
 				buildPath: 'dist/',
 				files: [ {
-					destination: '_variables.css',
+					destination: 'theme-wikimedia-ui.css',
 					format: 'css/variables',
 				} ],
 			},
 			less: {
 				transforms: [
-					...StyleDictionary.transformGroup.less,
 					'name/kebabCase',
 				],
 				buildPath: 'dist/',
 				files: [ {
-					destination: '_variables.less',
+					destination: 'theme-wikimedia-ui.less',
 					format: 'less/variables',
 				} ],
 			},
 			json: {
 				transforms: [
-					...StyleDictionary.transformGroup.web,
+					// Note, we don't use pre-defined transform groups for JSON.
+					// See https://github.com/amzn/style-dictionary/blob/main/docs/transform_groups.md
+					// For app usage of the design tokens, we probably need to reconsider using one
+					// similar to `...StyleDictionary.transformGroup.web`.
 					'name/kebabCase',
 					'attr/tokenList',
 				],

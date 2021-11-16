@@ -1,0 +1,422 @@
+{
+	"background-color": {
+		"comment": "Background Colors",
+		"base": {
+			"value": "{ color.base100.value }"
+		},
+		"base--hover": {
+			"value": "{ color.base80.value }"
+		},
+		"base--active": {
+			"value": "{ color.accent90.value }"
+		},
+		"base--transparent": {
+			"value": "{ color.transparent.value }"
+		},
+		"base--disabled": {
+			"value": "{ color.base70.value }"
+		},
+		"progressive": {
+			"value": "{ color.accent50.value }"
+		},
+		"progressive--hover": {
+			"value": "{ color.modifier-accent50-lighten.value }"
+		},
+		"progressive--active": {
+			"value": "{ color.accent30.value }"
+		},
+		"progressive--focus": {
+			"value": "{ color.accent50.value }"
+		},
+		"destructive": {
+			"value": "{ color.utility-red50.value }"
+		},
+		"destructive--hover": {
+			"value": "{ color.modifier-utility-red50-lighten.value }"
+		},
+		"destructive--active": {
+			"value": "{ color.utility-red30.value }"
+		},
+		"destructive--focus": {
+			"value": "{ color.utility-red90.value }"
+		},
+		"framed": {
+			"value": "{ color.base90.value }"
+		},
+		"framed--hover": {
+			"value": "{ color.base90.value }"
+		},
+		"framed--active": {
+			"value": "{ color.base70.value }"
+		},
+		"filled--disabled": {
+			"comment": "'Filled' UI elements (Checkboxes, Radios, ProgressBars…)",
+			"value": "{ color.base70.value }"
+		}
+	},
+	"color": {
+		"base": {
+			"value": "{ color.base10.value }"
+		},
+		"base--hover": {
+			"value": "{ color.modifier-base10-lighten.value }"
+		},
+		"base--active": {
+			"value": "{ color.base0.value }"
+		},
+		"base--inverted": {
+			"value": "{ color.base100.value }"
+		},
+		"base--emphasized": {
+			"value": "{ color.base0.value }"
+		},
+		"base--subtle": {
+			"value": "{ color.base30.value }"
+		},
+		"base--disabled": {
+			"value": "{ color.base30.value }"
+		},
+		"filled--disabled": {
+			"value": "{ color.base100.value }"
+		},
+		"accessory": {
+			"comment": "TODO: Unclear if `accessory` is fitting in with all the `base--` modifiers.",
+			"value": "{ color.base20.value }"
+		},
+		"placeholder": {
+			"value": "{ color.base30.value }"
+		},
+		"progressive": {
+			"comment": "'Progressive' Color and states",
+			"value": "{ color.accent50.value }"
+		},
+		"progressive--hover": {
+			"value": "{ color.modifier-accent50-lighten.value }"
+		},
+		"progressive--active": {
+			"value": "{ color.accent30.value }"
+		},
+		"progressive--focus": {
+			"value": "{ color.accent50.value }"
+		},
+		"primary": {
+			"comment": "Deprecated: Replace by `color-progressive`. In use in many non-button applications.",
+			"value": "{ color.progressive.value }"
+		},
+		"primary--hover": {
+			"comment": "Deprecated: Replace by `color-progressive--hover`.",
+			"value": "{ color.progressive--hover.value }"
+		},
+		"primary--active": {
+			"comment": "Deprecated: Replace by `color-progressive--active`.",
+			"value": "{ color.progressive--active.value }"
+		},
+		"primary--focus": {
+			"comment": "Deprecated: Replace by `color-progressive--focus`.",
+			"value": "{ color.progressive--focus.value }"
+		},
+		"destructive": {
+			"comment": "'Destructive' Color and states",
+			"value": "{ color.utility-red50.value }"
+		},
+		"destructive--hover": {
+			"value": "{ color.modifier-utility-red50-lighten.value }"
+		},
+		"destructive--active": {
+			"value": "{ color.utility-red30.value }"
+		},
+		"destructive--focus": {
+			"value": "{ color.utility-red50.value }"
+		},
+		"error": {
+			"value": "{ color.utility-red50.value }"
+		},
+		"success": {
+			"value": "{ color.utility-green30.value }"
+		}
+	},
+	"opacity": {
+		"base": {
+			"value": "{ opacity.100.value }"
+		},
+		"base--disabled": {
+			"value": "{ opacity.50.value }"
+		}
+	},
+	"z-index": {
+		"base": {
+			"value": "{ z-index.0.value }"
+		},
+		"overlay": {
+			"value": "{ z-index.101.value }"
+		}
+	},
+	"box-sizing": {
+		"base": {
+			"value": "{ box-sizing.100.value }"
+		}
+	},
+	"min-size": {
+		"base": {
+			"comment": "TODO: Deprecate key and change to `min-size-component`?",
+			"value": "{ size.absolute.200.value }"
+		}
+	},
+	"size": {
+		"base": {
+			"comment": "TODO: Should be a relative size. Deprecate key and change to `size-component`?",
+			"value": "{ size.absolute.200.value }"
+		},
+		"full": {
+			"value": "{ size.relative.percentage.100.value }"
+		}
+	},
+	"max-width": {
+		"base": {
+			"value": "{ max-width.100.value }"
+		}
+	},
+	"width": {
+		"x-small": {
+			"value": "{ size.absolute.150.value }"
+		},
+		"small": {
+			"value": "{ size.absolute.800.value }"
+		},
+		"medium": {
+			"value": "{ size.absolute.1600.value }"
+		},
+		"large": {
+			"value": "{ size.absolute.2400.value }"
+		},
+		"x-large": {
+			"value": "{ size.absolute.3200.value }"
+		},
+		"full": {
+			"value": "{ size.relative.percentage.100.value }"
+		}
+	},
+	"min-height": {
+		"x-small": {
+			"value": "{ size.absolute.125.value }"
+		},
+		"small": {
+			"value": "{ size.absolute.150.value }"
+		},
+		"medium": {
+			"value": "{ size.absolute.200.value }"
+		},
+		"large": {
+			"value": "{ size.absolute.250.value }"
+		},
+		"x-large": {
+			"value": "{ size.absolute.300.value }"
+		}
+	},
+	"spacing": {
+		"xx-small": {
+			"value": "{ size.relative.em.12.value }"
+		},
+		"x-small": {
+			"value": "{ size.relative.em.25.value }"
+		},
+		"small": {
+			"value": "{ size.relative.em.50.value }"
+		},
+		"medium": {
+			"value": "{ size.relative.em.75.value }"
+		},
+		"large": {
+			"value": "{ size.relative.em.100.value }"
+		},
+		"x-large": {
+			"value": "{ size.relative.em.150.value }"
+		},
+		"xx-large": {
+			"value": "{ size.relative.em.200.value }"
+		}
+	},
+	"border-width": {
+		"base": {
+			"value": "{ size.absolute.6.value }"
+		}
+	},
+	"border-style": {
+		"base": {
+			"value": "{ border-style.100.value }"
+		}
+	},
+	"border-color": {
+		"base": {
+			"value": "{ color.base50.value }"
+		},
+		"base--hover": {
+			"value": "{ color.base50.value }"
+		},
+		"base--active": {
+			"value": "{ color.base30.value }"
+		},
+		"base--focus": {
+			"value": "{ color.accent50.value }"
+		},
+		"base--disabled": {
+			"value": "{ color.base70.value }"
+		},
+		"filled--disabled": {
+			"value": "{ color.base100.value }"
+		},
+		"progressive": {
+			"value": "{ color.accent50.value }"
+		},
+		"progressive--hover": {
+			"value": "{ color.modifier-accent50-lighten.value }"
+		},
+		"progressive--active": {
+			"value": "{ color.accent30.value }"
+		},
+		"progressive--focus": {
+			"value": "{ color.accent50.value }"
+		},
+		"destructive": {
+			"value": "{ color.utility-red50.value }"
+		},
+		"destructive--hover": {
+			"value": "{ color.modifier-utility-red50-lighten.value }"
+		},
+		"destructive--active": {
+			"value": "{ color.utility-red30.value }"
+		},
+		"destructive--focus": {
+			"value": "{ color.utility-red50.value }"
+		},
+		"neutral": {
+			"comment": "Better off in components.json?",
+			"value": "{ color.base50.value }"
+		},
+		"neutral--hover": {
+			"value": "{ color.base50.value }"
+		},
+		"neutral--active": {
+			"value": "{ color.base30.value }"
+		},
+		"neutral--focus": {
+			"value": "{ color.accent50.value }"
+		},
+		"binary": {
+			"comment": "TODO: base.json or components.json?",
+			"value": "{ color.base30.value }"
+		},
+		"transparent": {
+			"value": "{ color.transparent.value }"
+		}
+	},
+	"border-radius": {
+		"base": {
+			"value": "{ size.absolute.12.value }"
+		},
+		"round": {
+			"value": "{ size.absolute.9999px.value }"
+		},
+		"rounder": {
+			"comment": "TODO: Only used in WiKit. Deprecate and replace by 'round'.",
+			"value": "{ size.absolute.25.value }"
+		},
+		"circle": {
+			"value": "{ size.relative.percentage.100.value }"
+		}
+	},
+	"padding": {
+		"base": {
+			"value": "{ padding.vertical.base.value } { padding.horizontal.base.value }"
+		},
+		"horizontal": {
+			"base": {
+				"value": "{ size.absolute.75.value }"
+			}
+		},
+		"vertical": {
+			"base": {
+				"comment": "Note, this is changing from `5px` to `4px` and will go in sync with line-height change.",
+				"value": "{ size.absolute.25.value }"
+			}
+		}
+	},
+	"box-shadow": {
+		"base": {
+			"value": "{ box-shadow.100.value } { color.transparent.value }"
+		},
+		"base--focus": {
+			"value": "{ box-shadow.100.value } { color.accent50.value }"
+		},
+		"filled--disabled": {
+			"value": "{ box-shadow.100.value } { color.base100.value }"
+		},
+		"progressive--focus": {
+			"value": "{ box-shadow.100.value } { color.accent50.value }, { box-shadow.200.value } { color.base100.value }"
+		},
+		"primary--focus": {
+			"comment": "Deprecated: Replace by `box-shadow-progressive--focus`.",
+			"value": "{ box-shadow.progressive--focus.value }"
+		},
+		"destructive--focus": {
+			"value": "{ box-shadow.100.value } { color.utility-red50.value }, { box-shadow.200.value } { color.base100.value }"
+		}
+	},
+	"outline": {
+		"comment": "Outlines",
+		"base--focus": {
+			"comment": "Enable Windows high contrast mode on certain widgets, that have default outlines overridden.",
+			"value": "{ size.absolute.6.value } { border-style.100.value } { color.transparent.value }"
+		}
+	},
+	"font-family": {
+		"base": {
+			"value": "{ font-family.sans--fallback.value }"
+		},
+		"heading-main": {
+			"value": "{ font-family.serif.value }"
+		}
+	},
+	"font-weight": {
+		"hairline": {
+			"value": "{ font-weight.25.value }"
+		},
+		"light": {
+			"value": "{ font-weight.75.value }"
+		},
+		"normal": {
+			"value": "{ font-weight.100.value }"
+		},
+		"semi-bold": {
+			"value": "{ font-weight.150.value }"
+		},
+		"bold": {
+			"value": "{ font-weight.175.value }"
+		}
+	},
+	"transition": {
+		"base": {
+			"comment": "`ease` is the initial value, therefore leaving out.",
+			"value": "{ transition-duration.100.value }"
+		},
+		"ease-medium": {
+			"value": "{ transition-duration.250.value }"
+		},
+		"ease-out-medium": {
+			"value": "{ transition-timing-function.human.value } { transition-duration.100.value }"
+		}
+	},
+	"transition-duration": {
+		"base": {
+			"value": "{ transition-duration.100.value }"
+		},
+		"medium": {
+			"value": "{ transition-duration.250.value }"
+		}
+	},
+	"transition-property": {
+		"framed": {
+			"value": "{ transition-property.background-color.value }, { transition-property.color.value }, { transition-property.border-color.value }, { transition-property.box-shadow.value }"
+		}
+	}
+}
