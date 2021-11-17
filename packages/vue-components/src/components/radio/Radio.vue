@@ -1,25 +1,26 @@
 <template>
-	<label
-		class="cdx-radio"
-		:class="rootClasses"
-		:aria-disabled="disabled"
-		@click="focusInput"
-	>
-		<input
-			ref="input"
-			v-model="wrappedModel"
-			class="cdx-radio__input"
-			type="radio"
-			:name="name"
-			:value="inputValue"
-			:disabled="disabled"
+	<span class="cdx-radio" :class="rootClasses">
+		<label
+			class="cdx-radio__label"
+			:aria-disabled="disabled"
+			@click="focusInput"
 		>
-		<span class="cdx-radio__icon" />
-		<span class="cdx-radio__label-content">
-			<!-- @slot Input label content -->
-			<slot />
-		</span>
-	</label>
+			<input
+				ref="input"
+				v-model="wrappedModel"
+				class="cdx-radio__input"
+				type="radio"
+				:name="name"
+				:value="inputValue"
+				:disabled="disabled"
+			>
+			<span class="cdx-radio__icon" />
+			<span class="cdx-radio__label-content">
+				<!-- @slot Input label content -->
+				<slot />
+			</span>
+		</label>
+	</span>
 </template>
 
 <script lang="ts">
@@ -196,7 +197,7 @@ export default defineComponent( {
 	}
 
 	// Styles for when `label` is active (being pressed).
-	&:active &__input:enabled {
+	&__label:active &__input:enabled {
 		& + .cdx-radio__icon {
 			background-color: @background-color-input-binary--active;
 			border-color: @border-color-input-binary--active;

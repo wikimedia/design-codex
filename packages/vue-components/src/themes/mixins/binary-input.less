@@ -22,18 +22,6 @@
 
 // Common styles for checkboxes and radios.
 .cdx-mixin-binary-input() {
-	position: relative;
-	// Create a stacking context.
-	z-index: 0;
-	line-height: @size-input-binary;
-	cursor: pointer;
-
-	&__label-content {
-		// Necessary to ensure label is indented properly if it spans multiple lines.
-		display: inline-block;
-		padding-left: @size-input-binary + 0.5em;
-	}
-
 	&:not( &--inline ) {
 		display: block;
 		// Since we have to use margin-right for inline inputs, use margin-bottom for stacked inputs
@@ -63,8 +51,25 @@
 		}
 	}
 
-	&[ aria-disabled='true' ] {
-		cursor: @cursor-base--disabled;
+	&__label {
+		// This makes single-line labels only the width of their content and properly aligns
+		// multi-line labels with the input.
+		display: inline-block;
+		position: relative;
+		// Create a stacking context.
+		z-index: 0;
+		line-height: @size-input-binary;
+		cursor: pointer;
+
+		&[ aria-disabled='true' ] {
+			cursor: @cursor-base--disabled;
+		}
+	}
+
+	&__label-content {
+		// Necessary to ensure label is indented properly if it spans multiple lines.
+		display: inline-block;
+		padding-left: @size-input-binary + 0.5em;
 	}
 
 	// Custom-styled input that's visible to the user.
