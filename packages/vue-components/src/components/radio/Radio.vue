@@ -84,7 +84,9 @@ export default defineComponent( {
 	},
 	emits: [
 		/**
-		 * Emitted when v-model value changes.
+		 * Emitted when modelValue changes.
+		 *
+		 * @property {string | number | boolean} modelValue The new model value
 		 */
 		'update:modelValue'
 	],

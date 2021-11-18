@@ -6,8 +6,10 @@
 @font-size-browser: 16; // Common (assumed) browser default of `16px`.
 @font-size-base-value: 14 / @font-size-browser;
 @font-size-base: unit( ( @font-size-base-value ), em ); // Equals `0.875em` at browser default of `16px`.
+@size-icon-small: unit( ( 14 / @font-size-browser / @font-size-base-value ), em );
 
 @size-input-binary: unit( ( 20 / @font-size-browser / @font-size-base-value ), em );
+@start-input-binary-icon: unit( ( 3 / @font-size-browser / @font-size-base-value ), em );
 
 @border-color-input-binary: @border-color-base--active;
 @border-color-input-binary--checked: @color-primary;

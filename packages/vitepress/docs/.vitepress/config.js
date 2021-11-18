@@ -37,6 +37,7 @@ module.exports = {
 					text: 'Components',
 					children: [
 						{ text: 'Button', link: '/components/button' },
+						{ text: 'Checkbox', link: '/components/checkbox' },
 						{ text: 'Icon', link: '/components/icon' },
 						{ text: 'Radio', link: '/components/radio' },
 						{ text: 'TextInput', link: '/components/text-input' }
