@@ -3,7 +3,7 @@ import SimpleIcon from './../../component-demos/icon/examples/SimpleIcon.vue';
 import ButtonWithIcon from './../../component-demos/icon/examples/ButtonWithIcon.vue';
 </script>
 
-See the [Icons section](../icons/introduction.md) for more information, including a
+See the [Icons section](../icons/overview.md) for more information, including a
 [list of all available icons](../icons/directory.md).
 
 ## Demos

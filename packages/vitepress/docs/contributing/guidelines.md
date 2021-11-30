@@ -24,7 +24,7 @@ development, roadmaps, and releases, the Design Systems Team will:
   mailing lists:
     - [wikitech-l](https://lists.wikimedia.org/postorius/lists/wikitech-l.lists.wikimedia.org/)
     - [design.public](https://lists.wikimedia.org/postorius/lists/design.lists.wikimedia.org/)
-- Document technical decisions about the library in the [ADRs section](/adrs/introduction)
+- Document technical decisions about the library in the [ADRs section](/adrs/overview)
 
 ## Task tracking
 

@@ -30,7 +30,7 @@ module.exports = {
 				{
 					text: 'Design Tokens',
 					children: [
-						{ text: 'Introduction', link: '/design-tokens/introduction' }
+						{ text: 'Overview', link: '/design-tokens/overview' }
 					]
 				},
 				{
@@ -46,7 +46,7 @@ module.exports = {
 				{
 					text: 'Icons',
 					children: [
-						{ text: 'Introduction', link: '/icons/introduction' },
+						{ text: 'Overview', link: '/icons/overview' },
 						{ text: 'Icon directory', link: '/icons/directory' },
 						{ text: 'Adding new icons', link: '/icons/adding-new' }
 					]
@@ -54,7 +54,7 @@ module.exports = {
 				{
 					text: 'ADRs',
 					children: [
-						{ text: 'Introduction', link: '/adrs/introduction' },
+						{ text: 'Overview', link: '/adrs/overview' },
 						{ text: 'ADR 1 - Design Tokens', link: '/adrs/01-adr-design-tokens' },
 						{ text: 'ADR 2 - Demo tool', link: '/adrs/02-adr-demo-tool' },
 						{ text: 'ADR 3 - String types in TypeScript', link: '/adrs/03-adr-string-types' }
