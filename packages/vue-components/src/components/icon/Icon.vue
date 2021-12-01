@@ -109,29 +109,25 @@ export default defineComponent( {
 } );
 </script>
 
-<style lang="postcss">
-/*
- * TODO: Remove references to wikimedia-ui-base once we have
- * the proper tokens in place
- */
+<style lang="less">
+// TODO: Remove references to wikimedia-ui-base once we have
+// the proper tokens in place
 @import 'wikimedia-ui-base/wikimedia-ui-base.css';
 
 .cdx-icon {
-	/* Set the default icon color; callers that want a different color should override this rule */
+	// Set the default icon color; callers that want a different color should override this rule.
 	color: var( --color-base );
-	/*
-	Maintain an inline outer element while using flexbox to center the SVG
-	and avoid extra space around the image.
-	*/
+	// Maintain an inline outer element while using flexbox to center the SVG
+	// and avoid extra space around the image.
 	display: inline-flex; /* stylelint-disable-line plugin/no-unsupported-browser-features */
 	align-items: center;
 	justify-content: center;
-	/*  For inline, inline-block, and table layouts. */
-	vertical-align: middle;
-}
+	// Vertically align surrounding text in inline, inline-block, and table contexts. */
+	vertical-align: text-bottom;
 
-/* Horizontally flip icons that should be flipped for RTL languages. */
-.cdx-icon--flipped svg {
-	transform: scaleX( -1 );
+	// Horizontally flip icons that should be flipped for RTL languages.
+	&--flipped svg {
+		transform: scaleX( -1 );
+	}
 }
 </style>
