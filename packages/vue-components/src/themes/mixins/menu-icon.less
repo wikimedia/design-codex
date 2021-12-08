@@ -1,0 +1,28 @@
+@import ( reference ) 'wikimedia-ui-base/wikimedia-ui-base.less';
+// Style an icon suitable for display inside of a menu element.
+// The parent element should have "position: relative" applied.
+// An argument of "left" or "right" must be supplied to tell the
+// absolutely positioned icon where to anchor itself.
+.cdx-mixin-menu-icon( @align, @size ) {
+	position: absolute;
+	// Vertically center the handle indicator by moving it down 50% of the height of the handle,
+	// then moving it up by 50% of the height of the icon (translateY uses the element height
+	// while top uses the offset parent's height)
+	top: 50%;
+	transform: translateY( -50% );
+	transition-property: color;
+	transition-duration: @transition-base;
+
+	svg {
+		width: @size;
+		height: @size;
+	}
+}
+
+.cdx-mixin-menu-icon( @align, @size ) when ( @align = left ) {
+	left: @padding-horizontal-base;
+};
+
+.cdx-mixin-menu-icon( @align, @size ) when ( @align = right ) {
+	right: @padding-horizontal-base;
+};

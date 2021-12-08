@@ -34,7 +34,8 @@ module.exports = {
 						{ text: 'Checkbox', link: '/components/checkbox' },
 						{ text: 'Icon', link: '/components/icon' },
 						{ text: 'Radio', link: '/components/radio' },
-						{ text: 'TextInput', link: '/components/text-input' }
+						{ text: 'Select', link: '/components/select' },
+						{ text: 'TextInput', link: '/components/text-input' },
 					]
 				},
 				{

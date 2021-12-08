@@ -5,6 +5,15 @@
 		</header>
 
 		<main>
+			<h2>Select</h2>
+
+			<cdx-select
+				v-model="selection"
+				:options="options"
+				:default-label="'Choose an option'"
+				:disabled="false"
+			/>
+
 			<h2>Icons</h2>
 			<p dir="rtl">
 				<cdx-icon :icon="cdxIconArrowNext" /> next
@@ -100,9 +109,19 @@
 </template>
 
 <script lang="ts" setup>
-import { CdxButton, CdxIcon } from './lib';
+import { CdxButton, CdxIcon, CdxSelect } from './lib';
 import { cdxIconArrowNext, cdxIconBold } from 'icons';
 import { ButtonActions, ButtonTypes } from './constants';
+import { MenuOption } from './types';
+import { ref } from 'vue';
+
+const options: MenuOption[] = [
+	{ label: 'Apple', value: 'a' },
+	{ label: 'Banana', value: 'b' },
+	{ label: 'Canteloupe', value: 'c' }
+];
+
+const selection = ref<string>();
 
 function onClick( e: Event ) {
 	// eslint-disable-next-line no-console
