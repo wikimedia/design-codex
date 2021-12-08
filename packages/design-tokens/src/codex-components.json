@@ -1,2 +1,178 @@
 {
+	"background-color": {
+		"primary": {
+			"value": "{ background-color.progressive.value }"
+		},
+		"primary--hover": {
+			"value": "{ color.modifier-accent50-translucent.value }"
+		},
+		"quiet": {
+			"value": "{ color.base.value }"
+		},
+		"quiet--hover": {
+			"value": "{ color.modifier-base90-translucent.value }"
+		},
+		"quiet--active": {
+			"value": "{ color.modifier-base80-translucent.value }"
+		},
+		"quiet-progressive--hover": {
+			"value": "{ color.accent90.value }"
+		},
+		"progressive-quiet--hover": {
+			"comment": "Deprecated key. Use 'background-color.quiet-progressive--hover' key instead.",
+			"value": "{ background-color.quiet-progressive--hover.value }"
+		},
+		"message": {
+			"comment": "User system messages (errors, warnings, successes, notices).",
+			"notice": {
+				"value": "{ color.base80.value }"
+			},
+			"error": {
+				"value": "{ color.utility-red90.value }"
+			},
+			"warning": {
+				"value": "{ color.utility-yellow90.value }"
+			},
+			"success": {
+				"value": "{ color.utility-green90.value }"
+			}
+		},
+		"tabs-framed": {
+			"comment": "Tabs bar background color.",
+			"value": "{ color.base80.value }"
+		},
+		"toolbar": {
+			"comment": "Toolbar.",
+			"value": "{ background-color.base.value }"
+		},
+		"tool--hover": {
+			"comment": "Toolbar tools.",
+			"value": "{ background-color.base--hover.value }"
+		},
+		"tool--active": {
+			"value": "{ background-color.progressive.value }"
+		},
+		"tool--active-hover": {
+			"value": "{ background-color.progressive--hover.value }"
+		}
+	},
+	"color": {
+		"primary": {
+			"progressive": {
+				"comment": "Primary 'Progressive' Button color and states",
+				"value": "{ color.base--inverted.value }"
+			},
+			"progressive--hover": {
+				"value": "{ color.modifier-accent50-lighten.value }"
+			},
+			"progressive--active": {
+				"value": "{ color.accent30.value }"
+			}
+		}
+	},
+	"position": {
+		"offset": {
+			"input-radio--focus": {
+				"comment": "TODO: This has to be a relative value, for design reasons.",
+				"value": "-{ size.absolute.25.value }"
+			}
+		}
+	},
+	"min-size": {
+		"icon": {
+			"value": "{ size.absolute.125.value }"
+		}
+	},
+	"size": {
+		"comment": "TODO: This has to be a relative value, for accessibility reasons.",
+		"icon": {
+			"value": "{ size.absolute.125.value }"
+		}
+	},
+	"max-width": {
+		"button": {
+			"comment": "Note, that this is a slight amendment from WikimediaUI Base from `28.75em` = `460px` to `448px`",
+			"value": "{ size.absolute.2800.value }"
+		}
+	},
+	"border-color": {
+		"divider": {
+			"value": "{ color.base50.value }"
+		},
+		"primary": {
+			"comment": "Deprecated key. Use base file's 'progressive' key instead.",
+			"value": "{ border-color.progressive.value }"
+		},
+		"primary--hover": {
+			"comment": "Deprecated key.",
+			"value": "{ border-color.progressive--hover.value }"
+		},
+		"primary--active": {
+			"comment": "Deprecated key.",
+			"value": "{ border-color.progressive--active.value }"
+		},
+		"primary--focus": {
+			"comment": "Deprecated key.",
+			"value": "{ border-color.progressive--focus.value }"
+		}
+	},
+	"border-radius": {
+		"input-radio": {
+			"value": "{ border-radius.circle.value }"
+		}
+	},
+	"padding": {
+		"input-text": {
+			"value": "{ padding.vertical.base.value } { padding.horizontal.input-text.value }"
+		},
+		"horizontal": {
+			"input-text": {
+				"value": "{ size.absolute.100.value }"
+			}
+		},
+		"vertical": {
+			"menu": {
+				"comment": "Note, that we need to rely on `calc()` for cross-stylesheet format output. Not perfectly aligned to current basic browser support.",
+				"value": "calc( { padding.vertical.base.value } + { border-width.base.value } )"
+			}
+		}
+	},
+	"box-shadow": {
+		"card": {
+			"value": "{ box-shadow.1100.value }"
+		},
+		"dialog": {
+			"value": "{ box-shadow.1200.value }"
+		},
+		"menu": {
+			"value": "{ box-shadow.1200.value }"
+		}
+	},
+	"animation-delay": {
+		"progress": {
+			"dots": {
+				"none": {
+					"value": "{ animation-delay.0.value }"
+				},
+				"medium": {
+					"value": "{ animation-delay.100.value }"
+				},
+				"slow": {
+					"value": "{ animation-delay.200.value }"
+				}
+			}
+		}
+	},
+	"animation-duration": {
+		"progress": {
+			"dots": {
+				"medium": {
+					"value": "{ animation-duration.100.value }"
+				},
+				"slow": {
+					"value": "{ animation-duration.125.value }"
+				}
+			}
+		}
+	}
 }
