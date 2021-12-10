@@ -45,3 +45,25 @@ export type ControlConfigWithValue = PropConfigWithValue | SlotConfigWithValue;
 
 export type PropValues = Record<string, string | number | boolean>;
 export type SlotValues = Record<string, string>;
+
+export interface DesignToken {
+	name: string,
+	value: string,
+	comment?: string
+	filePath: string,
+	original: {
+		value: string
+	},
+	attributes: {
+		tokens: string[]
+	},
+	path: string[]
+}
+
+export interface DesignTokensTree {
+	// We'd like to exclude 'name', 'value', etc. from key here, but that doesn't seem possible
+	// Using [ key: Exclude<string, 'value'> ] doesn't change anything
+	// Adding value: never breaks type inference and causes TypeScript to think that
+	// 'value' in tokenOrTree can never be false
+	[ key: string ]: DesignToken|DesignTokensTree
+}

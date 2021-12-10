@@ -30,7 +30,22 @@ module.exports = {
 				{
 					text: 'Design Tokens',
 					children: [
-						{ text: 'Overview', link: '/design-tokens/overview' }
+						{ text: 'Overview', link: '/design-tokens/overview' },
+						{ text: 'Animation', link: '/design-tokens/animation' },
+						{ text: 'Border', link: '/design-tokens/border' },
+						{ text: 'Box-sizing', link: '/design-tokens/box-sizing' },
+						{ text: 'Box-shadow', link: '/design-tokens/box-shadow' },
+						{ text: 'Color', link: '/design-tokens/color' },
+						{ text: 'Font', link: '/design-tokens/font' },
+						{ text: 'Outline', link: '/design-tokens/outline' },
+						{ text: 'Opacity', link: '/design-tokens/opacity' },
+						{ text: 'Padding', link: '/design-tokens/padding' },
+						{ text: 'Size', link: '/design-tokens/size' },
+						{ text: 'Spacing', link: '/design-tokens/spacing' },
+						{ text: 'Position', link: '/design-tokens/position' },
+						{ text: 'Transition', link: '/design-tokens/transition' },
+						{ text: 'Viewport', link: '/design-tokens/viewport' },
+						{ text: 'Z-Index', link: '/design-tokens/z-index' }
 					]
 				},
 				{
