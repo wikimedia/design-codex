@@ -22,10 +22,15 @@
 		"build:tokens": "node ./.style-dictionary/config.js",
 		"clean": "rm -rf ./dist",
 		"test": "npm run test:unit",
-		"test:unit": "jest ."
+		"test:unit": "jest .",
+		"watch": "npm-watch"
+	},
+	"watch": {
+		"build:tokens": "src/**/*.json"
 	},
 	"devDependencies": {
 		"jest": "^27.3.1",
-		"style-dictionary": "^3.0.3"
+		"style-dictionary": "^3.0.3",
+		"npm-watch": "^0.11.0"
 	}
 }

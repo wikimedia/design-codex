@@ -28,8 +28,8 @@
 	},
 	"scripts": {
 		"dev": "npm run build-if-missing -w icons && npm run dev -w vue-components",
-		"doc": "npm run build-if-missing -w icons && npm run build -w vitepress",
-		"doc:dev": "npm run build-if-missing -w icons && npm run dev -w vitepress",
+		"doc": "npm run build-if-missing -w icons && npm run build -w design-tokens && npm run build -w vitepress",
+		"doc:dev": "npm run build-if-missing -w icons  && concurrently \"npm run watch -w design-tokens\" \"npm run dev -w vitepress\"",
 		"lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint --workspaces --if-present",
 		"lint:eslint": "eslint --max-warnings 0 .",
 		"lint:stylelint": "stylelint --report-needless-disables --max-warnings 0 .",
@@ -38,6 +38,7 @@
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^4.33.0",
 		"@typescript-eslint/parser": "^4.33.0",
+		"concurrently": "^6.3.0",
 		"eslint": "^7.32.0",
 		"eslint-config-wikimedia": "^0.20.0",
 		"eslint-plugin-jest": "^24.5.2",
