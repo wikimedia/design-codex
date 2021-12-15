@@ -110,9 +110,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-// TODO: Remove references to wikimedia-ui-base once we have
-// the proper tokens in place
-@import 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) 'design-tokens/dist/theme-wikimedia-ui.less';
 
 .cdx-icon {
 	// Set the default icon color; callers that want a different color should override this rule.
