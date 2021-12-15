@@ -53,11 +53,9 @@ export default defineComponent( {
 	&__bar {
 		background-color: @background-color-primary;
 		height: 100%;
-		/* stylelint-disable plugin/no-unsupported-browser-features */
 		animation: vp-animation-demo__bar-animation;
 		animation-duration: 2000ms;
 		animation-iteration-count: infinite;
-		/* stylelint-enable plugin/no-unsupported-browser-features */
 	}
 }
 

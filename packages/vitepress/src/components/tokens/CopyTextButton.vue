@@ -116,7 +116,6 @@ export default defineComponent( {
 
 	&__transition-icon {
 		&-leave-active {
-			/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 			transition: width 500ms, opacity 500ms, margin-left 500ms;
 		}
 

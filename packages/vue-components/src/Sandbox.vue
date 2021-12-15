@@ -112,7 +112,7 @@ function onClick( e: Event ) {
 
 <style scoped>
 td {
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features, unit-disallowed-list */
+	/* stylelint-disable-next-line unit-disallowed-list */
 	padding: 1.5rem;
 }
 </style>

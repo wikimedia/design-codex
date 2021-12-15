@@ -62,10 +62,8 @@ export default defineComponent( {
 	width: 100px;
 	height: 50px;
 	border: @border-base;
-	/* stylelint-disable plugin/no-unsupported-browser-features */
 	transition-property: border-color, box-shadow, background-color, color, padding;
 	transition-duration: @transition-duration-medium;
-	/* stylelint-enable plugin/no-unsupported-browser-features */
 	padding: @padding-base;
 
 	span {
@@ -74,10 +72,8 @@ export default defineComponent( {
 		left: 50%;
 		transform: translate( @padding-horizontal-base, -50% );
 		margin-left: -50%;
-		/* stylelint-disable plugin/no-unsupported-browser-features */
 		transition-property: margin-left, transform;
 		transition-duration: @transition-duration-medium;
-		/* stylelint-enable plugin/no-unsupported-browser-features */
 	}
 
 	@media screen and ( min-width: @width-breakpoint-tablet ) {

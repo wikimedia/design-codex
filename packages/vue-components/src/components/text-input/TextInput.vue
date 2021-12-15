@@ -230,7 +230,6 @@ export default defineComponent( {
 	&__start-icon {
 		left: @border-width-base;
 		width: @size-input-icon-container;
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		pointer-events: none;
 	}
 
@@ -284,13 +283,11 @@ export default defineComponent( {
 		color: @color-placeholder;
 		-webkit-text-fill-color: @color-placeholder;
 		border-color: @border-color-base--disabled;
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		text-shadow: @text-shadow-base--disabled;
 
 		& ~ .cdx-text-input__start-icon,
 		& ~ .cdx-text-input__end-icon {
 			opacity: @opacity-base--disabled;
-			/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 			pointer-events: none;
 		}
 	}
@@ -300,9 +297,7 @@ export default defineComponent( {
 		color: @color-base--emphasized;
 		border-color: @border-color-base;
 		box-shadow: @box-shadow-base;
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		transition-property: border-color, box-shadow;
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		transition-duration: @transition-duration-medium;
 
 		&:hover {

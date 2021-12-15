@@ -139,9 +139,7 @@ export default defineComponent( {
 	// Custom-styled radio that's visible to the user.
 	&__icon {
 		border-radius: @border-radius-input-radio;
-		// stylelint-disable-next-line plugin/no-unsupported-browser-features
 		transition-property: background-color, border-color, border-width;
-		// stylelint-disable-next-line plugin/no-unsupported-browser-features
 		transition-duration: @transition-base;
 
 		// Add `:focus` state's inner circle.

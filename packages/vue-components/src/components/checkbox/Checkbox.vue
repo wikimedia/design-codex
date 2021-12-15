@@ -159,9 +159,7 @@ export default defineComponent( {
 		// stylelint-disable-next-line plugin/no-unsupported-browser-features
 		background-size: 0 0;
 		border-radius: @border-radius-base;
-		// stylelint-disable-next-line plugin/no-unsupported-browser-features
 		transition-property: background-color, border-color, box-shadow;
-		// stylelint-disable-next-line plugin/no-unsupported-browser-features
 		transition-duration: @transition-base;
 	}
 

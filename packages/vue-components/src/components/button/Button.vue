@@ -105,9 +105,7 @@ export default defineComponent( {
 
 	// Contents are single line.
 	white-space: nowrap;
-	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	transition-property: border-color, background-color, color, box-shadow;
-	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	transition-duration: @transition-base;
 
 	// Support Firefox: Normalize by hiding the inner focus `border` and `padding`.
