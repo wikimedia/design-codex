@@ -28,6 +28,24 @@ module.exports = {
 					]
 				},
 				{
+					text: 'Components',
+					children: [
+						{ text: 'Button', link: '/components/button' },
+						{ text: 'Checkbox', link: '/components/checkbox' },
+						{ text: 'Icon', link: '/components/icon' },
+						{ text: 'Radio', link: '/components/radio' },
+						{ text: 'TextInput', link: '/components/text-input' }
+					]
+				},
+				{
+					text: 'Icons',
+					children: [
+						{ text: 'Overview', link: '/icons/overview' },
+						{ text: 'Icon directory', link: '/icons/directory' },
+						{ text: 'Adding new icons', link: '/icons/adding-new' }
+					]
+				},
+				{
 					text: 'Design Tokens',
 					children: [
 						{ text: 'Overview', link: '/design-tokens/overview' },
@@ -46,24 +64,6 @@ module.exports = {
 						{ text: 'Transition', link: '/design-tokens/transition' },
 						{ text: 'Viewport', link: '/design-tokens/viewport' },
 						{ text: 'Z-Index', link: '/design-tokens/z-index' }
-					]
-				},
-				{
-					text: 'Components',
-					children: [
-						{ text: 'Button', link: '/components/button' },
-						{ text: 'Checkbox', link: '/components/checkbox' },
-						{ text: 'Icon', link: '/components/icon' },
-						{ text: 'Radio', link: '/components/radio' },
-						{ text: 'TextInput', link: '/components/text-input' }
-					]
-				},
-				{
-					text: 'Icons',
-					children: [
-						{ text: 'Overview', link: '/icons/overview' },
-						{ text: 'Icon directory', link: '/icons/directory' },
-						{ text: 'Adding new icons', link: '/icons/adding-new' }
 					]
 				},
 				{
