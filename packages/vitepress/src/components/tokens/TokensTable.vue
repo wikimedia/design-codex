@@ -115,6 +115,7 @@ export default defineComponent( {
 .vp-tokens-table {
 	// Undo VitePress style.
 	display: table;
+	width: @size-full;
 
 	// Undo GitHub-table-style alternate row striping.
 	tr:nth-child( 2n ) {
