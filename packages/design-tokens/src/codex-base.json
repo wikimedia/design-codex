@@ -236,6 +236,11 @@
 			"value": "{ size.relative.em.200.value }"
 		}
 	},
+	"border": {
+		"base": {
+			"value": "{ border-width.base.value } { border-style.base.value } { border-color.base.value }"
+		}
+	},
 	"border-width": {
 		"base": {
 			"value": "{ size.absolute.6.value }"
