@@ -239,6 +239,23 @@
 				"comment": "TODO: How to fit this best-possible in? Similar to 1px above",
 				"value": "9999px"
 			}
+		},
+		"viewport": {
+			"32": {
+				"value": "320px"
+			},
+			"72": {
+				"value": "720px"
+			},
+			"100": {
+				"value": "1000px"
+			},
+			"120": {
+				"value": "1200px"
+			},
+			"200": {
+				"value": "2000px"
+			}
 		}
 	},
 	"max-width": {
@@ -316,23 +333,6 @@
 		},
 		"100": {
 			"value": "1.6"
-		}
-	},
-	"viewport": {
-		"32": {
-			"value": "320px"
-		},
-		"72": {
-			"value": "720px"
-		},
-		"100": {
-			"value": "1000px"
-		},
-		"120": {
-			"value": "1200px"
-		},
-		"200": {
-			"value": "2000px"
 		}
 	},
 	"transition-duration": {

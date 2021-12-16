@@ -65,7 +65,6 @@ module.exports = {
 						{ text: 'Spacing', link: '/design-tokens/spacing' },
 						{ text: 'Position', link: '/design-tokens/position' },
 						{ text: 'Transition', link: '/design-tokens/transition' },
-						{ text: 'Viewport', link: '/design-tokens/viewport' },
 						{ text: 'Z-Index', link: '/design-tokens/z-index' }
 					]
 				},

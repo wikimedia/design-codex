@@ -171,6 +171,31 @@
 			"value": "{ size.relative.percentage.100 }"
 		}
 	},
+	"min-width": {
+		"breakpoint": {
+			"comment": "Breakpoints. The following numbers are prone to change with new information.",
+			"mobile": {
+				"comment": "Minimum available screen width at which a device can be considered a mobile device. Many older feature phones have screens smaller than this value.",
+				"value": "{ size.viewport.32 }"
+			},
+			"tablet": {
+				"comment": "Minimum available screen width at which a device can be considered a tablet.",
+				"value": "{ size.viewport.72 }"
+			},
+			"desktop": {
+				"comment": "Minimum available screen width at which a device can be considered a desktop.",
+				"value": "{ size.viewport.100 }"
+			},
+			"desktop-wide": {
+				"comment": "Wider desktop breakpoint.",
+				"value": "{ size.viewport.120 }"
+			},
+			"desktop-extrawide": {
+				"comment": "Extra wide desktop breakpoint.",
+				"value": "{ size.viewport.200 }"
+			}
+		}
+	},
 	"max-width": {
 		"base": {
 			"value": "{ max-width.100 }"

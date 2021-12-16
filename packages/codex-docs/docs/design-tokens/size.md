@@ -42,3 +42,11 @@ import tokens from '@wikimedia/codex-tokens/dist/index.json';
 	token-demo="SizeDemo"
 	css-property="height"
 />
+
+## Min-width
+
+<TokensTable
+	:tokens="tokens['min-width']"
+	token-demo="SizeDemo"
+	css-property="width"
+/>
