@@ -13,7 +13,8 @@ export interface MenuOption {
 	value: string | number,
 	disabled?: boolean,
 	label?: string,
-	icon?: Icon
+	icon?: Icon,
+	description?: string
 }
 export interface MenuOptionWithId extends MenuOption {
 	id: string

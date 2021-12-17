@@ -1,6 +1,7 @@
 import CdxButton from './components/button/Button.vue';
 import CdxCheckbox from './components/checkbox/Checkbox.vue';
 import CdxIcon from './components/icon/Icon.vue';
+import CdxLookup from './components/lookup/Lookup.vue';
 import CdxRadio from './components/radio/Radio.vue';
 import CdxSelect from './components/select/Select.vue';
 import CdxOption from './components/option/Option.vue';
@@ -14,6 +15,7 @@ export {
 	CdxButton,
 	CdxCheckbox,
 	CdxIcon,
+	CdxLookup,
 	CdxRadio,
 	CdxSelect,
 	CdxOption,

@@ -33,6 +33,7 @@ module.exports = {
 						{ text: 'Button', link: '/components/button' },
 						{ text: 'Checkbox', link: '/components/checkbox' },
 						{ text: 'Icon', link: '/components/icon' },
+						{ text: 'Lookup', link: '/components/lookup' },
 						{ text: 'Radio', link: '/components/radio' },
 						{ text: 'Select', link: '/components/select' },
 						{ text: 'TextInput', link: '/components/text-input' },

@@ -9,7 +9,7 @@ describe( 'matches the snapshot', () => {
 		msg: string,
 		props: {
 			modelValue?: string | number,
-			type?: TextInputType,
+			inputType?: TextInputType,
 			disabled?: boolean,
 			startIcon?: Icon,
 			endIcon?: Icon,
@@ -21,7 +21,7 @@ describe( 'matches the snapshot', () => {
 	const cases: Case[] = [
 		...TextInputTypes.map( ( type ) => [
 			`Input type: ${type} `,
-			{ type }
+			{ inputType: type }
 		] ) as Case[],
 		[ 'Disabled', { disabled: true } ],
 		[ 'With start icon', { startIcon: cdxIconSearch } ],

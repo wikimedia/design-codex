@@ -204,6 +204,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) 'wikimedia-ui-base/wikimedia-ui-base.less';
 @import './../../themes/mixins/menu-icon.less';
+@import './../../themes/mixins/options-menu.less';
 
 .cdx-select {
 	display: inline-block;
@@ -263,17 +264,7 @@ export default defineComponent( {
 	}
 
 	&__menu {
-		background-color: @background-color-base;
-		position: absolute;
-		left: 0;
-		z-index: 4;
-		box-sizing: border-box;
-		width: @size-full;
-		margin: 0;
-		margin-top: -@border-width-base;
-		border: @border-base;
-		border-radius: 0 0 @border-radius-base @border-radius-base;
-		padding: 0;
+		.cdx-options-menu();
 	}
 
 	&--expanded {

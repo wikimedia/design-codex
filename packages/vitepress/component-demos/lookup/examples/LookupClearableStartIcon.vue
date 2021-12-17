@@ -1,0 +1,43 @@
+<template>
+	<div>
+		<CdxLookup
+			v-model="selection"
+			:options="menuOptions"
+			:clearable="true"
+			:start-icon="cdxIconSearch"
+			@update:input-value="onInput"
+		/>
+	</div>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+import { CdxLookup } from 'vue-components/src/lib';
+import { MenuOption } from 'vue-components/src/types';
+import { cdxIconSearch } from 'icons';
+import vegetableItems from './data';
+
+export default defineComponent( {
+	name: 'LookupClearableStartIcon',
+	components: { CdxLookup },
+	setup() {
+		const selection = ref( '' );
+		const menuOptions = ref<MenuOption[]>( [] );
+
+		function onInput( value: string ) {
+			if ( value ) {
+				menuOptions.value = vegetableItems.filter( ( item ) =>
+					item.label.includes( value )
+				);
+			}
+		}
+
+		return {
+			selection,
+			menuOptions,
+			onInput,
+			cdxIconSearch
+		};
+	}
+} );
+</script>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 Input type: text : ({"type": "text"}) => HTML 1`] = `
+exports[`matches the snapshot Case 0 Input type: text : ({"inputType": "text"}) => HTML 1`] = `
 <div
   class="cdx-text-input"
 >
@@ -13,7 +13,7 @@ exports[`matches the snapshot Case 0 Input type: text : ({"type": "text"}) => HT
 </div>
 `;
 
-exports[`matches the snapshot Case 1 Input type: search : ({"type": "search"}) => HTML 1`] = `
+exports[`matches the snapshot Case 1 Input type: search : ({"inputType": "search"}) => HTML 1`] = `
 <div
   class="cdx-text-input"
 >

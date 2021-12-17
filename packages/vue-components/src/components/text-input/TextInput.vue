@@ -8,7 +8,7 @@
 			v-model="wrappedModel"
 			class="cdx-text-input__input"
 			v-bind="otherAttrs"
-			:type="type"
+			:type="inputType"
 			:disabled="disabled"
 			@input="onInput"
 			@change="onChange"
@@ -67,7 +67,7 @@ export default defineComponent( {
 		 *
 		 * @values 'text', 'search'
 		 */
-		type: {
+		inputType: {
 			type: String as PropType<TextInputType>,
 			default: 'text',
 			validator: textInputTypeValidator
