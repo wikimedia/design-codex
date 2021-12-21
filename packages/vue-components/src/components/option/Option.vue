@@ -173,8 +173,12 @@ export default defineComponent( {
 		color: @color-primary;
 	}
 
-	&--disabled {
+	&--disabled,
+	&--disabled .cdx-icon {
 		color: @color-base--disabled;
+	}
+
+	&--disabled {
 		cursor: @cursor-base--disabled;
 	}
 }
