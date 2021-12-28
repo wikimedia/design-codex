@@ -961,6 +961,25 @@ export const cdxIconUserTalk: IconFlipForRtl = {
 	shouldFlip: true
 };
 
+import svgVolumeDown from './images/volumeDown.svg';
+export const cdxIconVolumeDown: IconFlipForRtl = {
+	ltr: svgVolumeDown,
+	shouldFlip: true
+};
+
+import svgVolumeOffLtr from './images/volumeOff-ltr.svg';
+import svgVolumeOffRtl from './images/volumeOff-rtl.svg';
+export const cdxIconVolumeOff: IconVariedByDir = {
+	ltr: svgVolumeOffLtr,
+	rtl: svgVolumeOffRtl
+};
+
+import svgVolumeUp from './images/volumeUp.svg';
+export const cdxIconVolumeUp: IconFlipForRtl = {
+	ltr: svgVolumeUp,
+	shouldFlip: true
+};
+
 import svgViewCompact from './images/viewCompact.svg';
 export const cdxIconViewCompact = svgViewCompact;
 
