@@ -992,6 +992,12 @@ export const cdxIconViewDetails: IconFlipForRtl = {
 import svgVisionSimulator from './images/visionSimulator.svg';
 export const cdxIconVisionSimulator = svgVisionSimulator;
 
+import svgWatchlist from './images/watchlist.svg';
+export const cdxIconWatchlist: IconFlipForRtl = {
+	ltr: svgWatchlist,
+	shouldFlip: true
+};
+
 import svgWikiText from './images/wikiText.svg';
 export const cdxIconWikiText = svgWikiText;
 
