@@ -5,6 +5,16 @@
 		</header>
 
 		<main class="sandbox-main">
+			<h2>Combobox</h2>
+			<cdx-combobox
+				v-model="selection"
+				:options="options"
+				placeholder="Type or choose an option"
+				:disabled="false"
+				:clearable="true"
+			/>
+			<p>Selected value: {{ selection || '(none)' }}</p>
+
 			<h2>Select</h2>
 			<cdx-select
 				v-model="selection"
@@ -87,7 +97,7 @@
 </template>
 
 <script lang="ts" setup>
-import { CdxButton, CdxCheckbox, CdxIcon, CdxRadio, CdxSelect, CdxTextInput } from './lib';
+import { CdxButton, CdxCheckbox, CdxCombobox, CdxIcon, CdxRadio, CdxSelect, CdxTextInput } from './lib';
 import { cdxIconArrowNext, cdxIconBold, cdxIconTrash } from 'icons';
 import { ButtonActions, ButtonTypes } from './constants';
 import { MenuOption } from './types';

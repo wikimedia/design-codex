@@ -6,6 +6,7 @@
 		:class="rootClasses"
 		:aria-disabled="disabled"
 		:aria-selected="isSelected"
+		@mouseenter="onHover"
 		@mousedown.prevent="onMousedown"
 		@click="onClick"
 	>
@@ -98,6 +99,10 @@ export default defineComponent( {
 			emit( 'change', 'selected', thisOption.value );
 		};
 
+		const onHover = () => {
+			emit( 'change', 'highlighted', thisOption.value );
+		};
+
 		const isSelected = computed( () => {
 			return props.id === state.selected.value?.id;
 		} );
@@ -123,6 +128,7 @@ export default defineComponent( {
 		return {
 			onMousedown,
 			onClick,
+			onHover,
 			rootClasses,
 			isSelected
 		};

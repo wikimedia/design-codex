@@ -1,5 +1,6 @@
 import CdxButton from './components/button/Button.vue';
 import CdxCheckbox from './components/checkbox/Checkbox.vue';
+import CdxCombobox from './components/combobox/Combobox.vue';
 import CdxIcon from './components/icon/Icon.vue';
 import CdxLookup from './components/lookup/Lookup.vue';
 import CdxRadio from './components/radio/Radio.vue';
@@ -24,6 +25,7 @@ import type { Icon } from 'icons';
 export {
 	CdxButton,
 	CdxCheckbox,
+	CdxCombobox,
 	CdxIcon,
 	CdxLookup,
 	CdxRadio,

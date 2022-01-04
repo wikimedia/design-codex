@@ -5,6 +5,7 @@
 		:style="rootStyle"
 	>
 		<input
+			ref="input"
 			v-model="wrappedModel"
 			class="cdx-text-input__input"
 			v-bind="otherAttrs"
@@ -54,6 +55,9 @@ export default defineComponent( {
 	 * We want the input to inherit attributes, not the root element.
 	 */
 	inheritAttrs: false,
+
+	expose: [ 'focus' ],
+
 	props: {
 		/**
 		 * Value provided by v-model binding in the parent component.
@@ -200,6 +204,18 @@ export default defineComponent( {
 			onFocus,
 			onBlur
 		};
+	},
+
+	methods: {
+		/**
+		 * Focus the component's input element.
+		 *
+		 * @public
+		 */
+		focus(): void {
+			const input = this.$refs.input as HTMLInputElement;
+			input.focus();
+		}
 	}
 } );
 </script>

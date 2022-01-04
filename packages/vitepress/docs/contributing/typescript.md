@@ -90,6 +90,12 @@ possibly undefined`.
 
 See also the Vue documentation on [typing template refs in the composition API](https://v3.vuejs.org/guide/typescript-support.html#typing-template-refs).
 
+::: tip Accessing public component instance methods
+If you are calling a method like "focus" that is defined inside another
+component, that method should be defined and exposed using the Options API;
+otherwise the TS compiler may complain and throw errors.
+:::
+
 ## String types
 Some components have props that take only certain predefined string values. For example, the Button
 component has a `action` prop that can be one of `'default'`, `'progressive'` or `'destructive'`.

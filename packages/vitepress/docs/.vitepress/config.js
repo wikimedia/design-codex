@@ -32,6 +32,7 @@ module.exports = {
 					children: [
 						{ text: 'Button', link: '/components/button' },
 						{ text: 'Checkbox', link: '/components/checkbox' },
+						{ text: 'Combobox', link: '/components/combobox' },
 						{ text: 'Icon', link: '/components/icon' },
 						{ text: 'Lookup', link: '/components/lookup' },
 						{ text: 'Radio', link: '/components/radio' },
