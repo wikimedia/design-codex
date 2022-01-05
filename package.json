@@ -27,7 +27,7 @@
 		"node": ">=12"
 	},
 	"scripts": {
-		"dev": "npm run build-if-missing -w icons && npm run dev -w vue-components",
+		"dev": "npm run build-if-missing -w icons && concurrently \"npm run watch -w design-tokens\" \"npm run dev -w vue-components\"",
 		"doc": "npm run build-if-missing -w icons && npm run build -w design-tokens && npm run build -w vitepress",
 		"doc:dev": "npm run build-if-missing -w icons  && concurrently \"npm run watch -w design-tokens\" \"npm run dev -w vitepress\"",
 		"lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint --workspaces --if-present",
