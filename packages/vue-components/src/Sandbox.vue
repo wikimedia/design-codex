@@ -49,91 +49,36 @@
 			<table>
 				<thead>
 					<tr>
+						<th />
 						<th>Normal</th>
 						<th>Primary</th>
 						<th>Quiet</th>
-						<th>null</th>
+						<th>undefined</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for="(buttonAction, actionIndex) in ButtonActions"
-						:key="`action-${actionIndex}`">
-						<td v-for="(buttonType, typeIndex) in ButtonTypes"
-							:key="`type-${typeIndex}`">
-							<cdx-button
-								:type="buttonType"
-								:action="buttonAction"
-								@click="onClick">
-								<cdx-icon :icon="cdxIconTrash" />
-								Button
-							</cdx-button>
-							<br><br>
-							<cdx-button
-								disabled
-								:type="buttonType"
-								:action="buttonAction"
-								@click="onClick">
-								<cdx-icon :icon="cdxIconTrash" />
-								Button
-							</cdx-button>
-						</td>
-
-						<!-- No type provided -->
-						<td>
-							<cdx-button
-								:action="buttonAction"
-								@click="onClick">
-								<cdx-icon :icon="cdxIconTrash" />
-								Button
-							</cdx-button>
-							<br><br>
-							<cdx-button
-								disabled
-								:action="buttonAction"
-								@click="onClick">
-								<cdx-icon :icon="cdxIconTrash" />
-								Button
-							</cdx-button>
-						</td>
-					</tr>
-
-					<!-- No action provided -->
-					<tr>
-						<td v-for="(buttonType, typeIndex) in ButtonTypes"
-							:key="`type-${typeIndex}`">
-							<cdx-button
-								:type="buttonType"
-								@click="onClick">
-								<cdx-icon :icon="cdxIconTrash" />
-								Button
-							</cdx-button>
-							<br><br>
-							<cdx-button
-								disabled
-								:type="buttonType"
-								@click="onClick"
-							>
-								<cdx-icon :icon="cdxIconTrash" />
-								Button
-							</cdx-button>
-						</td>
-
-						<!-- No action or type provided -->
-						<td>
-							<cdx-button
-								@click="onClick">
-								<cdx-icon :icon="cdxIconTrash" />
-								Button
-							</cdx-button>
-							<br><br>
-							<cdx-button
-								disabled
-								@click="onClick">
-								<cdx-icon :icon="cdxIconTrash" />
-								Button
-							</cdx-button>
-						</td>
-					</tr>
+					<template v-for="buttonAction in [ ...ButtonActions, undefined ]">
+						<tr
+							v-for="disabled in [ true, false ]"
+							:key="`action-${buttonAction}-${Number( disabled )}`"
+						>
+							<th>
+								{{ buttonAction || 'undefined' }}
+								{{ disabled ? ' disabled' : '' }}
+							</th>
+							<td v-for="buttonType in [ ...ButtonTypes, undefined ]"
+								:key="`type-${buttonType}`">
+								<cdx-button
+									:type="buttonType"
+									:action="buttonAction"
+									:disabled="disabled"
+									@click="onClick">
+									<cdx-icon :icon="cdxIconTrash" />
+									Button
+								</cdx-button>
+							</td>
+						</tr>
+					</template>
 				</tbody>
 			</table>
 		</main>
