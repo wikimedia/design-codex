@@ -8,7 +8,7 @@ TypeScript.
 
 When using [template refs](https://v3.vuejs.org/guide/component-template-refs.html) to access an
 HTML element or component, we need to tell TypeScript what the type of the element or component is.
-For example, we might have `<input ref="textInput">` and want to call `.focus()` on that input in
+For example, we might have `<input ref="searchInput">` and want to call `.focus()` on that input in
 one of your component's methods. We'll need to tell TypeScript that the ref is of the type
 `HTMLInputElement`, so that it can verify that `.focus()` exists and is being called with the right
 number and types of arguments.
@@ -22,8 +22,8 @@ interface is `HTMLPreElement`. For basic functionality, the generic `HTMLElement
 be used, but this is not recommended except in complex cases (e.g. when creating an array of
 HTML elements of different types).
 
-For components, use the name of the component, e.g. `CdxButton`. This is also the name of the
-variable that is imported from the `.vue` file and passed through in the `components:` option.
+For components, use `InstanceType<typeof ComponentName>`. For example, if the component is a
+`CdxTextInput`, use `InstanceType<typeof CdxTextInput>` as the type.
 
 ### Options API
 When using a template ref in a computed function or method in the options API, you have to add
@@ -33,15 +33,20 @@ methods: {
 	focusSearchInput() {
 		// This assumes the template contains <input ref="searchInput">
 		const searchInput = this.$refs.searchInput as HTMLInputElement;
+		// If it's a component, e.g. <CdxTextInput ref="otherSearchInput">, use:
+		const otherSearchInput = this.$refs.otherSearchInput as InstanceType<typeof CdxTextInput>;
+
 		searchInput.focus();
 
 		// Alternatively, you can inline the type assertion:
 		( this.$refs.searchInput as HTMLInputElement ).focus();
+		// or, for components:
+		( this.$refs.otherSearchInput as InstanceType<typeof CdxTextInput> ).focus();
 	}
 }
 ```
-If you don't include the `as HTMLInputElement` assertion, you will get a TypeScript error like
-`Object is of type 'unknown'`.
+If you don't include the `as HTMLInputElement` or `as InstanceType<typeof CdxTextInput>` assertion,
+you will get a TypeScript error like `Object is of type 'unknown'`.
 
 ### Composition API
 When using the composition API, you have to define the type when you create the template ref.
@@ -49,9 +54,11 @@ When you use it, you won't need to use a type assertion, but you will need to us
 (the [non-null assertion operator](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-))
 to tell TypeScript that the value of the template ref can't be undefined.
 ```typescript
-setup( props, { emits } ) {
+setup( props, context ) {
 	// This assumes the template contains <input ref="searchInput">
 	const searchInput = ref<HTMLInputElement>();
+	// If it's a component, e.g. <CdxTextInput ref="otherSearchInput">, use:
+	const otherSearchInput = ref<InstanceType<typeof CdxTextInput>>();
 
 	const focusSearchInput = () => {
 		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -80,6 +87,8 @@ function itself, because the `.value` property will still be undefined at that t
 
 If you don't use a `!` when accessing `searchInput.value`, you will get an error like `Object is
 possibly undefined`.
+
+See also the Vue documentation on [typing template refs in the composition API](https://v3.vuejs.org/guide/typescript-support.html#typing-template-refs).
 
 ## String types
 Some components have props that take only certain predefined string values. For example, the Button
