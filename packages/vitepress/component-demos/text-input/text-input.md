@@ -8,6 +8,11 @@ import TextInputEndIcon from './../../component-demos/text-input/examples/TextIn
 import './../../component-demos/text-input/text-input.css';
 </script>
 
+::: tip Attributes passed to input
+This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
+element within the component.
+:::
+
 ## Demos
 
 Open up the browser console to see events emitted on input, change, focus, and blur.

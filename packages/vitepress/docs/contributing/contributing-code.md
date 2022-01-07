@@ -183,6 +183,77 @@ Below are some sample styles for a component to demonstrate these conventions:
 </style>
 ```
 
+### Inheriting attributes
+
+By default, components will place any attributes bound to them on the root element of the
+component. Sometimes, though, we don't want this behavior. For example, for a component that
+contains an `<input>` element, we may want to bind most of the attributes to that `<input>` element
+rather than the root element.
+
+Some attributes, however, should always be bound to the root element in order to provide expected
+results for library users. This includes `class` and `style` attributes.
+
+::: warning
+Binding a `style` attribute to a component is highly discouraged as it could interfere with Design
+System consistency and negatively impact performance. Nonetheless, if one is provided, it will be
+bound to the root element of the component.
+:::
+
+To help achieve the desired behavior in components like this, we have a composable called
+`useSplitAttributes`. It provides the following:
+1. `rootClasses`: all CSS classes that should be bound to the root element, including those set via
+the `class` attribute on the component and those that are internal to the component, like dynamic
+and conditional classes
+2. `rootStyle`: the `style` attribute bound to the component, should one be provided
+2. `otherAttrs`: all other attributes, which can be bound to the desired child element
+
+Below is sample usage from the TextInput component:
+
+```vue
+<template>
+	<!-- Add rootClasses and rootStyle to the root element. -->
+	<div
+		class="cdx-text-input"
+		:class="rootClasses"
+		:style="rootStyle"
+	>
+		<!-- Bind otherAttrs to the input. -->
+		<input
+			v-bind="otherAttrs"
+		>
+	</div>
+</template>
+
+<script>
+	// Import the composable.
+	import useSplitAttributes from '../../composables/useSplitAttributes';
+
+	export default defineComponent( {
+		name: 'CdxTextInput',
+		// Set inheritAttrs to false.
+		inheritAttrs: false,
+		setup( props, context ) {
+			// Define dynamic classes internal to the component, in Vue's object
+			// syntax format.
+			const internalClasses = computed( () => {
+				return {
+					'cdx-text-input--has-start-icon': !!props.startIcon,
+					'cdx-text-input--has-end-icon': !!props.endIcon || props.clearable,
+					'cdx-text-input--clearable': isClearable.value
+				};
+			} );
+
+			// Get helpers from the composable.
+			const {
+				rootClasses,
+				rootStyle,
+				otherAttrs
+			} = useSplitAttributes( context.attrs, internalClasses );
+		}
+	} );
+</script>
+```
+
 ### Unit tests
 
 ::: tip TL;DR

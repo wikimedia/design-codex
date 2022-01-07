@@ -2,12 +2,13 @@
 	<div
 		class="cdx-text-input"
 		:class="rootClasses"
+		:style="rootStyle"
 	>
 		<input
 			ref="input"
 			v-model="wrappedModel"
 			class="cdx-text-input__input"
-			v-bind="$attrs"
+			v-bind="otherAttrs"
 			:type="type"
 			:disabled="disabled"
 			@input="onInput"
@@ -37,6 +38,7 @@ import { TextInputTypes } from '../../constants';
 import { TextInputType } from '../../types';
 import { makeStringTypeValidator } from '../../utils';
 import useModelWrapper from '../../composables/useModelWrapper';
+import useSplitAttributes from '../../composables/useSplitAttributes';
 
 const textInputTypeValidator = makeStringTypeValidator( TextInputTypes );
 
@@ -45,9 +47,6 @@ const textInputTypeValidator = makeStringTypeValidator( TextInputTypes );
  *
  * `v-model` is used to track the current value of the input. See the events docs for details on
  * emitted events and their properties.
- *
- * All attributes bound to this component will be passed down to the `<input>` element within the
- * component.
  */
 export default defineComponent( {
 	name: 'CdxTextInput',
@@ -138,11 +137,42 @@ export default defineComponent( {
 		 */
 		'blur'
 	],
-	setup( props, { emit } ) {
+	setup( props, { emit, attrs } ) {
 		// Take the modelValue provided by the parent component via v-model and
 		// generate a wrapped model that we can use for the input element in
 		// this component.
 		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
+
+		const isClearable = computed( () => {
+			return props.clearable && !!wrappedModel.value && !props.disabled;
+		} );
+
+		const internalClasses = computed( () => {
+			return {
+				'cdx-text-input--has-start-icon': !!props.startIcon,
+				'cdx-text-input--has-end-icon': !!props.endIcon || props.clearable,
+				'cdx-text-input--clearable': isClearable.value
+			};
+		} );
+
+		// Get helpers from useSplitAttributes.
+		const {
+			rootClasses,
+			rootStyle,
+			otherAttrs
+		} = useSplitAttributes( attrs, internalClasses );
+
+		const computedEndIcon = computed( () => {
+			// This method is only called either when isClearable is true or when there is an
+			// endIcon, so we know endIcon will never be undefined at this point in the logic.
+			return isClearable.value ? cdxIconClear : ( props.endIcon as Icon );
+		} );
+
+		const onEndIconClick = () => {
+			if ( isClearable.value ) {
+				wrappedModel.value = '';
+			}
+		};
 
 		// Emit other events to the parent in case they're needed.
 		const onInput = ( event: InputEvent ) => {
@@ -158,40 +188,18 @@ export default defineComponent( {
 			emit( 'blur', event );
 		};
 
-		const isClearable = computed( () => {
-			return props.clearable && !!wrappedModel.value && !props.disabled;
-		} );
-
-		const rootClasses = computed( () => {
-			return {
-				'cdx-text-input--has-start-icon': !!props.startIcon,
-				'cdx-text-input--has-end-icon': !!props.endIcon || props.clearable,
-				'cdx-text-input--clearable': isClearable.value
-			};
-		} );
-
-		const computedEndIcon = computed( () => {
-			// This method is only called either when isClearable is true or when there is an
-			// endIcon, so we know endIcon will never be undefined at this point in the logic.
-			return isClearable.value ? cdxIconClear : ( props.endIcon as Icon );
-		} );
-
-		const onEndIconClick = () => {
-			if ( isClearable.value ) {
-				wrappedModel.value = '';
-			}
-		};
-
 		return {
 			wrappedModel,
+			isClearable,
+			rootClasses,
+			rootStyle,
+			otherAttrs,
+			computedEndIcon,
+			onEndIconClick,
 			onInput,
 			onChange,
 			onFocus,
 			onBlur,
-			isClearable,
-			rootClasses,
-			computedEndIcon,
-			onEndIconClick,
 			cdxIconClear
 		};
 	}
