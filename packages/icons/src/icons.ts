@@ -301,6 +301,10 @@ export const cdxIconHalfStar: IconFlipForRtl = {
 	ltr: svgHalfStar,
 	shouldFlip: true
 };
+
+import svgHand from './images/hand.svg';
+export const cdxIconHand = svgHand;
+
 import svgHeart from './images/heart.svg';
 export const cdxIconHeart = svgHeart;
 
@@ -771,9 +775,6 @@ export const cdxIconStar = svgStar;
 
 import svgStop from './images/stop.svg';
 export const cdxIconStop = svgStop;
-
-import svgStopHand from './images/stopHand.svg';
-export const cdxIconStopHand = svgStopHand;
 
 import svgStrikethroughA from './images/strikethrough-a.svg';
 import svgStrikethroughS from './images/strikethrough-s.svg';
