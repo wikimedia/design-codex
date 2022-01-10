@@ -4,7 +4,7 @@ import ButtonWithIcon from './../../component-demos/icon/examples/ButtonWithIcon
 </script>
 
 See the [Icons section](../icons/overview.md) for more information, including a
-[list of all available icons](../icons/directory.md).
+[list of all available icons](../icons/all-icons.md).
 
 ## Demos
 

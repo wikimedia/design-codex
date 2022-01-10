@@ -13,8 +13,8 @@ const numberOfIcons = Object.keys( allIcons )
 # Icons
 
 Codex contains a collection of {{ numberOfIcons }} icons that can be used to convey actions
-or other information visually. For a full list of available icons, see the
-[icon directory](./directory.md).
+or other information visually. See [all icons](./all-icons.md) a full list of available icons per
+directionality and language.
 
 ## How to use icons
 

@@ -42,7 +42,7 @@ module.exports = {
 					text: 'Icons',
 					children: [
 						{ text: 'Overview', link: '/icons/overview' },
-						{ text: 'Icon directory', link: '/icons/directory' },
+						{ text: 'List of all icons', link: '/icons/all-icons' },
 						{ text: 'Adding new icons', link: '/icons/adding-new' }
 					]
 				},
