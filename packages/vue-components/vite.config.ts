@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
 import path from 'path';
+import rtlCss from './vite-plugin-rtl-css';
 
 // https://vitejs.dev/config/
 export default defineConfig( {
@@ -31,6 +32,7 @@ export default defineConfig( {
 			insertTypesEntry: true,
 			logDiagnostics: true,
 			noEmitOnError: true
-		} )
+		} ),
+		rtlCss()
 	]
 } );

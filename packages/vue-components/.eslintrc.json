@@ -21,7 +21,10 @@
 				"wikimedia/server"
 			],
 			"rules": {
-				"strict": "off"
+				"strict": "off",
+				"node/no-missing-import": [ "error", {
+					"tryExtensions": [ ".js", ".ts" ]
+				} ]
 			}
 		},
 		{
