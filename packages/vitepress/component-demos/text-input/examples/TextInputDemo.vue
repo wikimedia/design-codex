@@ -7,7 +7,7 @@
 			v-model="inputValue"
 			v-bind="inputProps"
 			:placeholder="placeholder"
-			@update:modelValue="onEvent( 'update:modelValue', $event )"
+			@update:model-value="onEvent( 'update:modelValue', $event )"
 			@input="onEvent( 'input', $event )"
 			@change="onEvent( 'change', $event )"
 			@focus="onEvent( 'focus', $event )"

@@ -26,14 +26,13 @@
 			"files": [ "**/*.vue" ],
 			"parser": "vue-eslint-parser",
 			"extends": [
-				"wikimedia/vue-common",
+				"wikimedia/vue3-common",
 				"wikimedia/client-common"
 			],
 			"rules": {
 				"vue/no-unsupported-features": [ "error", {
 					"version": "^3.2.19"
-				} ],
-				"vue/no-boolean-default": [ "error", "default-false" ]
+				} ]
 			}
 		},
 		{

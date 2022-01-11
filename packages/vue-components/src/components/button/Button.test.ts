@@ -8,13 +8,11 @@ describe( 'matches the snapshot', () => {
 
 	const cases: Case[] = [
 		[ 'No props and no slot', {}, '' ],
-		// eslint-disable-next-line es/no-object-values
 		...( Object.values( ButtonActions ).map( ( action ) : Case => [
 			`${action} action`,
 			{ action },
 			''
 		] ) ),
-		// eslint-disable-next-line es/no-object-values
 		...( Object.values( ButtonTypes ).map( ( type ) : Case => [
 			`${type} type`,
 			{ type },

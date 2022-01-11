@@ -92,6 +92,8 @@ import CdxTextInput from 'vue-components/src/components/text-input/TextInput.vue
  * with the control name and its new value up to the Wrapper.
  */
 export default defineComponent( {
+	// TODO: rename this to something multi-word and more descriptive.
+	// eslint-disable-next-line vue/multi-word-component-names
 	name: 'Controls',
 	components: { CdxRadio, CdxTextInput },
 	props: {

@@ -66,7 +66,8 @@
 								{{ buttonAction || 'undefined' }}
 								{{ disabled ? ' disabled' : '' }}
 							</th>
-							<td v-for="buttonType in [ ...ButtonTypes, undefined ]"
+							<td
+								v-for="buttonType in [ ...ButtonTypes, undefined ]"
 								:key="`type-${buttonType}`">
 								<cdx-button
 									:type="buttonType"

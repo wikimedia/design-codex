@@ -44,7 +44,7 @@
 			role="listbox"
 		>
 			<CdxOption
-				v-for="(option, index) in computedOptions"
+				v-for="( option, index ) in computedOptions"
 				v-bind="option"
 				:key="index"
 				@change="handleOptionChange"
@@ -186,7 +186,6 @@ export default defineComponent( {
 			handle,
 			handleId,
 			menuId,
-			modelWrapper,
 			computedOptions,
 			state,
 			expanded,

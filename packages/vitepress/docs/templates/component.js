@@ -12,7 +12,7 @@ module.exports = function component(
 	const { author, since, version } = tags || {};
 
 	const frontMatter = [ 'sidebarDepth: 3' ];
-	const componentName = displayName.substring( 3 );
+	const componentName = displayName.slice( 3 );
 
 	return `
 ${`---

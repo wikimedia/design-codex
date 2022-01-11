@@ -2,13 +2,16 @@
 	"overrides": [
 		{
 			"files": [ "src/**" ],
+			"excludedFiles": "src/**/*.test.[jt]s",
 			"extends": [
-				"wikimedia/client-es6"
+				"wikimedia/client-common",
+				"wikimedia/vue3-es6"
 			],
 			"rules": {
 				"vue/no-unsupported-features": [ "error", {
 					"version": "^3.2.19"
-				} ]
+				} ],
+				"unicorn/prefer-includes": "off"
 			}
 		},
 		{

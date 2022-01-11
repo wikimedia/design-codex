@@ -149,9 +149,10 @@ export default function useMenu(
 
 		// Start at the currently highlighted index if there is one, otherwise, start past the end
 		// of the list so we can begin with the last item on the list.
-		const index = highlightedOptionIndex.value ?? computedOptions.value.length;
+		const highlightedIndex = highlightedOptionIndex.value ?? computedOptions.value.length;
 		// Find the previous index, if there is one. Otherwise, start at the end.
-		const prev = findPrevEnabled( index ) || findPrevEnabled( computedOptions.value.length );
+		const prev = findPrevEnabled( highlightedIndex ) ||
+			findPrevEnabled( computedOptions.value.length );
 
 		if ( prev ) {
 			handleOptionChange( 'highlighted', prev );
@@ -166,9 +167,9 @@ export default function useMenu(
 			computedOptions.value.find( ( item, index ) => !item.disabled && index > startIndex );
 
 		// Start at the currently highlighted index if there is one, otherwise, start at -1.
-		const index = highlightedOptionIndex.value ?? -1;
+		const highlightedIndex = highlightedOptionIndex.value ?? -1;
 		// Find the next index, if there is one, otherwise find the first item so we can loop back.
-		const next = findNextEnabled( index ) || findNextEnabled( -1 );
+		const next = findNextEnabled( highlightedIndex ) || findNextEnabled( -1 );
 
 		if ( next ) {
 			handleOptionChange( 'highlighted', next );

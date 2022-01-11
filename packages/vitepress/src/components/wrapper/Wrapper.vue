@@ -46,6 +46,8 @@ import CdxButton from 'vue-components/src/components/button/Button.vue';
  *  - Optional controls for configurable demos
  */
 export default defineComponent( {
+	// TODO: rename this to something multi-word and more descriptive.
+	// eslint-disable-next-line vue/multi-word-component-names
 	name: 'Wrapper',
 	components: { Controls, CdxButton },
 	props: {

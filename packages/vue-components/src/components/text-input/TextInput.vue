@@ -5,7 +5,6 @@
 		:style="rootStyle"
 	>
 		<input
-			ref="input"
 			v-model="wrappedModel"
 			class="cdx-text-input__input"
 			v-bind="otherAttrs"
@@ -199,8 +198,7 @@ export default defineComponent( {
 			onInput,
 			onChange,
 			onFocus,
-			onBlur,
-			cdxIconClear
+			onBlur
 		};
 	}
 } );

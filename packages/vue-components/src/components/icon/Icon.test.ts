@@ -85,7 +85,6 @@ describe( 'computes dir and lang based on its ancestors', () => {
 		const iconWrapper = mount( CdxIcon, { props: { ...props, icon: fakeIcon }, attachTo: '#attach' } );
 		await nextTick();
 		expect( iconWrapper.get( 'svg g' ).text() ).toBe( `FAKE ICON: language ${expectedLang}` );
-		// eslint-disable-next-line no-restricted-syntax
 		expect( iconWrapper.classes().includes( 'cdx-icon--flipped' ) ).toBe( expectedDir === 'rtl' );
 		document.body.removeChild( wrapperDiv );
 	} );

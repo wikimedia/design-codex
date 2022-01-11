@@ -3,7 +3,7 @@
 		<CdxSelect
 			v-model="selection"
 			:options="options"
-			:default-label="'Choose an option'"
+			default-label="Choose an option"
 		>
 			<template #menuOption="{ option }">
 				<CdxIcon v-if="option.icon" :icon="option.icon" />
