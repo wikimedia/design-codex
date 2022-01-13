@@ -1,16 +1,15 @@
 <template>
-	<div class="vp-select-custom-option">
-		<cdx-select
-			v-model="selection"
-			:options="options"
-			default-label="Choose an option"
-		>
-			<template #menu-option="{ option }">
-				<cdx-icon v-if="option.icon" :icon="option.icon" />
-				<span>{{ option.label }}</span>
-			</template>
-		</cdx-select>
-	</div>
+	<cdx-select
+		v-model="selection"
+		class="vp-select-custom-option"
+		:options="options"
+		default-label="Choose an option"
+	>
+		<template #menu-option="{ option }">
+			<cdx-icon v-if="option.icon" :icon="option.icon" />
+			<span>{{ option.label }}</span>
+		</template>
+	</cdx-select>
 </template>
 
 <script lang="ts">
@@ -35,10 +34,8 @@ export default defineComponent( {
 } );
 </script>
 
-<style lang="less">
-.vp-select-custom-option {
-	.cdx-icon {
-		margin-right: 0.5em;
-	}
+<style scoped>
+.vp-select-custom-option .cdx-icon {
+	margin-right: 0.5em;
 }
 </style>

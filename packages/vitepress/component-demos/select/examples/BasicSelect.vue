@@ -1,11 +1,9 @@
 <template>
-	<div>
-		<cdx-select
-			v-model="selection"
-			:options="options"
-			default-label="Choose an option"
-		/>
-	</div>
+	<cdx-select
+		v-model="selection"
+		:options="options"
+		default-label="Choose an option"
+	/>
 </template>
 
 <script lang="ts">

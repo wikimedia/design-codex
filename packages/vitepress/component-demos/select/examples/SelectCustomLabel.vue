@@ -1,20 +1,18 @@
 <template>
-	<div>
-		<cdx-select
-			v-model="selection"
-			:options="options"
-			default-label="Choose an option"
-		>
-			<template #label="{ selectedOption, defaultLabel }">
-				<span v-if="selectedOption">
-					<span>You have selected: {{ selectedOption.label }}</span>
-				</span>
-				<span v-else>
-					{{ defaultLabel }}
-				</span>
-			</template>
-		</cdx-select>
-	</div>
+	<cdx-select
+		v-model="selection"
+		:options="options"
+		default-label="Choose an option"
+	>
+		<template #label="{ selectedOption, defaultLabel }">
+			<span v-if="selectedOption">
+				<span>You have selected: {{ selectedOption.label }}</span>
+			</span>
+			<span v-else>
+				{{ defaultLabel }}
+			</span>
+		</template>
+	</cdx-select>
 </template>
 
 <script lang="ts">

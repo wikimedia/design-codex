@@ -564,6 +564,12 @@ is how the configurable Button demo is set up:
 </Wrapper>
 ```
 
+#### Styling demo pages
+
+Styles for a single demo page should be placed inside a `<style>` block in the markdown file.
+
+Styles for example components should be scoped to ensure they only apply to that component.
+
 ### Working with browser tests
 
 TODO - possibly not needed if writing browser tests is a straightforward process

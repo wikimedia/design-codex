@@ -5,7 +5,6 @@ import TextInputDefault from './../../component-demos/text-input/examples/TextIn
 import TextInputInitialValue from './../../component-demos/text-input/examples/TextInputInitialValue.vue';
 import TextInputStartIcon from './../../component-demos/text-input/examples/TextInputStartIcon.vue';
 import TextInputEndIcon from './../../component-demos/text-input/examples/TextInputEndIcon.vue';
-import './../../component-demos/text-input/text-input.css';
 </script>
 
 ::: tip Attributes passed to input
@@ -136,3 +135,15 @@ To disable the input, add the `disabled` attribute.
 
 </template>
 </Wrapper>
+
+<style>
+.vp-wrapper .cdx-text-input {
+	max-width: 400px;
+	margin-bottom: 16px;
+}
+
+.vp-wrapper p {
+	margin: 0 0 16px 0;
+	font-weight: bold;
+}
+</style>
