@@ -5,7 +5,7 @@
 			:options="options"
 			default-label="Choose an option"
 		>
-			<template #menuOption="{ option }">
+			<template #menu-option="{ option }">
 				<CdxIcon v-if="option.icon" :icon="option.icon" />
 				<span>{{ option.label }}</span>
 			</template>

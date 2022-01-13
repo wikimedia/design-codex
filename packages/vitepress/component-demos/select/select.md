@@ -41,7 +41,7 @@ bindings for the `selectedOption` and the `defaultLabel`.
 
 ### With custom option display
 
-The `menuOption` scoped slot enables you to customize the display of each
+The `menu-option` scoped slot enables you to customize the display of each
 option, with a binding for the `option`.
 
 <Wrapper>

@@ -6,7 +6,7 @@
 			:options="menuOptions"
 			@update:input-value="onInput"
 		>
-			<template #menuOption="{ option }">
+			<template #menu-option="{ option }">
 				<p class="vp-lookup-custom-option__label">
 					{{ option.label || option.value }}
 				</p>

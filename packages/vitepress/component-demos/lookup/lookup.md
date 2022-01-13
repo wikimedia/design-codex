@@ -42,7 +42,7 @@ entity ID value.
 
 ### With custom option format
 
-The `menuOption` slot can be used to set up custom option content and formatting.
+The `menu-option` slot can be used to set up custom option content and formatting.
 
 <Wrapper>
 <template v-slot:demo>

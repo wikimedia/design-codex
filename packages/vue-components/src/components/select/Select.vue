@@ -53,7 +53,7 @@
 					@slot Display of an individual option in the menu
 					@binding {MenuOption} option The current option
 				-->
-				<slot name="menuOption" :option="option" />
+				<slot name="menu-option" :option="option" />
 			</CdxOption>
 		</ul>
 	</div>
