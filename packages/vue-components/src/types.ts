@@ -1,14 +1,18 @@
 import { ButtonActions, ButtonTypes, TextInputTypes, MenuStates } from './constants';
 import { Icon } from 'icons';
 
-export type StringTypeValidator<T extends string> = ( s: unknown ) => s is T;
+/** @public */
 export type ButtonAction = typeof ButtonActions[ number ];
+/** @public */
 export type ButtonType = typeof ButtonTypes[ number ];
 
+/** @public */
 export type HTMLDirection = 'ltr' | 'rtl';
+
+/** @public */
 export type TextInputType = typeof TextInputTypes[ number ];
 
-export type MenuState = typeof MenuStates[ number ];
+/** @public */
 export interface MenuOption {
 	value: string | number,
 	disabled?: boolean,
@@ -16,6 +20,10 @@ export interface MenuOption {
 	icon?: Icon,
 	description?: string
 }
+
 export interface MenuOptionWithId extends MenuOption {
 	id: string
 }
+export type MenuState = typeof MenuStates[ number ];
+
+export type StringTypeValidator<T extends string> = ( s: unknown ) => s is T;

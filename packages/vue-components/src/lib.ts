@@ -11,6 +11,16 @@ import useComputedDirection from './composables/useComputedDirection';
 import useComputedLanguage from './composables/useComputedLanguage';
 import useGeneratedId from './composables/useGeneratedId';
 
+import type {
+	ButtonAction,
+	ButtonType,
+	HTMLDirection,
+	TextInputType,
+	MenuOption,
+	MenuOptionWithId
+} from './types';
+import type { Icon } from 'icons';
+
 export {
 	CdxButton,
 	CdxCheckbox,
@@ -24,5 +34,14 @@ export {
 	useComputedDirection,
 	useComputedLanguage,
 	useModelWrapper,
-	useGeneratedId
+	useGeneratedId,
+
+	ButtonAction,
+	ButtonType,
+	HTMLDirection,
+	TextInputType,
+	MenuOption,
+	MenuOptionWithId,
+
+	Icon
 };
