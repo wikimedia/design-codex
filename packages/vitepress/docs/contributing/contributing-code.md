@@ -131,6 +131,8 @@ There are two environments available for testing components during development:
 - Export all components in `src/lib.ts` to make them available to library users.
 - PascalCase multi-word component names are used per the Vue.js Style Guide. Component names should
 be prefixed with "Cdx," e.g. `CdxButton`
+- Slot names should be all lowercase. Use `kebab-case` for slot names with multiple words. This is
+necessary to ensure support for environments that use DOM templates, including MediaWiki.
 
 ### Writing styles
 

@@ -12,7 +12,7 @@
 		"npm": ">=7.14.0",
 		"node": ">=12"
 	},
-	"main": "dist/codex.cjs.js",
+	"main": "dist/codex.umd.js",
 	"module": "dist/codex.es.js",
 	"types": "./dist/index.d.ts",
 	"files": [

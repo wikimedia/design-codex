@@ -12,15 +12,18 @@ export default defineConfig( {
 		emptyOutDir: true,
 
 		lib: {
-			name: 'Codex',
+			name: 'codex',
 			entry: path.resolve( __dirname, 'src/lib.ts' ),
-			formats: [ 'es', 'cjs' ]
+			formats: [ 'es', 'umd' ]
 		},
 
 		rollupOptions: {
 			output: {
 				entryFileNames: 'codex.[format].js',
-				assetFileNames: 'codex.[name].[ext]'
+				assetFileNames: 'codex.[name].[ext]',
+				globals: {
+					vue: 'Vue'
+				}
 			},
 
 			external: [ 'vue' ]
