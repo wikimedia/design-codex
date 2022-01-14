@@ -5,7 +5,7 @@
 		<CdxLookup
 			v-model="selection"
 			:options="menuOptions"
-			@update:input-value="onInput"
+			@new-input="onInput"
 		/>
 	</div>
 </template>

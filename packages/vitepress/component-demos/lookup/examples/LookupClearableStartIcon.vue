@@ -5,7 +5,7 @@
 			:options="menuOptions"
 			:clearable="true"
 			:start-icon="cdxIconSearch"
-			@update:input-value="onInput"
+			@new-input="onInput"
 		/>
 	</div>
 </template>

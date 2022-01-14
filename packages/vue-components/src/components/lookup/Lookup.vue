@@ -14,7 +14,7 @@
 			:aria-expanded="expanded"
 			:aria-activedescendant="state.highlighted.value?.id"
 			:disabled="disabled"
-			@input="onInput"
+			@update:model-value="onUpdateInput"
 			@focus="onFocus"
 			@blur="onBlur"
 			@keydown.space.enter.up.down.tab.esc="onKeyNavigation"
@@ -72,7 +72,7 @@ import { MenuOption } from '../../types';
  * Menu component with a text input and a menu of options.
  *
  * Options will depend on the current value of the input. Typical use will
- * involve listening for `update:input-value` events, fetching or otherwise
+ * involve listening for `new-input` events, fetching or otherwise
  * computing options, then passing those options back to the Lookup for display.
  */
 export default defineComponent( {
@@ -134,7 +134,7 @@ export default defineComponent( {
 		 *
 		 * @property {string | number} value The new value
 		 */
-		'update:inputValue'
+		'new-input'
 	],
 
 	setup: ( props, context ) => {
@@ -173,15 +173,17 @@ export default defineComponent( {
 		} = useSplitAttributes( context.attrs, internalClasses );
 
 		/**
-		 * On input, set pending to true if there's  input, and emit the new value.
+		 * Handle TextInput model value changes.
 		 *
-		 * @param event
+		 * @param value
 		 */
-		function onInput( event: InputEvent ) {
-			if ( event.data ) {
+		function onUpdateInput( value: string|number ) {
+			// If there is a value, set pending to true.
+			if ( value || value === 0 ) {
 				pending.value = true;
 			}
-			context.emit( 'update:inputValue', inputValue.value );
+
+			context.emit( 'new-input', value );
 		}
 
 		/**
@@ -281,7 +283,7 @@ export default defineComponent( {
 			rootClasses,
 			rootStyle,
 			otherAttrs,
-			onInput,
+			onUpdateInput,
 			onFocus,
 			onKeyNavigation
 		};

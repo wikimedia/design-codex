@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { CdxLookup } from '../../lib';
+import { CdxLookup, CdxTextInput } from '../../lib';
 import { MenuOption } from '../../types';
 
 const data: {
@@ -65,7 +65,7 @@ describe( 'Basic usage', () => {
 	} );
 } );
 
-describe( 'Select', () => {
+describe( 'Lookup', () => {
 	it( 'Defaults to an empty array of options', () => {
 		const wrapper = mount( CdxLookup, { props: { modelValue: '' } } );
 		expect( wrapper.vm.options ).toEqual( [] );
@@ -73,14 +73,18 @@ describe( 'Select', () => {
 
 	it( 'Sets pending to true on input if there is input text', async () => {
 		const wrapper = mount( CdxLookup, { props: { modelValue: '' } } );
-		await wrapper.find( 'input' ).trigger( 'input', { data: 'a' } );
+		const textInputWrapper = wrapper.findComponent( CdxTextInput );
+		textInputWrapper.vm.$emit( 'update:modelValue', 'a' );
+		await nextTick();
 		// Note that we can't check the pending ref because it's not returned by setup.
 		expect( wrapper.find( '.cdx-lookup' ).classes() ).toContain( 'cdx-lookup--pending' );
 	} );
 
 	it( 'Does nothing on input if input is empty', async () => {
 		const wrapper = mount( CdxLookup, { props: { modelValue: '' } } );
-		await wrapper.find( 'input' ).trigger( 'input' );
+		const textInputWrapper = wrapper.findComponent( CdxTextInput );
+		textInputWrapper.vm.$emit( 'update:modelValue', '' );
+		await nextTick();
 		expect( wrapper.find( '.cdx-lookup' ).classes() ).not.toContain( 'cdx-lookup--pending' );
 	} );
 
@@ -147,7 +151,9 @@ describe( 'Select', () => {
 
 	it( 'Sets pending to false when options change', async () => {
 		const wrapper = mount( CdxLookup, { props: { modelValue: '' } } );
-		await wrapper.find( 'input' ).trigger( 'input', { data: 'a' } );
+		const textInputWrapper = wrapper.findComponent( CdxTextInput );
+		textInputWrapper.vm.$emit( 'update:modelValue', 'a' );
+		await nextTick();
 		expect( wrapper.find( '.cdx-lookup' ).classes() ).toContain( 'cdx-lookup--pending' );
 
 		await wrapper.setProps( { options: data } );
@@ -227,6 +233,22 @@ describe( 'Select', () => {
 		} );
 		await wrapper.setProps( { modelValue: '' } );
 		expect( wrapper.vm.inputValue ).toBe( '' );
+	} );
+
+	it( 'Emits new-input event when input is entered', () => {
+		const wrapper = mount( CdxLookup, { props: { modelValue: '' } } );
+		const textInputWrapper = wrapper.findComponent( CdxTextInput );
+		textInputWrapper.vm.$emit( 'update:modelValue', 'a' );
+		expect( wrapper.emitted( 'new-input' )?.[ 0 ] ).toEqual( [ 'a' ] );
+	} );
+
+	it( 'Emits new-input event when input is cleared via the clear button', () => {
+		const wrapper = mount( CdxLookup, {
+			props: { modelValue: '', initialInputValue: 'Option A', clearable: true }
+		} );
+		const clearButton = wrapper.find( '.cdx-text-input__end-icon' ).element as HTMLSpanElement;
+		clearButton.click();
+		expect( wrapper.emitted( 'new-input' )?.[ 0 ] ).toEqual( [ '' ] );
 	} );
 
 	it( 'Clears the selection if input value changes from selection label', async () => {

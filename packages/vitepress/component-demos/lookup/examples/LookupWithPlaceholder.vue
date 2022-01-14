@@ -4,7 +4,7 @@
 			v-model="selection"
 			:options="menuOptions"
 			placeholder="Start typing a vegetable name..."
-			@update:input-value="onInput"
+			@new-input="onInput"
 		/>
 	</div>
 </template>

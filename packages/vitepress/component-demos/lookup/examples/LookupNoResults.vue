@@ -3,7 +3,7 @@
 		<CdxLookup
 			v-model="selection"
 			:options="menuOptions"
-			@update:input-value="onInput"
+			@new-input="onInput"
 		>
 			<template v-if="noResults" #footer>
 				No results found.

@@ -4,7 +4,7 @@
 			v-model="selection"
 			class="vp-lookup-custom-option"
 			:options="menuOptions"
-			@update:input-value="onInput"
+			@new-input="onInput"
 		>
 			<template #menu-option="{ option }">
 				<p class="vp-lookup-custom-option__label">

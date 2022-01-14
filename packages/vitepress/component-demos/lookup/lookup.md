@@ -22,7 +22,7 @@ element within the component.
 
 ### Default
 
-The Lookup component will emit `update:inputValue` events on input, which the parent component can
+The Lookup component will emit `new-input` events on input, which the parent component can
 react to by computing or fetching options, then providing those options to the Lookup component for
 display.
 
@@ -74,7 +74,7 @@ example, a "no result found" message can be conditionally displayed.
 ### With fetched results
 
 Often, a Lookup component is used to fetch results from an API endpoint. Parent components can react
-to the `update:inputValue` event emitted by Lookup to search for results, then pass back to the
+to the `new-input` event emitted by Lookup to search for results, then pass back to the
 Lookup either an array of results to display as options or an empty array if there are no results.
 Between those two events, a pending state animation will display in the input.
 
