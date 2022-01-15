@@ -2,11 +2,11 @@
 	<div>
 		<p>Input value: {{ inputValue }}</p>
 
-		<CdxTextInput v-model="inputValue" />
+		<cdx-text-input v-model="inputValue" />
 
-		<CdxButton @click="resetInput">
+		<cdx-button @click="resetInput">
 			Reset
-		</CdxButton>
+		</cdx-button>
 	</div>
 </template>
 

@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<p>Checkbox value: {{ checkboxValue }}</p>
-		<CdxCheckbox v-model="checkboxValue" @update:model-value="onUpdate">
+		<cdx-checkbox v-model="checkboxValue" @update:model-value="onUpdate">
 			Checked if true
-		</CdxCheckbox>
+		</cdx-checkbox>
 	</div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<CdxSelect
+		<cdx-select
 			v-model="selection"
 			:options="options"
 			default-label="Choose an option"
@@ -13,7 +13,7 @@
 					{{ defaultLabel }}
 				</span>
 			</template>
-		</CdxSelect>
+		</cdx-select>
 	</div>
 </template>
 

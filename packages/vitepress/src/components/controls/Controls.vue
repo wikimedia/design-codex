@@ -18,7 +18,7 @@
 				</td>
 				<td>
 					<template v-if="propControl.type === 'radio'">
-						<CdxRadio
+						<cdx-radio
 							v-for="option in propControl.options"
 							:key="`${propControl.name}-${option}`"
 							:model-value="propControl.value"
@@ -28,11 +28,11 @@
 							@update:model-value="emitControlChange( propControl.name, $event )"
 						>
 							{{ option }}
-						</CdxRadio>
+						</cdx-radio>
 					</template>
 
 					<template v-if="propControl.type === 'text'">
-						<CdxTextInput
+						<cdx-text-input
 							:model-value="propControl.value"
 							@update:model-value="emitControlChange( propControl.name, $event )"
 						/>
@@ -40,7 +40,7 @@
 
 					<!-- TODO: replace Radios with a Checkbox or ToggleSwitch -->
 					<template v-if="propControl.type === 'boolean'">
-						<CdxRadio
+						<cdx-radio
 							v-for="booleanOption in [ false, true ]"
 							:key="`${propControl.name}-${booleanOption}`"
 							:model-value="propControl.value"
@@ -50,7 +50,7 @@
 							@update:model-value="emitControlChange( propControl.name, $event )"
 						>
 							{{ booleanOption }}
-						</CdxRadio>
+						</cdx-radio>
 					</template>
 				</td>
 			</tr>
@@ -65,7 +65,7 @@
 					<pre>{{ slotControl.name }}</pre>
 				</td>
 				<td>
-					<CdxTextInput
+					<cdx-text-input
 						:model-value="slotControl.value"
 						@update:model-value="emitControlChange( slotControl.name, $event )"
 					/>

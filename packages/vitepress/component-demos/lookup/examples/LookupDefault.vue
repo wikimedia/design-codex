@@ -2,7 +2,7 @@
 	<div>
 		<p>The current value is: {{ selection }}</p>
 
-		<CdxLookup
+		<cdx-lookup
 			v-model="selection"
 			:options="menuOptions"
 			@new-input="onInput"

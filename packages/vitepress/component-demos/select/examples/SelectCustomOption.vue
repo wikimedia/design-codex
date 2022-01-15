@@ -1,15 +1,15 @@
 <template>
 	<div class="vp-select-custom-option">
-		<CdxSelect
+		<cdx-select
 			v-model="selection"
 			:options="options"
 			default-label="Choose an option"
 		>
 			<template #menu-option="{ option }">
-				<CdxIcon v-if="option.icon" :icon="option.icon" />
+				<cdx-icon v-if="option.icon" :icon="option.icon" />
 				<span>{{ option.label }}</span>
 			</template>
-		</CdxSelect>
+		</cdx-select>
 	</div>
 </template>
 

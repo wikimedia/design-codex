@@ -6,7 +6,7 @@
 			placeholder="Type or choose an option"
 		>
 			<template #menu-option="{ option }">
-				<CdxIcon v-if="option.icon" :icon="option.icon" />
+				<cdx-icon v-if="option.icon" :icon="option.icon" />
 			</template>
 		</cdx-combobox>
 

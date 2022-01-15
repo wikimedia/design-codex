@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<CdxCheckbox
+		<cdx-checkbox
 			v-for="checkbox in checkboxes"
 			:key="'checkbox-' + checkbox.value"
 			v-model="checkboxValue"
@@ -9,7 +9,7 @@
 			@update:model-value="onUpdate"
 		>
 			{{ checkbox.label }}
-		</CdxCheckbox>
+		</cdx-checkbox>
 	</div>
 </template>
 

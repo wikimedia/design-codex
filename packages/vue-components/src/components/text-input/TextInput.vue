@@ -16,12 +16,12 @@
 			@focus="onFocus"
 			@blur="onBlur"
 		>
-		<CdxIcon
+		<cdx-icon
 			v-if="startIcon"
 			:icon="startIcon"
 			class="cdx-text-input__start-icon"
 		/>
-		<CdxIcon
+		<cdx-icon
 			v-if="isClearable || endIcon"
 			:icon="computedEndIcon"
 			class="cdx-text-input__end-icon"

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<CdxLookup
+		<cdx-lookup
 			v-model="selection"
 			:options="menuOptions"
 			@new-input="onInput"
@@ -8,7 +8,7 @@
 			<template v-if="noResults" #footer>
 				No results found.
 			</template>
-		</CdxLookup>
+		</cdx-lookup>
 	</div>
 </template>
 

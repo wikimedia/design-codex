@@ -34,7 +34,7 @@
 					{{ currentLabel }}
 				</slot>
 			</span>
-			<CdxIcon :icon="cdxIconExpand" class="cdx-select__indicator" />
+			<cdx-icon :icon="cdxIconExpand" class="cdx-select__indicator" />
 		</div>
 
 		<ul
@@ -43,7 +43,7 @@
 			class="cdx-select__menu"
 			role="listbox"
 		>
-			<CdxOption
+			<cdx-option
 				v-for="( option, index ) in computedOptions"
 				v-bind="option"
 				:key="index"
@@ -54,7 +54,7 @@
 					@binding {MenuOption} option The current option
 				-->
 				<slot name="menu-option" :option="option" />
-			</CdxOption>
+			</cdx-option>
 		</ul>
 	</div>
 </template>

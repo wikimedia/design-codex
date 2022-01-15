@@ -3,7 +3,7 @@
 		<p v-if="showValue">
 			Input value: {{ inputValue }}
 		</p>
-		<CdxTextInput
+		<cdx-text-input
 			v-model="inputValue"
 			v-bind="inputProps"
 			:placeholder="placeholder"
@@ -13,9 +13,9 @@
 			@focus="onEvent( 'focus', $event )"
 			@blur="onEvent( 'blur', $event )"
 		/>
-		<CdxButton v-if="allowReset" @click="resetInput">
+		<cdx-button v-if="allowReset" @click="resetInput">
 			Reset
-		</CdxButton>
+		</cdx-button>
 	</div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-	<CdxTextInput type="search" :start-icon="cdxIconSearch" />
+	<cdx-text-input type="search" :start-icon="cdxIconSearch" />
 </template>
 
 <script lang="ts">

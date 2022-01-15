@@ -1,5 +1,5 @@
 <template>
-	<CdxButton
+	<cdx-button
 		class="vp-copy-text-button"
 		action="progressive"
 		type="quiet"
@@ -7,13 +7,13 @@
 	>
 		{{ buttonText }}
 		<transition name="vp-copy-text-button__transition-icon">
-			<CdxIcon
+			<cdx-icon
 				v-if="copySuccess"
 				class="vp-copy-text-button__icon"
 				:icon="cdxIconCheck"
 			/>
 		</transition>
-	</CdxButton>
+	</cdx-button>
 </template>
 
 <script lang="ts">

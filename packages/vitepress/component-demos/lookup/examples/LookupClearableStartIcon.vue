@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<CdxLookup
+		<cdx-lookup
 			v-model="selection"
 			:options="menuOptions"
 			:clearable="true"

@@ -1,5 +1,5 @@
 <template>
-	<CdxTextInput :end-icon="cdxIconInfoFilled" :disabled="true" />
+	<cdx-text-input :end-icon="cdxIconInfoFilled" :disabled="true" />
 </template>
 
 <script lang="ts">

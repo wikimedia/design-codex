@@ -23,7 +23,7 @@
 			<slot name="code" />
 		</div>
 		<div v-if="hasControls" class="vp-wrapper__controls">
-			<Controls
+			<controls
 				:controls-with-values="controlsWithValues"
 				@control-change="handleControlChange"
 			/>

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<CdxLookup
+		<cdx-lookup
 			v-model="selection"
 			class="vp-lookup-custom-option"
 			:options="menuOptions"
@@ -14,7 +14,7 @@
 					{{ option.description }}
 				</p>
 			</template>
-		</CdxLookup>
+		</cdx-lookup>
 	</div>
 </template>
 

@@ -32,7 +32,9 @@
 			"rules": {
 				"vue/no-unsupported-features": [ "error", {
 					"version": "^3.2.19"
-				} ]
+				} ],
+				"vue/component-name-in-template-casing": [ "error", "kebab-case" ],
+				"vue/custom-event-name-casing": [ "error", "kebab-case" ]
 			}
 		},
 		{

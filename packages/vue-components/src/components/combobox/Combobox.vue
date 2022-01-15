@@ -5,7 +5,7 @@
 		:style="rootStyle"
 	>
 		<div class="cdx-combobox__input-wrapper">
-			<CdxTextInput
+			<cdx-text-input
 				ref="input"
 				v-model="modelWrapper"
 				v-bind="otherAttrs"
@@ -24,7 +24,7 @@
 				@blur="onInputBlur"
 			/>
 
-			<CdxButton
+			<cdx-button
 				class="cdx-combobox__expand-button"
 				:disabled="disabled"
 				tabindex="-1"
@@ -35,7 +35,7 @@
 					class="cdx-combobox__expand-icon"
 					:icon="cdxIconExpand"
 				/>
-			</CdxButton>
+			</cdx-button>
 		</div>
 
 		<ul
@@ -45,7 +45,7 @@
 			role="listbox"
 			aria-multiselectable="false"
 		>
-			<CdxOption
+			<cdx-option
 				v-for="( option, index ) in computedOptions"
 				v-bind="option"
 				:key="index"
@@ -56,7 +56,7 @@
 					@binding {MenuOption} option The current option
 				-->
 				<slot name="menu-option" :option="option" />
-			</CdxOption>
+			</cdx-option>
 
 			<li v-if="$slots.footer" class="cdx-option">
 				<!--
