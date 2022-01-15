@@ -25,6 +25,7 @@
 			v-if="isClearable || endIcon"
 			:icon="computedEndIcon"
 			class="cdx-text-input__end-icon"
+			@mousedown.prevent
 			@click="onEndIconClick"
 		/>
 	</div>
