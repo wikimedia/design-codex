@@ -27,6 +27,7 @@
 		"build-if-missing": "test -e dist/codex-icons.json || npm run build",
 		"lint": "npm run lint:ts",
 		"lint:ts": "tsc --noEmit --emitDeclarationOnly false",
+		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder ./src/images --final-newline",
 		"test": "npm run lint && npm run test:unit",
 		"test:unit": "jest -c .jest/jest.config.json"
 	},
@@ -36,7 +37,7 @@
 		"@types/jest": "^27.0.2",
 		"@types/svgo": "^2.6.0",
 		"jest": "^27.3.1",
-		"svgo": "^2.7.0",
+		"svgo": "^2.8.0",
 		"typescript": "^4.4.3",
 		"vite": "^2.6.5"
 	}
