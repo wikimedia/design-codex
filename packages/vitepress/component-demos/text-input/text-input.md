@@ -136,13 +136,13 @@ To disable the input, add the `disabled` attribute.
 </template>
 </Wrapper>
 
-<style>
-.vp-wrapper .cdx-text-input {
+<style scoped>
+.vp-wrapper :deep( .cdx-text-input ) {
 	max-width: 400px;
 	margin-bottom: 16px;
 }
 
-.vp-wrapper p {
+.vp-wrapper :deep( p ) {
 	margin: 0 0 16px 0;
 	font-weight: bold;
 }
