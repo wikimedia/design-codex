@@ -1,5 +1,10 @@
 <template>
-	<div>
+	<div :dir="dir">
+		<nav>
+			Direction:
+			<direction-switcher v-model="dir" />
+		</nav>
+
 		<header>
 			<h1>Codex Demo</h1>
 		</header>
@@ -97,11 +102,11 @@
 </template>
 
 <script lang="ts" setup>
-import { CdxButton, CdxCheckbox, CdxCombobox, CdxIcon, CdxRadio, CdxSelect, CdxTextInput } from './lib';
+import { CdxButton, CdxCheckbox, CdxCombobox, CdxIcon, CdxRadio, CdxSelect, CdxTextInput, HTMLDirection, MenuOption } from '../lib';
 import { cdxIconArrowNext, cdxIconBold, cdxIconTrash } from 'icons';
-import { ButtonActions, ButtonTypes } from './constants';
-import { MenuOption } from './types';
+import { ButtonActions, ButtonTypes } from '../constants';
 import { ref } from 'vue';
+import DirectionSwitcher from './DirectionSwitcher.vue';
 
 const options: MenuOption[] = [
 	{ label: 'Apple', value: 'a' },
@@ -109,6 +114,7 @@ const options: MenuOption[] = [
 	{ label: 'Canteloupe', value: 'c' }
 ];
 
+const dir = ref<HTMLDirection>( 'ltr' );
 const selection = ref<string>();
 const multiSelection = ref<string[]>( [] );
 
@@ -126,5 +132,9 @@ function onClick( e: Event ) {
 td {
 	/* stylelint-disable-next-line unit-disallowed-list */
 	padding: 1.5rem;
+}
+
+nav {
+	float: right;
 }
 </style>
