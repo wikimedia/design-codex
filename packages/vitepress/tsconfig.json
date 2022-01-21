@@ -12,5 +12,10 @@
 		"lib": [ "es2015", "dom" ],
 		"types": [ "jest" ]
 	},
-	"include": [ "./**/*.ts", "./**/*.vue" ]
+	"include": [
+		"./**/*.ts",
+		"./**/*.vue",
+		"./docs/.vitepress/**/*.ts",
+		"./docs/.vitepress/**/*.vue"
+	]
 }
