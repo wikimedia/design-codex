@@ -8,16 +8,16 @@ describe( 'matches the snapshot', () => {
 
 	const cases: Case[] = [
 		[ 'No props and no slot', {}, '' ],
-		...( Object.values( ButtonActions ).map( ( action ) : Case => [
+		...ButtonActions.map( ( action ) : Case => [
 			`${action} action`,
 			{ action },
 			''
-		] ) ),
-		...( Object.values( ButtonTypes ).map( ( type ) : Case => [
+		] ),
+		...ButtonTypes.map( ( type ) : Case => [
 			`${type} type`,
 			{ type },
 			''
-		] ) ),
+		] ),
 		[ 'Slotted', {}, '<span>Label</span>' ]
 	];
 

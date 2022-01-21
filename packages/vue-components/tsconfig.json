@@ -9,7 +9,9 @@
 		"sourceMap": true,
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
-		"lib": [ "es2015", "dom" ]
+		"lib": [ "esnext", "dom" ],
+		"types": [ "jest" ]
 	},
-	"include": [ "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue" ]
+	"include": [ "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue" ],
+	"exclude": [ "src/**/*.snap.ts" ]
 }

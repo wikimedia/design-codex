@@ -405,7 +405,7 @@ To serve the VitePress site locally, run this command in the root of the Codex r
 npm run doc:dev
 ```
 
-This will both serve the VitePress site at http://localhost:3000 and compile component usage docs.
+This will both serve the VitePress site at `http://localhost:3000` and compile component usage docs.
 
 #### Creating a new component demo page
 

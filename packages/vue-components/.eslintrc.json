@@ -9,7 +9,7 @@
 			],
 			"rules": {
 				"vue/no-unsupported-features": [ "error", {
-					"version": "^3.2.19"
+					"version": "^3.2.27"
 				} ],
 				"unicorn/prefer-includes": "off"
 			}
