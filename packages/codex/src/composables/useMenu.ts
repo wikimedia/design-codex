@@ -8,16 +8,34 @@ import {
 	watch
 } from 'vue';
 import useGeneratedId from './useGeneratedId';
-import { MenuStateKey, MenuOptionsKey } from '../constants';
+import { MenuStateKey, MenuOptionsKey, MenuFooterValue } from '../constants';
 import { MenuState, MenuOption, MenuOptionWithId } from '../types';
+
+// Custom options that can be provided to useMenu when called
+interface UseMenuConfig {
+	/**
+	 * Ref to an an input element's value if the menu needs to be able to mutate
+	 * it (ex. by keyboard navigation). If this is provided, the following will
+	 * happen on keyboard navigation to a new option:
+	 * - The inputValue will change to match the highlighted option
+	 * - The highlighted option will be selected
+	 */
+	inputValue?: Ref<string|number>,
+
+	/**
+	 * Optional callback to run when the footer element is highlighted via
+	 * keyboard navigation.
+	 */
+	footerCallback?: () => void
+}
 
 /**
  * Sets up the caller to have an accessible, functional menu of options.
  *
  * This composable provides to the caller:
  * - computedOptions: the provided array of MenuOptions with generated IDs added
- * - state: an object of menu states (selected, highlighted, and active) and the current option in
- *   that state, if any
+ * - state: an object of menu states (selected, highlighted, highlightedViaKeyboard, and active) and
+ *   the current option in that state, if any
  * - expanded: whether the menu is visible
  * - onBlur: a simple blur handler to close the menu
  * - handleOptionChange: change handler for Option components
@@ -30,17 +48,19 @@ import { MenuState, MenuOption, MenuOptionWithId } from '../types';
  *
  * @param options
  * @param modelWrapper
+ * @param config
  * @return menu helpers
  */
 export default function useMenu(
 	options: Ref<MenuOption[]>,
-	modelWrapper: WritableComputedRef<string|number|null>
+	modelWrapper: WritableComputedRef<string|number|null>,
+	config?: UseMenuConfig
 ): {
 	computedOptions: ComputedRef<MenuOptionWithId[]>,
 	state: Record<MenuState, Readonly<Ref<MenuOptionWithId|null>>>,
 	expanded: Ref<boolean>,
 	onBlur: () => void,
-	handleOptionChange: ( menuState: MenuState, option: MenuOptionWithId ) => void,
+	handleOptionChange: ( menuState: MenuState, option?: MenuOptionWithId ) => void,
 	handleKeyNavigation: ( e: KeyboardEvent ) => void
 } {
 	/**
@@ -87,24 +107,24 @@ export default function useMenu(
 	 * @param menuState
 	 * @param option
 	 */
-	function handleOptionChange( menuState: MenuState, option: MenuOptionWithId ) {
-		if ( !option || option.disabled ) {
+	function handleOptionChange( menuState: MenuState, option?: MenuOptionWithId ) {
+		if ( option && option.disabled ) {
 			return;
 		}
 
 		switch ( menuState ) {
 			case 'selected':
-				modelWrapper.value = option.value;
+				modelWrapper.value = option?.value || null;
 				expanded.value = false;
 				state.active.value = null;
 				break;
 
 			case 'highlighted':
-				state.highlighted.value = option;
+				state.highlighted.value = option || null;
 				break;
 
 			case 'active':
-				state.active.value = option;
+				state.active.value = option || null;
 				break;
 
 			default:
@@ -133,6 +153,35 @@ export default function useMenu(
 	} );
 
 	/**
+	 * Handle changes related to highlighting a new item.
+	 *
+	 * @param highlightedOption
+	 */
+	function handleHighlight( highlightedOption?: MenuOptionWithId ) {
+		if ( !highlightedOption ) {
+			return;
+		}
+
+		// Change menu state.
+		handleOptionChange( 'highlighted', highlightedOption );
+
+		// If the user has navigated to the footer element,
+		// and if a footer callback has been provided,
+		// fire that callback and exit
+		if ( config?.footerCallback && highlightedOption.value === MenuFooterValue ) {
+			config.footerCallback();
+			return;
+		}
+
+		// If an inputValue ref has been provided, change its value to match the
+		// new highlighted item, and select the highlighted item.
+		if ( config?.inputValue ) {
+			config.inputValue.value = highlightedOption.label || highlightedOption.value;
+			modelWrapper.value = highlightedOption.value;
+		}
+	}
+
+	/**
 	 * Highlights the previous enabled option.
 	 */
 	function highlightPrev() {
@@ -154,9 +203,7 @@ export default function useMenu(
 		const prev = findPrevEnabled( highlightedIndex ) ||
 			findPrevEnabled( computedOptions.value.length );
 
-		if ( prev ) {
-			handleOptionChange( 'highlighted', prev );
-		}
+		handleHighlight( prev );
 	}
 
 	/**
@@ -171,20 +218,19 @@ export default function useMenu(
 		// Find the next index, if there is one, otherwise find the first item so we can loop back.
 		const next = findNextEnabled( highlightedIndex ) || findNextEnabled( -1 );
 
-		if ( next ) {
-			handleOptionChange( 'highlighted', next );
-		}
+		handleHighlight( next );
 	}
 
 	/**
 	 * Handles all necessary keyboard navigation.
 	 *
-	 * Keydown events for space, enter, up, down, and tab should call a method in the caller
-	 * component that first checks if the component is disabled, plus any other necessary checks.
-	 * If they pass, the event should be passed to this function.
+	 * Keydown events for space, enter, up, down, and tab should call a method
+	 * in the caller component that first checks if the component is disabled,
+	 * plus any other necessary checks. If they pass, the event should be
+	 * passed to this function.
 	 *
-	 * Preventing the default action and stopping propagation is handled here so it doesn't have to
-	 * be handled in each caller component.
+	 * Preventing the default action and stopping propagation is handled here so
+	 * it doesn't have to be handled in each caller component.
 	 *
 	 * @param e
 	 */
@@ -258,7 +304,7 @@ export default function useMenu(
 		}
 	}
 
-	// Clear the highlight state when the menu is closed.
+	// Clear the highlight states when the menu is closed.
 	watch( expanded, ( newVal ) => {
 		if ( !newVal && state.highlighted.value ) {
 			state.highlighted.value = null;

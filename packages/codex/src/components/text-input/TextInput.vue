@@ -242,6 +242,9 @@ export default defineComponent( {
 
 	&__start-icon,
 	&__end-icon {
+		// In Safari, several transitions or transforms happening at once around these elements may
+		// cause a brief wobble. This will stabilize icons' positions.
+		-webkit-transform: translateZ( 0 );
 		color: @color-accessory;
 		position: absolute;
 		top: 0;

@@ -33,16 +33,47 @@ export type TextInputType = typeof TextInputTypes[ number ];
 
 /** @public */
 export interface MenuOption {
+	/** Option value or unique identifier. */
 	value: string | number,
-	disabled?: boolean,
+	/** Display label for the option. */
 	label?: string,
+	disabled?: boolean,
 	icon?: Icon,
-	description?: string
+	description?: string | null
 }
 
 export interface MenuOptionWithId extends MenuOption {
 	id: string
 }
 export type MenuState = typeof MenuStates[ number ];
+
+/** @public */
+export interface SearchResultThumbnail {
+	url: string;
+	/** Image width in pixels. */
+	width?: number | null;
+	/** Image height in pixels. */
+	height?: number | null;
+}
+
+/** @public */
+export interface SearchResult extends MenuOption {
+	/** Result link. */
+	url: string,
+	/** Result image. */
+	thumbnail?: SearchResultThumbnail | null;
+}
+
+export type SearchResultWithId = SearchResult & MenuOptionWithId;
+
+/** @public */
+export interface SearchResultClickEvent {
+	/** Search result that was clicked. */
+	searchResult: SearchResult|null,
+	/** Index of the search result within the array of results. */
+	index: number,
+	/** Number of search results. */
+	numberOfResults: number
+}
 
 export type StringTypeValidator<T extends string> = ( s: unknown ) => s is T;

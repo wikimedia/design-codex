@@ -47,3 +47,17 @@ export const MenuStateKey: InjectionKey<
 export const MenuOptionsKey: InjectionKey<
 	ComputedRef<MenuOptionWithId[]>
 > = Symbol( 'CdxMenuOptions' );
+
+/**
+ * Default length of delay for debouncing, in milliseconds.
+ */
+export const DebounceInterval = 120;
+
+/**
+ * Sometimes, a menu of options will have an extra "option" that provides some
+ * additional behavior, e.g. TypeaheadSearch's final option that links to the
+ * search page for the current search query. This extra option will not have a
+ * true value, so this string can be used in the code to identify it as a
+ * footer option.
+ */
+export const MenuFooterValue = 'cdx-menu-footer-option';

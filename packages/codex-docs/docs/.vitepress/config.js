@@ -35,11 +35,13 @@ module.exports = {
 						{ text: 'Checkbox', link: '/components/checkbox' },
 						{ text: 'Combobox', link: '/components/combobox' },
 						{ text: 'Icon', link: '/components/icon' },
+						{ text: 'ListTile', link: '/components/list-tile' },
 						{ text: 'Lookup', link: '/components/lookup' },
 						{ text: 'Message', link: '/components/message' },
 						{ text: 'Radio', link: '/components/radio' },
 						{ text: 'Select', link: '/components/select' },
 						{ text: 'TextInput', link: '/components/text-input' },
+						{ text: 'TypeaheadSearch', link: '/components/typeahead-search' },
 					]
 				},
 				{

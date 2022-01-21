@@ -191,6 +191,12 @@ export default defineComponent( {
 			bottom: 0;
 			font-size: 0.875em;
 		}
+
+		// TODO: We need to unset all global styles inside this element to keep them from
+		// polluting component demos. For now, manually undo styles that are causing issues.
+		a:hover {
+			text-decoration: none;
+		}
 	}
 
 	&__code div[ class*='language-' ] {
