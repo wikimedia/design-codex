@@ -5,7 +5,6 @@
  * https://www.mediawiki.org/wiki/Manual:Coding_conventions/SVG#Exemplified_safe_configuration
  */
 module.exports = {
-	multipass: true,
 	plugins: [
 		{
 			// Set of built-in plugins enabled by default.
@@ -29,13 +28,12 @@ module.exports = {
 		'sortAttrs',
 	],
 	// Configure the indent (default 4 spaces) used by `--pretty` here:
-	// @see https://github.com/svg/svgo/blob/master/lib/svgo/js2svg.js#L6 for more config options
-	//
-	// Unfortunately EOL cannot be configured, SVGO uses the platform's EOL marker.
-	// On non-unix systems the linebreaks will be normalized to LF (unix) only at git commit,
-	// assuming `core.autocrlf` is 'true' (default) or 'input'.
+	// @see https://github.com/svg/svgo/blob/main/lib/svgo/coa.js#L194 for more config options
 	js2svg: {
-		indent: "\t",
+		eol: 'lf',
+		finalNewline: true,
+		indent: '\t',
 		pretty: true,
-	}
+	},
+	multipass: true
 }
