@@ -73,7 +73,7 @@ Any Codex icon can be set to the start icon.
 
 <Wrapper>
 <template v-slot:demo>
-<TextInputDemo :input-props="{ type: 'search', startIcon: cdxIconSearch }" />
+<TextInputDemo :input-props="{ inputType: 'search', startIcon: cdxIconSearch }" />
 </template>
 
 <template v-slot:code>

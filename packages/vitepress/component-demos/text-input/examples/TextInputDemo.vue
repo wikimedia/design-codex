@@ -26,7 +26,7 @@ import CdxTextInput from 'vue-components/src/components/text-input/TextInput.vue
 import { Icon } from 'icons';
 
 interface InputProps {
-	type?: 'text' | 'search',
+	inputType?: 'text' | 'search',
 	disabled?: boolean,
 	startIcon?: Icon,
 	endIcon?: Icon,
