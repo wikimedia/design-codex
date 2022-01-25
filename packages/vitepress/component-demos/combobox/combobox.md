@@ -1,8 +1,8 @@
 <script setup>
-import ComboboxBasic from './../../component-demos/combobox/examples/ComboboxBasic.vue';
-import ComboboxClearableStartIcon from './../../component-demos/combobox/examples/ComboboxClearableStartIcon.vue';
-import ComboboxCustomOption from './../../component-demos/combobox/examples/ComboboxCustomOption.vue';
-import ComboboxNoResults from './../../component-demos/combobox/examples/ComboboxNoResults.vue';
+import ComboboxBasic from '@/../component-demos/combobox/examples/ComboboxBasic.vue';
+import ComboboxClearableStartIcon from '@/../component-demos/combobox/examples/ComboboxClearableStartIcon.vue';
+import ComboboxCustomOption from '@/../component-demos/combobox/examples/ComboboxCustomOption.vue';
+import ComboboxNoResults from '@/../component-demos/combobox/examples/ComboboxNoResults.vue';
 </script>
 
 ::: tip TextInput props apply

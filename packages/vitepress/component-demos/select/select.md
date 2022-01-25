@@ -1,7 +1,7 @@
 <script setup>
-import BasicSelect from './../../component-demos/select/examples/BasicSelect.vue';
-import SelectCustomLabel from './../../component-demos/select/examples/SelectCustomLabel.vue';
-import SelectCustomOption from './../../component-demos/select/examples/SelectCustomOption.vue';
+import BasicSelect from '@/../component-demos/select/examples/BasicSelect.vue';
+import SelectCustomLabel from '@/../component-demos/select/examples/SelectCustomLabel.vue';
+import SelectCustomOption from '@/../component-demos/select/examples/SelectCustomOption.vue';
 </script>
 
 ## Demos

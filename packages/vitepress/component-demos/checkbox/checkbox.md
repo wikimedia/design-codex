@@ -1,8 +1,8 @@
 <script setup>
-import CheckboxGroup from './../../component-demos/checkbox/examples/CheckboxGroup.vue';
-import SingleCheckbox from './../../component-demos/checkbox/examples/SingleCheckbox.vue';
-import InlineCheckboxes from './../../component-demos/checkbox/examples/InlineCheckboxes.vue';
-import IndeterminateState from './../../component-demos/checkbox/examples/IndeterminateState.vue';
+import CheckboxGroup from '@/../component-demos/checkbox/examples/CheckboxGroup.vue';
+import SingleCheckbox from '@/../component-demos/checkbox/examples/SingleCheckbox.vue';
+import InlineCheckboxes from '@/../component-demos/checkbox/examples/InlineCheckboxes.vue';
+import IndeterminateState from '@/../component-demos/checkbox/examples/IndeterminateState.vue';
 </script>
 
 ## Demos

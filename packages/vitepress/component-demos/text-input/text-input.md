@@ -1,10 +1,10 @@
 <script setup>
 import { cdxIconSearch, cdxIconInfoFilled } from 'icons';
-import TextInputDemo from './../../component-demos/text-input/examples/TextInputDemo.vue';
-import TextInputDefault from './../../component-demos/text-input/examples/TextInputDefault.vue';
-import TextInputInitialValue from './../../component-demos/text-input/examples/TextInputInitialValue.vue';
-import TextInputStartIcon from './../../component-demos/text-input/examples/TextInputStartIcon.vue';
-import TextInputEndIcon from './../../component-demos/text-input/examples/TextInputEndIcon.vue';
+import TextInputDemo from '@/../component-demos/text-input/examples/TextInputDemo.vue';
+import TextInputDefault from '@/../component-demos/text-input/examples/TextInputDefault.vue';
+import TextInputInitialValue from '@/../component-demos/text-input/examples/TextInputInitialValue.vue';
+import TextInputStartIcon from '@/../component-demos/text-input/examples/TextInputStartIcon.vue';
+import TextInputEndIcon from '@/../component-demos/text-input/examples/TextInputEndIcon.vue';
 </script>
 
 ::: tip Attributes passed to input

@@ -1,10 +1,10 @@
 <script setup>
-import LookupDefault from './../../component-demos/lookup/examples/LookupDefault.vue';
-import LookupWithCustomOption from './../../component-demos/lookup/examples/LookupWithCustomOption.vue';
-import LookupNoResults from './../../component-demos/lookup/examples/LookupNoResults.vue';
-import LookupWithFetch from './../../component-demos/lookup/examples/LookupWithFetch.vue';
-import LookupClearableStartIcon from './../../component-demos/lookup/examples/LookupClearableStartIcon.vue';
-import LookupWithPlaceholder from './../../component-demos/lookup/examples/LookupWithPlaceholder.vue';
+import LookupDefault from '@/../component-demos/lookup/examples/LookupDefault.vue';
+import LookupWithCustomOption from '@/../component-demos/lookup/examples/LookupWithCustomOption.vue';
+import LookupNoResults from '@/../component-demos/lookup/examples/LookupNoResults.vue';
+import LookupWithFetch from '@/../component-demos/lookup/examples/LookupWithFetch.vue';
+import LookupClearableStartIcon from '@/../component-demos/lookup/examples/LookupClearableStartIcon.vue';
+import LookupWithPlaceholder from '@/../component-demos/lookup/examples/LookupWithPlaceholder.vue';
 </script>
 
 ::: tip TextInput props apply
