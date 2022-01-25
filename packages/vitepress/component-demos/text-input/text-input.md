@@ -85,7 +85,7 @@ Any Codex icon can be set to the start icon.
 
 ### With end icon
 
-Any Codex icon can be set to the start icon. Note that if you include both an end icon and the
+Any Codex icon can be set to the end icon. Note that if you include both an end icon and the
 `clearable` prop, the latter will override the end icon with the clear button.
 
 <Wrapper>
