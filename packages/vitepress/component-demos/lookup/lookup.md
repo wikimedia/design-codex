@@ -2,6 +2,7 @@
 import LookupDefault from './../../component-demos/lookup/examples/LookupDefault.vue';
 import LookupWithCustomOption from './../../component-demos/lookup/examples/LookupWithCustomOption.vue';
 import LookupNoResults from './../../component-demos/lookup/examples/LookupNoResults.vue';
+import LookupWithFetch from './../../component-demos/lookup/examples/LookupWithFetch.vue';
 import LookupClearableStartIcon from './../../component-demos/lookup/examples/LookupClearableStartIcon.vue';
 import LookupWithPlaceholder from './../../component-demos/lookup/examples/LookupWithPlaceholder.vue';
 </script>
@@ -65,6 +66,24 @@ example, a "no result found" message can be conditionally displayed.
 <template v-slot:code>
 
 <<< @/../component-demos/lookup/examples/LookupNoResults.vue
+
+</template>
+</Wrapper>
+
+### With fetched results
+
+Often, a Lookup component is used to fetch results from an API endpoint. Parent components can react
+to the `new-input` event emitted by Lookup to search for results, then pass back to the
+Lookup either an array of results to display as options or an empty array if there are no results.
+Between those two events, a pending state animation will display in the input.
+
+<Wrapper>
+<template v-slot:demo>
+<LookupWithFetch />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/lookup/examples/LookupWithFetch.vue
 
 </template>
 </Wrapper>
