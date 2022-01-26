@@ -48,7 +48,7 @@ export default defineComponent( {
 } );
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .vp-lookup-custom-option {
 	p {
 		margin: 0;

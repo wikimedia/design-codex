@@ -39,3 +39,11 @@ export default defineComponent( {
 	}
 } );
 </script>
+
+<style scoped>
+/* For demo purposes only. */
+p {
+	margin: 0 0 16px;
+	font-weight: bold;
+}
+</style>

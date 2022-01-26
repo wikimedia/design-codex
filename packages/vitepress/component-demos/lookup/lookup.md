@@ -119,14 +119,3 @@ Attributes (except for `class`) will fall through to the input element, so you c
 
 </template>
 </Wrapper>
-
-<style>
-.vp-wrapper .cdx-lookup {
-	margin-bottom: 16px;
-}
-
-.vp-wrapper__demo > div > p {
-	margin: 0 0 16px 0;
-	font-weight: bold;
-}
-</style>

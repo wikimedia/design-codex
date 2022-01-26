@@ -6,17 +6,19 @@
 		-->
 		<div
 			:key="dir"
-			class="vp-wrapper__demo"
+			class="vp-wrapper__demo-pane"
 			:dir="dir"
 		>
-			<slot
-				name="demo"
-				:prop-values="propValues"
-				:slot-values="slotValues"
-			/>
+			<div class="vp-wrapper__demo-pane__demo">
+				<slot
+					name="demo"
+					:prop-values="propValues"
+					:slot-values="slotValues"
+				/>
+			</div>
 			<cdx-button
 				v-if="hasCodeSample"
-				class="vp-wrapper__demo__button"
+				class="vp-wrapper__demo-pane__button"
 				type="quiet"
 				@click="onClick"
 			>
@@ -173,11 +175,15 @@ export default defineComponent( {
 .vp-wrapper {
 	margin-top: 16px;
 
-	&__demo {
+	&__demo-pane {
 		position: relative;
 		border: @border-width-base @border-style-base @border-color-heading;
 		border-radius: @border-radius-base;
 		padding: 24px;
+
+		&__demo {
+			margin-bottom: 16px;
+		}
 
 		&__button {
 			position: absolute;
