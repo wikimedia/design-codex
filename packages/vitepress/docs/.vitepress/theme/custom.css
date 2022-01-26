@@ -49,3 +49,7 @@ h4 {
 .custom-block.danger .custom-block-title {
 	color: #b32424;
 }
+
+.vp-required-indicator {
+	margin-left: 4px;
+}

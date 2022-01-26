@@ -48,7 +48,7 @@ export default defineComponent( {
 	name: 'CdxCheckbox',
 	props: {
 		/**
-		 * Value provided by v-model binding in the parent component.
+		 * Value provided by `v-model` binding in the parent component.
 		 */
 		modelValue: {
 			type: [ Boolean, Array ] as PropType<boolean | string[] | number[]>,
@@ -73,7 +73,7 @@ export default defineComponent( {
 		/**
 		 * Whether the indeterminate visual state should be displayed.
 		 *
-		 * This is unrelated to the value provided by v-model, and the indeterminate visual state
+		 * This is unrelated to the value provided by `v-model`, and the indeterminate visual state
 		 * will override the checked or unchecked visual state.
 		 */
 		indeterminate: {

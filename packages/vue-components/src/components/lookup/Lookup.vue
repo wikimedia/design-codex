@@ -90,7 +90,7 @@ export default defineComponent( {
 
 	props: {
 		/**
-		 * Value of the selection provided by v-model binding in the parent component.
+		 * Value of the selection provided by `v-model` binding in the parent component.
 		 */
 		modelValue: {
 			type: [ String, Number, null ] as PropType<string|number|null>,

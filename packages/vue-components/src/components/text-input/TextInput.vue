@@ -61,7 +61,7 @@ export default defineComponent( {
 
 	props: {
 		/**
-		 * Value provided by v-model binding in the parent component.
+		 * Value provided by `v-model` binding in the parent component.
 		 */
 		modelValue: {
 			type: [ String, Number ],
@@ -85,14 +85,14 @@ export default defineComponent( {
 			default: false
 		},
 		/**
-		 * An icon at the start of the input element. Similar to a ::before pseudo-element.
+		 * An icon at the start of the input element. Similar to a `::before` pseudo-element.
 		 */
 		startIcon: {
 			type: [ String, Object ] as PropType<Icon | undefined>,
 			default: undefined
 		},
 		/**
-		 * An icon at the end of the input element. Similar to an ::after pseudo-element.
+		 * An icon at the end of the input element. Similar to an `::after` pseudo-element.
 		 */
 		endIcon: {
 			type: [ String, Object ] as PropType<Icon | undefined>,

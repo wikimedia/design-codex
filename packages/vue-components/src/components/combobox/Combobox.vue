@@ -119,7 +119,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Value provided by v-model binding in the parent component.
+		 * Value provided by `v-model` binding in the parent component.
 		 */
 		modelValue: {
 			type: [ String, Number ] as PropType<string|number>,

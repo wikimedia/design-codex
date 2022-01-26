@@ -1,12 +1,4 @@
-/* eslint-disable no-unused-vars */
-module.exports = function component(
-	renderedUsage,
-	doc,
-	config,
-	fileName,
-	requiresMd,
-	{ isSubComponent }
-) {
+module.exports = function component( renderedUsage, doc ) {
 /* eslint-enable no-unused-vars */
 	const { displayName, description, docsBlocks, tags } = doc;
 	const { author, since, version } = tags || {};
