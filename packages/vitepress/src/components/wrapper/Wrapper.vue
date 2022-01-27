@@ -1,6 +1,14 @@
 <template>
 	<div class="vp-wrapper">
-		<div class="vp-wrapper__demo">
+		<!--
+			Note :key="dir" below is needed to ensure that icons and other things that use
+			useComputedDirection rerender when the direction is changed
+		-->
+		<div
+			:key="dir"
+			class="vp-wrapper__demo"
+			:dir="dir"
+		>
 			<slot
 				name="demo"
 				:prop-values="propValues"
@@ -24,6 +32,7 @@
 		</div>
 		<div v-if="hasControls" class="vp-wrapper__controls">
 			<controls
+				dir="ltr"
 				:controls-with-values="controlsWithValues"
 				@control-change="handleControlChange"
 			/>
@@ -32,8 +41,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, computed, PropType } from 'vue';
+import { defineComponent, reactive, ref, computed, inject, PropType } from 'vue';
 import { ControlsConfig, ControlConfigWithValue, PropValues, SlotValues } from '../../types';
+import { DirectionKey } from '../../constants';
 import Controls from '../controls/Controls.vue';
 import CdxButton from 'vue-components/src/components/button/Button.vue';
 
@@ -62,6 +72,9 @@ export default defineComponent( {
 		}
 	},
 	setup( props, { slots } ) {
+		// Inject direction from CustomLayout.vue
+		const dir = inject( DirectionKey );
+
 		// Set up show code/hide code button.
 		const hasCodeSample = slots && slots.code;
 		const showCode = ref( false );
@@ -138,6 +151,7 @@ export default defineComponent( {
 		} );
 
 		return {
+			dir,
 			hasCodeSample,
 			showCode,
 			buttonLabel,

@@ -10,7 +10,8 @@
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"lib": [ "es2015", "dom" ],
-		"types": [ "jest" ]
+		"types": [ "jest" ],
+		"skipLibCheck": true
 	},
 	"include": [
 		"./**/*.ts",
