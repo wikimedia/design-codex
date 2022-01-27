@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
 import path from 'path';
-import rtlCss from './vite-plugin-rtl-css';
+import splitBidi from './build/vite-plugin-split-bidi';
 
 // https://vitejs.dev/config/
 export default defineConfig( {
@@ -36,6 +36,8 @@ export default defineConfig( {
 			logDiagnostics: true,
 			noEmitOnError: true
 		} ),
-		rtlCss()
+		splitBidi( {
+			processKeyFrames: true
+		} )
 	]
 } );
