@@ -185,6 +185,79 @@ Below are some sample styles for a component to demonstrate these conventions:
 </style>
 ```
 
+### Bidirectional script support
+Codex has limited support for [bidirectional text](https://en.wikipedia.org/wiki/Bidirectional_text).
+It supports pages that are entirely in a left-to-right (LTR) script, or pages that are entirely
+in a right-to-left (RTL) script. It does not support pages with a mix of LTR and RTL
+content, or pages whose directionality changes at runtime, except in some special cases.
+At the time of this writing, it's virtually impossible to support those use cases without the
+`:dir()` CSS pseudo-class, which is
+[not yet supported by most browsers](https://caniuse.com/css-dir-pseudo).
+
+There are tools (like postcss-rtlcss, see below) that generate bidirectional CSS using attribute
+selectors like `[dir='ltr']`, but this technique is fragile. It breaks in confusing and ugly ways
+on pages that don't have a `dir` attribute set, and on pages where a `dir="ltr"` element is nested
+inside a `dir="rtl"` element or vice versa. Because of these significant limitations, bidirectional
+stylesheets are only useful in very limited circumstances, and Codex does not provide one.
+
+#### Flipping of direction-specific styles
+Styles in Codex are written for left-to-right (LTR) environments. Codex uses a combination of
+[postcss-rtlcss](https://github.com/elchininet/postcss-rtlcss) and custom Vite and PostCSS plugins
+to generate flipped versions of these styles for right-to-left (RTL) environments. For example,
+a rule like `.foo { padding-left: 4px; }` will be changed to `.foo { padding-right: 4px; }` in RTL.
+In the build, the LTR styles are placed in `codex.style.css` and the RTL styles in
+`codex.style-rtl.css`.
+
+In most cases, this automatic transformation should produce the correct result, but you should
+always test style changes in both LTR and RTL. Both the sandbox (`npm run dev`) and the component
+demos (`npm run doc:dev`) have direction switchers that allow you to switch between LTR and RTL
+on the fly.
+
+In some cases, the automatic flipping transformation doesn't produce the correct result. Override
+directives can be used to address this. To prevent a rule from being flipped, put `/* rtl:ignore */`
+on the line above it. To set a different value for a property in RTL, put the RTL value in
+a comment like `/* rtl:4px */`. These two directives are the most important ones, but others exist;
+see the postcss-rtlcss documentation on [control directives](https://github.com/elchininet/postcss-rtlcss#control-directives)
+and [value directives](https://github.com/elchininet/postcss-rtlcss#value-directives)
+for more information.
+
+Below is an example that demonstrates these directives:
+```less
+.foo {
+	// This rule isn't flipped. It uses float: left; in both LTR and RTL
+	/* rtl:ignore */
+	float: left;
+
+	// This rule is flipped, because there is no rtl:ignore directive above it
+	// It becomes padding-right: 12px; in RTL
+	padding-left: 12px;
+}
+
+.bar {
+	// This rule uses -100% in RTL, because that value is explicitly specified
+	transform: translateX( 0 ) /* rtl:translateX( -100% ) */;
+
+	// This rule is NOT flipped to margin-right, because an explicit RTL value is specified
+	// In RTL, this rule becomes margin-left: 30px; (NOT margin-right: 30px;)
+	margin-left: 12px /* rtl:30px */;
+}
+```
+
+#### Direction-specific behavior in components
+Some components need to adjust their behavior depending on the text direction. For example,
+components that listen for the left and right arrow keys being pressed may need to react to those
+key presses differently depending on the text direction.
+
+To achieve this, components should use the `useComputedDirection()` composable, which detects the
+direction of the surrounding context of the component at mount time. This works even on pages with
+mixed or nested directionality; however it does not detect changes in directionality that happen
+after the component is mounted.
+
+The [Icon component](../components/icon.md) also uses this composable to detect the text direction,
+and allows the detected direction to be overridden through the `dir` prop. For more information about
+how bidirectionality is handled for icons in particular, see
+[the icon documentation](../icons/overview.md#right-to-left-rtl-and-language-support).
+
 ### Inheriting attributes
 
 By default, components will place any attributes bound to them on the root element of the

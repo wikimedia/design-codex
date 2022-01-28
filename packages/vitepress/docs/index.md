@@ -6,7 +6,7 @@ sidebarDepth: 3
 
 Codex is a toolkit for building user interfaces within the Wikimedia Design System. Codex contains:
 
-- **Design tokens**: for writing styles consistent with the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html) 
+- **Design tokens**: for writing styles consistent with the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html)
 - **Vue 3 components**: for building usable, accessible, translatable [Vue 3](https://v3.vuejs.org/) applications
 
 Codex features:
@@ -18,7 +18,7 @@ Read our [guiding principles](#guiding-principles) for details.
 
 ## Usage and contributions
 
-Visit [getting started](/introduction/getting-started) to learn how to use this library.
+Visit [usage](/introduction/usage) to learn how to use this library.
 
 If you'd like to contribute, head over to the [contributing section](/contributing/guidelines) to
 learn about ways you can contribute, our processes, and how to develop this library.
@@ -80,7 +80,7 @@ the system's workflows, methodologies, standards, and infrastructure.
 #### Composition over complexity
 
 Smaller components are easier to understand and more reusable.
-    
+
 #### Clarity over brevity
 
 It's better for code to be easily understandable than to be as short or as clever as possible.
