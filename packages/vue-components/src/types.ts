@@ -1,3 +1,10 @@
+/*!
+ * This file contains all types, both internal ones and externally exported ones.
+ *
+ * Exported types should be marked with `@public` comments in this file, AND explicitly
+ * exported in lib.ts.
+ */
+
 import { ButtonActions, ButtonTypes, TextInputTypes, MenuStates } from './constants';
 import { Icon } from 'icons';
 
