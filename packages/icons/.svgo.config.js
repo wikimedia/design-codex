@@ -27,11 +27,12 @@ module.exports = {
 		'removeRasterImages',
 		'sortAttrs'
 	],
-	// Configure the indent (default 4 spaces) used by `--pretty` here:
+	// Set whitespace according to Wikimedia Coding Conventions.
 	// @see https://github.com/svg/svgo/blob/main/lib/svgo/coa.js#L194 for more config options
 	js2svg: {
 		eol: 'lf',
 		finalNewline: true,
+		// Configure the indent to tabs (default 4 spaces) used by `--pretty` here.
 		indent: '\t',
 		pretty: true
 	},
