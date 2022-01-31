@@ -40,7 +40,7 @@ exports[`matches the snapshot Case 2 Disabled: ({"disabled": true}) => HTML 1`] 
 </div>
 `;
 
-exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path d=\\"M12.2 13.6a7 7 0 1 1 1.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1 0 10 0A5 5 0 1 0 3 8z\\"/>"}) => HTML 1`] = `
+exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path d=\\"M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--has-start-icon"
 >
@@ -64,7 +64,7 @@ exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path d=\\
         fill="currentColor"
       >
         <path
-          d="M12.2 13.6a7 7 0 1 1 1.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1 0 10 0A5 5 0 1 0 3 8z"
+          d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
         />
       </g>
     </svg>
@@ -144,7 +144,7 @@ exports[`matches the snapshot Case 6 Clearable, with input: ({"clearable": true,
         fill="currentColor"
       >
         <path
-          d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm5.66 14.24-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z"
+          d="M10 0a10 10 0 1010 10A10 10 0 0010 0zm5.66 14.24-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z"
         />
       </g>
     </svg>
@@ -210,7 +210,7 @@ exports[`matches the snapshot Case 8 With end icon, clearable, with input: ({"cl
         fill="currentColor"
       >
         <path
-          d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm5.66 14.24-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z"
+          d="M10 0a10 10 0 1010 10A10 10 0 0010 0zm5.66 14.24-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z"
         />
       </g>
     </svg>

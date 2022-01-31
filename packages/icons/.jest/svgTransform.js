@@ -14,7 +14,19 @@ module.exports = {
 		const optimized = optimize( src, {
 			plugins: [
 				{
-					name: 'preset-default'
+					name: 'preset-default',
+					params: {
+						overrides: {
+							// Use smaller, non-backwards compatible optimization for browsers only,
+							// see T299738.
+							convertPathData: {
+								noSpaceAfterFlags: true
+							},
+							mergePaths: {
+								noSpaceAfterFlags: true
+							},
+						},
+					},
 				},
 				removeSvgTag
 			]

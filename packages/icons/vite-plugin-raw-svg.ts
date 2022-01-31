@@ -40,6 +40,14 @@ export default function rawSvg( options: RawSvgOptions = {
 									// to <use> tags reusing something from a different icon
 									cleanupIDs: {
 										prefix: `cdx-icon-${iconName}-`
+									},
+									// Use smaller, non-backwards compatible optimization for
+									// browsers only, see T299738.
+									convertPathData: {
+										noSpaceAfterFlags: true
+									},
+									mergePaths: {
+										noSpaceAfterFlags: true
 									}
 								}
 							}
