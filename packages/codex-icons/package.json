@@ -21,7 +21,7 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "npm run build:svg && npm run build:vite && npm run build:json && npm run test:unit -- tests/outputTypes.test.ts --coverage=false",
+		"build": "npm run build:svg && npm run build:vite && npm run build:json && npm run test:output",
 		"build:vite": "vite build",
 		"build:json": "node ./buildIconsJson.js",
 		"build:svg": "npm run minify:svg && cp -a src/images dist/",
@@ -29,8 +29,10 @@
 		"lint": "npm run lint:ts",
 		"lint:ts": "tsc --noEmit --emitDeclarationOnly false",
 		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder ./src/images",
-		"test": "npm run lint && npm run test:unit",
-		"test:unit": "jest -c .jest/jest.config.json"
+		"test": "npm run lint && npm run build && npm run test:clean-git && npm run test:unit",
+		"test:unit": "jest -c .jest/jest.config.json",
+		"test:output": "npm run test:unit -- tests/outputTypes.test.ts --coverage=false",
+		"test:clean-git": "test $(git diff ./src/images | wc -l) -eq 0 || (echo 'Uncommitted SVG changes:'; git diff ./src/images; false)"
 	},
 	"devDependencies": {
 		"@rollup/pluginutils": "^4.1.1",
