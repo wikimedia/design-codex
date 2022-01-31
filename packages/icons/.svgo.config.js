@@ -20,12 +20,12 @@ module.exports = {
 					// consequently, MediaWiki's CSSMin CSS minifier. libmagic's default database
 					// currently requires that SVGs contain an XML declaration:
 					// https://github.com/threatstack/libmagic/blob/master/magic/Magdir/sgml#L5
-					removeXMLProcInst: false,
-				},
-			},
+					removeXMLProcInst: false
+				}
+			}
 		},
 		'removeRasterImages',
-		'sortAttrs',
+		'sortAttrs'
 	],
 	// Configure the indent (default 4 spaces) used by `--pretty` here:
 	// @see https://github.com/svg/svgo/blob/main/lib/svgo/coa.js#L194 for more config options
@@ -33,7 +33,7 @@ module.exports = {
 		eol: 'lf',
 		finalNewline: true,
 		indent: '\t',
-		pretty: true,
+		pretty: true
 	},
 	multipass: true
-}
+};

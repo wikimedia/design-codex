@@ -1,3 +1,5 @@
 dist/
 coverage/
 *.snap.*
+
+!.*.js
