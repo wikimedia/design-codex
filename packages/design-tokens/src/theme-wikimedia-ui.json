@@ -95,22 +95,11 @@
 		}
 	},
 	"opacity": {
-		"comment": "Use approximations, as we can't have token definition and value same.",
-		"50": {
-			"value": "0.51",
-			"comment": "Equals `#7d7d7d`, closest to Base30 `72777d` on `background-color: #fff`."
+		"0": {
+			"value": "0"
 		},
-		"65": {
-			"value": "0.67",
-			"comment": "Equals `#555`, closest to Base20 `#54595d` on `background-color: #fff`."
-		},
-		"75": {
-			"value": "0.74",
-			"comment": "Equals `#424242`, closest to `#404244 on `background-color: #fff`."
-		},
-		"85": {
-			"value": "0.87",
-			"comment": "Equals `#222`, closest to Base10 `#202122` on `background-color: #fff`."
+		"60": {
+			"value": "0.65"
 		},
 		"100": {
 			"value": "1"

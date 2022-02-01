@@ -139,8 +139,8 @@
 		"base": {
 			"value": "{ opacity.100.value }"
 		},
-		"base--disabled": {
-			"value": "{ opacity.50.value }"
+		"overlay": {
+			"value": "{ opacity.60.value }"
 		}
 	},
 	"z-index": {
