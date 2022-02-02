@@ -2,426 +2,426 @@
 	"background-color": {
 		"comment": "Background Colors",
 		"base": {
-			"value": "{ color.base100.value }"
+			"value": "{ color.base100 }"
 		},
 		"base--hover": {
-			"value": "{ color.base80.value }"
+			"value": "{ color.base80 }"
 		},
 		"base--active": {
-			"value": "{ color.accent90.value }"
+			"value": "{ color.accent90 }"
 		},
 		"base--transparent": {
-			"value": "{ color.transparent.value }"
+			"value": "{ color.transparent }"
 		},
 		"base--disabled": {
-			"value": "{ color.base70.value }"
+			"value": "{ color.base70 }"
 		},
 		"progressive": {
-			"value": "{ color.accent50.value }"
+			"value": "{ color.accent50 }"
 		},
 		"progressive--hover": {
-			"value": "{ color.modifier-accent50-lighten.value }"
+			"value": "{ color.modifier-accent50-lighten }"
 		},
 		"progressive--active": {
-			"value": "{ color.accent30.value }"
+			"value": "{ color.accent30 }"
 		},
 		"progressive--focus": {
-			"value": "{ color.accent50.value }"
+			"value": "{ color.accent50 }"
 		},
 		"destructive": {
-			"value": "{ color.utility-red50.value }"
+			"value": "{ color.utility-red50 }"
 		},
 		"destructive--hover": {
-			"value": "{ color.modifier-utility-red50-lighten.value }"
+			"value": "{ color.modifier-utility-red50-lighten }"
 		},
 		"destructive--active": {
-			"value": "{ color.utility-red30.value }"
+			"value": "{ color.utility-red30 }"
 		},
 		"destructive--focus": {
-			"value": "{ color.utility-red90.value }"
+			"value": "{ color.utility-red90 }"
 		},
 		"framed": {
-			"value": "{ color.base90.value }"
+			"value": "{ color.base90 }"
 		},
 		"framed--hover": {
-			"value": "{ color.base90.value }"
+			"value": "{ color.base90 }"
 		},
 		"framed--active": {
-			"value": "{ color.base70.value }"
+			"value": "{ color.base70 }"
 		},
 		"filled--disabled": {
 			"comment": "'Filled' UI elements (Checkboxes, Radios, ProgressBars…)",
-			"value": "{ color.base70.value }"
+			"value": "{ color.base70 }"
 		}
 	},
 	"color": {
 		"base": {
-			"value": "{ color.base10.value }"
+			"value": "{ color.base10 }"
 		},
 		"base--hover": {
-			"value": "{ color.modifier-base10-lighten.value }"
+			"value": "{ color.modifier-base10-lighten }"
 		},
 		"base--active": {
-			"value": "{ color.base0.value }"
+			"value": "{ color.base0 }"
 		},
 		"base--inverted": {
-			"value": "{ color.base100.value }"
+			"value": "{ color.base100 }"
 		},
 		"base--emphasized": {
-			"value": "{ color.base0.value }"
+			"value": "{ color.base0 }"
 		},
 		"base--subtle": {
-			"value": "{ color.base30.value }"
+			"value": "{ color.base30 }"
 		},
 		"base--disabled": {
-			"value": "{ color.base30.value }"
+			"value": "{ color.base30 }"
 		},
 		"filled--disabled": {
-			"value": "{ color.base100.value }"
+			"value": "{ color.base100 }"
 		},
 		"accessory": {
 			"comment": "TODO: Unclear if `accessory` is fitting in with all the `base--` modifiers.",
-			"value": "{ color.base20.value }"
+			"value": "{ color.base20 }"
 		},
 		"placeholder": {
-			"value": "{ color.base30.value }"
+			"value": "{ color.base30 }"
 		},
 		"progressive": {
 			"comment": "'Progressive' Color and states",
-			"value": "{ color.accent50.value }"
+			"value": "{ color.accent50 }"
 		},
 		"progressive--hover": {
-			"value": "{ color.modifier-accent50-lighten.value }"
+			"value": "{ color.modifier-accent50-lighten }"
 		},
 		"progressive--active": {
-			"value": "{ color.accent30.value }"
+			"value": "{ color.accent30 }"
 		},
 		"progressive--focus": {
-			"value": "{ color.accent50.value }"
+			"value": "{ color.accent50 }"
 		},
 		"primary": {
 			"comment": "Deprecated: Replace by `color-progressive`. In use in many non-button applications.",
-			"value": "{ color.progressive.value }"
+			"value": "{ color.progressive }"
 		},
 		"primary--hover": {
 			"comment": "Deprecated: Replace by `color-progressive--hover`.",
-			"value": "{ color.progressive--hover.value }"
+			"value": "{ color.progressive--hover }"
 		},
 		"primary--active": {
 			"comment": "Deprecated: Replace by `color-progressive--active`.",
-			"value": "{ color.progressive--active.value }"
+			"value": "{ color.progressive--active }"
 		},
 		"primary--focus": {
 			"comment": "Deprecated: Replace by `color-progressive--focus`.",
-			"value": "{ color.progressive--focus.value }"
+			"value": "{ color.progressive--focus }"
 		},
 		"destructive": {
 			"comment": "'Destructive' Color and states",
-			"value": "{ color.utility-red50.value }"
+			"value": "{ color.utility-red50 }"
 		},
 		"destructive--hover": {
-			"value": "{ color.modifier-utility-red50-lighten.value }"
+			"value": "{ color.modifier-utility-red50-lighten }"
 		},
 		"destructive--active": {
-			"value": "{ color.utility-red30.value }"
+			"value": "{ color.utility-red30 }"
 		},
 		"destructive--focus": {
-			"value": "{ color.utility-red50.value }"
+			"value": "{ color.utility-red50 }"
 		},
 		"error": {
-			"value": "{ color.utility-red50.value }"
+			"value": "{ color.utility-red50 }"
 		},
 		"success": {
-			"value": "{ color.utility-green30.value }"
+			"value": "{ color.utility-green30 }"
 		}
 	},
 	"opacity": {
 		"base": {
-			"value": "{ opacity.100.value }"
+			"value": "{ opacity.100 }"
 		},
 		"overlay": {
-			"value": "{ opacity.60.value }"
+			"value": "{ opacity.60 }"
 		}
 	},
 	"z-index": {
 		"base": {
-			"value": "{ z-index.0.value }"
+			"value": "{ z-index.0 }"
 		},
 		"overlay": {
-			"value": "{ z-index.101.value }"
+			"value": "{ z-index.101 }"
 		}
 	},
 	"box-sizing": {
 		"base": {
-			"value": "{ box-sizing.100.value }"
+			"value": "{ box-sizing.100 }"
 		}
 	},
 	"min-size": {
 		"base": {
 			"comment": "TODO: Deprecate key and change to `min-size-component`?",
-			"value": "{ size.absolute.200.value }"
+			"value": "{ size.absolute.200 }"
 		}
 	},
 	"size": {
 		"base": {
 			"comment": "TODO: Should be a relative size. Deprecate key and change to `size-component`?",
-			"value": "{ size.absolute.200.value }"
+			"value": "{ size.absolute.200 }"
 		},
 		"full": {
-			"value": "{ size.relative.percentage.100.value }"
+			"value": "{ size.relative.percentage.100 }"
 		}
 	},
 	"max-width": {
 		"base": {
-			"value": "{ max-width.100.value }"
+			"value": "{ max-width.100 }"
 		}
 	},
 	"width": {
 		"x-small": {
-			"value": "{ size.absolute.150.value }"
+			"value": "{ size.absolute.150 }"
 		},
 		"small": {
-			"value": "{ size.absolute.800.value }"
+			"value": "{ size.absolute.800 }"
 		},
 		"medium": {
-			"value": "{ size.absolute.1600.value }"
+			"value": "{ size.absolute.1600 }"
 		},
 		"large": {
-			"value": "{ size.absolute.2400.value }"
+			"value": "{ size.absolute.2400 }"
 		},
 		"x-large": {
-			"value": "{ size.absolute.3200.value }"
+			"value": "{ size.absolute.3200 }"
 		},
 		"full": {
-			"value": "{ size.relative.percentage.100.value }"
+			"value": "{ size.relative.percentage.100 }"
 		}
 	},
 	"min-height": {
 		"x-small": {
-			"value": "{ size.absolute.125.value }"
+			"value": "{ size.absolute.125 }"
 		},
 		"small": {
-			"value": "{ size.absolute.150.value }"
+			"value": "{ size.absolute.150 }"
 		},
 		"medium": {
-			"value": "{ size.absolute.200.value }"
+			"value": "{ size.absolute.200 }"
 		},
 		"large": {
-			"value": "{ size.absolute.250.value }"
+			"value": "{ size.absolute.250 }"
 		},
 		"x-large": {
-			"value": "{ size.absolute.300.value }"
+			"value": "{ size.absolute.300 }"
 		}
 	},
 	"spacing": {
 		"xx-small": {
-			"value": "{ size.relative.em.12.value }"
+			"value": "{ size.relative.em.12 }"
 		},
 		"x-small": {
-			"value": "{ size.relative.em.25.value }"
+			"value": "{ size.relative.em.25 }"
 		},
 		"small": {
-			"value": "{ size.relative.em.50.value }"
+			"value": "{ size.relative.em.50 }"
 		},
 		"medium": {
-			"value": "{ size.relative.em.75.value }"
+			"value": "{ size.relative.em.75 }"
 		},
 		"large": {
-			"value": "{ size.relative.em.100.value }"
+			"value": "{ size.relative.em.100 }"
 		},
 		"x-large": {
-			"value": "{ size.relative.em.150.value }"
+			"value": "{ size.relative.em.150 }"
 		},
 		"xx-large": {
-			"value": "{ size.relative.em.200.value }"
+			"value": "{ size.relative.em.200 }"
 		}
 	},
 	"border": {
 		"base": {
-			"value": "{ border-width.base.value } { border-style.base.value } { border-color.base.value }"
+			"value": "{ border-width.base } { border-style.base } { border-color.base }"
 		}
 	},
 	"border-width": {
 		"base": {
-			"value": "{ size.absolute.6.value }"
+			"value": "{ size.absolute.6 }"
 		}
 	},
 	"border-style": {
 		"base": {
-			"value": "{ border-style.100.value }"
+			"value": "{ border-style.100 }"
 		}
 	},
 	"border-color": {
 		"base": {
-			"value": "{ color.base50.value }"
+			"value": "{ color.base50 }"
 		},
 		"base--hover": {
-			"value": "{ color.base50.value }"
+			"value": "{ color.base50 }"
 		},
 		"base--active": {
-			"value": "{ color.base30.value }"
+			"value": "{ color.base30 }"
 		},
 		"base--focus": {
-			"value": "{ color.accent50.value }"
+			"value": "{ color.accent50 }"
 		},
 		"base--disabled": {
-			"value": "{ color.base70.value }"
+			"value": "{ color.base70 }"
 		},
 		"filled--disabled": {
-			"value": "{ color.base100.value }"
+			"value": "{ color.base100 }"
 		},
 		"progressive": {
-			"value": "{ color.accent50.value }"
+			"value": "{ color.accent50 }"
 		},
 		"progressive--hover": {
-			"value": "{ color.modifier-accent50-lighten.value }"
+			"value": "{ color.modifier-accent50-lighten }"
 		},
 		"progressive--active": {
-			"value": "{ color.accent30.value }"
+			"value": "{ color.accent30 }"
 		},
 		"progressive--focus": {
-			"value": "{ color.accent50.value }"
+			"value": "{ color.accent50 }"
 		},
 		"destructive": {
-			"value": "{ color.utility-red50.value }"
+			"value": "{ color.utility-red50 }"
 		},
 		"destructive--hover": {
-			"value": "{ color.modifier-utility-red50-lighten.value }"
+			"value": "{ color.modifier-utility-red50-lighten }"
 		},
 		"destructive--active": {
-			"value": "{ color.utility-red30.value }"
+			"value": "{ color.utility-red30 }"
 		},
 		"destructive--focus": {
-			"value": "{ color.utility-red50.value }"
+			"value": "{ color.utility-red50 }"
 		},
 		"neutral": {
 			"comment": "Better off in components.json?",
-			"value": "{ color.base50.value }"
+			"value": "{ color.base50 }"
 		},
 		"neutral--hover": {
-			"value": "{ color.base50.value }"
+			"value": "{ color.base50 }"
 		},
 		"neutral--active": {
-			"value": "{ color.base30.value }"
+			"value": "{ color.base30 }"
 		},
 		"neutral--focus": {
-			"value": "{ color.accent50.value }"
+			"value": "{ color.accent50 }"
 		},
 		"binary": {
 			"comment": "TODO: base.json or components.json?",
-			"value": "{ color.base30.value }"
+			"value": "{ color.base30 }"
 		},
 		"transparent": {
-			"value": "{ color.transparent.value }"
+			"value": "{ color.transparent }"
 		}
 	},
 	"border-radius": {
 		"base": {
-			"value": "{ size.absolute.12.value }"
+			"value": "{ size.absolute.12 }"
 		},
 		"round": {
-			"value": "{ size.absolute.9999px.value }"
+			"value": "{ size.absolute.9999px }"
 		},
 		"rounder": {
 			"comment": "TODO: Only used in WiKit. Deprecate and replace by 'round'.",
-			"value": "{ size.absolute.25.value }"
+			"value": "{ size.absolute.25 }"
 		},
 		"circle": {
-			"value": "{ size.relative.percentage.100.value }"
+			"value": "{ size.relative.percentage.100 }"
 		}
 	},
 	"padding": {
 		"base": {
-			"value": "{ padding.vertical.base.value } { padding.horizontal.base.value }"
+			"value": "{ padding.vertical.base } { padding.horizontal.base }"
 		},
 		"horizontal": {
 			"base": {
-				"value": "{ size.absolute.75.value }"
+				"value": "{ size.absolute.75 }"
 			}
 		},
 		"vertical": {
 			"base": {
 				"comment": "Note, this is changing from `5px` to `4px` and will go in sync with line-height change.",
-				"value": "{ size.absolute.25.value }"
+				"value": "{ size.absolute.25 }"
 			}
 		}
 	},
 	"box-shadow": {
 		"base": {
-			"value": "{ box-shadow.100.value } { color.transparent.value }"
+			"value": "{ box-shadow.100 } { color.transparent }"
 		},
 		"base--focus": {
-			"value": "{ box-shadow.100.value } { color.accent50.value }"
+			"value": "{ box-shadow.100 } { color.accent50 }"
 		},
 		"filled--disabled": {
-			"value": "{ box-shadow.100.value } { color.base100.value }"
+			"value": "{ box-shadow.100 } { color.base100 }"
 		},
 		"progressive--focus": {
-			"value": "{ box-shadow.100.value } { color.accent50.value }, { box-shadow.200.value } { color.base100.value }"
+			"value": "{ box-shadow.100 } { color.accent50 }, { box-shadow.200 } { color.base100 }"
 		},
 		"primary--focus": {
 			"comment": "Deprecated: Replace by `box-shadow-progressive--focus`.",
-			"value": "{ box-shadow.progressive--focus.value }"
+			"value": "{ box-shadow.progressive--focus }"
 		},
 		"destructive--focus": {
-			"value": "{ box-shadow.100.value } { color.utility-red50.value }, { box-shadow.200.value } { color.base100.value }"
+			"value": "{ box-shadow.100 } { color.utility-red50 }, { box-shadow.200 } { color.base100 }"
 		}
 	},
 	"outline": {
 		"comment": "Outlines",
 		"base--focus": {
 			"comment": "Enable Windows high contrast mode on certain widgets, that have default outlines overridden.",
-			"value": "{ size.absolute.6.value } { border-style.100.value } { color.transparent.value }"
+			"value": "{ size.absolute.6 } { border-style.100 } { color.transparent }"
 		}
 	},
 	"font-family": {
 		"base": {
-			"value": "{ font-family.sans--fallback.value }"
+			"value": "{ font-family.sans--fallback }"
 		},
 		"heading-main": {
-			"value": "{ font-family.serif.value }"
+			"value": "{ font-family.serif }"
 		}
 	},
 	"font-weight": {
 		"hairline": {
-			"value": "{ font-weight.25.value }"
+			"value": "{ font-weight.25 }"
 		},
 		"light": {
-			"value": "{ font-weight.75.value }"
+			"value": "{ font-weight.75 }"
 		},
 		"normal": {
-			"value": "{ font-weight.100.value }"
+			"value": "{ font-weight.100 }"
 		},
 		"semi-bold": {
-			"value": "{ font-weight.150.value }"
+			"value": "{ font-weight.150 }"
 		},
 		"bold": {
-			"value": "{ font-weight.175.value }"
+			"value": "{ font-weight.175 }"
 		}
 	},
 	"transition": {
 		"base": {
 			"comment": "`ease` is the initial value, therefore leaving out.",
-			"value": "{ transition-duration.100.value }"
+			"value": "{ transition-duration.100 }"
 		},
 		"ease-medium": {
-			"value": "{ transition-duration.250.value }"
+			"value": "{ transition-duration.250 }"
 		},
 		"ease-out-medium": {
-			"value": "{ transition-timing-function.human.value } { transition-duration.100.value }"
+			"value": "{ transition-timing-function.human } { transition-duration.100 }"
 		}
 	},
 	"transition-duration": {
 		"base": {
-			"value": "{ transition-duration.100.value }"
+			"value": "{ transition-duration.100 }"
 		},
 		"medium": {
-			"value": "{ transition-duration.250.value }"
+			"value": "{ transition-duration.250 }"
 		}
 	},
 	"transition-property": {
 		"framed": {
-			"value": "{ transition-property.background-color.value }, { transition-property.color.value }, { transition-property.border-color.value }, { transition-property.box-shadow.value }"
+			"value": "{ transition-property.background-color }, { transition-property.color }, { transition-property.border-color }, { transition-property.box-shadow }"
 		}
 	}
 }

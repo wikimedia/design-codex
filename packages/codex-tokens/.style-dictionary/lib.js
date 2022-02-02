@@ -1,7 +1,7 @@
 'use strict';
 
 function getReferencedTokens( prop ) {
-	const variablePattern = /{\s*(?<token>.+?)\.value\s*}/g;
+	const variablePattern = /{\s*(?<token>.+?)\s*}/g;
 
 	return {
 		tokens: [ ...prop.original.value.matchAll( variablePattern ) ]

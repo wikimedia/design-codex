@@ -1,72 +1,72 @@
 {
 	"background-color": {
 		"primary": {
-			"value": "{ background-color.progressive.value }"
+			"value": "{ background-color.progressive }"
 		},
 		"primary--hover": {
-			"value": "{ color.modifier-accent50-translucent.value }"
+			"value": "{ color.modifier-accent50-translucent }"
 		},
 		"quiet": {
-			"value": "{ color.base.value }"
+			"value": "{ color.base }"
 		},
 		"quiet--hover": {
-			"value": "{ color.modifier-base90-translucent.value }"
+			"value": "{ color.modifier-base90-translucent }"
 		},
 		"quiet--active": {
-			"value": "{ color.modifier-base80-translucent.value }"
+			"value": "{ color.modifier-base80-translucent }"
 		},
 		"quiet-progressive--hover": {
-			"value": "{ color.accent90.value }"
+			"value": "{ color.accent90 }"
 		},
 		"progressive-quiet--hover": {
 			"comment": "Deprecated key. Use 'background-color.quiet-progressive--hover' key instead.",
-			"value": "{ background-color.quiet-progressive--hover.value }"
+			"value": "{ background-color.quiet-progressive--hover }"
 		},
 		"message": {
 			"comment": "User system messages (errors, warnings, successes, notices).",
 			"notice": {
-				"value": "{ color.base80.value }"
+				"value": "{ color.base80 }"
 			},
 			"error": {
-				"value": "{ color.utility-red90.value }"
+				"value": "{ color.utility-red90 }"
 			},
 			"warning": {
-				"value": "{ color.utility-yellow90.value }"
+				"value": "{ color.utility-yellow90 }"
 			},
 			"success": {
-				"value": "{ color.utility-green90.value }"
+				"value": "{ color.utility-green90 }"
 			}
 		},
 		"tabs-framed": {
 			"comment": "Tabs bar background color.",
-			"value": "{ color.base80.value }"
+			"value": "{ color.base80 }"
 		},
 		"toolbar": {
 			"comment": "Toolbar.",
-			"value": "{ background-color.base.value }"
+			"value": "{ background-color.base }"
 		},
 		"tool--hover": {
 			"comment": "Toolbar tools.",
-			"value": "{ background-color.base--hover.value }"
+			"value": "{ background-color.base--hover }"
 		},
 		"tool--active": {
-			"value": "{ background-color.progressive.value }"
+			"value": "{ background-color.progressive }"
 		},
 		"tool--active-hover": {
-			"value": "{ background-color.progressive--hover.value }"
+			"value": "{ background-color.progressive--hover }"
 		}
 	},
 	"color": {
 		"primary": {
 			"progressive": {
 				"comment": "Primary 'Progressive' Button color and states",
-				"value": "{ color.base--inverted.value }"
+				"value": "{ color.base--inverted }"
 			},
 			"progressive--hover": {
-				"value": "{ color.modifier-accent50-lighten.value }"
+				"value": "{ color.modifier-accent50-lighten }"
 			},
 			"progressive--active": {
-				"value": "{ color.accent30.value }"
+				"value": "{ color.accent30 }"
 			}
 		}
 	},
@@ -74,91 +74,91 @@
 		"offset": {
 			"input-radio--focus": {
 				"comment": "TODO: This has to be a relative value, for design reasons.",
-				"value": "-{ size.absolute.25.value }"
+				"value": "-{ size.absolute.25 }"
 			}
 		}
 	},
 	"min-size": {
 		"icon": {
-			"value": "{ size.absolute.125.value }"
+			"value": "{ size.absolute.125 }"
 		}
 	},
 	"size": {
 		"comment": "TODO: This has to be a relative value, for accessibility reasons.",
 		"icon": {
-			"value": "{ size.absolute.125.value }"
+			"value": "{ size.absolute.125 }"
 		}
 	},
 	"max-width": {
 		"button": {
 			"comment": "Note, that this is a slight amendment from WikimediaUI Base from `28.75em` = `460px` to `448px`",
-			"value": "{ size.absolute.2800.value }"
+			"value": "{ size.absolute.2800 }"
 		}
 	},
 	"border-color": {
 		"divider": {
-			"value": "{ color.base50.value }"
+			"value": "{ color.base50 }"
 		},
 		"primary": {
 			"comment": "Deprecated key. Use base file's 'progressive' key instead.",
-			"value": "{ border-color.progressive.value }"
+			"value": "{ border-color.progressive }"
 		},
 		"primary--hover": {
 			"comment": "Deprecated key.",
-			"value": "{ border-color.progressive--hover.value }"
+			"value": "{ border-color.progressive--hover }"
 		},
 		"primary--active": {
 			"comment": "Deprecated key.",
-			"value": "{ border-color.progressive--active.value }"
+			"value": "{ border-color.progressive--active }"
 		},
 		"primary--focus": {
 			"comment": "Deprecated key.",
-			"value": "{ border-color.progressive--focus.value }"
+			"value": "{ border-color.progressive--focus }"
 		}
 	},
 	"border-radius": {
 		"input-radio": {
-			"value": "{ border-radius.circle.value }"
+			"value": "{ border-radius.circle }"
 		}
 	},
 	"padding": {
 		"input-text": {
-			"value": "{ padding.vertical.base.value } { padding.horizontal.input-text.value }"
+			"value": "{ padding.vertical.base } { padding.horizontal.input-text }"
 		},
 		"horizontal": {
 			"input-text": {
-				"value": "{ size.absolute.100.value }"
+				"value": "{ size.absolute.100 }"
 			}
 		},
 		"vertical": {
 			"menu": {
 				"comment": "Note, that we need to rely on `calc()` for cross-stylesheet format output. Not perfectly aligned to current basic browser support.",
-				"value": "calc( { padding.vertical.base.value } + { border-width.base.value } )"
+				"value": "calc( { padding.vertical.base } + { border-width.base } )"
 			}
 		}
 	},
 	"box-shadow": {
 		"card": {
-			"value": "{ box-shadow.1100.value }"
+			"value": "{ box-shadow.1100 }"
 		},
 		"dialog": {
-			"value": "{ box-shadow.1200.value }"
+			"value": "{ box-shadow.1200 }"
 		},
 		"menu": {
-			"value": "{ box-shadow.1200.value }"
+			"value": "{ box-shadow.1200 }"
 		}
 	},
 	"animation-delay": {
 		"progress": {
 			"dots": {
 				"none": {
-					"value": "{ animation-delay.0.value }"
+					"value": "{ animation-delay.0 }"
 				},
 				"medium": {
-					"value": "{ animation-delay.100.value }"
+					"value": "{ animation-delay.100 }"
 				},
 				"slow": {
-					"value": "{ animation-delay.200.value }"
+					"value": "{ animation-delay.200 }"
 				}
 			}
 		}
@@ -167,10 +167,10 @@
 		"progress": {
 			"dots": {
 				"medium": {
-					"value": "{ animation-duration.100.value }"
+					"value": "{ animation-duration.100 }"
 				},
 				"slow": {
-					"value": "{ animation-duration.125.value }"
+					"value": "{ animation-duration.125 }"
 				}
 			}
 		}
