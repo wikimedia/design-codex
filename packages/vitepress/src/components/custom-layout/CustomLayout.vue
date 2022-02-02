@@ -1,7 +1,7 @@
 <template>
 	<Layout>
 		<template #navbar-search>
-			<div v-if="isComponentPage" class="cdx-theme-direction-switcher">
+			<div v-show="isComponentPage" class="cdx-theme-direction-switcher">
 				Direction:
 				<direction-switcher v-model="dir" />
 			</div>
