@@ -3,8 +3,11 @@ import AllIcons from './AllIcons.vue';
 </script>
 
 # List of all icons
-Icons listing with all available icons per directionality in left-to-right (LTR)
-and right-to-left (RTL) languages and language-specific icons assigned by
-[ISO code abbreviations](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+The table below displays all available icons and their variations, including:
+- The version displayed in left-to-right (LTR) contexts
+- The version displayed in right-to-left (RTL) contexts, if it differs from the LTR version
+- Any language-specific variants, labelled by
+  [ISO code abbreviations](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+  A version of the icon for all other languages appears below the language-specific variants.
 
 <AllIcons />

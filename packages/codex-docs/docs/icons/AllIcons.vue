@@ -16,10 +16,10 @@
 				<td>
 					{{ iconData.langLabel || '' }}
 				</td>
-				<td dir="ltr">
+				<td dir="ltr" :colspan="iconData.dirSpecific ? 1 : 2">
 					<cdx-icon :icon="iconData.icon" :lang="iconData.langCode" />
 				</td>
-				<td dir="rtl">
+				<td v-if="iconData.dirSpecific" dir="rtl">
 					<cdx-icon :icon="iconData.icon" :lang="iconData.langCode" />
 				</td>
 			</tr>
@@ -32,7 +32,13 @@ import { CdxIcon } from '@wikimedia/codex';
 import * as allIcons from '@wikimedia/codex-icons';
 import { Icon } from '@wikimedia/codex-icons';
 
-const displayIcons : { iconName: string, icon: Icon, langCode?: string, langLabel?: string }[] = [];
+const displayIcons : {
+	iconName: string,
+	icon: Icon,
+	dirSpecific: boolean,
+	langCode?: string,
+	langLabel?: string
+}[] = [];
 for ( const iconName in allIcons ) {
 	const icon = allIcons[ iconName as keyof typeof allIcons ];
 	// Some of the exports are utility functions, filter those out
@@ -45,6 +51,7 @@ for ( const iconName in allIcons ) {
 			displayIcons.push( {
 				iconName,
 				icon,
+				dirSpecific: false,
 				langCode,
 				langLabel: langCode
 			} );
@@ -52,12 +59,14 @@ for ( const iconName in allIcons ) {
 		displayIcons.push( {
 			iconName,
 			icon,
+			dirSpecific: 'ltr' in icon,
 			langLabel: 'other'
 		} );
 	} else {
 		displayIcons.push( {
 			iconName,
-			icon
+			icon,
+			dirSpecific: typeof icon !== 'string' && 'ltr' in icon
 		} );
 	}
 }
