@@ -1,16 +1,5 @@
 {
-	"name": "@wikimedia/codex",
-	"description": "Codex is a toolkit for building user interfaces within the Wikimedia Design System",
-	"author": "Wikimedia Foundation (https://wikimediafoundation.org/)",
-	"keywords": [
-		"Codex",
-		"Wikimedia",
-		"Vue.js",
-		"user-interface",
-		"components",
-		"Wikipedia",
-		"MediaWiki"
-	],
+	"private": true,
 	"homepage": "https://doc.wikimedia.org/codex/",
 	"repository": {
 		"type": "git",
@@ -18,7 +7,6 @@
 	},
 	"bugs": "https://phabricator.wikimedia.org/tag/codex/",
 	"license": "GPL-2.0+",
-	"private": true,
 	"workspaces": [
 		"packages/*"
 	],
@@ -27,13 +15,14 @@
 		"node": ">=12"
 	},
 	"scripts": {
-		"dev": "npm run build-if-missing -w icons && concurrently \"npm run watch -w design-tokens\" \"npm run dev -w vue-components\"",
-		"doc": "npm run build-if-missing -w icons && npm run build -w design-tokens && npm run build -w vitepress",
-		"doc:dev": "npm run build-if-missing -w icons  && concurrently \"npm run watch -w design-tokens\" \"npm run dev -w vitepress\"",
+		"build-all-if-missing": "npm run build-if-missing --workspaces --if-present",
+		"dev": "npm run build-if-missing -w @wikimedia/codex-icons && concurrently \"npm run watch -w @wikimedia/codex-tokens\" \"npm run dev -w @wikimedia/codex\"",
+		"doc": "npm run build-if-missing -w @wikimedia/codex-icons && npm run build -w @wikimedia/codex-tokens && npm run build -w codex-docs",
+		"doc:dev": "npm run build-if-missing -w @wikimedia/codex-icons  && concurrently \"npm run watch -w @wikimedia/codex-tokens\" \"npm run dev -w codex-docs\"",
 		"lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint --workspaces --if-present",
-		"lint:eslint": "eslint --max-warnings 0 .",
+		"lint:eslint": "npm run build-all-if-missing && eslint --max-warnings 0 .",
 		"lint:stylelint": "stylelint --report-needless-disables --max-warnings 0 .",
-		"test": "npm run build-if-missing -w icons && npm run lint && npm run test --workspaces --if-present"
+		"test": "npm run build-if-missing -w @wikimedia/codex-icons && npm run lint && npm run test --workspaces --if-present"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^4.33.0",
