@@ -34,8 +34,14 @@ export default defineComponent( {
 } );
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .vp-select-custom-option .cdx-icon {
-	margin-right: 0.5em;
+	[ dir='ltr' ] & {
+		margin-right: 0.5em;
+	}
+
+	[ dir='rtl' ] & {
+		margin-left: 0.5em;
+	}
 }
 </style>
