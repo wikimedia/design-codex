@@ -16,8 +16,8 @@ const { cdxIconAlert } = require( 'icons' );
 and pass it to the `CdxIcon` component from the `vue-components` package:
 `<CdxIcon :icon="cdxIconAlert">`.
 
-For more detailed usage information, see the documentation in the `vitepress` package.
-<!-- TODO link to doc.wikimedia.org once that's up -->
+For more detailed usage information, see the
+[section about icons on the documentation website](https://doc.wikimedia.org/codex/main/icons/overview.html).
 
 ## Building the icons
 You will need to build the icons in this package in order to be able to build the `vue-components`

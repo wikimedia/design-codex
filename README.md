@@ -35,12 +35,12 @@ To get started:
 - Run `npm run doc:dev` to start the docs site
 - Or run `npm run dev` to start the Vite sandbox
 
-See the [contributing code](/packages/vitepress/docs/contributing/contributing-code.md) guidelines
+See the [contributing code](https://doc.wikimedia.org/codex/main/contributing/contributing-code.html) guidelines
 for more information.
 
 ## Contributing
 
-If you'd like to contribute, head over to the [contributing docs](/packages/vitepress/docs/contributing/guidelines.md)
+If you'd like to contribute, head over to the [contributing docs](https://doc.wikimedia.org/codex/main/contributing/guidelines.html)
 to learn about our processes and ways you can contribute.
 
 ## Maintainers
