@@ -1,6 +1,8 @@
-import { mount } from '@vue/test-utils';
+import { mount, config } from '@vue/test-utils';
+import { ref } from 'vue';
 import Wrapper from './Wrapper.vue';
 import { ControlsConfig } from './../../types';
+import { DirectionKey } from '../../constants';
 
 const controlsConfig: ControlsConfig = [
 	{ name: 'radioControl', type: 'radio', options: [ 'Option 1', 'Option 2', 'Option 3' ] },
@@ -23,6 +25,12 @@ const controlsConfig: ControlsConfig = [
 	{ name: 'textWithNumberDefault', type: 'text', default: 42 },
 	{ name: 'slotControl', type: 'slot', default: 'Hello world' }
 ];
+
+const ltrRef = ref( 'ltr' );
+
+config.global.provide = {
+	[ DirectionKey as symbol ]: ltrRef
+};
 
 it( 'includes code sample when code is provided', () => {
 	const wrapper = mount( Wrapper, {
