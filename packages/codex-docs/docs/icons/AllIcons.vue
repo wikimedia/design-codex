@@ -1,9 +1,11 @@
 <template>
-	<table>
+	<table class="vp-all-icons-table">
 		<thead>
 			<tr>
-				<th>Icon name</th>
-				<th>Language</Th>
+				<th class="vp-all-icons-table__icon-name">
+					Icon name
+				</th>
+				<th>Language</th>
 				<th>LTR icon</th>
 				<th>RTL icon</th>
 			</tr>
@@ -71,3 +73,13 @@ for ( const iconName in allIcons ) {
 	}
 }
 </script>
+
+<style>
+.vp-all-icons-table__icon-name {
+	text-align: left;
+}
+
+.vp-all-icons-table td[ dir ] {
+	text-align: center;
+}
+</style>
