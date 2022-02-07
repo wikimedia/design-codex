@@ -30,7 +30,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 // FIXME: Tech debt. To be removed as soon as Id58bb6ce050 is in.
 @width-breakpoint-tablet: 720px;

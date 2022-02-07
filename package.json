@@ -16,9 +16,9 @@
 	},
 	"scripts": {
 		"build-all-if-missing": "npm run build-if-missing --workspaces --if-present",
-		"dev": "npm run build-if-missing -w @wikimedia/codex-icons && concurrently \"npm run watch -w @wikimedia/codex-tokens\" \"npm run dev -w @wikimedia/codex\"",
-		"doc": "npm run build-if-missing -w @wikimedia/codex-icons && npm run build -w @wikimedia/codex-tokens && npm run build -w codex-docs",
-		"doc:dev": "npm run build-if-missing -w @wikimedia/codex-icons  && concurrently \"npm run watch -w @wikimedia/codex-tokens\" \"npm run dev -w codex-docs\"",
+		"dev": "npm run build-if-missing -w @wikimedia/codex-icons && concurrently \"npm run watch -w @wikimedia/codex-design-tokens\" \"npm run dev -w @wikimedia/codex\"",
+		"doc": "npm run build-if-missing -w @wikimedia/codex-icons && npm run build -w @wikimedia/codex-design-tokens && npm run build -w codex-docs",
+		"doc:dev": "npm run build-if-missing -w @wikimedia/codex-icons  && concurrently \"npm run watch -w @wikimedia/codex-design-tokens\" \"npm run dev -w codex-docs\"",
 		"lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint --workspaces --if-present",
 		"lint:eslint": "npm run build-all-if-missing && eslint --max-warnings 0 .",
 		"lint:stylelint": "stylelint --report-needless-disables --max-warnings 0 .",
