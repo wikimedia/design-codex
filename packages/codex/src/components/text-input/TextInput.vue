@@ -222,26 +222,22 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-/*
-* TODO: Remove references to wikimedia-ui-base once we have
-* the proper tokens in place
-*/
-@import 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 /* TODO: these should be design tokens. */
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
-@border-color-input--hover: @border-color-base--active;
 @size-input-icon-container: unit(
 	( ( @padding-horizontal-input-text * 2 + @size-icon ) / @font-size-browser / @font-size-base ),
 	em
 );
+@transition-property-input-text: border-color, box-shadow;
 
 .cdx-text-input {
 	/* For proper positioning of icons and slotted elements */
 	position: relative;
-	box-sizing: border-box;
+	box-sizing: @box-sizing-base;
 
 	&__start-icon,
 	&__end-icon {
@@ -295,7 +291,7 @@ export default defineComponent( {
 /* stylelint-disable-next-line no-descending-specificity */
 .cdx-text-input__input {
 	display: block;
-	box-sizing: border-box;
+	box-sizing: @box-sizing-base;
 	width: @size-full;
 	height: @size-base;
 	margin: 0;
@@ -309,14 +305,20 @@ export default defineComponent( {
 
 	&[ disabled ] {
 		background-color: @background-color-base--disabled;
-		color: @color-placeholder;
-		-webkit-text-fill-color: @color-placeholder;
+		color: @color-base--disabled;
+		-webkit-text-fill-color: @color-base--disabled;
 		border-color: @border-color-base--disabled;
-		text-shadow: @text-shadow-base--disabled;
+		// Don't implement coined effect on text-shadow from OOUI.
+		// This has never gone through design review and was a hack to increase
+		// color contrast.
+		// text-shadow: @text-shadow-base--disabled;
 
 		& ~ .cdx-text-input__start-icon,
 		& ~ .cdx-text-input__end-icon {
-			opacity: @opacity-base--disabled;
+			// FIXME: Revisit the opacity value. Codex icons are happily
+			// applying color values, so we shouldn't need setting an opacity
+			// here.
+			// opacity: @opacity-base--disabled;
 			pointer-events: none;
 		}
 	}
@@ -326,7 +328,7 @@ export default defineComponent( {
 		color: @color-base--emphasized;
 		border-color: @border-color-base;
 		box-shadow: @box-shadow-base;
-		transition-property: border-color, box-shadow;
+		transition-property: @transition-property-input-text;
 		transition-duration: @transition-duration-medium;
 
 		&:hover {
@@ -341,13 +343,14 @@ export default defineComponent( {
 
 		&:focus ~ .cdx-text-input__start-icon,
 		&:focus ~ .cdx-text-input__end-icon {
-			opacity: 1;
+			opacity: @opacity-base;
 		}
 	}
 
+	// Normalize placeholder styling, see T139034.
 	&::placeholder {
 		color: @color-placeholder;
-		opacity: 1;
+		opacity: @opacity-base;
 	}
 
 	/*
