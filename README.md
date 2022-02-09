@@ -16,8 +16,22 @@ Codex features:
 ## Quick start
 
 ### Usage
+To install:
+```sh
+npm install --save-dev @wikimedia/codex @wikimedia/codex-icons
+```
 
-TODO: basic usage info, then link to further info in the docs
+To use components:
+```js
+import { CdxButton, CdxTextInput } from '@wikimedia/codex';
+```
+
+To use icons:
+```js
+import { cdxIconAlert, cdxIconNewWindow } from '@wikimedia/codex-icons';
+```
+
+For more information on how to set up and use the library, see the [usage documentation](https://doc.wikimedia.org/codex/main/introduction/usage.html).
 
 ### Development
 

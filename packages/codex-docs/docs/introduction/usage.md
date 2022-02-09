@@ -1,30 +1,90 @@
 # Usage
+:::warning
+Codex is currently in the **alpha** stage, meant for **testing only**. Some things may not work,
+and breaking changes can happen at any time, as initial development is still ongoing. **Do not
+use Codex in production**.
+:::
 
-## Quick start
+## Installation
+Install the `@wikimedia/codex` and `@wikimedia/codex-icons` packages from NPM:
+```
+npm install --save-dev @wikimedia/codex @wikimedia/codex-icons
+```
+Some projects may not need the icons package, but most do.
 
-### Installation
+## Using components
+Import the components you need from the `@wikimedia/codex` package, and pass them into the
+`components` setting of your component:
+```vue
+<template>
+  <div>
+    <cdx-button action="progressive" type="primary">
+      Click me!
+    </cdx-button>
+  </div>
+</template>
 
-### Using components
+<script>
+import { defineComponent } from 'vue';
+import { CdxButton } from '@wikimedia/codex';
 
-### Versioning
+export default defineComponent( {
+  components: {
+    CdxButton
+  },
+  // ...
+} );
+</script>
+```
+Find documentation for individual components in the “Components” section. For example,
+the documentation for `CdxButton` is at [“Button” page](../components/button.md).
 
-### Different builds
+## Using icons
+Import the icons you need from the `@wikimedia/codex-icons` package, put them in your component's
+`data`, then pass them to a Codex component as a prop:
+```vue
+<template>
+  <div>
+    <cdx-button action="destructive">
+      <cdx-icon :icon="cdxIconTrash" /> Delete this item
+    </cdx-button>
+  </div>
+</template>
 
-Each release contains the following files:
-- `codex.es.js`: ES module build of Codex, which uses ES6 `import` and `export` syntax.
-- `codex.umd.js`: UMD build of Codex. Can be used in CommonJS or AMD environments, or to put
-  the library in the global scope
-  - If CommonJS is detected, it uses `require('vue')` and `exports.CdxButton = ...`
-  - If AMD is detected, it uses `define(['exports', 'vue'], function(...) { ... })`
-  - CommonJS nor AMD is detected, it puts Codex in the global scope at `window.codex`, and
-    expects Vue to be at `window.Vue`.
-- `codex.style.css`: Styles for all components, for use in left-to-right (LTR) languages
-- `codex.style-rtl.css`: Styles for all components, for use in right-to-left (RTL) languages.
-  For more information on right-to-left support, see [the section on bidirectionality](#bidirectionality-support)
-- `index.d.ts`: Entry point for TypeScript type information; the actual types are defined in
-  various `.d.ts` files in the `src/` directory
+<script>
+import { defineComponent } from 'vue';
+import { CdxButton, CdxIcon } from '@wikimedia/codex';
+import { cdxIconTrash } from '@wikimedia/codex-icons';
 
-### Bidirectionality support
+export default defineComponent( {
+  components: {
+    CdxButton,
+    CdxIcon
+  },
+  data: () => ( {
+    cdxIconTrash
+  } ),
+  // ...
+} );
+</script>
+```
+For more information about icons, see [the icon documentation](../icons/overview.md), and
+[the list of all icons](../icons/all-icons.md).
+
+## Using design tokens
+The design tokens are not yet ready for external use at this time.
+
+Read more about [the different packages and their contents](./packages.md).
+## Versioning
+As Codex is currently in the alpha stage, all releases are numbered `0.1.0-alpha.N`,
+where `N` is a number that increases with each release.
+
+Once Codex reaches beta, we will release version `0.1.0-beta.1`, followed by `0.1.0-beta.2`, etc.
+After the beta stage, we may release version `0.2.0` and subsequent `0.x.y` versions. Once Codex
+is ready for production use, we will release version `1.0.0`, and follow
+[the semantic versioning standard](https://semver.org/), from then forward.
+
+## Bidirectionality support
 Codex has limited support for [bidirectional text](https://en.wikipedia.org/wiki/Bidirectional_text).
 It supports pages that are entirely in a left-to-right (LTR) script, or pages that are entirely
 in a right-to-left (RTL) script. It does not support pages with a mix of LTR and RTL
@@ -41,7 +101,3 @@ to the surrounding direction. For more information on how bidirectionality is ha
 see [the icon documentation](../icons/overview.md#right-to-left-rtl-and-language-support).
 
 For more information on this topic, see [the developer documentation on bidirectionality](../contributing/contributing-code.md#bidirectional-script-support).
-
-## Components
-
-## Design tokens
