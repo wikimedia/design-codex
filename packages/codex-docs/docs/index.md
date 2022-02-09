@@ -18,9 +18,9 @@ Read our [guiding principles](#guiding-principles) for details.
 
 ## Usage and contributions
 
-Visit [usage](/introduction/usage) to learn how to use this library.
+Visit [usage](./introduction/usage) to learn how to use this library.
 
-If you'd like to contribute, head over to the [contributing section](/contributing/guidelines) to
+If you'd like to contribute, head over to the [contributing section](./contributing/guidelines) to
 learn about ways you can contribute, our processes, and how to develop this library.
 
 ## Maintainers
