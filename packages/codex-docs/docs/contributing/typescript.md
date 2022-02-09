@@ -24,6 +24,11 @@ HTML elements of different types).
 
 For components, use `InstanceType<typeof ComponentName>`. For example, if the component is a
 `CdxTextInput`, use `InstanceType<typeof CdxTextInput>` as the type.
+:::warning
+Using `typeof ComponentName` as the type for a component template ref will *appear* to work
+since it doesn't cause errors, but that's because it silently disables almost all type checking!
+Make sure to use `InstanceType<typeof ComponentName>` instead.
+:::
 
 ### Options API
 When using a template ref in a computed function or method in the options API, you have to add
