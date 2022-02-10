@@ -2,6 +2,7 @@
 import * as allIcons from '@wikimedia/codex-icons';
 import { cdxIconJournal, cdxIconBold, cdxIconTrash } from '@wikimedia/codex-icons';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
+import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 // Filter out util functions
 const numberOfIcons = Object.keys( allIcons )
@@ -63,6 +64,18 @@ The code above displays <cdx-button action="destructive">
 </cdx-button>. Screen readers skip over the icon and just read `Delete this file`, which still
 makes it clear what the button does. If you added `icon-label="delete"` here, a screen reader would
 read `delete Delete this file`, which is not a good experience for screen reader users.
+
+## Icon colors
+All icons are *monochrome*, meaning the entire icon is the same color. By default, icons use the
+base text color (`{{ tokens.color.base.value }}`), but this can be overridden by changing the
+`color` property of the `.cdx-icon` element in CSS. For example:
+```css
+.my-important-component .cdx-icon {
+	color: #36c;
+}
+```
+Some components, like [CdxButton](../components/button.md), style their icons to match the
+surrounding text color. For example, destructive buttons have red icons to match the red text.
 
 ## Right-to-left (RTL) and language support
 Many icons have different versions for left-to-right (LTR) and right-to-left (RTL) contexts.

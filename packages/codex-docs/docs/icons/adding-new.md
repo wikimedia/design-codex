@@ -25,6 +25,17 @@ corresponding icon files have the same name but in lowerCamelCase, e.g. `fooBar.
 `fullScreen.svg`. If there are multiple SVG files for the same icon, those are named
 `iconName-suffix.svg`, e.g. `imageAdd-rtl.svg` or `italic-i.svg`.
 
+## SVG conventions
+Follow these conventions when crafting `.svg` files for icons:
+- Icons should be 20x20 pixels. Set `width="20" height="20" viewbox="0 0 20 20"` on the `<svg>` tag.
+- Icons should include a `<title>` tag with the name of the icon.
+- Icons should be monochrome (only one color), and should not hard-code this color. This means the
+  `fill` attribute should not be used.
+
+Icons are also optimized using SVGO during the build process. Note that this optimization step
+*overwrites the icon files* in the `src/images` directory, and removes any `<!-- comments -->`
+in the `.svg` files.
+
 ## Simple icons
 For a simple icon that doesn't vary by directionality (LTR/RTL) or language, use a single `.svg`
 file named in lowerCamelCase, e.g. `fullScreen.svg`. Add an icon definition to `icons.ts`
