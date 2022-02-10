@@ -18,7 +18,7 @@ import { CdxLookup, MenuOption } from '@wikimedia/codex';
 import vegetableItems from './data';
 
 export default defineComponent( {
-	name: 'LookupDefault',
+	name: 'LookupNoResults',
 	components: { CdxLookup },
 	setup() {
 		const selection = ref( '' );

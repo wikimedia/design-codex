@@ -230,10 +230,15 @@ export default defineComponent( {
 					state.selected.value?.value === inputValue.value;
 			}
 
-			// Show the menu if there are options to show, and if the input value is not equal to
-			// the current selection. The latter condition covers the case where, upon selecting an
-			// option, computedOptions changes, but we don't want the menu to be open anymore.
-			if ( newVal.length > 0 && !inputValueIsSelection() ) {
+			// Show the menu under certain conditions.
+			if (
+				// If there are options to show, and the input value is not equal to the current
+				// selection (which excludes the case where, upon selecting an option,
+				// computedOptions change, but we don't want the menu to be open anymore).
+				newVal.length > 0 && !inputValueIsSelection() ||
+				// If there are no options but there is footer content.
+				newVal.length === 0 && context.slots.footer
+			) {
 				expanded.value = true;
 			}
 
