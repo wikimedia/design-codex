@@ -11,6 +11,7 @@
 				"vue/no-unsupported-features": [ "error", {
 					"version": "^3.2.27"
 				} ],
+				"vue/component-name-in-template-casing": [ "error", "kebab-case" ],
 				"unicorn/prefer-includes": "off"
 			}
 		},
