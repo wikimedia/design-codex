@@ -18,6 +18,13 @@ export const ButtonTypes = [
 	'quiet'
 ] as const;
 
+export const MessageTypes = [
+	'notice',
+	'warning',
+	'error',
+	'success'
+] as const;
+
 export const TextInputTypes = [
 	'text',
 	'search'

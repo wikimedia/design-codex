@@ -36,6 +36,7 @@ module.exports = {
 						{ text: 'Combobox', link: '/components/combobox' },
 						{ text: 'Icon', link: '/components/icon' },
 						{ text: 'Lookup', link: '/components/lookup' },
+						{ text: 'Message', link: '/components/message' },
 						{ text: 'Radio', link: '/components/radio' },
 						{ text: 'Select', link: '/components/select' },
 						{ text: 'TextInput', link: '/components/text-input' },

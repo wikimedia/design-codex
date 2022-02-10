@@ -3,6 +3,7 @@ import CdxCheckbox from './components/checkbox/Checkbox.vue';
 import CdxCombobox from './components/combobox/Combobox.vue';
 import CdxIcon from './components/icon/Icon.vue';
 import CdxLookup from './components/lookup/Lookup.vue';
+import CdxMessage from './components/message/Message.vue';
 import CdxRadio from './components/radio/Radio.vue';
 import CdxSelect from './components/select/Select.vue';
 import CdxOption from './components/option/Option.vue';
@@ -13,9 +14,10 @@ import useComputedLanguage from './composables/useComputedLanguage';
 import useGeneratedId from './composables/useGeneratedId';
 
 import type {
+	HTMLDirection,
 	ButtonAction,
 	ButtonType,
-	HTMLDirection,
+	MessageType,
 	TextInputType,
 	MenuOption,
 	MenuOptionWithId
@@ -27,6 +29,7 @@ export {
 	CdxCombobox,
 	CdxIcon,
 	CdxLookup,
+	CdxMessage,
 	CdxRadio,
 	CdxSelect,
 	CdxOption,
@@ -37,9 +40,10 @@ export {
 	useModelWrapper,
 	useGeneratedId,
 
+	HTMLDirection,
 	ButtonAction,
 	ButtonType,
-	HTMLDirection,
+	MessageType,
 	TextInputType,
 	MenuOption,
 	MenuOptionWithId

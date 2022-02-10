@@ -6,7 +6,16 @@
  */
 
 import { Icon } from '@wikimedia/codex-icons';
-import { ButtonActions, ButtonTypes, TextInputTypes, MenuStates } from './constants';
+import {
+	ButtonActions,
+	ButtonTypes,
+	MessageTypes,
+	TextInputTypes,
+	MenuStates
+} from './constants';
+
+/** @public */
+export type HTMLDirection = 'ltr' | 'rtl';
 
 /** @public */
 export type ButtonAction = typeof ButtonActions[ number ];
@@ -14,7 +23,10 @@ export type ButtonAction = typeof ButtonActions[ number ];
 export type ButtonType = typeof ButtonTypes[ number ];
 
 /** @public */
-export type HTMLDirection = 'ltr' | 'rtl';
+export type MessageType = typeof MessageTypes[ number ];
+export type MessageIconMap = {
+	[P in MessageType]: Icon
+}
 
 /** @public */
 export type TextInputType = typeof TextInputTypes[ number ];
