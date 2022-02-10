@@ -2,8 +2,8 @@
 	"private": true,
 	"license": "GPL-2.0+",
 	"engines": {
-		"npm": ">=7.14.0",
-		"node": ">=12"
+		"npm": ">=7.21.0",
+		"node": ">=14"
 	},
 	"scripts": {
 		"build": "npm run docgen:build && npm run vitepress:build",
