@@ -47,9 +47,28 @@ const searchResults = [
 const searchFooterUrl = 'https://foo.org/search?query=Co';
 
 describe( 'TypeaheadSearch initial state', () => {
-	it( 'matches the snapshot', () => {
+	type Case = [
+		msg: string,
+		props: {
+			id: string;
+			formAction: string;
+			buttonLabel: string;
+			searchResultsLabel: string
+			placeholder?: string;
+			autoExpandWidth?: boolean;
+			hideThumbnail?: boolean;
+		}
+	];
+
+	const cases: Case[] = [
+		[ 'Default', propsData ],
+		[ 'With `autoExpandWidth` true and `hideThumbnail` false', { ...propsData, autoExpandWidth: true, hideThumbnail: false } ],
+		[ 'With `autoExpandWidth` true and `hideThumbnail` true', { ...propsData, autoExpandWidth: true, hideThumbnail: true } ]
+	];
+
+	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
 		const wrapper = mount( CdxTypeaheadSearch, {
-			props: propsData,
+			props,
 			slots: {
 				default: defaultSlot,
 				searchFooterText: searchFooterTextSlot

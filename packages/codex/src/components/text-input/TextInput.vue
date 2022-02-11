@@ -233,7 +233,10 @@ export default defineComponent( {
 @font-size-base: 14 / @font-size-browser;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 @border-color-input--hover: @border-color-base--active;
-@size-input-icon-container: @padding-horizontal-input-text * 2 + @size-icon;
+@size-input-icon-container: unit(
+	( ( @padding-horizontal-input-text * 2 + @size-icon ) / @font-size-browser / @font-size-base ),
+	em
+);
 
 .cdx-text-input {
 	/* For proper positioning of icons and slotted elements */

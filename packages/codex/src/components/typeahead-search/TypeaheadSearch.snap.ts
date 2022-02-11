@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TypeaheadSearch initial state matches the snapshot 1`] = `
+exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResultsLabel": "Search results"}) => HTML 1`] = `
 <div
   class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail"
 >
@@ -87,9 +87,9 @@ exports[`TypeaheadSearch initial state matches the snapshot 1`] = `
 </div>
 `;
 
-exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
+exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and \`hideThumbnail\` false: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "hideThumbnail": false, "id": "foo", "placeholder": "Search Wikipedia", "searchResultsLabel": "Search results"}) => HTML 1`] = `
 <div
-  class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail"
+  class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail cdx-typeahead-search--auto-expand-width"
 >
   <form
     action="/w/index.php"
@@ -105,7 +105,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         <input
           aria-autocomplete="list"
           aria-expanded="false"
-          aria-owns="cdx-typeahead-search-menu-10"
+          aria-owns="cdx-typeahead-search-menu-1"
           autocapitalize="off"
           autocomplete="off"
           class="cdx-text-input__input"
@@ -141,7 +141,181 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         aria-label="Search results"
         aria-multiselectable="false"
         class="cdx-typeahead-search__menu"
-        id="cdx-typeahead-search-menu-10"
+        id="cdx-typeahead-search-menu-1"
+        role="listbox"
+        style="display: none;"
+      >
+        
+        
+      </ol>
+      <!--
+					@slot A slot for passing hidden inputs, i.e.
+					\`&lt;input type="hidden" name="language" value="en"&gt;\`
+				-->
+      
+      
+      <input
+        name="title"
+        type="hidden"
+        value="Special:Search"
+      />
+      
+      
+    </div>
+    <button
+      class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed cdx-typeahead-search__submit"
+    >
+      <!-- @slot Button content -->
+      
+      Search
+      
+    </button>
+  </form>
+</div>
+`;
+
+exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and \`hideThumbnail\` true: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "hideThumbnail": true, "id": "foo", "placeholder": "Search Wikipedia", "searchResultsLabel": "Search results"}) => HTML 1`] = `
+<div
+  class="cdx-typeahead-search"
+>
+  <form
+    action="/w/index.php"
+    class="cdx-typeahead-search__form"
+    id="foo"
+  >
+    <div
+      class="cdx-typeahead-search__wrapper"
+    >
+      <div
+        class="cdx-text-input cdx-text-input--has-start-icon"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-owns="cdx-typeahead-search-menu-2"
+          autocapitalize="off"
+          autocomplete="off"
+          class="cdx-text-input__input"
+          name="search"
+          placeholder="Search Wikipedia"
+          role="combobox"
+          type="search"
+        />
+        <span
+          class="cdx-icon cdx-text-input__start-icon"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g
+              fill="currentColor"
+            >
+              <path
+                d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
+              />
+            </g>
+          </svg>
+        </span>
+        <!--v-if-->
+      </div>
+      <ol
+        aria-label="Search results"
+        aria-multiselectable="false"
+        class="cdx-typeahead-search__menu"
+        id="cdx-typeahead-search-menu-2"
+        role="listbox"
+        style="display: none;"
+      >
+        
+        
+      </ol>
+      <!--
+					@slot A slot for passing hidden inputs, i.e.
+					\`&lt;input type="hidden" name="language" value="en"&gt;\`
+				-->
+      
+      
+      <input
+        name="title"
+        type="hidden"
+        value="Special:Search"
+      />
+      
+      
+    </div>
+    <button
+      class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed cdx-typeahead-search__submit"
+    >
+      <!-- @slot Button content -->
+      
+      Search
+      
+    </button>
+  </form>
+</div>
+`;
+
+exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
+<div
+  class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail"
+>
+  <form
+    action="/w/index.php"
+    class="cdx-typeahead-search__form"
+    id="foo"
+  >
+    <div
+      class="cdx-typeahead-search__wrapper"
+    >
+      <div
+        class="cdx-text-input cdx-text-input--has-start-icon"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-owns="cdx-typeahead-search-menu-12"
+          autocapitalize="off"
+          autocomplete="off"
+          class="cdx-text-input__input"
+          name="search"
+          placeholder="Search Wikipedia"
+          role="combobox"
+          type="search"
+        />
+        <span
+          class="cdx-icon cdx-text-input__start-icon"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g
+              fill="currentColor"
+            >
+              <path
+                d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
+              />
+            </g>
+          </svg>
+        </span>
+        <!--v-if-->
+      </div>
+      <ol
+        aria-label="Search results"
+        aria-multiselectable="false"
+        class="cdx-typeahead-search__menu"
+        id="cdx-typeahead-search-menu-12"
         role="listbox"
         style="display: none;"
       >
@@ -150,7 +324,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           aria-disabled="false"
           aria-selected="false"
           class="cdx-option cdx-option--enabled cdx-typeahead-search__menu__option"
-          id="cdx-option-12"
+          id="cdx-option-14"
           role="option"
           url="https://en.wikipedia.org/wiki/CO"
         >
@@ -214,7 +388,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           aria-selected="false"
           class="cdx-option cdx-option--enabled cdx-typeahead-search__menu__option"
           description="visual perception of light wavelengths"
-          id="cdx-option-13"
+          id="cdx-option-15"
           role="option"
           thumbnail="[object Object]"
           url="https://en.wikipedia.org/wiki/Color"
@@ -258,7 +432,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           aria-disabled="false"
           aria-selected="false"
           class="cdx-option cdx-option--enabled cdx-typeahead-search__menu__option"
-          id="cdx-option-14"
+          id="cdx-option-16"
           role="option"
           url="https://foo.org/search?query=Co"
         >

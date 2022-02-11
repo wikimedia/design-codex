@@ -223,6 +223,14 @@ export default defineComponent( {
 		hideDescription: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Contract the width of the input when unfocused and expand the width of
+		 * the input when focused to accomodate the extra width of the thumbnails.
+		 */
+		autoExpandWidth: {
+			type: Boolean,
+			default: false
 		}
 	},
 
@@ -330,7 +338,8 @@ export default defineComponent( {
 			return {
 				'cdx-typeahead-search--active': isActive.value,
 				'cdx-typeahead-search--show-thumbnail': !props.hideThumbnail,
-				'cdx-typeahead-search--expanded': expanded.value
+				'cdx-typeahead-search--expanded': expanded.value,
+				'cdx-typeahead-search--auto-expand-width': !props.hideThumbnail && props.autoExpandWidth
 			};
 		} );
 		const {
@@ -591,8 +600,12 @@ export default defineComponent( {
 @font-size-base: 14 / @font-size-browser;
 @font-size-list-tile-label: unit( ( 16 / @font-size-browser / @font-size-base ), em );
 
-@size-search-figure: unit( ( 36 / @font-size-browser / @font-size-base ), em );
-@size-input-icon-container: @padding-horizontal-input-text * 2 + @size-icon;
+// TODO: @size-input-icon-container is duplicated from TextInput.vue and needs to be centralized.
+@size-input-icon-container: unit(
+	( ( @padding-horizontal-input-text * 2 + @size-icon ) / @font-size-browser / @font-size-base ),
+	em
+);
+@size-search-figure: @size-input-icon-container;
 
 @padding-vertical-list-tile: 8px;
 @padding-horizontal-list-tile: @padding-horizontal-base;
@@ -731,14 +744,18 @@ export default defineComponent( {
 		@size-typeahead-search-focus-addition: @spacing-start-typeahead-search-figure +
 			@spacing-end-typeahead-search-figure;
 
-		.cdx-text-input__input {
-			padding-left: @size-search-figure;
+		&.cdx-typeahead-search--auto-expand-width:not( .cdx-typeahead-search--active ) {
+			margin-left: @size-typeahead-search-focus-addition;
+		}
 
-			&:focus {
+		&:not( .cdx-typeahead-search--auto-expand-width ),
+		&.cdx-typeahead-search--auto-expand-width.cdx-typeahead-search--active {
+			margin-left: 0;
+
+			// stylelint-disable-next-line max-nesting-depth
+			.cdx-text-input__input {
 				position: relative;
-				// Don't let the input grow over the search button.
-				left: -@size-typeahead-search-focus-addition;
-				width: calc( @size-full + @size-typeahead-search-focus-addition );
+
 				// Keep the cursor in the same place on the screen.
 				// stylelint-disable function-parentheses-newline-inside
 				padding-left: calc( @spacing-start-typeahead-search-figure +
@@ -746,23 +763,15 @@ export default defineComponent( {
 				@spacing-end-typeahead-search-figure );
 				// stylelint-enable function-parentheses-newline-inside
 			}
-		}
 
-		.cdx-text-input__start-icon {
-			width: @size-search-figure;
-		}
-
-		.cdx-text-input__input:focus + .cdx-text-input__start-icon {
-			// We use @border-width-base here since the input's start icon position is relative to
-			// the input's container (which is outside the input's border) when the input has focus.
-			left: -@size-typeahead-search-focus-addition +
-				@spacing-start-typeahead-search-figure +
-				@border-width-base;
-		}
-
-		.cdx-typeahead-search__menu {
-			left: -@size-typeahead-search-focus-addition;
-			width: calc( @size-full + @size-typeahead-search-focus-addition );
+			// stylelint-disable-next-line max-nesting-depth
+			.cdx-text-input__start-icon {
+				// We use @border-width-base here since the input's start icon position
+				// is relative to the input's container (which is outside the input's
+				// border) when the input has focus.
+				left: @spacing-start-typeahead-search-figure + @border-width-base;
+				width: @size-search-figure;
+			}
 		}
 
 		.cdx-list-tile {

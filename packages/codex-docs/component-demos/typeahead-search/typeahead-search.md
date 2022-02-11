@@ -18,8 +18,9 @@ element within the component.
 
 ### Search Wikipedia articles
 
-This implementation of TypeaheadSearch fetches articles from English Wikipedia. Open the console to
-see emitted events.
+This implementation of TypeaheadSearch fetches articles from English Wikipedia.
+Note that the input expands on focus via the `autoExpandWidth` prop.  Open the
+console to see emitted events.
 
 <Wrapper>
 <template v-slot:demo>

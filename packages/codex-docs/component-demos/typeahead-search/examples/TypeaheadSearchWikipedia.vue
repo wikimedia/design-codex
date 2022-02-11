@@ -8,6 +8,7 @@
 			:search-results="searchResults"
 			:search-footer-url="searchFooterUrl"
 			:highlight-query="true"
+			:auto-expand-width="true"
 			placeholder="Search Wikipedia"
 			@new-input="onNewInput"
 			@search-result-click="onSearchResultClick"
