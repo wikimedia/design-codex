@@ -32,9 +32,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-// FIXME: Tech debt. To be removed as soon as Id58bb6ce050 is in.
-@width-breakpoint-tablet: 720px;
-
 .vp-opacity-demo {
 	background-color: #000;
 	width: 100px;
@@ -43,7 +40,7 @@ export default defineComponent( {
 	border-radius: @border-radius-base * 2;
 	box-shadow: rgba( 0, 0, 0, 0.1 ) 0 1px 3px 0;
 
-	@media screen and ( min-width: @width-breakpoint-tablet ) {
+	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 		width: 300px;
 	}
 }

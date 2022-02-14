@@ -38,15 +38,12 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-// FIXME: Tech debt. To be removed as soon as Id58bb6ce050 is in.
-@width-breakpoint-tablet: 720px;
-
 .vp-animation-demo {
 	width: 100px;
 	height: 50px;
 	border: @border-base;
 
-	@media screen and ( min-width: @width-breakpoint-tablet ) {
+	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 		width: 300px;
 	}
 
