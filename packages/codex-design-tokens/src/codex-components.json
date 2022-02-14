@@ -84,9 +84,13 @@
 		}
 	},
 	"size": {
-		"comment": "TODO: This has to be a relative value, for accessibility reasons.",
 		"icon": {
+			"comment": "TODO: This has to be a relative value, for accessibility reasons.",
 			"value": "{ size.absolute.125 }"
+		},
+		"indicator": {
+			"comment": "TODO: This has to be a relative value, for accessibility reasons.",
+			"value": "{ size.absolute.75 }"
 		}
 	},
 	"max-width": {
