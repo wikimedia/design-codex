@@ -1,15 +1,18 @@
 dist/
 coverage/
 
+# Ignore JavaScript and TypeScript files.
+*.js
+*.ts
+
 # Ignore JSON files.
 *.json
 
 # Ignore Markdown files to avoid issues with code samples in docs.
 *.md
 
-# Ignore JavaScript and TypeScript files.
-*.js
-*.ts
+# Ignore SVG files.
+*.svg
 
 # Ignore LICENSE file
 LICENSE
