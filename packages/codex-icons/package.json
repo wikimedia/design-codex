@@ -9,7 +9,7 @@
 		"url": "https://gerrit.wikimedia.org/g/design/codex/"
 	},
 	"bugs": "https://phabricator.wikimedia.org/tag/codex/",
-	"license": "GPL-2.0+",
+	"license": "MIT",
 	"engines": {
 		"npm": ">=7.21.0",
 		"node": ">=14"

@@ -15,4 +15,4 @@ coverage/
 *.svg
 
 # Ignore LICENSE file
-LICENSE
+LICENSE*
