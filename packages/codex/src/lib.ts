@@ -10,6 +10,7 @@ import CdxRadio from './components/radio/Radio.vue';
 import CdxSelect from './components/select/Select.vue';
 import CdxOption from './components/option/Option.vue';
 import CdxTextInput from './components/text-input/TextInput.vue';
+import CdxToggleSwitch from './components/toggle-switch/ToggleSwitch.vue';
 import CdxTypeaheadSearch from './components/typeahead-search/TypeaheadSearch.vue';
 import useModelWrapper from './composables/useModelWrapper';
 import useComputedDirection from './composables/useComputedDirection';
@@ -42,6 +43,7 @@ export {
 	CdxSelect,
 	CdxOption,
 	CdxTextInput,
+	CdxToggleSwitch,
 	CdxTypeaheadSearch,
 
 	useComputedDirection,
