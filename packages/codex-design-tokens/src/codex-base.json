@@ -14,7 +14,7 @@
 			"value": "{ color.transparent }"
 		},
 		"base--disabled": {
-			"value": "{ color.base70 }"
+			"value": "{ color.base80 }"
 		},
 		"progressive": {
 			"value": "{ color.accent50 }"
