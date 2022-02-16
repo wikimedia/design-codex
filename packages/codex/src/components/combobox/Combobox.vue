@@ -275,7 +275,6 @@ export default defineComponent( {
 	min-width: 280px;
 
 	&__input-wrapper {
-		// stylelint-disable-next-line plugin/no-unsupported-browser-features
 		display: flex;
 	}
 

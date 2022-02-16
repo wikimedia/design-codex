@@ -165,7 +165,6 @@ export default defineComponent( {
 
 .cdx-message {
 	color: @color-notice;
-	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	display: flex;
 	position: relative;
 	align-items: flex-start;

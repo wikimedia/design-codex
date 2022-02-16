@@ -156,7 +156,6 @@ export default defineComponent( {
 	// Custom-styled checkbox that's visible to the user. More styles are added below depending on
 	// the state of the input element.
 	&__icon {
-		// stylelint-disable-next-line plugin/no-unsupported-browser-features
 		background-size: 0 0;
 		border-radius: @border-radius-base;
 		transition-property: background-color, border-color, box-shadow;
@@ -200,7 +199,6 @@ export default defineComponent( {
 			background-repeat: no-repeat;
 			// This must have two values to match `background-size: 0 0` above,
 			// otherwise the transition does not work (at least in Chrome).
-			// stylelint-disable-next-line plugin/no-unsupported-browser-features
 			background-size: @size-icon-small @size-icon-small;
 			position: absolute;
 			width: 100%;
