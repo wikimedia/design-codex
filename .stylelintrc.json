@@ -4,32 +4,32 @@
 	],
 	"overrides": [
 		{
-			"files": ["**/*.(less|css|html|vue)"],
+			"files": [ "**/*.(less|css|html|vue)" ],
 			"customSyntax": "postcss-less",
 			"rules": {
 				"function-no-unknown": null
 			}
 		},
 		{
-			"files": ["**/*.(html|vue)"],
+			"files": [ "**/*.(html|vue)" ],
 			"customSyntax": "postcss-html"
 		}
 	],
-	"plugins": ["stylelint-no-unsupported-browser-features", "stylelint-order"],
+	"plugins": [ "stylelint-no-unsupported-browser-features", "stylelint-order" ],
 	"rules": {
 		"max-nesting-depth": [
 			2,
 			{
-				"ignore": ["pseudo-classes"]
+				"ignore": [ "pseudo-classes" ]
 			}
 		],
 		"at-rule-no-unknown": [
 			true,
 			{
-				"ignoreAtRules": ["mixin", "define-mixin"]
+				"ignoreAtRules": [ "mixin", "define-mixin" ]
 			}
 		],
-		"order/order": ["custom-properties", "declarations"],
+		"order/order": [ "custom-properties", "declarations" ],
 		"order/properties-order": [
 			"content",
 			"quotes",
@@ -154,7 +154,7 @@
 		"plugin/no-unsupported-browser-features": [
 			"error",
 			{
-				"ignore": ["calc", "outline"]
+				"ignore": [ "calc", "outline" ]
 			}
 		]
 	}

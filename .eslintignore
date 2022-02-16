@@ -2,4 +2,5 @@ dist/
 coverage/
 *.snap.*
 
-!.*.js
+# Turn linting on for JS and JSON configuration files
+!.*.js*
