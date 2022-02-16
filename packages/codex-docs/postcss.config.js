@@ -7,7 +7,9 @@ module.exports = {
 		scoped( {
 			include: '../codex/**',
 			plugin: postcssRtlcss( {
-				useCalc: true
+				useCalc: true,
+				processKeyframes: true,
+				safeBothPrefix: true
 			} )
 		} ),
 		autoprefixer()

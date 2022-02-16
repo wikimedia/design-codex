@@ -5,7 +5,8 @@ module.exports = {
 	plugins: [
 		postcssRtlcss( {
 			useCalc: true,
-			processKeyFrames: true
+			processKeyFrames: true,
+			safeBothPrefix: true
 		} ),
 		autoprefixer()
 	]
