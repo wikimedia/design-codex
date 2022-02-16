@@ -118,6 +118,18 @@
 		"primary--focus": {
 			"comment": "Deprecated key.",
 			"value": "{ border-color.progressive--focus }"
+		},
+		"input--hover": {
+			"value": "{ border-color.base--active }"
+		},
+		"input-binary": {
+			"value": "{ border-color.base--active }"
+		},
+		"input-binary--active": {
+			"value": "{ border-color.progressive--active }"
+		},
+		"input-binary--checked": {
+			"value": "{ border-color.progressive }"
 		}
 	},
 	"border-radius": {
