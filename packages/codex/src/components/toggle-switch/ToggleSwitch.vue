@@ -141,12 +141,12 @@ export default defineComponent( {
 
 .cdx-toggle-switch {
 	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
 	// <input> will be absolutely positioned relative to this element.
 	position: relative;
 	// Create a stacking context.
 	z-index: 0;
-	align-items: center;
-	justify-content: space-between;
 	cursor: pointer;
 
 	&__label {

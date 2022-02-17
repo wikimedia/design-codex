@@ -59,16 +59,16 @@ export default defineComponent( {
 	width: 100px;
 	height: 50px;
 	border: @border-base;
+	padding: @padding-base;
 	transition-property: border-color, box-shadow, background-color, color, padding;
 	transition-duration: @transition-duration-medium;
-	padding: @padding-base;
 
 	span {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translate( @padding-horizontal-base, -50% );
 		margin-left: -50%;
+		transform: translate( @padding-horizontal-base, -50% );
 		transition-property: margin-left, transform;
 		transition-duration: @transition-duration-medium;
 	}

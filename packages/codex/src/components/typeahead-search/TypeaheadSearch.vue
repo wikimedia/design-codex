@@ -644,10 +644,10 @@ export default defineComponent( {
 
 	&__submit {
 		opacity: 0;
-		position: relative;
 		// Prevent submit button from shrinking on smaller viewports, which causes the button label
 		// to overflow.
 		flex-shrink: 0;
+		position: relative;
 		// Set negative margin to make button border overlap with `.cdx-typeahead-search`'s border
 		// on all but start margin.
 		// The input already has a negative margin which causes part of the button's  border and

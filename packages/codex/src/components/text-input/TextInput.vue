@@ -245,14 +245,14 @@ export default defineComponent( {
 
 	&__start-icon,
 	&__end-icon {
-		// In Safari, several transitions or transforms happening at once around these elements may
-		// cause a brief wobble. This will stabilize icons' positions.
-		-webkit-transform: translateZ( 0 );
 		color: @color-accessory;
 		position: absolute;
 		top: 0;
 		min-height: @size-icon;
 		height: @size-full;
+		// In Safari, several transitions or transforms happening at once around these elements may
+		// cause a brief wobble. This will stabilize icons' positions.
+		-webkit-transform: translateZ( 0 );
 	}
 
 	/* Start icon is larger and aligned to the left of the input. */

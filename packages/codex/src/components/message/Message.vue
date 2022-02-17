@@ -166,8 +166,8 @@ export default defineComponent( {
 .cdx-message {
 	color: @color-notice;
 	display: flex;
-	position: relative;
 	align-items: flex-start;
+	position: relative;
 
 	&--warning .cdx-message__icon {
 		color: @border-color-warning;
