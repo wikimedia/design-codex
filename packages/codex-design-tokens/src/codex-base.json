@@ -131,8 +131,15 @@
 		"error": {
 			"value": "{ color.utility-red50 }"
 		},
+		"warning": {
+			"comment": "Note, this is only meant for warning icon for contrast reasons.",
+			"value": "{ color.utility-yellow50 }"
+		},
 		"success": {
 			"value": "{ color.utility-green30 }"
+		},
+		"notice": {
+			"value": "{ color.base0 }"
 		}
 	},
 	"opacity": {
@@ -264,6 +271,18 @@
 	"border": {
 		"base": {
 			"value": "{ border-width.base } { border-style.base } { border-color.base }"
+		},
+		"error": {
+			"value": "{ border-width.base } { border-style.base } { border-color.error }"
+		},
+		"warning": {
+			"value": "{ border-width.base } { border-style.base } { border-color.warning }"
+		},
+		"success": {
+			"value": "{ border-width.base } { border-style.base } { border-color.success }"
+		},
+		"notice": {
+			"value": "{ border-width.base } { border-style.base } { border-color.notice }"
 		}
 	},
 	"border-width": {
@@ -331,6 +350,18 @@
 		},
 		"neutral--focus": {
 			"value": "{ color.accent50 }"
+		},
+		"error": {
+			"value": "{ color.utility-red50 }"
+		},
+		"warning": {
+			"value": "{ color.utility-yellow50 }"
+		},
+		"success": {
+			"value": "{ color.utility-green30 }"
+		},
+		"notice": {
+			"value": "{ color.base50 }"
 		},
 		"binary": {
 			"comment": "TODO: base.json or components.json?",
