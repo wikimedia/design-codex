@@ -38,19 +38,12 @@
 						/>
 					</template>
 
-					<!-- TODO: replace Radios with a Checkbox or ToggleSwitch -->
 					<template v-if="propControl.type === 'boolean'">
-						<cdx-radio
-							v-for="booleanOption in [ false, true ]"
-							:key="`${propControl.name}-${booleanOption}`"
+						<cdx-toggle-switch
 							:model-value="propControl.value"
-							:input-value="booleanOption"
-							:name="'radio-group-' + propControl.name"
-							:inline="true"
+							:aria-label="propControl.name"
 							@update:model-value="emitControlChange( propControl.name, $event )"
-						>
-							{{ booleanOption }}
-						</cdx-radio>
+						/>
 					</template>
 				</td>
 			</tr>
@@ -78,7 +71,7 @@
 <script lang="ts">
 import { defineComponent, PropType, computed } from 'vue';
 import { ControlConfigWithValue, SlotConfigWithValue, PropConfigWithValue } from '../../types';
-import { CdxRadio, CdxTextInput } from '@wikimedia/codex';
+import { CdxRadio, CdxTextInput, CdxToggleSwitch } from '@wikimedia/codex';
 
 /**
  * A table of interactive controls to configure a component demo.
@@ -94,7 +87,7 @@ export default defineComponent( {
 	// TODO: rename this to something multi-word and more descriptive.
 	// eslint-disable-next-line vue/multi-word-component-names
 	name: 'Controls',
-	components: { CdxRadio, CdxTextInput },
+	components: { CdxRadio, CdxTextInput, CdxToggleSwitch },
 	props: {
 		controlsWithValues: {
 			type: Array as PropType<ControlConfigWithValue[]>,
