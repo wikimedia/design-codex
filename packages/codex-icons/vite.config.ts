@@ -13,7 +13,7 @@ export default defineConfig( {
 		lib: {
 			name: 'codex-icons',
 			entry: path.resolve( __dirname, 'src/index.ts' ),
-			formats: [ 'es', 'cjs' ]
+			formats: [ 'es', 'umd' ]
 		},
 
 		rollupOptions: {

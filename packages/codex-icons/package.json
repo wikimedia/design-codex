@@ -14,7 +14,7 @@
 		"npm": ">=7.21.0",
 		"node": ">=14"
 	},
-	"main": "dist/codex-icons.cjs.js",
+	"main": "dist/codex-icons.umd.js",
 	"module": "dist/codex-icons.es.js",
 	"types": "./dist/index.d.ts",
 	"files": [

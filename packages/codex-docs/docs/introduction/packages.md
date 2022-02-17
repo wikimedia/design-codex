@@ -58,7 +58,12 @@ The icons package exports the following things:
 ### Files
 Releases of the icons package contain the following files:
 - `codex-icons.es.js`: ES module build, which uses ES6 `import` and `export` syntax.
-- `codex-icons.cjs.js`: CommonJS build, which uses `exports.cdxIconFoo = ...;`.
+- `codex-icons.umd.js`: UMD build. Can be used in CommonJS or AMD environments, or to put the
+  icons in the global scope.
+  - If CommonJS is detected, it `exports.cdxIconAlert = ...`
+  - If AMD is detected, it uses `define(['exports'], function(...) { ... })`
+  - If neither CommonJS nor AMD is detected, it puts the icons in the global scope at
+    `window['codex-icons']`
 - `codex-icons.json`: JSON file with all icon strings and objects, to facilitate use of the icons
   in languages other than JavaScript
 - `index.d.ts`: Entry point for the TypeScript type information; refers to `icons.d.ts`, `types.d.ts`
