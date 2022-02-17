@@ -1,7 +1,12 @@
 <template>
 	<Layout>
 		<template #navbar-search>
-			<div v-show="isComponentPage" class="cdx-theme-direction-switcher">
+			<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
+			<div
+				v-show="isComponentPage"
+				class="cdx-theme-direction-switcher"
+				dir="ltr"
+			>
 				Direction:
 				<direction-switcher v-model="dir" />
 			</div>
