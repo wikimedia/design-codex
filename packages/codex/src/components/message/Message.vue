@@ -150,14 +150,13 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-// TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
-@import 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 // TODO: add component-level design tokens.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @size-icon-relative: unit( ( 20 / @font-size-browser / @font-size-base ), em );
-@size-top-message-dismiss: unit( ( 8 / 14 ), em);
+@offset-message-dismiss: unit( ( 8 / 14 ), em);
 @padding-vertical-message-block: 16px;
 @padding-horizontal-message-block: 24px;
 @margin-top-message: 8px;
@@ -182,7 +181,7 @@ export default defineComponent( {
 	}
 
 	&--inline {
-		font-weight: bold;
+		font-weight: @font-weight-bold;
 
 		&.cdx-message--error {
 			color: @color-error;
@@ -197,22 +196,22 @@ export default defineComponent( {
 		padding: @padding-vertical-message-block @padding-horizontal-message-block;
 
 		&.cdx-message--notice {
-			background-color: @background-color-notice--framed;
+			background-color: @background-color-message-notice;
 			border: @border-notice;
 		}
 
 		&.cdx-message--error {
-			background-color: @background-color-error--framed;
+			background-color: @background-color-message-error;
 			border: @border-error;
 		}
 
 		&.cdx-message--warning {
-			background-color: @background-color-warning--framed;
+			background-color: @background-color-message-warning;
 			border: @border-warning;
 		}
 
 		&.cdx-message--success {
-			background-color: @background-color-success--framed;
+			background-color: @background-color-message-success;
 			border: @border-success;
 		}
 	}
@@ -235,8 +234,8 @@ export default defineComponent( {
 
 	&__dismiss {
 		position: absolute;
-		top: 8px;
-		right: 8px;
+		top: @offset-message-dismiss;
+		right: @offset-message-dismiss;
 		// Make this icon-only button appear square (e.g. on focus).
 		padding: 5px;
 	}
