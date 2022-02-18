@@ -2,7 +2,7 @@ module.exports = {
 	lang: 'en-US',
 	title: 'Codex',
 	description: 'Toolkit for building user interfaces within the Wikimedia Design System',
-	base: '/codex/main',
+	base: process.env.CODEX_DOC_ROOT ? process.env.CODEX_DOC_ROOT.replace( /\/+$/, '' ) : '/codex/main',
 
 	themeConfig: {
 		repo: 'wikimedia/design-codex',
