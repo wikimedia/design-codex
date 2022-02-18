@@ -44,7 +44,7 @@
 			"value": "{ color.base90 }"
 		},
 		"framed--hover": {
-			"value": "{ color.base90 }"
+			"value": "{ color.base100 }"
 		},
 		"framed--active": {
 			"value": "{ color.base70 }"
