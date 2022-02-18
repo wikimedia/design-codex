@@ -143,7 +143,7 @@
 		},
 		"horizontal": {
 			"input-text": {
-				"value": "{ size.absolute.100 }"
+				"value": "{ size.absolute.50 }"
 			}
 		},
 		"vertical": {
