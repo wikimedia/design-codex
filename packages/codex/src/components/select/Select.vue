@@ -203,20 +203,25 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import './../../themes/mixins/menu-icon.less';
 @import './../../themes/mixins/options-menu.less';
+
+@font-size-browser: 16;
+@font-size-base: 14 / @font-size-browser;
+@min-width-select: 280px;
+@line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 
 .cdx-select {
 	display: inline-block;
 	position: relative;
-	min-width: 280px;
+	min-width: @min-width-select;
 
 	&__handle {
 		background-color: @background-color-framed;
 		color: @color-base;
 		position: relative;
-		box-sizing: border-box;
+		box-sizing: @box-sizing-base;
 		min-height: @size-base;
 		width: @size-full;
 		border: @border-base;
@@ -227,9 +232,10 @@ export default defineComponent( {
 			calc( 2 * @padding-horizontal-base ~'+' @size-indicator )
 			@padding-vertical-base
 			@padding-horizontal-base;
-		line-height: @line-height-base;
-		transition-property: background-color, color, border-color, box-shadow;
+		line-height: @line-height-component;
+		transition-property: @transition-property-base;
 		transition-duration: @transition-base;
+		// TODO tokenize once T302181 is resolved
 		cursor: pointer;
 
 		&--has-icon {
@@ -283,8 +289,12 @@ export default defineComponent( {
 			background-color: @background-color-base--disabled;
 			color: @color-base--disabled;
 			border-color: @border-color-base--disabled;
-			text-shadow: @text-shadow-base--disabled;
-			cursor: @cursor-base--disabled;
+			// Don't implement coined effect on text-shadow from OOUI.
+			// This has never gone through design review and was a hack to increase
+			// color contrast.
+			// text-shadow: @text-shadow-base--disabled;
+			// TODO tokenize once T302181 is resolved
+			cursor: default;
 
 			&:hover .cdx-select__indicator {
 				color: @color-base--disabled;

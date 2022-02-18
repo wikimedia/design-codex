@@ -1,4 +1,4 @@
-@import ( reference ) 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 // Common styles for options menus.
 .cdx-options-menu() {
@@ -6,10 +6,10 @@
 	position: absolute;
 	left: 0;
 	z-index: 4;
-	box-sizing: border-box;
+	box-sizing: @box-sizing-base;
 	width: @size-full;
-	margin: 0;
-	margin-top: -@border-width-base;
+	// TODO tokenize to avoid using a border token here
+	margin: -@border-width-base 0 0 0;
 	border: @border-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
 	padding: 0;

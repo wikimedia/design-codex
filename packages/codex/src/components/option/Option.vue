@@ -137,7 +137,12 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
+@font-size-browser: 16;
+@font-size-base: 14 / @font-size-browser;
+@min-width-select: 280px;
+@line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 
 .cdx-option {
 	color: @color-base;
@@ -145,38 +150,36 @@ export default defineComponent( {
 	position: relative;
 	padding: @padding-base;
 	overflow: hidden;
-	line-height: @line-height-base;
+	line-height: @line-height-component;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	transition-property: background-color, color;
+	transition-property: @transition-property-base;
 	transition-duration: @transition-duration-base;
 
 	&--enabled {
+		// TODO tokenize once T302181 is resolved
 		cursor: pointer;
 
-		&:hover {
+		&:hover,
+		&.cdx-option--highlighted {
 			background-color: @background-color-base--hover;
 		}
 	}
 
 	&--active,
 	&--active:hover {
-		background-color: @background-color-primary;
-		color: @color-primary;
-	}
-
-	&--highlighted {
-		background-color: @background-color-base--hover;
+		background-color: @background-color-base--active;
+		color: @color-progressive;
 	}
 
 	&--selected,
 	&--selected:hover {
-		background-color: @background-color-primary;
+		background-color: @background-color-base--active;
 	}
 
 	&--selected:hover,
 	&--selected&--highlighted {
-		color: @color-primary;
+		color: @color-progressive;
 	}
 
 	&--disabled,
@@ -185,7 +188,8 @@ export default defineComponent( {
 	}
 
 	&--disabled {
-		cursor: @cursor-base--disabled;
+		// TODO tokenize once T302181 is resolved
+		cursor: default;
 	}
 }
 </style>
