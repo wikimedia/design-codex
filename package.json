@@ -15,6 +15,7 @@
 		"node": ">=14"
 	},
 	"scripts": {
+		"branch-deploy": "npm run doc && npx netlify deploy --auth $BRANCHDEPLOY_AUTH_TOKEN --site $BRANCHDEPLOY_SITE_ID --alias $ZUUL_CHANGE --dir packages/codex-docs/docs/.vitepress/dist",
 		"build-all-if-missing": "npm run build-if-missing --workspaces --if-present",
 		"dev": "npm run build-if-missing -w @wikimedia/codex-icons && concurrently \"npm run watch -w @wikimedia/codex-design-tokens\" \"npm run dev -w @wikimedia/codex\"",
 		"doc": "npm run build-if-missing -w @wikimedia/codex-icons && npm run build -w @wikimedia/codex-design-tokens && npm run build -w codex-docs",
@@ -31,6 +32,7 @@
 		"eslint": "^7.32.0",
 		"eslint-config-wikimedia": "^0.22.1",
 		"eslint-plugin-jest": "^24.5.2",
+		"netlify-cli": "^9.6.5",
 		"postcss-html": "^1.3.0",
 		"postcss-less": "^6.0.0",
 		"stylelint": "^14.2.0",
