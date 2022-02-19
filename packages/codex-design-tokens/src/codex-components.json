@@ -190,5 +190,10 @@
 				}
 			}
 		}
+	},
+	"transition-property": {
+		"icon": {
+			"value": "{ transition-property.color }"
+		}
 	}
 }

@@ -445,7 +445,7 @@
 		}
 	},
 	"transition-property": {
-		"framed": {
+		"base": {
 			"value": "{ transition-property.background-color }, { transition-property.color }, { transition-property.border-color }, { transition-property.box-shadow }"
 		}
 	}
