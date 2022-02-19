@@ -1,3 +1,15 @@
+# v0.1.0-alpha.4 / 2022-02-18
+- docs: Set CODEX_DOC_ROOT default to '/' not '' (James D. Forrester)
+- build: Add 'branch-deploy' npm script, for WMF CI to call (Roan Kattouw)
+- docs: Explain that icons are monochrome, add SVG conventions (Roan Kattouw)
+- docs: Make CODEX_DOC_ROOT default to / instead of /codex/main (Roan Kattouw)
+- docs: Make Vitepress base URL configurable as an environment variable (Roan Kattouw)
+- build: Bump .nvmrc to 16.9.1 (Roan Kattouw)
+- tokens: Fix `background-color-framed--hover` to set to `#fff` (Volker E)
+- tokens: Update input padding token to match WMUI value (Anne Tomasevich)
+- build, icons: Rename LICENSE-MIT to LICENSE (Roan Kattouw)
+- docs: Explicitly set dir="ltr" on direction switcher (Roan Kattouw)
+
 # v0.1.0-alpha.3 / 2022-02-17
 - TextInput, tokens: Make TextInput component use Codex tokens (Volker E)
 - build: Change icons CJS build to UMD (Roan Kattouw)
