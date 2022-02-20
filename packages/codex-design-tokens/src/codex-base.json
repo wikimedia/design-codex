@@ -478,5 +478,16 @@
 		"base": {
 			"value": "{ transition-property.background-color }, { transition-property.color }, { transition-property.border-color }, { transition-property.box-shadow }"
 		}
+	},
+	"cursor": {
+		"base": {
+			"value": "{ cursor.default }"
+		},
+		"base--disabled": {
+			"value": "{ cursor.default }"
+		},
+		"base--hover": {
+			"value": "{ cursor.pointer }"
+		}
 	}
 }

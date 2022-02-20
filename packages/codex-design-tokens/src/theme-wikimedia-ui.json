@@ -385,5 +385,34 @@
 		"125": {
 			"value": "2000ms"
 		}
+	},
+	"cursor": {
+		"default": {
+			"value": "default"
+		},
+		"grab": {
+			"value": "grab"
+		},
+		"grabbing": {
+			"value": "grabbing"
+		},
+		"help": {
+			"value": "help"
+		},
+		"move": {
+			"value": "move"
+		},
+		"no-drop": {
+			"value": "no-drop"
+		},
+		"not-allowed": {
+			"value": "not-allowed"
+		},
+		"pointer": {
+			"value": "pointer"
+		},
+		"text": {
+			"value": "text"
+		}
 	}
 }

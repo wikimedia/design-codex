@@ -62,6 +62,7 @@ module.exports = {
 						{ text: 'Box-sizing', link: '/design-tokens/box-sizing' },
 						{ text: 'Box-shadow', link: '/design-tokens/box-shadow' },
 						{ text: 'Color', link: '/design-tokens/color' },
+						{ text: 'Cursor', link: '/design-tokens/cursor' },
 						{ text: 'Font', link: '/design-tokens/font' },
 						{ text: 'Outline', link: '/design-tokens/outline' },
 						{ text: 'Opacity', link: '/design-tokens/opacity' },
