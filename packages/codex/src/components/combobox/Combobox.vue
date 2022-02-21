@@ -11,7 +11,6 @@
 				v-bind="otherAttrs"
 				class="cdx-combobox__input"
 				:aria-activedescendant="state.highlighted.value?.id"
-				:aria-disabled="disabled"
 				:aria-expanded="expanded"
 				:aria-owns="menuId"
 				:disabled="disabled"
