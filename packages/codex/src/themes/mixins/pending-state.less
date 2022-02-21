@@ -1,39 +1,26 @@
-@import 'wikimedia-ui-base/wikimedia-ui-base.less';
-
 @font-size-browser: 16;
 @font-size-base-value: 14 / @font-size-browser;
-@cdx-size-icon-inner: unit( ( 20 / @font-size-browser / @font-size-base-value ), em ); // equal to 20/14em
-@cdx-background-color-pending-stripe: #ddd;
+@size-icon-inner: unit( ( 20 / @font-size-browser / @font-size-base-value ), em ); // equal to 20/14em
+@background-color-pending-stripe: #eaecf0;
 
 // Stripe animation used to indicate a pending state, e.g. while a Lookup component is fetching
 // options.
 .cdx-pending-state() {
-	background-color: @cdx-background-color-pending-stripe;
-	// CSS gradients are not supported by IE9 and have partial support in old versions of Firefox
-	// and some versions of Safari.
+	background-color: @background-color-pending-stripe;
+	// CSS gradients are only partially supported in some versions of Safari.
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	background-image: linear-gradient( 135deg, @background-color-base 25%, transparent 25%, transparent 50%, @background-color-base 50%, @background-color-base 75%, transparent 75%, transparent );
-	// background-img-opts is only partially supported in Android 4.3.
-	background-size: @cdx-size-icon-inner @cdx-size-icon-inner;
-	// animation is not supported in IE9.
+	background-size: @size-icon-inner @size-icon-inner;
 	animation: cdx-pending-stripes 650ms linear infinite;
 
 	.cdx-pending-stripes-frames() {
 		0% {
-			background-position: -@cdx-size-icon-inner 0;
+			background-position: -@size-icon-inner 0;
 		}
 
 		100% {
 			background-position: 0 0;
 		}
-	}
-
-	@-webkit-keyframes cdx-pending-stripes {
-		.cdx-pending-stripes-frames;
-	}
-
-	@-moz-keyframes cdx-pending-stripes {
-		.cdx-pending-stripes-frames;
 	}
 
 	@keyframes cdx-pending-stripes {

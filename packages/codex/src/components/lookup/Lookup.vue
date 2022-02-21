@@ -297,12 +297,13 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import './../../themes/mixins/pending-state.less';
 @import './../../themes/mixins/options-menu.less';
 
 .cdx-lookup {
 	position: relative;
-	box-sizing: border-box;
+	box-sizing: @box-sizing-base;
 	vertical-align: middle;
 
 	&--pending .cdx-text-input__input {
@@ -313,5 +314,4 @@ export default defineComponent( {
 		.cdx-options-menu();
 	}
 }
-
 </style>
