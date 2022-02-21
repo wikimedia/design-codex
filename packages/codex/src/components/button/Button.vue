@@ -119,9 +119,8 @@ export default defineComponent( {
 		outline: 0;
 	}
 
-	&:not( [ disabled ] ) {
+	&:enabled {
 		color: @color-base;
-
 		// Use hand cursor. This is nonstandard for a button but allows for a visible
 		// interactivity distinction from the disabled state.
 		cursor: pointer;
@@ -140,7 +139,8 @@ export default defineComponent( {
 		}
 	}
 
-	&[ disabled ] {
+	/* stylelint-disable-next-line no-descending-specificity */
+	&:disabled {
 		border-color: transparent;
 	}
 
@@ -156,7 +156,7 @@ export default defineComponent( {
 
 // Non-quiet “framed” buttons (normal and primary types)
 .cdx-button--framed {
-	&:not( [ disabled ] ) {
+	&:enabled {
 		background-color: @background-color-framed;
 		border-color: @border-color-base;
 
@@ -172,7 +172,8 @@ export default defineComponent( {
 		}
 	}
 
-	&[ disabled ] {
+	/* stylelint-disable-next-line no-descending-specificity */
+	&:disabled {
 		background-color: @background-color-filled--disabled;
 		color: @color-filled--disabled;
 	}
@@ -180,102 +181,110 @@ export default defineComponent( {
 
 .cdx-button--type-primary {
 	// Progressive primary buttons
-	&.cdx-button--action-progressive:not( [ disabled ] ) {
-		background-color: @color-primary;
-		color: @color-base--inverted;
-		border-color: @color-primary;
+	&.cdx-button--action-progressive {
+		&:enabled {
+			background-color: @color-primary;
+			color: @color-base--inverted;
+			border-color: @color-primary;
 
-		&:hover {
-			background-color: @color-primary--hover;
-			border-color: @color-primary--hover;
-		}
+			&:hover {
+				background-color: @color-primary--hover;
+				border-color: @color-primary--hover;
+			}
 
-		&:focus {
-			background-color: @color-primary--focus;
-			border-color: @color-primary--focus;
-			box-shadow: @box-shadow-primary--focus;
-		}
+			&:focus {
+				background-color: @color-primary--focus;
+				border-color: @color-primary--focus;
+				box-shadow: @box-shadow-primary--focus;
+			}
 
-		&:active {
-			background-color: @color-primary--active;
-			border-color: @color-primary--active;
-			// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
-			box-shadow: none;
+			&:active {
+				background-color: @color-primary--active;
+				border-color: @color-primary--active;
+				// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
+				box-shadow: none;
+			}
 		}
 	}
 
 	// Destructive primary buttons
-	&.cdx-button--action-destructive:not( [ disabled ] ) {
-		background-color: @color-destructive;
-		color: @color-base--inverted;
-		border-color: @color-destructive;
+	&.cdx-button--action-destructive {
+		&:enabled {
+			background-color: @color-destructive;
+			color: @color-base--inverted;
+			border-color: @color-destructive;
 
-		&:hover {
-			background-color: @color-destructive--hover;
-			border-color: @color-destructive--hover;
-		}
+			&:hover {
+				background-color: @color-destructive--hover;
+				border-color: @color-destructive--hover;
+			}
 
-		&:focus {
-			background-color: @color-destructive--focus;
-			border-color: @color-destructive--focus;
-			box-shadow: @box-shadow-destructive--focus;
-		}
+			&:focus {
+				background-color: @color-destructive--focus;
+				border-color: @color-destructive--focus;
+				box-shadow: @box-shadow-destructive--focus;
+			}
 
-		&:active {
-			background-color: @color-destructive--active;
-			border-color: @color-destructive--active;
-			// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
-			box-shadow: none;
+			&:active {
+				background-color: @color-destructive--active;
+				border-color: @color-destructive--active;
+				// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
+				box-shadow: none;
+			}
 		}
 	}
 }
 
 .cdx-button--type-normal {
 	// Normal progressive buttons
-	&.cdx-button--action-progressive:not( [ disabled ] ) {
-		color: @color-primary;
+	&.cdx-button--action-progressive {
+		&:enabled {
+			color: @color-primary;
 
-		&:hover {
-			color: @color-primary--hover;
-			border-color: @border-color-primary--hover;
-		}
+			&:hover {
+				color: @color-primary--hover;
+				border-color: @border-color-primary--hover;
+			}
 
-		&:focus {
-			color: @color-primary--focus;
-			border-color: @border-color-primary--focus;
-			box-shadow: @box-shadow-primary--focus;
-		}
+			&:focus {
+				color: @color-primary--focus;
+				border-color: @border-color-primary--focus;
+				box-shadow: @box-shadow-primary--focus;
+			}
 
-		&:active {
-			background-color: lighten( @color-primary--active, 60% );
-			color: @color-primary--active;
-			border-color: @border-color-primary--active;
-			// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
-			box-shadow: none;
+			&:active {
+				background-color: lighten( @color-primary--active, 60% );
+				color: @color-primary--active;
+				border-color: @border-color-primary--active;
+				// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
+				box-shadow: none;
+			}
 		}
 	}
 
 	// Normal destructive buttons
-	&.cdx-button--action-destructive:not( [ disabled ] ) {
-		color: @color-destructive;
+	&.cdx-button--action-destructive {
+		&:enabled {
+			color: @color-destructive;
 
-		&:hover {
-			color: @color-destructive--hover;
-			border-color: @border-color-destructive--hover;
-		}
+			&:hover {
+				color: @color-destructive--hover;
+				border-color: @border-color-destructive--hover;
+			}
 
-		&:focus {
-			color: @color-destructive--focus;
-			border-color: @border-color-destructive--focus;
-			box-shadow: @box-shadow-destructive--focus;
-		}
+			&:focus {
+				color: @color-destructive--focus;
+				border-color: @border-color-destructive--focus;
+				box-shadow: @box-shadow-destructive--focus;
+			}
 
-		&:active {
-			background-color: lighten( @color-destructive--active, 60% );
-			color: @color-destructive--active;
-			border-color: @border-color-destructive--active;
-			// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
-			box-shadow: none;
+			&:active {
+				background-color: lighten( @color-destructive--active, 60% );
+				color: @color-destructive--active;
+				border-color: @border-color-destructive--active;
+				// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
+				box-shadow: none;
+			}
 		}
 	}
 }
@@ -285,7 +294,7 @@ export default defineComponent( {
 	background-color: transparent;
 	border-color: transparent;
 
-	&:not( [ disabled ] ) {
+	&:enabled {
 		&:hover {
 			background-color: @background-color-quiet--hover;
 		}
@@ -303,54 +312,59 @@ export default defineComponent( {
 	}
 
 	// Progressive quiet buttons.
-	&.cdx-button--action-progressive:not( [ disabled ] ) {
-		color: @color-primary;
+	&.cdx-button--action-progressive {
+		&:enabled {
+			color: @color-primary;
 
-		&:hover {
-			// FIXME: @background-color-primary--hover exists but is a little lighter.
-			background-color: fade( #347bff, 20% );
-			color: @color-primary--hover;
-		}
+			&:hover {
+				// FIXME: @background-color-primary--hover exists but is a little lighter.
+				background-color: fade( #347bff, 20% );
+				color: @color-primary--hover;
+			}
 
-		&:focus {
-			color: @color-primary--focus;
-			border-color: @border-color-primary--focus;
-			box-shadow: @box-shadow-primary--focus;
-		}
+			&:focus {
+				color: @color-primary--focus;
+				border-color: @border-color-primary--focus;
+				box-shadow: @box-shadow-primary--focus;
+			}
 
-		&:active {
-			background-color: @color-primary--active;
-			color: @color-base--inverted;
-			border-color: @color-primary--active;
-			box-shadow: none;
+			&:active {
+				background-color: @color-primary--active;
+				color: @color-base--inverted;
+				border-color: @color-primary--active;
+				box-shadow: none;
+			}
 		}
 	}
 
 	// Destructive quiet buttons.
-	&.cdx-button--action-destructive:not( [ disabled ] ) {
-		color: @color-destructive;
+	&.cdx-button--action-destructive {
+		&:enabled {
+			color: @color-destructive;
 
-		&:hover {
-			// FIXME: @background-color-destructive--hover should exist but doesn't.
-			background-color: fade( #d11d13, 20% );
-			color: @color-destructive--hover;
-		}
+			&:hover {
+				// FIXME: @background-color-destructive--hover should exist but doesn't.
+				background-color: fade( #d11d13, 20% );
+				color: @color-destructive--hover;
+			}
 
-		&:focus {
-			color: @color-destructive--focus;
-			border-color: @border-color-destructive--focus;
-			box-shadow: @box-shadow-destructive--focus;
-		}
+			&:focus {
+				color: @color-destructive--focus;
+				border-color: @border-color-destructive--focus;
+				box-shadow: @box-shadow-destructive--focus;
+			}
 
-		&:active {
-			background-color: @color-destructive--active;
-			color: @color-base--inverted;
-			border-color: @color-destructive--active;
-			box-shadow: none;
+			&:active {
+				background-color: @color-destructive--active;
+				color: @color-base--inverted;
+				border-color: @color-destructive--active;
+				box-shadow: none;
+			}
 		}
 	}
 
-	&[ disabled ] {
+	/* stylelint-disable-next-line no-descending-specificity */
+	&:disabled {
 		color: @color-base--disabled;
 	}
 }
