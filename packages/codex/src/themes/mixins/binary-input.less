@@ -1,26 +1,23 @@
-@import 'wikimedia-ui-base/wikimedia-ui-base.less';
-
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 // TODO: At least these first few should be design tokens.
 // FIXME: Vite doesn't like the way we calculated these values previously, e.g.
 // 20 / @font-size-browser / @font-size-base. There might be a better solution than this one:
 @font-size-browser: 16; // Common (assumed) browser default of `16px`.
 @font-size-base-value: 14 / @font-size-browser;
 @font-size-base: unit( ( @font-size-base-value ), em ); // Equals `0.875em` at browser default of `16px`.
+
+// stylelint-disable-next-line function-url-quotes
+@background-image-input-checkbox: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>check</title><path fill="%23fff" d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"/></svg>' );
 @size-icon-small: unit( ( 14 / @font-size-browser / @font-size-base-value ), em );
 
 @size-input-binary: unit( ( 20 / @font-size-browser / @font-size-base-value ), em );
 @start-input-binary-icon: unit( ( 3 / @font-size-browser / @font-size-base-value ), em );
 
-@border-color-input-binary: @border-color-base--active;
-@border-color-input-binary--checked: @color-primary;
-@border-color-input-binary--hover: @color-primary--hover;
-@border-color-input-binary--active: @color-primary--active;
-@border-color-input-binary--focus: @color-primary--focus;
 @border-width-input-radio--checked: unit( ( 6 / @font-size-browser / @font-size-base-value ), em );
 
-@box-shadow-input-binary--focus: inset 0 0 0 1px @color-primary--focus;
-@box-shadow-input-checkbox--focus-checked: @box-shadow-primary--focus;
-@box-shadow-input-binary--active: inset 0 0 0 1px @color-primary--active;
+// TODO: Remove with I753c3fd9a271a15ec9 in place:
+@cursor-base--disabled: default;
+@cursor-base--hover: pointer;
 
 // Common styles for checkboxes and radios.
 .cdx-mixin-binary-input() {
@@ -61,7 +58,7 @@
 		// Create a stacking context.
 		z-index: 0;
 		line-height: @size-input-binary;
-		cursor: pointer;
+		cursor: @cursor-base--hover;
 
 		&[ aria-disabled='true' ] {
 			cursor: @cursor-base--disabled;
@@ -79,10 +76,10 @@
 		background-color: @background-color-base;
 		position: absolute;
 		left: 0;
-		box-sizing: border-box;
+		box-sizing: @box-sizing-base;
 		width: @size-input-binary;
 		height: @size-input-binary;
-		border: @border-width-base @border-style-base @border-color-input-binary;
+		border: @border-input-binary;
 	}
 
 	// HTML input element.

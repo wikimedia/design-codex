@@ -130,7 +130,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-// TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import './../../themes/mixins/binary-input.less';
 
 // Wrapper `<label>`.
@@ -141,18 +141,18 @@ export default defineComponent( {
 	// Custom-styled radio that's visible to the user.
 	&__icon {
 		border-radius: @border-radius-input-radio;
-		transition-property: background-color, border-color, border-width;
-		transition-duration: @transition-base;
+		transition: @transition-base;
+		transition-property: @transition-property-base;
 
 		// Add `:focus` state's inner circle.
 		&:before {
 			content: ' ';
 			position: absolute;
-			top: @position-offset-input-radio-focus;
-			right: @position-offset-input-radio-focus;
-			bottom: @position-offset-input-radio-focus;
-			left: @position-offset-input-radio-focus;
-			border: @border-width-base @border-style-base transparent;
+			top: @position-offset-input-radio--focus;
+			right: @position-offset-input-radio--focus;
+			bottom: @position-offset-input-radio--focus;
+			left: @position-offset-input-radio--focus;
+			border: @border-width-base @border-style-base @border-color-transparent;
 			border-radius: @border-radius-input-radio;
 		}
 	}
@@ -169,8 +169,8 @@ export default defineComponent( {
 			}
 
 			&:active + .cdx-radio__icon {
-				background-color: @background-color-input-binary--active;
-				border-color: @border-color-input-binary--active;
+				background-color: @background-color-progressive--active;
+				border-color: @border-color-progressive--active;
 			}
 
 			&:checked {
@@ -189,14 +189,14 @@ export default defineComponent( {
 					}
 				}
 
-				// Only at 'filled' progressive components we're putting `:active` after `:focus`.
-				// Otherwise we're running into focus outline when pressed.
+				// Put `:active` after `:focus` at 'filled' progressive components. Otherwise a
+				// focus outline would be visible when actively clicked.
 				&:active + .cdx-radio__icon {
 					background-color: @background-color-base;
-					border-color: @border-color-input-binary--active;
+					border-color: @border-color-progressive--active;
 
 					&:before {
-						border-color: @border-color-input-binary--active;
+						border-color: @border-color-progressive--active;
 					}
 				}
 			}
@@ -214,7 +214,6 @@ export default defineComponent( {
 			}
 
 			&:checked + .cdx-radio__icon {
-				background-color: @background-color-base;
 				border-width: @border-width-input-radio--checked;
 			}
 		}

@@ -148,7 +148,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-// TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import './../../themes/mixins/binary-input.less';
 
 // Wrapper `<label>`.
@@ -160,28 +160,28 @@ export default defineComponent( {
 	&__icon {
 		background-size: 0 0;
 		border-radius: @border-radius-base;
-		transition-property: background-color, border-color, box-shadow;
-		transition-duration: @transition-base;
+		transition: @transition-base;
+		transition-property: @transition-property-base;
 	}
 
 	// HTML `<input type="checkbox">`.
 	// Based on the HTML attributes of the checkbox input, we can change the style of the adjacent
-	// span, which will look like a custom-styled checkbox.
+	// `span`, which will look like a custom-styled checkbox.
 	&__input {
-		// Styles for the checked checkbox that apply whether or not the input
-		// is enabled or disabled.
+		// Checked state whether or not the input is enabled or disabled.
 		&:checked + .cdx-checkbox__icon:before {
 			content: ' ';
-			// stylelint-disable-next-line function-url-quotes
-			background-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>check</title><g fill="%23fff"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"/></g></svg>' );
+			background-image: @background-image-input-checkbox;
 			background-position: center;
 			background-repeat: no-repeat;
 			// This must have two values to match `background-size: 0 0` above,
 			// otherwise the transition does not work (at least in Chrome).
 			background-size: @size-icon-small @size-icon-small;
 			position: absolute;
-			width: 100%;
-			height: 100%;
+			// Use `@size-full` as `@size-input-binary` would lead to offset by
+			// `@border-width-base`.
+			width: @size-full;
+			height: @size-full;
 		}
 
 		// Indeterminate state.
@@ -203,17 +203,9 @@ export default defineComponent( {
 
 			&:focus + .cdx-checkbox__icon {
 				border-color: @border-color-input-binary--focus;
-				box-shadow: @box-shadow-input-binary--focus;
+				box-shadow: @box-shadow-base--focus;
 				// In Windows high contrast mode the outline becomes visible.
-				outline: 1px solid transparent;
-			}
-
-			// Only at 'filled' progressive components we're putting `:active` after `:focus`.
-			// Otherwise we're running into focus outline when pressed.
-			&:active + .cdx-checkbox__icon {
-				background-color: @background-color-input-binary--active;
-				border-color: @border-color-input-binary--active;
-				box-shadow: @box-shadow-input-binary--active;
+				outline: @outline-base--focus;
 			}
 
 			&:checked,
@@ -224,24 +216,31 @@ export default defineComponent( {
 				}
 
 				&:hover + .cdx-checkbox__icon {
-					background-color: @color-primary--hover;
+					background-color: @background-color-progressive--hover;
 					border-color: @border-color-input-binary--hover;
 				}
 
 				&:focus + .cdx-checkbox__icon {
 					background-color: @background-color-input-binary--checked;
 					border-color: @border-color-input-binary--checked;
-					box-shadow: @box-shadow-input-checkbox--focus-checked;
-				}
-
-				// Only at 'filled' progressive components we're putting `:active` after `:focus`.
-				// Otherwise we're running into focus outline when pressed.
-				&:active + .cdx-checkbox__icon {
-					background-color: @background-color-input-binary--active;
-					border-color: @border-color-input-binary--active;
-					box-shadow: @box-shadow-input-binary--active;
+					box-shadow: @box-shadow-progressive--focus;
 				}
 			}
+
+			// Override states with higher specificity to DRY up. Put `:active`
+			// after `:focus` at 'filled' progressive components. Otherwise a focus outline
+			// would be visible when actively clicked.
+			/* stylelint-disable no-descending-specificity */
+			&,
+			&:checked,
+			&:indeterminate {
+				&:active + .cdx-checkbox__icon {
+					background-color: @background-color-progressive--active;
+					border-color: @border-color-progressive--active;
+					box-shadow: @box-shadow-base--active;
+				}
+			}
+			/* stylelint-enable no-descending-specificity */
 		}
 
 		/* stylelint-disable no-descending-specificity */
