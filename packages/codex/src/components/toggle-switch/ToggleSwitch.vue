@@ -5,28 +5,28 @@
 		:style="rootStyle"
 	>
 		<label
-			v-if="$slots.default"
 			:for="inputId"
 			class="cdx-toggle-switch__label"
 			:aria-disabled="disabled"
 		>
-			<!-- @slot Label content -->
-			<slot />
+			<input
+				:id="inputId"
+				ref="input"
+				v-model="wrappedModel"
+				class="cdx-toggle-switch__input"
+				type="checkbox"
+				:disabled="disabled"
+				v-bind="otherAttrs"
+				@keydown.prevent.enter="clickInput"
+			>
+			<span v-if="$slots.default" class="cdx-toggle-switch__label-content">
+				<!-- @slot Input label content -->
+				<slot />
+			</span>
+			<span class="cdx-toggle-switch__switch">
+				<span class="cdx-toggle-switch__switch__grip" />
+			</span>
 		</label>
-
-		<input
-			:id="inputId"
-			ref="input"
-			v-model="wrappedModel"
-			class="cdx-toggle-switch__input"
-			type="checkbox"
-			:disabled="disabled"
-			v-bind="otherAttrs"
-			@keydown.prevent.enter="clickInput"
-		>
-		<span class="cdx-toggle-switch__switch">
-			<span class="cdx-toggle-switch__switch__grip" />
-		</span>
 	</span>
 </template>
 
@@ -152,20 +152,21 @@ export default defineComponent( {
 	cursor: pointer;
 
 	&__label {
-		padding-right: 16px;
-		cursor: pointer;
+		display: flex;
+		// Reorder the label content visually, but ensure that `label` is wrapping everything and
+		// `input` comes before to satisfy assistive technology and CSS logic.
+		flex-direction: row;
 	}
 
-	&[ aria-disabled='true' ] {
-		cursor: @cursor-base--disabled;
-
-		.cdx-toggle-switch__label {
-			color: @color-base--disabled;
-		}
+	&__label-content {
+		align-self: center;
+		order: 1;
+		padding-right: 6px;
 	}
 
 	// The visible switch.
 	&__switch {
+		order: 2;
 		.force-gpu-composite-layer();
 		background-color: @background-color-framed;
 		display: inline-block;
@@ -236,10 +237,9 @@ export default defineComponent( {
 		height: @height-toggle-switch;
 		margin: 0;
 		font-size: inherit;
-		cursor: pointer;
 
 		// Checked styles that apply whether the input is enabled or disabled.
-		&:checked + .cdx-toggle-switch__switch {
+		&:checked ~ .cdx-toggle-switch__switch {
 			.cdx-toggle-switch__switch__grip {
 				background-color: @background-color-base;
 				left: @start-toggle-switch-grip--mobile + @size-toggle-switch-travel-distance;
@@ -252,10 +252,94 @@ export default defineComponent( {
 			}
 		}
 
+		&:enabled {
+			cursor: pointer;
+
+			& ~ .cdx-toggle-switch__label-content {
+				cursor: pointer;
+			}
+
+			& ~ .cdx-toggle-switch__switch .cdx-toggle-switch__switch__grip {
+				background-color: @background-color-framed;
+			}
+
+			&:hover ~ .cdx-toggle-switch__switch {
+				background-color: @background-color-framed--hover;
+				border-color: @border-color-framed-progressive--hover;
+
+				.cdx-toggle-switch__switch__grip {
+					background-color: @background-color-framed--hover;
+					border-color: @border-color-framed-progressive--hover;
+				}
+			}
+
+			&:focus ~ .cdx-toggle-switch__switch {
+				border-color: @border-color-primary;
+				box-shadow: @box-shadow-base--focus;
+				outline: 0;
+
+				.cdx-toggle-switch__switch__grip {
+					border-color: @border-color-primary;
+				}
+			}
+
+			&:active ~ .cdx-toggle-switch__switch {
+				background-color: @background-color-input-binary--active;
+				border-color: @border-color-input-binary--active;
+				box-shadow: @box-shadow-input-binary--active;
+
+				.cdx-toggle-switch__switch__grip {
+					background-color: @background-color-base;
+					border-color: @background-color-base;
+					box-shadow: @box-shadow-input-binary;
+				}
+			}
+		}
+
+		&:enabled:checked {
+			& ~ .cdx-toggle-switch__switch {
+				background-color: @background-color-input-binary--checked;
+				border-color: @border-color-input-binary--checked;
+
+				// stylelint-disable-next-line max-nesting-depth
+				.cdx-toggle-switch__switch__grip {
+					border-color: @background-color-base;
+					box-shadow: @box-shadow-input-binary;
+				}
+			}
+
+			&:hover ~ .cdx-toggle-switch__switch {
+				background-color: @color-primary--hover;
+				border-color: @border-color-framed-progressive--hover;
+			}
+
+			&:focus ~ .cdx-toggle-switch__switch {
+				border-color: @border-color-input-binary--checked;
+
+				&:before {
+					border-color: @color-base--inverted;
+				}
+			}
+
+			&:active ~ .cdx-toggle-switch__switch {
+				background-color: @background-color-input-binary--active;
+				border-color: @border-color-input-binary--active;
+
+				&:before {
+					border-color: @background-color-input-binary--active;
+				}
+			}
+		}
+
+		/* stylelint-disable no-descending-specificity */
 		&:disabled {
 			cursor: @cursor-base--disabled;
 
-			& + .cdx-toggle-switch__switch {
+			& ~ .cdx-toggle-switch__label {
+				color: @color-base--disabled;
+			}
+
+			& ~ .cdx-toggle-switch__switch {
 				background-color: @background-color-filled--disabled;
 				border-color: @background-color-filled--disabled;
 
@@ -267,84 +351,12 @@ export default defineComponent( {
 			}
 		}
 
-		&:enabled + .cdx-toggle-switch__switch {
+		&:disabled:checked ~ .cdx-toggle-switch__switch {
 			.cdx-toggle-switch__switch__grip {
 				background-color: @background-color-framed;
 			}
 		}
-
-		&:enabled:hover + .cdx-toggle-switch__switch {
-			background-color: @background-color-framed--hover;
-			border-color: @border-color-framed-progressive--hover;
-
-			.cdx-toggle-switch__switch__grip {
-				background-color: @background-color-framed--hover;
-				border-color: @border-color-framed-progressive--hover;
-			}
-		}
-
-		&:enabled:focus + .cdx-toggle-switch__switch {
-			border-color: @border-color-primary;
-			box-shadow: @box-shadow-base--focus;
-			outline: 0;
-
-			.cdx-toggle-switch__switch__grip {
-				border-color: @border-color-primary;
-			}
-		}
-
-		&:enabled:active + .cdx-toggle-switch__switch {
-			background-color: @background-color-input-binary--active;
-			border-color: @border-color-input-binary--active;
-			box-shadow: @box-shadow-input-binary--active;
-
-			.cdx-toggle-switch__switch__grip {
-				background-color: @background-color-base;
-				border-color: @background-color-base;
-				box-shadow: @box-shadow-input-binary;
-			}
-		}
-
-		&:disabled:checked + .cdx-toggle-switch__switch {
-			.cdx-toggle-switch__switch__grip {
-				background-color: @background-color-framed;
-			}
-		}
-
-		&:enabled:checked {
-			& + .cdx-toggle-switch__switch {
-				background-color: @background-color-input-binary--checked;
-				border-color: @border-color-input-binary--checked;
-
-				// stylelint-disable-next-line max-nesting-depth
-				.cdx-toggle-switch__switch__grip {
-					border-color: @background-color-base;
-					box-shadow: @box-shadow-input-binary;
-				}
-			}
-
-			&:hover + .cdx-toggle-switch__switch {
-				background-color: @color-primary--hover;
-				border-color: @border-color-framed-progressive--hover;
-			}
-
-			&:focus + .cdx-toggle-switch__switch {
-				border-color: @border-color-input-binary--checked;
-
-				&:before {
-					border-color: @color-base--inverted;
-				}
-			}
-
-			&:active + .cdx-toggle-switch__switch {
-				background-color: @background-color-input-binary--active;
-				border-color: @border-color-input-binary--active;
-
-				&:before {
-					border-color: @background-color-input-binary--active;
-				}
-			}
-		}
+		/* stylelint-enable no-descending-specificity */
 	}
 }
 </style>
