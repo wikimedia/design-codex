@@ -265,14 +265,17 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import './../../themes/mixins/menu-icon.less';
 @import './../../themes/mixins/options-menu.less';
+
+@min-width-combobox: 280px;
+@min-width-combobox-expand-button: 36px;
 
 .cdx-combobox {
 	display: inline-block;
 	position: relative;
-	min-width: 280px;
+	min-width: @min-width-combobox;
 
 	&__input-wrapper {
 		display: flex;
@@ -290,7 +293,7 @@ export default defineComponent( {
 
 	&__expand-button {
 		position: relative;
-		width: 36px;
+		min-width: @min-width-combobox-expand-button;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
