@@ -103,6 +103,11 @@
 			"value": "{ size.absolute.2800 }"
 		}
 	},
+	"margin-top": {
+		"options-menu": {
+			"value": "-{ border-width.base }"
+		}
+	},
 	"border-color": {
 		"divider": {
 			"value": "{ color.base50 }"
