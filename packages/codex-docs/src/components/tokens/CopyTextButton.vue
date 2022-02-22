@@ -22,7 +22,7 @@ import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconCheck } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
-	name: 'WvuiCopytext',
+	name: 'CopyTextButton',
 	components: {
 		CdxButton,
 		CdxIcon
@@ -88,7 +88,7 @@ export default defineComponent( {
 				copySuccess.value = true;
 				setTimeout( () => {
 					copySuccess.value = false;
-				}, 500 );
+				}, 2000 );
 			}
 
 			// Remove the textarea element.

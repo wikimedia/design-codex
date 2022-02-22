@@ -8,7 +8,8 @@
 		</thead>
 		<tbody>
 			<tr v-for="( token, key ) in flattenedTokens" :key="key">
-				<td class="vp-tokens-table__name">
+				<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
+				<td class="vp-tokens-table__name" dir="ltr">
 					<strong>{{ token.name }}</strong>
 					<copy-text-button :copy-text="token.name" />
 				</td>
