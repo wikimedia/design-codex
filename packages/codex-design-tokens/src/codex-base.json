@@ -50,7 +50,7 @@
 			"value": "{ color.base70 }"
 		},
 		"filled--disabled": {
-			"comment": "'Filled' UI elements (Checkboxes, Radios, ProgressBars…)",
+			"comment": "'Filled' UI components (Checkboxes, Radios, ProgressBars…)",
 			"value": "{ color.base70 }"
 		}
 	},
@@ -364,8 +364,11 @@
 			"value": "{ color.base50 }"
 		},
 		"binary": {
-			"comment": "TODO: base.json or components.json?",
 			"value": "{ color.base30 }"
+		},
+		"inset--focus": {
+			"comment": "Inset focus border on progressive 'filled' components, like Checkbox. TODO: Consider `border-color-inverted--focus` instead.",
+			"value": "{ color.base--inverted }"
 		},
 		"transparent": {
 			"value": "{ color.transparent }"
@@ -405,6 +408,9 @@
 	"box-shadow": {
 		"base": {
 			"value": "{ box-shadow.100 } { color.transparent }"
+		},
+		"base--active": {
+			"value": "{ box-shadow.100 } { color.accent30 }"
 		},
 		"base--focus": {
 			"value": "{ box-shadow.100 } { color.accent50 }"

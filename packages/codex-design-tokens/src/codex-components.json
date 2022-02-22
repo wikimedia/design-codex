@@ -25,6 +25,9 @@
 			"comment": "Deprecated key. Use 'background-color.quiet-progressive--hover' key instead.",
 			"value": "{ background-color.quiet-progressive--hover }"
 		},
+		"input-binary--checked": {
+			"value": "{ color.accent50 }"
+		},
 		"message": {
 			"comment": "User system messages (errors, warnings, successes, notices).",
 			"notice": {
@@ -134,8 +137,14 @@
 		"input-binary": {
 			"value": "{ border-color.base--active }"
 		},
+		"input-binary--hover": {
+			"value": "{ border-color.progressive--hover }"
+		},
 		"input-binary--active": {
 			"value": "{ border-color.progressive--active }"
+		},
+		"input-binary--focus": {
+			"value": "{ border-color.progressive--focus }"
 		},
 		"input-binary--checked": {
 			"value": "{ border-color.progressive }"
