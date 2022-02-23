@@ -131,7 +131,7 @@ export default defineComponent( {
 // TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
 @import './../../themes/mixins/binary-input.less';
 
-// Wrapper `label`.
+// Wrapper `<label>`.
 .cdx-radio {
 	// Common binary input styles.
 	.cdx-mixin-binary-input();
@@ -159,6 +159,48 @@ export default defineComponent( {
 	// Based on the HTML attributes of the radio input, we can change the style of the adjacent
 	// `span`, which will look like a custom-styled radio.
 	&__input {
+		&:enabled {
+			// Note: there is no focus behavior for the input in its unchecked state because you
+			// can't focus on it without selecting it.
+			&:hover + .cdx-radio__icon {
+				border-color: @border-color-input-binary--hover;
+			}
+
+			&:active + .cdx-radio__icon {
+				background-color: @background-color-input-binary--active;
+				border-color: @border-color-input-binary--active;
+			}
+
+			&:checked {
+				& + .cdx-radio__icon {
+					border-width: @border-width-input-radio--checked;
+					border-color: @border-color-input-binary--checked;
+				}
+
+				&:hover + .cdx-radio__icon {
+					border-color: @border-color-input-binary--hover;
+				}
+
+				&:focus + .cdx-radio__icon {
+					&:before {
+						border-color: @border-color-inset--focus;
+					}
+				}
+
+				// Only at 'filled' progressive components we're putting `:active` after `:focus`.
+				// Otherwise we're running into focus outline when pressed.
+				&:active + .cdx-radio__icon {
+					background-color: @background-color-base;
+					border-color: @border-color-input-binary--active;
+
+					&:before {
+						border-color: @border-color-input-binary--active;
+					}
+				}
+			}
+		}
+
+		/* stylelint-disable no-descending-specificity */
 		&:disabled {
 			& ~ .cdx-radio__label-content {
 				color: @color-base--disabled;
@@ -174,43 +216,7 @@ export default defineComponent( {
 				border-width: @border-width-input-radio--checked;
 			}
 		}
-
-		&:enabled {
-			&:checked + .cdx-radio__icon {
-				border-width: @border-width-input-radio--checked;
-				border-color: @border-color-input-binary--checked;
-			}
-
-			// Note: there is no focus behavior for the input in its unchecked state because you
-			// can't focus on it without selecting it.
-			&:hover + .cdx-radio__icon,
-			&:checked:hover + .cdx-radio__icon {
-				border-color: @border-color-input-binary--hover;
-			}
-
-			&:checked:focus + .cdx-radio__icon {
-				&:before {
-					border-color: @border-color-inset--focus;
-				}
-			}
-		}
-	}
-
-	// Styles for when `label` is active (being pressed).
-	&__label:active &__input:enabled {
-		& + .cdx-radio__icon {
-			background-color: @background-color-input-binary--active;
-			border-color: @border-color-input-binary--active;
-		}
-
-		&:checked + .cdx-radio__icon {
-			background-color: @background-color-base;
-			border-color: @border-color-input-binary--active;
-
-			&:before {
-				border-color: @border-color-input-binary--active;
-			}
-		}
+		/* stylelint-enable no-descending-specificity */
 	}
 }
 </style>

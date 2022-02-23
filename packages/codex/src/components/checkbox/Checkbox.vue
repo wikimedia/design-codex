@@ -149,7 +149,7 @@ export default defineComponent( {
 // TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
 @import './../../themes/mixins/binary-input.less';
 
-// Wrapper `label`.
+// Wrapper `<label>`.
 .cdx-checkbox {
 	.cdx-mixin-binary-input();
 
@@ -166,32 +166,9 @@ export default defineComponent( {
 	// Based on the HTML attributes of the checkbox input, we can change the style of the adjacent
 	// span, which will look like a custom-styled checkbox.
 	&__input {
-		&:focus + .cdx-checkbox__icon {
-			border-color: @border-color-input-binary--focus;
-			box-shadow: @box-shadow-input-binary--focus;
-			// In Windows high contrast mode the outline becomes visible.
-			outline: 1px solid transparent;
-		}
-
-		&:hover + .cdx-checkbox__icon {
-			border-color: @border-color-input-binary--hover;
-		}
-
-		// Indeterminate visual state.
-		&:indeterminate + .cdx-checkbox__icon:before {
-			content: ' ';
-			background-color: @color-base--inverted;
-			position: absolute;
-			top: 50%;
-			right: @start-input-binary-icon;
-			left: @start-input-binary-icon;
-			height: @border-width-base * 2;
-			margin-top: -@border-width-base;
-		}
-
 		// Styles for the checked checkbox that apply whether or not the input
 		// is enabled or disabled.
-		&:checked:not( :indeterminate ) + .cdx-checkbox__icon:before {
+		&:checked + .cdx-checkbox__icon:before {
 			content: ' ';
 			// stylelint-disable-next-line function-url-quotes
 			background-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>check</title><g fill="%23fff"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"/></g></svg>' );
@@ -205,51 +182,78 @@ export default defineComponent( {
 			height: 100%;
 		}
 
+		// Indeterminate state.
+		&:indeterminate + .cdx-checkbox__icon:before {
+			content: ' ';
+			background-color: @color-base--inverted;
+			position: absolute;
+			top: 50%;
+			right: @start-input-binary-icon;
+			left: @start-input-binary-icon;
+			height: @border-width-base * 2;
+			margin-top: -@border-width-base;
+		}
+
+		&:enabled {
+			&:hover + .cdx-checkbox__icon {
+				border-color: @border-color-input-binary--hover;
+			}
+
+			&:focus + .cdx-checkbox__icon {
+				border-color: @border-color-input-binary--focus;
+				box-shadow: @box-shadow-input-binary--focus;
+				// In Windows high contrast mode the outline becomes visible.
+				outline: 1px solid transparent;
+			}
+
+			// Only at 'filled' progressive components we're putting `:active` after `:focus`.
+			// Otherwise we're running into focus outline when pressed.
+			&:active + .cdx-checkbox__icon {
+				background-color: @background-color-input-binary--active;
+				border-color: @border-color-input-binary--active;
+				box-shadow: @box-shadow-input-binary--active;
+			}
+
+			&:checked,
+			&:indeterminate {
+				& + .cdx-checkbox__icon {
+					background-color: @background-color-input-binary--checked;
+					border-color: @border-color-input-binary--checked;
+				}
+
+				&:hover + .cdx-checkbox__icon {
+					background-color: @color-primary--hover;
+					border-color: @border-color-input-binary--hover;
+				}
+
+				&:focus + .cdx-checkbox__icon {
+					background-color: @background-color-input-binary--checked;
+					border-color: @border-color-input-binary--checked;
+					box-shadow: @box-shadow-input-checkbox--focus-checked;
+				}
+
+				// Only at 'filled' progressive components we're putting `:active` after `:focus`.
+				// Otherwise we're running into focus outline when pressed.
+				&:active + .cdx-checkbox__icon {
+					background-color: @background-color-input-binary--active;
+					border-color: @border-color-input-binary--active;
+					box-shadow: @box-shadow-input-binary--active;
+				}
+			}
+		}
+
+		/* stylelint-disable no-descending-specificity */
 		&:disabled {
 			& + .cdx-checkbox__icon {
 				background-color: @background-color-filled--disabled;
 				border-color: @border-color-base--disabled;
-				box-shadow: none;
 			}
 
 			& ~ .cdx-checkbox__label-content {
 				color: @color-base--disabled;
 			}
 		}
-
-		&:checked:enabled,
-		&:indeterminate:enabled {
-			& + .cdx-checkbox__icon {
-				background-color: @background-color-input-binary--checked;
-				border-color: @border-color-input-binary--checked;
-			}
-
-			&:focus + .cdx-checkbox__icon {
-				background-color: @background-color-input-binary--checked;
-				border-color: @border-color-input-binary--checked;
-				box-shadow: @box-shadow-input-checkbox--focus-checked;
-			}
-
-			&:hover + .cdx-checkbox__icon {
-				background-color: @color-primary--hover;
-				border-color: @border-color-input-binary--hover;
-			}
-		}
-	}
-
-	// Styles for when `label` is active (being pressed).
-	&__label:active .cdx-checkbox__input:enabled {
-		& + .cdx-checkbox__icon {
-			background-color: @background-color-input-binary--active;
-			border-color: @border-color-input-binary--active;
-			box-shadow: @box-shadow-input-binary--active;
-		}
-
-		&:checked + .cdx-checkbox__icon {
-			background-color: @background-color-input-binary--active;
-			border-color: @border-color-input-binary--active;
-			box-shadow: @box-shadow-input-binary--active;
-		}
+		/* stylelint-enable no-descending-specificity */
 	}
 }
 </style>
