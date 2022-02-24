@@ -14,13 +14,10 @@ import { MenuState, MenuOption, MenuOptionWithId } from '../types';
 // Custom options that can be provided to useMenu when called
 interface UseMenuConfig {
 	/**
-	 * Ref to an an input element's value if the menu needs to be able to mutate
-	 * it (ex. by keyboard navigation). If this is provided, the following will
-	 * happen on keyboard navigation to a new option:
-	 * - The inputValue will change to match the highlighted option
-	 * - The highlighted option will be selected
+	 * If true, the highlighted option will automatically be selected when the highlight is
+	 * moved via keyboard navigation.
 	 */
-	inputValue?: Ref<string|number>,
+	updateSelectionOnHighlight?: boolean,
 
 	/**
 	 * Optional callback to run when the footer element is highlighted via
@@ -173,10 +170,7 @@ export default function useMenu(
 			return;
 		}
 
-		// If an inputValue ref has been provided, change its value to match the
-		// new highlighted item, and select the highlighted item.
-		if ( config?.inputValue ) {
-			config.inputValue.value = highlightedOption.label || highlightedOption.value;
+		if ( config?.updateSelectionOnHighlight ) {
 			modelWrapper.value = highlightedOption.value;
 		}
 	}

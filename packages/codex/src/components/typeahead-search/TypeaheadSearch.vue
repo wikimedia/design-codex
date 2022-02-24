@@ -317,7 +317,7 @@ export default defineComponent( {
 			searchResultsWithFooter,
 			selection,
 			{
-				inputValue,
+				updateSelectionOnHighlight: true,
 				footerCallback: () => {
 					inputValue.value = searchQuery.value;
 					selection.value = null;
@@ -363,7 +363,6 @@ export default defineComponent( {
 		 * @param immediate Whether to trigger event emission on leading edge
 		 */
 		function onUpdateInputValue( value: string, immediate = false ) {
-			inputValue.value = value;
 			const handleUpdateInputValue = () => {
 				context.emit( 'new-input', inputValue.value );
 			};
