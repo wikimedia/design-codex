@@ -175,15 +175,27 @@ export default defineComponent( {
 		/**
 		 * Handle TextInput model value changes.
 		 *
-		 * @param value
+		 * @param newVal
 		 */
-		function onUpdateInput( value: string|number ) {
-			// If there is a value, set pending to true.
-			if ( value || value === 0 ) {
+		function onUpdateInput( newVal: string|number ) {
+			// If there is a selection and it doesn't match the new value, clear it.
+			if (
+				state.selected.value &&
+				state.selected.value.label !== newVal &&
+				state.selected.value.value !== newVal
+			) {
+				selectionModelWrapper.value = null;
+			}
+
+			// If the input is cleared, close the menu.
+			if ( newVal === '' ) {
+				expanded.value = false;
+			} else {
+				// If there is a value, set pending to true.
 				pending.value = true;
 			}
 
-			context.emit( 'new-input', value );
+			context.emit( 'new-input', newVal );
 		}
 
 		/**
@@ -225,17 +237,17 @@ export default defineComponent( {
 			/**
 			 * @return Whether the inputValue is equal to the current selection.
 			 */
-			function inputValueIsSelection() {
-				return state.selected.value?.label === inputValue.value ||
-					state.selected.value?.value === inputValue.value;
-			}
+			const inputValueIsSelection = state.selected.value && (
+				state.selected.value.label === inputValue.value ||
+				state.selected.value.value === inputValue.value
+			);
 
 			// Show the menu under certain conditions.
 			if (
 				// If there are options to show, and the input value is not equal to the current
 				// selection (which excludes the case where, upon selecting an option,
 				// computedOptions change, but we don't want the menu to be open anymore).
-				newVal.length > 0 && !inputValueIsSelection() ||
+				newVal.length > 0 && !inputValueIsSelection ||
 				// If there are no options but there is footer content.
 				newVal.length === 0 && context.slots.footer
 			) {
@@ -257,23 +269,6 @@ export default defineComponent( {
 				inputValue.value = state.selected.value ?
 					( state.selected.value.label || state.selected.value.value ) :
 					'';
-			}
-		} );
-
-		// When the input value changes...
-		watch( inputValue, ( newVal ) => {
-			// If there is a selection and it doesn't match the new value, clear it.
-			if (
-				state.selected.value &&
-				state.selected.value.label !== newVal &&
-				state.selected.value.value !== newVal
-			) {
-				selectionModelWrapper.value = null;
-			}
-
-			// If the input is cleared, close the menu.
-			if ( newVal === '' ) {
-				expanded.value = false;
 			}
 		} );
 

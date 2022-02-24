@@ -199,15 +199,18 @@ describe( 'Lookup', () => {
 		expect( wrapper.vm.expanded ).toBe( true );
 	} );
 
-	it( 'Closes menu when input is cleared', async () => {
+	it( 'Closes menu when input is cleared', () => {
 		const wrapper = mount( CdxLookup, {
 			props: { modelValue: 'a', options: data, initialInputValue: 'Opt' }
 		} );
+		const input = wrapper.find( 'input' );
+
 		// This doesn't happen automatically on mount because we would never mount a Lookup with
 		// options, so we need to manually open the menu first.
 		wrapper.vm.expanded = true;
-		wrapper.vm.inputValue = '';
-		await nextTick();
+
+		input.element.value = '';
+		input.trigger( 'input' );
 		expect( wrapper.vm.expanded ).toBe( false );
 	} );
 
@@ -251,14 +254,16 @@ describe( 'Lookup', () => {
 		expect( wrapper.emitted( 'new-input' )?.[ 0 ] ).toEqual( [ '' ] );
 	} );
 
-	it( 'Clears the selection if input value changes from selection label', async () => {
+	it( 'Clears the selection if input value changes from selection label', () => {
 		const wrapper = mount( CdxLookup, {
 			props: { modelValue: 'a', options: data, initialInputValue: 'Option A' }
 		} );
+		const input = wrapper.find( 'input' );
 
 		// Simulate backspace.
-		wrapper.vm.inputValue = 'Option ';
-		await nextTick();
+		input.element.value = 'Option ';
+		input.trigger( 'input' );
+
 		expect( wrapper.emitted( 'update:modelValue' )?.[ 0 ] ).toEqual( [ null ] );
 	} );
 
@@ -266,9 +271,11 @@ describe( 'Lookup', () => {
 		const wrapper = mount( CdxLookup, {
 			props: { modelValue: 'c', options: data, initialInputValue: 'c' }
 		} );
+		const input = wrapper.find( 'input' );
 
-		wrapper.vm.inputValue = 'ca';
-		await nextTick();
+		input.element.value = 'ca';
+		input.trigger( 'input' );
+
 		expect( wrapper.emitted( 'update:modelValue' )?.[ 0 ] ).toEqual( [ null ] );
 	} );
 } );
