@@ -5,6 +5,7 @@ import CdxIcon from './components/icon/Icon.vue';
 import CdxListTile from './components/list-tile/ListTile.vue';
 import CdxListTileLabel from './components/list-tile-label/ListTileLabel.vue';
 import CdxLookup from './components/lookup/Lookup.vue';
+import CdxMenu from './components/menu/Menu.vue';
 import CdxMessage from './components/message/Message.vue';
 import CdxRadio from './components/radio/Radio.vue';
 import CdxSelect from './components/select/Select.vue';
@@ -39,6 +40,7 @@ export {
 	CdxListTileLabel,
 	CdxLookup,
 	CdxMessage,
+	CdxMenu,
 	CdxRadio,
 	CdxSelect,
 	CdxOption,

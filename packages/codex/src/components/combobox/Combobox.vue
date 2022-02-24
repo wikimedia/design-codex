@@ -10,7 +10,7 @@
 				v-model="modelWrapper"
 				v-bind="otherAttrs"
 				class="cdx-combobox__input"
-				:aria-activedescendant="state.highlighted.value?.id"
+				:aria-activedescendant="highlightedId"
 				:aria-expanded="expanded"
 				:aria-owns="menuId"
 				:disabled="disabled"
@@ -18,7 +18,7 @@
 				autocomplete="off"
 				role="combobox"
 				tabindex="0"
-				@keydown.space.enter.up.down.tab.esc="onKeyNavigation"
+				@keydown="onKeydown"
 				@focus="onInputFocus"
 				@blur="onInputBlur"
 			/>
@@ -37,33 +37,28 @@
 			</cdx-button>
 		</div>
 
-		<ul
-			v-show="expanded"
+		<cdx-menu
 			:id="menuId"
-			class="cdx-combobox__menu"
-			role="listbox"
-			aria-multiselectable="false"
+			ref="menu"
+			v-model:selected="modelWrapper"
+			v-model:expanded="expanded"
+			:options="options"
 		>
-			<cdx-option
-				v-for="( option, index ) in computedOptions"
-				v-bind="option"
-				:key="index"
-				@change="handleOptionChange"
-			>
+			<template #default="{ option }">
 				<!--
 					@slot Display of an individual option in the menu
 					@binding {MenuOption} option The current option
 				-->
 				<slot name="menu-option" :option="option" />
-			</cdx-option>
+			</template>
 
-			<li v-if="$slots.footer" class="cdx-option">
+			<template v-if="$slots.footer" #footer>
 				<!--
 					@slot Content to display at the end of the options list
 				-->
 				<slot name="footer" />
-			</li>
-		</ul>
+			</template>
+		</cdx-menu>
 	</div>
 </template>
 
@@ -80,10 +75,9 @@ import { cdxIconExpand } from '@wikimedia/codex-icons';
 
 import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
-import CdxOption from '../option/Option.vue';
+import CdxMenu from '../menu/Menu.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
 
-import useMenu from '../../composables/useMenu';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
@@ -98,7 +92,7 @@ export default defineComponent( {
 	components: {
 		CdxButton,
 		CdxIcon,
-		CdxOption,
+		CdxMenu,
 		CdxTextInput
 	},
 
@@ -147,18 +141,13 @@ export default defineComponent( {
 
 	setup( props, context ) {
 		const input = ref<InstanceType<typeof CdxTextInput>>();
+		const menu = ref<InstanceType<typeof CdxMenu>>();
 		const menuId = useGeneratedId( 'combobox' );
 		const modelWrapper = useModelWrapper( toRef( props, 'modelValue' ), context.emit );
+		const expanded = ref( false );
 		const expanderClicked = ref( false );
 
-		// Get helpers from useMenu.
-		const {
-			computedOptions,
-			state,
-			expanded,
-			handleOptionChange,
-			handleKeyNavigation
-		} = useMenu( toRef( props, 'options' ), modelWrapper );
+		const highlightedId = computed( () => menu.value?.getHighlightedOption()?.id );
 
 		const internalClasses = computed( () => {
 			return {
@@ -182,7 +171,7 @@ export default defineComponent( {
 		function onInputFocus(): void {
 			if ( expanderClicked.value && expanded.value ) {
 				expanded.value = false;
-			} else if ( computedOptions.value.length > 0 || context.slots.footer ) {
+			} else if ( props.options.length > 0 || context.slots.footer ) {
 				expanded.value = true;
 			}
 		}
@@ -224,15 +213,16 @@ export default defineComponent( {
 			input.value?.focus(); // call the public focus() method on TextInput
 		}
 
-		function onKeyNavigation( e: KeyboardEvent ) {
+		function onKeydown( e: KeyboardEvent ) {
 			if (
+				!menu.value ||
 				props.disabled ||
-				computedOptions.value.length === 0 ||
+				props.options.length === 0 ||
 				( e.key === ' ' && expanded.value )
 			) {
 				return;
 			}
-			handleKeyNavigation( e );
+			menu.value.delegateKeyNavigation( e );
 		}
 
 		/**
@@ -245,15 +235,14 @@ export default defineComponent( {
 
 		return {
 			input,
+			menu,
 			menuId,
 			modelWrapper,
-			computedOptions,
-			state,
 			expanded,
+			highlightedId,
 			onInputFocus,
 			onInputBlur,
-			handleOptionChange,
-			onKeyNavigation,
+			onKeydown,
 			onButtonClick,
 			onButtonMousedown,
 			cdxIconExpand,
@@ -269,7 +258,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import './../../themes/mixins/menu-icon.less';
-@import './../../themes/mixins/options-menu.less';
 
 @min-width-combobox: 280px;
 @min-width-combobox-expand-button: 36px;
@@ -302,10 +290,6 @@ export default defineComponent( {
 
 	&__expand-icon {
 		.cdx-mixin-menu-icon( center, @size-indicator );
-	}
-
-	&__menu {
-		.cdx-options-menu();
 	}
 }
 </style>

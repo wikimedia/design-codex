@@ -50,17 +50,18 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
         </span>
         <!--v-if-->
       </div>
-      <ol
+      <ul
         aria-label="Search results"
         aria-multiselectable="false"
-        class="cdx-typeahead-search__menu"
+        class="cdx-menu"
         id="cdx-typeahead-search-menu-0"
         role="listbox"
         style="display: none;"
       >
         
         
-      </ol>
+        <!--v-if-->
+      </ul>
       <!--
 					@slot A slot for passing hidden inputs, i.e.
 					\`&lt;input type="hidden" name="language" value="en"&gt;\`
@@ -137,17 +138,18 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
         </span>
         <!--v-if-->
       </div>
-      <ol
+      <ul
         aria-label="Search results"
         aria-multiselectable="false"
-        class="cdx-typeahead-search__menu"
+        class="cdx-menu"
         id="cdx-typeahead-search-menu-1"
         role="listbox"
         style="display: none;"
       >
         
         
-      </ol>
+        <!--v-if-->
+      </ul>
       <!--
 					@slot A slot for passing hidden inputs, i.e.
 					\`&lt;input type="hidden" name="language" value="en"&gt;\`
@@ -224,17 +226,18 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
         </span>
         <!--v-if-->
       </div>
-      <ol
+      <ul
         aria-label="Search results"
         aria-multiselectable="false"
-        class="cdx-typeahead-search__menu"
+        class="cdx-menu"
         id="cdx-typeahead-search-menu-2"
         role="listbox"
         style="display: none;"
       >
         
         
-      </ol>
+        <!--v-if-->
+      </ul>
       <!--
 					@slot A slot for passing hidden inputs, i.e.
 					\`&lt;input type="hidden" name="language" value="en"&gt;\`
@@ -311,10 +314,10 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         </span>
         <!--v-if-->
       </div>
-      <ol
+      <ul
         aria-label="Search results"
         aria-multiselectable="false"
-        class="cdx-typeahead-search__menu"
+        class="cdx-menu"
         id="cdx-typeahead-search-menu-12"
         role="listbox"
         style="display: none;"
@@ -323,12 +326,17 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="cdx-option cdx-option--enabled cdx-typeahead-search__menu__option"
+          class="cdx-option cdx-option--enabled"
           id="cdx-option-14"
           role="option"
           url="https://en.wikipedia.org/wiki/CO"
         >
           <!-- @slot Optional content, will replace label if provided -->
+          
+          <!--
+				@slot Display of an individual option in the menu
+				@binding {MenuOption} option The current option
+			-->
           
           <a
             class="cdx-list-tile"
@@ -382,11 +390,12 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             </span>
           </a>
           
+          
         </li>
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="cdx-option cdx-option--enabled cdx-typeahead-search__menu__option"
+          class="cdx-option cdx-option--enabled"
           description="visual perception of light wavelengths"
           id="cdx-option-15"
           role="option"
@@ -394,6 +403,11 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           url="https://en.wikipedia.org/wiki/Color"
         >
           <!-- @slot Optional content, will replace label if provided -->
+          
+          <!--
+				@slot Display of an individual option in the menu
+				@binding {MenuOption} option The current option
+			-->
           
           <a
             class="cdx-list-tile"
@@ -427,16 +441,22 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             </span>
           </a>
           
+          
         </li>
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="cdx-option cdx-option--enabled cdx-typeahead-search__menu__option"
+          class="cdx-option cdx-option--enabled"
           id="cdx-option-16"
           role="option"
           url="https://foo.org/search?query=Co"
         >
           <!-- @slot Optional content, will replace label if provided -->
+          
+          <!--
+				@slot Display of an individual option in the menu
+				@binding {MenuOption} option The current option
+			-->
           
           <a
             class="cdx-typeahead-search__search-footer"
@@ -487,9 +507,11 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             </span>
           </a>
           
+          
         </li>
         
-      </ol>
+        <!--v-if-->
+      </ul>
       <!--
 					@slot A slot for passing hidden inputs, i.e.
 					\`&lt;input type="hidden" name="language" value="en"&gt;\`

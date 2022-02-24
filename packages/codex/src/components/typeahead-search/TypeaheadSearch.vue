@@ -6,6 +6,7 @@
 	>
 		<form
 			:id="id"
+			ref="form"
 			class="cdx-typeahead-search__form"
 			:action="formAction"
 			@submit="onSubmit"
@@ -23,43 +24,39 @@
 					aria-autocomplete="list"
 					:aria-owns="menuId"
 					:aria-expanded="expanded"
-					:aria-activedescendant="state.highlighted.value?.id"
+					:aria-activedescendant="highlightedId"
 					autocapitalize="off"
 					@update:model-value="onUpdateInputValue"
 					@focus="onFocus"
 					@blur="onBlur"
-					@keydown.space.enter.up.down.tab.esc="onKeyNavigation"
+					@keydown="onKeydown"
 				/>
 
-				<ol
-					v-show="expanded"
+				<cdx-menu
 					:id="menuId"
-					class="cdx-typeahead-search__menu"
-					role="listbox"
+					ref="menu"
+					v-model:expanded="expanded"
+					:selected="selection"
+					:options="searchResultsWithFooter"
+					select-highlighted
 					:aria-label="searchResultsLabel"
-					aria-multiselectable="false"
+					@update:selected="onUpdateMenuSelection"
 				>
-					<cdx-option
-						v-for="searchResult in computedSearchResults"
-						:key="searchResult.value"
-						class="cdx-typeahead-search__menu__option"
-						v-bind="searchResult"
-						@change="handleOptionChange"
-					>
+					<template #default="{ option }">
 						<cdx-list-tile
-							v-if="searchResult.value !== MenuFooterValue"
+							v-if="option.value !== MenuFooterValue"
 							:search-query="searchQuery"
-							:item="searchResult"
+							:item="asSearchResult( option )"
 							:highlight-query="highlightQuery"
 							:hide-thumbnail="hideThumbnail"
 							:hide-description="hideDescription"
-							@click="onSearchResultClick( searchResult )"
+							@click="onSearchResultClick( asSearchResult( option ) )"
 						/>
 						<a
 							v-else
 							class="cdx-typeahead-search__search-footer"
-							:href="searchResult.url"
-							@click.capture.stop="onSearchFooterClick( searchResult )"
+							:href="asSearchResult( option ).url"
+							@click.capture.stop="onSearchFooterClick( asSearchResult( option ) )"
 						>
 							<cdx-icon
 								v-if="!hideThumbnail"
@@ -82,8 +79,8 @@
 								<!-- eslint-enable max-len -->
 							</span>
 						</a>
-					</cdx-option>
-				</ol>
+					</template>
+				</cdx-menu>
 
 				<!--
 					@slot A slot for passing hidden inputs, i.e.
@@ -99,17 +96,16 @@
 </template>
 
 <script lang="ts">
-import { PropType, ComputedRef, defineComponent, computed, ref, toRefs, watch, onMounted } from 'vue';
+import { PropType, defineComponent, computed, ref, toRefs, watch, onMounted, toRef } from 'vue';
 import { cdxIconSearch, cdxIconArticleSearch } from '@wikimedia/codex-icons';
 import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 import CdxListTile from '../list-tile/ListTile.vue';
-import CdxOption from '../option/Option.vue';
+import CdxMenu from '../menu/Menu.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
-import useMenu from '../../composables/useMenu';
 import useSplitAttributes from '../../composables/useSplitAttributes';
-import { MenuOption, SearchResult, SearchResultWithId, SearchResultClickEvent } from '../../types';
+import { SearchResult, SearchResultWithId, SearchResultClickEvent, MenuOptionWithId } from '../../types';
 import { DebounceInterval, MenuFooterValue } from '../../constants';
 
 /**
@@ -133,7 +129,7 @@ export default defineComponent( {
 		CdxButton,
 		CdxIcon,
 		CdxListTile,
-		CdxOption,
+		CdxMenu,
 		CdxTextInput
 	},
 
@@ -258,8 +254,13 @@ export default defineComponent( {
 	setup( props, context ) {
 		const { searchResults, searchFooterUrl, debounceInterval } = toRefs( props );
 
+		const form = ref<HTMLFormElement>();
+		const menu = ref<InstanceType<typeof CdxMenu>>();
+
 		// Generated ID for menu; needed for aria-attributes.
 		const menuId = useGeneratedId( 'typeahead-search-menu' );
+
+		const expanded = ref( false );
 
 		// Whether the TypeaheadSearch is being used; used for applying conditional styles.
 		const isActive = ref( false );
@@ -273,36 +274,15 @@ export default defineComponent( {
 		// if the user scrolls through results via the keyboard.
 		const searchQuery = ref( '' );
 
-		const internalSelection = ref<string|number|null>( null );
+		const highlightedId = computed( () => menu.value?.getHighlightedOption()?.id );
 
-		// Define a menuData variable, which will eventually be set by calling useMenu, so we can
-		// refer to it in the selection setter below.
-		let menuData: ReturnType<typeof useMenu> | null = null;
+		const selection = ref<string|number|null>( null );
 
-		// Create a writable computed ref for the value of the current selection.
-		const selection = computed( {
-			get: () => internalSelection.value,
-			set: ( newVal: string|number|null ) => {
-				if ( newVal === MenuFooterValue ) {
-					// If we're trying to select the footer, clear the selection instead
-					internalSelection.value = null;
-					// and restore the text in the input
-					inputValue.value = searchQuery.value;
-					return;
-				}
-
-				internalSelection.value = newVal;
-				// If there is a newVal, including an empty string...
-				if ( newVal !== null && menuData !== null ) {
-					// If there is a search result selected, show the label (or the value, if there
-					// is no label). Otherwise, set the input to empty.
-					const selectedOption = menuData.state.selected.value;
-					inputValue.value = selectedOption ?
-						selectedOption.label || String( selectedOption.value ) :
-						'';
-				}
-			}
-		} );
+		const selectedResult = computed( () =>
+			props.searchResults.find(
+				( searchResult ) => searchResult.value === selection.value
+			)
+		);
 
 		// Add in search footer option.
 		const searchResultsWithFooter = computed( () =>
@@ -312,27 +292,6 @@ export default defineComponent( {
 				] ) :
 				searchResults.value
 		);
-
-		// Get helpers from useMenu.
-		const {
-			computedOptions,
-			state,
-			expanded,
-			handleOptionChange,
-			handleKeyNavigation
-		} = menuData = useMenu(
-			searchResultsWithFooter,
-			selection,
-			{ updateSelectionOnHighlight: true }
-		);
-
-		// The elements of computedOptions are actually SearchResult objects with an ID added,
-		// but TypeScript doesn't know this. Tell TS that the objects in this array implement both
-		// the SearchResult and MenuOptionWithId interfaces. The intermediate cast via MenuOption
-		// is needed to avoid a TS error complaining the types are incompatible.
-		const computedSearchResults =
-			( computedOptions as ComputedRef<MenuOption[]> ) as
-			ComputedRef<SearchResultWithId[]>;
 
 		// Get helpers from useSplitAttributes.
 		const internalClasses = computed( () => {
@@ -348,6 +307,10 @@ export default defineComponent( {
 			rootStyle,
 			otherAttrs
 		} = useSplitAttributes( context.attrs, internalClasses );
+
+		function asSearchResult( option: MenuOptionWithId ): SearchResultWithId {
+			return option as SearchResultWithId;
+		}
 
 		const debounceId = ref<ReturnType<typeof setTimeout>>();
 
@@ -366,9 +329,9 @@ export default defineComponent( {
 		function onUpdateInputValue( newVal: string, immediate = false ) {
 			// If there is a selection and it doesn't match the new value, clear it.
 			if (
-				state.selected.value &&
-				state.selected.value.label !== newVal &&
-				state.selected.value.value !== newVal
+				selectedResult.value &&
+				selectedResult.value.label !== newVal &&
+				selectedResult.value.value !== newVal
 			) {
 				selection.value = null;
 			}
@@ -393,6 +356,26 @@ export default defineComponent( {
 				debounceId.value = setTimeout( () => {
 					handleUpdateInputValue();
 				}, debounceInterval.value );
+			}
+		}
+
+		function onUpdateMenuSelection( newVal: string|number|null ) {
+			if ( newVal === MenuFooterValue ) {
+				// If we're trying to select the footer, clear the selection instead
+				selection.value = null;
+				// and restore the text in the input
+				inputValue.value = searchQuery.value;
+				return;
+			}
+
+			selection.value = newVal;
+			// If there is a newVal, including an empty string...
+			if ( newVal !== null ) {
+				// If there is a search result selected, show the label (or the value, if there
+				// is no label). Otherwise, set the input to empty.
+				inputValue.value = selectedResult.value ?
+					selectedResult.value.label || String( selectedResult.value.value ) :
+					'';
 			}
 		}
 
@@ -425,7 +408,9 @@ export default defineComponent( {
 
 			const searchResultClickEvent: SearchResultClickEvent = {
 				searchResult: emittedResult,
-				index: computedOptions.value.indexOf( searchResult ),
+				index: searchResultsWithFooter.value.findIndex(
+					( r ) => r.value === searchResult.value
+				),
 				numberOfResults: searchResults.value.length
 			};
 
@@ -444,7 +429,7 @@ export default defineComponent( {
 		function onSearchFooterClick( footerOption: SearchResultWithId ) {
 			// Like we would with other options, close the menu and clear the active option.
 			expanded.value = false;
-			handleOptionChange( 'active' );
+			menu.value?.clearActive();
 
 			// Run the search result click handler.
 			onSearchResultClick( footerOption );
@@ -459,11 +444,9 @@ export default defineComponent( {
 			let selectedResultIndex = -1;
 
 			// Edit data if there is a selection.
-			if ( state.selected.value ) {
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				const { id, ...resultWithoutId } = state.selected.value;
-				emittedResult = resultWithoutId as SearchResult;
-				selectedResultIndex = computedOptions.value.indexOf( state.selected.value );
+			if ( selectedResult.value ) {
+				emittedResult = selectedResult.value;
+				selectedResultIndex = props.searchResults.indexOf( selectedResult.value );
 			}
 
 			const submitEvent: SearchResultClickEvent = {
@@ -479,29 +462,32 @@ export default defineComponent( {
 		 * Respond to key navigation.
 		 *
 		 * This component has some special cases it needs to cover, then will relegate the rest to
-		 * the handleKeyNavigation function provided by useMenu.
+		 * the delegateKeyNavigation function provided by useMenu.
 		 *
 		 * @param e
 		 */
-		function onKeyNavigation( e: KeyboardEvent ) {
+		function onKeydown( e: KeyboardEvent ) {
 			if (
+				!menu.value ||
 				( !searchQuery.value ) ||
 				( e.key === ' ' && expanded.value )
 			) {
 				return;
 			}
 
+			const highlightedResult = menu.value.getHighlightedOption();
 			switch ( e.key ) {
 				case 'Enter':
-					if ( state.highlighted.value ) {
+					if ( highlightedResult ) {
 						// If this is the search footer...
-						if ( state.highlighted.value.value === MenuFooterValue ) {
+						if ( highlightedResult.value === MenuFooterValue ) {
 							// Directly navigate to the search footer URL so the link is the same on
 							// both mouse and keyboard.
 							window.location.assign( searchFooterUrl.value );
 						} else {
-							// Otherwise, handle the option change as usual.
-							handleOptionChange( 'selected', state.highlighted.value );
+							// Otherwise, handle the option change as usual. But don't prevent the
+							// event, otherwise the form won't be submitted
+							menu.value.delegateKeyNavigation( e, false );
 						}
 					}
 
@@ -513,7 +499,7 @@ export default defineComponent( {
 					break;
 
 				default:
-					handleKeyNavigation( e );
+					menu.value.delegateKeyNavigation( e );
 					break;
 			}
 		}
@@ -528,13 +514,13 @@ export default defineComponent( {
 		// When the options change, maybe show the menu.
 		// This is the main method of opening the menu of the component, since showing the menu
 		// depends mostly on whether there are any options to show.
-		watch( computedOptions, ( newVal ) => {
+		watch( toRef( props, 'searchResults' ), ( newVal ) => {
 			// Now that we have received a response, set the searchQuery to the value of the input.
 			// This ensures that the search footer corresponds to the new search results.
 			searchQuery.value = inputValue.value.trim();
 
-			const inputValueIsSelection = state.selected.value?.label === inputValue.value ||
-				String( state.selected.value?.value ) === inputValue.value;
+			const inputValueIsSelection = selectedResult.value?.label === inputValue.value ||
+				String( selectedResult.value?.value ) === inputValue.value;
 
 			// Show the menu if there are options to show, and if the input value is not equal to
 			// the current selection. The latter condition covers the case where, upon selecting an
@@ -545,23 +531,27 @@ export default defineComponent( {
 		} );
 
 		return {
+			form,
+			menu,
 			menuId,
+			highlightedId,
+			selection,
+			searchResultsWithFooter,
+			asSearchResult,
 			inputValue,
 			searchQuery,
-			computedSearchResults,
-			state,
 			expanded,
-			handleOptionChange,
 			rootClasses,
 			rootStyle,
 			otherAttrs,
 			onUpdateInputValue,
+			onUpdateMenuSelection,
 			onFocus,
 			onBlur,
 			onSearchResultClick,
 			onSearchFooterClick,
 			onSubmit,
-			onKeyNavigation,
+			onKeydown,
 			MenuFooterValue,
 			searchIcon: cdxIconSearch,
 			articleIcon: cdxIconArticleSearch
@@ -585,7 +575,6 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) 'wikimedia-ui-base/wikimedia-ui-base.less';
-@import './../../themes/mixins/options-menu.less';
 
 // TODO: add component-level tokens; many of these are repeated in ListTile.vue.
 @font-size-browser: 16;
@@ -621,17 +610,6 @@ export default defineComponent( {
 		// Set negative margin to make button border overlap with
 		// `.cdx-typeahead-search`'s border.
 		margin: -@border-width-base;
-	}
-
-	&__menu {
-		.cdx-options-menu();
-
-		&__option {
-			// Unset Option padding since we'll apply padding to .cdx-list-tile instead.
-			padding: 0;
-			// Unset white-space: nowrap from Option.
-			white-space: normal;
-		}
 	}
 
 	&__submit {
@@ -690,6 +668,13 @@ export default defineComponent( {
 		&__text {
 			font-size: @font-size-list-tile-label;
 		}
+	}
+
+	.cdx-menu .cdx-option {
+		// Unset Option padding since we'll apply padding to .cdx-list-tile instead.
+		padding: 0;
+		// Unset white-space: nowrap from Option.
+		white-space: normal;
 	}
 
 	.cdx-text-input__input {

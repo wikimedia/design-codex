@@ -12,41 +12,36 @@
 			aria-autocomplete="list"
 			:aria-owns="menuId"
 			:aria-expanded="expanded"
-			:aria-activedescendant="state.highlighted.value?.id"
+			:aria-activedescendant="highlightedId"
 			:disabled="disabled"
 			@update:model-value="onUpdateInput"
 			@focus="onFocus"
 			@blur="onBlur"
-			@keydown.space.enter.up.down.tab.esc="onKeyNavigation"
+			@keydown="onKeydown"
 		/>
 
-		<ul
-			v-show="expanded"
+		<cdx-menu
 			:id="menuId"
-			class="cdx-lookup__menu"
-			role="listbox"
-			aria-multiselectable="false"
+			ref="menu"
+			v-model:selected="modelWrapper"
+			v-model:expanded="expanded"
+			:options="options"
 		>
-			<cdx-option
-				v-for="( option, index ) in computedOptions"
-				v-bind="option"
-				:key="index"
-				@change="handleOptionChange"
-			>
+			<template #default="{ option }">
 				<!--
 					@slot Display of an individual option in the menu
 					@binding {MenuOption} option The current option
 				-->
 				<slot name="menu-option" :option="option" />
-			</cdx-option>
+			</template>
 
-			<li v-if="$slots.footer" class="cdx-option">
+			<template v-if="$slots.footer" #footer>
 				<!--
 					@slot Content to display at the end of the options list
 				-->
 				<slot name="footer" />
-			</li>
-		</ul>
+			</template>
+		</cdx-menu>
 	</div>
 </template>
 
@@ -60,11 +55,10 @@ import {
 	watch
 } from 'vue';
 
+import CdxMenu from '../menu/Menu.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
-import CdxOption from '../option/Option.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
-import useMenu from '../../composables/useMenu';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import { MenuOption } from '../../types';
 
@@ -79,8 +73,8 @@ export default defineComponent( {
 	name: 'CdxLookup',
 
 	components: {
-		CdxTextInput,
-		CdxOption
+		CdxMenu,
+		CdxTextInput
 	},
 
 	/**
@@ -141,24 +135,20 @@ export default defineComponent( {
 
 	setup: ( props, context ) => {
 		// Set up local reactive data
+		const menu = ref<InstanceType<typeof CdxMenu>>();
 		const menuId = useGeneratedId( 'lookup-menu' );
 		const pending = ref( false );
+		const expanded = ref( false );
 
 		const modelValueProp = toRef( props, 'modelValue' );
-		const selectionModelWrapper = useModelWrapper( modelValueProp, context.emit );
+		const modelWrapper = useModelWrapper( modelValueProp, context.emit );
+		const selectedOption = computed( () =>
+			props.options.find( ( option ) => option.value === props.modelValue )
+		);
+		const highlightedId = computed( () => menu.value?.getHighlightedOption()?.id );
 
 		// This should not be reactive, so we just read the initial value.
 		const inputValue = ref( props.initialInputValue );
-
-		// Get helpers from useMenu.
-		const {
-			computedOptions,
-			state,
-			expanded,
-			onBlur,
-			handleOptionChange,
-			handleKeyNavigation
-		} = useMenu( toRef( props, 'options' ), selectionModelWrapper );
 
 		const internalClasses = computed( () => {
 			return {
@@ -182,11 +172,11 @@ export default defineComponent( {
 		function onUpdateInput( newVal: string|number ) {
 			// If there is a selection and it doesn't match the new value, clear it.
 			if (
-				state.selected.value &&
-				state.selected.value.label !== newVal &&
-				state.selected.value.value !== newVal
+				selectedOption.value &&
+				selectedOption.value.label !== newVal &&
+				selectedOption.value.value !== newVal
 			) {
-				selectionModelWrapper.value = null;
+				modelWrapper.value = null;
 			}
 
 			// If the input is cleared, close the menu.
@@ -204,9 +194,16 @@ export default defineComponent( {
 		 * On focus, if there are options or footer content, open the menu.
 		 */
 		function onFocus() {
-			if ( computedOptions.value.length > 0 || context.slots.footer ) {
+			if ( props.options.length > 0 || context.slots.footer ) {
 				expanded.value = true;
 			}
+		}
+
+		/**
+		 * On blur, close the menu
+		 */
+		function onBlur() {
+			expanded.value = false;
 		}
 
 		/**
@@ -220,28 +217,38 @@ export default defineComponent( {
 		 *
 		 * @param e
 		 */
-		function onKeyNavigation( e: KeyboardEvent ) {
-			if ( props.disabled ||
-				( computedOptions.value.length === 0 && !context.slots.footer ) ||
+		function onKeydown( e: KeyboardEvent ) {
+			if ( !menu.value ||
+				props.disabled ||
+				( props.options.length === 0 && !context.slots.footer ) ||
 				( e.key === ' ' && expanded.value )
 			) {
 				return;
 			}
-			handleKeyNavigation( e );
+			menu.value.delegateKeyNavigation( e );
 		}
+
+		// When a new value is selected, update the input value to match.
+		watch( modelValueProp, ( newVal ) => {
+			// If there is a newVal, including an empty string...
+			if ( newVal !== null ) {
+				// If there is an option selected, show the label (or the value, if there is no
+				// label). Otherwise, set the input to empty.
+				inputValue.value = selectedOption.value ?
+					( selectedOption.value.label || selectedOption.value.value ) :
+					'';
+			}
+		} );
 
 		// When the options change, maybe show the menu.
 		// This is the main method of opening menu of the Lookup component, since showing the menu
 		// depends mostly on whether there are any options to show.
-		watch( computedOptions, ( newVal ) => {
+		watch( toRef( props, 'options' ), ( newVal ) => {
 			pending.value = false;
 
-			/**
-			 * @return Whether the inputValue is equal to the current selection.
-			 */
-			const inputValueIsSelection = state.selected.value && (
-				state.selected.value.label === inputValue.value ||
-				state.selected.value.value === inputValue.value
+			const inputValueIsSelection = !!selectedOption.value && (
+				selectedOption.value.label === inputValue.value ||
+				selectedOption.value.value === inputValue.value
 			);
 
 			// Show the menu under certain conditions.
@@ -262,32 +269,20 @@ export default defineComponent( {
 			}
 		} );
 
-		// When a new value is selected, update the input value to match.
-		watch( modelValueProp, ( newVal ) => {
-			// If there is a newVal, including an empty string...
-			if ( newVal !== null ) {
-				// If there is an option selected, show the label (or the value, if there is no
-				// label). Otherwise, set the input to empty.
-				inputValue.value = state.selected.value ?
-					( state.selected.value.label || state.selected.value.value ) :
-					'';
-			}
-		} );
-
 		return {
+			menu,
 			menuId,
+			highlightedId,
 			inputValue,
-			computedOptions,
-			state,
+			modelWrapper,
 			expanded,
 			onBlur,
-			handleOptionChange,
 			rootClasses,
 			rootStyle,
 			otherAttrs,
 			onUpdateInput,
 			onFocus,
-			onKeyNavigation
+			onKeydown
 		};
 	}
 } );
@@ -296,7 +291,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import './../../themes/mixins/pending-state.less';
-@import './../../themes/mixins/options-menu.less';
 
 .cdx-lookup {
 	position: relative;
@@ -305,10 +299,6 @@ export default defineComponent( {
 
 	&--pending .cdx-text-input__input {
 		.cdx-pending-state();
-	}
-
-	&__menu {
-		.cdx-options-menu();
 	}
 }
 </style>

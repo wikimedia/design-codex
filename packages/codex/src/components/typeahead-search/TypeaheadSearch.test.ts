@@ -125,7 +125,7 @@ describe( 'TypeaheadSearch initial state', () => {
 		} );
 
 		await wrapper.find( 'input' ).trigger( 'keydown', { key: 'ArrowDown' } );
-		expect( wrapper.vm.state.highlighted.value ).toBe( null );
+		expect( wrapper.find( '.cdx-option--highlighted' ).exists() ).toBe( false );
 	} );
 
 	it( 'Closes menu on tab', async () => {
@@ -303,14 +303,12 @@ describe( 'TypeaheadSearch, with search results', () => {
 		await input.trigger( 'focus' );
 		await input.trigger( 'keydown', { key: 'ArrowDown' } );
 		await input.trigger( 'keydown', { key: 'Enter' } );
-		expect( wrapper.vm.state.selected.value ).toBe(
-			wrapper.vm.computedSearchResults[ 0 ]
-		);
+		expect( wrapper.vm.selection ).toBe( searchResults[ 0 ].value );
 
 		await input.setValue( 'C' );
 		jest.advanceTimersByTime( DebounceInterval );
 
-		expect( wrapper.vm.state.selected.value ).toBe( null );
+		expect( wrapper.vm.selection ).toBe( null );
 	} );
 
 	it( 'closes menu when input is cleared', async () => {

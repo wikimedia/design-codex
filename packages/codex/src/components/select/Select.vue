@@ -8,13 +8,13 @@
 			aria-autocomplete="list"
 			:aria-owns="menuId"
 			:aria-labelledby="handleId"
-			:aria-activedescendant="state.highlighted.value?.id"
+			:aria-activedescendant="highlightedId"
 			aria-haspopup="listbox"
 			:aria-expanded="expanded"
 			:aria-disabled="disabled"
-			@click="onHandleClick"
+			@click="onClick"
 			@blur="onBlur"
-			@keydown.space.enter.up.down.tab.esc="onKeyNavigation"
+			@keydown="onKeydown"
 		>
 			<span
 				:id="handleId"
@@ -28,7 +28,7 @@
 				-->
 				<slot
 					name="label"
-					:selectedOption="state.selected.value"
+					:selectedOption="selectedOption"
 					:defaultLabel="defaultLabel"
 				>
 					{{ currentLabel }}
@@ -37,26 +37,21 @@
 			<cdx-icon :icon="cdxIconExpand" class="cdx-select__indicator" />
 		</div>
 
-		<ul
-			v-show="expanded"
+		<cdx-menu
 			:id="menuId"
-			class="cdx-select__menu"
-			role="listbox"
-			aria-multiselectable="false"
+			ref="menu"
+			v-model:selected="modelWrapper"
+			v-model:expanded="expanded"
+			:options="options"
 		>
-			<cdx-option
-				v-for="( option, index ) in computedOptions"
-				v-bind="option"
-				:key="index"
-				@change="handleOptionChange"
-			>
+			<template #default="{ option }">
 				<!--
 					@slot Display of an individual option in the menu
 					@binding {MenuOption} option The current option
 				-->
 				<slot name="menu-option" :option="option" />
-			</cdx-option>
-		</ul>
+			</template>
+		</cdx-menu>
 	</div>
 </template>
 
@@ -71,10 +66,9 @@ import {
 import { cdxIconExpand } from '@wikimedia/codex-icons';
 
 import CdxIcon from '../icon/Icon.vue';
-import CdxOption from '../option/Option.vue';
+import CdxMenu from '../menu/Menu.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
-import useMenu from '../../composables/useMenu';
 import { MenuOption } from '../../types';
 
 /**
@@ -86,7 +80,7 @@ export default defineComponent( {
 	name: 'CdxSelect',
 	components: {
 		CdxIcon,
-		CdxOption
+		CdxMenu
 	},
 
 	props: {
@@ -136,27 +130,23 @@ export default defineComponent( {
 	setup( props, context ) {
 		// Set up basic reactive values and template refs.
 		const handle = ref<HTMLDivElement>();
+		const menu = ref<InstanceType<typeof CdxMenu>>();
 		const handleId = useGeneratedId( 'select-handle' );
 		const menuId = useGeneratedId( 'select-menu' );
+		const expanded = ref( false );
 
 		// The value of the component's current selection is tracked in the parent as a v-model
 		// binding.
 		const modelWrapper = useModelWrapper( toRef( props, 'modelValue' ), context.emit );
 
-		// Get helpers from useMenu.
-		const {
-			computedOptions,
-			state,
-			expanded,
-			onBlur,
-			handleOptionChange,
-			handleKeyNavigation
-		} = useMenu( toRef( props, 'options' ), modelWrapper );
+		const selectedOption = computed( () =>
+			props.options.find( ( option ) => option.value === props.modelValue )
+		);
 
 		// Set up the label that should display in the handle.
 		const currentLabel = computed( () => {
-			return state.selected.value ?
-				( state.selected.value.label || state.selected.value.value ) :
+			return selectedOption.value ?
+				selectedOption.value.label || selectedOption.value.value :
 				props.defaultLabel;
 		} );
 
@@ -164,12 +154,18 @@ export default defineComponent( {
 			return {
 				'cdx-select--disabled': props.disabled,
 				'cdx-select--expanded': expanded.value,
-				'cdx-select--value-selected': !!state.selected.value,
-				'cdx-select--no-selections': !state.selected.value
+				'cdx-select--value-selected': modelWrapper.value !== null,
+				'cdx-select--no-selections': modelWrapper.value === null
 			};
 		} );
 
-		function onHandleClick(): void {
+		const highlightedId = computed( () => menu.value?.getHighlightedOption()?.id );
+
+		function onBlur(): void {
+			expanded.value = false;
+		}
+
+		function onClick(): void {
 			if ( props.disabled ) {
 				return;
 			}
@@ -178,27 +174,28 @@ export default defineComponent( {
 			handle.value?.focus();
 		}
 
-		function onKeyNavigation( e: KeyboardEvent ) {
+		function onKeydown( e: KeyboardEvent ) {
 			if ( props.disabled ) {
 				return;
 			}
-			handleKeyNavigation( e );
+			menu.value?.delegateKeyNavigation( e );
 		}
 
 		return {
 			handle,
 			handleId,
+			menu,
 			menuId,
-			computedOptions,
-			state,
+			modelWrapper,
+			selectedOption,
+			highlightedId,
 			expanded,
 			onBlur,
-			handleOptionChange,
 			currentLabel,
 			rootClasses,
-			onHandleClick,
+			onClick,
 			cdxIconExpand,
-			onKeyNavigation
+			onKeydown
 		};
 	}
 } );
@@ -207,7 +204,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import './../../themes/mixins/menu-icon.less';
-@import './../../themes/mixins/options-menu.less';
 
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
@@ -269,10 +265,6 @@ export default defineComponent( {
 	&__indicator {
 		color: @color-base;
 		.cdx-mixin-menu-icon( right, @size-indicator );
-	}
-
-	&__menu {
-		.cdx-options-menu();
 	}
 
 	&--expanded {

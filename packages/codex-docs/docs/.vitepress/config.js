@@ -37,6 +37,7 @@ module.exports = {
 						{ text: 'Icon', link: '/components/icon' },
 						{ text: 'ListTile', link: '/components/list-tile' },
 						{ text: 'Lookup', link: '/components/lookup' },
+						{ text: 'Menu', link: '/components/menu' },
 						{ text: 'Message', link: '/components/message' },
 						{ text: 'Radio', link: '/components/radio' },
 						{ text: 'Select', link: '/components/select' },

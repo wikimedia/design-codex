@@ -21,7 +21,7 @@ exports[`Basic usage Case 0 Default: ([]) => HTML 1`] = `
   </div>
   <ul
     aria-multiselectable="false"
-    class="cdx-lookup__menu"
+    class="cdx-menu"
     id="cdx-lookup-menu-0"
     role="listbox"
     style="display: none;"
@@ -54,7 +54,7 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
   </div>
   <ul
     aria-multiselectable="false"
-    class="cdx-lookup__menu"
+    class="cdx-menu"
     id="cdx-lookup-menu-1"
     role="listbox"
     style="display: none;"
@@ -135,7 +135,7 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
   </div>
   <ul
     aria-multiselectable="false"
-    class="cdx-lookup__menu"
+    class="cdx-menu"
     id="cdx-lookup-menu-6"
     role="listbox"
     style="display: none;"
@@ -217,7 +217,7 @@ exports[`Basic usage Case 3 Disabled: ([]) => HTML 1`] = `
   </div>
   <ul
     aria-multiselectable="false"
-    class="cdx-lookup__menu"
+    class="cdx-menu"
     id="cdx-lookup-menu-11"
     role="listbox"
     style="display: none;"
@@ -250,7 +250,7 @@ exports[`Basic usage Case 4 With footer content: ([]) => HTML 1`] = `
   </div>
   <ul
     aria-multiselectable="false"
-    class="cdx-lookup__menu"
+    class="cdx-menu"
     id="cdx-lookup-menu-12"
     role="listbox"
     style="display: none;"
@@ -261,10 +261,15 @@ exports[`Basic usage Case 4 With footer content: ([]) => HTML 1`] = `
       class="cdx-option"
     >
       <!--
+				@slot Optional content to display at the end of the options list
+			-->
+      
+      <!--
 					@slot Content to display at the end of the options list
 				-->
       
       No results
+      
       
     </li>
   </ul>
@@ -292,7 +297,7 @@ exports[`Basic usage Case 5 With class attributes: ([]) => HTML 1`] = `
   </div>
   <ul
     aria-multiselectable="false"
-    class="cdx-lookup__menu"
+    class="cdx-menu"
     id="cdx-lookup-menu-13"
     role="listbox"
     style="display: none;"
@@ -326,7 +331,7 @@ exports[`Basic usage Case 6 With type and placeholder attributes: ([]) => HTML 1
   </div>
   <ul
     aria-multiselectable="false"
-    class="cdx-lookup__menu"
+    class="cdx-menu"
     id="cdx-lookup-menu-14"
     role="listbox"
     style="display: none;"

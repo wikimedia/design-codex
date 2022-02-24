@@ -53,7 +53,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
   </div>
   <ul
     aria-multiselectable="false"
-    class="cdx-select__menu"
+    class="cdx-menu"
     id="cdx-select-menu-1"
     role="listbox"
     style="display: none;"
@@ -108,6 +108,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       
     </li>
     
+    <!--v-if-->
   </ul>
 </div>
 `;
@@ -165,7 +166,7 @@ exports[`Basic usage Case 1 Option with label selected: ([[Object], [Object], [O
   </div>
   <ul
     aria-multiselectable="false"
-    class="cdx-select__menu"
+    class="cdx-menu"
     id="cdx-select-menu-7"
     role="listbox"
     style="display: none;"
@@ -220,6 +221,7 @@ exports[`Basic usage Case 1 Option with label selected: ([[Object], [Object], [O
       
     </li>
     
+    <!--v-if-->
   </ul>
 </div>
 `;
@@ -277,7 +279,7 @@ exports[`Basic usage Case 2 Option with no label selected: ([[Object], [Object],
   </div>
   <ul
     aria-multiselectable="false"
-    class="cdx-select__menu"
+    class="cdx-menu"
     id="cdx-select-menu-13"
     role="listbox"
     style="display: none;"
@@ -332,6 +334,7 @@ exports[`Basic usage Case 2 Option with no label selected: ([[Object], [Object],
       
     </li>
     
+    <!--v-if-->
   </ul>
 </div>
 `;

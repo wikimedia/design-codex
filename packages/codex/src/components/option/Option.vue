@@ -5,9 +5,9 @@
 		class="cdx-option"
 		:class="rootClasses"
 		:aria-disabled="disabled"
-		:aria-selected="isSelected"
-		@mouseenter="onHover"
-		@mousedown.prevent="onMousedown"
+		:aria-selected="selected"
+		@mouseenter="onMouseEnter"
+		@mousedown.prevent="onMouseDown"
 		@click="onClick"
 	>
 		<!-- @slot Optional content, will replace label if provided -->
@@ -18,21 +18,13 @@
 </template>
 
 <script lang="ts">
-import {
-	PropType,
-	computed,
-	defineComponent,
-	inject
-} from 'vue';
-import { MenuStateKey, MenuOptionsKey } from '../../constants';
-import { MenuState, MenuOptionWithId } from '../../types';
+import { PropType, computed, defineComponent } from 'vue';
+import { MenuState } from '../../types';
 
 /**
  * Option within a menu.
  *
- * This component is meant to be used within a menu component that implements
- * the useMenu() composition function, which is providing various helpers to
- * the Option component.
+ * This component is meant to be used within the Menu component.
  */
 export default defineComponent( {
 	name: 'CdxOption',
@@ -64,73 +56,68 @@ export default defineComponent( {
 		label: {
 			type: String,
 			default: ''
+		},
+		/**
+		 * Whether this option is selected
+		 */
+		selected: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * Whether this option is active
+		 */
+		active: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * Whether this option is highlighted
+		 */
+		highlighted: {
+			type: Boolean,
+			default: false
 		}
 	},
 
 	emits: [
 		/**
-		 * Emitted to the parent, to be handled within useMenu.
+		 * Emitted when the option becomes selected, active or highlighted in response to
+		 * user interaction. Handled in the Menu component.
 		 *
-		 * @property {MenuState} menuState Type of menu state that's changing
-		 * @property {MenuOptionWithId} option This menu option
+		 * @property {MenuState} menuState State this option is entering
 		 */
 		'change'
 	],
 
 	setup: ( props, { emit } ) => {
-		// Inject helpers provided by useMenu().
-		const computedOptions = inject( MenuOptionsKey );
-		const state = inject( MenuStateKey );
+		const onMouseEnter = () => {
+			emit( 'change', 'highlighted' );
+		};
 
-		const thisOption = computed( () =>
-			computedOptions?.value.find( ( i ) => i.id === props.id )
-		);
-
-		// Ensure this component is used within the appropriate slot
-		if ( !state || !thisOption.value ) {
-			throw new Error( 'Option component must be used with a Menu component' );
-		}
-
-		const onMousedown = () => {
-			emit( 'change', 'active', thisOption.value );
+		const onMouseDown = () => {
+			emit( 'change', 'active' );
 		};
 
 		const onClick = () => {
-			emit( 'change', 'selected', thisOption.value );
+			emit( 'change', 'selected' );
 		};
-
-		const onHover = () => {
-			emit( 'change', 'highlighted', thisOption.value );
-		};
-
-		const isSelected = computed( () => {
-			return props.id === state.selected.value?.id;
-		} );
-
-		const isHighlighted = computed( () => {
-			return props.id === state.highlighted.value?.id;
-		} );
-
-		const isActive = computed( () => {
-			return props.id === state.active.value?.id;
-		} );
 
 		const rootClasses = computed( () : Record<string, boolean> => {
 			return {
-				'cdx-option--selected': !!isSelected.value,
-				'cdx-option--active': !!isActive.value,
-				'cdx-option--highlighted': !!isHighlighted.value,
+				'cdx-option--selected': props.selected,
+				'cdx-option--active': props.active,
+				'cdx-option--highlighted': props.highlighted,
 				'cdx-option--enabled': !props.disabled,
 				'cdx-option--disabled': !!props.disabled
 			};
 		} );
 
 		return {
-			onMousedown,
+			onMouseEnter,
+			onMouseDown,
 			onClick,
-			onHover,
-			rootClasses,
-			isSelected
+			rootClasses
 		};
 	}
 } );
