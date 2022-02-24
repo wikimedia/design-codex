@@ -8,7 +8,7 @@ import {
 	watch
 } from 'vue';
 import useGeneratedId from './useGeneratedId';
-import { MenuStateKey, MenuOptionsKey, MenuFooterValue } from '../constants';
+import { MenuStateKey, MenuOptionsKey } from '../constants';
 import { MenuState, MenuOption, MenuOptionWithId } from '../types';
 
 // Custom options that can be provided to useMenu when called
@@ -17,13 +17,7 @@ interface UseMenuConfig {
 	 * If true, the highlighted option will automatically be selected when the highlight is
 	 * moved via keyboard navigation.
 	 */
-	updateSelectionOnHighlight?: boolean,
-
-	/**
-	 * Optional callback to run when the footer element is highlighted via
-	 * keyboard navigation.
-	 */
-	footerCallback?: () => void
+	updateSelectionOnHighlight?: boolean
 }
 
 /**
@@ -161,14 +155,6 @@ export default function useMenu(
 
 		// Change menu state.
 		handleOptionChange( 'highlighted', highlightedOption );
-
-		// If the user has navigated to the footer element,
-		// and if a footer callback has been provided,
-		// fire that callback and exit
-		if ( config?.footerCallback && highlightedOption.value === MenuFooterValue ) {
-			config.footerCallback();
-			return;
-		}
 
 		if ( config?.updateSelectionOnHighlight ) {
 			modelWrapper.value = highlightedOption.value;

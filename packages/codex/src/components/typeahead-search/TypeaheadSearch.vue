@@ -282,11 +282,18 @@ export default defineComponent( {
 		// Create a writable computed ref for the value of the current selection.
 		const selection = computed( {
 			get: () => internalSelection.value,
-			set: ( value: string|number|null ) => {
-				internalSelection.value = value;
+			set: ( newVal: string|number|null ) => {
+				if ( newVal === MenuFooterValue ) {
+					// If we're trying to select the footer, clear the selection instead
+					internalSelection.value = null;
+					// and restore the text in the input
+					inputValue.value = searchQuery.value;
+					return;
+				}
 
+				internalSelection.value = newVal;
 				// If there is a newVal, including an empty string...
-				if ( value !== null && menuData !== null ) {
+				if ( newVal !== null && menuData !== null ) {
 					// If there is a search result selected, show the label (or the value, if there
 					// is no label). Otherwise, set the input to empty.
 					const selectedOption = menuData.state.selected.value;
@@ -316,13 +323,7 @@ export default defineComponent( {
 		} = menuData = useMenu(
 			searchResultsWithFooter,
 			selection,
-			{
-				updateSelectionOnHighlight: true,
-				footerCallback: () => {
-					inputValue.value = searchQuery.value;
-					selection.value = null;
-				}
-			}
+			{ updateSelectionOnHighlight: true }
 		);
 
 		// The elements of computedOptions are actually SearchResult objects with an ID added,
