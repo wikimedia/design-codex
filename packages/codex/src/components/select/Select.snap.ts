@@ -52,6 +52,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     </span>
   </div>
   <ul
+    aria-multiselectable="false"
     class="cdx-select__menu"
     id="cdx-select-menu-1"
     role="listbox"
@@ -163,6 +164,7 @@ exports[`Basic usage Case 1 Option with label selected: ([[Object], [Object], [O
     </span>
   </div>
   <ul
+    aria-multiselectable="false"
     class="cdx-select__menu"
     id="cdx-select-menu-7"
     role="listbox"
@@ -274,6 +276,7 @@ exports[`Basic usage Case 2 Option with no label selected: ([[Object], [Object],
     </span>
   </div>
   <ul
+    aria-multiselectable="false"
     class="cdx-select__menu"
     id="cdx-select-menu-13"
     role="listbox"

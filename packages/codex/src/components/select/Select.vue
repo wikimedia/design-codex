@@ -42,6 +42,7 @@
 			:id="menuId"
 			class="cdx-select__menu"
 			role="listbox"
+			aria-multiselectable="false"
 		>
 			<cdx-option
 				v-for="( option, index ) in computedOptions"
