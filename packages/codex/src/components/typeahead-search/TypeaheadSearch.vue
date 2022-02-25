@@ -360,18 +360,32 @@ export default defineComponent( {
 		 *
 		 * TODO: use a library-wide debounce function.
 		 *
-		 * @param value New value of the text input
+		 * @param newVal New value of the text input
 		 * @param immediate Whether to trigger event emission on leading edge
 		 */
-		function onUpdateInputValue( value: string, immediate = false ) {
-			const handleUpdateInputValue = () => {
-				context.emit( 'new-input', inputValue.value );
-			};
+		function onUpdateInputValue( newVal: string, immediate = false ) {
+			// If there is a selection and it doesn't match the new value, clear it.
+			if (
+				state.selected.value &&
+				state.selected.value.label !== newVal &&
+				state.selected.value.value !== newVal
+			) {
+				selection.value = null;
+			}
+
+			// If the input is cleared, close the menu.
+			if ( newVal === '' ) {
+				expanded.value = false;
+			}
 
 			// Cancel the last setTimeout callback in case it hasn't executed yet.
 			if ( debounceId.value ) {
 				clearTimeout( debounceId.value );
 			}
+
+			const handleUpdateInputValue = () => {
+				context.emit( 'new-input', newVal );
+			};
 
 			if ( immediate ) {
 				handleUpdateInputValue();
@@ -519,36 +533,14 @@ export default defineComponent( {
 			// This ensures that the search footer corresponds to the new search results.
 			searchQuery.value = inputValue.value.trim();
 
-			/**
-			 * @return Whether the inputValue is equal to the current selection.
-			 */
-			function inputValueIsSelection() {
-				return state.selected.value?.label === inputValue.value ||
-					String( state.selected.value?.value ) === inputValue.value;
-			}
+			const inputValueIsSelection = state.selected.value?.label === inputValue.value ||
+				String( state.selected.value?.value ) === inputValue.value;
 
 			// Show the menu if there are options to show, and if the input value is not equal to
 			// the current selection. The latter condition covers the case where, upon selecting an
 			// option, computedOptions changes, but we don't want the menu to be open anymore.
-			if ( newVal.length > 0 && isActive.value && !inputValueIsSelection() ) {
+			if ( newVal.length > 0 && isActive.value && !inputValueIsSelection ) {
 				expanded.value = true;
-			}
-		} );
-
-		// When the input value changes...
-		watch( inputValue, ( newVal ) => {
-			// If there is a selection and it doesn't match the new value, clear it.
-			if (
-				state.selected.value &&
-				state.selected.value.label !== newVal &&
-				state.selected.value.value !== newVal
-			) {
-				selection.value = null;
-			}
-
-			// If the input is cleared, close the menu.
-			if ( newVal === '' ) {
-				expanded.value = false;
 			}
 		} );
 

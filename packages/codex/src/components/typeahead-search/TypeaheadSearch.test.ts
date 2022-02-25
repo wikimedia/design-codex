@@ -307,14 +307,17 @@ describe( 'TypeaheadSearch, with search results', () => {
 			wrapper.vm.computedSearchResults[ 0 ]
 		);
 
-		await wrapper.get( 'input' ).setValue( 'C' );
+		await input.setValue( 'C' );
+		jest.advanceTimersByTime( DebounceInterval );
+
 		expect( wrapper.vm.state.selected.value ).toBe( null );
 	} );
 
 	it( 'closes menu when input is cleared', async () => {
 		await input.trigger( 'focus' );
 		expect( wrapper.vm.expanded ).toStrictEqual( true );
-		await wrapper.get( 'input' ).setValue( '' );
+		await input.setValue( '' );
+		jest.advanceTimersByTime( DebounceInterval );
 		expect( wrapper.vm.expanded ).toBeFalsy();
 	} );
 } );
