@@ -1,6 +1,6 @@
 {
 	"extends": [
-		"stylelint-config-wikimedia"
+		"stylelint-config-wikimedia/support-modern"
 	],
 	"overrides": [
 		{
