@@ -18,6 +18,9 @@
 		"quiet-progressive--hover": {
 			"value": "{ color.accent90 }"
 		},
+		"quiet-destructive--hover": {
+			"value": "{ color.utility-red90 }"
+		},
 		"progressive-quiet--hover": {
 			"comment": "Deprecated key. Use 'background-color.quiet-progressive--hover' key instead.",
 			"value": "{ background-color.quiet-progressive--hover }"

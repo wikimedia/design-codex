@@ -70,11 +70,15 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-// TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
-@import 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
+// TODO: Tokenize.
+@background-color-normal-progressive--active: lighten( @color-progressive--active, 60% );
+@background-color-normal-destructive--active: lighten( @color-destructive--active, 60% );
+@cursor-pointer: pointer;
 
 .cdx-button {
-	box-sizing: border-box;
+	box-sizing: @box-sizing-base;
 
 	// Interactive elements have a minimum touch area.
 	min-width: @min-size-base;
@@ -98,15 +102,15 @@ export default defineComponent( {
 
 	// Support all browsers: Normalize by inheriting `font-size` over initial value of `none`.
 	font-size: inherit;
-	font-weight: bold;
+	font-weight: @font-weight-bold;
 
 	// Support Edge, Firefox, and IE: Normalize by removing the inheritance of `text-transform`.
 	text-transform: none;
 
 	// Contents are single line.
 	white-space: nowrap;
-	transition-property: border-color, background-color, color, box-shadow;
-	transition-duration: @transition-base;
+	transition: @transition-base;
+	transition-property: @transition-property-base;
 
 	// Support Firefox: Normalize by hiding the inner focus `border` and `padding`.
 	&::-moz-focus-inner {
@@ -123,10 +127,10 @@ export default defineComponent( {
 		color: @color-base;
 		// Use hand cursor. This is nonstandard for a button but allows for a visible
 		// interactivity distinction from the disabled state.
-		cursor: pointer;
+		cursor: @cursor-pointer;
 
 		&:focus {
-			border-color: @color-primary--focus;
+			border-color: @border-color-base--focus;
 			box-shadow: @box-shadow-base--focus;
 			// In Windows high contrast mode the outline becomes visible.
 			outline: @outline-base--focus;
@@ -141,7 +145,7 @@ export default defineComponent( {
 
 	/* stylelint-disable-next-line no-descending-specificity */
 	&:disabled {
-		border-color: transparent;
+		border-color: @border-color-transparent;
 	}
 
 	.cdx-icon {
@@ -183,24 +187,23 @@ export default defineComponent( {
 	// Progressive primary buttons
 	&.cdx-button--action-progressive {
 		&:enabled {
-			background-color: @color-primary;
+			background-color: @background-color-progressive;
 			color: @color-base--inverted;
-			border-color: @color-primary;
+			border-color: @border-color-progressive;
 
 			&:hover {
-				background-color: @color-primary--hover;
-				border-color: @color-primary--hover;
+				background-color: @background-color-progressive--hover;
+				border-color: @border-color-progressive--hover;
 			}
 
 			&:focus {
-				background-color: @color-primary--focus;
-				border-color: @color-primary--focus;
-				box-shadow: @box-shadow-primary--focus;
+				border-color: @border-color-progressive--focus;
+				box-shadow: @box-shadow-progressive--focus;
 			}
 
 			&:active {
-				background-color: @color-primary--active;
-				border-color: @color-primary--active;
+				background-color: @background-color-progressive--active;
+				border-color: @border-color-progressive--active;
 				// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
 				box-shadow: none;
 			}
@@ -210,24 +213,23 @@ export default defineComponent( {
 	// Destructive primary buttons
 	&.cdx-button--action-destructive {
 		&:enabled {
-			background-color: @color-destructive;
+			background-color: @background-color-destructive;
 			color: @color-base--inverted;
-			border-color: @color-destructive;
+			border-color: @border-color-destructive;
 
 			&:hover {
-				background-color: @color-destructive--hover;
-				border-color: @color-destructive--hover;
+				background-color: @background-color-destructive--hover;
+				border-color: @border-color-destructive--hover;
 			}
 
 			&:focus {
-				background-color: @color-destructive--focus;
-				border-color: @color-destructive--focus;
+				border-color: @border-color-destructive--focus;
 				box-shadow: @box-shadow-destructive--focus;
 			}
 
 			&:active {
-				background-color: @color-destructive--active;
-				border-color: @color-destructive--active;
+				background-color: @background-color-destructive--active;
+				border-color: @border-color-destructive--active;
 				// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
 				box-shadow: none;
 			}
@@ -239,23 +241,23 @@ export default defineComponent( {
 	// Normal progressive buttons
 	&.cdx-button--action-progressive {
 		&:enabled {
-			color: @color-primary;
+			color: @color-progressive;
 
 			&:hover {
-				color: @color-primary--hover;
-				border-color: @border-color-primary--hover;
+				color: @color-progressive--hover;
+				border-color: @border-color-progressive--hover;
 			}
 
 			&:focus {
-				color: @color-primary--focus;
-				border-color: @border-color-primary--focus;
-				box-shadow: @box-shadow-primary--focus;
+				color: @color-progressive--focus;
+				border-color: @border-color-progressive--focus;
+				box-shadow: @box-shadow-progressive--focus;
 			}
 
 			&:active {
-				background-color: lighten( @color-primary--active, 60% );
-				color: @color-primary--active;
-				border-color: @border-color-primary--active;
+				background-color: @background-color-normal-progressive--active;
+				color: @color-progressive--active;
+				border-color: @border-color-progressive--active;
 				// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
 				box-shadow: none;
 			}
@@ -279,7 +281,7 @@ export default defineComponent( {
 			}
 
 			&:active {
-				background-color: lighten( @color-destructive--active, 60% );
+				background-color: @background-color-normal-destructive--active;
 				color: @color-destructive--active;
 				border-color: @border-color-destructive--active;
 				// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
@@ -291,8 +293,9 @@ export default defineComponent( {
 
 // Quiet buttons.
 .cdx-button--type-quiet {
+	// Reset `<button>` default background color.
 	background-color: transparent;
-	border-color: transparent;
+	border-color: @border-color-transparent;
 
 	&:enabled {
 		&:hover {
@@ -300,8 +303,8 @@ export default defineComponent( {
 		}
 
 		&:focus {
-			border-color: @border-color-primary--focus;
-			box-shadow: @box-shadow-primary--focus;
+			border-color: @border-color-progressive--focus;
+			box-shadow: @box-shadow-progressive--focus;
 		}
 
 		&:active {
@@ -314,24 +317,23 @@ export default defineComponent( {
 	// Progressive quiet buttons.
 	&.cdx-button--action-progressive {
 		&:enabled {
-			color: @color-primary;
+			color: @color-progressive;
 
 			&:hover {
-				// FIXME: @background-color-primary--hover exists but is a little lighter.
-				background-color: fade( #347bff, 20% );
-				color: @color-primary--hover;
+				background-color: @background-color-quiet-progressive--hover;
+				color: @color-progressive--hover;
 			}
 
 			&:focus {
-				color: @color-primary--focus;
-				border-color: @border-color-primary--focus;
-				box-shadow: @box-shadow-primary--focus;
+				color: @color-progressive--focus;
+				border-color: @border-color-progressive--focus;
+				box-shadow: @box-shadow-progressive--focus;
 			}
 
 			&:active {
-				background-color: @color-primary--active;
+				background-color: @background-color-progressive--active;
 				color: @color-base--inverted;
-				border-color: @color-primary--active;
+				border-color: @color-progressive--active;
 				box-shadow: none;
 			}
 		}
@@ -343,8 +345,7 @@ export default defineComponent( {
 			color: @color-destructive;
 
 			&:hover {
-				// FIXME: @background-color-destructive--hover should exist but doesn't.
-				background-color: fade( #d11d13, 20% );
+				background-color: @background-color-quiet-destructive--hover;
 				color: @color-destructive--hover;
 			}
 
@@ -355,7 +356,7 @@ export default defineComponent( {
 			}
 
 			&:active {
-				background-color: @color-destructive--active;
+				background-color: @background-color-destructive--active;
 				color: @color-base--inverted;
 				border-color: @color-destructive--active;
 				box-shadow: none;
