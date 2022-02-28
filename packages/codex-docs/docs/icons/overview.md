@@ -16,14 +16,14 @@ Codex contains a collection of {{ numberOfIcons }} icons that can be used to con
 or other information visually. See [all icons](./all-icons.md) a full list of available icons per
 directionality and language.
 
-## How to use icons
+## Using icons
 
-Icons can be imported from the `@wikimedia/codex-icons` package individually, like this:
+Import icons from the `@wikimedia/codex-icons` package individually, like this:
 ```typescript
 import { cdxIconAlert } from '@wikimedia/codex-icons';
 ```
 
-Icons can be used through the [icon component](../components/icon.md) or through other components
+Use icons through the [icon component](../components/icon.md) or through other components
 that accept icons as props. You can also embed the icon component in another component's slot;
 for example, you can use the icon component inside the button component to create a button with
 an icon. For complete code examples of how to use icons, see the [demos](../components/icon.md#demos)
@@ -31,16 +31,16 @@ in the icon component documentation.
 
 ### Icon labels
 When an icon appears without immediately adjacent text that makes it clear what the icon means,
-you should provide an *icon label*. The icon label is used by screen readers and other accessibility
-tools as replacement text for the icon. Most browsers also display it as a tooltip when the user
-hovers over the icon. If no icon label is set, the icon is hidden from screen readers using the
+you should provide an *icon label*. The icon label is used by screen readers and other assistive
+technology as replacement text for the icon. Most browsers also display it as a tooltip when the
+user hovers over the icon. If no icon label is set, the icon is hidden from screen readers using the
 `aria-hidden` attribute.
 
 Note that **the icon label is invisible**, it's not rendered as visible text next to the icon.
 To render an icon followed by text, put the text outside of the icon component, like in the second
 example below.
 
-You **should** provide an icon label when there is no other text explaining what the icon means.
+You **have to** provide an icon label when there is no other text explaining what the icon means.
 For example:
 ```vue
 <cdx-button action="destructive">
