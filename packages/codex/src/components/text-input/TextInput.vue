@@ -234,7 +234,6 @@ export default defineComponent( {
 	( ( @padding-horizontal-input-text * 2 + @size-icon ) / @font-size-browser / @font-size-base ),
 	em
 );
-@transition-property-input-text: border-color, box-shadow;
 
 .cdx-text-input {
 	/* For proper positioning of icons and slotted elements */
@@ -330,7 +329,7 @@ export default defineComponent( {
 		color: @color-base--emphasized;
 		border-color: @border-color-base;
 		box-shadow: @box-shadow-base;
-		transition-property: @transition-property-input-text;
+		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-medium;
 
 		&:hover {
