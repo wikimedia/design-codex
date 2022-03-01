@@ -112,14 +112,13 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-// TODO: add component-level tokens
-@padding-vertical-list-tile: 8px;
-@padding-horizontal-list-tile: @padding-horizontal-base;
-
+// TODO: Tokenize.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
+
+@padding-vertical-list-tile: 8px;
 
 // The size of the input icon container in the TypeaheadSearch component, thumbnail in the ListTile
 // component, and footer icon container in the TypeaheadSearch component. We want these to be the
@@ -127,17 +126,19 @@ export default defineComponent( {
 // TypeaheadSearch component.
 @size-search-figure: unit( ( 36 / @font-size-browser / @font-size-base ), em );
 
-@margin-end-list-tile-thumb: @padding-horizontal-list-tile;
-@border-color-list-tile-thumb: @wmui-color-base80;
-@background-color-list-tile-placeholder: @wmui-color-base90;
+@margin-end-list-tile-thumbnail: @padding-horizontal-base;
+@border-color-list-tile-thumbnail: @color-base80;
+@box-shadow-list-tile-thumbnail: 0 0 1px 1px @border-color-list-tile-thumbnail;
+
+@background-color-list-tile-placeholder: @color-base90;
 // Lighter than `@color-accessory`. See T286851.
-@color-list-tile-thumbnail-placeholder-icon: @wmui-color-base30;
+@color-list-tile-thumbnail-placeholder-icon: @color-base30;
 @font-size-list-tile-description: unit( ( 14 / @font-size-browser / @font-size-base ), em );
 
 .cdx-list-tile {
 	display: flex;
 	align-items: center;
-	padding: @padding-vertical-list-tile @padding-horizontal-list-tile;
+	padding: @padding-vertical-list-tile @padding-horizontal-base;
 	// Unset line height provided by parent elements. This is particularly necessary when the list
 	// tile exists within an Option component.
 	line-height: normal;
@@ -152,7 +153,7 @@ export default defineComponent( {
 	// word-wrap` (it has wider support), therefore no duplication.
 	word-wrap: break-word;
 
-	// &--active is supposed to be used both when hover
+	// &--active is supposed to be used both in `:hover` state
 	// and when navigating with keyboard.
 	&--active {
 		background-color: @background-color-base--hover;
@@ -167,15 +168,12 @@ export default defineComponent( {
 		flex-shrink: 0;
 		width: @size-search-figure;
 		height: @size-search-figure;
-		margin-right: @margin-end-list-tile-thumb;
+		margin-right: @margin-end-list-tile-thumbnail;
 		border-radius: @border-radius-base;
 		// Borders tend to cut into the border-radius and it makes the border-radius look smaller
 		// on the inside of the box than the outside.
 		// Using a box-shadow disguised as a border prevents that from happening.
-		box-shadow: 0 0
-			@border-width-base
-			@border-width-base
-			@border-color-list-tile-thumb;
+		box-shadow: @box-shadow-list-tile-thumbnail;
 	}
 
 	&__thumbnail {
@@ -197,7 +195,7 @@ export default defineComponent( {
 		overflow: hidden;
 
 		.cdx-list-tile__description {
-			color: @color-placeholder;
+			color: @color-base--subtle;
 			display: block;
 			overflow: hidden;
 			font-size: @font-size-list-tile-description;
@@ -206,5 +204,4 @@ export default defineComponent( {
 		}
 	}
 }
-
 </style>

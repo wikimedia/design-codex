@@ -64,17 +64,18 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-// TODO: add component-level token
+// TODO: Tokenize.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @font-size-list-tile-label: unit( ( 16 / @font-size-browser / @font-size-base ), em );
+@margin-bottom-list-tile-label: 2px;
 
 .cdx-list-tile-label {
 	color: @color-base;
 	display: block;
-	margin: 0 0 2px 0;
+	margin: 0 0 @margin-bottom-list-tile-label 0;
 	font-size: @font-size-list-tile-label;
 	font-weight: @font-weight-bold;
 
