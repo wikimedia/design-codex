@@ -129,7 +129,7 @@ Notice message with custom icon
 </Wrapper>
 
 <style scoped>
-.vp-wrapper :deep( p ) {
+.cdx-docs-wrapper :deep( p ) {
 	margin: 0;
 	line-height: 1.4;
 }

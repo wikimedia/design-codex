@@ -1,12 +1,12 @@
 <script setup>
-import TokensTable from '../../src/components/tokens/TokensTable.vue';
+import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
 import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 </script>
 
 # Box shadow
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['box-shadow']"
-	token-demo="BoxShadowDemo"
+	token-demo="CdxDocsBoxShadowDemo"
 	css-property="box-shadow"
 />

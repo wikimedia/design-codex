@@ -1,6 +1,6 @@
 <template>
-	<div class="vp-position-demo">
-		<div class="vp-position-demo__inner" :style="style" />
+	<div class="cdx-docs-position-demo">
+		<div class="cdx-docs-position-demo__inner" :style="style" />
 	</div>
 </template>
 
@@ -9,7 +9,7 @@
 import { defineComponent, computed } from 'vue';
 
 export default defineComponent( {
-	name: 'PositionDemo',
+	name: 'CdxDocsPositionDemo',
 	props: {
 		/**
 		 * The value of the token we're demoing, which should be a distance value
@@ -35,7 +35,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.vp-position-demo {
+.cdx-docs-position-demo {
 	position: relative;
 	box-sizing: content-box;
 	width: 50px;

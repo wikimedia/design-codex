@@ -1,12 +1,12 @@
 <template>
-	<div class="vp-border-demo" :style="style" />
+	<div class="cdx-docs-border-demo" :style="style" />
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
 
 export default defineComponent( {
-	name: 'BorderDemo',
+	name: 'CdxDocsBorderDemo',
 	props: {
 		/**
 		 * The value of the token we're demoing
@@ -35,7 +35,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.vp-border-demo {
+.cdx-docs-border-demo {
 	width: 50px;
 	height: 50px;
 	border: @border-base;

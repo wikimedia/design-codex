@@ -72,7 +72,7 @@ when the value changes.
 </Wrapper>
 
 <style scoped>
-.vp-wrapper :deep( .cdx-typeahead-search ) {
+.cdx-docs-wrapper :deep( .cdx-typeahead-search ) {
 	margin-bottom: 16px;
 }
 </style>

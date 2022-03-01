@@ -1,10 +1,10 @@
 <template>
 	<div
-		class="vp-size-demo"
+		class="cdx-docs-size-demo"
 		:class="rootClasses"
 		:style="rootStyle"
 	>
-		<div class="vp-size-demo__inner" :style="innerStyle" />
+		<div class="cdx-docs-size-demo__inner" :style="innerStyle" />
 	</div>
 </template>
 
@@ -12,7 +12,7 @@
 import { defineComponent, computed } from 'vue';
 
 export default defineComponent( {
-	name: 'SizeDemo',
+	name: 'CdxDocsSizeDemo',
 	props: {
 		/**
 		 * The value of the token we're demoing, which should be a distance value
@@ -50,8 +50,8 @@ export default defineComponent( {
 		} ) );
 
 		const rootClasses = computed( () => ( {
-			'vp-size-demo--percentage': isPercentage( props.tokenValue ),
-			'vp-size-demo--too-big': isTooBig( width.value ) || isTooBig( height.value )
+			'cdx-docs-size-demo--percentage': isPercentage( props.tokenValue ),
+			'cdx-docs-size-demo--too-big': isTooBig( width.value ) || isTooBig( height.value )
 		} ) );
 
 		return {
@@ -66,7 +66,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.vp-size-demo {
+.cdx-docs-size-demo {
 	position: relative;
 	width: 100px;
 	height: 50px;

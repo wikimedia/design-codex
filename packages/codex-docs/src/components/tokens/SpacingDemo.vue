@@ -1,9 +1,9 @@
 <template>
-	<div class="vp-spacing-demo">
-		<span class="vp-spacing-demo__box" :style="style">
+	<div class="cdx-docs-spacing-demo">
+		<span class="cdx-docs-spacing-demo__box" :style="style">
 			Foo
 		</span>
-		<span class="vp-spacing-demo__box">
+		<span class="cdx-docs-spacing-demo__box">
 			Bar
 		</span>
 	</div>
@@ -13,7 +13,7 @@
 import { defineComponent, computed } from 'vue';
 
 export default defineComponent( {
-	name: 'SpacingDemo',
+	name: 'CdxDocsSpacingDemo',
 	props: {
 		/**
 		 * The value of the token we're demoing, which should be a spacing value
@@ -39,7 +39,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.vp-spacing-demo {
+.cdx-docs-spacing-demo {
 	position: relative;
 	padding: @padding-base;
 

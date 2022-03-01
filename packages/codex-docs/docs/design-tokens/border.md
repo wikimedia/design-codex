@@ -1,5 +1,5 @@
 <script setup>
-import TokensTable from '../../src/components/tokens/TokensTable.vue';
+import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
 import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 </script>
 
@@ -7,31 +7,31 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Width
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['border-width']"
-	token-demo="BorderDemo"
+	token-demo="CdxDocsBorderDemo"
 	css-property="border-width"
 />
 
 ## Style
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['border-style']"
-	token-demo="BorderDemo"
+	token-demo="CdxDocsBorderDemo"
 	css-property="border-style"
 />
 
 ## Color
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['border-color']"
-	token-demo="BorderDemo"
+	token-demo="CdxDocsBorderDemo"
 	css-property="border-color"
 />
 
 ## Radius
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['border-radius']"
-	token-demo="BorderDemo"
+	token-demo="CdxDocsBorderDemo"
 	css-property="border-radius"
 />

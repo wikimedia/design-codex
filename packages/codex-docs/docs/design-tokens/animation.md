@@ -1,5 +1,5 @@
 <script setup>
-import TokensTable from '../../src/components/tokens/TokensTable.vue';
+import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
 import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 </script>
 
@@ -7,16 +7,16 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Animation-delay
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['animation-delay']"
-	token-demo="AnimationDemo"
+	token-demo="CdxDocsAnimationDemo"
 	css-property="animation-delay"
 />
 
 ## Animation-duration
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['animation-duration']"
-	token-demo="AnimationDemo"
+	token-demo="CdxDocsAnimationDemo"
 	css-property="animation-duration"
 />

@@ -29,7 +29,7 @@ const tmpl = ( props ) => {
 	props.forEach( ( pr ) => {
 		let p = '`' + pr.name + '`';
 		// Customization: add the required indicator after the prop name if it is required.
-		p += pr.required ? '<sup class="vp-required-indicator">(required)</sup>' : '';
+		p += pr.required ? '<sup class="cdx-docs-required-indicator">(required)</sup>' : '';
 		let t = pr.description || '';
 		t += renderTags( pr.tags );
 		const n = pr.type ? '`' + pr.type.name + '`' : '';

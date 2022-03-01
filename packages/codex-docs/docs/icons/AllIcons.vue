@@ -1,8 +1,8 @@
 <template>
-	<table class="vp-all-icons-table">
+	<table class="cdx-docs-all-icons-table">
 		<thead>
 			<tr>
-				<th class="vp-all-icons-table__icon-name">
+				<th class="cdx-docs-all-icons-table__icon-name">
 					Icon name
 				</th>
 				<th>Language</th>
@@ -75,11 +75,11 @@ for ( const iconName in allIcons ) {
 </script>
 
 <style>
-.vp-all-icons-table__icon-name {
+.cdx-docs-all-icons-table__icon-name {
 	text-align: left;
 }
 
-.vp-all-icons-table td[ dir ] {
+.cdx-docs-all-icons-table td[ dir ] {
 	text-align: center;
 }
 </style>

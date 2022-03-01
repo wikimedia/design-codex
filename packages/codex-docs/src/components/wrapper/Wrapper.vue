@@ -1,15 +1,15 @@
 <template>
-	<div class="vp-wrapper">
+	<div class="cdx-docs-wrapper">
 		<!--
 			Note :key="dir" below is needed to ensure that icons and other things that use
 			useComputedDirection rerender when the direction is changed
 		-->
 		<div
 			:key="dir"
-			class="vp-wrapper__demo-pane"
+			class="cdx-docs-wrapper__demo-pane"
 			:dir="dir"
 		>
-			<div class="vp-wrapper__demo-pane__demo">
+			<div class="cdx-docs-wrapper__demo-pane__demo">
 				<slot
 					name="demo"
 					:prop-values="propValues"
@@ -18,7 +18,7 @@
 			</div>
 			<cdx-button
 				v-if="hasCodeSample"
-				class="vp-wrapper__demo-pane__button"
+				class="cdx-docs-wrapper__demo-pane__button"
 				type="quiet"
 				@click="onClick"
 			>
@@ -28,12 +28,12 @@
 		<div
 			v-if="hasCodeSample"
 			v-show="showCode"
-			class="vp-wrapper__code"
+			class="cdx-docs-wrapper__code"
 		>
 			<slot name="code" />
 		</div>
-		<div v-if="hasControls" class="vp-wrapper__controls">
-			<controls
+		<div v-if="hasControls" class="cdx-docs-wrapper__controls">
+			<cdx-docs-controls
 				dir="ltr"
 				:controls-with-values="controlsWithValues"
 				@control-change="handleControlChange"
@@ -46,7 +46,7 @@
 import { defineComponent, reactive, ref, computed, inject, PropType } from 'vue';
 import { ControlsConfig, ControlConfigWithValue, PropValues, SlotValues } from '../../types';
 import { DirectionKey } from '../../constants';
-import Controls from '../controls/Controls.vue';
+import CdxDocsControls from '../controls/Controls.vue';
 import { CdxButton } from '@wikimedia/codex';
 
 /**
@@ -58,10 +58,8 @@ import { CdxButton } from '@wikimedia/codex';
  *  - Optional controls for configurable demos
  */
 export default defineComponent( {
-	// TODO: rename this to something multi-word and more descriptive.
-	// eslint-disable-next-line vue/multi-word-component-names
-	name: 'Wrapper',
-	components: { Controls, CdxButton },
+	name: 'CdxDocsWrapper',
+	components: { CdxDocsControls, CdxButton },
 	props: {
 		/**
 		 * Data for configurable props and slots.
@@ -172,7 +170,7 @@ export default defineComponent( {
 // TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
 @import 'wikimedia-ui-base/wikimedia-ui-base.less';
 
-.vp-wrapper {
+.cdx-docs-wrapper {
 	margin-top: 16px;
 
 	&__demo-pane {

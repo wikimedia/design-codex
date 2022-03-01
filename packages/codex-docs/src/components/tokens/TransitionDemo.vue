@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="vp-transition-demo"
+		class="cdx-docs-transition-demo"
 		:class="transitionClass"
 		:style="style"
 	>
@@ -12,7 +12,7 @@
 import { defineComponent, computed } from 'vue';
 
 export default defineComponent( {
-	name: 'TransitionDemo',
+	name: 'CdxDocsTransitionDemo',
 	props: {
 		/**
 		 * The value of the token we're demoing
@@ -36,9 +36,9 @@ export default defineComponent( {
 			// listed in it are transitioned; if not, transition everything
 			props.cssProperty === 'transition-property' ?
 				props.tokenValue.split( ',' ).map(
-					( tProp ) => `vp-transition-demo--transition-${tProp.trim()}`
+					( tProp ) => `cdx-docs-transition-demo--transition-${tProp.trim()}`
 				) :
-				'vp-transition-demo--transition-all'
+				'cdx-docs-transition-demo--transition-all'
 		);
 
 		return {
@@ -52,7 +52,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.vp-transition-demo {
+.cdx-docs-transition-demo {
 	background-color: @background-color-base;
 	color: @color-primary;
 	position: relative;

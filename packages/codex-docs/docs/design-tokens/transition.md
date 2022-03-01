@@ -1,38 +1,37 @@
 <script setup>
-import TokensTable from '../../src/components/tokens/TokensTable.vue';
+import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
 import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 </script>
 
 # Transition
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens.transition"
-	token-demo="TransitionDemo"
+	token-demo="CdxDocsTransitionDemo"
 	css-property="transition"
 />
 
 ## Transition-duration
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['transition-duration']"
-	token-demo="TransitionDemo"
+	token-demo="CdxDocsTransitionDemo"
 	css-property="transition-duration"
 />
 
 ## Transition-timing-function
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['transition-timing-function']"
-	token-demo="TransitionDemo"
+	token-demo="CdxDocsTransitionDemo"
 	css-property="transition-timing-function"
 />
 
 
 ## Transition-property
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['transition-property']"
-	token-demo="TransitionDemo"
+	token-demo="CdxDocsTransitionDemo"
 	css-property="transition-property"
 />
-

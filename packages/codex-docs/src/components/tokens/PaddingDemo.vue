@@ -1,6 +1,6 @@
 <template>
-	<div class="vp-padding-demo" :style="style">
-		<div class="vp-padding-demo__inner" />
+	<div class="cdx-docs-padding-demo" :style="style">
+		<div class="cdx-docs-padding-demo__inner" />
 	</div>
 </template>
 
@@ -9,7 +9,7 @@
 import { defineComponent, computed } from 'vue';
 
 export default defineComponent( {
-	name: 'PaddingDemo',
+	name: 'CdxDocsPaddingDemo',
 	props: {
 		/**
 		 * The value of the token we're demoing, which should be a distance value
@@ -39,7 +39,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.vp-padding-demo {
+.cdx-docs-padding-demo {
 	position: relative;
 	width: 100px;
 	height: 50px;

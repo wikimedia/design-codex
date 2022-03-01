@@ -1,5 +1,5 @@
 <template>
-	<table class="vp-controls">
+	<table class="cdx-docs-controls">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -8,12 +8,12 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td class="vp-controls__section-header" colspan="2">
+				<td class="cdx-docs-controls__section-header" colspan="2">
 					Props
 				</td>
 			</tr>
 			<tr v-for="propControl in propControls" :key="propControl.name">
-				<td class="vp-tokens-table__name">
+				<td class="cdx-docs-tokens-table__name">
 					<pre>{{ propControl.name }}</pre>
 				</td>
 				<td>
@@ -49,12 +49,12 @@
 			</tr>
 
 			<tr>
-				<td class="vp-controls__section-header" colspan="2">
+				<td class="cdx-docs-controls__section-header" colspan="2">
 					Slots
 				</td>
 			</tr>
 			<tr v-for="slotControl in slotControls" :key="slotControl.name">
-				<td class="vp-tokens-table__name">
+				<td class="cdx-docs-tokens-table__name">
 					<pre>{{ slotControl.name }}</pre>
 				</td>
 				<td>
@@ -84,9 +84,7 @@ import { CdxRadio, CdxTextInput, CdxToggleSwitch } from '@wikimedia/codex';
  * with the control name and its new value up to the Wrapper.
  */
 export default defineComponent( {
-	// TODO: rename this to something multi-word and more descriptive.
-	// eslint-disable-next-line vue/multi-word-component-names
-	name: 'Controls',
+	name: 'CdxDocsControls',
 	components: { CdxRadio, CdxTextInput, CdxToggleSwitch },
 	props: {
 		controlsWithValues: {
@@ -128,7 +126,7 @@ export default defineComponent( {
 // TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
 @import 'wikimedia-ui-base/wikimedia-ui-base.less';
 
-.vp-controls {
+.cdx-docs-controls {
 	font-size: 0.875em;
 
 	&__section-header {

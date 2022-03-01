@@ -1,12 +1,12 @@
 <template>
-	<div class="vp-color-demo" :style="style" />
+	<div class="cdx-docs-color-demo" :style="style" />
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
 
 export default defineComponent( {
-	name: 'ColorDemo',
+	name: 'CdxDocsColorDemo',
 	props: {
 		/**
 		 * The value of the token we're demoing, which should be a hex value.
@@ -31,7 +31,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.vp-color-demo {
+.cdx-docs-color-demo {
 	width: 96px;
 	height: 96px;
 	border: 1px solid rgba( 0, 0, 0, 0.1 );

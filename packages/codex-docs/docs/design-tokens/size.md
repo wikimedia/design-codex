@@ -1,5 +1,5 @@
 <script setup>
-import TokensTable from '../../src/components/tokens/TokensTable.vue';
+import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
 import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 </script>
 
@@ -7,46 +7,46 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Size
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens.size"
-	token-demo="SizeDemo"
+	token-demo="CdxDocsSizeDemo"
 />
 
 ## Min-size
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['min-size']"
-	token-demo="SizeDemo"
+	token-demo="CdxDocsSizeDemo"
 />
 
 ## Width
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens.width"
-	token-demo="SizeDemo"
+	token-demo="CdxDocsSizeDemo"
 	css-property="width"
 />
 
 ## Max-width
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['max-width']"
-	token-demo="SizeDemo"
+	token-demo="CdxDocsSizeDemo"
 	css-property="width"
 />
 
 ## Min-height
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['min-height']"
-	token-demo="SizeDemo"
+	token-demo="CdxDocsSizeDemo"
 	css-property="height"
 />
 
 ## Min-width
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['min-width']"
-	token-demo="SizeDemo"
+	token-demo="CdxDocsSizeDemo"
 	css-property="width"
 />

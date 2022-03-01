@@ -1,7 +1,7 @@
 <template>
 	<cdx-select
 		v-model="selection"
-		class="vp-select-custom-option"
+		class="cdx-docs-select-custom-option"
 		:options="options"
 		default-label="Choose an option"
 	>
@@ -35,7 +35,7 @@ export default defineComponent( {
 </script>
 
 <style scoped lang="less">
-.vp-select-custom-option .cdx-icon {
+.cdx-docs-select-custom-option .cdx-icon {
 	[ dir='ltr' ] & {
 		margin-right: 0.5em;
 	}

@@ -1,15 +1,15 @@
 <template>
 	<cdx-button
-		class="vp-copy-text-button"
+		class="cdx-docs-copy-text-button"
 		action="progressive"
 		type="quiet"
 		@click="handleCopyText"
 	>
 		{{ buttonText }}
-		<transition name="vp-copy-text-button__transition-icon">
+		<transition name="cdx-docs-copy-text-button__transition-icon">
 			<cdx-icon
 				v-if="copySuccess"
-				class="vp-copy-text-button__icon"
+				class="cdx-docs-copy-text-button__icon"
 				:icon="cdxIconCheck"
 			/>
 		</transition>
@@ -22,7 +22,7 @@ import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconCheck } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
-	name: 'CopyTextButton',
+	name: 'CdxDocsCopyTextButton',
 	components: {
 		CdxButton,
 		CdxIcon
@@ -107,7 +107,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.vp-copy-text-button {
+.cdx-docs-copy-text-button {
 	&__icon {
 		width: 1.2em;
 		height: 1.2em;

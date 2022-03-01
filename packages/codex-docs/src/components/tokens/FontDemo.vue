@@ -1,5 +1,5 @@
 <template>
-	<div class="vp-font-demo" :style="style">
+	<div class="cdx-docs-font-demo" :style="style">
 		<p>
 			The quick brown fox
 			<br>
@@ -12,7 +12,7 @@
 import { defineComponent, computed } from 'vue';
 
 export default defineComponent( {
-	name: 'FontDemo',
+	name: 'CdxDocsFontDemo',
 	props: {
 		/**
 		 * The value of the token we're demoing
@@ -41,7 +41,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.vp-font-demo {
+.cdx-docs-font-demo {
 	p {
 		line-height: inherit;
 	}

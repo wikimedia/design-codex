@@ -1,5 +1,5 @@
 <template>
-	<div class="vp-box-shadow-demo" :style="style" />
+	<div class="cdx-docs-box-shadow-demo" :style="style" />
 </template>
 
 <script lang="ts">
@@ -8,7 +8,7 @@
 import { defineComponent, computed } from 'vue';
 
 export default defineComponent( {
-	name: 'BoxShadowDemo',
+	name: 'CdxDocsBoxShadowDemo',
 	props: {
 		/**
 		 * The value of the token we're demoing
@@ -37,7 +37,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.vp-box-shadow-demo {
+.cdx-docs-box-shadow-demo {
 	width: 100px;
 	height: 50px;
 

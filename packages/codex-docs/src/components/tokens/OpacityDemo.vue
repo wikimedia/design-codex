@@ -1,5 +1,5 @@
 <template>
-	<div class="vp-opacity-demo" :style="style" />
+	<div class="cdx-docs-opacity-demo" :style="style" />
 </template>
 
 <script lang="ts">
@@ -7,7 +7,7 @@
 import { defineComponent, computed } from 'vue';
 
 export default defineComponent( {
-	name: 'OpacityDemo',
+	name: 'CdxDocsOpacityDemo',
 	props: {
 		/**
 		 * The value of the token we're demoing, which should be a hex value.
@@ -32,7 +32,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.vp-opacity-demo {
+.cdx-docs-opacity-demo {
 	background-color: #000;
 	width: 100px;
 	height: 50px;

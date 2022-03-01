@@ -1,5 +1,5 @@
 <script setup>
-import TokensTable from '../../src/components/tokens/TokensTable.vue';
+import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
 import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 </script>
 
@@ -7,14 +7,14 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Text colors
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens.color"
-	token-demo="ColorDemo"
+	token-demo="CdxDocsColorDemo"
 />
 
 ## Background colors
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['background-color']"
-	token-demo="ColorDemo"
+	token-demo="CdxDocsColorDemo"
 />

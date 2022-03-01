@@ -2,15 +2,15 @@
 	<div>
 		<cdx-lookup
 			v-model="selection"
-			class="vp-lookup-custom-option"
+			class="cdx-docs-lookup-custom-option"
 			:options="menuOptions"
 			@new-input="onInput"
 		>
 			<template #menu-option="{ option }">
-				<p class="vp-lookup-custom-option__label">
+				<p class="cdx-docs-lookup-custom-option__label">
 					{{ option.label || option.value }}
 				</p>
-				<p v-if="option.description" class="vp-lookup-custom-option__description">
+				<p v-if="option.description" class="cdx-docs-lookup-custom-option__description">
 					{{ option.description }}
 				</p>
 			</template>
@@ -48,7 +48,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less" scoped>
-.vp-lookup-custom-option {
+.cdx-docs-lookup-custom-option {
 	p {
 		margin: 0;
 	}

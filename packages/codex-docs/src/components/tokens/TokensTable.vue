@@ -1,5 +1,5 @@
 <template>
-	<table class="vp-tokens-table">
+	<table class="cdx-docs-tokens-table">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -9,13 +9,13 @@
 		<tbody>
 			<tr v-for="( token, key ) in flattenedTokens" :key="key">
 				<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
-				<td class="vp-tokens-table__name" dir="ltr">
+				<td class="cdx-docs-tokens-table__name" dir="ltr">
 					<strong>{{ token.name }}</strong>
-					<copy-text-button :copy-text="token.name" />
+					<cdx-docs-copy-text-button :copy-text="token.name" />
 				</td>
 				<td>
-					<code class="vp-tokens-table__value">{{ token.value }}</code>
-					<div v-if="hasTokenDemo" class="vp-tokens-table__demo">
+					<code class="cdx-docs-tokens-table__value">{{ token.value }}</code>
+					<div v-if="hasTokenDemo" class="cdx-docs-tokens-table__demo">
 						<component
 							:is="tokenDemo"
 							:token-value="token.value"
@@ -44,34 +44,34 @@
 import { defineComponent, computed, PropType } from 'vue';
 import { DesignTokensTree } from '../../types';
 import { flattenDesignTokensTree } from '../../utils/tokens';
-import AnimationDemo from './AnimationDemo.vue';
-import BorderDemo from './BorderDemo.vue';
-import BoxShadowDemo from './BoxShadowDemo.vue';
-import ColorDemo from './ColorDemo.vue';
-import FontDemo from './FontDemo.vue';
-import OpacityDemo from './OpacityDemo.vue';
-import PaddingDemo from './PaddingDemo.vue';
-import PositionDemo from './PositionDemo.vue';
-import SpacingDemo from './SpacingDemo.vue';
-import SizeDemo from './SizeDemo.vue';
-import TransitionDemo from './TransitionDemo.vue';
-import CopyTextButton from './CopyTextButton.vue';
+import CdxDocsAnimationDemo from './AnimationDemo.vue';
+import CdxDocsBorderDemo from './BorderDemo.vue';
+import CdxDocsBoxShadowDemo from './BoxShadowDemo.vue';
+import CdxDocsColorDemo from './ColorDemo.vue';
+import CdxDocsFontDemo from './FontDemo.vue';
+import CdxDocsOpacityDemo from './OpacityDemo.vue';
+import CdxDocsPaddingDemo from './PaddingDemo.vue';
+import CdxDocsPositionDemo from './PositionDemo.vue';
+import CdxDocsSpacingDemo from './SpacingDemo.vue';
+import CdxDocsSizeDemo from './SizeDemo.vue';
+import CdxDocsTransitionDemo from './TransitionDemo.vue';
+import CdxDocsCopyTextButton from './CopyTextButton.vue';
 
 export default defineComponent( {
 	name: 'TokensTable',
 	components: {
-		AnimationDemo,
-		BorderDemo,
-		BoxShadowDemo,
-		ColorDemo,
-		FontDemo,
-		OpacityDemo,
-		PaddingDemo,
-		PositionDemo,
-		SpacingDemo,
-		SizeDemo,
-		TransitionDemo,
-		CopyTextButton
+		CdxDocsAnimationDemo,
+		CdxDocsBorderDemo,
+		CdxDocsBoxShadowDemo,
+		CdxDocsColorDemo,
+		CdxDocsFontDemo,
+		CdxDocsOpacityDemo,
+		CdxDocsPaddingDemo,
+		CdxDocsPositionDemo,
+		CdxDocsSpacingDemo,
+		CdxDocsSizeDemo,
+		CdxDocsTransitionDemo,
+		CdxDocsCopyTextButton
 	},
 	props: {
 		/**
@@ -110,7 +110,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.vp-tokens-table {
+.cdx-docs-tokens-table {
 	// Undo VitePress style.
 	display: table;
 	width: @size-full;
@@ -139,7 +139,7 @@ export default defineComponent( {
 			min-width: 200px;
 		}
 
-		.vp-copy-text-button {
+		.cdx-docs-copy-text-button {
 			position: absolute;
 			right: 0;
 			bottom: 0;

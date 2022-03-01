@@ -76,7 +76,7 @@ A ListTile can be used to display the thumbnail, label, and description of an it
 </Wrapper>
 
 <style scoped>
-.vp-wrapper :deep( ol ) {
+.cdx-docs-wrapper :deep( ol ) {
 	box-sizing: border-box;
 	margin: 0 0 16px;
 	padding: 0;

@@ -1,11 +1,11 @@
 <script setup>
-import TokensTable from '../../src/components/tokens/TokensTable.vue';
+import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
 import { spacing } from '@wikimedia/codex-design-tokens/dist/index.json';
 </script>
 
 # Spacing
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="spacing"
-	token-demo="SpacingDemo"
+	token-demo="CdxDocsSpacingDemo"
 />

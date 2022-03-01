@@ -1,5 +1,5 @@
 <script setup>
-import TokensTable from '../../src/components/tokens/TokensTable.vue';
+import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
 import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 </script>
 
@@ -7,24 +7,24 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Font-family
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['font-family']"
-	token-demo="FontDemo"
+	token-demo="CdxDocsFontDemo"
 	css-property="font-family"
 />
 
 ## Font-weight
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['font-weight']"
-	token-demo="FontDemo"
+	token-demo="CdxDocsFontDemo"
 	css-property="font-weight"
 />
 
 ## Line-height
 
-<TokensTable
+<CdxDocsTokensTable
 	:tokens="tokens['line-height']"
-	token-demo="FontDemo"
+	token-demo="CdxDocsFontDemo"
 	css-property="line-height"
 />
