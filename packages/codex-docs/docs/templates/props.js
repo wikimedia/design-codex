@@ -1,17 +1,24 @@
-/**
- * Replaces returns and tubes to make the input compatible with markdown.
- *
- * @param {string} input
- * @return {string}
- */
-function mdclean( input ) {
-	return input.replace( /\r?\n/g, '<br/>' ).replace( /\|/g, '\\|' );
-}
+const mdclean = require( './utils' ).mdclean;
 
+/* eslint-disable jsdoc/valid-types */
+/** @typedef {import("vue-docgen-api").PropDescriptor} PropDescriptor */
+
+/**
+ * Return true if the thing is a tag
+ *
+ * @param {any} v
+ * @return {boolean}
+ */
 function isTag( v ) {
 	return 'content' in v && !!v.content;
 }
 
+/**
+ * Format any tags present in prop docs
+ *
+ * @param {Object} tags
+ * @return {string}
+ */
 const renderTags = ( tags ) => {
 	if ( !tags ) {
 		return '';
@@ -23,6 +30,12 @@ const renderTags = ( tags ) => {
 		.join( '' );
 };
 
+/**
+ * Returns a formatted markdown table body with prop information.
+ *
+ * @param {PropDescriptor[]} props This component's props
+ * @return {string}
+ */
 const tmpl = ( props ) => {
 	let ret = '';
 
@@ -47,7 +60,7 @@ const tmpl = ( props ) => {
  * Note that most of this code comes directly from vue-docgen-api, so no improvements have been
  * made—changes to the default code/template have been noted.
  *
- * @param {Object} props
+ * @param {PropDescriptor[]} props
  * @param {Object} opt
  * @return {string}
  */

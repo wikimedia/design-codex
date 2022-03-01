@@ -115,31 +115,31 @@ export default defineComponent( {
 		/**
 		 * When the input value changes
 		 *
-		 * @property {string | number} value The new value
+		 * @property {string | number} modelValue The new model value
 		 */
 		'update:modelValue',
 		/**
 		 * When the input value changes via direct use of the input
 		 *
-		 * @property {InputEvent} event The InputEvent object
+		 * @property {InputEvent} event
 		 */
 		'input',
 		/**
 		 * When an input value change is committed by the user (e.g. on blur)
 		 *
-		 * @property {Event} event The Event object
+		 * @property {Event} event
 		 */
 		'change',
 		/**
 		 * When the input comes into focus
 		 *
-		 * @property {FocusEvent} event The FocusEvent object
+		 * @property {FocusEvent} event
 		 */
 		'focus',
 		/**
 		 * When the input loses focus
 		 *
-		 * @property {FocusEvent} event The FocusEvent object
+		 * @property {FocusEvent} event
 		 */
 		'blur'
 	],

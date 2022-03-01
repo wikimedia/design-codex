@@ -1,6 +1,8 @@
 const path = require( 'path' );
-const componentTemplate = require( './docs/templates/component' );
-const propsTemplate = require( './docs/templates/props' );
+const component = require( './docs/templates/component' );
+const events = require( './docs/templates/events' );
+const methods = require( './docs/templates/methods' );
+const props = require( './docs/templates/props' );
 const componentDemoPath = 'component-demos';
 
 /**
@@ -40,7 +42,9 @@ module.exports = {
 			.replace( /\/\w+\.vue$/, '.md' );
 	},
 	templates: {
-		component: componentTemplate,
-		props: propsTemplate
+		component,
+		events,
+		methods,
+		props
 	}
 };

@@ -71,3 +71,7 @@ td {
 .cdx-docs-required-indicator {
 	margin-left: 4px;
 }
+
+.cdx-docs-methods__params {
+	margin: 0;
+}

@@ -128,7 +128,7 @@ export default defineComponent( {
 		/**
 		 * When the selected value changes.
 		 *
-		 * @property {string | number} value The new value
+		 * @property {string | number} modelValue The new model value
 		 */
 		'update:modelValue',
 		/**
