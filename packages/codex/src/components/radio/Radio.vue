@@ -40,7 +40,9 @@ export default defineComponent( {
 	name: 'CdxRadio',
 	props: {
 		/**
-		 * Value provided by `v-model` binding in the parent component.
+		 * Value of the currently selected radio.
+		 *
+		 * Provided by `v-model` binding in the parent component.
 		 */
 		modelValue: {
 			type: [ String, Number, Boolean ],

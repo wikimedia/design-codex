@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<p>Toggle switch value: {{ switchValue }}</p>
+		<p class="cdx-docs-demo-text">
+			Toggle switch value: {{ switchValue }}
+		</p>
+
 		<cdx-toggle-switch
 			v-model="switchValue"
 			@update:model-value="onUpdate"

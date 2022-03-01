@@ -1,8 +1,9 @@
 <template>
 	<div>
-		<p v-if="showValue">
+		<p v-if="showValue" class="cdx-docs-demo-text">
 			Input value: {{ inputValue }}
 		</p>
+
 		<cdx-text-input
 			v-model="inputValue"
 			v-bind="inputProps"

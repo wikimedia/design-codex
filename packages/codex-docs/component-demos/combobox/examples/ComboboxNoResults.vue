@@ -9,10 +9,6 @@
 				Sorry, no options to display.
 			</template>
 		</cdx-combobox>
-
-		<p>
-			The current value is {{ selection }}
-		</p>
 	</div>
 </template>
 

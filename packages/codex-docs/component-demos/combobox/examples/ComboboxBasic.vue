@@ -1,14 +1,14 @@
 <template>
 	<div>
+		<p class="cdx-docs-demo-text">
+			Selected value: {{ selection }}
+		</p>
+
 		<cdx-combobox
 			v-model="selection"
 			:options="options"
 			placeholder="Type or choose an option"
 		/>
-
-		<p>
-			The current value is {{ selection }}
-		</p>
 	</div>
 </template>
 

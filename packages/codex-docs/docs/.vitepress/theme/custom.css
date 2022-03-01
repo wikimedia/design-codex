@@ -54,6 +54,11 @@ td {
 	color: #b32424;
 }
 
+.cdx-docs-demo-text {
+	margin: 0 0 16px;
+	font-weight: bold;
+}
+
 .cdx-docs-required-indicator {
 	margin-left: 4px;
 }

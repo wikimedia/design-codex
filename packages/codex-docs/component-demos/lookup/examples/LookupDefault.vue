@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<p>The current value is: {{ selection }}</p>
+		<p class="cdx-docs-demo-text">
+			Selected value: {{ selection }}
+		</p>
 
 		<cdx-lookup
 			v-model="selection"
@@ -38,11 +40,3 @@ export default defineComponent( {
 	}
 } );
 </script>
-
-<style scoped>
-/* For demo purposes only. */
-p {
-	margin: 0 0 16px;
-	font-weight: bold;
-}
-</style>

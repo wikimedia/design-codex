@@ -71,10 +71,3 @@ the `<input>`.
 
 </template>
 </Wrapper>
-
-<style scoped>
-.cdx-docs-wrapper :deep( p ) {
-	margin: 0 0 16px 0;
-	font-weight: bold;
-}
-</style>

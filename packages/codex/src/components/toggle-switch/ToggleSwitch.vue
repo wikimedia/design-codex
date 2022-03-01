@@ -56,7 +56,9 @@ export default defineComponent( {
 	inheritAttrs: false,
 	props: {
 		/**
-		 * Value provided by `v-model` in a parent component.
+		 * Current value of the toggle switch.
+		 *
+		 * Provided by `v-model` in a parent component.
 		 */
 		modelValue: {
 			type: Boolean,

@@ -70,9 +70,3 @@ when the value changes.
 
 </template>
 </Wrapper>
-
-<style scoped>
-.cdx-docs-wrapper :deep( .cdx-typeahead-search ) {
-	margin-bottom: 16px;
-}
-</style>

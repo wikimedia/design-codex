@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<p>Checkbox value: {{ checkboxValue }}</p>
+		<p class="cdx-docs-demo-text">
+			Checkbox group value: {{ checkboxValue }}
+		</p>
+
 		<cdx-checkbox
 			v-for="checkbox in checkboxes"
 			:key="'checkbox-' + checkbox.value"
@@ -71,11 +74,3 @@ export default defineComponent( {
 	}
 } );
 </script>
-
-<style scoped>
-/* For demo purposes only. */
-p {
-	margin-top: 0;
-	font-weight: bold;
-}
-</style>

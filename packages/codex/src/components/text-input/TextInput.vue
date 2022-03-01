@@ -61,7 +61,9 @@ export default defineComponent( {
 
 	props: {
 		/**
-		 * Value provided by `v-model` binding in the parent component.
+		 * Current value of the input.
+		 *
+		 * Provided by `v-model` binding in the parent component.
 		 */
 		modelValue: {
 			type: [ String, Number ],

@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<p>Radio group value: {{ radioValue }}</p>
+		<p class="cdx-docs-demo-text">
+			Radio group value: {{ radioValue }}
+		</p>
+
 		<cdx-radio
 			v-for="radio in radios"
 			:key="'radio-' + radio.value"
@@ -60,11 +63,3 @@ export default defineComponent( {
 	}
 } );
 </script>
-
-<style scoped>
-/* For demo purposes only. */
-p {
-	margin-top: 0;
-	font-weight: bold;
-}
-</style>

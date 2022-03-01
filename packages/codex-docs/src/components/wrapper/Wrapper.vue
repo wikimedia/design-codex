@@ -1,5 +1,5 @@
 <template>
-	<div class="cdx-docs-wrapper">
+	<div class="cdx-docs-wrapper" :class="rootClasses">
 		<!--
 			Note :key="dir" below is needed to ensure that icons and other things that use
 			useComputedDirection rerender when the direction is changed
@@ -86,7 +86,13 @@ export default defineComponent( {
 		};
 
 		// Set up controls if config is provided.
-		const hasControls = props.controlsConfig.length > 0;
+		const hasControls = ref( props.controlsConfig.length > 0 );
+
+		const rootClasses = computed( () => {
+			return {
+				'cdx-docs-wrapper--has-controls': hasControls.value
+			};
+		} );
 
 		/**
 		 * Create a copy of the controls config and add a value property to each control. The
@@ -157,6 +163,7 @@ export default defineComponent( {
 			buttonLabel,
 			onClick,
 			hasControls,
+			rootClasses,
 			controlsWithValues,
 			propValues,
 			slotValues,
@@ -179,10 +186,6 @@ export default defineComponent( {
 		border-radius: @border-radius-base;
 		padding: 24px;
 
-		&__demo {
-			margin-bottom: 16px;
-		}
-
 		&__button {
 			position: absolute;
 			right: 0;
@@ -195,6 +198,14 @@ export default defineComponent( {
 		a:hover {
 			text-decoration: none;
 		}
+	}
+
+	// Add some space below the component demo to ensure it never collides with the show code/hide
+	// code button. Right now this doesn't apply for configurable demos, since that button is
+	// hidden, but if we ever add dynamic code samples to configurable demos, we should apply
+	// this margin to the demo always.
+	&:not( .cdx-docs-wrapper--has-controls ) .cdx-docs-wrapper__demo-pane__demo {
+		margin-bottom: 16px;
 	}
 
 	&__code div[ class*='language-' ] {

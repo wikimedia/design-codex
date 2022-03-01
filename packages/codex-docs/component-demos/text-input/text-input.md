@@ -141,9 +141,4 @@ To disable the input, add the `disabled` attribute.
 	max-width: 400px;
 	margin-bottom: 16px;
 }
-
-.cdx-docs-wrapper :deep( p ) {
-	margin: 0 0 16px 0;
-	font-weight: bold;
-}
 </style>

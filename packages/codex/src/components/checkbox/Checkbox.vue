@@ -48,7 +48,9 @@ export default defineComponent( {
 	name: 'CdxCheckbox',
 	props: {
 		/**
-		 * Value provided by `v-model` binding in the parent component.
+		 * Value of the checkbox or checkbox group.
+		 *
+		 * Provided by `v-model` binding in the parent component.
 		 */
 		modelValue: {
 			type: [ Boolean, Array ] as PropType<boolean | string[] | number[]>,
