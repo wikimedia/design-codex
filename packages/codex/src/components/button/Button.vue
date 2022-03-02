@@ -118,11 +118,6 @@ export default defineComponent( {
 		padding: 0;
 	}
 
-	&:focus {
-		// Hide the standard focus outline. A border and box-shadow representation is added below.
-		outline: 0;
-	}
-
 	&:enabled {
 		color: @color-base;
 		// Use hand cursor. This is nonstandard for a button but allows for a visible
@@ -132,7 +127,9 @@ export default defineComponent( {
 		&:focus {
 			border-color: @border-color-base--focus;
 			box-shadow: @box-shadow-base--focus;
-			// In Windows high contrast mode the outline becomes visible.
+			// Set the standard focus `outline` transparent. A `border` and `box-shadow` visual
+			// focus is added above for common rendering.
+			// In Windows high contrast mode the transparent outline becomes visible.
 			outline: @outline-base--focus;
 		}
 
