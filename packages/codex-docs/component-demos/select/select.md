@@ -12,7 +12,7 @@ Options must have a value, and can have a label to display in the UI. If no
 label is provided (like the third option in this example), the value will be
 displayed.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <basic-select />
 </template>
@@ -21,14 +21,14 @@ displayed.
 <<< @/../component-demos/select/examples/BasicSelect.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With custom label display
 
 The `label` scoped slot enables you to customize the display of the label, with
 bindings for the `selectedOption` and the `defaultLabel`.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <select-custom-label />
 </template>
@@ -37,14 +37,14 @@ bindings for the `selectedOption` and the `defaultLabel`.
 <<< @/../component-demos/select/examples/SelectCustomLabel.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With custom option display
 
 The `menu-option` scoped slot enables you to customize the display of each
 option, with a binding for the `option`.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <select-custom-option />
 </template>
@@ -53,4 +53,4 @@ option, with a binding for the `option`.
 <<< @/../component-demos/select/examples/SelectCustomOption.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>

@@ -17,7 +17,7 @@ Open up the browser console to see events emitted on input, change, focus, and b
 This simple example demonstrates how to bind a reactive reference to the input's value via
 `v-model`. The reactive reference will automatically update when the input value changes.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <text-input-demo :showValue="true" />
 </template>
@@ -27,12 +27,12 @@ This simple example demonstrates how to bind a reactive reference to the input's
 <<< @/../component-demos/text-input/examples/TextInputDefault.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 In this example, the parent component sets an initial value and has a reset button that will restore
 that initial value on click.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <text-input-demo :showValue="true" initialValue="Initial value" :allowReset="true" />
 </template>
@@ -42,14 +42,14 @@ that initial value on click.
 <<< @/../component-demos/text-input/examples/TextInputInitialValue.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Clearable
 
 Including the `clearable` prop will add a clear button to the end of the icon when the input is not
 empty. On click, the clear button will set the input value to an empty string.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <text-input-demo :showValue="true" :input-props="{ clearable: true }" />
 </template>
@@ -61,13 +61,13 @@ empty. On click, the clear button will set the input value to an empty string.
 ```
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With start icon
 
 Any Codex icon can be set to the start icon.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <text-input-demo :input-props="{ inputType: 'search', startIcon: cdxIconSearch }" />
 </template>
@@ -77,14 +77,14 @@ Any Codex icon can be set to the start icon.
 <<< @/../component-demos/text-input/examples/TextInputStartIcon.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With end icon
 
 Any Codex icon can be set to the end icon. Note that if you include both an end icon and the
 `clearable` prop, the latter will override the end icon with the clear button.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <text-input-demo :input-props="{ disabled: true, endIcon: cdxIconInfoFilled }" />
 </template>
@@ -94,13 +94,13 @@ Any Codex icon can be set to the end icon. Note that if you include both an end 
 <<< @/../component-demos/text-input/examples/TextInputEndIcon.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With placeholder
 
 To add placeholder text, add a `placeholder` attribute.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <text-input-demo placeholder="Start typing..." />
 </template>
@@ -112,13 +112,13 @@ To add placeholder text, add a `placeholder` attribute.
 ```
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Disabled
 
 To disable the input, add the `disabled` attribute.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <text-input-demo :input-props="{ disabled: true }" />
 </template>
@@ -130,10 +130,10 @@ To disable the input, add the `disabled` attribute.
 ```
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 <style scoped>
-.cdx-docs-wrapper :deep( .cdx-text-input ) {
+.cdx-demo-wrapper :deep( .cdx-text-input ) {
 	max-width: 400px;
 	margin-bottom: 16px;
 }

@@ -24,7 +24,7 @@ that can accept arbitrary input from the user. The component should receive a
 `v-model` binding from its parent as well as an array of options (which can be
 empty).
 
-<Wrapper>
+<cdx-demo-wrapper>
 
 <template v-slot:demo>
 <combobox-basic />
@@ -36,14 +36,14 @@ empty).
 
 </template>
 
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Clearable, with start icon
 
 Valid TextInput props like `startIcon`, `endIcon`, and `clearable` will be
 passed on to the embedded `TextInput`.
 
-<Wrapper>
+<cdx-demo-wrapper>
 
 <template v-slot:demo>
 <combobox-clearable-start-icon />
@@ -55,14 +55,14 @@ passed on to the embedded `TextInput`.
 
 </template>
 
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With custom option format
 
 Like other menu-style components (`Select`, `Lookup`, etc.), a custom option
 template can be provided via the `#menu-option` slot.
 
-<Wrapper>
+<cdx-demo-wrapper>
 
 <template v-slot:demo>
 <combobox-custom-option />
@@ -74,13 +74,13 @@ template can be provided via the `#menu-option` slot.
 
 </template>
 
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With footer content
 
 A non-clickable footer can be added to the end of the options menu via the `#footer` slot.
 
-<Wrapper>
+<cdx-demo-wrapper>
 
 <template v-slot:demo>
 <combobox-no-results />
@@ -92,4 +92,4 @@ A non-clickable footer can be added to the end of the options menu via the `#foo
 
 </template>
 
-</Wrapper>
+</cdx-demo-wrapper>

@@ -30,17 +30,17 @@ const controlsConfig = [
 
 ### Configurable
 
-<Wrapper :controls-config="controlsConfig">
+<cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues, slotValues }">
 <cdx-button v-bind="propValues">{{ slotValues.default }}</cdx-button>
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Selected variations
 
 #### Default
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <cdx-button>Click me</cdx-button>
 </template>
@@ -52,11 +52,11 @@ const controlsConfig = [
 ```
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 #### Progressive
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <cdx-button action="progressive">Click me</cdx-button>
 </template>
@@ -68,11 +68,11 @@ const controlsConfig = [
 ```
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 #### Destructive, primary
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <cdx-button action="destructive" type="primary">Click me</cdx-button>
 </template>
@@ -84,11 +84,11 @@ const controlsConfig = [
 ```
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 #### Destructive, primary, disabled
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <cdx-button
 	action="destructive"
@@ -111,4 +111,4 @@ const controlsConfig = [
 ```
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>

@@ -1,15 +1,15 @@
 <template>
-	<div class="cdx-docs-wrapper" :class="rootClasses">
+	<div class="cdx-demo-wrapper" :class="rootClasses">
 		<!--
 			Note :key="dir" below is needed to ensure that icons and other things that use
 			useComputedDirection rerender when the direction is changed
 		-->
 		<div
 			:key="dir"
-			class="cdx-docs-wrapper__demo-pane"
+			class="cdx-demo-wrapper__demo-pane"
 			:dir="dir"
 		>
-			<div class="cdx-docs-wrapper__demo-pane__demo">
+			<div class="cdx-demo-wrapper__demo-pane__demo">
 				<slot
 					name="demo"
 					:prop-values="propValues"
@@ -18,7 +18,7 @@
 			</div>
 			<cdx-button
 				v-if="hasCodeSample"
-				class="cdx-docs-wrapper__demo-pane__button"
+				class="cdx-demo-wrapper__demo-pane__button"
 				type="quiet"
 				@click="onClick"
 			>
@@ -28,11 +28,11 @@
 		<div
 			v-if="hasCodeSample"
 			v-show="showCode"
-			class="cdx-docs-wrapper__code"
+			class="cdx-demo-wrapper__code"
 		>
 			<slot name="code" />
 		</div>
-		<div v-if="hasControls" class="cdx-docs-wrapper__controls">
+		<div v-if="hasControls" class="cdx-demo-wrapper__controls">
 			<cdx-docs-controls
 				dir="ltr"
 				:controls-with-values="controlsWithValues"
@@ -58,7 +58,7 @@ import { CdxButton } from '@wikimedia/codex';
  *  - Optional controls for configurable demos
  */
 export default defineComponent( {
-	name: 'CdxDocsWrapper',
+	name: 'CdxDemoWrapper',
 	components: { CdxDocsControls, CdxButton },
 	props: {
 		/**
@@ -90,7 +90,7 @@ export default defineComponent( {
 
 		const rootClasses = computed( () => {
 			return {
-				'cdx-docs-wrapper--has-controls': hasControls.value
+				'cdx-demo-wrapper--has-controls': hasControls.value
 			};
 		} );
 
@@ -177,7 +177,7 @@ export default defineComponent( {
 // TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
 @import 'wikimedia-ui-base/wikimedia-ui-base.less';
 
-.cdx-docs-wrapper {
+.cdx-demo-wrapper {
 	margin-top: 16px;
 
 	&__demo-pane {
@@ -204,7 +204,7 @@ export default defineComponent( {
 	// code button. Right now this doesn't apply for configurable demos, since that button is
 	// hidden, but if we ever add dynamic code samples to configurable demos, we should apply
 	// this margin to the demo always.
-	&:not( .cdx-docs-wrapper--has-controls ) .cdx-docs-wrapper__demo-pane__demo {
+	&:not( .cdx-demo-wrapper--has-controls ) .cdx-demo-wrapper__demo-pane__demo {
 		margin-bottom: 16px;
 	}
 

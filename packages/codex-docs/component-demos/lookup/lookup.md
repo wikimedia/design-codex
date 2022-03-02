@@ -28,7 +28,7 @@ display.
 Note that in this example, options are Wikidata items with a human-readable label and a Wikidata
 entity ID value.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <lookup-default />
 </template>
@@ -37,13 +37,13 @@ entity ID value.
 <<< @/../component-demos/lookup/examples/LookupDefault.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With custom option format
 
 The `menu-option` slot can be used to set up custom option content and formatting.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <lookup-with-custom-option />
 </template>
@@ -52,14 +52,14 @@ The `menu-option` slot can be used to set up custom option content and formattin
 <<< @/../component-demos/lookup/examples/LookupWithCustomOption.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With footer content
 
 The `footer` slot can be used to display non-interactive content below the final option. For
 example, a "no result found" message can be conditionally displayed.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <lookup-no-results />
 </template>
@@ -68,7 +68,7 @@ example, a "no result found" message can be conditionally displayed.
 <<< @/../component-demos/lookup/examples/LookupNoResults.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With fetched results
 
@@ -77,7 +77,7 @@ to the `new-input` event emitted by Lookup to search for results, then pass back
 Lookup either an array of results to display as options or an empty array if there are no results.
 Between those two events, a pending state animation will display in the input.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <lookup-with-fetch />
 </template>
@@ -86,14 +86,14 @@ Between those two events, a pending state animation will display in the input.
 <<< @/../component-demos/lookup/examples/LookupWithFetch.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Clearable, with start icon
 
 Props of the TextInput component can be bound to Lookup and will be passed down to the TextInput
 component inside of it, so you can take advantage of features like the "clear" button and icons.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <lookup-clearable-start-icon />
 </template>
@@ -102,14 +102,14 @@ component inside of it, so you can take advantage of features like the "clear" b
 <<< @/../component-demos/lookup/examples/LookupClearableStartIcon.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With placeholder
 
 Attributes (except for `class`) will fall through to the input element, so you can set things like
 `placeholder` on the Lookup component and they'll be applied to the input.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <lookup-with-placeholder />
 </template>
@@ -118,4 +118,4 @@ Attributes (except for `class`) will fall through to the input element, so you c
 <<< @/../component-demos/lookup/examples/LookupWithPlaceholder.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>

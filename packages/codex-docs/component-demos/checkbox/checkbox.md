@@ -14,7 +14,7 @@ Open up the browser console to see events emitted on input.
 A single checkbox does not need an `inputValue` prop. `v-model` is bound to a
 boolean value: `true` for on, `false` for off.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <single-checkbox />
 </template>
@@ -24,14 +24,14 @@ boolean value: `true` for on, `false` for off.
 <<< @/../component-demos/checkbox/examples/SingleCheckbox.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Checkbox group
 
 For a group of checkboxes, each Checkbox component's `v-model` will be bound to
 an array of the `inputValue` props of the checkboxes that are currently "on".
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <checkbox-group />
 </template>
@@ -41,11 +41,11 @@ an array of the `inputValue` props of the checkboxes that are currently "on".
 <<< @/../component-demos/checkbox/examples/CheckboxGroup.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Inline checkboxes
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <inline-checkboxes />
 </template>
@@ -55,7 +55,7 @@ an array of the `inputValue` props of the checkboxes that are currently "on".
 <<< @/../component-demos/checkbox/examples/InlineCheckboxes.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Indeterminate state
 
@@ -74,7 +74,7 @@ As a result, they all appear to be in the indeterminate state initially, whether
 not. Checking or unchecking a checkbox will undo the indeterminate state since you have provided
 a definite value for the checkbox.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <indeterminate-state />
 </template>
@@ -84,4 +84,4 @@ a definite value for the checkbox.
 <<< @/../component-demos/checkbox/examples/IndeterminateState.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>

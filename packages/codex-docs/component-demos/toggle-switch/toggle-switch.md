@@ -26,7 +26,7 @@ element within the component.
 
 ### Configurable
 
-<Wrapper :controls-config="controlsConfig">
+<cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues, slotValues }">
 <template v-if="slotValues.default.length > 0">
 <configurable-switch v-bind="propValues">
@@ -37,13 +37,13 @@ element within the component.
 <configurable-switch v-bind="propValues" />
 </template>
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Default
 
 Toggle the ToggleSwitch to see the value change. Open up the console to see emitted events.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <single-switch />
 </template>
@@ -53,14 +53,14 @@ Toggle the ToggleSwitch to see the value change. Open up the console to see emit
 <<< @/../component-demos/toggle-switch/examples/SingleSwitch.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With label
 
 Adding content into ToggleSwitch's default slot will generate a `<label>` element associated with
 the `<input>`.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <single-switch-with-label />
 </template>
@@ -70,4 +70,4 @@ the `<input>`.
 <<< @/../component-demos/toggle-switch/examples/SingleSwitchWithLabel.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>

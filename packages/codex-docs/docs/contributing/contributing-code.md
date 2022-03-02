@@ -525,7 +525,7 @@ import { CdxButton } from '@wikimedia/codex';
 
 #### Formatting component demos
 
-A `Wrapper` component is available in all markdown files that provides some formatting for
+A `cdx-demo-wrapper` component is available in all markdown files that provides some formatting for
 components demos and show code/hide code functionality. To use it, place the demo code inside the
 `demo` slot, and the code sample inside the `code` slot. The code can either be a markdown code
 block or an imported code snippet.
@@ -539,7 +539,7 @@ properly.
 Example using a markdown code block:
 
 ````markdown
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <cdx-button type="quiet">Click me</cdx-button>
 </template>
@@ -551,7 +551,7 @@ Example using a markdown code block:
 ```
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 ````
 
 Example using an imported code snippet:
@@ -561,7 +561,7 @@ Example using an imported code snippet:
 import RadioGroup from '@/../../component-demos/radio/examples/RadioGroup.vue';
 </script>
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <radio-group />
 </template>
@@ -571,7 +571,7 @@ import RadioGroup from '@/../../component-demos/radio/examples/RadioGroup.vue';
 <<< @/../../component-demos/radio/examples/RadioGroup.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 ````
 
 Try to keep the code samples relevant to the library user. Remember that your code sample doesn't
@@ -634,11 +634,11 @@ prop, and `slotValues` is an object keyed on slot name with the current content 
 is how the configurable Button demo is set up:
 
 ```vue
-<Wrapper :controls-config="controlsConfig">
+<cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues, slotValues }">
 <cdx-button v-bind="propValues">{{ slotValues.default }}</cdx-button>
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 ```
 
 #### Styling demo pages

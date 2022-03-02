@@ -10,7 +10,7 @@ See the [Icons section](../icons/overview.md) for more information, including a
 
 ### Simple icon
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <simple-icon />
 </template>
@@ -20,11 +20,11 @@ See the [Icons section](../icons/overview.md) for more information, including a
 <<< @/../component-demos/icon/examples/SimpleIcon.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Button with icon
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <button-with-icon />
 </template>
@@ -34,4 +34,4 @@ See the [Icons section](../icons/overview.md) for more information, including a
 <<< @/../component-demos/icon/examples/ButtonWithIcon.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>

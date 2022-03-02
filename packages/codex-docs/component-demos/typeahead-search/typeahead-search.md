@@ -22,7 +22,7 @@ This implementation of TypeaheadSearch fetches articles from English Wikipedia.
 Note that the input expands on focus via the `autoExpandWidth` prop.  Open the
 console to see emitted events.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <typeahead-search-wikipedia />
 </template>
@@ -31,14 +31,14 @@ console to see emitted events.
 <<< @/../component-demos/typeahead-search/examples/TypeaheadSearchWikipedia.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Search Wikidata items
 
 In this example, results are fetched from Wikidata. Note that thumbnails are hidden via the
 `hideThumbnail` prop. Open the console to see emitted events.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <typeahead-search-wikidata />
 </template>
@@ -47,7 +47,7 @@ In this example, results are fetched from Wikidata. Note that thumbnails are hid
 <<< @/../component-demos/typeahead-search/examples/TypeaheadSearchWikidata.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With initial input value
 
@@ -60,7 +60,7 @@ On mount, TypeaheadSearch will fetch search results for the initial input value 
 After that, the input value is tracked internally and will be emitted up to the parent component
 when the value changes.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <typeahead-search-initial-value initial-input-value="Color" />
 </template>
@@ -69,4 +69,4 @@ when the value changes.
 <<< @/../component-demos/typeahead-search/examples/TypeaheadSearchInitialValue.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>

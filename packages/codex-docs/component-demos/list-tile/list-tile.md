@@ -12,7 +12,7 @@ import ListTileLong from './../../component-demos/list-tile/examples/ListTileLon
 
 A ListTile can be used to display the thumbnail, label, and description of an item.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <list-tile-default />
 </template>
@@ -21,11 +21,11 @@ A ListTile can be used to display the thumbnail, label, and description of an it
 <<< @/../component-demos/list-tile/examples/ListTileDefault.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Without thumbnail
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <list-tile-hide-thumbnail />
 </template>
@@ -34,11 +34,11 @@ A ListTile can be used to display the thumbnail, label, and description of an it
 <<< @/../component-demos/list-tile/examples/ListTileHideThumbnail.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With long title and default thumbnail
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <list-tile-long />
 </template>
@@ -47,11 +47,11 @@ A ListTile can be used to display the thumbnail, label, and description of an it
 <<< @/../component-demos/list-tile/examples/ListTileLong.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Within a list
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <list-tile-list />
 </template>
@@ -60,11 +60,11 @@ A ListTile can be used to display the thumbnail, label, and description of an it
 <<< @/../component-demos/list-tile/examples/ListTileList.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With graphemes
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <list-tile-list-graphemes />
 </template>
@@ -73,10 +73,10 @@ A ListTile can be used to display the thumbnail, label, and description of an it
 <<< @/../component-demos/list-tile/examples/ListTileListGraphemes.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 <style scoped>
-.cdx-docs-wrapper :deep( ol ) {
+.cdx-demo-wrapper :deep( ol ) {
 	box-sizing: border-box;
 	margin: 0 0 16px;
 	padding: 0;

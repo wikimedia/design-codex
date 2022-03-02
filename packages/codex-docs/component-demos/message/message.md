@@ -29,11 +29,11 @@ const controlsConfig = [
 
 ### Configurable
 
-<Wrapper :controls-config="controlsConfig">
+<cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues, slotValues }">
 <cdx-message v-bind="propValues">{{ slotValues.default }}</cdx-message>
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Dismissable notice
 
@@ -48,7 +48,7 @@ in some way.
 
 Note that inline messages cannot be dismissable.
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <cdx-message dismiss-button-label="Close">Notice message with dismiss button</cdx-message>
 </template>
@@ -62,11 +62,11 @@ Note that inline messages cannot be dismissable.
 ```
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Multiline message
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <cdx-message type="error">
 <p><strong>An error has occurred</strong></p>
@@ -84,11 +84,11 @@ Note that inline messages cannot be dismissable.
 ```
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Multiline inline message
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <cdx-message type="error" :inline="true">
 <p>An error has occurred</p>
@@ -106,11 +106,11 @@ Note that inline messages cannot be dismissable.
 ```
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### With custom icon
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <cdx-message :icon="cdxIconArticle">
 Notice message with custom icon
@@ -126,10 +126,10 @@ Notice message with custom icon
 ```
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 <style scoped>
-.cdx-docs-wrapper :deep( p ) {
+.cdx-demo-wrapper :deep( p ) {
 	margin: 0;
 	line-height: 1.4;
 }

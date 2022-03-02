@@ -7,7 +7,7 @@ import InlineRadios from '@/../component-demos/radio/examples/InlineRadios.vue';
 
 ### Radio group
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <radio-group />
 </template>
@@ -17,11 +17,11 @@ import InlineRadios from '@/../component-demos/radio/examples/InlineRadios.vue';
 <<< @/../component-demos/radio/examples/RadioGroup.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
 
 ### Inline radios
 
-<Wrapper>
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <inline-radios />
 </template>
@@ -31,4 +31,4 @@ import InlineRadios from '@/../component-demos/radio/examples/InlineRadios.vue';
 <<< @/../component-demos/radio/examples/InlineRadios.vue
 
 </template>
-</Wrapper>
+</cdx-demo-wrapper>
