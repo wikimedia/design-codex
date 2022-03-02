@@ -29,6 +29,7 @@
 				"ignoreAtRules": [ "mixin", "define-mixin" ]
 			}
 		],
+		"selector-class-pattern": "^cdx-",
 		"order/order": [ "custom-properties", "declarations" ],
 		"order/properties-order": [
 			"all",

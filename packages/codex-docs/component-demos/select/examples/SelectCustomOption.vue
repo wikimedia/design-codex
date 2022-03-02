@@ -35,6 +35,7 @@ export default defineComponent( {
 </script>
 
 <style scoped lang="less">
+// stylelint-disable-next-line selector-class-pattern
 .cdx-docs-select-custom-option .cdx-icon {
 	[ dir='ltr' ] & {
 		margin-right: 0.5em;

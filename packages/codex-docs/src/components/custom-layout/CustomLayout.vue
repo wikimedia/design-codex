@@ -4,7 +4,7 @@
 			<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
 			<div
 				v-show="isComponentPage"
-				class="cdx-theme-direction-switcher"
+				class="cdx-docs-direction-switcher"
 				dir="ltr"
 			>
 				Direction:
@@ -32,7 +32,7 @@ provide( DirectionKey, dir );
 </script>
 
 <style lang="less">
-.cdx-theme-direction-switcher {
+.cdx-docs-direction-switcher {
 	margin-left: 16px;
 }
 </style>

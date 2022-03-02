@@ -9,7 +9,7 @@
 			<h1>Codex Demo</h1>
 		</header>
 
-		<main class="sandbox-main">
+		<main class="cdx-sandbox-main">
 			<h2>Combobox</h2>
 			<cdx-combobox
 				v-model="selection"
@@ -125,7 +125,7 @@ function onClick( e: Event ) {
 </script>
 
 <style scoped>
-.sandbox-main {
+.cdx-sandbox-main {
 	max-width: 500px;
 }
 

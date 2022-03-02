@@ -1,0 +1,6 @@
+{
+	"extends": "../../.stylelintrc.json",
+	"rules": {
+		"selector-class-pattern": "^cdx-docs-"
+	}
+}

@@ -288,7 +288,7 @@ export default defineComponent( {
 			box-shadow: @box-shadow-base--focus;
 			outline: 0;
 
-			.oo-ui-toggleSwitchWidget-grip {
+			.cdx-toggle-switch__switch__grip {
 				border-color: @border-color-primary;
 			}
 		}
