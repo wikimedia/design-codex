@@ -304,7 +304,32 @@ export default defineComponent( {
 	font-size: inherit;
 	line-height: @line-height-component;
 
-	&[ disabled ] {
+	&:enabled {
+		background-color: @background-color-base;
+		color: @color-base--emphasized;
+		border-color: @border-color-base;
+		box-shadow: @box-shadow-base;
+		transition-property: @transition-property-base;
+		transition-duration: @transition-duration-medium;
+
+		&:hover {
+			border-color: @border-color-input--hover;
+		}
+
+		&:focus {
+			border-color: @border-color-base--focus;
+			box-shadow: @box-shadow-base--focus;
+			outline: 0;
+
+			& ~ .cdx-text-input__start-icon,
+			& ~ .cdx-text-input__end-icon {
+				opacity: @opacity-base;
+			}
+		}
+	}
+
+	/* stylelint-disable-next-line no-descending-specificity */
+	&:disabled {
 		background-color: @background-color-base--disabled;
 		color: @color-base--disabled;
 		-webkit-text-fill-color: @color-base--disabled;
@@ -321,30 +346,6 @@ export default defineComponent( {
 			// here.
 			// opacity: @opacity-base--disabled;
 			pointer-events: none;
-		}
-	}
-
-	&:not( [ disabled ] ) {
-		background-color: @background-color-base;
-		color: @color-base--emphasized;
-		border-color: @border-color-base;
-		box-shadow: @box-shadow-base;
-		transition-property: @transition-property-base;
-		transition-duration: @transition-duration-medium;
-
-		&:hover {
-			border-color: @border-color-input--hover;
-		}
-
-		&:focus {
-			border-color: @border-color-base--focus;
-			box-shadow: @box-shadow-base--focus;
-			outline: 0;
-		}
-
-		&:focus ~ .cdx-text-input__start-icon,
-		&:focus ~ .cdx-text-input__end-icon {
-			opacity: @opacity-base;
 		}
 	}
 
