@@ -7,14 +7,14 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Text colors
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens.color"
 	token-demo="CdxDocsColorDemo"
 />
 
 ## Background colors
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['background-color']"
 	token-demo="CdxDocsColorDemo"
 />

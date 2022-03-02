@@ -7,7 +7,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Width
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['border-width']"
 	token-demo="CdxDocsBorderDemo"
 	css-property="border-width"
@@ -15,7 +15,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Style
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['border-style']"
 	token-demo="CdxDocsBorderDemo"
 	css-property="border-style"
@@ -23,14 +23,14 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Color
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['border-color']"
 	token-demo="CdxDocsBorderDemo"
 	css-property="border-color"
 />
 
 ## Radius
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['border-radius']"
 	token-demo="CdxDocsBorderDemo"
 	css-property="border-radius"

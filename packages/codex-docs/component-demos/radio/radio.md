@@ -9,7 +9,7 @@ import InlineRadios from '@/../component-demos/radio/examples/InlineRadios.vue';
 
 <Wrapper>
 <template v-slot:demo>
-<RadioGroup />
+<radio-group />
 </template>
 
 <template v-slot:code>
@@ -23,7 +23,7 @@ import InlineRadios from '@/../component-demos/radio/examples/InlineRadios.vue';
 
 <Wrapper>
 <template v-slot:demo>
-<InlineRadios />
+<inline-radios />
 </template>
 
 <template v-slot:code>

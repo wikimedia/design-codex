@@ -32,7 +32,7 @@ const controlsConfig = [
 
 <Wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues, slotValues }">
-<CdxButton v-bind="propValues">{{ slotValues.default }}</CdxButton>
+<cdx-button v-bind="propValues">{{ slotValues.default }}</cdx-button>
 </template>
 </Wrapper>
 
@@ -42,13 +42,13 @@ const controlsConfig = [
 
 <Wrapper>
 <template v-slot:demo>
-<CdxButton>Click me</CdxButton>
+<cdx-button>Click me</cdx-button>
 </template>
 
 <template v-slot:code>
 
 ```vue
-<CdxButton>Click me</CdxButton>
+<cdx-button>Click me</cdx-button>
 ```
 
 </template>
@@ -58,13 +58,13 @@ const controlsConfig = [
 
 <Wrapper>
 <template v-slot:demo>
-<CdxButton action="progressive">Click me</CdxButton>
+<cdx-button action="progressive">Click me</cdx-button>
 </template>
 
 <template v-slot:code>
 
 ```vue
-<CdxButton action="progressive">Click me</CdxButton>
+<cdx-button action="progressive">Click me</cdx-button>
 ```
 
 </template>
@@ -74,13 +74,13 @@ const controlsConfig = [
 
 <Wrapper>
 <template v-slot:demo>
-<CdxButton action="destructive" type="primary">Click me</CdxButton>
+<cdx-button action="destructive" type="primary">Click me</cdx-button>
 </template>
 
 <template v-slot:code>
 
 ```vue
-<CdxButton action="destructive" type="primary">Click me</CdxButton>
+<cdx-button action="destructive" type="primary">Click me</cdx-button>
 ```
 
 </template>
@@ -90,24 +90,24 @@ const controlsConfig = [
 
 <Wrapper>
 <template v-slot:demo>
-<CdxButton
+<cdx-button
 	action="destructive"
 	type="primary"
 	:disabled="true"
 >
 	Click me
-</CdxButton></template>
+</cdx-button></template>
 
 <template v-slot:code>
 
 ```vue
-<CdxButton
+<cdx-button
 	action="destructive"
 	type="primary"
 	:disabled="true"
 >
 	Click me
-</CdxButton>
+</cdx-button>
 ```
 
 </template>

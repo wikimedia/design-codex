@@ -36,9 +36,9 @@ a type assertion as follows:
 ```typescript
 methods: {
 	focusSearchInput() {
-		// This assumes the template contains <input ref="searchInput">
+		// This assumes the template contains `<input ref="searchInput">`
 		const searchInput = this.$refs.searchInput as HTMLInputElement;
-		// If it's a component, e.g. <CdxTextInput ref="otherSearchInput">, use:
+		// If it's a component, e.g. `<cdx-text-input ref="otherSearchInput" />`, use:
 		const otherSearchInput = this.$refs.otherSearchInput as InstanceType<typeof CdxTextInput>;
 
 		searchInput.focus();
@@ -60,9 +60,9 @@ When you use it, you won't need to use a type assertion, but you will need to us
 to tell TypeScript that the value of the template ref can't be undefined.
 ```typescript
 setup( props, context ) {
-	// This assumes the template contains <input ref="searchInput">
+	// This assumes the template contains `<input ref="searchInput">`
 	const searchInput = ref<HTMLInputElement>();
-	// If it's a component, e.g. <CdxTextInput ref="otherSearchInput">, use:
+	// If it's a component, e.g. `<cdx-text-input ref="otherSearchInput" />`, use:
 	const otherSearchInput = ref<InstanceType<typeof CdxTextInput>>();
 
 	const focusSearchInput = () => {

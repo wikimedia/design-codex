@@ -14,7 +14,7 @@ displayed.
 
 <Wrapper>
 <template v-slot:demo>
-<BasicSelect />
+<basic-select />
 </template>
 <template v-slot:code>
 
@@ -30,7 +30,7 @@ bindings for the `selectedOption` and the `defaultLabel`.
 
 <Wrapper>
 <template v-slot:demo>
-<SelectCustomLabel />
+<select-custom-label />
 </template>
 <template v-slot:code>
 
@@ -46,7 +46,7 @@ option, with a binding for the `option`.
 
 <Wrapper>
 <template v-slot:demo>
-<SelectCustomOption />
+<select-custom-option />
 </template>
 <template v-slot:code>
 

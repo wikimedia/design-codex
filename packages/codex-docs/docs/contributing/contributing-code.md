@@ -541,13 +541,13 @@ Example using a markdown code block:
 ````markdown
 <Wrapper>
 <template v-slot:demo>
-<CdxButton type="quiet">Click me</CdxButton>
+<cdx-button type="quiet">Click me</cdx-button>
 </template>
 
 <template v-slot:code>
 
 ```vue
-<CdxButton>Click me</CdxButton>
+<cdx-button>Click me</cdx-button>
 ```
 
 </template>
@@ -559,7 +559,7 @@ Example using an imported code snippet:
 ````markdown
 <Wrapper>
 <template v-slot:demo>
-<RadioGroup />
+<radio-group />
 </template>
 
 <template v-slot:code>
@@ -632,7 +632,7 @@ is how the configurable Button demo is set up:
 ```vue
 <Wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues, slotValues }">
-<CdxButton v-bind="propValues">{{ slotValues.default }}</CdxButton>
+<cdx-button v-bind="propValues">{{ slotValues.default }}</cdx-button>
 </template>
 </Wrapper>
 ```

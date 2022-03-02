@@ -14,7 +14,7 @@ A ListTile can be used to display the thumbnail, label, and description of an it
 
 <Wrapper>
 <template v-slot:demo>
-<ListTileDefault />
+<list-tile-default />
 </template>
 <template v-slot:code>
 
@@ -27,7 +27,7 @@ A ListTile can be used to display the thumbnail, label, and description of an it
 
 <Wrapper>
 <template v-slot:demo>
-<ListTileHideThumbnail />
+<list-tile-hide-thumbnail />
 </template>
 <template v-slot:code>
 
@@ -40,7 +40,7 @@ A ListTile can be used to display the thumbnail, label, and description of an it
 
 <Wrapper>
 <template v-slot:demo>
-<ListTileLong />
+<list-tile-long />
 </template>
 <template v-slot:code>
 
@@ -53,7 +53,7 @@ A ListTile can be used to display the thumbnail, label, and description of an it
 
 <Wrapper>
 <template v-slot:demo>
-<ListTileList />
+<list-tile-list />
 </template>
 <template v-slot:code>
 
@@ -66,7 +66,7 @@ A ListTile can be used to display the thumbnail, label, and description of an it
 
 <Wrapper>
 <template v-slot:demo>
-<ListTileListGraphemes />
+<list-tile-list-graphemes />
 </template>
 <template v-slot:code>
 

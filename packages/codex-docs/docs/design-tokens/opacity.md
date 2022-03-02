@@ -5,7 +5,7 @@ import { opacity } from '@wikimedia/codex-design-tokens/dist/index.json';
 
 # Opacity
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="opacity"
 	token-demo="CdxDocsOpacityDemo"
 />

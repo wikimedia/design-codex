@@ -5,7 +5,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 # Transition
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens.transition"
 	token-demo="CdxDocsTransitionDemo"
 	css-property="transition"
@@ -13,7 +13,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Transition-duration
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['transition-duration']"
 	token-demo="CdxDocsTransitionDemo"
 	css-property="transition-duration"
@@ -21,7 +21,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Transition-timing-function
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['transition-timing-function']"
 	token-demo="CdxDocsTransitionDemo"
 	css-property="transition-timing-function"
@@ -30,7 +30,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Transition-property
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['transition-property']"
 	token-demo="CdxDocsTransitionDemo"
 	css-property="transition-property"

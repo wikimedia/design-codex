@@ -7,21 +7,21 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Size
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens.size"
 	token-demo="CdxDocsSizeDemo"
 />
 
 ## Min-size
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['min-size']"
 	token-demo="CdxDocsSizeDemo"
 />
 
 ## Width
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens.width"
 	token-demo="CdxDocsSizeDemo"
 	css-property="width"
@@ -29,7 +29,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Max-width
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['max-width']"
 	token-demo="CdxDocsSizeDemo"
 	css-property="width"
@@ -37,7 +37,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Min-height
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['min-height']"
 	token-demo="CdxDocsSizeDemo"
 	css-property="height"
@@ -45,7 +45,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Min-width
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['min-width']"
 	token-demo="CdxDocsSizeDemo"
 	css-property="width"

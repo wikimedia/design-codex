@@ -5,7 +5,7 @@ import { position } from '@wikimedia/codex-design-tokens/dist/index.json';
 
 # Position
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="position"
 	token-demo="CdxDocsPositionDemo"
 />

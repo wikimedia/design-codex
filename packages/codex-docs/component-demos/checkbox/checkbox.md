@@ -16,7 +16,7 @@ boolean value: `true` for on, `false` for off.
 
 <Wrapper>
 <template v-slot:demo>
-<SingleCheckbox />
+<single-checkbox />
 </template>
 
 <template v-slot:code>
@@ -33,7 +33,7 @@ an array of the `inputValue` props of the checkboxes that are currently "on".
 
 <Wrapper>
 <template v-slot:demo>
-<CheckboxGroup />
+<checkbox-group />
 </template>
 
 <template v-slot:code>
@@ -47,7 +47,7 @@ an array of the `inputValue` props of the checkboxes that are currently "on".
 
 <Wrapper>
 <template v-slot:demo>
-<InlineCheckboxes />
+<inline-checkboxes />
 </template>
 
 <template v-slot:code>
@@ -76,7 +76,7 @@ a definite value for the checkbox.
 
 <Wrapper>
 <template v-slot:demo>
-<IndeterminateState />
+<indeterminate-state />
 </template>
 
 <template v-slot:code>

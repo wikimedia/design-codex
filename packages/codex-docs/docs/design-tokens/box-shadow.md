@@ -5,7 +5,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 # Box shadow
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['box-shadow']"
 	token-demo="CdxDocsBoxShadowDemo"
 	css-property="box-shadow"

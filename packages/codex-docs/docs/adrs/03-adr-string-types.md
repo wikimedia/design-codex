@@ -48,7 +48,7 @@ would have to look like this:
 ```vue
 <template>
 	<div>
-		<cdx-button :type="ButtonType.Primary">...</button>
+		<cdx-button :type="ButtonType.Primary">...</cdx-button>
 	</div>
 </template>
 <script>

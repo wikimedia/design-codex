@@ -27,7 +27,7 @@ empty).
 <Wrapper>
 
 <template v-slot:demo>
-<ComboboxBasic />
+<combobox-basic />
 </template>
 
 <template v-slot:code>
@@ -46,7 +46,7 @@ passed on to the embedded `TextInput`.
 <Wrapper>
 
 <template v-slot:demo>
-<ComboboxClearableStartIcon />
+<combobox-clearable-start-icon />
 </template>
 
 <template v-slot:code>
@@ -65,7 +65,7 @@ template can be provided via the `#menu-option` slot.
 <Wrapper>
 
 <template v-slot:demo>
-<ComboboxCustomOption />
+<combobox-custom-option />
 </template>
 
 <template v-slot:code>
@@ -83,7 +83,7 @@ A non-clickable footer can be added to the end of the options menu via the `#foo
 <Wrapper>
 
 <template v-slot:demo>
-<ComboboxNoResults />
+<combobox-no-results />
 </template>
 
 <template v-slot:code>

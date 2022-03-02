@@ -5,7 +5,7 @@ import { padding } from '@wikimedia/codex-design-tokens/dist/index.json';
 
 # Padding
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="padding"
 	token-demo="CdxDocsPaddingDemo"
 	css-property="padding"

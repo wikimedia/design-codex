@@ -12,7 +12,7 @@ See the [Icons section](../icons/overview.md) for more information, including a
 
 <Wrapper>
 <template v-slot:demo>
-<SimpleIcon />
+<simple-icon />
 </template>
 
 <template v-slot:code>
@@ -26,7 +26,7 @@ See the [Icons section](../icons/overview.md) for more information, including a
 
 <Wrapper>
 <template v-slot:demo>
-<ButtonWithIcon />
+<button-with-icon />
 </template>
 
 <template v-slot:code>

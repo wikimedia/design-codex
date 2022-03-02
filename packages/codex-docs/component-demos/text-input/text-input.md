@@ -1,10 +1,6 @@
 <script setup>
 import { cdxIconSearch, cdxIconInfoFilled } from '@wikimedia/codex-icons';
 import TextInputDemo from '@/../component-demos/text-input/examples/TextInputDemo.vue';
-import TextInputDefault from '@/../component-demos/text-input/examples/TextInputDefault.vue';
-import TextInputInitialValue from '@/../component-demos/text-input/examples/TextInputInitialValue.vue';
-import TextInputStartIcon from '@/../component-demos/text-input/examples/TextInputStartIcon.vue';
-import TextInputEndIcon from '@/../component-demos/text-input/examples/TextInputEndIcon.vue';
 </script>
 
 ::: tip Attributes passed to input
@@ -23,7 +19,7 @@ This simple example demonstrates how to bind a reactive reference to the input's
 
 <Wrapper>
 <template v-slot:demo>
-<TextInputDemo :showValue="true" />
+<text-input-demo :showValue="true" />
 </template>
 
 <template v-slot:code>
@@ -38,7 +34,7 @@ that initial value on click.
 
 <Wrapper>
 <template v-slot:demo>
-<TextInputDemo :showValue="true" initialValue="Initial value" :allowReset="true" />
+<text-input-demo :showValue="true" initialValue="Initial value" :allowReset="true" />
 </template>
 
 <template v-slot:code>
@@ -55,13 +51,13 @@ empty. On click, the clear button will set the input value to an empty string.
 
 <Wrapper>
 <template v-slot:demo>
-<TextInputDemo :showValue="true" :input-props="{ clearable: true }" />
+<text-input-demo :showValue="true" :input-props="{ clearable: true }" />
 </template>
 
 <template v-slot:code>
 
 ```vue
-<CdxTextInput :clearable="true" />
+<cdx-text-input :clearable="true" />
 ```
 
 </template>
@@ -73,7 +69,7 @@ Any Codex icon can be set to the start icon.
 
 <Wrapper>
 <template v-slot:demo>
-<TextInputDemo :input-props="{ inputType: 'search', startIcon: cdxIconSearch }" />
+<text-input-demo :input-props="{ inputType: 'search', startIcon: cdxIconSearch }" />
 </template>
 
 <template v-slot:code>
@@ -90,7 +86,7 @@ Any Codex icon can be set to the end icon. Note that if you include both an end 
 
 <Wrapper>
 <template v-slot:demo>
-<TextInputDemo :input-props="{ disabled: true, endIcon: cdxIconInfoFilled }" />
+<text-input-demo :input-props="{ disabled: true, endIcon: cdxIconInfoFilled }" />
 </template>
 
 <template v-slot:code>
@@ -106,13 +102,13 @@ To add placeholder text, add a `placeholder` attribute.
 
 <Wrapper>
 <template v-slot:demo>
-<TextInputDemo placeholder="Start typing..." />
+<text-input-demo placeholder="Start typing..." />
 </template>
 
 <template v-slot:code>
 
 ```vue
-<CdxTextInput placeholder="Start typing..." />
+<cdx-text-input placeholder="Start typing..." />
 ```
 
 </template>
@@ -124,7 +120,7 @@ To disable the input, add the `disabled` attribute.
 
 <Wrapper>
 <template v-slot:demo>
-<TextInputDemo :input-props="{ disabled: true }" />
+<text-input-demo :input-props="{ disabled: true }" />
 </template>
 
 <template v-slot:code>

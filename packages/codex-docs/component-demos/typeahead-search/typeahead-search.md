@@ -24,7 +24,7 @@ console to see emitted events.
 
 <Wrapper>
 <template v-slot:demo>
-<TypeaheadSearchWikipedia />
+<typeahead-search-wikipedia />
 </template>
 <template v-slot:code>
 
@@ -40,7 +40,7 @@ In this example, results are fetched from Wikidata. Note that thumbnails are hid
 
 <Wrapper>
 <template v-slot:demo>
-<TypeaheadSearchWikidata />
+<typeahead-search-wikidata />
 </template>
 <template v-slot:code>
 
@@ -62,7 +62,7 @@ when the value changes.
 
 <Wrapper>
 <template v-slot:demo>
-<TypeaheadSearchInitialValue initial-input-value="Color" />
+<typeahead-search-initial-value initial-input-value="Color" />
 </template>
 <template v-slot:code>
 

@@ -30,7 +30,7 @@ entity ID value.
 
 <Wrapper>
 <template v-slot:demo>
-<LookupDefault />
+<lookup-default />
 </template>
 <template v-slot:code>
 
@@ -45,7 +45,7 @@ The `menu-option` slot can be used to set up custom option content and formattin
 
 <Wrapper>
 <template v-slot:demo>
-<LookupWithCustomOption />
+<lookup-with-custom-option />
 </template>
 <template v-slot:code>
 
@@ -61,7 +61,7 @@ example, a "no result found" message can be conditionally displayed.
 
 <Wrapper>
 <template v-slot:demo>
-<LookupNoResults />
+<lookup-no-results />
 </template>
 <template v-slot:code>
 
@@ -79,7 +79,7 @@ Between those two events, a pending state animation will display in the input.
 
 <Wrapper>
 <template v-slot:demo>
-<LookupWithFetch />
+<lookup-with-fetch />
 </template>
 <template v-slot:code>
 
@@ -95,7 +95,7 @@ component inside of it, so you can take advantage of features like the "clear" b
 
 <Wrapper>
 <template v-slot:demo>
-<LookupClearableStartIcon />
+<lookup-clearable-start-icon />
 </template>
 <template v-slot:code>
 
@@ -111,7 +111,7 @@ Attributes (except for `class`) will fall through to the input element, so you c
 
 <Wrapper>
 <template v-slot:demo>
-<LookupWithPlaceholder />
+<lookup-with-placeholder />
 </template>
 <template v-slot:code>
 

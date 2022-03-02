@@ -5,7 +5,7 @@ import { spacing } from '@wikimedia/codex-design-tokens/dist/index.json';
 
 # Spacing
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="spacing"
 	token-demo="CdxDocsSpacingDemo"
 />

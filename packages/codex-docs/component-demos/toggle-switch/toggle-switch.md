@@ -29,12 +29,12 @@ element within the component.
 <Wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues, slotValues }">
 <template v-if="slotValues.default.length > 0">
-<ConfigurableSwitch v-bind="propValues">
+<configurable-switch v-bind="propValues">
 {{ slotValues.default }}
-</ConfigurableSwitch>
+</configurable-switch>
 </template>
 <template v-else>
-<ConfigurableSwitch v-bind="propValues" />
+<configurable-switch v-bind="propValues" />
 </template>
 </template>
 </Wrapper>
@@ -45,7 +45,7 @@ Toggle the ToggleSwitch to see the value change. Open up the console to see emit
 
 <Wrapper>
 <template v-slot:demo>
-<SingleSwitch />
+<single-switch />
 </template>
 
 <template v-slot:code>
@@ -62,7 +62,7 @@ the `<input>`.
 
 <Wrapper>
 <template v-slot:demo>
-<SingleSwitchWithLabel />
+<single-switch-with-label />
 </template>
 
 <template v-slot:code>

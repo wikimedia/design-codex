@@ -5,6 +5,6 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 # Z-Index
 
-<CdxDocsTokensTable
+<cdx-docs-tokens-table
 	:tokens="tokens['z-index']"
 />
