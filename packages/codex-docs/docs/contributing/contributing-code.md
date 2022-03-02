@@ -557,6 +557,10 @@ Example using a markdown code block:
 Example using an imported code snippet:
 
 ````markdown
+<script setup>
+import RadioGroup from '@/../../component-demos/radio/examples/RadioGroup.vue';
+</script>
+
 <Wrapper>
 <template v-slot:demo>
 <radio-group />
