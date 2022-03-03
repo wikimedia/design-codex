@@ -381,10 +381,6 @@
 		"round": {
 			"value": "{ size.absolute.9999px }"
 		},
-		"rounder": {
-			"comment": "TODO: Only used in WiKit. Deprecate and replace by 'round'.",
-			"value": "{ size.absolute.25 }"
-		},
 		"circle": {
 			"value": "{ size.relative.percentage.100 }"
 		}
