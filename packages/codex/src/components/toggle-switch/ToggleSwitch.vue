@@ -120,36 +120,45 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import '../../themes/mixins/force-gpu-composite-layer.less';
 
-// TODO: make these design tokens.
+// TODO: Tokenize.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
+
 @size-base--small: unit( ( 16 / @font-size-browser / @font-size-base ), em );
 
 @size-toggle-switch-travel-distance: 1.5em;
+// TODO: `--mobile` as modifier would go against our naming conventions of state only modifiers.
+@size-toggle-switch-grip--mobile: 1.25em;
 @width-toggle-switch: @size-toggle-switch-travel-distance + 2em;
 @height-toggle-switch: 2em;
 @start-toggle-switch-grip: unit( ( 5 / @font-size-browser / @font-size-base ), em );
 @start-toggle-switch-grip--mobile: unit( ( 4.5 / @font-size-browser / @font-size-base ), em );
 
-@border-radius-toggle-switch: @size-base--small;
-@border-color-framed-progressive--hover: @color-primary--hover;
 @border-filled--disabled: @border-width-base @border-style-base @border-color-filled--disabled;
 
-@box-shadow-input-binary: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
-@box-shadow-input-binary--active: inset 0 0 0 1px @color-primary--active;
+@padding-end-toggle-switch-label-content: 6px;
+
+@box-shadow-input-binary: 0 0 0 1px transparent;
+
+@transition-property-toggle-switch-outline: @transition-property-border-color;
+@position-offset-toggle-switch-outline: 1px;
+
+// TODO: Remove with I753c3fd9a271a15ec9 in place:
+@cursor-base--disabled: default;
+@cursor-base--hover: pointer;
 
 .cdx-toggle-switch {
 	display: inline-flex;
 	align-items: center;
 	justify-content: space-between;
-	// <input> will be absolutely positioned relative to this element.
+	// Visually hidden `<input>` will be absolutely positioned relative to this element.
 	position: relative;
 	// Create a stacking context.
 	z-index: 0;
-	cursor: pointer;
+	cursor: @cursor-base--hover;
 
 	&__label {
 		display: flex;
@@ -161,7 +170,7 @@ export default defineComponent( {
 	&__label-content {
 		align-self: center;
 		order: 1;
-		padding-right: 6px;
+		padding-right: @padding-end-toggle-switch-label-content;
 	}
 
 	// The visible switch.
@@ -172,29 +181,31 @@ export default defineComponent( {
 		display: inline-block;
 		// Grip will be positioned absolutely relative to the switch.
 		position: relative;
-		box-sizing: border-box;
+		box-sizing: @box-sizing-base;
 		// These sizes are relative so the toggle switch will scale with font
 		// size (e.g. it's slightly larger on mobile).
 		width: @width-toggle-switch;
 		height: @height-toggle-switch;
 		border: @border-input-binary;
-		border-radius: @border-radius-toggle-switch;
+		border-radius: @border-radius-round;
 		overflow: hidden;
-		transition: background-color @transition-ease-medium, border-color @transition-ease-medium;
+		transition-property: @transition-property-base;
+		transition-duration: @transition-ease-medium;
 
 		// Focus outline.
 		&:before {
 			content: '';
 			display: block;
 			position: absolute;
-			top: 1px;
-			right: 1px;
-			bottom: 1px;
-			left: 1px;
+			top: @position-offset-toggle-switch-outline;
+			right: @position-offset-toggle-switch-outline;
+			bottom: @position-offset-toggle-switch-outline;
+			left: @position-offset-toggle-switch-outline;
 			z-index: 1;
 			border: @border-width-base @border-style-base transparent;
-			border-radius: @border-radius-toggle-switch;
-			transition: border-color @transition-ease-medium;
+			border-radius: @border-radius-round;
+			transition-property: @transition-property-toggle-switch-outline;
+			transition-duration: @transition-ease-medium;
 		}
 
 		// The moving element of the switch.
@@ -204,11 +215,11 @@ export default defineComponent( {
 			// exactly scaled relative to font size, so we need separate values.
 			top: @start-toggle-switch-grip--mobile;
 			left: @start-toggle-switch-grip--mobile;
-			box-sizing: border-box;
-			width: 1.25em;
-			height: 1.25em;
+			box-sizing: @box-sizing-base;
+			width: @size-toggle-switch-grip--mobile;
+			height: @size-toggle-switch-grip--mobile;
 			border: @border-input-binary;
-			border-radius: @border-radius-toggle-switch;
+			border-radius: @border-radius-round;
 			// stylelint-disable value-list-comma-newline-after
 			transition: background-color @transition-ease-medium,
 				left @transition-base,
@@ -216,7 +227,7 @@ export default defineComponent( {
 			// stylelint-enable value-list-comma-newline-after
 
 			// stylelint-disable-next-line max-nesting-depth
-			@media screen and ( min-width: @width-breakpoint-tablet ) {
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 				top: @start-toggle-switch-grip;
 				left: @start-toggle-switch-grip;
 				width: @size-base--small;
@@ -225,20 +236,20 @@ export default defineComponent( {
 		}
 	}
 
-	// HTML <input> element.
+	// HTML `<input>` element.
 	&__input {
-		// The actual input is visually hidden.
+		// Visually hide the actual `<input>`.
 		opacity: 0;
 		position: absolute;
 		right: 0;
-		// Render "on top of" the span, so that it's still clickable.
+		// Render "on top of" the `span`, so that it's still clickable.
 		z-index: 2;
 		width: @width-toggle-switch;
 		height: @height-toggle-switch;
 		margin: 0;
 		font-size: inherit;
 
-		// Checked styles that apply whether the input is enabled or disabled.
+		// Checked state whether or not the input is enabled or disabled.
 		&:checked ~ .cdx-toggle-switch__switch {
 			.cdx-toggle-switch__switch__grip {
 				background-color: @background-color-base;
@@ -246,17 +257,17 @@ export default defineComponent( {
 				border-color: @background-color-base;
 
 				// stylelint-disable-next-line max-nesting-depth
-				@media screen and ( min-width: @width-breakpoint-tablet ) {
+				@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 					left: @start-toggle-switch-grip + @size-toggle-switch-travel-distance;
 				}
 			}
 		}
 
 		&:enabled {
-			cursor: pointer;
+			cursor: @cursor-base--hover;
 
 			& ~ .cdx-toggle-switch__label-content {
-				cursor: pointer;
+				cursor: @cursor-base--hover;
 			}
 
 			& ~ .cdx-toggle-switch__switch .cdx-toggle-switch__switch__grip {
@@ -265,70 +276,75 @@ export default defineComponent( {
 
 			&:hover ~ .cdx-toggle-switch__switch {
 				background-color: @background-color-framed--hover;
-				border-color: @border-color-framed-progressive--hover;
+				border-color: @border-color-progressive--hover;
 
 				.cdx-toggle-switch__switch__grip {
 					background-color: @background-color-framed--hover;
-					border-color: @border-color-framed-progressive--hover;
+					border-color: @border-color-progressive--hover;
 				}
 			}
 
 			&:focus ~ .cdx-toggle-switch__switch {
-				border-color: @border-color-primary;
+				border-color: @border-color-progressive;
 				box-shadow: @box-shadow-base--focus;
-				outline: 0;
+				outline: @outline-base--focus;
 
 				.cdx-toggle-switch__switch__grip {
-					border-color: @border-color-primary;
+					border-color: @border-color-progressive;
 				}
 			}
 
-			&:active ~ .cdx-toggle-switch__switch {
-				background-color: @background-color-input-binary--active;
-				border-color: @border-color-input-binary--active;
-				box-shadow: @box-shadow-input-binary--active;
+			// Checked state.
+			&:checked {
+				& ~ .cdx-toggle-switch__switch {
+					background-color: @background-color-input-binary--checked;
+					border-color: @border-color-input-binary--checked;
 
-				.cdx-toggle-switch__switch__grip {
-					background-color: @background-color-base;
-					border-color: @background-color-base;
-					box-shadow: @box-shadow-input-binary;
+					// stylelint-disable-next-line max-nesting-depth
+					.cdx-toggle-switch__switch__grip {
+						border-color: @background-color-base;
+						box-shadow: @box-shadow-input-binary;
+					}
 				}
-			}
-		}
 
-		&:enabled:checked {
-			& ~ .cdx-toggle-switch__switch {
-				background-color: @background-color-input-binary--checked;
-				border-color: @border-color-input-binary--checked;
-
-				// stylelint-disable-next-line max-nesting-depth
-				.cdx-toggle-switch__switch__grip {
-					border-color: @background-color-base;
-					box-shadow: @box-shadow-input-binary;
+				&:hover ~ .cdx-toggle-switch__switch {
+					background-color: @background-color-progressive--hover;
+					border-color: @border-color-progressive--hover;
 				}
-			}
 
-			&:hover ~ .cdx-toggle-switch__switch {
-				background-color: @color-primary--hover;
-				border-color: @border-color-framed-progressive--hover;
-			}
+				&:focus ~ .cdx-toggle-switch__switch {
+					border-color: @border-color-input-binary--checked;
 
-			&:focus ~ .cdx-toggle-switch__switch {
-				border-color: @border-color-input-binary--checked;
-
-				&:before {
-					border-color: @color-base--inverted;
+					&:before {
+						border-color: @border-color-inset--focus;
+					}
 				}
 			}
 
-			&:active ~ .cdx-toggle-switch__switch {
-				background-color: @background-color-input-binary--active;
-				border-color: @border-color-input-binary--active;
+			// Override normal and checked states with higher specificity to DRY up. Put `:active`
+			// after `:focus` at 'filled' progressive components. Otherwise focus styles
+			// would be visible when actively clicked.
+			/* stylelint-disable no-descending-specificity */
+			&,
+			&:checked {
+				&:active ~ .cdx-toggle-switch__switch {
+					background-color: @background-color-progressive--active;
+					border-color: @border-color-progressive--active;
+					box-shadow: @box-shadow-base--active;
 
-				&:before {
-					border-color: @background-color-input-binary--active;
+					&:before {
+						border-color: @border-color-progressive--active;
+					}
+
+					// stylelint-disable-next-line max-nesting-depth
+					.cdx-toggle-switch__switch__grip {
+						background-color: @background-color-base;
+						border-color: @background-color-base;
+						box-shadow: @box-shadow-input-binary;
+					}
 				}
 			}
+			/* stylelint-enable no-descending-specificity */
 		}
 
 		/* stylelint-disable no-descending-specificity */
@@ -353,7 +369,7 @@ export default defineComponent( {
 
 		&:disabled:checked ~ .cdx-toggle-switch__switch {
 			.cdx-toggle-switch__switch__grip {
-				background-color: @background-color-framed;
+				background-color: @background-color-base;
 			}
 		}
 		/* stylelint-enable no-descending-specificity */
