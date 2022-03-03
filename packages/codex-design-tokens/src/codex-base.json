@@ -363,9 +363,6 @@
 		"notice": {
 			"value": "{ color.base50 }"
 		},
-		"binary": {
-			"value": "{ color.base30 }"
-		},
 		"inset--focus": {
 			"comment": "Inset focus border on progressive 'filled' components, like Checkbox. TODO: Consider `border-color-inverted--focus` instead.",
 			"value": "{ color.base--inverted }"

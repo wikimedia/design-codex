@@ -111,6 +111,11 @@
 			"value": "-{ border-width.base }"
 		}
 	},
+	"border": {
+		"input-binary": {
+			"value": "{ border-width.base } { border-style.base } { border-color.input-binary }"
+		}
+	},
 	"border-color": {
 		"divider": {
 			"value": "{ color.base50 }"
