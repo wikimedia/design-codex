@@ -162,7 +162,7 @@ Below are some sample styles for a component to demonstrate these conventions:
 
 ```less
 <style lang="less">
-@import 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 // Component-specific variables.
 @size-radio: 20 / @font-size-browser / @font-size-base;
