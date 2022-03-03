@@ -100,19 +100,19 @@
 			"value": "{ color.accent50 }"
 		},
 		"primary": {
-			"comment": "Deprecated: Replace by `color-progressive`. In use in many non-button applications.",
+			"deprecated": "In use in many non-button applications.",
 			"value": "{ color.progressive }"
 		},
 		"primary--hover": {
-			"comment": "Deprecated: Replace by `color-progressive--hover`.",
+			"deprecated": true,
 			"value": "{ color.progressive--hover }"
 		},
 		"primary--active": {
-			"comment": "Deprecated: Replace by `color-progressive--active`.",
+			"deprecated": true,
 			"value": "{ color.progressive--active }"
 		},
 		"primary--focus": {
-			"comment": "Deprecated: Replace by `color-progressive--focus`.",
+			"deprecated": true,
 			"value": "{ color.progressive--focus }"
 		},
 		"destructive": {

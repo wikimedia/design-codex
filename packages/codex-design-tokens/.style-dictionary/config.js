@@ -12,7 +12,7 @@ const StyleDictionary = require( 'style-dictionary' ),
 				buildPath: 'dist/',
 				files: [ {
 					destination: 'theme-wikimedia-ui.scss',
-					format: 'scss/variables',
+					format: 'custom/format/scss',
 				} ],
 			},
 			css: {
@@ -22,7 +22,7 @@ const StyleDictionary = require( 'style-dictionary' ),
 				buildPath: 'dist/',
 				files: [ {
 					destination: 'theme-wikimedia-ui.css',
-					format: 'css/variables',
+					format: 'custom/format/css',
 				} ],
 			},
 			less: {
@@ -32,7 +32,7 @@ const StyleDictionary = require( 'style-dictionary' ),
 				buildPath: 'dist/',
 				files: [ {
 					destination: 'theme-wikimedia-ui.less',
-					format: 'less/variables',
+					format: 'custom/format/less'
 				} ],
 			},
 			json: {
@@ -65,4 +65,4 @@ codexStyleDictionary.registerTransform( {
 	transformer: kebabCase,
 } );
 
-codexStyleDictionary.buildAllPlatforms();
+module.exports = codexStyleDictionary;

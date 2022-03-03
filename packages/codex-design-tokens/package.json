@@ -20,7 +20,7 @@
 	"scripts": {
 		"prepare": "npm run build",
 		"build": "npm run clean && npm run build:tokens",
-		"build:tokens": "node ./.style-dictionary/config.js",
+		"build:tokens": "node ./.style-dictionary/build.js",
 		"build-if-missing": "test -e dist/index.json || npm run build",
 		"clean": "rm -rf ./dist",
 		"test": "npm run test:unit",
