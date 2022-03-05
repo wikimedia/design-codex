@@ -8,6 +8,15 @@
 	--font-family-serif: 'Charter', 'Georgia', serif;
 }
 
+html,
+body {
+	/* Use `initial` to overwrite VitePress' absolute font sizing.
+	 * We can't use `unset` due to cross-browser compatibility right now.
+	 * See T303100.
+	 */
+	font-size: initial;
+}
+
 h1 {
 	font-family: var( --font-family-serif );
 	font-weight: normal;
