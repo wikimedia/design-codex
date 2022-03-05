@@ -157,12 +157,10 @@ export default defineComponent( {
 	transition-duration: @transition-duration-base;
 
 	&--enabled {
-		// TODO tokenize once T302181 is resolved
-		cursor: pointer;
-
 		&:hover,
 		&.cdx-option--highlighted {
 			background-color: @background-color-base--hover;
+			cursor: @cursor-base--hover;
 		}
 	}
 
@@ -188,8 +186,7 @@ export default defineComponent( {
 	}
 
 	&--disabled {
-		// TODO tokenize once T302181 is resolved
-		cursor: default;
+		cursor: @cursor-base--disabled;
 	}
 }
 </style>

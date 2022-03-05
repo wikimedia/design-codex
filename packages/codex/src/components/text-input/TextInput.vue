@@ -272,8 +272,8 @@ export default defineComponent( {
 
 /* The clear icon result in a pointer cursor on hover. */
 .cdx-text-input--clearable {
-	.cdx-text-input__end-icon {
-		cursor: pointer;
+	.cdx-text-input__end-icon:hover {
+		cursor: @cursor-base--hover;
 	}
 }
 

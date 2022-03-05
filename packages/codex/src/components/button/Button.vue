@@ -75,7 +75,6 @@ export default defineComponent( {
 // TODO: Tokenize.
 @background-color-normal-progressive--active: lighten( @color-progressive--active, 60% );
 @background-color-normal-destructive--active: lighten( @color-destructive--active, 60% );
-@cursor-pointer: pointer;
 
 .cdx-button {
 	box-sizing: @box-sizing-base;
@@ -120,9 +119,12 @@ export default defineComponent( {
 
 	&:enabled {
 		color: @color-base;
-		// Use hand cursor. This is nonstandard for a button but allows for a visible
-		// interactivity distinction from the disabled state.
-		cursor: @cursor-pointer;
+
+		&:hover {
+			// Use hand cursor. This is nonstandard for a button but allows for a visible
+			// interactivity distinction from the disabled state.
+			cursor: @cursor-base--hover;
+		}
 
 		&:focus {
 			border-color: @border-color-base--focus;

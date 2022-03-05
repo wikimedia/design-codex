@@ -237,8 +237,6 @@ export default defineComponent( {
 		line-height: @line-height-component;
 		transition-property: @transition-property-base;
 		transition-duration: @transition-base;
-		// TODO tokenize once T302181 is resolved
-		cursor: pointer;
 
 		&--has-icon {
 			padding-left: ( @padding-horizontal-base * 2 ) + @size-icon;
@@ -248,6 +246,7 @@ export default defineComponent( {
 			background-color: @background-color-framed--hover;
 			color: @color-base--hover;
 			border-color: @border-color-base--hover;
+			cursor: @cursor-base--hover;
 
 			.cdx-select__indicator {
 				color: @color-base--hover;
@@ -295,8 +294,7 @@ export default defineComponent( {
 			// This has never gone through design review and was a hack to increase
 			// color contrast.
 			// text-shadow: @text-shadow-base--disabled;
-			// TODO tokenize once T302181 is resolved
-			cursor: default;
+			cursor: @cursor-base--disabled;
 
 			&:hover .cdx-select__indicator {
 				color: @color-base--disabled;

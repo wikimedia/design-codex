@@ -15,10 +15,6 @@
 
 @border-width-input-radio--checked: unit( ( 6 / @font-size-browser / @font-size-base-value ), em );
 
-// TODO: Remove with I753c3fd9a271a15ec9 in place:
-@cursor-base--disabled: default;
-@cursor-base--hover: pointer;
-
 // Common styles for checkboxes and radios.
 .cdx-mixin-binary-input() {
 	&:not( &--inline ) {
@@ -58,10 +54,9 @@
 		// Create a stacking context.
 		z-index: 0;
 		line-height: @size-input-binary;
-		cursor: @cursor-base--hover;
 
-		&[ aria-disabled='true' ] {
-			cursor: @cursor-base--disabled;
+		&[ aria-disabled='false' ]:hover {
+			cursor: @cursor-base--hover;
 		}
 	}
 
