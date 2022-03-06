@@ -17,6 +17,7 @@
 					<pre>{{ propControl.name }}</pre>
 				</td>
 				<td>
+					<!-- needs template because v-if and v-for clash -->
 					<template v-if="propControl.type === 'radio'">
 						<cdx-radio
 							v-for="option in propControl.options"
@@ -31,20 +32,18 @@
 						</cdx-radio>
 					</template>
 
-					<template v-if="propControl.type === 'text'">
-						<cdx-text-input
-							:model-value="propControl.value"
-							@update:model-value="emitControlChange( propControl.name, $event )"
-						/>
-					</template>
+					<cdx-text-input
+						v-if="propControl.type === 'text'"
+						:model-value="propControl.value"
+						@update:model-value="emitControlChange( propControl.name, $event )"
+					/>
 
-					<template v-if="propControl.type === 'boolean'">
-						<cdx-toggle-switch
-							:model-value="propControl.value"
-							:aria-label="propControl.name"
-							@update:model-value="emitControlChange( propControl.name, $event )"
-						/>
-					</template>
+					<cdx-toggle-switch
+						v-if="propControl.type === 'boolean'"
+						:model-value="propControl.value"
+						:aria-label="propControl.name"
+						@update:model-value="emitControlChange( propControl.name, $event )"
+					/>
 				</td>
 			</tr>
 
