@@ -32,17 +32,17 @@ export type MessageIconMap = {
 export type TextInputType = typeof TextInputTypes[ number ];
 
 /** @public */
-export interface MenuOption {
-	/** Option value or unique identifier. */
+export interface MenuItemData {
+	/** Item value or unique identifier. */
 	value: string | number,
-	/** Display label for the option. */
+	/** Display label for the menu item. */
 	label?: string,
 	disabled?: boolean,
 	icon?: Icon,
 	description?: string | null
 }
 
-export interface MenuOptionWithId extends MenuOption {
+export interface MenuItemDataWithId extends MenuItemData {
 	id: string
 }
 export type MenuState = typeof MenuStates[ number ];
@@ -57,14 +57,14 @@ export interface SearchResultThumbnail {
 }
 
 /** @public */
-export interface SearchResult extends MenuOption {
+export interface SearchResult extends MenuItemData {
 	/** Result link. */
 	url: string,
 	/** Result image. */
 	thumbnail?: SearchResultThumbnail | null;
 }
 
-export type SearchResultWithId = SearchResult & MenuOptionWithId;
+export type SearchResultWithId = SearchResult & MenuItemDataWithId;
 
 /** @public */
 export interface SearchResultClickEvent {

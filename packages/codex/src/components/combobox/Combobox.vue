@@ -42,19 +42,19 @@
 			ref="menu"
 			v-model:selected="modelWrapper"
 			v-model:expanded="expanded"
-			:options="options"
+			:menu-items="menuItems"
 		>
-			<template #default="{ option }">
+			<template #default="{ menuItem }">
 				<!--
-					@slot Display of an individual option in the menu
-					@binding {MenuOption} option The current option
+					@slot Display of an individual item in the menu
+					@binding {MenuItemData} menuItem The current menu item
 				-->
-				<slot name="menu-option" :option="option" />
+				<slot name="menu-item" :menuItem="menuItem" />
 			</template>
 
 			<template v-if="$slots.footer" #footer>
 				<!--
-					@slot Content to display at the end of the options list
+					@slot Content to display at the end of the menu items list
 				-->
 				<slot name="footer" />
 			</template>
@@ -82,10 +82,10 @@ import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 
-import { MenuOption } from '../../types';
+import { MenuItemData } from '../../types';
 
 /**
- * Text input with an adjoining button and an expandable menu of options.
+ * Text input with an adjoining button and an expandable menu of items.
  */
 export default defineComponent( {
 	name: 'CdxCombobox',
@@ -104,10 +104,10 @@ export default defineComponent( {
 
 	props: {
 		/**
-		 * Menu options. See the MenuOption type.
+		 * Menu items. See the MenuItemData type.
 		 */
-		options: {
-			type: Array as PropType<MenuOption[]>,
+		menuItems: {
+			type: Array as PropType<MenuItemData[]>,
 			required: true
 		},
 
@@ -147,7 +147,7 @@ export default defineComponent( {
 		const expanded = ref( false );
 		const expanderClicked = ref( false );
 
-		const highlightedId = computed( () => menu.value?.getHighlightedOption()?.id );
+		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
 		const internalClasses = computed( () => {
 			return {
@@ -171,7 +171,7 @@ export default defineComponent( {
 		function onInputFocus(): void {
 			if ( expanderClicked.value && expanded.value ) {
 				expanded.value = false;
-			} else if ( props.options.length > 0 || context.slots.footer ) {
+			} else if ( props.menuItems.length > 0 || context.slots.footer ) {
 				expanded.value = true;
 			}
 		}
@@ -217,7 +217,7 @@ export default defineComponent( {
 			if (
 				!menu.value ||
 				props.disabled ||
-				props.options.length === 0 ||
+				props.menuItems.length === 0 ||
 				( e.key === ' ' && expanded.value )
 			) {
 				return;

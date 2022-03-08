@@ -1,12 +1,12 @@
 <template>
 	<cdx-select
 		v-model="selection"
-		:options="options"
+		:menu-items="menuItems"
 		default-label="Choose an option"
 	>
-		<template #label="{ selectedOption, defaultLabel }">
-			<span v-if="selectedOption">
-				<span>You have selected: {{ selectedOption.label }}</span>
+		<template #label="{ selectedMenuItem, defaultLabel }">
+			<span v-if="selectedMenuItem">
+				<span>You have selected: {{ selectedMenuItem.label }}</span>
 			</span>
 			<span v-else>
 				{{ defaultLabel }}
@@ -24,7 +24,7 @@ export default defineComponent( {
 	components: { CdxSelect },
 	data() {
 		return {
-			options: [
+			menuItems: [
 				{ label: 'Option A', value: 'a' },
 				{ label: 'Option B', value: 'b' },
 				{ label: 'Option C', value: 'c' },

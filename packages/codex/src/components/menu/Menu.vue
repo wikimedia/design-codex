@@ -5,25 +5,25 @@
 		role="listbox"
 		aria-multiselectable="false"
 	>
-		<cdx-option
-			v-for="option in computedOptions"
-			:key="option.value"
-			v-bind="option"
-			:selected="option.value === selected"
-			:active="option.value === activeOption?.value"
-			:highlighted="option.value === highlightedOption?.value"
-			@change="handleOptionChange( $event, option )"
+		<cdx-menu-item
+			v-for="menuItem in computedMenuItems"
+			:key="menuItem.value"
+			v-bind="menuItem"
+			:selected="menuItem.value === selected"
+			:active="menuItem.value === activeMenuItem?.value"
+			:highlighted="menuItem.value === highlightedMenuItem?.value"
+			@change="handleMenuItemChange( $event, menuItem )"
 		>
 			<!--
-				@slot Display of an individual option in the menu
-				@binding {MenuOption} option The current option
+				@slot Display of an individual menu item in the menu
+				@binding {MenuItem} menuItem The current menu item
 			-->
-			<slot :option="option" />
-		</cdx-option>
+			<slot :menuItem="menuItem" />
+		</cdx-menu-item>
 
-		<li v-if="$slots.footer" class="cdx-option">
+		<li v-if="$slots.footer" class="cdx-menu-item">
 			<!--
-				@slot Optional content to display at the end of the options list
+				@slot Optional content to display at the end of the menu
 			-->
 			<slot name="footer" />
 		</li>
@@ -32,17 +32,17 @@
 
 <script lang="ts">
 import { defineComponent, computed, ref, toRef, watch, PropType } from 'vue';
-import CdxOption from '../option/Option.vue';
+import CdxMenuItem from '../menu-item/MenuItem.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
-import { MenuOption, MenuOptionWithId, MenuState } from '../../types';
+import { MenuItemData, MenuItemDataWithId, MenuState } from '../../types';
 
 /**
- * Dropdown menu of options.
+ * Dropdown menu of items.
  *
  * Designed for use in components, like Select and Lookup, that display a menu below another element
- * (for example, a text input). This component renders a list of items, manages which option is
+ * (for example, a text input). This component renders a list of items, manages which item is
  * selected, highlighted, and active, and handles keyboard navigation. It does not display the
- * selected option or manage an input; the parent component needs to do that.
+ * selected item or manage an input; the parent component needs to do that.
  *
  * The `selected` and `expanded` props must be bound with `v-model`, even if the parent component
  * doesn't use them. Without these `v-model` bindings, the menu won't function correctly.
@@ -54,16 +54,16 @@ import { MenuOption, MenuOptionWithId, MenuState } from '../../types';
 export default defineComponent( {
 	name: 'CdxMenu',
 	components: {
-		CdxOption
+		CdxMenuItem
 	},
 	props: {
-		/** Menu options. See the MenuOption type. */
-		options: {
-			type: Array as PropType<MenuOption[]>,
+		/** Menu items. See the MenuItemData type. */
+		menuItems: {
+			type: Array as PropType<MenuItemData[]>,
 			required: true
 		},
 		/**
-		 * Value of the selected option, or null if no option is selected.
+		 * Value of the selected menu item, or null if no item is selected.
 		 *
 		 * Must be bound with `v-model:selected`.
 		 */
@@ -79,7 +79,7 @@ export default defineComponent( {
 			required: true
 		},
 		/**
-		 * Whether to automatically select the highlighted option when the highlight is moved
+		 * Whether to automatically select the highlighted menu item when the highlight is moved
 		 * with the arrow keys.
 		 */
 		selectHighlighted: {
@@ -91,10 +91,10 @@ export default defineComponent( {
 		// Don't remove the spaces in the "string | number | null" type below; removing these spaces
 		// causes the documentation to render the type as "union" instead.
 		/**
-		 * When the selected option changes.
+		 * When the selected menu item changes.
 		 *
 		 * @property {string|number|null} selectedValue The `.value` property of the selected
-		 *   option, or null if no option is selected.
+		 *   menu item, or null if no item is selected.
 		 */
 		'update:selected',
 		/**
@@ -106,55 +106,55 @@ export default defineComponent( {
 	],
 	expose: [
 		'clearActive',
-		'getHighlightedOption',
+		'getHighlightedMenuItem',
 		'delegateKeyNavigation'
 	],
 	setup( props, { emit } ) {
 		/**
-		 * Computed array of menu options with unique IDs added; other methods and properties should
-		 * reference this value instead of the original options prop.
+		 * Computed array of menu menu items with unique IDs added; other methods and properties
+		 * should reference this value instead of the original menuItems prop.
 		 */
-		const computedOptions = computed( (): MenuOptionWithId[] => {
-			const generateOptionId = () => useGeneratedId( 'option' ).value;
-			return props.options.map( ( option ) => ( {
-				...option,
-				id: generateOptionId()
+		const computedMenuItems = computed( (): MenuItemDataWithId[] => {
+			const generateMenuItemId = () => useGeneratedId( 'menu-item' ).value;
+			return props.menuItems.map( ( menuItem ) => ( {
+				...menuItem,
+				id: generateMenuItemId()
 			} ) );
 		} );
 
-		const highlightedOption = ref<MenuOptionWithId|null>( null );
-		const activeOption = ref<MenuOptionWithId|null>( null );
+		const highlightedMenuItem = ref<MenuItemDataWithId|null>( null );
+		const activeMenuItem = ref<MenuItemDataWithId|null>( null );
 
-		function findSelectedOption(): MenuOptionWithId|undefined {
-			return computedOptions.value.find(
-				( option ) => option.value === props.selected
+		function findSelectedMenuItem(): MenuItemDataWithId|undefined {
+			return computedMenuItems.value.find(
+				( menuItem ) => menuItem.value === props.selected
 			);
 		}
 
 		/**
-		 * Handle various option changes.
+		 * Handle various menu item changes.
 		 *
 		 * @param menuState
-		 * @param option
+		 * @param menuItem
 		 */
-		function handleOptionChange( menuState: MenuState, option?: MenuOptionWithId ) {
-			if ( option && option.disabled ) {
+		function handleMenuItemChange( menuState: MenuState, menuItem?: MenuItemDataWithId ) {
+			if ( menuItem && menuItem.disabled ) {
 				return;
 			}
 
 			switch ( menuState ) {
 				case 'selected':
-					emit( 'update:selected', option?.value || null );
+					emit( 'update:selected', menuItem?.value || null );
 					emit( 'update:expanded', false );
-					activeOption.value = null;
+					activeMenuItem.value = null;
 					break;
 
 				case 'highlighted':
-					highlightedOption.value = option || null;
+					highlightedMenuItem.value = menuItem || null;
 					break;
 
 				case 'active':
-					activeOption.value = option || null;
+					activeMenuItem.value = menuItem || null;
 					break;
 			}
 		}
@@ -162,46 +162,46 @@ export default defineComponent( {
 		// Key navigation handling.
 
 		/**
-		 * Returns the index of the currently highlighted option.
+		 * Returns the index of the currently highlighted menu item.
 		 */
-		const highlightedOptionIndex = computed( () => {
-			if ( highlightedOption.value === null ) {
+		const highlightedMenuItemIndex = computed( () => {
+			if ( highlightedMenuItem.value === null ) {
 				return;
 			}
 
-			return computedOptions.value.findIndex( ( option ) =>
+			return computedMenuItems.value.findIndex( ( menuItem ) =>
 				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-				option.value === highlightedOption.value!.value
+				menuItem.value === highlightedMenuItem.value!.value
 			);
 		} );
 
 		/**
 		 * Handle changes related to highlighting a new item.
 		 *
-		 * @param newHighlightedOption
+		 * @param newHighlightedMenuItem
 		 */
-		function handleHighlight( newHighlightedOption?: MenuOptionWithId ) {
-			if ( !newHighlightedOption ) {
+		function handleHighlight( newHighlightedMenuItem?: MenuItemDataWithId ) {
+			if ( !newHighlightedMenuItem ) {
 				return;
 			}
 
 			// Change menu state.
-			handleOptionChange( 'highlighted', newHighlightedOption );
+			handleMenuItemChange( 'highlighted', newHighlightedMenuItem );
 
 			if ( props.selectHighlighted ) {
-				emit( 'update:selected', newHighlightedOption.value );
+				emit( 'update:selected', newHighlightedMenuItem.value );
 			}
 		}
 
 		/**
-		 * Highlights the previous enabled option.
+		 * Highlights the previous enabled menu item.
 		 */
 		function highlightPrev() {
-			const findPrevEnabled = ( startIndex: number ) : MenuOptionWithId|undefined => {
+			const findPrevEnabled = ( startIndex: number ) : MenuItemDataWithId|undefined => {
 				let found;
 				for ( let index = startIndex - 1; index >= 0; index-- ) {
-					if ( !computedOptions.value[ index ].disabled ) {
-						found = computedOptions.value[ index ];
+					if ( !computedMenuItems.value[ index ].disabled ) {
+						found = computedMenuItems.value[ index ];
 						break;
 					}
 				}
@@ -210,24 +210,25 @@ export default defineComponent( {
 
 			// Start at the currently highlighted index if there is one, otherwise, start past the
 			// end of the list so we can begin with the last item on the list.
-			const highlightedIndex = highlightedOptionIndex.value ?? computedOptions.value.length;
+			const highlightedIndex = highlightedMenuItemIndex.value ??
+				computedMenuItems.value.length;
 			// Find the previous index, if there is one. Otherwise, start at the end.
 			const prev = findPrevEnabled( highlightedIndex ) ||
-				findPrevEnabled( computedOptions.value.length );
+				findPrevEnabled( computedMenuItems.value.length );
 
 			handleHighlight( prev );
 		}
 
 		/**
-		 * Highlights the next enabled option.
+		 * Highlights the next enabled menu item.
 		 */
 		function highlightNext() {
-			const findNextEnabled = ( startIndex: number ) : MenuOptionWithId|undefined =>
-				computedOptions.value.find( ( item, index ) =>
+			const findNextEnabled = ( startIndex: number ) : MenuItemDataWithId|undefined =>
+				computedMenuItems.value.find( ( item, index ) =>
 					!item.disabled && index > startIndex );
 
 			// Start at the currently highlighted index if there is one, otherwise, start at -1.
-			const highlightedIndex = highlightedOptionIndex.value ?? -1;
+			const highlightedIndex = highlightedMenuItemIndex.value ?? -1;
 			// Find the next index, if there is one, otherwise find the first item so we can
 			// loop back
 			const next = findNextEnabled( highlightedIndex ) || findNextEnabled( -1 );
@@ -249,7 +250,7 @@ export default defineComponent( {
 			 */
 			function handleExpandMenu() {
 				emit( 'update:expanded', true );
-				handleOptionChange( 'highlighted', findSelectedOption() );
+				handleMenuItemChange( 'highlighted', findSelectedMenuItem() );
 			}
 
 			function maybePrevent() {
@@ -265,9 +266,9 @@ export default defineComponent( {
 					maybePrevent();
 
 					if ( props.expanded ) {
-						// Select the highlighted option then close the menu.
-						if ( highlightedOption.value ) {
-							emit( 'update:selected', highlightedOption.value.value );
+						// Select the highlighted menu item then close the menu.
+						if ( highlightedMenuItem.value ) {
+							emit( 'update:selected', highlightedMenuItem.value.value );
 						}
 						emit( 'update:expanded', false );
 					} else {
@@ -276,9 +277,9 @@ export default defineComponent( {
 					return true;
 				case 'Tab':
 					if ( props.expanded ) {
-						// Select the highlighted option then close the menu.
-						if ( highlightedOption.value ) {
-							emit( 'update:selected', highlightedOption.value.value );
+						// Select the highlighted menu item then close the menu.
+						if ( highlightedMenuItem.value ) {
+							emit( 'update:selected', highlightedMenuItem.value.value );
 						}
 						emit( 'update:expanded', false );
 					}
@@ -312,16 +313,16 @@ export default defineComponent( {
 
 		// Clear the highlight states when the menu is closed.
 		watch( toRef( props, 'expanded' ), ( newVal ) => {
-			if ( !newVal && highlightedOption.value ) {
-				highlightedOption.value = null;
+			if ( !newVal && highlightedMenuItem.value ) {
+				highlightedMenuItem.value = null;
 			}
 		} );
 
 		return {
-			computedOptions,
-			highlightedOption,
-			activeOption,
-			handleOptionChange,
+			computedMenuItems,
+			highlightedMenuItem,
+			activeMenuItem,
+			handleMenuItemChange,
 			handleKeyNavigation
 		};
 	},
@@ -330,23 +331,23 @@ export default defineComponent( {
 	// won't be picked up by vue-docgen
 	methods: {
 		/**
-		 * Get the highlighted option, if any.
+		 * Get the highlighted menu item, if any.
 		 *
 		 * @public
-		 * @return {MenuOptionWithId|null} The highlighted option,
-		 *   or null if no option is highlighted.
+		 * @return {MenuItemDataWithId|null} The highlighted menu item,
+		 *   or null if no item is highlighted.
 		 */
-		getHighlightedOption(): MenuOptionWithId|null {
-			return this.highlightedOption;
+		getHighlightedMenuItem(): MenuItemDataWithId|null {
+			return this.highlightedMenuItem;
 		},
 
 		/**
-		 * Ensure no option is active. This unsets the active option if there is one.
+		 * Ensure no menu item is active. This unsets the active item if there is one.
 		 *
 		 * @public
 		 */
 		clearActive(): void {
-			this.handleOptionChange( 'active' );
+			this.handleMenuItemChange( 'active' );
 		},
 
 		/**

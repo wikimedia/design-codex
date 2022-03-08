@@ -6,7 +6,7 @@
 
 		<cdx-combobox
 			v-model="selection"
-			:options="options"
+			:menu-items="menuItems"
 			placeholder="Type or choose an option"
 			:start-icon="icon"
 			:clearable="true"
@@ -16,10 +16,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CdxCombobox, MenuOption } from '@wikimedia/codex';
+import { CdxCombobox, MenuItemData } from '@wikimedia/codex';
 import { cdxIconSearch } from '@wikimedia/codex-icons';
 
-const options: MenuOption[] = [
+const menuItems: MenuItemData[] = [
 	{ label: 'a', value: 'a' },
 	{ label: 'b', value: 'b' },
 	{ label: 'c', value: 'c' }
@@ -31,7 +31,7 @@ export default defineComponent( {
 
 	data() {
 		return {
-			options: options,
+			menuItems,
 			selection: '',
 			icon: cdxIconSearch
 		};

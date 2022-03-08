@@ -24,7 +24,7 @@ internally.
 </template>
 </cdx-demo-wrapper>
 
-### Menu with footer and custom option rendering
+### Menu with footer and custom menu item display
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

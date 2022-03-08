@@ -2,10 +2,10 @@
 	<div>
 		<cdx-combobox
 			v-model="selection"
-			:options="options"
+			:menu-items="menuItems"
 			placeholder="Type or choose an option"
 		>
-			<template v-if="options.length < 1" #footer>
+			<template v-if="menuItems.length < 1" #footer>
 				Sorry, no options to display.
 			</template>
 		</cdx-combobox>
@@ -14,9 +14,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CdxCombobox, MenuOption } from '@wikimedia/codex';
+import { CdxCombobox, MenuItemData } from '@wikimedia/codex';
 
-const options: MenuOption[] = [];
+const menuItems: MenuItemData[] = [];
 
 export default defineComponent( {
 	name: 'ComboboxNoResults',
@@ -24,7 +24,7 @@ export default defineComponent( {
 
 	data() {
 		return {
-			options: options,
+			menuItems,
 			selection: ''
 		};
 	}

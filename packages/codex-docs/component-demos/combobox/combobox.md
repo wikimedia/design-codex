@@ -1,7 +1,7 @@
 <script setup>
 import ComboboxBasic from '@/../component-demos/combobox/examples/ComboboxBasic.vue';
 import ComboboxClearableStartIcon from '@/../component-demos/combobox/examples/ComboboxClearableStartIcon.vue';
-import ComboboxCustomOption from '@/../component-demos/combobox/examples/ComboboxCustomOption.vue';
+import ComboboxCustomMenuItem from '@/../component-demos/combobox/examples/ComboboxCustomMenuItem.vue';
 import ComboboxNoResults from '@/../component-demos/combobox/examples/ComboboxNoResults.vue';
 </script>
 
@@ -19,9 +19,9 @@ element within the component.
 
 ### Basic Usage
 
-The Combobox component combines a menu of selectable options with a text box
+The Combobox component combines a menu of selectable items with a text box
 that can accept arbitrary input from the user. The component should receive a
-`v-model` binding from its parent as well as an array of options (which can be
+`v-model` binding from its parent as well as an array of menu items (which can be
 empty).
 
 <cdx-demo-wrapper>
@@ -57,20 +57,20 @@ passed on to the embedded `TextInput`.
 
 </cdx-demo-wrapper>
 
-### With custom option format
+### With custom menu item display
 
-Like other menu-style components (`Select`, `Lookup`, etc.), a custom option
-template can be provided via the `#menu-option` slot.
+Like other menu-style components (`Select`, `Lookup`, etc.), a custom menu item
+template can be provided via the `#menu-item` slot.
 
 <cdx-demo-wrapper>
 
 <template v-slot:demo>
-<combobox-custom-option />
+<combobox-custom-menu-item />
 </template>
 
 <template v-slot:code>
 
-<<< @/../component-demos/combobox/examples/ComboboxCustomOption.vue
+<<< @/../component-demos/combobox/examples/ComboboxCustomMenuItem.vue
 
 </template>
 
@@ -78,7 +78,7 @@ template can be provided via the `#menu-option` slot.
 
 ### With footer content
 
-A non-clickable footer can be added to the end of the options menu via the `#footer` slot.
+A non-clickable footer can be added to the end of the menu via the `#footer` slot.
 
 <cdx-demo-wrapper>
 

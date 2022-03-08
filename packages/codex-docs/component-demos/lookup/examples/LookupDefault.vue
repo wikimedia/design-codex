@@ -6,7 +6,7 @@
 
 		<cdx-lookup
 			v-model="selection"
-			:options="menuOptions"
+			:menu-items="menuItems"
 			@new-input="onInput"
 		/>
 	</div>
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { CdxLookup, MenuOption } from '@wikimedia/codex';
+import { CdxLookup, MenuItemData } from '@wikimedia/codex';
 import vegetableItems from './data';
 
 export default defineComponent( {
@@ -22,11 +22,11 @@ export default defineComponent( {
 	components: { CdxLookup },
 	setup() {
 		const selection = ref( '' );
-		const menuOptions = ref<MenuOption[]>( [] );
+		const menuItems = ref<MenuItemData[]>( [] );
 
 		function onInput( value: string ) {
 			if ( value ) {
-				menuOptions.value = vegetableItems.filter( ( item ) =>
+				menuItems.value = vegetableItems.filter( ( item ) =>
 					item.label.includes( value )
 				);
 			}
@@ -34,7 +34,7 @@ export default defineComponent( {
 
 		return {
 			selection,
-			menuOptions,
+			menuItems,
 			onInput
 		};
 	}

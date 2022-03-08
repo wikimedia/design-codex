@@ -63,8 +63,8 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="cdx-option cdx-option--enabled"
-      id="cdx-option-2"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-2"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -75,8 +75,8 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="cdx-option cdx-option--enabled"
-      id="cdx-option-3"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-3"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -87,8 +87,8 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="cdx-option cdx-option--enabled"
-      id="cdx-option-4"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-4"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -99,8 +99,8 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
     <li
       aria-disabled="true"
       aria-selected="false"
-      class="cdx-option cdx-option--disabled"
-      id="cdx-option-5"
+      class="cdx-menu-item cdx-menu-item--disabled"
+      id="cdx-menu-item-5"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -144,8 +144,8 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
     <li
       aria-disabled="false"
       aria-selected="true"
-      class="cdx-option cdx-option--selected cdx-option--enabled"
-      id="cdx-option-7"
+      class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+      id="cdx-menu-item-7"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -156,8 +156,8 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="cdx-option cdx-option--enabled"
-      id="cdx-option-8"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-8"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -168,8 +168,8 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="cdx-option cdx-option--enabled"
-      id="cdx-option-9"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-9"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -180,8 +180,8 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
     <li
       aria-disabled="true"
       aria-selected="false"
-      class="cdx-option cdx-option--disabled"
-      id="cdx-option-10"
+      class="cdx-menu-item cdx-menu-item--disabled"
+      id="cdx-menu-item-10"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -258,14 +258,14 @@ exports[`Basic usage Case 4 With footer content: ([]) => HTML 1`] = `
     
     
     <li
-      class="cdx-option"
+      class="cdx-menu-item"
     >
       <!--
-				@slot Optional content to display at the end of the options list
+				@slot Optional content to display at the end of the menu
 			-->
       
       <!--
-					@slot Content to display at the end of the options list
+					@slot Content to display at the end of the menu items list
 				-->
       
       No results

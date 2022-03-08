@@ -6,11 +6,11 @@
 
 		<cdx-combobox
 			v-model="selection"
-			:options="options"
+			:menu-items="menuItems"
 			placeholder="Type or choose an option"
 		>
-			<template #menu-option="{ option }">
-				<cdx-icon v-if="option.icon" :icon="option.icon" />
+			<template #menu-item="{ menuItem }">
+				<cdx-icon v-if="menuItem.icon" :icon="menuItem.icon" />
 			</template>
 		</cdx-combobox>
 	</div>
@@ -18,22 +18,22 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CdxCombobox, CdxIcon, MenuOption } from '@wikimedia/codex';
+import { CdxCombobox, CdxIcon, MenuItemData } from '@wikimedia/codex';
 import { cdxIconCamera, cdxIconBook, cdxIconClock } from '@wikimedia/codex-icons';
 
-const options: MenuOption[] = [
+const menuItems: MenuItemData[] = [
 	{ value: 'camera', icon: cdxIconCamera },
 	{ value: 'book', icon: cdxIconBook },
 	{ value: 'clock', icon: cdxIconClock }
 ];
 
 export default defineComponent( {
-	name: 'ComboboxCustomOption',
+	name: 'ComboboxCustomMenuItem',
 	components: { CdxCombobox, CdxIcon },
 
 	data() {
 		return {
-			options: options,
+			menuItems,
 			selection: ''
 		};
 	}

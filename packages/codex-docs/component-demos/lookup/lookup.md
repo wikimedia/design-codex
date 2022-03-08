@@ -1,6 +1,6 @@
 <script setup>
 import LookupDefault from '@/../component-demos/lookup/examples/LookupDefault.vue';
-import LookupWithCustomOption from '@/../component-demos/lookup/examples/LookupWithCustomOption.vue';
+import LookupWithCustomMenuItem from '@/../component-demos/lookup/examples/LookupWithCustomMenuItem.vue';
 import LookupNoResults from '@/../component-demos/lookup/examples/LookupNoResults.vue';
 import LookupWithFetch from '@/../component-demos/lookup/examples/LookupWithFetch.vue';
 import LookupClearableStartIcon from '@/../component-demos/lookup/examples/LookupClearableStartIcon.vue';
@@ -22,10 +22,10 @@ element within the component.
 ### Default
 
 The Lookup component will emit `new-input` events on input, which the parent component can
-react to by computing or fetching options, then providing those options to the Lookup component for
+react to by computing or fetching menu items, then providing those items to the Lookup component for
 display.
 
-Note that in this example, options are Wikidata items with a human-readable label and a Wikidata
+Note that in this example, menu items are Wikidata items with a human-readable label and a Wikidata
 entity ID value.
 
 <cdx-demo-wrapper>
@@ -39,24 +39,24 @@ entity ID value.
 </template>
 </cdx-demo-wrapper>
 
-### With custom option format
+### With custom menu item display
 
-The `menu-option` slot can be used to set up custom option content and formatting.
+The `menu-item` slot can be used to set up custom menu item content and formatting.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<lookup-with-custom-option />
+<lookup-with-custom-menu-item />
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/lookup/examples/LookupWithCustomOption.vue
+<<< @/../component-demos/lookup/examples/LookupWithCustomMenuItem.vue
 
 </template>
 </cdx-demo-wrapper>
 
 ### With footer content
 
-The `footer` slot can be used to display non-interactive content below the final option. For
+The `footer` slot can be used to display non-interactive content below the final menu item. For
 example, a "no result found" message can be conditionally displayed.
 
 <cdx-demo-wrapper>
@@ -74,8 +74,8 @@ example, a "no result found" message can be conditionally displayed.
 
 Often, a Lookup component is used to fetch results from an API endpoint. Parent components can react
 to the `new-input` event emitted by Lookup to search for results, then pass back to the
-Lookup either an array of results to display as options or an empty array if there are no results.
-Between those two events, a pending state animation will display in the input.
+Lookup either an array of results to display as menu items or an empty array if there are no
+results. Between those two events, a pending state animation will display in the input.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

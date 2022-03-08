@@ -2,16 +2,19 @@
 	<div>
 		<cdx-lookup
 			v-model="selection"
-			class="cdx-docs-lookup-custom-option"
-			:options="menuOptions"
+			class="cdx-docs-lookup-custom-menu-item"
+			:menu-items="menuItems"
 			@new-input="onInput"
 		>
-			<template #menu-option="{ option }">
-				<p class="cdx-docs-lookup-custom-option__label">
-					{{ option.label || option.value }}
+			<template #menu-item="{ menuItem }">
+				<p class="cdx-docs-lookup-custom-menu-item__label">
+					{{ menuItem.label || menuItem.value }}
 				</p>
-				<p v-if="option.description" class="cdx-docs-lookup-custom-option__description">
-					{{ option.description }}
+				<p
+					v-if="menuItem.description"
+					class="cdx-docs-lookup-custom-menu-item__description"
+				>
+					{{ menuItem.description }}
 				</p>
 			</template>
 		</cdx-lookup>
@@ -20,19 +23,19 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { CdxLookup, MenuOption } from '@wikimedia/codex';
+import { CdxLookup, MenuItemData } from '@wikimedia/codex';
 import vegetableItems from './data';
 
 export default defineComponent( {
-	name: 'LookupCustomOption',
+	name: 'LookupCustomMenuItem',
 	components: { CdxLookup },
 	setup() {
 		const selection = ref( '' );
-		const menuOptions = ref<MenuOption[]>( [] );
+		const menuItems = ref<MenuItemData[]>( [] );
 
 		function onInput( value: string ) {
 			if ( value ) {
-				menuOptions.value = vegetableItems.filter( ( item ) =>
+				menuItems.value = vegetableItems.filter( ( item ) =>
 					item.label.includes( value )
 				);
 			}
@@ -40,7 +43,7 @@ export default defineComponent( {
 
 		return {
 			selection,
-			menuOptions,
+			menuItems,
 			onInput
 		};
 	}
@@ -48,7 +51,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less" scoped>
-.cdx-docs-lookup-custom-option {
+.cdx-docs-lookup-custom-menu-item {
 	p {
 		margin: 0;
 	}

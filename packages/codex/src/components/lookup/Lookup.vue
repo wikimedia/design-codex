@@ -25,19 +25,19 @@
 			ref="menu"
 			v-model:selected="modelWrapper"
 			v-model:expanded="expanded"
-			:options="options"
+			:menu-items="menuItems"
 		>
-			<template #default="{ option }">
+			<template #default="{ menuItem }">
 				<!--
-					@slot Display of an individual option in the menu
-					@binding {MenuOption} option The current option
+					@slot Display of an individual item in the menu
+					@binding {MenuItemData} menuItem The current menu item
 				-->
-				<slot name="menu-option" :option="option" />
+				<slot name="menu-item" :menuItem="menuItem" />
 			</template>
 
 			<template v-if="$slots.footer" #footer>
 				<!--
-					@slot Content to display at the end of the options list
+					@slot Content to display at the end of the menu items list
 				-->
 				<slot name="footer" />
 			</template>
@@ -60,14 +60,13 @@ import CdxTextInput from '../text-input/TextInput.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
-import { MenuOption } from '../../types';
+import { MenuItemData } from '../../types';
 
 /**
- * Menu component with a text input and a menu of options.
+ * Text input with a dropdown menu of items, which are usually based on the current input value.
  *
- * Options will depend on the current value of the input. Typical use will
- * involve listening for `new-input` events, fetching or otherwise
- * computing options, then passing those options back to the Lookup for display.
+ * Typical use will involve listening for `new-input` events, fetching or otherwise computing menu
+ * items, then passing those menu items back to the Lookup for display.
  */
 export default defineComponent( {
 	name: 'CdxLookup',
@@ -94,10 +93,10 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Menu options.
+		 * Menu items.
 		 */
-		options: {
-			type: Array as PropType<MenuOption[]>,
+		menuItems: {
+			type: Array as PropType<MenuItemData[]>,
 			default: () => []
 		},
 
@@ -142,10 +141,10 @@ export default defineComponent( {
 
 		const modelValueProp = toRef( props, 'modelValue' );
 		const modelWrapper = useModelWrapper( modelValueProp, context.emit );
-		const selectedOption = computed( () =>
-			props.options.find( ( option ) => option.value === props.modelValue )
+		const selectedMenuItem = computed( () =>
+			props.menuItems.find( ( item ) => item.value === props.modelValue )
 		);
-		const highlightedId = computed( () => menu.value?.getHighlightedOption()?.id );
+		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
 		// This should not be reactive, so we just read the initial value.
 		const inputValue = ref( props.initialInputValue );
@@ -172,9 +171,9 @@ export default defineComponent( {
 		function onUpdateInput( newVal: string|number ) {
 			// If there is a selection and it doesn't match the new value, clear it.
 			if (
-				selectedOption.value &&
-				selectedOption.value.label !== newVal &&
-				selectedOption.value.value !== newVal
+				selectedMenuItem.value &&
+				selectedMenuItem.value.label !== newVal &&
+				selectedMenuItem.value.value !== newVal
 			) {
 				modelWrapper.value = null;
 			}
@@ -191,10 +190,10 @@ export default defineComponent( {
 		}
 
 		/**
-		 * On focus, if there are options or footer content, open the menu.
+		 * On focus, if there are menu items or footer content, open the menu.
 		 */
 		function onFocus() {
-			if ( props.options.length > 0 || context.slots.footer ) {
+			if ( props.menuItems.length > 0 || context.slots.footer ) {
 				expanded.value = true;
 			}
 		}
@@ -210,7 +209,7 @@ export default defineComponent( {
 		 * Conditionally handle key navigation of the menu.
 		 *
 		 * For this component, the user should only be able to use key navigation to open the menu
-		 * if there are options (or footer slot content) to display.
+		 * if there are menu items (or footer slot content) to display.
 		 *
 		 * Additionally, the space key should be able to open the menu, but otherwise it should
 		 * do its default function of adding a space character.
@@ -220,7 +219,7 @@ export default defineComponent( {
 		function onKeydown( e: KeyboardEvent ) {
 			if ( !menu.value ||
 				props.disabled ||
-				( props.options.length === 0 && !context.slots.footer ) ||
+				( props.menuItems.length === 0 && !context.slots.footer ) ||
 				( e.key === ' ' && expanded.value )
 			) {
 				return;
@@ -232,38 +231,38 @@ export default defineComponent( {
 		watch( modelValueProp, ( newVal ) => {
 			// If there is a newVal, including an empty string...
 			if ( newVal !== null ) {
-				// If there is an option selected, show the label (or the value, if there is no
+				// If there is a menu item selected, show the label (or the value, if there is no
 				// label). Otherwise, set the input to empty.
-				inputValue.value = selectedOption.value ?
-					( selectedOption.value.label || selectedOption.value.value ) :
+				inputValue.value = selectedMenuItem.value ?
+					( selectedMenuItem.value.label || selectedMenuItem.value.value ) :
 					'';
 			}
 		} );
 
-		// When the options change, maybe show the menu.
+		// When the menu items change, maybe show the menu.
 		// This is the main method of opening menu of the Lookup component, since showing the menu
-		// depends mostly on whether there are any options to show.
-		watch( toRef( props, 'options' ), ( newVal ) => {
+		// depends mostly on whether there are any items to show.
+		watch( toRef( props, 'menuItems' ), ( newVal ) => {
 			pending.value = false;
 
-			const inputValueIsSelection = !!selectedOption.value && (
-				selectedOption.value.label === inputValue.value ||
-				selectedOption.value.value === inputValue.value
+			const inputValueIsSelection = !!selectedMenuItem.value && (
+				selectedMenuItem.value.label === inputValue.value ||
+				selectedMenuItem.value.value === inputValue.value
 			);
 
 			// Show the menu under certain conditions.
 			if (
-				// If there are options to show, and the input value is not equal to the current
-				// selection (which excludes the case where, upon selecting an option,
-				// computedOptions change, but we don't want the menu to be open anymore).
+				// If there are menu items to show, and the input value is not equal to the current
+				// selection (which excludes the case where, upon selecting a menu item,
+				// computedMenuItems change, but we don't want the menu to be open anymore).
 				newVal.length > 0 && !inputValueIsSelection ||
-				// If there are no options but there is footer content.
+				// If there are no menu items but there is footer content.
 				newVal.length === 0 && context.slots.footer
 			) {
 				expanded.value = true;
 			}
 
-			// Hide the menu if there are no options and no footer content.
+			// Hide the menu if there are no menu items and no footer content.
 			if ( newVal.length === 0 && !context.slots.footer ) {
 				expanded.value = false;
 			}

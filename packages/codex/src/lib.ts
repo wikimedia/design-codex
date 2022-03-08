@@ -6,10 +6,10 @@ import CdxListTile from './components/list-tile/ListTile.vue';
 import CdxListTileLabel from './components/list-tile-label/ListTileLabel.vue';
 import CdxLookup from './components/lookup/Lookup.vue';
 import CdxMenu from './components/menu/Menu.vue';
+import CdxMenuItem from './components/menu-item/MenuItem.vue';
 import CdxMessage from './components/message/Message.vue';
 import CdxRadio from './components/radio/Radio.vue';
 import CdxSelect from './components/select/Select.vue';
-import CdxOption from './components/option/Option.vue';
 import CdxTextInput from './components/text-input/TextInput.vue';
 import CdxToggleSwitch from './components/toggle-switch/ToggleSwitch.vue';
 import CdxTypeaheadSearch from './components/typeahead-search/TypeaheadSearch.vue';
@@ -24,8 +24,8 @@ import type {
 	ButtonType,
 	MessageType,
 	TextInputType,
-	MenuOption,
-	MenuOptionWithId,
+	MenuItemData,
+	MenuItemDataWithId,
 	SearchResultThumbnail,
 	SearchResult,
 	SearchResultClickEvent
@@ -41,9 +41,9 @@ export {
 	CdxLookup,
 	CdxMessage,
 	CdxMenu,
+	CdxMenuItem,
 	CdxRadio,
 	CdxSelect,
-	CdxOption,
 	CdxTextInput,
 	CdxToggleSwitch,
 	CdxTypeaheadSearch,
@@ -58,8 +58,8 @@ export {
 	ButtonType,
 	MessageType,
 	TextInputType,
-	MenuOption,
-	MenuOptionWithId,
+	MenuItemData,
+	MenuItemDataWithId,
 	SearchResultThumbnail,
 	SearchResult,
 	SearchResultClickEvent

@@ -125,7 +125,7 @@ describe( 'TypeaheadSearch initial state', () => {
 		} );
 
 		await wrapper.find( 'input' ).trigger( 'keydown', { key: 'ArrowDown' } );
-		expect( wrapper.find( '.cdx-option--highlighted' ).exists() ).toBe( false );
+		expect( wrapper.find( '.cdx-menu-item--highlighted' ).exists() ).toBe( false );
 	} );
 
 	it( 'Closes menu on tab', async () => {
@@ -156,7 +156,7 @@ describe( 'TypeaheadSearch initial state', () => {
 		expect( wrapper.vm.expanded ).toBe( true );
 	} );
 
-	it( 'Sets expanded to true if there are options and the input value does not match the selection', async () => {
+	it( 'Sets expanded to true if there are items and the input value does not match the selection', async () => {
 		const wrapper = mount( CdxTypeaheadSearch, {
 			props: { initialInputValue: 'Co', ...propsData },
 			slots: {

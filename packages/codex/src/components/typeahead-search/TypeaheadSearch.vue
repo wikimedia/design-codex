@@ -37,26 +37,26 @@
 					ref="menu"
 					v-model:expanded="expanded"
 					:selected="selection"
-					:options="searchResultsWithFooter"
+					:menu-items="searchResultsWithFooter"
 					select-highlighted
 					:aria-label="searchResultsLabel"
 					@update:selected="onUpdateMenuSelection"
 				>
-					<template #default="{ option }">
+					<template #default="{ menuItem }">
 						<cdx-list-tile
-							v-if="option.value !== MenuFooterValue"
+							v-if="menuItem.value !== MenuFooterValue"
 							:search-query="searchQuery"
-							:item="asSearchResult( option )"
+							:item="asSearchResult( menuItem )"
 							:highlight-query="highlightQuery"
 							:hide-thumbnail="hideThumbnail"
 							:hide-description="hideDescription"
-							@click="onSearchResultClick( asSearchResult( option ) )"
+							@click="onSearchResultClick( asSearchResult( menuItem ) )"
 						/>
 						<a
 							v-else
 							class="cdx-typeahead-search__search-footer"
-							:href="asSearchResult( option ).url"
-							@click.capture.stop="onSearchFooterClick( asSearchResult( option ) )"
+							:href="asSearchResult( menuItem ).url"
+							@click.capture.stop="onSearchFooterClick( asSearchResult( menuItem ) )"
 						>
 							<cdx-icon
 								v-if="!hideThumbnail"
@@ -105,7 +105,7 @@ import CdxMenu from '../menu/Menu.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
-import { SearchResult, SearchResultWithId, SearchResultClickEvent, MenuOptionWithId } from '../../types';
+import { SearchResult, SearchResultWithId, SearchResultClickEvent, MenuItemDataWithId } from '../../types';
 import { DebounceInterval, MenuFooterValue } from '../../constants';
 
 /**
@@ -184,7 +184,7 @@ export default defineComponent( {
 			default: ''
 		},
 		/**
-		 * Link for the final option.
+		 * Link for the final menu item.
 		 *
 		 * This will typically be a link to the search page for the current search query.
 		 */
@@ -274,7 +274,7 @@ export default defineComponent( {
 		// if the user scrolls through results via the keyboard.
 		const searchQuery = ref( '' );
 
-		const highlightedId = computed( () => menu.value?.getHighlightedOption()?.id );
+		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
 		const selection = ref<string|number|null>( null );
 
@@ -284,7 +284,7 @@ export default defineComponent( {
 			)
 		);
 
-		// Add in search footer option.
+		// Add in search footer menu item.
 		const searchResultsWithFooter = computed( () =>
 			searchFooterUrl.value ?
 				searchResults.value.concat( [
@@ -308,8 +308,8 @@ export default defineComponent( {
 			otherAttrs
 		} = useSplitAttributes( context.attrs, internalClasses );
 
-		function asSearchResult( option: MenuOptionWithId ): SearchResultWithId {
-			return option as SearchResultWithId;
+		function asSearchResult( menuItem: MenuItemDataWithId ): SearchResultWithId {
+			return menuItem as SearchResultWithId;
 		}
 
 		const debounceId = ref<ReturnType<typeof setTimeout>>();
@@ -421,18 +421,18 @@ export default defineComponent( {
 		 * Handle search footer click.
 		 *
 		 * Unlike search results, when the search footer is clicked, we don't want the selection
-		 * value to be updated to the value of the search footer option. So, we handle this case
+		 * value to be updated to the value of the search footer item. So, we handle this case
 		 * separately here.
 		 *
-		 * @param footerOption
+		 * @param footerMenuItem
 		 */
-		function onSearchFooterClick( footerOption: SearchResultWithId ) {
-			// Like we would with other options, close the menu and clear the active option.
+		function onSearchFooterClick( footerMenuItem: SearchResultWithId ) {
+			// Like we would with other menu items, close the menu and clear the active item.
 			expanded.value = false;
 			menu.value?.clearActive();
 
 			// Run the search result click handler.
-			onSearchResultClick( footerOption );
+			onSearchResultClick( footerMenuItem );
 		}
 
 		/**
@@ -475,7 +475,7 @@ export default defineComponent( {
 				return;
 			}
 
-			const highlightedResult = menu.value.getHighlightedOption();
+			const highlightedResult = menu.value.getHighlightedMenuItem();
 			switch ( e.key ) {
 				case 'Enter':
 					if ( highlightedResult ) {
@@ -485,7 +485,7 @@ export default defineComponent( {
 							// both mouse and keyboard.
 							window.location.assign( searchFooterUrl.value );
 						} else {
-							// Otherwise, handle the option change as usual. But don't prevent the
+							// Otherwise, handle the item change as usual. But don't prevent the
 							// event, otherwise the form won't be submitted
 							menu.value.delegateKeyNavigation( e, false );
 						}
@@ -511,9 +511,9 @@ export default defineComponent( {
 			}
 		} );
 
-		// When the options change, maybe show the menu.
+		// When the menu items change, maybe show the menu.
 		// This is the main method of opening the menu of the component, since showing the menu
-		// depends mostly on whether there are any options to show.
+		// depends mostly on whether there are any menu items to show.
 		watch( toRef( props, 'searchResults' ), ( newVal ) => {
 			// Now that we have received a response, set the searchQuery to the value of the input.
 			// This ensures that the search footer corresponds to the new search results.
@@ -522,9 +522,9 @@ export default defineComponent( {
 			const inputValueIsSelection = selectedResult.value?.label === inputValue.value ||
 				String( selectedResult.value?.value ) === inputValue.value;
 
-			// Show the menu if there are options to show, and if the input value is not equal to
+			// Show the menu if there are menu items to show, and if the input value is not equal to
 			// the current selection. The latter condition covers the case where, upon selecting an
-			// option, computedOptions changes, but we don't want the menu to be open anymore.
+			// item, computedMenuItems changes, but we don't want the menu to be open anymore.
 			if ( newVal.length > 0 && isActive.value && !inputValueIsSelection ) {
 				expanded.value = true;
 			}
@@ -670,7 +670,7 @@ export default defineComponent( {
 		}
 	}
 
-	.cdx-menu .cdx-option {
+	.cdx-menu .cdx-menu-item {
 		// Unset Option padding since we'll apply padding to .cdx-list-tile instead.
 		padding: 0;
 		// Unset white-space: nowrap from Option.

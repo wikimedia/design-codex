@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { CdxSelect, CdxOption } from '../../lib';
-import { MenuOption } from '../../types';
+import { CdxSelect, CdxMenuItem } from '../../lib';
+import { MenuItemData } from '../../types';
 
 const data: {
 	value: string,
@@ -16,33 +16,33 @@ const data: {
 describe( 'Basic usage', () => {
 	type Case = [
 		msg: string,
-		options: MenuOption[],
+		menuItems: MenuItemData[],
 		defaultLabel?: string,
 		modelValue?: string|number
 	]
 
 	const cases: Case[] = [
 		[ 'No selection', data, 'Choose an option', undefined ],
-		[ 'Option with label selected', data, 'Choose an option', 'a' ],
-		[ 'Option with no label selected', data, 'Choose an option', 'c' ]
+		[ 'Menu item with label selected', data, 'Choose an option', 'a' ],
+		[ 'Menu item with no label selected', data, 'Choose an option', 'c' ]
 	];
 
 	test.each( cases )(
 		'Case %# %s: (%p) => HTML',
-		( _, options, defaultLabel, modelValue ) => {
+		( _, menuItems, defaultLabel, modelValue ) => {
 			const wrapper = mount( CdxSelect, {
-				props: { options, defaultLabel, modelValue }
+				props: { menuItems, defaultLabel, modelValue }
 			} );
 			expect( wrapper.element ).toMatchSnapshot();
 		} );
 } );
 
 describe( 'Select', () => {
-	it( 'Displays the default label when no option has been selected', () => {
+	it( 'Displays the default label when no menu item has been selected', () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				options: data
+				menuItems: data
 			}
 		} );
 		expect( wrapper.find( '.cdx-select__handle' ).text() ).toMatch( 'Choose an option' );
@@ -52,7 +52,7 @@ describe( 'Select', () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				options: data
+				menuItems: data
 			}
 		} );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
@@ -64,7 +64,7 @@ describe( 'Select', () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				options: data,
+				menuItems: data,
 				disabled: true
 			}
 		} );
@@ -73,36 +73,36 @@ describe( 'Select', () => {
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
 
-	it( 'Clicking an option emits an "update:modelValue" event with the correct "value"', async () => {
+	it( 'Clicking a menu item emits an "update:modelValue" event with the correct "value"', async () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				options: data
+				menuItems: data
 			}
 		} );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'click' );
-		await wrapper.findAllComponents( CdxOption )[ 0 ].trigger( 'click' );
+		await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
 		expect( wrapper.emitted()[ 'update:modelValue' ] ).toBeTruthy();
 		expect( wrapper.emitted()[ 'update:modelValue' ][ 0 ] ).toEqual( [ data[ 0 ].value ] );
 	} );
 
-	it( 'Clicking an option closes the menu', async () => {
+	it( 'Clicking a menu item closes the menu', async () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				options: data
+				menuItems: data
 			}
 		} );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'click' );
-		await wrapper.findAllComponents( CdxOption )[ 0 ].trigger( 'click' );
+		await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
 
-	it( 'If a modelValue is provided it automatically shows the matching option as selected', () => {
+	it( 'If a modelValue is provided it automatically shows the matching item as selected', () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				options: data,
+				menuItems: data,
 				modelValue: 'b'
 			}
 		} );
@@ -114,7 +114,7 @@ describe( 'Select', () => {
 			props: {
 				modelValue: 'c',
 				defaultLabel: 'Choose an option',
-				options: data
+				menuItems: data
 			}
 		} );
 		await wrapper.setProps( { modelValue: 'b' } );
@@ -126,7 +126,7 @@ describe( 'Select', () => {
 			props: {
 				modelValue: 'c',
 				defaultLabel: 'Choose an option',
-				options: data
+				menuItems: data
 			}
 		} );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );
@@ -138,7 +138,7 @@ describe( 'Select', () => {
 			props: {
 				modelValue: 'c',
 				defaultLabel: 'Choose an option',
-				options: data,
+				menuItems: data,
 				disabled: true
 			}
 		} );
@@ -146,11 +146,11 @@ describe( 'Select', () => {
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
 
-	it( 'Enter keydown after navigating to a new option emits an update event with the value of that option', async () => {
+	it( 'Enter keydown after navigating to a new item emits an update event with the value of that item', async () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				options: data
+				menuItems: data
 			}
 		} );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );
@@ -163,7 +163,7 @@ describe( 'Select', () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				options: data
+				menuItems: data
 			}
 		} );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );
@@ -176,7 +176,7 @@ describe( 'Select', () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				options: data
+				menuItems: data
 			}
 		} );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );

@@ -39,10 +39,10 @@ export const MenuStates = [
 export const DebounceInterval = 120;
 
 /**
- * Sometimes, a menu of options will have an extra "option" that provides some
- * additional behavior, e.g. TypeaheadSearch's final option that links to the
- * search page for the current search query. This extra option will not have a
+ * Sometimes, a menu will have an extra item at the end that provides some
+ * additional behavior, e.g. TypeaheadSearch's final menu item that links to the
+ * search page for the current search query. This extra item will not have a
  * true value, so this string can be used in the code to identify it as a
- * footer option.
+ * footer item.
  */
-export const MenuFooterValue = 'cdx-menu-footer-option';
+export const MenuFooterValue = 'cdx-menu-footer-item';

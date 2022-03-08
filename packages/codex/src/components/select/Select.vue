@@ -23,12 +23,13 @@
 			>
 				<!--
 					@slot Display of the current selection or default label
-					@binding {MenuOption|undefined} selectedOption The currently selected option
+					@binding {MenuItemData|undefined} selectedMenuItem The currently selected menu
+					item
 					@binding {string} defaultLabel The default label, provided via a prop
 				-->
 				<slot
 					name="label"
-					:selectedOption="selectedOption"
+					:selectedMenuItem="selectedMenuItem"
 					:defaultLabel="defaultLabel"
 				>
 					{{ currentLabel }}
@@ -42,14 +43,14 @@
 			ref="menu"
 			v-model:selected="modelWrapper"
 			v-model:expanded="expanded"
-			:options="options"
+			:menu-items="menuItems"
 		>
-			<template #default="{ option }">
+			<template #default="{ menuItem }">
 				<!--
-					@slot Display of an individual option in the menu
-					@binding {MenuOption} option The current option
+					@slot Display of an individual item in the menu
+					@binding {MenuItemData} menuItem The current menu item
 				-->
-				<slot name="menu-option" :option="option" />
+				<slot name="menu-item" :menuItem="menuItem" />
 			</template>
 		</cdx-menu>
 	</div>
@@ -69,12 +70,13 @@ import CdxIcon from '../icon/Icon.vue';
 import CdxMenu from '../menu/Menu.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
-import { MenuOption } from '../../types';
+import { MenuItemData } from '../../types';
 
 /**
- * A dropdown menu similar to the HTML `<select>` element. Options are provided
- * as an array of MenuOption types, and `v-model` is used to bind the current
- * selection's value.
+ * A dropdown menu similar to the HTML `<select>` element.
+ *
+ * Menu items are provided as an array of MenuItemData types, and `v-model` is used
+ * to bind the current selection's value.
  */
 export default defineComponent( {
 	name: 'CdxSelect',
@@ -85,10 +87,10 @@ export default defineComponent( {
 
 	props: {
 		/**
-		 * Menu options. See the MenuOption type.
+		 * Menu items. See the MenuItemData type.
 		 */
-		options: {
-			type: Array as PropType<MenuOption[]>,
+		menuItems: {
+			type: Array as PropType<MenuItemData[]>,
 			required: true
 		},
 
@@ -139,14 +141,14 @@ export default defineComponent( {
 		// binding.
 		const modelWrapper = useModelWrapper( toRef( props, 'modelValue' ), context.emit );
 
-		const selectedOption = computed( () =>
-			props.options.find( ( option ) => option.value === props.modelValue )
+		const selectedMenuItem = computed( () =>
+			props.menuItems.find( ( menuItem ) => menuItem.value === props.modelValue )
 		);
 
 		// Set up the label that should display in the handle.
 		const currentLabel = computed( () => {
-			return selectedOption.value ?
-				selectedOption.value.label || selectedOption.value.value :
+			return selectedMenuItem.value ?
+				selectedMenuItem.value.label || selectedMenuItem.value.value :
 				props.defaultLabel;
 		} );
 
@@ -159,7 +161,7 @@ export default defineComponent( {
 			};
 		} );
 
-		const highlightedId = computed( () => menu.value?.getHighlightedOption()?.id );
+		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
 		function onBlur(): void {
 			expanded.value = false;
@@ -187,7 +189,7 @@ export default defineComponent( {
 			menu,
 			menuId,
 			modelWrapper,
-			selectedOption,
+			selectedMenuItem,
 			highlightedId,
 			expanded,
 			onBlur,

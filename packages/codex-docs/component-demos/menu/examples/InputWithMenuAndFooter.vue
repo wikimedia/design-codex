@@ -10,11 +10,11 @@
 			ref="menu"
 			v-model:selected="selectedValue"
 			v-model:expanded="expanded"
-			:options="options"
+			:menu-items="menuItems"
 			select-highlighted
 		>
-			<template #default="{ option }">
-				{{ option.label }} (value: {{ option.value }})
+			<template #default="{ menuItem }">
+				{{ menuItem.label }} (value: {{ menuItem.value }})
 			</template>
 			<template #footer>
 				Footer
@@ -37,7 +37,7 @@ export default defineComponent( {
 		const menu = ref<InstanceType<typeof CdxMenu>>();
 		const selectedValue = ref<string|number>( '' );
 		const expanded = ref( false );
-		const options = [
+		const menuItems = [
 			{ label: 'One', value: 1 },
 			{ label: 'Two', value: 2, disabled: true },
 			{ label: 'Three', value: 3 },
@@ -57,7 +57,7 @@ export default defineComponent( {
 			menu,
 			selectedValue,
 			expanded,
-			options,
+			menuItems,
 			onKeydown,
 			onClick
 		};

@@ -22,7 +22,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     >
       <!--
 					@slot Display of the current selection or default label
-					@binding {MenuOption|undefined} selectedOption The currently selected option
+					@binding {MenuItemData|undefined} selectedMenuItem The currently selected menu
+					item
 					@binding {string} defaultLabel The default label, provided via a prop
 				-->
       
@@ -62,8 +63,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="cdx-option cdx-option--enabled"
-      id="cdx-option-2"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-2"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -74,8 +75,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="cdx-option cdx-option--enabled"
-      id="cdx-option-3"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-3"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -86,8 +87,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="cdx-option cdx-option--enabled"
-      id="cdx-option-4"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-4"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -98,8 +99,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     <li
       aria-disabled="true"
       aria-selected="false"
-      class="cdx-option cdx-option--disabled"
-      id="cdx-option-5"
+      class="cdx-menu-item cdx-menu-item--disabled"
+      id="cdx-menu-item-5"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -113,7 +114,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
 </div>
 `;
 
-exports[`Basic usage Case 1 Option with label selected: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Basic usage Case 1 Menu item with label selected: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-select cdx-select--value-selected"
 >
@@ -135,7 +136,8 @@ exports[`Basic usage Case 1 Option with label selected: ([[Object], [Object], [O
     >
       <!--
 					@slot Display of the current selection or default label
-					@binding {MenuOption|undefined} selectedOption The currently selected option
+					@binding {MenuItemData|undefined} selectedMenuItem The currently selected menu
+					item
 					@binding {string} defaultLabel The default label, provided via a prop
 				-->
       
@@ -175,8 +177,8 @@ exports[`Basic usage Case 1 Option with label selected: ([[Object], [Object], [O
     <li
       aria-disabled="false"
       aria-selected="true"
-      class="cdx-option cdx-option--selected cdx-option--enabled"
-      id="cdx-option-8"
+      class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+      id="cdx-menu-item-8"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -187,8 +189,8 @@ exports[`Basic usage Case 1 Option with label selected: ([[Object], [Object], [O
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="cdx-option cdx-option--enabled"
-      id="cdx-option-9"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-9"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -199,8 +201,8 @@ exports[`Basic usage Case 1 Option with label selected: ([[Object], [Object], [O
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="cdx-option cdx-option--enabled"
-      id="cdx-option-10"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-10"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -211,8 +213,8 @@ exports[`Basic usage Case 1 Option with label selected: ([[Object], [Object], [O
     <li
       aria-disabled="true"
       aria-selected="false"
-      class="cdx-option cdx-option--disabled"
-      id="cdx-option-11"
+      class="cdx-menu-item cdx-menu-item--disabled"
+      id="cdx-menu-item-11"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -226,7 +228,7 @@ exports[`Basic usage Case 1 Option with label selected: ([[Object], [Object], [O
 </div>
 `;
 
-exports[`Basic usage Case 2 Option with no label selected: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Basic usage Case 2 Menu item with no label selected: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-select cdx-select--value-selected"
 >
@@ -248,7 +250,8 @@ exports[`Basic usage Case 2 Option with no label selected: ([[Object], [Object],
     >
       <!--
 					@slot Display of the current selection or default label
-					@binding {MenuOption|undefined} selectedOption The currently selected option
+					@binding {MenuItemData|undefined} selectedMenuItem The currently selected menu
+					item
 					@binding {string} defaultLabel The default label, provided via a prop
 				-->
       
@@ -288,8 +291,8 @@ exports[`Basic usage Case 2 Option with no label selected: ([[Object], [Object],
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="cdx-option cdx-option--enabled"
-      id="cdx-option-14"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-14"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -300,8 +303,8 @@ exports[`Basic usage Case 2 Option with no label selected: ([[Object], [Object],
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="cdx-option cdx-option--enabled"
-      id="cdx-option-15"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-15"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -312,8 +315,8 @@ exports[`Basic usage Case 2 Option with no label selected: ([[Object], [Object],
     <li
       aria-disabled="false"
       aria-selected="true"
-      class="cdx-option cdx-option--selected cdx-option--enabled"
-      id="cdx-option-16"
+      class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+      id="cdx-menu-item-16"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->
@@ -324,8 +327,8 @@ exports[`Basic usage Case 2 Option with no label selected: ([[Object], [Object],
     <li
       aria-disabled="true"
       aria-selected="false"
-      class="cdx-option cdx-option--disabled"
-      id="cdx-option-17"
+      class="cdx-menu-item cdx-menu-item--disabled"
+      id="cdx-menu-item-17"
       role="option"
     >
       <!-- @slot Optional content, will replace label if provided -->

@@ -2,7 +2,7 @@
 	<div>
 		<cdx-lookup
 			v-model="selection"
-			:options="menuOptions"
+			:menu-items="menuItems"
 			@new-input="onInput"
 		>
 			<template v-if="noResults" #footer>
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { CdxLookup, MenuOption } from '@wikimedia/codex';
+import { CdxLookup, MenuItemData } from '@wikimedia/codex';
 import { Result } from './types';
 
 export default defineComponent( {
@@ -22,7 +22,7 @@ export default defineComponent( {
 	components: { CdxLookup },
 	setup() {
 		const selection = ref( '' );
-		const menuOptions = ref<MenuOption[]>( [] );
+		const menuItems = ref<MenuItemData[]>( [] );
 		const noResults = ref( false );
 		const currentSearchTerm = ref( '' );
 
@@ -45,8 +45,8 @@ export default defineComponent( {
 				.then( ( data ) => {
 					// Make sure this data is still relevant first.
 					if ( currentSearchTerm.value === value ) {
-						// Build an array of menu options.
-						const results: MenuOption[] = [];
+						// Build an array of menu items.
+						const results: MenuItemData[] = [];
 						if ( data.search && data.search.length > 0 ) {
 							data.search.forEach( ( result: Result ) => {
 								results.push( {
@@ -63,18 +63,18 @@ export default defineComponent( {
 							noResults.value = true;
 						}
 
-						// Update menuOptions.
-						menuOptions.value = results;
+						// Update menuItems.
+						menuItems.value = results;
 					}
 				} ).catch( () => {
 					// On error, set results to empty.
-					menuOptions.value = [];
+					menuItems.value = [];
 				} );
 		}
 
 		return {
 			selection,
-			menuOptions,
+			menuItems,
 			noResults,
 			onInput
 		};

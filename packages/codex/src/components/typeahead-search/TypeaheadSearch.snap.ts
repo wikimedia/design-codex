@@ -326,16 +326,16 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="cdx-option cdx-option--enabled"
-          id="cdx-option-14"
+          class="cdx-menu-item cdx-menu-item--enabled"
+          id="cdx-menu-item-14"
           role="option"
           url="https://en.wikipedia.org/wiki/CO"
         >
           <!-- @slot Optional content, will replace label if provided -->
           
           <!--
-				@slot Display of an individual option in the menu
-				@binding {MenuOption} option The current option
+				@slot Display of an individual menu item in the menu
+				@binding {MenuItem} menuItem The current menu item
 			-->
           
           <a
@@ -395,9 +395,9 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="cdx-option cdx-option--enabled"
+          class="cdx-menu-item cdx-menu-item--enabled"
           description="visual perception of light wavelengths"
-          id="cdx-option-15"
+          id="cdx-menu-item-15"
           role="option"
           thumbnail="[object Object]"
           url="https://en.wikipedia.org/wiki/Color"
@@ -405,8 +405,8 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           <!-- @slot Optional content, will replace label if provided -->
           
           <!--
-				@slot Display of an individual option in the menu
-				@binding {MenuOption} option The current option
+				@slot Display of an individual menu item in the menu
+				@binding {MenuItem} menuItem The current menu item
 			-->
           
           <a
@@ -446,16 +446,16 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="cdx-option cdx-option--enabled"
-          id="cdx-option-16"
+          class="cdx-menu-item cdx-menu-item--enabled"
+          id="cdx-menu-item-16"
           role="option"
           url="https://foo.org/search?query=Co"
         >
           <!-- @slot Optional content, will replace label if provided -->
           
           <!--
-				@slot Display of an individual option in the menu
-				@binding {MenuOption} option The current option
+				@slot Display of an individual menu item in the menu
+				@binding {MenuItem} menuItem The current menu item
 			-->
           
           <a

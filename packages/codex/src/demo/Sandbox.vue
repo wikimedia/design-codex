@@ -13,7 +13,7 @@
 			<h2>Combobox</h2>
 			<cdx-combobox
 				v-model="selection"
-				:options="options"
+				:menu-items="options"
 				placeholder="Type or choose an option"
 				:disabled="false"
 				:clearable="true"
@@ -23,7 +23,7 @@
 			<h2>Select</h2>
 			<cdx-select
 				v-model="selection"
-				:options="options"
+				:menu-items="options"
 				default-label="Choose an option"
 			/>
 			<p>Selected value: {{ selection || '(none)' }}</p>
@@ -102,13 +102,13 @@
 </template>
 
 <script lang="ts" setup>
-import { CdxButton, CdxCheckbox, CdxCombobox, CdxIcon, CdxRadio, CdxSelect, CdxTextInput, HTMLDirection, MenuOption } from '../lib';
+import { CdxButton, CdxCheckbox, CdxCombobox, CdxIcon, CdxRadio, CdxSelect, CdxTextInput, HTMLDirection, MenuItemData } from '../lib';
 import { cdxIconArrowNext, cdxIconBold, cdxIconTrash } from '@wikimedia/codex-icons';
 import { ButtonActions, ButtonTypes } from '../constants';
 import { ref } from 'vue';
 import DirectionSwitcher from './DirectionSwitcher.vue';
 
-const options: MenuOption[] = [
+const options: MenuItemData[] = [
 	{ label: 'Apple', value: 'a' },
 	{ label: 'Banana', value: 'b' },
 	{ label: 'Canteloupe', value: 'c' }

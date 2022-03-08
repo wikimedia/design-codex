@@ -10,8 +10,8 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="false"
-    class="cdx-option cdx-option--enabled"
-    id="cdx-option-4"
+    class="cdx-menu-item cdx-menu-item--enabled"
+    id="cdx-menu-item-4"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -22,8 +22,8 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="false"
-    class="cdx-option cdx-option--enabled"
-    id="cdx-option-5"
+    class="cdx-menu-item cdx-menu-item--enabled"
+    id="cdx-menu-item-5"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -34,8 +34,8 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="false"
-    class="cdx-option cdx-option--enabled"
-    id="cdx-option-6"
+    class="cdx-menu-item cdx-menu-item--enabled"
+    id="cdx-menu-item-6"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -46,8 +46,8 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
   <li
     aria-disabled="true"
     aria-selected="false"
-    class="cdx-option cdx-option--disabled"
-    id="cdx-option-7"
+    class="cdx-menu-item cdx-menu-item--disabled"
+    id="cdx-menu-item-7"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -70,8 +70,8 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="false"
-    class="cdx-option cdx-option--enabled"
-    id="cdx-option-8"
+    class="cdx-menu-item cdx-menu-item--enabled"
+    id="cdx-menu-item-8"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -82,8 +82,8 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="true"
-    class="cdx-option cdx-option--selected cdx-option--enabled"
-    id="cdx-option-9"
+    class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+    id="cdx-menu-item-9"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -94,8 +94,8 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="false"
-    class="cdx-option cdx-option--enabled"
-    id="cdx-option-10"
+    class="cdx-menu-item cdx-menu-item--enabled"
+    id="cdx-menu-item-10"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -106,8 +106,8 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
   <li
     aria-disabled="true"
     aria-selected="false"
-    class="cdx-option cdx-option--disabled"
-    id="cdx-option-11"
+    class="cdx-menu-item cdx-menu-item--disabled"
+    id="cdx-menu-item-11"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -131,8 +131,8 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="false"
-    class="cdx-option cdx-option--enabled"
-    id="cdx-option-12"
+    class="cdx-menu-item cdx-menu-item--enabled"
+    id="cdx-menu-item-12"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -143,8 +143,8 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="true"
-    class="cdx-option cdx-option--selected cdx-option--enabled"
-    id="cdx-option-13"
+    class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+    id="cdx-menu-item-13"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -155,8 +155,8 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="false"
-    class="cdx-option cdx-option--enabled"
-    id="cdx-option-14"
+    class="cdx-menu-item cdx-menu-item--enabled"
+    id="cdx-menu-item-14"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -167,8 +167,8 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
   <li
     aria-disabled="true"
     aria-selected="false"
-    class="cdx-option cdx-option--disabled"
-    id="cdx-option-15"
+    class="cdx-menu-item cdx-menu-item--disabled"
+    id="cdx-menu-item-15"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -191,8 +191,8 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="false"
-    class="cdx-option cdx-option--enabled"
-    id="cdx-option-16"
+    class="cdx-menu-item cdx-menu-item--enabled"
+    id="cdx-menu-item-16"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -203,8 +203,8 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="true"
-    class="cdx-option cdx-option--selected cdx-option--enabled"
-    id="cdx-option-17"
+    class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+    id="cdx-menu-item-17"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -215,8 +215,8 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="false"
-    class="cdx-option cdx-option--enabled"
-    id="cdx-option-18"
+    class="cdx-menu-item cdx-menu-item--enabled"
+    id="cdx-menu-item-18"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -227,8 +227,8 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
   <li
     aria-disabled="true"
     aria-selected="false"
-    class="cdx-option cdx-option--disabled"
-    id="cdx-option-19"
+    class="cdx-menu-item cdx-menu-item--disabled"
+    id="cdx-menu-item-19"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
@@ -238,10 +238,10 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
   </li>
   
   <li
-    class="cdx-option"
+    class="cdx-menu-item"
   >
     <!--
-				@slot Optional content to display at the end of the options list
+				@slot Optional content to display at the end of the menu
 			-->
     
     Footer text
@@ -250,7 +250,7 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
 </ul>
 `;
 
-exports[`Matches the snapshots Case 4 Custom option rendering: => HTML 1`] = `
+exports[`Matches the snapshots Case 4 Custom menu item rendering: => HTML 1`] = `
 <ul
   aria-multiselectable="false"
   class="cdx-menu"
@@ -260,15 +260,15 @@ exports[`Matches the snapshots Case 4 Custom option rendering: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="false"
-    class="cdx-option cdx-option--enabled"
-    id="cdx-option-20"
+    class="cdx-menu-item cdx-menu-item--enabled"
+    id="cdx-menu-item-20"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
     
     <!--
-				@slot Display of an individual option in the menu
-				@binding {MenuOption} option The current option
+				@slot Display of an individual menu item in the menu
+				@binding {MenuItem} menuItem The current menu item
 			-->
     
     Option A (value: a) 
@@ -278,15 +278,15 @@ exports[`Matches the snapshots Case 4 Custom option rendering: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="true"
-    class="cdx-option cdx-option--selected cdx-option--enabled"
-    id="cdx-option-21"
+    class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+    id="cdx-menu-item-21"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
     
     <!--
-				@slot Display of an individual option in the menu
-				@binding {MenuOption} option The current option
+				@slot Display of an individual menu item in the menu
+				@binding {MenuItem} menuItem The current menu item
 			-->
     
     Option B (value: b) 
@@ -296,15 +296,15 @@ exports[`Matches the snapshots Case 4 Custom option rendering: => HTML 1`] = `
   <li
     aria-disabled="false"
     aria-selected="false"
-    class="cdx-option cdx-option--enabled"
-    id="cdx-option-22"
+    class="cdx-menu-item cdx-menu-item--enabled"
+    id="cdx-menu-item-22"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
     
     <!--
-				@slot Display of an individual option in the menu
-				@binding {MenuOption} option The current option
+				@slot Display of an individual menu item in the menu
+				@binding {MenuItem} menuItem The current menu item
 			-->
     
      (value: c) 
@@ -314,15 +314,15 @@ exports[`Matches the snapshots Case 4 Custom option rendering: => HTML 1`] = `
   <li
     aria-disabled="true"
     aria-selected="false"
-    class="cdx-option cdx-option--disabled"
-    id="cdx-option-23"
+    class="cdx-menu-item cdx-menu-item--disabled"
+    id="cdx-menu-item-23"
     role="option"
   >
     <!-- @slot Optional content, will replace label if provided -->
     
     <!--
-				@slot Display of an individual option in the menu
-				@binding {MenuOption} option The current option
+				@slot Display of an individual menu item in the menu
+				@binding {MenuItem} menuItem The current menu item
 			-->
     
     Option D (value: d) 

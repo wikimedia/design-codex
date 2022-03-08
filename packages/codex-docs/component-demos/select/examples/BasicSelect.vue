@@ -1,7 +1,7 @@
 <template>
 	<cdx-select
 		v-model="selection"
-		:options="options"
+		:menu-items="menuItems"
 		default-label="Choose an option"
 	/>
 </template>
@@ -14,7 +14,7 @@ export default defineComponent( {
 	components: { CdxSelect },
 	data() {
 		return {
-			options: [
+			menuItems: [
 				{ label: 'Option A', value: 'a' },
 				{ label: 'Option B', value: 'b' },
 				{ value: 'c' },

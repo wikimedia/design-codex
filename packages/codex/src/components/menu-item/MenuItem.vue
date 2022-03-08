@@ -2,7 +2,7 @@
 	<li
 		:id="id"
 		role="option"
-		class="cdx-option"
+		class="cdx-menu-item"
 		:class="rootClasses"
 		:aria-disabled="disabled"
 		:aria-selected="selected"
@@ -22,12 +22,12 @@ import { PropType, computed, defineComponent } from 'vue';
 import { MenuState } from '../../types';
 
 /**
- * Option within a menu.
+ * Item within a menu.
  *
  * This component is meant to be used within the Menu component.
  */
 export default defineComponent( {
-	name: 'CdxOption',
+	name: 'CdxMenuItem',
 
 	props: {
 		id: {
@@ -36,7 +36,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * The value provided to the parent menu component when this option is
+		 * The value provided to the parent menu component when this item is
 		 * selected.
 		 */
 		value: {
@@ -44,35 +44,35 @@ export default defineComponent( {
 			required: true
 		},
 		/**
-		 * Whether the option is disabled. Defaults to false.
+		 * Whether the menu item is disabled. Defaults to false.
 		 */
 		disabled: {
 			type: Boolean,
 			default: false
 		},
 		/**
-		 * Optional label for the option.
+		 * Optional label for the menu item.
 		 */
 		label: {
 			type: String,
 			default: ''
 		},
 		/**
-		 * Whether this option is selected
+		 * Whether this menu item is selected
 		 */
 		selected: {
 			type: Boolean,
 			default: false
 		},
 		/**
-		 * Whether this option is active
+		 * Whether this menu item is active
 		 */
 		active: {
 			type: Boolean,
 			default: false
 		},
 		/**
-		 * Whether this option is highlighted
+		 * Whether this menu item is highlighted
 		 */
 		highlighted: {
 			type: Boolean,
@@ -82,10 +82,10 @@ export default defineComponent( {
 
 	emits: [
 		/**
-		 * Emitted when the option becomes selected, active or highlighted in response to
+		 * Emitted when the menu item becomes selected, active or highlighted in response to
 		 * user interaction. Handled in the Menu component.
 		 *
-		 * @property {MenuState} menuState State this option is entering
+		 * @property {MenuState} menuState State this menu item is entering
 		 */
 		'change'
 	],
@@ -105,11 +105,11 @@ export default defineComponent( {
 
 		const rootClasses = computed( () : Record<string, boolean> => {
 			return {
-				'cdx-option--selected': props.selected,
-				'cdx-option--active': props.active,
-				'cdx-option--highlighted': props.highlighted,
-				'cdx-option--enabled': !props.disabled,
-				'cdx-option--disabled': !!props.disabled
+				'cdx-menu-item--selected': props.selected,
+				'cdx-menu-item--active': props.active,
+				'cdx-menu-item--highlighted': props.highlighted,
+				'cdx-menu-item--enabled': !props.disabled,
+				'cdx-menu-item--disabled': !!props.disabled
 			};
 		} );
 
@@ -131,7 +131,7 @@ export default defineComponent( {
 @min-width-select: 280px;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 
-.cdx-option {
+.cdx-menu-item {
 	color: @color-base;
 	list-style: none;
 	position: relative;
@@ -145,7 +145,7 @@ export default defineComponent( {
 
 	&--enabled {
 		&:hover,
-		&.cdx-option--highlighted {
+		&.cdx-menu-item--highlighted {
 			background-color: @background-color-base--hover;
 			cursor: @cursor-base--hover;
 		}
