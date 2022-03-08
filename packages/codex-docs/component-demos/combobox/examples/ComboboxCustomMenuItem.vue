@@ -1,9 +1,5 @@
 <template>
 	<div>
-		<p class="cdx-docs-demo-text">
-			Selected value: {{ selection }}
-		</p>
-
 		<cdx-combobox
 			v-model="selection"
 			:menu-items="menuItems"

@@ -25,6 +25,9 @@ The Lookup component will emit `new-input` events on input, which the parent com
 react to by computing or fetching menu items, then providing those items to the Lookup component for
 display.
 
+Items are displayed via the MenuItem component—see the [MenuItem docs](./menu-item) for more
+options.
+
 Note that in this example, menu items are Wikidata items with a human-readable label and a Wikidata
 entity ID value.
 

@@ -2,20 +2,11 @@
 	<div>
 		<cdx-lookup
 			v-model="selection"
-			class="cdx-docs-lookup-custom-menu-item"
 			:menu-items="menuItems"
 			@new-input="onInput"
 		>
 			<template #menu-item="{ menuItem }">
-				<p class="cdx-docs-lookup-custom-menu-item__label">
-					{{ menuItem.label || menuItem.value }}
-				</p>
-				<p
-					v-if="menuItem.description"
-					class="cdx-docs-lookup-custom-menu-item__description"
-				>
-					{{ menuItem.description }}
-				</p>
+				<strong>{{ menuItem.label }}</strong> (value: {{ menuItem.value }})
 			</template>
 		</cdx-lookup>
 	</div>
@@ -49,20 +40,3 @@ export default defineComponent( {
 	}
 } );
 </script>
-
-<style lang="less" scoped>
-.cdx-docs-lookup-custom-menu-item {
-	p {
-		margin: 0;
-	}
-
-	&__label {
-		font-weight: bold;
-	}
-
-	&__description {
-		font-size: 0.875em;
-		line-height: 1.25;
-	}
-}
-</style>

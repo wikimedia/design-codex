@@ -51,7 +51,8 @@ export default defineComponent( {
 							data.search.forEach( ( result: Result ) => {
 								results.push( {
 									label: result.label,
-									value: result.id
+									value: result.id,
+									description: result.description
 								} );
 							} );
 						}

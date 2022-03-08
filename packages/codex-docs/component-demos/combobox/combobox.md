@@ -1,6 +1,7 @@
 <script setup>
 import ComboboxBasic from '@/../component-demos/combobox/examples/ComboboxBasic.vue';
 import ComboboxClearableStartIcon from '@/../component-demos/combobox/examples/ComboboxClearableStartIcon.vue';
+import ComboboxComplexMenuItem from '@/../component-demos/combobox/examples/ComboboxComplexMenuItem.vue';
 import ComboboxCustomMenuItem from '@/../component-demos/combobox/examples/ComboboxCustomMenuItem.vue';
 import ComboboxNoResults from '@/../component-demos/combobox/examples/ComboboxNoResults.vue';
 </script>
@@ -57,10 +58,29 @@ passed on to the embedded `TextInput`.
 
 </cdx-demo-wrapper>
 
+### With menu item icons and descriptions
+
+Items are displayed via the MenuItem component—see the [MenuItem docs](./menu-item) for more
+options.
+
+<cdx-demo-wrapper>
+
+<template v-slot:demo>
+<combobox-complex-menu-item />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/combobox/examples/ComboboxComplexMenuItem.vue
+
+</template>
+
+</cdx-demo-wrapper>
+
 ### With custom menu item display
 
-Like other menu-style components (`Select`, `Lookup`, etc.), a custom menu item
-template can be provided via the `#menu-item` slot.
+Like other menu-style components (`Select`, `Lookup`, etc.), a custom template can be provided via
+the `#menu-item` slot. In this example, only the menu item's icon is displayed in the menu.
 
 <cdx-demo-wrapper>
 

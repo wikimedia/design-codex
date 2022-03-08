@@ -1,6 +1,7 @@
 <script setup>
 import BasicSelect from '@/../component-demos/select/examples/BasicSelect.vue';
 import SelectCustomLabel from '@/../component-demos/select/examples/SelectCustomLabel.vue';
+import SelectComplexMenuItem from '@/../component-demos/select/examples/SelectComplexMenuItem.vue';
 import SelectCustomMenuItem from '@/../component-demos/select/examples/SelectCustomMenuItem.vue';
 </script>
 
@@ -23,6 +24,38 @@ displayed.
 </template>
 </cdx-demo-wrapper>
 
+### With menu item icons and descriptions
+
+Items are displayed via the MenuItem component—see the [MenuItem docs](./menu-item) for more
+options.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<select-complex-menu-item />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/select/examples/SelectComplexMenuItem.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### With custom menu item display
+
+The `menu-item` scoped slot enables you to customize the display of each menu item, with a binding
+for the `menuItem`. In this example, only the menu item's icon is displayed in the menu.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<select-custom-menu-item />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/select/examples/SelectCustomMenuItem.vue
+
+</template>
+</cdx-demo-wrapper>
+
 ### With custom label display
 
 The `label` scoped slot enables you to customize the display of the label, with
@@ -35,22 +68,6 @@ bindings for the `selectedMenuItem` and the `defaultLabel`.
 <template v-slot:code>
 
 <<< @/../component-demos/select/examples/SelectCustomLabel.vue
-
-</template>
-</cdx-demo-wrapper>
-
-### With custom menu item display
-
-The `menu-item` scoped slot enables you to customize the display of each
-menu item, with a binding for the `menuItem`.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-<select-custom-menu-item />
-</template>
-<template v-slot:code>
-
-<<< @/../component-demos/select/examples/SelectCustomMenuItem.vue
 
 </template>
 </cdx-demo-wrapper>

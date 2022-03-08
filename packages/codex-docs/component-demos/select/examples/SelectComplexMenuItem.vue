@@ -3,39 +3,38 @@
 		v-model="selection"
 		:menu-items="menuItems"
 		default-label="Choose an option"
-	>
-		<template #menu-item="{ menuItem }">
-			<cdx-icon :icon="menuItem.icon" />
-		</template>
-	</cdx-select>
+	/>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CdxSelect, CdxIcon, MenuItemData } from '@wikimedia/codex';
+import { CdxSelect, MenuItemData } from '@wikimedia/codex';
 import { cdxIconCamera, cdxIconBook, cdxIconClock } from '@wikimedia/codex-icons';
 
 const menuItems: MenuItemData[] = [
 	{
 		value: 'camera',
 		label: 'Camera',
+		description: 'optical device for recording or transmitting photographic images or videos',
 		icon: cdxIconCamera
 	},
 	{
 		value: 'book',
 		label: 'Book',
+		description: 'written text that can be published in printed or electronic form',
 		icon: cdxIconBook
 	},
 	{
 		value: 'clock',
 		label: 'Clock',
+		description: 'instrument that measures the passage of time',
 		icon: cdxIconClock
 	}
 ];
 
 export default defineComponent( {
-	name: 'SelectCustomMenuItem',
-	components: { CdxSelect, CdxIcon },
+	name: 'SelectComplexMenuItems',
+	components: { CdxSelect },
 	data() {
 		return {
 			menuItems,
