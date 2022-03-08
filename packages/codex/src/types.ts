@@ -32,23 +32,7 @@ export type MessageIconMap = {
 export type TextInputType = typeof TextInputTypes[ number ];
 
 /** @public */
-export interface MenuItemData {
-	/** Item value or unique identifier. */
-	value: string | number,
-	/** Display label for the menu item. */
-	label?: string,
-	disabled?: boolean,
-	icon?: Icon,
-	description?: string | null
-}
-
-export interface MenuItemDataWithId extends MenuItemData {
-	id: string
-}
-export type MenuState = typeof MenuStates[ number ];
-
-/** @public */
-export interface SearchResultThumbnail {
+export interface Thumbnail {
 	url: string;
 	/** Image width in pixels. */
 	width?: number | null;
@@ -57,11 +41,28 @@ export interface SearchResultThumbnail {
 }
 
 /** @public */
+export interface MenuItemData {
+	/** Item value or unique identifier. */
+	value: string | number,
+	/** Display label for the menu item. */
+	label?: string,
+	description?: string | null,
+	icon?: Icon,
+	thumbnail?: Thumbnail | null,
+	/** If URL is included, menu item will be wrapped in an anchor element. */
+	url?: string,
+	disabled?: boolean
+}
+
+export interface MenuItemDataWithId extends MenuItemData {
+	id: string
+}
+export type MenuState = typeof MenuStates[ number ];
+
+/** @public */
 export interface SearchResult extends MenuItemData {
 	/** Result link. */
-	url: string,
-	/** Result image. */
-	thumbnail?: SearchResultThumbnail | null;
+	url: string
 }
 
 export type SearchResultWithId = SearchResult & MenuItemDataWithId;

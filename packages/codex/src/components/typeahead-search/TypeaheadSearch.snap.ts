@@ -2,7 +2,7 @@
 
 exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResultsLabel": "Search results"}) => HTML 1`] = `
 <div
-  class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail"
+  class="cdx-typeahead-search"
 >
   <form
     action="/w/index.php"
@@ -88,7 +88,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
 </div>
 `;
 
-exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and \`hideThumbnail\` false: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "hideThumbnail": false, "id": "foo", "placeholder": "Search Wikipedia", "searchResultsLabel": "Search results"}) => HTML 1`] = `
+exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and \`showThumbnail\` true: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResultsLabel": "Search results", "showThumbnail": true}) => HTML 1`] = `
 <div
   class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail cdx-typeahead-search--auto-expand-width"
 >
@@ -176,7 +176,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
 </div>
 `;
 
-exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and \`hideThumbnail\` true: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "hideThumbnail": true, "id": "foo", "placeholder": "Search Wikipedia", "searchResultsLabel": "Search results"}) => HTML 1`] = `
+exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and \`showThumbnail\` false: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResultsLabel": "Search results", "showThumbnail": false}) => HTML 1`] = `
 <div
   class="cdx-typeahead-search"
 >
@@ -329,24 +329,18 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           class="cdx-menu-item cdx-menu-item--enabled"
           id="cdx-menu-item-14"
           role="option"
-          url="https://en.wikipedia.org/wiki/CO"
         >
-          <!-- @slot Optional content, will replace label if provided -->
-          
-          <!--
-				@slot Display of an individual menu item in the menu
-				@binding {MenuItem} menuItem The current menu item
-			-->
+          <!-- @slot Custom menu item content. -->
           
           <a
-            class="cdx-list-tile"
+            class="cdx-menu-item__content"
             href="https://en.wikipedia.org/wiki/CO"
           >
             <span
-              class="cdx-list-tile__thumbnail-placeholder"
+              class="cdx-menu-item__thumbnail-placeholder"
             >
               <span
-                class="cdx-icon cdx-list-tile__thumbnail-icon"
+                class="cdx-icon cdx-menu-item__thumbnail-placeholder__icon"
               >
                 <svg
                   aria-hidden="true"
@@ -371,76 +365,50 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               </span>
             </span>
             <span
-              class="cdx-list-tile__text"
+              class="cdx-menu-item__text"
             >
               <span
-                class="cdx-list-tile-label"
+                class="cdx-menu-item__label"
               >
-                <!-- All on one line to avoid introducing unwanted whitespace into the UI. -->
-                <!--eslint-disable-next-line max-len-->
-                
-                <span
-                  class="cdx-list-tile-label__match"
-                >
-                  Co
-                </span>
-                
+                Co
               </span>
               <!--v-if-->
             </span>
           </a>
-          
           
         </li>
         <li
           aria-disabled="false"
           aria-selected="false"
           class="cdx-menu-item cdx-menu-item--enabled"
-          description="visual perception of light wavelengths"
           id="cdx-menu-item-15"
           role="option"
-          thumbnail="[object Object]"
-          url="https://en.wikipedia.org/wiki/Color"
         >
-          <!-- @slot Optional content, will replace label if provided -->
-          
-          <!--
-				@slot Display of an individual menu item in the menu
-				@binding {MenuItem} menuItem The current menu item
-			-->
+          <!-- @slot Custom menu item content. -->
           
           <a
-            class="cdx-list-tile"
+            class="cdx-menu-item__content"
             href="https://en.wikipedia.org/wiki/Color"
           >
             <span
-              class="cdx-list-tile__thumbnail"
+              class="cdx-menu-item__thumbnail"
               style="background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/200px-64_365_Color_Macro_%285498808099%29.jpg);"
             />
             <span
-              class="cdx-list-tile__text"
+              class="cdx-menu-item__text"
             >
               <span
-                class="cdx-list-tile-label"
+                class="cdx-menu-item__label"
               >
-                <!-- All on one line to avoid introducing unwanted whitespace into the UI. -->
-                <!--eslint-disable-next-line max-len-->
-                
-                <span
-                  class="cdx-list-tile-label__match"
-                >
-                  Color
-                </span>
-                
+                Color
               </span>
               <span
-                class="cdx-list-tile__description"
+                class="cdx-menu-item__text__description"
               >
                 visual perception of light wavelengths
               </span>
             </span>
           </a>
-          
           
         </li>
         <li
@@ -449,12 +417,11 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           class="cdx-menu-item cdx-menu-item--enabled"
           id="cdx-menu-item-16"
           role="option"
-          url="https://foo.org/search?query=Co"
         >
-          <!-- @slot Optional content, will replace label if provided -->
+          <!-- @slot Custom menu item content. -->
           
           <!--
-				@slot Display of an individual menu item in the menu
+				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
 			-->
           

@@ -8,6 +8,7 @@
 			:initial-input-value="initialInputValue"
 			:search-results="searchResults"
 			:search-footer-url="searchFooterUrl"
+			:show-thumbnail="true"
 			:highlight-query="true"
 			placeholder="Search Wikipedia"
 			@new-input="onNewInput"

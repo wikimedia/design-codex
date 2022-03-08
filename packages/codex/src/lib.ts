@@ -2,13 +2,12 @@ import CdxButton from './components/button/Button.vue';
 import CdxCheckbox from './components/checkbox/Checkbox.vue';
 import CdxCombobox from './components/combobox/Combobox.vue';
 import CdxIcon from './components/icon/Icon.vue';
-import CdxListTile from './components/list-tile/ListTile.vue';
-import CdxListTileLabel from './components/list-tile-label/ListTileLabel.vue';
 import CdxLookup from './components/lookup/Lookup.vue';
 import CdxMenu from './components/menu/Menu.vue';
 import CdxMenuItem from './components/menu-item/MenuItem.vue';
 import CdxMessage from './components/message/Message.vue';
 import CdxRadio from './components/radio/Radio.vue';
+import CdxSearchResultTitle from './components/search-result-title/SearchResultTitle.vue';
 import CdxSelect from './components/select/Select.vue';
 import CdxTextInput from './components/text-input/TextInput.vue';
 import CdxToggleButton from './components/toggle-button/ToggleButton.vue';
@@ -27,9 +26,9 @@ import type {
 	TextInputType,
 	MenuItemData,
 	MenuItemDataWithId,
-	SearchResultThumbnail,
 	SearchResult,
-	SearchResultClickEvent
+	SearchResultClickEvent,
+	Thumbnail
 } from './types';
 
 export {
@@ -37,13 +36,12 @@ export {
 	CdxCheckbox,
 	CdxCombobox,
 	CdxIcon,
-	CdxListTile,
-	CdxListTileLabel,
 	CdxLookup,
 	CdxMessage,
 	CdxMenu,
 	CdxMenuItem,
 	CdxRadio,
+	CdxSearchResultTitle,
 	CdxSelect,
 	CdxTextInput,
 	CdxToggleButton,
@@ -62,7 +60,7 @@ export {
 	TextInputType,
 	MenuItemData,
 	MenuItemDataWithId,
-	SearchResultThumbnail,
 	SearchResult,
-	SearchResultClickEvent
+	SearchResultClickEvent,
+	Thumbnail
 };

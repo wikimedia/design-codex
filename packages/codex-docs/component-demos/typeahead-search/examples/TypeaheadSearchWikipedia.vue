@@ -7,6 +7,7 @@
 			search-results-label="Search results"
 			:search-results="searchResults"
 			:search-footer-url="searchFooterUrl"
+			:show-thumbnail="true"
 			:highlight-query="true"
 			:auto-expand-width="true"
 			placeholder="Search Wikipedia"

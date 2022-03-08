@@ -12,10 +12,13 @@
 			:selected="menuItem.value === selected"
 			:active="menuItem.value === activeMenuItem?.value"
 			:highlighted="menuItem.value === highlightedMenuItem?.value"
+			:show-thumbnail="showThumbnail"
+			:search-query="searchQuery"
 			@change="handleMenuItemChange( $event, menuItem )"
+			@click="$emit( 'menu-item-click', menuItem )"
 		>
 			<!--
-				@slot Display of an individual menu item in the menu
+				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
 			-->
 			<slot :menuItem="menuItem" />
@@ -85,6 +88,20 @@ export default defineComponent( {
 		selectHighlighted: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Whether menu item thumbnails (or a placeholder icon) should be displayed.
+		 */
+		showThumbnail: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * The search query to be highlighted within the menu items' titles.
+		 */
+		searchQuery: {
+			type: String,
+			default: ''
 		}
 	},
 	emits: [
@@ -102,7 +119,16 @@ export default defineComponent( {
 		 *
 		 * @property {boolean} newValue The new expanded state (true for open, false for closed)
 		 */
-		'update:expanded'
+		'update:expanded',
+		/**
+		 * When a menu item is clicked.
+		 *
+		 * Typically, components with menus will respond to the selected value change, but
+		 * occasionally, a component might want to react specifically when a menu item is clicked.
+		 *
+		 * @property {MenuItemDataWithId} menuItem The menu item that was clicked
+		 */
+		'menu-item-click'
 	],
 	expose: [
 		'clearActive',
@@ -111,8 +137,8 @@ export default defineComponent( {
 	],
 	setup( props, { emit } ) {
 		/**
-		 * Computed array of menu menu items with unique IDs added; other methods and properties
-		 * should reference this value instead of the original menuItems prop.
+		 * Computed array of menu items with unique IDs added; other methods and properties should
+		 * reference this value instead of the original menuItems prop.
 		 */
 		const computedMenuItems = computed( (): MenuItemDataWithId[] => {
 			const generateMenuItemId = () => useGeneratedId( 'menu-item' ).value;

@@ -67,9 +67,23 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
       id="cdx-menu-item-2"
       role="option"
     >
-      <!-- @slot Optional content, will replace label if provided -->
+      <!-- @slot Custom menu item content. -->
       
-      Option A
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!--v-if-->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <span
+            class="cdx-menu-item__label"
+          >
+            Option A
+          </span>
+          <!--v-if-->
+        </span>
+      </span>
       
     </li>
     <li
@@ -79,9 +93,23 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
       id="cdx-menu-item-3"
       role="option"
     >
-      <!-- @slot Optional content, will replace label if provided -->
+      <!-- @slot Custom menu item content. -->
       
-      Option B
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!--v-if-->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <span
+            class="cdx-menu-item__label"
+          >
+            Option B
+          </span>
+          <!--v-if-->
+        </span>
+      </span>
       
     </li>
     <li
@@ -91,9 +119,23 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
       id="cdx-menu-item-4"
       role="option"
     >
-      <!-- @slot Optional content, will replace label if provided -->
+      <!-- @slot Custom menu item content. -->
       
-      c
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!--v-if-->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <span
+            class="cdx-menu-item__label"
+          >
+            c
+          </span>
+          <!--v-if-->
+        </span>
+      </span>
       
     </li>
     <li
@@ -103,9 +145,23 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
       id="cdx-menu-item-5"
       role="option"
     >
-      <!-- @slot Optional content, will replace label if provided -->
+      <!-- @slot Custom menu item content. -->
       
-      Option D
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!--v-if-->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <span
+            class="cdx-menu-item__label"
+          >
+            Option D
+          </span>
+          <!--v-if-->
+        </span>
+      </span>
       
     </li>
     
@@ -148,9 +204,23 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
       id="cdx-menu-item-7"
       role="option"
     >
-      <!-- @slot Optional content, will replace label if provided -->
+      <!-- @slot Custom menu item content. -->
       
-      Option A
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!--v-if-->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <span
+            class="cdx-menu-item__label"
+          >
+            Option A
+          </span>
+          <!--v-if-->
+        </span>
+      </span>
       
     </li>
     <li
@@ -160,9 +230,23 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
       id="cdx-menu-item-8"
       role="option"
     >
-      <!-- @slot Optional content, will replace label if provided -->
+      <!-- @slot Custom menu item content. -->
       
-      Option B
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!--v-if-->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <span
+            class="cdx-menu-item__label"
+          >
+            Option B
+          </span>
+          <!--v-if-->
+        </span>
+      </span>
       
     </li>
     <li
@@ -172,9 +256,23 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
       id="cdx-menu-item-9"
       role="option"
     >
-      <!-- @slot Optional content, will replace label if provided -->
+      <!-- @slot Custom menu item content. -->
       
-      c
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!--v-if-->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <span
+            class="cdx-menu-item__label"
+          >
+            c
+          </span>
+          <!--v-if-->
+        </span>
+      </span>
       
     </li>
     <li
@@ -184,9 +282,23 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
       id="cdx-menu-item-10"
       role="option"
     >
-      <!-- @slot Optional content, will replace label if provided -->
+      <!-- @slot Custom menu item content. -->
       
-      Option D
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!--v-if-->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <span
+            class="cdx-menu-item__label"
+          >
+            Option D
+          </span>
+          <!--v-if-->
+        </span>
+      </span>
       
     </li>
     

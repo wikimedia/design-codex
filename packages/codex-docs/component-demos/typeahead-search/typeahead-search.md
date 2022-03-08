@@ -18,9 +18,9 @@ element within the component.
 
 ### Search Wikipedia articles
 
-This implementation of TypeaheadSearch fetches articles from English Wikipedia.
-Note that the input expands on focus via the `autoExpandWidth` prop.  Open the
-console to see emitted events.
+This implementation of TypeaheadSearch fetches articles from English Wikipedia. Note that the input
+expands on focus via the `autoExpandWidth` prop, and thumbnails are enabled via the `showThumbanil`
+prop.  Open the console to see emitted events.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -35,8 +35,7 @@ console to see emitted events.
 
 ### Search Wikidata items
 
-In this example, results are fetched from Wikidata. Note that thumbnails are hidden via the
-`hideThumbnail` prop. Open the console to see emitted events.
+In this example, results are fetched from Wikidata. Open the console to see emitted events.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

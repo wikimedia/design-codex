@@ -315,6 +315,15 @@ it( 'Highlight state is not preserved after menu is closed', async () => {
 	expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
 } );
 
+it( 'Menu item becomes highlighted on mouseenter', async () => {
+	const wrapper = mount( CdxMenu, { props: defaultProps } );
+	const firstMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 0 ];
+	expect( firstMenuItem.classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+
+	await firstMenuItem.trigger( 'mouseenter' );
+	expect( firstMenuItem.classes() ).toContain( 'cdx-menu-item--highlighted' );
+} );
+
 it( 'Menu item becomes active on mousedown', async () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps } );
 	const firstMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 0 ];

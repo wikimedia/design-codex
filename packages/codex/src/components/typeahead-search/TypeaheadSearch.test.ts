@@ -1,5 +1,5 @@
 import { DOMWrapper, mount, VueWrapper } from '@vue/test-utils';
-import { CdxTypeaheadSearch, CdxListTile } from '../../lib';
+import { CdxTypeaheadSearch, CdxMenuItem } from '../../lib';
 import { DebounceInterval } from '../../constants';
 
 const propsData = {
@@ -56,14 +56,14 @@ describe( 'TypeaheadSearch initial state', () => {
 			searchResultsLabel: string
 			placeholder?: string;
 			autoExpandWidth?: boolean;
-			hideThumbnail?: boolean;
+			showThumbnail?: boolean;
 		}
 	];
 
 	const cases: Case[] = [
 		[ 'Default', propsData ],
-		[ 'With `autoExpandWidth` true and `hideThumbnail` false', { ...propsData, autoExpandWidth: true, hideThumbnail: false } ],
-		[ 'With `autoExpandWidth` true and `hideThumbnail` true', { ...propsData, autoExpandWidth: true, hideThumbnail: true } ]
+		[ 'With `autoExpandWidth` true and `showThumbnail` true', { ...propsData, autoExpandWidth: true, showThumbnail: true } ],
+		[ 'With `autoExpandWidth` true and `showThumbnail` false', { ...propsData, autoExpandWidth: true, showThumbnail: false } ]
 	];
 
 	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
@@ -197,7 +197,7 @@ describe( 'TypeaheadSearch, with search results', () => {
 
 		wrapper = mount( CdxTypeaheadSearch, {
 			// Add in an initial input value so we don't have to simulate entering input.
-			props: { initialInputValue: 'Co', searchFooterUrl, ...propsData },
+			props: { initialInputValue: 'Co', searchFooterUrl, showThumbnail: true, ...propsData },
 			slots: {
 				default: defaultSlot,
 				searchFooterText: searchFooterTextSlot
@@ -229,7 +229,7 @@ describe( 'TypeaheadSearch, with search results', () => {
 		await input.trigger( 'focus' );
 		expect( wrapper.vm.expanded ).toStrictEqual( true );
 
-		const searchResultComponent = wrapper.findComponent( CdxListTile );
+		const searchResultComponent = wrapper.findComponent( CdxMenuItem );
 		await searchResultComponent.trigger( 'click' );
 
 		expect( wrapper.vm.expanded ).toBeFalsy();

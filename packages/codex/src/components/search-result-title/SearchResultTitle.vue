@@ -1,0 +1,73 @@
+<template>
+	<span class="cdx-search-result-title">
+		<!-- All on one line to avoid introducing unwanted whitespace into the UI. -->
+		<!--eslint-disable-next-line max-len-->
+		{{ titleChunks[ 0 ] }}<span class="cdx-search-result-title__match">{{ titleChunks[ 1 ] }}</span>{{ titleChunks[ 2 ] }}
+	</span>
+</template>
+
+<script lang="ts">
+import { defineComponent, computed } from 'vue';
+import useStringHelpers from '../../composables/useStringHelpers';
+
+/**
+ * Title with highlighted search query.
+ *
+ * This component can be used to display the title of a search result with the
+ * current search query visually differentiated within the title text.
+ */
+export default defineComponent( {
+	name: 'CdxSearchResultTitle',
+
+	props: {
+		/**
+		 * Title text.
+		 */
+		title: {
+			type: String,
+			required: true
+		},
+		/**
+		 * The current search query.
+		 */
+		searchQuery: {
+			type: String,
+			default: ''
+		}
+	},
+
+	setup: ( props ) => {
+		const { splitStringAtMatch } = useStringHelpers();
+
+		// Splits the title into three chunks: the part before the search query, the part containing
+		// the search query, and the part after the search query.
+		const titleChunks = computed( () =>
+			splitStringAtMatch( props.searchQuery, String( props.title ) ) );
+
+		return {
+			titleChunks
+		};
+	}
+} );
+</script>
+
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
+// TODO: Tokenize.
+@font-size-browser: 16;
+@font-size-base: 14 / @font-size-browser;
+@font-size-search-result-title: unit( ( 16 / @font-size-browser / @font-size-base ), em );
+@margin-bottom-search-result-title: 2px;
+
+.cdx-search-result-title {
+	display: block;
+	margin: 0 0 @margin-bottom-search-result-title 0;
+	font-size: @font-size-search-result-title;
+	font-weight: @font-weight-bold;
+
+	&__match {
+		font-weight: @font-weight-normal;
+	}
+}
+</style>

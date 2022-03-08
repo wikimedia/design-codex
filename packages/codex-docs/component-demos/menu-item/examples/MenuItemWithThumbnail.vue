@@ -1,18 +1,15 @@
 <template>
-	<div>
-		<cdx-list-tile
-			:item="item"
-			search-query="Co"
-			:highlight-query="true"
-		/>
-	</div>
+	<cdx-menu-item
+		v-bind="menuItem"
+		:show-thumbnail="true"
+	/>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CdxListTile } from '@wikimedia/codex';
+import { CdxMenuItem } from '@wikimedia/codex';
 
-const item = {
+const menuItem = {
 	value: 5921,
 	label: 'Color',
 	url: 'https://en.wikipedia.org/wiki/Color',
@@ -24,15 +21,16 @@ const item = {
 		height: 150,
 		duration: null,
 		url: '//upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/200px-64_365_Color_Macro_%285498808099%29.jpg'
-	}
+	},
+	id: 'menu-item-with-thumbnail'
 };
 
 export default defineComponent( {
-	name: 'ListTileDefault',
-	components: { CdxListTile },
+	name: 'MenuItemWithThumbnail',
+	components: { CdxMenuItem },
 	setup() {
 		return {
-			item
+			menuItem
 		};
 	}
 } );

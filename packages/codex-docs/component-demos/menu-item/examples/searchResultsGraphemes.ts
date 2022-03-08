@@ -1,4 +1,4 @@
-import { SearchResult, SearchResultThumbnail } from '@wikimedia/codex';
+import { SearchResult, Thumbnail } from '@wikimedia/codex';
 
 export default [
 	{
@@ -111,7 +111,7 @@ export default [
 			height: 103,
 			duration: null,
 			url: '//upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Italy_Philippines_Locator.png/200px-Italy_Philippines_Locator.png'
-		} as SearchResultThumbnail
+		} as Thumbnail
 	},
 	{
 		value: 13140,

@@ -14,9 +14,23 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     id="cdx-menu-item-4"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    Option A
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          Option A
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   <li
@@ -26,9 +40,23 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     id="cdx-menu-item-5"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    Option B
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          Option B
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   <li
@@ -38,9 +66,23 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     id="cdx-menu-item-6"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    c
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          c
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   <li
@@ -50,9 +92,23 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     id="cdx-menu-item-7"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    Option D
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          Option D
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   
@@ -74,9 +130,23 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
     id="cdx-menu-item-8"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    Option A
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          Option A
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   <li
@@ -86,9 +156,23 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
     id="cdx-menu-item-9"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    Option B
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          Option B
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   <li
@@ -98,9 +182,23 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
     id="cdx-menu-item-10"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    c
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          c
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   <li
@@ -110,9 +208,23 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
     id="cdx-menu-item-11"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    Option D
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          Option D
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   
@@ -135,9 +247,23 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     id="cdx-menu-item-12"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    Option A
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          Option A
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   <li
@@ -147,9 +273,23 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     id="cdx-menu-item-13"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    Option B
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          Option B
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   <li
@@ -159,9 +299,23 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     id="cdx-menu-item-14"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    c
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          c
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   <li
@@ -171,9 +325,23 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     id="cdx-menu-item-15"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    Option D
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          Option D
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   
@@ -195,9 +363,23 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
     id="cdx-menu-item-16"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    Option A
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          Option A
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   <li
@@ -207,9 +389,23 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
     id="cdx-menu-item-17"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    Option B
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          Option B
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   <li
@@ -219,9 +415,23 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
     id="cdx-menu-item-18"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    c
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          c
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   <li
@@ -231,9 +441,23 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
     id="cdx-menu-item-19"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
-    Option D
+    <span
+      class="cdx-menu-item__content"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-menu-item__text"
+      >
+        <span
+          class="cdx-menu-item__label"
+        >
+          Option D
+        </span>
+        <!--v-if-->
+      </span>
+    </span>
     
   </li>
   
@@ -264,10 +488,10 @@ exports[`Matches the snapshots Case 4 Custom menu item rendering: => HTML 1`] = 
     id="cdx-menu-item-20"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
     <!--
-				@slot Display of an individual menu item in the menu
+				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
 			-->
     
@@ -282,10 +506,10 @@ exports[`Matches the snapshots Case 4 Custom menu item rendering: => HTML 1`] = 
     id="cdx-menu-item-21"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
     <!--
-				@slot Display of an individual menu item in the menu
+				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
 			-->
     
@@ -300,10 +524,10 @@ exports[`Matches the snapshots Case 4 Custom menu item rendering: => HTML 1`] = 
     id="cdx-menu-item-22"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
     <!--
-				@slot Display of an individual menu item in the menu
+				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
 			-->
     
@@ -318,10 +542,10 @@ exports[`Matches the snapshots Case 4 Custom menu item rendering: => HTML 1`] = 
     id="cdx-menu-item-23"
     role="option"
   >
-    <!-- @slot Optional content, will replace label if provided -->
+    <!-- @slot Custom menu item content. -->
     
     <!--
-				@slot Display of an individual menu item in the menu
+				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
 			-->
     

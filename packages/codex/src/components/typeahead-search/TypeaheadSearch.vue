@@ -39,27 +39,21 @@
 					:selected="selection"
 					:menu-items="searchResultsWithFooter"
 					select-highlighted
+					:search-query="highlightQuery ? searchQuery : ''"
+					:show-thumbnail="showThumbnail"
 					:aria-label="searchResultsLabel"
 					@update:selected="onUpdateMenuSelection"
+					@menu-item-click="( menuItem ) =>
+						onSearchResultClick( asSearchResult( menuItem ) )"
 				>
 					<template #default="{ menuItem }">
-						<cdx-list-tile
-							v-if="menuItem.value !== MenuFooterValue"
-							:search-query="searchQuery"
-							:item="asSearchResult( menuItem )"
-							:highlight-query="highlightQuery"
-							:hide-thumbnail="hideThumbnail"
-							:hide-description="hideDescription"
-							@click="onSearchResultClick( asSearchResult( menuItem ) )"
-						/>
 						<a
-							v-else
+							v-if="menuItem.value === MenuFooterValue"
 							class="cdx-typeahead-search__search-footer"
 							:href="asSearchResult( menuItem ).url"
 							@click.capture.stop="onSearchFooterClick( asSearchResult( menuItem ) )"
 						>
 							<cdx-icon
-								v-if="!hideThumbnail"
 								class="cdx-typeahead-search__search-footer__icon"
 								:icon="articleIcon"
 							/>
@@ -100,7 +94,6 @@ import { PropType, defineComponent, computed, ref, toRefs, watch, onMounted, toR
 import { cdxIconSearch, cdxIconArticleSearch } from '@wikimedia/codex-icons';
 import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
-import CdxListTile from '../list-tile/ListTile.vue';
 import CdxMenu from '../menu/Menu.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
@@ -114,7 +107,7 @@ import { DebounceInterval, MenuFooterValue } from '../../constants';
  * TypeaheadSearch contains a form with a text input, a submit button, and a slot for hidden inputs.
  * The parent component must listen for changes in the search query (which are debounced by
  * default), fetch or calculate search results, then provide them as an array of search results for
- * display to the user as a menu of ListTiles.
+ * display to the user in a dropdown menu.
  *
  * At the end of the list of search results, a final option to go to the search page for the current
  * search query is provided.
@@ -128,7 +121,6 @@ export default defineComponent( {
 	components: {
 		CdxButton,
 		CdxIcon,
-		CdxListTile,
 		CdxMenu,
 		CdxTextInput
 	},
@@ -207,22 +199,15 @@ export default defineComponent( {
 			default: false
 		},
 		/**
-		 * Whether to hide search results' thumbnails.
+		 * Whether to show search results' thumbnails (or a placeholder icon).
 		 */
-		hideThumbnail: {
-			type: Boolean,
-			default: false
-		},
-		/**
-		 * Whether to hide search results' descriptions.
-		 */
-		hideDescription: {
+		showThumbnail: {
 			type: Boolean,
 			default: false
 		},
 		/**
 		 * Contract the width of the input when unfocused and expand the width of
-		 * the input when focused to accomodate the extra width of the thumbnails.
+		 * the input when focused to accommodate the extra width of the thumbnails.
 		 */
 		autoExpandWidth: {
 			type: Boolean,
@@ -297,9 +282,9 @@ export default defineComponent( {
 		const internalClasses = computed( () => {
 			return {
 				'cdx-typeahead-search--active': isActive.value,
-				'cdx-typeahead-search--show-thumbnail': !props.hideThumbnail,
+				'cdx-typeahead-search--show-thumbnail': props.showThumbnail,
 				'cdx-typeahead-search--expanded': expanded.value,
-				'cdx-typeahead-search--auto-expand-width': !props.hideThumbnail && props.autoExpandWidth
+				'cdx-typeahead-search--auto-expand-width': props.showThumbnail && props.autoExpandWidth
 			};
 		} );
 		const {
@@ -576,10 +561,10 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) 'wikimedia-ui-base/wikimedia-ui-base.less';
 
-// TODO: add component-level tokens; many of these are repeated in ListTile.vue.
+// TODO: add component-level tokens; many of these are repeated in MenuItem.vue.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
-@font-size-list-tile-label: unit( ( 16 / @font-size-browser / @font-size-base ), em );
+@font-size-search-result-title: unit( ( 16 / @font-size-browser / @font-size-base ), em );
 
 // TODO: @size-input-icon-container is duplicated from TextInput.vue and needs to be centralized.
 @size-input-icon-container: unit(
@@ -588,9 +573,8 @@ export default defineComponent( {
 );
 @size-search-figure: @size-input-icon-container;
 
-@padding-vertical-list-tile: 8px;
-@padding-horizontal-list-tile: @padding-horizontal-base;
-@margin-end-list-tile-thumb: @padding-horizontal-list-tile;
+@padding-vertical-menu-item: 8px;
+@margin-end-menu-item-thumbnail: @padding-vertical-menu-item;
 
 .cdx-typeahead-search {
 	// Add `background-color` as `border` is around input including button.
@@ -641,12 +625,22 @@ export default defineComponent( {
 		}
 	}
 
+	.cdx-menu-item {
+		// Unset padding so we can add it to the anchor elements instead. This is necessary to get
+		// proper styling on the search footer.
+		padding: 0;
+
+		&__content {
+			padding: @padding-vertical-menu-item @padding-horizontal-base;
+		}
+	}
+
 	&__search-footer {
 		color: @color-base;
 		display: flex;
 		align-items: center;
 		border-top: @border-width-base @border-style-base @border-color-heading;
-		padding: @padding-vertical-list-tile @padding-horizontal-list-tile;
+		padding: @padding-vertical-menu-item @padding-horizontal-base;
 		text-decoration: none;
 		cursor: pointer;
 
@@ -658,7 +652,7 @@ export default defineComponent( {
 		&__icon {
 			color: @color-accessory;
 			// Because the footer icon should line up vertically with the search result text when
-			// `hideThumbnail` is true, we set its width to `auto` here instead of using the more
+			// `showThumbnail` is false, we set its width to `auto` here instead of using the more
 			// intuitive @size-search-figure variable so it doesn't have extra horizontal space.
 			width: auto;
 			height: @size-search-figure;
@@ -666,15 +660,8 @@ export default defineComponent( {
 		}
 
 		&__text {
-			font-size: @font-size-list-tile-label;
+			font-size: @font-size-search-result-title;
 		}
-	}
-
-	.cdx-menu .cdx-menu-item {
-		// Unset Option padding since we'll apply padding to .cdx-list-tile instead.
-		padding: 0;
-		// Unset white-space: nowrap from Option.
-		white-space: normal;
 	}
 
 	.cdx-text-input__input {
@@ -708,13 +695,13 @@ export default defineComponent( {
 		// The amount of space between the typeahead search figure's parent component and the
 		// typeahead search figure (input icon container, search result thumbnail, and footer icon
 		// container). We want this space to be uniform so that the figures vertically line up
-		// nicely. For pragmatic reasons, we use the horizontal padding of the list tile.
-		@spacing-start-typeahead-search-figure: @padding-horizontal-list-tile;
-		// The amount of spacing from the end of the input icon container, list tile
-		// thumb, and footer icon container to the start of their associated text. We need the text
+		// nicely. We use the same horizontal padding as the MenuItem.
+		@spacing-start-typeahead-search-figure: @padding-horizontal-base;
+		// The amount of spacing from the end of the input icon container, menu item thumbnail,
+		// and footer icon container to the start of their associated text. We need the text
 		// to vertically line up nicely. For pragmatic reasons, we use the spacing from the
-		// list tile thumb.
-		@spacing-end-typeahead-search-figure: @margin-end-list-tile-thumb;
+		// menu item thumbnail.
+		@spacing-end-typeahead-search-figure: @margin-end-menu-item-thumbnail;
 		// The amount the width of the input increases when it is focused to allow for the extra
 		// spacing around the search figures. The caret position should remain in place for the
 		// smoothest transition.
@@ -751,13 +738,8 @@ export default defineComponent( {
 			}
 		}
 
-		.cdx-list-tile {
-			padding-right: @padding-horizontal-list-tile;
-			padding-left: @spacing-start-typeahead-search-figure;
-		}
-
 		.cdx-typeahead-search__search-footer {
-			padding-right: @padding-horizontal-list-tile;
+			padding-right: @padding-horizontal-base;
 			padding-left: @spacing-start-typeahead-search-figure;
 
 			// stylelint-disable-next-line max-nesting-depth

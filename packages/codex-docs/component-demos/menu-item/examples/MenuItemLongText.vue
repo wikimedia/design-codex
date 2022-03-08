@@ -1,32 +1,30 @@
 <template>
-	<div>
-		<cdx-list-tile
-			:item="item"
-			search-query="Donaudampfschiffahrtselektrizit"
-			:highlight-query="true"
-		/>
-	</div>
+	<cdx-menu-item
+		v-bind="menuItem"
+		search-query="Donaudampfschiffahrtselektrizit"
+		:highlight-query="true"
+	/>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CdxListTile } from '@wikimedia/codex';
+import { CdxMenuItem } from '@wikimedia/codex';
 
 // See https://phabricator.wikimedia.org/T280982.
-const item = {
+const menuItem = {
 	value: 2201357,
 	label: 'Donaudampfschiffahrtselektrizitätenhauptbetriebswerkbauunterbeamtengesellschaft',
 	url: 'https://en.wikipedia.org/wiki/Donaudampfschiffahrtselektrizit%C3%A4tenhauptbetriebswerkbauunterbeamtengesellschaft',
 	description: 'Arguably the longest German word',
-	thumbnail: null
+	id: 'menu-item-long-text'
 };
 
 export default defineComponent( {
-	name: 'ListTileLong',
-	components: { CdxListTile },
+	name: 'MenuItemLongText',
+	components: { CdxMenuItem },
 	setup() {
 		return {
-			item
+			menuItem
 		};
 	}
 } );
