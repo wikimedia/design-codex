@@ -1,9 +1,19 @@
 'use strict';
 
 const StyleDictionary = require( 'style-dictionary' ).extend( __dirname + '/config.js' );
-const { createCustomStyleFormatter } = require( './lib' );
+const { createCustomStyleFormatter, getReferencedTokens, kebabCase } = require( './lib' );
 
-console.log( 'Building Codex design tokens…' );
+StyleDictionary.registerTransform( {
+	name: 'attr/tokenList',
+	type: 'attribute',
+	transformer: getReferencedTokens
+} );
+
+StyleDictionary.registerTransform( {
+	name: 'name/kebabCase',
+	type: 'name',
+	transformer: kebabCase
+} );
 
 StyleDictionary.registerFormat( {
 	name: 'custom/format/css',
@@ -19,6 +29,8 @@ StyleDictionary.registerFormat( {
 	name: 'custom/format/scss',
 	formatter: createCustomStyleFormatter( 'sass' )
 } );
+
+console.log( 'Building Codex design tokens…' );
 
 // Build all the platforms.
 StyleDictionary.buildAllPlatforms();

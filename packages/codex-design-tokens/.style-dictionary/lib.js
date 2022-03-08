@@ -1,21 +1,39 @@
 'use strict';
 
 /* eslint-disable jsdoc/valid-types */
+/** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
 /** @typedef {import('style-dictionary').Formatter} Formatter */
 
 const { fileHeader, createPropertyFormatter, sortByReference } =
 	require( 'style-dictionary' ).formatHelpers;
 
-function getReferencedTokens( prop ) {
-	// TODO use getReferences() / usesReference() from style-dictionary
+/**
+ * Attribute transform that adds a "tokens" attribute, containing an array of the names of
+ * other tokens referenced by this token.
+ *
+ * @param {TransformedToken} token
+ * @return {{ tokens: string[] }}
+ */
+function getReferencedTokens( token ) {
+	// Sadly we can't use dictionary.getReferences() here, because we don't have access
+	// to a dictionary object
 	const variablePattern = /{\s*(?<token>.+?)\s*}/g;
 
 	return {
-		tokens: [ ...prop.original.value.matchAll( variablePattern ) ]
+		tokens: [ ...token.original.value.matchAll( variablePattern ) ]
 			.map( ( match ) => match.groups.token )
 	};
 }
 
+/**
+ * Name transform that transforms the path to kebab case, while keeping double dashes.
+ *
+ * We can't use the built-in name/cti/kebab transform because it collapses double dashes to
+ * single dashes.
+ *
+ * @param {TransformedToken} token
+ * @return {string}
+ */
 function kebabCase( { path } ) {
 	return path.join( '-' );
 }
