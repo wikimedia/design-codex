@@ -42,6 +42,7 @@ module.exports = {
 						{ text: 'Radio', link: '/components/radio' },
 						{ text: 'Select', link: '/components/select' },
 						{ text: 'TextInput', link: '/components/text-input' },
+						{ text: 'ToggleButton', link: '/components/toggle-button' },
 						{ text: 'ToggleSwitch', link: '/components/toggle-switch' },
 						{ text: 'TypeaheadSearch', link: '/components/typeahead-search' }
 					]

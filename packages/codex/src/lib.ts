@@ -11,6 +11,7 @@ import CdxMessage from './components/message/Message.vue';
 import CdxRadio from './components/radio/Radio.vue';
 import CdxSelect from './components/select/Select.vue';
 import CdxTextInput from './components/text-input/TextInput.vue';
+import CdxToggleButton from './components/toggle-button/ToggleButton.vue';
 import CdxToggleSwitch from './components/toggle-switch/ToggleSwitch.vue';
 import CdxTypeaheadSearch from './components/typeahead-search/TypeaheadSearch.vue';
 import useModelWrapper from './composables/useModelWrapper';
@@ -45,6 +46,7 @@ export {
 	CdxRadio,
 	CdxSelect,
 	CdxTextInput,
+	CdxToggleButton,
 	CdxToggleSwitch,
 	CdxTypeaheadSearch,
 
