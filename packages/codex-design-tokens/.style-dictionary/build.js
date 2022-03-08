@@ -5,20 +5,20 @@ const { createCustomStyleFormatter } = require( './lib' );
 
 console.log( 'Building Codex design tokens…' );
 
-StyleDictionary.registerFormat({
+StyleDictionary.registerFormat( {
 	name: 'custom/format/css',
 	formatter: createCustomStyleFormatter( 'css' )
-});
+} );
 
 StyleDictionary.registerFormat( {
 	name: 'custom/format/less',
 	formatter: createCustomStyleFormatter( 'less' )
 } );
 
-StyleDictionary.registerFormat({
+StyleDictionary.registerFormat( {
 	name: 'custom/format/scss',
 	formatter: createCustomStyleFormatter( 'sass' )
-});
+} );
 
 // Build all the platforms.
 StyleDictionary.buildAllPlatforms();

@@ -1,4 +1,4 @@
-/* eslint-env node */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { optimize } = require( 'svgo' );
 const removeSvgTag = require( '../svgo-plugin-removeSvgTag' );
 
@@ -24,9 +24,9 @@ module.exports = {
 							},
 							mergePaths: {
 								noSpaceAfterFlags: true
-							},
-						},
-					},
+							}
+						}
+					}
 				},
 				removeSvgTag
 			]

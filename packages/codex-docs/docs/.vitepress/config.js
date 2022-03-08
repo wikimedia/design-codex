@@ -11,7 +11,7 @@ module.exports = {
 
 		sidebar: {
 			'/': [
-			 	{
+				{
 					text: 'Introduction',
 					children: [
 						{ text: 'About', link: '/' },
@@ -43,7 +43,7 @@ module.exports = {
 						{ text: 'Select', link: '/components/select' },
 						{ text: 'TextInput', link: '/components/text-input' },
 						{ text: 'ToggleSwitch', link: '/components/toggle-switch' },
-						{ text: 'TypeaheadSearch', link: '/components/typeahead-search' },
+						{ text: 'TypeaheadSearch', link: '/components/typeahead-search' }
 					]
 				},
 				{
@@ -87,4 +87,4 @@ module.exports = {
 			]
 		}
 	}
-}
+};

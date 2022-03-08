@@ -3,7 +3,8 @@
 		{
 			"files": [ "**/*.ts", "**/*.js" ],
 			"extends": [
-				"wikimedia/server"
+				"wikimedia/server",
+				"wikimedia/language/es2020"
 			],
 			"rules": {
 				"strict": "off"

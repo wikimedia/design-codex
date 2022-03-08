@@ -7,33 +7,33 @@ const StyleDictionary = require( 'style-dictionary' ),
 		platforms: {
 			scss: {
 				transforms: [
-					'name/kebabCase',
+					'name/kebabCase'
 				],
 				buildPath: 'dist/',
 				files: [ {
 					destination: 'theme-wikimedia-ui.scss',
-					format: 'custom/format/scss',
-				} ],
+					format: 'custom/format/scss'
+				} ]
 			},
 			css: {
 				transforms: [
-					'name/kebabCase',
+					'name/kebabCase'
 				],
 				buildPath: 'dist/',
 				files: [ {
 					destination: 'theme-wikimedia-ui.css',
-					format: 'custom/format/css',
-				} ],
+					format: 'custom/format/css'
+				} ]
 			},
 			less: {
 				transforms: [
-					'name/kebabCase',
+					'name/kebabCase'
 				],
 				buildPath: 'dist/',
 				files: [ {
 					destination: 'theme-wikimedia-ui.less',
 					format: 'custom/format/less'
-				} ],
+				} ]
 			},
 			json: {
 				transforms: [
@@ -42,27 +42,27 @@ const StyleDictionary = require( 'style-dictionary' ),
 					// For app usage of the design tokens, we probably need to reconsider using one
 					// similar to `...StyleDictionary.transformGroup.web`.
 					'name/kebabCase',
-					'attr/tokenList',
+					'attr/tokenList'
 				],
 				buildPath: 'dist/',
 				files: [ {
 					destination: 'index.json',
-					format: 'json',
-				} ],
-			},
-		},
+					format: 'json'
+				} ]
+			}
+		}
 	} );
 
 codexStyleDictionary.registerTransform( {
 	name: 'attr/tokenList',
 	type: 'attribute',
-	transformer: getReferencedTokens,
+	transformer: getReferencedTokens
 } );
 
 codexStyleDictionary.registerTransform( {
 	name: 'name/kebabCase',
 	type: 'name',
-	transformer: kebabCase,
+	transformer: kebabCase
 } );
 
 module.exports = codexStyleDictionary;

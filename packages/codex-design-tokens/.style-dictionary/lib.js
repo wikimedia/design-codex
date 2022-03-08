@@ -1,5 +1,6 @@
 'use strict';
 
+/* eslint-disable jsdoc/valid-types */
 /** @typedef {import('style-dictionary').Formatter} Formatter */
 
 const { fileHeader, createPropertyFormatter, sortByReference } =
@@ -11,7 +12,7 @@ function getReferencedTokens( prop ) {
 
 	return {
 		tokens: [ ...prop.original.value.matchAll( variablePattern ) ]
-			.map( ( match ) => match.groups.token ),
+			.map( ( match ) => match.groups.token )
 	};
 }
 
@@ -26,7 +27,7 @@ function kebabCase( { path } ) {
  * but it adds deprecation comments based on the 'deprecated' property.
  *
  * @param {'css'|'less'|'sass'} format
- * @returns {Formatter}
+ * @return {Formatter}
  */
 function createCustomStyleFormatter( format ) {
 	const commentStyle = ( {
@@ -35,14 +36,14 @@ function createCustomStyleFormatter( format ) {
 		sass: 'short'
 	} )[ format ];
 
-	return function ( { dictionary, platform, options, file } ) {
+	return function ( { dictionary, options, file } ) {
 		// Duplicated from css/variables in style-dictionary/lib/common/format.js
 		const header = fileHeader( { file, commentStyle } );
 		let preamble = '', postamble = '';
 		if ( format === 'css' ) {
 			const selector = options.selector || ':root';
 			preamble = `${selector} {\n`;
-			postamble = `\n}\n`;
+			postamble = '\n}\n';
 		}
 
 		// Duplicated from style-dictionary/lib/common/formatHelpers/formattedVariables.js
@@ -63,7 +64,8 @@ function createCustomStyleFormatter( format ) {
 			const deprecatedComment = typeof token.deprecated === 'string' ?
 				` (${token.deprecated})` : '';
 
-			// If the token value references exactly one other token, add "use otherTokenName instead".
+			// If the token value references exactly one other token, add "use otherTokenName
+			// instead".
 			const referencedTokens = dictionary.usesReference( token.original.value ) ?
 				dictionary.getReferences( token.original.value ) : [];
 			const useInstead = referencedTokens.length === 1 &&
@@ -86,7 +88,7 @@ function createCustomStyleFormatter( format ) {
 				.join( '\n' ) +
 			postamble;
 	};
-};
+}
 
 module.exports = {
 	getReferencedTokens,
