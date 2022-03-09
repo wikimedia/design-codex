@@ -9,7 +9,7 @@ We welcome contributions from everyone! There are several ways to contribute:
 - Reviewing code
 - Updating and expanding library documentation
 
-Contributions to Codex are covered by a [Code of Conduct for Wikimedia technical spaces](https://www.mediawiki.org/wiki/Special:MyLanguage/Code_of_Conduct).
+Contributions to Codex are covered by the [Code of Conduct for Wikimedia technical spaces](https://www.mediawiki.org/wiki/Special:MyLanguage/Code_of_Conduct).
 
 ## How to stay up-to-date
 
