@@ -22,7 +22,7 @@
 			"value": "{ color.utility-red90 }"
 		},
 		"progressive-quiet--hover": {
-			"comment": "Deprecated key. Use 'background-color.quiet-progressive--hover' key instead.",
+			"deprecated": "Button token names start with type and then action to better clarify application by type first.",
 			"value": "{ background-color.quiet-progressive--hover }"
 		},
 		"input-binary--checked": {
@@ -121,19 +121,19 @@
 			"value": "{ color.base50 }"
 		},
 		"primary": {
-			"comment": "Deprecated key. Use base file's 'progressive' key instead.",
+			"deprecated": true,
 			"value": "{ border-color.progressive }"
 		},
 		"primary--hover": {
-			"comment": "Deprecated key.",
+			"deprecated": true,
 			"value": "{ border-color.progressive--hover }"
 		},
 		"primary--active": {
-			"comment": "Deprecated key.",
+			"deprecated": true,
 			"value": "{ border-color.progressive--active }"
 		},
 		"primary--focus": {
-			"comment": "Deprecated key.",
+			"deprecated": true,
 			"value": "{ border-color.progressive--focus }"
 		},
 		"input--hover": {

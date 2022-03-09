@@ -415,7 +415,7 @@
 			"value": "{ box-shadow.100 } { color.accent50 }, { box-shadow.200 } { color.base100 }"
 		},
 		"primary--focus": {
-			"comment": "Deprecated: Replace by `box-shadow-progressive--focus`.",
+			"deprecated": true,
 			"value": "{ box-shadow.progressive--focus }"
 		},
 		"destructive--focus": {
