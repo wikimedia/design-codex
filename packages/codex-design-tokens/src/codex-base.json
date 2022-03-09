@@ -99,22 +99,6 @@
 		"progressive--focus": {
 			"value": "{ color.accent50 }"
 		},
-		"primary": {
-			"deprecated": "In use in many non-button applications.",
-			"value": "{ color.progressive }"
-		},
-		"primary--hover": {
-			"deprecated": true,
-			"value": "{ color.progressive--hover }"
-		},
-		"primary--active": {
-			"deprecated": true,
-			"value": "{ color.progressive--active }"
-		},
-		"primary--focus": {
-			"deprecated": true,
-			"value": "{ color.progressive--focus }"
-		},
 		"destructive": {
 			"comment": "'Destructive' Color and states",
 			"value": "{ color.utility-red50 }"

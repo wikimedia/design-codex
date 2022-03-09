@@ -64,16 +64,20 @@
 	},
 	"color": {
 		"primary": {
-			"progressive": {
-				"comment": "Primary 'Progressive' Button color and states",
-				"value": "{ color.base--inverted }"
-			},
-			"progressive--hover": {
-				"value": "{ color.modifier-accent50-lighten }"
-			},
-			"progressive--active": {
-				"value": "{ color.accent30 }"
-			}
+			"deprecated": "In use in many non-button applications as references in WikimediaUI Base. Note that we have to replace those before removing tokens group here.",
+			"value": "{ color.progressive }"
+		},
+		"primary--hover": {
+			"deprecated": true,
+			"value": "{ color.progressive--hover }"
+		},
+		"primary--active": {
+			"deprecated": true,
+			"value": "{ color.progressive--active }"
+		},
+		"primary--focus": {
+			"deprecated": true,
+			"value": "{ color.progressive--focus }"
 		}
 	},
 	"position": {
