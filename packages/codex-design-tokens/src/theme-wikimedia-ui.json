@@ -103,6 +103,22 @@
 		},
 		"100": {
 			"value": "1"
+		},
+		"87": {
+			"deprecated": "Legacy opacity for icon states in non-Codex products.",
+			"value": "0.87"
+		},
+		"74": {
+			"deprecated": "Legacy opacity for icon states in non-Codex products.",
+			"value": "0.74"
+		},
+		"67": {
+			"deprecated": "Legacy opacity for icon states in non-Codex products.",
+			"value": "0.67"
+		},
+		"51": {
+			"deprecated": "Legacy opacity for icon states in non-Codex products.",
+			"value": "0.51"
 		}
 	},
 	"z-index": {

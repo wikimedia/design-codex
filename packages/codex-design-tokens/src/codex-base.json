@@ -132,6 +132,29 @@
 		},
 		"overlay": {
 			"value": "{ opacity.60 }"
+		},
+		"transparent": {
+			"value": "{ opacity.0 }"
+		},
+		"icon-base": {
+			"deprecated": "Legacy opacity for icon states in non-Codex products.",
+			"value": "{ opacity.87 }"
+		},
+		"icon-base--hover": {
+			"deprecated": "Legacy opacity for icon states in non-Codex products.",
+			"value": "{ opacity.74 }"
+		},
+		"icon-base--selected": {
+			"deprecated": "Legacy opacity for icon states in non-Codex products.",
+			"value": "{ opacity.100 }"
+		},
+		"base--disabled": {
+			"deprecated": "Legacy opacity for icon states in non-Codex products. Has only been used for icons despite the name.",
+			"value": "{ opacity.51 }"
+		},
+		"icon-accessory": {
+			"deprecated": "Legacy opacity for icon states in non-Codex products.",
+			"value": "{ opacity.67 }"
 		}
 	},
 	"z-index": {
