@@ -93,7 +93,7 @@ export default defineComponent( {
 		/**
 		 * When the selected menu item changes.
 		 *
-		 * @property {string|number|null} selectedValue The `.value` property of the selected
+		 * @property {string | number | null} selectedValue The `.value` property of the selected
 		 *   menu item, or null if no item is selected.
 		 */
 		'update:selected',
