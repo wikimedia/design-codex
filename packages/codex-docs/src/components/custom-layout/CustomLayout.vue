@@ -1,17 +1,25 @@
 <template>
-	<Layout>
-		<template #navbar-search>
-			<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
-			<div
-				v-show="isComponentPage"
-				class="cdx-docs-direction-switcher"
-				dir="ltr"
-			>
-				Direction:
-				<direction-switcher v-model="dir" />
-			</div>
-		</template>
-	</Layout>
+	<!--
+		On non-component pages, add dir="ltr" to make bidirectional styles work.
+		On component pages, we have to add dir="ltr" on the demo container instead, and separately
+		on each container that contains other components, because our bidirectional styles don't
+		support nesting multiple containers with dir attributes.
+	-->
+	<div :dir="isComponentPage ? undefined : 'ltr'">
+		<Layout>
+			<template #navbar-search>
+				<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
+				<div
+					v-show="isComponentPage"
+					class="cdx-docs-direction-switcher"
+					dir="ltr"
+				>
+					Direction:
+					<direction-switcher v-model="dir" />
+				</div>
+			</template>
+		</Layout>
+	</div>
 </template>
 
 <script setup lang="ts">
