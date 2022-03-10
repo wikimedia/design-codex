@@ -11,27 +11,24 @@
 			:action="formAction"
 			@submit="onSubmit"
 		>
-			<div class="cdx-typeahead-search__wrapper">
-				<cdx-text-input
-					ref="textInput"
-					v-model="inputValue"
-					v-bind="otherAttrs"
-					:start-icon="searchIcon"
-					input-type="search"
-					name="search"
-					role="combobox"
-					autocomplete="off"
-					aria-autocomplete="list"
-					:aria-owns="menuId"
-					:aria-expanded="expanded"
-					:aria-activedescendant="highlightedId"
-					autocapitalize="off"
-					@update:model-value="onUpdateInputValue"
-					@focus="onFocus"
-					@blur="onBlur"
-					@keydown="onKeydown"
-				/>
-
+			<cdx-search-input
+				ref="searchInput"
+				v-model="inputValue"
+				:button-label="buttonLabel"
+				v-bind="otherAttrs"
+				name="search"
+				role="combobox"
+				autocomplete="off"
+				aria-autocomplete="list"
+				:aria-owns="menuId"
+				:aria-expanded="expanded"
+				:aria-activedescendant="highlightedId"
+				autocapitalize="off"
+				@update:model-value="onUpdateInputValue"
+				@focus="onFocus"
+				@blur="onBlur"
+				@keydown="onKeydown"
+			>
 				<cdx-menu
 					:id="menuId"
 					ref="menu"
@@ -74,27 +71,23 @@
 						</a>
 					</template>
 				</cdx-menu>
+			</cdx-search-input>
 
-				<!--
-					@slot A slot for passing hidden inputs, i.e.
-					`<input type="hidden" name="language" value="en">`
-				-->
-				<slot />
-			</div>
-			<cdx-button class="cdx-typeahead-search__submit">
-				{{ buttonLabel }}
-			</cdx-button>
+			<!--
+				@slot A slot for passing hidden inputs, i.e.
+				`<input type="hidden" name="language" value="en">`
+			-->
+			<slot />
 		</form>
 	</div>
 </template>
 
 <script lang="ts">
 import { PropType, defineComponent, computed, ref, toRefs, watch, onMounted, toRef } from 'vue';
-import { cdxIconSearch, cdxIconArticleSearch } from '@wikimedia/codex-icons';
-import CdxButton from '../button/Button.vue';
+import { cdxIconArticleSearch } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import CdxMenu from '../menu/Menu.vue';
-import CdxTextInput from '../text-input/TextInput.vue';
+import CdxSearchInput from '../search-input/SearchInput.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import { SearchResult, SearchResultWithId, SearchResultClickEvent, MenuItemDataWithId, MenuConfig } from '../../types';
@@ -118,10 +111,9 @@ export default defineComponent( {
 	name: 'CdxTypeaheadSearch',
 
 	components: {
-		CdxButton,
 		CdxIcon,
 		CdxMenu,
-		CdxTextInput
+		CdxSearchInput
 	},
 
 	/**
@@ -549,7 +541,6 @@ export default defineComponent( {
 			onSubmit,
 			onKeydown,
 			MenuFooterValue,
-			searchIcon: cdxIconSearch,
 			articleIcon: cdxIconArticleSearch
 		};
 	},
@@ -560,10 +551,10 @@ export default defineComponent( {
 		 * @public
 		 */
 		focus(): void {
-			const textInput = this.$refs.textInput as InstanceType<typeof CdxTextInput>;
-			// Run the TextInput component's focus method, which will set focus
+			const searchInput = this.$refs.searchInput as InstanceType<typeof CdxSearchInput>;
+			// Run the searchInput component's focus method, which will set focus
 			// to the <input> within.
-			textInput.focus();
+			searchInput.focus();
 		}
 	}
 } );
@@ -588,38 +579,8 @@ export default defineComponent( {
 @margin-end-menu-item-thumbnail: @padding-vertical-menu-item;
 
 .cdx-typeahead-search {
-	// Add `background-color` as `border` is around input including button.
-	background-color: @background-color-base;
-	// Border is styled the same as the input border to visually encapsulate search submit button.
-	border: @border-base;
-	border-radius: @border-radius-base;
-
-	&__form {
-		display: flex;
-	}
-
-	&__wrapper {
-		flex-grow: 1;
-		// Makes search results start at the same horizontal position as input.
-		position: relative;
-		// Set negative margin to make button border overlap with
-		// `.cdx-typeahead-search`'s border.
-		margin: -@border-width-base;
-	}
-
-	&__submit {
+	.cdx-search-input__end-button {
 		opacity: 0;
-		// Prevent submit button from shrinking on smaller viewports, which causes the button label
-		// to overflow.
-		flex-shrink: 0;
-		position: relative;
-		// Set negative margin to make button border overlap with `.cdx-typeahead-search`'s border
-		// on all but start margin.
-		// The input already has a negative margin which causes part of the button's  border and
-		// input's border to intentionally overlap.
-		margin: -@border-width-base -@border-width-base -@border-width-base 0;
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
 		transition-property: opacity;
 		transition-duration: @transition-duration-base;
 
@@ -686,7 +647,7 @@ export default defineComponent( {
 
 	&--active,
 	&:hover {
-		.cdx-typeahead-search__submit {
+		.cdx-search-input__end-button {
 			opacity: @opacity-base;
 		}
 

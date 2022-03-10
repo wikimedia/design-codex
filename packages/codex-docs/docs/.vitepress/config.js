@@ -40,6 +40,7 @@ module.exports = {
 						{ text: 'MenuItem', link: '/components/menu-item' },
 						{ text: 'Message', link: '/components/message' },
 						{ text: 'Radio', link: '/components/radio' },
+						{ text: 'SearchInput', link: '/components/search-input' },
 						{ text: 'Select', link: '/components/select' },
 						{ text: 'TextInput', link: '/components/text-input' },
 						{ text: 'ToggleButton', link: '/components/toggle-button' },

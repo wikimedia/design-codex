@@ -7,6 +7,7 @@ import CdxMenu from './components/menu/Menu.vue';
 import CdxMenuItem from './components/menu-item/MenuItem.vue';
 import CdxMessage from './components/message/Message.vue';
 import CdxRadio from './components/radio/Radio.vue';
+import CdxSearchInput from './components/search-input/SearchInput.vue';
 import CdxSearchResultTitle from './components/search-result-title/SearchResultTitle.vue';
 import CdxSelect from './components/select/Select.vue';
 import CdxTextInput from './components/text-input/TextInput.vue';
@@ -42,6 +43,7 @@ export {
 	CdxMenu,
 	CdxMenuItem,
 	CdxRadio,
+	CdxSearchInput,
 	CdxSearchResultTitle,
 	CdxSelect,
 	CdxTextInput,

@@ -1,0 +1,38 @@
+// Mixin for inputs that have an end button that appears flush with the input.
+// To use, you will need the following:
+// 1. A <div> with the class .cdx-component-name__input-wrapper, that contains the input element or
+//    component.
+// 2. A <button> with the class .cdx-component-name__end-button
+// 3. A class on the root element called .cdx-component-name--has-end-button.
+// See SearchInput for sample usage.
+// TODO: also support start buttons (for things like NumberInput).
+.cdx-input-with-button() {
+	&--has-end-button {
+		// Add `background-color` as `border` is around input including button.
+		background-color: @background-color-base;
+		display: flex;
+		// Border is styled the same as the input border to visually encapsulate submit button.
+		border: @border-base;
+		border-radius: @border-radius-base;
+	}
+
+	&--has-end-button &__input-wrapper {
+		flex-grow: 1;
+		// Set negative margin to make button border overlap with the root element's border
+		// (set above).
+		margin: @margin-offset-border-width-base;
+	}
+
+	&__end-button {
+		// Prevent end button from shrinking on smaller viewports, which causes the button label
+		// to overflow.
+		flex-shrink: 0;
+		// Set negative margin to make button border overlap with the root element's border on all
+		// but the start margin.
+		// The input already has a negative margin which causes part of the button's border and
+		// input's border to intentionally overlap.
+		margin: @margin-offset-border-width-base @margin-offset-border-width-base @margin-offset-border-width-base 0;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+}
