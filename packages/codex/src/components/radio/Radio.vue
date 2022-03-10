@@ -2,7 +2,6 @@
 	<span class="cdx-radio" :class="rootClasses">
 		<label
 			class="cdx-radio__label"
-			:aria-disabled="disabled"
 			@click="focusInput"
 		>
 			<input

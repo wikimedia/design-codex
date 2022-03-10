@@ -54,10 +54,6 @@
 		// Create a stacking context.
 		z-index: 0;
 		line-height: @size-input-binary;
-
-		&[ aria-disabled='false' ]:hover {
-			cursor: @cursor-base--hover;
-		}
 	}
 
 	&__label-content {
@@ -91,5 +87,9 @@
 		margin: 0;
 		font-size: inherit;
 		cursor: inherit;
+
+		&:enabled:hover ~ [ class$='__label-content' ] {
+			cursor: @cursor-base--hover;
+		}
 	}
 }

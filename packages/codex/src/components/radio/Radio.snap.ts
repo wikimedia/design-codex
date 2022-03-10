@@ -5,7 +5,6 @@ exports[`matches the snapshot Case 0 String value: ("radio-1") => HTML 1`] = `
   class="cdx-radio"
 >
   <label
-    aria-disabled="false"
     class="cdx-radio__label"
   >
     <input
@@ -34,7 +33,6 @@ exports[`matches the snapshot Case 1 Number value: (2) => HTML 1`] = `
   class="cdx-radio"
 >
   <label
-    aria-disabled="false"
     class="cdx-radio__label"
   >
     <input
@@ -63,7 +61,6 @@ exports[`matches the snapshot Case 2 Boolean value: (true) => HTML 1`] = `
   class="cdx-radio"
 >
   <label
-    aria-disabled="false"
     class="cdx-radio__label"
   >
     <input
@@ -92,7 +89,6 @@ exports[`matches the snapshot Case 3 Disabled: ("radio-1") => HTML 1`] = `
   class="cdx-radio"
 >
   <label
-    aria-disabled="true"
     class="cdx-radio__label"
   >
     <input
@@ -122,7 +118,6 @@ exports[`matches the snapshot Case 4 Inline: ("radio-1") => HTML 1`] = `
   class="cdx-radio cdx-radio--inline"
 >
   <label
-    aria-disabled="false"
     class="cdx-radio__label"
   >
     <input

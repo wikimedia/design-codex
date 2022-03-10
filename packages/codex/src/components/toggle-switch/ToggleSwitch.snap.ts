@@ -5,7 +5,6 @@ exports[`matches the snapshot Case 0 Default: ({"disabled": false, "modelValue":
   class="cdx-toggle-switch"
 >
   <label
-    aria-disabled="false"
     class="cdx-toggle-switch__label"
     for="cdx-toggle-switch-0"
   >
@@ -31,7 +30,6 @@ exports[`matches the snapshot Case 1 With label: ({"disabled": false, "modelValu
   class="cdx-toggle-switch"
 >
   <label
-    aria-disabled="false"
     class="cdx-toggle-switch__label"
     for="cdx-toggle-switch-1"
   >
@@ -64,7 +62,6 @@ exports[`matches the snapshot Case 2 Disabled: ({"disabled": true, "modelValue":
   class="cdx-toggle-switch"
 >
   <label
-    aria-disabled="true"
     class="cdx-toggle-switch__label"
     for="cdx-toggle-switch-2"
   >
@@ -91,7 +88,6 @@ exports[`matches the snapshot Case 3 Disabled with label: ({"disabled": true, "m
   class="cdx-toggle-switch"
 >
   <label
-    aria-disabled="true"
     class="cdx-toggle-switch__label"
     for="cdx-toggle-switch-3"
   >

@@ -3,7 +3,6 @@
 		<label
 			ref="label"
 			class="cdx-checkbox__label"
-			:aria-disabled="disabled"
 			@click="focusInput"
 			@keydown.prevent.enter="clickLabel"
 		>

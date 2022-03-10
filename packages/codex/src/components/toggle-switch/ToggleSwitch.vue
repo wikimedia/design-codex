@@ -7,7 +7,6 @@
 		<label
 			:for="inputId"
 			class="cdx-toggle-switch__label"
-			:aria-disabled="disabled"
 		>
 			<input
 				:id="inputId"

@@ -5,7 +5,6 @@ exports[`matches the snapshot Case 0 Single checkbox: (true) => HTML 1`] = `
   class="cdx-checkbox"
 >
   <label
-    aria-disabled="false"
     class="cdx-checkbox__label"
   >
     <input
@@ -33,7 +32,6 @@ exports[`matches the snapshot Case 1 Group checkbox, string value: (["checkbox-1
   class="cdx-checkbox"
 >
   <label
-    aria-disabled="false"
     class="cdx-checkbox__label"
   >
     <input
@@ -61,7 +59,6 @@ exports[`matches the snapshot Case 2 Group checkbox, number value: ([1]) => HTML
   class="cdx-checkbox"
 >
   <label
-    aria-disabled="false"
     class="cdx-checkbox__label"
   >
     <input
@@ -89,7 +86,6 @@ exports[`matches the snapshot Case 3 Disabled: (false) => HTML 1`] = `
   class="cdx-checkbox"
 >
   <label
-    aria-disabled="true"
     class="cdx-checkbox__label"
   >
     <input
@@ -118,7 +114,6 @@ exports[`matches the snapshot Case 4 Indeterminate: (false) => HTML 1`] = `
   class="cdx-checkbox"
 >
   <label
-    aria-disabled="false"
     class="cdx-checkbox__label"
   >
     <input
@@ -146,7 +141,6 @@ exports[`matches the snapshot Case 5 Inline: ([]) => HTML 1`] = `
   class="cdx-checkbox cdx-checkbox--inline"
 >
   <label
-    aria-disabled="false"
     class="cdx-checkbox__label"
   >
     <input
