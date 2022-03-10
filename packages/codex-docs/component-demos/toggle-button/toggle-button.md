@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue';
 import ConfigurableButton from '@/../component-demos/toggle-button/examples/ConfigurableButton.vue';
 import IconButton from '@/../component-demos/toggle-button/examples/IconButton.vue';
 import SingleButton from '@/../component-demos/toggle-button/examples/SingleButton.vue';
