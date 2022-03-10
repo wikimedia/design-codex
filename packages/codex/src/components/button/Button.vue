@@ -71,51 +71,15 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import './../../themes/mixins/button.less';
 
 // TODO: Tokenize.
 @background-color-normal-progressive--active: lighten( @color-progressive--active, 60% );
 @background-color-normal-destructive--active: lighten( @color-destructive--active, 60% );
 
 .cdx-button {
-	box-sizing: @box-sizing-base;
-
-	// Interactive elements have a minimum touch area.
-	min-width: @min-size-base;
-	min-height: @min-size-base;
-	max-width: @max-width-button;
-
-	// Support Firefox, Safari: Normalize by removing the `margin`.
-	margin: 0;
-	border-width: @border-width-base;
-	border-style: @border-style-base;
-	border-radius: @border-radius-base;
-	padding-right: @padding-horizontal-base;
-	padding-left: @padding-horizontal-base;
-
-	// Support IE 11: Normalize by showing `overflow`.
-	overflow: visible;
-
-	// Support all browsers: Normalize by inheriting `font-family`.
-	// Initial value depends on user-agent.
-	font-family: inherit;
-
-	// Support all browsers: Normalize by inheriting `font-size` over initial value of `none`.
-	font-size: inherit;
-	font-weight: @font-weight-bold;
-
-	// Support Edge, Firefox, and IE: Normalize by removing the inheritance of `text-transform`.
-	text-transform: none;
-
-	// Contents are single line.
-	white-space: nowrap;
-	transition: @transition-base;
-	transition-property: @transition-property-base;
-
-	// Support Firefox: Normalize by hiding the inner focus `border` and `padding`.
-	&::-moz-focus-inner {
-		border: 0;
-		padding: 0;
-	}
+	// mixin for common base styles for buttons
+	.cdx-mixin-button();
 
 	&:enabled {
 		color: @color-base;
