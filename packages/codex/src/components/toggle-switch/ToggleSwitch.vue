@@ -222,8 +222,7 @@ export default defineComponent( {
 			border-radius: @border-radius-round;
 			// stylelint-disable value-list-comma-newline-after
 			transition: background-color @transition-ease-medium,
-				left @transition-base,
-				margin-left @transition-base;
+				left @transition-base;
 			// stylelint-enable value-list-comma-newline-after
 
 			// stylelint-disable-next-line max-nesting-depth
