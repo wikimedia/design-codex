@@ -55,7 +55,7 @@ import CdxDocsPositionDemo from './PositionDemo.vue';
 import CdxDocsSpacingDemo from './SpacingDemo.vue';
 import CdxDocsSizeDemo from './SizeDemo.vue';
 import CdxDocsTransitionDemo from './TransitionDemo.vue';
-import CdxDocsCopyTextButton from './CopyTextButton.vue';
+import CdxDocsCopyTextButton from '../copy-text-button/CopyTextButton.vue';
 
 export default defineComponent( {
 	name: 'TokensTable',

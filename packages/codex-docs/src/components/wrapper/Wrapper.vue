@@ -26,14 +26,25 @@
 					:slot-values="slotValues"
 				/>
 			</div>
-			<cdx-button
+			<!-- Align the copy button and the display toggle together -->
+			<div
 				v-if="hasCodeSample"
-				class="cdx-demo-wrapper__demo-pane__code-toggle"
-				type="quiet"
-				@click="onClick"
+				class="cdx-demo-wrapper__demo-pane__code-buttons"
 			>
-				{{ buttonLabel }}
-			</cdx-button>
+				<cdx-docs-copy-text-button
+					v-show="showCode"
+					class="cdx-demo-wrapper__demo-pane__code-copy"
+					button-text="Copy code"
+					:copy-text="codeText"
+				/>
+				<cdx-button
+					class="cdx-demo-wrapper__demo-pane__code-toggle"
+					type="quiet"
+					@click="onClick"
+				>
+					{{ buttonLabel }}
+				</cdx-button>
+			</div>
 		</div>
 		<div
 			v-if="hasCodeSample"
@@ -53,10 +64,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, computed, inject, PropType } from 'vue';
+import { defineComponent, reactive, ref, computed, inject, onMounted, PropType } from 'vue';
 import { ControlsConfig, ControlConfigWithValue, PropValues, SlotValues } from '../../types';
 import { DirectionKey } from '../../constants';
 import CdxDocsControls from '../controls/Controls.vue';
+import CdxDocsCopyTextButton from '../copy-text-button/CopyTextButton.vue';
 import { CdxButton } from '@wikimedia/codex';
 
 /**
@@ -69,7 +81,7 @@ import { CdxButton } from '@wikimedia/codex';
  */
 export default defineComponent( {
 	name: 'CdxDemoWrapper',
-	components: { CdxDocsControls, CdxButton },
+	components: { CdxDocsControls, CdxDocsCopyTextButton, CdxButton },
 	props: {
 		/**
 		 * Data for configurable props and slots.
@@ -214,6 +226,24 @@ export default defineComponent( {
 			}
 		};
 
+		/**
+		 * Access the contents of the code slot for copying, cannot be retrieved until
+		 * after the component is mounted. If there is no code, this will never be used.
+		 */
+		const codeText = ref( 'Unused' );
+		if ( hasCodeSample ) {
+			onMounted( () => {
+				// Satisfy typescript, already checked by hasCodeSample
+				if ( slots && slots.code ) {
+					const codeSlotNodeElement = slots.code()[ 0 ].el;
+					// Typescript complains that this might be null
+					if ( codeSlotNodeElement ) {
+						codeText.value = codeSlotNodeElement.innerText;
+					}
+				}
+			} );
+		}
+
 		return {
 			dir,
 			hasCodeSample,
@@ -228,7 +258,8 @@ export default defineComponent( {
 			handleControlChange,
 			includeReset,
 			onReset,
-			demoRenderKey
+			demoRenderKey,
+			codeText
 		};
 	}
 } );
@@ -256,10 +287,15 @@ export default defineComponent( {
 			font-size: 0.875em;
 		}
 
-		&__code-toggle {
+		// Since the buttons are always on the right, ensure they retain their order
+		// so that in RTL view the appearance of the copy button doesn't result in
+		// moving the display toggle. TODO should these buttons be on the left when
+		// in RTL? In which case the absolute position should be revisited
+		&__code-buttons {
 			position: absolute;
 			right: 0;
 			bottom: 0;
+			direction: ltr;
 			font-size: 0.875em;
 		}
 

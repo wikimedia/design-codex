@@ -32,6 +32,7 @@ config.global.provide = {
 	[ DirectionKey as symbol ]: ltrRef
 };
 
+const CodeCopySelector = '.cdx-demo-wrapper__demo-pane__code-copy';
 const CodeToggleSelector = '.cdx-demo-wrapper__demo-pane__code-toggle';
 const ResetButtonSelector = '.cdx-demo-wrapper__demo-pane__reset-button';
 
@@ -63,6 +64,40 @@ it( 'shows and hides code on button click', () => {
 	wrapper.get( CodeToggleSelector ).trigger( 'click' );
 	expect( wrapper.vm.showCode ).toBeFalsy();
 	expect( wrapper.vm.buttonLabel ).toBe( 'Show code' );
+} );
+
+it( 'allows code to be copied', () => {
+	const wrapper = mount( Wrapper, {
+		slots: {
+			code: '<p>Hello world</p>'
+		}
+	} );
+
+	// copy not visible until code is shown
+	expect( wrapper.get( CodeCopySelector ).isVisible() ).toBe( false );
+
+	wrapper.get( CodeToggleSelector ).trigger( 'click' );
+	expect( wrapper.vm.showCode ).toBeTruthy();
+
+	// copy is visible when code is shown
+	expect( wrapper.get( CodeCopySelector ).isVisible() ).toBe( false );
+
+	// Clicking the button should call document.execCommand,
+	// testing both success (return true) and failure (return false)
+	const mockCommand = jest.fn();
+	document.execCommand = mockCommand;
+	mockCommand.mockReturnValue( true );
+	wrapper.get( CodeCopySelector ).trigger( 'click' );
+	expect( mockCommand ).toHaveBeenCalledWith( 'copy' );
+
+	mockCommand.mockReturnValue( false );
+	wrapper.get( CodeCopySelector ).trigger( 'click' );
+	expect( mockCommand ).toHaveBeenCalledTimes( 2 );
+
+	// hide code and copy again
+	wrapper.get( CodeToggleSelector ).trigger( 'click' );
+	expect( wrapper.vm.showCode ).toBeFalsy();
+	expect( wrapper.get( CodeCopySelector ).isVisible() ).toBe( false );
 } );
 
 it( 'includes controls if config is provided', () => {
