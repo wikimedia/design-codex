@@ -18,7 +18,7 @@ exports[`matches the snapshot Case 0 Item without label: ({"id": "test-menu-item
       class="cdx-menu-item__text"
     >
       <span
-        class="cdx-menu-item__label"
+        class="cdx-menu-item__text__label"
       >
         menuItemValue
       </span>
@@ -47,7 +47,7 @@ exports[`matches the snapshot Case 1 Item with label: ({"id": "test-menu-item", 
       class="cdx-menu-item__text"
     >
       <span
-        class="cdx-menu-item__label"
+        class="cdx-menu-item__text__label"
       >
         Test menu item
       </span>
@@ -77,7 +77,7 @@ exports[`matches the snapshot Case 2 Item with url: ({"description": "Test searc
       class="cdx-menu-item__text"
     >
       <span
-        class="cdx-menu-item__label"
+        class="cdx-menu-item__text__label"
       >
         searchResultValue
       </span>
@@ -135,7 +135,7 @@ exports[`matches the snapshot Case 3 Item with icon: ({"description": "Test sear
       class="cdx-menu-item__text"
     >
       <span
-        class="cdx-menu-item__label"
+        class="cdx-menu-item__text__label"
       >
         searchResultValue
       </span>
@@ -172,7 +172,7 @@ exports[`matches the snapshot Case 4 Item with thumbnail: ({"description": "Test
       class="cdx-menu-item__text"
     >
       <span
-        class="cdx-menu-item__label"
+        class="cdx-menu-item__text__label"
       >
         searchResultValue
       </span>
@@ -233,7 +233,7 @@ exports[`matches the snapshot Case 5 Item with placeholder thumbnail: ({"descrip
       class="cdx-menu-item__text"
     >
       <span
-        class="cdx-menu-item__label"
+        class="cdx-menu-item__text__label"
       >
         searchResultValue
       </span>

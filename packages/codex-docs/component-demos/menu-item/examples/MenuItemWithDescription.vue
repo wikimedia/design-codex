@@ -1,6 +1,7 @@
 <template>
 	<cdx-menu-item
 		v-bind="menuItem"
+		:bold-label="true"
 	/>
 </template>
 

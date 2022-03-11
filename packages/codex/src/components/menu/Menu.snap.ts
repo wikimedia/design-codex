@@ -24,7 +24,7 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           Option A
         </span>
@@ -50,7 +50,7 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           Option B
         </span>
@@ -76,7 +76,7 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           c
         </span>
@@ -102,7 +102,7 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           Option D
         </span>
@@ -140,7 +140,7 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           Option A
         </span>
@@ -166,7 +166,7 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           Option B
         </span>
@@ -192,7 +192,7 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           c
         </span>
@@ -218,7 +218,7 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           Option D
         </span>
@@ -257,7 +257,7 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           Option A
         </span>
@@ -283,7 +283,7 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           Option B
         </span>
@@ -309,7 +309,7 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           c
         </span>
@@ -335,7 +335,7 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           Option D
         </span>
@@ -373,7 +373,7 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           Option A
         </span>
@@ -399,7 +399,7 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           Option B
         </span>
@@ -425,7 +425,7 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           c
         </span>
@@ -451,7 +451,7 @@ exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
         class="cdx-menu-item__text"
       >
         <span
-          class="cdx-menu-item__label"
+          class="cdx-menu-item__text__label"
         >
           Option D
         </span>

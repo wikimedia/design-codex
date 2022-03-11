@@ -38,9 +38,8 @@
 					v-model:expanded="expanded"
 					:selected="selection"
 					:menu-items="searchResultsWithFooter"
-					select-highlighted
 					:search-query="highlightQuery ? searchQuery : ''"
-					:show-thumbnail="showThumbnail"
+					v-bind="menuConfig"
 					:aria-label="searchResultsLabel"
 					@update:selected="onUpdateMenuSelection"
 					@menu-item-click="( menuItem ) =>
@@ -98,7 +97,7 @@ import CdxMenu from '../menu/Menu.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
-import { SearchResult, SearchResultWithId, SearchResultClickEvent, MenuItemDataWithId } from '../../types';
+import { SearchResult, SearchResultWithId, SearchResultClickEvent, MenuItemDataWithId, MenuConfig } from '../../types';
 import { DebounceInterval, MenuFooterValue } from '../../constants';
 
 /**
@@ -296,6 +295,17 @@ export default defineComponent( {
 		function asSearchResult( menuItem: MenuItemDataWithId ): SearchResultWithId {
 			return menuItem as SearchResultWithId;
 		}
+
+		// Create MenuConfig to pass into Menu component.
+		const menuConfig = computed( (): MenuConfig => {
+			return {
+				showThumbnail: props.showThumbnail,
+				// In case search queries aren't highlighted, default to a bold label.
+				boldLabel: true,
+				hideDescriptionOverflow: true,
+				selectHighlighted: true
+			};
+		} );
 
 		const debounceId = ref<ReturnType<typeof setTimeout>>();
 
@@ -529,6 +539,7 @@ export default defineComponent( {
 			rootClasses,
 			rootStyle,
 			otherAttrs,
+			menuConfig,
 			onUpdateInputValue,
 			onUpdateMenuSelection,
 			onFocus,

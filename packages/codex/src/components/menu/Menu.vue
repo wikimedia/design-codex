@@ -13,6 +13,8 @@
 			:active="menuItem.value === activeMenuItem?.value"
 			:highlighted="menuItem.value === highlightedMenuItem?.value"
 			:show-thumbnail="showThumbnail"
+			:bold-label="boldLabel"
+			:hide-description-overflow="hideDescriptionOverflow"
 			:search-query="searchQuery"
 			@change="handleMenuItemChange( $event, menuItem )"
 			@click="$emit( 'menu-item-click', menuItem )"
@@ -82,17 +84,31 @@ export default defineComponent( {
 			required: true
 		},
 		/**
-		 * Whether to automatically select the highlighted menu item when the highlight is moved
-		 * with the arrow keys.
+		 * Whether menu item thumbnails (or a placeholder icon) should be displayed.
 		 */
-		selectHighlighted: {
+		showThumbnail: {
 			type: Boolean,
 			default: false
 		},
 		/**
-		 * Whether menu item thumbnails (or a placeholder icon) should be displayed.
+		 * Whether to bold menu item labels.
 		 */
-		showThumbnail: {
+		boldLabel: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * Whether to hide description text overflow via an ellipsis.
+		 */
+		hideDescriptionOverflow: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * Whether to automatically select the highlighted menu item when the highlight is moved
+		 * with the arrow keys.
+		 */
+		selectHighlighted: {
 			type: Boolean,
 			default: false
 		},

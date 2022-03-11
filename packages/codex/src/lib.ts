@@ -28,7 +28,8 @@ import type {
 	MenuItemDataWithId,
 	SearchResult,
 	SearchResultClickEvent,
-	Thumbnail
+	Thumbnail,
+	MenuConfig
 } from './types';
 
 export {
@@ -62,5 +63,6 @@ export {
 	MenuItemDataWithId,
 	SearchResult,
 	SearchResultClickEvent,
-	Thumbnail
+	Thumbnail,
+	MenuConfig
 };

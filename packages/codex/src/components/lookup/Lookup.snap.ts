@@ -77,7 +77,7 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option A
           </span>
@@ -103,7 +103,7 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option B
           </span>
@@ -129,7 +129,7 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             c
           </span>
@@ -155,7 +155,7 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option D
           </span>
@@ -214,7 +214,7 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option A
           </span>
@@ -240,7 +240,7 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option B
           </span>
@@ -266,7 +266,7 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             c
           </span>
@@ -292,7 +292,7 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option D
           </span>

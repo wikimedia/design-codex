@@ -60,6 +60,21 @@ export interface MenuItemDataWithId extends MenuItemData {
 export type MenuState = typeof MenuStates[ number ];
 
 /** @public */
+export interface MenuConfig {
+	/** Whether to show thumbnails (or placeholder). */
+	showThumbnail?: boolean,
+	/** Whether to bold menu item labels. */
+	boldLabel?: boolean,
+	/** Whether to hide description text overflow via an ellipsis. */
+	hideDescriptionOverflow?: boolean,
+	/**
+	 * Whether to automatically select the highlighted menu item when the highlight is moved with
+	 * the arrow keys.
+	 */
+	selectHighlighted?: boolean
+}
+
+/** @public */
 export interface SearchResult extends MenuItemData {
 	/** Result link. */
 	url: string

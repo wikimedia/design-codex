@@ -77,7 +77,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option A
           </span>
@@ -103,7 +103,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option B
           </span>
@@ -129,7 +129,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             c
           </span>
@@ -155,7 +155,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option D
           </span>
@@ -247,7 +247,7 @@ exports[`Basic usage Case 1 Menu item with label selected: ([[Object], [Object],
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option A
           </span>
@@ -273,7 +273,7 @@ exports[`Basic usage Case 1 Menu item with label selected: ([[Object], [Object],
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option B
           </span>
@@ -299,7 +299,7 @@ exports[`Basic usage Case 1 Menu item with label selected: ([[Object], [Object],
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             c
           </span>
@@ -325,7 +325,7 @@ exports[`Basic usage Case 1 Menu item with label selected: ([[Object], [Object],
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option D
           </span>
@@ -417,7 +417,7 @@ exports[`Basic usage Case 2 Menu item with no label selected: ([[Object], [Objec
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option A
           </span>
@@ -443,7 +443,7 @@ exports[`Basic usage Case 2 Menu item with no label selected: ([[Object], [Objec
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option B
           </span>
@@ -469,7 +469,7 @@ exports[`Basic usage Case 2 Menu item with no label selected: ([[Object], [Objec
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             c
           </span>
@@ -495,7 +495,7 @@ exports[`Basic usage Case 2 Menu item with no label selected: ([[Object], [Objec
           class="cdx-menu-item__text"
         >
           <span
-            class="cdx-menu-item__label"
+            class="cdx-menu-item__text__label"
           >
             Option D
           </span>

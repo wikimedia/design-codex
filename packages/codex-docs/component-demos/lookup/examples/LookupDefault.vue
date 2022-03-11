@@ -7,6 +7,7 @@
 		<cdx-lookup
 			v-model="selection"
 			:menu-items="menuItems"
+			:menu-config="menuConfig"
 			@new-input="onInput"
 		/>
 	</div>
@@ -14,7 +15,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { CdxLookup, MenuItemData } from '@wikimedia/codex';
+import { CdxLookup, MenuItemData, MenuConfig } from '@wikimedia/codex';
 import vegetableItems from './data';
 
 export default defineComponent( {
@@ -23,6 +24,10 @@ export default defineComponent( {
 	setup() {
 		const selection = ref( '' );
 		const menuItems = ref<MenuItemData[]>( [] );
+
+		const menuConfig: MenuConfig = {
+			boldLabel: true
+		};
 
 		function onInput( value: string ) {
 			if ( value ) {
@@ -35,6 +40,7 @@ export default defineComponent( {
 		return {
 			selection,
 			menuItems,
+			menuConfig,
 			onInput
 		};
 	}

@@ -26,7 +26,7 @@ react to by computing or fetching menu items, then providing those items to the 
 display.
 
 Items are displayed via the MenuItem component—see the [MenuItem docs](./menu-item) for more
-options.
+options. In this example, a `menuConfig` object is passed to the Lookup to bold the label text.
 
 Note that in this example, menu items are Wikidata items with a human-readable label and a Wikidata
 entity ID value.

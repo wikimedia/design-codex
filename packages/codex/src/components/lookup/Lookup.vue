@@ -26,6 +26,7 @@
 			v-model:selected="modelWrapper"
 			v-model:expanded="expanded"
 			:menu-items="menuItems"
+			v-bind="menuConfig"
 		>
 			<template #default="{ menuItem }">
 				<!--
@@ -60,7 +61,7 @@ import CdxTextInput from '../text-input/TextInput.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
-import { MenuItemData } from '../../types';
+import { MenuItemData, MenuConfig } from '../../types';
 
 /**
  * Text input with a dropdown menu of items, which are usually based on the current input value.
@@ -114,6 +115,18 @@ export default defineComponent( {
 		disabled: {
 			type: Boolean,
 			default: false
+		},
+
+		/**
+		 * Configuration for various menu features. All properties default to false.
+		 *
+		 * See the MenuConfig type.
+		 */
+		menuConfig: {
+			type: Object as PropType<MenuConfig>,
+			default: () => {
+				return {} as MenuConfig;
+			}
 		}
 	},
 

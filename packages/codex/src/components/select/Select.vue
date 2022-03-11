@@ -44,6 +44,7 @@
 			v-model:selected="modelWrapper"
 			v-model:expanded="expanded"
 			:menu-items="menuItems"
+			v-bind="menuConfig"
 		>
 			<template #default="{ menuItem }">
 				<!--
@@ -70,7 +71,7 @@ import CdxIcon from '../icon/Icon.vue';
 import CdxMenu from '../menu/Menu.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
-import { MenuItemData } from '../../types';
+import { MenuItemData, MenuConfig } from '../../types';
 
 /**
  * A dropdown menu similar to the HTML `<select>` element.
@@ -117,6 +118,18 @@ export default defineComponent( {
 		disabled: {
 			type: Boolean,
 			default: false
+		},
+
+		/**
+		 * Configuration for various menu features. All properties default to false.
+		 *
+		 * See the MenuConfig type.
+		 */
+		menuConfig: {
+			type: Object as PropType<MenuConfig>,
+			default: () => {
+				return {} as MenuConfig;
+			}
 		}
 	},
 

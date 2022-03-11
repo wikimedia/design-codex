@@ -3,6 +3,7 @@
 		<cdx-combobox
 			v-model="selection"
 			:menu-items="menuItems"
+			:menu-config="menuConfig"
 			placeholder="Type or choose an option"
 		/>
 	</div>
@@ -38,7 +39,11 @@ export default defineComponent( {
 	data() {
 		return {
 			menuItems,
-			selection: ''
+			selection: '',
+			menuConfig: {
+				boldLabel: true,
+				hideDescriptionOverflow: true
+			}
 		};
 	}
 } );

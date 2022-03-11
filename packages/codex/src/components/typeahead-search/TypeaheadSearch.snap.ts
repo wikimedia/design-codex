@@ -326,7 +326,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="cdx-menu-item cdx-menu-item--enabled"
+          class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
           id="cdx-menu-item-14"
           role="option"
         >
@@ -368,7 +368,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               class="cdx-menu-item__text"
             >
               <span
-                class="cdx-menu-item__label"
+                class="cdx-menu-item__text__label"
               >
                 Co
               </span>
@@ -380,7 +380,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="cdx-menu-item cdx-menu-item--enabled"
+          class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
           id="cdx-menu-item-15"
           role="option"
         >
@@ -398,7 +398,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               class="cdx-menu-item__text"
             >
               <span
-                class="cdx-menu-item__label"
+                class="cdx-menu-item__text__label"
               >
                 Color
               </span>
@@ -414,7 +414,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="cdx-menu-item cdx-menu-item--enabled"
+          class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
           id="cdx-menu-item-16"
           role="option"
         >

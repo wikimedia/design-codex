@@ -44,7 +44,7 @@
 						:title="title"
 						:search-query="searchQuery"
 					/>
-					<span v-else class="cdx-menu-item__label">
+					<span v-else class="cdx-menu-item__text__label">
 						{{ title }}
 					</span>
 
@@ -189,6 +189,22 @@ export default defineComponent( {
 		searchQuery: {
 			type: String,
 			default: ''
+		},
+
+		/**
+		 * Whether to bold menu item labels.
+		 */
+		boldLabel: {
+			type: Boolean,
+			default: false
+		},
+
+		/**
+		 * Whether to hide description text overflow via an ellipsis.
+		 */
+		hideDescriptionOverflow: {
+			type: Boolean,
+			default: false
 		}
 	},
 
@@ -224,7 +240,9 @@ export default defineComponent( {
 				'cdx-menu-item--highlighted': props.highlighted,
 				'cdx-menu-item--enabled': !props.disabled,
 				'cdx-menu-item--disabled': props.disabled,
-				'cdx-menu-item--highlight-query': highlightQuery.value
+				'cdx-menu-item--highlight-query': highlightQuery.value,
+				'cdx-menu-item--bold-label': props.boldLabel,
+				'cdx-menu-item--hide-description-overflow': props.hideDescriptionOverflow
 			};
 		} );
 
@@ -289,9 +307,7 @@ export default defineComponent( {
 	list-style: none;
 	position: relative;
 	padding: @padding-vertical-menu-item @padding-horizontal-base;
-	overflow: hidden;
 	line-height: @line-height-100;
-	text-overflow: ellipsis;
 	transition-property: @transition-property-base;
 	transition-duration: @transition-duration-base;
 
@@ -385,13 +401,30 @@ export default defineComponent( {
 		}
 	}
 
-	&__text {
-		overflow: hidden;
+	&__text__description {
+		display: block;
+	}
 
-		&__description {
-			display: block;
+	&--bold-label {
+		.cdx-menu-item__text__label {
+			font-weight: @font-weight-bold;
+		}
+	}
+
+	&--hide-description-overflow {
+		.cdx-menu-item__text {
+			// Prevent text section (label/title and description) from overflowing its container.
+			// This is needed once we apply the white-space: nowrap rule to the description text
+			// below.
 			overflow: hidden;
+		}
+
+		.cdx-menu-item__text__description {
+			// Hide overflow of description text.
+			overflow: hidden;
+			// Use an ellipsis to indicate text overflow.
 			text-overflow: ellipsis;
+			// Force overflow of the description text.
 			white-space: nowrap;
 		}
 	}

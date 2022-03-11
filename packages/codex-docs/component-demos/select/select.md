@@ -27,7 +27,8 @@ displayed.
 ### With menu item icons and descriptions
 
 Items are displayed via the MenuItem component—see the [MenuItem docs](./menu-item) for more
-options.
+options. In this example, a `menuConfig` object is passed to the Select to bold the label text and
+hide the text overflow of the descriptions.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

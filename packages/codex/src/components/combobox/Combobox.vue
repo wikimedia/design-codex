@@ -43,6 +43,7 @@
 			v-model:selected="modelWrapper"
 			v-model:expanded="expanded"
 			:menu-items="menuItems"
+			v-bind="menuConfig"
 		>
 			<template #default="{ menuItem }">
 				<!--
@@ -82,7 +83,7 @@ import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 
-import { MenuItemData } from '../../types';
+import { MenuItemData, MenuConfig } from '../../types';
 
 /**
  * Text input with an adjoining button and an expandable menu of items.
@@ -127,6 +128,18 @@ export default defineComponent( {
 		disabled: {
 			type: Boolean,
 			default: false
+		},
+
+		/**
+		 * Configuration for various menu features. All properties default to false.
+		 *
+		 * See the MenuConfig type.
+		 */
+		menuConfig: {
+			type: Object as PropType<MenuConfig>,
+			default: () => {
+				return {} as MenuConfig;
+			}
 		}
 	},
 

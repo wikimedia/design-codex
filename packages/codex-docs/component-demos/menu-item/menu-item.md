@@ -6,6 +6,7 @@ import MenuItemWithThumbnail from './../../component-demos/menu-item/examples/Me
 import MenuItemWithIcon from './../../component-demos/menu-item/examples/MenuItemWithIcon.vue';
 import MenuItemHighlightQuery from './../../component-demos/menu-item/examples/MenuItemHighlightQuery.vue';
 import MenuItemLongText from './../../component-demos/menu-item/examples/MenuItemLongText.vue';
+import MenuItemHideOverflow from './../../component-demos/menu-item/examples/MenuItemHideOverflow.vue';
 import MenuItems from './../../component-demos/menu-item/examples/MenuItems.vue';
 import MenuItemsGraphemes from './../../component-demos/menu-item/examples/MenuItemsGraphemes.vue';
 </script>
@@ -36,7 +37,7 @@ menu, like [Select](./select), [Lookup](./lookup), or [TypeaheadSearch](./typeah
 </template>
 </cdx-demo-wrapper>
 
-### With description
+### With description and bold label
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -116,6 +117,19 @@ below, the search query is "Co".
 <template v-slot:code>
 
 <<< @/../component-demos/menu-item/examples/MenuItemLongText.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### With description text overflow hidden
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<MenuItemHideOverflow />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/menu-item/examples/MenuItemHideOverflow.vue
 
 </template>
 </cdx-demo-wrapper>
