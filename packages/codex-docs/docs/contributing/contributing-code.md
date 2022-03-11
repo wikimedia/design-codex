@@ -153,6 +153,8 @@ via the `<style>` tag. Less variables from [Wikimedia UI Base](https://github.co
   - A variation of that block would have the class `.cdx-component-name__block-name--modifier-name`
 - There is no need to go deeper than 2 block levels in a class name; class names of further
   sub-elements can omit some of the blocks for the sake of brevity.
+- Avoid HTML element selectors. The style rulesets should aim to be independent from specific
+  element choices, which may change.
 - If a style or selector isn't self-explanatory, add a comment above it.
 - Codex uses [stylelint-order](https://github.com/hudochenkov/stylelint-order/) to order CSS/Less
   rules

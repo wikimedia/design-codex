@@ -212,7 +212,8 @@ export default defineComponent( {
 		margin-bottom: 16px;
 	}
 
-	&__code div[ class*='language-' ] {
+	// Code output underneath component with code language class, for example `language-vue`.
+	&__code [ class*='language-' ] {
 		margin-top: 0;
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
