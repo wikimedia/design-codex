@@ -38,12 +38,6 @@
 		&:last-child {
 			margin-right: 0;
 		}
-
-		// Target element (`span`) with class ending in `__label-content`.
-		[ class$='__label-content' ] {
-			// Reset to inline to avoid extra space between input and label.
-			display: inline;
-		}
 	}
 
 	&__label {
@@ -60,6 +54,11 @@
 		// Necessary to ensure label is indented properly if it spans multiple lines.
 		display: inline-block;
 		padding-left: @size-input-binary + 0.5em;
+	}
+
+	&--inline &__label-content {
+		// Reset to inline to avoid extra space between input and label.
+		display: inline;
 	}
 
 	// Custom-styled input that's visible to the user.
@@ -87,9 +86,11 @@
 		margin: 0;
 		font-size: inherit;
 		cursor: inherit;
+	}
 
-		&:enabled:hover ~ [ class$='__label-content' ] {
-			cursor: @cursor-base--hover;
-		}
+	// Put selector outside `&__input` to not having to use string-based selectors
+	// on the class attribute (`[ class$='__label-content' ]`).
+	&__input:enabled:hover ~ &__label-content {
+		cursor: @cursor-base--hover;
 	}
 }
