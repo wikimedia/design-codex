@@ -561,9 +561,9 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-// TODO: add component-level tokens; many of these are repeated in MenuItem.vue.
+// TODO: Tokenize.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @font-size-search-result-title: unit( ( 16 / @font-size-browser / @font-size-base ), em );
@@ -578,10 +578,30 @@ export default defineComponent( {
 @padding-vertical-menu-item: 8px;
 @margin-end-menu-item-thumbnail: @padding-vertical-menu-item;
 
+@border-color-heading: @color-base70;
+
+@transition-property-simple-search-submit: opacity;
+
+// The amount of space between the typeahead search figure's parent component and the
+// typeahead search figure (input icon container, search result thumbnail, and footer icon
+// container). We want this space to be uniform so that the figures vertically line up
+// nicely. We use the same horizontal padding as the MenuItem.
+@spacing-start-typeahead-search-figure: @padding-horizontal-base;
+// The amount of spacing from the end of the input icon container, menu item thumbnail,
+// and footer icon container to the start of their associated text. We need the text
+// to vertically line up nicely. For pragmatic reasons, we use the spacing from the
+// menu item thumbnail.
+@spacing-end-typeahead-search-figure: @margin-end-menu-item-thumbnail;
+// The amount the width of the input increases when it is focused to allow for the extra
+// spacing around the search figures. The caret position should remain in place for the
+// smoothest transition.
+@size-typeahead-search-focus-addition: @spacing-start-typeahead-search-figure +
+	@spacing-end-typeahead-search-figure;
+
 .cdx-typeahead-search {
 	.cdx-search-input__end-button {
 		opacity: 0;
-		transition-property: opacity;
+		transition-property: @transition-property-simple-search-submit;
 		transition-duration: @transition-duration-base;
 
 		&:hover {
@@ -614,11 +634,14 @@ export default defineComponent( {
 		border-top: @border-width-base @border-style-base @border-color-heading;
 		padding: @padding-vertical-menu-item @padding-horizontal-base;
 		text-decoration: none;
-		cursor: pointer;
 
 		&:visited,
 		&:active {
 			color: @color-base;
+		}
+
+		&:hover {
+			cursor: @cursor-base--hover;
 		}
 
 		&__icon {
@@ -637,7 +660,7 @@ export default defineComponent( {
 	}
 
 	.cdx-text-input__input {
-		border-right-color: transparent;
+		border-right-color: @border-color-transparent;
 	}
 
 	// Remove bottom-left border radius on input when the menu is open.
@@ -664,22 +687,6 @@ export default defineComponent( {
 	}
 
 	&--show-thumbnail {
-		// The amount of space between the typeahead search figure's parent component and the
-		// typeahead search figure (input icon container, search result thumbnail, and footer icon
-		// container). We want this space to be uniform so that the figures vertically line up
-		// nicely. We use the same horizontal padding as the MenuItem.
-		@spacing-start-typeahead-search-figure: @padding-horizontal-base;
-		// The amount of spacing from the end of the input icon container, menu item thumbnail,
-		// and footer icon container to the start of their associated text. We need the text
-		// to vertically line up nicely. For pragmatic reasons, we use the spacing from the
-		// menu item thumbnail.
-		@spacing-end-typeahead-search-figure: @margin-end-menu-item-thumbnail;
-		// The amount the width of the input increases when it is focused to allow for the extra
-		// spacing around the search figures. The caret position should remain in place for the
-		// smoothest transition.
-		@size-typeahead-search-focus-addition: @spacing-start-typeahead-search-figure +
-			@spacing-end-typeahead-search-figure;
-
 		&.cdx-typeahead-search--auto-expand-width:not( .cdx-typeahead-search--active ) {
 			margin-left: @size-typeahead-search-focus-addition;
 		}
