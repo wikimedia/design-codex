@@ -256,12 +256,11 @@ it( 'Tab key after navigating to a new item emits an update event with the value
 	expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ exampleMenuItems[ 2 ].value ] );
 } );
 
-it( 'Highlighted menu item is selected when selectHighlighted prop is true', async () => {
+it( 'menu-item-keyboard-navigation event is emitted when user highlights an item via keyboard', async () => {
 	const wrapper = mount( CdxMenu, { props: {
 		...defaultProps,
 		selected: 'b',
-		expanded: false,
-		selectHighlighted: true
+		expanded: false
 	} } );
 	// Enter highlights the first item
 	await delegateKeydownEvent( wrapper, 'Enter' );
@@ -269,7 +268,11 @@ it( 'Highlighted menu item is selected when selectHighlighted prop is true', asy
 	await wrapper.setProps( { expanded: true } );
 
 	await delegateKeydownEvent( wrapper, 'ArrowDown' );
-	expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ exampleMenuItems[ 2 ].value ] );
+	expect(
+		wrapper.emitted()[ 'menu-item-keyboard-navigation' ][ 0 ]
+	).toMatchObject(
+		[ exampleMenuItems[ 2 ] ]
+	);
 } );
 
 it( 'Highlighted menu item is returned by getHighlightedMenuItem', async () => {

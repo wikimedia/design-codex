@@ -41,6 +41,7 @@
 					@update:selected="onUpdateMenuSelection"
 					@menu-item-click="( menuItem ) =>
 						onSearchResultClick( asSearchResult( menuItem ) )"
+					@menu-item-keyboard-navigation="onSearchResultKeyboardNavigation"
 				>
 					<template #default="{ menuItem }">
 						<a
@@ -294,8 +295,7 @@ export default defineComponent( {
 				showThumbnail: props.showThumbnail,
 				// In case search queries aren't highlighted, default to a bold label.
 				boldLabel: true,
-				hideDescriptionOverflow: true,
-				selectHighlighted: true
+				hideDescriptionOverflow: true
 			};
 		} );
 
@@ -402,6 +402,24 @@ export default defineComponent( {
 			};
 
 			context.emit( 'search-result-click', searchResultClickEvent );
+		}
+
+		/**
+		 * When the user reaches a search result via keyboard navigation, update
+		 * the input value to that item's label or value
+		 *
+		 * @param searchResult
+		 */
+		function onSearchResultKeyboardNavigation( searchResult: SearchResultWithId ) {
+			// Don't set the input to the value of the menu footer, revert to search query instead
+			if ( searchResult.value === MenuFooterValue ) {
+				inputValue.value = searchQuery.value;
+				return;
+			}
+
+			inputValue.value = searchResult.value ?
+				searchResult.label || String( searchResult.value ) :
+				'';
 		}
 
 		/**
@@ -537,6 +555,7 @@ export default defineComponent( {
 			onFocus,
 			onBlur,
 			onSearchResultClick,
+			onSearchResultKeyboardNavigation,
 			onSearchFooterClick,
 			onSubmit,
 			onKeydown,

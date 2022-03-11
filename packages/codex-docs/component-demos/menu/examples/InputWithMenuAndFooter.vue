@@ -11,7 +11,6 @@
 			v-model:selected="selectedValue"
 			v-model:expanded="expanded"
 			:menu-items="menuItems"
-			select-highlighted
 		>
 			<template #default="{ menuItem }">
 				{{ menuItem.label }} (value: {{ menuItem.value }})

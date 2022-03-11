@@ -66,12 +66,7 @@ export interface MenuConfig {
 	/** Whether to bold menu item labels. */
 	boldLabel?: boolean,
 	/** Whether to hide description text overflow via an ellipsis. */
-	hideDescriptionOverflow?: boolean,
-	/**
-	 * Whether to automatically select the highlighted menu item when the highlight is moved with
-	 * the arrow keys.
-	 */
-	selectHighlighted?: boolean
+	hideDescriptionOverflow?: boolean
 }
 
 /** @public */

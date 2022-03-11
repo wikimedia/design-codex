@@ -105,14 +105,6 @@ export default defineComponent( {
 			default: false
 		},
 		/**
-		 * Whether to automatically select the highlighted menu item when the highlight is moved
-		 * with the arrow keys.
-		 */
-		selectHighlighted: {
-			type: Boolean,
-			default: false
-		},
-		/**
 		 * The search query to be highlighted within the menu items' titles.
 		 */
 		searchQuery: {
@@ -144,7 +136,14 @@ export default defineComponent( {
 		 *
 		 * @property {MenuItemDataWithId} menuItem The menu item that was clicked
 		 */
-		'menu-item-click'
+		'menu-item-click',
+		/**
+		 * When a menu item is highlighted via keyboard navigation.
+		 *
+		 * @property {string | number | null} selectedValue The `.value` property of the selected
+		 *   menu item, or null if no item is selected.
+		 */
+		'menu-item-keyboard-navigation'
 	],
 	expose: [
 		'clearActive',
@@ -230,9 +229,9 @@ export default defineComponent( {
 			// Change menu state.
 			handleMenuItemChange( 'highlighted', newHighlightedMenuItem );
 
-			if ( props.selectHighlighted ) {
-				emit( 'update:selected', newHighlightedMenuItem.value );
-			}
+			// Emit a key navigation event in case the parent
+			// needs to update the input value
+			emit( 'menu-item-keyboard-navigation', newHighlightedMenuItem );
 		}
 
 		/**
