@@ -9,8 +9,18 @@
 			class="cdx-demo-wrapper__demo-pane"
 			:dir="dir"
 		>
+			<cdx-button
+				v-if="includeReset"
+				class="cdx-demo-wrapper__demo-pane__reset-button"
+				type="quiet"
+				@click="onReset"
+			>
+				Reset
+			</cdx-button>
 			<div class="cdx-demo-wrapper__demo-pane__demo">
+				<!-- The key is used to allow resetting the component -->
 				<slot
+					:key="demoRenderKey"
 					name="demo"
 					:prop-values="propValues"
 					:slot-values="slotValues"
@@ -18,7 +28,7 @@
 			</div>
 			<cdx-button
 				v-if="hasCodeSample"
-				class="cdx-demo-wrapper__demo-pane__button"
+				class="cdx-demo-wrapper__demo-pane__code-toggle"
 				type="quiet"
 				@click="onClick"
 			>
@@ -69,6 +79,18 @@ export default defineComponent( {
 			default: () => {
 				return [];
 			}
+		},
+		/**
+		 * Whether to include a reset option even when there are no configurable properties
+		 * and slots. This is intended for components with internal states like an
+		 * indeterminate Checkbox or a dismissable Message, where even when there are
+		 * no configuration options it should still be possible to reset to restore the
+		 * original state. If the user can easily restore the original state (eg clicking
+		 * a toggle again or clearing their input) a reset button is unneeded.
+		 */
+		forceReset: {
+			type: Boolean,
+			default: false
 		}
 	},
 	setup( props, { slots } ) {
@@ -88,18 +110,28 @@ export default defineComponent( {
 		// Set up controls if config is provided.
 		const hasControls = ref( props.controlsConfig.length > 0 );
 
+		// Set up reset button if configuration is provided, or if the demo wants to
+		// show the button anyway
+		const includeReset = computed( () => {
+			return hasControls.value || props.forceReset;
+		} );
+
 		const rootClasses = computed( () => {
 			return {
-				'cdx-demo-wrapper--has-controls': hasControls.value
+				'cdx-demo-wrapper--has-controls': hasControls.value,
+				'cdx-demo-wrapper--has-reset': includeReset.value
 			};
 		} );
 
 		/**
-		 * Create a copy of the controls config and add a value property to each control. The
-		 * initial value will either be the provided default or an  appropriate default based on
-		 * the control type.
+		 * Create a map of the defaults to use for resetting. Because the default values
+		 * of some of the types can be undefined, which cannot be used as the
+		 * actual value of the object, when filling in missing defaults they are saved
+		 * as the "value" of the objects to simplify typescript handling. The default
+		 * value is used as the initial value, and will be either the provided default or
+		 * an appropriate default based on the control type.
 		 */
-		const controlsWithValues = reactive( props.controlsConfig.map(
+		const defaultControlValues = props.controlsConfig.map(
 			( config ) : ControlConfigWithValue => {
 				switch ( config.type ) {
 					case 'radio':
@@ -112,6 +144,16 @@ export default defineComponent( {
 					default:
 						return { ...config, value: config.default ?? '' };
 				}
+			}
+		);
+
+		/**
+		 * Start off the values based on the defaults, making a copy of the default
+		 * objects so that they can be used to reset.
+		 */
+		const controlsWithValues = reactive( defaultControlValues.map(
+			( config ) : ControlConfigWithValue => {
+				return { ...config };
 			}
 		) );
 
@@ -156,6 +198,22 @@ export default defineComponent( {
 			return constructedSlotValues;
 		} );
 
+		// Allow resetting the display, which forces the component to rerender with
+		// its initial state
+		const demoRenderKey = ref( 1 );
+		const onReset = (): void => {
+			demoRenderKey.value++;
+			for ( const control of controlsWithValues ) {
+				const defaultControl = defaultControlValues.find(
+					( c ) => c.name === control.name
+				);
+				// should always exist, but satisfy typescript checks
+				if ( defaultControl ) {
+					control.value = defaultControl.value;
+				}
+			}
+		};
+
 		return {
 			dir,
 			hasCodeSample,
@@ -167,7 +225,10 @@ export default defineComponent( {
 			controlsWithValues,
 			propValues,
 			slotValues,
-			handleControlChange
+			handleControlChange,
+			includeReset,
+			onReset,
+			demoRenderKey
 		};
 	}
 } );
@@ -188,7 +249,14 @@ export default defineComponent( {
 		border-radius: @border-radius-base;
 		padding: 24px;
 
-		&__button {
+		&__reset-button {
+			position: absolute;
+			top: 0;
+			right: 0;
+			font-size: 0.875em;
+		}
+
+		&__code-toggle {
 			position: absolute;
 			right: 0;
 			bottom: 0;
@@ -204,6 +272,12 @@ export default defineComponent( {
 				text-decoration: none;
 			}
 		}
+	}
+
+	// Add some space above the component demo to ensure that it does not collide with the
+	// reset button, if there is such a button included
+	&--has-reset &__demo-pane__demo {
+		margin-top: 16px;
 	}
 
 	// Add some space below the component demo to ensure it never collides with the show code/hide

@@ -32,6 +32,9 @@ config.global.provide = {
 	[ DirectionKey as symbol ]: ltrRef
 };
 
+const CodeToggleSelector = '.cdx-demo-wrapper__demo-pane__code-toggle';
+const ResetButtonSelector = '.cdx-demo-wrapper__demo-pane__reset-button';
+
 it( 'includes code sample when code is provided', () => {
 	const wrapper = mount( Wrapper, {
 		slots: {
@@ -53,11 +56,11 @@ it( 'shows and hides code on button click', () => {
 		}
 	} );
 
-	wrapper.get( 'button' ).trigger( 'click' );
+	wrapper.get( CodeToggleSelector ).trigger( 'click' );
 	expect( wrapper.vm.showCode ).toBeTruthy();
 	expect( wrapper.vm.buttonLabel ).toBe( 'Hide code' );
 
-	wrapper.get( 'button' ).trigger( 'click' );
+	wrapper.get( CodeToggleSelector ).trigger( 'click' );
 	expect( wrapper.vm.showCode ).toBeFalsy();
 	expect( wrapper.vm.buttonLabel ).toBe( 'Show code' );
 } );
@@ -100,4 +103,19 @@ it( 'reacts to prop updates from the Controls component', async () => {
 	await radio3.trigger( 'change' );
 
 	expect( wrapper.vm.propValues.radioControl ).toBe( 'Option 3' );
+} );
+
+it( 'can be reset', async () => {
+	// A bit of duplication from the props update above unfortunately
+	const wrapper = mount( Wrapper, { props: { controlsConfig } } );
+	expect( wrapper.vm.propValues.radioControl ).toBe( 'Option 1' );
+
+	const radio3 = wrapper.find( 'input[name="radio-group-radioControl"][value="Option 3"]' );
+	( radio3.element as HTMLInputElement ).checked = true;
+	await radio3.trigger( 'change' );
+
+	expect( wrapper.vm.propValues.radioControl ).toBe( 'Option 3' );
+
+	wrapper.get( ResetButtonSelector ).trigger( 'click' );
+	expect( wrapper.vm.propValues.radioControl ).toBe( 'Option 1' );
 } );

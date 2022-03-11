@@ -13,7 +13,7 @@ Menu items must have a value, and can have a label to display in the UI. If no
 label is provided (like the third menu item in this example), the value will be
 displayed.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper force-reset="true">
 <template v-slot:demo>
 <basic-select />
 </template>
@@ -30,7 +30,7 @@ Items are displayed via the MenuItem component—see the [MenuItem docs](./menu-
 options. In this example, a `menuConfig` object is passed to the Select to bold the label text and
 hide the text overflow of the descriptions.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper force-reset="true">
 <template v-slot:demo>
 <select-complex-menu-item />
 </template>
@@ -46,7 +46,7 @@ hide the text overflow of the descriptions.
 The `menu-item` scoped slot enables you to customize the display of each menu item, with a binding
 for the `menuItem`. In this example, only the menu item's icon is displayed in the menu.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper force-reset="true">
 <template v-slot:demo>
 <select-custom-menu-item />
 </template>
@@ -62,7 +62,7 @@ for the `menuItem`. In this example, only the menu item's icon is displayed in t
 The `label` scoped slot enables you to customize the display of the label, with
 bindings for the `selectedMenuItem` and the `defaultLabel`.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper force-reset="true">
 <template v-slot:demo>
 <select-custom-label />
 </template>

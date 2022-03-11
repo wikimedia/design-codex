@@ -7,7 +7,7 @@ import InlineRadios from '@/../component-demos/radio/examples/InlineRadios.vue';
 
 ### Radio group
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper force-reset="true">
 <template v-slot:demo>
 <radio-group />
 </template>

@@ -48,7 +48,7 @@ in some way.
 
 Note that inline messages cannot be dismissable.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper force-reset="true">
 <template v-slot:demo>
 <cdx-message dismiss-button-label="Close">Notice message with dismiss button</cdx-message>
 </template>
