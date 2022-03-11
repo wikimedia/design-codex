@@ -122,15 +122,13 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-// TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
-@import 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 .cdx-docs-controls {
 	font-size: 0.875em;
 
 	&__section-header {
-		font-weight: bold;
+		font-weight: @font-weight-bold;
 	}
 }
-
 </style>

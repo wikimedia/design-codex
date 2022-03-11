@@ -136,12 +136,9 @@ necessary to ensure support for environments that use DOM templates, including M
 
 ### Writing styles
 
-::: warning
-This section will change once design tokens are implemented; see [T293127](https://phabricator.wikimedia.org/T293127).
-:::
-
 Styles are written in [Less](https://lesscss.org/#) and are included in the single-file component
-via the `<style>` tag. Less variables from [Wikimedia UI Base](https://github.com/wikimedia/wikimedia-ui-base/blob/master/wikimedia-ui-base.less) can be imported for use.
+via the `<style>` tag. Codex design tokens are imported as Less variables from the
+`@wikimedia/codex-design-tokens` package, using the default `theme-wikimedia-ui` theme.
 
 #### Conventions
 
@@ -165,9 +162,6 @@ Below are some sample styles for a component to demonstrate these conventions:
 ```less
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-
-// Component-specific variables.
-@size-radio: 20 / @font-size-browser / @font-size-base;
 
 .cdx-radio {
 	line-height: @size-radio;

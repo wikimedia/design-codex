@@ -174,8 +174,10 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-// TODO: Remove references to wikimedia-ui-base once we have the proper tokens in place.
-@import 'wikimedia-ui-base/wikimedia-ui-base.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
+// TODO: Tokenize. Also in use in TypeaheadSearch.
+@border-color-heading: @color-base70;
 
 .cdx-demo-wrapper {
 	margin-top: 16px;
