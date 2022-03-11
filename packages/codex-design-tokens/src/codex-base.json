@@ -252,6 +252,14 @@
 			"value": "{ size.relative.em.200 }"
 		}
 	},
+	"margin": {
+		"offset": {
+			"comment": "`margin-offset` aims at margins that make elements expand over default boundary box.",
+			"border-width-base": {
+				"value": "-{ border-width.base }"
+			}
+		}
+	},
 	"border": {
 		"base": {
 			"value": "{ border-width.base } { border-style.base } { border-color.base }"

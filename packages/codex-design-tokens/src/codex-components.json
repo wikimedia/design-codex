@@ -110,11 +110,6 @@
 			"value": "{ size.absolute.2800 }"
 		}
 	},
-	"margin-top": {
-		"options-menu": {
-			"value": "-{ border-width.base }"
-		}
-	},
 	"border": {
 		"input-binary": {
 			"value": "{ border-width.base } { border-style.base } { border-color.input-binary }"

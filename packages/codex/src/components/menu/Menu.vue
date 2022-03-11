@@ -406,7 +406,7 @@ export default defineComponent( {
 	z-index: 4;
 	box-sizing: @box-sizing-base;
 	width: @size-full;
-	margin: @margin-top-options-menu 0 0 0;
+	margin: @margin-offset-border-width-base 0 0 0;
 	border: @border-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
 	padding: 0;
