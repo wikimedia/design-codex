@@ -22,9 +22,9 @@ type SplitBidiOptions = {
  * FIXME: This is very hacky, and in the future we should consider whether there are less fragile
  * approaches we can use here. Ideally, we would use RTLCSS (not postcss-rtlcss but the underlying
  * software) to generate RTL versions of the CSS output, but unfortunately the `transform()` hook
- * runs too early (before LESS->CSS transformation) and the `generateBundle()` hook runs too late
+ * runs too early (before Less->CSS transformation) and the `generateBundle()` hook runs too late
  * (after minification, so directive comments like `/*rtl:ignore* /` are stripped). Perhaps we could
- * use a PostCSS plugin (which runs after LESS->CSS) to RTLCSS each file and transform it to
+ * use a PostCSS plugin (which runs after Less->CSS) to RTLCSS each file and transform it to
  * something like BEGIN_MARKER ltr css MIDDLE_MARKER rtl css END_MARKER (using markers that survive
  * minification), then extract the LTR and RTL styles by unwrapping the markers in
  * `generateBundle()`.

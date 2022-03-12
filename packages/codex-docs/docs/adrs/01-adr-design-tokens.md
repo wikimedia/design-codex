@@ -20,7 +20,7 @@ For Codex:
 
 ### Technology-specific token definition
 
-This option means specifying tokens in a format understood by CSS, Less or Scss.
+This option means specifying tokens in a format understood by CSS, Less or Sass (SCSS).
 
 #### Advantages
 
