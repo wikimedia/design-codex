@@ -9,3 +9,16 @@
 	-webkit-transform: translateZ( 0 );
 	transform: translateZ( 0 );
 }
+
+// Screen Reader Helper Mixin for visually hidden text.
+.screen-reader-text() {
+	display: block;
+	clip: rect( 1px, 1px, 1px, 1px );
+	position: absolute !important; /* stylelint-disable-line declaration-no-important */
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	overflow: hidden;
+}
