@@ -120,7 +120,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-@import '../../themes/mixins/force-gpu-composite-layer.less';
+@import '../../themes/mixins/common.less';
 
 // TODO: Tokenize.
 @font-size-browser: 16;
