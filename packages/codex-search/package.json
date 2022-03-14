@@ -1,0 +1,49 @@
+{
+	"name": "@wikimedia/codex-search",
+	"version": "0.1.0-alpha.5",
+	"description": "Subset of the @wikimedia/codex package, containing only the TypeaheadSearch component and its dependencies",
+	"author": "Wikimedia Foundation (https://wikimediafoundation.org/)",
+	"homepage": "https://doc.wikimedia.org/codex/",
+	"repository": {
+		"type": "git",
+		"url": "https://gerrit.wikimedia.org/g/design/codex/"
+	},
+	"bugs": "https://phabricator.wikimedia.org/tag/codex/",
+	"license": "GPL-2.0+",
+	"engines": {
+		"npm": ">=7.21.0",
+		"node": ">=14"
+	},
+	"main": "dist/codex-search.umd.js",
+	"module": "dist/codex-search.es.js",
+	"types": "./dist/types/codex-search/src/lib.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"dev": "vite",
+		"build": "npm run clean && vite build --mode=rtl && vite build && npm run build:ts",
+		"build-if-missing": "test -e dist/codex-search.es.js || npm run build",
+		"build:ts": "vue-tsc -p ./tsconfig-build.json --emitDeclarationOnly",
+		"clean": "rm -rf dist/",
+		"serve": "vite preview",
+		"test": "npm run lint && npm -s run build",
+		"lint": "npm run lint:ts",
+		"lint:ts": "vue-tsc --noEmit --emitDeclarationOnly false"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^2.1.0",
+		"@vue/compiler-sfc": "^3.2.19",
+		"@wikimedia/codex": "*",
+		"autoprefixer": "^10.3.7",
+		"less": "^4.1.2",
+		"postcss": "^8.4.6",
+		"postcss-rtlcss": "^3.5.4",
+		"typescript": "^4.6.2",
+		"vite": "^2.7.13",
+		"vue-tsc": "^0.33.6"
+	},
+	"peerDependencies": {
+		"vue": "^3.2.27"
+	}
+}

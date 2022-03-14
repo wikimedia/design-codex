@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import path from 'path';
 import rtlcss from 'rtlcss';
 import postcssRtlcss from 'postcss-rtlcss';
 import { Plugin as PostCSSPlugin } from 'postcss';
 import postcssBaseConfig from './postcss-base.config';
 
 // https://vitejs.dev/config/
-export default defineConfig( ( { command, mode } ) => {
+// Take an extra libName parameter so it can be customized in packages/codex-search/vite.config.ts
+export default defineConfig( ( { command, mode }, libName = 'codex' ) => {
 	// We run the build twice: first with --mode=rtl, then without.
 	// The --mode=rtl build builds the RTL version of the stylesheet, flipped using rtlcss,
 	// and puts it at codex.style-rtl.css
@@ -43,15 +43,15 @@ export default defineConfig( ( { command, mode } ) => {
 			emptyOutDir: false,
 
 			lib: {
-				name: 'codex',
-				entry: path.resolve( __dirname, 'src/lib.ts' ),
+				name: libName,
+				entry: 'src/lib.ts',
 				formats: [ 'es', 'umd' ]
 			},
 
 			rollupOptions: {
 				output: {
-					entryFileNames: 'codex.[format].js',
-					assetFileNames: isRtlBuild ? 'codex.[name]-rtl.[ext]' : 'codex.[name].[ext]',
+					entryFileNames: `${libName}.[format].js`,
+					assetFileNames: isRtlBuild ? `${libName}.[name]-rtl.[ext]` : `${libName}.[name].[ext]`,
 					globals: {
 						vue: 'Vue'
 					}

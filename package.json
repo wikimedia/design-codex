@@ -11,6 +11,7 @@
 		"packages/codex-design-tokens",
 		"packages/codex-icons",
 		"packages/codex",
+		"packages/codex-search",
 		"packages/codex-docs"
 	],
 	"engines": {

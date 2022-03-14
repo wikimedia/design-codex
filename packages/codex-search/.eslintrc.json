@@ -1,0 +1,24 @@
+{
+	"overrides": [
+		{
+			"files": [ "**/*.ts", "**/*.js" ],
+			"excludedFiles": "src/**",
+			"extends": [
+				"wikimedia/server"
+			],
+			"rules": {
+				"strict": "off",
+				"node/no-missing-import": [ "error", {
+					"tryExtensions": [ ".js", ".ts" ]
+				} ]
+			}
+		},
+		{
+			"files": [ "**/*.ts" ],
+			"rules": {
+				"no-unused-vars": "off",
+				"@typescript-eslint/no-unused-vars": "error"
+			}
+		}
+	]
+}
