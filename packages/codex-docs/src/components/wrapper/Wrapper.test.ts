@@ -59,11 +59,11 @@ it( 'shows and hides code on button click', () => {
 
 	wrapper.get( CodeToggleSelector ).trigger( 'click' );
 	expect( wrapper.vm.showCode ).toBeTruthy();
-	expect( wrapper.vm.buttonLabel ).toBe( 'Hide code' );
+	expect( wrapper.vm.codeToggleLabel ).toBe( 'Hide code' );
 
 	wrapper.get( CodeToggleSelector ).trigger( 'click' );
 	expect( wrapper.vm.showCode ).toBeFalsy();
-	expect( wrapper.vm.buttonLabel ).toBe( 'Show code' );
+	expect( wrapper.vm.codeToggleLabel ).toBe( 'Show code' );
 } );
 
 it( 'allows code to be copied', () => {

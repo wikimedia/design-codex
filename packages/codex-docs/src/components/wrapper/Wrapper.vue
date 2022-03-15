@@ -40,9 +40,9 @@
 				<cdx-button
 					class="cdx-demo-wrapper__demo-pane__code-toggle"
 					type="quiet"
-					@click="onClick"
+					@click="onCodeToggle"
 				>
-					{{ buttonLabel }}
+					{{ codeToggleLabel }}
 				</cdx-button>
 			</div>
 		</div>
@@ -77,6 +77,8 @@ import { CdxButton } from '@wikimedia/codex';
  * Includes:
  *  - Formatting for the demo itself
  *  - Show/hide code button and functionality
+ *  - Button to copy the demo code
+ *  - Reset button to restore the original state of the demo
  *  - Optional controls for configurable demos
  */
 export default defineComponent( {
@@ -112,10 +114,10 @@ export default defineComponent( {
 		// Set up show code/hide code button.
 		const hasCodeSample = slots && slots.code;
 		const showCode = ref( false );
-		const buttonLabel = computed( () => {
+		const codeToggleLabel = computed( () => {
 			return showCode.value === true ? 'Hide code' : 'Show code';
 		} );
-		const onClick = (): void => {
+		const onCodeToggle = (): void => {
 			showCode.value = !showCode.value;
 		};
 
@@ -198,7 +200,7 @@ export default defineComponent( {
 		} );
 
 		/**
-		 * Pull out slot values for the same reason.
+		 * Pull out slot values for the same reason as props above.
 		 */
 		const slotValues = computed( () => {
 			const constructedSlotValues = {} as SlotValues;
@@ -245,21 +247,32 @@ export default defineComponent( {
 		}
 
 		return {
-			dir,
-			hasCodeSample,
-			showCode,
-			buttonLabel,
-			onClick,
-			hasControls,
+			// Overall wrapper
 			rootClasses,
-			controlsWithValues,
-			propValues,
-			slotValues,
-			handleControlChange,
+
+			// Demo pane
+			dir,
+
+			// Reset button - render key is changed to force rerendering
+			demoRenderKey,
 			includeReset,
 			onReset,
-			demoRenderKey,
-			codeText
+
+			// Actual demo
+			propValues,
+			slotValues,
+
+			// Code display and copy button
+			hasCodeSample,
+			showCode,
+			codeToggleLabel,
+			onCodeToggle,
+			codeText,
+
+			// Interactive controls
+			hasControls,
+			controlsWithValues,
+			handleControlChange
 		};
 	}
 } );
