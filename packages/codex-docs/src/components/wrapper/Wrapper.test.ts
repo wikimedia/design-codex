@@ -1,8 +1,9 @@
 import { mount, config } from '@vue/test-utils';
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 import Wrapper from './Wrapper.vue';
 import { ControlsConfig } from './../../types';
 import { DirectionKey } from '../../constants';
+import Prism from 'prismjs';
 
 const controlsConfig: ControlsConfig = [
 	{ name: 'radioControl', type: 'radio', options: [ 'Option 1', 'Option 2', 'Option 3' ] },
@@ -25,12 +26,40 @@ const controlsConfig: ControlsConfig = [
 	{ name: 'textWithNumberDefault', type: 'text', default: 42 },
 	{ name: 'slotControl', type: 'slot', default: 'Hello world' }
 ];
+const toggleButtonConfig: ControlsConfig = [
+	{
+		name: 'disabled',
+		type: 'boolean'
+	},
+	{
+		name: 'default',
+		type: 'slot',
+		default: 'Button text'
+	}
+];
 
 const ltrRef = ref( 'ltr' );
 
 config.global.provide = {
 	[ DirectionKey as symbol ]: ltrRef
 };
+
+// Mock as if we are on the ToggleButton component page, for autoCodeTag tests - this is
+// set for all test cases to avoid duplication
+jest.mock( 'vitepress', () => {
+	const originalModule = jest.requireActual( 'vitepress' );
+	return {
+		__esModule: true,
+		...originalModule,
+		useRoute: jest.fn( () => {
+			return {
+				data: {
+					title: 'ToggleButton'
+				}
+			};
+		} )
+	};
+} );
 
 const CodeCopySelector = '.cdx-demo-wrapper__demo-pane__code-copy';
 const CodeToggleSelector = '.cdx-demo-wrapper__demo-pane__code-toggle';
@@ -143,4 +172,69 @@ it( 'can be reset', async () => {
 
 	await wrapper.get( ResetButtonSelector ).trigger( 'click' );
 	expect( wrapper.vm.propValues.radioControl ).toBe( 'Option 1' );
+} );
+
+it( 'generates and updates text', async () => {
+	// toggleButtonConfig is a copy of the actual controls config for toggle button
+	const wrapper = mount( Wrapper, {
+		props: {
+			controlsConfig: toggleButtonConfig,
+			showGeneratedCode: true
+		}
+	} );
+
+	// Initial values
+	expect( wrapper.vm.generatedCode ).toBe(
+		'<cdx-toggle-button>Button text</cdx-toggle-button>'
+	);
+	expect( wrapper.vm.codeText ).toBe(
+		'<cdx-toggle-button>Button text</cdx-toggle-button>'
+	);
+
+	// Toggle disabled
+	const disableToggle = wrapper.find( 'input.cdx-toggle-switch__input' );
+	( disableToggle.element as HTMLInputElement ).checked = true;
+	await disableToggle.trigger( 'change' );
+
+	// Updated values
+	expect( wrapper.vm.generatedCode ).toBe(
+		'<cdx-toggle-button disabled>Button text</cdx-toggle-button>'
+	);
+	expect( wrapper.vm.codeText ).toBe(
+		'<cdx-toggle-button disabled>Button text</cdx-toggle-button>'
+	);
+} );
+
+it( 'calls Prism.highlightAllUnder()', async () => {
+	const highlightSpy = jest.spyOn( Prism, 'highlightAllUnder' );
+
+	// Calls highlightAllUnder after mounting
+	// toggleButtonConfig is a copy of the actual controls config for toggle button
+	const wrapper = mount( Wrapper, {
+		props: {
+			controlsConfig: toggleButtonConfig,
+			showGeneratedCode: true
+		}
+	} );
+
+	// After mounting, called in the next tick
+	await nextTick();
+	expect( highlightSpy ).toHaveBeenCalledTimes( 1 );
+
+	// change a property - switch to disabled
+	expect( wrapper.vm.propValues.disabled ).toBe( false );
+
+	const disableToggle = wrapper.find( 'input.cdx-toggle-switch__input' );
+	( disableToggle.element as HTMLInputElement ).checked = true;
+	await disableToggle.trigger( 'change' );
+
+	expect( wrapper.vm.propValues.disabled ).toBe( true );
+	await nextTick();
+	expect( highlightSpy ).toHaveBeenCalledTimes( 2 );
+
+	// reset - should update highlighting again
+	await wrapper.get( ResetButtonSelector ).trigger( 'click' );
+	expect( wrapper.vm.propValues.disabled ).toBe( false );
+	await nextTick();
+	expect( highlightSpy ).toHaveBeenCalledTimes( 3 );
 } );

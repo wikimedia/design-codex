@@ -26,7 +26,7 @@ element within the component.
 
 ### Configurable
 
-<cdx-demo-wrapper :controls-config="controlsConfig">
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues, slotValues }">
 <template v-if="slotValues.default.length > 0">
 <configurable-switch v-bind="propValues">

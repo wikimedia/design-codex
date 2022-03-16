@@ -47,11 +47,24 @@
 			</div>
 		</div>
 		<div
-			v-if="hasCodeSample"
+			v-if="hasCodeSlot"
 			v-show="showCode"
-			class="cdx-demo-wrapper__code"
+			class="cdx-demo-wrapper__code-slotted"
 		>
 			<slot name="code" />
+		</div>
+		<div
+			v-else-if="hasGeneratedCode"
+			v-show="showCode"
+			ref="codeDiv"
+			class="cdx-demo-wrapper__code-generated"
+		>
+			<div class="language-vue">
+				<!-- Carefully avoid leaving whitespace inside the <pre> and <code> tags -->
+				<!-- language-markup is used because prism does not support Vue -->
+				<pre><code class="language-markup"
+				>{{ generatedCode }}</code></pre>
+			</div>
 		</div>
 		<div v-if="hasControls" class="cdx-demo-wrapper__controls">
 			<cdx-docs-controls
@@ -64,12 +77,33 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, computed, inject, onMounted, PropType } from 'vue';
+import {
+	defineComponent,
+	reactive,
+	ref,
+	computed,
+	inject,
+	onMounted,
+	toRef,
+	watch,
+	nextTick,
+	PropType
+} from 'vue';
 import { ControlsConfig, ControlConfigWithValue, PropValues, SlotValues } from '../../types';
+import Prism from 'prismjs';
 import { DirectionKey } from '../../constants';
 import CdxDocsControls from '../controls/Controls.vue';
 import CdxDocsCopyTextButton from '../copy-text-button/CopyTextButton.vue';
+import { useRoute } from 'vitepress';
+import { generateVueTag } from '../../utils/codegen';
+import toKebabCase from '../../utils/toKebabCase';
 import { CdxButton } from '@wikimedia/codex';
+
+// Don't automatically run Prism highlighting, it breaks the VitePress syntax highlighting
+// for the code slots since Prism doesn't support Vue (and even if it did it would be unneeded
+// since it is already highlighted by VitePress). Highlighting is manually triggered for the
+// generated code.
+Prism.manual = true;
 
 /**
  * Wrapper for component demos.
@@ -105,14 +139,39 @@ export default defineComponent( {
 		forceReset: {
 			type: Boolean,
 			default: false
+		},
+		/*
+		 * Whether to try to generate a code sample for a configurable demonstration,
+		 * determining the component name from the current page title.
+		 */
+		showGeneratedCode: {
+			type: Boolean,
+			default: false
 		}
 	},
 	setup( props, { slots } ) {
 		// Inject direction from CustomLayout.vue
 		const dir = inject( DirectionKey );
 
+		// Determine the component name to use if sample code should be generated
+		const hasGeneratedCode = toRef( props, 'showGeneratedCode' );
+		const autoCodeTag = computed( () => {
+			if ( !hasGeneratedCode.value ) {
+				return '';
+			}
+			// Should be `cdx-*` kebab case component name. The easiest way
+			// to get the name of the component being shown is from the
+			// title of the current page, from the route.
+			const route = useRoute();
+			const componentTitle = route.data.title;
+			return 'cdx-' + toKebabCase( componentTitle );
+		} );
+
 		// Set up show code/hide code button.
-		const hasCodeSample = slots && slots.code;
+		const hasCodeSlot = slots && slots.code;
+		const hasCodeSample = computed( () => {
+			return hasCodeSlot || hasGeneratedCode.value;
+		} );
 		const showCode = ref( false );
 		const codeToggleLabel = computed( () => {
 			return showCode.value === true ? 'Hide code' : 'Show code';
@@ -120,6 +179,7 @@ export default defineComponent( {
 		const onCodeToggle = (): void => {
 			showCode.value = !showCode.value;
 		};
+		const codeDiv = ref<HTMLDivElement>();
 
 		// Set up controls if config is provided.
 		const hasControls = ref( props.controlsConfig.length > 0 );
@@ -132,7 +192,7 @@ export default defineComponent( {
 
 		const rootClasses = computed( () => {
 			return {
-				'cdx-demo-wrapper--has-controls': hasControls.value,
+				'cdx-demo-wrapper--has-code': hasCodeSample.value,
 				'cdx-demo-wrapper--has-reset': includeReset.value
 			};
 		} );
@@ -172,8 +232,26 @@ export default defineComponent( {
 		) );
 
 		/**
+		 * Redo the syntax highlighting for the generated code when it changes. This is called when
+		 * a control value changes, when the tag name changes, and on mount if automatic code
+		 * generation is enabled.
+		 */
+		function updateHighlight() : void {
+			// can't use void with nextTick() to satisfy typescript, because then it
+			// complains about not using `undefined` instead (no-void), we don't care
+			// about the promise returned
+			// eslint-disable-next-line @typescript-eslint/no-floating-promises
+			nextTick( () => {
+				if ( codeDiv.value && hasGeneratedCode.value ) {
+					Prism.highlightAllUnder( codeDiv.value );
+				}
+			} );
+		}
+
+		/**
 		 * Store new control value so it can be passed back into the controls
-		 * and to the component via the demo slot.
+		 * and to the component via the demo slot. Also re-highlight the source code, if
+		 * needed.
 		 *
 		 * @param name The prop or slot name
 		 * @param value The new value
@@ -182,6 +260,9 @@ export default defineComponent( {
 			const control = controlsWithValues.find( ( c ) => c.name === name );
 			if ( control ) {
 				control.value = value;
+			}
+			if ( hasGeneratedCode.value ) {
+				updateHighlight();
 			}
 		};
 
@@ -226,16 +307,21 @@ export default defineComponent( {
 					control.value = defaultControl.value;
 				}
 			}
+			// Update highlighting
+			if ( hasGeneratedCode.value ) {
+				updateHighlight();
+			}
 		};
 
 		/**
-		 * Access the contents of the code slot for copying, cannot be retrieved until
-		 * after the component is mounted. If there is no code, this will never be used.
+		 * If there is a code slot, this retrieves the content of that slot for copying,
+		 * which cannot be done until after the component is mounted. If not, if there
+		 * is generated code this will be updated with the generated content below.
 		 */
 		const codeText = ref( 'Unused' );
-		if ( hasCodeSample ) {
+		if ( hasCodeSlot ) {
 			onMounted( () => {
-				// Satisfy typescript, already checked by hasCodeSample
+				// Satisfy typescript, already checked by hasCodeSlot
 				if ( slots && slots.code ) {
 					const codeSlotNodeElement = slots.code()[ 0 ].el;
 					// Typescript complains that this might be null
@@ -244,6 +330,49 @@ export default defineComponent( {
 					}
 				}
 			} );
+		}
+
+		const nonDefaultPropValues = computed( () => {
+			const valuesByName = {} as PropValues;
+			// propValues is already filtered to exclude slots, just use that
+			for ( const [ propName, propVal ] of Object.entries( propValues.value ) ) {
+				const defaultControl = defaultControlValues.find(
+					( c ) => c.name === propName
+				);
+				// Should always exist, but satisfy typescript
+				if (
+					defaultControl &&
+					defaultControl.value !== propVal
+				) {
+					valuesByName[ propName ] = propVal;
+				}
+			}
+			return valuesByName;
+		} );
+
+		const generatedCode = computed( () => generateVueTag(
+			autoCodeTag.value, nonDefaultPropValues.value, slotValues.value
+		) );
+
+		watch( autoCodeTag, updateHighlight );
+		if ( autoCodeTag.value ) {
+			onMounted( updateHighlight );
+		}
+
+		// Update code to copy from the generated code when it changes
+		watch(
+			generatedCode,
+			() => {
+				if ( hasGeneratedCode.value ) {
+					codeText.value = generatedCode.value;
+				}
+			}
+		);
+		// Set initial starting code text to the first generated code, so that it can
+		// be copied even when there are no changes made to it (but don't overwrite the
+		// code from the slot)
+		if ( hasGeneratedCode.value ) {
+			codeText.value = generatedCode.value;
 		}
 
 		return {
@@ -263,11 +392,17 @@ export default defineComponent( {
 			slotValues,
 
 			// Code display and copy button
+			hasCodeSlot,
 			hasCodeSample,
 			showCode,
 			codeToggleLabel,
 			onCodeToggle,
 			codeText,
+
+			// generated code
+			hasGeneratedCode,
+			codeDiv,
+			generatedCode,
 
 			// Interactive controls
 			hasControls,
@@ -329,16 +464,15 @@ export default defineComponent( {
 		margin-top: 16px;
 	}
 
-	// Add some space below the component demo to ensure it never collides with the show code/hide
-	// code button. Right now this doesn't apply for configurable demos, since that button is
-	// hidden, but if we ever add dynamic code samples to configurable demos, we should apply
-	// this margin to the demo always.
-	&:not( .cdx-demo-wrapper--has-controls ) .cdx-demo-wrapper__demo-pane__demo {
+	// Add some space below the component demo to ensure it never collides with the buttons
+	// to toggle the code display and to copy the code text, if there are such buttons
+	&--has-code &__demo-pane__demo {
 		margin-bottom: 16px;
 	}
 
 	// Code output underneath component with code language class, for example `language-vue`.
-	&__code [ class*='language-' ] {
+	&__code-generated [ class*='language-' ],
+	&__code-slotted [ class*='language-' ] {
 		margin-top: 0;
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;

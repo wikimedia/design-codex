@@ -23,11 +23,15 @@
 		"vue": "^3.2.27",
 		"@wikimedia/codex-design-tokens": "*",
 		"@wikimedia/codex": "*",
-		"@wikimedia/codex-icons": "*"
+		"@wikimedia/codex-icons": "*",
+		"escape-html": "^1.0.3",
+		"prismjs": "^1.27.0"
 	},
 	"devDependencies": {
 		"@rollup/pluginutils": "^4.1.1",
+		"@types/escape-html": "^1.0.1",
 		"@types/jest": "^27.0.2",
+		"@types/prismjs": "^1.26.0",
 		"@vitejs/plugin-vue": "^2.1.0",
 		"@vue/test-utils": "^2.0.0-rc.15",
 		"@vue/vue3-jest": "^27.0.0-alpha.1",
