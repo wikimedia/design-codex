@@ -249,6 +249,51 @@ direction of the surrounding context of the component at mount time. This works 
 mixed or nested directionality; however it does not detect changes in directionality that happen
 after the component is mounted.
 
+Below is an example that demonstrates the use of the `useComputedDirection()` composable function:
+```vue
+<template>
+	<!-- Set ref="rootElement" on the root element of your component -->
+	<div
+		ref="rootElement"
+		class="cdx-my-component"
+		@keydown.left.right="onKeydown"
+	>
+		<!-- ...component template goes here... -->
+	</div>
+</template>
+
+<script>
+import { defineComponent, ref } from 'vue';
+import useComputedDirection from '../../composables/useComputedDirection';
+// ...other imports...
+
+export default defineComponent( {
+	setup() {
+		const rootElement = ref(); // If using TypeScript, use ref<HTMLDivElement>();
+		const computedDir = useComputedDirection( rootElement );
+
+		function onKeydown( e ) {
+			if ( e.key === 'ArrowLeft' ) {
+				// Left means "next" in RTL, "previous" in LTR
+				navigate( computedDir.value === 'rtl' ? 'next' : 'previous' );
+			} else if ( e.key === 'ArrowRight' ) {
+				navigate( computedDir.value === 'ltr' ? 'previous' : 'next' );
+			}
+		}
+
+		function navigate( prevOrNext ) {
+			// ...
+		}
+
+		return {
+			rootElement,
+			onKeydown
+		};
+	}
+} );
+</script>
+```
+
 The [Icon component](../components/icon.md) also uses this composable to detect the text direction,
 and allows the detected direction to be overridden through the `dir` prop. For more information about
 how bidirectionality is handled for icons in particular, see
@@ -296,32 +341,32 @@ Below is sample usage from the TextInput component:
 </template>
 
 <script>
-	// Import the composable.
-	import useSplitAttributes from '../../composables/useSplitAttributes';
+// Import the composable.
+import useSplitAttributes from '../../composables/useSplitAttributes';
 
-	export default defineComponent( {
-		name: 'CdxTextInput',
-		// Set inheritAttrs to false.
-		inheritAttrs: false,
-		setup( props, context ) {
-			// Define dynamic classes internal to the component, in Vue's object
-			// syntax format.
-			const internalClasses = computed( () => {
-				return {
-					'cdx-text-input--has-start-icon': !!props.startIcon,
-					'cdx-text-input--has-end-icon': !!props.endIcon || props.clearable,
-					'cdx-text-input--clearable': isClearable.value
-				};
-			} );
+export default defineComponent( {
+	name: 'CdxTextInput',
+	// Set inheritAttrs to false.
+	inheritAttrs: false,
+	setup( props, context ) {
+		// Define dynamic classes internal to the component, in Vue's object
+		// syntax format.
+		const internalClasses = computed( () => {
+			return {
+				'cdx-text-input--has-start-icon': !!props.startIcon,
+				'cdx-text-input--has-end-icon': !!props.endIcon || props.clearable,
+				'cdx-text-input--clearable': isClearable.value
+			};
+		} );
 
-			// Get helpers from the composable.
-			const {
-				rootClasses,
-				rootStyle,
-				otherAttrs
-			} = useSplitAttributes( context.attrs, internalClasses );
-		}
-	} );
+		// Get helpers from the composable.
+		const {
+			rootClasses,
+			rootStyle,
+			otherAttrs
+		} = useSplitAttributes( context.attrs, internalClasses );
+	}
+} );
 </script>
 ```
 
