@@ -1,3 +1,6 @@
+import { ComputedRef, InjectionKey } from 'vue';
+import { TabData } from './types';
+
 /**
  * String prefix for use in namespacing, etc
  */
@@ -46,3 +49,6 @@ export const DebounceInterval = 120;
  * footer item.
  */
 export const MenuFooterValue = 'cdx-menu-footer-item';
+
+export const TabsKey: InjectionKey<ComputedRef<Map<string, TabData>>> = Symbol( 'CdxTabs' );
+export const ActiveTabKey: InjectionKey<ComputedRef<string>> = Symbol( 'CdxActiveTab' );

@@ -1,0 +1,58 @@
+<template>
+	<cdx-tabs v-model:active="currentTab" :framed="framed">
+		<cdx-tab
+			v-for="( tab, index ) in tabsData"
+			:key="index"
+			:name="tab.name"
+			:label="tab.label"
+			:disabled="tab.disabled"
+		>
+			<h2>Content for {{ tab.name }}</h2>
+			<p>
+				This is the content for the {{ tab.label }}
+			</p>
+		</cdx-tab>
+	</cdx-tabs>
+</template>
+
+<script lang="ts">
+import { CdxTabs, CdxTab } from '@wikimedia/codex';
+import { defineComponent } from 'vue';
+
+export default defineComponent( {
+	name: 'BasicTabs',
+	components: {
+		CdxTabs,
+		CdxTab
+	},
+	props: {
+		framed: {
+			type: Boolean,
+			default: false
+		}
+	},
+	data() {
+		return {
+			tabsData: [ {
+				name: 'tab1',
+				label: 'First Tab'
+			}, {
+				name: 'tab2',
+				label: 'Second Tab with a really really really really long name'
+			}, {
+				name: 'tab3',
+				label: 'Third Tab',
+				disabled: true
+			}, {
+				name: 'tab4',
+				label: 'Fourth Tab'
+			}, {
+				name: 'tab5',
+				label: 'Fifth Tab'
+			} ],
+
+			currentTab: 'tab1'
+		};
+	}
+} );
+</script>

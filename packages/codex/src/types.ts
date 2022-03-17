@@ -88,3 +88,10 @@ export interface SearchResultClickEvent {
 }
 
 export type StringTypeValidator<T extends string> = ( s: unknown ) => s is T;
+
+export interface TabData {
+	name: string,
+	label: string,
+	id: string,
+	disabled: boolean
+}

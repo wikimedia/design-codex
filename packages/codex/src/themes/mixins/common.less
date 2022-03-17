@@ -66,3 +66,32 @@
 	padding: 0;
 	overflow: hidden;
 }
+
+// Clear existing list styles (list-style-type, margin, padding)
+.list-unset() {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+// Clear existing link styles (underlines and default colors)
+.link-unset() {
+	color: unset;
+	text-decoration: none;
+}
+
+// Generate a linear gradient to indicate that more content is available via
+// scrolling. Expected arguments are:
+// - @color to fade into
+// - @direction ("left" or "right")
+.gradient-indicator( @start-color, @end-color, @direction ) {
+	background-color: transparent;
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
+	background-image: linear-gradient( to @direction, @end-color 85%, @start-color 100% );
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}

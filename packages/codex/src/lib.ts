@@ -10,6 +10,8 @@ import CdxRadio from './components/radio/Radio.vue';
 import CdxSearchInput from './components/search-input/SearchInput.vue';
 import CdxSearchResultTitle from './components/search-result-title/SearchResultTitle.vue';
 import CdxSelect from './components/select/Select.vue';
+import CdxTab from './components/tab/Tab.vue';
+import CdxTabs from './components/tabs/Tabs.vue';
 import CdxTextInput from './components/text-input/TextInput.vue';
 import CdxToggleButton from './components/toggle-button/ToggleButton.vue';
 import CdxToggleSwitch from './components/toggle-switch/ToggleSwitch.vue';
@@ -30,7 +32,8 @@ import type {
 	SearchResult,
 	SearchResultClickEvent,
 	Thumbnail,
-	MenuConfig
+	MenuConfig,
+	TabData
 } from './types';
 
 export {
@@ -46,6 +49,8 @@ export {
 	CdxSearchInput,
 	CdxSearchResultTitle,
 	CdxSelect,
+	CdxTab,
+	CdxTabs,
 	CdxTextInput,
 	CdxToggleButton,
 	CdxToggleSwitch,
@@ -66,5 +71,6 @@ export {
 	SearchResult,
 	SearchResultClickEvent,
 	Thumbnail,
-	MenuConfig
+	MenuConfig,
+	TabData
 };
