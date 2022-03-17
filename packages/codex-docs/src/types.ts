@@ -1,3 +1,5 @@
+import { Icon } from '@wikimedia/codex-icons';
+
 /**
  * There are various types of controls, each defined here. All types include a name property.
  */
@@ -17,11 +19,20 @@ export interface TextPropConfig extends BaseConfig {
 	type: 'text'
 	default?: string | number
 }
+export interface IconPropConfig extends BaseConfig {
+	type: 'icon',
+	default?: string
+}
 export interface SlotConfig extends BaseConfig {
 	type: 'slot',
 	default: string
 }
-export type ControlConfig = RadioPropConfig | BooleanPropConfig | TextPropConfig | SlotConfig;
+export type ControlConfig =
+	RadioPropConfig |
+	BooleanPropConfig |
+	TextPropConfig |
+	IconPropConfig |
+	SlotConfig;
 
 /**
  * ControlsConfig is an array of control config items.
@@ -30,20 +41,21 @@ export type ControlsConfig = ControlConfig[];
 
 // Utility type that maps one of the ControlConfig types to a type that removes the 'default' key
 // and adds a 'value' key with the same type as the removed 'default' key
-type DefaultToValue<T extends { default?: string | number | boolean }> = Omit<T, 'default'> & {
+type DefaultToValue<T extends { default?: unknown }> = Omit<T, 'default'> & {
 	// For BooleanPropConfig, the type of 'default' is false, but we want the type of 'value'
 	// to be boolean, so that true is also allowed
-	value: T['default'] extends false|undefined ? boolean : NonNullable<T['default']>
+	value: T['default'] extends false|undefined ? boolean : Exclude<T['default'], undefined>
 };
 
 export type PropConfigWithValue =
 	DefaultToValue<RadioPropConfig> |
 	DefaultToValue<BooleanPropConfig> |
-	DefaultToValue<TextPropConfig>;
+	DefaultToValue<TextPropConfig> |
+	DefaultToValue<IconPropConfig>;
 export type SlotConfigWithValue = DefaultToValue<SlotConfig>;
 export type ControlConfigWithValue = PropConfigWithValue | SlotConfigWithValue;
 
-export type PropValues = Record<string, string | number | boolean>;
+export type PropValues = Record<string, string | number | boolean | Icon | null>;
 export type SlotValues = Record<string, string>;
 
 export interface DesignToken {

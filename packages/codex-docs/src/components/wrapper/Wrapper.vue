@@ -154,6 +154,8 @@ export default defineComponent( {
 						return { ...config, value: config.default ?? false };
 					case 'slot':
 						return { ...config, value: config.default };
+					case 'icon':
+						return { ...config, value: config.default ?? '' };
 					case 'text':
 					default:
 						return { ...config, value: config.default ?? '' };
