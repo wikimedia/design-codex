@@ -82,17 +82,7 @@ it( 'allows code to be copied', () => {
 	// copy is visible when code is shown
 	expect( wrapper.get( CodeCopySelector ).isVisible() ).toBe( false );
 
-	// Clicking the button should call document.execCommand,
-	// testing both success (return true) and failure (return false)
-	const mockCommand = jest.fn();
-	document.execCommand = mockCommand;
-	mockCommand.mockReturnValue( true );
-	wrapper.get( CodeCopySelector ).trigger( 'click' );
-	expect( mockCommand ).toHaveBeenCalledWith( 'copy' );
-
-	mockCommand.mockReturnValue( false );
-	wrapper.get( CodeCopySelector ).trigger( 'click' );
-	expect( mockCommand ).toHaveBeenCalledTimes( 2 );
+	// Actual functionality of the copy button is tested for that component elsewhere
 
 	// hide code and copy again
 	wrapper.get( CodeToggleSelector ).trigger( 'click' );
