@@ -1,6 +1,5 @@
 <script setup>
 import SimpleIcon from '@/../component-demos/icon/examples/SimpleIcon.vue';
-import ButtonWithIcon from '@/../component-demos/icon/examples/ButtonWithIcon.vue';
 </script>
 
 See the [Icons section](../icons/overview.md) for more information, including a
@@ -22,16 +21,6 @@ See the [Icons section](../icons/overview.md) for more information, including a
 </template>
 </cdx-demo-wrapper>
 
-### Button with icon
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-<button-with-icon />
-</template>
-
-<template v-slot:code>
-
-<<< @/../component-demos/icon/examples/ButtonWithIcon.vue
-
-</template>
-</cdx-demo-wrapper>
+### Using icons in buttons
+Icons can be used inside other components, like buttons. For demos of how to use icons inside
+buttons, see [the Button documentation](./button#default-with-icon).
