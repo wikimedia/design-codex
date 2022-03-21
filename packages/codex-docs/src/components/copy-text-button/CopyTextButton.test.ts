@@ -165,4 +165,65 @@ describe( 'CopyTextButon', () => {
 
 		// nothing else to test, just that a missing selection still works
 	} );
+
+	it( 'stops being successful when the copy text changes', async () => {
+		const wrapper = mount( CdxDocsCopyTextButton, {
+			props: {
+				copyText: 'Random text'
+			}
+		} );
+
+		// Starts without success (variable or indicator)
+		expect( wrapper.vm.copySuccess ).toBe( false );
+		expect( wrapper.find( SuccessIconSelector ).exists() ).toBe( false );
+
+		// using fake timers
+		jest.useFakeTimers();
+		jest.spyOn( global, 'setTimeout' );
+		jest.spyOn( global, 'clearTimeout' );
+
+		// make sure the button click will be successful
+		const mockCommand = jest.fn();
+		document.execCommand = mockCommand;
+		mockCommand.mockReturnValue( true );
+		wrapper.get( CopyButtonSelector ).trigger( 'click' );
+
+		// should have been clicked
+		expect( mockCommand ).toHaveBeenCalledWith( 'copy' );
+
+		// Should have set state to successful (variable and indicator) (indicator only
+		// visible after the next tick)
+		expect( wrapper.vm.copySuccess ).toBe( true );
+		await nextTick();
+		expect( wrapper.find( SuccessIconSelector ).exists() ).toBe( true );
+
+		// should have set a timeout for hiding after 2 seconds (2000 ms)
+		expect( setTimeout ).toHaveBeenCalledTimes( 1 );
+		expect( setTimeout ).toHaveBeenLastCalledWith( expect.any( Function ), 2000 );
+
+		// change the copy text, should result in success indicator immediately hiding
+		// (visible change only after the next tick)
+		await wrapper.setProps( {
+			copyText: 'different text'
+		} );
+		expect( clearTimeout ).toHaveBeenCalledTimes( 1 );
+
+		expect( wrapper.vm.copySuccess ).toBe( false );
+		await nextTick();
+		expect( wrapper.find( SuccessIconSelector ).exists() ).toBe( false );
+
+		// manually set to true, and ensure that the callback was properly cleared
+		// because it doesn't switch back to false after the delay
+		// advance 3 seconds, if not cleared the callback would have run by then and
+		// restored the state (indicator only hidden after the next tick)
+		wrapper.vm.copySuccess = true;
+		expect( wrapper.vm.copySuccess ).toBe( true );
+		await nextTick();
+		expect( wrapper.find( SuccessIconSelector ).exists() ).toBe( true );
+
+		// advance past when the callback would have run
+		jest.advanceTimersByTime( 3000 );
+		// should not have changed
+		expect( wrapper.vm.copySuccess ).toBe( true );
+	} );
 } );

@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, toRef, watch } from 'vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconCheck } from '@wikimedia/codex-icons';
 
@@ -43,6 +43,25 @@ export default defineComponent( {
 	},
 	setup( props ) {
 		const copySuccess = ref( false );
+
+		// Should be false for no current timeout, or the number returned from setTimeout()
+		let currentTimeoutId: ReturnType<typeof setTimeout> | false = false;
+
+		/**
+		 * Delete the current pending timeout that will set copySuccess to false later.
+		 * This is meant to be used when:
+		 * - The text was copied again, and the delay should restart
+		 * - The text to copy was changed, or a new copy command failed, in which case
+		 *     the success indicator will be hidden immediately and the deferred hiding
+		 *     is no longer needed, and may be incorrect if there is a successful copy
+		 *     in the meanwhile
+		 */
+		const cancelCurrentTimeout = () => {
+			if ( currentTimeoutId !== false ) {
+				clearTimeout( currentTimeoutId );
+				currentTimeoutId = false;
+			}
+		};
 
 		const handleCopyText = () => {
 			const textarea = document.createElement( 'textarea' ),
@@ -84,16 +103,34 @@ export default defineComponent( {
 				copied = false;
 			}
 
+			// Remove any existing timeout that will hide the success icon, either
+			// the copy worked and a new timeout begins, or it doesn't, in which case
+			// the icon gets hidden immediately
+			cancelCurrentTimeout();
+
 			if ( copied ) {
 				copySuccess.value = true;
-				setTimeout( () => {
+				currentTimeoutId = setTimeout( () => {
 					copySuccess.value = false;
 				}, 2000 );
+			} else {
+				// Hide the icon immediately
+				copySuccess.value = false;
 			}
 
 			// Remove the textarea element.
 			document.body.removeChild( textarea );
 		};
+
+		// Whenever the text to be copied changes, hide any existing success icon,
+		// and then cancel the callback that will hide it later if there is one
+		watch(
+			toRef( props, 'copyText' ),
+			() => {
+				cancelCurrentTimeout();
+				copySuccess.value = false;
+			}
+		);
 
 		return {
 			handleCopyText,
