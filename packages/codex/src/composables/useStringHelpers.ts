@@ -33,13 +33,13 @@ export default function useStringHelpers(): {
 		}
 
 		const sanitizedQuery = regExpEscape( query );
-		const match = title.match( new RegExp(
+		const match = new RegExp(
 			// Per https://www.regular-expressions.info/unicode.html, "any code point that is not a
 			// combining mark can be followed by any number of combining marks." See also the
 			// discussion in https://phabricator.wikimedia.org/T35242.
 			sanitizedQuery + COMBINING_MARK + '*',
 			'i'
-		) );
+		).exec( title );
 
 		// Note well that index is an optional property that could be zero.
 		if ( !match || match.index === undefined ) {

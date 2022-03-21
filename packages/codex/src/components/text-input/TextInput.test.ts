@@ -58,24 +58,24 @@ it( 'emits input events', async () => {
 	expect( wrapper.emitted().input ).toBeTruthy();
 } );
 
-it( 'emits change events', () => {
+it( 'emits change events', async () => {
 	const wrapper = shallowMount( CdxTextInput );
 
-	wrapper.get( 'input' ).trigger( 'change' );
+	await wrapper.get( 'input' ).trigger( 'change' );
 	expect( wrapper.emitted().change ).toBeTruthy();
 } );
 
-it( 'emits focus events', () => {
+it( 'emits focus events', async () => {
 	const wrapper = shallowMount( CdxTextInput );
 
-	wrapper.get( 'input' ).trigger( 'focus' );
+	await wrapper.get( 'input' ).trigger( 'focus' );
 	expect( wrapper.emitted().focus ).toBeTruthy();
 } );
 
-it( 'emits blur events', () => {
+it( 'emits blur events', async () => {
 	const wrapper = shallowMount( CdxTextInput );
 
-	wrapper.get( 'input' ).trigger( 'blur' );
+	await wrapper.get( 'input' ).trigger( 'blur' );
 	expect( wrapper.emitted().blur ).toBeTruthy();
 } );
 

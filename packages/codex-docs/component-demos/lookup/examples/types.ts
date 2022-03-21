@@ -3,3 +3,7 @@ export type Result = {
 	id: string,
 	description: string
 };
+
+export type SearchData = {
+	search?: Result[]
+};

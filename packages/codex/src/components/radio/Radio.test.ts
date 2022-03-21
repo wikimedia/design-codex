@@ -48,7 +48,7 @@ describe( 'Radio', () => {
 		expect( wrapper.emitted( 'update:modelValue' )?.[ 0 ] ).toEqual( [ 'radio-2' ] );
 	} );
 
-	it( 'is selected when modelValue matches inputValue', async () => {
+	it( 'is selected when modelValue matches inputValue', () => {
 		const props = {
 			modelValue: 'radio-1',
 			inputValue: 'radio-1',
@@ -60,7 +60,7 @@ describe( 'Radio', () => {
 		expect( input.checked ).toEqual( true );
 	} );
 
-	it( 'is not selected when modelValue does not match inputValue', async () => {
+	it( 'is not selected when modelValue does not match inputValue', () => {
 		const props = {
 			modelValue: 'radio-1',
 			inputValue: 'radio-2',

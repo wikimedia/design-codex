@@ -53,21 +53,21 @@ export default function splitBidi( pluginOptions: SplitBidiOptions = {} ) : Plug
 
 					// Generate LTR and RTL versions by stripping rules for the wrong
 					// directionality.
-					const ltrSource = await postcss( [
+					const ltrSource = ( await postcss( [
 						postcssPluginRemoveBidi( {
 							removeSelectorPrefixes: [ rtlPrefix ],
 							trimSelectorPrefixes: [ ltrPrefix, bothPrefix ],
 							removeKeyFramesSuffixes: processKeyFrames ? [ '-rtl' ] : []
 						} )
-					] ).process( decodedSource ).css;
+					] ).process( decodedSource ) ).css;
 
-					const rtlSource = await postcss( [
+					const rtlSource = ( await postcss( [
 						postcssPluginRemoveBidi( {
 							removeSelectorPrefixes: [ ltrPrefix ],
 							trimSelectorPrefixes: [ rtlPrefix, bothPrefix ],
 							removeKeyFramesSuffixes: processKeyFrames ? [ '-ltr' ] : []
 						} )
-					] ).process( decodedSource ).css;
+					] ).process( decodedSource ) ).css;
 
 					// Overwrite the bidirectional .css file with LTR styles.
 					file.source = ltrSource;

@@ -58,7 +58,7 @@ describe( 'Checkbox', () => {
 		expect( wrapper.emitted( 'update:modelValue' )?.[ 0 ] ).toEqual( [ [ 'checkbox-1', 'checkbox-2' ] ] );
 	} );
 
-	it( 'is selected when modelValue is true', async () => {
+	it( 'is selected when modelValue is true', () => {
 		const props = { modelValue: true };
 		const wrapper = shallowMount( CdxCheckbox, { props: props } );
 		const input = wrapper.find( 'input' ).element;
@@ -66,7 +66,7 @@ describe( 'Checkbox', () => {
 		expect( input.checked ).toEqual( true );
 	} );
 
-	it( 'is not selected when modelValue is false', async () => {
+	it( 'is not selected when modelValue is false', () => {
 		const props = { modelValue: false };
 		const wrapper = shallowMount( CdxCheckbox, { props: props } );
 		const input = wrapper.find( 'input' ).element;
@@ -74,7 +74,7 @@ describe( 'Checkbox', () => {
 		expect( input.checked ).toEqual( false );
 	} );
 
-	it( 'is selected when modelValue includes inputValue', async () => {
+	it( 'is selected when modelValue includes inputValue', () => {
 		const props = {
 			modelValue: [ 'checkbox-1' ],
 			inputValue: 'checkbox-1'
@@ -85,7 +85,7 @@ describe( 'Checkbox', () => {
 		expect( input.checked ).toEqual( true );
 	} );
 
-	it( 'is not selected when modelValue does not include inputValue', async () => {
+	it( 'is not selected when modelValue does not include inputValue', () => {
 		const props = {
 			modelValue: [],
 			inputValue: 'checkbox-1'

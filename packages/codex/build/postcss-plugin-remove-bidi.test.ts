@@ -78,10 +78,10 @@ describe( 'transform tests', () => {
 	];
 
 	test.each( cases )( 'Case %#: %s', async ( _, input, expectedLtr, expectedRtl ) => {
-		const actualLtr = await postcss( postcssPluginRemoveBidi( ltrOptions ) )
-			.process( input, { from: 'foo.css' } ).css;
-		const actualRtl = await postcss( postcssPluginRemoveBidi( rtlOptions ) )
-			.process( input, { from: 'foo.css' } ).css;
+		const actualLtr = ( await postcss( postcssPluginRemoveBidi( ltrOptions ) )
+			.process( input, { from: 'foo.css' } ) ).css;
+		const actualRtl = ( await postcss( postcssPluginRemoveBidi( rtlOptions ) )
+			.process( input, { from: 'foo.css' } ) ).css;
 		expect( actualLtr ).toEqual( expectedLtr );
 		expect( actualRtl ).toEqual( expectedRtl );
 	} );

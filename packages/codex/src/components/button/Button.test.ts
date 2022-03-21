@@ -27,8 +27,8 @@ describe( 'matches the snapshot', () => {
 	} );
 } );
 
-it( 'emits click events', () => {
+it( 'emits click events', async () => {
 	const wrapper = mount( CdxButton );
-	wrapper.get( 'button' ).trigger( 'click' );
+	await wrapper.get( 'button' ).trigger( 'click' );
 	expect( wrapper.emitted().click ).toBeTruthy();
 } );

@@ -25,14 +25,14 @@ describe( 'matches the snapshot', () => {
 } );
 
 describe( 'ToggleButton', () => {
-	it( 'is active when modelValue is true', async () => {
+	it( 'is active when modelValue is true', () => {
 		const wrapper = shallowMount( CdxToggleButton, { props: { modelValue: true } } );
 		const classes = wrapper.find( 'button' ).classes();
 		expect( classes ).toContain( 'cdx-toggle-button--toggled-on' );
 		expect( classes ).not.toContain( 'cdx-toggle-button--toggled-off' );
 	} );
 
-	it( 'is inactive when modelValue is false', async () => {
+	it( 'is inactive when modelValue is false', () => {
 		const wrapper = shallowMount( CdxToggleButton, { props: { modelValue: false } } );
 		const classes = wrapper.find( 'button' ).classes();
 		expect( classes ).not.toContain( 'cdx-toggle-button--toggled-on' );
@@ -48,7 +48,7 @@ describe( 'ToggleButton', () => {
 		expect( wrapper.emitted( 'update:modelValue' )?.[ 0 ] ).toEqual( [ true ] );
 	} );
 
-	it( 'disables the button when specified', async () => {
+	it( 'disables the button when specified', () => {
 		const wrapper = shallowMount(
 			CdxToggleButton,
 			{ props: { modelValue: false, disabled: true } }

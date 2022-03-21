@@ -29,7 +29,7 @@ describe( 'CopyTextButon', () => {
 		expect( wrapper.get( CopyButtonSelector ).text() ).toBe( 'different label' );
 	} );
 
-	it( 'executes copy command on click', () => {
+	it( 'executes copy command on click', async () => {
 		const wrapper = mount( CdxDocsCopyTextButton, {
 			props: {
 				copyText: 'Random text'
@@ -45,7 +45,7 @@ describe( 'CopyTextButon', () => {
 		const mockCommand = jest.fn();
 		document.execCommand = mockCommand;
 		mockCommand.mockReturnValue( false );
-		wrapper.get( CopyButtonSelector ).trigger( 'click' );
+		await wrapper.get( CopyButtonSelector ).trigger( 'click' );
 		expect( mockCommand ).toHaveBeenCalledWith( 'copy' );
 
 		// Failed, should not change state
@@ -55,14 +55,14 @@ describe( 'CopyTextButon', () => {
 		mockCommand.mockImplementation( () => {
 			throw new Error();
 		} );
-		wrapper.get( CopyButtonSelector ).trigger( 'click' );
+		await wrapper.get( CopyButtonSelector ).trigger( 'click' );
 		expect( mockCommand ).toHaveBeenCalledTimes( 2 );
 
 		// should still be unsuccessful
 		expect( wrapper.vm.copySuccess ).toBe( false );
 
 		mockCommand.mockReturnValue( true );
-		wrapper.get( CopyButtonSelector ).trigger( 'click' );
+		await wrapper.get( CopyButtonSelector ).trigger( 'click' );
 		expect( mockCommand ).toHaveBeenCalledTimes( 3 );
 
 		// Succeeded, should be true now (dealing with timeout later)
@@ -114,7 +114,7 @@ describe( 'CopyTextButon', () => {
 		const mockCommand = jest.fn();
 		document.execCommand = mockCommand;
 		mockCommand.mockReturnValue( true );
-		wrapper.get( CopyButtonSelector ).trigger( 'click' );
+		await wrapper.get( CopyButtonSelector ).trigger( 'click' );
 
 		// should have been clicked
 		expect( mockCommand ).toHaveBeenCalledWith( 'copy' );
@@ -137,7 +137,7 @@ describe( 'CopyTextButon', () => {
 		expect( wrapper.find( SuccessIconSelector ).exists() ).toBe( false );
 	} );
 
-	it( 'works with undefined selection', () => {
+	it( 'works with undefined selection', async () => {
 		// Cover the case of window.getSelection() returning undefined, which is the
 		// default return value for jest.fn()
 		window.getSelection = jest.fn();
@@ -158,7 +158,7 @@ describe( 'CopyTextButon', () => {
 		const mockCommand = jest.fn();
 		document.execCommand = mockCommand;
 		mockCommand.mockReturnValue( true );
-		wrapper.get( CopyButtonSelector ).trigger( 'click' );
+		await wrapper.get( CopyButtonSelector ).trigger( 'click' );
 
 		// should have been clicked
 		expect( mockCommand ).toHaveBeenCalledWith( 'copy' );
@@ -186,7 +186,7 @@ describe( 'CopyTextButon', () => {
 		const mockCommand = jest.fn();
 		document.execCommand = mockCommand;
 		mockCommand.mockReturnValue( true );
-		wrapper.get( CopyButtonSelector ).trigger( 'click' );
+		await wrapper.get( CopyButtonSelector ).trigger( 'click' );
 
 		// should have been clicked
 		expect( mockCommand ).toHaveBeenCalledWith( 'copy' );

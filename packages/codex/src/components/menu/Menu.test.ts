@@ -54,6 +54,7 @@ describe( 'Matches the snapshots', () => {
 // We would like to use VueWrapper<InstanceType<typeof CdxMenu>>, but that causes a TS error
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function delegateKeydownEvent( wrapper: VueWrapper<any>, key: string ) {
+	// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
 	const menu = wrapper.vm as InstanceType<typeof CdxMenu>;
 	const handled = menu.delegateKeyNavigation( new KeyboardEvent( 'keydown', { key } ) );
 	expect( handled ).toBe( true );

@@ -199,7 +199,7 @@ describe( 'Lookup', () => {
 		expect( wrapper.vm.expanded ).toBe( true );
 	} );
 
-	it( 'Closes menu when input is cleared', () => {
+	it( 'Closes menu when input is cleared', async () => {
 		const wrapper = mount( CdxLookup, {
 			props: { modelValue: 'a', menuItems: data, initialInputValue: 'Opt' }
 		} );
@@ -210,7 +210,7 @@ describe( 'Lookup', () => {
 		wrapper.vm.expanded = true;
 
 		input.element.value = '';
-		input.trigger( 'input' );
+		await input.trigger( 'input' );
 		expect( wrapper.vm.expanded ).toBe( false );
 	} );
 
@@ -254,7 +254,7 @@ describe( 'Lookup', () => {
 		expect( wrapper.emitted( 'new-input' )?.[ 0 ] ).toEqual( [ '' ] );
 	} );
 
-	it( 'Clears the selection if input value changes from selection label', () => {
+	it( 'Clears the selection if input value changes from selection label', async () => {
 		const wrapper = mount( CdxLookup, {
 			props: { modelValue: 'a', menuItems: data, initialInputValue: 'Option A' }
 		} );
@@ -262,7 +262,7 @@ describe( 'Lookup', () => {
 
 		// Simulate backspace.
 		input.element.value = 'Option ';
-		input.trigger( 'input' );
+		await input.trigger( 'input' );
 
 		expect( wrapper.emitted( 'update:modelValue' )?.[ 0 ] ).toEqual( [ null ] );
 	} );
@@ -274,7 +274,7 @@ describe( 'Lookup', () => {
 		const input = wrapper.find( 'input' );
 
 		input.element.value = 'ca';
-		input.trigger( 'input' );
+		await input.trigger( 'input' );
 
 		expect( wrapper.emitted( 'update:modelValue' )?.[ 0 ] ).toEqual( [ null ] );
 	} );

@@ -21,7 +21,7 @@ export default defineComponent( {
 
 		function onUpdateModelValue( value: string|number ) {
 			// eslint-disable-next-line no-console
-			console.log( 'update:modelValue event emitted wth value: ' + value );
+			console.log( 'update:modelValue event emitted wth value: ', value );
 		}
 
 		return {

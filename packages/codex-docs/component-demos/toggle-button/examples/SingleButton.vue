@@ -24,7 +24,7 @@ export default defineComponent( {
 
 		const onUpdate = ( value: boolean ) => {
 			// eslint-disable-next-line no-console
-			console.log( 'update:modelValue event: ' + value );
+			console.log( 'update:modelValue event: ', value );
 		};
 
 		return {

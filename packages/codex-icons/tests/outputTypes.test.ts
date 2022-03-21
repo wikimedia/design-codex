@@ -19,7 +19,7 @@ describe( 'type definitions', () => {
 
 	it( 'contains all icons', () => {
 		const typedefIcons = iconDefs.split( '\n' ).map( ( line ) => {
-			const match = line.match( /^export declare const (cdxIcon[a-zA-Z0-9]+):/ );
+			const match = /^export declare const (cdxIcon[a-zA-Z0-9]+):/.exec( line );
 			return match ? match[ 1 ] : null;
 		} ).filter( Boolean );
 		expect( typedefIcons ).toEqual( Object.keys( allIcons ) );

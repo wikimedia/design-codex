@@ -50,23 +50,23 @@ it( 'omits code sample when code is not provided', () => {
 	expect( wrapper.vm.hasCodeSample ).toBeFalsy();
 } );
 
-it( 'shows and hides code on button click', () => {
+it( 'shows and hides code on button click', async () => {
 	const wrapper = mount( Wrapper, {
 		slots: {
 			code: '<p>Hello world</p>'
 		}
 	} );
 
-	wrapper.get( CodeToggleSelector ).trigger( 'click' );
+	await wrapper.get( CodeToggleSelector ).trigger( 'click' );
 	expect( wrapper.vm.showCode ).toBeTruthy();
 	expect( wrapper.vm.codeToggleLabel ).toBe( 'Hide code' );
 
-	wrapper.get( CodeToggleSelector ).trigger( 'click' );
+	await wrapper.get( CodeToggleSelector ).trigger( 'click' );
 	expect( wrapper.vm.showCode ).toBeFalsy();
 	expect( wrapper.vm.codeToggleLabel ).toBe( 'Show code' );
 } );
 
-it( 'allows code to be copied', () => {
+it( 'allows code to be copied', async () => {
 	const wrapper = mount( Wrapper, {
 		slots: {
 			code: '<p>Hello world</p>'
@@ -76,16 +76,16 @@ it( 'allows code to be copied', () => {
 	// copy not visible until code is shown
 	expect( wrapper.get( CodeCopySelector ).isVisible() ).toBe( false );
 
-	wrapper.get( CodeToggleSelector ).trigger( 'click' );
+	await wrapper.get( CodeToggleSelector ).trigger( 'click' );
 	expect( wrapper.vm.showCode ).toBeTruthy();
 
 	// copy is visible when code is shown
-	expect( wrapper.get( CodeCopySelector ).isVisible() ).toBe( false );
+	expect( wrapper.get( CodeCopySelector ).isVisible() ).toBe( true );
 
 	// Actual functionality of the copy button is tested for that component elsewhere
 
 	// hide code and copy again
-	wrapper.get( CodeToggleSelector ).trigger( 'click' );
+	await wrapper.get( CodeToggleSelector ).trigger( 'click' );
 	expect( wrapper.vm.showCode ).toBeFalsy();
 	expect( wrapper.get( CodeCopySelector ).isVisible() ).toBe( false );
 } );
@@ -141,6 +141,6 @@ it( 'can be reset', async () => {
 
 	expect( wrapper.vm.propValues.radioControl ).toBe( 'Option 3' );
 
-	wrapper.get( ResetButtonSelector ).trigger( 'click' );
+	await wrapper.get( ResetButtonSelector ).trigger( 'click' );
 	expect( wrapper.vm.propValues.radioControl ).toBe( 'Option 1' );
 } );

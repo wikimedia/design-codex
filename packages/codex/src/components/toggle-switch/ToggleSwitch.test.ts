@@ -33,14 +33,14 @@ describe( 'ToggleSwitch', () => {
 		expect( wrapper.emitted( 'update:modelValue' )?.[ 0 ] ).toEqual( [ true ] );
 	} );
 
-	it( 'is on when modelValue is true', async () => {
+	it( 'is on when modelValue is true', () => {
 		const wrapper = shallowMount( CdxToggleSwitch, { props: { modelValue: true } } );
 		const input = wrapper.find( 'input' ).element as HTMLInputElement;
 
 		expect( input.checked ).toEqual( true );
 	} );
 
-	it( 'is off when modelValue is false', async () => {
+	it( 'is off when modelValue is false', () => {
 		const wrapper = shallowMount( CdxToggleSwitch, { props: { modelValue: false } } );
 		const input = wrapper.find( 'input' ).element as HTMLInputElement;
 

@@ -27,6 +27,8 @@ export default defineConfig( {
 		rawSvg( {
 			include: 'src/images/*.svg'
 		} ),
-		typescript()
+		typescript( {
+			tsconfig: './tsconfig-build.json'
+		} )
 	]
 } );

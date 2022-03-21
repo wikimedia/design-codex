@@ -15,7 +15,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { CdxLookup, MenuItemData } from '@wikimedia/codex';
-import { Result } from './types';
+import { SearchData } from './types';
 
 export default defineComponent( {
 	name: 'LookupWithFetch',
@@ -42,13 +42,13 @@ export default defineComponent( {
 			fetch(
 				`https://www.wikidata.org/w/api.php?origin=*&action=wbsearchentities&format=json&search=${encodeURIComponent( value )}&language=en&limit=10&props=url`
 			).then( ( resp ) => resp.json() )
-				.then( ( data ) => {
+				.then( ( data: SearchData ) => {
 					// Make sure this data is still relevant first.
 					if ( currentSearchTerm.value === value ) {
 						// Build an array of menu items.
 						const results: MenuItemData[] = [];
 						if ( data.search && data.search.length > 0 ) {
-							data.search.forEach( ( result: Result ) => {
+							data.search.forEach( ( result ) => {
 								results.push( {
 									label: result.label,
 									value: result.id,

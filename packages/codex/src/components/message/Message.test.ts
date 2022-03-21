@@ -36,9 +36,9 @@ describe( 'matches the snapshot', () => {
 	} );
 } );
 
-it( 'handles dismissal', () => {
+it( 'handles dismissal', async () => {
 	const wrapper = mount( CdxMessage, { props: { dismissButtonLabel: 'Close' } } );
-	wrapper.get( 'button' ).trigger( 'click' );
+	await wrapper.get( 'button' ).trigger( 'click' );
 	expect( wrapper.emitted().dismissed ).toBeTruthy();
 	expect( wrapper.vm.dismissed ).toBeTruthy();
 } );

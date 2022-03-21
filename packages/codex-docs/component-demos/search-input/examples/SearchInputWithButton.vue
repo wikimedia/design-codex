@@ -22,12 +22,12 @@ export default defineComponent( {
 
 		function onUpdateModelValue( value: string|number ) {
 			// eslint-disable-next-line no-console
-			console.log( 'update:modelValue event emitted wth value: ' + value );
+			console.log( 'update:modelValue event emitted wth value: ', value );
 		}
 
 		function onSubmit( value: string|number ) {
 			// eslint-disable-next-line no-console
-			console.log( 'submit-click event emitted with value ' + value );
+			console.log( 'submit-click event emitted with value ', value );
 		}
 
 		return {
