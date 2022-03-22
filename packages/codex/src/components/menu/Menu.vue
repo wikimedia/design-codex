@@ -5,6 +5,12 @@
 		role="listbox"
 		aria-multiselectable="false"
 	>
+		<li v-if="computedShowNoResultsSlot" class="cdx-menu__no-results cdx-menu-item">
+			<!--
+				@slot Message to show if there are no menu items to display.
+			-->
+			<slot name="no-results" />
+		</li>
 		<cdx-menu-item
 			v-for="menuItem in computedMenuItems"
 			:key="menuItem.value"
@@ -25,13 +31,6 @@
 			-->
 			<slot :menuItem="menuItem" />
 		</cdx-menu-item>
-
-		<li v-if="$slots.footer" class="cdx-menu-item">
-			<!--
-				@slot Optional content to display at the end of the menu
-			-->
-			<slot name="footer" />
-		</li>
 	</ul>
 </template>
 
@@ -110,6 +109,23 @@ export default defineComponent( {
 		searchQuery: {
 			type: String,
 			default: ''
+		},
+		/**
+		 * Whether to show the `no-results` slot content.
+		 *
+		 * The Menu component automatically shows this slot when there is content in the
+		 * `no-results` slot and there are zero menu items. However, some components may need to
+		 * customize this behavior, e.g. to show the slot even when there is at least one menu item.
+		 * This prop can be used to override the default Menu behavior.
+		 *
+		 * Possible values:
+		 * `null` (default): the `no-results` slot will display only if there are zero menu items.
+		 * `true`: the `no-results` slot will display, regardless of number of menu items.
+		 * `false`: the `no-results` slot will not display, regardless of number of menu items.
+		 */
+		showNoResultsSlot: {
+			type: Boolean as PropType<boolean|null>,
+			default: null
 		}
 	},
 	emits: [
@@ -150,7 +166,7 @@ export default defineComponent( {
 		'getHighlightedMenuItem',
 		'delegateKeyNavigation'
 	],
-	setup( props, { emit } ) {
+	setup( props, { emit, slots } ) {
 		/**
 		 * Computed array of menu items with unique IDs added; other methods and properties should
 		 * reference this value instead of the original menuItems prop.
@@ -161,6 +177,24 @@ export default defineComponent( {
 				...menuItem,
 				id: generateMenuItemId()
 			} ) );
+		} );
+
+		/**
+		 * Whether to show the "no results" slot.
+		 */
+		const computedShowNoResultsSlot = computed( () => {
+			// If slot is empty, don't display anything.
+			if ( !slots[ 'no-results' ] ) {
+				return false;
+			}
+
+			// If the parent component has provided the showNoResultsSlot override prop, return it.
+			if ( props.showNoResultsSlot !== null ) {
+				return props.showNoResultsSlot;
+			}
+
+			// Default behavior: show slot if there are zero menu items.
+			return computedMenuItems.value.length === 0;
 		} );
 
 		const highlightedMenuItem = ref<MenuItemDataWithId|null>( null );
@@ -376,6 +410,7 @@ export default defineComponent( {
 
 		return {
 			computedMenuItems,
+			computedShowNoResultsSlot,
 			highlightedMenuItem,
 			activeMenuItem,
 			handleMenuItemChange,

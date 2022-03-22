@@ -57,10 +57,10 @@ The `menu-item` slot can be used to set up custom menu item content and formatti
 </template>
 </cdx-demo-wrapper>
 
-### With footer content
+### With "no results" content
 
-The `footer` slot can be used to display non-interactive content below the final menu item. For
-example, a "no result found" message can be conditionally displayed.
+A non-interactive "no results" message can be displayed via the `no-results` slot. If populated,
+this slot will automatically display when there are zero menu items.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

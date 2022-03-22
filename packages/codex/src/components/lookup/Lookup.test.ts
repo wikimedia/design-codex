@@ -22,7 +22,7 @@ describe( 'Basic usage', () => {
 		initialInputValue?: string,
 		disabled?: boolean,
 		clearable?: boolean,
-		footerContent?: string,
+		noResults?: string,
 		attributes?: Record<string, string>
 	]
 
@@ -31,7 +31,7 @@ describe( 'Basic usage', () => {
 		[ 'With initial input', data, '', 'Opt' ],
 		[ 'With selection', data, 'a', 'Option A' ],
 		[ 'Disabled', [], '', '', true ],
-		[ 'With footer content', [], '', 'asdf', false, false, 'No results' ],
+		[ 'With no results content', [], '', 'asdf', false, false, 'No results' ],
 		[ 'With class attributes', [], '', '', false, false, undefined, { class: 'class-one class-two' } ],
 		[ 'With type and placeholder attributes', [], '', '', false, false, undefined, {
 			inputType: 'search', placeholder: 'Type something... '
@@ -45,7 +45,7 @@ describe( 'Basic usage', () => {
 		initialInputValue = '',
 		disabled = false,
 		clearable = false,
-		footerContent = undefined,
+		noResults = undefined,
 		attributes = undefined
 	) => {
 		const componentOptions = {
@@ -53,8 +53,8 @@ describe( 'Basic usage', () => {
 			slots: {},
 			attrs: {}
 		};
-		if ( footerContent ) {
-			componentOptions.slots = { footer: footerContent };
+		if ( noResults ) {
+			componentOptions.slots = { 'no-results': noResults };
 		}
 		if ( attributes ) {
 			componentOptions.attrs = attributes;
@@ -90,22 +90,23 @@ describe( 'Lookup', () => {
 
 	it( 'Opens menu on focus if there are items to show', async () => {
 		const wrapper = mount( CdxLookup, {
-			props: { modelValue: '', menuItems: data }
+			props: { modelValue: '', menuItems: data, initialInputValue: 'foo' }
 		} );
 		await wrapper.find( 'input' ).trigger( 'focus' );
 		expect( wrapper.vm.expanded ).toBe( true );
 	} );
 
-	it( 'Opens menu on focus if there is footer slot content', async () => {
+	it( 'Opens menu on focus and shows "no results" message if there is no-results slot content', async () => {
 		const wrapper = mount( CdxLookup, {
-			props: { modelValue: '' },
-			slots: { footer: 'No results' }
+			props: { modelValue: '', initialInputValue: 'foo' },
+			slots: { 'no-results': 'No results' }
 		} );
 		await wrapper.find( 'input' ).trigger( 'focus' );
 		expect( wrapper.vm.expanded ).toBe( true );
+		expect( wrapper.find( '.cdx-menu__no-results' ) ).toBeTruthy();
 	} );
 
-	it( 'Does nothing on focus if there are no items or footer content', async () => {
+	it( 'Does nothing on focus if there are no items or no-results content', async () => {
 		const wrapper = mount( CdxLookup, { props: { modelValue: '' } } );
 		await wrapper.find( 'input' ).trigger( 'focus' );
 		expect( wrapper.vm.expanded ).toBe( false );
@@ -119,10 +120,10 @@ describe( 'Lookup', () => {
 		expect( wrapper.vm.expanded ).toBe( true );
 	} );
 
-	it( 'Passes keyboard events to handler if Lookup is enabled and there is footer content', async () => {
+	it( 'Passes keyboard events to handler if Lookup is enabled and there is no-results content', async () => {
 		const wrapper = mount( CdxLookup, {
 			props: { modelValue: '' },
-			slots: { footer: 'No results' }
+			slots: { 'no-results': 'No results' }
 		} );
 		await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
 		expect( wrapper.vm.expanded ).toBe( true );
@@ -136,7 +137,7 @@ describe( 'Lookup', () => {
 		expect( wrapper.vm.expanded ).toBe( false );
 	} );
 
-	it( 'Does nothing on keydown if there are no items or footer content', async () => {
+	it( 'Does nothing on keydown if there are no items or no-results content', async () => {
 		const wrapper = mount( CdxLookup, { props: { modelValue: '' } } );
 		await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
 		expect( wrapper.vm.expanded ).toBe( false );
@@ -187,10 +188,10 @@ describe( 'Lookup', () => {
 		expect( wrapper.vm.expanded ).toBe( false );
 	} );
 
-	it( 'Leaves menu open if items change to empty but there is footer content', async () => {
+	it( 'Leaves menu open if items change to empty but there is no-results content', async () => {
 		const wrapper = mount( CdxLookup, {
 			props: { modelValue: '', menuItems: data },
-			slots: { footer: 'No results' }
+			slots: { 'no-results': 'No results' }
 		} );
 		// This doesn't happen automatically on mount because we would never mount a Lookup with
 		// items, so we need to manually open the menu first.

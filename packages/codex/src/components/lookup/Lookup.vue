@@ -36,11 +36,11 @@
 				<slot name="menu-item" :menuItem="menuItem" />
 			</template>
 
-			<template v-if="$slots.footer" #footer>
+			<template #no-results>
 				<!--
-					@slot Content to display at the end of the menu items list
+					@slot Message to show if there are no results to display.
 				-->
-				<slot name="footer" />
+				<slot name="no-results" />
 			</template>
 		</cdx-menu>
 	</div>
@@ -203,10 +203,16 @@ export default defineComponent( {
 		}
 
 		/**
-		 * On focus, if there are menu items or footer content, open the menu.
+		 * On focus, maybe open the menu.
 		 */
 		function onFocus() {
-			if ( props.menuItems.length > 0 || context.slots.footer ) {
+			if (
+				// Input value is not null or an empty string.
+				inputValue.value !== null &&
+				inputValue.value !== '' &&
+				// There's either menu items to show or a no results message.
+				( props.menuItems.length > 0 || context.slots[ 'no-results' ] )
+			) {
 				expanded.value = true;
 			}
 		}
@@ -222,7 +228,7 @@ export default defineComponent( {
 		 * Conditionally handle key navigation of the menu.
 		 *
 		 * For this component, the user should only be able to use key navigation to open the menu
-		 * if there are menu items (or footer slot content) to display.
+		 * if there are menu items (or no-results slot content) to display.
 		 *
 		 * Additionally, the space key should be able to open the menu, but otherwise it should
 		 * do its default function of adding a space character.
@@ -232,7 +238,7 @@ export default defineComponent( {
 		function onKeydown( e: KeyboardEvent ) {
 			if ( !menu.value ||
 				props.disabled ||
-				( props.menuItems.length === 0 && !context.slots.footer ) ||
+				( props.menuItems.length === 0 && !context.slots[ 'no-results' ] ) ||
 				( e.key === ' ' && expanded.value )
 			) {
 				return;
@@ -269,14 +275,14 @@ export default defineComponent( {
 				// selection (which excludes the case where, upon selecting a menu item,
 				// computedMenuItems change, but we don't want the menu to be open anymore).
 				newVal.length > 0 && !inputValueIsSelection ||
-				// If there are no menu items but there is footer content.
-				newVal.length === 0 && context.slots.footer
+				// If there are no menu items but there is no-results content.
+				newVal.length === 0 && context.slots[ 'no-results' ]
 			) {
 				expanded.value = true;
 			}
 
-			// Hide the menu if there are no menu items and no footer content.
-			if ( newVal.length === 0 && !context.slots.footer ) {
+			// Hide the menu if there are no menu items and no no-results content.
+			if ( newVal.length === 0 && !context.slots[ 'no-results' ] ) {
 				expanded.value = false;
 			}
 		} );

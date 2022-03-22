@@ -27,7 +27,7 @@ import { defineComponent, ref } from 'vue';
 import { CdxMenu, CdxTextInput } from '@wikimedia/codex';
 
 export default defineComponent( {
-	name: 'InputWithMenuAndFooter',
+	name: 'InputWithMenuCustomItemDisplay',
 	components: {
 		CdxMenu,
 		CdxTextInput

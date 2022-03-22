@@ -26,9 +26,17 @@ exports[`Basic usage Case 0 Default: ([]) => HTML 1`] = `
     role="listbox"
     style="display: none;"
   >
+    <li
+      class="cdx-menu__no-results cdx-menu-item"
+    >
+      <!--
+				@slot Message to show if there are no menu items to display.
+			-->
+      
+      
+    </li>
     
     
-    <!--v-if-->
   </ul>
 </div>
 `;
@@ -59,6 +67,7 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
     role="listbox"
     style="display: none;"
   >
+    <!--v-if-->
     
     <li
       aria-disabled="false"
@@ -165,7 +174,6 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
       
     </li>
     
-    <!--v-if-->
   </ul>
 </div>
 `;
@@ -196,6 +204,7 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
     role="listbox"
     style="display: none;"
   >
+    <!--v-if-->
     
     <li
       aria-disabled="false"
@@ -302,7 +311,6 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
       
     </li>
     
-    <!--v-if-->
   </ul>
 </div>
 `;
@@ -334,14 +342,22 @@ exports[`Basic usage Case 3 Disabled: ([]) => HTML 1`] = `
     role="listbox"
     style="display: none;"
   >
+    <li
+      class="cdx-menu__no-results cdx-menu-item"
+    >
+      <!--
+				@slot Message to show if there are no menu items to display.
+			-->
+      
+      
+    </li>
     
     
-    <!--v-if-->
   </ul>
 </div>
 `;
 
-exports[`Basic usage Case 4 With footer content: ([]) => HTML 1`] = `
+exports[`Basic usage Case 4 With no results content: ([]) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -367,23 +383,23 @@ exports[`Basic usage Case 4 With footer content: ([]) => HTML 1`] = `
     role="listbox"
     style="display: none;"
   >
-    
-    
     <li
-      class="cdx-menu-item"
+      class="cdx-menu__no-results cdx-menu-item"
     >
       <!--
-				@slot Optional content to display at the end of the menu
+				@slot Message to show if there are no menu items to display.
 			-->
       
       <!--
-					@slot Content to display at the end of the menu items list
+					@slot Message to show if there are no results to display.
 				-->
       
       No results
       
       
     </li>
+    
+    
   </ul>
 </div>
 `;
@@ -414,9 +430,17 @@ exports[`Basic usage Case 5 With class attributes: ([]) => HTML 1`] = `
     role="listbox"
     style="display: none;"
   >
+    <li
+      class="cdx-menu__no-results cdx-menu-item"
+    >
+      <!--
+				@slot Message to show if there are no menu items to display.
+			-->
+      
+      
+    </li>
     
     
-    <!--v-if-->
   </ul>
 </div>
 `;
@@ -448,9 +472,17 @@ exports[`Basic usage Case 6 With type and placeholder attributes: ([]) => HTML 1
     role="listbox"
     style="display: none;"
   >
+    <li
+      class="cdx-menu__no-results cdx-menu-item"
+    >
+      <!--
+				@slot Message to show if there are no menu items to display.
+			-->
+      
+      
+    </li>
     
     
-    <!--v-if-->
   </ul>
 </div>
 `;

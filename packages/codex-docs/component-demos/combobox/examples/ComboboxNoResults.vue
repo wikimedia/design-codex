@@ -5,7 +5,7 @@
 			:menu-items="menuItems"
 			placeholder="Type or choose an option"
 		>
-			<template v-if="menuItems.length < 1" #footer>
+			<template #no-results>
 				Sorry, no options to display.
 			</template>
 		</cdx-combobox>

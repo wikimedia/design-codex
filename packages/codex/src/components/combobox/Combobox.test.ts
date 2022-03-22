@@ -128,7 +128,7 @@ describe( 'Basic usage', () => {
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
 
-	it( 'Clicking the expander will not show menu if neither items nor footer content are present', async () => {
+	it( 'Clicking the expander will not show menu if neither items nor no-results content are present', async () => {
 		const wrapper = mount( CdxCombobox, {
 			props: { menuItems: [] },
 			attachTo: '#root'

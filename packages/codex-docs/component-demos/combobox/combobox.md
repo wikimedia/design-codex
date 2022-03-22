@@ -97,9 +97,10 @@ the `#menu-item` slot. In this example, only the menu item's icon is displayed i
 
 </cdx-demo-wrapper>
 
-### With footer content
+### With "no results" content
 
-A non-clickable footer can be added to the end of the menu via the `#footer` slot.
+A non-interactive "no results" message can be displayed via the `no-results` slot. If populated,
+this slot will automatically display when there are zero menu items.
 
 <cdx-demo-wrapper>
 

@@ -53,11 +53,11 @@
 				<slot name="menu-item" :menuItem="menuItem" />
 			</template>
 
-			<template v-if="$slots.footer" #footer>
+			<template #no-results>
 				<!--
-					@slot Content to display at the end of the menu items list
+					@slot Message to show if there are no menu items to display.
 				-->
-				<slot name="footer" />
+				<slot name="no-results" />
 			</template>
 		</cdx-menu>
 	</div>
@@ -184,7 +184,7 @@ export default defineComponent( {
 		function onInputFocus(): void {
 			if ( expanderClicked.value && expanded.value ) {
 				expanded.value = false;
-			} else if ( props.menuItems.length > 0 || context.slots.footer ) {
+			} else if ( props.menuItems.length > 0 || context.slots[ 'no-results' ] ) {
 				expanded.value = true;
 			}
 		}

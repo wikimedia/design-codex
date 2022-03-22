@@ -5,7 +5,7 @@
 			:menu-items="menuItems"
 			@new-input="onInput"
 		>
-			<template v-if="noResults" #footer>
+			<template #no-results>
 				No results found.
 			</template>
 		</cdx-lookup>
@@ -23,23 +23,18 @@ export default defineComponent( {
 	setup() {
 		const selection = ref( '' );
 		const menuItems = ref<MenuItemData[]>( [] );
-		const noResults = ref( false );
 
 		function onInput( value: string ) {
 			if ( value ) {
 				menuItems.value = vegetableItems.filter( ( item ) =>
 					item.label.includes( value )
 				);
-				noResults.value = menuItems.value.length === 0;
-			} else {
-				noResults.value = false;
 			}
 		}
 
 		return {
 			selection,
 			menuItems,
-			noResults,
 			onInput
 		};
 	}

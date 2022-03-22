@@ -66,9 +66,9 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
           role="listbox"
           style="display: none;"
         >
-          
-          
           <!--v-if-->
+          
+          
         </ul>
         
       </div>
@@ -164,9 +164,9 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
           role="listbox"
           style="display: none;"
         >
-          
-          
           <!--v-if-->
+          
+          
         </ul>
         
       </div>
@@ -262,9 +262,9 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
           role="listbox"
           style="display: none;"
         >
-          
-          
           <!--v-if-->
+          
+          
         </ul>
         
       </div>
@@ -360,6 +360,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           role="listbox"
           style="display: none;"
         >
+          <!--v-if-->
           
           <li
             aria-disabled="false"
@@ -515,7 +516,6 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             
           </li>
           
-          <!--v-if-->
         </ul>
         
       </div>

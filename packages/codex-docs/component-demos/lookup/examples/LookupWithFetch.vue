@@ -5,7 +5,7 @@
 			:menu-items="menuItems"
 			@new-input="onInput"
 		>
-			<template v-if="noResults" #footer>
+			<template #no-results>
 				No results found.
 			</template>
 		</cdx-lookup>
@@ -23,14 +23,10 @@ export default defineComponent( {
 	setup() {
 		const selection = ref( '' );
 		const menuItems = ref<MenuItemData[]>( [] );
-		const noResults = ref( false );
 		const currentSearchTerm = ref( '' );
 
 		// TODO: this should be debounced.
 		function onInput( value: string ) {
-			// Reset noResults.
-			noResults.value = false;
-
 			// Internally track the current search term.
 			currentSearchTerm.value = value;
 
@@ -57,13 +53,6 @@ export default defineComponent( {
 							} );
 						}
 
-						// If there are no results, set noResults to true so we
-						// can show the "No results found" message via the
-						// Lookup component's footer slot.
-						if ( results.length === 0 ) {
-							noResults.value = true;
-						}
-
 						// Update menuItems.
 						menuItems.value = results;
 					}
@@ -76,7 +65,6 @@ export default defineComponent( {
 		return {
 			selection,
 			menuItems,
-			noResults,
 			onInput
 		};
 	}

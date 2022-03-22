@@ -1,6 +1,7 @@
 <script setup>
 import InputWithMenu from '@/../component-demos/menu/examples/InputWithMenu.vue';
-import InputWithMenuAndFooter from '@/../component-demos/menu/examples/InputWithMenuAndFooter.vue';
+import InputWithMenuCustomItemDisplay from '@/../component-demos/menu/examples/InputWithMenuCustomItemDisplay.vue';
+import InputWithMenuNoResults from '@/../component-demos/menu/examples/InputWithMenuNoResults.vue'
 </script>
 
 ::: warning
@@ -24,15 +25,31 @@ internally.
 </template>
 </cdx-demo-wrapper>
 
-### Menu with footer and custom menu item display
+### Menu with custom menu item display
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<input-with-menu-and-footer />
+<input-with-menu-custom-item-display />
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu/examples/InputWithMenuAndFooter.vue
+<<< @/../component-demos/menu/examples/InputWithMenuCustomItemDisplay.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Menu with no results message
+
+If the `no-results` slot is populated, the Menu component will automatically display it when there
+are zero menu items.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<input-with-menu-no-results />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/menu/examples/InputWithMenuNoResults.vue
 
 </template>
 </cdx-demo-wrapper>

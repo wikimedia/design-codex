@@ -6,6 +6,7 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
   class="cdx-menu"
   role="listbox"
 >
+  <!--v-if-->
   
   <li
     aria-disabled="false"
@@ -112,7 +113,6 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     
   </li>
   
-  <!--v-if-->
 </ul>
 `;
 
@@ -122,6 +122,7 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
   class="cdx-menu"
   role="listbox"
 >
+  <!--v-if-->
   
   <li
     aria-disabled="false"
@@ -228,7 +229,6 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
     
   </li>
   
-  <!--v-if-->
 </ul>
 `;
 
@@ -239,6 +239,7 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
   role="listbox"
   style="display: none;"
 >
+  <!--v-if-->
   
   <li
     aria-disabled="false"
@@ -345,132 +346,27 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     
   </li>
   
-  <!--v-if-->
 </ul>
 `;
 
-exports[`Matches the snapshots Case 3 With footer: => HTML 1`] = `
+exports[`Matches the snapshots Case 3 With no results text: => HTML 1`] = `
 <ul
   aria-multiselectable="false"
   class="cdx-menu"
   role="listbox"
 >
-  
   <li
-    aria-disabled="false"
-    aria-selected="false"
-    class="cdx-menu-item cdx-menu-item--enabled"
-    id="cdx-menu-item-16"
-    role="option"
-  >
-    <!-- @slot Custom menu item content. -->
-    
-    <span
-      class="cdx-menu-item__content"
-    >
-      <!--v-if-->
-      <span
-        class="cdx-menu-item__text"
-      >
-        <span
-          class="cdx-menu-item__text__label"
-        >
-          Option A
-        </span>
-        <!--v-if-->
-      </span>
-    </span>
-    
-  </li>
-  <li
-    aria-disabled="false"
-    aria-selected="true"
-    class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-    id="cdx-menu-item-17"
-    role="option"
-  >
-    <!-- @slot Custom menu item content. -->
-    
-    <span
-      class="cdx-menu-item__content"
-    >
-      <!--v-if-->
-      <span
-        class="cdx-menu-item__text"
-      >
-        <span
-          class="cdx-menu-item__text__label"
-        >
-          Option B
-        </span>
-        <!--v-if-->
-      </span>
-    </span>
-    
-  </li>
-  <li
-    aria-disabled="false"
-    aria-selected="false"
-    class="cdx-menu-item cdx-menu-item--enabled"
-    id="cdx-menu-item-18"
-    role="option"
-  >
-    <!-- @slot Custom menu item content. -->
-    
-    <span
-      class="cdx-menu-item__content"
-    >
-      <!--v-if-->
-      <span
-        class="cdx-menu-item__text"
-      >
-        <span
-          class="cdx-menu-item__text__label"
-        >
-          c
-        </span>
-        <!--v-if-->
-      </span>
-    </span>
-    
-  </li>
-  <li
-    aria-disabled="true"
-    aria-selected="false"
-    class="cdx-menu-item cdx-menu-item--disabled"
-    id="cdx-menu-item-19"
-    role="option"
-  >
-    <!-- @slot Custom menu item content. -->
-    
-    <span
-      class="cdx-menu-item__content"
-    >
-      <!--v-if-->
-      <span
-        class="cdx-menu-item__text"
-      >
-        <span
-          class="cdx-menu-item__text__label"
-        >
-          Option D
-        </span>
-        <!--v-if-->
-      </span>
-    </span>
-    
-  </li>
-  
-  <li
-    class="cdx-menu-item"
+    class="cdx-menu__no-results cdx-menu-item"
   >
     <!--
-				@slot Optional content to display at the end of the menu
+				@slot Message to show if there are no menu items to display.
 			-->
     
-    Footer text
+    No results
     
   </li>
+  
+  
 </ul>
 `;
 
@@ -480,12 +376,13 @@ exports[`Matches the snapshots Case 4 Custom menu item rendering: => HTML 1`] = 
   class="cdx-menu"
   role="listbox"
 >
+  <!--v-if-->
   
   <li
     aria-disabled="false"
     aria-selected="false"
     class="cdx-menu-item cdx-menu-item--enabled"
-    id="cdx-menu-item-20"
+    id="cdx-menu-item-16"
     role="option"
   >
     <!-- @slot Custom menu item content. -->
@@ -503,7 +400,7 @@ exports[`Matches the snapshots Case 4 Custom menu item rendering: => HTML 1`] = 
     aria-disabled="false"
     aria-selected="true"
     class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-    id="cdx-menu-item-21"
+    id="cdx-menu-item-17"
     role="option"
   >
     <!-- @slot Custom menu item content. -->
@@ -521,7 +418,7 @@ exports[`Matches the snapshots Case 4 Custom menu item rendering: => HTML 1`] = 
     aria-disabled="false"
     aria-selected="false"
     class="cdx-menu-item cdx-menu-item--enabled"
-    id="cdx-menu-item-22"
+    id="cdx-menu-item-18"
     role="option"
   >
     <!-- @slot Custom menu item content. -->
@@ -539,7 +436,7 @@ exports[`Matches the snapshots Case 4 Custom menu item rendering: => HTML 1`] = 
     aria-disabled="true"
     aria-selected="false"
     class="cdx-menu-item cdx-menu-item--disabled"
-    id="cdx-menu-item-23"
+    id="cdx-menu-item-19"
     role="option"
   >
     <!-- @slot Custom menu item content. -->
@@ -554,6 +451,5 @@ exports[`Matches the snapshots Case 4 Custom menu item rendering: => HTML 1`] = 
     
   </li>
   
-  <!--v-if-->
 </ul>
 `;

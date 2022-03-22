@@ -24,7 +24,7 @@ describe( 'Matches the snapshots', () => {
 		expanded?: boolean,
 		slots?: {
 			default?: string,
-			footer?: string
+			'no-results'?: string
 		}
 	];
 
@@ -32,7 +32,7 @@ describe( 'Matches the snapshots', () => {
 		[ 'Nothing selected', exampleMenuItems, null ],
 		[ 'Something selected', exampleMenuItems, 'b' ],
 		[ 'Not expanded', exampleMenuItems, 'b', false ],
-		[ 'With footer', exampleMenuItems, 'b', true, { footer: 'Footer text' } ],
+		[ 'With no results text', [], null, true, { 'no-results': 'No results' } ],
 		[ 'Custom menu item rendering', exampleMenuItems, 'b', true, {
 			default: `
 				<template #default="{ menuItem }">
@@ -368,6 +368,42 @@ it( 'Menu item becomes inactive when another item becomes active', async () => {
 	await secondMenuItem.trigger( 'mousedown' );
 	expect( secondMenuItem.classes() ).toContain( 'cdx-menu-item--active' );
 	expect( firstMenuItem.classes() ).not.toContain( 'cdx-menu-item--active' );
+} );
+
+it( 'displays no-results slot when there are zero menu items', () => {
+	const wrapper = mount( CdxMenu, {
+		props: { ...defaultProps, menuItems: [] },
+		slots: { 'no-results': 'No results found' }
+	} );
+
+	expect( wrapper.vm.computedShowNoResultsSlot ).toBeTruthy();
+} );
+
+it( 'hides no-results slot when there are menu items', () => {
+	const wrapper = mount( CdxMenu, {
+		props: defaultProps,
+		slots: { 'no-results': 'No results found' }
+	} );
+
+	expect( wrapper.vm.computedShowNoResultsSlot ).toBeFalsy();
+} );
+
+it( 'displays no-results slot when there are menu items but showNoResultsSlot prop is set to true', () => {
+	const wrapper = mount( CdxMenu, {
+		props: { ...defaultProps, showNoResultsSlot: true },
+		slots: { 'no-results': 'No results found' }
+	} );
+
+	expect( wrapper.vm.computedShowNoResultsSlot ).toBeTruthy();
+} );
+
+it( 'hides no-results slot when there are zero menu items but showNoResultsSlot prop is set to false', () => {
+	const wrapper = mount( CdxMenu, {
+		props: { ...defaultProps, menuItems: [], showNoResultsSlot: false },
+		slots: { 'no-results': 'No results found' }
+	} );
+
+	expect( wrapper.vm.computedShowNoResultsSlot ).toBeFalsy();
 } );
 
 describe( 'delegateKeyNavigation returns true or false correctly', () => {
