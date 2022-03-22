@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import dts from 'vite-plugin-dts';
 import path from 'path';
 import rtlcss from 'rtlcss';
 import postcssRtlcss from 'postcss-rtlcss';
@@ -67,13 +66,7 @@ export default defineConfig( ( { command, mode } ) => {
 			postcss: postcssConfig as { plugins: PostCSSPlugin[] }
 		},
 		plugins: [
-			vue(),
-			// Only build the types during the non-RTL build, because building the types is slow
-			...( isRtlBuild ? [] : [ dts( {
-				insertTypesEntry: true,
-				logDiagnostics: true,
-				noEmitOnError: true
-			} ) ] )
+			vue()
 		]
 	};
 } );
