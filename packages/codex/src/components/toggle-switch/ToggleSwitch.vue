@@ -140,14 +140,8 @@ export default defineComponent( {
 
 @padding-end-toggle-switch-label-content: 6px;
 
-@box-shadow-input-binary: 0 0 0 1px transparent;
-
 @transition-property-toggle-switch-outline: @transition-property-border-color;
 @position-offset-toggle-switch-outline: 1px;
-
-// TODO: Remove with I753c3fd9a271a15ec9 in place:
-@cursor-base--disabled: default;
-@cursor-base--hover: pointer;
 
 .cdx-toggle-switch {
 	display: inline-flex;
@@ -301,7 +295,6 @@ export default defineComponent( {
 					// stylelint-disable-next-line max-nesting-depth
 					.cdx-toggle-switch__switch__grip {
 						border-color: @background-color-base;
-						box-shadow: @box-shadow-input-binary;
 					}
 				}
 
@@ -338,7 +331,6 @@ export default defineComponent( {
 					.cdx-toggle-switch__switch__grip {
 						background-color: @background-color-base;
 						border-color: @background-color-base;
-						box-shadow: @box-shadow-input-binary;
 					}
 				}
 			}
