@@ -167,8 +167,20 @@ export default defineComponent( {
 	// Based on the HTML attributes of the checkbox input, we can change the style of the adjacent
 	// `span`, which will look like a custom-styled checkbox.
 	&__input {
+		// Indeterminate state.
+		&:indeterminate + .cdx-checkbox__icon:before {
+			content: ' ';
+			background-color: @color-base--inverted;
+			position: absolute;
+			top: 50%;
+			right: @start-input-binary-icon;
+			left: @start-input-binary-icon;
+			height: @border-width-base * 2;
+			margin-top: -@border-width-base;
+		}
+
 		// Checked state whether or not the input is enabled or disabled.
-		&:checked + .cdx-checkbox__icon:before {
+		&:checked:not( :indeterminate ) + .cdx-checkbox__icon:before {
 			content: ' ';
 			background-image: @background-image-input-checkbox;
 			background-position: center;
@@ -181,18 +193,6 @@ export default defineComponent( {
 			// `@border-width-base`.
 			width: @size-full;
 			height: @size-full;
-		}
-
-		// Indeterminate state.
-		&:indeterminate + .cdx-checkbox__icon:before {
-			content: ' ';
-			background-color: @color-base--inverted;
-			position: absolute;
-			top: 50%;
-			right: @start-input-binary-icon;
-			left: @start-input-binary-icon;
-			height: @border-width-base * 2;
-			margin-top: -@border-width-base;
 		}
 
 		&:enabled {
