@@ -10,6 +10,25 @@
 	transform: translateZ( 0 );
 }
 
+// Truncate overflow text with value of `ellipsis` (mixin default),
+// a custom string (Firefox 9+ only) or show.
+// Recommended usage: `.text-overflow( @visible: false )` for best readability.
+.text-overflow( @visible: false, @value: ellipsis ) { // stylelint-disable-line selector-class-pattern
+	& when ( @visible = true ) {
+		overflow: visible;
+		text-overflow: clip;
+		white-space: normal;
+	}
+	& when ( @visible = false ) {
+		// Hide overflowing text.
+		overflow: hidden;
+		// Use an ellipsis or a custom string to indicate text overflow.
+		text-overflow: @value;
+		// Force overflow of the description text.
+		white-space: nowrap;
+	}
+}
+
 // Screen Reader Helper Mixin for visually hidden text.
 .screen-reader-text() {
 	display: block;

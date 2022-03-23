@@ -280,6 +280,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import '../../themes/mixins/common.less';
 
 // TODO: Tokenize.
 @font-size-browser: 16;
@@ -414,18 +415,13 @@ export default defineComponent( {
 	&--hide-description-overflow {
 		.cdx-menu-item__text {
 			// Prevent text section (label/title and description) from overflowing its container.
-			// This is needed once we apply the white-space: nowrap rule to the description text
-			// below.
+			// This is needed once we apply the `white-space: nowrap` rule to the description text
+			// below via `.text-overflow()` mixin.
 			overflow: hidden;
 		}
 
 		.cdx-menu-item__text__description {
-			// Hide overflow of description text.
-			overflow: hidden;
-			// Use an ellipsis to indicate text overflow.
-			text-overflow: ellipsis;
-			// Force overflow of the description text.
-			white-space: nowrap;
+			.text-overflow( @visible: false );
 		}
 	}
 
