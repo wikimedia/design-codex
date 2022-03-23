@@ -562,6 +562,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import '../../themes/mixins/common.less';
 
 // TODO: Tokenize.
 @font-size-browser: 16;
@@ -731,15 +732,7 @@ export default defineComponent( {
 			// stylelint-disable-next-line max-nesting-depth
 			&__text,
 			&__query {
-				// stylelint-disable-next-line plugin/no-unsupported-browser-features
-				hyphens: auto;
-				// Progressive enhancement. Fine to override unsupported Android 4. See T280982.
-				word-break: break-word;
-				// Legacy `word-wrap`; IE 6-11, Edge 12+, Firefox 3.5+, Chrome 4+, Safari 3.1+,
-				// Opera 11.5+, iOS 3.2+, Android 2.1+
-				// `overflow-wrap` is W3 standard, but it doesn't seem as if browser vendors will
-				//  abandon `word-wrap` (it has wider support), therefore no duplication.
-				word-wrap: break-word;
+				.hyphens();
 			}
 		}
 	}

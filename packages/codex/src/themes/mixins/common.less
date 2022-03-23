@@ -10,6 +10,31 @@
 	transform: translateZ( 0 );
 }
 
+// CSS3 hyphenation
+// It is advisable to set the `lang` attribute on the HTML element to enable hyphenation support.
+.hyphens( @value: auto ) { // stylelint-disable-line selector-class-pattern
+	& when ( @value = auto ) {
+		// Progressive enhancement. CSS standard property.
+		// Put before legacy `word-wrap` only for alphabetical reasons.
+		word-break: break-word;
+		// Legacy `word-wrap`; IE 6-11, Edge 12+, Firefox 3.5+, Chrome 4+, Safari 3.1+,
+		//   Opera 11.5+, iOS 3.2+, Android 2.1+
+		// `overflow-wrap` is W3 standard, but it doesn't seem as if browser vendors
+		//   will abandon `word-wrap` (it has wider support), therefore no duplication.
+		word-wrap: break-word;
+	}
+
+	& when ( @value = none ) {
+		word-wrap: normal;
+	}
+
+	// Chrome < 55 and Android 4.0 Browser support `-webkit-hyphens: none`,
+	// but not the `auto` value.
+	// Chrome 55-87 only supports `auto` exclusively on Mac platform.
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
+	hyphens: @value;
+}
+
 // Truncate overflow text with value of `ellipsis` (mixin default),
 // a custom string (Firefox 9+ only) or show.
 // Recommended usage: `.text-overflow( @visible: false )` for best readability.
