@@ -44,12 +44,6 @@
 						:aria-label="propControl.name"
 						@update:model-value="emitControlChange( propControl.name, $event )"
 					/>
-
-					<cdx-docs-icon-lookup
-						v-if="propControl.type === 'icon'"
-						:model-value="propControl.value"
-						@update:model-value="emitControlChange( propControl.name, $event )"
-					/>
 				</td>
 			</tr>
 
@@ -77,7 +71,6 @@
 import { defineComponent, PropType, computed } from 'vue';
 import { ControlConfigWithValue, SlotConfigWithValue, PropConfigWithValue } from '../../types';
 import { CdxRadio, CdxTextInput, CdxToggleSwitch } from '@wikimedia/codex';
-import CdxDocsIconLookup from '../icon-lookup/IconLookup.vue';
 
 /**
  * A table of interactive controls to configure a component demo.
@@ -91,12 +84,7 @@ import CdxDocsIconLookup from '../icon-lookup/IconLookup.vue';
  */
 export default defineComponent( {
 	name: 'CdxDocsControls',
-	components: {
-		CdxDocsIconLookup,
-		CdxRadio,
-		CdxTextInput,
-		CdxToggleSwitch
-	},
+	components: { CdxRadio, CdxTextInput, CdxToggleSwitch },
 	props: {
 		controlsWithValues: {
 			type: Array as PropType<ControlConfigWithValue[]>,

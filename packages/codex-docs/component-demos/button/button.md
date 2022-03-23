@@ -1,6 +1,5 @@
 <script setup>
-import { CdxButton, CdxIcon } from '@wikimedia/codex';
-import CdxDocsNamedIcon from '@/../src/components/named-icon/NamedIcon.vue';
+import { CdxButton } from '@wikimedia/codex';
 import ButtonWithIcon from '@/../component-demos/button/examples/ButtonWithIcon.vue';
 import ProgressiveButtonWithIcon from '@/../component-demos/button/examples/ProgressiveButtonWithIcon.vue';
 import DestructivePrimaryButtonWithIcon from '@/../component-demos/button/examples/DestructivePrimaryButtonWithIcon.vue';
@@ -28,11 +27,6 @@ const controlsConfig = [
 		name: 'disabled',
 		type: 'boolean'
 	},
-	// TODO not a prop, but listed as such in the UI; how should we group this instead?
-	{
-		name: 'icon',
-		type: 'icon'
-	},
 	{
 		name: 'default',
 		type: 'slot',
@@ -47,10 +41,7 @@ const controlsConfig = [
 
 <cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues, slotValues }">
-<cdx-button v-bind="propValues">
-	<cdx-docs-named-icon v-if="propValues.icon" :icon-name="propValues.icon" />
-	{{ slotValues.default }}
-</cdx-button>
+<cdx-button v-bind="propValues">{{ slotValues.default }}</cdx-button>
 </template>
 </cdx-demo-wrapper>
 
