@@ -296,7 +296,7 @@ export default defineComponent( {
 			&:active {
 				background-color: @background-color-progressive--active;
 				color: @color-base--inverted;
-				border-color: @color-progressive--active;
+				border-color: @border-color-progressive--active;
 				box-shadow: none;
 			}
 		}
