@@ -308,46 +308,12 @@ export default defineComponent( {
 @color-menu-item-thumbnail-placeholder-icon: @color-placeholder;
 
 .cdx-menu-item {
-	color: @color-base;
 	list-style: none;
 	position: relative;
 	padding: @padding-vertical-menu-item @padding-horizontal-base;
 	line-height: @line-height-100;
 	transition-property: @transition-property-base;
 	transition-duration: @transition-duration-base;
-
-	&--enabled {
-		&:hover,
-		&.cdx-menu-item--highlighted {
-			background-color: @background-color-base--hover;
-			cursor: @cursor-base--hover;
-		}
-	}
-
-	&--active,
-	&--active:hover {
-		background-color: @background-color-base--active;
-		color: @color-progressive;
-	}
-
-	&--selected,
-	&--selected:hover {
-		background-color: @background-color-base--active;
-	}
-
-	&--selected:hover,
-	&--selected&--highlighted {
-		color: @color-progressive;
-	}
-
-	&--disabled,
-	&--disabled .cdx-icon {
-		color: @color-base--disabled;
-	}
-
-	&--disabled {
-		cursor: @cursor-base--disabled;
-	}
 
 	&__content {
 		display: flex;
@@ -356,10 +322,13 @@ export default defineComponent( {
 		.hyphens();
 	}
 
-	&--highlight-query {
-		.cdx-menu-item__content {
-			line-height: normal;
-		}
+	// Make sure the icon inherits the content element's color.
+	.cdx-icon {
+		color: inherit;
+	}
+
+	&__text__description {
+		display: block;
 	}
 
 	&__thumbnail-placeholder,
@@ -398,8 +367,10 @@ export default defineComponent( {
 		}
 	}
 
-	&__text__description {
-		display: block;
+	&--highlight-query {
+		.cdx-menu-item__content {
+			line-height: normal;
+		}
 	}
 
 	&--bold-label {
@@ -421,10 +392,56 @@ export default defineComponent( {
 		}
 	}
 
-	&:not( &--selected ):not( &--active ):not( &--disabled ) {
+	&--enabled {
+		.cdx-menu-item__content {
+			// Color for all content, including icon and text.
+			color: @color-base;
+		}
+
 		.cdx-menu-item__text__description {
+			// Different color for description.
 			color: @color-accessory;
 		}
+
+		&:hover,
+		&.cdx-menu-item--highlighted {
+			background-color: @background-color-base--hover;
+			cursor: @cursor-base--hover;
+		}
+
+		&.cdx-menu-item--active,
+		&.cdx-menu-item--active:hover {
+			background-color: @background-color-base--active;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__description {
+				color: @color-progressive;
+			}
+		}
+
+		&.cdx-menu-item--selected,
+		&.cdx-menu-item--selected:hover {
+			background-color: @background-color-base--active;
+		}
+
+		&.cdx-menu-item--selected:hover,
+		&.cdx-menu-item--selected.cdx-menu-item--highlighted {
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__description {
+				color: @color-progressive;
+			}
+		}
 	}
+
+	/* stylelint-disable no-descending-specificity */
+	&--disabled {
+		cursor: @cursor-base--disabled;
+
+		.cdx-menu-item__content,
+		.cdx-menu-item__text__description {
+			color: @color-base--disabled;
+		}
+	}
+	/* stylelint-enable no-descending-specificity */
 }
 </style>
