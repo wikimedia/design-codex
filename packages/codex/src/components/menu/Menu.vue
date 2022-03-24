@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, toRef, watch, PropType } from 'vue';
+import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted } from 'vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import { MenuItemData, MenuItemDataWithId, MenuState } from '../../types';
@@ -352,6 +352,21 @@ export default defineComponent( {
 					return false;
 			}
 		}
+
+		/**
+		 * Always clear active state on mouseup.
+		 */
+		function onMouseUp() {
+			handleMenuItemChange( 'active' );
+		}
+
+		onMounted( () => {
+			document.addEventListener( 'mouseup', onMouseUp );
+		} );
+
+		onUnmounted( () => {
+			document.removeEventListener( 'mouseup', onMouseUp );
+		} );
 
 		// Clear the highlight states when the menu is closed.
 		watch( toRef( props, 'expanded' ), ( newVal ) => {
