@@ -223,8 +223,12 @@ export default defineComponent( {
 			emit( 'change', 'highlighted' );
 		};
 
-		const onMouseDown = () => {
-			emit( 'change', 'active' );
+		const onMouseDown = ( e: MouseEvent ) => {
+			// Only apply the active state on main mouse button click. This avoids apply active
+			// styles on right click, for example. See T304605.
+			if ( e.button === 0 ) {
+				emit( 'change', 'active' );
+			}
 		};
 
 		const onClick = () => {

@@ -65,4 +65,19 @@ describe( 'CdxMenuItem', () => {
 		} );
 		expect( wrapper.vm.thumbnailBackgroundImage ).toBe( '' );
 	} );
+	it( 'emits change event on main mouse button mousedown', async () => {
+		const wrapper = mount( CdxMenuItem, {
+			props: { ...testSearchResult }
+		} );
+		await wrapper.trigger( 'mousedown' );
+		expect( wrapper.emitted( 'change' ) ).toBeTruthy();
+		expect( wrapper.emitted( 'change' )?.[ 0 ] ).toEqual( [ 'active' ] );
+	} );
+	it( 'does nothing on right click', async () => {
+		const wrapper = mount( CdxMenuItem, {
+			props: { ...testSearchResult }
+		} );
+		await wrapper.trigger( 'mousedown', { button: 2 } );
+		expect( wrapper.emitted( 'change' ) ).toBeFalsy();
+	} );
 } );
