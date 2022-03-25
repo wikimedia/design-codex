@@ -42,6 +42,12 @@
 					}
 				]
 			}
+		},
+		{
+			"files": [ "**/*.test.ts" ],
+			"rules": {
+				"@typescript-eslint/restrict-template-expressions": "off"
+			}
 		}
 	],
 	"ignorePatterns": [
