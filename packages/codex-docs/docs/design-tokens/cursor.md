@@ -7,5 +7,5 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 <TokensTable
 	:tokens="tokens.cursor"
-	token-demo="CursorDemo"
+	token-demo="CdxDocsCursorDemo"
 />

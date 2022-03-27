@@ -48,6 +48,7 @@ import CdxDocsAnimationDemo from './AnimationDemo.vue';
 import CdxDocsBorderDemo from './BorderDemo.vue';
 import CdxDocsBoxShadowDemo from './BoxShadowDemo.vue';
 import CdxDocsColorDemo from './ColorDemo.vue';
+import CdxDocsCursorDemo from './CursorDemo.vue';
 import CdxDocsFontDemo from './FontDemo.vue';
 import CdxDocsOpacityDemo from './OpacityDemo.vue';
 import CdxDocsPaddingDemo from './PaddingDemo.vue';
@@ -64,6 +65,7 @@ export default defineComponent( {
 		CdxDocsBorderDemo,
 		CdxDocsBoxShadowDemo,
 		CdxDocsColorDemo,
+		CdxDocsCursorDemo,
 		CdxDocsFontDemo,
 		CdxDocsOpacityDemo,
 		CdxDocsPaddingDemo,

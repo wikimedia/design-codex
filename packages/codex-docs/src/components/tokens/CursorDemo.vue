@@ -6,7 +6,7 @@
 import { defineComponent, computed } from 'vue';
 
 export default defineComponent( {
-	name: 'CursorDemo',
+	name: 'CdxDocsCursorDemo',
 	props: {
 		/**
 		 * The value of the token we're demoing
