@@ -48,12 +48,8 @@ export default defineComponent( {
 	emits: [ 'click' ],
 	setup( props, { emit } ) {
 		const rootClasses = computed( () => ( {
-			'cdx-button--action-default': props.action === 'default',
-			'cdx-button--action-progressive': props.action === 'progressive',
-			'cdx-button--action-destructive': props.action === 'destructive',
-			'cdx-button--type-primary': props.type === 'primary',
-			'cdx-button--type-normal': props.type === 'normal',
-			'cdx-button--type-quiet': props.type === 'quiet',
+			[ `cdx-button--action-${props.action}` ]: true,
+			[ `cdx-button--type-${props.type}` ]: true,
 			'cdx-button--framed': props.type !== 'quiet'
 		} ) );
 
