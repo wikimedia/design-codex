@@ -94,7 +94,7 @@ export default defineComponent( {
 	setup( props, { emit } ) {
 		const rootClasses = computed( (): Record<string, boolean> => {
 			return {
-				'cdx-radio--inline': !!props.inline
+				'cdx-radio--inline': props.inline
 			};
 		} );
 

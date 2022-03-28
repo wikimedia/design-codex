@@ -103,7 +103,7 @@ export default defineComponent( {
 	setup( props, { emit } ) {
 		const rootClasses = computed( (): Record<string, boolean> => {
 			return {
-				'cdx-checkbox--inline': !!props.inline
+				'cdx-checkbox--inline': props.inline
 			};
 		} );
 
