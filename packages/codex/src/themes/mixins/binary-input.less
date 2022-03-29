@@ -90,7 +90,9 @@
 
 	// Put selector outside `&__input` to not having to use string-based selectors
 	// on the class attribute (`[ class$='__label-content' ]`).
-	&__input:enabled:hover ~ &__label-content {
+	// Ensure that all elements receive cursor, when enabled.
+	&__label:hover > &__input:enabled,
+	&__label:hover > &__input:enabled ~ * {
 		cursor: @cursor-base--hover;
 	}
 }
