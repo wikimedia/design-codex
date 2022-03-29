@@ -172,11 +172,11 @@ export default defineComponent( {
 			content: ' ';
 			background-color: @color-base--inverted;
 			position: absolute;
-			top: 50%;
+			// Vertically center indeterminate line with negative half pixel.
+			top: calc( 50% - ( @border-width-base / 2 ) );
 			right: @start-input-binary-icon;
 			left: @start-input-binary-icon;
 			height: @border-width-base * 2;
-			margin-top: -@border-width-base;
 		}
 
 		// Checked state whether or not the input is enabled or disabled.
