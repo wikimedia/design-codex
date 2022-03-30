@@ -168,7 +168,7 @@ export default defineComponent( {
 	// `span`, which will look like a custom-styled checkbox.
 	&__input {
 		// Indeterminate state.
-		&:indeterminate + .cdx-checkbox__icon:before {
+		&:indeterminate + .cdx-checkbox__icon::before {
 			content: ' ';
 			background-color: @color-base--inverted;
 			position: absolute;
@@ -180,7 +180,7 @@ export default defineComponent( {
 		}
 
 		// Checked state whether or not the input is enabled or disabled.
-		&:checked:not( :indeterminate ) + .cdx-checkbox__icon:before {
+		&:checked:not( :indeterminate ) + .cdx-checkbox__icon::before {
 			content: ' ';
 			background-image: @background-image-input-checkbox;
 			background-position: center;

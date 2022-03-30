@@ -30,6 +30,7 @@
 			}
 		],
 		"selector-class-pattern": "^cdx-",
+		"selector-pseudo-element-colon-notation": "double",
 		"order/order": [ "custom-properties", "declarations" ],
 		"order/properties-order": [
 			"all",

@@ -144,7 +144,7 @@ export default defineComponent( {
 		transition-property: @transition-property-base;
 
 		// Add `:focus` state's inner circle.
-		&:before {
+		&::before {
 			content: ' ';
 			position: absolute;
 			top: @position-offset-input-radio--focus;
@@ -183,7 +183,7 @@ export default defineComponent( {
 				}
 
 				&:focus + .cdx-radio__icon {
-					&:before {
+					&::before {
 						border-color: @border-color-inset--focus;
 					}
 				}
@@ -194,7 +194,7 @@ export default defineComponent( {
 					background-color: @background-color-base;
 					border-color: @border-color-progressive--active;
 
-					&:before {
+					&::before {
 						border-color: @border-color-progressive--active;
 					}
 				}

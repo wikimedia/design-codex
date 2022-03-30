@@ -186,7 +186,7 @@ export default defineComponent( {
 		transition-duration: @transition-ease-medium;
 
 		// Focus outline.
-		&:before {
+		&::before {
 			content: '';
 			display: block;
 			position: absolute;
@@ -306,7 +306,7 @@ export default defineComponent( {
 				&:focus ~ .cdx-toggle-switch__switch {
 					border-color: @border-color-input-binary--checked;
 
-					&:before {
+					&::before {
 						border-color: @border-color-inset--focus;
 					}
 				}
@@ -323,7 +323,8 @@ export default defineComponent( {
 					border-color: @border-color-progressive--active;
 					box-shadow: @box-shadow-base--active;
 
-					&:before {
+					// stylelint-disable-next-line max-nesting-depth
+					&::before {
 						border-color: @border-color-progressive--active;
 					}
 
