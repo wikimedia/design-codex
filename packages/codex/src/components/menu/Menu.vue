@@ -362,7 +362,12 @@ export default defineComponent( {
 				case 'ArrowUp':
 					maybePrevent();
 
-					if ( props.expanded ) {
+					// After using mouse to expand the menu, nothing is highlighted,
+					// which will result in T304640.
+					if ( props.expanded && highlightedMenuItem.value !== null ) {
+						highlightPrev();
+					} else if ( props.expanded ) {
+						handleMenuItemChange( 'highlighted', findSelectedMenuItem() );
 						highlightPrev();
 					} else {
 						handleExpandMenu();
@@ -371,7 +376,10 @@ export default defineComponent( {
 				case 'ArrowDown':
 					maybePrevent();
 
-					if ( props.expanded ) {
+					if ( props.expanded && highlightedMenuItem.value !== null ) {
+						highlightNext();
+					} else if ( props.expanded ) {
+						handleMenuItemChange( 'highlighted', findSelectedMenuItem() );
 						highlightNext();
 					} else {
 						handleExpandMenu();
