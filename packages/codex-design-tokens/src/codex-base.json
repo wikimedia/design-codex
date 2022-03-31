@@ -130,8 +130,11 @@
 		"base": {
 			"value": "{ opacity.100 }"
 		},
-		"overlay": {
+		"medium": {
 			"value": "{ opacity.60 }"
+		},
+		"low": {
+			"value": "{ opacity.30 }"
 		},
 		"transparent": {
 			"value": "{ opacity.0 }"
