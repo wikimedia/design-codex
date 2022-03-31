@@ -6,6 +6,7 @@
 
 const { fileHeader, createPropertyFormatter, sortByReference } =
 	require( 'style-dictionary' ).formatHelpers;
+const { basename } = require( 'path' );
 
 /**
  * Attribute transform that adds a "tokens" attribute, containing an array of the names of
@@ -23,6 +24,24 @@ function getReferencedTokens( token ) {
 		tokens: [ ...token.original.value.matchAll( variablePattern ) ]
 			.map( ( match ) => match.groups.token )
 	};
+}
+
+/**
+ * Attribute transform that adds a `type` attribute, set to 'theme', 'base' or 'component'.
+ *
+ * @param {TransformedToken} token
+ * @return {{ type?: 'theme'|'base'|'component' }}
+ */
+function getTokenType( token ) {
+	const filename = basename( token.filePath );
+	if ( filename.startsWith( 'theme-' ) ) {
+		return { type: 'theme' };
+	} else if ( filename.startsWith( 'codex-components' ) ) {
+		return { type: 'component' };
+	} else if ( filename.startsWith( 'codex-base' ) ) {
+		return { type: 'base' };
+	}
+	return {};
 }
 
 /**
@@ -110,6 +129,7 @@ function createCustomStyleFormatter( format ) {
 
 module.exports = {
 	getReferencedTokens,
+	getTokenType,
 	kebabCase,
 	createCustomStyleFormatter
 };

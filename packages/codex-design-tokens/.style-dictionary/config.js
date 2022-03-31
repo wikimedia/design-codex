@@ -40,7 +40,8 @@ module.exports = {
 				// For app usage of the design tokens, we probably need to reconsider using one
 				// similar to `...StyleDictionary.transformGroup.web`.
 				'name/kebabCase',
-				'attr/tokenList'
+				'attr/tokenList',
+				'attr/tokenType'
 			],
 			buildPath: 'dist/',
 			files: [ {

@@ -1,12 +1,23 @@
 'use strict';
 
 const StyleDictionary = require( 'style-dictionary' ).extend( __dirname + '/config.js' );
-const { createCustomStyleFormatter, getReferencedTokens, kebabCase } = require( './lib' );
+const {
+	createCustomStyleFormatter,
+	getReferencedTokens,
+	getTokenType,
+	kebabCase
+} = require( './lib' );
 
 StyleDictionary.registerTransform( {
 	name: 'attr/tokenList',
 	type: 'attribute',
 	transformer: getReferencedTokens
+} );
+
+StyleDictionary.registerTransform( {
+	name: 'attr/tokenType',
+	type: 'attribute',
+	transformer: getTokenType
 } );
 
 StyleDictionary.registerTransform( {
