@@ -91,7 +91,13 @@ function createCustomStyleFormatter( format ) {
 		}
 
 		const formatter = createPropertyFormatter( { outputReferences, dictionary, format } );
-		// Add deprecation comments above deprecated tokens.
+
+		/**
+		 * Add deprecation comments above deprecated tokens.
+		 *
+		 * @param {TransformedToken} token
+		 * @return {string}
+		 */
 		const deprecationCommentFormatter = ( token ) => {
 			if ( !token.deprecated ) {
 				return '';
@@ -107,7 +113,9 @@ function createCustomStyleFormatter( format ) {
 				dictionary.getReferences( token.original.value ) : [];
 			const useInstead = referencedTokens.length === 1 &&
 					// Check that the token only contains a reference and nothing else.
-					token.original.value.match( /^\s*{[^{}]+}\s*$/ ) ?
+					token.original.value.match( /^\s*{[^{}]+}\s*$/ ) &&
+					// If the referenced token is a theme token, don't add a "use instead" comment
+					getTokenType( referencedTokens[ 0 ] ).type !== 'theme' ?
 				`, use ${referencedTokens[ 0 ].name} instead.` : '';
 
 			const fullComment = 'Warning: the following token name is deprecated' +
