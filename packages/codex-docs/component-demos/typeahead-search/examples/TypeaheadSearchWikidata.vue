@@ -72,13 +72,17 @@ export default defineComponent( {
 			 * @return
 			 */
 			function adaptApiResponse( pages: Result[] ): SearchResult[] {
-				return pages.map( ( { id, label, url, match, description } ) => ( {
-					// If an alias matched the search query, show it next to the
-					// item's label.
-					label: match.type === 'alias' ? label + ` (${match.text})` : label,
+				return pages.map( ( { id, label, url, match, description, display = {} } ) => ( {
 					value: id,
+					label,
+					match: match.type === 'alias' ? `(${match.text})` : '',
 					description,
-					url
+					url,
+					language: {
+						label: display?.label?.language,
+						match: match.type === 'alias' ? match.language : undefined,
+						description: display?.description?.language
+					}
 				} ) );
 			}
 

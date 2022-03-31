@@ -438,6 +438,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               class="cdx-menu-item__content"
               href="https://en.wikipedia.org/wiki/CO"
             >
+              <!-- Thumbnail, thumbnail placeholder, or icon. -->
               <span
                 class="cdx-menu-item__thumbnail-placeholder"
               >
@@ -466,14 +467,21 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                   </svg>
                 </span>
               </span>
+              <!-- Item text. -->
               <span
                 class="cdx-menu-item__text"
               >
+                <!-- Item label. -->
                 <span
                   class="cdx-menu-item__text__label"
                 >
-                  Co
+                  <bdi>
+                    Co
+                  </bdi>
                 </span>
+                <!-- Item search query match (e.g. alias). -->
+                <!--v-if-->
+                <!-- Item description. -->
                 <!--v-if-->
               </span>
             </a>
@@ -492,22 +500,32 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               class="cdx-menu-item__content"
               href="https://en.wikipedia.org/wiki/Color"
             >
+              <!-- Thumbnail, thumbnail placeholder, or icon. -->
               <span
                 class="cdx-menu-item__thumbnail"
                 style="background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/200px-64_365_Color_Macro_%285498808099%29.jpg);"
               />
+              <!-- Item text. -->
               <span
                 class="cdx-menu-item__text"
               >
+                <!-- Item label. -->
                 <span
                   class="cdx-menu-item__text__label"
                 >
-                  Color
+                  <bdi>
+                    Color
+                  </bdi>
                 </span>
+                <!-- Item search query match (e.g. alias). -->
+                <!--v-if-->
+                <!-- Item description. -->
                 <span
                   class="cdx-menu-item__text__description"
                 >
-                  visual perception of light wavelengths
+                  <bdi>
+                    visual perception of light wavelengths
+                  </bdi>
                 </span>
               </span>
             </a>

@@ -20,15 +20,23 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     <span
       class="cdx-menu-item__content"
     >
+      <!-- Thumbnail, thumbnail placeholder, or icon. -->
       <!--v-if-->
+      <!-- Item text. -->
       <span
         class="cdx-menu-item__text"
       >
+        <!-- Item label. -->
         <span
           class="cdx-menu-item__text__label"
         >
-          Option A
+          <bdi>
+            Option A
+          </bdi>
         </span>
+        <!-- Item search query match (e.g. alias). -->
+        <!--v-if-->
+        <!-- Item description. -->
         <!--v-if-->
       </span>
     </span>
@@ -46,15 +54,23 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     <span
       class="cdx-menu-item__content"
     >
+      <!-- Thumbnail, thumbnail placeholder, or icon. -->
       <!--v-if-->
+      <!-- Item text. -->
       <span
         class="cdx-menu-item__text"
       >
+        <!-- Item label. -->
         <span
           class="cdx-menu-item__text__label"
         >
-          Option B
+          <bdi>
+            Option B
+          </bdi>
         </span>
+        <!-- Item search query match (e.g. alias). -->
+        <!--v-if-->
+        <!-- Item description. -->
         <!--v-if-->
       </span>
     </span>
@@ -72,15 +88,23 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     <span
       class="cdx-menu-item__content"
     >
+      <!-- Thumbnail, thumbnail placeholder, or icon. -->
       <!--v-if-->
+      <!-- Item text. -->
       <span
         class="cdx-menu-item__text"
       >
+        <!-- Item label. -->
         <span
           class="cdx-menu-item__text__label"
         >
-          c
+          <bdi>
+            c
+          </bdi>
         </span>
+        <!-- Item search query match (e.g. alias). -->
+        <!--v-if-->
+        <!-- Item description. -->
         <!--v-if-->
       </span>
     </span>
@@ -98,15 +122,23 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     <span
       class="cdx-menu-item__content"
     >
+      <!-- Thumbnail, thumbnail placeholder, or icon. -->
       <!--v-if-->
+      <!-- Item text. -->
       <span
         class="cdx-menu-item__text"
       >
+        <!-- Item label. -->
         <span
           class="cdx-menu-item__text__label"
         >
-          Option D
+          <bdi>
+            Option D
+          </bdi>
         </span>
+        <!-- Item search query match (e.g. alias). -->
+        <!--v-if-->
+        <!-- Item description. -->
         <!--v-if-->
       </span>
     </span>
@@ -136,15 +168,23 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
     <span
       class="cdx-menu-item__content"
     >
+      <!-- Thumbnail, thumbnail placeholder, or icon. -->
       <!--v-if-->
+      <!-- Item text. -->
       <span
         class="cdx-menu-item__text"
       >
+        <!-- Item label. -->
         <span
           class="cdx-menu-item__text__label"
         >
-          Option A
+          <bdi>
+            Option A
+          </bdi>
         </span>
+        <!-- Item search query match (e.g. alias). -->
+        <!--v-if-->
+        <!-- Item description. -->
         <!--v-if-->
       </span>
     </span>
@@ -162,15 +202,23 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
     <span
       class="cdx-menu-item__content"
     >
+      <!-- Thumbnail, thumbnail placeholder, or icon. -->
       <!--v-if-->
+      <!-- Item text. -->
       <span
         class="cdx-menu-item__text"
       >
+        <!-- Item label. -->
         <span
           class="cdx-menu-item__text__label"
         >
-          Option B
+          <bdi>
+            Option B
+          </bdi>
         </span>
+        <!-- Item search query match (e.g. alias). -->
+        <!--v-if-->
+        <!-- Item description. -->
         <!--v-if-->
       </span>
     </span>
@@ -188,15 +236,23 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
     <span
       class="cdx-menu-item__content"
     >
+      <!-- Thumbnail, thumbnail placeholder, or icon. -->
       <!--v-if-->
+      <!-- Item text. -->
       <span
         class="cdx-menu-item__text"
       >
+        <!-- Item label. -->
         <span
           class="cdx-menu-item__text__label"
         >
-          c
+          <bdi>
+            c
+          </bdi>
         </span>
+        <!-- Item search query match (e.g. alias). -->
+        <!--v-if-->
+        <!-- Item description. -->
         <!--v-if-->
       </span>
     </span>
@@ -214,15 +270,23 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
     <span
       class="cdx-menu-item__content"
     >
+      <!-- Thumbnail, thumbnail placeholder, or icon. -->
       <!--v-if-->
+      <!-- Item text. -->
       <span
         class="cdx-menu-item__text"
       >
+        <!-- Item label. -->
         <span
           class="cdx-menu-item__text__label"
         >
-          Option D
+          <bdi>
+            Option D
+          </bdi>
         </span>
+        <!-- Item search query match (e.g. alias). -->
+        <!--v-if-->
+        <!-- Item description. -->
         <!--v-if-->
       </span>
     </span>
@@ -253,15 +317,23 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     <span
       class="cdx-menu-item__content"
     >
+      <!-- Thumbnail, thumbnail placeholder, or icon. -->
       <!--v-if-->
+      <!-- Item text. -->
       <span
         class="cdx-menu-item__text"
       >
+        <!-- Item label. -->
         <span
           class="cdx-menu-item__text__label"
         >
-          Option A
+          <bdi>
+            Option A
+          </bdi>
         </span>
+        <!-- Item search query match (e.g. alias). -->
+        <!--v-if-->
+        <!-- Item description. -->
         <!--v-if-->
       </span>
     </span>
@@ -279,15 +351,23 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     <span
       class="cdx-menu-item__content"
     >
+      <!-- Thumbnail, thumbnail placeholder, or icon. -->
       <!--v-if-->
+      <!-- Item text. -->
       <span
         class="cdx-menu-item__text"
       >
+        <!-- Item label. -->
         <span
           class="cdx-menu-item__text__label"
         >
-          Option B
+          <bdi>
+            Option B
+          </bdi>
         </span>
+        <!-- Item search query match (e.g. alias). -->
+        <!--v-if-->
+        <!-- Item description. -->
         <!--v-if-->
       </span>
     </span>
@@ -305,15 +385,23 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     <span
       class="cdx-menu-item__content"
     >
+      <!-- Thumbnail, thumbnail placeholder, or icon. -->
       <!--v-if-->
+      <!-- Item text. -->
       <span
         class="cdx-menu-item__text"
       >
+        <!-- Item label. -->
         <span
           class="cdx-menu-item__text__label"
         >
-          c
+          <bdi>
+            c
+          </bdi>
         </span>
+        <!-- Item search query match (e.g. alias). -->
+        <!--v-if-->
+        <!-- Item description. -->
         <!--v-if-->
       </span>
     </span>
@@ -331,15 +419,23 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     <span
       class="cdx-menu-item__content"
     >
+      <!-- Thumbnail, thumbnail placeholder, or icon. -->
       <!--v-if-->
+      <!-- Item text. -->
       <span
         class="cdx-menu-item__text"
       >
+        <!-- Item label. -->
         <span
           class="cdx-menu-item__text__label"
         >
-          Option D
+          <bdi>
+            Option D
+          </bdi>
         </span>
+        <!-- Item search query match (e.g. alias). -->
+        <!--v-if-->
+        <!-- Item description. -->
         <!--v-if-->
       </span>
     </span>

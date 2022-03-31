@@ -5,6 +5,8 @@ import MenuItemWithUrl from './../../component-demos/menu-item/examples/MenuItem
 import MenuItemWithThumbnail from './../../component-demos/menu-item/examples/MenuItemWithThumbnail.vue';
 import MenuItemWithIcon from './../../component-demos/menu-item/examples/MenuItemWithIcon.vue';
 import MenuItemHighlightQuery from './../../component-demos/menu-item/examples/MenuItemHighlightQuery.vue';
+import MenuItemWithMatch from './../../component-demos/menu-item/examples/MenuItemWithMatch.vue';
+import MenuItemMultipleLangs from './../../component-demos/menu-item/examples/MenuItemMultipleLangs.vue';
 import MenuItemLongText from './../../component-demos/menu-item/examples/MenuItemLongText.vue';
 import MenuItemHideOverflow from './../../component-demos/menu-item/examples/MenuItemHideOverflow.vue';
 import MenuItems from './../../component-demos/menu-item/examples/MenuItems.vue';
@@ -104,6 +106,42 @@ below, the search query is "Co".
 <template v-slot:code>
 
 <<< @/../component-demos/menu-item/examples/MenuItemHighlightQuery.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### With search query match
+
+For search results, a `match` property may be included that represents the text related to that item
+that matched the search query (e.g. a [Wikidata alias](https://www.wikidata.org/wiki/Help:Aliases)).
+The match will be displayed after the label. In the example below, the search query is "felis
+margarita," an alias of the Wikidata item "sand cat."
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<MenuItemWithMatch />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/menu-item/examples/MenuItemWithMatch.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### With multiple languages
+
+In addition to simple strings, the `label`, `description`, and `match` props can be objects with
+a string value and an associated language code. The `lang` attribute for that string will be set in
+the markup. The example below demonstrates a search result in a Greek interface for the English word
+"moon."
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<MenuItemMultipleLangs />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/menu-item/examples/MenuItemMultipleLangs.vue
 
 </template>
 </cdx-demo-wrapper>

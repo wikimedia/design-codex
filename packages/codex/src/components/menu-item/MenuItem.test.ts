@@ -21,6 +21,18 @@ const testThumbnail = {
 	height: 150,
 	url: 'https://example.org/test/thumbnail.jpg'
 };
+const testMenuItemWithLang = {
+	id: 'test-menu-item-with-lang',
+	value: 'menuItemWithLangValue',
+	label: 'Menu item with lang',
+	match: '(match)',
+	description: 'la descripción en español',
+	language: {
+		label: 'en',
+		match: 'en',
+		description: 'es'
+	}
+};
 
 describe( 'matches the snapshot', () => {
 	type Case = [
@@ -34,11 +46,14 @@ describe( 'matches the snapshot', () => {
 	const cases: Case[] = [
 		[ 'Item without label', testMenuItem ],
 		[ 'Item with label', { ...testMenuItem, label: testMenuItemLabel } ],
+		[ 'Item with match', { ...testMenuItem, match: '(match)' } ],
 		[ 'Item with url', testSearchResult ],
 		[ 'Item with icon', { ...testSearchResult, icon: cdxIconTag } ],
 		[ 'Item with thumbnail', { ...testSearchResult, thumbnail: testThumbnail }, true ],
 		[ 'Item with placeholder thumbnail', testSearchResult, true ],
-		[ 'Item with search query', testSearchResult, false, testQuery ]
+		[ 'Item with search query', testSearchResult, false, testQuery ],
+		[ 'Item with language attributes', testMenuItemWithLang ],
+		[ 'Item with language attributes and search query', testMenuItemWithLang, false, 'match' ]
 	];
 
 	test.each( cases )(

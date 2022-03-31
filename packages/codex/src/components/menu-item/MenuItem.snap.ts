@@ -13,15 +13,23 @@ exports[`matches the snapshot Case 0 Item without label: ({"id": "test-menu-item
   <span
     class="cdx-menu-item__content"
   >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
     <!--v-if-->
+    <!-- Item text. -->
     <span
       class="cdx-menu-item__text"
     >
+      <!-- Item label. -->
       <span
         class="cdx-menu-item__text__label"
       >
-        menuItemValue
+        <bdi>
+          menuItemValue
+        </bdi>
       </span>
+      <!-- Item search query match (e.g. alias). -->
+      <!--v-if-->
+      <!-- Item description. -->
       <!--v-if-->
     </span>
   </span>
@@ -42,15 +50,23 @@ exports[`matches the snapshot Case 1 Item with label: ({"id": "test-menu-item", 
   <span
     class="cdx-menu-item__content"
   >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
     <!--v-if-->
+    <!-- Item text. -->
     <span
       class="cdx-menu-item__text"
     >
+      <!-- Item label. -->
       <span
         class="cdx-menu-item__text__label"
       >
-        Test menu item
+        <bdi>
+          Test menu item
+        </bdi>
       </span>
+      <!-- Item search query match (e.g. alias). -->
+      <!--v-if-->
+      <!-- Item description. -->
       <!--v-if-->
     </span>
   </span>
@@ -58,7 +74,57 @@ exports[`matches the snapshot Case 1 Item with label: ({"id": "test-menu-item", 
 </li>
 `;
 
-exports[`matches the snapshot Case 2 Item with url: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
+exports[`matches the snapshot Case 2 Item with match: ({"id": "test-menu-item", "match": "(match)", "value": "menuItemValue"}) => HTML 1`] = `
+<li
+  aria-disabled="false"
+  aria-selected="false"
+  class="cdx-menu-item cdx-menu-item--enabled"
+  id="test-menu-item"
+  role="option"
+>
+  <!-- @slot Custom menu item content. -->
+  
+  <span
+    class="cdx-menu-item__content"
+  >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
+    <!--v-if-->
+    <!-- Item text. -->
+    <span
+      class="cdx-menu-item__text"
+    >
+      <!-- Item label. -->
+      <span
+        class="cdx-menu-item__text__label"
+      >
+        <bdi>
+          menuItemValue
+        </bdi>
+      </span>
+      <!-- Item search query match (e.g. alias). -->
+      
+      <!-- Add a space before the match. Vue strips whitespace between everything
+						except plain text, so we can't rely on a newline to add a natural space
+						here. -->
+      <!-- eslint-disable-next-line vue/no-useless-mustaches -->
+        
+      <span
+        class="cdx-menu-item__text__match"
+      >
+        <bdi>
+          (match)
+        </bdi>
+      </span>
+      
+      <!-- Item description. -->
+      <!--v-if-->
+    </span>
+  </span>
+  
+</li>
+`;
+
+exports[`matches the snapshot Case 3 Item with url: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
   aria-selected="false"
@@ -72,19 +138,29 @@ exports[`matches the snapshot Case 2 Item with url: ({"description": "Test searc
     class="cdx-menu-item__content"
     href="https://example.org/test"
   >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
     <!--v-if-->
+    <!-- Item text. -->
     <span
       class="cdx-menu-item__text"
     >
+      <!-- Item label. -->
       <span
         class="cdx-menu-item__text__label"
       >
-        searchResultValue
+        <bdi>
+          searchResultValue
+        </bdi>
       </span>
+      <!-- Item search query match (e.g. alias). -->
+      <!--v-if-->
+      <!-- Item description. -->
       <span
         class="cdx-menu-item__text__description"
       >
-        Test search result
+        <bdi>
+          Test search result
+        </bdi>
       </span>
     </span>
   </a>
@@ -92,7 +168,7 @@ exports[`matches the snapshot Case 2 Item with url: ({"description": "Test searc
 </li>
 `;
 
-exports[`matches the snapshot Case 3 Item with icon: ({"description": "Test search result", "icon": [Object], "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
+exports[`matches the snapshot Case 4 Item with icon: ({"description": "Test search result", "icon": [Object], "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
   aria-selected="false"
@@ -106,6 +182,7 @@ exports[`matches the snapshot Case 3 Item with icon: ({"description": "Test sear
     class="cdx-menu-item__content"
     href="https://example.org/test"
   >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
     <span
       class="cdx-menu-item__icon"
     >
@@ -131,18 +208,27 @@ exports[`matches the snapshot Case 3 Item with icon: ({"description": "Test sear
         </svg>
       </span>
     </span>
+    <!-- Item text. -->
     <span
       class="cdx-menu-item__text"
     >
+      <!-- Item label. -->
       <span
         class="cdx-menu-item__text__label"
       >
-        searchResultValue
+        <bdi>
+          searchResultValue
+        </bdi>
       </span>
+      <!-- Item search query match (e.g. alias). -->
+      <!--v-if-->
+      <!-- Item description. -->
       <span
         class="cdx-menu-item__text__description"
       >
-        Test search result
+        <bdi>
+          Test search result
+        </bdi>
       </span>
     </span>
   </a>
@@ -150,7 +236,7 @@ exports[`matches the snapshot Case 3 Item with icon: ({"description": "Test sear
 </li>
 `;
 
-exports[`matches the snapshot Case 4 Item with thumbnail: ({"description": "Test search result", "id": "test-search-result", "thumbnail": [Object], "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
+exports[`matches the snapshot Case 5 Item with thumbnail: ({"description": "Test search result", "id": "test-search-result", "thumbnail": [Object], "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
   aria-selected="false"
@@ -164,22 +250,32 @@ exports[`matches the snapshot Case 4 Item with thumbnail: ({"description": "Test
     class="cdx-menu-item__content"
     href="https://example.org/test"
   >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
     <span
       class="cdx-menu-item__thumbnail"
       style="background-image: url(https://example.org/test/thumbnail.jpg);"
     />
+    <!-- Item text. -->
     <span
       class="cdx-menu-item__text"
     >
+      <!-- Item label. -->
       <span
         class="cdx-menu-item__text__label"
       >
-        searchResultValue
+        <bdi>
+          searchResultValue
+        </bdi>
       </span>
+      <!-- Item search query match (e.g. alias). -->
+      <!--v-if-->
+      <!-- Item description. -->
       <span
         class="cdx-menu-item__text__description"
       >
-        Test search result
+        <bdi>
+          Test search result
+        </bdi>
       </span>
     </span>
   </a>
@@ -187,7 +283,7 @@ exports[`matches the snapshot Case 4 Item with thumbnail: ({"description": "Test
 </li>
 `;
 
-exports[`matches the snapshot Case 5 Item with placeholder thumbnail: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
+exports[`matches the snapshot Case 6 Item with placeholder thumbnail: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
   aria-selected="false"
@@ -201,6 +297,7 @@ exports[`matches the snapshot Case 5 Item with placeholder thumbnail: ({"descrip
     class="cdx-menu-item__content"
     href="https://example.org/test"
   >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
     <span
       class="cdx-menu-item__thumbnail-placeholder"
     >
@@ -229,18 +326,27 @@ exports[`matches the snapshot Case 5 Item with placeholder thumbnail: ({"descrip
         </svg>
       </span>
     </span>
+    <!-- Item text. -->
     <span
       class="cdx-menu-item__text"
     >
+      <!-- Item label. -->
       <span
         class="cdx-menu-item__text__label"
       >
-        searchResultValue
+        <bdi>
+          searchResultValue
+        </bdi>
       </span>
+      <!-- Item search query match (e.g. alias). -->
+      <!--v-if-->
+      <!-- Item description. -->
       <span
         class="cdx-menu-item__text__description"
       >
-        Test search result
+        <bdi>
+          Test search result
+        </bdi>
       </span>
     </span>
   </a>
@@ -248,7 +354,7 @@ exports[`matches the snapshot Case 5 Item with placeholder thumbnail: ({"descrip
 </li>
 `;
 
-exports[`matches the snapshot Case 6 Item with search query: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
+exports[`matches the snapshot Case 7 Item with search query: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
   aria-selected="false"
@@ -262,28 +368,170 @@ exports[`matches the snapshot Case 6 Item with search query: ({"description": "T
     class="cdx-menu-item__content"
     href="https://example.org/test"
   >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
     <!--v-if-->
+    <!-- Item text. -->
     <span
       class="cdx-menu-item__text"
     >
+      <!-- Item label. -->
       <span
         class="cdx-search-result-title"
       >
         <!-- All on one line to avoid introducing unwanted whitespace into the UI. -->
         <!--eslint-disable-next-line max-len-->
-        searchResultValue
-        <span
-          class="cdx-search-result-title__match"
-        />
-        
+        <bdi>
+          searchResultValue
+          <span
+            class="cdx-search-result-title__match"
+          />
+          
+        </bdi>
       </span>
+      <!-- Item search query match (e.g. alias). -->
+      <!--v-if-->
+      <!-- Item description. -->
       <span
         class="cdx-menu-item__text__description"
       >
-        Test search result
+        <bdi>
+          Test search result
+        </bdi>
       </span>
     </span>
   </a>
+  
+</li>
+`;
+
+exports[`matches the snapshot Case 8 Item with language attributes: ({"description": "la descripción en español", "id": "test-menu-item-with-lang", "label": "Menu item with lang", "language": [Object], "match": "(match)", "value": "menuItemWithLangValue"}) => HTML 1`] = `
+<li
+  aria-disabled="false"
+  aria-selected="false"
+  class="cdx-menu-item cdx-menu-item--enabled"
+  id="test-menu-item-with-lang"
+  role="option"
+>
+  <!-- @slot Custom menu item content. -->
+  
+  <span
+    class="cdx-menu-item__content"
+  >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
+    <!--v-if-->
+    <!-- Item text. -->
+    <span
+      class="cdx-menu-item__text"
+    >
+      <!-- Item label. -->
+      <span
+        class="cdx-menu-item__text__label"
+        lang="en"
+      >
+        <bdi>
+          Menu item with lang
+        </bdi>
+      </span>
+      <!-- Item search query match (e.g. alias). -->
+      
+      <!-- Add a space before the match. Vue strips whitespace between everything
+						except plain text, so we can't rely on a newline to add a natural space
+						here. -->
+      <!-- eslint-disable-next-line vue/no-useless-mustaches -->
+        
+      <span
+        class="cdx-menu-item__text__match"
+        lang="en"
+      >
+        <bdi>
+          (match)
+        </bdi>
+      </span>
+      
+      <!-- Item description. -->
+      <span
+        class="cdx-menu-item__text__description"
+        lang="es"
+      >
+        <bdi>
+          la descripción en español
+        </bdi>
+      </span>
+    </span>
+  </span>
+  
+</li>
+`;
+
+exports[`matches the snapshot Case 9 Item with language attributes and search query: ({"description": "la descripción en español", "id": "test-menu-item-with-lang", "label": "Menu item with lang", "language": [Object], "match": "(match)", "value": "menuItemWithLangValue"}) => HTML 1`] = `
+<li
+  aria-disabled="false"
+  aria-selected="false"
+  class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--highlight-query"
+  id="test-menu-item-with-lang"
+  role="option"
+>
+  <!-- @slot Custom menu item content. -->
+  
+  <span
+    class="cdx-menu-item__content"
+  >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
+    <!--v-if-->
+    <!-- Item text. -->
+    <span
+      class="cdx-menu-item__text"
+    >
+      <!-- Item label. -->
+      <span
+        class="cdx-search-result-title"
+        lang="en"
+      >
+        <!-- All on one line to avoid introducing unwanted whitespace into the UI. -->
+        <!--eslint-disable-next-line max-len-->
+        <bdi>
+          Menu item with lang
+          <span
+            class="cdx-search-result-title__match"
+          />
+          
+        </bdi>
+      </span>
+      <!-- Item search query match (e.g. alias). -->
+      
+      <!-- Add a space before the match. Vue strips whitespace between everything
+						except plain text, so we can't rely on a newline to add a natural space
+						here. -->
+      <!-- eslint-disable-next-line vue/no-useless-mustaches -->
+        
+      <span
+        class="cdx-search-result-title"
+        lang="en"
+      >
+        <!-- All on one line to avoid introducing unwanted whitespace into the UI. -->
+        <!--eslint-disable-next-line max-len-->
+        <bdi>
+          (
+          <span
+            class="cdx-search-result-title__match"
+          >
+            match
+          </span>
+          )
+        </bdi>
+      </span>
+      
+      <!-- Item description. -->
+      <span
+        class="cdx-menu-item__text__description"
+        lang="es"
+      >
+        <bdi>
+          la descripción en español
+        </bdi>
+      </span>
+    </span>
+  </span>
   
 </li>
 `;

@@ -17,6 +17,7 @@
 				:href="url ? url : undefined"
 				class="cdx-menu-item__content"
 			>
+				<!-- Thumbnail, thumbnail placeholder, or icon. -->
 				<span
 					v-if="showThumbnail && thumbnail"
 					:style="{ backgroundImage: thumbnailBackgroundImage }"
@@ -38,21 +39,52 @@
 					<cdx-icon :icon="icon" />
 				</span>
 
+				<!-- Item text. -->
 				<span class="cdx-menu-item__text">
+					<!-- Item label. -->
 					<cdx-search-result-title
 						v-if="highlightQuery"
 						:title="title"
 						:search-query="searchQuery"
+						:lang="language?.label"
 					/>
-					<span v-else class="cdx-menu-item__text__label">
-						{{ title }}
+					<span
+						v-else
+						class="cdx-menu-item__text__label"
+						:lang="language?.label"
+					>
+						<bdi>{{ title }}</bdi>
 					</span>
 
+					<!-- Item search query match (e.g. alias). -->
+					<template v-if="match">
+						<!-- Add a space before the match. Vue strips whitespace between everything
+						except plain text, so we can't rely on a newline to add a natural space
+						here. -->
+						<!-- eslint-disable-next-line vue/no-useless-mustaches -->
+						{{ ' ' }}
+						<cdx-search-result-title
+							v-if="highlightQuery"
+							:title="match"
+							:search-query="searchQuery"
+							:lang="language?.match"
+						/>
+						<span
+							v-else
+							class="cdx-menu-item__text__match"
+							:lang="language?.match"
+						>
+							<bdi>{{ match }}</bdi>
+						</span>
+					</template>
+
+					<!-- Item description. -->
 					<span
 						v-if="description"
 						class="cdx-menu-item__text__description"
+						:lang="language?.description"
 					>
-						{{ description }}
+						<bdi>{{ description }}</bdi>
 					</span>
 				</span>
 			</component>
@@ -65,7 +97,7 @@ import { PropType, computed, defineComponent } from 'vue';
 import { cdxIconImageLayoutFrameless, Icon } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import CdxSearchResultTitle from '../search-result-title/SearchResultTitle.vue';
-import { MenuState, Thumbnail } from '../../types';
+import { MenuState, Thumbnail, MenuItemLanguageData } from '../../types';
 
 /**
  * Item within a Menu component.
@@ -143,6 +175,15 @@ export default defineComponent( {
 		},
 
 		/**
+		 * Text that matches current search query. Only used for search results and will be
+		 * displayed after the label.
+		 */
+		match: {
+			type: String,
+			default: ''
+		},
+
+		/**
 		 * URL for the menu item. If provided, the content of the menu item will be wrapped in an
 		 * anchor tag.
 		 */
@@ -205,6 +246,19 @@ export default defineComponent( {
 		hideDescriptionOverflow: {
 			type: Boolean,
 			default: false
+		},
+
+		/**
+		 * Optional language codes for label, match, and description.
+		 *
+		 * If included, that language code will be added as a `lang` attribute to the element
+		 * wrapping that text node.
+		 */
+		language: {
+			type: Object as PropType<MenuItemLanguageData>,
+			default: () => {
+				return {};
+			}
 		}
 	},
 

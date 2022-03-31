@@ -41,12 +41,26 @@ export interface Thumbnail {
 }
 
 /** @public */
+export interface MenuItemLanguageData {
+	/** lang attribute of the label. */
+	label?: string,
+	/** lang attribute of the match. */
+	match?: string,
+	/** lang attribute of the description. */
+	description?: string
+}
+
+/** @public */
 export interface MenuItemData {
 	/** Item value or unique identifier. */
 	value: string | number,
 	/** Display label for the menu item. */
 	label?: string,
+	/** Text to be appended to the result's label, e.g. text matching a search query. */
+	match?: string,
 	description?: string | null,
+	/** Lang attributes of text properties. */
+	language?: MenuItemLanguageData,
 	icon?: Icon,
 	thumbnail?: Thumbnail | null,
 	/** If URL is included, menu item will be wrapped in an anchor element. */

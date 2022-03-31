@@ -32,6 +32,7 @@ import type {
 	SearchResult,
 	SearchResultClickEvent,
 	Thumbnail,
+	MenuItemLanguageData,
 	MenuConfig,
 	TabData
 } from './types';
@@ -71,6 +72,7 @@ export {
 	SearchResult,
 	SearchResultClickEvent,
 	Thumbnail,
+	MenuItemLanguageData,
 	MenuConfig,
 	TabData
 };

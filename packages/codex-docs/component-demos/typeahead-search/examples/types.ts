@@ -8,6 +8,16 @@ export type Result = {
 		text: string
 	},
 	description?: string,
+	display?: {
+		label?: {
+			value: string,
+			language: string
+		},
+		description?: {
+			value: string,
+			language: string
+		}
+	}
 };
 
 export type RestResult = {

@@ -2,7 +2,7 @@
 	<span class="cdx-search-result-title">
 		<!-- All on one line to avoid introducing unwanted whitespace into the UI. -->
 		<!--eslint-disable-next-line max-len-->
-		{{ titleChunks[ 0 ] }}<span class="cdx-search-result-title__match">{{ titleChunks[ 1 ] }}</span>{{ titleChunks[ 2 ] }}
+		<bdi>{{ titleChunks[ 0 ] }}<span class="cdx-search-result-title__match">{{ titleChunks[ 1 ] }}</span>{{ titleChunks[ 2 ] }}</bdi>
 	</span>
 </template>
 
@@ -61,7 +61,7 @@ export default defineComponent( {
 @margin-bottom-search-result-title: 2px;
 
 .cdx-search-result-title {
-	display: block;
+	display: inline-block;
 	margin: 0 0 @margin-bottom-search-result-title 0;
 	font-size: @font-size-search-result-title;
 	font-weight: @font-weight-bold;
