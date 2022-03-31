@@ -126,10 +126,8 @@ export default defineComponent( {
 	}
 
 	.cdx-icon {
-		/*
-		Any icons used in the toggle button content should have the same color as the
-		rest of the content. This overrides the color rule in Icon.vue.
-		*/
+		// Any icons used in the toggle button content should have the same color as the
+		// rest of the content. This overrides the color rule in Icon.vue.
 		color: inherit;
 	}
 }
@@ -145,12 +143,12 @@ export default defineComponent( {
 			color: @color-base--hover;
 		}
 
-		// &:enabled:active has some shared styles for quiet and framed, see above
+		// &:enabled:active has some shared styles for quiet and framed, see above.
 		&:active {
 			background-color: @background-color-framed--active;
 		}
 
-		// &:enabled:focus has some shared styles for quiet and framed, see above
+		// &:enabled:focus has some shared styles for quiet and framed, see above.
 	}
 
 	/* stylelint-disable-next-line no-descending-specificity */
@@ -194,12 +192,12 @@ export default defineComponent( {
 			background-color: @background-color-toggle-button-quiet--hover;
 		}
 
-		// &:enabled:active has some shared styles for quiet and framed, see above
+		// `&:enabled:active` has some shared styles for quiet and framed, see above.
 		&:active {
 			background-color: @background-color-toggle-button-quiet--active;
 		}
 
-		// &:enabled:focus has some shared styles for quiet and framed, see above
+		// `&:enabled:focus` has some shared styles for quiet and framed, see above.
 		&:focus {
 			background-color: @background-color-toggle-button-quiet--focus;
 		}

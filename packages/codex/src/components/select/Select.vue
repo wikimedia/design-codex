@@ -276,7 +276,7 @@ export default defineComponent( {
 		}
 	}
 
-	// stylelint-disable-next-line no-descending-specificity
+	/* stylelint-disable-next-line no-descending-specificity */
 	&__indicator {
 		color: @color-base;
 		.cdx-mixin-menu-icon( right, @size-indicator );
@@ -308,7 +308,7 @@ export default defineComponent( {
 			}
 		}
 
-		// stylelint-disable-next-line no-descending-specificity
+		/* stylelint-disable-next-line no-descending-specificity */
 		.cdx-select__indicator {
 			color: @color-base--disabled;
 		}

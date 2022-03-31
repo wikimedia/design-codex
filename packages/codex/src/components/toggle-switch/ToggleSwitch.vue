@@ -213,10 +213,9 @@ export default defineComponent( {
 			height: @size-toggle-switch-grip--mobile;
 			border: @border-input-binary;
 			border-radius: @border-radius-round;
-			// stylelint-disable value-list-comma-newline-after
+			/* stylelint-disable-next-line value-list-comma-newline-after */
 			transition: background-color @transition-ease-medium,
 				left @transition-base;
-			// stylelint-enable value-list-comma-newline-after
 
 			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 				top: @start-toggle-switch-grip;

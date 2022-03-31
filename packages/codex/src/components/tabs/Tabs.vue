@@ -387,7 +387,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-// stylelint-disable no-descending-specificity
+/* stylelint-disable no-descending-specificity */
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
@@ -449,7 +449,7 @@ export default defineComponent( {
 		-webkit-overflow-scrolling: touch;
 
 		&::-webkit-scrollbar {
-			// stylelint-disable-next-line plugin/no-unsupported-browser-features
+			/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 			-webkit-appearance: none;
 			display: none;
 		}

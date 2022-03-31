@@ -139,7 +139,7 @@ export default defineComponent( {
 			type: Boolean,
 			default: false
 		},
-		/*
+		/**
 		 * Whether to try to generate a code sample for a configurable demonstration,
 		 * determining the component name from the current page title.
 		 */

@@ -1,7 +1,6 @@
 /* Custom CSS variables and rules for VitePress docs. */
 @import '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.css';
 
-/* stylelint-disable selector-class-pattern */
 :root {
 	/* Override base VitePress theme tokens. */
 	--c-brand: var( --color-progressive );
@@ -82,4 +81,3 @@ td {
 .cdx-docs-methods__params {
 	margin: 0;
 }
-/* stylelint-enable selector-class-pattern */

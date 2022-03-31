@@ -752,11 +752,11 @@ export default defineComponent( {
 				position: relative;
 
 				// Keep the cursor in the same place on the screen.
-				// stylelint-disable function-parentheses-newline-inside
+				/* stylelint-disable function-parentheses-newline-inside */
 				padding-left: calc( @spacing-start-typeahead-search-figure +
 				@size-search-figure +
 				@spacing-end-typeahead-search-figure );
-				// stylelint-enable function-parentheses-newline-inside
+				/* stylelint-enable function-parentheses-newline-inside */
 			}
 
 			.cdx-text-input__start-icon {

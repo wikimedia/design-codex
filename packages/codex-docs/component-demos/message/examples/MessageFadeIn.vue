@@ -32,7 +32,7 @@ export default defineComponent( {
 .cdx-docs-message-fade-in {
 	min-height: 130px;
 
-	// stylelint-disable-next-line selector-class-pattern
+	/* stylelint-disable-next-line selector-class-pattern */
 	.cdx-message {
 		margin-top: 16px;
 	}

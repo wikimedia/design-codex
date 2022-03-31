@@ -217,6 +217,9 @@ function onClick( e: Event ) {
 </script>
 
 <style scoped>
+.cdx-sandbox-main {
+	max-width: 500px;
+}
 
 td {
 	/* stylelint-disable-next-line unit-disallowed-list */

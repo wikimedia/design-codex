@@ -198,8 +198,8 @@ the markup. The example below demonstrates a search result in a Greek interface 
 </template>
 </cdx-demo-wrapper>
 
-<style scoped>
-/* This menu isn't absolutely positioned relative to something else. */
+<style lang="less" scoped>
+// This menu isn't absolutely positioned relative to something else.
 .cdx-demo-wrapper :deep( ul ) {
 	position: static;
 	box-shadow: none;

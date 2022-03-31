@@ -1,6 +1,8 @@
 // Common Less mixin library for Codex.
 // Featuring mixins, that are not component or component group specific.
 
+/* stylelint-disable selector-class-pattern */
+
 // Support Webkit/Blink: Force element on own GPU composite layer
 // Can be used in order to help establish smooth, jank-free scrolling in
 // connection with CSS animations or tame `opacity` bug. Use sparingly & wisely!
@@ -12,7 +14,7 @@
 
 // CSS3 hyphenation
 // It is advisable to set the `lang` attribute on the HTML element to enable hyphenation support.
-.hyphens( @value: auto ) { // stylelint-disable-line selector-class-pattern
+.hyphens( @value: auto ) {
 	& when ( @value = auto ) {
 		// Progressive enhancement. CSS standard property.
 		// Put before legacy `word-wrap` only for alphabetical reasons.
@@ -31,14 +33,14 @@
 	// Chrome < 55 and Android 4.0 Browser support `-webkit-hyphens: none`,
 	// but not the `auto` value.
 	// Chrome 55-87 only supports `auto` exclusively on Mac platform.
-	// stylelint-disable-next-line plugin/no-unsupported-browser-features
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	hyphens: @value;
 }
 
 // Truncate overflow text with value of `ellipsis` (mixin default),
 // a custom string (Firefox 9+ only) or show.
 // Recommended usage: `.text-overflow( @visible: false )` for best readability.
-.text-overflow( @visible: false, @value: ellipsis ) { // stylelint-disable-line selector-class-pattern
+.text-overflow( @visible: false, @value: ellipsis ) {
 	& when ( @visible = true ) {
 		overflow: visible;
 		text-overflow: clip;
@@ -58,7 +60,8 @@
 .screen-reader-text() {
 	display: block;
 	clip: rect( 1px, 1px, 1px, 1px );
-	position: absolute !important; /* stylelint-disable-line declaration-no-important */
+	/* stylelint-disable-next-line declaration-no-important */
+	position: absolute !important;
 	width: 1px;
 	height: 1px;
 	margin: -1px;
@@ -82,11 +85,12 @@
 
 // Generate a linear gradient to indicate that more content is available via
 // scrolling. Expected arguments are:
-// - @color to fade into
-// - @direction ("left" or "right")
+// - `@start-color` to fade into
+// - `@end-color` to fade out to
+// - `@direction` (`left` or `right`)
 .gradient-indicator( @start-color, @end-color, @direction ) {
 	background-color: transparent;
-	// stylelint-disable-next-line plugin/no-unsupported-browser-features
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	background-image: linear-gradient( to @direction, @end-color 85%, @start-color 100% );
 	position: absolute;
 	top: 0;
@@ -95,3 +99,5 @@
 	height: 100%;
 	pointer-events: none;
 }
+
+/* stylelint-enable selector-class-pattern */

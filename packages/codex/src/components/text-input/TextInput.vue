@@ -242,7 +242,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-/* TODO: these should be design tokens. */
+// TODO: these should be design tokens.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
@@ -255,7 +255,7 @@ export default defineComponent( {
 @size-input-end-icon-container: calc( @padding-horizontal-input-text * 2 + @size-input-end-icon );
 
 .cdx-text-input {
-	/* For proper positioning of icons and slotted elements */
+	// For proper positioning of icons and slotted elements.
 	position: relative;
 	box-sizing: @box-sizing-base;
 
@@ -272,14 +272,14 @@ export default defineComponent( {
 		transition-duration: @transition-duration-medium;
 	}
 
-	/* Start icon is larger and aligned to the left of the input. */
+	// Start icon is larger and aligned to the left of the input.
 	&__start-icon {
 		left: @border-width-base;
 		width: @size-input-start-icon-container;
 		pointer-events: none;
 	}
 
-	/* End icon is smaller and aligned to the right of the input. */
+	// End icon is smaller and aligned to the right of the input.
 	&__end-icon {
 		right: @border-width-base;
 		width: @size-input-end-icon-container;
@@ -290,7 +290,7 @@ export default defineComponent( {
 	}
 }
 
-/* The clear icon result in a pointer cursor on hover. */
+// The clear icon result in a pointer cursor on hover.
 .cdx-text-input--clearable {
 	.cdx-text-input__end-icon:hover {
 		cursor: @cursor-base--hover;
@@ -383,28 +383,24 @@ export default defineComponent( {
 		opacity: @opacity-base;
 	}
 
-	/*
-	* Support IE 10-11, and Edge 12+: Hide proprietary pseudo-element.
-	* See https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-clear
-	*/
+	// Support IE 10-11, and Edge 12+: Hide proprietary pseudo-element.
+	// See https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-clear
 	&::-ms-clear {
 		display: none;
 	}
 
 	&[ type='search' ] {
-		/*
-		* Support Safari/iOS: Normalize by applying `none`,
-		* Chrome would accept `textfield` as well.
-		*/
+		// Support Safari/iOS: Normalize by applying `none`,
+		// Chrome would accept `textfield` as well.
 		/* stylelint-disable plugin/no-unsupported-browser-features */
 		/* autoprefixer: ignore next */
 		-webkit-appearance: none;
-		/* Support Firefox. */
+		// Support Firefox.
 		/* autoprefixer: ignore next */
 		-moz-appearance: textfield;
 		/* stylelint-enable plugin/no-unsupported-browser-features */
 
-		/* Support: Safari, Chrome (Blink). */
+		// Support: Safari, Chrome (Blink).
 		&::-webkit-search-decoration,
 		&::-webkit-search-cancel-button {
 			display: none;

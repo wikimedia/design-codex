@@ -26,7 +26,7 @@ sub-tasks for the minimum viable solution and additional features.
    There may be exceptions to this, in which case the component should match [OOUI](https://doc.wikimedia.org/oojs-ui/master/demos/?page=widgets&theme=wikimediaui&direction=ltr&platform=desktop)
    styles.
 2. **Gather necessary design tokens.** Consult the component design Figma specification sheet for
-   all tokens per component. Only use existing design tokens and flag missing or incomplete ones 
+   all tokens per component. Only use existing design tokens and flag missing or incomplete ones
    early. Also see [writing styles](#writing-styles) below for further details.
 3. **Build the component.** [Create the Vue component](#developing-components) and [write unit tests](#jest-unit-tests).
 4. **Demo the component.** [Create component demos in VitePress](#component-demos).
@@ -155,7 +155,7 @@ via the `<style>` tag. Codex design tokens are imported as Less variables from t
   - A variation of that block would have the class `.cdx-component-name__block-name--modifier-name`
   - There is no need to go deeper than 2 block levels in a class name; class names of further
     sub-elements can omit some of the blocks for the sake of brevity.
-- If a style or selector isn't self-explanatory, add a comment above it.
+- If a style or selector isn't self-explanatory, add a comment above it in Less comment style `//`.
 - Avoid HTML element selectors. The style rulesets should aim to be independent from specific
   element choices, which may change.
 - Styles specific to a component's enabled or disabled state should be contained in a selector
@@ -169,7 +169,7 @@ via the `<style>` tag. Codex design tokens are imported as Less variables from t
 **Linting**
 - Codex uses [stylelint-order](https://github.com/hudochenkov/stylelint-order/) to order CSS/Less
   rules
-- Stylelint rules can be disabled with a valid explanation included as a comment.
+- Stylelint rules can be disabled/enabled and should be marked as CSS style comment `/* stylelint-disable-next-line rule-name */`.
 
 Below are some sample styles for a component to demonstrate these conventions:
 
