@@ -55,7 +55,8 @@ export interface DesignToken {
 		value: string
 	},
 	attributes: {
-		tokens: string[]
+		tokens: string[],
+		type?: 'theme' | 'base' | 'component'
 	},
 	path: string[]
 }
