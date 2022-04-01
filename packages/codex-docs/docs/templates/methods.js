@@ -1,8 +1,9 @@
 const mdclean = require( './utils' ).mdclean;
 
-/* eslint-disable jsdoc/valid-types */
-/** @typedef {import("vue-docgen-api").MethodDescriptor} MethodDescriptor */
-/** @typedef {import("vue-docgen-api").Param} Param */
+/** @typedef {import('vue-docgen-api').MethodDescriptor} MethodDescriptor */
+/** @typedef {import('vue-docgen-api').Param} Param */
+/** @typedef {import('vue-docgen-api').ParamTag} ParamTag */
+/** @typedef {import('vue-docgen-cli/lib/config').SubTemplateOptions} SubTemplateOptions */
 
 /**
  * Get the contents of the "Params" cell for a method.
@@ -44,24 +45,21 @@ const getReturns = ( m ) => {
 	 * @return {string}
 	 */
 	function getTypeFromReturns() {
-		if ( m.returns.type && m.returns.type.name ) {
+		if ( m.returns && m.returns.type && m.returns.type.name ) {
 			return `\`${m.returns.type.name}\``;
 		}
 		return '';
 	}
 
 	// For methods without a @return tag, see if the parser found a return type and use it.
-	if ( !m.tags.return ) {
+	if ( !m.tags || !m.tags.return ) {
 		return getTypeFromReturns();
 	}
 
 	// If there is a @return tag, grab the text from it.
-	// TS will complain that m.tags.return[ 0 ] is a Tag which doesn't have a property called
-	// description, which is true if you look at the type in vue-styleguidist. I think there's a bug
-	// there somewhere, where the description property on this return tag object should be called
-	// "content".
-	// @ts-ignore
-	const returnText = m.tags.return[ 0 ].description;
+	// m.tags.return[ 0 ] is typed as a BlockTag, which is either a Tag or a ParamTag, but we know
+	// that it's a ParamTag
+	const returnText = String( /** @type {ParamTag} */ ( m.tags.return[ 0 ] ).description );
 
 	// See if there's a closing bracket, which should indicate that there's a JSDoc-style type.
 	const indexOfClosingBracket = returnText.indexOf( '}' );
@@ -105,8 +103,8 @@ const tmpl = function ( methods ) {
  * Note that the basis of this code comes from vue-docgen-api, so few improvements have been
  * made—changes to the default code/template have been noted.
  *
- * @param {Object} methods
- * @param {Object} opt
+ * @param {MethodDescriptor[]} methods
+ * @param {SubTemplateOptions} opt
  * @return {string}
  */
 module.exports = function ( methods, opt = {} ) {

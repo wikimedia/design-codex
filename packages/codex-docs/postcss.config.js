@@ -3,6 +3,7 @@ const postcssRtlcss = require( 'postcss-rtlcss' );
 const scoped = require( './postcss-plugin-scoped' );
 
 module.exports = {
+	/** @type {import('postcss').AcceptedPlugin[]} */
 	plugins: [
 		scoped( {
 			include: '../codex/**',

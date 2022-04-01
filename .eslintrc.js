@@ -7,7 +7,9 @@ module.exports = {
 	],
 	overrides: [
 		{
-			files: [ '**/*.vue', '**/*.ts' ],
+			// checkJs is only enabled for the codex and codex-docs packages; once it's enabled for
+			// other packages, add them here too
+			files: [ '**/*.vue', '**/*.ts', 'packages/codex/**/*.js', 'packages/codex-docs/**/*.js' ],
 			plugins: [
 				'@typescript-eslint/eslint-plugin'
 			],
@@ -25,6 +27,13 @@ module.exports = {
 			rules: {
 				'no-unused-vars': 'off',
 				'@typescript-eslint/no-unused-vars': 'error'
+			}
+		},
+		{
+			files: [ '**/*.js' ],
+			rules: {
+				'@typescript-eslint/no-var-requires': 'off',
+				'@typescript-eslint/explicit-module-boundary-types': 'off'
 			}
 		},
 		{

@@ -11,12 +11,22 @@
 		"esModuleInterop": true,
 		"lib": [ "es2015", "dom" ],
 		"types": [ "jest" ],
-		"skipLibCheck": true
+		"allowJs": true,
+		"checkJs": true,
+		"skipLibCheck": true,
+		"noEmit": true
 	},
 	"include": [
+		"./**/*.js",
 		"./**/*.ts",
 		"./**/*.vue",
+		"./docs/.vitepress/**/*.js",
 		"./docs/.vitepress/**/*.ts",
 		"./docs/.vitepress/**/*.vue"
+	],
+	"exclude": [
+		"coverage/**/*",
+		"node_modules/**/*",
+		"./docs/.vitepress/dist/**/*"
 	]
 }

@@ -1,13 +1,15 @@
 const mdclean = require( './utils' ).mdclean;
 
-/* eslint-disable jsdoc/valid-types */
-/** @typedef {import("vue-docgen-api").PropDescriptor} PropDescriptor */
+/** @typedef {import('vue-docgen-api').BlockTag} BlockTag */
+/** @typedef {import('vue-docgen-api').PropDescriptor} PropDescriptor */
+/** @typedef {import('vue-docgen-api').Tag} Tag */
+/** @typedef {import('vue-docgen-cli/lib/config').SubTemplateOptions} SubTemplateOptions */
 
 /**
  * Return true if the thing is a tag
  *
- * @param {any} v
- * @return {boolean}
+ * @param {BlockTag} v
+ * @return {v is Tag}
  */
 function isTag( v ) {
 	return 'content' in v && !!v.content;
@@ -16,7 +18,7 @@ function isTag( v ) {
 /**
  * Format any tags present in prop docs
  *
- * @param {Object} tags
+ * @param {Record<string, BlockTag[]>|undefined} tags
  * @return {string}
  */
 const renderTags = ( tags ) => {
@@ -25,6 +27,7 @@ const renderTags = ( tags ) => {
 	}
 	return Object.entries( tags )
 		.map( ( [ tag, values ] ) => {
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 			return values.map( ( v ) => `<br/>\`@${tag}\` ${isTag( v ) ? v.content : v.description}` ).join( '' );
 		} )
 		.join( '' );
@@ -83,7 +86,7 @@ const tmpl = ( props ) => {
  * made—changes to the default code/template have been noted.
  *
  * @param {PropDescriptor[]} props
- * @param {Object} opt
+ * @param {SubTemplateOptions} opt
  * @return {string}
  */
 module.exports = function ( props, opt = {} ) {

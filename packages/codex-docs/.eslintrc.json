@@ -20,6 +20,13 @@
 				"jsdoc/require-param-type": "off",
 				"jsdoc/require-returns-type": "off"
 			}
+		},
+		{
+			"files": [ "**/*.js" ],
+			"rules": {
+				"jsdoc/valid-types": "off",
+				"jsdoc/no-undefined-types": "off"
+			}
 		}
 	],
 	"ignorePatterns": [

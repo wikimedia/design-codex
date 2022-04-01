@@ -1,6 +1,3 @@
-// @ts-check
-/* eslint-disable jsdoc/valid-types */
-
 /** @typedef {import('@rollup/pluginutils').FilterPattern} FilterPattern */
 /** @typedef {import('postcss').Plugin} Plugin */
 /** @typedef {{ include?: FilterPattern, exclude?: FilterPattern, plugin: Plugin }} PluginOptions */
@@ -8,7 +5,7 @@
 const { createFilter } = require( '@rollup/pluginutils' );
 
 /**
- * @param {PluginOptions} [options]
+ * @param {PluginOptions} options
  * @return {Plugin}
  */
 module.exports = ( options ) => {
@@ -22,6 +19,7 @@ module.exports = ( options ) => {
 					{ ...options.plugin, ...options.plugin.prepare( result ) } :
 					options.plugin;
 			}
+			return {};
 		}
 	};
 };

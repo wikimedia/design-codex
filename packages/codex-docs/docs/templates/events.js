@@ -1,7 +1,7 @@
-const mdclean = require( './utils' ).mdclean;
+/** @typedef {import('vue-docgen-api').EventDescriptor} EventDescriptor */
+/** @typedef {import('vue-docgen-cli/lib/config').SubTemplateOptions} SubTemplateOptions */
 
-/* eslint-disable jsdoc/valid-types */
-/** @typedef {import("vue-docgen-api").EventDescriptor} EventDescriptor */
+const mdclean = require( './utils' ).mdclean;
 
 /**
  * Format event properties.
@@ -19,11 +19,13 @@ function formatProperties( properties ) {
 			if ( !type ) {
 				return '';
 			}
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 			let eventString = `**${name}** \`${type.names.length ? type.names.join( ', ' ) : ''}\``;
 
 			// Customization: only show the description if one exists, to avoid appending
 			// " - undefined" to the string.
 			if ( description ) {
+				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 				eventString += ` - ${description}`;
 			}
 			return eventString;
@@ -54,7 +56,7 @@ const tmpl = ( events ) => {
  * made—changes to the default code/template have been noted.
  *
  * @param {EventDescriptor[]} events
- * @param {Object} opt
+ * @param {SubTemplateOptions} opt
  * @return {string}
  */
 module.exports = function ( events, opt ) {

@@ -22,7 +22,6 @@ function toKebabCase( componentName ) {
 	} ).join( '' );
 }
 
-/* eslint-disable jsdoc/valid-types */
 /** @type import("vue-docgen-cli").DocgenCLIConfig */
 module.exports = {
 	componentsRoot: './../codex/src/components',

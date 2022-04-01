@@ -29,6 +29,13 @@
 			}
 		},
 		{
+			"files": [ "**/*.js" ],
+			"excludedFiles": "src/**",
+			"rules": {
+				"jsdoc/valid-types": "off"
+			}
+		},
+		{
 			"files": [ "**/*.ts", "**/*.vue" ],
 			"rules": {
 				"no-unused-vars": "off",
