@@ -152,6 +152,7 @@ export default defineComponent( {
 	setup( props, { slots } ) {
 		// Inject direction from CustomLayout.vue
 		const dir = inject( DirectionKey );
+		const route = useRoute();
 
 		// Determine the component name to use if sample code should be generated
 		const hasGeneratedCode = toRef( props, 'showGeneratedCode' );
@@ -162,7 +163,6 @@ export default defineComponent( {
 			// Should be `cdx-*` kebab case component name. The easiest way
 			// to get the name of the component being shown is from the
 			// title of the current page, from the route.
-			const route = useRoute();
 			const componentTitle = route.data.title;
 			return 'cdx-' + toKebabCase( componentTitle );
 		} );
