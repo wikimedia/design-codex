@@ -20,8 +20,7 @@
 		"!<rootDir>/src/constants.ts",
 		"!<rootDir>/src/lib.ts",
 		"!<rootDir>/src/start.ts",
-		"!<rootDir>/src/types.ts",
-		"<rootDir>/build/postcss-plugin-remove-bidi.ts"
+		"!<rootDir>/src/types.ts"
 	],
 	"coverageDirectory": "<rootDir>/coverage",
 	"errorOnDeprecated": true

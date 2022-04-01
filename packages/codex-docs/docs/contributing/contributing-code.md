@@ -197,12 +197,11 @@ inside a `dir="rtl"` element or vice versa. Because of these significant limitat
 stylesheets are only useful in very limited circumstances, and Codex does not provide one.
 
 #### Flipping of direction-specific styles
-Styles in Codex are written for left-to-right (LTR) environments. Codex uses a combination of
-[postcss-rtlcss](https://github.com/elchininet/postcss-rtlcss) and custom Vite and PostCSS plugins
-to generate flipped versions of these styles for right-to-left (RTL) environments. For example,
-a rule like `.foo { padding-left: 4px; }` will be changed to `.foo { padding-right: 4px; }` in RTL.
-In the build, the LTR styles are placed in `codex.style.css` and the RTL styles in
-`codex.style-rtl.css`.
+Styles in Codex are written for left-to-right (LTR) environments. Codex uses
+[RTLCSS](https://rtlcss.com/) to generate flipped versions of these styles for right-to-left (RTL)
+environments. For example, a rule like `.foo { padding-left: 4px; }` will be changed to
+`.foo { padding-right: 4px; }` in RTL. In the build, the LTR styles are placed in `codex.style.css`
+and the RTL styles in`codex.style-rtl.css`.
 
 In most cases, this automatic transformation should produce the correct result, but you should
 always test style changes in both LTR and RTL. Both the sandbox (`npm run dev`) and the component
@@ -213,8 +212,8 @@ In some cases, the automatic flipping transformation doesn't produce the correct
 directives can be used to address this. To prevent a rule from being flipped, put `/* rtl:ignore */`
 on the line above it. To set a different value for a property in RTL, put the RTL value in
 a comment like `/* rtl:4px */`. These two directives are the most important ones, but others exist;
-see the postcss-rtlcss documentation on [control directives](https://github.com/elchininet/postcss-rtlcss#control-directives)
-and [value directives](https://github.com/elchininet/postcss-rtlcss#value-directives)
+see the postcss-rtlcss documentation on [control directives](https://rtlcss.com/learn/usage-guide/control-directives/)
+and [value directives](https://rtlcss.com/learn/usage-guide/value-directives/)
 for more information.
 
 Below is an example that demonstrates these directives:
