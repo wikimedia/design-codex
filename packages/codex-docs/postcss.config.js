@@ -8,7 +8,7 @@ module.exports = {
 			include: '../codex/**',
 			plugin: postcssRtlcss( {
 				useCalc: true,
-				processKeyframes: true,
+				processKeyFrames: true,
 				safeBothPrefix: true
 			} )
 		} ),
