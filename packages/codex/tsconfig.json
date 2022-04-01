@@ -9,9 +9,20 @@
 		"sourceMap": true,
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
+		"allowJs": true,
+		"checkJs": true,
+		"noEmit": true,
 		"lib": [ "esnext", "dom" ],
 		"types": [ "jest" ]
 	},
-	"include": [ "src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue", "build/**/*.ts", "./*.ts" ],
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"src/**/*.vue",
+		"build/**/*.ts",
+		".jest/*.js",
+		"./*.ts",
+		"./*.js"
+	],
 	"exclude": [ "src/**/*.snap.ts" ]
 }
