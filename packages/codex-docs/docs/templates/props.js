@@ -31,6 +31,19 @@ const renderTags = ( tags ) => {
 };
 
 /**
+ * Customization: determine if any of the properties have a .values entry, if none do then
+ * the values column will be omitted entirely
+ *
+ * @param {PropDescriptor[]} props This component's props
+ * @return {boolean}
+ */
+const includeValuesCol = ( props ) => {
+	return props.some(
+		( currentProp ) => currentProp.values
+	);
+};
+
+/**
  * Returns a formatted markdown table body with prop information.
  *
  * @param {PropDescriptor[]} props This component's props
@@ -39,6 +52,7 @@ const renderTags = ( tags ) => {
 const tmpl = ( props ) => {
 	let ret = '';
 
+	const showValues = includeValuesCol( props );
 	props.forEach( ( pr ) => {
 		let p = '`' + pr.name + '`';
 		// Customization: add the required indicator after the prop name if it is required.
@@ -46,10 +60,18 @@ const tmpl = ( props ) => {
 		let t = pr.description || '';
 		t += renderTags( pr.tags );
 		const n = pr.type ? '`' + pr.type.name + '`' : '';
-		const v = pr.values ? pr.values.map( ( pv ) => `\`${pv}\`` ).join( ', ' ) : '-';
 		const d = pr.defaultValue ? '`' + pr.defaultValue.value + '`' : '';
 
-		ret += `| ${mdclean( p )} | ${mdclean( t )} | ${mdclean( n )} | ${mdclean( v )} | ${mdclean( d )} |\n`;
+		ret += `| ${mdclean( p )} | ${mdclean( t )} | ${mdclean( n )}`;
+		// Customization: only include a values column if any of the props have something
+		// to show
+		if ( showValues ) {
+			const v = pr.values ?
+				pr.values.map( ( pv ) => `\`${pv}\`` ).join( ', ' ) :
+				'-';
+			ret += ` | ${mdclean( v )}`;
+		}
+		ret += ` | ${mdclean( d )} |\n`;
 	} );
 	return ret;
 };
@@ -65,11 +87,15 @@ const tmpl = ( props ) => {
  * @return {string}
  */
 module.exports = function ( props, opt = {} ) {
+	// Customization: only include a values column if any of the props have something to show
+	const showValues = includeValuesCol( props );
+	const valuesHeading = showValues ? ' | Values     ' : '';
+	const valuesDivider = showValues ? ' | -----------' : '';
 	return `
 ${opt.isSubComponent || opt.hasSubComponents ? '#' : ''}## Props
 
-| Prop name     | Description | Type      | Values      | Default     |
-| ------------- | ----------- | --------- | ----------- | ----------- |
+| Prop name     | Description | Type     ${valuesHeading} | Default     |
+| ------------- | ----------- | ---------${valuesDivider} | ----------- |
 ${tmpl( props )}
 `;
 };
