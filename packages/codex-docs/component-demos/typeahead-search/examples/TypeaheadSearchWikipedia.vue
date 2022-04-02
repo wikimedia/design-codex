@@ -27,6 +27,9 @@
 					value="Special:Search"
 				>
 			</template>
+			<template #search-no-results-text>
+				No pages found with this title
+			</template>
 			<template #search-footer-text="{ searchQuery }">
 				Search Wikipedia for pages containing
 				<strong class="cdx-typeahead-search__search-footer__query">

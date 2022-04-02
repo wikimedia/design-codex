@@ -36,6 +36,7 @@
 					:selected="selection"
 					:menu-items="searchResultsWithFooter"
 					:search-query="highlightQuery ? searchQuery : ''"
+					:show-no-results-slot="searchResults.length === 0"
 					v-bind="menuConfig"
 					:aria-label="searchResultsLabel"
 					@update:selected="onUpdateMenuSelection"
@@ -43,6 +44,21 @@
 						onSearchResultClick( asSearchResult( menuItem ) )"
 					@menu-item-keyboard-navigation="onSearchResultKeyboardNavigation"
 				>
+					<template #no-results>
+						<div
+							class="cdx-typeahead-search__search-no-results"
+							:class="noResultsClass"
+						>
+							<span
+								class="cdx-typeahead-search__search-no-results__text"
+							>
+								<!--
+									@slot A slot for passing in a translated "no results" message.
+								-->
+								<slot name="search-no-results-text" />
+							</span>
+						</div>
+					</template>
 					<template #default="{ menuItem }">
 						<a
 							v-if="menuItem.value === MenuFooterValue"
@@ -254,6 +270,10 @@ export default defineComponent( {
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
 		const selection = ref<string|number|null>( null );
+
+		const noResultsClass = computed( () => ( {
+			'cdx-typeahead-search__search-no-results--with-thumbnail': props.showThumbnail
+		} ) );
 
 		const selectedResult = computed( () =>
 			props.searchResults.find(
@@ -541,6 +561,7 @@ export default defineComponent( {
 			menuId,
 			highlightedId,
 			selection,
+			noResultsClass,
 			searchResultsWithFooter,
 			asSearchResult,
 			inputValue,
@@ -598,6 +619,8 @@ export default defineComponent( {
 @padding-vertical-menu-item: 8px;
 @margin-end-menu-item-thumbnail: @padding-vertical-menu-item;
 
+@padding-no-results-text-with-thumbnail: 20px;
+
 @border-color-heading: @color-base70;
 
 @transition-property-simple-search-submit: opacity;
@@ -647,6 +670,7 @@ export default defineComponent( {
 		}
 	}
 
+	&__search-no-results,
 	&__search-footer {
 		color: @color-base;
 		display: flex;
@@ -655,6 +679,12 @@ export default defineComponent( {
 		padding: @padding-vertical-menu-item @padding-horizontal-base;
 		text-decoration: none;
 
+		&__text {
+			font-size: @font-size-search-result-title;
+		}
+	}
+
+	&__search-footer {
 		&:visited,
 		&:active {
 			color: @color-base;
@@ -673,10 +703,12 @@ export default defineComponent( {
 			height: @size-search-figure;
 			margin-right: @padding-horizontal-base;
 		}
+	}
 
-		&__text {
-			font-size: @font-size-search-result-title;
-		}
+	// When props showThumbnail is true, search-no-results should have
+	// different padding.
+	&__search-no-results--with-thumbnail {
+		padding-left: @padding-no-results-text-with-thumbnail;
 	}
 
 	.cdx-text-input__input {

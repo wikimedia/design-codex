@@ -66,7 +66,28 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
           role="listbox"
           style="display: none;"
         >
-          <!--v-if-->
+          <li
+            class="cdx-menu__no-results cdx-menu-item"
+          >
+            <!--
+				@slot Message to show if there are no menu items to display.
+			-->
+            
+            <div
+              class="cdx-typeahead-search__search-no-results"
+            >
+              <span
+                class="cdx-typeahead-search__search-no-results__text"
+              >
+                <!--
+									@slot A slot for passing in a translated "no results" message.
+								-->
+                
+                
+              </span>
+            </div>
+            
+          </li>
           
           
         </ul>
@@ -164,7 +185,28 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
           role="listbox"
           style="display: none;"
         >
-          <!--v-if-->
+          <li
+            class="cdx-menu__no-results cdx-menu-item"
+          >
+            <!--
+				@slot Message to show if there are no menu items to display.
+			-->
+            
+            <div
+              class="cdx-typeahead-search__search-no-results cdx-typeahead-search__search-no-results--with-thumbnail"
+            >
+              <span
+                class="cdx-typeahead-search__search-no-results__text"
+              >
+                <!--
+									@slot A slot for passing in a translated "no results" message.
+								-->
+                
+                
+              </span>
+            </div>
+            
+          </li>
           
           
         </ul>
@@ -262,7 +304,28 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
           role="listbox"
           style="display: none;"
         >
-          <!--v-if-->
+          <li
+            class="cdx-menu__no-results cdx-menu-item"
+          >
+            <!--
+				@slot Message to show if there are no menu items to display.
+			-->
+            
+            <div
+              class="cdx-typeahead-search__search-no-results"
+            >
+              <span
+                class="cdx-typeahead-search__search-no-results__text"
+              >
+                <!--
+									@slot A slot for passing in a translated "no results" message.
+								-->
+                
+                
+              </span>
+            </div>
+            
+          </li>
           
           
         </ul>
