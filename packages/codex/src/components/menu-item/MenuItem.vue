@@ -353,7 +353,7 @@ export default defineComponent( {
 @size-search-figure: 40px;
 
 @margin-end-menu-item-thumbnail: @padding-vertical-menu-item;
-@border-color-menu-item-thumbnail: @color-base80;
+@border-color-menu-item-thumbnail: @color-gray200;
 @box-shadow-menu-item-thumbnail: 0 0 1px 1px @border-color-menu-item-thumbnail;
 
 @background-color-menu-item-placeholder: @background-color-framed;
@@ -392,7 +392,7 @@ export default defineComponent( {
 		// TODO: use token for border color. Currently, a token exists for this color called
 		// `border-color-base--disabled`, but this token name will likely change and is also not
 		// appropriate for this use case. For now, we'll directly use the color.
-		border: @border-width-base @border-style-base @color-base70;
+		border: @border-width-base @border-style-base @color-gray300;
 		border-radius: @border-radius-base;
 	}
 

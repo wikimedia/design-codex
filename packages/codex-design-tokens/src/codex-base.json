@@ -2,128 +2,129 @@
 	"background-color": {
 		"comment": "Background Colors",
 		"base": {
-			"value": "{ color.base100 }"
+			"value": "{ color.white }"
 		},
 		"base--hover": {
-			"value": "{ color.base80 }"
+			"value": "{ color.gray200 }"
 		},
 		"base--active": {
-			"value": "{ color.accent90 }"
+			"value": "{ color.blue100 }"
 		},
 		"base--transparent": {
 			"value": "{ color.transparent }"
 		},
 		"base--disabled": {
-			"value": "{ color.base80 }"
+			"value": "{ color.gray200 }"
 		},
 		"progressive": {
-			"value": "{ color.accent50 }"
+			"value": "{ color.blue600 }"
 		},
 		"progressive--hover": {
-			"value": "{ color.modifier-accent50-lighten }"
+			"value": "{ color.blue500 }"
 		},
 		"progressive--active": {
-			"value": "{ color.accent30 }"
+			"value": "{ color.blue700 }"
 		},
 		"progressive--focus": {
-			"value": "{ color.accent50 }"
+			"value": "{ color.blue600 }"
 		},
 		"destructive": {
-			"value": "{ color.utility-red50 }"
+			"value": "{ color.red600 }"
 		},
 		"destructive--hover": {
-			"value": "{ color.modifier-utility-red50-lighten }"
+			"value": "{ color.red500 }"
 		},
 		"destructive--active": {
-			"value": "{ color.utility-red30 }"
+			"value": "{ color.red700 }"
 		},
 		"destructive--focus": {
-			"value": "{ color.utility-red90 }"
+			"value": "{ color.red100 }"
 		},
 		"framed": {
-			"value": "{ color.base90 }"
+			"value": "{ color.gray100 }"
 		},
 		"framed--hover": {
-			"value": "{ color.base100 }"
+			"value": "{ color.white }"
 		},
 		"framed--active": {
-			"value": "{ color.base70 }"
+			"value": "{ color.gray300 }"
 		},
 		"filled--disabled": {
 			"comment": "'Filled' UI components (Checkboxes, Radios, ProgressBars…)",
-			"value": "{ color.base70 }"
+			"value": "{ color.gray300 }"
 		}
 	},
 	"color": {
 		"base": {
-			"value": "{ color.base10 }"
+			"value": "{ color.gray700 }"
 		},
 		"base--hover": {
-			"value": "{ color.modifier-base10-lighten }"
+			"value": "{ color.gray650 }"
 		},
 		"base--active": {
-			"value": "{ color.base0 }"
+			"value": "{ color.black }"
 		},
 		"base--inverted": {
-			"value": "{ color.base100 }"
+			"value": "{ color.white }"
 		},
 		"base--emphasized": {
-			"value": "{ color.base0 }"
+			"value": "{ color.black }"
 		},
 		"base--subtle": {
-			"value": "{ color.base30 }"
+			"value": "{ color.gray500 }"
 		},
 		"base--disabled": {
-			"value": "{ color.base30 }"
+			"value": "{ color.gray500 }"
 		},
 		"filled--disabled": {
-			"value": "{ color.base100 }"
+			"value": "{ color.white }"
 		},
 		"accessory": {
 			"comment": "TODO: Unclear if `accessory` is fitting in with all the `base--` modifiers.",
-			"value": "{ color.base20 }"
+			"value": "{ color.gray600 }"
 		},
 		"placeholder": {
-			"value": "{ color.base30 }"
+			"value": "{ color.gray500 }"
 		},
 		"progressive": {
 			"comment": "'Progressive' Color and states",
-			"value": "{ color.accent50 }"
+			"value": "{ color.blue600 }"
 		},
 		"progressive--hover": {
-			"value": "{ color.modifier-accent50-lighten }"
+			"value": "{ color.blue500 }"
 		},
 		"progressive--active": {
-			"value": "{ color.accent30 }"
+			"value": "{ color.blue700 }"
 		},
 		"progressive--focus": {
-			"value": "{ color.accent50 }"
+			"value": "{ color.blue600 }"
 		},
 		"destructive": {
 			"comment": "'Destructive' Color and states",
-			"value": "{ color.utility-red50 }"
+			"value": "{ color.red600 }"
 		},
 		"destructive--hover": {
-			"value": "{ color.modifier-utility-red50-lighten }"
+			"value": "{ color.red500 }"
 		},
 		"destructive--active": {
-			"value": "{ color.utility-red30 }"
+			"value": "{ color.red700 }"
 		},
 		"destructive--focus": {
-			"value": "{ color.utility-red50 }"
+			"value": "{ color.red600 }"
 		},
 		"error": {
-			"value": "{ color.utility-red50 }"
+			"value": "{ color.red600 }"
 		},
 		"warning": {
 			"comment": "Note, this is only meant for warning icon for contrast reasons.",
-			"value": "{ color.utility-yellow50 }"
+			"value": "{ color.yellow600 }"
 		},
 		"success": {
-			"value": "{ color.utility-green30 }"
+			"comment": "Note, this needs to use a tone darker than Red and Yellow for contrast reasons with background White.",
+			"value": "{ color.green700 }"
 		},
 		"notice": {
-			"value": "{ color.base0 }"
+			"value": "{ color.black }"
 		}
 	},
 	"opacity": {
@@ -315,71 +316,71 @@
 	},
 	"border-color": {
 		"base": {
-			"value": "{ color.base50 }"
+			"value": "{ color.gray400 }"
 		},
 		"base--hover": {
-			"value": "{ color.base50 }"
+			"value": "{ color.gray400 }"
 		},
 		"base--active": {
-			"value": "{ color.base30 }"
+			"value": "{ color.gray500 }"
 		},
 		"base--focus": {
-			"value": "{ color.accent50 }"
+			"value": "{ color.blue600 }"
 		},
 		"base--disabled": {
-			"value": "{ color.base70 }"
+			"value": "{ color.gray300 }"
 		},
 		"filled--disabled": {
-			"value": "{ color.base100 }"
+			"value": "{ color.white }"
 		},
 		"progressive": {
-			"value": "{ color.accent50 }"
+			"value": "{ color.blue600 }"
 		},
 		"progressive--hover": {
-			"value": "{ color.modifier-accent50-lighten }"
+			"value": "{ color.blue500 }"
 		},
 		"progressive--active": {
-			"value": "{ color.accent30 }"
+			"value": "{ color.blue700 }"
 		},
 		"progressive--focus": {
-			"value": "{ color.accent50 }"
+			"value": "{ color.blue600 }"
 		},
 		"destructive": {
-			"value": "{ color.utility-red50 }"
+			"value": "{ color.red600 }"
 		},
 		"destructive--hover": {
-			"value": "{ color.modifier-utility-red50-lighten }"
+			"value": "{ color.red500 }"
 		},
 		"destructive--active": {
-			"value": "{ color.utility-red30 }"
+			"value": "{ color.red700 }"
 		},
 		"destructive--focus": {
-			"value": "{ color.utility-red50 }"
+			"value": "{ color.red600 }"
 		},
 		"neutral": {
 			"comment": "Better off in components.json?",
-			"value": "{ color.base50 }"
+			"value": "{ color.gray400 }"
 		},
 		"neutral--hover": {
-			"value": "{ color.base50 }"
+			"value": "{ color.gray400 }"
 		},
 		"neutral--active": {
-			"value": "{ color.base30 }"
+			"value": "{ color.gray500 }"
 		},
 		"neutral--focus": {
-			"value": "{ color.accent50 }"
+			"value": "{ color.blue600 }"
 		},
 		"error": {
-			"value": "{ color.utility-red50 }"
+			"value": "{ color.red600 }"
 		},
 		"warning": {
-			"value": "{ color.utility-yellow50 }"
+			"value": "{ color.yellow600 }"
 		},
 		"success": {
-			"value": "{ color.utility-green30 }"
+			"value": "{ color.green700 }"
 		},
 		"notice": {
-			"value": "{ color.base50 }"
+			"value": "{ color.gray400 }"
 		},
 		"inset--focus": {
 			"comment": "Inset focus border on progressive 'filled' components, like Checkbox. TODO: Consider `border-color-inverted--focus` instead.",
@@ -424,23 +425,23 @@
 			"value": "{ box-shadow.100 } { color.transparent }"
 		},
 		"base--active": {
-			"value": "{ box-shadow.100 } { color.accent30 }"
+			"value": "{ box-shadow.100 } { color.blue700 }"
 		},
 		"base--focus": {
-			"value": "{ box-shadow.100 } { color.accent50 }"
+			"value": "{ box-shadow.100 } { color.blue600 }"
 		},
 		"filled--disabled": {
-			"value": "{ box-shadow.100 } { color.base100 }"
+			"value": "{ box-shadow.100 } { color.white }"
 		},
 		"progressive--focus": {
-			"value": "{ box-shadow.100 } { color.accent50 }, { box-shadow.200 } { color.base100 }"
+			"value": "{ box-shadow.100 } { color.blue600 }, { box-shadow.200 } { color.white }"
 		},
 		"primary--focus": {
 			"deprecated": true,
 			"value": "{ box-shadow.progressive--focus }"
 		},
 		"destructive--focus": {
-			"value": "{ box-shadow.100 } { color.utility-red50 }, { box-shadow.200 } { color.base100 }"
+			"value": "{ box-shadow.100 } { color.red600 }, { box-shadow.200 } { color.white }"
 		}
 	},
 	"outline": {

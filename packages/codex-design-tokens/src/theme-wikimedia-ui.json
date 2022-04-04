@@ -1,94 +1,93 @@
 {
 	"color": {
-		"base0": {
-			"value": "#000"
-		},
-		"base10": {
-			"value": "#202122"
-		},
-		"base20": {
-			"value": "#54595d"
-		},
-		"base30": {
-			"value": "#72777d"
-		},
-		"base50": {
-			"value": "#a2a9b1"
-		},
-		"base70": {
-			"value": "#c8ccd1"
-		},
-		"base80": {
-			"value": "#eaecf0"
-		},
-		"base90": {
-			"value": "#f8f9fa"
-		},
-		"base100": {
+		"comment": "The colors are given numbers corresponding to their contrast, starting with 100 for the brightest to 700 for the darkest. Note, that single color options of a tone, white, black and purple, don't carry a number. Same goes for transparent.",
+		"white": {
 			"value": "#fff"
 		},
-		"accent30": {
-			"value": "#2a4b8d"
+		"gray100": {
+			"value": "#f8f9fa"
 		},
-		"accent50": {
-			"value": "#36c"
+		"gray200": {
+			"value": "#eaecf0"
 		},
-		"accent90": {
-			"value": "#eaf3ff"
+		"gray300": {
+			"value": "#c8ccd1"
 		},
-		"utility-red30": {
-			"value": "#b32424"
+		"gray400": {
+			"value": "#a2a9b1"
 		},
-		"utility-red50": {
-			"value": "#d33"
+		"gray500": {
+			"value": "#72777d"
 		},
-		"utility-red90": {
-			"value": "#fee7e6"
+		"gray600": {
+			"value": "#54595d"
 		},
-		"utility-yellow30": {
-			"value": "#ac6600"
-		},
-		"utility-yellow50": {
-			"value": "#fc3"
-		},
-		"utility-yellow90": {
-			"value": "#fef6e7"
-		},
-		"utility-green30": {
-			"value": "#14866d"
-		},
-		"utility-green50": {
-			"value": "#00af89"
-		},
-		"utility-green90": {
-			"value": "#d5fdf4"
-		},
-		"modifier-base10-lighten": {
+		"gray650": {
+			"deprecated": "Gray 650 will be added as legacy and we are set out  to use Gray 600 instead.",
 			"value": "#404244"
 		},
-		"modifier-base90-translucent": {
-			"comment": "TODO: Not part of DS Figma yet. Equals `@wmui-color-base90` on white. Note, that in WikimediaUI Base Less it was a calculated value `rgba( 0, 24, 73, ( 7 / 255 ) )`.",
-			"value": "rgba( 0, 24, 73, 0.02 )"
+		"gray700": {
+			"value": "#202122"
 		},
-		"modifier-base80-translucent": {
-			"comment": "TODO: Not part of DS Figma yet. Equals `@wmui-color-base80` on white. Note, that in WikimediaUI Base Less it was a calculated value `rgba( 0, 36, 73, ( 21 / 255 ) )`.",
-			"value": "rgba( 0, 36, 73, 0.02 )"
+		"black": {
+			"value": "#000"
 		},
-		"modifier-accent50-lighten": {
+		"blue100": {
+			"value": "#eaf3ff"
+		},
+		"blue500": {
 			"value": "#447ff5"
 		},
-		"modifier-accent50-translucent": {
-			"comment": "TODO: Not part of DS Figma yet. Note, that WikimediaUI Base's `rgba( 41, 98, 204, 0.1 )` was not a modifier of Accent50, while this is.",
-			"value": "rgba( 51, 102, 204, 0.1 )"
+		"blue600": {
+			"value": "#36c"
 		},
-		"modifier-utility-red50-lighten": {
+		"blue700": {
+			"value": "#2a4b8d"
+		},
+		"red100": {
+			"value": "#fee7e6"
+		},
+		"red500": {
 			"value": "#ff4242"
 		},
-		"modifier-utility-green50-lighten": {
-			"value": "#ff4242"
+		"red600": {
+			"value": "#d33"
 		},
-		"modifier-purple": {
+		"red700": {
+			"value": "#b32424"
+		},
+		"yellow100": {
+			"value": "#fef6e7"
+		},
+		"yellow600": {
+			"value": "#fc3"
+		},
+		"yellow700": {
+			"value": "#ac6600"
+		},
+		"green100": {
+			"value": "#d5fdf4"
+		},
+		"green600": {
+			"value": "#00af89"
+		},
+		"green700": {
+			"value": "#14866d"
+		},
+		"purple": {
 			"value": "#6b4ba1"
+		},
+		"modifier-gray100-translucent": {
+			"comment": "TODO: Not part of DS Figma yet. Equals `color-gray100` on white. Note, that in WikimediaUI Base Less it was a calculated value `rgba( 0, 24, 73, ( 7 / 255 ) )`.",
+			"value": "rgba( 0, 24, 73, 0.02 )"
+		},
+		"modifier-gray200-translucent": {
+			"comment": "TODO: Not part of DS Figma yet. Equals `color-gray200` on white. Note, that in WikimediaUI Base Less it was a calculated value `rgba( 0, 36, 73, ( 21 / 255 ) )`.",
+			"value": "rgba( 0, 36, 73, 0.02 )"
+		},
+		"modifier-blue600-translucent": {
+			"comment": "TODO: Not part of DS Figma yet. Note, that WikimediaUI Base's `rgba( 41, 98, 204, 0.1 )` was not a modifier of Blue600, while this is.",
+			"value": "rgba( 51, 102, 204, 0.1 )"
 		},
 		"transparent": {
 			"value": "transparent"
@@ -446,6 +445,109 @@
 		},
 		"text": {
 			"value": "text"
+		}
+	},
+	"wmui-color": {
+		"comment": "Note: Deprecated color names necessary for WikimediaUI Base backwards-compatibility!",
+		"base0": {
+			"deprecated": true,
+			"value": "{ color.black }"
+		},
+		"base10": {
+			"deprecated": true,
+			"value": "{ color.gray700 }"
+		},
+		"base20": {
+			"deprecated": true,
+			"value": "{ color.gray600 }"
+		},
+		"base30": {
+			"deprecated": true,
+			"value": "{ color.gray500 }"
+		},
+		"base50": {
+			"deprecated": true,
+			"value": "{ color.gray400 }"
+		},
+		"base70": {
+			"deprecated": true,
+			"value": "{ color.gray300 }"
+		},
+		"base80": {
+			"deprecated": true,
+			"value": "{ color.gray200 }"
+		},
+		"base90": {
+			"deprecated": true,
+			"value": "{ color.gray100 }"
+		},
+		"base100": {
+			"deprecated": true,
+			"value": "{ color.white }"
+		},
+		"accent30": {
+			"deprecated": true,
+			"value": "{ color.blue700 }"
+		},
+		"accent50": {
+			"deprecated": true,
+			"value": "{ color.blue600 }"
+		},
+		"accent90": {
+			"deprecated": true,
+			"value": "{ color.blue100 }"
+		},
+		"red30": {
+			"deprecated": true,
+			"value": "{ color.red700 }"
+		},
+		"red50": {
+			"deprecated": true,
+			"value": "{ color.red600 }"
+		},
+		"red90": {
+			"deprecated": true,
+			"value": "{ color.red100 }"
+		},
+		"yellow30": {
+			"deprecated": true,
+			"value": "{ color.yellow700 }"
+		},
+		"yellow50": {
+			"deprecated": true,
+			"value": "{ color.yellow600 }"
+		},
+		"yellow90": {
+			"deprecated": true,
+			"value": "{ color.yellow100 }"
+		},
+		"green30": {
+			"deprecated": true,
+			"value": "{ color.green700 }"
+		},
+		"green50": {
+			"deprecated": true,
+			"value": "{ color.green600 }"
+		},
+		"green90": {
+			"deprecated": true,
+			"value": "{ color.green100 }"
+		},
+		"purple50": {
+			"deprecated": true,
+			"value": "{ color.purple }"
+		},
+		"modifier-base10--lighten": {
+			"deprecated": true,
+			"value": "{ color.gray650 }"
+		},
+		"modifier-accent50--lighten": {
+			"deprecated": true,
+			"value": "{ color.blue500 }"
+		},
+		"modifier-red50--lighten": {
+			"deprecated": true,
+			"value": "{ color.red100 }"
 		}
 	}
 }

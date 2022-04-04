@@ -93,10 +93,10 @@ export default defineComponent( {
 );
 
 // TODO move these to the design tokens
-@background-color-toggle-button-quiet--hover: @color-base90;
-@background-color-toggle-button-quiet--active: @color-base80;
-@background-color-toggle-button-quiet--focus: @color-base90;
-@background-color-toggle-button-quiet--toggled-on: @color-base80;
+@background-color-toggle-button-quiet--hover: @color-gray100;
+@background-color-toggle-button-quiet--active: @color-gray200;
+@background-color-toggle-button-quiet--focus: @color-gray100;
+@background-color-toggle-button-quiet--toggled-on: @color-gray200;
 
 // Common styles for framed and quiet versions
 .cdx-toggle-button {

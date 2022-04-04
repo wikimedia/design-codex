@@ -424,7 +424,7 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 // TODO: Tokenize. Also in use in TypeaheadSearch.
-@border-color-heading: @color-base70;
+@border-color-heading: @color-gray300;
 
 .cdx-demo-wrapper {
 	margin-top: 16px;

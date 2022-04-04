@@ -4,48 +4,48 @@
 			"value": "{ background-color.progressive }"
 		},
 		"primary--hover": {
-			"value": "{ color.modifier-accent50-translucent }"
+			"value": "{ color.modifier-blue600-translucent }"
 		},
 		"quiet": {
 			"value": "{ color.base }"
 		},
 		"quiet--hover": {
-			"value": "{ color.modifier-base90-translucent }"
+			"value": "{ color.modifier-gray100-translucent }"
 		},
 		"quiet--active": {
-			"value": "{ color.modifier-base80-translucent }"
+			"value": "{ color.modifier-gray200-translucent }"
 		},
 		"quiet-progressive--hover": {
-			"value": "{ color.accent90 }"
+			"value": "{ color.blue100 }"
 		},
 		"quiet-destructive--hover": {
-			"value": "{ color.utility-red90 }"
+			"value": "{ color.red100 }"
 		},
 		"progressive-quiet--hover": {
 			"deprecated": "Button token names start with type and then action to better clarify application by type first.",
 			"value": "{ background-color.quiet-progressive--hover }"
 		},
 		"input-binary--checked": {
-			"value": "{ color.accent50 }"
+			"value": "{ color.blue600 }"
 		},
 		"message": {
 			"comment": "User system messages (errors, warnings, successes, notices).",
 			"notice": {
-				"value": "{ color.base80 }"
+				"value": "{ color.gray200 }"
 			},
 			"error": {
-				"value": "{ color.utility-red90 }"
+				"value": "{ color.red100 }"
 			},
 			"warning": {
-				"value": "{ color.utility-yellow90 }"
+				"value": "{ color.yellow100 }"
 			},
 			"success": {
-				"value": "{ color.utility-green90 }"
+				"value": "{ color.green100 }"
 			}
 		},
 		"tabs-framed": {
 			"comment": "Tabs bar background color.",
-			"value": "{ color.base80 }"
+			"value": "{ color.gray200 }"
 		},
 		"toolbar": {
 			"comment": "Toolbar.",
@@ -116,7 +116,7 @@
 	},
 	"border-color": {
 		"divider": {
-			"value": "{ color.base50 }"
+			"value": "{ color.gray400 }"
 		},
 		"primary": {
 			"deprecated": true,

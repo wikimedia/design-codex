@@ -672,7 +672,7 @@ export default defineComponent( {
 
 @padding-no-results-text-with-thumbnail: 20px;
 
-@border-color-heading: @color-base70;
+@border-color-heading: @color-gray300;
 
 @transition-property-simple-search-submit: opacity;
 
