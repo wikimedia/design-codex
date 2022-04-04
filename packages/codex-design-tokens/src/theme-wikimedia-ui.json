@@ -72,7 +72,7 @@
 		},
 		"modifier-base80-translucent": {
 			"comment": "TODO: Not part of DS Figma yet. Equals `@wmui-color-base80` on white. Note, that in WikimediaUI Base Less it was a calculated value `rgba( 0, 36, 73, ( 21 / 255 ) )`.",
-			"value": "rgba( 0, 24, 73, 0.02 )"
+			"value": "rgba( 0, 36, 73, 0.02 )"
 		},
 		"modifier-accent50-lighten": {
 			"value": "#447ff5"
