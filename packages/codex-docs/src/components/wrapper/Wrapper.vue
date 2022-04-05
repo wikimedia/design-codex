@@ -17,7 +17,7 @@
 			>
 				Reset
 			</cdx-button>
-			<div class="cdx-demo-wrapper__demo-pane__demo">
+			<div class="cdx-demo-wrapper__demo-pane__demo" @mousedown.capture="onDemoMousedown">
 				<!-- The key is used to allow resetting the component -->
 				<slot
 					:key="demoRenderKey"
@@ -196,6 +196,34 @@ export default defineComponent( {
 				'cdx-demo-wrapper--has-reset': includeReset.value
 			};
 		} );
+
+		// Work around undesired behavior in VitePress that takes over link click handling.
+		// See https://github.com/vuejs/vitepress/issues/591 and T304894.
+		// The event handlers run in the following order:
+		// - onDemoMousedown (capturing mousedown handler on the demo div)
+		// - Component's mousedown handler, if there is one
+		// - VitePress's capturing click handler
+		// - The capturing click handler on the link bound by onDemoMousedown
+		// - Component's click handler, if there is one
+		// - Browser's native click behavior, if not prevented
+		// Note that onDemoMousedown needs to be a capturing handler, so that it runs before any
+		// of the component's mousedown handlers; otherwise, those handlers could stop propagation
+		// of the mousedown event, and onDemoMousedown would never run
+		const onDemoMousedown = ( event: MouseEvent ) => {
+			const link = ( event.target as Element ).closest( 'a' );
+			if ( link && event.button === 0 ) {
+				// Set target = '_blank' temporarily, so that VitePress's click handler sees that
+				// and decides not to take over click handling for this link
+				const oldTarget = link.target;
+				link.target = '_blank';
+
+				// Bind a capturing click handler that restores the previous value of link.target
+				// before the browser's native click handling sees it
+				link.addEventListener( 'click', () => {
+					link.target = oldTarget;
+				}, { capture: true, once: true } );
+			}
+		};
 
 		/**
 		 * Create a map of the defaults to use for resetting. Because the default values
@@ -381,6 +409,7 @@ export default defineComponent( {
 
 			// Demo pane
 			dir,
+			onDemoMousedown,
 
 			// Reset button - render key is changed to force rerendering
 			demoRenderKey,
