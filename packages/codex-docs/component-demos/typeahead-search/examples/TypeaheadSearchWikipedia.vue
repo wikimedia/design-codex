@@ -87,7 +87,7 @@ export default defineComponent( {
 			fetch(
 				`https://en.wikipedia.org/w/rest.php/v1/search/title?q=${encodeURIComponent( value )}&limit=10&`
 			).then( ( resp ) => resp.json() )
-				.then( ( data ) => {
+				.then( ( data: { pages: RestResult[] } ) => {
 					// Make sure this data is still relevant first.
 					if ( currentSearchTerm.value === value ) {
 						// If there are results, format them into an array of

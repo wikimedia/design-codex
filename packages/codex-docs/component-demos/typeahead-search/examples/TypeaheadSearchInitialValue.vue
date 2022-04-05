@@ -78,7 +78,7 @@ export default defineComponent( {
 			fetch(
 				`https://en.wikipedia.org/w/rest.php/v1/search/title?q=${encodeURIComponent( value )}&limit=10&`
 			).then( ( resp ) => resp.json() )
-				.then( ( data ) => {
+				.then( ( data: { pages: RestResult[] } ) => {
 					if ( currentSearchTerm.value === value ) {
 						searchResults.value = data.pages && data.pages.length > 0 ?
 							adaptApiResponse( data.pages ) :

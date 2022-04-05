@@ -82,7 +82,7 @@ export default defineComponent( {
 			fetch(
 				`https://www.wikidata.org/w/api.php?origin=*&action=wbsearchentities&format=json&search=${encodeURIComponent( value )}&language=en&uselang=en&type=item`
 			).then( ( resp ) => resp.json() )
-				.then( ( data ) => {
+				.then( ( data: { search: Result[] } ) => {
 					// Make sure this data is still relevant first.
 					if ( currentSearchTerm.value === value ) {
 						// If there are results, format them into an array of
