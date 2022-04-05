@@ -3,20 +3,20 @@ import { computed, WritableComputedRef, Ref } from 'vue';
 /**
  * Type for Vue's emit function, used below in the useModelWrapper function.
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type EmitFunc<EventName extends string> = ( event: EventName, ...args: any[] ) => void;
+type EmitFunc<EventName extends string, ParamType> =
+	( event: EventName, param: ParamType ) => void;
 
 // See the docblock comment below for details on these function signatures.
 /* eslint-disable no-redeclare */
 export default function useModelWrapper<ModelValue, EventName extends 'update:modelValue'>(
 	modelValueRef: Ref<ModelValue>,
-	emit: EmitFunc<EventName>,
+	emit: EmitFunc<EventName, ModelValue>,
 	eventName?: EventName
 ) : WritableComputedRef<ModelValue>;
 
 export default function useModelWrapper<ModelValue, EventName extends string>(
 	modelValueRef: Ref<ModelValue>,
-	emit: EmitFunc<EventName>,
+	emit: EmitFunc<EventName, ModelValue>,
 	eventName: EventName
 ) : WritableComputedRef<ModelValue>;
 
@@ -53,7 +53,7 @@ export default function useModelWrapper<ModelValue, EventName extends string>(
  */
 export default function useModelWrapper<ModelValue, EventName extends string>(
 	modelValueRef: Ref<ModelValue>,
-	emit: EmitFunc<EventName>,
+	emit: EmitFunc<EventName, ModelValue>,
 	eventName: EventName extends 'update:modelValue' ? EventName | undefined : EventName
 ) : WritableComputedRef<ModelValue> {
 	return computed( {
