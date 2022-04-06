@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = require( 'vitepress' ).defineConfig( {
 	lang: 'en-US',
 	title: 'Codex',
 	description: 'Toolkit for building user interfaces within the Wikimedia Design System',
@@ -91,4 +91,4 @@ module.exports = {
 			]
 		}
 	}
-};
+} );
