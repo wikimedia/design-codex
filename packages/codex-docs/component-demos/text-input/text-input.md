@@ -114,7 +114,7 @@ Any Codex icon can be set to the end icon. Note that if you include both an end 
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-input-demo :input-props="{ disabled: true, endIcon: cdxIconInfoFilled }" />
+<text-input-demo :input-props="{ endIcon: cdxIconInfoFilled }" />
 </template>
 
 <template v-slot:code>
@@ -148,13 +148,13 @@ To disable the input, add the `disabled` attribute.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-input-demo :input-props="{ disabled: true }" />
+<text-input-demo :input-props="{ startIcon: cdxIconSearch, disabled: true }" />
 </template>
 
 <template v-slot:code>
 
 ```vue
-<cdx-text-input :disabled="true" />
+<cdx-text-input :start-icon="cdxIconSearch" :disabled="true" />
 ```
 
 </template>

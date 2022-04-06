@@ -8,6 +8,7 @@
 			ref="input"
 			v-model="wrappedModel"
 			class="cdx-text-input__input"
+			:class="inputClasses"
 			v-bind="otherAttrs"
 			:type="inputType"
 			:disabled="disabled"
@@ -32,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, toRef, computed } from 'vue';
+import { defineComponent, PropType, toRef, computed, ref } from 'vue';
 import { Icon, cdxIconClear } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import { TextInputTypes } from '../../constants';
@@ -168,6 +169,18 @@ export default defineComponent( {
 			otherAttrs
 		} = useSplitAttributes( attrs, internalClasses );
 
+		const isFocused = ref( false );
+
+		// isActive will be true when the input is focused and/or when there is input. This ref is
+		// used for styling purposes.
+		const isActive = computed( () => isFocused.value || !!wrappedModel.value );
+
+		const inputClasses = computed( () => {
+			return {
+				'cdx-text-input__input--is-active': isActive.value
+			};
+		} );
+
 		const computedEndIcon = computed( () => {
 			// This method is only called either when isClearable is true or when there is an
 			// endIcon, so we know endIcon will never be undefined at this point in the logic.
@@ -188,9 +201,11 @@ export default defineComponent( {
 			emit( 'change', event );
 		};
 		const onFocus = ( event: FocusEvent ) => {
+			isFocused.value = true;
 			emit( 'focus', event );
 		};
 		const onBlur = ( event: FocusEvent ) => {
+			isFocused.value = false;
 			emit( 'blur', event );
 		};
 
@@ -200,6 +215,7 @@ export default defineComponent( {
 			rootClasses,
 			rootStyle,
 			otherAttrs,
+			inputClasses,
 			computedEndIcon,
 			onEndIconClick,
 			onInput,
@@ -230,10 +246,13 @@ export default defineComponent( {
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
-@size-input-icon-container: unit(
+@size-input-start-icon-container: unit(
 	( ( @padding-horizontal-input-text * 2 + @size-icon ) / @font-size-browser / @font-size-base ),
 	em
 );
+// TODO: Revisit with decision about Design System's take on end icon sizes, see T306135.
+@size-input-end-icon: 16px;
+@size-input-end-icon-container: calc( @padding-horizontal-input-text * 2 + @size-input-end-icon );
 
 .cdx-text-input {
 	/* For proper positioning of icons and slotted elements */
@@ -242,7 +261,6 @@ export default defineComponent( {
 
 	&__start-icon,
 	&__end-icon {
-		color: @color-accessory;
 		position: absolute;
 		top: 0;
 		min-height: @size-icon;
@@ -250,22 +268,24 @@ export default defineComponent( {
 		// In Safari, several transitions or transforms happening at once around these elements may
 		// cause a brief wobble. This will stabilize icons' positions.
 		-webkit-transform: translateZ( 0 );
+		transition-property: @transition-property-base;
+		transition-duration: @transition-duration-medium;
 	}
 
 	/* Start icon is larger and aligned to the left of the input. */
 	&__start-icon {
 		left: @border-width-base;
-		width: @size-input-icon-container;
+		width: @size-input-start-icon-container;
 		pointer-events: none;
 	}
 
 	/* End icon is smaller and aligned to the right of the input. */
 	&__end-icon {
 		right: @border-width-base;
-		width: calc( @padding-horizontal-input-text * 2 + @size-indicator );
+		width: @size-input-end-icon-container;
 
 		svg {
-			width: @size-indicator;
+			width: @size-input-end-icon;
 		}
 	}
 }
@@ -279,13 +299,13 @@ export default defineComponent( {
 
 .cdx-text-input--has-start-icon {
 	.cdx-text-input__input {
-		padding-left: @size-input-icon-container;
+		padding-left: @size-input-start-icon-container;
 	}
 }
 
 .cdx-text-input--has-end-icon {
 	.cdx-text-input__input {
-		padding-right: @size-input-icon-container;
+		padding-right: @size-input-end-icon-container;
 	}
 }
 
@@ -306,25 +326,36 @@ export default defineComponent( {
 
 	&:enabled {
 		background-color: @background-color-base;
-		color: @color-base--emphasized;
+		color: @color-base;
 		border-color: @border-color-base;
 		box-shadow: @box-shadow-base;
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-medium;
 
+		~ .cdx-text-input__start-icon,
+		~ .cdx-text-input__end-icon {
+			color: @color-placeholder;
+		}
+
+		&.cdx-text-input__input--is-active {
+			~ .cdx-text-input__start-icon,
+			~ .cdx-text-input__end-icon {
+				color: @color-base;
+			}
+		}
+
 		&:hover {
 			border-color: @border-color-input--hover;
+
+			~ .cdx-text-input__end-icon {
+				color: @color-base;
+			}
 		}
 
 		&:focus {
 			border-color: @border-color-base--focus;
 			box-shadow: @box-shadow-base--focus;
 			outline: 0;
-
-			& ~ .cdx-text-input__start-icon,
-			& ~ .cdx-text-input__end-icon {
-				opacity: @opacity-base;
-			}
 		}
 	}
 
@@ -339,12 +370,9 @@ export default defineComponent( {
 		// color contrast.
 		// text-shadow: @text-shadow-base--disabled;
 
-		& ~ .cdx-text-input__start-icon,
-		& ~ .cdx-text-input__end-icon {
-			// FIXME: Revisit the opacity value. Codex icons are happily
-			// applying color values, so we shouldn't need setting an opacity
-			// here.
-			// opacity: @opacity-base--disabled;
+		~ .cdx-text-input__start-icon,
+		~ .cdx-text-input__end-icon {
+			color: @color-base--disabled;
 			pointer-events: none;
 		}
 	}
@@ -383,4 +411,5 @@ export default defineComponent( {
 		}
 	}
 }
+
 </style>
