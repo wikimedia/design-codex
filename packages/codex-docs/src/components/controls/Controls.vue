@@ -47,7 +47,7 @@
 				</td>
 			</tr>
 
-			<tr>
+			<tr v-if="slotControls.length > 0">
 				<td class="cdx-docs-controls__section-header" colspan="2">
 					Slots
 				</td>
