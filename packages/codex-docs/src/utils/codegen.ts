@@ -36,8 +36,13 @@ export function generateVueTag( tagName: string, propValues: PropValues, slotVal
 	const hasNonDefaultSlot = Object.keys( slotValues )
 		.filter( ( slotName ) => slotName !== 'default' )
 		.length > 0;
-	const tagContents = hasNonDefaultSlot ? generateSlots( slotValues ) :
-		escapeHtml( slotValues.default ) || '';
+
+	let tagContents = '';
+	if ( hasNonDefaultSlot ) {
+		tagContents = generateSlots( slotValues );
+	} else if ( slotValues.default ) {
+		tagContents = escapeHtml( slotValues.default );
+	}
 
 	const openingTag = propString ? `<${tagName} ${propString}` : `<${tagName}`;
 	return tagContents ? `${openingTag}>${tagContents}</${tagName}>` : `${openingTag} />`;

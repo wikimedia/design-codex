@@ -1,4 +1,4 @@
-import { generateProps, generateSlots } from './codegen';
+import { generateProps, generateSlots, generateVueTag } from './codegen';
 
 describe( 'codegen', () => {
 	it( 'generates props', () => {
@@ -29,5 +29,10 @@ describe( 'codegen', () => {
 		const expectedString = '<template #first>random content</template>' +
 			'\n<template #second>other content</template>';
 		expect( generateSlots( slotValues ) ).toBe( expectedString );
+	} );
+
+	it( 'outputs self-closing tag when there are no slots', () => {
+		const expectedString = '<cdx-text-input />';
+		expect( generateVueTag( 'cdx-text-input', {}, {} ) ).toBe( expectedString );
 	} );
 } );
