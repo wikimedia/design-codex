@@ -13,7 +13,8 @@
 		"checkJs": true,
 		"noEmit": true,
 		"lib": [ "esnext", "dom" ],
-		"types": [ "jest" ]
+		"types": [ "jest" ],
+		"skipLibCheck": true
 	},
 	"include": [
 		"src/**/*.ts",

@@ -1,5 +1,4 @@
-import { mount, VueWrapper } from '@vue/test-utils';
-import { ComponentPublicInstance } from 'vue';
+import { mount } from '@vue/test-utils';
 import CdxSearchInput from './SearchInput.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
 
@@ -28,8 +27,7 @@ describe( 'matches the snapshot', () => {
 
 it( 'calls TextInput focus method', async () => {
 	const wrapper = mount( CdxSearchInput );
-	const textInput = wrapper.findComponent( CdxTextInput ) as
-		VueWrapper<ComponentPublicInstance<typeof CdxTextInput>>;
+	const textInput = wrapper.findComponent( CdxTextInput );
 	textInput.vm.focus = jest.fn();
 	await wrapper.vm.focus();
 	expect( textInput.vm.focus ).toHaveBeenCalled();

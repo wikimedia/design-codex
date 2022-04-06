@@ -1,6 +1,5 @@
 import { DOMWrapper, mount, VueWrapper } from '@vue/test-utils';
 import { CdxTypeaheadSearch, CdxMenuItem, CdxSearchInput } from '../../lib';
-import { ComponentPublicInstance } from 'vue';
 import { DebounceInterval } from '../../constants';
 
 const propsData = {
@@ -178,8 +177,7 @@ describe( 'TypeaheadSearch initial state', () => {
 				searchFooterText: searchFooterTextSlot
 			}
 		} );
-		const searchInput = wrapper.findComponent( CdxSearchInput ) as
-			VueWrapper<ComponentPublicInstance<typeof CdxSearchInput>>;
+		const searchInput = wrapper.findComponent( CdxSearchInput );
 		searchInput.vm.focus = jest.fn();
 		await wrapper.vm.focus();
 		expect( searchInput.vm.focus ).toHaveBeenCalled();
