@@ -218,7 +218,6 @@ export default defineComponent( {
 				left @transition-base;
 			// stylelint-enable value-list-comma-newline-after
 
-			// stylelint-disable-next-line max-nesting-depth
 			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 				top: @start-toggle-switch-grip;
 				left: @start-toggle-switch-grip;
@@ -248,7 +247,6 @@ export default defineComponent( {
 				left: @start-toggle-switch-grip--mobile + @size-toggle-switch-travel-distance;
 				border-color: @background-color-base;
 
-				// stylelint-disable-next-line max-nesting-depth
 				@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 					left: @start-toggle-switch-grip + @size-toggle-switch-travel-distance;
 				}
@@ -292,7 +290,6 @@ export default defineComponent( {
 					background-color: @background-color-input-binary--checked;
 					border-color: @border-color-input-binary--checked;
 
-					// stylelint-disable-next-line max-nesting-depth
 					.cdx-toggle-switch__switch__grip {
 						border-color: @background-color-base;
 					}
@@ -323,12 +320,10 @@ export default defineComponent( {
 					border-color: @border-color-progressive--active;
 					box-shadow: @box-shadow-base--active;
 
-					// stylelint-disable-next-line max-nesting-depth
 					&::before {
 						border-color: @border-color-progressive--active;
 					}
 
-					// stylelint-disable-next-line max-nesting-depth
 					.cdx-toggle-switch__switch__grip {
 						background-color: @background-color-base;
 						border-color: @background-color-base;
@@ -350,7 +345,6 @@ export default defineComponent( {
 				background-color: @background-color-filled--disabled;
 				border-color: @background-color-filled--disabled;
 
-				// stylelint-disable-next-line max-nesting-depth
 				.cdx-toggle-switch__switch__grip {
 					border: @border-filled--disabled;
 					box-shadow: @box-shadow-filled--disabled;

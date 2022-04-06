@@ -426,7 +426,6 @@ export default defineComponent( {
 		&--has-start-gradient {
 			position: relative;
 
-			// stylelint-disable-next-line max-nesting-depth
 			&::before {
 				content: '';
 			}
@@ -435,7 +434,6 @@ export default defineComponent( {
 		&--has-end-gradient {
 			position: relative;
 
-			// stylelint-disable-next-line max-nesting-depth
 			&::after {
 				content: '';
 			}

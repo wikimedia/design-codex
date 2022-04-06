@@ -715,7 +715,6 @@ export default defineComponent( {
 		&.cdx-typeahead-search--auto-expand-width.cdx-typeahead-search--active {
 			margin-left: 0;
 
-			// stylelint-disable-next-line max-nesting-depth
 			.cdx-text-input__input {
 				position: relative;
 
@@ -727,7 +726,6 @@ export default defineComponent( {
 				// stylelint-enable function-parentheses-newline-inside
 			}
 
-			// stylelint-disable-next-line max-nesting-depth
 			.cdx-text-input__start-icon {
 				// We use @border-width-base here since the input's start icon position
 				// is relative to the input's container (which is outside the input's
@@ -741,14 +739,12 @@ export default defineComponent( {
 			padding-right: @padding-horizontal-base;
 			padding-left: @spacing-start-typeahead-search-figure;
 
-			// stylelint-disable-next-line max-nesting-depth
 			&__icon {
 				// Prevent the icon container from shrinking when large text is present
 				flex-shrink: 0;
 				width: @size-search-figure;
 			}
 
-			// stylelint-disable-next-line max-nesting-depth
 			&__text,
 			&__query {
 				.hyphens();

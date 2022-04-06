@@ -18,7 +18,7 @@
 	"plugins": [ "stylelint-no-unsupported-browser-features", "stylelint-order" ],
 	"rules": {
 		"max-nesting-depth": [
-			2,
+			3,
 			{
 				"ignore": [ "pseudo-classes" ]
 			}
