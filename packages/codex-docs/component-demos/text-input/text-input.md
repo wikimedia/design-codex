@@ -1,6 +1,26 @@
 <script setup>
 import { cdxIconSearch, cdxIconInfoFilled } from '@wikimedia/codex-icons';
+import TextInputConfigurable from '@/../component-demos/text-input/examples/TextInputConfigurable.vue';
 import TextInputDemo from '@/../component-demos/text-input/examples/TextInputDemo.vue';
+
+const controlsConfig = [
+	{
+		name: 'startIcon',
+		type: 'boolean'
+	},
+	{
+		name: 'endIcon',
+		type: 'boolean'
+	},
+	{
+		name: 'clearable',
+		type: 'boolean'
+	},
+	{
+		name: 'disabled',
+		type: 'boolean'
+	}
+];
 </script>
 
 ::: tip Attributes passed to input
@@ -10,12 +30,20 @@ element within the component.
 
 ## Demos
 
-Open up the browser console to see events emitted on input, change, focus, and blur.
+### Configurable
+
+<cdx-demo-wrapper :controls-config="controlsConfig">
+<template v-slot:demo="{ propValues }">
+<text-input-configurable v-bind="propValues" />
+</template>
+</cdx-demo-wrapper>
 
 ### Default
 
 This simple example demonstrates how to bind a reactive reference to the input's value via
 `v-model`. The reactive reference will automatically update when the input value changes.
+
+Open up the browser console to see events emitted on input, change, focus, and blur.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
