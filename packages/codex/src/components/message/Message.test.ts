@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { Icon, cdxIconArticle } from '@wikimedia/codex-icons';
+import { Icon, cdxIconArticle, cdxIconCheck } from '@wikimedia/codex-icons';
 import { MessageType } from '../../types';
 import { MessageTypes } from '../../constants';
 import CdxMessage from './Message.vue';
@@ -41,4 +41,9 @@ it( 'handles dismissal', async () => {
 	await wrapper.get( 'button' ).trigger( 'click' );
 	expect( wrapper.emitted().dismissed ).toBeTruthy();
 	expect( wrapper.vm.dismissed ).toBeTruthy();
+} );
+
+it( 'does not allow custom icon for success type message', () => {
+	const wrapper = mount( CdxMessage, { props: { type: 'success', icon: cdxIconArticle } } );
+	expect( wrapper.vm.computedIcon ).toBe( cdxIconCheck );
 } );

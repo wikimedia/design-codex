@@ -1,27 +1,33 @@
 <template>
-	<div
-		v-if="!dismissed"
-		class="cdx-message"
-		:class="rootClasses"
-		:aria-live="type !== 'error' ? 'polite' : undefined"
-		:role="type === 'error' ? 'alert' : undefined"
+	<Transition
+		name="cdx-message"
+		:appear="fadeIn"
 	>
-		<cdx-icon class="cdx-message__icon" :icon="computedIcon" />
-
-		<div class="cdx-message__content">
-			<slot />
-		</div>
-
-		<cdx-button
-			v-if="dismissable"
-			class="cdx-message__dismiss"
-			type="quiet"
-			:aria-label="dismissButtonLabel"
-			@click="onDismiss"
+		<div
+			v-if="!dismissed"
+			class="cdx-message"
+			:class="rootClasses"
+			:aria-live="type !== 'error' ? 'polite' : undefined"
+			:role="type === 'error' ? 'alert' : undefined"
 		>
-			<cdx-icon :icon="cdxIconClose" :icon-label="dismissButtonLabel" />
-		</cdx-button>
-	</div>
+			<cdx-icon class="cdx-message__icon" :icon="computedIcon" />
+
+			<div class="cdx-message__content">
+				<!-- @slot Message content. -->
+				<slot />
+			</div>
+
+			<cdx-button
+				v-if="dismissable"
+				class="cdx-message__dismiss"
+				type="quiet"
+				:aria-label="dismissButtonLabel"
+				@click="onDismiss"
+			>
+				<cdx-icon :icon="cdxIconClose" :icon-label="dismissButtonLabel" />
+			</cdx-button>
+		</div>
+	</Transition>
 </template>
 
 <script lang="ts">
@@ -56,7 +62,7 @@ const iconMap: MessageIconMap = {
  * success). Messages are block style by default, but can be displayed as inline messages via the
  * `inline` prop.
  *
- * Block-style notice messages can be made dismissable by supplying a `dismissButtonLabel` prop.
+ * Block-style messages can be made dismissable by supplying a `dismissButtonLabel` prop.
  */
 export default defineComponent( {
 	name: 'CdxMessage',
@@ -74,8 +80,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Whether this message follows the inline design (no padding,
-		 * background color, or border).
+		 * Whether this message follows the inline design (no padding, background color, or border).
 		 */
 		inline: {
 			type: Boolean,
@@ -83,11 +88,10 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Label text for the dismiss button for notice messages.
+		 * Label text for the dismiss button for dismissable messages.
 		 *
-		 * For notice messages, an icon-only button can be displayed that will
-		 * hide the message on click. This prop is for the hidden button label
-		 * required for accessibility.
+		 * An icon-only button will be displayed that will hide the message on click. This prop is
+		 * for the hidden button label required for screen reader accessibility.
 		 */
 		dismissButtonLabel: {
 			type: String,
@@ -95,11 +99,20 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Custom message icon.
+		 * Custom message icon. Only allowed for notice messages.
 		 */
 		icon: {
 			type: [ String, Object ] as PropType<Icon>,
 			default: null
+		},
+
+		/**
+		 * Whether the message should fade in. Should be used for messages that are dynamically
+		 * displayed, not present on page load.
+		 */
+		fadeIn: {
+			type: Boolean,
+			default: false
 		}
 	},
 	emits: [
@@ -111,7 +124,6 @@ export default defineComponent( {
 	setup( props, { emit } ) {
 		const dismissed = ref( false );
 		const dismissable = computed( () =>
-			props.type === 'notice' &&
 			props.inline === false &&
 			props.dismissButtonLabel.length > 0
 		);
@@ -125,7 +137,10 @@ export default defineComponent( {
 			};
 		} );
 
-		const computedIcon = computed( () => props.icon || iconMap[ props.type ] );
+		// For notice messages, use a custom icon if provided. Otherwise, use the default icon.
+		const computedIcon = computed( () =>
+			props.icon && props.type === 'notice' ? props.icon : iconMap[ props.type ]
+		);
 
 		/**
 		 * Handle user dismissal of message.
@@ -151,12 +166,14 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import '../../themes/mixins/common.less';
 
 // TODO: add component-level design tokens.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @size-icon-relative: unit( ( 20 / @font-size-browser / @font-size-base ), em );
-@offset-message-dismiss: unit( ( 8 / 14 ), em);
+@offset-top-message-dismiss: unit( ( 8 / @font-size-browser / @font-size-base ), em);
+@offset-right-message-dismiss: unit( ( 16 / @font-size-browser / @font-size-base ), em);
 @padding-vertical-message-block: 16px;
 @padding-horizontal-message-block: 24px;
 @margin-top-message: 8px;
@@ -228,14 +245,16 @@ export default defineComponent( {
 	}
 
 	&__content {
+		.hyphens();
+		flex-grow: 1;
 		// Add space between icon and message content.
 		margin-left: @margin-left-message-content;
 	}
 
 	&__dismiss {
 		position: absolute;
-		top: @offset-message-dismiss;
-		right: @offset-message-dismiss;
+		top: @offset-top-message-dismiss;
+		right: @offset-right-message-dismiss;
 		// Make this icon-only button appear square (e.g. on focus).
 		padding: 5px;
 	}
@@ -243,6 +262,16 @@ export default defineComponent( {
 	// Add space between stacked messages.
 	& + .cdx-message {
 		margin-top: @margin-top-message;
+	}
+
+	&-enter-active,
+	&-leave-active {
+		transition: opacity @transition-ease-out-medium;
+	}
+
+	&-enter-from,
+	&-leave-to {
+		opacity: @opacity-0;
 	}
 }
 </style>
