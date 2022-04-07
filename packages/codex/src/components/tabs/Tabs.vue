@@ -399,6 +399,7 @@ export default defineComponent( {
 @background-color-tabs-label-framed--hover: rgba( 255, 255, 255, 0.3 );
 @background-color-tabs-label-framed--active: rgba( 255, 255, 255, 0.8 );
 @box-shadow-tabs-label-framed: inset 0 0 0 @border-width-tabs-label @border-color-progressive;
+@text-decoration-none: none;
 
 // Derived values
 @margin-offset-tabs-frameless: @border-width-base + @border-width-tabs-label;
@@ -459,23 +460,20 @@ export default defineComponent( {
 			margin: @margin-tabs;
 			transition-property: @transition-property-base;
 			transition-duration: @transition-duration-base;
-		}
 
-		&__item a {
-			.link-unset();
-			.text-overflow( @visible: false );
-			display: block;
-			max-width: @max-width-tabs-label;
-			padding: @padding-tabs;
-			font-weight: @font-weight-bold;
-
-			&:focus {
-				outline: @outline-base--focus;
+			// By default the `a` element.
+			[ role='tab' ] {
+				display: block;
+				max-width: @max-width-tabs-label;
+				padding: @padding-tabs;
+				font-weight: @font-weight-bold;
+				text-decoration: @text-decoration-none;
+				.text-overflow( @visible: false );
 			}
 		}
 	}
 
-	// Framed header styles
+	// Framed Tabs
 	&--framed > &__header {
 		background-color: @background-color-tabs-framed;
 
@@ -494,49 +492,65 @@ export default defineComponent( {
 				right
 			);
 		}
-	}
 
-	// Framed label styles
-	&--framed > &__header &__list__item {
-		&--enabled a {
-			border-top-left-radius: @border-radius-base;
-			border-top-right-radius: @border-radius-base;
-			overflow: hidden; // needed to clip link bg color to border radius
-
-			&:hover {
-				background-color: @background-color-tabs-label-framed--hover;
+		// Framed Tab item
+		.cdx-tabs__list__item {
+			&:last-child [ role='tab' ] {
+				margin-right: @margin-base-tabs;
 			}
 
-			&:active {
-				background-color: @background-color-tabs-label-framed--active;
+			&--enabled {
+				// By default the `a` element.
+				// stylelint-disable max-nesting-depth
+				[ role='tab' ] {
+					border-top-left-radius: @border-radius-base;
+					border-top-right-radius: @border-radius-base;
+					// Clip Tab item link background color to border-radius.
+					overflow: hidden;
+
+					&:link,
+					&:visited {
+						color: @color-base;
+					}
+
+					&:hover {
+						background-color: @background-color-tabs-label-framed--hover;
+						color: @color-base;
+					}
+
+					&:active {
+						background-color: @background-color-tabs-label-framed--active;
+						color: @color-base;
+					}
+
+					&:focus {
+						outline: @outline-base--focus;
+					}
+				}
+
+				&.cdx-tabs__list__item--selected [ role='tab' ],
+				&.cdx-tabs__list__item--selected [ role='tab' ]:hover {
+					background-color: @background-color-base;
+				}
+				// stylelint-enable max-nesting-depth
+			}
+
+			&--disabled [ role='tab' ] {
+				background-color: @background-color-tabs-framed;
+				color: @color-base--disabled;
+				cursor: @cursor-base--disabled;
 			}
 		}
 
-		&:last-child a {
-			margin-right: @margin-base-tabs;
-		}
-
-		&--selected a,
-		&--selected a:hover {
-			background-color: @background-color-base;
-		}
-
-		&--disabled a,
-		&--disabled a:hover {
-			background-color: @background-color-tabs-framed;
-			color: @color-base--disabled;
-			cursor: @cursor-base--disabled;
+		// Framed keyboard nav indicator on Tabs header focus.
+		&:focus .cdx-tabs__list__item--selected {
+			[ role='tab' ] {
+				box-shadow: @box-shadow-tabs-label-framed;
+			}
 		}
 	}
 
-	// Framed keyboard nav indicator styles
-	&--framed > &__header:focus &__list__item--selected {
-		a {
-			box-shadow: @box-shadow-tabs-label-framed;
-		}
-	}
-
-	// Frameless header styles
+	// Frameless Tabs
 	&:not( &--framed ) > &__header {
 		background-color: @background-color-base;
 		border-bottom: @border-base;
@@ -556,61 +570,86 @@ export default defineComponent( {
 				right
 			);
 		}
-	}
 
-	// Frameless label styles
-	&:not( &--framed ) > &__header &__list__item {
-		// The Frameless tab style relies on some border styling (one for the
-		// header row and another for individual tab elements to indicate when
-		// they are active, selected, hovered, etc. The total width of the
-		// borders is 3px (1px for header border, 2px for item border).
-		// To ensure final height of frameless tab header element matches that
-		// of the framed version, we need to apply an offest equal to this value
-		// which is being done here. The offset value is derived from the two
-		// border width amounts (see top of the style block in this file).
-		margin-top: @margin-base-tabs - @margin-offset-tabs-frameless;
-		border-bottom: @border-width-tabs-label @border-style-base @border-color-transparent;
+		// Frameless Tab item
+		.cdx-tabs__list__item {
+			// The Frameless Tab style relies on some border styling (one for the
+			// header row and another for individual tab elements to indicate when
+			// they are active, selected, hovered, etc. The total width of the
+			// borders is 3px (1px for header border, 2px for item border).
+			// To ensure final height of frameless tab header element matches that
+			// of the framed version, we need to apply an offset equal to this value
+			// which is being done here. The offset value is derived from the two
+			// border width amounts (see top of the style block in this file).
+			margin-top: @margin-base-tabs - @margin-offset-tabs-frameless;
+			// `border-bottom-color` is `transparent` for both, enabled and
+			// disabled Tabs.
+			border-bottom: @border-width-tabs-label @border-style-base @border-color-transparent;
 
-		&:first-of-type {
-			margin-left: 0;
-		}
-
-		&:last-of-type {
-			margin-right: 0;
-		}
-
-		&--enabled {
-			&:hover {
-				color: @color-progressive--hover;
-				border-color: @border-color-progressive--hover;
+			&:first-of-type {
+				margin-left: 0;
 			}
 
-			&:active {
-				color: @color-progressive--active;
-				border-color: @border-color-progressive--active;
+			&:last-of-type {
+				margin-right: 0;
+			}
+
+			&--enabled {
+				&,
+				&.cdx-tabs__list__item-selected {
+					&:hover {
+						border-bottom-color: @border-color-progressive--hover;
+					}
+
+					&:active {
+						border-bottom-color: @border-color-progressive--active;
+					}
+
+					// By default the `a` element.
+					/* stylelint-disable max-nesting-depth */
+					[ role='tab' ] {
+						color: @color-base;
+
+						&:hover {
+							color: @color-progressive--hover;
+						}
+
+						&:active {
+							color: @color-progressive--active;
+						}
+
+						&:focus {
+							outline: @outline-base--focus;
+						}
+					}
+					/* stylelint-enable max-nesting-depth */
+				}
+
+				&.cdx-tabs__list__item--selected {
+					border-color: @border-color-progressive;
+
+					/* stylelint-disable-next-line max-nesting-depth */
+					[ role='tab' ] {
+						color: @color-progressive;
+					}
+				}
+			}
+
+			&--disabled {
+				color: @color-base--disabled;
+
+				[ role='tab' ] {
+					color: @color-base--disabled;
+					cursor: @cursor-base--disabled;
+				}
 			}
 		}
 
-		&--selected {
-			color: @color-progressive;
-			border-color: @border-color-progressive;
+		// Frameless keyboard nav indicator on Tabs header focus.
+		&:focus .cdx-tabs__list__item--selected {
+			outline: solid @border-width-tabs-label @border-color-progressive;
+			outline-offset: -@border-width-tabs-label;
 		}
-
-		&--disabled,
-		&--disabled:hover {
-			color: @color-base--disabled;
-			border-color: @border-color-transparent;
-
-			a {
-				cursor: @cursor-base--disabled;
-			}
-		}
-	}
-
-	// Frameless keyboard nav indicator styles
-	&:not( &--framed ) > &__header:focus &__list__item--selected {
-		outline: solid @border-width-tabs-label @border-color-progressive;
-		outline-offset: -@border-width-tabs-label;
 	}
 }
 </style>
