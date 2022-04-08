@@ -156,9 +156,21 @@ Notice message with custom icon
 </template>
 </cdx-demo-wrapper>
 
-<style scoped>
-.cdx-demo-wrapper :deep( p ) {
-	margin: 0;
-	line-height: 1.4;
+<style lang="less" scoped>
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
+.cdx-demo-wrapper {
+	:deep( p ) {
+		margin: 0;
+		line-height: 1.4;
+	}
+
+	:deep( a ) {
+		color: @color-primary;
+	}
+
+	:deep( a:hover ) {
+		text-decoration: underline;
+	}
 }
 </style>
