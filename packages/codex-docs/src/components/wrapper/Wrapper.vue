@@ -478,8 +478,7 @@ export default defineComponent( {
 
 		// TODO: We need to unset all global styles inside this element to keep them from
 		// polluting component demos. For now, manually undo styles that are causing issues.
-		// stylelint-disable-next-line selector-class-pattern
-		.cdx-menu-item a {
+		a {
 			color: inherit;
 
 			&:hover {
