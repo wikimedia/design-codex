@@ -1,14 +1,16 @@
 <template>
-	<div class="cdx-docs-message-fade-in">
+	<div class="cdx-docs-message-auto-dismiss">
 		<cdx-button :disabled="showMessage" @click="showMessage = true">
 			Show message
 		</cdx-button>
 		<cdx-message
 			v-if="showMessage"
-			type="warning"
+			type="success"
 			:fade-in="true"
+			:auto-dismiss="true"
+			:display-time="3000"
 		>
-			<p><strong>Warning!</strong> Here's some information you should know.</p>
+			Success! This message will disappear...
 		</cdx-message>
 	</div>
 </template>
@@ -18,7 +20,7 @@ import { defineComponent } from 'vue';
 import { CdxMessage, CdxButton } from '@wikimedia/codex';
 
 export default defineComponent( {
-	name: 'MessageFadeIn',
+	name: 'MessageAutoDismiss',
 	components: { CdxMessage, CdxButton },
 	data() {
 		return {
@@ -29,12 +31,12 @@ export default defineComponent( {
 </script>
 
 <style lang="less" scoped>
-.cdx-docs-message-fade-in {
-	min-height: 130px;
+.cdx-docs-message-auto-dismiss {
+	min-height: 112px;
 
 	// stylelint-disable-next-line selector-class-pattern
-	.cdx-message {
-		margin-top: 16px;
+	.cdx-button {
+		margin-bottom: 16px;
 	}
 }
 </style>

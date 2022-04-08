@@ -2,6 +2,8 @@
 import { CdxMessage } from '@wikimedia/codex';
 import { cdxIconArticle } from '@wikimedia/codex-icons';
 import MessageFadeIn from './../../component-demos/message/examples/MessageFadeIn.vue';
+import MessageUserDismiss from './../../component-demos/message/examples/MessageUserDismiss.vue';
+import MessageAutoDismiss from './../../component-demos/message/examples/MessageAutoDismiss.vue';
 
 const controlsConfig = [
 	{
@@ -36,22 +38,67 @@ const controlsConfig = [
 </template>
 </cdx-demo-wrapper>
 
+### Fade in
+
+When a message is dynamically added to the UI, use the `fadeIn` prop to enable a transition.
+
+<cdx-demo-wrapper force-reset="true">
+<template v-slot:demo>
+<MessageFadeIn />
+</template>
+
+<template v-slot:code>
+
+<!-- Note that this code is a simplified version of the MessageFadeIn component. CSS classes and
+styles specific to the demo have been removed to avoid confusion. -->
+
+```vue
+<template>
+	<cdx-button :disabled="showMessage" @click="showMessage = true">
+		Show message
+	</cdx-button>
+	<cdx-message
+		v-if="showMessage"
+		type="warning"
+		:fade-in="true"
+	>
+		<p><strong>Warning!</strong> Here's some information you should know.</p>
+	</cdx-message>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { CdxMessage, CdxButton } from '@wikimedia/codex';
+
+export default defineComponent( {
+	name: 'MessageFadeIn',
+	components: { CdxMessage, CdxButton },
+	data() {
+		return {
+			showMessage: false
+		};
+	}
+} );
+</script>
+```
+
+</template>
+</cdx-demo-wrapper>
+
 ### Dismiss button
 
 Messages can be made dismissable by supplying a semantic label for the dismiss button via the
 `dismissButtonLabel` prop. This label will be visually hidden but accessible to screen readers.
 
-When the dismiss button is clicked, the Message component hides itself, and a 'dismissed' event is
-emitted to the parent component in case the parent component needs to react to the message dismissal
-in some way.
+When the dismiss button is clicked, the Message component hides itself, and a 'user-dismissed' event
+is emitted to the parent component in case the parent component needs to react to the message
+dismissal in some way.
 
 Note that inline messages cannot be dismissable.
 
 <cdx-demo-wrapper force-reset="true">
 <template v-slot:demo>
-<div style="min-height: 64px;">
-<cdx-message dismiss-button-label="Close">Notice message with dismiss button</cdx-message>
-</div>
+<MessageUserDismiss />
 </template>
 
 <template v-slot:code>
@@ -65,28 +112,40 @@ Note that inline messages cannot be dismissable.
 </template>
 </cdx-demo-wrapper>
 
-### Fade in
+### Auto-dismiss
 
-When a message is dynamically added to the UI, use the `fadeIn` prop to enable a transition.
+The `autoDismiss` prop can be used to automatically remove the message after a period of time.
+Set this prop to `true` to use the default display time of 4000 milliseconds (4 seconds). To
+customize the display time, set the `autoDismiss` prop to a number of milliseconds.
+
+This feature should only be used for very short messages to ensure that can be read and understand
+before disappearing. When in doubt, do not use auto-dismiss.
+
+Auto-dismiss can be used with or without the manual dismiss button.
 
 <cdx-demo-wrapper force-reset="true">
 <template v-slot:demo>
-<MessageFadeIn />
+<MessageAutoDismiss />
 </template>
 
 <template v-slot:code>
 
+<!-- Note that this code is a simplified version of the MessageAutoDismiss component. CSS classes
+and styles specific to the demo, the "reset" tip, and the logic for showing that tip have been
+removed to avoid confusion. -->
 ```vue
 <template>
-	<cdx-button @click="showMessage = true">
+	<cdx-button :disabled="showMessage" @click="showMessage = true">
 		Show message
 	</cdx-button>
 	<cdx-message
 		v-if="showMessage"
 		type="success"
 		:fade-in="true"
+		:auto-dismiss="true"
+		:display-time="3000"
 	>
-		Success!
+		Success! This message will disappear...
 	</cdx-message>
 </template>
 
@@ -95,7 +154,7 @@ import { defineComponent } from 'vue';
 import { CdxMessage, CdxButton } from '@wikimedia/codex';
 
 export default defineComponent( {
-	name: 'MenuItemDefault',
+	name: 'MessageAutoDismiss',
 	components: { CdxMessage, CdxButton },
 	data() {
 		return {

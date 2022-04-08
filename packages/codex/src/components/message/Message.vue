@@ -2,6 +2,7 @@
 	<Transition
 		name="cdx-message"
 		:appear="fadeIn"
+		:leave-active-class="leaveActiveClass"
 	>
 		<div
 			v-if="!dismissed"
@@ -18,11 +19,11 @@
 			</div>
 
 			<cdx-button
-				v-if="dismissable"
-				class="cdx-message__dismiss"
+				v-if="userDismissable"
+				class="cdx-message__dismiss-button"
 				type="quiet"
 				:aria-label="dismissButtonLabel"
-				@click="onDismiss"
+				@click="onDismiss( 'user-dismissed' )"
 			>
 				<cdx-icon :icon="cdxIconClose" :icon-label="dismissButtonLabel" />
 			</cdx-button>
@@ -31,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref, computed } from 'vue';
+import { defineComponent, PropType, ref, computed, onMounted } from 'vue';
 import {
 	cdxIconInfoFilled,
 	cdxIconError,
@@ -62,7 +63,11 @@ const iconMap: MessageIconMap = {
  * success). Messages are block style by default, but can be displayed as inline messages via the
  * `inline` prop.
  *
- * Block-style messages can be made dismissable by supplying a `dismissButtonLabel` prop.
+ * Block-style messages can be made dismissable in the following ways:
+ * - By using the `dismissButtonLabel` prop, which adds a dismiss button
+ * - By using the `autoDismiss` prop. This can be set to `true` to use the default display time of
+ *   4000 milliseconds (4 seconds), or the display time can be customized by setting `autoDismiss`
+ *   to a number of milliseconds.
  */
 export default defineComponent( {
 	name: 'CdxMessage',
@@ -88,17 +93,6 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Label text for the dismiss button for dismissable messages.
-		 *
-		 * An icon-only button will be displayed that will hide the message on click. This prop is
-		 * for the hidden button label required for screen reader accessibility.
-		 */
-		dismissButtonLabel: {
-			type: String,
-			default: ''
-		},
-
-		/**
 		 * Custom message icon. Only allowed for notice messages.
 		 */
 		icon: {
@@ -113,26 +107,70 @@ export default defineComponent( {
 		fadeIn: {
 			type: Boolean,
 			default: false
+		},
+
+		/**
+		 * Label text for the dismiss button for user-dismissable messages.
+		 *
+		 * An icon-only button will be displayed that will hide the message on click. This prop is
+		 * for the hidden button label required for screen reader accessibility and tooltip text.
+		 */
+		dismissButtonLabel: {
+			type: String,
+			default: ''
+		},
+
+		/**
+		 * Enable automatic dismissal of message after a period of time.
+		 *
+		 * This prop can be set to `true` to use the default display time of 4000 milliseconds. To
+		 * customize the display time, set this prop to a number of milliseconds.
+		 *
+		 * TODO: consider adding a stricter validator to set limits on this. If the time is too
+		 * short, the message may not be readable. If the time is too long, the message probably
+		 * shouldn't be auto-dismissed.
+		 */
+		autoDismiss: {
+			type: [ Boolean, Number ],
+			default: false,
+			validator: ( value: unknown ) =>
+				typeof value === 'boolean' ||
+				( typeof value === 'number' && value > 0 )
 		}
 	},
 	emits: [
 		/**
-		 * Emitted when the message is dismissed by the user.
+		 * Emitted when the message is dismissed by the user via the dismiss button.
 		 */
-		'dismissed'
+		'user-dismissed',
+		/**
+		 * Emitted when the message is automatically dismissed after the display time.
+		 */
+		'auto-dismissed'
 	],
 	setup( props, { emit } ) {
 		const dismissed = ref( false );
-		const dismissable = computed( () =>
+		const userDismissable = computed( () =>
 			props.inline === false &&
 			props.dismissButtonLabel.length > 0
 		);
+
+		const displayTime = computed( () => {
+			if ( props.autoDismiss === false ) {
+				return false;
+			} else if ( props.autoDismiss === true ) {
+				// Return default delay time of 4000 milliseconds.
+				return 4000;
+			}
+			// Return custom delay time.
+			return props.autoDismiss;
+		} );
 
 		const rootClasses = computed( (): Record<string, boolean> => {
 			return {
 				'cdx-message--inline': props.inline,
 				'cdx-message--block': !props.inline,
-				'cdx-message--dismissable': dismissable.value,
+				'cdx-message--user-dismissable': userDismissable.value,
 				[ `cdx-message--${props.type}` ]: true
 			};
 		} );
@@ -142,20 +180,47 @@ export default defineComponent( {
 			props.icon && props.type === 'notice' ? props.icon : iconMap[ props.type ]
 		);
 
+		// Custom class for the leave-active transition. Will be set on dismissal.
+		const leaveActiveClass = ref( '' );
+
 		/**
-		 * Handle user dismissal of message.
+		 * Dismiss the message and emit an event.
+		 *
+		 * @param eventName Name of the event to be emitted.
 		 */
-		function onDismiss() {
-			// Remove this component from the DOM via the v-if statement on the root element.
+		function onDismiss( eventName: 'user-dismissed' | 'auto-dismissed' ) {
+			if ( dismissed.value ) {
+				// Message has already been dismissed, so do not emit another event. This prevents
+				// a race condition when the user dismisses an auto-dismissable message before the
+				// display time elapses.
+				return;
+			}
+
+			// Set the leave-active class name so we can customize the transition depending on how
+			// the message was dismissed.
+			leaveActiveClass.value = eventName === 'user-dismissed' ?
+				'cdx-message-leave-active-user' :
+				'cdx-message-leave-active-system';
+
+			// Remove the component from the DOM via the v-if statement on the root element.
 			dismissed.value = true;
+
 			// Emit an event in case the parent component needs to take action on dismissal.
-			emit( 'dismissed' );
+			emit( eventName );
 		}
+
+		onMounted( () => {
+			// If auto-dismiss is enabled, set a timer to remove the message after the display time.
+			if ( displayTime.value ) {
+				setTimeout( () => onDismiss( 'auto-dismissed' ), displayTime.value );
+			}
+		} );
 
 		return {
 			dismissed,
-			dismissable,
+			userDismissable,
 			rootClasses,
+			leaveActiveClass,
 			computedIcon,
 			onDismiss,
 			cdxIconClose
@@ -240,7 +305,7 @@ export default defineComponent( {
 		}
 	}
 
-	&--dismissable {
+	&--user-dismissable {
 		padding-right: @min-size-base + @padding-horizontal-message-block-mobile;
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
@@ -262,7 +327,7 @@ export default defineComponent( {
 		margin-left: @margin-left-message-content;
 	}
 
-	&__dismiss {
+	&__dismiss-button {
 		position: absolute;
 		top: @offset-top-message-dismiss;
 		right: @offset-right-message-dismiss-mobile;
@@ -279,12 +344,14 @@ export default defineComponent( {
 		margin-top: @margin-top-message;
 	}
 
-	&-enter-active {
+	// Fade-in and auto-dismissal use the system transition timing function.
+	&-enter-active,
+	&-leave-active-system {
 		transition: opacity @transition-timing-function-system @transition-duration-medium;
 	}
 
 	// User dismissal uses the human initiated transition timing function.
-	&-leave-active {
+	&-leave-active-user {
 		transition: opacity @transition-timing-function-user @transition-duration-medium;
 	}
 

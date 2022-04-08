@@ -256,7 +256,7 @@ exports[`matches the snapshot Case 6 Dismissable: ({"dismissButtonLabel": "Close
 <transition-stub>
   <div
     aria-live="polite"
-    class="cdx-message cdx-message--block cdx-message--dismissable cdx-message--notice"
+    class="cdx-message cdx-message--block cdx-message--user-dismissable cdx-message--notice"
   >
     <span
       class="cdx-icon cdx-message__icon"
@@ -291,7 +291,7 @@ exports[`matches the snapshot Case 6 Dismissable: ({"dismissButtonLabel": "Close
     </div>
     <button
       aria-label="Close"
-      class="cdx-button cdx-button--action-default cdx-button--type-quiet cdx-message__dismiss"
+      class="cdx-button cdx-button--action-default cdx-button--type-quiet cdx-message__dismiss-button"
     >
       <!-- @slot Button content -->
       
