@@ -174,8 +174,10 @@ export default defineComponent( {
 @size-icon-relative: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 @offset-top-message-dismiss: unit( ( 8 / @font-size-browser / @font-size-base ), em);
 @offset-right-message-dismiss: unit( ( 16 / @font-size-browser / @font-size-base ), em);
+@offset-right-message-dismiss-mobile: unit( ( 8 / @font-size-browser / @font-size-base ), em);
 @padding-vertical-message-block: 16px;
 @padding-horizontal-message-block: 24px;
+@padding-horizontal-message-block-mobile: 16px;
 @margin-top-message: 8px;
 @margin-left-message-content: unit( ( 8 / @font-size-browser / @font-size-base ), em );
 
@@ -210,7 +212,12 @@ export default defineComponent( {
 	}
 
 	&--block {
-		padding: @padding-vertical-message-block @padding-horizontal-message-block;
+		padding: @padding-vertical-message-block @padding-horizontal-message-block-mobile;
+
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			padding-right: @padding-horizontal-message-block;
+			padding-left: @padding-horizontal-message-block;
+		}
 
 		&.cdx-message--notice {
 			background-color: @background-color-message-notice;
@@ -234,7 +241,11 @@ export default defineComponent( {
 	}
 
 	&--dismissable {
-		padding-right: @min-size-base + @padding-horizontal-message-block;
+		padding-right: @min-size-base + @padding-horizontal-message-block-mobile;
+
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			padding-right: @min-size-base + @padding-horizontal-message-block;
+		}
 	}
 
 	// Icons must scale with font size to maintain vertical alignment with the
@@ -254,9 +265,13 @@ export default defineComponent( {
 	&__dismiss {
 		position: absolute;
 		top: @offset-top-message-dismiss;
-		right: @offset-right-message-dismiss;
+		right: @offset-right-message-dismiss-mobile;
 		// Make this icon-only button appear square (e.g. on focus).
 		padding: 5px;
+
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			right: @offset-right-message-dismiss;
+		}
 	}
 
 	// Add space between stacked messages.
@@ -264,9 +279,13 @@ export default defineComponent( {
 		margin-top: @margin-top-message;
 	}
 
-	&-enter-active,
+	&-enter-active {
+		transition: opacity @transition-timing-function-system @transition-duration-medium;
+	}
+
+	// User dismissal uses the human transition timing function.
 	&-leave-active {
-		transition: opacity @transition-ease-out-medium;
+		transition: opacity @transition-timing-function-human @transition-duration-medium;
 	}
 
 	&-enter-from,
