@@ -142,17 +142,30 @@ via the `<style>` tag. Codex design tokens are imported as Less variables from t
 
 #### Conventions
 
-- If a component uses a value not represented in Wikimedia UI Base multiple times, add a
+**Tokens**
+- If a component uses a value not represented by a Codex token yet, add a
   component-level Less variable in the `<style>` tag before the first selector.
+- Tokens should follow [naming patterns established for MediaWiki](https://www.mediawiki.org/wiki/Manual:Coding_conventions/CSS#Variable_naming)
+
+**Selectors and structure**
 - A light version of [BEM](http://getbem.com/) is used for class naming structure:
   - The root element will have the class `.cdx-component-name`
   - A block within that root element would have the class `.cdx-component-name__block-name`
   - A variation of that block would have the class `.cdx-component-name__block-name--modifier-name`
-- There is no need to go deeper than 2 block levels in a class name; class names of further
-  sub-elements can omit some of the blocks for the sake of brevity.
+  - There is no need to go deeper than 2 block levels in a class name; class names of further
+    sub-elements can omit some of the blocks for the sake of brevity.
+- If a style or selector isn't self-explanatory, add a comment above it.
 - Avoid HTML element selectors. The style rulesets should aim to be independent from specific
   element choices, which may change.
-- If a style or selector isn't self-explanatory, add a comment above it.
+- Styles specific to a component's enabled or disabled state should be contained in a selector
+  specific to that state. This structure allows us to avoid overriding enabled styles for the
+  disabled state.
+  - The pseudo-classes `&:enabled` and `&:disabled` can be used when available, otherwise
+    `&--enabled` and `&--disabled` classes should be added (e.g. `.cdx-menu-item--enabled`)
+  - The stylelint `no-descending-specificity` rule can be disabled to maintain this structure (see
+    sample code below).
+
+**Linting**
 - Codex uses [stylelint-order](https://github.com/hudochenkov/stylelint-order/) to order CSS/Less
   rules
 - Stylelint rules can be disabled with a valid explanation included as a comment.
@@ -177,6 +190,23 @@ Below are some sample styles for a component to demonstrate these conventions:
 		// Avoid line break between icon and label text.
 		white-space: nowrap;
 	}
+
+	&__input {
+		&:enabled {
+			// Only enabled radios should have this hover style.
+			&:hover + .cdx-radio__icon {
+				border-color: @border-color-input-binary--hover;
+			}
+		}
+
+		/* stylelint-disable no-descending-specificity */
+		&:disabled {
+			// Only disabled radios should have a gray label.
+			& ~ .cdx-radio__label-content {
+				color: @color-base--disabled;
+			}
+		}
+		/* stylelint-enable no-descending-specificity */
 }
 </style>
 ```
