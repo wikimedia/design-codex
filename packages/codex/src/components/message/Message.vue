@@ -271,7 +271,7 @@ export default defineComponent( {
 
 	&-enter-from,
 	&-leave-to {
-		opacity: @opacity-0;
+		opacity: @opacity-transparent;
 	}
 }
 </style>
