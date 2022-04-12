@@ -458,7 +458,7 @@ export default defineComponent( {
 			flex: 0 0 auto;
 			margin: @margin-tabs;
 			transition-property: @transition-property-base;
-			transition-duration: @transition-base;
+			transition-duration: @transition-duration-base;
 		}
 
 		&__item a {

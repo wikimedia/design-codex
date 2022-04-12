@@ -247,7 +247,7 @@ export default defineComponent( {
 			@padding-horizontal-base;
 		line-height: @line-height-component;
 		transition-property: @transition-property-base;
-		transition-duration: @transition-base;
+		transition-duration: @transition-duration-base;
 
 		&--has-icon {
 			padding-left: ( @padding-horizontal-base * 2 ) + @size-icon;
