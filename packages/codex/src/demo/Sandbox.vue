@@ -113,6 +113,29 @@
 						</tbody>
 					</table>
 				</cdx-tab>
+				<cdx-tab name="toggles">
+					<h2>ToggleButton and ToggleSwitch</h2>
+					<cdx-toggle-button v-model="toggleValue">
+						<cdx-icon :icon="toggleButtonIcon" />
+						{{ toggleButtonLabel }}
+					</cdx-toggle-button>
+
+					<p>
+						Playing:
+						<cdx-toggle-switch v-model="toggleValue" />
+					</p>
+				</cdx-tab>
+				<cdx-tab name="message">
+					<h2>Message</h2>
+					<cdx-message
+						v-for="type in MessageTypes"
+						:key="type"
+						:type="type"
+						dismiss-button-label="Dismiss"
+					>
+						{{ type }}
+					</cdx-message>
+				</cdx-tab>
 				<cdx-tab
 					name="Disabled"
 					:disabled="true"
@@ -148,18 +171,21 @@ import {
 	CdxCheckbox,
 	CdxCombobox,
 	CdxIcon,
+	CdxMessage,
 	CdxRadio,
 	CdxSelect,
 	CdxTab,
 	CdxTabs,
 	CdxTextInput,
+	CdxToggleButton,
+	CdxToggleSwitch,
 	HTMLDirection,
 	MenuItemData
 } from '../lib';
 
-import { cdxIconArrowNext, cdxIconBold, cdxIconTrash } from '@wikimedia/codex-icons';
-import { ButtonActions, ButtonTypes } from '../constants';
-import { ref } from 'vue';
+import { cdxIconArrowNext, cdxIconBold, cdxIconPause, cdxIconPlay, cdxIconTrash } from '@wikimedia/codex-icons';
+import { ButtonActions, ButtonTypes, MessageTypes } from '../constants';
+import { computed, ref } from 'vue';
 import DirectionSwitcher from './DirectionSwitcher.vue';
 
 const activeTab = ref( 'combobox' );
@@ -179,6 +205,10 @@ const options: MenuItemData[] = [
 const dir = ref<HTMLDirection>( 'ltr' );
 const selection = ref<string>();
 const multiSelection = ref<string[]>( [] );
+const toggleValue = ref( false );
+
+const toggleButtonIcon = computed( () => toggleValue.value ? cdxIconPause : cdxIconPlay );
+const toggleButtonLabel = computed( () => toggleValue.value ? 'Pause' : 'Play' );
 
 function onClick( e: Event ) {
 	// eslint-disable-next-line no-console
