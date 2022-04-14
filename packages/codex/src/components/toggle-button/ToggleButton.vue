@@ -42,6 +42,13 @@ export default defineComponent( {
 		disabled: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Whether the toggle button should be "quiet", which renders more minimally.
+		 */
+		quiet: {
+			type: Boolean,
+			default: false
 		}
 	},
 	emits: [
@@ -54,6 +61,9 @@ export default defineComponent( {
 	],
 	setup( props, { emit } ) {
 		const rootClasses = computed( () => ( {
+			// Quiet means frameless among other things
+			'cdx-toggle-button--quiet': props.quiet,
+			'cdx-toggle-button--framed': !props.quiet,
 			// Provide --toggled-off too so that we can simplify selectors
 			'cdx-toggle-button--toggled-on': props.modelValue,
 			'cdx-toggle-button--toggled-off': !props.modelValue
@@ -83,18 +93,29 @@ export default defineComponent( {
 	35%
 );
 
+// TODO move these to the design tokens
+@background-color-toggle-button-quiet--hover: @color-base90;
+@background-color-toggle-button-quiet--active: @color-base80;
+@background-color-toggle-button-quiet--focus: @color-base90;
+@background-color-toggle-button-quiet--toggled-on: @color-base80;
+
+// Common styles for framed and quiet versions
 .cdx-toggle-button {
 	// mixin for common base styles for buttons
 	.cdx-mixin-button();
 
 	&:enabled {
-		background-color: @background-color-framed;
 		color: @color-base;
-		border-color: @border-color-base;
 
 		// Use hand cursor. This is non-standard for a button but allows for a visible
 		// interactivity distinction from the disabled state.
 		cursor: @cursor-pointer;
+
+		&:active {
+			color: @color-base--active;
+			border-color: @border-color-base--active;
+			box-shadow: none;
+		}
 
 		&:focus {
 			border-color: @color-primary--focus;
@@ -102,18 +123,34 @@ export default defineComponent( {
 			// In Windows high contrast mode the outline becomes visible.
 			outline: @outline-base--focus;
 		}
+	}
+
+	.cdx-icon {
+		/*
+		Any icons used in the toggle button content should have the same color as the
+		rest of the content. This overrides the color rule in Icon.vue.
+		*/
+		color: inherit;
+	}
+}
+
+// Framed version
+.cdx-toggle-button--framed {
+	&:enabled {
+		background-color: @background-color-framed;
+		border-color: @border-color-base;
 
 		&:hover {
 			background-color: @background-color-framed--hover;
 			color: @color-base--hover;
 		}
 
+		// &:enabled:active has some shared styles for quiet and framed, see above
 		&:active {
 			background-color: @background-color-framed--active;
-			color: @color-base--active;
-			border-color: @border-color-base--active;
-			box-shadow: none;
 		}
+
+		// &:enabled:focus has some shared styles for quiet and framed, see above
 	}
 
 	/* stylelint-disable-next-line no-descending-specificity */
@@ -123,11 +160,11 @@ export default defineComponent( {
 		border-color: @border-color-base--disabled;
 	}
 
-	&--toggled-on:disabled {
+	&.cdx-toggle-button--toggled-on:disabled {
 		background-color: @background-color-filled--active--disabled;
 	}
 
-	&--toggled-on:enabled {
+	&.cdx-toggle-button--toggled-on:enabled {
 		background-color: @color-primary--active;
 		color: @color-base--inverted;
 		border-color: @border-color-primary--active;
@@ -144,13 +181,43 @@ export default defineComponent( {
 			color: @color-base--inverted;
 		}
 	}
+}
 
-	.cdx-icon {
-		/*
-		Any icons used in the toggle button content should have the same color as the
-		rest of the content. This overrides the color rule in Icon.vue.
-		*/
-		color: inherit;
+// Quiet toggle button
+.cdx-toggle-button--quiet {
+	// Override `<button>` default background color.
+	background-color: @background-color-base--transparent;
+	border-color: @border-color-transparent;
+
+	&:enabled {
+		&:hover {
+			background-color: @background-color-toggle-button-quiet--hover;
+		}
+
+		// &:enabled:active has some shared styles for quiet and framed, see above
+		&:active {
+			background-color: @background-color-toggle-button-quiet--active;
+		}
+
+		// &:enabled:focus has some shared styles for quiet and framed, see above
+		&:focus {
+			background-color: @background-color-toggle-button-quiet--focus;
+		}
+
+		&.cdx-toggle-button--toggled-on {
+			background-color: @background-color-toggle-button-quiet--toggled-on;
+
+			// Ensure hover style applies even when toggled on.
+			&:hover {
+				background-color: @background-color-toggle-button-quiet--hover;
+			}
+		}
+	}
+
+	// No difference between disabled toggled-on and toggled-off.
+	/* stylelint-disable-next-line no-descending-specificity */
+	&:disabled {
+		color: @color-base--disabled;
 	}
 }
 </style>

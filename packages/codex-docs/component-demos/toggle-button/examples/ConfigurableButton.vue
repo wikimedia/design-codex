@@ -3,6 +3,7 @@
 		<cdx-toggle-button
 			v-model="buttonValue"
 			:disabled="disabled"
+			:quiet="quiet"
 		>
 			<slot />
 		</cdx-toggle-button>
@@ -18,6 +19,10 @@ export default defineComponent( {
 	components: { CdxToggleButton },
 	props: {
 		disabled: {
+			type: Boolean,
+			default: false
+		},
+		quiet: {
 			type: Boolean,
 			default: false
 		}

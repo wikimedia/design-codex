@@ -9,6 +9,10 @@ const controlsConfig = [
 		type: 'boolean'
 	},
 	{
+		name: 'quiet',
+		type: 'boolean'
+	},
+	{
 		name: 'default',
 		type: 'slot',
 		default: 'Button text'

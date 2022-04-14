@@ -6,14 +6,19 @@ describe( 'matches the snapshot', () => {
 		msg: string,
 		props: {
 			disabled: boolean;
+			quiet: boolean;
 			modelValue: boolean;
 		}
 	];
 	const cases: Case[] = [
-		[ 'Default', { disabled: false, modelValue: false } ],
-		[ 'Active', { disabled: false, modelValue: true } ],
-		[ 'Disabled, inactive', { disabled: true, modelValue: false } ],
-		[ 'Disabled, active', { disabled: true, modelValue: true } ]
+		[ 'Default', { disabled: false, quiet: false, modelValue: false } ],
+		[ 'Active', { disabled: false, quiet: false, modelValue: true } ],
+		[ 'Disabled, inactive', { disabled: true, quiet: false, modelValue: false } ],
+		[ 'Disabled, active', { disabled: true, quiet: false, modelValue: true } ],
+		[ 'Quiet', { disabled: false, quiet: true, modelValue: false } ],
+		[ 'Quiet, active', { disabled: false, quiet: true, modelValue: true } ],
+		[ 'Quiet, disabled, inactive', { disabled: true, quiet: true, modelValue: false } ],
+		[ 'Quiet, disabled, active', { disabled: true, quiet: true, modelValue: true } ]
 	];
 	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
 		const wrapper = shallowMount(
