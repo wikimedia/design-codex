@@ -386,26 +386,29 @@ export default defineComponent( {
 } );
 </script>
 
+<!-- eslint-disable max-len -->
 <style lang="less">
 /* stylelint-disable no-descending-specificity */
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
-@max-width-tabs-label: 16em;
-@margin-base-tabs: 6px;
-@margin-tabs: @margin-base-tabs @margin-base-tabs 0 @margin-base-tabs;
-@padding-tabs: @padding-vertical-menu @padding-horizontal-base;
-@border-width-tabs-label: 2px;
-@background-color-tabs-label-framed--hover: rgba( 255, 255, 255, 0.3 );
-@background-color-tabs-label-framed--active: rgba( 255, 255, 255, 0.8 );
-@box-shadow-tabs-label-framed: inset 0 0 0 @border-width-tabs-label @border-color-progressive;
+@font-size-browser: 16;
+@font-size-base: 14 / @font-size-browser;
+@max-width-tab: 16em;
+@width-tabs-header-gradient: 24px;
+@margin-tab: 4px;
+@margin-tabs-frameless-tab: 0 @margin-tab;
+@margin-tabs-framed-tab: ( @margin-tab * 2 ) @margin-tab 0 ( @margin-tab * 2 );
+@padding-tab: @padding-vertical-base @padding-horizontal-base;
+@background-color-tabs-framed-tab--hover: rgba( 255, 255, 255, 0.3 );
+@background-color-tabs-framed-tab--active: rgba( 255, 255, 255, 0.8 );
+@box-shadow-tab--focus: inset 0 0 0 2px @border-color-progressive;
+@box-shadow-tabs-frameless-tab--selected: inset 0 -2px 0  0 @border-color-progressive;
+@line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 @text-decoration-none: none;
 
-// Derived values
-@margin-offset-tabs-frameless: @border-width-base + @border-width-tabs-label;
-
 .cdx-tabs {
-	// General header styles
+	// Tabs header common styles.
 	&__header {
 		display: flex;
 		align-items: flex-end;
@@ -422,26 +425,45 @@ export default defineComponent( {
 		// is focused, the header's *own* focus style must be suppressed.
 		&:focus {
 			outline: @outline-base--focus;
-		}
 
-		&--has-start-gradient {
-			position: relative;
-
-			&::before {
-				content: '';
+			// Keyboard nav indicator on Tabs header focus for framed and frameless.
+			.cdx-tabs__list__item--enabled.cdx-tabs__list__item--selected [ role='tab' ] {
+				// Use shared rule for focus on both variants. As the framed and
+				// negation pseudo class selectors further below are of higher
+				// specificity apply `!important`.
+				/* stylelint-disable-next-line declaration-no-important */
+				box-shadow: @box-shadow-tab--focus !important;
+				// Clip link background color to border radius (framed).
+				overflow: hidden;
 			}
 		}
 
+		&--has-start-gradient,
 		&--has-end-gradient {
 			position: relative;
+		}
 
-			&::after {
-				content: '';
-			}
+		&--has-start-gradient::before,
+		&--has-end-gradient::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			z-index: 1;
+			width: @width-tabs-header-gradient;
+			height: 100%;
+			pointer-events: none;
+		}
+
+		&--has-start-gradient::before {
+			left: 0;
+		}
+
+		&--has-end-gradient::after {
+			right: 0;
 		}
 	}
 
-	// General list styles
+	// Tabs list common styles.
 	&__list {
 		.list-unset();
 		display: flex;
@@ -457,55 +479,61 @@ export default defineComponent( {
 
 		&__item {
 			flex: 0 0 auto;
-			margin: @margin-tabs;
-			transition-property: @transition-property-base;
-			transition-duration: @transition-duration-base;
 
+			// Single Tab common styles.
 			// By default the `a` element.
 			[ role='tab' ] {
 				display: block;
-				max-width: @max-width-tabs-label;
-				padding: @padding-tabs;
+				max-width: @max-width-tab;
+				border-top-left-radius: @border-radius-base;
+				border-top-right-radius: @border-radius-base;
+				padding: @padding-tab;
 				font-weight: @font-weight-bold;
+				line-height: @line-height-component;
 				text-decoration: @text-decoration-none;
 				.text-overflow( @visible: false );
+				transition-property: @transition-property-base;
+				transition-duration: @transition-duration-base;
+
+				&:focus {
+					border-top-left-radius: @border-radius-base;
+					border-top-right-radius: @border-radius-base;
+					outline: @outline-base--focus;
+				}
 			}
 		}
 	}
 
-	// Framed Tabs
+	& > &__header &__list__item + &__list__item {
+		// Eliminate excess space between tab list items.
+		margin-left: 0;
+	}
+
+	// Framed Tabs.
 	&--framed > &__header {
 		background-color: @background-color-tabs-framed;
 
 		&--has-start-gradient::before {
-			.gradient-indicator(
-				@background-color-tabs-framed,
-				@background-color-base--transparent,
-				left
-			);
+			background-image: linear-gradient( to right, @background-color-tabs-framed 0, @background-color-base--transparent 100% );
 		}
 
 		&--has-end-gradient::after {
-			.gradient-indicator(
-				@background-color-tabs-framed,
-				@background-color-base--transparent,
-				right
-			);
+			background-image: linear-gradient( to left, @background-color-tabs-framed 0, @background-color-base--transparent 100% );
 		}
 
-		// Framed Tab item
+		// Framed Tabs List item.
 		.cdx-tabs__list__item {
+			margin: @margin-tabs-framed-tab;
+
 			&:last-child [ role='tab' ] {
-				margin-right: @margin-base-tabs;
+				margin-right: ( @margin-tab * 2 );
 			}
 
 			&--enabled {
-				// By default the `a` element.
+				// Single Framed Tab.
 				// stylelint-disable max-nesting-depth
 				[ role='tab' ] {
-					border-top-left-radius: @border-radius-base;
-					border-top-right-radius: @border-radius-base;
-					// Clip Tab item link background color to border-radius.
+					// Clip link background color to border radius.
 					overflow: hidden;
 
 					&:link,
@@ -514,17 +542,13 @@ export default defineComponent( {
 					}
 
 					&:hover {
-						background-color: @background-color-tabs-label-framed--hover;
+						background-color: @background-color-tabs-framed-tab--hover;
 						color: @color-base;
 					}
 
 					&:active {
-						background-color: @background-color-tabs-label-framed--active;
+						background-color: @background-color-tabs-framed-tab--active;
 						color: @color-base;
-					}
-
-					&:focus {
-						outline: @outline-base--focus;
 					}
 				}
 
@@ -541,72 +565,40 @@ export default defineComponent( {
 				cursor: @cursor-base--disabled;
 			}
 		}
-
-		// Framed keyboard nav indicator on Tabs header focus.
-		&:focus .cdx-tabs__list__item--selected {
-			[ role='tab' ] {
-				box-shadow: @box-shadow-tabs-label-framed;
-			}
-		}
 	}
 
 	// Frameless Tabs
 	/* stylelint-disable-next-line selector-not-notation */
 	&:not( &--framed ) > &__header {
 		background-color: @background-color-base;
+		margin: @margin-tabs-frameless-tab;
+		// The border separating frameless Tabs header from Tab content.
 		border-bottom: @border-base;
 
 		&--has-start-gradient::before {
-			.gradient-indicator(
-				@background-color-base,
-				@background-color-base--transparent,
-				left
-			);
+			background-image: linear-gradient( to right, @background-color-base 0, @background-color-base--transparent 100% );
 		}
 
 		&--has-end-gradient::after {
-			.gradient-indicator(
-				@background-color-base,
-				@background-color-base--transparent,
-				right
-			);
+			background-image: linear-gradient( to left, @background-color-base 0, @background-color-base--transparent 100% );
 		}
 
-		// Frameless Tab item
+		// Frameless Tabs List item.
 		.cdx-tabs__list__item {
-			// The Frameless Tab style relies on some border styling (one for the
-			// header row and another for individual tab elements to indicate when
-			// they are active, selected, hovered, etc. The total width of the
-			// borders is 3px (1px for header border, 2px for item border).
-			// To ensure final height of frameless tab header element matches that
-			// of the framed version, we need to apply an offset equal to this value
-			// which is being done here. The offset value is derived from the two
-			// border width amounts (see top of the style block in this file).
-			margin-top: @margin-base-tabs - @margin-offset-tabs-frameless;
-			// `border-bottom-color` is `transparent` for both, enabled and
-			// disabled Tabs.
-			border-bottom: @border-width-tabs-label @border-style-base @border-color-transparent;
+			margin: @margin-tabs-frameless-tab;
 
-			&:first-of-type {
+			&:first-child {
 				margin-left: 0;
 			}
 
-			&:last-of-type {
+			&:last-child {
 				margin-right: 0;
 			}
 
 			&--enabled {
 				&,
-				&.cdx-tabs__list__item-selected {
-					&:hover {
-						border-bottom-color: @border-color-progressive--hover;
-					}
-
-					&:active {
-						border-bottom-color: @border-color-progressive--active;
-					}
-
-					// By default the `a` element.
+				&.cdx-tabs__list__item--selected {
+					// Single Frameless Tab.
 					/* stylelint-disable max-nesting-depth */
 					[ role='tab' ] {
 						color: @color-base;
@@ -618,39 +610,28 @@ export default defineComponent( {
 						&:active {
 							color: @color-progressive--active;
 						}
-
-						&:focus {
-							outline: @outline-base--focus;
-						}
 					}
 					/* stylelint-enable max-nesting-depth */
 				}
 
 				&.cdx-tabs__list__item--selected {
-					border-color: @border-color-progressive;
-
-					/* stylelint-disable-next-line max-nesting-depth */
+					/* stylelint-disable max-nesting-depth */
 					[ role='tab' ] {
 						color: @color-progressive;
+						box-shadow: @box-shadow-tabs-frameless-tab--selected;
 					}
+					/* stylelint-enable max-nesting-depth */
 				}
 			}
 
 			&--disabled {
-				color: @color-base--disabled;
-
 				[ role='tab' ] {
 					color: @color-base--disabled;
 					cursor: @cursor-base--disabled;
 				}
 			}
 		}
-
-		// Frameless keyboard nav indicator on Tabs header focus.
-		&:focus .cdx-tabs__list__item--selected {
-			outline: solid @border-width-tabs-label @border-color-progressive;
-			outline-offset: -@border-width-tabs-label;
-		}
 	}
 }
 </style>
+<!-- eslint-enable max-len -->

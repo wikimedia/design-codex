@@ -195,7 +195,11 @@
 		"plugin/no-unsupported-browser-features": [
 			"error",
 			{
-				"ignore": [ "calc", "outline" ]
+				"ignore": [
+					"calc",
+					"css-gradients",
+					"outline"
+				]
 			}
 		]
 	}
