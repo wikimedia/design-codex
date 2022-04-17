@@ -184,6 +184,9 @@
 		},
 		"menu": {
 			"value": "{ box-shadow.1200 }"
+		},
+		"progress-bar": {
+			"value": "{ box-shadow.1100 }"
 		}
 	},
 	"animation-delay": {

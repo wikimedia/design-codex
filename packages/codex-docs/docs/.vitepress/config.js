@@ -39,6 +39,7 @@ module.exports = require( 'vitepress' ).defineConfig( {
 						{ text: 'Menu', link: '/components/menu' },
 						{ text: 'MenuItem', link: '/components/menu-item' },
 						{ text: 'Message', link: '/components/message' },
+						{ text: 'ProgressBar', link: '/components/progress-bar' },
 						{ text: 'Radio', link: '/components/radio' },
 						{ text: 'SearchInput', link: '/components/search-input' },
 						{ text: 'Select', link: '/components/select' },

@@ -14,6 +14,15 @@ module.exports = function component( renderedUsage, doc ) {
 	const frontMatter = [ 'sidebarDepth: 3' ];
 	const componentName = displayName.slice( 3 );
 
+	// Don't include a usage header if there are no properties, methods, events, or
+	// slots to document
+	const usageHeader = (
+		renderedUsage.props !== '' ||
+		renderedUsage.methods !== '' ||
+		renderedUsage.events !== '' ||
+		renderedUsage.slots !== ''
+	) ? '## Usage' : '';
+
 	/* eslint-disable @typescript-eslint/restrict-template-expressions */
 	return `
 ---
@@ -32,7 +41,7 @@ ${version ? `**Version** ${version[ 0 ].description}` : ''}
 
 ${docsBlocks ? docsBlocks.join( '\n---\n' ) : ''}
 
-## Usage
+${usageHeader}
 
 ${renderedUsage.props.replace( '## Props', '### Props' )}
 ${renderedUsage.methods.replace( '## Methods', '### Methods' )}
