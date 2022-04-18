@@ -1,11 +1,14 @@
 /* Custom CSS variables and rules for VitePress docs. */
+@import '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.css';
 
+/* stylelint-disable selector-class-pattern */
 :root {
-	--c-brand: #36c;
-	--c-brand-light: #447ff5;
+	/* Override base VitePress theme tokens. */
+	--c-brand: var( --color-progressive );
+	--c-brand-light: var( --color-progressive--hover );
 
-	--font-family-base: 'Helvetica Neue', 'Helvetica', 'Liberation Sans', 'Arial', sans-serif;
-	--font-family-serif: 'Charter', 'Georgia', serif;
+	--font-family-base: var( --font-family-sans );
+	--font-family-serif: var( --font-family-serif );
 }
 
 html,
@@ -18,8 +21,8 @@ body {
 }
 
 h1 {
-	font-family: var( --font-family-serif );
-	font-weight: normal;
+	font-family: var( --font-family-heading-main );
+	font-weight: var( --font-weight-normal );
 }
 
 h4 {
@@ -32,40 +35,44 @@ td {
 	padding: 8px 12px;
 }
 
-/* TODO: These should probably use design tokens. */
+/* Styles for custom blocks; see https://vitepress.vuejs.org/guide/markdown.html#custom-containers. */
 .custom-block.info {
-	background-color: #eaecf0;
-	color: #000;
-	border-color: #a2a9b1;
+	background-color: var( --background-color-message-notice );
+	color: var( --color-notice );
+	border-color: var( --border-color-notice );
 }
 
 .custom-block.warning {
-	background-color: #fef6e7;
-	color: #000;
-	border-color: #fc3;
-}
-
-.custom-block.warning a {
-	color: var( --c-brand );
+	background-color: var( --background-color-message-warning );
+	/* Use notice color for improved readability. */
+	color: var( --color-notice );
+	border-color: var( --border-color-warning );
 }
 
 .custom-block.warning .custom-block-title {
-	color: #ac6600;
+	color: var( --color-utility-yellow30 );
 }
 
 .custom-block.danger {
-	background-color: #fee7e6;
-	color: #b32424;
-	border-color: #d33;
+	background-color: var( --background-color-message-error );
+	/* Use notice color for improved readability. */
+	color: var( --color-notice );
+	border-color: var( --border-color-error );
 }
 
 .custom-block.danger .custom-block-title {
-	color: #b32424;
+	color: var( --color-destructive--active );
+}
+
+/* Override VitePress styles to set link color within custom blocks. */
+.custom-block.warning a,
+.custom-block.danger a {
+	color: var( --c-brand );
 }
 
 .cdx-docs-demo-text {
 	margin: 0 0 16px;
-	font-weight: bold;
+	font-weight: var( --font-weight-bold );
 }
 
 .cdx-docs-required-indicator {
@@ -75,3 +82,4 @@ td {
 .cdx-docs-methods__params {
 	margin: 0;
 }
+/* stylelint-enable selector-class-pattern */
