@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import * as allIcons from '../src/icons';
 
 describe( 'type definitions', () => {
-	const iconDefsPath = resolve( __dirname, '../dist/icons.d.ts' );
+	const iconDefsPath = resolve( __dirname, '../dist/types/icons.d.ts' );
 	if ( !existsSync( iconDefsPath ) ) {
 		throw new Error( `File not found: ${iconDefsPath}\nRun 'npm run build' first to build this file` );
 	}

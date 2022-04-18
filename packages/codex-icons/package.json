@@ -16,7 +16,7 @@
 	},
 	"main": "dist/codex-icons.umd.js",
 	"module": "dist/codex-icons.es.js",
-	"types": "./dist/index.d.ts",
+	"types": "./dist/types/index.d.ts",
 	"files": [
 		"dist"
 	],
