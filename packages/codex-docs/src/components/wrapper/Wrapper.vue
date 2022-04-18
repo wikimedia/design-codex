@@ -37,13 +37,12 @@
 					button-text="Copy code"
 					:copy-text="codeText"
 				/>
-				<cdx-button
+				<cdx-toggle-button
+					v-model="showCode"
 					class="cdx-demo-wrapper__demo-pane__code-toggle"
-					type="quiet"
-					@click="onCodeToggle"
 				>
 					{{ codeToggleLabel }}
-				</cdx-button>
+				</cdx-toggle-button>
 			</div>
 		</div>
 		<div
@@ -97,7 +96,7 @@ import CdxDocsCopyTextButton from '../copy-text-button/CopyTextButton.vue';
 import { useRoute } from 'vitepress';
 import { generateVueTag } from '../../utils/codegen';
 import toKebabCase from '../../utils/toKebabCase';
-import { CdxButton } from '@wikimedia/codex';
+import { CdxButton, CdxToggleButton } from '@wikimedia/codex';
 
 // Don't automatically run Prism highlighting, it breaks the VitePress syntax highlighting
 // for the code slots since Prism doesn't support Vue (and even if it did it would be unneeded
@@ -117,7 +116,7 @@ Prism.manual = true;
  */
 export default defineComponent( {
 	name: 'CdxDemoWrapper',
-	components: { CdxDocsControls, CdxDocsCopyTextButton, CdxButton },
+	components: { CdxDocsControls, CdxDocsCopyTextButton, CdxButton, CdxToggleButton },
 	props: {
 		/**
 		 * Data for configurable props and slots.
@@ -176,9 +175,6 @@ export default defineComponent( {
 		const codeToggleLabel = computed( () => {
 			return showCode.value === true ? 'Hide code' : 'Show code';
 		} );
-		const onCodeToggle = (): void => {
-			showCode.value = !showCode.value;
-		};
 		const codeDiv = ref<HTMLDivElement>();
 
 		// Set up controls if config is provided.
@@ -425,7 +421,6 @@ export default defineComponent( {
 			hasCodeSample,
 			showCode,
 			codeToggleLabel,
-			onCodeToggle,
 			codeText,
 
 			// generated code
