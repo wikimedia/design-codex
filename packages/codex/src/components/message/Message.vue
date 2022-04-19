@@ -283,9 +283,9 @@ export default defineComponent( {
 		transition: opacity @transition-timing-function-system @transition-duration-medium;
 	}
 
-	// User dismissal uses the human transition timing function.
+	// User dismissal uses the human initiated transition timing function.
 	&-leave-active {
-		transition: opacity @transition-timing-function-human @transition-duration-medium;
+		transition: opacity @transition-timing-function-user @transition-duration-medium;
 	}
 
 	&-enter-from,

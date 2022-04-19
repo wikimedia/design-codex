@@ -381,7 +381,7 @@
 			"comment": "`ease` for system initiated transitions. See T77949. It's also the initial value.",
 			"value": "ease"
 		},
-		"human": {
+		"user": {
 			"comment": "`ease-out` for human initiated transitions.",
 			"value": "ease-out"
 		}

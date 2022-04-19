@@ -481,7 +481,7 @@
 			"value": "{ transition-duration.250 }"
 		},
 		"ease-out-medium": {
-			"value": "{ transition-timing-function.human } { transition-duration.100 }"
+			"value": "{ transition-timing-function.user } { transition-duration.100 }"
 		}
 	},
 	"transition-duration": {
