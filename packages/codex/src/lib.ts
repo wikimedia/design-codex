@@ -16,10 +16,13 @@ import CdxTextInput from './components/text-input/TextInput.vue';
 import CdxToggleButton from './components/toggle-button/ToggleButton.vue';
 import CdxToggleSwitch from './components/toggle-switch/ToggleSwitch.vue';
 import CdxTypeaheadSearch from './components/typeahead-search/TypeaheadSearch.vue';
-import useModelWrapper from './composables/useModelWrapper';
 import useComputedDirection from './composables/useComputedDirection';
 import useComputedLanguage from './composables/useComputedLanguage';
 import useGeneratedId from './composables/useGeneratedId';
+import useIntersectionObserver from './composables/useIntersectionObserver';
+import useModelWrapper from './composables/useModelWrapper';
+import useSplitAttributes from './composables/useSplitAttributes';
+import useStringHelpers from './composables/useStringHelpers';
 
 import type {
 	HTMLDirection,
@@ -59,8 +62,11 @@ export {
 
 	useComputedDirection,
 	useComputedLanguage,
-	useModelWrapper,
 	useGeneratedId,
+	useIntersectionObserver,
+	useModelWrapper,
+	useSplitAttributes,
+	useStringHelpers,
 
 	HTMLDirection,
 	ButtonAction,
