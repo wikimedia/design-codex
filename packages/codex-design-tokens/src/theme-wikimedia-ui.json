@@ -361,7 +361,7 @@
 		"100": {
 			"value": "100ms"
 		},
-		"250": {
+		"200": {
 			"value": "250ms"
 		}
 	},
@@ -377,14 +377,17 @@
 		},
 		"box-shadow": {
 			"value": "box-shadow"
+		},
+		"opacity": {
+			"value": "opacity"
 		}
 	},
 	"transition-timing-function": {
-		"system": {
+		"100": {
 			"comment": "`ease` for system initiated transitions. See T77949. It's also the initial value.",
 			"value": "ease"
 		},
-		"user": {
+		"200": {
 			"comment": "`ease-out` for human initiated transitions.",
 			"value": "ease-out"
 		}

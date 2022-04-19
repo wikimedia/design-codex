@@ -183,7 +183,7 @@ export default defineComponent( {
 		border-radius: @border-radius-pill;
 		overflow: hidden;
 		transition-property: @transition-property-base;
-		transition-duration: @transition-ease-medium;
+		transition-duration: @transition-duration-medium;
 
 		// Focus outline.
 		&::before {
@@ -198,7 +198,7 @@ export default defineComponent( {
 			border: @border-width-base @border-style-base transparent;
 			border-radius: @border-radius-pill;
 			transition-property: @transition-property-toggle-switch-outline;
-			transition-duration: @transition-ease-medium;
+			transition-duration: @transition-duration-medium;
 		}
 
 		// The moving element of the switch.
@@ -214,8 +214,8 @@ export default defineComponent( {
 			border: @border-input-binary;
 			border-radius: @border-radius-circle;
 			/* stylelint-disable value-list-comma-newline-after */
-			transition: background-color @transition-ease-medium,
-				left @transition-base;
+			transition: background-color @transition-duration-medium,
+				left @transition-duration-base;
 
 			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 				top: @start-toggle-switch-grip;

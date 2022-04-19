@@ -152,7 +152,9 @@ export default defineComponent( {
 
 	&__transition-icon {
 		&-leave-active {
-			transition: width 500ms, opacity 500ms, margin-left 500ms;
+			transition-property: width, opacity, margin-left;
+			transition-duration: 500ms;
+			transition-timing-function: @transition-timing-function-user;
 		}
 
 		&-leave-to {

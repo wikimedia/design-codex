@@ -159,8 +159,8 @@ export default defineComponent( {
 	&__icon {
 		background-size: 0 0;
 		border-radius: @border-radius-base;
-		transition: @transition-base;
 		transition-property: @transition-property-base;
+		transition-duration: @transition-duration-base;
 	}
 
 	// HTML `<input type="checkbox">`.

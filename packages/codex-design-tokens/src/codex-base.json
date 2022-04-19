@@ -477,14 +477,8 @@
 	},
 	"transition": {
 		"base": {
-			"comment": "`ease` is the initial value, therefore leaving out.",
+			"deprecated": "Legacy transition for icon states in non-Codex products.",
 			"value": "{ transition-duration.100 }"
-		},
-		"ease-medium": {
-			"value": "{ transition-duration.250 }"
-		},
-		"ease-out-medium": {
-			"value": "{ transition-timing-function.user } { transition-duration.100 }"
 		}
 	},
 	"transition-duration": {
@@ -492,12 +486,23 @@
 			"value": "{ transition-duration.100 }"
 		},
 		"medium": {
-			"value": "{ transition-duration.250 }"
+			"value": "{ transition-duration.200 }"
+		}
+	},
+	"transition-timing-function": {
+		"system": {
+			"value": "{ transition-timing-function.100 }"
+		},
+		"user": {
+			"value": "{ transition-timing-function.200 }"
 		}
 	},
 	"transition-property": {
 		"base": {
 			"value": "{ transition-property.background-color }, { transition-property.color }, { transition-property.border-color }, { transition-property.box-shadow }"
+		},
+		"fade": {
+			"value": "{ transition-property.opacity }"
 		}
 	},
 	"cursor": {
