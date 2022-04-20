@@ -4,7 +4,6 @@
 		:class="rootClasses"
 		:aria-pressed="modelValue"
 		:disabled="disabled"
-		@mousedown.prevent
 		@click="onClick"
 	>
 		<!-- @slot Button content -->
@@ -111,17 +110,17 @@ export default defineComponent( {
 		// interactivity distinction from the disabled state.
 		cursor: @cursor-pointer;
 
-		&:active {
-			color: @color-base--active;
-			border-color: @border-color-base--active;
-			box-shadow: none;
-		}
-
 		&:focus {
 			border-color: @color-primary--focus;
 			box-shadow: @box-shadow-base--focus;
 			// In Windows high contrast mode the outline becomes visible.
 			outline: @outline-base--focus;
+		}
+
+		&:active {
+			color: @color-base--active;
+			border-color: @border-color-base--active;
+			box-shadow: none;
 		}
 	}
 
@@ -158,25 +157,30 @@ export default defineComponent( {
 		border-color: @border-color-base--disabled;
 	}
 
-	&.cdx-toggle-button--toggled-on:disabled {
-		background-color: @background-color-filled--active--disabled;
-	}
-
 	&.cdx-toggle-button--toggled-on:enabled {
 		background-color: @color-primary--active;
 		color: @color-base--inverted;
 		border-color: @border-color-primary--active;
+
+		&:hover {
+			background-color: @color-progressive--hover;
+			// Same color as not hovering, needed to override the other :hover rule above
+			color: @color-base--inverted;
+			border-color: @border-color-progressive--hover;
+		}
 
 		&:focus {
 			border-color: @border-color-primary--focus;
 			box-shadow: @box-shadow-primary--focus;
 		}
 
-		&:hover {
-			// Same as not hovering, needed to override the rule of hovering over all
-			// non-disabled instances set above.
-			background-color: @color-primary--active;
-			color: @color-base--inverted;
+		&:active {
+			background-color: @background-color-framed--active;
+			// Repeat general :enabled:active styles here, to override more specific
+			// color/border-color/box-shadow rules
+			color: @color-base--active;
+			border-color: @border-color-base--active;
+			box-shadow: none;
 		}
 	}
 }
@@ -188,13 +192,12 @@ export default defineComponent( {
 	border-color: @border-color-transparent;
 
 	&:enabled {
-		&:hover {
-			background-color: @background-color-toggle-button-quiet--hover;
+		&.cdx-toggle-button--toggled-on {
+			background-color: @background-color-toggle-button-quiet--toggled-on;
 		}
 
-		// `&:enabled:active` has some shared styles for quiet and framed, see above.
-		&:active {
-			background-color: @background-color-toggle-button-quiet--active;
+		&:hover {
+			background-color: @background-color-toggle-button-quiet--hover;
 		}
 
 		// `&:enabled:focus` has some shared styles for quiet and framed, see above.
@@ -202,13 +205,9 @@ export default defineComponent( {
 			background-color: @background-color-toggle-button-quiet--focus;
 		}
 
-		&.cdx-toggle-button--toggled-on {
-			background-color: @background-color-toggle-button-quiet--toggled-on;
-
-			// Ensure hover style applies even when toggled on.
-			&:hover {
-				background-color: @background-color-toggle-button-quiet--hover;
-			}
+		// `&:enabled:active` has some shared styles for quiet and framed, see above
+		&:active {
+			background-color: @background-color-toggle-button-quiet--active;
 		}
 	}
 
