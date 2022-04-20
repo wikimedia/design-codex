@@ -1,6 +1,7 @@
 <script setup>
 import ConfigurableButton from '@/../component-demos/toggle-button/examples/ConfigurableButton.vue';
 import IconButton from '@/../component-demos/toggle-button/examples/IconButton.vue';
+import IconOnlyButton from '@/../component-demos/toggle-button/examples/IconOnlyButton.vue';
 import SingleButton from '@/../component-demos/toggle-button/examples/SingleButton.vue';
 
 const controlsConfig = [
@@ -60,6 +61,21 @@ Example usage as a pause/play button, changing the icon and text when toggled.
 <template v-slot:code>
 
 <<< @/../component-demos/toggle-button/examples/IconButton.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Stateful (icon-only)
+Example usage as an icon-only pause/play button, changing the icon when toggled.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<icon-only-button />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/toggle-button/examples/IconOnlyButton.vue
 
 </template>
 </cdx-demo-wrapper>
