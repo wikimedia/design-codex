@@ -150,8 +150,9 @@ describe( 'Lookup', () => {
 		expect( wrapper.vm.expanded ).toBe( true );
 	} );
 
-	it( 'Sets pending to false when items change', async () => {
+	it( 'Sets pending to false and opens the menu when items change while input is focused', async () => {
 		const wrapper = mount( CdxLookup, { props: { modelValue: '' } } );
+		await wrapper.find( 'input' ).trigger( 'focus' );
 		const textInputWrapper = wrapper.findComponent( CdxTextInput );
 		textInputWrapper.vm.$emit( 'update:modelValue', 'a' );
 		await nextTick();
@@ -159,21 +160,30 @@ describe( 'Lookup', () => {
 
 		await wrapper.setProps( { menuItems: data } );
 		expect( wrapper.find( '.cdx-lookup' ).classes() ).not.toContain( 'cdx-lookup--pending' );
-	} );
-
-	it( 'Sets expanded to true if there are items and the input value does not match the selection', async () => {
-		const wrapper = mount( CdxLookup, {
-			props: { modelValue: 'a', initialInputValue: 'Opt' }
-		} );
-		await wrapper.setProps( { menuItems: data } );
 		expect( wrapper.vm.expanded ).toBe( true );
 	} );
 
-	it( 'Does not set expanded to true if there are items but the input value matches the selection', async () => {
-		const wrapper = mount( CdxLookup, {
-			props: { modelValue: 'a', initialInputValue: 'Option A' }
-		} );
+	it( 'Sets pending to false but does not open menu when items change while input is not focused', async () => {
+		const wrapper = mount( CdxLookup, { props: { modelValue: '' } } );
+		await wrapper.find( 'input' ).trigger( 'focus' );
+		const textInputWrapper = wrapper.findComponent( CdxTextInput );
+		textInputWrapper.vm.$emit( 'update:modelValue', 'a' );
+		await nextTick();
+		await wrapper.find( 'input' ).trigger( 'blur' );
+		expect( wrapper.find( '.cdx-lookup' ).classes() ).toContain( 'cdx-lookup--pending' );
+
 		await wrapper.setProps( { menuItems: data } );
+		expect( wrapper.find( '.cdx-lookup' ).classes() ).not.toContain( 'cdx-lookup--pending' );
+		expect( wrapper.vm.expanded ).toBe( false );
+	} );
+
+	it( 'Does not open menu when items change while not in pending state', async () => {
+		const wrapper = mount( CdxLookup, { props: { modelValue: '' } } );
+		await wrapper.find( 'input' ).trigger( 'focus' );
+		expect( wrapper.find( '.cdx-lookup' ).classes() ).not.toContain( 'cdx-lookup--pending' );
+
+		await wrapper.setProps( { menuItems: data } );
+		expect( wrapper.find( '.cdx-lookup' ).classes() ).not.toContain( 'cdx-lookup--pending' );
 		expect( wrapper.vm.expanded ).toBe( false );
 	} );
 

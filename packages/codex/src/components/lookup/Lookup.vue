@@ -151,6 +151,7 @@ export default defineComponent( {
 		const menuId = useGeneratedId( 'lookup-menu' );
 		const pending = ref( false );
 		const expanded = ref( false );
+		const isActive = ref( false );
 
 		const modelValueProp = toRef( props, 'modelValue' );
 		const modelWrapper = useModelWrapper( modelValueProp, context.emit );
@@ -206,6 +207,7 @@ export default defineComponent( {
 		 * On focus, maybe open the menu.
 		 */
 		function onFocus() {
+			isActive.value = true;
 			if (
 				// Input value is not null or an empty string.
 				inputValue.value !== null &&
@@ -221,6 +223,7 @@ export default defineComponent( {
 		 * On blur, close the menu
 		 */
 		function onBlur() {
+			isActive.value = false;
 			expanded.value = false;
 		}
 
@@ -259,24 +262,17 @@ export default defineComponent( {
 		} );
 
 		// When the menu items change, maybe show the menu.
-		// This is the main method of opening menu of the Lookup component, since showing the menu
-		// depends mostly on whether there are any items to show.
+		// This is the main method of opening the menu of the Lookup component, since showing
+		// the menu depends mostly on whether there are any items to show.
 		watch( toRef( props, 'menuItems' ), ( newVal ) => {
-			pending.value = false;
-
-			const inputValueIsSelection = !!selectedMenuItem.value && (
-				selectedMenuItem.value.label === inputValue.value ||
-				selectedMenuItem.value.value === inputValue.value
-			);
-
 			// Show the menu under certain conditions.
 			if (
-				// If there are menu items to show, and the input value is not equal to the current
-				// selection (which excludes the case where, upon selecting a menu item,
-				// computedMenuItems change, but we don't want the menu to be open anymore).
-				newVal.length > 0 && !inputValueIsSelection ||
-				// If there are no menu items but there is no-results content.
-				newVal.length === 0 && context.slots[ 'no-results' ]
+				// Only show the menu if we were in the pending state (meaning this menuItems change
+				// was in response to user input) and the menu is still focused
+				isActive.value && pending.value && (
+					// Show the menu if there are either menu items or no-results content to show
+					newVal.length > 0 || context.slots[ 'no-results' ]
+				)
 			) {
 				expanded.value = true;
 			}
@@ -285,6 +281,9 @@ export default defineComponent( {
 			if ( newVal.length === 0 && !context.slots[ 'no-results' ] ) {
 				expanded.value = false;
 			}
+
+			// Clear the pending state
+			pending.value = false;
 		} );
 
 		return {

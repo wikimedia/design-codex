@@ -21,15 +21,21 @@ element within the component.
 
 ### Default
 
-The Lookup component will emit `new-input` events on input, which the parent component can
+The Lookup component will emit `new-input` events on input, which the parent component should
 react to by computing or fetching menu items, then providing those items to the Lookup component for
-display.
+display by updating the `menu-items` prop.
 
 Items are displayed via the MenuItem component—see the [MenuItem docs](./menu-item) for more
 options. In this example, a `menuConfig` object is passed to the Lookup to bold the label text.
 
 Note that in this example, menu items are Wikidata items with a human-readable label and a Wikidata
 entity ID value.
+
+::: warning
+The parent component must update the `menu-items` prop after each `new-input` event, otherwise
+the Lookup component will stay in the pending state indefinitely. If there are no results for the
+given input, set the `menu-items` prop to an empty array (`[]`).
+:::
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -75,8 +81,8 @@ this slot will automatically display when there are zero menu items.
 
 ### With fetched results
 
-Often, a Lookup component is used to fetch results from an API endpoint. Parent components can react
-to the `new-input` event emitted by Lookup to search for results, then pass back to the
+Often, a Lookup component is used to fetch results from an API endpoint. Parent components should
+react to the `new-input` event emitted by Lookup to search for results, then pass back to the
 Lookup either an array of results to display as menu items or an empty array if there are no
 results. Between those two events, a pending state animation will display in the input.
 
