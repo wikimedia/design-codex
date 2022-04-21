@@ -675,7 +675,6 @@ export default defineComponent( {
 		color: @color-base;
 		display: flex;
 		align-items: center;
-		border-top: @border-width-base @border-style-base @border-color-heading;
 		padding: @padding-vertical-menu-item @padding-horizontal-base;
 		text-decoration: none;
 
@@ -685,6 +684,8 @@ export default defineComponent( {
 	}
 
 	&__search-footer {
+		border-top: @border-width-base @border-style-base @border-color-heading;
+
 		&:visited,
 		&:active {
 			color: @color-base;
