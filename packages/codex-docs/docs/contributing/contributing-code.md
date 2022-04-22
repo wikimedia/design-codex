@@ -52,6 +52,10 @@ should include or update the following as needed.
   would benefit from additional documentation to communicate how it can be used, include it on the
   demo page.
 
+At a Codex release, but not at commit level, CHANGELOG.md file in the root folder is updated
+with all the commit message subjects since last release – separated in "Breaking Changes",
+"Deprecating Changes", "Features", "Styles", "Code" and "Documentation" sections.
+
 ## Development basics
 
 ### Requirements
@@ -81,7 +85,7 @@ npm install vue -w @wikimedia/codex --save-peer
 To run a command for all workspaces, do this instead:
 
 ```bash
-# Run the "test" command in all workspaces"
+# Run the "test" command in all workspaces
 npm run test --workspaces
 
 # This is equivalent
