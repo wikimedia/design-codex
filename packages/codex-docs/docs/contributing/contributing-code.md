@@ -25,8 +25,9 @@ sub-tasks for the minimum viable solution and additional features.
    complete entry in the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/index.html).
    There may be exceptions to this, in which case the component should match [OOUI](https://doc.wikimedia.org/oojs-ui/master/demos/?page=widgets&theme=wikimediaui&direction=ltr&platform=desktop)
    styles.
-2. **Gather necessary design tokens.** Note that this process is still being developed, so for now
-   you can continue using Wikimedia UI Base. See [writing styles](#writing-styles) below for details.
+2. **Gather necessary design tokens.** Consult the component design Figma specification sheet for
+   all tokens per component. Only use existing design tokens and flag missing or incomplete ones 
+   early. Also see [writing styles](#writing-styles) below for further details.
 3. **Build the component.** [Create the Vue component](#developing-components) and [write unit tests](#jest-unit-tests).
 4. **Demo the component.** [Create component demos in VitePress](#component-demos).
 5. **Open a patch for review.** Patches will be reviewed by developers, UX engineers, and designers.
