@@ -1,23 +1,31 @@
 import escapeHtml from 'escape-html';
-import { PropValues, SlotValues } from '../types';
+import { PropValues, SlotValues, BoundProp } from '../types';
+import toKebabCase from './toKebabCase';
 
 export function generateProps( propValues: Record<string, unknown> ) : string {
 	return Object.keys( propValues )
 		.map( ( propName ) => {
 			const propVal = propValues[ propName ];
-			if ( propVal === undefined ) {
+			if ( propVal === undefined || propVal === null ) {
 				return '';
 			}
+			// Convert prop name to kebab case for use in example code
+			const kebabPropName = toKebabCase( propName );
 			if ( typeof propVal === 'boolean' ) {
 				// Boolean prop: generate just the name (like in <button disabled>) for true,
 				// nothing for false (assuming that false is the default value)
-				return propVal ? propName : '';
+				return propVal ? kebabPropName : '';
+			}
+			// Allow wrapping string values in BoundProp class to ensure they are
+			// displayed using v-bind syntax, but not with JSON.stringify
+			if ( propVal instanceof BoundProp ) {
+				return `:${kebabPropName}="${escapeHtml( propVal.value )}"`;
 			}
 			if ( typeof propVal === 'string' ) {
-				return `${propName}="${escapeHtml( propVal )}"`;
+				return `${kebabPropName}="${escapeHtml( propVal )}"`;
 			}
 			// For any other type, use a v-bind expression
-			return `:${propName}="${escapeHtml( JSON.stringify( propVal ) )}"`;
+			return `:${kebabPropName}="${escapeHtml( JSON.stringify( propVal ) )}"`;
 		} )
 		.filter( Boolean )
 		.join( ' ' );

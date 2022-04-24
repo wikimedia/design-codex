@@ -1,3 +1,19 @@
+// Used for the value of icon properties
+import { Icon } from '@wikimedia/codex-icons';
+
+// For Icon properties, the value for code generation is going to be a string, but it should be
+// output using a v-bind expression because it is not a literal string, but rather the name
+// of an object that will have been made available in the relevant context. Such props can
+// be wrapped in a `BoundProp` object so that generateProps() knows to use the v-bind
+// form
+export class BoundProp {
+	readonly value: string;
+
+	constructor( value: string ) {
+		this.value = value;
+	}
+}
+
 /**
  * There are various types of controls, each defined here. All types include a name property.
  */
@@ -17,11 +33,20 @@ export interface TextPropConfig extends BaseConfig {
 	type: 'text'
 	default?: string | number
 }
+export interface IconPropConfig extends BaseConfig {
+	type: 'icon',
+	default?: string
+}
 export interface SlotConfig extends BaseConfig {
 	type: 'slot',
 	default: string
 }
-export type ControlConfig = RadioPropConfig | BooleanPropConfig | TextPropConfig | SlotConfig;
+export type ControlConfig =
+	RadioPropConfig |
+	BooleanPropConfig |
+	TextPropConfig |
+	IconPropConfig |
+	SlotConfig;
 
 /**
  * ControlsConfig is an array of control config items.
@@ -39,11 +64,17 @@ type DefaultToValue<T extends { default?: string | number | boolean }> = Omit<T,
 export type PropConfigWithValue =
 	DefaultToValue<RadioPropConfig> |
 	DefaultToValue<BooleanPropConfig> |
-	DefaultToValue<TextPropConfig>;
+	DefaultToValue<TextPropConfig> |
+	DefaultToValue<IconPropConfig>;
 export type SlotConfigWithValue = DefaultToValue<SlotConfig>;
 export type ControlConfigWithValue = PropConfigWithValue | SlotConfigWithValue;
 
-export type PropValues = Record<string, string | number | boolean>;
+export type PropValues = Record<string, string | number | boolean | BoundProp>;
+// When being used to actually render a demo, Icon properties have actual Icon objects as their
+// values, but the rest of the time the value is the icon name, for looking up an icon by the name
+// in a configurable demo and generating code with the name instead of the underlying data. For
+// no icon being configured, the value is undefined.
+export type PropValuesWithIcons = Record<string, string | number | boolean | Icon | undefined>;
 export type SlotValues = Record<string, string>;
 
 export interface DesignToken {

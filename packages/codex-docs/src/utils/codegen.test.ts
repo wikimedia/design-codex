@@ -1,9 +1,11 @@
 import { generateProps, generateSlots, generateVueTag } from './codegen';
+import { BoundProp } from '../types';
 
 describe( 'codegen', () => {
 	it( 'generates props', () => {
 		const propValues: Record<string, unknown> = {
 			undefVal: undefined,
+			nullVal: null,
 			trueVal: true,
 			falseVal: false,
 			stringVal: 'foo',
@@ -12,11 +14,23 @@ describe( 'codegen', () => {
 			arrVal: [ 'x', 'y', 'z' ]
 		};
 
-		// undefVal and falseVal are ignored, trueVal is just present without a
+		// undefVal, nullVal, and falseVal are ignored, trueVal is just present without a
 		// value, objVal and arrVal have the values stringified
-		const expectedString = 'trueVal stringVal="foo" :intVal="123" ' +
-			':objVal="{&quot;bar&quot;:&quot;baz&quot;}" ' +
-			':arrVal="[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]"';
+		const expectedString = 'true-val string-val="foo" :int-val="123" ' +
+			':obj-val="{&quot;bar&quot;:&quot;baz&quot;}" ' +
+			':arr-val="[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]"';
+		expect( generateProps( propValues ) ).toBe( expectedString );
+	} );
+
+	it( 'uses v-bind syntax for BoundProp strings', () => {
+		const propValues: Record<string, unknown> = {
+			normalString: 'foo',
+			boundString: new BoundProp( 'variableName' )
+		};
+
+		// normalString with be present without a leading : for the property name, but
+		// boundString will have the leading :
+		const expectedString = 'normal-string="foo" :bound-string="variableName"';
 		expect( generateProps( propValues ) ).toBe( expectedString );
 	} );
 

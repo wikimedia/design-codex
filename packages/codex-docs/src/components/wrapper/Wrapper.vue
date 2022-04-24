@@ -88,7 +88,14 @@ import {
 	nextTick,
 	PropType
 } from 'vue';
-import { ControlsConfig, ControlConfigWithValue, PropValues, SlotValues } from '../../types';
+import {
+	ControlsConfig,
+	ControlConfigWithValue,
+	PropValues,
+	PropValuesWithIcons,
+	SlotValues,
+	BoundProp
+} from '../../types';
 import Prism from 'prismjs';
 import { DirectionKey } from '../../constants';
 import CdxDocsControls from '../controls/Controls.vue';
@@ -97,12 +104,26 @@ import { useRoute } from 'vitepress';
 import { generateVueTag } from '../../utils/codegen';
 import toKebabCase from '../../utils/toKebabCase';
 import { CdxButton, CdxToggleButton } from '@wikimedia/codex';
+import * as allIcons from '@wikimedia/codex-icons';
+import { Icon } from '@wikimedia/codex-icons';
 
 // Don't automatically run Prism highlighting, it breaks the VitePress syntax highlighting
 // for the code slots since Prism doesn't support Vue (and even if it did it would be unneeded
 // since it is already highlighted by VitePress). Highlighting is manually triggered for the
 // generated code.
 Prism.manual = true;
+
+// Access to icon objects by name
+const iconsByName = {} as Record<string, Icon>;
+for ( const iconName in allIcons ) {
+	const icon = allIcons[ iconName as keyof typeof allIcons ];
+	// Some of the exports are utility functions, filter those out
+	if ( typeof icon === 'function' ) {
+		continue;
+	}
+	// Add to known map
+	iconsByName[ iconName ] = icon;
+}
 
 /**
  * Wrapper for component demos.
@@ -239,6 +260,9 @@ export default defineComponent( {
 						return { ...config, value: config.default ?? false };
 					case 'slot':
 						return { ...config, value: config.default };
+					// Icon also uses empty string as default, meaning no icon
+					case 'icon':
+						return { ...config, value: config.default ?? '' };
 					case 'text':
 					default:
 						return { ...config, value: config.default ?? '' };
@@ -293,12 +317,17 @@ export default defineComponent( {
 
 		/**
 		 * Pull out prop values so we can pass them to the scoped slot, for use in component demos.
-		 * It will be easier to write a demo if the props and slots are separated.
+		 * It will be easier to write a demo if the props and slots are separated. Here, the
+		 * icon properties have real Icon objects as their values, rather than the icon name.
 		 */
 		const propValues = computed( () => {
-			const constructedPropValues = {} as PropValues;
+			const constructedPropValues = {} as PropValuesWithIcons;
 			for ( const control of controlsWithValues ) {
-				if ( control.type !== 'slot' ) {
+				// Convert icon props from the value being the icon name to the
+				// actual icon object (or undefined if not given)
+				if ( control.type === 'icon' ) {
+					constructedPropValues[ control.name ] = iconsByName[ control.value ];
+				} else if ( control.type !== 'slot' ) {
 					constructedPropValues[ control.name ] = control.value;
 				}
 			}
@@ -359,16 +388,36 @@ export default defineComponent( {
 
 		const nonDefaultPropValues = computed( () => {
 			const valuesByName = {} as PropValues;
-			// propValues is already filtered to exclude slots, just use that
-			for ( const [ propName, propVal ] of Object.entries( propValues.value ) ) {
+			// Cannot just reuse the propValues filtering of excluding slots, because
+			// that converts icon props to have the actual icon object as the value,
+			// instead of the icon name, but the generated code display should use
+			// the icon name
+			for ( const control of controlsWithValues ) {
+				if ( control.type === 'slot' ) {
+					continue;
+				}
+				const propName = control.name;
+				const propVal = control.value;
 				const defaultControl = defaultControlValues.find(
 					( c ) => c.name === propName
 				);
 				// Should always exist, but satisfy typescript
-				if (
+				if ( !(
 					defaultControl &&
 					defaultControl.value !== propVal
+				) ) {
+					continue;
+				}
+				// For icon properties, wrap the value in a BoundProp,
+				// so that the code generation does not try to use it
+				// as a literal string value with v-bind syntax, but only
+				// when the value is set (not null or undefined), otherwise
+				// we want the generateVueTag() to exclude the value
+				if ( defaultControl.type === 'icon' &&
+					typeof propVal === 'string'
 				) {
+					valuesByName[ propName ] = new BoundProp( propVal );
+				} else {
 					valuesByName[ propName ] = propVal;
 				}
 			}

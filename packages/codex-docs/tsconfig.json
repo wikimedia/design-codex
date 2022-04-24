@@ -20,6 +20,7 @@
 		"./**/*.js",
 		"./**/*.ts",
 		"./**/*.vue",
+		".jest/*.js",
 		"./docs/.vitepress/**/*.js",
 		"./docs/.vitepress/**/*.ts",
 		"./docs/.vitepress/**/*.vue"

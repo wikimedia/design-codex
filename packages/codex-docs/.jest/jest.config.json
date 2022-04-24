@@ -5,6 +5,7 @@
 		".+\\.vue$": "@vue/vue3-jest"
 	},
 	"testEnvironment": "jsdom",
+	"snapshotResolver": "<rootDir>/.jest/snapshotResolver.js",
 	"collectCoverage": true,
 	"coverageThreshold": {
 		"global": {
@@ -15,6 +16,7 @@
 	},
 	"collectCoverageFrom": [
 		"<rootDir>/src/**/*.(ts|vue)",
+		"!<rootDir>/src/**/*.(test|snap).ts",
 		"!<rootDir>/src/env.d.ts",
 		"!<rootDir>/src/types.ts"
 	],

@@ -1,14 +1,18 @@
 <template>
 	<cdx-text-input
 		v-model="inputValue"
-		v-bind="textInputProps"
+		:input-type="inputType"
+		:start-icon="startIcon"
+		:end-icon="endIcon"
+		:clearable="clearable"
+		:disabled="disabled"
 	/>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref, computed } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 import { CdxTextInput, TextInputType } from '@wikimedia/codex';
-import { cdxIconSearch, cdxIconInfoFilled } from '@wikimedia/codex-icons';
+import { Icon } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'TextInputDefault',
@@ -19,12 +23,12 @@ export default defineComponent( {
 			default: 'text'
 		},
 		startIcon: {
-			type: Boolean,
-			default: false
+			type: [ String, Object ] as PropType<Icon | undefined>,
+			default: undefined
 		},
 		endIcon: {
-			type: Boolean,
-			default: false
+			type: [ String, Object ] as PropType<Icon | undefined>,
+			default: undefined
 		},
 		clearable: {
 			type: Boolean,
@@ -35,23 +39,12 @@ export default defineComponent( {
 			default: false
 		}
 	},
-	setup( props ) {
+	setup() {
 		// Set up a reactive reference to track the input value.
 		const inputValue = ref<string | number>( '' );
 
-		const textInputProps = computed( () => {
-			return {
-				inputType: props.inputType,
-				startIcon: props.startIcon ? cdxIconSearch : undefined,
-				endIcon: props.endIcon ? cdxIconInfoFilled : undefined,
-				clearable: props.clearable,
-				disabled: props.disabled
-			};
-		} );
-
 		return {
-			inputValue,
-			textInputProps
+			inputValue
 		};
 	}
 } );

@@ -1,5 +1,5 @@
 <template>
-	<table class="cdx-docs-controls">
+	<table class="cdx-docs-controls" :class="rootClasses">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -44,6 +44,12 @@
 						:aria-label="propControl.name"
 						@update:model-value="emitControlChange( propControl.name, $event )"
 					/>
+
+					<cdx-docs-icon-lookup
+						v-if="propControl.type === 'icon'"
+						:model-value="propControl.value"
+						@update:model-value="emitControlChange( propControl.name, $event )"
+					/>
 				</td>
 			</tr>
 
@@ -64,6 +70,21 @@
 				</td>
 			</tr>
 		</tbody>
+		<tfoot v-if="hasIconProp">
+			<tr>
+				<td colspan="2">
+					<strong>Note</strong>:
+					For icon properties, the relevant icon also needs to be
+					imported from the
+					<code>@wikimedia/codex-icons</code>
+					package. See
+					<a href="../../introduction/usage.html#using-icons">
+						the usage documentation
+					</a>
+					for more information.
+				</td>
+			</tr>
+		</tfoot>
 	</table>
 </template>
 
@@ -71,6 +92,7 @@
 import { defineComponent, PropType, computed } from 'vue';
 import { ControlConfigWithValue, SlotConfigWithValue, PropConfigWithValue } from '../../types';
 import { CdxRadio, CdxTextInput, CdxToggleSwitch } from '@wikimedia/codex';
+import CdxDocsIconLookup from '../icon-lookup/IconLookup.vue';
 
 /**
  * A table of interactive controls to configure a component demo.
@@ -84,7 +106,7 @@ import { CdxRadio, CdxTextInput, CdxToggleSwitch } from '@wikimedia/codex';
  */
 export default defineComponent( {
 	name: 'CdxDocsControls',
-	components: { CdxRadio, CdxTextInput, CdxToggleSwitch },
+	components: { CdxRadio, CdxTextInput, CdxToggleSwitch, CdxDocsIconLookup },
 	props: {
 		controlsWithValues: {
 			type: Array as PropType<ControlConfigWithValue[]>,
@@ -109,12 +131,29 @@ export default defineComponent( {
 				} );
 		} );
 
+		// Show a note about Icon props if there are any
+		const hasIconProp = computed( () => {
+			return props.controlsWithValues.some(
+				( currentControl ) => currentControl.type === 'icon'
+			);
+		} );
+
+		// When icon properties are included, make sure that the full dropdown menu
+		// can be seen without needing its own scroll bar
+		const rootClasses = computed( () => {
+			return {
+				'cdx-docs-controls--has-icon': hasIconProp.value
+			};
+		} );
+
 		const emitControlChange = ( name: string, value: string | number | boolean ) =>
 			emit( 'control-change', name, value );
 
 		return {
 			propControls,
 			slotControls,
+			hasIconProp,
+			rootClasses,
 			emitControlChange
 		};
 	}
@@ -129,6 +168,10 @@ export default defineComponent( {
 
 	&__section-header {
 		font-weight: @font-weight-bold;
+	}
+
+	&--has-icon {
+		overflow: visible;
 	}
 }
 </style>

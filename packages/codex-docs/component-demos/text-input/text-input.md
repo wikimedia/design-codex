@@ -6,11 +6,11 @@ import TextInputDemo from '@/../component-demos/text-input/examples/TextInputDem
 const controlsConfig = [
 	{
 		name: 'startIcon',
-		type: 'boolean'
+		type: 'icon'
 	},
 	{
 		name: 'endIcon',
-		type: 'boolean'
+		type: 'icon'
 	},
 	{
 		name: 'clearable',
@@ -36,7 +36,7 @@ element within the component.
 
 ### Configurable
 
-<cdx-demo-wrapper :controls-config="controlsConfig">
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues }">
 <text-input-configurable v-bind="propValues" />
 </template>
@@ -165,7 +165,7 @@ To disable the input, add the `disabled` attribute.
 </cdx-demo-wrapper>
 
 <style lang="less" scoped>
-.cdx-demo-wrapper :deep( .cdx-text-input ) {
+:deep( .cdx-demo-wrapper__demo-pane .cdx-text-input ) {
 	max-width: 400px;
 	margin-bottom: 16px;
 }
