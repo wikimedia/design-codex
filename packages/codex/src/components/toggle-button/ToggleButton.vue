@@ -106,9 +106,11 @@ export default defineComponent( {
 	&:enabled {
 		color: @color-base;
 
-		// Use hand cursor. This is non-standard for a button but allows for a visible
-		// interactivity distinction from the disabled state.
-		cursor: @cursor-pointer;
+		&:hover {
+			// Use hand cursor. This is nonstandard for a button but allows for a visible
+			// interactivity distinction from the disabled state.
+			cursor: @cursor-base--hover;
+		}
 
 		&:focus {
 			border-color: @color-primary--focus;

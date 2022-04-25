@@ -435,32 +435,41 @@
 		}
 	},
 	"cursor": {
-		"default": {
+		"arrow": {
 			"value": "default"
 		},
-		"grab": {
-			"value": "grab"
-		},
-		"grabbing": {
-			"value": "grabbing"
-		},
-		"help": {
-			"value": "help"
-		},
-		"move": {
+		"arrow-move": {
 			"value": "move"
 		},
-		"no-drop": {
-			"value": "no-drop"
-		},
-		"not-allowed": {
+		"arrow-not-allowed": {
 			"value": "not-allowed"
 		},
-		"pointer": {
+		"hand": {
 			"value": "pointer"
 		},
-		"text": {
+		"hand-open": {
+			"value": "grab"
+		},
+		"hand-closed": {
+			"value": "grabbing"
+		},
+		"question-mark": {
+			"value": "help"
+		},
+		"resize-left": {
+			"value": "nesw-resize"
+		},
+		"resize-right": {
+			"value": "nwse-resize"
+		},
+		"text-marker": {
 			"value": "text"
+		},
+		"zoom-more": {
+			"value": "zoom-in"
+		},
+		"zoom-less": {
+			"value": "zoom-out"
 		}
 	},
 	"wmui-color": {

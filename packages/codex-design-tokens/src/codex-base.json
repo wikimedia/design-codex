@@ -620,13 +620,43 @@
 	},
 	"cursor": {
 		"base": {
-			"value": "{ cursor.default }"
+			"value": "{ cursor.arrow }"
 		},
 		"base--disabled": {
-			"value": "{ cursor.default }"
+			"value": "{ cursor.arrow }"
 		},
 		"base--hover": {
-			"value": "{ cursor.pointer }"
+			"value": "{ cursor.hand }"
+		},
+		"grab": {
+			"value": "{ cursor.hand-open }"
+		},
+		"grabbing": {
+			"value": "{ cursor.hand-closed }"
+		},
+		"help": {
+			"value": "{ cursor.question-mark }"
+		},
+		"move": {
+			"value": "{ cursor.arrow-move }"
+		},
+		"not-allowed": {
+			"value": "{ cursor.arrow-not-allowed }"
+		},
+		"resize-nesw": {
+			"value": "{ cursor.resize-left }"
+		},
+		"resize-nwse": {
+			"value": "{ cursor.resize-right }"
+		},
+		"text": {
+			"value": "{ cursor.text-marker }"
+		},
+		"zoom-in": {
+			"value": "{ cursor.zoom-more }"
+		},
+		"zoom-out": {
+			"value": "{ cursor.zoom-less }"
 		}
 	}
 }
