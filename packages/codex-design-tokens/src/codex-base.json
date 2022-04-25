@@ -393,7 +393,10 @@
 		"base": {
 			"value": "{ size.absolute.12 }"
 		},
-		"round": {
+		"sharp": {
+			"value": "{ size.0 }"
+		},
+		"pill": {
 			"value": "{ size.absolute.9999px }"
 		},
 		"circle": {

@@ -180,7 +180,7 @@ export default defineComponent( {
 		width: @width-toggle-switch;
 		height: @height-toggle-switch;
 		border: @border-input-binary;
-		border-radius: @border-radius-round;
+		border-radius: @border-radius-pill;
 		overflow: hidden;
 		transition-property: @transition-property-base;
 		transition-duration: @transition-ease-medium;
@@ -196,7 +196,7 @@ export default defineComponent( {
 			left: @position-offset-toggle-switch-outline;
 			z-index: 1;
 			border: @border-width-base @border-style-base transparent;
-			border-radius: @border-radius-round;
+			border-radius: @border-radius-pill;
 			transition-property: @transition-property-toggle-switch-outline;
 			transition-duration: @transition-ease-medium;
 		}
@@ -212,8 +212,8 @@ export default defineComponent( {
 			width: @size-toggle-switch-grip--mobile;
 			height: @size-toggle-switch-grip--mobile;
 			border: @border-input-binary;
-			border-radius: @border-radius-round;
-			/* stylelint-disable-next-line value-list-comma-newline-after */
+			border-radius: @border-radius-circle;
+			/* stylelint-disable value-list-comma-newline-after */
 			transition: background-color @transition-ease-medium,
 				left @transition-base;
 

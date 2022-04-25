@@ -32,7 +32,7 @@ export default defineComponent( {
 	box-sizing: @box-sizing-base;
 	max-width: @max-width-base;
 	border: @border-base;
-	border-radius: @border-radius-round;
+	border-radius: @border-radius-pill;
 	box-shadow: @box-shadow-progress-bar;
 	overflow-x: hidden;
 
