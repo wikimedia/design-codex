@@ -1,6 +1,7 @@
 <template>
 	<div
 		class="cdx-progress-bar"
+		:class="rootClasses"
 		role="progressbar"
 		aria-valuemin="0"
 		aria-valuemax="100"
@@ -10,17 +11,42 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 
 /**
- * Progress bar, currently only supports indeterminate type (i.e. the bar will scroll across the
- * width of the display and then reappear at the start, rather than reflecting a specific amount
- * of progress having been made).
+ * Visual progress indicator bar.
+ *
+ * Currently only supports indeterminate type (i.e. the bar will scroll across the width of the
+ * display and then reappear at the start, rather than reflecting a specific amount of progress
+ * having been made).
+ *
+ * A smaller, inline version is available for use within other components, e.g. a menu or dialog.
  *
  * @author DannyS712
  */
 export default defineComponent( {
-	name: 'CdxProgressBar'
+	name: 'CdxProgressBar',
+	props: {
+		/**
+		 * Whether this is the smaller, inline variant.
+		 */
+		inline: {
+			type: Boolean,
+			default: false
+		}
+	},
+	setup( props ) {
+		const rootClasses = computed( () => {
+			return {
+				'cdx-progress-bar--block': !props.inline,
+				'cdx-progress-bar--inline': props.inline
+			};
+		} );
+
+		return {
+			rootClasses
+		};
+	}
 } );
 </script>
 
@@ -28,20 +54,34 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 .cdx-progress-bar {
-	background-color: @background-color-base;
 	box-sizing: @box-sizing-base;
-	max-width: @max-width-base;
-	border: @border-base;
-	border-radius: @border-radius-pill;
-	box-shadow: @box-shadow-progress-bar;
 	overflow-x: hidden;
 
 	&__bar {
 		background-color: @background-color-progressive;
 		width: 40%;
-		// Equals `1.14285714em`≈`16px`
-		height: ( @size-base / 2 );
 		animation: cdx-progress-bar__bar--slide 2s infinite linear;
+	}
+
+	&--block {
+		background-color: @background-color-base;
+		max-width: @max-width-base;
+		border: @border-base;
+		border-radius: @border-radius-pill;
+		box-shadow: @box-shadow-progress-bar;
+
+		.cdx-progress-bar__bar {
+			// Equals `1.14285714em`≈`16px`
+			height: ( @size-base / 2 );
+		}
+	}
+
+	&--inline {
+		width: 100%;
+
+		.cdx-progress-bar__bar {
+			height: ( @size-base / 8 );
+		}
 	}
 }
 

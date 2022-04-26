@@ -2,9 +2,20 @@ import { shallowMount } from '@vue/test-utils';
 import CdxProgressBar from './ProgressBar.vue';
 
 describe( 'matches the snapshot', () => {
-	// No need for fancier logic with cases just yet
-	it( 'indeterminate progress bar => HTML', () => {
-		const wrapper = shallowMount( CdxProgressBar );
+	type Case = [
+		msg: string,
+		props: {
+			inline?: boolean
+		}
+	];
+
+	const cases: Case[] = [
+		[ 'Indeterminate', {} ],
+		[ 'Indeterminate, inline', { inline: true } ]
+	];
+
+	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
+		const wrapper = shallowMount( CdxProgressBar, { props: props } );
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 } );
