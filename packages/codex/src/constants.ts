@@ -42,6 +42,11 @@ export const MenuStates = [
 export const DebounceInterval = 120;
 
 /**
+ * Default length of delay for displaying pending state, in milliseconds.
+ */
+export const PendingDelay = 500;
+
+/**
  * Sometimes, a menu will have an extra item at the end that provides some
  * additional behavior, e.g. TypeaheadSearch's final menu item that links to the
  * search page for the current search query. This extra item will not have a

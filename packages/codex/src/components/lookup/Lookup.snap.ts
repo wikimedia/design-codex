@@ -26,6 +26,7 @@ exports[`Basic usage Case 0 Default: ([]) => HTML 1`] = `
     role="listbox"
     style="display: none;"
   >
+    <!--v-if-->
     <li
       class="cdx-menu__no-results cdx-menu-item"
     >
@@ -37,6 +38,7 @@ exports[`Basic usage Case 0 Default: ([]) => HTML 1`] = `
     </li>
     
     
+    <!--v-if-->
   </ul>
 </div>
 `;
@@ -67,6 +69,7 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
     role="listbox"
     style="display: none;"
   >
+    <!--v-if-->
     <!--v-if-->
     
     <li
@@ -206,6 +209,7 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
       
     </li>
     
+    <!--v-if-->
   </ul>
 </div>
 `;
@@ -236,6 +240,7 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
     role="listbox"
     style="display: none;"
   >
+    <!--v-if-->
     <!--v-if-->
     
     <li
@@ -375,6 +380,7 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
       
     </li>
     
+    <!--v-if-->
   </ul>
 </div>
 `;
@@ -406,6 +412,7 @@ exports[`Basic usage Case 3 Disabled: ([]) => HTML 1`] = `
     role="listbox"
     style="display: none;"
   >
+    <!--v-if-->
     <li
       class="cdx-menu__no-results cdx-menu-item"
     >
@@ -417,6 +424,7 @@ exports[`Basic usage Case 3 Disabled: ([]) => HTML 1`] = `
     </li>
     
     
+    <!--v-if-->
   </ul>
 </div>
 `;
@@ -447,6 +455,7 @@ exports[`Basic usage Case 4 With no results content: ([]) => HTML 1`] = `
     role="listbox"
     style="display: none;"
   >
+    <!--v-if-->
     <li
       class="cdx-menu__no-results cdx-menu-item"
     >
@@ -464,6 +473,7 @@ exports[`Basic usage Case 4 With no results content: ([]) => HTML 1`] = `
     </li>
     
     
+    <!--v-if-->
   </ul>
 </div>
 `;
@@ -494,6 +504,7 @@ exports[`Basic usage Case 5 With class attributes: ([]) => HTML 1`] = `
     role="listbox"
     style="display: none;"
   >
+    <!--v-if-->
     <li
       class="cdx-menu__no-results cdx-menu-item"
     >
@@ -505,6 +516,7 @@ exports[`Basic usage Case 5 With class attributes: ([]) => HTML 1`] = `
     </li>
     
     
+    <!--v-if-->
   </ul>
 </div>
 `;
@@ -536,6 +548,7 @@ exports[`Basic usage Case 6 With type and placeholder attributes: ([]) => HTML 1
     role="listbox"
     style="display: none;"
   >
+    <!--v-if-->
     <li
       class="cdx-menu__no-results cdx-menu-item"
     >
@@ -547,6 +560,7 @@ exports[`Basic usage Case 6 With type and placeholder attributes: ([]) => HTML 1
     </li>
     
     
+    <!--v-if-->
   </ul>
 </div>
 `;

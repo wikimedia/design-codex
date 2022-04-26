@@ -1,6 +1,6 @@
 import { DOMWrapper, mount, VueWrapper } from '@vue/test-utils';
 import { CdxTypeaheadSearch, CdxMenuItem, CdxSearchInput } from '../../lib';
-import { DebounceInterval } from '../../constants';
+import { DebounceInterval, PendingDelay } from '../../constants';
 
 const propsData = {
 	buttonLabel: 'Search',
@@ -156,7 +156,7 @@ describe( 'TypeaheadSearch initial state', () => {
 		expect( wrapper.vm.expanded ).toBe( true );
 	} );
 
-	it( 'Sets expanded to true if there are items and the input value does not match the selection', async () => {
+	it( 'Sets expanded to true when new results come in based on user input', async () => {
 		const wrapper = mount( CdxTypeaheadSearch, {
 			props: { initialInputValue: 'Co', ...propsData },
 			slots: {
@@ -165,6 +165,11 @@ describe( 'TypeaheadSearch initial state', () => {
 			}
 		} );
 		await wrapper.find( '.cdx-text-input__input' ).trigger( 'focus' );
+		const searchInput = wrapper.findComponent( CdxSearchInput );
+		// This will set `pending` to true.
+		await searchInput.vm.$emit( 'update:modelValue', 'a' );
+		expect( wrapper.vm.expanded ).toStrictEqual( false );
+
 		await wrapper.setProps( { searchResults } );
 		expect( wrapper.vm.expanded ).toStrictEqual( true );
 	} );
@@ -331,5 +336,115 @@ describe( 'TypeaheadSearch, with search results', () => {
 		await input.setValue( '' );
 		jest.advanceTimersByTime( DebounceInterval );
 		expect( wrapper.vm.expanded ).toBeFalsy();
+	} );
+} );
+
+describe( 'TypeaheadSearch pending state behavior', () => {
+	beforeEach( () => {
+		jest.useFakeTimers( 'modern' );
+	} );
+
+	afterEach( () => {
+		jest.useRealTimers();
+	} );
+
+	it( 'Shows pending and expands menu when slot is populated and input is focused', async () => {
+		const wrapper = mount( CdxTypeaheadSearch, {
+			props: propsData,
+			slots: {
+				default: defaultSlot,
+				searchFooterText: searchFooterTextSlot,
+				'search-results-pending': 'Loading...'
+			}
+		} );
+
+		await wrapper.find( '.cdx-text-input__input' ).trigger( 'focus' );
+		const searchInput = wrapper.findComponent( CdxSearchInput );
+		await searchInput.vm.$emit( 'update:modelValue', 'a' );
+
+		jest.advanceTimersByTime( PendingDelay );
+
+		expect( wrapper.vm.showPending ).toBe( true );
+		expect( wrapper.vm.expanded ).toBe( true );
+	} );
+
+	it( 'Shows pending but do not expand menu when slot is populated and input is not focused', async () => {
+		const wrapper = mount( CdxTypeaheadSearch, {
+			props: propsData,
+			slots: {
+				default: defaultSlot,
+				searchFooterText: searchFooterTextSlot,
+				'search-results-pending': 'Loading...'
+			}
+		} );
+
+		const searchInput = wrapper.findComponent( CdxSearchInput );
+		await searchInput.vm.$emit( 'update:modelValue', 'a' );
+
+		jest.advanceTimersByTime( PendingDelay );
+
+		expect( wrapper.vm.showPending ).toBe( true );
+		expect( wrapper.vm.expanded ).toBe( false );
+	} );
+
+	it( 'Expands menu when showPending is true and input becomes focused', async () => {
+		const wrapper = mount( CdxTypeaheadSearch, {
+			props: propsData,
+			slots: {
+				default: defaultSlot,
+				searchFooterText: searchFooterTextSlot,
+				'search-results-pending': 'Loading...'
+			}
+		} );
+
+		const searchInput = wrapper.findComponent( CdxSearchInput );
+		await searchInput.vm.$emit( 'update:modelValue', 'a' );
+
+		jest.advanceTimersByTime( PendingDelay );
+
+		expect( wrapper.vm.showPending ).toBe( true );
+		expect( wrapper.vm.expanded ).toBe( false );
+
+		await wrapper.find( '.cdx-text-input__input' ).trigger( 'focus' );
+		expect( wrapper.vm.expanded ).toBe( true );
+	} );
+
+	it( 'Does nothing when slot is not populated', async () => {
+		const wrapper = mount( CdxTypeaheadSearch, {
+			props: propsData,
+			slots: {
+				default: defaultSlot,
+				searchFooterText: searchFooterTextSlot
+			}
+		} );
+		await wrapper.find( '.cdx-text-input__input' ).trigger( 'focus' );
+		const searchInput = wrapper.findComponent( CdxSearchInput );
+		await searchInput.vm.$emit( 'update:modelValue', 'a' );
+
+		jest.advanceTimersByTime( PendingDelay );
+
+		expect( wrapper.vm.showPending ).toBe( false );
+		expect( wrapper.vm.expanded ).toBe( false );
+	} );
+
+	it( 'Never shows pending when search results come in faster than delay', async () => {
+		const wrapper = mount( CdxTypeaheadSearch, {
+			props: propsData,
+			slots: {
+				default: defaultSlot,
+				searchFooterText: searchFooterTextSlot,
+				'search-results-pending': 'Loading...'
+			}
+		} );
+
+		const searchInput = wrapper.findComponent( CdxSearchInput );
+		await searchInput.vm.$emit( 'update:modelValue', 'a' );
+		await wrapper.setProps( { searchResults } );
+
+		expect( wrapper.vm.showPending ).toBe( false );
+
+		jest.advanceTimersByTime( PendingDelay );
+
+		expect( wrapper.vm.showPending ).toBe( false );
 	} );
 } );

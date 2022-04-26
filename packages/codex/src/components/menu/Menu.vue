@@ -5,12 +5,23 @@
 		role="listbox"
 		aria-multiselectable="false"
 	>
+		<li
+			v-if="showPending && computedMenuItems.length === 0 && $slots.pending"
+			class="cdx-menu__pending cdx-menu-item"
+		>
+			<!--
+				@slot Message to indicate pending state.
+			-->
+			<slot name="pending" />
+		</li>
+
 		<li v-if="computedShowNoResultsSlot" class="cdx-menu__no-results cdx-menu-item">
 			<!--
 				@slot Message to show if there are no menu items to display.
 			-->
 			<slot name="no-results" />
 		</li>
+
 		<cdx-menu-item
 			v-for="menuItem in computedMenuItems"
 			:key="menuItem.value"
@@ -31,12 +42,19 @@
 			-->
 			<slot :menuItem="menuItem" />
 		</cdx-menu-item>
+
+		<cdx-progress-bar
+			v-if="showPending"
+			class="cdx-menu__progress-bar"
+			:inline="true"
+		/>
 	</ul>
 </template>
 
 <script lang="ts">
 import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted } from 'vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
+import CdxProgressBar from '../progress-bar/ProgressBar.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import { MenuItemData, MenuItemDataWithId, MenuState } from '../../types';
 
@@ -58,7 +76,8 @@ import { MenuItemData, MenuItemDataWithId, MenuState } from '../../types';
 export default defineComponent( {
 	name: 'CdxMenu',
 	components: {
-		CdxMenuItem
+		CdxMenuItem,
+		CdxProgressBar
 	},
 	props: {
 		/** Menu items. See the MenuItemData type. */
@@ -81,6 +100,18 @@ export default defineComponent( {
 		expanded: {
 			type: Boolean,
 			required: true
+		},
+		/**
+		 * Whether to display pending state indicators. Meant to indicate that new menu items are
+		 * being fetched or computed.
+		 *
+		 * When true, the menu will expand if not already expanded, and an inline progress bar will
+		 * display. If there are no menu items yet, a message can be displayed in the `pending`
+		 * slot, e.g. "Loading results".
+		 */
+		showPending: {
+			type: Boolean,
+			default: false
 		},
 		/**
 		 * Whether menu item thumbnails (or a placeholder icon) should be displayed.
@@ -484,5 +515,10 @@ export default defineComponent( {
 	border-radius: 0 0 @border-radius-base @border-radius-base;
 	padding: 0;
 	box-shadow: @box-shadow-menu;
+
+	&__progress-bar {
+		position: absolute;
+		top: 0;
+	}
 }
 </style>

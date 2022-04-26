@@ -33,10 +33,11 @@
 					:id="menuId"
 					ref="menu"
 					v-model:expanded="expanded"
+					:show-pending="showPending"
 					:selected="selection"
 					:menu-items="searchResultsWithFooter"
 					:search-query="highlightQuery ? searchQuery : ''"
-					:show-no-results-slot="searchResults.length === 0"
+					:show-no-results-slot="searchQuery.length > 0 && searchResults.length === 0"
 					v-bind="menuConfig"
 					:aria-label="searchResultsLabel"
 					@update:selected="onUpdateMenuSelection"
@@ -44,14 +45,25 @@
 						onSearchResultClick( asSearchResult( menuItem ) )"
 					@menu-item-keyboard-navigation="onSearchResultKeyboardNavigation"
 				>
+					<template #pending>
+						<div
+							class="cdx-typeahead-search__menu-message"
+							:class="menuMessageClass"
+						>
+							<span class="cdx-typeahead-search__menu-message__text">
+								<!--
+									@slot A slot for a translated "Loading search results" message.
+								-->
+								<slot name="search-results-pending" />
+							</span>
+						</div>
+					</template>
 					<template #no-results>
 						<div
-							class="cdx-typeahead-search__search-no-results"
-							:class="noResultsClass"
+							class="cdx-typeahead-search__menu-message"
+							:class="menuMessageClass"
 						>
-							<span
-								class="cdx-typeahead-search__search-no-results__text"
-							>
+							<span class="cdx-typeahead-search__menu-message__text">
 								<!--
 									@slot A slot for passing in a translated "no results" message.
 								-->
@@ -70,9 +82,7 @@
 								class="cdx-typeahead-search__search-footer__icon"
 								:icon="articleIcon"
 							/>
-							<span
-								class="cdx-typeahead-search__search-footer__text"
-							>
+							<span class="cdx-typeahead-search__search-footer__text">
 								<!-- eslint-disable max-len -->
 								<!--
 									@slot A slot for passing in translated search footer text.
@@ -108,7 +118,7 @@ import CdxSearchInput from '../search-input/SearchInput.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import { SearchResult, SearchResultWithId, SearchResultClickEvent, MenuItemDataWithId, MenuConfig } from '../../types';
-import { DebounceInterval, MenuFooterValue } from '../../constants';
+import { DebounceInterval, PendingDelay, MenuFooterValue } from '../../constants';
 
 /**
  * A search form with stylized autocomplete suggestions.
@@ -253,7 +263,15 @@ export default defineComponent( {
 		// Generated ID for menu; needed for aria-attributes.
 		const menuId = useGeneratedId( 'typeahead-search-menu' );
 
+		// Whether the menu should be displayed.
 		const expanded = ref( false );
+
+		// Whether the component is waiting on its parent to provide it with new search results.
+		const pending = ref( false );
+		// Whether to display the pending state indicators (in the Menu component). This is separate
+		// from the `pending` ref because the pending state indicators are only displayed after a
+		// delay, to avoid momentarily showing them to users with fast connections.
+		const showPending = ref( false );
 
 		// Whether the TypeaheadSearch is being used; used for applying conditional styles.
 		const isActive = ref( false );
@@ -271,8 +289,8 @@ export default defineComponent( {
 
 		const selection = ref<string|number|null>( null );
 
-		const noResultsClass = computed( () => ( {
-			'cdx-typeahead-search__search-no-results--with-thumbnail': props.showThumbnail
+		const menuMessageClass = computed( () => ( {
+			'cdx-typeahead-search__menu-message--with-thumbnail': props.showThumbnail
 		} ) );
 
 		const selectedResult = computed( () =>
@@ -320,6 +338,7 @@ export default defineComponent( {
 		} );
 
 		const debounceId = ref<ReturnType<typeof setTimeout>>();
+		const pendingDelayId = ref<ReturnType<typeof setTimeout>>();
 
 		/**
 		 * Handle changes to the text input.
@@ -327,6 +346,9 @@ export default defineComponent( {
 		 * 'new-input' events with the new value will be emitted, but this will be debounced if a
 		 * positive debounceInterval is provided as a prop or if the default DebounceInterval is
 		 * used.
+		 *
+		 * Pending state indicators will also be displayed after a brief delay, then removed once
+		 * search results are received.
 		 *
 		 * TODO: use a library-wide debounce function.
 		 *
@@ -343,9 +365,30 @@ export default defineComponent( {
 				selection.value = null;
 			}
 
-			// If the input is cleared, close the menu.
+			// Always clear previous pending delay timeout function.
+			if ( pendingDelayId.value ) {
+				clearTimeout( pendingDelayId.value );
+			}
+
 			if ( newVal === '' ) {
+				// If the input is cleared, close the menu.
 				expanded.value = false;
+			} else {
+				// Otherwise, we have new input. Set pending to true to indicate that new search
+				// results are being fetched.
+				pending.value = true;
+
+				// After a delay, pending state indicators will be displayed to the user by
+				// expanding the menu and setting the Menu component's `showPending` prop to true.
+				// Note that this only happens if the `search-results-pending` slot is populated.
+				if ( context.slots[ 'search-results-pending' ] ) {
+					pendingDelayId.value = setTimeout( () => {
+						if ( isActive.value ) {
+							expanded.value = true;
+						}
+						showPending.value = true;
+					}, PendingDelay );
+				}
 			}
 
 			// Cancel the last setTimeout callback in case it hasn't executed yet.
@@ -389,7 +432,7 @@ export default defineComponent( {
 		function onFocus() {
 			isActive.value = true;
 
-			if ( searchQuery.value ) {
+			if ( searchQuery.value || showPending.value ) {
 				expanded.value = true;
 			}
 		}
@@ -544,15 +587,24 @@ export default defineComponent( {
 			// This ensures that the search footer corresponds to the new search results.
 			searchQuery.value = inputValue.value.trim();
 
-			const inputValueIsSelection = selectedResult.value?.label === inputValue.value ||
-				String( selectedResult.value?.value ) === inputValue.value;
-
-			// Show the menu if there are menu items to show, and if the input value is not equal to
-			// the current selection. The latter condition covers the case where, upon selecting an
-			// item, computedMenuItems changes, but we don't want the menu to be open anymore.
-			if ( newVal.length > 0 && isActive.value && !inputValueIsSelection ) {
+			// Show the menu if:
+			// 1. The input is currently focused
+			// 2. Pending state is true, which indicates that the new searchResults value was
+			//    returned after new user input
+			// 3. The input is not empty
+			// Note that the menu may already have been expanded if the pending delay threshold has
+			// been met and the pending state is being displayed to the user.
+			if ( isActive.value && pending.value && newVal.length > 0 ) {
 				expanded.value = true;
 			}
+
+			// Make sure pending doesn't get set to true by clearing the timeout function, and
+			// explicitly set pending to false.
+			if ( pendingDelayId.value ) {
+				clearTimeout( pendingDelayId.value );
+			}
+			pending.value = false;
+			showPending.value = false;
 		} );
 
 		return {
@@ -561,12 +613,13 @@ export default defineComponent( {
 			menuId,
 			highlightedId,
 			selection,
-			noResultsClass,
+			menuMessageClass,
 			searchResultsWithFooter,
 			asSearchResult,
 			inputValue,
 			searchQuery,
 			expanded,
+			showPending,
 			rootClasses,
 			rootStyle,
 			otherAttrs,
@@ -670,7 +723,7 @@ export default defineComponent( {
 		}
 	}
 
-	&__search-no-results,
+	&__menu-message,
 	&__search-footer {
 		color: @color-base;
 		display: flex;
@@ -706,9 +759,9 @@ export default defineComponent( {
 		}
 	}
 
-	// When props showThumbnail is true, search-no-results should have
-	// different padding.
-	&__search-no-results--with-thumbnail {
+	// When props showThumbnail is true, special menu messages (like no results and pending) should
+	// have different padding.
+	&__menu-message--with-thumbnail {
 		padding-left: @padding-no-results-text-with-thumbnail;
 	}
 

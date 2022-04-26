@@ -2,6 +2,7 @@
 import TypeaheadSearchWikipedia from './../../component-demos/typeahead-search/examples/TypeaheadSearchWikipedia.vue';
 import TypeaheadSearchWikidata from './../../component-demos/typeahead-search/examples/TypeaheadSearchWikidata.vue';
 import TypeaheadSearchInitialValue from './../../component-demos/typeahead-search/examples/TypeaheadSearchInitialValue.vue';
+import TypeaheadSearchPendingState from './../../component-demos/typeahead-search/examples/TypeaheadSearchPendingState.vue';
 </script>
 
 ::: tip TextInput props apply
@@ -66,6 +67,26 @@ when the value changes.
 <template v-slot:code>
 
 <<< @/../component-demos/typeahead-search/examples/TypeaheadSearchInitialValue.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Pending state
+
+Pending state indicators, including an inline progress bar and a message stating that results are
+pending, can be displayed to users with slower connections while search results are being fetched.
+To enable this, provide content in the `search-results-pending` slot.
+
+The pending state indicators will display when a search takes longer than half a second, so you may
+need to throttle your connection to see them in the demo below.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<typeahead-search-pending-state />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/typeahead-search/examples/TypeaheadSearchPendingState.vue
 
 </template>
 </cdx-demo-wrapper>

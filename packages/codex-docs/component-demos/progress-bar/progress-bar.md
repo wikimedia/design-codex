@@ -25,7 +25,8 @@ Default indeterminate progress bar.
 
 ### Inline
 
-An inline version is available for use within other components, like Menu.
+An inline version is available for use within other components. See [Menu](./menu#pending-state) for
+sample usage.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

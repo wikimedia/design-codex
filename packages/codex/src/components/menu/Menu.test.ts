@@ -22,9 +22,11 @@ describe( 'Matches the snapshots', () => {
 		menuItems: MenuItemData[],
 		selected: string|number|null,
 		expanded?: boolean,
+		showPending?: boolean,
 		slots?: {
 			default?: string,
-			'no-results'?: string
+			'no-results'?: string,
+			pending?: string
 		}
 	];
 
@@ -32,8 +34,10 @@ describe( 'Matches the snapshots', () => {
 		[ 'Nothing selected', exampleMenuItems, null ],
 		[ 'Something selected', exampleMenuItems, 'b' ],
 		[ 'Not expanded', exampleMenuItems, 'b', false ],
-		[ 'With no results text', [], null, true, { 'no-results': 'No results' } ],
-		[ 'Custom menu item rendering', exampleMenuItems, 'b', true, {
+		[ 'With no results text', [], null, true, false, { 'no-results': 'No results' } ],
+		[ 'Pending', [], null, true, true, { pending: 'Loading...' } ],
+		[ 'Pending with items', exampleMenuItems, null, true, true, { pending: 'Loading...' } ],
+		[ 'Custom menu item rendering', exampleMenuItems, 'b', true, false, {
 			default: `
 				<template #default="{ menuItem }">
 					{{ menuItem.label }} (value: {{ menuItem.value }})
@@ -42,9 +46,11 @@ describe( 'Matches the snapshots', () => {
 		} ]
 	];
 
-	test.each( cases )( 'Case %# %s: => HTML', ( _, menuItems, selected, expanded = true, slots = {} ) => {
+	test.each( cases )( 'Case %# %s: => HTML', (
+		_, menuItems, selected, expanded = true, showPending = false, slots = {}
+	) => {
 		const wrapper = mount( CdxMenu, {
-			props: { menuItems, selected, expanded },
+			props: { menuItems, selected, expanded, showPending },
 			slots
 		} );
 		expect( wrapper.element ).toMatchSnapshot();

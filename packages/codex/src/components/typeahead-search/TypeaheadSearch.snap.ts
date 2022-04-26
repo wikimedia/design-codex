@@ -66,30 +66,11 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
           role="listbox"
           style="display: none;"
         >
-          <li
-            class="cdx-menu__no-results cdx-menu-item"
-          >
-            <!--
-				@slot Message to show if there are no menu items to display.
-			-->
-            
-            <div
-              class="cdx-typeahead-search__search-no-results"
-            >
-              <span
-                class="cdx-typeahead-search__search-no-results__text"
-              >
-                <!--
-									@slot A slot for passing in a translated "no results" message.
-								-->
-                
-                
-              </span>
-            </div>
-            
-          </li>
+          <!--v-if-->
+          <!--v-if-->
           
           
+          <!--v-if-->
         </ul>
         
       </div>
@@ -185,30 +166,11 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
           role="listbox"
           style="display: none;"
         >
-          <li
-            class="cdx-menu__no-results cdx-menu-item"
-          >
-            <!--
-				@slot Message to show if there are no menu items to display.
-			-->
-            
-            <div
-              class="cdx-typeahead-search__search-no-results cdx-typeahead-search__search-no-results--with-thumbnail"
-            >
-              <span
-                class="cdx-typeahead-search__search-no-results__text"
-              >
-                <!--
-									@slot A slot for passing in a translated "no results" message.
-								-->
-                
-                
-              </span>
-            </div>
-            
-          </li>
+          <!--v-if-->
+          <!--v-if-->
           
           
+          <!--v-if-->
         </ul>
         
       </div>
@@ -304,30 +266,11 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
           role="listbox"
           style="display: none;"
         >
-          <li
-            class="cdx-menu__no-results cdx-menu-item"
-          >
-            <!--
-				@slot Message to show if there are no menu items to display.
-			-->
-            
-            <div
-              class="cdx-typeahead-search__search-no-results"
-            >
-              <span
-                class="cdx-typeahead-search__search-no-results__text"
-              >
-                <!--
-									@slot A slot for passing in a translated "no results" message.
-								-->
-                
-                
-              </span>
-            </div>
-            
-          </li>
+          <!--v-if-->
+          <!--v-if-->
           
           
+          <!--v-if-->
         </ul>
         
       </div>
@@ -423,6 +366,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           role="listbox"
           style="display: none;"
         >
+          <!--v-if-->
           <!--v-if-->
           
           <li
@@ -597,6 +541,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             
           </li>
           
+          <!--v-if-->
         </ul>
         
       </div>

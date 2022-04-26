@@ -60,6 +60,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     style="display: none;"
   >
     <!--v-if-->
+    <!--v-if-->
     
     <li
       aria-disabled="false"
@@ -198,6 +199,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       
     </li>
     
+    <!--v-if-->
   </ul>
 </div>
 `;
@@ -261,6 +263,7 @@ exports[`Basic usage Case 1 Menu item with label selected: ([[Object], [Object],
     role="listbox"
     style="display: none;"
   >
+    <!--v-if-->
     <!--v-if-->
     
     <li
@@ -400,6 +403,7 @@ exports[`Basic usage Case 1 Menu item with label selected: ([[Object], [Object],
       
     </li>
     
+    <!--v-if-->
   </ul>
 </div>
 `;
@@ -463,6 +467,7 @@ exports[`Basic usage Case 2 Menu item with no label selected: ([[Object], [Objec
     role="listbox"
     style="display: none;"
   >
+    <!--v-if-->
     <!--v-if-->
     
     <li
@@ -602,6 +607,7 @@ exports[`Basic usage Case 2 Menu item with no label selected: ([[Object], [Objec
       
     </li>
     
+    <!--v-if-->
   </ul>
 </div>
 `;
