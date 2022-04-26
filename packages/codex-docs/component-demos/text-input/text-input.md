@@ -160,7 +160,7 @@ To disable the input, add the `disabled` attribute.
 </template>
 </cdx-demo-wrapper>
 
-<style scoped>
+<style lang="less" scoped>
 .cdx-demo-wrapper :deep( .cdx-text-input ) {
 	max-width: 400px;
 	margin-bottom: 16px;

@@ -216,7 +216,7 @@ function onClick( e: Event ) {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .cdx-sandbox-main {
 	max-width: 500px;
 }

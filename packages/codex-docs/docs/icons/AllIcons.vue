@@ -74,7 +74,7 @@ for ( const iconName in allIcons ) {
 }
 </script>
 
-<style>
+<style lang="less">
 .cdx-docs-all-icons-table__icon-name {
 	text-align: left;
 }

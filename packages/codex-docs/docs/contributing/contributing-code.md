@@ -138,8 +138,9 @@ necessary to ensure support for environments that use DOM templates, including M
 ### Writing styles
 
 Styles are written in [Less](https://lesscss.org/#) and are included in the single-file component
-via the `<style>` tag. Codex design tokens are imported as Less variables from the
-`@wikimedia/codex-design-tokens` package, using the default `theme-wikimedia-ui` theme.
+at the end in a `<style lang="less">` wrapped section. Codex design tokens are imported as Less
+variables from the `@wikimedia/codex-design-tokens` package, using the default
+`theme-wikimedia-ui` theme.
 
 #### Conventions
 

@@ -64,8 +64,8 @@ Example usage as a pause/play button, changing the icon and text when toggled.
 </template>
 </cdx-demo-wrapper>
 
-<style scoped>
-.vp-wrapper :deep( p ) {
+<style lang="less" scoped>
+.cdx-demo--wrapper :deep( p ) {
 	margin: 0 0 16px 0;
 	font-weight: bold;
 }
