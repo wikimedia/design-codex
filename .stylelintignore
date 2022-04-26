@@ -1,6 +1,9 @@
 dist/
 coverage/
 
+# Turn on linting for hidden directories
+!.*/
+
 # Ignore JavaScript and TypeScript files.
 *.js
 *.ts
