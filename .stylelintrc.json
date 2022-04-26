@@ -2,6 +2,7 @@
 	"extends": [
 		"stylelint-config-wikimedia/support-modern"
 	],
+	"reportNeedlessDisables": true,
 	"overrides": [
 		{
 			"files": [ "**/*.(less|css|html|vue)" ],

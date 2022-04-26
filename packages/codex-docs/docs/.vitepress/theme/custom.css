@@ -1,6 +1,8 @@
 /* Custom CSS variables and rules for VitePress docs. */
 @import '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.css';
 
+/* stylelint-disable selector-class-pattern */
+
 :root {
 	/* Override base VitePress theme tokens. */
 	--c-brand: var( --color-progressive );
@@ -26,7 +28,7 @@ h1 {
 
 h4 {
 	/* This is to match h3 styles from VitePress. */
-	/* stylelint-disable-next-line unit-disallowed-list, plugin/no-unsupported-browser-features */
+	/* stylelint-disable-next-line unit-disallowed-list */
 	margin-top: 1.15rem;
 }
 
@@ -68,6 +70,8 @@ td {
 .custom-block.danger a {
 	color: var( --c-brand );
 }
+
+/* stylelint-enable selector-class-pattern */
 
 .cdx-docs-demo-text {
 	margin: 0 0 16px;
