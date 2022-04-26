@@ -337,8 +337,8 @@ export default defineComponent( {
 			};
 		} );
 
-		const debounceId = ref<ReturnType<typeof setTimeout>>();
-		const pendingDelayId = ref<ReturnType<typeof setTimeout>>();
+		let debounceId: ReturnType<typeof setTimeout>|undefined;
+		let pendingDelayId: ReturnType<typeof setTimeout>|undefined;
 
 		/**
 		 * Handle changes to the text input.
@@ -366,8 +366,9 @@ export default defineComponent( {
 			}
 
 			// Always clear previous pending delay timeout function.
-			if ( pendingDelayId.value ) {
-				clearTimeout( pendingDelayId.value );
+			if ( pendingDelayId !== undefined ) {
+				clearTimeout( pendingDelayId );
+				pendingDelayId = undefined;
 			}
 
 			if ( newVal === '' ) {
@@ -382,7 +383,7 @@ export default defineComponent( {
 				// expanding the menu and setting the Menu component's `showPending` prop to true.
 				// Note that this only happens if the `search-results-pending` slot is populated.
 				if ( context.slots[ 'search-results-pending' ] ) {
-					pendingDelayId.value = setTimeout( () => {
+					pendingDelayId = setTimeout( () => {
 						if ( isActive.value ) {
 							expanded.value = true;
 						}
@@ -392,8 +393,9 @@ export default defineComponent( {
 			}
 
 			// Cancel the last setTimeout callback in case it hasn't executed yet.
-			if ( debounceId.value ) {
-				clearTimeout( debounceId.value );
+			if ( debounceId !== undefined ) {
+				clearTimeout( debounceId );
+				debounceId = undefined;
 			}
 
 			const handleUpdateInputValue = () => {
@@ -403,7 +405,7 @@ export default defineComponent( {
 			if ( immediate ) {
 				handleUpdateInputValue();
 			} else {
-				debounceId.value = setTimeout( () => {
+				debounceId = setTimeout( () => {
 					handleUpdateInputValue();
 				}, debounceInterval.value );
 			}
@@ -600,8 +602,9 @@ export default defineComponent( {
 
 			// Make sure pending doesn't get set to true by clearing the timeout function, and
 			// explicitly set pending to false.
-			if ( pendingDelayId.value ) {
-				clearTimeout( pendingDelayId.value );
+			if ( pendingDelayId !== undefined ) {
+				clearTimeout( pendingDelayId );
+				pendingDelayId = undefined;
 			}
 			pending.value = false;
 			showPending.value = false;
