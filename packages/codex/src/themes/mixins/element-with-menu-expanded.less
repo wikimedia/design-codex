@@ -1,0 +1,9 @@
+// This mixin is used on components that make use of a Menu component.
+// The input element requires an aria role of expanded to work correctly
+.element-with-menu-expanded() {
+	& [ aria-expanded='true' ],
+	&[ aria-expanded='true' ] {
+		border-bottom-left-radius: @border-radius-sharp;
+		border-bottom-right-radius: @border-radius-sharp;
+	}
+}

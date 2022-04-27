@@ -248,6 +248,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import './../../themes/mixins/icon-alignment.less';
+@import './../../themes/mixins/element-with-menu-expanded.less';
 
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
@@ -275,6 +276,7 @@ export default defineComponent( {
 		line-height: @line-height-component;
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-base;
+		.element-with-menu-expanded();
 
 		&:hover {
 			background-color: @background-color-framed--hover;

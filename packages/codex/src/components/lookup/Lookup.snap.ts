@@ -5,7 +5,7 @@ exports[`Basic usage Case 0 Default: ([]) => HTML 1`] = `
   class="cdx-lookup"
 >
   <div
-    class="cdx-text-input"
+    class="cdx-text-input cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -48,7 +48,7 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
   class="cdx-lookup"
 >
   <div
-    class="cdx-text-input"
+    class="cdx-text-input cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -219,7 +219,7 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
   class="cdx-lookup"
 >
   <div
-    class="cdx-text-input"
+    class="cdx-text-input cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -390,7 +390,7 @@ exports[`Basic usage Case 3 Disabled: ([]) => HTML 1`] = `
   class="cdx-lookup cdx-lookup--disabled"
 >
   <div
-    class="cdx-text-input"
+    class="cdx-text-input cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -434,7 +434,7 @@ exports[`Basic usage Case 4 With no results content: ([]) => HTML 1`] = `
   class="cdx-lookup"
 >
   <div
-    class="cdx-text-input"
+    class="cdx-text-input cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -483,7 +483,7 @@ exports[`Basic usage Case 5 With class attributes: ([]) => HTML 1`] = `
   class="cdx-lookup class-one class-two"
 >
   <div
-    class="cdx-text-input"
+    class="cdx-text-input cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -526,7 +526,7 @@ exports[`Basic usage Case 6 With type and placeholder attributes: ([]) => HTML 1
   class="cdx-lookup"
 >
   <div
-    class="cdx-text-input"
+    class="cdx-text-input cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"

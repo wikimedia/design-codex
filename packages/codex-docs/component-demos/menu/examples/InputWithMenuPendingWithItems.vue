@@ -2,6 +2,8 @@
 	<div class="cdx-docs-input-with-menu-pending">
 		<cdx-text-input
 			v-model="selectedValue"
+			class="cdx-docs-input-with-menu-pending__input"
+			:aria-expanded="expanded"
 			@click="expanded = true"
 			@blur="expanded = false"
 			@keydown="onKeydown"
@@ -59,9 +61,17 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
 .cdx-docs-input-with-menu-pending {
 	// The Menu component is absolutely positioned, so we need `position: relative` here to
 	// position the menu relative to this div. This ensure the menu will align with the input.
 	position: relative;
+
+	//TODO(T308124): Use existing ".element-with-menu" mixin when available withi the codex build
+	&__input [ aria-expanded='true' ] {
+		border-bottom-left-radius: @border-radius-sharp;
+		border-bottom-right-radius: @border-radius-sharp;
+	}
 }
 </style>

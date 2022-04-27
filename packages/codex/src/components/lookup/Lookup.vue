@@ -7,6 +7,7 @@
 		<cdx-text-input
 			v-model="inputValue"
 			v-bind="otherAttrs"
+			class="cdx-lookup__input"
 			role="combobox"
 			autocomplete="off"
 			aria-autocomplete="list"
@@ -311,6 +312,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import './../../themes/mixins/pending-state.less';
+@import './../../themes/mixins/element-with-menu-expanded.less';
 
 .cdx-lookup {
 	position: relative;
@@ -319,6 +321,10 @@ export default defineComponent( {
 
 	&--pending .cdx-text-input__input {
 		.cdx-pending-state();
+	}
+
+	&__input {
+		.element-with-menu-expanded();
 	}
 }
 </style>

@@ -8,7 +8,7 @@ exports[`matches the snapshot icon lookup => HTML 1`] = `
     class="cdx-lookup"
   >
     <div
-      class="cdx-text-input cdx-text-input--has-end-icon"
+      class="cdx-text-input cdx-text-input--has-end-icon cdx-lookup__input"
     >
       <input
         aria-autocomplete="list"

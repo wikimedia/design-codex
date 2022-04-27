@@ -267,6 +267,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import './../../themes/mixins/icon-alignment.less';
+@import './../../themes/mixins/element-with-menu-expanded.less';
 
 @min-width-combobox: 280px;
 @min-width-combobox-expand-button: 36px;
@@ -282,8 +283,9 @@ export default defineComponent( {
 
 	&__input {
 		flex: 1 1 auto;
+		.element-with-menu-expanded();
 
-		input {
+		.cdx-text-input__input {
 			border-right-width: 0;
 			border-top-right-radius: 0;
 			border-bottom-right-radius: 0;
