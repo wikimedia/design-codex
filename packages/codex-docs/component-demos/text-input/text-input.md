@@ -19,6 +19,10 @@ const controlsConfig = [
 	{
 		name: 'disabled',
 		type: 'boolean'
+	},
+	{
+		name: 'placeholder',
+		type: 'text'
 	}
 ];
 </script>
