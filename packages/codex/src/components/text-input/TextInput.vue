@@ -246,6 +246,8 @@ export default defineComponent( {
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
+// TODO (T307071): @size-input-icon-container is duplicated in:
+// Typeahead.vue, select.vue and needs to be centralized.
 @size-input-start-icon-container: unit(
 	( ( @padding-horizontal-input-text * 2 + @size-icon ) / @font-size-browser / @font-size-base ),
 	em

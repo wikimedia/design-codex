@@ -35,9 +35,13 @@
 					{{ currentLabel }}
 				</slot>
 			</span>
-			<cdx-icon :icon="cdxIconExpand" class="cdx-select__indicator" />
+			<cdx-icon
+				v-if="startIcon"
+				:icon="startIcon"
+				class="cdx-select__start-icon"
+			/>
+			<cdx-icon :icon="indicatorIcon" class="cdx-select__indicator" />
 		</div>
-
 		<cdx-menu
 			:id="menuId"
 			ref="menu"
@@ -65,7 +69,7 @@ import {
 	ref,
 	toRef
 } from 'vue';
-import { cdxIconExpand } from '@wikimedia/codex-icons';
+import { Icon, cdxIconExpand, cdxIconCollapse } from '@wikimedia/codex-icons';
 
 import CdxIcon from '../icon/Icon.vue';
 import CdxMenu from '../menu/Menu.vue';
@@ -130,6 +134,15 @@ export default defineComponent( {
 			default: () => {
 				return {} as MenuConfig;
 			}
+		},
+
+		/**
+		 * An icon at the start of the select element
+		 * displayed when no selection has been made.
+		 */
+		defaultIcon: {
+			type: [ String, Object ] as PropType<Icon | undefined>,
+			default: undefined
 		}
 	},
 
@@ -165,16 +178,31 @@ export default defineComponent( {
 				props.defaultLabel;
 		} );
 
+		const startIcon = computed( () => {
+			if ( props.defaultIcon && !selectedMenuItem.value ) {
+				return props.defaultIcon;
+			// The selected item includes an icon
+			} else if ( selectedMenuItem.value && selectedMenuItem.value.icon ) {
+				return selectedMenuItem.value.icon;
+			}
+			return undefined;
+		} );
+
 		const rootClasses = computed( (): Record<string, boolean> => {
 			return {
 				'cdx-select--disabled': props.disabled,
 				'cdx-select--expanded': expanded.value,
-				'cdx-select--value-selected': modelWrapper.value !== null,
-				'cdx-select--no-selections': modelWrapper.value === null
+				'cdx-select--value-selected': !!selectedMenuItem.value,
+				'cdx-select--no-selections': !selectedMenuItem.value,
+				'cdx-select--has-start-icon': !!startIcon.value
 			};
 		} );
 
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
+
+		const indicatorIcon = computed( () => {
+			return expanded.value ? cdxIconCollapse : cdxIconExpand;
+		} );
 
 		function onBlur(): void {
 			expanded.value = false;
@@ -204,13 +232,14 @@ export default defineComponent( {
 			modelWrapper,
 			selectedMenuItem,
 			highlightedId,
+			indicatorIcon,
 			expanded,
 			onBlur,
 			currentLabel,
 			rootClasses,
 			onClick,
-			cdxIconExpand,
-			onKeydown
+			onKeydown,
+			startIcon
 		};
 	}
 } );
@@ -224,6 +253,12 @@ export default defineComponent( {
 @font-size-base: 14 / @font-size-browser;
 @min-width-select: 280px;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
+// TODO (T307071): @size-input-icon-container is duplicated in:
+// TextInput.vue, Typeahead.vue and needs to be centralized.
+@size-input-start-icon-container: unit(
+	( ( @padding-horizontal-input-text * 2 + @size-icon ) / @font-size-browser / @font-size-base ),
+	em
+);
 
 .cdx-select {
 	display: inline-block;
@@ -248,10 +283,6 @@ export default defineComponent( {
 		line-height: @line-height-component;
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-base;
-
-		&--has-icon {
-			padding-left: ( @padding-horizontal-base * 2 ) + @size-icon;
-		}
 
 		&:hover {
 			background-color: @background-color-framed--hover;
@@ -282,9 +313,17 @@ export default defineComponent( {
 		.cdx-mixin-menu-icon( right, @size-indicator );
 	}
 
+	&__start-icon {
+		.cdx-mixin-menu-icon( left, @size-icon );
+	}
+
 	&--expanded {
 		.cdx-select__handle {
 			background-color: @background-color-framed--hover;
+
+			.cdx-select__indicator {
+				color: @color-base;
+			}
 
 			&:hover .cdx-select__indicator {
 				color: @color-base;
@@ -309,9 +348,17 @@ export default defineComponent( {
 		}
 
 		/* stylelint-disable-next-line no-descending-specificity */
-		.cdx-select__indicator {
+		.cdx-select__indicator,
+		.cdx-select__start-icon {
 			color: @color-base--disabled;
 		}
 	}
+
+	&--has-start-icon {
+		.cdx-select__handle {
+			padding-left: @size-input-start-icon-container;
+		}
+	}
 }
+
 </style>

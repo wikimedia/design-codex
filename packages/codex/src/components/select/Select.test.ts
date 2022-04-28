@@ -1,16 +1,19 @@
 import { mount } from '@vue/test-utils';
 import { CdxSelect, CdxMenuItem } from '../../lib';
+import { Icon, cdxIconSearch } from '@wikimedia/codex-icons';
 import { MenuItemData } from '../../types';
 
 const data: {
 	value: string,
 	label?: string,
-	disabled?: boolean
+	disabled?: boolean,
+	icon?: Icon
 }[] = [
 	{ value: 'a', label: 'Option A' },
 	{ value: 'b', label: 'Option B' },
 	{ value: 'c' },
-	{ value: 'd', label: 'Option D', disabled: true }
+	{ value: 'd', label: 'Option D', disabled: true },
+	{ value: 'e', label: 'Option E', icon: cdxIconSearch }
 ];
 
 describe( 'Basic usage', () => {
@@ -18,20 +21,25 @@ describe( 'Basic usage', () => {
 		msg: string,
 		menuItems: MenuItemData[],
 		defaultLabel?: string,
-		modelValue?: string|number
+		modelValue?: string|number,
+		defaultIcon?: Icon
 	]
 
 	const cases: Case[] = [
 		[ 'No selection', data, 'Choose an option', undefined ],
+		[ 'No selection with empty string', data, 'Choose an option', '' ],
 		[ 'Menu item with label selected', data, 'Choose an option', 'a' ],
-		[ 'Menu item with no label selected', data, 'Choose an option', 'c' ]
+		[ 'Menu item with no label selected', data, 'Choose an option', 'c' ],
+		[ 'Menu item with icon selected', data, 'Choose an option', 'e' ],
+		[ 'With Start icon', data, 'Choose an option', undefined, cdxIconSearch ],
+		[ 'With Start icon and selection', data, 'Choose an option', 'c', cdxIconSearch ]
 	];
 
 	test.each( cases )(
 		'Case %# %s: (%p) => HTML',
-		( _, menuItems, defaultLabel, modelValue ) => {
+		( _, menuItems, defaultLabel, modelValue, defaultIcon = undefined ) => {
 			const wrapper = mount( CdxSelect, {
-				props: { menuItems, defaultLabel, modelValue }
+				props: { menuItems, defaultLabel, modelValue, defaultIcon }
 			} );
 			expect( wrapper.element ).toMatchSnapshot();
 		} );

@@ -662,7 +662,8 @@ export default defineComponent( {
 @font-size-base: 14 / @font-size-browser;
 @font-size-search-result-title: unit( ( 16 / @font-size-browser / @font-size-base ), em );
 
-// TODO: @size-input-icon-container is duplicated from TextInput.vue and needs to be centralized.
+// TODO (T307071): @size-input-icon-container is duplicated in:
+// TextInput.vue, select.vue and needs to be centralized.
 @size-input-icon-container: unit(
 	( ( @padding-horizontal-input-text * 2 + @size-icon ) / @font-size-browser / @font-size-base ),
 	em

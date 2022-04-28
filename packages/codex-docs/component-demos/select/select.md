@@ -3,9 +3,35 @@ import BasicSelect from '@/../component-demos/select/examples/BasicSelect.vue';
 import SelectCustomLabel from '@/../component-demos/select/examples/SelectCustomLabel.vue';
 import SelectComplexMenuItem from '@/../component-demos/select/examples/SelectComplexMenuItem.vue';
 import SelectCustomMenuItem from '@/../component-demos/select/examples/SelectCustomMenuItem.vue';
+import SelectConfigurable from '@/../component-demos/select/examples/SelectConfigurable.vue';
+
+const controlsConfig = [
+	{
+		name: 'defaultIcon',
+		type: 'boolean'
+	},
+	{
+		name: 'disabled',
+		type: 'boolean'
+	},
+	{
+		name: 'defaultLabel',
+		type: 'text',
+		default: 'Choose an option'
+	}
+];
 </script>
 
 ## Demos
+
+
+### Configurable
+
+<cdx-demo-wrapper :controls-config="controlsConfig">
+<template v-slot:demo="{ propValues }">
+<select-configurable v-bind="propValues" />
+</template>
+</cdx-demo-wrapper>
 
 ### Basic Usage
 
