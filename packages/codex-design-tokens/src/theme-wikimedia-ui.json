@@ -407,8 +407,16 @@
 		"100": {
 			"value": "1600ms"
 		},
-		"125": {
+		"200": {
 			"value": "2000ms"
+		}
+	},
+	"animation-timing-function": {
+		"100": {
+			"value": "linear"
+		},
+		"200": {
+			"value": "ease-in-out"
 		}
 	},
 	"cursor": {

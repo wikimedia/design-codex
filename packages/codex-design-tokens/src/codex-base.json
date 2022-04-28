@@ -505,6 +505,33 @@
 			"value": "{ transition-property.opacity }"
 		}
 	},
+	"animation-delay": {
+		"none": {
+			"value": "{ animation-delay.0 }"
+		},
+		"medium": {
+			"value": "{ animation-delay.100 }"
+		},
+		"slow": {
+			"value": "{ animation-delay.200 }"
+		}
+	},
+	"animation-duration": {
+		"medium": {
+			"value": "{ animation-duration.100 }"
+		},
+		"slow": {
+			"value": "{ animation-duration.200 }"
+		}
+	},
+	"animation-timing-function": {
+		"base": {
+			"value": "{ animation-timing-function.100 }"
+		},
+		"bouncing": {
+			"value": "{ animation-timing-function.200 }"
+		}
+	},
 	"cursor": {
 		"base": {
 			"value": "{ cursor.default }"

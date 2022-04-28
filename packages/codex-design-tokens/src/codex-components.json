@@ -188,33 +188,6 @@
 			"value": "{ box-shadow.1100 }"
 		}
 	},
-	"animation-delay": {
-		"progress": {
-			"dots": {
-				"none": {
-					"value": "{ animation-delay.0 }"
-				},
-				"medium": {
-					"value": "{ animation-delay.100 }"
-				},
-				"slow": {
-					"value": "{ animation-delay.200 }"
-				}
-			}
-		}
-	},
-	"animation-duration": {
-		"progress": {
-			"dots": {
-				"medium": {
-					"value": "{ animation-duration.100 }"
-				},
-				"slow": {
-					"value": "{ animation-duration.125 }"
-				}
-			}
-		}
-	},
 	"transition-property": {
 		"icon": {
 			"value": "{ transition-property.color }"

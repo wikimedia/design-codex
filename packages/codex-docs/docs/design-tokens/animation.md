@@ -5,7 +5,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 # Animation
 
-## Animation-delay
+## Animation delay
 
 <cdx-docs-tokens-table
 	:tokens="tokens['animation-delay']"
@@ -13,10 +13,18 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 	css-property="animation-delay"
 />
 
-## Animation-duration
+## Animation duration
 
 <cdx-docs-tokens-table
 	:tokens="tokens['animation-duration']"
 	token-demo="CdxDocsAnimationDemo"
 	css-property="animation-duration"
+/>
+
+## Animation timing function
+
+<cdx-docs-tokens-table
+	:tokens="tokens['animation-timing-function']"
+	token-demo="CdxDocsAnimationDemo"
+	css-property="animation-timing-function"
 />
