@@ -6,13 +6,32 @@
 	>
 		<div
 			class="cdx-tabs__header"
-			:class="headerClasses"
 			tabindex="0"
 			@keydown.right.prevent="onRightArrowKeypress"
 			@keydown.down.prevent="onDownArrowKeypress"
 			@keydown.left.prevent="onLeftArrowKeypress"
 		>
+			<div
+				ref="focusHolder"
+				tabindex="-1"
+			/>
+			<div
+				v-show="!firstLabelVisible"
+				ref="prevScroller"
+				class="cdx-tabs__prev-scroller"
+			>
+				<cdx-button
+					class="cdx-tabs__scroll-button"
+					type="quiet"
+					tabindex="-1"
+					@mousedown.prevent
+					@click="scrollTabs( 'prev' )"
+				>
+					<cdx-icon :icon="cdxIconPrevious" />
+				</cdx-button>
+			</div>
 			<ul
+				ref="listElement"
 				class="cdx-tabs__list"
 				role="tablist"
 				:aria-activedescendant="activeTabId"
@@ -33,12 +52,26 @@
 						:aria-selected="tab.name === activeTab"
 						@click.prevent="select( tab.name )"
 						@keyup.enter="select( tab.name )"
-						@focus.prevent
 					>
 						{{ tab.label }}
 					</a>
 				</li>
 			</ul>
+			<div
+				v-show="!lastLabelVisible"
+				ref="nextScroller"
+				class="cdx-tabs__next-scroller"
+			>
+				<cdx-button
+					class="cdx-tabs__scroll-button"
+					type="quiet"
+					tabindex="-1"
+					@mousedown.prevent
+					@click="scrollTabs( 'next' )"
+				>
+					<cdx-icon :icon="cdxIconNext" />
+				</cdx-button>
+			</div>
 		</div>
 
 		<div class="cdx-tabs__content">
@@ -60,6 +93,11 @@ import {
 	VNodeChild,
 	ComponentPublicInstance
 } from 'vue';
+
+import { cdxIconPrevious, cdxIconNext } from '@wikimedia/codex-icons';
+
+import CdxButton from '../button/Button.vue';
+import CdxIcon from '../icon/Icon.vue';
 
 import useGeneratedId from '../../composables/useGeneratedId';
 import useComputedDirection from '../../composables/useComputedDirection';
@@ -85,6 +123,11 @@ import { TabsKey, ActiveTabKey } from '../../constants';
  */
 export default defineComponent( {
 	name: 'CdxTabs',
+
+	components: {
+		CdxButton,
+		CdxIcon
+	},
 
 	props: {
 		/**
@@ -128,6 +171,10 @@ export default defineComponent( {
 
 	setup( props, { slots, emit } ) {
 		const rootElement = ref<HTMLDivElement>();
+		const listElement = ref<HTMLUListElement>();
+		const focusHolder = ref<HTMLDivElement>();
+		const prevScroller = ref<HTMLDivElement>();
+		const nextScroller = ref<HTMLDivElement>();
 		const currentDirection = useComputedDirection( rootElement );
 
 		/**
@@ -201,17 +248,16 @@ export default defineComponent( {
 		provide( ActiveTabKey, activeTab );
 		provide( TabsKey, tabsData );
 
-		// Display logic: framed vs unframed, gradient indicators
-		const firstTabLabel = ref<Element>();
-		const lastTabLabel = ref<Element>();
+		// Display logic: framed vs unframed, prev/next buttons
+		const firstTabLabel = ref<HTMLLIElement>();
+		const lastTabLabel = ref<HTMLLIElement>();
 		const firstLabelVisible = useIntersectionObserver( firstTabLabel, { threshold: 0.95 } );
 		const lastLabelVisible = useIntersectionObserver( lastTabLabel, { threshold: 0.95 } );
 
 		/**
 		 * Assign an element to the appropriate template ref if it is the first
-		 * or last child of its parent. Used to determine whether gradient
-		 * indicators need to be displayed at the start and/or end of the tabs
-		 * list.
+		 * or last child of its parent. Used to determine whether prev/next
+		 * buttons at the start/end of the tabs list should be enabled or disabled.
 		 *
 		 * @param templateRef
 		 * @param index
@@ -220,7 +266,7 @@ export default defineComponent( {
 			templateRef: Element | ComponentPublicInstance | null,
 			index: number
 		) {
-			const el = templateRef as Element | null;
+			const el = templateRef as HTMLLIElement | null;
 			if ( el ) {
 				if ( index === 0 ) {
 					firstTabLabel.value = el;
@@ -254,32 +300,119 @@ export default defineComponent( {
 			};
 		} );
 
-		const observerAvailable = computed( () => {
-			if ( typeof window !== 'object' ) {
-				return false;
+		/**
+		 * Compute how far we have to scroll the tabs list (listElement.value) in order to scroll
+		 * tabLabel fully into view, taking into account the fact that the prev/next scroller
+		 * buttons obscure part of the tabs list.
+		 *
+		 * @param tabLabel Child element of listElement (<li> element)
+		 * @return Scroll distance (positive to scroll to the right, negative to scroll to the left)
+		 */
+		function getScrollDistance( tabLabel: HTMLElement ): number {
+			if ( !listElement.value || !prevScroller.value || !nextScroller.value ) {
+				return 0;
 			}
 
-			return 'IntersectionObserver' in window &&
-				'IntersectionObserverEntry' in window &&
-				'intersectionRatio' in window.IntersectionObserverEntry.prototype;
-		} );
+			// Identify which of the scrollers appears on the left, and which on the right
+			const leftScroller = currentDirection.value === 'rtl' ? nextScroller.value : prevScroller.value;
+			const rightScroller = currentDirection.value === 'rtl' ? prevScroller.value : nextScroller.value;
 
-		const headerClasses = computed( () => {
-			return {
-				'cdx-tabs__header--has-start-gradient': !firstLabelVisible.value && observerAvailable.value,
-				'cdx-tabs__header--has-end-gradient': !lastLabelVisible.value && observerAvailable.value
-			};
-		} );
+			// Find the X coordinates of the left and right edges of the tab label. Because this
+			// uses .offsetLeft, the coordinates are relative to the start of the tabs list (in LTR,
+			// starting at 0 from the left edge and increasing to the right; in RTL, starting at 0
+			// from the right edge and decreasing into negative numbers to the left), and don't
+			// change when the tabs list is scrolled
+			const labelLeft = tabLabel.offsetLeft;
+			const labelRight = labelLeft + tabLabel.clientWidth;
+
+			// Find the range of X coordinates that is currently scrolled into view and not obscured
+			// by either of the scrollers. This uses .scrollLeft, which uses the same coordinate
+			// system as .offsetLeft above.
+			const visibleLeft = listElement.value.scrollLeft + leftScroller.clientWidth;
+			const visibleRight = listElement.value.scrollLeft +
+				listElement.value.clientWidth - rightScroller.clientWidth;
+
+			// If the tab label is (partially) to the left of the visible area, scroll left until
+			// its left edge is just visible
+			if ( labelLeft < visibleLeft ) {
+				return labelLeft - visibleLeft;
+			}
+			// If the tab label is (partially) to the right of the visible area, scroll right until
+			// its right edge is just visible
+			if ( labelRight > visibleRight ) {
+				return labelRight - visibleRight;
+			}
+			// The tab label is entirely within the visible area, so don't scroll
+			return 0;
+		}
+
+		function scrollTabs( logicalDirection: 'prev' | 'next' ) {
+			if ( !listElement.value || !prevScroller.value || !nextScroller.value ) {
+				return;
+			}
+
+			// In LTR, prev scrolls to the left (negative), next to the right (positive);
+			// in RTL, it's the other way around
+			const scrollDirection =
+				( logicalDirection === 'next' && currentDirection.value === 'ltr' ) ||
+				( logicalDirection === 'prev' && currentDirection.value === 'rtl' ) ?
+					1 : -1;
+			// Iterate through the tab labels in the specified direction, until we find one that
+			// would force us to scroll in the specified direction, then scroll that one into view
+			let scrollDistance = 0;
+			let tabLabel = logicalDirection === 'next' ?
+				listElement.value.firstElementChild as HTMLElement|null :
+				listElement.value.lastElementChild as HTMLElement|null;
+			while ( tabLabel ) {
+				const nextTabLabel = logicalDirection === 'next' ?
+					tabLabel.nextElementSibling as HTMLElement|null :
+					tabLabel.previousElementSibling as HTMLElement|null;
+
+				scrollDistance = getScrollDistance( tabLabel );
+				if ( Math.sign( scrollDistance ) === scrollDirection ) {
+					// This is the first tab that requires scrolling in the specified direction
+					// If the scroll distance is too low (<25% of the width of the tabs list),
+					// advance one more
+					if (
+						nextTabLabel &&
+						Math.abs( scrollDistance ) < 0.25 * listElement.value.clientWidth
+					) {
+						scrollDistance = getScrollDistance( nextTabLabel );
+					}
+					break;
+				}
+				tabLabel = nextTabLabel;
+			}
+
+			listElement.value.scrollBy( {
+				left: scrollDistance,
+				behavior: 'smooth'
+			} );
+
+			// Focus the focusHolder div, so that we receive any subsequent arrow key presses
+			focusHolder.value?.focus();
+		}
 
 		// Scroll the active tab into view if it changes
 		watch( activeTab, () => {
-			if ( document && activeTabId.value ) {
-				document.getElementById( `${activeTabId.value}-label` )?.scrollIntoView( {
-					behavior: 'smooth',
-					block: 'nearest',
-					inline: 'nearest'
-				} );
+			if (
+				activeTabId.value === undefined ||
+				!listElement.value || !prevScroller.value || !nextScroller.value
+			) {
+				return;
 			}
+			const activeTabLabel = document.getElementById( `${activeTabId.value}-label` );
+			if ( !activeTabLabel ) {
+				return;
+			}
+
+			// We'd like to use activeTabLabel.scrollIntoView() here, but that doesn't take into
+			// account that the prev/next buttons obscure part of the tab label even if it is
+			// "in view". Instead, we do the math ourselves.
+			listElement.value.scrollBy( {
+				left: getScrollDistance( activeTabLabel ),
+				behavior: 'smooth'
+			} );
 		} );
 
 		return {
@@ -288,12 +421,20 @@ export default defineComponent( {
 			activeTabId,
 			currentDirection,
 			rootElement,
+			listElement,
+			focusHolder,
+			prevScroller,
+			nextScroller,
 			rootClasses,
-			headerClasses,
 			tabNames,
 			tabsData,
+			firstLabelVisible,
+			lastLabelVisible,
 			getLabelClasses,
-			assignTemplateRefIfNecessary
+			assignTemplateRefIfNecessary,
+			scrollTabs,
+			cdxIconPrevious,
+			cdxIconNext
 		};
 	},
 
@@ -417,7 +558,7 @@ export default defineComponent( {
 	&__header {
 		display: flex;
 		align-items: flex-end;
-		justify-content: space-between;
+		position: relative;
 
 		// The tabs header as a whole receives focus (via tabindex="0"), rather
 		// than individual label elements inside the header. Once the header
@@ -431,30 +572,48 @@ export default defineComponent( {
 		&:focus {
 			outline: @outline-base--focus;
 		}
+	}
 
-		&--has-start-gradient,
-		&--has-end-gradient {
-			position: relative;
-		}
+	&__prev-scroller,
+	&__next-scroller {
+		// The scrollers should obscure the tab labels behind them, but quiet buttons sometimes
+		// have transparent backgrounds. Remedy this by giving the scrollers the same background
+		// color as the header.
+		background-color: inherit;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+	}
 
-		&--has-start-gradient::before,
-		&--has-end-gradient::after {
-			content: '';
-			position: absolute;
-			top: 0;
-			z-index: 1;
-			width: @width-tabs-header-gradient;
-			height: 100%;
-			pointer-events: none;
-		}
+	&__prev-scroller {
+		left: 0;
+	}
 
-		&--has-start-gradient::before {
-			left: 0;
-		}
+	&__next-scroller {
+		right: 0;
+	}
 
-		&--has-end-gradient::after {
-			right: 0;
-		}
+	&__prev-scroller::after,
+	&__next-scroller::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		z-index: 1;
+		width: @width-tabs-header-gradient;
+		height: 100%;
+		pointer-events: none;
+	}
+
+	&__prev-scroller::after {
+		left: 100%;
+	}
+
+	&__next-scroller::before {
+		right: 100%;
+	}
+
+	&__scroll-button {
+		height: 100%;
 	}
 
 	// Keyboard nav indicator on Tabs header focus for framed and quiet.
@@ -514,11 +673,11 @@ export default defineComponent( {
 	&--framed > &__header {
 		background-color: @background-color-tabs-framed;
 
-		&--has-start-gradient::before {
+		.cdx-tabs__prev-scroller::after {
 			background-image: linear-gradient( to right, @background-color-tabs-framed 0, @background-color-base--transparent 100% );
 		}
 
-		&--has-end-gradient::after {
+		.cdx-tabs__next-scroller::before {
 			background-image: linear-gradient( to left, @background-color-tabs-framed 0, @background-color-base--transparent 100% );
 		}
 
@@ -577,11 +736,11 @@ export default defineComponent( {
 		// The border separating quiet Tabs header from Tab content.
 		border-bottom: @border-base;
 
-		&--has-start-gradient::before {
+		.cdx-tabs__prev-scroller::after {
 			background-image: linear-gradient( to right, @background-color-base 0, @background-color-base--transparent 100% );
 		}
 
-		&--has-end-gradient::after {
+		.cdx-tabs__next-scroller::before {
 			background-image: linear-gradient( to left, @background-color-base 0, @background-color-base--transparent 100% );
 		}
 

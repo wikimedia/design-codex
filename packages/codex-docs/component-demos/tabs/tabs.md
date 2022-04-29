@@ -30,8 +30,8 @@ Two stylistic variants are available, quiet (the default) and framed.
 
 ### Header row scroll
 
-When the width of the header row exceeds the width of its container, a gradient will appear to
-indicate that there are other tabs to scroll to.
+When the width of the header row exceeds the width of its container, arrow buttons will appear to
+enable scrolling through tab names.
 
 <cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues }">

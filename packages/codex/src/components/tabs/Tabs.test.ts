@@ -34,7 +34,7 @@ beforeAll( () => {
 	};
 } );
 
-describe( 'When used along with a child Tabs component', () => {
+describe( 'When used along with child Tab components', () => {
 	it( 'matches the snapshot', () => {
 		const wrapper = mount( CdxTabs, {
 			props: { active: 'apple' },
@@ -85,6 +85,33 @@ describe( 'When used along with a child Tabs component', () => {
 		} );
 		wrapper.vm.select( 'banana' );
 		expect( wrapper.emitted()[ 'update:active' ] ).toBeTruthy();
+	} );
+
+	it( 'updates the visible tab when the active prop is changed', async () => {
+		const wrapper = mount( CdxTabs, {
+			props: { active: 'apple' },
+			global: { components: { Tab: CdxTab } },
+			slots: { default: slotMarkup }
+		} );
+		await wrapper.setProps( { active: 'banana' } );
+		expect( wrapper.findAllComponents( CdxTab )[ 0 ].isVisible() ).toBe( false );
+		expect( wrapper.findAllComponents( CdxTab )[ 1 ].isVisible() ).toBe( true );
+	} );
+
+	// eslint-disable-next-line jest/no-disabled-tests
+	it.skip( 'scrolls when the active prop is changed', async () => {
+		const wrapper = mount( CdxTabs, {
+			props: { active: 'apple' },
+			global: { components: { Tab: CdxTab } },
+			slots: { default: slotMarkup }
+		} );
+		const listElement = wrapper.find( '.cdx-tabs__list' );
+		// Note: jsdom does not provide scrollBy, so jest.spyOn() doesn't work
+		const spy = jest.fn();
+		listElement.element.scrollBy = spy;
+		await wrapper.setProps( { active: 'banana' } );
+		// TODO this doesn't work for some reason, maybe because document.getElementById is used
+		expect( spy ).toHaveBeenCalled();
 	} );
 
 	describe( 'when the user interacts with the mouse', () => {
@@ -245,6 +272,21 @@ describe( 'When used along with a child Tabs component', () => {
 			const emitted = wrapper.emitted()[ 'update:active' ];
 			expect( emitted ).toBeUndefined();
 		} );
+
+		// eslint-disable-next-line jest/no-disabled-tests
+		it.skip( 'Down arrow keypress focuses the contents of the current tab', async () => {
+			const wrapper = mount( CdxTabs, {
+				props: { active: 'apple' },
+				global: { components: { Tab: CdxTab } },
+				slots: { default: slotMarkup },
+				attachToDocument: true
+			} );
+			const appleTab = wrapper.findAll( '.cdx-tab' )[ 0 ];
+			const header = wrapper.get( '.cdx-tabs__header' );
+			await header.trigger( 'keydown', { key: 'ArrowDown' } );
+			// TODO this doesn't work for some reason, maybe because document.getElementById is used
+			expect( document.activeElement ).toBe( appleTab.element );
+		} );
 	} );
 
 	describe( 'When component is used inside an element with dir="rtl"', () => {
@@ -316,6 +358,26 @@ describe( 'When used along with a child Tabs component', () => {
 	test.todo( 'provides "tabsData" that matches the props of the Tab children' );
 } );
 
+describe( 'When Tab children are provided using v-for', () => {
+	it( 'matches the snapshot', () => {
+		const wrapper = mount( CdxTabs, {
+			props: { active: 'apple' },
+			global: { components: { Tab: CdxTab } },
+			slots: { default: `
+				<Tab
+					v-for="name in ['a', 'b', 'c', 'd']"
+					:key="name"
+					:name="name"
+				>
+					Content for tab {{ name }}
+				</Tab>
+				`
+			}
+		} );
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+} );
+
 describe( 'When default slot is empty', () => {
 	it( 'throws an error', () => {
 		expect( () => {
@@ -350,15 +412,32 @@ describe( 'When multiple tabs have the same "name" property', () => {
 } );
 
 describe( 'When rendering outside of the browser', () => {
-	it( 'the header gradient classes will not be present', () => {
+	it( 'the scroll buttons will be present', () => {
 		const wrapper = mount( CdxTabs, {
 			props: { active: 'apple' },
 			slots: { default: slotMarkup },
 			global: { components: { Tab: CdxTab } }
 		} );
 
-		expect( wrapper.find( '.cdx-tabs__header' ).classes() ).not.toContain( 'cdx-tabs__header--has-start-gradient' );
-		expect( wrapper.find( '.cdx-tabs__header' ).classes() ).not.toContain( 'cdx-tabs__header--has-end-gradient' );
+		expect( wrapper.find( '.cdx-tabs__prev-scroller' ).exists() ).toBeTruthy();
+		expect( wrapper.find( '.cdx-tabs__next-scroller' ).exists() ).toBeTruthy();
+	} );
+
+	it( 'clicking the scroll buttons', async () => {
+		const wrapper = mount( CdxTabs, {
+			props: { active: 'apple' },
+			slots: { default: slotMarkup },
+			global: { components: { Tab: CdxTab } }
+		} );
+
+		const listElement = wrapper.find( '.cdx-tabs__list' );
+		// Note: jsdom does not provide scrollBy, so jest.spyOn() doesn't work
+		const spy = jest.fn();
+		listElement.element.scrollBy = spy;
+
+		const nextScroller = wrapper.find( '.cdx-tabs__next-scroller .cdx-tabs__scroll-button' );
+		await nextScroller.trigger( 'click' );
+		expect( spy ).toHaveBeenCalled();
 	} );
 } );
 
