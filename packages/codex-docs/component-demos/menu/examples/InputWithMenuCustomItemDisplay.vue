@@ -15,9 +15,6 @@
 			<template #default="{ menuItem }">
 				{{ menuItem.label }} (value: {{ menuItem.value }})
 			</template>
-			<template #footer>
-				Footer
-			</template>
 		</cdx-menu>
 	</div>
 </template>
