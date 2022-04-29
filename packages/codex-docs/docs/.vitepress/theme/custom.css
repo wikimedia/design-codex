@@ -7,6 +7,7 @@
 	/* Override base VitePress theme tokens. */
 	--c-brand: var( --color-progressive );
 	--c-brand-light: var( --color-progressive--hover );
+	--c-text: var( --color-base );
 
 	--font-family-base: var( --font-family-sans );
 	--font-family-serif: var( --font-family-serif );
