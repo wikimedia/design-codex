@@ -189,7 +189,8 @@ export default defineComponent( {
 		const rootClasses = computed( () => {
 			return {
 				'cdx-demo-wrapper--has-code': hasCodeSample.value,
-				'cdx-demo-wrapper--has-reset': includeReset.value
+				'cdx-demo-wrapper--has-reset': includeReset.value,
+				'cdx-demo-wrapper--code-expanded': showCode.value
 			};
 		} );
 
@@ -465,10 +466,27 @@ export default defineComponent( {
 		// in RTL? In which case the absolute position should be revisited
 		&__code-buttons {
 			position: absolute;
-			right: 0;
-			bottom: 0;
+			// Overlap demo pane border.
+			right: @position-offset-border-width-base;
+			bottom: @position-offset-border-width-base;
 			direction: ltr;
 			font-size: 0.875em;
+
+			// Remove border radiuses that connect with other borders for a more streamlined
+			// appearance. These buttons are pinned to the bottom right edge of the demo pane and
+			// their borders overlap with the demo pane's border, so the border radiuses in corners
+			// that touch the demo pane border should be removed to form a right angle (rather than
+			// a curved one). Similarly, the border radiuses where the buttons touch each other
+			// should be removed. See T307394.
+			.cdx-demo-wrapper__demo-pane__code-toggle,
+			.cdx-demo-wrapper__demo-pane__code-copy {
+				border-top-right-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+
+			.cdx-demo-wrapper__demo-pane__code-copy {
+				border-bottom-right-radius: 0;
+			}
 		}
 
 		// TODO: We need to unset all global styles inside this element to keep them from
@@ -492,6 +510,11 @@ export default defineComponent( {
 	// to toggle the code display and to copy the code text, if there are such buttons
 	&--has-code &__demo-pane__demo {
 		margin-bottom: 16px;
+	}
+
+	// When code is expanded, remove all of the code toggle button's border radiuses.
+	&--code-expanded &__demo-pane__code-toggle {
+		border-radius: 0;
 	}
 
 	// Code output underneath component with code language class, for example `language-vue`.
