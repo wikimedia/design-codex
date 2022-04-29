@@ -59,7 +59,7 @@ On mount, TypeaheadSearch will fetch search results for the initial input value 
 After that, the input value is tracked internally and will be emitted up to the parent component
 when the value changes.
 
-<cdx-demo-wrapper force-reset="true">
+<cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
 <typeahead-search-initial-value initial-input-value="Color" />
 </template>

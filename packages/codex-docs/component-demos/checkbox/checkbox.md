@@ -31,7 +31,7 @@ boolean value: `true` for on, `false` for off.
 For a group of checkboxes, each Checkbox component's `v-model` will be bound to
 an array of the `inputValue` props of the checkboxes that are currently "on".
 
-<cdx-demo-wrapper force-reset="true">
+<cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
 <checkbox-group />
 </template>
@@ -74,7 +74,7 @@ As a result, they all appear to be in the indeterminate state initially, whether
 not. Checking or unchecking a checkbox will undo the indeterminate state since you have provided
 a definite value for the checkbox.
 
-<cdx-demo-wrapper force-reset="true">
+<cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
 <indeterminate-state />
 </template>

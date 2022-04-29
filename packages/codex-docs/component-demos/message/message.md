@@ -42,7 +42,7 @@ const controlsConfig = [
 
 When a message is dynamically added to the UI, use the `fadeIn` prop to enable a transition.
 
-<cdx-demo-wrapper force-reset="true">
+<cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
 <MessageFadeIn />
 </template>
@@ -96,7 +96,7 @@ dismissal in some way.
 
 Note that inline messages cannot be dismissable.
 
-<cdx-demo-wrapper force-reset="true">
+<cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
 <MessageUserDismiss />
 </template>
@@ -123,7 +123,7 @@ before disappearing. When in doubt, do not use auto-dismiss.
 
 Auto-dismiss can be used with or without the manual dismiss button.
 
-<cdx-demo-wrapper force-reset="true">
+<cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
 <MessageAutoDismiss />
 </template>
