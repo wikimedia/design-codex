@@ -339,6 +339,23 @@ describe( 'TypeaheadSearch, with search results', () => {
 	} );
 } );
 
+describe( 'TypeaheadSearch, with no results', () => {
+	it( 'matches the snapshot', async () => {
+		const wrapper = mount( CdxTypeaheadSearch, {
+			// Add in an initial input value so we don't have to simulate entering input.
+			props: { initialInputValue: 'Co', searchFooterUrl, showThumbnail: true, ...propsData },
+			slots: {
+				default: defaultSlot,
+				searchFooterText: searchFooterTextSlot,
+				'search-no-results-text': 'No results found'
+			}
+		} );
+		await wrapper.setProps( { searchResults: [] } );
+
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+} );
+
 describe( 'TypeaheadSearch pending state behavior', () => {
 	beforeEach( () => {
 		jest.useFakeTimers( 'modern' );
