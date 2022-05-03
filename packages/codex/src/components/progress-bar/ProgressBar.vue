@@ -59,9 +59,10 @@ export default defineComponent( {
 
 	&__bar {
 		background-color: @background-color-progressive;
-		width: 40%;
+		// TODO: replace with token.
+		width: 33%;
 		height: 100%;
-		animation: cdx-progress-bar__bar--slide 2s infinite linear;
+		animation: cdx-progress-bar__bar--slide 1.6s infinite linear;
 	}
 
 	&--block {
@@ -86,7 +87,7 @@ export default defineComponent( {
 	}
 
 	to {
-		transform: translate( 350% );
+		transform: translate( 300% );
 	}
 }
 </style>
