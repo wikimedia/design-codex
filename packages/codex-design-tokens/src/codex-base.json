@@ -278,9 +278,9 @@
 			"value": "{ size.relative.em.200 }"
 		}
 	},
-	"margin": {
+	"position": {
 		"offset": {
-			"comment": "`margin-offset` aims at margins that make elements expand over default boundary box.",
+			"comment": "position.offset is a Codex token shorthand to use in `top`, `left`, `bottom`, `right`, and `margin` properties for elements that expand over default boundary box.",
 			"border-width-base": {
 				"value": "-{ border-width.base }"
 			}
