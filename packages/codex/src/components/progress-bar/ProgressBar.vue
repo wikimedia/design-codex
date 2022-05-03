@@ -60,28 +60,23 @@ export default defineComponent( {
 	&__bar {
 		background-color: @background-color-progressive;
 		width: 40%;
+		height: 100%;
 		animation: cdx-progress-bar__bar--slide 2s infinite linear;
 	}
 
 	&--block {
 		background-color: @background-color-base;
+		// Equals `1.14285714em`≈`16px`
+		height: ( @size-base / 2 );
 		max-width: @max-width-base;
 		border: @border-base;
 		border-radius: @border-radius-pill;
 		box-shadow: @box-shadow-progress-bar;
-
-		.cdx-progress-bar__bar {
-			// Equals `1.14285714em`≈`16px`
-			height: ( @size-base / 2 );
-		}
 	}
 
 	&--inline {
 		width: 100%;
-
-		.cdx-progress-bar__bar {
-			height: ( @size-base / 8 );
-		}
+		height: ( @size-base / 8 );
 	}
 }
 
