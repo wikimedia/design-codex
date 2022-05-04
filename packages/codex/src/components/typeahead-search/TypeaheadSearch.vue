@@ -704,16 +704,8 @@ export default defineComponent( {
 		transition-property: @transition-property-simple-search-submit;
 		transition-duration: @transition-duration-base;
 
-		&:hover {
-			// Make the button be on top of the input border when the button is hovered.
-			z-index: 1;
-		}
-
 		&:focus {
 			opacity: @opacity-base;
-			// Make the button be on top of the input border when the input is hovered while the
-			// button is focused.
-			z-index: 1;
 		}
 	}
 

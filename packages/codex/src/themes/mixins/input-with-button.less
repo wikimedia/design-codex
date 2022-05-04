@@ -21,6 +21,11 @@
 		// Set negative margin to make button border overlap with the root element's border
 		// (set above).
 		margin: @position-offset-border-width-base;
+
+		.cdx-text-input__input {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
 	}
 
 	&__end-button {
@@ -34,5 +39,16 @@
 		margin: @position-offset-border-width-base @position-offset-border-width-base @position-offset-border-width-base 0;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
+
+		&:hover {
+			// Make the button be on top of the input border when the button is hovered.
+			z-index: 1;
+		}
+
+		&:focus {
+			// Make the button be on top of the input border when the input is hovered while the
+			// button is focused.
+			z-index: 1;
+		}
 	}
 }
