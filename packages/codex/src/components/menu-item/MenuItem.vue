@@ -32,12 +32,11 @@
 						class="cdx-menu-item__thumbnail-placeholder__icon"
 					/>
 				</span>
-				<span
+				<cdx-icon
 					v-else-if="icon"
+					:icon="icon"
 					class="cdx-menu-item__icon"
-				>
-					<cdx-icon :icon="icon" />
-				</span>
+				/>
 
 				<!-- Item text. -->
 				<span class="cdx-menu-item__text">
@@ -376,11 +375,6 @@ export default defineComponent( {
 		.hyphens();
 	}
 
-	// Make sure the icon inherits the content element's color.
-	.cdx-icon {
-		color: inherit;
-	}
-
 	&__text__description {
 		display: block;
 	}
@@ -395,19 +389,15 @@ export default defineComponent( {
 		width: @size-search-figure;
 		height: @size-search-figure;
 		margin-right: @margin-end-menu-item-thumbnail;
+		// TODO: use token for border color. Currently, a token exists for this color called
+		// `border-color-base--disabled`, but this token name will likely change and is also not
+		// appropriate for this use case. For now, we'll directly use the color.
+		border: @border-width-base @border-style-base @color-base70;
 		border-radius: @border-radius-base;
-		// Borders tend to cut into the border-radius and it makes the border-radius look smaller
-		// on the inside of the box than the outside.
-		// Using a box-shadow disguised as a border prevents that from happening.
-		box-shadow: @box-shadow-menu-item-thumbnail;
 	}
 
 	&__thumbnail {
 		display: inline-block;
-	}
-
-	&__icon {
-		margin-right: @margin-end-menu-item-thumbnail;
 	}
 
 	&__thumbnail-placeholder {
@@ -419,6 +409,12 @@ export default defineComponent( {
 		&__icon {
 			color: @color-menu-item-thumbnail-placeholder-icon;
 		}
+	}
+
+	&__icon {
+		// Make sure the icon inherits the content element's color.
+		color: inherit;
+		margin-right: @margin-end-menu-item-thumbnail;
 	}
 
 	&--highlight-query {

@@ -184,29 +184,25 @@ exports[`matches the snapshot Case 4 Item with icon: ({"description": "Test sear
   >
     <!-- Thumbnail, thumbnail placeholder, or icon. -->
     <span
-      class="cdx-menu-item__icon"
+      class="cdx-icon cdx-menu-item__icon"
     >
-      <span
-        class="cdx-icon"
+      <svg
+        aria-hidden="true"
+        height="20"
+        viewBox="0 0 20 20"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          aria-hidden="true"
-          height="20"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+        <!--v-if-->
+        <!-- eslint-disable vue/no-v-html -->
+        <g
+          fill="currentColor"
         >
-          <!--v-if-->
-          <!-- eslint-disable vue/no-v-html -->
-          <g
-            fill="currentColor"
-          >
-            <path
-              d="M9 1.28A1 1 0 008.35 1H2a1 1 0 00-1 1v6.35a1 1 0 00.28.65L11 18.72a1 1 0 001.37 0l6.38-6.38a1 1 0 00-.03-1.34zM5 7a2 2 0 112-2 2 2 0 01-2 2z"
-            />
-          </g>
-        </svg>
-      </span>
+          <path
+            d="M9 1.28A1 1 0 008.35 1H2a1 1 0 00-1 1v6.35a1 1 0 00.28.65L11 18.72a1 1 0 001.37 0l6.38-6.38a1 1 0 00-.03-1.34zM5 7a2 2 0 112-2 2 2 0 01-2 2z"
+          />
+        </g>
+      </svg>
     </span>
     <!-- Item text. -->
     <span

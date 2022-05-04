@@ -213,29 +213,25 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       >
         <!-- Thumbnail, thumbnail placeholder, or icon. -->
         <span
-          class="cdx-menu-item__icon"
+          class="cdx-icon cdx-menu-item__icon"
         >
-          <span
-            class="cdx-icon"
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              aria-hidden="true"
-              height="20"
-              viewBox="0 0 20 20"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g
+              fill="currentColor"
             >
-              <!--v-if-->
-              <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
-                <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
-                />
-              </g>
-            </svg>
-          </span>
+              <path
+                d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
+              />
+            </g>
+          </svg>
         </span>
         <!-- Item text. -->
         <span
@@ -476,29 +472,25 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       >
         <!-- Thumbnail, thumbnail placeholder, or icon. -->
         <span
-          class="cdx-menu-item__icon"
+          class="cdx-icon cdx-menu-item__icon"
         >
-          <span
-            class="cdx-icon"
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              aria-hidden="true"
-              height="20"
-              viewBox="0 0 20 20"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g
+              fill="currentColor"
             >
-              <!--v-if-->
-              <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
-                <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
-                />
-              </g>
-            </svg>
-          </span>
+              <path
+                d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
+              />
+            </g>
+          </svg>
         </span>
         <!-- Item text. -->
         <span
@@ -739,29 +731,25 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       >
         <!-- Thumbnail, thumbnail placeholder, or icon. -->
         <span
-          class="cdx-menu-item__icon"
+          class="cdx-icon cdx-menu-item__icon"
         >
-          <span
-            class="cdx-icon"
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              aria-hidden="true"
-              height="20"
-              viewBox="0 0 20 20"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g
+              fill="currentColor"
             >
-              <!--v-if-->
-              <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
-                <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
-                />
-              </g>
-            </svg>
-          </span>
+              <path
+                d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
+              />
+            </g>
+          </svg>
         </span>
         <!-- Item text. -->
         <span
@@ -1002,29 +990,25 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       >
         <!-- Thumbnail, thumbnail placeholder, or icon. -->
         <span
-          class="cdx-menu-item__icon"
+          class="cdx-icon cdx-menu-item__icon"
         >
-          <span
-            class="cdx-icon"
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              aria-hidden="true"
-              height="20"
-              viewBox="0 0 20 20"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g
+              fill="currentColor"
             >
-              <!--v-if-->
-              <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
-                <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
-                />
-              </g>
-            </svg>
-          </span>
+              <path
+                d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
+              />
+            </g>
+          </svg>
         </span>
         <!-- Item text. -->
         <span
@@ -1285,29 +1269,25 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       >
         <!-- Thumbnail, thumbnail placeholder, or icon. -->
         <span
-          class="cdx-menu-item__icon"
+          class="cdx-icon cdx-menu-item__icon"
         >
-          <span
-            class="cdx-icon"
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              aria-hidden="true"
-              height="20"
-              viewBox="0 0 20 20"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g
+              fill="currentColor"
             >
-              <!--v-if-->
-              <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
-                <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
-                />
-              </g>
-            </svg>
-          </span>
+              <path
+                d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
+              />
+            </g>
+          </svg>
         </span>
         <!-- Item text. -->
         <span
@@ -1568,29 +1548,25 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       >
         <!-- Thumbnail, thumbnail placeholder, or icon. -->
         <span
-          class="cdx-menu-item__icon"
+          class="cdx-icon cdx-menu-item__icon"
         >
-          <span
-            class="cdx-icon"
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              aria-hidden="true"
-              height="20"
-              viewBox="0 0 20 20"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g
+              fill="currentColor"
             >
-              <!--v-if-->
-              <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
-                <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
-                />
-              </g>
-            </svg>
-          </span>
+              <path
+                d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
+              />
+            </g>
+          </svg>
         </span>
         <!-- Item text. -->
         <span
@@ -1831,29 +1807,25 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       >
         <!-- Thumbnail, thumbnail placeholder, or icon. -->
         <span
-          class="cdx-menu-item__icon"
+          class="cdx-icon cdx-menu-item__icon"
         >
-          <span
-            class="cdx-icon"
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              aria-hidden="true"
-              height="20"
-              viewBox="0 0 20 20"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g
+              fill="currentColor"
             >
-              <!--v-if-->
-              <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
-                <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
-                />
-              </g>
-            </svg>
-          </span>
+              <path
+                d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4-5.4-5.4zM3 8a5 5 0 1010 0A5 5 0 103 8z"
+              />
+            </g>
+          </svg>
         </span>
         <!-- Item text. -->
         <span
