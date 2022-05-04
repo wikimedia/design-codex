@@ -1,4 +1,4 @@
-import { ref, Ref, onMounted, onUnmounted } from 'vue';
+import { ref, Ref, onMounted, onUnmounted, watch } from 'vue';
 
 /**
  * Sets up a basic IntersectionObserver which attaches to the provided
@@ -32,27 +32,35 @@ export default function useIntersectionObserver(
 		return intersectionRef;
 	}
 
-	let observer: IntersectionObserver;
+	const observer = new window.IntersectionObserver(
+		( entries: IntersectionObserverEntry[] ) => {
+			const entry = entries[ 0 ];
+			if ( entry ) {
+				intersectionRef.value = entry.isIntersecting;
+			}
+		},
+		observerOptions
+	);
 
 	onMounted( () => {
 		if ( templateRef.value ) {
-			observer = new window.IntersectionObserver(
-				( entries: IntersectionObserverEntry[] ) => {
-					const entry = entries[ 0 ];
-					if ( entry ) {
-						intersectionRef.value = entry.isIntersecting;
-					}
-				},
-				observerOptions
-			);
-
 			observer.observe( templateRef.value );
 		}
 	} );
 
 	onUnmounted( () => {
-		if ( observer ) {
-			observer.disconnect();
+		observer.disconnect();
+	} );
+
+	// If the templateRef changes to point to a different element, disconnect the observer from the
+	// old element and observe the new one instead
+	watch( templateRef, ( newElement ) => {
+		observer.disconnect();
+		// Reset the ref back to false, just like when we initialized it. If newElement is set, the
+		// observe callback will run and set the ref to true if newElement is visible.
+		intersectionRef.value = false;
+		if ( newElement ) {
+			observer.observe( newElement );
 		}
 	} );
 
