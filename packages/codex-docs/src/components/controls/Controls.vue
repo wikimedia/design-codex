@@ -63,7 +63,13 @@
 					<pre>{{ slotControl.name }}</pre>
 				</td>
 				<td>
+					<cdx-docs-icon-lookup
+						v-if="slotControl.type === 'slot-icon'"
+						:model-value="slotControl.value"
+						@update:model-value="emitControlChange( slotControl.name, $event )"
+					/>
 					<cdx-text-input
+						v-if="slotControl.type === 'slot'"
 						:model-value="slotControl.value"
 						@update:model-value="emitControlChange( slotControl.name, $event )"
 					/>
@@ -121,20 +127,23 @@ export default defineComponent( {
 		const propControls = computed( () : PropConfigWithValue[] => {
 			return props.controlsWithValues.filter(
 				( control ) : control is PropConfigWithValue => {
-					return control.type !== 'slot';
+					return control.type !== 'slot' &&
+						control.type !== 'slot-icon';
 				} );
 		} );
 		const slotControls = computed( () : SlotConfigWithValue[] => {
 			return props.controlsWithValues.filter(
 				( control ) : control is SlotConfigWithValue => {
-					return control.type === 'slot';
+					return control.type === 'slot' ||
+						control.type === 'slot-icon';
 				} );
 		} );
 
 		// Show a note about Icon props if there are any
 		const hasIconProp = computed( () => {
 			return props.controlsWithValues.some(
-				( currentControl ) => currentControl.type === 'icon'
+				( currentControl ) => currentControl.type === 'icon' ||
+					currentControl.type === 'slot-icon'
 			);
 		} );
 

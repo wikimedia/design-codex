@@ -1,5 +1,5 @@
 import { generateProps, generateSlots, generateVueTag } from './codegen';
-import { BoundProp } from '../types';
+import { BoundProp, EscapedSlotContent } from '../types';
 
 describe( 'codegen', () => {
 	it( 'generates props', () => {
@@ -43,6 +43,28 @@ describe( 'codegen', () => {
 		const expectedString = '<template #first>random content</template>' +
 			'\n<template #second>other content</template>';
 		expect( generateSlots( slotValues ) ).toBe( expectedString );
+	} );
+
+	it( 'allows bypassing escapeHtml() calls for icons', () => {
+		const iconSlot = new EscapedSlotContent(
+			'<cdx-icon :icon="cdxIconArrowNext" />'
+		);
+		expect(
+			generateVueTag( 'cdx-button', {}, { default: iconSlot } )
+		).toBe(
+			'<cdx-button><cdx-icon :icon="cdxIconArrowNext" /></cdx-button>'
+		);
+	} );
+
+	it( 'allows bypassing escapeHtml() calls for icons with text', () => {
+		const iconSlot = new EscapedSlotContent(
+			'<cdx-icon :icon="cdxIconArrowNext" /> &lt;p&gt;test&lt;/p&gt;'
+		);
+		expect(
+			generateVueTag( 'cdx-button', {}, { default: iconSlot } )
+		).toBe(
+			'<cdx-button><cdx-icon :icon="cdxIconArrowNext" /> &lt;p&gt;test&lt;/p&gt;</cdx-button>'
+		);
 	} );
 
 	it( 'outputs self-closing tag when there are no slots', () => {

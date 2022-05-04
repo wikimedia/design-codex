@@ -14,6 +14,18 @@ export class BoundProp {
 	}
 }
 
+// For Icons being used in slots, we don't want the <cdx-icon> part to be escaped by the code
+// that generates example snippets for the configurable demos, but the actual slot text that
+// the user sets should be escaped. In Wrapper.vue the text is escaped before the <cdx-icon>
+// is added, and then it gets wrapped in a EscapedSlotContent to avoid being escaped again
+export class EscapedSlotContent {
+	readonly value: string;
+
+	constructor( value: string ) {
+		this.value = value;
+	}
+}
+
 /**
  * There are various types of controls, each defined here. All types include a name property.
  */
@@ -41,12 +53,21 @@ export interface SlotConfig extends BaseConfig {
 	type: 'slot',
 	default: string
 }
+// For icons in slots, the name must be *-icon corresponding to a slot with the same name (without
+// the -icon suffix) that it should be added to. Make this a part of the type interface so that
+// TypeScript validates usage.
+export interface SlotIconConfig extends BaseConfig {
+	name: `${string}-icon`,
+	type: 'slot-icon',
+	default?: string
+}
 export type ControlConfig =
 	RadioPropConfig |
 	BooleanPropConfig |
 	TextPropConfig |
 	IconPropConfig |
-	SlotConfig;
+	SlotConfig |
+	SlotIconConfig;
 
 /**
  * ControlsConfig is an array of control config items.
@@ -66,7 +87,7 @@ export type PropConfigWithValue =
 	DefaultToValue<BooleanPropConfig> |
 	DefaultToValue<TextPropConfig> |
 	DefaultToValue<IconPropConfig>;
-export type SlotConfigWithValue = DefaultToValue<SlotConfig>;
+export type SlotConfigWithValue = DefaultToValue<SlotConfig> | DefaultToValue<SlotIconConfig>;
 export type ControlConfigWithValue = PropConfigWithValue | SlotConfigWithValue;
 
 export type PropValues = Record<string, string | number | boolean | BoundProp>;
@@ -75,7 +96,8 @@ export type PropValues = Record<string, string | number | boolean | BoundProp>;
 // in a configurable demo and generating code with the name instead of the underlying data. For
 // no icon being configured, the value is undefined.
 export type PropValuesWithIcons = Record<string, string | number | boolean | Icon | undefined>;
-export type SlotValues = Record<string, string>;
+// EscapedSlotContent is only used for generating display code
+export type SlotValues = Record<string, string | EscapedSlotContent>;
 
 export interface DesignToken {
 	name: string,

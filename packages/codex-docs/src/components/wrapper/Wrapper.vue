@@ -94,9 +94,11 @@ import {
 	PropValues,
 	PropValuesWithIcons,
 	SlotValues,
-	BoundProp
+	BoundProp,
+	EscapedSlotContent
 } from '../../types';
 import Prism from 'prismjs';
+import escapeHtml from 'escape-html';
 import { DirectionKey } from '../../constants';
 import CdxDocsControls from '../controls/Controls.vue';
 import CdxDocsCopyTextButton from '../copy-text-button/CopyTextButton.vue';
@@ -262,6 +264,7 @@ export default defineComponent( {
 						return { ...config, value: config.default };
 					// Icon also uses empty string as default, meaning no icon
 					case 'icon':
+					case 'slot-icon':
 						return { ...config, value: config.default ?? '' };
 					case 'text':
 					default:
@@ -327,7 +330,7 @@ export default defineComponent( {
 				// actual icon object (or undefined if not given)
 				if ( control.type === 'icon' ) {
 					constructedPropValues[ control.name ] = iconsByName[ control.value ];
-				} else if ( control.type !== 'slot' ) {
+				} else if ( control.type !== 'slot' && control.type !== 'slot-icon' ) {
 					constructedPropValues[ control.name ] = control.value;
 				}
 			}
@@ -335,14 +338,56 @@ export default defineComponent( {
 		} );
 
 		/**
-		 * Pull out slot values for the same reason as props above.
+		 * Pull out slot values for the same reason as props above, using icon names for
+		 * slot icon contents, to be handled by cdxDemoSlotIcon
 		 */
 		const slotValues = computed( () => {
+			const constructedSlotValues = {} as SlotValues;
+			for ( const control of controlsWithValues ) {
+				if ( control.type === 'slot' || control.type === 'slot-icon' ) {
+					constructedSlotValues[ control.name ] = control.value;
+				}
+			}
+			return constructedSlotValues;
+		} );
+
+		/**
+		 * Pull out slot values for the same reason as props above, for slots with icons
+		 * escape the text and wrap the overall content in an EscapedSlotContent object
+		 * so that codegen does not escape the brackets for the <cdx-icon> usage, and
+		 * does not double-escape the slot text
+		 */
+		const slotValueStrings = computed( () => {
 			const constructedSlotValues = {} as SlotValues;
 			for ( const control of controlsWithValues ) {
 				if ( control.type === 'slot' ) {
 					constructedSlotValues[ control.name ] = control.value;
 				}
+			}
+			// Add icons afterwords to ensure content does not override them
+			for ( const control of controlsWithValues ) {
+				if ( control.type !== 'slot-icon' || !control.value ) {
+					continue;
+				}
+				// remove the -icon at the end
+				const targetSlotName = control.name.slice(
+					0,
+					control.name.length - 5
+				);
+				if ( constructedSlotValues[ targetSlotName ] === undefined ) {
+					continue;
+				}
+				// If there is already text for the slot, we need to escape it
+				// here, don't add an extra space if there is no text
+				let slotDisplayText = '<cdx-icon :icon="' + control.value + '" />';
+				if ( constructedSlotValues[ targetSlotName ] ) {
+					slotDisplayText += ' ' + escapeHtml(
+						constructedSlotValues[ targetSlotName ] as string
+					);
+				}
+				constructedSlotValues[ targetSlotName ] = new EscapedSlotContent(
+					slotDisplayText
+				);
 			}
 			return constructedSlotValues;
 		} );
@@ -393,7 +438,7 @@ export default defineComponent( {
 			// instead of the icon name, but the generated code display should use
 			// the icon name
 			for ( const control of controlsWithValues ) {
-				if ( control.type === 'slot' ) {
+				if ( control.type === 'slot' || control.type === 'slot-icon' ) {
 					continue;
 				}
 				const propName = control.name;
@@ -425,7 +470,7 @@ export default defineComponent( {
 		} );
 
 		const generatedCode = computed( () => generateVueTag(
-			autoCodeTag.value, nonDefaultPropValues.value, slotValues.value
+			autoCodeTag.value, nonDefaultPropValues.value, slotValueStrings.value
 		) );
 
 		watch( autoCodeTag, updateHighlight );
@@ -481,7 +526,12 @@ export default defineComponent( {
 			// Interactive controls
 			hasControls,
 			controlsWithValues,
-			handleControlChange
+			handleControlChange,
+
+			// exported for testing only, see the "computes demo text for slots"
+			// tests
+			// eslint-disable-next-line vue/no-unused-properties
+			slotValueStrings
 		};
 	}
 } );

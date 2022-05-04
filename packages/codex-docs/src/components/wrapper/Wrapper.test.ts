@@ -1,7 +1,7 @@
 import { mount, config } from '@vue/test-utils';
 import { ref, nextTick } from 'vue';
 import Wrapper from './Wrapper.vue';
-import { ControlsConfig } from './../../types';
+import { ControlsConfig, EscapedSlotContent } from './../../types';
 import { DirectionKey } from '../../constants';
 import Prism from 'prismjs';
 
@@ -237,4 +237,73 @@ it( 'calls Prism.highlightAllUnder()', async () => {
 	expect( wrapper.vm.propValues.disabled ).toBe( false );
 	await nextTick();
 	expect( highlightSpy ).toHaveBeenCalledTimes( 3 );
+} );
+
+describe( 'computes demo text for slots', () => {
+	// Always targeting the 'default' slot
+	type Case = [
+		msg: string,
+		controls: ControlsConfig,
+		expectedDemoSlotText: string | EscapedSlotContent
+	];
+
+	const cases: Case[] = [
+		[
+			'just text (normal)',
+			[ { name: 'default', type: 'slot', default: 'random text content' } ],
+			'random text content'
+		],
+		[
+			'just text (HTML does not get escaped)',
+			[ { name: 'default', type: 'slot', default: '<p>test</p>' } ],
+			'<p>test</p>'
+		],
+		[
+			'text and icon (icon not set, HTML does not get escaped)',
+			[
+				{ name: 'default', type: 'slot', default: '<p>test</p>' },
+				{ name: 'default-icon', type: 'slot-icon' }
+			],
+			'<p>test</p>'
+		],
+		[
+			'text and icon (icon set, HTML gets escaped with EscapedSlotContent)',
+			[
+				{ name: 'default', type: 'slot', default: '<p>test</p>' },
+				{ name: 'default-icon', type: 'slot-icon', default: 'cdxIconArrowNext' }
+			],
+			new EscapedSlotContent(
+				'<cdx-icon :icon="cdxIconArrowNext" /> &lt;p&gt;test&lt;/p&gt;'
+			)
+		],
+		[
+			'only icon (icon set, no extra space, EscapedSlotContent)',
+			[
+				{ name: 'default', type: 'slot', default: '' },
+				{ name: 'default-icon', type: 'slot-icon', default: 'cdxIconArrowNext' }
+			],
+			new EscapedSlotContent( '<cdx-icon :icon="cdxIconArrowNext" />' )
+		]
+	];
+
+	test.each( cases )( 'Case %# Slot with %s', ( _, controls, demoText ) => {
+		const wrapper = mount( Wrapper, { props: { controlsConfig: controls } } );
+		expect( wrapper.vm.slotValueStrings ).toEqual( {
+			default: demoText
+		} );
+	} );
+
+	// Case for defining an icon for an unknown slot does nothing, cannot use the same cases
+	// as above
+	it( 'ignores icons for unknown slots', () => {
+		const controls: ControlsConfig = [
+			{ name: 'default-icon', type: 'slot-icon', default: 'cdxIconArrowNext' }
+		];
+		const wrapper = mount( Wrapper, { props: { controlsConfig: controls } } );
+		// Still gets added to the slotValues though
+		expect( wrapper.vm.slotValues ).toEqual( {
+			'default-icon': 'cdxIconArrowNext'
+		} );
+		expect( wrapper.vm.slotValueStrings ).toEqual( {} );
+	} );
 } );
