@@ -241,54 +241,26 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import './../../themes/mixins/icon-alignment.less';
 
 // TODO: these should be design tokens.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
-// TODO (T307071): @size-input-icon-container is duplicated in:
-// Typeahead.vue, select.vue and needs to be centralized.
-@size-input-start-icon-container: unit(
-	( ( @padding-horizontal-input-text * 2 + @size-icon ) / @font-size-browser / @font-size-base ),
-	em
-);
 // TODO: Revisit with decision about Design System's take on end icon sizes, see T306135.
-@size-input-end-icon: 16px;
-@size-input-end-icon-container: calc( @padding-horizontal-input-text * 2 + @size-input-end-icon );
+@size-input-end-icon: @size-absolute-100;
 
 .cdx-text-input {
 	// For proper positioning of icons and slotted elements.
 	position: relative;
 	box-sizing: @box-sizing-base;
 
-	&__start-icon,
-	&__end-icon {
-		position: absolute;
-		top: 0;
-		min-height: @size-icon;
-		height: @size-full;
-		// In Safari, several transitions or transforms happening at once around these elements may
-		// cause a brief wobble. This will stabilize icons' positions.
-		-webkit-transform: translateZ( 0 );
-		transition-property: @transition-property-base;
-		transition-duration: @transition-duration-medium;
-	}
-
-	// Start icon is larger and aligned to the left of the input.
 	&__start-icon {
-		left: @border-width-base;
-		width: @size-input-start-icon-container;
-		pointer-events: none;
+		.cdx-mixin-icon( start, @size-icon, @padding-horizontal-input-text );
 	}
 
-	// End icon is smaller and aligned to the right of the input.
 	&__end-icon {
-		right: @border-width-base;
-		width: @size-input-end-icon-container;
-
-		svg {
-			width: @size-input-end-icon;
-		}
+		.cdx-mixin-icon( end, @size-input-end-icon, @padding-horizontal-input-text );
 	}
 }
 
@@ -301,13 +273,13 @@ export default defineComponent( {
 
 .cdx-text-input--has-start-icon {
 	.cdx-text-input__input {
-		padding-left: @size-input-start-icon-container;
+		.cdx-mixin-icon-padding( start, @padding-horizontal-input-text );
 	}
 }
 
 .cdx-text-input--has-end-icon {
 	.cdx-text-input__input {
-		padding-right: @size-input-end-icon-container;
+		.cdx-mixin-icon-padding( end, @padding-horizontal-input-text );
 	}
 }
 

@@ -266,7 +266,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-@import './../../themes/mixins/menu-icon.less';
+@import './../../themes/mixins/icon-alignment.less';
 
 @min-width-combobox: 280px;
 @min-width-combobox-expand-button: 36px;
@@ -298,7 +298,7 @@ export default defineComponent( {
 	}
 
 	&__expand-icon {
-		.cdx-mixin-menu-icon( center, @size-indicator );
+		.cdx-mixin-icon( center, @size-indicator );
 	}
 }
 </style>

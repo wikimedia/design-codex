@@ -248,18 +248,12 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-@import './../../themes/mixins/menu-icon.less';
+@import './../../themes/mixins/icon-alignment.less';
 
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @min-width-select: 280px;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
-// TODO (T307071): @size-input-icon-container is duplicated in:
-// TextInput.vue, Typeahead.vue and needs to be centralized.
-@size-input-start-icon-container: unit(
-	( ( @padding-horizontal-input-text * 2 + @size-icon ) / @font-size-browser / @font-size-base ),
-	em
-);
 
 .cdx-select {
 	display: inline-block;
@@ -275,14 +269,10 @@ export default defineComponent( {
 		width: @size-full;
 		border: @border-base;
 		border-radius: @border-radius-base;
-		// Add extra padding-right to make space for the handle indicator
-		// Use 2 * horizontal-base because we need padding on both sides of the indicator
-		/* stylelint-disable function-calc-no-unspaced-operator */
-		padding: @padding-vertical-base
-			calc( 2 * @padding-horizontal-base ~'+' @size-indicator )
-			@padding-vertical-base
-			@padding-horizontal-base;
-		/* stylelint-enable function-calc-no-unspaced-operator */
+		padding-top: @padding-vertical-base;
+		padding-bottom: @padding-vertical-base;
+		padding-left: @padding-horizontal-base;
+		.cdx-mixin-icon-padding( end, @padding-horizontal-input-text );
 		line-height: @line-height-component;
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-base;
@@ -313,11 +303,11 @@ export default defineComponent( {
 	/* stylelint-disable-next-line no-descending-specificity */
 	&__indicator {
 		color: @color-base;
-		.cdx-mixin-menu-icon( right, @size-indicator );
+		.cdx-mixin-icon( end, @size-indicator, @padding-horizontal-input-text );
 	}
 
 	&__start-icon {
-		.cdx-mixin-menu-icon( left, @size-icon );
+		.cdx-mixin-icon( start );
 	}
 
 	&--expanded {
@@ -359,7 +349,7 @@ export default defineComponent( {
 
 	&--has-start-icon {
 		.cdx-select__handle {
-			padding-left: @size-input-start-icon-container;
+			.cdx-mixin-icon-padding( start );
 		}
 	}
 }
