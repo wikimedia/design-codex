@@ -276,10 +276,12 @@ export default defineComponent( {
 		border-radius: @border-radius-base;
 		// Add extra padding-right to make space for the handle indicator
 		// Use 2 * horizontal-base because we need padding on both sides of the indicator
+		/* stylelint-disable function-calc-no-unspaced-operator */
 		padding: @padding-vertical-base
 			calc( 2 * @padding-horizontal-base ~'+' @size-indicator )
 			@padding-vertical-base
 			@padding-horizontal-base;
+		/* stylelint-enable function-calc-no-unspaced-operator */
 		line-height: @line-height-component;
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-base;

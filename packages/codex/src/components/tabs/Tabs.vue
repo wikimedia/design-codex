@@ -551,6 +551,7 @@ export default defineComponent( {
 	}
 
 	// Frameless Tabs
+	/* stylelint-disable-next-line selector-not-notation */
 	&:not( &--framed ) > &__header {
 		background-color: @background-color-base;
 		border-bottom: @border-base;
