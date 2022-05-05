@@ -155,7 +155,7 @@ export default defineComponent( {
 		'update:modelValue'
 	],
 
-	setup( props, context ) {
+	setup( props, { emit } ) {
 		// Set up basic reactive values and template refs.
 		const handle = ref<HTMLDivElement>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
@@ -165,7 +165,7 @@ export default defineComponent( {
 
 		// The value of the component's current selection is tracked in the parent as a v-model
 		// binding.
-		const modelWrapper = useModelWrapper( toRef( props, 'modelValue' ), context.emit );
+		const modelWrapper = useModelWrapper( toRef( props, 'modelValue' ), emit );
 
 		const selectedMenuItem = computed( () =>
 			props.menuItems.find( ( menuItem ) => menuItem.value === props.modelValue )

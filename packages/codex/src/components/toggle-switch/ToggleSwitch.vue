@@ -79,7 +79,7 @@ export default defineComponent( {
 		 */
 		'update:modelValue'
 	],
-	setup( props, context ) {
+	setup( props, { attrs, emit } ) {
 		// Declare template refs.
 		const input = ref<HTMLInputElement>();
 
@@ -91,11 +91,11 @@ export default defineComponent( {
 			rootClasses,
 			rootStyle,
 			otherAttrs
-		} = useSplitAttributes( context.attrs );
+		} = useSplitAttributes( attrs );
 
 		// Take the modelValue provided by the parent component via v-model and generate a wrapped
 		// model that we can use for the input element in this component.
-		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), context.emit );
+		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
 
 		/**
 		 * Click the input to toggle its state.

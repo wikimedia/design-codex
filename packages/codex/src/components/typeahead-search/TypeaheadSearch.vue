@@ -254,7 +254,7 @@ export default defineComponent( {
 		'submit'
 	],
 
-	setup( props, context ) {
+	setup( props, { attrs, emit, slots } ) {
 		const { searchResults, searchFooterUrl, debounceInterval } = toRefs( props );
 
 		const form = ref<HTMLFormElement>();
@@ -321,7 +321,7 @@ export default defineComponent( {
 			rootClasses,
 			rootStyle,
 			otherAttrs
-		} = useSplitAttributes( context.attrs, internalClasses );
+		} = useSplitAttributes( attrs, internalClasses );
 
 		function asSearchResult( menuItem: MenuItemDataWithId ): SearchResultWithId {
 			return menuItem as SearchResultWithId;
@@ -382,7 +382,7 @@ export default defineComponent( {
 				// After a delay, pending state indicators will be displayed to the user by
 				// expanding the menu and setting the Menu component's `showPending` prop to true.
 				// Note that this only happens if the `search-results-pending` slot is populated.
-				if ( context.slots[ 'search-results-pending' ] ) {
+				if ( slots[ 'search-results-pending' ] ) {
 					pendingDelayId = setTimeout( () => {
 						if ( isActive.value ) {
 							expanded.value = true;
@@ -399,7 +399,7 @@ export default defineComponent( {
 			}
 
 			const handleUpdateInputValue = () => {
-				context.emit( 'new-input', newVal );
+				emit( 'new-input', newVal );
 			};
 
 			if ( immediate ) {
@@ -466,7 +466,7 @@ export default defineComponent( {
 				numberOfResults: searchResults.value.length
 			};
 
-			context.emit( 'search-result-click', searchResultClickEvent );
+			emit( 'search-result-click', searchResultClickEvent );
 		}
 
 		/**
@@ -525,7 +525,7 @@ export default defineComponent( {
 				numberOfResults: searchResults.value.length
 			};
 
-			context.emit( 'submit', submitEvent );
+			emit( 'submit', submitEvent );
 		}
 
 		/**

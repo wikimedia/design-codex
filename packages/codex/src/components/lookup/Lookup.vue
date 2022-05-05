@@ -145,7 +145,7 @@ export default defineComponent( {
 		'new-input'
 	],
 
-	setup: ( props, context ) => {
+	setup: ( props, { emit, attrs, slots } ) => {
 		// Set up local reactive data
 		const menu = ref<InstanceType<typeof CdxMenu>>();
 		const menuId = useGeneratedId( 'lookup-menu' );
@@ -154,7 +154,7 @@ export default defineComponent( {
 		const isActive = ref( false );
 
 		const modelValueProp = toRef( props, 'modelValue' );
-		const modelWrapper = useModelWrapper( modelValueProp, context.emit );
+		const modelWrapper = useModelWrapper( modelValueProp, emit );
 		const selectedMenuItem = computed( () =>
 			props.menuItems.find( ( item ) => item.value === props.modelValue )
 		);
@@ -175,7 +175,7 @@ export default defineComponent( {
 			rootClasses,
 			rootStyle,
 			otherAttrs
-		} = useSplitAttributes( context.attrs, internalClasses );
+		} = useSplitAttributes( attrs, internalClasses );
 
 		/**
 		 * Handle TextInput model value changes.
@@ -200,7 +200,7 @@ export default defineComponent( {
 				pending.value = true;
 			}
 
-			context.emit( 'new-input', newVal );
+			emit( 'new-input', newVal );
 		}
 
 		/**
@@ -213,7 +213,7 @@ export default defineComponent( {
 				inputValue.value !== null &&
 				inputValue.value !== '' &&
 				// There's either menu items to show or a no results message.
-				( props.menuItems.length > 0 || context.slots[ 'no-results' ] )
+				( props.menuItems.length > 0 || slots[ 'no-results' ] )
 			) {
 				expanded.value = true;
 			}
@@ -241,7 +241,7 @@ export default defineComponent( {
 		function onKeydown( e: KeyboardEvent ) {
 			if ( !menu.value ||
 				props.disabled ||
-				( props.menuItems.length === 0 && !context.slots[ 'no-results' ] ) ||
+				( props.menuItems.length === 0 && !slots[ 'no-results' ] ) ||
 				( e.key === ' ' && expanded.value )
 			) {
 				return;
@@ -271,14 +271,14 @@ export default defineComponent( {
 				// was in response to user input) and the menu is still focused
 				isActive.value && pending.value && (
 					// Show the menu if there are either menu items or no-results content to show
-					newVal.length > 0 || context.slots[ 'no-results' ]
+					newVal.length > 0 || slots[ 'no-results' ]
 				)
 			) {
 				expanded.value = true;
 			}
 
 			// Hide the menu if there are no menu items and no no-results content.
-			if ( newVal.length === 0 && !context.slots[ 'no-results' ] ) {
+			if ( newVal.length === 0 && !slots[ 'no-results' ] ) {
 				expanded.value = false;
 			}
 
