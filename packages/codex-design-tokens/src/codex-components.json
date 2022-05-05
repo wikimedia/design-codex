@@ -82,7 +82,6 @@
 	},
 	"position": {
 		"offset": {
-			"comment": "position.offset is a Codex token shorthand to use in `top`, `left`, `bottom`, `right` properties. `offset` as standard property for animating along a path is taken.",
 			"input-radio--focus": {
 				"comment": "TODO: This has to be a relative value, for design reasons.",
 				"value": "-{ size.absolute.25 }"
