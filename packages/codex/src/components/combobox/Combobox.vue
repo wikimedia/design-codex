@@ -195,11 +195,7 @@ export default defineComponent( {
 		 * keep the menu open. Otherwise, close the menu.
 		 */
 		function onInputBlur(): void {
-			if ( expanderClicked.value && expanded.value ) {
-				expanded.value = true;
-			} else {
-				expanded.value = false;
-			}
+			expanded.value = ( expanderClicked.value && expanded.value );
 		}
 
 		/**
