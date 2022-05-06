@@ -1,31 +1,6 @@
 // Used for the value of icon properties
 import { Icon } from '@wikimedia/codex-icons';
 
-// For Icon properties, the value for code generation is going to be a string, but it should be
-// output using a v-bind expression because it is not a literal string, but rather the name
-// of an object that will have been made available in the relevant context. Such props can
-// be wrapped in a `BoundProp` object so that generateProps() knows to use the v-bind
-// form
-export class BoundProp {
-	readonly value: string;
-
-	constructor( value: string ) {
-		this.value = value;
-	}
-}
-
-// For Icons being used in slots, we don't want the <cdx-icon> part to be escaped by the code
-// that generates example snippets for the configurable demos, but the actual slot text that
-// the user sets should be escaped. In Wrapper.vue the text is escaped before the <cdx-icon>
-// is added, and then it gets wrapped in a EscapedSlotContent to avoid being escaped again
-export class EscapedSlotContent {
-	readonly value: string;
-
-	constructor( value: string ) {
-		this.value = value;
-	}
-}
-
 /**
  * There are various types of controls, each defined here. All types include a name property.
  */
@@ -90,14 +65,12 @@ export type PropConfigWithValue =
 export type SlotConfigWithValue = DefaultToValue<SlotConfig> | DefaultToValue<SlotIconConfig>;
 export type ControlConfigWithValue = PropConfigWithValue | SlotConfigWithValue;
 
-export type PropValues = Record<string, string | number | boolean | BoundProp>;
 // When being used to actually render a demo, Icon properties have actual Icon objects as their
-// values, but the rest of the time the value is the icon name, for looking up an icon by the name
-// in a configurable demo and generating code with the name instead of the underlying data. For
-// no icon being configured, the value is undefined.
+// values. For no icon being configured, the value is undefined.
 export type PropValuesWithIcons = Record<string, string | number | boolean | Icon | undefined>;
-// EscapedSlotContent is only used for generating display code
-export type SlotValues = Record<string, string | EscapedSlotContent>;
+// This SlotValues type is only used for rendering, Icon slots are passed by name to
+// CdxDemoSlotIcon, everything is text.
+export type SlotValues = Record<string, string>;
 
 export interface DesignToken {
 	name: string,

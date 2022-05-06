@@ -1,5 +1,11 @@
-import { generateProps, generateSlots, generateVueTag } from './codegen';
-import { BoundProp, EscapedSlotContent } from '../types';
+import {
+	BoundProp,
+	SlotValuesWithIcons,
+	generateProps,
+	generateSlots,
+	generateVueTag
+} from './codegen';
+import { SlotConfigWithValue, PropConfigWithValue } from '../types';
 
 describe( 'codegen', () => {
 	it( 'generates props', () => {
@@ -22,7 +28,7 @@ describe( 'codegen', () => {
 		expect( generateProps( propValues ) ).toBe( expectedString );
 	} );
 
-	it( 'uses v-bind syntax for BoundProp strings', () => {
+	it( 'uses v-bind syntax for BoundProp strings (generateProps)', () => {
 		const propValues: Record<string, unknown> = {
 			normalString: 'foo',
 			boundString: new BoundProp( 'variableName' )
@@ -34,8 +40,26 @@ describe( 'codegen', () => {
 		expect( generateProps( propValues ) ).toBe( expectedString );
 	} );
 
+	it( 'uses v-bind syntax for icon properties (generateVueTag)', () => {
+		const iconDefault: PropConfigWithValue = {
+			name: 'icon',
+			type: 'icon',
+			value: ''
+		};
+		const iconChosen: PropConfigWithValue = {
+			name: 'icon',
+			type: 'icon',
+			value: 'cdxIconArrowNext'
+		};
+		expect(
+			generateVueTag( 'Icon', [ iconDefault ], [ iconChosen ] )
+		).toBe(
+			'<cdx-icon :icon="cdxIconArrowNext" />'
+		);
+	} );
+
 	it( 'generates slots', () => {
-		const slotValues: Record<string, string> = {
+		const slotValues: SlotValuesWithIcons = {
 			first: 'random content',
 			second: 'other content'
 		};
@@ -46,29 +70,57 @@ describe( 'codegen', () => {
 	} );
 
 	it( 'allows bypassing escapeHtml() calls for icons', () => {
-		const iconSlot = new EscapedSlotContent(
-			'<cdx-icon :icon="cdxIconArrowNext" />'
-		);
+		// Types are needed because typescript doesn't infer correctly
+		const slotText: SlotConfigWithValue = {
+			name: 'default',
+			type: 'slot',
+			value: ''
+		};
+		const slotIcon: SlotConfigWithValue = {
+			name: 'default-icon',
+			type: 'slot-icon',
+			value: 'cdxIconArrowNext'
+		};
 		expect(
-			generateVueTag( 'cdx-button', {}, { default: iconSlot } )
+			generateVueTag( 'Button', [], [ slotText, slotIcon ] )
 		).toBe(
 			'<cdx-button><cdx-icon :icon="cdxIconArrowNext" /></cdx-button>'
 		);
 	} );
 
-	it( 'allows bypassing escapeHtml() calls for icons with text', () => {
-		const iconSlot = new EscapedSlotContent(
-			'<cdx-icon :icon="cdxIconArrowNext" /> &lt;p&gt;test&lt;/p&gt;'
-		);
+	it( 'uses escapeHtml() for slot text with icon', () => {
+		const slotText: SlotConfigWithValue = {
+			name: 'default',
+			type: 'slot',
+			value: '<p>test</p>'
+		};
+		const slotIcon: SlotConfigWithValue = {
+			name: 'default-icon',
+			type: 'slot-icon',
+			value: 'cdxIconArrowNext'
+		};
 		expect(
-			generateVueTag( 'cdx-button', {}, { default: iconSlot } )
+			generateVueTag( 'Button', [], [ slotText, slotIcon ] )
 		).toBe(
 			'<cdx-button><cdx-icon :icon="cdxIconArrowNext" /> &lt;p&gt;test&lt;/p&gt;</cdx-button>'
 		);
 	} );
 
+	it( 'ignores icons for unknown slots', () => {
+		const slotIcon: SlotConfigWithValue = {
+			name: 'random-icon',
+			type: 'slot-icon',
+			value: 'cdxIconArrowNext'
+		};
+		expect(
+			generateVueTag( 'Button', [], [ slotIcon ] )
+		).toBe(
+			'<cdx-button />'
+		);
+	} );
+
 	it( 'outputs self-closing tag when there are no slots', () => {
 		const expectedString = '<cdx-text-input />';
-		expect( generateVueTag( 'cdx-text-input', {}, {} ) ).toBe( expectedString );
+		expect( generateVueTag( 'TextInput', [], [] ) ).toBe( expectedString );
 	} );
 } );

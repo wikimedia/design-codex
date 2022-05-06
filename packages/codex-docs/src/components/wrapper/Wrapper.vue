@@ -91,20 +91,15 @@ import {
 import {
 	ControlsConfig,
 	ControlConfigWithValue,
-	PropValues,
 	PropValuesWithIcons,
-	SlotValues,
-	BoundProp,
-	EscapedSlotContent
+	SlotValues
 } from '../../types';
 import Prism from 'prismjs';
-import escapeHtml from 'escape-html';
 import { DirectionKey } from '../../constants';
 import CdxDocsControls from '../controls/Controls.vue';
 import CdxDocsCopyTextButton from '../copy-text-button/CopyTextButton.vue';
 import { useRoute } from 'vitepress';
 import { generateVueTag } from '../../utils/codegen';
-import toKebabCase from '../../utils/toKebabCase';
 import { CdxButton, CdxToggleButton } from '@wikimedia/codex';
 import * as allIcons from '@wikimedia/codex-icons';
 import { Icon } from '@wikimedia/codex-icons';
@@ -178,15 +173,12 @@ export default defineComponent( {
 
 		// Determine the component name to use if sample code should be generated
 		const hasGeneratedCode = toRef( props, 'showGeneratedCode' );
-		const autoCodeTag = computed( () => {
+		const autoCodeDemoTitle = computed( () => {
 			if ( !hasGeneratedCode.value ) {
 				return '';
 			}
-			// Should be `cdx-*` kebab case component name. The easiest way
-			// to get the name of the component being shown is from the
-			// title of the current page, from the route.
-			const componentTitle = route.data.title;
-			return 'cdx-' + toKebabCase( componentTitle );
+			// Will be converted to `cdx-*` style name in codegen.ts
+			return route.data.title;
 		} );
 
 		// Set up show code/hide code button.
@@ -319,78 +311,30 @@ export default defineComponent( {
 		};
 
 		/**
-		 * Pull out prop values so we can pass them to the scoped slot, for use in component demos.
-		 * It will be easier to write a demo if the props and slots are separated. Here, the
-		 * icon properties have real Icon objects as their values, rather than the icon name.
+		 * Split up prop and slot values to be passed to the scoped slot with the component
+		 * being demonstrated. It is easier to write the demo if the props and slots are
+		 * separate when used by the demo, but to avoid duplication the primary processing
+		 * is done together. Here, icon properties have real Icon objects (or undefined)
+		 * as their values, but slot icons use icon names, to be handled by cdxDemoSlotIcon.
 		 */
-		const propValues = computed( () => {
-			const constructedPropValues = {} as PropValuesWithIcons;
-			for ( const control of controlsWithValues ) {
-				// Convert icon props from the value being the icon name to the
-				// actual icon object (or undefined if not given)
-				if ( control.type === 'icon' ) {
-					constructedPropValues[ control.name ] = iconsByName[ control.value ];
-				} else if ( control.type !== 'slot' && control.type !== 'slot-icon' ) {
-					constructedPropValues[ control.name ] = control.value;
-				}
-			}
-			return constructedPropValues;
-		} );
-
-		/**
-		 * Pull out slot values for the same reason as props above, using icon names for
-		 * slot icon contents, to be handled by cdxDemoSlotIcon
-		 */
-		const slotValues = computed( () => {
-			const constructedSlotValues = {} as SlotValues;
+		const splitValues = computed( () => {
+			const constructedPropValues: PropValuesWithIcons = {};
+			const constructedSlotValues: SlotValues = {};
 			for ( const control of controlsWithValues ) {
 				if ( control.type === 'slot' || control.type === 'slot-icon' ) {
 					constructedSlotValues[ control.name ] = control.value;
+				} else if ( control.type === 'icon' ) {
+					constructedPropValues[ control.name ] = iconsByName[ control.value ];
+				} else {
+					constructedPropValues[ control.name ] = control.value;
 				}
 			}
-			return constructedSlotValues;
+			return { constructedPropValues, constructedSlotValues };
 		} );
 
-		/**
-		 * Pull out slot values for the same reason as props above, for slots with icons
-		 * escape the text and wrap the overall content in an EscapedSlotContent object
-		 * so that codegen does not escape the brackets for the <cdx-icon> usage, and
-		 * does not double-escape the slot text
-		 */
-		const slotValueStrings = computed( () => {
-			const constructedSlotValues = {} as SlotValues;
-			for ( const control of controlsWithValues ) {
-				if ( control.type === 'slot' ) {
-					constructedSlotValues[ control.name ] = control.value;
-				}
-			}
-			// Add icons afterwords to ensure content does not override them
-			for ( const control of controlsWithValues ) {
-				if ( control.type !== 'slot-icon' || !control.value ) {
-					continue;
-				}
-				// remove the -icon at the end
-				const targetSlotName = control.name.slice(
-					0,
-					control.name.length - 5
-				);
-				if ( constructedSlotValues[ targetSlotName ] === undefined ) {
-					continue;
-				}
-				// If there is already text for the slot, we need to escape it
-				// here, don't add an extra space if there is no text
-				let slotDisplayText = '<cdx-icon :icon="' + control.value + '" />';
-				if ( constructedSlotValues[ targetSlotName ] ) {
-					slotDisplayText += ' ' + escapeHtml(
-						constructedSlotValues[ targetSlotName ] as string
-					);
-				}
-				constructedSlotValues[ targetSlotName ] = new EscapedSlotContent(
-					slotDisplayText
-				);
-			}
-			return constructedSlotValues;
-		} );
+		// Provided separately for passing to the scoped slot
+		const propValues = computed( () => splitValues.value.constructedPropValues );
+		const slotValues = computed( () => splitValues.value.constructedSlotValues );
 
 		// Allow resetting the display, which forces the component to rerender with
 		// its initial state
@@ -431,50 +375,12 @@ export default defineComponent( {
 			} );
 		}
 
-		const nonDefaultPropValues = computed( () => {
-			const valuesByName = {} as PropValues;
-			// Cannot just reuse the propValues filtering of excluding slots, because
-			// that converts icon props to have the actual icon object as the value,
-			// instead of the icon name, but the generated code display should use
-			// the icon name
-			for ( const control of controlsWithValues ) {
-				if ( control.type === 'slot' || control.type === 'slot-icon' ) {
-					continue;
-				}
-				const propName = control.name;
-				const propVal = control.value;
-				const defaultControl = defaultControlValues.find(
-					( c ) => c.name === propName
-				);
-				// Should always exist, but satisfy typescript
-				if ( !(
-					defaultControl &&
-					defaultControl.value !== propVal
-				) ) {
-					continue;
-				}
-				// For icon properties, wrap the value in a BoundProp,
-				// so that the code generation does not try to use it
-				// as a literal string value with v-bind syntax, but only
-				// when the value is set (not null or undefined), otherwise
-				// we want the generateVueTag() to exclude the value
-				if ( defaultControl.type === 'icon' &&
-					typeof propVal === 'string'
-				) {
-					valuesByName[ propName ] = new BoundProp( propVal );
-				} else {
-					valuesByName[ propName ] = propVal;
-				}
-			}
-			return valuesByName;
-		} );
-
 		const generatedCode = computed( () => generateVueTag(
-			autoCodeTag.value, nonDefaultPropValues.value, slotValueStrings.value
+			autoCodeDemoTitle.value, defaultControlValues, controlsWithValues
 		) );
 
-		watch( autoCodeTag, updateHighlight );
-		if ( autoCodeTag.value ) {
+		watch( autoCodeDemoTitle, updateHighlight );
+		if ( autoCodeDemoTitle.value ) {
 			onMounted( updateHighlight );
 		}
 
@@ -526,12 +432,7 @@ export default defineComponent( {
 			// Interactive controls
 			hasControls,
 			controlsWithValues,
-			handleControlChange,
-
-			// exported for testing only, see the "computes demo text for slots"
-			// tests
-			// eslint-disable-next-line vue/no-unused-properties
-			slotValueStrings
+			handleControlChange
 		};
 	}
 } );
