@@ -1,6 +1,6 @@
 <script setup>
 import { cdxIconSearch, cdxIconInfoFilled } from '@wikimedia/codex-icons';
-import TextInputConfigurable from '@/../component-demos/text-input/examples/TextInputConfigurable.vue';
+import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
 import TextInputDemo from '@/../component-demos/text-input/examples/TextInputDemo.vue';
 
 const controlsConfig = [
@@ -38,7 +38,7 @@ element within the component.
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues }">
-<text-input-configurable v-bind="propValues" />
+<cdx-docs-configurable-generic v-bind="propValues" />
 </template>
 </cdx-demo-wrapper>
 

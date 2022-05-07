@@ -1,5 +1,5 @@
 <script setup>
-import ConfigurableButton from '@/../component-demos/toggle-button/examples/ConfigurableButton.vue';
+import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
 import IconButton from '@/../component-demos/toggle-button/examples/IconButton.vue';
 import IconOnlyButton from '@/../component-demos/toggle-button/examples/IconOnlyButton.vue';
 import SingleButton from '@/../component-demos/toggle-button/examples/SingleButton.vue';
@@ -27,9 +27,9 @@ const controlsConfig = [
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues, slotValues }">
-<configurable-button v-bind="propValues">
+<cdx-docs-configurable-generic v-bind="propValues">
 {{ slotValues.default }}
-</configurable-button>
+</cdx-docs-configurable-generic>
 </template>
 </cdx-demo-wrapper>
 

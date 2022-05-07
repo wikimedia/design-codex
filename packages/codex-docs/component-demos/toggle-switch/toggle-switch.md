@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import ConfigurableSwitch from '@/../component-demos/toggle-switch/examples/ConfigurableSwitch.vue';
+import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
 import SingleSwitch from '@/../component-demos/toggle-switch/examples/SingleSwitch.vue';
 import SingleSwitchWithLabel from '@/../component-demos/toggle-switch/examples/SingleSwitchWithLabel.vue';
 
@@ -28,14 +28,9 @@ element within the component.
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues, slotValues }">
-<template v-if="slotValues.default.length > 0">
-<configurable-switch v-bind="propValues">
+<cdx-docs-configurable-generic v-bind="propValues">
 {{ slotValues.default }}
-</configurable-switch>
-</template>
-<template v-else>
-<configurable-switch v-bind="propValues" />
-</template>
+</cdx-docs-configurable-generic>
 </template>
 </cdx-demo-wrapper>
 
