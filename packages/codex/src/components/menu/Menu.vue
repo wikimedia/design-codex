@@ -304,14 +304,11 @@ export default defineComponent( {
 		 */
 		function highlightPrev() {
 			const findPrevEnabled = ( startIndex: number ) : MenuItemDataWithId|undefined => {
-				let found;
 				for ( let index = startIndex - 1; index >= 0; index-- ) {
 					if ( !computedMenuItems.value[ index ].disabled ) {
-						found = computedMenuItems.value[ index ];
-						break;
+						return computedMenuItems.value[ index ];
 					}
 				}
-				return found;
 			};
 
 			// Start at the currently highlighted index if there is one, otherwise, start past the
