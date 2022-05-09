@@ -152,11 +152,11 @@ export default defineComponent( {
 		'update:modelValue'
 	],
 
-	setup( props, context ) {
+	setup( props, { emit, attrs, slots } ) {
 		const input = ref<InstanceType<typeof CdxTextInput>>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
 		const menuId = useGeneratedId( 'combobox' );
-		const modelWrapper = useModelWrapper( toRef( props, 'modelValue' ), context.emit );
+		const modelWrapper = useModelWrapper( toRef( props, 'modelValue' ), emit );
 		const expanded = ref( false );
 		const expanderClicked = ref( false );
 
@@ -173,7 +173,7 @@ export default defineComponent( {
 			rootClasses,
 			rootStyle,
 			otherAttrs
-		} = useSplitAttributes( context.attrs, internalClasses );
+		} = useSplitAttributes( attrs, internalClasses );
 
 		/**
 		 * When the input gains focus, update the state of the menu.
@@ -184,7 +184,7 @@ export default defineComponent( {
 		function onInputFocus(): void {
 			if ( expanderClicked.value && expanded.value ) {
 				expanded.value = false;
-			} else if ( props.menuItems.length > 0 || context.slots[ 'no-results' ] ) {
+			} else if ( props.menuItems.length > 0 || slots[ 'no-results' ] ) {
 				expanded.value = true;
 			}
 		}
