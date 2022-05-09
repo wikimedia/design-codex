@@ -185,6 +185,7 @@ export default defineComponent( {
 			} else if ( selectedMenuItem.value && selectedMenuItem.value.icon ) {
 				return selectedMenuItem.value.icon;
 			}
+			// Explicit return is needed to satisfy vue/return-in-computed-property
 			return undefined;
 		} );
 
