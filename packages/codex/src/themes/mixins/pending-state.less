@@ -11,7 +11,7 @@
 	background-size: @size-icon-inner @size-icon-inner;
 	animation: cdx-pending-stripes 650ms linear infinite;
 
-	.cdx-pending-stripes-frames() {
+	@keyframes cdx-pending-stripes {
 		0% {
 			background-position: -@size-icon-inner 0;
 		}
@@ -19,9 +19,5 @@
 		100% {
 			background-position: 0 0;
 		}
-	}
-
-	@keyframes cdx-pending-stripes {
-		.cdx-pending-stripes-frames;
 	}
 }
