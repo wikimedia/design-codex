@@ -404,6 +404,8 @@ export default defineComponent( {
 @background-color-tabs-framed-tab--active: rgba( 255, 255, 255, 0.8 );
 @box-shadow-tab--focus: inset 0 0 0 2px @border-color-progressive;
 @box-shadow-tabs-frameless-tab--selected: inset 0 -2px 0  0 @border-color-progressive;
+@box-shadow-tabs-frameless-tab--hover: inset 0 -2px 0 0 @border-color-progressive--hover;
+@box-shadow-tabs-frameless-tab--active: inset 0 -2px 0 0 @border-color-progressive--active;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 @text-decoration-none: none;
 
@@ -596,22 +598,19 @@ export default defineComponent( {
 			}
 
 			&--enabled {
-				&,
-				&.cdx-tabs__list__item--selected {
-					// Single Frameless Tab.
-					/* stylelint-disable max-nesting-depth */
-					[ role='tab' ] {
-						color: @color-base;
+				// Single Frameless Tab.
+				[ role='tab' ] {
+					color: @color-base;
 
-						&:hover {
-							color: @color-progressive--hover;
-						}
-
-						&:active {
-							color: @color-progressive--active;
-						}
+					&:hover {
+						color: @color-progressive--hover;
+						box-shadow: @box-shadow-tabs-frameless-tab--hover;
 					}
-					/* stylelint-enable max-nesting-depth */
+
+					&:active {
+						color: @color-progressive--active;
+						box-shadow: @box-shadow-tabs-frameless-tab--active;
+					}
 				}
 
 				&.cdx-tabs__list__item--selected {
