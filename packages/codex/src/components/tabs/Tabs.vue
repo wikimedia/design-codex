@@ -248,7 +248,10 @@ export default defineComponent( {
 		}
 
 		const rootClasses = computed( () => {
-			return { 'cdx-tabs--framed': props.framed };
+			return {
+				'cdx-tabs--framed': props.framed,
+				'cdx-tabs--frameless': !props.framed
+			};
 		} );
 
 		const observerAvailable = computed( () => {
@@ -427,17 +430,6 @@ export default defineComponent( {
 		// is focused, the header's *own* focus style must be suppressed.
 		&:focus {
 			outline: @outline-base--focus;
-
-			// Keyboard nav indicator on Tabs header focus for framed and frameless.
-			.cdx-tabs__list__item--enabled.cdx-tabs__list__item--selected [ role='tab' ] {
-				// Use shared rule for focus on both variants. As the framed and
-				// negation pseudo class selectors further below are of higher
-				// specificity apply `!important`.
-				/* stylelint-disable-next-line declaration-no-important */
-				box-shadow: @box-shadow-tab--focus !important;
-				// Clip link background color to border radius (framed).
-				overflow: hidden;
-			}
 		}
 
 		&--has-start-gradient,
@@ -463,6 +455,13 @@ export default defineComponent( {
 		&--has-end-gradient::after {
 			right: 0;
 		}
+	}
+
+	// Keyboard nav indicator on Tabs header focus for framed and frameless.
+	& > &__header:focus .cdx-tabs__list__item--enabled.cdx-tabs__list__item--selected [ role='tab' ] {
+		box-shadow: @box-shadow-tab--focus;
+		// Clip link background color to border radius (framed).
+		overflow: hidden;
 	}
 
 	// Tabs list common styles.
@@ -570,8 +569,7 @@ export default defineComponent( {
 	}
 
 	// Frameless Tabs
-	/* stylelint-disable-next-line selector-not-notation */
-	&:not( &--framed ) > &__header {
+	&--frameless > &__header {
 		background-color: @background-color-base;
 		margin: @margin-tabs-frameless-tab;
 		// The border separating frameless Tabs header from Tab content.
@@ -599,6 +597,7 @@ export default defineComponent( {
 
 			&--enabled {
 				// Single Frameless Tab.
+				/* stylelint-disable max-nesting-depth */
 				[ role='tab' ] {
 					color: @color-base;
 
@@ -612,22 +611,25 @@ export default defineComponent( {
 						box-shadow: @box-shadow-tabs-frameless-tab--active;
 					}
 				}
+				/* stylelint-enable max-nesting-depth */
 
+				/* stylelint-disable max-nesting-depth */
 				&.cdx-tabs__list__item--selected {
-					/* stylelint-disable max-nesting-depth */
 					[ role='tab' ] {
 						color: @color-progressive;
 						box-shadow: @box-shadow-tabs-frameless-tab--selected;
 					}
-					/* stylelint-enable max-nesting-depth */
 				}
+				/* stylelint-enable max-nesting-depth */
 			}
 
 			&--disabled {
+				/* stylelint-disable max-nesting-depth */
 				[ role='tab' ] {
 					color: @color-base--disabled;
 					cursor: @cursor-base--disabled;
 				}
+				/* stylelint-enable max-nesting-depth */
 			}
 		}
 	}
