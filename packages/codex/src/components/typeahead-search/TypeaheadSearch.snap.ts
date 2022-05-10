@@ -438,7 +438,6 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
               <span
                 class="cdx-typeahead-search__search-footer__text"
               >
-                <!-- eslint-disable max-len -->
                 <!--
 									@slot A slot for passing in translated search footer text.
 									@binding {string} searchQuery Input text entered by the user
@@ -450,7 +449,6 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
                   Co
                 </strong>
                 
-                <!-- eslint-enable max-len -->
               </span>
             </a>
             
@@ -709,7 +707,6 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               <span
                 class="cdx-typeahead-search__search-footer__text"
               >
-                <!-- eslint-disable max-len -->
                 <!--
 									@slot A slot for passing in translated search footer text.
 									@binding {string} searchQuery Input text entered by the user
@@ -721,7 +718,6 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                   Co
                 </strong>
                 
-                <!-- eslint-enable max-len -->
               </span>
             </a>
             

@@ -83,7 +83,6 @@
 								:icon="articleIcon"
 							/>
 							<span class="cdx-typeahead-search__search-footer__text">
-								<!-- eslint-disable max-len -->
 								<!--
 									@slot A slot for passing in translated search footer text.
 									@binding {string} searchQuery Input text entered by the user
@@ -93,7 +92,6 @@
 										{{ searchQuery }}
 									</strong>
 								</slot>
-								<!-- eslint-enable max-len -->
 							</span>
 						</a>
 					</template>
