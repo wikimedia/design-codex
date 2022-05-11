@@ -250,7 +250,7 @@ export default defineComponent( {
 		const rootClasses = computed( () => {
 			return {
 				'cdx-tabs--framed': props.framed,
-				'cdx-tabs--frameless': !props.framed
+				'cdx-tabs--quiet': !props.framed
 			};
 		} );
 
@@ -400,15 +400,15 @@ export default defineComponent( {
 @max-width-tab: 16em;
 @width-tabs-header-gradient: 24px;
 @margin-tab: 4px;
-@margin-tabs-frameless-tab: 0 @margin-tab;
 @margin-tabs-framed-tab: ( @margin-tab * 2 ) @margin-tab 0 ( @margin-tab * 2 );
+@margin-tabs-quiet-tab: 0 @margin-tab;
 @padding-tab: @padding-vertical-base @padding-horizontal-base;
 @background-color-tabs-framed-tab--hover: rgba( 255, 255, 255, 0.3 );
 @background-color-tabs-framed-tab--active: rgba( 255, 255, 255, 0.8 );
 @box-shadow-tab--focus: inset 0 0 0 2px @border-color-progressive;
-@box-shadow-tabs-frameless-tab--selected: inset 0 -2px 0  0 @border-color-progressive;
-@box-shadow-tabs-frameless-tab--hover: inset 0 -2px 0 0 @border-color-progressive--hover;
-@box-shadow-tabs-frameless-tab--active: inset 0 -2px 0 0 @border-color-progressive--active;
+@box-shadow-tabs-quiet-tab--selected: inset 0 -2px 0  0 @border-color-progressive;
+@box-shadow-tabs-quiet-tab--hover: inset 0 -2px 0 0 @border-color-progressive--hover;
+@box-shadow-tabs-quiet-tab--active: inset 0 -2px 0 0 @border-color-progressive--active;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 @text-decoration-none: none;
 
@@ -457,7 +457,7 @@ export default defineComponent( {
 		}
 	}
 
-	// Keyboard nav indicator on Tabs header focus for framed and frameless.
+	// Keyboard nav indicator on Tabs header focus for framed and quiet.
 	& > &__header:focus .cdx-tabs__list__item--enabled.cdx-tabs__list__item--selected [ role='tab' ] {
 		box-shadow: @box-shadow-tab--focus;
 		// Clip link background color to border radius (framed).
@@ -568,11 +568,11 @@ export default defineComponent( {
 		}
 	}
 
-	// Frameless Tabs
-	&--frameless > &__header {
+	// Quiet Tabs.
+	&--quiet > &__header {
 		background-color: @background-color-base;
-		margin: @margin-tabs-frameless-tab;
-		// The border separating frameless Tabs header from Tab content.
+		margin: @margin-tabs-quiet-tab;
+		// The border separating quiet Tabs header from Tab content.
 		border-bottom: @border-base;
 
 		&--has-start-gradient::before {
@@ -583,9 +583,9 @@ export default defineComponent( {
 			background-image: linear-gradient( to left, @background-color-base 0, @background-color-base--transparent 100% );
 		}
 
-		// Frameless Tabs List item.
+		// Quiet Tabs List item.
 		.cdx-tabs__list__item {
-			margin: @margin-tabs-frameless-tab;
+			margin: @margin-tabs-quiet-tab;
 
 			&:first-child {
 				margin-left: 0;
@@ -596,19 +596,19 @@ export default defineComponent( {
 			}
 
 			&--enabled {
-				// Single Frameless Tab.
+				// Single Quiet Tab.
 				/* stylelint-disable max-nesting-depth */
 				[ role='tab' ] {
 					color: @color-base;
 
 					&:hover {
 						color: @color-progressive--hover;
-						box-shadow: @box-shadow-tabs-frameless-tab--hover;
+						box-shadow: @box-shadow-tabs-quiet-tab--hover;
 					}
 
 					&:active {
 						color: @color-progressive--active;
-						box-shadow: @box-shadow-tabs-frameless-tab--active;
+						box-shadow: @box-shadow-tabs-quiet-tab--active;
 					}
 				}
 				/* stylelint-enable max-nesting-depth */
@@ -617,7 +617,7 @@ export default defineComponent( {
 				&.cdx-tabs__list__item--selected {
 					[ role='tab' ] {
 						color: @color-progressive;
-						box-shadow: @box-shadow-tabs-frameless-tab--selected;
+						box-shadow: @box-shadow-tabs-quiet-tab--selected;
 					}
 				}
 				/* stylelint-enable max-nesting-depth */

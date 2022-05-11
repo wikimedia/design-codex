@@ -2,7 +2,7 @@
 
 exports[`When used along with a child Tabs component matches the snapshot 1`] = `
 <div
-  class="cdx-tabs cdx-tabs--frameless"
+  class="cdx-tabs cdx-tabs--quiet"
 >
   <div
     class="cdx-tabs__header"

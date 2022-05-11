@@ -13,7 +13,7 @@ const controlsConfig = [
 ## Demos
 ### Basic Example
 
-Two styles are available, framed and frameless.
+Two stylistic variants are available, framed and quiet.
 
 <cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues }">
