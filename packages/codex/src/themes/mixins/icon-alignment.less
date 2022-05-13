@@ -1,7 +1,7 @@
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.padding-size( @external-padding ) {
-	@result: ( @padding-horizontal-input-text + @external-padding + @size-icon );
+.padding-size( @external-padding, @size ) {
+	@result: ( @padding-horizontal-input-text + @external-padding + @size );
 };
 // Style an icon suitable for display inside TextInput or a component that contains a Menu.
 // This mixin requires three elements to work:
@@ -48,15 +48,15 @@
 // @param {(start|end)} align - Determine on which side of the element to apply the padding. This must be
 // the same value as the "align" property of the icon.
 // @param {px} external-padding - The external horizontal padding expected on the parent element of the icon.
-.cdx-mixin-icon-padding( @align, @external-padding: @padding-horizontal-base ) {
+.cdx-mixin-icon-padding( @align, @external-padding: @padding-horizontal-base, @size: @size-icon ) {
 	& when ( @align = start ) {
-		padding-left: .padding-size( @external-padding ) [@result];
+		padding-left: .padding-size( @external-padding, @size ) [@result];
 	}
 
 	& when ( @align = end ) {
 		// For some reason stylelint is failing asking to remove the semicolons,
 		// but it also fails if you remove it
 		/* stylelint-disable-next-line no-extra-semicolons */
-		padding-right: .padding-size( @external-padding ) [@result];
+		padding-right: .padding-size( @external-padding, @size ) [@result];
 	}
 };

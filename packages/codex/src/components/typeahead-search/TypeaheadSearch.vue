@@ -657,19 +657,15 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import '../../themes/mixins/common.less';
+@import '../../themes/mixins/icon-alignment.less';
 
 // TODO: Tokenize.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @font-size-search-result-title: unit( ( 16 / @font-size-browser / @font-size-base ), em );
 
-// TODO (T307071): @size-input-icon-container is duplicated in:
-// TextInput.vue, select.vue and needs to be centralized.
-@size-input-icon-container: unit(
-	( ( @padding-horizontal-input-text * 2 + @size-icon ) / @font-size-browser / @font-size-base ),
-	em
-);
-@size-search-figure: @size-input-icon-container;
+// This is the value of thumbnail as declared within the MenuItem component.
+@size-search-figure: 40px;
 
 @padding-vertical-menu-item: 8px;
 @margin-end-menu-item-thumbnail: @padding-vertical-menu-item;
@@ -695,6 +691,10 @@ export default defineComponent( {
 // smoothest transition.
 @size-typeahead-search-focus-addition: @spacing-start-typeahead-search-figure +
 	@spacing-end-typeahead-search-figure;
+// The padding required for the icon to certer align with the menu item thumbnail.
+// We calculate the differenc in size and add it to the expected spacing
+@spacing-start-typeahead-icon: unit( @spacing-start-typeahead-search-figure +
+( ( @size-search-figure - @size-icon ) / 2 ), px );
 
 .cdx-typeahead-search {
 	.cdx-search-input__end-button {
@@ -797,21 +797,12 @@ export default defineComponent( {
 
 			.cdx-text-input__input {
 				position: relative;
-
-				// Keep the cursor in the same place on the screen.
-				/* stylelint-disable function-parentheses-newline-inside */
-				padding-left: calc( @spacing-start-typeahead-search-figure +
-				@size-search-figure +
-				@spacing-end-typeahead-search-figure );
-				/* stylelint-enable function-parentheses-newline-inside */
+				.cdx-mixin-icon-padding( start, @spacing-start-typeahead-search-figure,
+				@size-search-figure );
 			}
 
 			.cdx-text-input__start-icon {
-				// We use @border-width-base here since the input's start icon position
-				// is relative to the input's container (which is outside the input's
-				// border) when the input has focus.
-				left: @spacing-start-typeahead-search-figure + @border-width-base;
-				width: @size-search-figure;
+				.cdx-mixin-icon( start, @size-icon, @spacing-start-typeahead-icon );
 			}
 		}
 

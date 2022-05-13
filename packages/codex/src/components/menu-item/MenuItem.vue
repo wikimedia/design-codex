@@ -350,7 +350,7 @@ export default defineComponent( {
 // The size of the input icon and footer icon containers in the TypeaheadSearch component, and the
 // thumbnail in this component. We want these to be the same size so that these figures vertically
 // line up nicely when they are used together in the TypeaheadSearch component.
-@size-search-figure: unit( ( 36 / @font-size-browser / @font-size-base ), em );
+@size-search-figure: 40px;
 
 @margin-end-menu-item-thumbnail: @padding-vertical-menu-item;
 @border-color-menu-item-thumbnail: @color-base80;
