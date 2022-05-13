@@ -17,7 +17,8 @@
 		"lint": "npm run lint:ts",
 		"lint:ts": "vue-tsc --noEmit",
 		"test": "npm run lint && npm run build && npm -s run test:unit",
-		"test:unit": "jest -c .jest/jest.config.json"
+		"test:unit": "jest -c .jest/jest.config.json",
+		"update-snapshots": "npm run test:unit -- -u"
 	},
 	"dependencies": {
 		"vue": "^3.2.27",

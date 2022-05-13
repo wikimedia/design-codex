@@ -29,7 +29,8 @@
 		"lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint --workspaces --if-present",
 		"lint:eslint": "npm run build-all-if-missing && eslint --max-warnings 0 .",
 		"lint:stylelint": "stylelint --max-warnings 0 . packages/codex-docs/docs/.vitepress",
-		"test": "npm run lint && npm run test --workspaces --if-present"
+		"test": "npm run lint && npm run test --workspaces --if-present",
+		"build-and-update-snapshots": "npm run build-all && npm run update-snapshots --workspaces --if-present"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^5.18.0",

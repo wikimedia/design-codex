@@ -39,7 +39,8 @@
 		"test": "npm run lint && npm -s run build && npm -s run test:unit",
 		"test:unit": "jest -c .jest/jest.config.json",
 		"lint": "npm run lint:ts",
-		"lint:ts": "vue-tsc --noEmit"
+		"lint:ts": "vue-tsc --noEmit",
+		"update-snapshots": "npm run test:unit -- -u"
 	},
 	"devDependencies": {
 		"@types/jest": "^27.0.2",

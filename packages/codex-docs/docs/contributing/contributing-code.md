@@ -415,7 +415,8 @@ export default defineComponent( {
 - Every component needs [Jest unit tests](#test-cases-pattern) and [snapshots](#snapshot-tests)
 - Unit tests can utilize the [Vue test utils](#vue-test-utils) library
 - To run unit tests: `npm run -w @wikimedia/codex test:unit`
-- To update snapshots: `npm run -w @wikimedia/codex test:unit -- -u`
+- To update all snapshots: `npm run build-and-update-snapshots`
+- To update a workspace specific snapshots: `npm run -w [workspace-name] update-snapshots` (For some packages a build may be required for the snapshots to be updated correctly)
 :::
 
 Every component should have Jest unit tests. For a component named `FooBar`, the tests should be
@@ -505,7 +506,7 @@ as expected, then commit the file to the repository.
 
 When the tests are run again later, Jest will check that the test cases still produce the same HTML,
 and the tests will fail if they don't. If you made a change to the component that results in a
-legitimate change in the snapshot output, run `npm run -w @wikimedia/codex test:unit -- -u` to update
+legitimate change in the snapshot output, run `npm run build-and-update-snapshots` to update
 the snapshot file. Both the author and the code reviewers should review the changes to the snapshot
 file to verify that they are as expected.
 
