@@ -1,7 +1,7 @@
 #! /bin/bash
 set -e
 
-PUBLISH_WORKSPACES="@wikimedia/codex-design-tokens @wikimedia/codex-icons @wikimedia/codex"
+PUBLISH_WORKSPACES="@wikimedia/codex-design-tokens @wikimedia/codex-icons @wikimedia/codex @wikimedia/codex-search"
 
 if [ -z "$1" ]
 then
