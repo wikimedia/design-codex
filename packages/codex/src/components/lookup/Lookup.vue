@@ -258,6 +258,9 @@ export default defineComponent( {
 				inputValue.value = selectedMenuItem.value ?
 					( selectedMenuItem.value.label || selectedMenuItem.value.value ) :
 					'';
+
+				// We emit the new value to make sure that the menu is filtered correctly
+				emit( 'new-input', inputValue.value );
 			}
 		} );
 

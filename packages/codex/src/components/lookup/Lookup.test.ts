@@ -265,6 +265,22 @@ describe( 'Lookup', () => {
 		expect( wrapper.emitted( 'new-input' )?.[ 0 ] ).toEqual( [ '' ] );
 	} );
 
+	it( 'Emits new-input event with the label of the newly selected item, if it exists', async () => {
+		const wrapper = mount( CdxLookup, {
+			props: { modelValue: '', menuItems: data }
+		} );
+		await wrapper.setProps( { modelValue: 'a' } );
+		expect( wrapper.emitted( 'new-input' )?.[ 0 ] ).toEqual( [ 'Option A' ] );
+	} );
+
+	it( 'Emits new-input event with the value of the newly selected item with no label', async () => {
+		const wrapper = mount( CdxLookup, {
+			props: { modelValue: '', menuItems: data }
+		} );
+		await wrapper.setProps( { modelValue: 'c' } );
+		expect( wrapper.emitted( 'new-input' )?.[ 0 ] ).toEqual( [ 'c' ] );
+	} );
+
 	it( 'Clears the selection if input value changes from selection label', async () => {
 		const wrapper = mount( CdxLookup, {
 			props: { modelValue: 'a', menuItems: data, initialInputValue: 'Option A' }
