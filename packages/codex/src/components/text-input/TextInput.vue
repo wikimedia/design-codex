@@ -258,7 +258,7 @@ export default defineComponent( {
 @font-size-base: 14 / @font-size-browser;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 // TODO: Revisit with decision about Design System's take on end icon sizes, see T306135.
-@size-input-end-icon: @size-absolute-100;
+@size-input-end-icon: @size-100;
 // When there are two end icons, (i.e. a clear icon and an end icon), we need to double the
 // horizontal padding and account for the size of the extra icon.
 // This token can be used to calculate the horizontal position of the clear icon and the

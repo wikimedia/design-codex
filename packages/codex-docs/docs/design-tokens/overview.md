@@ -54,15 +54,15 @@ To create an extensible structure that is easily understood by humans, we follow
 naming tokens:
 
 - The JSON keys follow CSS property names for the sake of familiarity and readability. They follow
-by and large [variable naming patterns established for MediaWiki](https://www.mediawiki.org/wiki/Manual:Coding_conventions/CSS#Variable_naming). For example, we use `{ font-weight.100.value }`
-instead of `{ font.weight.100.value }`. There are a few category naming exceptions like `size` and
+by and large [variable naming patterns established for MediaWiki](https://www.mediawiki.org/wiki/Manual:Coding_conventions/CSS#Variable_naming). For example, we use `{ font-weight.100 }`
+instead of `{ font.weight.100 }`. There are a few category naming exceptions like `size` and
 `spacing` tokens, in order to reuse them in different property contexts – as values in `width`,
 `height`, `padding` and so on.
   - The name describing the CSS property or category value always comes first, which makes it obvious
 when a token is improperly applied to a different property, e.g. ~~`color: @background-color-base`~~.
 - Tokens with numerical values are centered around a default key of `100`. This is critical to
 creating a structure that is flexible and theme-agnostic. For example, base size is defined by
-`{ size.relative.em.100.value }`, which could be used to define a default theme base font size of
+`{ dimension.100 }`, which could be used to define a default theme base font size of
 `16px`, or a theme-specific base font size of `14px`, depending on what theme the size token is set
 to. Because the names of the design tokens do not refer to a specific value, they can be reused by
 both the default and other themes.

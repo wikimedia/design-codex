@@ -17,7 +17,7 @@ export default defineComponent( {
 	props: {
 		/**
 		 * The value of the token we're demoing, which should be a spacing value
-		 * (in px, em, or another absolute unit)
+		 * (in px).
 		 */
 		tokenValue: {
 			type: String,

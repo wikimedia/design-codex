@@ -71,11 +71,11 @@ export default defineComponent( {
 
 .cdx-docs-size-demo {
 	position: relative;
-	width: 100px;
 	height: 50px;
+	max-width: 100px;
 
 	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-		width: 300px;
+		max-width: 100%;
 	}
 
 	&__inner {
@@ -86,8 +86,15 @@ export default defineComponent( {
 		border: @border-width-base @border-style-base @border-color-base;
 	}
 
-	&--too-big {
+	&.cdx-docs-tokens-demo__token--size-double {
+		overflow: scroll hidden;
+	}
+
+	&--too-big,
+	&.cdx-docs-tokens-demo__token--size-viewport-width-full,
+	&.cdx-docs-tokens-demo__token--size-viewport-height-full {
 		display: none;
 	}
 }
+
 </style>

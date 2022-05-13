@@ -136,7 +136,6 @@ export default defineConfig( {
 						{ text: 'Font', link: '/design-tokens/font' },
 						{ text: 'Opacity', link: '/design-tokens/opacity' },
 						{ text: 'Outline', link: '/design-tokens/outline' },
-						{ text: 'Padding', link: '/design-tokens/padding' },
 						{ text: 'Position', link: '/design-tokens/position' },
 						{ text: 'Size', link: '/design-tokens/size' },
 						{ text: 'Spacing', link: '/design-tokens/spacing' },

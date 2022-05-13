@@ -7,6 +7,9 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 ## Size
 
+The size tokens are used to define the size of elements, applied for example on the `width` and
+`height` properties.
+
 <cdx-docs-tokens-table
 	:tokens="tokens.size"
 	token-demo="CdxDocsSizeDemo"
@@ -19,36 +22,10 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 	token-demo="CdxDocsSizeDemo"
 />
 
-## Width
-
-<cdx-docs-tokens-table
-	:tokens="tokens.width"
-	exclude-tokens="breakpoint"
-	token-demo="CdxDocsSizeDemo"
-	css-property="width"
-/>
-
 ## Max-width
 
 <cdx-docs-tokens-table
 	:tokens="tokens['max-width']"
-	exclude-tokens="breakpoint"
-	token-demo="CdxDocsSizeDemo"
-	css-property="width"
-/>
-
-## Min-height
-
-<cdx-docs-tokens-table
-	:tokens="tokens['min-height']"
-	token-demo="CdxDocsSizeDemo"
-	css-property="height"
-/>
-
-## Min-width
-
-<cdx-docs-tokens-table
-	:tokens="tokens['min-width']"
 	exclude-tokens="breakpoint"
 	token-demo="CdxDocsSizeDemo"
 	css-property="width"

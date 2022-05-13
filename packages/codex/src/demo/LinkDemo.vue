@@ -48,7 +48,7 @@ a.my-custom-link-class {
 
 	.cdx-icon {
 		color: inherit;
-		margin-right: @spacing-x-small;
+		margin-right: @spacing-25;
 	}
 }
 

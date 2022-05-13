@@ -265,16 +265,99 @@
 	"min-size": {
 		"base": {
 			"comment": "TODO: Deprecate key and change to `min-size-component`?",
-			"value": "{ size.absolute.200 }"
+			"value": "{ dimension.200 }{ unit.system }"
 		}
 	},
 	"size": {
-		"base": {
-			"comment": "TODO: Should be a relative size. Deprecate key and change to `size-component`?",
-			"value": "{ size.absolute.200 }"
+		"0": {
+			"value": "{ dimension.0 }"
+		},
+		"6": {
+			"value": "{ dimension.6 }{ unit.system }"
+		},
+		"12": {
+			"value": "{ dimension.12 }{ unit.system }"
+		},
+		"25": {
+			"value": "{ dimension.25 }{ unit.system }"
+		},
+		"50": {
+			"value": "{ dimension.50 }{ unit.system }"
+		},
+		"75": {
+			"value": "{ dimension.75 }{ unit.system }"
+		},
+		"100": {
+			"value": "{ dimension.100 }{ unit.system }"
+		},
+		"125": {
+			"value": "{ dimension.125 }{ unit.system }"
+		},
+		"150": {
+			"value": "{ dimension.150 }{ unit.system }"
+		},
+		"200": {
+			"value": "{ dimension.200 }{ unit.system }"
+		},
+		"250": {
+			"value": "{ dimension.250 }{ unit.system }"
+		},
+		"275": {
+			"value": "{ dimension.275 }{ unit.system }"
+		},
+		"300": {
+			"value": "{ dimension.300 }{ unit.system }"
+		},
+		"400": {
+			"value": "{ dimension.400 }{ unit.system }"
+		},
+		"800": {
+			"value": "{ dimension.800 }{ unit.system }"
+		},
+		"1600": {
+			"value": "{ dimension.1600 }{ unit.system }"
+		},
+		"2400": {
+			"value": "{ dimension.2400 }{ unit.system }"
+		},
+		"2800": {
+			"value": "{ dimension.2800 }{ unit.system }"
+		},
+		"3200": {
+			"value": "{ dimension.3200 }{ unit.system }"
+		},
+		"5600": {
+			"value": "{ dimension.5600 }{ unit.system }"
+		},
+		"absolute-1": {
+			"value": "{ dimension.absolute-1 }"
+		},
+		"absolute-9999": {
+			"value": "{ dimension.absolute-9999 }"
+		},
+		"third": {
+			"value": "{ dimension.third }"
+		},
+		"half": {
+			"value": "{ dimension.half }"
 		},
 		"full": {
-			"value": "{ size.relative.percentage.100 }"
+			"value": "{ dimension.full }"
+		},
+		"double": {
+			"value": "{ dimension.double }"
+		},
+		"viewport": {
+			"width-full": {
+				"value": "{ dimension.viewport.width-full }"
+			},
+			"height-full": {
+				"value": "{ dimension.viewport.height-full }"
+			}
+		},
+		"base": {
+			"deprecated": "Legacy size for use in non-Codex products. Only used in relative size in new Codex design token application.",
+			"value": "{ dimension.200 }{ unit.system }"
 		}
 	},
 	"min-width": {
@@ -306,37 +389,19 @@
 			"comment": "Breakpoints. Maximum available screen width to be considered a certain device type.",
 			"mobile": {
 				"comment": "A mobile device's maximum available screen width. Many older feature phones have screens smaller than this value.",
-				"value": "calc( { size.viewport.64 } - { size.absolute.1px } )"
+				"value": "calc( { size.viewport.64 } - { size.6 } )"
 			},
 			"tablet": {
 				"comment": "A tablet device's maximum available screen width. Note, the size chosen is eager to be re-evaluated with Web team and Product Analytics.",
-				"value": "calc( { size.viewport.112 } - { size.absolute.1px } )"
+				"value": "calc( { size.viewport.112 } - { size.6 } )"
 			},
 			"desktop": {
 				"comment": "A desktop device's maximum available screen width.",
-				"value": "calc( { size.viewport.168 } - { size.absolute.1px } )"
+				"value": "calc( { size.viewport.168 } - { size.6 } )"
 			}
 		}
 	},
 	"width": {
-		"x-small": {
-			"value": "{ size.absolute.150 }"
-		},
-		"small": {
-			"value": "{ size.absolute.800 }"
-		},
-		"medium": {
-			"value": "{ size.absolute.1600 }"
-		},
-		"large": {
-			"value": "{ size.absolute.2400 }"
-		},
-		"x-large": {
-			"value": "{ size.absolute.3200 }"
-		},
-		"full": {
-			"value": "{ size.relative.percentage.100 }"
-		},
 		"breakpoint": {
 			"comment": "Legacy Breakpoints. Width for use as minimum available screen width (`min-width`) to be considered a certain device type.",
 			"mobile": {
@@ -361,52 +426,54 @@
 			}
 		}
 	},
-	"min-height": {
-		"x-small": {
-			"value": "{ size.absolute.125 }"
-		},
-		"small": {
-			"value": "{ size.absolute.150 }"
-		},
-		"medium": {
-			"value": "{ size.absolute.200 }"
-		},
-		"large": {
-			"value": "{ size.absolute.250 }"
-		},
-		"x-large": {
-			"value": "{ size.absolute.300 }"
-		}
-	},
-	"spacing": {
-		"xx-small": {
-			"value": "{ size.relative.em.12 }"
-		},
-		"x-small": {
-			"value": "{ size.relative.em.25 }"
-		},
-		"small": {
-			"value": "{ size.relative.em.50 }"
-		},
-		"medium": {
-			"value": "{ size.relative.em.75 }"
-		},
-		"large": {
-			"value": "{ size.relative.em.100 }"
-		},
-		"x-large": {
-			"value": "{ size.relative.em.150 }"
-		},
-		"xx-large": {
-			"value": "{ size.relative.em.200 }"
-		}
-	},
 	"position": {
 		"offset": {
 			"comment": "position.offset is a Codex token shorthand to use in `top`, `left`, `bottom`, `right`, and `margin` properties for elements that expand over default boundary box.",
 			"border-width-base": {
 				"value": "-{ border-width.base }"
 			}
+		}
+	},
+	"spacing": {
+		"0": {
+			"value": "{ dimension.0 }"
+		},
+		"12": {
+			"value": "{ dimension.12 }{ unit.system }"
+		},
+		"25": {
+			"value": "{ dimension.25 }{ unit.system }"
+		},
+		"50": {
+			"value": "{ dimension.50 }{ unit.system }"
+		},
+		"75": {
+			"value": "{ dimension.75 }{ unit.system }"
+		},
+		"100": {
+			"value": "{ dimension.100 }{ unit.system }"
+		},
+		"125": {
+			"value": "{ dimension.125 }{ unit.system }"
+		},
+		"150": {
+			"value": "{ dimension.150 }{ unit.system }"
+		},
+		"200": {
+			"value": "{ dimension.200 }{ unit.system }"
+		},
+		"250": {
+			"value": "{ dimension.250 }{ unit.system }"
+		},
+		"300": {
+			"value": "{ dimension.300 }{ unit.system }"
+		},
+		"half": {
+			"comment": "From here on, spacing tokens which are used for positioning values.",
+			"value": "{ dimension.half }"
+		},
+		"full": {
+			"value": "{ dimension.full }"
 		}
 	},
 	"border": {
@@ -434,10 +501,10 @@
 	},
 	"border-width": {
 		"base": {
-			"value": "{ size.absolute.6 }"
+			"value": "{ dimension.6 }{ unit.system }"
 		},
 		"thick": {
-			"value": "{ size.absolute.12 }"
+			"value": "{ dimension.12 }{ unit.system }"
 		}
 	},
 	"border-style": {
@@ -546,16 +613,16 @@
 	},
 	"border-radius": {
 		"base": {
-			"value": "{ size.absolute.12 }"
+			"value": "{ dimension.12 }{ unit.system }"
 		},
 		"sharp": {
-			"value": "{ size.0 }"
+			"value": "{ dimension.0 }"
 		},
 		"pill": {
-			"value": "{ size.absolute.9999px }"
+			"value": "{ dimension.absolute-9999 }"
 		},
 		"circle": {
-			"value": "{ size.relative.percentage.100 }"
+			"value": "{ dimension.full }"
 		}
 	},
 	"padding": {
@@ -564,13 +631,13 @@
 		},
 		"horizontal": {
 			"base": {
-				"value": "{ size.absolute.75 }"
+				"value": "{ dimension.75 }{ unit.system }"
 			}
 		},
 		"vertical": {
 			"base": {
 				"comment": "Note, this is changing from `5px` to `4px` and will go in sync with line-height change.",
-				"value": "{ size.absolute.25 }"
+				"value": "{ dimension.25 }{ unit.system }"
 			}
 		}
 	},
@@ -684,7 +751,7 @@
 		"comment": "Outlines",
 		"base--focus": {
 			"comment": "Enable Windows high contrast mode on certain widgets, that have default outlines overridden.",
-			"value": "{ size.absolute.6 } { border-style.100 } { color.transparent }"
+			"value": "{ dimension.6 }{ unit.system } { border-style.100 } { color.transparent }"
 		}
 	},
 	"font-family": {
@@ -830,6 +897,14 @@
 		},
 		"zoom-out": {
 			"value": "{ cursor.zoom-less }"
+		}
+	},
+	"unit": {
+		"absolute": {
+			"value": "{ unit.system }"
+		},
+		"relative": {
+			"value": "{ unit.user }"
 		}
 	}
 }

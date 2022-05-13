@@ -418,13 +418,13 @@ export default defineComponent( {
 	background-color: @background-color-base;
 	display: flex;
 	flex-direction: column;
-	width: calc( @width-full - ( @size-absolute-100 * 2) );
-	max-width: @size-absolute-3200;
-	max-height: calc( @height-dialog-backdrop - @size-absolute-250 );
+	width: calc( @size-full - ( @size-100 * 2) );
+	max-width: @size-3200;
+	max-height: calc( @height-dialog-backdrop - @size-250 );
 	border: @border-base;
 	border-radius: @border-radius-base;
-	padding-top: @size-absolute-100;
-	padding-bottom: @size-absolute-150;
+	padding-top: @spacing-100;
+	padding-bottom: @spacing-150;
 	box-shadow: @box-shadow-dialog;
 
 	&.cdx-dialog--large {
@@ -435,8 +435,8 @@ export default defineComponent( {
 		max-height: unset;
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			width: calc( @width-full - ( @size-absolute-200 * 2 ) );
-			height: calc( @height-dialog-backdrop - @size-absolute-250 );
+			width: calc( @size-full - ( @size-200 * 2 ) );
+			height: calc( @height-dialog-backdrop - @size-250 );
 		}
 
 		@media screen and ( min-width: @min-width-breakpoint-desktop ) {
@@ -449,8 +449,8 @@ export default defineComponent( {
 		align-items: center;
 		// Close button should appear at the end regardless of whether or not a title is present
 		justify-content: flex-end;
-		width: @width-full;
-		padding: 0 @size-absolute-150 8px @size-absolute-150;
+		width: @size-full;
+		padding: 0 @spacing-150 @spacing-50 @spacing-150;
 		font-weight: @font-weight-bold;
 
 		& &__title {
@@ -460,7 +460,7 @@ export default defineComponent( {
 		}
 
 		&__close-button {
-			margin-right: -( @size-absolute-50 );
+			margin-right: -@spacing-50;
 		}
 
 		.cdx-dialog--dividers & {
@@ -471,22 +471,22 @@ export default defineComponent( {
 	&__body {
 		flex-grow: 1;
 		margin-top: @margin-dialog-body;
-		padding: 0 @size-absolute-150;
+		padding: 0 @spacing-150;
 		overflow-y: auto;
 
 		.cdx-dialog--dividers & {
-			padding-top: @size-absolute-75;
+			padding-top: @spacing-75;
 		}
 	}
 
 	&__footer {
 		display: flex;
 		margin-top: @margin-dialog-footer;
-		padding: 0 @size-absolute-150;
+		padding: 0 @spacing-150;
 
 		.cdx-dialog--dividers & {
 			border-top: @border-style-base @border-width-base @border-color-subtle;
-			padding-top: @size-absolute-100;
+			padding-top: @spacing-100;
 		}
 	}
 

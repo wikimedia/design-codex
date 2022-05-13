@@ -116,7 +116,7 @@ const demoSections = [
 @sandbox-header-height: 2em;
 @sandbox-sidebar-width: 20rem;
 
-@sandbox-scroll-padding: @sandbox-header-height + ( @spacing-large *2 ) + @spacing-large;
+@sandbox-scroll-padding: calc( @sandbox-header-height + ( @spacing-200 * 2 ) + @spacing-200 );
 
 html {
 	scroll-behavior: smooth;
@@ -138,7 +138,7 @@ html {
 		z-index: @z-index-1;
 		height: @sandbox-header-height;
 		border-bottom: @border-width-base @border-style-base @border-color-base;
-		padding: @spacing-large;
+		padding: @spacing-200;
 
 		h1 {
 			display: inline-flex;
@@ -156,14 +156,14 @@ html {
 		flex: 1;
 		flex-direction: column;
 		justify-content: space-between;
-		padding: @spacing-large;
+		padding: @spacing-100;
 
 		@media ( min-width: @min-width-breakpoint-tablet ) {
 			flex-direction: row;
 		}
 
 		section {
-			margin-bottom: @spacing-xx-large;
+			margin-bottom: @spacing-200;
 
 			h2 {
 				margin-top: 0;
@@ -178,7 +178,7 @@ html {
 	&__nav {
 		flex: 1;
 		order: -1;
-		margin-bottom: @spacing-xx-large;
+		margin-bottom: @spacing-200;
 
 		@media ( min-width: @min-width-breakpoint-tablet ) {
 			flex: 0 0 @sandbox-sidebar-width;

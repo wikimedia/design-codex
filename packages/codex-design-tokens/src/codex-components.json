@@ -99,29 +99,29 @@
 		"offset": {
 			"input-radio--focus": {
 				"comment": "TODO: This has to be a relative value, for design reasons.",
-				"value": "-{ size.absolute.25 }"
+				"value": "-{ dimension.25 }{ unit.system }"
 			}
 		}
 	},
 	"min-size": {
 		"icon": {
-			"value": "{ size.absolute.125 }"
+			"value": "{ dimension.125 }{ unit.system }"
 		}
 	},
 	"size": {
 		"icon": {
 			"comment": "TODO: This has to be a relative value, for accessibility reasons.",
-			"value": "{ size.absolute.125 }"
+			"value": "{ dimension.125 }{ unit.system }"
 		},
 		"indicator": {
 			"comment": "TODO: This has to be a relative value, for accessibility reasons.",
-			"value": "{ size.absolute.75 }"
+			"value": "{ dimension.75 }{ unit.system }"
 		}
 	},
 	"max-width": {
 		"button": {
-			"comment": "Note, that this is a slight amendment from WikimediaUI Base from `28.75em` = `460px` to `448px`",
-			"value": "{ size.absolute.2800 }"
+			"comment": "Note, that this is a slight amendment from WikimediaUI Base from `28.75em` = `460px` to `448px` – `dimension.2800`",
+			"value": "{ dimension.2800 }{ unit.system }"
 		}
 	},
 	"border": {
@@ -175,7 +175,7 @@
 		},
 		"horizontal": {
 			"input-text": {
-				"value": "{ size.absolute.50 }"
+				"value": "{ dimension.50 }{ unit.system }"
 			}
 		},
 		"vertical": {

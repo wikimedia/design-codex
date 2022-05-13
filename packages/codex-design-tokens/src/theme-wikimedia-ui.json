@@ -167,119 +167,97 @@
 			"value": "border-box"
 		}
 	},
-	"size": {
+	"dimension": {
 		"0": {
 			"value": "0"
 		},
-		"relative": {
-			"em": {
-				"12": {
-					"value": "0.125em"
-				},
-				"25": {
-					"value": "0.25em"
-				},
-				"30": {
-					"value": "0.313em"
-				},
-				"50": {
-					"value": "0.5em"
-				},
-				"75": {
-					"value": "0.75em"
-				},
-				"87": {
-					"value": "0.875em"
-				},
-				"100": {
-					"value": "1em"
-				},
-				"125": {
-					"value": "1.25em"
-				},
-				"150": {
-					"value": "1.5em"
-				},
-				"200": {
-					"value": "2em"
-				},
-				"250": {
-					"value": "2.5em"
-				}
-			},
-			"percentage": {
-				"25": {
-					"value": "25%"
-				},
-				"33": {
-					"value": "33%"
-				},
-				"50": {
-					"value": "50%"
-				},
-				"100": {
-					"value": "100%"
-				}
-			}
+		"6": {
+			"value": "1"
 		},
-		"absolute": {
-			"1px": {
-				"comment": "TODO: Unclear if this would clarify or complicate applications.",
-				"value": "1px"
-			},
-			"6": {
-				"value": "1px"
-			},
-			"12": {
-				"value": "2px"
-			},
-			"25": {
-				"value": "4px"
-			},
-			"50": {
-				"value": "8px"
-			},
-			"75": {
-				"value": "12px"
-			},
-			"100": {
-				"value": "16px"
-			},
-			"125": {
-				"value": "20px"
-			},
-			"150": {
-				"value": "24px"
-			},
-			"200": {
-				"value": "32px"
-			},
-			"250": {
-				"value": "40px"
-			},
-			"300": {
-				"value": "48px"
-			},
-			"800": {
-				"value": "128px"
-			},
-			"1600": {
-				"value": "256px"
-			},
-			"2400": {
-				"value": "384px"
-			},
-			"2800": {
-				"value": "448px"
-			},
-			"3200": {
-				"value": "512px"
-			},
-			"9999px": {
-				"comment": "TODO: How to fit this best-possible in? Similar to 1px above",
-				"value": "9999px"
-			}
+		"12": {
+			"value": "2"
 		},
+		"25": {
+			"value": "4"
+		},
+		"50": {
+			"value": "8"
+		},
+		"75": {
+			"value": "12"
+		},
+		"100": {
+			"value": "16"
+		},
+		"125": {
+			"value": "20"
+		},
+		"150": {
+			"value": "24"
+		},
+		"200": {
+			"value": "32"
+		},
+		"250": {
+			"value": "40"
+		},
+		"275": {
+			"value": "44"
+		},
+		"300": {
+			"value": "48"
+		},
+		"400": {
+			"value": "64"
+		},
+		"800": {
+			"value": "128"
+		},
+		"1600": {
+			"value": "256"
+		},
+		"2400": {
+			"value": "384"
+		},
+		"2800": {
+			"value": "448"
+		},
+		"3200": {
+			"value": "512"
+		},
+		"5600": {
+			"value": "896"
+		},
+		"absolute-1": {
+			"value": "1px"
+		},
+		"absolute-9999": {
+			"value": "9999px"
+		},
+		"third": {
+			"comment": "From here on, percentages.",
+			"value": "33.33%"
+		},
+		"half": {
+			"value": "50%"
+		},
+		"full": {
+			"value": "100%"
+		},
+		"double": {
+			"value": "200%"
+		},
+		"viewport": {
+			"width-full": {
+				"comment": "From here on, viewport sizes",
+				"value": "100vw"
+			},
+			"height-full": {
+				"value": "100vh"
+			}
+		}
+	},
+	"size": {
 		"viewport": {
 			"32": {
 				"value": "320px"
@@ -518,6 +496,14 @@
 		},
 		"zoom-less": {
 			"value": "zoom-out"
+		}
+	},
+	"unit": {
+		"system": {
+			"value": "px"
+		},
+		"user": {
+			"value": "em"
 		}
 	},
 	"wmui-color": {
