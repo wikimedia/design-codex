@@ -294,8 +294,7 @@ export default defineComponent( {
 
 		/**
 		 * Store new control value so it can be passed back into the controls
-		 * and to the component via the demo slot. Also re-highlight the source code, if
-		 * needed.
+		 * and to the component via the demo slot.
 		 *
 		 * @param name The prop or slot name
 		 * @param value The new value
@@ -304,9 +303,6 @@ export default defineComponent( {
 			const control = controlsWithValues.find( ( c ) => c.name === name );
 			if ( control ) {
 				control.value = value;
-			}
-			if ( hasGeneratedCode.value ) {
-				updateHighlight();
 			}
 		};
 
@@ -350,10 +346,6 @@ export default defineComponent( {
 					control.value = defaultControl.value;
 				}
 			}
-			// Update highlighting
-			if ( hasGeneratedCode.value ) {
-				updateHighlight();
-			}
 		};
 
 		/**
@@ -379,17 +371,18 @@ export default defineComponent( {
 			autoCodeDemoTitle.value, defaultControlValues, controlsWithValues
 		) );
 
-		watch( autoCodeDemoTitle, updateHighlight );
 		if ( autoCodeDemoTitle.value ) {
 			onMounted( updateHighlight );
 		}
 
-		// Update code to copy from the generated code when it changes
+		// Update code to copy from the generated code when it changes, and rehighlight,
+		// also includes when the component is reset
 		watch(
 			generatedCode,
 			() => {
 				if ( hasGeneratedCode.value ) {
 					codeText.value = generatedCode.value;
+					updateHighlight();
 				}
 			}
 		);
