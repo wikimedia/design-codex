@@ -143,6 +143,8 @@ export default defineComponent( {
 @transition-property-toggle-switch-outline: @transition-property-border-color;
 @position-offset-toggle-switch-outline: 1px;
 
+@transition-property-toggle-switch-grip: background-color, left;
+
 .cdx-toggle-switch {
 	display: inline-flex;
 	align-items: center;
@@ -213,9 +215,8 @@ export default defineComponent( {
 			height: @size-toggle-switch-grip--mobile;
 			border: @border-input-binary;
 			border-radius: @border-radius-circle;
-			/* stylelint-disable value-list-comma-newline-after */
-			transition: background-color @transition-duration-medium,
-				left @transition-duration-base;
+			transition-property: @transition-property-toggle-switch-grip;
+			transition-duration: @transition-duration-base;
 
 			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 				top: @start-toggle-switch-grip;

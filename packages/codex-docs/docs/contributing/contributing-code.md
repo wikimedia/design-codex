@@ -152,6 +152,8 @@ variables from the `@wikimedia/codex-design-tokens` package, using the default
 - If a component uses a value not represented by a Codex token yet, add a
   component-level Less variable in the `<style>` tag before the first selector.
 - Tokens should follow [naming patterns established for MediaWiki](https://www.mediawiki.org/wiki/Manual:Coding_conventions/CSS#Variable_naming)
+- Codex does not use shorthand properties `background`, `font`, `animation` and `transition` for
+  simpler design token scoping and code modularization reasons.
 
 **Selectors and structure**
 - A light version of [BEM](http://getbem.com/) is used for class naming structure:
@@ -174,6 +176,8 @@ variables from the `@wikimedia/codex-design-tokens` package, using the default
 **Linting**
 - Codex uses [stylelint-order](https://github.com/hudochenkov/stylelint-order/) to order CSS/Less
   rules
+- Enforce relying only on specific CSS properties over shorthands for `background`, `font`,
+  `animation` and `transition`.
 - Stylelint rules can be disabled/enabled and should be marked as CSS style comment `/* stylelint-disable-next-line rule-name */`.
 
 Below are some sample styles for a component to demonstrate these conventions:

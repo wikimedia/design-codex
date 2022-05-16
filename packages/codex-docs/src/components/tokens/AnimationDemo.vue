@@ -50,7 +50,7 @@ export default defineComponent( {
 	&__bar {
 		background-color: @background-color-primary;
 		height: 100%;
-		animation: cdx-docs-animation-demo__bar-animation;
+		animation-name: cdx-docs-animation-demo__bar-animation;
 		animation-duration: 2000ms;
 		animation-iteration-count: infinite;
 	}

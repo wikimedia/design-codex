@@ -32,6 +32,12 @@
 		],
 		"selector-class-pattern": "^cdx-",
 		"selector-pseudo-element-colon-notation": "double",
+		"property-disallowed-list": [
+			"background",
+			"font",
+			"animation",
+			"transition"
+		],
 		"order/order": [ "custom-properties", "declarations" ],
 		"order/properties-order": [
 			"all",

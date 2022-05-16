@@ -59,10 +59,13 @@ export default defineComponent( {
 
 	&__bar {
 		background-color: @background-color-progressive;
-		// TODO: replace with token.
+		// TODO: replace with tokens.
 		width: 33%;
 		height: 100%;
-		animation: cdx-progress-bar__bar--slide 1.6s infinite linear;
+		animation-name: cdx-progress-bar__bar--slide;
+		animation-duration: 1.6s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
 	}
 
 	&--block {
