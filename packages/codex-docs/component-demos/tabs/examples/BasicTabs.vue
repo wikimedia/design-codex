@@ -5,12 +5,37 @@
 			:key="index"
 			:name="tab.name"
 			:label="tab.label"
-			:disabled="tab.disabled"
 		>
-			<h2>Content for {{ tab.name }}</h2>
-			<p>
-				This is the content for the {{ tab.label }}
-			</p>
+			<!-- Tab content -->
+			<h2>{{ tab.heading }}</h2>
+
+			<template v-if="tab.name === 'read'">
+				<p>
+					The <b>sand cat</b> (<i>Felis margarita</i>), also known as
+					the <b>sand dune cat</b>, is a small wild
+					<a href="#" title="Felis">cat</a> that inhabits
+					sandy and stony <a href="#" title="Desert">deserts</a>
+					far from water sources. With its sandy to light grey fur, it
+					is well camouflaged in a desert environment.
+				</p>
+			</template>
+			<template v-if="tab.name === 'source'">
+				<code>
+					The '''sand cat''' (''Felis margarita''), also known as the
+					'''sand dune cat''', is a small wild [[Felis|cat]] that
+					inhabits sandy and stony [[deserts]] far from water sources.
+					With its sandy to light grey fur, it is well camouflaged in
+					a desert environment.
+				</code>
+			</template>
+			<template v-if="tab.name === 'history'">
+				<h3>Revisions</h3>
+				<ul>
+					<li>Revision 3</li>
+					<li>Revision 2</li>
+					<li>Revision 1</li>
+				</ul>
+			</template>
 		</cdx-tab>
 	</cdx-tabs>
 </template>
@@ -34,24 +59,20 @@ export default defineComponent( {
 	data() {
 		return {
 			tabsData: [ {
-				name: 'tab1',
-				label: 'First Tab'
+				name: 'read',
+				label: 'Read',
+				heading: 'Sand cat'
 			}, {
-				name: 'tab2',
-				label: 'Second Tab with a really really really really long name'
+				name: 'source',
+				label: 'View source',
+				heading: 'View source for Sand cat'
 			}, {
-				name: 'tab3',
-				label: 'Third Tab',
-				disabled: true
-			}, {
-				name: 'tab4',
-				label: 'Fourth Tab'
-			}, {
-				name: 'tab5',
-				label: 'Fifth Tab'
+				name: 'history',
+				label: 'View history',
+				heading: 'Sand cat: Revision history'
 			} ],
 
-			currentTab: 'tab1'
+			currentTab: 'read'
 		};
 	}
 } );

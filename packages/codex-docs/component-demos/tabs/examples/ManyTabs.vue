@@ -1,10 +1,11 @@
 <template>
-	<cdx-tabs v-model:active="currentTab">
+	<cdx-tabs v-model:active="currentTab" :framed="framed">
 		<cdx-tab
 			v-for="( tab, index ) in tabsData"
 			:key="index"
 			:name="tab.name"
 			:label="tab.label"
+			:disabled="tab.disabled"
 		>
 			<h2>Content for {{ tab.name }}</h2>
 			<p>
@@ -12,30 +13,25 @@
 			</p>
 		</cdx-tab>
 	</cdx-tabs>
-
-	<cdx-button @click="swapTabs">
-		Swap out tabs
-	</cdx-button>
 </template>
 
 <script lang="ts">
-import { CdxTabs, CdxTab, CdxButton } from '@wikimedia/codex';
+import { CdxTabs, CdxTab } from '@wikimedia/codex';
 import { defineComponent } from 'vue';
 
-const firstSetOfTabs = [ {
+const tabsData = [ {
 	name: 'tab1',
 	label: 'First Tab'
 }, {
 	name: 'tab2',
-	label: 'Second Tab'
+	label: 'Second Tab with a really really really really long name'
 }, {
 	name: 'tab3',
 	label: 'Third Tab'
-} ];
-
-const secondSetOfTabs = [ {
+}, {
 	name: 'tab4',
-	label: 'Fourth Tab'
+	label: 'Fourth Tab',
+	disabled: true
 }, {
 	name: 'tab5',
 	label: 'Fifth Tab'
@@ -45,29 +41,22 @@ const secondSetOfTabs = [ {
 } ];
 
 export default defineComponent( {
-	name: 'DynamicallyGeneratedTabs',
+	name: 'ManyTabs',
 	components: {
 		CdxTabs,
-		CdxTab,
-		CdxButton
+		CdxTab
+	},
+	props: {
+		framed: {
+			type: Boolean,
+			default: false
+		}
 	},
 	data() {
 		return {
-			tabsData: firstSetOfTabs,
+			tabsData,
 			currentTab: 'tab1'
 		};
-	},
-
-	methods: {
-		swapTabs() {
-			if ( this.tabsData[ 0 ].name === 'tab1' ) {
-				this.tabsData = secondSetOfTabs;
-			} else {
-				this.tabsData = firstSetOfTabs;
-			}
-
-			this.currentTab = this.tabsData[ 0 ].name;
-		}
 	}
 } );
 </script>
