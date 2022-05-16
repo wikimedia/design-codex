@@ -12,6 +12,9 @@ npm install --save-dev @wikimedia/codex @wikimedia/codex-icons
 ```
 Some projects may not need the icons package, but most do.
 
+You will also need to [install Vue.js](https://vuejs.org/guide/quick-start.html) in order to use
+Codex components.
+
 ## Using components
 Import the components you need from the `@wikimedia/codex` package, and pass them into the
 `components` setting of your component:
