@@ -524,7 +524,9 @@ export default defineComponent( {
 
 		// Framed Tabs List item.
 		.cdx-tabs__list__item {
-			margin: @margin-tabs-framed-tab;
+			[ role='tab' ] {
+				margin: @margin-tabs-framed-tab;
+			}
 
 			&:last-child [ role='tab' ] {
 				margin-right: ( @margin-tab * 2 );
@@ -585,13 +587,15 @@ export default defineComponent( {
 
 		// Quiet Tabs List item.
 		.cdx-tabs__list__item {
-			margin: @margin-tabs-quiet-tab;
+			[ role='tab' ] {
+				margin: @margin-tabs-quiet-tab;
+			}
 
-			&:first-child {
+			&:first-child [ role='tab' ] {
 				margin-left: 0;
 			}
 
-			&:last-child {
+			&:last-child [ role='tab' ] {
 				margin-right: 0;
 			}
 
