@@ -22,8 +22,8 @@
 				<slot
 					:key="demoRenderKey"
 					name="demo"
-					:prop-values="propValues"
-					:slot-values="slotValues"
+					:prop-values="componentDemoValues.propValues"
+					:slot-values="componentDemoValues.slotValues"
 				/>
 			</div>
 			<!-- Align the copy button and the display toggle together -->
@@ -111,7 +111,7 @@ import { Icon } from '@wikimedia/codex-icons';
 Prism.manual = true;
 
 // Access to icon objects by name
-const iconsByName = {} as Record<string, Icon>;
+const iconsByName: Record<string, Icon> = {};
 for ( const iconName in allIcons ) {
 	const icon = allIcons[ iconName as keyof typeof allIcons ];
 	// Some of the exports are utility functions, filter those out
@@ -169,23 +169,12 @@ export default defineComponent( {
 	setup( props, { slots } ) {
 		// Inject direction from CustomLayout.vue
 		const dir = inject( DirectionKey );
-		const route = useRoute();
 
-		// Determine the component name to use if sample code should be generated
 		const hasGeneratedCode = toRef( props, 'showGeneratedCode' );
-		const autoCodeDemoTitle = computed( () => {
-			if ( !hasGeneratedCode.value ) {
-				return '';
-			}
-			// Will be converted to `cdx-*` style name in codegen.ts
-			return route.data.title;
-		} );
 
 		// Set up show code/hide code button.
 		const hasCodeSlot = slots && slots.code;
-		const hasCodeSample = computed( () => {
-			return hasCodeSlot || hasGeneratedCode.value;
-		} );
+		const hasCodeSample = computed( () => hasCodeSlot || hasGeneratedCode.value );
 		const showCode = ref( false );
 		const codeToggleLabel = computed( () => {
 			return showCode.value === true ? 'Hide code' : 'Show code';
@@ -197,9 +186,7 @@ export default defineComponent( {
 
 		// Set up reset button if configuration is provided, or if the demo wants to
 		// show the button anyway
-		const includeReset = computed( () => {
-			return hasControls.value || props.forceReset;
-		} );
+		const includeReset = computed( () => hasControls.value || props.forceReset );
 
 		const rootClasses = computed( () => {
 			return {
@@ -270,27 +257,8 @@ export default defineComponent( {
 		 * objects so that they can be used to reset.
 		 */
 		const controlsWithValues = reactive( defaultControlValues.map(
-			( config ) : ControlConfigWithValue => {
-				return { ...config };
-			}
+			( config ) : ControlConfigWithValue => ( { ...config } )
 		) );
-
-		/**
-		 * Redo the syntax highlighting for the generated code when it changes. This is called when
-		 * a control value changes, when the tag name changes, and on mount if automatic code
-		 * generation is enabled.
-		 */
-		function updateHighlight() : void {
-			// can't use void with nextTick() to satisfy typescript, because then it
-			// complains about not using `undefined` instead (no-void), we don't care
-			// about the promise returned
-			// eslint-disable-next-line @typescript-eslint/no-floating-promises
-			nextTick( () => {
-				if ( codeDiv.value && hasGeneratedCode.value ) {
-					Prism.highlightAllUnder( codeDiv.value );
-				}
-			} );
-		}
 
 		/**
 		 * Store new control value so it can be passed back into the controls
@@ -313,24 +281,20 @@ export default defineComponent( {
 		 * is done together. Here, icon properties have real Icon objects (or undefined)
 		 * as their values, but slot icons use icon names, to be handled by cdxDemoSlotIcon.
 		 */
-		const splitValues = computed( () => {
-			const constructedPropValues: PropValuesWithIcons = {};
-			const constructedSlotValues: SlotValues = {};
+		const componentDemoValues = computed( () => {
+			const propValues: PropValuesWithIcons = {};
+			const slotValues: SlotValues = {};
 			for ( const control of controlsWithValues ) {
 				if ( control.type === 'slot' || control.type === 'slot-icon' ) {
-					constructedSlotValues[ control.name ] = control.value;
+					slotValues[ control.name ] = control.value;
 				} else if ( control.type === 'icon' ) {
-					constructedPropValues[ control.name ] = iconsByName[ control.value ];
+					propValues[ control.name ] = iconsByName[ control.value ];
 				} else {
-					constructedPropValues[ control.name ] = control.value;
+					propValues[ control.name ] = control.value;
 				}
 			}
-			return { constructedPropValues, constructedSlotValues };
+			return { propValues, slotValues };
 		} );
-
-		// Provided separately for passing to the scoped slot
-		const propValues = computed( () => splitValues.value.constructedPropValues );
-		const slotValues = computed( () => splitValues.value.constructedSlotValues );
 
 		// Allow resetting the display, which forces the component to rerender with
 		// its initial state
@@ -367,12 +331,26 @@ export default defineComponent( {
 			} );
 		}
 
+		// Route title will be converted to `cdx-*` style name in codegen.ts
+		const route = useRoute();
 		const generatedCode = computed( () => generateVueTag(
-			autoCodeDemoTitle.value, defaultControlValues, controlsWithValues
+			route.data.title, defaultControlValues, controlsWithValues
 		) );
 
-		if ( autoCodeDemoTitle.value ) {
-			onMounted( updateHighlight );
+		/**
+		 * Redo the syntax highlighting for the generated code when it changes, and on mount
+		 * if automatic code generation is enabled.
+		 */
+		function updateHighlight() : void {
+			// can't use void with nextTick() to satisfy typescript, because then it
+			// complains about not using `undefined` instead (no-void), we don't care
+			// about the promise returned
+			// eslint-disable-next-line @typescript-eslint/no-floating-promises
+			nextTick( () => {
+				if ( codeDiv.value && hasGeneratedCode.value ) {
+					Prism.highlightAllUnder( codeDiv.value );
+				}
+			} );
 		}
 
 		// Update code to copy from the generated code when it changes, and rehighlight,
@@ -386,11 +364,12 @@ export default defineComponent( {
 				}
 			}
 		);
-		// Set initial starting code text to the first generated code, so that it can
-		// be copied even when there are no changes made to it (but don't overwrite the
-		// code from the slot)
+		// If we are using generated code, highlight it at the start, and use it for
+		// the code text so that it can be copied even when there are no changes made
+		// (but don't overwrite the code from the slot)
 		if ( hasGeneratedCode.value ) {
 			codeText.value = generatedCode.value;
+			onMounted( updateHighlight );
 		}
 
 		return {
@@ -407,8 +386,7 @@ export default defineComponent( {
 			onReset,
 
 			// Actual demo
-			propValues,
-			slotValues,
+			componentDemoValues,
 
 			// Code display and copy button
 			hasCodeSlot,

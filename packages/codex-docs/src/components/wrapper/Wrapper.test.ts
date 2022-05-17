@@ -144,34 +144,34 @@ it( 'sets default values appropriately', () => {
 	const expectedSlots = {
 		slotControl: 'Hello world'
 	};
-	expect( wrapper.vm.propValues ).toMatchObject( expectedProps );
-	expect( wrapper.vm.slotValues ).toMatchObject( expectedSlots );
+	expect( wrapper.vm.componentDemoValues.propValues ).toMatchObject( expectedProps );
+	expect( wrapper.vm.componentDemoValues.slotValues ).toMatchObject( expectedSlots );
 } );
 
 it( 'reacts to prop updates from the Controls component', async () => {
 	const wrapper = mount( Wrapper, { props: { controlsConfig } } );
-	expect( wrapper.vm.propValues.radioControl ).toBe( 'Option 1' );
+	expect( wrapper.vm.componentDemoValues.propValues.radioControl ).toBe( 'Option 1' );
 
 	const radio3 = wrapper.find( 'input[name="radio-group-radioControl"][value="Option 3"]' );
 	( radio3.element as HTMLInputElement ).checked = true;
 	await radio3.trigger( 'change' );
 
-	expect( wrapper.vm.propValues.radioControl ).toBe( 'Option 3' );
+	expect( wrapper.vm.componentDemoValues.propValues.radioControl ).toBe( 'Option 3' );
 } );
 
 it( 'can be reset', async () => {
 	// A bit of duplication from the props update above unfortunately
 	const wrapper = mount( Wrapper, { props: { controlsConfig } } );
-	expect( wrapper.vm.propValues.radioControl ).toBe( 'Option 1' );
+	expect( wrapper.vm.componentDemoValues.propValues.radioControl ).toBe( 'Option 1' );
 
 	const radio3 = wrapper.find( 'input[name="radio-group-radioControl"][value="Option 3"]' );
 	( radio3.element as HTMLInputElement ).checked = true;
 	await radio3.trigger( 'change' );
 
-	expect( wrapper.vm.propValues.radioControl ).toBe( 'Option 3' );
+	expect( wrapper.vm.componentDemoValues.propValues.radioControl ).toBe( 'Option 3' );
 
 	await wrapper.get( ResetButtonSelector ).trigger( 'click' );
-	expect( wrapper.vm.propValues.radioControl ).toBe( 'Option 1' );
+	expect( wrapper.vm.componentDemoValues.propValues.radioControl ).toBe( 'Option 1' );
 } );
 
 it( 'generates and updates text', async () => {
@@ -222,19 +222,19 @@ it( 'calls Prism.highlightAllUnder()', async () => {
 	expect( highlightSpy ).toHaveBeenCalledTimes( 1 );
 
 	// change a property - switch to disabled
-	expect( wrapper.vm.propValues.disabled ).toBe( false );
+	expect( wrapper.vm.componentDemoValues.propValues.disabled ).toBe( false );
 
 	const disableToggle = wrapper.find( 'input.cdx-toggle-switch__input' );
 	( disableToggle.element as HTMLInputElement ).checked = true;
 	await disableToggle.trigger( 'change' );
 
-	expect( wrapper.vm.propValues.disabled ).toBe( true );
+	expect( wrapper.vm.componentDemoValues.propValues.disabled ).toBe( true );
 	await nextTick();
 	expect( highlightSpy ).toHaveBeenCalledTimes( 2 );
 
 	// reset - should update highlighting again
 	await wrapper.get( ResetButtonSelector ).trigger( 'click' );
-	expect( wrapper.vm.propValues.disabled ).toBe( false );
+	expect( wrapper.vm.componentDemoValues.propValues.disabled ).toBe( false );
 	await nextTick();
 	expect( highlightSpy ).toHaveBeenCalledTimes( 3 );
 } );
