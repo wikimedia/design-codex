@@ -10,14 +10,12 @@
 			<slot />
 		</component>
 		<!-- No slot content -->
-		<!-- Cannot use self-closing tags for <component> -->
-		<!-- eslint-disable-next-line vue/html-self-closing -->
 		<component
 			:is="componentName"
 			v-else
 			v-model="modelValue"
 			v-bind="$attrs"
-		></component>
+		/>
 	</div>
 </template>
 
