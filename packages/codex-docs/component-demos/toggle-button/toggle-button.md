@@ -25,7 +25,7 @@ const controlsConfig = [
 
 ### Configurable
 
-<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true" generated-model-name="buttonValue">
 <template v-slot:demo="{ propValues, slotValues }">
 <cdx-docs-configurable-generic v-bind="propValues">
 {{ slotValues.default }}

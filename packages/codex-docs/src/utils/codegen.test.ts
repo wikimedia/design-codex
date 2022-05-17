@@ -52,7 +52,7 @@ describe( 'codegen', () => {
 			value: 'cdxIconArrowNext'
 		};
 		expect(
-			generateVueTag( 'Icon', [ iconDefault ], [ iconChosen ] )
+			generateVueTag( 'Icon', [ iconDefault ], [ iconChosen ], '' )
 		).toBe(
 			'<cdx-icon :icon="cdxIconArrowNext" />'
 		);
@@ -82,7 +82,7 @@ describe( 'codegen', () => {
 			value: 'cdxIconArrowNext'
 		};
 		expect(
-			generateVueTag( 'Button', [], [ slotText, slotIcon ] )
+			generateVueTag( 'Button', [], [ slotText, slotIcon ], '' )
 		).toBe(
 			'<cdx-button><cdx-icon :icon="cdxIconArrowNext" /></cdx-button>'
 		);
@@ -100,7 +100,7 @@ describe( 'codegen', () => {
 			value: 'cdxIconArrowNext'
 		};
 		expect(
-			generateVueTag( 'Button', [], [ slotText, slotIcon ] )
+			generateVueTag( 'Button', [], [ slotText, slotIcon ], '' )
 		).toBe(
 			'<cdx-button><cdx-icon :icon="cdxIconArrowNext" /> &lt;p&gt;test&lt;/p&gt;</cdx-button>'
 		);
@@ -113,7 +113,7 @@ describe( 'codegen', () => {
 			value: 'cdxIconArrowNext'
 		};
 		expect(
-			generateVueTag( 'Button', [], [ slotIcon ] )
+			generateVueTag( 'Button', [], [ slotIcon ], '' )
 		).toBe(
 			'<cdx-button />'
 		);
@@ -121,6 +121,13 @@ describe( 'codegen', () => {
 
 	it( 'outputs self-closing tag when there are no slots', () => {
 		const expectedString = '<cdx-text-input />';
-		expect( generateVueTag( 'TextInput', [], [] ) ).toBe( expectedString );
+		expect( generateVueTag( 'TextInput', [], [], '' ) ).toBe( expectedString );
+	} );
+
+	it( 'adds v-model when needed', () => {
+		const expectedString = '<cdx-toggle-button v-model="buttonValue" />';
+		expect(
+			generateVueTag( 'ToggleButton', [], [], 'buttonValue' )
+		).toBe( expectedString );
 	} );
 } );

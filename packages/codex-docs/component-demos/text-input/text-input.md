@@ -36,7 +36,7 @@ element within the component.
 
 ### Configurable
 
-<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true" generated-model-name="inputValue">
 <template v-slot:demo="{ propValues }">
 <cdx-docs-configurable-generic v-bind="propValues" />
 </template>

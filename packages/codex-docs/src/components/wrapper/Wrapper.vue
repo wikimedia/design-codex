@@ -164,6 +164,14 @@ export default defineComponent( {
 		showGeneratedCode: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Whether to include a v-model attribute for the generated demo code, in which
+		 * case this is a string with an appropriate model name, or omitted for no model
+		 */
+		generatedModelName: {
+			type: String,
+			default: ''
 		}
 	},
 	setup( props, { slots } ) {
@@ -334,7 +342,10 @@ export default defineComponent( {
 		// Route title will be converted to `cdx-*` style name in codegen.ts
 		const route = useRoute();
 		const generatedCode = computed( () => generateVueTag(
-			route.data.title, defaultControlValues, controlsWithValues
+			route.data.title,
+			defaultControlValues,
+			controlsWithValues,
+			props.generatedModelName
 		) );
 
 		/**

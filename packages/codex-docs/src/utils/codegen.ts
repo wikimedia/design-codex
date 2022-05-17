@@ -181,20 +181,23 @@ function extractDemoValues(
 }
 
 /**
- * Given the title of a component demo page, like 'ToggleButton', the default settings for it, and
- * the configured settings for it, generate valid Vue code that would result in the component
- * being shown with the configured properties and slots. The name of the component in the Vue code
- * will be the `cdx-*` kebab case name based on the demo title
+ * Given the title of a component demo page, like 'ToggleButton', the default settings for it, the
+ * configured settings for it, and optionally a name for a v-model attribute, generate valid Vue
+ * code that would result in the component being shown with the configured properties and slots.
+ * The name of the component in the Vue code will be the `cdx-*` kebab case name based on the demo
+ * title.
  *
  * @param {string} demoTitle
  * @param {ControlConfigWithValue[]} defaultControlValues
  * @param {ControlConfigWithValue[]} currentControlValues
+ * @param {string} vModelName
  * @return {string}
  */
 export function generateVueTag(
 	demoTitle: string,
 	defaultControlValues: ControlConfigWithValue[],
-	currentControlValues: ControlConfigWithValue[]
+	currentControlValues: ControlConfigWithValue[],
+	vModelName: string
 ) : string {
 	const { propValues, slotValues } = extractDemoValues(
 		defaultControlValues,
@@ -213,6 +216,12 @@ export function generateVueTag(
 	}
 
 	const tagName = 'cdx-' + toKebabCase( demoTitle );
-	const openingTag = propString ? `<${tagName} ${propString}` : `<${tagName}`;
-	return tagContents ? `${openingTag}>${tagContents}</${tagName}>` : `${openingTag} />`;
+	let demoCode = `<${tagName}`;
+	if ( vModelName ) {
+		demoCode += ` v-model="${vModelName}"`;
+	}
+	if ( propString ) {
+		demoCode += ` ${propString}`;
+	}
+	return tagContents ? `${demoCode}>${tagContents}</${tagName}>` : `${demoCode} />`;
 }
