@@ -418,9 +418,7 @@ export default defineComponent( {
 	}
 
 	&--highlight-query {
-		.cdx-menu-item__content {
-			line-height: normal;
-		}
+		line-height: normal;
 	}
 
 	&--bold-label {
@@ -443,10 +441,8 @@ export default defineComponent( {
 	}
 
 	&--enabled {
-		.cdx-menu-item__content {
-			// Color for all content, including icon and text.
-			color: @color-base;
-		}
+		// Color for all content, including icon and text.
+		color: @color-base;
 
 		.cdx-menu-item__text__description {
 			// Different color for description.
@@ -462,8 +458,8 @@ export default defineComponent( {
 		&.cdx-menu-item--active,
 		&.cdx-menu-item--active:hover {
 			background-color: @background-color-base--active;
+			color: @color-progressive;
 
-			.cdx-menu-item__content,
 			.cdx-menu-item__text__description {
 				color: @color-progressive;
 			}
@@ -476,7 +472,8 @@ export default defineComponent( {
 
 		&.cdx-menu-item--selected:hover,
 		&.cdx-menu-item--selected.cdx-menu-item--highlighted {
-			.cdx-menu-item__content,
+			color: @color-progressive;
+
 			.cdx-menu-item__text__description {
 				color: @color-progressive;
 			}
@@ -485,9 +482,9 @@ export default defineComponent( {
 
 	/* stylelint-disable no-descending-specificity */
 	&--disabled {
+		color: @color-base--disabled;
 		cursor: @cursor-base--disabled;
 
-		.cdx-menu-item__content,
 		.cdx-menu-item__text__description {
 			color: @color-base--disabled;
 		}
