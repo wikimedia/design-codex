@@ -16,7 +16,7 @@ import * as allIcons from '@wikimedia/codex-icons';
 import { Icon } from '@wikimedia/codex-icons';
 
 // Access to icon objects by name
-const iconsByName = {} as Record<string, Icon>;
+const iconsByName: Record<string, Icon> = {};
 for ( const iconName in allIcons ) {
 	const icon = allIcons[ iconName as keyof typeof allIcons ];
 	// Some of the exports are utility functions, filter those out
