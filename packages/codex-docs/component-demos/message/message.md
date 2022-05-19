@@ -18,7 +18,7 @@ const controlsConfig = [
 	{
 		name: 'dismissButtonLabel',
 		type: 'text',
-		default: 'Close'
+		initial: 'Close'
 	},
 	{
 		name: 'default',

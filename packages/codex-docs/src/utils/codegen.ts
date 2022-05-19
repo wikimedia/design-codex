@@ -115,12 +115,12 @@ export function generateSlots( slotValues: SlotValuesWithIcons ) : string {
  * slots) are given here as icon names, and converted to either BoundProp (for properties) or
  * EscapedSlotContent (for slots).
  *
- * @param {ControlConfigWithValue[]} defaultControlValues
+ * @param {Record<string, string|boolean|number>} defaultControlValues
  * @param {ControlConfigWithValue[]} currentControlValues
  * @return {Object} with keys 'propValues' and 'slotValues'
  */
 function extractDemoValues(
-	defaultControlValues: ControlConfigWithValue[],
+	defaultControlValues: Record<string, string|boolean|number>,
 	currentControlValues: ControlConfigWithValue[]
 ) : { propValues: PropValues, slotValues: SlotValuesWithIcons } {
 	const constructedPropValues: PropValues = {};
@@ -138,19 +138,17 @@ function extractDemoValues(
 			continue;
 		}
 		// Must be a property
-		const defaultControl = defaultControlValues.find(
-			( c ) => c.name === controlName
-		);
+		const defaultValue = defaultControlValues[ controlName ];
 		// Should always exist, but satisfy typescript; also skip when the value matches
 		// the default
-		if ( !defaultControl || defaultControl.value === controlValue ) {
+		if ( defaultValue === undefined || defaultValue === controlValue ) {
 			continue;
 		}
 		// For icon properties, wrap the value in a BoundProp, so that the code generation
 		// does not try to use it as a literal string value with v-bind syntax, but only
 		// when the value is set (not null or undefined), otherwise we want the
 		// generateProps() to exclude the value
-		if ( defaultControl.type === 'icon' && typeof controlValue === 'string' ) {
+		if ( control.type === 'icon' && typeof controlValue === 'string' ) {
 			constructedPropValues[ controlName ] = new BoundProp( controlValue );
 		} else {
 			constructedPropValues[ controlName ] = controlValue;
@@ -194,14 +192,14 @@ function extractDemoValues(
  * title.
  *
  * @param {string} demoTitle
- * @param {ControlConfigWithValue[]} defaultControlValues
+ * @param {Record<string, string|boolean|number>} defaultControlValues
  * @param {ControlConfigWithValue[]} currentControlValues
  * @param {string} vModelName
  * @return {string}
  */
 export function generateVueTag(
 	demoTitle: string,
-	defaultControlValues: ControlConfigWithValue[],
+	defaultControlValues: Record<string, string|boolean|number>,
 	currentControlValues: ControlConfigWithValue[],
 	vModelName: string
 ) : string {

@@ -10,23 +10,28 @@ interface BaseConfig {
 export interface RadioPropConfig extends BaseConfig {
 	type: 'radio',
 	options: Array<string | number>,
-	default?: string | number
+	default?: string | number,
+	initial?: string | number
 }
 export interface BooleanPropConfig extends BaseConfig {
 	type: 'boolean',
-	default?: false
+	default?: false,
+	initial?: boolean
 }
 export interface TextPropConfig extends BaseConfig {
-	type: 'text'
-	default?: string | number
+	type: 'text',
+	default?: string | number,
+	initial?: string | number
 }
 export interface IconPropConfig extends BaseConfig {
 	type: 'icon',
-	default?: string
+	default?: string,
+	initial?: string
 }
 export interface SlotConfig extends BaseConfig {
 	type: 'slot',
-	default: string
+	default: string,
+	initial?: string
 }
 // For icons in slots, the name must be *-icon corresponding to a slot with the same name (without
 // the -icon suffix) that it should be added to. Make this a part of the type interface so that
@@ -34,7 +39,8 @@ export interface SlotConfig extends BaseConfig {
 export interface SlotIconConfig extends BaseConfig {
 	name: `${string}-icon`,
 	type: 'slot-icon',
-	default?: string
+	default?: string,
+	initial?: string
 }
 export type ControlConfig =
 	RadioPropConfig |
@@ -50,8 +56,8 @@ export type ControlConfig =
 export type ControlsConfig = ControlConfig[];
 
 // Utility type that maps one of the ControlConfig types to a type that removes the 'default' key
-// and adds a 'value' key with the same type as the removed 'default' key
-type DefaultToValue<T extends { default?: string | number | boolean }> = Omit<T, 'default'> & {
+// and 'initial' key and adds a 'value' key with the same type as the removed 'default' key
+type DefaultToValue<T extends { default?: string | number | boolean }> = Omit<T, 'default' | 'initial'> & {
 	// For BooleanPropConfig, the type of 'default' is false, but we want the type of 'value'
 	// to be boolean, so that true is also allowed
 	value: T['default'] extends false|undefined ? boolean : NonNullable<T['default']>

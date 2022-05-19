@@ -89,6 +89,7 @@ import {
 	PropType
 } from 'vue';
 import {
+	ControlConfig,
 	ControlsConfig,
 	ControlConfigWithValue,
 	PropValuesWithIcons,
@@ -233,30 +234,58 @@ export default defineComponent( {
 		};
 
 		/**
-		 * Create a map of the defaults to use for resetting. Because the default values
-		 * of some of the types can be undefined, which cannot be used as the
-		 * actual value of the object, when filling in missing defaults they are saved
-		 * as the "value" of the objects to simplify typescript handling. The default
-		 * value is used as the initial value, and will be either the provided default or
-		 * an appropriate default based on the control type.
+		 * Helper to get the default for a control config with early returns for simplicity
+		 *
+		 * @param {ControlConfig} config
+		 * @return string | boolean | number
 		 */
-		const defaultControlValues = props.controlsConfig.map(
+		const getAppropriateDefault = ( config: ControlConfig ): string|boolean|number => {
+			switch ( config.type ) {
+				case 'radio':
+					return config.default ?? config.options[ 0 ];
+				case 'boolean':
+					return config.default ?? false;
+				case 'slot':
+					// slots always have a default set, because for now
+					// slot defaults are the same as initial
+					return config.default;
+				case 'icon':
+				case 'slot-icon':
+					// empty string = no icon
+					return config.default ?? '';
+				case 'text':
+				default:
+					return config.default ?? '';
+			}
+		};
+
+		/**
+		 * Create a map of the defaults to use for code generation, and for fallback values
+		 * for the initial display (including after the component is reset) if there is
+		 * no 'initial' value.
+		 */
+		const defaultControlValues: Record<string, string|boolean|number> = {};
+		for ( const control of props.controlsConfig ) {
+			defaultControlValues[ control.name ] = getAppropriateDefault( control );
+		}
+
+		/**
+		 * Initial values to display, also used for when the component is reset. This is
+		 * either the 'initial' field of the control, if set, or the default value, if not.
+		 */
+		const initialControlValues = props.controlsConfig.map(
 			( config ) : ControlConfigWithValue => {
-				switch ( config.type ) {
-					case 'radio':
-						return { ...config, value: config.default ?? config.options[ 0 ] };
-					case 'boolean':
-						return { ...config, value: config.default ?? false };
-					case 'slot':
-						return { ...config, value: config.default };
-					// Icon also uses empty string as default, meaning no icon
-					case 'icon':
-					case 'slot-icon':
-						return { ...config, value: config.default ?? '' };
-					case 'text':
-					default:
-						return { ...config, value: config.default ?? '' };
-				}
+				// defaultControlValues only holds values appropriate for the
+				// type of the config, but typescript doesn't know that because
+				// it is typed as `Record<string, string|boolean|number>` and
+				// doesn't realize that the values are okay for the config name,
+				// so it complains about trying to assign incompatible types.
+				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+				// @ts-ignore
+				return {
+					...config,
+					value: config.initial ?? defaultControlValues[ config.name ]
+				};
 			}
 		);
 
@@ -264,7 +293,7 @@ export default defineComponent( {
 		 * Start off the values based on the defaults, making a copy of the default
 		 * objects so that they can be used to reset.
 		 */
-		const controlsWithValues = reactive( defaultControlValues.map(
+		const controlsWithValues = reactive( initialControlValues.map(
 			( config ) : ControlConfigWithValue => ( { ...config } )
 		) );
 
@@ -310,12 +339,12 @@ export default defineComponent( {
 		const onReset = (): void => {
 			demoRenderKey.value++;
 			for ( const control of controlsWithValues ) {
-				const defaultControl = defaultControlValues.find(
+				const initialControl = initialControlValues.find(
 					( c ) => c.name === control.name
 				);
 				// should always exist, but satisfy typescript checks
-				if ( defaultControl ) {
-					control.value = defaultControl.value;
+				if ( initialControl ) {
+					control.value = initialControl.value;
 				}
 			}
 		};
