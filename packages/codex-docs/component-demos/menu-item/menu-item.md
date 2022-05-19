@@ -1,4 +1,5 @@
 <script setup>
+import { CdxMenuItem } from '@wikimedia/codex';
 import MenuItemDefault from './../../component-demos/menu-item/examples/MenuItemDefault.vue';
 import MenuItemWithDescription from './../../component-demos/menu-item/examples/MenuItemWithDescription.vue';
 import MenuItemWithUrl from './../../component-demos/menu-item/examples/MenuItemWithUrl.vue';
@@ -11,6 +12,56 @@ import MenuItemLongText from './../../component-demos/menu-item/examples/MenuIte
 import MenuItemHideOverflow from './../../component-demos/menu-item/examples/MenuItemHideOverflow.vue';
 import MenuItems from './../../component-demos/menu-item/examples/MenuItems.vue';
 import MenuItemsGraphemes from './../../component-demos/menu-item/examples/MenuItemsGraphemes.vue';
+
+const controlsConfig = [
+	{
+		name: 'disabled',
+		type: 'boolean'
+	},
+	{
+		name: 'selected',
+		type: 'boolean'
+	},
+	{
+		name: 'active',
+		type: 'boolean'
+	},
+	{
+		name: 'highlighted',
+		type: 'boolean'
+	},
+	{
+		name: 'label',
+		type: 'text',
+		initial: 'Item label'
+	},
+	{
+		name: 'match',
+		type: 'text'
+	},
+	{
+		name: 'icon',
+		type: 'icon',
+		initial: 'cdxIconTag'
+	},
+	{
+		name: 'description',
+		type: 'text',
+		initial: 'Description text'
+	},
+	{
+		name: 'searchQuery',
+		type: 'text'
+	},
+	{
+		name: 'boldLabel',
+		type: 'boolean'
+	},
+	{
+		name: 'hideDescriptionOverflow',
+		type: 'boolean'
+	}
+];
 </script>
 
 ::: warning
@@ -25,6 +76,17 @@ Note that these demos do not properly show some interactive states of menu items
 hovered/highlighted), since they display menu items as standalone or as part of an always-expanded,
 detached menu. To see the full interactivity of menu items, check out a component that contains a
 menu, like [Select](./select), [Lookup](./lookup), or [TypeaheadSearch](./typeahead-search).
+
+### Configurable
+
+Note that manually hovering over or selecting this menu item is disabled, the configuration options
+to set these states should be used.
+
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
+<template v-slot:demo="{ propValues }">
+<cdx-menu-item v-bind="propValues" id="cdx-demo-menu-item-configurable" value=""></cdx-menu-item>
+</template>
+</cdx-demo-wrapper>
 
 ### Default
 
@@ -199,9 +261,16 @@ the markup. The example below demonstrates a search result in a Greek interface 
 </cdx-demo-wrapper>
 
 <style lang="less" scoped>
-// This menu isn't absolutely positioned relative to something else.
-.cdx-demo-wrapper :deep( ul ) {
+// Menus in this demo aren't absolutely positioned relative to something else.
+// Target .cdx-demo-wrapper__demo-pane instead of .cdx-demo-wrapper to avoid also applying this
+// rule to the menu in the icon picker in the wrapper's controls
+.cdx-demo-wrapper :deep( .cdx-demo-wrapper__demo-pane ul ) {
 	position: static;
 	box-shadow: none;
+}
+
+// Disable manual hover/select/etc. for the configurable demo
+#cdx-demo-menu-item-configurable {
+	pointer-events: none;
 }
 </style>

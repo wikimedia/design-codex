@@ -1,6 +1,7 @@
 <template>
 	<div class="cdx-docs-icon-lookup">
 		<cdx-lookup
+			ref="lookup"
 			v-model="wrappedModel"
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
@@ -12,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, toRef } from 'vue';
+import { defineComponent, onMounted, ref, toRef, watch } from 'vue';
 import { CdxLookup, MenuItemData, MenuConfig, useModelWrapper } from '@wikimedia/codex';
 import * as allIcons from '@wikimedia/codex-icons';
 import { Icon } from '@wikimedia/codex-icons';
@@ -75,7 +76,8 @@ export default defineComponent( {
 		// Take the modelValue provided by the parent component via v-model and
 		// generate a wrapped model that we can use for the model in the inner lookup,
 		// maintaining reactivity
-		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
+		const modelValueProp = toRef( props, 'modelValue' );
+		const wrappedModel = useModelWrapper( modelValueProp, emit );
 		const menuItems = ref<MenuItemData[]>( [] );
 
 		const menuConfig: MenuConfig = {
@@ -96,7 +98,40 @@ export default defineComponent( {
 			}
 		}
 
+		// Need to be able to set the chosen icon on initial render/when reset
+		const lookup = ref<InstanceType<typeof CdxLookup>>();
+		function forceSetIcon( iconName: string ) {
+			if ( !iconName || !lookup.value ) {
+				return;
+			}
+			// Do the same menu item filtering
+			onInput( iconName );
+			const lookupWrapper: HTMLElement = lookup.value.$el;
+			const iconInput = lookupWrapper.querySelector( 'input' );
+			if ( iconInput ) {
+				// Custom function added by Vue for v-model updates
+				// We have no control over the function name here, need to use
+				// _assign. TypeScript complains that _assign doesn't exist on
+				// HTMLInputElement (which is true, and the reason for using ?.()
+				// just in case) so we need to suppress that.
+				/* eslint-disable no-underscore-dangle, @typescript-eslint/ban-ts-comment */
+				// @ts-ignore: see above
+				iconInput._assign?.( iconName );
+				/* eslint-enable no-underscore-dangle, @typescript-eslint/ban-ts-comment */
+			}
+		}
+		// When the modelValueProp changes from above, this means that the demo was reset,
+		// and we want to make sure that the menu actually uses the new value
+		watch(
+			modelValueProp,
+			( newValue: string ) => forceSetIcon( newValue )
+		);
+		// Normally, we want to start with an empty menu set, *but* if the model value
+		// is set to have an initial icon, we want to make sure that it is available.
+		onMounted( () => forceSetIcon( props.modelValue ) );
+
 		return {
+			lookup,
 			wrappedModel,
 			menuItems,
 			menuConfig,
