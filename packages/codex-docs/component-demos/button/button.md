@@ -1,12 +1,8 @@
 <script setup>
 import { CdxButton } from '@wikimedia/codex';
 import ButtonWithIcon from '@/../component-demos/button/examples/ButtonWithIcon.vue';
-import ProgressiveButtonWithIcon from '@/../component-demos/button/examples/ProgressiveButtonWithIcon.vue';
-import DestructivePrimaryButtonWithIcon from '@/../component-demos/button/examples/DestructivePrimaryButtonWithIcon.vue';
 import QuietButtonWithIcon from '@/../component-demos/button/examples/QuietButtonWithIcon.vue';
 import IconOnlyButton from '@/../component-demos/button/examples/IconOnlyButton.vue';
-import ProgressivePrimaryIconOnlyButton from '@/../component-demos/button/examples/ProgressivePrimaryIconOnlyButton.vue';
-import DestructiveIconOnlyButton from '@/../component-demos/button/examples/DestructiveIconOnlyButton.vue';
 import QuietIconOnlyButton from '@/../component-demos/button/examples/QuietIconOnlyButton.vue';
 
 
@@ -164,34 +160,6 @@ const controlsConfig = [
 </template>
 </cdx-demo-wrapper>
 
-#### Progressive, with icon
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-<progressive-button-with-icon />
-</template>
-
-<template v-slot:code>
-
-<<< @/../component-demos/button/examples/ProgressiveButtonWithIcon.vue
-
-</template>
-</cdx-demo-wrapper>
-
-#### Destructive, primary, with icon
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-<destructive-primary-button-with-icon />
-</template>
-
-<template v-slot:code>
-
-<<< @/../component-demos/button/examples/DestructivePrimaryButtonWithIcon.vue
-
-</template>
-</cdx-demo-wrapper>
-
 #### Default, quiet, with icon
 
 <cdx-demo-wrapper>
@@ -201,7 +169,7 @@ const controlsConfig = [
 
 <template v-slot:code>
 
-<<< @/../component-demos/button/examples/DestructivePrimaryButtonWithIcon.vue
+<<< @/../component-demos/button/examples/QuietButtonWithIcon.vue
 
 </template>
 </cdx-demo-wrapper>
@@ -215,32 +183,6 @@ const controlsConfig = [
 <template v-slot:code>
 
 <<< @/../component-demos/button/examples/IconOnlyButton.vue
-
-</template>
-</cdx-demo-wrapper>
-
-#### Progressive, primary, icon only
-<cdx-demo-wrapper>
-<template v-slot:demo>
-<progressive-primary-icon-only-button />
-</template>
-
-<template v-slot:code>
-
-<<< @/../component-demos/button/examples/ProgressivePrimaryIconOnlyButton.vue
-
-</template>
-</cdx-demo-wrapper>
-
-#### Destructive, icon only
-<cdx-demo-wrapper>
-<template v-slot:demo>
-<destructive-icon-only-button />
-</template>
-
-<template v-slot:code>
-
-<<< @/../component-demos/button/examples/DestructiveIconOnlyButton.vue
 
 </template>
 </cdx-demo-wrapper>
