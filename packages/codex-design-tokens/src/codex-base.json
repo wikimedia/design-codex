@@ -11,7 +11,7 @@
 			"value": "{ color.blue100 }"
 		},
 		"base--transparent": {
-			"value": "{ color.transparent }"
+			"value": "{ color.transparent-light }"
 		},
 		"base--disabled": {
 			"value": "{ color.gray200 }"

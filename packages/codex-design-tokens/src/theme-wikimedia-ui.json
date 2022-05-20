@@ -91,6 +91,12 @@
 		},
 		"transparent": {
 			"value": "transparent"
+		},
+		"transparent-light": {
+			"value": "rgba( 255, 255, 255, 0 )"
+		},
+		"transparent-dark": {
+			"value": "rgba( 0, 0, 0, 0 )"
 		}
 	},
 	"opacity": {
