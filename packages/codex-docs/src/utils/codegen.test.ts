@@ -69,6 +69,17 @@ describe( 'codegen', () => {
 		expect( generateSlots( slotValues ) ).toBe( expectedString );
 	} );
 
+	it( 'does not wrapper default slot content in <template>', () => {
+		const slotValues: SlotValuesWithIcons = {
+			default: 'primary content',
+			other: 'other content'
+		};
+
+		const expectedString = 'primary content' +
+			'\n<template #other>other content</template>';
+		expect( generateSlots( slotValues ) ).toBe( expectedString );
+	} );
+
 	it( 'allows bypassing escapeHtml() calls for icons', () => {
 		// Types are needed because typescript doesn't infer correctly
 		const slotText: SlotConfigWithValue = {

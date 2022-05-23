@@ -97,9 +97,15 @@ function escapeSlotContent( slotContent: string | EscapedSlotContent ) : string 
  * @return {string}
  */
 export function generateSlots( slotValues: SlotValuesWithIcons ) : string {
+	// Default slot does not need <template> wrapper
 	return Object.keys( slotValues )
-		.map( ( slotName ) =>
-			`<template #${slotName}>${escapeSlotContent( slotValues[ slotName ] )}</template>` )
+		.map( ( slotName ) => {
+			const escapedContent = escapeSlotContent( slotValues[ slotName ] );
+			if ( slotName === 'default' ) {
+				return escapedContent;
+			}
+			return `<template #${slotName}>${escapedContent}</template>`;
+		} )
 		.join( '\n' );
 }
 
@@ -204,16 +210,7 @@ export function generateVueTag(
 		currentControlValues
 	);
 	const propString = generateProps( propValues );
-	const hasNonDefaultSlot = Object.keys( slotValues )
-		.filter( ( slotName ) => slotName !== 'default' )
-		.length > 0;
-
-	let tagContents = '';
-	if ( hasNonDefaultSlot ) {
-		tagContents = generateSlots( slotValues );
-	} else if ( slotValues.default ) {
-		tagContents = escapeSlotContent( slotValues.default );
-	}
+	const tagContents = generateSlots( slotValues );
 
 	const tagName = 'cdx-' + toKebabCase( demoTitle );
 	let demoCode = `<${tagName}`;
