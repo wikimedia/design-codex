@@ -23,7 +23,7 @@ import useGeneratedId from './composables/useGeneratedId';
 import useIntersectionObserver from './composables/useIntersectionObserver';
 import useModelWrapper from './composables/useModelWrapper';
 import useSplitAttributes from './composables/useSplitAttributes';
-import useStringHelpers from './composables/useStringHelpers';
+import * as useStringHelpers from './composables/useStringHelpers';
 
 import type {
 	HTMLDirection,

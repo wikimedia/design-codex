@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-import useStringHelpers from '../../composables/useStringHelpers';
+import { splitStringAtMatch } from '../../composables/useStringHelpers';
 
 /**
  * Title with highlighted search query.
@@ -37,8 +37,6 @@ export default defineComponent( {
 	},
 
 	setup: ( props ) => {
-		const { splitStringAtMatch } = useStringHelpers();
-
 		// Splits the title into three chunks: the part before the search query, the part containing
 		// the search query, and the part after the search query.
 		const titleChunks = computed( () =>

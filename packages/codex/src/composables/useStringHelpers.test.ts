@@ -1,6 +1,4 @@
-import useStringHelpers from './useStringHelpers';
-
-const { regExpEscape, splitStringAtMatch } = useStringHelpers();
+import { regExpEscape, splitStringAtMatch } from './useStringHelpers';
 
 describe( 'regExpEscape', () => {
 	it( 'should escape regular expression', () => {
