@@ -182,7 +182,7 @@ export default defineComponent( {
 					// prop as a key
 					map.set( item.props.name, {
 						name: item.props.name,
-						id: useGeneratedId( item.props.name ).value,
+						id: useGeneratedId( item.props.name ),
 						label: item.props.label || item.props.name,
 						disabled: item.props.disabled
 					} );

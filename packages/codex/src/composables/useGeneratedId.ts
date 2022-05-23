@@ -1,9 +1,9 @@
-import { Ref, ref, getCurrentInstance } from 'vue';
+import { getCurrentInstance } from 'vue';
 import { LibraryPrefix } from '../constants';
 let counter = 0;
 
 /**
- * Get a ref for a unique ID suitable for use in HTML templates.
+ * Get a unique ID suitable for use in HTML templates.
  *
  * All strings begin with the library prefix "cdx-". If an optional identifier
  * string is provided, that is included as well. Alternatively, if an "id"
@@ -15,16 +15,14 @@ let counter = 0;
  * @param identifier
  * @return generatedId
  */
-export default function useGeneratedId( identifier? : string ) : Ref<string> {
+export default function useGeneratedId( identifier? : string ) : string {
 	const vm = getCurrentInstance();
 	const externalId = <string|undefined> vm?.props.id || <string|undefined> vm?.attrs.id;
-	let generatedId : string;
 	if ( identifier ) {
-		generatedId = `${LibraryPrefix}-${identifier}-${counter++}`;
+		return `${LibraryPrefix}-${identifier}-${counter++}`;
 	} else if ( externalId ) {
-		generatedId = `${LibraryPrefix}-${externalId}-${counter++}`;
+		return `${LibraryPrefix}-${externalId}-${counter++}`;
 	} else {
-		generatedId = `${LibraryPrefix}-${counter++}`;
+		return `${LibraryPrefix}-${counter++}`;
 	}
-	return ref( generatedId );
 }

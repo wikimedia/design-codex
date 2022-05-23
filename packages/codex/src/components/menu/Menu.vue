@@ -203,10 +203,9 @@ export default defineComponent( {
 		 * reference this value instead of the original menuItems prop.
 		 */
 		const computedMenuItems = computed( (): MenuItemDataWithId[] => {
-			const generateMenuItemId = () => useGeneratedId( 'menu-item' ).value;
 			return props.menuItems.map( ( menuItem ) => ( {
 				...menuItem,
-				id: generateMenuItemId()
+				id: useGeneratedId( 'menu-item' )
 			} ) );
 		} );
 
