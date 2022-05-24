@@ -5,10 +5,10 @@
 		</p>
 
 		<cdx-lookup
-			v-model="selection"
+			v-model:selected="selection"
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
-			@new-input="onInput"
+			@input="onInput"
 		/>
 	</div>
 </template>
@@ -22,7 +22,7 @@ export default defineComponent( {
 	name: 'LookupDefault',
 	components: { CdxLookup },
 	setup() {
-		const selection = ref( '' );
+		const selection = ref<string|null>( null );
 		const menuItems = ref<MenuItemData[]>( [] );
 
 		const menuConfig: MenuConfig = {

@@ -174,7 +174,7 @@ export default defineComponent( {
 		 */
 		searchResults: {
 			type: Array as PropType<SearchResult[]>,
-			default: () => []
+			required: true
 		},
 		/**
 		 * Label for the submit button.
@@ -188,7 +188,7 @@ export default defineComponent( {
 		/**
 		 * Initial value for the text input.
 		 *
-		 * Triggers an initial new-input event on mount.
+		 * Triggers an initial `input` event on mount.
 		 */
 		initialInputValue: {
 			type: String,
@@ -242,7 +242,7 @@ export default defineComponent( {
 		 *
 		 * @property {string} value The new input value
 		 */
-		'new-input',
+		'input',
 		/**
 		 * When a search result is selected.
 		 *
@@ -346,7 +346,7 @@ export default defineComponent( {
 		/**
 		 * Handle changes to the text input.
 		 *
-		 * 'new-input' events with the new value will be emitted, but this will be debounced if a
+		 * 'input' events with the new value will be emitted, but this will be debounced if a
 		 * positive debounceInterval is provided as a prop or if the default DebounceInterval is
 		 * used.
 		 *
@@ -402,7 +402,7 @@ export default defineComponent( {
 			}
 
 			const handleUpdateInputValue = () => {
-				emit( 'new-input', newVal );
+				emit( 'input', newVal );
 			};
 
 			if ( immediate ) {

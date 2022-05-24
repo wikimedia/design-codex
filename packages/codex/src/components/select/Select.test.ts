@@ -20,26 +20,26 @@ describe( 'Basic usage', () => {
 	type Case = [
 		msg: string,
 		menuItems: MenuItemData[],
+		selected: string|number|null,
 		defaultLabel?: string,
-		modelValue?: string|number,
 		defaultIcon?: Icon
 	]
 
 	const cases: Case[] = [
-		[ 'No selection', data, 'Choose an option', undefined ],
-		[ 'No selection with empty string', data, 'Choose an option', '' ],
-		[ 'Menu item with label selected', data, 'Choose an option', 'a' ],
-		[ 'Menu item with no label selected', data, 'Choose an option', 'c' ],
-		[ 'Menu item with icon selected', data, 'Choose an option', 'e' ],
-		[ 'With Start icon', data, 'Choose an option', undefined, cdxIconSearch ],
-		[ 'With Start icon and selection', data, 'Choose an option', 'c', cdxIconSearch ]
+		[ 'No selection', data, null, 'Choose an option' ],
+		[ 'No selection with empty string', data, null, 'Choose an option' ],
+		[ 'Menu item with label selected', data, 'a', 'Choose an option' ],
+		[ 'Menu item with no label selected', data, 'c', 'Choose an option' ],
+		[ 'Menu item with icon selected', data, 'e', 'Choose an option' ],
+		[ 'With Start icon', data, null, 'Choose an option', cdxIconSearch ],
+		[ 'With Start icon and selection', data, 'c', 'Choose an option', cdxIconSearch ]
 	];
 
 	test.each( cases )(
 		'Case %# %s: (%p) => HTML',
-		( _, menuItems, defaultLabel, modelValue, defaultIcon = undefined ) => {
+		( _, menuItems, selected, defaultLabel, defaultIcon = undefined ) => {
 			const wrapper = mount( CdxSelect, {
-				props: { menuItems, defaultLabel, modelValue, defaultIcon }
+				props: { menuItems, defaultLabel, selected, defaultIcon }
 			} );
 			expect( wrapper.element ).toMatchSnapshot();
 		} );
@@ -50,7 +50,8 @@ describe( 'Select', () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				menuItems: data
+				menuItems: data,
+				selected: null
 			}
 		} );
 		expect( wrapper.find( '.cdx-select__handle' ).text() ).toMatch( 'Choose an option' );
@@ -60,7 +61,8 @@ describe( 'Select', () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				menuItems: data
+				menuItems: data,
+				selected: null
 			}
 		} );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
@@ -73,7 +75,8 @@ describe( 'Select', () => {
 			props: {
 				defaultLabel: 'Choose an option',
 				menuItems: data,
-				disabled: true
+				disabled: true,
+				selected: null
 			}
 		} );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
@@ -81,24 +84,26 @@ describe( 'Select', () => {
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
 
-	it( 'Clicking a menu item emits an "update:modelValue" event with the correct "value"', async () => {
+	it( 'Clicking a menu item emits an "update:selected" event with the correct "value"', async () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				menuItems: data
+				menuItems: data,
+				selected: null
 			}
 		} );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'click' );
 		await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
-		expect( wrapper.emitted()[ 'update:modelValue' ] ).toBeTruthy();
-		expect( wrapper.emitted()[ 'update:modelValue' ][ 0 ] ).toEqual( [ data[ 0 ].value ] );
+		expect( wrapper.emitted()[ 'update:selected' ] ).toBeTruthy();
+		expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ data[ 0 ].value ] );
 	} );
 
 	it( 'Clicking a menu item closes the menu', async () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				menuItems: data
+				menuItems: data,
+				selected: null
 			}
 		} );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'click' );
@@ -106,33 +111,33 @@ describe( 'Select', () => {
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
 
-	it( 'If a modelValue is provided it automatically shows the matching item as selected', () => {
+	it( 'If a selected is provided it automatically shows the matching item as selected', () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
 				menuItems: data,
-				modelValue: 'b'
+				selected: 'b'
 			}
 		} );
 		expect( wrapper.find( '.cdx-select__handle' ).text() ).toMatch( data[ 1 ].label || data[ 1 ].value );
 	} );
 
-	it( 'If the modelValue prop is updated in the parent, the component updates itself to the new value', async () => {
+	it( 'If the selected prop is updated in the parent, the component updates itself to the new value', async () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
-				modelValue: 'c',
+				selected: 'c',
 				defaultLabel: 'Choose an option',
 				menuItems: data
 			}
 		} );
-		await wrapper.setProps( { modelValue: 'b' } );
+		await wrapper.setProps( { selected: 'b' } );
 		expect( wrapper.find( '.cdx-select__handle' ).text() ).toMatch( data[ 1 ].label || data[ 1 ].value );
 	} );
 
 	it( 'Enter keydown expands the menu if it is not already expanded', async () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
-				modelValue: 'c',
+				selected: 'c',
 				defaultLabel: 'Choose an option',
 				menuItems: data
 			}
@@ -144,7 +149,7 @@ describe( 'Select', () => {
 	it( 'Enter keydown does nothing when disabled', async () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
-				modelValue: 'c',
+				selected: 'c',
 				defaultLabel: 'Choose an option',
 				menuItems: data,
 				disabled: true
@@ -158,20 +163,22 @@ describe( 'Select', () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				menuItems: data
+				menuItems: data,
+				selected: null
 			}
 		} );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'ArrowDown' } );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );
-		expect( wrapper.emitted()[ 'update:modelValue' ][ 0 ] ).toEqual( [ data[ 0 ].value ] );
+		expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ data[ 0 ].value ] );
 	} );
 
 	it( 'Esc keydown closes the menu', async () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				menuItems: data
+				menuItems: data,
+				selected: null
 			}
 		} );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );
@@ -184,7 +191,8 @@ describe( 'Select', () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
-				menuItems: data
+				menuItems: data,
+				selected: null
 			}
 		} );
 		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );

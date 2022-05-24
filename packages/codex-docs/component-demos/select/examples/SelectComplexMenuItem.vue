@@ -1,6 +1,6 @@
 <template>
 	<cdx-select
-		v-model="selection"
+		v-model:selected="selection"
 		:menu-items="menuItems"
 		:menu-config="menuConfig"
 		default-label="Choose an option"

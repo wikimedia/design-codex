@@ -23,7 +23,7 @@ element within the component.
 
 The Combobox component combines a menu of selectable items with a text box
 that can accept arbitrary input from the user. The component should receive a
-`v-model` binding from its parent as well as an array of menu items (which can be
+`v-model:selected` binding from its parent as well as an array of menu items (which can be
 empty).
 
 <cdx-demo-wrapper>

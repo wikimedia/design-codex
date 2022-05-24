@@ -1,11 +1,13 @@
 import { DOMWrapper, mount, VueWrapper } from '@vue/test-utils';
 import { CdxTypeaheadSearch, CdxMenuItem, CdxSearchInput } from '../../lib';
 import { DebounceInterval, PendingDelay } from '../../constants';
+import { SearchResult } from '../../types';
 
 const propsData = {
 	buttonLabel: 'Search',
 	placeholder: 'Search Wikipedia',
 	formAction: '/w/index.php',
+	searchResults: [],
 	searchResultsLabel: 'Search results',
 	id: 'foo'
 };
@@ -51,6 +53,7 @@ describe( 'TypeaheadSearch initial state', () => {
 		msg: string,
 		props: {
 			id: string;
+			searchResults: SearchResult[],
 			formAction: string;
 			buttonLabel: string;
 			searchResultsLabel: string
@@ -190,7 +193,7 @@ describe( 'TypeaheadSearch initial state', () => {
 } );
 
 describe( 'TypeaheadSearch, when mounted', () => {
-	it( 'emits a new-input event when there is an initialInputValue', () => {
+	it( 'emits a input event when there is an initialInputValue', () => {
 		const wrapper = mount( CdxTypeaheadSearch, {
 			props: { initialInputValue: 'foo', ...propsData },
 			slots: {
@@ -199,7 +202,7 @@ describe( 'TypeaheadSearch, when mounted', () => {
 			}
 		} );
 
-		expect( wrapper.emitted( 'new-input' )?.[ 0 ] ).toEqual( [ 'foo' ] );
+		expect( wrapper.emitted( 'input' )?.[ 0 ] ).toEqual( [ 'foo' ] );
 	} );
 } );
 

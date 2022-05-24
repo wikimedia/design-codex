@@ -2,12 +2,12 @@
 	<div class="cdx-docs-icon-lookup">
 		<cdx-lookup
 			ref="lookup"
-			v-model="wrappedModel"
+			v-model:selected="wrappedModel"
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
 			:clearable="true"
 			placeholder="Start typing an icon name"
-			@new-input="onInput"
+			@input="onInput"
 		/>
 	</div>
 </template>

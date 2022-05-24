@@ -14,19 +14,19 @@
 				<cdx-tab name="combobox">
 					<h2>Combobox</h2>
 					<cdx-combobox
-						v-model="selection"
+						v-model:selected="textSelection"
 						:menu-items="options"
 						placeholder="Type or choose an option"
 						:disabled="false"
 						:clearable="true"
 					/>
-					<p>Selected value: {{ selection || '(none)' }}</p>
+					<p>Selected value: {{ textSelection || '(none)' }}</p>
 				</cdx-tab>
 
 				<cdx-tab name="select">
 					<h2>Select</h2>
 					<cdx-select
-						v-model="selection"
+						v-model:selected="selection"
 						:menu-items="options"
 						default-label="Choose an option"
 					/>
@@ -38,17 +38,17 @@
 					<cdx-radio
 						v-for="option in options"
 						:key="option.value"
-						v-model="selection"
+						v-model="textSelection"
 						:input-value="option.value"
 					>
 						{{ option.label }}
 					</cdx-radio>
-					<p>Selected value: {{ selection || '(none)' }}</p>
+					<p>Selected value: {{ textSelection || '(none)' }}</p>
 				</cdx-tab>
 
 				<cdx-tab name="textinput">
 					<h2>Text input</h2>
-					Selected value: <cdx-text-input v-model="selection" clearable />
+					Selected value: <cdx-text-input v-model:selected="selection" clearable />
 				</cdx-tab>
 
 				<cdx-tab name="checkbox">
@@ -203,7 +203,8 @@ const options: MenuItemData[] = [
 ];
 
 const dir = ref<HTMLDirection>( 'ltr' );
-const selection = ref<string>();
+const selection = ref<string|null>( null );
+const textSelection = ref<string>( '' );
 const multiSelection = ref<string[]>( [] );
 const toggleValue = ref( false );
 

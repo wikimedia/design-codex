@@ -1,16 +1,29 @@
 import { mount, enableAutoUnmount } from '@vue/test-utils';
 import { CdxCombobox, CdxButton, CdxMenuItem, CdxTextInput } from '../../lib';
+import { MenuItemData } from '../../types';
 
-const data: {
-	value: string,
-	label?: string,
-	disabled?: boolean
-}[] = [
+const data: MenuItemData[] = [
 	{ value: 'a', label: 'Option A' },
 	{ value: 'b', label: 'Option B' },
 	{ value: 'c' },
 	{ value: 'd', label: 'Option D', disabled: true }
 ];
+
+const defaultProps: {
+	selected: string,
+	menuItems: MenuItemData[]
+} = {
+	selected: '',
+	menuItems: []
+};
+
+const propsWithData: {
+	selected: string,
+	menuItems: MenuItemData[]
+} = {
+	selected: '',
+	menuItems: data
+};
 
 describe( 'Basic usage', () => {
 	// To properly simulate some of the focus behavior that this component
@@ -26,9 +39,7 @@ describe( 'Basic usage', () => {
 
 	it( 'Displays the default label when no item has been selected if a "placeholder" attribute is present', () => {
 		const wrapper = mount( CdxCombobox, {
-			props: {
-				menuItems: data
-			},
+			props: propsWithData,
 			attrs: {
 				placeholder: 'Choose an option'
 			},
@@ -39,7 +50,7 @@ describe( 'Basic usage', () => {
 
 	it( 'Clicking the button toggles the menu visibility', async () => {
 		const wrapper = mount( CdxCombobox, {
-			props: { menuItems: data },
+			props: propsWithData,
 			attachTo: '#root'
 		} );
 		const expandButton = wrapper.findComponent( CdxButton );
@@ -50,7 +61,7 @@ describe( 'Basic usage', () => {
 	it( 'Clicking the button does nothing if component is disabled', async () => {
 		const wrapper = mount( CdxCombobox, {
 			props: {
-				menuItems: data,
+				...propsWithData,
 				disabled: true
 			},
 			attachTo: '#root'
@@ -60,21 +71,21 @@ describe( 'Basic usage', () => {
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
 
-	it( 'Clicking an item emits an "update:modelValue" event with the correct "value"', async () => {
+	it( 'Clicking an item emits an "update:selected" event with the correct "value"', async () => {
 		const wrapper = mount( CdxCombobox, {
-			props: { menuItems: data },
+			props: propsWithData,
 			attachTo: '#root'
 		} );
 		const expandButton = wrapper.findComponent( CdxButton );
 		await expandButton.trigger( 'click' );
 		await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
-		expect( wrapper.emitted()[ 'update:modelValue' ] ).toBeTruthy();
-		expect( wrapper.emitted()[ 'update:modelValue' ][ 0 ] ).toEqual( [ data[ 0 ].value ] );
+		expect( wrapper.emitted()[ 'update:selected' ] ).toBeTruthy();
+		expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ data[ 0 ].value ] );
 	} );
 
 	it( 'Clicking an item closes the menu', async () => {
 		const wrapper = mount( CdxCombobox, {
-			props: { menuItems: data },
+			props: propsWithData,
 			attachTo: '#root'
 		} );
 		const expandButton = wrapper.findComponent( CdxButton );
@@ -85,17 +96,17 @@ describe( 'Basic usage', () => {
 
 	it( 'Allows the user to input arbitrary text that does not correspond to any item value', async () => {
 		const wrapper = mount( CdxCombobox, {
-			props: { menuItems: data },
+			props: propsWithData,
 			attachTo: '#root'
 		} );
 		const input = wrapper.findComponent( CdxTextInput );
 		await input.setValue( 'test test' );
-		expect( wrapper.emitted()[ 'update:modelValue' ][ 0 ] ).toEqual( [ 'test test' ] );
+		expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ 'test test' ] );
 	} );
 
 	it( 'Inital focus inside the text input should expand the menu', async () => {
 		const wrapper = mount( CdxCombobox, {
-			props: { menuItems: data },
+			props: propsWithData,
 			attachTo: '#root'
 		} );
 		const inputEl = wrapper.find( '.cdx-text-input input' );
@@ -105,7 +116,7 @@ describe( 'Basic usage', () => {
 
 	it( 'Blurring the text input should close the menu', async () => {
 		const wrapper = mount( CdxCombobox, {
-			props: { menuItems: data },
+			props: propsWithData,
 			attachTo: '#root'
 		} );
 		const inputEl = wrapper.find( '.cdx-text-input input' );
@@ -116,7 +127,7 @@ describe( 'Basic usage', () => {
 
 	it( 'Clicking the expander button after input is focused should result in the menu being closed', async () => {
 		const wrapper = mount( CdxCombobox, {
-			props: { menuItems: data },
+			props: propsWithData,
 			attachTo: '#root'
 		} );
 		const inputEl = wrapper.find( '.cdx-text-input input' );
@@ -130,7 +141,7 @@ describe( 'Basic usage', () => {
 
 	it( 'Clicking the expander will not show menu if neither items nor no-results content are present', async () => {
 		const wrapper = mount( CdxCombobox, {
-			props: { menuItems: [] },
+			props: defaultProps,
 			attachTo: '#root'
 		} );
 		const expanderBtn = wrapper.findComponent( CdxButton );
@@ -142,7 +153,7 @@ describe( 'Basic usage', () => {
 	it( 'Clicking the expander will not show menu if component is disabled', async () => {
 		const wrapper = mount( CdxCombobox, {
 			props: {
-				menuItems: data,
+				...propsWithData,
 				disabled: true
 			},
 			attachTo: '#root'
@@ -156,7 +167,7 @@ describe( 'Basic usage', () => {
 	it( 'Disabled class is present if the disabled prop is provided', () => {
 		const wrapper = mount( CdxCombobox, {
 			props: {
-				menuItems: data,
+				...propsWithData,
 				disabled: true
 			},
 			attachTo: '#root'
@@ -166,7 +177,7 @@ describe( 'Basic usage', () => {
 
 	it( 'Disabled class is not present if the disabled prop is not provided', () => {
 		const wrapper = mount( CdxCombobox, {
-			props: { menuItems: data },
+			props: propsWithData,
 			attachTo: '#root'
 		} );
 		expect( wrapper.classes() ).not.toContain( 'cdx-combobox--disabled' );
@@ -174,7 +185,7 @@ describe( 'Basic usage', () => {
 
 	it( 'Enter keydown expands the menu if it is not already expanded', async () => {
 		const wrapper = mount( CdxCombobox, {
-			props: { menuItems: data },
+			props: propsWithData,
 			attachTo: '#root'
 		} );
 		const inputEl = wrapper.find( '.cdx-text-input input' );
@@ -184,7 +195,7 @@ describe( 'Basic usage', () => {
 
 	it( 'Enter keydown does not expand the menu if there is no data to display', async () => {
 		const wrapper = mount( CdxCombobox, {
-			props: { menuItems: [] },
+			props: defaultProps,
 			attachTo: '#root'
 		} );
 		const inputEl = wrapper.find( '.cdx-text-input input' );

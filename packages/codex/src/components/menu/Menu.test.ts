@@ -7,6 +7,8 @@ const exampleMenuItems: MenuItemData[] = [
 	{ value: 'a', label: 'Option A' },
 	{ value: 'b', label: 'Option B' },
 	{ value: 'c' },
+	{ value: '', label: 'Empty String' },
+	{ value: 0, label: 'Number 0' },
 	{ value: 'd', label: 'Option D', disabled: true }
 ];
 
@@ -74,6 +76,26 @@ it( 'Clicking a menu item emits an "update:selected" event with the correct "sel
 	expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ exampleMenuItems[ 0 ].value ] );
 } );
 
+it( 'Clicking a menu item with a value of 0 emits an "update:selected" event with the correct "selectedValue"', async () => {
+	const wrapper = mount( CdxMenu, { props: {
+		...defaultProps,
+		menuItems: exampleMenuItems
+	} } );
+	await wrapper.findAllComponents( CdxMenuItem )[ 4 ].trigger( 'click' );
+	expect( wrapper.emitted()[ 'update:selected' ] ).toBeTruthy();
+	expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ exampleMenuItems[ 4 ].value ] );
+} );
+
+it( 'Clicking a menu item with a value of empty string emits an "update:selected" event with the correct "selectedValue"', async () => {
+	const wrapper = mount( CdxMenu, { props: {
+		...defaultProps,
+		menuItems: exampleMenuItems
+	} } );
+	await wrapper.findAllComponents( CdxMenuItem )[ 3 ].trigger( 'click' );
+	expect( wrapper.emitted()[ 'update:selected' ] ).toBeTruthy();
+	expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ exampleMenuItems[ 3 ].value ] );
+} );
+
 it( 'Clicking a menu item emits an "update:expanded" event indicating the menu should be closed', async () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps } );
 	await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
@@ -83,7 +105,7 @@ it( 'Clicking a menu item emits an "update:expanded" event indicating the menu s
 
 it( 'Clicking a disabled menu item does not emit any events', async () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps } );
-	await wrapper.findAllComponents( CdxMenuItem )[ 3 ].trigger( 'click' );
+	await wrapper.findAllComponents( CdxMenuItem )[ 5 ].trigger( 'click' );
 	expect( wrapper.emitted()[ 'update:modelValue' ] ).toBeFalsy();
 	expect( wrapper.emitted()[ 'update:expanded' ] ).toBeFalsy();
 } );
@@ -170,7 +192,7 @@ it( 'Down arrow keydown opens menu and highlights selected item when menu is clo
 it( 'Down arrow keydown skips disabled elements and loops around to the beginning if necessary', async () => {
 	const wrapper = mount( CdxMenu, { props: {
 		...defaultProps,
-		selected: 'c'
+		selected: 0 // This is the entry before the disabled menuItem
 	} } );
 	await delegateKeydownEvent( wrapper, 'ArrowDown' );
 	expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
@@ -227,7 +249,7 @@ it( 'Up arrow keydown skips disabled elements and loops around to the end if nec
 	await wrapper.setProps( { expanded: true } );
 
 	await delegateKeydownEvent( wrapper, 'ArrowUp' );
-	expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+	expect( wrapper.findAllComponents( CdxMenuItem )[ 4 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
 } );
 
 it( 'Enter keydown after navigating to a new item emits an update event with the value of that item', async () => {

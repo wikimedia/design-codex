@@ -10,7 +10,7 @@
 		:highlight-query="true"
 		:auto-expand-width="true"
 		placeholder="Search Wikipedia"
-		@new-input="onNewInput"
+		@input="onInput"
 	>
 		<template #default>
 			<input
@@ -72,7 +72,7 @@ export default defineComponent( {
 			} ) );
 		}
 
-		function onNewInput( value: string ) {
+		function onInput( value: string ) {
 			// Internally track the current search term.
 			currentSearchTerm.value = value;
 
@@ -111,7 +111,7 @@ export default defineComponent( {
 		return {
 			searchResults,
 			searchFooterUrl,
-			onNewInput
+			onInput
 		};
 	}
 } );

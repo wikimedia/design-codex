@@ -104,15 +104,16 @@ export default defineComponent( {
 			type: Array as PropType<MenuItemData[]>,
 			required: true
 		},
-
 		/**
 		 * Value of the current selection.
 		 *
-		 * Provided by `v-model` binding in the parent component.
+		 * Must be bound with `v-model:selected`.
+		 *
+		 * The property should be initialized to `null` rather than using a falsy value.
 		 */
-		modelValue: {
+		selected: {
 			type: [ String, Number, null ] as PropType<string|number|null>,
-			default: null
+			required: true
 		},
 		/**
 		 * Label to display when no selection has been made.
@@ -156,9 +157,9 @@ export default defineComponent( {
 		/**
 		 * When the selection value changes.
 		 *
-		 * @property {string | number} modelValue The new model value
+		 * @property {string | number | null} modelValue The new model value
 		 */
-		'update:modelValue'
+		'update:selected'
 	],
 
 	setup( props, { emit } ) {
@@ -171,10 +172,10 @@ export default defineComponent( {
 
 		// The value of the component's current selection is tracked in the parent as a v-model
 		// binding.
-		const modelWrapper = useModelWrapper( toRef( props, 'modelValue' ), emit );
+		const modelWrapper = useModelWrapper( toRef( props, 'selected' ), emit, 'update:selected' );
 
 		const selectedMenuItem = computed( () =>
-			props.menuItems.find( ( menuItem ) => menuItem.value === props.modelValue )
+			props.menuItems.find( ( menuItem ) => menuItem.value === props.selected )
 		);
 
 		// Set up the label that should display in the handle.

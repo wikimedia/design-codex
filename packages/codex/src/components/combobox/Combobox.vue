@@ -114,11 +114,11 @@ export default defineComponent( {
 		/**
 		 * Value of the current selection.
 		 *
-		 * Provided by `v-model` binding in the parent component.
+		 * Must be bound with `v-model:selected`.
 		 */
-		modelValue: {
+		selected: {
 			type: [ String, Number ] as PropType<string|number>,
-			default: ''
+			required: true
 		},
 
 		/**
@@ -144,18 +144,19 @@ export default defineComponent( {
 
 	emits: [
 		/**
-		 * When the selection value changes.
+		 * When the selected value changes.
 		 *
-		 * @property {string | number} modelValue The new model value
+		 * @property {string | number} selected The new selected value
 		 */
-		'update:modelValue'
+		'update:selected'
 	],
 
 	setup( props, { emit, attrs, slots } ) {
 		const input = ref<InstanceType<typeof CdxTextInput>>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
 		const menuId = useGeneratedId( 'combobox' );
-		const modelWrapper = useModelWrapper( toRef( props, 'modelValue' ), emit );
+		const selectedProp = toRef( props, 'selected' );
+		const modelWrapper = useModelWrapper( selectedProp, emit, 'update:selected' );
 		const expanded = ref( false );
 		const expanderClicked = ref( false );
 

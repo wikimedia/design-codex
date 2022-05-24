@@ -11,7 +11,7 @@
 			:highlight-query="true"
 			:auto-expand-width="true"
 			placeholder="Search Wikipedia"
-			@new-input="onNewInput"
+			@input="onInput"
 			@search-result-click="onSearchResultClick"
 			@submit="onSubmit"
 		>
@@ -54,8 +54,8 @@ export default defineComponent( {
 		const searchFooterUrl = ref( '' );
 		const currentSearchTerm = ref( '' );
 
-		function onNewInput( value: string ) {
-			console.log( '"new-input" event emitted with value: ' + value );
+		function onInput( value: string ) {
+			console.log( '"input" event emitted with value: ' + value );
 
 			// Internally track the current search term.
 			currentSearchTerm.value = value;
@@ -125,7 +125,7 @@ export default defineComponent( {
 		return {
 			searchResults,
 			searchFooterUrl,
-			onNewInput,
+			onInput,
 			onSearchResultClick,
 			onSubmit
 		};

@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<cdx-lookup
-			v-model="selection"
+			v-model:selected="selection"
 			:menu-items="menuItems"
-			@new-input="onInput"
+			@input="onInput"
 		>
 			<template #no-results>
 				No results found.
@@ -21,7 +21,7 @@ export default defineComponent( {
 	name: 'LookupNoResults',
 	components: { CdxLookup },
 	setup() {
-		const selection = ref( '' );
+		const selection = ref<string|null>( null );
 		const menuItems = ref<MenuItemData[]>( [] );
 
 		function onInput( value: string ) {

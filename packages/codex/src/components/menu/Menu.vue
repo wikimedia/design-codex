@@ -86,12 +86,14 @@ export default defineComponent( {
 			required: true
 		},
 		/**
-		 * Value of the selected menu item, or null if no item is selected.
+		 * Value of the selected menu item, or undefined if no item is selected.
 		 *
 		 * Must be bound with `v-model:selected`.
+		 *
+		 * The property should be initialized to `null` rather than using a falsy value.
 		 */
 		selected: {
-			type: [ String, Number, null ] as PropType<string | number | null>,
+			type: [ String, Number, null ] as PropType<string|number|null>,
 			required: true
 		},
 		/**
@@ -160,13 +162,13 @@ export default defineComponent( {
 		}
 	},
 	emits: [
-		// Don't remove the spaces in the "string | number | null" type below; removing these spaces
-		// causes the documentation to render the type as "union" instead.
+		// Don't remove the spaces in the "string | number | null" type below; removing these
+		// spaces causes the documentation to render the type as "union" instead.
 		/**
 		 * When the selected menu item changes.
 		 *
-		 * @property {string | number | null} selectedValue The `.value` property of the selected
-		 *   menu item, or null if no item is selected.
+		 * @property {string | number | null} selectedValue The `.value` property of the
+		 * selected menu item, or null if no item is selected.
 		 */
 		'update:selected',
 		/**
@@ -187,8 +189,8 @@ export default defineComponent( {
 		/**
 		 * When a menu item is highlighted via keyboard navigation.
 		 *
-		 * @property {string | number | null} selectedValue The `.value` property of the selected
-		 *   menu item, or null if no item is selected.
+		 * @property {MenuItemDataWithId} highlightedMenuItem The menu item
+		 * was highlighted
 		 */
 		'menu-item-keyboard-navigation'
 	],
@@ -249,11 +251,10 @@ export default defineComponent( {
 
 			switch ( menuState ) {
 				case 'selected':
-					emit( 'update:selected', menuItem?.value || null );
+					emit( 'update:selected', menuItem?.value ?? null );
 					emit( 'update:expanded', false );
 					activeMenuItem.value = null;
 					break;
-
 				case 'highlighted':
 					highlightedMenuItem.value = menuItem || null;
 					break;

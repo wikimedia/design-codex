@@ -1,6 +1,6 @@
 <template>
 	<cdx-select
-		v-model="selection"
+		v-model:selected="selection"
 		v-bind="selectProps"
 		:menu-items="menuItems"
 	/>
@@ -55,7 +55,7 @@ export default defineComponent( {
 	},
 	setup( props ) {
 
-		const selection = ref( '' );
+		const selection = ref<string|number|null>( null );
 		const selectProps = computed( () => ( {
 			defaultIcon: props.defaultIcon ? cdxIconSearch : undefined,
 			disabled: props.disabled,

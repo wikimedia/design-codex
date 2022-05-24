@@ -11,7 +11,7 @@
 			:show-thumbnail="true"
 			:highlight-query="true"
 			placeholder="Search Wikipedia"
-			@new-input="onNewInput"
+			@input="onInput"
 		>
 			<template #search-no-results-text>
 				No pages found with this title
@@ -49,7 +49,7 @@ export default defineComponent( {
 		const searchFooterUrl = ref( '' );
 		const currentSearchTerm = ref( '' );
 
-		function onNewInput( value: string ) {
+		function onInput( value: string ) {
 			currentSearchTerm.value = value;
 
 			if ( !value || value === '' ) {
@@ -99,7 +99,7 @@ export default defineComponent( {
 		return {
 			searchResults,
 			searchFooterUrl,
-			onNewInput
+			onInput
 		};
 	}
 } );

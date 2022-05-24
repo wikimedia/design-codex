@@ -16,8 +16,8 @@
 			:aria-activedescendant="highlightedId"
 			:disabled="disabled"
 			@update:model-value="onUpdateInput"
-			@focus="onFocus"
-			@blur="onBlur"
+			@focus="onInputFocus"
+			@blur="onInputBlur"
 			@keydown="onKeydown"
 		/>
 
@@ -67,7 +67,7 @@ import { MenuItemData, MenuConfig } from '../../types';
 /**
  * Text input with a dropdown menu of items, which are usually based on the current input value.
  *
- * Typical use will involve listening for `new-input` events, fetching or otherwise computing menu
+ * Typical use will involve listening for `input` events, fetching or otherwise computing menu
  * items, then passing those menu items back to the Lookup for display.
  */
 export default defineComponent( {
@@ -87,9 +87,11 @@ export default defineComponent( {
 		/**
 		 * Value of the current selection.
 		 *
-		 * Provided by `v-model` binding in the parent component.
+		 * Must be bound with `v-model:selected`.
+		 *
+		 * The property should be initialized to `null` rather than using a falsy value.
 		 */
-		modelValue: {
+		selected: {
 			type: [ String, Number, null ] as PropType<string|number|null>,
 			required: true
 		},
@@ -99,7 +101,7 @@ export default defineComponent( {
 		 */
 		menuItems: {
 			type: Array as PropType<MenuItemData[]>,
-			default: () => []
+			required: true
 		},
 
 		/**
@@ -135,15 +137,15 @@ export default defineComponent( {
 		/**
 		 * When the selected value changes.
 		 *
-		 * @property {string | number} modelValue The new model value
+		 * @property {string | number | null} selected The new selected value
 		 */
-		'update:modelValue',
+		'update:selected',
 		/**
 		 * When the text input value changes.
 		 *
 		 * @property {string | number} value The new value
 		 */
-		'new-input'
+		'input'
 	],
 
 	setup: ( props, { emit, attrs, slots } ) => {
@@ -154,10 +156,10 @@ export default defineComponent( {
 		const expanded = ref( false );
 		const isActive = ref( false );
 
-		const modelValueProp = toRef( props, 'modelValue' );
-		const modelWrapper = useModelWrapper( modelValueProp, emit );
+		const selectedProp = toRef( props, 'selected' );
+		const modelWrapper = useModelWrapper( selectedProp, emit, 'update:selected' );
 		const selectedMenuItem = computed( () =>
-			props.menuItems.find( ( item ) => item.value === props.modelValue )
+			props.menuItems.find( ( item ) => item.value === props.selected )
 		);
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
@@ -201,13 +203,13 @@ export default defineComponent( {
 				pending.value = true;
 			}
 
-			emit( 'new-input', newVal );
+			emit( 'input', newVal );
 		}
 
 		/**
 		 * On focus, maybe open the menu.
 		 */
-		function onFocus() {
+		function onInputFocus() {
 			isActive.value = true;
 			if (
 				// Input value is not null or an empty string.
@@ -223,7 +225,7 @@ export default defineComponent( {
 		/**
 		 * On blur, close the menu
 		 */
-		function onBlur() {
+		function onInputBlur() {
 			isActive.value = false;
 			expanded.value = false;
 		}
@@ -251,7 +253,7 @@ export default defineComponent( {
 		}
 
 		// When a new value is selected, update the input value to match.
-		watch( modelValueProp, ( newVal ) => {
+		watch( selectedProp, ( newVal ) => {
 			// If there is a newVal, including an empty string...
 			if ( newVal !== null ) {
 				// If there is a menu item selected, show the label (or the value, if there is no
@@ -261,7 +263,7 @@ export default defineComponent( {
 					'';
 
 				// We emit the new value to make sure that the menu is filtered correctly
-				emit( 'new-input', inputValue.value );
+				emit( 'input', inputValue.value );
 			}
 		} );
 
@@ -297,12 +299,12 @@ export default defineComponent( {
 			inputValue,
 			modelWrapper,
 			expanded,
-			onBlur,
+			onInputBlur,
 			rootClasses,
 			rootStyle,
 			otherAttrs,
 			onUpdateInput,
-			onFocus,
+			onInputFocus,
 			onKeydown
 		};
 	}

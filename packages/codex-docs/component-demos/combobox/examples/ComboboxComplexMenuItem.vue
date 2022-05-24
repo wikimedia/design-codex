@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<cdx-combobox
-			v-model="selection"
+			v-model:selected="selection"
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
 			placeholder="Type or choose an option"

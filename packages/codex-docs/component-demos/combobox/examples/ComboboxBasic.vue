@@ -5,7 +5,7 @@
 		</p>
 
 		<cdx-combobox
-			v-model="selection"
+			v-model:selected="selection"
 			:menu-items="menuItems"
 			placeholder="Type or choose an option"
 		/>

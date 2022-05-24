@@ -21,7 +21,7 @@ element within the component.
 
 ### Default
 
-The Lookup component will emit `new-input` events on input, which the parent component should
+The Lookup component will emit `input` events on input, which the parent component should
 react to by computing or fetching menu items, then providing those items to the Lookup component for
 display by updating the `menu-items` prop.
 
@@ -32,7 +32,7 @@ Note that in this example, menu items are Wikidata items with a human-readable l
 entity ID value.
 
 ::: warning
-The parent component must update the `menu-items` prop after each `new-input` event, otherwise
+The parent component must update the `menu-items` prop after each `input` event, otherwise
 the Lookup component will stay in the pending state indefinitely. If there are no results for the
 given input, set the `menu-items` prop to an empty array (`[]`).
 :::
@@ -82,7 +82,7 @@ this slot will automatically display when there are zero menu items.
 ### With fetched results
 
 Often, a Lookup component is used to fetch results from an API endpoint. Parent components should
-react to the `new-input` event emitted by Lookup to search for results, then pass back to the
+react to the `input` event emitted by Lookup to search for results, then pass back to the
 Lookup either an array of results to display as menu items or an empty array if there are no
 results. Between those two events, a pending state animation will display in the input.
 

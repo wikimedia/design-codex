@@ -1,11 +1,11 @@
 <template>
 	<div>
 		<cdx-lookup
-			v-model="selection"
+			v-model:selected="selection"
 			:menu-items="menuItems"
 			:clearable="true"
 			:start-icon="cdxIconSearch"
-			@new-input="onInput"
+			@input="onInput"
 		/>
 	</div>
 </template>
@@ -20,7 +20,7 @@ export default defineComponent( {
 	name: 'LookupClearableStartIcon',
 	components: { CdxLookup },
 	setup() {
-		const selection = ref( '' );
+		const selection = ref<string|null>( null );
 		const menuItems = ref<MenuItemData[]>( [] );
 
 		function onInput( value: string ) {
