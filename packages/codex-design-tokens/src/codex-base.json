@@ -433,27 +433,70 @@
 		}
 	},
 	"box-shadow": {
-		"base": {
-			"value": "{ box-shadow.100 } { color.transparent }"
+		"drop-small": {
+			"comment": "This features color as part of the theme token value.",
+			"value": "{ box-shadow.100 }"
 		},
-		"base--active": {
-			"value": "{ box-shadow.100 } { color.blue700 }"
+		"drop-medium": {
+			"comment": "This features color as part of the theme token value.",
+			"value": "{ box-shadow.200 }"
 		},
-		"base--focus": {
-			"value": "{ box-shadow.100 } { color.blue600 }"
+		"drop-extra-extra-large": {
+			"comment": "This features color as part of the theme token value.",
+			"value": "{ box-shadow.500 }"
 		},
-		"filled--disabled": {
-			"value": "{ box-shadow.100 } { color.white }"
+		"inset-small": {
+			"value": "{ box-shadow.25 }"
+		},
+		"inset-medium": {
+			"value": "{ box-shadow.50 }"
+		},
+		"inset-medium-vertical": {
+			"value": "{ box-shadow.50-vertical }"
+		},
+		"progressive--active": {
+			"deprecated": "Legacy `box-shadow` token shorthand. Apply single category tokens instead.",
+			"value": "{ box-shadow.25 } { color.blue700 }"
 		},
 		"progressive--focus": {
-			"value": "{ box-shadow.100 } { color.blue600 }, { box-shadow.200 } { color.white }"
-		},
-		"primary--focus": {
-			"deprecated": true,
-			"value": "{ box-shadow.progressive--focus }"
+			"deprecated": "Legacy `box-shadow` token shorthand. Apply single category tokens instead.",
+			"value": "{ box-shadow.25 } { color.blue600 }"
 		},
 		"destructive--focus": {
-			"value": "{ box-shadow.100 } { color.red600 }, { box-shadow.200 } { color.white }"
+			"deprecated": "Legacy `box-shadow` token shorthand. Apply single category tokens instead.",
+			"value": "{ box-shadow.25 } { color.red600 }"
+		},
+		"inverted": {
+			"deprecated": "Legacy `box-shadow` token shorthand. Apply single category tokens instead.",
+			"value": "{ box-shadow.50 } { color.white }"
+		},
+		"progressive-filled--focus": {
+			"deprecated": "Legacy `box-shadow` token shorthand. Apply single category tokens instead.",
+			"value": "{ box-shadow.progressive--focus }, { box-shadow.inverted }"
+		},
+		"destructive-filled--focus": {
+			"deprecated": "Legacy `box-shadow` token shorthand. Apply single category tokens instead.",
+			"value": "{ box-shadow.destructive--focus }, { box-shadow.inverted }"
+		},
+		"base": {
+			"deprecated": "Deprecated legacy value. Only used in non-Codex products.",
+			"value": "{ box-shadow.25 } { color.transparent }"
+		},
+		"base--active": {
+			"deprecated": "Deprecated legacy value. Only used in non-Codex products.",
+			"value": "{ box-shadow.progressive--active }"
+		},
+		"base--focus": {
+			"deprecated": "Deprecated legacy value. Only used in non-Codex products.",
+			"value": "{ box-shadow.progressive--focus }"
+		},
+		"filled--disabled": {
+			"deprecated": "Deprecated legacy value. Only used in non-Codex products.",
+			"value": "{ box-shadow.25 } { color.white }"
+		},
+		"primary--focus": {
+			"deprecated": "Deprecated legacy value. Only used in non-Codex products.",
+			"value": "{ box-shadow.progressive-filled--focus }"
 		}
 	},
 	"outline": {

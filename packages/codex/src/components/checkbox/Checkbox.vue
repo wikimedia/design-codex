@@ -222,7 +222,9 @@ export default defineComponent( {
 				&:focus + .cdx-checkbox__icon {
 					background-color: @background-color-input-binary--checked;
 					border-color: @border-color-input-binary--checked;
-					box-shadow: @box-shadow-progressive--focus;
+					// `@box-shadow-progressive-filled--focus` for `1px` White inset
+					// outline.
+					box-shadow: @box-shadow-progressive-filled--focus;
 				}
 			}
 

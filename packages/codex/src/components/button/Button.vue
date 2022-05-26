@@ -158,7 +158,9 @@ export default defineComponent( {
 
 			&:focus:not( :active ) {
 				border-color: @border-color-progressive--focus;
-				box-shadow: @box-shadow-progressive--focus;
+				// `@box-shadow-progressive-filled--focus` for `1px` White inset
+				// outline.
+				box-shadow: @box-shadow-progressive-filled--focus;
 			}
 		}
 	}
@@ -182,7 +184,9 @@ export default defineComponent( {
 
 			&:focus:not( :active ) {
 				border-color: @border-color-destructive--focus;
-				box-shadow: @box-shadow-destructive--focus;
+				// `@box-shadow-destructive-filled--focus` for `1px` White inset
+				// outline.
+				box-shadow: @box-shadow-destructive-filled--focus;
 			}
 		}
 	}

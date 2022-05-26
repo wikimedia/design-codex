@@ -172,16 +172,20 @@
 	},
 	"box-shadow": {
 		"card": {
-			"value": "{ box-shadow.1100 }"
+			"deprecated": true,
+			"value": "{ box-shadow.drop-small }"
 		},
 		"dialog": {
-			"value": "{ box-shadow.1200 }"
+			"deprecated": true,
+			"value": "{ box-shadow.drop-medium }"
 		},
 		"menu": {
-			"value": "{ box-shadow.1200 }"
+			"deprecated": true,
+			"value": "{ box-shadow.drop-medium }"
 		},
 		"progress-bar": {
-			"value": "{ box-shadow.1100 }"
+			"deprecated": true,
+			"value": "{ box-shadow.drop-small }"
 		}
 	},
 	"transition-property": {

@@ -300,18 +300,25 @@
 	},
 	"box-shadow": {
 		"comment": "Don't sub-group inset and drop shadows as themes might choose doing differently.",
-		"100": {
+		"25": {
 			"value": "inset 0 0 0 1px"
 		},
-		"200": {
+		"50": {
 			"value": "inset 0 0 0 2px"
 		},
-		"1100": {
-			"comment": "TODO: Definition of `rgba()` as combination of color and opacity is overly complex in Style Dictionary. Therefore adding drop shadow colors here for now.",
-			"value": "0 1px 1px rgba( 0, 0, 0, 0.15 )"
+		"50-vertical": {
+			"comment": "Only visible at bottom.",
+			"value": "inset 0 -2px 0 0"
 		},
-		"1200": {
-			"value": "0 2px 2px 0 rgba( 0, 0, 0, 0.25 )"
+		"100": {
+			"comment": "Defining `rgba()` as combination of color and opacity tokens is overly complex in Style Dictionary. Therefore adding drop shadow colors here.",
+			"value": "0 1px 1px rgba( 0, 0, 0, 0.2 )"
+		},
+		"200": {
+			"value": "0 2px 2px 0 rgba( 0, 0, 0, 0.2 )"
+		},
+		"500": {
+			"value": "0 20px 48px 0 rgba( 0, 0, 0, 0.2 )"
 		}
 	},
 	"font-family": {
