@@ -41,7 +41,7 @@ export default defineComponent( {
 	width: 50px;
 	height: 50px;
 	margin-left: 50px;
-	border: @border-base;
+	border: @border-width-base @border-style-base @border-color-base;
 
 	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 		width: 250px;
@@ -54,7 +54,7 @@ export default defineComponent( {
 		left: 12.5px;
 		width: 25px;
 		height: 25px;
-		border: @border-base;
+		border: @border-width-base @border-style-base @border-color-base;
 	}
 }
 </style>

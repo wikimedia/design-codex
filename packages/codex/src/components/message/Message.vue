@@ -278,6 +278,8 @@ export default defineComponent( {
 	}
 
 	&--block {
+		border-width: @border-width-base;
+		border-style: @border-style-base;
 		padding: @padding-vertical-message-block @padding-horizontal-message-block-mobile;
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
@@ -287,22 +289,22 @@ export default defineComponent( {
 
 		&.cdx-message--notice {
 			background-color: @background-color-message-notice;
-			border: @border-notice;
+			border-color: @border-color-notice;
 		}
 
 		&.cdx-message--error {
 			background-color: @background-color-message-error;
-			border: @border-error;
+			border-color: @border-color-error;
 		}
 
 		&.cdx-message--warning {
 			background-color: @background-color-message-warning;
-			border: @border-warning;
+			border-color: @border-color-warning;
 		}
 
 		&.cdx-message--success {
 			background-color: @background-color-message-success;
-			border: @border-success;
+			border-color: @border-color-success;
 		}
 	}
 

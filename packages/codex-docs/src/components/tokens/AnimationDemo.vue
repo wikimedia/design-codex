@@ -41,7 +41,7 @@ export default defineComponent( {
 .cdx-docs-animation-demo {
 	width: 100px;
 	height: 50px;
-	border: @border-base;
+	border: @border-width-base @border-style-base @border-color-base;
 
 	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 		width: 300px;

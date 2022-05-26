@@ -508,7 +508,7 @@ export default defineComponent( {
 	box-sizing: @box-sizing-base;
 	width: @size-full;
 	margin: @position-offset-border-width-base 0 0 0;
-	border: @border-base;
+	border: @border-width-base @border-style-base @border-color-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
 	padding: 0;
 	box-shadow: @box-shadow-menu;

@@ -111,6 +111,7 @@
 	},
 	"border": {
 		"input-binary": {
+			"deprecated": "Legacy `border-input-binary` for non-Codex products using WikimediaUI Base. Use sub-property tokens with `border-color-input-binary` instead.",
 			"value": "{ border-width.base } { border-style.base } { border-color.input-binary }"
 		}
 	},
@@ -151,11 +152,6 @@
 		},
 		"input-binary--checked": {
 			"value": "{ border-color.progressive }"
-		}
-	},
-	"border-radius": {
-		"input-radio": {
-			"value": "{ border-radius.circle }"
 		}
 	},
 	"padding": {

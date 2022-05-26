@@ -38,6 +38,6 @@ export default defineComponent( {
 .cdx-docs-border-demo {
 	width: 50px;
 	height: 50px;
-	border: @border-base;
+	border: @border-width-base @border-style-base @border-color-base;
 }
 </style>

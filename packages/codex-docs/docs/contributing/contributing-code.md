@@ -193,7 +193,7 @@ Below are some sample styles for a component to demonstrate these conventions:
 	&__icon {
 		width: @size-radio;
 		height: @size-radio;
-		border-radius: @border-radius-input-radio;
+		border-radius: @border-radius-circle;
 	}
 
 	&--inline {

@@ -181,7 +181,9 @@ export default defineComponent( {
 		// size (e.g. it's slightly larger on mobile).
 		width: @width-toggle-switch;
 		height: @height-toggle-switch;
-		border: @border-input-binary;
+		border-width: @border-width-base;
+		border-style: @border-style-base;
+		border-color: @border-color-input-binary;
 		border-radius: @border-radius-pill;
 		overflow: hidden;
 		transition-property: @transition-property-base;
@@ -213,7 +215,7 @@ export default defineComponent( {
 			box-sizing: @box-sizing-base;
 			width: @size-toggle-switch-grip--mobile;
 			height: @size-toggle-switch-grip--mobile;
-			border: @border-input-binary;
+			border: @border-width-base @border-style-base @border-color-input-binary;
 			border-radius: @border-radius-circle;
 			transition-property: @transition-property-toggle-switch-grip;
 			transition-duration: @transition-duration-base;
@@ -245,6 +247,7 @@ export default defineComponent( {
 			.cdx-toggle-switch__switch__grip {
 				background-color: @background-color-base;
 				left: @start-toggle-switch-grip--mobile + @size-toggle-switch-travel-distance;
+				// TODO: Define state specific border-color token!
 				border-color: @background-color-base;
 
 				@media screen and ( min-width: @min-width-breakpoint-tablet ) {

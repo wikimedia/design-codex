@@ -36,7 +36,7 @@ export default defineComponent( {
 	background-color: #000;
 	width: 100px;
 	height: 50px;
-	border: 1px solid rgba( 0, 0, 0, 0.1 );
+	border: @border-width-base @border-style-base rgba( 0, 0, 0, 0.1 );
 	border-radius: @border-radius-base * 2;
 	box-shadow: rgba( 0, 0, 0, 0.1 ) 0 1px 3px 0;
 

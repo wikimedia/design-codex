@@ -286,7 +286,7 @@
 	},
 	"border-style": {
 		"50": {
-			"value": "dotted"
+			"value": "dashed"
 		},
 		"100": {
 			"value": "solid"

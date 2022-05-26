@@ -139,7 +139,7 @@ export default defineComponent( {
 
 	// Custom-styled radio that's visible to the user.
 	&__icon {
-		border-radius: @border-radius-input-radio;
+		border-radius: @border-radius-circle;
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-base;
 
@@ -152,7 +152,7 @@ export default defineComponent( {
 			bottom: @position-offset-input-radio--focus;
 			left: @position-offset-input-radio--focus;
 			border: @border-width-base @border-style-base @border-color-transparent;
-			border-radius: @border-radius-input-radio;
+			border-radius: @border-radius-circle;
 		}
 	}
 

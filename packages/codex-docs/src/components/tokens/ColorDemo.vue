@@ -34,7 +34,7 @@ export default defineComponent( {
 .cdx-docs-color-demo {
 	width: 96px;
 	height: 96px;
-	border: 1px solid rgba( 0, 0, 0, 0.1 );
+	border: @border-width-base @border-style-base rgba( 0, 0, 0, 0.1 );
 	border-radius: @border-radius-circle;
 }
 </style>

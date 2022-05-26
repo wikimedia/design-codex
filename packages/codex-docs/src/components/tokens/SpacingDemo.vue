@@ -45,7 +45,7 @@ export default defineComponent( {
 
 	&__box {
 		display: inline-block;
-		border: @border-base;
+		border: @border-width-base @border-style-base @border-color-base;
 		padding: @padding-base;
 	}
 }

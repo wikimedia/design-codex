@@ -288,30 +288,42 @@
 		}
 	},
 	"border": {
+		"comment": "Note, that all `border` token shorthands are legacy now, to reinforce design decisions in modular way.",
 		"base": {
+			"deprecated": "Legacy `border` token shorthand. Use sub-property tokens instead.",
 			"value": "{ border-width.base } { border-style.base } { border-color.base }"
 		},
 		"error": {
+			"deprecated": "Legacy `border` token shorthand. Use sub-property tokens instead.",
 			"value": "{ border-width.base } { border-style.base } { border-color.error }"
 		},
 		"warning": {
+			"deprecated": "Legacy `border` token shorthand. Use sub-property tokens instead.",
 			"value": "{ border-width.base } { border-style.base } { border-color.warning }"
 		},
 		"success": {
+			"deprecated": "Legacy `border` token shorthand. Use sub-property tokens instead.",
 			"value": "{ border-width.base } { border-style.base } { border-color.success }"
 		},
 		"notice": {
+			"deprecated": "Legacy `border` token shorthand. Use sub-property tokens instead.",
 			"value": "{ border-width.base } { border-style.base } { border-color.notice }"
 		}
 	},
 	"border-width": {
 		"base": {
 			"value": "{ size.absolute.6 }"
+		},
+		"thick": {
+			"value": "{ size.absolute.12 }"
 		}
 	},
 	"border-style": {
 		"base": {
 			"value": "{ border-style.100 }"
+		},
+		"dashed": {
+			"value": "{ border-style.50 }"
 		}
 	},
 	"border-color": {
@@ -478,7 +490,7 @@
 	},
 	"transition": {
 		"base": {
-			"deprecated": "Legacy transition for icon states in non-Codex products.",
+			"deprecated": "Legacy `transition` for icon states in non-Codex products.",
 			"value": "{ transition-duration.100 }"
 		}
 	},

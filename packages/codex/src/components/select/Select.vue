@@ -267,7 +267,7 @@ export default defineComponent( {
 		box-sizing: @box-sizing-base;
 		min-height: @size-base;
 		width: @size-full;
-		border: @border-base;
+		border: @border-width-base @border-style-base @border-color-base;
 		border-radius: @border-radius-base;
 		padding-top: @padding-vertical-base;
 		padding-bottom: @padding-vertical-base;

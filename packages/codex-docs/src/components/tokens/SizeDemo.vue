@@ -80,7 +80,7 @@ export default defineComponent( {
 	}
 
 	&--percentage {
-		border: @border-base;
+		border: @border-width-base @border-style-base @border-color-base;
 	}
 
 	&--too-big {

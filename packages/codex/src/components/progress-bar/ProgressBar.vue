@@ -73,7 +73,7 @@ export default defineComponent( {
 		// Equals `1.14285714em`≈`16px`
 		height: ( @size-base / 2 );
 		max-width: @max-width-base;
-		border: @border-base;
+		border: @border-width-base @border-style-base @border-color-base;
 		border-radius: @border-radius-pill;
 		box-shadow: @box-shadow-progress-bar;
 	}
