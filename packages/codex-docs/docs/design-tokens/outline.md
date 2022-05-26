@@ -7,6 +7,7 @@ import { outline } from '@wikimedia/codex-design-tokens/dist/index.json';
 
 <cdx-docs-tokens-table
 	:tokens="outline"
-	token-demo="CdxDocsBoxShadowDemo"
+	token-demo="CdxDocsTokenDemo"
 	css-property="outline"
+	demo-class="cdx-docs-outline-demo"
 />

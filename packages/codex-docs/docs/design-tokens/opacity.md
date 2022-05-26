@@ -7,5 +7,7 @@ import { opacity } from '@wikimedia/codex-design-tokens/dist/index.json';
 
 <cdx-docs-tokens-table
 	:tokens="opacity"
-	token-demo="CdxDocsOpacityDemo"
+	token-demo="CdxDocsTokenDemo"
+	css-property="opacity"
+	demo-class="cdx-docs-opacity-demo"
 />

@@ -9,12 +9,16 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 <cdx-docs-tokens-table
 	:tokens="tokens.color"
-	token-demo="CdxDocsColorDemo"
+	token-demo="CdxDocsTokenDemo"
+	css-property="background-color"
+	demo-class="cdx-docs-color-demo"
 />
 
 ## Background colors
 
 <cdx-docs-tokens-table
 	:tokens="tokens['background-color']"
-	token-demo="CdxDocsColorDemo"
+	token-demo="CdxDocsTokenDemo"
+	css-property="background-color"
+	demo-class="cdx-docs-color-demo"
 />

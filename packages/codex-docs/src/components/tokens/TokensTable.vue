@@ -20,6 +20,8 @@
 							:is="tokenDemo"
 							:token-value="token.value"
 							:css-property="cssProperty"
+							:demo-class="demoClass"
+							:style-target="styleTarget"
 						/>
 					</div>
 					<p>
@@ -44,15 +46,8 @@
 import { defineComponent, computed, PropType } from 'vue';
 import { DesignTokensTree } from '../../types';
 import { flattenDesignTokensTree } from '../../utils/tokens';
-import CdxDocsAnimationDemo from './AnimationDemo.vue';
-import CdxDocsBorderDemo from './BorderDemo.vue';
-import CdxDocsBoxShadowDemo from './BoxShadowDemo.vue';
-import CdxDocsColorDemo from './ColorDemo.vue';
-import CdxDocsCursorDemo from './CursorDemo.vue';
+import CdxDocsTokenDemo from './TokenDemo.vue';
 import CdxDocsFontDemo from './FontDemo.vue';
-import CdxDocsOpacityDemo from './OpacityDemo.vue';
-import CdxDocsPaddingDemo from './PaddingDemo.vue';
-import CdxDocsPositionDemo from './PositionDemo.vue';
 import CdxDocsSpacingDemo from './SpacingDemo.vue';
 import CdxDocsSizeDemo from './SizeDemo.vue';
 import CdxDocsTransitionDemo from './TransitionDemo.vue';
@@ -61,15 +56,8 @@ import CdxDocsCopyTextButton from '../copy-text-button/CopyTextButton.vue';
 export default defineComponent( {
 	name: 'TokensTable',
 	components: {
-		CdxDocsAnimationDemo,
-		CdxDocsBorderDemo,
-		CdxDocsBoxShadowDemo,
-		CdxDocsColorDemo,
-		CdxDocsCursorDemo,
+		CdxDocsTokenDemo,
 		CdxDocsFontDemo,
-		CdxDocsOpacityDemo,
-		CdxDocsPaddingDemo,
-		CdxDocsPositionDemo,
 		CdxDocsSpacingDemo,
 		CdxDocsSizeDemo,
 		CdxDocsTransitionDemo,
@@ -91,6 +79,20 @@ export default defineComponent( {
 			default: ''
 		},
 		cssProperty: {
+			type: String,
+			default: ''
+		},
+		/**
+		 * Extra class to pass to CdxDocsTokenDemo
+		 */
+		demoClass: {
+			type: String,
+			default: ''
+		},
+		/**
+		 * Extra option to pass to CdxDocsTokenDemo
+		 */
+		styleTarget: {
 			type: String,
 			default: ''
 		}
