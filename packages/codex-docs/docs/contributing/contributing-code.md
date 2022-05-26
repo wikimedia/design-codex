@@ -148,12 +148,23 @@ variables from the `@wikimedia/codex-design-tokens` package, using the default
 
 #### Conventions
 
-**Tokens**
+**Design tokens**
+
+See [tokens organization, naming and structure for a detailed overview](../design-tokens/overview.md).<br>
+Stylesheet specific token application rules:
 - If a component uses a value not represented by a Codex token yet, add a
   component-level Less variable in the `<style>` tag before the first selector.
-- Tokens should follow [naming patterns established for MediaWiki](https://www.mediawiki.org/wiki/Manual:Coding_conventions/CSS#Variable_naming)
+- Tokens should follow [naming patterns established for MediaWiki](https://www.mediawiki.org/wiki/Manual:Coding_conventions/CSS#Variable_naming).
 - Codex does not use shorthand properties `background`, `font`, `animation` and `transition` for
-  simpler design token scoping and code modularization reasons.
+  simpler design token scoping and code modularization reasons. Only tokens of a category type are
+  summarized into a shorthand token, e.g.
+  ```
+  "padding": {
+		"base": {
+			"value": "{ padding.vertical.base } { padding.horizontal.base }"
+		}
+  }
+  ```
 
 **Selectors and structure**
 - A light version of [BEM](http://getbem.com/) is used for class naming structure:
