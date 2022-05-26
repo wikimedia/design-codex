@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, PropType } from 'vue';
 
 export default defineComponent( {
 	name: 'CdxDocsSizeDemo',
@@ -22,9 +22,12 @@ export default defineComponent( {
 			type: String,
 			required: true
 		},
+		/** 'width', 'height', or an empty string for both */
 		cssProperty: {
-			type: String,
-			default: ''
+			type: String as PropType<'' | 'width' | 'height'>,
+			default: '',
+			validator: ( value: unknown ) => typeof value === 'string' &&
+				[ '', 'width', 'height' ].includes( value )
 		}
 	},
 	setup( props ) {
@@ -33,10 +36,10 @@ export default defineComponent( {
 			!!size && size.endsWith( 'px' ) && Number( size.slice( 0, -2 ) ) > 300;
 
 		const width = computed( () =>
-			props.cssProperty === 'width' || props.cssProperty === '' ? props.tokenValue : undefined
+			props.cssProperty !== 'height' ? props.tokenValue : undefined
 		);
 		const height = computed( () =>
-			props.cssProperty === 'height' || props.cssProperty === '' ? props.tokenValue : undefined
+			props.cssProperty !== 'width' ? props.tokenValue : undefined
 		);
 
 		const innerStyle = computed( () => ( {
