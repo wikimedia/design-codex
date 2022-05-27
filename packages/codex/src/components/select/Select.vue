@@ -40,7 +40,10 @@
 				:icon="startIcon"
 				class="cdx-select__start-icon"
 			/>
-			<cdx-icon :icon="indicatorIcon" class="cdx-select__indicator" />
+			<cdx-icon
+				:icon="cdxIconExpand"
+				class="cdx-select__indicator"
+			/>
 		</div>
 		<cdx-menu
 			:id="menuId"
@@ -69,7 +72,7 @@ import {
 	ref,
 	toRef
 } from 'vue';
-import { Icon, cdxIconExpand, cdxIconCollapse } from '@wikimedia/codex-icons';
+import { Icon, cdxIconExpand } from '@wikimedia/codex-icons';
 
 import CdxIcon from '../icon/Icon.vue';
 import CdxMenu from '../menu/Menu.vue';
@@ -201,10 +204,6 @@ export default defineComponent( {
 
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
-		const indicatorIcon = computed( () => {
-			return expanded.value ? cdxIconCollapse : cdxIconExpand;
-		} );
-
 		function onBlur(): void {
 			expanded.value = false;
 		}
@@ -233,14 +232,14 @@ export default defineComponent( {
 			modelWrapper,
 			selectedMenuItem,
 			highlightedId,
-			indicatorIcon,
 			expanded,
 			onBlur,
 			currentLabel,
 			rootClasses,
 			onClick,
 			onKeydown,
-			startIcon
+			startIcon,
+			cdxIconExpand
 		};
 	}
 } );
