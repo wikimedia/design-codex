@@ -2,11 +2,11 @@
 
 exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
-  class="cdx-select cdx-select--no-selections"
+  aria-disabled="false"
+  class="cdx-select cdx-select--enabled cdx-select--no-selections"
 >
   <div
     aria-autocomplete="list"
-    aria-disabled="false"
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-0"
@@ -261,11 +261,11 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
 
 exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
-  class="cdx-select cdx-select--no-selections"
+  aria-disabled="false"
+  class="cdx-select cdx-select--enabled cdx-select--no-selections"
 >
   <div
     aria-autocomplete="list"
-    aria-disabled="false"
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-7"
@@ -520,11 +520,11 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
 
 exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
-  class="cdx-select cdx-select--value-selected"
+  aria-disabled="false"
+  class="cdx-select cdx-select--enabled cdx-select--value-selected"
 >
   <div
     aria-autocomplete="list"
-    aria-disabled="false"
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-14"
@@ -779,11 +779,11 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
 
 exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
-  class="cdx-select cdx-select--value-selected"
+  aria-disabled="false"
+  class="cdx-select cdx-select--enabled cdx-select--value-selected"
 >
   <div
     aria-autocomplete="list"
-    aria-disabled="false"
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-21"
@@ -1038,11 +1038,11 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
 
 exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
-  class="cdx-select cdx-select--value-selected cdx-select--has-start-icon"
+  aria-disabled="false"
+  class="cdx-select cdx-select--enabled cdx-select--value-selected cdx-select--has-start-icon"
 >
   <div
     aria-autocomplete="list"
-    aria-disabled="false"
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-28"
@@ -1317,11 +1317,11 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
 
 exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
-  class="cdx-select cdx-select--no-selections cdx-select--has-start-icon"
+  aria-disabled="false"
+  class="cdx-select cdx-select--enabled cdx-select--no-selections cdx-select--has-start-icon"
 >
   <div
     aria-autocomplete="list"
-    aria-disabled="false"
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-35"
@@ -1596,11 +1596,11 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
 
 exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
-  class="cdx-select cdx-select--value-selected"
+  aria-disabled="false"
+  class="cdx-select cdx-select--enabled cdx-select--value-selected"
 >
   <div
     aria-autocomplete="list"
-    aria-disabled="false"
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-42"

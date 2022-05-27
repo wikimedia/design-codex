@@ -180,7 +180,8 @@ Stylesheet specific token application rules:
   specific to that state. This structure allows us to avoid overriding enabled styles for the
   disabled state.
   - The pseudo-classes `&:enabled` and `&:disabled` can be used when available, otherwise
-    `&--enabled` and `&--disabled` classes should be added (e.g. `.cdx-menu-item--enabled`)
+    `&--enabled` and `&--disabled` classes should be added (e.g. `.cdx-menu-item--enabled`).
+    These are available to contain styles for the two states and for simpler styles orientation.
   - The stylelint `no-descending-specificity` rule can be disabled to maintain this structure (see
     sample code below).
 

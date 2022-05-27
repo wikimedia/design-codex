@@ -1,5 +1,9 @@
 <template>
-	<div class="cdx-select" :class="rootClasses">
+	<div
+		class="cdx-select"
+		:class="rootClasses"
+		:aria-disabled="disabled"
+	>
 		<div
 			ref="handle"
 			class="cdx-select__handle"
@@ -11,7 +15,6 @@
 			:aria-activedescendant="highlightedId"
 			aria-haspopup="listbox"
 			:aria-expanded="expanded"
-			:aria-disabled="disabled"
 			@click="onClick"
 			@blur="onBlur"
 			@keydown="onKeydown"
@@ -194,6 +197,7 @@ export default defineComponent( {
 
 		const rootClasses = computed( (): Record<string, boolean> => {
 			return {
+				'cdx-select--enabled': !props.disabled,
 				'cdx-select--disabled': props.disabled,
 				'cdx-select--expanded': expanded.value,
 				'cdx-select--value-selected': !!selectedMenuItem.value,
@@ -261,70 +265,81 @@ export default defineComponent( {
 	min-width: @min-width-select;
 
 	&__handle {
-		background-color: @background-color-framed;
-		color: @color-base;
 		position: relative;
 		box-sizing: @box-sizing-base;
 		min-height: @size-base;
 		width: @size-full;
-		border: @border-width-base @border-style-base @border-color-base;
+		border-width: @border-width-base;
+		border-style: @border-style-base;
 		border-radius: @border-radius-base;
 		padding-top: @padding-vertical-base;
 		padding-bottom: @padding-vertical-base;
 		padding-left: @padding-horizontal-base;
 		.cdx-mixin-icon-padding( end, @padding-horizontal-input-text );
 		line-height: @line-height-component;
-		transition-property: @transition-property-base;
-		transition-duration: @transition-duration-base;
-		.element-with-menu-expanded();
-
-		&:hover {
-			background-color: @background-color-framed--hover;
-			color: @color-base--hover;
-			border-color: @border-color-base--hover;
-			cursor: @cursor-base--hover;
-
-			.cdx-select__indicator {
-				color: @color-base--hover;
-			}
-		}
-
-		&:focus {
-			border-color: @color-primary--focus;
-			box-shadow: @box-shadow-primary--focus;
-			outline: 0;
-		}
-
-		&:active {
-			color: @color-base--active;
-			border-color: @border-color-base--active;
-		}
-	}
-
-	/* stylelint-disable-next-line no-descending-specificity */
-	&__indicator {
-		color: @color-base;
-		.cdx-mixin-icon( end, @size-indicator, @padding-horizontal-input-text );
 	}
 
 	&__start-icon {
 		.cdx-mixin-icon( start );
 	}
 
-	&--expanded {
+	&--has-start-icon {
 		.cdx-select__handle {
-			background-color: @background-color-framed--hover;
+			.cdx-mixin-icon-padding( start );
+		}
+	}
 
-			.cdx-select__indicator {
-				color: @color-base;
+	&__indicator {
+		color: @color-base;
+		.cdx-mixin-icon( end, @size-indicator, @padding-horizontal-input-text );
+	}
+
+	&--enabled {
+		.cdx-select__handle {
+			background-color: @background-color-framed;
+			color: @color-base;
+			border-color: @border-color-base;
+			transition-property: @transition-property-base;
+			transition-duration: @transition-duration-base;
+			.element-with-menu-expanded();
+
+			&:hover {
+				background-color: @background-color-framed--hover;
+				color: @color-base--hover;
+				border-color: @border-color-base--hover;
+				cursor: @cursor-base--hover;
+
+				.cdx-select__indicator {
+					color: @color-base--hover;
+				}
 			}
 
-			&:hover .cdx-select__indicator {
-				color: @color-base;
+			&:focus {
+				border-color: @color-primary--focus;
+				box-shadow: @box-shadow-primary--focus;
+				outline: 0;
+			}
+
+			&:active {
+				color: @color-base--active;
+				border-color: @border-color-base--active;
+			}
+		}
+
+		/* Expanded Menu only happens when enabled. */
+		&.cdx-select--expanded {
+			.cdx-select__handle {
+				background-color: @background-color-framed--hover;
+
+				/* stylelint-disable-next-line max-nesting-depth */
+				.cdx-select__indicator {
+					color: @color-base;
+				}
 			}
 		}
 	}
 
+	/* stylelint-disable no-descending-specificity */
 	&--disabled {
 		.cdx-select__handle {
 			background-color: @background-color-base--disabled;
@@ -335,24 +350,14 @@ export default defineComponent( {
 			// color contrast.
 			// text-shadow: @text-shadow-base--disabled;
 			cursor: @cursor-base--disabled;
-
-			&:hover .cdx-select__indicator {
-				color: @color-base--disabled;
-			}
 		}
 
-		/* stylelint-disable-next-line no-descending-specificity */
 		.cdx-select__indicator,
 		.cdx-select__start-icon {
 			color: @color-base--disabled;
 		}
 	}
-
-	&--has-start-icon {
-		.cdx-select__handle {
-			.cdx-mixin-icon-padding( start );
-		}
-	}
+	/* stylelint-enable no-descending-specificity */
 }
 
 </style>
