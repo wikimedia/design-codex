@@ -39,8 +39,6 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-
 .cdx-docs-font-demo {
 	p {
 		line-height: inherit;
