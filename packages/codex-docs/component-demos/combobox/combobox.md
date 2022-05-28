@@ -4,6 +4,7 @@ import ComboboxClearableStartIcon from '@/../component-demos/combobox/examples/C
 import ComboboxComplexMenuItem from '@/../component-demos/combobox/examples/ComboboxComplexMenuItem.vue';
 import ComboboxCustomMenuItem from '@/../component-demos/combobox/examples/ComboboxCustomMenuItem.vue';
 import ComboboxNoResults from '@/../component-demos/combobox/examples/ComboboxNoResults.vue';
+import ComboboxDisabled from '@/../component-demos/combobox/examples/ComboboxDisabled.vue';
 </script>
 
 ::: tip TextInput props apply
@@ -113,5 +114,23 @@ this slot will automatically display when there are zero menu items.
 <<< @/../component-demos/combobox/examples/ComboboxNoResults.vue
 
 </template>
+
+
+</cdx-demo-wrapper>
+
+### Disabled
+
+<cdx-demo-wrapper>
+
+<template v-slot:demo>
+<combobox-disabled />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/combobox/examples/ComboboxDisabled.vue
+
+</template>
+
 
 </cdx-demo-wrapper>
