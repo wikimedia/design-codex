@@ -17,7 +17,6 @@
 				aria-autocomplete="list"
 				autocomplete="off"
 				role="combobox"
-				tabindex="0"
 				@keydown="onKeydown"
 				@focus="onInputFocus"
 				@blur="onInputBlur"
