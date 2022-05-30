@@ -25,8 +25,17 @@ version number as an argument:
 $ ./build/prepare-release.sh 1.2.34
 ```
 
-The script creates a commit that updates the version number in the right places, and adds the
-changes in that release to `CHANGELOG.md`. Submit this commit to Gerrit for review:
+The script starts a commit to update the version number in the right places, and add the
+changes in that release to `CHANGELOG.md`. Those changes then need to be manually
+organized following the conventions documented in
+[contributing code](https://doc.wikimedia.org/codex/main/contributing/contributing-code.html#patch-requirements).
+
+Once organized, commit the changes locally with the appropriate version number:
+```
+$ git commit -am "Tag v1.2.34"
+```
+
+Then, submit this commit to Gerrit for review:
 ```
 $ git review
 ```
