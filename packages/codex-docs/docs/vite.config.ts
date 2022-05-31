@@ -22,8 +22,10 @@ export default defineConfig( {
 			// in the Markdown files in this directory can use the same paths
 			'@': path.resolve( __dirname, './../docs' ),
 			// Alias @wikimedia/codex to the entry point file, so that import statements in
-			// component demos look realistic, but hot reloading still works
-			'@wikimedia/codex': path.resolve( __dirname, '../../codex/src/lib.ts' )
+			// component demos look realistic, but hot reloading still works.
+			// We use lib-wip.ts rather than lib.ts, so that components under development
+			// can have demos too.
+			'@wikimedia/codex': path.resolve( __dirname, '../../codex/src/lib-wip.ts' )
 		}
 	}
 

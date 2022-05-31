@@ -25,8 +25,10 @@ function toKebabCase( componentName ) {
 
 /** @type import("vue-docgen-cli").DocgenCLIConfig */
 module.exports = {
-	componentsRoot: './../codex/src/components',
-	components: '*/[A-Z]*.vue',
+	// Conceptually componentsRoot is ../codex/src/components, but we want to find components
+	// in ../codex/src/components-wip too
+	componentsRoot: './../codex/src',
+	components: [ 'components/*/[A-Z]*.vue', 'components-wip/*/[A-Z]*.vue' ],
 	outDir: './docs/components',
 	getDocFileName: ( componentPath ) => {
 		// e.g. 'TextInput'
@@ -42,7 +44,8 @@ module.exports = {
 	getDestFile: ( componentPath, config ) => {
 		return path
 			.join( config.outDir, componentPath )
-			.replace( /\/\w+\.vue$/, '.md' );
+			.replace( /\/\w+\.vue$/, '.md' )
+			.replace( /\/components\/components(-wip)?/, '/components' );
 	},
 	templates: {
 		component,

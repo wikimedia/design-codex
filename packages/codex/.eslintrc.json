@@ -1,4 +1,14 @@
 {
+	"rules": {
+		"no-restricted-imports": [ "error", {
+			"patterns": [
+				{
+					"group": [ "components-wip/", "components-wip" ],
+					"message": "Work-in-progress components may not be used in regular components"
+				}
+			]
+		} ]
+	},
 	"overrides": [
 		{
 			"files": [ "src/**" ],

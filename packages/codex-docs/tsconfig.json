@@ -14,7 +14,10 @@
 		"allowJs": true,
 		"checkJs": true,
 		"skipLibCheck": true,
-		"noEmit": true
+		"noEmit": true,
+		"paths": {
+			"@wikimedia/codex": [ "../codex/dist/types/lib-wip.d.ts" ]
+		}
 	},
 	"include": [
 		"./**/*.js",

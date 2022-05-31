@@ -1,3 +1,23 @@
+/**
+ * Entry point for the library. This file imports all components, composables, utility functions
+ * and types that should be publicly available from the various files they live in, and exports
+ * them all.
+ *
+ * All components, composables and public-facing utility functions and types that are ready for
+ * public consumption should be listed here. Components that are still in development (and any
+ * associated types) should not be added here; they should be added to components-wip/index.ts
+ * instead, then moved here when they're ready.
+ *
+ * All types that are used to define props, slot parameters or event parameters are considered
+ * public-facing and should be exported here. Types that are only used internally generally should
+ * not be exported here. The Icon type lives in the icons package, and is also not exported here.
+ *
+ * All components and composables (except those in development) should be  exported, even if their
+ * primary purpose is internal. Utility functions should be exported only if they are useful for
+ * external use; most utility functions are internal-only and should not be exported.
+ */
+
+// Components
 import CdxButton from './components/button/Button.vue';
 import CdxButtonGroup from './components/button-group/ButtonGroup.vue';
 import CdxCard from './components/card/Card.vue';
@@ -21,14 +41,19 @@ import CdxToggleButton from './components/toggle-button/ToggleButton.vue';
 import CdxToggleButtonGroup from './components/toggle-button-group/ToggleButtonGroup.vue';
 import CdxToggleSwitch from './components/toggle-switch/ToggleSwitch.vue';
 import CdxTypeaheadSearch from './components/typeahead-search/TypeaheadSearch.vue';
+
+// Composables
 import useComputedDirection from './composables/useComputedDirection';
 import useComputedLanguage from './composables/useComputedLanguage';
 import useGeneratedId from './composables/useGeneratedId';
 import useIntersectionObserver from './composables/useIntersectionObserver';
 import useModelWrapper from './composables/useModelWrapper';
 import useSplitAttributes from './composables/useSplitAttributes';
+
+// Utilities
 import * as stringHelpers from './utils/stringHelpers';
 
+// Types
 import type {
 	HTMLDirection,
 	ButtonAction,
@@ -47,6 +72,7 @@ import type {
 } from './types';
 
 export {
+	// Components
 	CdxButton,
 	CdxButtonGroup,
 	CdxCard,
@@ -71,14 +97,18 @@ export {
 	CdxToggleSwitch,
 	CdxTypeaheadSearch,
 
+	// Composables
 	useComputedDirection,
 	useComputedLanguage,
 	useGeneratedId,
 	useIntersectionObserver,
 	useModelWrapper,
 	useSplitAttributes,
+
+	// Utilities
 	stringHelpers,
 
+	// Types
 	HTMLDirection,
 	ButtonAction,
 	ButtonType,
