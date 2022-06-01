@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-import { splitStringAtMatch } from '../../composables/useStringHelpers';
+import { splitStringAtMatch } from '../../utils/stringHelpers';
 
 /**
  * Title with highlighted search query.

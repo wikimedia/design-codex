@@ -38,7 +38,7 @@ import { Icon, cdxIconClear } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import { TextInputTypes } from '../../constants';
 import { TextInputType } from '../../types';
-import { makeStringTypeValidator } from '../../utils';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 

@@ -143,7 +143,7 @@ a validator for the prop.
 import { defineComponent, PropType } from 'vue';
 import { ButtonAction } from '../../types';
 import { ButtonActions } from '../../constants';
-import { makeStringTypeValidator } from '../../utils';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
 // NOTE: This variable is necessary, see "Pitfall" below
 const isButtonAction = makeStringTypeValidator( ButtonActions );

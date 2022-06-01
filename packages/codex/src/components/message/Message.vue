@@ -45,7 +45,7 @@ import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 import { MessageTypes } from '../../constants';
 import { MessageType, MessageIconMap } from '../../types';
-import { makeStringTypeValidator } from '../../utils';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
 const messageTypeValidator = makeStringTypeValidator( MessageTypes );
 

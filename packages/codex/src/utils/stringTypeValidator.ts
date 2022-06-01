@@ -1,4 +1,4 @@
-import { StringTypeValidator } from './types';
+import { StringTypeValidator } from './../types';
 
 /**
  * Make a validator function for a string-based type.
@@ -11,7 +11,7 @@ import { StringTypeValidator } from './types';
  * @example
  *     import { ButtonAction } from './types';
  *     import { ButtonActions } from './constants';
- *     import { makeStringTypeValdiator } from './utils';
+ *     import { makeStringTypeValdiator } from './utils/stringTypeValidator';
  *     const isButtonAction = makeStringTypeValidator( ButtonActions );
  *
  *     // in a component definition:

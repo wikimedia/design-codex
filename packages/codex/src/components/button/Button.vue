@@ -13,7 +13,7 @@
 import { defineComponent, PropType, computed } from 'vue';
 import { ButtonActions, ButtonTypes } from '../../constants';
 import { ButtonAction, ButtonType } from '../../types';
-import { makeStringTypeValidator } from '../../utils';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
 const buttonTypeValidator = makeStringTypeValidator( ButtonTypes );
 const buttonActionValidator = makeStringTypeValidator( ButtonActions );
