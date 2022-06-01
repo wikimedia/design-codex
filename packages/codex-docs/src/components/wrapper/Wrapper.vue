@@ -470,16 +470,6 @@ export default defineComponent( {
 				border-bottom-right-radius: 0;
 			}
 		}
-
-		// TODO: We need to unset all global styles inside this element to keep them from
-		// polluting component demos. For now, manually undo styles that are causing issues.
-		a {
-			color: inherit;
-
-			&:hover {
-				text-decoration: none;
-			}
-		}
 	}
 
 	// Add some space above the component demo to ensure that it does not collide with the

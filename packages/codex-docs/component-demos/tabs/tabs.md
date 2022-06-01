@@ -62,18 +62,3 @@ the header row will update to match.
 
 </template>
 </cdx-demo-wrapper>
-
-<style lang="less" scoped>
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-
-.cdx-demo-wrapper {
-	// Add link styles to tab content.
-	:deep( .cdx-tab a ) {
-		color: @color-primary;
-	}
-
-	:deep( .cdx-tab a:hover ) {
-		text-decoration: underline;
-	}
-}
-</style>

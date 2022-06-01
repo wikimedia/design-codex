@@ -223,13 +223,5 @@ Notice message with custom icon
 		margin: 0;
 		line-height: 1.4;
 	}
-
-	:deep( a ) {
-		color: @color-primary;
-	}
-
-	:deep( a:hover ) {
-		text-decoration: underline;
-	}
 }
 </style>
