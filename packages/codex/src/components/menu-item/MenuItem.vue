@@ -371,8 +371,12 @@ export default defineComponent( {
 	&__content {
 		display: flex;
 		align-items: center;
-		text-decoration: none;
 		.hyphens();
+
+		&,
+		&:hover {
+			text-decoration: none;
+		}
 	}
 
 	&__text__description {
@@ -441,8 +445,13 @@ export default defineComponent( {
 	}
 
 	&--enabled {
-		// Color for all content, including icon and text.
-		color: @color-base;
+		// We need to set the color here, so it applies to all icons and text, regardless of whether
+		// the default slot is customized or not. Then, we need to specifically target the
+		// `&__content` element, which may be an anchor tag, since many sites set a color on `a`.
+		&,
+		.cdx-menu-item__content {
+			color: @color-base;
+		}
 
 		.cdx-menu-item__text__description {
 			// Different color for description.
@@ -460,6 +469,7 @@ export default defineComponent( {
 			background-color: @background-color-base--active;
 			color: @color-progressive;
 
+			.cdx-menu-item__content,
 			.cdx-menu-item__text__description {
 				color: @color-progressive;
 			}
@@ -474,6 +484,7 @@ export default defineComponent( {
 		&.cdx-menu-item--selected.cdx-menu-item--highlighted {
 			color: @color-progressive;
 
+			.cdx-menu-item__content,
 			.cdx-menu-item__text__description {
 				color: @color-progressive;
 			}

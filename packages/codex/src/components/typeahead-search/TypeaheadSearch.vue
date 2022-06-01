@@ -743,6 +743,7 @@ export default defineComponent( {
 		}
 
 		&:hover {
+			text-decoration: none;
 			cursor: @cursor-base--hover;
 		}
 
