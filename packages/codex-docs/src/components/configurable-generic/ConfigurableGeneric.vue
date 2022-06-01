@@ -40,8 +40,6 @@ import {
  *
  * Note that any component that this will be used to demonstrate needs to be added to the
  * components available for the demo.
- *
- * @author DannyS712
  */
 export default defineComponent( {
 	name: 'CdxDocsConfigurableGeneric',

@@ -1,0 +1,27 @@
+Principal Authors (major contributors, alphabetically)
+
+Anne Tomasevich <atomasevich@wikimedia.org>
+DannyS712 <dannys712.wiki@gmail.com>
+Eric Gardner <egardner@wikimedia.org>
+Roan Kattouw <roan@wikimedia.org>
+Volker E. <volker.e@wikimedia.org>
+
+Patch Contributors (minor contributors, alphabetically)
+
+Zelig880 <scuomo1988@gmail.com>
+sunyiming <seedless_steven@outlook.com>
+Lucas Werkmeister <mail@lucaswerkmeister.de>
+
+See also
+https://github.com/wikimedia/design-codex/graphs/contributors
+
+Principal Contributors Beyond Code – Product And Design (alphabetically)
+
+Bárbara Martínez Calvo <bmartinezcalvo@wikimedia.org>
+Ezekiel Udoh <eudoh@wikimedia.org>
+Lauren de Lench <ldelench@wikimedia.org>
+Leza Zaman <lzaman@wikimedia.org>
+Marcella Florence <mflorence@wikimedia.org>
+Nat Hillard <nathillard@wikimedia.org>
+Sarai Sánchez Fuentes <sarai.sanchez@wikimedia.de>
+STH <sth@wikimedia.org>

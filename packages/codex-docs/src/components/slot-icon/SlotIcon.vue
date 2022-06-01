@@ -32,8 +32,6 @@ for ( const iconName in allIcons ) {
  * `icon` should be the *name* of the icon to use, or an empty string for no icon, and this
  * component will either render a cdx-icon component based on the icon name, or do nothing. This
  * gets the *name* of the icon rather than an actual icon object to simplify the logic.
- *
- * @author DannyS712
  */
 export default defineComponent( {
 	name: 'CdxDemoSlotIcon',

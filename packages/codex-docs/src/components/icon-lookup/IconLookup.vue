@@ -43,8 +43,6 @@ for ( const iconName in allIcons ) {
 
 /**
  * Lookup for different icons to be used in component demos.
- *
- * @author DannyS712
  */
 export default defineComponent( {
 	name: 'CdxDocsIconLookup',

@@ -20,5 +20,8 @@ coverage/
 # Ignore SVG files.
 *.svg
 
+# Ignore AUTHORS.txt file.
+AUTHORS.txt
+
 # Ignore LICENSE file.
 LICENSE*
