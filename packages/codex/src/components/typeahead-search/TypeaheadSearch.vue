@@ -686,13 +686,17 @@ export default defineComponent( {
 // to vertically line up nicely. For pragmatic reasons, we use the spacing from the
 // menu item thumbnail.
 @spacing-end-typeahead-search-figure: @margin-end-menu-item-thumbnail;
-// The amount the width of the input increases when it is focused to allow for the extra
-// spacing around the search figures. The caret position should remain in place for the
-// smoothest transition.
-@size-typeahead-search-focus-addition: @spacing-start-typeahead-search-figure +
-	@spacing-end-typeahead-search-figure;
-// The padding required for the icon to certer align with the menu item thumbnail.
-// We calculate the differenc in size and add it to the expected spacing
+// The amount the width of the input increases when it is focused to allow for the extra spacing
+// around the search figures. The caret position should remain static.
+// This calculates the padding-left of the input when expanded minus the padding-left of the input
+// when not expanded.
+// (Note that both padding values actually include @padding-horizontal-input-text as well, but it
+// was left out of the calculation for simplicity's sake.)
+@size-typeahead-search-focus-addition:
+	( @spacing-start-typeahead-search-figure + @size-search-figure) -
+	( @size-icon + @padding-horizontal-input-text );
+// The padding required for the icon to center align with the menu item thumbnail.
+// We calculate the difference in size and add it to the expected spacing
 @spacing-start-typeahead-icon: unit( @spacing-start-typeahead-search-figure +
 ( ( @size-search-figure - @size-icon ) / 2 ), px );
 
