@@ -75,7 +75,7 @@ export default defineComponent( {
 		max-width: @max-width-base;
 		border: @border-width-base @border-style-base @border-color-base;
 		border-radius: @border-radius-pill;
-		box-shadow: @box-shadow-progress-bar;
+		box-shadow: @box-shadow-drop-medium;
 	}
 
 	&--inline {

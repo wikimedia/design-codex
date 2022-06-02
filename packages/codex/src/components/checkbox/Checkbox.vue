@@ -202,7 +202,7 @@ export default defineComponent( {
 
 			&:focus + .cdx-checkbox__icon {
 				border-color: @border-color-input-binary--focus;
-				box-shadow: @box-shadow-base--focus;
+				box-shadow: @box-shadow-progressive--focus;
 				// In Windows high contrast mode the outline becomes visible.
 				outline: @outline-base--focus;
 			}
@@ -238,7 +238,7 @@ export default defineComponent( {
 				&:active + .cdx-checkbox__icon {
 					background-color: @background-color-progressive--active;
 					border-color: @border-color-progressive--active;
-					box-shadow: @box-shadow-base--active;
+					box-shadow: @box-shadow-progressive--active;
 				}
 			}
 			/* stylelint-enable no-descending-specificity */

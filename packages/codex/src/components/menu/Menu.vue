@@ -524,7 +524,7 @@ export default defineComponent( {
 	border: @border-width-base @border-style-base @border-color-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
 	padding: 0;
-	box-shadow: @box-shadow-menu;
+	box-shadow: @box-shadow-drop-medium;
 
 	&__progress-bar {
 		position: absolute;

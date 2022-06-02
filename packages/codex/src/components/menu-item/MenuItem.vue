@@ -390,7 +390,6 @@ export default defineComponent( {
 
 @margin-end-menu-item-thumbnail: @padding-vertical-menu-item;
 @border-color-menu-item-thumbnail: @color-gray200;
-@box-shadow-menu-item-thumbnail: 0 0 1px 1px @border-color-menu-item-thumbnail;
 
 @background-color-menu-item-placeholder: @background-color-framed;
 // Lighter than `@color-accessory`. See T286851.

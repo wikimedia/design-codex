@@ -90,7 +90,7 @@ export default defineComponent( {
 		// in active state.
 		&:focus:not( :active ) {
 			border-color: @border-color-base--focus;
-			box-shadow: @box-shadow-base--focus;
+			box-shadow: @box-shadow-progressive--focus;
 			// Set the standard focus `outline` transparent. A `border` and `box-shadow` visual
 			// focus is added above for common rendering.
 			// In Windows high contrast mode the transparent outline becomes visible.

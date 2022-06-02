@@ -112,7 +112,7 @@ export default defineComponent( {
 
 		&:focus {
 			border-color: @color-primary--focus;
-			box-shadow: @box-shadow-base--focus;
+			box-shadow: @box-shadow-progressive--focus;
 			// In Windows high contrast mode the outline becomes visible.
 			outline: @outline-base--focus;
 		}
@@ -171,7 +171,7 @@ export default defineComponent( {
 
 		&:focus {
 			border-color: @border-color-primary--focus;
-			box-shadow: @box-shadow-primary--focus;
+			box-shadow: @box-shadow-progressive-filled--focus;
 		}
 
 		&:active {
