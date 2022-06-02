@@ -104,7 +104,7 @@ it( 'does nothing on end icon click', async () => {
 
 it( 'updates on clear icon click', async () => {
 	const wrapper = mount( CdxTextInput, { props: { modelValue: 'Initial value', clearable: true } } );
-	const clearElement = wrapper.find( '.cdx-text-input--clearable .cdx-text-input__end-icon' );
+	const clearElement = wrapper.find( '.cdx-text-input__clear-icon' );
 
 	await clearElement.trigger( 'click' );
 

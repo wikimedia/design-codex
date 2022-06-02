@@ -260,7 +260,7 @@ describe( 'Lookup', () => {
 		const wrapper = mount( CdxLookup, {
 			props: { modelValue: '', initialInputValue: 'Option A', clearable: true }
 		} );
-		const clearButton = wrapper.find( '.cdx-text-input__end-icon' ).element as HTMLSpanElement;
+		const clearButton = wrapper.find( '.cdx-text-input__clear-icon' ).element as HTMLSpanElement;
 		clearButton.click();
 		expect( wrapper.emitted( 'new-input' )?.[ 0 ] ).toEqual( [ '' ] );
 	} );

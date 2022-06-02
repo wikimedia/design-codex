@@ -18,6 +18,7 @@ exports[`Basic usage Case 0 Default: ([]) => HTML 1`] = `
     />
     <!--v-if-->
     <!--v-if-->
+    <!--v-if-->
   </div>
   <ul
     aria-multiselectable="false"
@@ -59,6 +60,7 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
       role="combobox"
       type="text"
     />
+    <!--v-if-->
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -230,6 +232,7 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
       role="combobox"
       type="text"
     />
+    <!--v-if-->
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -404,6 +407,7 @@ exports[`Basic usage Case 3 Disabled: ([]) => HTML 1`] = `
     />
     <!--v-if-->
     <!--v-if-->
+    <!--v-if-->
   </div>
   <ul
     aria-multiselectable="false"
@@ -445,6 +449,7 @@ exports[`Basic usage Case 4 With no results content: ([]) => HTML 1`] = `
       role="combobox"
       type="text"
     />
+    <!--v-if-->
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -496,6 +501,7 @@ exports[`Basic usage Case 5 With class attributes: ([]) => HTML 1`] = `
     />
     <!--v-if-->
     <!--v-if-->
+    <!--v-if-->
   </div>
   <ul
     aria-multiselectable="false"
@@ -538,6 +544,7 @@ exports[`Basic usage Case 6 With type and placeholder attributes: ([]) => HTML 1
       role="combobox"
       type="search"
     />
+    <!--v-if-->
     <!--v-if-->
     <!--v-if-->
   </div>

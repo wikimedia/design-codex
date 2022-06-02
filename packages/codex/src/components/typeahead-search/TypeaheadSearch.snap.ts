@@ -31,7 +31,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
             type="search"
           />
           <span
-            class="cdx-icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -51,6 +51,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
               </g>
             </svg>
           </span>
+          <!--v-if-->
           <!--v-if-->
         </div>
         <!--
@@ -131,7 +132,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
             type="search"
           />
           <span
-            class="cdx-icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -151,6 +152,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
               </g>
             </svg>
           </span>
+          <!--v-if-->
           <!--v-if-->
         </div>
         <!--
@@ -231,7 +233,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
             type="search"
           />
           <span
-            class="cdx-icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -251,6 +253,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
               </g>
             </svg>
           </span>
+          <!--v-if-->
           <!--v-if-->
         </div>
         <!--
@@ -331,7 +334,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
             type="search"
           />
           <span
-            class="cdx-icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -351,6 +354,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
               </g>
             </svg>
           </span>
+          <!--v-if-->
           <!--v-if-->
         </div>
         <!--
@@ -516,7 +520,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             type="search"
           />
           <span
-            class="cdx-icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -536,6 +540,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               </g>
             </svg>
           </span>
+          <!--v-if-->
           <!--v-if-->
         </div>
         <!--

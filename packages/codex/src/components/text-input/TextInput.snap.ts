@@ -10,6 +10,7 @@ exports[`matches the snapshot Case 0 Input type: text : ({"inputType": "text"}) 
   />
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -21,6 +22,7 @@ exports[`matches the snapshot Case 1 Input type: search : ({"inputType": "search
     class="cdx-text-input__input"
     type="search"
   />
+  <!--v-if-->
   <!--v-if-->
   <!--v-if-->
 </div>
@@ -37,6 +39,7 @@ exports[`matches the snapshot Case 2 Disabled: ({"disabled": true}) => HTML 1`] 
   />
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -49,7 +52,7 @@ exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path d=\\
     type="text"
   />
   <span
-    class="cdx-icon cdx-text-input__start-icon"
+    class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
   >
     <svg
       aria-hidden="true"
@@ -70,6 +73,7 @@ exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path d=\\
     </svg>
   </span>
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -83,7 +87,7 @@ exports[`matches the snapshot Case 4 With end icon: ({"endIcon": [Object]}) => H
   />
   <!--v-if-->
   <span
-    class="cdx-icon cdx-text-input__end-icon"
+    class="cdx-icon cdx-text-input__icon cdx-text-input__end-icon"
   >
     <svg
       aria-hidden="true"
@@ -103,12 +107,13 @@ exports[`matches the snapshot Case 4 With end icon: ({"endIcon": [Object]}) => H
       </g>
     </svg>
   </span>
+  <!--v-if-->
 </div>
 `;
 
 exports[`matches the snapshot Case 5 Clearable, no input: ({"clearable": true}) => HTML 1`] = `
 <div
-  class="cdx-text-input cdx-text-input--has-end-icon"
+  class="cdx-text-input"
 >
   <input
     class="cdx-text-input__input"
@@ -116,20 +121,22 @@ exports[`matches the snapshot Case 5 Clearable, no input: ({"clearable": true}) 
   />
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
 exports[`matches the snapshot Case 6 Clearable, with input: ({"clearable": true, "modelValue": "Some value"}) => HTML 1`] = `
 <div
-  class="cdx-text-input cdx-text-input--has-end-icon cdx-text-input--clearable"
+  class="cdx-text-input cdx-text-input--clearable"
 >
   <input
     class="cdx-text-input__input cdx-text-input__input--is-active"
     type="text"
   />
   <!--v-if-->
+  <!--v-if-->
   <span
-    class="cdx-icon cdx-text-input__end-icon"
+    class="cdx-icon cdx-text-input__icon cdx-text-input__clear-icon"
   >
     <svg
       aria-hidden="true"
@@ -162,7 +169,7 @@ exports[`matches the snapshot Case 7 With end icon, clearable, no input: ({"clea
   />
   <!--v-if-->
   <span
-    class="cdx-icon cdx-text-input__end-icon"
+    class="cdx-icon cdx-text-input__icon cdx-text-input__end-icon"
   >
     <svg
       aria-hidden="true"
@@ -182,6 +189,7 @@ exports[`matches the snapshot Case 7 With end icon, clearable, no input: ({"clea
       </g>
     </svg>
   </span>
+  <!--v-if-->
 </div>
 `;
 
@@ -195,7 +203,28 @@ exports[`matches the snapshot Case 8 With end icon, clearable, with input: ({"cl
   />
   <!--v-if-->
   <span
-    class="cdx-icon cdx-text-input__end-icon"
+    class="cdx-icon cdx-text-input__icon cdx-text-input__end-icon"
+  >
+    <svg
+      aria-hidden="true"
+      height="20"
+      viewBox="0 0 20 20"
+      width="20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!--v-if-->
+      <!-- eslint-disable vue/no-v-html -->
+      <g
+        fill="currentColor"
+      >
+        <path
+          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
+        />
+      </g>
+    </svg>
+  </span>
+  <span
+    class="cdx-icon cdx-text-input__icon cdx-text-input__clear-icon"
   >
     <svg
       aria-hidden="true"
@@ -228,6 +257,7 @@ exports[`matches the snapshot Case 9 With attributes: ({}) => HTML 1`] = `
     size="30"
     type="text"
   />
+  <!--v-if-->
   <!--v-if-->
   <!--v-if-->
 </div>

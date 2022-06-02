@@ -95,38 +95,25 @@ empty. On click, the clear button will set the input value to an empty string.
 </template>
 </cdx-demo-wrapper>
 
-### With start icon
+### With icons
 
-Any Codex icon can be set to the start icon.
+A TextInput can have a `startIcon`, an `endIcon`, or both. Any Codex icon can be used.
+
+Note that a clearable TextInput with an `endIcon` will display both the clear button and the
+`endIcon` when the input is not empty. To see this behavior, type in the input below.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-input-demo :input-props="{ inputType: 'search', startIcon: cdxIconSearch }" />
+<text-input-demo :input-props="{ inputType: 'search', startIcon: cdxIconSearch, endIcon: cdxIconInfoFilled, clearable: true }" />
 </template>
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-input/examples/TextInputStartIcon.vue
+<<< @/../component-demos/text-input/examples/TextInputWithIcons.vue
 
 </template>
 </cdx-demo-wrapper>
 
-### With end icon
-
-Any Codex icon can be set to the end icon. Note that if you include both an end icon and the
-`clearable` prop, the latter will override the end icon with the clear button.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-<text-input-demo :input-props="{ endIcon: cdxIconInfoFilled }" />
-</template>
-
-<template v-slot:code>
-
-<<< @/../component-demos/text-input/examples/TextInputEndIcon.vue
-
-</template>
-</cdx-demo-wrapper>
 
 ### With placeholder
 

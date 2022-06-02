@@ -20,14 +20,19 @@
 		<cdx-icon
 			v-if="startIcon"
 			:icon="startIcon"
-			class="cdx-text-input__start-icon"
+			class="cdx-text-input__icon cdx-text-input__start-icon"
 		/>
 		<cdx-icon
-			v-if="isClearable || endIcon"
-			:icon="computedEndIcon"
-			class="cdx-text-input__end-icon"
+			v-if="endIcon"
+			:icon="endIcon"
+			class="cdx-text-input__icon cdx-text-input__end-icon"
+		/>
+		<cdx-icon
+			v-if="isClearable"
+			:icon="cdxIconClear"
+			class="cdx-text-input__icon cdx-text-input__clear-icon"
 			@mousedown.prevent
-			@click="onEndIconClick"
+			@click="onClear"
 		/>
 	</div>
 </template>
@@ -157,7 +162,7 @@ export default defineComponent( {
 		const internalClasses = computed( () => {
 			return {
 				'cdx-text-input--has-start-icon': !!props.startIcon,
-				'cdx-text-input--has-end-icon': !!props.endIcon || props.clearable,
+				'cdx-text-input--has-end-icon': !!props.endIcon,
 				'cdx-text-input--clearable': isClearable.value
 			};
 		} );
@@ -181,16 +186,8 @@ export default defineComponent( {
 			};
 		} );
 
-		const computedEndIcon = computed( () => {
-			// This method is only called either when isClearable is true or when there is an
-			// endIcon, so we know endIcon will never be undefined at this point in the logic.
-			return isClearable.value ? cdxIconClear : ( props.endIcon as Icon );
-		} );
-
-		const onEndIconClick = () => {
-			if ( isClearable.value ) {
-				wrappedModel.value = '';
-			}
+		const onClear = () => {
+			wrappedModel.value = '';
 		};
 
 		// Emit other events to the parent in case they're needed.
@@ -216,12 +213,12 @@ export default defineComponent( {
 			rootStyle,
 			otherAttrs,
 			inputClasses,
-			computedEndIcon,
-			onEndIconClick,
+			onClear,
 			onInput,
 			onChange,
 			onFocus,
-			onBlur
+			onBlur,
+			cdxIconClear
 		};
 	},
 
@@ -249,6 +246,12 @@ export default defineComponent( {
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 // TODO: Revisit with decision about Design System's take on end icon sizes, see T306135.
 @size-input-end-icon: @size-absolute-100;
+// When there are two end icons, (i.e. a clear icon and an end icon), we need to double the
+// horizontal padding and account for the size of the extra icon.
+// This token can be used to calculate the horizontal position of the clear icon and the
+// padding-end of the text input.
+@padding-horizontal-input-text-two-end-icons:
+	( @padding-horizontal-input-text * 2 ) + @size-input-end-icon;
 
 .cdx-text-input {
 	// For proper positioning of icons and slotted elements.
@@ -259,31 +262,28 @@ export default defineComponent( {
 		.cdx-mixin-icon( start, @size-icon, @padding-horizontal-input-text );
 	}
 
-	&__end-icon {
+	&__end-icon,
+	&__clear-icon {
 		.cdx-mixin-icon( end, @size-input-end-icon, @padding-horizontal-input-text );
 	}
-}
 
-// The clear icon result in a pointer cursor on hover.
-.cdx-text-input--clearable {
-	.cdx-text-input__end-icon:hover {
-		cursor: @cursor-base--hover;
+	&__clear-icon {
+		// The clear icon result in a pointer cursor on hover.
+		&:hover {
+			cursor: @cursor-base--hover;
+		}
+
+		// Increase positioning value when the clear icon appears next to an end icon.
+		.cdx-text-input__end-icon + & {
+			.cdx-mixin-icon(
+				end,
+				@size-input-end-icon,
+				@padding-horizontal-input-text-two-end-icons
+			);
+		}
 	}
 }
 
-.cdx-text-input--has-start-icon {
-	.cdx-text-input__input {
-		.cdx-mixin-icon-padding( start, @padding-horizontal-input-text );
-	}
-}
-
-.cdx-text-input--has-end-icon {
-	.cdx-text-input__input {
-		.cdx-mixin-icon-padding( end, @padding-horizontal-input-text );
-	}
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
 .cdx-text-input__input {
 	display: block;
 	box-sizing: @box-sizing-base;
@@ -306,24 +306,18 @@ export default defineComponent( {
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-medium;
 
-		~ .cdx-text-input__start-icon,
-		~ .cdx-text-input__end-icon {
+		~ .cdx-text-input__icon {
 			color: @color-placeholder;
 		}
 
 		&.cdx-text-input__input--is-active {
-			~ .cdx-text-input__start-icon,
-			~ .cdx-text-input__end-icon {
+			~ .cdx-text-input__icon {
 				color: @color-base;
 			}
 		}
 
 		&:hover {
 			border-color: @border-color-input--hover;
-
-			~ .cdx-text-input__end-icon {
-				color: @color-base;
-			}
 		}
 
 		&:focus {
@@ -344,8 +338,7 @@ export default defineComponent( {
 		// color contrast.
 		// text-shadow: @text-shadow-base--disabled;
 
-		~ .cdx-text-input__start-icon,
-		~ .cdx-text-input__end-icon {
+		~ .cdx-text-input__icon {
 			color: @color-base--disabled;
 			pointer-events: none;
 		}
@@ -379,6 +372,35 @@ export default defineComponent( {
 		&::-webkit-search-cancel-button {
 			display: none;
 		}
+	}
+}
+
+.cdx-text-input--has-start-icon {
+	.cdx-text-input__input {
+		.cdx-mixin-icon-padding( start, @padding-horizontal-input-text );
+	}
+}
+
+// Either with an end icon or clearable.
+.cdx-text-input--has-end-icon,
+.cdx-text-input--clearable {
+	.cdx-text-input__input {
+		.cdx-mixin-icon-padding(
+			end,
+			@padding-horizontal-input-text,
+			@size-input-end-icon
+		);
+	}
+}
+
+// Both.
+.cdx-text-input--has-end-icon.cdx-text-input--clearable {
+	.cdx-text-input__input {
+		.cdx-mixin-icon-padding(
+			end,
+			@padding-horizontal-input-text-two-end-icons,
+			@size-input-end-icon
+		);
 	}
 }
 
