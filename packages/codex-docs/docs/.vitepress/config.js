@@ -81,7 +81,7 @@ module.exports = require( 'vitepress' ).defineConfig( {
 					]
 				},
 				{
-					text: 'ADRs',
+					text: 'Decisions – ADRs',
 					children: [
 						{ text: 'Overview', link: '/adrs/overview' },
 						{ text: 'ADR 1 - Design Tokens', link: '/adrs/01-adr-design-tokens' },
