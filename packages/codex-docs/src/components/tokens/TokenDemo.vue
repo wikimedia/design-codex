@@ -84,14 +84,22 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.cdx-docs-animation-demo {
+/** Demos that style a rectangle (this may be in addition to extra styles below) */
+.cdx-docs-animation-demo,
+.cdx-docs-box-shadow-demo,
+.cdx-docs-opacity-demo,
+.cdx-docs-outline-demo,
+.cdx-docs-padding-demo {
 	width: 100px;
 	height: 50px;
-	border: @border-width-base @border-style-base @border-color-base;
 
 	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 		width: 300px;
 	}
+}
+
+.cdx-docs-animation-demo {
+	border: @border-width-base @border-style-base @border-color-base;
 
 	&__inner {
 		background-color: @background-color-primary;
@@ -119,16 +127,6 @@ export default defineComponent( {
 	border: @border-width-base @border-style-base @border-color-base;
 }
 
-.cdx-docs-box-shadow-demo,
-.cdx-docs-outline-demo {
-	width: 100px;
-	height: 50px;
-
-	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-		width: 300px;
-	}
-}
-
 .cdx-docs-color-demo {
 	width: 96px;
 	height: 96px;
@@ -145,26 +143,14 @@ export default defineComponent( {
 
 .cdx-docs-opacity-demo {
 	background-color: #000;
-	width: 100px;
-	height: 50px;
 	border: @border-width-base @border-style-base rgba( 0, 0, 0, 0.1 );
 	border-radius: @border-radius-base * 2;
 	box-shadow: rgba( 0, 0, 0, 0.1 ) 0 1px 3px 0;
-
-	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-		width: 300px;
-	}
 }
 
 .cdx-docs-padding-demo {
 	position: relative;
-	width: 100px;
-	height: 50px;
 	border: @border-width-base @border-style-base @border-color-base;
-
-	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-		width: 300px;
-	}
 
 	&__inner {
 		background-color: @background-color-base--disabled;
