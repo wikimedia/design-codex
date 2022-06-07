@@ -437,10 +437,17 @@ export default defineComponent( {
 			document.removeEventListener( 'mouseup', onMouseUp );
 		} );
 
-		// Clear the highlight states when the menu is closed.
 		watch( toRef( props, 'expanded' ), ( newVal ) => {
-			if ( !newVal && highlightedMenuItem.value ) {
-				highlightedMenuItem.value = null;
+			const selectedMenuItem = findSelectedMenuItem();
+
+			// Clear the highlight states when the menu is closed.
+			if ( !newVal && highlightedMenuItem.value && selectedMenuItem === undefined ) {
+				handleMenuItemChange( 'highlighted' );
+			}
+
+			// When the menu is opened, highlight the selected item first.
+			if ( newVal && selectedMenuItem !== undefined ) {
+				handleMenuItemChange( 'highlighted', selectedMenuItem );
 			}
 		} );
 

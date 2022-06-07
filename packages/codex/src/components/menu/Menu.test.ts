@@ -330,11 +330,13 @@ it( 'Highlight state is not preserved after menu is closed', async () => {
 		...defaultProps,
 		expanded: false
 	} } );
-	// Enter highlights the first item
+	// Enter opens the menu; first item is not highlighted.
 	await delegateKeydownEvent( wrapper, 'Enter' );
 	// Simulate the parent responding to the update:expanded event
 	await wrapper.setProps( { expanded: true } );
+	expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
 
+	// ArrowDown highlights the first item.
 	await delegateKeydownEvent( wrapper, 'ArrowDown' );
 	expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
 
