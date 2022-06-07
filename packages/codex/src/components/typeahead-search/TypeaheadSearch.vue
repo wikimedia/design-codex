@@ -16,6 +16,7 @@
 				v-model="inputValue"
 				:button-label="buttonLabel"
 				v-bind="otherAttrs"
+				class="cdx-typeahead-search__input"
 				name="search"
 				role="combobox"
 				autocomplete="off"
@@ -162,13 +163,6 @@ export default defineComponent( {
 			required: true
 		},
 		/**
-		 * Submit button text.
-		 */
-		buttonLabel: {
-			type: String,
-			required: true
-		},
-		/**
 		 * Label attribute for the list of search results.
 		 */
 		searchResultsLabel: {
@@ -181,6 +175,15 @@ export default defineComponent( {
 		searchResults: {
 			type: Array as PropType<SearchResult[]>,
 			default: () => []
+		},
+		/**
+		 * Label for the submit button.
+		 *
+		 * If no label is provided, the submit button will not be displayed.
+		 */
+		buttonLabel: {
+			type: String,
+			default: ''
 		},
 		/**
 		 * Initial value for the text input.
@@ -224,6 +227,8 @@ export default defineComponent( {
 		/**
 		 * Contract the width of the input when unfocused and expand the width of
 		 * the input when focused to accommodate the extra width of the thumbnails.
+		 *
+		 * This prop is ignored if showThumbnail is false.
 		 */
 		autoExpandWidth: {
 			type: Boolean,
@@ -657,6 +662,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import '../../themes/mixins/common.less';
+@import '../../themes/mixins/element-with-menu-expanded.less';
 @import '../../themes/mixins/icon-alignment.less';
 
 // TODO: Tokenize.
@@ -701,16 +707,6 @@ export default defineComponent( {
 ( ( @size-search-figure - @size-icon ) / 2 ), px );
 
 .cdx-typeahead-search {
-	.cdx-search-input__end-button {
-		opacity: 0;
-		transition-property: @transition-property-simple-search-submit;
-		transition-duration: @transition-duration-base;
-
-		&:focus {
-			opacity: @opacity-base;
-		}
-	}
-
 	.cdx-menu-item {
 		// Unset padding so we can add it to the anchor elements instead. This is necessary to get
 		// proper styling on the search footer.
@@ -764,31 +760,8 @@ export default defineComponent( {
 		padding-left: @padding-no-results-text-with-thumbnail;
 	}
 
-	.cdx-text-input__input {
-		border-right-color: @border-color-transparent;
-	}
-
-	// Remove bottom-left border radius on input when the menu is open.
-	&--expanded .cdx-text-input__input {
-		border-bottom-left-radius: 0;
-	}
-
-	&--active,
-	&:hover {
-		.cdx-search-input__end-button {
-			opacity: @opacity-base;
-		}
-
-		.cdx-text-input {
-			// Allow the input's border to be on top of the parent's border when
-			// focused or hovered.
-			z-index: 1;
-		}
-
-		.cdx-text-input__input {
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
-		}
+	&__input {
+		.element-with-menu-expanded();
 	}
 
 	&--show-thumbnail {
@@ -801,7 +774,6 @@ export default defineComponent( {
 			margin-left: 0;
 
 			.cdx-text-input__input {
-				position: relative;
 				.cdx-mixin-icon-padding( start, @spacing-start-typeahead-search-figure,
 				@size-search-figure );
 			}

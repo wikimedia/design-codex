@@ -32,7 +32,7 @@ import { CdxTypeaheadSearch, SearchResult } from '@wikimedia/codex';
 import { RestResult } from './types';
 
 export default defineComponent( {
-	name: 'TypeaheadSearchWikipedia',
+	name: 'TypeaheadSearchInitialValue',
 	components: { CdxTypeaheadSearch },
 	props: {
 		/**

@@ -10,7 +10,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
     id="foo"
   >
     <div
-      class="cdx-search-input cdx-search-input--has-end-button"
+      class="cdx-search-input cdx-search-input--has-end-button cdx-typeahead-search__input"
     >
       <div
         class="cdx-search-input__input-wrapper"
@@ -111,7 +111,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
     id="foo"
   >
     <div
-      class="cdx-search-input cdx-search-input--has-end-button"
+      class="cdx-search-input cdx-search-input--has-end-button cdx-typeahead-search__input"
     >
       <div
         class="cdx-search-input__input-wrapper"
@@ -212,7 +212,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
     id="foo"
   >
     <div
-      class="cdx-search-input cdx-search-input--has-end-button"
+      class="cdx-search-input cdx-search-input--has-end-button cdx-typeahead-search__input"
     >
       <div
         class="cdx-search-input__input-wrapper"
@@ -313,7 +313,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
     id="foo"
   >
     <div
-      class="cdx-search-input cdx-search-input--has-end-button"
+      class="cdx-search-input cdx-search-input--has-end-button cdx-typeahead-search__input"
     >
       <div
         class="cdx-search-input__input-wrapper"
@@ -499,7 +499,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
     id="foo"
   >
     <div
-      class="cdx-search-input cdx-search-input--has-end-button"
+      class="cdx-search-input cdx-search-input--has-end-button cdx-typeahead-search__input"
     >
       <div
         class="cdx-search-input__input-wrapper"
