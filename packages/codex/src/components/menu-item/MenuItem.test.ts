@@ -86,7 +86,7 @@ describe( 'CdxMenuItem', () => {
 		} );
 		await wrapper.trigger( 'mousedown' );
 		expect( wrapper.emitted( 'change' ) ).toBeTruthy();
-		expect( wrapper.emitted( 'change' )?.[ 0 ] ).toEqual( [ 'active' ] );
+		expect( wrapper.emitted( 'change' )?.[ 0 ] ).toEqual( [ 'active', true ] );
 	} );
 	it( 'does nothing on right click', async () => {
 		const wrapper = mount( CdxMenuItem, {

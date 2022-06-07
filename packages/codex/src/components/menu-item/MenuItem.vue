@@ -7,6 +7,7 @@
 		:aria-disabled="disabled"
 		:aria-selected="selected"
 		@mouseenter="onMouseEnter"
+		@mouseleave="onMouseLeave"
 		@mousedown.prevent="onMouseDown"
 		@click="onClick"
 	>
@@ -266,26 +267,34 @@ export default defineComponent( {
 		 * Emitted when the menu item becomes selected, active or highlighted in response to
 		 * user interaction. Handled in the Menu component.
 		 *
-		 * @property {MenuState} menuState State this menu item is entering
+		 * @property {MenuState} menuState State to change
+		 * @property {boolean} setState Whether to set that state to this menu item
 		 */
 		'change'
 	],
 
 	setup: ( props, { emit } ) => {
 		const onMouseEnter = () => {
-			emit( 'change', 'highlighted' );
+			emit( 'change', 'highlighted', true );
+		};
+
+		const onMouseLeave = () => {
+			// Remove visual highlighted state. This will also remove the visual active state while
+			// maintaining the menu item's active status within the menu. See comments on the
+			// `--active` class below for more details.
+			emit( 'change', 'highlighted', false );
 		};
 
 		const onMouseDown = ( e: MouseEvent ) => {
 			// Only apply the active state on main mouse button click. This avoids applying active
 			// styles on right click, for example. See T304605.
 			if ( e.button === 0 ) {
-				emit( 'change', 'active' );
+				emit( 'change', 'active', true );
 			}
 		};
 
 		const onClick = () => {
-			emit( 'change', 'selected' );
+			emit( 'change', 'selected', true );
 		};
 
 		const highlightQuery = computed( () => props.searchQuery.length > 0 );
@@ -293,7 +302,13 @@ export default defineComponent( {
 		const rootClasses = computed( () : Record<string, boolean> => {
 			return {
 				'cdx-menu-item--selected': props.selected,
-				'cdx-menu-item--active': props.active,
+				// Only show the active visual state when the menu item is both active and
+				// highlighted. This means, on mousedown -> mouseleave, the menu item is still
+				// technically tracked by the menu as active, but will not appear active to the
+				// user. This also means in the case of mousedown -> mouseleave -> mouseenter, the
+				// menu item will appear active again, and on click (releasing the mouse button),
+				// the item will be selected.
+				'cdx-menu-item--active': props.active && props.highlighted,
 				'cdx-menu-item--highlighted': props.highlighted,
 				'cdx-menu-item--enabled': !props.disabled,
 				'cdx-menu-item--disabled': props.disabled,
@@ -322,6 +337,7 @@ export default defineComponent( {
 
 		return {
 			onMouseEnter,
+			onMouseLeave,
 			onMouseDown,
 			onClick,
 			highlightQuery,

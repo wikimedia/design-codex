@@ -33,7 +33,8 @@
 			:bold-label="boldLabel"
 			:hide-description-overflow="hideDescriptionOverflow"
 			:search-query="searchQuery"
-			@change="handleMenuItemChange( $event, menuItem )"
+			@change="( menuState, setState ) =>
+				handleMenuItemChange( menuState, setState && menuItem )"
 			@click="$emit( 'menu-item-click', menuItem )"
 		>
 			<!--
