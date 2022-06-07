@@ -1,8 +1,10 @@
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import './common.less';
 
 // Base styles for <button> elements, used for Button and ToggleButton
 .cdx-mixin-button() {
 	box-sizing: @box-sizing-base;
+	.text-overflow( @visible: false );
 
 	// Interactive elements have a minimum touch area.
 	min-width: @min-size-base;
@@ -17,9 +19,6 @@
 	padding-right: @padding-horizontal-base;
 	padding-left: @padding-horizontal-base;
 
-	// Support IE 11: Normalize by showing `overflow`.
-	overflow: visible;
-
 	// Support all browsers: Normalize by inheriting `font-family`.
 	// Initial value depends on user-agent.
 	font-family: inherit;
@@ -30,9 +29,6 @@
 
 	// Support Edge, Firefox, and IE: Normalize by removing the inheritance of `text-transform`.
 	text-transform: none;
-
-	// Contents are single line.
-	white-space: nowrap;
 	transition-property: @transition-property-base;
 	transition-duration: @transition-duration-base;
 
