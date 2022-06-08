@@ -39,7 +39,10 @@ To contact us or to learn more about current and future work, visit our [task tr
 
 Wikimedia intends to serve everyone. We will follow [Wikimedia's accessibility principles](https://design.wikimedia.org/style-guide/design-principles_accessibility.html) and aim to support many languages.
 
-We will adhere to MediaWiki's [browser support matrix](https://www.mediawiki.org/wiki/Compatibility#Browsers).
+Codex follows MediaWiki's [browser support matrix](https://www.mediawiki.org/wiki/Compatibility#Browsers).
+Codex supports the subset of the “Modern” support list, with the difference being that only
+ES6-compatible browsers are supported. This excludes Internet Explorer 11 and Safari 9 and 10.
+
 Components should be thoughtfully designed and developed to work across device widths.
 
 #### Designed and built for the wider MediaWiki ecosystem
