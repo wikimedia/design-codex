@@ -630,7 +630,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           <li
             aria-disabled="false"
             aria-selected="false"
-            class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
+            class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--has-description cdx-menu-item--hide-description-overflow"
             id="cdx-menu-item-16"
             role="option"
           >

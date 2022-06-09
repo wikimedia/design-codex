@@ -128,7 +128,7 @@ exports[`matches the snapshot Case 3 Item with url: ({"description": "Test searc
 <li
   aria-disabled="false"
   aria-selected="false"
-  class="cdx-menu-item cdx-menu-item--enabled"
+  class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--has-description"
   id="test-search-result"
   role="option"
 >
@@ -172,7 +172,7 @@ exports[`matches the snapshot Case 4 Item with icon: ({"description": "Test sear
 <li
   aria-disabled="false"
   aria-selected="false"
-  class="cdx-menu-item cdx-menu-item--enabled"
+  class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--has-description"
   id="test-search-result"
   role="option"
 >
@@ -236,7 +236,7 @@ exports[`matches the snapshot Case 5 Item with thumbnail: ({"description": "Test
 <li
   aria-disabled="false"
   aria-selected="false"
-  class="cdx-menu-item cdx-menu-item--enabled"
+  class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--has-description"
   id="test-search-result"
   role="option"
 >
@@ -312,7 +312,7 @@ exports[`matches the snapshot Case 6 Item with placeholder thumbnail: ({"descrip
 <li
   aria-disabled="false"
   aria-selected="false"
-  class="cdx-menu-item cdx-menu-item--enabled"
+  class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--has-description"
   id="test-search-result"
   role="option"
 >
@@ -388,7 +388,7 @@ exports[`matches the snapshot Case 7 Item with search query: ({"description": "T
 <li
   aria-disabled="false"
   aria-selected="false"
-  class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--highlight-query"
+  class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--highlight-query cdx-menu-item--has-description"
   id="test-search-result"
   role="option"
 >
@@ -438,7 +438,7 @@ exports[`matches the snapshot Case 8 Item with language attributes: ({"descripti
 <li
   aria-disabled="false"
   aria-selected="false"
-  class="cdx-menu-item cdx-menu-item--enabled"
+  class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--has-description"
   id="test-menu-item-with-lang"
   role="option"
 >
@@ -497,7 +497,7 @@ exports[`matches the snapshot Case 9 Item with language attributes and search qu
 <li
   aria-disabled="false"
   aria-selected="false"
-  class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--highlight-query"
+  class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--highlight-query cdx-menu-item--has-description"
   id="test-menu-item-with-lang"
   role="option"
 >

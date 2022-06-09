@@ -42,7 +42,7 @@ const controlsConfig = [
 	{
 		name: 'icon',
 		type: 'icon',
-		initial: 'cdxIconTag'
+		initial: 'cdxIconGlobe'
 	},
 	{
 		name: 'description',

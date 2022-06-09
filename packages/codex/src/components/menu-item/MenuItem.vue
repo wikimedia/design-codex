@@ -320,6 +320,7 @@ export default defineComponent( {
 				'cdx-menu-item--disabled': props.disabled,
 				'cdx-menu-item--highlight-query': highlightQuery.value,
 				'cdx-menu-item--bold-label': props.boldLabel,
+				'cdx-menu-item--has-description': !!props.description,
 				'cdx-menu-item--hide-description-overflow': props.hideDescriptionOverflow
 			};
 		} );
@@ -374,8 +375,11 @@ export default defineComponent( {
 // TODO: Tokenize.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
+// Line heights are best-practice unit-less.
+@line-height-menu-item: ( 22 / @font-size-browser );
 @min-width-select: 280px;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
+@size-icon-relative: unit( ( @size-icon / @font-size-browser / @font-size-base ), em );
 
 @padding-vertical-menu-item: 8px;
 
@@ -403,12 +407,17 @@ export default defineComponent( {
 	&__content {
 		display: flex;
 		align-items: center;
+		line-height: @line-height-menu-item;
 		.hyphens();
 
 		&,
 		&:hover {
 			text-decoration: none;
 		}
+	}
+
+	&--has-description &__content {
+		align-items: flex-start;
 	}
 
 	&__text__description {
@@ -461,6 +470,12 @@ export default defineComponent( {
 		// Make sure the icon inherits the content element's color.
 		color: inherit;
 		margin-right: @margin-end-menu-item-thumbnail;
+
+		// Icons must scale with font size to maintain top alignment with the label text.
+		svg {
+			width: @size-icon-relative;
+			height: @size-icon-relative;
+		}
 	}
 
 	&--bold-label {
