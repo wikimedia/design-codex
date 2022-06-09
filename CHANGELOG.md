@@ -1,3 +1,63 @@
+# 0.1.0-alpha.7 / 2022-06-09
+
+## Features
+- Button, ToggleButton: Text overflow from button is larger than max width (Simone This Dot)
+- Combobox: Remove useless tabindex="0" on the input (Roan Kattouw)
+- Lookup: Update menu items when item is selected (Simone This Dot)
+- Select: Remove arrow indicator direction change when menu is expanded (Volker E)
+- Tabs: Add scroll buttons (Roan Kattouw)
+- TextInput: Allow clear and end icons to coexist (Anne Tomasevich)
+- TypeaheadSearch: Remove hover effect from button (Roan Kattouw)
+
+## Styles
+- Style: Refactor icon positioning in TypeaheadSearch using mixin (Simone This Dot)
+- styles, docs: Enforce specific CSS properties over shorthand (Volker E)
+- Tabs, styles: Consistently apply margins to <a> elements (Roan Kattouw)
+- styles: Use consistent border-bottom on item with dropdown menus (Simone This Dot)
+- Select, styles: Introduce `.cdx-select--enabled` class and align states (Volker E)
+- TypeaheadSearch, styles: Fix auto-expand distance (Anne Tomasevich)
+- MenuItem, TypeaheadSearch, styles: Fix link style overrides (Anne Tomasevich)
+- MenuItem - Fix style for Menu with custom menu item (Simone This Dot)
+- SearchResultTitle, styles: remove properties for consistency with MenuItem label (Anne Tomasevich)
+- Tabs, tokens, styles: Use `rgba()` over transparent for background color (Volker E)
+- tokens: Follow new color palette naming scheme for design-first tokens (Volker E)
+- tokens: Use design-first `border` tokens (Volker E)
+
+## Code
+- useGeneratedId: no need to return a reference (DannyS712)
+- useStringHelpers: export helpers directly instead of in a function (DannyS712)
+- codex, utils: create directory and rename utils.ts and useStringHelpers.ts (DannyS712)
+- utils, tests: add tests for stringTypeValidator.ts (DannyS712)
+- build: Add codex-search package to prepare-release.sh (Roan Kattouw)
+- build: Add a new script to simplify the creation of snapshot (Simone This Dot)
+
+## Documentation
+- docs: Clarify that Vue needs to be installed to use Codex (Roan Kattouw)
+- docs, Wrapper: simplify highlighting of generated code (DannyS712)
+- docs, Tabs: Update Tabs demos (Anne Tomasevich)
+- docs: add generic configurable component for using v-model (DannyS712)
+- docs, ConfigurableGeneric: <component> can be self closing (DannyS712)
+- docs, Wrapper: minor simplification and cleanup (DannyS712)
+- docs, SlotIcon: avoid `as` for typescript type of iconsByName (DannyS712)
+- docs, Wrapper: include v-model in generated code sample (DannyS712)
+- docs: Restructure tokens overview documentation and inter-link (Volker E)
+- docs, sidebar: fix design tokens order (DannyS712)
+- docs, SizeDemo: document css property values, simplify (DannyS712)
+- docs, codegen: default slot never requires <template> wrapper (DannyS712)
+- docs, Button: remove a number of selection demo variations (DannyS712)
+- docs, CdxDocsFontDemo: remove unneeded less import (DannyS712)
+- docs, RELEASING: update explanation of creating tag patch (DannyS712)
+- docs, tests: add tests for ConfigurableGeneric (DannyS712)
+- docs: Remove link override styles for demos (Anne Tomasevich)
+- docs: separate 'default' property values from initial values to use (DannyS712)
+- docs: Expand “ADRs” menu label slightly (Volker E)
+- docs, tokens: add generic CdxDocsTokenDemo for demonstrations (DannyS712)
+- docs, tokens: deduplicate styles in CdxDocsTokenDemo (DannyS712)
+- docs, MenuItem: add configurable menu item demo (DannyS712)
+- docs: Add instructions for updating MediaWiki to RELEASING.md (Roan Kattouw)
+- docs: Clarify browser support (Volker E)
+- Combobox, docs: Add disabled demo (Roan Kattouw)
+
 # 0.1.0-alpha.6 / 2022-05-12
 
 ## Features
