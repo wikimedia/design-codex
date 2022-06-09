@@ -421,10 +421,6 @@ export default defineComponent( {
 		margin-right: @margin-end-menu-item-thumbnail;
 	}
 
-	&--highlight-query {
-		line-height: normal;
-	}
-
 	&--bold-label {
 		.cdx-menu-item__text__label {
 			font-weight: @font-weight-bold;

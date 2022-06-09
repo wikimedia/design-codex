@@ -60,8 +60,6 @@ export default defineComponent( {
 
 .cdx-search-result-title {
 	display: inline-block;
-	margin: 0 0 @margin-bottom-search-result-title 0;
-	font-size: @font-size-search-result-title;
 	font-weight: @font-weight-bold;
 
 	&__match {
