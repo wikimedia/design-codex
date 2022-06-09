@@ -4,13 +4,10 @@
 // Base styles for <button> elements, used for Button and ToggleButton
 .cdx-mixin-button() {
 	box-sizing: @box-sizing-base;
-	.text-overflow( @visible: false );
-
 	// Interactive elements have a minimum touch area.
 	min-width: @min-size-base;
 	min-height: @min-size-base;
 	max-width: @max-width-button;
-
 	// Support Firefox, Safari: Normalize by removing the `margin`.
 	margin: 0;
 	border-width: @border-width-base;
@@ -18,15 +15,13 @@
 	border-radius: @border-radius-base;
 	padding-right: @padding-horizontal-base;
 	padding-left: @padding-horizontal-base;
-
 	// Support all browsers: Normalize by inheriting `font-family`.
 	// Initial value depends on user-agent.
 	font-family: inherit;
-
 	// Support all browsers: Normalize by inheriting `font-size` over initial value of `none`.
 	font-size: inherit;
 	font-weight: @font-weight-bold;
-
+	.text-overflow( @visible: false );
 	// Support Edge, Firefox, and IE: Normalize by removing the inheritance of `text-transform`.
 	text-transform: none;
 	transition-property: @transition-property-base;
