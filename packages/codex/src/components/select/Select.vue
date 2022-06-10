@@ -318,7 +318,7 @@ export default defineComponent( {
 			&:focus {
 				border-color: @color-primary--focus;
 				box-shadow: @box-shadow-primary--focus;
-				outline: 0;
+				outline: @outline-base--focus;
 			}
 
 			&:active {

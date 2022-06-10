@@ -323,7 +323,7 @@ export default defineComponent( {
 		&:focus {
 			border-color: @border-color-base--focus;
 			box-shadow: @box-shadow-base--focus;
-			outline: 0;
+			outline: @outline-base--focus;
 		}
 	}
 
