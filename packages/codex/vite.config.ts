@@ -32,14 +32,17 @@ export default defineConfig( ( { command, mode }, libName = 'codex' ) => {
 
 	return {
 		build: {
-			// The es2015 build target doesn't include Safari 11-14, but we do support those
-			// browsers. Including them here is important, because otherwise esbuild's CSS minifier
-			// will output CSS that uses the 'inset:' property, which isn't supported in Safari 14
-			// and below.
-			target: [ 'es2015', 'safari11' ],
+			// The es2015 build target doesn't
+			// - include Edge 18, but we do support it in our Modern support browser group and it
+			//   enables output of design-first `rgba()` over RGBA hexadecimal color notation.
+			// - include Safari 11-14, but we do support those
+			//   browsers. Including them here is important, because otherwise esbuild's CSS
+			//   minifier will output CSS that uses the 'inset:' property, which isn't supported in
+			//   Safari 14 and below.
+			target: [ 'es2015', 'edge18', 'safari11' ],
 			minify: true,
 			// Since we run Vite twice, don't empty the dist directory in between runs
-			// We do this in the build command in package.json instead
+			// We do this in the build command in package.json instead.
 			emptyOutDir: false,
 
 			lib: {
