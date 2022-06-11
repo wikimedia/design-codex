@@ -86,19 +86,20 @@ export default defineComponent( {
 			cursor: @cursor-base--hover;
 		}
 
-		&:focus {
+		&:active {
+			background-color: @background-color-framed--active;
+			color: @color-base--active;
+		}
+
+		// Amplify 'interaction' feeling when pressed, by not setting focus “outline” style while
+		// in active state.
+		&:focus:not( :active ) {
 			border-color: @border-color-base--focus;
 			box-shadow: @box-shadow-base--focus;
 			// Set the standard focus `outline` transparent. A `border` and `box-shadow` visual
 			// focus is added above for common rendering.
 			// In Windows high contrast mode the transparent outline becomes visible.
 			outline: @outline-base--focus;
-		}
-
-		&:active {
-			background-color: @background-color-framed--active;
-			color: @color-base--emphasized;
-			box-shadow: none;
 		}
 	}
 
@@ -131,6 +132,8 @@ export default defineComponent( {
 			color: @color-base--active;
 			border-color: @border-color-base--active;
 		}
+
+		// `:focus` styles covered in `.cdx-button` selector above.
 	}
 
 	/* stylelint-disable-next-line no-descending-specificity */
@@ -153,16 +156,14 @@ export default defineComponent( {
 				border-color: @border-color-progressive--hover;
 			}
 
-			&:focus {
-				border-color: @border-color-progressive--focus;
-				box-shadow: @box-shadow-progressive--focus;
-			}
-
 			&:active {
 				background-color: @background-color-progressive--active;
 				border-color: @border-color-progressive--active;
-				// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
-				box-shadow: none;
+			}
+
+			&:focus:not( :active ) {
+				border-color: @border-color-progressive--focus;
+				box-shadow: @box-shadow-progressive--focus;
 			}
 		}
 	}
@@ -179,16 +180,14 @@ export default defineComponent( {
 				border-color: @border-color-destructive--hover;
 			}
 
-			&:focus {
-				border-color: @border-color-destructive--focus;
-				box-shadow: @box-shadow-destructive--focus;
-			}
-
 			&:active {
 				background-color: @background-color-destructive--active;
 				border-color: @border-color-destructive--active;
-				// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
-				box-shadow: none;
+			}
+
+			&:focus:not( :active ) {
+				border-color: @border-color-destructive--focus;
+				box-shadow: @box-shadow-destructive--focus;
 			}
 		}
 	}
@@ -205,19 +204,14 @@ export default defineComponent( {
 				border-color: @border-color-progressive--hover;
 			}
 
-			&:focus {
-				color: @color-progressive--focus;
-				border-color: @border-color-progressive--focus;
-				box-shadow: @box-shadow-progressive--focus;
-			}
-
 			&:active {
 				background-color: @background-color-normal-progressive--active;
 				color: @color-progressive--active;
 				border-color: @border-color-progressive--active;
-				// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
-				box-shadow: none;
 			}
+
+			// `:focus` styles covered in `.cdx-button` selector above.
+			// `color` inherited from `:enabled` rule.
 		}
 	}
 
@@ -231,18 +225,15 @@ export default defineComponent( {
 				border-color: @border-color-destructive--hover;
 			}
 
-			&:focus {
-				color: @color-destructive--focus;
-				border-color: @border-color-destructive--focus;
-				box-shadow: @box-shadow-destructive--focus;
-			}
-
 			&:active {
 				background-color: @background-color-normal-destructive--active;
 				color: @color-destructive--active;
 				border-color: @border-color-destructive--active;
-				// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
-				box-shadow: none;
+			}
+
+			&:focus:not( :active ) {
+				border-color: @border-color-destructive--focus;
+				box-shadow: @box-shadow-destructive--focus;
 			}
 		}
 	}
@@ -259,16 +250,12 @@ export default defineComponent( {
 			background-color: @background-color-quiet--hover;
 		}
 
-		&:focus {
-			border-color: @border-color-progressive--focus;
-			box-shadow: @box-shadow-progressive--focus;
-		}
-
 		&:active {
 			background-color: @background-color-quiet--active;
 			border-color: @border-color-base--active;
-			box-shadow: none;
 		}
+
+		// `:focus` styles covered in `.cdx-button` selector above.
 	}
 
 	// Progressive quiet buttons.
@@ -281,18 +268,14 @@ export default defineComponent( {
 				color: @color-progressive--hover;
 			}
 
-			&:focus {
-				color: @color-progressive--focus;
-				border-color: @border-color-progressive--focus;
-				box-shadow: @box-shadow-progressive--focus;
-			}
-
 			&:active {
 				background-color: @background-color-progressive--active;
 				color: @color-base--inverted;
 				border-color: @border-color-progressive--active;
-				box-shadow: none;
 			}
+
+			// `:focus` styles covered in `.cdx-button` selector above.
+			// `color` inherited from `:enabled` rule.
 		}
 	}
 
@@ -306,17 +289,15 @@ export default defineComponent( {
 				color: @color-destructive--hover;
 			}
 
-			&:focus {
-				color: @color-destructive--focus;
-				border-color: @border-color-destructive--focus;
-				box-shadow: @box-shadow-destructive--focus;
-			}
-
 			&:active {
 				background-color: @background-color-destructive--active;
 				color: @color-base--inverted;
 				border-color: @color-destructive--active;
-				box-shadow: none;
+			}
+
+			&:focus:not( :active ) {
+				border-color: @border-color-destructive--focus;
+				box-shadow: @box-shadow-destructive--focus;
 			}
 		}
 	}
