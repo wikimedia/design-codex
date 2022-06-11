@@ -86,11 +86,6 @@ export default defineComponent( {
 			cursor: @cursor-base--hover;
 		}
 
-		&:active {
-			background-color: @background-color-framed--active;
-			color: @color-base--active;
-		}
-
 		// Amplify 'interaction' feeling when pressed, by not setting focus “outline” style while
 		// in active state.
 		&:focus:not( :active ) {
@@ -252,6 +247,7 @@ export default defineComponent( {
 
 		&:active {
 			background-color: @background-color-quiet--active;
+			color: @color-base--active;
 			border-color: @border-color-base--active;
 		}
 
