@@ -130,7 +130,7 @@ exports[`matches the snapshot Case 6 Clearable, with input: ({"clearable": true,
   class="cdx-text-input cdx-text-input--clearable"
 >
   <input
-    class="cdx-text-input__input cdx-text-input__input--is-active"
+    class="cdx-text-input__input cdx-text-input__input--has-value"
     type="text"
   />
   <!--v-if-->
@@ -198,7 +198,7 @@ exports[`matches the snapshot Case 8 With end icon, clearable, with input: ({"cl
   class="cdx-text-input cdx-text-input--has-end-icon cdx-text-input--clearable"
 >
   <input
-    class="cdx-text-input__input cdx-text-input__input--is-active"
+    class="cdx-text-input__input cdx-text-input__input--has-value"
     type="text"
   />
   <!--v-if-->

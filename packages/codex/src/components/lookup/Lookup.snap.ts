@@ -56,7 +56,7 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-1"
       autocomplete="off"
-      class="cdx-text-input__input cdx-text-input__input--is-active"
+      class="cdx-text-input__input cdx-text-input__input--has-value"
       role="combobox"
       type="text"
     />
@@ -228,7 +228,7 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-6"
       autocomplete="off"
-      class="cdx-text-input__input cdx-text-input__input--is-active"
+      class="cdx-text-input__input cdx-text-input__input--has-value"
       role="combobox"
       type="text"
     />
@@ -445,7 +445,7 @@ exports[`Basic usage Case 4 With no results content: ([]) => HTML 1`] = `
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-12"
       autocomplete="off"
-      class="cdx-text-input__input cdx-text-input__input--is-active"
+      class="cdx-text-input__input cdx-text-input__input--has-value"
       role="combobox"
       type="text"
     />

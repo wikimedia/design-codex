@@ -61,7 +61,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
         aria-expanded="false"
         aria-owns="cdx-lookup-menu-1"
         autocomplete="off"
-        class="cdx-text-input__input cdx-text-input__input--is-active"
+        class="cdx-text-input__input cdx-text-input__input--has-value"
         placeholder="Start typing an icon name"
         role="combobox"
         type="text"

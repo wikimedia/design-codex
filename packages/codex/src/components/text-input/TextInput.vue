@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, toRef, computed, ref } from 'vue';
+import { defineComponent, PropType, toRef, computed } from 'vue';
 import { Icon, cdxIconClear } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import { TextInputTypes } from '../../constants';
@@ -174,15 +174,9 @@ export default defineComponent( {
 			otherAttrs
 		} = useSplitAttributes( attrs, internalClasses );
 
-		const isFocused = ref( false );
-
-		// isActive will be true when the input is focused and/or when there is input. This ref is
-		// used for styling purposes.
-		const isActive = computed( () => isFocused.value || !!wrappedModel.value );
-
 		const inputClasses = computed( () => {
 			return {
-				'cdx-text-input__input--is-active': isActive.value
+				'cdx-text-input__input--has-value': !!wrappedModel.value
 			};
 		} );
 
@@ -198,11 +192,9 @@ export default defineComponent( {
 			emit( 'change', event );
 		};
 		const onFocus = ( event: FocusEvent ) => {
-			isFocused.value = true;
 			emit( 'focus', event );
 		};
 		const onBlur = ( event: FocusEvent ) => {
-			isFocused.value = false;
 			emit( 'blur', event );
 		};
 
@@ -310,7 +302,8 @@ export default defineComponent( {
 			color: @color-placeholder;
 		}
 
-		&.cdx-text-input__input--is-active {
+		&:focus,
+		&.cdx-text-input__input--has-value {
 			~ .cdx-text-input__icon {
 				color: @color-base;
 			}
