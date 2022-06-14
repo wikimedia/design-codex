@@ -39,8 +39,12 @@
 			<!--
 				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
+				@binding {boolean} active A boolean defining if the current item is active
 			-->
-			<slot :menuItem="menuItem" />
+			<slot
+				:menuItem="menuItem"
+				:active="menuItem.value === activeMenuItem?.value"
+			/>
 		</cdx-menu-item>
 
 		<cdx-progress-bar

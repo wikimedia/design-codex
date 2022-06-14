@@ -72,10 +72,13 @@
 							</span>
 						</div>
 					</template>
-					<template #default="{ menuItem }">
+					<template #default="{ menuItem, active }">
 						<a
 							v-if="menuItem.value === MenuFooterValue"
 							class="cdx-typeahead-search__search-footer"
+							:class="{
+								'cdx-typeahead-search__search-footer__active': active
+							}"
 							:href="asSearchResult( menuItem ).url"
 							@click.capture.stop="onSearchFooterClick( asSearchResult( menuItem ) )"
 						>
@@ -733,8 +736,7 @@ export default defineComponent( {
 	&__search-footer {
 		border-top: @border-width-base @border-style-base @border-color-heading;
 
-		&:visited,
-		&:active {
+		&:visited {
 			color: @color-base;
 		}
 
@@ -751,6 +753,15 @@ export default defineComponent( {
 			width: auto;
 			height: @size-search-figure;
 			margin-right: @padding-horizontal-base;
+		}
+
+		// We cannot use a pseudo class ":active" because that does not work
+		// in firefox due to the use of "preventDefault" in the menuItem component
+		&__active {
+			.cdx-typeahead-search__search-footer__icon,
+			.cdx-typeahead-search__search-footer__text {
+				color: @color-progressive;
+			}
 		}
 	}
 
