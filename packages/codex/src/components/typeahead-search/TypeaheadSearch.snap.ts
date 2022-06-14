@@ -574,6 +574,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               href="https://en.wikipedia.org/wiki/CO"
             >
               <!-- Thumbnail, thumbnail placeholder, or icon. -->
+              
               <span
                 class="cdx-menu-item__thumbnail-placeholder"
               >
@@ -602,6 +603,10 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                   </svg>
                 </span>
               </span>
+              <transition-stub>
+                <!--v-if-->
+              </transition-stub>
+              
               <!-- Item text. -->
               <span
                 class="cdx-menu-item__text"
@@ -636,10 +641,39 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               href="https://en.wikipedia.org/wiki/Color"
             >
               <!-- Thumbnail, thumbnail placeholder, or icon. -->
+              
               <span
-                class="cdx-menu-item__thumbnail"
-                style="background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/200px-64_365_Color_Macro_%285498808099%29.jpg);"
-              />
+                class="cdx-menu-item__thumbnail-placeholder"
+              >
+                <span
+                  class="cdx-icon cdx-menu-item__thumbnail-placeholder__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!--v-if-->
+                    <!-- eslint-disable vue/no-v-html -->
+                    <g
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
+                      />
+                      <path
+                        d="M19 5H1V3h18zm0 12H1v-2h18z"
+                      />
+                    </g>
+                  </svg>
+                </span>
+              </span>
+              <transition-stub>
+                <!--v-if-->
+              </transition-stub>
+              
               <!-- Item text. -->
               <span
                 class="cdx-menu-item__text"

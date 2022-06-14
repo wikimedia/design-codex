@@ -19,20 +19,24 @@
 				class="cdx-menu-item__content"
 			>
 				<!-- Thumbnail, thumbnail placeholder, or icon. -->
-				<span
-					v-if="showThumbnail && thumbnail"
-					:style="{ backgroundImage: thumbnailBackgroundImage }"
-					class="cdx-menu-item__thumbnail"
-				/>
-				<span
-					v-else-if="showThumbnail"
-					class="cdx-menu-item__thumbnail-placeholder"
-				>
-					<cdx-icon
-						:icon="defaultThumbnailIcon"
-						class="cdx-menu-item__thumbnail-placeholder__icon"
-					/>
-				</span>
+				<template v-if="showThumbnail">
+					<span
+						v-if="!thumbnailLoaded"
+						class="cdx-menu-item__thumbnail-placeholder"
+					>
+						<cdx-icon
+							:icon="defaultThumbnailIcon"
+							class="cdx-menu-item__thumbnail-placeholder__icon"
+						/>
+					</span>
+					<Transition name="cdx-menu-item__thumbnail">
+						<span
+							v-if="thumbnailLoaded"
+							:style="thumbnailStyle"
+							class="cdx-menu-item__thumbnail"
+						/>
+					</Transition>
+				</template>
 				<cdx-icon
 					v-else-if="icon"
 					:icon="icon"
@@ -93,7 +97,7 @@
 </template>
 
 <script lang="ts">
-import { PropType, computed, defineComponent } from 'vue';
+import { PropType, computed, defineComponent, ref, onMounted } from 'vue';
 import { cdxIconImageLayoutFrameless, Icon } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import CdxSearchResultTitle from '../search-result-title/SearchResultTitle.vue';
@@ -274,6 +278,8 @@ export default defineComponent( {
 	],
 
 	setup: ( props, { emit } ) => {
+		const thumbnailLoaded = ref( false );
+		const thumbnailStyle = ref( {} );
 		const onMouseEnter = () => {
 			emit( 'change', 'highlighted', true );
 		};
@@ -325,14 +331,23 @@ export default defineComponent( {
 		// Get the title, which will be passed to the Title component. Must be a string.
 		const title = computed( () => props.label || String( props.value ) );
 
-		// If there's a thumbnail image, set up the value of the background-image rule for the
-		// thumbnail <span>.
-		const thumbnailBackgroundImage = computed( () => {
-			if ( props.thumbnail ) {
-				const escapedUrl = props.thumbnail.url.replace( /([\\"\n])/g, '\\$1' );
-				return `url("${escapedUrl}")`;
+		const preloadThumbnail = ( url: string ) => {
+			const escapedUrl = url.replace( /([\\"\n])/g, '\\$1' );
+			const image = new Image();
+			image.onload = () => {
+				thumbnailStyle.value = { backgroundImage: `url("${escapedUrl}")` };
+				thumbnailLoaded.value = true;
+			};
+			image.onerror = () => {
+				thumbnailLoaded.value = false;
+			};
+			image.src = escapedUrl;
+		};
+
+		onMounted( () => {
+			if ( props.thumbnail?.url && props.showThumbnail ) {
+				preloadThumbnail( props.thumbnail.url );
 			}
-			return '';
 		} );
 
 		return {
@@ -344,8 +359,9 @@ export default defineComponent( {
 			rootClasses,
 			contentTag,
 			title,
-			thumbnailBackgroundImage,
-			defaultThumbnailIcon: cdxIconImageLayoutFrameless
+			defaultThumbnailIcon: cdxIconImageLayoutFrameless,
+			thumbnailStyle,
+			thumbnailLoaded
 		};
 	}
 } );
@@ -418,6 +434,16 @@ export default defineComponent( {
 
 	&__thumbnail {
 		display: inline-block;
+
+		// Fade in transition applied to the thumbnail on show
+		&-enter-active {
+			transition-property: @transition-property-fade;
+			transition-duration: @transition-duration-medium;
+		}
+
+		&-enter-from {
+			opacity: @opacity-transparent;
+		}
 	}
 
 	&__thumbnail-placeholder {
