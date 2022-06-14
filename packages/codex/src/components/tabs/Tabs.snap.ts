@@ -51,12 +51,12 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
       
       <li
         class="cdx-tabs__list__item--enabled cdx-tabs__list__item"
-        id="cdx-a-88-label"
+        id="cdx-a-92-label"
         role="presentation"
       >
         <a
           aria-selected="false"
-          href="#cdx-a-88"
+          href="#cdx-a-92"
           role="tab"
           tabindex="-1"
         >
@@ -65,12 +65,12 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
       </li>
       <li
         class="cdx-tabs__list__item--enabled cdx-tabs__list__item"
-        id="cdx-b-89-label"
+        id="cdx-b-93-label"
         role="presentation"
       >
         <a
           aria-selected="false"
-          href="#cdx-b-89"
+          href="#cdx-b-93"
           role="tab"
           tabindex="-1"
         >
@@ -79,12 +79,12 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
       </li>
       <li
         class="cdx-tabs__list__item--enabled cdx-tabs__list__item"
-        id="cdx-c-90-label"
+        id="cdx-c-94-label"
         role="presentation"
       >
         <a
           aria-selected="false"
-          href="#cdx-c-90"
+          href="#cdx-c-94"
           role="tab"
           tabindex="-1"
         >
@@ -93,12 +93,12 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
       </li>
       <li
         class="cdx-tabs__list__item--enabled cdx-tabs__list__item"
-        id="cdx-d-91-label"
+        id="cdx-d-95-label"
         role="presentation"
       >
         <a
           aria-selected="false"
-          href="#cdx-d-91"
+          href="#cdx-d-95"
           role="tab"
           tabindex="-1"
         >
@@ -149,9 +149,9 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
     
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-a-88-label"
+      aria-labelledby="cdx-a-92-label"
       class="cdx-tab"
-      id="cdx-a-88"
+      id="cdx-a-92"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"
@@ -163,9 +163,9 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
     </section>
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-b-89-label"
+      aria-labelledby="cdx-b-93-label"
       class="cdx-tab"
-      id="cdx-b-89"
+      id="cdx-b-93"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"
@@ -177,9 +177,9 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
     </section>
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-c-90-label"
+      aria-labelledby="cdx-c-94-label"
       class="cdx-tab"
-      id="cdx-c-90"
+      id="cdx-c-94"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"
@@ -191,9 +191,9 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
     </section>
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-d-91-label"
+      aria-labelledby="cdx-d-95-label"
       class="cdx-tab"
-      id="cdx-d-91"
+      id="cdx-d-95"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"

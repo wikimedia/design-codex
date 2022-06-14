@@ -273,18 +273,16 @@ describe( 'When used along with child Tab components', () => {
 			expect( emitted ).toBeUndefined();
 		} );
 
-		// eslint-disable-next-line jest/no-disabled-tests
-		it.skip( 'Down arrow keypress focuses the contents of the current tab', async () => {
+		it( 'Down arrow keypress focuses the contents of the current tab', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'apple' },
 				global: { components: { Tab: CdxTab } },
 				slots: { default: slotMarkup },
-				attachToDocument: true
+				attachTo: 'body'
 			} );
 			const appleTab = wrapper.findAll( '.cdx-tab' )[ 0 ];
 			const header = wrapper.get( '.cdx-tabs__header' );
 			await header.trigger( 'keydown', { key: 'ArrowDown' } );
-			// TODO this doesn't work for some reason, maybe because document.getElementById is used
 			expect( document.activeElement ).toBe( appleTab.element );
 		} );
 	} );
