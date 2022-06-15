@@ -1,9 +1,10 @@
 # Codex docs
 
 The Codex docs site is built with [VitePress](https://vitepress.vuejs.org/), a static site generator
-built with Vite and Vue 3. The code in this package is used to build our live documentation site.
+built with [Vite](https://vitejs.dev/) as build tool and Vue 3. The code in this package is used to
+build our live documentation site.
 
-## Dev site
+## Development site
 
 In the root of the Codex monorepo, run:
 
@@ -11,11 +12,11 @@ In the root of the Codex monorepo, run:
 npm run doc:dev
 ```
 
-This will serve the VitePress site locally at http://localhost:3000.
+This will serve the VitePress Codex docs site locally at http://localhost:3000.
 
 ## Writing docs
 
-General docs are located in the `docs/` directory. `docs/index.md` is the landing page of the static 
+General docs are located in the `docs/` directory. `docs/index.md` is the landing page of the static
 site, and other docs are organized into folders.
 
 Docs are written in Markdown, see the [VitePress docs](https://vitepress.vuejs.org/guide/markdown.html)
@@ -49,5 +50,6 @@ for more info.
 
 ### Vite config
 
-Vitepress's Vite configuration can be overridden via `docs/vite.config.ts`. For example, you can add
-Vite plugins here.
+VitePress uses Vite for building and serving the live Codex docs site. Configuration can be
+overridden via `docs/vite.config.ts`. For example, you can add
+[Vite plugins](https://vitejs.dev/plugins/) here.
