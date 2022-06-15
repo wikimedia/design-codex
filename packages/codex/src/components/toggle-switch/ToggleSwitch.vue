@@ -174,6 +174,7 @@ export default defineComponent( {
 		.force-gpu-composite-layer();
 		background-color: @background-color-framed;
 		display: inline-block;
+		flex-shrink: 0;
 		// Grip will be positioned absolutely relative to the switch.
 		position: relative;
 		box-sizing: @box-sizing-base;
