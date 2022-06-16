@@ -1,4 +1,4 @@
-import { SetupContext, ComputedRef, computed } from 'vue';
+import { SetupContext, ComputedRef, StyleValue, computed } from 'vue';
 
 /**
  * Splits attributes so some can be applied to the root element and others to a child element.
@@ -33,7 +33,7 @@ export default function useSplitAttributes(
 	internalClasses: ComputedRef<Record<string, boolean>> = computed( () => { return {}; } )
 ): {
 	rootClasses: ComputedRef<Record<string, boolean>>,
-	rootStyle: ComputedRef<Record<string, unknown>|undefined>,
+	rootStyle: ComputedRef<StyleValue|undefined>,
 	otherAttrs: ComputedRef<SetupContext[ 'attrs' ]>
 } {
 	// Build an object of root classes including those set in the component (internal classes) and
@@ -52,7 +52,7 @@ export default function useSplitAttributes(
 	// Get the style attribute set on the component in the parent.
 	const rootStyle = computed( () => {
 		if ( 'style' in attrs ) {
-			return attrs.style as Record<string, unknown>;
+			return attrs.style as StyleValue;
 		}
 
 		return undefined;

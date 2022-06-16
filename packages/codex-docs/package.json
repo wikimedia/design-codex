@@ -21,7 +21,7 @@
 		"update-snapshots": "npm run test:unit -- -u"
 	},
 	"dependencies": {
-		"vue": "^3.2.27",
+		"vue": "^3.2.33",
 		"@wikimedia/codex-design-tokens": "*",
 		"@wikimedia/codex": "*",
 		"@wikimedia/codex-icons": "*",
@@ -34,7 +34,7 @@
 		"@types/jest": "^27.0.2",
 		"@types/prismjs": "^1.26.0",
 		"@vitejs/plugin-vue": "^2.1.0",
-		"@vue/test-utils": "^2.0.0-rc.19",
+		"@vue/test-utils": "^2.0.1",
 		"@vue/vue3-jest": "^27.0.0-alpha.1",
 		"autoprefixer": "^10.3.7",
 		"concurrently": "^6.3.0",
