@@ -41,7 +41,7 @@ layout for all items. See the [MenuItem demo](./menu-item.html#within-a-list) fo
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-thumbnail :thumbnail="null" />
 ```
 

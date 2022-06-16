@@ -265,7 +265,7 @@ describe( 'matches the snapshot', () => {
 ```
 Then you will get a lengthy and confusing error message that likely doesn't appear in your IDE, but
 only when running `npm test` on the command line (or in CI). The error looks something like this:
-```
+```bash
 src/components/component-name/ComponentName.test.ts:27:26 - error TS2769: No overload matches this call.
   The last overload gave the following error.
     Argument of type 'DefineComponent<{ myPropName: { myPropName: PropType<"foo" | "bar" | "baz">; default: string; validator: StringTypeValidator<"foo" | "bar" | "baz">; }; }, ... 10 more ..., { ...; }>' is not assignable to parameter of type 'ComponentOptionsWithObjectProps<Readonly<ComponentPropsOptions<Data>>, { rootClasses: ComputedRef<{ 'cdx-button--action-default': boolean; 'cdx-button--action-progressive': boolean; ... 4 more ...; 'cdx-button--framed': boolean; }>; onClick: (event: Event) => void; }, ... 8 more ..., { ...; } | {}>'.
@@ -304,7 +304,7 @@ setup( props, { emit } ) {
 }
 ```
 will result in the following error, because `update:ofo` is not a valid event name:
-```{7}
+```ts{7}
 src/components/foo-bar/FooBar.vue:117:24 - error TS2769: No overload matches this call.
   Overload 1 of 2, '(modelValueRef: Ref<ModelValue>, emit: EmitFunc<"update:modelValue">, eventName?: "update:modelValue" | undefined): WritableComputedRef<ModelValue>', gave the following error.
     Argument of type '(event: "click" | "update:foo", ...args: any[]) => void' is not assignable to parameter of type 'EmitFunc<"update:modelValue">'.

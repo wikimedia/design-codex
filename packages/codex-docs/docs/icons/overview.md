@@ -42,28 +42,26 @@ example below.
 
 You **have to** provide an icon label when there is no other text explaining what the icon means.
 For example:
-```vue
+```vue-html
 <cdx-button action="destructive">
 	<cdx-icon :icon="cdxIconTrash" icon-label="delete" />
 </cdx-button>
 ```
-The code above displays <cdx-button action="destructive">
-<cdx-icon :icon="cdxIconTrash" icon-label="delete" />
-</cdx-button>, which is read by screen readers as `delete`.
+The code above displays <cdx-button action="destructive"><cdx-icon :icon="cdxIconTrash" icon-label="delete" /></cdx-button>,
+which is read by screen readers as `delete`.
 
 
 You **should not** provide an icon label when there is other text explaining the same thing that
 the icon does, and the icon text would be duplicative. For example:
-```vue
+```vue-html
 <cdx-button action="destructive">
 	<cdx-icon :icon="cdxIconTrash" /> Delete this file
 </cdx-button>
 ```
-The code above displays <cdx-button action="destructive">
-	<cdx-icon :icon="cdxIconTrash" /> Delete this file
-</cdx-button>. Screen readers skip over the icon and just read `Delete this file`, which still
-makes it clear what the button does. If you added `icon-label="delete"` here, a screen reader would
-read `delete Delete this file`, which is not a good experience for screen reader users.
+The code above displays <cdx-button action="destructive"><cdx-icon :icon="cdxIconTrash" /> Delete this file</cdx-button>.
+Screen readers skip over the icon and just read `Delete this file`, which still makes it clear what
+the button does. If you added `icon-label="delete"` here, a screen reader would read `delete Delete
+this file`, which is not a good experience for screen reader users.
 
 ## Icon colors
 All icons are *monochrome*, meaning the entire icon is the same color. By default, icons use the
@@ -85,12 +83,16 @@ automatically detects the direction of its environment, and chooses the correct 
 For example, if `<cdx-icon :icon="cdxIconJournal" />` appears on a page that is RTL, or inside of
 a `<div dir="rtl">` tag, the RTL version of the icon will be displayed.
 
+<!--
+	In the paragraph below, do not allow the <cdx-icon> tags to be at the start of the line!
+	Icons at the start of a line are not inlined, but start a new paragraph, which we don't want.
+-->
 Similarly, some icons have different versions for different languages. For example, `cdxIconBold`
-looks like <cdx-icon :icon="cdxIconBold" lang="en" /> in English, but looks like
-<cdx-icon :icon="cdxIconBold" lang="fr" /> in French. The icon component also automatically detects
-the language of its environment, so if for example `<cdx-icon :icon="cdxIconBold" />` appears on a
-page that has `<html lang="fr">` at the root, or inside of a `<p lang="fr">`, the French version
-of the icon will be displayed.
+looks like <cdx-icon :icon="cdxIconBold" lang="en" /> in English, but looks
+like <cdx-icon :icon="cdxIconBold" lang="fr" /> in French. The icon component also automatically
+detects the language of its environment, so if for example `<cdx-icon :icon="cdxIconBold" />`
+appears on a page that has `<html lang="fr">` at the root, or inside of a `<p lang="fr">`,
+the French version of the icon will be displayed.
 
 ### Limitations and override
 The automatic direction and language detection feature has limitations. It only detects the
@@ -102,7 +104,7 @@ them.
 If you run into this limitation, or if the automatic direction/language detection isn't working
 for other reasons, you can set the direction and/or language explicitly through the `dir` and
 `lang` props:
-```vue
+```vue-html
 Bold icon in German: <cdx-icon :icon="cdxIconBold" lang="de" />
 Journal icon in RTL: <cdx-icon :icon="cdxIconJournal" dir="rtl" />
 ```

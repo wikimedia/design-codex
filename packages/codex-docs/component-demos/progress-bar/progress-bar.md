@@ -16,7 +16,7 @@ Default indeterminate progress bar.
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-progress-bar />
 ```
 
@@ -35,7 +35,7 @@ sample usage.
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-progress-bar :inline="true" />
 ```
 

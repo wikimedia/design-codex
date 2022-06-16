@@ -88,7 +88,7 @@ empty. On click, the clear button will set the input value to an empty string.
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-text-input :clearable="true" />
 ```
 
@@ -126,7 +126,7 @@ To add placeholder text, add a `placeholder` attribute.
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-text-input placeholder="Start typing..." />
 ```
 
@@ -144,7 +144,7 @@ To disable the input, add the `disabled` attribute.
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-text-input :start-icon="cdxIconSearch" :disabled="true" />
 ```
 

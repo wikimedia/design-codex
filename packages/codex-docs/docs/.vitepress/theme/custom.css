@@ -2,16 +2,56 @@
 @import '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.css';
 
 /* stylelint-disable selector-class-pattern */
+/* stylelint-disable unit-disallowed-list */
 
 :root {
 	/* Override base VitePress theme tokens. */
-	--c-brand: var( --color-progressive );
-	--c-brand-light: var( --color-progressive--hover );
-	--c-text: var( --color-base );
+	--vp-c-brand: var( --color-progressive );
+	--vp-c-brand-light: var( --color-progressive--hover );
 
-	--font-family-base: var( --font-family-sans );
-	--font-family-serif: var( --font-family-serif );
+	--vp-c-text: var( --color-base );
+	--vp-c-text-1: var( --color-base );
+	--vp-c-text-2: var( --color-subtle );
+	--vp-c-text-code: var( --color-emphasized );
+
+	--vp-c-white-soft: var( --background-color-framed );
+	--vp-c-white-mute: var( --background-color-interactive-subtle );
+
+	--vp-c-indigo: var( --color-progressive );
+	--vp-c-indigo-soft: var( --color-progressive--active );
+
+	--vp-c-bg-alt: var( --background-color-framed );
+
+	--vp-c-divider: var( --border-color-base );
+	--vp-c-divider-light: var( --border-color-subtle );
+
+	--vp-font-family-base: var( --font-family-sans );
+	--vp-font-family-serif: var( --font-family-serif );
+
+	--vp-custom-block-info-border: var( --border-color-notice );
+	--vp-custom-block-info-text: var( --color-notice );
+	--vp-custom-block-info-bg: var( --background-color-notice-subtle );
+
+	--vp-custom-block-tip-border: var( --border-color-primary );
+	--vp-custom-block-tip-text: var( --color-notice );
+	--vp-custom-block-tip-bg: var( --background-color-framed );
+
+	--vp-custom-block-warning-border: var( --border-color-warning );
+	--vp-custom-block-warning-text: var( --color-notice );
+	--vp-custom-block-warning-bg: var( --background-color-warning-subtle );
+
+	--vp-custom-block-danger-border: var( --border-color-error );
+	--vp-custom-block-danger-text: var( --color-notice );
+	--vp-custom-block-danger-bg: var( --background-color-error-subtle );
+
+	--vp-custom-block-details-border: var( --border-color-notice );
+	--vp-custom-block-details-text: var( --color-notice );
+	--vp-custom-block-details-bg: var( --background-color-notice-subtle );
+
+	--border-color-code: var( --background-color-interactive );
 }
+
+/* HTML element style overrides. -------------------------------------------- */
 
 html,
 body {
@@ -22,57 +62,180 @@ body {
 	font-size: initial;
 }
 
-h1 {
+.vp-doc h1 {
 	font-family: var( --font-family-heading-main );
 	font-weight: var( --font-weight-normal );
+	letter-spacing: initial;
 }
 
-h4 {
+.vp-doc h4 {
 	/* This is to match h3 styles from VitePress. */
-	/* stylelint-disable-next-line unit-disallowed-list */
 	margin-top: 1.15rem;
 }
 
-td {
+.vp-doc a {
+	transition-duration: 0s;
+}
+
+.vp-doc a:hover {
+	color: var( --color-primary );
+	text-decoration: underline;
+}
+
+.vp-doc p,
+.vp-doc li {
+	/* Standardize line height for page content. */
+	line-height: 1.7;
+}
+
+.vp-doc table {
+	display: table;
+}
+
+.vp-doc th,
+.vp-doc td {
+	border-color: var( --border-color-subtle );
 	padding: 8px 12px;
 }
 
-/* Styles for custom blocks; see https://vitepress.vuejs.org/guide/markdown.html#custom-containers. */
-.custom-block.info {
-	background-color: var( --background-color-notice-subtle );
-	color: var( --color-notice );
-	border-color: var( --border-color-notice );
+.vp-doc td pre {
+	margin: 0;
 }
 
-.custom-block.warning {
-	background-color: var( --background-color-warning-subtle );
-	/* Use notice color for improved readability. */
-	color: var( --color-notice );
-	border-color: var( --border-color-warning );
+/* Navigation style overrides. ---------------------------------------------- */
+
+.Layout .VPSidebar {
+	background-color: var( --background-color-base );
+	border: var( --border-width-base ) var( --border-style-base ) var( --border-color-subtle );
 }
 
-.custom-block.warning .custom-block-title {
-	color: var( --color-utility-yellow30 );
+/* When the sidebar is not collapsed... */
+@media screen and ( min-width: 960px ) {
+	/* Get rid of blurred background of fixed header. */
+	.VPNav .VPNavBar.has-sidebar .content,
+	/* Make all parts of the top nav background-color-base. */
+	.VPNav .VPNavBarTitle,
+	.VPNav .VPNavBarTitle.has-sidebar {
+		background-color: var( --background-color-base );
+	}
 }
 
-.custom-block.danger {
-	background-color: var( --background-color-error-subtle );
-	/* Use notice color for improved readability. */
-	color: var( --color-notice );
-	border-color: var( --border-color-error );
+.VPNavBarTitle .title {
+	font-size: 1.25rem;
+}
+
+.VPNavBarTitle .title:hover {
+	color: var( --color-base--hover );
+	opacity: 1;
+}
+
+.VPNavBarMenu .VPNavBarMenuLink:last-child {
+	padding-right: 0;
+}
+
+/* Use padding instead of margin for sidebar links so the space doesn't collapse. */
+.VPSidebar .VPLink {
+	margin: 0;
+	padding: 4px 0;
+}
+
+.VPSidebar .link-text,
+/* stylelint-disable-next-line no-descending-specificity */
+.VPDocAside .content {
+	font-weight: var( --font-weight-normal );
+}
+
+.VPSidebar .link.active .link-text {
+	font-weight: var( --font-weight-bold );
+}
+
+/* Mimic main sidebar styles within right sidebar. */
+.VPDocAside .outline-title,
+.VPDocAside .outline-link {
+	padding: 6px 0;
+	font-size: 0.875rem;
+	/* TODO: use token */
+	line-height: 1.42857;
+}
+
+.VPDocAside .outline-marker {
+	/* Account for the 6px padding-top we added above. */
+	margin-top: 6px;
+}
+
+/* Mobile menu text */
+.VPLocalNav .menu-text,
+.VPLocalNav .top-link {
+	font-size: 1rem;
+}
+
+.VPFlyout.VPNavBarExtra {
+	/* Hide the flyout menu (mobile) since it's empty. */
+	/* Should be removed if we ever add any social links or a theme switcher. */
+	display: none;
+}
+
+/* Syntax highlighting and code style overrides. ---------------------------- */
+
+.vp-doc :not( pre ) > code {
+	border: var( --border-width-base ) var( --border-style-base ) var( --border-color-code );
+	border-radius: var( --border-radius-base );
+}
+
+pre[ class*='language-' ] {
+	/* Remove border from generated code samples. */
+	border: 0;
+}
+
+.vp-doc [ class~='language-vue-html' ]::before {
+	/* Make sure template-only code blocks are labeled as vue code. */
+	content: 'vue';
+}
+
+.vp-doc [ class*='language-' ] > button.copy {
+	/* Hide built-in copy button. */
+	/* We have our own that's more accessible. */
+	display: none;
+}
+
+.vp-doc [ class*='language-' ]:hover > button.copy + span.lang,
+.vp-doc [ class*='language-' ] > button.copy:focus + span.lang {
+	/* Never hide the code block language. */
+	opacity: 1;
+}
+
+/* Custom block style overrides. -------------------------------------------- */
+
+/* See https://vitepress.vuejs.org/guide/markdown.html#custom-containers. */
+.vp-doc .custom-block {
+	border-radius: var( --border-radius-base );
+	font-size: 1rem;
+	/* TODO: use token */
+	line-height: 1.7;
+}
+
+.vp-doc .custom-block p {
+	/* TODO: use token */
+	line-height: 1.7;
+}
+
+.vp-doc .custom-block a {
+	color: var( --color-primary );
+	text-decoration: none;
+}
+
+.vp-doc .custom-block a:hover {
+	color: var( --color-primary );
+	opacity: 1;
+	text-decoration: underline;
 }
 
 .custom-block.danger .custom-block-title {
 	color: var( --color-destructive--active );
 }
 
-/* Override VitePress styles to set link color within custom blocks. */
-.custom-block.warning a,
-.custom-block.danger a {
-	color: var( --c-brand );
-}
-
 /* stylelint-enable selector-class-pattern */
+/* Custom docs styles. ------------------------------------------------------ */
 
 .cdx-docs-demo-text {
 	margin: 0 0 16px;

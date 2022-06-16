@@ -47,10 +47,8 @@ config.global.provide = {
 // Mock as if we are on the ToggleButton component page, for autoCodeTag tests - this is
 // set for all test cases to avoid duplication
 jest.mock( 'vitepress', () => {
-	const originalModule = jest.requireActual( 'vitepress' );
 	return {
 		__esModule: true,
-		...originalModule,
 		useRoute: jest.fn( () => {
 			return {
 				data: {

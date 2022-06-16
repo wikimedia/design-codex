@@ -7,7 +7,7 @@
 	-->
 	<div :dir="isComponentPage ? undefined : 'ltr'">
 		<Layout>
-			<template #navbar-search>
+			<template #nav-bar-content-before>
 				<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
 				<div
 					v-show="isComponentPage"
@@ -41,6 +41,12 @@ provide( DirectionKey, dir );
 
 <style lang="less">
 .cdx-docs-direction-switcher {
-	margin-left: 16px;
+	// Vertically center content.
+	display: flex;
+	align-items: center;
+
+	.cdx-demo-direction-switcher {
+		margin-left: 0.5em;
+	}
 }
 </style>

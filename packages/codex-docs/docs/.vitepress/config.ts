@@ -16,7 +16,7 @@ function isWIPComponent( componentName: string ): boolean {
  * @param items Array of sidebar items representing components
  * @return Filtered or modified array of sidebar items
  */
-function filterComponents( items: DefaultTheme.SideBarItem[] ): DefaultTheme.SideBarItem[] {
+function filterComponents( items: DefaultTheme.SidebarItem[] ): DefaultTheme.SidebarItem[] {
 	return items.flatMap( ( item ) => {
 		const componentName = ( item.link ?? '' ).match( /^\/components\/([^\/]+)/ )?.[ 1 ];
 		if ( componentName && isWIPComponent( componentName ) ) {
@@ -33,17 +33,25 @@ export default defineConfig( {
 	title: 'Codex',
 	description: 'Toolkit for building user interfaces within the Wikimedia Design System',
 	base: process.env.CODEX_DOC_ROOT || '/',
+	// Disable dark mode.
+	appearance: false,
+
+	markdown: {
+		theme: 'dracula'
+	},
 
 	themeConfig: {
-		repo: 'wikimedia/design-codex',
-		docsDir: 'vitepress/docs',
-		lastUpdated: 'Last updated',
+		logo: '/logo-Wikimedia.svg',
+
+		nav: [
+			{ text: 'GitHub', link: 'https://github.com/wikimedia/design-codex' }
+		],
 
 		sidebar: {
 			'/': [
 				{
 					text: 'Introduction',
-					children: [
+					items: [
 						{ text: 'About', link: '/' },
 						{ text: 'Usage', link: '/introduction/usage' },
 						{ text: 'Packages', link: '/introduction/packages' }
@@ -51,7 +59,7 @@ export default defineConfig( {
 				},
 				{
 					text: 'Contributing',
-					children: [
+					items: [
 						{ text: 'Guidelines', link: '/contributing/guidelines' },
 						{ text: 'Designing components', link: '/contributing/designing-components' },
 						{ text: 'Contributing code', link: '/contributing/contributing-code' },
@@ -60,7 +68,7 @@ export default defineConfig( {
 				},
 				{
 					text: 'Components',
-					children: filterComponents( [
+					items: filterComponents( [
 						{ text: 'Button', link: '/components/button' },
 						{ text: 'ButtonGroup', link: '/components/button-group' },
 						{ text: 'Card', link: '/components/card' },
@@ -87,7 +95,7 @@ export default defineConfig( {
 				},
 				{
 					text: 'Icons',
-					children: [
+					items: [
 						{ text: 'Overview', link: '/icons/overview' },
 						{ text: 'List of all icons', link: '/icons/all-icons' },
 						{ text: 'Adding new icons', link: '/icons/adding-new' }
@@ -95,7 +103,7 @@ export default defineConfig( {
 				},
 				{
 					text: 'Design Tokens',
-					children: [
+					items: [
 						{ text: 'Overview', link: '/design-tokens/overview' },
 						{ text: 'Animation', link: '/design-tokens/animation' },
 						{ text: 'Border', link: '/design-tokens/border' },
@@ -117,7 +125,7 @@ export default defineConfig( {
 				},
 				{
 					text: 'Decisions – ADRs',
-					children: [
+					items: [
 						{ text: 'Overview', link: '/adrs/overview' },
 						{ text: 'ADR 1 - Design Tokens', link: '/adrs/01-adr-design-tokens' },
 						{ text: 'ADR 2 - Demo tool', link: '/adrs/02-adr-demo-tool' },

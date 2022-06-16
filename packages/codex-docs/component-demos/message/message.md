@@ -103,7 +103,7 @@ Note that inline messages cannot be dismissable.
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-message dismiss-button-label="Close">
 	Notice message with dismiss button
 </cdx-message>
@@ -172,7 +172,7 @@ export default defineComponent( {
 
 Message content can contain markup like bold text and links.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
 <cdx-message type="error">
 <p><strong>An error has occurred</strong></p>
@@ -183,7 +183,7 @@ Message content can contain markup like bold text and links.
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-message type="error">
 	<p><strong>An error has occurred</strong></p>
 	<p>Comprehensive explanation of the error</p>
@@ -206,7 +206,7 @@ Notice message with custom icon
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-message :icon="cdxIconArticle">
 	Notice message with custom icon
 </cdx-message>

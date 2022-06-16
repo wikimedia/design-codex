@@ -47,3 +47,17 @@ props, as well as slot content.
 
 </template>
 </cdx-demo-wrapper>
+
+<style lang="less" scoped>
+// Override Vitepress styles.
+// TODO: remove this once T296106 is complete.
+.cdx-demo-wrapper {
+	:deep( ul ) {
+		list-style: none;
+	}
+
+    :deep( li + li ) {
+        margin-top: 0;
+    }
+}
+</style>

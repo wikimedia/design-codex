@@ -4,7 +4,6 @@ import CdxDocsConfigurableGeneric from './ConfigurableGeneric.vue';
 // Trying to set this mock within the snapshot tests doesn't work, mock that the generic is being
 // used for ToggleButton first, then ToggleSwitch, matching the order of the snapshot cases
 jest.mock( 'vitepress', () => {
-	const originalVitepress = jest.requireActual( 'vitepress' );
 	const mockRoute = jest.fn();
 	mockRoute.mockReturnValueOnce(
 		{ data: { title: 'ToggleButton' } }
@@ -14,7 +13,6 @@ jest.mock( 'vitepress', () => {
 	);
 	return {
 		__esModule: true,
-		...originalVitepress,
 		useRoute: mockRoute
 	};
 } );

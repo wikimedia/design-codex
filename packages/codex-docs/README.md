@@ -12,7 +12,7 @@ In the root of the Codex monorepo, run:
 npm run doc:dev
 ```
 
-This will serve the VitePress Codex docs site locally at http://localhost:3000.
+This will serve the VitePress Codex docs site locally at http://localhost:5173.
 
 ## Writing docs
 

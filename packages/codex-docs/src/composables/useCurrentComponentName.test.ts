@@ -3,10 +3,8 @@ import useCurrentComponentName from './useCurrentComponentName';
 
 // Mock as if we are on the ToggleButton component page
 jest.mock( 'vitepress', () => {
-	const originalModule = jest.requireActual( 'vitepress' );
 	return {
 		__esModule: true,
-		...originalModule,
 		useRoute: jest.fn( () => {
 			return {
 				data: {

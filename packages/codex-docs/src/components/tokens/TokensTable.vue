@@ -145,7 +145,6 @@ export default defineComponent( {
 .cdx-docs-tokens {
 	&-table {
 		// Undo VitePress style.
-		display: table;
 		width: @size-full;
 
 		// Undo GitHub-table-style alternate row striping.
@@ -170,7 +169,8 @@ export default defineComponent( {
 				position: absolute;
 				right: 0;
 				bottom: 0;
-				font-size: 0.8em;
+				font-size: 0.875em;
+				line-height: 1.4285714286;
 			}
 		}
 

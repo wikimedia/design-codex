@@ -54,7 +54,7 @@ const controlsConfig = [
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-button>Click me</cdx-button>
 ```
 
@@ -70,7 +70,7 @@ const controlsConfig = [
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-button action="progressive">Click me</cdx-button>
 ```
 
@@ -86,7 +86,7 @@ const controlsConfig = [
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-button action="destructive" type="primary">Click me</cdx-button>
 ```
 
@@ -107,7 +107,7 @@ const controlsConfig = [
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-button
 	action="destructive"
 	type="primary"
@@ -128,7 +128,7 @@ const controlsConfig = [
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-button	type="quiet">Click me</cdx-button>
 ```
 

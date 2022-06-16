@@ -66,9 +66,12 @@ Automatically flipped icons are icons whose RTL version is a perfect mirror imag
 version. For these icons, we only put the LTR version in the repository, and then tell the
 browser to flip the icon horizontally in RTL contexts.
 
-For example, `listBullet.svg ` contains the LTR version of the `listBullet` icon:
-<cdx-icon :icon="cdxIconListBullet" />. In RTL contexts, the LTR version is displayed, but is
-mirrored horizontally: <cdx-icon :icon="cdxIconListBullet" dir="rtl" />.
+<!--
+	In the paragraph below, do not allow the <cdx-icon> tags to be at the start of the line!
+	Icons at the start of a line are not inlined, but start a new paragraph, which we don't want.
+-->
+For example, `listBullet.svg ` contains the LTR version of the `listBullet` icon: <cdx-icon :icon="cdxIconListBullet" />.
+In RTL contexts, the LTR version is displayed, but is mirrored horizontally: <cdx-icon :icon="cdxIconListBullet" dir="rtl" />.
 
 For these icons, use a single `.svg` file named in lowerCamelCase, e.g. `listBullet.svg`.
 This file contains the LTR version of the icon (but despite that, it doesn't have a `-ltr` suffix).
@@ -97,11 +100,14 @@ export const cdxIconHelp: IconFlipForRtl = {
 ```
 
 ### Icons with different LTR and RTL versions
+<!--
+	In the paragraph below, do not allow the <cdx-icon> tags to be at the start of the line!
+	Icons at the start of a line are not inlined, but start a new paragraph, which we don't want.
+-->
 For some icons, the RTL version isn't a simple mirror image of the LTR version. For example,
 the `listNumbered` icon looks like <cdx-icon :icon="cdxIconListNumbered" /> in LTR. Flipping
-it automatically would look wrong, because the numbers would be mirrored too:
-<cdx-icon :icon="cdxIconListNumberedWronglyFlipped" dir="rtl" />. Instead, we need a separate
-SVG file for the RTL version of the icon: <cdx-icon :icon="cdxIconListNumbered" dir="rtl" />.
+it automatically would look wrong, because the numbers would be mirrored too: <cdx-icon :icon="cdxIconListNumberedWronglyFlipped" dir="rtl" />.
+Instead, we need a separate SVG file for the RTL version of the icon: <cdx-icon :icon="cdxIconListNumbered" dir="rtl" />.
 
 For these icons, use two SVG files named with `-ltr` and `-rtl` suffixes, e.g.
 `listNumbered-ltr.svg` and `listNumbered-rtl.svg`. Add an icon definition to `icons.ts` that looks
@@ -116,9 +122,13 @@ export const cdxIconListNumbered: IconVariedByDir = {
 ```
 
 ### Icons with different versions per language
+<!--
+	In the paragraph below, do not allow the <cdx-icon> tags to be at the start of the line!
+	Icons at the start of a line are not inlined, but start a new paragraph, which we don't want.
+-->
 Some icons look different in different languages, especially those based on letters. In many cases,
-several languages share the same version of the icon. For example, the `bold` icon looks like
-<cdx-icon :icon="cdxIconBold" lang="en" /> in Czech, English, Hebrew, Malayalam, Polish and
+several languages share the same version of the icon. For example, the `bold` icon looks
+like <cdx-icon :icon="cdxIconBold" lang="en" /> in Czech, English, Hebrew, Malayalam, Polish and
 Scottish, but like <cdx-icon :icon="cdxIconBold" lang="ru" /> in Kirghiz, Russian and Ukranian, etc.
 
 For these icons, use a separate SVG file for each version of the icon, each with a suffix that

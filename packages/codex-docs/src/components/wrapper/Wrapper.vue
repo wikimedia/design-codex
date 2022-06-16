@@ -160,6 +160,16 @@ export default defineComponent( {
 		generatedModelName: {
 			type: String,
 			default: ''
+		},
+		/**
+		 * Whether to allow normal link styles to be applied to the contents of the Wrapper.
+		 *
+		 * Useful for components that can contain, for example, paragraphs of text that may
+		 * contain links that should be shown with normal link styles.
+		 */
+		allowLinkStyles: {
+			type: Boolean,
+			default: false
 		}
 	},
 	setup( props, { slots } ) {
@@ -188,7 +198,8 @@ export default defineComponent( {
 			return {
 				'cdx-demo-wrapper--has-code': hasCodeSample.value,
 				'cdx-demo-wrapper--has-reset': includeReset.value,
-				'cdx-demo-wrapper--code-expanded': showCode.value
+				'cdx-demo-wrapper--code-expanded': showCode.value,
+				'cdx-demo-wrapper--allow-link-styles': props.allowLinkStyles
 			};
 		} );
 
@@ -436,10 +447,20 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
+// Load the CSS for Prism, so that syntax highlighting works
+@import 'prism-themes/themes/prism-dracula.css';
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 .cdx-demo-wrapper {
 	margin-top: 16px;
+
+	// Unset Vitepress link hover styles (which have an unfortunately high specificity) in the demo
+	// pane, unless they have explicitly been allowed.
+	// TODO: remove this once T296106 is complete.
+	&:not( .cdx-demo-wrapper--allow-link-styles ) a:hover {
+		color: initial;
+		text-decoration: none;
+	}
 
 	&__demo-pane {
 		position: relative;
@@ -502,11 +523,11 @@ export default defineComponent( {
 	}
 
 	// Code output underneath component with code language class, for example `language-vue`.
-	&__code-generated [ class*='language-' ],
-	&__code-slotted [ class*='language-' ] {
+	// Element selectors needed to override Vitepress styles.
+	&__code-generated div[ class*='language-' ],
+	&__code-slotted div[ class*='language-' ] {
 		margin-top: 0;
-		border-top-left-radius: 0;
-		border-top-right-radius: 0;
+		border-radius: 0 0 @border-radius-base @border-radius-base;
 	}
 }
 </style>

@@ -748,7 +748,7 @@ To serve the VitePress site locally, run this command in the root of the Codex r
 npm run doc:dev
 ```
 
-This will both serve the VitePress site at `http://localhost:3000` and compile component usage docs.
+This will both serve the VitePress site at `http://localhost:5173` and compile component usage docs.
 If you need to serve the VitePress site on a different port, use `npm run doc:dev --port=12345`.
 For ease of development, the site uses hot module reloading: changes to the source code are
 immediately reflected in the browser, without needing to reload the page.
@@ -773,7 +773,7 @@ module.exports = {
 			 	...
 				{
 					text: 'Components',
-					children: [
+					items: [
 						// Add more components here.
 						{ text: 'Button', link: '/components/button' },
 						{ text: 'Radio', link: '/components/radio' }
@@ -819,7 +819,7 @@ Example using a markdown code block:
 
 <template v-slot:code>
 
-```vue
+```vue-html
 <cdx-button>Click me</cdx-button>
 ```
 
@@ -906,7 +906,7 @@ your component demo. `propValues` is an object keyed on prop name with the curre
 prop, and `slotValues` is an object keyed on slot name with the current content of each slot. This
 is how the configurable Button demo is set up:
 
-```vue
+```vue-html
 <cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues, slotValues }">
 <cdx-button v-bind="propValues">{{ slotValues.default }}</cdx-button>
