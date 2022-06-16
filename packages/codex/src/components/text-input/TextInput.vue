@@ -251,12 +251,19 @@ export default defineComponent( {
 	box-sizing: @box-sizing-base;
 
 	&__start-icon {
-		.cdx-mixin-icon( start, @size-icon, @padding-horizontal-input-text );
+		// Border width is included here and for other icon positions because the icon position will
+		// be offset from the border, not inside the border, so we need to include its width in the
+		// offset value.
+		.cdx-mixin-icon( start, @size-icon, @padding-horizontal-input-text + @border-width-base );
 	}
 
 	&__end-icon,
 	&__clear-icon {
-		.cdx-mixin-icon( end, @size-input-end-icon, @padding-horizontal-input-text );
+		.cdx-mixin-icon(
+			end,
+			@size-input-end-icon,
+			@padding-horizontal-input-text + @border-width-base
+		);
 	}
 
 	&__clear-icon {
@@ -270,7 +277,7 @@ export default defineComponent( {
 			.cdx-mixin-icon(
 				end,
 				@size-input-end-icon,
-				@padding-horizontal-input-text-two-end-icons
+				@padding-horizontal-input-text-two-end-icons + @border-width-base
 			);
 		}
 	}
