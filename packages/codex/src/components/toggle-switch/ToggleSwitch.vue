@@ -140,7 +140,6 @@ export default defineComponent( {
 
 @padding-end-toggle-switch-label-content: 6px;
 
-@transition-property-toggle-switch-outline: @transition-property-border-color;
 @position-offset-toggle-switch-outline: 1px;
 
 @transition-property-toggle-switch-grip: background-color, left;
@@ -201,7 +200,7 @@ export default defineComponent( {
 			z-index: 1;
 			border: @border-width-base @border-style-base transparent;
 			border-radius: @border-radius-pill;
-			transition-property: @transition-property-toggle-switch-outline;
+			transition-property: @transition-property-base;
 			transition-duration: @transition-duration-medium;
 		}
 
