@@ -62,9 +62,9 @@ export default defineComponent( {
 		// TODO: replace with tokens.
 		width: 33%;
 		height: 100%;
-		animation-name: cdx-progress-bar__bar--slide;
-		animation-duration: 1.6s;
-		animation-timing-function: linear;
+		animation-name: cdx-animation-progress-bar__bar;
+		animation-duration: @animation-duration-medium;
+		animation-timing-function: @animation-timing-function-base;
 		animation-iteration-count: infinite;
 	}
 
@@ -84,7 +84,7 @@ export default defineComponent( {
 	}
 }
 
-@keyframes cdx-progress-bar__bar--slide {
+@keyframes cdx-animation-progress-bar__bar {
 	from {
 		transform: translate( -100% );
 	}

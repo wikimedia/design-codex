@@ -9,12 +9,12 @@
 	background-color: @background-color-pending-stripe;
 	background-image: linear-gradient( 135deg, @background-color-base 25%, transparent 25%, transparent 50%, @background-color-base 50%, @background-color-base 75%, transparent 75%, transparent );
 	background-size: @size-icon-inner @size-icon-inner;
-	animation-name: cdx-pending-stripes;
+	animation-name: cdx-animation-pending-stripes;
 	animation-duration: 650ms;
-	animation-timing-function: linear;
+	animation-timing-function: @animation-timing-function-base;
 	animation-iteration-count: infinite;
 
-	@keyframes cdx-pending-stripes {
+	@keyframes cdx-animation-pending-stripes {
 		0% {
 			background-position: -@size-icon-inner 0;
 		}
