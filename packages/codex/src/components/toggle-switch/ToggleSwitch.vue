@@ -153,7 +153,6 @@ export default defineComponent( {
 	position: relative;
 	// Create a stacking context.
 	z-index: 0;
-	cursor: @cursor-base--hover;
 
 	&__label {
 		display: flex;
@@ -258,9 +257,8 @@ export default defineComponent( {
 		}
 
 		&:enabled {
-			cursor: @cursor-base--hover;
-
-			& ~ .cdx-toggle-switch__label-content {
+			&:hover,
+			& ~ .cdx-toggle-switch__label-content:hover {
 				cursor: @cursor-base--hover;
 			}
 
