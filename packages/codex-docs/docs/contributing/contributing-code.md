@@ -9,11 +9,21 @@
 
 ### Task tracking
 
-Tasks are tracked on the on the [Codex workboard](https://phabricator.wikimedia.org/project/view/5587/).
-Add or claim a task as soon as you decide to work on it. This will help avoid overlapping,
-duplicate, or out-of-order work. Keep the task in the appropriate column on the workboard. Note
-that relatively minor contributions (like build asset updates or icon code optimizations) do not
-require a corresponding task.
+Tasks are tracked in Phabricator. We use three different Phabricator workboards, for three different purposes:
+
+- [Codex](https://phabricator.wikimedia.org/tag/codex/): used to indicate that a task is related to
+  Codex. We do not track task status here.
+- [Design-Systems-Team](https://phabricator.wikimedia.org/tag/design-systems-team/): used to
+  triage, sort, prioritize, and refine tasks that the Design Systems team and contributors will
+  work on. 
+- [Design-Systems-Sprint](https://phabricator.wikimedia.org/project/view/5859/): used to track
+  active works-in-progress from Research > Design > Development > Testing > Release. As a
+  contributor, you are welcome to track your work related to the Design System on this board as
+  well—just remember to keep the task in the appropriate column that reflects its status.
+
+Create or claim a task as soon as you decide to work on it. This will help avoid overlapping
+duplicate, or out-of-order work. Note that very minor contributions (like build asset updates or
+icon code optimizations) do not require a corresponding task.
 
 When adding a new component, developing the entire component to completely fulfill design criteria
 may be too much for a single patch. Consider creating a parent task for that component with
@@ -21,16 +31,32 @@ sub-tasks for the minimum viable solution and additional features.
 
 ### Component addition process
 
-1. **Gather relevant design artifacts.** Before a component can be added to Codex, it should have a
-   complete entry in the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/index.html).
-   There may be exceptions to this, in which case the component should match [OOUI](https://doc.wikimedia.org/oojs-ui/master/demos/?page=widgets&theme=wikimediaui&direction=ltr&platform=desktop)
-   styles.
-2. **Gather necessary design tokens.** Consult the component design Figma specification sheet for
-   all tokens per component. Only use existing design tokens and flag missing or incomplete ones
-   early. Also see [writing styles](#writing-styles) below for further details.
-3. **Build the component.** [Create the Vue component](#developing-components) and [write unit tests](#jest-unit-tests).
-4. **Demo the component.** [Create component demos in VitePress](#component-demos).
-5. **Open a patch for review.** Patches will be reviewed by developers, UX engineers, and designers.
+1. **Create a new component task in Phabricator.** New Codex components must have a corresponding
+  task in Phabricator (you can visit [task tracking](#task-tracking) for more info).
+2. **Gather relevant design specs.** Before a component can be implemented in Codex, it should be
+  fully specified in the [Codex components Figma library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/?node-id=1891%3A4420).
+  A new component task is considered ready for development only once design specifications have
+  been linked in the component task.
+3. **Ready for development.** Once design specifications have been shared and the task has been
+  refined by members of the Design Systems Team, the task will be moved to the "Codex Component
+  Backlog" column on the [Design-Systems-Team](https://phabricator.wikimedia.org/tag/design-systems-team/)
+  workboard. This indicates that implementation work can begin. You can assign the task to yourself
+  and move it to the 'In Development' column on the [Design-Systems-Sprint](https://phabricator.wikimedia.org/project/view/5859/)
+  workboard. 
+4. **Build the component.** Create the Vue component, applying the design tokens noted in the design
+  specification (visit [writing styles](#writing-styles) for more details), and write unit tests
+  (see the [unit tests](#unit-tests) section).
+5. **Demo the component.** Create component demos in VitePress, following the specifications
+  provided in the task and existing examples from other component demo pages. See the
+  [component demos](#component-demos) section.
+6. **Open a patch for review.** Patches will be reviewed by developers, UX engineers, and designers.
+  Once the patch is ready for review, move the component task to the "Code Review" column on the
+  [Design-Systems-Sprint](https://phabricator.wikimedia.org/project/view/5859/) workboard. The
+  Design Systems team and contributors will provide feedback in Gerrit or Phabricator. Once the
+  patch is merged, the task will be moved to the "Design Review" column. If further work is needed,
+  the task may be moved back to "Ready for Development", or a new task will be created to cover
+  the outstanding work. Further work does not necessarily have to be done by the original patch
+  author.
 
 ### Patch requirements
 

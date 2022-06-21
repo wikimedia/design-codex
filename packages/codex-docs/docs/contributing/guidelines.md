@@ -13,50 +13,59 @@ Contributions to Codex are covered by the [Code of Conduct for Wikimedia technic
 
 ## How to stay up-to-date
 
-To keep all those interested in using or contributing to Codex up-to-date on topics of design,
-development, roadmaps, and releases, the Design Systems Team will:
+Consider following Codex design, development, roadmaps, and releases in these places:
 
-- Use the [Codex workboard](https://phabricator.wikimedia.org/project/board/5587/) in Phabricator to
-  publicly track the work, giving others the opportunity to subscribe to tasks, add comments, or
-  claim tasks.
-- Keep our [team page](https://www.mediawiki.org/wiki/Design_Systems_Team) up-to-date with information about our work and how to contact us
-- Include release notes with every release and send minor+ release summaries out to the following
-  mailing lists:
-    - [wikitech-l](https://lists.wikimedia.org/postorius/lists/wikitech-l.lists.wikimedia.org/)
-    - [design.public](https://lists.wikimedia.org/postorius/lists/design.lists.wikimedia.org/)
-- Document technical decisions about the library in the [ADRs section](/adrs/overview)
+- [Phabricator](https://phabricator.wikimedia.org/tag/design-systems-team/): used to track the
+  work, and allows others the opportunity to subscribe to tasks, add comments, and claim tasks.
+  [Learn more about the use of Phabricator at the Wikimedia Foundation](https://www.mediawiki.org/wiki/Phabricator/Project_management).
+- [Team page](https://www.mediawiki.org/wiki/Design_Systems_Team): used to share information about
+  the Design Systems Team's mission, vision, work streams, objectives/key results (OKRs), and
+  roadmap.
+- Mailing lists: used to share release notes and summaries for major and minor releases:
+  - Wikimedia tech news mailing list ([wikitech-l](https://lists.wikimedia.org/postorius/lists/wikitech-l.lists.wikimedia.org/))
+  - Wikimedia design mailing list ([design.public](https://lists.wikimedia.org/postorius/lists/design.lists.wikimedia.org/))
+- [ADRs section](/adrs/overview): used to document technical decisions about the library.
 
 ## Task tracking
 
-Work on the library is tracked on the [Codex workboard](https://phabricator.wikimedia.org/project/board/5587/)
-in Phabricator.
+Tasks are tracked in Phabricator. We use three different Phabricator workboards, for three different purposes:
+
+- [Codex](https://phabricator.wikimedia.org/tag/codex/): used to indicate that a task is related to
+  Codex. We do not track task status here.
+- [Design-Systems-Team](https://phabricator.wikimedia.org/tag/design-systems-team/): used to
+  triage, sort, prioritize, and refine tasks that the Design Systems team and contributors will
+  work on. 
+- [Design-Systems-Sprint](https://phabricator.wikimedia.org/project/view/5859/): used to track
+  active works-in-progress from Research > Design > Development > Testing > Release. As a
+  contributor, you are welcome to track your work related to the Design System on this board as
+  well—just remember to keep the task in the appropriate column that reflects its status.
 
 > I want to know the status of something
 
-Check the workboard to see if a task exists for that work. If so, the task will be in the column
-that represents its current status. If not, you can add a task (see below) or contact us (see the
-[Design Systems Team page](https://www.mediawiki.org/wiki/Design_Systems_Team) on mediawiki.org).
+Check the [Codex](https://phabricator.wikimedia.org/tag/codex/),
+[Design-Systems-Team](https://phabricator.wikimedia.org/tag/design-systems-team/), and
+[Design-Systems-Sprint](https://phabricator.wikimedia.org/project/view/5859/) workboards in
+Phabricator to see if a task exists for that work (for detailed Phabricator search tips, visit
+[this page](https://www.mediawiki.org/wiki/Phabricator/Help?tableofcontents=0#Searching_for_items)).
+If so, the task will be in the column that represents its current status. If not, you can
+create a task (see below) or contact us (see the
+[Design Systems Team page](https://www.mediawiki.org/wiki/Design_Systems_Team) on mediawiki.org)
 
 > I want to request a feature
 
-You are welcome to add new tasks with the `Codex` tag. New tasks will go into
-our backlog column and will be triaged regularly. Please remember that Codex is maintained by a
-nonprofit—we won't be able to meet all feature requests, and it might take time to get to your
-request.
+You are welcome to create new tasks with the #Codex and #Design-Systems-Team tags. New tasks will
+go into our "Needs Triage (Incoming Requests)" column and will be triaged regularly. Please remember
+that Codex is maintained by a nonprofit—we won't be able to meet all feature requests, and it might
+take time to get to your request.
+
 
 > I want to follow parts of your work
 
-Create a Phabricator account and add yourself as a subscriber to a task to get notified when
-updates are made.
+[Create a Phabricator account](https://www.mediawiki.org/wiki/Phabricator/Help#Creating_your_account)
+and add yourself as a subscriber to a task to get notified when updates are made.
 
 > I want to contribute to a task
 
-Great! Add or claim a task as soon as you decide to work on it. This will help avoid overlapping,
-duplicate, or conflicting work. Keep the task in the appropriate column on the workboard to help
-communicate its current status. If you're creating a task, add as much detail as you can about the
-scope of the task: for example, what needs to be completed before the task can be considered
-"done"?
-
-## Contribution workflows
-
-**TODO: Introduce and link to component governance model**
+Great! Create or claim a task as soon as you decide to work on it. This will help avoid overlapping,
+duplicate, or conflicting work. If you're creating a task, add as much detail as you can about the
+scope of the task: for example, what needs to be completed before the task can be considered "done"?

@@ -6,7 +6,7 @@ sidebarDepth: 3
 
 Codex is a toolkit for building user interfaces within the Wikimedia Design System. Codex contains:
 
-- **Design tokens**: for writing styles consistent with the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html)
+- **Design tokens**: for writing styles consistent with the Wikimedia Design System
 - **Vue 3 components**: for building usable, accessible, translatable [Vue 3](https://v3.vuejs.org/) applications
 
 Codex features:
@@ -26,10 +26,13 @@ learn about ways you can contribute, our processes, and how to develop this libr
 ## Maintainers
 
 Codex is maintained by the Design Systems Team of the Wikimedia Foundation. It is designed and
-developed by contributors from the Wikimedia Foundation, Wikimedia Deutschland, and the Wikimedia
-volunteer community.
+developed by contributors from the [Wikimedia Foundation](https://wikimediafoundation.org/),
+[Wikimedia Deutschland](https://www.wikimedia.de/), and
+[Wikimedia Movement](https://meta.wikimedia.org/wiki/Wikimedia_movement) volunteers.
 
-To contact us or to learn more about current and future work, visit our [task tracking board](https://phabricator.wikimedia.org/project/board/5587/) or the [Design Systems Team page](https://www.mediawiki.org/wiki/Design_Systems_Team) on mediawiki.org.
+To contact us or to learn more about current and future work, visit our
+[task tracking board](https://phabricator.wikimedia.org/tag/design-systems-team/) or the
+[Design Systems Team page](https://www.mediawiki.org/wiki/Design_Systems_Team) on mediawiki.org.
 
 ## Guiding principles
 
