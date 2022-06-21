@@ -497,6 +497,33 @@
 		"primary--focus": {
 			"deprecated": "Deprecated legacy value. Only used in non-Codex products.",
 			"value": "{ box-shadow.progressive-filled--focus }"
+		},
+		"color": {
+			"comment": "Separate box-shadow colors from colors to apply clean, property specific tokens.",
+			"base": {
+				"value": "{ color.black }"
+			},
+			"progressive--active": {
+				"value": "{ color.blue700 }"
+			},
+			"progressive--focus": {
+				"value": "{ color.blue600 }"
+			},
+			"progressive-selected": {
+				"value": "{ color.blue600 }"
+			},
+			"progressive-selected--hover": {
+				"value": "{ color.blue500 }"
+			},
+			"progressive-selected--active": {
+				"value": "{ color.blue700 }"
+			},
+			"destructive--focus": {
+				"value": "{ color.red600 }"
+			},
+			"inverted": {
+				"value": "{ color.white }"
+			}
 		}
 	},
 	"outline": {
