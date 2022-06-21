@@ -531,6 +531,129 @@ test.each( cases )( 'Case %# %s', ( _, a, b, expected ) => {
 } );
 ```
 
+#### Structuring unit tests
+Unit tests should be used to test the behavior of a component, independently from other units
+(libraries or components). This section defines some standards to ensure that test files can be
+maintained and updated with minimal effort.
+
+It is common for test files to get very large, making adding new tests or finding a specific test a
+complex task. Defining patterns makes the tests easier to maintain and update.
+
+
+**Start with a filename.**
+The first `describe` block within a test file should be named for the component (or function) that
+is being tested. This will improve the debugging experience by providing the component name in the
+error message when a test fails.
+
+```typescript
+// MenuItem.test.ts
+
+describe( 'MenuItem', () => {
+	describe( 'matches the snapshots', () => {
+	} );
+
+	describe( 'descriptive test name', () => {
+	} );
+}
+```
+
+**Define names that describe a behaviour not an implementation.**
+The name of a `describe` block should describe the behavior expected by the test, not how the the
+test is implemented internally. This should start with words like "when", "with" or "without".
+
+```typescript
+// Bad
+describe( 'has an expanded property of "true" ', () => {
+} );
+
+// Good
+describe( 'when the dropdown is expanded', () => {
+} );
+```
+
+**Use given-when-then notation.**
+When writing a set of unit tests for your component, the test's collection of `describe` and `it`
+blocks should compose sentences that resemble given-when-then notation. The block names do not have
+to start with those exact words ("given", "when", "then"), but they should express the same meaning:
+
+- **Given**: Some context on what is being tested. This is typically the component name
+- **When/And**: One or more actions or scenarios that would set the test to the correct state
+- **Then**: One or more consequences resulting from the above actions
+
+```typescript
+describe( 'Button', () => {
+	describe( 'when clicked', () => {
+		it( 'should notify its parent', () => {
+		} );
+	} );
+} );
+// Output -> Button, when clicked, should notify its parent
+```
+
+**Abstract common logic when possible.**
+Writing tests using given-when-then notation provides opportunities to abstract common logic within
+the various `describe` blocks. Doing so makes the individual tests simple to write and debug and
+also reduces the risk of manual error.
+
+A common use case is to set all the variables, properties, and mocks required for a specific action
+to take place within the `beforeEach` hook, then cleaning them up using the `afterEach` hook.
+
+```typescript
+// Props, slots, and search results variables defined above...
+describe( 'TypeaheadSearch', () => {
+	describe( 'when there are search results', () => {
+		let wrapper: VueWrapper<any>;
+		let input: DOMWrapper<Element>;
+		let menu: DOMWrapper<Element>;
+
+		// Before each test, we'll set up a component wrapper, advance past the debounce
+		// interval of the input handler, then set search results.
+		beforeEach( async () => {
+			jest.useFakeTimers( 'modern' );
+
+			wrapper = mount( CdxTypeaheadSearch, {
+				// Add in an initial input value so we don't have to simulate entering input.
+				props: { initialInputValue: 'Co', searchFooterUrl, showThumbnail: true, ...propsData },
+				slots: {
+					default: defaultSlot,
+					searchFooterText: searchFooterTextSlot
+				}
+			} );
+
+			jest.advanceTimersByTime( DebounceInterval );
+			await wrapper.setProps( { searchResults } );
+
+			// Grab the input and menu, which we'll need for a few tests.
+			input = wrapper.find( '.cdx-text-input__input' );
+			menu = wrapper.find( '.cdx-menu' );
+		} );
+
+		// After each test, we'll reset timers.
+		afterEach( () => {
+			jest.useRealTimers();
+		} );
+
+		it( 'matches the snapshot', () => {
+			expect( wrapper.element ).toMatchSnapshot();
+		} );
+
+		it( 'closes menu when input is cleared', async () => {
+			await input.trigger( 'focus' );
+			expect( menu.isVisible() ).toBe( true );
+			await input.setValue( '' );
+			jest.advanceTimersByTime( DebounceInterval );
+			expect( menu.isVisible() ).toBe( false );
+		} );
+	} );
+} );
+```
+
+::: warning
+Even if it is possible to use the same variables and progressively change them in each layer of
+the test, it is better to actually declare the complete required object in (or before) each test to
+provide more visibility.
+:::
+
 #### Vue test utils
 Tests in Codex use the Vue test utils to mount and interact with components. To learn how to use
 this library, read the [Vue test utils guide](https://next.vue-test-utils.vuejs.org/guide/),
@@ -546,20 +669,24 @@ with two required props and no slots:
 import { mount } from '@vue/test-utils';
 import CdxComponentName from './ComponentName.vue';
 
-describe( 'matches the snapshot', () => {
-	type Case = [ msg: string, num: number, label: number ];
+describe( 'ComponentName', () => {
+	describe( 'matches the snapshot', () => {
+		type Case = [ msg: string, num: number, label: string ];
 
-	const cases : Case[] = [
-		'Simple', 42, 'The answer',
-		'Zero', 0, 'Nothing',
-		'Empty string', 0, '',
-		'Long string', 23, 'Donaudampfschifffahrtselektrizitätenhauptbetriebswerkbauunterbeamtengesellschaft'
-	];
+		const cases : Case[] = [
+			'Simple', 42, 'The answer',
+			'Zero', 0, 'Nothing',
+			'Empty string', 0, '',
+			'Long string', 23, 'Donaudampfschifffahrtselektrizitätenhauptbetriebswerkbauunterbeamtengesellschaft'
+		];
 
-	test.each( cases )( 'Case %# %s', ( _, num, label ) => {
-		const wrapper = mount( CdxComponentName, { props: { num, label } } );
-		expect( wrapper.element ).toMatchSnapshot();
+		test.each( cases )( 'Case %# %s', ( _, num, label ) => {
+			const wrapper = mount( CdxComponentName, { props: { num, label } } );
+			expect( wrapper.element ).toMatchSnapshot();
+		} );
 	} );
+
+	// ...other tests...
 } );
 ```
 When these snapshot tests are run for the first time, Jest will create a file called
