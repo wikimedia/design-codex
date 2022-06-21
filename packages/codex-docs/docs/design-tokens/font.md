@@ -10,6 +10,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 <cdx-docs-tokens-table
 	:tokens="tokens['font-family']"
 	token-demo="CdxDocsFontDemo"
+	token-category="font"
 	css-property="font-family"
 />
 
@@ -18,6 +19,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 <cdx-docs-tokens-table
 	:tokens="tokens['font-weight']"
 	token-demo="CdxDocsFontDemo"
+	token-category="font"
 	css-property="font-weight"
 />
 
@@ -26,5 +28,6 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 <cdx-docs-tokens-table
 	:tokens="tokens['line-height']"
 	token-demo="CdxDocsFontDemo"
+	token-category="font"
 	css-property="line-height"
 />

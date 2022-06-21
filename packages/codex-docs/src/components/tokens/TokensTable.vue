@@ -15,12 +15,16 @@
 				</td>
 				<td>
 					<code class="cdx-docs-tokens-table__value">{{ token.value }}</code>
-					<div v-if="hasTokenDemo" class="cdx-docs-tokens-table__demo">
+					<div
+						v-if="hasTokenDemo"
+						class="cdx-docs-tokens-table__demo"
+						:class="[ demoClass, `${demoClass}--${tokenCategory}` ]"
+					>
 						<component
 							:is="tokenDemo"
+							:class="[ `${demoClass}__token`, `${demoClass}__token--${token.name}` ]"
 							:token-value="token.value"
 							:css-property="cssProperty"
-							:demo-class="demoClass"
 							:style-target="styleTarget"
 						/>
 					</div>
@@ -78,6 +82,13 @@ export default defineComponent( {
 			type: String,
 			default: ''
 		},
+		/**
+		 * Name of the token category being demoed. Used to generate a special CSS class.
+		 */
+		tokenCategory: {
+			type: String,
+			required: true
+		},
 		cssProperty: {
 			type: String,
 			default: ''
@@ -87,7 +98,7 @@ export default defineComponent( {
 		 */
 		demoClass: {
 			type: String,
-			default: ''
+			default: 'cdx-docs-tokens-demo'
 		},
 		/**
 		 * Extra option to pass to CdxDocsTokenDemo

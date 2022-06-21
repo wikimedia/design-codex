@@ -1,14 +1,12 @@
 <template>
 	<div
 		v-if="includeWrapper"
-		:class="demoClass"
 		:style="wrapperStyle"
 	>
-		<div :class="demoClass + '__inner'" :style="innerStyle" />
+		<div class="cdx-docs-tokens-demo__token__inner" :style="innerStyle" />
 	</div>
 	<div
 		v-else
-		:class="demoClass"
 		:style="innerStyle"
 	/>
 </template>
@@ -31,16 +29,11 @@ export default defineComponent( {
 			required: true
 		},
 		/**
-		 * Name of the CSS property to demonstrate.
+		 * Name of the CSS property to demonstrate token application, which is
+		 * used in the `style` attribute.
+		 * “Position” uses for example `left`.
 		 */
 		cssProperty: {
-			type: String,
-			required: true
-		},
-		/**
-		 * Additional class for styling (see styles below).
-		 */
-		demoClass: {
 			type: String,
 			required: true
 		},
@@ -85,31 +78,95 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 /** Demos that style a rectangle (this may be in addition to extra styles below) */
-.cdx-docs-animation-demo,
-.cdx-docs-box-shadow-demo,
-.cdx-docs-opacity-demo,
-.cdx-docs-outline-demo,
-.cdx-docs-padding-demo {
-	width: 100px;
-	height: 50px;
+.cdx-docs-tokens-demo {
+	&--animation &__token,
+	&--box-shadow &__token,
+	&--opacity &__token,
+	&--outline &__token,
+	&--padding &__token {
+		width: 100px;
+		height: 50px;
 
-	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-		width: 300px;
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			width: 300px;
+		}
+	}
+
+	&--animation &__token {
+		border: @border-width-base @border-style-base @border-color-base;
+
+		&__inner {
+			background-color: @background-color-primary;
+			height: 100%;
+			animation-name: cdx-docs-animation-demo__inner-animation;
+			animation-duration: 2000ms;
+			animation-iteration-count: infinite;
+		}
+	}
+
+	&--border &__token {
+		width: 50px;
+		height: 50px;
+		border: @border-width-base @border-style-base @border-color-base;
+	}
+
+	&--color &__token {
+		width: 96px;
+		height: 96px;
+		border: @border-width-base @border-style-base rgba( 0, 0, 0, 0.1 );
+		border-radius: @border-radius-circle;
+	}
+
+	&--cursor &__token {
+		background-color: @background-color-progressive;
+		width: 50px;
+		height: 50px;
+		border-radius: @border-radius-circle;
+	}
+
+	&--opacity &__token {
+		background-color: #000;
+		border: @border-width-base @border-style-base rgba( 0, 0, 0, 0.1 );
+		border-radius: @border-radius-base * 2;
+		box-shadow: rgba( 0, 0, 0, 0.1 ) 0 1px 3px 0;
+	}
+
+	&--padding &__token {
+		position: relative;
+		border: @border-width-base @border-style-base @border-color-base;
+
+		&__inner {
+			background-color: @background-color-base--disabled;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&--position &__token {
+		position: relative;
+		box-sizing: content-box;
+		width: 50px;
+		height: 50px;
+		margin-left: 50px;
+		border: @border-width-base @border-style-base @border-color-base;
+
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			width: 250px;
+		}
+
+		&__inner {
+			background-color: fade( @background-color-primary, 75% );
+			position: absolute;
+			top: 12.5px;
+			left: 12.5px;
+			width: 25px;
+			height: 25px;
+			border: @border-width-base @border-style-base @border-color-base;
+		}
 	}
 }
 
-.cdx-docs-animation-demo {
-	border: @border-width-base @border-style-base @border-color-base;
-
-	&__inner {
-		background-color: @background-color-primary;
-		height: 100%;
-		animation-name: cdx-docs-animation-demo__inner-animation;
-		animation-duration: 2000ms;
-		animation-iteration-count: infinite;
-	}
-}
-
+// Animation tokens demo animation.
 @keyframes cdx-docs-animation-demo__inner-animation {
 	0%,
 	100% {
@@ -118,67 +175,6 @@ export default defineComponent( {
 
 	50% {
 		width: 100%;
-	}
-}
-
-.cdx-docs-border-demo {
-	width: 50px;
-	height: 50px;
-	border: @border-width-base @border-style-base @border-color-base;
-}
-
-.cdx-docs-color-demo {
-	width: 96px;
-	height: 96px;
-	border: @border-width-base @border-style-base rgba( 0, 0, 0, 0.1 );
-	border-radius: @border-radius-circle;
-}
-
-.cdx-docs-cursor-demo {
-	background-color: @background-color-progressive;
-	width: 50px;
-	height: 50px;
-	border-radius: @border-radius-circle;
-}
-
-.cdx-docs-opacity-demo {
-	background-color: #000;
-	border: @border-width-base @border-style-base rgba( 0, 0, 0, 0.1 );
-	border-radius: @border-radius-base * 2;
-	box-shadow: rgba( 0, 0, 0, 0.1 ) 0 1px 3px 0;
-}
-
-.cdx-docs-padding-demo {
-	position: relative;
-	border: @border-width-base @border-style-base @border-color-base;
-
-	&__inner {
-		background-color: @background-color-base--disabled;
-		width: 100%;
-		height: 100%;
-	}
-}
-
-.cdx-docs-position-demo {
-	position: relative;
-	box-sizing: content-box;
-	width: 50px;
-	height: 50px;
-	margin-left: 50px;
-	border: @border-width-base @border-style-base @border-color-base;
-
-	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-		width: 250px;
-	}
-
-	&__inner {
-		background-color: fade( @background-color-primary, 75% );
-		position: absolute;
-		top: 12.5px;
-		left: 12.5px;
-		width: 25px;
-		height: 25px;
-		border: @border-width-base @border-style-base @border-color-base;
 	}
 }
 </style>

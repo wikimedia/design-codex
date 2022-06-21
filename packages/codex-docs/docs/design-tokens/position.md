@@ -8,7 +8,7 @@ import { position } from '@wikimedia/codex-design-tokens/dist/index.json';
 <cdx-docs-tokens-table
 	:tokens="position"
 	token-demo="CdxDocsTokenDemo"
+	token-category="position"
 	css-property="left"
-	demo-class="cdx-docs-position-demo"
 	style-target="inner"
 />

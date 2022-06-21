@@ -8,6 +8,6 @@ import { outline } from '@wikimedia/codex-design-tokens/dist/index.json';
 <cdx-docs-tokens-table
 	:tokens="outline"
 	token-demo="CdxDocsTokenDemo"
+	token-category="outline"
 	css-property="outline"
-	demo-class="cdx-docs-outline-demo"
 />

@@ -10,8 +10,8 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 <cdx-docs-tokens-table
 	:tokens="tokens['animation-delay']"
 	token-demo="CdxDocsTokenDemo"
+	token-category="animation"
 	css-property="animation-delay"
-	demo-class="cdx-docs-animation-demo"
 	style-target="inner"
 />
 
@@ -20,8 +20,8 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 <cdx-docs-tokens-table
 	:tokens="tokens['animation-duration']"
 	token-demo="CdxDocsTokenDemo"
+	token-category="animation"
 	css-property="animation-duration"
-	demo-class="cdx-docs-animation-demo"
 	style-target="inner"
 />
 
@@ -30,7 +30,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 <cdx-docs-tokens-table
 	:tokens="tokens['animation-timing-function']"
 	token-demo="CdxDocsTokenDemo"
+	token-category="animation"
 	css-property="animation-timing-function"
-	demo-class="cdx-docs-animation-demo"
 	style-target="inner"
 />

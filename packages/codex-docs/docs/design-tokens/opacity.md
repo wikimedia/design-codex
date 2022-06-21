@@ -8,6 +8,6 @@ import { opacity } from '@wikimedia/codex-design-tokens/dist/index.json';
 <cdx-docs-tokens-table
 	:tokens="opacity"
 	token-demo="CdxDocsTokenDemo"
+	token-category="opacity"
 	css-property="opacity"
-	demo-class="cdx-docs-opacity-demo"
 />

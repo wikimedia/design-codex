@@ -8,6 +8,6 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 <cdx-docs-tokens-table
 	:tokens="tokens['box-shadow']"
 	token-demo="CdxDocsTokenDemo"
+	token-category="box-shadow"
 	css-property="box-shadow"
-	demo-class="cdx-docs-box-shadow-demo"
 />

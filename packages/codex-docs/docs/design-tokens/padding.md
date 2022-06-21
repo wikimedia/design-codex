@@ -8,7 +8,7 @@ import { padding } from '@wikimedia/codex-design-tokens/dist/index.json';
 <cdx-docs-tokens-table
 	:tokens="padding"
 	token-demo="CdxDocsTokenDemo"
+	token-category="padding"
 	css-property="padding"
-	demo-class="cdx-docs-padding-demo"
 	style-target="wrapper"
 />
