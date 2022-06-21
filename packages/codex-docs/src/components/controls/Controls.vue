@@ -34,6 +34,7 @@
 
 					<cdx-text-input
 						v-if="propControl.type === 'text'"
+						:aria-label="'prop: ' + propControl.name"
 						:model-value="propControl.value"
 						@update:model-value="emitControlChange( propControl.name, $event )"
 					/>
@@ -70,6 +71,7 @@
 					/>
 					<cdx-text-input
 						v-if="slotControl.type === 'slot'"
+						:aria-label="'slot: ' + slotControl.name"
 						:model-value="slotControl.value"
 						@update:model-value="emitControlChange( slotControl.name, $event )"
 					/>
