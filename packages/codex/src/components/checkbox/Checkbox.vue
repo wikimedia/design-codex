@@ -200,13 +200,19 @@ export default defineComponent( {
 				border-color: @border-color-input-binary--hover;
 			}
 
-			&:focus + .cdx-checkbox__icon {
+			&:active + .cdx-checkbox__icon {
+				background-color: @background-color-progressive--active;
+				border-color: @border-color-progressive--active;
+			}
+
+			&:focus:not( :active ) + .cdx-checkbox__icon {
 				border-color: @border-color-input-binary--focus;
 				box-shadow: @box-shadow-progressive--focus;
 				// In Windows high contrast mode the outline becomes visible.
 				outline: @outline-base--focus;
 			}
 
+			/* stylelint-disable no-descending-specificity */
 			&:checked,
 			&:indeterminate {
 				& + .cdx-checkbox__icon {
@@ -219,26 +225,20 @@ export default defineComponent( {
 					border-color: @border-color-input-binary--hover;
 				}
 
-				&:focus + .cdx-checkbox__icon {
-					background-color: @background-color-input-binary--checked;
-					border-color: @border-color-input-binary--checked;
-					// `@box-shadow-progressive-filled--focus` for `1px` White inset
-					// outline.
-					box-shadow: @box-shadow-progressive-filled--focus;
-				}
-			}
-
-			// Override states with higher specificity to DRY up. Put `:active`
-			// after `:focus` at 'filled' progressive components. Otherwise a focus outline
-			// would be visible when actively clicked.
-			/* stylelint-disable no-descending-specificity */
-			&,
-			&:checked,
-			&:indeterminate {
 				&:active + .cdx-checkbox__icon {
 					background-color: @background-color-progressive--active;
 					border-color: @border-color-progressive--active;
-					box-shadow: @box-shadow-progressive--active;
+				}
+
+				&:focus:not( :active ):not( :hover ) + .cdx-checkbox__icon {
+					background-color: @background-color-input-binary--checked;
+					border-color: @border-color-input-binary--checked;
+				}
+
+				&:focus:not( :active ) + .cdx-checkbox__icon {
+					// `@box-shadow-progressive-filled--focus` for `1px` White inset
+					// outline.
+					box-shadow: @box-shadow-progressive-filled--focus;
 				}
 			}
 			/* stylelint-enable no-descending-specificity */

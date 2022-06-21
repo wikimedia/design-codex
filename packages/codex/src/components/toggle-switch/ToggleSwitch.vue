@@ -137,6 +137,7 @@ export default defineComponent( {
 @start-toggle-switch-grip--mobile: unit( ( 4.5 / @font-size-browser / @font-size-base ), em );
 
 @border-filled--disabled: @border-width-base @border-style-base @border-color-filled--disabled;
+@border-color-toggle-switch-grip--active: @color-white;
 
 @padding-end-toggle-switch-label-content: 6px;
 
@@ -273,7 +274,20 @@ export default defineComponent( {
 				}
 			}
 
-			&:focus ~ .cdx-toggle-switch__switch {
+			&:active ~ .cdx-toggle-switch__switch {
+				background-color: @background-color-progressive--active;
+				border-color: @border-color-progressive--active;
+
+				&::before {
+					border-color: @border-color-progressive--active;
+				}
+
+				.cdx-toggle-switch__switch__grip {
+					border-color: @border-color-toggle-switch-grip--active;
+				}
+			}
+
+			&:focus:not( :active ) ~ .cdx-toggle-switch__switch {
 				border-color: @border-color-progressive;
 				box-shadow: @box-shadow-progressive--focus;
 				outline: @outline-base--focus;
@@ -284,6 +298,7 @@ export default defineComponent( {
 			}
 
 			// Checked state.
+			/* stylelint-disable no-descending-specificity */
 			&:checked {
 				& ~ .cdx-toggle-switch__switch {
 					background-color: @background-color-input-binary--checked;
@@ -299,21 +314,6 @@ export default defineComponent( {
 					border-color: @border-color-progressive--hover;
 				}
 
-				&:focus ~ .cdx-toggle-switch__switch {
-					border-color: @border-color-input-binary--checked;
-
-					&::before {
-						border-color: @border-color-inset--focus;
-					}
-				}
-			}
-
-			// Override normal and checked states with higher specificity to DRY up. Put `:active`
-			// after `:focus` at 'filled' progressive components. Otherwise focus styles
-			// would be visible when actively clicked.
-			/* stylelint-disable no-descending-specificity */
-			&,
-			&:checked {
 				&:active ~ .cdx-toggle-switch__switch {
 					background-color: @background-color-progressive--active;
 					border-color: @border-color-progressive--active;
@@ -325,7 +325,16 @@ export default defineComponent( {
 
 					.cdx-toggle-switch__switch__grip {
 						background-color: @background-color-base;
-						border-color: @background-color-base;
+						border-color: @border-color-toggle-switch-grip--active;
+					}
+				}
+
+				&:focus:not( :active ) ~ .cdx-toggle-switch__switch {
+					border-color: @border-color-input-binary--checked;
+
+					&::before,
+					.cdx-toggle-switch__switch__grip {
+						border-color: @border-color-inset--focus;
 					}
 				}
 			}
@@ -349,11 +358,11 @@ export default defineComponent( {
 					box-shadow: @box-shadow-inverted;
 				}
 			}
-		}
 
-		&:disabled:checked ~ .cdx-toggle-switch__switch {
-			.cdx-toggle-switch__switch__grip {
-				background-color: @background-color-base;
+			&:checked ~ .cdx-toggle-switch__switch {
+				.cdx-toggle-switch__switch__grip {
+					background-color: @background-color-base;
+				}
 			}
 		}
 		/* stylelint-enable no-descending-specificity */
