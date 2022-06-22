@@ -1,15 +1,14 @@
 <template>
-	<div class="cdx-docs-icon-lookup">
-		<cdx-lookup
-			ref="lookup"
-			v-model:selected="wrappedModel"
-			:menu-items="menuItems"
-			:menu-config="menuConfig"
-			:clearable="true"
-			placeholder="Start typing an icon name"
-			@input="onInput"
-		/>
-	</div>
+	<cdx-lookup
+		ref="lookup"
+		v-model:selected="wrappedModel"
+		class="cdx-docs-icon-lookup"
+		:menu-items="menuItems"
+		:menu-config="menuConfig"
+		:clearable="true"
+		placeholder="Start typing an icon name"
+		@input="onInput"
+	/>
 </template>
 
 <script lang="ts">

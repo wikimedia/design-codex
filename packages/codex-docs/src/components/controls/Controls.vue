@@ -48,6 +48,7 @@
 
 					<cdx-docs-icon-lookup
 						v-if="propControl.type === 'icon'"
+						:aria-label="'prop: ' + propControl.name"
 						:model-value="propControl.value"
 						@update:model-value="emitControlChange( propControl.name, $event )"
 					/>
@@ -66,6 +67,7 @@
 				<td>
 					<cdx-docs-icon-lookup
 						v-if="slotControl.type === 'slot-icon'"
+						:aria-label="'slot: ' + slotControl.name"
 						:model-value="slotControl.value"
 						@update:model-value="emitControlChange( slotControl.name, $event )"
 					/>
