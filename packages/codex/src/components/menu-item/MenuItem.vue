@@ -447,7 +447,7 @@ export default defineComponent( {
 		// Fade in transition applied to the thumbnail on show
 		&-enter-active {
 			transition-property: @transition-property-fade;
-			transition-duration: @transition-duration-medium;
+			transition-duration: @transition-duration-base;
 		}
 
 		&-enter-from {
