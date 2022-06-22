@@ -1,6 +1,6 @@
 <template>
-	<cdx-button type="quiet">
-		<cdx-icon :icon="cdxIconHelp" icon-label="Help" />
+	<cdx-button type="quiet" aria-label="Help">
+		<cdx-icon :icon="cdxIconHelp" />
 	</cdx-button>
 </template>
 

@@ -10,13 +10,34 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue';
+import { defineComponent, PropType, computed, Slots, Component, warn } from 'vue';
 import { ButtonActions, ButtonTypes } from '../../constants';
 import { ButtonAction, ButtonType } from '../../types';
+import cdxIcon from '../icon/Icon.vue';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
 const buttonTypeValidator = makeStringTypeValidator( ButtonTypes );
 const buttonActionValidator = makeStringTypeValidator( ButtonActions );
+const validateIconOnlyButtonAttrs = ( attrs: Record<string, unknown> ) => {
+	if ( !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ] ) {
+		warn( `icon-only buttons require one of the following attribute: aria-label or aria-hidden.
+		See documentation on https://doc.wikimedia.org/codex/main/components/button.html#default-icon-only` );
+	}
+};
+
+const isIconOnlyButton = ( slots:Slots, attrs: Record<string, unknown> ) => {
+	const componentSlot = slots.default?.();
+	if ( componentSlot && componentSlot.length === 1 ) {
+		const slotType = componentSlot[ 0 ].type;
+		const isIconComponent = ( ( slotType as Component ).name === cdxIcon.name );
+		const isPlainSvg = ( slotType === 'svg' );
+		if ( isIconComponent || isPlainSvg ) {
+			validateIconOnlyButtonAttrs( attrs );
+			return true;
+		}
+	}
+	return false;
+};
 
 /**
  * A button wrapping slotted content.
@@ -46,13 +67,13 @@ export default defineComponent( {
 		}
 	},
 	emits: [ 'click' ],
-	setup( props, { emit } ) {
+	setup( props, { emit, slots, attrs } ) {
 		const rootClasses = computed( () => ( {
 			[ `cdx-button--action-${props.action}` ]: true,
 			[ `cdx-button--type-${props.type}` ]: true,
-			'cdx-button--framed': props.type !== 'quiet'
+			'cdx-button--framed': props.type !== 'quiet',
+			'cdx-button--icon-only': isIconOnlyButton( slots, attrs )
 		} ) );
-
 		const onClick = ( event: Event ) => {
 			emit( 'click', event );
 		};
@@ -72,6 +93,9 @@ export default defineComponent( {
 // TODO: Tokenize.
 @background-color-normal-progressive--active: lighten( @color-progressive--active, 60% );
 @background-color-normal-destructive--active: lighten( @color-destructive--active, 60% );
+
+// The following paddings are required to achieve a width of 32px for icon-only buttons.
+@horizontal-padding-icon-only: ( ( 32px - @size-icon ) / 2 ) - @border-width-base;
 
 .cdx-button {
 	// mixin for common base styles for buttons
@@ -109,6 +133,11 @@ export default defineComponent( {
 		// text color for progressive and destructive buttons also apply to icons.
 		color: inherit;
 	}
+}
+
+// Buttons that only include an icon element.
+.cdx-button--icon-only {
+	padding: 0 @horizontal-padding-icon-only;
 }
 
 // Non-quiet “framed” buttons (normal and primary types)

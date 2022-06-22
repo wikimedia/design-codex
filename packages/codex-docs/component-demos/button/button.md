@@ -24,10 +24,6 @@ const controlsConfig = [
 		type: 'boolean'
 	},
 	{
-		name: 'default-icon',
-		type: 'slot-icon'
-	},
-	{
 		name: 'default',
 		type: 'slot',
 		default: 'Click me'
@@ -39,16 +35,9 @@ const controlsConfig = [
 
 ### Configurable
 
-<!--
-	Technically, the whitespace between the icon and the slot content results in an extra
-	space being generated when it is not needed, if the icon is not set, but this doesn't
-	appear to change the actual rendering, just the raw HTML if you inspect element, and its
-	a lot easier than trying to add logic to only show the space when its needed.
--->
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues, slotValues }">
 <cdx-button v-bind="propValues">
-	<cdx-demo-slot-icon :icon="slotValues['default-icon']" />
 	{{ slotValues.default }}
 </cdx-button>
 </template>
@@ -174,7 +163,14 @@ const controlsConfig = [
 </template>
 </cdx-demo-wrapper>
 
-#### Default, icon only
+#### Default, icon-only
+
+::: warning
+Due to the lack of a descriptive text, icon-only buttons require one of the following attributes: `aria-label` or `aria-hidden`.
+
+The attribute `aria-label` has to be used on icon-only buttons to be understandable by screen reader users. Exceptions are buttons in component combinations, e.g. the button in the [Combobox component](./combobox), that are skipped by adding `aria-hidden` without negatively impacting the component's functionality.
+:::
+
 <cdx-demo-wrapper>
 <template v-slot:demo>
 <icon-only-button />
