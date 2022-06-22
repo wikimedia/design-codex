@@ -40,11 +40,12 @@
 			<!--
 				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
-				@binding {boolean} active A boolean defining if the current item is active
+				@binding {boolean} active Whether the current item is visually active
 			-->
 			<slot
 				:menuItem="menuItem"
-				:active="menuItem.value === activeMenuItem?.value"
+				:active="menuItem.value === activeMenuItem?.value &&
+					menuItem.value === highlightedMenuItem?.value"
 			/>
 		</cdx-menu-item>
 

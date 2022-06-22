@@ -407,7 +407,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
             <!--
 				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
-				@binding {boolean} active A boolean defining if the current item is active
+				@binding {boolean} active Whether the current item is visually active
 			-->
             
             <a
@@ -712,7 +712,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             <!--
 				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
-				@binding {boolean} active A boolean defining if the current item is active
+				@binding {boolean} active Whether the current item is visually active
 			-->
             
             <a

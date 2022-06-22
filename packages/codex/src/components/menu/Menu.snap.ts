@@ -958,7 +958,7 @@ exports[`Matches the snapshots Case 6 Custom menu item rendering: => HTML 1`] = 
     <!--
 				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
-				@binding {boolean} active A boolean defining if the current item is active
+				@binding {boolean} active Whether the current item is visually active
 			-->
     
     Option A (value: a) 
@@ -977,7 +977,7 @@ exports[`Matches the snapshots Case 6 Custom menu item rendering: => HTML 1`] = 
     <!--
 				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
-				@binding {boolean} active A boolean defining if the current item is active
+				@binding {boolean} active Whether the current item is visually active
 			-->
     
     Option B (value: b) 
@@ -996,7 +996,7 @@ exports[`Matches the snapshots Case 6 Custom menu item rendering: => HTML 1`] = 
     <!--
 				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
-				@binding {boolean} active A boolean defining if the current item is active
+				@binding {boolean} active Whether the current item is visually active
 			-->
     
      (value: c) 
@@ -1015,7 +1015,7 @@ exports[`Matches the snapshots Case 6 Custom menu item rendering: => HTML 1`] = 
     <!--
 				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
-				@binding {boolean} active A boolean defining if the current item is active
+				@binding {boolean} active Whether the current item is visually active
 			-->
     
     Empty String (value: ) 
@@ -1034,7 +1034,7 @@ exports[`Matches the snapshots Case 6 Custom menu item rendering: => HTML 1`] = 
     <!--
 				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
-				@binding {boolean} active A boolean defining if the current item is active
+				@binding {boolean} active Whether the current item is visually active
 			-->
     
     Number 0 (value: 0) 
@@ -1053,7 +1053,7 @@ exports[`Matches the snapshots Case 6 Custom menu item rendering: => HTML 1`] = 
     <!--
 				@slot Display of an individual item in the menu
 				@binding {MenuItem} menuItem The current menu item
-				@binding {boolean} active A boolean defining if the current item is active
+				@binding {boolean} active Whether the current item is visually active
 			-->
     
     Option D (value: d) 
