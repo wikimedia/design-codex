@@ -70,6 +70,11 @@ export default defineComponent( {
 
 	&--block {
 		background-color: @background-color-base;
+		// Support Safari: Create a stacking context to prevent the bar from overflowing the
+		// `border-radius` of the component's root element by `position: relative` and
+		// `z-index` other than `auto`.
+		position: relative;
+		z-index: 1;
 		// Equals `1.14285714em`≈`16px`
 		height: ( @size-base / 2 );
 		max-width: @max-width-base;
