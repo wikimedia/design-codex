@@ -286,8 +286,8 @@ export default defineComponent( {
 .cdx-text-input__input {
 	display: block;
 	box-sizing: @box-sizing-base;
+	min-height: @min-size-base;
 	width: @size-full;
-	height: @size-base;
 	margin: 0;
 	border-width: @border-width-base;
 	border-style: @border-style-base;
