@@ -671,7 +671,6 @@ export default defineComponent( {
 // TODO: Tokenize.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
-@font-size-search-result-title: unit( ( 16 / @font-size-browser / @font-size-base ), em );
 
 // This is the value of thumbnail as declared within the MenuItem component.
 @size-search-figure: 40px;
@@ -727,10 +726,6 @@ export default defineComponent( {
 		align-items: center;
 		padding: @padding-vertical-menu-item @padding-horizontal-base;
 		text-decoration: none;
-
-		&__text {
-			font-size: @font-size-search-result-title;
-		}
 	}
 
 	&__search-footer {
