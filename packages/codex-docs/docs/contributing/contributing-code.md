@@ -15,7 +15,7 @@ Tasks are tracked in Phabricator. We use three different Phabricator workboards,
   Codex. We do not track task status here.
 - [Design-Systems-Team](https://phabricator.wikimedia.org/tag/design-systems-team/): used to
   triage, sort, prioritize, and refine tasks that the Design Systems team and contributors will
-  work on. 
+  work on.
 - [Design-Systems-Sprint](https://phabricator.wikimedia.org/project/view/5859/): used to track
   active works-in-progress from Research > Design > Development > Testing > Release. As a
   contributor, you are welcome to track your work related to the Design System on this board as
@@ -42,7 +42,7 @@ sub-tasks for the minimum viable solution and additional features.
   Backlog" column on the [Design-Systems-Team](https://phabricator.wikimedia.org/tag/design-systems-team/)
   workboard. This indicates that implementation work can begin. You can assign the task to yourself
   and move it to the 'In Development' column on the [Design-Systems-Sprint](https://phabricator.wikimedia.org/project/view/5859/)
-  workboard. 
+  workboard.
 4. **Build the component.** Create the Vue component, applying the design tokens noted in the design
   specification (visit [writing styles](#writing-styles) for more details), and write unit tests
   (see the [unit tests](#unit-tests) section).
@@ -66,7 +66,7 @@ should include or update the following as needed.
 - **Commit message:** The first line of the commit message has to be prefixed by the component name
 (Button, Icon) or the type of work (build, tests, styles, docs, etc.), e.g. `docs: Add more docs.`
   If the commit covers multiple things, include them in a comma-delineated list, e.g.
-  `styles, docs: Fix Button styles and document new convention`.
+  `styles, docs, Button: Fix Button styles and document new convention`.
   In general, Codex is following the [MediaWiki commit message guidelines](https://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines).
 - **Unit tests:** Attempt to meet the established coverage threshold, which will be calculated and
   output in the command line interface when you run tests.
