@@ -1,3 +1,49 @@
+# 0.1.0-alpha.8 / 2022-06-23
+
+## Breaking changes
+- refactor: Fix inconsistencies across components with menu items (Simone This Dot)
+
+## Features
+- Menu: Highlight the selected item when menu is opened (Anne Tomasevich)
+- Menu, Typeahead: Apply MenuItem selected styles to Menu footer (Simone This Dot)
+- TextInput: Remove focus tracking state, replace with --has-value class (Roan Kattouw)
+- MenuItem: Remove highlighted and active styles on mouseleave (Anne Tomasevich)
+- ToggleSwitch: Component is squashed when it has a long default label (Simone This Dot)
+- Combobox: Apply `aria-hidden` on button (Volker E)
+- MenuItem: Display placeholder thumbnails before images are loaded (Simone This Dot)
+- MenuItem: Align icon and thumbnail to top with description (Anne Tomasevich)
+- MenuItem: Reduce transition duration of thumbnail (Anne Tomasevich)
+- Menu: Refine `active` binding of default slot (Anne Tomasevich)
+
+## Styles
+- styles, buttons: Unify whitespace and property order (Volker E)
+- Select, TextInput, styles: Unify `outline` values (Volker E)
+- styles, TextInput: Add border width to icon position offset values (Anne Tomasevich)
+- Button, styles: Reorder and cleanup focus styles (Volker E)
+- Button, styles: Removing default button `:active` selector (Volker E)
+- styles, ToggleSwitch: Unify applying pointer `cursor` (Volker E)
+- styles: Apply design-first `box-shadow` tokens (Volker E)
+- styles, TextInput: Use `min-height-base` instead of `height-base` (Volker E)
+- styles, TypeaheadSearch: Reduce footer font size (Anne Tomasevich)
+- tokens: Fix quiet active background-color value (Volker E)
+- tokens, styles: Use `transition-property-base` for ToggleSwitch focus (Volker E)
+- tokens, styles: Replace `animation` property values with tokens (Volker E)
+- tokens: Use design-first `box-shadow` tokens (Volker E)
+- tokens: Add `transition-property-toggle-switch-grip` token and apply (Volker E)
+
+## Code
+- tests: Fix Tabs down arrow test by using `attachTo: 'body'` (Roan Kattouw)
+- build: Lower target browsers to include Edge 18 (Volker E)
+- build: Update Vue to 3.2.33 (Anne Tomasevich)
+
+## Documentation
+- docs: Tidy up CHANGELOG a bit (DannyS712)
+- docs: Expand on using Vite (Volker E)
+- docs: Add 'AUTHORS.txt' (Volker E)
+- docs: Add `aria-label` to slot and prop `input`s (Volker E)
+- docs: Update intro and contributing guidelines (Anne Tomasevich)
+- docs, IconLookup: Add `aria-label` to icon lookup props and slots (Anne Tomasevich)
+
 # 0.1.0-alpha.7 / 2022-06-09
 
 ## Features
