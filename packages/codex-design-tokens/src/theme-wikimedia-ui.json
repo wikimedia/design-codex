@@ -390,6 +390,9 @@
 		"box-shadow": {
 			"value": "box-shadow"
 		},
+		"left": {
+			"value": "left"
+		},
 		"opacity": {
 			"value": "opacity"
 		}

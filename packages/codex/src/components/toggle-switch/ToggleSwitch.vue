@@ -142,8 +142,6 @@ export default defineComponent( {
 
 @position-offset-toggle-switch-outline: 1px;
 
-@transition-property-toggle-switch-grip: background-color, left;
-
 .cdx-toggle-switch {
 	display: inline-flex;
 	align-items: center;
