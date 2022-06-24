@@ -32,22 +32,9 @@
 						</cdx-radio>
 					</template>
 
-					<cdx-text-input
-						v-if="propControl.type === 'text'"
-						:aria-label="'prop: ' + propControl.name"
-						:model-value="propControl.value"
-						@update:model-value="emitControlChange( propControl.name, $event )"
-					/>
-
-					<cdx-toggle-switch
-						v-if="propControl.type === 'boolean'"
-						:model-value="propControl.value"
-						:aria-label="propControl.name"
-						@update:model-value="emitControlChange( propControl.name, $event )"
-					/>
-
-					<cdx-docs-icon-lookup
-						v-if="propControl.type === 'icon'"
+					<component
+						:is="componentForType( propControl.type )"
+						v-if="componentForType( propControl.type )"
 						:aria-label="'prop: ' + propControl.name"
 						:model-value="propControl.value"
 						@update:model-value="emitControlChange( propControl.name, $event )"
@@ -65,14 +52,9 @@
 					<pre>{{ slotControl.name }}</pre>
 				</td>
 				<td>
-					<cdx-docs-icon-lookup
-						v-if="slotControl.type === 'slot-icon'"
-						:aria-label="'slot: ' + slotControl.name"
-						:model-value="slotControl.value"
-						@update:model-value="emitControlChange( slotControl.name, $event )"
-					/>
-					<cdx-text-input
-						v-if="slotControl.type === 'slot'"
+					<component
+						:is="componentForType( slotControl.type )"
+						v-if="componentForType( slotControl.type )"
 						:aria-label="'slot: ' + slotControl.name"
 						:model-value="slotControl.value"
 						@update:model-value="emitControlChange( slotControl.name, $event )"
@@ -162,12 +144,39 @@ export default defineComponent( {
 		const emitControlChange = ( name: string, value: string | number | boolean ) =>
 			emit( 'control-change', name, value );
 
+		/**
+		 * Reduce duplication by adding a helper method to determine which component
+		 * should be used to render a specific type of control. Returns undefined for
+		 * no matching component, e.g. for 'radio' controls.
+		 *
+		 * @param {string} controlType
+		 * @return {string|undefined}
+		 */
+		const componentForType = ( controlType: string ) => {
+			switch ( controlType ) {
+				// Properties:
+				case 'boolean':
+					return 'cdx-toggle-switch';
+				case 'icon':
+					return 'cdx-docs-icon-lookup';
+				case 'text':
+					return 'cdx-text-input';
+
+				// Slots:
+				case 'slot':
+					return 'cdx-text-input';
+				case 'slot-icon':
+					return 'cdx-docs-icon-lookup';
+			}
+		};
+
 		return {
 			propControls,
 			slotControls,
 			hasIconProp,
 			rootClasses,
-			emitControlChange
+			emitControlChange,
+			componentForType
 		};
 	}
 } );
