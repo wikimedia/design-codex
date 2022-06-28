@@ -1,6 +1,5 @@
 import { mount } from '@vue/test-utils';
 import CdxMenuItem from './MenuItem.vue';
-import cdxIcon from '../icon/Icon.vue';
 import { MenuItemDataWithId, SearchResultWithId } from '../../types';
 import { cdxIconTag } from '@wikimedia/codex-icons';
 
@@ -16,12 +15,6 @@ const testSearchResult = {
 	url: 'https://example.org/test'
 };
 const testQuery = 'Test search';
-const testThumbnail = {
-	mimetype: 'image/jpeg',
-	width: 200,
-	height: 150,
-	url: 'https://example.org/test/thumbnail.jpg'
-};
 const testMenuItemWithLang = {
 	id: 'test-menu-item-with-lang',
 	value: 'menuItemWithLangValue',
@@ -50,7 +43,6 @@ describe( 'matches the snapshot', () => {
 		[ 'Item with match', { ...testMenuItem, match: '(match)' } ],
 		[ 'Item with url', testSearchResult ],
 		[ 'Item with icon', { ...testSearchResult, icon: cdxIconTag } ],
-		[ 'Item with thumbnail', { ...testSearchResult, thumbnail: testThumbnail }, true ],
 		[ 'Item with placeholder thumbnail', testSearchResult, true ],
 		[ 'Item with search query', testSearchResult, false, testQuery ],
 		[ 'Item with language attributes', testMenuItemWithLang ],
@@ -75,47 +67,6 @@ describe( 'matches the snapshot', () => {
 // Note that functionality related to being part of a menu (e.g. emitting events related to menu
 // state) is tested in the Menu component tests.
 describe( 'CdxMenuItem', () => {
-	describe( 'When "showThumbnail" is set to true', () => {
-		beforeEach( () => {
-			jest.useFakeTimers();
-			Object.defineProperty( Image.prototype, 'src', {
-				set() {
-					setTimeout( () => this.onload(), 1000 );
-				}
-			} );
-		} );
-		afterEach( () => {
-			jest.useRealTimers();
-		} );
-		it( 'shows a placeholder, if thumbnail property is not set', () => {
-			const wrapper = mount( CdxMenuItem, {
-				props: { ...testSearchResult, showThumbnail: true }
-			} );
-			const placeholderIcon = wrapper.findComponent( cdxIcon );
-			expect( placeholderIcon.exists() ).toBeTruthy();
-		} );
-		it( 'shows a placeholder while image is loading', () => {
-			const wrapper = mount( CdxMenuItem, {
-				props: { ...testSearchResult, thumbnail: testThumbnail, showThumbnail: true }
-			} );
-
-			const placeholderIcon = wrapper.findComponent( cdxIcon );
-			const thumbail = wrapper.find( '.cdx-menu-item__thumbnail' );
-			expect( placeholderIcon.exists() ).toBeTruthy();
-			expect( thumbail.exists() ).toBeFalsy();
-		} );
-		it( 'shows thumbnail when image is loaded', async () => {
-			const wrapper = mount( CdxMenuItem, {
-				props: { ...testSearchResult, thumbnail: testThumbnail, showThumbnail: true }
-			} );
-			jest.runAllTimers();
-			await wrapper.vm.$nextTick();
-			const placeholderIcon = wrapper.findComponent( cdxIcon );
-			const thumbail = wrapper.find( '.cdx-menu-item__thumbnail' );
-			expect( placeholderIcon.exists() ).toBeFalsy();
-			expect( thumbail.exists() ).toBeTruthy();
-		} );
-	} );
 	it( 'emits change event on main mouse button mousedown', async () => {
 		const wrapper = mount( CdxMenuItem, {
 			props: { ...testSearchResult }

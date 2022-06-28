@@ -19,24 +19,12 @@
 				class="cdx-menu-item__content"
 			>
 				<!-- Thumbnail, thumbnail placeholder, or icon. -->
-				<template v-if="showThumbnail">
-					<span
-						v-if="!thumbnailLoaded"
-						class="cdx-menu-item__thumbnail-placeholder"
-					>
-						<cdx-icon
-							:icon="defaultThumbnailIcon"
-							class="cdx-menu-item__thumbnail-placeholder__icon"
-						/>
-					</span>
-					<Transition name="cdx-menu-item__thumbnail">
-						<span
-							v-if="thumbnailLoaded"
-							:style="thumbnailStyle"
-							class="cdx-menu-item__thumbnail"
-						/>
-					</Transition>
-				</template>
+				<cdx-thumbnail
+					v-if="showThumbnail"
+					:thumbnail="thumbnail"
+					class="cdx-menu-item__thumbnail"
+				/>
+
 				<cdx-icon
 					v-else-if="icon"
 					:icon="icon"
@@ -97,9 +85,10 @@
 </template>
 
 <script lang="ts">
-import { PropType, computed, defineComponent, ref, onMounted } from 'vue';
-import { cdxIconImageLayoutFrameless, Icon } from '@wikimedia/codex-icons';
+import { PropType, computed, defineComponent } from 'vue';
+import { Icon } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
+import CdxThumbnail from '../thumbnail/Thumbnail.vue';
 import CdxSearchResultTitle from '../search-result-title/SearchResultTitle.vue';
 import { MenuState, Thumbnail, MenuItemLanguageData } from '../../types';
 
@@ -119,7 +108,7 @@ import { MenuState, Thumbnail, MenuItemLanguageData } from '../../types';
 export default defineComponent( {
 	name: 'CdxMenuItem',
 
-	components: { CdxIcon, CdxSearchResultTitle },
+	components: { CdxIcon, CdxThumbnail, CdxSearchResultTitle },
 
 	props: {
 		/**
@@ -278,8 +267,6 @@ export default defineComponent( {
 	],
 
 	setup: ( props, { emit } ) => {
-		const thumbnailLoaded = ref( false );
-		const thumbnailStyle = ref( {} );
 		const onMouseEnter = () => {
 			emit( 'change', 'highlighted', true );
 		};
@@ -332,25 +319,6 @@ export default defineComponent( {
 		// Get the title, which will be passed to the Title component. Must be a string.
 		const title = computed( () => props.label || String( props.value ) );
 
-		const preloadThumbnail = ( url: string ) => {
-			const escapedUrl = url.replace( /([\\"\n])/g, '\\$1' );
-			const image = new Image();
-			image.onload = () => {
-				thumbnailStyle.value = { backgroundImage: `url("${escapedUrl}")` };
-				thumbnailLoaded.value = true;
-			};
-			image.onerror = () => {
-				thumbnailLoaded.value = false;
-			};
-			image.src = escapedUrl;
-		};
-
-		onMounted( () => {
-			if ( props.thumbnail?.url && props.showThumbnail ) {
-				preloadThumbnail( props.thumbnail.url );
-			}
-		} );
-
 		return {
 			onMouseEnter,
 			onMouseLeave,
@@ -359,10 +327,7 @@ export default defineComponent( {
 			highlightQuery,
 			rootClasses,
 			contentTag,
-			title,
-			defaultThumbnailIcon: cdxIconImageLayoutFrameless,
-			thumbnailStyle,
-			thumbnailLoaded
+			title
 		};
 	}
 } );
@@ -383,17 +348,7 @@ export default defineComponent( {
 
 @padding-vertical-menu-item: 8px;
 
-// The size of the input icon and footer icon containers in the TypeaheadSearch component, and the
-// thumbnail in this component. We want these to be the same size so that these figures vertically
-// line up nicely when they are used together in the TypeaheadSearch component.
-@size-search-figure: 40px;
-
 @margin-end-menu-item-thumbnail: @padding-vertical-menu-item;
-@border-color-menu-item-thumbnail: @color-gray200;
-
-@background-color-menu-item-placeholder: @background-color-framed;
-// Lighter than `@color-accessory`. See T286851.
-@color-menu-item-thumbnail-placeholder-icon: @color-placeholder;
 
 .cdx-menu-item {
 	list-style: none;
@@ -423,46 +378,8 @@ export default defineComponent( {
 		display: block;
 	}
 
-	&__thumbnail-placeholder,
 	&__thumbnail {
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		// Prevent thumbnail width from shrinking when descriptions are long.
-		flex-shrink: 0;
-		width: @size-search-figure;
-		height: @size-search-figure;
 		margin-right: @margin-end-menu-item-thumbnail;
-		// TODO: use token for border color. Currently, a token exists for this color called
-		// `border-color-base--disabled`, but this token name will likely change and is also not
-		// appropriate for this use case. For now, we'll directly use the color.
-		border: @border-width-base @border-style-base @color-gray300;
-		border-radius: @border-radius-base;
-	}
-
-	&__thumbnail {
-		display: inline-block;
-
-		// Fade in transition applied to the thumbnail on show
-		&-enter-active {
-			transition-property: @transition-property-fade;
-			transition-duration: @transition-duration-base;
-		}
-
-		&-enter-from {
-			opacity: @opacity-transparent;
-		}
-	}
-
-	&__thumbnail-placeholder {
-		background-color: @background-color-menu-item-placeholder;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-
-		&__icon {
-			color: @color-menu-item-thumbnail-placeholder-icon;
-		}
 	}
 
 	&__icon {

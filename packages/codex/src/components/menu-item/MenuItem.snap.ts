@@ -232,7 +232,7 @@ exports[`matches the snapshot Case 4 Item with icon: ({"description": "Test sear
 </li>
 `;
 
-exports[`matches the snapshot Case 5 Item with thumbnail: ({"description": "Test search result", "id": "test-search-result", "thumbnail": [Object], "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
+exports[`matches the snapshot Case 5 Item with placeholder thumbnail: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
   aria-selected="false"
@@ -247,39 +247,41 @@ exports[`matches the snapshot Case 5 Item with thumbnail: ({"description": "Test
     href="https://example.org/test"
   >
     <!-- Thumbnail, thumbnail placeholder, or icon. -->
-    
     <span
-      class="cdx-menu-item__thumbnail-placeholder"
+      class="cdx-thumbnail cdx-menu-item__thumbnail"
     >
       <span
-        class="cdx-icon cdx-menu-item__thumbnail-placeholder__icon"
+        class="cdx-thumbnail__placeholder"
       >
-        <svg
-          aria-hidden="true"
-          height="20"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          class="cdx-icon cdx-thumbnail__placeholder__icon"
         >
-          <!--v-if-->
-          <!-- eslint-disable vue/no-v-html -->
-          <g
-            fill="currentColor"
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
-            />
-            <path
-              d="M19 5H1V3h18zm0 12H1v-2h18z"
-            />
-          </g>
-        </svg>
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g
+              fill="currentColor"
+            >
+              <path
+                d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
+              />
+              <path
+                d="M19 5H1V3h18zm0 12H1v-2h18z"
+              />
+            </g>
+          </svg>
+        </span>
       </span>
+      <transition-stub>
+        <!--v-if-->
+      </transition-stub>
     </span>
-    <transition-stub>
-      <!--v-if-->
-    </transition-stub>
-    
     <!-- Item text. -->
     <span
       class="cdx-menu-item__text"
@@ -308,83 +310,7 @@ exports[`matches the snapshot Case 5 Item with thumbnail: ({"description": "Test
 </li>
 `;
 
-exports[`matches the snapshot Case 6 Item with placeholder thumbnail: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
-<li
-  aria-disabled="false"
-  aria-selected="false"
-  class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--has-description"
-  id="test-search-result"
-  role="option"
->
-  <!-- @slot Custom menu item content. -->
-  
-  <a
-    class="cdx-menu-item__content"
-    href="https://example.org/test"
-  >
-    <!-- Thumbnail, thumbnail placeholder, or icon. -->
-    
-    <span
-      class="cdx-menu-item__thumbnail-placeholder"
-    >
-      <span
-        class="cdx-icon cdx-menu-item__thumbnail-placeholder__icon"
-      >
-        <svg
-          aria-hidden="true"
-          height="20"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <!--v-if-->
-          <!-- eslint-disable vue/no-v-html -->
-          <g
-            fill="currentColor"
-          >
-            <path
-              d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
-            />
-            <path
-              d="M19 5H1V3h18zm0 12H1v-2h18z"
-            />
-          </g>
-        </svg>
-      </span>
-    </span>
-    <transition-stub>
-      <!--v-if-->
-    </transition-stub>
-    
-    <!-- Item text. -->
-    <span
-      class="cdx-menu-item__text"
-    >
-      <!-- Item label. -->
-      <span
-        class="cdx-menu-item__text__label"
-      >
-        <bdi>
-          searchResultValue
-        </bdi>
-      </span>
-      <!-- Item search query match (e.g. alias). -->
-      <!--v-if-->
-      <!-- Item description. -->
-      <span
-        class="cdx-menu-item__text__description"
-      >
-        <bdi>
-          Test search result
-        </bdi>
-      </span>
-    </span>
-  </a>
-  
-</li>
-`;
-
-exports[`matches the snapshot Case 7 Item with search query: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
+exports[`matches the snapshot Case 6 Item with search query: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
   aria-selected="false"
@@ -434,7 +360,7 @@ exports[`matches the snapshot Case 7 Item with search query: ({"description": "T
 </li>
 `;
 
-exports[`matches the snapshot Case 8 Item with language attributes: ({"description": "la descripción en español", "id": "test-menu-item-with-lang", "label": "Menu item with lang", "language": [Object], "match": "(match)", "value": "menuItemWithLangValue"}) => HTML 1`] = `
+exports[`matches the snapshot Case 7 Item with language attributes: ({"description": "la descripción en español", "id": "test-menu-item-with-lang", "label": "Menu item with lang", "language": [Object], "match": "(match)", "value": "menuItemWithLangValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
   aria-selected="false"
@@ -493,7 +419,7 @@ exports[`matches the snapshot Case 8 Item with language attributes: ({"descripti
 </li>
 `;
 
-exports[`matches the snapshot Case 9 Item with language attributes and search query: ({"description": "la descripción en español", "id": "test-menu-item-with-lang", "label": "Menu item with lang", "language": [Object], "match": "(match)", "value": "menuItemWithLangValue"}) => HTML 1`] = `
+exports[`matches the snapshot Case 8 Item with language attributes and search query: ({"description": "la descripción en español", "id": "test-menu-item-with-lang", "label": "Menu item with lang", "language": [Object], "match": "(match)", "value": "menuItemWithLangValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
   aria-selected="false"
