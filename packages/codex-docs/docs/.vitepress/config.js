@@ -46,6 +46,7 @@ module.exports = require( 'vitepress' ).defineConfig( {
 						{ text: 'Tab', link: '/components/tab' },
 						{ text: 'Tabs', link: '/components/tabs' },
 						{ text: 'TextInput', link: '/components/text-input' },
+						{ text: 'Thumbnail', link: '/components/thumbnail' },
 						{ text: 'ToggleButton', link: '/components/toggle-button' },
 						{ text: 'ToggleSwitch', link: '/components/toggle-switch' },
 						{ text: 'TypeaheadSearch', link: '/components/typeahead-search' }
