@@ -306,9 +306,12 @@ export default defineComponent( {
 		}
 
 		/**
-		 * Highlights the previous enabled menu item.
+		 * Highlights the previous enabled menu item from the item index provided,
+		 * or highlights the last enabled item if called without arguments
+		 *
+		 * @param highlightedIndex
 		 */
-		function highlightPrev() {
+		function highlightPrev( highlightedIndex?: number ) {
 			const findPrevEnabled = ( startIndex: number ) : MenuItemDataWithId|undefined => {
 				for ( let index = startIndex - 1; index >= 0; index-- ) {
 					if ( !computedMenuItems.value[ index ].disabled ) {
@@ -319,25 +322,27 @@ export default defineComponent( {
 
 			// Start at the currently highlighted index if there is one, otherwise, start past the
 			// end of the list so we can begin with the last item on the list.
-			const highlightedIndex = highlightedMenuItemIndex.value ??
-				computedMenuItems.value.length;
+			highlightedIndex = highlightedIndex || computedMenuItems.value.length;
 			// Find the previous index, if there is one. Otherwise, start at the end.
-			const prev = findPrevEnabled( highlightedIndex ) ||
+			const prev = findPrevEnabled( highlightedIndex ) ??
 				findPrevEnabled( computedMenuItems.value.length );
 
 			handleHighlight( prev );
 		}
 
 		/**
-		 * Highlights the next enabled menu item.
+		 * Highlights the next enabled menu item from the item index provided,
+		 * or highlights the first enabled item if called without arguments
+		 *
+		 * @param highlightedIndex
 		 */
-		function highlightNext() {
+		function highlightNext( highlightedIndex?: number ) {
 			const findNextEnabled = ( startIndex: number ) : MenuItemDataWithId|undefined =>
 				computedMenuItems.value.find( ( item, index ) =>
 					!item.disabled && index > startIndex );
 
 			// Start at the currently highlighted index if there is one, otherwise, start at -1.
-			const highlightedIndex = highlightedMenuItemIndex.value ?? -1;
+			highlightedIndex = highlightedIndex ?? -1;
 			// Find the next index, if there is one, otherwise find the first item so we can
 			// loop back
 			const next = findNextEnabled( highlightedIndex ) || findNextEnabled( -1 );
@@ -402,7 +407,7 @@ export default defineComponent( {
 						if ( highlightedMenuItem.value === null ) {
 							handleMenuItemChange( 'highlighted', findSelectedMenuItem() );
 						}
-						highlightPrev();
+						highlightPrev( highlightedMenuItemIndex.value );
 					} else {
 						handleExpandMenu();
 					}
@@ -414,7 +419,31 @@ export default defineComponent( {
 						if ( highlightedMenuItem.value === null ) {
 							handleMenuItemChange( 'highlighted', findSelectedMenuItem() );
 						}
+						highlightNext( highlightedMenuItemIndex.value );
+					} else {
+						handleExpandMenu();
+					}
+					return true;
+				case 'Home':
+					maybePrevent();
+
+					if ( props.expanded ) {
+						if ( highlightedMenuItem.value === null ) {
+							handleMenuItemChange( 'highlighted', findSelectedMenuItem() );
+						}
 						highlightNext();
+					} else {
+						handleExpandMenu();
+					}
+					return true;
+				case 'End':
+					maybePrevent();
+
+					if ( props.expanded ) {
+						if ( highlightedMenuItem.value === null ) {
+							handleMenuItemChange( 'highlighted', findSelectedMenuItem() );
+						}
+						highlightPrev();
 					} else {
 						handleExpandMenu();
 					}

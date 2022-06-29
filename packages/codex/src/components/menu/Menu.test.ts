@@ -252,6 +252,128 @@ it( 'Up arrow keydown skips disabled elements and loops around to the end if nec
 	expect( wrapper.findAllComponents( CdxMenuItem )[ 4 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
 } );
 
+describe( 'Home keydown', () => {
+	it( 'Sets the first menu item to "highlighted"', async () => {
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			selected: 'c',
+			expanded: false
+		} } );
+		// Enter highlights the selected item
+		await delegateKeydownEvent( wrapper, 'Enter' );
+		// Simulate the parent responding to the update:expanded event
+		await wrapper.setProps( { expanded: true } );
+
+		// Pressing Home highlight the first item
+		await delegateKeydownEvent( wrapper, 'Home' );
+		expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+	} );
+
+	it( 'Opens menu but does not highlight when menu is closed and nothing selected', async () => {
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			expanded: false
+		} } );
+		await delegateKeydownEvent( wrapper, 'Home' );
+		expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+		expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+		expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+	} );
+
+	it( 'Opens menu and highlights selected item when menu is closed and selection present', async () => {
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			selected: 'c',
+			expanded: false
+		} } );
+		await delegateKeydownEvent( wrapper, 'Home' );
+		expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+		expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+		expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+	} );
+
+	it( 'Skips disabled elements', async () => {
+		// Perform a deep copy and change first entry to disabled
+		const updateMenuItems = JSON.parse( JSON.stringify( exampleMenuItems ) );
+		updateMenuItems[ 0 ].disabled = true;
+
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			menuItems: updateMenuItems,
+			selected: 'c',
+			expanded: false
+		} } );
+		// Enter highlights the selected item
+		await delegateKeydownEvent( wrapper, 'Enter' );
+		// Simulate the parent responding to the update:expanded event
+		await wrapper.setProps( { expanded: true } );
+
+		await delegateKeydownEvent( wrapper, 'Home' );
+		expect( wrapper.findAllComponents( CdxMenuItem )[ 1 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+	} );
+} );
+
+describe( 'End keydown', () => {
+	it( 'Sets the last menu item to "highlighted"', async () => {
+		// Performs a deep copy and changes the last entry to not be disabled
+		const updateMenuItems = JSON.parse( JSON.stringify( exampleMenuItems ) );
+		updateMenuItems[ 5 ].disabled = false;
+
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			menuItems: updateMenuItems,
+			selected: 'c',
+			expanded: false
+		} } );
+		// Enter highlights the selected item
+		await delegateKeydownEvent( wrapper, 'Enter' );
+		// Simulate the parent responding to the update:expanded event
+		await wrapper.setProps( { expanded: true } );
+
+		// Pressing End highlight the last item
+		await delegateKeydownEvent( wrapper, 'End' );
+		expect( wrapper.findAllComponents( CdxMenuItem )[ 5 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+	} );
+
+	it( 'Opens menu but does not highlight when menu is closed and nothing selected', async () => {
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			expanded: false
+		} } );
+		await delegateKeydownEvent( wrapper, 'End' );
+		expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+		expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+		expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+	} );
+
+	it( 'Opens menu and highlights selected item when menu is closed and selection present', async () => {
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			selected: 'c',
+			expanded: false
+		} } );
+		await delegateKeydownEvent( wrapper, 'End' );
+		expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+		expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+		expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+	} );
+
+	it( 'Skips disabled elements', async () => {
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			selected: 'c',
+			expanded: false
+		} } );
+		// Enter highlights the selected item
+		await delegateKeydownEvent( wrapper, 'Enter' );
+		// Simulate the parent responding to the update:expanded event
+		await wrapper.setProps( { expanded: true } );
+
+		await delegateKeydownEvent( wrapper, 'End' );
+		expect( wrapper.findAllComponents( CdxMenuItem )[ 4 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+	} );
+} );
+
 it( 'Enter keydown after navigating to a new item emits an update event with the value of that item', async () => {
 	const wrapper = mount( CdxMenu, { props: {
 		...defaultProps,
@@ -484,11 +606,11 @@ it( 'hides no-results slot when there are zero menu items but showNoResultsSlot 
 describe( 'delegateKeyNavigation returns true or false correctly', () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps } );
 
-	test.each( [ ' ', 'Enter', 'Tab', 'ArrowUp', 'ArrowDown', 'Escape' ] )( 'Returns true for "%s"', ( key ) => {
+	test.each( [ ' ', 'Enter', 'Tab', 'ArrowUp', 'ArrowDown', 'Escape', 'Home', 'End' ] )( 'Returns true for "%s"', ( key ) => {
 		expect( wrapper.vm.delegateKeyNavigation( new KeyboardEvent( 'keydown', { key } ) ) ).toBe( true );
 	} );
 
-	test.each( [ 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown', 'Home', 'End', 'Backspace', 'Delete', 'x', '2' ] )( 'Returns false for "%s"', ( key ) => {
+	test.each( [ 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown', 'Backspace', 'Delete', 'x', '2' ] )( 'Returns false for "%s"', ( key ) => {
 		expect( wrapper.vm.delegateKeyNavigation( new KeyboardEvent( 'keydown', { key } ) ) ).toBe( false );
 	} );
 } );
