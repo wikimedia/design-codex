@@ -1,4 +1,5 @@
 import CdxButton from './components/button/Button.vue';
+import CdxCard from './components/card/Card.vue';
 import CdxCheckbox from './components/checkbox/Checkbox.vue';
 import CdxCombobox from './components/combobox/Combobox.vue';
 import CdxIcon from './components/icon/Icon.vue';
@@ -43,6 +44,7 @@ import type {
 
 export {
 	CdxButton,
+	CdxCard,
 	CdxCheckbox,
 	CdxCombobox,
 	CdxIcon,
