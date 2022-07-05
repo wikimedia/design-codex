@@ -109,21 +109,21 @@ export default defineComponent( {
 		'control-change'
 	],
 	setup( props, { emit } ) {
+		const allControls = computed( () => {
+			const propsInfo: PropConfigWithValue[] = [];
+			const slotsInfo: SlotConfigWithValue[] = [];
+			for ( const control of props.controlsWithValues ) {
+				if ( control.type === 'slot' || control.type === 'slot-icon' ) {
+					slotsInfo.push( control );
+				} else {
+					propsInfo.push( control );
+				}
+			}
+			return { propsInfo, slotsInfo };
+		} );
 		// Split out the props and slots controls so we can display them in separate sections.
-		const propControls = computed( () : PropConfigWithValue[] => {
-			return props.controlsWithValues.filter(
-				( control ) : control is PropConfigWithValue => {
-					return control.type !== 'slot' &&
-						control.type !== 'slot-icon';
-				} );
-		} );
-		const slotControls = computed( () : SlotConfigWithValue[] => {
-			return props.controlsWithValues.filter(
-				( control ) : control is SlotConfigWithValue => {
-					return control.type === 'slot' ||
-						control.type === 'slot-icon';
-				} );
-		} );
+		const propControls = computed( () : PropConfigWithValue[] => allControls.value.propsInfo );
+		const slotControls = computed( () : SlotConfigWithValue[] => allControls.value.slotsInfo );
 
 		// Show a note about Icon props if there are any
 		const hasIconProp = computed( () => {
