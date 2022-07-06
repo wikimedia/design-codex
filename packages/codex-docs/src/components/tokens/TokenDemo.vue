@@ -108,6 +108,10 @@ export default defineComponent( {
 		width: 50px;
 		height: 50px;
 		border: @border-width-base @border-style-base @border-color-base;
+
+		&--border-radius-pill {
+			width: 100px;
+		}
 	}
 
 	&--color &__token {
