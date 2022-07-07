@@ -679,8 +679,8 @@ export default defineComponent( {
 @size-search-figure: 40px;
 
 @padding-vertical-menu-item: 8px;
-@margin-end-menu-item-thumbnail: @padding-vertical-menu-item;
 
+@margin-end-typeahead-search-footer-icon: 8px;
 @padding-no-results-text-with-thumbnail: 20px;
 
 @border-color-heading: @color-gray300;
@@ -692,11 +692,6 @@ export default defineComponent( {
 // container). We want this space to be uniform so that the figures vertically line up
 // nicely. We use the same horizontal padding as the MenuItem.
 @spacing-start-typeahead-search-figure: @padding-horizontal-base;
-// The amount of spacing from the end of the input icon container, menu item thumbnail,
-// and footer icon container to the start of their associated text. We need the text
-// to vertically line up nicely. For pragmatic reasons, we use the spacing from the
-// menu item thumbnail.
-@spacing-end-typeahead-search-figure: @margin-end-menu-item-thumbnail;
 // The amount the width of the input increases when it is focused to allow for the extra spacing
 // around the search figures. The caret position should remain static.
 // This calculates the padding-left of the input when expanded minus the padding-left of the input
@@ -750,7 +745,7 @@ export default defineComponent( {
 			// intuitive @size-search-figure variable so it doesn't have extra horizontal space.
 			width: auto;
 			height: @size-search-figure;
-			margin-right: @padding-horizontal-base;
+			margin-right: @margin-end-typeahead-search-footer-icon;
 		}
 
 		// We cannot use a pseudo class ":active" because that does not work

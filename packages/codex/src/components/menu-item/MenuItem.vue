@@ -346,7 +346,7 @@ export default defineComponent( {
 
 @padding-vertical-menu-item: 8px;
 
-@margin-end-menu-item-thumbnail: @padding-vertical-menu-item;
+@margin-end-menu-item-thumbnail: 8px;
 
 .cdx-menu-item {
 	list-style: none;
