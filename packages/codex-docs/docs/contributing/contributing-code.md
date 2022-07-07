@@ -67,7 +67,7 @@ should include or update the following as needed.
 (Button, Icon) or the type of work (build, tests, styles, docs, etc.), e.g. `docs: Add more docs.`
   If the commit covers multiple things, include them in a comma-delineated list, e.g.
   `styles, docs, Button: Fix Button styles and document new convention`.
-  Special cases are deprecating and breaking changes, to be suffixed with `[DEPRECATING CHANGE]` or
+  Special cases are deprecating and breaking changes, to be prefixed with `[DEPRECATING CHANGE]` or
   `[BREAKING CHANGE]`, e.g.
   `[BREAKING CHANGE] Button: Remove primary button functionality`.
   In general, Codex is following the [MediaWiki commit message guidelines](https://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines).
