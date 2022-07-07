@@ -11,7 +11,10 @@ export default defineConfig( {
 	},
 
 	build: {
-		minify: true
+		minify: true,
+		// This build target should be kept in sync with the build target in
+		// packages/codex/vite.config.ts
+		target: [ 'es2015', 'edge18', 'safari11' ]
 	},
 
 	resolve: {
