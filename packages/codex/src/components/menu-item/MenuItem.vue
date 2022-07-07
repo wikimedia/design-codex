@@ -342,8 +342,6 @@ export default defineComponent( {
 @font-size-base: 14 / @font-size-browser;
 // Line heights are best-practice unit-less.
 @line-height-menu-item: ( 22 / @font-size-browser );
-@min-width-select: 280px;
-@line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 @size-icon-relative: unit( ( @size-icon / @font-size-browser / @font-size-base ), em );
 
 @padding-vertical-menu-item: 8px;
