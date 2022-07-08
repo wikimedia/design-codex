@@ -2,9 +2,9 @@ import { mount } from '@vue/test-utils';
 import CdxThumbnail from './Thumbnail.vue';
 import CdxIcon from '../icon/Icon.vue';
 import { Icon, cdxIconArticle } from '@wikimedia/codex-icons';
+import { Thumbnail } from '../../types';
 
-const testThumbnail = {
-	mimetype: 'image/jpeg',
+const testThumbnail: Thumbnail = {
 	width: 200,
 	height: 150,
 	url: 'https://example.org/test/thumbnail.jpg'
