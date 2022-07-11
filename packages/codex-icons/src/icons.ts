@@ -202,6 +202,18 @@ export const cdxIconCode = svgCode;
 import svgCollapse from './images/collapse.svg';
 export const cdxIconCollapse = svgCollapse;
 
+import svgCopy from './images/copy.svg';
+export const cdxIconCopy: IconFlipForRtl = {
+	ltr: svgCopy,
+	shouldFlip: true
+};
+
+import svgCut from './images/cut.svg';
+export const cdxIconCut: IconFlipForRtl = {
+	ltr: svgCut,
+	shouldFlip: true
+};
+
 import svgDatabase from './images/database.svg';
 export const cdxIconDatabase = svgDatabase;
 
@@ -641,6 +653,12 @@ export const cdxIconOutline: IconFlipForRtl = {
 
 import svgPageSettings from './images/pageSettings.svg';
 export const cdxIconPageSettings = svgPageSettings;
+
+import svgPaste from './images/paste.svg';
+export const cdxIconPaste: IconFlipForRtl = {
+	ltr: svgPaste,
+	shouldFlip: true
+};
 
 import svgPause from './images/pause.svg';
 export const cdxIconPause = svgPause;
