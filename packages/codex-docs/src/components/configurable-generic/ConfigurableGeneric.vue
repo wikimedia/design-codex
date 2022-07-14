@@ -21,8 +21,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { useRoute } from 'vitepress';
-import toKebabCase from '../../utils/toKebabCase';
+import useCurrentComponentName from '../../composables/useCurrentComponentName';
 
 // Supported configurable components, add new ones as needed
 import {
@@ -51,9 +50,7 @@ export default defineComponent( {
 	inheritAttrs: false,
 	setup() {
 		const modelValue = ref();
-		// Extract from page name and convert to cdx-* and kebab case, based on Wrapper.vue
-		const route = useRoute();
-		const componentName = 'cdx-' + toKebabCase( route.data.title );
+		const componentName = useCurrentComponentName();
 
 		return {
 			modelValue,

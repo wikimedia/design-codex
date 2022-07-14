@@ -99,7 +99,7 @@ import Prism from 'prismjs';
 import { DirectionKey } from '../../constants';
 import CdxDocsControls from '../controls/Controls.vue';
 import CdxDocsCopyTextButton from '../copy-text-button/CopyTextButton.vue';
-import { useRoute } from 'vitepress';
+import useCurrentComponentName from '../../composables/useCurrentComponentName';
 import { generateVueTag } from '../../utils/codegen';
 import { CdxButton, CdxToggleButton } from '@wikimedia/codex';
 import * as allIcons from '@wikimedia/codex-icons';
@@ -368,10 +368,9 @@ export default defineComponent( {
 			} );
 		}
 
-		// Route title will be converted to `cdx-*` style name in codegen.ts
-		const route = useRoute();
+		const currentComponentName = useCurrentComponentName();
 		const generatedCode = computed( () => generateVueTag(
-			route.data.title,
+			currentComponentName,
 			defaultControlValues,
 			controlsWithValues,
 			props.generatedModelName
