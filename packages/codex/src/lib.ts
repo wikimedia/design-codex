@@ -1,4 +1,5 @@
 import CdxButton from './components/button/Button.vue';
+import CdxButtonGroup from './components/button-group/ButtonGroup.vue';
 import CdxCard from './components/card/Card.vue';
 import CdxCheckbox from './components/checkbox/Checkbox.vue';
 import CdxCombobox from './components/combobox/Combobox.vue';
@@ -31,6 +32,7 @@ import type {
 	HTMLDirection,
 	ButtonAction,
 	ButtonType,
+	ButtonGroupItem,
 	MessageType,
 	TextInputType,
 	MenuItemData,
@@ -44,6 +46,7 @@ import type {
 
 export {
 	CdxButton,
+	CdxButtonGroup,
 	CdxCard,
 	CdxCheckbox,
 	CdxCombobox,
@@ -76,6 +79,7 @@ export {
 	HTMLDirection,
 	ButtonAction,
 	ButtonType,
+	ButtonGroupItem,
 	MessageType,
 	TextInputType,
 	MenuItemData,

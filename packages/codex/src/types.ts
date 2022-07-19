@@ -23,6 +23,23 @@ export type ButtonAction = typeof ButtonActions[ number ];
 export type ButtonType = typeof ButtonTypes[ number ];
 
 /** @public */
+export interface ButtonGroupItem {
+	/** Button value or unique identifier */
+	value: string | number,
+	/**
+	 * Display label for the button, or null to show no label (for icon-only buttons).
+	 * If the label property is missing, the value property is used as the label.
+	 */
+	label?: string|null,
+	/** Icon to display before the label */
+	icon?: Icon,
+	/** ARIA label for the button. Used for accessibility for icon-only buttons. */
+	ariaLabel?: string,
+	/** Whether the button is disabled */
+	disabled?: boolean
+}
+
+/** @public */
 export type MessageType = typeof MessageTypes[ number ];
 export type MessageIconMap = {
 	[P in MessageType]: Icon

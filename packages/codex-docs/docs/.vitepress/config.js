@@ -32,6 +32,7 @@ module.exports = require( 'vitepress' ).defineConfig( {
 					text: 'Components',
 					children: [
 						{ text: 'Button', link: '/components/button' },
+						{ text: 'ButtonGroup', link: '/components/button-group' },
 						{ text: 'Card', link: '/components/card' },
 						{ text: 'Checkbox', link: '/components/checkbox' },
 						{ text: 'Combobox', link: '/components/combobox' },
