@@ -278,26 +278,37 @@
 				"value": "{ size.viewport.32 }"
 			},
 			"tablet": {
-				"comment": "A tablet device's minimum available screen width.",
-				"value": "{ size.viewport.72 }"
+				"comment": "A tablet device's minimum available screen width. Note: the size chosen is eager to be re-evaluated with Web team and Product Analytics.",
+				"value": "{ size.viewport.64 }"
 			},
 			"desktop": {
 				"comment": "A desktop device's minimum available screen width.",
-				"value": "{ size.viewport.100 }"
+				"value": "{ size.viewport.112 }"
 			},
 			"desktop-wide": {
 				"comment": "A wider desktop's minimum available screen width.",
-				"value": "{ size.viewport.120 }"
-			},
-			"desktop-extrawide": {
-				"comment": "An extra wide desktop's minimum available screen width.",
-				"value": "{ size.viewport.200 }"
+				"value": "{ size.viewport.168 }"
 			}
 		}
 	},
 	"max-width": {
 		"base": {
 			"value": "{ max-width.100 }"
+		},
+		"breakpoint": {
+			"comment": "Breakpoints. Maximum available screen width to be considered a certain device type.",
+			"mobile": {
+				"comment": "A mobile device's maximum available screen width. Many older feature phones have screens smaller than this value.",
+				"value": "calc( { size.viewport.64 } - { size.absolute.1px } )"
+			},
+			"tablet": {
+				"comment": "A tablet device's maximum available screen width. Note, the size chosen is eager to be re-evaluated with Web team and Product Analytics.",
+				"value": "calc( { size.viewport.112 } - { size.absolute.1px } )"
+			},
+			"desktop": {
+				"comment": "A desktop device's maximum available screen width.",
+				"value": "calc( { size.viewport.168 } - { size.absolute.1px } )"
+			}
 		}
 	},
 	"width": {
@@ -318,6 +329,29 @@
 		},
 		"full": {
 			"value": "{ size.relative.percentage.100 }"
+		},
+		"breakpoint": {
+			"comment": "Legacy Breakpoints. Width for use as minimum available screen width (`min-width`) to be considered a certain device type.",
+			"mobile": {
+				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. A mobile device's screen width. Many older feature phones have screens smaller than this value.",
+				"value": "{ size.viewport.32 }"
+			},
+			"tablet": {
+				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. A tablet device's screen width.",
+				"value": "{ size.viewport.72 }"
+			},
+			"desktop": {
+				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. A desktop device's screen width.",
+				"value": "{ size.viewport.100 }"
+			},
+			"desktop-wide": {
+				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. A wider desktop's screen width.",
+				"value": "{ size.viewport.120 }"
+			},
+			"desktop-extrawide": {
+				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. An extra wide desktop's screen width.",
+				"value": "{ size.viewport.200 }"
+			}
 		}
 	},
 	"min-height": {

@@ -271,16 +271,29 @@
 			"32": {
 				"value": "320px"
 			},
+			"64": {
+				"value": "640px"
+			},
 			"72": {
+				"deprecated": "Legacy breakpoint for non-Codex products.",
 				"value": "720px"
 			},
 			"100": {
+				"deprecated": "Legacy breakpoint for non-Codex products.",
 				"value": "1000px"
 			},
+			"112": {
+				"value": "1120px"
+			},
 			"120": {
+				"deprecated": "Legacy breakpoint for non-Codex products.",
 				"value": "1200px"
 			},
+			"168": {
+				"value": "1680px"
+			},
 			"200": {
+				"deprecated": "Legacy breakpoint for non-Codex products.",
 				"value": "2000px"
 			}
 		}

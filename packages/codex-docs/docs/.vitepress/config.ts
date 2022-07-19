@@ -101,6 +101,7 @@ export default defineConfig( {
 						{ text: 'Border', link: '/design-tokens/border' },
 						{ text: 'Box-shadow', link: '/design-tokens/box-shadow' },
 						{ text: 'Box-sizing', link: '/design-tokens/box-sizing' },
+						{ text: 'Breakpoint', link: '/design-tokens/breakpoint' },
 						{ text: 'Color', link: '/design-tokens/color' },
 						{ text: 'Cursor', link: '/design-tokens/cursor' },
 						{ text: 'Font', link: '/design-tokens/font' },
