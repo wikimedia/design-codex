@@ -61,6 +61,8 @@
 					</template>
 					<template #no-results>
 						<div
+							v-if="$slots['search-no-results-text'] &&
+								$slots['search-no-results-text']().length"
 							class="cdx-typeahead-search__menu-message"
 							:class="menuMessageClass"
 						>
