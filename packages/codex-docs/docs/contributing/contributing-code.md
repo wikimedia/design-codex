@@ -5,6 +5,16 @@
 - Check out the [code design principles](../index.md#code-design-patterns)
 :::
 
+## Get the code
+
+Clone [the repository](https://gerrit.wikimedia.org/g/design/codex/):
+`git clone ssh://gerrit.wikimedia.org:29418/design/codex`
+
+::: tip First time using Gerrit?
+See [the Gerrit tutorial on mediawiki.org](https://www.mediawiki.org/wiki/Gerrit/Tutorial) for a
+detailed guide.
+:::
+
 ## Code contribution workflow
 
 ### Task tracking
