@@ -84,7 +84,7 @@ export default defineComponent( {
 
 	&--transition-all:hover,
 	&--transition-box-shadow:hover {
-		box-shadow: @box-shadow-progressive--focus;
+		box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 	}
 
 	&--transition-all:hover,

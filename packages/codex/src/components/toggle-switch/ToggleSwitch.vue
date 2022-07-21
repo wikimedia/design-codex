@@ -289,7 +289,7 @@ export default defineComponent( {
 
 			&:focus:not( :active ) ~ .cdx-toggle-switch__switch {
 				border-color: @border-color-progressive;
-				box-shadow: @box-shadow-progressive--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 				outline: @outline-base--focus;
 
 				.cdx-toggle-switch__switch__grip {
@@ -317,7 +317,7 @@ export default defineComponent( {
 				&:active ~ .cdx-toggle-switch__switch {
 					background-color: @background-color-progressive--active;
 					border-color: @border-color-progressive--active;
-					box-shadow: @box-shadow-progressive--active;
+					box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--active;
 
 					&::before {
 						border-color: @border-color-progressive--active;
@@ -355,7 +355,7 @@ export default defineComponent( {
 
 				.cdx-toggle-switch__switch__grip {
 					border: @border-filled--disabled;
-					box-shadow: @box-shadow-inverted;
+					box-shadow: @box-shadow-inset-medium @box-shadow-color-inverted;
 				}
 			}
 

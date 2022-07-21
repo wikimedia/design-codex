@@ -112,7 +112,7 @@ export default defineComponent( {
 
 		&:focus {
 			border-color: @color-primary--focus;
-			box-shadow: @box-shadow-progressive--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			// In Windows high contrast mode the outline becomes visible.
 			outline: @outline-base--focus;
 		}
@@ -171,7 +171,10 @@ export default defineComponent( {
 
 		&:focus {
 			border-color: @border-color-primary--focus;
-			box-shadow: @box-shadow-progressive-filled--focus;
+			// Make `box-shadow` feature a `1px` White inset outline with a value combination.
+			// stylelint-disable-next-line value-list-comma-newline-after
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus,
+				@box-shadow-inset-medium @box-shadow-color-inverted;
 		}
 
 		&:active {

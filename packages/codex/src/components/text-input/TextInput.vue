@@ -301,7 +301,7 @@ export default defineComponent( {
 		background-color: @background-color-base;
 		color: @color-base;
 		border-color: @border-color-base;
-		box-shadow: @box-shadow-base;
+		box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-medium;
 
@@ -322,7 +322,7 @@ export default defineComponent( {
 
 		&:focus {
 			border-color: @border-color-base--focus;
-			box-shadow: @box-shadow-progressive--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			outline: @outline-base--focus;
 		}
 	}

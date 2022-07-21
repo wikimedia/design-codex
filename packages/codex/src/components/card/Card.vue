@@ -169,9 +169,10 @@ export default defineComponent( {
 
 		&:focus {
 			border-color: @border-color-progressive--focus;
-			// `@box-shadow-progressive-filled--focus` for `1px` White inset
-			// outline.
-			box-shadow: @box-shadow-progressive-filled--focus;
+			// Make `box-shadow` feature a `1px` White inset outline with a value combination.
+			// stylelint-disable-next-line value-list-comma-newline-after
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus,
+				@box-shadow-inset-medium @box-shadow-color-inverted;
 			outline: @outline-base--focus;
 		}
 	}

@@ -114,7 +114,7 @@ export default defineComponent( {
 		// in active state.
 		&:focus:not( :active ) {
 			border-color: @border-color-base--focus;
-			box-shadow: @box-shadow-progressive--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			// Set the standard focus `outline` transparent. A `border` and `box-shadow` visual
 			// focus is added above for common rendering.
 			// In Windows high contrast mode the transparent outline becomes visible.
@@ -187,9 +187,10 @@ export default defineComponent( {
 
 			&:focus:not( :active ) {
 				border-color: @border-color-progressive--focus;
-				// `@box-shadow-progressive-filled--focus` for `1px` White inset
-				// outline.
-				box-shadow: @box-shadow-progressive-filled--focus;
+				// Make `box-shadow` feature a `1px` White inset outline with a value combination.
+				// stylelint-disable-next-line value-list-comma-newline-after
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus,
+					@box-shadow-inset-medium @box-shadow-color-inverted;
 			}
 		}
 	}
@@ -213,9 +214,10 @@ export default defineComponent( {
 
 			&:focus:not( :active ) {
 				border-color: @border-color-destructive--focus;
-				// `@box-shadow-destructive-filled--focus` for `1px` White inset
-				// outline.
-				box-shadow: @box-shadow-destructive-filled--focus;
+				// Make `box-shadow` feature a `1px` White inset outline with a value combination.
+				// stylelint-disable-next-line value-list-comma-newline-after
+				box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus,
+					@box-shadow-inset-medium @box-shadow-color-inverted;
 			}
 		}
 	}
@@ -261,7 +263,7 @@ export default defineComponent( {
 
 			&:focus:not( :active ) {
 				border-color: @border-color-destructive--focus;
-				box-shadow: @box-shadow-destructive--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus;
 			}
 		}
 	}
@@ -326,7 +328,7 @@ export default defineComponent( {
 
 			&:focus:not( :active ) {
 				border-color: @border-color-destructive--focus;
-				box-shadow: @box-shadow-destructive--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus;
 			}
 		}
 	}
