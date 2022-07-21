@@ -1,6 +1,6 @@
 <template>
 	<cdx-typeahead-search
-		id="typeahead-search-pending-state"
+		id="typeahead-search-no-result"
 		form-action="https://en.wikipedia.org/w/index.php"
 		button-label="Search"
 		search-results-label="Search results"
@@ -24,8 +24,8 @@
 				value="Special:Search"
 			>
 		</template>
-		<template #search-results-pending>
-			Loading search results...
+		<template #search-no-results-text>
+			No results found
 		</template>
 		<template #search-footer-text="{ searchQuery }">
 			Search Wikipedia for pages containing
@@ -42,7 +42,7 @@ import { CdxTypeaheadSearch, SearchResult } from '@wikimedia/codex';
 import { RestResult } from './types';
 
 export default defineComponent( {
-	name: 'TypeaheadSearchPendingState',
+	name: 'TypeaheadSearchNoResult',
 	components: { CdxTypeaheadSearch },
 	setup() {
 		const searchResults = ref<SearchResult[]>( [] );

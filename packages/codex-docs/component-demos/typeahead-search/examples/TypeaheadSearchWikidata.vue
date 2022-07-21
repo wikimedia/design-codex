@@ -24,9 +24,6 @@
 					value="Special:Search"
 				>
 			</template>
-			<template #search-no-results-text>
-				No results found
-			</template>
 			<template #search-footer-text="{ searchQuery }">
 				Search Wikidata for pages containing
 				<strong class="cdx-typeahead-search__search-footer__query">

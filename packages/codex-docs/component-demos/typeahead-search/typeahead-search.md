@@ -3,6 +3,7 @@ import TypeaheadSearchWikipedia from './../../component-demos/typeahead-search/e
 import TypeaheadSearchWikidata from './../../component-demos/typeahead-search/examples/TypeaheadSearchWikidata.vue';
 import TypeaheadSearchInitialValue from './../../component-demos/typeahead-search/examples/TypeaheadSearchInitialValue.vue';
 import TypeaheadSearchPendingState from './../../component-demos/typeahead-search/examples/TypeaheadSearchPendingState.vue';
+import TypeaheadSearchNoResult from './../../component-demos/typeahead-search/examples/TypeaheadSearchNoResult.vue'
 </script>
 
 ::: tip TextInput props apply
@@ -90,6 +91,22 @@ need to throttle your connection to see them in the demo below.
 <template v-slot:code>
 
 <<< @/../component-demos/typeahead-search/examples/TypeaheadSearchPendingState.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### No results message
+
+A message prompt that no search results were found. To enable this, provide content in the
+`search-no-results-text` slot.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<typeahead-search-no-result />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/typeahead-search/examples/TypeaheadSearchNoResult.vue
 
 </template>
 </cdx-demo-wrapper>
