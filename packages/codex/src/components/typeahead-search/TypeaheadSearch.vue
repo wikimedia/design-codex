@@ -38,7 +38,10 @@
 					:selected="selection"
 					:menu-items="searchResultsWithFooter"
 					:search-query="highlightQuery ? searchQuery : ''"
-					:show-no-results-slot="searchQuery.length > 0 && searchResults.length === 0"
+					:show-no-results-slot="searchQuery.length > 0 &&
+						searchResults.length === 0 &&
+						$slots['search-no-results-text'] &&
+						$slots['search-no-results-text']().length > 0"
 					v-bind="menuConfig"
 					:aria-label="searchResultsLabel"
 					@update:selected="onUpdateMenuSelection"
@@ -61,8 +64,6 @@
 					</template>
 					<template #no-results>
 						<div
-							v-if="$slots['search-no-results-text'] &&
-								$slots['search-no-results-text']().length"
 							class="cdx-typeahead-search__menu-message"
 							:class="menuMessageClass"
 						>
@@ -805,6 +806,13 @@ export default defineComponent( {
 			&__query {
 				.hyphens();
 			}
+		}
+	}
+
+	// Remove border-top when search-footer is the only menu item
+	.cdx-menu-item:first-child {
+		.cdx-typeahead-search__search-footer {
+			border-top: unset;
 		}
 	}
 }
