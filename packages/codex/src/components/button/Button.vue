@@ -10,31 +10,67 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, Slots, Component, warn } from 'vue';
+import { defineComponent, computed, warn, Comment, PropType, SetupContext, VNode, VNodeArrayChildren } from 'vue';
 import { ButtonActions, ButtonTypes } from '../../constants';
 import { ButtonAction, ButtonType } from '../../types';
-import cdxIcon from '../icon/Icon.vue';
+import CdxIcon from '../icon/Icon.vue';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
 const buttonTypeValidator = makeStringTypeValidator( ButtonTypes );
 const buttonActionValidator = makeStringTypeValidator( ButtonActions );
-const validateIconOnlyButtonAttrs = ( attrs: Record<string, unknown> ) => {
+const validateIconOnlyButtonAttrs = ( attrs: SetupContext['attrs'] ) => {
 	if ( !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ] ) {
 		warn( `icon-only buttons require one of the following attribute: aria-label or aria-hidden.
 		See documentation on https://doc.wikimedia.org/codex/main/components/button.html#default-icon-only` );
 	}
 };
 
-const isIconOnlyButton = ( slots:Slots, attrs: Record<string, unknown> ) => {
-	const componentSlot = slots.default?.();
-	if ( componentSlot && componentSlot.length === 1 ) {
-		const slotType = componentSlot[ 0 ].type;
-		const isIconComponent = ( ( slotType as Component ).name === cdxIcon.name );
-		const isPlainSvg = ( slotType === 'svg' );
-		if ( isIconComponent || isPlainSvg ) {
-			validateIconOnlyButtonAttrs( attrs );
-			return true;
+function flattenVNodeContents( nodes: VNodeArrayChildren ): ( VNode | string )[] {
+	const flattenedContents: ( VNode | string )[] = [];
+	for ( const node of nodes ) {
+		if ( typeof node === 'string' && node !== '' ) {
+			flattenedContents.push( node );
+		} else if ( Array.isArray( node ) ) {
+			flattenedContents.push( ...flattenVNodeContents( node ) );
+		} else if ( typeof node === 'object' && node ) {
+			// node is a VNode
+			if (
+				// HTML tag
+				typeof node.type === 'string' ||
+				// Component
+				typeof node.type === 'object'
+			) {
+				flattenedContents.push( node );
+			} else if ( node.type !== Comment ) {
+				// Text node or fragment (or something fragment-like). Descend into its children.
+				if ( typeof node.children === 'string' && node.children !== '' ) {
+					flattenedContents.push( node.children );
+				} else if ( Array.isArray( node.children ) ) {
+					flattenedContents.push( ...flattenVNodeContents( node.children ) );
+				}
+			}
 		}
+	}
+	return flattenedContents;
+}
+
+const isIconOnlyButton = ( slotContent: VNode[] | undefined, attrs: SetupContext['attrs'] ): boolean => {
+	if ( !slotContent ) {
+		return false;
+	}
+	const flattenedContents = flattenVNodeContents( slotContent );
+	if ( flattenedContents.length !== 1 ) {
+		return false;
+	}
+	const soleNode = flattenedContents[ 0 ];
+	const isIconComponent = typeof soleNode === 'object' &&
+		typeof soleNode.type === 'object' &&
+		'name' in soleNode.type &&
+		soleNode.type.name === CdxIcon.name;
+	const isSvgTag = typeof soleNode === 'object' && soleNode.type === 'svg';
+	if ( isIconComponent || isSvgTag ) {
+		validateIconOnlyButtonAttrs( attrs );
+		return true;
 	}
 	return false;
 };
@@ -72,8 +108,9 @@ export default defineComponent( {
 			[ `cdx-button--action-${props.action}` ]: true,
 			[ `cdx-button--type-${props.type}` ]: true,
 			'cdx-button--framed': props.type !== 'quiet',
-			'cdx-button--icon-only': isIconOnlyButton( slots, attrs )
+			'cdx-button--icon-only': isIconOnlyButton( slots.default?.(), attrs )
 		} ) );
+
 		const onClick = ( event: Event ) => {
 			emit( 'click', event );
 		};
