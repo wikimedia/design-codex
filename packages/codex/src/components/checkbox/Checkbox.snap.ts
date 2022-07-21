@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 Single checkbox: (true) => HTML 1`] = `
+exports[`Checkbox matches the snapshot Case 0 Single checkbox: (true) => HTML 1`] = `
 <span
   class="cdx-checkbox"
 >
@@ -27,7 +27,7 @@ exports[`matches the snapshot Case 0 Single checkbox: (true) => HTML 1`] = `
 </span>
 `;
 
-exports[`matches the snapshot Case 1 Group checkbox, string value: (["checkbox-1"]) => HTML 1`] = `
+exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: (["checkbox-1"]) => HTML 1`] = `
 <span
   class="cdx-checkbox"
 >
@@ -54,7 +54,7 @@ exports[`matches the snapshot Case 1 Group checkbox, string value: (["checkbox-1
 </span>
 `;
 
-exports[`matches the snapshot Case 2 Group checkbox, number value: ([1]) => HTML 1`] = `
+exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ([1]) => HTML 1`] = `
 <span
   class="cdx-checkbox"
 >
@@ -81,7 +81,7 @@ exports[`matches the snapshot Case 2 Group checkbox, number value: ([1]) => HTML
 </span>
 `;
 
-exports[`matches the snapshot Case 3 Disabled: (false) => HTML 1`] = `
+exports[`Checkbox matches the snapshot Case 3 Disabled: (false) => HTML 1`] = `
 <span
   class="cdx-checkbox"
 >
@@ -109,7 +109,7 @@ exports[`matches the snapshot Case 3 Disabled: (false) => HTML 1`] = `
 </span>
 `;
 
-exports[`matches the snapshot Case 4 Indeterminate: (false) => HTML 1`] = `
+exports[`Checkbox matches the snapshot Case 4 Indeterminate: (false) => HTML 1`] = `
 <span
   class="cdx-checkbox"
 >
@@ -136,7 +136,7 @@ exports[`matches the snapshot Case 4 Indeterminate: (false) => HTML 1`] = `
 </span>
 `;
 
-exports[`matches the snapshot Case 5 Inline: ([]) => HTML 1`] = `
+exports[`Checkbox matches the snapshot Case 5 Inline: ([]) => HTML 1`] = `
 <span
   class="cdx-checkbox cdx-checkbox--inline"
 >
