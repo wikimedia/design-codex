@@ -22,6 +22,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { ButtonGroupItem } from '../../types';
+import { getButtonLabel } from '../../utils/buttonHelpers';
 import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 
@@ -67,16 +68,6 @@ export default defineComponent( {
 		'click'
 	],
 	setup() {
-		function getButtonLabel( button: ButtonGroupItem ) {
-			if ( button.label === undefined ) {
-				return button.value;
-			}
-			if ( button.label === null ) {
-				return '';
-			}
-			return button.label;
-		}
-
 		return {
 			getButtonLabel
 		};
@@ -86,50 +77,13 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import './../../themes/mixins/button-group.less';
 
 .cdx-button-group {
-	// Isolate the z-index hacks below into their own stacking context, so that they don't conflict
-	// with other z-index tricks elsewhere on the page.
-	position: relative;
-	z-index: 0;
+	.cdx-mixin-button-group();
 
 	.cdx-button {
-		position: relative;
-
-		&:not( :first-child ) {
-			// To avoid double borders, shift each of the buttons (except the first one)
-			// 1px to the left, so that its left border covers the right border of the button
-			// before it, and only each button's left border is visible. Sometimes we need both or
-			// neither of a button's borders to be visible, which is achieved with z-index rules
-			// below.
-			margin-left: -@border-width-base;
-
-			// Make all borders sharp, overriding rounded corners, except the corner on the
-			// outsides of the group (the first button's left corners, and the last button's
-			// right corners)
-			border-top-left-radius: @border-radius-sharp;
-			border-bottom-left-radius: @border-radius-sharp;
-		}
-
-		&:not( :last-child ) {
-			border-top-right-radius: @border-radius-sharp;
-			border-bottom-right-radius: @border-radius-sharp;
-		}
-
-		&:enabled:active,
-		&:enabled:focus {
-			// When a button is active or focused, both its left and its right border need to be
-			// visible. Pull it up above the other buttons, so that its right border isn't
-			// obscured by the next button's left border
-			z-index: 1;
-		}
-
-		&:disabled {
-			// When a button is disabled, its border is the same color as its background.
-			// Push it down below the other buttons so that both it doesn't obscure its
-			// neighbor's border
-			z-index: -1;
-		}
+		.cdx-mixin-button-group-button();
 
 		&:disabled + .cdx-button:disabled {
 			// When two disabled buttons are adjacent to each other, display a white border

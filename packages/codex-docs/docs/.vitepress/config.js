@@ -50,6 +50,7 @@ module.exports = require( 'vitepress' ).defineConfig( {
 						{ text: 'TextInput', link: '/components/text-input' },
 						{ text: 'Thumbnail', link: '/components/thumbnail' },
 						{ text: 'ToggleButton', link: '/components/toggle-button' },
+						{ text: 'ToggleButtonGroup', link: '/components/toggle-button-group' },
 						{ text: 'ToggleSwitch', link: '/components/toggle-switch' },
 						{ text: 'TypeaheadSearch', link: '/components/typeahead-search' }
 					]

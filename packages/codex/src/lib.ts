@@ -18,6 +18,7 @@ import CdxTabs from './components/tabs/Tabs.vue';
 import CdxTextInput from './components/text-input/TextInput.vue';
 import CdxThumbnail from './components/thumbnail/Thumbnail.vue';
 import CdxToggleButton from './components/toggle-button/ToggleButton.vue';
+import CdxToggleButtonGroup from './components/toggle-button-group/ToggleButtonGroup.vue';
 import CdxToggleSwitch from './components/toggle-switch/ToggleSwitch.vue';
 import CdxTypeaheadSearch from './components/typeahead-search/TypeaheadSearch.vue';
 import useComputedDirection from './composables/useComputedDirection';
@@ -65,6 +66,7 @@ export {
 	CdxTextInput,
 	CdxThumbnail,
 	CdxToggleButton,
+	CdxToggleButtonGroup,
 	CdxToggleSwitch,
 	CdxTypeaheadSearch,
 
