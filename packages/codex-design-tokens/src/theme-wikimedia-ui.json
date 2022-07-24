@@ -324,19 +324,19 @@
 	"font-family": {
 		"comment": "TODO: Re-evaluate and make possibly obsolete with multi-platform tokens output.",
 		"sans": {
-			"value": "-apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Lato', 'Helvetica', 'Arial', sans-serif"
+			"value": "-apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Inter', 'Helvetica', 'Arial', sans-serif"
 		},
 		"sans--fallback": {
 			"value": "sans-serif"
 		},
 		"serif": {
-			"value": "'Linux Libertine', 'Georgia', 'Times', serif"
+			"value": "'Linux Libertine', 'Georgia', 'Times', 'Source Serif Pro', serif"
 		},
 		"serif--fallback": {
 			"value": "serif"
 		},
 		"monospace": {
-			"value": "'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace"
+			"value": "'Menlo', 'Consolas', 'Liberation Mono', 'Fira Code', 'Courier New', monospace"
 		},
 		"monospace--fallback": {
 			"value": "monospace, monospace"
