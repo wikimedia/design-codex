@@ -41,6 +41,19 @@ changes in that release to `CHANGELOG.md`. Those changes then need to be manuall
 organized following the conventions documented in
 [contributing code](https://doc.wikimedia.org/codex/main/contributing/contributing-code.html#patch-requirements).
 
+For any breaking changes, below the commit message, add a bulleted list describing the changes and
+how to handle them in a codebase that implements Codex:
+
+```
+## Breaking changes
+- [BREAKING CHANGE] Fix inconsistencies across components with menu items (Simone This Dot)
+  - Combobox, Lookup, Select: `modelValue` prop is now `selected`; use `v-model:selected` to bind
+    the selected value to the component and listen for `updated:selected` events
+  - Lookup: `menuItems` is now a required prop
+  - TypeaheadSearch:  `searchResults` is now a required prop
+  - Lookup, TypeaheadSearch: `new-input` event name has been changed to `input`
+```
+
 Once organized, commit the changes locally with the appropriate version number:
 ```
 $ git commit -am "Tag v1.2.34"
