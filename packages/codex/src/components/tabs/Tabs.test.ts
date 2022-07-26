@@ -1,5 +1,6 @@
 import { mount, config } from '@vue/test-utils';
-import { CdxTabs, CdxTab } from '../../lib';
+import CdxTabs from './Tabs.vue';
+import CdxTab from '../tab/Tab.vue';
 
 /**
  * Utility function to construct realistic slot markup content
@@ -12,9 +13,9 @@ function generateSlotMarkup(
 ) : string {
 	return slotContents.reduce( ( markup, current, index ) => {
 		markup = markup +
-			`<Tab name="${current.name}" label="${current.label || ''}" :disabled="${current.disabled || false}">
+			`<cdx-tab name="${current.name}" label="${current.label || ''}" :disabled="${current.disabled || false}">
 				Content for tab ${index}
-			</Tab>`;
+			</cdx-tab>`;
 		return markup;
 	}, '' );
 }
@@ -38,7 +39,7 @@ describe( 'When used along with child Tab components', () => {
 	it( 'matches the snapshot', () => {
 		const wrapper = mount( CdxTabs, {
 			props: { active: 'apple' },
-			global: { components: { Tab: CdxTab } },
+			global: { components: { CdxTab } },
 			slots: { default: slotMarkup }
 		} );
 		expect( wrapper.element ).toMatchSnapshot();
@@ -47,7 +48,7 @@ describe( 'When used along with child Tab components', () => {
 	it( 'displays the tab with a name matching the "active" prop', () => {
 		const wrapper = mount( CdxTabs, {
 			props: { active: 'banana' },
-			global: { components: { Tab: CdxTab } },
+			global: { components: { CdxTab } },
 			slots: { default: slotMarkup }
 		} );
 		expect( wrapper.findAllComponents( CdxTab )[ 0 ].isVisible() ).toBe( false );
@@ -58,7 +59,7 @@ describe( 'When used along with child Tab components', () => {
 	it( 'generates a header row based on the Label prop of the child Tab components', () => {
 		const wrapper = mount( CdxTabs, {
 			props: { active: 'apple' },
-			global: { components: { Tab: CdxTab } },
+			global: { components: { CdxTab } },
 			slots: { default: slotMarkup }
 		} );
 		tabData.forEach( ( tab, index ) => {
@@ -70,8 +71,8 @@ describe( 'When used along with child Tab components', () => {
 	it( 'uses the "name" prop as a fallback if "label" is not provided', () => {
 		const wrapper = mount( CdxTabs, {
 			props: { active: 'apple' },
-			global: { components: { Tab: CdxTab } },
-			slots: { default: '<Tab name="eggplant">Content for tab</Tab>' }
+			global: { components: { CdxTab } },
+			slots: { default: '<cdx-tab name="eggplant">Content for tab</cdx-tab>' }
 		} );
 		const label = wrapper.find( '.cdx-tabs__list__item' );
 		expect( label.text() ).toBe( 'eggplant' );
@@ -80,7 +81,7 @@ describe( 'When used along with child Tab components', () => {
 	it( 'emits an "update:active" event whenever the active tab is changed', () => {
 		const wrapper = mount( CdxTabs, {
 			props: { active: 'apple' },
-			global: { components: { Tab: CdxTab } },
+			global: { components: { CdxTab } },
 			slots: { default: slotMarkup }
 		} );
 		wrapper.vm.select( 'banana' );
@@ -90,7 +91,7 @@ describe( 'When used along with child Tab components', () => {
 	it( 'updates the visible tab when the active prop is changed', async () => {
 		const wrapper = mount( CdxTabs, {
 			props: { active: 'apple' },
-			global: { components: { Tab: CdxTab } },
+			global: { components: { CdxTab } },
 			slots: { default: slotMarkup }
 		} );
 		await wrapper.setProps( { active: 'banana' } );
@@ -98,12 +99,12 @@ describe( 'When used along with child Tab components', () => {
 		expect( wrapper.findAllComponents( CdxTab )[ 1 ].isVisible() ).toBe( true );
 	} );
 
-	// eslint-disable-next-line jest/no-disabled-tests
-	it.skip( 'scrolls when the active prop is changed', async () => {
+	it( 'scrolls when the active prop is changed', async () => {
 		const wrapper = mount( CdxTabs, {
 			props: { active: 'apple' },
-			global: { components: { Tab: CdxTab } },
-			slots: { default: slotMarkup }
+			global: { components: { CdxTab } },
+			slots: { default: slotMarkup },
+			attachTo: 'body'
 		} );
 		const listElement = wrapper.find( '.cdx-tabs__list' );
 		// Note: jsdom does not provide scrollBy, so jest.spyOn() doesn't work
@@ -118,7 +119,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Clicking the label for a tab emits an "update:active" event with the target tab name as payload', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'apple' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
 			const targetIndex = 1;
@@ -129,17 +130,12 @@ describe( 'When used along with child Tab components', () => {
 		} );
 
 		it( 'Clicking a disabled tab does not emit an "update:active" event for the target tab', async () => {
-			const tabChildrenWithDisabled = [
-				{ name: 'apple', label: 'Apple' },
-				{ name: 'banana', label: 'Banana' },
-				{ name: 'canteloupe', label: 'Canteloupe', disabled: true }
-			];
-			const slotMarkupWithDisabled = generateSlotMarkup( tabChildrenWithDisabled );
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'apple' },
-				global: { components: { Tab: CdxTab } },
-				slots: { default: slotMarkupWithDisabled }
+				global: { components: { CdxTab } },
+				slots: { default: slotMarkup }
 			} );
+			// The tab at index 2 ("cantaloupe") is disabled
 			const targetIndex = 2;
 			const label = wrapper.findAll( '.cdx-tabs__list__item a' )[ targetIndex ];
 			await label.trigger( 'click' );
@@ -151,7 +147,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Right arrow keypress calls the "next" method', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'banana' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
 			const spy = jest.spyOn( wrapper.vm, 'next' );
@@ -163,7 +159,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Right arrow keypress emits an "update:active" event with the name of the next tab', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'apple' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
 			const header = wrapper.get( '.cdx-tabs__header' );
@@ -175,7 +171,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Left arrow keypress calls the "prev" method', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'banana' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
 			const spy = jest.spyOn( wrapper.vm, 'prev' );
@@ -187,7 +183,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Left arrow keypress emits an "update:active" event with the name of the previous tab', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'banana' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
 			const header = wrapper.get( '.cdx-tabs__header' );
@@ -199,7 +195,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Calling the "next" method emits an "update:active" event with the name of the next tab', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'apple' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
 			await wrapper.vm.next();
@@ -210,7 +206,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Calling "next" method will skip a disabled tab if a non-disabled tab exists after it', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'banana' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
 			await wrapper.vm.next();
@@ -221,7 +217,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Calling the "prev" method emits an "update:active" event with the name of the previous tab', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'banana' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
 			await wrapper.vm.prev();
@@ -232,7 +228,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Calling "prev" method will skip a disabled tab if a non-disabled tab exists before it', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'durian' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
 			await wrapper.vm.prev();
@@ -243,7 +239,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Attempting to "select" a non-existing tab does nothing', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'apple' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
 			await wrapper.vm.select( 'foo' );
@@ -254,7 +250,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Calling "prev" does nothing when the first item is selected', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'apple' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
 			await wrapper.vm.prev();
@@ -265,7 +261,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Calling "next" does nothing when the last item is selected', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'durian' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
 			await wrapper.vm.next();
@@ -276,7 +272,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Down arrow keypress focuses the contents of the current tab', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'apple' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup },
 				attachTo: 'body'
 			} );
@@ -301,7 +297,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Right arrow keypress calls the "prev" method', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'banana' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup },
 				attachTo: '#attach'
 			} );
@@ -314,7 +310,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Right arrow keypress emits an "update:active" event with the name of the previous tab', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'banana' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup },
 				attachTo: '#attach'
 			} );
@@ -327,7 +323,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Left arrow keypress calls the "next" method', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'banana' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup },
 				attachTo: '#attach'
 			} );
@@ -340,7 +336,7 @@ describe( 'When used along with child Tab components', () => {
 		it( 'Left arrow keypress emits an "update:active" event with the name of the next tab', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'apple' },
-				global: { components: { Tab: CdxTab } },
+				global: { components: { CdxTab } },
 				slots: { default: slotMarkup },
 				attachTo: '#attach'
 			} );
@@ -356,19 +352,41 @@ describe( 'When used along with child Tab components', () => {
 	test.todo( 'provides "tabsData" that matches the props of the Tab children' );
 } );
 
+describe( 'When Tab children have comments in between', () => {
+	it( 'matches the snapshot', () => {
+		const wrapper = mount( CdxTabs, {
+			props: { active: 'a' },
+			global: { components: { CdxTab } },
+			slots: { default: `
+				<!-- Comment 1 -->
+				<cdx-tab name="a">Content for tab A</cdx-tab>
+				<!-- Comment 2 -->
+				<cdx-tab name="b">Content for tab B</cdx-tab>
+				<!-- Comment 3 -->
+				<cdx-tab name="c">Content for tab C</cdx-tab>
+				<!-- Comment 4 -->
+				<cdx-tab name="d">Content for tab D</cdx-tab>
+				<!-- Comment 5 -->
+				`
+			}
+		} );
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
+} );
+
 describe( 'When Tab children are provided using v-for', () => {
 	it( 'matches the snapshot', () => {
 		const wrapper = mount( CdxTabs, {
-			props: { active: 'apple' },
-			global: { components: { Tab: CdxTab } },
+			props: { active: 'a' },
+			global: { components: { CdxTab } },
 			slots: { default: `
-				<Tab
+				<cdx-tab
 					v-for="name in ['a', 'b', 'c', 'd']"
 					:key="name"
 					:name="name"
 				>
 					Content for tab {{ name }}
-				</Tab>
+				</cdx-tab>
 				`
 			}
 		} );
@@ -383,12 +401,13 @@ describe( 'When default slot is empty', () => {
 				props: { active: 'apple' },
 				slots: { default: '' }
 			} );
-		} ).toThrow();
+		} ).toThrow( 'Slot content cannot be empty' );
+
 		expect( () => {
 			mount( CdxTabs, {
 				props: { active: 'apple' }
 			} );
-		} ).toThrow();
+		} ).toThrow( 'Slot content cannot be empty' );
 	} );
 } );
 
@@ -403,7 +422,7 @@ describe( 'When multiple tabs have the same "name" property', () => {
 			mount( CdxTabs, {
 				props: { active: 'foo' },
 				slots: { default: duplicateTabMarkup },
-				global: { components: { Tab: CdxTab } }
+				global: { components: { CdxTab } }
 			} );
 		} ).toThrow();
 	} );
@@ -414,7 +433,7 @@ describe( 'When rendering outside of the browser', () => {
 		const wrapper = mount( CdxTabs, {
 			props: { active: 'apple' },
 			slots: { default: slotMarkup },
-			global: { components: { Tab: CdxTab } }
+			global: { components: { CdxTab } }
 		} );
 
 		expect( wrapper.find( '.cdx-tabs__prev-scroller' ).exists() ).toBeTruthy();
@@ -425,7 +444,7 @@ describe( 'When rendering outside of the browser', () => {
 		const wrapper = mount( CdxTabs, {
 			props: { active: 'apple' },
 			slots: { default: slotMarkup },
-			global: { components: { Tab: CdxTab } }
+			global: { components: { CdxTab } }
 		} );
 
 		const listElement = wrapper.find( '.cdx-tabs__list' );
@@ -444,7 +463,7 @@ describe( 'Tab component inside a Tabs component', () => {
 		const wrapper = mount( CdxTabs, {
 			props: { active: 'apple' },
 			slots: { default: slotMarkup },
-			global: { components: { Tab: CdxTab } }
+			global: { components: { CdxTab } }
 		} );
 
 		const firstTab = wrapper.findComponent( CdxTab );
