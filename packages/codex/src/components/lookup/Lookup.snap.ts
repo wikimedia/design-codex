@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Basic usage Case 0 Default: ([]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -44,7 +44,7 @@ exports[`Basic usage Case 0 Default: ([]) => HTML 1`] = `
 </div>
 `;
 
-exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -216,7 +216,7 @@ exports[`Basic usage Case 1 With initial input: ([[Object], [Object], [Object], 
 </div>
 `;
 
-exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -388,7 +388,7 @@ exports[`Basic usage Case 2 With selection: ([[Object], [Object], [Object], [Obj
 </div>
 `;
 
-exports[`Basic usage Case 3 Disabled: ([]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
 <div
   class="cdx-lookup cdx-lookup--disabled"
 >
@@ -433,7 +433,7 @@ exports[`Basic usage Case 3 Disabled: ([]) => HTML 1`] = `
 </div>
 `;
 
-exports[`Basic usage Case 4 With no results content: ([]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -483,7 +483,7 @@ exports[`Basic usage Case 4 With no results content: ([]) => HTML 1`] = `
 </div>
 `;
 
-exports[`Basic usage Case 5 With class attributes: ([]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 1`] = `
 <div
   class="cdx-lookup class-one class-two"
 >
@@ -527,7 +527,7 @@ exports[`Basic usage Case 5 With class attributes: ([]) => HTML 1`] = `
 </div>
 `;
 
-exports[`Basic usage Case 6 With type and placeholder attributes: ([]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes: ([]) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
