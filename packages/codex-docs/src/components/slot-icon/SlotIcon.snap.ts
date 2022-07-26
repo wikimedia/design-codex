@@ -6,8 +6,9 @@ exports[`matches the snapshot Case 0 no icon name => HTML 1`] = `
 >
   
   <!--
-		Need to use v-if and not v-show because if the icon is not set the component will
-		still try to use the :icon="demoIcon" with the value of false, which breaks.
+		Need to use v-if and not v-show because if the icon is not set or invalid, the
+		component will still try to use the :icon="demoIcon" with the value of undefined,
+		which breaks.
 	-->
   <!--v-if-->
   
@@ -20,8 +21,9 @@ exports[`matches the snapshot Case 1 invalid icon name => HTML 1`] = `
 >
   
   <!--
-		Need to use v-if and not v-show because if the icon is not set the component will
-		still try to use the :icon="demoIcon" with the value of false, which breaks.
+		Need to use v-if and not v-show because if the icon is not set or invalid, the
+		component will still try to use the :icon="demoIcon" with the value of undefined,
+		which breaks.
 	-->
   <!--v-if-->
   
@@ -34,8 +36,9 @@ exports[`matches the snapshot Case 2 valid icon name (cdxIconAlert) => HTML 1`] 
 >
   
   <!--
-		Need to use v-if and not v-show because if the icon is not set the component will
-		still try to use the :icon="demoIcon" with the value of false, which breaks.
+		Need to use v-if and not v-show because if the icon is not set or invalid, the
+		component will still try to use the :icon="demoIcon" with the value of undefined,
+		which breaks.
 	-->
   <span
     class="cdx-icon"

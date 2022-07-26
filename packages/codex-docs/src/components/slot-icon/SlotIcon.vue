@@ -1,7 +1,8 @@
 <template>
 	<!--
-		Need to use v-if and not v-show because if the icon is not set the component will
-		still try to use the :icon="demoIcon" with the value of false, which breaks.
+		Need to use v-if and not v-show because if the icon is not set or invalid, the
+		component will still try to use the :icon="demoIcon" with the value of undefined,
+		which breaks.
 	-->
 	<cdx-icon
 		v-if="demoIcon"
@@ -12,20 +13,7 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
 import { CdxIcon } from '@wikimedia/codex';
-import * as allIcons from '@wikimedia/codex-icons';
-import { Icon } from '@wikimedia/codex-icons';
-
-// Access to icon objects by name
-const iconsByName: Record<string, Icon> = {};
-for ( const iconName in allIcons ) {
-	const icon = allIcons[ iconName as keyof typeof allIcons ];
-	// Some of the exports are utility functions, filter those out
-	if ( typeof icon === 'function' ) {
-		continue;
-	}
-	// Add to known map
-	iconsByName[ iconName ] = icon;
-}
+import getIconByName from '../../utils/getIconByName';
 
 /**
  * Helper for component demos for testing icons being used within a slot. The property
@@ -46,12 +34,8 @@ export default defineComponent( {
 		}
 	},
 	setup( props ) {
-		const demoIcon = computed( () => {
-			if ( props.icon && iconsByName[ props.icon ] ) {
-				return iconsByName[ props.icon ];
-			}
-			return false;
-		} );
+		// Icon object, or undefined for no matching icon (including empty icon name)
+		const demoIcon = computed( () => getIconByName( props.icon ) );
 
 		return {
 			demoIcon

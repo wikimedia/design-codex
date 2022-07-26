@@ -101,27 +101,14 @@ import CdxDocsControls from '../controls/Controls.vue';
 import CdxDocsCopyTextButton from '../copy-text-button/CopyTextButton.vue';
 import useCurrentComponentName from '../../composables/useCurrentComponentName';
 import { generateVueTag } from '../../utils/codegen';
+import getIconByName from '../../utils/getIconByName';
 import { CdxButton, CdxToggleButton } from '@wikimedia/codex';
-import * as allIcons from '@wikimedia/codex-icons';
-import { Icon } from '@wikimedia/codex-icons';
 
 // Don't automatically run Prism highlighting, it breaks the VitePress syntax highlighting
 // for the code slots since Prism doesn't support Vue (and even if it did it would be unneeded
 // since it is already highlighted by VitePress). Highlighting is manually triggered for the
 // generated code.
 Prism.manual = true;
-
-// Access to icon objects by name
-const iconsByName: Record<string, Icon> = {};
-for ( const iconName in allIcons ) {
-	const icon = allIcons[ iconName as keyof typeof allIcons ];
-	// Some of the exports are utility functions, filter those out
-	if ( typeof icon === 'function' ) {
-		continue;
-	}
-	// Add to known map
-	iconsByName[ iconName ] = icon;
-}
 
 /**
  * Wrapper for component demos.
@@ -325,7 +312,7 @@ export default defineComponent( {
 				if ( control.type === 'slot' || control.type === 'slot-icon' ) {
 					slotValues[ control.name ] = control.value;
 				} else if ( control.type === 'icon' ) {
-					propValues[ control.name ] = iconsByName[ control.value ];
+					propValues[ control.name ] = getIconByName( control.value );
 				} else {
 					propValues[ control.name ] = control.value;
 				}
