@@ -88,9 +88,11 @@ describe( 'detects icon-only buttons', () => {
 		[ 'CdxIcon component with shown conditional span', '<cdx-icon icon="foo" /><span v-if="true">Conditional</span>', false ],
 		[ 'CdxIcon component with expression that expands to nothing', '<cdx-icon icon="foo" />{{ "" }}', true ],
 		[ 'CdxIcon component with expression that expands to something', '<cdx-icon icon="foo" />{{ "Foo" }}', false ],
-		[ 'Hidden conditional CdxICon component', '<cdx-icon v-if="false" icon="foo" />', false ],
+		[ 'Hidden conditional CdxIcon component', '<cdx-icon v-if="false" icon="foo" />', false ],
 		[ 'v-for generating a single CdxIcon component', '<cdx-icon v-for="icon in [ \'foo\' ]" :icon="icon" />', true ],
-		[ 'v-for generating three CdxIcon components', '<cdx-icon v-for="icon in [ \'foo\', \'bar\', \'baz\' ]" :icon="icon" />', false ]
+		[ 'v-for generating three CdxIcon components', '<cdx-icon v-for="icon in [ \'foo\', \'bar\', \'baz\' ]" :icon="icon" />', false ],
+		[ 'component tag conditionally generating a CdxIcon component', '<component :is="true ? \'CdxIcon\' : \'p\'" icon="foo" />', true ],
+		[ 'component tag conditionally generating a p tag', '<component :is="false ? \'CdxIcon\' : \'p\'" icon="foo" />', false ]
 	];
 
 	test.each( cases )( 'Case %# %s: %s => %p', ( _, content, expectedIconOnly ) => {

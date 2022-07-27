@@ -411,6 +411,29 @@ describe( 'When default slot is empty', () => {
 	} );
 } );
 
+describe( 'When default slot contains non-Tab children', () => {
+	type Case = [ msg: string, middleContent: string ];
+	const cases: Case[] = [
+		[ 'Raw text', 'Text outside of a tab' ],
+		[ 'HTML tag', '<hr />' ],
+		[ 'Non-Tab component', '<blah-component>Content in a non-tab component</blah-component>' ]
+	];
+
+	test.each( cases )( 'Case %#: %s throws an error', ( _, middleContent ) => {
+		expect( () => {
+			mount( CdxTabs, {
+				props: { active: 'a' },
+				global: { components: { CdxTab } },
+				slots: { default: `
+					<cdx-tab name="a">Content for tab A</cdx-tab>
+					${middleContent}
+					<cdx-tab name="b">Content for tab B</cdx-tab>
+				` }
+			} );
+		} ).toThrow( 'Slot content may only contain CdxTab components' );
+	} );
+} );
+
 describe( 'When multiple tabs have the same "name" property', () => {
 	const duplicateTabMarkup = `
 		<Tab name="foo">Content for Tab One</Tab>

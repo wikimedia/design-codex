@@ -26,7 +26,8 @@
 		"!<rootDir>/src/lib.ts",
 		"!<rootDir>/src/lib-wip.ts",
 		"!<rootDir>/src/start.ts",
-		"!<rootDir>/src/types.ts"
+		"!<rootDir>/src/types.ts",
+		"!<rootDir>/src/testutils/"
 	],
 	"coverageDirectory": "<rootDir>/coverage",
 	"errorOnDeprecated": true

@@ -13,11 +13,9 @@
 
 <script lang="ts">
 import {
-	Comment,
 	PropType,
 	SetupContext,
-	VNode,
-	VNodeArrayChildren,
+	Slot,
 	defineComponent,
 	ref,
 	computed,
@@ -26,7 +24,9 @@ import {
 import { ButtonActions, ButtonWeights, ButtonSizes } from '../../constants';
 import { ButtonAction, ButtonWeight, ButtonSize } from '../../types';
 import CdxIcon from '../icon/Icon.vue';
+import useSlotContents from '../../composables/useSlotContents';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+import { isComponentVNode, isTagVNode } from '../../utils/slotContents';
 
 const buttonActionValidator = makeStringTypeValidator( ButtonActions );
 const buttonWeightValidator = makeStringTypeValidator( ButtonWeights );
@@ -38,50 +38,18 @@ const validateIconOnlyButtonAttrs = ( attrs: SetupContext['attrs'] ) => {
 	}
 };
 
-function flattenVNodeContents( nodes: VNodeArrayChildren ): ( VNode | string )[] {
-	const flattenedContents: ( VNode | string )[] = [];
-	for ( const node of nodes ) {
-		if ( typeof node === 'string' && node.trim() !== '' ) {
-			flattenedContents.push( node );
-		} else if ( Array.isArray( node ) ) {
-			flattenedContents.push( ...flattenVNodeContents( node ) );
-		} else if ( typeof node === 'object' && node ) {
-			// node is a VNode
-			if (
-				// HTML tag
-				typeof node.type === 'string' ||
-				// Component
-				typeof node.type === 'object'
-			) {
-				flattenedContents.push( node );
-			} else if ( node.type !== Comment ) {
-				// Text node or fragment (or something fragment-like). Descend into its children.
-				if ( typeof node.children === 'string' && node.children.trim() !== '' ) {
-					flattenedContents.push( node.children );
-				} else if ( Array.isArray( node.children ) ) {
-					flattenedContents.push( ...flattenVNodeContents( node.children ) );
-				}
-			}
-		}
-	}
-	return flattenedContents;
-}
-
-const isIconOnlyButton = ( slotContent: VNode[] | undefined, attrs: SetupContext['attrs'] ): boolean => {
-	if ( !slotContent ) {
+const isIconOnlyButton = ( slot: Slot | undefined, attrs: SetupContext['attrs'] ): boolean => {
+	const slotContent = useSlotContents( slot );
+	if ( slotContent.length !== 1 ) {
 		return false;
 	}
-	const flattenedContents = flattenVNodeContents( slotContent );
-	if ( flattenedContents.length !== 1 ) {
-		return false;
-	}
-	const soleNode = flattenedContents[ 0 ];
-	const isIconComponent = typeof soleNode === 'object' &&
-		typeof soleNode.type === 'object' &&
-		'name' in soleNode.type &&
-		soleNode.type.name === CdxIcon.name;
-	const isSvgTag = typeof soleNode === 'object' && soleNode.type === 'svg';
-	if ( isIconComponent || isSvgTag ) {
+	const soleNode = slotContent[ 0 ];
+	if (
+		typeof soleNode === 'object' && (
+			isComponentVNode( soleNode, CdxIcon.name ) ||
+			isTagVNode( soleNode, 'svg' )
+		)
+	) {
 		validateIconOnlyButtonAttrs( attrs );
 		return true;
 	}
@@ -141,7 +109,7 @@ export default defineComponent( {
 			[ `cdx-button--weight-${props.weight}` ]: true,
 			[ `cdx-button--size-${props.size}` ]: true,
 			'cdx-button--framed': props.weight !== 'quiet',
-			'cdx-button--icon-only': isIconOnlyButton( slots.default?.(), attrs ),
+			'cdx-button--icon-only': isIconOnlyButton( slots.default, attrs ),
 			'cdx-button--is-active': isActive.value
 		} ) );
 

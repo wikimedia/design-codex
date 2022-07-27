@@ -20,6 +20,7 @@
 	"exclude": [
 		"src/**/*.test.ts",
 		"src/**/*.snap.ts",
+		"src/testutils",
 		"src/demo",
 		"src/start.ts",
 		"src/lib-wip.ts",

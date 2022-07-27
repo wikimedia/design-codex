@@ -57,6 +57,7 @@ import useGeneratedId from './composables/useGeneratedId';
 import useIntersectionObserver from './composables/useIntersectionObserver';
 import useModelWrapper from './composables/useModelWrapper';
 import useResizeObserver from './composables/useResizeObserver';
+import useSlotContents from './composables/useSlotContents';
 import useSplitAttributes from './composables/useSplitAttributes';
 
 // Utilities
@@ -130,6 +131,7 @@ export {
 	useIntersectionObserver,
 	useModelWrapper,
 	useResizeObserver,
+	useSlotContents,
 	useSplitAttributes,
 
 	// Utilities

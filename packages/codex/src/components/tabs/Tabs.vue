@@ -82,7 +82,6 @@ import {
 	toRef,
 	watch,
 	VNode,
-	VNodeChild,
 	ComponentPublicInstance
 } from 'vue';
 
@@ -90,14 +89,17 @@ import { cdxIconPrevious, cdxIconNext } from '@wikimedia/codex-icons';
 
 import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
+import CdxTab from '../tab/Tab.vue';
 
 import useGeneratedId from '../../composables/useGeneratedId';
 import useComputedDirection from '../../composables/useComputedDirection';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useIntersectionObserver from '../../composables/useIntersectionObserver';
+import useSlotContents from '../../composables/useSlotContents';
 
 import { TabData } from '../../types';
 import { TabsKey, ActiveTabKey } from '../../constants';
+import { isComponentVNode } from '../../utils/slotContents';
 
 /**
  * A layout for navigating between sections of content.
@@ -166,47 +168,25 @@ export default defineComponent( {
 		const nextScroller = ref<HTMLDivElement>();
 		const currentDirection = useComputedDirection( rootElement );
 
-		/**
-		 * Computed property that returns slot content, unpacking children when
-		 * necessary (like when tabs are generated inside a v-for loop)
-		 */
-		const contents = computed( () => {
-			const tabs: Array<VNode> = [];
-			const rawSlotContent = slots.default?.();
-			if ( rawSlotContent ) {
-				rawSlotContent.forEach( recursivelyWalkSlotNode );
+		const childTabNodes = computed( () => {
+			const slotContents = useSlotContents( slots.default );
+			if ( !slotContents.every( ( node ): node is VNode =>
+				typeof node === 'object' && isComponentVNode( node, CdxTab.name )
+			) ) {
+				throw new Error( 'Slot content may only contain CdxTab components' );
 			}
-
-			// The slot content of the <Tabs> component could contain a number
-			// of different things. In addition to <Tab> child components, we
-			// must also handle fragments like v-for loops (where the tabs we
-			// want will be defined as children), comment tags, etc. This
-			// recursive function will test a given VNode and determine whether
-			// it is something we care about or whether it's children may be.
-			function recursivelyWalkSlotNode( node: VNode | VNodeChild ) {
-				if ( node && typeof node === 'object' && 'type' in node ) {
-					if ( typeof node.type === 'object' && 'name' in node.type && node.type.name === 'CdxTab' ) {
-						tabs.push( node );
-					} else if ( 'children' in node && Array.isArray( node.children ) ) {
-						node.children.forEach( recursivelyWalkSlotNode );
-					}
-				}
+			if ( slotContents.length === 0 ) {
+				throw new Error( 'Slot content cannot be empty' );
 			}
-
-			return tabs;
+			return slotContents;
 		} );
-
-		// Throw error if no slot content provided
-		if ( !contents.value || contents.value.length === 0 ) {
-			throw new Error( 'Slot content cannot be empty' );
-		}
 
 		/**
 		 * Returns a data structure that represents all provided tabs.
 		 * Data is provided as an ES Map object.
 		 */
 		const tabsData = computed( () => {
-			return contents.value.reduce( ( map, item ) => {
+			return childTabNodes.value.reduce( ( map, item ) => {
 				if ( item.props?.name && typeof item.props.name === 'string' ) {
 					// Each tab "name" must be unique. If a given name is already
 					// present in the dataset, throw an error; do not proceed
