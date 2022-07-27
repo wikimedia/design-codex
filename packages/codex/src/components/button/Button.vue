@@ -28,7 +28,7 @@ const validateIconOnlyButtonAttrs = ( attrs: SetupContext['attrs'] ) => {
 function flattenVNodeContents( nodes: VNodeArrayChildren ): ( VNode | string )[] {
 	const flattenedContents: ( VNode | string )[] = [];
 	for ( const node of nodes ) {
-		if ( typeof node === 'string' && node !== '' ) {
+		if ( typeof node === 'string' && node.trim() !== '' ) {
 			flattenedContents.push( node );
 		} else if ( Array.isArray( node ) ) {
 			flattenedContents.push( ...flattenVNodeContents( node ) );
@@ -43,7 +43,7 @@ function flattenVNodeContents( nodes: VNodeArrayChildren ): ( VNode | string )[]
 				flattenedContents.push( node );
 			} else if ( node.type !== Comment ) {
 				// Text node or fragment (or something fragment-like). Descend into its children.
-				if ( typeof node.children === 'string' && node.children !== '' ) {
+				if ( typeof node.children === 'string' && node.children.trim() !== '' ) {
 					flattenedContents.push( node.children );
 				} else if ( Array.isArray( node.children ) ) {
 					flattenedContents.push( ...flattenVNodeContents( node.children ) );
