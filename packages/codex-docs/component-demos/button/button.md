@@ -183,7 +183,7 @@ The attribute `aria-label` has to be used on icon-only buttons to be understanda
 </template>
 </cdx-demo-wrapper>
 
-#### Quiet, icon only
+#### Quiet, icon-only
 <cdx-demo-wrapper>
 <template v-slot:demo>
 <quiet-icon-only-button />

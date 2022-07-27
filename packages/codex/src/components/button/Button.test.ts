@@ -25,7 +25,7 @@ describe( 'matches the snapshot', () => {
 			''
 		] ),
 		[ 'Slotted', {}, '<span>Label</span>' ],
-		[ 'Icon Only', {}, '<svg></svg>', { 'aria-label': 'icon-only-example' } ]
+		[ 'Icon-only', {}, '<svg></svg>', { 'aria-label': 'icon-only-example' } ]
 
 	];
 

@@ -83,7 +83,7 @@ exports[`matches the snapshot Case 7 Slotted: ({}) => HTML 1`] = `
 </button>
 `;
 
-exports[`matches the snapshot Case 8 Icon Only: ({}) => HTML 1`] = `
+exports[`matches the snapshot Case 8 Icon-only: ({}) => HTML 1`] = `
 <button
   aria-label="icon-only-example"
   class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed cdx-button--icon-only"
