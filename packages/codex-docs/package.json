@@ -21,7 +21,7 @@
 		"update-snapshots": "npm run test:unit -- -u"
 	},
 	"dependencies": {
-		"vue": "^3.2.33",
+		"vue": "^3.2.37",
 		"@wikimedia/codex-design-tokens": "*",
 		"@wikimedia/codex": "*",
 		"@wikimedia/codex-icons": "*",
