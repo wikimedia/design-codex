@@ -24,6 +24,7 @@
 					class="cdx-tabs__scroll-button"
 					type="quiet"
 					tabindex="-1"
+					:aria-hidden="true"
 					@mousedown.prevent
 					@click="scrollTabs( 'prev' )"
 				>
@@ -66,6 +67,7 @@
 					class="cdx-tabs__scroll-button"
 					type="quiet"
 					tabindex="-1"
+					:aria-hidden="true"
 					@mousedown.prevent
 					@click="scrollTabs( 'next' )"
 				>

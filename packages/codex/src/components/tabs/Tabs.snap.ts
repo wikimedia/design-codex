@@ -15,6 +15,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
       class="cdx-tabs__prev-scroller"
     >
       <button
+        aria-hidden="true"
         class="cdx-button cdx-button--action-default cdx-button--type-quiet cdx-button--icon-only cdx-tabs__scroll-button"
         tabindex="-1"
       >
@@ -111,6 +112,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
       class="cdx-tabs__next-scroller"
     >
       <button
+        aria-hidden="true"
         class="cdx-button cdx-button--action-default cdx-button--type-quiet cdx-button--icon-only cdx-tabs__scroll-button"
         tabindex="-1"
       >
@@ -224,6 +226,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
       class="cdx-tabs__prev-scroller"
     >
       <button
+        aria-hidden="true"
         class="cdx-button cdx-button--action-default cdx-button--type-quiet cdx-button--icon-only cdx-tabs__scroll-button"
         tabindex="-1"
       >
@@ -321,6 +324,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
       class="cdx-tabs__next-scroller"
     >
       <button
+        aria-hidden="true"
         class="cdx-button cdx-button--action-default cdx-button--type-quiet cdx-button--icon-only cdx-tabs__scroll-button"
         tabindex="-1"
       >
