@@ -177,6 +177,24 @@ describe( 'TypeaheadSearch initial state', () => {
 		expect( wrapper.vm.expanded ).toStrictEqual( true );
 	} );
 
+	it( 'Sets expanded to true when new results are empty', async () => {
+		const wrapper = mount( CdxTypeaheadSearch, {
+			props: { initialInputValue: 'Co', ...propsData },
+			slots: {
+				default: defaultSlot,
+				searchFooterText: searchFooterTextSlot
+			}
+		} );
+		await wrapper.find( '.cdx-text-input__input' ).trigger( 'focus' );
+		const searchInput = wrapper.findComponent( CdxSearchInput );
+		// This will set `pending` to true.
+		await searchInput.vm.$emit( 'update:modelValue', 'a' );
+		expect( wrapper.vm.expanded ).toStrictEqual( false );
+
+		await wrapper.setProps( { searchResults: [] } );
+		expect( wrapper.vm.expanded ).toStrictEqual( true );
+	} );
+
 	it( 'calls SearchInput focus method', async () => {
 		const wrapper = mount( CdxTypeaheadSearch, {
 			props: propsData,

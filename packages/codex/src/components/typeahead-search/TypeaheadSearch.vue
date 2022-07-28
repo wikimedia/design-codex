@@ -593,7 +593,7 @@ export default defineComponent( {
 		// When the menu items change, maybe show the menu.
 		// This is the main method of opening the menu of the component, since showing the menu
 		// depends mostly on whether there are any menu items to show.
-		watch( toRef( props, 'searchResults' ), ( newVal ) => {
+		watch( toRef( props, 'searchResults' ), () => {
 			// Now that we have received a response, set the searchQuery to the value of the input.
 			// This ensures that the search footer corresponds to the new search results.
 			searchQuery.value = inputValue.value.trim();
@@ -603,9 +603,12 @@ export default defineComponent( {
 			// 2. Pending state is true, which indicates that the new searchResults value was
 			//    returned after new user input
 			// 3. The input is not empty
+			// Whether we open the menu doesn't depend on whether there are results to show, because
+			// we always show the search footer, even if there are no results and the no-results
+			// slot is not set.
 			// Note that the menu may already have been expanded if the pending delay threshold has
 			// been met and the pending state is being displayed to the user.
-			if ( isActive.value && pending.value && newVal.length > 0 ) {
+			if ( isActive.value && pending.value && searchQuery.value.length > 0 ) {
 				expanded.value = true;
 			}
 

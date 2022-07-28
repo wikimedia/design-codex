@@ -324,7 +324,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
           <input
             aria-autocomplete="list"
             aria-expanded="false"
-            aria-owns="cdx-typeahead-search-menu-58"
+            aria-owns="cdx-typeahead-search-menu-59"
             autocapitalize="off"
             autocomplete="off"
             class="cdx-text-input__input cdx-text-input__input--has-value"
@@ -366,7 +366,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
           aria-label="Search results"
           aria-multiselectable="false"
           class="cdx-menu"
-          id="cdx-typeahead-search-menu-58"
+          id="cdx-typeahead-search-menu-59"
           role="listbox"
           style="display: none;"
         >
@@ -399,7 +399,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
             aria-disabled="false"
             aria-selected="false"
             class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
-            id="cdx-menu-item-60"
+            id="cdx-menu-item-61"
             role="option"
           >
             <!-- @slot Custom menu item content. -->
@@ -511,7 +511,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           <input
             aria-autocomplete="list"
             aria-expanded="false"
-            aria-owns="cdx-typeahead-search-menu-13"
+            aria-owns="cdx-typeahead-search-menu-14"
             autocapitalize="off"
             autocomplete="off"
             class="cdx-text-input__input cdx-text-input__input--has-value"
@@ -553,7 +553,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           aria-label="Search results"
           aria-multiselectable="false"
           class="cdx-menu"
-          id="cdx-typeahead-search-menu-13"
+          id="cdx-typeahead-search-menu-14"
           role="listbox"
           style="display: none;"
         >
@@ -564,7 +564,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             aria-disabled="false"
             aria-selected="false"
             class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
-            id="cdx-menu-item-15"
+            id="cdx-menu-item-16"
             role="option"
           >
             <!-- @slot Custom menu item content. -->
@@ -633,7 +633,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             aria-disabled="false"
             aria-selected="false"
             class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--has-description cdx-menu-item--hide-description-overflow"
-            id="cdx-menu-item-16"
+            id="cdx-menu-item-17"
             role="option"
           >
             <!-- @slot Custom menu item content. -->
@@ -708,7 +708,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             aria-disabled="false"
             aria-selected="false"
             class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
-            id="cdx-menu-item-17"
+            id="cdx-menu-item-18"
             role="option"
           >
             <!-- @slot Custom menu item content. -->
