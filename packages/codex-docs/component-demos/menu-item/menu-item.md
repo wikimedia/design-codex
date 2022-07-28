@@ -158,8 +158,11 @@ If a `url` property is included, the menu item will be wrapped in an anchor tag.
 ### With search query highlighted
 
 When a menu item displays a search result, the current search query can be provided (along with the
-`highlightQuery` prop) and it will be highlighted within the menu item's title. In the example
-below, the search query is "Co".
+`highlightQuery` prop) and it will be visually differentiated within the menu item's title. The
+search query text will have a normal font weight, while the rest of the title will be bold,
+which is meant to bring attention to the available suggestions based on the current search query.
+
+In the example below, the search query is "Co".
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
