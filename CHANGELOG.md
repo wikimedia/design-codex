@@ -1,3 +1,49 @@
+# 0.1.0-alpha.9 / 2022-07-28
+
+## Features
+- Button: Add full support for icon-only buttons (Simone This Dot)
+- Thumbnail: Add Thumbnail component (Anne Tomasevich)
+- MenuItem: Use the Thumbnail component (Anne Tomasevich)
+- icons: Add 'copy'/'cut'/'paste' (Volker E)
+- TypeaheadSearch: Remove space when no-results slot is empty (Steven Sun)
+- Card: Add initial Card component (Anne Tomasevich)
+- Menu: Add Home/End keyboard button support (Simone This Dot)
+- TypeaheadSearch: Remove border-top on footer when it's the only menu item (Steven Sun)
+- Tabs: Make icon-only scroll buttons `aria-hidden` (Anne Tomasevich)
+
+## Styles
+- styles, ProgressBar: Fix border radius overflow in Safari (Anne Tomasevich)
+- styles, Checkbox, ToggleSwitch: Simplify state styles hierarchy (Volker E)
+- styles, TypeaheadSearch: Correct padding of footer's icon (Simone Cuomo)
+- tokens: Introduce `box-shadow-color` decision tokens (Volker E)
+- tokens: Replace legacy `@box-shadow` tokens with new combination tokens (Volker E)
+- tokens: Add new typographic system fonts to stack (Volker E)
+
+## Code
+- MenuItem: Remove unused tokens (Anne Tomasevich)
+- Thumbnail: clean up testThumbnail in tests (DannyS712)
+- Button: Improve icon-only button detection, and add tests (Roan Kattouw)
+- Button: Ignore whitespace-only text nodes when detecting icon-only-ness (Roan Kattouw)
+- Button: Unify on “icon-only” label for that type (Volker E)
+- build: Update 'style-dictionary' to latest v3.7.1 (Volker E)
+- build: Update package-lock.json for style-dictionary upgrade (Roan Kattouw)
+- build: Update 'less', 'postcss*' and 'autoprefixer' dependencies (Volker E)
+- Build: Update netlify-cli, update minimist vulnerability (Eric Gardner)
+- build: gitignore .vscode directory for settings files (Anne Tomasevich)
+- build: Update netlify-cli to v10.10.2 (Roan Kattouw)
+
+## Documentation
+- docs: Clarify commit message category order (Volker E)
+- docs: Expand on marking deprecating and breaking changes in commit msg (Volker E)
+- docs, Controls: reduce duplication using `<component>` and `:is` (DannyS712)
+- docs: Correct language about deprecating/breaking change prefix (Roan Kattouw)
+- docs: Update CSS class names on tokens demos (Volker E)
+- docs: Update border-radius-pill demo (Volker E)
+- docs, composables: factor out useCurrentComponentName() composable (DannyS712)
+- docs: Guide users to the repo (Kosta Harlan)
+- docs: Separate search-no-results-text in TypeaheadSearch demo (Steven Sun)
+- docs: Add step to releasing docs to document breaking changes (Anne Tomasevich)
+
 # 0.1.0-alpha.8 / 2022-06-23
 
 ## Breaking changes
