@@ -7,10 +7,6 @@ import SelectConfigurable from '@/../component-demos/select/examples/SelectConfi
 
 const controlsConfig = [
 	{
-		name: 'defaultIcon',
-		type: 'boolean'
-	},
-	{
 		name: 'disabled',
 		type: 'boolean'
 	},
@@ -18,6 +14,10 @@ const controlsConfig = [
 		name: 'defaultLabel',
 		type: 'text',
 		default: 'Choose an option'
+	},
+	{
+		name: 'defaultIcon',
+		type: 'icon'
 	}
 ];
 </script>
@@ -27,7 +27,7 @@ const controlsConfig = [
 
 ### Configurable
 
-<cdx-demo-wrapper :controls-config="controlsConfig">
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues }">
 <select-configurable v-bind="propValues" />
 </template>

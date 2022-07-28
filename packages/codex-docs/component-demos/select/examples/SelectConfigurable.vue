@@ -1,19 +1,22 @@
 <template>
 	<cdx-select
 		v-model:selected="selection"
-		v-bind="selectProps"
 		:menu-items="menuItems"
+		:default-icon="defaultIcon"
+		:default-label="defaultLabel"
+		:disabled="disabled"
 	/>
 </template>
 
 <script lang="ts">
 import {
+	PropType,
 	ref,
-	defineComponent,
-	computed
+	defineComponent
 } from 'vue';
+import { Icon } from '@wikimedia/codex-icons';
 import { CdxSelect, MenuItemData } from '@wikimedia/codex';
-import { cdxIconCamera, cdxIconBook, cdxIconClock, cdxIconSearch } from '@wikimedia/codex-icons';
+import { cdxIconCamera, cdxIconBook, cdxIconClock } from '@wikimedia/codex-icons';
 
 const menuItems: MenuItemData[] = [
 	{
@@ -41,31 +44,24 @@ export default defineComponent( {
 	components: { CdxSelect },
 	props: {
 		defaultIcon: {
-			type: Boolean,
-			default: false
-		},
-		disabled: {
-			type: Boolean,
-			default: false
+			type: [ String, Object ] as PropType<Icon>,
+			default: ''
 		},
 		defaultLabel: {
 			type: String,
 			default: ''
+		},
+		disabled: {
+			type: Boolean,
+			default: false
 		}
 	},
-	setup( props ) {
-
+	setup() {
 		const selection = ref<string|number|null>( null );
-		const selectProps = computed( () => ( {
-			defaultIcon: props.defaultIcon ? cdxIconSearch : undefined,
-			disabled: props.disabled,
-			defaultLabel: props.defaultLabel
-		} ) );
 
 		return {
 			selection,
-			menuItems,
-			selectProps
+			menuItems
 		};
 	}
 } );
