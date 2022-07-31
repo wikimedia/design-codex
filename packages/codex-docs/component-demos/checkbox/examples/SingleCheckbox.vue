@@ -13,6 +13,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { CdxCheckbox } from '@wikimedia/codex';
+import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'SingleCheckbox',
@@ -20,10 +21,7 @@ export default defineComponent( {
 	setup() {
 		const checkboxValue = ref( false );
 
-		const onUpdate = ( value: string ): void => {
-			// eslint-disable-next-line no-console
-			console.log( 'update:modelValue event: ' + value );
-		};
+		const onUpdate = getEventLogger<string>( 'update:modelValue' );
 
 		return {
 			checkboxValue,

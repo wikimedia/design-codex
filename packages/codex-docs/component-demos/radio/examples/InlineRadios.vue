@@ -17,6 +17,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { CdxRadio } from '@wikimedia/codex';
+import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'InlineRadios',
@@ -34,10 +35,7 @@ export default defineComponent( {
 			}
 		];
 
-		const onUpdate = ( value: string ): void => {
-			// eslint-disable-next-line no-console
-			console.log( 'update:modelValue event: ' + value );
-		};
+		const onUpdate = getEventLogger<string>( 'update:modelValue' );
 
 		return {
 			radioValue,

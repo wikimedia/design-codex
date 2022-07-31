@@ -4,8 +4,8 @@
 			v-model="inputValue"
 			button-label="Search"
 			:clearable="true"
-			@update:model-value="onUpdateModelValue"
-			@submit-click="onSubmit"
+			@update:model-value="onEvent( 'update:modelValue', $event )"
+			@submit-click="onEvent( 'submit-click', $event )"
 		/>
 	</div>
 </template>
@@ -13,6 +13,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { CdxSearchInput } from '@wikimedia/codex';
+import { getMultiEventLogger } from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'SearchInputClearable',
@@ -21,20 +22,11 @@ export default defineComponent( {
 		// Set up a reactive reference to track the input value.
 		const inputValue = ref<string|number>( '' );
 
-		function onUpdateModelValue( value: string|number ) {
-			// eslint-disable-next-line no-console
-			console.log( 'update:modelValue event emitted with value: ', value );
-		}
-
-		function onSubmit( value: string|number ) {
-			// eslint-disable-next-line no-console
-			console.log( 'submit-click event emitted with value: ', value );
-		}
+		const onEvent = getMultiEventLogger<string|number>();
 
 		return {
 			inputValue,
-			onUpdateModelValue,
-			onSubmit
+			onEvent
 		};
 	}
 } );

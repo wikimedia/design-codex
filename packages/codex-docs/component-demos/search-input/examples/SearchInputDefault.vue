@@ -11,6 +11,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { CdxSearchInput } from '@wikimedia/codex';
+import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'SearchInputDefault',
@@ -19,10 +20,7 @@ export default defineComponent( {
 		// Set up a reactive reference to track the input value.
 		const inputValue = ref<string|number>( '' );
 
-		function onUpdateModelValue( value: string|number ) {
-			// eslint-disable-next-line no-console
-			console.log( 'update:modelValue event emitted wth value: ', value );
-		}
+		const onUpdateModelValue = getEventLogger<string|number>( 'update:modelValue' );
 
 		return {
 			inputValue,

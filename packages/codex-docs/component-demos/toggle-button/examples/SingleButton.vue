@@ -15,6 +15,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { CdxToggleButton } from '@wikimedia/codex';
+import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'SingleButton',
@@ -22,10 +23,7 @@ export default defineComponent( {
 	setup() {
 		const buttonValue = ref( false );
 
-		const onUpdate = ( value: boolean ) => {
-			// eslint-disable-next-line no-console
-			console.log( 'update:modelValue event: ', value );
-		};
+		const onUpdate = getEventLogger<boolean>( 'update:modelValue' );
 
 		return {
 			buttonValue,

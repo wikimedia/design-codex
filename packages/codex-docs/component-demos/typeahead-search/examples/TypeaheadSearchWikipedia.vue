@@ -12,8 +12,8 @@
 			:auto-expand-width="true"
 			placeholder="Search Wikipedia"
 			@input="onInput"
-			@search-result-click="onSearchResultClick"
-			@submit="onSubmit"
+			@search-result-click="onEvent( 'search-result-click', $event )"
+			@submit="onEvent( 'submit', $event )"
 		>
 			<template #default>
 				<input
@@ -41,8 +41,8 @@
 import { defineComponent, ref } from 'vue';
 import { CdxTypeaheadSearch, SearchResult, SearchResultClickEvent } from '@wikimedia/codex';
 import { RestResult } from './types';
+import { getMultiEventLogger } from '../../../src/utils/getEventLogger';
 
-/* eslint-disable no-console */
 export default defineComponent( {
 	name: 'TypeaheadSearchWikipedia',
 	components: { CdxTypeaheadSearch },
@@ -51,8 +51,10 @@ export default defineComponent( {
 		const searchFooterUrl = ref( '' );
 		const currentSearchTerm = ref( '' );
 
+		const onEvent = getMultiEventLogger<string|SearchResultClickEvent>();
+
 		function onInput( value: string ) {
-			console.log( '"input" event emitted with value: ' + value );
+			onEvent( 'input', value );
 
 			// Internally track the current search term.
 			currentSearchTerm.value = value;
@@ -109,24 +111,12 @@ export default defineComponent( {
 				} );
 		}
 
-		function onSearchResultClick( event: SearchResultClickEvent ) {
-			console.log( '"search-result-click" event emitted with value:' );
-			console.log( event );
-		}
-
-		function onSubmit( event: SearchResultClickEvent ) {
-			console.log( '"submit" event emitted with value:' );
-			console.log( event );
-		}
-
 		return {
 			searchResults,
 			searchFooterUrl,
 			onInput,
-			onSearchResultClick,
-			onSubmit
+			onEvent
 		};
 	}
 } );
-/* eslint-enable no-console */
 </script>

@@ -24,6 +24,7 @@
 import { defineComponent, PropType, ref, toRefs } from 'vue';
 import { CdxButton, CdxTextInput } from '@wikimedia/codex';
 import { Icon } from '@wikimedia/codex-icons';
+import { getMultiEventLogger } from '../../../src/utils/getEventLogger';
 
 interface InputProps {
 	inputType?: 'text' | 'search',
@@ -84,10 +85,7 @@ export default defineComponent( {
 		const { initialValue } = toRefs( props );
 		const inputValue = ref( initialValue.value );
 
-		const onEvent = ( eventName: string, value: string ): void => {
-			// eslint-disable-next-line no-console
-			console.log( eventName + ' event emitted with value: ' + value );
-		};
+		const onEvent = getMultiEventLogger<string>();
 
 		const resetInput = () => {
 			inputValue.value = initialValue.value;
