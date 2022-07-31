@@ -1,6 +1,6 @@
 import { SearchResult } from '@wikimedia/codex';
 
-export default [
+const searchResults : SearchResult[] = [
 	{
 		value: 8399891,
 		label: 'Co',
@@ -14,11 +14,8 @@ export default [
 		url: 'https://en.wikipedia.org/wiki/Color',
 		description: 'visual perception of light wavelengths',
 		thumbnail: {
-			mimetype: 'image/jpeg',
-			size: null,
 			width: 200,
 			height: 150,
-			duration: null,
 			url: '//upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/200px-64_365_Color_Macro_%285498808099%29.jpg'
 		}
 	},
@@ -28,11 +25,8 @@ export default [
 		url: 'https://en.wikipedia.org/wiki/Colorado',
 		description: 'state of the United States of America',
 		thumbnail: {
-			mimetype: 'image/svg+xml',
-			size: 3476,
 			width: 200,
 			height: 133,
-			duration: null,
 			url: '//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colorado_designed_by_Andrew_Carlisle_Carson.svg/200px-Flag_of_Colorado_designed_by_Andrew_Carlisle_Carson.svg.png'
 		}
 	},
@@ -42,11 +36,8 @@ export default [
 		url: 'https://en.wikipedia.org/wiki/Colorado_Springs,_Colorado',
 		description: 'county seat of El Paso County, Colorado, United States',
 		thumbnail: {
-			mimetype: 'image/jpeg',
-			size: null,
 			width: 200,
 			height: 134,
-			duration: null,
 			url: '//upload.wikimedia.org/wikipedia/commons/thumb/4/45/CC_COSPRINGS.jpg/200px-CC_COSPRINGS.jpg'
 		}
 	},
@@ -56,11 +47,8 @@ export default [
 		url: 'https://en.wikipedia.org/wiki/Colorado_River',
 		description: 'major river in the western United States and Mexico',
 		thumbnail: {
-			mimetype: 'image/jpeg',
-			size: null,
 			width: 200,
 			height: 133,
-			duration: null,
 			url: '//upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Horseshoe_Bend_TC_27-09-2012_15-34-14.jpg/200px-Horseshoe_Bend_TC_27-09-2012_15-34-14.jpg'
 		}
 	},
@@ -70,11 +58,8 @@ export default [
 		url: 'https://en.wikipedia.org/wiki/Colour_revolution',
 		description: 'political term associated with democratization',
 		thumbnail: {
-			mimetype: 'image/png',
-			size: null,
 			width: 200,
 			height: 119,
-			duration: null,
 			url: '//upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Color_Revolutions_Map.png/200px-Color_Revolutions_Map.png'
 		}
 	},
@@ -91,11 +76,8 @@ export default [
 		url: 'https://en.wikipedia.org/wiki/Color_temperature',
 		description: 'property of light sources related to black-body radiation',
 		thumbnail: {
-			mimetype: 'image/png',
-			size: null,
 			width: 178,
 			height: 200,
-			duration: null,
 			url: '//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/PlanckianLocus.png/178px-PlanckianLocus.png'
 		}
 	},
@@ -105,11 +87,8 @@ export default [
 		url: 'https://en.wikipedia.org/wiki/Color_photography',
 		description: 'that uses media capable of representing colors',
 		thumbnail: {
-			mimetype: 'image/jpeg',
-			size: null,
 			width: 152,
 			height: 200,
-			duration: null,
 			url: '//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Hillotypie.jpg/152px-Hillotypie.jpg'
 		}
 	},
@@ -119,12 +98,11 @@ export default [
 		url: 'https://en.wikipedia.org/wiki/Colorado_State_University',
 		description: 'public research university in Fort Collins, Colorado, USA',
 		thumbnail: {
-			mimetype: 'image/png',
-			size: null,
 			width: 200,
 			height: 195,
-			duration: null,
 			url: '//upload.wikimedia.org/wikipedia/en/thumb/3/33/Colorado_State_University_seal.svg/200px-Colorado_State_University_seal.svg.png'
 		}
 	}
-] as SearchResult[];
+];
+
+export default searchResults;

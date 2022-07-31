@@ -6,9 +6,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CdxMenuItem } from '@wikimedia/codex';
+import { CdxMenuItem, MenuItemDataWithId } from '@wikimedia/codex';
 
-const menuItem = {
+const menuItem : MenuItemDataWithId = {
 	value: 5921,
 	label: 'Color',
 	id: 'menu-item-default'

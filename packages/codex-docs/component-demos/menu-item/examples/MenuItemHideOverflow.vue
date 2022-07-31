@@ -9,9 +9,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CdxMenuItem } from '@wikimedia/codex';
+import { CdxMenuItem, MenuItemDataWithId } from '@wikimedia/codex';
 
-const menuItem = {
+const menuItem : MenuItemDataWithId = {
 	value: 2201357,
 	label: 'Donaudampfschiffahrtselektrizitätenhauptbetriebswerkbauunterbeamtengesellschaft',
 	url: 'https://en.wikipedia.org/wiki/Donaudampfschiffahrtselektrizit%C3%A4tenhauptbetriebswerkbauunterbeamtengesellschaft',

@@ -7,9 +7,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CdxMenuItem } from '@wikimedia/codex';
+import { CdxMenuItem, MenuItemDataWithId } from '@wikimedia/codex';
 
-const menuItem = {
+const menuItem : MenuItemDataWithId = {
 	value: 'Q175329',
 	label: 'sand cat',
 	match: '(Felis margarita)',
