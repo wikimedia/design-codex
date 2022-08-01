@@ -94,7 +94,7 @@
 									@slot A slot for passing in translated search footer text.
 									@binding {string} searchQuery Input text entered by the user
 								-->
-								<slot name="search-footer-text" :searchQuery="searchQuery">
+								<slot name="search-footer-text" :search-query="searchQuery">
 									<strong class="cdx-typeahead-search__search-footer__query">
 										{{ searchQuery }}
 									</strong>

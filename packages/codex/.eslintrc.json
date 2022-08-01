@@ -40,6 +40,9 @@
 			"rules": {
 				"no-unused-vars": "off",
 				"@typescript-eslint/no-unused-vars": "error",
+				"es-x/no-optional-chaining": "off",
+				"es-x/no-rest-spread-properties": "off",
+				"es-x/no-nullish-coalescing-operators": "off",
 				"jsdoc/require-param-type": "off",
 				"jsdoc/require-returns-type": "off",
 				"jsdoc/check-tag-names": [

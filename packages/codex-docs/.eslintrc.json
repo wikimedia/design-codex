@@ -3,7 +3,8 @@
 		{
 			"files": [ "**/*.ts", "**/*.js" ],
 			"extends": [
-				"wikimedia/server"
+				"wikimedia/server",
+				"wikimedia/language/es2020"
 			],
 			"rules": {
 				"strict": "off",
@@ -17,6 +18,10 @@
 			"rules": {
 				"no-unused-vars": "off",
 				"@typescript-eslint/no-unused-vars": "error",
+				"es-x/no-optional-chaining": "off",
+				"es-x/no-rest-spread-properties": "off",
+				"es-x/no-nullish-coalescing-operators": "off",
+				"es-x/no-class-fields": "off",
 				"jsdoc/require-param-type": "off",
 				"jsdoc/require-returns-type": "off"
 			}

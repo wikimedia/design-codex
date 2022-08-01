@@ -3,7 +3,7 @@ module.exports = {
 	root: true,
 	extends: [
 		'wikimedia',
-		'wikimedia/language/es2019'
+		'wikimedia/language/es2020'
 	],
 	overrides: [
 		{

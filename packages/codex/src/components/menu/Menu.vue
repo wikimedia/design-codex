@@ -43,7 +43,7 @@
 				@binding {boolean} active Whether the current item is visually active
 			-->
 			<slot
-				:menuItem="menuItem"
+				:menu-item="menuItem"
 				:active="menuItem.value === activeMenuItem?.value &&
 					menuItem.value === highlightedMenuItem?.value"
 			/>

@@ -4,7 +4,6 @@
 			"files": [ "**/*.ts", "**/*.js" ],
 			"extends": [
 				"wikimedia/server",
-				"wikimedia/language/es6",
 				"plugin:@typescript-eslint/recommended"
 			],
 			"rules": {
@@ -13,6 +12,12 @@
 					"tryExtensions": [ ".js", ".ts" ]
 				} ]
 			}
+		},
+		{
+			"files": [ "src/**/*.ts", "src/**/*.js" ],
+			"extends": [
+				"wikimedia/language/es6"
+			]
 		}
 	]
 }

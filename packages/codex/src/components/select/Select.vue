@@ -32,8 +32,8 @@
 				-->
 				<slot
 					name="label"
-					:selectedMenuItem="selectedMenuItem"
-					:defaultLabel="defaultLabel"
+					:selected-menu-item="selectedMenuItem"
+					:default-label="defaultLabel"
 				>
 					{{ currentLabel }}
 				</slot>
@@ -61,7 +61,7 @@
 					@slot Display of an individual item in the menu
 					@binding {MenuItemData} menuItem The current menu item
 				-->
-				<slot name="menu-item" :menuItem="menuItem" />
+				<slot name="menu-item" :menu-item="menuItem" />
 			</template>
 		</cdx-menu>
 	</div>
