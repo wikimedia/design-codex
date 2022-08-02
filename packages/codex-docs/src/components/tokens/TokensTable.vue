@@ -13,8 +13,8 @@
 					<strong>{{ token.name }}</strong>
 					<cdx-docs-copy-text-button :copy-text="token.name" />
 				</td>
-				<td>
-					<code class="cdx-docs-tokens-table__value">{{ token.value }}</code>
+				<td class="cdx-docs-tokens-table__value">
+					<code>{{ token.value }}</code>
 					<div
 						v-if="hasTokenDemo"
 						class="cdx-docs-tokens-table__demo"
@@ -27,6 +27,12 @@
 							:css-property="cssProperty"
 							:style-target="styleTarget"
 						/>
+						<strong
+							v-if="token.deprecated"
+							:class="`${demoClass}__token--deprecated`"
+						>
+							deprecated
+						</strong>
 					</div>
 					<p>
 						Defined in <code>{{ token.filePath }}</code>
@@ -39,6 +45,9 @@
 					</p>
 					<p v-if="token.comment">
 						<em>{{ token.comment }}</em>
+					</p>
+					<p v-if="typeof token.deprecated === 'string'">
+						<em>Deprecated: {{ token.deprecated }}</em>
 					</p>
 				</td>
 			</tr>
@@ -125,50 +134,66 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.cdx-docs-tokens-table {
-	// Undo VitePress style.
-	display: table;
-	width: @size-full;
+.cdx-docs-tokens {
+	&-table {
+		// Undo VitePress style.
+		display: table;
+		width: @size-full;
 
-	// Undo GitHub-table-style alternate row striping.
-	tr:nth-child( 2n ) {
-		background-color: @background-color-base;
+		// Undo GitHub-table-style alternate row striping.
+		tr:nth-child( 2n ) {
+			background-color: @background-color-base;
+		}
+
+		// Override VitePress's styles that add way too much whitespace around <p>s
+		p {
+			margin: 0 0 0.5em;
+			line-height: 1.3;
+		}
+
+		&__name {
+			position: relative;
+
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+				min-width: 200px;
+			}
+
+			.cdx-docs-copy-text-button {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				font-size: 0.8em;
+			}
+		}
+
+		&__value {
+			position: relative;
+
+			code {
+				color: @color-base--emphasized;
+				display: inline-block;
+				margin-bottom: 8px;
+			}
+		}
+
+		&__demo {
+			margin-bottom: 16px;
+		}
+
+		// Prevent long tokens from running off the page
+		pre {
+			white-space: pre-wrap;
+		}
 	}
 
-	// Override VitePress's styles that add way too much whitespace around <p>s
-	p {
-		margin: 0 0 0.5em;
-		line-height: 1.3;
-	}
-
-	&__value {
-		color: @color-base--emphasized;
+	&-demo__token--deprecated {
+		background-color: @background-color-message-warning;
 		display: inline-block;
-		margin-bottom: 8px;
-	}
-
-	&__name {
-		position: relative;
-
-		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			min-width: 200px;
-		}
-
-		.cdx-docs-copy-text-button {
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			font-size: 0.8em;
-		}
-	}
-
-	&__demo {
-		margin-bottom: 16px;
-	}
-
-	// Prevent long tokens from running off the page
-	pre {
-		white-space: pre-wrap;
+		position: absolute;
+		top: 8px;
+		right: 12px;
+		padding: 0 4px;
+		font-weight: @font-weight-normal;
 	}
 }
 </style>

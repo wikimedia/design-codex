@@ -81,7 +81,8 @@ export type SlotValues = Record<string, string>;
 export interface DesignToken {
 	name: string,
 	value: string,
-	comment?: string
+	comment?: string,
+	deprecated?: string|true,
 	filePath: string,
 	original: {
 		value: string

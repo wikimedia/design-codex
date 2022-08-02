@@ -35,7 +35,7 @@ describe( 'flattenDesignTokensTree', () => {
 			secondToken: subTreeToken2
 		};
 
-		const inputTree: DesignTokensTree = {
+		const treeWithComment: DesignTokensTree = {
 			actualToken: exampleToken,
 			nestedTree: exampleSubTree
 		};
@@ -44,9 +44,23 @@ describe( 'flattenDesignTokensTree', () => {
 		// and then need to bypass eslint rule preventing that
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore: see above
-		inputTree.comment = 'Unused comment text';
+		treeWithComment.comment = 'Unused comment text';
 
-		expect( flattenDesignTokensTree( inputTree ) ).toMatchObject( [
+		expect( flattenDesignTokensTree( treeWithComment ) ).toMatchObject( [
+			exampleToken,
+			subTreeToken1,
+			subTreeToken2
+		] );
+
+		const treeWithDeprecated: DesignTokensTree = {
+			actualToken: exampleToken,
+			nestedTree: exampleSubTree
+		};
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore: see comment above for treeWithComment
+		treeWithDeprecated.deprecated = 'Unused deprecation message';
+
+		expect( flattenDesignTokensTree( treeWithDeprecated ) ).toMatchObject( [
 			exampleToken,
 			subTreeToken1,
 			subTreeToken2
