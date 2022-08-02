@@ -1,234 +1,196 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-	<div :dir="dir">
-		<nav>
-			Direction:
-			<direction-switcher v-model="dir" />
-		</nav>
-
-		<header>
-			<h1>Codex Demo</h1>
+	<div
+		:key="dir"
+		:dir="dir"
+		class="cdx-sandbox"
+	>
+		<header class="cdx-sandbox__header">
+			<h1>Codex Demo Sandbox</h1>
+			<div class="cdx-direction-switcher">
+				<direction-switcher v-model="dir" />
+			</div>
 		</header>
 
-		<main class="cdx-sandbox-main">
-			<cdx-tabs v-model:active="activeTab" :framed="true">
-				<cdx-tab name="combobox">
-					<h2>Combobox</h2>
-					<cdx-combobox
-						v-model:selected="textSelection"
-						:menu-items="options"
-						placeholder="Type or choose an option"
-						:disabled="false"
-						:clearable="true"
-					/>
-					<p>Selected value: {{ textSelection || '(none)' }}</p>
-				</cdx-tab>
+		<div class="cdx-sandbox__body">
+			<main class="cdx-sandbox__content">
+				<button-demo />
+				<button-group-demo />
+				<card-demo />
+				<checkbox-demo />
+				<combobox-demo />
+				<icon-demo />
+				<lookup-demo />
+				<menu-demo />
+				<menu-item-demo />
+				<message-demo />
+				<progress-bar-demo />
+				<radio-demo />
+				<search-input-demo />
+				<select-demo />
+				<tabs-demo />
+				<text-input-demo />
+				<thumbnail-demo />
+				<toggle-button-group-demo />
+				<toggle-demo />
+				<typeahead-search-demo />
+			</main>
 
-				<cdx-tab name="select">
-					<h2>Select</h2>
-					<cdx-select
-						v-model:selected="selection"
-						:menu-items="options"
-						default-label="Choose an option"
-					/>
-					<p>Selected value: {{ selection || '(none)' }}</p>
-				</cdx-tab>
-
-				<cdx-tab name="radio">
-					<h2>Radios</h2>
-					<cdx-radio
-						v-for="option in options"
-						:key="option.value"
-						v-model="textSelection"
-						:input-value="option.value"
-					>
-						{{ option.label }}
-					</cdx-radio>
-					<p>Selected value: {{ textSelection || '(none)' }}</p>
-				</cdx-tab>
-
-				<cdx-tab name="textinput">
-					<h2>Text input</h2>
-					Selected value: <cdx-text-input v-model:selected="selection" clearable />
-				</cdx-tab>
-
-				<cdx-tab name="checkbox">
-					<h2>Checkboxes</h2>
-					<cdx-checkbox
-						v-for="option in options"
-						:key="option.value"
-						v-model="multiSelection"
-						:input-value="option.value"
-					>
-						{{ option.label }}
-					</cdx-checkbox>
-					<p>Selected values: {{ multiSelection.join( ', ' ) || '(none)' }}</p>
-				</cdx-tab>
-
-				<cdx-tab name="icon">
-					<h2>Icons</h2>
-					<p dir="rtl">
-						<cdx-icon :icon="cdxIconArrowNext" /> next
-					</p>
-					<p lang="nl" dir="ltr">
-						<cdx-icon :icon="cdxIconBold" /> Bold
-					</p>
-				</cdx-tab>
-
-				<cdx-tab name="button">
-					<h2>Button</h2>
-					<table>
-						<thead>
-							<tr>
-								<th />
-								<th>Normal</th>
-								<th>Primary</th>
-								<th>Quiet</th>
-								<th>undefined</th>
-							</tr>
-						</thead>
-						<tbody>
-							<template v-for="buttonAction in [ ...ButtonActions, undefined ]">
-								<tr
-									v-for="disabled in [ true, false ]"
-									:key="`action-${buttonAction}-${Number( disabled )}`"
-								>
-									<th>
-										{{ buttonAction || 'undefined' }}
-										{{ disabled ? ' disabled' : '' }}
-									</th>
-									<td
-										v-for="buttonType in [ ...ButtonTypes, undefined ]"
-										:key="`type-${buttonType}`">
-										<cdx-button
-											:type="buttonType"
-											:action="buttonAction"
-											:disabled="disabled"
-											@click="onClick">
-											<cdx-icon :icon="cdxIconTrash" />
-											Button
-										</cdx-button>
-									</td>
-								</tr>
-							</template>
-						</tbody>
-					</table>
-				</cdx-tab>
-				<cdx-tab name="toggles">
-					<h2>ToggleButton and ToggleSwitch</h2>
-					<cdx-toggle-button v-model="toggleValue">
-						<cdx-icon :icon="toggleButtonIcon" />
-						{{ toggleButtonLabel }}
-					</cdx-toggle-button>
-
-					<p>
-						Playing:
-						<cdx-toggle-switch v-model="toggleValue" />
-					</p>
-				</cdx-tab>
-				<cdx-tab name="message">
-					<h2>Message</h2>
-					<cdx-message
-						v-for="type in MessageTypes"
-						:key="type"
-						:type="type"
-						dismiss-button-label="Dismiss"
-					>
-						{{ type }}
-					</cdx-message>
-				</cdx-tab>
-				<cdx-tab
-					name="Disabled"
-					:disabled="true"
-					label="This is a tab with a really really really really really long name"
-				>
-					<p>Content for disabled tab</p>
-				</cdx-tab>
-				<cdx-tab name="tabs">
-					<h2>Tabs</h2>
-
-					<cdx-tabs v-model:active="activeTabInner">
-						<cdx-tab
-							v-for="( tab, index ) in dynamicTabs"
-							:key="index"
-							:name="tab"
-						>
-							<p>Content for {{ tab }}</p>
-						</cdx-tab>
-					</cdx-tabs>
-
-					<cdx-button @click="reverseTabs">
-						Reverse tab order
-					</cdx-button>
-				</cdx-tab>
-			</cdx-tabs>
-		</main>
+			<nav class="cdx-sandbox__nav">
+				<div class="cdx-sandbox__nav__inner">
+					<ul>
+						<li v-for="( section, index ) in demoSections" :key="index">
+							<a :href="section.id">
+								{{ section.name }}
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
 	</div>
 </template>
 
 <script lang="ts" setup>
-import {
-	CdxButton,
-	CdxCheckbox,
-	CdxCombobox,
-	CdxIcon,
-	CdxMessage,
-	CdxRadio,
-	CdxSelect,
-	CdxTab,
-	CdxTabs,
-	CdxTextInput,
-	CdxToggleButton,
-	CdxToggleSwitch,
-	HTMLDirection,
-	MenuItemData
-} from '../lib';
-
-import { cdxIconArrowNext, cdxIconBold, cdxIconPause, cdxIconPlay, cdxIconTrash } from '@wikimedia/codex-icons';
-import { ButtonActions, ButtonTypes, MessageTypes } from '../constants';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
+import { HTMLDirection } from '../types';
 import DirectionSwitcher from './DirectionSwitcher.vue';
 
-const activeTab = ref( 'combobox' );
-const activeTabInner = ref( 'tab1' );
-const dynamicTabs = ref( [ 'tab1', 'tab2', 'tab3' ] );
-
-function reverseTabs() {
-	dynamicTabs.value.reverse();
-}
-
-const options: MenuItemData[] = [
-	{ label: 'Apple', value: 'a' },
-	{ label: 'Banana', value: 'b' },
-	{ label: 'Canteloupe', value: 'c', disabled: true }
-];
+import ButtonDemo from './ButtonDemo.vue';
+import ButtonGroupDemo from './ButtonGroupDemo.vue';
+import CardDemo from './CardDemo.vue';
+import CheckboxDemo from './CheckboxDemo.vue';
+import ComboboxDemo from './ComboboxDemo.vue';
+import IconDemo from './IconDemo.vue';
+import LookupDemo from './LookupDemo.vue';
+import MenuDemo from './MenuDemo.vue';
+import MenuItemDemo from './MenuItemDemo.vue';
+import MessageDemo from './MessageDemo.vue';
+import ProgressBarDemo from './ProgressBarDemo.vue';
+import RadioDemo from './RadioDemo.vue';
+import SearchInputDemo from './SearchInputDemo.vue';
+import SelectDemo from './SelectDemo.vue';
+import TabsDemo from './TabsDemo.vue';
+import TextInputDemo from './TextInputDemo.vue';
+import ThumbnailDemo from './ThumbnailDemo.vue';
+import ToggleButtonGroupDemo from './ToggleButtonGroupDemo.vue';
+import ToggleDemo from './ToggleDemo.vue';
+import TypeaheadSearchDemo from './TypeaheadSearchDemo.vue';
 
 const dir = ref<HTMLDirection>( 'ltr' );
-const selection = ref<string|null>( null );
-const textSelection = ref<string>( '' );
-const multiSelection = ref<string[]>( [] );
-const toggleValue = ref( false );
+const demoSections = [
+	{ name: 'Button', id: '#cdx-button' },
+	{ name: 'ButtonGroup', id: '#cdx-button-group' },
+	{ name: 'Card', id: '#cdx-card' },
+	{ name: 'CheckBox', id: '#cdx-checkbox' },
+	{ name: 'Combobox', id: '#cdx-combobox' },
+	{ name: 'Icon', id: '#cdx-icon' },
+	{ name: 'Lookup', id: '#cdx-lookup' },
+	{ name: 'Menu', id: '#cdx-menu' },
+	{ name: 'MenuItem', id: '#cdx-menu-item' },
+	{ name: 'Message', id: '#cdx-message' },
+	{ name: 'ProgressBar', id: '#cdx-progress-bar' },
+	{ name: 'Radio', id: '#cdx-radio' },
+	{ name: 'SearchInput', id: '#cdx-search-input' },
+	{ name: 'Select', id: '#cdx-select' },
+	{ name: 'Tabs', id: '#cdx-tabs' },
+	{ name: 'TextInput', id: '#cdx-text-input' },
+	{ name: 'Thumbnail', id: '#cdx-thumbnail' },
+	{ name: 'Toggle', id: '#cdx-toggle' },
+	{ name: 'ToggleButtonGroup', id: '#cdx-toggle-button-group' },
+	{ name: 'TypeaheadSearch', id: '#cdx-typeahead-search' }
+];
 
-const toggleButtonIcon = computed( () => toggleValue.value ? cdxIconPause : cdxIconPlay );
-const toggleButtonLabel = computed( () => toggleValue.value ? 'Pause' : 'Play' );
-
-function onClick( e: Event ) {
-	// eslint-disable-next-line no-console
-	console.log( e );
-}
 </script>
 
-<style lang="less" scoped>
-.cdx-sandbox-main {
-	max-width: 500px;
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
+// Define some sandbox-specific values
+@sandbox-breakpoint-tablet: 768px;
+@sandbox-header-height: 2em;
+@sandbox-sidebar-width: 20rem;
+
+@sandbox-scroll-padding: @sandbox-header-height + ( @spacing-large *2 ) + @spacing-large;
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: @sandbox-scroll-padding;
 }
 
-td {
-	/* stylelint-disable-next-line unit-disallowed-list */
-	padding: 1.5rem;
-}
+.cdx-sandbox {
+	display: flex;
+	flex-direction: column;
+	font-family: @font-family-base;
 
-nav {
-	float: right;
+	&__header {
+		background-color: @background-color-base;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		position: sticky;
+		top: 0;
+		z-index: @z-index-1;
+		height: @sandbox-header-height;
+		border-bottom: @border-base;
+		padding: @spacing-large;
+
+		h1 {
+			display: inline-flex;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		.cdx-direction-switcher {
+			display: inline-flex;
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: @spacing-large;
+
+		@media ( min-width: @sandbox-breakpoint-tablet ) {
+			flex-direction: row;
+		}
+
+		section {
+			margin-bottom: @spacing-xx-large;
+
+			h2 {
+				margin-top: 0;
+			}
+		}
+	}
+
+	&__content {
+		flex: 1;
+	}
+
+	&__nav {
+		flex: 1;
+		order: -1;
+		margin-bottom: @spacing-xx-large;
+
+		@media ( min-width: @sandbox-breakpoint-tablet ) {
+			flex: 0 0 @sandbox-sidebar-width;
+			flex-direction: row;
+		}
+
+		&__inner {
+			position: sticky;
+			top: @sandbox-scroll-padding;
+
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				line-height: @line-height-100;
+			}
+		}
+	}
 }
 </style>
