@@ -479,27 +479,27 @@
 			"value": "{ box-shadow.destructive--focus }, { box-shadow.inverted }"
 		},
 		"base": {
-			"deprecated": "Deprecated legacy value. Only used in non-Codex products.",
+			"deprecated": "Legacy value. Only used in non-Codex products.",
 			"value": "{ box-shadow.25 } { color.transparent }"
 		},
 		"base--active": {
-			"deprecated": "Deprecated legacy value. Only used in non-Codex products.",
+			"deprecated": "Legacy value. Only used in non-Codex products.",
 			"value": "{ box-shadow.progressive--active }"
 		},
 		"base--focus": {
-			"deprecated": "Deprecated legacy value. Only used in non-Codex products.",
+			"deprecated": "Legacy value. Only used in non-Codex products.",
 			"value": "{ box-shadow.progressive--focus }"
 		},
 		"filled--disabled": {
-			"deprecated": "Deprecated legacy value. Only used in non-Codex products.",
+			"deprecated": "Legacy value. Only used in non-Codex products.",
 			"value": "{ box-shadow.25 } { color.white }"
 		},
 		"primary--focus": {
-			"deprecated": "Deprecated legacy value. Only used in non-Codex products.",
+			"deprecated": "Legacy value. Only used in non-Codex products.",
 			"value": "{ box-shadow.progressive-filled--focus }"
 		},
 		"color": {
-			"comment": "Separate box-shadow colors from colors to apply clean, property specific tokens.",
+			"comment": "Separate `box-shadow` colors from colors to apply clean, property specific tokens.",
 			"base": {
 				"value": "{ color.black }"
 			},
