@@ -22,7 +22,7 @@
 		"branch-deploy": "npm run doc && npx netlify deploy --auth $BRANCHDEPLOY_AUTH_TOKEN --site $BRANCHDEPLOY_SITE_ID --alias $ZUUL_CHANGE --dir packages/codex-docs/docs/.vitepress/dist",
 		"build-all": "npm run build --workspaces --if-present",
 		"build-all-if-missing": "npm run build-if-missing --workspaces --if-present",
-		"coverage": "mkdir -p coverage && npm run test:unit -w @wikimedia/codex -- --coverageDirectory=../../coverage",
+		"coverage": "npm run build-all-if-missing && mkdir -p coverage && npm run test:unit -w @wikimedia/codex -- --coverageDirectory=../../coverage",
 		"dev": "npm run build-if-missing -w @wikimedia/codex-icons && concurrently \"npm run watch -w @wikimedia/codex-design-tokens\" \"npm run dev -w @wikimedia/codex\"",
 		"doc": "npm run build -w @wikimedia/codex-icons && npm run build -w @wikimedia/codex-design-tokens && npm run build -w codex-docs",
 		"doc:dev": "npm run build-if-missing -w @wikimedia/codex-icons  && concurrently \"npm run watch -w @wikimedia/codex-design-tokens\" \"npm run dev -w codex-docs\"",
