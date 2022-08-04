@@ -721,7 +721,7 @@ export default defineComponent( {
 
 			&--disabled [ role='tab' ] {
 				background-color: @background-color-tabs-framed;
-				color: @color-base--disabled;
+				color: @color-disabled;
 				cursor: @cursor-base--disabled;
 			}
 		}
@@ -793,7 +793,7 @@ export default defineComponent( {
 			&--disabled {
 				/* stylelint-disable max-nesting-depth */
 				[ role='tab' ] {
-					color: @color-base--disabled;
+					color: @color-disabled;
 					cursor: @cursor-base--disabled;
 				}
 				/* stylelint-enable max-nesting-depth */

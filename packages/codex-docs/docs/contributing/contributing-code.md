@@ -273,7 +273,7 @@ Below are some sample styles for a component to demonstrate these conventions:
 		&:disabled {
 			// Only disabled radios should have a gray label.
 			& ~ .cdx-radio__label-content {
-				color: @color-base--disabled;
+				color: @color-disabled;
 			}
 		}
 		/* stylelint-enable no-descending-specificity */

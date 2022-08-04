@@ -190,7 +190,7 @@ export default defineComponent( {
 
 		&:active {
 			background-color: @background-color-framed--active;
-			color: @color-base--active;
+			color: @color-emphasized;
 			border-color: @border-color-base--active;
 		}
 
@@ -200,7 +200,7 @@ export default defineComponent( {
 	/* stylelint-disable-next-line no-descending-specificity */
 	&:disabled {
 		background-color: @background-color-filled--disabled;
-		color: @color-filled--disabled;
+		color: @color-inverted;
 	}
 }
 
@@ -209,7 +209,7 @@ export default defineComponent( {
 	&.cdx-button--action-progressive {
 		&:enabled {
 			background-color: @background-color-progressive;
-			color: @color-base--inverted;
+			color: @color-inverted;
 			border-color: @border-color-progressive;
 
 			&:hover {
@@ -236,7 +236,7 @@ export default defineComponent( {
 	&.cdx-button--action-destructive {
 		&:enabled {
 			background-color: @background-color-destructive;
-			color: @color-base--inverted;
+			color: @color-inverted;
 			border-color: @border-color-destructive;
 
 			&:hover {
@@ -319,7 +319,7 @@ export default defineComponent( {
 
 		&:active {
 			background-color: @background-color-quiet--active;
-			color: @color-base--active;
+			color: @color-emphasized;
 			border-color: @border-color-base--active;
 		}
 
@@ -338,7 +338,7 @@ export default defineComponent( {
 
 			&:active {
 				background-color: @background-color-progressive--active;
-				color: @color-base--inverted;
+				color: @color-inverted;
 				border-color: @border-color-progressive--active;
 			}
 
@@ -359,7 +359,7 @@ export default defineComponent( {
 
 			&:active {
 				background-color: @background-color-destructive--active;
-				color: @color-base--inverted;
+				color: @color-inverted;
 				border-color: @color-destructive--active;
 			}
 
@@ -372,7 +372,7 @@ export default defineComponent( {
 
 	/* stylelint-disable-next-line no-descending-specificity */
 	&:disabled {
-		color: @color-base--disabled;
+		color: @color-disabled;
 	}
 }
 </style>

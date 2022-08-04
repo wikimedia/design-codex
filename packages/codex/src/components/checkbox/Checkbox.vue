@@ -170,7 +170,7 @@ export default defineComponent( {
 		// Indeterminate state.
 		&:indeterminate + .cdx-checkbox__icon::before {
 			content: ' ';
-			background-color: @color-base--inverted;
+			background-color: @color-inverted;
 			position: absolute;
 			// Vertically center indeterminate line with negative half pixel.
 			top: calc( 50% - ( @border-width-base / 2 ) );
@@ -254,7 +254,7 @@ export default defineComponent( {
 			}
 
 			& ~ .cdx-checkbox__label-content {
-				color: @color-base--disabled;
+				color: @color-disabled;
 			}
 		}
 		/* stylelint-enable no-descending-specificity */

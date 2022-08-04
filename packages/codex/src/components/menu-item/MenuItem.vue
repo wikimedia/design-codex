@@ -422,7 +422,7 @@ export default defineComponent( {
 
 		.cdx-menu-item__text__description {
 			// Different color for description.
-			color: @color-accessory;
+			color: @color-subtle;
 		}
 
 		&:hover,
@@ -460,11 +460,11 @@ export default defineComponent( {
 
 	/* stylelint-disable no-descending-specificity */
 	&--disabled {
-		color: @color-base--disabled;
+		color: @color-disabled;
 		cursor: @cursor-base--disabled;
 
 		.cdx-menu-item__text__description {
-			color: @color-base--disabled;
+			color: @color-disabled;
 		}
 	}
 	/* stylelint-enable no-descending-specificity */

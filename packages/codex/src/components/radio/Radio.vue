@@ -204,7 +204,7 @@ export default defineComponent( {
 		/* stylelint-disable no-descending-specificity */
 		&:disabled {
 			& ~ .cdx-radio__label-content {
-				color: @color-base--disabled;
+				color: @color-disabled;
 			}
 
 			& + .cdx-radio__icon {

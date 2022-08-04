@@ -197,7 +197,7 @@ export default defineComponent( {
 		&__supporting-text {
 			&,
 			.cdx-icon {
-				color: @color-accessory;
+				color: @color-subtle;
 			}
 		}
 

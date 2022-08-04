@@ -170,7 +170,7 @@ export default defineComponent( {
 			position: relative;
 
 			code {
-				color: @color-base--emphasized;
+				color: @color-emphasized;
 				display: inline-block;
 				margin-bottom: 8px;
 			}

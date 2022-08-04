@@ -330,8 +330,8 @@ export default defineComponent( {
 	/* stylelint-disable-next-line no-descending-specificity */
 	&:disabled {
 		background-color: @background-color-base--disabled;
-		color: @color-base--disabled;
-		-webkit-text-fill-color: @color-base--disabled;
+		color: @color-disabled;
+		-webkit-text-fill-color: @color-disabled;
 		border-color: @border-color-base--disabled;
 		// Don't implement coined effect on text-shadow from OOUI.
 		// This has never gone through design review and was a hack to increase
@@ -339,7 +339,7 @@ export default defineComponent( {
 		// text-shadow: @text-shadow-base--disabled;
 
 		~ .cdx-text-input__icon {
-			color: @color-base--disabled;
+			color: @color-disabled;
 			pointer-events: none;
 		}
 	}

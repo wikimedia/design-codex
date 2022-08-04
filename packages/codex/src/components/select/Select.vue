@@ -322,7 +322,7 @@ export default defineComponent( {
 			}
 
 			&:active {
-				color: @color-base--active;
+				color: @color-emphasized;
 				border-color: @border-color-base--active;
 			}
 		}
@@ -344,7 +344,7 @@ export default defineComponent( {
 	&--disabled {
 		.cdx-select__handle {
 			background-color: @background-color-base--disabled;
-			color: @color-base--disabled;
+			color: @color-disabled;
 			border-color: @border-color-base--disabled;
 			// Don't implement coined effect on text-shadow from OOUI.
 			// This has never gone through design review and was a hack to increase
@@ -355,7 +355,7 @@ export default defineComponent( {
 
 		.cdx-select__indicator,
 		.cdx-select__start-icon {
-			color: @color-base--disabled;
+			color: @color-disabled;
 		}
 	}
 	/* stylelint-enable no-descending-specificity */

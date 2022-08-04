@@ -120,7 +120,7 @@ export default defineComponent( {
 		}
 
 		&:active {
-			color: @color-base--active;
+			color: @color-emphasized;
 			border-color: @border-color-base--active;
 			box-shadow: none;
 		}
@@ -155,19 +155,19 @@ export default defineComponent( {
 	/* stylelint-disable-next-line no-descending-specificity */
 	&:disabled {
 		background-color: @background-color-filled--disabled;
-		color: @color-filled--disabled;
+		color: @color-inverted;
 		border-color: @border-color-base--disabled;
 	}
 
 	&.cdx-toggle-button--toggled-on:enabled {
 		background-color: @color-primary--active;
-		color: @color-base--inverted;
+		color: @color-inverted;
 		border-color: @border-color-primary--active;
 
 		&:hover {
 			background-color: @color-progressive--hover;
 			// Same color as not hovering, needed to override the other :hover rule above
-			color: @color-base--inverted;
+			color: @color-inverted;
 			border-color: @border-color-progressive--hover;
 		}
 
@@ -183,7 +183,7 @@ export default defineComponent( {
 			background-color: @background-color-framed--active;
 			// Repeat general :enabled:active styles here, to override more specific
 			// color/border-color/box-shadow rules
-			color: @color-base--active;
+			color: @color-emphasized;
 			border-color: @border-color-base--active;
 			box-shadow: none;
 		}
@@ -219,7 +219,7 @@ export default defineComponent( {
 	// No difference between disabled toggled-on and toggled-off.
 	/* stylelint-disable-next-line no-descending-specificity */
 	&:disabled {
-		color: @color-base--disabled;
+		color: @color-disabled;
 	}
 }
 </style>

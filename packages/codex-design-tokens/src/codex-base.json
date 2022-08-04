@@ -59,32 +59,23 @@
 			"value": "{ color.gray700 }"
 		},
 		"base--hover": {
+			"comment": "Aimed to be replaced by `color.gray600` in future.",
 			"value": "{ color.gray650 }"
 		},
-		"base--active": {
+		"emphasized": {
 			"value": "{ color.black }"
 		},
-		"base--inverted": {
-			"value": "{ color.white }"
-		},
-		"base--emphasized": {
-			"value": "{ color.black }"
-		},
-		"base--subtle": {
-			"value": "{ color.gray500 }"
-		},
-		"base--disabled": {
-			"value": "{ color.gray500 }"
-		},
-		"filled--disabled": {
-			"value": "{ color.white }"
-		},
-		"accessory": {
-			"comment": "TODO: Unclear if `accessory` is fitting in with all the `base--` modifiers.",
+		"subtle": {
 			"value": "{ color.gray600 }"
 		},
 		"placeholder": {
 			"value": "{ color.gray500 }"
+		},
+		"disabled": {
+			"value": "{ color.gray500 }"
+		},
+		"inverted": {
+			"value": "{ color.white }"
 		},
 		"progressive": {
 			"comment": "'Progressive' Color and states",
@@ -112,6 +103,10 @@
 		"destructive--focus": {
 			"value": "{ color.red600 }"
 		},
+		"visited": {
+			"comment": "'Visited' color. In combination with progressive. Used for links.",
+			"value": "{ color.purple }"
+		},
 		"error": {
 			"value": "{ color.red600 }"
 		},
@@ -125,6 +120,34 @@
 		},
 		"notice": {
 			"value": "{ color.black }"
+		},
+		"base--active": {
+			"deprecated": "Use `color-emphasized` instead.",
+			"value": "{ color.black }"
+		},
+		"base--inverted": {
+			"deprecated": "Use `color-inverted` instead.",
+			"value": "{ color.white }"
+		},
+		"base--emphasized": {
+			"deprecated": "Use `color-emphasized` instead.",
+			"value": "{ color.black }"
+		},
+		"base--subtle": {
+			"deprecated": "Use `color-subtle` instead. Note, that `color-subtle` is using `color.gray600` instead of `color.gray500` now.",
+			"value": "{ color.gray500 }"
+		},
+		"base--disabled": {
+			"deprecated": "Use `color-disabled` instead.",
+			"value": "{ color.gray500 }"
+		},
+		"filled--disabled": {
+			"deprecated": "Use `color-inverted` instead.",
+			"value": "{ color.white }"
+		},
+		"accessory": {
+			"deprecated": "Use `color-subtle` instead.",
+			"value": "{ color.gray600 }"
 		}
 	},
 	"opacity": {

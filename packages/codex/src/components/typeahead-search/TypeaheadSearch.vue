@@ -742,7 +742,7 @@ export default defineComponent( {
 		}
 
 		&__icon {
-			color: @color-accessory;
+			color: @color-subtle;
 			// Because the footer icon should line up vertically with the search result text when
 			// `showThumbnail` is false, we set its width to `auto` here instead of using the more
 			// intuitive @size-search-figure variable so it doesn't have extra horizontal space.

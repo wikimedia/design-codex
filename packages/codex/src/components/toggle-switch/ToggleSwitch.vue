@@ -346,7 +346,7 @@ export default defineComponent( {
 			cursor: @cursor-base--disabled;
 
 			& ~ .cdx-toggle-switch__label {
-				color: @color-base--disabled;
+				color: @color-disabled;
 			}
 
 			& ~ .cdx-toggle-switch__switch {
