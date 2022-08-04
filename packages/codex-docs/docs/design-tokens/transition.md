@@ -5,12 +5,6 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 # Transition
 
-<cdx-docs-tokens-table
-	:tokens="tokens.transition"
-	token-demo="CdxDocsTransitionDemo"
-	css-property="transition"
-/>
-
 ## Transition-duration
 
 <cdx-docs-tokens-table
@@ -34,4 +28,12 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 	:tokens="tokens['transition-property']"
 	token-demo="CdxDocsTransitionDemo"
 	css-property="transition-property"
+/>
+
+## Transition shorthand
+
+<cdx-docs-tokens-table
+	:tokens="tokens.transition"
+	token-demo="CdxDocsTransitionDemo"
+	css-property="transition"
 />
