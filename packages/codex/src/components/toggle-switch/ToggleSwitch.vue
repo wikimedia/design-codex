@@ -136,7 +136,7 @@ export default defineComponent( {
 @start-toggle-switch-grip: unit( ( 5 / @font-size-browser / @font-size-base ), em );
 @start-toggle-switch-grip--mobile: unit( ( 4.5 / @font-size-browser / @font-size-base ), em );
 
-@border-filled--disabled: @border-width-base @border-style-base @border-color-filled--disabled;
+@border-filled--disabled: @border-width-base @border-style-base @border-color-inverted;
 @border-color-toggle-switch-grip--active: @color-white;
 
 @padding-end-toggle-switch-label-content: 6px;
@@ -334,7 +334,7 @@ export default defineComponent( {
 
 					&::before,
 					.cdx-toggle-switch__switch__grip {
-						border-color: @border-color-inset--focus;
+						border-color: @border-color-inverted;
 					}
 				}
 			}

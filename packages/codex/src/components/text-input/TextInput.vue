@@ -321,7 +321,7 @@ export default defineComponent( {
 		}
 
 		&:focus {
-			border-color: @border-color-base--focus;
+			border-color: @border-color-progressive--focus;
 			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			outline: @outline-base--focus;
 		}
@@ -332,7 +332,7 @@ export default defineComponent( {
 		background-color: @background-color-base--disabled;
 		color: @color-disabled;
 		-webkit-text-fill-color: @color-disabled;
-		border-color: @border-color-base--disabled;
+		border-color: @border-color-disabled;
 		// Don't implement coined effect on text-shadow from OOUI.
 		// This has never gone through design review and was a hack to increase
 		// color contrast.

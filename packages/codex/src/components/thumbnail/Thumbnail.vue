@@ -106,10 +106,10 @@ export default defineComponent( {
 		flex-shrink: 0;
 		width: @size-search-figure;
 		height: @size-search-figure;
-		// TODO: use token for border color. Currently, a token exists for this color called
-		// `border-color-base--disabled`, but this token name will likely change and is also not
-		// appropriate for this use case. For now, we'll directly use the color.
-		border: @border-width-base @border-style-base @color-gray300;
+		// Thumbnail placeholder and image are an exception – re-using `@border-color-disabled`
+		// token. The vast majority of token usage is disabled elements and in a certain view,
+		// these two elements are also not interactive on their own.
+		border: @border-width-base @border-style-base @border-color-disabled;
 		border-radius: @border-radius-base;
 	}
 

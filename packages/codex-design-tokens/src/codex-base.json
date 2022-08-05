@@ -353,19 +353,13 @@
 		"base": {
 			"value": "{ color.gray400 }"
 		},
-		"base--hover": {
-			"value": "{ color.gray400 }"
-		},
-		"base--active": {
+		"interactive": {
 			"value": "{ color.gray500 }"
 		},
-		"base--focus": {
-			"value": "{ color.blue600 }"
-		},
-		"base--disabled": {
+		"disabled": {
 			"value": "{ color.gray300 }"
 		},
-		"filled--disabled": {
+		"inverted": {
 			"value": "{ color.white }"
 		},
 		"progressive": {
@@ -392,19 +386,6 @@
 		"destructive--focus": {
 			"value": "{ color.red600 }"
 		},
-		"neutral": {
-			"comment": "Better off in components.json?",
-			"value": "{ color.gray400 }"
-		},
-		"neutral--hover": {
-			"value": "{ color.gray400 }"
-		},
-		"neutral--active": {
-			"value": "{ color.gray500 }"
-		},
-		"neutral--focus": {
-			"value": "{ color.blue600 }"
-		},
 		"error": {
 			"value": "{ color.red600 }"
 		},
@@ -417,12 +398,48 @@
 		"notice": {
 			"value": "{ color.gray400 }"
 		},
-		"inset--focus": {
-			"comment": "Inset focus border on progressive 'filled' components, like Checkbox. TODO: Consider `border-color-inverted--focus` instead.",
-			"value": "{ color.base--inverted }"
-		},
 		"transparent": {
 			"value": "{ color.transparent }"
+		},
+		"base--hover": {
+			"deprecated": "Use `border-color-base` instead.",
+			"value": "{ color.gray400 }"
+		},
+		"base--active": {
+			"deprecated": "Use `border-color-interactive` instead.",
+			"value": "{ color.gray500 }"
+		},
+		"base--focus": {
+			"deprecated": "Use `border-color-progressive--focus` instead.",
+			"value": "{ color.blue600 }"
+		},
+		"base--disabled": {
+			"deprecated": "Use `border-color-disabled` instead.",
+			"value": "{ color.gray300 }"
+		},
+		"filled--disabled": {
+			"deprecated": "Use `border-color-inverted` instead.",
+			"value": "{ color.white }"
+		},
+		"neutral": {
+			"deprecated": "Use `border-color-base` instead.",
+			"value": "{ color.gray400 }"
+		},
+		"neutral--hover": {
+			"deprecated": "Use `border-color-base` instead.",
+			"value": "{ color.gray400 }"
+		},
+		"neutral--active": {
+			"deprecated": "Use `border-color-interactive` instead.",
+			"value": "{ color.gray500 }"
+		},
+		"neutral--focus": {
+			"deprecated": "Use `border-color-progressive--focus` instead.",
+			"value": "{ color.blue600 }"
+		},
+		"inset--focus": {
+			"deprecated": "Use `border-color-inverted` instead.",
+			"value": "{ color.inverted }"
 		}
 	},
 	"border-radius": {

@@ -250,7 +250,7 @@ export default defineComponent( {
 		&:disabled {
 			& + .cdx-checkbox__icon {
 				background-color: @background-color-filled--disabled;
-				border-color: @border-color-base--disabled;
+				border-color: @border-color-disabled;
 			}
 
 			& ~ .cdx-checkbox__label-content {

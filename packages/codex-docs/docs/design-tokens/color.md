@@ -22,3 +22,9 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 	token-category="color"
 	css-property="background-color"
 />
+
+## Border and box-shadow colors
+
+For information on border colors visit
+[Border](/design-tokens/border) and for box-shadow colors [Box-shadow](/design-tokens/box-shadow)
+token page.

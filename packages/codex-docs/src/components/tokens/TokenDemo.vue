@@ -108,6 +108,7 @@ export default defineComponent( {
 		width: 50px;
 		height: 50px;
 		border: @border-width-base @border-style-base @border-color-base;
+		border-radius: @border-radius-base;
 
 		&--border-radius-pill {
 			width: 100px;
@@ -131,7 +132,7 @@ export default defineComponent( {
 	&--opacity &__token {
 		background-color: #000;
 		border: @border-width-base @border-style-base rgba( 0, 0, 0, 0.1 );
-		border-radius: @border-radius-base * 2;
+		border-radius: @border-radius-base;
 		box-shadow: rgba( 0, 0, 0, 0.1 ) 0 1px 3px 0;
 	}
 

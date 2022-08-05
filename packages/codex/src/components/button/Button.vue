@@ -150,7 +150,7 @@ export default defineComponent( {
 		// Amplify 'interaction' feeling when pressed, by not setting focus “outline” style while
 		// in active state.
 		&:focus:not( :active ) {
-			border-color: @border-color-base--focus;
+			border-color: @border-color-progressive--focus;
 			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			// Set the standard focus `outline` transparent. A `border` and `box-shadow` visual
 			// focus is added above for common rendering.
@@ -191,7 +191,7 @@ export default defineComponent( {
 		&:active {
 			background-color: @background-color-framed--active;
 			color: @color-emphasized;
-			border-color: @border-color-base--active;
+			border-color: @border-color-interactive;
 		}
 
 		// `:focus` styles covered in `.cdx-button` selector above.
@@ -320,7 +320,7 @@ export default defineComponent( {
 		&:active {
 			background-color: @background-color-quiet--active;
 			color: @color-emphasized;
-			border-color: @border-color-base--active;
+			border-color: @border-color-interactive;
 		}
 
 		// `:focus` styles covered in `.cdx-button` selector above.

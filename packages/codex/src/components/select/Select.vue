@@ -307,7 +307,7 @@ export default defineComponent( {
 			&:hover {
 				background-color: @background-color-framed--hover;
 				color: @color-base--hover;
-				border-color: @border-color-base--hover;
+				border-color: @border-color-base;
 				cursor: @cursor-base--hover;
 
 				.cdx-select__indicator {
@@ -323,7 +323,7 @@ export default defineComponent( {
 
 			&:active {
 				color: @color-emphasized;
-				border-color: @border-color-base--active;
+				border-color: @border-color-interactive;
 			}
 		}
 
@@ -345,7 +345,7 @@ export default defineComponent( {
 		.cdx-select__handle {
 			background-color: @background-color-base--disabled;
 			color: @color-disabled;
-			border-color: @border-color-base--disabled;
+			border-color: @border-color-disabled;
 			// Don't implement coined effect on text-shadow from OOUI.
 			// This has never gone through design review and was a hack to increase
 			// color contrast.

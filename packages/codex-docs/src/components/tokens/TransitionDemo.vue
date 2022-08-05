@@ -79,7 +79,7 @@ export default defineComponent( {
 
 	&--transition-all:hover,
 	&--transition-border-color:hover {
-		border-color: @border-color-base--focus;
+		border-color: @border-color-progressive--focus;
 	}
 
 	&--transition-all:hover,

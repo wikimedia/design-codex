@@ -121,7 +121,7 @@ export default defineComponent( {
 
 		&:active {
 			color: @color-emphasized;
-			border-color: @border-color-base--active;
+			border-color: @border-color-interactive;
 			box-shadow: none;
 		}
 	}
@@ -156,7 +156,7 @@ export default defineComponent( {
 	&:disabled {
 		background-color: @background-color-filled--disabled;
 		color: @color-inverted;
-		border-color: @border-color-base--disabled;
+		border-color: @border-color-disabled;
 	}
 
 	&.cdx-toggle-button--toggled-on:enabled {
@@ -184,7 +184,7 @@ export default defineComponent( {
 			// Repeat general :enabled:active styles here, to override more specific
 			// color/border-color/box-shadow rules
 			color: @color-emphasized;
-			border-color: @border-color-base--active;
+			border-color: @border-color-interactive;
 			box-shadow: none;
 		}
 	}

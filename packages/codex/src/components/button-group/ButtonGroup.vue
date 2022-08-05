@@ -88,7 +88,7 @@ export default defineComponent( {
 		&:disabled + .cdx-button:disabled {
 			// When two disabled buttons are adjacent to each other, display a white border
 			// between them
-			border-left-color: @border-color-filled--disabled;
+			border-left-color: @border-color-inverted;
 		}
 	}
 }

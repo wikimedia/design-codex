@@ -184,7 +184,7 @@ export default defineComponent( {
 
 				&:focus + .cdx-radio__icon {
 					&::before {
-						border-color: @border-color-inset--focus;
+						border-color: @border-color-inverted;
 					}
 				}
 
@@ -209,7 +209,7 @@ export default defineComponent( {
 
 			& + .cdx-radio__icon {
 				background-color: @background-color-filled--disabled;
-				border-color: @border-color-base--disabled;
+				border-color: @border-color-disabled;
 			}
 
 			&:checked + .cdx-radio__icon {

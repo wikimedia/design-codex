@@ -154,7 +154,7 @@ export default defineComponent( {
 			// When two disabled buttons or two toggled-on buttons are adjacent to each other,
 			// display a white border between them. Don't let this white border be overridden by
 			// :hover styles, but do let it be overridden by :active and :focus styles.
-			border-left-color: @border-color-filled--disabled;
+			border-left-color: @border-color-inverted;
 		}
 	}
 }

@@ -164,7 +164,7 @@ export default defineComponent( {
 		}
 
 		&:hover {
-			border-color: @border-color-base--active;
+			border-color: @border-color-interactive;
 		}
 
 		&:focus {
