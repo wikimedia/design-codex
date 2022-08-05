@@ -119,7 +119,7 @@
 			"value": "{ color.green700 }"
 		},
 		"notice": {
-			"value": "{ color.black }"
+			"value": "{ color.gray700 }"
 		},
 		"base--active": {
 			"deprecated": "Use `color-emphasized` instead.",
