@@ -34,6 +34,7 @@
 		"build": "npm run clean && vite build --mode=rtl && vite build && npm run build:ts",
 		"build-if-missing": "test -e dist/codex.es.js || npm run build",
 		"build:ts": "vue-tsc -p ./tsconfig-build.json --emitDeclarationOnly",
+		"build-sandbox": "vite build --mode=sandbox",
 		"clean": "rm -rf dist/",
 		"serve": "vite preview",
 		"test": "npm run lint && npm -s run build && npm -s run test:unit",
