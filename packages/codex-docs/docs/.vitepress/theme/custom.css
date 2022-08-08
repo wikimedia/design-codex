@@ -39,13 +39,13 @@ td {
 
 /* Styles for custom blocks; see https://vitepress.vuejs.org/guide/markdown.html#custom-containers. */
 .custom-block.info {
-	background-color: var( --background-color-message-notice );
+	background-color: var( --background-color-notice-subtle );
 	color: var( --color-notice );
 	border-color: var( --border-color-notice );
 }
 
 .custom-block.warning {
-	background-color: var( --background-color-message-warning );
+	background-color: var( --background-color-warning-subtle );
 	/* Use notice color for improved readability. */
 	color: var( --color-notice );
 	border-color: var( --border-color-warning );
@@ -56,7 +56,7 @@ td {
 }
 
 .custom-block.danger {
-	background-color: var( --background-color-message-error );
+	background-color: var( --background-color-error-subtle );
 	/* Use notice color for improved readability. */
 	color: var( --color-notice );
 	border-color: var( --border-color-error );

@@ -166,7 +166,7 @@ export default defineComponent( {
 	&__switch {
 		order: 2;
 		.force-gpu-composite-layer();
-		background-color: @background-color-framed;
+		background-color: @background-color-interactive-subtle;
 		display: inline-block;
 		flex-shrink: 0;
 		// Grip will be positioned absolutely relative to the switch.
@@ -258,15 +258,15 @@ export default defineComponent( {
 			}
 
 			& ~ .cdx-toggle-switch__switch .cdx-toggle-switch__switch__grip {
-				background-color: @background-color-framed;
+				background-color: @background-color-interactive-subtle;
 			}
 
 			&:hover ~ .cdx-toggle-switch__switch {
-				background-color: @background-color-framed--hover;
+				background-color: @background-color-base;
 				border-color: @border-color-progressive--hover;
 
 				.cdx-toggle-switch__switch__grip {
-					background-color: @background-color-framed--hover;
+					background-color: @background-color-base;
 					border-color: @border-color-progressive--hover;
 				}
 			}
@@ -347,8 +347,8 @@ export default defineComponent( {
 			}
 
 			& ~ .cdx-toggle-switch__switch {
-				background-color: @background-color-filled--disabled;
-				border-color: @background-color-filled--disabled;
+				background-color: @background-color-disabled;
+				border-color: @border-color-disabled;
 
 				.cdx-toggle-switch__switch__grip {
 					border: @border-width-base @border-style-base @border-color-inverted;

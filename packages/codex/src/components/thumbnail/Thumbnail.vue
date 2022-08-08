@@ -126,7 +126,7 @@ export default defineComponent( {
 
 	&__placeholder {
 		// TODO: update to @background-color-interactive-subtle once available.
-		background-color: @background-color-framed;
+		background-color: @background-color-interactive-subtle;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;

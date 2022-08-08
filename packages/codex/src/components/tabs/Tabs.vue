@@ -669,14 +669,14 @@ export default defineComponent( {
 
 	// Framed Tabs.
 	&--framed > &__header {
-		background-color: @background-color-tabs-framed;
+		background-color: @background-color-interactive;
 
 		.cdx-tabs__prev-scroller::after {
-			background-image: linear-gradient( to right, @background-color-tabs-framed 0, @background-color-base--transparent 100% );
+			background-image: linear-gradient( to right, @background-color-interactive 0, @background-color-base--transparent 100% );
 		}
 
 		.cdx-tabs__next-scroller::before {
-			background-image: linear-gradient( to left, @background-color-tabs-framed 0, @background-color-base--transparent 100% );
+			background-image: linear-gradient( to left, @background-color-interactive 0, @background-color-base--transparent 100% );
 		}
 
 		// Framed Tabs List item.
@@ -720,7 +720,7 @@ export default defineComponent( {
 			}
 
 			&--disabled [ role='tab' ] {
-				background-color: @background-color-tabs-framed;
+				background-color: @background-color-interactive;
 				color: @color-disabled;
 				cursor: @cursor-base--disabled;
 			}

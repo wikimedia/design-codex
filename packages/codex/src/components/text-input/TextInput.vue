@@ -329,7 +329,7 @@ export default defineComponent( {
 
 	/* stylelint-disable-next-line no-descending-specificity */
 	&:disabled {
-		background-color: @background-color-base--disabled;
+		background-color: @background-color-disabled-subtle;
 		color: @color-disabled;
 		-webkit-text-fill-color: @color-disabled;
 		border-color: @border-color-disabled;

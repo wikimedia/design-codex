@@ -187,7 +187,7 @@ export default defineComponent( {
 	}
 
 	&-demo__token--deprecated {
-		background-color: @background-color-message-warning;
+		background-color: @background-color-warning-subtle;
 		display: inline-block;
 		position: absolute;
 		top: 8px;

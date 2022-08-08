@@ -141,7 +141,7 @@ export default defineComponent( {
 		border: @border-width-base @border-style-base @border-color-base;
 
 		&__inner {
-			background-color: @background-color-base--disabled;
+			background-color: @background-color-disabled-subtle;
 			width: 100%;
 			height: 100%;
 		}

@@ -89,7 +89,7 @@ export default defineComponent( {
 
 	&--transition-all:hover,
 	&--transition-background-color:hover {
-		background-color: @background-color-base--hover;
+		background-color: @background-color-interactive;
 	}
 
 	&--transition-all:hover,

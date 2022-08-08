@@ -84,20 +84,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import './../../themes/mixins/button.less';
 
-// Same as OOUI
-// TODO add this to wikimedia-ui tokens instead
-@background-color-filled--active--disabled: mix(
-	@color-primary--active,
-	@background-color-filled--disabled,
-	35%
-);
-
-// TODO move these to the design tokens
-@background-color-toggle-button-quiet--hover: @color-gray100;
-@background-color-toggle-button-quiet--active: @color-gray200;
-@background-color-toggle-button-quiet--focus: @color-gray100;
-@background-color-toggle-button-quiet--toggled-on: @color-gray200;
-
 // Common styles for framed and quiet versions
 .cdx-toggle-button {
 	// mixin for common base styles for buttons
@@ -136,17 +122,17 @@ export default defineComponent( {
 // Framed version
 .cdx-toggle-button--framed {
 	&:enabled {
-		background-color: @background-color-framed;
+		background-color: @background-color-interactive-subtle;
 		border-color: @border-color-base;
 
 		&:hover {
-			background-color: @background-color-framed--hover;
+			background-color: @background-color-base;
 			color: @color-base--hover;
 		}
 
 		// &:enabled:active has some shared styles for quiet and framed, see above.
 		&:active {
-			background-color: @background-color-framed--active;
+			background-color: @background-color-interactive;
 		}
 
 		// &:enabled:focus has some shared styles for quiet and framed, see above.
@@ -154,7 +140,7 @@ export default defineComponent( {
 
 	/* stylelint-disable-next-line no-descending-specificity */
 	&:disabled {
-		background-color: @background-color-filled--disabled;
+		background-color: @background-color-disabled;
 		color: @color-inverted;
 		border-color: @border-color-disabled;
 	}
@@ -180,7 +166,7 @@ export default defineComponent( {
 		}
 
 		&:active {
-			background-color: @background-color-framed--active;
+			background-color: @background-color-interactive;
 			// Repeat general :enabled:active styles here, to override more specific
 			// color/border-color/box-shadow rules
 			color: @color-emphasized;
@@ -198,21 +184,21 @@ export default defineComponent( {
 
 	&:enabled {
 		&.cdx-toggle-button--toggled-on {
-			background-color: @background-color-toggle-button-quiet--toggled-on;
+			background-color: @background-color-interactive;
 		}
 
 		&:hover {
-			background-color: @background-color-toggle-button-quiet--hover;
+			background-color: @background-color-interactive-subtle;
 		}
 
 		// `&:enabled:focus` has some shared styles for quiet and framed, see above.
 		&:focus {
-			background-color: @background-color-toggle-button-quiet--focus;
+			background-color: @background-color-interactive-subtle;
 		}
 
 		// `&:enabled:active` has some shared styles for quiet and framed, see above
 		&:active {
-			background-color: @background-color-toggle-button-quiet--active;
+			background-color: @background-color-interactive;
 		}
 	}
 

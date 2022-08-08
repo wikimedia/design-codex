@@ -288,22 +288,22 @@ export default defineComponent( {
 		}
 
 		&.cdx-message--notice {
-			background-color: @background-color-message-notice;
+			background-color: @background-color-notice-subtle;
 			border-color: @border-color-notice;
 		}
 
 		&.cdx-message--error {
-			background-color: @background-color-message-error;
+			background-color: @background-color-error-subtle;
 			border-color: @border-color-error;
 		}
 
 		&.cdx-message--warning {
-			background-color: @background-color-message-warning;
+			background-color: @background-color-warning-subtle;
 			border-color: @border-color-warning;
 		}
 
 		&.cdx-message--success {
-			background-color: @background-color-message-success;
+			background-color: @background-color-success-subtle;
 			border-color: @border-color-success;
 		}
 	}

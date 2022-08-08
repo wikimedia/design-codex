@@ -208,7 +208,7 @@ export default defineComponent( {
 			}
 
 			& + .cdx-radio__icon {
-				background-color: @background-color-filled--disabled;
+				background-color: @background-color-disabled;
 				border-color: @border-color-disabled;
 			}
 

@@ -427,13 +427,13 @@ export default defineComponent( {
 
 		&:hover,
 		&.cdx-menu-item--highlighted {
-			background-color: @background-color-base--hover;
+			background-color: @background-color-interactive;
 			cursor: @cursor-base--hover;
 		}
 
 		&.cdx-menu-item--active,
 		&.cdx-menu-item--active:hover {
-			background-color: @background-color-base--active;
+			background-color: @background-color-progressive-subtle;
 			color: @color-progressive;
 
 			.cdx-menu-item__content,
@@ -444,7 +444,7 @@ export default defineComponent( {
 
 		&.cdx-menu-item--selected,
 		&.cdx-menu-item--selected:hover {
-			background-color: @background-color-base--active;
+			background-color: @background-color-progressive-subtle;
 		}
 
 		&.cdx-menu-item--selected:hover,

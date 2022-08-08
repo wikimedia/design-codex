@@ -180,16 +180,16 @@ export default defineComponent( {
 // Non-quiet “framed” buttons (normal and primary types)
 .cdx-button--framed {
 	&:enabled {
-		background-color: @background-color-framed;
+		background-color: @background-color-interactive-subtle;
 		border-color: @border-color-base;
 
 		&:hover {
-			background-color: @background-color-framed--hover;
+			background-color: @background-color-base;
 			color: @color-base--hover;
 		}
 
 		&:active {
-			background-color: @background-color-framed--active;
+			background-color: @background-color-interactive;
 			color: @color-emphasized;
 			border-color: @border-color-interactive;
 		}
@@ -199,7 +199,7 @@ export default defineComponent( {
 
 	/* stylelint-disable-next-line no-descending-specificity */
 	&:disabled {
-		background-color: @background-color-filled--disabled;
+		background-color: @background-color-disabled;
 		color: @color-inverted;
 	}
 }
@@ -250,6 +250,8 @@ export default defineComponent( {
 			}
 
 			&:focus:not( :active ) {
+				// While Codex tokens feature `background-color-destructive--focus` it's not
+				// necessary to duplicate it, as `background-color` is inherited.
 				border-color: @border-color-destructive--focus;
 				// Make `box-shadow` feature a `1px` White inset outline with a value combination.
 				// stylelint-disable-next-line value-list-comma-newline-after
@@ -309,7 +311,7 @@ export default defineComponent( {
 // Quiet buttons.
 .cdx-button--type-quiet {
 	// Reset `<button>` default background color.
-	background-color: transparent;
+	background-color: @background-color-transparent;
 	border-color: @border-color-transparent;
 
 	&:enabled {
@@ -332,7 +334,7 @@ export default defineComponent( {
 			color: @color-progressive;
 
 			&:hover {
-				background-color: @background-color-quiet-progressive--hover;
+				background-color: @background-color-progressive-subtle;
 				color: @color-progressive--hover;
 			}
 
@@ -353,7 +355,7 @@ export default defineComponent( {
 			color: @color-destructive;
 
 			&:hover {
-				background-color: @background-color-quiet-destructive--hover;
+				background-color: @background-color-destructive-subtle;
 				color: @color-destructive--hover;
 			}
 

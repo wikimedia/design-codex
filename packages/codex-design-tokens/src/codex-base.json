@@ -4,16 +4,18 @@
 		"base": {
 			"value": "{ color.white }"
 		},
-		"base--hover": {
+		"interactive": {
 			"value": "{ color.gray200 }"
 		},
-		"base--active": {
-			"value": "{ color.blue100 }"
+		"interactive-subtle": {
+			"value": "{ color.gray100 }"
 		},
-		"base--transparent": {
-			"value": "{ color.transparent-light }"
+		"disabled": {
+			"comment": "Components like Buttons, Checkboxes, Radios, ProgressBars….",
+			"value": "{ color.gray300 }"
 		},
-		"base--disabled": {
+		"disabled-subtle": {
+			"comment": "Components like TextInputs, Selects….",
 			"value": "{ color.gray200 }"
 		},
 		"progressive": {
@@ -28,6 +30,9 @@
 		"progressive--focus": {
 			"value": "{ color.blue600 }"
 		},
+		"progressive-subtle": {
+			"value": "{ color.blue100 }"
+		},
 		"destructive": {
 			"value": "{ color.red600 }"
 		},
@@ -38,20 +43,73 @@
 			"value": "{ color.red700 }"
 		},
 		"destructive--focus": {
+			"value": "{ color.red600 }"
+		},
+		"destructive-subtle": {
 			"value": "{ color.red100 }"
 		},
+		"error-subtle": {
+			"value": "{ color.red100 }"
+		},
+		"warning-subtle": {
+			"value": "{ color.yellow100 }"
+		},
+		"success-subtle": {
+			"value": "{ color.green100 }"
+		},
+		"notice-subtle": {
+			"value": "{ color.gray200 }"
+		},
+		"transparent": {
+			"value": "{ color.transparent-light }"
+		},
+		"base--hover": {
+			"deprecated": "Use `background-color-interactive` instead.",
+			"value": "{ color.gray200 }"
+		},
+		"base--active": {
+			"deprecated": "Use `background-color-progressive-subtle` instead.",
+			"value": "{ color.blue100 }"
+		},
+		"base--disabled": {
+			"deprecated": "Use `background-color-disabled-subtle` instead.",
+			"value": "{ color.gray200 }"
+		},
+		"base--transparent": {
+			"deprecated": "Use `background-color-transparent` instead.",
+			"value": "{ color.transparent-light }"
+		},
+		"filled--disabled": {
+			"deprecated": "Use `background-color-disabled` instead.",
+			"value": "{ color.gray300 }"
+		},
 		"framed": {
+			"deprecated": "Use `background-color-interactive-subtle` instead.",
 			"value": "{ color.gray100 }"
 		},
 		"framed--hover": {
+			"deprecated": "Use `background-color-base` instead.",
 			"value": "{ color.white }"
 		},
 		"framed--active": {
+			"deprecated": "Use `background-color-interactive` with buttons' active state instead.",
 			"value": "{ color.gray300 }"
 		},
-		"filled--disabled": {
-			"comment": "'Filled' UI components (Checkboxes, Radios, ProgressBars…)",
-			"value": "{ color.gray300 }"
+		"error--framed": {
+			"deprecated": "Use `background-color-error-subtle` instead.",
+			"value": "{ color.red100 }"
+		},
+		"warning--framed": {
+			"deprecated": "Use `background-color-warning-subtle` instead.",
+			"value": "{ color.yellow100 }"
+		},
+		"success--framed": {
+			"deprecated": "Use `background-color-success-subtle` instead.",
+			"value": "{ color.green100 }"
+		},
+		"notice--framed": {
+			"deprecated": "Use `background-color-notice-subtle` instead.",
+			"value": "{ color.gray200 }"
 		}
 	},
 	"color": {

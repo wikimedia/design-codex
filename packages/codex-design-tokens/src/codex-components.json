@@ -15,51 +15,47 @@
 		"quiet--active": {
 			"value": "{ color.modifier-gray200-translucent }"
 		},
-		"quiet-progressive--hover": {
-			"value": "{ color.blue100 }"
-		},
-		"quiet-destructive--hover": {
-			"value": "{ color.red100 }"
-		},
 		"input-binary--checked": {
 			"value": "{ color.blue600 }"
 		},
 		"message": {
 			"comment": "User system messages (errors, warnings, successes, notices).",
 			"notice": {
+				"deprecated": "Use `background-color-notice-subtle` instead.",
 				"value": "{ color.gray200 }"
 			},
 			"error": {
+				"deprecated": "Use `background-color-error-subtle` instead.",
 				"value": "{ color.red100 }"
 			},
 			"warning": {
+				"deprecated": "Use `background-color-warning-subtle` instead.",
 				"value": "{ color.yellow100 }"
 			},
 			"success": {
+				"deprecated": "Use `background-color-success-subtle` instead.",
 				"value": "{ color.green100 }"
 			}
 		},
 		"tabs-framed": {
-			"comment": "Tabs bar background color.",
+			"deprecated": "Former Tabs bar background color token. Use `background-color-interactive` instead.",
 			"value": "{ color.gray200 }"
 		},
 		"toolbar": {
-			"comment": "Toolbar.",
+			"deprecated": "Former Toolbar background color token. Use `background-color-base` instead.",
 			"value": "{ background-color.base }"
 		},
 		"tool--hover": {
-			"comment": "Toolbar tools.",
+			"deprecated": "Former Toolbar tools background color token. Use `background-color-base` instead.",
 			"value": "{ background-color.base--hover }"
 		},
 		"tool--active": {
+			"deprecated": "Use `background-color-progressive` instead.",
 			"value": "{ background-color.progressive }"
 		},
 		"tool--active-hover": {
+			"deprecated": "Use `background-color-progressive--hover` instead.",
 			"value": "{ background-color.progressive--hover }"
-		},
-		"progressive-quiet--hover": {
-			"deprecated": "Button token names start with type and then action to better clarify application by type first.",
-			"value": "{ background-color.quiet-progressive--hover }"
 		}
 	},
 	"color": {

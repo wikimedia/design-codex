@@ -297,7 +297,7 @@ export default defineComponent( {
 
 	&--enabled {
 		.cdx-select__handle {
-			background-color: @background-color-framed;
+			background-color: @background-color-interactive-subtle;
 			color: @color-base;
 			border-color: @border-color-base;
 			transition-property: @transition-property-base;
@@ -305,7 +305,7 @@ export default defineComponent( {
 			.element-with-menu-expanded();
 
 			&:hover {
-				background-color: @background-color-framed--hover;
+				background-color: @background-color-base;
 				color: @color-base--hover;
 				border-color: @border-color-base;
 				cursor: @cursor-base--hover;
@@ -330,7 +330,7 @@ export default defineComponent( {
 		/* Expanded Menu only happens when enabled. */
 		&.cdx-select--expanded {
 			.cdx-select__handle {
-				background-color: @background-color-framed--hover;
+				background-color: @background-color-base;
 
 				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-select__indicator {
@@ -343,7 +343,7 @@ export default defineComponent( {
 	/* stylelint-disable no-descending-specificity */
 	&--disabled {
 		.cdx-select__handle {
-			background-color: @background-color-base--disabled;
+			background-color: @background-color-disabled-subtle;
 			color: @color-disabled;
 			border-color: @border-color-disabled;
 			// Don't implement coined effect on text-shadow from OOUI.

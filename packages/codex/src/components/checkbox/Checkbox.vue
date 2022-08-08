@@ -249,7 +249,7 @@ export default defineComponent( {
 		/* stylelint-disable no-descending-specificity */
 		&:disabled {
 			& + .cdx-checkbox__icon {
-				background-color: @background-color-filled--disabled;
+				background-color: @background-color-disabled;
 				border-color: @border-color-disabled;
 			}
 
