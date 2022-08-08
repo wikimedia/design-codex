@@ -438,15 +438,12 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-// TODO: Tokenize. Also in use in TypeaheadSearch.
-@border-color-heading: @color-gray300;
-
 .cdx-demo-wrapper {
 	margin-top: 16px;
 
 	&__demo-pane {
 		position: relative;
-		border: @border-width-base @border-style-base @border-color-heading;
+		border: @border-width-base @border-style-base @border-color-subtle;
 		border-radius: @border-radius-base;
 		padding: 24px;
 

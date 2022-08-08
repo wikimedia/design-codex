@@ -356,6 +356,9 @@
 		"interactive": {
 			"value": "{ color.gray500 }"
 		},
+		"subtle": {
+			"value": "{ color.gray300 }"
+		},
 		"disabled": {
 			"value": "{ color.gray300 }"
 		},

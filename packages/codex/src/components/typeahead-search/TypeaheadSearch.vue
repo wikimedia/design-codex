@@ -686,8 +686,6 @@ export default defineComponent( {
 @margin-end-typeahead-search-footer-icon: 8px;
 @padding-no-results-text-with-thumbnail: 20px;
 
-@border-color-heading: @color-gray300;
-
 @transition-property-simple-search-submit: opacity;
 
 // The amount of space between the typeahead search figure's parent component and the
@@ -730,7 +728,7 @@ export default defineComponent( {
 	}
 
 	&__search-footer {
-		border-top: @border-width-base @border-style-base @border-color-heading;
+		border-top: @border-width-base @border-style-base @border-color-subtle;
 
 		&:visited {
 			color: @color-base;

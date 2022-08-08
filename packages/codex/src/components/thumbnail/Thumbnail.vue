@@ -106,10 +106,7 @@ export default defineComponent( {
 		flex-shrink: 0;
 		width: @size-search-figure;
 		height: @size-search-figure;
-		// Thumbnail placeholder and image are an exception – re-using `@border-color-disabled`
-		// token. The vast majority of token usage is disabled elements and in a certain view,
-		// these two elements are also not interactive on their own.
-		border: @border-width-base @border-style-base @border-color-disabled;
+		border: @border-width-base @border-style-base @border-color-subtle;
 		border-radius: @border-radius-base;
 	}
 
