@@ -8,21 +8,20 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { CdxButtonGroup, ButtonGroupItem } from '@wikimedia/codex';
-import { cdxIconEdit, cdxIconSpeechBubble, cdxIconCheck, cdxIconDownload, cdxIconTrash } from '@wikimedia/codex-icons';
 import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
-	name: 'ButtonGroupWithIcons',
+	name: 'MaximumButtonGroup',
 	components: {
 		CdxButtonGroup
 	},
 	setup() {
 		const buttons: ButtonGroupItem[] = [
-			{ value: 'edit', label: 'Edit', icon: cdxIconEdit },
-			{ value: 'talk', label: 'Discuss', icon: cdxIconSpeechBubble },
-			{ value: 'save', label: 'Done', icon: cdxIconCheck, disabled: true },
-			{ value: 'download', label: 'Download', icon: cdxIconDownload, disabled: true },
-			{ value: 'delete', label: 'Delete', icon: cdxIconTrash }
+			{ value: 1, label: 'First button' },
+			{ value: 2, label: 'Second button' },
+			{ value: 3, label: 'Third button with a long label' },
+			{ value: 4, label: 'Fourth button with a long label' },
+			{ value: 5, label: 'Fifth button' }
 		];
 
 		const onClick = getEventLogger<string|number>( 'click' );

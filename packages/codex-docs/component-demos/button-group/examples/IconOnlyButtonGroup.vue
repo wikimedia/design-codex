@@ -8,7 +8,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { CdxButtonGroup, ButtonGroupItem } from '@wikimedia/codex';
-import { cdxIconEdit, cdxIconSpeechBubble, cdxIconCheck, cdxIconArrowPrevious, cdxIconTrash } from '@wikimedia/codex-icons';
+import { cdxIconEdit, cdxIconSpeechBubble, cdxIconCheck, cdxIconDownload, cdxIconTrash } from '@wikimedia/codex-icons';
 import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
@@ -21,7 +21,7 @@ export default defineComponent( {
 			{ value: 'edit', label: null, icon: cdxIconEdit, ariaLabel: 'Edit' },
 			{ value: 'talk', label: null, icon: cdxIconSpeechBubble, ariaLabel: 'Discuss' },
 			{ value: 'save', label: null, icon: cdxIconCheck, ariaLabel: 'Done', disabled: true },
-			{ value: 'back', label: null, icon: cdxIconArrowPrevious, ariaLabel: 'Go back', disabled: true },
+			{ value: 'download', label: null, icon: cdxIconDownload, ariaLabel: 'Download', disabled: true },
 			{ value: 'delete', label: null, icon: cdxIconTrash, ariaLabel: 'Delete' }
 		];
 

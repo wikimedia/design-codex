@@ -1,8 +1,9 @@
 <script setup>
 import BasicButtonGroup from '@/../component-demos/button-group/examples/BasicButtonGroup.vue';
-import DisabledButtonGroup from '@/../component-demos/button-group/examples/DisabledButtonGroup.vue';
 import ButtonGroupWithIcons from '@/../component-demos/button-group/examples/ButtonGroupWithIcons.vue';
 import IconOnlyButtonGroup from '@/../component-demos/button-group/examples/IconOnlyButtonGroup.vue';
+import DisabledButtonGroup from '@/../component-demos/button-group/examples/DisabledButtonGroup.vue';
+import MaximumButtonGroup from '@/../component-demos/button-group/examples/MaximumButtonGroup.vue';
 import ButtonGroupWithSlot from '@/../component-demos/button-group/examples/ButtonGroupWithSlot.vue';
 </script>
 
@@ -76,6 +77,22 @@ event.
 <template v-slot:code>
 
 <<< @/../component-demos/button-group/examples/DisabledButtonGroup.vue
+
+</template>
+</cdx-demo-wrapper>
+
+
+### Overflowing buttons
+When the button group is too large to fit on one line, the buttons overflow to the next line.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<maximum-button-group />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/button-group/examples/MaximumButtonGroup.vue
 
 </template>
 </cdx-demo-wrapper>
