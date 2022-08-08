@@ -182,7 +182,7 @@ export default defineComponent( {
 		// Checked state whether or not the input is enabled or disabled.
 		&:checked:not( :indeterminate ) + .cdx-checkbox__icon::before {
 			content: ' ';
-			background-image: @background-image-input-checkbox;
+			background-image: @background-image-input-checkbox--checked;
 			background-position: center;
 			background-repeat: no-repeat;
 			// This must have two values to match `background-size: 0 0` above,
