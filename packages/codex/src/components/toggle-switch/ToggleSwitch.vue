@@ -136,9 +136,6 @@ export default defineComponent( {
 @start-toggle-switch-grip: unit( ( 5 / @font-size-browser / @font-size-base ), em );
 @start-toggle-switch-grip--mobile: unit( ( 4.5 / @font-size-browser / @font-size-base ), em );
 
-@border-filled--disabled: @border-width-base @border-style-base @border-color-inverted;
-@border-color-toggle-switch-grip--active: @color-white;
-
 @padding-end-toggle-switch-label-content: 6px;
 
 @position-offset-toggle-switch-outline: 1px;
@@ -283,7 +280,7 @@ export default defineComponent( {
 				}
 
 				.cdx-toggle-switch__switch__grip {
-					border-color: @border-color-toggle-switch-grip--active;
+					border-color: @border-color-inverted;
 				}
 			}
 
@@ -325,7 +322,7 @@ export default defineComponent( {
 
 					.cdx-toggle-switch__switch__grip {
 						background-color: @background-color-base;
-						border-color: @border-color-toggle-switch-grip--active;
+						border-color: @border-color-inverted;
 					}
 				}
 
@@ -354,7 +351,7 @@ export default defineComponent( {
 				border-color: @background-color-filled--disabled;
 
 				.cdx-toggle-switch__switch__grip {
-					border: @border-filled--disabled;
+					border: @border-width-base @border-style-base @border-color-inverted;
 					box-shadow: @box-shadow-inset-medium @box-shadow-color-inverted;
 				}
 			}
