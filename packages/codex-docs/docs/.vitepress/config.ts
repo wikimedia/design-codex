@@ -1,4 +1,32 @@
-import { defineConfig } from 'vitepress';
+import { defineConfig, DefaultTheme } from 'vitepress';
+import { existsSync } from 'fs';
+import path from 'path';
+
+const includeWIPComponents = process.env.CODEX_RELEASE === undefined;
+
+function isWIPComponent( componentName: string ): boolean {
+	return existsSync( path.join( __dirname, '/../../../codex/src/components-wip/', componentName ) );
+}
+
+/**
+ * In release mode, filter out components that are in development. In
+ * non-release mode, don't filter them out, but add a construction emoji
+ * "🚧" to their description.
+ *
+ * @param items Array of sidebar items representing components
+ * @return Filtered or modified array of sidebar items
+ */
+function filterComponents( items: DefaultTheme.SideBarItem[] ): DefaultTheme.SideBarItem[] {
+	return items.flatMap( ( item ) => {
+		const componentName = ( item.link ?? '' ).match( /^\/components\/([^\/]+)/ )?.[ 1 ];
+		if ( componentName && isWIPComponent( componentName ) ) {
+			return includeWIPComponents ?
+				{ ...item, text: `${item.text} 🚧` } :
+				[];
+		}
+		return item;
+	} );
+}
 
 export default defineConfig( {
 	lang: 'en-US',
@@ -32,7 +60,7 @@ export default defineConfig( {
 				},
 				{
 					text: 'Components',
-					children: [
+					children: filterComponents( [
 						{ text: 'Button', link: '/components/button' },
 						{ text: 'ButtonGroup', link: '/components/button-group' },
 						{ text: 'Card', link: '/components/card' },
@@ -55,7 +83,7 @@ export default defineConfig( {
 						{ text: 'ToggleButtonGroup', link: '/components/toggle-button-group' },
 						{ text: 'ToggleSwitch', link: '/components/toggle-switch' },
 						{ text: 'TypeaheadSearch', link: '/components/typeahead-search' }
-					]
+					] )
 				},
 				{
 					text: 'Icons',

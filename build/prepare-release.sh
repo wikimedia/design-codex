@@ -28,7 +28,7 @@ do
 done
 
 # Get the old version from package.json before running npm version
-OLD_VERSION="$(node -e 'console.log(require("./packages/codex/package.json").version)')"
+OLD_VERSION="$(node -pe 'require("./packages/codex/package.json").version')"
 # Update package.json in all workspaces
 for WORKSPACE in $PUBLISH_WORKSPACES
 do

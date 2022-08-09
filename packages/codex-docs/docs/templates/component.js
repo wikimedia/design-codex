@@ -1,7 +1,7 @@
 /** @typedef {import('vue-docgen-api').ParamTag} ParamTag */
 
 /** @type {import('vue-docgen-cli').Templates['component']} */
-module.exports = function component( renderedUsage, doc ) {
+module.exports = function component( renderedUsage, doc, config, componentRelativePath ) {
 	const { displayName, description, docsBlocks, tags } = doc;
 	const { author, since, version } = /** @type {Record<string, ParamTag[]>} */ ( tags || {} );
 
@@ -17,6 +17,14 @@ module.exports = function component( renderedUsage, doc ) {
 		renderedUsage.slots !== ''
 	) ? '## Usage' : '';
 
+	// Include a warning if the component is still in development
+	const devWarning = componentRelativePath.includes( 'components-wip/' ) ?
+		`
+::: warning
+This component is still under development. It is not yet available in releases of Codex.
+:::
+		` : '';
+
 	/* eslint-disable @typescript-eslint/restrict-template-expressions */
 	return `
 ---
@@ -26,6 +34,8 @@ ${frontMatter.join( '\n' )}
 ---
 
 # ${componentName}
+
+${devWarning}
 
 ${description || ''}
 
