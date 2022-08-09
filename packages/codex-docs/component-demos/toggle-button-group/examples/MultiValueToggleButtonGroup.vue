@@ -12,6 +12,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { CdxToggleButtonGroup, ButtonGroupItem } from '@wikimedia/codex';
+import { cdxIconBell, cdxIconCalendar, cdxIconUserAvatar } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'MultiValueToggleButtonGroup',
@@ -20,15 +21,13 @@ export default defineComponent( {
 	},
 	setup() {
 		const buttons: ButtonGroupItem[] = [
-			{ value: 1, label: 'One' },
-			{ value: 2, label: 'Two' },
-			{ value: 3, label: 'Three' },
-			{ value: 4, label: 'Four' },
-			{ value: 5, label: 'Five' }
+			{ value: 'notification', label: null, icon: cdxIconBell, ariaLabel: 'Notification' },
+			{ value: 'calendar', label: null, icon: cdxIconCalendar, ariaLabel: 'Calendar' },
+			{ value: 'user', label: null, icon: cdxIconUserAvatar, ariaLabel: 'User' }
 		];
 
 		// Initializing to an array indicates that this is a multi-select group
-		const selectedValue = ref( [] );
+		const selectedValue = ref<string[]>( [] );
 
 		return {
 			buttons,

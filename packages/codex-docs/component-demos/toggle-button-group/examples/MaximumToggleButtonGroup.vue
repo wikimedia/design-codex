@@ -4,8 +4,8 @@
 		:buttons="buttons"
 	/>
 	<p>
-		Selected value:
-		{{ selectedValue ?? '(null)' }}
+		Selected values:
+		{{ selectedValue.join( ', ' ) || '(none)' }}
 	</p>
 </template>
 
@@ -14,21 +14,20 @@ import { defineComponent, ref } from 'vue';
 import { CdxToggleButtonGroup, ButtonGroupItem } from '@wikimedia/codex';
 
 export default defineComponent( {
-	name: 'SingleValueToggleButtonGroup',
+	name: 'MaximumToggleButtonGroup',
 	components: {
 		CdxToggleButtonGroup
 	},
 	setup() {
 		const buttons: ButtonGroupItem[] = [
-			{ value: 1, label: 'One' },
-			{ value: 2, label: 'Two' },
-			{ value: 3, label: 'Three' },
-			{ value: 4, label: 'Four' },
-			{ value: 5, label: 'Five' }
+			{ value: 1, label: 'First button' },
+			{ value: 2, label: 'Second button' },
+			{ value: 3, label: 'Third button with a long label' },
+			{ value: 4, label: 'Fourth button with a long label' },
+			{ value: 5, label: 'Fifth button' }
 		];
 
-		// Initializing to null indicates that this is a single-select group
-		const selectedValue = ref<number|null>( null );
+		const selectedValue = ref<number[]>( [] );
 
 		return {
 			buttons,

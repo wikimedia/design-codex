@@ -3,6 +3,7 @@ import SingleValueToggleButtonGroup from '@/../component-demos/toggle-button-gro
 import InitiallySelectedSingleValueToggleButtonGroup from '@/../component-demos/toggle-button-group/examples/InitiallySelectedSingleValueToggleButtonGroup.vue';
 import MultiValueToggleButtonGroup from '@/../component-demos/toggle-button-group/examples/MultiValueToggleButtonGroup.vue';
 import DisabledToggleButtonGroup from '@/../component-demos/toggle-button-group/examples/DisabledToggleButtonGroup.vue';
+import MaximumToggleButtonGroup from '@/../component-demos/toggle-button-group/examples/MaximumToggleButtonGroup.vue';
 import ToggleButtonGroupWithSlot from '@/../component-demos/toggle-button-group/examples/ToggleButtonGroupWithSlot.vue';
 </script>
 
@@ -72,6 +73,21 @@ disabled by setting their `.disabled` property.
 <template v-slot:code>
 
 <<< @/../component-demos/toggle-button-group/examples/DisabledToggleButtonGroup.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Overflowing buttons
+When the button group is too large to fit on one line, the buttons overflow to the next line.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<maximum-toggle-button-group />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/toggle-button-group/examples/MaximumToggleButtonGroup.vue
 
 </template>
 </cdx-demo-wrapper>

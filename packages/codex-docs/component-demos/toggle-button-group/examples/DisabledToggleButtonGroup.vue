@@ -24,7 +24,7 @@ export default defineComponent( {
 			{ value: 5, label: 'Five' }
 		];
 
-		const selectedValue = ref( null );
+		const selectedValue = ref<string|number|null>( null );
 
 		return {
 			buttons,
