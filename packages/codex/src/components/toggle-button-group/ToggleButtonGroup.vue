@@ -153,7 +153,11 @@ export default defineComponent( {
 		&--toggled-on + .cdx-toggle-button--toggled-on:hover:not( :active ):not( :focus ) {
 			// When two disabled buttons or two toggled-on buttons are adjacent to each other,
 			// display a white border between them. Don't let this white border be overridden by
-			// :hover styles, but do let it be overridden by :active and :focus styles.
+			// :hover styles, but do let it be overridden by :active and :focus styles. To prevent
+			// the white border from being cut off diagonally at the top and bottom, remove the top
+			// and bottom borders.
+			border-top-width: 0;
+			border-bottom-width: 0;
 			border-left-color: @border-color-inverted;
 		}
 	}
