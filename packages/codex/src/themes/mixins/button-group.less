@@ -9,9 +9,20 @@
 	position: relative;
 	z-index: 0;
 
+	// Make groups only as wide as they need to be, so that the rounded corners on the group also
+	// apply to the rightmost button
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
+	width: fit-content;
+
+	// Set rounded corners on the group, rather than on the individual buttons
+	border-radius: @border-radius-base;
+
 	// Add padding to compensate for the negative margins applied to the buttons
 	padding-top: @border-width-base;
 	padding-left: @border-width-base;
+
+	// Needed to make the border-radius on the group affect the appearance of the children's borders
+	overflow: hidden;
 }
 
 // Base styles for cdx-button and cdx-toggle-button components in a group
@@ -30,18 +41,8 @@
 	margin-top: -@border-width-base;
 	margin-left: -@border-width-base;
 
-	&:not( :first-child ) {
-		// Make all borders sharp, overriding rounded corners, except the corner on the
-		// outsides of the group (the first button's left corners, and the last button's
-		// right corners)
-		border-top-left-radius: @border-radius-sharp;
-		border-bottom-left-radius: @border-radius-sharp;
-	}
-
-	&:not( :last-child ) {
-		border-top-right-radius: @border-radius-sharp;
-		border-bottom-right-radius: @border-radius-sharp;
-	}
+	// Make all borders sharp, overriding rounded corners. Add rounded corners back on the parent.
+	border-radius: @border-radius-sharp;
 
 	&:enabled:active,
 	&:enabled:focus {
