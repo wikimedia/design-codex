@@ -144,8 +144,8 @@ export default defineComponent( {
 		&--toggled-on:enabled {
 			// Make the borders of a toggled-on button appear above the borders of adjacent
 			// toggled-off buttons, but not above the borders of an active or focused button
-			// (those get z-index: 2;)
-			z-index: 1;
+			// (those get z-index: 3;)
+			z-index: 2;
 		}
 
 		&:disabled + .cdx-toggle-button:disabled,

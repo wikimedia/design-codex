@@ -32,6 +32,11 @@
 .cdx-mixin-button-group-button() {
 	position: relative;
 
+	// Put regular buttons above disabled buttons (which get z-index: 0;) below
+	// We don't want to use z-index: -1; to push buttons below regular buttons, because then
+	// they can't be clicked or hovered.
+	z-index: 1;
+
 	// To avoid double borders, shift each of the buttons (except the first one)
 	// 1px to the left, so that its left border covers the right border of the button
 	// before it, and only each button's left border is visible. Sometimes we need both or
@@ -49,15 +54,15 @@
 		// When a button is active or focused, both its left and its right border need to be
 		// visible. Pull it up above the other buttons, so that its right border isn't
 		// obscured by the next button's left border.
-		// Use z-index: 2;, reserving z-index: 1; for toggled-on ToggleButtons, which should be
+		// Use z-index: 3;, reserving z-index: 2; for toggled-on ToggleButtons, which should be
 		// above regular buttons but below active/focused buttons (see ToggleButtonGroup)
-		z-index: 2;
+		z-index: 3;
 	}
 
 	&:disabled {
 		// When a button is disabled, its border is the same color as its background.
 		// Push it down below the other buttons so that both it doesn't obscure its
 		// neighbor's border
-		z-index: -1;
+		z-index: 0;
 	}
 }
