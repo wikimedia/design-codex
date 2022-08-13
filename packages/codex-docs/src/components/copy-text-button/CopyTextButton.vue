@@ -63,7 +63,7 @@ export default defineComponent( {
 			}
 		};
 
-		const handleCopyText = () => {
+		const copyCodeViaExecCommand = () => {
 			const textarea = document.createElement( 'textarea' ),
 				range = document.createRange();
 
@@ -120,6 +120,32 @@ export default defineComponent( {
 
 			// Remove the textarea element.
 			document.body.removeChild( textarea );
+		};
+
+		const handleCopyText = () => {
+			const clipboard = window.navigator.clipboard;
+
+			// Clipboard is only available when the website uses HTTPS and hence will not work
+			// during development unless we use a self signed certificate, so continue to use
+			// document.execCommand( 'copy' ) for local development environment
+			if ( clipboard ) {
+				// Remove any existing timeout to hide the success icon
+				cancelCurrentTimeout();
+				clipboard.writeText( props.copyText ).then(
+					() => {
+						copySuccess.value = true;
+						currentTimeoutId = setTimeout( () => {
+							copySuccess.value = false;
+						}, 2000 );
+					},
+					() => {
+						// Hide the icon immediately
+						copySuccess.value = false;
+					}
+				);
+			} else {
+				copyCodeViaExecCommand();
+			}
 		};
 
 		// Whenever the text to be copied changes, hide any existing success icon,
