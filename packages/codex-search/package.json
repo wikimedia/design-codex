@@ -17,6 +17,7 @@
 	"main": "dist/codex-search.umd.js",
 	"module": "dist/codex-search.es.js",
 	"types": "./dist/types/codex-search/src/lib.d.ts",
+	"style": "dist/codex-search.style.css",
 	"files": [
 		"dist"
 	],

@@ -26,6 +26,7 @@
 	"main": "dist/codex.umd.js",
 	"module": "dist/codex.es.js",
 	"types": "./dist/types/lib.d.ts",
+	"style": "dist/codex.style.css",
 	"files": [
 		"dist"
 	],
