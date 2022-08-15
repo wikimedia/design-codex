@@ -242,8 +242,7 @@ export default defineComponent( {
 			.cdx-toggle-switch__switch__grip {
 				background-color: @background-color-base;
 				left: @start-toggle-switch-grip--mobile + @size-toggle-switch-travel-distance;
-				// TODO: Define state specific border-color token!
-				border-color: @background-color-base;
+				border-color: @border-color-inverted;
 
 				@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 					left: @start-toggle-switch-grip + @size-toggle-switch-travel-distance;
@@ -351,8 +350,8 @@ export default defineComponent( {
 				border-color: @border-color-disabled;
 
 				.cdx-toggle-switch__switch__grip {
-					border: @border-width-base @border-style-base @border-color-inverted;
-					box-shadow: @box-shadow-inset-medium @box-shadow-color-inverted;
+					border-color: @border-color-inverted;
+					box-shadow: @box-shadow-inset-small @box-shadow-color-inverted;
 				}
 			}
 

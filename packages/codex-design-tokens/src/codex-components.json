@@ -189,7 +189,7 @@
 			"value": "{ transition-property.color }"
 		},
 		"toggle-switch-grip": {
-			"value": "{ transition-property.background-color }, { transition-property.left }"
+			"value": "{ transition-property.background-color }, { transition-property.border-color }, { transition-property.left }"
 		}
 	}
 }
