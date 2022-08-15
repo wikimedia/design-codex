@@ -109,7 +109,7 @@ with all the commit message subjects since last release – separated in "Breaki
 ### Requirements
 
 - **Node:** see `.nvmrc` in the root of the repository. To install and use the required version of Node, run `nvm install "$(<.nvmrc)"` then `nvm use` in the root of the repository.
-- **NPM:** v7.0 or greater is required to support workspaces; it is not included by default in older
+- **NPM:** v7.21 or greater is required to support workspaces; it is not included by default in older
 versions of Node (prior to v15) and will need to be upgraded manually.
 
 ### Workspaces
@@ -174,9 +174,11 @@ information about code conventions, solved problems, and potential pitfalls.
 
 There are two environments available for testing components during development:
 
-1. The `Sandbox.vue` file in the `codex` package. `npm run dev` will spin up that page,
-   provide HMR, etc. This doesn't replace the use of VitePress for demo and documentation, it is
-   more of a convenience during initial component development.
+1. The `Sandbox.vue` file in the `codex` package. `npm run dev` will serve that page at
+   http://locahost:3000 , and automatically update it in the browser as you make changes to the code
+   (hot module reloading). If you need it to be served on a different port, you can use
+   `npm run dev --port=12345`. This doesn't replace the use of VitePress for demo and documentation,
+   it is more of a convenience during initial component development.
 2. The VitePress demo site. See the [component demos](#component-demos) section for details.
 
 #### Conventions
@@ -620,6 +622,9 @@ npm run doc:dev
 ```
 
 This will both serve the VitePress site at `http://localhost:3000` and compile component usage docs.
+If you need to serve the VitePress site on a different port, use `npm run doc:dev --port=12345`.
+For ease of development, the site uses hot module reloading: changes to the source code are
+immediately reflected in the browser, without needing to reload the page.
 
 #### Creating a new component demo page
 

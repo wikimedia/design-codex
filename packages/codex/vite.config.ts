@@ -33,6 +33,10 @@ export default defineConfig( ( { command, mode }, libName = 'codex' ) => {
 
 	// Common config shared between the library build and the sandbox build
 	const commonConfig: Partial<UserConfig> = {
+		server: {
+			// Listen on all IP addresses, in case Vite is run inside a VM
+			host: '0.0.0.0'
+		},
 		build: {
 			// The es2015 build target doesn't
 			// - include Edge 18, but we do support it in our Modern support browser group and it

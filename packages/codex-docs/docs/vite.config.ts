@@ -7,7 +7,9 @@ export default defineConfig( {
 		/**
 		 * Explicitly allow dev server to serve files from other workspaces.
 		 */
-		fs: { allow: [ '../..' ] }
+		fs: { allow: [ '../..' ] },
+		// Listen on all IP addresses, in case Vite is run inside a VM
+		host: '0.0.0.0'
 	},
 
 	build: {
