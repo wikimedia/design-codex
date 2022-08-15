@@ -1,4 +1,5 @@
 const path = require( 'path' );
+const fs = require( 'fs' );
 const component = require( './docs/templates/component' );
 const events = require( './docs/templates/events' );
 const methods = require( './docs/templates/methods' );
@@ -33,7 +34,10 @@ module.exports = {
 		// e.g. 'text-input'
 		const kebabCaseName = toKebabCase( componentName );
 		// e.g. 'component-demos/text-input/text-input.md'
-		return path.join( componentDemoPath, '/' + kebabCaseName + '/', kebabCaseName + '.md' );
+		const docFileName = path.join( componentDemoPath, '/' + kebabCaseName + '/', kebabCaseName + '.md' );
+		// If the .md file doesn't exists, don't return it. This avoids an error while still
+		// displaying the generated documentation.
+		return fs.existsSync( docFileName ) ? docFileName : false;
 	},
 	getDestFile: ( componentPath, config ) => {
 		return path
