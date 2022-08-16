@@ -20,9 +20,9 @@ import ThumbnailCustomIcon from './../../component-demos/thumbnail/examples/Thum
 </template>
 </cdx-demo-wrapper>
 
-### Placeholder icon
+### Placeholder
 
-The placeholder icon serves two purposes:
+The placeholder serves two purposes:
 
 1. To display while a thumbnail image is loading, improving the experience of those with slower
    connections
@@ -32,7 +32,7 @@ The second case may occur in a group of components, like Cards or MenuItems, whe
 thumbnail image but some do not. In this case, the placeholder icon helps maintain a consistent
 layout for all items. See the [MenuItem demo](./menu-item.html#within-a-list) for an example.
 
-#### Default placeholder icon
+#### Default placeholder
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -49,6 +49,8 @@ layout for all items. See the [MenuItem demo](./menu-item.html#within-a-list) fo
 </cdx-demo-wrapper>
 
 #### Custom placeholder icon
+
+To customize the placeholder icon, use the `placeholderIcon` prop.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
