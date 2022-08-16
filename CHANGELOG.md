@@ -1,3 +1,54 @@
+# 0.1.0-alpha.10 / 2022-08-16
+
+## Features
+- TypeaheadSearch: Open menu on new results, even if empty (Roan Kattouw)
+- ButtonGroup: Initial implementation (Roan Kattouw)
+- ToggleButtonGroup: Initial implementation (Roan Kattouw)
+- DirectionSwitcher: Use ToggleButtonGroup now that it exists (Roan Kattouw)
+- ButtonGroup: Add overflowing demo, fix styling (Roan Kattouw)
+- ToggleButtonGroup: Add maximum example, icon-only example (Roan Kattouw)
+- ButtonGroup, ToggleButtonGroup: Straighten white lines between buttons (Roan Kattouw)
+- ButtonGroup: Apply rounded corners to groups, not buttons (Roan Kattouw)
+- icons: Update icons to the latest optimizations (Volker E)
+- CopyTextButton: Use Clipboard API when available to copy code (Abijeet Patro)
+- icons: Update 'info' icon to newest design (Volker E)
+
+## Styles
+- styles, tokens: Replace SFC `border-color` tokens (Volker E)
+- styles, tokens: Introduce `border-color-subtle` and replace SFC token (Volker E)
+- styles: Remove SVG title from background image (Volker E)
+- styles, Card: Add background color (Anne Tomasevich)
+- tokens, styles: Add further cursor tokens on theme option and base level (Volker E)
+- tokens, demos: Mark deprecated tokens loud and clear (Volker E)
+- tokens: As demo features “Deprecated” prefix now, don't repeat yourself (Volker E)
+- tokens, demos: Put deprecated tokens always at bottom (Volker E)
+- tokens: Use design-first Color decision tokens (Volker E)
+- tokens: Use design-first Border Color decision tokens (Volker E)
+- tokens: Amend `color-notice` value (Volker E)
+- tokens: Amend `modifier-gray200-translucent` value (Volker E)
+- tokens: Use design-first Background Color decision tokens (Volker E)
+- tokens, styles, ToggleSwitch: Cleanup tokens and styles applied (Volker E)
+
+## Code
+- Tabs: Improve tests (Roan Kattouw)
+- Re-organize and improve component sandbox page (Eric Gardner)
+- build: Update Vue from 3.2.33 to 3.2.37 (Roan Kattouw)
+- build: Upgrade eslint to 0.23.0 and make pass (Roan Kattouw)
+- build: Run build-all-if-missing in "npm coverage" (Roan Kattouw)
+- build: Publish the sandbox alongside Netlify deployment previews (Roan Kattouw)
+- build: Add script to generate a CSS diff for a change (Roan Kattouw)
+- build: Run diff-css.sh in npm test (Roan Kattouw)
+- build: Add "style" field to package.json (Roan Kattouw)
+- build: Make Vite port configurable, listen on all IPs (Roan Kattouw)
+
+## Documentation
+- docs: Add links to task templates and explain component scoping process (Anne Tomasevich)
+- docs, utils: factor out getIconByName() utility (DannyS712)
+- docs: Clarify how search query highlighting works (Anne Tomasevich)
+- docs, component demos: add getEventLogger() utility (DannyS712)
+- docs, Controls: simplify splitting of props and slot controls (DannyS712)
+- docs, tests: add relevant types, nonexistent keys Thumbnail objects (DannyS712)
+
 # 0.1.0-alpha.9 / 2022-07-28
 
 ## Features
