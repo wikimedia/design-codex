@@ -147,6 +147,7 @@ export default defineComponent( {
 @margin-end-card-media: 12px;
 
 .cdx-card {
+	background-color: @background-color-base;
 	display: flex;
 	align-items: flex-start;
 	position: relative;
