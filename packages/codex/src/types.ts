@@ -85,9 +85,12 @@ export interface MenuItemData {
 	disabled?: boolean
 }
 
+/** @public */
 export interface MenuItemDataWithId extends MenuItemData {
 	id: string
 }
+
+/** @public */
 export type MenuState = typeof MenuStates[ number ];
 
 /** @public */

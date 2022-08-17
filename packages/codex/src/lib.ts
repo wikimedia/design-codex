@@ -36,13 +36,14 @@ import type {
 	ButtonGroupItem,
 	MessageType,
 	TextInputType,
+	MenuConfig,
+	MenuState,
 	MenuItemData,
 	MenuItemDataWithId,
+	MenuItemLanguageData,
 	SearchResult,
 	SearchResultClickEvent,
-	Thumbnail,
-	MenuItemLanguageData,
-	MenuConfig
+	Thumbnail
 } from './types';
 
 export {
@@ -84,11 +85,12 @@ export {
 	ButtonGroupItem,
 	MessageType,
 	TextInputType,
+	MenuConfig,
+	MenuState,
 	MenuItemData,
 	MenuItemDataWithId,
+	MenuItemLanguageData,
 	SearchResult,
 	SearchResultClickEvent,
-	Thumbnail,
-	MenuItemLanguageData,
-	MenuConfig
+	Thumbnail
 };
