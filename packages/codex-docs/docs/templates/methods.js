@@ -3,7 +3,6 @@ const mdclean = require( './utils' ).mdclean;
 /** @typedef {import('vue-docgen-api').MethodDescriptor} MethodDescriptor */
 /** @typedef {import('vue-docgen-api').Param} Param */
 /** @typedef {import('vue-docgen-api').ParamTag} ParamTag */
-/** @typedef {import('vue-docgen-cli/lib/config').SubTemplateOptions} SubTemplateOptions */
 
 /**
  * Get the contents of the "Params" cell for a method.
@@ -79,7 +78,7 @@ const getReturns = ( m ) => {
 /**
  * Returns a formatted markdown table body with method information.
  *
- * @param { MethodDescriptor[]} methods This component's public methods
+ * @param {MethodDescriptor[]} methods This component's public methods
  * @return {string}
  */
 const tmpl = function ( methods ) {
@@ -103,9 +102,7 @@ const tmpl = function ( methods ) {
  * Note that the basis of this code comes from vue-docgen-api, so few improvements have been
  * made—changes to the default code/template have been noted.
  *
- * @param {MethodDescriptor[]} methods
- * @param {SubTemplateOptions} opt
- * @return {string}
+ * @type {import('vue-docgen-cli').Templates['methods']}
  */
 module.exports = function ( methods, opt = {} ) {
 	if ( Object.keys( methods ).length === 0 ) {

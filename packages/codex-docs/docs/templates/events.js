@@ -1,5 +1,4 @@
 /** @typedef {import('vue-docgen-api').EventDescriptor} EventDescriptor */
-/** @typedef {import('vue-docgen-cli/lib/config').SubTemplateOptions} SubTemplateOptions */
 
 const mdclean = require( './utils' ).mdclean;
 
@@ -55,11 +54,9 @@ const tmpl = ( events ) => {
  * Note that most of this code comes directly from vue-docgen-cli, so no improvements have been
  * made—changes to the default code/template have been noted.
  *
- * @param {EventDescriptor[]} events
- * @param {SubTemplateOptions} opt
- * @return {string}
+ * @type {import('vue-docgen-cli').Templates['events']}
  */
-module.exports = function ( events, opt ) {
+module.exports = function ( events, opt = {} ) {
 	return `
 ${opt.isSubComponent || opt.hasSubComponents ? '#' : ''}## Events
 

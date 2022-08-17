@@ -3,7 +3,6 @@ const mdclean = require( './utils' ).mdclean;
 /** @typedef {import('vue-docgen-api').BlockTag} BlockTag */
 /** @typedef {import('vue-docgen-api').PropDescriptor} PropDescriptor */
 /** @typedef {import('vue-docgen-api').Tag} Tag */
-/** @typedef {import('vue-docgen-cli/lib/config').SubTemplateOptions} SubTemplateOptions */
 
 /**
  * Return true if the thing is a tag
@@ -85,9 +84,7 @@ const tmpl = ( props ) => {
  * Note that most of this code comes directly from vue-docgen-api, so no improvements have been
  * made—changes to the default code/template have been noted.
  *
- * @param {PropDescriptor[]} props
- * @param {SubTemplateOptions} opt
- * @return {string}
+ * @type {import('vue-docgen-cli').Templates['props']}
  */
 module.exports = function ( props, opt = {} ) {
 	// Customization: only include a values column if any of the props have something to show

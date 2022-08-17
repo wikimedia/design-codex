@@ -1,12 +1,6 @@
-/** @typedef {import('vue-docgen-cli').RenderedUsage} RenderedUsage */
-/** @typedef {import('vue-docgen-api').ComponentDoc} ComponentDoc */
 /** @typedef {import('vue-docgen-api').ParamTag} ParamTag */
 
-/**
- * @param {RenderedUsage} renderedUsage
- * @param {ComponentDoc} doc
- * @return {string}
- */
+/** @type {import('vue-docgen-cli').Templates['component']} */
 module.exports = function component( renderedUsage, doc ) {
 	const { displayName, description, docsBlocks, tags } = doc;
 	const { author, since, version } = /** @type {Record<string, ParamTag[]>} */ ( tags || {} );
