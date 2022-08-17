@@ -1,4 +1,6 @@
-module.exports = require( 'vitepress' ).defineConfig( {
+import { defineConfig } from 'vitepress';
+
+export default defineConfig( {
 	lang: 'en-US',
 	title: 'Codex',
 	description: 'Toolkit for building user interfaces within the Wikimedia Design System',
