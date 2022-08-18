@@ -64,5 +64,13 @@
 		// Push it down below the other buttons so that both it doesn't obscure its
 		// neighbor's border
 		z-index: 0;
+
+		// When two disabled buttons are adjacent to each other, display a white line
+		// between them. Using a border for this causes all sorts of problems, so use a
+		// box-shadow. When the line wraps between two disabled buttons, this box-shadow
+		// will be painted to the left of the first button on the next line, but thankfully
+		// that places it outside of the button group's box, so it won't be visible because
+		// the button group has overflow: hidden;
+		box-shadow: @box-shadow-outset-small-top @box-shadow-color-inverted, @box-shadow-outset-small-start @box-shadow-color-inverted;
 	}
 }

@@ -129,6 +129,7 @@ export default defineComponent( {
 		};
 	}
 } );
+/* eslint-disable max-len */
 </script>
 
 <style lang="less">
@@ -146,19 +147,9 @@ export default defineComponent( {
 			// toggled-off buttons, but not above the borders of an active or focused button
 			// (those get z-index: 3;)
 			z-index: 2;
-		}
-
-		&:disabled + .cdx-toggle-button:disabled,
-		&--toggled-on + .cdx-toggle-button--toggled-on,
-		&--toggled-on + .cdx-toggle-button--toggled-on:hover:not( :active ):not( :focus ) {
-			// When two disabled buttons or two toggled-on buttons are adjacent to each other,
-			// display a white border between them. Don't let this white border be overridden by
-			// :hover styles, but do let it be overridden by :active and :focus styles. To prevent
-			// the white border from being cut off diagonally at the top and bottom, remove the top
-			// and bottom borders.
-			border-top-width: 0;
-			border-bottom-width: 0;
-			border-left-color: @border-color-inverted;
+			// When two toggled-on buttons are adjacent to each other, display a white line
+			// between them, using the same box-shadow trick as in button-group.less
+			box-shadow: @box-shadow-outset-small-top @box-shadow-color-inverted, @box-shadow-outset-small-start @box-shadow-color-inverted;
 		}
 	}
 }

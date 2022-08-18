@@ -84,15 +84,6 @@ export default defineComponent( {
 
 	.cdx-button {
 		.cdx-mixin-button-group-button();
-
-		&:disabled + .cdx-button:disabled {
-			// When two disabled buttons are adjacent to each other, display a white border
-			// between them. To prevent the white border from being cut off diagonally at the top
-			// and bottom, remove the top and bottom borders.
-			border-top-width: 0;
-			border-bottom-width: 0;
-			border-left-color: @border-color-inverted;
-		}
 	}
 }
 </style>
