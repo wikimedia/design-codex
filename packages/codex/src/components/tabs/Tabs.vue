@@ -659,6 +659,10 @@ export default defineComponent( {
 					outline: @outline-base--focus;
 				}
 			}
+
+			&.cdx-tabs__list__item--selected [ role='tab' ] {
+				cursor: @cursor-base;
+			}
 		}
 	}
 
