@@ -276,18 +276,16 @@ export default defineComponent( {
 		padding-top: @padding-vertical-base;
 		padding-bottom: @padding-vertical-base;
 		padding-left: @padding-horizontal-base;
-		.cdx-mixin-icon-padding( end, @padding-horizontal-input-text );
+		.cdx-mixin-icon-wrapper-padding( end, @padding-horizontal-input-text );
 		line-height: @line-height-component;
+	}
+
+	&--has-start-icon .cdx-select__handle {
+		.cdx-mixin-icon-wrapper-padding( start );
 	}
 
 	&__start-icon {
 		.cdx-mixin-icon( start );
-	}
-
-	&--has-start-icon {
-		.cdx-select__handle {
-			.cdx-mixin-icon-padding( start );
-		}
 	}
 
 	&__indicator {

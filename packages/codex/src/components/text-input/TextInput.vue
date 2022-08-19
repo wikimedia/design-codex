@@ -257,8 +257,7 @@ export default defineComponent( {
 		.cdx-mixin-icon( start, @size-icon, @padding-horizontal-input-text + @border-width-base );
 	}
 
-	&__end-icon,
-	&__clear-icon {
+	&__end-icon {
 		.cdx-mixin-icon(
 			end,
 			@size-input-end-icon,
@@ -267,6 +266,12 @@ export default defineComponent( {
 	}
 
 	&__clear-icon {
+		.cdx-mixin-icon(
+			end,
+			@size-input-end-icon,
+			@padding-horizontal-input-text + @border-width-base
+		);
+
 		// The clear icon result in a pointer cursor on hover.
 		&:hover {
 			cursor: @cursor-base--hover;
@@ -377,7 +382,7 @@ export default defineComponent( {
 
 .cdx-text-input--has-start-icon {
 	.cdx-text-input__input {
-		.cdx-mixin-icon-padding( start, @padding-horizontal-input-text );
+		.cdx-mixin-icon-wrapper-padding( start, @padding-horizontal-input-text );
 	}
 }
 
@@ -385,7 +390,7 @@ export default defineComponent( {
 .cdx-text-input--has-end-icon,
 .cdx-text-input--clearable {
 	.cdx-text-input__input {
-		.cdx-mixin-icon-padding(
+		.cdx-mixin-icon-wrapper-padding(
 			end,
 			@padding-horizontal-input-text,
 			@size-input-end-icon
@@ -396,7 +401,7 @@ export default defineComponent( {
 // Both.
 .cdx-text-input--has-end-icon.cdx-text-input--clearable {
 	.cdx-text-input__input {
-		.cdx-mixin-icon-padding(
+		.cdx-mixin-icon-wrapper-padding(
 			end,
 			@padding-horizontal-input-text-two-end-icons,
 			@size-input-end-icon

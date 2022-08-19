@@ -779,7 +779,7 @@ export default defineComponent( {
 			margin-left: 0;
 
 			.cdx-text-input__input {
-				.cdx-mixin-icon-padding( start, @spacing-start-typeahead-search-figure,
+				.cdx-mixin-icon-wrapper-padding( start, @spacing-start-typeahead-search-figure,
 				@size-search-figure );
 			}
 
