@@ -322,11 +322,11 @@ export default defineComponent( {
 	vertical-align: middle;
 
 	&--pending .cdx-text-input__input {
-		.cdx-pending-state();
+		.cdx-mixin-pending-state();
 	}
 
 	&__input {
-		.element-with-menu-expanded();
+		.cdx-mixin-element-with-menu-expanded();
 	}
 }
 </style>

@@ -766,7 +766,7 @@ export default defineComponent( {
 	}
 
 	&__input {
-		.element-with-menu-expanded();
+		.cdx-mixin-element-with-menu-expanded();
 	}
 
 	&--show-thumbnail {

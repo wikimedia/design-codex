@@ -287,7 +287,7 @@ export default defineComponent( {
 
 	&__input {
 		flex: 1 1 auto;
-		.element-with-menu-expanded();
+		.cdx-mixin-element-with-menu-expanded();
 
 		.cdx-text-input__input {
 			border-right-width: 0;

@@ -300,7 +300,7 @@ export default defineComponent( {
 			border-color: @border-color-base;
 			transition-property: @transition-property-base;
 			transition-duration: @transition-duration-base;
-			.element-with-menu-expanded();
+			.cdx-mixin-element-with-menu-expanded();
 
 			&:hover {
 				background-color: @background-color-base;
