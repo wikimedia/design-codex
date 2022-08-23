@@ -160,7 +160,8 @@ export default defineComponent( {
 		transition-duration: @transition-duration-base;
 
 		&,
-		&:hover {
+		&:hover,
+		&:focus {
 			text-decoration: none;
 		}
 
