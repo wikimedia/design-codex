@@ -303,6 +303,12 @@
 		"25": {
 			"value": "inset 0 0 0 1px"
 		},
+		"25-top": {
+			"value": "0 -1px 0 0"
+		},
+		"25-start": {
+			"value": "-1px 0 0 0"
+		},
 		"50": {
 			"value": "inset 0 0 0 2px"
 		},

@@ -555,6 +555,12 @@
 		"inset-medium-vertical": {
 			"value": "{ box-shadow.50-vertical }"
 		},
+		"outset-small-top": {
+			"value": "{ box-shadow.25-top }"
+		},
+		"outset-small-start": {
+			"value": "{ box-shadow.25-start }"
+		},
 		"color": {
 			"comment": "Separate `box-shadow` colors from colors to apply clean, property specific tokens.",
 			"base": {
