@@ -110,6 +110,18 @@ describe( 'Lookup', () => {
 				expect( wrapper.find( '.cdx-lookup' ).classes() ).not.toContain( 'cdx-lookup--pending' );
 			} );
 
+			it( 'clears the existing pending state', async () => {
+				const wrapper = mount( CdxLookup, { props: defaultProps } );
+				const textInputWrapper = wrapper.findComponent( CdxTextInput );
+				textInputWrapper.vm.$emit( 'update:modelValue', 'a' );
+				await nextTick();
+				expect( wrapper.find( '.cdx-lookup' ).classes() ).toContain( 'cdx-lookup--pending' );
+
+				textInputWrapper.vm.$emit( 'update:modelValue', '' );
+				await nextTick();
+				expect( wrapper.find( '.cdx-lookup' ).classes() ).not.toContain( 'cdx-lookup--pending' );
+			} );
+
 			it( 'closes the menu', async () => {
 				const wrapper = mount( CdxLookup, {
 					props: { selected: 'a', menuItems: menuItemData, initialInputValue: 'Opt' }

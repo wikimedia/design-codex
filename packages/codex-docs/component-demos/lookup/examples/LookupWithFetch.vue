@@ -32,6 +32,7 @@ export default defineComponent( {
 
 			// Do nothing if we have no input.
 			if ( !value || value === '' ) {
+				menuItems.value = [];
 				return;
 			}
 

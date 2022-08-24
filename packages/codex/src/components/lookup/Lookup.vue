@@ -198,6 +198,7 @@ export default defineComponent( {
 			// If the input is cleared, close the menu.
 			if ( newVal === '' ) {
 				expanded.value = false;
+				pending.value = false;
 			} else {
 				// If there is a value, set pending to true.
 				pending.value = true;
@@ -283,7 +284,7 @@ export default defineComponent( {
 				expanded.value = true;
 			}
 
-			// Hide the menu if there are no menu items and no no-results content.
+			// Hide the menu if there are no menu items and no no-results content
 			if ( newVal.length === 0 && !slots[ 'no-results' ] ) {
 				expanded.value = false;
 			}
