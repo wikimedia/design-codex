@@ -27,13 +27,13 @@
 							:css-property="cssProperty"
 							:style-target="styleTarget"
 						/>
-						<strong
-							v-if="token.deprecated"
-							:class="`${demoClass}__token--deprecated`"
-						>
-							deprecated
-						</strong>
 					</div>
+					<strong
+						v-if="token.deprecated"
+						class="cdx-docs-tokens-table__deprecated"
+					>
+						deprecated
+					</strong>
 					<p>
 						Defined in <code>{{ token.filePath }}</code>
 					</p>
@@ -180,20 +180,20 @@ export default defineComponent( {
 			margin-bottom: 16px;
 		}
 
+		&__deprecated {
+			background-color: @background-color-warning-subtle;
+			display: inline-block;
+			position: absolute;
+			top: 8px;
+			right: 12px;
+			padding: 0 4px;
+			font-weight: @font-weight-normal;
+		}
+
 		// Prevent long tokens from running off the page
 		pre {
 			white-space: pre-wrap;
 		}
-	}
-
-	&-demo__token--deprecated {
-		background-color: @background-color-warning-subtle;
-		display: inline-block;
-		position: absolute;
-		top: 8px;
-		right: 12px;
-		padding: 0 4px;
-		font-weight: @font-weight-normal;
 	}
 }
 </style>
