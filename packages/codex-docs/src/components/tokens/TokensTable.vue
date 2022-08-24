@@ -85,6 +85,13 @@ export default defineComponent( {
 			required: true
 		},
 		/**
+		 * Name of tokens or token groups to skip.
+		 */
+		excludeTokens: {
+			type: Array as PropType<string[]>,
+			default: () => []
+		},
+		/**
 		 * Name of the Vue component used to demonstrate the value of each token.
 		 */
 		tokenDemo: {
@@ -120,7 +127,8 @@ export default defineComponent( {
 	setup( props ) {
 		const hasTokenDemo = computed( () => !!props.tokenDemo );
 		const flattenedTokens = computed( () =>
-			flattenDesignTokensTree( props.tokens ).filter( ( token ) => token.attributes.type !== 'theme' )
+			flattenDesignTokensTree( props.tokens, props.excludeTokens )
+				.filter( ( token ) => token.attributes.type !== 'theme' )
 		);
 
 		return {

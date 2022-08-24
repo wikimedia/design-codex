@@ -23,6 +23,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 <cdx-docs-tokens-table
 	:tokens="tokens.width"
+	exclude-tokens="breakpoint"
 	token-demo="CdxDocsSizeDemo"
 	css-property="width"
 />
@@ -31,6 +32,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 <cdx-docs-tokens-table
 	:tokens="tokens['max-width']"
+	exclude-tokens="breakpoint"
 	token-demo="CdxDocsSizeDemo"
 	css-property="width"
 />
@@ -47,6 +49,7 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 
 <cdx-docs-tokens-table
 	:tokens="tokens['min-width']"
+	exclude-tokens="breakpoint"
 	token-demo="CdxDocsSizeDemo"
 	css-property="width"
 />

@@ -65,5 +65,14 @@ describe( 'flattenDesignTokensTree', () => {
 			subTreeToken1,
 			subTreeToken2
 		] );
+
+		expect( flattenDesignTokensTree( treeWithComment, [ 'firstToken' ] ) ).toMatchObject( [
+			exampleToken,
+			subTreeToken2
+		] );
+
+		expect( flattenDesignTokensTree( treeWithComment, [ 'nestedTree' ] ) ).toMatchObject( [
+			exampleToken
+		] );
 	} );
 } );
