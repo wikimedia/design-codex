@@ -107,7 +107,6 @@ const demoSections = [
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 // Define some sandbox-specific values
-@sandbox-breakpoint-tablet: 768px;
 @sandbox-header-height: 2em;
 @sandbox-sidebar-width: 20rem;
 
@@ -153,7 +152,7 @@ html {
 		justify-content: space-between;
 		padding: @spacing-large;
 
-		@media ( min-width: @sandbox-breakpoint-tablet ) {
+		@media ( min-width: @min-width-breakpoint-tablet ) {
 			flex-direction: row;
 		}
 
@@ -175,7 +174,7 @@ html {
 		order: -1;
 		margin-bottom: @spacing-xx-large;
 
-		@media ( min-width: @sandbox-breakpoint-tablet ) {
+		@media ( min-width: @min-width-breakpoint-tablet ) {
 			flex: 0 0 @sandbox-sidebar-width;
 			flex-direction: row;
 		}
