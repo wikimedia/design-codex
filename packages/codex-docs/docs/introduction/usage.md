@@ -1,8 +1,11 @@
+<script setup>
+import { version } from '../../../codex/package.json';
+</script>
+
 # Usage
 :::warning
-Codex is currently in the **alpha** stage, meant for **testing only**. Some things may not work,
-and breaking changes can happen at any time, as initial development is still ongoing. **Do not
-use Codex in production**.
+Codex is incomplete and still under active development. It's ready for production use, but some
+commonly needed components and features have not been implemented yet.
 :::
 
 ## Installation
@@ -79,13 +82,11 @@ The design tokens are not yet ready for external use at this time.
 
 Read more about [the different packages and their contents](./packages.md).
 ## Versioning
-As Codex is currently in the alpha stage, all releases are numbered `0.1.0-alpha.N`,
-where `N` is a number that increases with each release.
-
-Once Codex reaches beta, we will release version `0.1.0-beta.1`, followed by `0.1.0-beta.2`, etc.
-After the beta stage, we may release version `0.2.0` and subsequent `0.x.y` versions. Once Codex
-is ready for production use, we will release version `1.0.0`, and follow
-[the semantic versioning standard](https://semver.org/), from then forward.
+Codex follows [the semantic versioning standard](https://semver.org/). The current version is
+`{{ version }}`. Subsequent versions will continue to be numbered `0.x.y`, until Codex is stable
+and mature enough to warrant a `1.0.0` release. If a release contains breaking changes, the
+minor version number (the `x` in `0.x.y`) will be incremented, and the breaking changes will
+be clearly documented in `CHANGELOG.md`.
 
 ## Bidirectionality support
 Codex has limited support for [bidirectional text](https://en.wikipedia.org/wiki/Bidirectional_text).
