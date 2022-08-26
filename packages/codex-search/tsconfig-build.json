@@ -12,6 +12,7 @@
 		"types": [ "jest" ],
 		"allowJs": true,
 		"checkJs": true,
+		"skipLibCheck": true,
 		"declaration": true,
 		"declarationDir": "dist/types",
 		"emitDeclarationOnly": true

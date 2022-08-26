@@ -1,8 +1,7 @@
 {
 	"extends": "./tsconfig-build.json",
 	"compilerOptions": {
-		"noEmit": true,
-		"skipLibCheck": true
+		"noEmit": true
 	},
 	"include": [
 		"src/**/*.ts",
