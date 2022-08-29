@@ -106,7 +106,7 @@ body {
 
 .Layout .VPSidebar {
 	background-color: var( --background-color-base );
-	border: var( --border-width-base ) var( --border-style-base ) var( --border-color-subtle );
+	border-right: var( --border-width-base ) var( --border-style-base ) var( --border-color-subtle );
 }
 
 /* When the sidebar is not collapsed... */
@@ -145,10 +145,6 @@ body {
 	font-weight: var( --font-weight-normal );
 }
 
-.VPSidebar .link.active .link-text {
-	font-weight: var( --font-weight-bold );
-}
-
 /* Mimic main sidebar styles within right sidebar. */
 .VPDocAside .outline-title,
 .VPDocAside .outline-link {
@@ -163,6 +159,17 @@ body {
 	margin-top: 6px;
 }
 
+.VPSidebar .link:hover .link-text,
+.VPDocAside .outline-link:hover {
+	color: var( --color-progressive--hover );
+}
+
+.VPSidebar .link.active .link-text,
+.VPDocAside .outline-link.active {
+	color: var( --color-progressive );
+	font-weight: var( --font-weight-bold );
+}
+
 /* Mobile menu text */
 .VPLocalNav .menu-text,
 .VPLocalNav .top-link {
@@ -173,6 +180,10 @@ body {
 	/* Hide the flyout menu (mobile) since it's empty. */
 	/* Should be removed if we ever add any social links or a theme switcher. */
 	display: none;
+}
+
+.pager .pager-link:hover .title {
+	color: var( --color-progressive );
 }
 
 /* Syntax highlighting and code style overrides. ---------------------------- */
