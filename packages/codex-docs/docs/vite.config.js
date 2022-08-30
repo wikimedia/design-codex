@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
-import path from 'path';
+const { defineConfig } = require( 'vite' );
+const path = require( 'path' );
 
 // https://vitejs.dev/config/
 export default defineConfig( {

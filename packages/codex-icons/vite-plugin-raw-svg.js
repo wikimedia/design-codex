@@ -1,18 +1,20 @@
-import { promises } from 'fs';
-import { parse } from 'path';
-import { Plugin } from 'vite';
-import { createFilter, FilterPattern } from '@rollup/pluginutils';
-import { optimize } from 'svgo';
-import removeSvgTag from './svgo-plugin-removeSvgTag';
+const { promises } = require( 'fs' );
+const { parse } = require( 'path' );
+const { createFilter } = require( '@rollup/pluginutils' );
+const { optimize } = require( 'svgo' );
+const removeSvgTag = require( './svgo-plugin-removeSvgTag' );
 
-type RawSvgOptions = {
-	include?: FilterPattern,
-	exclude?: FilterPattern
-};
+/** @typedef {import('@rollup/pluginutils').FilterPattern} FilterPattern */
+/** @typedef {{ include?: FilterPattern, exclude?: FilterPattern }} RawSvgOptions */
 
-export default function rawSvg( options: RawSvgOptions = {
+/**
+ *
+ * @param {RawSvgOptions} options
+ * @return {import('vite').Plugin}
+ */
+module.exports = function rawSvg( options = {
 	include: '**/*.svg'
-} ) : Plugin {
+} ) {
 	const filter = createFilter( options.include, options.exclude );
 	return {
 		name: 'raw-svg',
@@ -23,7 +25,7 @@ export default function rawSvg( options: RawSvgOptions = {
 				return await promises.readFile( filename, 'utf-8' );
 			}
 		},
-		transform( code: string, id: string ) {
+		transform( code, id ) {
 			const [ filename ] = id.split( '?', 2 );
 			if ( filter( filename ) ) {
 				const iconName = parse( filename ).name;
@@ -62,4 +64,4 @@ export default function rawSvg( options: RawSvgOptions = {
 			}
 		}
 	};
-}
+};

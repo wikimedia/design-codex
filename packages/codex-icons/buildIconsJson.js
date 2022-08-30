@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { writeFileSync, existsSync } = require( 'fs' );
 const path = require( 'path' );
 

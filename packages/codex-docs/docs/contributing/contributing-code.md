@@ -175,7 +175,7 @@ information about code conventions, solved problems, and potential pitfalls.
 There are two environments available for testing components during development:
 
 1. The `Sandbox.vue` file in the `codex` package. `npm run dev` will serve that page at
-   http://locahost:3000 , and automatically update it in the browser as you make changes to the code
+   `http://localhost:5173` , and automatically update it in the browser as you make changes to the code
    (hot module reloading). If you need it to be served on a different port, you can use
    `npm run dev --port=12345`. This doesn't replace the use of VitePress for demo and documentation,
    it is more of a convenience during initial component development.

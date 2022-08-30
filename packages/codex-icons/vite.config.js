@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite';
-import path from 'path';
-import rawSvg from './vite-plugin-raw-svg';
-import typescript from '@rollup/plugin-typescript';
+const { defineConfig } = require( 'vite' );
+const path = require( 'path' );
+const rawSvg = require( './vite-plugin-raw-svg' );
+const typescript = require( '@rollup/plugin-typescript' );
 
 // https://vitejs.dev/config/
-export default defineConfig( {
+module.exports = defineConfig( {
 	build: {
 		target: 'es2015',
 		minify: true,

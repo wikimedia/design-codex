@@ -18,6 +18,14 @@
 			"extends": [
 				"wikimedia/language/es6"
 			]
+		},
+		{
+			"files": [ "**/*.js" ],
+			"excludedFiles": "src/**",
+			"rules": {
+				"jsdoc/valid-types": "off",
+				"@typescript-eslint/no-var-requires": "off"
+			}
 		}
 	]
 }
