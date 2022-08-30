@@ -3,7 +3,9 @@ To publish a new release of Codex, follow these steps:
 - Prepare the release commit
 - Submit the release commit to Gerrit, and ask someone to merge it
 - Once merged, create and publish the tag
-- Then publish the release to NPM
+- Publish the release to NPM
+- Update the Codex version in MediaWiki
+- Update the Codex version in the LibraryUpgrader configuration
 
 ## First time doing a release
 - [Create an NPM account](https://www.npmjs.com/signup), if you don't have one already
@@ -115,6 +117,7 @@ published version. This involves the following steps:
   - Update the integrity hash in `foreign-resources.yaml`
   - Run `manageForeignResources.php update` to update the library
 - Update the `RELEASE-NOTES` file
+- Generate the list of bugs for the commit message
 - Submit your changes
 See https://gerrit.wikimedia.org/r/c/mediawiki/core/+/791651 for an example change. Detailed
 instructions follow below.
@@ -167,8 +170,42 @@ there is a list item that says `Updated Codex from v1.2.28 to v1.2.33`, update t
 number to `v1.2.34`. If there isn't a list item about Codex yet, add one in the
 `Changed external libraries` section.
 
+Finally, commit your change and submit it to Gerrit. The command below also fetches the list of bugs
+referenced by commits in the new release, and adds it to the commit message. Don't forget to
+substitute the previous version number for `1.2.33` and the next version number for `1.2.34`.
+```
+$ git commit -am $'Update Codex from v1.2.33 to v1.2.34\n\n'$(git log v1.2.33..v1.2.34 | grep Bug: | sort | uniq)
+$ git review
+```
+
+## Updating LibraryUpgrader
+You also need to configure LibraryUpgrader to automatically update the repositories it manages to
+the new Codex version.
+
+If you haven't already, clone the LibraryUpgrader config repo:
+```
+$ git clone ssh://gerrit.wikimedia.org:29418/labs/libraryupgrader/config
+```
+
+Edit the `releases.json` file in that repository. Search for `codex`, and you should find this:
+```
+            "@wikimedia/codex": {
+                "to": "1.2.33",
+                "weight": 10
+            },
+            "@wikimedia/codex-icons": {
+                "to": "1.2.33",
+                "weight": 10
+            },
+            "@wikimedia/codex-search": {
+                "to": "1.2.33",
+                "weight": 10
+            }
+```
+Change each of the version numbers in the `"to":` fields to the new version number.
+
 Then commit your change and submit it to Gerrit:
 ```
-$ git commit -am "Update Codex from v1.2.33 to v1.2.34"
+$ git commit -am "releases: Bump Codex to 1.2.34"
 $ git review
 ```
