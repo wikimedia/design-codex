@@ -503,6 +503,12 @@ export default defineComponent( {
 				border-bottom-right-radius: 0;
 			}
 		}
+
+		// Remove VitePress's list styles.
+		// TODO: remove this once T296106 is complete.
+		li + li {
+			margin-top: 0;
+		}
 	}
 
 	// Add some space above the component demo to ensure that it does not collide with the
