@@ -1,3 +1,41 @@
+# 0.1.0 / 2022-08-30
+
+## Features
+- Lookup: When input is empty, clear pending state, and don't reopen menu (Roan Kattouw)
+- ButtonGroup: Use box-shadow instead of border between disabled buttons (Roan Kattouw)
+
+## Styles
+- ButtonGroup: Increase z-indexes to avoid using z-index: -1; (Roan Kattouw)
+- styles, Tabs: Don't emphasise being clickable on already selected Tab (Volker E)
+- styles, Card: Unset text-decoration on focus (Anne Tomasevich)
+- styles, docs: Rename and clarify icon-wrapper-padding mixin (Volker E)
+- styles, docs: Expand on pending-state mixin usage and replace vars (Volker E)
+- styles, demo: Use Codex breakpoint token (Volker E)
+- styles, docs: Improve more styles after the VitePress update (Anne Tomasevich)
+- styles: Unify on `cdx-mixin-` Less mixin prefix (Volker E)
+- tokens: Add small top and start box-shadow decision tokens (Volker E)
+- tokens: Add design-first breakpoints tokens (Volker E)
+
+## Code
+- types: Export MenuState type, reorder types in lib.ts (Roan Kattouw)
+- build: Add separate entry point for components in development (Roan Kattouw)
+- tests: Reorganize Checkbox tests per new standards (Anne Tomasevich)
+- tests: reorganize Lookup tests per new standards (Anne Tomasevich)
+
+## Documentation
+- docs, Thumbnail: Update "placeholder" language (Anne Tomasevich)
+- docs: Don't error when a component-demos .md file doesn't exist (Roan Kattouw)
+- docs: Use TypeScript for Vitepress config and theme files (Roan Kattouw)
+- docs: Use better TypeScript types for vue-docgen templates (Roan Kattouw)
+- docs: Use IconLookup component for Select's defaultIcon prop (Anne Tomasevich)
+- docs: Flag development components, hide them in release docs (Roan Kattouw)
+- docs: Standardize JEST unit test names and structure (Simone This Dot)
+- docs, tokens: Show deprecated tag even if there is no token demo (Roan Kattouw)
+- docs, tokens: Exclude breakpoint tokens from the size token docs (Roan Kattouw)
+- docs: Reword alpha warning (Roan Kattouw)
+- docs: Update VitePress (Anne Tomasevich)
+- docs: Remove VitePress list style in the demo pane (Anne Tomasevich)
+
 # 0.1.0-alpha.10 / 2022-08-16
 
 ## Features
