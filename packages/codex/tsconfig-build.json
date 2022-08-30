@@ -17,5 +17,12 @@
 		"declarationDir": "dist/types"
 	},
 	"include": [ "src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue" ],
-	"exclude": [ "src/**/*.test.ts", "src/**/*.snap.ts", "src/demo" ]
+	"exclude": [
+		"src/**/*.test.ts",
+		"src/**/*.snap.ts",
+		"src/demo",
+		"src/start.ts",
+		"src/lib-wip.ts",
+		"src/components-wip"
+	]
 }
