@@ -1,3 +1,11 @@
+# 0.1.1 / 2022-08-31
+
+## Code
+- build: Don't build .d.ts files for demos and WIP components (Roan Kattouw)
+- build: Add bug list and LibraryUpgrader steps to RELEASING.md (Roan Kattouw)
+- build: Skip diff-css.sh when not running in CI (Roan Kattouw)
+- build: Upgrade Vite to v3.0.9 (Roan Kattouw)
+
 # 0.1.0 / 2022-08-30
 
 ## Features
