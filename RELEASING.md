@@ -170,11 +170,32 @@ there is a list item that says `Updated Codex from v1.2.28 to v1.2.33`, update t
 number to `v1.2.34`. If there isn't a list item about Codex yet, add one in the
 `Changed external libraries` section.
 
-Finally, commit your change and submit it to Gerrit. The command below also fetches the list of bugs
-referenced by commits in the new release, and adds it to the commit message. Don't forget to
-substitute the previous version number for `1.2.33` and the next version number for `1.2.34`.
+As the final step before committing your change, generate the list of bugs referenced by commits in
+the new release, so that you can include it in the commit message. To generate this list, run the
+following command *in the Codex repository* (not in the MediaWiki directory):
 ```
-$ git commit -am $'Update Codex from v1.2.33 to v1.2.34\n\n'$(git log v1.2.33..v1.2.34 | grep Bug: | sort | uniq)
+git log --pretty=format:%b v1.2.33..v1.2.34 | grep Bug: | sort | uniq
+```
+This command should output a series of lines that look like `Bug: T12345`. Copy this list to the
+clipboard.
+
+Then go back to the MediaWiki repository, and commit your change:
+```
+$ git commit -a
+```
+This will prompt you for a commit message. Type `Update Codex from v1.2.33 to v1.2.34`, then leave
+a blank line, then paste the list of bugs from the preevious step. The full commit message should
+look like this:
+```
+Update Codex from v1.2.33 to v1.2.34
+
+Bug: T123
+Bug: T456
+Bug: T789
+```
+
+Finally, submit the commit to Gerrit:
+```
 $ git review
 ```
 
