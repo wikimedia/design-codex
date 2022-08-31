@@ -1,6 +1,13 @@
 #! /bin/bash
 set -ex
 
+# Only run this command in CI, unless --force is set
+if [ -z "$ZUUL_CHANGE" -a "$1" != "--force" ]
+then
+	echo "Not running CSS diff because no CI environment is detected. Pass --force to override."
+	exit 0
+fi
+
 # Verify that there are no uncommitted changes; error out if there are
 if [ $(git diff | wc -l) -ne 0 ]
 then
