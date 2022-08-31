@@ -129,7 +129,6 @@ export default defineComponent( {
 		};
 	}
 } );
-/* eslint-disable max-len */
 </script>
 
 <style lang="less">
@@ -147,9 +146,22 @@ export default defineComponent( {
 			// toggled-off buttons, but not above the borders of an active or focused button
 			// (those get z-index: 3;)
 			z-index: 2;
+
+			/* stylelint-disable value-list-comma-newline-after */
 			// When two toggled-on buttons are adjacent to each other, display a white line
 			// between them, using the same box-shadow trick as in button-group.less
-			box-shadow: @box-shadow-outset-small-top @box-shadow-color-inverted, @box-shadow-outset-small-start @box-shadow-color-inverted;
+			box-shadow: @box-shadow-outset-small-top @box-shadow-color-inverted,
+				@box-shadow-outset-small-start @box-shadow-color-inverted;
+
+			&:focus {
+				// Add a white box-shadow around the existing box-shadow applied to focused
+				// ToggleButtons. This is similar to the box-shadow above but slightly different:
+				// it appears on all four edges, not just the left and top edges
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus,
+					@box-shadow-inset-medium @box-shadow-color-inverted,
+					@box-shadow-outset-small @box-shadow-color-inverted;
+			}
+			/* stylelint-enable value-list-comma-newline-after */
 		}
 	}
 }

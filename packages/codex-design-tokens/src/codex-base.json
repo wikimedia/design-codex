@@ -589,6 +589,9 @@
 		"inset-medium-vertical": {
 			"value": "{ box-shadow.50-vertical }"
 		},
+		"outset-small": {
+			"value": "{ box-shadow.25-outset }"
+		},
 		"outset-small-top": {
 			"value": "{ box-shadow.25-top }"
 		},
