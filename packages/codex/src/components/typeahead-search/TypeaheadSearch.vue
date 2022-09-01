@@ -320,6 +320,7 @@ export default defineComponent( {
 		// Get helpers from useSplitAttributes.
 		const internalClasses = computed( () => {
 			return {
+				// TODO: remove this class once T316893 is complete in Vector.
 				'cdx-typeahead-search--active': isActive.value,
 				'cdx-typeahead-search--show-thumbnail': props.showThumbnail,
 				'cdx-typeahead-search--expanded': expanded.value,
@@ -770,12 +771,12 @@ export default defineComponent( {
 	}
 
 	&--show-thumbnail {
-		&.cdx-typeahead-search--auto-expand-width:not( .cdx-typeahead-search--active ) {
+		&.cdx-typeahead-search--auto-expand-width:not( .cdx-typeahead-search--expanded ) {
 			margin-left: @size-typeahead-search-focus-addition;
 		}
 
 		&:not( .cdx-typeahead-search--auto-expand-width ),
-		&.cdx-typeahead-search--auto-expand-width.cdx-typeahead-search--active {
+		&.cdx-typeahead-search--auto-expand-width.cdx-typeahead-search--expanded {
 			margin-left: 0;
 
 			.cdx-text-input__input {
