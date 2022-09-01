@@ -6,6 +6,7 @@ To publish a new release of Codex, follow these steps:
 - Publish the release to NPM
 - Update the Codex version in MediaWiki
 - Update the Codex version in the LibraryUpgrader configuration
+- Announce the new release
 
 ## First time doing a release
 - [Create an NPM account](https://www.npmjs.com/signup), if you don't have one already
@@ -230,3 +231,14 @@ Then commit your change and submit it to Gerrit:
 $ git commit -am "releases: Bump Codex to 1.2.34"
 $ git review
 ```
+
+## Announcing the new release
+Once the MediaWiki core patch has been merged, announce the new release to Codex stakeholders.
+
+Currently, we are only announcing releases internally, in Slack. Make a post in the
+#talk-to-design-systems-team channel announcing the new version number and listing out the
+following:
+- Breaking changes: list all breaking changes with links to relevant tasks or patches and
+  recommendations for handling them, or "none" if there are none for this release
+- Notable new features: list any new features you think Codex users should know about
+- Notable bug fixes: Highlight bug tasks resolved by the new release
