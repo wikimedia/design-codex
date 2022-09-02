@@ -3,6 +3,8 @@ const vue = require( '@vitejs/plugin-vue' ).default;
 const rtlcss = require( 'rtlcss' );
 const postcssRtlcss = require( 'postcss-rtlcss' );
 const postcssBaseConfig = require( './postcss-base.config' );
+const fs = require( 'fs' );
+const path = require( 'path' );
 
 // https://vitejs.dev/config/
 // Take an extra libName parameter so it can be customized in packages/codex-search/vite.config.ts
@@ -53,7 +55,35 @@ module.exports = defineConfig( ( { command, mode }, libName = 'codex' ) => {
 			postcss: postcssConfig
 		},
 		plugins: [
-			vue()
+			vue(),
+			{
+				// A basic Vite plugin which copies any public Less mixins in a pre-defined
+				// directory, and copies them unchanged into dist/mixins
+				name: 'copyPublicLessMixins',
+
+				// Use the Rollup writeBundle() hook to ensure that bundle files
+				// have been written to disk
+				writeBundle( options ) {
+					const inputDir = path.resolve( 'src', 'themes', 'mixins', 'public' );
+					const outputDir = path.resolve( ( options.dir || 'dist' ), 'mixins' );
+
+					// create the mixins sub-directory if it does not yet exist
+					if ( !( fs.existsSync( outputDir ) ) ) {
+						fs.mkdirSync( outputDir );
+					}
+
+					// copy any files inside of the public mixins directory
+					// into the mixins dist directory
+					if ( fs.existsSync( inputDir ) ) {
+						fs.readdirSync( inputDir ).forEach( ( file ) => {
+							fs.copyFileSync(
+								path.resolve( inputDir, file ),
+								path.resolve( outputDir, file )
+							);
+						} );
+					}
+				}
+			}
 		]
 	};
 

@@ -21,6 +21,7 @@
 				<combobox-demo />
 				<dialog-demo />
 				<icon-demo />
+				<link-demo />
 				<lookup-demo />
 				<menu-demo />
 				<menu-item-demo />
@@ -78,6 +79,7 @@ import ThumbnailDemo from './ThumbnailDemo.vue';
 import ToggleButtonGroupDemo from './ToggleButtonGroupDemo.vue';
 import ToggleDemo from './ToggleDemo.vue';
 import TypeaheadSearchDemo from './TypeaheadSearchDemo.vue';
+import LinkDemo from './LinkDemo.vue';
 
 const dir = ref<HTMLDirection>( 'ltr' );
 const demoSections = [
@@ -88,6 +90,7 @@ const demoSections = [
 	{ name: 'Combobox', id: '#cdx-combobox' },
 	{ name: 'Dialog', id: '#cdx-dialog' },
 	{ name: 'Icon', id: '#cdx-icon' },
+	{ name: 'Link', id: '#cdx-link' },
 	{ name: 'Lookup', id: '#cdx-lookup' },
 	{ name: 'Menu', id: '#cdx-menu' },
 	{ name: 'MenuItem', id: '#cdx-menu-item' },
@@ -194,5 +197,13 @@ html {
 			}
 		}
 	}
+}
+</style>
+
+<style lang="less" scoped>
+@import ( reference ) '../themes/mixins/public/link.less';
+
+a {
+	.cdx-mixin-link();
 }
 </style>
