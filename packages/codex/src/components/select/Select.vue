@@ -48,6 +48,7 @@
 				class="cdx-select__indicator"
 			/>
 		</div>
+
 		<cdx-menu
 			:id="menuId"
 			ref="menu"
@@ -81,6 +82,7 @@ import CdxIcon from '../icon/Icon.vue';
 import CdxMenu from '../menu/Menu.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
+import useResizeObserver from '../../composables/useResizeObserver';
 import { MenuItemData, MenuConfig } from '../../types';
 
 /**
@@ -185,6 +187,9 @@ export default defineComponent( {
 				props.defaultLabel;
 		} );
 
+		const currentDimensions = useResizeObserver( handle );
+		const currentWidthInPx = computed( () => `${currentDimensions.value.width ?? 0}px` );
+
 		const startIcon = computed( () => {
 			if ( props.defaultIcon && !selectedMenuItem.value ) {
 				return props.defaultIcon;
@@ -240,6 +245,7 @@ export default defineComponent( {
 			expanded,
 			onBlur,
 			currentLabel,
+			currentWidthInPx,
 			rootClasses,
 			onClick,
 			onKeydown,
@@ -357,6 +363,17 @@ export default defineComponent( {
 		}
 	}
 	/* stylelint-enable no-descending-specificity */
+
+	// Overrides when used within a Dialog component
+	.cdx-dialog & {
+		position: static;
+
+		.cdx-menu {
+			left: auto;
+			/* stylelint-disable-next-line value-keyword-case */
+			width: v-bind( currentWidthInPx );
+		}
+	}
 }
 
 </style>

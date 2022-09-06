@@ -1,0 +1,57 @@
+<template>
+	<section id="cdx-dialog">
+		<h2>Dialog</h2>
+		<p>
+			<cdx-button @click="showDialog1 = true">
+				Launch Dialog 1
+			</cdx-button>
+
+			&nbsp;
+
+			<cdx-button @click="showDialog2 = true">
+				Launch Dialog 2
+			</cdx-button>
+		</p>
+
+		<cdx-dialog
+			v-model:open="showDialog1"
+			close-button-label="close"
+			:stacked-actions="true"
+			:primary-action="{ actionType: 'progressive', label: 'Sweet!' }"
+			:default-action="{ label: 'Bummer' }"
+			title="Example Dialog 1"
+			@default="showDialog1 = false"
+			@primary="showDialog1 = false"
+		>
+			<p>This dialog is displayed in-place using CSS positioning</p>
+		</cdx-dialog>
+
+		<teleport to="#teleport-target">
+			<cdx-dialog
+				v-model:open="showDialog2"
+				close-button-label="close"
+				:primary-action="{ actionType: 'destructive', label: 'Destroy!' }"
+				:default-action="{ label: 'Cancel' }"
+				title="Example Dialog 2"
+				:hide-title="true"
+				@default="showDialog2 = false"
+				@primary="showDialog2 = false"
+			>
+				<p>
+					This dialog is teleported to the #teleport-target element
+					elsewhere on the page.
+				</p>
+			</cdx-dialog>
+		</teleport>
+	</section>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue';
+// eslint-disable-next-line no-restricted-imports
+import { CdxDialog } from '../components-wip';
+import { CdxButton } from '../lib';
+
+const showDialog1 = ref( false );
+const showDialog2 = ref( false );
+</script>

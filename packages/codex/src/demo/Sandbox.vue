@@ -19,6 +19,7 @@
 				<card-demo />
 				<checkbox-demo />
 				<combobox-demo />
+				<dialog-demo />
 				<icon-demo />
 				<lookup-demo />
 				<menu-demo />
@@ -61,6 +62,7 @@ import ButtonGroupDemo from './ButtonGroupDemo.vue';
 import CardDemo from './CardDemo.vue';
 import CheckboxDemo from './CheckboxDemo.vue';
 import ComboboxDemo from './ComboboxDemo.vue';
+import DialogDemo from './DialogDemo.vue';
 import IconDemo from './IconDemo.vue';
 import LookupDemo from './LookupDemo.vue';
 import MenuDemo from './MenuDemo.vue';
@@ -84,6 +86,7 @@ const demoSections = [
 	{ name: 'Card', id: '#cdx-card' },
 	{ name: 'CheckBox', id: '#cdx-checkbox' },
 	{ name: 'Combobox', id: '#cdx-combobox' },
+	{ name: 'Dialog', id: '#cdx-dialog' },
 	{ name: 'Icon', id: '#cdx-icon' },
 	{ name: 'Lookup', id: '#cdx-lookup' },
 	{ name: 'Menu', id: '#cdx-menu' },

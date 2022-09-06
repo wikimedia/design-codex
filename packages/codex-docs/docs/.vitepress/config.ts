@@ -162,6 +162,7 @@ export default defineConfig( {
 						{ text: 'Card', link: '/components/demos/card' },
 						{ text: 'Checkbox', link: '/components/demos/checkbox' },
 						{ text: 'Combobox', link: '/components/demos/combobox' },
+						{ text: 'Dialog', link: '/components/demos/dialog' },
 						{ text: 'Icon', link: '/components/demos/icon' },
 						{ text: 'Lookup', link: '/components/demos/lookup' },
 						{ text: 'Menu', link: '/components/demos/menu' },

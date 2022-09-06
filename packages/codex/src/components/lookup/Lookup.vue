@@ -1,5 +1,6 @@
 <template>
 	<div
+		ref="rootElement"
 		class="cdx-lookup"
 		:class="rootClasses"
 		:style="rootStyle"
@@ -62,6 +63,7 @@ import CdxTextInput from '../text-input/TextInput.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
+import useResizeObserver from '../../composables/useResizeObserver';
 import { MenuItemData, MenuConfig } from '../../types';
 
 /**
@@ -150,6 +152,7 @@ export default defineComponent( {
 
 	setup: ( props, { emit, attrs, slots } ) => {
 		// Set up local reactive data
+		const rootElement = ref<HTMLDivElement>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
 		const menuId = useGeneratedId( 'lookup-menu' );
 		const pending = ref( false );
@@ -165,6 +168,9 @@ export default defineComponent( {
 
 		// This should not be reactive, so we just read the initial value.
 		const inputValue = ref( props.initialInputValue );
+
+		const currentDimensions = useResizeObserver( rootElement );
+		const currentWidthInPx = computed( () => `${currentDimensions.value.width ?? 0}px` );
 
 		const internalClasses = computed( () => {
 			return {
@@ -294,6 +300,8 @@ export default defineComponent( {
 		} );
 
 		return {
+			rootElement,
+			currentWidthInPx,
 			menu,
 			menuId,
 			highlightedId,
@@ -328,6 +336,17 @@ export default defineComponent( {
 
 	&__input {
 		.cdx-mixin-element-with-menu-expanded();
+	}
+
+	// Overrides when used within a Dialog component
+	.cdx-dialog & {
+		position: static;
+
+		.cdx-menu {
+			left: auto;
+			/* stylelint-disable-next-line value-keyword-case */
+			width: v-bind( currentWidthInPx );
+		}
 	}
 }
 </style>

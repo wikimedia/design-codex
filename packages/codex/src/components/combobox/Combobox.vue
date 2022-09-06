@@ -4,7 +4,7 @@
 		:class="rootClasses"
 		:style="rootStyle"
 	>
-		<div class="cdx-combobox__input-wrapper">
+		<div ref="inputWrapper" class="cdx-combobox__input-wrapper">
 			<cdx-text-input
 				ref="input"
 				v-model="modelWrapper"
@@ -85,6 +85,7 @@ import CdxTextInput from '../text-input/TextInput.vue';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
+import useResizeObserver from '../../composables/useResizeObserver';
 
 import { MenuItemData, MenuConfig } from '../../types';
 
@@ -157,6 +158,7 @@ export default defineComponent( {
 
 	setup( props, { emit, attrs, slots } ) {
 		const input = ref<InstanceType<typeof CdxTextInput>>();
+		const inputWrapper = ref<HTMLDivElement>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
 		const menuId = useGeneratedId( 'combobox' );
 		const selectedProp = toRef( props, 'selected' );
@@ -171,6 +173,9 @@ export default defineComponent( {
 				'cdx-combobox--disabled': props.disabled
 			};
 		} );
+
+		const currentDimensions = useResizeObserver( inputWrapper );
+		const currentWidthInPx = computed( () => `${currentDimensions.value.width ?? 0}px` );
 
 		// Get helpers from useSplitAttributes.
 		const {
@@ -248,6 +253,8 @@ export default defineComponent( {
 
 		return {
 			input,
+			inputWrapper,
+			currentWidthInPx,
 			menu,
 			menuId,
 			modelWrapper,
@@ -305,6 +312,17 @@ export default defineComponent( {
 
 	&__expand-icon {
 		.cdx-mixin-icon( center, @size-indicator );
+	}
+
+	// Overrides when used within a Dialog component
+	.cdx-dialog & {
+		position: static;
+
+		.cdx-menu {
+			left: auto;
+			/* stylelint-disable-next-line value-keyword-case */
+			width: v-bind( currentWidthInPx );
+		}
 	}
 }
 </style>

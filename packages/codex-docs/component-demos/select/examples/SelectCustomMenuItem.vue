@@ -5,7 +5,7 @@
 		default-label="Choose an option"
 	>
 		<template #menu-item="{ menuItem }">
-			<cdx-icon :icon="menuItem.icon" />
+			<cdx-icon v-if="menuItem.icon" :icon="menuItem.icon" />
 		</template>
 	</cdx-select>
 </template>

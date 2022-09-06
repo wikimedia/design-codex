@@ -129,3 +129,20 @@ export interface TabData {
 	id: string,
 	disabled: boolean
 }
+
+/** @public */
+export interface DialogAction {
+	label: string,
+	disabled?: boolean
+}
+
+/** @public */
+export interface PrimaryDialogAction extends DialogAction {
+	actionType: 'progressive' | 'destructive'
+}
+
+/** @public */
+export interface BoxDimensions {
+	width: number|undefined,
+	height: number|undefined
+}
