@@ -91,7 +91,6 @@ describe( 'TypeaheadSearch initial state', () => {
 
 		const input = wrapper.find( '.cdx-text-input__input' );
 		await input.trigger( 'focus' );
-		expect( wrapper.find( '.cdx-typeahead-search' ).classes() ).toContain( 'cdx-typeahead-search--active' );
 		expect( wrapper.find( '.cdx-typeahead-search' ).classes() ).not.toContain( 'cdx-typeahead-search--expanded' );
 		expect( wrapper.vm.expanded ).toBeFalsy();
 	} );
@@ -112,7 +111,6 @@ describe( 'TypeaheadSearch initial state', () => {
 		expect( wrapper.vm.expanded ).toStrictEqual( true );
 
 		await input.trigger( 'blur' );
-		expect( wrapper.find( '.cdx-typeahead-search' ).classes() ).not.toContain( 'cdx-typeahead-search--active' );
 		expect( wrapper.find( '.cdx-typeahead-search' ).classes() ).not.toContain( 'cdx-typeahead-search--expanded' );
 		expect( wrapper.vm.expanded ).toBeFalsy();
 	} );

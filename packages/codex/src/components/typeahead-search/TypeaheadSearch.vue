@@ -282,7 +282,8 @@ export default defineComponent( {
 		// delay, to avoid momentarily showing them to users with fast connections.
 		const showPending = ref( false );
 
-		// Whether the TypeaheadSearch is being used; used for applying conditional styles.
+		// Whether the TypeaheadSearch input is focused.
+		// TODO: consider changing this variable and the one in Lookup to `isFocused` for clarity.
 		const isActive = ref( false );
 
 		// Current text input value; initially set to the initialInputValue prop.
@@ -320,8 +321,6 @@ export default defineComponent( {
 		// Get helpers from useSplitAttributes.
 		const internalClasses = computed( () => {
 			return {
-				// TODO: remove this class once T316893 is complete in Vector.
-				'cdx-typeahead-search--active': isActive.value,
 				'cdx-typeahead-search--show-thumbnail': props.showThumbnail,
 				'cdx-typeahead-search--expanded': expanded.value,
 				'cdx-typeahead-search--auto-expand-width': props.showThumbnail && props.autoExpandWidth
