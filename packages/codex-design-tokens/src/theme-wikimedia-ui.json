@@ -77,6 +77,9 @@
 		"purple": {
 			"value": "#6b4ba1"
 		},
+		"maroon": {
+			"value": "#a55858"
+		},
 		"modifier-gray100-translucent": {
 			"comment": "TODO: Not part of DS Figma yet. Equals `color-gray100` on white.",
 			"value": "rgba( 0, 24, 73, calc( 7 / 255 ) )"

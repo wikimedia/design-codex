@@ -162,7 +162,7 @@
 			"value": "{ color.red600 }"
 		},
 		"visited": {
-			"comment": "'Visited' color. In combination with progressive. Used for links.",
+			"comment": "'Visited' color. In combination with progressive. Used for default links.",
 			"value": "{ color.purple }"
 		},
 		"error": {

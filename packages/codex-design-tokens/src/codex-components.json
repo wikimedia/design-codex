@@ -74,6 +74,22 @@
 		"primary--focus": {
 			"deprecated": true,
 			"value": "{ color.progressive--focus }"
+		},
+		"link-red": {
+			"comment": "Red ('new') Link color and states",
+			"value": "{ color.red600 }"
+		},
+		"link-red--hover": {
+			"value": "{ color.red500 }"
+		},
+		"link-red--active": {
+			"value": "{ color.red700 }"
+		},
+		"link-red--focus": {
+			"value": "{ color.red600 }"
+		},
+		"link-red--visited": {
+			"value": "{ color.maroon }"
 		}
 	},
 	"position": {
