@@ -1,8 +1,12 @@
+---
+outline: deep
+---
+
 # Contributing code
 
 ::: tip Before you dive into contributing code:
-- Read the [general contribution guidelines](./guidelines.md)
-- Check out the [code design principles](../index.md#code-design-patterns)
+- Read the [general contribution guidelines](../contributing/overview.md)
+- Check out the [code design principles](../using-codex/about.md#code-design-patterns)
 :::
 
 ## Get the code
@@ -175,8 +179,8 @@ information about code conventions, solved problems, and potential pitfalls.
 There are two environments available for testing components during development:
 
 1. The `Sandbox.vue` file in the `codex` package. `npm run dev` will serve that page at
-   `http://localhost:5173` , and automatically update it in the browser as you make changes to the code
-   (hot module reloading). If you need it to be served on a different port, you can use
+  `http://localhost:5173`, and automatically update it in the browser as you make changes to the
+   code (hot module reloading). If you need it to be served on a different port, you can use
    `npm run dev --port=12345`. This doesn't replace the use of VitePress for demo and documentation,
    it is more of a convenience during initial component development.
 2. The VitePress demo site. See the [component demos](#component-demos) section for details.

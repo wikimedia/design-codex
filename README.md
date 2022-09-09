@@ -31,7 +31,7 @@ To use icons:
 import { cdxIconAlert, cdxIconNewWindow } from '@wikimedia/codex-icons';
 ```
 
-For more information on how to set up and use the library, see the [usage documentation](https://doc.wikimedia.org/codex/main/introduction/usage.html).
+For more information on how to set up and use the library, see the [usage documentation](https://doc.wikimedia.org/codex/main/using-codex/usage.html).
 
 ### Development
 
@@ -54,7 +54,7 @@ for more information.
 
 ## Contributing
 
-If you'd like to contribute, head over to the [contributing docs](https://doc.wikimedia.org/codex/main/contributing/guidelines.html)
+If you'd like to contribute, head over to the [contributing docs](https://doc.wikimedia.org/codex/main/contributing/overview.html)
 to learn about our processes and ways you can contribute.
 
 ## Maintainers

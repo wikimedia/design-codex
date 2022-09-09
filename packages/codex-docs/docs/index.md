@@ -1,104 +1,146 @@
----
-sidebarDepth: 3
----
+<script setup>
+import { CdxIcon, CdxButton, CdxCard } from '@wikimedia/codex';
+import { cdxIconLogoWikimedia, cdxIconKey, cdxIconPuzzle, cdxIconInfoFilled } from '@wikimedia/codex-icons';
+import { version } from '../../codex/package.json';
+</script>
 
-# About
+<div class="cdx-docs-home">
 
-Codex is a toolkit for building user interfaces within the Wikimedia Design System. Codex contains:
+<div class="cdx-docs-home__hero-background">
+	<div class="cdx-docs-home__hero">
+		<cdx-icon class="cdx-docs-home__hero__icon" :icon="cdxIconLogoWikimedia" />
+		<p class="cdx-docs-home__hero__title">Codex</p>
+		<p class="cdx-docs-home__hero__version">Current version: {{ version }}</p>
+	</div>
+</div>
 
-- **Design tokens**: for writing styles consistent with the Wikimedia Design System
-- **Vue 3 components**: for building usable, accessible, translatable [Vue 3](https://v3.vuejs.org/) applications
+# Codex
 
-Codex features:
-- Wide-ranging support for internationalization and global usage
-- Web accessibility baked in
-- Comprehensive browser and device support
+Codex is a toolkit for building user interfaces within the Wikimedia Design System.
 
-Read our [guiding principles](#guiding-principles) for details.
+<div class="cdx-docs-home__resources">
+	<cdx-card url="/using-codex/about">
+		<template #title>Using Codex</template>
+		<template #description>Learn how to use Codex to design and build user interfaces</template>
+	</cdx-card>
+	<cdx-card url="/contributing/overview">
+		<template #title>Contributing guidelines</template>
+		<template #description>Learn about how we work on Codex and how you can help</template>
+	</cdx-card>
+</div>
 
-## Usage and contributions
+## Features
 
-Visit [usage](./introduction/usage) to learn how to use this library.
+<div class="cdx-docs-home__features">
+	<cdx-card url="/design-tokens/overview" :icon="cdxIconKey">
+		<template #title>Design tokens</template>
+		<template #description>Write styles consistent with the Wikimedia Design System</template>
+	</cdx-card>
+	<!-- TODO: Change this link to /components/overview once page exists. -->
+	<cdx-card url="/components/button" :icon="cdxIconPuzzle">
+		<template #title>Components</template>
+		<template #description>Build usable, accessible, translatable applications</template>
+	</cdx-card>
+	<cdx-card url="/icons/overview" :icon="cdxIconInfoFilled">
+		<template #title>Icons</template>
+		<template #description>Access a collection of icons with language and directionality variants</template>
+	</cdx-card>
+</div>
 
-If you'd like to contribute, head over to the [contributing section](./contributing/guidelines) to
-learn about ways you can contribute, our processes, and how to develop this library.
+## Resources
 
-## Maintainers
+<div class="cdx-docs-home__resources">
+	<cdx-card url="https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420">
+		<template #title>Figma kit</template>
+		<template #description>View the Figma design specifications</template>
+	</cdx-card>
+	<cdx-card url="https://www.mediawiki.org/wiki/Codex">
+		<template #title>Using Codex in MediaWiki</template>
+		<template #description>Learn about using Codex within the MediaWiki platform</template>
+	</cdx-card>
+	<cdx-card url="https://gerrit.wikimedia.org/r/admin/repos/design/codex">
+		<template #title>View code on Gerrit</template>
+		<template #description>The canonical Codex codebase</template>
+	</cdx-card>
+	<cdx-card url="https://github.com/wikimedia/design-codex">
+		<template #title>View code on GitHub</template>
+		<template #description>A mirror of the Gerrit codebase on GitHub</template>
+	</cdx-card>
+</div>
 
-Codex is maintained by the Design Systems Team of the Wikimedia Foundation. It is designed and
-developed by contributors from the [Wikimedia Foundation](https://wikimediafoundation.org/),
-[Wikimedia Deutschland](https://www.wikimedia.de/), and
-[Wikimedia Movement](https://meta.wikimedia.org/wiki/Wikimedia_movement) volunteers.
+</div>
 
-To contact us or to learn more about current and future work, visit our
-[task tracking board](https://phabricator.wikimedia.org/tag/design-systems-team/) or the
-[Design Systems Team page](https://www.mediawiki.org/wiki/Design_Systems_Team) on mediawiki.org.
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-## Guiding principles
+@cdx-docs-spacing-layout: 32px;
 
-### Who we're serving
+.cdx-docs-home {
+	.cdx-card {
+		color: @color-base;
 
-#### Set high accessibility, internationalization, and browser/device coverage standards
+		&:hover {
+			color: @color-base;
+			text-decoration: none;
+		}
+	}
+	&__hero-background {
+		background-color: @background-color-progressive;
+		margin-right: -( @cdx-docs-spacing-layout );
+		margin-left: -( @cdx-docs-spacing-layout );
+		margin-bottom: @cdx-docs-spacing-layout;
+		width: calc( 100% + ( @cdx-docs-spacing-layout * 2 ) );
+	}
 
-Wikimedia intends to serve everyone. We will follow [Wikimedia's accessibility principles](https://design.wikimedia.org/style-guide/design-principles_accessibility.html) and aim to support many languages.
+	&__hero {
+		color: @color-inverted;
+		padding: @cdx-docs-spacing-layout;
 
-Codex follows MediaWiki's [browser support matrix](https://www.mediawiki.org/wiki/Compatibility#Browsers).
-Codex supports the subset of the “Modern” support list, with the difference being that only
-ES6-compatible browsers are supported. This excludes Internet Explorer 11 and Safari 9 and 10.
+		p {
+			margin: 0;
+		}
 
-Components should be thoughtfully designed and developed to work across device widths.
+		&__icon {
+			color: @color-inverted;
+			margin-bottom: @cdx-docs-spacing-layout * 2;
+			
+			svg {
+				// 5em, to match the title.
+				height: 80px;
+				width: 80px;
+			}
+		}
 
-#### Designed and built for the wider MediaWiki ecosystem
+		&__title {
+			font-size: 5em;
+			font-weight: @font-weight-bold;
+		}
 
-We intend to serve those working both within MediaWiki (core, skins, and extensions) and in the
-wider ecosystem, including web-based tools, static web applications, Jamstack applications, and
-some of our mobile apps. Platform-agnosticism will enable us to use this library as we continue
-expanding this ecosystem.
+		&__version {
+			font-size: 1.5em; 
+			font-family: @font-family-serif;
+		}
+	}
 
-To keep our code flexible, we will aim to avoid entirely MediaWiki-specific components. When they
-can't be avoided, we will clearly denote and separate out the MediaWiki-specific parts.
+	&__features {
+		display: flex;
+		flex-direction: column;
+		row-gap: 8px;
+	}
 
-#### Prioritize developer experience of library users
+	&__resources {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 8px;
+		row-gap: 8px;
 
-We want to make building user interfaces straightforward, fast, and enjoyable. We aim to serve users
-of varying experience levels and to reduce barriers to onboarding new users. When possible, we will
-prefer to house complexity in the library code rather than exposing it to the library user.
+		.cdx-card {
+			width: calc( 50% - 8px );
 
-### Collaboration principles
-
-#### Transparency
-
-We work in the open and aim to provide consumers as much information as possible about what we're
-working on and how we're prioritizing that work.
-
-#### Enable rather than enforce
-
-The Codex maintainers welcome contributions from everyone and wish to collaboratively build
-resources to enable others to easily contribute to the library.
-
-#### Knowledge sharing rather than knowledge silos
-
-Contributors should have support and access to resources that allow them to understand and influence
-the system's workflows, methodologies, standards, and infrastructure.
-
-### Code design patterns
-
-#### Composition over complexity
-
-Smaller components are easier to understand and more reusable.
-
-#### Clarity over brevity
-
-It's better for code to be easily understandable than to be as short or as clever as possible.
-
-#### Use existing patterns
-
-Sticking to patterns established in the wider front-end community enables more people to contribute.
-Following consistent patterns within the library makes the code easier to write, review, and
-maintain.
-
-#### Keep the template simple
-
-The template within [single file Vue components (SFCs)](https://v3.vuejs.org/guide/single-file-component.html#introduction)
-can be a tool to clearly illustrate what a component is and does. Consider moving everything but the
-most basic JavaScript code to the `<script>`.
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+</style>

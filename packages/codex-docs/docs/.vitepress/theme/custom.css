@@ -129,10 +129,6 @@ body {
 	opacity: 1;
 }
 
-.VPNavBarMenu .VPNavBarMenuLink:last-child {
-	padding-right: 0;
-}
-
 /* Use padding instead of margin for sidebar links so the space doesn't collapse. */
 .VPSidebar .VPLink {
 	margin: 0;

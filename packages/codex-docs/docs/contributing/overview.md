@@ -1,4 +1,4 @@
-# Contributing guidelines
+# Contributing guidelines overview
 
 We welcome contributions from everyone! There are several ways to contribute:
 
@@ -24,7 +24,7 @@ Consider following Codex design, development, roadmaps, and releases in these pl
 - Mailing lists: used to share release notes and summaries for major and minor releases:
   - Wikimedia tech news mailing list ([wikitech-l](https://lists.wikimedia.org/postorius/lists/wikitech-l.lists.wikimedia.org/))
   - Wikimedia design mailing list ([design.public](https://lists.wikimedia.org/postorius/lists/design.lists.wikimedia.org/))
-- [ADRs section](/adrs/overview): used to document technical decisions about the library.
+- [ADRs section](../using-codex/adrs/overview): used to document technical decisions about the library.
 
 ## Task tracking
 

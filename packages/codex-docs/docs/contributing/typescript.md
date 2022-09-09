@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 # Working with TypeScript
 
 TypeScript can sometimes be difficult or confusing to work with. This page documents tips for
@@ -106,7 +110,7 @@ Some components have props that take only certain predefined string values. For 
 component has a `action` prop that can be one of `'default'`, `'progressive'` or `'destructive'`.
 This section documents how these string types are organized, and how to create a new one.
 For more information on why we chose this approach, see
-[the relevant ADR](../adrs/03-adr-string-types.md).
+[the relevant ADR](../using-codex/adrs/03-adr-string-types.md).
 
 ### Naming
 String types that are particular to a prop are named for their component first and their prop

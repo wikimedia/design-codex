@@ -68,7 +68,7 @@ export default defineComponent( {
 - Type definition syntax is simple
 - Each string value is only defined once, there is no duplication
 - A list of all valid values is provided automatically (for use in validators, or code that
-  needs to iterate over all possibilites)
+  needs to iterate over all possibilities)
 
 #### Disadvantages
 - Setting a value for the prop in a template doesn't work with plain strings as one might expect,
@@ -144,4 +144,4 @@ End users will have a simpler experience, and validating these types or iteratin
 values will be easier too.
 
 For details on how string types are structured, see
-[the Working with TypeScript section](../contributing/typescript#string-types).
+[the Working with TypeScript section](../../contributing/typescript#string-types).
