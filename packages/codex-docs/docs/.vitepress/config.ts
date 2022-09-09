@@ -41,7 +41,9 @@ export default defineConfig( {
 	},
 
 	themeConfig: {
-		logo: '/logo-Wikimedia.svg',
+		logo: {
+			src: '/logo-Wikimedia.svg', alt: 'Wikimedia'
+		},
 
 		nav: [
 			{ text: 'GitHub', link: 'https://github.com/wikimedia/design-codex' }
