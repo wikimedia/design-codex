@@ -300,7 +300,7 @@ export default defineComponent( {
 		const selection = ref<string|number|null>( null );
 
 		const menuMessageClass = computed( () => ( {
-			'cdx-typeahead-search__menu-message--with-thumbnail': props.showThumbnail
+			'cdx-typeahead-search__menu-message--has-thumbnail': props.showThumbnail
 		} ) );
 
 		const selectedResult = computed( () =>
@@ -761,7 +761,7 @@ export default defineComponent( {
 
 	// When props showThumbnail is true, special menu messages (like no results and pending) should
 	// have different padding.
-	&__menu-message--with-thumbnail {
+	&__menu-message--has-thumbnail {
 		padding-left: @padding-no-results-text-with-thumbnail;
 	}
 

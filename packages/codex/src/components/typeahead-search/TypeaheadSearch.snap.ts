@@ -379,7 +379,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
 			-->
             
             <div
-              class="cdx-typeahead-search__menu-message cdx-typeahead-search__menu-message--with-thumbnail"
+              class="cdx-typeahead-search__menu-message cdx-typeahead-search__menu-message--has-thumbnail"
             >
               <span
                 class="cdx-typeahead-search__menu-message__text"

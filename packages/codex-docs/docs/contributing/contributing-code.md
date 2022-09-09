@@ -230,6 +230,8 @@ Stylesheet specific token application rules:
 - If a style or selector isn't self-explanatory, add a comment above it in Less comment style `//`.
 - Avoid HTML element selectors. The style rulesets should aim to be independent from specific
   element choices, which may change.
+- Use `--has-` and `--is-` prefixes for modifiers that are not tied to a specific state, e.g.
+  `--has-thumbnail` or `--is-link`.
 - Styles specific to a component's enabled or disabled state should be contained in a selector
   specific to that state. This structure allows us to avoid overriding enabled styles for the
   disabled state.
