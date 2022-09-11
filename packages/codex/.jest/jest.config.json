@@ -12,6 +12,11 @@
 			"branches": 80,
 			"functions": 80,
 			"lines": 80
+		},
+		"src/components-wip": {
+			"branches": 0,
+			"functions": 0,
+			"lines": 0
 		}
 	},
 	"collectCoverageFrom": [
@@ -19,6 +24,7 @@
 		"!<rootDir>/src/**/*.(d|test|snap).ts",
 		"!<rootDir>/src/constants.ts",
 		"!<rootDir>/src/lib.ts",
+		"!<rootDir>/src/lib-wip.ts",
 		"!<rootDir>/src/start.ts",
 		"!<rootDir>/src/types.ts"
 	],
