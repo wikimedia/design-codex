@@ -41,9 +41,11 @@ provide( DirectionKey, dir );
 
 <style lang="less">
 .cdx-docs-direction-switcher {
-	// Vertically center content.
-	display: flex;
-	align-items: center;
+	// TODO: remove from the header entirely.
+	// For now, set to `display: none` since the direction switcher breaks the header layout
+	// at certain screen sizes (tablet). This way, it can be made visible by those who know
+	// about it and want to use it for testing.
+	display: none;
 
 	.cdx-demo-direction-switcher {
 		margin-left: 0.5em;
