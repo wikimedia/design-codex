@@ -19,11 +19,11 @@ import { version } from '../../codex/package.json';
 Codex is a toolkit for building user interfaces within the Wikimedia Design System.
 
 <div class="cdx-docs-home__resources">
-	<cdx-card url="/using-codex/about">
+	<cdx-card url="./using-codex/about.html">
 		<template #title>Using Codex</template>
 		<template #description>Learn how to use Codex to design and build user interfaces</template>
 	</cdx-card>
-	<cdx-card url="/contributing/overview">
+	<cdx-card url="./contributing/overview.html">
 		<template #title>Contributing guidelines</template>
 		<template #description>Learn about how we work on Codex and how you can help</template>
 	</cdx-card>
@@ -32,16 +32,16 @@ Codex is a toolkit for building user interfaces within the Wikimedia Design Syst
 ## Features
 
 <div class="cdx-docs-home__features">
-	<cdx-card url="/design-tokens/overview" :icon="cdxIconKey">
+	<cdx-card url="./design-tokens/overview.html" :icon="cdxIconKey">
 		<template #title>Design tokens</template>
 		<template #description>Write styles consistent with the Wikimedia Design System</template>
 	</cdx-card>
 	<!-- TODO: Change this link to /components/overview once page exists. -->
-	<cdx-card url="/components/button" :icon="cdxIconPuzzle">
+	<cdx-card url="./components/button.html" :icon="cdxIconPuzzle">
 		<template #title>Components</template>
 		<template #description>Build usable, accessible, translatable applications</template>
 	</cdx-card>
-	<cdx-card url="/icons/overview" :icon="cdxIconInfoFilled">
+	<cdx-card url="./icons/overview.html" :icon="cdxIconInfoFilled">
 		<template #title>Icons</template>
 		<template #description>Access a collection of icons with language and directionality variants</template>
 	</cdx-card>
