@@ -111,8 +111,11 @@ export default defineConfig( {
 				{
 					text: 'Contributing code',
 					items: [
-						{ text: 'Contributing code', link: '/contributing/contributing-code' },
-						{ text: 'Working with TypeScript', link: '/contributing/typescript' }
+						{ text: 'Introduction', link: '/contributing/contributing-code/introduction' },
+						{ text: 'Developing components', link: '/contributing/contributing-code/developing-components' },
+						{ text: 'Testing components', link: '/contributing/contributing-code/testing-components' },
+						{ text: 'Component demos', link: '/contributing/contributing-code/component-demos' },
+						{ text: 'Working with TypeScript', link: '/contributing/contributing-code/typescript' }
 					]
 				}
 			],

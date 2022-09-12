@@ -104,4 +104,4 @@ accordingly, for example in how they respond to the left and right arrow keys. I
 to the surrounding direction. For more information on how bidirectionality is handled for icons,
 see [the icon documentation](../icons/overview.md#right-to-left-rtl-and-language-support).
 
-For more information on this topic, see [the developer documentation on bidirectionality](../contributing/contributing-code.md#bidirectional-script-support).
+For more information on this topic, see [the developer documentation on bidirectionality](../contributing/contributing-code/developing-components#bidirectional-script-support).
