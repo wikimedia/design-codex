@@ -4,6 +4,35 @@ outline: deep
 
 # Developing components
 
+## Local development
+
+### Vite Sandbox
+
+Running the Vite server for local development will spin up the component sandbox. Each component
+should have a simple working demo in the sandbox for local development and testing. These basic
+demos will also be used for testing components within MediaWiki.
+
+To start the local dev server, run this command in the root of the Codex repository:
+
+```bash
+npm run dev
+```
+
+This will serve the sandbox page at `http://localhost:5173`, and automatically update it in the
+browser as you make changes to the code (hot module reloading). If you need it to be served on a
+different port, you can use `npm run dev --port=12345`.
+
+To add a new component demo to the sandbox:
+
+- In `packages/codex/src/demo`, add a new `.vue` file containing the new demo
+- Import the new file into `packages/codex/src/demo/Sandbox.vue`, add it to the template, and add
+  it to the `demoSections` array.
+
+### VitePress docs site
+
+Aside from Vite Sandbox, you can also run the VitePress site locally to write and test a full
+suite of component demos. See the [component demos](./component-demos) section for more information.
+
 ## Component basics
 
 The `codex` package uses [Vue 3](https://v3.vuejs.org/guide/introduction.html) and prefers
@@ -13,22 +42,49 @@ Options API.
 Codex is written in TypeScript: see the [Working with TypeScript](./typescript.md) section for
 information about code conventions, solved problems, and potential pitfalls.
 
-There are two environments available for testing components during development:
-
-1. The `Sandbox.vue` file in the `codex` package. `npm run dev` will serve that page at
-  `http://localhost:5173`, and automatically update it in the browser as you make changes to the
-   code (hot module reloading). If you need it to be served on a different port, you can use
-   `npm run dev --port=12345`. This doesn't replace the use of VitePress for demo and documentation,
-   it is more of a convenience during initial component development.
-2. The VitePress demo site. See the [component demos](./component-demos) section for details.
-
 ### Conventions
 
-- Export all components in `src/lib.ts` to make them available to library users.
+- Export all components that are ready for public consumption in `src/lib.ts` to make them
+available to library users.
 - PascalCase multi-word component names are used per the Vue.js Style Guide. Component names should
 be prefixed with "Cdx," e.g. `CdxButton`
 - Slot names should be all lowercase. Use `kebab-case` for slot names with multiple words. This is
 necessary to ensure support for environments that use DOM templates, including MediaWiki.
+
+### WIP components
+
+Until a component is ready for public consumption, it is considered a "work in progress" or "WIP"
+component. WIP components are housed in a separate directory, `packages/codex/src/components-wip`,
+and are included in `index.ts` in that same directory. WIP components will not be included in
+public dist files, nor will they appear on the live Codex docs site (although they will appear when
+serving the docs site locally).
+
+#### Adding a WIP component
+
+To add a new WIP component:
+- Add a new directory and `.vue` file to the WIP components directory, e.g.
+  `packages/codex/src/components-wip/my-new-component/MyNewComponent.vue`
+- Import this component into `packages/codex/src/components-wip/index.ts`
+
+Before submitting a patch for the new component, we recommend at least adding a [basic demo to the
+sandbox](#vite-sandbox) and [snapshot tests](./testing-components.md#snapshot-tests).
+
+When adding examples for the VitePress demo page in the `codex-docs` package, the component should
+be imported directly from `components-wip/index.ts` via a relative filepath, since it is not yet
+included in the library distribution.
+
+#### Transition to public component
+
+Once the entire design spec has been implemented, the component has a full suite of interactive
+demos, and the component has reached the unit test threshold, it is ready for public use. To make
+this transition, submit a patch that:
+
+- Moves the component directory from `components-wip` to `components`
+- Imports the component in `lib.ts` instead of `components-wip/index.ts`
+- Imports the component in VitePress demo examples from the library distribution
+
+Once this patch is merged, the component will be included in the dist and will appear on the live
+docs site.
 
 ## Writing styles
 
