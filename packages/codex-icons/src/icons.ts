@@ -654,6 +654,12 @@ export const cdxIconOutline: IconFlipForRtl = {
 import svgPageSettings from './images/pageSettings.svg';
 export const cdxIconPageSettings = svgPageSettings;
 
+import svgPalette from './images/palette.svg';
+export const cdxIconPalette: IconFlipForRtl = {
+	ltr: svgPalette,
+	shouldFlip: true
+};
+
 import svgPaste from './images/paste.svg';
 export const cdxIconPaste: IconFlipForRtl = {
 	ltr: svgPaste,
