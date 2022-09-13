@@ -145,6 +145,11 @@ At a Codex release, but not at commit level, `CHANGELOG.md` file in the root fol
 with all the commit message subjects since last release – separated in "Breaking Changes",
 "Deprecating Changes", "Features", "Styles", "Code" and "Documentation" sections.
 
+### Code review
+
+The Codex library adheres to the [Design System Team's general process for code review](https://www.mediawiki.org/wiki/Design_Systems_Team/Team_Processes#Code_review).
+Please review this process before submitting or reviewing a patch for the first time.
+
 ## Development basics
 
 ### Requirements
