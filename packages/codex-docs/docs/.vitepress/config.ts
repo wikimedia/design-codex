@@ -61,7 +61,7 @@ export default defineConfig( {
 		sidebar: {
 			'/using-codex/': [
 				{
-					text: 'Introduction',
+					text: 'Using Codex',
 					items: [
 						{ text: 'About Codex', link: '/using-codex/about' },
 					]
@@ -94,7 +94,7 @@ export default defineConfig( {
 			],
 			'/contributing/': [
 				{
-					text: 'Contributing guidelines',
+					text: 'Contributing',
 					items: [
 						{ text: 'Overview', link: '/contributing/overview' },
 						// { text: 'Contribution workflow', link: '/contributing/contribution-workflow' },

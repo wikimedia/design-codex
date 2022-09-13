@@ -1,4 +1,4 @@
-# Contributing guidelines overview
+# Contributing
 
 We welcome contributions from everyone! There are several ways to contribute:
 
