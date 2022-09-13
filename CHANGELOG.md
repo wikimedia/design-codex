@@ -1,3 +1,8 @@
+# 0.2.1 / 2022-09-13
+
+## Styles
+- tokens: Fix `background-color-quiet` and also deprecate (Volker E)
+
 # 0.2.0 / 2022-09-13
 ## Features
 - TypeaheadSearch: Expand input on menu open (Anne Tomasevich)
