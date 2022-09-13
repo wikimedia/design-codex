@@ -8,6 +8,11 @@ Codex is incomplete and still under active development. It's ready for productio
 commonly needed components and features have not been implemented yet.
 :::
 
+::: tip Using Codex in MediaWiki?
+Visit the [Codex docs on mediawiki.org](https://www.mediawiki.org/wiki/Codex) for more instructions
+specific to use of the library within MediaWiki.
+:::
+
 ## Installation
 Install the `@wikimedia/codex` and `@wikimedia/codex-icons` packages from NPM:
 ```
