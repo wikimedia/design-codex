@@ -95,6 +95,8 @@ export type MenuState = typeof MenuStates[ number ];
 
 /** @public */
 export interface MenuConfig {
+	/** The maximum number of items visible in an expanded menu */
+	visibleItemLimit?: number | null
 	/** Whether to show thumbnails (or placeholder). */
 	showThumbnail?: boolean,
 	/** Whether to bold menu item labels. */

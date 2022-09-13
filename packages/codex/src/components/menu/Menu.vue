@@ -4,6 +4,7 @@
 		class="cdx-menu"
 		role="listbox"
 		aria-multiselectable="false"
+		:style="rootStyle"
 	>
 		<li
 			v-if="showPending && computedMenuItems.length === 0 && $slots.pending"
@@ -23,8 +24,9 @@
 		</li>
 
 		<cdx-menu-item
-			v-for="menuItem in computedMenuItems"
+			v-for="( menuItem, index ) in computedMenuItems"
 			:key="menuItem.value"
+			:ref="( ref ) => assignTemplateRef( ref, index )"
 			v-bind="menuItem"
 			:selected="menuItem.value === selected"
 			:active="menuItem.value === activeMenuItem?.value"
@@ -58,7 +60,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted } from 'vue';
+import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted, nextTick, ComponentPublicInstance } from 'vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import CdxProgressBar from '../progress-bar/ProgressBar.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
@@ -120,6 +122,17 @@ export default defineComponent( {
 		showPending: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Limit the number of menu items to display before scrolling.
+		 *
+		 * Setting this prop to anything falsy will show all menu items.
+		 *
+		 * By default, all menu items are shown.
+		 */
+		visibleItemLimit: {
+			type: Number as PropType<number|null>,
+			default: null
 		},
 		/**
 		 * Whether menu item thumbnails (or a placeholder icon) should be displayed.
@@ -411,6 +424,7 @@ export default defineComponent( {
 					} else {
 						handleExpandMenu();
 					}
+					maybeScrollIntoView();
 					return true;
 				case 'ArrowDown':
 					maybePrevent();
@@ -423,6 +437,8 @@ export default defineComponent( {
 					} else {
 						handleExpandMenu();
 					}
+					maybeScrollIntoView();
+
 					return true;
 				case 'Home':
 					maybePrevent();
@@ -435,6 +451,8 @@ export default defineComponent( {
 					} else {
 						handleExpandMenu();
 					}
+					maybeScrollIntoView();
+
 					return true;
 				case 'End':
 					maybePrevent();
@@ -447,6 +465,8 @@ export default defineComponent( {
 					} else {
 						handleExpandMenu();
 					}
+					maybeScrollIntoView();
+
 					return true;
 				case 'Escape':
 					maybePrevent();
@@ -464,6 +484,70 @@ export default defineComponent( {
 			handleMenuItemChange( 'active' );
 		}
 
+		const menuItemElements: Element[] = [];
+
+		/**
+		 * Assign an element to the its index in the array of MenuItem refs.
+		 *
+		 * @param templateRef
+		 * @param index
+		 */
+		function assignTemplateRef(
+			templateRef: ComponentPublicInstance | Element | null,
+			index: number
+		) {
+			if ( templateRef ) {
+				menuItemElements[ index ] =
+					( templateRef as ComponentPublicInstance ).$el as Element;
+			}
+		}
+
+		function maybeScrollIntoView(): void {
+			if (
+				!props.visibleItemLimit ||
+				props.visibleItemLimit > props.menuItems.length ||
+				highlightedMenuItemIndex.value === undefined
+			) {
+				return;
+			}
+
+			const scrollIndex = highlightedMenuItemIndex.value >= 0 ?
+				highlightedMenuItemIndex.value :
+				0;
+			menuItemElements[ scrollIndex ].scrollIntoView( {
+				behavior: 'smooth',
+				block: 'nearest'
+			} );
+		}
+
+		const maxMenuHeight = ref<number | null>( null );
+
+		function resizeMenu(): void {
+			if ( !props.visibleItemLimit || menuItemElements.length <= props.visibleItemLimit ) {
+				maxMenuHeight.value = null;
+				return;
+			}
+
+			const firstMenuItemElement = menuItemElements[ 0 ];
+			const firstHiddenMenuItemElement = menuItemElements[ props.visibleItemLimit ];
+
+			maxMenuHeight.value = calculateMenuHeight(
+				firstMenuItemElement,
+				firstHiddenMenuItemElement
+			);
+		}
+
+		function calculateMenuHeight(
+			firstMenuItemElement: Element,
+			firstHiddenMenuItemElement: Element
+		) {
+			const firstItemTop = firstMenuItemElement.getBoundingClientRect().top;
+			const hiddenItemTop = firstHiddenMenuItemElement.getBoundingClientRect().top;
+
+			// add 2 pixels to account for the menu's border
+			return ( hiddenItemTop - firstItemTop ) + 2;
+		}
+
 		onMounted( () => {
 			document.addEventListener( 'mouseup', onMouseUp );
 		} );
@@ -472,7 +556,7 @@ export default defineComponent( {
 			document.removeEventListener( 'mouseup', onMouseUp );
 		} );
 
-		watch( toRef( props, 'expanded' ), ( newVal ) => {
+		watch( toRef( props, 'expanded' ), async ( newVal ) => {
 			const selectedMenuItem = findSelectedMenuItem();
 
 			// Clear the highlight states when the menu is closed.
@@ -484,9 +568,37 @@ export default defineComponent( {
 			if ( newVal && selectedMenuItem !== undefined ) {
 				handleMenuItemChange( 'highlighted', selectedMenuItem );
 			}
+
+			if ( newVal ) {
+				await nextTick();
+				resizeMenu();
+				await nextTick();
+				maybeScrollIntoView();
+			}
+		} );
+
+		watch( toRef( props, 'menuItems' ), async ( newPropMenuItems ) => {
+			if ( newPropMenuItems.length < menuItemElements.length ) {
+				menuItemElements.length = newPropMenuItems.length;
+			}
+			if ( props.expanded ) {
+				await nextTick();
+				resizeMenu();
+				await nextTick();
+				maybeScrollIntoView();
+			}
+		} );
+
+		const rootStyle = computed( () => {
+			return {
+				'max-height': maxMenuHeight.value ? `${maxMenuHeight.value}px` : undefined,
+				'overflow-y': maxMenuHeight.value ? 'scroll' as const : undefined
+			};
 		} );
 
 		return {
+			rootStyle,
+			assignTemplateRef,
 			computedMenuItems,
 			computedShowNoResultsSlot,
 			highlightedMenuItem,

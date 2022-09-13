@@ -13,11 +13,24 @@
 			v-model:selected="selectedValue"
 			v-model:expanded="expanded"
 			:menu-items="menuItems"
+			:visible-item-limit="itemLimit ? parseInt( `${itemLimit}` ) : null"
 		>
 			<template #default="{ menuItem }">
 				{{ menuItem.label }} (value: {{ menuItem.value }})
 			</template>
 		</cdx-menu>
+		<div class="cdx-docs-input-with-menu-and-footer__items">
+			<label for="cdx-docs-input-with-menu-and-footer__items-input">
+				Number of visible items in Menu (empty or 0 for show all):
+			</label>
+			<!-- TBD this may have to be replaced by number input once it exists in codex -->
+			<cdx-text-input
+				id="cdx-docs-input-with-menu-and-footer__items-input"
+				v-model="itemLimit"
+				class="cdx-docs-input-with-menu-and-footer__items__input"
+				type="number"
+			/>
+		</div>
 	</div>
 </template>
 
@@ -41,6 +54,7 @@ export default defineComponent( {
 			{ label: 'Three', value: 3 },
 			{ label: 'Four', value: 4 }
 		];
+		const itemLimit = ref<number|string>( '' );
 
 		function onKeydown( e: KeyboardEvent ) {
 			// Delegate key events to the menu
@@ -56,6 +70,7 @@ export default defineComponent( {
 			selectedValue,
 			expanded,
 			menuItems,
+			itemLimit,
 			onKeydown,
 			onClick
 		};
@@ -75,6 +90,17 @@ export default defineComponent( {
 	&__input [ aria-expanded='true' ] {
 		border-bottom-left-radius: @border-radius-sharp;
 		border-bottom-right-radius: @border-radius-sharp;
+	}
+
+	&__items {
+		display: flex;
+		align-items: flex-end;
+		flex-direction: row;
+
+		&__input {
+			width: 2em;
+			margin: 8px 8px 0;
+		}
 	}
 }
 </style>

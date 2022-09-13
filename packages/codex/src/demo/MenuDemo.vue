@@ -15,7 +15,16 @@
 				v-model:selected="selectedValue"
 				v-model:expanded="expanded"
 				:menu-items="menuItems"
+				:visible-item-limit="visibleItemLimit || null"
 			/>
+			<label for="cdx-menu-limit-items-input">
+				Number of visible items in Menu (empty or 0 for show all):
+			</label>
+			<input
+				id="cdx-menu-limit-items-input"
+				v-model="visibleItemLimit"
+				type="number"
+			>
 		</div>
 	</section>
 </template>
@@ -41,4 +50,5 @@ function onKeydown( e: KeyboardEvent ) {
 function onClick(): void {
 	expanded.value = true;
 }
+const visibleItemLimit = ref<number|''>( '' );
 </script>
