@@ -1,3 +1,31 @@
+# 0.2.0 / 2022-09-13
+## Features
+- TypeaheadSearch: Expand input on menu open (Anne Tomasevich)
+- TypeaheadSearch: Remove active class (Anne Tomasevich)
+
+## Styles
+- styles, docs: Use and document solely `--has-` and `--is-` prefixes (Volker E)
+- tokens: Add 'maroon' color option token and Red Link component tokens (Volker E)
+
+# Icons
+- icons: Add 'palette' to collection (Volker E)
+- icons: Minimize search icon (Thiemo Kreuz)
+
+## Code
+- build: Fix bug list steps to actually work (Roan Kattouw)
+- build: Update TypeScript to 4.8 (Roan Kattouw)
+- build: Update VitePress from 1.0.0-alpha.10 to 1.0.0-alpha.13 (Roan Kattouw)
+
+## Documentation
+- docs: ADR 04 - Visual styles as Less mixins (Eric Gardner)
+- docs: Add `alt` attribute to docs logo (Volker E)
+- docs: Add announcement to releasing docs (Anne Tomasevich)
+- docs: Document WIP components and contribution pathways (Anne Tomasevich)
+- docs: Fix landing page links (Anne Tomasevich)
+- docs: Hide direction switcher (Anne Tomasevich)
+- docs: Refactor site architecture (Anne Tomasevich)
+- docs: Split contributing code docs into multiple pages (Anne Tomasevich)
+
 # 0.1.1 / 2022-08-31
 
 ## Code
