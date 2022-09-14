@@ -124,14 +124,13 @@ will help develop a plan for who will do which parts of the component developmen
 Patches for new components should include all of the following. Patches that introduce changes
 should include or update the following as needed.
 
-- **Commit message:** The first line of the commit message has to be prefixed by the component name
+- **Commit message:** The first line of the commit message must be prefixed by the component name
 (Button, Icon) or the type of work (build, tests, styles, docs, etc.), e.g. `docs: Add more docs.`
   If the commit covers multiple things, include them in a comma-delineated list, e.g.
   `styles, docs, Button: Fix Button styles and document new convention`.
-  Special cases are deprecating and breaking changes, to be prefixed with `[DEPRECATING CHANGE]` or
-  `[BREAKING CHANGE]`, e.g.
-  `[BREAKING CHANGE] Button: Remove primary button functionality`.
-  In general, Codex is following the [MediaWiki commit message guidelines](https://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines).
+  Deprecating and breaking changes are prefixed with `[DEPRECATING CHANGE]` or `[BREAKING CHANGE]`,
+  e.g. `[BREAKING CHANGE] Button: Remove primary button functionality`.
+  In general, Codex follows the [MediaWiki commit message guidelines](https://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines).
 - **Documentation:** Each component should have a docblock describing what the component is and the
   basics of how it works. Props, slots, and events should be documented in the code. If a component
   would benefit from additional documentation to communicate how it can be used, include it on the
@@ -145,9 +144,15 @@ should include or update the following as needed.
 - **Demos (not required for WIP components):** Each component should have a demo page on the
   VitePress site that shows realistic examples of different variations and uses of the component.
 
-At a Codex release, but not at commit level, `CHANGELOG.md` file in the root folder is updated
-with all the commit message subjects since last release – separated in "Breaking Changes",
-"Deprecating Changes", "Features", "Styles", "Code" and "Documentation" sections.
+Every time a new version of Codex is released, the `CHANGELOG.md` file in the root directory is
+updated with all the commit message subjects since the last release – separated in sections
+titled "Breaking Changes", "Deprecating Changes", "Features", "Styles", "Code" and "Documentation".
+
+A breaking change is a change that requires some code using Codex to be updated in order to keep
+working, e.g. removing or renaming a component or function. Each breaking change must be preceded
+by a deprecating change at least a minor version before. A deprecating change warns when using the
+functionality that is about to be removed, and provides an alternative where applicable. The
+breaking change is then released in the next major or minor version after.
 
 ### Code review
 
