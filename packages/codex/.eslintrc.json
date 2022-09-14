@@ -69,6 +69,12 @@
 			"rules": {
 				"@typescript-eslint/restrict-template-expressions": "off"
 			}
+		},
+		{
+			"files": [ "cypress/**/*.*" ],
+			"extends": [
+				"plugin:cypress/recommended"
+			]
 		}
 	],
 	"ignorePatterns": [

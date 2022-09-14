@@ -25,3 +25,6 @@ AUTHORS.txt
 
 # Ignore LICENSE file.
 LICENSE*
+
+# Ignore all of Cypress
+packages/codex/cypress/

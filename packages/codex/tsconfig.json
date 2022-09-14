@@ -12,5 +12,5 @@
 		"./*.ts",
 		"./*.js"
 	],
-	"exclude": [ "src/**/*.snap.ts" ]
+	"exclude": [ "src/**/*.snap.ts", "cypress.config.ts" ]
 }
