@@ -93,7 +93,7 @@
 		},
 		"framed--active": {
 			"deprecated": "Use `background-color-interactive` with buttons' active state instead.",
-			"value": "{ color.gray300 }"
+			"value": "{ color.gray200 }"
 		},
 		"error--framed": {
 			"deprecated": "Use `background-color-error-subtle` instead.",
