@@ -1,7 +1,7 @@
 <script setup>
 import { CdxThumbnail } from '@wikimedia/codex';
-import ThumbnailDefault from './../../component-demos/thumbnail/examples/ThumbnailDefault.vue';
-import ThumbnailCustomIcon from './../../component-demos/thumbnail/examples/ThumbnailCustomIcon.vue';
+import ThumbnailDefault from '@/../component-demos/thumbnail/examples/ThumbnailDefault.vue';
+import ThumbnailCustomIcon from '@/../component-demos/thumbnail/examples/ThumbnailCustomIcon.vue';
 </script>
 
 ## Demos

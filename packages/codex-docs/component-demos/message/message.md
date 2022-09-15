@@ -1,9 +1,9 @@
 <script setup>
 import { CdxMessage } from '@wikimedia/codex';
 import { cdxIconArticle } from '@wikimedia/codex-icons';
-import MessageFadeIn from './../../component-demos/message/examples/MessageFadeIn.vue';
-import MessageUserDismiss from './../../component-demos/message/examples/MessageUserDismiss.vue';
-import MessageAutoDismiss from './../../component-demos/message/examples/MessageAutoDismiss.vue';
+import MessageFadeIn from '@/../component-demos/message/examples/MessageFadeIn.vue';
+import MessageUserDismiss from '@/../component-demos/message/examples/MessageUserDismiss.vue';
+import MessageAutoDismiss from '@/../component-demos/message/examples/MessageAutoDismiss.vue';
 
 const controlsConfig = [
 	{

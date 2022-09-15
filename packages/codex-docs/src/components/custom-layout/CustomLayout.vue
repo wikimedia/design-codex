@@ -33,7 +33,7 @@ const { Layout } = DefaultTheme;
 
 const dir = ref<HTMLDirection>( 'ltr' );
 const route = useRoute();
-const isComponentPage = computed( () => route.path.includes( '/components/' ) );
+const isComponentPage = computed( () => route.path.includes( '/components/demos/' ) );
 
 // Provide the direction for use in Wrapper.vue
 provide( DirectionKey, dir );

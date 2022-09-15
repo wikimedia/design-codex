@@ -23,10 +23,10 @@ Import icons from the `@wikimedia/codex-icons` package individually, like this:
 import { cdxIconAlert } from '@wikimedia/codex-icons';
 ```
 
-Use icons through the [icon component](../components/icon.md) or through other components
+Use icons through the [icon component](../components/demos/icon.md) or through other components
 that accept icons as props. You can also embed the icon component in another component's slot;
 for example, you can use the icon component inside the button component to create a button with
-an icon. For complete code examples of how to use icons, see the [demos](../components/icon.md#demos)
+an icon. For complete code examples of how to use icons, see the [demos](../components/demos/icon.md#demos)
 in the icon component documentation.
 
 ### Icon labels
@@ -72,7 +72,7 @@ base text color (`{{ tokens.color.base.value }}`), but this can be overridden by
 	color: #36c;
 }
 ```
-Some components, like [CdxButton](../components/button.md), style their icons to match the
+Some components, like [CdxButton](../components/demos/button.md), style their icons to match the
 surrounding text color. For example, destructive buttons have red icons to match the red text.
 
 ## Right-to-left (RTL) and language support

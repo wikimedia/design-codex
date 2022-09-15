@@ -7,7 +7,7 @@ sidebarDepth: 3
 This package contains Vue components – as building blocks for complex user interfaces.
 These components are written for [Vue 3](https://v3.vuejs.org/), and do not work with Vue 2.
 Documentation for individual components can be found in the “Components” section.
-For example, the documentation for `CdxButton` is at [“Button” page](../components/button.md).
+For example, the documentation for `CdxButton` is at [“Button” page](../components/demos/button.md).
 
 ### Exports
 The components package exports the following things:

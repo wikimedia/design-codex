@@ -49,8 +49,7 @@ export default defineConfig( {
 			{ text: 'Using Codex', link: '/using-codex/about', activeMatch: '/using-codex/' },
 			{ text: 'Contributing', link: '/contributing/overview', activeMatch: '/contributing/' },
 			{ text: 'Design Tokens', link: '/design-tokens/overview', activeMatch: '/design-tokens/' },
-			// TODO: change this link to '/components/overview' once that page exists.
-			{ text: 'Components', link: '/components/button', activeMatch: '/components/' },
+			{ text: 'Components', link: '/components/overview', activeMatch: '/components/' },
 			{ text: 'Icons', link: '/icons/overview', activeMatch: '/icons/' },
 		],
 
@@ -151,31 +150,36 @@ export default defineConfig( {
 			'/components/': [
 				{
 					text: 'Components',
+					items: [
+						{ text: 'Overview', link: '/components/overview' }
+					]
+				},
+				{
+					text: '',
 					items: filterComponents( [
-						{ text: 'Button', link: '/components/button' },
-						{ text: 'ButtonGroup', link: '/components/button-group' },
-						{ text: 'Card', link: '/components/card' },
-						{ text: 'Checkbox', link: '/components/checkbox' },
-						{ text: 'Combobox', link: '/components/combobox' },
-						{ text: 'Icon', link: '/components/icon' },
-						{ text: 'Lookup', link: '/components/lookup' },
-						{ text: 'Menu', link: '/components/menu' },
-						{ text: 'MenuItem', link: '/components/menu-item' },
-						{ text: 'Message', link: '/components/message' },
-						{ text: 'ProgressBar', link: '/components/progress-bar' },
-						{ text: 'Radio', link: '/components/radio' },
-						{ text: 'SearchInput', link: '/components/search-input' },
-						{ text: 'Select', link: '/components/select' },
-						{ text: 'Tabs', link: '/components/tabs' },
-						{ text: 'Tab', link: '/components/tab' },
-						{ text: 'TextInput', link: '/components/text-input' },
-						{ text: 'Thumbnail', link: '/components/thumbnail' },
-						{ text: 'ToggleButton', link: '/components/toggle-button' },
-						{ text: 'ToggleButtonGroup', link: '/components/toggle-button-group' },
-						{ text: 'ToggleSwitch', link: '/components/toggle-switch' },
-						{ text: 'TypeaheadSearch', link: '/components/typeahead-search' }
+						{ text: 'Button', link: '/components/demos/button' },
+						{ text: 'ButtonGroup', link: '/components/demos/button-group' },
+						{ text: 'Card', link: '/components/demos/card' },
+						{ text: 'Checkbox', link: '/components/demos/checkbox' },
+						{ text: 'Combobox', link: '/components/demos/combobox' },
+						{ text: 'Icon', link: '/components/demos/icon' },
+						{ text: 'Lookup', link: '/components/demos/lookup' },
+						{ text: 'Menu', link: '/components/demos/menu' },
+						{ text: 'MenuItem', link: '/components/demos/menu-item' },
+						{ text: 'Message', link: '/components/demos/message' },
+						{ text: 'ProgressBar', link: '/components/demos/progress-bar' },
+						{ text: 'Radio', link: '/components/demos/radio' },
+						{ text: 'SearchInput', link: '/components/demos/search-input' },
+						{ text: 'Select', link: '/components/demos/select' },
+						{ text: 'Tabs', link: '/components/demos/tabs' },
+						{ text: 'Tab', link: '/components/demos/tab' },
+						{ text: 'TextInput', link: '/components/demos/text-input' },
+						{ text: 'Thumbnail', link: '/components/demos/thumbnail' },
+						{ text: 'ToggleButton', link: '/components/demos/toggle-button' },
+						{ text: 'ToggleButtonGroup', link: '/components/demos/toggle-button-group' },
+						{ text: 'ToggleSwitch', link: '/components/demos/toggle-switch' },
+						{ text: 'TypeaheadSearch', link: '/components/demos/typeahead-search' }
 					] )
-
 				}
 			],
 			'/icons/': [

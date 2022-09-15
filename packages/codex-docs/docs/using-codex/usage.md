@@ -48,7 +48,7 @@ export default defineComponent( {
 </script>
 ```
 Find documentation for individual components in the “Components” section. For example,
-the documentation for `CdxButton` is at [“Button” page](../components/button.md).
+the documentation for `CdxButton` is at [“Button” page](../components/demos/button.md).
 
 ## Using icons
 Import the icons you need from the `@wikimedia/codex-icons` package, put them in your component's

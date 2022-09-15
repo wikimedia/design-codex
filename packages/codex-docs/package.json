@@ -12,7 +12,7 @@
 		"dev": "concurrently \"npm run docgen:dev\" \"npm run vitepress:dev\"",
 		"vitepress:build": "vitepress build docs",
 		"vitepress:dev": "vitepress dev docs ${npm_config_port+--port=${npm_config_port}}",
-		"docgen:build": "node -e \"require( 'fs-extra' ).emptyDir( 'docs/components/' );\" && vue-docgen",
+		"docgen:build": "node -e \"require( 'fs-extra' ).emptyDir( 'docs/components/demos/' );\" && vue-docgen",
 		"docgen:dev": "vue-docgen --watch",
 		"lint": "npm run lint:ts",
 		"lint:ts": "vue-tsc --noEmit",

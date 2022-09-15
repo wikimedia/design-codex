@@ -1,17 +1,17 @@
 <script setup>
 import { CdxMenuItem } from '@wikimedia/codex';
-import MenuItemDefault from './../../component-demos/menu-item/examples/MenuItemDefault.vue';
-import MenuItemWithDescription from './../../component-demos/menu-item/examples/MenuItemWithDescription.vue';
-import MenuItemWithUrl from './../../component-demos/menu-item/examples/MenuItemWithUrl.vue';
-import MenuItemWithThumbnail from './../../component-demos/menu-item/examples/MenuItemWithThumbnail.vue';
-import MenuItemWithIcon from './../../component-demos/menu-item/examples/MenuItemWithIcon.vue';
-import MenuItemHighlightQuery from './../../component-demos/menu-item/examples/MenuItemHighlightQuery.vue';
-import MenuItemWithMatch from './../../component-demos/menu-item/examples/MenuItemWithMatch.vue';
-import MenuItemMultipleLangs from './../../component-demos/menu-item/examples/MenuItemMultipleLangs.vue';
-import MenuItemLongText from './../../component-demos/menu-item/examples/MenuItemLongText.vue';
-import MenuItemHideOverflow from './../../component-demos/menu-item/examples/MenuItemHideOverflow.vue';
-import MenuItems from './../../component-demos/menu-item/examples/MenuItems.vue';
-import MenuItemsGraphemes from './../../component-demos/menu-item/examples/MenuItemsGraphemes.vue';
+import MenuItemDefault from '@/../component-demos/menu-item/examples/MenuItemDefault.vue';
+import MenuItemWithDescription from '@/../component-demos/menu-item/examples/MenuItemWithDescription.vue';
+import MenuItemWithUrl from '@/../component-demos/menu-item/examples/MenuItemWithUrl.vue';
+import MenuItemWithThumbnail from '@/../component-demos/menu-item/examples/MenuItemWithThumbnail.vue';
+import MenuItemWithIcon from '@/../component-demos/menu-item/examples/MenuItemWithIcon.vue';
+import MenuItemHighlightQuery from '@/../component-demos/menu-item/examples/MenuItemHighlightQuery.vue';
+import MenuItemWithMatch from '@/../component-demos/menu-item/examples/MenuItemWithMatch.vue';
+import MenuItemMultipleLangs from '@/../component-demos/menu-item/examples/MenuItemMultipleLangs.vue';
+import MenuItemLongText from '@/../component-demos/menu-item/examples/MenuItemLongText.vue';
+import MenuItemHideOverflow from '@/../component-demos/menu-item/examples/MenuItemHideOverflow.vue';
+import MenuItems from '@/../component-demos/menu-item/examples/MenuItems.vue';
+import MenuItemsGraphemes from '@/../component-demos/menu-item/examples/MenuItemsGraphemes.vue';
 
 const controlsConfig = [
 	{

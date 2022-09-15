@@ -7,12 +7,14 @@ const props = require( './docs/templates/props' );
 const componentDemoPath = 'component-demos';
 
 /**
- * Transform a PascalCase component name to kebab-case.
+ * Transform a component's path to its kebab-case name.
  *
- * @param {string} componentName
+ * @param {string} componentPath
  * @return {string}
  */
-function toKebabCase( componentName ) {
+function getKebabCaseName( componentPath ) {
+	// e.g. TextInput.
+	const componentName = path.parse( componentPath ).base.replace( /\.vue$/, '' );
 	// For each letter in the name...
 	return componentName.split( '' ).map( ( letter, index ) => {
 		// If the letter is uppercase, add a dash before it (unless it's the first letter), then
@@ -29,12 +31,10 @@ module.exports = {
 	// in ../codex/src/components-wip too
 	componentsRoot: './../codex/src',
 	components: [ 'components/*/[A-Z]*.vue', 'components-wip/*/[A-Z]*.vue' ],
-	outDir: './docs/components',
+	outDir: './docs/components/demos',
 	getDocFileName: ( componentPath ) => {
-		// e.g. 'TextInput'
-		const componentName = path.parse( componentPath ).base.replace( /\.vue$/, '' );
 		// e.g. 'text-input'
-		const kebabCaseName = toKebabCase( componentName );
+		const kebabCaseName = getKebabCaseName( componentPath );
 		// e.g. 'component-demos/text-input/text-input.md'
 		const docFileName = path.join( componentDemoPath, '/' + kebabCaseName + '/', kebabCaseName + '.md' );
 		// If the .md file doesn't exists, don't return it. This avoids an error while still
@@ -42,10 +42,8 @@ module.exports = {
 		return fs.existsSync( docFileName ) ? docFileName : false;
 	},
 	getDestFile: ( componentPath, config ) => {
-		return path
-			.join( config.outDir, componentPath )
-			.replace( /\/\w+\.vue$/, '.md' )
-			.replace( /\/components\/components(-wip)?/, '/components' );
+		const kebabCaseName = getKebabCaseName( componentPath );
+		return path.join( config.outDir, '/' + kebabCaseName + '.md' );
 	},
 	templates: {
 		component,

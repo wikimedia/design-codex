@@ -36,8 +36,7 @@ Codex is a toolkit for building user interfaces within the Wikimedia Design Syst
 		<template #title>Design tokens</template>
 		<template #description>Write styles consistent with the Wikimedia Design System</template>
 	</cdx-card>
-	<!-- TODO: Change this link to /components/overview once page exists. -->
-	<cdx-card url="./components/button.html" :icon="cdxIconPuzzle">
+	<cdx-card url="./components/overview.html" :icon="cdxIconPuzzle">
 		<template #title>Components</template>
 		<template #description>Build usable, accessible, translatable applications</template>
 	</cdx-card>

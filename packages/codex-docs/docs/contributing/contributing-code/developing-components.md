@@ -294,7 +294,7 @@ export default defineComponent( {
 </script>
 ```
 
-The [Icon component](../../components/icon.md) also uses this composable to detect the text direction,
+The [Icon component](../../components/demos/icon.md) also uses this composable to detect the text direction,
 and allows the detected direction to be overridden through the `dir` prop. For more information about
 how bidirectionality is handled for icons in particular, see
 [the icon documentation](../../icons/overview.md#right-to-left-rtl-and-language-support).

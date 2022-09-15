@@ -2,8 +2,8 @@
 import SimpleIcon from '@/../component-demos/icon/examples/SimpleIcon.vue';
 </script>
 
-See the [Icons section](../icons/overview.md) for more information, including a
-[list of all available icons](../icons/all-icons.md).
+See the [Icons section](../../icons/overview.md) for more information, including a
+[list of all available icons](../../icons/all-icons.md).
 
 ## Demos
 
