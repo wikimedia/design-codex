@@ -117,18 +117,22 @@
 		},
 		"87": {
 			"deprecated": "Legacy opacity for icon states in non-Codex products.",
+			"comment": "Equals `#222` on `background-color: #fff`, closest to `#202122`.",
 			"value": "0.87"
 		},
 		"74": {
 			"deprecated": "Legacy opacity for icon states in non-Codex products.",
+			"comment": "Equals `#424242` on `background-color: #fff`, closest to `#404244`.",
 			"value": "0.74"
 		},
 		"67": {
 			"deprecated": "Legacy opacity for icon states in non-Codex products.",
+			"comment": "Equals `#555` on `background-color: `#fff`, closest to `#54595d`.",
 			"value": "0.67"
 		},
 		"51": {
 			"deprecated": "Legacy opacity for icon states in non-Codex products.",
+			"comment": "Equals `#7d7d7d` on `background-color: #fff`, closest to `#72777d`.",
 			"value": "0.51"
 		}
 	},
