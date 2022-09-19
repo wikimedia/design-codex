@@ -16,7 +16,7 @@
 		"skipLibCheck": true,
 		"noEmit": true,
 		"paths": {
-			"@wikimedia/codex": [ "../codex/dist/types/lib-wip.d.ts" ]
+			"@wikimedia/codex": [ "../codex/src/lib-wip.ts" ]
 		}
 	},
 	"include": [
