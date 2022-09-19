@@ -18,7 +18,7 @@ function isWIPComponent( componentName: string ): boolean {
  */
 function filterComponents( items: DefaultTheme.SidebarItem[] ): DefaultTheme.SidebarItem[] {
 	return items.flatMap( ( item ) => {
-		const componentName = ( item.link ?? '' ).match( /^\/components\/([^\/]+)/ )?.[ 1 ];
+		const componentName = ( item.link ?? '' ).match( /^\/components\/demos\/([^\/]+)/ )?.[ 1 ];
 		if ( componentName && isWIPComponent( componentName ) ) {
 			return includeWIPComponents ?
 				{ ...item, text: `${item.text} 🚧` } :
