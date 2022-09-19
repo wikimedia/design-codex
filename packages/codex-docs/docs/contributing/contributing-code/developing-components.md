@@ -56,8 +56,9 @@ necessary to ensure support for environments that use DOM templates, including M
 Until a component is ready for public consumption, it is considered a "work in progress" or "WIP"
 component. WIP components are housed in a separate directory, `packages/codex/src/components-wip`,
 and are included in `index.ts` in that same directory. WIP components will not be included in
-public dist files, nor will they appear on the live Codex docs site (although they will appear when
-serving the docs site locally).
+public dist files, nor will they appear on the docs site when viewing the documentation for a
+specific Codex release. However, WIP components will appear on the docs site for the main branch,
+and when serving the docs site locally.
 
 #### Adding a WIP component
 
@@ -70,8 +71,9 @@ Before submitting a patch for the new component, we recommend at least adding a 
 sandbox](#vite-sandbox) and [snapshot tests](./testing-components.md#snapshot-tests).
 
 When adding examples for the VitePress demo page in the `codex-docs` package, the component should
-be imported directly from `components-wip/index.ts` via a relative filepath, since it is not yet
-included in the library distribution.
+be imported from the `@wikimedia/codex` package as usual. This will not work in real code as long
+as the component is still WIP, but the `codex-docs` package is set up to be able to access
+WIP components this way.
 
 #### Transition to public component
 
@@ -80,11 +82,10 @@ demos, and the component has reached the unit test threshold, it is ready for pu
 this transition, submit a patch that:
 
 - Moves the component directory from `components-wip` to `components`
-- Imports the component in `lib.ts` instead of `components-wip/index.ts`
-- Imports the component in VitePress demo examples from the library distribution
+- Exports the component in `lib.ts` instead of `components-wip/index.ts`
 
-Once this patch is merged, the component will be included in the dist and will appear on the live
-docs site.
+Once this patch is merged, the component will be included in the dist and will appear on the docs
+site for the next release.
 
 ## Writing styles
 

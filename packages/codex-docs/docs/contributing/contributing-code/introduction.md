@@ -69,10 +69,14 @@ corresponding epic task in Phabricator. Use this [component epic task template][
   workboard.
 5. **Build the component.** Create the Vue component, applying the design tokens noted in the design
   specification. Visit [writing styles](./developing-components#writing-styles) for more details.
+  As you build the component, add a simple demo to the [Vite Sandbox](./developing-components.md#vite-sandbox)
+  for testing during development.
 6. **Test the component.** Write unit tests for the new code. Visit the [unit tests](./testing-components#unit-tests) section for more details.
 7. **Demo the component.** Create component demos in VitePress, following the specifications
   provided in the task and existing examples from other component demo pages. Visit the
-  [component demos](./component-demos) section for more details.
+  [component demos](./component-demos) section for more details. Also add a simple demo of the
+  component to the [Vite Sandbox](./developing-components.md#vite-sandbox), if you didn't already
+  do this during development.
 8. **Handle feedback from design and product.** Relevant designers and product managers will review
   the new component, provide feedback, and eventually sign-off on the component. Developers will
   respond to the feedback and implement any necessary changes, or open tasks so those changes can
