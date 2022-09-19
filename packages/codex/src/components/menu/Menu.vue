@@ -65,6 +65,7 @@ import CdxMenuItem from '../menu-item/MenuItem.vue';
 import CdxProgressBar from '../progress-bar/ProgressBar.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import { MenuItemData, MenuItemDataWithId, MenuState } from '../../types';
+import useIntersectionObserver from '../../composables/useIntersectionObserver';
 
 /**
  * Dropdown menu of items.
@@ -211,7 +212,14 @@ export default defineComponent( {
 		 * @property {MenuItemDataWithId} highlightedMenuItem The menu item
 		 * was highlighted
 		 */
-		'menu-item-keyboard-navigation'
+		'menu-item-keyboard-navigation',
+		/**
+		 * When the user scrolls towards the bottom of the menu.
+		 *
+		 * If it is possible to add or load more menu items, then now would be a good moment
+		 * so that the user can experience infinite scrolling.
+		 */
+		'load-more'
 	],
 	expose: [
 		'clearActive',
@@ -485,9 +493,21 @@ export default defineComponent( {
 		}
 
 		const menuItemElements: Element[] = [];
+		const loadMoreTriggerElement = ref<Element|undefined>( undefined );
+		const isTriggerVisible = useIntersectionObserver(
+			loadMoreTriggerElement,
+			{ threshold: 0.8 }
+		);
+
+		watch( isTriggerVisible, ( value ) => {
+			if ( value ) {
+				emit( 'load-more' );
+			}
+		} );
 
 		/**
 		 * Assign an element to the its index in the array of MenuItem refs.
+		 * Also keeps track of the element that is the trigger for loading more items.
 		 *
 		 * @param templateRef
 		 * @param index
@@ -499,6 +519,24 @@ export default defineComponent( {
 			if ( templateRef ) {
 				menuItemElements[ index ] =
 					( templateRef as ComponentPublicInstance ).$el as Element;
+				const visibleItemLimit = props.visibleItemLimit;
+				if ( !visibleItemLimit || props.menuItems.length < visibleItemLimit ) {
+					return;
+				}
+
+				/**
+				 * Pick a sensible "load more"-threshold that is between at least 2
+				 * and at most the visibleItemLimit. It interpolates between these
+				 * values based on the number of menu items.
+				 */
+				const loadMoreThreshold = Math.min(
+					visibleItemLimit,
+					Math.max( 2, Math.floor( 0.2 * props.menuItems.length ) )
+				);
+				if ( index === props.menuItems.length - loadMoreThreshold ) {
+					loadMoreTriggerElement.value =
+						( templateRef as ComponentPublicInstance ).$el as Element;
+				}
 			}
 		}
 

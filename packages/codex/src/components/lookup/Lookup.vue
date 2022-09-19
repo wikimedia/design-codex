@@ -29,6 +29,7 @@
 			v-model:expanded="expanded"
 			:menu-items="menuItems"
 			v-bind="menuConfig"
+			@load-more="$emit( 'load-more' )"
 		>
 			<template #default="{ menuItem }">
 				<!--
@@ -147,7 +148,14 @@ export default defineComponent( {
 		 *
 		 * @property {string | number} value The new value
 		 */
-		'input'
+		'input',
+		/**
+		 * When the user scrolls towards the bottom of the menu.
+		 *
+		 * If it is possible to add or load more menu items, then now would be a good moment
+		 * so that the user can experience infinite scrolling.
+		 */
+		'load-more'
 	],
 
 	setup: ( props, { emit, attrs, slots } ) => {
@@ -263,14 +271,19 @@ export default defineComponent( {
 		watch( selectedProp, ( newVal ) => {
 			// If there is a newVal, including an empty string...
 			if ( newVal !== null ) {
-				// If there is a menu item selected, show the label (or the value, if there is no
-				// label). Otherwise, set the input to empty.
-				inputValue.value = selectedMenuItem.value ?
+				// If there is a menu item selected, use the label (or the value, if there is no
+				// label). Otherwise, use an empty string.
+				const selectedValue = selectedMenuItem.value ?
 					( selectedMenuItem.value.label || selectedMenuItem.value.value ) :
 					'';
 
-				// We emit the new value to make sure that the menu is filtered correctly
-				emit( 'input', inputValue.value );
+				if ( inputValue.value !== selectedValue ) {
+					// Make sure that the input matches what was selected
+					inputValue.value = selectedValue;
+
+					// We emit the new value to make sure that the menu is filtered correctly
+					emit( 'input', inputValue.value );
+				}
 			}
 		} );
 

@@ -3,7 +3,9 @@
 		<cdx-lookup
 			v-model:selected="selection"
 			:menu-items="menuItems"
+			:menu-config="menuConfig"
 			@input="onInput"
+			@load-more="onLoadMore"
 		>
 			<template #no-results>
 				No results found.
@@ -14,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { CdxLookup, MenuItemData } from '@wikimedia/codex';
+import { CdxLookup, MenuConfig, MenuItemData } from '@wikimedia/codex';
 import { SearchData } from './types';
 
 export default defineComponent( {
@@ -25,7 +27,7 @@ export default defineComponent( {
 		const menuItems = ref<MenuItemData[]>( [] );
 		const currentSearchTerm = ref( '' );
 
-		async function fetchResults( searchTerm: string ): Promise<SearchData> {
+		async function fetchResults( searchTerm: string, offset?: number ): Promise<SearchData> {
 			const params = new URLSearchParams( {
 				origin: '*',
 				action: 'wbsearchentities',
@@ -35,6 +37,9 @@ export default defineComponent( {
 				language: 'en',
 				search: searchTerm
 			} );
+			if ( offset ) {
+				params.set( 'continue', `${offset}` );
+			}
 			const response = await fetch( `https://www.wikidata.org/w/api.php?${params.toString()}` );
 			return response.json();
 		}
@@ -65,7 +70,7 @@ export default defineComponent( {
 				}
 
 				// Build an array of menu items.
-				const results: MenuItemData[] = data.search.map( ( result ) => {
+				const results = data.search.map( ( result ): MenuItemData => {
 					return {
 						label: result.label,
 						value: result.id,
@@ -81,10 +86,38 @@ export default defineComponent( {
 			}
 		}
 
+		async function onLoadMore() {
+			if ( !currentSearchTerm.value ) {
+				return;
+			}
+
+			const data = await fetchResults( currentSearchTerm.value, menuItems.value.length );
+
+			if ( !data.search || data.search.length === 0 ) {
+				return;
+			}
+
+			const results = data.search.map( ( result ): MenuItemData => {
+				return {
+					label: result.label,
+					value: result.id,
+					description: result.description
+				};
+			} );
+			// Update menuItems.
+			menuItems.value.push( ...results );
+		}
+
+		const menuConfig: MenuConfig = {
+			visibleItemLimit: 6
+		};
+
 		return {
 			selection,
 			menuItems,
-			onInput
+			menuConfig,
+			onInput,
+			onLoadMore
 		};
 	}
 } );
