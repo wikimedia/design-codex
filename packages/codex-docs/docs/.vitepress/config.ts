@@ -81,7 +81,7 @@ export default defineConfig( {
 				},
 				{
 
-					text: 'Decisions – ADRs',
+					text: 'Architecture Decisions',
 					items: [
 						{ text: 'Overview', link: '/using-codex/adrs/overview' },
 						{ text: 'ADR 1 - Design Tokens', link: '/using-codex/adrs/01-adr-design-tokens' },
