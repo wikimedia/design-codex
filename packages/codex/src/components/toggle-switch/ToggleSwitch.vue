@@ -341,7 +341,7 @@ export default defineComponent( {
 		&:disabled {
 			cursor: @cursor-base--disabled;
 
-			& ~ .cdx-toggle-switch__label {
+			& ~ .cdx-toggle-switch__label-content {
 				color: @color-disabled;
 			}
 
