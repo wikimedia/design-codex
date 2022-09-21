@@ -25,8 +25,22 @@ export default defineComponent( {
 		const menuItems = ref<MenuItemData[]>( [] );
 		const currentSearchTerm = ref( '' );
 
+		async function fetchResults( searchTerm: string ): Promise<SearchData> {
+			const params = new URLSearchParams( {
+				origin: '*',
+				action: 'wbsearchentities',
+				format: 'json',
+				limit: '10',
+				props: 'url',
+				language: 'en',
+				search: searchTerm
+			} );
+			const response = await fetch( `https://www.wikidata.org/w/api.php?${params.toString()}` );
+			return response.json();
+		}
+
 		// TODO: this should be debounced.
-		function onInput( value: string ) {
+		async function onInput( value: string ) {
 			// Internally track the current search term.
 			currentSearchTerm.value = value;
 
@@ -36,31 +50,35 @@ export default defineComponent( {
 				return;
 			}
 
-			fetch(
-				`https://www.wikidata.org/w/api.php?origin=*&action=wbsearchentities&format=json&search=${encodeURIComponent( value )}&language=en&limit=10&props=url`
-			).then( ( resp ) => resp.json() )
-				.then( ( data: SearchData ) => {
-					// Make sure this data is still relevant first.
-					if ( currentSearchTerm.value === value ) {
-						// Build an array of menu items.
-						const results: MenuItemData[] = [];
-						if ( data.search && data.search.length > 0 ) {
-							data.search.forEach( ( result ) => {
-								results.push( {
-									label: result.label,
-									value: result.id,
-									description: result.description
-								} );
-							} );
-						}
+			try {
+				const data = await fetchResults( value );
 
-						// Update menuItems.
-						menuItems.value = results;
-					}
-				} ).catch( () => {
-					// On error, set results to empty.
+				// Make sure this data is still relevant first.
+				if ( currentSearchTerm.value !== value ) {
+					return;
+				}
+
+				// Reset the menu items if there are no results.
+				if ( !data.search || data.search.length === 0 ) {
 					menuItems.value = [];
+					return;
+				}
+
+				// Build an array of menu items.
+				const results: MenuItemData[] = data.search.map( ( result ) => {
+					return {
+						label: result.label,
+						value: result.id,
+						description: result.description
+					};
 				} );
+
+				// Update menuItems.
+				menuItems.value = results;
+			} catch ( e ) {
+				// On error, set results to empty.
+				menuItems.value = [];
+			}
 		}
 
 		return {
