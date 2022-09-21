@@ -54,7 +54,7 @@ export default defineComponent( {
 
 .cdx-docs-transition-demo {
 	background-color: @background-color-base;
-	color: @color-primary;
+	color: @color-progressive;
 	position: relative;
 	width: 100px;
 	height: 50px;

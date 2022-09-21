@@ -14,13 +14,13 @@
 	--vp-c-text-2: var( --color-subtle );
 	--vp-c-text-code: var( --color-emphasized );
 
-	--vp-c-white-soft: var( --background-color-framed );
+	--vp-c-white-soft: var( --background-color-interactive-subtle );
 	--vp-c-white-mute: var( --background-color-interactive-subtle );
 
 	--vp-c-indigo: var( --color-progressive );
 	--vp-c-indigo-soft: var( --color-progressive--active );
 
-	--vp-c-bg-alt: var( --background-color-framed );
+	--vp-c-bg-alt: var( --background-color-interactive-subtle );
 
 	--vp-c-divider: var( --border-color-base );
 	--vp-c-divider-light: var( --border-color-subtle );
@@ -32,9 +32,9 @@
 	--vp-custom-block-info-text: var( --color-notice );
 	--vp-custom-block-info-bg: var( --background-color-notice-subtle );
 
-	--vp-custom-block-tip-border: var( --border-color-primary );
+	--vp-custom-block-tip-border: var( --border-color-progressive );
 	--vp-custom-block-tip-text: var( --color-notice );
-	--vp-custom-block-tip-bg: var( --background-color-framed );
+	--vp-custom-block-tip-bg: var( --background-color-interactive-subtle );
 
 	--vp-custom-block-warning-border: var( --border-color-warning );
 	--vp-custom-block-warning-text: var( --color-notice );
@@ -48,7 +48,6 @@
 	--vp-custom-block-details-text: var( --color-notice );
 	--vp-custom-block-details-bg: var( --background-color-notice-subtle );
 
-	--border-color-code: var( --background-color-interactive );
 	/* TODO: Tokenize. */
 	--padding-code: 2px 4px;
 }
@@ -80,7 +79,7 @@ body {
 }
 
 .vp-doc a:hover {
-	color: var( --color-primary );
+	color: var( --color-progressive );
 	text-decoration: underline;
 }
 
@@ -128,7 +127,7 @@ body {
 
 .VPNavBarTitle .title:hover {
 	color: var( --color-base--hover );
-	opacity: 1;
+	opacity: var( --opacity-base );
 }
 
 /* Use padding instead of margin for sidebar links so the space doesn't collapse. */
@@ -210,8 +209,8 @@ pre[ class*='language-' ] {
 
 .vp-doc [ class*='language-' ]:hover > button.copy + span.lang,
 .vp-doc [ class*='language-' ] > button.copy:focus + span.lang {
-	/* Never hide the code block language. */
-	opacity: 1;
+	/* Never hide the code block language, set `opacity` to `1`. */
+	opacity: var( --opacity-base );
 }
 
 /* Custom block style overrides. -------------------------------------------- */
@@ -230,13 +229,13 @@ pre[ class*='language-' ] {
 }
 
 .vp-doc .custom-block a {
-	color: var( --color-primary );
+	color: var( --color-progressive );
 	text-decoration: none;
 }
 
 .vp-doc .custom-block a:hover {
-	color: var( --color-primary );
-	opacity: 1;
+	color: var( --color-progressive );
+	opacity: var( --opacity-base );
 	text-decoration: underline;
 }
 
