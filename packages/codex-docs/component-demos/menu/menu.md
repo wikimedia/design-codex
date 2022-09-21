@@ -1,6 +1,7 @@
 <script setup>
 import InputWithMenu from '@/../component-demos/menu/examples/InputWithMenu.vue';
 import InputWithMenuCustomItemDisplay from '@/../component-demos/menu/examples/InputWithMenuCustomItemDisplay.vue';
+import InputWithMenuScroll from '@/../component-demos/menu/examples/InputWithMenuScroll.vue'
 import InputWithMenuNoResults from '@/../component-demos/menu/examples/InputWithMenuNoResults.vue'
 import InputWithMenuPending from '@/../component-demos/menu/examples/InputWithMenuPending.vue'
 import InputWithMenuPendingWithItems from '@/../component-demos/menu/examples/InputWithMenuPendingWithItems.vue'
@@ -36,6 +37,26 @@ internally.
 <template v-slot:code>
 
 <<< @/../component-demos/menu/examples/InputWithMenuCustomItemDisplay.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Menu with scrolling enabled
+
+In the Menu component, all menu items will be shown by default and the height of the menu will grow
+to accommodate the menu items. To limit the number of menu items shown at once and enable scrolling
+within the menu, set the `visibleItemLimit` prop to a positive number.
+
+Although the default behavior in the Menu component is to show all menu items, some components that
+use the Menu component have a default `visibleItemLimit` prop set.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<input-with-menu-scroll />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/menu/examples/InputWithMenuScroll.vue
 
 </template>
 </cdx-demo-wrapper>
