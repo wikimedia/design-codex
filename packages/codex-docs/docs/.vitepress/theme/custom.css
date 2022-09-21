@@ -49,6 +49,8 @@
 	--vp-custom-block-details-bg: var( --background-color-notice-subtle );
 
 	--border-color-code: var( --background-color-interactive );
+	/* TODO: Tokenize. */
+	--padding-code: 2px 4px;
 }
 
 /* HTML element style overrides. -------------------------------------------- */
@@ -84,8 +86,8 @@ body {
 
 .vp-doc p,
 .vp-doc li {
-	/* Standardize line height for page content. */
-	line-height: 1.7;
+	/* Standardize line height for page content. Use token! */
+	line-height: 1.6;
 }
 
 .vp-doc table {
@@ -185,8 +187,9 @@ body {
 /* Syntax highlighting and code style overrides. ---------------------------- */
 
 .vp-doc :not( pre ) > code {
-	border: var( --border-width-base ) var( --border-style-base ) var( --border-color-code );
+	border: var( --border-width-base ) var( --border-style-base ) var( --border-color-subtle );
 	border-radius: var( --border-radius-base );
+	padding: var( --padding-code );
 }
 
 pre[ class*='language-' ] {
@@ -218,12 +221,12 @@ pre[ class*='language-' ] {
 	border-radius: var( --border-radius-base );
 	font-size: 1rem;
 	/* TODO: use token */
-	line-height: 1.7;
+	line-height: 1.6;
 }
 
 .vp-doc .custom-block p {
 	/* TODO: use token */
-	line-height: 1.7;
+	line-height: 1.6;
 }
 
 .vp-doc .custom-block a {

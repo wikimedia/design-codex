@@ -60,8 +60,9 @@ to learn about our processes and ways you can contribute.
 
 ## Maintainers
 
-Codex is maintained by the Design Systems Team of the Wikimedia Foundation. It is designed and
-developed by contributors from the Wikimedia Foundation, Wikimedia Deutschland, and the Wikimedia
+Codex is maintained by the [Design Systems Team](https://www.mediawiki.org/wiki/Design_Systems_Team)
+of the Wikimedia Foundation. It is designed and developed by contributors from the [Wikimedia Foundation](https://wikimediafoundation.org/),
+[Wikimedia Deutschland](https://www.wikimedia.de/), and the [Wikimedia](https://www.wikimedia.org/)
 volunteer community.
 
 To contact us or to learn more about current and future work, visit our [workboard](https://phabricator.wikimedia.org/project/board/5587/)

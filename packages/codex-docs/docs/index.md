@@ -1,3 +1,6 @@
+---
+aside: false
+---
 <script setup>
 import { CdxIcon, CdxButton, CdxCard } from '@wikimedia/codex';
 import { cdxIconLogoWikimedia, cdxIconKey, cdxIconPuzzle, cdxIconInfoFilled } from '@wikimedia/codex-icons';
@@ -6,17 +9,17 @@ import { version } from '../../codex/package.json';
 
 <div class="cdx-docs-home">
 
-<div class="cdx-docs-home__hero-background">
-	<div class="cdx-docs-home__hero">
-		<cdx-icon class="cdx-docs-home__hero__icon" :icon="cdxIconLogoWikimedia" />
-		<p class="cdx-docs-home__hero__title">Codex</p>
-		<p class="cdx-docs-home__hero__version">Current version: {{ version }}</p>
-	</div>
+<div class="cdx-docs-home__hero">
+	<cdx-icon class="cdx-docs-home__hero__icon" :icon="cdxIconLogoWikimedia" />
+	<h1 class="cdx-docs-home__hero__title">Codex</h1>
+	<p class="cdx-docs-home__hero__tagline">Wikimedia Design System Toolkit</p>
 </div>
 
-# Codex
+**Codex is a toolkit for building user interfaces within the Wikimedia Design System.**<br>
+Current version: **{{ version }}**
 
-Codex is a toolkit for building user interfaces within the Wikimedia Design System.
+Codex is maintained by the [Design Systems Team](https://www.mediawiki.org/wiki/Design_Systems_Team)
+of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 <div class="cdx-docs-home__resources">
 	<cdx-card url="./using-codex/about.html">
@@ -83,41 +86,41 @@ Codex is a toolkit for building user interfaces within the Wikimedia Design Syst
 			text-decoration: none;
 		}
 	}
-	&__hero-background {
+
+	&__hero {
 		background-color: @background-color-progressive;
 		margin-right: -( @cdx-docs-spacing-layout );
 		margin-left: -( @cdx-docs-spacing-layout );
 		margin-bottom: @cdx-docs-spacing-layout;
 		width: calc( 100% + ( @cdx-docs-spacing-layout * 2 ) );
-	}
-
-	&__hero {
 		color: @color-inverted;
 		padding: @cdx-docs-spacing-layout;
-
-		p {
-			margin: 0;
-		}
 
 		&__icon {
 			color: @color-inverted;
 			margin-bottom: @cdx-docs-spacing-layout * 2;
-			
+
 			svg {
-				// 5em, to match the title.
-				height: 80px;
-				width: 80px;
+				// 5em equivalent to match the title.
+				min-width: 80px;
+				min-height: 80px;
+				width: 5em;
+				height: 5em;
 			}
 		}
 
-		&__title {
+		// Need to put `.vp-doc` here to override the default VitePress heading styles.
+		.vp-doc &__title {
+			font-family: @font-family-sans;
 			font-size: 5em;
 			font-weight: @font-weight-bold;
+			line-height: initial;
 		}
 
-		&__version {
-			font-size: 1.5em; 
-			font-family: @font-family-serif;
+		.vp-doc &__tagline {
+			margin: 0 0 0 8px;
+			font-family: @font-family-sans;
+			font-size: 1.5em;
 		}
 	}
 
@@ -132,6 +135,7 @@ Codex is a toolkit for building user interfaces within the Wikimedia Design Syst
 		flex-wrap: wrap;
 		column-gap: 8px;
 		row-gap: 8px;
+		margin-top: @cdx-docs-spacing-layout;
 
 		.cdx-card {
 			width: calc( 50% - 8px );
