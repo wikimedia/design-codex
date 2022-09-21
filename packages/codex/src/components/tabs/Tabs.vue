@@ -676,11 +676,11 @@ export default defineComponent( {
 		background-color: @background-color-interactive;
 
 		.cdx-tabs__prev-scroller::after {
-			background-image: linear-gradient( to right, @background-color-interactive 0, @background-color-base--transparent 100% );
+			background-image: linear-gradient( to right, @background-color-interactive 0, @background-color-transparent 100% );
 		}
 
 		.cdx-tabs__next-scroller::before {
-			background-image: linear-gradient( to left, @background-color-interactive 0, @background-color-base--transparent 100% );
+			background-image: linear-gradient( to left, @background-color-interactive 0, @background-color-transparent 100% );
 		}
 
 		// Framed Tabs List item.
@@ -736,14 +736,14 @@ export default defineComponent( {
 		background-color: @background-color-base;
 		margin: @margin-tabs-quiet-tab;
 		// The border separating quiet Tabs header from Tab content.
-		border-bottom: @border-base;
+		border-bottom: @border-width-base @border-style-base @border-color-base;
 
 		.cdx-tabs__prev-scroller::after {
-			background-image: linear-gradient( to right, @background-color-base 0, @background-color-base--transparent 100% );
+			background-image: linear-gradient( to right, @background-color-base 0, @background-color-transparent 100% );
 		}
 
 		.cdx-tabs__next-scroller::before {
-			background-image: linear-gradient( to left, @background-color-base 0, @background-color-base--transparent 100% );
+			background-image: linear-gradient( to left, @background-color-base 0, @background-color-transparent 100% );
 		}
 
 		// Quiet Tabs List item.

@@ -146,19 +146,19 @@ export default defineComponent( {
 	}
 
 	&.cdx-toggle-button--toggled-on:enabled {
-		background-color: @color-primary--active;
+		background-color: @background-color-progressive--active;
 		color: @color-inverted;
-		border-color: @border-color-primary--active;
+		border-color: @border-color-progressive--active;
 
 		&:hover {
-			background-color: @color-progressive--hover;
+			background-color: @background-color-progressive--hover;
 			// Same color as not hovering, needed to override the other :hover rule above
 			color: @color-inverted;
 			border-color: @border-color-progressive--hover;
 		}
 
 		&:focus {
-			border-color: @border-color-primary--focus;
+			border-color: @border-color-progressive--focus;
 			// Make `box-shadow` feature a `1px` White inset outline with a value combination.
 			// stylelint-disable-next-line value-list-comma-newline-after
 			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus,
@@ -179,7 +179,7 @@ export default defineComponent( {
 // Quiet toggle button
 .cdx-toggle-button--quiet {
 	// Override `<button>` default background color.
-	background-color: @background-color-base--transparent;
+	background-color: @background-color-transparent;
 	border-color: @border-color-transparent;
 
 	&:enabled {
