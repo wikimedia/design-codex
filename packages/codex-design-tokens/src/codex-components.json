@@ -1,9 +1,11 @@
 {
 	"background-color": {
 		"primary": {
+			"deprecated": "Use `background-color-progressive` instead.",
 			"value": "{ background-color.progressive }"
 		},
 		"primary--hover": {
+			"deprecated": "No replacement for this token. Only used in non-Codex products and design decision is to need to rely on background for this state.",
 			"value": "{ color.modifier-blue600-translucent }"
 		},
 		"quiet": {
