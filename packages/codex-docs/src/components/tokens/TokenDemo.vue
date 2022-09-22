@@ -74,6 +74,7 @@ export default defineComponent( {
 } );
 </script>
 
+<!-- eslint-disable max-len -->
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
@@ -96,7 +97,7 @@ export default defineComponent( {
 		border: @border-width-base @border-style-base @border-color-base;
 
 		&__inner {
-			background-color: @background-color-primary;
+			background-color: @background-color-progressive;
 			height: 100%;
 			animation-name: cdx-docs-animation-demo__inner-animation;
 			animation-duration: 2000ms;
@@ -160,7 +161,7 @@ export default defineComponent( {
 		}
 
 		&__inner {
-			background-color: fade( @background-color-primary, 75% );
+			background-color: fade( @background-color-progressive, unit( @opacity-medium * 100, % ) );
 			position: absolute;
 			top: 12.5px;
 			left: 12.5px;
@@ -183,3 +184,4 @@ export default defineComponent( {
 	}
 }
 </style>
+<!-- eslint-enable max-len -->

@@ -79,7 +79,7 @@ export default defineComponent( {
 	}
 
 	&__inner {
-		background-color: @background-color-primary;
+		background-color: @background-color-progressive;
 	}
 
 	&--percentage {
