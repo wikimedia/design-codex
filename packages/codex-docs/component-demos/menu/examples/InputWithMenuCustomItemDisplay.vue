@@ -1,8 +1,8 @@
 <template>
-	<div class="cdx-docs-input-with-menu-and-footer">
+	<div class="cdx-docs-input-with-menu-custom-item-display">
 		<cdx-text-input
 			v-model="selectedValue"
-			class="cdx-docs-input-with-menu-and-footer__input"
+			class="cdx-docs-input-with-menu-custom-item-display__input"
 			:aria-expanded="expanded"
 			@click="onClick"
 			@blur="expanded = false"
@@ -66,12 +66,11 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.cdx-docs-input-with-menu-and-footer {
+.cdx-docs-input-with-menu-custom-item-display {
 	// The Menu component is absolutely positioned, so we need `position: relative` here to
 	// position the menu relative to this div. This ensure the menu will align with the input.
 	position: relative;
 
-	//TODO(T308124): Use existing ".element-with-menu" mixin when available withi the codex build
 	&__input [ aria-expanded='true' ] {
 		border-bottom-left-radius: @border-radius-sharp;
 		border-bottom-right-radius: @border-radius-sharp;

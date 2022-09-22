@@ -90,7 +90,6 @@ export default defineComponent( {
 	// position the menu relative to this div. This ensure the menu will align with the input.
 	position: relative;
 
-	//TODO(T308124): Use existing ".element-with-menu" mixin when available withi the codex build
 	&__input [ aria-expanded='true' ] {
 		border-bottom-left-radius: @border-radius-sharp;
 		border-bottom-right-radius: @border-radius-sharp;
