@@ -60,6 +60,13 @@
 		"notice-subtle": {
 			"value": "{ color.gray200 }"
 		},
+		"backdrop-light": {
+			"comment": "Backdrop is the term used by CSS Fullscreen API and is used to dim the background when a modal Dialog is open. Also known as overlay mask.",
+			"value": "{ color.opacity-medium-light }"
+		},
+		"backdrop-dark": {
+			"value": "{ color.opacity-medium-dark }"
+		},
 		"transparent": {
 			"value": "{ color.transparent-light }"
 		},

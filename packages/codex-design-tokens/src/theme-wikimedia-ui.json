@@ -92,6 +92,12 @@
 			"comment": "TODO: Not part of DS Figma yet. Note, that WikimediaUI Base's `rgba( 41, 98, 204, 0.1 )` was not a modifier of Blue600, while this is.",
 			"value": "rgba( 51, 102, 204, 0.1 )"
 		},
+		"opacity-medium-light": {
+			"value": "rgba( 255, 255, 255, 0.65 )"
+		},
+		"opacity-medium-dark": {
+			"value": "rgba( 0, 0, 0, 0.65 )"
+		},
 		"transparent": {
 			"value": "transparent"
 		},
