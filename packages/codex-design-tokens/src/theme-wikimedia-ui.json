@@ -400,6 +400,17 @@
 			"value": "1.6"
 		}
 	},
+	"text-decoration": {
+		"0": {
+			"value": "none"
+		},
+		"150": {
+			"value": "line-through"
+		},
+		"200": {
+			"value": "underline"
+		}
+	},
 	"transition-duration": {
 		"100": {
 			"value": "100ms"

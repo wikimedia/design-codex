@@ -716,6 +716,17 @@
 			"value": "{ line-height.100 }"
 		}
 	},
+	"text-decoration": {
+		"none": {
+			"value": "0"
+		},
+		"line-through": {
+			"value": "150"
+		},
+		"underline": {
+			"value": "200"
+		}
+	},
 	"transition": {
 		"base": {
 			"deprecated": "Legacy `transition` for icon states in non-Codex products.",
