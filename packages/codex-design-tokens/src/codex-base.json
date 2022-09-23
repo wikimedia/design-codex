@@ -705,6 +705,17 @@
 			"value": "{ font-weight.175 }"
 		}
 	},
+	"line-height": {
+		"extra-small": {
+			"value": "{ line-height.80 }"
+		},
+		"small": {
+			"value": "{ line-height.90 }"
+		},
+		"medium": {
+			"value": "{ line-height.100 }"
+		}
+	},
 	"transition": {
 		"base": {
 			"deprecated": "Legacy `transition` for icon states in non-Codex products.",
