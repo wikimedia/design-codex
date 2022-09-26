@@ -7,10 +7,12 @@
 			:search-results="searchResults"
 			:search-footer-url="searchFooterUrl"
 			:highlight-query="true"
+			:visible-item-limit="5"
 			placeholder="Search Wikidata"
 			@input="onInput"
 			@search-result-click="onEvent( 'search-result-click', $event )"
 			@submit="onEvent( 'submit', $event )"
+			@load-more="onLoadMore"
 		>
 			<template #default>
 				<input
@@ -51,7 +53,8 @@ export default defineComponent( {
 		const onEvent = getMultiEventLogger<string|SearchResultClickEvent>();
 
 		async function fetchResults(
-			searchTerm: string
+			searchTerm: string,
+			offset?: number
 		): Promise<{ search: Result[] }> {
 			const params = new URLSearchParams( {
 				origin: '*',
@@ -64,6 +67,9 @@ export default defineComponent( {
 				type: 'item',
 				search: searchTerm
 			} );
+			if ( offset ) {
+				params.set( 'continue', `${offset}` );
+			}
 			const response = await fetch( `https://www.wikidata.org/w/api.php?${params.toString()}` );
 			return response.json();
 		}
@@ -126,10 +132,26 @@ export default defineComponent( {
 
 		}
 
+		async function onLoadMore() {
+			onEvent( 'load-more', '' );
+
+			if ( !currentSearchTerm.value ) {
+				return;
+			}
+
+			const data = await fetchResults( currentSearchTerm.value, searchResults.value.length );
+			const results = data.search && data.search.length > 0 ?
+				adaptApiResponse( data.search ) :
+				[];
+
+			searchResults.value.push( ...results );
+		}
+
 		return {
 			searchResults,
 			searchFooterUrl,
 			onInput,
+			onLoadMore,
 			onEvent
 		};
 	}
