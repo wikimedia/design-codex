@@ -50,7 +50,46 @@ export default defineComponent( {
 
 		const onEvent = getMultiEventLogger<string|SearchResultClickEvent>();
 
-		function onInput( value: string ) {
+		async function fetchResults(
+			searchTerm: string
+		): Promise<{ search: Result[] }> {
+			const params = new URLSearchParams( {
+				origin: '*',
+				action: 'wbsearchentities',
+				format: 'json',
+				limit: '10',
+				props: 'url',
+				language: 'en',
+				uselang: 'en',
+				type: 'item',
+				search: searchTerm
+			} );
+			const response = await fetch( `https://www.wikidata.org/w/api.php?${params.toString()}` );
+			return response.json();
+		}
+
+		/**
+		 * Format search results for consumption by TypeaheadSearch.
+		 *
+		 * @param pages
+		 * @return
+		 */
+		function adaptApiResponse( pages: Result[] ): SearchResult[] {
+			return pages.map( ( { id, label, url, match, description, display = {} } ) => ( {
+				value: id,
+				label,
+				match: match.type === 'alias' ? `(${match.text})` : '',
+				description,
+				url,
+				language: {
+					label: display?.label?.language,
+					match: match.type === 'alias' ? match.language : undefined,
+					description: display?.description?.language
+				}
+			} ) );
+		}
+
+		async function onInput( value: string ) {
 			onEvent( 'input', value );
 
 			// Internally track the current search term.
@@ -63,49 +102,28 @@ export default defineComponent( {
 				return;
 			}
 
-			/**
-			 * Format search results for consumption by TypeaheadSearch.
-			 *
-			 * @param pages
-			 * @return
-			 */
-			function adaptApiResponse( pages: Result[] ): SearchResult[] {
-				return pages.map( ( { id, label, url, match, description, display = {} } ) => ( {
-					value: id,
-					label,
-					match: match.type === 'alias' ? `(${match.text})` : '',
-					description,
-					url,
-					language: {
-						label: display?.label?.language,
-						match: match.type === 'alias' ? match.language : undefined,
-						description: display?.description?.language
-					}
-				} ) );
+			try {
+				const data = await fetchResults( value );
+
+				// Make sure this data is still relevant first.
+				if ( currentSearchTerm.value === value ) {
+					// If there are results, format them into an array of
+					// SearchResults to be passed into TypeaheadSearch for
+					// display as a menu of search results.
+					searchResults.value = data.search && data.search.length > 0 ?
+						adaptApiResponse( data.search ) :
+						[];
+
+					// Set the search footer URL to a link to the search
+					// page for the current search query.
+					searchFooterUrl.value = `https://www.wikidata.org/w/index.php?search=${encodeURIComponent( value )}&title=Special%3ASearch&fulltext=1`;
+				}
+			} catch ( _e ) {
+				// On error, reset search results and search footer URL.
+				searchResults.value = [];
+				searchFooterUrl.value = '';
 			}
 
-			fetch(
-				`https://www.wikidata.org/w/api.php?origin=*&action=wbsearchentities&format=json&search=${encodeURIComponent( value )}&language=en&uselang=en&type=item`
-			).then( ( resp ) => resp.json() )
-				.then( ( data: { search: Result[] } ) => {
-					// Make sure this data is still relevant first.
-					if ( currentSearchTerm.value === value ) {
-						// If there are results, format them into an array of
-						// SearchResults to be passed into TypeaheadSearch for
-						// display as a menu of search results.
-						searchResults.value = data.search && data.search.length > 0 ?
-							adaptApiResponse( data.search ) :
-							[];
-
-						// Set the search footer URL to a link to the search
-						// page for the current search query.
-						searchFooterUrl.value = `https://www.wikidata.org/w/index.php?search=${encodeURIComponent( value )}&title=Special%3ASearch&fulltext=1`;
-					}
-				} ).catch( () => {
-					// On error, reset search results and search footer URL.
-					searchResults.value = [];
-					searchFooterUrl.value = '';
-				} );
 		}
 
 		return {
