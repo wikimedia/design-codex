@@ -191,6 +191,10 @@ body {
 	padding: var( --padding-code );
 }
 
+.vp-doc a:hover > code {
+	color: var( --color-progressive );
+}
+
 pre[ class*='language-' ] {
 	/* Remove border from generated code samples. */
 	border: 0;
@@ -239,6 +243,7 @@ pre[ class*='language-' ] {
 	text-decoration: underline;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .vp-doc .custom-block code {
 	background-color: var( --background-color-interactive );
 	/* VitePress uses bold for `code` in warnings by default?! */

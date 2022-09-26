@@ -1,6 +1,7 @@
 /** @typedef {import('vue-docgen-api').EventDescriptor} EventDescriptor */
 
-const mdclean = require( './utils' ).mdclean;
+const utils = require( './utils' );
+const mdclean = utils.mdclean;
 
 /**
  * Format event properties.
@@ -18,8 +19,13 @@ function formatProperties( properties ) {
 			if ( !type ) {
 				return '';
 			}
+
+			const formattedTypes = type.names.map( ( typeName ) => {
+				return utils.getTypeText( typeName );
+			} );
+
 			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-			let eventString = `**${name}** \`${type.names.length ? type.names.join( ', ' ) : ''}\``;
+			let eventString = `**${name}** ${formattedTypes.join( ', ' )}`;
 
 			// Customization: only show the description if one exists, to avoid appending
 			// " - undefined" to the string.

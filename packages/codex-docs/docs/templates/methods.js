@@ -1,4 +1,5 @@
-const mdclean = require( './utils' ).mdclean;
+const utils = require( './utils' );
+const mdclean = utils.mdclean;
 
 /** @typedef {import('vue-docgen-api').MethodDescriptor} MethodDescriptor */
 /** @typedef {import('vue-docgen-api').Param} Param */
@@ -13,13 +14,13 @@ const mdclean = require( './utils' ).mdclean;
 const getParams = ( params ) => {
 	let paramsString = '<ul class="cdx-docs-methods__params">';
 	params.forEach( ( p ) => {
-		const t = p.type && p.type.name ? p.type.name : '';
+		const t = p.type && p.type.name ? utils.getTypeText( p.type.name ) : '';
 		const n = p.name ? p.name : '';
 		const d = typeof p.description === 'string' ? p.description : '';
 
 		// Standard format for params in other usage docs (e.g. events), with
 		// the name in bold, the type in <pre> tags, and the description after a dash.
-		paramsString += `<li>**${mdclean( n )}** \`${mdclean( t )}\` - ${mdclean( d )}</li>`;
+		paramsString += `<li>**${mdclean( n )}** ${mdclean( t )} - ${mdclean( d )}</li>`;
 	} );
 	paramsString += '</ul>';
 	return paramsString;
@@ -45,7 +46,7 @@ const getReturns = ( m ) => {
 	 */
 	function getTypeFromReturns() {
 		if ( m.returns && m.returns.type && m.returns.type.name ) {
-			return `\`${m.returns.type.name}\``;
+			return utils.getTypeText( m.returns.type.name );
 		}
 		return '';
 	}
@@ -65,9 +66,9 @@ const getReturns = ( m ) => {
 
 	// If so, grab the type and the description and use both.
 	if ( indexOfClosingBracket > 0 ) {
-		const t = returnText.slice( 1, indexOfClosingBracket );
+		const t = utils.getTypeText( returnText.slice( 1, indexOfClosingBracket ) );
 		const d = returnText.slice( indexOfClosingBracket + 2 );
-		return `\`${t}\` ${d}`;
+		return `${t} ${d}`;
 	}
 
 	// Otherwise, get the type from the `returns` object from the parser, then tack on the @return

@@ -151,7 +151,8 @@ export default defineConfig( {
 				{
 					text: 'Components',
 					items: [
-						{ text: 'Overview', link: '/components/overview' }
+						{ text: 'Overview', link: '/components/overview' },
+						{ text: 'Types and constants', link: '/components/types-and-constants' }
 					]
 				},
 				{
