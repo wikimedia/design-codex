@@ -48,6 +48,7 @@
 					@menu-item-click="( menuItem ) =>
 						onSearchResultClick( asSearchResult( menuItem ) )"
 					@menu-item-keyboard-navigation="onSearchResultKeyboardNavigation"
+					@load-more="$emit( 'load-more' )"
 				>
 					<template #pending>
 						<div
@@ -239,6 +240,17 @@ export default defineComponent( {
 		autoExpandWidth: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Limit the number of menu items to display before scrolling.
+		 *
+		 * Setting this prop to anything falsy will show all menu items.
+		 *
+		 * By default, all menu items are shown.
+		 */
+		visibleItemLimit: {
+			type: Number as PropType<number|null>,
+			default: null
 		}
 	},
 
@@ -260,7 +272,14 @@ export default defineComponent( {
 		 *
 		 * @property {SearchResultClickEvent} event Data for the selected result
 		 */
-		'submit'
+		'submit',
+		/**
+		 * When the user scrolls towards the bottom of the menu.
+		 *
+		 * If it is possible to add or load more menu items, then now would be a good moment
+		 * so that the user can experience infinite scrolling.
+		 */
+		'load-more'
 	],
 
 	setup( props, { attrs, emit, slots } ) {
@@ -339,6 +358,7 @@ export default defineComponent( {
 		// Create MenuConfig to pass into Menu component.
 		const menuConfig = computed( (): MenuConfig => {
 			return {
+				visibleItemLimit: props.visibleItemLimit,
 				showThumbnail: props.showThumbnail,
 				// In case search queries aren't highlighted, default to a bold label.
 				boldLabel: true,

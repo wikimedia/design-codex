@@ -1,5 +1,5 @@
 import { DOMWrapper, mount, VueWrapper } from '@vue/test-utils';
-import { CdxTypeaheadSearch, CdxMenuItem, CdxSearchInput } from '../../lib';
+import { CdxTypeaheadSearch, CdxMenuItem, CdxSearchInput, CdxMenu } from '../../lib';
 import { DebounceInterval, PendingDelay } from '../../constants';
 import { SearchResult } from '../../types';
 
@@ -481,5 +481,19 @@ describe( 'TypeaheadSearch pending state behavior', () => {
 		jest.advanceTimersByTime( PendingDelay );
 
 		expect( wrapper.vm.showPending ).toBe( false );
+	} );
+
+	describe( 'visbleItemLimit prop', () => {
+		it( 'adheres to provided visbleItemLimit menu prop', () => {
+			const wrapper = mount( CdxTypeaheadSearch, {
+				props: {
+					...propsData,
+					visibleItemLimit: 3
+				}
+			} );
+
+			const menuComponent = wrapper.getComponent( CdxMenu );
+			expect( menuComponent.props( 'visibleItemLimit' ) ).toEqual( 3 );
+		} );
 	} );
 } );
