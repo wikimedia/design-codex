@@ -99,14 +99,12 @@ export default defineConfig( {
 						// { text: 'Contribution workflow', link: '/contributing/contribution-workflow' },
 					]
 				},
-				// {
-				// 	text: 'Contributing design',
-				// 	items: [
-				// 		{ text: 'Designing tokens', link: '/contributing/contributing-code' },
-				// 		{ text: 'Designing components', link: '/contributing/contributing-code' },
-				// 		{ text: 'Designing icons', link: '/contributing/contributing-code' }
-				// 	]
-				// },
+				{
+					text: 'Contributing design',
+					items: [
+						{ text: 'Designing icons', link: '/contributing/designing-icons' }
+				]
+				},
 				{
 					text: 'Contributing code',
 					items: [

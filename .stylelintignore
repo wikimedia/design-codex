@@ -20,6 +20,9 @@ coverage/
 # Ignore SVG files.
 *.svg
 
+# Ignore PNG files.
+*.png
+
 # Ignore AUTHORS.txt file.
 AUTHORS.txt
 

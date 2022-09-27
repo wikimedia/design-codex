@@ -1,0 +1,50 @@
+{
+	"preset-wikimedia-ui": {
+		"name": "WikimediaUI",
+		"settings": {
+			"pretty": true,
+			"multipass": true,
+			"layerNamesAsClasses": false,
+			"useCurrentColorFill": false,
+			"useCurrentColorStroke": false,
+			"removeSvgElementFill": true,
+			"removeFill": false,
+			"removeFillOpacity": false,
+			"removeOpacity": false,
+			"removeStroke": false,
+			"removeFillRule": false,
+			"removeClipRule": false,
+			"moveDefsToTop": true,
+			"plugins": {
+				"removeXMLNS": false,
+				"cleanupAttrs": true,
+				"cleanupIDs": true,
+				"inlineStyles": true,
+				"minifyStyles": true,
+				"convertStyleToAttrs": true,
+				"removeRasterImages": true,
+				"removeUselessDefs": true,
+				"cleanupNumericValues": true,
+				"cleanupListOfValues": true,
+				"convertColors": true,
+				"removeUselessStrokeAndFill": true,
+				"removeViewBox": false,
+				"removeHiddenElems": true,
+				"removeEmptyText": true,
+				"convertShapeToPath": true,
+				"moveElemsAttrsToGroup": false,
+				"moveGroupAttrsToElems": true,
+				"collapseGroups": true,
+				"convertPathData": true,
+				"convertEllipseToCircle": true,
+				"removeEmptyContainers": true,
+				"mergePaths": true,
+				"reusePaths": false,
+				"sortAttrs": true,
+				"sortDefsChildren": true,
+				"removeDimensions": false,
+				"prefixIds": false
+			}
+		}
+	}
+}
