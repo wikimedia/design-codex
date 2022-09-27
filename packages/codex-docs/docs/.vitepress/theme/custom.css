@@ -186,7 +186,7 @@ body {
 /* Syntax highlighting and code style overrides. ---------------------------- */
 
 .vp-doc :not( pre ) > code {
-	border: var( --border-width-base ) var( --border-style-base ) var( --border-color-subtle );
+	background-color: var( --background-color-interactive );
 	border-radius: var( --border-radius-base );
 	padding: var( --padding-code );
 }
@@ -237,6 +237,12 @@ pre[ class*='language-' ] {
 	color: var( --color-progressive );
 	opacity: var( --opacity-base );
 	text-decoration: underline;
+}
+
+.vp-doc .custom-block code {
+	background-color: var( --background-color-interactive );
+	/* VitePress uses bold for `code` in warnings by default?! */
+	font-weight: var( --font-weight-normal );
 }
 
 .custom-block.danger .custom-block-title {
