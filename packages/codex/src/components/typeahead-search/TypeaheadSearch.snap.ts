@@ -58,20 +58,24 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
 				relatively to the text input. See TypeaheadSearch for sample usage.
 			-->
         
-        <ul
-          aria-label="Search results"
-          aria-multiselectable="false"
+        <div
           class="cdx-menu"
-          id="cdx-typeahead-search-menu-0"
-          role="listbox"
           style="display: none;"
         >
-          <!--v-if-->
-          <!--v-if-->
-          
-          
-          <!--v-if-->
-        </ul>
+          <ul
+            aria-label="Search results"
+            aria-multiselectable="false"
+            class="cdx-menu__listbox"
+            id="cdx-typeahead-search-menu-0"
+            role="listbox"
+          >
+            <!--v-if-->
+            <!--v-if-->
+            
+            
+            <!--v-if-->
+          </ul>
+        </div>
         
       </div>
       <button
@@ -158,20 +162,24 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
 				relatively to the text input. See TypeaheadSearch for sample usage.
 			-->
         
-        <ul
-          aria-label="Search results"
-          aria-multiselectable="false"
+        <div
           class="cdx-menu"
-          id="cdx-typeahead-search-menu-1"
-          role="listbox"
           style="display: none;"
         >
-          <!--v-if-->
-          <!--v-if-->
-          
-          
-          <!--v-if-->
-        </ul>
+          <ul
+            aria-label="Search results"
+            aria-multiselectable="false"
+            class="cdx-menu__listbox"
+            id="cdx-typeahead-search-menu-1"
+            role="listbox"
+          >
+            <!--v-if-->
+            <!--v-if-->
+            
+            
+            <!--v-if-->
+          </ul>
+        </div>
         
       </div>
       <button
@@ -258,20 +266,24 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
 				relatively to the text input. See TypeaheadSearch for sample usage.
 			-->
         
-        <ul
-          aria-label="Search results"
-          aria-multiselectable="false"
+        <div
           class="cdx-menu"
-          id="cdx-typeahead-search-menu-2"
-          role="listbox"
           style="display: none;"
         >
-          <!--v-if-->
-          <!--v-if-->
-          
-          
-          <!--v-if-->
-        </ul>
+          <ul
+            aria-label="Search results"
+            aria-multiselectable="false"
+            class="cdx-menu__listbox"
+            id="cdx-typeahead-search-menu-2"
+            role="listbox"
+          >
+            <!--v-if-->
+            <!--v-if-->
+            
+            
+            <!--v-if-->
+          </ul>
+        </div>
         
       </div>
       <button
@@ -358,106 +370,110 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
 				relatively to the text input. See TypeaheadSearch for sample usage.
 			-->
         
-        <ul
-          aria-label="Search results"
-          aria-multiselectable="false"
+        <div
           class="cdx-menu"
-          id="cdx-typeahead-search-menu-59"
-          role="listbox"
           style="display: none;"
         >
-          <!--v-if-->
-          <li
-            class="cdx-menu__no-results cdx-menu-item"
+          <ul
+            aria-label="Search results"
+            aria-multiselectable="false"
+            class="cdx-menu__listbox"
+            id="cdx-typeahead-search-menu-59"
+            role="listbox"
           >
-            <!--
-				@slot Message to show if there are no menu items to display.
-			-->
-            
-            <div
-              class="cdx-typeahead-search__menu-message cdx-typeahead-search__menu-message--has-thumbnail"
+            <!--v-if-->
+            <li
+              class="cdx-menu__no-results cdx-menu-item"
             >
-              <span
-                class="cdx-typeahead-search__menu-message__text"
+              <!--
+					@slot Message to show if there are no menu items to display.
+				-->
+              
+              <div
+                class="cdx-typeahead-search__menu-message cdx-typeahead-search__menu-message--has-thumbnail"
               >
-                <!--
+                <span
+                  class="cdx-typeahead-search__menu-message__text"
+                >
+                  <!--
 									@slot A slot for passing in a translated "no results" message.
 								-->
-                
-                No results found
-                
-              </span>
-            </div>
+                  
+                  No results found
+                  
+                </span>
+              </div>
+              
+            </li>
             
-          </li>
-          
-          <li
-            aria-disabled="false"
-            aria-selected="false"
-            class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
-            id="cdx-menu-item-61"
-            role="option"
-          >
-            <!-- @slot Custom menu item content. -->
-            
-            <!--
-				@slot Display of an individual item in the menu
-				@binding {MenuItem} menuItem The current menu item
-				@binding {boolean} active Whether the current item is visually active
-			-->
-            
-            <a
-              class="cdx-typeahead-search__search-footer"
-              href="https://foo.org/search?query=Co"
+            <li
+              aria-disabled="false"
+              aria-selected="false"
+              class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
+              id="cdx-menu-item-61"
+              role="option"
             >
-              <span
-                class="cdx-icon cdx-typeahead-search__search-footer__icon"
+              <!-- @slot Custom menu item content. -->
+              
+              <!--
+					@slot Display of an individual item in the menu
+					@binding {MenuItem} menuItem The current menu item
+					@binding {boolean} active Whether the current item is visually active
+				-->
+              
+              <a
+                class="cdx-typeahead-search__search-footer"
+                href="https://foo.org/search?query=Co"
               >
-                <svg
-                  aria-hidden="true"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  width="20"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="cdx-icon cdx-typeahead-search__search-footer__icon"
                 >
-                  <!--v-if-->
-                  <!-- eslint-disable vue/no-v-html -->
-                  <g
-                    fill="currentColor"
+                  <svg
+                    aria-hidden="true"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      d="M12.43 14.34A5 5 0 0110 15a5 5 0 113.95-2L17 16.09V3a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 001.45-.63z"
-                    />
-                    <circle
-                      cx="10"
-                      cy="10"
-                      r="3"
-                    />
-                  </g>
-                </svg>
-              </span>
-              <span
-                class="cdx-typeahead-search__search-footer__text"
-              >
-                <!--
+                    <!--v-if-->
+                    <!-- eslint-disable vue/no-v-html -->
+                    <g
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12.43 14.34A5 5 0 0110 15a5 5 0 113.95-2L17 16.09V3a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 001.45-.63z"
+                      />
+                      <circle
+                        cx="10"
+                        cy="10"
+                        r="3"
+                      />
+                    </g>
+                  </svg>
+                </span>
+                <span
+                  class="cdx-typeahead-search__search-footer__text"
+                >
+                  <!--
 									@slot A slot for passing in translated search footer text.
 									@binding {string} searchQuery Input text entered by the user
 								-->
-                
-                <strong
-                  class="cdx-typeahead-search__search-footer__query"
-                >
-                  Co
-                </strong>
-                
-              </span>
-            </a>
+                  
+                  <strong
+                    class="cdx-typeahead-search__search-footer__query"
+                  >
+                    Co
+                  </strong>
+                  
+                </span>
+              </a>
+              
+              
+            </li>
             
-            
-          </li>
-          
-          <!--v-if-->
-        </ul>
+            <!--v-if-->
+          </ul>
+        </div>
         
       </div>
       <button
@@ -544,228 +560,232 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
 				relatively to the text input. See TypeaheadSearch for sample usage.
 			-->
         
-        <ul
-          aria-label="Search results"
-          aria-multiselectable="false"
+        <div
           class="cdx-menu"
-          id="cdx-typeahead-search-menu-14"
-          role="listbox"
           style="display: none;"
         >
-          <!--v-if-->
-          <!--v-if-->
-          
-          <li
-            aria-disabled="false"
-            aria-selected="false"
-            class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
-            id="cdx-menu-item-16"
-            role="option"
+          <ul
+            aria-label="Search results"
+            aria-multiselectable="false"
+            class="cdx-menu__listbox"
+            id="cdx-typeahead-search-menu-14"
+            role="listbox"
           >
-            <!-- @slot Custom menu item content. -->
+            <!--v-if-->
+            <!--v-if-->
             
-            <a
-              class="cdx-menu-item__content"
-              href="https://en.wikipedia.org/wiki/CO"
+            <li
+              aria-disabled="false"
+              aria-selected="false"
+              class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
+              id="cdx-menu-item-16"
+              role="option"
             >
-              <!-- Thumbnail, thumbnail placeholder, or icon. -->
-              <span
-                class="cdx-thumbnail cdx-menu-item__thumbnail"
+              <!-- @slot Custom menu item content. -->
+              
+              <a
+                class="cdx-menu-item__content"
+                href="https://en.wikipedia.org/wiki/CO"
               >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
                 <span
-                  class="cdx-thumbnail__placeholder"
+                  class="cdx-thumbnail cdx-menu-item__thumbnail"
                 >
                   <span
-                    class="cdx-icon cdx-thumbnail__placeholder__icon"
+                    class="cdx-thumbnail__placeholder"
                   >
-                    <svg
-                      aria-hidden="true"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="cdx-icon cdx-thumbnail__placeholder__icon"
                     >
-                      <!--v-if-->
-                      <!-- eslint-disable vue/no-v-html -->
-                      <g
-                        fill="currentColor"
+                      <svg
+                        aria-hidden="true"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path
-                          d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
-                        />
-                        <path
-                          d="M19 5H1V3h18zm0 12H1v-2h18z"
-                        />
-                      </g>
-                    </svg>
+                        <!--v-if-->
+                        <!-- eslint-disable vue/no-v-html -->
+                        <g
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
+                          />
+                          <path
+                            d="M19 5H1V3h18zm0 12H1v-2h18z"
+                          />
+                        </g>
+                      </svg>
+                    </span>
                   </span>
+                  <transition-stub>
+                    <!--v-if-->
+                  </transition-stub>
                 </span>
-                <transition-stub>
-                  <!--v-if-->
-                </transition-stub>
-              </span>
-              <!-- Item text. -->
-              <span
-                class="cdx-menu-item__text"
-              >
-                <!-- Item label. -->
+                <!-- Item text. -->
                 <span
-                  class="cdx-menu-item__text__label"
+                  class="cdx-menu-item__text"
                 >
-                  <bdi>
-                    Co
-                  </bdi>
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      Co
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
                 </span>
-                <!-- Item search query match (e.g. alias). -->
-                <!--v-if-->
-                <!-- Item description. -->
-                <!--v-if-->
-              </span>
-            </a>
-            
-          </li>
-          <li
-            aria-disabled="false"
-            aria-selected="false"
-            class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--has-description cdx-menu-item--hide-description-overflow"
-            id="cdx-menu-item-17"
-            role="option"
-          >
-            <!-- @slot Custom menu item content. -->
-            
-            <a
-              class="cdx-menu-item__content"
-              href="https://en.wikipedia.org/wiki/Color"
+              </a>
+              
+            </li>
+            <li
+              aria-disabled="false"
+              aria-selected="false"
+              class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--has-description cdx-menu-item--hide-description-overflow"
+              id="cdx-menu-item-17"
+              role="option"
             >
-              <!-- Thumbnail, thumbnail placeholder, or icon. -->
-              <span
-                class="cdx-thumbnail cdx-menu-item__thumbnail"
+              <!-- @slot Custom menu item content. -->
+              
+              <a
+                class="cdx-menu-item__content"
+                href="https://en.wikipedia.org/wiki/Color"
               >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
                 <span
-                  class="cdx-thumbnail__placeholder"
+                  class="cdx-thumbnail cdx-menu-item__thumbnail"
                 >
                   <span
-                    class="cdx-icon cdx-thumbnail__placeholder__icon"
+                    class="cdx-thumbnail__placeholder"
                   >
-                    <svg
-                      aria-hidden="true"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="cdx-icon cdx-thumbnail__placeholder__icon"
                     >
-                      <!--v-if-->
-                      <!-- eslint-disable vue/no-v-html -->
-                      <g
-                        fill="currentColor"
+                      <svg
+                        aria-hidden="true"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path
-                          d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
-                        />
-                        <path
-                          d="M19 5H1V3h18zm0 12H1v-2h18z"
-                        />
-                      </g>
-                    </svg>
+                        <!--v-if-->
+                        <!-- eslint-disable vue/no-v-html -->
+                        <g
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
+                          />
+                          <path
+                            d="M19 5H1V3h18zm0 12H1v-2h18z"
+                          />
+                        </g>
+                      </svg>
+                    </span>
+                  </span>
+                  <transition-stub>
+                    <!--v-if-->
+                  </transition-stub>
+                </span>
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      Color
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <span
+                    class="cdx-menu-item__text__description"
+                  >
+                    <bdi>
+                      visual perception of light wavelengths
+                    </bdi>
                   </span>
                 </span>
-                <transition-stub>
-                  <!--v-if-->
-                </transition-stub>
-              </span>
-              <!-- Item text. -->
-              <span
-                class="cdx-menu-item__text"
-              >
-                <!-- Item label. -->
-                <span
-                  class="cdx-menu-item__text__label"
-                >
-                  <bdi>
-                    Color
-                  </bdi>
-                </span>
-                <!-- Item search query match (e.g. alias). -->
-                <!--v-if-->
-                <!-- Item description. -->
-                <span
-                  class="cdx-menu-item__text__description"
-                >
-                  <bdi>
-                    visual perception of light wavelengths
-                  </bdi>
-                </span>
-              </span>
-            </a>
-            
-          </li>
-          <li
-            aria-disabled="false"
-            aria-selected="false"
-            class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
-            id="cdx-menu-item-18"
-            role="option"
-          >
-            <!-- @slot Custom menu item content. -->
-            
-            <!--
-				@slot Display of an individual item in the menu
-				@binding {MenuItem} menuItem The current menu item
-				@binding {boolean} active Whether the current item is visually active
-			-->
-            
-            <a
-              class="cdx-typeahead-search__search-footer"
-              href="https://foo.org/search?query=Co"
+              </a>
+              
+            </li>
+            <li
+              aria-disabled="false"
+              aria-selected="false"
+              class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
+              id="cdx-menu-item-18"
+              role="option"
             >
-              <span
-                class="cdx-icon cdx-typeahead-search__search-footer__icon"
+              <!-- @slot Custom menu item content. -->
+              
+              <!--
+					@slot Display of an individual item in the menu
+					@binding {MenuItem} menuItem The current menu item
+					@binding {boolean} active Whether the current item is visually active
+				-->
+              
+              <a
+                class="cdx-typeahead-search__search-footer"
+                href="https://foo.org/search?query=Co"
               >
-                <svg
-                  aria-hidden="true"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  width="20"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="cdx-icon cdx-typeahead-search__search-footer__icon"
                 >
-                  <!--v-if-->
-                  <!-- eslint-disable vue/no-v-html -->
-                  <g
-                    fill="currentColor"
+                  <svg
+                    aria-hidden="true"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      d="M12.43 14.34A5 5 0 0110 15a5 5 0 113.95-2L17 16.09V3a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 001.45-.63z"
-                    />
-                    <circle
-                      cx="10"
-                      cy="10"
-                      r="3"
-                    />
-                  </g>
-                </svg>
-              </span>
-              <span
-                class="cdx-typeahead-search__search-footer__text"
-              >
-                <!--
+                    <!--v-if-->
+                    <!-- eslint-disable vue/no-v-html -->
+                    <g
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12.43 14.34A5 5 0 0110 15a5 5 0 113.95-2L17 16.09V3a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 001.45-.63z"
+                      />
+                      <circle
+                        cx="10"
+                        cy="10"
+                        r="3"
+                      />
+                    </g>
+                  </svg>
+                </span>
+                <span
+                  class="cdx-typeahead-search__search-footer__text"
+                >
+                  <!--
 									@slot A slot for passing in translated search footer text.
 									@binding {string} searchQuery Input text entered by the user
 								-->
-                
-                <strong
-                  class="cdx-typeahead-search__search-footer__query"
-                >
-                  Co
-                </strong>
-                
-              </span>
-            </a>
+                  
+                  <strong
+                    class="cdx-typeahead-search__search-footer__query"
+                  >
+                    Co
+                  </strong>
+                  
+                </span>
+              </a>
+              
+              
+            </li>
             
-            
-          </li>
-          
-          <!--v-if-->
-        </ul>
+            <!--v-if-->
+          </ul>
+        </div>
         
       </div>
       <button

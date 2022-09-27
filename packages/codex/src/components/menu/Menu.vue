@@ -1,62 +1,69 @@
 <template>
-	<ul
+	<div
 		v-show="expanded"
 		class="cdx-menu"
-		role="listbox"
-		aria-multiselectable="false"
+		:class="rootClasses"
 		:style="rootStyle"
 	>
-		<li
-			v-if="showPending && computedMenuItems.length === 0 && $slots.pending"
-			class="cdx-menu__pending cdx-menu-item"
+		<ul
+			class="cdx-menu__listbox"
+			role="listbox"
+			aria-multiselectable="false"
+			:style="listBoxStyle"
+			v-bind="otherAttrs"
 		>
-			<!--
-				@slot Message to indicate pending state.
-			-->
-			<slot name="pending" />
-		</li>
+			<li
+				v-if="showPending && computedMenuItems.length === 0 && $slots.pending"
+				class="cdx-menu__pending cdx-menu-item"
+			>
+				<!--
+					@slot Message to indicate pending state.
+				-->
+				<slot name="pending" />
+			</li>
 
-		<li v-if="computedShowNoResultsSlot" class="cdx-menu__no-results cdx-menu-item">
-			<!--
-				@slot Message to show if there are no menu items to display.
-			-->
-			<slot name="no-results" />
-		</li>
+			<li v-if="computedShowNoResultsSlot" class="cdx-menu__no-results cdx-menu-item">
+				<!--
+					@slot Message to show if there are no menu items to display.
+				-->
+				<slot name="no-results" />
+			</li>
 
-		<cdx-menu-item
-			v-for="( menuItem, index ) in computedMenuItems"
-			:key="menuItem.value"
-			:ref="( ref ) => assignTemplateRef( ref, index )"
-			v-bind="menuItem"
-			:selected="menuItem.value === selected"
-			:active="menuItem.value === activeMenuItem?.value"
-			:highlighted="menuItem.value === highlightedMenuItem?.value"
-			:show-thumbnail="showThumbnail"
-			:bold-label="boldLabel"
-			:hide-description-overflow="hideDescriptionOverflow"
-			:search-query="searchQuery"
-			@change="( menuState, setState ) =>
-				handleMenuItemChange( menuState, setState && menuItem )"
-			@click="$emit( 'menu-item-click', menuItem )"
-		>
-			<!--
-				@slot Display of an individual item in the menu
-				@binding {MenuItem} menuItem The current menu item
-				@binding {boolean} active Whether the current item is visually active
-			-->
-			<slot
-				:menu-item="menuItem"
-				:active="menuItem.value === activeMenuItem?.value &&
-					menuItem.value === highlightedMenuItem?.value"
+			<cdx-menu-item
+				v-for="( menuItem, index ) in computedMenuItems"
+				:key="menuItem.value"
+				:ref="( ref ) => assignTemplateRef( ref, index )"
+				v-bind="menuItem"
+				:selected="menuItem.value === selected"
+				:active="menuItem.value === activeMenuItem?.value"
+				:highlighted="menuItem.value === highlightedMenuItem?.value"
+				:show-thumbnail="showThumbnail"
+				:bold-label="boldLabel"
+				:hide-description-overflow="hideDescriptionOverflow"
+				:search-query="searchQuery"
+				@change="( menuState, setState ) =>
+					handleMenuItemChange( menuState, setState && menuItem )"
+				@click="$emit( 'menu-item-click', menuItem )"
+			>
+				<!--
+					@slot Display of an individual item in the menu
+					@binding {MenuItem} menuItem The current menu item
+					@binding {boolean} active Whether the current item is visually active
+				-->
+				<slot
+					:menu-item="menuItem"
+					:active="menuItem.value === activeMenuItem?.value &&
+						menuItem.value === highlightedMenuItem?.value"
+				/>
+			</cdx-menu-item>
+
+			<cdx-progress-bar
+				v-if="showPending"
+				class="cdx-menu__progress-bar"
+				:inline="true"
 			/>
-		</cdx-menu-item>
-
-		<cdx-progress-bar
-			v-if="showPending"
-			class="cdx-menu__progress-bar"
-			:inline="true"
-		/>
-	</ul>
+		</ul>
+	</div>
 </template>
 
 <script lang="ts">
@@ -66,6 +73,7 @@ import CdxProgressBar from '../progress-bar/ProgressBar.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import { MenuItemData, MenuItemDataWithId, MenuState } from '../../types';
 import useIntersectionObserver from '../../composables/useIntersectionObserver';
+import useSplitAttributes from '../../composables/useSplitAttributes';
 
 /**
  * Dropdown menu of items.
@@ -88,11 +96,26 @@ export default defineComponent( {
 		CdxMenuItem,
 		CdxProgressBar
 	},
+	/**
+	 * Attributes, besides class and style, will be passed to the <ul> element.
+	 */
+	inheritAttrs: false,
 	props: {
 		/** Menu items. See the MenuItemData type. */
 		menuItems: {
 			type: Array as PropType<MenuItemData[]>,
 			required: true
+		},
+		/**
+		 * Sticky footer.
+		 *
+		 * This is a special menu item which is pinned to the bottom of the menu.
+		 *
+		 * It is only visible if regular menu items are available. It is selectable.
+		 */
+		footer: {
+			type: Object as PropType<MenuItemData>,
+			default: null
 		},
 		/**
 		 * Value of the selected menu item, or undefined if no item is selected.
@@ -226,13 +249,16 @@ export default defineComponent( {
 		'getHighlightedMenuItem',
 		'delegateKeyNavigation'
 	],
-	setup( props, { emit, slots } ) {
+	setup( props, { emit, slots, attrs } ) {
 		/**
 		 * Computed array of menu items with unique IDs added; other methods and properties should
 		 * reference this value instead of the original menuItems prop.
 		 */
 		const computedMenuItems = computed( (): MenuItemDataWithId[] => {
-			return props.menuItems.map( ( menuItem ) => ( {
+			const menuItemsWithFooter = props.footer && props.menuItems ?
+				[ ...props.menuItems, props.footer ] :
+				props.menuItems;
+			return menuItemsWithFooter.map( ( menuItem ) => ( {
 				...menuItem,
 				id: useGeneratedId( 'menu-item' )
 			} ) );
@@ -559,8 +585,10 @@ export default defineComponent( {
 		}
 
 		const maxMenuHeight = ref<number | null>( null );
+		const footerHeight = ref<number | null>( null );
 
 		function resizeMenu(): void {
+			footerHeight.value = null;
 			if ( !props.visibleItemLimit || menuItemElements.length <= props.visibleItemLimit ) {
 				maxMenuHeight.value = null;
 				return;
@@ -573,6 +601,10 @@ export default defineComponent( {
 				firstMenuItemElement,
 				firstHiddenMenuItemElement
 			);
+			if ( props.footer ) {
+				const footerElement = menuItemElements[ menuItemElements.length - 1 ];
+				footerHeight.value = footerElement.scrollHeight;
+			}
 		}
 
 		function calculateMenuHeight(
@@ -619,23 +651,41 @@ export default defineComponent( {
 			if ( newPropMenuItems.length < menuItemElements.length ) {
 				menuItemElements.length = newPropMenuItems.length;
 			}
+
 			if ( props.expanded ) {
 				await nextTick();
 				resizeMenu();
 				await nextTick();
 				maybeScrollIntoView();
 			}
-		} );
+		}, { deep: true } );
 
-		const rootStyle = computed( () => {
+		const listBoxStyle = computed( () => {
 			return {
 				'max-height': maxMenuHeight.value ? `${maxMenuHeight.value}px` : undefined,
-				'overflow-y': maxMenuHeight.value ? 'scroll' as const : undefined
+				'overflow-y': maxMenuHeight.value ? 'scroll' as const : undefined,
+				'margin-bottom': footerHeight.value ? `${footerHeight.value}px` : undefined
 			};
 		} );
 
-		return {
+		const internalClasses = computed( () => {
+			return {
+				'cdx-menu--has-sticky-footer': !!props.footer && !!maxMenuHeight.value
+			};
+		} );
+
+		// Get helpers from useSplitAttributes.
+		const {
+			rootClasses,
 			rootStyle,
+			otherAttrs
+		} = useSplitAttributes( attrs, internalClasses );
+
+		return {
+			listBoxStyle,
+			rootClasses,
+			rootStyle,
+			otherAttrs,
 			assignTemplateRef,
 			computedMenuItems,
 			computedShowNoResultsSlot,
@@ -699,15 +749,27 @@ export default defineComponent( {
 	z-index: 4;
 	box-sizing: @box-sizing-base;
 	width: @size-full;
-	margin: @position-offset-border-width-base 0 0 0;
+	margin-top: @position-offset-border-width-base;
 	border: @border-width-base @border-style-base @border-color-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
-	padding: 0;
 	box-shadow: @box-shadow-drop-medium;
 
 	&__progress-bar {
 		position: absolute;
 		top: 0;
+	}
+
+	&__listbox {
+		margin: 0;
+		padding: 0;
+	}
+
+	&--has-sticky-footer {
+		.cdx-menu-item:last-of-type {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+		}
 	}
 }
 </style>

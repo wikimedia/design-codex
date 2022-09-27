@@ -35,7 +35,8 @@
 					v-model:expanded="expanded"
 					:show-pending="showPending"
 					:selected="selection"
-					:menu-items="searchResultsWithFooter"
+					:menu-items="searchResults"
+					:footer="footer"
 					:search-query="highlightQuery ? searchQuery : ''"
 					:show-no-results-slot="searchQuery.length > 0 &&
 						searchResults.length === 0 &&
@@ -327,13 +328,10 @@ export default defineComponent( {
 			)
 		);
 
-		// Add in search footer menu item.
-		const searchResultsWithFooter = computed( () =>
+		const footer = computed( () =>
 			searchFooterUrl.value ?
-				searchResults.value.concat( [
-					{ value: MenuFooterValue, url: searchFooterUrl.value }
-				] ) :
-				searchResults.value
+				{ value: MenuFooterValue, url: searchFooterUrl.value } :
+				undefined
 		);
 
 		// Get helpers from useSplitAttributes.
@@ -482,13 +480,18 @@ export default defineComponent( {
 			// search footer, we don't want to emit a search result.
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			const { id, ...resultWithoutId } = searchResult;
-			const emittedResult = resultWithoutId.value !== MenuFooterValue ?
-				resultWithoutId :
-				null;
+			if ( resultWithoutId.value === MenuFooterValue ) {
+				emit( 'search-result-click', {
+					searchResult: null,
+					index: searchResults.value.length,
+					numberOfResults: searchResults.value.length
+				} );
+				return;
+			}
 
 			const searchResultClickEvent: SearchResultClickEvent = {
-				searchResult: emittedResult,
-				index: searchResultsWithFooter.value.findIndex(
+				searchResult: resultWithoutId,
+				index: searchResults.value.findIndex(
 					( r ) => r.value === searchResult.value
 				),
 				numberOfResults: searchResults.value.length
@@ -648,7 +651,7 @@ export default defineComponent( {
 			highlightedId,
 			selection,
 			menuMessageClass,
-			searchResultsWithFooter,
+			footer,
 			asSearchResult,
 			inputValue,
 			searchQuery,

@@ -13,6 +13,7 @@
 			v-model:selected="selectedValue"
 			v-model:expanded="expanded"
 			:menu-items="menuItems"
+			:footer="footer"
 			:visible-item-limit="itemLimit ? parseInt( `${itemLimit}` ) : null"
 		/>
 		<div class="cdx-docs-input-with-menu-scroll__items">
@@ -60,6 +61,11 @@ export default defineComponent( {
 		];
 		const itemLimit = ref( '6' );
 
+		const footer = {
+			value: 'some unique footer value',
+			label: 'sticky footer MenuItem'
+		};
+
 		function onKeydown( e: KeyboardEvent ) {
 			// Delegate key events to the menu
 			menu.value?.delegateKeyNavigation( e );
@@ -74,6 +80,7 @@ export default defineComponent( {
 			selectedValue,
 			expanded,
 			menuItems,
+			footer,
 			itemLimit,
 			onKeydown,
 			onClick

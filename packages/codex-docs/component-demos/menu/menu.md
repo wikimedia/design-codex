@@ -50,6 +50,10 @@ within the menu, set the `visibleItemLimit` prop to a positive number.
 Although the default behavior in the Menu component is to show all menu items, some components that
 use the Menu component have a default `visibleItemLimit` prop set.
 
+You can also add a sticky footer to the bottom of the menu with the `footer` prop.
+This footer will only be shown if there is also at least one regular menu item.
+It can be customized in the `default` slot together with the regular menu items.
+
 <cdx-demo-wrapper>
 <template v-slot:demo>
 <input-with-menu-scroll />

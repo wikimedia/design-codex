@@ -21,24 +21,28 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
     <!---->
     <!---->
   </div>
-  <ul
-    aria-multiselectable="false"
+  <div
     class="cdx-menu"
-    id="cdx-lookup-menu-0"
-    role="listbox"
     style="display: none;"
   >
-    <!---->
-    <li
-      class="cdx-menu__no-results cdx-menu-item"
+    <ul
+      aria-multiselectable="false"
+      class="cdx-menu__listbox"
+      id="cdx-lookup-menu-0"
+      role="listbox"
     >
+      <!---->
+      <li
+        class="cdx-menu__no-results cdx-menu-item"
+      >
+        
+        
+      </li>
       
       
-    </li>
-    
-    
-    <!---->
-  </ul>
+      <!---->
+    </ul>
+  </div>
 </div>
 `;
 
@@ -82,65 +86,69 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
       </svg>
     </span>
   </div>
-  <ul
-    aria-multiselectable="false"
+  <div
     class="cdx-menu"
-    id="cdx-lookup-menu-1"
-    role="listbox"
     style="display: none;"
   >
-    <!---->
-    <!---->
-    
-    <li
-      aria-disabled="false"
-      aria-selected="true"
-      class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled cdx-menu-item--bold-label"
-      id="cdx-menu-item-2"
-      role="option"
+    <ul
+      aria-multiselectable="false"
+      class="cdx-menu__listbox"
+      id="cdx-lookup-menu-1"
+      role="listbox"
     >
+      <!---->
+      <!---->
       
-      <span
-        class="cdx-menu-item__content"
+      <li
+        aria-disabled="false"
+        aria-selected="true"
+        class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled cdx-menu-item--bold-label"
+        id="cdx-menu-item-2"
+        role="option"
       >
+        
         <span
-          class="cdx-icon cdx-menu-item__icon"
-        >
-          <svg
-            aria-hidden="true"
-            height="20"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <!---->
-            <g
-              fill="currentColor"
-            >
-              <path
-                d="M9 1.28A1 1 0 008.35 1H2a1 1 0 00-1 1v6.35a1 1 0 00.28.65L11 18.72a1 1 0 001.37 0l6.38-6.38a1 1 0 00-.03-1.34zM5 7a2 2 0 112-2 2 2 0 01-2 2z"
-              />
-            </g>
-          </svg>
-        </span>
-        <span
-          class="cdx-menu-item__text"
+          class="cdx-menu-item__content"
         >
           <span
-            class="cdx-menu-item__text__label"
+            class="cdx-icon cdx-menu-item__icon"
           >
-            <bdi>
-              cdxIconTag
-            </bdi>
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!---->
+              <g
+                fill="currentColor"
+              >
+                <path
+                  d="M9 1.28A1 1 0 008.35 1H2a1 1 0 00-1 1v6.35a1 1 0 00.28.65L11 18.72a1 1 0 001.37 0l6.38-6.38a1 1 0 00-.03-1.34zM5 7a2 2 0 112-2 2 2 0 01-2 2z"
+                />
+              </g>
+            </svg>
           </span>
-          <!---->
-          <!---->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                cdxIconTag
+              </bdi>
+            </span>
+            <!---->
+            <!---->
+          </span>
         </span>
-      </span>
+        
+      </li>
       
-    </li>
-    
-    <!---->
-  </ul>
+      <!---->
+    </ul>
+  </div>
 </div>
 `;
