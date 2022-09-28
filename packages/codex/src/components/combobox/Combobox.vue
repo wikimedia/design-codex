@@ -47,6 +47,7 @@
 			v-model:expanded="expanded"
 			:menu-items="menuItems"
 			v-bind="menuConfig"
+			@load-more="$emit( 'load-more' )"
 		>
 			<template #default="{ menuItem }">
 				<!--
@@ -153,7 +154,14 @@ export default defineComponent( {
 		 *
 		 * @property {string | number} selected The new selected value
 		 */
-		'update:selected'
+		'update:selected',
+		/**
+		 * When the user scrolls towards the bottom of the menu.
+		 *
+		 * If it is possible to add or load more menu items, then now would be a good moment
+		 * so that the user can experience infinite scrolling.
+		 */
+		'load-more'
 	],
 
 	setup( props, { emit, attrs, slots } ) {
