@@ -24,7 +24,6 @@
 				:aria-owns="menuId"
 				:aria-expanded="expanded"
 				:aria-activedescendant="highlightedId"
-				autocapitalize="off"
 				@update:model-value="onUpdateInputValue"
 				@focus="onFocus"
 				@blur="onBlur"
