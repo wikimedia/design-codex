@@ -454,12 +454,15 @@ export default defineComponent( {
 .cdx-demo-wrapper {
 	margin-top: 16px;
 
-	// Unset Vitepress link hover styles (which have an unfortunately high specificity) in the demo
+	// Unset VitePress link styles (which have an unfortunately high specificity) in the demo
 	// pane, unless they have explicitly been allowed.
 	// TODO: remove this once T296106 is complete.
-	&:not( .cdx-demo-wrapper--allow-link-styles ) a:hover {
-		color: initial;
-		text-decoration: none;
+	&:not( .cdx-demo-wrapper--allow-link-styles ) {
+		a,
+		a:hover {
+			color: initial;
+			text-decoration: none;
+		}
 	}
 
 	&__demo-pane {
