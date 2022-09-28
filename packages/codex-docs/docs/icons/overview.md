@@ -36,9 +36,11 @@ technology as replacement text for the icon. Most browsers also display it as a 
 user hovers over the icon. If no icon label is set, the icon is hidden from screen readers using the
 `aria-hidden` attribute.
 
-Note that **the icon label is invisible**, it's not rendered as visible text next to the icon.
+::: info Note
+**The icon label is invisible**, it's not rendered as visible text next to the icon.
 To render an icon followed by text, put the text outside of the icon component, like in the second
 example below.
+:::
 
 You **have to** provide an icon label when there is no other text explaining what the icon means.
 For example:
