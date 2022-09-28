@@ -97,12 +97,12 @@ export default defineComponent( {
 
 	&__items {
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
 		flex-direction: row;
 		margin-top: 16px;
 
 		&__input {
-			width: 2em;
+			width: 2.5em;
 			margin-left: 8px;
 		}
 	}
