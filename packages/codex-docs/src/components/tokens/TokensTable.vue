@@ -11,6 +11,12 @@
 				<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
 				<td class="cdx-docs-tokens-table__name" dir="ltr">
 					<strong>{{ token.name }}</strong>
+					<strong
+						v-if="token.deprecated"
+						class="cdx-docs-tokens-table__deprecated"
+					>
+						deprecated
+					</strong>
 					<cdx-docs-copy-text-button :copy-text="token.name" />
 				</td>
 				<td class="cdx-docs-tokens-table__value">
@@ -28,12 +34,6 @@
 							:style-target="styleTarget"
 						/>
 					</div>
-					<strong
-						v-if="token.deprecated"
-						class="cdx-docs-tokens-table__deprecated"
-					>
-						deprecated
-					</strong>
 					<p>
 						Defined in <code>{{ token.filePath }}</code>
 					</p>
@@ -175,8 +175,6 @@ export default defineComponent( {
 		}
 
 		&__value {
-			position: relative;
-
 			code {
 				color: @color-emphasized;
 				display: inline-block;
@@ -192,8 +190,9 @@ export default defineComponent( {
 			background-color: @background-color-warning-subtle;
 			display: inline-block;
 			position: absolute;
-			top: 8px;
-			right: 12px;
+			// Compare 'custom.css' `.vp-doc td`.
+			bottom: 8px;
+			left: 12px;
 			padding: 0 4px;
 			font-weight: @font-weight-normal;
 		}
