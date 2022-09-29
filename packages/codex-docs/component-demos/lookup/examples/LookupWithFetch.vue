@@ -86,6 +86,11 @@ export default defineComponent( {
 			}
 		}
 
+		function deduplicateResults( results: MenuItemData[] ): MenuItemData[] {
+			const seen = new Set( menuItems.value.map( ( result ) => result.value ) );
+			return results.filter( ( result ) => !seen.has( result.value ) );
+		}
+
 		async function onLoadMore() {
 			if ( !currentSearchTerm.value ) {
 				return;
@@ -105,7 +110,8 @@ export default defineComponent( {
 				};
 			} );
 			// Update menuItems.
-			menuItems.value.push( ...results );
+			const deduplicatedResults = deduplicateResults( results );
+			menuItems.value.push( ...deduplicatedResults );
 		}
 
 		const menuConfig: MenuConfig = {

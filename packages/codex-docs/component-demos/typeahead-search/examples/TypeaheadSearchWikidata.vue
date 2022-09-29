@@ -132,6 +132,11 @@ export default defineComponent( {
 
 		}
 
+		function deduplicateResults( results: SearchResult[] ): SearchResult[] {
+			const seen = new Set( searchResults.value.map( ( result ) => result.value ) );
+			return results.filter( ( result ) => !seen.has( result.value ) );
+		}
+
 		async function onLoadMore() {
 			onEvent( 'load-more', '' );
 
@@ -144,7 +149,8 @@ export default defineComponent( {
 				adaptApiResponse( data.search ) :
 				[];
 
-			searchResults.value.push( ...results );
+			const deduplicatedResults = deduplicateResults( results );
+			searchResults.value.push( ...deduplicatedResults );
 		}
 
 		return {
