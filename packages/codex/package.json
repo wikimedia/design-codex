@@ -39,7 +39,7 @@
 		"build-sandbox": "vite build --mode=sandbox",
 		"clean": "rm -rf dist/",
 		"serve": "vite preview",
-		"test": "npm run lint && npm -s run build && npm -s run test:unit && npm -s run test:e2e",
+		"test": "npm run lint && npm -s run build && npm -s run test:unit",
 		"test:unit": "jest -c .jest/jest.config.json",
 		"test:e2e": "start-server-and-test 'npm run dev' http-get://localhost:5173 'cypress run'",
 		"lint": "npm run lint:ts",
