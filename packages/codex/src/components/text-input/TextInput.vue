@@ -16,6 +16,7 @@
 			@change="onChange"
 			@focus="onFocus"
 			@blur="onBlur"
+			@keydown="onKeydown"
 		>
 		<cdx-icon
 			v-if="startIcon"
@@ -137,6 +138,15 @@ export default defineComponent( {
 		 */
 		'change',
 		/**
+		 * When the user presses a key.
+		 *
+		 * This event is not emitted when the user presses the Home or End key (T314728),
+		 * but is emitted for Ctrl/Cmd+Home and Ctrl/Cmd+End.
+		 *
+		 * @property {KeyboardEvent}
+		 */
+		'keydown',
+		/**
 		 * When the input comes into focus
 		 *
 		 * @property {FocusEvent} event
@@ -191,6 +201,16 @@ export default defineComponent( {
 		const onChange = ( event: Event ) => {
 			emit( 'change', event );
 		};
+		const onKeydown = ( event: KeyboardEvent ) => {
+			// Hide keydown events for Home and End (but not Ctrl/Cmd+Home/End) from the parent
+			// This avoids a pitfall when delegating TextInput events to a Menu component, where
+			// we want Home/End to move the cursor in the TextInput rather than move the highlight
+			// in the Menu (T314728)
+			if ( ( event.key === 'Home' || event.key === 'End' ) && !event.ctrlKey && !event.metaKey ) {
+				return;
+			}
+			emit( 'keydown', event );
+		};
 		const onFocus = ( event: FocusEvent ) => {
 			emit( 'focus', event );
 		};
@@ -208,6 +228,7 @@ export default defineComponent( {
 			onClear,
 			onInput,
 			onChange,
+			onKeydown,
 			onFocus,
 			onBlur,
 			cdxIconClear
