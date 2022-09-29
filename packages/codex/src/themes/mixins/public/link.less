@@ -4,15 +4,35 @@
 // than a Vue.js component. Users who wish to apply the Codex Link styles to
 // elements on a page should call the mixin inside of the relevant selector in
 // their own stylesheets. Variants (underlined links, red links) can be accessed
-// by adding the appropriate modifier class (.is-underlined and .is-redlink,
+// by adding the appropriate modifier class (.is-underlined and .is-red-link,
 // respectively).
+//
+// Code that needs to customize these modifier classes or otherwise customize the
+// selectors used for these modifiers can use the following sub-mixins:
+// - cdx-mixin-link-base(): base link styles
+// - cdx-mixin-link-underlined(): underlined link (-base must also be applied)
+// - cdx-mixin-link-red(): red link (-base must also be applied)
+//
+// Example usage:
+//
+// .my-link-class {
+//     .cdx-mixin-link-base();
+//
+//     &.custom-underlined-class {
+//         .cdx-mixin-link-underlined();
+//     }
+//
+//     &.custom-red-link-class {
+//         .cdx-mixin-link-red();
+//     }
+// }
 //
 // Link styles can be used inside of other Vue components, or anywhere that LESS
 // is available; JS is not required.
 
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.cdx-mixin-link() {
+.cdx-mixin-link-base() {
 	color: @color-progressive;
 	border-radius: @border-radius-base;
 	text-decoration: none;
@@ -38,36 +58,48 @@
 	&:focus {
 		outline: @border-style-base @border-width-thick @color-progressive--focus;
 	}
+}
 
-	// stylelint-disable selector-class-pattern
-	&.is-underlined {
+.cdx-mixin-link-underlined() {
+	text-decoration: underline;
+}
+
+.cdx-mixin-link-red() {
+	color: @color-destructive;
+
+	&:visited {
+		color: @color-link-red--visited;
+
+		&:hover {
+			color: @color-link-red--visited;
+		}
+	}
+
+	&:hover {
+		color: @color-destructive--hover;
 		text-decoration: underline;
 	}
 
-	&.is-red-link {
-		color: @color-destructive;
-
-		&:visited {
-			color: @color-link-red--visited;
-
-			&:hover {
-				color: @color-link-red--visited;
-			}
-		}
-
-		&:hover {
-			color: @color-destructive--hover;
-			text-decoration: underline;
-		}
-
-		&:active {
-			color: @color-destructive--active;
-			text-decoration: underline;
-		}
-
-		&:focus {
-			outline-color: @color-destructive--focus;
-		}
+	&:active {
+		color: @color-destructive--active;
+		text-decoration: underline;
 	}
-	// stylelint-enable selector-class-pattern
+
+	&:focus {
+		outline-color: @color-destructive--focus;
+	}
+}
+
+.cdx-mixin-link() {
+	.cdx-mixin-link-base();
+
+	// stylelint-disable-next-line selector-class-pattern
+	&.is-underlined {
+		.cdx-mixin-link-underlined();
+	}
+
+	// stylelint-disable-next-line selector-class-pattern
+	&.is-red-link {
+		.cdx-mixin-link-red();
+	}
 }
