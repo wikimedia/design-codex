@@ -47,6 +47,15 @@ See [ButtonTypes](#buttontypes).
 type ButtonType = typeof ButtonTypes[ number ];
 ```
 
+### DialogAction
+
+```ts
+interface DialogAction {
+	label: string,
+	disabled?: boolean
+}
+```
+
 ### HTMLDirection
 
 ```ts
@@ -199,6 +208,16 @@ See [MessageTypes](#messagetypes).
 ```ts
 // Allowed values: 'notice', 'warning', 'error', 'success'
 type MessageType = typeof MessageTypes[ number ];
+```
+
+### PrimaryDialogAction
+
+See [DialogAction](#dialogaction).
+
+```ts
+interface PrimaryDialogAction extends DialogAction {
+	actionType: 'progressive' | 'destructive'
+}
 ```
 
 ### SearchResult
