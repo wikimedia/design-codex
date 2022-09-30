@@ -718,13 +718,13 @@
 	},
 	"text-decoration": {
 		"none": {
-			"value": "0"
+			"value": "{ text-decoration.0 }"
 		},
 		"line-through": {
-			"value": "150"
+			"value": "{ text-decoration.150 }"
 		},
 		"underline": {
-			"value": "200"
+			"value": "{ text-decoration.200 }"
 		}
 	},
 	"transition": {

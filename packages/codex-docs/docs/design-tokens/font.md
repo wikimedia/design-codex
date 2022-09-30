@@ -31,3 +31,12 @@ import tokens from '@wikimedia/codex-design-tokens/dist/index.json';
 	token-category="font"
 	css-property="line-height"
 />
+
+## Text-decoration
+
+<cdx-docs-tokens-table
+	:tokens="tokens['text-decoration']"
+	token-demo="CdxDocsFontDemo"
+	token-category="font"
+	css-property="text-decoration"
+/>

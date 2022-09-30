@@ -156,6 +156,7 @@ export default defineComponent( {
 		p {
 			margin: 0 0 0.5em;
 			line-height: 1.3;
+			text-decoration: none;
 		}
 
 		&__name {
