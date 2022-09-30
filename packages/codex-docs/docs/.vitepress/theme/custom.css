@@ -80,7 +80,7 @@ body {
 
 .vp-doc a:hover {
 	color: var( --color-progressive );
-	text-decoration: underline;
+	text-decoration: var( --text-decoration-underline );
 }
 
 .vp-doc p,
@@ -234,13 +234,13 @@ pre[ class*='language-' ] {
 
 .vp-doc .custom-block a {
 	color: var( --color-progressive );
-	text-decoration: none;
+	text-decoration: var( --text-decoration-none );
 }
 
 .vp-doc .custom-block a:hover {
 	color: var( --color-progressive );
 	opacity: var( --opacity-base );
-	text-decoration: underline;
+	text-decoration: var( --text-decoration-underline );
 }
 
 /* stylelint-disable-next-line no-descending-specificity */

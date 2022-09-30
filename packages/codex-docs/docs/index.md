@@ -83,7 +83,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 		&:hover {
 			color: @color-base;
-			text-decoration: none;
+			text-decoration: @text-decoration-none;
 		}
 	}
 
@@ -141,7 +141,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 			width: calc( 50% - 8px );
 
 			&:hover {
-				text-decoration: none;
+				text-decoration: @text-decoration-none;
 			}
 		}
 	}

@@ -364,7 +364,7 @@ export default defineComponent( {
 
 		&,
 		&:hover {
-			text-decoration: none;
+			text-decoration: @text-decoration-none;
 		}
 	}
 

@@ -743,7 +743,7 @@ export default defineComponent( {
 		display: flex;
 		align-items: center;
 		padding: @padding-vertical-menu-item @padding-horizontal-base;
-		text-decoration: none;
+		text-decoration: @text-decoration-none;
 	}
 
 	&__search-footer {
@@ -754,7 +754,7 @@ export default defineComponent( {
 		}
 
 		&:hover {
-			text-decoration: none;
+			text-decoration: @text-decoration-none;
 			cursor: @cursor-base--hover;
 		}
 

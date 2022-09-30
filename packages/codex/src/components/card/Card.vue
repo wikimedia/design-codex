@@ -162,7 +162,7 @@ export default defineComponent( {
 		&,
 		&:hover,
 		&:focus {
-			text-decoration: none;
+			text-decoration: @text-decoration-none;
 		}
 
 		&:hover {
