@@ -371,8 +371,10 @@ export default defineComponent( {
 	min-height: @min-height-dialog-mask;
 	width: @width-dialog-mask;
 	height: @height-dialog-mask;
+	// Support Safari/iOS: Make `100vh` work with Safari's address bar.
+	// See https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-	height: -webkit-fill-available; // @hack for mobile safari
+	height: -webkit-fill-available;
 	padding: @padding-dialog-mask;
 }
 
