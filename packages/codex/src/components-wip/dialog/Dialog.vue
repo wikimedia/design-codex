@@ -457,8 +457,10 @@ export default defineComponent( {
 .cdx-dialog-fade-enter-active,
 .cdx-dialog-fade-leave-active {
 	transition-property: @transition-property-fade;
-	transition-duration: @transition-duration-base;
-	transition-timing-function: @transition-timing-function-user;
+	// For system initiated transitions – the user clicks a dialog trigger button,
+	// the system opens the dialog – use a longer transition and system timing function.
+	transition-duration: @transition-duration-medium;
+	transition-timing-function: @transition-timing-function-system;
 }
 
 .cdx-dialog-fade-enter-from,
