@@ -50,7 +50,8 @@ export default defineComponent( {
 			{ name: 'title', type: 'text', value: 'Configurable dialog' },
 			{ name: 'hideTitle', type: 'boolean', value: false },
 			{ name: 'closeButtonLabel', type: 'text', value: 'Close' },
-			// { name: 'fullscreen', type: 'boolean', value: false },
+			{ name: 'showDividers', type: 'boolean', value: false },
+			{ name: 'size', type: 'radio', options: [ 'default', 'large' ], value: 'default' },
 			{ name: 'stackedActions', type: 'boolean', value: false },
 			{ name: 'usePrimaryAction', type: 'boolean', value: true },
 			{ name: 'primaryActionLabel', type: 'text', value: 'Save' },
@@ -83,10 +84,11 @@ export default defineComponent( {
 				title: values.title as string,
 				hideTitle: values.hideTitle as boolean,
 				closeButtonLabel: values.closeButtonLabel as string,
-				fullscreen: values.fullscreen as boolean,
 				stackedActions: values.stackedActions as boolean,
 				primaryAction: primaryAction as PrimaryDialogAction,
-				defaultAction: defaultAction as DialogAction
+				defaultAction: defaultAction as DialogAction,
+				size: values.size as string,
+				showDividers: values.showDividers as boolean
 			};
 		} );
 		/**

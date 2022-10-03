@@ -2,7 +2,7 @@
 	<transition name="cdx-dialog-fade" appear>
 		<div
 			v-if="open"
-			class="cdx-dialog-mask"
+			class="cdx-dialog-backdrop"
 			@click="close"
 			@keyup.escape="close"
 		>
@@ -88,7 +88,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, toRef, watch, PropType, ref } from 'vue';
+import { computed, defineComponent, nextTick, toRef, watch, PropType, ref, onMounted, onUnmounted } from 'vue';
 import CdxButton from '../../components/button/Button.vue';
 import CdxIcon from '../../components/icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
@@ -186,11 +186,28 @@ export default defineComponent( {
 		stackedActions: {
 			type: Boolean,
 			default: false
-		}
+		},
 
 		/**
-		 * @todo implement fullscreen prop
+		 * Dialog size.
+		 *
+		 * @todo implement fullscreen size (requires mobile workarounds)
+		 *
+		 * @values 'large'
 		 */
+		size: {
+			type: String,
+			default: ''
+		},
+
+		/**
+		 * Whether the dialog should display dividers between header, footer,
+		 * and body sections.
+		 */
+		showDividers: {
+			type: Boolean,
+			default: false
+		}
 	},
 
 	emits: [
@@ -225,13 +242,25 @@ export default defineComponent( {
 
 		const rootClasses = computed( () => ( {
 			'cdx-dialog--vertical-actions': props.stackedActions,
-			'cdx-dialog--horizontal-actions': !props.stackedActions
+			'cdx-dialog--horizontal-actions': !props.stackedActions,
+			'cdx-dialog--large': props.size === 'large',
+			'cdx-dialog--dividers': props.showDividers
 		} ) );
 
 		// Value needed to compensate for the width of any visible scrollbar
 		// on the page prior to the dialog taking over; without this, browsers
 		// that permanently display scrollbars will exhibit a layout shift.
 		const scrollWidth = ref( 0 );
+
+		// Stash the current window innerHeight to provide the most accurate measurement
+		// possible for browsers like MobileSafari (where header and footer may or may
+		// not be visible at any given time).
+		const windowHeight = ref( window.innerHeight );
+
+		// Wrap this value in a px measurement so it can be used in a CSS variable.
+		const windowHeightInPx = computed( () => {
+			return `${windowHeight.value}px`;
+		} );
 
 		/**
 		 * Close the dialog by emitting an event to the parent
@@ -322,6 +351,21 @@ export default defineComponent( {
 			}
 		} );
 
+		// Update the `windowHeight` ref defined above whenever a window resize
+		// event is fired (in MobileSafari this happens whenver the browser footer)
+		// appears or disappears.
+		function onResize() {
+			windowHeight.value = window.innerHeight;
+		}
+
+		onMounted( () => {
+			window.addEventListener( 'resize', onResize );
+		} );
+
+		onUnmounted( () => {
+			window.removeEventListener( 'resize', onResize );
+		} );
+
 		return {
 			close,
 			cdxIconClose,
@@ -334,7 +378,8 @@ export default defineComponent( {
 			focusLast,
 			dialogBody,
 			focusHolder,
-			showHeader
+			showHeader,
+			windowHeightInPx
 		};
 	}
 } );
@@ -343,24 +388,16 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-@background-color-dialog-mask: fade( @background-color-base, 50% );
-@min-height-dialog-mask: @size-full;
-@height-dialog-mask: 100vh;
-@width-dialog-mask: 100vw;
-
-@min-width-dialog--mobile: 288px;
-@min-width-dialog: 460px;
-@max-width-dialog: 700px;
-@max-height-dialog: calc( @height-dialog-mask - ( @padding-dialog * 2 ) );
-@padding-dialog: @size-base * ( 2 / 3 );
-@padding-dialog-mask: @size-absolute-100;
-
+// @todo replace all local token values
+@height-dialog-backdrop: 100vh;
+@width-dialog-backdrop: 100vw;
+@max-width-dialog--large: 896px;
 @margin-dialog-body: @size-base * 0.25;
 @margin-dialog-footer: @size-base * 0.5;
 @margin-dialog-actions: @size-base * 0.25;
 
-.cdx-dialog-mask {
-	background-color: @background-color-dialog-mask;
+.cdx-dialog-backdrop {
+	background-color: @background-color-backdrop-light;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -368,30 +405,43 @@ export default defineComponent( {
 	top: 0;
 	left: 0;
 	z-index: @z-index-overlay;
-	min-height: @min-height-dialog-mask;
-	width: @width-dialog-mask;
-	height: @height-dialog-mask;
+	min-height: @size-full;
+	width: @width-dialog-backdrop;
+	height: @height-dialog-backdrop;
 	// Support Safari/iOS: Make `100vh` work with Safari's address bar.
 	// See https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	height: -webkit-fill-available;
-	padding: @padding-dialog-mask;
 }
 
 .cdx-dialog {
 	background-color: @background-color-base;
 	display: flex;
 	flex-direction: column;
-	min-width: @min-width-dialog--mobile;
-	max-width: @max-width-dialog;
-	max-height: @max-height-dialog;
+	width: calc( @width-full - ( @size-absolute-100 * 2) );
+	max-width: @size-absolute-3200;
+	max-height: calc( @height-dialog-backdrop - @size-absolute-250 );
 	border: @border-base;
 	border-radius: @border-radius-base;
-	padding: ( @size-base / 2 ) @padding-dialog @padding-dialog;
+	padding-top: @size-absolute-100;
+	padding-bottom: @size-absolute-150;
 	box-shadow: @box-shadow-dialog;
 
-	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-		min-width: @min-width-dialog;
+	&.cdx-dialog--large {
+		width: @size-full;
+		/* stylelint-disable-next-line value-keyword-case */
+		height: v-bind( windowHeightInPx );
+		max-width: unset;
+		max-height: unset;
+
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			width: calc( @width-full - ( @size-absolute-200 * 2 ) );
+			height: calc( @height-dialog-backdrop - @size-absolute-250 );
+		}
+
+		@media screen and ( min-width: @min-width-breakpoint-desktop ) {
+			max-width: @max-width-dialog--large;
+		}
 	}
 
 	&__header {
@@ -400,27 +450,44 @@ export default defineComponent( {
 		// Close button should appear at the end regardless of whether or not a title is present
 		justify-content: flex-end;
 		width: @width-full;
+		padding: 0 @size-absolute-150 8px @size-absolute-150;
 		font-weight: @font-weight-bold;
 
-		&__title {
+		& &__title {
 			flex-grow: 1;
-			font-size: unit( ( 16 / 14 ), em );
+			font-size: 1em;
+			line-height: 1.25;
 		}
 
 		&__close-button {
-			margin-right: -8px;
+			margin-right: -( @size-absolute-50 );
+		}
+
+		.cdx-dialog--dividers & {
+			border-bottom: @border-style-base @border-width-base @border-color-subtle;
 		}
 	}
 
 	&__body {
 		flex-grow: 1;
 		margin-top: @margin-dialog-body;
+		padding: 0 @size-absolute-150;
 		overflow-y: auto;
+
+		.cdx-dialog--dividers & {
+			padding-top: @size-absolute-75;
+		}
 	}
 
 	&__footer {
 		display: flex;
 		margin-top: @margin-dialog-footer;
+		padding: 0 @size-absolute-150;
+
+		.cdx-dialog--dividers & {
+			border-top: @border-style-base @border-width-base @border-color-subtle;
+			padding-top: @size-absolute-100;
+		}
 	}
 
 	&--horizontal-actions &__footer {

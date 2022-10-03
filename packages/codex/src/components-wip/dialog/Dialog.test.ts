@@ -51,9 +51,9 @@ describe( 'Basic usage', () => {
 		expect( wrapper2.find( '#foo' ).exists() ).toBe( true );
 	} );
 
-	it( 'clicking the dialog mask emits an update:open event with a value of "false"', async () => {
+	it( 'clicking the dialog backdrop emits an update:open event with a value of "false"', async () => {
 		const wrapper = mount( CdxDialog, dialogBasicOpen );
-		await wrapper.find( '.cdx-dialog-mask' ).trigger( 'click' );
+		await wrapper.find( '.cdx-dialog-backdrop' ).trigger( 'click' );
 		expect( wrapper.emitted()[ 'update:open' ][ 0 ] ).toEqual( [ false ] );
 	} );
 

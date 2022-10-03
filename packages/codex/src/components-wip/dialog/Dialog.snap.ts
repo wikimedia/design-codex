@@ -3,7 +3,7 @@
 exports[`matches the snapshot Case 0 Basic usage 1`] = `
 <transition-stub>
   <div
-    class="cdx-dialog-mask"
+    class="cdx-dialog-backdrop"
   >
     <!-- Focus trap start -->
     <div
@@ -52,7 +52,7 @@ exports[`matches the snapshot Case 0 Basic usage 1`] = `
 exports[`matches the snapshot Case 1 Open dialog 1`] = `
 <transition-stub>
   <div
-    class="cdx-dialog-mask"
+    class="cdx-dialog-backdrop"
   >
     <!-- Focus trap start -->
     <div
@@ -101,7 +101,7 @@ exports[`matches the snapshot Case 1 Open dialog 1`] = `
 exports[`matches the snapshot Case 2 With hidden title 1`] = `
 <transition-stub>
   <div
-    class="cdx-dialog-mask"
+    class="cdx-dialog-backdrop"
   >
     <!-- Focus trap start -->
     <div
@@ -184,7 +184,7 @@ exports[`matches the snapshot Case 2 With hidden title 1`] = `
 exports[`matches the snapshot Case 3 With default action 1`] = `
 <transition-stub>
   <div
-    class="cdx-dialog-mask"
+    class="cdx-dialog-backdrop"
   >
     <!-- Focus trap start -->
     <div
@@ -245,7 +245,7 @@ exports[`matches the snapshot Case 3 With default action 1`] = `
 exports[`matches the snapshot Case 4 With default disabled action 1`] = `
 <transition-stub>
   <div
-    class="cdx-dialog-mask"
+    class="cdx-dialog-backdrop"
   >
     <!-- Focus trap start -->
     <div
@@ -307,7 +307,7 @@ exports[`matches the snapshot Case 4 With default disabled action 1`] = `
 exports[`matches the snapshot Case 5 With default and primary actions 1`] = `
 <transition-stub>
   <div
-    class="cdx-dialog-mask"
+    class="cdx-dialog-backdrop"
   >
     <!-- Focus trap start -->
     <div
@@ -375,7 +375,7 @@ exports[`matches the snapshot Case 5 With default and primary actions 1`] = `
 exports[`matches the snapshot Case 6 With stacked default and primary actions 1`] = `
 <transition-stub>
   <div
-    class="cdx-dialog-mask"
+    class="cdx-dialog-backdrop"
   >
     <!-- Focus trap start -->
     <div
