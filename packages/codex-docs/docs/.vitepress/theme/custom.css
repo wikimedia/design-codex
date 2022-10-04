@@ -240,7 +240,7 @@ pre[ class*='language-' ] {
 }
 
 /* Custom block. ----------------------------------------------------------- */
-
+/* Markdown Messages and expandables. */
 /* See https://vitepress.vuejs.org/guide/markdown.html#custom-containers. */
 .vp-doc .custom-block {
 	border-radius: var( --border-radius-base );
@@ -274,6 +274,54 @@ pre[ class*='language-' ] {
 
 .custom-block.danger .custom-block-title {
 	color: var( --color-destructive--active );
+}
+
+/* Cols */
+@media ( min-width: 640px ) {
+	.vp-doc .cdx-docs-col {
+		float: left;
+		width: var( --size-half );
+		padding: 0 var( --spacing-50 );
+	}
+
+	.vp-doc .cdx-docs-col.cdx-docs-col-m {
+		width: var( --size-half );
+	}
+
+	.vp-doc h1,
+	.vp-doc h2,
+	.vp-doc h3,
+	.vp-doc h4 {
+		clear: both;
+	}
+}
+
+/* Dos and Donts */
+.vp-doc .cdx-docs-do {
+	color: var( --color-success );
+}
+
+.vp-doc .cdx-docs-do::before {
+	content: '✓';
+}
+
+.vp-doc .cdx-docs-dont {
+	color: var( --color-destructive );
+}
+
+.vp-doc .cdx-docs-dont::before {
+	content: '×';
+}
+
+.vp-doc .cdx-docs-do::before,
+.vp-doc .cdx-docs-dont::before {
+	display: inline-block;
+	margin-right: var( --spacing-25 );
+	padding-top: var( --spacing-25 );
+	/* TODO: Tokenize. */
+	font-size: 1em;
+	line-height: 1;
+	vertical-align: top;
 }
 
 /* stylelint-enable selector-class-pattern */

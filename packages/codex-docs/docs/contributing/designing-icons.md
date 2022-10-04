@@ -2,11 +2,19 @@
 
 The following document outlines the recommended steps that collaborators should follow in order to contribute a new design or design improvement to Codex’s icon library.
 
-## 1. Report: Open a new design task in Phabricator
+![Wikimedia Design System icon collection excerpt](../assets/designing-icons/designing-icons.png)
 
-In order to document the need to design or redesign an icon for Wikimedia design system, a new Phabricator task needs to be created. Use this [icon creation task template][icon-creation-phab-template] to file the task, and fill it in with as much information as possible.
+## 1. Report and validate
 
-![Phabricator screenshot of icon task](../assets/designing-icons/phabricator-icon-task.png)
+### 1.1. Create a new task in Phabricator
+
+In order to validate the need to design or redesign an icon for Wikimedia design system, a new Phabricator task needs to be created. Use this [icon creation task template][icon-creation-phab-template] to file the task, and provide as much information as possible.
+
+### 1.2. Review the task with the Design System Team (DST)
+
+The task must be reviewed with the DST before starting to design the icon to clarify that this new icon is really necessary or if it can be covered with another system solution (e.g. with another icon from our set). Apart from adding the `Design-System-Team` project tag in the task, you can also post a comment once the task has been created and ping the DST  there so you can start discussing the need of this new icon with them.
+
+Once the task is validated with the DST and the need of the new icon is clear you can start designing the icon.
 
 ## 2. Design the icon
 
@@ -54,17 +62,20 @@ Design an RTL (or mirrored) version of the icon in case it represents horizontal
 
 ![Design RTL icon version](../assets/designing-icons/design-rtl-icon-version.png)
 
-✅ **We will mirror:**
+<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
+<strong class="cdx-docs-do">Codex will mirror:</strong>
 
 - Icons that represent horizontal directionality
 - Icons that represent lists or text
-
-❌ **We will not mirror:**
+</div>
+<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
+<strong class="cdx-docs-dont">Codex will not mirror:</strong>
 
 - Icons that represent time
 - Check icons
 - Icons that represent objects usually held with the right hand (like a pencil or magnifying glass icon)
 - Icons containing question marks will not be mirrored in Hebrew, but will be in Arabic
+</div>
 
 ### 2.5. Evaluate & iterate
 
@@ -83,45 +94,64 @@ Once there’s agreement on the icon design proposal, the new icon will be docum
 - Describe the design proposal in the “Proposal” section, so anyone can easily find and understand the specifications of the new icon.
 - Add a link to the Figma exploration file in the “Design spec” section in the task description, so the file can be easily accessed.
 
-![Phabricator design specifications](../assets/designing-icons/phabricator-design-specifications.png)
-
-### 3.2 Export the new icon as an SVG
+### 3.2 Export the new icon as SVG
 
 #### 3.2.1. Prepare the icon for export
 
-Make sure the icon meets the following requirements before exporting it
+Make sure the icon meets the following requirements before exporting it:
 
-![Export icons vector paths](../assets/designing-icons/export-icons-vector-paths.png)
+<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
 
 1. Icon strokes are outlined and converted to vector paths (learn [how to do it](https://help.figma.com/hc/en-us/articles/360049283914-Apply-and-adjust-stroke-properties#convert))
+</div>
+<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
 
-![Shapes union selection Figma screenshot](../assets/designing-icons/export-icons-shapes-union.png)
+![Export icons vector paths](../assets/designing-icons/export-icons-vector-paths.png)
+</div>
+<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
 
 2. All the shapes in the icon have been merged using [union selection](https://help.figma.com/hc/en-us/articles/360039957534-Boolean-Operations).
+</div>
+<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
+
+![Shapes union selection Figma screenshot](../assets/designing-icons/export-icons-shapes-union.png)
+</div>
+<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
+
+3. The icon is pixel perfect. You can use the pixel preview (<kbd>Ctrl</kbd> + <kbd>P</kbd>/<kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) to verify that the icon’s strokes fit within the pixel edges. This will help you verify that the icon is recognizable in low DPI resolutions.
+</div>
+<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
 
 ![Pixel perfect preview Figma screenshot](../assets/designing-icons/export-icons-pixel-preview.png)
 
-3. The icon is pixel perfect. You can use the pixel preview (<kbd>Ctrl</kbd> + <kbd>P</kbd>/<kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) to verify that the icon’s strokes fit within the pixel edges. This will help you verify that the icon is recognizable in low DPI resolutions.
+</div>
+<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
+
+4. Once the icon’s strokes have been converted to vector paths, merged with union selection and checked using pixel preview, the icon can be flattened to group all shapes into a single vector.
+</div>
+<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
 
 ![Flatten the icon Figma screenshot](../assets/designing-icons/export-icons-flatten.png)
-
-4. Once the icon’s strokes have been converted to vector paths, merged with union selection and checked using pixel preview, the icon can be flattened to group all shapes into a single vector
-
-![Fill rule plugin Figma screenshot](../assets/designing-icons/export-icons-fill-rule-plugin.png)
+</div>
+<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
 
 5. In order to ensure that the exported icon displays the right filling and empty spaces, you’ll have to use the plugin [Fill-Rule-Editor](https://www.figma.com/community/plugin/771155994770327940/Fill-Rule-Editor) to define the fill rules of the icon’s vector objects.
+</div>
+<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
+
+![Fill rule plugin Figma screenshot](../assets/designing-icons/export-icons-fill-rule-plugin.png)
+</div>
 
 #### 3.2.2. Export the icon
 
 Export the optimized version of the icon with help from Figma’s [SVG Export plugin](https://www.figma.com/community/plugin/814345141907543603/SVG-Export). This will make sure that the icon code is as small as possible without quality loss.
 
-Find the SVG Export plugin using the ‘Plugins’ section in Figma’s main menu and run it. Before exporting the icon, please import the [preset “WikimediaUI” (download link for JSON file)](../assets/designing-icons/SVG-export-Wikimedia-SVGO-preset.json). The import option is available from a menu in the ‘Presets’ panel:
-
-![Export icons Figma plugin SVG Export screenshot 1](../assets/designing-icons/export-icons-svgo-1.png)
-
-Apply the WikimediaUI SVGO presets to the icon to be exported, then proceed to export the icon using the ‘Export all’ button:
-
 ![Export icons Figma plugin SVG Export screenshot 2](../assets/designing-icons/export-icons-svgo-2.png)
+
+1. Find the SVG Export plugin using the “Plugins” section in Figma’s main menu and run it. Before exporting the icon, please import the [preset “WikimediaUI” (download link for JSON file)](../assets/designing-icons/SVG-export-Wikimedia-SVGO-preset.json). The import option is available from a menu in the “Presets” panel.
+
+2. Apply the WikimediaUI SVGO presets to the icon to be exported, then proceed to export the icon using the “Export all” button
+
 
 #### 3.2.3. Attach the SVG icon to the Phabricator task
 
@@ -130,8 +160,6 @@ The exported SVG icon will be included within the [“SVG icon”](https://www.n
 ### 3.3. Complete the design checklist and notify the developer
 
 Make sure to complete and check all the items in the Design checklist included under the  Acceptance criteria section of the icon design task.
-
-![Phabricator icon task acceptance criteria screenshot](../assets/designing-icons/phabricator-icon-task-acceptance-criteria.png)
 
 Once the design checklist is complete, add a comment in the Phabricator task and **ping the Design Systems Team** to assign a developer in charge of adding the new icon or icon version to the Codex repository, so they can take over the task.
 
