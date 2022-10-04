@@ -4,6 +4,7 @@ import ComboboxClearableStartIcon from '@/../component-demos/combobox/examples/C
 import ComboboxComplexMenuItem from '@/../component-demos/combobox/examples/ComboboxComplexMenuItem.vue';
 import ComboboxCustomMenuItem from '@/../component-demos/combobox/examples/ComboboxCustomMenuItem.vue';
 import ComboboxNoResults from '@/../component-demos/combobox/examples/ComboboxNoResults.vue';
+import ComboboxWithScroll from '@/../component-demos/combobox/examples/ComboboxWithScroll.vue';
 import ComboboxDisabled from '@/../component-demos/combobox/examples/ComboboxDisabled.vue';
 </script>
 
@@ -115,6 +116,24 @@ this slot will automatically display when there are zero menu items.
 
 </template>
 
+</cdx-demo-wrapper>
+
+### With configurable scroll
+
+By default, all menu items are displayed when the menu is expanded. To limit the height of the menu
+and enable scrolling, use the `visibleItemLimit` property of the `menuConfig` prop.
+
+<cdx-demo-wrapper>
+
+<template v-slot:demo>
+<combobox-with-scroll />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/combobox/examples/ComboboxWithScroll.vue
+
+</template>
 
 </cdx-demo-wrapper>
 
@@ -131,6 +150,5 @@ this slot will automatically display when there are zero menu items.
 <<< @/../component-demos/combobox/examples/ComboboxDisabled.vue
 
 </template>
-
 
 </cdx-demo-wrapper>

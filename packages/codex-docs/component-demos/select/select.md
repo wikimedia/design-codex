@@ -3,6 +3,7 @@ import BasicSelect from '@/../component-demos/select/examples/BasicSelect.vue';
 import SelectCustomLabel from '@/../component-demos/select/examples/SelectCustomLabel.vue';
 import SelectComplexMenuItem from '@/../component-demos/select/examples/SelectComplexMenuItem.vue';
 import SelectCustomMenuItem from '@/../component-demos/select/examples/SelectCustomMenuItem.vue';
+import SelectWithScroll from '@/../component-demos/select/examples/SelectWithScroll.vue';
 import SelectConfigurable from '@/../component-demos/select/examples/SelectConfigurable.vue';
 
 const controlsConfig = [
@@ -95,6 +96,22 @@ bindings for the `selectedMenuItem` and the `defaultLabel`.
 <template v-slot:code>
 
 <<< @/../component-demos/select/examples/SelectCustomLabel.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### With configurable scroll
+
+By default, all menu items are displayed when the menu is expanded. To limit the height of the menu
+and enable scrolling, use the `visibleItemLimit` property of the `menuConfig` prop.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+<select-with-scroll />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/select/examples/SelectWithScroll.vue
 
 </template>
 </cdx-demo-wrapper>

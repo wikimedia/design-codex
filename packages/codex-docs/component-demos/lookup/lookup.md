@@ -79,12 +79,18 @@ this slot will automatically display when there are zero menu items.
 </template>
 </cdx-demo-wrapper>
 
-### With fetched results
+### With fetched results and infinite scroll
 
 Often, a Lookup component is used to fetch results from an API endpoint. Parent components should
 react to the `input` event emitted by Lookup to search for results, then pass back to the
 Lookup either an array of results to display as menu items or an empty array if there are no
 results. Between those two events, a pending state animation will display in the input.
+
+Scrolling is enabled by setting the `visibleItemLimit` property of the `menuConfig` prop.
+
+With scrolling enabled, when the user nears the end of the list of results, a `load-more` event is
+emitted. The parent component can react to this by fetching more results and appending them to the
+list of menu items provided to the Lookup. These new items will then be displayed within the menu.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
