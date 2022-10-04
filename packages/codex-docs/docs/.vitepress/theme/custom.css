@@ -1,11 +1,11 @@
-/* Custom CSS variables and rules for VitePress docs. */
+/* Codex design tokens and rules for VitePress docs. */
 @import '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.css';
 
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable unit-disallowed-list */
 
 :root {
-	/* Override base VitePress theme tokens. */
+	/* Override base VitePress theme variables with Codex design tokens. */
 	--vp-c-brand: var( --color-progressive );
 	--vp-c-brand-light: var( --color-progressive--hover );
 
@@ -52,7 +52,8 @@
 	--padding-code: 2px 4px;
 }
 
-/* HTML element style overrides. -------------------------------------------- */
+/* VitePress theme overrides. */
+/* HTML elements. ---------------------------------------------------------- */
 
 html,
 body {
@@ -70,7 +71,7 @@ body {
 }
 
 .vp-doc h4 {
-	/* This is to match h3 styles from VitePress. */
+	/* Match h3 styles from VitePress. */
 	margin-top: 1.15rem;
 }
 
@@ -103,7 +104,7 @@ body {
 	margin: 0;
 }
 
-/* Navigation style overrides. ---------------------------------------------- */
+/* Navigation. ------------------------------------------------------------- */
 
 .Layout .VPSidebar {
 	background-color: var( --background-color-base );
@@ -179,11 +180,32 @@ body {
 	display: none;
 }
 
+/* Footer. ----------------------------------------------------------------- */
+
+/* Use Codex Card styles on `.pager-link` */
+.VPDocFooter .pager-link {
+	border-color: var( --border-color-base );
+	border-radius: var( --border-radius-base );
+	padding: var( --padding-horizontal-base );
+}
+
+.VPDocFooter .pager-link:hover {
+	border-color: var( --border-color-interactive );
+}
+
+.VPDocFooter .pager-link:focus {
+	border-color: var( --border-color-progressive--focus );
+	/* stylelint-disable-next-line value-list-comma-newline-after */
+	box-shadow: var( --box-shadow-inset-small ) var( --box-shadow-color-progressive--focus ),
+		var( --box-shadow-inset-medium ) var( --box-shadow-color-inverted );
+	outline: var( --outline-base--focus );
+}
+
 .pager .pager-link:hover .title {
 	color: var( --color-progressive );
 }
 
-/* Syntax highlighting and code style overrides. ---------------------------- */
+/* Syntax highlighting and code. ------------------------------------------- */
 
 .vp-doc :not( pre ) > code {
 	background-color: var( --background-color-interactive );
@@ -217,7 +239,7 @@ pre[ class*='language-' ] {
 	opacity: var( --opacity-base );
 }
 
-/* Custom block style overrides. -------------------------------------------- */
+/* Custom block. ----------------------------------------------------------- */
 
 /* See https://vitepress.vuejs.org/guide/markdown.html#custom-containers. */
 .vp-doc .custom-block {
@@ -255,7 +277,7 @@ pre[ class*='language-' ] {
 }
 
 /* stylelint-enable selector-class-pattern */
-/* Custom docs styles. ------------------------------------------------------ */
+/* Custom docs. ------------------------------------------------------------ */
 
 .cdx-docs-demo-text {
 	margin: 0 0 16px;
