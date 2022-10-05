@@ -13,7 +13,7 @@
 .cdx-mixin-icon( @align, @size: @size-icon, @external-padding: @padding-horizontal-base ) {
 	// Vertically center the icon by moving it down 50% of the height of the handle,
 	// then moving it up by 50% of the height of the icon (translateY uses the element height
-	// while top uses the offset parent's height)
+	// while top uses the offset parent's height).
 	position: absolute;
 	top: 50%;
 	transform: translateY( -50% );
@@ -33,9 +33,12 @@
 		right: @external-padding;
 	};
 
+	// Horizontally center the icon too.
+	// Note, this could also be achieved by using Flexbox, by using `align-self: center;
+	// vertical-align: initial;`
 	& when ( @align = center ) {
-		right: @external-padding;
-		left: @external-padding;
+		left: 50%;
+		transform: translate( -50%, -50% );
 	};
 }
 
