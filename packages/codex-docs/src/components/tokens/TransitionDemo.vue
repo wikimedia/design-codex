@@ -59,7 +59,7 @@ export default defineComponent( {
 	width: @size-full;
 	height: @size-300;
 	border: @border-width-base @border-style-base @border-color-base;
-	padding: @padding-base;
+	padding: @spacing-25 @spacing-75;
 	transition-property: border-color, box-shadow, background-color, color, padding;
 	transition-duration: @transition-duration-medium;
 
@@ -68,7 +68,7 @@ export default defineComponent( {
 		top: 50%;
 		left: 50%;
 		margin-left: -50%;
-		transform: translate( @padding-horizontal-base, -50% );
+		transform: translate( @spacing-75, -50% );
 		transition-property: margin-left, transform;
 		transition-duration: @transition-duration-medium;
 	}

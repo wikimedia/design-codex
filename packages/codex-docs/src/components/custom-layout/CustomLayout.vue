@@ -40,6 +40,8 @@ provide( DirectionKey, dir );
 </script>
 
 <style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
 .cdx-docs-direction-switcher {
 	// TODO: remove from the header entirely.
 	// For now, set to `display: none` since the direction switcher breaks the header layout
@@ -48,7 +50,7 @@ provide( DirectionKey, dir );
 	display: none;
 
 	.cdx-demo-direction-switcher {
-		margin-left: 0.5em;
+		margin-left: @spacing-50;
 	}
 }
 </style>

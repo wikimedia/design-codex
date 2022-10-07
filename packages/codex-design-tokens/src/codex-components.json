@@ -171,17 +171,20 @@
 	},
 	"padding": {
 		"input-text": {
+			"deprecated": "Legacy padding for use in non-Codex products. Use `spacing-25 spacing-50` instead.",
 			"value": "{ padding.vertical.base } { padding.horizontal.input-text }"
 		},
 		"horizontal": {
 			"input-text": {
+				"deprecated": "Legacy padding for use in non-Codex products. Use `spacing-50` instead.",
 				"value": "{ dimension.50 }{ unit.system }"
 			}
 		},
 		"vertical": {
 			"menu": {
 				"comment": "Note, that we need to rely on `calc()` for cross-stylesheet format output. Not perfectly aligned to current basic browser support.",
-				"value": "calc( { padding.vertical.base } + { border-width.base } )"
+				"deprecated": "Legacy padding for use in non-Codex products.",
+				"value": "calc( { dimension.25 }{ unit.system } + { border-width.base } )"
 			}
 		}
 	},

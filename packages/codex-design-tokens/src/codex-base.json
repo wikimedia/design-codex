@@ -627,16 +627,18 @@
 	},
 	"padding": {
 		"base": {
+			"deprecated": "Use `spacing-25 spacing-75` instead.",
 			"value": "{ padding.vertical.base } { padding.horizontal.base }"
 		},
 		"horizontal": {
 			"base": {
+				"deprecated": "Use `spacing-75` instead.",
 				"value": "{ dimension.75 }{ unit.system }"
 			}
 		},
 		"vertical": {
 			"base": {
-				"comment": "Note, this is changing from `5px` to `4px` and will go in sync with line-height change.",
+				"deprecated": "Use `spacing-25` instead.",
 				"value": "{ dimension.25 }{ unit.system }"
 			}
 		}

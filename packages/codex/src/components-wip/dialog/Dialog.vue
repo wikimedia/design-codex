@@ -388,11 +388,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-// @todo replace all local token values
-@margin-dialog-body: @size-base * 0.25;
-@margin-dialog-footer: @size-base * 0.5;
-@margin-dialog-actions: @size-base * 0.25;
-
 .cdx-dialog-backdrop {
 	background-color: @background-color-backdrop-light;
 	display: flex;
@@ -467,7 +462,7 @@ export default defineComponent( {
 
 	&__body {
 		flex-grow: 1;
-		margin-top: @margin-dialog-body;
+		margin-top: @spacing-50;
 		padding: 0 @spacing-150;
 		overflow-y: auto;
 
@@ -478,7 +473,7 @@ export default defineComponent( {
 
 	&__footer {
 		display: flex;
-		margin-top: @margin-dialog-footer;
+		margin-top: @spacing-100;
 		padding: 0 @spacing-150;
 
 		.cdx-dialog--dividers & {
@@ -491,7 +486,7 @@ export default defineComponent( {
 		flex-direction: row-reverse;
 
 		.cdx-dialog__footer__primary-action + .cdx-dialog__footer__default-action {
-			margin-right: @margin-dialog-actions;
+			margin-right: @spacing-50;
 		}
 	}
 
@@ -500,7 +495,7 @@ export default defineComponent( {
 		flex-direction: column;
 
 		.cdx-dialog__footer__primary-action + .cdx-dialog__footer__default-action {
-			margin-top: @margin-dialog-actions;
+			margin-top: @spacing-50;
 		}
 
 		.cdx-dialog__footer__primary-action,

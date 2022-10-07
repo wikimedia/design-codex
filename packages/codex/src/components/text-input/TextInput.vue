@@ -264,7 +264,7 @@ export default defineComponent( {
 // TODO: Revisit using `@size-100` with decision about Design System's take on end icon sizes,
 // see T306135.
 @padding-horizontal-input-text-two-end-icons:
-	( @padding-horizontal-input-text * 2 ) + @size-100;
+	( @spacing-50 * 2 ) + @size-100;
 
 .cdx-text-input {
 	// For proper positioning of icons and slotted elements.
@@ -275,14 +275,14 @@ export default defineComponent( {
 		// Border width is included here and for other icon positions because the icon position will
 		// be offset from the border, not inside the border, so we need to include its width in the
 		// offset value.
-		.cdx-mixin-icon( start, @size-icon, @padding-horizontal-input-text + @border-width-base );
+		.cdx-mixin-icon( start, @size-icon, @spacing-50 + @border-width-base );
 	}
 
 	&__end-icon {
 		.cdx-mixin-icon(
 			end,
 			@size-100,
-			@padding-horizontal-input-text + @border-width-base
+			@spacing-50 + @border-width-base
 		);
 	}
 
@@ -290,7 +290,7 @@ export default defineComponent( {
 		.cdx-mixin-icon(
 			end,
 			@size-100,
-			@padding-horizontal-input-text + @border-width-base
+			@spacing-50 + @border-width-base
 		);
 
 		// The clear icon result in a pointer cursor on hover.
@@ -318,7 +318,7 @@ export default defineComponent( {
 	border-width: @border-width-base;
 	border-style: @border-style-base;
 	border-radius: @border-radius-base;
-	padding: @padding-input-text;
+	padding: @spacing-25 @spacing-50;
 	font-family: inherit;
 	font-size: inherit;
 	line-height: @line-height-component;
@@ -403,7 +403,7 @@ export default defineComponent( {
 
 .cdx-text-input--has-start-icon {
 	.cdx-text-input__input {
-		.cdx-mixin-icon-wrapper-padding( start, @padding-horizontal-input-text );
+		.cdx-mixin-icon-wrapper-padding( start, @spacing-50 );
 	}
 }
 
@@ -413,7 +413,7 @@ export default defineComponent( {
 	.cdx-text-input__input {
 		.cdx-mixin-icon-wrapper-padding(
 			end,
-			@padding-horizontal-input-text,
+			@spacing-50,
 			@size-100
 		);
 	}

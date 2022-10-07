@@ -287,10 +287,10 @@ export default defineComponent( {
 		border-width: @border-width-base;
 		border-style: @border-style-base;
 		border-radius: @border-radius-base;
-		padding-top: @padding-vertical-base;
-		padding-bottom: @padding-vertical-base;
-		padding-left: @padding-horizontal-base;
-		.cdx-mixin-icon-wrapper-padding( end, @padding-horizontal-input-text );
+		padding-top: @spacing-25;
+		padding-bottom: @spacing-25;
+		padding-left: @spacing-75;
+		.cdx-mixin-icon-wrapper-padding( end, @spacing-50 );
 		line-height: @line-height-component;
 	}
 
@@ -304,7 +304,7 @@ export default defineComponent( {
 
 	&__indicator {
 		color: @color-base;
-		.cdx-mixin-icon( end, @size-indicator, @padding-horizontal-input-text );
+		.cdx-mixin-icon( end, @size-indicator, @spacing-50 );
 	}
 
 	&--enabled {

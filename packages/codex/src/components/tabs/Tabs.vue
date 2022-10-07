@@ -542,10 +542,6 @@ export default defineComponent( {
 @font-size-base: 14 / @font-size-browser;
 @max-width-tab: 16em;
 @width-tabs-header-gradient: 24px;
-@margin-tab: 4px;
-@margin-tabs-framed-tab: ( @margin-tab * 2 ) @margin-tab 0 ( @margin-tab * 2 );
-@margin-tabs-quiet-tab: 0 @margin-tab;
-@padding-tab: @padding-vertical-base @padding-horizontal-base;
 @background-color-tabs-framed-tab--hover: rgba( 255, 255, 255, 0.3 );
 @background-color-tabs-framed-tab--active: rgba( 255, 255, 255, 0.8 );
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
@@ -643,7 +639,7 @@ export default defineComponent( {
 				max-width: @max-width-tab;
 				border-top-left-radius: @border-radius-base;
 				border-top-right-radius: @border-radius-base;
-				padding: @padding-tab;
+				padding: @spacing-25 @spacing-75;
 				font-weight: @font-weight-bold;
 				line-height: @line-height-component;
 				text-decoration: @text-decoration-none;
@@ -692,11 +688,11 @@ export default defineComponent( {
 		// Framed Tabs List item.
 		.cdx-tabs__list__item {
 			[ role='tab' ] {
-				margin: @margin-tabs-framed-tab;
+				margin: @spacing-50 @spacing-25 0 @spacing-50;
 			}
 
 			&:last-child [ role='tab' ] {
-				margin-right: ( @margin-tab * 2 );
+				margin-right: @spacing-50;
 			}
 
 			&--enabled {
@@ -740,7 +736,7 @@ export default defineComponent( {
 	// Quiet Tabs.
 	&--quiet > &__header {
 		background-color: @background-color-base;
-		margin: @margin-tabs-quiet-tab;
+		margin: 0 @spacing-25;
 		// The border separating quiet Tabs header from Tab content.
 		border-bottom: @border-width-base @border-style-base @border-color-base;
 
@@ -755,7 +751,7 @@ export default defineComponent( {
 		// Quiet Tabs List item.
 		.cdx-tabs__list__item {
 			[ role='tab' ] {
-				margin: @margin-tabs-quiet-tab;
+				margin: 0 @spacing-25;
 			}
 
 			&:first-child [ role='tab' ] {

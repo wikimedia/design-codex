@@ -75,6 +75,8 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
 .cdx-docs-card-group-with-thumbnails {
 	p {
 		margin-top: 0;
@@ -83,7 +85,7 @@ export default defineComponent( {
 
 	// The application implementing Cards must handle Card group layout styles.
 	&__card {
-		margin-bottom: 16px;
+		margin-bottom: @spacing-100;
 
 		&:last-child {
 			margin-bottom: 0;

@@ -154,7 +154,7 @@ export default defineComponent( {
 
 		// Override VitePress's styles that add way too much whitespace around <p>s
 		p {
-			margin: 0 0 0.5em;
+			margin: 0 0 @spacing-50;
 			line-height: 1.3;
 			text-decoration: @text-decoration-none;
 		}
@@ -179,12 +179,12 @@ export default defineComponent( {
 			code {
 				color: @color-emphasized;
 				display: inline-block;
-				margin-bottom: 8px;
+				margin-bottom: @spacing-50;
 			}
 		}
 
 		&__demo {
-			margin-bottom: 16px;
+			margin-bottom: @spacing-100;
 		}
 
 		&__deprecated {
@@ -194,7 +194,7 @@ export default defineComponent( {
 			// Compare 'custom.css' `.vp-doc td`.
 			bottom: 8px;
 			left: 12px;
-			padding: 0 4px;
+			padding: 0 @spacing-25;
 			font-weight: @font-weight-normal;
 		}
 

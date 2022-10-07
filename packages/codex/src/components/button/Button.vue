@@ -131,9 +131,6 @@ export default defineComponent( {
 @background-color-normal-progressive--active: lighten( @color-progressive--active, 60% );
 @background-color-normal-destructive--active: lighten( @color-destructive--active, 60% );
 
-// The following paddings are required to achieve a width of 32px for icon-only buttons.
-@horizontal-padding-icon-only: ( ( 32px - @size-icon ) / 2 ) - @border-width-base;
-
 .cdx-button {
 	// mixin for common base styles for buttons
 	.cdx-mixin-button();
@@ -179,7 +176,7 @@ export default defineComponent( {
 
 // Buttons that only include an icon element.
 .cdx-button--icon-only {
-	padding: 0 @horizontal-padding-icon-only;
+	padding: 0 @spacing-25;
 }
 
 // Non-quiet “framed” buttons (normal and primary types)

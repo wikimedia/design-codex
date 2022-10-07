@@ -344,14 +344,10 @@ export default defineComponent( {
 @line-height-menu-item: ( 22 / @font-size-browser );
 @size-icon-relative: unit( ( @size-icon / @font-size-browser / @font-size-base ), em );
 
-@padding-vertical-menu-item: 8px;
-
-@margin-end-menu-item-thumbnail: 8px;
-
 .cdx-menu-item {
 	list-style: none;
 	position: relative;
-	padding: @padding-vertical-menu-item @padding-horizontal-base;
+	padding: @spacing-50 @spacing-75;
 	line-height: @line-height-100;
 	transition-property: @transition-property-base;
 	transition-duration: @transition-duration-base;
@@ -377,13 +373,13 @@ export default defineComponent( {
 	}
 
 	&__thumbnail {
-		margin-right: @margin-end-menu-item-thumbnail;
+		margin-right: @spacing-50;
 	}
 
 	&__icon {
 		// Make sure the icon inherits the content element's color.
 		color: inherit;
-		margin-right: @margin-end-menu-item-thumbnail;
+		margin-right: @spacing-50;
 
 		// Icons must scale with font size to maintain top alignment with the label text.
 		svg {

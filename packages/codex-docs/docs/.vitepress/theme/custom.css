@@ -47,9 +47,6 @@
 	--vp-custom-block-details-border: var( --border-color-notice );
 	--vp-custom-block-details-text: var( --color-notice );
 	--vp-custom-block-details-bg: var( --background-color-notice-subtle );
-
-	/* TODO: Tokenize. */
-	--padding-code: 2px 4px;
 }
 
 /* VitePress theme overrides and unsets. */
@@ -100,7 +97,7 @@ body {
 .vp-doc th,
 .vp-doc td {
 	border-color: var( --border-color-subtle );
-	padding: 8px 12px;
+	padding: var( --spacing-50 ) var( --spacing-75 );
 }
 
 .vp-doc td pre {
@@ -137,7 +134,7 @@ body {
 /* Use padding instead of margin for sidebar links so the space doesn't collapse. */
 .VPSidebar .VPLink {
 	margin: 0;
-	padding: 4px 0;
+	padding: var( --spacing-25 ) 0;
 }
 
 .VPSidebar .link-text,
@@ -149,7 +146,7 @@ body {
 /* Mimic main sidebar styles within right sidebar. */
 .VPDocAside .outline-title,
 .VPDocAside .outline-link {
-	padding: 6px 0;
+	padding: var( --spacing-35 ) 0;
 	font-size: 0.875rem;
 	/* TODO: use token */
 	line-height: 1.42857;
@@ -157,7 +154,7 @@ body {
 
 .VPDocAside .outline-marker {
 	/* Account for the 6px padding-top we added above. */
-	margin-top: 6px;
+	margin-top: var( --spacing-35 );
 }
 
 .VPSidebar .link:hover .link-text,
@@ -189,7 +186,7 @@ body {
 .VPDocFooter .pager-link {
 	border-color: var( --border-color-base );
 	border-radius: var( --border-radius-base );
-	padding: var( --padding-horizontal-base );
+	padding: var( --spacing-75 );
 }
 
 .VPDocFooter .pager-link:hover {
@@ -213,7 +210,7 @@ body {
 .vp-doc :not( pre ) > code {
 	background-color: var( --background-color-interactive );
 	border-radius: var( --border-radius-base );
-	padding: var( --padding-code );
+	padding: var( --spacing-12 ) var( --spacing-25 );
 }
 
 .vp-doc a:hover > code {
@@ -283,12 +280,12 @@ pre[ class*='language-' ] {
 /* Custom docs. ------------------------------------------------------------ */
 
 .cdx-docs-demo-text {
-	margin: 0 0 16px;
+	margin: 0 0 var( --spacing-100 );
 	font-weight: var( --font-weight-bold );
 }
 
 .cdx-docs-required-indicator {
-	margin-left: 4px;
+	margin-left: var( --spacing-25 );
 }
 
 .cdx-docs-methods__params {

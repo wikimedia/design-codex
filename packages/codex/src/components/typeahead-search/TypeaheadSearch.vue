@@ -700,27 +700,22 @@ export default defineComponent( {
 // Value of thumbnail as declared within the MenuItem component.
 @size-search-figure: @size-250;
 
-@padding-vertical-menu-item: 8px;
-
-@margin-end-typeahead-search-footer-icon: 8px;
-@padding-no-results-text-with-thumbnail: 20px;
-
 @transition-property-simple-search-submit: opacity;
 
 // The amount of space between the typeahead search figure's parent component and the
 // typeahead search figure (input icon container, search result thumbnail, and footer icon
 // container). We want this space to be uniform so that the figures vertically line up
 // nicely. We use the same horizontal padding as the MenuItem.
-@spacing-start-typeahead-search-figure: @padding-horizontal-base;
+@spacing-start-typeahead-search-figure: @spacing-75;
 // The amount the width of the input increases when it is focused to allow for the extra spacing
 // around the search figures. The caret position should remain static.
 // This calculates the padding-left of the input when expanded minus the padding-left of the input
 // when not expanded.
-// (Note that both padding values actually include @padding-horizontal-input-text as well, but it
+// (Note that both padding values actually include @spacing-50 as well, but it
 // was left out of the calculation for simplicity's sake.)
 @size-typeahead-search-focus-addition:
 	( @spacing-start-typeahead-search-figure + @size-search-figure ) -
-	( @size-icon + @padding-horizontal-input-text );
+	( @size-icon + @spacing-50 );
 // The padding required for the icon to center align with the menu item thumbnail.
 // We calculate the difference in size and add it to the expected spacing
 @spacing-start-typeahead-icon: unit( @spacing-start-typeahead-search-figure +
@@ -733,7 +728,7 @@ export default defineComponent( {
 		padding: 0;
 
 		&__content {
-			padding: @padding-vertical-menu-item @padding-horizontal-base;
+			padding: @spacing-50 @spacing-75;
 		}
 	}
 
@@ -742,7 +737,7 @@ export default defineComponent( {
 		color: @color-base;
 		display: flex;
 		align-items: center;
-		padding: @padding-vertical-menu-item @padding-horizontal-base;
+		padding: @spacing-50 @spacing-75;
 		text-decoration: @text-decoration-none;
 	}
 
@@ -765,7 +760,7 @@ export default defineComponent( {
 			// intuitive @size-search-figure variable so it doesn't have extra horizontal space.
 			width: auto;
 			height: @size-search-figure;
-			margin-right: @margin-end-typeahead-search-footer-icon;
+			margin-right: @spacing-50;
 		}
 
 		// We cannot use a pseudo class ":active" because that does not work
@@ -781,7 +776,7 @@ export default defineComponent( {
 	// When props showThumbnail is true, special menu messages (like no results and pending) should
 	// have different padding.
 	&__menu-message--has-thumbnail {
-		padding-left: @padding-no-results-text-with-thumbnail;
+		padding-left: @spacing-125;
 	}
 
 	&__input {
@@ -808,7 +803,7 @@ export default defineComponent( {
 		}
 
 		.cdx-typeahead-search__search-footer {
-			padding-right: @padding-horizontal-base;
+			padding-right: @spacing-75;
 			padding-left: @spacing-start-typeahead-search-figure;
 
 			&__icon {

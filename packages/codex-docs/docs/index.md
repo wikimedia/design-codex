@@ -75,8 +75,6 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-@cdx-docs-spacing-layout: 32px;
-
 /* stylelint-disable selector-class-pattern */
 .cdx-docs-home {
 	.cdx-card {
@@ -91,15 +89,15 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 	&__hero {
 		background-color: @background-color-progressive;
 		color: @color-inverted;
-		width: calc( @size-full + ( @cdx-docs-spacing-layout * 2 ) );
-		margin-right: -@cdx-docs-spacing-layout;
-		margin-bottom: @cdx-docs-spacing-layout;
-		margin-left: -@cdx-docs-spacing-layout;
-		padding: @cdx-docs-spacing-layout;
+		width: calc( @size-full + ( @spacing-200 * 2 ) );
+		margin-right: -@spacing-200;
+		margin-bottom: @spacing-200;
+		margin-left: -@spacing-200;
+		padding: @spacing-200;
 
 		&__icon {
 			color: @color-inverted;
-			margin-bottom: @cdx-docs-spacing-layout * 2;
+			margin-bottom: @spacing-200 * 2;
 
 			svg {
 				// 5em equivalent to match the title.
@@ -119,7 +117,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		}
 
 		.vp-doc &__tagline {
-			margin: 0 0 0 8px;
+			margin: 0 0 0 @spacing-50;
 			font-family: @font-family-sans;
 			font-size: 1.5em;
 		}
@@ -128,20 +126,20 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 	&__features {
 		display: flex;
 		flex-direction: column;
-		row-gap: 8px;
+		row-gap: @spacing-50;
 	}
 
 	&__resources {
 		display: flex;
 		flex-wrap: wrap;
 		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-		column-gap: 8px;
-		row-gap: 8px;
-		margin-top: @cdx-docs-spacing-layout;
+		column-gap: @spacing-50;
+		row-gap: @spacing-50;
+		margin-top: @spacing-200;
 
 		/* stylelint-disable-next-line no-descending-specificity */
 		.cdx-card {
-			width: calc( @size-half - 8px );
+			width: calc( @size-half - @spacing-50 );
 
 			&:hover {
 				text-decoration: @text-decoration-none;

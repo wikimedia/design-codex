@@ -41,12 +41,12 @@ export default defineComponent( {
 
 .cdx-docs-spacing-demo {
 	position: relative;
-	padding: @padding-base;
+	padding: @spacing-25 @spacing-75;
 
 	&__box {
 		display: inline-block;
 		border: @border-width-base @border-style-base @border-color-base;
-		padding: @padding-base;
+		padding: @spacing-25 @spacing-75;
 	}
 }
 </style>

@@ -452,7 +452,7 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 .cdx-demo-wrapper {
-	margin-top: 16px;
+	margin-top: @spacing-100;
 
 	// Unset VitePress link styles (which have an unfortunately high specificity) in the demo
 	// pane, unless they have explicitly been allowed.
@@ -469,7 +469,7 @@ export default defineComponent( {
 		position: relative;
 		border: @border-width-base @border-style-base @border-color-subtle;
 		border-radius: @border-radius-base;
-		padding: 24px;
+		padding: @spacing-125;
 
 		&__reset-button {
 			position: absolute;
@@ -517,13 +517,13 @@ export default defineComponent( {
 	// Add some space above the component demo to ensure that it does not collide with the
 	// reset button, if there is such a button included
 	&--has-reset &__demo-pane__demo {
-		margin-top: 16px;
+		margin-top: @spacing-100;
 	}
 
 	// Add some space below the component demo to ensure it never collides with the buttons
 	// to toggle the code display and to copy the code text, if there are such buttons
 	&--has-code &__demo-pane__demo {
-		margin-bottom: 16px;
+		margin-bottom: @spacing-100;
 	}
 
 	// When code is expanded, remove all of the code toggle button's border radiuses.

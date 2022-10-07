@@ -107,11 +107,17 @@ Stylesheet specific token application rules:
   simpler design token scoping and code modularization reasons. Only tokens of a category type are
   summarized into a shorthand token, e.g.
   ```
-  "padding": {
-		"base": {
-			"value": "{ padding.vertical.base } { padding.horizontal.base }"
+  "text-decoration": {
+		"none": {
+			"value": "{ text-decoration.0 }"
+		},
+		"line-through": {
+			"value": "{ text-decoration.150 }"
+		},
+		"underline": {
+			"value": "{ text-decoration.200 }"
 		}
-  }
+  },
   ```
 
 **Selectors and structure**

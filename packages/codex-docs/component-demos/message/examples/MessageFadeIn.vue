@@ -29,12 +29,14 @@ export default defineComponent( {
 </script>
 
 <style lang="less" scoped>
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
 .cdx-docs-message-fade-in {
 	min-height: 130px;
 
 	/* stylelint-disable-next-line selector-class-pattern */
 	.cdx-message {
-		margin-top: 16px;
+		margin-top: @spacing-100;
 	}
 }
 </style>

@@ -64,6 +64,8 @@ the header row will update to match.
 </cdx-demo-wrapper>
 
 <style lang="less" scoped>
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
 // Override Vitepress styles.
 // TODO: remove this once T296106 is complete.
 .cdx-demo-wrapper {
@@ -72,10 +74,10 @@ the header row will update to match.
 	}
 
 	:deep( h2 ) {
-		margin: 0 0 24px;
+		margin: 0 0 @spacing-150;
 		border-top: 0;
 		border-bottom: 1px solid #c8ccd1;
-		padding-bottom: 4px;
+		padding-bottom: @spacing-25;
 	}
 
 	:deep( h3 ) {

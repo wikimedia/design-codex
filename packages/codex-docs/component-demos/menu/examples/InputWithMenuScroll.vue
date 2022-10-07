@@ -99,12 +99,12 @@ export default defineComponent( {
 		display: flex;
 		align-items: center;
 		flex-direction: row;
-		margin-top: 16px;
+		margin-top: @spacing-100;
 
 		&__input {
 			// TODO: Use relative width here.
 			width: @size-250;
-			margin-left: 8px;
+			margin-left: @spacing-50;
 		}
 	}
 }

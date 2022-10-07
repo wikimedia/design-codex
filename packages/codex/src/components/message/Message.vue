@@ -240,10 +240,6 @@ export default defineComponent( {
 @offset-top-message-dismiss: unit( ( 8 / @font-size-browser / @font-size-base ), em);
 @offset-right-message-dismiss: unit( ( 16 / @font-size-browser / @font-size-base ), em);
 @offset-right-message-dismiss-mobile: unit( ( 8 / @font-size-browser / @font-size-base ), em);
-@padding-vertical-message-block: 16px;
-@padding-horizontal-message-block: 24px;
-@padding-horizontal-message-block-mobile: 16px;
-@margin-top-message: 8px;
 @margin-left-message-content: unit( ( 8 / @font-size-browser / @font-size-base ), em );
 @transition-property-message: @transition-property-opacity;
 
@@ -280,11 +276,11 @@ export default defineComponent( {
 	&--block {
 		border-width: @border-width-base;
 		border-style: @border-style-base;
-		padding: @padding-vertical-message-block @padding-horizontal-message-block-mobile;
+		padding: @spacing-100 @spacing-100;
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			padding-right: @padding-horizontal-message-block;
-			padding-left: @padding-horizontal-message-block;
+			padding-right: @spacing-150;
+			padding-left: @spacing-150;
 		}
 
 		&.cdx-message--notice {
@@ -309,10 +305,10 @@ export default defineComponent( {
 	}
 
 	&--user-dismissable {
-		padding-right: @min-size-base + @padding-horizontal-message-block-mobile;
+		padding-right: @min-size-base + @spacing-100;
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			padding-right: @min-size-base + @padding-horizontal-message-block;
+			padding-right: @min-size-base + @spacing-150;
 		}
 	}
 
@@ -344,7 +340,7 @@ export default defineComponent( {
 
 	// Add space between stacked messages.
 	& + .cdx-message {
-		margin-top: @margin-top-message;
+		margin-top: @spacing-50;
 	}
 
 	// Fade-in and auto-dismissal use the system transition timing function.

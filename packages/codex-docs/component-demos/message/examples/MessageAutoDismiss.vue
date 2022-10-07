@@ -31,12 +31,14 @@ export default defineComponent( {
 </script>
 
 <style lang="less" scoped>
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
 .cdx-docs-message-auto-dismiss {
 	min-height: 112px;
 
 	/* stylelint-disable-next-line selector-class-pattern */
 	.cdx-button {
-		margin-bottom: 16px;
+		margin-bottom: @spacing-100;
 	}
 }
 </style>

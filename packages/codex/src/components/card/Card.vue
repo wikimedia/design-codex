@@ -150,7 +150,7 @@ export default defineComponent( {
 	position: relative;
 	border: @border-width-base @border-style-base @border-color-base;
 	border-radius: @border-radius-base;
-	padding: @padding-horizontal-base;
+	padding: @spacing-75;
 
 	&--is-link {
 		transition-property: @transition-property-base;
@@ -201,13 +201,11 @@ export default defineComponent( {
 		}
 
 		&__description {
-			// TODO: token?
-			margin-top: 4px;
+			margin-top: @spacing-25;
 		}
 
 		&__supporting-text {
-			// TODO: token?
-			margin-top: 8px;
+			margin-top: @spacing-50;
 			font-size: @font-size-card-supporting-text;
 		}
 	}

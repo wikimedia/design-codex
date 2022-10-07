@@ -22,7 +22,7 @@
 		display: block;
 		// Since we have to use margin-right for inline inputs, use margin-bottom for stacked inputs
 		// for consistency's sake.
-		margin-bottom: 12px;
+		margin-bottom: @spacing-75;
 
 		&:last-child {
 			margin-bottom: 0;
@@ -32,7 +32,7 @@
 	&--inline {
 		// Use margin-right instead of left to avoid extra space at the beginning of a new line if
 		// the inputs span multiple lines.
-		margin-right: 16px;
+		margin-right: @spacing-100;
 		// Avoid line break between icon and label text.
 		white-space: nowrap;
 
