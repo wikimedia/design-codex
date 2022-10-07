@@ -85,11 +85,11 @@ export default defineComponent( {
 	&--opacity &__token,
 	&--outline &__token,
 	&--padding &__token {
-		width: 100px;
-		height: 50px;
+		width: @size-800;
+		height: @size-300;
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			width: 300px;
+			width: @size-full;
 		}
 	}
 
@@ -98,7 +98,7 @@ export default defineComponent( {
 
 		&__inner {
 			background-color: @background-color-progressive;
-			height: 100%;
+			height: @size-full;
 			animation-name: cdx-docs-animation-demo__inner-animation;
 			animation-duration: 2000ms;
 			animation-iteration-count: infinite;
@@ -106,27 +106,27 @@ export default defineComponent( {
 	}
 
 	&--border &__token {
-		width: 50px;
-		height: 50px;
+		width: @size-300;
+		height: @size-300;
 		border: @border-width-base @border-style-base @border-color-base;
 		border-radius: @border-radius-base;
 
 		&--border-radius-pill {
-			width: 100px;
+			width: @size-800;
 		}
 	}
 
 	&--color &__token {
-		width: 96px;
-		height: 96px;
+		width: @size-800;
+		height: @size-800;
 		border: @border-width-base @border-style-base rgba( 0, 0, 0, 0.1 );
 		border-radius: @border-radius-circle;
 	}
 
 	&--cursor &__token {
 		background-color: @background-color-progressive;
-		width: 50px;
-		height: 50px;
+		width: @size-300;
+		height: @size-300;
 		border-radius: @border-radius-circle;
 	}
 
@@ -143,21 +143,21 @@ export default defineComponent( {
 
 		&__inner {
 			background-color: @background-color-disabled-subtle;
-			width: 100%;
-			height: 100%;
+			width: @size-full;
+			height: @size-full;
 		}
 	}
 
 	&--position &__token {
 		position: relative;
 		box-sizing: content-box;
-		width: 50px;
-		height: 50px;
-		margin-left: 50px;
+		width: @size-300;
+		height: @size-300;
+		margin-left: @spacing-300;
 		border: @border-width-base @border-style-base @border-color-base;
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			width: 250px;
+			width: @size-1600;
 		}
 
 		&__inner {
@@ -165,8 +165,8 @@ export default defineComponent( {
 			position: absolute;
 			top: 12.5px;
 			left: 12.5px;
-			width: 25px;
-			height: 25px;
+			width: @size-125;
+			height: @size-125;
 			border: @border-width-base @border-style-base @border-color-base;
 		}
 	}
@@ -180,7 +180,7 @@ export default defineComponent( {
 	}
 
 	50% {
-		width: 100%;
+		width: @size-full;
 	}
 }
 </style>

@@ -597,20 +597,20 @@ export default defineComponent( {
 		top: 0;
 		z-index: 1;
 		width: @width-tabs-header-gradient;
-		height: 100%;
+		height: @size-full;
 		pointer-events: none;
 	}
 
 	&__prev-scroller::after {
-		left: 100%;
+		left: @size-full;
 	}
 
 	&__next-scroller::before {
-		right: 100%;
+		right: @size-full;
 	}
 
 	&__scroll-button {
-		height: 100%;
+		height: @size-full;
 	}
 
 	// Keyboard nav indicator on Tabs header focus for framed and quiet.
@@ -682,11 +682,11 @@ export default defineComponent( {
 		background-color: @background-color-interactive;
 
 		.cdx-tabs__prev-scroller::after {
-			background-image: linear-gradient( to right, @background-color-interactive 0, @background-color-transparent 100% );
+			background-image: linear-gradient( to right, @background-color-interactive 0, @background-color-transparent @size-full );
 		}
 
 		.cdx-tabs__next-scroller::before {
-			background-image: linear-gradient( to left, @background-color-interactive 0, @background-color-transparent 100% );
+			background-image: linear-gradient( to left, @background-color-interactive 0, @background-color-transparent @size-full );
 		}
 
 		// Framed Tabs List item.
@@ -745,11 +745,11 @@ export default defineComponent( {
 		border-bottom: @border-width-base @border-style-base @border-color-base;
 
 		.cdx-tabs__prev-scroller::after {
-			background-image: linear-gradient( to right, @background-color-base 0, @background-color-transparent 100% );
+			background-image: linear-gradient( to right, @background-color-base 0, @background-color-transparent @size-full );
 		}
 
 		.cdx-tabs__next-scroller::before {
-			background-image: linear-gradient( to left, @background-color-base 0, @background-color-transparent 100% );
+			background-image: linear-gradient( to left, @background-color-base 0, @background-color-transparent @size-full );
 		}
 
 		// Quiet Tabs List item.

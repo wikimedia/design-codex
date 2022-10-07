@@ -88,9 +88,8 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-// TODO: This should be a common token shared between this component and others (MenuItem,
-// TypeaheadSearch).
-@size-search-figure: 40px;
+// Value of thumbnail as declared within the MenuItem component.
+@size-search-figure: @size-250;
 
 .cdx-thumbnail {
 	// `flex` prevents a descender from being added below the image; `inline` limits width of this

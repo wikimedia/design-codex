@@ -71,11 +71,11 @@ export default defineComponent( {
 
 .cdx-docs-size-demo {
 	position: relative;
-	height: 50px;
-	max-width: 100px;
+	height: @size-300;
+	max-width: @size-800;
 
 	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-		max-width: 100%;
+		max-width: @size-full;
 	}
 
 	&__inner {

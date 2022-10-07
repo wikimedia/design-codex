@@ -56,12 +56,13 @@
 // Screen Reader Helper Mixin for visually hidden text.
 .screen-reader-text() {
 	display: block;
-	clip: rect( 1px, 1px, 1px, 1px );
+	clip: rect( @size-absolute-1, @size-absolute-1, @size-absolute-1, @size-absolute-1 );
 	/* stylelint-disable-next-line declaration-no-important */
 	position: absolute !important;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
+	width: @size-absolute-1;
+	height: @size-absolute-1;
+	// Use negative `@size` token here as they are inherently connected.
+	margin: -@size-absolute-1;
 	border: 0;
 	padding: 0;
 	overflow: hidden;

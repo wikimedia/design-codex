@@ -697,8 +697,8 @@ export default defineComponent( {
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 
-// This is the value of thumbnail as declared within the MenuItem component.
-@size-search-figure: 40px;
+// Value of thumbnail as declared within the MenuItem component.
+@size-search-figure: @size-250;
 
 @padding-vertical-menu-item: 8px;
 
@@ -719,7 +719,7 @@ export default defineComponent( {
 // (Note that both padding values actually include @padding-horizontal-input-text as well, but it
 // was left out of the calculation for simplicity's sake.)
 @size-typeahead-search-focus-addition:
-	( @spacing-start-typeahead-search-figure + @size-search-figure) -
+	( @spacing-start-typeahead-search-figure + @size-search-figure ) -
 	( @size-icon + @padding-horizontal-input-text );
 // The padding required for the icon to center align with the menu item thumbnail.
 // We calculate the difference in size and add it to the expected spacing

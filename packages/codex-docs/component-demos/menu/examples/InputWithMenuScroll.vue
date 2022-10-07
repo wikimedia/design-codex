@@ -102,7 +102,8 @@ export default defineComponent( {
 		margin-top: 16px;
 
 		&__input {
-			width: 2.5em;
+			// TODO: Use relative width here.
+			width: @size-250;
 			margin-left: 8px;
 		}
 	}

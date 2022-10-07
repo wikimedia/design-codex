@@ -59,9 +59,8 @@ export default defineComponent( {
 
 	&__bar {
 		background-color: @background-color-progressive;
-		// TODO: replace with tokens.
-		width: 33%;
-		height: 100%;
+		width: @size-third;
+		height: @size-full;
 		animation-name: cdx-animation-progress-bar__bar;
 		animation-duration: @animation-duration-medium;
 		animation-timing-function: @animation-timing-function-base;
@@ -75,8 +74,8 @@ export default defineComponent( {
 		// `z-index` other than `auto`.
 		position: relative;
 		z-index: 1;
-		// Equals `1.14285714em`≈`16px`
-		height: ( @size-base / 2 );
+		// TODO: Currently `16px`. Make relative?
+		height: @size-100;
 		max-width: @max-width-base;
 		border: @border-width-base @border-style-base @border-color-base;
 		border-radius: @border-radius-pill;
@@ -84,14 +83,15 @@ export default defineComponent( {
 	}
 
 	&--inline {
-		width: 100%;
-		height: ( @size-base / 8 );
+		width: @size-full;
+		// TODO: Make relative?
+		height: @size-25;
 	}
 }
 
 @keyframes cdx-animation-progress-bar__bar {
 	from {
-		transform: translate( -100% );
+		transform: translate( -@size-full );
 	}
 
 	to {

@@ -147,14 +147,15 @@ Below are some sample styles for a component to demonstrate these conventions:
 ```less
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import './../../themes/mixins/binary-input.less';
 
 .cdx-radio {
-	line-height: @size-radio;
+	line-height: @size-input-binary;
 
 	// Custom-styled radio that's visible to the user.
 	&__icon {
-		width: @size-radio;
-		height: @size-radio;
+		width: @size-input-binary;
+		height: @size-input-binary;
 		border-radius: @border-radius-circle;
 	}
 
@@ -231,8 +232,8 @@ Below is an example that demonstrates these directives:
 }
 
 .bar {
-	// This rule uses -100% in RTL, because that value is explicitly specified
-	transform: translateX( 0 ) /* rtl:translateX( -100% ) */;
+	// This rule uses -100% (`@size-full`) in RTL, because that value is explicitly specified.
+	transform: translateX( 0 ) /* rtl:translateX( -@size-full ) */;
 
 	// This rule is NOT flipped to margin-right, because an explicit RTL value is specified
 	// In RTL, this rule becomes margin-left: 30px; (NOT margin-right: 30px;)

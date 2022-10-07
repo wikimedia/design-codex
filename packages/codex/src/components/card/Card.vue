@@ -140,9 +140,6 @@ export default defineComponent( {
 @line-height-card-title: ( 20 / @font-size-browser );
 
 @size-icon-relative: unit( ( @size-icon / @font-size-browser / @font-size-base ), em );
-// TODO: this should either be a component-level token, or one of the available thumbnail sizes
-// once we offer various sizes in the Thumbnail component.
-@size-card-thumbnail: 48px;
 
 @margin-end-card-media: 12px;
 
@@ -220,8 +217,8 @@ export default defineComponent( {
 
 		.cdx-thumbnail__placeholder,
 		.cdx-thumbnail__image {
-			width: @size-card-thumbnail;
-			height: @size-card-thumbnail;
+			width: @size-300;
+			height: @size-300;
 		}
 	}
 

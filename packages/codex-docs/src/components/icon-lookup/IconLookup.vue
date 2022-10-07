@@ -18,7 +18,7 @@ import * as allIcons from '@wikimedia/codex-icons';
 import { Icon } from '@wikimedia/codex-icons';
 
 // Icon data based on AllIcons.vue in icon demo
-// Type is compatable with MenuItemData
+// Type is compatible with MenuItemData
 const displayIcons : {
 	value: string,
 	icon: Icon
@@ -139,9 +139,11 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+
 .cdx-docs-icon-lookup {
 	// Ensure that the longer icon names are not cut off or split into multiple lines in
 	// the menu
-	min-width: 300px;
+	min-width: @size-1600;
 }
 </style>

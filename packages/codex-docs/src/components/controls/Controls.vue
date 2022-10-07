@@ -186,7 +186,7 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 .cdx-docs-controls {
-	width: 100%;
+	width: @size-full;
 	font-size: 0.875em;
 
 	&__section-header {

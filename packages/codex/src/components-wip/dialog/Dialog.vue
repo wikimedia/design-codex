@@ -389,9 +389,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 // @todo replace all local token values
-@height-dialog-backdrop: 100vh;
-@width-dialog-backdrop: 100vw;
-@max-width-dialog--large: 896px;
 @margin-dialog-body: @size-base * 0.25;
 @margin-dialog-footer: @size-base * 0.5;
 @margin-dialog-actions: @size-base * 0.25;
@@ -406,8 +403,8 @@ export default defineComponent( {
 	left: 0;
 	z-index: @z-index-overlay;
 	min-height: @size-full;
-	width: @width-dialog-backdrop;
-	height: @height-dialog-backdrop;
+	width: @size-viewport-width-full;
+	height: @size-viewport-height-full;
 	// Support Safari/iOS: Make `100vh` work with Safari's address bar.
 	// See https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
@@ -420,7 +417,7 @@ export default defineComponent( {
 	flex-direction: column;
 	width: calc( @size-full - ( @size-100 * 2) );
 	max-width: @size-3200;
-	max-height: calc( @height-dialog-backdrop - @size-250 );
+	max-height: calc( @size-viewport-height-full - @size-250 );
 	border: @border-base;
 	border-radius: @border-radius-base;
 	padding-top: @spacing-100;
@@ -436,11 +433,11 @@ export default defineComponent( {
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			width: calc( @size-full - ( @size-200 * 2 ) );
-			height: calc( @height-dialog-backdrop - @size-250 );
+			height: calc( @size-viewport-height-full - @size-250 );
 		}
 
 		@media screen and ( min-width: @min-width-breakpoint-desktop ) {
-			max-width: @max-width-dialog--large;
+			max-width: @size-5600;
 		}
 	}
 

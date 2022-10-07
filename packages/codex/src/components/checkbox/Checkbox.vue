@@ -173,7 +173,7 @@ export default defineComponent( {
 			background-color: @color-inverted;
 			position: absolute;
 			// Vertically center indeterminate line with negative half pixel.
-			top: calc( 50% - ( @border-width-base / 2 ) );
+			top: calc( @size-half - ( @border-width-base / 2 ) );
 			right: @start-input-binary-icon;
 			left: @start-input-binary-icon;
 			height: @border-width-base * 2;

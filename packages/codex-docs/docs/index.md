@@ -91,7 +91,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 	&__hero {
 		background-color: @background-color-progressive;
 		color: @color-inverted;
-		width: calc( 100% + ( @cdx-docs-spacing-layout * 2 ) );
+		width: calc( @size-full + ( @cdx-docs-spacing-layout * 2 ) );
 		margin-right: -@cdx-docs-spacing-layout;
 		margin-bottom: @cdx-docs-spacing-layout;
 		margin-left: -@cdx-docs-spacing-layout;
@@ -141,7 +141,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 		/* stylelint-disable-next-line no-descending-specificity */
 		.cdx-card {
-			width: calc( 50% - 8px );
+			width: calc( @size-half - 8px );
 
 			&:hover {
 				text-decoration: @text-decoration-none;

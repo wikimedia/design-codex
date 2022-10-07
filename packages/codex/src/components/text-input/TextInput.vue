@@ -257,14 +257,14 @@ export default defineComponent( {
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
-// TODO: Revisit with decision about Design System's take on end icon sizes, see T306135.
-@size-input-end-icon: @size-100;
 // When there are two end icons, (i.e. a clear icon and an end icon), we need to double the
 // horizontal padding and account for the size of the extra icon.
 // This token can be used to calculate the horizontal position of the clear icon and the
 // padding-end of the text input.
+// TODO: Revisit using `@size-100` with decision about Design System's take on end icon sizes,
+// see T306135.
 @padding-horizontal-input-text-two-end-icons:
-	( @padding-horizontal-input-text * 2 ) + @size-input-end-icon;
+	( @padding-horizontal-input-text * 2 ) + @size-100;
 
 .cdx-text-input {
 	// For proper positioning of icons and slotted elements.
@@ -281,7 +281,7 @@ export default defineComponent( {
 	&__end-icon {
 		.cdx-mixin-icon(
 			end,
-			@size-input-end-icon,
+			@size-100,
 			@padding-horizontal-input-text + @border-width-base
 		);
 	}
@@ -289,7 +289,7 @@ export default defineComponent( {
 	&__clear-icon {
 		.cdx-mixin-icon(
 			end,
-			@size-input-end-icon,
+			@size-100,
 			@padding-horizontal-input-text + @border-width-base
 		);
 
@@ -302,7 +302,7 @@ export default defineComponent( {
 		.cdx-text-input__end-icon + & {
 			.cdx-mixin-icon(
 				end,
-				@size-input-end-icon,
+				@size-100,
 				@padding-horizontal-input-text-two-end-icons + @border-width-base
 			);
 		}
@@ -414,7 +414,7 @@ export default defineComponent( {
 		.cdx-mixin-icon-wrapper-padding(
 			end,
 			@padding-horizontal-input-text,
-			@size-input-end-icon
+			@size-100
 		);
 	}
 }
@@ -425,7 +425,7 @@ export default defineComponent( {
 		.cdx-mixin-icon-wrapper-padding(
 			end,
 			@padding-horizontal-input-text-two-end-icons,
-			@size-input-end-icon
+			@size-100
 		);
 	}
 }

@@ -289,7 +289,6 @@ export default defineComponent( {
 @import './../../themes/mixins/element-with-menu-expanded.less';
 
 @min-width-combobox: 280px;
-@min-width-combobox-expand-button: 36px;
 
 .cdx-combobox {
 	display: inline-block;
@@ -313,7 +312,6 @@ export default defineComponent( {
 
 	&__expand-button {
 		position: relative;
-		min-width: @min-width-combobox-expand-button;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}

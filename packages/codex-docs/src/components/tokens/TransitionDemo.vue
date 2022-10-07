@@ -56,8 +56,8 @@ export default defineComponent( {
 	background-color: @background-color-base;
 	color: @color-progressive;
 	position: relative;
-	width: 100px;
-	height: 50px;
+	width: @size-full;
+	height: @size-300;
 	border: @border-width-base @border-style-base @border-color-base;
 	padding: @padding-base;
 	transition-property: border-color, box-shadow, background-color, color, padding;
@@ -71,10 +71,6 @@ export default defineComponent( {
 		transform: translate( @padding-horizontal-base, -50% );
 		transition-property: margin-left, transform;
 		transition-duration: @transition-duration-medium;
-	}
-
-	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-		width: 300px;
 	}
 
 	&--transition-all:hover,

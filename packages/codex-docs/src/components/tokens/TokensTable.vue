@@ -163,7 +163,7 @@ export default defineComponent( {
 			position: relative;
 
 			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				min-width: 200px;
+				min-width: @size-1600;
 			}
 
 			.cdx-docs-copy-text-button {
