@@ -77,8 +77,8 @@ the header row will update to match.
 
 	:deep( h2 ) {
 		margin: 0 0 24px;
-		border-top: none;
-		border-bottom: solid 1px #c8ccd1;
+		border-top: 0;
+		border-bottom: 1px solid #c8ccd1;
 		padding-bottom: 4px;
 	}
 

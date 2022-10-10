@@ -273,6 +273,7 @@ the markup. The example below demonstrates a search result in a Greek interface 
 }
 
 // Disable manual hover/select/etc. for the configurable demo
+/* stylelint-disable-next-line selector-max-id */
 #cdx-demo-menu-item-configurable {
 	pointer-events: none;
 }

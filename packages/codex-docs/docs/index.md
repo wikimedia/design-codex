@@ -77,6 +77,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 @cdx-docs-spacing-layout: 32px;
 
+/* stylelint-disable selector-class-pattern */
 .cdx-docs-home {
 	.cdx-card {
 		color: @color-base;
@@ -89,11 +90,11 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 	&__hero {
 		background-color: @background-color-progressive;
-		margin-right: -( @cdx-docs-spacing-layout );
-		margin-left: -( @cdx-docs-spacing-layout );
-		margin-bottom: @cdx-docs-spacing-layout;
-		width: calc( 100% + ( @cdx-docs-spacing-layout * 2 ) );
 		color: @color-inverted;
+		width: calc( 100% + ( @cdx-docs-spacing-layout * 2 ) );
+		margin-right: -@cdx-docs-spacing-layout;
+		margin-bottom: @cdx-docs-spacing-layout;
+		margin-left: -@cdx-docs-spacing-layout;
 		padding: @cdx-docs-spacing-layout;
 
 		&__icon {
@@ -133,10 +134,12 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 	&__resources {
 		display: flex;
 		flex-wrap: wrap;
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		column-gap: 8px;
 		row-gap: 8px;
 		margin-top: @cdx-docs-spacing-layout;
 
+		/* stylelint-disable-next-line no-descending-specificity */
 		.cdx-card {
 			width: calc( 50% - 8px );
 
@@ -146,4 +149,5 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		}
 	}
 }
+/* stylelint-enable selector-class-pattern */
 </style>

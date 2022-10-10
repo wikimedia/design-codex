@@ -74,22 +74,24 @@ vertically.
 </cdx-demo-wrapper>
 
 <style lang="less" scoped>
+/* stylelint-disable selector-class-pattern */
 :deep( .cdx-demo-wrapper__demo-pane .cdx-dialog h2 ) {
-    font-family: unset;
-    font-weight: unset;
-    font-size: unset;
-    line-height: unset;
-    border: unset;
-    margin: unset;
-    padding: unset;
-    letter-spacing: initial;
+	margin: unset;
+	border: unset;
+	padding: unset;
+	font-family: unset;
+	font-size: unset;
+	font-weight: unset;
+	letter-spacing: initial;
+	line-height: unset;
 }
 
 :deep( .cdx-demo-wrapper__demo-pane .cdx-dialog p:first-child ) {
-    margin-top: unset;
+	margin-top: unset;
 }
 
 :deep( .cdx-demo-wrapper__demo-pane .cdx-dialog p:last-child ) {
-    margin-bottom: unset;
+	margin-bottom: unset;
 }
+/* stylelint-enable selector-class-pattern */
 </style>

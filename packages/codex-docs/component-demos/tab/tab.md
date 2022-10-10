@@ -56,8 +56,8 @@ props, as well as slot content.
 		list-style: none;
 	}
 
-    :deep( li + li ) {
-        margin-top: 0;
-    }
+	:deep( li + li ) {
+		margin-top: 0;
+	}
 }
 </style>

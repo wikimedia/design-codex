@@ -695,7 +695,7 @@ export default defineComponent( {
 
 			&--enabled {
 				// Single Framed Tab.
-				// stylelint-disable max-nesting-depth
+				/* stylelint-disable max-nesting-depth */
 				[ role='tab' ] {
 					// Clip link background color to border radius.
 					overflow: hidden;
@@ -720,7 +720,7 @@ export default defineComponent( {
 				&.cdx-tabs__list__item--selected [ role='tab' ]:hover {
 					background-color: @background-color-base;
 				}
-				// stylelint-enable max-nesting-depth
+				/* stylelint-enable max-nesting-depth */
 			}
 
 			&--disabled [ role='tab' ] {

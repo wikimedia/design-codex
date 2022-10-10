@@ -152,6 +152,7 @@ To disable the input, add the `disabled` attribute.
 </cdx-demo-wrapper>
 
 <style lang="less" scoped>
+/* stylelint-disable-next-line selector-class-pattern */
 :deep( .cdx-demo-wrapper__demo-pane .cdx-text-input ) {
 	max-width: 400px;
 	margin-bottom: 16px;
