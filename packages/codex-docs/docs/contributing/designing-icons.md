@@ -33,7 +33,7 @@ Include the following information in the design exploration file:
 
 - **Cover:** contains a title, description, Phabricator task link and the task owner.
 - **Inventory** *(if needed)* to collect and analyze the real use cases of the icon collected during the research phase
-- **Versioning**: Create a new Figma page for every new version of the icon. Indicate the version (e.g. “v1”) and date (e.g. “2022-07-17”) and an icon to indicate if the version is final (✅), archived (📁) or WIP (🛠).
+- **Versioning**: Create a new Figma page for every new version of the icon. Indicate the version (e.g. “v1”) and date (e.g. “2022-07-17”) and an icon to indicate if the version is final (✅), archived (📁) or work-in-progress (WIP 🛠).
 
 
 ### 2.3. Design the icon following Wikimedia’s guidelines

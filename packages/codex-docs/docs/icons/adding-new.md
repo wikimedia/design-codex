@@ -129,7 +129,7 @@ export const cdxIconListNumbered: IconVariedByDir = {
 Some icons look different in different languages, especially those based on letters. In many cases,
 several languages share the same version of the icon. For example, the `bold` icon looks
 like <cdx-icon :icon="cdxIconBold" lang="en" /> in Czech, English, Hebrew, Malayalam, Polish and
-Scottish, but like <cdx-icon :icon="cdxIconBold" lang="ru" /> in Kirghiz, Russian and Ukranian, etc.
+Scottish, but like <cdx-icon :icon="cdxIconBold" lang="ru" /> in Kirghiz, Russian and Ukrainian, etc.
 
 For these icons, use a separate SVG file for each version of the icon, each with a suffix that
 describes the variant of the icon. For example, `bold-b.svg`, `bold-f.svg`, `bold-cyrl-zhe.svg`,
