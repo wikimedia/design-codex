@@ -1,72 +1,20 @@
 const { defineConfig } = require( 'vite' );
-const vue = require( '@vitejs/plugin-vue' ).default;
-const rtlcss = require( 'rtlcss' );
-const postcssRtlcss = require( 'postcss-rtlcss' );
-const postcssBaseConfig = require( './postcss-base.config' );
-const copyFiles = require( './vite-plugin-copy-files' );
 const path = require( 'path' );
+const copyFiles = require( './vite-plugin-copy-files' );
+const codexBaseConfig = require( './vite-base.config' );
 
-// https://vitejs.dev/config/
-// Take an extra libName parameter so it can be customized in packages/codex-search/vite.config.ts
-module.exports = defineConfig( ( { command, mode }, libName = 'codex' ) => {
-	// In library mode, we run the build twice: first with --mode=rtl, then without.
-	// The --mode=rtl build builds the RTL version of the stylesheet, flipped using rtlcss,
-	// and puts it at codex.style-rtl.css
-	const isRtlBuild = command === 'build' && mode === 'rtl';
+module.exports = defineConfig( ( env ) => {
+	const baseConfig = codexBaseConfig( env, {
+		// For --mode=sandbox, only build the sandbox. Disable the library build, and force
+		// postcss-rtlcss (bidirectional CSS) to be used
+		libName: env.mode === 'sandbox' ? null : 'codex',
+		forceBidiCss: env.mode === 'sandbox'
+	} );
 
-	const postcssConfig = postcssBaseConfig;
-	if ( isRtlBuild ) {
-		// Add rtlcss to the beginning of the plugins list, before autoprefixer,
-		// otherwise things break
-		postcssConfig.plugins.unshift( rtlcss( /** @type {rtlcss.ConfigOptions} */ ( {
-			useCalc: true
-		} ) ) );
-	} else if ( command === 'serve' || mode === 'sandbox' ) {
-		// For the sandbox (in dev mode or in build mode), use postcss-rtlcss instead, so that the
-		// direction switcher works. Add it to the beginning of the plugins list, before
-		// autoprefixer, otherwise things break.
-		postcssConfig.plugins.unshift( postcssRtlcss( {
-			useCalc: true,
-			processKeyFrames: true,
-			safeBothPrefix: true
-		} ) );
-	}
-
-	// Common config shared between the library build and the sandbox build
-	/** @type {Partial<import('vite').UserConfig>} */
-	const commonConfig = {
-		server: {
-			// Listen on all IP addresses, in case Vite is run inside a VM
-			host: '0.0.0.0'
-		},
-		build: {
-			// The es2015 build target doesn't
-			// - include Edge 18, but we do support it in our Modern support browser group and it
-			//   enables output of design-first `rgba()` over RGBA hexadecimal color notation.
-			// - include Safari 11-14, but we do support those
-			//   browsers. Including them here is important, because otherwise esbuild's CSS
-			//   minifier will output CSS that uses the 'inset:' property, which isn't supported in
-			//   Safari 14 and below.
-			target: [ 'es2015', 'edge18', 'safari11' ],
-			minify: true
-
-		},
-		css: {
-			postcss: postcssConfig
-		},
-		plugins: [
-			vue(),
-			copyFiles( {
-				srcDir: path.resolve( 'src', 'themes', 'mixins', 'public' ),
-				destDir: path.resolve( 'dist', 'mixins' )
-			} )
-		]
-	};
-
-	if ( mode === 'sandbox' ) {
+	if ( env.mode === 'sandbox' ) {
 		// Don't build the library, only build the sandbox (index.html)
 		return {
-			...commonConfig,
+			...baseConfig,
 
 			// Allow the sandbox to be published underneath the documentation website,
 			// under /sandbox. See also the Vitepress config in the codex-docs package
@@ -74,40 +22,23 @@ module.exports = defineConfig( ( { command, mode }, libName = 'codex' ) => {
 			base: `${process.env.CODEX_DOC_ROOT || ''}/sandbox/`,
 
 			build: {
-				...commonConfig.build,
+				...baseConfig.build,
 				outDir: 'dist/sandbox'
 			}
 		};
 	}
 
-	// Regular library build
+	// Otherwise, build the library
 	return {
-		...commonConfig,
+		...baseConfig,
+		plugins: [
+			...( baseConfig.plugins || [] ),
 
-		build: {
-			...commonConfig.build,
-
-			// Since we run Vite twice, don't empty the dist directory in between runs
-			// We do this in the build command in package.json instead.
-			emptyOutDir: false,
-
-			lib: {
-				name: libName,
-				entry: 'src/lib.ts',
-				formats: [ 'es', 'umd' ]
-			},
-
-			rollupOptions: {
-				output: {
-					entryFileNames: `${libName}.[format].js`,
-					assetFileNames: isRtlBuild ? `${libName}.[name]-rtl.[ext]` : `${libName}.[name].[ext]`,
-					globals: {
-						vue: 'Vue'
-					}
-				},
-
-				external: [ 'vue' ]
-			}
-		}
+			// Copy the Less mixins from the public directory to dist/mixins/
+			copyFiles( {
+				srcDir: path.resolve( 'src', 'themes', 'mixins', 'public' ),
+				destDir: path.resolve( 'dist', 'mixins' )
+			} )
+		]
 	};
 } );
