@@ -91,9 +91,15 @@ function createCustomStyleFormatter( format ) {
 
 		const formatter = createPropertyFormatter( { outputReferences, dictionary, format } );
 
+		// Filter out theme tokens
+		// HACK this should ideally be done through Style Dictionary's filter feature,
+		// but doing that causes it to throw warnings when the deprecation comment formatter
+		// attempts to access filtered-out theme tokens
+		const filteredTokens = allTokens.filter( ( token ) => getTokenType( token ).type !== 'theme' );
+
 		// Separate deprecated and non-deprecated tokens
-		const deprecatedTokens = allTokens.filter( ( token ) => token.deprecated );
-		const nonDeprecatedTokens = allTokens.filter( ( token ) => !token.deprecated );
+		const deprecatedTokens = filteredTokens.filter( ( token ) => token.deprecated );
+		const nonDeprecatedTokens = filteredTokens.filter( ( token ) => !token.deprecated );
 
 		/**
 		 * @param {string} text
@@ -128,9 +134,8 @@ function createCustomStyleFormatter( format ) {
 			const useInstead = referencedTokens.length === 1 &&
 					// Check that the token only contains a reference and nothing else.
 					token.original.value.match( /^\s*{[^{}]+}\s*$/ ) &&
-					// If the referenced token is a theme token, or is itself deprecated,
+					// If the referenced token is not going to be output, or is itself deprecated,
 					// don't add a "use instead" comment
-					getTokenType( referencedTokens[ 0 ] ).type !== 'theme' &&
 					nonDeprecatedTokens.includes( referencedTokens[ 0 ] ) ?
 				`, use ${referencedTokens[ 0 ].name} instead.` : '';
 
