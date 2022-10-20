@@ -1,9 +1,8 @@
-const { defineConfig } = require( 'vite' );
-const path = require( 'path' );
-const rawSvg = require( './vite-plugin-raw-svg' );
-const typescript = require( '@rollup/plugin-typescript' );
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
+import rawSvg from './vite-plugin-raw-svg';
+import typescript from '@rollup/plugin-typescript';
 
-// https://vitejs.dev/config/
 module.exports = defineConfig( {
 	build: {
 		target: 'es2015',
@@ -12,7 +11,7 @@ module.exports = defineConfig( {
 
 		lib: {
 			name: 'codex-icons',
-			entry: path.resolve( __dirname, 'src/index.ts' ),
+			entry: resolve( __dirname, 'src/index.ts' ),
 			formats: [ 'es', 'umd' ]
 		},
 

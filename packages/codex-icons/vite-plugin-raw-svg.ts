@@ -1,20 +1,31 @@
-const { promises } = require( 'fs' );
-const { parse } = require( 'path' );
-const { createFilter } = require( '@rollup/pluginutils' );
-const { optimize } = require( 'svgo' );
-const removeSvgTag = require( './svgo-plugin-removeSvgTag' );
+import { Plugin } from 'vite';
+import { promises } from 'fs';
+import { parse } from 'path';
+import { createFilter, FilterPattern } from '@rollup/pluginutils';
+import { optimize } from 'svgo';
+import removeSvgTag from './svgo-plugin-removeSvgTag';
 
-/** @typedef {import('@rollup/pluginutils').FilterPattern} FilterPattern */
-/** @typedef {{ include?: FilterPattern, exclude?: FilterPattern }} RawSvgOptions */
+interface RawSvgOptions {
+	include?: FilterPattern,
+	exclude?: FilterPattern
+}
 
 /**
+ * Vite plugin that transforms and inlines imported SVG files.
  *
- * @param {RawSvgOptions} options
- * @return {import('vite').Plugin}
+ * This allows TypeScript code to do `import foo from './foo.svg'`, and have `foo` be a string
+ * containing the contents of that SVG file. The SVG file is processed by SVGO using the default
+ * preset. Additionally, all IDs in the SVG file are prefixed with `cdx-icon-foo-` (where `foo`
+ * is the name of the file without the extension), and the outer <svg> tag is removed.
+ *
+ * @param options
+ * @param options.include
+ * @param options.exclude
+ * @return Vite plugin
  */
-module.exports = function rawSvg( options = {
+export default ( options: RawSvgOptions = {
 	include: '**/*.svg'
-} ) {
+} ): Plugin => {
 	const filter = createFilter( options.include, options.exclude );
 	return {
 		name: 'raw-svg',

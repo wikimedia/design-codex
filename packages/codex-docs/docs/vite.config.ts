@@ -1,7 +1,6 @@
-const { defineConfig } = require( 'vite' );
-const path = require( 'path' );
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig( {
 	server: {
 		/**
@@ -20,12 +19,12 @@ export default defineConfig( {
 		alias: {
 			// Alias @ to the docs directory, so that import statements and <<< file inclusions
 			// in the Markdown files in this directory can use the same paths
-			'@': path.resolve( __dirname, './../docs' ),
+			'@': resolve( __dirname, './../docs' ),
 			// Alias @wikimedia/codex to the entry point file, so that import statements in
 			// component demos look realistic, but hot reloading still works.
 			// We use lib-wip.ts rather than lib.ts, so that components under development
 			// can have demos too.
-			'@wikimedia/codex': path.resolve( __dirname, '../../codex/src/lib-wip.ts' )
+			'@wikimedia/codex': resolve( __dirname, '../../codex/src/lib-wip.ts' )
 		}
 	}
 

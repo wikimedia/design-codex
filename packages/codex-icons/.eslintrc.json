@@ -20,6 +20,13 @@
 			]
 		},
 		{
+			"files": [ "**/*.ts" ],
+			"rules": {
+				"jsdoc/require-param-type": "off",
+				"jsdoc/require-returns-type": "off"
+			}
+		},
+		{
 			"files": [ "**/*.js" ],
 			"excludedFiles": "src/**",
 			"rules": {
