@@ -92,6 +92,17 @@ function createCustomStyleFormatter( format ) {
 
 		const formatter = createPropertyFormatter( { outputReferences, dictionary, format } );
 
+		// Separate deprecated and non-deprecated tokens
+		const deprecatedTokens = allTokens.filter( ( token ) => token.deprecated );
+		const nonDeprecatedTokens = allTokens.filter( ( token ) => !token.deprecated );
+
+		const makeComment = ( text ) => commentStyle === 'short' ?
+			`// ${text}\n` :
+			`/* ${text} */\n`;
+
+		const deprecatedSectionHeader = deprecatedTokens.length > 0 ?
+			'\n\n' + makeComment( 'DEPRECATED TOKENS' ) : '';
+
 		/**
 		 * Add deprecation comments above deprecated tokens.
 		 *
@@ -114,20 +125,25 @@ function createCustomStyleFormatter( format ) {
 			const useInstead = referencedTokens.length === 1 &&
 					// Check that the token only contains a reference and nothing else.
 					token.original.value.match( /^\s*{[^{}]+}\s*$/ ) &&
-					// If the referenced token is a theme token, don't add a "use instead" comment
-					getTokenType( referencedTokens[ 0 ] ).type !== 'theme' ?
+					// If the referenced token is a theme token, or is itself deprecated,
+					// don't add a "use instead" comment
+					getTokenType( referencedTokens[ 0 ] ).type !== 'theme' &&
+					nonDeprecatedTokens.includes( referencedTokens[ 0 ] ) ?
 				`, use ${referencedTokens[ 0 ].name} instead.` : '';
 
 			const fullComment = 'Warning: the following token name is deprecated' +
 				useInstead + deprecatedComment;
-			return commentStyle === 'short' ?
-				`// ${fullComment}\n` :
-				`/* ${fullComment} */\n`;
+			return makeComment( fullComment );
 		};
 
 		return header +
 			preamble +
-			allTokens
+			nonDeprecatedTokens
+				.map( ( token ) => formatter( token ) )
+				.filter( Boolean )
+				.join( '\n' ) +
+			deprecatedSectionHeader +
+			deprecatedTokens
 				.map( ( token ) => deprecationCommentFormatter( token ) + formatter( token ) )
 				.filter( Boolean )
 				.join( '\n' ) +
