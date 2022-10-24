@@ -782,7 +782,15 @@
 		}
 	},
 	"line-height": {
-		"extra-small": {
+		"xxx-small": {
+			"comment": "`x` stands for extra. In this case extra-extra-extra small.",
+			"value": "{ line-height.60 }"
+		},
+		"xx-small": {
+			"value": "{ line-height.70 }"
+		},
+		"x-small": {
+			"deprecated": "Legacy line-height. Use `line-height-small` instead.",
 			"value": "{ line-height.80 }"
 		},
 		"small": {
@@ -790,6 +798,14 @@
 		},
 		"medium": {
 			"value": "{ line-height.100 }"
+		},
+		"base": {
+			"deprecated": "Legacy `line-height` for use in non-Codex products. Use `line-height-medium` instead.",
+			"value": "{ line-height.100 }"
+		},
+		"heading": {
+			"deprecated": "Legacy `line-height` for headings in non-Codex products. Use `line-height-xx-small` instead.",
+			"value": "{ line-height.65 }"
 		}
 	},
 	"text-decoration": {
