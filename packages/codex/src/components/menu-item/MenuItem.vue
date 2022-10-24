@@ -401,7 +401,7 @@ export default defineComponent( {
 		}
 
 		.cdx-menu-item__text__description {
-			.text-overflow( @visible: false );
+			.text-overflow( @param-visible: false );
 		}
 	}
 

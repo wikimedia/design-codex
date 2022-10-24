@@ -141,6 +141,10 @@ Stylesheet specific token application rules:
   - The stylelint `no-descending-specificity` rule can be disabled to maintain this structure (see
     sample code below).
 
+**Less mixin parameters**
+- In order to distinguish clearer from CSS variables and Codex tokens, Less mixin function
+  parameters should be prefixed with `param` (e.g. `@param-size`).
+
 **Linting**
 - Codex uses [stylelint-order](https://github.com/hudochenkov/stylelint-order/) to order CSS/Less
   rules

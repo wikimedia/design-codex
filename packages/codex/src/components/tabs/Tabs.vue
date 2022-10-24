@@ -645,7 +645,7 @@ export default defineComponent( {
 				font-weight: @font-weight-bold;
 				line-height: @line-height-x-small;
 				text-decoration: @text-decoration-none;
-				.text-overflow( @visible: false );
+				.text-overflow( @param-visible: false );
 				transition-property: @transition-property-base;
 				transition-duration: @transition-duration-base;
 
