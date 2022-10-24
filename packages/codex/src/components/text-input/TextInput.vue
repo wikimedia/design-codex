@@ -256,7 +256,6 @@ export default defineComponent( {
 // TODO: these should be design tokens.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
-@line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 // When there are two end icons, (i.e. a clear icon and an end icon), we need to double the
 // horizontal padding and account for the size of the extra icon.
 // This token can be used to calculate the horizontal position of the clear icon and the
@@ -321,7 +320,7 @@ export default defineComponent( {
 	padding: @spacing-25 @spacing-50;
 	font-family: inherit;
 	font-size: inherit;
-	line-height: @line-height-component;
+	line-height: @line-height-x-small;
 
 	&:enabled {
 		background-color: @background-color-base;

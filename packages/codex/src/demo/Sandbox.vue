@@ -193,7 +193,7 @@ html {
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
-				line-height: @line-height-100;
+				line-height: @line-height-medium;
 			}
 		}
 	}

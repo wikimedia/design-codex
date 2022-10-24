@@ -135,10 +135,6 @@ export default defineComponent( {
 @font-size-base: 14 / @font-size-browser;
 @font-size-card-supporting-text: unit( ( 14 / @font-size-browser ), em );
 
-// TODO: this is the same for menu item; combine tokens?
-@line-height-card: ( 22 / @font-size-browser );
-@line-height-card-title: ( 20 / @font-size-browser );
-
 @size-icon-relative: unit( ( @size-icon / @font-size-browser / @font-size-base ), em );
 
 @margin-end-card-media: 12px;
@@ -183,13 +179,13 @@ export default defineComponent( {
 	&__text {
 		display: flex;
 		flex-direction: column;
-		line-height: @line-height-card;
+		line-height: @line-height-small;
 		.hyphens();
 
 		&__title {
 			color: @color-base;
 			font-weight: @font-weight-bold;
-			line-height: @line-height-card-title;
+			line-height: @line-height-x-small;
 		}
 
 		&__description,

@@ -272,7 +272,6 @@ export default defineComponent( {
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @min-width-select: 280px;
-@line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 
 .cdx-select {
 	display: inline-block;
@@ -291,7 +290,7 @@ export default defineComponent( {
 		padding-bottom: @spacing-25;
 		padding-left: @spacing-75;
 		.cdx-mixin-icon-wrapper-padding( end, @spacing-50 );
-		line-height: @line-height-component;
+		line-height: @line-height-x-small;
 	}
 
 	&--has-start-icon .cdx-select__handle {

@@ -544,7 +544,6 @@ export default defineComponent( {
 @width-tabs-header-gradient: 24px;
 @background-color-tabs-framed-tab--hover: rgba( 255, 255, 255, 0.3 );
 @background-color-tabs-framed-tab--active: rgba( 255, 255, 255, 0.8 );
-@line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
 
 .cdx-tabs {
 	// Tabs header common styles.
@@ -644,7 +643,7 @@ export default defineComponent( {
 				border-top-right-radius: @border-radius-base;
 				padding: @spacing-25 @spacing-75;
 				font-weight: @font-weight-bold;
-				line-height: @line-height-component;
+				line-height: @line-height-x-small;
 				text-decoration: @text-decoration-none;
 				.text-overflow( @visible: false );
 				transition-property: @transition-property-base;

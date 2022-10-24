@@ -448,7 +448,7 @@ export default defineComponent( {
 		& &__title {
 			flex-grow: 1;
 			font-size: 1em;
-			line-height: 1.25;
+			line-height: @line-height-xxx-small;
 		}
 
 		&__close-button {

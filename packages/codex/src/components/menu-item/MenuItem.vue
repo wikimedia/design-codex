@@ -340,22 +340,20 @@ export default defineComponent( {
 // TODO: Tokenize.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
-// Line heights are best-practice unit-less.
-@line-height-menu-item: ( 22 / @font-size-browser );
 @size-icon-relative: unit( ( @size-icon / @font-size-browser / @font-size-base ), em );
 
 .cdx-menu-item {
 	list-style: none;
 	position: relative;
 	padding: @spacing-50 @spacing-75;
-	line-height: @line-height-100;
+	line-height: @line-height-medium;
 	transition-property: @transition-property-base;
 	transition-duration: @transition-duration-base;
 
 	&__content {
 		display: flex;
 		align-items: center;
-		line-height: @line-height-menu-item;
+		line-height: @line-height-small;
 		.hyphens();
 
 		&,
