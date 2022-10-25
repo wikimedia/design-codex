@@ -549,7 +549,6 @@ export default defineComponent( {
 @background-color-tabs-framed-tab--hover: rgba( 255, 255, 255, 0.3 );
 @background-color-tabs-framed-tab--active: rgba( 255, 255, 255, 0.8 );
 @line-height-component: unit( ( 20 / @font-size-browser / @font-size-base ), em );
-@text-decoration-none: none;
 
 .cdx-tabs {
 	// Tabs header common styles.
