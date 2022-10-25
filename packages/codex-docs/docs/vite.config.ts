@@ -16,16 +16,17 @@ export default defineConfig( {
 	},
 
 	resolve: {
-		alias: {
+		alias: [
 			// Alias @ to the docs directory, so that import statements and <<< file inclusions
 			// in the Markdown files in this directory can use the same paths
-			'@': resolve( __dirname, './../docs' ),
+			{ find: '@', replacement: resolve( __dirname, './../docs' ) },
 			// Alias @wikimedia/codex to the entry point file, so that import statements in
 			// component demos look realistic, but hot reloading still works.
 			// We use lib-wip.ts rather than lib.ts, so that components under development
-			// can have demos too.
-			'@wikimedia/codex': resolve( __dirname, '../../codex/src/lib-wip.ts' )
-		}
+			// can have demos too. Use a regex to target only the exact string '@wikimedia/codex',
+			// otherwise this breaks imports like '@wikimedia/codex/foo'
+			{ find: /^@wikimedia\/codex$/, replacement: resolve( __dirname, '../../codex/src/lib-wip.ts' ) }
+		]
 	}
 
 } );

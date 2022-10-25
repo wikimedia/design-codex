@@ -163,6 +163,7 @@ export default defineConfig( {
 						{ text: 'Combobox', link: '/components/demos/combobox' },
 						{ text: 'Dialog', link: '/components/demos/dialog' },
 						{ text: 'Icon', link: '/components/demos/icon' },
+						{ text: 'Link', link: '/components/mixins/link' },
 						{ text: 'Lookup', link: '/components/demos/lookup' },
 						{ text: 'Menu', link: '/components/demos/menu' },
 						{ text: 'MenuItem', link: '/components/demos/menu-item' },
