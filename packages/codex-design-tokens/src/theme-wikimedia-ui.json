@@ -59,8 +59,11 @@
 		"yellow100": {
 			"value": "#fef6e7"
 		},
-		"yellow600": {
+		"yellow500": {
 			"value": "#fc3"
+		},
+		"yellow600": {
+			"value": "#edab00"
 		},
 		"yellow700": {
 			"value": "#ac6600"
