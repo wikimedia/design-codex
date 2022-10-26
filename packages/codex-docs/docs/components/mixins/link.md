@@ -184,9 +184,11 @@ Alternately, you can apply sub-mixins directly to your own CSS selectors. The su
 
 ```vue
 <template>
-	<p>Lorem ipsum <a href="#">dolor sic</a> amet.</p>
-	<p>Lorem ipsum <a class="cdx-docs-link-with-underline" href="#">dolor sic</a> amet.</p>
-	<p>Lorem ipsum <a class="cdx-docs-red-link" href="#">dolor sic</a> amet.</p>
+	<div class="cdx-docs-link-wrapper">
+		<p>Lorem ipsum <a href="#">dolor sic</a> amet.</p>
+		<p>Lorem ipsum <a class="cdx-docs-link-with-underline" href="#">dolor sic</a> amet.</p>
+		<p>Lorem ipsum <a class="cdx-docs-red-link" href="#">dolor sic</a> amet.</p>
+	</div>
 </template>
 
 <style lang="less">
