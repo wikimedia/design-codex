@@ -8,8 +8,7 @@
 		<p>Lorem ipsum <a class="my-custom-link-class is-underlined" href="https://example.com">dolor sic</a> amet.</p>
 
 		<h3>Icon Link</h3>
-		<p>Lorem ipsum <a class="my-custom-link-class" href="https://example.com"><cdx-icon :icon="cdxIconLink" />dolor sic amet</a></p>
-		<p>Lorem ipsum <a class="my-custom-link-class is-underlined" href="https://example.com">dolor sic amet <cdx-icon :icon="cdxIconLinkExternal" /></a></p>
+		<p>Lorem ipsum <a class="my-custom-link-class is-underlined" href="https://example.com">dolor sic amet<cdx-icon :icon="cdxIconLinkExternal" /></a></p>
 
 		<h3>Red link</h3>
 		<p>Lorem ipsum <a class="my-custom-link-class is-red-link" href="https://example.com">dolor sic</a> amet.</p>
@@ -18,8 +17,7 @@
 		<p>Lorem ipsum <a class="my-custom-link-class is-red-link is-underlined" href="https://example.com">dolor sic</a> amet.</p>
 
 		<h3>Icon Red link</h3>
-		<p>Lorem ipsum <a class="my-custom-link-class is-red-link" href="https://example.com"><cdx-icon :icon="cdxIconLink" />dolor sic amet</a></p>
-		<p>Lorem ipsum <a class="my-custom-link-class is-red-link is-underlined" href="https://example.com">dolor sic amet <cdx-icon :icon="cdxIconLinkExternal" /></a></p>
+		<p>Lorem ipsum <a class="my-custom-link-class is-red-link is-underlined" href="https://example.com">dolor sic amet<cdx-icon :icon="cdxIconLinkExternal" /></a></p>
 
 		<h3>Links with custom CSS selectors</h3>
 		<div class="my-link-wrapper">
@@ -37,7 +35,7 @@
 
 <script lang="ts" setup>
 import { CdxIcon } from '../lib';
-import { cdxIconLink, cdxIconLinkExternal } from '@wikimedia/codex-icons';
+import { cdxIconLinkExternal } from '@wikimedia/codex-icons';
 </script>
 
 <style lang="less" scoped>

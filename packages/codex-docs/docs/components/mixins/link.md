@@ -73,16 +73,14 @@ not a Vue component. See below for [usage information](#usage).
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
-<p>Lorem ipsum <a class="cdx-docs-link" href="#"><cdx-icon :icon="cdxIconLink" /> dolor sic</a> amet.</p>
-<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic <cdx-icon :icon="cdxIconLinkExternal" /></a> amet.</p>
+<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic<cdx-icon :icon="cdxIconLinkExternal" /></a> amet.</p>
 </template>
 
 <template v-slot:code>
 
 ```vue
 <template>
-	<p>Lorem ipsum <a class="cdx-docs-link" href="#"><cdx-icon :icon="cdxIconLink" /> dolor sic</a> amet.</p>
-	<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic <cdx-icon :icon="cdxIconLinkExternal" /></a> amet.</p>
+	<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic<cdx-icon :icon="cdxIconLinkExternal" /></a> amet.</p>
 </template>
 
 <style lang="less">
