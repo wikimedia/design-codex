@@ -25,7 +25,9 @@ export default defineConfig( {
 			// We use lib-wip.ts rather than lib.ts, so that components under development
 			// can have demos too. Use a regex to target only the exact string '@wikimedia/codex',
 			// otherwise this breaks imports like '@wikimedia/codex/foo'
-			{ find: /^@wikimedia\/codex$/, replacement: resolve( __dirname, '../../codex/src/lib-wip.ts' ) }
+			{ find: /^@wikimedia\/codex$/, replacement: resolve( __dirname, '../../codex/src/lib-wip.ts' ) },
+			// Alias mixin imports to the source mixin files, so that hot module reloading works.
+			{ find: /^@wikimedia\/codex\/dist\/mixins\/(.*)$/, replacement: resolve( __dirname, '../../codex/src/themes/mixins/public/$1' ) }
 		]
 	}
 
