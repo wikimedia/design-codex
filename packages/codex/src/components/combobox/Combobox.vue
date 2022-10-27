@@ -193,6 +193,7 @@ export default defineComponent( {
 
 		const internalClasses = computed( () => {
 			return {
+				'cdx-combobox--expanded': expanded.value,
 				'cdx-combobox--disabled': props.disabled
 			};
 		} );
@@ -333,6 +334,12 @@ export default defineComponent( {
 
 	&__expand-icon {
 		.cdx-mixin-icon( center, @size-indicator );
+	}
+
+	&--expanded {
+		.cdx-combobox__expand-button {
+			border-bottom-right-radius: 0;
+		}
 	}
 
 	// Overrides when used within a Dialog component

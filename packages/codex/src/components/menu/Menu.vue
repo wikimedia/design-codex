@@ -753,7 +753,6 @@ export default defineComponent( {
 	z-index: 4;
 	box-sizing: @box-sizing-base;
 	width: @size-full;
-	margin-top: @position-offset-border-width-base;
 	border: @border-width-base @border-style-base @border-color-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
 	box-shadow: @box-shadow-drop-medium;
