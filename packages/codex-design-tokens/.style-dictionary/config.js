@@ -7,6 +7,7 @@ module.exports = {
 			transforms: [
 				'name/kebabCase'
 			],
+			basePxFontSize: 16,
 			buildPath: 'dist/',
 			files: [ {
 				destination: 'theme-wikimedia-ui.scss',
@@ -17,6 +18,7 @@ module.exports = {
 			transforms: [
 				'name/kebabCase'
 			],
+			basePxFontSize: 16,
 			buildPath: 'dist/',
 			files: [ {
 				destination: 'theme-wikimedia-ui.css',
@@ -27,6 +29,7 @@ module.exports = {
 			transforms: [
 				'name/kebabCase'
 			],
+			basePxFontSize: 16,
 			buildPath: 'dist/',
 			files: [ {
 				destination: 'theme-wikimedia-ui.less',
