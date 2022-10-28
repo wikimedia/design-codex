@@ -17,6 +17,7 @@
 	"collectCoverageFrom": [
 		"<rootDir>/src/**/*.(ts|vue)",
 		"!<rootDir>/src/**/*.(test|snap).ts",
+		"!<rootDir>/src/lib.ts",
 		"!<rootDir>/src/env.d.ts",
 		"!<rootDir>/src/types.ts"
 	],

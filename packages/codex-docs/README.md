@@ -53,3 +53,12 @@ for more info.
 VitePress uses Vite for building and serving the live Codex docs site. Configuration can be
 overridden via `docs/vite.config.ts`. For example, you can add
 [Vite plugins](https://vitejs.dev/plugins/) here.
+
+### Standalone Demos
+
+Vite is also used to build the component demos in a stand-alone mode, suitable for embedding them
+in a MediaWiki environment (useful for QA-ing Codex components in a more production-like setup).
+
+The Vite config used to build standalone demos lives in the workspace root: `vite.config.ts`.
+Running `npm build-demos` in this workspace will output bundled JS and CSS files in `/dist` that
+are suitable for importing into another project.

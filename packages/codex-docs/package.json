@@ -8,6 +8,7 @@
 	"scripts": {
 		"build": "npm run docgen:build && npm run vitepress:build",
 		"build-if-missing": "test -e docs/.vitepress/dist/index.html || npm run build",
+		"build-demos": "vite build",
 		"serve": "vitepress serve docs",
 		"dev": "concurrently \"npm run docgen:dev\" \"npm run vitepress:dev\"",
 		"vitepress:build": "vitepress build docs",
