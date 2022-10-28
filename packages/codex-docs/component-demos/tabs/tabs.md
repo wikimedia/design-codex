@@ -67,10 +67,6 @@ the header row will update to match.
 // Override Vitepress styles.
 // TODO: remove this once T296106 is complete.
 .cdx-demo-wrapper {
-	:deep( ul ) {
-		list-style: none;
-	}
-
 	:deep( li + li ) {
 		margin-top: 0;
 	}

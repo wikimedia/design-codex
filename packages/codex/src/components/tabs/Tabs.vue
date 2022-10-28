@@ -622,7 +622,6 @@ export default defineComponent( {
 
 	// Tabs list common styles.
 	&__list {
-		.list-unset();
 		display: flex;
 		overflow-x: auto;
 		scrollbar-width: none;
@@ -663,6 +662,14 @@ export default defineComponent( {
 				cursor: @cursor-base;
 			}
 		}
+	}
+
+	// Increase Tabs list specificity to override selectors like MediaWiki's `.content ul`.
+	// See T321873.
+	& &__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
 	}
 
 	& > &__header &__list__item + &__list__item {
