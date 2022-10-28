@@ -52,7 +52,7 @@
 	--padding-code: 2px 4px;
 }
 
-/* VitePress theme overrides. */
+/* VitePress theme overrides and unsets. */
 /* HTML elements. ---------------------------------------------------------- */
 
 html,
@@ -76,6 +76,9 @@ body {
 }
 
 .vp-doc a {
+	/* Use `initial` to reset VitePress' opinionated font weight to browser default. */
+	font-weight: initial;
+	text-decoration: var( --text-decoration-none );
 	transition-duration: 0s;
 }
 
