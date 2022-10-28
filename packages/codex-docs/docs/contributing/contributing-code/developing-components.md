@@ -145,7 +145,7 @@ Stylesheet specific token application rules:
 Below are some sample styles for a component to demonstrate these conventions:
 
 ```less
-<style>
+<style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
 .cdx-radio {
