@@ -241,7 +241,6 @@ export default defineComponent( {
 @offset-right-message-dismiss: unit( ( 16 / @font-size-browser / @font-size-base ), em);
 @offset-right-message-dismiss-mobile: unit( ( 8 / @font-size-browser / @font-size-base ), em);
 @margin-left-message-content: unit( ( 8 / @font-size-browser / @font-size-base ), em );
-@transition-property-message: @transition-property-opacity;
 
 .cdx-message {
 	color: @color-notice;
@@ -346,14 +345,14 @@ export default defineComponent( {
 	// Fade-in and auto-dismissal use the system transition timing function.
 	&-enter-active,
 	&-leave-active-system {
-		transition-property: @transition-property-message;
+		transition-property: @transition-property-fade;
 		transition-duration: @transition-duration-medium;
 		transition-timing-function: @transition-timing-function-system;
 	}
 
 	// User dismissal uses the human initiated transition timing function.
 	&-leave-active-user {
-		transition-property: @transition-property-message;
+		transition-property: @transition-property-fade;
 		transition-duration: @transition-duration-medium;
 		transition-timing-function: @transition-timing-function-user;
 	}
