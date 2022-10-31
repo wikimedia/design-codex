@@ -137,8 +137,6 @@ export default defineComponent( {
 
 @size-icon-relative: unit( ( @size-icon / @font-size-browser / @font-size-base ), em );
 
-@margin-end-card-media: 12px;
-
 .cdx-card {
 	background-color: @background-color-base;
 	display: flex;
@@ -207,7 +205,7 @@ export default defineComponent( {
 	}
 
 	&__thumbnail {
-		margin-right: @margin-end-card-media;
+		margin-right: @spacing-75;
 
 		.cdx-thumbnail__placeholder,
 		.cdx-thumbnail__image {
@@ -219,7 +217,7 @@ export default defineComponent( {
 	&__icon {
 		// Make sure the icon inherits the content element's color.
 		color: inherit;
-		margin-right: @margin-end-card-media;
+		margin-right: @spacing-75;
 
 		// Icons must scale with font size to maintain top alignment with the label text.
 		svg {

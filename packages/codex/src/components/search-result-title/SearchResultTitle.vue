@@ -52,12 +52,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-// TODO: Tokenize.
-@font-size-browser: 16;
-@font-size-base: 14 / @font-size-browser;
-@font-size-search-result-title: unit( ( 16 / @font-size-browser / @font-size-base ), em );
-@margin-bottom-search-result-title: 2px;
-
 .cdx-search-result-title {
 	display: inline-block;
 	font-weight: @font-weight-bold;

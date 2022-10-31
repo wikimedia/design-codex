@@ -700,8 +700,6 @@ export default defineComponent( {
 // Value of thumbnail as declared within the MenuItem component.
 @size-search-figure: @size-250;
 
-@transition-property-simple-search-submit: opacity;
-
 // The amount of space between the typeahead search figure's parent component and the
 // typeahead search figure (input icon container, search result thumbnail, and footer icon
 // container). We want this space to be uniform so that the figures vertically line up
