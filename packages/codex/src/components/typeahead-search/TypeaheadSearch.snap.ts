@@ -371,7 +371,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
 			-->
         
         <div
-          class="cdx-menu"
+          class="cdx-menu cdx-menu--has-footer"
           style="display: none;"
         >
           <ul
@@ -561,7 +561,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
 			-->
         
         <div
-          class="cdx-menu"
+          class="cdx-menu cdx-menu--has-footer"
           style="display: none;"
         >
           <ul

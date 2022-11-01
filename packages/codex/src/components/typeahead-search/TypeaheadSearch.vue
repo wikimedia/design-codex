@@ -743,8 +743,6 @@ export default defineComponent( {
 	}
 
 	&__search-footer {
-		border-top: @border-width-base @border-style-base @border-color-subtle;
-
 		&:visited {
 			color: @color-base;
 		}

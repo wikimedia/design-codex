@@ -670,6 +670,7 @@ export default defineComponent( {
 
 		const internalClasses = computed( () => {
 			return {
+				'cdx-menu--has-footer': !!props.footer,
 				'cdx-menu--has-sticky-footer': !!props.footer && !!maxMenuHeight.value
 			};
 		} );
@@ -769,6 +770,12 @@ export default defineComponent( {
 			position: absolute;
 			bottom: 0;
 			width: 100%;
+		}
+	}
+
+	&--has-footer {
+		.cdx-menu-item:last-of-type:not( :first-of-type ) {
+			border-top: @border-width-base @border-style-base @border-color-subtle;
 		}
 	}
 }
