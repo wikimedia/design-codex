@@ -1,6 +1,7 @@
 <script setup>
 import InputWithMenu from '@/../component-demos/menu/examples/InputWithMenu.vue';
 import InputWithMenuCustomItemDisplay from '@/../component-demos/menu/examples/InputWithMenuCustomItemDisplay.vue';
+import InputWithMenuFooter from '@/../component-demos/menu/examples/InputWithMenuFooter.vue';
 import InputWithMenuScroll from '@/../component-demos/menu/examples/InputWithMenuScroll.vue'
 import InputWithMenuNoResults from '@/../component-demos/menu/examples/InputWithMenuNoResults.vue'
 import InputWithMenuPending from '@/../component-demos/menu/examples/InputWithMenuPending.vue'
@@ -28,7 +29,7 @@ internally.
 </template>
 </cdx-demo-wrapper>
 
-### Menu with custom menu item display
+### With custom menu item display
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -41,7 +42,26 @@ internally.
 </template>
 </cdx-demo-wrapper>
 
-### Menu with scrolling enabled
+### With interactive footer item
+
+Use the `footer` prop to add a special menu item that will appear at the end of the menu. When
+scrolling is enabled, the footer item is pinned to the bottom of the menu (see the next demo). The
+footer item can be customized via the `default` slot, just like regular menu items.
+
+See the [TypeaheadSearch](./typeahead-search) demos for a real-world example.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<input-with-menu-footer />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/menu/examples/InputWithMenuFooter.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### With scrolling enabled
 
 In the Menu component, all menu items will be shown by default and the height of the menu will grow
 to accommodate the menu items. To limit the number of menu items shown at once and enable scrolling
@@ -50,9 +70,7 @@ within the menu, set the `visibleItemLimit` prop to a positive number.
 Although the default behavior in the Menu component is to show all menu items, some components that
 use the Menu component have a default `visibleItemLimit` prop set.
 
-You can also add a sticky footer to the bottom of the menu with the `footer` prop.
-This footer will only be shown if there is also at least one regular menu item.
-It can be customized in the `default` slot together with the regular menu items.
+This demo includes a footer item, which is "sticky" to the bottom of the menu. 
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -65,7 +83,7 @@ It can be customized in the `default` slot together with the regular menu items.
 </template>
 </cdx-demo-wrapper>
 
-### Menu with no results message
+### With no results message
 
 If the `no-results` slot is populated, the Menu component will automatically display it when there
 are zero menu items.

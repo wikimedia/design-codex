@@ -1,8 +1,8 @@
 <template>
-	<div class="cdx-docs-input-with-menu-scroll">
+	<div class="cdx-docs-input-with-menu-footer">
 		<cdx-text-input
 			v-model="selectedValue"
-			class="cdx-docs-input-with-menu-scroll__input"
+			class="cdx-docs-input-with-menu-footer__input"
 			:aria-expanded="expanded"
 			@click="onClick"
 			@blur="expanded = false"
@@ -14,20 +14,14 @@
 			v-model:expanded="expanded"
 			:menu-items="menuItems"
 			:footer="footer"
-			:visible-item-limit="itemLimit ? parseInt( `${itemLimit}` ) : null"
-		/>
-		<div class="cdx-docs-input-with-menu-scroll__items">
-			<label for="cdx-docs-input-with-menu-scroll__items-input">
-				Number of visible items in Menu (empty or 0 for show all):
-			</label>
-			<!-- TODO: replace with NumberInput once it exists. -->
-			<cdx-text-input
-				id="cdx-docs-input-with-menu-scroll__items-input"
-				v-model="itemLimit"
-				class="cdx-docs-input-with-menu-scroll__items__input"
-				type="number"
-			/>
-		</div>
+		>
+			<template #default="{ menuItem }">
+				<!-- Custom template just for the footer item. -->
+				<template v-if="menuItem.value === 'menu-footer'">
+					Footer item with value: {{ menuItem.value }}
+				</template>
+			</template>
+		</cdx-menu>
 	</div>
 </template>
 
@@ -36,34 +30,24 @@ import { defineComponent, ref } from 'vue';
 import { CdxMenu, CdxTextInput } from '@wikimedia/codex';
 
 export default defineComponent( {
-	name: 'InputWithMenuScroll',
+	name: 'InputWithMenuFooter',
 	components: {
 		CdxMenu,
 		CdxTextInput
 	},
 	setup() {
 		const menu = ref<InstanceType<typeof CdxMenu>>();
-		const selectedValue = ref( '' );
+		const selectedValue = ref<string|number>( '' );
 		const expanded = ref( false );
 		const menuItems = [
-			{ label: 'One', value: '1' },
-			{ label: 'Two', value: '2' },
-			{ label: 'Three', value: '3' },
-			{ label: 'Four', value: '4' },
-			{ label: 'Five', value: '5' },
-			{ label: 'Six', value: '6' },
-			{ label: 'Seven', value: '7' },
-			{ label: 'Eight', value: '8' },
-			{ label: 'Nine', value: '9' },
-			{ label: 'Ten', value: '10' },
-			{ label: 'Eleven', value: '11' },
-			{ label: 'Twelve', value: '12' }
+			{ label: 'One', value: 1 },
+			{ label: 'Two', value: 2, disabled: true },
+			{ label: 'Three', value: 3 },
+			{ label: 'Four', value: 4 }
 		];
-		const itemLimit = ref( '6' );
 
 		const footer = {
-			value: 'menu-footer',
-			label: 'Sticky footer item'
+			value: 'menu-footer'
 		};
 
 		function onKeydown( e: KeyboardEvent ) {
@@ -81,7 +65,6 @@ export default defineComponent( {
 			expanded,
 			menuItems,
 			footer,
-			itemLimit,
 			onKeydown,
 			onClick
 		};
@@ -92,7 +75,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
-.cdx-docs-input-with-menu-scroll {
+.cdx-docs-input-with-menu-footer {
 	// The Menu component is absolutely positioned, so we need `position: relative` here to
 	// position the menu relative to this div. This ensure the menu will align with the input.
 	position: relative;
@@ -100,19 +83,6 @@ export default defineComponent( {
 	&__input [ aria-expanded='true' ] {
 		border-bottom-left-radius: @border-radius-sharp;
 		border-bottom-right-radius: @border-radius-sharp;
-	}
-
-	&__items {
-		display: flex;
-		align-items: center;
-		flex-direction: row;
-		margin-top: @spacing-100;
-
-		&__input {
-			// TODO: Use relative width here.
-			width: @size-250;
-			margin-left: @spacing-50;
-		}
 	}
 }
 </style>

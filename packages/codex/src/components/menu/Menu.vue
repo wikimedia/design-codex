@@ -107,11 +107,14 @@ export default defineComponent( {
 			required: true
 		},
 		/**
-		 * Sticky footer.
+		 * Interactive footer item.
 		 *
-		 * This is a special menu item which is pinned to the bottom of the menu.
+		 * This is a special menu item which is pinned to the bottom of the menu. When scrolling is
+		 * enabled within the menu, the footer item will always be visible at the bottom of the
+		 * menu. When scrolling is not enabled, the footer item will simply appear as the last menu
+		 * item.
 		 *
-		 * It is only visible if regular menu items are available. It is selectable.
+		 * The footer item is selectable, like other menu items.
 		 */
 		footer: {
 			type: Object as PropType<MenuItemData>,
