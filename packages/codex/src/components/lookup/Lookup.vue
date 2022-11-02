@@ -16,6 +16,7 @@
 			:aria-expanded="expanded"
 			:aria-activedescendant="highlightedId"
 			:disabled="disabled"
+			:status="status"
 			@update:model-value="onUpdateInput"
 			@focus="onInputFocus"
 			@blur="onInputBlur"
@@ -65,8 +66,11 @@ import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useResizeObserver from '../../composables/useResizeObserver';
-import { MenuItemData, MenuConfig } from '../../types';
+import { MenuItemData, MenuConfig, ValidationStatusType } from '../../types';
+import { ValidationStatusTypes } from '../../constants';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
+const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 /**
  * Text input with a dropdown menu of items, which are usually based on the current input value.
  *
@@ -133,6 +137,16 @@ export default defineComponent( {
 			default: () => {
 				return {} as MenuConfig;
 			}
+		},
+		/**
+		 * `status` property of the TextInput component
+		 *
+		 * @values 'default', 'error'
+		 */
+		status: {
+			type: String as PropType<ValidationStatusType>,
+			default: 'default',
+			validator: statusValidator
 		}
 	},
 

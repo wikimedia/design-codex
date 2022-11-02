@@ -5,7 +5,7 @@ exports[`matches the snapshot Case 0 Input type: text : ({"inputType": "text"}) 
   class="cdx-text-input"
 >
   <input
-    class="cdx-text-input__input"
+    class="cdx-text-input__input cdx-text-input__input--status-default"
     type="text"
   />
   <!--v-if-->
@@ -19,7 +19,7 @@ exports[`matches the snapshot Case 1 Input type: search : ({"inputType": "search
   class="cdx-text-input"
 >
   <input
-    class="cdx-text-input__input"
+    class="cdx-text-input__input cdx-text-input__input--status-default"
     type="search"
   />
   <!--v-if-->
@@ -33,7 +33,7 @@ exports[`matches the snapshot Case 2 Disabled: ({"disabled": true}) => HTML 1`] 
   class="cdx-text-input"
 >
   <input
-    class="cdx-text-input__input"
+    class="cdx-text-input__input cdx-text-input__input--status-default"
     disabled=""
     type="text"
   />
@@ -48,7 +48,7 @@ exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path d=\\
   class="cdx-text-input cdx-text-input--has-start-icon"
 >
   <input
-    class="cdx-text-input__input"
+    class="cdx-text-input__input cdx-text-input__input--status-default"
     type="text"
   />
   <span
@@ -82,7 +82,7 @@ exports[`matches the snapshot Case 4 With end icon: ({"endIcon": [Object]}) => H
   class="cdx-text-input cdx-text-input--has-end-icon"
 >
   <input
-    class="cdx-text-input__input"
+    class="cdx-text-input__input cdx-text-input__input--status-default"
     type="text"
   />
   <!--v-if-->
@@ -116,7 +116,7 @@ exports[`matches the snapshot Case 5 Clearable, no input: ({"clearable": true}) 
   class="cdx-text-input"
 >
   <input
-    class="cdx-text-input__input"
+    class="cdx-text-input__input cdx-text-input__input--status-default"
     type="text"
   />
   <!--v-if-->
@@ -130,7 +130,7 @@ exports[`matches the snapshot Case 6 Clearable, with input: ({"clearable": true,
   class="cdx-text-input cdx-text-input--clearable"
 >
   <input
-    class="cdx-text-input__input cdx-text-input__input--has-value"
+    class="cdx-text-input__input cdx-text-input__input--has-value cdx-text-input__input--status-default"
     type="text"
   />
   <!--v-if-->
@@ -164,7 +164,7 @@ exports[`matches the snapshot Case 7 With end icon, clearable, no input: ({"clea
   class="cdx-text-input cdx-text-input--has-end-icon"
 >
   <input
-    class="cdx-text-input__input"
+    class="cdx-text-input__input cdx-text-input__input--status-default"
     type="text"
   />
   <!--v-if-->
@@ -198,7 +198,7 @@ exports[`matches the snapshot Case 8 With end icon, clearable, with input: ({"cl
   class="cdx-text-input cdx-text-input--has-end-icon cdx-text-input--clearable"
 >
   <input
-    class="cdx-text-input__input cdx-text-input__input--has-value"
+    class="cdx-text-input__input cdx-text-input__input--has-value cdx-text-input__input--status-default"
     type="text"
   />
   <!--v-if-->
@@ -252,7 +252,7 @@ exports[`matches the snapshot Case 9 With attributes: ({}) => HTML 1`] = `
   class="cdx-text-input"
 >
   <input
-    class="cdx-text-input__input"
+    class="cdx-text-input__input cdx-text-input__input--status-default"
     placeholder="Start typing..."
     size="30"
     type="text"

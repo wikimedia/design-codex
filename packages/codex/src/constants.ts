@@ -30,6 +30,11 @@ export const TextInputTypes = [
 	'search'
 ] as const;
 
+export const ValidationStatusTypes = [
+	'default',
+	'error'
+] as const;
+
 export const MenuStates = [
 	'selected',
 	'highlighted',

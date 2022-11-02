@@ -14,6 +14,7 @@
 				:aria-expanded="expanded"
 				:aria-owns="menuId"
 				:disabled="disabled"
+				:status="status"
 				aria-autocomplete="list"
 				autocomplete="off"
 				role="combobox"
@@ -88,7 +89,11 @@ import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useResizeObserver from '../../composables/useResizeObserver';
 
-import { MenuItemData, MenuConfig } from '../../types';
+import { MenuItemData, MenuConfig, ValidationStatusType } from '../../types';
+import { ValidationStatusTypes } from '../../constants';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+
+const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
  * Text input with an adjoining button and an expandable menu of items.
@@ -145,6 +150,16 @@ export default defineComponent( {
 			default: () => {
 				return {} as MenuConfig;
 			}
+		},
+		/**
+		 * `status` property of the TextInput component
+		 *
+		 * @values 'default', 'error'
+		 */
+		status: {
+			type: String as PropType<ValidationStatusType>,
+			default: 'default',
+			validator: statusValidator
 		}
 	},
 

@@ -42,13 +42,14 @@
 import { defineComponent, PropType, toRef, computed } from 'vue';
 import { Icon, cdxIconClear } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
-import { TextInputTypes } from '../../constants';
-import { TextInputType } from '../../types';
+import { TextInputTypes, ValidationStatusTypes } from '../../constants';
+import { TextInputType, ValidationStatusType } from '../../types';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 
 const textInputTypeValidator = makeStringTypeValidator( TextInputTypes );
+const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
  * HTML `<input>` element with type "text" or "search", wrapped in a `<div>`.
@@ -85,6 +86,16 @@ export default defineComponent( {
 			type: String as PropType<TextInputType>,
 			default: 'text',
 			validator: textInputTypeValidator
+		},
+		/**
+		 * `status` attribute of the input.
+		 *
+		 * @values 'default', 'error'
+		 */
+		status: {
+			type: String as PropType<ValidationStatusType>,
+			default: 'default',
+			validator: statusValidator
 		},
 		/**
 		 * Whether the input is disabled.
@@ -186,7 +197,8 @@ export default defineComponent( {
 
 		const inputClasses = computed( () => {
 			return {
-				'cdx-text-input__input--has-value': !!wrappedModel.value
+				'cdx-text-input__input--has-value': !!wrappedModel.value,
+				[ `cdx-text-input__input--status-${props.status}` ]: true
 			};
 		} );
 
@@ -334,6 +346,10 @@ export default defineComponent( {
 			color: @color-placeholder;
 		}
 
+		&:hover {
+			border-color: @border-color-input--hover;
+		}
+
 		&:focus,
 		&.cdx-text-input__input--has-value {
 			~ .cdx-text-input__icon {
@@ -341,14 +357,22 @@ export default defineComponent( {
 			}
 		}
 
-		&:hover {
-			border-color: @border-color-input--hover;
+		&:focus {
+			outline: @outline-base--focus;
 		}
 
-		&:focus {
+		&.cdx-text-input__input--status-default:focus {
 			border-color: @border-color-progressive--focus;
 			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
-			outline: @outline-base--focus;
+		}
+
+		&.cdx-text-input__input--status-error {
+			border-color: @border-color-destructive;
+
+			&:focus {
+				border-color: @border-color-destructive--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus;
+			}
 		}
 	}
 

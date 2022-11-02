@@ -11,7 +11,7 @@ exports[`matches the snapshot Case 0 Default: ({"modelValue": ""}) => HTML 1`] =
       class="cdx-text-input cdx-text-input--has-start-icon cdx-search-input__text-input"
     >
       <input
-        class="cdx-text-input__input"
+        class="cdx-text-input__input cdx-text-input__input--status-default"
         type="search"
       />
       <span
@@ -60,7 +60,7 @@ exports[`matches the snapshot Case 1 With submit button: ({"buttonLabel": "Searc
       class="cdx-text-input cdx-text-input--has-start-icon cdx-search-input__text-input"
     >
       <input
-        class="cdx-text-input__input"
+        class="cdx-text-input__input cdx-text-input__input--status-default"
         type="search"
       />
       <span
@@ -116,7 +116,7 @@ exports[`matches the snapshot Case 2 With attributes: ({"modelValue": ""}) => HT
       class="cdx-text-input cdx-text-input--has-start-icon cdx-search-input__text-input"
     >
       <input
-        class="cdx-text-input__input"
+        class="cdx-text-input__input cdx-text-input__input--status-default"
         disabled=""
         placeholder="Start typing..."
         type="search"

@@ -253,6 +253,15 @@ See [TextInputTypes](#textinputtypes).
 type TextInputType = typeof TextInputTypes[ number ];
 ```
 
+### ValidationStatusType
+
+See [ValidationStatusTypes](#validationstatustypes).
+
+```ts
+// Allowed values: 'default', 'error'
+type ValidationStatusType = typeof ValidationStatusTypes[ number ];
+```
+
 ### Thumbnail
 
 ```ts
@@ -314,6 +323,15 @@ const MessageTypes = [
 const TextInputTypes = [
 	'text',
 	'search'
+];
+```
+
+### ValidationStatusTypes
+
+```ts
+const ValidationStatusTypes = [
+	'default',
+	'error'
 ];
 ```
 

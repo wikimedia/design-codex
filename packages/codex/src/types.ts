@@ -11,6 +11,7 @@ import {
 	ButtonTypes,
 	MessageTypes,
 	TextInputTypes,
+	ValidationStatusTypes,
 	MenuStates
 } from './constants';
 
@@ -47,6 +48,9 @@ export type MessageIconMap = {
 
 /** @public */
 export type TextInputType = typeof TextInputTypes[ number ];
+
+/** @public */
+export type ValidationStatusType = typeof ValidationStatusTypes[ number ];
 
 /** @public */
 export interface Thumbnail {

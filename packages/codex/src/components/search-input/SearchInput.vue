@@ -11,6 +11,7 @@
 				class="cdx-search-input__text-input"
 				input-type="search"
 				:start-icon="searchIcon"
+				:status="status"
 				v-bind="otherAttrs"
 				@keydown.enter="handleSubmit"
 			/>
@@ -31,12 +32,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, toRef } from 'vue';
+import { defineComponent, computed, toRef, PropType } from 'vue';
 import { cdxIconSearch } from '@wikimedia/codex-icons';
 import CdxButton from '../button/Button.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
+import { ValidationStatusTypes } from '../../constants';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+import { ValidationStatusType } from '../../types';
+
+const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
  * Search input with optional button.
@@ -76,6 +82,16 @@ export default defineComponent( {
 		buttonLabel: {
 			type: String,
 			default: ''
+		},
+		/**
+		 * `status` property of the TextInput component
+		 *
+		 * @values 'default', 'error'
+		 */
+		status: {
+			type: String as PropType<ValidationStatusType>,
+			default: 'default',
+			validator: statusValidator
 		}
 	},
 

@@ -23,6 +23,11 @@ const controlsConfig = [
 	{
 		name: 'placeholder',
 		type: 'text'
+	},
+	{
+		name: 'status',
+		type: 'radio',
+		options: [ 'default', 'error' ],
 	}
 ];
 </script>

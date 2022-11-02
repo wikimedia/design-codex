@@ -111,3 +111,18 @@ it( 'updates on clear icon click', async () => {
 	expect( wrapper.emitted()[ 'update:modelValue' ] ).toBeTruthy();
 	expect( wrapper.emitted( 'update:modelValue' )?.[ 0 ] ).toEqual( [ '' ] );
 } );
+
+it( 'applies the default class when no input status is passed', () => {
+	const wrapper = mount( CdxTextInput );
+	const inputElement = wrapper.find( '.cdx-text-input__input' );
+
+	expect( inputElement.classes() ).toContain( 'cdx-text-input__input--status-default' );
+	expect( inputElement.classes() ).not.toContain( 'cdx-text-input__input--status-error' );
+} );
+
+it( 'applies the error class when input status is error', () => {
+	const wrapper = mount( CdxTextInput, { props: { status: 'error' } } );
+	const inputElement = wrapper.find( '.cdx-text-input__input' );
+
+	expect( inputElement.classes() ).toContain( 'cdx-text-input__input--status-error' );
+} );
