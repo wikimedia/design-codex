@@ -353,7 +353,9 @@ export default defineComponent( {
 	&__content {
 		display: flex;
 		align-items: center;
-		line-height: @line-height-small;
+		// TODO: change from this deprecated value to @line-height-small.
+		// This will require some associated changes in thumbnail size, see T322384
+		line-height: @line-height-x-small;
 		.hyphens();
 
 		&,
