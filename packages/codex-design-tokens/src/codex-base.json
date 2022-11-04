@@ -468,6 +468,9 @@
 		"300": {
 			"value": "{ dimension.300 }{ unit.system }"
 		},
+		"400": {
+			"value": "{ dimension.400 }{ unit.system }"
+		},
 		"half": {
 			"comment": "From here on, spacing tokens which are used for positioning values.",
 			"value": "{ dimension.half }"
