@@ -112,7 +112,7 @@ export default defineComponent( {
 	&__image {
 		display: inline-block;
 
-		// Fade in transition applied to the thumbnail on show
+		// Fade in transition applied to the thumbnail on show.
 		&-enter-active {
 			transition-property: @transition-property-fade;
 			transition-duration: @transition-duration-base;
@@ -124,7 +124,6 @@ export default defineComponent( {
 	}
 
 	&__placeholder {
-		// TODO: update to @background-color-interactive-subtle once available.
 		background-color: @background-color-interactive-subtle;
 		display: inline-flex;
 		align-items: center;
