@@ -389,15 +389,15 @@
 			"comment": "Breakpoints. Maximum available screen width to be considered a certain device type.",
 			"mobile": {
 				"comment": "A mobile device's maximum available screen width. Many older feature phones have screens smaller than this value.",
-				"value": "calc( { size.viewport.64 } - { size.6 } )"
+				"value": "calc( { size.viewport.64 } - { size.absolute-1 } )"
 			},
 			"tablet": {
 				"comment": "A tablet device's maximum available screen width. Note, the size chosen is eager to be re-evaluated with Web team and Product Analytics.",
-				"value": "calc( { size.viewport.112 } - { size.6 } )"
+				"value": "calc( { size.viewport.112 } - { size.absolute-1 } )"
 			},
 			"desktop": {
 				"comment": "A desktop device's maximum available screen width.",
-				"value": "calc( { size.viewport.168 } - { size.6 } )"
+				"value": "calc( { size.viewport.168 } - { size.absolute-1 } )"
 			}
 		}
 	},
