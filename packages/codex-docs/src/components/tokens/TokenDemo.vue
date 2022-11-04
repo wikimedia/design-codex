@@ -130,11 +130,14 @@ export default defineComponent( {
 		border-radius: @border-radius-circle;
 	}
 
-	&--opacity &__token {
-		background-color: #000;
-		border: @border-width-base @border-style-base rgba( 0, 0, 0, 0.1 );
-		border-radius: @border-radius-base;
-		box-shadow: rgba( 0, 0, 0, 0.1 ) 0 1px 3px 0;
+	&--opacity {
+		border: @border-width-base @border-style-base @border-color-base;
+
+		.cdx-docs-tokens-demo__token {
+			background-image: repeating-conic-gradient( #000 0% 25%, transparent 0% 50% );
+			background-position: 0 0;
+			background-size: @size-125 @size-125;
+		}
 	}
 
 	&--padding &__token {
