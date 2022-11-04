@@ -78,6 +78,12 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
+// TODO: Tokenize.
+@animation-duration-token-animation: 2000ms;
+@animation-iteration-count-token-animation: infinite;
+@border-color-token: rgba( 0, 0, 0, 0.1 );
+@box-sizing-token-position: content-box;
+
 /** Demos that style a rectangle (this may be in addition to extra styles below) */
 .cdx-docs-tokens-demo {
 	&--animation &__token,
@@ -100,8 +106,8 @@ export default defineComponent( {
 			background-color: @background-color-progressive;
 			height: @size-full;
 			animation-name: cdx-docs-animation-demo__inner-animation;
-			animation-duration: 2000ms;
-			animation-iteration-count: infinite;
+			animation-duration: @animation-duration-token-animation;
+			animation-iteration-count: @animation-iteration-count-token-animation;
 		}
 	}
 
@@ -119,7 +125,7 @@ export default defineComponent( {
 	&--color &__token {
 		width: @size-800;
 		height: @size-800;
-		border: @border-width-base @border-style-base rgba( 0, 0, 0, 0.1 );
+		border: @border-width-base @border-style-base @border-color-token;
 		border-radius: @border-radius-circle;
 	}
 
@@ -153,7 +159,7 @@ export default defineComponent( {
 
 	&--position &__token {
 		position: relative;
-		box-sizing: content-box;
+		box-sizing: @box-sizing-token-position;
 		width: @size-300;
 		height: @size-300;
 		margin-left: @spacing-300;

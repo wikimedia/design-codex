@@ -85,6 +85,6 @@ Example usage as an icon-only pause/play button, changing the icon when toggled.
 
 .cdx-demo--wrapper :deep( p ) {
 	margin: 0 0 @spacing-100 0;
-	font-weight: bold;
+	font-weight: @font-weight-bold;
 }
 </style>

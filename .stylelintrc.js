@@ -17,7 +17,11 @@ module.exports = {
 			customSyntax: 'postcss-html'
 		}
 	],
-	plugins: [ 'stylelint-no-unsupported-browser-features', 'stylelint-order' ],
+	plugins: [
+		'stylelint-declaration-strict-value',
+		'stylelint-no-unsupported-browser-features',
+		'stylelint-order'
+	],
 	rules: {
 		'max-nesting-depth': [
 			3,
@@ -221,6 +225,168 @@ module.exports = {
 					'css-gradients',
 					'outline'
 				]
+			}
+		],
+		// Plugin for limiting to strict values, foremost Codex design tokens.
+		// List should be mostly equivalent to 'properties-order' list above.
+		'scale-unlimited/declaration-strict-value': [
+			[
+				'all',
+				'quotes',
+				'appearance',
+				'color-scheme',
+				'background-attachment',
+				'background-blend-mode',
+				'background-clip',
+				'background-color',
+				'background-image',
+				'background-origin',
+				/* TODO: See 'background-position' token task T322712,
+				'background-position',
+				'background-position-x',
+				'background-position-y',
+				*/
+				'background-size',
+				'border',
+				'color',
+				'accent-color',
+				'caret-color',
+				'text-emphasis-color',
+				'text-fill-color',
+				'list-style',
+				'list-style-image',
+				'list-style-position',
+				'list-style-type',
+				'filter',
+				'backdrop-filter',
+				'opacity',
+				// `position` is excluded from Codex design tokens.
+				// 'position',
+				/* TODO: Several static values to even out.
+				'top',
+				'right',
+				'bottom',
+				'left',
+				*/
+				// 'z-index', TODO: Several static values to even out.
+				'margin',
+				/* TODO: Several static values to even out.
+				'margin-top',
+				'margin-right',
+				'margin-bottom',
+				'margin-left',
+				*/
+				'margin-block',
+				'margin-block-start',
+				'margin-block-end',
+				'margin-inline',
+				'margin-inline-start',
+				'margin-inline-end',
+				'border',
+				'border-width',
+				'border-top-width',
+				'border-right-width',
+				'border-bottom-width',
+				'border-left-width',
+				'border-style',
+				'border-color',
+				'border-top-color',
+				'border-right-color',
+				'border-bottom-color',
+				'border-left-color',
+				'border-radius',
+				'border-top-left-radius',
+				'border-top-right-radius',
+				'border-bottom-left-radius',
+				'border-bottom-right-radius',
+				'border-image',
+				'border-image-outset',
+				'border-image-repeat',
+				'border-image-slice',
+				'border-image-source',
+				'border-image-width',
+				'padding',
+				/* TODO: Several inline calculations not based on design decisions to even out.
+				'padding-top',
+				'padding-right',
+				'padding-bottom',
+				'padding-left',
+				*/
+				'padding-block-start',
+				'padding-block-end',
+				'padding-inline-start',
+				'padding-inline-end',
+				'box-shadow',
+				'outline',
+				'outline-color',
+				'outline-style',
+				'outline-width',
+				'outline-offset',
+				'font-style',
+				'font-weight',
+				'letter-spacing',
+				// 'line-height', TODO: Several static values to even out. */
+				'text-align',
+				'text-decoration',
+				'text-decoration-color',
+				'text-decoration-line',
+				'text-decoration-style',
+				'text-decoration-thickness',
+				'text-indent',
+				// 'text-overflow', TODO: `clip` value to even out. */
+				'text-shadow',
+				'text-transform',
+				'hyphens',
+				// 'vertical-align', TOOD: Several static values to even out. */
+				// 'white-space', TODO: Several static values to even out. */
+				'word-spacing',
+				'table-layout',
+				'caption-side',
+				'empty-cells',
+				'border-collapse',
+				'border-spacing',
+				'transform',
+				'transform-origin',
+				'backface-visibility',
+				'perspective',
+				'perspective-origin',
+				'scale',
+				'animation',
+				'animation-duration',
+				'animation-name',
+				'animation-timing-function',
+				'animation-delay',
+				'animation-direction',
+				'animation-fill-mode',
+				'animation-play-state',
+				'transition',
+				/* TODO: Several static values to even out.
+				'transition-property',
+				'transition-duration',
+				*/
+				'transition-timing-function',
+				'transition-delay',
+				'cursor'
+			], {
+				ignoreValues: {
+					// Default for all properties.
+					'': [
+						'currentColor',
+						'inherit',
+						'initial',
+						'none',
+						'unset',
+						'0'
+					],
+					// Specific values to properties.
+					'animation-name': [
+						'/^cdx-animation-/',
+						'/^cdx-docs-animation-/'
+					],
+					'animation-duration': [
+						'0s'
+					]
+				}
 			}
 		]
 	}

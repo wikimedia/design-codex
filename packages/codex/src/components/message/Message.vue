@@ -233,7 +233,7 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 @import '../../themes/mixins/common.less';
 
-// TODO: add component-level design tokens.
+// TODO: Tokenize.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
 @size-icon-relative: unit( ( 20 / @font-size-browser / @font-size-base ), em );
@@ -241,6 +241,8 @@ export default defineComponent( {
 @offset-right-message-dismiss: unit( ( 16 / @font-size-browser / @font-size-base ), em);
 @offset-right-message-dismiss-mobile: unit( ( 8 / @font-size-browser / @font-size-base ), em);
 @margin-left-message-content: unit( ( 8 / @font-size-browser / @font-size-base ), em );
+// TODO: Make this icon-only button appear square (e.g. on focus).
+@padding-message-dismiss: 5px;
 
 .cdx-message {
 	color: @color-notice;
@@ -329,8 +331,7 @@ export default defineComponent( {
 		position: absolute;
 		top: @offset-top-message-dismiss;
 		right: @offset-right-message-dismiss-mobile;
-		// Make this icon-only button appear square (e.g. on focus).
-		padding: 5px;
+		padding: @padding-message-dismiss;
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			right: @offset-right-message-dismiss;

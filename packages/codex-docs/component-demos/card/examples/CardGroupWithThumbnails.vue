@@ -80,7 +80,7 @@ export default defineComponent( {
 .cdx-docs-card-group-with-thumbnails {
 	p {
 		margin-top: 0;
-		font-weight: bold;
+		font-weight: @font-weight-bold;
 	}
 
 	// The application implementing Cards must handle Card group layout styles.

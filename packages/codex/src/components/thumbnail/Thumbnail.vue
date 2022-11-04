@@ -88,6 +88,8 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
 
+// TODO: Tokenize.
+@background-size-search-figure: cover;
 // Value of thumbnail as declared within the MenuItem component.
 @size-search-figure: @size-250;
 
@@ -100,7 +102,7 @@ export default defineComponent( {
 	&__image {
 		background-position: center;
 		background-repeat: no-repeat;
-		background-size: cover;
+		background-size: @background-size-search-figure;
 		// Thumbnail should never shrink when it's in a flex layout with other elements.
 		flex-shrink: 0;
 		width: @size-search-figure;

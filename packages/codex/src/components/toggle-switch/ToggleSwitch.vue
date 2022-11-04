@@ -194,7 +194,7 @@ export default defineComponent( {
 			bottom: @position-offset-toggle-switch-outline;
 			left: @position-offset-toggle-switch-outline;
 			z-index: 1;
-			border: @border-width-base @border-style-base transparent;
+			border: @border-width-base @border-style-base @border-color-transparent;
 			border-radius: @border-radius-pill;
 			transition-property: @transition-property-base;
 			transition-duration: @transition-duration-medium;

@@ -195,7 +195,7 @@ body {
 
 .VPDocFooter .pager-link:focus {
 	border-color: var( --border-color-progressive--focus );
-	/* stylelint-disable-next-line value-list-comma-newline-after */
+	/* stylelint-disable-next-line value-list-comma-newline-after, scale-unlimited/declaration-strict-value */
 	box-shadow: var( --box-shadow-inset-small ) var( --box-shadow-color-progressive--focus ),
 		var( --box-shadow-inset-medium ) var( --box-shadow-color-inverted );
 	outline: var( --outline-base--focus );
