@@ -190,7 +190,7 @@ html {
 			top: @sandbox-scroll-padding;
 
 			ul {
-				list-style-type: none;
+				list-style: none;
 				margin: 0;
 				padding: 0;
 				line-height: @line-height-medium;
