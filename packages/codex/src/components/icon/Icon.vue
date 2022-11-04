@@ -16,14 +16,12 @@
 			<!-- eslint-disable vue/no-v-html -->
 			<g
 				v-if="iconSvg"
-				fill="currentColor"
 				v-html="iconSvg"
 			/>
 			<!-- eslint-enable vue/no-v-html -->
 			<path
 				v-else
 				:d="iconPath"
-				fill="currentColor"
 			/>
 		</svg>
 	</span>
@@ -121,6 +119,12 @@ export default defineComponent( {
 	justify-content: center;
 	// Vertically align surrounding text in inline, inline-block, and table contexts. */
 	vertical-align: text-bottom;
+
+	svg {
+		// Note, that CSS is generally case-insensitive, so `currentColor` becomes `currentcolor`.
+		// See also https://github.com/stylelint/stylelint/issues/5863.
+		fill: currentcolor;
+	}
 
 	// Horizontally flip icons that should be flipped for RTL languages.
 	&--flipped svg {

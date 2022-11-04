@@ -33,9 +33,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
-            <g
-              fill="currentColor"
-            >
+            <g>
               <path
                 d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"
               />
@@ -131,9 +129,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
-            <g
-              fill="currentColor"
-            >
+            <g>
               <path
                 d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
               />
@@ -244,9 +240,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
-            <g
-              fill="currentColor"
-            >
+            <g>
               <path
                 d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"
               />
@@ -342,9 +336,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
-            <g
-              fill="currentColor"
-            >
+            <g>
               <path
                 d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
               />
@@ -458,9 +450,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
-            <g
-              fill="currentColor"
-            >
+            <g>
               <path
                 d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"
               />
@@ -556,9 +546,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
-            <g
-              fill="currentColor"
-            >
+            <g>
               <path
                 d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
               />

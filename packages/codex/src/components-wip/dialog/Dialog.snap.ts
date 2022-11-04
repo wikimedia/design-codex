@@ -142,9 +142,7 @@ exports[`matches the snapshot Case 2 With hidden title 1`] = `
                 close
               </title>
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
                 />

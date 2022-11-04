@@ -26,9 +26,7 @@ exports[`matches the snapshot Case 0 Default: ({"modelValue": ""}) => HTML 1`] =
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->
-          <g
-            fill="currentColor"
-          >
+          <g>
             <path
               d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
             />
@@ -75,9 +73,7 @@ exports[`matches the snapshot Case 1 With submit button: ({"buttonLabel": "Searc
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->
-          <g
-            fill="currentColor"
-          >
+          <g>
             <path
               d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
             />
@@ -133,9 +129,7 @@ exports[`matches the snapshot Case 2 With attributes: ({"modelValue": ""}) => HT
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->
-          <g
-            fill="currentColor"
-          >
+          <g>
             <path
               d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
             />

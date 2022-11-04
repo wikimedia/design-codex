@@ -66,16 +66,19 @@ the button does. If you added `icon-label="delete"` here, a screen reader would 
 this file`, which is not a good experience for screen reader users.
 
 ## Icon colors
-All icons are *monochrome*, meaning the entire icon is the same color. By default, icons use the
-base text color (`{{ tokens.color.base.value }}`), but this can be overridden by changing the
+All icons are *monochrome*, meaning the entire icon is the same color. By default, CdxIcon
+components use the
+base color (`{{ tokens.color.base.value }}`), but this can be overridden by changing the
 `color` property of the `.cdx-icon` element in CSS. For example:
 ```css
 .my-important-component .cdx-icon {
 	color: #36c;
 }
 ```
-Some components, like [CdxButton](../components/demos/button.md), style their icons to match the
-surrounding text color. For example, destructive buttons have red icons to match the red text.
+Note that the SVG inherits the CdxIcon `color` by applying `fill: currentColor`.<br>
+Some components style their icons to match the surrounding text color. For example,
+[CdxButton](../components/demos/button.md) features red icons matching the red
+(`{{ tokens.color.destructive.value }}`) text in its destructive variant.
 
 ## Right-to-left (RTL) and language support
 Many icons have different versions for left-to-right (LTR) and right-to-left (RTL) contexts.

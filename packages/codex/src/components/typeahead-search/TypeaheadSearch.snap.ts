@@ -41,9 +41,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
                 />
@@ -145,9 +143,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
                 />
@@ -249,9 +245,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
                 />
@@ -353,9 +347,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
                 />
@@ -437,9 +429,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
                   >
                     <!--v-if-->
                     <!-- eslint-disable vue/no-v-html -->
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M12.43 14.34A5 5 0 0110 15a5 5 0 113.95-2L17 16.09V3a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 001.45-.63z"
                       />
@@ -543,9 +533,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
                 />
@@ -606,9 +594,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                       >
                         <!--v-if-->
                         <!-- eslint-disable vue/no-v-html -->
-                        <g
-                          fill="currentColor"
-                        >
+                        <g>
                           <path
                             d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
                           />
@@ -675,9 +661,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                       >
                         <!--v-if-->
                         <!-- eslint-disable vue/no-v-html -->
-                        <g
-                          fill="currentColor"
-                        >
+                        <g>
                           <path
                             d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
                           />
@@ -749,9 +733,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                   >
                     <!--v-if-->
                     <!-- eslint-disable vue/no-v-html -->
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M12.43 14.34A5 5 0 0110 15a5 5 0 113.95-2L17 16.09V3a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 001.45-.63z"
                       />

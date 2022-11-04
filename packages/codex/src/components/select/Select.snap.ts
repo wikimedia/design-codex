@@ -43,9 +43,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
           />
@@ -227,9 +225,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
                 />
@@ -306,9 +302,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
           />
@@ -490,9 +484,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
                 />
@@ -569,9 +561,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
           />
@@ -753,9 +743,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
                 />
@@ -832,9 +820,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
           />
@@ -1016,9 +1002,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
                 />
@@ -1094,9 +1078,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
           />
@@ -1115,9 +1097,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
           />
@@ -1299,9 +1279,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
                 />
@@ -1377,9 +1355,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
           />
@@ -1398,9 +1374,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
           />
@@ -1582,9 +1556,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
                 />
@@ -1661,9 +1633,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
           />
@@ -1845,9 +1815,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
                 />

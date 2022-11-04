@@ -81,9 +81,7 @@ exports[`Card matches the snapshot Case 2 Card with icon: ("Title") => HTML 1`] 
     >
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
-      <g
-        fill="currentColor"
-      >
+      <g>
         <path
           d="M10 11c-5.92 0-8 3-8 5v3h16v-3c0-2-2.08-5-8-5z"
         />
@@ -134,9 +132,7 @@ exports[`Card matches the snapshot Case 3 Card with thumbnail: ("Title") => HTML
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->
-          <g
-            fill="currentColor"
-          >
+          <g>
             <path
               d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
             />
@@ -190,9 +186,7 @@ exports[`Card matches the snapshot Case 4 Card with thumbnail placeholder: ("Tit
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->
-          <g
-            fill="currentColor"
-          >
+          <g>
             <path
               d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
             />
@@ -246,9 +240,7 @@ exports[`Card matches the snapshot Case 5 Card with custom placeholder icon: ("T
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->
-          <g
-            fill="currentColor"
-          >
+          <g>
             <path
               d="M10 11c-5.92 0-8 3-8 5v3h16v-3c0-2-2.08-5-8-5z"
             />

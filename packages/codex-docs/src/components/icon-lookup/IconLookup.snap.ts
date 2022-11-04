@@ -76,9 +76,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <!---->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="M10 0a10 10 0 1010 10A10 10 0 0010 0zm5.66 14.24-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z"
           />
@@ -121,9 +119,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <!---->
-              <g
-                fill="currentColor"
-              >
+              <g>
                 <path
                   d="M9 1.28A1 1 0 008.35 1H2a1 1 0 00-1 1v6.35a1 1 0 00.28.65L11 18.72a1 1 0 001.37 0l6.38-6.38a1 1 0 00-.03-1.34zM5 7a2 2 0 112-2 2 2 0 01-2 2z"
                 />

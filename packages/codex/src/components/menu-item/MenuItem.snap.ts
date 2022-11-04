@@ -195,9 +195,7 @@ exports[`matches the snapshot Case 4 Item with icon: ({"description": "Test sear
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="M9 1.28A1 1 0 008.35 1H2a1 1 0 00-1 1v6.35a1 1 0 00.28.65L11 18.72a1 1 0 001.37 0l6.38-6.38a1 1 0 00-.03-1.34zM5 7a2 2 0 112-2 2 2 0 01-2 2z"
           />
@@ -265,9 +263,7 @@ exports[`matches the snapshot Case 5 Item with placeholder thumbnail: ({"descrip
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
-            <g
-              fill="currentColor"
-            >
+            <g>
               <path
                 d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
               />

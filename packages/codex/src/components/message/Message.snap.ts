@@ -18,9 +18,7 @@ exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
           />
@@ -60,9 +58,7 @@ exports[`matches the snapshot Case 1 notice message: ({"type": "notice"}) => HTM
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
           />
@@ -102,9 +98,7 @@ exports[`matches the snapshot Case 2 warning message: ({"type": "warning"}) => H
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="M11.53 2.3A1.85 1.85 0 0010 1.21 1.85 1.85 0 008.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z"
           />
@@ -144,9 +138,7 @@ exports[`matches the snapshot Case 3 error message: ({"type": "error"}) => HTML 
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="M13.728 1H6.272L1 6.272v7.456L6.272 19h7.456L19 13.728V6.272zM11 15H9v-2h2zm0-4H9V5h2z"
           />
@@ -186,9 +178,7 @@ exports[`matches the snapshot Case 4 success message: ({"type": "success"}) => H
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="M7 14.17 2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"
           />
@@ -228,9 +218,7 @@ exports[`matches the snapshot Case 5 Inline: ({"inline": true}) => HTML 1`] = `
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
           />
@@ -270,9 +258,7 @@ exports[`matches the snapshot Case 6 Dismissable: ({"dismissButtonLabel": "Close
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
           />
@@ -309,9 +295,7 @@ exports[`matches the snapshot Case 6 Dismissable: ({"dismissButtonLabel": "Close
             Close
           </title>
           <!-- eslint-disable vue/no-v-html -->
-          <g
-            fill="currentColor"
-          >
+          <g>
             <path
               d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
             />
@@ -345,9 +329,7 @@ exports[`matches the snapshot Case 7 Custom icon: ({"icon": [Object]}) => HTML 1
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
-        <g
-          fill="currentColor"
-        >
+        <g>
           <path
             d="M5 1a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V3a2 2 0 00-2-2zm0 3h5v1H5zm0 2h5v1H5zm0 2h5v1H5zm10 7H5v-1h10zm0-2H5v-1h10zm0-2H5v-1h10zm0-2h-4V4h4z"
           />
