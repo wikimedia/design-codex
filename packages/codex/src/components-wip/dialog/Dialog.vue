@@ -254,8 +254,10 @@ export default defineComponent( {
 
 		// Stash the current window innerHeight to provide the most accurate measurement
 		// possible for browsers like MobileSafari (where header and footer may or may
-		// not be visible at any given time).
-		const windowHeight = ref( window.innerHeight );
+		// not be visible at any given time). This ref is set to window.innerHeight when the
+		// component is mounted, since we can't access the window object in the setup
+		// function in SSR mode.
+		const windowHeight = ref( 0 );
 
 		// Wrap this value in a px measurement so it can be used in a CSS variable.
 		const windowHeightInPx = computed( () => {
@@ -354,16 +356,20 @@ export default defineComponent( {
 		// Update the `windowHeight` ref defined above whenever a window resize
 		// event is fired (in MobileSafari this happens whenver the browser footer)
 		// appears or disappears.
-		function onResize() {
+		function updateWindowHeight() {
 			windowHeight.value = window.innerHeight;
 		}
 
 		onMounted( () => {
-			window.addEventListener( 'resize', onResize );
+			window.addEventListener( 'resize', updateWindowHeight );
+
+			// Also update the window height when the component is mounted, since it's
+			// initially set to 0
+			updateWindowHeight();
 		} );
 
 		onUnmounted( () => {
-			window.removeEventListener( 'resize', onResize );
+			window.removeEventListener( 'resize', updateWindowHeight );
 		} );
 
 		return {
