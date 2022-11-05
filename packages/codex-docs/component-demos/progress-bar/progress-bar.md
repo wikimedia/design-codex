@@ -1,9 +1,28 @@
 <script setup>
+import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
 import { CdxProgressBar } from '@wikimedia/codex';
 
+const controlsConfig = [
+	{
+		name: 'inline',
+		type: 'boolean'
+	},
+	{
+		name: 'disabled',
+		type: 'boolean'
+	}
+];
 </script>
 
 ## Demos
+
+### Configurable
+
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
+<template v-slot:demo="{ propValues }">
+<cdx-docs-configurable-generic v-bind="propValues" />
+</template>
+</cdx-demo-wrapper>
 
 ### Default
 

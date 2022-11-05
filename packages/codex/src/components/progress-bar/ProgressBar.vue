@@ -3,6 +3,7 @@
 		class="cdx-progress-bar"
 		:class="rootClasses"
 		role="progressbar"
+		:aria-disabled="disabled"
 		aria-valuemin="0"
 		aria-valuemax="100"
 	>
@@ -21,8 +22,6 @@ import { defineComponent, computed } from 'vue';
  * having been made).
  *
  * A smaller, inline version is available for use within other components, e.g. a menu or dialog.
- *
- * @author DannyS712
  */
 export default defineComponent( {
 	name: 'CdxProgressBar',
@@ -33,13 +32,23 @@ export default defineComponent( {
 		inline: {
 			type: Boolean,
 			default: false
+		},
+
+		/**
+		 * Whether the progress bar is disabled.
+		 */
+		disabled: {
+			type: Boolean,
+			default: false
 		}
 	},
 	setup( props ) {
 		const rootClasses = computed( () => {
 			return {
 				'cdx-progress-bar--block': !props.inline,
-				'cdx-progress-bar--inline': props.inline
+				'cdx-progress-bar--inline': props.inline,
+				'cdx-progress-bar--enabled': !props.disabled,
+				'cdx-progress-bar--disabled': props.disabled
 			};
 		} );
 
@@ -58,17 +67,11 @@ export default defineComponent( {
 	overflow-x: hidden;
 
 	&__bar {
-		background-color: @background-color-progressive;
 		width: @size-third;
 		height: @size-full;
-		animation-name: cdx-animation-progress-bar__bar;
-		animation-duration: @animation-duration-medium;
-		animation-timing-function: @animation-timing-function-base;
-		animation-iteration-count: infinite;
 	}
 
 	&--block {
-		background-color: @background-color-base;
 		// Support Safari: Create a stacking context to prevent the bar from overflowing the
 		// `border-radius` of the component's root element by `position: relative` and
 		// `z-index` other than `auto`.
@@ -86,6 +89,30 @@ export default defineComponent( {
 		width: @size-full;
 		// TODO: Make relative?
 		height: @size-25;
+	}
+
+	&--enabled {
+		.cdx-progress-bar__bar {
+			background-color: @background-color-progressive;
+			animation-name: cdx-animation-progress-bar__bar;
+			animation-duration: @animation-duration-medium;
+			animation-timing-function: @animation-timing-function-base;
+			animation-iteration-count: infinite;
+		}
+
+		&.cdx-progress-bar--block {
+			background-color: @background-color-base;
+		}
+	}
+
+	&--disabled {
+		.cdx-progress-bar__bar {
+			background-color: @background-color-disabled;
+		}
+
+		&.cdx-progress-bar--block {
+			background-color: @background-color-disabled-subtle;
+		}
 	}
 }
 

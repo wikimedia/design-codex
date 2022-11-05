@@ -25,6 +25,7 @@ import useCurrentComponentName from '../../composables/useCurrentComponentName';
 
 // Supported configurable components, add new ones as needed
 import {
+	CdxProgressBar,
 	CdxToggleButton,
 	CdxToggleSwitch,
 	CdxTextInput
@@ -43,6 +44,7 @@ import {
 export default defineComponent( {
 	name: 'CdxDocsConfigurableGeneric',
 	components: {
+		CdxProgressBar,
 		CdxToggleButton,
 		CdxToggleSwitch,
 		CdxTextInput

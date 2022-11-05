@@ -717,9 +717,10 @@ exports[`Matches the snapshots Case 4 Pending: => HTML 1`] = `
     
     
     <div
+      aria-disabled="false"
       aria-valuemax="100"
       aria-valuemin="0"
-      class="cdx-progress-bar cdx-progress-bar--inline cdx-menu__progress-bar"
+      class="cdx-progress-bar cdx-progress-bar--inline cdx-progress-bar--enabled cdx-menu__progress-bar"
       role="progressbar"
     >
       <div
@@ -948,9 +949,10 @@ exports[`Matches the snapshots Case 5 Pending with items: => HTML 1`] = `
     </li>
     
     <div
+      aria-disabled="false"
       aria-valuemax="100"
       aria-valuemin="0"
-      class="cdx-progress-bar cdx-progress-bar--inline cdx-menu__progress-bar"
+      class="cdx-progress-bar cdx-progress-bar--inline cdx-progress-bar--enabled cdx-menu__progress-bar"
       role="progressbar"
     >
       <div
