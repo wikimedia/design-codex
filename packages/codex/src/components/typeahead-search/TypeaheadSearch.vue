@@ -471,7 +471,8 @@ export default defineComponent( {
 		}
 
 		/**
-		 * Emit event data for selected search result on click.
+		 * Handle a click on a search result,
+		 * emitting event data if it was a real result.
 		 *
 		 * @param searchResult
 		 */
@@ -489,8 +490,17 @@ export default defineComponent( {
 				return;
 			}
 
+			emitSearchResultClick( resultWithoutId );
+		}
+
+		/**
+		 * Emit event data for a selected real search result on click.
+		 *
+		 * @param searchResult
+		 */
+		function emitSearchResultClick( searchResult: SearchResult ) {
 			const searchResultClickEvent: SearchResultClickEvent = {
-				searchResult: resultWithoutId,
+				searchResult,
 				index: searchResults.value.findIndex(
 					( r ) => r.value === searchResult.value
 				),
@@ -538,25 +548,27 @@ export default defineComponent( {
 
 		/**
 		 * Emit event data on form submit.
+		 *
+		 * @param e
 		 */
-		function onSubmit() {
-			// Set default data for no selection.
-			let emittedResult: SearchResult|null = null;
-			let selectedResultIndex = -1;
-
-			// Edit data if there is a selection.
+		function onSubmit( e: SubmitEvent ) {
 			if ( selectedResult.value ) {
-				emittedResult = selectedResult.value;
-				selectedResultIndex = props.searchResults.indexOf( selectedResult.value );
+				// Treat submit with a selected result like a click on the result:
+				// Emit a click event instead of the submit event...
+				emitSearchResultClick( selectedResult.value );
+				e.stopPropagation();
+				// ...and navigate to the URL instead of submitting the form.
+				window.location.assign( selectedResult.value.url );
+				e.preventDefault();
+			} else {
+				// Emit event for no selection.
+				const submitEvent: SearchResultClickEvent = {
+					searchResult: null,
+					index: -1,
+					numberOfResults: searchResults.value.length
+				};
+				emit( 'submit', submitEvent );
 			}
-
-			const submitEvent: SearchResultClickEvent = {
-				searchResult: emittedResult,
-				index: selectedResultIndex,
-				numberOfResults: searchResults.value.length
-			};
-
-			emit( 'submit', submitEvent );
 		}
 
 		/**

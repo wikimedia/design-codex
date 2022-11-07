@@ -255,6 +255,7 @@ describe( 'TypeaheadSearch, with search results', () => {
 
 	afterEach( () => {
 		jest.useRealTimers();
+		assignMock.mockReset();
 		window.location = oldLocation;
 	} );
 
@@ -310,11 +311,14 @@ describe( 'TypeaheadSearch, with search results', () => {
 		await input.trigger( 'keydown', { key: 'Enter' } );
 		await wrapper.find( 'form' ).trigger( 'submit' );
 
-		expect( wrapper.emitted( 'submit' )?.[ 0 ] ).toEqual( [ {
+		expect( wrapper.emitted( 'search-result-click' )?.[ 0 ] ).toEqual( [ {
 			searchResult: searchResults[ 0 ],
 			index: 0,
 			numberOfResults: 2
 		} ] );
+		expect( wrapper.emitted( 'submit' ) ).toBeUndefined();
+		expect( assignMock ).toHaveBeenCalledTimes( 1 );
+		expect( assignMock ).toHaveBeenCalledWith( 'https://en.wikipedia.org/wiki/CO' );
 	} );
 
 	it( 'properly sets input value when navigating with arrow keys', async () => {
