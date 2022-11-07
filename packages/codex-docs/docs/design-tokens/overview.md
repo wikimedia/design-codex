@@ -45,9 +45,12 @@ scheme, where values from the design options token pool above are applied into d
 tokens are used across various components.
 
 3. **Component tokens ('codex-components.json'): Design decisions**<br>
-The component tokens 'codex-components.json' file collects only single-component design decisions.
-An important reason for separating component from base tokens is to support identifying consistency
-gaps across components or surface very close values for combination later.
+The component tokens 'codex-components.json' file collects only single-component design decisions,
+that are not covered by the base tokens. All component tokens carry the single-file-component name
+in their name after the token category, for example `background-color-button-quiet--hover`.<br>
+Important reasons for separating component from base tokens are to support identifying consistency
+gaps and emerging design patterns across components or to surface very close values for
+combination later.
 
 ### Naming and definition structure
 To create an extensible structure that is easily understood by humans, we follow these rules when
