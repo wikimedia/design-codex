@@ -1,5 +1,16 @@
 {
 	"background-color": {
+		"button": {
+			"quiet--hover": {
+				"value": "{ color.modifier-gray100-translucent }"
+			},
+			"quiet--active": {
+				"value": "{ color.modifier-gray200-translucent }"
+			}
+		},
+		"input-binary--checked": {
+			"value": "{ color.blue600 }"
+		},
 		"primary": {
 			"deprecated": "Use `background-color-progressive` instead.",
 			"value": "{ background-color.progressive }"
@@ -13,13 +24,12 @@
 			"value": "{ background-color.transparent }"
 		},
 		"quiet--hover": {
+			"deprecated": "Use `background-color-button-quiet--hover` instead.",
 			"value": "{ color.modifier-gray100-translucent }"
 		},
 		"quiet--active": {
+			"deprecated": "Use `background-color-button-quiet--active` instead.",
 			"value": "{ color.modifier-gray200-translucent }"
-		},
-		"input-binary--checked": {
-			"value": "{ color.blue600 }"
 		},
 		"message": {
 			"comment": "User system messages (errors, warnings, successes, notices).",

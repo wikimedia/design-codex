@@ -318,11 +318,11 @@ export default defineComponent( {
 
 	&:enabled {
 		&:hover {
-			background-color: @background-color-quiet--hover;
+			background-color: @background-color-button-quiet--hover;
 		}
 
 		&:active {
-			background-color: @background-color-quiet--active;
+			background-color: @background-color-button-quiet--active;
 			color: @color-emphasized;
 			border-color: @border-color-interactive;
 		}
