@@ -112,15 +112,19 @@ const demoSections = [
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-// Define some sandbox-specific values
-@sandbox-header-height: 2em;
-@sandbox-sidebar-width: 20rem;
+// Sandbox-specific values.
+@height-sandbox-header: 4rem;
+@width-sandbox-sidebar: 20rem;
 
-@sandbox-scroll-padding: calc( @sandbox-header-height + ( @spacing-200 * 2 ) + @spacing-200 );
+@scroll-padding-top-sandbox: calc( @height-sandbox-header + ( @spacing-100 * 2 ) + @spacing-200 );
 
 html {
 	scroll-behavior: smooth;
-	scroll-padding-top: @sandbox-scroll-padding;
+	scroll-padding-top: @scroll-padding-top-sandbox;
+}
+
+body {
+	margin: 0;
 }
 
 .cdx-sandbox {
@@ -135,10 +139,11 @@ html {
 		justify-content: space-between;
 		position: sticky;
 		top: 0;
-		z-index: 1;
-		height: @sandbox-header-height;
+		z-index: @z-index-overlay;
+		box-sizing: @box-sizing-base;
+		height: @height-sandbox-header;
 		border-bottom: @border-width-base @border-style-base @border-color-base;
-		padding: @spacing-200;
+		padding: @spacing-100;
 
 		h1 {
 			display: inline-flex;
@@ -181,13 +186,13 @@ html {
 		margin-bottom: @spacing-200;
 
 		@media ( min-width: @min-width-breakpoint-tablet ) {
-			flex: 0 0 @sandbox-sidebar-width;
+			flex: 0 0 @width-sandbox-sidebar;
 			flex-direction: row;
 		}
 
 		&__inner {
 			position: sticky;
-			top: @sandbox-scroll-padding;
+			top: @scroll-padding-top-sandbox;
 
 			ul {
 				list-style: none;
@@ -197,6 +202,13 @@ html {
 			}
 		}
 	}
+}
+
+// Button table.
+/* stylelint-disable-next-line selector-max-id */
+#cdx-button tr th:first-child {
+	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+	text-align: left;
 }
 </style>
 
