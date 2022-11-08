@@ -89,6 +89,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 	&__hero {
 		background-color: @background-color-progressive;
 		color: @color-inverted;
+		// Equals 100% + ( 2 * negative margin per side ).
 		width: calc( @size-full + ( @spacing-200 * 2 ) );
 		margin-right: -@spacing-200;
 		margin-bottom: @spacing-200;
@@ -97,7 +98,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 		&__icon {
 			color: @color-inverted;
-			margin-bottom: @spacing-200 * 2;
+			margin-bottom: @spacing-400;
 
 			svg {
 				// 5em equivalent to match the title.
