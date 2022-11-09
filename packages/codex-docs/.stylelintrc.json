@@ -1,5 +1,5 @@
 {
-	"extends": "../../.stylelintrc.json",
+	"extends": "../../.stylelintrc.js",
 	"overrides": [
 		{
 			"files": [ "**/*.md" ],
