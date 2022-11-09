@@ -188,6 +188,7 @@ module.exports = {
 			'text-transform',
 			'hyphens',
 			'vertical-align',
+			'tab-size',
 			'white-space',
 			'word-spacing',
 			'table-layout',

@@ -850,6 +850,11 @@
 			"value": "{ text-decoration.200 }"
 		}
 	},
+	"tab-size": {
+		"base": {
+			"value": "{ tab-size.100 }"
+		}
+	},
 	"transition": {
 		"base": {
 			"deprecated": "Legacy `transition` for icon states in non-Codex products.",

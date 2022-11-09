@@ -431,6 +431,11 @@
 			"value": "underline"
 		}
 	},
+	"tab-size": {
+		"100": {
+			"value": "4"
+		}
+	},
 	"transition-duration": {
 		"100": {
 			"value": "100ms"
