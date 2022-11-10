@@ -135,7 +135,7 @@ html {
 		justify-content: space-between;
 		position: sticky;
 		top: 0;
-		z-index: @z-index-1;
+		z-index: 1;
 		height: @sandbox-header-height;
 		border-bottom: @border-width-base @border-style-base @border-color-base;
 		padding: @spacing-200;
