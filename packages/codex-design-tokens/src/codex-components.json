@@ -216,6 +216,12 @@
 			"value": "{ box-shadow.drop-small }"
 		}
 	},
+	"font-family": {
+		"heading-main": {
+			"comment": "Legacy value from WikimediaUI Base. Use for first heading special treatment.",
+			"value": "{ font-family.serif.100 }"
+		}
+	},
 	"transition-property": {
 		"icon": {
 			"value": "{ transition-property.color }"

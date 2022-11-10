@@ -769,10 +769,30 @@
 	},
 	"font-family": {
 		"base": {
-			"value": "{ font-family.sans--fallback }"
+			"comment": "Reference Vector's default fallback sans instead of the deprecated value `font-family-sans` in WikimediaUI Base.",
+			"value": "{ font-family.sans.10 }"
 		},
-		"heading-main": {
-			"value": "{ font-family.serif }"
+		"sans": {
+			"deprecated": "Use `font-family-sans--fallback` instead. See T247166.",
+			"value": "{ font-family.sans.50 }"
+		},
+		"system-sans": {
+			"value": "{ font-family.sans.100 }"
+		},
+		"sans--fallback": {
+			"value": "{ font-family.sans.10 }"
+		},
+		"serif": {
+			"value": "{ font-family.serif.100 }"
+		},
+		"serif--fallback": {
+			"value": "{ font-family.serif.10 }"
+		},
+		"monospace": {
+			"value": "{ font-family.monospace.100 }"
+		},
+		"monospace--fallback": {
+			"value": "{ font-family.monospace.10 }"
 		}
 	},
 	"font-weight": {
