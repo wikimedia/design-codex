@@ -45,7 +45,7 @@
 		"netlify-cli": "^10.10.2",
 		"postcss-html": "^1.4.1",
 		"postcss-markdown": "^1.2.0",
-		"stylelint": "^14.8.2",
+		"stylelint": "14.14.0",
 		"stylelint-config-wikimedia": "^0.13.0",
 		"stylelint-declaration-strict-value": "^1.9.1",
 		"stylelint-no-unsupported-browser-features": "^5.0.3",
