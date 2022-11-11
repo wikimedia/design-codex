@@ -18,7 +18,7 @@ function isWIPComponent( componentName: string ): boolean {
  */
 function filterComponents( items: DefaultTheme.SidebarItem[] ): DefaultTheme.SidebarItem[] {
 	return items.flatMap( ( item ) => {
-		const componentName = ( item.link ?? '' ).match( /^\/components\/demos\/([^\/]+)/ )?.[ 1 ];
+		const componentName = ( item.link ?? '' ).match( /^\/components\/demos\/([^/]+)/ )?.[ 1 ];
 		if ( componentName && isWIPComponent( componentName ) ) {
 			return includeWIPComponents ?
 				{ ...item, text: `${item.text} 🚧` } :
@@ -50,7 +50,7 @@ export default defineConfig( {
 			{ text: 'Contributing', link: '/contributing/overview', activeMatch: '/contributing/' },
 			{ text: 'Design Tokens', link: '/design-tokens/overview', activeMatch: '/design-tokens/' },
 			{ text: 'Components', link: '/components/overview', activeMatch: '/components/' },
-			{ text: 'Icons', link: '/icons/overview', activeMatch: '/icons/' },
+			{ text: 'Icons', link: '/icons/overview', activeMatch: '/icons/' }
 		],
 
 		socialLinks: [
@@ -62,16 +62,18 @@ export default defineConfig( {
 				{
 					text: 'Using Codex',
 					items: [
-						{ text: 'About Codex', link: '/using-codex/about' },
+						{ text: 'About Codex', link: '/using-codex/about' }
 					]
 				},
-				// {
-				// 	text: 'Designing',
-				// 	items: [
-				// 		{ text: 'Design principles', link: '/using-codex/design-principles' },
-				// 		{ text: 'Design resources', link: '/using-codex/design-resources' },
-				// 	]
-				// },
+				/*
+				{
+					text: 'Designing',
+					items: [
+						{ text: 'Design principles', link: '/using-codex/design-principles' },
+						{ text: 'Design resources', link: '/using-codex/design-resources' },
+					]
+				},
+				*/
 				{
 					text: 'Developing',
 					items: [
@@ -95,15 +97,16 @@ export default defineConfig( {
 				{
 					text: 'Contributing',
 					items: [
-						{ text: 'Overview', link: '/contributing/overview' },
-						// { text: 'Contribution workflow', link: '/contributing/contribution-workflow' },
+						{ text: 'Overview', link: '/contributing/overview' }
+						// eslint-disable-next-line max-len
+						// { text: 'Contribution workflow', link: '/contributing/contribution-workflow' }
 					]
 				},
 				{
 					text: 'Contributing design',
 					items: [
 						{ text: 'Designing icons', link: '/contributing/designing-icons' }
-				]
+					]
 				},
 				{
 					text: 'Contributing code',

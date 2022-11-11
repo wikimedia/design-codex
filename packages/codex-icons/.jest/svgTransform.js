@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { optimize } = require( 'svgo' );
 const removeSvgTag = require( '../svgo-plugin-removeSvgTag' );
 

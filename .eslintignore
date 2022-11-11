@@ -5,5 +5,6 @@ node_modules/
 
 # Turn on linting for hidden directories
 !.*/
+!**/.*/*
 # Turn linting on for JS and JSON configuration files
 !.*.js*

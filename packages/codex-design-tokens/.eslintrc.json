@@ -7,7 +7,9 @@
 				"wikimedia/language/es2020"
 			],
 			"rules": {
-				"strict": "off"
+				"strict": "off",
+				"jsdoc/valid-types": "off",
+				"es-x/no-string-prototype-matchall": "off"
 			}
 		}
 	]

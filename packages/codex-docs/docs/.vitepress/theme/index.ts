@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-missing-import
 import DefaultTheme from 'vitepress/theme';
 import { Theme } from 'vitepress';
 import CustomLayout from '../../../src/components/custom-layout/CustomLayout.vue';

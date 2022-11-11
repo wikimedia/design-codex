@@ -1,6 +1,5 @@
 'use strict';
 
-/* eslint-disable jsdoc/valid-types */
 /** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
 /** @typedef {import('style-dictionary').Formatter} Formatter */
 
