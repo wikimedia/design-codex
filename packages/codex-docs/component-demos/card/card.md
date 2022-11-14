@@ -12,7 +12,7 @@ import CardMaximum from '@/../component-demos/card/examples/CardMaximum.vue';
 
 ### Default
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
 <card-default />
 </template>

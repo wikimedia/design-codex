@@ -18,7 +18,7 @@ internally.
 
 ### Simple menu with input
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
 <input-with-menu />
 </template>

@@ -20,7 +20,7 @@ button group.
 If the `label` property is omitted, the `value` property will be used as the label. This allows
 using `{ value: 'Foo' }` as a shorthand for `{ label: 'Foo', value: 'Foo' }`.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
 <basic-button-group />
 </template>

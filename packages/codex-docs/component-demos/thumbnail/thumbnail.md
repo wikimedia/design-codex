@@ -8,7 +8,7 @@ import ThumbnailCustomIcon from '@/../component-demos/thumbnail/examples/Thumbna
 
 ### Default
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
 <thumbnail-default />
 </template>

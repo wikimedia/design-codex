@@ -25,7 +25,7 @@ expands on focus via the `autoExpandWidth` prop, thumbnails are enabled via the 
 prop, and the "search" button is added via the `buttonLabel` prop.  Open the console to see emitted
 events.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
 <typeahead-search-wikipedia />
 </template>

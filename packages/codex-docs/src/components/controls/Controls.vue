@@ -7,7 +7,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
+			<tr v-if="propControls.length > 0">
 				<td class="cdx-docs-controls__section-header" colspan="2">
 					Props
 				</td>
@@ -61,6 +61,34 @@
 					/>
 				</td>
 			</tr>
+			<tr>
+				<td class="cdx-docs-controls__section-header" colspan="2">
+					View
+				</td>
+			</tr>
+			<tr>
+				<td class="cdx-docs-tokens-table__name">
+					<pre>direction</pre>
+				</td>
+				<td>
+					<cdx-radio
+						v-model="wrappedDirection"
+						input-value="ltr"
+						:name="directionGroupName"
+						:inline="true"
+					>
+						LTR
+					</cdx-radio>
+					<cdx-radio
+						v-model="wrappedDirection"
+						input-value="rtl"
+						:name="directionGroupName"
+						:inline="true"
+					>
+						RTL
+					</cdx-radio>
+				</td>
+			</tr>
 		</tbody>
 		<tfoot v-if="hasIconProp">
 			<tr>
@@ -81,9 +109,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue';
+import { defineComponent, PropType, computed, toRef } from 'vue';
 import { ControlConfigWithValue, SlotConfigWithValue, PropConfigWithValue } from '../../types';
-import { CdxRadio, CdxTextInput, CdxToggleSwitch } from '@wikimedia/codex';
+import { CdxRadio, CdxTextInput, CdxToggleSwitch, HTMLDirection, useModelWrapper, useGeneratedId } from '@wikimedia/codex';
 import CdxDocsIconLookup from '../icon-lookup/IconLookup.vue';
 
 /**
@@ -103,10 +131,18 @@ export default defineComponent( {
 		controlsWithValues: {
 			type: Array as PropType<ControlConfigWithValue[]>,
 			required: true
+		},
+		/**
+		 * Current direction of the wrapper content.
+		 */
+		direction: {
+			type: String as PropType<HTMLDirection>,
+			default: 'ltr'
 		}
 	},
 	emits: [
-		'control-change'
+		'control-change',
+		'update:direction'
 	],
 	setup( props, { emit } ) {
 		const allControls = computed( () => {
@@ -170,13 +206,18 @@ export default defineComponent( {
 			}
 		};
 
+		const wrappedDirection = useModelWrapper( toRef( props, 'direction' ), emit, 'update:direction' );
+		const directionGroupName = useGeneratedId( 'radio-group-direction' );
+
 		return {
 			propControls,
 			slotControls,
 			hasIconProp,
 			rootClasses,
 			emitControlChange,
-			componentForType
+			componentForType,
+			wrappedDirection,
+			directionGroupName
 		};
 	}
 } );

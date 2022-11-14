@@ -27,7 +27,7 @@ that can accept arbitrary input from the user. The component should receive a
 `v-model:selected` binding from its parent as well as an array of menu items (which can be
 empty).
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :force-controls="true">
 
 <template v-slot:demo>
 <combobox-basic />

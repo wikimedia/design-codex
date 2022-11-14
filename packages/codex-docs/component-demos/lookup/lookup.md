@@ -37,7 +37,7 @@ the Lookup component will stay in the pending state indefinitely. If there are n
 given input, set the `menu-items` prop to an empty array (`[]`).
 :::
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
 <lookup-default />
 </template>

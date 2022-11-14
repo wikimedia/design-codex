@@ -9,7 +9,7 @@ See the [Icons section](../../icons/overview.md) for more information, including
 
 ### Simple icon
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
 <simple-icon />
 </template>

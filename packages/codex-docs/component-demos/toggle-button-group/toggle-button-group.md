@@ -12,7 +12,7 @@ import ToggleButtonGroupWithSlot from '@/../component-demos/toggle-button-group/
 ### Single value
 To allow only a single value to be selected, initialize `v-model` to `null`.
 
-<cdx-demo-wrapper :force-reset="true">
+<cdx-demo-wrapper :force-reset="true" :force-controls="true">
 <template v-slot:demo>
 <single-value-toggle-button-group />
 </template>

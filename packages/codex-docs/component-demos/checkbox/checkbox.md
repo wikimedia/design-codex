@@ -14,7 +14,7 @@ Open up the browser console to see events emitted on input.
 A single checkbox does not need an `inputValue` prop. `v-model` is bound to a
 boolean value: `true` for on, `false` for off.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
 <single-checkbox />
 </template>

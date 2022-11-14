@@ -22,7 +22,7 @@ Open the console to see emitted events.
 
 This example has placeholder text.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
 <SearchInputDefault />
 </template>

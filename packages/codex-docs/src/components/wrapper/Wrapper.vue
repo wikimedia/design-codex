@@ -5,9 +5,9 @@
 			useComputedDirection rerender when the direction is changed
 		-->
 		<div
-			:key="dir"
+			:key="direction"
 			class="cdx-demo-wrapper__demo-pane"
-			:dir="dir"
+			:dir="direction"
 		>
 			<cdx-button
 				v-if="includeReset"
@@ -65,9 +65,13 @@
 				>{{ generatedCode }}</code></pre>
 			</div>
 		</div>
-		<div v-if="hasControls" class="cdx-demo-wrapper__controls">
+		<div
+			v-if="hasControls"
+			class="cdx-demo-wrapper__controls"
+			dir="ltr"
+		>
 			<cdx-docs-controls
-				dir="ltr"
+				v-model:direction="direction"
 				:controls-with-values="controlsWithValues"
 				@control-change="handleControlChange"
 			/>
@@ -81,7 +85,6 @@ import {
 	reactive,
 	ref,
 	computed,
-	inject,
 	onMounted,
 	toRef,
 	watch,
@@ -96,13 +99,12 @@ import {
 	SlotValues
 } from '../../types';
 import Prism from 'prismjs';
-import { DirectionKey } from '../../constants';
 import CdxDocsControls from '../controls/Controls.vue';
 import CdxDocsCopyTextButton from '../copy-text-button/CopyTextButton.vue';
 import useCurrentComponentName from '../../composables/useCurrentComponentName';
 import { generateVueTag } from '../../utils/codegen';
 import getIconByName from '../../utils/getIconByName';
-import { CdxButton, CdxToggleButton } from '@wikimedia/codex';
+import { CdxButton, CdxToggleButton, HTMLDirection } from '@wikimedia/codex';
 
 // Don't automatically run Prism highlighting, it breaks the VitePress syntax highlighting
 // for the code slots since Prism doesn't support Vue (and even if it did it would be unneeded
@@ -132,6 +134,15 @@ export default defineComponent( {
 			default: () => {
 				return [];
 			}
+		},
+		/**
+		 * Add controls, even if no configuration is provided.
+		 *
+		 * This allows you to add only the default controls, e.g. direction.
+		 */
+		forceControls: {
+			type: Boolean,
+			default: false
 		},
 		/**
 		 * Whether to include a reset option even when there are no configurable properties
@@ -173,8 +184,7 @@ export default defineComponent( {
 		}
 	},
 	setup( props, { slots } ) {
-		// Inject direction from CustomLayout.vue
-		const dir = inject( DirectionKey );
+		const direction = ref<HTMLDirection>( 'ltr' );
 
 		const hasGeneratedCode = toRef( props, 'showGeneratedCode' );
 
@@ -188,7 +198,8 @@ export default defineComponent( {
 		const codeDiv = ref<HTMLDivElement>();
 
 		// Set up controls if config is provided.
-		const hasControls = ref( props.controlsConfig.length > 0 );
+		const hasControls = computed( () =>
+			props.controlsConfig.length > 0 || props.forceControls );
 
 		// Set up reset button if configuration is provided, or if the demo wants to
 		// show the button anyway
@@ -414,7 +425,7 @@ export default defineComponent( {
 			rootClasses,
 
 			// Demo pane
-			dir,
+			direction,
 			onDemoMousedown,
 
 			// Reset button - render key is changed to force rerendering
