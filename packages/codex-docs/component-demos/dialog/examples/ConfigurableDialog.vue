@@ -4,12 +4,13 @@
 	</cdx-button>
 	<cdx-dialog
 		v-model:open="open"
+		:dir="direction"
 		v-bind="propValues"
 		@default="open = false"
 	>
 		<p>Use the controls below to change the features of this dialog.</p>
 		<cdx-docs-controls
-			dir="ltr"
+			v-model:direction="direction"
 			:controls-with-values="controlsWithValues"
 			@control-change="handleControlChange"
 		/>
@@ -27,7 +28,8 @@ import {
 	CdxButton,
 	CdxDialog,
 	PrimaryDialogAction,
-	DialogAction
+	DialogAction,
+	HTMLDirection
 } from '@wikimedia/codex';
 
 import CdxDocsControls from '../../../src/components/controls/Controls.vue';
@@ -46,6 +48,8 @@ export default defineComponent( {
 	},
 	setup() {
 		const open = ref( false );
+		const direction = ref<HTMLDirection>( 'ltr' );
+
 		const controlsWithValues = ref<ControlConfigWithValue[]>( [
 			{ name: 'title', type: 'text', value: 'Configurable dialog' },
 			{ name: 'hideTitle', type: 'boolean', value: false },
@@ -103,8 +107,10 @@ export default defineComponent( {
 				control.value = value;
 			}
 		};
+
 		return {
 			open,
+			direction,
 			controlsWithValues,
 			propValues,
 			handleControlChange
