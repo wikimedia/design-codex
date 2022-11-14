@@ -480,7 +480,7 @@ export default defineComponent( {
 		position: relative;
 		border: @border-width-base @border-style-base @border-color-subtle;
 		border-radius: @border-radius-base;
-		padding: @spacing-125;
+		padding: @spacing-125 @spacing-125 @spacing-200;
 
 		&__reset-button {
 			position: absolute;
