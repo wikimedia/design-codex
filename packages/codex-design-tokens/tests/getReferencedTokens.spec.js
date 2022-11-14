@@ -1,5 +1,7 @@
 'use strict';
 
+/** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
+
 const { getReferencedTokens } = require( '../.style-dictionary/lib' );
 
 describe( 'getReferencedTokens', () => {
@@ -12,7 +14,16 @@ describe( 'getReferencedTokens', () => {
 		],
 		[ '    {    silly-whitespace }', [ 'silly-whitespace' ] ]
 	] )( 'extracts tokens from %s: %p', ( original, expectedTokens ) => {
-		expect( getReferencedTokens( { original: { value: original } } ) )
+		/** @type {TransformedToken} */
+		const token = {
+			value: original,
+			original: { value: original },
+			name: 'foo',
+			path: [ 'foo' ],
+			filePath: 'foo.json',
+			isSource: true
+		};
+		expect( getReferencedTokens( token ) )
 			.toEqual( { tokens: expectedTokens } );
 	} );
 } );

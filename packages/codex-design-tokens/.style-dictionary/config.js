@@ -1,6 +1,9 @@
 'use strict';
 
-module.exports = {
+/** @typedef {import('style-dictionary').Config} Config */
+
+/** @type {Config} */
+const config = {
 	source: [ 'src/**/*.json' ],
 	platforms: {
 		scss: {
@@ -54,3 +57,5 @@ module.exports = {
 		}
 	}
 };
+
+module.exports = config;

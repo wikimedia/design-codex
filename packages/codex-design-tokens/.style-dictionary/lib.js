@@ -95,6 +95,10 @@ function createCustomStyleFormatter( format ) {
 		const deprecatedTokens = allTokens.filter( ( token ) => token.deprecated );
 		const nonDeprecatedTokens = allTokens.filter( ( token ) => !token.deprecated );
 
+		/**
+		 * @param {string} text
+		 * @return {string}
+		 */
 		const makeComment = ( text ) => commentStyle === 'short' ?
 			`// ${text}\n` :
 			`/* ${text} */\n`;
