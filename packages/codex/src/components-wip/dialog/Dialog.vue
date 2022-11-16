@@ -416,6 +416,7 @@ export default defineComponent( {
 	background-color: @background-color-base;
 	display: flex;
 	flex-direction: column;
+	box-sizing: @box-sizing-base;
 	width: calc( @size-full - ( @size-100 * 2) );
 	max-width: @size-3200;
 	max-height: calc( @size-viewport-height-full - @size-250 );
@@ -447,6 +448,7 @@ export default defineComponent( {
 		align-items: center;
 		// Close button should appear at the end regardless of whether or not a title is present
 		justify-content: flex-end;
+		box-sizing: @box-sizing-base;
 		width: @size-full;
 		padding: 0 @spacing-150 @spacing-50 @spacing-150;
 		font-weight: @font-weight-bold;
