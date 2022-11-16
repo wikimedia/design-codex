@@ -5,6 +5,8 @@
 		:aria-pressed="modelValue"
 		:disabled="disabled"
 		@click="onClick"
+		@keydown.space.enter="setActive( true )"
+		@keyup.space.enter="setActive( false )"
 	>
 		<!-- @slot Button content -->
 		<slot />
@@ -12,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue';
+import { ref, computed, defineComponent } from 'vue';
 
 /**
  * A toggle button wrapping slotted content.
@@ -59,22 +61,34 @@ export default defineComponent( {
 		'update:modelValue'
 	],
 	setup( props, { emit } ) {
+		// Support: Firefox (space), all (enter)
+		// Whether the button is being pressed via the space or enter key. Needed to apply
+		// consistent active styles across browsers. For mousedown/mouseup, the browser's native
+		// :active state will suffice.
+		const isActive = ref( false );
+
 		const rootClasses = computed( () => ( {
 			// Quiet means frameless among other things
 			'cdx-toggle-button--quiet': props.quiet,
 			'cdx-toggle-button--framed': !props.quiet,
 			// Provide --toggled-off too so that we can simplify selectors
 			'cdx-toggle-button--toggled-on': props.modelValue,
-			'cdx-toggle-button--toggled-off': !props.modelValue
+			'cdx-toggle-button--toggled-off': !props.modelValue,
+			'cdx-toggle-button--is-active': isActive.value
 		} ) );
 
 		const onClick = (): void => {
 			emit( 'update:modelValue', !props.modelValue );
 		};
 
+		const setActive = ( active: boolean ) => {
+			isActive.value = active;
+		};
+
 		return {
 			rootClasses,
-			onClick
+			onClick,
+			setActive
 		};
 	}
 } );
@@ -105,7 +119,8 @@ export default defineComponent( {
 			outline: @outline-base--focus;
 		}
 
-		&:active {
+		&:active,
+		&.cdx-toggle-button--is-active {
 			color: @color-emphasized;
 			border-color: @border-color-interactive;
 			box-shadow: none;
@@ -130,8 +145,9 @@ export default defineComponent( {
 			color: @color-base--hover;
 		}
 
-		// &:enabled:active has some shared styles for quiet and framed, see above.
-		&:active {
+		// Enabled + active state has some shared styles for quiet and framed, see above.
+		&:active,
+		&.cdx-toggle-button--is-active {
 			background-color: @background-color-interactive;
 		}
 
@@ -165,9 +181,10 @@ export default defineComponent( {
 				@box-shadow-inset-medium @box-shadow-color-inverted;
 		}
 
-		&:active {
+		&:active,
+		&.cdx-toggle-button--is-active {
 			background-color: @background-color-interactive;
-			// Repeat general :enabled:active styles here, to override more specific
+			// Repeat general enabled + active styles here, to override more specific
 			// color/border-color/box-shadow rules
 			color: @color-emphasized;
 			border-color: @border-color-interactive;
@@ -196,8 +213,9 @@ export default defineComponent( {
 			background-color: @background-color-interactive-subtle;
 		}
 
-		// `&:enabled:active` has some shared styles for quiet and framed, see above
-		&:active {
+		// Enabled + active state has some shared styles for quiet and framed, see above
+		&:active,
+		&.cdx-toggle-button--is-active {
 			background-color: @background-color-interactive;
 		}
 	}

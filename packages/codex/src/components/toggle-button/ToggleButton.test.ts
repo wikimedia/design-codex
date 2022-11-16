@@ -30,14 +30,14 @@ describe( 'matches the snapshot', () => {
 } );
 
 describe( 'ToggleButton', () => {
-	it( 'is active when modelValue is true', () => {
+	it( 'is visually "on" when modelValue is true', () => {
 		const wrapper = shallowMount( CdxToggleButton, { props: { modelValue: true } } );
 		const classes = wrapper.find( 'button' ).classes();
 		expect( classes ).toContain( 'cdx-toggle-button--toggled-on' );
 		expect( classes ).not.toContain( 'cdx-toggle-button--toggled-off' );
 	} );
 
-	it( 'is inactive when modelValue is false', () => {
+	it( 'is visually "off" when modelValue is false', () => {
 		const wrapper = shallowMount( CdxToggleButton, { props: { modelValue: false } } );
 		const classes = wrapper.find( 'button' ).classes();
 		expect( classes ).not.toContain( 'cdx-toggle-button--toggled-on' );
@@ -71,5 +71,23 @@ describe( 'ToggleButton', () => {
 		await wrapper.find( 'button' ).trigger( 'click' );
 
 		expect( wrapper.emitted( 'update:modelValue' ) ).toBeFalsy();
+	} );
+
+	describe( 'when pressed via keyboard', () => {
+		it( 'looks active on space keydown, then not on keyup', async () => {
+			const wrapper = shallowMount( CdxToggleButton, { props: { modelValue: true } } );
+			await wrapper.get( 'button' ).trigger( 'keydown.space' );
+			expect( wrapper.element.classList ).toContain( 'cdx-toggle-button--is-active' );
+			await wrapper.get( 'button' ).trigger( 'keyup.space' );
+			expect( wrapper.element.classList ).not.toContain( 'cdx-toggle-button--is-active' );
+		} );
+
+		it( 'looks active on enter keydown, then not on keyup', async () => {
+			const wrapper = shallowMount( CdxToggleButton, { props: { modelValue: true } } );
+			await wrapper.get( 'button' ).trigger( 'keydown.enter' );
+			expect( wrapper.element.classList ).toContain( 'cdx-toggle-button--is-active' );
+			await wrapper.get( 'button' ).trigger( 'keyup.enter' );
+			expect( wrapper.element.classList ).not.toContain( 'cdx-toggle-button--is-active' );
+		} );
 	} );
 } );
