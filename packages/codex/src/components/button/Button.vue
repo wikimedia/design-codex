@@ -3,6 +3,8 @@
 		class="cdx-button"
 		:class="rootClasses"
 		@click="onClick"
+		@keydown.space.enter="setActive( true )"
+		@keyup.space.enter="setActive( false )"
 	>
 		<!-- @slot Button content -->
 		<slot />
@@ -10,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, warn, Comment, PropType, SetupContext, VNode, VNodeArrayChildren } from 'vue';
+import { defineComponent, ref, computed, warn, Comment, PropType, SetupContext, VNode, VNodeArrayChildren } from 'vue';
 import { ButtonActions, ButtonTypes } from '../../constants';
 import { ButtonAction, ButtonType } from '../../types';
 import CdxIcon from '../icon/Icon.vue';
@@ -104,20 +106,32 @@ export default defineComponent( {
 	},
 	emits: [ 'click' ],
 	setup( props, { emit, slots, attrs } ) {
+		// Support: Firefox (space), all (enter)
+		// Whether the button is being pressed via the space or enter key. Needed to apply
+		// consistent active styles across browsers. For mousedown/mouseup, the browser's native
+		// :active state will suffice.
+		const isActive = ref( false );
+
 		const rootClasses = computed( () => ( {
 			[ `cdx-button--action-${props.action}` ]: true,
 			[ `cdx-button--type-${props.type}` ]: true,
 			'cdx-button--framed': props.type !== 'quiet',
-			'cdx-button--icon-only': isIconOnlyButton( slots.default?.(), attrs )
+			'cdx-button--icon-only': isIconOnlyButton( slots.default?.(), attrs ),
+			'cdx-button--is-active': isActive.value
 		} ) );
 
 		const onClick = ( event: Event ) => {
 			emit( 'click', event );
 		};
 
+		const setActive = ( active: boolean ) => {
+			isActive.value = active;
+		};
+
 		return {
 			rootClasses,
-			onClick
+			onClick,
+			setActive
 		};
 	}
 } );
@@ -155,7 +169,7 @@ export default defineComponent( {
 
 		// Amplify 'interaction' feeling when pressed, by not setting focus “outline” style while
 		// in active state.
-		&:focus:not( :active ) {
+		&:focus:not( :active ):not( .cdx-button--is-active ) {
 			border-color: @border-color-progressive--focus;
 			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 		}
@@ -190,7 +204,8 @@ export default defineComponent( {
 			color: @color-base--hover;
 		}
 
-		&:active {
+		&:active,
+		&.cdx-button--is-active {
 			background-color: @background-color-interactive;
 			color: @color-emphasized;
 			border-color: @border-color-interactive;
@@ -219,12 +234,13 @@ export default defineComponent( {
 				border-color: @border-color-progressive--hover;
 			}
 
-			&:active {
+			&:active,
+			&.cdx-button--is-active {
 				background-color: @background-color-progressive--active;
 				border-color: @border-color-progressive--active;
 			}
 
-			&:focus:not( :active ) {
+			&:focus:not( :active ):not( .cdx-button--is-active ) {
 				border-color: @border-color-progressive--focus;
 				// Make `box-shadow` feature a `1px` White inset outline with a value combination.
 				/* stylelint-disable-next-line value-list-comma-newline-after */
@@ -246,12 +262,13 @@ export default defineComponent( {
 				border-color: @border-color-destructive--hover;
 			}
 
-			&:active {
+			&:active,
+			&.cdx-button--is-active {
 				background-color: @background-color-destructive--active;
 				border-color: @border-color-destructive--active;
 			}
 
-			&:focus:not( :active ) {
+			&:focus:not( :active ):not( .cdx-button--is-active ) {
 				// While Codex tokens feature `background-color-destructive--focus` it's not
 				// necessary to duplicate it, as `background-color` is inherited.
 				border-color: @border-color-destructive--focus;
@@ -275,7 +292,8 @@ export default defineComponent( {
 				border-color: @border-color-progressive--hover;
 			}
 
-			&:active {
+			&:active,
+			&.cdx-button--is-active {
 				background-color: @background-color-normal-progressive--active;
 				color: @color-progressive--active;
 				border-color: @border-color-progressive--active;
@@ -296,13 +314,14 @@ export default defineComponent( {
 				border-color: @border-color-destructive--hover;
 			}
 
-			&:active {
+			&:active,
+			&.cdx-button--is-active {
 				background-color: @background-color-normal-destructive--active;
 				color: @color-destructive--active;
 				border-color: @border-color-destructive--active;
 			}
 
-			&:focus:not( :active ) {
+			&:focus:not( :active ):not( .cdx-button--is-active ) {
 				border-color: @border-color-destructive--focus;
 				box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus;
 			}
@@ -321,7 +340,8 @@ export default defineComponent( {
 			background-color: @background-color-button-quiet--hover;
 		}
 
-		&:active {
+		&:active,
+		&.cdx-button--is-active {
 			background-color: @background-color-button-quiet--active;
 			color: @color-emphasized;
 			border-color: @border-color-interactive;
@@ -340,7 +360,8 @@ export default defineComponent( {
 				color: @color-progressive--hover;
 			}
 
-			&:active {
+			&:active,
+			&.cdx-button--is-active {
 				background-color: @background-color-progressive--active;
 				color: @color-inverted;
 				border-color: @border-color-progressive--active;
@@ -361,13 +382,14 @@ export default defineComponent( {
 				color: @color-destructive--hover;
 			}
 
-			&:active {
+			&:active,
+			&.cdx-button--is-active {
 				background-color: @background-color-destructive--active;
 				color: @color-inverted;
 				border-color: @color-destructive--active;
 			}
 
-			&:focus:not( :active ) {
+			&:focus:not( :active ):not( .cdx-button--is-active ) {
 				border-color: @border-color-destructive--focus;
 				box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus;
 			}
