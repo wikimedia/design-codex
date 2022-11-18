@@ -146,9 +146,7 @@ body {
 /* Mimic main sidebar styles within right sidebar. */
 .VPDocAside .outline-title,
 .VPDocAside .outline-link {
-	/* TODO: tokenize 6px (there is no spacing-35 token currently) */
-	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-	padding: 6px 0;
+	padding: var( --spacing-35 ) 0;
 	font-size: 0.875rem;
 	/* TODO: use token */
 	line-height: 1.42857;
@@ -156,8 +154,7 @@ body {
 
 .VPDocAside .outline-marker {
 	/* Account for the 6px padding-top we added above. */
-	/* TODO: tokenize */
-	margin-top: 6px;
+	margin-top: var( --spacing-35 );
 }
 
 .VPSidebar .link:hover .link-text,

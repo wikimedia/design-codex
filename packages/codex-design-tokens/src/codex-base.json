@@ -444,6 +444,14 @@
 		"25": {
 			"value": "{ dimension.25 }{ unit.system }"
 		},
+		"30": {
+			"comment": "This token is an exception to the scale.  Used as vertical `padding` in inputs and controls to achieve the default 32px component height.",
+			"value": "{ dimension.30 }{ unit.system }"
+		},
+		"35": {
+			"comment": "This token is an exception to the scale.  Used as `padding` of the ToggleSwitch component.",
+			"value": "{ dimension.35 }{ unit.system }"
+		},
 		"50": {
 			"value": "{ dimension.50 }{ unit.system }"
 		},

@@ -241,8 +241,6 @@ export default defineComponent( {
 @offset-right-message-dismiss: unit( ( 16 / @font-size-browser / @font-size-base ), em);
 @offset-right-message-dismiss-mobile: unit( ( 8 / @font-size-browser / @font-size-base ), em);
 @margin-left-message-content: unit( ( 8 / @font-size-browser / @font-size-base ), em );
-// TODO: Make this icon-only button appear square (e.g. on focus).
-@padding-message-dismiss: 5px;
 
 .cdx-message {
 	color: @color-notice;
@@ -331,7 +329,9 @@ export default defineComponent( {
 		position: absolute;
 		top: @offset-top-message-dismiss;
 		right: @offset-right-message-dismiss-mobile;
-		padding: @padding-message-dismiss;
+		// TODO: Make this icon-only button appear square (e.g. on focus).
+		// Also replace probably by `spacing-25` as other icon buttons.
+		padding: @spacing-30;
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			right: @offset-right-message-dismiss;

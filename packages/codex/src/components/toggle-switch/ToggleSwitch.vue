@@ -136,8 +136,6 @@ export default defineComponent( {
 @start-toggle-switch-grip: unit( ( 5 / @font-size-browser / @font-size-base ), em );
 @start-toggle-switch-grip--mobile: unit( ( 4.5 / @font-size-browser / @font-size-base ), em );
 
-@padding-end-toggle-switch-label-content: 6px;
-
 @position-offset-toggle-switch-outline: 1px;
 
 .cdx-toggle-switch {
@@ -159,7 +157,7 @@ export default defineComponent( {
 	&__label-content {
 		align-self: center;
 		order: 1;
-		padding-right: @padding-end-toggle-switch-label-content;
+		padding-right: @spacing-35;
 	}
 
 	// The visible switch.
