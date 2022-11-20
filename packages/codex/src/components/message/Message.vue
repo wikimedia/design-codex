@@ -240,7 +240,6 @@ export default defineComponent( {
 @offset-top-message-dismiss: unit( ( 8 / @font-size-browser / @font-size-base ), em);
 @offset-right-message-dismiss: unit( ( 16 / @font-size-browser / @font-size-base ), em);
 @offset-right-message-dismiss-mobile: unit( ( 8 / @font-size-browser / @font-size-base ), em);
-@margin-left-message-content: unit( ( 8 / @font-size-browser / @font-size-base ), em );
 
 .cdx-message {
 	color: @color-notice;
@@ -320,9 +319,11 @@ export default defineComponent( {
 
 	&__content {
 		.hyphens();
+		// Vertically center message with icon.
+		align-self: center;
 		flex-grow: 1;
 		// Add space between icon and message content.
-		margin-left: @margin-left-message-content;
+		margin-left: @spacing-50;
 	}
 
 	&__dismiss-button {
