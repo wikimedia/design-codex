@@ -1,6 +1,17 @@
-import { defineConfig, DefaultTheme } from 'vitepress';
+import { defineConfigWithTheme, DefaultTheme } from 'vitepress';
 import { existsSync } from 'fs';
 import path from 'path';
+import { CustomConfig } from './types';
+
+// If this isn't a tag, branch deploy, or local dev, we're on the main branch. We'll pass this var
+// to the theme config so we can use it to display a message.
+const isMainBranch = process.env.CODEX_RELEASE === undefined &&
+	process.env.CODEX_BRANCH_DEPLOY === undefined &&
+	process.env.CODEX_DOC_DEV === undefined;
+// If this is a branch deploy, we'll pass this var and the patch ID to the theme config so we can
+// show a warning message linking to the patch.
+const isBranchDeploy = process.env.CODEX_BRANCH_DEPLOY !== undefined;
+const patchID = process.env.CODEX_PATCH_ID;
 
 const includeWIPComponents = process.env.CODEX_RELEASE === undefined;
 
@@ -28,7 +39,7 @@ function filterComponents( items: DefaultTheme.SidebarItem[] ): DefaultTheme.Sid
 	} );
 }
 
-export default defineConfig( {
+export default defineConfigWithTheme<CustomConfig>( {
 	lang: 'en-US',
 	title: 'Codex',
 	description: 'Toolkit for building user interfaces within the Wikimedia Design System',
@@ -41,6 +52,10 @@ export default defineConfig( {
 	},
 
 	themeConfig: {
+		isMainBranch,
+		isBranchDeploy,
+		patchID,
+
 		logo: {
 			src: '/logo-Wikimedia.svg', alt: 'Wikimedia'
 		},

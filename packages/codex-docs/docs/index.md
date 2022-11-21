@@ -1,10 +1,12 @@
 ---
 aside: false
+isHomepage: true
 ---
 <script setup>
 import { CdxIcon, CdxButton, CdxCard } from '@wikimedia/codex';
 import { cdxIconLogoWikimedia, cdxIconKey, cdxIconPuzzle, cdxIconInfoFilled } from '@wikimedia/codex-icons';
 import { version } from '../../codex/package.json';
+import CdxDocsVersionBanner from '../src/components/version-banner/VersionBanner.vue';
 </script>
 
 <div class="cdx-docs-home">
@@ -14,6 +16,8 @@ import { version } from '../../codex/package.json';
 	<h1 class="cdx-docs-home__hero__title">Codex</h1>
 	<p class="cdx-docs-home__hero__tagline">Wikimedia Design System Toolkit</p>
 </div>
+
+<cdx-docs-version-banner />
 
 **Codex is a toolkit for building user interfaces within the Wikimedia Design System.**<br>
 Current version: **{{ version }}**
@@ -140,7 +144,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 		/* stylelint-disable-next-line no-descending-specificity */
 		.cdx-card {
-			width: calc( @size-half - @spacing-50 );
+			width: calc( @size-half - @spacing-25 );
 
 			&:hover {
 				text-decoration: @text-decoration-none;

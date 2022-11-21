@@ -19,15 +19,15 @@
 		"node": ">=16"
 	},
 	"scripts": {
-		"branch-deploy": "npm run doc && npm run branch-deploy:sandbox && npx netlify deploy --auth $BRANCHDEPLOY_AUTH_TOKEN --site $BRANCHDEPLOY_SITE_ID --alias $ZUUL_CHANGE --dir packages/codex-docs/docs/.vitepress/dist",
+		"branch-deploy": "CODEX_BRANCH_DEPLOY=1 CODEX_PATCH_ID=$ZUUL_CHANGE npm run doc && npm run branch-deploy:sandbox && npx netlify deploy --auth $BRANCHDEPLOY_AUTH_TOKEN --site $BRANCHDEPLOY_SITE_ID --alias $ZUUL_CHANGE --dir packages/codex-docs/docs/.vitepress/dist",
 		"branch-deploy:sandbox": " npm run -w @wikimedia/codex build-sandbox && cp -r packages/codex/dist/sandbox packages/codex-docs/docs/.vitepress/dist/",
 		"build-all": "npm run build --workspaces --if-present",
 		"build-all-if-missing": "npm run build-if-missing --workspaces --if-present",
 		"coverage": "npm run build-all-if-missing && mkdir -p coverage && npm run test:unit -w @wikimedia/codex -- --coverageDirectory=../../coverage",
 		"dev": "npm run build-if-missing -w @wikimedia/codex-icons && concurrently \"npm run watch -w @wikimedia/codex-design-tokens\" \"npm run dev -w @wikimedia/codex\"",
 		"doc": "npm run build -w @wikimedia/codex-icons && npm run build -w @wikimedia/codex-design-tokens && npm run build -w @wikimedia/codex && npm run build -w codex-docs",
-		"doc-release": "CODEX_RELEASE=$(node -pe \"require('./packages/codex/package.json').version\") npm run doc",
-		"doc:dev": "npm run build-if-missing -w @wikimedia/codex-icons  && concurrently \"npm run watch -w @wikimedia/codex-design-tokens\" \"npm run dev -w codex-docs\"",
+		"doc-release": "CODEX_RELEASE=1 npm run doc",
+		"doc:dev": "npm run build-if-missing -w @wikimedia/codex-icons  && concurrently \"npm run watch -w @wikimedia/codex-design-tokens\" \"CODEX_DOC_DEV=1 npm run dev -w codex-docs\"",
 		"lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint --workspaces --if-present",
 		"lint:eslint": "npm run build-all-if-missing && eslint --max-warnings 0 .",
 		"lint:stylelint": "stylelint --max-warnings 0 . packages/codex-docs/docs/.vitepress",
