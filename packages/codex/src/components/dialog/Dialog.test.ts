@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { DialogAction, PrimaryDialogAction } from '../../types';
 import CdxDialog from './Dialog.vue';
@@ -38,11 +39,14 @@ describe( 'matches the snapshot', () => {
 
 describe( 'Basic usage', () => {
 	const dialogSlotContents = '<p id="foo">Hello World</p>';
+	const dialogSlotContentsWithInput = '<p id="foo"> Example input: <input id="input" type="text"></p>';
 	const dialogBasicClosed = Object.freeze( { props: { title: 'Dialog Title' }, slots: { default: dialogSlotContents } } );
 	const dialogBasicOpen = Object.freeze( { props: { title: 'Dialog Title', open: true }, slots: { default: dialogSlotContents } } );
 	const dialogWithCloseButtonOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, closeButtonLabel: 'close' }, slots: { default: dialogSlotContents } } );
 	const dialogPrimaryOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, primaryAction: { label: 'save', actionType: 'progressive' } as PrimaryDialogAction }, slots: { default: dialogSlotContents } } );
 	const dialogDefaultOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, defaultAction: { label: 'ok' } as DialogAction }, slots: { default: dialogSlotContents } } );
+	const dialogStackedActions = Object.freeze( { props: { title: 'Dialog Title', open: true, stackedActions: true, primaryAction: { label: 'save', actionType: 'progressive' } as PrimaryDialogAction }, slots: { default: dialogSlotContents } } );
+	const dialogBasicClosedWithInput = Object.freeze( { props: { title: 'Dialog Title' }, slots: { default: dialogSlotContentsWithInput } } );
 
 	it( 'is not visible when "open" is not "true"', () => {
 		const wrapper1 = mount( CdxDialog, dialogBasicClosed );
@@ -75,7 +79,29 @@ describe( 'Basic usage', () => {
 		expect( wrapper.emitted() ).toHaveProperty( 'default' );
 	} );
 
-	test.todo( 'adds the "cdx-dialog-open" class to the body when open, and removes it when closed' );
-	test.todo( 'does not allow focus to leave the dialog element via keyboard navigation' );
-	test.todo( 'correctly stacks buttons when the "stackedActions" prop is true' );
+	it( 'adds the "cdx-dialog-open" class to the body when open, and removes it when closed', async () => {
+		const wrapper = mount( CdxDialog, { attachTo: document.body, ...dialogBasicClosed } );
+		await wrapper.setProps( { open: true } );
+		expect( document.body.classList ).toContain( 'cdx-dialog-open' );
+		await wrapper.setProps( { open: false } );
+		expect( document.body.classList ).not.toContain( 'cdx-dialog-open' );
+	} );
+
+	it( 'correctly stacks buttons when the "stackedActions" prop is true', () => {
+		const wrapper = mount( CdxDialog, dialogStackedActions );
+		const dialog = wrapper.find( '.cdx-dialog' );
+		expect( dialog.classes() ).toContain( 'cdx-dialog--vertical-actions' );
+	} );
+
+	it( 'automatically focuses the first focusable element inside dialog when opened', async () => {
+		const wrapper = mount( CdxDialog, {
+			attachTo: document.body,
+			...dialogBasicClosedWithInput
+		} );
+		await wrapper.setProps( { open: true } );
+		await nextTick();
+
+		const input = wrapper.find( '#input' ).element;
+		expect( document.activeElement ).toBe( input );
+	} );
 } );

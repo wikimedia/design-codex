@@ -23,6 +23,7 @@ import CdxButtonGroup from './components/button-group/ButtonGroup.vue';
 import CdxCard from './components/card/Card.vue';
 import CdxCheckbox from './components/checkbox/Checkbox.vue';
 import CdxCombobox from './components/combobox/Combobox.vue';
+import CdxDialog from './components/dialog/Dialog.vue';
 import CdxIcon from './components/icon/Icon.vue';
 import CdxLookup from './components/lookup/Lookup.vue';
 import CdxMenu from './components/menu/Menu.vue';
@@ -69,7 +70,10 @@ import type {
 	MenuItemLanguageData,
 	SearchResult,
 	SearchResultClickEvent,
-	Thumbnail
+	Thumbnail,
+	DialogAction,
+	PrimaryDialogAction,
+	BoxDimensions
 } from './types';
 
 export {
@@ -79,6 +83,7 @@ export {
 	CdxCard,
 	CdxCheckbox,
 	CdxCombobox,
+	CdxDialog,
 	CdxIcon,
 	CdxLookup,
 	CdxMessage,
@@ -124,5 +129,8 @@ export {
 	MenuItemLanguageData,
 	SearchResult,
 	SearchResultClickEvent,
-	Thumbnail
+	Thumbnail,
+	DialogAction,
+	PrimaryDialogAction,
+	BoxDimensions
 };

@@ -1,19 +1,24 @@
 <template>
+	<details>
+		<summary>Expand these controls to configure the dialog.</summary>
+		<cdx-docs-controls
+			v-model:direction="direction"
+			:controls-with-values="controlsWithValues"
+			@control-change="handleControlChange"
+		/>
+	</details>
+
 	<cdx-button @click="open = true">
 		Open dialog
 	</cdx-button>
+
 	<cdx-dialog
 		v-model:open="open"
 		:dir="direction"
 		v-bind="propValues"
 		@default="open = false"
 	>
-		<p>Use the controls below to change the features of this dialog.</p>
-		<cdx-docs-controls
-			v-model:direction="direction"
-			:controls-with-values="controlsWithValues"
-			@control-change="handleControlChange"
-		/>
+		<p>{{ propValues.content }}</p>
 	</cdx-dialog>
 </template>
 
@@ -52,10 +57,10 @@ export default defineComponent( {
 
 		const controlsWithValues = ref<ControlConfigWithValue[]>( [
 			{ name: 'title', type: 'text', value: 'Configurable dialog' },
+			{ name: 'content', type: 'text', value: 'Dialog Content' },
 			{ name: 'hideTitle', type: 'boolean', value: false },
 			{ name: 'closeButtonLabel', type: 'text', value: 'Close' },
 			{ name: 'showDividers', type: 'boolean', value: false },
-			{ name: 'size', type: 'radio', options: [ 'default', 'large' ], value: 'default' },
 			{ name: 'stackedActions', type: 'boolean', value: false },
 			{ name: 'usePrimaryAction', type: 'boolean', value: true },
 			{ name: 'primaryActionLabel', type: 'text', value: 'Save' },
@@ -86,12 +91,12 @@ export default defineComponent( {
 				// These values are typed as the value types of PropValuesWithIcons, but we need to
 				// narrow it down for the cdx-dialog component.
 				title: values.title as string,
+				content: values.content as string,
 				hideTitle: values.hideTitle as boolean,
 				closeButtonLabel: values.closeButtonLabel as string,
 				stackedActions: values.stackedActions as boolean,
 				primaryAction: primaryAction as PrimaryDialogAction,
 				defaultAction: defaultAction as DialogAction,
-				size: values.size as string,
 				showDividers: values.showDividers as boolean
 			};
 		} );

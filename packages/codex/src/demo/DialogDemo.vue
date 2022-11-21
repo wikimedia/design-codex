@@ -48,9 +48,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-// eslint-disable-next-line no-restricted-imports
-import { CdxDialog } from '../components-wip';
-import { CdxButton } from '../lib';
+import { CdxDialog, CdxButton } from '../lib';
 
 const showDialog1 = ref( false );
 const showDialog2 = ref( false );

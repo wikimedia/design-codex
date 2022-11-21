@@ -5,17 +5,4 @@
 //     CdxComponentName
 // };
 
-import CdxDialog from './dialog/Dialog.vue';
-
-import type {
-	DialogAction,
-	PrimaryDialogAction,
-	BoxDimensions
-} from '../types';
-
-export {
-	CdxDialog,
-	DialogAction,
-	PrimaryDialogAction,
-	BoxDimensions
-};
+export default {};

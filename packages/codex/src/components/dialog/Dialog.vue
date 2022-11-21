@@ -88,7 +88,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, toRef, watch, PropType, ref, onMounted, onUnmounted } from 'vue';
+import { computed, defineComponent, nextTick, toRef, watch, PropType, ref } from 'vue';
 import CdxButton from '../../components/button/Button.vue';
 import CdxIcon from '../../components/icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
@@ -189,18 +189,6 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Dialog size.
-		 *
-		 * @todo implement fullscreen size (requires mobile workarounds)
-		 *
-		 * @values 'large'
-		 */
-		size: {
-			type: String,
-			default: ''
-		},
-
-		/**
 		 * Whether the dialog should display dividers between header, footer,
 		 * and body sections.
 		 */
@@ -243,7 +231,6 @@ export default defineComponent( {
 		const rootClasses = computed( () => ( {
 			'cdx-dialog--vertical-actions': props.stackedActions,
 			'cdx-dialog--horizontal-actions': !props.stackedActions,
-			'cdx-dialog--large': props.size === 'large',
 			'cdx-dialog--dividers': props.showDividers
 		} ) );
 
@@ -251,18 +238,6 @@ export default defineComponent( {
 		// on the page prior to the dialog taking over; without this, browsers
 		// that permanently display scrollbars will exhibit a layout shift.
 		const scrollWidth = ref( 0 );
-
-		// Stash the current window innerHeight to provide the most accurate measurement
-		// possible for browsers like MobileSafari (where header and footer may or may
-		// not be visible at any given time). This ref is set to window.innerHeight when the
-		// component is mounted, since we can't access the window object in the setup
-		// function in SSR mode.
-		const windowHeight = ref( 0 );
-
-		// Wrap this value in a px measurement so it can be used in a CSS variable.
-		const windowHeightInPx = computed( () => {
-			return `${windowHeight.value}px`;
-		} );
 
 		/**
 		 * Close the dialog by emitting an event to the parent
@@ -353,25 +328,6 @@ export default defineComponent( {
 			}
 		} );
 
-		// Update the `windowHeight` ref defined above whenever a window resize
-		// event is fired (in MobileSafari this happens whenver the browser footer)
-		// appears or disappears.
-		function updateWindowHeight() {
-			windowHeight.value = window.innerHeight;
-		}
-
-		onMounted( () => {
-			window.addEventListener( 'resize', updateWindowHeight );
-
-			// Also update the window height when the component is mounted, since it's
-			// initially set to 0
-			updateWindowHeight();
-		} );
-
-		onUnmounted( () => {
-			window.removeEventListener( 'resize', updateWindowHeight );
-		} );
-
 		return {
 			close,
 			cdxIconClose,
@@ -384,8 +340,7 @@ export default defineComponent( {
 			focusLast,
 			dialogBody,
 			focusHolder,
-			showHeader,
-			windowHeightInPx
+			showHeader
 		};
 	}
 } );
@@ -425,23 +380,6 @@ export default defineComponent( {
 	padding-top: @spacing-100;
 	padding-bottom: @spacing-150;
 	box-shadow: @box-shadow-dialog;
-
-	&.cdx-dialog--large {
-		width: @size-full;
-		/* stylelint-disable-next-line value-keyword-case */
-		height: v-bind( windowHeightInPx );
-		max-width: unset;
-		max-height: unset;
-
-		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			width: calc( @size-full - ( @size-200 * 2 ) );
-			height: calc( @size-viewport-height-full - @size-250 );
-		}
-
-		@media screen and ( min-width: @min-width-breakpoint-desktop ) {
-			max-width: @size-5600;
-		}
-	}
 
 	&__header {
 		display: flex;
