@@ -358,20 +358,16 @@ export default defineComponent( {
 		}
 
 		&:focus {
-			outline: @outline-base--focus;
-		}
-
-		&.cdx-text-input__input--status-default:focus {
 			border-color: @border-color-progressive--focus;
 			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+			outline: @outline-base--focus;
 		}
 
 		&.cdx-text-input__input--status-error {
 			border-color: @border-color-destructive;
 
 			&:focus {
-				border-color: @border-color-destructive--focus;
-				box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus;
+				border-color: @border-color-progressive--focus;
 			}
 		}
 	}

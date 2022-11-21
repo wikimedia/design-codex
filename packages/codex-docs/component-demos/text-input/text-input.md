@@ -17,17 +17,17 @@ const controlsConfig = [
 		type: 'boolean'
 	},
 	{
+		name: 'status',
+		type: 'radio',
+		options: [ 'default', 'error' ],
+	},
+	{
 		name: 'disabled',
 		type: 'boolean'
 	},
 	{
 		name: 'placeholder',
 		type: 'text'
-	},
-	{
-		name: 'status',
-		type: 'radio',
-		options: [ 'default', 'error' ],
 	}
 ];
 </script>
