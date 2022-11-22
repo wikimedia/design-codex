@@ -1,6 +1,6 @@
 {
 	"name": "@wikimedia/codex",
-	"version": "0.2.2",
+	"version": "0.3.0",
 	"description": "Codex is a toolkit for building user interfaces within the Wikimedia Design System",
 	"keywords": [
 		"Codex",
