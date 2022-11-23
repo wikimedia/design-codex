@@ -4,14 +4,34 @@ import ConfigurableDialog from '@/../component-demos/dialog/examples/Configurabl
 import DialogWithSelect from '@/../component-demos/dialog/examples/DialogWithSelect.vue';
 import DialogMaxContent from '@/../component-demos/dialog/examples/DialogMaxContent.vue';
 import DialogStackedActions from '@/../component-demos/dialog/examples/DialogStackedActions.vue';
+
+const controlsConfig = [
+	{ name: 'title', type: 'text', initial: 'Dialog title' },
+	{ name: 'hideTitle', type: 'boolean' },
+	{ name: 'closeButtonLabel', type: 'text', initial: 'Close' },
+	{ name: 'showDividers', type: 'boolean' },
+	{ name: 'stackedActions', type: 'boolean' },
+	{ name: 'usePrimaryAction', type: 'boolean', initial: true },
+	{ name: 'primaryActionLabel', type: 'text', initial: 'Save' },
+	{ name: 'primaryActionType', type: 'radio', options: [ 'progressive', 'destructive' ] },
+	{ name: 'primaryActionDisabled', type: 'boolean' },
+	{ name: 'useDefaultAction', type: 'boolean', initial: true },
+	{ name: 'defaultActionLabel', type: 'text', initial: 'Close dialog' },
+	{ name: 'defaultActionDisabled', type: 'boolean' },
+	{
+		name: 'default',
+		type: 'slot',
+		default: 'Simple dialogs are mainly for short messages, confirmations or alerts. Their content should aim to fill one or two lines.'
+	}
+];
 </script>
 
 ## Demos
 
 ### Configurable Dialog
-<cdx-demo-wrapper>
-<template v-slot:demo>
-<configurable-dialog />
+<cdx-demo-wrapper :controls-config="controlsConfig">
+<template v-slot:demo="{ propValues, slotValues }">
+<configurable-dialog v-bind="propValues">{{ slotValues.default }}</configurable-dialog>
 </template>
 </cdx-demo-wrapper>
 
@@ -47,7 +67,8 @@ frame (instead of being cut off by it).
 
 ### With overflowing content
 When content in the default slot (the dialog body) is longer than the available space, the body
-section will scroll while the dialog header and footer will remain in view.
+section will scroll while the dialog header and footer will remain in view. Use the `showDividers`
+prop to add dividers between the header, body, and footer of the dialog.
 <cdx-demo-wrapper>
 <template v-slot:demo>
 <dialog-max-content />

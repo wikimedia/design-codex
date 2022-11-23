@@ -6,6 +6,7 @@
 		v-model:open="open"
 		title="Dialog with long content"
 		close-button-label="Close"
+		:show-dividers="true"
 		:default-action="defaultAction"
 		@default="open = false"
 	>

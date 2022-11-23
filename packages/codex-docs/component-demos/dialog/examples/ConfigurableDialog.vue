@@ -1,131 +1,112 @@
 <template>
-	<details>
-		<summary>Expand these controls to configure the dialog.</summary>
-		<cdx-docs-controls
-			v-model:direction="direction"
-			:controls-with-values="controlsWithValues"
-			@control-change="handleControlChange"
-		/>
-	</details>
-
 	<cdx-button @click="open = true">
 		Open dialog
 	</cdx-button>
 
 	<cdx-dialog
 		v-model:open="open"
-		:dir="direction"
-		v-bind="propValues"
+		:title="title"
+		:hide-title="hideTitle"
+		:close-button-label="closeButtonLabel"
+		:show-dividers="showDividers"
+		:stacked-actions="stackedActions"
+		:primary-action="primaryAction"
+		:default-action="defaultAction"
 		@default="open = false"
 	>
-		<p>{{ propValues.content }}</p>
+		<slot />
 	</cdx-dialog>
 </template>
 
 <script lang="ts">
-import {
-	defineComponent,
-	computed,
-	ref
-} from 'vue';
+import { PropType, defineComponent, ref, computed } from 'vue';
 
 import {
 	CdxButton,
-	CdxDialog,
-	PrimaryDialogAction,
-	DialogAction,
-	HTMLDirection
+	CdxDialog
 } from '@wikimedia/codex';
-
-import CdxDocsControls from '../../../src/components/controls/Controls.vue';
-
-import {
-	ControlConfigWithValue,
-	PropValuesWithIcons
-} from '../../../src/types';
 
 export default defineComponent( {
 	name: 'ConfigurableDialog',
 	components: {
 		CdxButton,
-		CdxDialog,
-		CdxDocsControls
+		CdxDialog
 	},
-	setup() {
+	props: {
+		title: {
+			type: String,
+			default: 'Dialog title'
+		},
+		hideTitle: {
+			type: Boolean,
+			default: false
+		},
+		closeButtonLabel: {
+			type: String,
+			default: ''
+		},
+		showDividers: {
+			type: Boolean,
+			default: false
+		},
+		stackedActions: {
+			type: Boolean,
+			default: false
+		},
+		usePrimaryAction: {
+			type: Boolean,
+			default: false
+		},
+		primaryActionLabel: {
+			type: String,
+			default: ''
+		},
+		primaryActionType: {
+			type: String as PropType<'progressive'|'destructive'>,
+			default: 'progressive'
+		},
+		primaryActionDisabled: {
+			type: Boolean,
+			default: false
+		},
+		useDefaultAction: {
+			type: Boolean,
+			default: false
+		},
+		defaultActionLabel: {
+			type: String,
+			default: ''
+		},
+		defaultActionDisabled: {
+			type: Boolean,
+			default: false
+		}
+	},
+	setup( props ) {
 		const open = ref( false );
-		const direction = ref<HTMLDirection>( 'ltr' );
 
-		const controlsWithValues = ref<ControlConfigWithValue[]>( [
-			{ name: 'title', type: 'text', value: 'Configurable dialog' },
-			{ name: 'content', type: 'text', value: 'Dialog Content' },
-			{ name: 'hideTitle', type: 'boolean', value: false },
-			{ name: 'closeButtonLabel', type: 'text', value: 'Close' },
-			{ name: 'showDividers', type: 'boolean', value: false },
-			{ name: 'stackedActions', type: 'boolean', value: false },
-			{ name: 'usePrimaryAction', type: 'boolean', value: true },
-			{ name: 'primaryActionLabel', type: 'text', value: 'Save' },
-			{ name: 'primaryActionType', type: 'radio', options: [ 'progressive', 'destructive' ], value: 'progressive' },
-			{ name: 'primaryActionDisabled', type: 'boolean', value: false },
-			{ name: 'useDefaultAction', type: 'boolean', value: true },
-			{ name: 'defaultActionLabel', type: 'text', value: 'Close dialog' },
-			{ name: 'defaultActionDisabled', type: 'boolean', value: false }
-		] );
-		const propValues = computed( () => {
-			const values: PropValuesWithIcons = {};
-			for ( const control of controlsWithValues.value ) {
-				values[ control.name ] = control.value;
-			}
-
-			const primaryAction = values.usePrimaryAction ? {
-				label: values.primaryActionLabel,
-				actionType: values.primaryActionType,
-				disabled: values.primaryActionDisabled
-			} : undefined;
-
-			const defaultAction = values.useDefaultAction ? {
-				label: values.defaultActionLabel,
-				disabled: values.defaultActionDisabled
-			} : undefined;
-
-			return {
-				// These values are typed as the value types of PropValuesWithIcons, but we need to
-				// narrow it down for the cdx-dialog component.
-				title: values.title as string,
-				content: values.content as string,
-				hideTitle: values.hideTitle as boolean,
-				closeButtonLabel: values.closeButtonLabel as string,
-				stackedActions: values.stackedActions as boolean,
-				primaryAction: primaryAction as PrimaryDialogAction,
-				defaultAction: defaultAction as DialogAction,
-				showDividers: values.showDividers as boolean
-			};
+		const primaryAction = computed( () => {
+			return props.usePrimaryAction ?
+				{
+					label: props.primaryActionLabel,
+					actionType: props.primaryActionType,
+					disabled: props.primaryActionDisabled
+				} : undefined;
 		} );
-		/**
-		 * Store new control value so it can be passed back into the demo.
-		 *
-		 * @param name The prop
-		 * @param value The new value
-		 */
-		const handleControlChange = ( name: string, value: string | number | boolean ) => {
-			const control = controlsWithValues.value.find( ( c ) => c.name === name );
-			if ( control ) {
-				control.value = value;
-			}
-		};
+
+		const defaultAction = computed( () => {
+			return props.useDefaultAction ?
+				{
+					label: props.defaultActionLabel,
+					disabled: props.defaultActionDisabled
+				} : undefined;
+		} );
 
 		return {
 			open,
-			direction,
-			controlsWithValues,
-			propValues,
-			handleControlChange
+			primaryAction,
+			defaultAction
 		};
 	}
 } );
 </script>
-
-<style lang="less" scoped>
-p {
-	margin-top: 0;
-}
-</style>

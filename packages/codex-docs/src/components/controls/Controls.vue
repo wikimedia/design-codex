@@ -237,23 +237,5 @@ export default defineComponent( {
 	&--has-icon {
 		overflow: visible;
 	}
-
-	// HACK: Fix duplicated styles for inline radios. This currently only applies to the
-	// configurable dialog demo, where the controls are embedded in the dialog and will change
-	// directionality with the rest of the dialog, but a parent element
-	// (`.cdx-demo-wrapper__demo-pane` in the Wrapper component) will always have dir="ltr". We
-	// need to unset LTR styles when the controls are in RTL to avoid duplicating margins and
-	// padding.
-	[ dir='rtl' ] & {
-		// stylelint-disable-next-line selector-class-pattern
-		.cdx-radio--inline {
-			margin-right: 0;
-		}
-
-		// stylelint-disable-next-line selector-class-pattern
-		.cdx-radio__label-content {
-			padding-left: 0;
-		}
-	}
 }
 </style>
