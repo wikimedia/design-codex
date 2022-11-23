@@ -25,7 +25,6 @@
 							:model-value="propControl.value"
 							:input-value="option"
 							:name="'radio-group-' + propControl.name"
-							:inline="true"
 							@update:model-value="emitControlChange( propControl.name, $event )"
 						>
 							{{ option }}
@@ -68,24 +67,22 @@
 			</tr>
 			<tr>
 				<td class="cdx-docs-tokens-table__name">
-					<pre>direction</pre>
+					<pre>Reading direction</pre>
 				</td>
 				<td>
 					<cdx-radio
 						v-model="wrappedDirection"
 						input-value="ltr"
 						:name="directionGroupName"
-						:inline="true"
 					>
-						LTR
+						Left to right (LTR)
 					</cdx-radio>
 					<cdx-radio
 						v-model="wrappedDirection"
 						input-value="rtl"
 						:name="directionGroupName"
-						:inline="true"
 					>
-						RTL
+						Right to left (RTL)
 					</cdx-radio>
 				</td>
 			</tr>
@@ -236,6 +233,20 @@ export default defineComponent( {
 
 	&--has-icon {
 		overflow: visible;
+	}
+
+	// stylelint-disable-next-line selector-class-pattern
+	.cdx-radio {
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			// Use inline styles on larger screens.
+			display: inline;
+			margin-right: @spacing-100;
+			white-space: nowrap;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
 	}
 }
 </style>
