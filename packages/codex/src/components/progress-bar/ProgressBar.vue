@@ -97,7 +97,7 @@ export default defineComponent( {
 			animation-name: cdx-animation-progress-bar__bar;
 			animation-duration: @animation-duration-medium;
 			animation-timing-function: @animation-timing-function-base;
-			animation-iteration-count: infinite;
+			animation-iteration-count: @animation-iteration-count-base;
 		}
 
 		&.cdx-progress-bar--block {

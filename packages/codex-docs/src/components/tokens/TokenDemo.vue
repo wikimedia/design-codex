@@ -80,7 +80,6 @@ export default defineComponent( {
 
 // TODO: Tokenize.
 @animation-duration-token-animation: 2000ms;
-@animation-iteration-count-token-animation: infinite;
 @border-color-token: rgba( 0, 0, 0, 0.1 );
 @box-sizing-token-position: content-box;
 
@@ -107,7 +106,7 @@ export default defineComponent( {
 			height: @size-full;
 			animation-name: cdx-docs-animation-demo__inner-animation;
 			animation-duration: @animation-duration-token-animation;
-			animation-iteration-count: @animation-iteration-count-token-animation;
+			animation-iteration-count: @animation-iteration-count-base;
 		}
 	}
 

@@ -912,6 +912,11 @@
 			"value": "{ animation-timing-function.200 }"
 		}
 	},
+	"animation-iteration-count": {
+		"base": {
+			"value": "{ animation-iteration-count.100 }"
+		}
+	},
 	"cursor": {
 		"base": {
 			"value": "{ cursor.arrow }"

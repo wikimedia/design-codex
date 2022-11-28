@@ -501,6 +501,11 @@
 			"value": "ease-in-out"
 		}
 	},
+	"animation-iteration-count": {
+		"100": {
+			"value": "infinite"
+		}
+	},
 	"cursor": {
 		"arrow": {
 			"value": "default"
