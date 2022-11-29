@@ -267,7 +267,8 @@ the markup. The example below demonstrates a search result in a Greek interface 
 // Menus in this demo aren't absolutely positioned relative to something else.
 // Target .cdx-demo-wrapper__demo-pane instead of .cdx-demo-wrapper to avoid also applying this
 // rule to the menu in the icon picker in the wrapper's controls
-.cdx-demo-wrapper :deep( .cdx-demo-wrapper__demo-pane ul ) {
+/* stylelint-disable-next-line selector-class-pattern */
+.cdx-demo-wrapper :deep( .cdx-demo-wrapper__demo-pane .cdx-menu ) {
 	position: static;
 	box-shadow: none;
 }
