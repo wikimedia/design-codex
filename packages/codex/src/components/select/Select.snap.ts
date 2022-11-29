@@ -92,6 +92,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -125,6 +127,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -160,6 +164,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -193,6 +199,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -245,6 +253,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -351,6 +361,8 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -384,6 +396,8 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -419,6 +433,8 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -452,6 +468,8 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -504,6 +522,8 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -610,6 +630,8 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -643,6 +665,8 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -678,6 +702,8 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -711,6 +737,8 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -763,6 +791,8 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -869,6 +899,8 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -902,6 +934,8 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -937,6 +971,8 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -970,6 +1006,8 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -1022,6 +1060,8 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -1146,6 +1186,8 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -1179,6 +1221,8 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -1214,6 +1258,8 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -1247,6 +1293,8 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -1299,6 +1347,8 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -1423,6 +1473,8 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -1456,6 +1508,8 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -1491,6 +1545,8 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -1524,6 +1580,8 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -1576,6 +1634,8 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -1682,6 +1742,8 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -1715,6 +1777,8 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -1750,6 +1814,8 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -1783,6 +1849,8 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -1835,6 +1903,8 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->

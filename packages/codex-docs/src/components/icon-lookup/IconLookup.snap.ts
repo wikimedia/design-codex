@@ -138,6 +138,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
             </span>
             <!---->
             <!---->
+            <!---->
           </span>
         </span>
         

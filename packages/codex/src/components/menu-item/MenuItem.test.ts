@@ -41,6 +41,7 @@ describe( 'matches the snapshot', () => {
 		[ 'Item without label', testMenuItem ],
 		[ 'Item with label', { ...testMenuItem, label: testMenuItemLabel } ],
 		[ 'Item with match', { ...testMenuItem, match: '(match)' } ],
+		[ 'Item with supporting text', { ...testMenuItem, supportingText: '(supporting text)' } ],
 		[ 'Item with url', testSearchResult ],
 		[ 'Item with icon', { ...testSearchResult, icon: cdxIconTag } ],
 		[ 'Item with placeholder thumbnail', testSearchResult, true ],

@@ -623,6 +623,8 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                   </span>
                   <!-- Item search query match (e.g. alias). -->
                   <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
                   <!-- Item description. -->
                   <!--v-if-->
                 </span>
@@ -689,6 +691,8 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                     </bdi>
                   </span>
                   <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
                   <!--v-if-->
                   <!-- Item description. -->
                   <span

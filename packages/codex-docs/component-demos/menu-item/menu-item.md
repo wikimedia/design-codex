@@ -7,6 +7,7 @@ import MenuItemWithThumbnail from '@/../component-demos/menu-item/examples/MenuI
 import MenuItemWithIcon from '@/../component-demos/menu-item/examples/MenuItemWithIcon.vue';
 import MenuItemHighlightQuery from '@/../component-demos/menu-item/examples/MenuItemHighlightQuery.vue';
 import MenuItemWithMatch from '@/../component-demos/menu-item/examples/MenuItemWithMatch.vue';
+import MenuItemWithSupportingText from '@/../component-demos/menu-item/examples/MenuItemWithSupportingText.vue';
 import MenuItemMultipleLangs from '@/../component-demos/menu-item/examples/MenuItemMultipleLangs.vue';
 import MenuItemLongText from '@/../component-demos/menu-item/examples/MenuItemLongText.vue';
 import MenuItemHideOverflow from '@/../component-demos/menu-item/examples/MenuItemHideOverflow.vue';
@@ -37,6 +38,10 @@ const controlsConfig = [
 	},
 	{
 		name: 'match',
+		type: 'text'
+	},
+	{
+		name: 'supportingText',
 		type: 'text'
 	},
 	{
@@ -193,11 +198,32 @@ margarita," an alias of the Wikidata item "sand cat."
 </template>
 </cdx-demo-wrapper>
 
+### With supporting text
+
+Text that supports or explains the label can be added via the `supportingText` prop. This text will
+be displayed after the label in a more subtle color.
+
+The example below shows a result for the search term "Corn," which redirects to the article for
+"Maize" on English Wikipedia.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<MenuItemWithSupportingText />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/menu-item/examples/MenuItemWithSupportingText.vue
+
+</template>
+</cdx-demo-wrapper>
+
 ### With multiple languages
 
-In addition to simple strings, the `label`, `description`, and `match` props can be objects with
-a string value and an associated language code. The `lang` attribute for that string will be set in
-the markup. The example below demonstrates a search result in a Greek interface for the English word
+Individual `lang` attributes can be set for the `label`, `description`, `match`, and
+`supportingText` props via the `language` prop, which is an object of `lang` attributes for those 
+props.
+
+The example below demonstrates a search result in a Greek interface for the English word
 "moon."
 
 <cdx-demo-wrapper>

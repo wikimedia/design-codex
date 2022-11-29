@@ -109,6 +109,8 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -142,6 +144,8 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -177,6 +181,8 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -210,6 +216,8 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -285,6 +293,8 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -318,6 +328,8 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
@@ -353,6 +365,8 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
             </span>
             <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->
           </span>
@@ -386,6 +400,8 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
               </bdi>
             </span>
             <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
             <!--v-if-->
             <!-- Item description. -->
             <!--v-if-->

@@ -67,6 +67,8 @@ export interface MenuItemLanguageData {
 	label?: string,
 	/** lang attribute of the match. */
 	match?: string,
+	/** lang attribute of the supporting text. */
+	supportingText?: string,
 	/** lang attribute of the description. */
 	description?: string
 }
@@ -79,6 +81,8 @@ export interface MenuItemData {
 	label?: string,
 	/** Text to be appended to the result's label, e.g. text matching a search query. */
 	match?: string,
+	/** Text to display next to to the item's label. */
+	supportingText?: string,
 	description?: string | null,
 	/** Lang attributes of text properties. */
 	language?: MenuItemLanguageData,

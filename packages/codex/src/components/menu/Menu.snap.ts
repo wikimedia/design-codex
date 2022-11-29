@@ -40,6 +40,8 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
           </span>
           <!-- Item search query match (e.g. alias). -->
           <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
         </span>
@@ -73,6 +75,8 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
             </bdi>
           </span>
           <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
           <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
@@ -108,6 +112,8 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
           </span>
           <!-- Item search query match (e.g. alias). -->
           <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
         </span>
@@ -141,6 +147,8 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
             </bdi>
           </span>
           <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
           <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
@@ -176,6 +184,8 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
           </span>
           <!-- Item search query match (e.g. alias). -->
           <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
         </span>
@@ -209,6 +219,8 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
             </bdi>
           </span>
           <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
           <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
@@ -262,6 +274,8 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
           </span>
           <!-- Item search query match (e.g. alias). -->
           <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
         </span>
@@ -295,6 +309,8 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
             </bdi>
           </span>
           <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
           <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
@@ -330,6 +346,8 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
           </span>
           <!-- Item search query match (e.g. alias). -->
           <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
         </span>
@@ -363,6 +381,8 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
             </bdi>
           </span>
           <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
           <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
@@ -398,6 +418,8 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
           </span>
           <!-- Item search query match (e.g. alias). -->
           <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
         </span>
@@ -431,6 +453,8 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
             </bdi>
           </span>
           <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
           <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
@@ -485,6 +509,8 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
           </span>
           <!-- Item search query match (e.g. alias). -->
           <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
         </span>
@@ -518,6 +544,8 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
             </bdi>
           </span>
           <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
           <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
@@ -553,6 +581,8 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
           </span>
           <!-- Item search query match (e.g. alias). -->
           <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
         </span>
@@ -586,6 +616,8 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
             </bdi>
           </span>
           <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
           <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
@@ -621,6 +653,8 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
           </span>
           <!-- Item search query match (e.g. alias). -->
           <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
         </span>
@@ -654,6 +688,8 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
             </bdi>
           </span>
           <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
           <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
@@ -771,6 +807,8 @@ exports[`Matches the snapshots Case 5 Pending with items: => HTML 1`] = `
           </span>
           <!-- Item search query match (e.g. alias). -->
           <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
         </span>
@@ -804,6 +842,8 @@ exports[`Matches the snapshots Case 5 Pending with items: => HTML 1`] = `
             </bdi>
           </span>
           <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
           <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
@@ -839,6 +879,8 @@ exports[`Matches the snapshots Case 5 Pending with items: => HTML 1`] = `
           </span>
           <!-- Item search query match (e.g. alias). -->
           <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
         </span>
@@ -872,6 +914,8 @@ exports[`Matches the snapshots Case 5 Pending with items: => HTML 1`] = `
             </bdi>
           </span>
           <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
           <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
@@ -907,6 +951,8 @@ exports[`Matches the snapshots Case 5 Pending with items: => HTML 1`] = `
           </span>
           <!-- Item search query match (e.g. alias). -->
           <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->
         </span>
@@ -940,6 +986,8 @@ exports[`Matches the snapshots Case 5 Pending with items: => HTML 1`] = `
             </bdi>
           </span>
           <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
           <!--v-if-->
           <!-- Item description. -->
           <!--v-if-->

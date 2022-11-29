@@ -70,6 +70,18 @@
 						</span>
 					</template>
 
+					<!-- Item label supporting text. -->
+					<template v-if="supportingText">
+						<!-- eslint-disable-next-line vue/no-useless-mustaches -->
+						{{ ' ' }}
+						<span
+							class="cdx-menu-item__text__supporting-text"
+							:lang="language?.supportingText"
+						>
+							<bdi>{{ supportingText }}</bdi>
+						</span>
+					</template>
+
 					<!-- Item description. -->
 					<span
 						v-if="description"
@@ -177,6 +189,15 @@ export default defineComponent( {
 		},
 
 		/**
+		 * Text that supports the label. Supporting text will appear next to the label in a more
+		 * subtle color.
+		 */
+		supportingText: {
+			type: String,
+			default: ''
+		},
+
+		/**
 		 * URL for the menu item. If provided, the content of the menu item will be wrapped in an
 		 * anchor tag.
 		 */
@@ -242,7 +263,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Optional language codes for label, match, and description.
+		 * Optional language codes for label, match, supporting text, and description.
 		 *
 		 * If included, that language code will be added as a `lang` attribute to the element
 		 * wrapping that text node.
@@ -416,8 +437,8 @@ export default defineComponent( {
 			color: @color-base;
 		}
 
+		.cdx-menu-item__text__supporting-text,
 		.cdx-menu-item__text__description {
-			// Different color for description.
 			color: @color-subtle;
 		}
 
