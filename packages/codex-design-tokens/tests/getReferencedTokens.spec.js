@@ -5,7 +5,8 @@
 const { getReferencedTokens } = require( '../.style-dictionary/lib' );
 
 describe( 'getReferencedTokens', () => {
-	it.each( [
+	/** @type {[original: string, expectedTokens: string[]][]} */
+	const cases = [
 		[ '#fff', [] ],
 		[ '{dimension.250}', [ 'dimension.250' ] ],
 		[
@@ -13,7 +14,9 @@ describe( 'getReferencedTokens', () => {
 			[ 'box-shadow.inset.style.thin', 'color.accent.50' ]
 		],
 		[ '    {    silly-whitespace }', [ 'silly-whitespace' ] ]
-	] )( 'extracts tokens from %s: %p', ( original, expectedTokens ) => {
+	];
+
+	test.each( cases )( 'extracts tokens from %s: %p', ( original, expectedTokens ) => {
 		/** @type {TransformedToken} */
 		const token = {
 			value: original,
