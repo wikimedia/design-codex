@@ -216,7 +216,7 @@ Notice message with custom icon
 </cdx-demo-wrapper>
 
 <style lang="less" scoped>
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-demo-wrapper {
 	:deep( p ) {

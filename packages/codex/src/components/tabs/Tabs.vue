@@ -535,7 +535,7 @@ export default defineComponent( {
 <!-- eslint-disable max-len -->
 <style lang="less">
 /* stylelint-disable no-descending-specificity */
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
 @font-size-browser: 16;

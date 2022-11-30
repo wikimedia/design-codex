@@ -139,7 +139,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-icon-lookup {
 	// Ensure that the longer icon names are not cut off or split into multiple lines in

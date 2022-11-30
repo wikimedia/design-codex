@@ -460,7 +460,7 @@ export default defineComponent( {
 <style lang="less">
 // Load the CSS for Prism, so that syntax highlighting works
 @import 'prism-themes/themes/prism-dracula.css';
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-demo-wrapper {
 	margin-top: @spacing-100;

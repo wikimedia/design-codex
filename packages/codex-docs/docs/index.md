@@ -77,7 +77,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 </div>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 /* stylelint-disable selector-class-pattern */
 .cdx-docs-home {

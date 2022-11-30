@@ -110,7 +110,7 @@ const demoSections = [
 </script>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 // Define some sandbox-specific values
 @sandbox-header-height: 2em;

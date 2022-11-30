@@ -156,7 +156,7 @@ Below are some sample styles for a component to demonstrate these conventions:
 
 ```less
 <style lang="less">
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/binary-input.less';
 
 .cdx-radio {

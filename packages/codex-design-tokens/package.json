@@ -15,7 +15,9 @@
 		"node": ">=16"
 	},
 	"files": [
-		"dist"
+		"dist",
+		"theme-*.*",
+		"index.json"
 	],
 	"scripts": {
 		"prepare": "npm run build",
@@ -27,13 +29,17 @@
 		"lint:ts": "tsc --noEmit",
 		"test": "npm run lint:ts && npm run test:unit",
 		"test:unit": "jest .",
-		"watch": "npm-watch"
+		"watch": "npm-watch",
+		"prepublishOnly": "copyfiles -u 1 \"dist/theme-*.*\" \"dist/index.json\" .",
+		"postpublish": "rimraf \"theme-*.*\" index.json"
 	},
 	"watch": {
 		"build:tokens": "src/**/*.json"
 	},
 	"devDependencies": {
+		"copyfiles": "2.4.1",
 		"jest": "^27.3.1",
+		"rimraf": "3.0.2",
 		"style-dictionary": "^3.7.1",
 		"npm-watch": "^0.11.0",
 		"typescript": "^4.8.2"

@@ -32,7 +32,7 @@ not a Vue component. See below for [usage information](#usage).
 </template>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex/dist/mixins/link.less';
+@import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link {
 	.cdx-mixin-link();
@@ -58,7 +58,7 @@ not a Vue component. See below for [usage information](#usage).
 </template>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex/dist/mixins/link.less';
+@import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link {
 	.cdx-mixin-link();
@@ -84,7 +84,7 @@ not a Vue component. See below for [usage information](#usage).
 </template>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex/dist/mixins/link.less';
+@import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link {
 	.cdx-mixin-link();
@@ -115,7 +115,7 @@ not a Vue component. See below for [usage information](#usage).
 </template>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex/dist/mixins/link.less';
+@import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link {
 	.cdx-mixin-link();
@@ -151,7 +151,7 @@ class or to all anchor elements. This will automatically apply underline styles 
 </template>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex/dist/mixins/link.less';
+@import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link {
 	.cdx-mixin-link();
@@ -190,7 +190,7 @@ Alternately, you can apply sub-mixins directly to your own CSS selectors. The su
 </template>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex/dist/mixins/link.less';
+@import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link-wrapper {
 	a {
@@ -212,7 +212,7 @@ Alternately, you can apply sub-mixins directly to your own CSS selectors. The su
 </cdx-demo-wrapper>
 
 <style lang="less" scoped>
-@import ( reference ) '@wikimedia/codex/dist/mixins/link.less';
+@import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link {
 	.cdx-mixin-link();

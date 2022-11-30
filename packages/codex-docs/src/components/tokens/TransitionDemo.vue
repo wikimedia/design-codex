@@ -50,7 +50,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-transition-demo {
 	background-color: @background-color-base;

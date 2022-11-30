@@ -76,7 +76,7 @@ export default defineComponent( {
 
 <!-- eslint-disable max-len -->
 <style lang="less">
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 // TODO: Tokenize.
 @animation-duration-token-animation: 2000ms;

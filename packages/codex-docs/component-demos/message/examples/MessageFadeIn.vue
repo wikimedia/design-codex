@@ -29,7 +29,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less" scoped>
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-message-fade-in {
 	min-height: 130px;

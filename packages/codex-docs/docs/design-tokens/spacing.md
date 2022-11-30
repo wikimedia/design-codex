@@ -1,7 +1,6 @@
 <script setup>
 import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
-import { spacing } from '@wikimedia/codex-design-tokens/dist/index.json';
-import { padding } from '@wikimedia/codex-design-tokens/dist/index.json';
+import { spacing, padding } from '@wikimedia/codex-design-tokens/index.json';
 </script>
 
 # Spacing

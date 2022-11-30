@@ -107,7 +107,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-icon {
 	// Set the default icon color; callers that want a different color should override this rule.

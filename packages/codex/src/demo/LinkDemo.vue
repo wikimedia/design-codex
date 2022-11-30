@@ -39,7 +39,7 @@ import { cdxIconLinkExternal } from '@wikimedia/codex-icons';
 </script>
 
 <style lang="less" scoped>
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../themes/mixins/public/link.less';
 
 // stylelint-disable selector-class-pattern

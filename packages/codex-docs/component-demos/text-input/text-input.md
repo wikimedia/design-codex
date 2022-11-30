@@ -157,7 +157,7 @@ To disable the input, add the `disabled` attribute.
 </cdx-demo-wrapper>
 
 <style lang="less" scoped>
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 /* stylelint-disable-next-line selector-class-pattern */
 :deep( .cdx-demo-wrapper__demo-pane .cdx-text-input ) {

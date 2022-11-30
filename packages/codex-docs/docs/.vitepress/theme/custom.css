@@ -1,5 +1,5 @@
 /* Codex design tokens and rules for VitePress docs. */
-@import '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.css';
+@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui.css';
 
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable unit-disallowed-list */

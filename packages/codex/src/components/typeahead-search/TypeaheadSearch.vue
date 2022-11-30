@@ -703,7 +703,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 @import ( reference ) '../../themes/mixins/element-with-menu-expanded.less';
 @import ( reference ) '../../themes/mixins/icon-alignment.less';

@@ -28,7 +28,8 @@
 	"types": "./dist/types/lib.d.ts",
 	"style": "dist/codex.style.css",
 	"files": [
-		"dist"
+		"dist",
+		"mixins"
 	],
 	"scripts": {
 		"dev": "vite ${npm_config_port+--port=${npm_config_port}}",
@@ -44,7 +45,9 @@
 		"test:e2e": "start-server-and-test 'npm run dev' http-get://localhost:5173 'cypress run'",
 		"lint": "npm run lint:ts",
 		"lint:ts": "vue-tsc --noEmit && vue-tsc -p ./cypress/tsconfig.json --noEmit",
-		"update-snapshots": "npm run test:unit -- -u"
+		"update-snapshots": "npm run test:unit -- -u",
+		"prepublishOnly": "cp -r dist/mixins .",
+		"postpublish": "rm -rf mixins/"
 	},
 	"devDependencies": {
 		"@types/jest": "^27.0.2",

@@ -5,6 +5,7 @@
 const rtlcss = require( 'rtlcss' );
 const vue = require( '@vitejs/plugin-vue' ).default;
 const postcssRtlcss = require( 'postcss-rtlcss' );
+const path = require( 'path' );
 const postcssBaseConfig = require( './postcss-base.config' );
 
 /* eslint-disable jsdoc/multiline-blocks */
@@ -98,6 +99,19 @@ module.exports = function ( { command, mode }, options ) {
 		},
 		plugins: [
 			vue()
-		]
+		],
+		resolve: {
+			alias: [
+				// Alias imports without /dist/ from codex-design-tokens to the dist/ directory.
+				// The published package has these files at the top level, but in development those
+				// files aren't there because they're placed there by the prepublishOnly script.
+				// Hot module reloading is provided by the doc:dev script watching the design tokens
+				// source files and rebuilding the dist files when the source files change.
+				{
+					find: /^@wikimedia\/codex-design-tokens\/([^/]+\.(less|css|scss|json))$/,
+					replacement: path.resolve( __dirname, '../codex-design-tokens/dist/$1' )
+				}
+			]
+		}
 	};
 };
