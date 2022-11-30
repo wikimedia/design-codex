@@ -25,7 +25,8 @@
 			</template>
 
 			Codex users should visit the
-			<a href="https://doc.wikimedia.org/codex/latest/">official docs</a>.
+			<!-- class="vp-raw" prevents VitePress from treating this like an internal link -->
+			<a class="vp-raw" href="https://doc.wikimedia.org/codex/latest/">official docs</a>.
 		</cdx-message>
 	</div>
 </template>
