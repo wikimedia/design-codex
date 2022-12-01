@@ -149,7 +149,7 @@ import { ButtonAction } from '../../types';
 import { ButtonActions } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
-// NOTE: This variable is necessary, see "Pitfall" below
+// NOTE: This variable is necessary, see "Pitfall" below // [!code error]
 const isButtonAction = makeStringTypeValidator( ButtonActions );
 
 export default defineComponent( {

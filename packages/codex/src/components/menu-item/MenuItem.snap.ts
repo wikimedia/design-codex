@@ -111,7 +111,7 @@ exports[`matches the snapshot Case 2 Item with match: ({"id": "test-menu-item", 
 						except plain text, so we can't rely on a newline to add a natural space
 						here. -->
       <!-- eslint-disable-next-line vue/no-useless-mustaches -->
-        
+         
       <span
         class="cdx-menu-item__text__match"
       >
@@ -162,7 +162,7 @@ exports[`matches the snapshot Case 3 Item with supporting text: ({"id": "test-me
       <!-- Item label supporting text. -->
       
       <!-- eslint-disable-next-line vue/no-useless-mustaches -->
-        
+         
       <span
         class="cdx-menu-item__text__supporting-text"
       >
@@ -453,7 +453,7 @@ exports[`matches the snapshot Case 8 Item with language attributes: ({"descripti
 						except plain text, so we can't rely on a newline to add a natural space
 						here. -->
       <!-- eslint-disable-next-line vue/no-useless-mustaches -->
-        
+         
       <span
         class="cdx-menu-item__text__match"
         lang="en"
@@ -520,7 +520,7 @@ exports[`matches the snapshot Case 9 Item with language attributes and search qu
 						except plain text, so we can't rely on a newline to add a natural space
 						here. -->
       <!-- eslint-disable-next-line vue/no-useless-mustaches -->
-        
+         
       <span
         class="cdx-search-result-title"
         lang="en"

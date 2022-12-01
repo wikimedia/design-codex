@@ -4,9 +4,10 @@ import { resolve } from 'path';
 export default defineConfig( {
 	server: {
 		/**
-		 * Explicitly allow dev server to serve files from other workspaces.
+		 * Explicitly allow dev server to serve files from other workspaces and from the
+		 * node_modules directory in the repo root.
 		 */
-		fs: { allow: [ '../..' ] },
+		fs: { allow: [ '../../..' ] },
 		// Listen on all IP addresses, in case Vite is run inside a VM
 		host: '0.0.0.0'
 	},

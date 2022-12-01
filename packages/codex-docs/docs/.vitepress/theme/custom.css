@@ -222,9 +222,19 @@ pre[ class*='language-' ] {
 	border: 0;
 }
 
-.vp-doc [ class~='language-vue-html' ]::before {
-	/* Make sure template-only code blocks are labeled as vue code. */
+/*
+ * Make sure template-only code blocks are labeled as Vue code.
+ * Hide the "template" text and inject "vue" instead.
+ */
+.vp-doc [ class~='language-vue-html' ] > span.lang {
+	font-size: 0;
+}
+
+.vp-doc [ class~='language-vue-html' ] > span.lang::after {
 	content: 'vue';
+	/* TODO: Use a VitePress variable here if one is introduced in the future. */
+	/* stylelint-disable-next-line declaration-property-unit-disallowed-list */
+	font-size: 12px;
 }
 
 .vp-doc [ class*='language-' ] > button.copy {
