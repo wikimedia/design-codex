@@ -301,8 +301,8 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-@import './../../themes/mixins/icon-alignment.less';
-@import './../../themes/mixins/element-with-menu-expanded.less';
+@import ( reference ) '../../themes/mixins/icon-alignment.less';
+@import ( reference ) '../../themes/mixins/element-with-menu-expanded.less';
 
 @min-width-combobox: 280px;
 

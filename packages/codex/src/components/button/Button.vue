@@ -139,7 +139,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-@import './../../themes/mixins/button.less';
+@import ( reference ) '../../themes/mixins/button.less';
 
 // TODO: Tokenize.
 @background-color-normal-progressive--active: lighten( @color-progressive--active, 60% );

@@ -157,9 +157,12 @@ Below are some sample styles for a component to demonstrate these conventions:
 ```less
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-@import './../../themes/mixins/binary-input.less';
+@import ( reference ) '../../themes/mixins/binary-input.less';
 
 .cdx-radio {
+	// Common binary input styles.
+	.cdx-mixin-binary-input();
+
 	line-height: @size-input-binary;
 
 	// Custom-styled radio that's visible to the user.

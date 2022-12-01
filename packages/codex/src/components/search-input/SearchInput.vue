@@ -158,7 +158,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-@import '../../themes/mixins/input-with-button.less';
+@import ( reference ) '../../themes/mixins/input-with-button.less';
 
 .cdx-search-input {
 	.cdx-input-with-button();

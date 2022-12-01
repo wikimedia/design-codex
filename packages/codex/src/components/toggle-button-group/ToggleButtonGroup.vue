@@ -133,7 +133,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-@import './../../themes/mixins/button-group.less';
+@import ( reference ) '../../themes/mixins/button-group.less';
 
 .cdx-toggle-button-group {
 	.cdx-mixin-button-group();

@@ -263,7 +263,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-@import './../../themes/mixins/icon-alignment.less';
+@import ( reference ) '../../themes/mixins/icon-alignment.less';
 
 // TODO: these should be design tokens.
 @font-size-browser: 16;

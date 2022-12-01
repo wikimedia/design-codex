@@ -704,9 +704,9 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-@import '../../themes/mixins/common.less';
-@import '../../themes/mixins/element-with-menu-expanded.less';
-@import '../../themes/mixins/icon-alignment.less';
+@import ( reference ) '../../themes/mixins/common.less';
+@import ( reference ) '../../themes/mixins/element-with-menu-expanded.less';
+@import ( reference ) '../../themes/mixins/icon-alignment.less';
 
 // TODO: Tokenize.
 @font-size-browser: 16;

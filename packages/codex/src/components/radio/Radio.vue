@@ -130,7 +130,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-@import './../../themes/mixins/binary-input.less';
+@import ( reference ) '../../themes/mixins/binary-input.less';
 
 // Wrapper `<label>`.
 .cdx-radio {

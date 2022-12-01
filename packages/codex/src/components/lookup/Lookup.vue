@@ -349,8 +349,8 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.less';
-@import './../../themes/mixins/pending-state.less';
-@import './../../themes/mixins/element-with-menu-expanded.less';
+@import ( reference ) '../../themes/mixins/pending-state.less';
+@import ( reference ) '../../themes/mixins/element-with-menu-expanded.less';
 
 .cdx-lookup {
 	position: relative;
