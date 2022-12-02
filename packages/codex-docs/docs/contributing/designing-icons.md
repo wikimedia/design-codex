@@ -148,7 +148,7 @@ Export the optimized version of the icon with help from Figma’s [SVG Export pl
 
 ![Export icons Figma plugin SVG Export screenshot 2](../assets/designing-icons/export-icons-svgo-2.png)
 
-1. Find the SVG Export plugin using the “Plugins” section in Figma’s main menu and run it. Before exporting the icon, please import the [preset “WikimediaUI” (download link for JSON file)](../assets/designing-icons/SVG-export-Wikimedia-SVGO-preset.json). The import option is available from a menu in the “Presets” panel.
+1. Find the SVG Export plugin using the “Plugins” section in Figma’s main menu and run it. Before exporting the icon, please import the [preset “WikimediaUI” (download link for JSON file)](./SVG-export-Wikimedia-SVGO-preset.json). The import option is available from a menu in the “Presets” panel.
 
 2. Apply the WikimediaUI SVGO presets to the icon to be exported, then proceed to export the icon using the “Export all” button
 
