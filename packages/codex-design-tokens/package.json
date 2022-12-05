@@ -16,22 +16,21 @@
 	},
 	"files": [
 		"dist",
-		"theme-*.*",
-		"index.json"
+		"theme-*.*"
 	],
 	"scripts": {
 		"prepare": "npm run build",
 		"build": "npm run clean && npm run build:tokens",
 		"build:tokens": "node ./.style-dictionary/build.js",
-		"build-if-missing": "test -e dist/index.json || npm run build",
+		"build-if-missing": "test -e dist/theme-wikimedia-ui.json || npm run build",
 		"clean": "rm -rf ./dist",
 		"lint": "npm run lint:ts",
 		"lint:ts": "tsc --noEmit",
 		"test": "npm run lint:ts && npm run test:unit",
 		"test:unit": "jest .",
 		"watch": "npm-watch",
-		"prepublishOnly": "copyfiles -u 1 \"dist/theme-*.*\" \"dist/index.json\" .",
-		"postpublish": "rimraf \"theme-*.*\" index.json"
+		"prepublishOnly": "copyfiles -u 1 \"dist/theme-*.*\" .",
+		"postpublish": "rimraf \"theme-*.*\""
 	},
 	"watch": {
 		"build:tokens": "src/**/*.json"

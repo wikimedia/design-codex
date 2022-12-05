@@ -1,6 +1,6 @@
 <script setup>
 import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
-import { outline } from '@wikimedia/codex-design-tokens/index.json';
+import { outline } from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 </script>
 
 # Outline

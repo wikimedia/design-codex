@@ -2,7 +2,7 @@
 import * as allIcons from '@wikimedia/codex-icons';
 import { cdxIconJournal, cdxIconBold, cdxIconTrash } from '@wikimedia/codex-icons';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
-import tokens from '@wikimedia/codex-design-tokens/index.json';
+import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 
 // Filter out util functions
 const numberOfIcons = Object.keys( allIcons )

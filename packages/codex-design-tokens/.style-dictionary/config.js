@@ -51,7 +51,7 @@ const config = {
 			],
 			buildPath: 'dist/',
 			files: [ {
-				destination: 'index.json',
+				destination: 'theme-wikimedia-ui.json',
 				format: 'json'
 			} ]
 		}
