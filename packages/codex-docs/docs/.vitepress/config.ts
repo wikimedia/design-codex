@@ -120,6 +120,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 				{
 					text: 'Contributing design',
 					items: [
+						{ text: 'Designing new components', link: '/contributing/designing-new-components' },
 						{ text: 'Designing icons', link: '/contributing/designing-icons' }
 					]
 				},
