@@ -1,22 +1,52 @@
-# Codex Tokens
+# Codex design tokens
 
-This package holds the Codex design tokens and tools needed to build them.
+This package contains the Codex design tokens and tools needed to build them. These tokens express
+the visual style of the Codex design system.
 
-## Package organization
+## Using tokens
+The tokens are exported as style variables, and are available in CSS, Less and SASS.
 
-The tokens are organized in two categories
-* base
-* aliases
+### CSS
+```css
+@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui.css';
 
-Each category serves its own purpose:
+.some-class {
+	color: var( --color-subtle );
+}
+```
 
-Base tokens reflect the elementary visual foundations of the system. They are context agnostic (e.g. "accent-30"). Aliases are abstractions that communicate the intended context of use of a token. They mostly represent styles that are shared among several components (e.g. "border-color-progressive-active").
+### Less
+```less
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-## Looking at the tokens
+.some-class {
+	color: @color-subtle;
+}
+```
 
-The tokens can be inspected by looking at the source files in the [`properties` folder](./properties) or the generated token files - in different output formats - in the [`dist` folder](./dist) (requires a build!).
+### SASS
+```scss
+@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui.css';
 
-## Demo
+.some-class {
+	color: $color-subtle;
+}
+```
 
-To do: visualize the tokens in the demo tool.
+## Token documentation
+For more information about the tokens, including previews of the tokens' values and information
+about how this package is structured, see the
+[section about tokens on the documentation website](https://doc.wikimedia.org/codex/latest/design-tokens/overview.html).
 
+## Building the tokens
+You will need to build the tokens in this package to be able to build the `codex`
+and `codex-docs` packages, and to run their development modes. To build the tokens, run
+`npm run build` in the `packages/codex-design-tokens` directory (or run
+`npm run -w @wikimedia/codex-design-tokens build` in the root directory).
+
+### Build products
+The build process outputs the following files in the `dist/` directory:
+- `theme-wikimedia-ui.css`: The tokens as CSS variables (e.g. `--color-placeholder: #72777d;`)
+- `theme-wikimedia-ui.less`: The tokens as Less variables (e.g. `@color-placeholder: #72777d;`)
+- `theme-wikimedia-ui.scss`: The tokens as SASS variables (e.g. `$color-placeholder: #72777d;`)
+- `theme-wikimedia-ui.json`: A JSON structure with detailed data about each token

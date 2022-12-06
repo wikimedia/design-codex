@@ -70,4 +70,16 @@ Releases of the icons package contain the following files:
   and `util.d.ts` for the actual type definitions
 
 ## `@wikimedia/codex-design-tokens`
-The design tokens package is not yet ready for external use at this time.
+This package contains design tokens, which are style variables that can be used to write styles
+consistent with the Codex design system. This is mainly useful for people who develop their own
+components and want their appearance to be consistent with Codex.
+
+The components package also uses these tokens internally for styling, but using the components
+package does not require installing the tokens package.
+
+### Files
+Releases of the tokens package contain the following files:
+- `theme-wikimedia-ui.css`: The tokens as CSS variables (e.g. `--color-placeholder: #72777d;`)
+- `theme-wikimedia-ui.less`: The tokens as Less variables (e.g. `@color-placeholder: #72777d;`)
+- `theme-wikimedia-ui.scss`: The tokens as SASS variables (e.g. `$color-placeholder: #72777d;`)
+- `theme-wikimedia-ui.json`: A JSON structure with detailed data about each token
