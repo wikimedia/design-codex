@@ -1,3 +1,43 @@
+# 0.4.0 / 2022-12-06
+
+## Features
+- MenuItem: Add supportingText prop (Anne Tomasevich)
+
+## Styles
+- Dialog: Prevent skins from breaking header styles (Eric Gardner)
+- Menu: Remove -1px margin-top from menu (Anne Tomasevich)
+- MenuItem, docs: Fix CSS workaround for Menu absolute positioning (Roan Kattouw)
+- styles: Make mixin imports consistent (Roan Kattouw)
+- tokens, styles: Add `animation-iteration-count*` tokens and apply (Volker E)
+- tokens: Add `tab-size` token (Volker E)
+- tokens: Add tests for getTokenType (Roan Kattouw)
+- tokens: Amend Yellow 600 color option token and add Yellow 500 (Volker E)
+
+## Icons
+- icons: Optimize 'palette' icon's file size (Volker E)
+
+## Code
+- build, tokens: Rename index.json to theme-wikimedia-ui.json (Roan Kattouw)
+- build: Add the design-tokens package to the RELEASING.md docs (Roan Kattouw)
+- build: Correct file extension in tokens README (Anne Tomasevich)
+- build: Correctly align "engine" requirements with Wikimedia CI (Roan Kattouw)
+- build: Ensure build-demos script resolves token paths correctly (Eric Gardner)
+- build: Remove 'dist/' from import paths for mixin and tokens files (Roan Kattouw)
+- build: Updating decode-uri-component to 0.2.2 (libraryupgrader)
+
+## Documentation
+- docs, Dialog: Use normal configurable setup for Dialog demo (Anne Tomasevich)
+- docs: Add banners for main branch and deployment previews (Anne Tomasevich)
+- docs: Amending “Designing icons” (Volker E)
+- docs: Demonstrate good TypeScript practices in LookupWithFetch example (Roan Kattouw)
+- docs: Document the output of the tokens package, and add a README (Roan Kattouw)
+- docs: Link to the latest docs site instead of the main branch one (Roan Kattouw)
+- docs: Move SVGO preset JSON file out of assets/ directory (Roan Kattouw)
+- docs: Prevent VitePress from treating the link to latest as internal (Roan Kattouw)
+- docs: Spell out directions and improve radio controls (Anne Tomasevich)
+- docs: Update VitePress to 1.0.0-alpha.29 (Roan Kattouw)
+- docs: Update one more link to /main to /latest (Anne Tomasevich)
+
 # 0.3.0 / 2022-11-22
 
 ## Features
