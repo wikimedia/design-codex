@@ -42,7 +42,7 @@ $ ./build/prepare-release.sh 1.2.34
 The script starts a commit to update the version number in the right places, and add the
 changes in that release to `CHANGELOG.md`. Those changes then need to be manually
 organized following the conventions documented in
-[contributing code](https://doc.wikimedia.org/codex/main/contributing/contributing-code.html#patch-requirements).
+[contributing code](https://doc.wikimedia.org/codex/latest/contributing/contributing-code.html#patch-requirements).
 
 For any breaking changes, below the commit message, add a bulleted list describing the changes and
 how to handle them in a codebase that implements Codex:

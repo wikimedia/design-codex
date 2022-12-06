@@ -7,7 +7,7 @@ four packages:
   applications
 - **Design tokens**: for writing styles consistent with the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html)
 - **Icons**: a collection of icons with language and directionality variants
-- **VitePress site**: for [Codex documentation, Vue component demos, and design token visualization](https://doc.wikimedia.org/codex/main/)
+- **VitePress site**: for [Codex documentation, Vue component demos, and design token visualization](https://doc.wikimedia.org/codex/latest/)
 
 Codex features:
 - Wide-ranging support for internationalization and global usage
@@ -32,7 +32,7 @@ To use icons:
 import { cdxIconAlert, cdxIconNewWindow } from '@wikimedia/codex-icons';
 ```
 
-For more information on how to set up and use the library, see the [usage documentation](https://doc.wikimedia.org/codex/main/using-codex/usage.html).
+For more information on how to set up and use the library, see the [usage documentation](https://doc.wikimedia.org/codex/latest/using-codex/usage.html).
 
 ### Development
 
@@ -50,12 +50,12 @@ To get started:
 - Run `npm run doc:dev` to start the docs site
 - Or run `npm run dev` to start the Vite sandbox
 
-See the [contributing code](https://doc.wikimedia.org/codex/main/contributing/contributing-code.html) guidelines
+See the [contributing code](https://doc.wikimedia.org/codex/latest/contributing/contributing-code.html) guidelines
 for more information.
 
 ## Contributing
 
-If you'd like to contribute, head over to the [contributing docs](https://doc.wikimedia.org/codex/main/contributing/overview.html)
+If you'd like to contribute, head over to the [contributing docs](https://doc.wikimedia.org/codex/latest/contributing/overview.html)
 to learn about our processes and ways you can contribute.
 
 ## Maintainers
