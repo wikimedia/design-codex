@@ -105,6 +105,9 @@ $ npm publish -w @wikimedia/codex
 $ npm publish -w @wikimedia/codex-icons --dry-run
 $ npm publish -w @wikimedia/codex-icons
 
+$ npm publish -w @wikimedia/codex-design-tokens --dry-run
+$ npm publish -w @wikimedia/codex-design-tokens
+
 $ npm publish -w @wikimedia/codex-search --dry-run
 $ npm publish -w @wikimedia/codex-search
 ```
@@ -216,6 +219,10 @@ Edit the `releases.json` file in that repository. Search for `codex`, and you sh
                 "weight": 10
             },
             "@wikimedia/codex-icons": {
+                "to": "1.2.33",
+                "weight": 10
+            },
+            "@wikimedia/codex-design-tokens": {
                 "to": "1.2.33",
                 "weight": 10
             },
