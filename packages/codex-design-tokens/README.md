@@ -26,7 +26,7 @@ The tokens are exported as style variables, and are available in CSS, Less and S
 
 ### SASS
 ```scss
-@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui.css';
+@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui.scss';
 
 .some-class {
 	color: $color-subtle;
