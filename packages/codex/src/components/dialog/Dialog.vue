@@ -393,7 +393,10 @@ export default defineComponent( {
 
 		& &__title {
 			flex-grow: 1;
+			border: 0;
+			font-family: inherit;
 			font-size: 1em;
+			font-weight: inherit;
 			line-height: @line-height-xxx-small;
 		}
 
