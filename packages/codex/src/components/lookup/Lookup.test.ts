@@ -222,6 +222,15 @@ describe( 'Lookup', () => {
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
 				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
+
+			it( 'does not pass the space keyboard event to handler', async () => {
+				const wrapper = mount( CdxLookup, {
+					props: propsWithData,
+					initialInputValue: 'foo'
+				} );
+				await wrapper.find( 'input' ).trigger( 'keydown', { key: ' ' } );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+			} );
 		} );
 
 		describe( 'and the Lookup is disabled', () => {

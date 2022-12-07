@@ -265,17 +265,16 @@ export default defineComponent( {
 		 * For this component, the user should only be able to use key navigation to open the menu
 		 * if there are menu items (or no-results slot content) to display.
 		 *
-		 * Additionally, the space key should be able to open the menu, but otherwise it should
-		 * do its default function of adding a space character.
+		 * The space key should always do its default function of adding a space character,
+		 * and doesn't open the menu.
 		 *
 		 * @param e
 		 */
 		function onKeydown( e: KeyboardEvent ) {
 			if ( !menu.value ||
 				props.disabled ||
-				( props.menuItems.length === 0 && !slots[ 'no-results' ] ) ||
-				( e.key === ' ' && expanded.value )
-			) {
+				props.menuItems.length === 0 && !slots[ 'no-results' ] ||
+				e.key === ' ' ) {
 				return;
 			}
 			menu.value.delegateKeyNavigation( e );
