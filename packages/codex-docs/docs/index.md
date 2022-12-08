@@ -4,7 +4,7 @@ isHomepage: true
 ---
 <script setup>
 import { CdxIcon, CdxButton, CdxCard } from '@wikimedia/codex';
-import { cdxIconLogoWikimedia, cdxIconKey, cdxIconPuzzle, cdxIconInfoFilled } from '@wikimedia/codex-icons';
+import { cdxIconLogoWikimedia, cdxIconPalette, cdxIconPuzzle, cdxIconHeart } from '@wikimedia/codex-icons';
 import { version } from '../../codex/package.json';
 import CdxDocsVersionBanner from '../src/components/version-banner/VersionBanner.vue';
 </script>
@@ -39,7 +39,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 ## Features
 
 <div class="cdx-docs-home__features">
-	<cdx-card url="./design-tokens/overview.html" :icon="cdxIconKey">
+	<cdx-card url="./design-tokens/overview.html" :icon="cdxIconPalette">
 		<template #title>Design tokens</template>
 		<template #description>Write styles consistent with the Wikimedia Design System</template>
 	</cdx-card>
@@ -47,7 +47,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		<template #title>Components</template>
 		<template #description>Build usable, accessible, translatable applications</template>
 	</cdx-card>
-	<cdx-card url="./icons/overview.html" :icon="cdxIconInfoFilled">
+	<cdx-card url="./icons/overview.html" :icon="cdxIconHeart">
 		<template #title>Icons</template>
 		<template #description>Access a collection of icons with language and directionality variants</template>
 	</cdx-card>
