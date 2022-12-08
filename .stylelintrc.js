@@ -338,7 +338,7 @@ module.exports = {
 				'text-shadow',
 				'text-transform',
 				'hyphens',
-				// 'vertical-align', TOOD: Several static values to even out. */
+				// 'vertical-align', TODO: Several static values to even out. */
 				// 'white-space', TODO: Several static values to even out. */
 				'word-spacing',
 				'table-layout',
@@ -361,10 +361,8 @@ module.exports = {
 				'animation-fill-mode',
 				'animation-play-state',
 				'transition',
-				/* TODO: Several static values to even out.
-				'transition-property',
+				// 'transition-property', TODO: Several static values to even out.
 				'transition-duration',
-				*/
 				'transition-timing-function',
 				'transition-delay',
 				'cursor'
@@ -385,6 +383,9 @@ module.exports = {
 						'/^cdx-docs-animation-/'
 					],
 					'animation-duration': [
+						'0s'
+					],
+					'transition-duration': [
 						'0s'
 					]
 				}

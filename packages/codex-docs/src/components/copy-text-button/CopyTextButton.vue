@@ -179,7 +179,7 @@ export default defineComponent( {
 	&__transition-icon {
 		&-leave-active {
 			transition-property: width, opacity, margin-left;
-			transition-duration: 500ms;
+			transition-duration: @transition-duration-medium;
 			transition-timing-function: @transition-timing-function-user;
 		}
 
