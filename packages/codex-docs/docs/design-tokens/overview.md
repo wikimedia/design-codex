@@ -1,32 +1,84 @@
 # Design tokens
 
-**Design tokens are the smallest stylistic pieces of our design system** — specifically, they are
-named entities that store visual design attributes to build components and patterns. We use them in
-place of hard-coded values (such as hex values for color or pixel values for spacing) in order to
-maintain a scalable and consistent visual system for user-interface (UI) development.
+**Design tokens are the smallest stylistic pieces of our design system**.
 
-Tokens replace static values or single-use variables. Using tokens ensures that only systematic,
-pre-made decisions are used to style components and other UI elements and layouts. Tokens prevent
-deviations from the system’s visual and interactive rules, and make style modifications possible at
-scale and from a single source of truth.
+We use tokens:
+- To maintain a scalable and consistent visual system for user-interface (UI) development in a
+  single source of truth instead of hard-coded style values or single-use variables
+- To ensure that only systematic decisions are used to style components and patterns
 
-Design tokens help to:
+## 1. What are design tokens?
+### From visual styles to tokens
+Design system components are made up of a combination of predefined perceptual patterns. These patterns result from the consistent application of preselected styles such as colors, shadows, or spacing values, to specific UI elements and properties like backgrounds, borders, or paddings.
 
-1. Guide the definition of the visual style of components: Since tokens capture the system’s
-stylistic pieces, they can provide guidance to designers working to define the styles (background
-colors, colors, text formatting, sizes, spacing…) of new system components from scratch.
+At its core, Codex is made up of a set of visual styles derived from the [Wikimedia Design style guide](https://design.wikimedia.org/style-guide/visual-style.html) principles. Colors, typography, shadows and spacings are aligned with the style guide, and documented as tokens in the system. Design tokens are thus the smallest building blocks of the system: they define, document and enable the application of systemic design decisions at scale.
 
-2. Create specifications for handover: Designers use them to specify all the visual and interactive
-properties of a given component: this is how design decisions are literally embedded in system
-components. For more details regarding the use of design tokens for specification, please refer to
-the section dedicated to specification handover (LINK) in the Designing Components section.
+![step diagram from visual style to tokens](../assets/design-tokens-overview/what-are-design-tokens-from-visual-styles-to-tokens.png)
 
-Designers can copy them and use them while creating specifications for system components.
-Please reach out to the Design Systems team in case you find that a specific token is missing,
-incorrect or inconsistent.
+### Token typologies
 
+There are three types of tokens, depending on their function and level of abstraction:
 
-## Token structure
+#### Option tokens (aka theme options)
+Option tokens are context-agnostic tokens that encapsulate the primitive visual foundations of the system. Their name does not reflect a specific use case, rather they use the simplest possible name. They have raw values, e.g. `color-blue600: #36c`
+
+![option token naming scheme: category, name and value](../assets/design-tokens-overview/what-are-design-tokens-option-token.png)
+
+Option tokens are not used to style components. Their only purpose is to document raw values, and to be consumed by the next token typology: decision tokens.
+
+Option tokens are captured in the theme specific JSON file: `theme-wikimedia-ui.json`
+
+#### Decision tokens
+
+Decision tokens consume option tokens as values. They represent design decisions that can be reused to style system components. For this reason, decision tokens are documented in our [Codex token demo](https://doc.wikimedia.org/codex/latest/design-tokens/color.html). They communicate their intended use case via their name (so are not agnostic, like option tokens), e.g. `background-color-progressive: color-blue600;`.
+
+![decision token naming scheme: property, category and variant](../assets/design-tokens-overview/what-are-design-tokens-decision-token.png)
+
+Decision tokens are used to style system components and elements. This set of tokens is documented in the JSON file `codex-base.json`.
+
+#### Component decision tokens
+In the context of Codex, component tokens are used to document and define specific component styles that cannot be documented as shared decisions due to their single-use application. The names of component tokens include the name of the specific component and the property they define. Like decision tokens, they consume option tokens as values, e.g. `color-link-red--visited`.
+
+Component tokens embody exceptions, and are directly applied to style specific component properties. If a pattern arises (i.e. the component token can be used by several components), the  single-use component token can be converted into a decision token.
+
+Component tokens are documented in the JSON file `codex-components.json`.
+
+## 2. Using tokens
+Design tokens are the smallest units that store the visual guidelines and design decisions that characterize our system. More importantly, tokens document the intended context of use assigned to a specific style, and enable the application of the correct visual value to a specific component property. This is how tokens help to bridge the gap between implementation and design.
+
+Tokens are used to:
+
+<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
+
+1. **Define the visual style of components**: since tokens capture the system’s stylistic
+attributes, they provide guidance to define the styles (background colors, text
+formatting, sizes, spacing…) of new system components from scratch.
+
+2. **Codify design styles**: Designers use tokens to specify all the visual styles and interactive
+properties of a given component. These design decisions are translated to code. For more details
+regarding the use of design tokens for design specification, please refer to the section dedicated
+to specification hand-off to development in the [Designing Components](../contributing/designing-new-components.md) documentation.
+
+</div>
+<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
+
+![schematic image of Button component with tokens used therein](../assets/design-tokens-overview/using-tokens.png)
+</div>
+
+### From design to implementation
+Designers can access an overview of Codex’s foundational styles and principles and their corresponding token translation in the [Design Tokens library](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/✨-Design-Tokens-[WIP]?node-id=1%3A119) in Figma. By enabling the Design tokens library in their project’s Figma files, designers will be able to reuse the system’s visual principles as Figma styles when creating components and compositions.
+
+::: info
+Please note that tokens are context-specific: use them accordingly to the intended purpose expressed by their name. E.g. Apply content colors only to text.
+:::
+
+During implementation, engineers will be able to follow the design specifications in Figma (whether these are presented explicitly, or via the Inspect panel) and use the correct design tokens as values of the component’s CSS properties.
+
+![Design tokens when applied in code, here screenshot of primary button variant](../assets/design-tokens-overview/using-tokens-code.png)
+
+Please find all current design system token category demos in this Design Tokens section of Codex, starting at [Animation](animation.md) and ending at [Z-Index](z-index.md).
+
+## 3. Tokens in code
 ### File organization
 Codex token files are structured to cater to Wikimedia's multi-theme environment. Base tokens apply
 the theme-agnostic named tokens from 'theme-*' JSON files across components and patterns. Single
@@ -70,7 +122,7 @@ creating a structure that is flexible and theme-agnostic. For example, base size
 to. Because the names of the design tokens do not refer to a specific value, they can be reused by
 both the default and other themes.
 
-## Further technical notes
+### Further technical notes
 - Note, that normalization and reset values like `0` or `none` are not tokenized as they aren't used
 for design decisions.<br>
 `box-shadow: none` or `z-index: 0` on the other hand are representing design decisions.
@@ -78,4 +130,3 @@ for design decisions.<br>
 and Sass) in order to keep precise control over output. For cross-browser support, we rely on a
 variety of output values for different applications (example: `transparent` over 'color/css' output
 hexadecimal color `#00000000`) and also deliver small performance gems like hex color shorthands.
-
