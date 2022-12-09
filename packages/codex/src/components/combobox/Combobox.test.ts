@@ -193,6 +193,16 @@ describe( 'Basic usage', () => {
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 	} );
 
+	it( 'Space keyboard event does not open the menu', async () => {
+		const wrapper = mount( CdxCombobox, {
+			props: propsWithData,
+			attachTo: '#root'
+		} );
+		const inputEl = wrapper.find( '.cdx-text-input input' );
+		await inputEl.trigger( 'keydown', { key: ' ' } );
+		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+	} );
+
 	it( 'Enter keydown does not expand the menu if there is no data to display', async () => {
 		const wrapper = mount( CdxCombobox, {
 			props: defaultProps,

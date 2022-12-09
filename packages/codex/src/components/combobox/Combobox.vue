@@ -260,7 +260,7 @@ export default defineComponent( {
 				!menu.value ||
 				props.disabled ||
 				props.menuItems.length === 0 ||
-				( e.key === ' ' && expanded.value )
+				e.key === ' '
 			) {
 				return;
 			}

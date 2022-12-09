@@ -128,6 +128,16 @@ describe( 'TypeaheadSearch initial state', () => {
 		expect( wrapper.find( '.cdx-menu-item--highlighted' ).exists() ).toBe( false );
 	} );
 
+	it( 'Does not open the menu with the spacebar', async () => {
+		const wrapper = mount( CdxTypeaheadSearch, {
+			props: { initialInputValue: 'foo', ...propsData }
+		} );
+		wrapper.vm.searchQuery = 'foo';
+
+		await wrapper.find( 'input' ).trigger( 'keydown', { key: ' ' } );
+		expect( wrapper.vm.expanded ).toBeFalsy();
+	} );
+
 	it( 'Closes menu on tab', async () => {
 		const wrapper = mount( CdxTypeaheadSearch, {
 			props: propsData,

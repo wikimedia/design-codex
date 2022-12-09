@@ -582,8 +582,8 @@ export default defineComponent( {
 		function onKeydown( e: KeyboardEvent ) {
 			if (
 				!menu.value ||
-				( !searchQuery.value ) ||
-				( e.key === ' ' && expanded.value )
+				!searchQuery.value ||
+				e.key === ' '
 			) {
 				return;
 			}
