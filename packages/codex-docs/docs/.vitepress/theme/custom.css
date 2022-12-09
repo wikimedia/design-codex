@@ -340,11 +340,11 @@ pre[ class*='language-' ] {
 	vertical-align: top;
 }
 
-/* stylelint-enable selector-class-pattern */
 /* Custom docs. ------------------------------------------------------------ */
 
-.cdx-docs-demo-text {
-	margin: 0 0 var( --spacing-100 );
+/* Higher specificity to override VitePress internal `.vp-doc p`. */
+.vp-doc .cdx-docs-demo-text {
+	margin: 0 0 var( --spacing-50 );
 	font-weight: var( --font-weight-bold );
 }
 
@@ -355,3 +355,5 @@ pre[ class*='language-' ] {
 .cdx-docs-methods__params {
 	margin: 0;
 }
+
+/* stylelint-enable selector-class-pattern */

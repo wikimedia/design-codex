@@ -2,21 +2,13 @@
 	<div class="cdx-demo-wrapper" :class="rootClasses">
 		<!--
 			Note :key="dir" below is needed to ensure that icons and other things that use
-			useComputedDirection rerender when the direction is changed
+			useComputedDirection rerender when the direction is changed.
 		-->
 		<div
 			:key="direction"
 			class="cdx-demo-wrapper__demo-pane"
 			:dir="direction"
 		>
-			<cdx-button
-				v-if="includeReset"
-				class="cdx-demo-wrapper__demo-pane__reset-button"
-				type="quiet"
-				@click="onReset"
-			>
-				Reset
-			</cdx-button>
 			<div class="cdx-demo-wrapper__demo-pane__demo" @mousedown.capture="onDemoMousedown">
 				<!-- The key is used to allow resetting the component -->
 				<slot
@@ -26,23 +18,33 @@
 					:slot-values="componentDemoValues.slotValues"
 				/>
 			</div>
-			<!-- Align the copy button and the display toggle together -->
-			<div
-				v-if="hasCodeSample"
-				class="cdx-demo-wrapper__demo-pane__code-buttons"
-			>
-				<cdx-docs-copy-text-button
-					v-show="showCode"
-					class="cdx-demo-wrapper__demo-pane__code-copy"
-					button-text="Copy code"
-					:copy-text="codeText"
-				/>
-				<cdx-toggle-button
-					v-model="showCode"
-					class="cdx-demo-wrapper__demo-pane__code-toggle"
+			<div class="cdx-demo-wrapper__demo-pane__demo-controls-wrapper">
+				<!-- Align the copy button and the display toggle together. -->
+				<div
+					v-if="hasCodeSample"
+					class="cdx-demo-wrapper__demo-pane__code-buttons"
 				>
-					{{ codeToggleLabel }}
-				</cdx-toggle-button>
+					<cdx-toggle-button
+						v-model="showCode"
+						class="cdx-demo-wrapper__demo-pane__code-toggle"
+					>
+						{{ codeToggleLabel }}
+					</cdx-toggle-button>
+					<cdx-docs-copy-text-button
+						v-show="showCode"
+						class="cdx-demo-wrapper__demo-pane__code-copy"
+						button-text="Copy code"
+						:copy-text="codeText"
+					/>
+				</div>
+				<cdx-button
+					v-if="includeReset"
+					class="cdx-demo-wrapper__demo-pane__reset-button"
+					type="quiet"
+					@click="onReset"
+				>
+					Reset demo
+				</cdx-button>
 			</div>
 		</div>
 		<div
@@ -117,9 +119,9 @@ Prism.manual = true;
  *
  * Includes:
  *  - Formatting for the demo itself
+ *  - Reset button to restore the original state of the demo
  *  - Show/hide code button and functionality
  *  - Button to copy the demo code
- *  - Reset button to restore the original state of the demo
  *  - Optional controls for configurable demos
  */
 export default defineComponent( {
@@ -480,26 +482,26 @@ export default defineComponent( {
 		position: relative;
 		border: @border-width-base @border-style-base @border-color-subtle;
 		border-radius: @border-radius-base;
-		padding: @spacing-125 @spacing-125 @spacing-200;
+		padding: @spacing-200 @spacing-125;
 
-		&__reset-button {
-			position: absolute;
-			top: 0;
-			right: 0;
-			font-size: 0.875em;
-		}
-
-		// Since the buttons are always on the right, ensure they retain their order
-		// so that in RTL view the appearance of the copy button doesn't result in
-		// moving the display toggle. TODO should these buttons be on the left when
-		// in RTL? In which case the absolute position should be revisited
-		&__code-buttons {
+		// Wrapper containing the demo controls: Reset button, show code toggle and
+		// copy code button.
+		&__demo-controls-wrapper {
+			display: flex;
+			justify-content: space-between;
 			position: absolute;
 			// Overlap demo pane border.
 			right: @position-offset-border-width-base;
 			bottom: @position-offset-border-width-base;
-			direction: ltr;
+			left: @position-offset-border-width-base;
 			font-size: 0.875em;
+		}
+
+		// Since the buttons are always on the right, ensure they retain their order so that in
+		// RTL demo view the appearance of the copy button doesn't result in moving the
+		// display toggle.
+		&__code-buttons {
+			direction: ltr;
 
 			// Remove border radiuses that connect with other borders for a more streamlined
 			// appearance. These buttons are pinned to the bottom right edge of the demo pane and
@@ -509,32 +511,31 @@ export default defineComponent( {
 			// should be removed. See T307394.
 			.cdx-demo-wrapper__demo-pane__code-toggle,
 			.cdx-demo-wrapper__demo-pane__code-copy {
-				border-top-right-radius: 0;
+				border-top-left-radius: 0;
 				border-bottom-left-radius: 0;
 			}
 
 			.cdx-demo-wrapper__demo-pane__code-copy {
-				border-bottom-right-radius: 0;
+				border-bottom-left-radius: 0;
 			}
 		}
 
-		// Remove VitePress's list styles.
+		// Remove VitePress's opinionated styles.
 		// TODO: remove this once T296106 is complete.
+		p {
+			margin: 0;
+		}
+
 		li + li {
 			margin-top: 0;
 		}
 	}
 
-	// Add some space above the component demo to ensure that it does not collide with the
-	// reset button, if there is such a button included
-	&--has-reset &__demo-pane__demo {
-		margin-top: @spacing-100;
-	}
-
 	// Add some space below the component demo to ensure it never collides with the buttons
 	// to toggle the code display and to copy the code text, if there are such buttons
+	&--has-reset &__demo-pane__demo,
 	&--has-code &__demo-pane__demo {
-		margin-bottom: @spacing-100;
+		margin-bottom: @spacing-200;
 	}
 
 	// When code is expanded, remove all of the code toggle button's border radiuses.
