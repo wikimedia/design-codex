@@ -1,3 +1,3 @@
-import { Plugin } from 'svgo';
-declare const removeSvgTag: Plugin;
+import { CustomPlugin } from 'svgo';
+declare const removeSvgTag: CustomPlugin;
 export default removeSvgTag;

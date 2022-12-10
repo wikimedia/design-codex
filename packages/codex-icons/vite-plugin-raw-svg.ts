@@ -51,7 +51,7 @@ export default ( options: RawSvgOptions = {
 									// Otherwise, using multiple icons on the same page causes ID
 									// collisions, which result in very strange rendering bugs due
 									// to <use> tags reusing something from a different icon
-									cleanupIDs: {
+									prefixIds: {
 										prefix: `cdx-icon-${iconName}-`
 									},
 									// Use smaller, non-backwards compatible optimization for
