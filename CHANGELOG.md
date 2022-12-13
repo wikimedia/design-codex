@@ -1,3 +1,27 @@
+# 0.4.1 / 2022-12-13
+
+## Features
+- Lookup: Prevent the spacebar from opening the lookup dropdown menu, but only ever having the default behavior of adding a space character. (ddw)
+- Combobox, TypeaheadSearch: Always allow default behavior of space key for menu components with text inputs. (ddw)
+
+## Code
+- build: Update SVGO to v3.0.2 (Volker E)
+- build: Enable `transition-duration` token only linting (Volker E)
+- build: Enable checkJs in the icons package (Roan Kattouw)
+- build: Update TypeScript and vue-tsc (Roan Kattouw)
+
+## Documentation
+- docs: Add tokens package to releasing and Codex documentation (Volker E)
+- docs: Update intro card icons (Volker E)
+- docs: Add “Designing new components” documentation (Volker E)
+- docs: Amend “Designing Icons” page with latest designer feedback (Volker E)
+- docs: Add “Redesigning existing components” documentation (Volker E)
+- docs: Add “Designing tokens” documentation (Volker E)
+- docs: Expand Design System Design Tokens overview (Volker E)
+- docs: Update design contribution docs for consistency (Anne Tomasevich)
+- docs: Amend design tokens overview with latest comments (Volker E)
+- docs: Put “Reset demo” button at bottom (Volker E)
+
 # 0.4.0 / 2022-12-06
 
 ## Features
