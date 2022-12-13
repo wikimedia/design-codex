@@ -1,6 +1,8 @@
 'use strict';
 
 /** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
+/** @typedef {import('style-dictionary/types/Matcher').Matcher} Matcher */
+/** @typedef {import('style-dictionary').Transform} Transform */
 /** @typedef {import('style-dictionary').Formatter} Formatter */
 
 const { fileHeader, createPropertyFormatter, sortByReference } =
@@ -35,7 +37,10 @@ function getReferencedTokens( token ) {
  * @return {{ type?: 'theme'|'base'|'component' }}
  */
 function getTokenType( token ) {
-	const filename = path.basename( token.filePath );
+	// According to the type information, token.filePath can't be undefined, but that's wrong
+	// It's undefined for the font-size-base token that we add through the 'tokens' property
+	// in config.js
+	const filename = path.basename( token.filePath ?? '' );
 	if ( filename.startsWith( 'theme-' ) ) {
 		return { type: 'theme' };
 	} else if ( filename.startsWith( 'codex-components' ) ) {
@@ -44,6 +49,84 @@ function getTokenType( token ) {
 		return { type: 'base' };
 	}
 	return {};
+}
+
+/**
+ * Generate a matcher function based on a set of paths.
+ *
+ * For example, if matchPaths = [ 'foo', 'bar' ] and excludePaths = [ 'foo.x', 'bar.y.z' ],
+ * the returned matcher will match foo.y, bar.x and bar.y.a, but will not match foo.x, foo.x.a,
+ * or bar.y.z.
+ *
+ * The paths must match entire path components, they're not just prefixes. For example, if
+ * matchPaths = [ 'foo' ], the returned matcher will match foo.x, but not foobar.
+ *
+ * @param {string[]} matchPaths List of paths to match
+ * @param {string[]} excludePaths List of paths not to match even if they would otherwise
+ * @return {Matcher}
+ */
+function makePathMatcher( matchPaths, excludePaths ) {
+	return function ( token ) {
+		let matched = false;
+		for ( const matchPath of matchPaths ) {
+			if ( token.path.slice( 0, matchPath.split( '.' ).length ).join( '.' ) === matchPath ) {
+				matched = true;
+				break;
+			}
+		}
+		if ( matched ) {
+			for ( const excludePath of excludePaths ) {
+				if ( token.path.slice( 0, excludePath.split( '.' ).length ).join( '.' ) === excludePath ) {
+					matched = false;
+					break;
+				}
+			}
+		}
+		return matched;
+	};
+}
+
+/**
+ * Round a number to a certain number of decimal places.
+ *
+ * This is like num.toFixed( decimals ) except that it doesn't add leading zeroes:
+ * (1/2).toFixed( 3 ) returns '0.500', but roundToDecimals( 1/2, 3 ) returns '0.5'.
+ *
+ * @param {number} num Number to round
+ * @param {number} decimals How many decimal places to round to
+ * @return {number} Rounded number
+ */
+function roundToDecimals( num, decimals ) {
+	const factor = 10 ** decimals;
+	return Math.round( num * factor ) / factor;
+}
+
+/**
+ * Make a transformer that converts token values in px to a relative unit.
+ *
+ * For tokens whose value is a number followed by 'px', this transform divides the number by the
+ * basePxFontSize, and changes the unit to targetUnit. Tokens whose value is not simply a number
+ * in px are not transformed.
+ *
+ * @param {string} targetUnit Unit to transform to (e.g. 'em' or 'rem').
+ * @return {Transform['transformer']}
+ */
+function makeRelativeUnitTransform( targetUnit ) {
+	return function ( token, platform ) {
+		const basePxFontSize = platform?.basePxFontSize || 16;
+		/** @type {string} */
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+		const tokenValue = token.value;
+
+		// Don't transform if the token value is not just a number in px
+		// (e.g. has a different unit or is complex).
+		if ( !tokenValue.match( /^-?[0-9.]+px$/ ) ) {
+			return tokenValue;
+		}
+
+		const relativeValue = roundToDecimals( parseFloat( tokenValue ) / basePxFontSize, 7 );
+		return `${relativeValue}${targetUnit}`;
+	};
 }
 
 /**
@@ -171,5 +254,7 @@ module.exports = {
 	getReferencedTokens,
 	getTokenType,
 	kebabCase,
+	makePathMatcher,
+	makeRelativeUnitTransform,
 	createCustomStyleFormatter
 };

@@ -90,6 +90,7 @@ export default defineComponent( {
 
 // TODO: Tokenize.
 @background-size-search-figure: cover;
+@min-size-search-figure: 40px;
 // Value of thumbnail as declared within the MenuItem component.
 @size-search-figure: @size-250;
 
@@ -105,6 +106,9 @@ export default defineComponent( {
 		background-size: @background-size-search-figure;
 		// Thumbnail should never shrink when it's in a flex layout with other elements.
 		flex-shrink: 0;
+		box-sizing: @box-sizing-base;
+		min-width: @min-size-search-figure;
+		min-height: @min-size-search-figure;
 		width: @size-search-figure;
 		height: @size-search-figure;
 		border: @border-width-base @border-style-base @border-color-subtle;

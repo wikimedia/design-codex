@@ -117,6 +117,14 @@ export default defineComponent( {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+	// Set the default icon size; callers that want a different size should override the
+	// following rules.
+	min-width: @min-size-icon;
+	min-height: @min-size-icon;
+	// Icons must scale with font size to maintain vertical alignment with the
+	// first line of message text.
+	width: @size-icon;
+	height: @size-icon;
 	// Vertically align surrounding text in inline, inline-block, and table contexts. */
 	vertical-align: text-bottom;
 
@@ -124,6 +132,10 @@ export default defineComponent( {
 		// Note, that CSS is generally case-insensitive, so `currentColor` becomes `currentcolor`.
 		// See also https://github.com/stylelint/stylelint/issues/5863.
 		fill: currentcolor;
+		// Ensure that baked-into SVG width and height is overridden to scale accordingly to
+		// `.cdx-icon` rule.
+		width: @size-full;
+		height: @size-full;
 	}
 
 	// Horizontally flip icons that should be flipped for RTL languages.

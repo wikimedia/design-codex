@@ -102,15 +102,12 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 		&__icon {
 			color: @color-inverted;
+			// 5em equivalent to match the title.
+			min-width: 80px;
+			min-height: 80px;
+			width: 5em;
+			height: 5em;
 			margin-bottom: @spacing-400;
-
-			svg {
-				// 5em equivalent to match the title.
-				min-width: 80px;
-				min-height: 80px;
-				width: 5em;
-				height: 5em;
-			}
 		}
 
 		// Need to put `.vp-doc` here to override the default VitePress heading styles.

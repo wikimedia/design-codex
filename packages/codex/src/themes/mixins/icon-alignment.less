@@ -6,6 +6,8 @@
 // - The icon element - On which this mixin is applied
 // - An icon sibling element (usually TextInput or component with Menu) - On which to apply
 // the `.cdx-mixin-icon-wrapper-padding()` mixin
+// Default value for `@param-min-size-icon` is min-size-icon, a px value, to ensure user font size
+// scaling while being perfectly rendered at 100% text zoom level and satisfying at higher levels.
 //
 // @param {(start|end|center)} align - Tell the absolutely positioned icon where to anchor itself.
 // @param {px} min-size-icon - The minimum size of the icon.
@@ -17,16 +19,15 @@
 	// while top uses the offset parent's height).
 	position: absolute;
 	top: 50%;
+	// Provide way to override default sizes from Icon for small size icons like 'clear'
+	// in clearable TextInput.
+	min-width: @param-min-size-icon;
+	min-height: @param-min-size-icon;
+	width: @param-size-icon;
+	height: @param-size-icon;
 	transform: translateY( -50% );
 	transition-property: @transition-property-icon;
 	transition-duration: @transition-duration-base;
-
-	svg {
-		min-width: @param-size-icon;
-		min-height: @param-size-icon;
-		width: @param-size-icon;
-		height: @param-size-icon;
-	}
 
 	& when ( @param-align = start ) {
 		left: @param-external-padding;
@@ -52,15 +53,16 @@
 // @param {(start|end)} align - Determine on which side of the element to apply the padding. This must be
 // the same value as the `align` parameter of the icon.
 // @param {px} external-padding - The external horizontal padding expected on the parent element of the icon.
-.cdx-mixin-icon-wrapper-padding( @param-align, @param-external-padding: @spacing-75, @param-size: @size-icon ) {
+// @param {px} size-icon - The size of the icon.
+.cdx-mixin-icon-wrapper-padding( @param-align, @param-external-padding: @spacing-75, @param-size-icon: @size-icon ) {
 	& when ( @param-align = start ) {
-		padding-left: @spacing-50 + @param-external-padding + @param-size;
+		padding-left: calc( @spacing-50 + @param-external-padding + @param-size-icon );
 	}
 
 	& when ( @param-align = end ) {
 		// For some reason stylelint is failing asking to remove the semicolons,
 		// but it also fails if you remove it
 		/* stylelint-disable-next-line no-extra-semicolons */
-		padding-right: @spacing-50 + @param-external-padding + @param-size;
+		padding-right: calc( @spacing-50 + @param-external-padding + @param-size-icon );
 	}
 };

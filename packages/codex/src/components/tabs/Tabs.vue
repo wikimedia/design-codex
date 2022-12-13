@@ -539,8 +539,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
-@font-size-browser: 16;
-@font-size-base: 14 / @font-size-browser;
 @max-width-tab: 16em;
 @width-tabs-header-gradient: 24px;
 @background-color-tabs-framed-tab--hover: rgba( 255, 255, 255, 0.3 );

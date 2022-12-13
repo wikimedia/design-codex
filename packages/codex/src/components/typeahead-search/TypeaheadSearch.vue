@@ -709,13 +709,11 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
 
 // TODO: Tokenize.
-@font-size-browser: 16;
-@font-size-base: 14 / @font-size-browser;
-
 // Value of thumbnail as declared within the MenuItem component.
+@min-size-search-figure: 40px;
 @size-search-figure: @size-250;
 
-// The amount of space between the typeahead search figure's parent component and the
+// The amount of space between the TypeaheadSearch figure's parent component and the
 // typeahead search figure (input icon container, search result thumbnail, and footer icon
 // container). We want this space to be uniform so that the figures vertically line up
 // nicely. We use the same horizontal padding as the MenuItem.
@@ -726,13 +724,13 @@ export default defineComponent( {
 // when not expanded.
 // (Note that both padding values actually include @spacing-50 as well, but it
 // was left out of the calculation for simplicity's sake.)
-@size-typeahead-search-focus-addition:
-	( @spacing-start-typeahead-search-figure + @size-search-figure ) -
-	( @size-icon + @spacing-50 );
+@spacing-typeahead-search-focus-addition:
+	( @spacing-start-typeahead-search-figure + @min-size-search-figure ) -
+	( @min-size-icon + @spacing-50 );
 // The padding required for the icon to center align with the menu item thumbnail.
 // We calculate the difference in size and add it to the expected spacing
-@spacing-start-typeahead-icon: unit( @spacing-start-typeahead-search-figure +
-( ( @size-search-figure - @size-icon ) / 2 ), px );
+@spacing-start-typeahead-icon: @spacing-start-typeahead-search-figure +
+	( ( @min-size-search-figure - @min-size-icon ) / 2 );
 
 .cdx-typeahead-search {
 	.cdx-menu-item {
@@ -755,6 +753,11 @@ export default defineComponent( {
 	}
 
 	&__search-footer {
+		box-sizing: @box-sizing-base;
+		// Set `min-height` on the footer so that it has the same height as the search results.
+		// We can't set it on `&__icon` because the icon would get scaled itself.
+		min-height: @min-size-search-figure + ( 2 * @spacing-50 );
+
 		&:visited {
 			color: @color-base;
 		}
@@ -770,7 +773,6 @@ export default defineComponent( {
 			// `showThumbnail` is false, we set its width to `auto` here instead of using the more
 			// intuitive @size-search-figure variable so it doesn't have extra horizontal space.
 			width: auto;
-			height: @size-search-figure;
 			margin-right: @spacing-50;
 		}
 
@@ -794,9 +796,17 @@ export default defineComponent( {
 		.cdx-mixin-element-with-menu-expanded();
 	}
 
+	// TODO: Overwrite TextInput default to feature px based `min-size-icon`.
+	// Revisit and remove as soon as we're providing legacy theme to Vector at 14px base.
+	.cdx-text-input--has-start-icon {
+		.cdx-text-input__input {
+			.cdx-mixin-icon-wrapper-padding( start, @spacing-50, @param-size-icon: @min-size-icon );
+		}
+	}
+
 	&--show-thumbnail {
 		&.cdx-typeahead-search--auto-expand-width:not( .cdx-typeahead-search--expanded ) {
-			margin-left: @size-typeahead-search-focus-addition;
+			margin-left: @spacing-typeahead-search-focus-addition;
 		}
 
 		&:not( .cdx-typeahead-search--auto-expand-width ),
@@ -807,12 +817,14 @@ export default defineComponent( {
 				.cdx-mixin-icon-wrapper-padding(
 					start,
 					@spacing-start-typeahead-search-figure,
-					@size-search-figure
+					@min-size-search-figure
 				);
 			}
 
 			.cdx-text-input__start-icon {
-				.cdx-mixin-icon( start, @param-external-padding: @spacing-start-typeahead-icon );
+				.cdx-mixin-icon(
+					start,
+					@param-external-padding: @spacing-start-typeahead-icon );
 			}
 		}
 

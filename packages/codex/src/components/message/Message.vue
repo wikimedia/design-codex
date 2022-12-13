@@ -234,18 +234,20 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/common.less';
 
 // TODO: Tokenize.
-@font-size-browser: 16;
-@font-size-base: 14 / @font-size-browser;
-@size-icon-relative: unit( ( 20 / @font-size-browser / @font-size-base ), em );
-@offset-top-message-dismiss: unit( ( 8 / @font-size-browser / @font-size-base ), em);
-@offset-right-message-dismiss: unit( ( 16 / @font-size-browser / @font-size-base ), em);
-@offset-right-message-dismiss-mobile: unit( ( 8 / @font-size-browser / @font-size-base ), em);
+@offset-right-message-dismiss: unit( ( 16 / @font-size-base ), em );
+@offset-right-message-dismiss-mobile: unit( ( 8 / @font-size-base ), em );
 
 .cdx-message {
 	color: @color-notice;
 	display: flex;
 	align-items: flex-start;
 	position: relative;
+
+	&__icon {
+		// Vertically align icon with the text. Flexbox on its own is not enough here.
+		// Use close enough height to `&__content`'s `line-height`.
+		height: @size-150;
+	}
 
 	&--warning .cdx-message__icon {
 		color: @border-color-warning;
@@ -310,13 +312,6 @@ export default defineComponent( {
 		}
 	}
 
-	// Icons must scale with font size to maintain vertical alignment with the
-	// first line of message text.
-	svg {
-		width: @size-icon-relative;
-		height: @size-icon-relative;
-	}
-
 	&__content {
 		.hyphens();
 		// Vertically center message with icon.
@@ -326,13 +321,18 @@ export default defineComponent( {
 		margin-left: @spacing-50;
 	}
 
+	&__content,
+	&__content > * {
+		line-height: @line-height-medium;
+	}
+
 	&__dismiss-button {
 		position: absolute;
-		top: @offset-top-message-dismiss;
+		top: @spacing-75;
 		right: @offset-right-message-dismiss-mobile;
-		// TODO: Make this icon-only button appear square (e.g. on focus).
-		// Also replace probably by `spacing-25` as other icon buttons.
 		padding: @spacing-30;
+		// Remove `line-height` to not overgrow button.
+		line-height: 0;
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			right: @offset-right-message-dismiss;

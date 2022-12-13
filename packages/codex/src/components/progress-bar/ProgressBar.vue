@@ -77,7 +77,6 @@ export default defineComponent( {
 		// `z-index` other than `auto`.
 		position: relative;
 		z-index: 1;
-		// TODO: Currently `16px`. Make relative?
 		height: @size-100;
 		max-width: @max-width-base;
 		border: @border-width-base @border-style-base @border-color-base;
@@ -87,7 +86,6 @@ export default defineComponent( {
 
 	&--inline {
 		width: @size-full;
-		// TODO: Make relative?
 		height: @size-25;
 	}
 

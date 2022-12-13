@@ -130,12 +130,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
-// TODO: Tokenize.
-@font-size-browser: 16;
-@font-size-base: 14 / @font-size-browser;
-
-@size-icon-relative: unit( ( @size-icon / @font-size-browser / @font-size-base ), em );
-
 .cdx-card {
 	background-color: @background-color-base;
 	display: flex;
@@ -216,12 +210,6 @@ export default defineComponent( {
 		// Make sure the icon inherits the content element's color.
 		color: inherit;
 		margin-right: @spacing-75;
-
-		// Icons must scale with font size to maintain top alignment with the label text.
-		svg {
-			width: @size-icon-relative;
-			height: @size-icon-relative;
-		}
 	}
 }
 </style>

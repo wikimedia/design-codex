@@ -265,15 +265,12 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
 
-// TODO: these should be design tokens.
-@font-size-browser: 16;
-@font-size-base: 14 / @font-size-browser;
 // When there are two end icons, (i.e. a clear icon and an end icon), we need to double the
 // horizontal padding and account for the size of the extra icon.
 // This token can be used to calculate the horizontal position of the clear icon and the
 // padding-end of the text input.
 @padding-horizontal-input-text-two-end-icons:
-	( @spacing-50 * 2 ) + @size-icon-small;
+	calc( ( @spacing-50 * 2 ) + @size-icon-small + @border-width-base );
 
 .cdx-text-input {
 	// For proper positioning of icons and slotted elements.
@@ -305,7 +302,7 @@ export default defineComponent( {
 
 		// Increase padding end when the clear icon appears next to an end icon.
 		.cdx-text-input__end-icon + & {
-			padding-right: @padding-horizontal-input-text-two-end-icons + @border-width-base;
+			right: @padding-horizontal-input-text-two-end-icons;
 		}
 	}
 }

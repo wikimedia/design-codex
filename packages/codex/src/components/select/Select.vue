@@ -269,9 +269,6 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
 @import ( reference ) '../../themes/mixins/element-with-menu-expanded.less';
 
-@font-size-browser: 16;
-@font-size-base: 14 / @font-size-browser;
-
 .cdx-select {
 	display: inline-block;
 	position: relative;
@@ -306,7 +303,7 @@ export default defineComponent( {
 			end,
 			@min-size-indicator,
 			@size-indicator,
-			@spacing-50
+			@spacing-75
 		);
 	}
 

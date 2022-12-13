@@ -122,19 +122,15 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
-// TODO: Tokenize.
-@font-size-browser: 16;
-@font-size-base: 14 / @font-size-browser;
-
-@size-base--small: unit( ( 16 / @font-size-browser / @font-size-base ), em );
+@size-base--small: unit( ( 16 / @font-size-base ), em );
 
 @size-toggle-switch-travel-distance: 1.5em;
 // TODO: `--mobile` as modifier would go against our naming conventions of state only modifiers.
 @size-toggle-switch-grip--mobile: 1.25em;
 @width-toggle-switch: @size-toggle-switch-travel-distance + 2em;
 @height-toggle-switch: 2em;
-@start-toggle-switch-grip: unit( ( 5 / @font-size-browser / @font-size-base ), em );
-@start-toggle-switch-grip--mobile: unit( ( 4.5 / @font-size-browser / @font-size-base ), em );
+@start-toggle-switch-grip: unit( ( 7 / @font-size-base ), em );
+@start-toggle-switch-grip--mobile: unit( ( 4.5 / @font-size-base ), em );
 
 .cdx-toggle-switch {
 	display: inline-flex;

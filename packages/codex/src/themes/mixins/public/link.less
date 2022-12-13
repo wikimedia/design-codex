@@ -35,6 +35,7 @@
 // TODO: Replace with design tokens when available.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
+@min-size-icon-small: 14px;
 @size-icon-small: unit( ( 14 / @font-size-browser / @font-size-base ), em );
 
 .cdx-mixin-link-base() {
@@ -65,8 +66,11 @@
 	}
 
 	.cdx-icon:last-child {
-		// Note, `@size-icon-small` is an approximation in our current 16/14 base font environment.
-		// TODO: Revisit with themes.
+		// Note, `@min-size-icon-small` & `@size-icon-small` are an approximation in our current
+		// 16/14 base font theme environment.
+		// TODO: Revisit with Codex themes and with token icon sizes.
+		min-width: @min-size-icon-small;
+		min-height: @min-size-icon-small;
 		width: @size-icon-small;
 		height: @size-icon-small;
 		padding-left: @spacing-25;
