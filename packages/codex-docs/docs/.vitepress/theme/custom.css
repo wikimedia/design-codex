@@ -86,6 +86,7 @@ body {
 
 .vp-doc p,
 .vp-doc li {
+	clear: both;
 	/* Standardize line height for page content. Use token! */
 	line-height: 1.6;
 }
@@ -293,6 +294,10 @@ pre[ class*='language-' ] {
 		float: left;
 		width: var( --size-half );
 		padding: 0 var( --spacing-50 );
+	}
+
+	.vp-doc .cdx-docs-col-start {
+		clear: both;
 	}
 
 	.vp-doc .cdx-docs-col.cdx-docs-col-m {

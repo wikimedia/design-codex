@@ -1,6 +1,6 @@
 # Redesigning existing components
 
-This page outlines the recommended steps that collaborators should follow to contribute to the redesign of an existing Codex component.
+This page outlines the steps that collaborators should follow to contribute to the redesign of an existing Codex component.
 
 ![Designing components](../assets/redesigning-existing-components/designing-components.png)
 
@@ -125,7 +125,7 @@ It is essential to identify the component’s architecture before diving deeper 
 This scenario will require you to follow the same design process outlined in the [“Designing new components”](./designing-new-components.md) section to **create each one of the missing components**. Each new Codex component will require a **dedicated epic task** and will have its own design spec sheet.
 :::
 
-**Defining the component’s visual style**
+#### Defining the component’s visual style
 
 All system components should follow the visual guidelines defined in our [Design Style Guide](https://design.wikimedia.org/style-guide/visual-style.html), as reflected by our design tokens, and use system iconography.
 
@@ -154,7 +154,7 @@ Furthermore, components will need to consume only system assets:
 - If you need to use a Wikimedia logo, please use one from our [logo assets](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Assets-(Icons%2C-Logos%2C-Illustrations)?node-id=2285%3A3747&viewport=993%2C62%2C0.32).
 - If you need to use an illustration, please use one from our [illustration assets](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Assets-(Icons%2C-Logos%2C-Illustrations)?node-id=3232%3A669&viewport=1267%2C-111%2C0.1) or create one with the same styles.
 
-**Defining the component's interaction**
+#### Defining the component's interaction
 
 In order to provide a consistent experience, the component’s (new) behavior and interactive states should also follow the system’s design principles and patterns specified in the [Codex library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420).
 
@@ -187,7 +187,7 @@ Make sure to review and update all the relevant sections of the spec sheet that 
 
 ### 3.5. Evaluate and iterate
 
-**Collecting design feedback**
+#### Collecting design feedback
 
 Throughout the component design process, it is important to incorporate feedback from Wikimedia’s UX designers, specially from system designers, who will also grant final explicit approval on their proposed design and its specification before moving into the hand-off to development step.
 
@@ -199,7 +199,7 @@ The component redesign proposal will be discussed in Phabricator, and it will be
 No component updates or variants can be added to the system without being validated by the Design Systems Team first. The component designs will need to be reviewed with help from a system designer from the core team. Post a comment in the Phabricator task and ping them there so they can review the component and track the task.
 :::
 
-**Collecting feedback from users**
+#### Collecting feedback from users
 
 You can assess the need to test the new version of the component with help from users using your preferred methodology. This will validate to which degree the new behavior and features meet their expectations, and whether it supports them to accomplish the intended task.
 
@@ -230,7 +230,7 @@ The component will need to be tested against all its visual and functional speci
 Once the design sign-off has been done, the designer will assign it to QTE and move it to the corresponding QTE sign-off column, so quality assurance testing can be performed as a final check before release.
 
 ::: info
-Designers will be able to check how components are coming along during the implementation process by accessing the Codex demo page staged in Netlify. Developers can facilitate links to the relevant Netlify build for you to provide feedback.
+Designers will be able to check how components are coming along during the implementation process by accessing the Codex demo page staged in Netlify. Developers can provide links to the relevant Netlify build for you to provide feedback.
 :::
 
 ## 6. Document: Add the updated component to the Figma library

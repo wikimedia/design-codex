@@ -1,7 +1,6 @@
 # Designing new components
 
-
-The following document outlines the recommended steps that collaborators should follow in order to contribute a new Codex component.
+This page outlines the steps that collaborators should follow in order to contribute a new Codex component.
 
 ![Wikimedia Design System components collection excerpt](../assets/designing-new-components/designing-components.png)
 
@@ -13,24 +12,24 @@ Once you have validated the need to create a fully new system component, the nex
 
 ![Phabricator screenshot of creating new component epic task](../assets/designing-new-components/report-validate-create-new-epic-task.png)
 
-Your team may choose to work in a more iterative way and start by implementing a minimal viable product (MVP) version of the component. In that case, create a [separate component MVP ticket][component-creation-mvp-phab-template], which needs to be linked to the epic.
+Your team may choose to work in a more iterative way and start by implementing a minimal viable product (MVP) version of the component. In that case, create a [separate component MVP ticket][component-creation-mvp-phab-template], which needs to be a subtask of the epic.
 
-Collaborators are free to decide how to tackle the iterative implementation process of the new component, and how that translate their plan into the corresponding Phabricator tickets. It is essential, though, that said tickets remain linked as subtasks of the component’s epic.
+Collaborators are free to decide how to tackle the iterative implementation process of the new component, and how to translate their plan into the corresponding Phabricator tickets. It is essential, though, that said tickets remain linked as subtasks of the component’s epic.
 
-### 1.2. Review the task with the Design System Team
+### 1.2. Review the task with the Design Systems Team
 
-The new component task must be reviewed with help from the Design System Team (DST) before the design process starts. By this we ensure understanding the use case and validating that the functionality can only be covered by a new component.
+The new component task must be reviewed with help from the Design Systems Team (DST) before the design process starts. This creates shared understanding of the use case and validates that the functionality can only be covered by a new component.
 
 Make sure to add the [Design-Systems-Team](https://phabricator.wikimedia.org/project/profile/5858/) project tag to the task for visibility. You can also post a comment once the task has been created and ping the DST members as a way to start the conversation.
 
-Once the task is validated with the DST and to create the new component is agreed upon, you can start designing the new Codex component.
+Once the task is validated with the DST and creating the new Codex component is agreed upon, you can start designing the new component.
 
 ## 2. Research and prepare
 
 The designer in charge of creating the new system component should start by checking the following resources in order to collect relevant information and begin defining the new Codex component:
 
-- [Codex demo site](https://doc.wikimedia.org/codex/latest/) and [Codex components Figma library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420): verify whether the needed component has already been designed, or whether it can be designed based on or as a combination of any of the existing Codex elements
-- [OOUI demo site](https://doc.wikimedia.org/oojs-ui/master/demos/?page=widgets&theme=wikimediaui&direction=ltr&platform=desktop) and [OOUI components Figma library](https://www.figma.com/file/2Jb1lVkhEMDFxO20I5xwyA/%E2%9D%96-OOUI-components?node-id=1891%3A4420&viewport=0%2C0%2C1): find if this new Codex component was created as part of the OOUI library, which is an important source of guidance for designers
+- [Codex component demos](../components/overview.md) and [Codex components Figma library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420): verify whether the needed component has already been designed, or whether it can be designed based on or as a combination of any of the existing Codex elements
+- [OOUI demo site](https://doc.wikimedia.org/oojs-ui/master/demos/?page=widgets&theme=wikimediaui&direction=ltr&platform=desktop) and [OOUI components Figma library](https://www.figma.com/file/2Jb1lVkhEMDFxO20I5xwyA/%E2%9D%96-OOUI-components?node-id=1891%3A4420&viewport=0%2C0%2C1): see if this component exists in the OOUI library, which is an important source of guidance for designers
 - [Design Style Guide](https://design.wikimedia.org/style-guide/visual-style.html): understand the visual foundations of our Design System
 - [Wikimedia web products](https://www.wikimedia.org/): detect current use cases of the component in the different Wikimedia products
 
@@ -91,14 +90,14 @@ It is essential to identify the new component’s architecture before diving dee
 
 The latter scenario will require you to follow the steps of the design process outlined in this section to **create each one of the individual building blocks** that make up the new component: each subcomponent will require the same level of attention, its own exploration file and individual specification sheet. Subcomponents will require **dedicated epic tasks**, and also be added to the design components library separately.
 
-**Defining the component’s visual style**
+#### Defining the component’s visual style
 
 All system components should follow the visual guidelines defined in our [Design Style Guide](https://design.wikimedia.org/style-guide/visual-style.html), as reflected by our design tokens, and use system iconography.
 
-Hera are some resources you can check to find Codex’s design tokens and icons:
+Here are some resources you can check to find Codex’s design tokens and icons:
 
-- **Design Tokens:** [Figma library](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=0%3A1) | [Codex demo](https://doc.wikimedia.org/codex/latest/design-tokens/overview.html)
-- **Assets** (Iconography, Logos, Illustrations)**:** [Figma library](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Icon-System) | [Codex demo](https://doc.wikimedia.org/codex/latest/icons/all-icons.html)
+- **Design Tokens:** [Figma library](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=0%3A1) | [Codex demo](../design-tokens/overview.html)
+- **Assets** (Iconography, Logos, Illustrations)**:** [Figma library](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Icon-System) | [Codex demo](../icons/all-icons.html)
 
 ::: warning
 You have to enable both the [Design Tokens](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=0%3A1&viewport=466%2C353%2C0.07) and the [Assets](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Icon-System) libraries in your Figma exploration file in order to be able to reuse Codex’s styles and icons. Learn more about [how to access libraries](https://help.figma.com/hc/en-us/articles/360038743434#access) in Figma.
@@ -106,20 +105,20 @@ You have to enable both the [Design Tokens](https://www.figma.com/file/mRvSsFD2K
 
 Design tokens can help support the visual definition of components, as they represent pre-made, systematic stylistic decisions applied to specific properties. While designing new system components, keep in mind to:
 
-- Only use colors from the [**predefined color styles**](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=207%3A2966) defined in our system, and only apply them in their specific context of use (e.g. use only border colors to style borders). If you need to use a color that is not documented in the color decisions’ palette, or you need to apply it in a different context of use, please notify the Design Systems Team.
-- Only use system [**typographic styles**](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=1%3A3484).
-- Follow the [**sizing & scale**](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=1%3A3487) to define the **spacing** (e.g., paddings & margins) and **size** (e.g., heights & widths) of components and their elements.
+- Only use colors from the [**color decisions**](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=902%3A3415&t=vLBtIEtZXpfb8dlA-11) defined in our system, and only apply them in their specific context of use (e.g. use only border colors to style borders). If you need to use a color that is not documented in the color decisions’ palette, or you need to apply it in a different context of use, please notify the Design Systems Team.
+- Only use system [**text/font styles**](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=1%3A3484).
+- Follow the [**size & spacing**](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=1%3A3487) to define the **spacing** (e.g. paddings & margins) and **size** (e.g. heights & widths) of components and their elements.
 - Use the [**grid & layout**](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=2%3A2410) defined in our system, and provide responsive versions of the component adjusted to said grids in the component specification sheet.
-- If you need to apply shadows in your design, use only the [**shadow styles**](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=1%3A3485) created in our system and documented as ‘effect styles’ in Figma.
+- If you need to apply shadows in your design, use only the [**shadow styles**](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=1%3A3485) created in our system and documented as "effect styles" in Figma.
 - Always use the same [**border radius, width and style**](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=1%3A3482) defined in our tokens
 
 Furthermore, components will need to consume only system assets:
 
-- If you need to use iconography in your designs, use a [system icon](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Icon-System?node-id=0%3A1). If you need to use an icon that does not exist in our shared library yet, you can contribute the design of a new icon. (Learn how to do this in the [Designing icons](./designing-icons) section).
+- If you need to use iconography in your designs, use a [system icon](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Icon-System?node-id=0%3A1). If you need to use an icon that does not exist in our shared library yet, you can contribute the design of a new icon. (Learn how to do this in the [Designing icons](./designing-icons.md) section).
 - If you need to use a Wikimedia logo, please use one from our [logo assets](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Assets-(Icons%2C-Logos%2C-Illustrations)?node-id=2285%3A3747&viewport=993%2C62%2C0.32).
 - If you need to use an illustration, please use one from our [illustration assets](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Assets-(Icons%2C-Logos%2C-Illustrations)?node-id=3232%3A669&viewport=1267%2C-111%2C0.1) or create one with the same styles.
 
-**Defining the component’s interaction**
+#### Defining the component’s interaction
 
 In order to provide a consistent experience, the component’s behavior and interactive states should also follow the system’s design principles and patterns documented in the [Codex library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420). Keep in mind the recommendations provided in the specification sheets and the existing Codex components demo pages to make sure that the new component follows the existing standards.
 
@@ -133,7 +132,7 @@ When defining the interactive behavior of new system components, keep in mind to
 
 ### 3.3. Design the main component in Figma
 
-Once you have enough information to design a first version of the component, you’ll be ready to create the [main component](https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma) in the Figma exploration file. This will make it possible for other designers to reuse said component in different Figma projects. The main component will also be reused to illustrate the different sections of its specification sheet.
+Once you have enough information to design the initial version of the component, you’ll be ready to create the [main component](https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma) in the Figma exploration file. This will make it possible for other designers to reuse said component in different Figma projects. The main component will also be reused to illustrate the different sections of its specification sheet.
 
 While creating the main component, make sure to:
 
@@ -142,7 +141,7 @@ While creating the main component, make sure to:
 - Apply the right [auto layout](https://help.figma.com/hc/en-us/articles/5731482952599-Using-auto-layout) properties to make the component display the right resizing behavior and maintain the correct spacing whenever its contents are modified.
 - Apply [constraints](https://help.figma.com/hc/en-us/articles/360039957734-Apply-constraints-to-define-how-layers-resize) to define how the component will behave when resized.
 
-Figma provides extensive [resources](https://help.figma.com/hc/en-us) that will help you create flexible and robust components that are reliable and comfortable to reuse by the rest of the design team members. Count on the Design System team to support you at any step of the process if you find any obstacles working with Figma.
+Figma provides extensive [resources](https://help.figma.com/hc/en-us) that will help you create flexible and robust components that are reliable and comfortable to reuse by the rest of the design team members. Count on the Design Systems Team to support you at any step of the process if you find any obstacles working with Figma.
 
 ### 3.4. Create the component’s specification sheet
 
@@ -150,54 +149,53 @@ Once the component’s visual style and interactive behavior have been defined i
 
 The component spec sheet needs to contain the following sections:
 
-**Guides**
+#### Guides
 
 This segments collects specs that indicate which styles and building blocks make up the new system element. You can use size and spacer components, and the documentation bubbles to pinpoint specific values of the component’s properties (e.g. typography) and its anatomy (e.g. if it contains other components):
 
-
 ![Select component design guides example](../assets/designing-new-components/design-component-component-guides.png)
 
-**Component properties**
+#### Component properties
 
 This section will document the different configurations of the component (its properties, such as whether it presents icons) or its different functional variants. Component properties should be described in a simple and direct way.
 
 ![Select component properties example](../assets/designing-new-components/design-component-component-properties.png)
 
-**States**
+#### States
 
 The *States* section is one of the most relevant parts of a component’s specifications. It should document the visual properties that a given component presents in each one of its possible interaction states. The states of all the individual component variants (if present) should be showcased here too.
 
 ![Select component states design example](../assets/designing-new-components/design-component-states.png)
 
-Some of the most common states in components are: Default, Hover, Focus and/or Active, Loading and Disabled. But not all components will necessarily display all these states, keep in mind the use cases and standard behavior of the individual component or variant when documenting their states.
+Some of the most common states in components are: Default, Hover, Focus and/or Active, Loading, and Disabled. But not all components will necessarily display all these states; keep in mind the use cases and standard behavior of the individual component or variant when documenting their states.
 
-**Minimum and maximum examples**
+#### Minimum and maximum examples
 
-This section showcase how the component will adjust when its content is reduced to the minimum, and increased to the maximum. This section is very important for developers to understand the component’s behavior, and how certain elements should be aligned or positioned in case resizing is necessary.
+This section showcases how the component will adjust when its content is reduced to the minimum or increased to the maximum. This section is very important for developers to understand the component’s behavior, and how certain elements should be aligned or positioned in case resizing is necessary.
 
 ![Select component minimum and maximum width example](../assets/designing-new-components/design-component-minimum-maximum.png)
 
-**Use cases**
+#### Use cases
 
-This section contains usage recommendations in the form of *Do’s* and *Don’ts* examples. This content will be particularly useful for designers to understand how the component should be used in their designs.
+This section contains usage recommendations in the form of *Do* and *Don’t* examples. This content will be particularly useful for designers to understand how the component should be used in their designs.
 
 ![Do’s and Don’ts example of Select](../assets/designing-new-components/design-component-use-cases.png)
 
-**Text directionality behavior**
+#### Text directionality behavior
 
 Document the left-to-right (LTR) and right-to-left (RTL) versions of the component beside each other in this section. This makes it easy to understand the changes in orientation that each version needs to display depending on the directionality of the UI language. Learn more about how to design components for [bi-directionality](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=3149%3A46886).
 
 ![Example of Select component's LTR and RTL behavior](../assets/designing-new-components/design-component-text-directionality-behavior.png)
 
-**Keyboard navigation**
+#### Keyboard navigation
 
-This section needs to include a table that specified which keys can be used to fully interact with the component using a keyboard. These specifications are key to ensure full accessibility.
+This section needs to include a table that specifies all keys that can be used to interact with the component using a keyboard. These specifications are critical to providing full accessibility.
 
 ![Keyboard navigation example table Figma](../assets/designing-new-components/design-component-keyboard-navigation.png)
 
 For guidance, you can check the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/), which contains recommendations and live component examples.
 
-**Responsive behavior**
+#### Responsive behavior
 
 This section need will showcase the component’s responsive behavior in the following screen sizes:
 
@@ -217,21 +215,21 @@ This section need will showcase the component’s responsive behavior in the fol
 
 ### 3.5. Evaluate and iterate
 
-**Collecting design feedback**
+#### Collecting design feedback
 
 Throughout the component design process, it is important to incorporate feedback from Wikimedia’s UX designers, specially from system designers, who will also grant final explicit approval on their proposed design and its specification before moving into the hand-off to development step.
 
-Once the new component’s specification sheet has been defined in the design exploration file, it should be shared in the Phabricator task in order to collect feedback from the Design Systems team, other designers and some community members.
+Once the new component’s specification sheet has been defined in the design exploration file, it should be shared in the Phabricator task in order to collect feedback from the Design Systems Team, other designers and community members.
 
 The component proposal will be discussed in Phabricator, and it will be iterated on if needed. All the open questions listed in the task and subsequent possible discussions will need to be solved before the design of the new component can be considered done.
 
 ::: warning
-No component can be added to the system without being validated by the Design System team first. The component designs will need to be reviewed with help from a system designer from the core team. Post a comment in the Phabricator task and ping them there so they can review the component and track the task.
+No component can be added to the system without being validated by the Design Systems Team first. The component designs will need to be reviewed with help from a system designer from the core team. Post a comment in the Phabricator task and ping them there so they can review the component and track the task.
 :::
 
-**Collecting feedback from users**
+#### Collecting feedback from users
 
-You can assess the need to test new components with help from users using your preferred methodology. All in order to validate to which degree the new element’s behavior and features meet their expectations, and whether it supports them to accomplish the intended task.
+You can assess the need to test new components with help from users using your preferred methodology. This will validate to which degree the new element's behavior and features meet their expectations, and whether it supports them to accomplish the intended task.
 
 A general recommendation is to test components in a realistic context that simulates the component’s most common interaction conditions: in combination with other components (e.g. test input fields in a form set up, create a search scenario to test search fields, etc.).
 
@@ -259,7 +257,7 @@ The component will need to be tested against all its visual and functional speci
 Once the design sign-off has been done, the designer will assign it to quality and test engineering (QTE) and move it to the corresponding QTE sign-off column, so quality assurance testing can be performed as a final check before release.
 
 ::: info
-Designers will be able to check how components are coming along during the implementation process by accessing the Codex demo page staged in Netlify. Developers can facilitate links to the relevant Netlify build for you to provide feedback.
+Designers will be able to check how components are coming along during the implementation process by accessing the Codex demo page staged in Netlify. Developers can provide links to the relevant Netlify build for you to provide feedback.
 :::
 
 ## 6. Document: Add the new component to the Figma library

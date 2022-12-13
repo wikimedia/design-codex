@@ -1,6 +1,6 @@
 # Designing icons
 
-The following document outlines the recommended steps that collaborators should follow in order to contribute a new design or design improvement to Codex’s icon library.
+This page outlines the steps that collaborators should follow to contribute a new design or design improvement to Codex’s icon library.
 
 ![Wikimedia Design System icon collection excerpt](../assets/designing-icons/designing-icons.png)
 
