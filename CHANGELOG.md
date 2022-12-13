@@ -1,3 +1,8 @@
+# 0.4.2 / 2022-12-13
+
+## Code
+- build: Fix ID prefixing in icons (Roan Kattouw)
+
 # 0.4.1 / 2022-12-13
 
 ## Features
