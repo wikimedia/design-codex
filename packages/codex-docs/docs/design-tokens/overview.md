@@ -20,7 +20,7 @@ At its core, Codex is made up of a set of visual styles derived from the [Wikime
 There are three types of tokens, depending on their function and level of abstraction:
 
 #### Option tokens (aka theme options)
-Option tokens are context-agnostic tokens that encapsulate the primitive visual foundations of the system. Their name does not reflect a specific use case, rather they use the simplest possible name. They have raw values, e.g. `color-blue600: #36c`
+Option tokens are context-agnostic tokens that encapsulate the primitive visual foundations of the system. Their name does not reflect a specific use case, rather they use the simplest possible name. They have raw values, e.g. `color-blue500: #447ff5`
 
 ![option token naming scheme: category, name and value](../assets/design-tokens-overview/what-are-design-tokens-option-token.png)
 
@@ -30,14 +30,14 @@ Option tokens are captured in the theme specific JSON file: `theme-wikimedia-ui.
 
 #### Decision tokens
 
-Decision tokens consume option tokens as values. They represent design decisions that can be reused to style system components. For this reason, decision tokens are documented in our [Codex token demo](https://doc.wikimedia.org/codex/latest/design-tokens/color.html). They communicate their intended use case via their name (so are not agnostic, like option tokens), e.g. `background-color-progressive: color-blue600;`.
+Decision tokens consume option tokens as values. They represent design decisions that can be reused to style system components. For this reason, decision tokens are documented in our [Codex token demo](./color.md). They communicate their intended use case via their name (so are not agnostic, like option tokens), e.g. `box-shadow-drop-medium: box-shadow.200;`.
 
 ![decision token naming scheme: property, category and variant](../assets/design-tokens-overview/what-are-design-tokens-decision-token.png)
 
 Decision tokens are used to style system components and elements. This set of tokens is documented in the JSON file `codex-base.json`.
 
 #### Component decision tokens
-In the context of Codex, component tokens are used to document and define specific component styles that cannot be documented as shared decisions due to their single-use application. The names of component tokens include the name of the specific component and the property they define. Like decision tokens, they consume option tokens as values, e.g. `color-link-red--visited`.
+In the context of Codex, component tokens are used to document and define specific component styles that cannot be documented as shared decisions due to their single-use application. The names of component tokens include the name of the specific component and the property they define. Like decision tokens, they consume option tokens as values, e.g. `color-link-red--visited: color.maroon`.
 
 Component tokens embody exceptions, and are directly applied to style specific component properties. If a pattern arises (i.e. the component token can be used by several components), the  single-use component token can be converted into a decision token.
 
@@ -46,9 +46,9 @@ Component tokens are documented in the JSON file `codex-components.json`.
 ## 2. Using tokens
 Design tokens are the smallest units that store the visual guidelines and design decisions that characterize our system. More importantly, tokens document the intended context of use assigned to a specific style, and enable the application of the correct visual value to a specific component property. This is how tokens help to bridge the gap between implementation and design.
 
-Tokens are used to:
-
 <div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
+
+Tokens are used to:
 
 1. **Define the visual style of components**: since tokens capture the system’s stylistic
 attributes, they provide guidance to define the styles (background colors, text
