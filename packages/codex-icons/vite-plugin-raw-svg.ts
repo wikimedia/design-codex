@@ -47,13 +47,6 @@ export default ( options: RawSvgOptions = {
 							name: 'preset-default',
 							params: {
 								overrides: {
-									// Prefix IDs with the icon name, so that they are unique
-									// Otherwise, using multiple icons on the same page causes ID
-									// collisions, which result in very strange rendering bugs due
-									// to <use> tags reusing something from a different icon
-									prefixIds: {
-										prefix: `cdx-icon-${iconName}-`
-									},
 									// Use smaller, non-backwards compatible optimization for
 									// browsers only, see T299738.
 									convertPathData: {
@@ -63,6 +56,17 @@ export default ( options: RawSvgOptions = {
 										noSpaceAfterFlags: true
 									}
 								}
+							}
+						},
+						{
+							// Prefix IDs with the icon name, so that they are unique
+							// Otherwise, using multiple icons on the same page causes ID
+							// collisions, which result in very strange rendering bugs due
+							// to <use> tags reusing something from a different icon
+							name: 'prefixIds',
+							params: {
+								prefix: `cdx-icon-${iconName}-`,
+								delim: ''
 							}
 						},
 						removeSvgTag
