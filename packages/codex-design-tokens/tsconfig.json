@@ -8,6 +8,7 @@
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"lib": [ "es2015", "dom" ],
+		"skipLibCheck": true,
 		"outDir": "dist",
 		"allowJs": true,
 		"checkJs": true
