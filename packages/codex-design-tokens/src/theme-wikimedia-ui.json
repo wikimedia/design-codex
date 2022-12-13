@@ -1,6 +1,10 @@
 {
 	"color": {
 		"comment": "The colors are given numbers corresponding to their contrast, starting with 100 for the brightest to 700 for the darkest. Note, that single color options of a tone, white, black and purple, don't carry a number. Same goes for transparent.",
+		"accent": {
+			"comment": "Accent color is used for certain HTML5 elements like checkbox and progress bar.",
+			"value": "{ color.blue600 }"
+		},
 		"white": {
 			"value": "#fff"
 		},

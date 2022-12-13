@@ -1,4 +1,9 @@
 {
+	"accent-color": {
+		"base": {
+			"value": "{ color.accent }"
+		}
+	},
 	"background-color": {
 		"comment": "Background Colors",
 		"base": {

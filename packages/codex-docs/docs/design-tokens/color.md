@@ -23,6 +23,15 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 	css-property="background-color"
 />
 
+## Accent color
+
+<cdx-docs-tokens-table
+	:tokens="tokens['accent-color']"
+	token-demo="CdxDocsTokenDemo"
+	token-category="color"
+	css-property="background-color"
+/>
+
 ## Border and box-shadow colors
 
 For information on border colors visit
