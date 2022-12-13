@@ -7,9 +7,11 @@ module.exports = {
 	],
 	overrides: [
 		{
-			// checkJs is only enabled for the codex and codex-docs packages; once it's enabled for
-			// other packages, add them here too
-			files: [ '**/*.vue', '**/*.ts', 'packages/codex/**/*.js', 'packages/codex-docs/**/*.js' ],
+			files: [
+				'packages/*/**/*.vue',
+				'packages/*/**/*.ts',
+				'packages/*/**/*.js'
+			],
 			plugins: [
 				'@typescript-eslint/eslint-plugin'
 			],

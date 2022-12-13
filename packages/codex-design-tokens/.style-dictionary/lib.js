@@ -5,7 +5,7 @@
 
 const { fileHeader, createPropertyFormatter, sortByReference } =
 	require( 'style-dictionary' ).formatHelpers;
-const { basename } = require( 'path' );
+const path = require( 'path' );
 
 /**
  * Attribute transform that adds a "tokens" attribute, containing an array of the names of
@@ -18,10 +18,13 @@ function getReferencedTokens( token ) {
 	// Sadly we can't use dictionary.getReferences() here, because we don't have access
 	// to a dictionary object
 	const variablePattern = /{\s*(?<token>.+?)\s*}/g;
+	/** @type {string} */
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+	const originalValue = token.original.value;
 
 	return {
-		tokens: [ ...token.original.value.matchAll( variablePattern ) ]
-			.map( ( match ) => match.groups.token )
+		tokens: [ ...originalValue.matchAll( variablePattern ) ]
+			.map( ( match ) => /** @type {Record<string, string>} */ ( match.groups ).token )
 	};
 }
 
@@ -32,7 +35,7 @@ function getReferencedTokens( token ) {
  * @return {{ type?: 'theme'|'base'|'component' }}
  */
 function getTokenType( token ) {
-	const filename = basename( token.filePath );
+	const filename = path.basename( token.filePath );
 	if ( filename.startsWith( 'theme-' ) ) {
 		return { type: 'theme' };
 	} else if ( filename.startsWith( 'codex-components' ) ) {
@@ -52,8 +55,8 @@ function getTokenType( token ) {
  * @param {TransformedToken} token
  * @return {string}
  */
-function kebabCase( { path } ) {
-	return path.join( '-' );
+function kebabCase( token ) {
+	return token.path.join( '-' );
 }
 
 /**
@@ -77,7 +80,7 @@ function createCustomStyleFormatter( format ) {
 		const header = fileHeader( { file, commentStyle } );
 		let preamble = '', postamble = '';
 		if ( format === 'css' ) {
-			const selector = options.selector || ':root';
+			const selector = /** @type {string} */ ( options.selector ) || ':root';
 			preamble = `${selector} {\n`;
 			postamble = '\n}\n';
 		}
@@ -86,6 +89,8 @@ function createCustomStyleFormatter( format ) {
 		const { outputReferences } = options;
 		let { allTokens } = dictionary;
 		if ( outputReferences ) {
+			// sortByReference is not exported for some reason.
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 			allTokens = [ ...allTokens ].sort( sortByReference );
 		}
 
@@ -129,11 +134,14 @@ function createCustomStyleFormatter( format ) {
 
 			// If the token value references exactly one other token, add "use otherTokenName
 			// instead".
-			const referencedTokens = dictionary.usesReference( token.original.value ) ?
-				dictionary.getReferences( token.original.value ) : [];
+			/** @type {string } */
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+			const originalValue = token.original.value;
+			const referencedTokens = dictionary.usesReference( originalValue ) ?
+				dictionary.getReferences( originalValue ) : [];
 			const useInstead = referencedTokens.length === 1 &&
 					// Check that the token only contains a reference and nothing else.
-					token.original.value.match( /^\s*{[^{}]+}\s*$/ ) &&
+					originalValue.match( /^\s*{[^{}]+}\s*$/ ) &&
 					// If the referenced token is not going to be output, or is itself deprecated,
 					// don't add a "use instead" comment
 					nonDeprecatedTokens.includes( referencedTokens[ 0 ] ) ?

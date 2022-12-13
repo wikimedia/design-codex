@@ -12,5 +12,5 @@
 		"allowJs": true,
 		"checkJs": true
 	},
-	"include": [ ".style-dictionary/**/*.js", "tests/**/*.js" ]
+	"include": [ ".style-dictionary/**/*.js", ".style-dictionary/**/*.d.ts", "tests/**/*.js" ]
 }
