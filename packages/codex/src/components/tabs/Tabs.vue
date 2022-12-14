@@ -630,9 +630,6 @@ export default defineComponent( {
 
 		&__item {
 			flex: 0 0 auto;
-			// Override possible list item margins bleeding from the outside,
-			// like MediaWiki skin Vector's default.
-			margin: 0;
 
 			// Single Tab common styles.
 			// By default the `a` element.
@@ -668,6 +665,10 @@ export default defineComponent( {
 		list-style: none;
 		margin: 0;
 		padding: 0;
+
+		&__item {
+			margin: 0;
+		}
 	}
 
 	& > &__header &__list__item + &__list__item {
