@@ -239,6 +239,11 @@ $ git commit -am "releases: Bump Codex to 1.2.34"
 $ git review
 ```
 
+## Update Codex mediawiki.org page
+Update the "Version used in MediaWiki" section on Codex's mediawiki.org page
+(https://www.mediawiki.org/wiki/Codex#Version_used_in_MediaWiki) to reflect the
+new version number.
+
 ## Announcing the new release
 Once the MediaWiki core patch has been merged, announce the new release to Codex stakeholders.
 
@@ -249,3 +254,5 @@ following:
   recommendations for handling them, or "none" if there are none for this release
 - Notable new features: list any new features you think Codex users should know about
 - Notable bug fixes: Highlight bug tasks resolved by the new release
+- Be sure to @mention and thank any contributors to the release from outside the
+  Design Systems Team
