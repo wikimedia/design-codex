@@ -120,9 +120,9 @@ export default defineConfigWithTheme<CustomConfig>( {
 				{
 					text: 'Contributing design',
 					items: [
+						{ text: 'Designing tokens', link: '/contributing/designing-tokens' },
 						{ text: 'Designing new components', link: '/contributing/designing-new-components' },
 						{ text: 'Redesigning existing components', link: '/contributing/redesigning-existing-components' },
-						{ text: 'Designing tokens', link: '/contributing/designing-tokens' },
 						{ text: 'Designing icons', link: '/contributing/designing-icons' }
 					]
 				},
