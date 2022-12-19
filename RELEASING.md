@@ -33,6 +33,11 @@ $ git pull
 Already up to date
 ```
 
+Generate a preview of the diff of this release, and review it for any unexpected changes:
+```
+$ ./build/diff-release.sh
+```
+
 To prepare the release commit, run the `prepare-release.sh` script. This script takes the new
 version number as an argument:
 ```
