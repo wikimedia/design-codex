@@ -391,9 +391,12 @@ export default defineComponent( {
 		padding: 0 @spacing-150 @spacing-50 @spacing-150;
 		font-weight: @font-weight-bold;
 
+		// Add specificity to override h2 styles, e.g. in MediaWiki skins.
+		// See https://phabricator.wikimedia.org/T324495.
 		& &__title {
 			flex-grow: 1;
 			border: 0;
+			padding: 0;
 			font-family: inherit;
 			font-size: 1em;
 			font-weight: inherit;
