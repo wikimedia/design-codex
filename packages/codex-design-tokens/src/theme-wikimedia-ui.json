@@ -239,11 +239,13 @@
 		"5600": {
 			"value": "896"
 		},
-		"absolute-1": {
-			"value": "1px"
-		},
-		"absolute-9999": {
-			"value": "9999px"
+		"absolute": {
+			"1": {
+				"value": "1px"
+			},
+			"9999": {
+				"value": "9999px"
+			}
 		},
 		"third": {
 			"comment": "From here on, percentages.",
