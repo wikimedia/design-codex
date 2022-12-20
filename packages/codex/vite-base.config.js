@@ -27,10 +27,15 @@ module.exports = function ( { command, mode }, options ) {
 		forceBidiCss = false
 	} = options;
 
-	// We run the build twice: first with --mode=rtl, then without.
-	// The --mode=rtl build builds the RTL version of the stylesheet, flipped using rtlcss,
-	// and puts it at codex.style-rtl.css
-	const isRtlBuild = command === 'build' && mode === 'rtl';
+	// We run the build four times: with --mode=legacy-rtl, --mode=legacy, --mode=rtl,
+	// and without --mode.
+	// The legacy modes build the legacy version of the stylesheet, using the legacy theme
+	// from the design tokens package. The RTL modes build the RTL versions of the stylesheet,
+	// flipped using rtlcss. The resulting files are named codex.style-legacy-rtl.css,
+	// codex.style-legacy.css, codex.style-rtl.css and codex.style.css respectively.
+	const isRtlBuild = command === 'build' && ( mode === 'rtl' || mode === 'legacy-rtl' );
+	const isLegacyBuild = command === 'build' && ( mode === 'legacy' || mode === 'legacy-rtl' );
+	const dashLegacy = isLegacyBuild ? '-legacy' : '';
 
 	const postcssConfig = postcssBaseConfig;
 	if ( command === 'serve' || forceBidiCss ) {
@@ -65,7 +70,7 @@ module.exports = function ( { command, mode }, options ) {
 		rollupOptions: {
 			output: {
 				entryFileNames: `${libName}.[format].js`,
-				assetFileNames: isRtlBuild ? `${libName}.[name]-rtl.[ext]` : `${libName}.[name].[ext]`,
+				assetFileNames: isRtlBuild ? `${libName}.[name]${dashLegacy}-rtl.[ext]` : `${libName}.[name]${dashLegacy}.[ext]`,
 				globals: {
 					vue: 'Vue'
 				}
@@ -102,14 +107,16 @@ module.exports = function ( { command, mode }, options ) {
 		],
 		resolve: {
 			alias: [
-				// Alias imports without /dist/ from codex-design-tokens to the dist/ directory.
-				// The published package has these files at the top level, but in development those
-				// files aren't there because they're placed there by the prepublishOnly script.
-				// Hot module reloading is provided by the doc:dev script watching the design tokens
-				// source files and rebuilding the dist files when the source files change.
+				// Alias imports of the tokens file (theme-wikimedia-ui.less) to the
+				// appropriate file: either theme-wikimedia-ui.less in non-legacy mode, or
+				// theme-wikimedia-ui-legacy.less in legacy mode.
+				// TODO: Reconsider this approach when we build a proper theme system
+				// (Even if we didn't need to support legacy mode, or did it differently,
+				// we'd still need an alias like this, because paths without dist/ need to be
+				// aliased to add dist/ .)
 				{
-					find: /^@wikimedia\/codex-design-tokens\/([^/]+\.(less|css|scss|json))$/,
-					replacement: path.resolve( __dirname, '../codex-design-tokens/dist/$1' )
+					find: /^@wikimedia\/codex-design-tokens\/(dist\/)?theme-wikimedia-ui\.less$/,
+					replacement: path.resolve( __dirname, `../codex-design-tokens/dist/theme-wikimedia-ui${dashLegacy}.less` )
 				}
 			]
 		}

@@ -23,9 +23,10 @@
 	],
 	"scripts": {
 		"dev": "vite ${npm_config_port+--port=${npm_config_port}}",
-		"build": "npm run clean && vite build --mode=rtl && vite build && npm run build:ts",
+		"build": "npm run clean && npm run build:vite && npm run build:ts",
 		"build-if-missing": "test -e dist/codex-search.es.js || npm run build",
 		"build:ts": "vue-tsc -p ./tsconfig-build.json --emitDeclarationOnly",
+		"build:vite": "vite build --mode=legacy-rtl && vite build --mode=legacy && vite build --mode=rtl && vite build",
 		"clean": "rm -rf dist/",
 		"serve": "vite preview",
 		"test": "npm run lint && npm -s run build",
