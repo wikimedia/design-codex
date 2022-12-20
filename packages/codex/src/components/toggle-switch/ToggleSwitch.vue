@@ -136,8 +136,6 @@ export default defineComponent( {
 @start-toggle-switch-grip: unit( ( 5 / @font-size-browser / @font-size-base ), em );
 @start-toggle-switch-grip--mobile: unit( ( 4.5 / @font-size-browser / @font-size-base ), em );
 
-@position-offset-toggle-switch-outline: 1px;
-
 .cdx-toggle-switch {
 	display: inline-flex;
 	align-items: center;
@@ -182,15 +180,15 @@ export default defineComponent( {
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-medium;
 
-		// Focus outline.
+		// Inner focus outline, set visible when toggled on further down.
 		&::before {
 			content: '';
 			display: block;
 			position: absolute;
-			top: @position-offset-toggle-switch-outline;
-			right: @position-offset-toggle-switch-outline;
-			bottom: @position-offset-toggle-switch-outline;
-			left: @position-offset-toggle-switch-outline;
+			top: @size-absolute-1;
+			right: @size-absolute-1;
+			bottom: @size-absolute-1;
+			left: @size-absolute-1;
 			z-index: 1;
 			border: @border-width-base @border-style-base @border-color-transparent;
 			border-radius: @border-radius-pill;
