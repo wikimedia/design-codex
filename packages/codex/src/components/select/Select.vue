@@ -271,16 +271,15 @@ export default defineComponent( {
 
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
-@min-width-select: 280px;
 
 .cdx-select {
 	display: inline-block;
 	position: relative;
-	min-width: @min-width-select;
 
 	&__handle {
 		position: relative;
 		box-sizing: @box-sizing-base;
+		min-width: @min-width-medium;
 		min-height: @size-base;
 		width: @size-full;
 		border-width: @border-width-base;

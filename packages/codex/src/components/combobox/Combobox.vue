@@ -304,12 +304,9 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
 @import ( reference ) '../../themes/mixins/element-with-menu-expanded.less';
 
-@min-width-combobox: 280px;
-
 .cdx-combobox {
 	display: inline-block;
 	position: relative;
-	min-width: @min-width-combobox;
 
 	&__input-wrapper {
 		display: flex;

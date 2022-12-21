@@ -323,6 +323,7 @@ export default defineComponent( {
 .cdx-text-input__input {
 	display: block;
 	box-sizing: @box-sizing-base;
+	min-width: @min-width-medium;
 	min-height: @min-size-base;
 	width: @size-full;
 	margin: 0;
@@ -448,5 +449,4 @@ export default defineComponent( {
 		);
 	}
 }
-
 </style>

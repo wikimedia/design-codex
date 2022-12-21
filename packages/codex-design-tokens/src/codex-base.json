@@ -368,6 +368,9 @@
 		}
 	},
 	"min-width": {
+		"medium": {
+			"value": "{ dimension.1600 }{ unit.system }"
+		},
 		"breakpoint": {
 			"comment": "Breakpoints. Minimum available screen width to be considered a certain device type.",
 			"mobile": {
