@@ -133,7 +133,6 @@ export default defineComponent( {
 // TODO: Tokenize.
 @font-size-browser: 16;
 @font-size-base: 14 / @font-size-browser;
-@font-size-card-supporting-text: unit( ( 14 / @font-size-browser ), em );
 
 @size-icon-relative: unit( ( @size-icon / @font-size-browser / @font-size-base ), em );
 
@@ -200,7 +199,6 @@ export default defineComponent( {
 
 		&__supporting-text {
 			margin-top: @spacing-50;
-			font-size: @font-size-card-supporting-text;
 		}
 	}
 
