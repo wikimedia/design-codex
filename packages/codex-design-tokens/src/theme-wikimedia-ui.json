@@ -499,6 +499,9 @@
 		},
 		"opacity": {
 			"value": "opacity"
+		},
+		"transform": {
+			"value": "transform"
 		}
 	},
 	"transition-timing-function": {

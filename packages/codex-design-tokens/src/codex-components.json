@@ -129,6 +129,9 @@
 		"indicator": {
 			"deprecated": true,
 			"value": "{ min-size.icon-x-small }"
+		},
+		"toggle-switch-grip": {
+			"value": "{ dimension.125 }{ unit.system }"
 		}
 	},
 	"size": {
@@ -148,6 +151,11 @@
 		"indicator": {
 			"deprecated": true,
 			"value": "{ size.icon-x-small }"
+		}
+	},
+	"min-width": {
+		"toggle-switch": {
+			"value": "{ dimension.300 }{ unit.system }"
 		}
 	},
 	"max-width": {
@@ -249,7 +257,7 @@
 			"value": "{ transition-property.color }"
 		},
 		"toggle-switch-grip": {
-			"value": "{ transition-property.background-color }, { transition-property.border-color }, { transition-property.left }"
+			"value": "{ transition-property.background-color }, { transition-property.border-color }, { transition-property.transform }"
 		}
 	}
 }

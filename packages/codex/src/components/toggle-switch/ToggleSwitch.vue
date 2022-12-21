@@ -122,16 +122,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
-@size-base--small: unit( ( 16 / @font-size-base ), em );
-
-@size-toggle-switch-travel-distance: 1.5em;
-// TODO: `--mobile` as modifier would go against our naming conventions of state only modifiers.
-@size-toggle-switch-grip--mobile: 1.25em;
-@width-toggle-switch: @size-toggle-switch-travel-distance + 2em;
-@height-toggle-switch: 2em;
-@start-toggle-switch-grip: unit( ( 7 / @font-size-base ), em );
-@start-toggle-switch-grip--mobile: unit( ( 4.5 / @font-size-base ), em );
-
 .cdx-toggle-switch {
 	display: inline-flex;
 	align-items: center;
@@ -164,10 +154,10 @@ export default defineComponent( {
 		// Grip will be positioned absolutely relative to the switch.
 		position: relative;
 		box-sizing: @box-sizing-base;
-		// These sizes are relative so the toggle switch will scale with font
-		// size (e.g. it's slightly larger on mobile).
-		width: @width-toggle-switch;
-		height: @height-toggle-switch;
+		min-width: @min-width-toggle-switch;
+		min-height: @min-size-base;
+		width: @size-300;
+		height: @size-200;
 		border-width: @border-width-base;
 		border-style: @border-style-base;
 		border-color: @border-color-input-binary;
@@ -195,50 +185,46 @@ export default defineComponent( {
 		// The moving element of the switch.
 		&__grip {
 			position: absolute;
-			// Position and size values differ on smaller screens but aren't
-			// exactly scaled relative to font size, so we need separate values.
-			top: @start-toggle-switch-grip--mobile;
-			left: @start-toggle-switch-grip--mobile;
+			// Position vertically centered with help of `transform` further down.
+			top: @size-half;
 			box-sizing: @box-sizing-base;
-			width: @size-toggle-switch-grip--mobile;
-			height: @size-toggle-switch-grip--mobile;
+			min-width: @min-size-toggle-switch-grip;
+			min-height: @min-size-toggle-switch-grip;
+			width: @size-125;
+			height: @size-125;
 			border: @border-width-base @border-style-base @border-color-input-binary;
 			border-radius: @border-radius-circle;
+			// Set starting position with `transform` and add 1px equivalent to x position.
+			// Divide height by 50% to center the grip vertically.
+			transform: translateX( ( @size-25 + @size-6 ) ) translateY( -@size-half );
 			transition-property: @transition-property-toggle-switch-grip;
 			transition-duration: @transition-duration-base;
-
-			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				top: @start-toggle-switch-grip;
-				left: @start-toggle-switch-grip;
-				width: @size-base--small;
-				height: @size-base--small;
-			}
 		}
 	}
 
-	// HTML `<input>` element.
+	// Hidden `<input type="checkbox">` element.
 	&__input {
 		// Visually hide the actual `<input>`.
 		opacity: 0;
 		position: absolute;
 		right: 0;
-		// Render "on top of" the `span`, so that it's still clickable.
+		// Render “on top of” the `span`, so that it's still clickable.
 		z-index: 2;
-		width: @width-toggle-switch;
-		height: @height-toggle-switch;
+		min-width: @min-width-toggle-switch;
+		min-height: @min-size-base;
+		width: @size-300;
+		height: @size-200;
 		margin: 0;
 		font-size: inherit;
 
-		// Checked state whether or not the input is enabled or disabled.
+		// Checked (on) state whether or not the input is enabled or disabled.
 		&:checked ~ .cdx-toggle-switch__switch {
 			.cdx-toggle-switch__switch__grip {
 				background-color: @background-color-base;
-				left: @start-toggle-switch-grip--mobile + @size-toggle-switch-travel-distance;
 				border-color: @border-color-inverted;
-
-				@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-					left: @start-toggle-switch-grip + @size-toggle-switch-travel-distance;
-				}
+				// Move the grip to the right and add 1px equivalent to x position.
+				// Continue to divide height by 50% to center the grip.
+				transform: translateX( calc( @size-full + @size-6 ) ) translateY( -@size-half );
 			}
 		}
 
