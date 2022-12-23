@@ -221,7 +221,7 @@ Notice message with custom icon
 .cdx-demo-wrapper {
 	:deep( p ) {
 		margin: 0;
-		line-height: 1.4;
+		line-height: var( --line-height-medium );
 	}
 }
 </style>

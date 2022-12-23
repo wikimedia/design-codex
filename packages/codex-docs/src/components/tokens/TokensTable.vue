@@ -155,7 +155,7 @@ export default defineComponent( {
 		// Override VitePress's styles that add way too much whitespace around <p>s
 		p {
 			margin: 0 0 @spacing-50;
-			line-height: 1.3;
+			line-height: var( --line-height-small );
 			text-decoration: @text-decoration-none;
 		}
 
@@ -171,7 +171,8 @@ export default defineComponent( {
 				right: 0;
 				bottom: 0;
 				font-size: 0.875em;
-				line-height: 1.4285714286;
+				// TODO: Revisit with `22px` equivalent line-height.
+				line-height: var( --line-height-x-small );
 			}
 		}
 

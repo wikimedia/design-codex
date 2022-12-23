@@ -326,7 +326,7 @@ module.exports = {
 				'font-style',
 				'font-weight',
 				'letter-spacing',
-				// 'line-height', TODO: Several static values to even out. */
+				'line-height',
 				'text-align',
 				'text-decoration',
 				'text-decoration-color',
