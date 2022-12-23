@@ -388,6 +388,29 @@
 			}
 		}
 	},
+	"font-size": {
+		"75": {
+			"value": "12"
+		},
+		"90": {
+			"value": "14"
+		},
+		"100": {
+			"value": "16"
+		},
+		"110": {
+			"value": "18"
+		},
+		"125": {
+			"value": "20"
+		},
+		"150": {
+			"value": "24"
+		},
+		"175": {
+			"value": "28"
+		}
+	},
 	"font-weight": {
 		"comment": "Set `100` to `normal` default `400` to move away from property value collisions.",
 		"25": {

@@ -39,7 +39,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-.cdx-docs-font-demo {
+.cdx-docs-tokens-table .cdx-docs-font-demo {
 	p {
 		line-height: inherit;
 	}

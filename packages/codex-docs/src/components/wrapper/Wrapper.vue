@@ -494,7 +494,7 @@ export default defineComponent( {
 			right: @position-offset-border-width-base;
 			bottom: @position-offset-border-width-base;
 			left: @position-offset-border-width-base;
-			font-size: 0.875em;
+			font-size: @font-size-small;
 		}
 
 		// Since the buttons are always on the right, ensure they retain their order so that in

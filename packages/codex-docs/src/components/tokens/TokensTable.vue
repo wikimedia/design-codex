@@ -170,7 +170,7 @@ export default defineComponent( {
 				position: absolute;
 				right: 0;
 				bottom: 0;
-				font-size: 0.875em;
+				font-size: @font-size-small;
 				// TODO: Revisit with `22px` equivalent line-height.
 				line-height: var( --line-height-x-small );
 			}

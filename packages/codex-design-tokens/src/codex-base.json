@@ -805,6 +805,30 @@
 			"value": "{ font-family.monospace.10 }"
 		}
 	},
+	"font-size": {
+		"x-small": {
+			"comment": "`x` stands for extra. In this case extra small.",
+			"value": "{ font-size.75 }{ unit.system }"
+		},
+		"small": {
+			"value": "{ font-size.90 }{ unit.system }"
+		},
+		"medium": {
+			"value": "{ font-size.100 }{ unit.system }"
+		},
+		"large": {
+			"value": "{ font-size.110 }{ unit.system }"
+		},
+		"x-large": {
+			"value": "{ font-size.125 }{ unit.system }"
+		},
+		"xx-large": {
+			"value": "{ font-size.150 }{ unit.system }"
+		},
+		"xxx-large": {
+			"value": "{ font-size.175 }{ unit.system }"
+		}
+	},
 	"font-weight": {
 		"hairline": {
 			"value": "{ font-weight.25 }"

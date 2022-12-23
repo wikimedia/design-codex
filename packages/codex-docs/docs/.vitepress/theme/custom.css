@@ -127,7 +127,7 @@ body {
 }
 
 .VPNavBarTitle .title {
-	font-size: 1.25rem;
+	font-size: var( --font-size-x-large );
 }
 
 .VPNavBarTitle .title:hover {
@@ -144,6 +144,7 @@ body {
 .VPSidebar .link-text,
 /* stylelint-disable-next-line no-descending-specificity */
 .VPDocAside .content {
+	font-size: initial;
 	font-weight: var( --font-weight-normal );
 }
 
@@ -151,7 +152,7 @@ body {
 .VPDocAside .outline-title,
 .VPDocAside .outline-link {
 	padding: var( --spacing-35 ) 0;
-	font-size: 0.875rem;
+	font-size: var( --font-size-small );
 	line-height: var( --line-height-medium );
 }
 
@@ -174,7 +175,7 @@ body {
 /* Mobile menu text */
 .VPLocalNav .menu-text,
 .VPLocalNav .top-link {
-	font-size: 1rem;
+	font-size: var( --font-size-medium );
 }
 
 .VPFlyout.VPNavBarExtra {
@@ -244,8 +245,7 @@ pre[ class*='language-' ] {
 .vp-doc [ class~='language-vue-html' ] > span.lang::after {
 	content: 'vue';
 	/* TODO: Use a VitePress variable here if one is introduced in the future. */
-	/* stylelint-disable-next-line declaration-property-unit-disallowed-list */
-	font-size: 12px;
+	font-size: var( --font-size-x-small );
 }
 
 .vp-doc [ class*='language-' ] > button.copy {
@@ -266,7 +266,7 @@ pre[ class*='language-' ] {
 .vp-doc .custom-block {
 	clear: both;
 	border-radius: var( --border-radius-base );
-	font-size: 1rem;
+	font-size: var( --font-size-medium );
 	line-height: var( --line-height-medium );
 }
 
@@ -341,8 +341,7 @@ pre[ class*='language-' ] {
 .vp-doc .cdx-docs-dont::before {
 	display: inline-block;
 	margin-right: var( --spacing-25 );
-	/* TODO: Tokenize. */
-	font-size: 1em;
+	font-size: var( --font-size-medium );
 	line-height: unset;
 	vertical-align: top;
 }

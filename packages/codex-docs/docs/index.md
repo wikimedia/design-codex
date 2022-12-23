@@ -79,6 +79,8 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
+@font-size-cdx-docs-title: 5em;
+
 /* stylelint-disable selector-class-pattern */
 .cdx-docs-home {
 	.cdx-card {
@@ -113,7 +115,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		// Need to put `.vp-doc` here to override the default VitePress heading styles.
 		.vp-doc &__title {
 			font-family: @font-family-sans;
-			font-size: 5em;
+			font-size: @font-size-cdx-docs-title;
 			font-weight: @font-weight-bold;
 			line-height: initial;
 		}
@@ -121,7 +123,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		.vp-doc &__tagline {
 			margin: 0 0 0 @spacing-50;
 			font-family: @font-family-sans;
-			font-size: 1.5em;
+			font-size: @font-size-xx-large;
 		}
 	}
 

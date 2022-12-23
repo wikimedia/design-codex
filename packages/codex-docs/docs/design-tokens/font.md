@@ -14,6 +14,15 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 	css-property="font-family"
 />
 
+## Font-size
+
+<cdx-docs-tokens-table
+	:tokens="tokens['font-size']"
+	token-demo="CdxDocsFontDemo"
+	token-category="font"
+	css-property="font-size"
+/>
+
 ## Font-weight
 
 <cdx-docs-tokens-table

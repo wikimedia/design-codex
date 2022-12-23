@@ -323,6 +323,7 @@ module.exports = {
 				'outline-style',
 				'outline-width',
 				'outline-offset',
+				'font-size',
 				'font-style',
 				'font-weight',
 				'letter-spacing',

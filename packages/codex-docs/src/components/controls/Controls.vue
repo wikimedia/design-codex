@@ -225,7 +225,7 @@ export default defineComponent( {
 
 .cdx-docs-controls {
 	width: @size-full;
-	font-size: 0.875em;
+	font-size: @font-size-small;
 
 	&__section-header {
 		font-weight: @font-weight-bold;
