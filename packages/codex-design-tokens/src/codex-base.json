@@ -670,7 +670,7 @@
 			"comment": "This features color as part of the theme token value.",
 			"value": "{ box-shadow.200 }"
 		},
-		"drop-extra-extra-large": {
+		"drop-xx-large": {
 			"comment": "This features color as part of the theme token value.",
 			"value": "{ box-shadow.500 }"
 		},
