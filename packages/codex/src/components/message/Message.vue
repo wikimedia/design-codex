@@ -233,10 +233,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
-// TODO: Tokenize.
-@offset-right-message-dismiss: unit( ( 16 / @font-size-base ), em );
-@offset-right-message-dismiss-mobile: unit( ( 8 / @font-size-base ), em );
-
 .cdx-message {
 	color: @color-notice;
 	display: flex;
@@ -328,14 +324,16 @@ export default defineComponent( {
 
 	&__dismiss-button {
 		position: absolute;
+		// Use `spacing` tokens as the top/right axis orientation can always be in pixels,
+		// similar to paddings
 		top: @spacing-75;
-		right: @offset-right-message-dismiss-mobile;
+		right: @spacing-100;
 		padding: @spacing-30;
 		// Remove `line-height` to not overgrow button.
 		line-height: 0;
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			right: @offset-right-message-dismiss;
+			right: @spacing-50;
 		}
 	}
 

@@ -23,13 +23,15 @@ const sharedConfig = {
 	relativeTransformPaths: [
 		'size',
 		'max-width',
-		'font-size'
+		'font-size',
+		'position.offset'
 	],
 	relativeTransformExcludePaths: [
 		'size.absolute',
 		'size.viewport',
 		'max-width.breakpoint',
-		'font-size.base'
+		'font-size.base',
+		'position.offset.border-width-base'
 	]
 };
 

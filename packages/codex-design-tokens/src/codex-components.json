@@ -108,7 +108,6 @@
 	"position": {
 		"offset": {
 			"input-radio--focus": {
-				"comment": "TODO: This has to be a relative value, for design reasons.",
 				"value": "-{ dimension.25 }{ unit.system }"
 			}
 		}

@@ -147,10 +147,10 @@ export default defineComponent( {
 		&::before {
 			content: ' ';
 			position: absolute;
-			top: @position-offset-input-radio--focus;
-			right: @position-offset-input-radio--focus;
-			bottom: @position-offset-input-radio--focus;
-			left: @position-offset-input-radio--focus;
+			top: -@size-25;
+			right: -@size-25;
+			bottom: -@size-25;
+			left: -@size-25;
 			border: @border-width-base @border-style-base @border-color-transparent;
 			border-radius: @border-radius-circle;
 		}
