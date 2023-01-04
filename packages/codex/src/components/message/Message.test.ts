@@ -1,14 +1,14 @@
 import { mount } from '@vue/test-utils';
 import { Icon, cdxIconArticle, cdxIconSuccess } from '@wikimedia/codex-icons';
-import { MessageType } from '../../types';
-import { MessageTypes } from '../../constants';
+import { StatusType } from '../../types';
+import { StatusTypes } from '../../constants';
 import CdxMessage from './Message.vue';
 
 describe( 'matches the snapshot', () => {
 	type Case = [
 		msg: string,
 		props: {
-			type?: MessageType,
+			type?: StatusType,
 			inline?: boolean,
 			dismissButtonLabel?: string,
 			icon?: Icon
@@ -19,7 +19,7 @@ describe( 'matches the snapshot', () => {
 	const cases: Case[] = [
 		[ 'Default props', {}, '<p>Message content</p>' ],
 		// A snapshot for each message type.
-		...MessageTypes.map( ( type ) : Case => [
+		...StatusTypes.map( ( type ) : Case => [
 			`${type} message`,
 			{ type },
 			'<p>Message content</p>'

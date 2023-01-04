@@ -9,9 +9,10 @@ import { Icon } from '@wikimedia/codex-icons';
 import {
 	ButtonActions,
 	ButtonTypes,
-	MessageTypes,
+	ChipTypes,
 	TextInputTypes,
 	ValidationStatusTypes,
+	StatusTypes,
 	MenuStates
 } from './constants';
 
@@ -41,9 +42,12 @@ export interface ButtonGroupItem {
 }
 
 /** @public */
-export type MessageType = typeof MessageTypes[ number ];
-export type MessageIconMap = {
-	[P in MessageType]: Icon
+export type ChipType = typeof ChipTypes[ number ];
+
+/** @public */
+export type StatusType = typeof StatusTypes[ number ];
+export type StatusIconMap = {
+	[P in StatusType]: Icon
 }
 
 /** @public */

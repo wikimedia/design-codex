@@ -1,5 +1,6 @@
 import { ComputedRef, InjectionKey } from 'vue';
 import { TabData } from './types';
+import { makeStringTypeValidator } from './utils/stringTypeValidator';
 
 /**
  * String prefix for use in namespacing, etc
@@ -18,12 +19,19 @@ export const ButtonTypes = [
 	'quiet'
 ] as const;
 
-export const MessageTypes = [
+export const ChipTypes = [
+	'info',
+	'filter'
+] as const;
+
+export const StatusTypes = [
 	'notice',
 	'warning',
 	'error',
 	'success'
 ] as const;
+
+export const statusTypeValidator = makeStringTypeValidator( StatusTypes );
 
 export const TextInputTypes = [
 	'text',

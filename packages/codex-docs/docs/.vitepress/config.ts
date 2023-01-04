@@ -180,6 +180,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'ButtonGroup', link: '/components/demos/button-group' },
 						{ text: 'Card', link: '/components/demos/card' },
 						{ text: 'Checkbox', link: '/components/demos/checkbox' },
+						{ text: 'Chip', link: '/components/demos/chip' },
 						{ text: 'Combobox', link: '/components/demos/combobox' },
 						{ text: 'Dialog', link: '/components/demos/dialog' },
 						{ text: 'Icon', link: '/components/demos/icon' },

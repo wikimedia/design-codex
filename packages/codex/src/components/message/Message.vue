@@ -43,13 +43,10 @@ import {
 } from '@wikimedia/codex-icons';
 import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
-import { MessageTypes } from '../../constants';
-import { MessageType, MessageIconMap } from '../../types';
-import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+import { statusTypeValidator } from '../../constants';
+import { StatusType, StatusIconMap } from '../../types';
 
-const messageTypeValidator = makeStringTypeValidator( MessageTypes );
-
-const iconMap: MessageIconMap = {
+const iconMap: StatusIconMap = {
 	notice: cdxIconInfoFilled,
 	error: cdxIconError,
 	warning: cdxIconAlert,
@@ -74,14 +71,14 @@ export default defineComponent( {
 	components: { CdxButton, CdxIcon },
 	props: {
 		/**
-		 * Message type.
+		 * Status type of Message.
 		 *
 		 * @values 'notice', 'warning', 'error', 'success'
 		 */
 		type: {
-			type: String as PropType<MessageType>,
+			type: String as PropType<StatusType>,
 			default: 'notice',
-			validator: messageTypeValidator
+			validator: statusTypeValidator
 		},
 
 		/**
