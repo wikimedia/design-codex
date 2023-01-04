@@ -93,7 +93,7 @@
 							<span class="cdx-typeahead-search__search-footer__text">
 								<!--
 									@slot A slot for passing in translated search footer text.
-									@binding {string} searchQuery Input text entered by the user
+									@binding {string} search-query Input text entered by the user
 								-->
 								<slot name="search-footer-text" :search-query="searchQuery">
 									<strong class="cdx-typeahead-search__search-footer__query">

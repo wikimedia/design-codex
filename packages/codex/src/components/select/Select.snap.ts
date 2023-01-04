@@ -22,9 +22,9 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     >
       <!--
 					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selectedMenuItem The currently selected menu
+					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
 					item
-					@binding {string} defaultLabel The default label, provided via a prop
+					@binding {string} default-label The default label, provided via a prop
 				-->
       
       Choose an option
@@ -291,9 +291,9 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
     >
       <!--
 					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selectedMenuItem The currently selected menu
+					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
 					item
-					@binding {string} defaultLabel The default label, provided via a prop
+					@binding {string} default-label The default label, provided via a prop
 				-->
       
       Choose an option
@@ -560,9 +560,9 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
     >
       <!--
 					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selectedMenuItem The currently selected menu
+					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
 					item
-					@binding {string} defaultLabel The default label, provided via a prop
+					@binding {string} default-label The default label, provided via a prop
 				-->
       
       Option A
@@ -829,9 +829,9 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
     >
       <!--
 					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selectedMenuItem The currently selected menu
+					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
 					item
-					@binding {string} defaultLabel The default label, provided via a prop
+					@binding {string} default-label The default label, provided via a prop
 				-->
       
       c
@@ -1098,9 +1098,9 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
     >
       <!--
 					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selectedMenuItem The currently selected menu
+					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
 					item
-					@binding {string} defaultLabel The default label, provided via a prop
+					@binding {string} default-label The default label, provided via a prop
 				-->
       
       Option E
@@ -1385,9 +1385,9 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
     >
       <!--
 					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selectedMenuItem The currently selected menu
+					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
 					item
-					@binding {string} defaultLabel The default label, provided via a prop
+					@binding {string} default-label The default label, provided via a prop
 				-->
       
       Choose an option
@@ -1672,9 +1672,9 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
     >
       <!--
 					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selectedMenuItem The currently selected menu
+					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
 					item
-					@binding {string} defaultLabel The default label, provided via a prop
+					@binding {string} default-label The default label, provided via a prop
 				-->
       
       c

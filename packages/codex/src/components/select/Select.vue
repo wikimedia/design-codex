@@ -26,9 +26,9 @@
 			>
 				<!--
 					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selectedMenuItem The currently selected menu
+					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
 					item
-					@binding {string} defaultLabel The default label, provided via a prop
+					@binding {string} default-label The default label, provided via a prop
 				-->
 				<slot
 					name="label"
@@ -61,7 +61,7 @@
 			<template #default="{ menuItem }">
 				<!--
 					@slot Display of an individual item in the menu
-					@binding {MenuItemData} menuItem The current menu item
+					@binding {MenuItemData} menu-item The current menu item
 				-->
 				<slot name="menu-item" :menu-item="menuItem" />
 			</template>

@@ -446,7 +446,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
                 >
                   <!--
 									@slot A slot for passing in translated search footer text.
-									@binding {string} searchQuery Input text entered by the user
+									@binding {string} search-query Input text entered by the user
 								-->
                   
                   <strong
@@ -754,7 +754,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                 >
                   <!--
 									@slot A slot for passing in translated search footer text.
-									@binding {string} searchQuery Input text entered by the user
+									@binding {string} search-query Input text entered by the user
 								-->
                   
                   <strong

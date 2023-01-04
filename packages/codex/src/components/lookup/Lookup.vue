@@ -35,7 +35,7 @@
 			<template #default="{ menuItem }">
 				<!--
 					@slot Display of an individual item in the menu
-					@binding {MenuItemData} menuItem The current menu item
+					@binding {MenuItemData} menu-item The current menu item
 				-->
 				<slot name="menu-item" :menu-item="menuItem" />
 			</template>
