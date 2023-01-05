@@ -4,26 +4,25 @@ exports[`matches the snapshot Case 0 String value: ("radio-1") => HTML 1`] = `
 <span
   class="cdx-radio"
 >
+  <input
+    class="cdx-radio__input"
+    id="cdx-radio-0"
+    name="radios-string"
+    type="radio"
+    value="radio-1"
+  />
+  <!-- eslint-disable-next-line vue/html-self-closing -->
+  <span
+    class="cdx-radio__icon"
+  />
   <label
     class="cdx-radio__label"
+    for="cdx-radio-0"
   >
-    <input
-      class="cdx-radio__input"
-      name="radios-string"
-      type="radio"
-      value="radio-1"
-    />
-    <span
-      class="cdx-radio__icon"
-    />
-    <span
-      class="cdx-radio__label-content"
-    >
-      <!-- @slot Input label content -->
-      
-      Radio 1
-      
-    </span>
+    <!-- @slot Input label content -->
+    
+    Radio 1
+    
   </label>
 </span>
 `;
@@ -32,26 +31,25 @@ exports[`matches the snapshot Case 1 Number value: (2) => HTML 1`] = `
 <span
   class="cdx-radio"
 >
+  <input
+    class="cdx-radio__input"
+    id="cdx-radio-1"
+    name="radios-number"
+    type="radio"
+    value="2"
+  />
+  <!-- eslint-disable-next-line vue/html-self-closing -->
+  <span
+    class="cdx-radio__icon"
+  />
   <label
     class="cdx-radio__label"
+    for="cdx-radio-1"
   >
-    <input
-      class="cdx-radio__input"
-      name="radios-number"
-      type="radio"
-      value="2"
-    />
-    <span
-      class="cdx-radio__icon"
-    />
-    <span
-      class="cdx-radio__label-content"
-    >
-      <!-- @slot Input label content -->
-      
-      Radio 2
-      
-    </span>
+    <!-- @slot Input label content -->
+    
+    Radio 2
+    
   </label>
 </span>
 `;
@@ -60,26 +58,25 @@ exports[`matches the snapshot Case 2 Boolean value: (true) => HTML 1`] = `
 <span
   class="cdx-radio"
 >
+  <input
+    class="cdx-radio__input"
+    id="cdx-radio-2"
+    name="radios-boolean"
+    type="radio"
+    value="true"
+  />
+  <!-- eslint-disable-next-line vue/html-self-closing -->
+  <span
+    class="cdx-radio__icon"
+  />
   <label
     class="cdx-radio__label"
+    for="cdx-radio-2"
   >
-    <input
-      class="cdx-radio__input"
-      name="radios-boolean"
-      type="radio"
-      value="true"
-    />
-    <span
-      class="cdx-radio__icon"
-    />
-    <span
-      class="cdx-radio__label-content"
-    >
-      <!-- @slot Input label content -->
-      
-      True
-      
-    </span>
+    <!-- @slot Input label content -->
+    
+    True
+    
   </label>
 </span>
 `;
@@ -88,27 +85,26 @@ exports[`matches the snapshot Case 3 Disabled: ("radio-1") => HTML 1`] = `
 <span
   class="cdx-radio"
 >
+  <input
+    class="cdx-radio__input"
+    disabled=""
+    id="cdx-radio-3"
+    name="radios-string"
+    type="radio"
+    value="radio-1"
+  />
+  <!-- eslint-disable-next-line vue/html-self-closing -->
+  <span
+    class="cdx-radio__icon"
+  />
   <label
     class="cdx-radio__label"
+    for="cdx-radio-3"
   >
-    <input
-      class="cdx-radio__input"
-      disabled=""
-      name="radios-string"
-      type="radio"
-      value="radio-1"
-    />
-    <span
-      class="cdx-radio__icon"
-    />
-    <span
-      class="cdx-radio__label-content"
-    >
-      <!-- @slot Input label content -->
-      
-      Disabled radio
-      
-    </span>
+    <!-- @slot Input label content -->
+    
+    Disabled radio
+    
   </label>
 </span>
 `;
@@ -117,26 +113,25 @@ exports[`matches the snapshot Case 4 Inline: ("radio-1") => HTML 1`] = `
 <span
   class="cdx-radio cdx-radio--inline"
 >
+  <input
+    class="cdx-radio__input"
+    id="cdx-radio-4"
+    name="radios-string"
+    type="radio"
+    value="radio-1"
+  />
+  <!-- eslint-disable-next-line vue/html-self-closing -->
+  <span
+    class="cdx-radio__icon"
+  />
   <label
     class="cdx-radio__label"
+    for="cdx-radio-4"
   >
-    <input
-      class="cdx-radio__input"
-      name="radios-string"
-      type="radio"
-      value="radio-1"
-    />
-    <span
-      class="cdx-radio__icon"
-    />
-    <span
-      class="cdx-radio__label-content"
-    >
-      <!-- @slot Input label content -->
-      
-      Inline radio
-      
-    </span>
+    <!-- @slot Input label content -->
+    
+    Inline radio
+    
   </label>
 </span>
 `;

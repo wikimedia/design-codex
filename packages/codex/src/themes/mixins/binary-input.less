@@ -1,7 +1,5 @@
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 // TODO: At least these first few should be design tokens.
-// FIXME: Vite doesn't like the way we calculated these values previously, e.g.
-// 20 / @font-size-browser / @font-size-base. There might be a better solution than this one:
 @font-size-browser: 16; // Common (assumed) browser default of `16px`.
 @font-size-base-value: 14 / @font-size-browser;
 @font-size-base: unit( ( @font-size-base-value ), em ); // Equals `0.875em` at browser default of `16px`.
@@ -17,9 +15,11 @@
 
 // Common styles for checkboxes and radios.
 .cdx-mixin-binary-input() {
+	position: relative;
+
 	/* stylelint-disable-next-line selector-not-notation */
 	&:not( &--inline ) {
-		display: block;
+		display: flex;
 		// Since we have to use margin-right for inline inputs, use margin-bottom for stacked inputs
 		// for consistency's sake.
 		margin-bottom: @spacing-75;
@@ -30,6 +30,7 @@
 	}
 
 	&--inline {
+		display: inline-flex;
 		// Use margin-right instead of left to avoid extra space at the beginning of a new line if
 		// the inputs span multiple lines.
 		margin-right: @spacing-100;
@@ -48,16 +49,11 @@
 		position: relative;
 		// Create a stacking context.
 		z-index: 0;
+		padding-left: @size-input-binary + 0.5em;
 		line-height: @line-height-x-small;
 	}
 
-	&__label-content {
-		// Necessary to ensure label is indented properly if it spans multiple lines.
-		display: inline-block;
-		padding-left: @size-input-binary + 0.5em;
-	}
-
-	&--inline &__label-content {
+	&--inline &__label {
 		// Reset to inline to avoid extra space between input and label.
 		display: inline;
 	}
@@ -89,11 +85,9 @@
 		cursor: inherit;
 	}
 
-	// Put selector outside `&__input` to not having to use string-based selectors
-	// on the class attribute (`[ class$='__label-content' ]`).
 	// Ensure that all elements receive cursor, when enabled.
-	&__label:hover > &__input:enabled,
-	&__label:hover > &__input:enabled ~ * {
+	&:hover > &__input:enabled,
+	&:hover > &__input:enabled ~ * {
 		cursor: @cursor-base--hover;
 	}
 }

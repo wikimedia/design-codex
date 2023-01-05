@@ -1,25 +1,21 @@
 <template>
 	<span class="cdx-checkbox" :class="rootClasses">
-		<label
-			ref="label"
-			class="cdx-checkbox__label"
-			@click="focusInput"
-			@keydown.prevent.enter="clickLabel"
+		<input
+			:id="checkboxId"
+			ref="input"
+			v-model="wrappedModel"
+			class="cdx-checkbox__input"
+			type="checkbox"
+			:value="inputValue"
+			:disabled="disabled"
+			:indeterminate.prop="indeterminate"
+			@keydown.prevent.enter="clickInput"
 		>
-			<input
-				ref="input"
-				v-model="wrappedModel"
-				class="cdx-checkbox__input"
-				type="checkbox"
-				:value="inputValue"
-				:disabled="disabled"
-				:indeterminate.prop="indeterminate"
-			>
-			<span class="cdx-checkbox__icon" />
-			<span class="cdx-checkbox__label-content">
-				<!-- @slot Input label content -->
-				<slot />
-			</span>
+		<!-- eslint-disable-next-line vue/html-self-closing -->
+		<span class="cdx-checkbox__icon"></span>
+		<label class="cdx-checkbox__label" :for="checkboxId">
+			<!-- @slot Input label content -->
+			<slot />
 		</label>
 	</span>
 </template>
@@ -27,6 +23,7 @@
 <script lang="ts">
 import { defineComponent, PropType, ref, toRef, computed } from 'vue';
 import useModelWrapper from '../../composables/useModelWrapper';
+import useGeneratedId from '../../composables/useGeneratedId';
 
 /**
  * A binary input that can exist by itself or in a group. When in a group, any
@@ -109,24 +106,14 @@ export default defineComponent( {
 
 		// Declare template ref.
 		const input = ref<HTMLInputElement>();
-		const label = ref<HTMLLabelElement>();
+		const checkboxId = useGeneratedId( 'checkbox' );
 
 		/**
-		 * When the label is clicked, focus on the input.
-		 *
-		 * This doesn't happen automatically in Firefox or Safari.
+		 * Click (and toggle) the input.
 		 */
-		const focusInput = () => {
+		const clickInput = () => {
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			input.value!.focus();
-		};
-
-		/**
-		 * On enter keydown, click the label to toggle the input.
-		 */
-		const clickLabel = () => {
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			label.value!.click();
+			input.value!.click();
 		};
 
 		// Take the modelValue provided by the parent component via v-model and
@@ -137,9 +124,8 @@ export default defineComponent( {
 		return {
 			rootClasses,
 			input,
-			label,
-			focusInput,
-			clickLabel,
+			checkboxId,
+			clickInput,
 			wrappedModel
 		};
 	}
@@ -150,7 +136,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/binary-input.less';
 
-// Wrapper `<label>`.
 .cdx-checkbox {
 	.cdx-mixin-binary-input();
 
@@ -253,7 +238,7 @@ export default defineComponent( {
 				border-color: @border-color-disabled;
 			}
 
-			& ~ .cdx-checkbox__label-content {
+			& ~ .cdx-checkbox__label {
 				color: @color-disabled;
 			}
 		}

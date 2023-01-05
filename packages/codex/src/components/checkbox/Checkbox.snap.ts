@@ -4,25 +4,24 @@ exports[`Checkbox matches the snapshot Case 0 Single checkbox: (true) => HTML 1`
 <span
   class="cdx-checkbox"
 >
+  <input
+    class="cdx-checkbox__input"
+    id="cdx-checkbox-0"
+    type="checkbox"
+    value="false"
+  />
+  <!-- eslint-disable-next-line vue/html-self-closing -->
+  <span
+    class="cdx-checkbox__icon"
+  />
   <label
     class="cdx-checkbox__label"
+    for="cdx-checkbox-0"
   >
-    <input
-      class="cdx-checkbox__input"
-      type="checkbox"
-      value="false"
-    />
-    <span
-      class="cdx-checkbox__icon"
-    />
-    <span
-      class="cdx-checkbox__label-content"
-    >
-      <!-- @slot Input label content -->
-      
-      Checked if true
-      
-    </span>
+    <!-- @slot Input label content -->
+    
+    Checked if true
+    
   </label>
 </span>
 `;
@@ -31,25 +30,24 @@ exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: (["c
 <span
   class="cdx-checkbox"
 >
+  <input
+    class="cdx-checkbox__input"
+    id="cdx-checkbox-1"
+    type="checkbox"
+    value="checkbox-1"
+  />
+  <!-- eslint-disable-next-line vue/html-self-closing -->
+  <span
+    class="cdx-checkbox__icon"
+  />
   <label
     class="cdx-checkbox__label"
+    for="cdx-checkbox-1"
   >
-    <input
-      class="cdx-checkbox__input"
-      type="checkbox"
-      value="checkbox-1"
-    />
-    <span
-      class="cdx-checkbox__icon"
-    />
-    <span
-      class="cdx-checkbox__label-content"
-    >
-      <!-- @slot Input label content -->
-      
-      Checkbox 1
-      
-    </span>
+    <!-- @slot Input label content -->
+    
+    Checkbox 1
+    
   </label>
 </span>
 `;
@@ -58,25 +56,24 @@ exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ([1]
 <span
   class="cdx-checkbox"
 >
+  <input
+    class="cdx-checkbox__input"
+    id="cdx-checkbox-2"
+    type="checkbox"
+    value="1"
+  />
+  <!-- eslint-disable-next-line vue/html-self-closing -->
+  <span
+    class="cdx-checkbox__icon"
+  />
   <label
     class="cdx-checkbox__label"
+    for="cdx-checkbox-2"
   >
-    <input
-      class="cdx-checkbox__input"
-      type="checkbox"
-      value="1"
-    />
-    <span
-      class="cdx-checkbox__icon"
-    />
-    <span
-      class="cdx-checkbox__label-content"
-    >
-      <!-- @slot Input label content -->
-      
-      1
-      
-    </span>
+    <!-- @slot Input label content -->
+    
+    1
+    
   </label>
 </span>
 `;
@@ -85,26 +82,25 @@ exports[`Checkbox matches the snapshot Case 3 Disabled: (false) => HTML 1`] = `
 <span
   class="cdx-checkbox"
 >
+  <input
+    class="cdx-checkbox__input"
+    disabled=""
+    id="cdx-checkbox-3"
+    type="checkbox"
+    value="false"
+  />
+  <!-- eslint-disable-next-line vue/html-self-closing -->
+  <span
+    class="cdx-checkbox__icon"
+  />
   <label
     class="cdx-checkbox__label"
+    for="cdx-checkbox-3"
   >
-    <input
-      class="cdx-checkbox__input"
-      disabled=""
-      type="checkbox"
-      value="false"
-    />
-    <span
-      class="cdx-checkbox__icon"
-    />
-    <span
-      class="cdx-checkbox__label-content"
-    >
-      <!-- @slot Input label content -->
-      
-      Disabled checkbox
-      
-    </span>
+    <!-- @slot Input label content -->
+    
+    Disabled checkbox
+    
   </label>
 </span>
 `;
@@ -113,25 +109,24 @@ exports[`Checkbox matches the snapshot Case 4 Indeterminate: (false) => HTML 1`]
 <span
   class="cdx-checkbox"
 >
+  <input
+    class="cdx-checkbox__input"
+    id="cdx-checkbox-4"
+    type="checkbox"
+    value="false"
+  />
+  <!-- eslint-disable-next-line vue/html-self-closing -->
+  <span
+    class="cdx-checkbox__icon"
+  />
   <label
     class="cdx-checkbox__label"
+    for="cdx-checkbox-4"
   >
-    <input
-      class="cdx-checkbox__input"
-      type="checkbox"
-      value="false"
-    />
-    <span
-      class="cdx-checkbox__icon"
-    />
-    <span
-      class="cdx-checkbox__label-content"
-    >
-      <!-- @slot Input label content -->
-      
-      Indeterminate checkbox
-      
-    </span>
+    <!-- @slot Input label content -->
+    
+    Indeterminate checkbox
+    
   </label>
 </span>
 `;
@@ -140,25 +135,24 @@ exports[`Checkbox matches the snapshot Case 5 Inline: ([]) => HTML 1`] = `
 <span
   class="cdx-checkbox cdx-checkbox--inline"
 >
+  <input
+    class="cdx-checkbox__input"
+    id="cdx-checkbox-5"
+    type="checkbox"
+    value="checkbox-1"
+  />
+  <!-- eslint-disable-next-line vue/html-self-closing -->
+  <span
+    class="cdx-checkbox__icon"
+  />
   <label
     class="cdx-checkbox__label"
+    for="cdx-checkbox-5"
   >
-    <input
-      class="cdx-checkbox__input"
-      type="checkbox"
-      value="checkbox-1"
-    />
-    <span
-      class="cdx-checkbox__icon"
-    />
-    <span
-      class="cdx-checkbox__label-content"
-    >
-      <!-- @slot Input label content -->
-      
-      Inline checkbox
-      
-    </span>
+    <!-- @slot Input label content -->
+    
+    Inline checkbox
+    
   </label>
 </span>
 `;

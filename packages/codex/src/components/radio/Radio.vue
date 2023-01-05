@@ -1,23 +1,24 @@
 <template>
 	<span class="cdx-radio" :class="rootClasses">
+		<input
+			:id="radioId"
+			ref="input"
+			v-model="wrappedModel"
+			class="cdx-radio__input"
+			type="radio"
+			:name="name"
+			:value="inputValue"
+			:disabled="disabled"
+		>
+		<!-- eslint-disable-next-line vue/html-self-closing -->
+		<span class="cdx-radio__icon"></span>
 		<label
 			class="cdx-radio__label"
+			:for="radioId"
 			@click="focusInput"
 		>
-			<input
-				ref="input"
-				v-model="wrappedModel"
-				class="cdx-radio__input"
-				type="radio"
-				:name="name"
-				:value="inputValue"
-				:disabled="disabled"
-			>
-			<span class="cdx-radio__icon" />
-			<span class="cdx-radio__label-content">
-				<!-- @slot Input label content -->
-				<slot />
-			</span>
+			<!-- @slot Input label content -->
+			<slot />
 		</label>
 	</span>
 </template>
@@ -25,6 +26,7 @@
 <script lang="ts">
 import { defineComponent, ref, toRef, computed } from 'vue';
 import useModelWrapper from '../../composables/useModelWrapper';
+import useGeneratedId from '../../composables/useGeneratedId';
 
 /**
  * A binary input that always exists in a group, in which only one input can be on at a time.
@@ -100,6 +102,7 @@ export default defineComponent( {
 
 		// Declare template ref.
 		const input = ref<HTMLInputElement>();
+		const radioId = useGeneratedId( 'radio' );
 
 		/**
 		 * When the label is clicked, focus on the input.
@@ -121,6 +124,7 @@ export default defineComponent( {
 		return {
 			rootClasses,
 			input,
+			radioId,
 			focusInput,
 			wrappedModel
 		};
@@ -132,7 +136,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/binary-input.less';
 
-// Wrapper `<label>`.
 .cdx-radio {
 	// Common binary input styles.
 	.cdx-mixin-binary-input();
@@ -203,7 +206,7 @@ export default defineComponent( {
 
 		/* stylelint-disable no-descending-specificity */
 		&:disabled {
-			& ~ .cdx-radio__label-content {
+			& ~ .cdx-radio__label {
 				color: @color-disabled;
 			}
 

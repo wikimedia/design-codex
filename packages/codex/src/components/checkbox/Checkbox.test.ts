@@ -112,29 +112,16 @@ describe( 'Checkbox', () => {
 		} );
 	} );
 
-	describe( 'when the label is clicked', () => {
-		it( 'focuses on the input', async () => {
-			const props = { modelValue: false };
-			const wrapper = shallowMount( CdxCheckbox, { props: props } );
-			const input = wrapper.find( 'input' ).element;
-			input.focus = jest.fn();
-
-			await wrapper.find( 'label' ).trigger( 'click' );
-
-			expect( input.focus ).toHaveBeenCalled();
-		} );
-	} );
-
 	describe( 'on enter keydown', () => {
-		it( 'clicks the label', async () => {
+		it( 'clicks the input', async () => {
 			const props = { modelValue: false };
 			const wrapper = shallowMount( CdxCheckbox, { propsData: props } );
-			const label = wrapper.find( 'label' ).element;
-			label.click = jest.fn();
+			const input = wrapper.find( 'input' ).element;
+			input.click = jest.fn();
 
-			await wrapper.find( 'label' ).trigger( 'keydown.enter' );
+			await wrapper.find( 'input' ).trigger( 'keydown.enter' );
 
-			expect( label.click ).toHaveBeenCalled();
+			expect( input.click ).toHaveBeenCalled();
 		} );
 	} );
 } );
