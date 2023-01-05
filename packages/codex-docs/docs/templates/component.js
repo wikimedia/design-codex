@@ -25,6 +25,21 @@ This component is still under development. It is not yet available in releases o
 :::
 		` : '';
 
+	// If there's a CSS-only version, split that part of the docs out so we can add it after
+	// the Vue usage info.
+	const cssOnlyHeading = '## CSS-only version';
+	let hasCssOnlyVersion = false;
+	let vueDocs = '';
+	let cssOnlyDocs = '';
+	if ( docsBlocks && docsBlocks.length > 0 ) {
+		hasCssOnlyVersion = docsBlocks[ 0 ].includes( cssOnlyHeading );
+		if ( hasCssOnlyVersion ) {
+			const splitDocs = docsBlocks[ 0 ].split( cssOnlyHeading );
+			vueDocs = splitDocs[ 0 ];
+			cssOnlyDocs = cssOnlyHeading + '\n' + splitDocs[ 1 ];
+		}
+	}
+
 	/* eslint-disable @typescript-eslint/restrict-template-expressions */
 	return `
 ---
@@ -43,7 +58,7 @@ ${author ? author.map( ( a ) => `**Author**: ${a.description}` ).join( '\n' ) : 
 ${since ? `**Since** ${since[ 0 ].description}` : ''}
 ${version ? `**Version** ${version[ 0 ].description}` : ''}
 
-${docsBlocks ? docsBlocks.join( '\n---\n' ) : ''}
+${vueDocs || ( docsBlocks ? docsBlocks.join( '\n---\n' ) : '' )}
 
 ${usageHeader}
 
@@ -51,5 +66,7 @@ ${renderedUsage.props.replace( '## Props', '### Props' )}
 ${renderedUsage.methods.replace( '## Methods', '### Methods' )}
 ${renderedUsage.events.replace( '## Events', '### Events' )}
 ${renderedUsage.slots.replace( '## Slots', '### Slots' )}
+
+${cssOnlyDocs || ''}
 `;
 };

@@ -2,10 +2,10 @@
 
 Components are the interactive building blocks of our design system, used to create consistent and powerful user interfaces.
 
-The Codex library contains fully interactive components built with [Vue 3](https://vuejs.org/). In
-the future, some CSS-only components will be provided via [Less mixins](https://lesscss.org/features/#mixins-feature).
+The Codex library contains fully interactive components built with [Vue 3](https://vuejs.org/). Some
+components are also available in a CSS-only version for use in no-JavaScript contexts.
 
-Each component in Codex has a demo page where you can interact with working examples, see code samples, and read detailed usage information.
+Each component in Codex has a demo page where you can interact with working examples, see code samples, and read detailed usage information about the Vue and CSS-only implementations.
 
 ## Resources
 
