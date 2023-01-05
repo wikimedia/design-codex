@@ -1,0 +1,40 @@
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+// Mixins for select components. These mixins target the "handle," or the element that the user
+// clicks to open/close the menu. For a CSS-only select, this will be the `<select>` element.
+// For the Vue implementation, it will be the `.cdx-select-vue__handle` element.
+.cdx-select__handle() {
+	box-sizing: @box-sizing-base;
+	min-width: @min-width-medium;
+	min-height: @size-base;
+	border-width: @border-width-base;
+	border-style: @border-style-base;
+	border-radius: @border-radius-base;
+	padding-top: @spacing-25;
+	padding-bottom: @spacing-25;
+	padding-left: @spacing-75;
+	.cdx-mixin-icon-wrapper-padding( end, @spacing-50 );
+	font-size: inherit;
+	line-height: @line-height-x-small;
+}
+
+.cdx-select__handle--disabled() {
+	background-color: @background-color-disabled-subtle;
+	color: @color-disabled;
+	border-color: @border-color-disabled;
+}
+
+.cdx-select__handle--enabled() {
+	background-color: @background-color-interactive-subtle;
+	color: @color-base;
+	border-color: @border-color-base;
+	transition-property: @transition-property-base;
+	transition-duration: @transition-duration-base;
+
+	&:hover {
+		background-color: @background-color-base;
+		color: @color-base--hover;
+		border-color: @border-color-base;
+		cursor: @cursor-base--hover;
+	}
+}

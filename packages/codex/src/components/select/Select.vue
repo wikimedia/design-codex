@@ -1,12 +1,12 @@
 <template>
 	<div
-		class="cdx-select"
+		class="cdx-select-vue"
 		:class="rootClasses"
 		:aria-disabled="disabled"
 	>
 		<div
 			ref="handle"
-			class="cdx-select__handle"
+			class="cdx-select-vue__handle"
 			tabindex="0"
 			role="combobox"
 			aria-autocomplete="list"
@@ -41,11 +41,11 @@
 			<cdx-icon
 				v-if="startIcon"
 				:icon="startIcon"
-				class="cdx-select__start-icon"
+				class="cdx-select-vue__start-icon"
 			/>
 			<cdx-icon
 				:icon="cdxIconExpand"
-				class="cdx-select__indicator"
+				class="cdx-select-vue__indicator"
 			/>
 		</div>
 
@@ -211,12 +211,12 @@ export default defineComponent( {
 
 		const rootClasses = computed( (): Record<string, boolean> => {
 			return {
-				'cdx-select--enabled': !props.disabled,
-				'cdx-select--disabled': props.disabled,
-				'cdx-select--expanded': expanded.value,
-				'cdx-select--value-selected': !!selectedMenuItem.value,
-				'cdx-select--no-selections': !selectedMenuItem.value,
-				'cdx-select--has-start-icon': !!startIcon.value
+				'cdx-select-vue--enabled': !props.disabled,
+				'cdx-select-vue--disabled': props.disabled,
+				'cdx-select-vue--expanded': expanded.value,
+				'cdx-select-vue--value-selected': !!selectedMenuItem.value,
+				'cdx-select-vue--no-selections': !selectedMenuItem.value,
+				'cdx-select-vue--has-start-icon': !!startIcon.value
 			};
 		} );
 
@@ -268,28 +268,43 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
 @import ( reference ) '../../themes/mixins/element-with-menu-expanded.less';
+@import ( reference ) '../../themes/mixins/select.less';
+@import ( reference ) '../../themes/mixins/public/css-icon.less';
 
+// CSS-only and Vue implementations are too divergent to combine, so they are included separately.
+// This is the CSS-only version, which is a `<select>` element.
 .cdx-select {
+	.cdx-select__handle();
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+	appearance: none;
+	background-position: center right @spacing-75;
+	background-repeat: no-repeat;
+	// Don't allow the icon to be smaller than the min-size, but allow it to grow.
+	background-size: calc( max( @size-indicator, @min-size-indicator ) );
+
+	&:disabled {
+		.cdx-select__handle--disabled();
+		.cdx-mixin-icon-background-image( @cdx-icon-expand, @color-disabled );
+	}
+
+	&:enabled {
+		.cdx-select__handle--enabled();
+		.cdx-mixin-icon-background-image( @cdx-icon-expand );
+	}
+}
+
+// This is the Vue implementation.
+.cdx-select-vue {
 	display: inline-block;
 	position: relative;
 
 	&__handle {
+		.cdx-select__handle();
 		position: relative;
-		box-sizing: @box-sizing-base;
-		min-width: @min-width-medium;
-		min-height: @size-base;
 		width: @size-full;
-		border-width: @border-width-base;
-		border-style: @border-style-base;
-		border-radius: @border-radius-base;
-		padding-top: @spacing-25;
-		padding-bottom: @spacing-25;
-		padding-left: @spacing-75;
-		.cdx-mixin-icon-wrapper-padding( end, @spacing-50 );
-		line-height: @line-height-x-small;
 	}
 
-	&--has-start-icon .cdx-select__handle {
+	&--has-start-icon .cdx-select-vue__handle {
 		.cdx-mixin-icon-wrapper-padding( start );
 	}
 
@@ -308,21 +323,12 @@ export default defineComponent( {
 	}
 
 	&--enabled {
-		.cdx-select__handle {
-			background-color: @background-color-interactive-subtle;
-			color: @color-base;
-			border-color: @border-color-base;
-			transition-property: @transition-property-base;
-			transition-duration: @transition-duration-base;
+		.cdx-select-vue__handle {
+			.cdx-select__handle--enabled();
 			.cdx-mixin-element-with-menu-expanded();
 
 			&:hover {
-				background-color: @background-color-base;
-				color: @color-base--hover;
-				border-color: @border-color-base;
-				cursor: @cursor-base--hover;
-
-				.cdx-select__indicator {
+				.cdx-select-vue__indicator {
 					color: @color-base--hover;
 				}
 			}
@@ -340,12 +346,12 @@ export default defineComponent( {
 		}
 
 		/* Expanded Menu only happens when enabled. */
-		&.cdx-select--expanded {
-			.cdx-select__handle {
+		&.cdx-select-vue--expanded {
+			.cdx-select-vue__handle {
 				background-color: @background-color-base;
 
 				/* stylelint-disable-next-line max-nesting-depth */
-				.cdx-select__indicator {
+				.cdx-select-vue__indicator {
 					color: @color-base;
 				}
 			}
@@ -354,10 +360,8 @@ export default defineComponent( {
 
 	/* stylelint-disable no-descending-specificity */
 	&--disabled {
-		.cdx-select__handle {
-			background-color: @background-color-disabled-subtle;
-			color: @color-disabled;
-			border-color: @border-color-disabled;
+		.cdx-select-vue__handle {
+			.cdx-select__handle--disabled();
 			// Don't implement coined effect on text-shadow from OOUI.
 			// This has never gone through design review and was a hack to increase
 			// color contrast.
@@ -365,8 +369,8 @@ export default defineComponent( {
 			cursor: @cursor-base--disabled;
 		}
 
-		.cdx-select__indicator,
-		.cdx-select__start-icon {
+		.cdx-select-vue__indicator,
+		.cdx-select-vue__start-icon {
 			color: @color-disabled;
 		}
 	}
@@ -383,5 +387,4 @@ export default defineComponent( {
 		}
 	}
 }
-
 </style>

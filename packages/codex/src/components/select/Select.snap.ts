@@ -3,7 +3,7 @@
 exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
   aria-disabled="false"
-  class="cdx-select cdx-select--enabled cdx-select--no-selections"
+  class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections"
 >
   <div
     aria-autocomplete="list"
@@ -11,7 +11,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-0"
     aria-owns="cdx-select-menu-1"
-    class="cdx-select__handle"
+    class="cdx-select-vue__handle"
     role="combobox"
     tabindex="0"
   >
@@ -32,7 +32,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     </span>
     <!--v-if-->
     <span
-      class="cdx-icon cdx-select__indicator"
+      class="cdx-icon cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -272,7 +272,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
 exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
   aria-disabled="false"
-  class="cdx-select cdx-select--enabled cdx-select--no-selections"
+  class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections"
 >
   <div
     aria-autocomplete="list"
@@ -280,7 +280,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-7"
     aria-owns="cdx-select-menu-8"
-    class="cdx-select__handle"
+    class="cdx-select-vue__handle"
     role="combobox"
     tabindex="0"
   >
@@ -301,7 +301,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
     </span>
     <!--v-if-->
     <span
-      class="cdx-icon cdx-select__indicator"
+      class="cdx-icon cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -541,7 +541,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
 exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
   aria-disabled="false"
-  class="cdx-select cdx-select--enabled cdx-select--value-selected"
+  class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected"
 >
   <div
     aria-autocomplete="list"
@@ -549,7 +549,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-14"
     aria-owns="cdx-select-menu-15"
-    class="cdx-select__handle"
+    class="cdx-select-vue__handle"
     role="combobox"
     tabindex="0"
   >
@@ -570,7 +570,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
     </span>
     <!--v-if-->
     <span
-      class="cdx-icon cdx-select__indicator"
+      class="cdx-icon cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -810,7 +810,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
 exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
   aria-disabled="false"
-  class="cdx-select cdx-select--enabled cdx-select--value-selected"
+  class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected"
 >
   <div
     aria-autocomplete="list"
@@ -818,7 +818,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-21"
     aria-owns="cdx-select-menu-22"
-    class="cdx-select__handle"
+    class="cdx-select-vue__handle"
     role="combobox"
     tabindex="0"
   >
@@ -839,7 +839,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
     </span>
     <!--v-if-->
     <span
-      class="cdx-icon cdx-select__indicator"
+      class="cdx-icon cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -1079,7 +1079,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
 exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
   aria-disabled="false"
-  class="cdx-select cdx-select--enabled cdx-select--value-selected cdx-select--has-start-icon"
+  class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--has-start-icon"
 >
   <div
     aria-autocomplete="list"
@@ -1087,7 +1087,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-28"
     aria-owns="cdx-select-menu-29"
-    class="cdx-select__handle"
+    class="cdx-select-vue__handle"
     role="combobox"
     tabindex="0"
   >
@@ -1107,7 +1107,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       
     </span>
     <span
-      class="cdx-icon cdx-select__start-icon"
+      class="cdx-icon cdx-select-vue__start-icon"
     >
       <svg
         aria-hidden="true"
@@ -1126,7 +1126,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       </svg>
     </span>
     <span
-      class="cdx-icon cdx-select__indicator"
+      class="cdx-icon cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -1366,7 +1366,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
 exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
   aria-disabled="false"
-  class="cdx-select cdx-select--enabled cdx-select--no-selections cdx-select--has-start-icon"
+  class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--has-start-icon"
 >
   <div
     aria-autocomplete="list"
@@ -1374,7 +1374,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-35"
     aria-owns="cdx-select-menu-36"
-    class="cdx-select__handle"
+    class="cdx-select-vue__handle"
     role="combobox"
     tabindex="0"
   >
@@ -1394,7 +1394,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       
     </span>
     <span
-      class="cdx-icon cdx-select__start-icon"
+      class="cdx-icon cdx-select-vue__start-icon"
     >
       <svg
         aria-hidden="true"
@@ -1413,7 +1413,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       </svg>
     </span>
     <span
-      class="cdx-icon cdx-select__indicator"
+      class="cdx-icon cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -1653,7 +1653,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
 exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
   aria-disabled="false"
-  class="cdx-select cdx-select--enabled cdx-select--value-selected"
+  class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected"
 >
   <div
     aria-autocomplete="list"
@@ -1661,7 +1661,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
     aria-haspopup="listbox"
     aria-labelledby="cdx-select-handle-42"
     aria-owns="cdx-select-menu-43"
-    class="cdx-select__handle"
+    class="cdx-select-vue__handle"
     role="combobox"
     tabindex="0"
   >
@@ -1682,7 +1682,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
     </span>
     <!--v-if-->
     <span
-      class="cdx-icon cdx-select__indicator"
+      class="cdx-icon cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"

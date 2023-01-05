@@ -25,12 +25,11 @@ const controlsConfig = [
 
 ## Demos
 
-
 ### Configurable
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues }">
-<select-configurable v-bind="propValues" />
+	<select-configurable v-bind="propValues" />
 </template>
 </cdx-demo-wrapper>
 
@@ -42,7 +41,7 @@ displayed.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-<basic-select />
+	<basic-select />
 </template>
 <template v-slot:code>
 
@@ -59,7 +58,7 @@ hide the text overflow of the descriptions.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-<select-complex-menu-item />
+	<select-complex-menu-item />
 </template>
 <template v-slot:code>
 
@@ -75,7 +74,7 @@ for the `menuItem`. In this example, only the menu item's icon is displayed in t
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-<select-custom-menu-item />
+	<select-custom-menu-item />
 </template>
 <template v-slot:code>
 
@@ -91,7 +90,7 @@ bindings for the `selectedMenuItem` and the `defaultLabel`.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-<select-custom-label />
+	<select-custom-label />
 </template>
 <template v-slot:code>
 
@@ -107,11 +106,84 @@ and enable scrolling, use the `visibleItemLimit` property of the `menuConfig` pr
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-<select-with-scroll />
+	<select-with-scroll />
 </template>
 <template v-slot:code>
 
 <<< @/../component-demos/select/examples/SelectWithScroll.vue
+
+</template>
+</cdx-demo-wrapper>
+
+## CSS-only version
+
+### Markup structure
+
+The CSS-only version of this component uses the native `<select>` element. This element will be
+styled to match the Vue version, but the menu will use native browser styles.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<select class="cdx-select">
+		<option value="">Choose an option</option>
+		<option value="a">Option A</option>
+		<option value="b">Option B</option>
+		<option value="c">Option C</option>
+		<option value="d" disabled>Option D</option>
+		<optgroup label="Other options">
+			<option value="e">Option E</option>
+			<option value="f">Option F</option>
+		</optgroup>
+	</select>
+</template>
+<template v-slot:code>
+
+```html
+<!-- The CSS-only version uses the `<select>` element. -->
+<select class="cdx-select">
+	<!-- Use <option> and <optgroup> elements as needed. -->
+	<option value="">Choose an option</option>
+	<option value="a">Option A</option>
+	<option value="b">Option B</option>
+	<option value="c">Option C</option>
+	<!-- You can disable options by applying the `disabled` attribute. -->
+	<option value="d" disabled>Option D</option>
+	<optgroup label="Other options">
+		<option value="e">Option E</option>
+		<option value="f">Option F</option>
+	</optgroup>
+</select>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### Disabled
+
+Add the `disabled` attribute to the `<select>` element to get a disabled element with appropriate
+styles.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<select class="cdx-select" disabled>
+		<option value="">Choose an option</option>
+		<option value="a">Option A</option>
+		<option value="b">Option B</option>
+		<option value="c">Option C</option>
+		<option value="d" disabled>Option D</option>
+	</select>
+</template>
+<template v-slot:code>
+
+```html
+<select class="cdx-select" disabled>
+	<option value="">Choose an option</option>
+	<option value="a">Option A</option>
+	<option value="b">Option B</option>
+	<option value="c">Option C</option>
+	<option value="d" disabled>Option D</option>
+</select>
+```
 
 </template>
 </cdx-demo-wrapper>

@@ -7,6 +7,25 @@
 			default-label="Choose an option"
 		/>
 		<p>Selected value: {{ selection || '(none)' }}</p>
+
+		<h3>CSS-only select</h3>
+		<select class="cdx-select">
+			<option value="">
+				Choose an option
+			</option>
+			<option value="a">
+				Option A
+			</option>
+			<option value="b">
+				Option B
+			</option>
+			<option value="c">
+				Option C
+			</option>
+			<option value="d" disabled>
+				Option D
+			</option>
+		</select>
 	</section>
 </template>
 

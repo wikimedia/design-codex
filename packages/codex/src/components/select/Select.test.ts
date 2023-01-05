@@ -54,7 +54,7 @@ describe( 'Select', () => {
 				selected: null
 			}
 		} );
-		expect( wrapper.find( '.cdx-select__handle' ).text() ).toMatch( 'Choose an option' );
+		expect( wrapper.find( '.cdx-select-vue__handle' ).text() ).toMatch( 'Choose an option' );
 	} );
 
 	it( 'Clicking the handle toggles the menu visibility', async () => {
@@ -66,7 +66,7 @@ describe( 'Select', () => {
 			}
 		} );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'click' );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'click' );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 	} );
 
@@ -80,7 +80,7 @@ describe( 'Select', () => {
 			}
 		} );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'click' );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'click' );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
 
@@ -92,7 +92,7 @@ describe( 'Select', () => {
 				selected: null
 			}
 		} );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'click' );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'click' );
 		await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
 		expect( wrapper.emitted()[ 'update:selected' ] ).toBeTruthy();
 		expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ data[ 0 ].value ] );
@@ -106,7 +106,7 @@ describe( 'Select', () => {
 				selected: null
 			}
 		} );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'click' );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'click' );
 		await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
@@ -119,7 +119,7 @@ describe( 'Select', () => {
 				selected: 'b'
 			}
 		} );
-		expect( wrapper.find( '.cdx-select__handle' ).text() ).toMatch( data[ 1 ].label || data[ 1 ].value );
+		expect( wrapper.find( '.cdx-select-vue__handle' ).text() ).toMatch( data[ 1 ].label || data[ 1 ].value );
 	} );
 
 	it( 'If the selected prop is updated in the parent, the component updates itself to the new value', async () => {
@@ -131,7 +131,7 @@ describe( 'Select', () => {
 			}
 		} );
 		await wrapper.setProps( { selected: 'b' } );
-		expect( wrapper.find( '.cdx-select__handle' ).text() ).toMatch( data[ 1 ].label || data[ 1 ].value );
+		expect( wrapper.find( '.cdx-select-vue__handle' ).text() ).toMatch( data[ 1 ].label || data[ 1 ].value );
 	} );
 
 	it( 'Enter keydown expands the menu if it is not already expanded', async () => {
@@ -142,7 +142,7 @@ describe( 'Select', () => {
 				menuItems: data
 			}
 		} );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'Enter' } );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 	} );
 
@@ -155,7 +155,7 @@ describe( 'Select', () => {
 				disabled: true
 			}
 		} );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'Enter' } );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
 
@@ -167,9 +167,9 @@ describe( 'Select', () => {
 				selected: null
 			}
 		} );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'ArrowDown' } );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'Enter' } );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'ArrowDown' } );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'Enter' } );
 		expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ data[ 0 ].value ] );
 	} );
 
@@ -181,9 +181,9 @@ describe( 'Select', () => {
 				selected: null
 			}
 		} );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'Enter' } );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Escape' } );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'Escape' } );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
 
@@ -195,9 +195,9 @@ describe( 'Select', () => {
 				selected: null
 			}
 		} );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'keydown', { key: 'Enter' } );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'Enter' } );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
-		await wrapper.find( '.cdx-select__handle' ).trigger( 'blur' );
+		await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'blur' );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
 } );
