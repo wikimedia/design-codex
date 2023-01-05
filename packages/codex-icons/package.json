@@ -21,9 +21,10 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "npm run minify:svg && npm run build:vite && npm run build:svg && npm run build:json && npm run test:output",
+		"build": "npm run minify:svg && npm run build:vite && npm run build:svg && npm run build:json && npm run build:less && npm run test:output",
 		"build:vite": "vite build",
 		"build:json": "node ./buildIconsJson.js",
+		"build:less": "node ./buildIconsLess.js",
 		"build:svg": "cp -a src/images dist/",
 		"build-if-missing": "test -e dist/codex-icons.json || npm run build",
 		"lint": "npm run lint:ts",

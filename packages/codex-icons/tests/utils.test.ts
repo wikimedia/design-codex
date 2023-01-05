@@ -1,37 +1,14 @@
-import { Icon, IconFlipForRtl, SimpleIcon } from '../src/types';
+import { Icon, SimpleIcon } from '../src/types';
 import { resolveIcon, shouldIconFlip } from '../src/utils';
-
-const examplePathIcon = { path: 'M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z' };
-const exampleSvgIcon = '<path d="M3 3H1v16h18v-2H3z"/><path d="M11 11L8 9l-4 4v3h14V5z"/>';
-const exampleFlipIcon = {
-	ltr: examplePathIcon,
-	shouldFlip: true as const
-};
-const exampleFlipIconWithExceptions = {
-	ltr: examplePathIcon,
-	shouldFlip: true as const,
-	shouldFlipExceptions: [ 'he', 'yi' ]
-};
-const exampleDirIcon = {
-	ltr: examplePathIcon,
-	rtl: exampleSvgIcon
-};
-
-const exampleLangIcon = {
-	langCodeMap: {
-		nl: { path: 'Dutch version' },
-		fy: { path: 'Frisian version' }
-	},
-	default: 'version for other languages'
-};
-
-const complexLangIcon = {
-	langCodeMap: {
-		nl: { ltr: 'Dutch version', shouldFlip: true } as IconFlipForRtl,
-		fy: 'Frisian version'
-	},
-	default: exampleFlipIcon
-};
+import {
+	examplePathIcon,
+	exampleSvgIcon,
+	exampleFlipIcon,
+	exampleFlipIconWithExceptions,
+	exampleDirIcon,
+	exampleLangIcon,
+	complexLangIcon
+} from './testIcons';
 
 describe( 'resolveIcon', () => {
 	type Case = [ msg: string, icon: Icon, lang: string, dir: string, expected: SimpleIcon ];
