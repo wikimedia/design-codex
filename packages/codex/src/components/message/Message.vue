@@ -11,7 +11,7 @@
 			:aria-live="type !== 'error' ? 'polite' : undefined"
 			:role="type === 'error' ? 'alert' : undefined"
 		>
-			<cdx-icon class="cdx-message__icon" :icon="computedIcon" />
+			<cdx-icon class="cdx-message__icon--vue" :icon="computedIcon" />
 
 			<div class="cdx-message__content">
 				<!-- @slot Message content. -->
@@ -229,6 +229,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
+@import ( reference ) '../../themes/mixins/public/css-icon.less';
 
 .cdx-message {
 	color: @color-notice;
@@ -237,21 +238,19 @@ export default defineComponent( {
 	position: relative;
 
 	&__icon {
+		.cdx-mixin-css-icon();
+	}
+
+	&__icon,
+	&__icon--vue {
 		// Vertically align icon with the text. Flexbox on its own is not enough here.
 		// Use close enough height to `&__content`'s `line-height`.
 		height: @size-150;
 	}
 
-	&--warning .cdx-message__icon {
-		color: @border-color-warning;
-	}
-
-	&--error .cdx-message__icon {
-		color: @color-error;
-	}
-
-	&--success .cdx-message__icon {
-		color: @color-success;
+	// Add space between stacked messages.
+	& + & {
+		margin-top: @spacing-50;
 	}
 
 	&--inline {
@@ -266,7 +265,8 @@ export default defineComponent( {
 		}
 	}
 
-	&--block {
+	// Aka &--block. Writing it this way allows `.cdx-message--block` to become the default.
+	&:not( .cdx-message--inline ) {
 		border-width: @border-width-base;
 		border-style: @border-style-base;
 		padding: @spacing-100 @spacing-100;
@@ -294,6 +294,43 @@ export default defineComponent( {
 		&.cdx-message--success {
 			background-color: @background-color-success-subtle;
 			border-color: @border-color-success;
+		}
+	}
+
+	&--warning {
+		.cdx-message__icon {
+			.cdx-mixin-icon-background-image( @cdx-icon-alert, @border-color-warning );
+		}
+
+		.cdx-message__icon--vue {
+			color: @border-color-warning;
+		}
+	}
+
+	&--error {
+		.cdx-message__icon {
+			.cdx-mixin-icon-background-image( @cdx-icon-error, @color-error );
+		}
+
+		.cdx-message__icon--vue {
+			color: @color-error;
+		}
+	}
+
+	&--success {
+		.cdx-message__icon {
+			.cdx-mixin-icon-background-image( @cdx-icon-success, @color-success );
+		}
+
+		.cdx-message__icon--vue {
+			color: @color-success;
+		}
+	}
+
+	// Aka &--notice. Writing it this way allows `.cdx-message--notice` to become the default.
+	&:not( .cdx-message--warning ):not( .cdx-message--error ):not( .cdx-message--success ) {
+		.cdx-message__icon {
+			.cdx-mixin-icon-background-image( @cdx-icon-info-filled );
 		}
 	}
 
@@ -332,11 +369,6 @@ export default defineComponent( {
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			right: @spacing-50;
 		}
-	}
-
-	// Add space between stacked messages.
-	& + .cdx-message {
-		margin-top: @spacing-50;
 	}
 
 	// Fade-in and auto-dismissal use the system transition timing function.
