@@ -302,7 +302,12 @@ export default defineComponent( {
 
 	&__indicator {
 		color: @color-base;
-		.cdx-mixin-icon( end, @size-indicator, @spacing-50 );
+		.cdx-mixin-icon(
+			end,
+			@min-size-indicator,
+			@size-indicator,
+			@spacing-50
+		);
 	}
 
 	&--enabled {

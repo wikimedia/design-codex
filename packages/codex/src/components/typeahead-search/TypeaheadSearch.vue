@@ -804,12 +804,15 @@ export default defineComponent( {
 			margin-left: 0;
 
 			.cdx-text-input__input {
-				.cdx-mixin-icon-wrapper-padding( start, @spacing-start-typeahead-search-figure,
-				@size-search-figure );
+				.cdx-mixin-icon-wrapper-padding(
+					start,
+					@spacing-start-typeahead-search-figure,
+					@size-search-figure
+				);
 			}
 
 			.cdx-text-input__start-icon {
-				.cdx-mixin-icon( start, @size-icon, @spacing-start-typeahead-icon );
+				.cdx-mixin-icon( start, @param-external-padding: @spacing-start-typeahead-icon );
 			}
 		}
 

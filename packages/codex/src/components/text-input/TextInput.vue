@@ -272,10 +272,8 @@ export default defineComponent( {
 // horizontal padding and account for the size of the extra icon.
 // This token can be used to calculate the horizontal position of the clear icon and the
 // padding-end of the text input.
-// TODO: Revisit using `@size-100` with decision about Design System's take on end icon sizes,
-// see T306135.
 @padding-horizontal-input-text-two-end-icons:
-	( @spacing-50 * 2 ) + @size-100;
+	( @spacing-50 * 2 ) + @size-icon-small;
 
 .cdx-text-input {
 	// For proper positioning of icons and slotted elements.
@@ -286,36 +284,28 @@ export default defineComponent( {
 		// Border width is included here and for other icon positions because the icon position will
 		// be offset from the border, not inside the border, so we need to include its width in the
 		// offset value.
-		.cdx-mixin-icon( start, @size-icon, @spacing-50 + @border-width-base );
+		.cdx-mixin-icon( start, @param-external-padding: @spacing-50 + @border-width-base );
 	}
 
+	&__clear-icon,
 	&__end-icon {
 		.cdx-mixin-icon(
 			end,
-			@size-100,
+			@min-size-icon-small,
+			@size-icon-small,
 			@spacing-50 + @border-width-base
 		);
 	}
 
 	&__clear-icon {
-		.cdx-mixin-icon(
-			end,
-			@size-100,
-			@spacing-50 + @border-width-base
-		);
-
 		// The clear icon result in a pointer cursor on hover.
 		&:hover {
 			cursor: @cursor-base--hover;
 		}
 
-		// Increase positioning value when the clear icon appears next to an end icon.
+		// Increase padding end when the clear icon appears next to an end icon.
 		.cdx-text-input__end-icon + & {
-			.cdx-mixin-icon(
-				end,
-				@size-100,
-				@padding-horizontal-input-text-two-end-icons + @border-width-base
-			);
+			padding-right: @padding-horizontal-input-text-two-end-icons + @border-width-base;
 		}
 	}
 }
@@ -434,7 +424,7 @@ export default defineComponent( {
 		.cdx-mixin-icon-wrapper-padding(
 			end,
 			@spacing-50,
-			@size-100
+			@size-icon-small
 		);
 	}
 }
@@ -445,7 +435,7 @@ export default defineComponent( {
 		.cdx-mixin-icon-wrapper-padding(
 			end,
 			@padding-horizontal-input-text-two-end-icons,
-			@size-100
+			@size-icon-small
 		);
 	}
 }

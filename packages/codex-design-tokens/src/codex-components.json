@@ -116,12 +116,22 @@
 	"min-size": {
 		"icon": {
 			"value": "{ dimension.125 }{ unit.system }"
+		},
+		"icon-small": {
+			"value": "{ dimension.100 }{ unit.system }"
+		},
+		"indicator": {
+			"value": "{ dimension.75 }{ unit.system }"
 		}
 	},
 	"size": {
 		"icon": {
 			"comment": "TODO: This has to be a relative value, for accessibility reasons.",
 			"value": "{ dimension.125 }{ unit.system }"
+		},
+		"icon-small": {
+			"comment": "TODO: This has to be a relative value, for accessibility reasons.",
+			"value": "{ dimension.100 }{ unit.system }"
 		},
 		"indicator": {
 			"comment": "TODO: This has to be a relative value, for accessibility reasons.",

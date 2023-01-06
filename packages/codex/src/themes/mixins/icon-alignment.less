@@ -8,9 +8,10 @@
 // the `.cdx-mixin-icon-wrapper-padding()` mixin
 //
 // @param {(start|end|center)} align - Tell the absolutely positioned icon where to anchor itself.
-// @param {px|em} size - The size of the icon.
+// @param {px} min-size-icon - The minimum size of the icon.
+// @param {px|em} size-icon - The size of the icon.
 // @param {px} external-padding - The external horizontal padding expected on the parent element of the icon.
-.cdx-mixin-icon( @param-align, @param-size: @size-icon, @param-external-padding: @spacing-75 ) {
+.cdx-mixin-icon( @param-align, @param-min-size-icon: @min-size-icon, @param-size-icon: @size-icon, @param-external-padding: @spacing-75 ) {
 	// Vertically center the icon by moving it down 50% of the height of the handle,
 	// then moving it up by 50% of the height of the icon (translateY uses the element height
 	// while top uses the offset parent's height).
@@ -21,8 +22,10 @@
 	transition-duration: @transition-duration-base;
 
 	svg {
-		width: @param-size;
-		height: @param-size;
+		min-width: @param-size-icon;
+		min-height: @param-size-icon;
+		width: @param-size-icon;
+		height: @param-size-icon;
 	}
 
 	& when ( @param-align = start ) {

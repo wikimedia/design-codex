@@ -330,7 +330,11 @@ export default defineComponent( {
 	}
 
 	&__expand-icon {
-		.cdx-mixin-icon( center, @size-indicator );
+		.cdx-mixin-icon(
+			center,
+			@min-size-indicator,
+			@size-indicator
+		);
 	}
 
 	&--expanded {
