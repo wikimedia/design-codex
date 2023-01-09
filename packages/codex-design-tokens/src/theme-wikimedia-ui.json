@@ -88,12 +88,12 @@
 			"value": "#a55858"
 		},
 		"modifier-gray100-translucent": {
-			"comment": "TODO: Not part of DS Figma yet. Equals `color-gray100` on white.",
-			"value": "rgba( 0, 24, 73, calc( 7 / 255 ) )"
+			"comment": "TODO: Not part of DS Figma yet. Equals `color-gray100` on white. Was `rgba( 0, 24, 73, calc( 7 / 255 ) )` before, but due to Less compiler issue, we need to provide calculated value. See T326591.",
+			"value": "rgba( 0, 24, 73, 0.027 )"
 		},
 		"modifier-gray200-translucent": {
-			"comment": "TODO: Not part of DS Figma yet. Equals `color-gray200` on white.",
-			"value": "rgba( 0, 24, 73, calc( 21 / 255 ) )"
+			"comment": "TODO: Not part of DS Figma yet. Equals `color-gray200` on white. Was `rgba( 0, 24, 73, calc( 21 / 255 ) )` before, but due to Less compiler issue, we need to provide calculated value. See T326591.",
+			"value": "rgba( 0, 24, 73, 0.082 )"
 		},
 		"modifier-blue600-translucent": {
 			"comment": "TODO: Not part of DS Figma yet. Note, that WikimediaUI Base's `rgba( 41, 98, 204, 0.1 )` was not a modifier of Blue600, while this is.",
