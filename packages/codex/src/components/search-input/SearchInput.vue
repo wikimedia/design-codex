@@ -161,7 +161,7 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/input-with-button.less';
 
 .cdx-search-input {
-	.cdx-input-with-button();
+	.cdx-mixin-input-with-button();
 
 	&__input-wrapper {
 		// This will make an absolutely positioned options menu passed in via the default slot line
