@@ -1,3 +1,29 @@
+# 0.4.3 / 2023-01-10
+
+## Styles
+- styles, Tabs: Increase specificity of list item margin rule (Anne Tomasevich)
+- styles, Dialog: Set heading padding to 0 (Anne Tomasevich)
+- ToggleSwitch, styles: Replace SFC absolute positioning var with token (Volker E)
+- Card, styles: Remove wrongly applied SFC variable (Volker E)
+- styles: Unify to `.cdx-mixin-` as used elsewhere (Volker E)
+- tokens: Group absolute dimension and size tokens (Volker E)
+- tokens: Add `accent-color` (Volker E)
+- tokens: Rename drop shadow token to `box-shadow-drop-xx-large` (Volker E)
+- tokens, styles: Add `min-width-medium` to TextInputs and Select (Volker E)
+- tokens: Introduce small icon and min size component tokens (Volker E)
+- tokens: Use calculated value instead of `calc()` (Volker E)
+
+## Code
+- build: Update typescript-eslint (Roan Kattouw)
+- build: Add diff-release.sh for previewing release diffs (Roan Kattouw)
+- build: Updating json5 to 2.2.2 (libraryupgrader)
+
+## Documentation
+- docs: Add mw.org update and thanking contributors to RELEASING.md (Anne Tomasevich)
+- docs: Reorder “Designing…” navigation items (Volker E)
+- docs: Fix slot binding docs (Anne Tomasevich)
+- docs, tokens: Apply `line-height` tokens everywhere (Volker E)
+
 # 0.4.2 / 2022-12-13
 
 ## Code
