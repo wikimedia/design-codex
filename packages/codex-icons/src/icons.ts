@@ -523,8 +523,23 @@ export const cdxIconLogOut: IconFlipForRtl = {
 import svgLogoCC from './images/logo-CC.svg';
 export const cdxIconLogoCC = svgLogoCC;
 
+import svgLogoMediaWiki from './images/logo-MediaWiki.svg';
+export const cdxIconLogoMediaWiki = svgLogoMediaWiki;
+
+import svgLogoMetaWiki from './images/logo-MetaWiki.svg';
+export const cdxIconLogoMetaWiki = svgLogoMetaWiki;
+
+import svgLogoWikibooks from './images/logo-Wikibooks.svg';
+export const cdxIconLogoWikibooks = svgLogoWikibooks;
+
 import svgLogoWikidata from './images/logo-Wikidata.svg';
 export const cdxIconLogoWikidata = svgLogoWikidata;
+
+import svgLogoWikifunctions from './images/logo-Wikifunctions.svg';
+export const cdxIconLogoWikifunctions = svgLogoWikifunctions;
+
+import svgLogoWikimedia from './images/logo-Wikimedia.svg';
+export const cdxIconLogoWikimedia = svgLogoWikimedia;
 
 import svgLogoWikimediaCommons from './images/logo-Wikimedia-Commons.svg';
 export const cdxIconLogoWikimediaCommons = svgLogoWikimediaCommons;
@@ -532,11 +547,29 @@ export const cdxIconLogoWikimediaCommons = svgLogoWikimediaCommons;
 import svgLogoWikimediaDiscovery from './images/logo-Wikimedia-Discovery.svg';
 export const cdxIconLogoWikimediaDiscovery = svgLogoWikimediaDiscovery;
 
-import svgLogoWikimedia from './images/logo-Wikimedia.svg';
-export const cdxIconLogoWikimedia = svgLogoWikimedia;
+import svgLogoWikinews from './images/logo-Wikinews.svg';
+export const cdxIconLogoWikinews = svgLogoWikinews;
 
 import svgLogoWikipedia from './images/logo-Wikipedia.svg';
 export const cdxIconLogoWikipedia = svgLogoWikipedia;
+
+import svgLogoWikiquote from './images/logo-Wikiquote.svg';
+export const cdxIconLogoWikiquote = svgLogoWikiquote;
+
+import svgLogoWikisource from './images/logo-Wikisource.svg';
+export const cdxIconLogoWikisource = svgLogoWikisource;
+
+import svgLogoWikispecies from './images/logo-Wikispecies.svg';
+export const cdxIconLogoWikispecies = svgLogoWikispecies;
+
+import svgLogoWikiversity from './images/logo-Wikiversity.svg';
+export const cdxIconLogoWikiversity = svgLogoWikiversity;
+
+import svgLogoWikivoyage from './images/logo-Wikivoyage.svg';
+export const cdxIconLogoWikivoyage = svgLogoWikivoyage;
+
+import svgLogoWiktionary from './images/logo-Wiktionary.svg';
+export const cdxIconLogoWiktionary = svgLogoWiktionary;
 
 import svgMap from './images/map.svg';
 export const cdxIconMap: IconFlipForRtl = {
