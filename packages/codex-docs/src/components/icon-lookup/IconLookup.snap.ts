@@ -9,6 +9,7 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
   >
     <input
       aria-autocomplete="list"
+      aria-controls="cdx-lookup-menu-0"
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-0"
       autocomplete="off"
@@ -55,6 +56,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
   >
     <input
       aria-autocomplete="list"
+      aria-controls="cdx-lookup-menu-1"
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-1"
       autocomplete="off"

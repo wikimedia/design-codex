@@ -12,6 +12,7 @@
 				class="cdx-combobox__input"
 				:aria-activedescendant="highlightedId"
 				:aria-expanded="expanded"
+				:aria-controls="menuId"
 				:aria-owns="menuId"
 				:disabled="disabled"
 				:status="status"

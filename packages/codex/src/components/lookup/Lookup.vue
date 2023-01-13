@@ -12,6 +12,7 @@
 			role="combobox"
 			autocomplete="off"
 			aria-autocomplete="list"
+			:aria-controls="menuId"
 			:aria-owns="menuId"
 			:aria-expanded="expanded"
 			:aria-activedescendant="highlightedId"

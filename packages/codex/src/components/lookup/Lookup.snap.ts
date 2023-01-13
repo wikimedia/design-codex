@@ -9,6 +9,7 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
   >
     <input
       aria-autocomplete="list"
+      aria-controls="cdx-lookup-menu-0"
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-0"
       autocomplete="off"
@@ -57,6 +58,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
   >
     <input
       aria-autocomplete="list"
+      aria-controls="cdx-lookup-menu-1"
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-1"
       autocomplete="off"
@@ -241,6 +243,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
   >
     <input
       aria-autocomplete="list"
+      aria-controls="cdx-lookup-menu-6"
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-6"
       autocomplete="off"
@@ -425,6 +428,7 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
   >
     <input
       aria-autocomplete="list"
+      aria-controls="cdx-lookup-menu-11"
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-11"
       autocomplete="off"
@@ -474,6 +478,7 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
   >
     <input
       aria-autocomplete="list"
+      aria-controls="cdx-lookup-menu-12"
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-12"
       autocomplete="off"
@@ -528,6 +533,7 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
   >
     <input
       aria-autocomplete="list"
+      aria-controls="cdx-lookup-menu-13"
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-13"
       autocomplete="off"
@@ -576,6 +582,7 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
   >
     <input
       aria-autocomplete="list"
+      aria-controls="cdx-lookup-menu-14"
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-14"
       autocomplete="off"
