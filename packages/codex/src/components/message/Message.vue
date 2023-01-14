@@ -37,7 +37,7 @@ import {
 	cdxIconInfoFilled,
 	cdxIconError,
 	cdxIconAlert,
-	cdxIconCheck,
+	cdxIconSuccess,
 	cdxIconClose,
 	Icon
 } from '@wikimedia/codex-icons';
@@ -53,7 +53,7 @@ const iconMap: MessageIconMap = {
 	notice: cdxIconInfoFilled,
 	error: cdxIconError,
 	warning: cdxIconAlert,
-	success: cdxIconCheck
+	success: cdxIconSuccess
 };
 
 /**

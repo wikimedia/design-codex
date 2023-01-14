@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { Icon, cdxIconArticle, cdxIconCheck } from '@wikimedia/codex-icons';
+import { Icon, cdxIconArticle, cdxIconSuccess } from '@wikimedia/codex-icons';
 import { MessageType } from '../../types';
 import { MessageTypes } from '../../constants';
 import CdxMessage from './Message.vue';
@@ -100,6 +100,6 @@ describe( 'Message', () => {
 
 	it( 'does not allow custom icon for success type message', () => {
 		const wrapper = mount( CdxMessage, { props: { type: 'success', icon: cdxIconArticle } } );
-		expect( wrapper.vm.computedIcon ).toBe( cdxIconCheck );
+		expect( wrapper.vm.computedIcon ).toBe( cdxIconSuccess );
 	} );
 } );
