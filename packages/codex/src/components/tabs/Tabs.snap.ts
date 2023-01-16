@@ -472,6 +472,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         role="presentation"
       >
         <a
+          aria-disabled="false"
           aria-selected="true"
           href="#cdx-apple-0"
           role="tab"
@@ -486,6 +487,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         role="presentation"
       >
         <a
+          aria-disabled="false"
           aria-selected="false"
           href="#cdx-banana-1"
           role="tab"
@@ -500,6 +502,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         role="presentation"
       >
         <a
+          aria-disabled="true"
           aria-selected="false"
           href="#cdx-cantaloupe-2"
           role="tab"
@@ -514,6 +517,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         role="presentation"
       >
         <a
+          aria-disabled="false"
           aria-selected="false"
           href="#cdx-durian-3"
           role="tab"

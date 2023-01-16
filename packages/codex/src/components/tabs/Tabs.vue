@@ -50,6 +50,7 @@
 						:href="`#${tab.id}`"
 						role="tab"
 						tabIndex="-1"
+						:aria-disabled="tab.disabled"
 						:aria-selected="tab.name === activeTab"
 						@click.prevent="select( tab.name )"
 						@keyup.enter="select( tab.name )"
