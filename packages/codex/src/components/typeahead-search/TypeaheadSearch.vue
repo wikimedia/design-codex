@@ -726,11 +726,11 @@ export default defineComponent( {
 // was left out of the calculation for simplicity's sake.)
 @spacing-typeahead-search-focus-addition:
 	( @spacing-start-typeahead-search-figure + @min-size-search-figure ) -
-	( @min-size-icon + @spacing-50 );
+	( @min-size-icon-medium + @spacing-50 );
 // The padding required for the icon to center align with the menu item thumbnail.
 // We calculate the difference in size and add it to the expected spacing
 @spacing-start-typeahead-icon: @spacing-start-typeahead-search-figure +
-	( ( @min-size-search-figure - @min-size-icon ) / 2 );
+	( ( @min-size-search-figure - @min-size-icon-medium ) / 2 );
 
 .cdx-typeahead-search {
 	.cdx-menu-item {

@@ -119,12 +119,12 @@ export default defineComponent( {
 	justify-content: center;
 	// Set the default icon size; callers that want a different size should override the
 	// following rules.
-	min-width: @min-size-icon;
-	min-height: @min-size-icon;
+	min-width: @min-size-icon-medium;
+	min-height: @min-size-icon-medium;
 	// Icons must scale with font size to maintain vertical alignment with the
 	// first line of message text.
-	width: @size-icon;
-	height: @size-icon;
+	width: @size-icon-medium;
+	height: @size-icon-medium;
 	// Vertically align surrounding text in inline, inline-block, and table contexts. */
 	vertical-align: text-bottom;
 

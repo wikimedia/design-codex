@@ -113,26 +113,41 @@
 		}
 	},
 	"min-size": {
-		"icon": {
-			"value": "{ dimension.125 }{ unit.system }"
+		"icon-x-small": {
+			"value": "{ dimension.75 }{ unit.system }"
 		},
 		"icon-small": {
 			"value": "{ dimension.100 }{ unit.system }"
 		},
+		"icon-medium": {
+			"value": "{ dimension.125 }{ unit.system }"
+		},
+		"icon": {
+			"deprecated": true,
+			"value": "{ min-size.icon-medium }"
+		},
 		"indicator": {
-			"value": "{ dimension.75 }{ unit.system }"
+			"deprecated": true,
+			"value": "{ min-size.icon-x-small }"
 		}
 	},
 	"size": {
-		"icon": {
-			"value": "{ dimension.125 }{ unit.system }"
+		"icon-x-small": {
+			"value": "{ dimension.75 }{ unit.system }"
 		},
 		"icon-small": {
-			"comment": "TODO: This has to be a relative value, for accessibility reasons.",
 			"value": "{ dimension.100 }{ unit.system }"
 		},
+		"icon-medium": {
+			"value": "{ dimension.125 }{ unit.system }"
+		},
+		"icon": {
+			"deprecated": true,
+			"value": "{ size.icon-medium }"
+		},
 		"indicator": {
-			"value": "{ dimension.75 }{ unit.system }"
+			"deprecated": true,
+			"value": "{ size.icon-x-small }"
 		}
 	},
 	"max-width": {

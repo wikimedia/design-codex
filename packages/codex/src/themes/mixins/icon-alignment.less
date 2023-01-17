@@ -13,7 +13,7 @@
 // @param {px} min-size-icon - The minimum size of the icon.
 // @param {px|em} size-icon - The size of the icon.
 // @param {px} external-padding - The external horizontal padding expected on the parent element of the icon.
-.cdx-mixin-icon( @param-align, @param-min-size-icon: @min-size-icon, @param-size-icon: @size-icon, @param-external-padding: @spacing-75 ) {
+.cdx-mixin-icon( @param-align, @param-min-size-icon: @min-size-icon-medium, @param-size-icon: @size-icon-medium, @param-external-padding: @spacing-75 ) {
 	// Vertically center the icon by moving it down 50% of the height of the handle,
 	// then moving it up by 50% of the height of the icon (translateY uses the element height
 	// while top uses the offset parent's height).
@@ -54,7 +54,7 @@
 // the same value as the `align` parameter of the icon.
 // @param {px} external-padding - The external horizontal padding expected on the parent element of the icon.
 // @param {px} size-icon - The size of the icon.
-.cdx-mixin-icon-wrapper-padding( @param-align, @param-external-padding: @spacing-75, @param-size-icon: @size-icon ) {
+.cdx-mixin-icon-wrapper-padding( @param-align, @param-external-padding: @spacing-75, @param-size-icon: @size-icon-medium ) {
 	& when ( @param-align = start ) {
 		padding-left: calc( @spacing-50 + @param-external-padding + @param-size-icon );
 	}

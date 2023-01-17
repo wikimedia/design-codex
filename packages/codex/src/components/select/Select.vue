@@ -301,8 +301,8 @@ export default defineComponent( {
 		color: @color-base;
 		.cdx-mixin-icon(
 			end,
-			@min-size-indicator,
-			@size-indicator,
+			@min-size-icon-x-small,
+			@size-icon-x-small,
 			@spacing-75
 		);
 	}

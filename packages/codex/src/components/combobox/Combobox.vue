@@ -333,8 +333,8 @@ export default defineComponent( {
 	&__expand-icon {
 		.cdx-mixin-icon(
 			center,
-			@min-size-indicator,
-			@size-indicator
+			@min-size-icon-x-small,
+			@size-icon-x-small
 		);
 	}
 
