@@ -44,11 +44,12 @@ Node, run `nvm install "$(<.nvmrc)"` then `nvm use` in the root of the repositor
 older versions of Node (prior to version 15) and will need to be upgraded manually. You can do this 
 with nvm via `nvm install --latest-npm`.
 
-To get started:
+Helpful commands:
 
-- Run `npm install` in the root of the repository to install requirements for all workspaces
-- Run `npm run doc:dev` to start the docs site
-- Or run `npm run dev` to start the Vite sandbox
+- `npm install` in the root of the repository to install requirements for all workspaces
+- `npm run doc:dev` to start the docs site
+- `npm run dev` to start the Vite sandbox
+- `npm run test:unit -w @wikimedia/codex` to run unit tests for e.g. the codex workspace. [Read more about testing.](https://doc.wikimedia.org/codex/latest/contributing/contributing-code/testing-components.html)
 
 See the [contributing code](https://doc.wikimedia.org/codex/latest/contributing/contributing-code.html) guidelines
 for more information.
