@@ -75,7 +75,6 @@ exports[`matches the snapshot Case 3 Icon with title: ({"icon": "<path d=\\"M3 3
   class="cdx-icon"
 >
   <svg
-    aria-hidden="false"
     height="20"
     viewBox="0 0 20 20"
     width="20"

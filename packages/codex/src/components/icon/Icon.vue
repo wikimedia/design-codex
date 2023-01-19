@@ -10,7 +10,7 @@
 			width="20"
 			height="20"
 			viewBox="0 0 20 20"
-			:aria-hidden="!iconLabel"
+			:aria-hidden="iconLabel ? undefined : true"
 		>
 			<title v-if="iconLabel">{{ iconLabel }}</title>
 			<!-- eslint-disable vue/no-v-html -->

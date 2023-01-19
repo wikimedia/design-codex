@@ -132,7 +132,6 @@ exports[`matches the snapshot Case 2 With hidden title 1`] = `
             class="cdx-icon"
           >
             <svg
-              aria-hidden="false"
               height="20"
               viewBox="0 0 20 20"
               width="20"

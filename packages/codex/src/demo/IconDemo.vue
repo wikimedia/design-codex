@@ -7,10 +7,16 @@
 		<p lang="nl" dir="ltr">
 			<cdx-icon :icon="cdxIconBold" /> Bold
 		</p>
+		<p>
+			<cdx-icon
+				:icon="cdxIconArticleCheck"
+				icon-label="A label to describe the icon."
+			/> article check
+		</p>
 	</section>
 </template>
 
 <script lang="ts" setup>
 import { CdxIcon } from '../lib';
-import { cdxIconArrowNext, cdxIconBold } from '@wikimedia/codex-icons';
+import { cdxIconArrowNext, cdxIconBold, cdxIconArticleCheck } from '@wikimedia/codex-icons';
 </script>
