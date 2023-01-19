@@ -62,6 +62,10 @@ empty `<span>` element. The parameters of the mixin are as follows:
 | `@param-size-icon` | The icon size | `@size-icon-medium` |
 | `@param-is-button-icon` | Whether the icon is inside of a `<button>` element | `false` |
 
+:::tip
+Visit the [Button docs](./button.md#with-css-icon) for details on using CSS icons within buttons.
+:::
+
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<p>

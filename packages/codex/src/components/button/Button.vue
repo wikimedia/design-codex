@@ -152,6 +152,10 @@ export default defineComponent( {
 	&:enabled {
 		color: @color-base;
 
+		.cdx-button__icon {
+			.cdx-mixin-button-css-icon-background-color( @color-base );
+		}
+
 		&:hover {
 			// Use hand cursor. This is nonstandard for a button but allows for a visible
 			// interactivity distinction from the disabled state.
@@ -180,16 +184,21 @@ export default defineComponent( {
 		border-color: @border-color-transparent;
 	}
 
+	// Target both a CSS-only icon and a Vue icon, which could be included in the slot.
+	.cdx-button__icon,
 	.cdx-icon {
-		// Any icons used in the button content should have the color of the surrounding text
-		// This overrides the color rule in Icon.vue, and ensures that the rules below changing the
-		// text color for progressive and destructive buttons also apply to icons.
-		color: inherit;
 		// TODO: The vertical alignment in the current DOM structure is not ideal. The icon should
 		// be aligned with the text baseline, but this doesn't work well in our multi font-size
 		// theme setup in MediaWiki. This is a temporary compromise to be resolved with either
 		// theme-specific CSS or a DOM structure change. See T326900.
 		vertical-align: middle;
+	}
+
+	.cdx-icon {
+		// Any icons used in the button content should have the color of the surrounding text
+		// This overrides the color rule in Icon.vue, and ensures that the rules below changing the
+		// text color for progressive and destructive buttons also apply to icons.
+		color: inherit;
 	}
 }
 
@@ -199,7 +208,7 @@ export default defineComponent( {
 }
 
 // Non-quiet “framed” buttons (normal and primary types)
-.cdx-button--framed {
+.cdx-button:not( .cdx-button--type-quiet ) {
 	&:enabled {
 		background-color: @background-color-interactive-subtle;
 		border-color: @border-color-base;
@@ -207,6 +216,10 @@ export default defineComponent( {
 		&:hover {
 			background-color: @background-color-base;
 			color: @color-base--hover;
+
+			.cdx-button__icon {
+				.cdx-mixin-button-css-icon-background-color( @color-base--hover );
+			}
 		}
 
 		&:active,
@@ -214,18 +227,28 @@ export default defineComponent( {
 			background-color: @background-color-interactive;
 			color: @color-emphasized;
 			border-color: @border-color-interactive;
+
+			.cdx-button__icon {
+				.cdx-mixin-button-css-icon-background-color( @color-emphasized );
+			}
 		}
 
 		// `:focus` styles covered in `.cdx-button` selector above.
 	}
 
-	/* stylelint-disable-next-line no-descending-specificity */
+	/* stylelint-disable no-descending-specificity */
 	&:disabled {
 		background-color: @background-color-disabled;
 		color: @color-inverted;
+
+		.cdx-button__icon {
+			.cdx-mixin-button-css-icon-background-color( @color-inverted );
+		}
 	}
+	/* stylelint-enable no-descending-specificity */
 }
 
+// Primary buttons.
 .cdx-button--type-primary {
 	// Progressive primary buttons
 	&.cdx-button--action-progressive {
@@ -234,15 +257,32 @@ export default defineComponent( {
 			color: @color-inverted;
 			border-color: @border-color-progressive;
 
+			/* stylelint-disable-next-line no-descending-specificity */
+			.cdx-button__icon {
+				.cdx-mixin-button-css-icon-background-color( @color-inverted );
+			}
+
 			&:hover {
 				background-color: @background-color-progressive--hover;
+				// Ensure this overrides rule for framed buttons above.
+				color: @color-inverted;
 				border-color: @border-color-progressive--hover;
+
+				.cdx-button__icon {
+					.cdx-mixin-button-css-icon-background-color( @color-inverted );
+				}
 			}
 
 			&:active,
 			&.cdx-button--is-active {
 				background-color: @background-color-progressive--active;
+				// Ensure this overrides rule for framed buttons above.
+				color: @color-inverted;
 				border-color: @border-color-progressive--active;
+
+				.cdx-button__icon {
+					.cdx-mixin-button-css-icon-background-color( @color-inverted );
+				}
 			}
 
 			&:focus:not( :active ):not( .cdx-button--is-active ) {
@@ -262,15 +302,31 @@ export default defineComponent( {
 			color: @color-inverted;
 			border-color: @border-color-destructive;
 
+			/* stylelint-disable-next-line no-descending-specificity */
+			.cdx-button__icon {
+				.cdx-mixin-button-css-icon-background-color( @color-inverted );
+			}
+
 			&:hover {
 				background-color: @background-color-destructive--hover;
+				color: @color-inverted;
 				border-color: @border-color-destructive--hover;
+
+				.cdx-button__icon {
+					.cdx-mixin-button-css-icon-background-color( @color-inverted );
+				}
 			}
 
 			&:active,
 			&.cdx-button--is-active {
 				background-color: @background-color-destructive--active;
+				// Ensure this overrides rule for framed buttons above.
+				color: @color-inverted;
 				border-color: @border-color-destructive--active;
+
+				.cdx-button__icon {
+					.cdx-mixin-button-css-icon-background-color( @color-inverted );
+				}
 			}
 
 			&:focus:not( :active ):not( .cdx-button--is-active ) {
@@ -281,54 +337,6 @@ export default defineComponent( {
 				/* stylelint-disable-next-line value-list-comma-newline-after */
 				box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus,
 					@box-shadow-inset-medium @box-shadow-color-inverted;
-			}
-		}
-	}
-}
-
-.cdx-button--type-normal {
-	// Normal progressive buttons
-	&.cdx-button--action-progressive {
-		&:enabled {
-			color: @color-progressive;
-
-			&:hover {
-				color: @color-progressive--hover;
-				border-color: @border-color-progressive--hover;
-			}
-
-			&:active,
-			&.cdx-button--is-active {
-				background-color: @background-color-normal-progressive--active;
-				color: @color-progressive--active;
-				border-color: @border-color-progressive--active;
-			}
-
-			// `:focus` styles covered in `.cdx-button` selector above.
-			// `color` inherited from `:enabled` rule.
-		}
-	}
-
-	// Normal destructive buttons
-	&.cdx-button--action-destructive {
-		&:enabled {
-			color: @color-destructive;
-
-			&:hover {
-				color: @color-destructive--hover;
-				border-color: @border-color-destructive--hover;
-			}
-
-			&:active,
-			&.cdx-button--is-active {
-				background-color: @background-color-normal-destructive--active;
-				color: @color-destructive--active;
-				border-color: @border-color-destructive--active;
-			}
-
-			&:focus:not( :active ):not( .cdx-button--is-active ) {
-				border-color: @border-color-destructive--focus;
-				box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus;
 			}
 		}
 	}
@@ -350,6 +358,11 @@ export default defineComponent( {
 			background-color: @background-color-button-quiet--active;
 			color: @color-emphasized;
 			border-color: @border-color-interactive;
+
+			/* stylelint-disable-next-line no-descending-specificity */
+			.cdx-button__icon {
+				.cdx-mixin-button-css-icon-background-color( @color-emphasized );
+			}
 		}
 
 		// `:focus` styles covered in `.cdx-button` selector above.
@@ -360,9 +373,18 @@ export default defineComponent( {
 		&:enabled {
 			color: @color-progressive;
 
+			/* stylelint-disable-next-line no-descending-specificity */
+			.cdx-button__icon {
+				.cdx-mixin-button-css-icon-background-color( @color-progressive );
+			}
+
 			&:hover {
 				background-color: @background-color-progressive-subtle;
 				color: @color-progressive--hover;
+
+				.cdx-button__icon {
+					.cdx-mixin-button-css-icon-background-color( @color-progressive--hover );
+				}
 			}
 
 			&:active,
@@ -370,6 +392,10 @@ export default defineComponent( {
 				background-color: @background-color-progressive--active;
 				color: @color-inverted;
 				border-color: @border-color-progressive--active;
+
+				.cdx-button__icon {
+					.cdx-mixin-button-css-icon-background-color( @color-inverted );
+				}
 			}
 
 			// `:focus` styles covered in `.cdx-button` selector above.
@@ -382,9 +408,18 @@ export default defineComponent( {
 		&:enabled {
 			color: @color-destructive;
 
+			/* stylelint-disable-next-line no-descending-specificity */
+			.cdx-button__icon {
+				.cdx-mixin-button-css-icon-background-color( @color-destructive );
+			}
+
 			&:hover {
 				background-color: @background-color-destructive-subtle;
 				color: @color-destructive--hover;
+
+				.cdx-button__icon {
+					.cdx-mixin-button-css-icon-background-color( @color-destructive--hover );
+				}
 			}
 
 			&:active,
@@ -392,6 +427,10 @@ export default defineComponent( {
 				background-color: @background-color-destructive--active;
 				color: @color-inverted;
 				border-color: @color-destructive--active;
+
+				.cdx-button__icon {
+					.cdx-mixin-button-css-icon-background-color( @color-inverted );
+				}
 			}
 
 			&:focus:not( :active ):not( .cdx-button--is-active ) {
@@ -401,9 +440,84 @@ export default defineComponent( {
 		}
 	}
 
-	/* stylelint-disable-next-line no-descending-specificity */
+	/* stylelint-disable no-descending-specificity */
 	&:disabled {
 		color: @color-disabled;
+
+		.cdx-button__icon {
+			.cdx-mixin-button-css-icon-background-color( @color-disabled );
+		}
+	}
+	/* stylelint-enable no-descending-specificity */
+}
+
+// Normal type buttons (using the not selectors allows this class to be the default).
+&:not( .cdx-button--type-primary ):not( .cdx-button--type-quiet ):enabled {
+	// Normal progressive buttons
+	&.cdx-button--action-progressive {
+		color: @color-progressive;
+
+		.cdx-button__icon {
+			.cdx-mixin-button-css-icon-background-color( @color-progressive );
+		}
+
+		&:hover {
+			color: @color-progressive--hover;
+			border-color: @border-color-progressive--hover;
+
+			.cdx-button__icon {
+				.cdx-mixin-button-css-icon-background-color( @color-progressive--hover );
+			}
+		}
+
+		&:active,
+		&.cdx-button--is-active {
+			background-color: @background-color-normal-progressive--active;
+			color: @color-progressive--active;
+			border-color: @border-color-progressive--active;
+
+			.cdx-button__icon {
+				.cdx-mixin-button-css-icon-background-color( @color-progressive--active );
+			}
+		}
+
+		// `:focus` styles covered in `.cdx-button` selector above.
+		// `color` inherited from `:enabled` rule.
+	}
+
+	// Normal destructive buttons
+	&.cdx-button--action-destructive {
+		color: @color-destructive;
+
+		/* stylelint-disable-next-line no-descending-specificity */
+		.cdx-button__icon {
+			.cdx-mixin-button-css-icon-background-color( @color-destructive );
+		}
+
+		&:hover {
+			color: @color-destructive--hover;
+			border-color: @border-color-destructive--hover;
+
+			.cdx-button__icon {
+				.cdx-mixin-button-css-icon-background-color( @color-destructive--hover );
+			}
+		}
+
+		&:active,
+		&.cdx-button--is-active {
+			background-color: @background-color-normal-destructive--active;
+			color: @color-destructive--active;
+			border-color: @border-color-destructive--active;
+
+			.cdx-button__icon {
+				.cdx-mixin-button-css-icon-background-color( @color-destructive--active );
+			}
+		}
+
+		&:focus:not( :active ):not( .cdx-button--is-active ) {
+			border-color: @border-color-destructive--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus;
+		}
 	}
 }
 </style>
