@@ -6,15 +6,15 @@
 		"node": ">=16"
 	},
 	"scripts": {
-		"build": "npm run docgen:build && npm run vitepress:build",
+		"build": "npm run docgen:build && npm run vitepress:build && npm run demos:build",
 		"build-if-missing": "test -e docs/.vitepress/dist/index.html || npm run build",
-		"build-demos": "vite build",
 		"serve": "vitepress serve docs",
 		"dev": "concurrently \"npm run docgen:dev\" \"npm run vitepress:dev\"",
 		"vitepress:build": "vitepress build docs",
 		"vitepress:dev": "vitepress dev docs ${npm_config_port+--port=${npm_config_port}}",
 		"docgen:build": "node -e \"require( 'fs-extra' ).emptyDir( 'docs/components/demos/' );\" && vue-docgen",
 		"docgen:dev": "vue-docgen --watch",
+		"demos:build": "vite build --mode=legacy-rtl && vite build --mode=legacy && vite build --mode=rtl && vite build",
 		"lint": "npm run lint:ts",
 		"lint:ts": "vue-tsc --noEmit",
 		"test": "npm run lint && npm run build && npm -s run test:unit",
