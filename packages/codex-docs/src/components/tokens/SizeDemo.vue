@@ -33,7 +33,8 @@ export default defineComponent( {
 	setup( props ) {
 		const isPercentage = ( size: string|undefined ) : boolean => !!size && size.endsWith( '%' );
 		const isTooBig = ( size: string | undefined ) : boolean =>
-			!!size && size.endsWith( 'px' ) && Number( size.slice( 0, -2 ) ) > 300;
+			!!size && size.endsWith( 'px' ) && Number( size.slice( 0, -2 ) ) > 300 ||
+			!!size && size.endsWith( 'em' ) && Number( size.slice( 0, -2 ) ) > 30;
 
 		const width = computed( () =>
 			props.cssProperty !== 'height' ? props.tokenValue : undefined
