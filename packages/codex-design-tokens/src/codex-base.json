@@ -254,6 +254,11 @@
 			"value": "{ opacity.67 }"
 		}
 	},
+	"background-position": {
+		"base": {
+			"value": "{ background-position.100 }"
+		}
+	},
 	"z-index": {
 		"base": {
 			"value": "{ z-index.0 }"

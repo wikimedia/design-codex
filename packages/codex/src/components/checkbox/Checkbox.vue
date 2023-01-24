@@ -168,7 +168,7 @@ export default defineComponent( {
 		&:checked:not( :indeterminate ) + .cdx-checkbox__icon::before {
 			content: ' ';
 			background-image: @background-image-input-checkbox--checked;
-			background-position: center;
+			background-position: @background-position-base;
 			background-repeat: no-repeat;
 			// This must have two values to match `background-size: 0 0` above,
 			// otherwise the transition does not work (at least in Chrome).

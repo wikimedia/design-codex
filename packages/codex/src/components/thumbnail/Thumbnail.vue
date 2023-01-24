@@ -101,7 +101,7 @@ export default defineComponent( {
 
 	&__placeholder,
 	&__image {
-		background-position: center;
+		background-position: @background-position-base;
 		background-repeat: no-repeat;
 		background-size: @background-size-search-figure;
 		// Thumbnail should never shrink when it's in a flex layout with other elements.

@@ -9,7 +9,7 @@
 //   This mixin accounts for icons that vary by reading direction or language.
 //
 .cdx-mixin-css-icon() {
-	background-position: center;
+	background-position: @background-position-base;
 	background-repeat: no-repeat;
 	// Set background size to the relative @size-icon or to @min-size-icon, whichever is larger.
 	// This ensures that the icon will never appear smaller than @min-size-icon.

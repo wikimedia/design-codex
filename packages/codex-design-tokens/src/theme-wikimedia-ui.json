@@ -149,6 +149,11 @@
 			"value": "0.51"
 		}
 	},
+	"background-position": {
+		"100": {
+			"value": "center"
+		}
+	},
 	"z-index": {
 		"0": {
 			"value": "0"

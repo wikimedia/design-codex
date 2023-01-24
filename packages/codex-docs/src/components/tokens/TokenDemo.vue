@@ -77,6 +77,8 @@ export default defineComponent( {
 <!-- eslint-disable max-len -->
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-icons/dist/codex-icon-paths.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 // TODO: Tokenize.
 @animation-duration-token-animation: 2000ms;
@@ -156,6 +158,7 @@ export default defineComponent( {
 		}
 	}
 
+	&--background-position &__token,
 	&--position &__token {
 		position: relative;
 		box-sizing: @box-sizing-token-position;
@@ -167,7 +170,14 @@ export default defineComponent( {
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			width: @size-1600;
 		}
+	}
 
+	&--background-position &__token {
+		background-repeat: no-repeat;
+		.cdx-mixin-icon-background-image( @cdx-icon-map-pin );
+	}
+
+	&--position &__token {
 		&__inner {
 			background-color: fade( @background-color-progressive, unit( @opacity-medium * 100, % ) );
 			position: absolute;
