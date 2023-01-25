@@ -203,15 +203,6 @@ See [MenuStates](#menustates).
 type MenuState = typeof MenuStates[ number ];
 ```
 
-### MessageType
-
-See [MessageTypes](#messagetypes).
-
-```ts
-// Allowed values: 'notice', 'warning', 'error', 'success'
-type MessageType = typeof MessageTypes[ number ];
-```
-
 ### PrimaryDialogAction
 
 See [DialogAction](#dialogaction).
@@ -242,6 +233,15 @@ interface SearchResultClickEvent {
 	/** Number of search results. */
 	numberOfResults: number
 }
+```
+
+### StatusType
+
+See [StatusTypes](#statustypes).
+
+```ts
+// Allowed values: 'notice', 'warning', 'error', 'success'
+type StatusType = typeof StatusTypes[ number ];
 ```
 
 ### TextInputType
@@ -306,10 +306,10 @@ const MenuStates = [
 ];
 ```
 
-### MessageTypes
+### StatusTypes
 
 ```ts
-const MessageTypes = [
+const StatusTypes = [
 	'notice',
 	'warning',
 	'error',
