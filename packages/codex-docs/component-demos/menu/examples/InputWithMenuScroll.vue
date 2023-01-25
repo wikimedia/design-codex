@@ -66,8 +66,21 @@ export default defineComponent( {
 			label: 'Sticky footer item'
 		};
 
+		/**
+		 * Delegate most keydowns on the text input to the Menu component. This
+		 * allows the Menu component to enable keyboard navigation of the menu.
+		 *
+		 * @param e The keyboard event
+		 */
 		function onKeydown( e: KeyboardEvent ) {
-			// Delegate key events to the menu
+			// The menu component enables the space key to open and close the
+			// menu. However, for text inputs with menus, the space key should
+			// always insert a new space character in the input.
+			if ( e.key === ' ' ) {
+				return;
+			}
+
+			// Delegate all other key events to the Menu component.
 			menu.value?.delegateKeyNavigation( e );
 		}
 
@@ -109,9 +122,12 @@ export default defineComponent( {
 		margin-top: @spacing-100;
 
 		&__input {
-			// TODO: Use relative width here.
-			width: @size-250;
 			margin-left: @spacing-50;
+
+			input {
+				min-width: @size-250;
+				width: @size-250;
+			}
 		}
 	}
 }
