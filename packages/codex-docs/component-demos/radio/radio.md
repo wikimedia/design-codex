@@ -68,10 +68,9 @@ import InlineRadios from '@/../component-demos/radio/examples/InlineRadios.vue';
 
 ### Radio group
 
-:::tip
-Add the `checked` attribute to the `<input>` element of the radio that should be selected
-initially.
-:::
+Native attributes of the `<input>` element can be used. For example:
+- Add the `checked` attribute to the `<input>` element if it should be selected initially.
+- Add the `disabled` attribute to the `<input>` element if it should be disabled.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

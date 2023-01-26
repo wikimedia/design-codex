@@ -121,10 +121,11 @@ a definite value for the checkbox.
 
 ### Checkbox group
 
-:::tip
-Add the `checked` attribute to the `<input>` element of the checkbox if it should be selected
-initially.
-:::
+Native attributes of the `<input>` element can be used. For example:
+- Add the `checked` attribute to the `<input>` element if it should be selected initially.
+- Add the `indeterminate` attribute to the `<input>` element if it should appear to be in an
+  indeterminate state.
+- Add the `disabled` attribute to the `<input>` element if it should be disabled.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
