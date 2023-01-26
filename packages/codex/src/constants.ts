@@ -19,6 +19,12 @@ export const ButtonTypes = [
 	'quiet'
 ] as const;
 
+export const IconSizes = [
+	'x-small',
+	'small',
+	'medium'
+] as const;
+
 export const StatusTypes = [
 	'notice',
 	'warning',

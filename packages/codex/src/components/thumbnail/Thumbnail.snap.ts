@@ -8,7 +8,7 @@ exports[`matches the snapshot Case 0 With default placeholder icon: (%p) => HTML
     class="cdx-thumbnail__placeholder"
   >
     <span
-      class="cdx-icon cdx-thumbnail__placeholder__icon"
+      class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon"
     >
       <svg
         aria-hidden="true"
@@ -44,7 +44,7 @@ exports[`matches the snapshot Case 1 With custom placeholder icon: ({"ltr": "<pa
     class="cdx-thumbnail__placeholder"
   >
     <span
-      class="cdx-icon cdx-thumbnail__placeholder__icon"
+      class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon"
     >
       <svg
         aria-hidden="true"

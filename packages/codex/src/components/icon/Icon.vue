@@ -32,7 +32,12 @@ import { defineComponent, PropType, ref, computed } from 'vue';
 import { Icon, resolveIcon, shouldIconFlip } from '@wikimedia/codex-icons';
 import useComputedDirection from '../../composables/useComputedDirection';
 import useComputedLanguage from '../../composables/useComputedLanguage';
-import { HTMLDirection } from '../../types';
+import { HTMLDirection, IconSize } from '../../types';
+
+// Icon Sizes as types
+import { IconSizes } from '../../constants';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+const iconSizeValidator = makeStringTypeValidator( IconSizes );
 
 export default defineComponent( {
 	name: 'CdxIcon',
@@ -69,6 +74,16 @@ export default defineComponent( {
 		dir: {
 			type: String as PropType<HTMLDirection|null>,
 			default: null
+		},
+		/**
+		 * Specify icon size by choosing one of several pre-defined size
+		 * options. See the type documentation for supported size options.
+		 * The `medium` size is used by default if no size prop is provided.
+		 */
+		size: {
+			type: String as PropType<IconSize>,
+			default: 'medium',
+			validator: iconSizeValidator
 		}
 	},
 	emits: [ 'click' ],
@@ -80,10 +95,13 @@ export default defineComponent( {
 		const overriddenDir = computed( () => props.dir || computedDir.value );
 		const overriddenLang = computed( () => props.lang || computedLang.value );
 
-		const rootClasses = computed( () => ( {
-			'cdx-icon--flipped': overriddenDir.value === 'rtl' && overriddenLang.value !== null &&
-				shouldIconFlip( props.icon, overriddenLang.value )
-		} ) );
+		const rootClasses = computed( () => {
+			return {
+				'cdx-icon--flipped': overriddenDir.value === 'rtl' && overriddenLang.value !== null &&
+					shouldIconFlip( props.icon, overriddenLang.value ),
+				[ `cdx-icon--${props.size}` ]: true
+			};
+		} );
 
 		const resolvedIcon = computed( () =>
 			resolveIcon( props.icon, overriddenLang.value || '', overriddenDir.value || 'ltr' )
@@ -117,14 +135,6 @@ export default defineComponent( {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	// Set the default icon size; callers that want a different size should override the
-	// following rules.
-	min-width: @min-size-icon-medium;
-	min-height: @min-size-icon-medium;
-	// Icons must scale with font size to maintain vertical alignment with the
-	// first line of message text.
-	width: @size-icon-medium;
-	height: @size-icon-medium;
 	// Vertically align surrounding text in inline, inline-block, and table contexts. */
 	vertical-align: text-bottom;
 
@@ -136,6 +146,27 @@ export default defineComponent( {
 		// `.cdx-icon` rule.
 		width: @size-full;
 		height: @size-full;
+	}
+
+	&--x-small {
+		min-width: @min-size-icon-x-small;
+		min-height: @min-size-icon-x-small;
+		width: @size-icon-x-small;
+		height: @size-icon-x-small;
+	}
+
+	&--small {
+		min-width: @min-size-icon-small;
+		min-height: @min-size-icon-small;
+		width: @size-icon-small;
+		height: @size-icon-small;
+	}
+
+	&--medium {
+		min-width: @min-size-icon-medium;
+		min-height: @min-size-icon-medium;
+		width: @size-icon-medium;
+		height: @size-icon-medium;
 	}
 
 	// Horizontally flip icons that should be flipped for RTL languages.

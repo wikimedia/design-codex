@@ -52,7 +52,7 @@ exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path d=\\
     type="text"
   />
   <span
-    class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
+    class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
   >
     <svg
       aria-hidden="true"
@@ -85,7 +85,7 @@ exports[`matches the snapshot Case 4 With end icon: ({"endIcon": [Object]}) => H
   />
   <!--v-if-->
   <span
-    class="cdx-icon cdx-text-input__icon cdx-text-input__end-icon"
+    class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__end-icon"
   >
     <svg
       aria-hidden="true"
@@ -132,7 +132,7 @@ exports[`matches the snapshot Case 6 Clearable, with input: ({"clearable": true,
   <!--v-if-->
   <!--v-if-->
   <span
-    class="cdx-icon cdx-text-input__icon cdx-text-input__clear-icon"
+    class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__clear-icon"
   >
     <svg
       aria-hidden="true"
@@ -163,7 +163,7 @@ exports[`matches the snapshot Case 7 With end icon, clearable, no input: ({"clea
   />
   <!--v-if-->
   <span
-    class="cdx-icon cdx-text-input__icon cdx-text-input__end-icon"
+    class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__end-icon"
   >
     <svg
       aria-hidden="true"
@@ -195,7 +195,7 @@ exports[`matches the snapshot Case 8 With end icon, clearable, with input: ({"cl
   />
   <!--v-if-->
   <span
-    class="cdx-icon cdx-text-input__icon cdx-text-input__end-icon"
+    class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__end-icon"
   >
     <svg
       aria-hidden="true"
@@ -214,7 +214,7 @@ exports[`matches the snapshot Case 8 With end icon, clearable, with input: ({"cl
     </svg>
   </span>
   <span
-    class="cdx-icon cdx-text-input__icon cdx-text-input__clear-icon"
+    class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__clear-icon"
   >
     <svg
       aria-hidden="true"

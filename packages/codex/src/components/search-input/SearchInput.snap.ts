@@ -15,7 +15,7 @@ exports[`matches the snapshot Case 0 Default: ({"modelValue": ""}) => HTML 1`] =
         type="search"
       />
       <span
-        class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
+        class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
       >
         <svg
           aria-hidden="true"
@@ -62,7 +62,7 @@ exports[`matches the snapshot Case 1 With submit button: ({"buttonLabel": "Searc
         type="search"
       />
       <span
-        class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
+        class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
       >
         <svg
           aria-hidden="true"
@@ -118,7 +118,7 @@ exports[`matches the snapshot Case 2 With attributes: ({"modelValue": ""}) => HT
         type="search"
       />
       <span
-        class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
+        class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
       >
         <svg
           aria-hidden="true"

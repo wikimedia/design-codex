@@ -30,7 +30,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
             type="search"
           />
           <span
-            class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -132,7 +132,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
             type="search"
           />
           <span
-            class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -234,7 +234,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
             type="search"
           />
           <span
-            class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -336,7 +336,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
             type="search"
           />
           <span
-            class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -418,7 +418,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
                 href="https://foo.org/search?query=Co"
               >
                 <span
-                  class="cdx-icon cdx-typeahead-search__search-footer__icon"
+                  class="cdx-icon cdx-icon--medium cdx-typeahead-search__search-footer__icon"
                 >
                   <svg
                     aria-hidden="true"
@@ -522,7 +522,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             type="search"
           />
           <span
-            class="cdx-icon cdx-text-input__icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -583,7 +583,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                     class="cdx-thumbnail__placeholder"
                   >
                     <span
-                      class="cdx-icon cdx-thumbnail__placeholder__icon"
+                      class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon"
                     >
                       <svg
                         aria-hidden="true"
@@ -652,7 +652,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                     class="cdx-thumbnail__placeholder"
                   >
                     <span
-                      class="cdx-icon cdx-thumbnail__placeholder__icon"
+                      class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon"
                     >
                       <svg
                         aria-hidden="true"
@@ -726,7 +726,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                 href="https://foo.org/search?query=Co"
               >
                 <span
-                  class="cdx-icon cdx-typeahead-search__search-footer__icon"
+                  class="cdx-icon cdx-icon--medium cdx-typeahead-search__search-footer__icon"
                 >
                   <svg
                     aria-hidden="true"

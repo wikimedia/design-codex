@@ -32,7 +32,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     </span>
     <!--v-if-->
     <span
-      class="cdx-icon cdx-select-vue__indicator"
+      class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -222,7 +222,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
         >
           <!-- Thumbnail, thumbnail placeholder, or icon. -->
           <span
-            class="cdx-icon cdx-menu-item__icon"
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
           >
             <svg
               aria-hidden="true"
@@ -301,7 +301,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
     </span>
     <!--v-if-->
     <span
-      class="cdx-icon cdx-select-vue__indicator"
+      class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -491,7 +491,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
         >
           <!-- Thumbnail, thumbnail placeholder, or icon. -->
           <span
-            class="cdx-icon cdx-menu-item__icon"
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
           >
             <svg
               aria-hidden="true"
@@ -570,7 +570,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
     </span>
     <!--v-if-->
     <span
-      class="cdx-icon cdx-select-vue__indicator"
+      class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -760,7 +760,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
         >
           <!-- Thumbnail, thumbnail placeholder, or icon. -->
           <span
-            class="cdx-icon cdx-menu-item__icon"
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
           >
             <svg
               aria-hidden="true"
@@ -839,7 +839,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
     </span>
     <!--v-if-->
     <span
-      class="cdx-icon cdx-select-vue__indicator"
+      class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -1029,7 +1029,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
         >
           <!-- Thumbnail, thumbnail placeholder, or icon. -->
           <span
-            class="cdx-icon cdx-menu-item__icon"
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
           >
             <svg
               aria-hidden="true"
@@ -1107,7 +1107,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       
     </span>
     <span
-      class="cdx-icon cdx-select-vue__start-icon"
+      class="cdx-icon cdx-icon--medium cdx-select-vue__start-icon"
     >
       <svg
         aria-hidden="true"
@@ -1126,7 +1126,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       </svg>
     </span>
     <span
-      class="cdx-icon cdx-select-vue__indicator"
+      class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -1316,7 +1316,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
         >
           <!-- Thumbnail, thumbnail placeholder, or icon. -->
           <span
-            class="cdx-icon cdx-menu-item__icon"
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
           >
             <svg
               aria-hidden="true"
@@ -1394,7 +1394,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       
     </span>
     <span
-      class="cdx-icon cdx-select-vue__start-icon"
+      class="cdx-icon cdx-icon--medium cdx-select-vue__start-icon"
     >
       <svg
         aria-hidden="true"
@@ -1413,7 +1413,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       </svg>
     </span>
     <span
-      class="cdx-icon cdx-select-vue__indicator"
+      class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -1603,7 +1603,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
         >
           <!-- Thumbnail, thumbnail placeholder, or icon. -->
           <span
-            class="cdx-icon cdx-menu-item__icon"
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
           >
             <svg
               aria-hidden="true"
@@ -1682,7 +1682,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
     </span>
     <!--v-if-->
     <span
-      class="cdx-icon cdx-select-vue__indicator"
+      class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
     >
       <svg
         aria-hidden="true"
@@ -1872,7 +1872,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
         >
           <!-- Thumbnail, thumbnail placeholder, or icon. -->
           <span
-            class="cdx-icon cdx-menu-item__icon"
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
           >
             <svg
               aria-hidden="true"

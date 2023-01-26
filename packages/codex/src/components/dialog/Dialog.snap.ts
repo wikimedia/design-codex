@@ -129,7 +129,7 @@ exports[`matches the snapshot Case 2 With hidden title 1`] = `
           <!-- @slot Button content -->
           
           <span
-            class="cdx-icon"
+            class="cdx-icon cdx-icon--medium"
           >
             <svg
               height="20"

@@ -7,7 +7,7 @@ exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
     class="cdx-message cdx-message--block cdx-message--notice"
   >
     <span
-      class="cdx-icon cdx-message__icon--vue"
+      class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
     >
       <svg
         aria-hidden="true"
@@ -47,7 +47,7 @@ exports[`matches the snapshot Case 1 notice message: ({"type": "notice"}) => HTM
     class="cdx-message cdx-message--block cdx-message--notice"
   >
     <span
-      class="cdx-icon cdx-message__icon--vue"
+      class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
     >
       <svg
         aria-hidden="true"
@@ -87,7 +87,7 @@ exports[`matches the snapshot Case 2 warning message: ({"type": "warning"}) => H
     class="cdx-message cdx-message--block cdx-message--warning"
   >
     <span
-      class="cdx-icon cdx-message__icon--vue"
+      class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
     >
       <svg
         aria-hidden="true"
@@ -127,7 +127,7 @@ exports[`matches the snapshot Case 3 error message: ({"type": "error"}) => HTML 
     role="alert"
   >
     <span
-      class="cdx-icon cdx-message__icon--vue"
+      class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
     >
       <svg
         aria-hidden="true"
@@ -167,7 +167,7 @@ exports[`matches the snapshot Case 4 success message: ({"type": "success"}) => H
     class="cdx-message cdx-message--block cdx-message--success"
   >
     <span
-      class="cdx-icon cdx-message__icon--vue"
+      class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
     >
       <svg
         aria-hidden="true"
@@ -209,7 +209,7 @@ exports[`matches the snapshot Case 5 Inline: ({"inline": true}) => HTML 1`] = `
     class="cdx-message cdx-message--inline cdx-message--notice"
   >
     <span
-      class="cdx-icon cdx-message__icon--vue"
+      class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
     >
       <svg
         aria-hidden="true"
@@ -249,7 +249,7 @@ exports[`matches the snapshot Case 6 Dismissable: ({"dismissButtonLabel": "Close
     class="cdx-message cdx-message--block cdx-message--user-dismissable cdx-message--notice"
   >
     <span
-      class="cdx-icon cdx-message__icon--vue"
+      class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
     >
       <svg
         aria-hidden="true"
@@ -284,7 +284,7 @@ exports[`matches the snapshot Case 6 Dismissable: ({"dismissButtonLabel": "Close
       <!-- @slot Button content -->
       
       <span
-        class="cdx-icon"
+        class="cdx-icon cdx-icon--medium"
       >
         <svg
           height="20"
@@ -319,7 +319,7 @@ exports[`matches the snapshot Case 7 Custom icon: ({"icon": [Object]}) => HTML 1
     class="cdx-message cdx-message--block cdx-message--notice"
   >
     <span
-      class="cdx-icon cdx-message__icon--vue"
+      class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
     >
       <svg
         aria-hidden="true"

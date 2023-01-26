@@ -413,6 +413,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
     <cdx-icon-stub
       icon="<path d=\\"m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z\\"/>"
       iconlabel=""
+      size="medium"
     />
      One
     
@@ -433,6 +434,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
     <cdx-icon-stub
       icon="[object Object]"
       iconlabel=""
+      size="medium"
     />
      Two
     
@@ -454,6 +456,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
     <cdx-icon-stub
       icon="<path d=\\"M7 14.17 2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z\\"/>"
       iconlabel=""
+      size="medium"
     />
      Three
     
@@ -474,6 +477,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
     <cdx-icon-stub
       icon="<path d=\\"M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 002 2h8a2 2 0 002-2V5H4z\\"/>"
       iconlabel=""
+      size="medium"
     />
      Four
     
@@ -504,6 +508,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
     <cdx-icon-stub
       icon="<path d=\\"m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z\\"/>"
       iconlabel=""
+      size="medium"
     />
      
     
@@ -525,6 +530,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
     <cdx-icon-stub
       icon="[object Object]"
       iconlabel=""
+      size="medium"
     />
      
     
@@ -547,6 +553,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
     <cdx-icon-stub
       icon="<path d=\\"M7 14.17 2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z\\"/>"
       iconlabel=""
+      size="medium"
     />
      
     
@@ -568,6 +575,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
     <cdx-icon-stub
       icon="<path d=\\"M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 002 2h8a2 2 0 002-2V5H4z\\"/>"
       iconlabel=""
+      size="medium"
     />
      
     

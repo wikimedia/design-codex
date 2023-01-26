@@ -40,6 +40,16 @@ it( 'emits click events', async () => {
 	expect( wrapper.emitted().click ).toHaveLength( 1 );
 } );
 
+it( 'honors the "size" prop', () => {
+	const wrapper = mount( CdxIcon, { props: { icon: cdxIconAlert, size: 'x-small' } } );
+	expect( wrapper.classes() ).toContain( 'cdx-icon--x-small' );
+} );
+
+it( 'applies the "medium" size class by default', () => {
+	const wrapper = mount( CdxIcon, { props: { icon: cdxIconAlert } } );
+	expect( wrapper.classes() ).toContain( 'cdx-icon--medium' );
+} );
+
 describe( 'computes dir and lang based on its ancestors', () => {
 	type Case = [
 		msg: string,

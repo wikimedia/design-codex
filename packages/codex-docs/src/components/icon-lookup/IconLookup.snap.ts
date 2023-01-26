@@ -68,7 +68,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
     <!---->
     <!---->
     <span
-      class="cdx-icon cdx-text-input__icon cdx-text-input__clear-icon"
+      class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__clear-icon"
     >
       <svg
         aria-hidden="true"
@@ -111,7 +111,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
           class="cdx-menu-item__content"
         >
           <span
-            class="cdx-icon cdx-menu-item__icon"
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
           >
             <svg
               aria-hidden="true"

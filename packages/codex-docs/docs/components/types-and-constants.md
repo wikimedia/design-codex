@@ -93,6 +93,15 @@ type SvgIcon = string;
 type SimpleIcon = PathIcon | SvgIcon;
 ```
 
+#### IconSize
+
+See [IconSizes](#iconsizes).
+
+```ts
+// Allowed values: 'medium', 'small', 'x-small'
+type IconSize = typeof IconSizes[ number ];
+```
+
 #### IconFlipForRtl
 
 An icon with a single SVG that should flip horizontally in RTL mode.
@@ -293,6 +302,16 @@ const ButtonTypes = [
 	'normal',
 	'primary',
 	'quiet'
+];
+```
+
+### IconSizes
+
+```ts
+const IconSizes = [
+	'x-small',
+	'small',
+	'medium'
 ];
 ```
 

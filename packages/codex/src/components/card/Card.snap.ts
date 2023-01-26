@@ -70,7 +70,7 @@ exports[`Card matches the snapshot Case 2 Card with icon: ("Title") => HTML 1`] 
   class="cdx-card cdx-card--title-only"
 >
   <span
-    class="cdx-icon cdx-card__icon"
+    class="cdx-icon cdx-icon--medium cdx-card__icon"
   >
     <svg
       aria-hidden="true"
@@ -121,7 +121,7 @@ exports[`Card matches the snapshot Case 3 Card with thumbnail: ("Title") => HTML
       class="cdx-thumbnail__placeholder"
     >
       <span
-        class="cdx-icon cdx-thumbnail__placeholder__icon"
+        class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon"
       >
         <svg
           aria-hidden="true"
@@ -175,7 +175,7 @@ exports[`Card matches the snapshot Case 4 Card with thumbnail placeholder: ("Tit
       class="cdx-thumbnail__placeholder"
     >
       <span
-        class="cdx-icon cdx-thumbnail__placeholder__icon"
+        class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon"
       >
         <svg
           aria-hidden="true"
@@ -229,7 +229,7 @@ exports[`Card matches the snapshot Case 5 Card with custom placeholder icon: ("T
       class="cdx-thumbnail__placeholder"
     >
       <span
-        class="cdx-icon cdx-thumbnail__placeholder__icon"
+        class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon"
       >
         <svg
           aria-hidden="true"

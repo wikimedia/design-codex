@@ -241,7 +241,7 @@ exports[`matches the snapshot Case 5 Item with icon: ({"description": "Test sear
   >
     <!-- Thumbnail, thumbnail placeholder, or icon. -->
     <span
-      class="cdx-icon cdx-menu-item__icon"
+      class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
     >
       <svg
         aria-hidden="true"
@@ -311,7 +311,7 @@ exports[`matches the snapshot Case 6 Item with placeholder thumbnail: ({"descrip
         class="cdx-thumbnail__placeholder"
       >
         <span
-          class="cdx-icon cdx-thumbnail__placeholder__icon"
+          class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon"
         >
           <svg
             aria-hidden="true"

@@ -41,7 +41,7 @@ exports[`matches the snapshot Case 2 valid icon name (cdxIconAlert) => HTML 1`] 
 		which breaks.
 	-->
   <span
-    class="cdx-icon"
+    class="cdx-icon cdx-icon--medium"
   >
     <svg
       aria-hidden="true"

@@ -22,7 +22,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
         <!-- @slot Button content -->
         
         <span
-          class="cdx-icon"
+          class="cdx-icon cdx-icon--medium"
         >
           <svg
             aria-hidden="true"
@@ -118,7 +118,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
         <!-- @slot Button content -->
         
         <span
-          class="cdx-icon"
+          class="cdx-icon cdx-icon--medium"
         >
           <svg
             aria-hidden="true"
@@ -229,7 +229,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
         <!-- @slot Button content -->
         
         <span
-          class="cdx-icon"
+          class="cdx-icon cdx-icon--medium"
         >
           <svg
             aria-hidden="true"
@@ -325,7 +325,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
         <!-- @slot Button content -->
         
         <span
-          class="cdx-icon"
+          class="cdx-icon cdx-icon--medium"
         >
           <svg
             aria-hidden="true"
@@ -439,7 +439,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         <!-- @slot Button content -->
         
         <span
-          class="cdx-icon"
+          class="cdx-icon cdx-icon--medium"
         >
           <svg
             aria-hidden="true"
@@ -539,7 +539,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         <!-- @slot Button content -->
         
         <span
-          class="cdx-icon"
+          class="cdx-icon cdx-icon--medium"
         >
           <svg
             aria-hidden="true"

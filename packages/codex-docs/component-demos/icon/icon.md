@@ -1,5 +1,6 @@
 <script setup>
 import SimpleIcon from '@/../component-demos/icon/examples/SimpleIcon.vue';
+import IconSizes from '@/../component-demos/icon/examples/IconSizes.vue';
 </script>
 
 See the [Icons section](../../icons/overview.md) for more information, including a
@@ -24,6 +25,29 @@ See the [Icons section](../../icons/overview.md) for more information, including
 ### Using icons in buttons
 Icons can be used inside other components, like buttons. For demos of how to use icons inside
 buttons, see [the Button documentation](./button#default-with-icon).
+
+### Icon sizes
+Icons support a few different pre-defined size options. Right now the supported sizes are:
+`medium`, `small`, and `x-small`.
+
+If no `size` property is provided, the `medium` size will be used by default.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<icon-sizes />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/icon/examples/IconSizes.vue
+
+</template>
+</cdx-demo-wrapper>
+
+::: warning
+`x-small` icon size is only intended for use in certain special cases.
+Most components should use Icons in `small` or `medium` size.
+:::
 
 ## CSS-only version
 
