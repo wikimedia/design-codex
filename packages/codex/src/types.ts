@@ -46,9 +46,7 @@ export type ChipType = typeof ChipTypes[ number ];
 
 /** @public */
 export type StatusType = typeof StatusTypes[ number ];
-export type StatusIconMap = {
-	[P in StatusType]: Icon
-}
+export type StatusIconMap = { [P in StatusType]: Icon }
 
 /** @public */
 export type TextInputType = typeof TextInputTypes[ number ];

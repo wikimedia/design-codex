@@ -51,7 +51,7 @@ Custom icons can only be used with the `notice` status. If they are passed with 
 </cdx-demo-wrapper>
 
 #### Long Text
-It is generally best practice to use short text with the InfoChip. If long text is used, it will be truncated with ellipsis. 
+It is generally best practice to use short text with the InfoChip. Long text content will be truncated with an ellipsis and lines will not be wrapped.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

@@ -18,7 +18,6 @@ import { defineComponent, PropType, computed } from 'vue';
 import { statusTypeValidator } from '../../constants';
 import { StatusType, StatusIconMap } from '../../types';
 import {
-	cdxIconInfoFilled,
 	cdxIconError,
 	cdxIconAlert,
 	cdxIconSuccess,
@@ -26,8 +25,7 @@ import {
 } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 
-const iconMap: StatusIconMap = {
-	notice: cdxIconInfoFilled,
+const iconMap: Partial<StatusIconMap> = {
 	error: cdxIconError,
 	warning: cdxIconAlert,
 	success: cdxIconSuccess
@@ -50,8 +48,10 @@ export default defineComponent( {
 			default: 'notice',
 			validator: statusTypeValidator
 		},
+
 		/**
-		 *
+		 * Custom icon to use for "notice" chips. Chips with other status types
+		 * (warning, etc) do not allow custom icons and will ignore this option.
 		 */
 		icon: {
 			type: [ String, Object ] as PropType<Icon>,
@@ -83,13 +83,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
-// TODO: Tokenize
-@font-size: 0.875em;
-
-.cdx-chip__icon svg {
-	height: @size-icon-small;
-}
-
 .cdx-chip {
 	background-color: @background-color-transparent;
 	display: inline-flex;
@@ -105,7 +98,7 @@ export default defineComponent( {
 	&--text {
 		.text-overflow( @param-visible: false );
 		color: @color-subtle;
-		font-size: @font-size;
+		font-size: @font-size-small;
 	}
 
 	&__icon {
@@ -124,6 +117,13 @@ export default defineComponent( {
 		&--success {
 			color: @border-color-success;
 		}
+	}
+
+	.cdx-icon {
+		min-width: @min-size-icon-small;
+		min-height: @min-size-icon-small;
+		width: @size-icon-small;
+		height: @size-icon-small;
 	}
 }
 
