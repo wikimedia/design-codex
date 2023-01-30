@@ -1,21 +1,21 @@
 <template>
 	<div>
-		<cdx-chip>
+		<cdx-info-chip>
 			This is really really really really really
 			really really really really really really
 			long text
-		</cdx-chip>
+		</cdx-info-chip>
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CdxChip } from '@wikimedia/codex';
+import { CdxInfoChip } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'ChipWithLongText',
 	components: {
-		CdxChip
+		CdxInfoChip
 	}
 } );
 </script>

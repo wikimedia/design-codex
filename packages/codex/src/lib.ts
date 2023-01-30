@@ -22,7 +22,7 @@ import CdxButton from './components/button/Button.vue';
 import CdxButtonGroup from './components/button-group/ButtonGroup.vue';
 import CdxCard from './components/card/Card.vue';
 import CdxCheckbox from './components/checkbox/Checkbox.vue';
-import CdxChip from './components/chip/Chip.vue';
+import CdxInfoChip from './components/info-chip/InfoChip.vue';
 import CdxCombobox from './components/combobox/Combobox.vue';
 import CdxDialog from './components/dialog/Dialog.vue';
 import CdxIcon from './components/icon/Icon.vue';
@@ -83,7 +83,7 @@ export {
 	CdxButtonGroup,
 	CdxCard,
 	CdxCheckbox,
-	CdxChip,
+	CdxInfoChip,
 	CdxCombobox,
 	CdxDialog,
 	CdxIcon,

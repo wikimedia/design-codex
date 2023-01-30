@@ -1,20 +1,20 @@
 <template>
 	<div>
-		<cdx-chip :icon="cdxIconCamera">
+		<cdx-info-chip :icon="cdxIconCamera">
 			Photos
-		</cdx-chip>
+		</cdx-info-chip>
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CdxChip } from '@wikimedia/codex';
+import { CdxInfoChip } from '@wikimedia/codex';
 import { cdxIconCamera } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'ChipWithIcon',
 	components: {
-		CdxChip
+		CdxInfoChip
 	},
 	setup() {
 		return {

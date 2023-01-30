@@ -9,7 +9,6 @@ import { Icon } from '@wikimedia/codex-icons';
 import {
 	ButtonActions,
 	ButtonTypes,
-	ChipTypes,
 	TextInputTypes,
 	ValidationStatusTypes,
 	StatusTypes,
@@ -40,9 +39,6 @@ export interface ButtonGroupItem {
 	/** Whether the button is disabled */
 	disabled?: boolean
 }
-
-/** @public */
-export type ChipType = typeof ChipTypes[ number ];
 
 /** @public */
 export type StatusType = typeof StatusTypes[ number ];

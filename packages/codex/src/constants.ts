@@ -19,11 +19,6 @@ export const ButtonTypes = [
 	'quiet'
 ] as const;
 
-export const ChipTypes = [
-	'info',
-	'filter'
-] as const;
-
 export const StatusTypes = [
 	'notice',
 	'warning',

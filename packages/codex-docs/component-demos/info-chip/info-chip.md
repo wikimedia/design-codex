@@ -1,7 +1,7 @@
 <script setup>
-import ChipWithIcon from '@/../component-demos/chip/examples/ChipWithIcon.vue';
-import ChipWithLongText from '@/../component-demos/chip/examples/ChipWithLongText.vue';
-import { CdxChip } from '@wikimedia/codex';
+import ChipWithIcon from '@/../component-demos/info-chip/examples/ChipWithIcon.vue';
+import ChipWithLongText from '@/../component-demos/info-chip/examples/ChipWithLongText.vue';
+import { CdxInfoChip } from '@wikimedia/codex';
 
 const controlsConfig = [
 	{
@@ -28,9 +28,9 @@ const controlsConfig = [
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 
 <template v-slot:demo="{ propValues, slotValues }" :show-generated-code="true">
-<cdx-chip v-bind="propValues">
+<cdx-info-chip v-bind="propValues">
 	{{ slotValues.default }}
-</cdx-chip>
+</cdx-info-chip>
 </template>
 
 </cdx-demo-wrapper>
@@ -45,7 +45,7 @@ Custom icons can only be used with the `notice` status. If they are passed with 
 
 <template v-slot:code>
 
-<<< @/../component-demos/chip/examples/ChipWithIcon.vue
+<<< @/../component-demos/info-chip/examples/ChipWithIcon.vue
 
 </template>
 </cdx-demo-wrapper>

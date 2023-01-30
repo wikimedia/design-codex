@@ -1,12 +1,12 @@
 <template>
-	<div class="cdx-chip">
+	<div class="cdx-info-chip">
 		<cdx-icon
 			v-if="computedIcon"
-			class="cdx-chip__icon"
+			class="cdx-info-chip__icon"
 			:class="iconClass"
 			:icon="computedIcon"
 		/>
-		<span class="cdx-chip--text">
+		<span class="cdx-info-chip--text">
 			<!-- @slot Chip content. -->
 			<slot />
 		</span>
@@ -35,7 +35,7 @@ const iconMap: Partial<StatusIconMap> = {
  * A chip wrapping slotted content.
  */
 export default defineComponent( {
-	name: 'CdxChip',
+	name: 'CdxInfoChip',
 	components: { CdxIcon },
 	props: {
 		/**
@@ -61,7 +61,7 @@ export default defineComponent( {
 	setup( props ) {
 		const iconClass = computed( (): Record<string, boolean> => {
 			return {
-				[ `cdx-chip__icon--${props.status}` ]: true
+				[ `cdx-info-chip__icon--${props.status}` ]: true
 			};
 		} );
 
@@ -83,7 +83,7 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
-.cdx-chip {
+.cdx-info-chip {
 	background-color: @background-color-transparent;
 	display: inline-flex;
 	align-items: center;
