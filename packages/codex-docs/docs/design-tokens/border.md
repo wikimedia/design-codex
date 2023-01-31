@@ -5,7 +5,7 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 
 # Border
 
-## Width
+## Border width
 
 <cdx-docs-tokens-table
 	:tokens="tokens['border-width']"
@@ -14,7 +14,7 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 	css-property="border-width"
 />
 
-## Style
+## Border style
 
 <cdx-docs-tokens-table
 	:tokens="tokens['border-style']"
@@ -23,7 +23,7 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 	css-property="border-style"
 />
 
-## Color
+## Border color
 
 <cdx-docs-tokens-table
 	:tokens="tokens['border-color']"
@@ -32,7 +32,7 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 	css-property="border-color"
 />
 
-## Radius
+## Border radius
 <cdx-docs-tokens-table
 	:tokens="tokens['border-radius']"
 	token-demo="CdxDocsTokenDemo"

@@ -15,14 +15,14 @@ The size tokens are used to define the size of elements, applied for example on 
 	token-demo="CdxDocsSizeDemo"
 />
 
-## Min-size
+## Minimum size
 
 <cdx-docs-tokens-table
 	:tokens="tokens['min-size']"
 	token-demo="CdxDocsSizeDemo"
 />
 
-## Max-width
+## Maximum width
 
 <cdx-docs-tokens-table
 	:tokens="tokens['max-width']"

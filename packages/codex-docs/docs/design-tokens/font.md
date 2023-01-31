@@ -5,7 +5,7 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 
 # Font
 
-## Font-family
+## Font family
 
 <cdx-docs-tokens-table
 	:tokens="tokens['font-family']"
@@ -14,7 +14,7 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 	css-property="font-family"
 />
 
-## Font-size
+## Font size
 
 <cdx-docs-tokens-table
 	:tokens="tokens['font-size']"
@@ -23,7 +23,7 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 	css-property="font-size"
 />
 
-## Font-weight
+## Font weight
 
 <cdx-docs-tokens-table
 	:tokens="tokens['font-weight']"
@@ -32,7 +32,7 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 	css-property="font-weight"
 />
 
-## Line-height
+## Line height
 
 <cdx-docs-tokens-table
 	:tokens="tokens['line-height']"
@@ -41,7 +41,7 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 	css-property="line-height"
 />
 
-## Text-decoration
+## Text decoration
 
 <cdx-docs-tokens-table
 	:tokens="tokens['text-decoration']"
