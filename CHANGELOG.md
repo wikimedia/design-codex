@@ -1,3 +1,49 @@
+# 0.5.0 / 2023-01-31
+
+## Features
+- InfoChip, Message: Introduce InfoChip component and StatusType constant (Julia Kieserman)
+- Icon: Add Less mixin for CSS-only icons (Anne Tomasevich)
+- Message: Add CSS-only version (Anne Tomasevich)
+- Checkbox, Radio: Add CSS-only versions (Anne Tomasevich)
+- Select: Add CSS-only version (Anne Tomasevich)
+- Message: Replace 'check' with 'success' icon on success type messages (Volker E)
+- build: Build legacy versions of the Codex styles (Roan Kattouw)
+
+## Styles
+- build, tokens, styles: Introduce simple stylesheet unit transform (Roan Kattouw)
+- tokens, styles: Introduce design-first `font-size` tokens (Volker E)
+- tokens: Make `position-offset` token relative & replace offset SFC vars (Volker E)
+- tokens: Rename icon token sizes keys according to design (Volker E)
+- docs, binary inputs: Improve docs and use a token for label padding (Anne Tomasevich)
+- binary input, styles: Use spacing token for padding (Volker E)
+- binary input: Remove obsolete `size-icon-small` token (Volker E)
+- styles, pending state: Replace relative font size SFCs with token (Volker E)
+
+## Icons
+- icons: Add 'success' (Volker E)
+- icons: Add Wikimedia logos (Volker E)
+
+## Code
+- Combobox, Lookup: Add aria-controls attribute (Lucas Werkmeister)
+- Tab: Expose disabled state with `aria-disabled` (Volker E)
+- Icon: Don't add aria-hidden=false (Kosta Harlan)
+- InfoChip: Follow-up fixes (Eric Gardner)
+- InfoChip: Re-name component to InfoChip (Eric Gardner)
+- build: Updating eslint to 8.31.0 (libraryupgrader)
+- Add .idea (JetBrains IDEs) to .gitignore (Kosta Harlan)
+- build: Use shared Vite config for the demos build (Roan Kattouw)
+- build: Update 'eslint' dependency and its dependencies (Volker E)
+
+## Documentation
+- docs: Move SVGO preset JSON file to the public/ directory (Roan Kattouw)
+- README: Add note about running unit tests for a workspace (Kosta Harlan)
+- docs: Remove oversized relative size token demos from table (Volker E)
+- docs: Improve documentation of CSS-only components (Anne Tomasevich)
+- docs: Align Menu demos with keyboard navigation standards (Anne Tomasevich)
+- docs: Update types and constants docs to reflect new StatusType (Anne Tomasevich)
+- docs: Unify token headings (Volker E)
+- docs: Add warning about CSS-only components (Anne Tomasevich)
+
 # 0.4.3 / 2023-01-10
 
 ## Styles
