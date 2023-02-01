@@ -8,14 +8,14 @@ exports[`matches the snapshot Case 0 Default: ({"modelValue": ""}) => HTML 1`] =
     class="cdx-search-input__input-wrapper"
   >
     <div
-      class="cdx-text-input cdx-text-input--has-start-icon cdx-search-input__text-input"
+      class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
     >
       <input
-        class="cdx-text-input__input cdx-text-input__input--status-default"
+        class="cdx-text-input__input"
         type="search"
       />
       <span
-        class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
+        class="cdx-icon cdx-icon--medium cdx-text-input__icon-vue cdx-text-input__start-icon"
       >
         <svg
           aria-hidden="true"
@@ -55,14 +55,14 @@ exports[`matches the snapshot Case 1 With submit button: ({"buttonLabel": "Searc
     class="cdx-search-input__input-wrapper"
   >
     <div
-      class="cdx-text-input cdx-text-input--has-start-icon cdx-search-input__text-input"
+      class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
     >
       <input
-        class="cdx-text-input__input cdx-text-input__input--status-default"
+        class="cdx-text-input__input"
         type="search"
       />
       <span
-        class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
+        class="cdx-icon cdx-icon--medium cdx-text-input__icon-vue cdx-text-input__start-icon"
       >
         <svg
           aria-hidden="true"
@@ -109,16 +109,16 @@ exports[`matches the snapshot Case 2 With attributes: ({"modelValue": ""}) => HT
     class="cdx-search-input__input-wrapper"
   >
     <div
-      class="cdx-text-input cdx-text-input--has-start-icon cdx-search-input__text-input"
+      class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
     >
       <input
-        class="cdx-text-input__input cdx-text-input__input--status-default"
+        class="cdx-text-input__input"
         disabled=""
         placeholder="Start typing..."
         type="search"
       />
       <span
-        class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
+        class="cdx-icon cdx-icon--medium cdx-text-input__icon-vue cdx-text-input__start-icon"
       >
         <svg
           aria-hidden="true"

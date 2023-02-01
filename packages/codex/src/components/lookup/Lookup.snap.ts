@@ -5,7 +5,7 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
   class="cdx-lookup"
 >
   <div
-    class="cdx-text-input cdx-lookup__input"
+    class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -13,7 +13,7 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-0"
       autocomplete="off"
-      class="cdx-text-input__input cdx-text-input__input--status-default"
+      class="cdx-text-input__input"
       role="combobox"
       type="text"
     />
@@ -54,7 +54,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
   class="cdx-lookup"
 >
   <div
-    class="cdx-text-input cdx-lookup__input"
+    class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -62,7 +62,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-1"
       autocomplete="off"
-      class="cdx-text-input__input cdx-text-input__input--has-value cdx-text-input__input--status-default"
+      class="cdx-text-input__input cdx-text-input__input--has-value"
       role="combobox"
       type="text"
     />
@@ -239,7 +239,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
   class="cdx-lookup"
 >
   <div
-    class="cdx-text-input cdx-lookup__input"
+    class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -247,7 +247,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-6"
       autocomplete="off"
-      class="cdx-text-input__input cdx-text-input__input--has-value cdx-text-input__input--status-default"
+      class="cdx-text-input__input cdx-text-input__input--has-value"
       role="combobox"
       type="text"
     />
@@ -424,7 +424,7 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
   class="cdx-lookup cdx-lookup--disabled"
 >
   <div
-    class="cdx-text-input cdx-lookup__input"
+    class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -432,7 +432,7 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-11"
       autocomplete="off"
-      class="cdx-text-input__input cdx-text-input__input--status-default"
+      class="cdx-text-input__input"
       disabled=""
       role="combobox"
       type="text"
@@ -474,7 +474,7 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
   class="cdx-lookup"
 >
   <div
-    class="cdx-text-input cdx-lookup__input"
+    class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -482,7 +482,7 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-12"
       autocomplete="off"
-      class="cdx-text-input__input cdx-text-input__input--has-value cdx-text-input__input--status-default"
+      class="cdx-text-input__input cdx-text-input__input--has-value"
       role="combobox"
       type="text"
     />
@@ -529,7 +529,7 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
   class="cdx-lookup class-one class-two"
 >
   <div
-    class="cdx-text-input cdx-lookup__input"
+    class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -537,7 +537,7 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-13"
       autocomplete="off"
-      class="cdx-text-input__input cdx-text-input__input--status-default"
+      class="cdx-text-input__input"
       role="combobox"
       type="text"
     />
@@ -578,7 +578,7 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
   class="cdx-lookup"
 >
   <div
-    class="cdx-text-input cdx-lookup__input"
+    class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -586,7 +586,7 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-14"
       autocomplete="off"
-      class="cdx-text-input__input cdx-text-input__input--status-default"
+      class="cdx-text-input__input"
       placeholder="Type something... "
       role="combobox"
       type="search"

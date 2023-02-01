@@ -16,21 +16,21 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
         class="cdx-search-input__input-wrapper"
       >
         <div
-          class="cdx-text-input cdx-text-input--has-start-icon cdx-search-input__text-input"
+          class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
         >
           <input
             aria-autocomplete="list"
             aria-expanded="false"
             aria-owns="cdx-typeahead-search-menu-0"
             autocomplete="off"
-            class="cdx-text-input__input cdx-text-input__input--status-default"
+            class="cdx-text-input__input"
             name="search"
             placeholder="Search Wikipedia"
             role="combobox"
             type="search"
           />
           <span
-            class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-icon--medium cdx-text-input__icon-vue cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -118,21 +118,21 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
         class="cdx-search-input__input-wrapper"
       >
         <div
-          class="cdx-text-input cdx-text-input--has-start-icon cdx-search-input__text-input"
+          class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
         >
           <input
             aria-autocomplete="list"
             aria-expanded="false"
             aria-owns="cdx-typeahead-search-menu-1"
             autocomplete="off"
-            class="cdx-text-input__input cdx-text-input__input--status-default"
+            class="cdx-text-input__input"
             name="search"
             placeholder="Search Wikipedia"
             role="combobox"
             type="search"
           />
           <span
-            class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-icon--medium cdx-text-input__icon-vue cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -220,21 +220,21 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
         class="cdx-search-input__input-wrapper"
       >
         <div
-          class="cdx-text-input cdx-text-input--has-start-icon cdx-search-input__text-input"
+          class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
         >
           <input
             aria-autocomplete="list"
             aria-expanded="false"
             aria-owns="cdx-typeahead-search-menu-2"
             autocomplete="off"
-            class="cdx-text-input__input cdx-text-input__input--status-default"
+            class="cdx-text-input__input"
             name="search"
             placeholder="Search Wikipedia"
             role="combobox"
             type="search"
           />
           <span
-            class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-icon--medium cdx-text-input__icon-vue cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -322,21 +322,21 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
         class="cdx-search-input__input-wrapper"
       >
         <div
-          class="cdx-text-input cdx-text-input--has-start-icon cdx-search-input__text-input"
+          class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
         >
           <input
             aria-autocomplete="list"
             aria-expanded="false"
             aria-owns="cdx-typeahead-search-menu-60"
             autocomplete="off"
-            class="cdx-text-input__input cdx-text-input__input--has-value cdx-text-input__input--status-default"
+            class="cdx-text-input__input cdx-text-input__input--has-value"
             name="search"
             placeholder="Search Wikipedia"
             role="combobox"
             type="search"
           />
           <span
-            class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-icon--medium cdx-text-input__icon-vue cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"
@@ -508,21 +508,21 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         class="cdx-search-input__input-wrapper"
       >
         <div
-          class="cdx-text-input cdx-text-input--has-start-icon cdx-search-input__text-input"
+          class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
         >
           <input
             aria-autocomplete="list"
             aria-expanded="false"
             aria-owns="cdx-typeahead-search-menu-15"
             autocomplete="off"
-            class="cdx-text-input__input cdx-text-input__input--has-value cdx-text-input__input--status-default"
+            class="cdx-text-input__input cdx-text-input__input--has-value"
             name="search"
             placeholder="Search Wikipedia"
             role="combobox"
             type="search"
           />
           <span
-            class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__start-icon"
+            class="cdx-icon cdx-icon--medium cdx-text-input__icon-vue cdx-text-input__start-icon"
           >
             <svg
               aria-hidden="true"

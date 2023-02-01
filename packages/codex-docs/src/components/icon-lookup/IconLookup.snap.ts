@@ -5,7 +5,7 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
   class="cdx-lookup cdx-docs-icon-lookup"
 >
   <div
-    class="cdx-text-input cdx-lookup__input"
+    class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -13,7 +13,7 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-0"
       autocomplete="off"
-      class="cdx-text-input__input cdx-text-input__input--status-default"
+      class="cdx-text-input__input"
       placeholder="Start typing an icon name"
       role="combobox"
       type="text"
@@ -52,7 +52,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
   class="cdx-lookup cdx-docs-icon-lookup"
 >
   <div
-    class="cdx-text-input cdx-text-input--clearable cdx-lookup__input"
+    class="cdx-text-input cdx-text-input--clearable cdx-text-input--status-default cdx-lookup__input"
   >
     <input
       aria-autocomplete="list"
@@ -60,7 +60,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
       aria-expanded="false"
       aria-owns="cdx-lookup-menu-1"
       autocomplete="off"
-      class="cdx-text-input__input cdx-text-input__input--has-value cdx-text-input__input--status-default"
+      class="cdx-text-input__input cdx-text-input__input--has-value"
       placeholder="Start typing an icon name"
       role="combobox"
       type="text"
@@ -68,7 +68,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
     <!---->
     <!---->
     <span
-      class="cdx-icon cdx-icon--medium cdx-text-input__icon cdx-text-input__clear-icon"
+      class="cdx-icon cdx-icon--medium cdx-text-input__icon-vue cdx-text-input__clear-icon"
     >
       <svg
         aria-hidden="true"

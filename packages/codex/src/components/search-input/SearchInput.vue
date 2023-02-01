@@ -159,6 +159,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/input-with-button.less';
+@import ( reference ) '../../themes/mixins/public/css-icon.less';
 
 .cdx-search-input {
 	.cdx-mixin-input-with-button();
@@ -167,6 +168,11 @@ export default defineComponent( {
 		// This will make an absolutely positioned options menu passed in via the default slot line
 		// up with the input, instead of extending the full width including the button.
 		position: relative;
+	}
+
+	// Set up the CSS-only search icon.
+	.cdx-text-input__icon.cdx-text-input__start-icon {
+		.cdx-mixin-css-icon( @cdx-icon-search );
 	}
 }
 </style>

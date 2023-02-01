@@ -21,17 +21,17 @@
 		<cdx-icon
 			v-if="startIcon"
 			:icon="startIcon"
-			class="cdx-text-input__icon cdx-text-input__start-icon"
+			class="cdx-text-input__icon-vue cdx-text-input__start-icon"
 		/>
 		<cdx-icon
 			v-if="endIcon"
 			:icon="endIcon"
-			class="cdx-text-input__icon cdx-text-input__end-icon"
+			class="cdx-text-input__icon-vue cdx-text-input__end-icon"
 		/>
 		<cdx-icon
 			v-if="isClearable"
 			:icon="cdxIconClear"
-			class="cdx-text-input__icon cdx-text-input__clear-icon"
+			class="cdx-text-input__icon-vue cdx-text-input__clear-icon"
 			@mousedown.prevent
 			@click="onClear"
 		/>
@@ -184,7 +184,8 @@ export default defineComponent( {
 			return {
 				'cdx-text-input--has-start-icon': !!props.startIcon,
 				'cdx-text-input--has-end-icon': !!props.endIcon,
-				'cdx-text-input--clearable': isClearable.value
+				'cdx-text-input--clearable': isClearable.value,
+				[ `cdx-text-input--status-${props.status}` ]: true
 			};
 		} );
 
@@ -197,8 +198,7 @@ export default defineComponent( {
 
 		const inputClasses = computed( () => {
 			return {
-				'cdx-text-input__input--has-value': !!wrappedModel.value,
-				[ `cdx-text-input__input--status-${props.status}` ]: true
+				'cdx-text-input__input--has-value': !!wrappedModel.value
 			};
 		} );
 
@@ -264,6 +264,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
+@import ( reference ) '../../themes/mixins/public/css-icon.less';
 
 // When there are two end icons, (i.e. a clear icon and an end icon), we need to double the
 // horizontal padding and account for the size of the extra icon.
@@ -282,6 +283,12 @@ export default defineComponent( {
 		// be offset from the border, not inside the border, so we need to include its width in the
 		// offset value.
 		.cdx-mixin-icon( start, @param-external-padding: @spacing-50 + @border-width-base );
+	}
+
+	// Ensure CSS end icon is size small.
+	&__icon&__end-icon {
+		.cdx-mixin-css-icon-size( @size-icon-small );
+		.cdx-mixin-css-icon-background( @size-icon-small );
 	}
 
 	&__clear-icon,
@@ -330,18 +337,28 @@ export default defineComponent( {
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-medium;
 
-		~ .cdx-text-input__icon {
+		~ .cdx-text-input__icon-vue {
 			color: @color-placeholder;
+		}
+
+		~ .cdx-text-input__icon {
+			opacity: @opacity-icon-accessory;
 		}
 
 		&:hover {
 			border-color: @border-color-input--hover;
 		}
 
+		// Show darker icons when the input is focused or has value.
+		// Note that the "has value" part doesn't apply to CSS-only text inputs.
 		&:focus,
 		&.cdx-text-input__input--has-value {
-			~ .cdx-text-input__icon {
+			~ .cdx-text-input__icon-vue {
 				color: @color-base;
+			}
+
+			~ .cdx-text-input__icon {
+				opacity: @opacity-base;
 			}
 		}
 
@@ -349,14 +366,6 @@ export default defineComponent( {
 			border-color: @border-color-progressive--focus;
 			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			outline: @outline-base--focus;
-		}
-
-		&.cdx-text-input__input--status-error {
-			border-color: @border-color-destructive;
-
-			&:focus {
-				border-color: @border-color-progressive--focus;
-			}
 		}
 	}
 
@@ -371,9 +380,13 @@ export default defineComponent( {
 		// color contrast.
 		// text-shadow: @text-shadow-base--disabled;
 
-		~ .cdx-text-input__icon {
+		~ .cdx-text-input__icon-vue {
 			color: @color-disabled;
 			pointer-events: none;
+		}
+
+		~ .cdx-text-input__icon {
+			opacity: @opacity-base--disabled;
 		}
 	}
 
@@ -434,6 +447,17 @@ export default defineComponent( {
 			@padding-horizontal-input-text-two-end-icons,
 			@size-icon-small
 		);
+	}
+}
+
+.cdx-text-input--status-error {
+	/* stylelint-disable-next-line no-descending-specificity */
+	.cdx-text-input__input {
+		border-color: @border-color-destructive;
+
+		&:focus {
+			border-color: @border-color-progressive--focus;
+		}
 	}
 }
 </style>

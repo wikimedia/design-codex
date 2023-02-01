@@ -156,12 +156,153 @@ To disable the input, add the `disabled` attribute.
 </template>
 </cdx-demo-wrapper>
 
+## CSS-only version
+
+### Markup structure
+
+The CSS-only TextInput component consists of a `<div>` wrapping an `<input>` element.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-text-input">
+		<input class="cdx-text-input__input" type="text" placeholder="Start typing...">
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<!-- Wrapper div. -->
+<div class="cdx-text-input">
+	<!-- Input element with CSS class and attributes. -->
+	<input class="cdx-text-input__input" type="text" placeholder="Start typing...">
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### With icons
+
+You can use [CSS-only icons](./icon.md#css-only-version) to add start and end icons to the input.
+
+You'll need the following CSS classes on the root element:
+- Start icon: `.cdx-text-input--has-start-icon`
+- End icon: `.cdx-text-input--has-end-icon`
+
+The icons will be `<span>` elements with the `.cdx-text-input__icon` class, plus:
+- Start icon: `.cdx-text-input__start-icon`
+- End icon: `.cdx-text-input__end-icon`
+
+You will need to add your own CSS classes to set the icon styles and background image.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--has-end-icon">
+		<input class="cdx-text-input__input" type="text">
+		<span class="cdx-text-input__icon cdx-text-input__start-icon cdx-demo-css-icon--search"></span>
+		<span class="cdx-text-input__icon cdx-text-input__end-icon cdx-demo-css-icon--info-filled"></span>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--has-end-icon">
+	<input class="cdx-text-input__input" type="text">
+	<span class="cdx-text-input__icon cdx-text-input__start-icon cdx-demo-css-icon--search"></span>
+	<span class="cdx-text-input__icon cdx-text-input__end-icon cdx-demo-css-icon--info-filled"></span>
+</div>
+```
+
+```less
+.cdx-demo-css-icon {
+	&--search {
+		.cdx-mixin-css-icon( @cdx-icon-search );
+	}
+
+	&--info-filled {
+		.cdx-mixin-css-icon( @cdx-icon-info-filled );
+	}
+}
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### Disabled
+
+Add the `disabled` attribute to the `<input>` element for a disabled text input.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--has-end-icon">
+		<input class="cdx-text-input__input" type="text" placeholder="Start typing..." disabled>
+		<span class="cdx-text-input__icon cdx-text-input__start-icon cdx-demo-css-icon--search"></span>
+		<span class="cdx-text-input__icon cdx-text-input__end-icon cdx-demo-css-icon--info-filled"></span>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--has-end-icon">
+	<input class="cdx-text-input__input" type="text" placeholder="Start typing..." disabled>
+	<span class="cdx-text-input__icon cdx-text-input__start-icon cdx-demo-css-icon--search"></span>
+	<span class="cdx-text-input__icon cdx-text-input__end-icon cdx-demo-css-icon--info-filled"></span>
+</div>
+```
+
+```less
+.cdx-demo-css-icon {
+	&--search {
+		.cdx-mixin-css-icon( @cdx-icon-search );
+	}
+
+	&--info-filled {
+		.cdx-mixin-css-icon( @cdx-icon-info-filled );
+	}
+}
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### Error state
+
+Add the `.cdx-text-input--status-error` class to the root element to show error styles.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-text-input cdx-text-input--status-error">
+		<input class="cdx-text-input__input" type="text" value="Something's wrong">
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-text-input cdx-text-input--status-error">
+	<input class="cdx-text-input__input" type="text" value="Something's wrong">
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
+
 <style lang="less" scoped>
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 /* stylelint-disable-next-line selector-class-pattern */
 :deep( .cdx-demo-wrapper__demo-pane .cdx-text-input ) {
 	max-width: @size-2800;
 	margin-bottom: @spacing-100;
+}
+
+.cdx-demo-css-icon {
+	&--search {
+		.cdx-mixin-css-icon( @cdx-icon-search );
+	}
+
+	&--info-filled {
+		.cdx-mixin-css-icon( @cdx-icon-info-filled );
+	}
 }
 </style>
