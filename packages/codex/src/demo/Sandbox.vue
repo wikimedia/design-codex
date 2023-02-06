@@ -102,7 +102,7 @@ const demoSections = [
 	{ name: 'Tabs', id: '#cdx-tabs' },
 	{ name: 'TextInput', id: '#cdx-text-input' },
 	{ name: 'Thumbnail', id: '#cdx-thumbnail' },
-	{ name: 'Toggle', id: '#cdx-toggle' },
+	{ name: 'ToggleButton and ToggleSwitch', id: '#cdx-toggle' },
 	{ name: 'ToggleButtonGroup', id: '#cdx-toggle-button-group' },
 	{ name: 'TypeaheadSearch', id: '#cdx-typeahead-search' }
 ];
