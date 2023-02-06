@@ -539,8 +539,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
-@max-width-tab: 16em;
-@width-tabs-header-gradient: 24px;
 @background-color-tabs-framed-tab--hover: rgba( 255, 255, 255, 0.3 );
 @background-color-tabs-framed-tab--active: rgba( 255, 255, 255, 0.8 );
 
@@ -590,7 +588,7 @@ export default defineComponent( {
 		position: absolute;
 		top: 0;
 		z-index: 1;
-		width: @width-tabs-header-gradient;
+		width: @size-150;
 		height: @size-full;
 		pointer-events: none;
 	}
@@ -634,7 +632,7 @@ export default defineComponent( {
 			// By default the `a` element.
 			[ role='tab' ] {
 				display: block;
-				max-width: @max-width-tab;
+				max-width: @size-1600;
 				border-top-left-radius: @border-radius-base;
 				border-top-right-radius: @border-radius-base;
 				padding: @spacing-25 @spacing-75;
