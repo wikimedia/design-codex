@@ -173,8 +173,7 @@ export default defineComponent( {
 	}
 
 	&--background-position &__token {
-		background-repeat: no-repeat;
-		.cdx-mixin-icon-background-image( @cdx-icon-map-pin );
+		.cdx-mixin-css-icon( @cdx-icon-map-pin );
 	}
 
 	&--position &__token {

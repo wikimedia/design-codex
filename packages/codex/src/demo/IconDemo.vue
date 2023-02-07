@@ -23,8 +23,21 @@
 		</p>
 		<h4>Icon with color</h4>
 		<p>
-			<span class="cdx-demo-css-icon cdx-demo-css-icon--trash" />
-			Delete
+			<span class="cdx-demo-css-icon cdx-demo-css-icon--cancel" />
+			Cancel
+		</p>
+		<h4>Icon sizes</h4>
+		<p>
+			<span class="cdx-demo-css-icon--bookmark" />
+			Bookmark (medium)
+		</p>
+		<p>
+			<span class="cdx-demo-css-icon--bell" />
+			Bell (small)
+		</p>
+		<p>
+			<span class="cdx-demo-css-icon--arrow-next" />
+			Arrow next (extra-small)
 		</p>
 		<h4>Flip for RTL</h4>
 		<p>
@@ -98,30 +111,40 @@ import { cdxIconArrowNext, cdxIconBold, cdxIconArticleCheck } from '@wikimedia/c
 @import ( reference ) '../themes/mixins/public/css-icon.less';
 
 .cdx-demo-css-icon {
-	.cdx-mixin-css-icon();
-
 	&--tag {
-		.cdx-mixin-icon-background-image( @cdx-icon-tag );
+		.cdx-mixin-css-icon( @cdx-icon-tag );
 	}
 
-	&--trash {
-		.cdx-mixin-icon-background-image( @cdx-icon-trash, @color-destructive );
+	&--cancel {
+		.cdx-mixin-css-icon( @cdx-icon-cancel, @color-destructive );
+	}
+
+	&--bookmark {
+		.cdx-mixin-css-icon( @cdx-icon-bookmark );
+	}
+
+	&--bell {
+		.cdx-mixin-css-icon( @cdx-icon-bell, @param-size-icon: @size-icon-small );
+	}
+
+	&--arrow-next {
+		.cdx-mixin-css-icon( @cdx-icon-arrow-next, @color-progressive, @size-icon-x-small );
 	}
 
 	&--article {
-		.cdx-mixin-icon-background-image( @cdx-icon-article );
+		.cdx-mixin-css-icon( @cdx-icon-article );
 	}
 
 	&--article-not-found {
-		.cdx-mixin-icon-background-image( @cdx-icon-article-not-found );
+		.cdx-mixin-css-icon( @cdx-icon-article-not-found );
 	}
 
 	&--articles-search {
-		.cdx-mixin-icon-background-image( @cdx-icon-articles-search );
+		.cdx-mixin-css-icon( @cdx-icon-articles-search );
 	}
 
 	&--strikethrough {
-		.cdx-mixin-icon-background-image( @cdx-icon-strikethrough );
+		.cdx-mixin-css-icon( @cdx-icon-strikethrough );
 	}
 }
 </style>

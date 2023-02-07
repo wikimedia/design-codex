@@ -51,28 +51,24 @@ Most components should use Icons in `small` or `medium` size.
 
 ## CSS-only version
 
-You can use icons in a no-JavaScript context via a Less mixin provided by the Codex library.
+You can use icons in a no-JavaScript context via a the CSS icon Less mixin provided by the Codex
+library. To use this mixin, import the mixin file and apply `.cdx-mixin-css-icon()` to an
+empty `<span>` element. The parameters of the mixin are as follows:
 
-1. Import the mixin file, `@wikimedia/codex/mixins/css-icon.less`, with the
-  [reference option](https://lesscss.org/features/#import-atrules-feature-reference).
-  This will ensure your stylesheet only includes the icon variables that you actually use.
-2. Apply the `.cdx-mixin-css-icon()` mixin to your icon. This includes background, display,
-  sizing, and alignment styles for CSS-only icons. Try to apply this mixin to all of your CSS-only
-  icons at once.
-3. Apply the `.cdx-mixin-icon-background-image()` mixin with the icon you want to use passed in as
-  a parameter. See the list of [all icons](../../icons/all-icons.md) for icon names. The syntax for
-  the Less variable version of an icon name is `@cdx-icon-icon-name`, e.g. `@cdx-icon-info-filled`.
-  These Less variables are provided by the mixin file.
+| Param name | Description | Default |
+| ---------- | ----------- | ------- |
+| `@param-icon` <sup class="cdx-docs-required-indicator">(required)</sup> | The icon to use, in the form of a Less variable. These variables are also provided by the mixin file. The syntax for the Less variable version of an icon name is `@cdx-icon-icon-name`, e.g. `@cdx-icon-info-filled`. See the list of [all icons](../../icons/all-icons.md) for icon names. | |
+| `@param-fill-color` | The hex code of the fill color of the icon | `@color-base` |
+| `@param-size-icon` | The icon size | `@size-icon-medium` |
+| `@param-is-button-icon` | Whether the icon is inside of a `<button>` element | `false` |
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<p>
-		<span class="cdx-demo-css-icon cdx-demo-css-icon--tag"></span>
-		Label
+		<span class="cdx-demo-css-icon--tag"></span> Label
 	</p>
 	<p>
-		<span class="cdx-demo-css-icon cdx-demo-css-icon--map-pin"></span>
-		Map pin
+		<span class="cdx-demo-css-icon--map-pin"></span> Map pin
 	</p>
 </template>
 
@@ -80,11 +76,11 @@ You can use icons in a no-JavaScript context via a Less mixin provided by the Co
 
 ```html
 <p>
-	<span class="cdx-demo-css-icon cdx-demo-css-icon--tag"></span>
+	<span class="cdx-demo-css-icon--tag"></span>
 	Label
 </p>
 <p>
-	<span class="cdx-demo-css-icon cdx-demo-css-icon--map-pin"></span>
+	<span class="cdx-demo-css-icon--map-pin"></span>
 	Map pin
 </p>
 ```
@@ -93,14 +89,12 @@ You can use icons in a no-JavaScript context via a Less mixin provided by the Co
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon {
-	.cdx-mixin-css-icon();
-
 	&--tag {
-		.cdx-mixin-icon-background-image( @cdx-icon-tag );
+		.cdx-mixin-css-icon( @cdx-icon-tag );
 	}
 
 	&--map-pin {
-		.cdx-mixin-icon-background-image( @cdx-icon-map-pin );
+		.cdx-mixin-css-icon( @cdx-icon-map-pin );
 	}
 }
 ```
@@ -108,15 +102,15 @@ You can use icons in a no-JavaScript context via a Less mixin provided by the Co
 </template>
 </cdx-demo-wrapper>
 
-### Setting the icon color
+### Icon color
 
-Use the second parameter of the `.cdx-mixin-icon-background-image()` to apply a hex code as the SVG
-fill color.
+Use the second parameter of the `.cdx-mixin-css-icon()` mixin, `@param-fill-color`, to apply a hex
+code as the SVG fill color.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<p>
-		<span class="cdx-demo-css-icon cdx-demo-css-icon--trash"></span>
+		<span class="cdx-demo-css-icon--trash"></span>
 		Delete
 	</p>
 </template>
@@ -125,7 +119,7 @@ fill color.
 
 ```html
 <p>
-	<span class="cdx-demo-css-icon cdx-demo-css-icon--trash"></span>
+	<span class="cdx-demo-css-icon--trash"></span>
 	Delete
 </p>
 ```
@@ -133,11 +127,69 @@ fill color.
 ```less
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
-.cdx-demo-css-icon {
-	.cdx-mixin-css-icon();
+.cdx-demo-css-icon--trash {
+	.cdx-mixin-css-icon( @cdx-icon-trash, @color-destructive );
+}
 
-	&--trash {
-		.cdx-mixin-icon-background-image( @cdx-icon-trash, @color-destructive );
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### Icon sizes
+
+Use the third parameter of the `.cdx-mixin-css-icon()` mixin, `@param-size-icon`, to use one of the pre-defined size options (`@size-icon-medium`, `@size-icon-small`, or `@size-icon-x-small`).
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<p>
+		<span class="cdx-demo-css-icon--bookmark"></span>
+		Bookmark (medium)
+	</p>
+	<p>
+		<span class="cdx-demo-css-icon--bell"></span>
+		Bell (small)
+	</p>
+	<p>
+		<span class="cdx-demo-css-icon--arrow-next"></span>
+		Arrow next (extra-small)
+	</p>
+</template>
+<template v-slot:code>
+
+```html
+<p>
+	<span class="cdx-demo-css-icon--bookmark"></span>
+	Bookmark (medium)
+</p>
+<p>
+	<span class="cdx-demo-css-icon--bell"></span>
+	Bell (small)
+</p>
+<p>
+	<span class="cdx-demo-css-icon--arrow-next"></span>
+	Arrow next (extra-small)
+</p>
+```
+
+```less
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon {
+	&--bookmark {
+		// No size parameter added, so default size of medium will be used.
+		.cdx-mixin-css-icon( @cdx-icon-bookmark );
+	}
+
+	&--bell {
+		// Size parameter included via a named parameter.
+		.cdx-mixin-css-icon( @cdx-icon-bell, @param-size-icon: @size-icon-small );
+	}
+
+	&--arrow-next {
+		// Size parameter included as the third parameter of the mixin.
+		// Useful when you're also including a fill color param.
+		.cdx-mixin-css-icon( @cdx-icon-arrow-next, @color-progressive, @size-icon-x-small );
 	}
 }
 ```
@@ -147,7 +199,7 @@ fill color.
 
 ### Bidirectionality
 
-The CSS-only icons mixin supports icons that differ between the left-to-right (LTR) and
+The CSS icon mixin supports icons that differ between the left-to-right (LTR) and
 right-to-left (RTL) reading directions. To take advantage of this behavior, in RTL contexts, one of
 the following is required:
 
@@ -188,10 +240,8 @@ icon element itself.
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon {
-	.cdx-mixin-css-icon();
-
 	&--article {
-		.cdx-mixin-icon-background-image( @cdx-icon-article );
+		.cdx-mixin-css-icon( @cdx-icon-article );
 	}
 }
 ```
@@ -240,10 +290,8 @@ The CSS-only icons mixin supports icons with language-specific variants.
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon {
-	.cdx-mixin-css-icon();
-
 	&--strikethrough {
-		.cdx-mixin-icon-background-image( @cdx-icon-strikethrough );
+		.cdx-mixin-css-icon( @cdx-icon-strikethrough );
 	}
 }
 ```
@@ -255,26 +303,36 @@ The CSS-only icons mixin supports icons with language-specific variants.
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon {
-	.cdx-mixin-css-icon();
-
 	&--tag {
-		.cdx-mixin-icon-background-image( @cdx-icon-tag );
+		.cdx-mixin-css-icon( @cdx-icon-tag );
 	}
 
 	&--map-pin {
-		.cdx-mixin-icon-background-image( @cdx-icon-map-pin );
+		.cdx-mixin-css-icon( @cdx-icon-map-pin );
 	}
 
 	&--trash {
-		.cdx-mixin-icon-background-image( @cdx-icon-trash, @color-destructive );
+		.cdx-mixin-css-icon( @cdx-icon-trash, @color-destructive );
+	}
+
+	&--bookmark {
+		.cdx-mixin-css-icon( @cdx-icon-bookmark );
+	}
+
+	&--bell {
+		.cdx-mixin-css-icon( @cdx-icon-bell, @param-size-icon: @size-icon-small );
+	}
+
+	&--arrow-next {
+		.cdx-mixin-css-icon( @cdx-icon-arrow-next, @color-progressive, @size-icon-x-small );
 	}
 
 	&--article {
-		.cdx-mixin-icon-background-image( @cdx-icon-article );
+		.cdx-mixin-css-icon( @cdx-icon-article );
 	}
 
 	&--strikethrough {
-		.cdx-mixin-icon-background-image( @cdx-icon-strikethrough );
+		.cdx-mixin-css-icon( @cdx-icon-strikethrough );
 	}
 }
 </style>

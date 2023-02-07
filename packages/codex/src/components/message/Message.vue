@@ -226,6 +226,7 @@ export default defineComponent( {
 } );
 </script>
 
+<!-- eslint-disable max-len -->
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
@@ -236,17 +237,6 @@ export default defineComponent( {
 	display: flex;
 	align-items: flex-start;
 	position: relative;
-
-	&__icon {
-		.cdx-mixin-css-icon();
-	}
-
-	&__icon,
-	&__icon--vue {
-		// Vertically align icon with the text. Flexbox on its own is not enough here.
-		// Use close enough height to `&__content`'s `line-height`.
-		height: @size-150;
-	}
 
 	// Add space between stacked messages.
 	& + & {
@@ -299,7 +289,7 @@ export default defineComponent( {
 
 	&--warning {
 		.cdx-message__icon {
-			.cdx-mixin-icon-background-image( @cdx-icon-alert, @border-color-warning );
+			.cdx-mixin-css-icon( @cdx-icon-alert, @border-color-warning );
 		}
 
 		.cdx-message__icon--vue {
@@ -309,7 +299,7 @@ export default defineComponent( {
 
 	&--error {
 		.cdx-message__icon {
-			.cdx-mixin-icon-background-image( @cdx-icon-error, @color-error );
+			.cdx-mixin-css-icon( @cdx-icon-error, @color-error );
 		}
 
 		.cdx-message__icon--vue {
@@ -319,7 +309,7 @@ export default defineComponent( {
 
 	&--success {
 		.cdx-message__icon {
-			.cdx-mixin-icon-background-image( @cdx-icon-success, @color-success );
+			.cdx-mixin-css-icon( @cdx-icon-success, @color-success );
 		}
 
 		.cdx-message__icon--vue {
@@ -330,7 +320,7 @@ export default defineComponent( {
 	// Aka &--notice. Writing it this way allows `.cdx-message--notice` to become the default.
 	&:not( .cdx-message--warning ):not( .cdx-message--error ):not( .cdx-message--success ) {
 		.cdx-message__icon {
-			.cdx-mixin-icon-background-image( @cdx-icon-info-filled );
+			.cdx-mixin-css-icon( @cdx-icon-info-filled );
 		}
 	}
 
@@ -340,6 +330,20 @@ export default defineComponent( {
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			padding-right: @min-size-base + @spacing-150;
 		}
+	}
+
+	// Note that for CSS-only icons, the height is already set as part of `.cdx-mixin-css-icon()`,
+	// which is applied above for each message type. In order to override the height here, we have
+	// to match the specificity of the selectors above.
+	// For all types except notice, this means targeting `.cdx-message .cdx-message__icon`.
+	// For the notice type, this means matching the chain of `:not()` selectors used above.
+	/* stylelint-disable-next-line no-descending-specificity */
+	& &__icon,
+	&:not( .cdx-message--warning ):not( .cdx-message--error ):not( .cdx-message--success ) .cdx-message__icon,
+	&__icon--vue {
+		// Vertically align icon with the text. Flexbox on its own is not enough here.
+		// Use close enough height to `&__content`'s `line-height`.
+		height: @size-150;
 	}
 
 	&__content {
@@ -392,3 +396,4 @@ export default defineComponent( {
 	}
 }
 </style>
+<!-- eslint-enable max-len -->

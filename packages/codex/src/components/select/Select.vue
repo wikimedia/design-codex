@@ -275,21 +275,18 @@ export default defineComponent( {
 // This is the CSS-only version, which is a `<select>` element.
 .cdx-select {
 	.cdx-select__handle();
+	.cdx-mixin-css-icon-background( @size-indicator, center right @spacing-75 );
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	appearance: none;
-	background-position: center right @spacing-75;
-	background-repeat: no-repeat;
-	// Don't allow the icon to be smaller than the min-size, but allow it to grow.
-	background-size: calc( max( @size-indicator, @min-size-indicator ) );
 
 	&:disabled {
 		.cdx-select__handle--disabled();
-		.cdx-mixin-icon-background-image( @cdx-icon-expand, @color-disabled );
+		.cdx-mixin-css-icon-background-image( @cdx-icon-expand, @color-disabled );
 	}
 
 	&:enabled {
 		.cdx-select__handle--enabled();
-		.cdx-mixin-icon-background-image( @cdx-icon-expand );
+		.cdx-mixin-css-icon-background-image( @cdx-icon-expand );
 	}
 }
 

@@ -2,27 +2,68 @@
 @import ( reference ) '@wikimedia/codex-icons/dist/codex-icon-paths.less';
 
 //
-// To use an icon:
-// - Import this file
-// - Apply the .cdx-mixin-css-icon() mixin to the icon span
-// - Use the .cdx-mixin-icon-background-image() mixin to apply the appropriate background image.
-//   This mixin accounts for icons that vary by reading direction or language.
+// To create a CSS-only icon you can do one of the following:
+// 1. Apply the .cdx-mixin-css-icon() mixin to an empty <span>, passing in at least the icon param.
+//    This method should suffice for any square icon that can exist as a standalone element. This
+//    mixin applies all of the other mixins inside this file. See Message.vue for sample usage.
+// 2. Apply the individual CSS icon mixins for background, size, alignment, and/or background-image
+//    rules to any element. This can be used to apply an icon within another element, like the
+//    <select> handle. See Select.vue for sample usage.
 //
-.cdx-mixin-css-icon() {
-	background-position: @background-position-base;
+// These mixins account for icons that vary by reading direction or language.
+//
+
+// Get the associated min-size-icon from a size-icon token.
+.get-calculated-min-size-icon( @param-size-icon ) when ( @param-size-icon = @size-icon-medium ) {
+	@calculated-min-size-icon: @min-size-icon-medium;
+}
+.get-calculated-min-size-icon( @param-size-icon ) when ( @param-size-icon = @size-icon-small ) {
+	@calculated-min-size-icon: @min-size-icon-small;
+}
+.get-calculated-min-size-icon( @param-size-icon ) when ( @param-size-icon = @size-icon-x-small ) {
+	@calculated-min-size-icon: @min-size-icon-x-small;
+}
+
+//
+// Get background rules for a CSS icon.
+//
+// @param {string} size-icon - The size of the icon, used to set background-size
+// @param {string} background-position - The background position value
+.cdx-mixin-css-icon-background( @param-size-icon: @size-icon-medium, @param-background-position: @background-position-base ) {
+	.get-calculated-min-size-icon( @param-size-icon );
+	background-position: @param-background-position;
 	background-repeat: no-repeat;
 	// Set background size to the relative @size-icon or to @min-size-icon, whichever is larger.
 	// This ensures that the icon will never appear smaller than @min-size-icon.
-	background-size: calc( max( @size-icon, @min-size-icon ) );
-	display: inline-block;
+	background-size: calc( max( @param-size-icon, @calculated-min-size-icon ) );
+}
+
+//
+// Get size styles for a CSS icon.
+//
+// This sets min-width, min-height, width, and height for a square icon.
+//
+// @param {string} size-icon: The size of the icon (base, small, x-small, or indicator)
+//
+.cdx-mixin-css-icon-size ( @param-size-icon: @size-icon-medium ) {
+	.get-calculated-min-size-icon( @param-size-icon );
 	// Set the default icon size.
-	min-width: @min-size-icon;
-	min-height: @min-size-icon;
+	min-width: @calculated-min-size-icon;
+	min-height: @calculated-min-size-icon;
 	// Scale width/height of the span with font size.
-	width: @size-icon;
-	height: @size-icon;
+	width: @param-size-icon;
+	height: @param-size-icon;
+}
+
+//
+// Get alignment styles for a CSS icon.
+//
+// @param {string} vertical-align: The vertical-align value
+//
+.cdx-mixin-css-icon-alignment( @param-vertical-align: text-bottom ) {
+	display: inline-block;
 	// Vertically align surrounding text in inline, inline-block, and table contexts.
-	vertical-align: text-bottom;
+	vertical-align: @param-vertical-align;
 }
 
 //
@@ -42,10 +83,10 @@
 //   icon data. The first item in the pair is a lang code and the second is the icon path for that
 //   language.
 //
-// @param {string} icon - The icon to show (follows the pattern @cdx-icon-icon-name, e.g. @cdx-icon-info-filled
+// @param {string} icon - The icon to show (follows the pattern @cdx-icon-icon-name, e.g. @cdx-icon-info-filled )
 // @param {hex} fill-color - The fill color of the icon (defaults to @color-base)
 //
-.cdx-mixin-icon-background-image( @param-icon, @param-fill-color: @color-base ) {
+.cdx-mixin-css-icon-background-image( @param-icon, @param-fill-color: @color-base, @param-is-button-icon: false ) {
 	// Extract icon data from the list.
 	@default-icon: extract( @param-icon, 1 );
 	@should-flip: extract( @param-icon, 2 );
@@ -102,11 +143,37 @@
 			@lang-icon: extract( @lang-data, 2 );
 
 			&:lang( @{lang-code} ) {
-				background-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="@{escaped-hex-code}"> @{lang-icon}</svg>' );
+				background-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="@{escaped-hex-code}">@{lang-icon}</svg>' );
 			}
 			.get-lang-rules( @i + 1 );
 		}
 
 		.get-lang-rules();
 	}
+}
+
+//
+// Create a square, standalone CSS icon.
+//
+// @param {string} icon - The icon to show (follows the pattern @cdx-icon-icon-name, e.g. @cdx-icon-info-filled )
+// @param {hex} fill-color - The fill color of the icon
+// @param {string} size-icon: The size of the icon
+// @param {boolean} is-button-icon: Whether this icon is inside of a <button> element.
+// @param {string} background-position - The background position value
+// @param {string} vertical-align: The vertical-align value
+//
+/* stylelint-disable indentation */
+.cdx-mixin-css-icon(
+	@param-icon,
+	@param-fill-color: @color-base,
+	@param-size-icon: @size-icon-medium,
+	@param-is-button-icon: false,
+	@param-background-position: @background-position-base,
+	@param-vertical-align: text-bottom
+) {
+/* stylelint-enable indentation */
+	.cdx-mixin-css-icon-background( @param-size-icon, @param-background-position );
+	.cdx-mixin-css-icon-size( @param-size-icon );
+	.cdx-mixin-css-icon-alignment( @param-vertical-align );
+	.cdx-mixin-css-icon-background-image( @param-icon, @param-fill-color, @param-is-button-icon );
 }
