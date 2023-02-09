@@ -833,8 +833,10 @@ export default defineComponent( {
 			padding-left: @spacing-start-typeahead-search-figure;
 
 			&__icon {
-				// Prevent the icon container from shrinking when large text is present
+				// Prevent the icon container from shrinking when large text is present.
 				flex-shrink: 0;
+				// Prevent the icon container from shrinking on smaller base font sizes.
+				min-width: @min-size-search-figure;
 				width: @size-search-figure;
 			}
 
