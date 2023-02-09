@@ -709,10 +709,6 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
 
 // TODO: Tokenize.
-// Value of thumbnail as declared within the MenuItem component.
-@min-size-search-figure: 40px;
-@size-search-figure: @size-250;
-
 // The amount of space between the TypeaheadSearch figure's parent component and the
 // typeahead search figure (input icon container, search result thumbnail, and footer icon
 // container). We want this space to be uniform so that the figures vertically line up

@@ -71,6 +71,12 @@
 			"value": "{ background-color.progressive--hover }"
 		}
 	},
+	"background-size": {
+		"search-figure": {
+			"comment": "Use in TypeaheadSearch and Thumbnail components for the thumb container.",
+			"value": "{ background-size.cover }"
+		}
+	},
 	"color": {
 		"primary": {
 			"deprecated": "In use in many non-button applications as references in WikimediaUI Base. Note that we have to replace those before removing tokens group here.",
@@ -130,6 +136,10 @@
 			"deprecated": true,
 			"value": "{ min-size.icon-x-small }"
 		},
+		"search-figure": {
+			"comment": "Alias for use in TypeaheadSearch and Thumbnail components for the same purpose and for better code readability.",
+			"value": "{ dimension.250 }{ unit.system }"
+		},
 		"toggle-switch-grip": {
 			"value": "{ dimension.125 }{ unit.system }"
 		}
@@ -151,6 +161,10 @@
 		"indicator": {
 			"deprecated": true,
 			"value": "{ size.icon-x-small }"
+		},
+		"search-figure": {
+			"comment": "Alias for use in TypeaheadSearch and Thumbnail components for the same purpose and for better code readability.",
+			"value": "{ dimension.250 }{ unit.system }"
 		}
 	},
 	"min-width": {

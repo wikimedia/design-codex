@@ -90,9 +90,6 @@ export default defineComponent( {
 
 // TODO: Tokenize.
 @background-size-search-figure: cover;
-@min-size-search-figure: 40px;
-// Value of thumbnail as declared within the MenuItem component.
-@size-search-figure: @size-250;
 
 .cdx-thumbnail {
 	// `flex` prevents a descender from being added below the image; `inline` limits width of this
@@ -107,6 +104,7 @@ export default defineComponent( {
 		// Thumbnail should never shrink when it's in a flex layout with other elements.
 		flex-shrink: 0;
 		box-sizing: @box-sizing-base;
+		// Values of thumbnail as declared within the MenuItem component, f.e. in TypeaheadSearch.
 		min-width: @min-size-search-figure;
 		min-height: @min-size-search-figure;
 		width: @size-search-figure;

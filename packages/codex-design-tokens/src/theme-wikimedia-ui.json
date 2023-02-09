@@ -154,6 +154,11 @@
 			"value": "center"
 		}
 	},
+	"background-size": {
+		"cover": {
+			"value": "cover"
+		}
+	},
 	"z-index": {
 		"0": {
 			"value": "0"
