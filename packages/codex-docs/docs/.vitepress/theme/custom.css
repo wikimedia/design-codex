@@ -2,7 +2,6 @@
 @import '@wikimedia/codex-design-tokens/theme-wikimedia-ui.css';
 
 /* stylelint-disable selector-class-pattern */
-/* stylelint-disable unit-disallowed-list */
 
 :root {
 	/* Override base VitePress theme variables with Codex design tokens. */
@@ -60,20 +59,54 @@ body {
 	 */
 	font-size: initial;
 	/* Set `line-height` to medium `1.6` in default theme. This also fulfills the
-	 * WCAG 2.1 AA requirement for line height of at least 1.5.
+	 * WCAG 2.2 AA requirement for line height of at least 1.5.
 	 */
 	line-height: var( --line-height-medium );
 }
 
-.vp-doc h1 {
-	font-family: var( --font-family-heading-main );
-	font-weight: var( --font-weight-normal );
+/* Use `initial` to reset VitePress' opinionated `letter-spacing` to browser default.
+ * In future, replace by `.vp-doc :is( h1, … )`.
+ */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6 {
 	letter-spacing: initial;
 }
 
+.vp-doc h1 {
+	font-family: var( --font-family-heading-main );
+	font-size: var( --font-size-xxx-large );
+	font-weight: var( --font-weight-normal );
+}
+
+.vp-doc h2 {
+	padding-top: var( --spacing-300 );
+	font-size: var( --font-size-xx-large );
+}
+
+.vp-doc h3 {
+	font-size: var( --font-size-x-large );
+}
+
 .vp-doc h4 {
-	/* Match h3 styles from VitePress. */
-	margin-top: 1.15rem;
+	margin-top: var( --spacing-125 );
+	font-size: var( --font-size-large );
+}
+
+.vp-doc h3 + h4 {
+	margin-top: var( --spacing-150 );
+}
+
+.vp-doc h5 {
+	margin-top: var( --spacing-125 );
+	font-size: var( --font-size-medium );
+}
+
+.vp-doc h6 {
+	font-size: var( --font-size-medium );
 }
 
 .vp-doc a {
@@ -92,6 +125,15 @@ body {
 .vp-doc li {
 	clear: both;
 	line-height: var( --line-height-medium );
+}
+
+.vp-doc h1 + p {
+	margin-top: var( --spacing-125 );
+}
+
+.vp-doc img,
+.vp-doc video {
+	margin-top: var( --spacing-125 );
 }
 
 .vp-doc table {
@@ -265,6 +307,8 @@ pre[ class*='language-' ] {
 /* See https://vitepress.vuejs.org/guide/markdown.html#custom-containers. */
 .vp-doc .custom-block {
 	clear: both;
+	margin-top: var( --spacing-100 );
+	margin-bottom: var( --spacing-200 );
 	border-radius: var( --border-radius-base );
 	font-size: var( --font-size-medium );
 	line-height: var( --line-height-medium );
