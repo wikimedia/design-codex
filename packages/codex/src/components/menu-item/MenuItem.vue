@@ -6,7 +6,7 @@
 		:class="rootClasses"
 		:aria-disabled="disabled"
 		:aria-selected="selected"
-		@mouseenter="onMouseEnter"
+		@mousemove="onMouseMove"
 		@mouseleave="onMouseLeave"
 		@mousedown.prevent="onMouseDown"
 		@click="onClick"
@@ -164,7 +164,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Whether this menu item is hovered over or highlighted via keyboard navigation.
+		 * Whether this menu item is visually highlighted due to hover or keyboard navigation.
 		 */
 		highlighted: {
 			type: Boolean,
@@ -288,8 +288,21 @@ export default defineComponent( {
 	],
 
 	setup: ( props, { emit } ) => {
-		const onMouseEnter = () => {
-			emit( 'change', 'highlighted', true );
+		/**
+		 * Handle mousemove event.
+		 *
+		 * We use mousemove to achieve these behaviors:
+		 *  - MenuItem will not be highlighted if the cursor happens to be on top of it when the
+		 *    Menu expands, only when the user intentionally moves the mouse.
+		 *  - In the case that the cursor is over the MenuItem but another MenuItem is highlighted,
+		 *    on mousemove this item will become highlighted immediately.
+		 */
+		const onMouseMove = () => {
+			// Only emit an event if this item is not already highlighted. This is necessary because
+			// mousemove will fire on every move of the mouse over this element.
+			if ( !props.highlighted ) {
+				emit( 'change', 'highlighted', true );
+			}
 		};
 
 		const onMouseLeave = () => {
@@ -341,7 +354,7 @@ export default defineComponent( {
 		const title = computed( () => props.label || String( props.value ) );
 
 		return {
-			onMouseEnter,
+			onMouseMove,
 			onMouseLeave,
 			onMouseDown,
 			onClick,
@@ -431,14 +444,12 @@ export default defineComponent( {
 			color: @color-subtle;
 		}
 
-		&:hover,
 		&.cdx-menu-item--highlighted {
 			background-color: @background-color-interactive;
 			cursor: @cursor-base--hover;
 		}
 
-		&.cdx-menu-item--active,
-		&.cdx-menu-item--active:hover {
+		&.cdx-menu-item--active {
 			background-color: @background-color-progressive-subtle;
 			color: @color-progressive;
 
@@ -448,12 +459,10 @@ export default defineComponent( {
 			}
 		}
 
-		&.cdx-menu-item--selected,
-		&.cdx-menu-item--selected:hover {
+		&.cdx-menu-item--selected {
 			background-color: @background-color-progressive-subtle;
 		}
 
-		&.cdx-menu-item--selected:hover,
 		&.cdx-menu-item--selected.cdx-menu-item--highlighted {
 			color: @color-progressive;
 

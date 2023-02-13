@@ -402,7 +402,7 @@ it( 'Enter keydown while hovering over an item does not select that item', async
 
 	// Highlight first menu item via hover.
 	const firstMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 0 ];
-	await firstMenuItem.trigger( 'mouseenter' );
+	await firstMenuItem.trigger( 'mousemove' );
 	expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( exampleMenuItems[ 0 ] );
 
 	await delegateKeydownEvent( wrapper, 'Enter' );
@@ -491,11 +491,11 @@ it( 'Highlight state is not preserved after menu is closed', async () => {
 	expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
 } );
 
-it( 'Menu item becomes highlighted on mouseenter and un-highlighted on mouseleave', async () => {
+it( 'Menu item becomes highlighted on mousemove and un-highlighted on mouseleave', async () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps } );
 	const firstMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 0 ];
 
-	await firstMenuItem.trigger( 'mouseenter' );
+	await firstMenuItem.trigger( 'mousemove' );
 	expect( firstMenuItem.classes() ).toContain( 'cdx-menu-item--highlighted' );
 	await firstMenuItem.trigger( 'mouseleave' );
 	expect( firstMenuItem.classes() ).not.toContain( 'cdx-menu-item--highlighted' );
@@ -505,55 +505,55 @@ it( 'Menu item becomes un-active on mouseleave', async () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps } );
 	const firstMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 0 ];
 
-	await firstMenuItem.trigger( 'mouseenter' );
+	await firstMenuItem.trigger( 'mousemove' );
 	await firstMenuItem.trigger( 'mousedown' );
 	expect( firstMenuItem.classes() ).toContain( 'cdx-menu-item--active' );
 	await firstMenuItem.trigger( 'mouseleave' );
 	expect( firstMenuItem.classes() ).not.toContain( 'cdx-menu-item--active' );
 } );
 
-it( 'Menu item becomes active on mouseenter -> mousedown', async () => {
+it( 'Menu item becomes active on mousemove -> mousedown', async () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps } );
 	const firstMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 0 ];
 	expect( firstMenuItem.classes() ).not.toContain( 'cdx-menu-item--active' );
 
-	await firstMenuItem.trigger( 'mouseenter' );
+	await firstMenuItem.trigger( 'mousemove' );
 	await firstMenuItem.trigger( 'mousedown' );
 	expect( firstMenuItem.classes() ).toContain( 'cdx-menu-item--active' );
 } );
 
-it( 'Menu item is active after mouseenter -> mousedown -> mouseleave -> mouseenter', async () => {
+it( 'Menu item is active after mousemove -> mousedown -> mouseleave -> mousemove', async () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps } );
 	const firstMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 0 ];
 	expect( firstMenuItem.classes() ).not.toContain( 'cdx-menu-item--active' );
 
-	await firstMenuItem.trigger( 'mouseenter' );
+	await firstMenuItem.trigger( 'mousemove' );
 	await firstMenuItem.trigger( 'mousedown' );
 	expect( firstMenuItem.classes() ).toContain( 'cdx-menu-item--active' );
 	await firstMenuItem.trigger( 'mouseleave' );
 	expect( firstMenuItem.classes() ).not.toContain( 'cdx-menu-item--active' );
-	await firstMenuItem.trigger( 'mouseenter' );
+	await firstMenuItem.trigger( 'mousemove' );
 	expect( firstMenuItem.classes() ).toContain( 'cdx-menu-item--active' );
 } );
 
-it( 'Menu item is not active after mouseenter -> mousedown -> mouseleave -> mouseup -> mouseenter', async () => {
+it( 'Menu item is not active after mousemove -> mousedown -> mouseleave -> mouseup -> mousemove', async () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps, attachTo: 'body' } );
 	const firstMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 0 ];
 	expect( firstMenuItem.classes() ).not.toContain( 'cdx-menu-item--active' );
 
-	await firstMenuItem.trigger( 'mouseenter' );
+	await firstMenuItem.trigger( 'mousemove' );
 	await firstMenuItem.trigger( 'mousedown' );
 	expect( firstMenuItem.classes() ).toContain( 'cdx-menu-item--active' );
 	await firstMenuItem.trigger( 'mouseleave' );
 	await wrapper.trigger( 'mouseup' );
-	await firstMenuItem.trigger( 'mouseenter' );
+	await firstMenuItem.trigger( 'mousemove' );
 	expect( firstMenuItem.classes() ).not.toContain( 'cdx-menu-item--active' );
 } );
 
 it( 'Menu item becomes inactive after click', async () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps } );
 	const firstMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 0 ];
-	await firstMenuItem.trigger( 'mouseenter' );
+	await firstMenuItem.trigger( 'mousemove' );
 	await firstMenuItem.trigger( 'mousedown' );
 	expect( firstMenuItem.classes() ).toContain( 'cdx-menu-item--active' );
 
@@ -564,7 +564,7 @@ it( 'Menu item becomes inactive after click', async () => {
 it( 'Menu item becomes inactive when clearActive is called', async () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps } );
 	const firstMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 0 ];
-	await firstMenuItem.trigger( 'mouseenter' );
+	await firstMenuItem.trigger( 'mousemove' );
 	await firstMenuItem.trigger( 'mousedown' );
 	expect( firstMenuItem.classes() ).toContain( 'cdx-menu-item--active' );
 
@@ -576,12 +576,12 @@ it( 'Menu item becomes inactive when clearActive is called', async () => {
 it( 'Menu item becomes inactive when another item becomes active', async () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps } );
 	const firstMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 0 ];
-	await firstMenuItem.trigger( 'mouseenter' );
+	await firstMenuItem.trigger( 'mousemove' );
 	await firstMenuItem.trigger( 'mousedown' );
 	expect( firstMenuItem.classes() ).toContain( 'cdx-menu-item--active' );
 
 	const secondMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 1 ];
-	await secondMenuItem.trigger( 'mouseenter' );
+	await secondMenuItem.trigger( 'mousemove' );
 	await secondMenuItem.trigger( 'mousedown' );
 	expect( secondMenuItem.classes() ).toContain( 'cdx-menu-item--active' );
 	expect( firstMenuItem.classes() ).not.toContain( 'cdx-menu-item--active' );
