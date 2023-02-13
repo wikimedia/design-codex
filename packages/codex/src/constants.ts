@@ -47,6 +47,7 @@ export const ValidationStatusTypes = [
 export const MenuStates = [
 	'selected',
 	'highlighted',
+	'highlightedViaKeyboard',
 	'active'
 ] as const;
 

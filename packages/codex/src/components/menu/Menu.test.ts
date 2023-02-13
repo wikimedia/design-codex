@@ -390,6 +390,26 @@ it( 'Enter keydown after navigating to a new item emits an update event with the
 	expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ exampleMenuItems[ 2 ].value ] );
 } );
 
+it( 'Enter keydown while hovering over an item does not select that item', async () => {
+	const wrapper = mount( CdxMenu, { props: {
+		...defaultProps,
+		expanded: false
+	} } );
+	// Enter opens the menu
+	await delegateKeydownEvent( wrapper, 'Enter' );
+	// Simulate the parent responding to the update:expanded event
+	await wrapper.setProps( { expanded: true } );
+
+	// Highlight first menu item via hover.
+	const firstMenuItem = wrapper.findAllComponents( CdxMenuItem )[ 0 ];
+	await firstMenuItem.trigger( 'mouseenter' );
+	expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( exampleMenuItems[ 0 ] );
+
+	await delegateKeydownEvent( wrapper, 'Enter' );
+
+	expect( wrapper.emitted()[ 'update:selected' ] ).toBeUndefined();
+} );
+
 it( 'Tab key after navigating to a new item emits an update event with the value of that item', async () => {
 	const wrapper = mount( CdxMenu, { props: {
 		...defaultProps,

@@ -250,6 +250,7 @@ export default defineComponent( {
 	expose: [
 		'clearActive',
 		'getHighlightedMenuItem',
+		'getHighlightedViaKeyboard',
 		'delegateKeyNavigation'
 	],
 	setup( props, { emit, slots, attrs } ) {
@@ -286,6 +287,7 @@ export default defineComponent( {
 		} );
 
 		const highlightedMenuItem = ref<MenuItemDataWithId|null>( null );
+		const highlightedViaKeyboard = ref( false );
 		const activeMenuItem = ref<MenuItemDataWithId|null>( null );
 
 		function findSelectedMenuItem(): MenuItemDataWithId|undefined {
@@ -311,8 +313,15 @@ export default defineComponent( {
 					emit( 'update:expanded', false );
 					activeMenuItem.value = null;
 					break;
+
 				case 'highlighted':
 					highlightedMenuItem.value = menuItem || null;
+					highlightedViaKeyboard.value = false;
+					break;
+
+				case 'highlightedViaKeyboard':
+					highlightedMenuItem.value = menuItem || null;
+					highlightedViaKeyboard.value = true;
 					break;
 
 				case 'active':
@@ -342,13 +351,13 @@ export default defineComponent( {
 		 *
 		 * @param newHighlightedMenuItem
 		 */
-		function handleHighlight( newHighlightedMenuItem?: MenuItemDataWithId ) {
+		function handleHighlightViaKeyboard( newHighlightedMenuItem?: MenuItemDataWithId ) {
 			if ( !newHighlightedMenuItem ) {
 				return;
 			}
 
 			// Change menu state.
-			handleMenuItemChange( 'highlighted', newHighlightedMenuItem );
+			handleMenuItemChange( 'highlightedViaKeyboard', newHighlightedMenuItem );
 
 			// Emit a key navigation event in case the parent
 			// needs to update the input value
@@ -377,7 +386,7 @@ export default defineComponent( {
 			const prev = findPrevEnabled( highlightedIndex ) ??
 				findPrevEnabled( computedMenuItems.value.length );
 
-			handleHighlight( prev );
+			handleHighlightViaKeyboard( prev );
 		}
 
 		/**
@@ -397,7 +406,7 @@ export default defineComponent( {
 			// loop back
 			const next = findNextEnabled( highlightedIndex ) || findNextEnabled( -1 );
 
-			handleHighlight( next );
+			handleHighlightViaKeyboard( next );
 		}
 
 		// Handle keyboard events delegated by the parent component. Wrapped by
@@ -431,7 +440,7 @@ export default defineComponent( {
 
 					if ( props.expanded ) {
 						// Select the highlighted menu item then close the menu.
-						if ( highlightedMenuItem.value ) {
+						if ( highlightedMenuItem.value && highlightedViaKeyboard.value ) {
 							emit( 'update:selected', highlightedMenuItem.value.value );
 						}
 						emit( 'update:expanded', false );
@@ -442,7 +451,7 @@ export default defineComponent( {
 				case 'Tab':
 					if ( props.expanded ) {
 						// Select the highlighted menu item then close the menu.
-						if ( highlightedMenuItem.value ) {
+						if ( highlightedMenuItem.value && highlightedViaKeyboard.value ) {
 							emit( 'update:selected', highlightedMenuItem.value.value );
 						}
 						emit( 'update:expanded', false );
@@ -455,7 +464,7 @@ export default defineComponent( {
 					// which will result in T304640.
 					if ( props.expanded ) {
 						if ( highlightedMenuItem.value === null ) {
-							handleMenuItemChange( 'highlighted', findSelectedMenuItem() );
+							handleMenuItemChange( 'highlightedViaKeyboard', findSelectedMenuItem() );
 						}
 						highlightPrev( highlightedMenuItemIndex.value );
 					} else {
@@ -468,7 +477,7 @@ export default defineComponent( {
 
 					if ( props.expanded ) {
 						if ( highlightedMenuItem.value === null ) {
-							handleMenuItemChange( 'highlighted', findSelectedMenuItem() );
+							handleMenuItemChange( 'highlightedViaKeyboard', findSelectedMenuItem() );
 						}
 						highlightNext( highlightedMenuItemIndex.value );
 					} else {
@@ -482,7 +491,7 @@ export default defineComponent( {
 
 					if ( props.expanded ) {
 						if ( highlightedMenuItem.value === null ) {
-							handleMenuItemChange( 'highlighted', findSelectedMenuItem() );
+							handleMenuItemChange( 'highlightedViaKeyboard', findSelectedMenuItem() );
 						}
 						highlightNext();
 					} else {
@@ -496,7 +505,7 @@ export default defineComponent( {
 
 					if ( props.expanded ) {
 						if ( highlightedMenuItem.value === null ) {
-							handleMenuItemChange( 'highlighted', findSelectedMenuItem() );
+							handleMenuItemChange( 'highlightedViaKeyboard', findSelectedMenuItem() );
 						}
 						highlightPrev();
 					} else {
@@ -694,6 +703,7 @@ export default defineComponent( {
 			computedMenuItems,
 			computedShowNoResultsSlot,
 			highlightedMenuItem,
+			highlightedViaKeyboard,
 			activeMenuItem,
 			handleMenuItemChange,
 			handleKeyNavigation
@@ -712,6 +722,16 @@ export default defineComponent( {
 		 */
 		getHighlightedMenuItem(): MenuItemDataWithId|null {
 			return this.highlightedMenuItem;
+		},
+
+		/**
+		 * Get whether the last highlighted item was highlighted via the keyboard.
+		 *
+		 * @public
+		 * @return {boolean} Whether the last highlighted menu item was highlighted via keyboard.
+		 */
+		getHighlightedViaKeyboard(): boolean {
+			return this.highlightedViaKeyboard;
 		},
 
 		/**

@@ -589,11 +589,15 @@ export default defineComponent( {
 			}
 
 			const highlightedResult = menu.value.getHighlightedMenuItem();
+			const resultHighlightedViaKeyboard = menu.value.getHighlightedViaKeyboard();
 			switch ( e.key ) {
 				case 'Enter':
 					if ( highlightedResult ) {
-						// If this is the search footer...
-						if ( highlightedResult.value === MenuFooterValue ) {
+						// If this is the search footer and it was highlighted via keyboard nav...
+						if (
+							highlightedResult.value === MenuFooterValue &&
+							resultHighlightedViaKeyboard
+						) {
 							// Directly navigate to the search footer URL so the link is the same on
 							// both mouse and keyboard.
 							window.location.assign( searchFooterUrl.value );
