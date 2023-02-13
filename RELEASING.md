@@ -72,6 +72,34 @@ Then, submit this commit to Gerrit for review:
 $ git review
 ```
 
+### Update VueTest and test for visual regressions
+
+Before this patch gets merged, you can test the new release of Codex via VueTest and Pixel.
+
+0. Ensure you have up-to-date local copies of the [VueTest extension](https://gerrit.wikimedia.org/r/admin/repos/mediawiki/extensions/VueTest,general)
+and the [Pixel repository](https://github.com/wikimedia/pixel). Run `npm install` in both. You
+will also need to have Docker running.
+1. Update VueTest to point at the Codex release patch. In the VueTest extension, `cd lib/codex`,
+then pull in the release patch. `cd ../..` back to the root of VueTest, then run
+`npm run codex:build-demos`. Commit the changes and open a patch in Gerrit.
+2. Capture Pixel reference images. In the Pixel repository, run `./pixel.js reference -g codex`.
+This will capture snapshots of the Codex components on the VueTest sandbox page based on the
+`master` branch of core and VueTest. This will take several minutes to run. When it finishes,
+open `http://localhost:3000/wiki/Special:VueTest/codex` in your browser - this is the VueTest
+sandbox page based on the master branch. Keep this page open.
+3. Capture Pixel test images. In the Pixel repository, run `./pixel.js test -g codex -c [patch number]`,
+with the patch number being the number of the VueTest patch you just opened. This will take
+several minutes. When it's done, it will pop up the results in your browser. You can also open `http://localhost:3000/wiki/Special:VueTest/codex` in a new browser tab to see the sandbox
+page based on your patch.
+4. Review the results. The BackstopJS UI will show you which tests failed. You can click on a
+test to see the reference, test, and a diff. You can also inspect elements on the sandbox pages
+you opened in your browser to compare the reference page versus the test page.
+
+If there are any unexpected regressions, a bug fix might be needed before the release patch can be
+merged. If there are no unexpected changes, you can move to the next step.
+
+### Get the Codex patch merged
+
 Ask someone else to review the release commit in Gerrit and merge it. Ideally, this should happen
 quickly, before any other changes are merged (if other changes are merged in the meantime, you
 should regenerate the release commit). It's best to talk to a reviewer ahead of time to make sure
