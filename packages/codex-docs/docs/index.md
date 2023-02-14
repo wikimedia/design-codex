@@ -114,6 +114,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 		// Need to put `.vp-doc` here to override the default VitePress heading styles.
 		.vp-doc &__title {
+			color: @color-inverted;
 			font-family: @font-family-sans;
 			font-size: @font-size-cdx-docs-title;
 			font-weight: @font-weight-bold;

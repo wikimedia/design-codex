@@ -64,36 +64,49 @@ body {
 	line-height: var( --line-height-medium );
 }
 
-/* Use `initial` to reset VitePress' opinionated `letter-spacing` to browser default.
- * In future, replace by `.vp-doc :is( h1, … )`.
- */
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3,
 .vp-doc h4,
 .vp-doc h5,
 .vp-doc h6 {
+	color: var( --color-emphasized );
+	/* Use `initial` to reset VitePress' opinionated `letter-spacing` to browser default.
+	 * In future, replace by `.vp-doc :is( h1, … )`.
+	 */
 	letter-spacing: initial;
+}
+
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6 {
+	font-weight: var( --font-weight-bold );
 }
 
 .vp-doc h1 {
 	font-family: var( --font-family-heading-main );
 	font-size: var( --font-size-xxx-large );
 	font-weight: var( --font-weight-normal );
+	line-height: var( --line-height-xxx-small );
 }
 
 .vp-doc h2 {
 	padding-top: var( --spacing-300 );
 	font-size: var( --font-size-xx-large );
+	line-height: var( --line-height-xxx-small );
 }
 
 .vp-doc h3 {
 	font-size: var( --font-size-x-large );
+	line-height: var( --line-height-xxx-small );
 }
 
 .vp-doc h4 {
 	margin-top: var( --spacing-125 );
 	font-size: var( --font-size-large );
+	line-height: var( --line-height-xxx-small );
 }
 
 .vp-doc h3 + h4 {
@@ -103,10 +116,12 @@ body {
 .vp-doc h5 {
 	margin-top: var( --spacing-125 );
 	font-size: var( --font-size-medium );
+	line-height: var( --line-height-xxx-small );
 }
 
 .vp-doc h6 {
 	font-size: var( --font-size-medium );
+	line-height: var( --line-height-medium );
 }
 
 .vp-doc a {
