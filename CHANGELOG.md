@@ -1,3 +1,31 @@
+# 0.6.0 / 2023-02-14
+
+## Features
+- Icon: support pre-defined Icon sizes (Eric Gardner)
+- Icon: refactor CSS icon mixins and introduce sizes (Anne Tomasevich)
+- Button: Add CSS-only version (Anne Tomasevich)
+- Menu, TypeaheadSearch: Don't select item highlighted via mouse (Anne Tomasevich)
+
+## Styles
+- Tabs, styles: Replace SFC vars with Codex tokens (Volker E)
+- TypeaheadSearch, styles: Prevent footer icon container from shrinking (Volker E)
+- tokens: Add `background-position` token (Volker E)
+- ToggleSwitch, tokens: Amend size and replace SFC vars with tokens (Volker E)
+- tokens: Introduce new component tokens for search figure (Volker E)
+
+## Icons
+- icons: Minimize MediaWiki logo (Volker E)
+- icons: Amend 'Wikinews' and 'Wiktionary' logo (Volker E)
+
+## Code
+- build: Updating @sideway/formula to 3.0.1 (libraryupgrader)
+
+## Documentation
+- demos: Use a more explicit label for the "Toggle" section in the sandbox (Roan Kattouw)
+- docs: Refine visual hierarchy and use Codex tokens (Volker E)
+- docs: Add Pixel testing to the releasing docs (Anne Tomasevich)
+- docs: Refine visual hierarchy and use design-first heading styles (Volker E)
+
 # 0.5.0 / 2023-01-31
 
 ## Features
