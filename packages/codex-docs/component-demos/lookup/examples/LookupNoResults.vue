@@ -3,6 +3,7 @@
 		<cdx-lookup
 			v-model:selected="selection"
 			:menu-items="menuItems"
+			aria-label="Lookup with 'no results' content demo"
 			@input="onInput"
 		>
 			<template #no-results>

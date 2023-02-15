@@ -3,6 +3,7 @@
 		<cdx-lookup
 			v-model:selected="selection"
 			:menu-items="menuItems"
+			aria-label="Lookup with placeholder"
 			placeholder="Start typing a vegetable name..."
 			@input="onInput"
 		/>

@@ -3,6 +3,7 @@
 		<cdx-lookup
 			v-model:selected="selection"
 			:menu-items="menuItems"
+			aria-label="Lookup component with custom MenuItem demo"
 			@input="onInput"
 		>
 			<template #menu-item="{ menuItem }">

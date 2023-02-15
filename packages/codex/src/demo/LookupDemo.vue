@@ -5,6 +5,7 @@
 			v-model:selected="selection"
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
+			aria-label="Lookup demo"
 			@input="onInput"
 		/>
 		<p class="cdx-docs-demo-text">

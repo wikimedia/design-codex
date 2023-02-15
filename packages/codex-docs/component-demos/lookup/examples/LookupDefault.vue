@@ -8,6 +8,7 @@
 			v-model:selected="selection"
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
+			aria-label="Lookup default demo"
 			@input="onInput"
 		/>
 	</div>

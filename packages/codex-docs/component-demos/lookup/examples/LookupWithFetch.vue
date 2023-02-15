@@ -4,6 +4,7 @@
 			v-model:selected="selection"
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
+			aria-label="Lookup with fetched results demo"
 			@input="onInput"
 			@load-more="onLoadMore"
 		>

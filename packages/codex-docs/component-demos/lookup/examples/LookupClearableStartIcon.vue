@@ -5,6 +5,7 @@
 			:menu-items="menuItems"
 			:clearable="true"
 			:start-icon="cdxIconSearch"
+			aria-label="Lookup clearable demo"
 			@input="onInput"
 		/>
 	</div>
