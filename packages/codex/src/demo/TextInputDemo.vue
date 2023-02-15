@@ -1,7 +1,11 @@
 <template>
 	<section id="cdx-text-input">
-		<h2>Text Inputs</h2>
-		<cdx-text-input v-model="inputValue" clearable />
+		<h2>TextInput</h2>
+		<cdx-text-input
+			v-model="inputValue"
+			clearable
+			aria-label="TextInput demo"
+		/>
 		<p>
 			Input value: {{ inputValue }}
 		</p>

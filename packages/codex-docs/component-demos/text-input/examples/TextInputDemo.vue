@@ -7,6 +7,7 @@
 		<cdx-text-input
 			v-model="inputValue"
 			v-bind="inputProps"
+			aria-label="TextInput default demo"
 			:placeholder="placeholder"
 			@update:model-value="onEvent( 'update:modelValue', $event )"
 			@input="onEvent( 'input', $event )"
