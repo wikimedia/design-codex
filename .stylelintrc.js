@@ -242,11 +242,9 @@ module.exports = {
 				'background-color',
 				'background-image',
 				'background-origin',
-				/* TODO: See 'background-position' token task T322712,
 				'background-position',
 				'background-position-x',
 				'background-position-y',
-				*/
 				'background-size',
 				'border',
 				'color',
