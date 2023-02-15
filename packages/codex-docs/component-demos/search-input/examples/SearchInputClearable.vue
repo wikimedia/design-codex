@@ -4,6 +4,7 @@
 			v-model="inputValue"
 			button-label="Search"
 			:clearable="true"
+			aria-label="SearchInput clearable demo"
 			@update:model-value="onEvent( 'update:modelValue', $event )"
 			@submit-click="onEvent( 'submit-click', $event )"
 		/>

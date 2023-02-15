@@ -3,6 +3,7 @@
 		<cdx-search-input
 			v-model="inputValue"
 			button-label="Search"
+			aria-label="SearchInput with Button demo"
 			@update:model-value="onEvent( 'update:modelValue', $event )"
 			@submit-click="onEvent( 'submit-click', $event )"
 		/>

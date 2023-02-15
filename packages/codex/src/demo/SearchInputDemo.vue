@@ -1,9 +1,10 @@
 <template>
 	<section id="cdx-search-input">
-		<h2>Search Input</h2>
+		<h2>SearchInput</h2>
 		<div>
 			<cdx-search-input
 				v-model="inputValue"
+				aria-label="SearchInput demo"
 				placeholder="Search"
 				@update:model-value="onUpdateModelValue"
 			/>

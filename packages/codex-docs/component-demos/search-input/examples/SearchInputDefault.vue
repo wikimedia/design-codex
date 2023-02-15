@@ -2,6 +2,7 @@
 	<div>
 		<cdx-search-input
 			v-model="inputValue"
+			aria-label="SearchInput default demo"
 			placeholder="Search"
 			@update:model-value="onUpdateModelValue"
 		/>
