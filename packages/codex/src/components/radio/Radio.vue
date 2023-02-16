@@ -29,7 +29,7 @@ import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 
 /**
- * A binary input that always exists in a group, in which only one input can be on at a time.
+ * A binary input, part of a single-select group.
  *
  * Typical use will involve using `v-for` to loop through an array of items and output a Radio
  * component for each one. Each Radio will have the same `v-model` binding and `name` prop, but

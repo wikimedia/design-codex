@@ -73,7 +73,7 @@ import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 /**
- * Text input with a dropdown menu of items, which are usually based on the current input value.
+ * A predictive text input with a dropdown menu of items.
  *
  * Typical use will involve listening for `input` events, fetching or otherwise computing menu
  * items, then passing those menu items back to the Lookup for display.

@@ -87,7 +87,7 @@ import useResizeObserver from '../../composables/useResizeObserver';
 import { MenuItemData, MenuConfig } from '../../types';
 
 /**
- * A dropdown menu similar to the HTML `<select>` element.
+ * An input with a dropdown menu of predefined selectable items.
  *
  * Menu items are provided as an array of MenuItemData types, and `v-model` is used
  * to bind the current selection's value.

@@ -105,7 +105,7 @@ import CdxSearchResultTitle from '../search-result-title/SearchResultTitle.vue';
 import { MenuState, Thumbnail, MenuItemLanguageData } from '../../types';
 
 /**
- * Item within a Menu component.
+ * A selectable option included within a Menu.
  *
  * A value must be provided, and various optional elements can be displayed:
  * - A human-readable label

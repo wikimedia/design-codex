@@ -29,7 +29,7 @@ import CdxIcon from '../icon/Icon.vue';
 import CdxToggleButton from '../toggle-button/ToggleButton.vue';
 
 /**
- * Group of toggle buttons that allows making a selection.
+ * A group of toggle buttons for making a selection.
  *
  * Single-select groups behave like a group of radio buttons: only one value can be selected,
  * and clicking an already-selected value has no effect. Multi-select groups behave like a group of

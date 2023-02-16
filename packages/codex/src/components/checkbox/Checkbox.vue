@@ -26,8 +26,9 @@ import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 
 /**
- * A binary input that can exist by itself or in a group. When in a group, any
- * number of checkboxes can be checked at a time.
+ * A binary input that can be standalone or in a multiselect group.
+ *
+ * When in a group, any number of checkboxes can be checked at a time.
  *
  * Typical use will involve using `v-for` to loop through an array of items and
  * output a Checkbox component for each one. Each Checkbox will have the same

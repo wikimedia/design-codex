@@ -26,7 +26,7 @@ import CdxIcon from '../icon/Icon.vue';
 import { Thumbnail } from '../../types';
 
 /**
- * Thumbnail background image or placeholder icon.
+ * A small preview of an image.
  *
  * The placeholder icon will display until thumbnail image loads, or if a thumbnail image is not
  * provided.

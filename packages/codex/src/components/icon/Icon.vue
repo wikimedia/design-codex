@@ -39,6 +39,9 @@ import { IconSizes } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 const iconSizeValidator = makeStringTypeValidator( IconSizes );
 
+/**
+ * A graphical representation of an idea.
+ */
 export default defineComponent( {
 	name: 'CdxIcon',
 	props: {

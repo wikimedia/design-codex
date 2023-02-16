@@ -48,7 +48,7 @@ import CdxThumbnail from '../thumbnail/Thumbnail.vue';
 import { Thumbnail } from '../../types';
 
 /**
- * A structural component used to group information and actions related to a single topic.
+ * A set of information and actions related to a single topic.
  */
 export default defineComponent( {
 	name: 'CdxCard',

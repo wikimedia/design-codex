@@ -17,7 +17,7 @@
 import { ref, computed, defineComponent } from 'vue';
 
 /**
- * A toggle button wrapping slotted content.
+ * A button that can be toggled on and off.
  *
  * You should always include some content to display on the button via the default slot.
  *

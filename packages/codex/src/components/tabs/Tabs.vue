@@ -111,9 +111,7 @@ import { TabData } from '../../types';
 import { TabsKey, ActiveTabKey } from '../../constants';
 
 /**
- * A layout containing multiple sections, only one of which is visible at any
- * given time. A header row is automatically generated from the provided
- * content.
+ * A layout for navigating between sections of content.
  *
  * One or more `<Tab>` components must be provided in the default slot of the
  * `<Tabs>` component. Each child `<Tab>` component must have a `name` property.

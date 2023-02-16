@@ -27,7 +27,7 @@ import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 
 /**
- * Set of actions made up of two or more buttons.
+ * A set of two or more buttons representing related actions.
  *
  * Buttons in this button group signal a number of equally important actions that will occur when
  * the user taps on them. Button groups feature a set of normal buttons that can include icons

@@ -15,7 +15,7 @@
 import { defineComponent, computed } from 'vue';
 
 /**
- * Visual progress indicator bar.
+ * A linear indicator of progress.
  *
  * Currently only supports indeterminate type (i.e. the bar will scroll across the width of the
  * display and then reappear at the start, rather than reflecting a specific amount of progress

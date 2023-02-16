@@ -78,7 +78,7 @@ const isIconOnlyButton = ( slotContent: VNode[] | undefined, attrs: SetupContext
 };
 
 /**
- * A button wrapping slotted content.
+ * A control that can be pressed to trigger an action.
  */
 export default defineComponent( {
 	name: 'CdxButton',

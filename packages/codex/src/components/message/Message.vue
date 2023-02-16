@@ -54,7 +54,7 @@ const iconMap: StatusIconMap = {
 };
 
 /**
- * User-facing message with icon.
+ * System feedback in response to or to inform a user action.
  *
  * Message styles and icon will vary depending on the message type (notice, warning, error or
  * success). Messages are block style by default, but can be displayed as inline messages via the

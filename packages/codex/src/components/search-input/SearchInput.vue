@@ -45,7 +45,7 @@ import { ValidationStatusType } from '../../types';
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
- * Search input with optional button.
+ * An input for text search.
  *
  * This component contains a TextInput component with a preset start icon and input type. A button
  * can be added by providing the `buttonLabel` prop.

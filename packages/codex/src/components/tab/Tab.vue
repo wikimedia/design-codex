@@ -19,7 +19,8 @@ import { TabsKey, ActiveTabKey } from '../../constants';
 import { TabData } from '../../types';
 
 /**
- * A component representing a section within a tabbed layout.
+ * A section of content within a Tabs layout.
+ *
  * This component can display arbitrary content via its default slot.
  * Provided markup is wrapped inside of a `<section>` tag and given
  * a unique HTML ID.

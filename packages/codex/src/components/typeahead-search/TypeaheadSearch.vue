@@ -127,7 +127,7 @@ import { SearchResult, SearchResultWithId, SearchResultClickEvent, MenuItemDataW
 import { DebounceInterval, PendingDelay, MenuFooterValue } from '../../constants';
 
 /**
- * A search form with stylized autocomplete suggestions.
+ * A search form that provides a menu with autocomplete suggestions.
  *
  * TypeaheadSearch contains a form with a text input, a submit button, and a slot for hidden inputs.
  * The parent component must listen for changes in the search query (which are debounced by

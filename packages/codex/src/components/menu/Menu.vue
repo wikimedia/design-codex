@@ -76,7 +76,7 @@ import useIntersectionObserver from '../../composables/useIntersectionObserver';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 
 /**
- * Dropdown menu of items.
+ * A contextual list of selectable options, often triggered by a control or an input.
  *
  * Designed for use in components, like Select and Lookup, that display a menu below another element
  * (for example, a text input). This component renders a list of items, manages which item is

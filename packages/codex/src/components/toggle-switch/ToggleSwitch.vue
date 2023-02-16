@@ -36,7 +36,7 @@ import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 
 /**
- * A checkbox input styled to look like a sliding on/off switch.
+ * A sliding boolean input used to enable or disable options.
  *
  * Unlike Checkbox, ToggleSwitch is meant to be used alone, not in a group.
  *

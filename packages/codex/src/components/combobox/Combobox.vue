@@ -97,7 +97,7 @@ import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
- * Text input with an adjoining button and an expandable menu of items.
+ * A text input with an expandable menu of predefined items.
  */
 export default defineComponent( {
 	name: 'CdxCombobox',

@@ -52,7 +52,7 @@ const textInputTypeValidator = makeStringTypeValidator( TextInputTypes );
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
- * HTML `<input>` element with type "text" or "search", wrapped in a `<div>`.
+ * A form element that lets users input and edit a single-line text value.
  *
  * `v-model` is used to track the current value of the input. See the events docs for details on
  * emitted events and their properties.
