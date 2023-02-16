@@ -37,6 +37,28 @@
 				</template>
 			</cdx-typeahead-search>
 		</div>
+
+		<h3>CSS-only version</h3>
+		<div
+			class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail
+				cdx-typeahead-search--auto-expand-width"
+		>
+			<div class="cdx-search-input cdx-search-input--has-end-button">
+				<div class="cdx-search-input__input-wrapper">
+					<div class="cdx-text-input cdx-text-input--has-start-icon">
+						<input
+							class="cdx-text-input__input"
+							type="search"
+							placeholder="Search Wikipedia"
+						>
+						<span class="cdx-text-input__icon cdx-text-input__start-icon" />
+					</div>
+				</div>
+				<button class="cdx-button cdx-search-input__end-button">
+					Search
+				</button>
+			</div>
+		</div>
 	</section>
 </template>
 

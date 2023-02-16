@@ -114,7 +114,7 @@ To add a button to the CSS-only SearchInput, do the following:
 	<div class="cdx-search-input cdx-search-input--has-end-button">
 		<div class="cdx-search-input__input-wrapper">
 			<div class="cdx-text-input cdx-text-input--has-start-icon">
-			<input class="cdx-text-input__input" type="search" placeholder="Search">
+				<input class="cdx-text-input__input" type="search" placeholder="Search">
 				<span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
 			</div>
 		</div>

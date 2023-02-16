@@ -110,3 +110,131 @@ A message prompt that no search results were found. To enable this, provide cont
 
 </template>
 </cdx-demo-wrapper>
+
+## CSS-only version
+
+### Markup structure
+
+The CSS-only version of TypeaheadSearch is simply a SearchInput component styled to look like
+the Vue version of TypeaheadSearch. It will have no menu of results and is meant to be replaced
+by the Vue component once JavaScript has loaded. If you just need a SearchInput, check out the
+[CSS-only version of the SearchInput component](./search-input.md#css-only-version). Note that the
+search icon is automatically added for you.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Wrapper div. -->
+	<div class="cdx-typeahead-search">
+		<!-- Search input div with classes. -->
+		<div class="cdx-search-input cdx-search-input--has-end-button">
+			<!-- Search input wrapper div. -->
+			<div class="cdx-search-input__input-wrapper">
+				<!-- CSS-only TextInput with start icon. -->
+				<div class="cdx-text-input cdx-text-input--has-start-icon">
+					<!-- Input with type="search". -->
+					<input class="cdx-text-input__input" type="search" placeholder="Search Wikipedia">
+					<!-- Start icon span. -->
+					<span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
+				</div>
+			</div>
+			<!-- Search button. -->
+			<button class="cdx-button cdx-search-input__end-button">Search</button>
+		</div>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-typeahead-search">
+	<div class="cdx-search-input cdx-search-input--has-end-button">
+		<div class="cdx-search-input__input-wrapper">
+			<div class="cdx-text-input cdx-text-input--has-start-icon">
+				<input class="cdx-text-input__input" type="search" placeholder="Search Wikipedia">
+				<span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
+			</div>
+		</div>
+		<button class="cdx-button cdx-search-input__end-button">Search</button>
+	</div>
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### With thumbnails
+
+When your CSS-only TypeaheadSearch component will be swapped out for a Vue version that shows
+thumbnails (see the ["With initial input value" demo](#with-initial-input-value) above), apply the
+`.cdx-typeahead-search--show-thumbnail` class to the wrapper `<div>` to expand the start icon width.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail">
+		<div class="cdx-search-input cdx-search-input--has-end-button">
+			<div class="cdx-search-input__input-wrapper">
+				<div class="cdx-text-input cdx-text-input--has-start-icon">
+					<input class="cdx-text-input__input" type="search" placeholder="Search Wikipedia">
+					<span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
+				</div>
+			</div>
+			<button class="cdx-button cdx-search-input__end-button">Search</button>
+		</div>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail">
+	<div class="cdx-search-input cdx-search-input--has-end-button">
+		<div class="cdx-search-input__input-wrapper">
+			<div class="cdx-text-input cdx-text-input--has-start-icon">
+				<input class="cdx-text-input__input" type="search" placeholder="Search Wikipedia">
+				<span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
+			</div>
+		</div>
+		<button class="cdx-button cdx-search-input__end-button">Search</button>
+	</div>
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### With thumbnails and auto-expand width
+
+When your CSS-only TypeaheadSearch component will be swapped out for a Vue version that shows thumbnails and expands when results are shown (see the ["Search Wikipedia articles" demo](#search-wikipedia-articles)
+above), apply the `.cdx-typeahead-search--show-thumbnail` and `.cdx-typeahead-search--auto-expand-width` classes to the wrapper `<div>` to reduce the starting size
+of the input.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail cdx-typeahead-search--auto-expand-width">
+		<div class="cdx-search-input cdx-search-input--has-end-button">
+			<div class="cdx-search-input__input-wrapper">
+				<div class="cdx-text-input cdx-text-input--has-start-icon">
+					<input class="cdx-text-input__input" type="search" placeholder="Search Wikipedia">
+					<span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
+				</div>
+			</div>
+			<button class="cdx-button cdx-search-input__end-button">Search</button>
+		</div>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail cdx-typeahead-search--auto-expand-width">
+	<div class="cdx-search-input cdx-search-input--has-end-button">
+		<div class="cdx-search-input__input-wrapper">
+			<div class="cdx-text-input cdx-text-input--has-start-icon">
+				<input class="cdx-text-input__input" type="search" placeholder="Search Wikipedia">
+				<span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
+			</div>
+		</div>
+		<button class="cdx-button cdx-search-input__end-button">Search</button>
+	</div>
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
