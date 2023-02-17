@@ -36,6 +36,7 @@ module.exports = function ( { command, mode }, options ) {
 	const isRtlBuild = command === 'build' && ( mode === 'rtl' || mode === 'legacy-rtl' );
 	const isLegacyBuild = command === 'build' && ( mode === 'legacy' || mode === 'legacy-rtl' );
 	const dashLegacy = isLegacyBuild ? '-legacy' : '';
+	const dashRtl = isRtlBuild ? '-rtl' : '';
 
 	const postcssConfig = postcssBaseConfig;
 	if ( command === 'serve' || forceBidiCss ) {
@@ -63,14 +64,16 @@ module.exports = function ( { command, mode }, options ) {
 
 		lib: {
 			name: libName,
+			fileName: libName,
 			entry: 'src/lib.ts',
 			formats: [ 'es', 'umd' ]
 		},
 
 		rollupOptions: {
 			output: {
-				entryFileNames: `${libName}.[format].js`,
-				assetFileNames: isRtlBuild ? `${libName}.[name]${dashLegacy}-rtl.[ext]` : `${libName}.[name]${dashLegacy}.[ext]`,
+				// name.ext or name-legacy.ext or name-rtl.ext or name-legacy-rtl.ext
+				assetFileNames: `${libName}.[name]${dashLegacy}${dashRtl}.[ext]`,
+				// entryFileNames not specified; it'll be libName.mjs or libName.umd.js
 				globals: {
 					vue: 'Vue'
 				}

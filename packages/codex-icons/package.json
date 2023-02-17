@@ -15,11 +15,19 @@
 		"node": ">=16"
 	},
 	"main": "dist/codex-icons.umd.js",
-	"module": "dist/codex-icons.es.js",
+	"module": "dist/codex-icons.mjs",
 	"types": "./dist/types/index.d.ts",
 	"files": [
 		"dist"
 	],
+	"exports": {
+		".": {
+			"types": "./dist/types/index.d.ts",
+			"import": "./dist/codex-icons.mjs",
+			"require": "./dist/codex-icons.umd.js"
+		},
+		"./dist/*": "./dist/*"
+	},
 	"scripts": {
 		"build": "npm run minify:svg && npm run build:vite && npm run build:svg && npm run build:json && npm run build:less && npm run test:output",
 		"build:vite": "vite build",

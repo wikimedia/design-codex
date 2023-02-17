@@ -17,6 +17,7 @@ fi
 
 function buildCss() {
 	npm run -w @wikimedia/codex-design-tokens build
+	npm run -w @wikimedia/codex-icons build
 	npm run -w @wikimedia/codex build:vite
 	npx cssbeautify packages/codex/dist/codex.style.css > $1
 }

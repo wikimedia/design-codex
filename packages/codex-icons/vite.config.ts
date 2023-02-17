@@ -13,13 +13,6 @@ module.exports = defineConfig( {
 			name: 'codex-icons',
 			entry: resolve( __dirname, 'src/index.ts' ),
 			formats: [ 'es', 'umd' ]
-		},
-
-		rollupOptions: {
-			output: {
-				entryFileNames: 'codex-icons.[format].js',
-				assetFileNames: 'codex-icons.[name].[ext]'
-			}
 		}
 	},
 	plugins: [

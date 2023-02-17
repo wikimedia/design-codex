@@ -24,13 +24,22 @@
 		"node": ">=16"
 	},
 	"main": "dist/codex.umd.js",
-	"module": "dist/codex.es.js",
+	"module": "dist/codex.mjs",
 	"types": "./dist/types/lib.d.ts",
 	"style": "dist/codex.style.css",
 	"files": [
 		"dist",
 		"mixins"
 	],
+	"exports": {
+		".": {
+			"types": "./dist/types/lib.d.ts",
+			"import": "./dist/codex.mjs",
+			"require": "./dist/codex.umd.js"
+		},
+		"./dist/*": "./dist/*",
+		"./mixins/*": "./mixins/*"
+	},
 	"scripts": {
 		"dev": "vite ${npm_config_port+--port=${npm_config_port}}",
 		"build": "npm run clean && npm run build:vite && npm run build:ts",

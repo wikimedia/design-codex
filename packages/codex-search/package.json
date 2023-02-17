@@ -15,12 +15,20 @@
 		"node": ">=16"
 	},
 	"main": "dist/codex-search.umd.js",
-	"module": "dist/codex-search.es.js",
+	"module": "dist/codex-search.mjs",
 	"types": "./dist/types/codex-search/src/lib.d.ts",
 	"style": "dist/codex-search.style.css",
 	"files": [
 		"dist"
 	],
+	"exports": {
+		".": {
+			"types": "./dist/types/codex-search/lib.d.ts",
+			"import": "./dist/codex-search.mjs",
+			"require": "./dist/codex-search.umd.js"
+		},
+		"./dist/*": "./dist/*"
+	},
 	"scripts": {
 		"dev": "vite ${npm_config_port+--port=${npm_config_port}}",
 		"build": "npm run clean && npm run build:vite && npm run build:ts",
