@@ -6,6 +6,7 @@
 
 		<cdx-toggle-switch
 			v-model="switchValue"
+			aria-label="ToggleSwitch demo"
 			@update:model-value="onUpdate"
 		/>
 	</div>
