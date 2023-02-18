@@ -356,6 +356,8 @@ Be sure to add `aria-hidden="true"` to the icon element to hide it from screen r
 ```
 
 ```less
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon--arrow-previous {
@@ -390,6 +392,8 @@ reader users.
 ```
 
 ```less
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon--arrow-previous {
@@ -411,6 +415,8 @@ reader users.
 </style>
 
 <style lang="less">
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 // Note that these styles can't be scoped. If they are, a data attribute is added to their

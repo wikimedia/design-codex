@@ -213,6 +213,8 @@ body {
 </style>
 
 <style lang="less" scoped>
+// Note: you must import the design tokens before importing the link mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../themes/mixins/public/link.less';
 
 a {

@@ -12,7 +12,13 @@ Styles for text used to navigate between sections or pages.
 
 :::tip Less mixin
 This component has been implemented as a [Less mixin](https://lesscss.org/features/#mixins-feature),
-not a Vue component. See below for [usage information](#usage).
+not a Vue component. This mixin must be imported separately in your Less styles. See below for
+[usage information](#usage).
+:::
+
+:::warning
+Before importing the Link mixin, you must first import the design tokens. If you don't, you
+will get errors that look like `variable @color-progressive is undefined`.
 :::
 
 ## Demos
@@ -32,6 +38,8 @@ not a Vue component. See below for [usage information](#usage).
 </template>
 
 <style lang="less">
+// Note: you must import the design tokens before importing the link mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link {
@@ -58,6 +66,8 @@ not a Vue component. See below for [usage information](#usage).
 </template>
 
 <style lang="less">
+// Note: you must import the design tokens before importing the link mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link {
@@ -84,6 +94,8 @@ not a Vue component. See below for [usage information](#usage).
 </template>
 
 <style lang="less">
+// Note: you must import the design tokens before importing the link mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link {
@@ -115,6 +127,8 @@ not a Vue component. See below for [usage information](#usage).
 </template>
 
 <style lang="less">
+// Note: you must import the design tokens before importing the link mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link {
@@ -151,6 +165,8 @@ class or to all anchor elements. This will automatically apply underline styles 
 </template>
 
 <style lang="less">
+// Note: you must import the design tokens before importing the link mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link {
@@ -190,6 +206,8 @@ Alternately, you can apply sub-mixins directly to your own CSS selectors. The su
 </template>
 
 <style lang="less">
+// Note: you must import the design tokens before importing the link mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link-wrapper {
@@ -212,6 +230,7 @@ Alternately, you can apply sub-mixins directly to your own CSS selectors. The su
 </cdx-demo-wrapper>
 
 <style lang="less" scoped>
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/link.less';
 
 .cdx-docs-link {

@@ -130,6 +130,8 @@ const onClick = getEventLogger<Event>( 'click' );
 </script>
 
 <style lang="less">
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../themes/mixins/public/css-icon.less';
 
 .cdx-demo-css-icon {

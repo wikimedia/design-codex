@@ -62,6 +62,11 @@ empty `<span>` element. The parameters of the mixin are as follows:
 | `@param-size-icon` | The icon size | `@size-icon-medium` |
 | `@param-is-button-icon` | Whether the icon is inside of a `<button>` element | `false` |
 
+:::warning
+Before importing the `css-icon` mixin, you must first import the design tokens. If you don't, you
+will get errors that look like `variable @color-base is undefined`.
+:::
+
 :::tip
 Visit the [Button docs](./button.md#with-css-icon) for details on using CSS icons within buttons.
 :::
@@ -90,6 +95,8 @@ Visit the [Button docs](./button.md#with-css-icon) for details on using CSS icon
 ```
 
 ```less
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon {
@@ -129,6 +136,8 @@ code as the SVG fill color.
 ```
 
 ```less
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon--trash {
@@ -177,6 +186,8 @@ Use the third parameter of the `.cdx-mixin-css-icon()` mixin, `@param-size-icon`
 ```
 
 ```less
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon {
@@ -239,6 +250,8 @@ icon element itself.
 ```
 
 ```less
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon {
@@ -289,6 +302,8 @@ The CSS-only icons mixin supports icons with language-specific variants.
 ```
 
 ```less
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon {
@@ -302,6 +317,7 @@ The CSS-only icons mixin supports icons with language-specific variants.
 </cdx-demo-wrapper>
 
 <style lang="less" scoped>
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon {
