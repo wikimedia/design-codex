@@ -104,13 +104,9 @@ body {
 }
 
 .vp-doc h4 {
-	margin-top: var( --spacing-125 );
+	margin-top: var( --spacing-150 );
 	font-size: var( --font-size-large );
 	line-height: var( --line-height-xxx-small );
-}
-
-.vp-doc h3 + h4 {
-	margin-top: var( --spacing-150 );
 }
 
 .vp-doc h5 {
@@ -142,13 +138,14 @@ body {
 	line-height: var( --line-height-medium );
 }
 
+.vp-doc img,
+.vp-doc video,
 .vp-doc h1 + p {
 	margin-top: var( --spacing-125 );
 }
 
-.vp-doc img,
-.vp-doc video {
-	margin-top: var( --spacing-125 );
+.vp-doc h4 + p {
+	margin-top: var( --spacing-75 );
 }
 
 .vp-doc table {
