@@ -147,6 +147,12 @@ export default defineComponent( {
 		}
 	}
 
+	&--opacity-icon &__token {
+		.cdx-mixin-css-icon( @cdx-icon-logo-wikimedia );
+		background-position: 0 0;
+		background-size: @size-125 @size-125;
+	}
+
 	&--padding &__token {
 		position: relative;
 		border: @border-width-base @border-style-base @border-color-base;
