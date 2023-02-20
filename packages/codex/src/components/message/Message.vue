@@ -285,6 +285,14 @@ export default defineComponent( {
 			background-color: @background-color-success-subtle;
 			border-color: @border-color-success;
 		}
+
+		&.cdx-message--user-dismissable {
+			padding-right: @min-size-base + @spacing-100;
+
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+				padding-right: @min-size-base + @spacing-150;
+			}
+		}
 	}
 
 	&--warning {
@@ -321,14 +329,6 @@ export default defineComponent( {
 	&:not( .cdx-message--warning ):not( .cdx-message--error ):not( .cdx-message--success ) {
 		.cdx-message__icon {
 			.cdx-mixin-css-icon( @cdx-icon-info-filled );
-		}
-	}
-
-	&--user-dismissable {
-		padding-right: @min-size-base + @spacing-100;
-
-		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			padding-right: @min-size-base + @spacing-150;
 		}
 	}
 
