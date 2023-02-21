@@ -45,15 +45,9 @@ We may want to update the component behaviors for well-justified reasons to impr
 ![Redesigning components scenarios 03](../assets/redesigning-existing-components/report-validate-redesigning-components-scenario-03.png)
 </div>
 
-### 1.2. Create a new Phabricator task in the existing component epic
+### 1.2. Create a new Phabricator task
 
-Once the purpose of the component redesign has been defined, a new Phabricator task will need to be created and linked to the component’s epic task. Use this [component task template][component-task-template] to create the new ticket. Fill in as much information as possible in the predefined sections.
-
-![Epic task - New task.png](../assets/redesigning-existing-components/report-validate-create-new-epic-task.png)
-
-::: info
-If you don’t know which is the existing epic task for this component, just create the task and ping the Design Systems Team there so they can link the task to the right epic.
-:::
+Once the purpose of the component redesign has been defined, a new Phabricator task will need to be created. Use this [component task template][component-task-template] to create the new ticket. Fill in as much information as possible in the predefined sections.
 
 ### 1.3. Review the task with the Design Systems Team
 
@@ -120,9 +114,8 @@ It is essential to identify the component’s architecture before diving deeper 
 ![Redesign component scenario 03](../assets/redesigning-existing-components/redesign-component-component-scenario-03.png)
 </div>
 
-
 ::: warning
-This scenario will require you to follow the same design process outlined in the [“Designing new components”](./designing-new-components.md) section to **create each one of the missing components**. Each new Codex component will require a **dedicated epic task** and will have its own design spec sheet.
+This scenario will require you to follow the same design process outlined in the [“Designing new components”](./designing-new-components.md) section to **create each one of the missing components**. Each new Codex component will require a **dedicated component task** and will have its own design spec sheet.
 :::
 
 #### Defining the component’s visual style
