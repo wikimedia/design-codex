@@ -21,7 +21,7 @@ The components package exports the following things:
 
 ### Files
 Releases of the components package contain the following files:
-- `codex.es.js`: ES module build of Codex, which uses ES6 `import` and `export` syntax.
+- `codex.mjs`: ES module build of Codex, which uses ES6 `import` and `export` syntax.
 - `codex.umd.js`: UMD build of Codex. Can be used in CommonJS or AMD environments, or to put
   the library in the global scope.
   - If CommonJS is detected, it uses `require('vue')` and `exports.CdxButton = ...`
