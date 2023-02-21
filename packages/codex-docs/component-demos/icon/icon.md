@@ -191,9 +191,7 @@ Use the third parameter of the `.cdx-mixin-css-icon()` mixin, `@param-size-icon`
 	}
 
 	&--arrow-next {
-		// Size parameter included as the third parameter of the mixin.
-		// Useful when you're also including a fill color param.
-		.cdx-mixin-css-icon( @cdx-icon-arrow-next, @color-progressive, @size-icon-x-small );
+		.cdx-mixin-css-icon( @cdx-icon-arrow-next, @param-size-icon: @size-icon-x-small );
 	}
 }
 ```
@@ -328,7 +326,7 @@ The CSS-only icons mixin supports icons with language-specific variants.
 	}
 
 	&--arrow-next {
-		.cdx-mixin-css-icon( @cdx-icon-arrow-next, @color-progressive, @size-icon-x-small );
+		.cdx-mixin-css-icon( @cdx-icon-arrow-next, @param-size-icon: @size-icon-x-small );
 	}
 
 	&--article {
