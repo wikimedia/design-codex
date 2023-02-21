@@ -1,3 +1,28 @@
+# 0.6.1 / 2023-02-21
+
+## Features
+- TextInput, SearchInput: Add CSS-only versions (Anne Tomasevich)
+- TypeaheadSearch: Add CSS-only version (Anne Tomasevich)
+- build: Expose ES module build correctly, rename to .mjs (Sergio Gimeno)
+
+## Styles
+- Message, styles: Fix padding on user-dismissable (Volker E)
+
+## Code
+- build: Enable `declaration-strict-value` on `background-position` (Volker E)
+- tokens: Undeprecate legacy opacity tokens and introduce 1 token (Volker E)
+
+## Documentation
+- docs: Amend Sandbox styles (Volker E)
+- docs: Provide `aria-label` to all Lookup demos (Volker E)
+- docs: Provide `aria-label` to all SearchInput demos (Volker E)
+- docs: Provide `aria-label` to all TextInput demos (Volker E)
+- docs: Provide `aria-label` to ToggleSwitch demo (Volker E)
+- docs: Refine visual hierarchy and use Codex tokens (continued) (Volker E)
+- docs: Change CSS-only icon demo to remove size/color combo (Anne Tomasevich)
+- docs: Update new component task template links (Anne Tomasevich)
+- docs: Update for codex.es.js -> codex.mjs rename (Roan Kattouw)
+
 # 0.6.0 / 2023-02-14
 
 ## Features
