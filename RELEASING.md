@@ -19,6 +19,20 @@ To publish a new release of Codex, follow these steps:
   If you're not sure if you've already done this, you can run `npm whoami`; if it prints your
   NPM username, you're already logged in.
 
+## Before you start
+Before you start doing a release, you should first:
+- Coordinate with your teammates to make sure someone will be around to review your release-related
+  patches and merge them relatively quickly. The release process can take up to an hour, so
+  don't wait until too late in the day (or too late in the reviewer's timezone) to
+  start the process.
+- Make sure any final patches that should be merged are merged. The day before a scheduled release,
+  a bot posts in the #design-systems-engineering Slack channel asking people to suggest patches that
+  should be considered for inclusion in the release. Look over this list and make sure that each
+  of the suggested patches either has been merged or is consciously being held back until after
+  the release. Also look at the [list of open patches](https://gerrit.wikimedia.org/r/q/project:design%252Fcodex+status:open).
+  If any patches have been +2ed recently, wait for the CI process to complete so that they are
+  actually merged.
+
 ## Preparing and submitting the release commit
 First, make sure that you have no uncommitted changes, and that you're on the latest version
 of the main branch:
@@ -272,11 +286,6 @@ $ git commit -am "releases: Bump Codex to 1.2.34"
 $ git review
 ```
 
-## Update Codex mediawiki.org page
-Update the "Version used in MediaWiki" section on Codex's mediawiki.org page
-(https://www.mediawiki.org/wiki/Codex#Version_used_in_MediaWiki) to reflect the
-new version number.
-
 ## Announcing the new release
 Once the MediaWiki core patch has been merged, announce the new release to Codex stakeholders.
 
@@ -289,3 +298,12 @@ following:
 - Notable bug fixes: Highlight bug tasks resolved by the new release
 - Be sure to @mention and thank any contributors to the release from outside the
   Design Systems Team
+
+### Update mediawiki.org pages
+Update the [release timeline](https://www.mediawiki.org/wiki/Design_Systems_Team/Release_Timeline)
+to add the new release. Include a link to the release commit in Gerrit, and a brief list of breaking
+changes and notable new features. You can save time by copying bullet points from the release
+announcement in Slack.
+
+Update the "Version used in MediaWiki" section on [the Codex page](https://www.mediawiki.org/wiki/Codex#Version_used_in_MediaWiki)
+to reflect the new version number.
