@@ -290,6 +290,15 @@ export const cdxIconFolderPlaceholder: IconFlipForRtl = {
 	shouldFlip: true
 };
 
+import svgFunction from './images/function.svg';
+export const cdxIconFunction = svgFunction;
+
+import svgFunctionArgument from './images/functionArgument.svg';
+export const cdxIconFunctionArgument: IconFlipForRtl = {
+	ltr: svgFunctionArgument,
+	shouldFlip: true
+};
+
 import svgFullScreen from './images/fullScreen.svg';
 export const cdxIconFullScreen = svgFullScreen;
 
@@ -387,7 +396,20 @@ export const cdxIconIndent: IconFlipForRtl = {
 	shouldFlip: true
 };
 
+import svgInstance from './images/instance.svg';
+export const cdxIconInstance: IconFlipForRtl = {
+	ltr: svgInstance,
+	shouldFlip: true
+};
+
 import svgLightbulb from './images/lightbulb.svg';
+
+import svgLiteral from './images/literal.svg';
+export const cdxIconLiteral: IconFlipForRtl = {
+	ltr: svgLiteral,
+	shouldFlip: true
+};
+
 import svgInfo from './images/info.svg';
 import svgInfoFilled from './images/infoFilled.svg';
 export const cdxIconInfo: IconVariedByLang = {
