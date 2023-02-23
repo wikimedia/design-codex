@@ -59,7 +59,7 @@ describe( 'TextInput', () => {
 	} );
 
 	describe( 'when the input value prop changes', () => {
-		it( 'updates the input value without emitting an input event', async () => {
+		it( 'updates the input value without emitting an update:modelValue event', async () => {
 			const wrapper = mount( CdxTextInput, { props: { modelValue: 'Initial value' } } );
 			const input = wrapper.find( 'input' ).element as HTMLInputElement;
 			expect( input.value ).toEqual( 'Initial value' );
@@ -71,32 +71,17 @@ describe( 'TextInput', () => {
 	} );
 
 	describe( 'when a native event is triggered', () => {
-		it( 'emits an input event', async () => {
+		const eventNames = [
+			'input',
+			'change',
+			'focus',
+			'blur'
+		];
+		test.each( eventNames )( 'Case %#: emits %s event', async ( eventName ) => {
 			const wrapper = shallowMount( CdxTextInput );
 
-			await wrapper.get( 'input' ).trigger( 'input' );
-			expect( wrapper.emitted().input ).toBeTruthy();
-		} );
-
-		it( 'emits a change event', async () => {
-			const wrapper = shallowMount( CdxTextInput );
-
-			await wrapper.get( 'input' ).trigger( 'change' );
-			expect( wrapper.emitted().change ).toBeTruthy();
-		} );
-
-		it( 'emits a focus event', async () => {
-			const wrapper = shallowMount( CdxTextInput );
-
-			await wrapper.get( 'input' ).trigger( 'focus' );
-			expect( wrapper.emitted().focus ).toBeTruthy();
-		} );
-
-		it( 'emits a blur event', async () => {
-			const wrapper = shallowMount( CdxTextInput );
-
-			await wrapper.get( 'input' ).trigger( 'blur' );
-			expect( wrapper.emitted().blur ).toBeTruthy();
+			await wrapper.get( 'input' ).trigger( eventName );
+			expect( wrapper.emitted()[ eventName ] ).toBeTruthy();
 		} );
 	} );
 
