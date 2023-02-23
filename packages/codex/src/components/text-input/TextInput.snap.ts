@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 Input type: text : ({"inputType": "text"}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 0 Input type: text : ({"inputType": "text"}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
@@ -14,7 +14,7 @@ exports[`matches the snapshot Case 0 Input type: text : ({"inputType": "text"}) 
 </div>
 `;
 
-exports[`matches the snapshot Case 1 Input type: search : ({"inputType": "search"}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 1 Input type: search : ({"inputType": "search"}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
@@ -28,7 +28,7 @@ exports[`matches the snapshot Case 1 Input type: search : ({"inputType": "search
 </div>
 `;
 
-exports[`matches the snapshot Case 2 Disabled: ({"disabled": true}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 2 Disabled: ({"disabled": true}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
@@ -43,7 +43,7 @@ exports[`matches the snapshot Case 2 Disabled: ({"disabled": true}) => HTML 1`] 
 </div>
 `;
 
-exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path d=\\"M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z\\"/>"}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 3 With start icon: ({"startIcon": "<path d=\\"M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default"
 >
@@ -75,7 +75,7 @@ exports[`matches the snapshot Case 3 With start icon: ({"startIcon": "<path d=\\
 </div>
 `;
 
-exports[`matches the snapshot Case 4 With end icon: ({"endIcon": [Object]}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 4 With end icon: ({"endIcon": [Object]}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--has-end-icon cdx-text-input--status-default"
 >
@@ -107,7 +107,7 @@ exports[`matches the snapshot Case 4 With end icon: ({"endIcon": [Object]}) => H
 </div>
 `;
 
-exports[`matches the snapshot Case 5 Clearable, no input: ({"clearable": true}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 5 Clearable, no input: ({"clearable": true}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
@@ -121,7 +121,7 @@ exports[`matches the snapshot Case 5 Clearable, no input: ({"clearable": true}) 
 </div>
 `;
 
-exports[`matches the snapshot Case 6 Clearable, with input: ({"clearable": true, "modelValue": "Some value"}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 6 Clearable, with input: ({"clearable": true, "modelValue": "Some value"}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--clearable cdx-text-input--status-default"
 >
@@ -153,7 +153,7 @@ exports[`matches the snapshot Case 6 Clearable, with input: ({"clearable": true,
 </div>
 `;
 
-exports[`matches the snapshot Case 7 With end icon, clearable, no input: ({"clearable": true, "endIcon": [Object]}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 7 With end icon, clearable, no input: ({"clearable": true, "endIcon": [Object]}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--has-end-icon cdx-text-input--status-default"
 >
@@ -185,7 +185,7 @@ exports[`matches the snapshot Case 7 With end icon, clearable, no input: ({"clea
 </div>
 `;
 
-exports[`matches the snapshot Case 8 With end icon, clearable, with input: ({"clearable": true, "endIcon": [Object], "modelValue": "Some value"}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 8 With end icon, clearable, with input: ({"clearable": true, "endIcon": [Object], "modelValue": "Some value"}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--has-end-icon cdx-text-input--clearable cdx-text-input--status-default"
 >
@@ -235,7 +235,7 @@ exports[`matches the snapshot Case 8 With end icon, clearable, with input: ({"cl
 </div>
 `;
 
-exports[`matches the snapshot Case 9 With attributes: ({}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 9 With attributes: ({}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
@@ -243,6 +243,20 @@ exports[`matches the snapshot Case 9 With attributes: ({}) => HTML 1`] = `
     class="cdx-text-input__input"
     placeholder="Start typing..."
     size="30"
+    type="text"
+  />
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`TextInput matches the snapshot Case 10 With error status: ({"status": "error"}) => HTML 1`] = `
+<div
+  class="cdx-text-input cdx-text-input--status-error"
+>
+  <input
+    class="cdx-text-input__input"
     type="text"
   />
   <!--v-if-->

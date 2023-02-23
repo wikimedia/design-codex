@@ -137,6 +137,15 @@ export default defineComponent( {
 		 */
 		'update:modelValue',
 		/**
+		 * When the user presses a key.
+		 *
+		 * This event is not emitted when the user presses the Home or End key (T314728),
+		 * but is emitted for Ctrl/Cmd+Home and Ctrl/Cmd+End.
+		 *
+		 * @property {KeyboardEvent}
+		 */
+		'keydown',
+		/**
 		 * When the input value changes via direct use of the input
 		 *
 		 * @property {InputEvent} event
@@ -148,15 +157,6 @@ export default defineComponent( {
 		 * @property {Event} event
 		 */
 		'change',
-		/**
-		 * When the user presses a key.
-		 *
-		 * This event is not emitted when the user presses the Home or End key (T314728),
-		 * but is emitted for Ctrl/Cmd+Home and Ctrl/Cmd+End.
-		 *
-		 * @property {KeyboardEvent}
-		 */
-		'keydown',
 		/**
 		 * When the input comes into focus
 		 *
@@ -206,13 +206,6 @@ export default defineComponent( {
 			wrappedModel.value = '';
 		};
 
-		// Emit other events to the parent in case they're needed.
-		const onInput = ( event: InputEvent ) => {
-			emit( 'input', event );
-		};
-		const onChange = ( event: Event ) => {
-			emit( 'change', event );
-		};
 		const onKeydown = ( event: KeyboardEvent ) => {
 			// Hide keydown events for Home and End (but not Ctrl/Cmd+Home/End) from the parent
 			// This avoids a pitfall when delegating TextInput events to a Menu component, where
@@ -222,6 +215,14 @@ export default defineComponent( {
 				return;
 			}
 			emit( 'keydown', event );
+		};
+
+		// Emit other events to the parent in case they're needed.
+		const onInput = ( event: InputEvent ) => {
+			emit( 'input', event );
+		};
+		const onChange = ( event: Event ) => {
+			emit( 'change', event );
 		};
 		const onFocus = ( event: FocusEvent ) => {
 			emit( 'focus', event );
@@ -247,6 +248,9 @@ export default defineComponent( {
 		};
 	},
 
+	// Public methods
+	// These must be in the methods block, not in the setup function, otherwise their documentation
+	// won't be picked up by vue-docgen
 	methods: {
 		/**
 		 * Focus the component's input element.
@@ -312,151 +316,151 @@ export default defineComponent( {
 			right: @padding-horizontal-input-text-two-end-icons;
 		}
 	}
-}
 
-.cdx-text-input__input {
-	display: block;
-	box-sizing: @box-sizing-base;
-	min-width: @min-width-medium;
-	min-height: @min-size-base;
-	width: @size-full;
-	margin: 0;
-	border-width: @border-width-base;
-	border-style: @border-style-base;
-	border-radius: @border-radius-base;
-	padding: @spacing-25 @spacing-50;
-	font-family: inherit;
-	font-size: inherit;
-	line-height: @line-height-x-small;
+	&__input {
+		display: block;
+		box-sizing: @box-sizing-base;
+		min-width: @min-width-medium;
+		min-height: @min-size-base;
+		width: @size-full;
+		margin: 0;
+		border-width: @border-width-base;
+		border-style: @border-style-base;
+		border-radius: @border-radius-base;
+		padding: @spacing-25 @spacing-50;
+		font-family: inherit;
+		font-size: inherit;
+		line-height: @line-height-x-small;
 
-	&:enabled {
-		background-color: @background-color-base;
-		color: @color-base;
-		border-color: @border-color-base;
-		box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
-		transition-property: @transition-property-base;
-		transition-duration: @transition-duration-medium;
+		&:enabled {
+			background-color: @background-color-base;
+			color: @color-base;
+			border-color: @border-color-base;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
+			transition-property: @transition-property-base;
+			transition-duration: @transition-duration-medium;
 
-		~ .cdx-text-input__icon-vue {
-			color: @color-placeholder;
-		}
-
-		~ .cdx-text-input__icon {
-			opacity: @opacity-icon-accessory;
-		}
-
-		&:hover {
-			border-color: @border-color-input--hover;
-		}
-
-		// Show darker icons when the input is focused or has value.
-		// Note that the "has value" part doesn't apply to CSS-only text inputs.
-		&:focus,
-		&.cdx-text-input__input--has-value {
 			~ .cdx-text-input__icon-vue {
-				color: @color-base;
+				color: @color-placeholder;
 			}
 
 			~ .cdx-text-input__icon {
-				opacity: @opacity-base;
+				opacity: @opacity-icon-accessory;
+			}
+
+			&:hover {
+				border-color: @border-color-input--hover;
+			}
+
+			// Show darker icons when the input is focused or has value.
+			// Note that the "has value" part doesn't apply to CSS-only text inputs.
+			&:focus,
+			&.cdx-text-input__input--has-value {
+				~ .cdx-text-input__icon-vue {
+					color: @color-base;
+				}
+
+				~ .cdx-text-input__icon {
+					opacity: @opacity-base;
+				}
+			}
+
+			&:focus {
+				border-color: @border-color-progressive--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+				outline: @outline-base--focus;
 			}
 		}
 
-		&:focus {
-			border-color: @border-color-progressive--focus;
-			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
-			outline: @outline-base--focus;
-		}
-	}
-
-	/* stylelint-disable-next-line no-descending-specificity */
-	&:disabled {
-		background-color: @background-color-disabled-subtle;
-		color: @color-disabled;
-		-webkit-text-fill-color: @color-disabled;
-		border-color: @border-color-disabled;
-		// Don't implement coined effect on text-shadow from OOUI.
-		// This has never gone through design review and was a hack to increase
-		// color contrast.
-		// text-shadow: @text-shadow-base--disabled;
-
-		~ .cdx-text-input__icon-vue {
+		/* stylelint-disable-next-line no-descending-specificity */
+		&:disabled {
+			background-color: @background-color-disabled-subtle;
 			color: @color-disabled;
-			pointer-events: none;
+			-webkit-text-fill-color: @color-disabled;
+			border-color: @border-color-disabled;
+			// Don't implement coined effect on text-shadow from OOUI.
+			// This has never gone through design review and was a hack to increase
+			// color contrast.
+			// text-shadow: @text-shadow-base--disabled;
+
+			~ .cdx-text-input__icon-vue {
+				color: @color-disabled;
+				pointer-events: none;
+			}
+
+			~ .cdx-text-input__icon {
+				opacity: @opacity-base--disabled;
+			}
 		}
 
-		~ .cdx-text-input__icon {
-			opacity: @opacity-base--disabled;
+		// Normalize placeholder styling, see T139034.
+		&::placeholder {
+			color: @color-placeholder;
+			opacity: @opacity-base;
 		}
-	}
 
-	// Normalize placeholder styling, see T139034.
-	&::placeholder {
-		color: @color-placeholder;
-		opacity: @opacity-base;
-	}
-
-	// Support IE 10-11, and Edge 12+: Hide proprietary pseudo-element.
-	// See https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-clear
-	&::-ms-clear {
-		display: none;
-	}
-
-	&[ type='search' ] {
-		// Support Safari/iOS: Normalize by applying `none`,
-		// Chrome would accept `textfield` as well.
-		/* stylelint-disable plugin/no-unsupported-browser-features */
-		/* autoprefixer: ignore next */
-		-webkit-appearance: none;
-		// Support Firefox.
-		/* autoprefixer: ignore next */
-		-moz-appearance: textfield;
-		/* stylelint-enable plugin/no-unsupported-browser-features */
-
-		// Support: Safari, Chrome (Blink).
-		&::-webkit-search-decoration,
-		&::-webkit-search-cancel-button {
+		// Support IE 10-11, and Edge 12+: Hide proprietary pseudo-element.
+		// See https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-clear
+		&::-ms-clear {
 			display: none;
 		}
+
+		&[ type='search' ] {
+			// Support Safari/iOS: Normalize by applying `none`,
+			// Chrome would accept `textfield` as well.
+			/* stylelint-disable plugin/no-unsupported-browser-features */
+			/* autoprefixer: ignore next */
+			-webkit-appearance: none;
+			// Support Firefox.
+			/* autoprefixer: ignore next */
+			-moz-appearance: textfield;
+			/* stylelint-enable plugin/no-unsupported-browser-features */
+
+			// Support: Safari, Chrome (Blink).
+			&::-webkit-search-decoration,
+			&::-webkit-search-cancel-button {
+				display: none;
+			}
+		}
 	}
-}
 
-.cdx-text-input--has-start-icon {
-	.cdx-text-input__input {
-		.cdx-mixin-icon-wrapper-padding( start, @spacing-50 );
+	&--has-start-icon {
+		.cdx-text-input__input {
+			.cdx-mixin-icon-wrapper-padding( start, @spacing-50 );
+		}
 	}
-}
 
-// Either with an end icon or clearable.
-.cdx-text-input--has-end-icon,
-.cdx-text-input--clearable {
-	.cdx-text-input__input {
-		.cdx-mixin-icon-wrapper-padding(
-			end,
-			@spacing-50,
-			@size-icon-small
-		);
+	// Either with an end icon or clearable.
+	&--has-end-icon,
+	&--clearable {
+		.cdx-text-input__input {
+			.cdx-mixin-icon-wrapper-padding(
+				end,
+				@spacing-50,
+				@size-icon-small
+			);
+		}
 	}
-}
 
-// Both.
-.cdx-text-input--has-end-icon.cdx-text-input--clearable {
-	.cdx-text-input__input {
-		.cdx-mixin-icon-wrapper-padding(
-			end,
-			@padding-horizontal-input-text-two-end-icons,
-			@size-icon-small
-		);
+	// Both with an end icon and clearable.
+	&--has-end-icon&--clearable {
+		.cdx-text-input__input {
+			.cdx-mixin-icon-wrapper-padding(
+				end,
+				@padding-horizontal-input-text-two-end-icons,
+				@size-icon-small
+			);
+		}
 	}
-}
 
-.cdx-text-input--status-error {
-	/* stylelint-disable-next-line no-descending-specificity */
-	.cdx-text-input__input {
-		border-color: @border-color-destructive;
+	&--status-error {
+		/* stylelint-disable-next-line no-descending-specificity */
+		.cdx-text-input__input {
+			border-color: @border-color-destructive;
 
-		&:focus {
-			border-color: @border-color-progressive--focus;
+			&:focus {
+				border-color: @border-color-progressive--focus;
+			}
 		}
 	}
 }
