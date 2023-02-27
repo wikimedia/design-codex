@@ -36,7 +36,6 @@ module.exports = {
 			}
 		],
 		'selector-class-pattern': '^cdx-',
-		'selector-pseudo-element-colon-notation': 'double',
 		'property-disallowed-list': [
 			'background',
 			'font',
