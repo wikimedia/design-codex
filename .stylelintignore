@@ -13,6 +13,9 @@ packages/codex-docs/docs/components/demos/
 # Ignore documentation Icons Markdown files.
 packages/codex-docs/docs/icons/
 
+# Ignore VitePress cache
+packages/codex-docs/docs/.vitepress/cache/
+
 # Turn on linting for hidden directories.
 !.*/
 
