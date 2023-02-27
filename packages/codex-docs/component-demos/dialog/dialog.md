@@ -100,11 +100,6 @@ vertically.
 	margin: unset;
 	border: unset;
 	padding: unset;
-	font-family: unset;
-	font-size: unset;
-	font-weight: unset;
-	letter-spacing: initial;
-	line-height: unset;
 }
 
 :deep( .cdx-demo-wrapper__demo-pane .cdx-dialog p:first-child ) {

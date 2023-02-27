@@ -398,7 +398,7 @@ export default defineComponent( {
 			border: 0;
 			padding: 0;
 			font-family: inherit;
-			font-size: @font-size-medium;
+			font-size: @font-size-large;
 			font-weight: inherit;
 			line-height: @line-height-xxx-small;
 		}
