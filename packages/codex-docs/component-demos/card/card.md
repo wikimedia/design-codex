@@ -112,6 +112,12 @@ The third item has no thumbnail and display a placeholder icon instead.
 
 ### Maximum example
 
+The example below contains a title, a description, a thumbnail image, and some
+"supporting text" (which contains an Icon as well as text content).
+
+**Note:** When using an Icon component inside the Card's `supporting-text` slot,
+it is recommended to set the Icon `size` property to `small`.
+
 <cdx-demo-wrapper>
 <template v-slot:demo>
 <card-maximum />

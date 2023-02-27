@@ -10,7 +10,7 @@
 			accommodate the content.
 		</template>
 		<template #supporting-text>
-			<cdx-icon :icon="cdxIconWatchlist" />
+			<cdx-icon :icon="cdxIconWatchlist" size="small" />
 			Supporting text should also be kept short, but if it is long, it
 			will wrap onto a new line like the rest of the Card content.
 		</template>

@@ -16,7 +16,7 @@
 				{{ card.description }}
 			</template>
 			<template #supporting-text>
-				<cdx-icon :icon="cdxIconMapPin" /> Distance: {{ card.distance }}
+				<cdx-icon :icon="cdxIconMapPin" size="small" /> Distance: {{ card.distance }}
 			</template>
 		</cdx-card>
 	</div>

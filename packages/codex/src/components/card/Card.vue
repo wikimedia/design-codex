@@ -193,6 +193,7 @@ export default defineComponent( {
 
 		&__supporting-text {
 			margin-top: @spacing-50;
+			font-size: @font-size-small;
 		}
 	}
 
