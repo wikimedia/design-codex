@@ -172,7 +172,10 @@ body {
 /* When the sidebar is not collapsed... */
 @media screen and ( min-width: 960px ) {
 	/* Get rid of blurred background of fixed header. */
-	.VPSidebar .curtain {
+	.VPNav .VPNavBar.has-sidebar .content,
+	/* Make all parts of the top nav background-color-base. */
+	.VPNav .VPNavBarTitle,
+	.VPNav .VPNavBarTitle.has-sidebar {
 		background-color: var( --background-color-base );
 	}
 }
@@ -186,7 +189,13 @@ body {
 	opacity: var( --opacity-base );
 }
 
-.VPSidebar .link .text,
+/* Use padding instead of margin for sidebar links so the space doesn't collapse. */
+.VPSidebar .VPLink {
+	margin: 0;
+	padding: var( --spacing-25 ) 0;
+}
+
+.VPSidebar .link-text,
 /* stylelint-disable-next-line no-descending-specificity */
 .VPDocAside .content {
 	font-size: initial;
@@ -201,26 +210,32 @@ body {
 	line-height: var( --line-height-medium );
 }
 
-/* Higher specificity to override VitePress internal `.VPSidebarItem.level-1.is-link > .item > .link:hover .text[data-v-foo]` */
-.VPSidebar .link:hover .text,
-.VPDocAside .outline-link:hover {
-	/* stylelint-disable-next-line declaration-no-important */
-	color: var( --color-progressive--hover ) !important;
+.VPDocAside .outline-marker {
+	/* Account for the 6px padding-top we added above. */
+	margin-top: var( --spacing-35 );
 }
 
-/* Higher specificity to override VitePress internal `.VPSidebarItem.level-1.is-active > .item > .link .text[data-v-foo]` */
-.VPSidebar .VPSitebarItem.is-link.is-active .link .text,
+.VPSidebar .link:hover .link-text,
+.VPDocAside .outline-link:hover {
+	color: var( --color-progressive--hover );
+}
+
+.VPSidebar .link.active .link-text,
 .VPDocAside .outline-link.active {
-	/* stylelint-disable-next-line declaration-no-important */
-	color: var( --color-progressive ) !important;
-	/* stylelint-disable-next-line declaration-no-important */
-	font-weight: var( --font-weight-bold ) !important;
+	color: var( --color-progressive );
+	font-weight: var( --font-weight-bold );
 }
 
 /* Mobile menu text */
 .VPLocalNav .menu-text,
 .VPLocalNav .top-link {
 	font-size: var( --font-size-medium );
+}
+
+.VPFlyout.VPNavBarExtra {
+	/* Hide the flyout menu (mobile) since it's empty. */
+	/* Should be removed if we ever add any social links or a theme switcher. */
+	display: none;
 }
 
 /* Footer. ----------------------------------------------------------------- */
@@ -268,19 +283,23 @@ body {
 	color: var( --color-progressive );
 }
 
+pre[ class*='language-' ] {
+	/* Remove border from generated code samples. */
+	border: 0;
+}
+
 /*
  * Make sure template-only code blocks are labeled as Vue code.
  * Hide the "template" text and inject "vue" instead.
  */
-.vp-doc [ class~='language-template' ] > span.lang {
+.vp-doc [ class~='language-vue-html' ] > span.lang {
 	font-size: 0;
 }
 
-.vp-doc [ class~='language-template' ] > span.lang::after {
+.vp-doc [ class~='language-vue-html' ] > span.lang::after {
 	content: 'vue';
-	/* We can't use em here because the parent's font size is 0 */
-	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value, unit-disallowed-list */
-	font-size: 0.75rem;
+	/* TODO: Use a VitePress variable here if one is introduced in the future. */
+	font-size: var( --font-size-x-small );
 }
 
 .vp-doc [ class*='language-' ] > button.copy {
@@ -395,8 +414,7 @@ body {
 	margin-left: var( --spacing-25 );
 }
 
-/* Higher specificity to override VitePress internal `.vp-doc ul`. */
-.vp-doc ul.cdx-docs-methods__params {
+.cdx-docs-methods__params {
 	margin: 0;
 }
 
