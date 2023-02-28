@@ -302,12 +302,10 @@ module.exports = {
 				'border-image-source',
 				'border-image-width',
 				'padding',
-				/* TODO: Several inline calculations not based on design decisions to even out.
 				'padding-top',
 				'padding-right',
 				'padding-bottom',
 				'padding-left',
-				*/
 				'padding-block-start',
 				'padding-block-end',
 				'padding-inline-start',
