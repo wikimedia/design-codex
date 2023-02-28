@@ -260,12 +260,10 @@ module.exports = {
 				'opacity',
 				// `position` is excluded from Codex design tokens.
 				// 'position',
-				/* TODO: Several static values to even out.
 				'top',
 				'right',
 				'bottom',
 				'left',
-				*/
 				// 'z-index', TODO: Several static values to even out.
 				'margin',
 				'margin-top',
@@ -364,6 +362,7 @@ module.exports = {
 				ignoreValues: {
 					// Default for all properties.
 					'': [
+						'auto',
 						'currentColor',
 						'inherit',
 						'initial',

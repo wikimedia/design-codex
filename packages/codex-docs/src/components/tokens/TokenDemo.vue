@@ -83,7 +83,6 @@ export default defineComponent( {
 // TODO: Tokenize.
 @animation-duration-token-animation: 2000ms;
 @border-color-token: rgba( 0, 0, 0, 0.1 );
-@box-sizing-token-position: content-box;
 
 /** Demos that style a rectangle (this may be in addition to extra styles below) */
 .cdx-docs-tokens-demo {
@@ -167,11 +166,9 @@ export default defineComponent( {
 	&--background-position &__token,
 	&--position &__token {
 		position: relative;
-		box-sizing: @box-sizing-token-position;
 		width: @size-300;
 		height: @size-300;
 		margin-left: @spacing-300;
-		border: @border-width-base @border-style-base @border-color-base;
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			width: @size-1600;
@@ -180,17 +177,21 @@ export default defineComponent( {
 
 	&--background-position &__token {
 		.cdx-mixin-css-icon( @cdx-icon-map-pin );
+		outline: @border-width-base @border-style-base @border-color-base;
 	}
 
 	&--position &__token {
+		border: @border-width-base @border-style-base @border-color-base;
+
 		&__inner {
 			background-color: fade( @background-color-progressive, unit( @opacity-medium * 100, % ) );
 			position: absolute;
-			top: 12.5px;
-			left: 12.5px;
-			width: @size-125;
-			height: @size-125;
+			top: @spacing-half;
+			left: 0;
+			width: @size-150;
+			height: @size-150;
 			border: @border-width-base @border-style-base @border-color-base;
+			transform: translateY( -@spacing-half );
 		}
 	}
 }

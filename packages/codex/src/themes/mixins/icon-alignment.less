@@ -14,18 +14,18 @@
 // @param {px|em} size-icon - The size of the icon.
 // @param {px} external-padding - The external horizontal padding expected on the parent element of the icon.
 .cdx-mixin-icon( @param-align, @param-min-size-icon: @min-size-icon-medium, @param-size-icon: @size-icon-medium, @param-external-padding: @spacing-75 ) {
-	// Vertically center the icon by moving it down 50% of the height of the handle,
+	// Vertically center the icon by moving it down 50% (`@spacing-half`) of the height of the handle,
 	// then moving it up by 50% of the height of the icon (translateY uses the element height
 	// while top uses the offset parent's height).
 	position: absolute;
-	top: 50%;
+	top: @spacing-half;
 	// Provide way to override default sizes from Icon for small size icons like 'clear'
 	// in clearable TextInput.
 	min-width: @param-min-size-icon;
 	min-height: @param-min-size-icon;
 	width: @param-size-icon;
 	height: @param-size-icon;
-	transform: translateY( -50% );
+	transform: translateY( -@spacing-half );
 	transition-property: @transition-property-icon;
 	transition-duration: @transition-duration-base;
 
@@ -41,8 +41,8 @@
 	// Note, this could also be achieved by using Flexbox, by using `align-self: center;
 	// vertical-align: initial;`
 	& when ( @param-align = center ) {
-		left: 50%;
-		transform: translate( -50%, -50% );
+		left: @spacing-half;
+		transform: translate( -@spacing-half, -@spacing-half );
 	};
 }
 

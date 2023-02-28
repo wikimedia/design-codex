@@ -193,8 +193,8 @@ export default defineComponent( {
 			display: inline-block;
 			position: absolute;
 			// Compare 'custom.css' `.vp-doc td`.
-			bottom: 8px;
-			left: 12px;
+			bottom: @spacing-50;
+			left: @spacing-75;
 			padding: 0 @spacing-25;
 			font-weight: @font-weight-normal;
 		}

@@ -65,10 +65,10 @@ export default defineComponent( {
 
 	span {
 		position: absolute;
-		top: 50%;
-		left: 50%;
+		top: @spacing-half;
+		left: @spacing-half;
 		margin-left: -@spacing-half;
-		transform: translate( @spacing-75, -50% );
+		transform: translate( @spacing-75, -@spacing-half );
 		transition-property: margin-left, transform;
 		transition-duration: @transition-duration-medium;
 	}
@@ -96,7 +96,7 @@ export default defineComponent( {
 	&--transition-all:hover {
 		span {
 			margin-left: 0;
-			transform: translate( -50%, -50% );
+			transform: translate( -@spacing-half, -@spacing-half );
 		}
 	}
 }
