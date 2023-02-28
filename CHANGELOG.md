@@ -1,3 +1,23 @@
+# 0.6.2 / 2023-02-28
+## Styles
+- icons: Add 'function', 'functionArgument', 'instance' and 'literal' (Volker E)
+
+## Code
+- code: Clean up TextInput files (Anne Tomasevich)
+- code: Deduplicate TextInput native event tests (Roan Kattouw)
+- build: Upgrade VitePress from 1.0.0.alpha.29 to 1.0.0.alpha.47 (Roan Kattouw)
+- build: Update 'stylelint' dependencies (Volker E)
+- Revert "build: Upgrade VitePress from 1.0.0.alpha.29 to 1.0.0.alpha.47" (Catrope)
+- build: Remove `double` colon override (Volker E)
+- build: Add `margin` group to strict value declaration rule (Volker E)
+- build: Add `padding` group to strict value declaration rule (Volker E)
+- build: Add Stylelint strict value rule for top, left, bottom, right (Volker E)
+
+## Documentation
+- docs: Add link to planned components page (Anne Tomasevich)
+- docs: Add pre-release coordination instructions to RELEASING.md (Roan Kattouw)
+- docs: Update component descriptions (Anne Tomasevich)
+
 # 0.6.1 / 2023-02-21
 
 ## Features

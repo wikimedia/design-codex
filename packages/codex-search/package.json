@@ -1,6 +1,6 @@
 {
 	"name": "@wikimedia/codex-search",
-	"version": "0.6.1",
+	"version": "0.6.2",
 	"description": "Subset of the @wikimedia/codex package, containing only the TypeaheadSearch component and its dependencies",
 	"author": "Wikimedia Foundation (https://wikimediafoundation.org/)",
 	"homepage": "https://doc.wikimedia.org/codex/",
