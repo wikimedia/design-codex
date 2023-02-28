@@ -67,7 +67,7 @@ export default defineComponent( {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		margin-left: -50%;
+		margin-left: -@spacing-half;
 		transform: translate( @spacing-75, -50% );
 		transition-property: margin-left, transform;
 		transition-duration: @transition-duration-medium;

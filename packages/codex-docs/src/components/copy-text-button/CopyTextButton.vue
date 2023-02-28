@@ -171,11 +171,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-copy-text-button {
-	&__icon {
-		width: 1.2em;
-		height: 1.2em;
-	}
-
 	&__transition-icon {
 		&-leave-active {
 			transition-property: width, opacity, margin-left;
@@ -186,7 +181,7 @@ export default defineComponent( {
 		&-leave-to {
 			opacity: 0;
 			width: 0;
-			margin-left: -0.2em;
+			margin-left: -@spacing-25;
 		}
 	}
 }

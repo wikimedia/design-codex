@@ -268,12 +268,10 @@ module.exports = {
 				*/
 				// 'z-index', TODO: Several static values to even out.
 				'margin',
-				/* TODO: Several static values to even out.
 				'margin-top',
 				'margin-right',
 				'margin-bottom',
 				'margin-left',
-				*/
 				'margin-block',
 				'margin-block-start',
 				'margin-block-end',

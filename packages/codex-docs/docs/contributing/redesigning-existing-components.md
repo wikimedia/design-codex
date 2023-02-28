@@ -16,7 +16,7 @@ The redesign of a component should be clearly justified and scoped. There are se
 
 In this scenario, we may need to create a new component variant or property in order to expand the use cases of the original component (e.g. Message component needs to present a close button so users can dismiss it).
 </div>
-<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m" style="margin-bottom: 48px;">
+<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m" style="margin-bottom: var( --spacing-300 );">
 
 ![Redesigning components scenarios 01](../assets/redesigning-existing-components/report-validate-redesigning-components-scenario-01.png)
 
@@ -29,7 +29,7 @@ In this scenario, we may need to create a new component variant or property in o
 In this scenario, we may need to change the visual style of the component in order to improve it, or to make it consistent with other system elements (e.g. Button paddings need to be decreased).
 
 </div>
-<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m" style="margin-bottom: 48px;">
+<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m" style="margin-bottom: var( --spacing-300 );">
 
 ![Redesigning components scenarios 02](../assets/redesigning-existing-components/report-validate-redesigning-components-scenario-02.png)
 </div>
