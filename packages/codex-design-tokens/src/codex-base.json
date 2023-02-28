@@ -76,52 +76,52 @@
 			"value": "{ color.transparent-light }"
 		},
 		"base--hover": {
-			"deprecated": "Use `background-color-interactive` instead.",
-			"value": "{ color.gray200 }"
+			"deprecated": true,
+			"value": "{ background-color.interactive }"
 		},
 		"base--active": {
-			"deprecated": "Use `background-color-progressive-subtle` instead.",
-			"value": "{ color.blue100 }"
+			"deprecated": true,
+			"value": "{ background-color.progressive-subtle }"
 		},
 		"base--disabled": {
-			"deprecated": "Use `background-color-disabled-subtle` instead.",
-			"value": "{ color.gray200 }"
+			"deprecated": true,
+			"value": "{ background-color.disabled-subtle }"
 		},
 		"base--transparent": {
-			"deprecated": "Use `background-color-transparent` instead.",
-			"value": "{ color.transparent-light }"
+			"deprecated": true,
+			"value": "{ background-color.transparent }"
 		},
 		"filled--disabled": {
-			"deprecated": "Use `background-color-disabled` instead.",
-			"value": "{ color.gray300 }"
+			"deprecated": true,
+			"value": "{ background-color.disabled }"
 		},
 		"framed": {
-			"deprecated": "Use `background-color-interactive-subtle` instead.",
-			"value": "{ color.gray100 }"
+			"deprecated": true,
+			"value": "{ background-color.interactive-subtle }"
 		},
 		"framed--hover": {
-			"deprecated": "Use `background-color-base` instead.",
-			"value": "{ color.white }"
+			"deprecated": true,
+			"value": "{ background-color.base }"
 		},
 		"framed--active": {
-			"deprecated": "Use `background-color-interactive` with buttons' active state instead.",
-			"value": "{ color.gray200 }"
+			"deprecated": true,
+			"value": "{ background-color.interactive }"
 		},
 		"error--framed": {
-			"deprecated": "Use `background-color-error-subtle` instead.",
-			"value": "{ color.red100 }"
+			"deprecated": true,
+			"value": "{ background-color.error-subtle }"
 		},
 		"warning--framed": {
-			"deprecated": "Use `background-color-warning-subtle` instead.",
-			"value": "{ color.yellow100 }"
+			"deprecated": true,
+			"value": "{ background-color.warning-subtle }"
 		},
 		"success--framed": {
-			"deprecated": "Use `background-color-success-subtle` instead.",
-			"value": "{ color.green100 }"
+			"deprecated": true,
+			"value": "{ background-color.success-subtle }"
 		},
 		"notice--framed": {
-			"deprecated": "Use `background-color-notice-subtle` instead.",
-			"value": "{ color.gray200 }"
+			"deprecated": true,
+			"value": "{ background-color.notice-subtle }"
 		}
 	},
 	"color": {
@@ -192,32 +192,32 @@
 			"value": "{ color.gray700 }"
 		},
 		"base--active": {
-			"deprecated": "Use `color-emphasized` instead.",
-			"value": "{ color.black }"
+			"deprecated": true,
+			"value": "{ color.emphasized }"
 		},
 		"base--inverted": {
-			"deprecated": "Use `color-inverted` instead.",
-			"value": "{ color.white }"
+			"deprecated": true,
+			"value": "{ color.inverted }"
 		},
 		"base--emphasized": {
-			"deprecated": "Use `color-emphasized` instead.",
-			"value": "{ color.black }"
+			"deprecated": true,
+			"value": "{ color.emphasized }"
 		},
 		"base--subtle": {
 			"deprecated": "Use `color-subtle` instead. Note, that `color-subtle` is using `color.gray600` instead of `color.gray500` now.",
 			"value": "{ color.gray500 }"
 		},
 		"base--disabled": {
-			"deprecated": "Use `color-disabled` instead.",
-			"value": "{ color.gray500 }"
+			"deprecated": true,
+			"value": "{ color.disabled }"
 		},
 		"filled--disabled": {
-			"deprecated": "Use `color-inverted` instead.",
-			"value": "{ color.white }"
+			"deprecated": true,
+			"value": "{ color.inverted }"
 		},
 		"accessory": {
-			"deprecated": "Use `color-subtle` instead.",
-			"value": "{ color.gray600 }"
+			"deprecated": true,
+			"value": "{ color.subtle }"
 		}
 	},
 	"opacity": {
@@ -234,7 +234,7 @@
 			"value": "{ opacity.0 }"
 		},
 		"base--disabled": {
-			"deprecated": "Legacy opacity for icon disabled state in non-Codex products. Has only been used for icons despite the name. Replace by `opacity-icon-base--disabled`.",
+			"deprecated": "Legacy opacity for icon disabled state in non-Codex products. Has only been used for icons despite the name.",
 			"value": "{ opacity-icon.base--disabled }"
 		}
 	},
@@ -370,8 +370,8 @@
 			}
 		},
 		"base": {
-			"deprecated": "Legacy size for use in non-Codex products. Only used in relative size in new Codex design token application.",
-			"value": "{ dimension.200 }{ unit.system }"
+			"deprecated": true,
+			"value": "{ size.200 }"
 		}
 	},
 	"min-width": {
@@ -423,7 +423,7 @@
 			"comment": "Legacy Breakpoints. Width for use as minimum available screen width (`min-width`) to be considered a certain device type.",
 			"mobile": {
 				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. A mobile device's screen width. Many older feature phones have screens smaller than this value.",
-				"value": "{ size.viewport.32 }"
+				"value": "{ min-width.breakpoint.mobile }"
 			},
 			"tablet": {
 				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. A tablet device's screen width.",
@@ -507,23 +507,23 @@
 	"border": {
 		"comment": "Note, that all `border` token shorthands are legacy now, to reinforce design decisions in modular way.",
 		"base": {
-			"deprecated": "Legacy `border` token shorthand. Use sub-property tokens instead.",
+			"deprecated": "Legacy `border` token shorthand. Use `border-width-base, border-style-base border-color-base` instead.",
 			"value": "{ border-width.base } { border-style.base } { border-color.base }"
 		},
 		"error": {
-			"deprecated": "Legacy `border` token shorthand. Use sub-property tokens instead.",
+			"deprecated": "Legacy `border` token shorthand. Use `border-width-base border-style-base border-color-error` instead.",
 			"value": "{ border-width.base } { border-style.base } { border-color.error }"
 		},
 		"warning": {
-			"deprecated": "Legacy `border` token shorthand. Use sub-property tokens instead.",
+			"deprecated": "Legacy `border` token shorthand. Use `border-width-base border-style-base border-color-warning` instead.",
 			"value": "{ border-width.base } { border-style.base } { border-color.warning }"
 		},
 		"success": {
-			"deprecated": "Legacy `border` token shorthand. Use sub-property tokens instead.",
+			"deprecated": "Legacy `border` token shorthand. Use `border-width-base border-style-base border-color-success` instead.",
 			"value": "{ border-width.base } { border-style.base } { border-color.success }"
 		},
 		"notice": {
-			"deprecated": "Legacy `border` token shorthand. Use sub-property tokens instead.",
+			"deprecated": "Legacy `border` token shorthand. Use `border-width-base border-style-base border-color-notice` instead.",
 			"value": "{ border-width.base } { border-style.base } { border-color.notice }"
 		}
 	},
@@ -599,44 +599,44 @@
 			"value": "{ color.transparent }"
 		},
 		"base--hover": {
-			"deprecated": "Use `border-color-base` instead.",
-			"value": "{ color.gray400 }"
+			"deprecated": true,
+			"value": "{ border-color.base }"
 		},
 		"base--active": {
-			"deprecated": "Use `border-color-interactive` instead.",
-			"value": "{ color.gray500 }"
+			"deprecated": true,
+			"value": "{ border-color.interactive }"
 		},
 		"base--focus": {
-			"deprecated": "Use `border-color-progressive--focus` instead.",
-			"value": "{ color.blue600 }"
+			"deprecated": true,
+			"value": "{ border-color.progressive--focus }"
 		},
 		"base--disabled": {
-			"deprecated": "Use `border-color-disabled` instead.",
-			"value": "{ color.gray300 }"
+			"deprecated": true,
+			"value": "{ border-color.disabled }"
 		},
 		"filled--disabled": {
-			"deprecated": "Use `border-color-inverted` instead.",
-			"value": "{ color.white }"
+			"deprecated": true,
+			"value": "{ border-color.inverted }"
 		},
 		"neutral": {
-			"deprecated": "Use `border-color-base` instead.",
-			"value": "{ color.gray400 }"
+			"deprecated": true,
+			"value": "{ border-color.base }"
 		},
 		"neutral--hover": {
-			"deprecated": "Use `border-color-base` instead.",
-			"value": "{ color.gray400 }"
+			"deprecated": true,
+			"value": "{ border-color.base }"
 		},
 		"neutral--active": {
-			"deprecated": "Use `border-color-interactive` instead.",
-			"value": "{ color.gray500 }"
+			"deprecated": true,
+			"value": "{ border-color.interactive }"
 		},
 		"neutral--focus": {
-			"deprecated": "Use `border-color-progressive--focus` instead.",
-			"value": "{ color.blue600 }"
+			"deprecated": true,
+			"value": "{ border-color.progressive--focus }"
 		},
 		"inset--focus": {
-			"deprecated": "Use `border-color-inverted` instead.",
-			"value": "{ color.inverted }"
+			"deprecated": true,
+			"value": "{ border-color.inverted }"
 		}
 	},
 	"border-radius": {
@@ -656,18 +656,18 @@
 	"padding": {
 		"base": {
 			"deprecated": "Use `spacing-25 spacing-75` instead.",
-			"value": "{ padding.vertical.base } { padding.horizontal.base }"
+			"value": "{ spacing.25 } { spacing.75 }"
 		},
 		"horizontal": {
 			"base": {
-				"deprecated": "Use `spacing-75` instead.",
-				"value": "{ dimension.75 }{ unit.system }"
+				"deprecated": true,
+				"value": "{ spacing.75 }"
 			}
 		},
 		"vertical": {
 			"base": {
-				"deprecated": "Use `spacing-25` instead.",
-				"value": "{ dimension.25 }{ unit.system }"
+				"deprecated": true,
+				"value": "{ spacing.25 }"
 			}
 		}
 	},
@@ -733,47 +733,47 @@
 			}
 		},
 		"progressive--active": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Apply single category tokens instead.",
-			"value": "{ box-shadow.25 } { color.blue700 }"
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-inset-small box-shadow-color-progressive--active` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.progressive--active }"
 		},
 		"progressive--focus": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Apply single category tokens instead.",
-			"value": "{ box-shadow.25 } { color.blue600 }"
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-inset-small box-shadow-color-progressive--focus` isntead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.progressive--focus }"
 		},
 		"destructive--focus": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Apply single category tokens instead.",
-			"value": "{ box-shadow.25 } { color.red600 }"
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-insert-small box-shadow-color-destructive--focus` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.destructive--focus }"
 		},
 		"inverted": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Apply single category tokens instead.",
-			"value": "{ box-shadow.50 } { color.white }"
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-inset-medium box-shadow-color-inverted` instead.",
+			"value": "{ box-shadow.inset-medium } { box-shadow.color.inverted }"
 		},
 		"progressive-filled--focus": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Apply single category tokens instead.",
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-progressive--focus, box-shadow-inverted` instead.",
 			"value": "{ box-shadow.progressive--focus }, { box-shadow.inverted }"
 		},
 		"destructive-filled--focus": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Apply single category tokens instead.",
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-destructive--focus, box-shadow-inverted` instead.",
 			"value": "{ box-shadow.destructive--focus }, { box-shadow.inverted }"
 		},
 		"base": {
-			"deprecated": "Legacy value. Only used in non-Codex products.",
-			"value": "{ box-shadow.25 } { color.transparent }"
+			"deprecated": "Use `box-shadow-inset-small box-shadow-color-transparent` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.transparent }"
 		},
 		"base--active": {
-			"deprecated": "Legacy value. Only used in non-Codex products.",
+			"deprecated": true,
 			"value": "{ box-shadow.progressive--active }"
 		},
 		"base--focus": {
-			"deprecated": "Legacy value. Only used in non-Codex products.",
+			"deprecated": true,
 			"value": "{ box-shadow.progressive--focus }"
 		},
 		"filled--disabled": {
-			"deprecated": "Legacy value. Only used in non-Codex products.",
-			"value": "{ box-shadow.25 } { color.white }"
+			"deprecated": "Use `box-shadow-inset-small box-shadow-color-inverted` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.inverted }"
 		},
 		"primary--focus": {
-			"deprecated": "Legacy value. Only used in non-Codex products.",
+			"deprecated": true,
 			"value": "{ box-shadow.progressive-filled--focus }"
 		}
 	},
@@ -872,8 +872,8 @@
 			"value": "{ line-height.100 }"
 		},
 		"base": {
-			"deprecated": "Legacy `line-height` for use in non-Codex products. Use `line-height-medium` instead.",
-			"value": "{ line-height.100 }"
+			"deprecated": true,
+			"value": "{ line-height.medium }"
 		},
 		"heading": {
 			"deprecated": "Legacy `line-height` for headings in non-Codex products. Use `line-height-xx-small` instead.",
@@ -898,8 +898,8 @@
 	},
 	"transition": {
 		"base": {
-			"deprecated": "Legacy `transition` for icon states in non-Codex products.",
-			"value": "{ transition-duration.100 }"
+			"deprecated": true,
+			"value": "{ transition-duration.base }"
 		}
 	},
 	"transition-duration": {

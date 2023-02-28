@@ -12,7 +12,7 @@
 			"value": "{ color.blue600 }"
 		},
 		"primary": {
-			"deprecated": "Use `background-color-progressive` instead.",
+			"deprecated": true,
 			"value": "{ background-color.progressive }"
 		},
 		"primary--hover": {
@@ -20,54 +20,54 @@
 			"value": "{ color.modifier-blue600-translucent }"
 		},
 		"quiet": {
-			"deprecated": "Use `background-color-transparent` instead.",
+			"deprecated": true,
 			"value": "{ background-color.transparent }"
 		},
 		"quiet--hover": {
-			"deprecated": "Use `background-color-button-quiet--hover` instead.",
-			"value": "{ color.modifier-gray100-translucent }"
+			"deprecated": true,
+			"value": "{ background-color.button.quiet--hover }"
 		},
 		"quiet--active": {
-			"deprecated": "Use `background-color-button-quiet--active` instead.",
-			"value": "{ color.modifier-gray200-translucent }"
+			"deprecated": true,
+			"value": "{ background-color.button.quiet--active }"
 		},
 		"message": {
 			"comment": "User system messages (errors, warnings, successes, notices).",
 			"notice": {
-				"deprecated": "Use `background-color-notice-subtle` instead.",
-				"value": "{ color.gray200 }"
+				"deprecated": true,
+				"value": "{ background-color.notice-subtle }"
 			},
 			"error": {
-				"deprecated": "Use `background-color-error-subtle` instead.",
-				"value": "{ color.red100 }"
+				"deprecated": true,
+				"value": "{ background-color.error-subtle }"
 			},
 			"warning": {
-				"deprecated": "Use `background-color-warning-subtle` instead.",
-				"value": "{ color.yellow100 }"
+				"deprecated": true,
+				"value": "{ background-color.warning-subtle }"
 			},
 			"success": {
-				"deprecated": "Use `background-color-success-subtle` instead.",
-				"value": "{ color.green100 }"
+				"deprecated": true,
+				"value": "{ background-color.success-subtle }"
 			}
 		},
 		"tabs-framed": {
-			"deprecated": "Former Tabs bar background color token. Use `background-color-interactive` instead.",
-			"value": "{ color.gray200 }"
+			"deprecated": true,
+			"value": "{ background-color.interactive }"
 		},
 		"toolbar": {
-			"deprecated": "Former Toolbar background color token. Use `background-color-base` instead.",
+			"deprecated": true,
 			"value": "{ background-color.base }"
 		},
 		"tool--hover": {
-			"deprecated": "Former Toolbar tools background color token. Use `background-color-base` instead.",
-			"value": "{ background-color.base--hover }"
+			"deprecated": true,
+			"value": "{ background-color.interactive }"
 		},
 		"tool--active": {
-			"deprecated": "Use `background-color-progressive` instead.",
+			"deprecated": true,
 			"value": "{ background-color.progressive }"
 		},
 		"tool--active-hover": {
-			"deprecated": "Use `background-color-progressive--hover` instead.",
+			"deprecated": true,
 			"value": "{ background-color.progressive--hover }"
 		}
 	},
@@ -79,7 +79,7 @@
 	},
 	"color": {
 		"primary": {
-			"deprecated": "In use in many non-button applications as references in WikimediaUI Base. Note that we have to replace those before removing tokens group here.",
+			"deprecated": true,
 			"value": "{ color.progressive }"
 		},
 		"primary--hover": {
@@ -226,12 +226,12 @@
 	"padding": {
 		"input-text": {
 			"deprecated": "Legacy padding for use in non-Codex products. Use `spacing-25 spacing-50` instead.",
-			"value": "{ padding.vertical.base } { padding.horizontal.input-text }"
+			"value": "{ spacing.25 } { spacing.50 }"
 		},
 		"horizontal": {
 			"input-text": {
-				"deprecated": "Legacy padding for use in non-Codex products. Use `spacing-50` instead.",
-				"value": "{ dimension.50 }{ unit.system }"
+				"deprecated": true,
+				"value": "{ spacing.50 }"
 			}
 		},
 		"vertical": {
