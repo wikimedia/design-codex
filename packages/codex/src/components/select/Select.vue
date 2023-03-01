@@ -275,7 +275,7 @@ export default defineComponent( {
 // This is the CSS-only version, which is a `<select>` element.
 .cdx-select {
 	.cdx-select__handle();
-	.cdx-mixin-css-icon-background( @size-indicator, center right @spacing-75 );
+	.cdx-mixin-css-icon-background( @size-icon-x-small, center right @spacing-75 );
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	appearance: none;
 
@@ -331,7 +331,7 @@ export default defineComponent( {
 			}
 
 			&:focus {
-				border-color: @color-primary--focus;
+				border-color: @color-progressive--focus;
 				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 				outline: @outline-base--focus;
 			}

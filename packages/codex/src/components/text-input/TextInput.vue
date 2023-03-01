@@ -389,7 +389,7 @@ export default defineComponent( {
 			}
 
 			~ .cdx-text-input__icon {
-				opacity: @opacity-base--disabled;
+				opacity: @opacity-icon-base--disabled;
 			}
 		}
 

@@ -796,11 +796,15 @@ export default defineComponent( {
 		.cdx-mixin-element-with-menu-expanded();
 	}
 
-	// TODO: Overwrite TextInput default to feature px based `min-size-icon`.
+	// TODO: Overwrite TextInput default to feature px based `min-size-icon-medium`.
 	// Revisit and remove as soon as we're providing legacy theme to Vector at 14px base.
 	.cdx-text-input--has-start-icon {
 		.cdx-text-input__input {
-			.cdx-mixin-icon-wrapper-padding( start, @spacing-50, @param-size-icon: @min-size-icon );
+			.cdx-mixin-icon-wrapper-padding(
+				start,
+				@spacing-50,
+				@param-size-icon: @min-size-icon-medium
+			);
 		}
 	}
 

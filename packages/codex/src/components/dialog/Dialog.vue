@@ -375,11 +375,11 @@ export default defineComponent( {
 	width: calc( @size-full - ( @size-100 * 2) );
 	max-width: @size-3200;
 	max-height: calc( @size-viewport-height-full - @size-250 );
-	border: @border-base;
+	border: @border-width-base @border-style-base @border-color-base;
 	border-radius: @border-radius-base;
 	padding-top: @spacing-100;
 	padding-bottom: @spacing-150;
-	box-shadow: @box-shadow-dialog;
+	box-shadow: @box-shadow-drop-medium;
 
 	&__header {
 		display: flex;

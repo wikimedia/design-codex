@@ -33,8 +33,8 @@
 	.get-calculated-min-size-icon( @param-size-icon );
 	background-position: @param-background-position;
 	background-repeat: no-repeat;
-	// Set background size to the relative @size-icon or to @min-size-icon, whichever is larger.
-	// This ensures that the icon will never appear smaller than @min-size-icon.
+	// Set background size to the relative @param-size-icon or to @calculated-min-size-icon, whichever is larger.
+	// This ensures that the icon will never appear smaller than @calculated-min-size-icon.
 	background-size: calc( max( @param-size-icon, @calculated-min-size-icon ) );
 }
 
