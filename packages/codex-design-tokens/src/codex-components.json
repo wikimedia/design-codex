@@ -11,64 +11,9 @@
 		"input-binary--checked": {
 			"value": "{ color.blue600 }"
 		},
-		"primary": {
-			"deprecated": true,
-			"value": "{ background-color.progressive }"
-		},
 		"primary--hover": {
 			"deprecated": "No replacement for this token. Only used in non-Codex products and design decision is to need to rely on background for this state.",
 			"value": "{ color.modifier-blue600-translucent }"
-		},
-		"quiet": {
-			"deprecated": true,
-			"value": "{ background-color.transparent }"
-		},
-		"quiet--hover": {
-			"deprecated": true,
-			"value": "{ background-color.button.quiet--hover }"
-		},
-		"quiet--active": {
-			"deprecated": true,
-			"value": "{ background-color.button.quiet--active }"
-		},
-		"message": {
-			"comment": "User system messages (errors, warnings, successes, notices).",
-			"notice": {
-				"deprecated": true,
-				"value": "{ background-color.notice-subtle }"
-			},
-			"error": {
-				"deprecated": true,
-				"value": "{ background-color.error-subtle }"
-			},
-			"warning": {
-				"deprecated": true,
-				"value": "{ background-color.warning-subtle }"
-			},
-			"success": {
-				"deprecated": true,
-				"value": "{ background-color.success-subtle }"
-			}
-		},
-		"tabs-framed": {
-			"deprecated": true,
-			"value": "{ background-color.interactive }"
-		},
-		"toolbar": {
-			"deprecated": true,
-			"value": "{ background-color.base }"
-		},
-		"tool--hover": {
-			"deprecated": true,
-			"value": "{ background-color.interactive }"
-		},
-		"tool--active": {
-			"deprecated": true,
-			"value": "{ background-color.progressive }"
-		},
-		"tool--active-hover": {
-			"deprecated": true,
-			"value": "{ background-color.progressive--hover }"
 		}
 	},
 	"background-size": {
@@ -78,22 +23,6 @@
 		}
 	},
 	"color": {
-		"primary": {
-			"deprecated": true,
-			"value": "{ color.progressive }"
-		},
-		"primary--hover": {
-			"deprecated": true,
-			"value": "{ color.progressive--hover }"
-		},
-		"primary--active": {
-			"deprecated": true,
-			"value": "{ color.progressive--active }"
-		},
-		"primary--focus": {
-			"deprecated": true,
-			"value": "{ color.progressive--focus }"
-		},
 		"link-red": {
 			"comment": "Red ('new') Link color and states",
 			"value": "{ color.red600 }"
@@ -128,14 +57,6 @@
 		"icon-medium": {
 			"value": "{ dimension.125 }{ unit.system }"
 		},
-		"icon": {
-			"deprecated": true,
-			"value": "{ min-size.icon-medium }"
-		},
-		"indicator": {
-			"deprecated": true,
-			"value": "{ min-size.icon-x-small }"
-		},
 		"search-figure": {
 			"comment": "Alias for use in TypeaheadSearch and Thumbnail components for the same purpose and for better code readability.",
 			"value": "{ dimension.250 }{ unit.system }"
@@ -154,14 +75,6 @@
 		"icon-medium": {
 			"value": "{ dimension.125 }{ unit.system }"
 		},
-		"icon": {
-			"deprecated": true,
-			"value": "{ size.icon-medium }"
-		},
-		"indicator": {
-			"deprecated": true,
-			"value": "{ size.icon-x-small }"
-		},
 		"search-figure": {
 			"comment": "Alias for use in TypeaheadSearch and Thumbnail components for the same purpose and for better code readability.",
 			"value": "{ dimension.250 }{ unit.system }"
@@ -178,21 +91,15 @@
 			"value": "{ dimension.2800 }{ unit.system }"
 		}
 	},
-	"border": {
-		"input-binary": {
-			"deprecated": "Legacy `border-input-binary` for non-Codex products using WikimediaUI Base. Use sub-property tokens with `border-color-input-binary` instead.",
-			"value": "{ border-width.base } { border-style.base } { border-color.input-binary }"
-		}
-	},
 	"border-color": {
 		"divider": {
 			"value": "{ color.gray400 }"
 		},
 		"input--hover": {
-			"value": "{ border-color.base--active }"
+			"value": "{ border-color.interactive }"
 		},
 		"input-binary": {
-			"value": "{ border-color.base--active }"
+			"value": "{ border-color.interactive }"
 		},
 		"input-binary--hover": {
 			"value": "{ border-color.progressive--hover }"
@@ -205,59 +112,6 @@
 		},
 		"input-binary--checked": {
 			"value": "{ border-color.progressive }"
-		},
-		"primary": {
-			"deprecated": true,
-			"value": "{ border-color.progressive }"
-		},
-		"primary--hover": {
-			"deprecated": true,
-			"value": "{ border-color.progressive--hover }"
-		},
-		"primary--active": {
-			"deprecated": true,
-			"value": "{ border-color.progressive--active }"
-		},
-		"primary--focus": {
-			"deprecated": true,
-			"value": "{ border-color.progressive--focus }"
-		}
-	},
-	"padding": {
-		"input-text": {
-			"deprecated": "Legacy padding for use in non-Codex products. Use `spacing-25 spacing-50` instead.",
-			"value": "{ spacing.25 } { spacing.50 }"
-		},
-		"horizontal": {
-			"input-text": {
-				"deprecated": true,
-				"value": "{ spacing.50 }"
-			}
-		},
-		"vertical": {
-			"menu": {
-				"comment": "Note, that we need to rely on `calc()` for cross-stylesheet format output. Not perfectly aligned to current basic browser support.",
-				"deprecated": "Legacy padding for use in non-Codex products.",
-				"value": "calc( { dimension.25 }{ unit.system } + { border-width.base } )"
-			}
-		}
-	},
-	"box-shadow": {
-		"card": {
-			"deprecated": true,
-			"value": "{ box-shadow.drop-small }"
-		},
-		"dialog": {
-			"deprecated": true,
-			"value": "{ box-shadow.drop-medium }"
-		},
-		"menu": {
-			"deprecated": true,
-			"value": "{ box-shadow.drop-medium }"
-		},
-		"progress-bar": {
-			"deprecated": true,
-			"value": "{ box-shadow.drop-small }"
 		}
 	},
 	"font-family": {

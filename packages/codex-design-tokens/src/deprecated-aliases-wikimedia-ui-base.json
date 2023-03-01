@@ -1,0 +1,374 @@
+{
+	"comment": "This file contains only deprecated token keys aliased to Codex tokens for backwards compatibility in WikimediaUI Base",
+	"background-color": {
+		"base--hover": {
+			"deprecated": true,
+			"value": "{ background-color.interactive }"
+		},
+		"base--active": {
+			"deprecated": true,
+			"value": "{ background-color.progressive-subtle }"
+		},
+		"base--disabled": {
+			"deprecated": true,
+			"value": "{ background-color.disabled-subtle }"
+		},
+		"base--transparent": {
+			"deprecated": true,
+			"value": "{ background-color.transparent }"
+		},
+		"filled--disabled": {
+			"deprecated": true,
+			"value": "{ background-color.disabled }"
+		},
+		"framed": {
+			"deprecated": true,
+			"value": "{ background-color.interactive-subtle }"
+		},
+		"framed--hover": {
+			"deprecated": true,
+			"value": "{ background-color.base }"
+		},
+		"framed--active": {
+			"deprecated": true,
+			"value": "{ background-color.interactive }"
+		},
+		"error--framed": {
+			"deprecated": true,
+			"value": "{ background-color.error-subtle }"
+		},
+		"warning--framed": {
+			"deprecated": true,
+			"value": "{ background-color.warning-subtle }"
+		},
+		"success--framed": {
+			"deprecated": true,
+			"value": "{ background-color.success-subtle }"
+		},
+		"notice--framed": {
+			"deprecated": true,
+			"value": "{ background-color.notice-subtle }"
+		},
+		"primary": {
+			"deprecated": true,
+			"value": "{ background-color.progressive }"
+		},
+		"quiet": {
+			"deprecated": true,
+			"value": "{ background-color.transparent }"
+		},
+		"quiet--hover": {
+			"deprecated": true,
+			"value": "{ background-color.button.quiet--hover }"
+		},
+		"quiet--active": {
+			"deprecated": true,
+			"value": "{ background-color.button.quiet--active }"
+		},
+		"message": {
+			"comment": "User system messages (errors, warnings, successes, notices).",
+			"notice": {
+				"deprecated": true,
+				"value": "{ background-color.notice-subtle }"
+			},
+			"error": {
+				"deprecated": true,
+				"value": "{ background-color.error-subtle }"
+			},
+			"warning": {
+				"deprecated": true,
+				"value": "{ background-color.warning-subtle }"
+			},
+			"success": {
+				"deprecated": true,
+				"value": "{ background-color.success-subtle }"
+			}
+		},
+		"tabs-framed": {
+			"deprecated": true,
+			"value": "{ background-color.interactive }"
+		},
+		"toolbar": {
+			"deprecated": true,
+			"value": "{ background-color.base }"
+		},
+		"tool--hover": {
+			"deprecated": true,
+			"value": "{ background-color.interactive }"
+		},
+		"tool--active": {
+			"deprecated": true,
+			"value": "{ background-color.progressive }"
+		},
+		"tool--active-hover": {
+			"deprecated": true,
+			"value": "{ background-color.progressive--hover }"
+		}
+	},
+	"color": {
+		"base--active": {
+			"deprecated": true,
+			"value": "{ color.emphasized }"
+		},
+		"base--inverted": {
+			"deprecated": true,
+			"value": "{ color.inverted }"
+		},
+		"base--emphasized": {
+			"deprecated": true,
+			"value": "{ color.emphasized }"
+		},
+		"base--disabled": {
+			"deprecated": true,
+			"value": "{ color.disabled }"
+		},
+		"filled--disabled": {
+			"deprecated": true,
+			"value": "{ color.inverted }"
+		},
+		"accessory": {
+			"deprecated": true,
+			"value": "{ color.subtle }"
+		},
+		"primary": {
+			"deprecated": true,
+			"value": "{ color.progressive }"
+		},
+		"primary--hover": {
+			"deprecated": true,
+			"value": "{ color.progressive--hover }"
+		},
+		"primary--active": {
+			"deprecated": true,
+			"value": "{ color.progressive--active }"
+		},
+		"primary--focus": {
+			"deprecated": true,
+			"value": "{ color.progressive--focus }"
+		}
+	},
+	"opacity": {
+		"base--disabled": {
+			"deprecated": "Legacy opacity for icon disabled state in non-Codex products. Has only been used for icons despite the name.",
+			"value": "{ opacity-icon.base--disabled }"
+		}
+	},
+	"opacity-icon": {
+		"accessory": {
+			"deprecated": true,
+			"value": "{ opacity-icon.subtle }"
+		}
+	},
+	"min-size": {
+		"icon": {
+			"deprecated": true,
+			"value": "{ min-size.icon-medium }"
+		},
+		"indicator": {
+			"deprecated": true,
+			"value": "{ min-size.icon-x-small }"
+		}
+	},
+	"size": {
+		"base": {
+			"deprecated": true,
+			"value": "{ size.200 }"
+		},
+		"icon": {
+			"deprecated": true,
+			"value": "{ size.icon-medium }"
+		},
+		"indicator": {
+			"deprecated": true,
+			"value": "{ size.icon-x-small }"
+		}
+	},
+	"border": {
+		"base": {
+			"deprecated": "Legacy `border` token shorthand. Use `border-width-base, border-style-base border-color-base` instead.",
+			"value": "{ border-width.base } { border-style.base } { border-color.base }"
+		},
+		"error": {
+			"deprecated": "Legacy `border` token shorthand. Use `border-width-base border-style-base border-color-error` instead.",
+			"value": "{ border-width.base } { border-style.base } { border-color.error }"
+		},
+		"warning": {
+			"deprecated": "Legacy `border` token shorthand. Use `border-width-base border-style-base border-color-warning` instead.",
+			"value": "{ border-width.base } { border-style.base } { border-color.warning }"
+		},
+		"success": {
+			"deprecated": "Legacy `border` token shorthand. Use `border-width-base border-style-base border-color-success` instead.",
+			"value": "{ border-width.base } { border-style.base } { border-color.success }"
+		},
+		"notice": {
+			"deprecated": "Legacy `border` token shorthand. Use `border-width-base border-style-base border-color-notice` instead.",
+			"value": "{ border-width.base } { border-style.base } { border-color.notice }"
+		},
+		"input-binary": {
+			"deprecated": "Legacy `border-input-binary` for non-Codex products using WikimediaUI Base. Use sub-property tokens with `border-color-input-binary` instead.",
+			"value": "{ border-width.base } { border-style.base } { border-color.input-binary }"
+		}
+	},
+	"border-color": {
+		"base--hover": {
+			"deprecated": true,
+			"value": "{ border-color.base }"
+		},
+		"base--active": {
+			"deprecated": true,
+			"value": "{ border-color.interactive }"
+		},
+		"base--focus": {
+			"deprecated": true,
+			"value": "{ border-color.progressive--focus }"
+		},
+		"base--disabled": {
+			"deprecated": true,
+			"value": "{ border-color.disabled }"
+		},
+		"filled--disabled": {
+			"deprecated": true,
+			"value": "{ border-color.inverted }"
+		},
+		"neutral": {
+			"deprecated": true,
+			"value": "{ border-color.base }"
+		},
+		"neutral--hover": {
+			"deprecated": true,
+			"value": "{ border-color.base }"
+		},
+		"neutral--active": {
+			"deprecated": true,
+			"value": "{ border-color.interactive }"
+		},
+		"neutral--focus": {
+			"deprecated": true,
+			"value": "{ border-color.progressive--focus }"
+		},
+		"inset--focus": {
+			"deprecated": true,
+			"value": "{ border-color.inverted }"
+		},
+		"primary": {
+			"deprecated": true,
+			"value": "{ border-color.progressive }"
+		},
+		"primary--hover": {
+			"deprecated": true,
+			"value": "{ border-color.progressive--hover }"
+		},
+		"primary--active": {
+			"deprecated": true,
+			"value": "{ border-color.progressive--active }"
+		},
+		"primary--focus": {
+			"deprecated": true,
+			"value": "{ border-color.progressive--focus }"
+		}
+	},
+	"padding": {
+		"base": {
+			"deprecated": "Use `spacing-25 spacing-75` instead.",
+			"value": "{ spacing.25 } { spacing.75 }"
+		},
+		"horizontal": {
+			"base": {
+				"deprecated": true,
+				"value": "{ spacing.75 }"
+			},
+			"input-text": {
+				"deprecated": true,
+				"value": "{ spacing.50 }"
+			}
+		},
+		"vertical": {
+			"base": {
+				"deprecated": true,
+				"value": "{ spacing.25 }"
+			},
+			"menu": {
+				"deprecated": "Legacy padding for use in non-Codex products.",
+				"value": "calc( { spacing.25 } + { border-width.base } )"
+			}
+		},
+		"input-text": {
+			"deprecated": "Legacy padding for use in non-Codex products. Use `spacing-25 spacing-50` instead.",
+			"value": "{ spacing.25 } { spacing.50 }"
+		}
+	},
+	"box-shadow": {
+		"progressive--active": {
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-inset-small box-shadow-color-progressive--active` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.progressive--active }"
+		},
+		"progressive--focus": {
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-inset-small box-shadow-color-progressive--focus` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.progressive--focus }"
+		},
+		"destructive--focus": {
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-insert-small box-shadow-color-destructive--focus` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.destructive--focus }"
+		},
+		"inverted": {
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-inset-medium box-shadow-color-inverted` instead.",
+			"value": "{ box-shadow.inset-medium } { box-shadow.color.inverted }"
+		},
+		"progressive-filled--focus": {
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-progressive--focus, box-shadow-inverted` instead.",
+			"value": "{ box-shadow.progressive--focus }, { box-shadow.inverted }"
+		},
+		"destructive-filled--focus": {
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-destructive--focus, box-shadow-inverted` instead.",
+			"value": "{ box-shadow.destructive--focus }, { box-shadow.inverted }"
+		},
+		"base": {
+			"deprecated": "Use `box-shadow-inset-small box-shadow-color-transparent` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.transparent }"
+		},
+		"base--active": {
+			"deprecated": true,
+			"value": "{ box-shadow.progressive--active }"
+		},
+		"base--focus": {
+			"deprecated": true,
+			"value": "{ box-shadow.progressive--focus }"
+		},
+		"filled--disabled": {
+			"deprecated": "Use `box-shadow-inset-small box-shadow-color-inverted` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.inverted }"
+		},
+		"primary--focus": {
+			"deprecated": true,
+			"value": "{ box-shadow.progressive-filled--focus }"
+		},
+		"card": {
+			"deprecated": true,
+			"value": "{ box-shadow.drop-small }"
+		},
+		"dialog": {
+			"deprecated": true,
+			"value": "{ box-shadow.drop-medium }"
+		},
+		"menu": {
+			"deprecated": true,
+			"value": "{ box-shadow.drop-medium }"
+		},
+		"progress-bar": {
+			"deprecated": true,
+			"value": "{ box-shadow.drop-small }"
+		}
+	},
+	"line-height": {
+		"base": {
+			"deprecated": true,
+			"value": "{ line-height.medium }"
+		}
+	},
+	"transition": {
+		"base": {
+			"deprecated": true,
+			"value": "{ transition-duration.base }"
+		}
+	}
+}

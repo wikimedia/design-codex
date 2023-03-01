@@ -1,6 +1,7 @@
 <script setup>
 import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
 import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
+import aliases from '@wikimedia/codex-design-tokens/deprecated-aliases-wikimedia-ui-base.json';
 </script>
 
 # Transition
@@ -30,10 +31,15 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 	css-property="transition-property"
 />
 
-## Transition shorthand
+## Deprecated aliases in WikimediaUI Base
+
+:::warning
+The tokens below are **not available in Codex**. There are only available as deprecated aliases in
+[WikimediaUI Base](https://www.npmjs.com/package/wikimedia-ui-base).
+:::
 
 <cdx-docs-tokens-table
-	:tokens="tokens.transition"
+	:tokens="aliases.transition"
 	token-demo="CdxDocsTransitionDemo"
 	css-property="transition"
 />

@@ -42,28 +42,22 @@ export function flattenDesignTokensTree( tree: DesignTokensTree, excludeTokens: 
  * Similar functionality is implemented in createCustomStyleFormatter in the tokens package.
  *
  * @param token Token to modify
- * @param allTokens Array of all tokens; used to look up whether the referenced token is deprecated
  * @return Token with possibly modified deprecation message
  */
-export function expandDeprecationMessage(
-	token: DesignToken, allTokens: DesignToken[]
-): DesignToken {
+export function expandDeprecationMessage( token: DesignToken ): DesignToken {
 	if (
 		token.deprecated &&
 		token.attributes.tokens.length === 1 &&
 		token.original.value.match( /^\s*{[^{}]+}\s*$/ )
 	) {
-		const useInsteadToken = allTokens.find( ( t ) =>
-			t.path.join( '.' ) === token.attributes.tokens[ 0 ]
-		);
-		if ( useInsteadToken && !useInsteadToken.deprecated ) {
-			return {
-				...token,
-				deprecated: typeof token.deprecated === 'string' ?
-					`${token.deprecated} (use \`${useInsteadToken.name}\` instead)` :
-					`Use \`${useInsteadToken.name}\` instead.`
-			};
-		}
+		const useInsteadToken = token.attributes.tokens[ 0 ].replace( /\./g, '-' );
+
+		return {
+			...token,
+			deprecated: typeof token.deprecated === 'string' ?
+				`${token.deprecated} (use \`${useInsteadToken}\` instead)` :
+				`Use \`${useInsteadToken}\` instead.`
+		};
 	}
 	return token;
 }

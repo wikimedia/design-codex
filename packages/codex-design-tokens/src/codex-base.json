@@ -74,54 +74,6 @@
 		},
 		"transparent": {
 			"value": "{ color.transparent-light }"
-		},
-		"base--hover": {
-			"deprecated": true,
-			"value": "{ background-color.interactive }"
-		},
-		"base--active": {
-			"deprecated": true,
-			"value": "{ background-color.progressive-subtle }"
-		},
-		"base--disabled": {
-			"deprecated": true,
-			"value": "{ background-color.disabled-subtle }"
-		},
-		"base--transparent": {
-			"deprecated": true,
-			"value": "{ background-color.transparent }"
-		},
-		"filled--disabled": {
-			"deprecated": true,
-			"value": "{ background-color.disabled }"
-		},
-		"framed": {
-			"deprecated": true,
-			"value": "{ background-color.interactive-subtle }"
-		},
-		"framed--hover": {
-			"deprecated": true,
-			"value": "{ background-color.base }"
-		},
-		"framed--active": {
-			"deprecated": true,
-			"value": "{ background-color.interactive }"
-		},
-		"error--framed": {
-			"deprecated": true,
-			"value": "{ background-color.error-subtle }"
-		},
-		"warning--framed": {
-			"deprecated": true,
-			"value": "{ background-color.warning-subtle }"
-		},
-		"success--framed": {
-			"deprecated": true,
-			"value": "{ background-color.success-subtle }"
-		},
-		"notice--framed": {
-			"deprecated": true,
-			"value": "{ background-color.notice-subtle }"
 		}
 	},
 	"color": {
@@ -191,33 +143,9 @@
 		"notice": {
 			"value": "{ color.gray700 }"
 		},
-		"base--active": {
-			"deprecated": true,
-			"value": "{ color.emphasized }"
-		},
-		"base--inverted": {
-			"deprecated": true,
-			"value": "{ color.inverted }"
-		},
-		"base--emphasized": {
-			"deprecated": true,
-			"value": "{ color.emphasized }"
-		},
 		"base--subtle": {
 			"deprecated": "Use `color-subtle` instead. Note, that `color-subtle` is using `color.gray600` instead of `color.gray500` now.",
 			"value": "{ color.gray500 }"
-		},
-		"base--disabled": {
-			"deprecated": true,
-			"value": "{ color.disabled }"
-		},
-		"filled--disabled": {
-			"deprecated": true,
-			"value": "{ color.inverted }"
-		},
-		"accessory": {
-			"deprecated": true,
-			"value": "{ color.subtle }"
 		}
 	},
 	"opacity": {
@@ -232,10 +160,6 @@
 		},
 		"transparent": {
 			"value": "{ opacity.0 }"
-		},
-		"base--disabled": {
-			"deprecated": "Legacy opacity for icon disabled state in non-Codex products. Has only been used for icons despite the name.",
-			"value": "{ opacity-icon.base--disabled }"
 		}
 	},
 	"opacity-icon": {
@@ -254,10 +178,6 @@
 		},
 		"subtle": {
 			"value": "{ opacity.67 }"
-		},
-		"accessory": {
-			"deprecated": true,
-			"value": "{ opacity-icon.subtle }"
 		}
 	},
 	"background-position": {
@@ -372,10 +292,6 @@
 			"height-full": {
 				"value": "{ dimension.viewport.height-full }"
 			}
-		},
-		"base": {
-			"deprecated": true,
-			"value": "{ size.200 }"
 		}
 	},
 	"min-width": {
@@ -508,29 +424,6 @@
 			"value": "{ dimension.full }"
 		}
 	},
-	"border": {
-		"comment": "Note, that all `border` token shorthands are legacy now, to reinforce design decisions in modular way.",
-		"base": {
-			"deprecated": "Legacy `border` token shorthand. Use `border-width-base, border-style-base border-color-base` instead.",
-			"value": "{ border-width.base } { border-style.base } { border-color.base }"
-		},
-		"error": {
-			"deprecated": "Legacy `border` token shorthand. Use `border-width-base border-style-base border-color-error` instead.",
-			"value": "{ border-width.base } { border-style.base } { border-color.error }"
-		},
-		"warning": {
-			"deprecated": "Legacy `border` token shorthand. Use `border-width-base border-style-base border-color-warning` instead.",
-			"value": "{ border-width.base } { border-style.base } { border-color.warning }"
-		},
-		"success": {
-			"deprecated": "Legacy `border` token shorthand. Use `border-width-base border-style-base border-color-success` instead.",
-			"value": "{ border-width.base } { border-style.base } { border-color.success }"
-		},
-		"notice": {
-			"deprecated": "Legacy `border` token shorthand. Use `border-width-base border-style-base border-color-notice` instead.",
-			"value": "{ border-width.base } { border-style.base } { border-color.notice }"
-		}
-	},
 	"border-width": {
 		"base": {
 			"value": "{ dimension.6 }{ unit.system }"
@@ -601,46 +494,6 @@
 		},
 		"transparent": {
 			"value": "{ color.transparent }"
-		},
-		"base--hover": {
-			"deprecated": true,
-			"value": "{ border-color.base }"
-		},
-		"base--active": {
-			"deprecated": true,
-			"value": "{ border-color.interactive }"
-		},
-		"base--focus": {
-			"deprecated": true,
-			"value": "{ border-color.progressive--focus }"
-		},
-		"base--disabled": {
-			"deprecated": true,
-			"value": "{ border-color.disabled }"
-		},
-		"filled--disabled": {
-			"deprecated": true,
-			"value": "{ border-color.inverted }"
-		},
-		"neutral": {
-			"deprecated": true,
-			"value": "{ border-color.base }"
-		},
-		"neutral--hover": {
-			"deprecated": true,
-			"value": "{ border-color.base }"
-		},
-		"neutral--active": {
-			"deprecated": true,
-			"value": "{ border-color.interactive }"
-		},
-		"neutral--focus": {
-			"deprecated": true,
-			"value": "{ border-color.progressive--focus }"
-		},
-		"inset--focus": {
-			"deprecated": true,
-			"value": "{ border-color.inverted }"
 		}
 	},
 	"border-radius": {
@@ -655,24 +508,6 @@
 		},
 		"circle": {
 			"value": "{ dimension.full }"
-		}
-	},
-	"padding": {
-		"base": {
-			"deprecated": "Use `spacing-25 spacing-75` instead.",
-			"value": "{ spacing.25 } { spacing.75 }"
-		},
-		"horizontal": {
-			"base": {
-				"deprecated": true,
-				"value": "{ spacing.75 }"
-			}
-		},
-		"vertical": {
-			"base": {
-				"deprecated": true,
-				"value": "{ spacing.25 }"
-			}
 		}
 	},
 	"box-shadow": {
@@ -735,50 +570,6 @@
 			"transparent": {
 				"value": "{ color.transparent }"
 			}
-		},
-		"progressive--active": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-inset-small box-shadow-color-progressive--active` instead.",
-			"value": "{ box-shadow.inset-small } { box-shadow.color.progressive--active }"
-		},
-		"progressive--focus": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-inset-small box-shadow-color-progressive--focus` isntead.",
-			"value": "{ box-shadow.inset-small } { box-shadow.color.progressive--focus }"
-		},
-		"destructive--focus": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-insert-small box-shadow-color-destructive--focus` instead.",
-			"value": "{ box-shadow.inset-small } { box-shadow.color.destructive--focus }"
-		},
-		"inverted": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-inset-medium box-shadow-color-inverted` instead.",
-			"value": "{ box-shadow.inset-medium } { box-shadow.color.inverted }"
-		},
-		"progressive-filled--focus": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-progressive--focus, box-shadow-inverted` instead.",
-			"value": "{ box-shadow.progressive--focus }, { box-shadow.inverted }"
-		},
-		"destructive-filled--focus": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-destructive--focus, box-shadow-inverted` instead.",
-			"value": "{ box-shadow.destructive--focus }, { box-shadow.inverted }"
-		},
-		"base": {
-			"deprecated": "Use `box-shadow-inset-small box-shadow-color-transparent` instead.",
-			"value": "{ box-shadow.inset-small } { box-shadow.color.transparent }"
-		},
-		"base--active": {
-			"deprecated": true,
-			"value": "{ box-shadow.progressive--active }"
-		},
-		"base--focus": {
-			"deprecated": true,
-			"value": "{ box-shadow.progressive--focus }"
-		},
-		"filled--disabled": {
-			"deprecated": "Use `box-shadow-inset-small box-shadow-color-inverted` instead.",
-			"value": "{ box-shadow.inset-small } { box-shadow.color.inverted }"
-		},
-		"primary--focus": {
-			"deprecated": true,
-			"value": "{ box-shadow.progressive-filled--focus }"
 		}
 	},
 	"outline": {
@@ -875,10 +666,6 @@
 		"medium": {
 			"value": "{ line-height.100 }"
 		},
-		"base": {
-			"deprecated": true,
-			"value": "{ line-height.medium }"
-		},
 		"heading": {
 			"deprecated": "Legacy `line-height` for headings in non-Codex products. Use `line-height-xx-small` instead.",
 			"value": "{ line-height.65 }"
@@ -898,12 +685,6 @@
 	"tab-size": {
 		"base": {
 			"value": "{ tab-size.100 }"
-		}
-	},
-	"transition": {
-		"base": {
-			"deprecated": true,
-			"value": "{ transition-duration.base }"
 		}
 	},
 	"transition-duration": {

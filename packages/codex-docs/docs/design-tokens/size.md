@@ -1,6 +1,7 @@
 <script setup>
 import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
 import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
+import aliases from '@wikimedia/codex-design-tokens/deprecated-aliases-wikimedia-ui-base.json';
 </script>
 
 # Size
@@ -29,4 +30,21 @@ The size tokens are used to define the size of elements, applied for example on 
 	exclude-tokens="breakpoint"
 	token-demo="CdxDocsSizeDemo"
 	css-property="width"
+/>
+
+## Deprecated aliases in WikimediaUI Base
+
+:::warning
+The tokens below are **not available in Codex**. There are only available as deprecated aliases in
+[WikimediaUI Base](https://www.npmjs.com/package/wikimedia-ui-base).
+:::
+
+<cdx-docs-tokens-table
+	:tokens="aliases.size"
+	token-demo="CdxDocsSizeDemo"
+/>
+
+<cdx-docs-tokens-table
+	:tokens="aliases['min-size']"
+	token-demo="CdxDocsSizeDemo"
 />

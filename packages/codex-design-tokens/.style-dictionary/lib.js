@@ -1,6 +1,7 @@
 'use strict';
 
 /** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
+/** @typedef {import('style-dictionary').TransformedTokens} TransformedTokens */
 /** @typedef {import('style-dictionary/types/Matcher').Matcher} Matcher */
 /** @typedef {import('style-dictionary').Transform} Transform */
 /** @typedef {import('style-dictionary').Formatter} Formatter */
@@ -83,6 +84,55 @@ function makePathMatcher( matchPaths, excludePaths ) {
 			}
 		}
 		return matched;
+	};
+}
+
+/**
+ * Create a wrapped version of a formatter that applies a filter.
+ *
+ * When using outputReferences, or when the formatter calls usesReference() or getReferences()
+ * for references to tokens that are filtered out, Style Dictionary throws noisy warnings that
+ * can't be suppressed. This function is a workaround for that: instead of using Style Dictionary's
+ * built-in filter feature, this function returns a formatter that applies the given filter and then
+ * runs the given formatter on the remaining tokens.
+ *
+ * @param {Formatter} formatter
+ * @param {Matcher} filter
+ * @return {Formatter}
+ */
+function wrapFormatterWithFilter( formatter, filter ) {
+	/**
+	 * @param {TransformedTokens} tokens
+	 * @return {TransformedTokens}
+	 */
+	function filterTokens( tokens ) {
+		/** @type {TransformedTokens} */
+		const result = {};
+		for ( const key in tokens ) {
+			if ( typeof tokens[ key ] !== 'object' ) {
+				continue;
+			}
+			if ( 'value' in tokens[ key ] ) {
+				if ( filter( /** @type {TransformedToken} */ ( tokens[ key ] ) ) ) {
+					result[ key ] = tokens[ key ];
+				}
+			} else {
+				const filtered = filterTokens( tokens[ key ] );
+				if ( Object.keys( filtered ).length > 0 ) {
+					result[ key ] = filtered;
+				}
+			}
+		}
+		return result;
+	}
+
+	return function ( args ) {
+		const filteredDictionary = {
+			...args.dictionary,
+			tokens: filterTokens( args.dictionary.tokens ),
+			allTokens: args.dictionary.allTokens.filter( filter )
+		};
+		return formatter( { ...args, dictionary: filteredDictionary } );
 	};
 }
 
@@ -255,6 +305,7 @@ module.exports = {
 	getTokenType,
 	kebabCase,
 	makePathMatcher,
+	wrapFormatterWithFilter,
 	makeRelativeUnitTransform,
 	createCustomStyleFormatter
 };

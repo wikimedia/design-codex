@@ -1,6 +1,7 @@
 <script setup>
 import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
-import { spacing, padding } from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
+import { spacing } from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
+import aliases from '@wikimedia/codex-design-tokens/deprecated-aliases-wikimedia-ui-base.json';
 </script>
 
 # Spacing
@@ -13,15 +14,14 @@ They are used to create a consistent spacing within and between components.
 	token-demo="CdxDocsSpacingDemo"
 />
 
-## Padding
+## Deprecated aliases in WikimediaUI Base
 
-`padding` category design tokens are deprecated and only `spacing` tokens should be used.
-They are here for backwards compatibility with WikimediaUI Base uses.
+:::warning
+The tokens below are **not available in Codex**. There are only available as deprecated aliases in
+[WikimediaUI Base](https://www.npmjs.com/package/wikimedia-ui-base).
+:::
 
 <cdx-docs-tokens-table
-	:tokens="padding"
-	token-demo="CdxDocsTokenDemo"
-	token-category="padding"
-	css-property="padding"
-	style-target="wrapper"
+	:tokens="aliases.padding"
+	token-demo="CdxDocsSpacingDemo"
 />

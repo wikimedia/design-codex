@@ -129,7 +129,7 @@ export default defineComponent( {
 		const flattenedTokens = computed( () =>
 			flattenDesignTokensTree( props.tokens, props.excludeTokens )
 				.filter( ( token ) => token.attributes.type !== 'theme' )
-				.map( ( token, index, allTokens ) => expandDeprecationMessage( token, allTokens ) )
+				.map( ( token ) => expandDeprecationMessage( token ) )
 		);
 
 		return {
