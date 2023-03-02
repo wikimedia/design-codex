@@ -4,9 +4,13 @@ import ConfigurableDialog from '@/../component-demos/dialog/examples/Configurabl
 import DialogWithSelect from '@/../component-demos/dialog/examples/DialogWithSelect.vue';
 import DialogMaxContent from '@/../component-demos/dialog/examples/DialogMaxContent.vue';
 import DialogStackedActions from '@/../component-demos/dialog/examples/DialogStackedActions.vue';
+import DialogFooterText from '@/../component-demos/dialog/examples/DialogFooterText.vue';
+import DialogFooterButton from '@/../component-demos/dialog/examples/DialogFooterButton.vue';
+import DialogFooterCheckbox from '@/../component-demos/dialog/examples/DialogFooterCheckbox.vue';
 
 const controlsConfig = [
 	{ name: 'title', type: 'text', initial: 'Dialog title' },
+	{ name: 'subtitle', type: 'text', initial: 'Dialog subtitle' },
 	{ name: 'hideTitle', type: 'boolean' },
 	{ name: 'closeButtonLabel', type: 'text', initial: 'Close' },
 	{ name: 'showDividers', type: 'boolean' },
@@ -18,20 +22,24 @@ const controlsConfig = [
 	{ name: 'useDefaultAction', type: 'boolean', initial: true },
 	{ name: 'defaultActionLabel', type: 'text', initial: 'Close dialog' },
 	{ name: 'defaultActionDisabled', type: 'boolean' },
+	{ name: 'optionalFooterText', type: 'boolean' },
+	{ name: 'optionalFooterContent', type: 'radio', options: [ 'none', 'checkbox', 'button' ] },
 	{
 		name: 'default',
 		type: 'slot',
 		default: 'Simple dialogs are mainly for short messages, confirmations or alerts. Their content should aim to fill one or two lines.'
-	}
+	},
 ];
 </script>
 
 ## Demos
 
 ### Configurable Dialog
-<cdx-demo-wrapper :controls-config="controlsConfig">
+<cdx-demo-wrapper :controls-config="controlsConfig" :allow-link-styles="true">
 <template v-slot:demo="{ propValues, slotValues }">
-<configurable-dialog v-bind="propValues">{{ slotValues.default }}</configurable-dialog>
+<configurable-dialog v-bind="propValues">
+{{ slotValues.default }}
+</configurable-dialog>
 </template>
 </cdx-demo-wrapper>
 
@@ -90,6 +98,60 @@ vertically.
 <template v-slot:code>
 
 <<< @/../component-demos/dialog/examples/DialogStackedActions.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### With optional footer content
+In addition to the actions, the Dialog component supports two other optional
+footer elements, represented by named slots: `footer-text` and `footer-optional`.
+
+#### Footer Text
+The `footer-text` slot can accept plain text, links, and basic formatting
+markup; do not use it to provide images or block-level elements. All content
+provided is wrapped inside of a `<p>` tag. Use this slot for situations like
+showing a disclaimer, linking to help or legal documentation, etc. The
+`footer-text` content will appear above the dialog actions.
+
+<cdx-demo-wrapper :allow-link-styles="true">
+<template v-slot:demo>
+<dialog-footer-text />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/dialog/examples/DialogFooterText.vue
+
+</template>
+</cdx-demo-wrapper>
+
+#### Optional Footer action
+An additional slot called `footer-optional` is also supported. Use this slot
+to provide some kind of supplemental action alongside the primary and default
+action buttons. A checkbox or an icon-only button would be examples of
+appropriate content here.
+
+##### Icon-only button example
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<dialog-footer-button />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/dialog/examples/DialogFooterButton.vue
+
+</template>
+</cdx-demo-wrapper>
+
+##### Checkbox example
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<dialog-footer-checkbox />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/dialog/examples/DialogFooterCheckbox.vue
 
 </template>
 </cdx-demo-wrapper>

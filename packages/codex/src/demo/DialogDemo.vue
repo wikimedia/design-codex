@@ -11,6 +11,12 @@
 			<cdx-button @click="showDialog2 = true">
 				Launch Dialog 2
 			</cdx-button>
+
+			&nbsp;
+
+			<cdx-button @click="showDialog3 = true">
+				Launch Dialog 3
+			</cdx-button>
 		</p>
 
 		<cdx-dialog
@@ -29,7 +35,6 @@
 		<teleport to="#teleport-target">
 			<cdx-dialog
 				v-model:open="showDialog2"
-				close-button-label="close"
 				:primary-action="{ actionType: 'destructive', label: 'Destroy!' }"
 				:default-action="{ label: 'Cancel' }"
 				title="Example Dialog 2"
@@ -43,13 +48,41 @@
 				</p>
 			</cdx-dialog>
 		</teleport>
+
+		<cdx-dialog
+			v-model:open="showDialog3"
+			close-button-label="close"
+			:primary-action="{ actionType: 'progressive', label: 'Sweet!' }"
+			:default-action="{ label: 'Bummer' }"
+			title="Example Dialog 3"
+			subtitle="Subtitle example"
+			@default="showDialog3 = false"
+			@primary="showDialog3 = false"
+		>
+			<p>Example dialog with new subtitle and optional action</p>
+
+			<template #footer-text>
+				This is some example <a href="#">footer text</a> blah blah blah.
+			</template>
+
+			<template #footer-optional>
+				<cdx-checkbox
+					v-model="dialog3CheckboxState"
+					:inline="true"
+				>
+					Don't show again
+				</cdx-checkbox>
+			</template>
+		</cdx-dialog>
 	</section>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { CdxDialog, CdxButton } from '../lib';
+import { CdxDialog, CdxButton, CdxCheckbox } from '../lib';
 
 const showDialog1 = ref( false );
 const showDialog2 = ref( false );
+const showDialog3 = ref( false );
+const dialog3CheckboxState = ref( false );
 </script>

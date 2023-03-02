@@ -7,31 +7,43 @@ type Case = [
 	msg: string,
 	props: {
 		title: string,
+		subtitle?: string,
 		open?: boolean,
 		hideTitle?: boolean,
 		closeButtonLabel?: string,
 		primaryAction?: PrimaryDialogAction,
 		defaultAction?: DialogAction,
-		stackedActions?: boolean
+		stackedActions?: boolean,
 	},
-	slot: string
+	slots: {
+		default: string,
+		footerText?: string,
+		footerOptional?: string
+	}
 ];
 
 describe( 'matches the snapshot', () => {
 	const cases: Case[] = [
-		[ 'Basic usage', { title: 'Dialog', open: true }, '<p>Hello world!</p>' ],
-		[ 'Open dialog', { title: 'Dialog', open: true }, '<p>Hello world!</p>' ],
-		[ 'With hidden title', { title: 'Dialog', hideTitle: true, closeButtonLabel: 'close', open: true }, '<p>foo</p>' ],
-		[ 'With default action', { title: 'Dialog', defaultAction: { label: 'ok' }, open: true }, '<p>foo</p>' ],
-		[ 'With default disabled action', { title: 'Dialog', defaultAction: { label: 'ok', disabled: true }, open: true }, '<p>foo</p>' ],
-		[ 'With default and primary actions', { title: 'Dialog', defaultAction: { label: 'cancel' }, primaryAction: { label: 'save', actionType: 'progressive' }, open: true }, '<p>foo</p>' ],
-		[ 'With stacked default and primary actions', { title: 'Dialog', defaultAction: { label: 'cancel' }, primaryAction: { label: 'save', actionType: 'progressive' }, stackedActions: true, open: true }, '<p>foo</p>' ]
+		[ 'Basic usage', { title: 'Dialog', open: true }, { default: '<p>Hello world!</p>' } ],
+		[ 'Open dialog', { title: 'Dialog', open: true }, { default: '<p>Hello world!</p>' } ],
+		[ 'With hidden title', { title: 'Dialog', hideTitle: true, closeButtonLabel: 'close', open: true }, { default: '<p>foo</p>' } ],
+		[ 'With default action', { title: 'Dialog', defaultAction: { label: 'ok' }, open: true }, { default: '<p>foo</p>' } ],
+		[ 'With default disabled action', { title: 'Dialog', defaultAction: { label: 'ok', disabled: true }, open: true }, { default: '<p>foo</p>' } ],
+		[ 'With default and primary actions', { title: 'Dialog', defaultAction: { label: 'cancel' }, primaryAction: { label: 'save', actionType: 'progressive' }, open: true }, { default: '<p>foo</p>' } ],
+		[ 'With stacked default and primary actions', { title: 'Dialog', defaultAction: { label: 'cancel' }, primaryAction: { label: 'save', actionType: 'progressive' }, stackedActions: true, open: true }, { default: '<p>foo</p>' } ],
+		[ 'With subtitle', { title: 'Dialog', subtitle: 'Subtitle', defaultAction: { label: 'cancel' }, primaryAction: { label: 'save', actionType: 'progressive' }, open: true }, { default: '<p>foo</p>' } ],
+		[ 'With footer text', { title: 'Dialog', subtitle: 'Subtitle', defaultAction: { label: 'cancel' }, primaryAction: { label: 'save', actionType: 'progressive' }, open: true }, { default: '<p>foo</p>', footerText: 'This is some <a href="#">footer text</a>.' } ],
+		[ 'With optional action', { title: 'Dialog', subtitle: 'Subtitle', defaultAction: { label: 'cancel' }, primaryAction: { label: 'save', actionType: 'progressive' }, open: true }, { default: '<p>foo</p>', footerOptional: '<p>bar</p>' } ]
 	];
 
-	test.each( cases )( 'Case %# %s', ( _, props, slot ) => {
+	test.each( cases )( 'Case %# %s', ( _, props, slots ) => {
 		const wrapper = mount( CdxDialog, {
 			props: props,
-			slots: { default: slot }
+			slots: {
+				default: slots.default,
+				...( slots.footerText === undefined ? {} : { 'footer-text': slots.footerText } ),
+				...( slots.footerOptional === undefined ? {} : { 'footer-optional': slots.footerOptional } )
+			}
 		} );
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
@@ -47,6 +59,7 @@ describe( 'Basic usage', () => {
 	const dialogDefaultOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, defaultAction: { label: 'ok' } as DialogAction }, slots: { default: dialogSlotContents } } );
 	const dialogStackedActions = Object.freeze( { props: { title: 'Dialog Title', open: true, stackedActions: true, primaryAction: { label: 'save', actionType: 'progressive' } as PrimaryDialogAction }, slots: { default: dialogSlotContents } } );
 	const dialogBasicClosedWithInput = Object.freeze( { props: { title: 'Dialog Title' }, slots: { default: dialogSlotContentsWithInput } } );
+	const dialogWithSubtitle = Object.freeze( { props: { title: 'Dialog Title', subtitle: 'Subtitle', open: true }, slots: { default: dialogSlotContents } } );
 
 	it( 'is not visible when "open" is not "true"', () => {
 		const wrapper1 = mount( CdxDialog, dialogBasicClosed );
@@ -103,5 +116,15 @@ describe( 'Basic usage', () => {
 
 		const input = wrapper.find( '#input' ).element;
 		expect( document.activeElement ).toBe( input );
+	} );
+
+	it( 'displays a subtitle when one is provided', () => {
+		const wrapper = mount( CdxDialog, dialogWithSubtitle );
+		expect( wrapper.find( '.cdx-dialog__header__subtitle' ).exists() ).toBe( true );
+	} );
+
+	it( 'renders no subtitle markup when one is not provided', () => {
+		const wrapper = mount( CdxDialog, dialogBasicOpen );
+		expect( wrapper.find( '.cdx-dialog__header__subtitle' ).exists() ).toBe( false );
 	} );
 } );
