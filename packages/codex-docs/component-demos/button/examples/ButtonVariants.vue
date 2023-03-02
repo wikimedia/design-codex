@@ -21,10 +21,10 @@
 							{{ disabled ? ' disabled' : '' }}
 						</th>
 						<td
-							v-for="buttonType in [ ...ButtonTypes, undefined ]"
-							:key="`type-${buttonType}`">
+							v-for="buttonWeight in [ ...ButtonWeights, undefined ]"
+							:key="`weight-${buttonWeight}`">
 							<cdx-button
-								:type="buttonType"
+								:weight="buttonWeight"
 								:action="buttonAction"
 								:disabled="disabled"
 								@click="onClick">
@@ -41,7 +41,7 @@
 
 <script lang="ts" setup>
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
-import { ButtonActions, ButtonTypes } from '../../../../codex/src/constants';
+import { ButtonActions, ButtonWeights } from '../../../../codex/src/constants';
 import { cdxIconTrash } from '@wikimedia/codex-icons';
 import getEventLogger from 'codex-docs/src/utils/getEventLogger';
 const onClick = getEventLogger<Event>( 'click' );

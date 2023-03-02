@@ -2,6 +2,7 @@
 	<button
 		class="cdx-button"
 		:class="rootClasses"
+		:type="computedType"
 		@click="onClick"
 		@keydown.space.enter="setActive( true )"
 		@keyup.space.enter="setActive( false )"
@@ -12,14 +13,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, warn, Comment, PropType, SetupContext, VNode, VNodeArrayChildren } from 'vue';
-import { ButtonActions, ButtonTypes } from '../../constants';
-import { ButtonAction, ButtonType } from '../../types';
+import {
+	Comment,
+	PropType,
+	SetupContext,
+	VNode,
+	VNodeArrayChildren,
+	defineComponent,
+	ref,
+	computed,
+	warn
+} from 'vue';
+import { ButtonActions, ButtonTypes, ButtonWeights } from '../../constants';
+import { ButtonAction, ButtonType, ButtonWeight } from '../../types';
 import CdxIcon from '../icon/Icon.vue';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
-const buttonTypeValidator = makeStringTypeValidator( ButtonTypes );
 const buttonActionValidator = makeStringTypeValidator( ButtonActions );
+// TODO T312987: Remove ButtonWeights once all projects update to new `type` prop.
+// This is a temporary workaround for changing the `type` prop while still allowing the old
+// values until all instances can be updated.
+const buttonTypeValidator = makeStringTypeValidator( [ ...ButtonWeights, ...ButtonTypes ] );
+const buttonWeightValidator = makeStringTypeValidator( ButtonWeights );
 const validateIconOnlyButtonAttrs = ( attrs: SetupContext['attrs'] ) => {
 	if ( !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ] ) {
 		warn( `icon-only buttons require one of the following attribute: aria-label or aria-hidden.
@@ -94,13 +109,25 @@ export default defineComponent( {
 			validator: buttonActionValidator
 		},
 		/**
-		 * Button type. See the [Design Style Guide](https://design.wikimedia.org/style-guide/components/buttons.html).
+		 * Visual prominence of the button.
 		 *
 		 * @values 'normal', 'primary', 'quiet'
 		 */
-		type: {
-			type: String as PropType<ButtonType>,
+		weight: {
+			type: String as PropType<ButtonWeight>,
 			default: 'normal',
+			validator: buttonWeightValidator
+		},
+		/**
+		 * Native `<button>` type.
+		 *
+		 * See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes.
+		 *
+		 * @values 'button', 'submit', 'reset'
+		 */
+		type: {
+			type: String as PropType<ButtonType|ButtonWeight>,
+			default: undefined,
 			validator: buttonTypeValidator
 		}
 	},
@@ -112,10 +139,25 @@ export default defineComponent( {
 		// :active state will suffice.
 		const isActive = ref( false );
 
+		// TODO T312987: Remove this code once all projects update to new `type` prop.
+		// This is a temporary workaround for changing the `type` prop while still allowing the old
+		// values until all instances can be updated.
+
+		// If the old type prop was used, set the new type to the default, 'button'.
+		// This can only ever return ButtonType, but TypeScript doesn't know that.
+		const computedType = computed( () =>
+			buttonWeightValidator( props.type ) ? undefined : props.type
+		);
+
+		// If the old type prop was used, set the weight to that value.
+		const computedWeight = computed( () =>
+			buttonWeightValidator( props.type ) ? props.type : props.weight
+		);
+
 		const rootClasses = computed( () => ( {
 			[ `cdx-button--action-${props.action}` ]: true,
-			[ `cdx-button--type-${props.type}` ]: true,
-			'cdx-button--framed': props.type !== 'quiet',
+			[ `cdx-button--weight-${computedWeight.value}` ]: true,
+			'cdx-button--framed': computedWeight.value !== 'quiet',
 			'cdx-button--icon-only': isIconOnlyButton( slots.default?.(), attrs ),
 			'cdx-button--is-active': isActive.value
 		} ) );
@@ -131,7 +173,8 @@ export default defineComponent( {
 		return {
 			rootClasses,
 			onClick,
-			setActive
+			setActive,
+			computedType
 		};
 	}
 } );
@@ -208,7 +251,7 @@ export default defineComponent( {
 }
 
 // Non-quiet “framed” buttons (normal and primary types)
-.cdx-button:not( .cdx-button--type-quiet ) {
+.cdx-button:not( .cdx-button--weight-quiet ) {
 	&:enabled {
 		background-color: @background-color-interactive-subtle;
 		border-color: @border-color-base;
@@ -249,7 +292,7 @@ export default defineComponent( {
 }
 
 // Primary buttons.
-.cdx-button--type-primary {
+.cdx-button--weight-primary {
 	// Progressive primary buttons
 	&.cdx-button--action-progressive {
 		&:enabled {
@@ -343,7 +386,7 @@ export default defineComponent( {
 }
 
 // Quiet buttons.
-.cdx-button--type-quiet {
+.cdx-button--weight-quiet {
 	// Reset `<button>` default background color.
 	background-color: @background-color-transparent;
 	border-color: @border-color-transparent;
@@ -452,7 +495,7 @@ export default defineComponent( {
 }
 
 // Normal type buttons (using the not selectors allows this class to be the default).
-&:not( .cdx-button--type-primary ):not( .cdx-button--type-quiet ):enabled {
+&:not( .cdx-button--weight-primary ):not( .cdx-button--weight-quiet ):enabled {
 	// Normal progressive buttons
 	&.cdx-button--action-progressive {
 		color: @color-progressive;

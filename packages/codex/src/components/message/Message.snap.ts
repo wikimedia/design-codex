@@ -279,7 +279,7 @@ exports[`matches the snapshot Case 6 Dismissable: ({"dismissButtonLabel": "Close
     </div>
     <button
       aria-label="Close"
-      class="cdx-button cdx-button--action-default cdx-button--type-quiet cdx-button--icon-only cdx-message__dismiss-button"
+      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--icon-only cdx-message__dismiss-button"
     >
       <!-- @slot Button content -->
       

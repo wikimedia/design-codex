@@ -2,7 +2,7 @@
 
 exports[`matches the snapshot Case 0 No props and no slot: ({}) => HTML 1`] = `
 <button
-  class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+  class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
 >
   <!-- @slot Button content -->
   
@@ -12,7 +12,7 @@ exports[`matches the snapshot Case 0 No props and no slot: ({}) => HTML 1`] = `
 
 exports[`matches the snapshot Case 1 default action: ({"action": "default"}) => HTML 1`] = `
 <button
-  class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+  class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
 >
   <!-- @slot Button content -->
   
@@ -22,7 +22,7 @@ exports[`matches the snapshot Case 1 default action: ({"action": "default"}) => 
 
 exports[`matches the snapshot Case 2 progressive action: ({"action": "progressive"}) => HTML 1`] = `
 <button
-  class="cdx-button cdx-button--action-progressive cdx-button--type-normal cdx-button--framed"
+  class="cdx-button cdx-button--action-progressive cdx-button--weight-normal cdx-button--framed"
 >
   <!-- @slot Button content -->
   
@@ -32,7 +32,7 @@ exports[`matches the snapshot Case 2 progressive action: ({"action": "progressiv
 
 exports[`matches the snapshot Case 3 destructive action: ({"action": "destructive"}) => HTML 1`] = `
 <button
-  class="cdx-button cdx-button--action-destructive cdx-button--type-normal cdx-button--framed"
+  class="cdx-button cdx-button--action-destructive cdx-button--weight-normal cdx-button--framed"
 >
   <!-- @slot Button content -->
   
@@ -40,9 +40,9 @@ exports[`matches the snapshot Case 3 destructive action: ({"action": "destructiv
 </button>
 `;
 
-exports[`matches the snapshot Case 4 normal type: ({"type": "normal"}) => HTML 1`] = `
+exports[`matches the snapshot Case 4 normal weight: ({"weight": "normal"}) => HTML 1`] = `
 <button
-  class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+  class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
 >
   <!-- @slot Button content -->
   
@@ -50,9 +50,9 @@ exports[`matches the snapshot Case 4 normal type: ({"type": "normal"}) => HTML 1
 </button>
 `;
 
-exports[`matches the snapshot Case 5 primary type: ({"type": "primary"}) => HTML 1`] = `
+exports[`matches the snapshot Case 5 primary weight: ({"weight": "primary"}) => HTML 1`] = `
 <button
-  class="cdx-button cdx-button--action-default cdx-button--type-primary cdx-button--framed"
+  class="cdx-button cdx-button--action-default cdx-button--weight-primary cdx-button--framed"
 >
   <!-- @slot Button content -->
   
@@ -60,9 +60,9 @@ exports[`matches the snapshot Case 5 primary type: ({"type": "primary"}) => HTML
 </button>
 `;
 
-exports[`matches the snapshot Case 6 quiet type: ({"type": "quiet"}) => HTML 1`] = `
+exports[`matches the snapshot Case 6 quiet weight: ({"weight": "quiet"}) => HTML 1`] = `
 <button
-  class="cdx-button cdx-button--action-default cdx-button--type-quiet"
+  class="cdx-button cdx-button--action-default cdx-button--weight-quiet"
 >
   <!-- @slot Button content -->
   
@@ -70,9 +70,42 @@ exports[`matches the snapshot Case 6 quiet type: ({"type": "quiet"}) => HTML 1`]
 </button>
 `;
 
-exports[`matches the snapshot Case 7 Slotted: ({}) => HTML 1`] = `
+exports[`matches the snapshot Case 7 button type: ({"type": "button"}) => HTML 1`] = `
 <button
-  class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+  class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
+  type="button"
+>
+  <!-- @slot Button content -->
+  
+  
+</button>
+`;
+
+exports[`matches the snapshot Case 8 submit type: ({"type": "submit"}) => HTML 1`] = `
+<button
+  class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
+  type="submit"
+>
+  <!-- @slot Button content -->
+  
+  
+</button>
+`;
+
+exports[`matches the snapshot Case 9 reset type: ({"type": "reset"}) => HTML 1`] = `
+<button
+  class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
+  type="reset"
+>
+  <!-- @slot Button content -->
+  
+  
+</button>
+`;
+
+exports[`matches the snapshot Case 10 Slotted: ({}) => HTML 1`] = `
+<button
+  class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
 >
   <!-- @slot Button content -->
   
@@ -83,10 +116,10 @@ exports[`matches the snapshot Case 7 Slotted: ({}) => HTML 1`] = `
 </button>
 `;
 
-exports[`matches the snapshot Case 8 Icon-only: ({}) => HTML 1`] = `
+exports[`matches the snapshot Case 11 Icon-only: ({}) => HTML 1`] = `
 <button
   aria-label="icon-only-example"
-  class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed cdx-button--icon-only"
+  class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-button--icon-only"
 >
   <!-- @slot Button content -->
   

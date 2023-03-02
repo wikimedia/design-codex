@@ -91,7 +91,7 @@ exports[`matches the snapshot Case 1 With submit button: ({"buttonLabel": "Searc
     
   </div>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed cdx-search-input__end-button"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-search-input__end-button"
   >
     <!-- @slot Button content -->
     

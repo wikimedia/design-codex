@@ -43,8 +43,17 @@ interface ButtonGroupItem {
 See [ButtonTypes](#buttontypes).
 
 ```ts
-// Allowed values: 'normal', 'primary', 'quiet'
+// Allowed values: 'button', 'submit', 'reset'
 type ButtonType = typeof ButtonTypes[ number ];
+```
+
+### ButtonWeight
+
+See [ButtonWeights](#buttonweights).
+
+```ts
+// Allowed values: 'normal', 'primary', 'quiet'
+type ButtonWeight = typeof ButtonWeights[ number ];
 ```
 
 ### DialogAction
@@ -299,6 +308,16 @@ const ButtonActions = [
 
 ```ts
 const ButtonTypes = [
+	'button',
+	'submit',
+	'reset'
+];
+```
+
+### ButtonWeights
+
+```ts
+const ButtonWeights = [
 	'normal',
 	'primary',
 	'quiet'

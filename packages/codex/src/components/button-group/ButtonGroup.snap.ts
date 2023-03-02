@@ -6,7 +6,7 @@ exports[`ButtonGroup matches the snapshot Case 0 Simple: ([[Object], [Object], [
 >
   
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
   >
     <!-- @slot Button content -->
     
@@ -21,7 +21,7 @@ exports[`ButtonGroup matches the snapshot Case 0 Simple: ([[Object], [Object], [
     
   </button>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
   >
     <!-- @slot Button content -->
     
@@ -36,7 +36,7 @@ exports[`ButtonGroup matches the snapshot Case 0 Simple: ([[Object], [Object], [
     
   </button>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
     disabled=""
   >
     <!-- @slot Button content -->
@@ -52,7 +52,7 @@ exports[`ButtonGroup matches the snapshot Case 0 Simple: ([[Object], [Object], [
     
   </button>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
   >
     <!-- @slot Button content -->
     
@@ -76,7 +76,7 @@ exports[`ButtonGroup matches the snapshot Case 1 Disabled: ([[Object], [Object],
 >
   
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
     disabled=""
   >
     <!-- @slot Button content -->
@@ -92,7 +92,7 @@ exports[`ButtonGroup matches the snapshot Case 1 Disabled: ([[Object], [Object],
     
   </button>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
     disabled=""
   >
     <!-- @slot Button content -->
@@ -108,7 +108,7 @@ exports[`ButtonGroup matches the snapshot Case 1 Disabled: ([[Object], [Object],
     
   </button>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
     disabled=""
   >
     <!-- @slot Button content -->
@@ -124,7 +124,7 @@ exports[`ButtonGroup matches the snapshot Case 1 Disabled: ([[Object], [Object],
     
   </button>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
     disabled=""
   >
     <!-- @slot Button content -->
@@ -149,7 +149,7 @@ exports[`ButtonGroup matches the snapshot Case 2 With icons: ([[Object], [Object
 >
   
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
   >
     <!-- @slot Button content -->
     
@@ -168,7 +168,7 @@ exports[`ButtonGroup matches the snapshot Case 2 With icons: ([[Object], [Object
     
   </button>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
   >
     <!-- @slot Button content -->
     
@@ -187,7 +187,7 @@ exports[`ButtonGroup matches the snapshot Case 2 With icons: ([[Object], [Object
     
   </button>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
     disabled=""
   >
     <!-- @slot Button content -->
@@ -207,7 +207,7 @@ exports[`ButtonGroup matches the snapshot Case 2 With icons: ([[Object], [Object
     
   </button>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
   >
     <!-- @slot Button content -->
     
@@ -236,7 +236,7 @@ exports[`ButtonGroup matches the snapshot Case 3 Icon-only: ([[Object], [Object]
   
   <button
     aria-label="One"
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed cdx-button--icon-only"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-button--icon-only"
   >
     <!-- @slot Button content -->
     
@@ -256,7 +256,7 @@ exports[`ButtonGroup matches the snapshot Case 3 Icon-only: ([[Object], [Object]
   </button>
   <button
     aria-label="Two"
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed cdx-button--icon-only"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-button--icon-only"
   >
     <!-- @slot Button content -->
     
@@ -276,7 +276,7 @@ exports[`ButtonGroup matches the snapshot Case 3 Icon-only: ([[Object], [Object]
   </button>
   <button
     aria-label="Three"
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed cdx-button--icon-only"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-button--icon-only"
     disabled=""
   >
     <!-- @slot Button content -->
@@ -297,7 +297,7 @@ exports[`ButtonGroup matches the snapshot Case 3 Icon-only: ([[Object], [Object]
   </button>
   <button
     aria-label="Four"
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed cdx-button--icon-only"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-button--icon-only"
   >
     <!-- @slot Button content -->
     
@@ -325,7 +325,7 @@ exports[`ButtonGroup matches the snapshot Case 4 With slot: ([[Object], [Object]
 >
   
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
   >
     <!-- @slot Button content -->
     
@@ -342,7 +342,7 @@ exports[`ButtonGroup matches the snapshot Case 4 With slot: ([[Object], [Object]
     
   </button>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
   >
     <!-- @slot Button content -->
     
@@ -359,7 +359,7 @@ exports[`ButtonGroup matches the snapshot Case 4 With slot: ([[Object], [Object]
     
   </button>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
     disabled=""
   >
     <!-- @slot Button content -->
@@ -377,7 +377,7 @@ exports[`ButtonGroup matches the snapshot Case 4 With slot: ([[Object], [Object]
     
   </button>
   <button
-    class="cdx-button cdx-button--action-default cdx-button--type-normal cdx-button--framed"
+    class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed"
   >
     <!-- @slot Button content -->
     

@@ -8,13 +8,13 @@ Accepted
 
 ## Context
 Some components have props that take only certain predefined string values. For example, the Button
-component has a `type` prop that can be one of `'normal'`, `'primary'` or `'quiet'`. In general,
+component has a `weight` prop that can be one of `'normal'`, `'primary'` or `'quiet'`. In general,
 components that offer more than two mutually exclusive modes tend to use a string prop to allow
 the caller to choose between these modes.
 
 For props like these, we want to define their types in TypeScript, so that we benefit from type
 checking. For example, TypeScript could help us catch typos or invalid values in component code
-(like `type === 'queit'`) or in component usage (like `<cdx-button type="secondary">`).
+(like `weight === 'queit'`) or in component usage (like `<cdx-button weight="secondary">`).
 
 ## Considered actions
 
@@ -22,43 +22,43 @@ checking. For example, TypeScript could help us catch typos or invalid values in
 We could define these types as enums, which would look like this:
 ```typescript
 // Type definition:
-enum ButtonType {
+enum ButtonWeight {
 	Normal = 'normal',
 	Primary = 'primary',
 	Quiet = 'quiet'
 };
 
 // Validator:
-function isButtonType( s: unknown ): s is ButtonType {
-	return typeof s === 'string' && Object.values( ButtonType ).includes( s );
+function isButtonWeight( s: unknown ): s is ButtonWeight {
+	return typeof s === 'string' && Object.values( ButtonWeight ).includes( s );
 
 	// At the time of writing, we couldn't use Object.values() or .includes() yet
 	// because we were targeting ES6. The ES6 version of the above would be:
-	return typeof s === 'string' && Object.keys( ButtonType ).some(
-		( key ) => ButtonType[ key as keyof typeof ButtonType ] === val
+	return typeof s === 'string' && Object.keys( buttonWeight ).some(
+		( key ) => buttonWeight[ key as keyof typeof ButtonWeight ] === val
 	);
 }
 ```
 However, string values can't be assigned to an enum type directly, you have to get the value
-from the enum. In other words, if something expects a `ButtonType` and you pass in `'primary'`,
-TypeScript throws an error. You have to pass in `ButtonType.Primary` instead (even though that
+from the enum. In other words, if something expects a `ButtonWeight` and you pass in `'primary'`,
+TypeScript throws an error. You have to pass in `ButtonWeight.Primary` instead (even though that
 compiles to the same value). This means that code like `<cdx-button type="primary">` doesn't pass
 TypeScript validation. Instead, code in external components using this prop
 would have to look like this:
 ```vue
 <template>
 	<div>
-		<cdx-button :type="ButtonType.Primary">...</cdx-button>
+		<cdx-button :weight="ButtonWeight.Primary">...</cdx-button>
 	</div>
 </template>
 <script>
 import { defineComponent } from 'vue';
-import { CdxButton, ButtonType } from 'codex';
+import { CdxButton, ButtonWeight } from 'codex';
 export default defineComponent( {
 	components: { CdxButton },
 	data: () => ( {
-		// Pass through ButtonType so that it's available to the template
-		ButtonType
+		// Pass through ButtonWeight so that it's available to the template
+		ButtonWeight
 	} )
 } );
 </script>
@@ -78,21 +78,21 @@ export default defineComponent( {
 Instead of using enums, we could manually define a union type, like this:
 ```typescript
 // Type definition:
-type ButtonType = 'normal' | 'primary' | 'quiet';
-const ButtonTypes : readonly ButtonType[] = [ 'normal', 'primary', 'quiet' ];
+type ButtonWeight = 'normal' | 'primary' | 'quiet';
+const ButtonWeights : readonly ButtonWeight[] = [ 'normal', 'primary', 'quiet' ];
 
 // Validator:
-function isButtonType( s: unknown ): s is ButtonType {
+function isButtonWeight( s: unknown ): s is ButtonWeight {
 	return typeof s === 'string' &&
-		( ButtonTypes as readonly string[] ).includes( s );
+		( ButtonWeights as readonly string[] ).includes( s );
 
 	// At the time of writing, we couldn't use .includes() yet because we were
 	// targeting ES6. The ES6 version of the above would be:
 	return typeof s === 'string' &&
-		( ButtonTypes as readonly string[] ).indexOf( s ) !== -1;
+		( ButtonWeights as readonly string[] ).indexOf( s ) !== -1;
 }
 ```
-Unlike with enums, string values can be used directly, so code like `<cdx-button type="primary">`
+Unlike with enums, string values can be used directly, so code like `<cdx-button weight="primary">`
 works fine.
 
 #### Advantages
@@ -108,23 +108,23 @@ To eliminate the duplication of the string values, we could define the array fir
 derive the type from it, like this:
 ```typescript
 // Type definition:
-const ButtonTypes = [ 'normal', 'primary', 'quiet' ] as const;
-type ButtonType = typeof ButtonTypes[ number ];
+const ButtonWeights = [ 'normal', 'primary', 'quiet' ] as const;
+type ButtonWeight = typeof ButtonWeights[ number ];
 
 // Validator:
-function isButtonType( s: unknown ): s is ButtonType {
+function isButtonWeight( s: unknown ): s is ButtonWeight {
 	return typeof s === 'string' &&
-		( ButtonTypes as readonly string[] ).includes( s );
+		( ButtonWeights as readonly string[] ).includes( s );
 
 	// At the time of writing, we couldn't use .includes() yet because we were
 	// targeting ES6. The ES6 version of the above would be:
 	return typeof s === 'string' &&
-		( ButtonTypes as readonly string[] ).indexOf( s ) !== -1;
+		( ButtonWeights as readonly string[] ).indexOf( s ) !== -1;
 }
 ```
-This results in `ButtonType` being the same union type as in the "Union types" alternative
+This results in `ButtonWeight` being the same union type as in the "Union types" alternative
 (`'normal'|'primary'|'quiet'`). Just as with the "Union types" alternative, using plain string
-values in templates (e.g. `<cdx-button type="primary">`) is allowed.
+values in templates (e.g. `<cdx-button weight="primary">`) is allowed.
 
 #### Advantages
 - Each string value is only defined once, there is no duplication

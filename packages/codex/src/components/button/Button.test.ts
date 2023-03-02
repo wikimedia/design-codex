@@ -1,13 +1,13 @@
 import { shallowMount } from '@vue/test-utils';
-import { ButtonAction, ButtonType } from '../../types';
-import { ButtonActions, ButtonTypes } from '../../constants';
+import { ButtonAction, ButtonWeight, ButtonType } from '../../types';
+import { ButtonActions, ButtonWeights, ButtonTypes } from '../../constants';
 import CdxButton from './Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 
 describe( 'matches the snapshot', () => {
 	type Case = [
 		msg: string,
-		props: { action?: ButtonAction, type?: ButtonType },
+		props: { action?: ButtonAction, weight?: ButtonWeight, type?: ButtonType },
 		slot: string,
 		attrs?: Record<string, unknown>
 	];
@@ -17,6 +17,11 @@ describe( 'matches the snapshot', () => {
 		...ButtonActions.map( ( action ) : Case => [
 			`${action} action`,
 			{ action },
+			''
+		] ),
+		...ButtonWeights.map( ( weight ) : Case => [
+			`${weight} weight`,
+			{ weight },
 			''
 		] ),
 		...ButtonTypes.map( ( type ) : Case => [
@@ -104,5 +109,15 @@ describe( 'detects icon-only buttons', () => {
 			}
 		} );
 		expect( wrapper.classes( 'cdx-button--icon-only' ) ).toBe( expectedIconOnly );
+	} );
+} );
+
+// TODO T312987: Remove this code once all projects update to new `type` prop.
+describe( 'when the old `type` prop is used', () => {
+	it( 'applies the provided type as the weight', () => {
+		const wrapper = shallowMount( CdxButton, { props: { type: 'primary' } } );
+		expect( wrapper.element.classList ).toContain( 'cdx-button--weight-primary' );
+		expect( wrapper.element.classList ).not.toContain( 'cdx-button--type-primary' );
+		expect( wrapper.attributes( 'type' ) ).toBeUndefined();
 	} );
 } );

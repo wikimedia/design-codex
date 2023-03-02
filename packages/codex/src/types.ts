@@ -9,6 +9,7 @@ import { Icon } from '@wikimedia/codex-icons';
 import {
 	ButtonActions,
 	ButtonTypes,
+	ButtonWeights,
 	IconSizes,
 	TextInputTypes,
 	ValidationStatusTypes,
@@ -21,6 +22,8 @@ export type HTMLDirection = 'ltr' | 'rtl';
 
 /** @public */
 export type ButtonAction = typeof ButtonActions[ number ];
+/** @public */
+export type ButtonWeight = typeof ButtonWeights[ number ];
 /** @public */
 export type ButtonType = typeof ButtonTypes[ number ];
 

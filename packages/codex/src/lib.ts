@@ -60,7 +60,7 @@ import * as stringHelpers from './utils/stringHelpers';
 import type {
 	HTMLDirection,
 	ButtonAction,
-	ButtonType,
+	ButtonWeight,
 	ButtonGroupItem,
 	StatusType,
 	TextInputType,
@@ -120,7 +120,7 @@ export {
 	// Types
 	HTMLDirection,
 	ButtonAction,
-	ButtonType,
+	ButtonWeight,
 	ButtonGroupItem,
 	TextInputType,
 	MenuConfig,

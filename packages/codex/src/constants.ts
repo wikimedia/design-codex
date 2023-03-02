@@ -13,10 +13,20 @@ export const ButtonActions = [
 	'destructive'
 ] as const;
 
-export const ButtonTypes = [
+export const ButtonWeights = [
 	'normal',
 	'primary',
 	'quiet'
+] as const;
+
+/**
+ * Corresponds to the native button types, see
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes.
+ */
+export const ButtonTypes = [
+	'button',
+	'submit',
+	'reset'
 ] as const;
 
 export const IconSizes = [

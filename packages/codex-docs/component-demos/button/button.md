@@ -12,7 +12,7 @@ const controlsConfig = [
 		options: [ 'default', 'progressive', 'destructive' ],
 	},
 	{
-		name: 'type',
+		name: 'weight',
 		type: 'radio',
 		options: [ 'normal', 'primary', 'quiet' ],
 	},
@@ -90,9 +90,9 @@ There are three button actions: default, progressive, and destructive.
 </template>
 </cdx-demo-wrapper>
 
-### Button types
+### Button weights
 
-There are three button types: normal, primary, and quiet.
+There are three button weights: normal, primary, and quiet.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -102,12 +102,12 @@ There are three button types: normal, primary, and quiet.
 		</cdx-button>
 	</div>
 	<div>
-		<cdx-button action="progressive" type="primary">
+		<cdx-button action="progressive" weight="primary">
 			Primary progressive button
 		</cdx-button>
 	</div>
 	<div>
-		<cdx-button action="progressive" type="quiet">
+		<cdx-button action="progressive" weight="quiet">
 			Quiet progressive button
 		</cdx-button>
 	</div>
@@ -122,12 +122,12 @@ There are three button types: normal, primary, and quiet.
 	</cdx-button>
 </div>
 <div>
-	<cdx-button action="progressive" type="primary">
+	<cdx-button action="progressive" weight="primary">
 		Primary progressive button
 	</cdx-button>
 </div>
 <div>
-	<cdx-button action="progressive" type="quiet">
+	<cdx-button action="progressive" weight="quiet">
 		Quiet progressive button
 	</cdx-button>
 </div>
@@ -269,13 +269,13 @@ apply these actions:
 </template>
 </cdx-demo-wrapper>
 
-### Button types
+### Button weights
 
-There are three button types: normal, primary, and quiet. Use the following classes to
+There are three button weights: normal, primary, and quiet. Use the following classes to
 apply these actions:
-- Normal: `cdx-button--type-normal` (class can be omitted since this is the default)
-- Primary: `cdx-button--type-primary`
-- Quiet: `cdx-button--type-quiet`
+- Normal: `cdx-button--weight-normal` (class can be omitted since this is the default)
+- Primary: `cdx-button--weight-primary`
+- Quiet: `cdx-button--weight-quiet`
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -283,10 +283,10 @@ apply these actions:
 		<button class="cdx-button cdx-button--action-progressive">Normal progressive button</button>
 	</div>
 	<div>
-		<button class="cdx-button cdx-button--action-progressive cdx-button--type-primary">Primary progressive button</button>
+		<button class="cdx-button cdx-button--action-progressive cdx-button--weight-primary">Primary progressive button</button>
 	</div>
 	<div>
-		<button class="cdx-button cdx-button--action-progressive cdx-button--type-quiet">Quiet progressive button</button>
+		<button class="cdx-button cdx-button--action-progressive cdx-button--weight-quiet">Quiet progressive button</button>
 	</div>
 </template>
 <template v-slot:code>
@@ -296,10 +296,10 @@ apply these actions:
 	<button class="cdx-button cdx-button--action-progressive">Progressive normal button</button>
 </div>
 <div>
-	<button class="cdx-button cdx-button--action-progressive cdx-button--type-primary">Progressive primary button</button>
+	<button class="cdx-button cdx-button--action-progressive cdx-button--weight-primary">Progressive primary button</button>
 </div>
 <div>
-	<button class="cdx-button cdx-button--action-progressive cdx-button--type-quiet">Progressive quiet button</button>
+	<button class="cdx-button cdx-button--action-progressive cdx-button--weight-quiet">Progressive quiet button</button>
 </div>
 ```
 
