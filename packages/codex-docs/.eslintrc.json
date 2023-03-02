@@ -38,6 +38,7 @@
 	],
 	"ignorePatterns": [
 		"src/env.d.ts",
-		"dist/*"
+		"dist/*",
+		"docs/.vitepress/cache/**/*"
 	]
 }
