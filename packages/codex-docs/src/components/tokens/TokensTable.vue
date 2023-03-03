@@ -58,7 +58,7 @@
 <script lang="ts">
 import { defineComponent, computed, PropType } from 'vue';
 import { DesignTokensTree } from '../../types';
-import { flattenDesignTokensTree } from '../../utils/tokens';
+import { expandDeprecationMessage, flattenDesignTokensTree } from '../../utils/tokens';
 import CdxDocsTokenDemo from './TokenDemo.vue';
 import CdxDocsFontDemo from './FontDemo.vue';
 import CdxDocsSpacingDemo from './SpacingDemo.vue';
@@ -129,6 +129,7 @@ export default defineComponent( {
 		const flattenedTokens = computed( () =>
 			flattenDesignTokensTree( props.tokens, props.excludeTokens )
 				.filter( ( token ) => token.attributes.type !== 'theme' )
+				.map( ( token, index, allTokens ) => expandDeprecationMessage( token, allTokens ) )
 		);
 
 		return {

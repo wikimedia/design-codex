@@ -34,3 +34,36 @@ export function flattenDesignTokensTree( tree: DesignTokensTree, excludeTokens: 
 	}
 	return result;
 }
+
+/**
+ * If the given token is deprecated, and consists entirely of a reference to another token that
+ * isn't deprecated, add "(use `xyz` instead)" to the end of the deprecation message.
+ *
+ * Similar functionality is implemented in createCustomStyleFormatter in the tokens package.
+ *
+ * @param token Token to modify
+ * @param allTokens Array of all tokens; used to look up whether the referenced token is deprecated
+ * @return Token with possibly modified deprecation message
+ */
+export function expandDeprecationMessage(
+	token: DesignToken, allTokens: DesignToken[]
+): DesignToken {
+	if (
+		token.deprecated &&
+		token.attributes.tokens.length === 1 &&
+		token.original.value.match( /^\s*{[^{}]+}\s*$/ )
+	) {
+		const useInsteadToken = allTokens.find( ( t ) =>
+			t.path.join( '.' ) === token.attributes.tokens[ 0 ]
+		);
+		if ( useInsteadToken && !useInsteadToken.deprecated ) {
+			return {
+				...token,
+				deprecated: typeof token.deprecated === 'string' ?
+					`${token.deprecated} (use \`${useInsteadToken.name}\` instead)` :
+					`Use \`${useInsteadToken.name}\` instead.`
+			};
+		}
+	}
+	return token;
+}
