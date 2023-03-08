@@ -2,21 +2,12 @@
 
 /** @typedef {import('./types').ThemeConfig} ThemeConfig */
 
-const StyleDictionary = require( 'style-dictionary' );
-const configFactory = require( './config' );
-const {
-	createCustomStyleFormatter,
-	getReferencedTokens,
-	getTokenType,
-	makePathMatcher,
-	makeRelativeUnitTransform,
-	kebabCase
-} = require( './lib' );
+const dictFactory = require( './config' );
 
 // HACK: Eventually we should implement a real theme system that discovers themes based on
 // theme-foo.json files, and allows themes to specify their basePxFontSize and relativeTransform
-// settings in those files. For now, hard-code this information to build two themes, wikimedia-ui
-// and wikimedia-ui-legacy (which is wikimedia-ui but with a 14px base font size)
+// settings in those files. For now, hard-code this information to build two themes, WikimediaUI
+// and WikimediaUI legacy (which is WikimediaUI but with a 14px base font size)
 
 const sharedConfig = {
 	relativeTransformUnit: 'em',
@@ -39,66 +30,21 @@ const sharedConfig = {
 const themeConfigs = [
 	{
 		themeName: 'wikimedia-ui',
+		themeNamePrint: 'WikimediaUI',
 		basePxFontSize: 16,
 		...sharedConfig
 	},
 	{
 		themeName: 'wikimedia-ui-legacy',
+		themeNamePrint: 'WikimediaUI legacy',
 		basePxFontSize: 14,
 		...sharedConfig
 	}
 ];
 
 for ( const themeConfig of themeConfigs ) {
-	const dict = StyleDictionary.extend( configFactory( themeConfig ) );
-
-	dict.registerTransform( {
-		name: 'attr/tokenList',
-		type: 'attribute',
-		transformer: getReferencedTokens
-	} );
-
-	dict.registerTransform( {
-		name: 'attr/tokenType',
-		type: 'attribute',
-		transformer: getTokenType
-	} );
-
-	dict.registerTransform( {
-		name: 'name/kebabCase',
-		type: 'name',
-		transformer: kebabCase
-	} );
-
-	dict.registerTransform( {
-		name: 'value/relativeUnit',
-		type: 'value',
-		matcher: makePathMatcher(
-			themeConfig.relativeTransformPaths,
-			themeConfig.relativeTransformExcludePaths
-		),
-		transformer: makeRelativeUnitTransform( themeConfig.relativeTransformUnit ),
-		transitive: true
-	} );
-
-	dict.registerFormat( {
-		name: 'custom/format/css',
-		formatter: createCustomStyleFormatter( 'css' )
-	} );
-
-	dict.registerFormat( {
-		name: 'custom/format/less',
-		formatter: createCustomStyleFormatter( 'less' )
-	} );
-
-	dict.registerFormat( {
-		name: 'custom/format/scss',
-		formatter: createCustomStyleFormatter( 'sass' )
-	} );
-
-	console.log( 'Building Codex design tokens…' );
-
-	// Build all the platforms.
+	const dict = dictFactory( themeConfig );
+	console.log( `Building Codex design tokens for ${themeConfig.themeNamePrint} theme…` );
 	dict.buildAllPlatforms();
 }
 

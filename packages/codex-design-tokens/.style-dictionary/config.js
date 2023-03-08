@@ -1,61 +1,35 @@
 'use strict';
 
-/** @typedef {import('style-dictionary').Config} Config */
+const StyleDictionary = require( 'style-dictionary' );
+const {
+	getReferencedTokens,
+	getTokenType,
+	kebabCase,
+	makePathMatcher,
+	makeRelativeUnitTransform,
+	createCustomStyleFormatter
+} = require( './lib' );
+
+/** @typedef {import('style-dictionary').Core} StyleDictionaryCore */
 /** @typedef {import('./types').ThemeConfig} ThemeConfig */
 
 /**
- * @param {ThemeConfig} config
- * @return {Config}
+ * @param {ThemeConfig} themeConfig
+ * @return {StyleDictionaryCore}
  */
-module.exports = function ( { themeName, basePxFontSize } ) {
-	return {
+module.exports = function ( themeConfig ) {
+	const dict = StyleDictionary.extend( {
 		source: [ 'src/**/*.json' ],
 		tokens: {
 			// Insert a "magic" font-size-base token that is set to baseFontSize
 			'font-size': {
 				base: {
-					value: `${basePxFontSize}px`
+					value: `${themeConfig.basePxFontSize}px`
 				}
 			}
 		},
 		platforms: {
-			scss: {
-				transforms: [
-					'name/kebabCase',
-					'value/relativeUnit'
-				],
-				basePxFontSize,
-				buildPath: 'dist/',
-				files: [ {
-					destination: `theme-${themeName}.scss`,
-					format: 'custom/format/scss'
-				} ]
-			},
-			css: {
-				transforms: [
-					'name/kebabCase',
-					'value/relativeUnit'
-				],
-				basePxFontSize,
-				buildPath: 'dist/',
-				files: [ {
-					destination: `theme-${themeName}.css`,
-					format: 'custom/format/css'
-				} ]
-			},
-			less: {
-				transforms: [
-					'name/kebabCase',
-					'value/relativeUnit'
-				],
-				basePxFontSize,
-				buildPath: 'dist/',
-				files: [ {
-					destination: `theme-${themeName}.less`,
-					format: 'custom/format/less'
-				} ]
-			},
-			json: {
+			stylesheet: {
 				transforms: [
 					// Note, we don't use pre-defined transform groups for JSON.
 					// See https://github.com/amzn/style-dictionary/blob/main/docs/transform_groups.md
@@ -66,13 +40,73 @@ module.exports = function ( { themeName, basePxFontSize } ) {
 					'attr/tokenType',
 					'value/relativeUnit'
 				],
-				basePxFontSize,
+				basePxFontSize: themeConfig.basePxFontSize,
 				buildPath: 'dist/',
-				files: [ {
-					destination: `theme-${themeName}.json`,
-					format: 'json'
-				} ]
+				files: [
+					{
+						destination: `theme-${themeConfig.themeName}.scss`,
+						format: 'custom/format/scss'
+					},
+					{
+						destination: `theme-${themeConfig.themeName}.css`,
+						format: 'custom/format/css'
+					},
+					{
+						destination: `theme-${themeConfig.themeName}.less`,
+						format: 'custom/format/less'
+					},
+					{
+						destination: `theme-${themeConfig.themeName}.json`,
+						format: 'json'
+					}
+				]
 			}
 		}
-	};
+	} );
+
+	dict.registerTransform( {
+		name: 'attr/tokenList',
+		type: 'attribute',
+		transformer: getReferencedTokens
+	} );
+
+	dict.registerTransform( {
+		name: 'attr/tokenType',
+		type: 'attribute',
+		transformer: getTokenType
+	} );
+
+	dict.registerTransform( {
+		name: 'name/kebabCase',
+		type: 'name',
+		transformer: kebabCase
+	} );
+
+	dict.registerTransform( {
+		name: 'value/relativeUnit',
+		type: 'value',
+		matcher: makePathMatcher(
+			themeConfig.relativeTransformPaths,
+			themeConfig.relativeTransformExcludePaths
+		),
+		transformer: makeRelativeUnitTransform( themeConfig.relativeTransformUnit ),
+		transitive: true
+	} );
+
+	dict.registerFormat( {
+		name: 'custom/format/css',
+		formatter: createCustomStyleFormatter( 'css' )
+	} );
+
+	dict.registerFormat( {
+		name: 'custom/format/less',
+		formatter: createCustomStyleFormatter( 'less' )
+	} );
+
+	dict.registerFormat( {
+		name: 'custom/format/scss',
+		formatter: createCustomStyleFormatter( 'sass' )
+	} );
+
+	return dict;
 };
