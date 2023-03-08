@@ -252,8 +252,12 @@
 		"base--disabled": {
 			"value": "{ opacity.51 }"
 		},
-		"accessory": {
+		"subtle": {
 			"value": "{ opacity.67 }"
+		},
+		"accessory": {
+			"deprecated": true,
+			"value": "{ opacity-icon.subtle }"
 		}
 	},
 	"background-position": {
