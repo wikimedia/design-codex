@@ -218,3 +218,36 @@ There are some special files at the top level of the `src/` directory:
 - `constants.ts`: Contains constants that need to be exported or that serve as the basis for types.
 - `utils.ts`: Utility functions shared across components, or for use with the types or constants
   in `types.ts` or `constants.ts`.
+
+### IDE setup
+
+If you work on Codex using an editor not listed here, please feel free to submit a patch with
+suggested configurations for optimal development for that editor!
+
+#### Visual Studio Code
+
+The Codex repository contains a list of recommended extensions for development in Visual Studio Code
+(VS Code). When you open Codex in VS Code, you should be prompted with a message to install
+recommended extensions. These extensions are defined in `.vscode/extensions.json`.
+
+You will also want to configure Stylelint to check your styles, rather than VS Code's built-in
+validators. Add the following to your `.vscode/settings.json` file:
+
+```json
+{
+	"css.validate": false,
+	"less.validate": false,
+	"stylelint.snippet": [
+		"css",
+		"less",
+		"postcss",
+		"vue"
+	],
+	"stylelint.validate": [
+		"css",
+		"less",
+		"postcss",
+		"vue"
+	]
+}
+```

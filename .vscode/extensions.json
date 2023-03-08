@@ -1,0 +1,10 @@
+{
+	"recommendations": [
+		"Vue.volar",
+		"dbaeumer.vscode-eslint",
+		"stylelint.vscode-stylelint",
+		"wayou.vscode-todo-highlight",
+		"jkiviluoto.tws",
+		"streetsidesoftware.code-spell-checker"
+	]
+}
