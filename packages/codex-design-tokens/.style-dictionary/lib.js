@@ -5,9 +5,18 @@
 /** @typedef {import('style-dictionary/types/Matcher').Matcher} Matcher */
 /** @typedef {import('style-dictionary').Transform} Transform */
 /** @typedef {import('style-dictionary').Formatter} Formatter */
+/** @typedef {import('style-dictionary').Dictionary} Dictionary */
 
-const { fileHeader, createPropertyFormatter, sortByReference } =
+const { fileHeader, createPropertyFormatter } =
 	require( 'style-dictionary' ).formatHelpers;
+
+// The type of sortByReference is wrong upstream, see https://github.com/amzn/style-dictionary/issues/918
+const sortByReference =
+	/** @type {( dict: Dictionary ) => ( a: TransformedToken, b: TransformedToken ) => number} */ (
+		/** @type {unknown} */ (
+			require( 'style-dictionary' ).formatHelpers.sortByReference
+		)
+	);
 const path = require( 'path' );
 
 /**
@@ -222,9 +231,7 @@ function createCustomStyleFormatter( format ) {
 		const { outputReferences } = options;
 		let { allTokens } = dictionary;
 		if ( outputReferences ) {
-			// sortByReference is not exported for some reason.
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-			allTokens = [ ...allTokens ].sort( sortByReference );
+			allTokens = [ ...allTokens ].sort( sortByReference( dictionary ) );
 		}
 
 		const formatter = createPropertyFormatter( { outputReferences, dictionary, format } );
