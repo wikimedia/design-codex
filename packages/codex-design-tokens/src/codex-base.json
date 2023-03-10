@@ -176,6 +176,9 @@
 		"base--disabled": {
 			"value": "{ opacity.51 }"
 		},
+		"placeholder": {
+			"value": "{ opacity.51 }"
+		},
 		"subtle": {
 			"value": "{ opacity.67 }"
 		}

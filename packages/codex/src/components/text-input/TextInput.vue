@@ -338,7 +338,7 @@ export default defineComponent( {
 			}
 
 			~ .cdx-text-input__icon {
-				opacity: @opacity-icon-subtle;
+				opacity: @opacity-icon-placeholder;
 			}
 
 			&:hover {
