@@ -712,26 +712,6 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/element-with-menu-expanded.less';
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
 
-// TODO: Tokenize.
-// The amount of space between the TypeaheadSearch figure's parent component and the
-// typeahead search figure (input icon container, search result thumbnail, and footer icon
-// container). We want this space to be uniform so that the figures vertically line up
-// nicely. We use the same horizontal padding as the MenuItem.
-@spacing-start-typeahead-search-figure: @spacing-75;
-// The amount the width of the input increases when it is focused to allow for the extra spacing
-// around the search figures. The caret position should remain static.
-// This calculates the padding-left of the input when expanded minus the padding-left of the input
-// when not expanded.
-// (Note that both padding values actually include @spacing-50 as well, but it
-// was left out of the calculation for simplicity's sake.)
-@spacing-typeahead-search-focus-addition:
-	( @spacing-start-typeahead-search-figure + @min-size-search-figure ) -
-	( @min-size-icon-medium + @spacing-50 );
-// The padding required for the icon to center align with the menu item thumbnail.
-// We calculate the difference in size and add it to the expected spacing
-@spacing-start-typeahead-icon: @spacing-start-typeahead-search-figure +
-	( ( @min-size-search-figure - @min-size-icon-medium ) / 2 );
-
 .cdx-typeahead-search {
 	.cdx-menu-item {
 		// Unset padding so we can add it to the anchor elements instead. This is necessary to get
@@ -828,7 +808,7 @@ export default defineComponent( {
 			.cdx-text-input__start-icon {
 				.cdx-mixin-icon(
 					start,
-					@param-external-padding: @spacing-start-typeahead-icon );
+					@param-external-padding: @spacing-start-typeahead-search-icon );
 			}
 		}
 

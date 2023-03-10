@@ -270,13 +270,6 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
 @import ( reference ) '../../themes/mixins/public/css-icon.less';
 
-// When there are two end icons, (i.e. a clear icon and an end icon), we need to double the
-// horizontal padding and account for the size of the extra icon.
-// This token can be used to calculate the horizontal position of the clear icon and the
-// padding-end of the text input.
-@padding-horizontal-input-text-two-end-icons:
-	calc( ( @spacing-50 * 2 ) + @size-icon-small + @border-width-base );
-
 .cdx-text-input {
 	// For proper positioning of icons and slotted elements.
 	position: relative;
@@ -313,7 +306,7 @@ export default defineComponent( {
 
 		// Increase padding end when the clear icon appears next to an end icon.
 		.cdx-text-input__end-icon + & {
-			right: @padding-horizontal-input-text-two-end-icons;
+			right: @spacing-horizontal-input-text-two-end-icons;
 		}
 	}
 
@@ -447,7 +440,7 @@ export default defineComponent( {
 		.cdx-text-input__input {
 			.cdx-mixin-icon-wrapper-padding(
 				end,
-				@padding-horizontal-input-text-two-end-icons,
+				@spacing-horizontal-input-text-two-end-icons,
 				@size-icon-small
 			);
 		}
