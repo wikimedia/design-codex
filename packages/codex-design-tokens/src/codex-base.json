@@ -510,7 +510,8 @@
 			"value": "{ dimension.absolute.9999 }"
 		},
 		"circle": {
-			"value": "{ dimension.full }"
+			"comment": "Use `50%` for circle or ellipsis. See https://stackoverflow.com/a/29966500",
+			"value": "{ dimension.half }"
 		}
 	},
 	"box-shadow": {
