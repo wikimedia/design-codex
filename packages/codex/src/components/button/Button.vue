@@ -184,10 +184,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/button.less';
 
-// TODO: Tokenize.
-@background-color-normal-progressive--active: lighten( @color-progressive--active, 60% );
-@background-color-normal-destructive--active: lighten( @color-destructive--active, 60% );
-
 .cdx-button {
 	// mixin for common base styles for buttons
 	.cdx-mixin-button();
@@ -515,7 +511,7 @@ export default defineComponent( {
 
 		&:active,
 		&.cdx-button--is-active {
-			background-color: @background-color-normal-progressive--active;
+			background-color: @background-color-progressive-subtle;
 			color: @color-progressive--active;
 			border-color: @border-color-progressive--active;
 
@@ -548,7 +544,7 @@ export default defineComponent( {
 
 		&:active,
 		&.cdx-button--is-active {
-			background-color: @background-color-normal-destructive--active;
+			background-color: @background-color-destructive-subtle;
 			color: @color-destructive--active;
 			border-color: @border-color-destructive--active;
 
