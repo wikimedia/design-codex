@@ -40,14 +40,21 @@
 .text-overflow( @param-visible: false, @param-value: ellipsis ) {
 	& when ( @param-visible = true ) {
 		overflow: visible;
-		text-overflow: clip;
+		text-overflow: @text-overflow-clip;
 		white-space: normal;
 	}
 	& when ( @param-visible = false ) {
 		// Hide overflowing text.
 		overflow: hidden;
-		// Use an ellipsis or a custom string to indicate text overflow.
-		text-overflow: @param-value;
+		& when ( @param-value = ellipsis ) {
+			// Use an ellipsis to indicate text overflow.
+			text-overflow: @text-overflow-ellipsis;
+		}
+		& when not ( @param-value = ellipsis ) {
+			// Use a custom string to indicate text overflow.
+			// Firefox 9+ only.
+			text-overflow: @param-value;
+		}
 		// Force overflow of the description text.
 		white-space: nowrap;
 	}

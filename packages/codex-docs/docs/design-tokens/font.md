@@ -51,6 +51,15 @@ import aliases from '@wikimedia/codex-design-tokens/deprecated-aliases-wikimedia
 	css-property="text-decoration"
 />
 
+## Text overflow
+
+<cdx-docs-tokens-table
+	:tokens="tokens['text-overflow']"
+	token-demo="CdxDocsFontDemo"
+	token-category="font"
+	css-property="text-overflow"
+/>
+
 ## Deprecated aliases in WikimediaUI Base
 
 :::warning

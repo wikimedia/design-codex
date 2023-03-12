@@ -4,6 +4,9 @@
 			The quick brown fox
 			<br>
 			jumps over the lazy dog.
+			<span class="cdx-docs-font-demo__text-overflow-addition">
+				Sometimes twice, sometimes three times.
+			</span>
 		</p>
 	</div>
 </template>
@@ -39,9 +42,46 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
 .cdx-docs-tokens-table .cdx-docs-font-demo {
 	p {
 		line-height: inherit;
+	}
+
+	.cdx-docs-font-demo__text-overflow-addition {
+		display: none;
+	}
+}
+
+.cdx-docs-tokens-table [ class*='cdx-docs-tokens-demo__token--text-overflow' ] {
+	> p {
+		max-width: @size-2400;
+		text-overflow: inherit;
+	}
+
+	.cdx-docs-font-demo__text-overflow-addition {
+		display: inline;
+	}
+
+	br {
+		display: none;
+	}
+}
+
+.cdx-docs-tokens-table .cdx-docs-tokens-demo {
+	.cdx-docs-tokens-demo__token--text-overflow-clip {
+		> p {
+			overflow: visible;
+			white-space: normal;
+		}
+	}
+
+	:not( .cdx-docs-tokens-demo__token--text-overflow-clip ) {
+		> p {
+			overflow: hidden;
+			white-space: nowrap;
+		}
 	}
 }
 </style>

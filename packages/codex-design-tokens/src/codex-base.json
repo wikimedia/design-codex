@@ -686,6 +686,14 @@
 			"value": "{ text-decoration.200 }"
 		}
 	},
+	"text-overflow": {
+		"clip": {
+			"value": "{ text-overflow.100 }"
+		},
+		"ellipsis": {
+			"value": "{ text-overflow.200 }"
+		}
+	},
 	"tab-size": {
 		"base": {
 			"value": "{ tab-size.100 }"

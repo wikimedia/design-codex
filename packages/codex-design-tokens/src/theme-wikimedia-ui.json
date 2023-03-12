@@ -473,6 +473,14 @@
 			"value": "underline"
 		}
 	},
+	"text-overflow": {
+		"100": {
+			"value": "clip"
+		},
+		"200": {
+			"value": "ellipsis"
+		}
+	},
 	"tab-size": {
 		"100": {
 			"value": "4"
