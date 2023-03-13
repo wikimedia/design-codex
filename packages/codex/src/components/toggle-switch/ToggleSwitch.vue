@@ -127,9 +127,9 @@ export default defineComponent( {
 	align-items: center;
 	justify-content: space-between;
 	// Visually hidden `<input>` will be absolutely positioned relative to this element.
+	// Create a stacking context by `position: relative` and `z-index` other than `auto`.
 	position: relative;
-	// Create a stacking context.
-	z-index: 0;
+	z-index: @z-index-base;
 
 	&__label {
 		display: flex;
@@ -175,7 +175,7 @@ export default defineComponent( {
 			right: @size-absolute-1;
 			bottom: @size-absolute-1;
 			left: @size-absolute-1;
-			z-index: 1;
+			z-index: @z-index-stacking-1;
 			border: @border-width-base @border-style-base @border-color-transparent;
 			border-radius: @border-radius-pill;
 			transition-property: @transition-property-base;
@@ -209,7 +209,7 @@ export default defineComponent( {
 		position: absolute;
 		right: 0;
 		// Render “on top of” the `span`, so that it's still clickable.
-		z-index: 2;
+		z-index: @z-index-stacking-2;
 		min-width: @min-width-toggle-switch;
 		min-height: @min-size-base;
 		width: @size-300;

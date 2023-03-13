@@ -40,15 +40,11 @@
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 
-		&:hover {
-			// Make the button be on top of the input border when the button is hovered.
-			z-index: 1;
-		}
-
+		&:hover,
 		&:focus {
-			// Make the button be on top of the input border when the input is hovered while the
-			// button is focused.
-			z-index: 1;
+			// Make the button be on top of the input border when the button is hovered/
+			// while focused.
+			z-index: @z-index-stacking-1;
 		}
 	}
 }

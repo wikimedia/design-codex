@@ -139,7 +139,7 @@ body {
 		justify-content: space-between;
 		position: sticky;
 		top: 0;
-		z-index: @z-index-overlay;
+		z-index: @z-index-sticky;
 		box-sizing: @box-sizing-base;
 		height: @height-sandbox-header;
 		border-bottom: @border-width-base @border-style-base @border-color-base;

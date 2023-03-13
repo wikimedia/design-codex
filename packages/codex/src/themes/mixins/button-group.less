@@ -7,7 +7,7 @@
 	// Isolate the z-index hacks below into their own stacking context, so that they don't conflict
 	// with other z-index tricks elsewhere on the page.
 	position: relative;
-	z-index: 0;
+	z-index: @z-index-base;
 
 	// Make groups only as wide as they need to be, so that the rounded corners on the group also
 	// apply to the rightmost button
@@ -35,7 +35,7 @@
 	// Put regular buttons above disabled buttons (which get z-index: 0;) below
 	// We don't want to use z-index: -1; to push buttons below regular buttons, because then
 	// they can't be clicked or hovered.
-	z-index: 1;
+	z-index: @z-index-stacking-1;
 
 	// To avoid double borders, shift each of the buttons (except the first one)
 	// 1px to the left, so that its left border covers the right border of the button
@@ -56,14 +56,14 @@
 		// obscured by the next button's left border.
 		// Use z-index: 3;, reserving z-index: 2; for toggled-on ToggleButtons, which should be
 		// above regular buttons but below active/focused buttons (see ToggleButtonGroup)
-		z-index: 3;
+		z-index: @z-index-stacking-3;
 	}
 
 	&:disabled {
 		// When a button is disabled, its border is the same color as its background.
 		// Push it down below the other buttons so that both it doesn't obscure its
 		// neighbor's border
-		z-index: 0;
+		z-index: @z-index-base;
 
 		// When two disabled buttons are adjacent to each other, display a white line
 		// between them. Using a border for this causes all sorts of problems, so use a

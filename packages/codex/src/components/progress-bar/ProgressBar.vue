@@ -76,7 +76,7 @@ export default defineComponent( {
 		// `border-radius` of the component's root element by `position: relative` and
 		// `z-index` other than `auto`.
 		position: relative;
-		z-index: 1;
+		z-index: @z-index-stacking-1;
 		height: @size-100;
 		max-width: @max-width-base;
 		border: @border-width-base @border-style-base @border-color-base;

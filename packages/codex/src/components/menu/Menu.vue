@@ -770,7 +770,7 @@ export default defineComponent( {
 	background-color: @background-color-base;
 	position: absolute;
 	left: 0;
-	z-index: 4;
+	z-index: @z-index-dropdown;
 	box-sizing: @box-sizing-base;
 	width: @size-full;
 	border: @border-width-base @border-style-base @border-color-base;

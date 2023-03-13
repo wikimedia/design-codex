@@ -195,11 +195,56 @@
 		}
 	},
 	"z-index": {
+		"bottom": {
+			"value": "{ z-index.-100 }"
+		},
 		"base": {
 			"value": "{ z-index.0 }"
 		},
+		"stacking-1": {
+			"value": "{ z-index.1 }"
+		},
+		"stacking-2": {
+			"value": "{ z-index.2 }"
+		},
+		"stacking-3": {
+			"value": "{ z-index.3 }"
+		},
+		"above-content": {
+			"value": "{ z-index.1 }"
+		},
+		"toolbar": {
+			"value": "{ z-index.2 }"
+		},
+		"dropdown": {
+			"value": "{ z-index.50 }"
+		},
+		"sticky": {
+			"value": "{ z-index.100 }"
+		},
+		"fixed": {
+			"value": "{ z-index.200 }"
+		},
+		"off-canvas-backdrop": {
+			"value": "{ z-index.300 }"
+		},
+		"off-canvas": {
+			"value": "{ z-index.350 }"
+		},
+		"overlay-backdrop": {
+			"value": "{ z-index.400 }"
+		},
 		"overlay": {
-			"value": "{ z-index.101 }"
+			"value": "{ z-index.450 }"
+		},
+		"tooltip": {
+			"value": "{ z-index.800 }"
+		},
+		"toast-notification": {
+			"value": "{ z-index.900 }"
+		},
+		"top": {
+			"value": "{ z-index.9999 }"
 		}
 	},
 	"box-sizing": {

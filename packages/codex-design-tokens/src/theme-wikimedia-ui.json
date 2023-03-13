@@ -160,7 +160,12 @@
 		}
 	},
 	"z-index": {
+		"-100": {
+			"comment": "Use for absolute bottom.",
+			"value": "-100"
+		},
 		"0": {
+			"comment": "Use for base default.",
 			"value": "0"
 		},
 		"1": {
@@ -169,14 +174,48 @@
 		"2": {
 			"value": "2"
 		},
-		"10": {
-			"value": "10"
+		"3": {
+			"value": "3"
+		},
+		"50": {
+			"comment": "Use for Dropdown.",
+			"value": "50"
 		},
 		"100": {
+			"comment": "Use for `position: sticky`.",
 			"value": "100"
 		},
-		"101": {
-			"value": "101"
+		"200": {
+			"comment": "Use for `position: fixed`.",
+			"value": "200"
+		},
+		"300": {
+			"comment": "Use for off-canvas Menu and sidebar backdrop.",
+			"value": "300"
+		},
+		"350": {
+			"comment": "Use for off-canvas Menu and sidebar.",
+			"value": "350"
+		},
+		"400": {
+			"comment": "Use for overlay backdrop, f.e. in Dialog.",
+			"value": "400"
+		},
+		"450": {
+			"comment": "Use for overlay, f.e. Dialog itself.",
+			"value": "450"
+		},
+		"800": {
+			"comment": "Use for Tooltip.",
+			"value": "800"
+		},
+		"900": {
+			"comment": "Use for Toast.",
+			"value": "900"
+		},
+		"9999": {
+			"comment": "Use for absolute top.",
+			"value": "9999"
 		}
 	},
 	"box-sizing": {

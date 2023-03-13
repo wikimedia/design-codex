@@ -358,7 +358,7 @@ export default defineComponent( {
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: @z-index-overlay;
+	z-index: @z-index-overlay-backdrop;
 	min-height: @size-full;
 	width: @size-viewport-width-full;
 	height: @size-viewport-height-full;

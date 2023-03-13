@@ -45,9 +45,9 @@
 		// This makes single-line labels only the width of their content and properly aligns
 		// multi-line labels with the input.
 		display: inline-block;
+		// Create a stacking context by `position: relative` and `z-index` other than `auto`.
 		position: relative;
-		// Create a stacking context.
-		z-index: 0;
+		z-index: @z-index-base;
 		padding-left: calc( @size-input-binary + @spacing-50 );
 		line-height: @line-height-x-small;
 	}
@@ -75,7 +75,7 @@
 		position: absolute;
 		left: 0;
 		// Render "on top of" the span, so that it's still clickable.
-		z-index: 1;
+		z-index: @z-index-stacking-1;
 		width: @size-input-binary;
 		height: @size-input-binary;
 		// Support Blink, Firefox, Safari: Normalize by removing user-agent stylesheet `margin`.
