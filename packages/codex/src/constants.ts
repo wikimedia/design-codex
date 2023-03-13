@@ -46,7 +46,17 @@ export const statusTypeValidator = makeStringTypeValidator( StatusTypes );
 
 export const TextInputTypes = [
 	'text',
-	'search'
+	'search',
+	'number',
+	'email',
+	'month',
+	'password',
+	'tel',
+	'url',
+	'week',
+	'date',
+	'datetime-local',
+	'time'
 ] as const;
 
 export const ValidationStatusTypes = [

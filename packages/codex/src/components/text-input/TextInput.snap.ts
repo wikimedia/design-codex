@@ -28,7 +28,147 @@ exports[`TextInput matches the snapshot Case 1 Input type: search : ({"inputType
 </div>
 `;
 
-exports[`TextInput matches the snapshot Case 2 Disabled: ({"disabled": true}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 2 Input type: number : ({"inputType": "number"}) => HTML 1`] = `
+<div
+  class="cdx-text-input cdx-text-input--status-default"
+>
+  <input
+    class="cdx-text-input__input"
+    type="number"
+  />
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`TextInput matches the snapshot Case 3 Input type: email : ({"inputType": "email"}) => HTML 1`] = `
+<div
+  class="cdx-text-input cdx-text-input--status-default"
+>
+  <input
+    class="cdx-text-input__input"
+    type="email"
+  />
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`TextInput matches the snapshot Case 4 Input type: month : ({"inputType": "month"}) => HTML 1`] = `
+<div
+  class="cdx-text-input cdx-text-input--status-default"
+>
+  <input
+    class="cdx-text-input__input"
+    type="month"
+  />
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`TextInput matches the snapshot Case 5 Input type: password : ({"inputType": "password"}) => HTML 1`] = `
+<div
+  class="cdx-text-input cdx-text-input--status-default"
+>
+  <input
+    class="cdx-text-input__input"
+    type="password"
+  />
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`TextInput matches the snapshot Case 6 Input type: tel : ({"inputType": "tel"}) => HTML 1`] = `
+<div
+  class="cdx-text-input cdx-text-input--status-default"
+>
+  <input
+    class="cdx-text-input__input"
+    type="tel"
+  />
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`TextInput matches the snapshot Case 7 Input type: url : ({"inputType": "url"}) => HTML 1`] = `
+<div
+  class="cdx-text-input cdx-text-input--status-default"
+>
+  <input
+    class="cdx-text-input__input"
+    type="url"
+  />
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`TextInput matches the snapshot Case 8 Input type: week : ({"inputType": "week"}) => HTML 1`] = `
+<div
+  class="cdx-text-input cdx-text-input--status-default"
+>
+  <input
+    class="cdx-text-input__input"
+    type="week"
+  />
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`TextInput matches the snapshot Case 9 Input type: date : ({"inputType": "date"}) => HTML 1`] = `
+<div
+  class="cdx-text-input cdx-text-input--status-default"
+>
+  <input
+    class="cdx-text-input__input"
+    type="date"
+  />
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`TextInput matches the snapshot Case 10 Input type: datetime-local : ({"inputType": "datetime-local"}) => HTML 1`] = `
+<div
+  class="cdx-text-input cdx-text-input--status-default"
+>
+  <input
+    class="cdx-text-input__input"
+    type="datetime-local"
+  />
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`TextInput matches the snapshot Case 11 Input type: time : ({"inputType": "time"}) => HTML 1`] = `
+<div
+  class="cdx-text-input cdx-text-input--status-default"
+>
+  <input
+    class="cdx-text-input__input"
+    type="time"
+  />
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`TextInput matches the snapshot Case 12 Disabled: ({"disabled": true}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
@@ -43,7 +183,7 @@ exports[`TextInput matches the snapshot Case 2 Disabled: ({"disabled": true}) =>
 </div>
 `;
 
-exports[`TextInput matches the snapshot Case 3 With start icon: ({"startIcon": "<path d=\\"M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z\\"/>"}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 13 With start icon: ({"startIcon": "<path d=\\"M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default"
 >
@@ -75,7 +215,7 @@ exports[`TextInput matches the snapshot Case 3 With start icon: ({"startIcon": "
 </div>
 `;
 
-exports[`TextInput matches the snapshot Case 4 With end icon: ({"endIcon": [Object]}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 14 With end icon: ({"endIcon": [Object]}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--has-end-icon cdx-text-input--status-default"
 >
@@ -107,7 +247,7 @@ exports[`TextInput matches the snapshot Case 4 With end icon: ({"endIcon": [Obje
 </div>
 `;
 
-exports[`TextInput matches the snapshot Case 5 Clearable, no input: ({"clearable": true}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 15 Clearable, no input: ({"clearable": true}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
@@ -121,7 +261,7 @@ exports[`TextInput matches the snapshot Case 5 Clearable, no input: ({"clearable
 </div>
 `;
 
-exports[`TextInput matches the snapshot Case 6 Clearable, with input: ({"clearable": true, "modelValue": "Some value"}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 16 Clearable, with input: ({"clearable": true, "modelValue": "Some value"}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--clearable cdx-text-input--status-default"
 >
@@ -153,7 +293,7 @@ exports[`TextInput matches the snapshot Case 6 Clearable, with input: ({"clearab
 </div>
 `;
 
-exports[`TextInput matches the snapshot Case 7 With end icon, clearable, no input: ({"clearable": true, "endIcon": [Object]}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 17 With end icon, clearable, no input: ({"clearable": true, "endIcon": [Object]}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--has-end-icon cdx-text-input--status-default"
 >
@@ -185,7 +325,7 @@ exports[`TextInput matches the snapshot Case 7 With end icon, clearable, no inpu
 </div>
 `;
 
-exports[`TextInput matches the snapshot Case 8 With end icon, clearable, with input: ({"clearable": true, "endIcon": [Object], "modelValue": "Some value"}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 18 With end icon, clearable, with input: ({"clearable": true, "endIcon": [Object], "modelValue": "Some value"}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--has-end-icon cdx-text-input--clearable cdx-text-input--status-default"
 >
@@ -235,7 +375,7 @@ exports[`TextInput matches the snapshot Case 8 With end icon, clearable, with in
 </div>
 `;
 
-exports[`TextInput matches the snapshot Case 9 With attributes: ({}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 19 With attributes: ({}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
@@ -251,7 +391,7 @@ exports[`TextInput matches the snapshot Case 9 With attributes: ({}) => HTML 1`]
 </div>
 `;
 
-exports[`TextInput matches the snapshot Case 10 With error status: ({"status": "error"}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 20 With error status: ({"status": "error"}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--status-error"
 >

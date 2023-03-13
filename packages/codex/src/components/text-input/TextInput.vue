@@ -80,7 +80,8 @@ export default defineComponent( {
 		/**
 		 * `type` attribute of the input.
 		 *
-		 * @values 'text', 'search'
+		 * @values 'text', 'search', 'number', 'email', 'password', 'tel', 'url',
+		 * 'week', 'month', 'date', 'datetime-local', 'time'
 		 */
 		inputType: {
 			type: String as PropType<TextInputType>,

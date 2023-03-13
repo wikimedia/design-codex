@@ -267,7 +267,7 @@ type StatusType = typeof StatusTypes[ number ];
 See [TextInputTypes](#textinputtypes).
 
 ```ts
-// Allowed values: 'text', 'search'
+// Allowed values: 'text', 'search', 'number', 'email', 'password', 'tel', 'url', 'week', 'month', 'date', 'datetime-local', 'time'
 type TextInputType = typeof TextInputTypes[ number ];
 ```
 
@@ -360,7 +360,17 @@ const StatusTypes = [
 ```ts
 const TextInputTypes = [
 	'text',
-	'search'
+	'search',
+	'number',
+	'email',
+	'password',
+	'tel',
+	'url',
+	'week',
+	'month',
+	'date',
+	'datetime-local',
+	'time'
 ];
 ```
 

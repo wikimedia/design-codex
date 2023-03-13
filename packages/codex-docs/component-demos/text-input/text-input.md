@@ -81,6 +81,25 @@ that initial value on click.
 </template>
 </cdx-demo-wrapper>
 
+### Input type
+
+Use the `inputType` prop to set the native `<input>` type attribute.
+Some `inputType` values will result in a browser provided UI like the date
+`inputType` provided below.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<text-input-demo :showValue="true" :input-props="{ inputType: 'date' }" />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/text-input/examples/TextInputDate.vue
+
+</template>
+</cdx-demo-wrapper>
+
+
 ### Clearable
 
 Including the `clearable` prop will add a clear button to the end of the icon when the input is not
