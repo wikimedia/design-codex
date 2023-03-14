@@ -88,9 +88,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-// TODO: Tokenize.
-@background-size-search-figure: cover;
-
 .cdx-thumbnail {
 	// `flex` prevents a descender from being added below the image; `inline` limits width of this
 	// element to the width of the image.
