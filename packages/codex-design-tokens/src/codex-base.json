@@ -188,6 +188,12 @@
 			"value": "{ background-position.100 }"
 		}
 	},
+	"background-size": {
+		"search-figure": {
+			"comment": "Use in TypeaheadSearch and Thumbnail components for the thumb container.",
+			"value": "{ background-size.cover }"
+		}
+	},
 	"z-index": {
 		"base": {
 			"value": "{ z-index.0 }"
@@ -205,6 +211,10 @@
 		"base": {
 			"comment": "TODO: Deprecate key and change to `min-size-component`?",
 			"value": "{ dimension.200 }{ unit.system }"
+		},
+		"search-figure": {
+			"comment": "Alias for use in TypeaheadSearch and Thumbnail components for the same purpose and for better code readability.",
+			"value": "{ dimension.250 }{ unit.system }"
 		}
 	},
 	"size": {
@@ -295,6 +305,10 @@
 			"height-full": {
 				"value": "{ dimension.viewport.height-full }"
 			}
+		},
+		"search-figure": {
+			"comment": "Alias for use in TypeaheadSearch and Thumbnail components for the same purpose and for better code readability.",
+			"value": "{ dimension.250 }{ unit.system }"
 		}
 	},
 	"min-width": {

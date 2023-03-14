@@ -16,12 +16,6 @@
 			"value": "{ color.modifier-blue600-translucent }"
 		}
 	},
-	"background-size": {
-		"search-figure": {
-			"comment": "Use in TypeaheadSearch and Thumbnail components for the thumb container.",
-			"value": "{ background-size.cover }"
-		}
-	},
 	"color": {
 		"link-red": {
 			"comment": "Red ('new') Link color and states",
@@ -57,10 +51,6 @@
 		"icon-medium": {
 			"value": "{ dimension.125 }{ unit.system }"
 		},
-		"search-figure": {
-			"comment": "Alias for use in TypeaheadSearch and Thumbnail components for the same purpose and for better code readability.",
-			"value": "{ dimension.250 }{ unit.system }"
-		},
 		"toggle-switch-grip": {
 			"value": "{ dimension.125 }{ unit.system }"
 		}
@@ -74,10 +64,6 @@
 		},
 		"icon-medium": {
 			"value": "{ dimension.125 }{ unit.system }"
-		},
-		"search-figure": {
-			"comment": "Alias for use in TypeaheadSearch and Thumbnail components for the same purpose and for better code readability.",
-			"value": "{ dimension.250 }{ unit.system }"
 		}
 	},
 	"min-width": {
