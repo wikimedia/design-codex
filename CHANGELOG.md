@@ -1,3 +1,42 @@
+# 0.7.0 / 2023-03-14
+
+## Breaking
+- mixins: Remove tokens import (Roan Kattouw)
+
+## Deprecating
+- Button: Change `type` prop and add `weight` prop (Anne Tomasevich)
+
+## Features
+- MenuItem: Change highlight behavior (Anne Tomasevich)
+
+## Styles
+- Button, styles: Use design-first background color tokens for active (Volker E)
+- Card, styles: Use correct token on supporting text (Volker E)
+- Dialog, styles: Update title font-size (Volker E)
+- styles: Replace deprecated tokens with their non-deprecated equivalents (Roan Kattouw)
+- tokens, TextInput: Add `opacity-icon-placeholder` and apply to TextInput (Volker E)
+- tokens, styles: Move further SFC tokens to components (Volker E)
+- tokens: Add `text-overflow` tokens (Volker E)
+- tokens: Clean up deprecation messages (Roan Kattouw)
+- tokens: Move most deprecated tokens to separate aliases file (Roan Kattouw)
+- tokens: Replace `opacity-icon-accessory` with `opacity-icon-subtle` (Volker E)
+- tokens: Use `50%` for `border-radius-circle` value (Volker E)
+
+## Code
+- Thumbnail, styles: Remove obsolete SFC token (Volker E)
+- build: Update Style Dictionary to latest (Volker E)
+- build: Upgrade Vitepress to 1.0.0-alpha.48 (Eric Gardner)
+- css-icon: Make Less code compatible with MediaWiki's older Less compiler (Roan Kattouw)
+- tokens: Move Style Dictionary transforms and formats into config file (Roan Kattouw)
+
+## Documentation
+- docs: Add instructions for configuring VS Code (Anne Tomasevich)
+- docs: Display auto-generated token deprecation messages on docs site (Roan Kattouw)
+- docs: Exclude Vitepress cache from linting (Eric Gardner)
+- docs: Improve VS Code setup docs (Anne Tomasevich)
+- docs: Unify on 'Less' term (Volker E)
+
+
 # 0.6.2 / 2023-02-28
 ## Styles
 - icons: Add 'function', 'functionArgument', 'instance' and 'literal' (Volker E)
