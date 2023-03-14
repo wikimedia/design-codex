@@ -32,7 +32,7 @@ The size tokens are used to define the size of elements, applied for example on 
 	css-property="width"
 />
 
-## Deprecated aliases in WikimediaUI Base
+## Deprecated token aliases
 
 :::warning
 The tokens below are **not available in Codex**. There are only available as deprecated aliases in

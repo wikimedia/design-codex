@@ -14,7 +14,7 @@ They are used to create a consistent spacing within and between components.
 	token-demo="CdxDocsSpacingDemo"
 />
 
-## Deprecated aliases in WikimediaUI Base
+## Deprecated token aliases
 
 :::warning
 The tokens below are **not available in Codex**. There are only available as deprecated aliases in

@@ -13,7 +13,7 @@ import aliases from '@wikimedia/codex-design-tokens/deprecated-aliases-wikimedia
 	css-property="box-shadow"
 />
 
-## Deprecated aliases in WikimediaUI Base
+## Deprecated token aliases
 
 :::warning
 The tokens below are **not available in Codex**. There are only available as deprecated aliases in

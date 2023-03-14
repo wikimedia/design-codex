@@ -24,7 +24,7 @@ Legacy opacity for Icon states in CSS-only component and non-Codex products.
 	css-property="opacity"
 />
 
-## Deprecated aliases in WikimediaUI Base
+## Deprecated token aliases
 
 :::warning
 The tokens below are **not available in Codex**. There are only available as deprecated aliases in

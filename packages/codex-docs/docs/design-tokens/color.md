@@ -39,7 +39,7 @@ For information on border colors visit
 [Border](/design-tokens/border) and for box-shadow colors [Box-shadow](/design-tokens/box-shadow)
 token page.
 
-## Deprecated aliases in WikimediaUI Base
+## Deprecated token aliases
 
 :::warning
 The tokens below are **not available in Codex**. There are only available as deprecated aliases in
