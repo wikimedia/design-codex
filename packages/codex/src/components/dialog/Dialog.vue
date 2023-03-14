@@ -17,20 +17,17 @@
 				class="cdx-dialog"
 				:class="rootClasses"
 				role="dialog"
-				:aria-label="title"
+				:aria-labelledby="labelId"
 				@click.stop
 			>
-				<!-- Dialog Header -->
-				<header v-if="showHeader" class="cdx-dialog__header">
-					<div v-if="!hideTitle" class="cdx-dialog__header__title-group">
-						<h2 class="cdx-dialog__header__title">
-							{{ title }}
-						</h2>
-
-						<p v-if="subtitle" class="cdx-dialog__header__subtitle">
-							{{ subtitle }}
-						</p>
-					</div>
+				<div v-if="showHeader" class="cdx-dialog__header">
+					<h2
+						v-show="!hideTitle"
+						:id="labelId"
+						class="cdx-dialog__header__title"
+					>
+						{{ title }}
+					</h2>
 
 					<cdx-button
 						v-if="closeButtonLabel"
@@ -44,7 +41,7 @@
 							:icon-label="closeButtonLabel"
 						/>
 					</cdx-button>
-				</header>
+				</div>
 
 				<div
 					ref="focusHolder"
@@ -52,64 +49,32 @@
 					tabindex="-1"
 				/>
 
-				<!-- Dialog Body -->
 				<div ref="dialogBody" class="cdx-dialog__body">
 					<!-- @slot Dialog content -->
 					<slot />
 				</div>
 
-				<!-- Dialog Footer -->
-				<footer
-					v-if="showFooterActions ||
-						$slots[ 'footer-text' ] ||
-						$slots[ 'footer-optional' ]"
-					class="cdx-dialog__footer"
-				>
-					<p
-						v-if="$slots[ 'footer-text' ]"
-						class="cdx-dialog__footer__text"
+				<div v-if="primaryAction || defaultAction" class="cdx-dialog__footer">
+					<cdx-button
+						v-if="primaryAction"
+						class="cdx-dialog__footer__primary-action"
+						type="primary"
+						:action="primaryAction.actionType"
+						:disabled="primaryAction.disabled"
+						@click="$emit( 'primary' )"
 					>
-						<!--
-							@slot Optional footer text
-						-->
-						<slot name="footer-text" />
-					</p>
+						{{ primaryAction.label }}
+					</cdx-button>
 
-					<div
-						v-if="$slots[ 'footer-optional' ]"
-						class="cdx-dialog__footer__optional"
+					<cdx-button
+						v-if="defaultAction"
+						class="cdx-dialog__footer__default-action"
+						:disabled="defaultAction.disabled"
+						@click="$emit( 'default' )"
 					>
-						<!--
-							@slot Optional footer action (icon-only button or checkbox)
-						-->
-						<slot name="footer-optional" />
-					</div>
-
-					<div
-						v-if="showFooterActions"
-						class="cdx-dialog__footer__actions"
-					>
-						<cdx-button
-							v-if="primaryAction"
-							class="cdx-dialog__footer__primary-action"
-							type="primary"
-							:action="primaryAction.actionType"
-							:disabled="primaryAction.disabled"
-							@click="$emit( 'primary' )"
-						>
-							{{ primaryAction.label }}
-						</cdx-button>
-
-						<cdx-button
-							v-if="defaultAction"
-							class="cdx-dialog__footer__default-action"
-							:disabled="defaultAction.disabled"
-							@click="$emit( 'default' )"
-						>
-							{{ defaultAction.label }}
-						</cdx-button>
-					</div>
-				</footer>
+						{{ defaultAction.label }}
+					</cdx-button>
+				</div>
 			</div>
 
 			<!-- Focus trap end -->
@@ -127,6 +92,7 @@ import { computed, defineComponent, nextTick, toRef, watch, PropType, ref } from
 import CdxButton from '../../components/button/Button.vue';
 import CdxIcon from '../../components/icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
+import useGeneratedId from '../../composables/useGeneratedId';
 import { DialogAction, PrimaryDialogAction } from '../../types';
 
 /**
@@ -172,8 +138,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Title for the dialog. Used for ARIA purposes even if no visible
-		 * header element is displayed.
+		 * Title for the dialog header
 		 */
 		title: {
 			type: String,
@@ -181,16 +146,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Optional subtitle for the dialog.
-		 */
-		subtitle: {
-			type: String,
-			required: false,
-			default: null
-		},
-
-		/**
-		 * Whether the dialog header should hide the title & subtitle
+		 * Whether the dialog title should be visually hidden
 		 */
 		hideTitle: {
 			type: Boolean,
@@ -262,14 +218,15 @@ export default defineComponent( {
 	],
 
 	setup( props, { emit } ) {
+		const labelId = useGeneratedId( 'dialog-label' );
+
 		const dialogElement = ref<HTMLDivElement>(); // dialog "frame"
 		const dialogBody = ref<HTMLDivElement>(); // dialog content
 		const focusHolder = ref<HTMLDivElement>();
 		const focusTrapStart = ref<HTMLDivElement>();
 		const focusTrapEnd = ref<HTMLDivElement>();
 
-		const showHeader = computed( () => !( props.hideTitle && !props.closeButtonLabel ) );
-		const showFooterActions = computed( () => !!props.primaryAction || !!props.defaultAction );
+		const showHeader = computed( () => !props.hideTitle || !!props.closeButtonLabel );
 
 		const rootClasses = computed( () => ( {
 			'cdx-dialog--vertical-actions': props.stackedActions,
@@ -374,6 +331,7 @@ export default defineComponent( {
 		return {
 			close,
 			cdxIconClose,
+			labelId,
 			rootClasses,
 			dialogElement,
 			focusTrapStart,
@@ -382,8 +340,7 @@ export default defineComponent( {
 			focusLast,
 			dialogBody,
 			focusHolder,
-			showHeader,
-			showFooterActions
+			showHeader
 		};
 	}
 } );
@@ -391,7 +348,6 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-@import ( reference ) '../../themes/mixins/public/link.less';
 
 .cdx-dialog-backdrop {
 	background-color: @background-color-backdrop-light;
@@ -427,34 +383,24 @@ export default defineComponent( {
 
 	&__header {
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		// Close button should appear at the end regardless of whether or not a title is present
 		justify-content: flex-end;
 		box-sizing: @box-sizing-base;
 		width: @size-full;
-		padding: @spacing-0 @spacing-150 @spacing-50 @spacing-150;
-
-		&__title-group {
-			flex-grow: 1;
-		}
+		padding: 0 @spacing-150 @spacing-50 @spacing-150;
+		font-weight: @font-weight-bold;
 
 		// Add specificity to override h2 styles, e.g. in MediaWiki skins.
 		// See https://phabricator.wikimedia.org/T324495.
 		& &__title {
-			margin: @spacing-0 @spacing-0 @spacing-35 @spacing-0;
+			flex-grow: 1;
 			border: 0;
-			padding: @spacing-0;
+			padding: 0;
 			font-family: inherit;
 			font-size: @font-size-large;
-			font-weight: @font-weight-bold;
+			font-weight: inherit;
 			line-height: @line-height-xxx-small;
-		}
-
-		&__subtitle {
-			color: @color-subtle;
-			margin: @spacing-0;
-			padding: @spacing-0;
-			font-size: @font-size-medium;
 		}
 
 		&__close-button {
@@ -479,37 +425,8 @@ export default defineComponent( {
 
 	&__footer {
 		display: flex;
-		align-items: baseline;
-		flex-wrap: wrap;
-		justify-content: space-between;
 		margin-top: @spacing-100;
 		padding: 0 @spacing-150;
-		gap: @spacing-75;
-
-		&__text {
-			color: @color-subtle;
-			flex: 1 0 auto;
-			width: @spacing-full;
-			margin: @spacing-0;
-
-			a {
-				.cdx-mixin-link-base();
-			}
-		}
-
-		&__optional {
-			color: @color-subtle;
-			display: flex;
-
-			.cdx-checkbox--inline {
-				white-space: normal;
-			}
-		}
-
-		&__actions {
-			display: flex;
-			flex-grow: 1;
-		}
 
 		.cdx-dialog--dividers & {
 			border-top: @border-style-base @border-width-base @border-color-subtle;
@@ -518,9 +435,7 @@ export default defineComponent( {
 	}
 
 	&--horizontal-actions &__footer {
-		&__actions {
-			flex-direction: row-reverse;
-		}
+		flex-direction: row-reverse;
 
 		.cdx-dialog__footer__primary-action + .cdx-dialog__footer__default-action {
 			margin-right: @spacing-50;
@@ -529,10 +444,7 @@ export default defineComponent( {
 
 	/* stylelint-disable no-descending-specificity */
 	&--vertical-actions &__footer {
-		&__actions {
-			flex-direction: column;
-			width: 100%;
-		}
+		flex-direction: column;
 
 		.cdx-dialog__footer__primary-action + .cdx-dialog__footer__default-action {
 			margin-top: @spacing-50;
