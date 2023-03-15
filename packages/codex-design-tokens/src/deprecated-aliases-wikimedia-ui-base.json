@@ -286,10 +286,6 @@
 			"base": {
 				"deprecated": true,
 				"value": "{ spacing.25 }"
-			},
-			"menu": {
-				"deprecated": "Legacy padding for use in non-Codex products.",
-				"value": "calc( { spacing.25 } + { border-width.base } )"
 			}
 		},
 		"input-text": {
