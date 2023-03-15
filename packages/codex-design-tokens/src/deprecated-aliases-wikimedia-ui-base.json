@@ -363,6 +363,10 @@
 		"base": {
 			"deprecated": true,
 			"value": "{ line-height.medium }"
+		},
+		"heading": {
+			"deprecated": true,
+			"value": "{ line-height.xx-small }"
 		}
 	},
 	"transition": {

@@ -669,10 +669,6 @@
 		},
 		"medium": {
 			"value": "{ line-height.100 }"
-		},
-		"heading": {
-			"deprecated": "Legacy `line-height` for headings in non-Codex products. Use `line-height-xx-small` instead.",
-			"value": "{ line-height.65 }"
 		}
 	},
 	"text-decoration": {
