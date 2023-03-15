@@ -434,6 +434,22 @@ body {
 
 /* Custom docs. ------------------------------------------------------------ */
 
+/* Class for visually hidden text for supporting assistive technology.
+   Equal to `.screen-reader-text()` Less mixin. */
+.vp-doc .cdx-docs-is-visually-hidden {
+	display: block;
+	clip: rect( var( --size-absolute-1 ), var( --size-absolute-1 ), var( --size-absolute-1 ), var( --size-absolute-1 ) );
+	/* stylelint-disable-next-line declaration-no-important */
+	position: absolute !important;
+	width: var( --size-absolute-1 );
+	height: var( --size-absolute-1 );
+	/* Use negative `--size` token here as they are inherently connected. */
+	margin: var( --size-absolute-1 );
+	border: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
 /* Higher specificity to override VitePress internal `.vp-doc p`. */
 .vp-doc .cdx-docs-demo-text {
 	margin: 0 0 var( --spacing-100 );

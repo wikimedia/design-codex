@@ -1,5 +1,11 @@
 <template>
 	<table class="cdx-docs-tokens-table">
+		<caption>
+			<!-- Expose `table caption` content only to assistive technology users. -->
+			<span class="cdx-docs-is-visually-hidden">
+				List of design token names, values and metadata for <code>{{ cssProperty }}</code>
+			</span>
+		</caption>
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -34,21 +40,23 @@
 							:style-target="styleTarget"
 						/>
 					</div>
-					<p>
-						Defined in <code>{{ token.filePath }}</code>
-					</p>
-					<p
-						v-for="referredTokenName in token.attributes.tokens"
-						:key="referredTokenName"
-					>
-						Refers to <code>{{ referredTokenName }}</code>
-					</p>
-					<p v-if="token.comment">
-						<em>{{ token.comment }}</em>
-					</p>
-					<p v-if="typeof token.deprecated === 'string'">
-						<em>Deprecated: {{ token.deprecated }}</em>
-					</p>
+					<div class="cdx-docs-tokens-table__value-meta">
+						<p>
+							Defined in <code>{{ token.filePath }}</code>
+						</p>
+						<p
+							v-for="referredTokenName in token.attributes.tokens"
+							:key="referredTokenName"
+						>
+							Refers to <code>{{ referredTokenName }}</code>
+						</p>
+						<p v-if="token.comment">
+							<em>{{ token.comment }}</em>
+						</p>
+						<p v-if="typeof token.deprecated === 'string'">
+							<em>Deprecated: {{ token.deprecated }}</em>
+						</p>
+					</div>
 				</td>
 			</tr>
 		</tbody>
@@ -143,66 +151,82 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-.cdx-docs-tokens {
-	&-table {
-		// Undo VitePress style.
-		width: @size-full;
+.cdx-docs-tokens-table {
+	// Undo VitePress style.
+	width: @size-full;
 
-		// Undo GitHub-table-style alternate row striping.
-		tr:nth-child( 2n ) {
-			background-color: @background-color-base;
+	// Undo GitHub-table-style alternate row striping.
+	tr:nth-child( 2n ) {
+		background-color: @background-color-base;
+	}
+
+	th,
+	td {
+		border-color: @border-color-base;
+	}
+
+	tbody td {
+		border-right-color: @border-color-subtle;
+	}
+
+	&__name {
+		position: relative;
+
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			min-width: @size-1600;
 		}
 
-		// Override VitePress's styles that add way too much whitespace around <p>s
-		p {
-			margin: 0 0 @spacing-50;
-			line-height: var( --line-height-small );
-			text-decoration: @text-decoration-none;
-		}
-
-		&__name {
-			position: relative;
-
-			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				min-width: @size-1600;
-			}
-
-			.cdx-docs-copy-text-button {
-				position: absolute;
-				right: 0;
-				bottom: 0;
-				font-size: @font-size-small;
-				line-height: var( --line-height-small );
-			}
-		}
-
-		&__value {
-			code {
-				color: @color-emphasized;
-				display: inline-block;
-				margin-bottom: @spacing-50;
-			}
-		}
-
-		&__demo {
-			margin-bottom: @spacing-100;
-		}
-
-		&__deprecated {
-			background-color: @background-color-warning-subtle;
-			display: inline-block;
+		.cdx-docs-copy-text-button {
 			position: absolute;
-			// Compare 'custom.css' `.vp-doc td`.
-			bottom: @spacing-50;
-			left: @spacing-75;
-			padding: 0 @spacing-25;
-			font-weight: @font-weight-normal;
+			right: 0;
+			bottom: 0;
+			// Use small at `14px` equivalent `td` font size.
+			// Inherited from `custom.css` `.vp-doc td`.
+			line-height: @line-height-small;
 		}
+	}
 
-		// Prevent long tokens from running off the page
-		pre {
-			white-space: pre-wrap;
+	&__value {
+		code {
+			color: @color-emphasized;
+			display: inline-block;
+			margin-bottom: @spacing-50;
 		}
+	}
+
+	&__demo {
+		margin-top: @spacing-100;
+		margin-bottom: @spacing-125;
+	}
+
+	&__value-meta {
+		color: @color-subtle;
+
+		// Override VitePress's styles that add way too much whitespace around <p>s.
+		p {
+			margin: @spacing-50 0 0;
+			text-decoration: @text-decoration-none;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+
+	&__deprecated {
+		background-color: @background-color-warning-subtle;
+		display: inline-block;
+		position: absolute;
+		// Compare 'custom.css' `.vp-doc td`.
+		bottom: @spacing-50;
+		left: @spacing-75;
+		padding: 0 @spacing-25;
+		font-weight: @font-weight-normal;
+	}
+
+	// Prevent long tokens from running off the page.
+	pre {
+		white-space: pre-wrap;
 	}
 }
 </style>
