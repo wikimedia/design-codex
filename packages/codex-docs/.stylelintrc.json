@@ -12,6 +12,12 @@
 					}
 				]
 			}
+		},
+		{
+			"files": [ "component-demos/**/examples/*.vue" ],
+			"rules": {
+				"selector-class-pattern": null
+			}
 		}
 	],
 	"rules": {

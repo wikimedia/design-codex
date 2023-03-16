@@ -6,21 +6,27 @@
 	<cdx-dialog
 		v-model:open="open"
 		:title="title"
+		:subtitle="subtitle"
 		:hide-title="hideTitle"
 		:close-button-label="closeButtonLabel"
-		:show-dividers="showDividers"
 		:stacked-actions="stackedActions"
 		:primary-action="primaryAction"
 		:default-action="defaultAction"
 		@default="open = false"
+		@primary="open = false"
 	>
-		<slot />
+		<template #default>
+			<slot />
+		</template>
+
+		<template v-if="$slots[ 'footer-text' ]" #footer-text>
+			<slot name="footer-text" />
+		</template>
 	</cdx-dialog>
 </template>
 
 <script lang="ts">
 import { PropType, defineComponent, ref, computed } from 'vue';
-
 import {
 	CdxButton,
 	CdxDialog
@@ -37,6 +43,10 @@ export default defineComponent( {
 			type: String,
 			default: 'Dialog title'
 		},
+		subtitle: {
+			type: String,
+			default: null
+		},
 		hideTitle: {
 			type: Boolean,
 			default: false
@@ -44,10 +54,6 @@ export default defineComponent( {
 		closeButtonLabel: {
 			type: String,
 			default: ''
-		},
-		showDividers: {
-			type: Boolean,
-			default: false
 		},
 		stackedActions: {
 			type: Boolean,

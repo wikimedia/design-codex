@@ -17,32 +17,43 @@
 				class="cdx-dialog"
 				:class="rootClasses"
 				role="dialog"
-				:aria-labelledby="labelId"
+				v-bind="$attrs"
+				:aria-label="$slots.header || hideTitle ? title : undefined"
+				:aria-labelledby="!$slots.header && !hideTitle ? labelId : undefined"
 				@click.stop
 			>
-				<div v-if="showHeader" class="cdx-dialog__header">
-					<h2
-						v-show="!hideTitle"
-						:id="labelId"
-						class="cdx-dialog__header__title"
-					>
-						{{ title }}
-					</h2>
+				<header
+					v-if="showHeader || $slots.header"
+					class="cdx-dialog__header"
+					:class="{ 'cdx-dialog__header--default': !$slots.header }"
+				>
+					<!-- @slot Customizable Dialog header -->
+					<slot name="header">
+						<div v-if="!hideTitle" class="cdx-dialog__header__title-group">
+							<h2 :id="labelId" class="cdx-dialog__header__title">
+								{{ title }}
+							</h2>
 
-					<cdx-button
-						v-if="closeButtonLabel"
-						class="cdx-dialog__header__close-button"
-						weight="quiet"
-						type="button"
-						:aria-label="closeButtonLabel"
-						@click="close"
-					>
-						<cdx-icon
-							:icon="cdxIconClose"
-							:icon-label="closeButtonLabel"
-						/>
-					</cdx-button>
-				</div>
+							<p v-if="subtitle" class="cdx-dialog__header__subtitle">
+								{{ subtitle }}
+							</p>
+						</div>
+
+						<cdx-button
+							v-if="closeButtonLabel"
+							class="cdx-dialog__header__close-button"
+							weight="quiet"
+							type="button"
+							:aria-label="closeButtonLabel"
+							@click="close"
+						>
+							<cdx-icon
+								:icon="cdxIconClose"
+								:icon-label="closeButtonLabel"
+							/>
+						</cdx-button>
+					</slot>
+				</header>
 
 				<div
 					ref="focusHolder"
@@ -50,32 +61,60 @@
 					tabindex="-1"
 				/>
 
-				<div ref="dialogBody" class="cdx-dialog__body">
+				<div
+					ref="dialogBody"
+					class="cdx-dialog__body"
+					:class="{
+						'cdx-dialog__body--no-header': !( showHeader || $slots.header ),
+						'cdx-dialog__body--no-footer': !(
+							showFooterActions ||
+							$slots.footer ||
+							$slots[ 'footer-text' ]
+						)
+					}"
+				>
 					<!-- @slot Dialog content -->
 					<slot />
 				</div>
 
-				<div v-if="primaryAction || defaultAction" class="cdx-dialog__footer">
-					<cdx-button
-						v-if="primaryAction"
-						class="cdx-dialog__footer__primary-action"
-						weight="primary"
-						:action="primaryAction.actionType"
-						:disabled="primaryAction.disabled"
-						@click="$emit( 'primary' )"
-					>
-						{{ primaryAction.label }}
-					</cdx-button>
+				<footer
+					v-if="showFooterActions || $slots.footer || $slots[ 'footer-text' ]"
+					class="cdx-dialog__footer"
+					:class="{ 'cdx-dialog__footer--default': !$slots.footer }"
+				>
+					<!-- @slot Customizable Dialog footer -->
+					<slot name="footer">
+						<p v-if="$slots[ 'footer-text' ]" class="cdx-dialog__footer__text">
+							<!-- @slot Optional footer text -->
+							<slot name="footer-text" />
+						</p>
 
-					<cdx-button
-						v-if="defaultAction"
-						class="cdx-dialog__footer__default-action"
-						:disabled="defaultAction.disabled"
-						@click="$emit( 'default' )"
-					>
-						{{ defaultAction.label }}
-					</cdx-button>
-				</div>
+						<div
+							v-if="showFooterActions"
+							class="cdx-dialog__footer__actions"
+						>
+							<cdx-button
+								v-if="primaryAction"
+								class="cdx-dialog__footer__primary-action"
+								weight="primary"
+								:action="primaryAction.actionType"
+								:disabled="primaryAction.disabled"
+								@click="$emit( 'primary' )"
+							>
+								{{ primaryAction.label }}
+							</cdx-button>
+
+							<cdx-button
+								v-if="defaultAction"
+								class="cdx-dialog__footer__default-action"
+								:disabled="defaultAction.disabled"
+								@click="$emit( 'default' )"
+							>
+								{{ defaultAction.label }}
+							</cdx-button>
+						</div>
+					</slot>
+				</footer>
 			</div>
 
 			<!-- Focus trap end -->
@@ -128,6 +167,8 @@ export default defineComponent( {
 		CdxIcon
 	},
 
+	inheritAttrs: false,
+
 	props: {
 		/**
 		 * Whether the dialog is visible. Should be provided via a v-model:open
@@ -139,7 +180,8 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Title for the dialog header
+		 * Title for the dialog header. Used for ARIA purposes even if no
+		 * visible header element is displayed.
 		 */
 		title: {
 			type: String,
@@ -147,7 +189,16 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Whether the dialog title should be visually hidden
+		 * Optional subtitle for the dialog.
+		 */
+		subtitle: {
+			type: String,
+			required: false,
+			default: null
+		},
+
+		/**
+		 * Whether the dialog header should hide the title & subtitle
 		 */
 		hideTitle: {
 			type: Boolean,
@@ -187,15 +238,6 @@ export default defineComponent( {
 		stackedActions: {
 			type: Boolean,
 			default: false
-		},
-
-		/**
-		 * Whether the dialog should display dividers between header, footer,
-		 * and body sections.
-		 */
-		showDividers: {
-			type: Boolean,
-			default: false
 		}
 	},
 
@@ -228,11 +270,11 @@ export default defineComponent( {
 		const focusTrapEnd = ref<HTMLDivElement>();
 
 		const showHeader = computed( () => !props.hideTitle || !!props.closeButtonLabel );
+		const showFooterActions = computed( () => !!props.primaryAction || !!props.defaultAction );
 
 		const rootClasses = computed( () => ( {
 			'cdx-dialog--vertical-actions': props.stackedActions,
-			'cdx-dialog--horizontal-actions': !props.stackedActions,
-			'cdx-dialog--dividers': props.showDividers
+			'cdx-dialog--horizontal-actions': !props.stackedActions
 		} ) );
 
 		// Value needed to compensate for the width of any visible scrollbar
@@ -341,7 +383,8 @@ export default defineComponent( {
 			focusLast,
 			dialogBody,
 			focusHolder,
-			showHeader
+			showHeader,
+			showFooterActions
 		};
 	}
 } );
@@ -378,77 +421,122 @@ export default defineComponent( {
 	max-height: calc( @size-viewport-height-full - @size-250 );
 	border: @border-width-base @border-style-base @border-color-base;
 	border-radius: @border-radius-base;
-	padding-top: @spacing-100;
-	padding-bottom: @spacing-150;
 	box-shadow: @box-shadow-drop-medium;
+	gap: @spacing-200;
 
 	&__header {
-		display: flex;
-		align-items: center;
-		// Close button should appear at the end regardless of whether or not a title is present
-		justify-content: flex-end;
-		box-sizing: @box-sizing-base;
-		width: @size-full;
-		padding: 0 @spacing-150 @spacing-50 @spacing-150;
-		font-weight: @font-weight-bold;
+		// If no custom header content is provided, apply these styles to the
+		// <header> element
+		&--default {
+			display: flex;
+			align-items: baseline;
+			// Close button should appear at the end regardless of whether or not a title is present
+			justify-content: flex-end;
+			box-sizing: @box-sizing-base;
+			width: @size-full;
+			padding: @spacing-100 @spacing-150 0 @spacing-150;
+		}
+
+		&__title-group {
+			display: flex;
+			flex-grow: 1;
+			flex-direction: column;
+			gap: @spacing-35;
+		}
 
 		// Add specificity to override h2 styles, e.g. in MediaWiki skins.
 		// See https://phabricator.wikimedia.org/T324495.
 		& &__title {
-			flex-grow: 1;
+			margin: 0;
 			border: 0;
 			padding: 0;
 			font-family: inherit;
 			font-size: @font-size-large;
-			font-weight: inherit;
+			font-weight: @font-weight-bold;
 			line-height: @line-height-xxx-small;
+		}
+
+		&__subtitle {
+			color: @color-subtle;
+			margin: 0;
+			padding: 0;
+			font-size: @font-size-medium;
 		}
 
 		&__close-button {
 			margin-right: -@spacing-50;
 		}
-
-		.cdx-dialog--dividers & {
-			border-bottom: @border-style-base @border-width-base @border-color-subtle;
-		}
 	}
 
 	&__body {
 		flex-grow: 1;
-		margin-top: @spacing-50;
 		padding: 0 @spacing-150;
 		overflow-y: auto;
 
-		.cdx-dialog--dividers & {
-			padding-top: @spacing-75;
+		// If the dialog does not display a <header> element, add some extra
+		// padding at the top of the body
+		&--no-header {
+			padding-top: @spacing-150;
+		}
+
+		// If the dialog does not display a <footer> element, add some extra
+		// padding at the bottom of the body
+		&--no-footer {
+			padding-bottom: @spacing-150;
+		}
+
+		// Zero-out any margin or padding on the first content element that
+		// could disrupt the layout
+		> *:first-child {
+			margin-top: 0;
+			padding-top: 0;
+		}
+
+		// Zero-out any margin or padding on the last content element that
+		// could disrupt the layout
+		> *:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
 		}
 	}
 
 	&__footer {
-		display: flex;
-		margin-top: @spacing-100;
-		padding: 0 @spacing-150;
+		// If no custom footer content is provided, apply these styles to the
+		// <footer> element
+		&--default {
+			display: flex;
+			align-items: baseline;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			padding: 0 @spacing-150 @spacing-150;
+			gap: @spacing-75;
+		}
 
-		.cdx-dialog--dividers & {
-			border-top: @border-style-base @border-width-base @border-color-subtle;
-			padding-top: @spacing-100;
+		&__text {
+			color: @color-subtle;
+			flex: 1 0 auto;
+			width: @spacing-full;
+			margin: 0;
+			font-size: @font-size-small;
+		}
+
+		&__actions {
+			display: flex;
+			flex-grow: 1;
+			gap: @spacing-50;
 		}
 	}
 
 	&--horizontal-actions &__footer {
-		flex-direction: row-reverse;
-
-		.cdx-dialog__footer__primary-action + .cdx-dialog__footer__default-action {
-			margin-right: @spacing-50;
+		&__actions {
+			flex-direction: row-reverse;
 		}
 	}
 
-	/* stylelint-disable no-descending-specificity */
 	&--vertical-actions &__footer {
-		flex-direction: column;
-
-		.cdx-dialog__footer__primary-action + .cdx-dialog__footer__default-action {
-			margin-top: @spacing-50;
+		&__actions {
+			flex-direction: column;
+			width: @size-full;
 		}
 
 		.cdx-dialog__footer__primary-action,
@@ -456,10 +544,17 @@ export default defineComponent( {
 			max-width: none;
 		}
 	}
-	/* stylelint-enable no-descending-specificity */
 }
 
+// This element is not used for visual styling, just
+// focus managmenent. It needs to be invisible but cannot
+// have display:none, and its position in the markup is
+// important (must be inside the dialog element).
 .cdx-dialog-focus-trap {
+	// Set position to absolute so that this element is
+	// omitted from all flex layout calculations
+	position: absolute;
+
 	// Don't show visible focus outline for the focus-trap element
 	&:focus {
 		outline: 0;

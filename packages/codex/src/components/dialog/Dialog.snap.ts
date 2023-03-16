@@ -14,23 +14,31 @@ exports[`matches the snapshot Case 0 Basic usage 1`] = `
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
-      <div
-        class="cdx-dialog__header"
+      <header
+        class="cdx-dialog__header cdx-dialog__header--default"
       >
-        <h2
-          class="cdx-dialog__header__title"
-          id="cdx-dialog-label-0"
+        <!-- @slot Customizable Dialog header -->
+        
+        <div
+          class="cdx-dialog__header__title-group"
         >
-          Dialog
-        </h2>
+          <h2
+            class="cdx-dialog__header__title"
+            id="cdx-dialog-label-0"
+          >
+            Dialog
+          </h2>
+          <!--v-if-->
+        </div>
         <!--v-if-->
-      </div>
+        
+      </header>
       <div
         class="cdx-dialog-focus-trap"
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body"
+        class="cdx-dialog__body cdx-dialog__body--no-footer"
       >
         <!-- @slot Dialog content -->
         
@@ -63,23 +71,31 @@ exports[`matches the snapshot Case 1 Open dialog 1`] = `
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
-      <div
-        class="cdx-dialog__header"
+      <header
+        class="cdx-dialog__header cdx-dialog__header--default"
       >
-        <h2
-          class="cdx-dialog__header__title"
-          id="cdx-dialog-label-1"
+        <!-- @slot Customizable Dialog header -->
+        
+        <div
+          class="cdx-dialog__header__title-group"
         >
-          Dialog
-        </h2>
+          <h2
+            class="cdx-dialog__header__title"
+            id="cdx-dialog-label-1"
+          >
+            Dialog
+          </h2>
+          <!--v-if-->
+        </div>
         <!--v-if-->
-      </div>
+        
+      </header>
       <div
         class="cdx-dialog-focus-trap"
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body"
+        class="cdx-dialog__body cdx-dialog__body--no-footer"
       >
         <!-- @slot Dialog content -->
         
@@ -108,20 +124,16 @@ exports[`matches the snapshot Case 2 With hidden title 1`] = `
       tabindex="0"
     />
     <div
-      aria-labelledby="cdx-dialog-label-2"
+      aria-label="Dialog"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
-      <div
-        class="cdx-dialog__header"
+      <header
+        class="cdx-dialog__header cdx-dialog__header--default"
       >
-        <h2
-          class="cdx-dialog__header__title"
-          id="cdx-dialog-label-2"
-          style="display: none;"
-        >
-          Dialog
-        </h2>
+        <!-- @slot Customizable Dialog header -->
+        
+        <!--v-if-->
         <button
           aria-label="close"
           class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--icon-only cdx-dialog__header__close-button"
@@ -154,13 +166,14 @@ exports[`matches the snapshot Case 2 With hidden title 1`] = `
           </span>
           
         </button>
-      </div>
+        
+      </header>
       <div
         class="cdx-dialog-focus-trap"
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body"
+        class="cdx-dialog__body cdx-dialog__body--no-footer"
       >
         <!-- @slot Dialog content -->
         
@@ -193,17 +206,25 @@ exports[`matches the snapshot Case 3 With default action 1`] = `
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
-      <div
-        class="cdx-dialog__header"
+      <header
+        class="cdx-dialog__header cdx-dialog__header--default"
       >
-        <h2
-          class="cdx-dialog__header__title"
-          id="cdx-dialog-label-3"
+        <!-- @slot Customizable Dialog header -->
+        
+        <div
+          class="cdx-dialog__header__title-group"
         >
-          Dialog
-        </h2>
+          <h2
+            class="cdx-dialog__header__title"
+            id="cdx-dialog-label-3"
+          >
+            Dialog
+          </h2>
+          <!--v-if-->
+        </div>
         <!--v-if-->
-      </div>
+        
+      </header>
       <div
         class="cdx-dialog-focus-trap"
         tabindex="-1"
@@ -218,19 +239,27 @@ exports[`matches the snapshot Case 3 With default action 1`] = `
         </p>
         
       </div>
-      <div
-        class="cdx-dialog__footer"
+      <footer
+        class="cdx-dialog__footer cdx-dialog__footer--default"
       >
+        <!-- @slot Customizable Dialog footer -->
+        
         <!--v-if-->
-        <button
-          class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+        <div
+          class="cdx-dialog__footer__actions"
         >
-          <!-- @slot Button content -->
-          
-          ok
-          
-        </button>
-      </div>
+          <!--v-if-->
+          <button
+            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+          >
+            <!-- @slot Button content -->
+            
+            ok
+            
+          </button>
+        </div>
+        
+      </footer>
     </div>
     <!-- Focus trap end -->
     <div
@@ -254,17 +283,25 @@ exports[`matches the snapshot Case 4 With default disabled action 1`] = `
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
-      <div
-        class="cdx-dialog__header"
+      <header
+        class="cdx-dialog__header cdx-dialog__header--default"
       >
-        <h2
-          class="cdx-dialog__header__title"
-          id="cdx-dialog-label-4"
+        <!-- @slot Customizable Dialog header -->
+        
+        <div
+          class="cdx-dialog__header__title-group"
         >
-          Dialog
-        </h2>
+          <h2
+            class="cdx-dialog__header__title"
+            id="cdx-dialog-label-4"
+          >
+            Dialog
+          </h2>
+          <!--v-if-->
+        </div>
         <!--v-if-->
-      </div>
+        
+      </header>
       <div
         class="cdx-dialog-focus-trap"
         tabindex="-1"
@@ -279,20 +316,28 @@ exports[`matches the snapshot Case 4 With default disabled action 1`] = `
         </p>
         
       </div>
-      <div
-        class="cdx-dialog__footer"
+      <footer
+        class="cdx-dialog__footer cdx-dialog__footer--default"
       >
+        <!-- @slot Customizable Dialog footer -->
+        
         <!--v-if-->
-        <button
-          class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
-          disabled=""
+        <div
+          class="cdx-dialog__footer__actions"
         >
-          <!-- @slot Button content -->
-          
-          ok
-          
-        </button>
-      </div>
+          <!--v-if-->
+          <button
+            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+            disabled=""
+          >
+            <!-- @slot Button content -->
+            
+            ok
+            
+          </button>
+        </div>
+        
+      </footer>
     </div>
     <!-- Focus trap end -->
     <div
@@ -316,17 +361,25 @@ exports[`matches the snapshot Case 5 With default and primary actions 1`] = `
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
-      <div
-        class="cdx-dialog__header"
+      <header
+        class="cdx-dialog__header cdx-dialog__header--default"
       >
-        <h2
-          class="cdx-dialog__header__title"
-          id="cdx-dialog-label-5"
+        <!-- @slot Customizable Dialog header -->
+        
+        <div
+          class="cdx-dialog__header__title-group"
         >
-          Dialog
-        </h2>
+          <h2
+            class="cdx-dialog__header__title"
+            id="cdx-dialog-label-5"
+          >
+            Dialog
+          </h2>
+          <!--v-if-->
+        </div>
         <!--v-if-->
-      </div>
+        
+      </header>
       <div
         class="cdx-dialog-focus-trap"
         tabindex="-1"
@@ -341,26 +394,34 @@ exports[`matches the snapshot Case 5 With default and primary actions 1`] = `
         </p>
         
       </div>
-      <div
-        class="cdx-dialog__footer"
+      <footer
+        class="cdx-dialog__footer cdx-dialog__footer--default"
       >
-        <button
-          class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--framed cdx-dialog__footer__primary-action"
+        <!-- @slot Customizable Dialog footer -->
+        
+        <!--v-if-->
+        <div
+          class="cdx-dialog__footer__actions"
         >
-          <!-- @slot Button content -->
-          
-          save
-          
-        </button>
-        <button
-          class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
-        >
-          <!-- @slot Button content -->
-          
-          cancel
-          
-        </button>
-      </div>
+          <button
+            class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--framed cdx-dialog__footer__primary-action"
+          >
+            <!-- @slot Button content -->
+            
+            save
+            
+          </button>
+          <button
+            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+          >
+            <!-- @slot Button content -->
+            
+            cancel
+            
+          </button>
+        </div>
+        
+      </footer>
     </div>
     <!-- Focus trap end -->
     <div
@@ -384,17 +445,25 @@ exports[`matches the snapshot Case 6 With stacked default and primary actions 1`
       class="cdx-dialog cdx-dialog--vertical-actions"
       role="dialog"
     >
-      <div
-        class="cdx-dialog__header"
+      <header
+        class="cdx-dialog__header cdx-dialog__header--default"
       >
-        <h2
-          class="cdx-dialog__header__title"
-          id="cdx-dialog-label-6"
+        <!-- @slot Customizable Dialog header -->
+        
+        <div
+          class="cdx-dialog__header__title-group"
         >
-          Dialog
-        </h2>
+          <h2
+            class="cdx-dialog__header__title"
+            id="cdx-dialog-label-6"
+          >
+            Dialog
+          </h2>
+          <!--v-if-->
+        </div>
         <!--v-if-->
-      </div>
+        
+      </header>
       <div
         class="cdx-dialog-focus-trap"
         tabindex="-1"
@@ -409,26 +478,280 @@ exports[`matches the snapshot Case 6 With stacked default and primary actions 1`
         </p>
         
       </div>
+      <footer
+        class="cdx-dialog__footer cdx-dialog__footer--default"
+      >
+        <!-- @slot Customizable Dialog footer -->
+        
+        <!--v-if-->
+        <div
+          class="cdx-dialog__footer__actions"
+        >
+          <button
+            class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--framed cdx-dialog__footer__primary-action"
+          >
+            <!-- @slot Button content -->
+            
+            save
+            
+          </button>
+          <button
+            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+          >
+            <!-- @slot Button content -->
+            
+            cancel
+            
+          </button>
+        </div>
+        
+      </footer>
+    </div>
+    <!-- Focus trap end -->
+    <div
+      tabindex="0"
+    />
+  </div>
+</transition-stub>
+`;
+
+exports[`matches the snapshot Case 7 With subtitle 1`] = `
+<transition-stub>
+  <div
+    class="cdx-dialog-backdrop"
+  >
+    <!-- Focus trap start -->
+    <div
+      tabindex="0"
+    />
+    <div
+      aria-labelledby="cdx-dialog-label-7"
+      class="cdx-dialog cdx-dialog--horizontal-actions"
+      role="dialog"
+    >
+      <header
+        class="cdx-dialog__header cdx-dialog__header--default"
+      >
+        <!-- @slot Customizable Dialog header -->
+        
+        <div
+          class="cdx-dialog__header__title-group"
+        >
+          <h2
+            class="cdx-dialog__header__title"
+            id="cdx-dialog-label-7"
+          >
+            Dialog
+          </h2>
+          <p
+            class="cdx-dialog__header__subtitle"
+          >
+            Subtitle
+          </p>
+        </div>
+        <!--v-if-->
+        
+      </header>
       <div
+        class="cdx-dialog-focus-trap"
+        tabindex="-1"
+      />
+      <div
+        class="cdx-dialog__body"
+      >
+        <!-- @slot Dialog content -->
+        
+        <p>
+          foo
+        </p>
+        
+      </div>
+      <footer
+        class="cdx-dialog__footer cdx-dialog__footer--default"
+      >
+        <!-- @slot Customizable Dialog footer -->
+        
+        <!--v-if-->
+        <div
+          class="cdx-dialog__footer__actions"
+        >
+          <button
+            class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--framed cdx-dialog__footer__primary-action"
+          >
+            <!-- @slot Button content -->
+            
+            save
+            
+          </button>
+          <button
+            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+          >
+            <!-- @slot Button content -->
+            
+            cancel
+            
+          </button>
+        </div>
+        
+      </footer>
+    </div>
+    <!-- Focus trap end -->
+    <div
+      tabindex="0"
+    />
+  </div>
+</transition-stub>
+`;
+
+exports[`matches the snapshot Case 8 With footer text 1`] = `
+<transition-stub>
+  <div
+    class="cdx-dialog-backdrop"
+  >
+    <!-- Focus trap start -->
+    <div
+      tabindex="0"
+    />
+    <div
+      aria-labelledby="cdx-dialog-label-8"
+      class="cdx-dialog cdx-dialog--horizontal-actions"
+      role="dialog"
+    >
+      <header
+        class="cdx-dialog__header cdx-dialog__header--default"
+      >
+        <!-- @slot Customizable Dialog header -->
+        
+        <div
+          class="cdx-dialog__header__title-group"
+        >
+          <h2
+            class="cdx-dialog__header__title"
+            id="cdx-dialog-label-8"
+          >
+            Dialog
+          </h2>
+          <p
+            class="cdx-dialog__header__subtitle"
+          >
+            Subtitle
+          </p>
+        </div>
+        <!--v-if-->
+        
+      </header>
+      <div
+        class="cdx-dialog-focus-trap"
+        tabindex="-1"
+      />
+      <div
+        class="cdx-dialog__body"
+      >
+        <!-- @slot Dialog content -->
+        
+        <p>
+          foo
+        </p>
+        
+      </div>
+      <footer
+        class="cdx-dialog__footer cdx-dialog__footer--default"
+      >
+        <!-- @slot Customizable Dialog footer -->
+        
+        <p
+          class="cdx-dialog__footer__text"
+        >
+          <!-- @slot Optional footer text -->
+          
+          This is some 
+          <a
+            href="#"
+          >
+            footer text
+          </a>
+          .
+          
+        </p>
+        <div
+          class="cdx-dialog__footer__actions"
+        >
+          <button
+            class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--framed cdx-dialog__footer__primary-action"
+          >
+            <!-- @slot Button content -->
+            
+            save
+            
+          </button>
+          <button
+            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+          >
+            <!-- @slot Button content -->
+            
+            cancel
+            
+          </button>
+        </div>
+        
+      </footer>
+    </div>
+    <!-- Focus trap end -->
+    <div
+      tabindex="0"
+    />
+  </div>
+</transition-stub>
+`;
+
+exports[`matches the snapshot Case 9 With custom header and footer 1`] = `
+<transition-stub>
+  <div
+    class="cdx-dialog-backdrop"
+  >
+    <!-- Focus trap start -->
+    <div
+      tabindex="0"
+    />
+    <div
+      aria-label="Dialog"
+      class="cdx-dialog cdx-dialog--horizontal-actions"
+      role="dialog"
+    >
+      <header
+        class="cdx-dialog__header"
+      >
+        <!-- @slot Customizable Dialog header -->
+        
+        <h1>
+          Dialog header custom
+        </h1>
+        
+      </header>
+      <div
+        class="cdx-dialog-focus-trap"
+        tabindex="-1"
+      />
+      <div
+        class="cdx-dialog__body"
+      >
+        <!-- @slot Dialog content -->
+        
+        <p>
+          foo
+        </p>
+        
+      </div>
+      <footer
         class="cdx-dialog__footer"
       >
-        <button
-          class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--framed cdx-dialog__footer__primary-action"
-        >
-          <!-- @slot Button content -->
-          
-          save
-          
-        </button>
-        <button
-          class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
-        >
-          <!-- @slot Button content -->
-          
-          cancel
-          
-        </button>
-      </div>
+        <!-- @slot Customizable Dialog footer -->
+        
+        <p>
+          Dialog footer custom
+        </p>
+        
+      </footer>
     </div>
     <!-- Focus trap end -->
     <div

@@ -15,6 +15,12 @@ module.exports = {
 		{
 			files: [ '**/*.(html|vue)' ],
 			customSyntax: 'postcss-html'
+		},
+		{
+			files: [ 'packages/codex/src/demo/**/*.vue' ],
+			rules: {
+				'selector-class-pattern': null
+			}
 		}
 	],
 	plugins: [

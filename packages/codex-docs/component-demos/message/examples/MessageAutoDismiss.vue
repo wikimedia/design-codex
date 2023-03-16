@@ -36,7 +36,6 @@ export default defineComponent( {
 .cdx-docs-message-auto-dismiss {
 	min-height: 112px;
 
-	/* stylelint-disable-next-line selector-class-pattern */
 	.cdx-button {
 		margin-bottom: @spacing-100;
 	}

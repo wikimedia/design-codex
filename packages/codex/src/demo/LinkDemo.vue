@@ -42,7 +42,6 @@ import { cdxIconLinkExternal } from '@wikimedia/codex-icons';
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../themes/mixins/public/link.less';
 
-// stylelint-disable selector-class-pattern
 a.my-custom-link-class {
 	.cdx-mixin-link();
 
