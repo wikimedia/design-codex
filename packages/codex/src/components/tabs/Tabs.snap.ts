@@ -18,6 +18,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
         aria-hidden="true"
         class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--icon-only cdx-tabs__scroll-button"
         tabindex="-1"
+        type="button"
       >
         <!-- @slot Button content -->
         
@@ -114,6 +115,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
         aria-hidden="true"
         class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--icon-only cdx-tabs__scroll-button"
         tabindex="-1"
+        type="button"
       >
         <!-- @slot Button content -->
         
@@ -225,6 +227,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
         aria-hidden="true"
         class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--icon-only cdx-tabs__scroll-button"
         tabindex="-1"
+        type="button"
       >
         <!-- @slot Button content -->
         
@@ -321,6 +324,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
         aria-hidden="true"
         class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--icon-only cdx-tabs__scroll-button"
         tabindex="-1"
+        type="button"
       >
         <!-- @slot Button content -->
         
@@ -435,6 +439,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         aria-hidden="true"
         class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--icon-only cdx-tabs__scroll-button"
         tabindex="-1"
+        type="button"
       >
         <!-- @slot Button content -->
         
@@ -535,6 +540,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         aria-hidden="true"
         class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--icon-only cdx-tabs__scroll-button"
         tabindex="-1"
+        type="button"
       >
         <!-- @slot Button content -->
         

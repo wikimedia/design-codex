@@ -107,7 +107,7 @@ Example using a markdown code block:
 ````markdown
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<cdx-button type="quiet">Click me</cdx-button>
+<cdx-button weight="quiet">Click me</cdx-button>
 </template>
 
 <template v-slot:code>

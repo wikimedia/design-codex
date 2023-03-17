@@ -32,6 +32,7 @@
 				aria-hidden="true"
 				:disabled="disabled"
 				tabindex="-1"
+				type="button"
 				@mousedown="onButtonMousedown"
 				@click="onButtonClick"
 			>

@@ -21,7 +21,8 @@
 			<cdx-button
 				v-if="userDismissable"
 				class="cdx-message__dismiss-button"
-				type="quiet"
+				weight="quiet"
+				type="button"
 				:aria-label="dismissButtonLabel"
 				@click="onDismiss( 'user-dismissed' )"
 			>

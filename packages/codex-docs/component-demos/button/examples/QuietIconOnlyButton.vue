@@ -1,5 +1,5 @@
 <template>
-	<cdx-button type="quiet" aria-label="Help">
+	<cdx-button weight="quiet" aria-label="Help">
 		<cdx-icon :icon="cdxIconHelp" />
 	</cdx-button>
 </template>

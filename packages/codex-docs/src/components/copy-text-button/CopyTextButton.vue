@@ -2,7 +2,7 @@
 	<cdx-button
 		class="cdx-docs-copy-text-button"
 		action="progressive"
-		type="quiet"
+		weight="quiet"
 		@click="handleCopyText"
 	>
 		{{ buttonText }}

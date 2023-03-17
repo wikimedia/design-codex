@@ -22,7 +22,8 @@
 			>
 				<cdx-button
 					class="cdx-tabs__scroll-button"
-					type="quiet"
+					weight="quiet"
+					type="button"
 					tabindex="-1"
 					:aria-hidden="true"
 					@mousedown.prevent
@@ -66,7 +67,8 @@
 			>
 				<cdx-button
 					class="cdx-tabs__scroll-button"
-					type="quiet"
+					weight="quiet"
+					type="button"
 					tabindex="-1"
 					:aria-hidden="true"
 					@mousedown.prevent

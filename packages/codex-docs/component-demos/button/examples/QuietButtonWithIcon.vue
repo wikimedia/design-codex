@@ -1,5 +1,5 @@
 <template>
-	<cdx-button type="quiet">
+	<cdx-button weight="quiet">
 		<cdx-icon :icon="cdxIconDownload" /> Download
 	</cdx-button>
 </template>

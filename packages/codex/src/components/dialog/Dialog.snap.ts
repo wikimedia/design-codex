@@ -125,6 +125,7 @@ exports[`matches the snapshot Case 2 With hidden title 1`] = `
         <button
           aria-label="close"
           class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--icon-only cdx-dialog__header__close-button"
+          type="button"
         >
           <!-- @slot Button content -->
           

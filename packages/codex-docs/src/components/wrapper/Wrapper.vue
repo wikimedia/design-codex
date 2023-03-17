@@ -40,7 +40,7 @@
 				<cdx-button
 					v-if="includeReset"
 					class="cdx-demo-wrapper__demo-pane__reset-button"
-					type="quiet"
+					weight="quiet"
 					@click="onReset"
 				>
 					Reset demo

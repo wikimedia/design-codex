@@ -32,7 +32,8 @@
 					<cdx-button
 						v-if="closeButtonLabel"
 						class="cdx-dialog__header__close-button"
-						type="quiet"
+						weight="quiet"
+						type="button"
 						:aria-label="closeButtonLabel"
 						@click="close"
 					>
@@ -58,7 +59,7 @@
 					<cdx-button
 						v-if="primaryAction"
 						class="cdx-dialog__footer__primary-action"
-						type="primary"
+						weight="primary"
 						:action="primaryAction.actionType"
 						:disabled="primaryAction.disabled"
 						@click="$emit( 'primary' )"
