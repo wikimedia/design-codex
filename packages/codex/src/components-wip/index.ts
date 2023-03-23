@@ -4,5 +4,8 @@
 // export {
 //     CdxComponentName
 // };
+import CdxTextArea from './text-area/TextArea.vue';
 
-export default {};
+export {
+	CdxTextArea
+};

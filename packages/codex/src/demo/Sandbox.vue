@@ -31,6 +31,7 @@
 				<search-input-demo />
 				<select-demo />
 				<tabs-demo />
+				<text-area-demo />
 				<text-input-demo />
 				<thumbnail-demo />
 				<toggle-button-group-demo />
@@ -74,6 +75,7 @@ import RadioDemo from './RadioDemo.vue';
 import SearchInputDemo from './SearchInputDemo.vue';
 import SelectDemo from './SelectDemo.vue';
 import TabsDemo from './TabsDemo.vue';
+import TextAreaDemo from './TextAreaDemo.vue';
 import TextInputDemo from './TextInputDemo.vue';
 import ThumbnailDemo from './ThumbnailDemo.vue';
 import ToggleButtonGroupDemo from './ToggleButtonGroupDemo.vue';
@@ -100,6 +102,7 @@ const demoSections = [
 	{ name: 'SearchInput', id: '#cdx-search-input' },
 	{ name: 'Select', id: '#cdx-select' },
 	{ name: 'Tabs', id: '#cdx-tabs' },
+	{ name: 'TextArea', id: '#cdx-text-area' },
 	{ name: 'TextInput', id: '#cdx-text-input' },
 	{ name: 'Thumbnail', id: '#cdx-thumbnail' },
 	{ name: 'ToggleButton and ToggleSwitch', id: '#cdx-toggle' },

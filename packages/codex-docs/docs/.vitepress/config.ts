@@ -195,6 +195,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Select', link: '/components/demos/select' },
 						{ text: 'Tabs', link: '/components/demos/tabs' },
 						{ text: 'Tab', link: '/components/demos/tab' },
+						{ text: 'TextArea', link: '/components/demos/text-area' },
 						{ text: 'TextInput', link: '/components/demos/text-input' },
 						{ text: 'Thumbnail', link: '/components/demos/thumbnail' },
 						{ text: 'ToggleButton', link: '/components/demos/toggle-button' },
