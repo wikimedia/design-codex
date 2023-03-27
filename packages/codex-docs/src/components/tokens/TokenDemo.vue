@@ -77,7 +77,6 @@ export default defineComponent( {
 <!-- eslint-disable max-len -->
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-@import ( reference ) '@wikimedia/codex-icons/dist/codex-icon-paths.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 // TODO: Tokenize.

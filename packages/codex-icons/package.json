@@ -18,7 +18,8 @@
 	"module": "dist/codex-icons.mjs",
 	"types": "./dist/types/index.d.ts",
 	"files": [
-		"dist"
+		"dist",
+		"codex-icon-paths.less"
 	],
 	"exports": {
 		".": {
@@ -26,7 +27,8 @@
 			"import": "./dist/codex-icons.mjs",
 			"require": "./dist/codex-icons.umd.js"
 		},
-		"./dist/*": "./dist/*"
+		"./dist/*": "./dist/*",
+		"./codex-icon-paths.less": "./dist/codex-icon-paths.less"
 	},
 	"scripts": {
 		"build": "npm run minify:svg && npm run build:vite && npm run build:svg && npm run build:json && npm run build:less && npm run test:output",
@@ -41,7 +43,9 @@
 		"test": "npm run lint && npm run build && npm run test:clean-git && npm run test:unit",
 		"test:unit": "jest -c .jest/jest.config.json",
 		"test:output": "npm run test:unit -- tests/outputTypes.test.ts --coverage=false",
-		"test:clean-git": "test $(git diff ./src/images | wc -l) -eq 0 || (echo 'Uncommitted SVG changes:'; git diff ./src/images; false)"
+		"test:clean-git": "test $(git diff ./src/images | wc -l) -eq 0 || (echo 'Uncommitted SVG changes:'; git diff ./src/images; false)",
+		"prepublishOnly": "cp dist/codex-icon-paths.less .",
+		"postpublish": "rm dist/codex-icon-paths.less"
 	},
 	"devDependencies": {
 		"@rollup/pluginutils": "^4.1.1",
