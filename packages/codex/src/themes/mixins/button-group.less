@@ -7,7 +7,7 @@
 	// Isolate the z-index hacks below into their own stacking context, so that they don't conflict
 	// with other z-index tricks elsewhere on the page.
 	position: relative;
-	z-index: @z-index-base;
+	z-index: @z-index-stacking-0;
 
 	// Make groups only as wide as they need to be, so that the rounded corners on the group also
 	// apply to the rightmost button
@@ -63,7 +63,7 @@
 		// When a button is disabled, its border is the same color as its background.
 		// Push it down below the other buttons so that both it doesn't obscure its
 		// neighbor's border
-		z-index: @z-index-base;
+		z-index: @z-index-stacking-0;
 
 		// When two disabled buttons are adjacent to each other, display a white line
 		// between them. Using a border for this causes all sorts of problems, so use a

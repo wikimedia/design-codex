@@ -129,7 +129,7 @@ export default defineComponent( {
 	// Visually hidden `<input>` will be absolutely positioned relative to this element.
 	// Create a stacking context by `position: relative` and `z-index` other than `auto`.
 	position: relative;
-	z-index: @z-index-base;
+	z-index: @z-index-stacking-0;
 
 	&__label {
 		display: flex;

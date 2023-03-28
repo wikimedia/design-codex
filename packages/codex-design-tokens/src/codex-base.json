@@ -196,19 +196,11 @@
 	},
 	"z-index": {
 		"bottom": {
+			"comment": "Use descriptive `z-index` tokens for layout purposes.",
 			"value": "{ z-index.-100 }"
 		},
 		"base": {
 			"value": "{ z-index.0 }"
-		},
-		"stacking-1": {
-			"value": "{ z-index.1 }"
-		},
-		"stacking-2": {
-			"value": "{ z-index.2 }"
-		},
-		"stacking-3": {
-			"value": "{ z-index.3 }"
 		},
 		"above-content": {
 			"value": "{ z-index.1 }"
@@ -245,6 +237,19 @@
 		},
 		"top": {
 			"value": "{ z-index.9999 }"
+		},
+		"stacking-0": {
+			"comment": "Use stacking-specific z-index tokens inside components to layer individual elements.",
+			"value": "{ z-index.0 }"
+		},
+		"stacking-1": {
+			"value": "{ z-index.1 }"
+		},
+		"stacking-2": {
+			"value": "{ z-index.2 }"
+		},
+		"stacking-3": {
+			"value": "{ z-index.3 }"
 		}
 	},
 	"box-sizing": {
