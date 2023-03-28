@@ -1,3 +1,25 @@
+# 0.8.0 / 2023-03-28
+
+## Features
+- TextInput: Add additional input types (LWatson)
+- Re-introduce Dialog header and footer customization (Eric Gardner)
+
+## Styles
+- tokens, styles: Add and apply `z-index` category (Volker E)
+- tokens, styles: Expand `z-index` token category by `z-index-stacking-0` (Volker E)
+- tokens: Move `line-height-heading` to deprecated aliases (Volker E)
+- tokens: Remove `padding-vertical-menu` deprecated alias token (Volker E)
+- tokens: Move `*search-figure` to base tokens (Volker E)
+
+## Code
+- mixins: Add a file that imports all mixins (Roan Kattouw)
+- Icon: Remove unnecessary variable interpolation (Anne Tomasevich)
+- build: Remove 'dist/' from import path for codex-icon-paths.less (Roan Kattouw)
+
+## Documentation
+- docs: Slightly amend deprecated token headline (Volker E)
+- Buttons, docs: use `weight` prop and set appropriate `type` (Anne Tomasevich)
+
 # 0.7.0 / 2023-03-14
 
 ## Breaking
