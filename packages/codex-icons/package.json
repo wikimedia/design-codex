@@ -45,7 +45,7 @@
 		"test:output": "npm run test:unit -- tests/outputTypes.test.ts --coverage=false",
 		"test:clean-git": "test $(git diff ./src/images | wc -l) -eq 0 || (echo 'Uncommitted SVG changes:'; git diff ./src/images; false)",
 		"prepublishOnly": "cp dist/codex-icon-paths.less .",
-		"postpublish": "rm dist/codex-icon-paths.less"
+		"postpublish": "rm codex-icon-paths.less"
 	},
 	"devDependencies": {
 		"@rollup/pluginutils": "^4.1.1",
