@@ -99,7 +99,7 @@ export default defineComponent( {
 	}
 
 	&--animation &__token {
-		border: @border-width-base @border-style-base @border-color-base;
+		border: @border-base;
 
 		&__inner {
 			background-color: @background-color-progressive;
@@ -113,7 +113,7 @@ export default defineComponent( {
 	&--border &__token {
 		width: @size-300;
 		height: @size-300;
-		border: @border-width-base @border-style-base @border-color-base;
+		border: @border-base;
 		border-radius: @border-radius-base;
 
 		&--border-radius-pill {
@@ -136,7 +136,7 @@ export default defineComponent( {
 	}
 
 	&--opacity {
-		border: @border-width-base @border-style-base @border-color-base;
+		border: @border-base;
 
 		.cdx-docs-tokens-demo__token {
 			background-image: repeating-conic-gradient( #000 0% 25%, transparent 0% 50% );
@@ -153,7 +153,7 @@ export default defineComponent( {
 
 	&--padding &__token {
 		position: relative;
-		border: @border-width-base @border-style-base @border-color-base;
+		border: @border-base;
 
 		&__inner {
 			background-color: @background-color-disabled-subtle;
@@ -176,11 +176,11 @@ export default defineComponent( {
 
 	&--background-position &__token {
 		.cdx-mixin-css-icon( @cdx-icon-map-pin );
-		outline: @border-width-base @border-style-base @border-color-base;
+		outline: @border-base;
 	}
 
 	&--position &__token {
-		border: @border-width-base @border-style-base @border-color-base;
+		border: @border-base;
 
 		&__inner {
 			background-color: fade( @background-color-progressive, unit( @opacity-medium * 100, % ) );
@@ -189,7 +189,7 @@ export default defineComponent( {
 			left: 0;
 			width: @size-150;
 			height: @size-150;
-			border: @border-width-base @border-style-base @border-color-base;
+			border: @border-base;
 			transform: translateY( -@spacing-half );
 		}
 	}

@@ -563,6 +563,21 @@
 			"value": "{ color.transparent }"
 		}
 	},
+	"border": {
+		"comment": "Note, that only most common shorthands are provided given the number of border-color variants.",
+		"base": {
+			"value": "{ border-width.base } { border-style.base } { border-color.base }"
+		},
+		"subtle": {
+			"value": "{ border-width.base } { border-style.base } { border-color.subtle }"
+		},
+		"progressive": {
+			"value": "{ border-width.base } { border-style.base } { border-color.progressive }"
+		},
+		"destructive": {
+			"value": "{ border-width.base } { border-style.base } { border-color.destructive }"
+		}
+	},
 	"border-radius": {
 		"base": {
 			"value": "{ dimension.12 }{ unit.system }"

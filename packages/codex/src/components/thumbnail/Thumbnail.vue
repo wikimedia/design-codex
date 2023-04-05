@@ -107,7 +107,7 @@ export default defineComponent( {
 		min-height: @min-size-search-figure;
 		width: @size-search-figure;
 		height: @size-search-figure;
-		border: @border-width-base @border-style-base @border-color-subtle;
+		border: @border-subtle;
 		border-radius: @border-radius-base;
 	}
 

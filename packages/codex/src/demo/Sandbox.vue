@@ -145,7 +145,7 @@ body {
 		z-index: @z-index-sticky;
 		box-sizing: @box-sizing-base;
 		height: @height-sandbox-header;
-		border-bottom: @border-width-base @border-style-base @border-color-base;
+		border-bottom: @border-base;
 		padding: @spacing-100;
 
 		h1 {

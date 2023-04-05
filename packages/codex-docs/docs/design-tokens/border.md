@@ -33,6 +33,17 @@ import aliases from '@wikimedia/codex-design-tokens/deprecated-aliases-wikimedia
 	css-property="border-color"
 />
 
+## Border (shorthand)
+
+Note, that only most common shorthands are provided given the number of border-color variants.
+
+<cdx-docs-tokens-table
+	:tokens="tokens['border']"
+	token-demo="CdxDocsTokenDemo"
+	token-category="border"
+	css-property="border"
+/>
+
 ## Border radius
 <cdx-docs-tokens-table
 	:tokens="tokens['border-radius']"

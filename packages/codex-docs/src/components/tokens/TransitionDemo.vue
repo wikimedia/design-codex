@@ -58,7 +58,7 @@ export default defineComponent( {
 	position: relative;
 	width: @size-full;
 	height: @size-300;
-	border: @border-width-base @border-style-base @border-color-base;
+	border: @border-base;
 	padding: @spacing-25 @spacing-75;
 	transition-property: border-color, box-shadow, background-color, color, padding;
 	transition-duration: @transition-duration-medium;

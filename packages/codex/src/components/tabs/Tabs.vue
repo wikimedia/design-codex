@@ -738,7 +738,7 @@ export default defineComponent( {
 		background-color: @background-color-base;
 		margin: 0 @spacing-25;
 		// The border separating quiet Tabs header from Tab content.
-		border-bottom: @border-width-base @border-style-base @border-color-base;
+		border-bottom: @border-base;
 
 		.cdx-tabs__prev-scroller::after {
 			background-image: linear-gradient( to right, @background-color-base 0, @background-color-transparent @size-full );

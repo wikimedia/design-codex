@@ -480,7 +480,7 @@ export default defineComponent( {
 
 	&__demo-pane {
 		position: relative;
-		border: @border-width-base @border-style-base @border-color-subtle;
+		border: @border-subtle;
 		border-radius: @border-radius-base;
 		padding: @spacing-200 @spacing-125;
 

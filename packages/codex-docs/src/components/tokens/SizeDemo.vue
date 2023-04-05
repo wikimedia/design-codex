@@ -84,7 +84,7 @@ export default defineComponent( {
 	}
 
 	&--percentage {
-		border: @border-width-base @border-style-base @border-color-base;
+		border: @border-base;
 	}
 
 	&.cdx-docs-tokens-demo__token--size-double {

@@ -773,7 +773,7 @@ export default defineComponent( {
 	z-index: @z-index-dropdown;
 	box-sizing: @box-sizing-base;
 	width: @size-full;
-	border: @border-width-base @border-style-base @border-color-base;
+	border: @border-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
 	box-shadow: @box-shadow-drop-medium;
 
@@ -797,7 +797,7 @@ export default defineComponent( {
 
 	&--has-footer {
 		.cdx-menu-item:last-of-type:not( :first-of-type ) {
-			border-top: @border-width-base @border-style-base @border-color-subtle;
+			border-top: @border-subtle;
 		}
 	}
 }

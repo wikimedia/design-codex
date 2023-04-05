@@ -419,7 +419,7 @@ export default defineComponent( {
 	width: calc( @size-full - ( @size-100 * 2) );
 	max-width: @size-3200;
 	max-height: calc( @size-viewport-height-full - @size-250 );
-	border: @border-width-base @border-style-base @border-color-base;
+	border: @border-base;
 	border-radius: @border-radius-base;
 	box-shadow: @box-shadow-drop-medium;
 	gap: @spacing-200;

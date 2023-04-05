@@ -135,7 +135,7 @@ export default defineComponent( {
 	display: flex;
 	align-items: flex-start;
 	position: relative;
-	border: @border-width-base @border-style-base @border-color-base;
+	border: @border-base;
 	border-radius: @border-radius-base;
 	padding: @spacing-75;
 
