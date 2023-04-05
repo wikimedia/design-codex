@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue';
+import { CdxButton } from '@wikimedia/codex';
 import DialogBasic from '@/../component-demos/dialog/examples/DialogBasic.vue';
 import ConfigurableDialog from '@/../component-demos/dialog/examples/ConfigurableDialog.vue';
 import DialogWithSelect from '@/../component-demos/dialog/examples/DialogWithSelect.vue';
@@ -6,6 +8,7 @@ import DialogMaxContent from '@/../component-demos/dialog/examples/DialogMaxCont
 import DialogStackedActions from '@/../component-demos/dialog/examples/DialogStackedActions.vue';
 import DialogFooterText from '@/../component-demos/dialog/examples/DialogFooterText.vue';
 import DialogCustomHeader from '@/../component-demos/dialog/examples/DialogCustomHeader.vue'
+import WrappedDialog from '@/../component-demos/dialog/examples/WrappedDialog.vue';
 
 const controlsConfig = [
 	{ name: 'title', type: 'text', initial: 'Dialog title' },
@@ -31,6 +34,8 @@ const controlsConfig = [
 		default: ''
 	},
 ];
+
+const wrappedDialogState = ref( false );
 </script>
 
 ::: tip Attributes passed to inner element
@@ -150,6 +155,44 @@ that wrap the base Dialog with some additional content and styling.
 <template v-slot:code>
 
 <<< @/../component-demos/dialog/examples/DialogCustomHeader.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Reusable custom Dialog example
+The example above demonstrates a unique Dialog instance, suitable for a one-off
+dialog. For a re-usable custom dialog, consider using a wrapper component.
+
+A wrapper component could pre-apply certain customizations (a consistent
+custom header or footer, for example) while still accepting `<slot>` content
+from the user that gets forwarded to the Dialog's own slots.
+
+An example of how to write such a component can be found below. This example
+relies on Codex's `useModelWrapper` composable to pass a `v-model` binding from
+the parent context down to the inner Dialog component.
+
+Usage of the custom component would look like this:
+
+```vue
+<wrapped-dialog  
+	title="Custom dialog header"  
+	v-model:open="wrappedDialogState"  
+>  
+	Custom dialog content.  
+</wrapped-dialog>
+```
+
+<cdx-demo-wrapper :allow-link-styles="true">
+<template v-slot:demo>
+<cdx-button @click="wrappedDialogState = true">Test</cdx-button>
+
+<wrapped-dialog title="Custom dialog header" v-model:open="wrappedDialogState">
+Custom dialog content.
+</wrapped-dialog>
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/dialog/examples/WrappedDialog.vue
 
 </template>
 </cdx-demo-wrapper>

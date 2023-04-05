@@ -27,13 +27,13 @@
 			&nbsp;
 
 			<cdx-button @click="showDialog5 = true">
-				Dialog with custom header and footer
+				Class fallthrough example
 			</cdx-button>
 
 			&nbsp;
 
 			<cdx-button @click="showDialog6 = true">
-				Class fallthrough example
+				Custom dialog example
 			</cdx-button>
 		</p>
 
@@ -94,54 +94,12 @@
 
 		<cdx-dialog
 			v-model:open="showDialog5"
-			title="Example Dialog 5"
-			class="my-custom-dialog"
-		>
-			<template #header>
-				<div>
-					<h2>Introduction</h2>
-				</div>
-				<div>
-					<cdx-button
-						weight="quiet"
-						aria-label="close"
-						@click="showDialog5 = false;"
-					>
-						Skip
-					</cdx-button>
-				</div>
-			</template>
-
-			<p>
-				The header and footer slots of this dialog have been
-				completely customized with custom buttons, styles, and
-				markup.
-			</p>
-
-			<template #footer>
-				<cdx-checkbox v-model="checkboxValue">
-					Don't show again
-				</cdx-checkbox>
-
-				<cdx-button
-					weight="primary"
-					action="progressive"
-					aria-label="Next"
-					@click="showDialog5 = false"
-				>
-					<cdx-icon :icon="cdxIconNext" />
-				</cdx-button>
-			</template>
-		</cdx-dialog>
-
-		<cdx-dialog
-			v-model:open="showDialog6"
 			:primary-action="{ actionType: 'progressive', label: 'Sweet!' }"
 			:default-action="{ label: 'Bummer' }"
-			title="Example Dialog 6"
+			title="Example Dialog 5"
 			class="foo-dialog"
-			@default="showDialog6 = false"
-			@primary="showDialog6 = false"
+			@default="showDialog5 = false"
+			@primary="showDialog5 = false"
 		>
 			<p>
 				Example of attribute fall-through. The <code>foo-dialog</code>
@@ -150,13 +108,20 @@
 				with internally computed classes.
 			</p>
 		</cdx-dialog>
+
+		<wrapped-dialog
+			v-model:open="showDialog6"
+			title="Custom Wrapped Dialog"
+		>
+			Example of a custom wrapped dialog
+		</wrapped-dialog>
 	</section>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { CdxDialog, CdxButton, CdxCheckbox, CdxIcon } from '../lib';
-import { cdxIconNext } from '@wikimedia/codex-icons';
+import { CdxDialog, CdxButton } from '../lib';
+import WrappedDialog from './WrappedDialog.vue';
 
 const showDialog1 = ref( false );
 const showDialog2 = ref( false );
@@ -164,37 +129,10 @@ const showDialog3 = ref( false );
 const showDialog4 = ref( false );
 const showDialog5 = ref( false );
 const showDialog6 = ref( false );
-
-const checkboxValue = ref( false );
 </script>
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-
-.my-custom-dialog {
-	header {
-		background-color: @background-color-progressive-subtle;
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
-		height: 200px;
-		padding: @spacing-100;
-
-		h2 {
-			margin: 0;
-			padding: 0;
-			font-size: @font-size-large;
-		}
-	}
-
-	footer {
-		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-		border-top: @border-style-base @border-width-base @border-color-subtle;
-		padding: @spacing-50 @spacing-100;
-	}
-}
 
 .foo-dialog {
 	background-color: @background-color-progressive-subtle;
