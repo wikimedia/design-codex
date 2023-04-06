@@ -6,13 +6,15 @@
 	>
 		<textarea
 			v-bind="otherAttrs"
+			v-model="wrappedModel"
 		/>
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, toRef } from 'vue';
 import useSplitAttributes from '../../composables/useSplitAttributes';
+import useModelWrapper from '../../composables/useModelWrapper';
 // TODO: import icons
 
 /**
@@ -21,9 +23,31 @@ import useSplitAttributes from '../../composables/useSplitAttributes';
 export default defineComponent( {
 	name: 'CdxTextArea',
 	inheritAttrs: false,
-	// TODO: add props
-	// props: {},
-	setup( props, { attrs } ) {
+	props: {
+		/**
+		 * Current value of the textarea.
+		 *
+		 * Provided by `v-model` binding in the parent component.
+		 */
+		modelValue: {
+			type: [ String ],
+			default: ''
+		}
+	},
+	emits: [
+		/**
+		 * When the textarea value changes
+		 *
+		 * @property {string} modelValue The new model value
+		 */
+		'update:modelValue'
+	],
+	setup( props, { attrs, emit } ) {
+		// Take the modelValue provided by the parent component via v-model and
+		// generate a wrapped model that we can use for the textarea element in
+		// this component.
+		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
+
 		// TODO: add icon classes
 		const internalClasses = computed( () => {
 			return {};
@@ -39,7 +63,8 @@ export default defineComponent( {
 		return {
 			rootClasses,
 			rootStyle,
-			otherAttrs
+			otherAttrs,
+			wrappedModel
 		};
 	}
 } );

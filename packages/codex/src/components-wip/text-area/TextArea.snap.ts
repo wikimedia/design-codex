@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextArea matches the snapshot Case 0 default text area: (%p) => HTML 1`] = `
+exports[`TextArea matches the snapshot Case 0 with modelValue prop and no attributes: ({"modelValue": "Earth Day"}) => HTML 1`] = `
 <div
   class="cdx-text-area"
 >
@@ -8,7 +8,7 @@ exports[`TextArea matches the snapshot Case 0 default text area: (%p) => HTML 1`
 </div>
 `;
 
-exports[`TextArea matches the snapshot Case 1 with attributes: ({"placeholder": "Start typing..."}) => HTML 1`] = `
+exports[`TextArea matches the snapshot Case 1 with attributes: ({}) => HTML 1`] = `
 <div
   class="cdx-text-area"
 >
