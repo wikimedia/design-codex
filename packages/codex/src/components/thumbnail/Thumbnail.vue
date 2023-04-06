@@ -6,7 +6,7 @@
 		>
 			<cdx-icon
 				:icon="placeholderIcon"
-				class="cdx-thumbnail__placeholder__icon"
+				class="cdx-thumbnail__placeholder__icon--vue"
 			/>
 		</span>
 		<Transition name="cdx-thumbnail__image">
@@ -87,6 +87,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '../../themes/mixins/public/css-icon.less';
 
 .cdx-thumbnail {
 	// `flex` prevents a descender from being added below the image; `inline` limits width of this
@@ -131,7 +132,11 @@ export default defineComponent( {
 		justify-content: center;
 
 		&__icon {
-			color: @color-placeholder;
+			.cdx-mixin-css-icon( @cdx-icon-image-layout-frameless, @color-placeholder );
+
+			&--vue {
+				color: @color-placeholder;
+			}
 		}
 	}
 }

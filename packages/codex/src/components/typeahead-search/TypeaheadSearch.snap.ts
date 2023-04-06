@@ -583,7 +583,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                     class="cdx-thumbnail__placeholder"
                   >
                     <span
-                      class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon"
+                      class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon--vue"
                     >
                       <svg
                         aria-hidden="true"
@@ -652,7 +652,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                     class="cdx-thumbnail__placeholder"
                   >
                     <span
-                      class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon"
+                      class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon--vue"
                     >
                       <svg
                         aria-hidden="true"

@@ -2,6 +2,14 @@
 	<section id="cdx-thumbnail">
 		<h2>Thumbnail</h2>
 		<cdx-thumbnail :thumbnail="thumbnailData" />
+
+		<h3>CSS-only version</h3>
+		<span class="cdx-thumbnail">
+			<span
+				class="cdx-thumbnail__image cdx-demo-colored-pencils"
+				:style="{ backgroundImage: `url( ${thumbnailData.url } )` }"
+			/>
+		</span>
 	</section>
 </template>
 

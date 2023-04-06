@@ -311,7 +311,7 @@ exports[`matches the snapshot Case 6 Item with placeholder thumbnail: ({"descrip
         class="cdx-thumbnail__placeholder"
       >
         <span
-          class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon"
+          class="cdx-icon cdx-icon--medium cdx-thumbnail__placeholder__icon--vue"
         >
           <svg
             aria-hidden="true"
