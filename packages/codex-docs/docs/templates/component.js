@@ -36,12 +36,7 @@ This component is still under development. It is not yet available in releases o
 		if ( hasCssOnlyVersion ) {
 			const splitDocs = docsBlocks[ 0 ].split( cssOnlyHeading );
 			vueDocs = splitDocs[ 0 ];
-			const cssOnlyWarning = `
-::: warning
-CSS-only components are experimental and not yet available for use inside MediaWiki.
-:::
-			`;
-			cssOnlyDocs = cssOnlyHeading + '\n' + cssOnlyWarning + splitDocs[ 1 ];
+			cssOnlyDocs = cssOnlyHeading + splitDocs[ 1 ];
 		}
 	}
 
