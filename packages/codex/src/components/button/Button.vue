@@ -2,7 +2,6 @@
 	<button
 		class="cdx-button"
 		:class="rootClasses"
-		:type="computedType"
 		@click="onClick"
 		@keydown.space.enter="setActive( true )"
 		@keyup.space.enter="setActive( false )"
@@ -24,16 +23,12 @@ import {
 	computed,
 	warn
 } from 'vue';
-import { ButtonActions, ButtonTypes, ButtonWeights } from '../../constants';
-import { ButtonAction, ButtonType, ButtonWeight } from '../../types';
+import { ButtonActions, ButtonWeights } from '../../constants';
+import { ButtonAction, ButtonWeight } from '../../types';
 import CdxIcon from '../icon/Icon.vue';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
 const buttonActionValidator = makeStringTypeValidator( ButtonActions );
-// TODO T312987: Remove ButtonWeights once all projects update to new `type` prop.
-// This is a temporary workaround for changing the `type` prop while still allowing the old
-// values until all instances can be updated.
-const buttonTypeValidator = makeStringTypeValidator( [ ...ButtonWeights, ...ButtonTypes ] );
 const buttonWeightValidator = makeStringTypeValidator( ButtonWeights );
 const validateIconOnlyButtonAttrs = ( attrs: SetupContext['attrs'] ) => {
 	if ( !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ] ) {
@@ -117,18 +112,6 @@ export default defineComponent( {
 			type: String as PropType<ButtonWeight>,
 			default: 'normal',
 			validator: buttonWeightValidator
-		},
-		/**
-		 * Native `<button>` type.
-		 *
-		 * See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes.
-		 *
-		 * @values 'button', 'submit', 'reset'
-		 */
-		type: {
-			type: String as PropType<ButtonType|ButtonWeight>,
-			default: undefined,
-			validator: buttonTypeValidator
 		}
 	},
 	emits: [ 'click' ],
@@ -139,25 +122,10 @@ export default defineComponent( {
 		// :active state will suffice.
 		const isActive = ref( false );
 
-		// TODO T312987: Remove this code once all projects update to new `type` prop.
-		// This is a temporary workaround for changing the `type` prop while still allowing the old
-		// values until all instances can be updated.
-
-		// If the old type prop was used, set the new type to the default, 'button'.
-		// This can only ever return ButtonType, but TypeScript doesn't know that.
-		const computedType = computed( () =>
-			buttonWeightValidator( props.type ) ? undefined : props.type
-		);
-
-		// If the old type prop was used, set the weight to that value.
-		const computedWeight = computed( () =>
-			buttonWeightValidator( props.type ) ? props.type : props.weight
-		);
-
 		const rootClasses = computed( () => ( {
 			[ `cdx-button--action-${props.action}` ]: true,
-			[ `cdx-button--weight-${computedWeight.value}` ]: true,
-			'cdx-button--framed': computedWeight.value !== 'quiet',
+			[ `cdx-button--weight-${props.weight}` ]: true,
+			'cdx-button--framed': props.weight !== 'quiet',
 			'cdx-button--icon-only': isIconOnlyButton( slots.default?.(), attrs ),
 			'cdx-button--is-active': isActive.value
 		} ) );
@@ -173,8 +141,7 @@ export default defineComponent( {
 		return {
 			rootClasses,
 			onClick,
-			setActive,
-			computedType
+			setActive
 		};
 	}
 } );

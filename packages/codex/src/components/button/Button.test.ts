@@ -111,13 +111,3 @@ describe( 'detects icon-only buttons', () => {
 		expect( wrapper.classes( 'cdx-button--icon-only' ) ).toBe( expectedIconOnly );
 	} );
 } );
-
-// TODO T312987: Remove this code once all projects update to new `type` prop.
-describe( 'when the old `type` prop is used', () => {
-	it( 'applies the provided type as the weight', () => {
-		const wrapper = shallowMount( CdxButton, { props: { type: 'primary' } } );
-		expect( wrapper.element.classList ).toContain( 'cdx-button--weight-primary' );
-		expect( wrapper.element.classList ).not.toContain( 'cdx-button--type-primary' );
-		expect( wrapper.attributes( 'type' ) ).toBeUndefined();
-	} );
-} );
