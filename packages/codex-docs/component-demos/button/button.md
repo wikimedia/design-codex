@@ -380,14 +380,14 @@ reader users.
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<button class="cdx-button cdx-button--icon-only" aria-label="Back">
-		<span class="cdx-button__icon cdx-demo-css-icon cdx-demo-css-icon--arrow-previous"></span>
+		<span class="cdx-button__icon cdx-demo-css-icon--arrow-previous"></span>
 	</button>
 </template>
 <template v-slot:code>
 
 ```html
 <button class="cdx-button cdx-button--icon-only" aria-label="Back">
-	<span class="cdx-button__icon cdx-demo-css-icon cdx-demo-css-icon--arrow-previous"></span>
+	<span class="cdx-button__icon cdx-demo-css-icon--arrow-previous"></span>
 </button>
 ```
 
