@@ -4,28 +4,29 @@
 		:class="rootClasses"
 		:style="rootStyle"
 	>
+		<input
+			:id="inputId"
+			ref="input"
+			v-model="wrappedModel"
+			class="cdx-toggle-switch__input"
+			type="checkbox"
+			:disabled="disabled"
+			v-bind="otherAttrs"
+			@keydown.prevent.enter="clickInput"
+		>
+
 		<label
+			v-if="$slots.default"
 			:for="inputId"
 			class="cdx-toggle-switch__label"
 		>
-			<input
-				:id="inputId"
-				ref="input"
-				v-model="wrappedModel"
-				class="cdx-toggle-switch__input"
-				type="checkbox"
-				:disabled="disabled"
-				v-bind="otherAttrs"
-				@keydown.prevent.enter="clickInput"
-			>
-			<span v-if="$slots.default" class="cdx-toggle-switch__label-content">
-				<!-- @slot Input label content -->
-				<slot />
-			</span>
-			<span class="cdx-toggle-switch__switch">
-				<span class="cdx-toggle-switch__switch__grip" />
-			</span>
+			<!-- @slot Input label content -->
+			<slot />
 		</label>
+
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip" />
+		</span>
 	</span>
 </template>
 
@@ -131,16 +132,7 @@ export default defineComponent( {
 	position: relative;
 	z-index: @z-index-stacking-0;
 
-	&__label {
-		display: flex;
-		// Reorder the label content visually, but ensure that `label` is wrapping everything and
-		// `input` comes before to satisfy assistive technology and CSS logic.
-		flex-direction: row;
-	}
-
-	&__label-content {
-		align-self: center;
-		order: 1;
+	&__label:not( :empty ) {
 		padding-right: @spacing-35;
 	}
 

@@ -25,24 +25,19 @@ exports[`matches the snapshot Case 1 ToggleSwitch without slot => HTML 1`] = `
   <span
     class="cdx-toggle-switch"
   >
-    <label
-      class="cdx-toggle-switch__label"
-      for="cdx-toggle-switch-0"
+    <input
+      class="cdx-toggle-switch__input"
+      id="cdx-toggle-switch-0"
+      type="checkbox"
+    />
+    <!---->
+    <span
+      class="cdx-toggle-switch__switch"
     >
-      <input
-        class="cdx-toggle-switch__input"
-        id="cdx-toggle-switch-0"
-        type="checkbox"
-      />
-      <!---->
       <span
-        class="cdx-toggle-switch__switch"
-      >
-        <span
-          class="cdx-toggle-switch__switch__grip"
-        />
-      </span>
-    </label>
+        class="cdx-toggle-switch__switch__grip"
+      />
+    </span>
   </span>
   
 </div>

@@ -28,9 +28,9 @@ element within the component.
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true" generated-model-name="switchValue">
 <template v-slot:demo="{ propValues, slotValues }">
-<cdx-docs-configurable-generic v-bind="propValues">
-{{ slotValues.default }}
-</cdx-docs-configurable-generic>
+	<cdx-docs-configurable-generic v-bind="propValues">
+		{{ slotValues.default }}
+	</cdx-docs-configurable-generic>
 </template>
 </cdx-demo-wrapper>
 
@@ -40,7 +40,7 @@ Toggle the ToggleSwitch to see the value change. Open up the console to see emit
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<single-switch />
+	<single-switch />
 </template>
 
 <template v-slot:code>
@@ -57,12 +57,120 @@ the `<input>`.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<single-switch-with-label />
+	<single-switch-with-label />
 </template>
 
 <template v-slot:code>
 
 <<< @/../component-demos/toggle-switch/examples/SingleSwitchWithLabel.vue
+
+</template>
+</cdx-demo-wrapper>
+
+## CSS-only version
+
+### Markup structure
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Wrapper <span>. -->
+	<span class="cdx-toggle-switch">
+		<!-- <input> with type="checkbox" and ID. -->
+		<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox">
+		<!-- <label> with for attribute matching input ID. -->
+		<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
+			Label
+		</label>
+		<!-- <span> elements that will be styled to look like the toggle switch. -->
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip"></span>
+		</span>
+	</span>
+</template>
+<template v-slot:code>
+
+```html
+<!-- Wrapper <span>. -->
+<span class="cdx-toggle-switch">
+	<!-- <input> with type="checkbox" and ID. -->
+	<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox">
+	<!-- <label> with for attribute matching input ID. -->
+	<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
+		Label
+	</label>
+	<!-- <span> elements that will be styled to look like the toggle switch. -->
+	<span class="cdx-toggle-switch__switch">
+		<span class="cdx-toggle-switch__switch__grip"></span>
+	</span>
+</span>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### Initially on
+
+The toggle switch appears "on" when the hidden checkbox is checked. To initially set the switch to
+"on", add the `checked` attribute to the `<input>`.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<span class="cdx-toggle-switch">
+		<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox" checked>
+		<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
+			Initially on
+		</label>
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip"></span>
+		</span>
+	</span>
+</template>
+<template v-slot:code>
+
+```html
+<span class="cdx-toggle-switch">
+	<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox" checked>
+	<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
+		Initially on
+	</label>
+	<span class="cdx-toggle-switch__switch">
+		<span class="cdx-toggle-switch__switch__grip"></span>
+	</span>
+</span>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### Disabled
+
+To disable the toggle switch, add the `disabled` attribute to the `<input>` element.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<span class="cdx-toggle-switch">
+		<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox" disabled>
+		<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
+			Disabled, off
+		</label>
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip"></span>
+		</span>
+	</span>
+</template>
+<template v-slot:code>
+
+```html
+	<span class="cdx-toggle-switch">
+		<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox" disabled>
+		<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
+			Disabled, off
+		</label>
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip"></span>
+		</span>
+	</span>
+```
 
 </template>
 </cdx-demo-wrapper>

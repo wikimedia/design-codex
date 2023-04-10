@@ -7,9 +7,25 @@
 		</cdx-toggle-button>
 
 		<p>
-			Playing:
-			<cdx-toggle-switch v-model="toggleValue" />
+			<cdx-toggle-switch v-model="toggleValue">
+				Playing:
+			</cdx-toggle-switch>
 		</p>
+
+		<h3>CSS-only ToggleSwitch</h3>
+		<span class="cdx-toggle-switch">
+			<input
+				id="cdx-toggle-switch-11"
+				class="cdx-toggle-switch__input"
+				type="checkbox"
+			>
+			<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
+				Playing:
+			</label>
+			<span class="cdx-toggle-switch__switch">
+				<span class="cdx-toggle-switch__switch__grip" />
+			</span>
+		</span>
 	</section>
 </template>
 
