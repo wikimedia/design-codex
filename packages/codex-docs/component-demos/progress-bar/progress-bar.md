@@ -60,3 +60,73 @@ sample usage.
 
 </template>
 </cdx-demo-wrapper>
+
+## CSS-only version
+
+### Markup structure
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Wrapper div with ARIA attributes -->
+	<div class="cdx-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+		<!-- Empty inner div -->
+		<div class="cdx-progress-bar__bar" />
+	</div>
+</template>
+
+<template v-slot:code>
+
+```html
+<!-- Wrapper div with ARIA attributes -->
+<div class="cdx-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+	<!-- Empty inner div -->
+	<div class="cdx-progress-bar__bar" />
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### Inline
+
+For an inline progress bar, add the `cdx-progress-bar--inline` class to the root `<div>`.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-progress-bar cdx-progress-bar--inline" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+		<div class="cdx-progress-bar__bar" />
+	</div>
+</template>
+
+<template v-slot:code>
+
+```html
+<div class="cdx-progress-bar cdx-progress-bar--inline" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+	<div class="cdx-progress-bar__bar" />
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### Disabled
+
+For a disabled progress bar, add the `cdx-progress-bar--disabled` class to the root `<div>`.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-progress-bar cdx-progress-bar--disabled" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+		<div class="cdx-progress-bar__bar" />
+	</div>
+</template>
+
+<template v-slot:code>
+
+```html
+<div class="cdx-progress-bar cdx-progress-bar--disabled" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+	<div class="cdx-progress-bar__bar" />
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>

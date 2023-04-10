@@ -71,7 +71,7 @@ export default defineComponent( {
 		height: @size-full;
 	}
 
-	&--block {
+	&:not( .cdx-progress-bar--inline ) {
 		// Support Safari: Create a stacking context to prevent the bar from overflowing the
 		// `border-radius` of the component's root element by `position: relative` and
 		// `z-index` other than `auto`.
@@ -89,7 +89,7 @@ export default defineComponent( {
 		height: @size-25;
 	}
 
-	&--enabled {
+	&:not( .cdx-progress-bar--disabled ) {
 		.cdx-progress-bar__bar {
 			background-color: @background-color-progressive;
 			animation-name: cdx-animation-progress-bar__bar;
@@ -104,6 +104,7 @@ export default defineComponent( {
 	}
 
 	&--disabled {
+		/* stylelint-disable-next-line no-descending-specificity */
 		.cdx-progress-bar__bar {
 			background-color: @background-color-disabled;
 		}
