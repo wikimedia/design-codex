@@ -456,11 +456,13 @@ export default defineComponent( {
 			line-height: @line-height-xxx-small;
 		}
 
-		&__subtitle {
+		// Increased specificity to ensure that this style shows up in Vitepress
+		& &__subtitle {
 			color: @color-subtle;
 			margin: 0;
 			padding: 0;
 			font-size: @font-size-medium;
+			line-height: @line-height-xx-small;
 		}
 
 		&__close-button {
@@ -512,12 +514,14 @@ export default defineComponent( {
 			gap: @spacing-75;
 		}
 
-		&__text {
+		// Increased specificity to ensure that this style shows up in Vitepress
+		& &__text {
 			color: @color-subtle;
 			flex: 1 0 auto;
 			width: @spacing-full;
 			margin: 0;
 			font-size: @font-size-small;
+			line-height: @line-height-small;
 		}
 
 		&__actions {
