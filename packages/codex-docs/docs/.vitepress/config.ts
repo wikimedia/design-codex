@@ -218,6 +218,20 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Adding new icons', link: '/icons/adding-new' }
 					]
 				}
+			],
+			'/composables/': [
+				{
+					text: 'Composables',
+					items: [
+						{ text: 'Overview', link: '/composables/overview' }
+					]
+				},
+				{
+					text: '',
+					items: [
+						{ text: 'useModelWrapper', link: '/composables/demos/use-model-wrapper' }
+					]
+				}
 			]
 		}
 	}
