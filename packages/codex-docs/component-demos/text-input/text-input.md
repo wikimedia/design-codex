@@ -233,6 +233,10 @@ You will need to add your own CSS classes to set the icon styles and background 
 ```
 
 ```less
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
 .cdx-demo-css-icon {
 	&--search {
 		.cdx-mixin-css-icon( @cdx-icon-search );
@@ -270,6 +274,10 @@ Add the `disabled` attribute to the `<input>` element for a disabled text input.
 ```
 
 ```less
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
 .cdx-demo-css-icon {
 	&--search {
 		.cdx-mixin-css-icon( @cdx-icon-search );
