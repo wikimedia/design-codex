@@ -1,3 +1,37 @@
+# 0.9.0 / 2023-04-11
+
+## Breaking
+- Button: Remove `type` prop and all workarounds (Anne Tomasevich)
+  - Previously the Button component could accept a `type` prop with
+    the following values: `normal`, `primary`, and `quiet`. The name
+    of this prop has been changed to `weight` to avoid conflicts with
+    the native `type` attribute on HTML `<button>` elements. Any
+    existing uses of `<cdx-button>` with the old `type` prop values
+    should be updated; this code will continue to function but buttons
+    will render in the default style until the prop name is updated to
+    `weight`.
+
+## Features
+- Dialog: Ensure correct line-height is used in subtitle, footer (Eric Gardner)
+- Card, Thumbnail: Add CSS-only versions (Anne Tomasevich)
+- ProgressBar: Add CSS-only version (Anne Tomasevich)
+- ToggleSwitch: Add CSS-only version (Anne Tomasevich)
+- TextArea: Set up WIP component (LWatson)
+- TextArea: Set up modelValue prop via v-model (LWatson)
+- TextArea: pass most attributes down to the `<textarea>` element (LWatson)
+
+## Styles
+- tokens: Add common `border` shorthand tokens (Volker E)
+
+## Code
+- build: Don't delete built icon paths file in postpublish (Roan Kattouw)
+- build: Update 'browserslist-db' to latest (Volker E)
+
+## Documentation
+- docs: Add a wrapped Dialog example (Eric Gardner)
+- docs: Remove unneeded class from CSS icon-only button demo (Anne Tomasevich)
+- docs: Remove warning about CSS-only components (Anne Tomasevich)
+
 # 0.8.0 / 2023-03-28
 
 ## Features

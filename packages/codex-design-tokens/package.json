@@ -1,6 +1,6 @@
 {
 	"name": "@wikimedia/codex-design-tokens",
-	"version": "0.8.0",
+	"version": "0.9.0",
 	"description": "Design tokens for Codex in different formats",
 	"author": "Wikimedia Foundation (https://wikimediafoundation.org/)",
 	"homepage": "https://doc.wikimedia.org/codex/",
