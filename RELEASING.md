@@ -168,6 +168,7 @@ published version. This involves the following steps:
   - Update the integrity hash in `foreign-resources.yaml`
   - Run `manageForeignResources.php update` to update the library
 - Update the `RELEASE-NOTES` file
+- If necessary, add new design tokens to `mediawiki.skin.defaults.less`
 - Generate the list of bugs for the commit message
 - Submit your changes
 See https://gerrit.wikimedia.org/r/c/mediawiki/core/+/791651 for an example change. Detailed
@@ -220,6 +221,13 @@ MediaWiki repository. If there is already a list item about Codex, update it. Fo
 there is a list item that says `Updated Codex from v1.2.28 to v1.2.33`, update the latter version
 number to `v1.2.34`. If there isn't a list item about Codex yet, add one in the
 `Changed external libraries` section.
+
+> **Warning**  
+> If any *new design tokens* have been introduced as part of the release, make
+> sure that you add them to `mediawiki.skin.defaults.less`. If you do not do
+> this, tests will fail and the release commit will not be allowed to merge. For
+> an example of a commit that adds new tokens to the skin defaults file, see
+> [here](https://gerrit.wikimedia.org/r/c/mediawiki/core/+/907988/2/resources/src/mediawiki.less/mediawiki.skin.defaults.less)
 
 As the final step before committing your change, generate the list of bugs referenced by commits in
 the new release, so that you can include it in the commit message. To generate this list, run the
