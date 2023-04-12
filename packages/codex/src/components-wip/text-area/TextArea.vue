@@ -7,15 +7,26 @@
 		<textarea
 			v-bind="otherAttrs"
 			v-model="wrappedModel"
+			:class="textareaClasses"
+			class="cdx-text-area__textarea"
 		/>
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, toRef } from 'vue';
+import {
+	defineComponent,
+	computed,
+	toRef,
+	PropType
+} from 'vue';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useModelWrapper from '../../composables/useModelWrapper';
-// TODO: import icons
+import { ValidationStatusType } from '../../types';
+import { ValidationStatusTypes } from '../../constants';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+
+const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
  * Multi-line text input that allows manual resizing.
@@ -30,8 +41,18 @@ export default defineComponent( {
 		 * Provided by `v-model` binding in the parent component.
 		 */
 		modelValue: {
-			type: [ String ],
+			type: String,
 			default: ''
+		},
+		/**
+		 * `status` attribute of the input.
+		 *
+		 * @values 'default', 'error'
+		 */
+		status: {
+			type: String as PropType<ValidationStatusType>,
+			default: 'default',
+			validator: statusValidator
 		}
 	},
 	emits: [
@@ -48,12 +69,20 @@ export default defineComponent( {
 		// this component.
 		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
 
-		// TODO: add icon classes
-		const internalClasses = computed( () => {
-			return {};
+		const textareaClasses = computed( () => {
+			return {
+				'cdx-text-area__textarea--has-value': !!wrappedModel.value
+			};
 		} );
 
-		// helpers from composable - useSplitAttributes()
+		const internalClasses = computed( () => {
+			return {
+				'cdx-text-area--status-default': props.status === 'default',
+				'cdx-text-area--status-error': props.status === 'error'
+			};
+		} );
+
+		// Get helpers from useSplitAttributes() composable.
 		const {
 			rootClasses,
 			rootStyle,
@@ -64,15 +93,68 @@ export default defineComponent( {
 			rootClasses,
 			rootStyle,
 			otherAttrs,
-			wrappedModel
+			wrappedModel,
+			textareaClasses
 		};
 	}
 } );
 </script>
 
 <style lang="less">
-	@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-	/* stylelint-disable-next-line block-no-empty */
-	.cdx-text-area {}
+.cdx-text-area {
+	&__textarea {
+		box-sizing: @box-sizing-base;
+		min-height: @size-400;
+		width: @size-full;
+		border-width: @border-width-base;
+		border-style: @border-style-base;
+		border-radius: @border-radius-base;
+		padding: @spacing-25 @spacing-50;
+		font-family: inherit;
+		font-size: inherit;
+		line-height: @line-height-x-small;
+
+		&:enabled {
+			background-color: @background-color-base;
+			color: @color-base;
+			border-color: @border-color-base;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
+			transition-property: @transition-property-base;
+			transition-duration: @transition-duration-medium;
+
+			&:hover {
+				border-color: @border-color-input--hover;
+			}
+
+			&:focus {
+				border-color: @border-color-progressive--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+				outline: @outline-base--focus;
+			}
+
+			&:read-only {
+				background-color: @background-color-interactive-subtle;
+			}
+		}
+
+		/* stylelint-disable-next-line no-descending-specificity */
+		&:disabled {
+			background-color: @background-color-disabled-subtle;
+			color: @color-disabled;
+			border-color: @border-color-disabled;
+		}
+
+		// Normalize placeholder styling, see T139034.
+		&::placeholder {
+			color: @color-placeholder;
+			opacity: @opacity-base;
+		}
+	}
+
+	&--status-error {
+		// TODO: Add styles for error status
+	}
+}
 </style>

@@ -2,18 +2,18 @@
 	<section id="cdx-text-area">
 		<h2>TextArea</h2>
 		<cdx-text-area
-			v-model="inputValue"
+			v-model="textareaValue"
 			placeholder="Start typing..."
 		/>
 		<p>
-			Input value: {{ inputValue }}
+			Textarea value: {{ textareaValue }}
 		</p>
 	</section>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { CdxTextArea } from '../lib-wip';
 
-const inputValue = ref( '' );
+const textareaValue = ref( '' );
 </script>
