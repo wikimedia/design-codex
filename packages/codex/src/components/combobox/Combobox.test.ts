@@ -1,5 +1,8 @@
 import { mount, enableAutoUnmount } from '@vue/test-utils';
-import { CdxCombobox, CdxButton, CdxMenuItem, CdxTextInput } from '../../lib';
+import CdxCombobox from './Combobox.vue';
+import CdxButton from '../button/Button.vue';
+import CdxMenuItem from '../menu-item/MenuItem.vue';
+import CdxTextInput from '../text-input/TextInput.vue';
 import { MenuItemData } from '../../types';
 
 const data: MenuItemData[] = [

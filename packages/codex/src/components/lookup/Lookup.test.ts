@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { CdxLookup, CdxTextInput } from '../../lib';
+import CdxLookup from './Lookup.vue';
+import CdxTextInput from '../text-input/TextInput.vue';
 import { MenuItemData } from '../../types';
 
 const menuItemData: {

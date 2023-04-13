@@ -1,6 +1,7 @@
 import { mount, VueWrapper } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { CdxMenu, CdxMenuItem } from '../../lib';
+import CdxMenu from './Menu.vue';
+import CdxMenuItem from '../menu-item/MenuItem.vue';
 import { MenuItemData } from '../../types';
 
 const exampleMenuItems: MenuItemData[] = [

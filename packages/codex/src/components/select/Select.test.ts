@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { CdxSelect, CdxMenuItem } from '../../lib';
+import CdxSelect from './Select.vue';
+import CdxMenuItem from '../menu-item/MenuItem.vue';
 import { Icon, cdxIconSearch } from '@wikimedia/codex-icons';
 import { MenuItemData } from '../../types';
 

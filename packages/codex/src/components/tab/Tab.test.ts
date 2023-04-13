@@ -1,5 +1,5 @@
 import { mount, config } from '@vue/test-utils';
-import { CdxTab } from '../../lib';
+import CdxTab from './Tab.vue';
 
 beforeAll( () => {
 	config.global.config.warnHandler = () => {

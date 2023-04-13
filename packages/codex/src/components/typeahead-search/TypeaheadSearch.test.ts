@@ -1,5 +1,8 @@
 import { DOMWrapper, mount, VueWrapper } from '@vue/test-utils';
-import { CdxTypeaheadSearch, CdxMenuItem, CdxSearchInput, CdxMenu } from '../../lib';
+import CdxTypeaheadSearch from './TypeaheadSearch.vue';
+import CdxMenuItem from '../menu-item/MenuItem.vue';
+import CdxSearchInput from '../search-input/SearchInput.vue';
+import CdxMenu from '../menu/Menu.vue';
 import { DebounceInterval, PendingDelay } from '../../constants';
 import { SearchResult } from '../../types';
 
