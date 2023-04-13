@@ -75,11 +75,14 @@
 		"green100": {
 			"value": "#d5fdf4"
 		},
-		"green600": {
+		"green500": {
 			"value": "#00af89"
 		},
-		"green700": {
+		"green600": {
 			"value": "#14866d"
+		},
+		"green700": {
+			"value": "#096450"
 		},
 		"purple": {
 			"value": "#6b4ba1"

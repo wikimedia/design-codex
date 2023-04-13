@@ -138,7 +138,7 @@
 		},
 		"success": {
 			"comment": "Note, this needs to use a tone darker than Red and Yellow for contrast reasons with background White.",
-			"value": "{ color.green700 }"
+			"value": "{ color.green600 }"
 		},
 		"notice": {
 			"value": "{ color.gray700 }"
@@ -554,7 +554,7 @@
 			"value": "{ color.yellow600 }"
 		},
 		"success": {
-			"value": "{ color.green700 }"
+			"value": "{ color.green600 }"
 		},
 		"notice": {
 			"value": "{ color.gray400 }"
