@@ -548,16 +548,16 @@
 			"value": "{ color.red600 }"
 		},
 		"error": {
-			"value": "{ color.red600 }"
+			"value": "{ color.red700 }"
 		},
 		"warning": {
-			"value": "{ color.yellow600 }"
+			"value": "{ color.yellow700 }"
 		},
 		"success": {
-			"value": "{ color.green600 }"
+			"value": "{ color.green700 }"
 		},
 		"notice": {
-			"value": "{ color.gray400 }"
+			"value": "{ color.gray600 }"
 		},
 		"transparent": {
 			"value": "{ color.transparent }"

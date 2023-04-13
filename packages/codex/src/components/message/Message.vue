@@ -298,11 +298,11 @@ export default defineComponent( {
 
 	&--warning {
 		.cdx-message__icon {
-			.cdx-mixin-css-icon( @cdx-icon-alert, @border-color-warning );
+			.cdx-mixin-css-icon( @cdx-icon-alert, @color-warning );
 		}
 
 		.cdx-message__icon--vue {
-			color: @border-color-warning;
+			color: @color-warning;
 		}
 	}
 

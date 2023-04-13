@@ -103,19 +103,19 @@ export default defineComponent( {
 
 	&__icon {
 		&--notice {
-			color: @color-subtle;
+			color: @color-notice;
 		}
 
 		&--error {
-			color: @border-color-error;
+			color: @color-error;
 		}
 
 		&--warning {
-			color: @border-color-warning;
+			color: @color-warning;
 		}
 
 		&--success {
-			color: @border-color-success;
+			color: @color-success;
 		}
 	}
 
