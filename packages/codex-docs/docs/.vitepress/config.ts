@@ -41,6 +41,10 @@ function filterComponents( items: DefaultTheme.SidebarItem[] ): DefaultTheme.Sid
 
 export default defineConfigWithTheme<CustomConfig>( {
 	lang: 'en-US',
+	// Tell VitePress not to set dir="ltr" on the <html> tag, as this breaks our
+	// bidi hacks. We can't remove the dir attribute entirely, but setting it to
+	// "auto" is good enough.
+	dir: 'auto',
 	title: 'Codex',
 	description: 'Toolkit for building user interfaces within the Wikimedia Design System',
 	base: process.env.CODEX_DOC_ROOT || '/',
