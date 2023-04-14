@@ -27,6 +27,13 @@
 			}
 		},
 		{
+			"files": [ "**/*.ts", "**/*.js" ],
+			"excludedFiles": "src/**",
+			"rules": {
+				"es-x/no-string-prototype-matchall": "off"
+			}
+		},
+		{
 			"files": [ "**/*.js" ],
 			"excludedFiles": "src/**",
 			"rules": {
