@@ -143,8 +143,6 @@ export default defineComponent( {
 	// Custom-styled radio that's visible to the user.
 	&__icon {
 		border-radius: @border-radius-circle;
-		transition-property: @transition-property-base;
-		transition-duration: @transition-duration-base;
 
 		// Add `:focus` state's inner circle.
 		&::before {
@@ -164,6 +162,10 @@ export default defineComponent( {
 	// `span`, which will look like a custom-styled radio.
 	&__input {
 		&:enabled {
+			& + .cdx-checkbox__icon {
+				border-color: @border-color-input-binary;
+			}
+
 			// Note: there is no focus behavior for the input in its unchecked state because you
 			// can't focus on it without selecting it.
 			&:hover + .cdx-radio__icon {
