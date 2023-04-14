@@ -37,7 +37,8 @@
 		"build:less": "node ./buildIconsLess.js",
 		"build:svg": "cp -a src/images dist/",
 		"build-if-missing": "test -e dist/codex-icons.json || npm run build",
-		"lint": "npm run lint:ts",
+		"lint": "npm run lint:svg && npm run lint:ts",
+		"lint:svg": "svglint --ci src/images/*.svg",
 		"lint:ts": "tsc --noEmit --emitDeclarationOnly false",
 		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder ./src/images",
 		"test": "npm run lint && npm run build && npm run test:clean-git && npm run test:unit",
@@ -54,6 +55,7 @@
 		"@types/jest": "^27.0.2",
 		"glob": "^10.0.0",
 		"jest": "^27.3.1",
+		"svglint": "^2.3.1",
 		"svgo": "^3.0.2",
 		"typescript": "^4.9.4",
 		"vite": "^4.2.1"
