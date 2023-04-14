@@ -180,9 +180,7 @@ exports[`matches the snapshot Case 4 success message: ({"type": "success"}) => H
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            clip-rule="evenodd"
-            d="M10 20a10 10 0 100-20 10 10 0 000 20Zm-2-5 9-8.5L15.5 5 8 12 4.5 8.5 3 10l5 5Z"
-            fill-rule="evenodd"
+            d="M10 20a10 10 0 010-20 10 10 0 110 20Zm-2-5 9-8.5L15.5 5 8 12 4.5 8.5 3 10l5 5Z"
           />
         </g>
       </svg>
