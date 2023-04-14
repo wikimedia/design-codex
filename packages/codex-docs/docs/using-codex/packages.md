@@ -57,7 +57,7 @@ The icons package exports the following things:
 
 ### Files
 Releases of the icons package contain the following files:
-- `codex-icons.es.js`: ES module build, which uses ES6 `import` and `export` syntax.
+- `codex-icons.mjs`: ES module build, which uses ES6 `import` and `export` syntax.
 - `codex-icons.umd.js`: UMD build. Can be used in CommonJS or AMD environments, or to put the
   icons in the global scope.
   - If CommonJS is detected, it `exports.cdxIconAlert = ...`
