@@ -1,3 +1,10 @@
+/**
+ * Vite config for building all the demos as one library file. This builds
+ * 'dist/codex-demos.js' and friends.
+ *
+ * For the Vite config used by the Codex docs site based on VitePress, see 'docs/vite.config.ts'.
+ */
+
 import { defineConfig, Alias } from 'vite';
 import codexBaseConfig from '../codex/vite-base.config';
 

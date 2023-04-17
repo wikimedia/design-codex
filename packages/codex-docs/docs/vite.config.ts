@@ -1,3 +1,7 @@
+/**
+ * Vite config for the Codex docs site based on VitePress.
+ */
+
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
