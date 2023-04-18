@@ -134,3 +134,35 @@ Attributes (except for `class`) will fall through to the input element, so you c
 
 </template>
 </cdx-demo-wrapper>
+
+## CSS-only version
+
+### Markup structure
+
+There is no true CSS-only version of the Lookup component. However, a
+[CSS-only TextInput component](./text-input.md#css-only-version) can be used instead, since it has
+visual parity with the Lookup component with its menu collapsed. For example, you could display a
+CSS-only TextInput on page load while a Vue app loads, then replace it with the Vue Lookup component once the Vue app has mounted.
+
+The example below is a simple text input with a placeholder, but icons and different states are
+supported—see the [TextInput docs](./text-input.md#css-only-version) for more information.
+
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-text-input">
+		<input class="cdx-text-input__input" type="text" placeholder="Start typing a vegetable name...">
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<!-- Wrapper div. -->
+<div class="cdx-text-input">
+	<!-- Input element with CSS class and attributes. -->
+	<input class="cdx-text-input__input" type="text" placeholder="Start typing a vegetable name...">
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
