@@ -1,5 +1,6 @@
 ---
 aside: false
+outline: false
 isHomepage: true
 ---
 <script setup>
