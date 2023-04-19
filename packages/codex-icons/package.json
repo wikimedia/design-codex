@@ -49,7 +49,6 @@
 		"postpublish": "rm codex-icon-paths.less"
 	},
 	"devDependencies": {
-		"@rollup/pluginutils": "^5.0.2",
 		"@rollup/plugin-typescript": "^11.1.0",
 		"@types/estree": "^1.0.0",
 		"@types/jest": "^27.0.2",

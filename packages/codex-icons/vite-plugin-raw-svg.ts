@@ -1,7 +1,6 @@
-import { Plugin } from 'vite';
+import { createFilter, Plugin, FilterPattern } from 'vite';
 import { promises } from 'fs';
 import { parse } from 'path';
-import { createFilter, FilterPattern } from '@rollup/pluginutils';
 import { optimize } from 'svgo';
 import removeSvgTag from './svgo-plugin-removeSvgTag';
 

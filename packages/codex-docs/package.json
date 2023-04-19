@@ -31,7 +31,6 @@
 		"vue": "^3.2.37"
 	},
 	"devDependencies": {
-		"@rollup/pluginutils": "^5.0.2",
 		"@types/escape-html": "^1.0.1",
 		"@types/jest": "^27.0.2",
 		"@types/prismjs": "^1.26.0",

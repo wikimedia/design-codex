@@ -1,8 +1,8 @@
-/** @typedef {import('@rollup/pluginutils').FilterPattern} FilterPattern */
+/** @typedef {import('vite').FilterPattern} FilterPattern */
 /** @typedef {import('postcss').Plugin} Plugin */
 /** @typedef {{ include?: FilterPattern, exclude?: FilterPattern, plugin: Plugin }} PluginOptions */
 
-const { createFilter } = require( '@rollup/pluginutils' );
+const { createFilter } = require( 'vite' );
 
 /**
  * @param {PluginOptions} options
