@@ -2,11 +2,13 @@
 import { version } from '../../../codex/package.json';
 </script>
 
+<style>
+/* stylelint-disable selector-class-pattern */
+</style>
+
 # Usage
-:::warning
-Codex is incomplete and still under active development. It's ready for production use, but some
-commonly needed components and features have not been implemented yet.
-:::
+
+This page describes how to use the different NPM packages available as part of Codex. Read more about [the different packages and their contents](./packages.md).
 
 ::: tip Using Codex in MediaWiki?
 Visit the [Codex docs on mediawiki.org](https://www.mediawiki.org/wiki/Codex) for more instructions
@@ -14,9 +16,12 @@ specific to use of the library within MediaWiki.
 :::
 
 ## Installation
-Install the `@wikimedia/codex` and `@wikimedia/codex-icons` packages from NPM:
-```
-npm install --save-dev @wikimedia/codex @wikimedia/codex-icons
+Install the following packages from NPM:
+- `@wikimedia/codex`
+- `@wikimedia/codex-design-tokens`
+- `@wikimedia/codex-icons`
+```bash
+npm install --save-dev @wikimedia/codex @wikimedia/codex-design-tokens @wikimedia/codex-icons
 ```
 Some projects may not need the icons package, but most do.
 
@@ -83,9 +88,48 @@ For more information about icons, see [the icon documentation](../icons/overview
 [the list of all icons](../icons/all-icons.md).
 
 ## Using design tokens
-The design tokens are not yet ready for external use at this time.
+Import the appropriate design tokens theme file in your CSS, Less, or SCSS code to access Codex
+design tokens.
 
-Read more about [the different packages and their contents](./packages.md).
+### Sample CSS usage
+
+```css
+@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui.css';
+
+.my-custom-element {
+	background-color: var( --background-color-interactive );
+	padding: var( --spacing-25 ) var( --spacing-50 );
+}
+```
+
+### Sample Less usage
+
+```less
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.my-custom-element {
+	background-color: @background-color-interactive;
+	padding: @spacing-25 @spacing-50;
+}
+```
+
+For more information about design tokens, see the [design tokens overview](../design-tokens/overview.md)
+and design tokens demo pages (e.g. [Color](../design-tokens/color.md)).
+
+## Using Less mixins
+Import the following in your Less code:
+1. The appropriate design tokens theme file (this must be imported first for all Less mixins)
+2. The Less mixin you want to use
+
+```less
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/link.less';
+
+.my-custom-link {
+	.cdx-mixin-link();
+}
+```
+
 ## Versioning
 Codex follows [the semantic versioning standard](https://semver.org/). The current version is
 `{{ version }}`. Subsequent versions will continue to be numbered `0.x.y`, until Codex is stable
@@ -110,3 +154,7 @@ to the surrounding direction. For more information on how bidirectionality is ha
 see [the icon documentation](../icons/overview.md#right-to-left-rtl-and-language-support).
 
 For more information on this topic, see [the developer documentation on bidirectionality](../contributing/contributing-code/developing-components#bidirectional-script-support).
+
+<style>
+/* stylelint-enable selector-class-pattern */
+</style>
