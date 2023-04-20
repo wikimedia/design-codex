@@ -3,8 +3,8 @@
 Codex is the design system for Wikimedia. Codex contains:
 
 - [**Design tokens**](../design-tokens/overview): for writing styles consistent with the [Codex Design Style Guide](./../style-guide/overview)
-- [**Vue 3 components**](../components/overview): for building usable, accessible, translatable [Vue 3](https://v3.vuejs.org/) applications
-- [**Icons**](../icons/overview): a collection of icons with language and directionality variants
+- [**UI components**](../components/overview): for building usable, accessible, translatable applications.
+- [**Icons**](../icons/overview): a collection of icons with language and directionality variants.
 
 Codex features:
 - Wide-ranging support for internationalization and global usage

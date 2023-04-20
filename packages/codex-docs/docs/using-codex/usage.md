@@ -26,18 +26,20 @@ npm install --save-dev @wikimedia/codex @wikimedia/codex-design-tokens @wikimedi
 Some projects may not need the icons package, but most do.
 
 You will also need to [install Vue.js](https://vuejs.org/guide/quick-start.html) in order to use
-Codex components.
+Codex Vue components.
 
 ## Using components
+
+### Vue 3 components
 Import the components you need from the `@wikimedia/codex` package, and pass them into the
 `components` setting of your component:
 ```vue
 <template>
-  <div>
-    <cdx-button action="progressive" weight="primary">
-      Click me!
-    </cdx-button>
-  </div>
+	<div>
+		<cdx-button action="progressive" weight="primary">
+			Click me!
+		</cdx-button>
+	</div>
 </template>
 
 <script>
@@ -45,26 +47,45 @@ import { defineComponent } from 'vue';
 import { CdxButton } from '@wikimedia/codex';
 
 export default defineComponent( {
-  components: {
-    CdxButton
-  },
-  // ...
+	components: {
+		CdxButton
+	},
+	// ...
 } );
 </script>
 ```
+
 Find documentation for individual components in the “Components” section. For example,
 the documentation for `CdxButton` is at [“Button” page](../components/demos/button.md).
 
+### CSS-only components
+
+Output the HTML of the component with the appropriate CSS classes (see the component page's
+"CSS-only version" section for details, e.g. for the [CSS-only Button](../components/demos/button.md#css-only-version)). Load `codex.style.css` or `codex.style-rtl.css` depending on the reading
+direction of the page (read more about [Codex CSS files](./packages.md#files) and
+[bidirectionality support](#bidirectionality-support)).
+
+```html
+<button class="cdx-button cdx-button--action-progressive cdx-button--weight-primary">
+  Save
+</button>
+```
+
 ## Using icons
+
+For more information about icons, see [the icon documentation](../icons/overview.md), and
+[the list of all icons](../icons/all-icons.md).
+
+### Vue 3 icons
 Import the icons you need from the `@wikimedia/codex-icons` package, put them in your component's
 `data`, then pass them to a Codex component as a prop:
 ```vue
 <template>
-  <div>
-    <cdx-button action="destructive">
-      <cdx-icon :icon="cdxIconTrash" /> Delete this item
-    </cdx-button>
-  </div>
+	<div>
+		<cdx-button action="destructive">
+			<cdx-icon :icon="cdxIconTrash" /> Delete this item
+		</cdx-button>
+	</div>
 </template>
 
 <script>
@@ -73,19 +94,50 @@ import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconTrash } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
-  components: {
-    CdxButton,
-    CdxIcon
-  },
-  data: () => ( {
-    cdxIconTrash
-  } ),
-  // ...
+	components: {
+		CdxButton,
+		CdxIcon
+	},
+	data: () => ( {
+		cdxIconTrash
+	} ),
+	// ...
 } );
 </script>
 ```
-For more information about icons, see [the icon documentation](../icons/overview.md), and
-[the list of all icons](../icons/all-icons.md).
+
+For more information about the Icon component, see [the Icon demo page](../components/demos/icon.md).
+
+### CSS-only icons
+Import Codex design tokens and the CSS icon mixin. Then, apply the mixin to an empty `<span>`
+element.
+
+```html
+<!-- Standalone icon. -->
+<span class="my-icon-class--map-pin"></span>
+<button class="cdx-button cdx-button--action-destructive">
+	<!-- Icon inside a button. -->
+	<span class="my-icon-class--trash"></span>
+	Delete
+</button>
+```
+
+```less
+@import (reference) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import (reference) '@wikimedia/codex/mixins/css-icon.less';
+
+.my-icon-class {
+	&--map-pin {
+		.cdx-mixin-css-icon( @cdx-icon-map-pin );
+	}
+
+	&--trash {
+		.cdx-mixin-css-icon( @cdx-icon-trash, @param-is-button-icon: true );
+	}
+}
+```
+
+For more information about the CSS-only icon, see [the Icon demo page](../components/demos/icon.md#css-only-version).
 
 ## Using design tokens
 Import the appropriate design tokens theme file in your CSS, Less, or SCSS code to access Codex
