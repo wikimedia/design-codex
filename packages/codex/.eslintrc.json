@@ -39,7 +39,7 @@
 			}
 		},
 		{
-			"files": [ "**/*.js" ],
+			"files": [ "**/*.js", "**/*.mjs" ],
 			"excludedFiles": "src/**",
 			"rules": {
 				"jsdoc/valid-types": "off"
@@ -75,6 +75,18 @@
 			"extends": [
 				"plugin:cypress/recommended"
 			]
+		},
+		{
+			"files": [ "*.mjs" ],
+			"parserOptions": {
+				"sourceType": "module"
+			},
+			"rules": {
+				"no-underscore-dangle": "off"
+			},
+			"env": {
+				"node": true
+			}
 		}
 	],
 	"ignorePatterns": [

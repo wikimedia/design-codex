@@ -26,6 +26,18 @@
 			"rules": {
 				"jsdoc/valid-types": "off"
 			}
+		},
+		{
+			"files": [ "*.mjs" ],
+			"parserOptions": {
+				"sourceType": "module"
+			},
+			"rules": {
+				"no-underscore-dangle": "off"
+			},
+			"env": {
+				"node": true
+			}
 		}
 	]
 }

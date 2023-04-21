@@ -14,7 +14,7 @@
 		"vitepress:dev": "vitepress dev docs ${npm_config_port+--port=${npm_config_port}}",
 		"docgen:build": "node -e \"require( 'fs-extra' ).emptyDir( 'docs/components/demos/' );\" && vue-docgen",
 		"docgen:dev": "vue-docgen --watch",
-		"demos:build": "vite build --mode=legacy-rtl && vite build --mode=legacy && vite build --mode=rtl && vite build",
+		"demos:build": "node build.mjs",
 		"lint": "npm run lint:ts",
 		"lint:ts": "vue-tsc --noEmit",
 		"test": "npm run lint && npm run build && npm -s run test:unit",

@@ -1,8 +1,15 @@
 import { defineConfig } from 'vite';
-import codexBaseConfig from '../codex/vite-base.config';
+import vue from '@vitejs/plugin-vue';
 
-module.exports = defineConfig( ( env ) => {
-	return codexBaseConfig( env, {
-		libName: 'codex-search'
-	} );
+// See build.mjs for build settings; this file is only used during dev mode
+module.exports = defineConfig( () => {
+	return {
+		server: {
+			host: '0.0.0.0'
+		},
+
+		plugins: [
+			vue()
+		]
+	};
 } );

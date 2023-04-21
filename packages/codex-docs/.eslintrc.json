@@ -34,6 +34,18 @@
 				"jsdoc/valid-types": "off",
 				"jsdoc/no-undefined-types": "off"
 			}
+		},
+		{
+			"files": [ "*.mjs" ],
+			"parserOptions": {
+				"sourceType": "module"
+			},
+			"rules": {
+				"no-underscore-dangle": "off"
+			},
+			"env": {
+				"node": true
+			}
 		}
 	],
 	"ignorePatterns": [
