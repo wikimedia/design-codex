@@ -1,3 +1,31 @@
+# 0.9.1 / 2023-04-25
+## Styles
+- binary inputs: Move `border-color` to enabled and transitions to mixin (Volker E)
+- TextArea: Add base and state styles (LWatson)
+- tokens: Add 'Green 500', shuffle value of 'Green 600' and new 'Green 700' (Volker E)
+- tokens, Message, InfoChip: Use darker border colors (Volker E)
+- icons: Fix 'function', 'functionArgument', 'instance' and 'literal' fill (Volker E)
+- icons: Remove unnecessary code from .svg icon files (thiemowmde)
+
+## Code
+- tests: Add test asserting that all icon .svg files are used (Roan Kattouw)
+- tests: Import component files directly, not from lib.ts (Roan Kattouw)
+- build: Update Vite, Vitepress, and related libraries (Eric Gardner)
+- build: Updating node version equal to CI's (Volker E)
+- build: Add svglint for icon files (Roan Kattouw)
+- build: Remove dependency on @rollup/pluginutils (Roan Kattouw)
+- build: Add documentation comments to build-related files in codex-docs (Roan Kattouw)
+- build, docs: Fix references to .es.js files that now have .mjs names (Roan Kattouw)
+
+## Documentation
+- docs: Add missing mixin import to CSS-only TextInput examples (Roan Kattouw)
+- docs: Update RELEASING.md (Eric Gardner)
+- docs: Unbreak RTL demos broken by VitePress upgrade (Roan Kattouw)
+- Lookup: Add docs for CSS-only support (Anne Tomasevich)
+- docs: Remove outline on home page (Anne Tomasevich)
+- docs: Update tokens docs and remove warning about Codex status (Anne Tomasevich)
+- docs: document useModelWrapper composable (Sergio Gimeno)
+
 # 0.9.0 / 2023-04-11
 
 ## Breaking
