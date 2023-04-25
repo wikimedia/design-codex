@@ -2,13 +2,13 @@
 
 This page outlines the steps that collaborators should follow to contribute a new design or design improvement to Codex’s icon library.
 
-![Wikimedia Design System icon collection excerpt](../assets/designing-icons/designing-icons.png)
+![Codex icon collection excerpt](../assets/designing-icons/designing-icons.png)
 
 ## 1. Report and validate
 
 ### 1.1. Create a new task in Phabricator
 
-In order to validate the need to design or redesign an icon for Wikimedia design system, a new Phabricator task needs to be created. Use this [icon creation task template][icon-creation-phab-template] to file the task, and provide as much information as possible.
+In order to validate the need to design or redesign an icon for the Codex design system, a new Phabricator task needs to be created. Use this [icon creation task template][icon-creation-phab-template] to file the task, and provide as much information as possible.
 
 ### 1.2. Review the task with the Design System Team (DST)
 

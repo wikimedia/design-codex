@@ -2,7 +2,7 @@
 
 This page outlines the steps that collaborators should follow in order to contribute a new Codex component.
 
-![Wikimedia Design System components collection excerpt](../assets/designing-new-components/designing-components.png)
+![Codex components collection excerpt](../assets/designing-new-components/designing-components.png)
 
 ## 1. Report and validate
 

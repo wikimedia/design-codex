@@ -46,7 +46,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 	// "auto" is good enough.
 	dir: 'auto',
 	title: 'Codex',
-	description: 'Toolkit for building user interfaces within the Wikimedia Design System',
+	description: 'Design system for Wikimedia',
 	base: process.env.CODEX_DOC_ROOT || '/',
 	// Disable dark mode.
 	appearance: false,
@@ -67,6 +67,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 		nav: [
 			{ text: 'Using Codex', link: '/using-codex/about', activeMatch: '/using-codex/' },
 			{ text: 'Contributing', link: '/contributing/overview', activeMatch: '/contributing/' },
+			{ text: 'Style Guide', link: '/style-guide/overview', activeMatch: '/style-guide/' },
 			{ text: 'Toolkit', items: [
 				{ text: 'Design Tokens', link: '/design-tokens/overview', activeMatch: '/design-tokens/' },
 				{ text: 'Components', link: '/components/overview', activeMatch: '/components/' },
@@ -141,6 +142,14 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Testing components', link: '/contributing/contributing-code/testing-components' },
 						{ text: 'Component demos', link: '/contributing/contributing-code/component-demos' },
 						{ text: 'Working with TypeScript', link: '/contributing/contributing-code/typescript' }
+					]
+				}
+			],
+			'/style-guide/': [
+				{
+					text: 'Style Guide',
+					items: [
+						{ text: 'Overview', link: '/style-guide/overview' }
 					]
 				}
 			],

@@ -15,12 +15,12 @@ import CdxDocsVersionBanner from '../src/components/version-banner/VersionBanner
 <div class="cdx-docs-home__hero">
 	<cdx-icon class="cdx-docs-home__hero__icon" :icon="cdxIconLogoWikimedia" />
 	<h1 class="cdx-docs-home__hero__title">Codex</h1>
-	<p class="cdx-docs-home__hero__tagline">Wikimedia Design System Toolkit</p>
+	<p class="cdx-docs-home__hero__tagline">Wikimedia Design System</p>
 </div>
 
 <cdx-docs-version-banner />
 
-**Codex is a toolkit for building user interfaces within the Wikimedia Design System.**<br>
+**Codex is the design system for Wikimedia.**<br>
 Current version: **{{ version }}**
 
 Codex is maintained by the [Design Systems Team](https://www.mediawiki.org/wiki/Design_Systems_Team)
@@ -42,7 +42,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 <div class="cdx-docs-home__features">
 	<cdx-card url="./design-tokens/overview.html" :icon="cdxIconPalette">
 		<template #title>Design tokens</template>
-		<template #description>Write styles consistent with the Wikimedia Design System</template>
+		<template #description>Write styles consistent with the Wikimedia Codex Design Style Guide</template>
 	</cdx-card>
 	<cdx-card url="./components/overview.html" :icon="cdxIconPuzzle">
 		<template #title>Components</template>
@@ -54,7 +54,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 	</cdx-card>
 	<cdx-card url="./composables/overview.html" :icon="cdxIconFunction">
 		<template #title>Composables</template>
-		<template #description>Re-use logic and apply common patterns from Wikimedia Design System</template>
+		<template #description>Re-use logic and apply common patterns from the Codex codebase</template>
 	</cdx-card>
 </div>
 
