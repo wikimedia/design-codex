@@ -80,6 +80,7 @@ export default defineComponent( {
 	}
 
 	&__inner {
+		// TODO: This is semantically incorrect, there needs to be a static token.
 		background-color: @background-color-progressive;
 	}
 

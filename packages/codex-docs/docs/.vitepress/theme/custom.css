@@ -358,7 +358,7 @@ body {
 /* Syntax highlighting and code. ------------------------------------------- */
 
 .vp-doc :not( pre ) > code {
-	background-color: var( --background-color-interactive );
+	background-color: var( --background-color-neutral );
 	border-radius: var( --border-radius-base );
 	padding: var( --spacing-12 ) var( --spacing-25 );
 }
@@ -435,7 +435,7 @@ body {
 
 /* stylelint-disable-next-line no-descending-specificity */
 .vp-doc .custom-block code {
-	background-color: var( --background-color-interactive );
+	background-color: var( --background-color-neutral );
 	/* VitePress uses bold for `code` in warnings by default?! */
 	font-weight: var( --font-weight-normal );
 }

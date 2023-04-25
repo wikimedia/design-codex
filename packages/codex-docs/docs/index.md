@@ -98,6 +98,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 	}
 
 	&__hero {
+		// TODO: This is semantically incorrect, there needs to be a static token.
 		background-color: @background-color-progressive;
 		color: @color-inverted;
 		// Equals 100% + ( 2 * negative margin per side ).

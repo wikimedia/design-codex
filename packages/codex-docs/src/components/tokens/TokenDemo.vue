@@ -130,6 +130,7 @@ export default defineComponent( {
 	}
 
 	&--cursor &__token {
+		// TODO: This is semantically incorrect, there needs to be a static token.
 		background-color: @background-color-progressive;
 		width: @size-300;
 		height: @size-300;
@@ -157,7 +158,7 @@ export default defineComponent( {
 		border: @border-base;
 
 		&__inner {
-			background-color: @background-color-disabled-subtle;
+			background-color: @background-color-neutral-subtle;
 			width: @size-full;
 			height: @size-full;
 		}

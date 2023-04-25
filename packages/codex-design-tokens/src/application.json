@@ -5,10 +5,7 @@
 		}
 	},
 	"background-color": {
-		"comment": "Background Colors",
-		"base": {
-			"value": "{ color.white }"
-		},
+		"comment": "Background Colors (interactive)",
 		"interactive": {
 			"value": "{ color.gray200 }"
 		},
@@ -81,8 +78,18 @@
 		"backdrop-dark": {
 			"value": "{ color.opacity-medium-dark }"
 		},
+		"base": {
+			"comment": "Background Colors for static elements (for page layout, sections, etc.) from here on.",
+			"value": "{ color.white }"
+		},
+		"neutral": {
+			"value": "{ color.gray200 }"
+		},
+		"neutral-subtle": {
+			"value": "{ color.gray100 }"
+		},
 		"transparent": {
-			"value": "{ color.transparent-light }"
+			"value": "{ color.transparent }"
 		}
 	},
 	"color": {
