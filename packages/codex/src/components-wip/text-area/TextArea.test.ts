@@ -17,7 +17,8 @@ describe( 'TextArea', () => {
 			[ 'with modelValue prop and no attributes', { modelValue: 'Earth Day' } ],
 			[ 'with attributes', { }, { placeholder: 'Start typing...' } ],
 			[ 'with disabled as true', { modelValue: 'Earth Day' }, { placeholder: 'Start typing...', disabled: true } ],
-			[ 'with readonly as true', { modelValue: 'Earth Day' }, { placeholder: 'Start typing...', readonly: true } ]
+			[ 'with readonly as true', { modelValue: 'Earth Day' }, { placeholder: 'Start typing...', readonly: true } ],
+			[ 'with error status', { status: 'error' }, { placeholder: 'Start typing...' } ]
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, attrs = {} ) => {

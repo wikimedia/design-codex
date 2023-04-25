@@ -44,3 +44,14 @@ exports[`TextArea matches the snapshot Case 3 with readonly as true: ({"modelVal
   />
 </div>
 `;
+
+exports[`TextArea matches the snapshot Case 4 with error status: ({"status": "error"}) => HTML 1`] = `
+<div
+  class="cdx-text-area cdx-text-area--status-error"
+>
+  <textarea
+    class="cdx-text-area__textarea"
+    placeholder="Start typing..."
+  />
+</div>
+`;

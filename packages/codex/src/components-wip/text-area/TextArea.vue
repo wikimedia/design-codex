@@ -154,7 +154,13 @@ export default defineComponent( {
 	}
 
 	&--status-error {
-		// TODO: Add styles for error status
+		.cdx-text-area__textarea:enabled {
+			border-color: @border-color-error;
+
+			&:focus {
+				border-color: @border-color-progressive--focus;
+			}
+		}
 	}
 }
 </style>
