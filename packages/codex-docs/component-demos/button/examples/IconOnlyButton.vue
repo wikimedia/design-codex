@@ -1,6 +1,6 @@
 <template>
 	<cdx-button aria-label="Back">
-		<cdx-icon :icon="cdxIconPrevious" />
+		<cdx-icon :icon="cdxIconPrevious" @click="onClick" />
 	</cdx-button>
 </template>
 
@@ -8,6 +8,7 @@
 import { defineComponent } from 'vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconPrevious } from '@wikimedia/codex-icons';
+import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'IconOnlyButton',
@@ -16,8 +17,11 @@ export default defineComponent( {
 		CdxIcon
 	},
 	setup() {
+		const onClick = getEventLogger<Event>( 'click' );
+
 		return {
-			cdxIconPrevious
+			cdxIconPrevious,
+			onClick
 		};
 	}
 } );

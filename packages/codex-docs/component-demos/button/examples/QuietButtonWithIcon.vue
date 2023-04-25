@@ -1,6 +1,6 @@
 <template>
 	<cdx-button weight="quiet">
-		<cdx-icon :icon="cdxIconDownload" /> Download
+		<cdx-icon :icon="cdxIconDownload" @click="onClick" /> Download
 	</cdx-button>
 </template>
 
@@ -8,6 +8,7 @@
 import { defineComponent } from 'vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconDownload } from '@wikimedia/codex-icons';
+import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'QuietButtonWithIcon',
@@ -16,8 +17,11 @@ export default defineComponent( {
 		CdxIcon
 	},
 	setup() {
+		const onClick = getEventLogger<Event>( 'click' );
+
 		return {
-			cdxIconDownload
+			cdxIconDownload,
+			onClick
 		};
 	}
 } );
