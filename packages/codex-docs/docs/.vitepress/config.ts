@@ -67,9 +67,12 @@ export default defineConfigWithTheme<CustomConfig>( {
 		nav: [
 			{ text: 'Using Codex', link: '/using-codex/about', activeMatch: '/using-codex/' },
 			{ text: 'Contributing', link: '/contributing/overview', activeMatch: '/contributing/' },
-			{ text: 'Design Tokens', link: '/design-tokens/overview', activeMatch: '/design-tokens/' },
-			{ text: 'Components', link: '/components/overview', activeMatch: '/components/' },
-			{ text: 'Icons', link: '/icons/overview', activeMatch: '/icons/' }
+			{ text: 'Toolkit', items: [
+				{ text: 'Design Tokens', link: '/design-tokens/overview', activeMatch: '/design-tokens/' },
+				{ text: 'Components', link: '/components/overview', activeMatch: '/components/' },
+				{ text: 'Icons', link: '/icons/overview', activeMatch: '/icons/' },
+				{ text: 'Composables', link: '/composables/overview', activeMatch: '/composables/' }
+			] }
 		],
 
 		socialLinks: [
