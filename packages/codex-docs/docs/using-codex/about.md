@@ -2,7 +2,7 @@
 
 Codex is the design system for Wikimedia. Codex contains:
 
-- [**Design tokens**](../design-tokens/overview): for writing styles consistent with the [Codex Design Style Guide](./../style-guide/overview)
+- [**Design tokens**](../design-tokens/overview): for writing styles consistent with the [Codex Design Style Guide for Wikimedia](./../style-guide/overview)
 - [**UI components**](../components/overview): for building usable, accessible, translatable applications.
 - [**Icons**](../icons/overview): a collection of icons with language and directionality variants.
 

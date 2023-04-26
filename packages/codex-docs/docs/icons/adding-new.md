@@ -15,9 +15,9 @@ const cdxIconListNumberedWronglyFlipped = {
 
 # Adding new icons
 
-This guide assumes you've already read through and designed your new icon according to the Design
-Style Guide's [icon principles](https://design.wikimedia.org/style-guide/visual-style_icons.html#principles),
-the [visual style guidelines](https://design.wikimedia.org/style-guide/visual-style_icons.html#visual-style)
+This guide assumes you've already read through and designed your new icon according to the
+style guide's [icon principles](../style-guide/icons.md#principles),
+the [visual style guidelines](../style-guide/icons.md#visual-style)
 and perhaps even followed the [template for creating](
 https://design.wikimedia.org/style-guide/visual-style_icons.html#creating-icons) the new one before
 arriving on this page.

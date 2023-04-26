@@ -151,6 +151,15 @@ export default defineConfigWithTheme<CustomConfig>( {
 					items: [
 						{ text: 'Overview', link: '/style-guide/overview' }
 					]
+				},
+				{
+					text: 'Visual Styles',
+					items: [
+						{ text: 'Colors', link: '/style-guide/colors' },
+						{ text: 'Typography', link: '/style-guide/typography' },
+						{ text: 'Icons', link: '/style-guide/icons' },
+						{ text: 'Images', link: '/style-guide/images' }
+					]
 				}
 			],
 			'/design-tokens/': [

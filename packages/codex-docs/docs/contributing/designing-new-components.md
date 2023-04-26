@@ -28,7 +28,7 @@ The designer in charge of creating the new system component should start by chec
 
 - [Codex component demos](../components/overview.md) and [Codex components Figma library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420): verify whether the needed component has already been designed, or whether it can be designed based on or as a combination of any of the existing Codex elements
 - [OOUI demo site](https://doc.wikimedia.org/oojs-ui/master/demos/?page=widgets&theme=wikimediaui&direction=ltr&platform=desktop) and [OOUI components Figma library](https://www.figma.com/file/2Jb1lVkhEMDFxO20I5xwyA/%E2%9D%96-OOUI-components?node-id=1891%3A4420&viewport=0%2C0%2C1): see if this component exists in the OOUI library, which is an important source of guidance for designers
-- [Design Style Guide](https://design.wikimedia.org/style-guide/visual-style.html): understand the visual foundations of our Design System
+- [Style guide](../style-guide/overview): understand the visual foundations of our Design System
 - [Wikimedia web products](https://www.wikimedia.org/): detect current use cases of the component in the different Wikimedia products
 
 Designers should start collecting, analyzing and comparing similar instances (either implemented or designed) of the new component: that is, components of the same category, or elements with shared characteristics that can influence the design direction.
@@ -90,7 +90,7 @@ The latter scenario will require you to follow the steps of the design process o
 
 #### Defining the component’s visual style
 
-All system components should follow the visual guidelines defined in our [Design Style Guide](https://design.wikimedia.org/style-guide/visual-style.html), as reflected by our design tokens, and use system iconography.
+All system components should follow the visual guidelines defined in our [style guide](../style-guide/overview.html), as reflected by our design tokens, and use system iconography.
 
 Here are some resources you can check to find Codex’s design tokens and icons:
 

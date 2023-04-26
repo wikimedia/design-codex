@@ -22,7 +22,7 @@ Start by observing and comparing the new and current use cases of the icon to gu
 
 - [List of all icons](../icons/all-icons.md): to access all the existing icons in our system.
 - [Icon Library Figma file](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Icon-System?node-id=0%3A1): check the design of our system's current icons.
-- [Design Style Guide](https://design.wikimedia.org/style-guide/visual-style_icons.html): understand the visual style that the new icon should follow.
+- [Style guide](../style-guide/icons): understand the visual style that the new icon should follow.
 - Wikimedia web products: find current (and future) use cases where we use this icon.
 
 Collect and compare use cases to detect requirements. Detect similar icons and consider their properties: they should influence design decisions to make the new icon consistent with the rest of icons in our iconography.
@@ -48,7 +48,7 @@ Include the following information in the design exploration file:
 
 ### 3.2. Design the icon following Wikimedia’s guidelines
 
-While designing the icon, follow the principles and visual styles described in our [Design Style Guide](https://design.wikimedia.org/style-guide/visual-style_icons.html). Wikimedia icons should be simple, neutral, monochromatic and front-facing.
+While designing the icon, follow the principles and visual styles described in our [style guide](../style-guide/icons). Wikimedia icons should be simple, neutral, monochromatic and front-facing.
 
 Icons will be designed on a 20px canvas, and be either solid or use a 2px stroke if they’re outlined.
 

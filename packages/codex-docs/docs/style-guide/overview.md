@@ -1,6 +1,6 @@
 # Overview
 
-The Wikimedia Codex Design Style Guide ensures a consistent look and behavior for our products.
+The Codex Design Style Guide for Wikimedia ensures a consistent look and behavior for our products.
 Our interfaces are our brand.
 
 These principles and guidelines aim to help designers and developers with their [Wikimedia](https://www.wikimedia.org/)
@@ -15,12 +15,12 @@ guide.
 
 Our multi-disciplinary team focuses on user experience design, user research, engineering, information architecture, human-computer interaction, and visual design.
 
-We follow design principles to provide solutions for visual identity, [user interface components](./../components/overview),
-and patterns.
+We follow design principles to provide solutions for [visual identity](./colors.md),
+[user interface components](./../components/overview), and patterns.
 
 ## Open to participate
 
-We encourage and welcome your collaboration and participation to evolve the Wikimedia Design Style Guide.
+We encourage and welcome your collaboration and participation to evolve the style guide.
 
 You can engage in many ways:
 - **Contribute.** Read [contribution guidelines](./../contributing/overview) if you want to

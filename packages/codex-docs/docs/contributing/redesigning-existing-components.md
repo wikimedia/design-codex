@@ -120,7 +120,7 @@ This scenario will require you to follow the same design process outlined in the
 
 #### Defining the component’s visual style
 
-All system components should follow the visual guidelines defined in our [Design Style Guide](https://design.wikimedia.org/style-guide/visual-style.html), as reflected by our design tokens, and use system iconography.
+All system components should follow the visual guidelines defined in our [style guide](../style-guide/overview.html), as reflected by our design tokens, and use system iconography.
 
 Some resources you can check to find Codex tokens and assets:
 

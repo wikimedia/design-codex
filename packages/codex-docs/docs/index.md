@@ -42,7 +42,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 <div class="cdx-docs-home__features">
 	<cdx-card url="./design-tokens/overview.html" :icon="cdxIconPalette">
 		<template #title>Design tokens</template>
-		<template #description>Write styles consistent with the Wikimedia Codex Design Style Guide</template>
+		<template #description>Write styles consistent with the Codex Design Style Guide for Wikimedia</template>
 	</cdx-card>
 	<cdx-card url="./components/overview.html" :icon="cdxIconPuzzle">
 		<template #title>Components</template>

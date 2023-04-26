@@ -11,7 +11,7 @@ We use tokens:
 ### From visual styles to tokens
 Design system components are made up of a combination of predefined perceptual patterns. These patterns result from the consistent application of preselected styles such as colors, shadows, or spacing values, to specific UI elements and properties like backgrounds, borders, or paddings.
 
-At its core, Codex is made up of a set of visual styles derived from the [Wikimedia Design style guide](https://design.wikimedia.org/style-guide/visual-style.html) principles. Colors, typography, shadows and spacings are aligned with the style guide, and documented as tokens in the system. Design tokens are thus the smallest building blocks of the system: they define, document and enable the application of systemic design decisions at scale.
+At its core, Codex is made up of a set of visual styles derived from the [style guide](../style-guide/overview) principles. Colors, typography, shadows and spacings are aligned with the style guide, and documented as tokens in the system. Design tokens are thus the smallest building blocks of the system: they define, document and enable the application of systemic design decisions at scale.
 
 ![step diagram from visual style to tokens](../assets/design-tokens-overview/what-are-design-tokens-from-visual-styles-to-tokens.png)
 
