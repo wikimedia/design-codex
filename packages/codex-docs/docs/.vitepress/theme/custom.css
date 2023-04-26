@@ -190,6 +190,13 @@ body {
 	opacity: var( --opacity-base );
 }
 
+/* Main nav dropdown menu. */
+.VPFlyout .VPMenu {
+	border-color: var( --border-color-base );
+	border-radius: var( --border-radius-base );
+	box-shadow: var( --box-shadow-drop-medium );
+}
+
 .VPSidebar .link .text,
 /* stylelint-disable-next-line no-descending-specificity */
 .VPDocAside .content {
