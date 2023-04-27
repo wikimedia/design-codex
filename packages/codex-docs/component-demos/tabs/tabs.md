@@ -1,4 +1,5 @@
 <script setup>
+import { ref, onMounted } from 'vue';
 import BasicTabs from '@/../component-demos/tabs/examples/BasicTabs.vue';
 import ManyTabs from '@/../component-demos/tabs/examples/ManyTabs.vue';
 import DynamicallyGeneratedTabs from '@/../component-demos/tabs/examples/DynamicallyGeneratedTabs.vue';
@@ -9,6 +10,15 @@ const controlsConfig = [
 		type: 'boolean'
 	}
 ];
+
+const url = ref( '' );
+const currentCssTabId = ref( '' );
+
+onMounted( () => {
+	url.value = window.location.href;
+	const searchParams = new URLSearchParams( window.location.search );
+	currentCssTabId.value = searchParams.get( 'tab' ) || 'form-tabs-1';
+} );
 </script>
 
 ## Demos
@@ -59,6 +69,159 @@ the header row will update to match.
 <template v-slot:code>
 
 <<< @/../component-demos/tabs/examples/DynamicallyGeneratedTabs.vue
+
+</template>
+</cdx-demo-wrapper>
+
+## CSS-only version
+
+### Markup structure
+
+This no-JS implementation of Tabs requires some logic on the server side to set the current tab:
+- On the back end, look for a URL query param indicating the current tab. If there isn't one, choose
+  a default tab.
+- In the markup or template, set `aria-selected` attributes on the tab list items and `aria-hidden`
+  on the tab sections based on the current tab. Codex styles will be applied according to these
+  ARIA attributes.
+- Add an `aria-activedescendant` attribute to the tabs list `<ul>` that equals the ID of the
+  current tab
+- Each tab list item contains a hidden form and submit input. When clicked, it will apply the
+  specified URL query param, reload the page, and show the new tab.
+
+To disable a tab:
+- Add the `cdx-tabs__list__item--disabled` class to the `<li>` element for that tab in the tabs list
+- Add the `disabled` attribute to that tab's submit input
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Wrapper div. -->
+	<div class="cdx-tabs">
+		<!-- Header with tab list. -->
+		<div class="cdx-tabs__header">
+			<!-- List of tabs. -->
+			<ul class="cdx-tabs__list" role="tablist" :aria-activedescendant="currentCssTabId">
+				<!-- Tab list item. -->
+				<li id="form-tabs-1-label" class="cdx-tabs__list__item">
+					<!-- Form with a hidden input. When the tab is clicked, the input will submit
+					the form and add the tab name as a URL query param. -->
+					<form method="get" :action="url">
+						<!-- Submit input, which will be visually hidden via CSS. -->
+						<input id="form-tabs-1-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-1">
+						<!-- Label with tab name. -->
+						<label for="form-tabs-1-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-1'">
+							Tab 1
+						</label>
+					</form>
+				</li>
+				<li id="form-tabs-2-label" class="cdx-tabs__list__item" role="tab">
+					<form method="get" :action="url">
+						<input id="form-tabs-2-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-2">
+						<label for="form-tabs-2-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-2'">
+							Tab 2
+						</label>
+					</form>
+				</li>
+				<!-- Disabled tab's list item has the `cdx-tabs__list__item--disabled` class. -->
+				<li id="form-tabs-3-label" class="cdx-tabs__list__item cdx-tabs__list__item--disabled" role="tab">
+					<form method="get" :action="url">
+						<!-- `disabled` attribute means this tab cannot be selected. -->
+						<input id="form-tabs-3-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-3" disabled>
+						<label for="form-tabs-3-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-3'">
+							Tab 3
+						</label>
+					</form>
+				</li>
+			</ul>
+		</div>
+		<!-- Tabs. -->
+		<div class="cdx-tabs__content">
+			<!-- <section> element for each tab, with any content inside. -->
+			<section id="form-tabs-1" :aria-hidden="currentCssTabId !== 'form-tabs-1'" aria-labelledby="form-tabs-1-label" class="cdx-tab" role="tabpanel" tabindex="-1">
+				Tab 1 content
+			</section>
+			<section id="form-tabs-2" :aria-hidden="currentCssTabId !== 'form-tabs-2'" aria-labelledby="form-tabs-2-label" class="cdx-tab" role="tabpanel" tabindex="-1">
+				Tab 2 content
+			</section>
+			<section id="form-tabs-3" :aria-hidden="currentCssTabId !== 'form-tabs-3'" aria-labelledby="form-tabs-3-label" class="cdx-tab" role="tabpanel" tabindex="-1">
+				Tab 3 content
+			</section>
+		</div>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<!-- Wrapper div. -->
+<div class="cdx-tabs">
+	<!-- Header with tab list. -->
+	<div class="cdx-tabs__header">
+		<!-- List of tabs. -->
+		<ul class="cdx-tabs__list" role="tablist" :aria-activedescendant="currentCssTabId">
+			<!-- Tab list item. -->
+			<li id="form-tabs-1-label" class="cdx-tabs__list__item">
+				<!-- Form with a hidden input. When the tab is clicked, the input will submit
+				the form and add the tab name as a URL query param. -->
+				<form method="get" :action="url">
+					<!-- Submit input, which will be visually hidden via CSS. -->
+					<input id="form-tabs-1-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-1">
+					<!-- Label with tab name. -->
+					<label for="form-tabs-1-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-1'">
+						Tab 1
+					</label>
+				</form>
+			</li>
+			<li id="form-tabs-2-label" class="cdx-tabs__list__item" role="tab">
+				<form method="get" :action="url">
+					<input id="form-tabs-2-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-2">
+					<label for="form-tabs-2-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-2'">
+						Tab 2
+					</label>
+				</form>
+			</li>
+			<!-- Disabled tab's list item has the `cdx-tabs__list__item--disabled` class. -->
+			<li id="form-tabs-3-label" class="cdx-tabs__list__item cdx-tabs__list__item--disabled" role="tab">
+				<form method="get" :action="url">
+					<!-- `disabled` attribute means this tab cannot be selected. -->
+					<input id="form-tabs-3-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-3" disabled>
+					<label for="form-tabs-3-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-3'">
+						Tab 3
+					</label>
+				</form>
+			</li>
+		</ul>
+	</div>
+	<!-- Tabs. -->
+	<div class="cdx-tabs__content">
+		<!-- <section> element for each tab, with any content inside. -->
+		<section id="form-tabs-1" :aria-hidden="currentCssTabId !== 'form-tabs-1'" aria-labelledby="form-tabs-1-label" class="cdx-tab" role="tabpanel" tabindex="-1">
+			Tab 1 content
+		</section>
+		<section id="form-tabs-2" :aria-hidden="currentCssTabId !== 'form-tabs-2'" aria-labelledby="form-tabs-2-label" class="cdx-tab" role="tabpanel" tabindex="-1">
+			Tab 2 content
+		</section>
+		<section id="form-tabs-3" :aria-hidden="currentCssTabId !== 'form-tabs-3'" aria-labelledby="form-tabs-3-label" class="cdx-tab" role="tabpanel" tabindex="-1">
+			Tab 3 content
+		</section>
+	</div>
+</div>
+```
+
+```js
+// Note: we're doing this in our client-side JS, but it should be done on the
+// back-end.
+import { onMounted } from 'vue';
+const url = ref( '' );
+const currentCssTabId = ref( '' );
+onMounted( () => {
+	// Grab the page URL so it can be used in the CSS-only Tabs markup.
+	url.value = window.location.href;
+	// Look for a URL query param called 'tab'. If it doesn't exist, default to
+	// the first tab. The currentCssTabId will be used in the CSS-only Tabs
+	// markup to highlight the active tab and display the proper tab content.
+	const searchParams = new URLSearchParams( window.location.search );
+	currentCssTabId.value = searchParams.get( 'tab' ) || 'form-tabs-1';
+} );
+```
 
 </template>
 </cdx-demo-wrapper>

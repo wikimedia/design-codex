@@ -94,6 +94,11 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-tab {
+	// For CSS-only tab.
+	&[ aria-hidden='true' ] {
+		display: none;
+	}
+
 	&:focus {
 		outline: @outline-base--focus;
 	}

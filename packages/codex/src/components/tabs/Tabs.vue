@@ -535,7 +535,7 @@ export default defineComponent( {
 
 <!-- eslint-disable max-len -->
 <style lang="less">
-/* stylelint-disable no-descending-specificity */
+/* stylelint-disable no-descending-specificity, max-nesting-depth */
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
@@ -605,13 +605,6 @@ export default defineComponent( {
 		height: @size-full;
 	}
 
-	// Keyboard nav indicator on Tabs header focus for framed and quiet.
-	& > &__header:focus .cdx-tabs__list__item--enabled.cdx-tabs__list__item--selected [ role='tab' ] {
-		box-shadow: @box-shadow-inset-medium @border-color-progressive;
-		// Clip link background color to border radius (framed).
-		overflow: hidden;
-	}
-
 	// Tabs list common styles.
 	&__list {
 		display: flex;
@@ -643,6 +636,11 @@ export default defineComponent( {
 				transition-property: @transition-property-base;
 				transition-duration: @transition-duration-base;
 
+				// Needed for CSS-only tabs where links are not used.
+				&:hover {
+					cursor: @cursor-base--hover;
+				}
+
 				&:focus {
 					border-top-left-radius: @border-radius-base;
 					border-top-right-radius: @border-radius-base;
@@ -650,7 +648,9 @@ export default defineComponent( {
 				}
 			}
 
-			&.cdx-tabs__list__item--selected [ role='tab' ] {
+			// Selectors are for Vue tabs then CSS-only tabs (form implementation).
+			&.cdx-tabs__list__item--selected [ role='tab' ],
+			[ aria-selected='true' ][ role='tab' ] {
 				cursor: @cursor-base;
 			}
 		}
@@ -695,9 +695,8 @@ export default defineComponent( {
 				margin-right: @spacing-50;
 			}
 
-			&--enabled {
+			&:not( .cdx-tabs__list__item--disabled ) {
 				// Single Framed Tab.
-				/* stylelint-disable max-nesting-depth */
 				[ role='tab' ] {
 					// Clip link background color to border radius.
 					overflow: hidden;
@@ -718,11 +717,14 @@ export default defineComponent( {
 					}
 				}
 
+				// Selectors are for Vue tabs then CSS-only tabs (form implementation).
 				&.cdx-tabs__list__item--selected [ role='tab' ],
-				&.cdx-tabs__list__item--selected [ role='tab' ]:hover {
-					background-color: @background-color-base;
+				& [ aria-selected='true' ][ role='tab' ] {
+					&,
+					&:hover {
+						background-color: @background-color-base;
+					}
 				}
-				/* stylelint-enable max-nesting-depth */
 			}
 
 			&--disabled [ role='tab' ] {
@@ -734,7 +736,7 @@ export default defineComponent( {
 	}
 
 	// Quiet Tabs.
-	&--quiet > &__header {
+	&:not( .cdx-tabs--framed ) > &__header {
 		background-color: @background-color-base;
 		margin: 0 @spacing-25;
 		// The border separating quiet Tabs header from Tab content.
@@ -762,9 +764,8 @@ export default defineComponent( {
 				margin-right: 0;
 			}
 
-			&--enabled {
+			&:not( .cdx-tabs__list__item--disabled ) {
 				// Single Quiet Tab.
-				/* stylelint-disable max-nesting-depth */
 				[ role='tab' ] {
 					color: @color-base;
 
@@ -782,29 +783,44 @@ export default defineComponent( {
 						box-shadow: @box-shadow-inset-medium-vertical @border-color-progressive--active;
 					}
 				}
-				/* stylelint-enable max-nesting-depth */
 
-				/* stylelint-disable max-nesting-depth */
-				&.cdx-tabs__list__item--selected {
-					[ role='tab' ] {
-						color: @color-progressive;
-						// TODO: Replace box shadow color with upcoming
-						// `box-shadow-color*` tokens.
-						box-shadow: @box-shadow-inset-medium-vertical @border-color-progressive;
-					}
+				// Selectors are for Vue tabs then CSS-only tabs (form implementation).
+				&.cdx-tabs__list__item--selected [ role='tab' ],
+				& [ aria-selected='true' ][ role='tab' ] {
+					color: @color-progressive;
+					// TODO: Replace box shadow color with upcoming
+					// `box-shadow-color*` tokens.
+					box-shadow: @box-shadow-inset-medium-vertical @border-color-progressive;
 				}
-				/* stylelint-enable max-nesting-depth */
 			}
 
 			&--disabled {
-				/* stylelint-disable max-nesting-depth */
 				[ role='tab' ] {
 					color: @color-disabled;
 					cursor: @cursor-base--disabled;
 				}
-				/* stylelint-enable max-nesting-depth */
 			}
 		}
+	}
+
+	// Keyboard nav indicator on Tabs header focus for framed and quiet.
+	// Selectors are for CSS-only tabs (form implementation) and Vue tabs.
+	// The top-level selectors are necessary due to the high specificity of other selectors
+	// above, which also apply a box-shadow.
+	&--framed,
+	&:not( .cdx-tabs--framed ) {
+		> .cdx-tabs__header .cdx-tabs__list__item .cdx-tabs__submit:focus ~ [ role='tab' ],
+		> .cdx-tabs__header:focus .cdx-tabs__list__item--enabled.cdx-tabs__list__item--selected [ role='tab' ] {
+			box-shadow: @box-shadow-inset-medium @border-color-progressive;
+			// Clip link background color to border radius (framed).
+			overflow: hidden;
+		}
+	}
+
+	// Submit input for CSS-only tabs.
+	// Other styles for the form implementation are mixed in with the styles for Vue tabs.
+	&__submit {
+		.screen-reader-text();
 	}
 }
 </style>
