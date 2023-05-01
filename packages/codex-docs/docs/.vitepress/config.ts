@@ -153,6 +153,13 @@ export default defineConfigWithTheme<CustomConfig>( {
 					]
 				},
 				{
+					text: 'Design Principles',
+					items: [
+						{ text: 'Overview', link: '/style-guide/design-principles-overview' },
+						{ text: 'Accessibility', link: '/style-guide/accessibility' }
+					]
+				},
+				{
 					text: 'Visual Styles',
 					items: [
 						{ text: 'Colors', link: '/style-guide/colors' },

@@ -15,8 +15,8 @@ guide.
 
 Our multi-disciplinary team focuses on user experience design, user research, engineering, information architecture, human-computer interaction, and visual design.
 
-We follow design principles to provide solutions for [visual identity](./colors.md),
-[user interface components](./../components/overview), and patterns.
+We follow [design principles](./design-principles-overview.md) to provide solutions for
+[visual identity](./colors.md), [user interface components](./../components/overview), and patterns.
 
 ## Open to participate
 
