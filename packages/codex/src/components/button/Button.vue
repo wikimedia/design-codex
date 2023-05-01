@@ -210,7 +210,7 @@ export default defineComponent( {
 
 // Buttons that only include an icon element.
 .cdx-button--icon-only {
-	padding: 0 @spacing-25;
+	padding: 0 @spacing-horizontal-button-icon-only;
 }
 
 // Non-quiet “framed” buttons (normal and primary types)
