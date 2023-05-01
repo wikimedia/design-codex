@@ -194,7 +194,26 @@ body {
 .VPFlyout .VPMenu {
 	border-color: var( --border-color-base );
 	border-radius: var( --border-radius-base );
+	padding: 0;
 	box-shadow: var( --box-shadow-drop-medium );
+}
+
+/* Main nav dropdown link. */
+.VPFlyout .link {
+	border-radius: var( --border-radius-base );
+	padding: var( --spacing-50 ) var( --spacing-75 );
+	line-height: var( --line-height-medium );
+	transition-property: var( --transition-property-base );
+	transition-duration: var( --transition-duration-base );
+}
+
+.VPFlyout .link:hover {
+	background-color: var( --background-color-interactive );
+}
+
+.VPFlyout .link:active,
+.VPFlyout .link.active {
+	background-color: var( --background-color-progressive-subtle );
 }
 
 .VPSidebar .link .text,
