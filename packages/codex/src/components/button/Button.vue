@@ -432,7 +432,7 @@ export default defineComponent( {
 			&.cdx-button--is-active {
 				background-color: @background-color-destructive--active;
 				color: @color-inverted;
-				border-color: @color-destructive--active;
+				border-color: @border-color-destructive--active;
 
 				.cdx-button__icon {
 					.cdx-mixin-button-css-icon-background-color( @color-inverted );

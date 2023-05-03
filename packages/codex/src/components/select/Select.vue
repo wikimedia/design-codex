@@ -331,7 +331,7 @@ export default defineComponent( {
 			}
 
 			&:focus {
-				border-color: @color-progressive--focus;
+				border-color: @border-color-progressive--focus;
 				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 				outline: @outline-base--focus;
 			}
