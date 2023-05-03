@@ -43,7 +43,6 @@
 					:id="`${tab.id}-label`"
 					:key="index"
 					:ref="( ref ) => assignTemplateRefIfNecessary( ref, index )"
-					:class="getLabelClasses( tab.name )"
 					class="cdx-tabs__list__item"
 					role="presentation"
 				>
@@ -279,23 +278,6 @@ export default defineComponent( {
 			}
 		}
 
-		/**
-		 * Get the tab label classes for a given tab "name"
-		 *
-		 * @param tabName
-		 * @return class binding object
-		 */
-		function getLabelClasses( tabName: string ) {
-			const isActive = tabName === activeTab.value;
-			const isDisabled = !!( tabsData.value.get( tabName )?.disabled );
-
-			return {
-				'cdx-tabs__list__item--selected': isActive,
-				'cdx-tabs__list__item--enabled': !isDisabled,
-				'cdx-tabs__list__item--disabled': isDisabled
-			};
-		}
-
 		const rootClasses = computed( () => {
 			return {
 				'cdx-tabs--framed': props.framed,
@@ -433,7 +415,6 @@ export default defineComponent( {
 			tabsData,
 			firstLabelVisible,
 			lastLabelVisible,
-			getLabelClasses,
 			assignTemplateRefIfNecessary,
 			scrollTabs,
 			cdxIconPrevious,
@@ -648,8 +629,6 @@ export default defineComponent( {
 				}
 			}
 
-			// Selectors are for Vue tabs then CSS-only tabs (form implementation).
-			&.cdx-tabs__list__item--selected [ role='tab' ],
 			[ aria-selected='true' ][ role='tab' ] {
 				cursor: @cursor-base;
 			}
@@ -695,39 +674,35 @@ export default defineComponent( {
 				margin-right: @spacing-50;
 			}
 
-			&:not( .cdx-tabs__list__item--disabled ) {
-				// Single Framed Tab.
-				[ role='tab' ] {
-					// Clip link background color to border radius.
-					overflow: hidden;
+			// Single Framed Tab.
+			& [ role='tab' ]:not( [ aria-disabled='true' ] ) {
+				// Clip link background color to border radius.
+				overflow: hidden;
 
-					&:link,
-					&:visited {
-						color: @color-base;
-					}
-
-					&:hover {
-						background-color: @background-color-tabs-framed-tab--hover;
-						color: @color-base;
-					}
-
-					&:active {
-						background-color: @background-color-tabs-framed-tab--active;
-						color: @color-base;
-					}
+				&:link,
+				&:visited {
+					color: @color-base;
 				}
 
-				// Selectors are for Vue tabs then CSS-only tabs (form implementation).
-				&.cdx-tabs__list__item--selected [ role='tab' ],
-				& [ aria-selected='true' ][ role='tab' ] {
-					&,
-					&:hover {
-						background-color: @background-color-base;
-					}
+				&:hover {
+					background-color: @background-color-tabs-framed-tab--hover;
+					color: @color-base;
+				}
+
+				&:active {
+					background-color: @background-color-tabs-framed-tab--active;
+					color: @color-base;
 				}
 			}
 
-			&--disabled [ role='tab' ] {
+			& [ aria-selected='true' ][ role='tab' ] {
+				&,
+				&:hover {
+					background-color: @background-color-base;
+				}
+			}
+
+			& [ aria-disabled='true' ][ role='tab' ] {
 				background-color: @background-color-interactive;
 				color: @color-disabled;
 				cursor: @cursor-base--disabled;
@@ -764,41 +739,39 @@ export default defineComponent( {
 				margin-right: 0;
 			}
 
-			&:not( .cdx-tabs__list__item--disabled ) {
-				// Single Quiet Tab.
-				[ role='tab' ] {
-					color: @color-base;
+			// Single Quiet Tab.
+			& [ role='tab' ]:not( [ aria-disabled='true' ] ) {
+				color: @color-base;
 
-					&:hover {
-						color: @color-progressive--hover;
-						// TODO: Replace box shadow color with upcoming
-						// `box-shadow-color*` tokens.
-						box-shadow: @box-shadow-inset-medium-vertical @border-color-progressive--hover;
-					}
-
-					&:active {
-						color: @color-progressive--active;
-						// TODO: Replace box shadow color with upcoming
-						// `box-shadow-color*` tokens.
-						box-shadow: @box-shadow-inset-medium-vertical @border-color-progressive--active;
-					}
-				}
-
-				// Selectors are for Vue tabs then CSS-only tabs (form implementation).
-				&.cdx-tabs__list__item--selected [ role='tab' ],
-				& [ aria-selected='true' ][ role='tab' ] {
-					color: @color-progressive;
+				&:hover {
+					color: @color-progressive--hover;
 					// TODO: Replace box shadow color with upcoming
 					// `box-shadow-color*` tokens.
-					box-shadow: @box-shadow-inset-medium-vertical @border-color-progressive;
+					box-shadow: @box-shadow-inset-medium-vertical @border-color-progressive--hover;
+				}
+
+				&:active {
+					color: @color-progressive--active;
+					// TODO: Replace box shadow color with upcoming
+					// `box-shadow-color*` tokens.
+					box-shadow: @box-shadow-inset-medium-vertical @border-color-progressive--active;
 				}
 			}
 
-			&--disabled {
-				[ role='tab' ] {
-					color: @color-disabled;
-					cursor: @cursor-base--disabled;
+			& [ aria-selected='true' ][ role='tab' ] {
+				color: @color-progressive;
+				// TODO: Replace box shadow color with upcoming
+				// `box-shadow-color*` tokens.
+				box-shadow: @box-shadow-inset-medium-vertical @border-color-progressive;
+
+				&:hover {
+					color: @color-progressive;
 				}
+			}
+
+			& [ role='tab' ][ aria-disabled='true' ] {
+				color: @color-disabled;
+				cursor: @cursor-base--disabled;
 			}
 		}
 	}
@@ -810,7 +783,7 @@ export default defineComponent( {
 	&--framed,
 	&:not( .cdx-tabs--framed ) {
 		> .cdx-tabs__header .cdx-tabs__list__item .cdx-tabs__submit:focus ~ [ role='tab' ],
-		> .cdx-tabs__header:focus .cdx-tabs__list__item--enabled.cdx-tabs__list__item--selected [ role='tab' ] {
+		> .cdx-tabs__header:focus [ aria-selected='true' ][ role='tab' ]:not( [ aria-disabled='true' ] ) {
 			box-shadow: @box-shadow-inset-medium @border-color-progressive;
 			// Clip link background color to border radius (framed).
 			overflow: hidden;

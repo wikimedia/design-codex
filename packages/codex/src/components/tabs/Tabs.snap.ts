@@ -51,7 +51,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
     >
       
       <li
-        class="cdx-tabs__list__item--selected cdx-tabs__list__item--enabled cdx-tabs__list__item"
+        class="cdx-tabs__list__item"
         id="cdx-a-101-label"
         role="presentation"
       >
@@ -65,7 +65,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
         </a>
       </li>
       <li
-        class="cdx-tabs__list__item--enabled cdx-tabs__list__item"
+        class="cdx-tabs__list__item"
         id="cdx-b-102-label"
         role="presentation"
       >
@@ -79,7 +79,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
         </a>
       </li>
       <li
-        class="cdx-tabs__list__item--enabled cdx-tabs__list__item"
+        class="cdx-tabs__list__item"
         id="cdx-c-103-label"
         role="presentation"
       >
@@ -93,7 +93,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
         </a>
       </li>
       <li
-        class="cdx-tabs__list__item--enabled cdx-tabs__list__item"
+        class="cdx-tabs__list__item"
         id="cdx-d-104-label"
         role="presentation"
       >
@@ -260,7 +260,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
     >
       
       <li
-        class="cdx-tabs__list__item--selected cdx-tabs__list__item--enabled cdx-tabs__list__item"
+        class="cdx-tabs__list__item"
         id="cdx-a-97-label"
         role="presentation"
       >
@@ -274,7 +274,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
         </a>
       </li>
       <li
-        class="cdx-tabs__list__item--enabled cdx-tabs__list__item"
+        class="cdx-tabs__list__item"
         id="cdx-b-98-label"
         role="presentation"
       >
@@ -288,7 +288,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
         </a>
       </li>
       <li
-        class="cdx-tabs__list__item--enabled cdx-tabs__list__item"
+        class="cdx-tabs__list__item"
         id="cdx-c-99-label"
         role="presentation"
       >
@@ -302,7 +302,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
         </a>
       </li>
       <li
-        class="cdx-tabs__list__item--enabled cdx-tabs__list__item"
+        class="cdx-tabs__list__item"
         id="cdx-d-100-label"
         role="presentation"
       >
@@ -472,7 +472,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
     >
       
       <li
-        class="cdx-tabs__list__item--selected cdx-tabs__list__item--enabled cdx-tabs__list__item"
+        class="cdx-tabs__list__item"
         id="cdx-apple-0-label"
         role="presentation"
       >
@@ -487,7 +487,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         </a>
       </li>
       <li
-        class="cdx-tabs__list__item--enabled cdx-tabs__list__item"
+        class="cdx-tabs__list__item"
         id="cdx-banana-1-label"
         role="presentation"
       >
@@ -502,7 +502,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         </a>
       </li>
       <li
-        class="cdx-tabs__list__item--disabled cdx-tabs__list__item"
+        class="cdx-tabs__list__item"
         id="cdx-cantaloupe-2-label"
         role="presentation"
       >
@@ -517,7 +517,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         </a>
       </li>
       <li
-        class="cdx-tabs__list__item--enabled cdx-tabs__list__item"
+        class="cdx-tabs__list__item"
         id="cdx-durian-3-label"
         role="presentation"
       >

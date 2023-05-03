@@ -89,7 +89,6 @@ This no-JS implementation of Tabs requires some logic on the server side to set 
   specified URL query param, reload the page, and show the new tab.
 
 To disable a tab:
-- Add the `cdx-tabs__list__item--disabled` class to the `<li>` element for that tab in the tabs list
 - Add the `disabled` attribute to that tab's submit input
 
 <cdx-demo-wrapper>
@@ -122,11 +121,11 @@ To disable a tab:
 					</form>
 				</li>
 				<!-- Disabled tab's list item has the `cdx-tabs__list__item--disabled` class. -->
-				<li id="form-tabs-3-label" class="cdx-tabs__list__item cdx-tabs__list__item--disabled" role="tab">
+				<li id="form-tabs-3-label" class="cdx-tabs__list__item" role="tab">
 					<form method="get" :action="url">
 						<!-- `disabled` attribute means this tab cannot be selected. -->
 						<input id="form-tabs-3-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-3" disabled>
-						<label for="form-tabs-3-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-3'">
+						<label for="form-tabs-3-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-3'" :aria-disabled="true">
 							Tab 3
 						</label>
 					</form>
