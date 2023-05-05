@@ -190,7 +190,14 @@ export default defineComponent( {
 			// Divide height by 50% to center the grip vertically.
 			transform: translateX( ( @size-25 + @size-6 ) ) translateY( -@size-half );
 			transition-property: @transition-property-toggle-switch-grip;
-			transition-duration: @transition-duration-base;
+			// As ToggleSwitch background is a big area transition, let's use the slower duration
+			// for it.
+
+			/* stylelint-disable value-list-comma-newline-after */
+			transition-duration: @transition-duration-medium,
+				@transition-duration-base,
+				@transition-duration-base;
+			/* stylelint-enable value-list-comma-newline-after */
 		}
 	}
 
