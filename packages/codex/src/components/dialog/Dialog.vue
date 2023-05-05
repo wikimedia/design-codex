@@ -15,7 +15,11 @@
 			<div
 				ref="dialogElement"
 				class="cdx-dialog"
-				:class="rootClasses"
+				:class="{
+					...rootClasses,
+					'cdx-dialog--has-custom-header': $slots.header,
+					'cdx-dialog--has-custom-footer': $slots.footer
+				}"
 				role="dialog"
 				v-bind="$attrs"
 				:aria-label="$slots.header || hideTitle ? title : undefined"
@@ -133,6 +137,7 @@ import CdxButton from '../../components/button/Button.vue';
 import CdxIcon from '../../components/icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
 import useGeneratedId from '../../composables/useGeneratedId';
+import useResizeObserver from '../../composables/useResizeObserver';
 import { DialogAction, PrimaryDialogAction } from '../../types';
 
 /**
@@ -272,9 +277,14 @@ export default defineComponent( {
 		const showHeader = computed( () => !props.hideTitle || !!props.closeButtonLabel );
 		const showFooterActions = computed( () => !!props.primaryAction || !!props.defaultAction );
 
+		const bodyDimensions = useResizeObserver( dialogBody );
+		const currentBodyHeight = computed( () => bodyDimensions.value.height ?? 0 );
+		const showDividers = ref( false );
+
 		const rootClasses = computed( () => ( {
 			'cdx-dialog--vertical-actions': props.stackedActions,
-			'cdx-dialog--horizontal-actions': !props.stackedActions
+			'cdx-dialog--horizontal-actions': !props.stackedActions,
+			'cdx-dialog--dividers': showDividers.value
 		} ) );
 
 		// Value needed to compensate for the width of any visible scrollbar
@@ -371,6 +381,13 @@ export default defineComponent( {
 			}
 		} );
 
+		// Determine if content dividers should be displayed for overflowing content
+		watch( currentBodyHeight, () => {
+			if ( dialogBody.value ) {
+				showDividers.value = dialogBody.value.clientHeight < dialogBody.value.scrollHeight;
+			}
+		} );
+
 		return {
 			close,
 			cdxIconClose,
@@ -416,7 +433,6 @@ export default defineComponent( {
 	background-color: @background-color-base;
 	display: flex;
 	flex-direction: column;
-	gap: @spacing-200;
 	box-sizing: @box-sizing-base;
 	width: calc( @size-full - ( @size-100 * 2) );
 	max-width: @size-3200;
@@ -435,7 +451,7 @@ export default defineComponent( {
 			justify-content: flex-end;
 			box-sizing: @box-sizing-base;
 			width: @size-full;
-			padding: @spacing-100 @spacing-150 0 @spacing-150;
+			padding: @spacing-100 @spacing-150 @spacing-200 @spacing-150;
 		}
 
 		&__title-group {
@@ -469,6 +485,11 @@ export default defineComponent( {
 		&__close-button {
 			margin-right: -@spacing-50;
 		}
+
+		.cdx-dialog--dividers & {
+			border-bottom: @border-subtle;
+			padding-bottom: @spacing-100;
+		}
 	}
 
 	&__body {
@@ -501,6 +522,40 @@ export default defineComponent( {
 			margin-bottom: 0;
 			padding-bottom: 0;
 		}
+
+		// Accommodate custom header/footer elements (T324708) --------------------------
+		//
+		// Automatically apply padding to the top of dialog body if a custom
+		// header has been supplied by the user
+		.cdx-dialog--has-custom-header & {
+			padding-top: @spacing-100;
+		}
+
+		// Automatically apply padding to the bottom of dialog body if a custom
+		// footer has been supplied by the user
+		.cdx-dialog--has-custom-footer & {
+			padding-bottom: @spacing-100;
+		}
+
+		// Accommodate automatically appearing/disappearing dividers (T332124) ----------
+		//
+		// Adjust padding for body element when content becomes scrollable; we
+		// want to ensure that body text doesn't collide with the top/bottom
+		// border once it appears, while also preventing noticeable layout shifts
+		// (so overall height of the dialog must more or less be the same)
+		//
+		.cdx-dialog--dividers & {
+			padding-top: @spacing-100;
+			padding-bottom: @spacing-100;
+		}
+
+		.cdx-dialog--dividers &--no-header {
+			padding-top: @spacing-150;
+		}
+
+		.cdx-dialog--dividers &--no-footer {
+			padding-bottom: @spacing-150;
+		}
 	}
 
 	&__footer {
@@ -511,8 +566,8 @@ export default defineComponent( {
 			align-items: baseline;
 			flex-wrap: wrap;
 			justify-content: space-between;
-			gap: @spacing-75;
-			padding: 0 @spacing-150 @spacing-150;
+			gap: @spacing-50;
+			padding: @spacing-200 @spacing-150 @spacing-150;
 		}
 
 		// Increased specificity to ensure that this style shows up in VitePress
@@ -529,6 +584,11 @@ export default defineComponent( {
 			display: flex;
 			flex-grow: 1;
 			gap: @spacing-50;
+		}
+
+		.cdx-dialog--dividers & {
+			border-top: @border-subtle;
+			padding-top: @spacing-100;
 		}
 	}
 

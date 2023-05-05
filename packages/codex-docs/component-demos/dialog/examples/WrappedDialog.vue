@@ -97,7 +97,7 @@ export default defineComponent( {
 		justify-content: space-between;
 		// Custom bigger height.
 		height: @size-800;
-		padding: @spacing-100 @spacing-150 0 @spacing-150;
+		padding: @spacing-100 @spacing-100 0 @spacing-100;
 
 		h2 {
 			margin: 0;
@@ -111,7 +111,7 @@ export default defineComponent( {
 		align-items: baseline;
 		justify-content: space-between;
 		border-top: @border-style-base @border-width-base @border-color-subtle;
-		padding: @spacing-50 @spacing-100;
+		padding: @spacing-75 @spacing-100 @spacing-50 @spacing-100;
 	}
 }
 </style>
