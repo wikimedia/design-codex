@@ -5,6 +5,7 @@
 		:style="rootStyle"
 	>
 		<textarea
+			ref="textarea"
 			v-bind="otherAttrs"
 			v-model="wrappedModel"
 			:class="textareaClasses"
@@ -17,8 +18,11 @@
 import {
 	defineComponent,
 	computed,
+	ref,
 	toRef,
-	PropType
+	PropType,
+	onMounted,
+	onUnmounted
 } from 'vue';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useModelWrapper from '../../composables/useModelWrapper';
@@ -45,7 +49,7 @@ export default defineComponent( {
 			default: ''
 		},
 		/**
-		 * `status` attribute of the input.
+		 * `status` attribute of the textarea.
 		 *
 		 * @values 'default', 'error'
 		 */
@@ -53,6 +57,17 @@ export default defineComponent( {
 			type: String as PropType<ValidationStatusType>,
 			default: 'default',
 			validator: statusValidator
+		},
+		/**
+		 * Describes whether the textarea grows vertically to show all text.
+		 *
+		 * When autosize is true, the textarea automatically grows in height (vertically).
+		 * The height of the textarea expands while the user types in the textarea.
+		 * The content inside the textarea is visible and there's no scroll.
+		 */
+		autosize: {
+			type: Boolean,
+			default: false
 		}
 	},
 	emits: [
@@ -71,7 +86,8 @@ export default defineComponent( {
 
 		const textareaClasses = computed( () => {
 			return {
-				'cdx-text-area__textarea--has-value': !!wrappedModel.value
+				'cdx-text-area__textarea--has-value': !!wrappedModel.value,
+				'cdx-text-area__textarea--is-autosize': props.autosize
 			};
 		} );
 
@@ -89,12 +105,34 @@ export default defineComponent( {
 			otherAttrs
 		} = useSplitAttributes( attrs, internalClasses );
 
+		const textarea = ref<HTMLTextAreaElement>();
+
+		// Allows the textarea to grow aka auto-resize while typing.
+		// https://medium.com/@adamorlowskipoland/vue-auto-resize-textarea-3-different-approaches-8bbda5d074ce
+		const resize = ( () => {
+			if ( textarea.value && props.autosize ) {
+				textarea.value.style.height = 'auto';
+				textarea.value.style.height = `${textarea.value.scrollHeight}px`;
+			}
+		} );
+
+		onMounted( () => {
+			if ( props.autosize ) {
+				textarea.value?.addEventListener( 'input', resize );
+			}
+		} );
+
+		onUnmounted( () => {
+			textarea.value?.removeEventListener( 'input', resize );
+		} );
+
 		return {
 			rootClasses,
 			rootStyle,
 			otherAttrs,
 			wrappedModel,
-			textareaClasses
+			textareaClasses,
+			textarea
 		};
 	}
 } );
@@ -112,9 +150,21 @@ export default defineComponent( {
 		border-style: @border-style-base;
 		border-radius: @border-radius-base;
 		padding: @spacing-25 @spacing-50;
+		overflow: auto;
 		font-family: inherit;
 		font-size: inherit;
 		line-height: @line-height-x-small;
+
+		&--is-autosize {
+			/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+			resize: none;
+			overflow: hidden;
+
+			// Support Safari/Webkit
+			&::-webkit-resizer {
+				display: none;
+			}
+		}
 
 		&:enabled {
 			background-color: @background-color-base;

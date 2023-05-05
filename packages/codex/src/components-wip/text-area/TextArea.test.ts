@@ -8,17 +8,19 @@ describe( 'TextArea', () => {
 			msg: string,
 			props: {
 				modelValue?: string,
-				status?: ValidationStatusType
+				status?: ValidationStatusType,
+				autosize?: boolean
 			},
 			attrs?: Record<string, string|number|boolean>
 		];
 
 		const cases: Case[] = [
-			[ 'with modelValue prop and no attributes', { modelValue: 'Earth Day' } ],
+			[ 'with a truthy modelValue prop which dynamically adds a class to <textarea>', { modelValue: 'Earth Day' } ],
 			[ 'with attributes', { }, { placeholder: 'Start typing...' } ],
 			[ 'with disabled as true', { modelValue: 'Earth Day' }, { placeholder: 'Start typing...', disabled: true } ],
 			[ 'with readonly as true', { modelValue: 'Earth Day' }, { placeholder: 'Start typing...', readonly: true } ],
-			[ 'with error status', { status: 'error' }, { placeholder: 'Start typing...' } ]
+			[ 'with error status', { status: 'error' }, { placeholder: 'Start typing...' } ],
+			[ 'with autosize as true', { autosize: true }, { placeholder: 'Start typing...' } ]
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, attrs = {} ) => {
