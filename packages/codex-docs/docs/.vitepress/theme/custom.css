@@ -160,6 +160,8 @@ body {
 .vp-doc td {
 	border-color: var( --border-color-subtle );
 	padding: var( --spacing-50 ) var( --spacing-75 );
+	/* Use relative size in general. */
+	font-size: var( --font-size-small );
 }
 
 .vp-doc td pre {
@@ -426,6 +428,15 @@ body {
 .vp-doc .cdx-docs-demo-text {
 	margin: 0 0 var( --spacing-50 );
 	font-weight: var( --font-weight-bold );
+}
+
+/* Make every tokens table content smaller aside of the token demo. */
+.vp-doc .cdx-docs-tokens-table__value {
+	font-size: var( --font-size-medium );
+}
+
+.vp-doc .cdx-docs-tokens-table__value > p {
+	font-size: var( --font-size-small );
 }
 
 .cdx-docs-required-indicator {
