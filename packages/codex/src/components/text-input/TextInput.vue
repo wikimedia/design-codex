@@ -448,8 +448,7 @@ export default defineComponent( {
 	}
 
 	&--status-error {
-		/* stylelint-disable-next-line no-descending-specificity */
-		.cdx-text-input__input {
+		.cdx-text-input__input:enabled {
 			border-color: @border-color-destructive;
 
 			&:focus {
