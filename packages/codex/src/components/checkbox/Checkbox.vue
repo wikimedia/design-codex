@@ -156,10 +156,11 @@ export default defineComponent( {
 			content: ' ';
 			background-color: @color-inverted;
 			position: absolute;
-			// Vertically center indeterminate line with negative half pixel.
+			// Center indeterminate line vertically with negative half pixel.
 			top: calc( @size-half - ( @border-width-base / 2 ) );
-			right: @start-input-binary-icon;
-			left: @start-input-binary-icon;
+			// Center horizontally.
+			right: calc( @spacing-25 - @border-width-base );
+			left: calc( @spacing-25 - @border-width-base );
 			height: @border-width-base * 2;
 		}
 

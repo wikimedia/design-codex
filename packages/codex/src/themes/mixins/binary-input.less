@@ -1,16 +1,4 @@
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-// TODO: At least these first few should be design tokens.
-@font-size-browser: 16; // Common (assumed) browser default of `16px`.
-@font-size-base-value: 14 / @font-size-browser;
-@font-size-base: unit( ( @font-size-base-value ), em ); // Equals `0.875em` at browser default of `16px`.
-
-/* stylelint-disable-next-line function-url-quotes */
-@background-image-input-checkbox--checked: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="%23fff" d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"/></svg>' );
-
-@size-input-binary: unit( ( 20 / @font-size-browser / @font-size-base-value ), em );
-@start-input-binary-icon: unit( ( 3 / @font-size-browser / @font-size-base-value ), em );
-
-@border-width-input-radio--checked: unit( ( 6 / @font-size-browser / @font-size-base-value ), em );
 
 // Common styles for checkboxes and radios.
 .cdx-mixin-binary-input() {
@@ -48,7 +36,7 @@
 		// Create a stacking context by `position: relative` and `z-index` other than `auto`.
 		position: relative;
 		z-index: @z-index-stacking-0;
-		padding-left: calc( @size-input-binary + @spacing-50 );
+		padding-left: calc( @size-125 + @spacing-50 );
 		line-height: @line-height-x-small;
 	}
 
@@ -63,8 +51,10 @@
 		position: absolute;
 		left: 0;
 		box-sizing: @box-sizing-base;
-		width: @size-input-binary;
-		height: @size-input-binary;
+		min-width: @min-size-input-binary;
+		min-height: @min-size-input-binary;
+		width: @size-125;
+		height: @size-125;
 		border-width: @border-width-base;
 		border-style: @border-style-base;
 		transition-property: @transition-property-base;
@@ -79,8 +69,10 @@
 		left: 0;
 		// Render "on top of" the span, so that it's still clickable.
 		z-index: @z-index-stacking-1;
-		width: @size-input-binary;
-		height: @size-input-binary;
+		min-width: @min-size-input-binary;
+		min-height: @min-size-input-binary;
+		width: @size-125;
+		height: @size-125;
 		// Support Blink, Firefox, Safari: Normalize by removing user-agent stylesheet `margin`.
 		margin: 0;
 		font-size: inherit;

@@ -13,31 +13,34 @@
 				</td>
 			</tr>
 			<tr v-for="propControl in propControls" :key="propControl.name">
-				<td class="cdx-docs-tokens-table__name">
+				<td class="cdx-docs-controls__control-name">
 					<pre>{{ propControl.name }}</pre>
 				</td>
-				<td>
-					<!-- needs template because v-if and v-for clash -->
-					<template v-if="propControl.type === 'radio'">
-						<cdx-radio
-							v-for="option in propControl.options"
-							:key="`${propControl.name}-${option}`"
-							:model-value="propControl.value"
-							:input-value="option"
-							:name="'radio-group-' + propControl.name"
-							@update:model-value="emitControlChange( propControl.name, $event )"
-						>
-							{{ option }}
-						</cdx-radio>
-					</template>
+				<td class="cdx-docs-controls__control-value">
+					<div class="cdx-docs-controls__radio-wrapper">
+						<!-- needs template because v-if and v-for clash -->
+						<template v-if="propControl.type === 'radio'">
+							<cdx-radio
+								v-for="option in propControl.options"
+								:key="`${propControl.name}-${option}`"
+								:model-value="propControl.value"
+								:input-value="option"
+								:inline="true"
+								:name="'radio-group-' + propControl.name"
+								@update:model-value="emitControlChange( propControl.name, $event )"
+							>
+								{{ option }}
+							</cdx-radio>
+						</template>
 
-					<component
-						:is="componentForType( propControl.type )"
-						v-if="componentForType( propControl.type )"
-						:aria-label="'prop: ' + propControl.name"
-						:model-value="propControl.value"
-						@update:model-value="emitControlChange( propControl.name, $event )"
-					/>
+						<component
+							:is="componentForType( propControl.type )"
+							v-if="componentForType( propControl.type )"
+							:aria-label="'prop: ' + propControl.name"
+							:model-value="propControl.value"
+							@update:model-value="emitControlChange( propControl.name, $event )"
+						/>
+					</div>
 				</td>
 			</tr>
 
@@ -47,10 +50,10 @@
 				</td>
 			</tr>
 			<tr v-for="slotControl in slotControls" :key="slotControl.name">
-				<td class="cdx-docs-tokens-table__name">
+				<td class="cdx-docs-controls__control-name">
 					<pre>{{ slotControl.name }}</pre>
 				</td>
-				<td>
+				<td class="cdx-docs-controls__control-value">
 					<component
 						:is="componentForType( slotControl.type )"
 						v-if="componentForType( slotControl.type )"
@@ -66,10 +69,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="cdx-docs-tokens-table__name">
+				<td class="cdx-docs-controls__control-name">
 					<pre>Reading direction</pre>
 				</td>
-				<td>
+				<td class="cdx-docs-controls__control-value">
 					<cdx-radio
 						v-model="wrappedDirection"
 						input-value="ltr"
@@ -235,16 +238,26 @@ export default defineComponent( {
 		overflow: visible;
 	}
 
+	&__control-value .cdx-docs-controls__radio-wrapper {
+		display: flex;
+		row-gap: @spacing-100;
+		flex-wrap: wrap;
+	}
+
 	// stylelint-disable-next-line selector-class-pattern
 	.cdx-radio {
-		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			// Use inline styles on larger screens.
-			display: inline;
+		// stylelint-disable-next-line selector-class-pattern
+		&:not( .cdx-radio--inline ) {
 			margin-right: @spacing-100;
-			white-space: nowrap;
 
-			&:last-child {
-				margin-right: 0;
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+				// Use inline flex on larger screens.
+				display: inline-flex;
+				margin-bottom: 0;
+
+				&:last-child {
+					margin-right: 0;
+				}
 			}
 		}
 	}

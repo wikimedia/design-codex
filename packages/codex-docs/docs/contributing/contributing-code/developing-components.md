@@ -163,12 +163,12 @@ Below are some sample styles for a component to demonstrate these conventions:
 	// Common binary input styles.
 	.cdx-mixin-binary-input();
 
-	line-height: @size-input-binary;
+	line-height: @size-125;
 
 	// Custom-styled radio that's visible to the user.
 	&__icon {
-		width: @size-input-binary;
-		height: @size-input-binary;
+		width: @size-125;
+		height: @size-125;
 		border-radius: @border-radius-circle;
 	}
 
