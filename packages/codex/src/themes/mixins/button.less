@@ -36,7 +36,8 @@
 
 // Helper for setting the background color of a CSS-only icon within a button, for browsers that
 // support mask-image (fallback styles can be found in the background image mixin below).
-.cdx-mixin-button-css-icon-background-color( @param-background-color ) {
+// As icons are foreground elements, it consumes `@color*` tokens.
+.cdx-mixin-button-css-icon-fallback-color( @param-background-color ) {
 	@supports ( mask-image: none ) {
 		background-color: @param-background-color;
 	}

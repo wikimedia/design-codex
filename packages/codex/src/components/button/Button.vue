@@ -159,7 +159,7 @@ export default defineComponent( {
 		color: @color-base;
 
 		.cdx-button__icon {
-			.cdx-mixin-button-css-icon-background-color( @color-base );
+			.cdx-mixin-button-css-icon-fallback-color( @color-base );
 		}
 
 		&:hover {
@@ -224,7 +224,7 @@ export default defineComponent( {
 			color: @color-base--hover;
 
 			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-background-color( @color-base--hover );
+				.cdx-mixin-button-css-icon-fallback-color( @color-base--hover );
 			}
 		}
 
@@ -235,7 +235,7 @@ export default defineComponent( {
 			border-color: @border-color-interactive;
 
 			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-background-color( @color-emphasized );
+				.cdx-mixin-button-css-icon-fallback-color( @color-emphasized );
 			}
 		}
 
@@ -248,7 +248,7 @@ export default defineComponent( {
 		color: @color-inverted;
 
 		.cdx-button__icon {
-			.cdx-mixin-button-css-icon-background-color( @color-inverted );
+			.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 		}
 	}
 	/* stylelint-enable no-descending-specificity */
@@ -265,7 +265,7 @@ export default defineComponent( {
 
 			/* stylelint-disable-next-line no-descending-specificity */
 			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-background-color( @color-inverted );
+				.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 			}
 
 			&:hover {
@@ -275,7 +275,7 @@ export default defineComponent( {
 				border-color: @border-color-progressive--hover;
 
 				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-background-color( @color-inverted );
+					.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 				}
 			}
 
@@ -287,7 +287,7 @@ export default defineComponent( {
 				border-color: @border-color-progressive--active;
 
 				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-background-color( @color-inverted );
+					.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 				}
 			}
 
@@ -310,7 +310,7 @@ export default defineComponent( {
 
 			/* stylelint-disable-next-line no-descending-specificity */
 			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-background-color( @color-inverted );
+				.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 			}
 
 			&:hover {
@@ -319,7 +319,7 @@ export default defineComponent( {
 				border-color: @border-color-destructive--hover;
 
 				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-background-color( @color-inverted );
+					.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 				}
 			}
 
@@ -331,7 +331,7 @@ export default defineComponent( {
 				border-color: @border-color-destructive--active;
 
 				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-background-color( @color-inverted );
+					.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 				}
 			}
 
@@ -367,7 +367,7 @@ export default defineComponent( {
 
 			/* stylelint-disable-next-line no-descending-specificity */
 			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-background-color( @color-emphasized );
+				.cdx-mixin-button-css-icon-fallback-color( @color-emphasized );
 			}
 		}
 
@@ -381,7 +381,7 @@ export default defineComponent( {
 
 			/* stylelint-disable-next-line no-descending-specificity */
 			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-background-color( @color-progressive );
+				.cdx-mixin-button-css-icon-fallback-color( @color-progressive );
 			}
 
 			&:hover {
@@ -389,7 +389,7 @@ export default defineComponent( {
 				color: @color-progressive--hover;
 
 				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-background-color( @color-progressive--hover );
+					.cdx-mixin-button-css-icon-fallback-color( @color-progressive--hover );
 				}
 			}
 
@@ -400,7 +400,7 @@ export default defineComponent( {
 				border-color: @border-color-progressive--active;
 
 				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-background-color( @color-inverted );
+					.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 				}
 			}
 
@@ -416,7 +416,7 @@ export default defineComponent( {
 
 			/* stylelint-disable-next-line no-descending-specificity */
 			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-background-color( @color-destructive );
+				.cdx-mixin-button-css-icon-fallback-color( @color-destructive );
 			}
 
 			&:hover {
@@ -424,7 +424,7 @@ export default defineComponent( {
 				color: @color-destructive--hover;
 
 				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-background-color( @color-destructive--hover );
+					.cdx-mixin-button-css-icon-fallback-color( @color-destructive--hover );
 				}
 			}
 
@@ -435,7 +435,7 @@ export default defineComponent( {
 				border-color: @border-color-destructive--active;
 
 				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-background-color( @color-inverted );
+					.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 				}
 			}
 
@@ -451,7 +451,7 @@ export default defineComponent( {
 		color: @color-disabled;
 
 		.cdx-button__icon {
-			.cdx-mixin-button-css-icon-background-color( @color-disabled );
+			.cdx-mixin-button-css-icon-fallback-color( @color-disabled );
 		}
 	}
 	/* stylelint-enable no-descending-specificity */
@@ -464,7 +464,7 @@ export default defineComponent( {
 		color: @color-progressive;
 
 		.cdx-button__icon {
-			.cdx-mixin-button-css-icon-background-color( @color-progressive );
+			.cdx-mixin-button-css-icon-fallback-color( @color-progressive );
 		}
 
 		&:hover {
@@ -472,7 +472,7 @@ export default defineComponent( {
 			border-color: @border-color-progressive--hover;
 
 			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-background-color( @color-progressive--hover );
+				.cdx-mixin-button-css-icon-fallback-color( @color-progressive--hover );
 			}
 		}
 
@@ -483,7 +483,7 @@ export default defineComponent( {
 			border-color: @border-color-progressive--active;
 
 			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-background-color( @color-progressive--active );
+				.cdx-mixin-button-css-icon-fallback-color( @color-progressive--active );
 			}
 		}
 
@@ -497,7 +497,7 @@ export default defineComponent( {
 
 		/* stylelint-disable-next-line no-descending-specificity */
 		.cdx-button__icon {
-			.cdx-mixin-button-css-icon-background-color( @color-destructive );
+			.cdx-mixin-button-css-icon-fallback-color( @color-destructive );
 		}
 
 		&:hover {
@@ -505,7 +505,7 @@ export default defineComponent( {
 			border-color: @border-color-destructive--hover;
 
 			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-background-color( @color-destructive--hover );
+				.cdx-mixin-button-css-icon-fallback-color( @color-destructive--hover );
 			}
 		}
 
@@ -516,7 +516,7 @@ export default defineComponent( {
 			border-color: @border-color-destructive--active;
 
 			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-background-color( @color-destructive--active );
+				.cdx-mixin-button-css-icon-fallback-color( @color-destructive--active );
 			}
 		}
 
