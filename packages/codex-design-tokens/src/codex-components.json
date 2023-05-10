@@ -71,6 +71,11 @@
 			"value": "{ dimension.300 }{ unit.system }"
 		}
 	},
+	"min-height": {
+		"text-area": {
+			"value": "{ dimension.400 }{ unit.system }"
+		}
+	},
 	"max-width": {
 		"button": {
 			"comment": "Note, that this is a slight amendment from WikimediaUI Base from `28.75em` = `460px` to `448px` – `dimension.2800`",

@@ -106,7 +106,7 @@ export default defineComponent( {
 .cdx-text-area {
 	&__textarea {
 		box-sizing: @box-sizing-base;
-		min-height: @size-400;
+		min-height: @min-height-text-area;
 		width: @size-full;
 		border-width: @border-width-base;
 		border-style: @border-style-base;
