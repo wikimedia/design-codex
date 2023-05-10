@@ -520,9 +520,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
-@background-color-tabs-framed-tab--hover: rgba( 255, 255, 255, 0.3 );
-@background-color-tabs-framed-tab--active: rgba( 255, 255, 255, 0.8 );
-
 .cdx-tabs {
 	// Tabs header common styles.
 	&__header {
@@ -685,12 +682,12 @@ export default defineComponent( {
 				}
 
 				&:hover {
-					background-color: @background-color-tabs-framed-tab--hover;
+					background-color: fade( @background-color-base, ( @opacity-low * 100 ) );
 					color: @color-base;
 				}
 
 				&:active {
-					background-color: @background-color-tabs-framed-tab--active;
+					background-color: fade( @background-color-base, ( @opacity-medium * 100 ) );
 					color: @color-base;
 				}
 			}
