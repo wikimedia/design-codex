@@ -90,7 +90,7 @@ export default defineComponent( {
 	justify-content: center;
 	gap: @spacing-25;
 	max-width: @size-3200;
-	border: @border-width-base @border-style-base @border-color-notice;
+	border: @border-width-base @border-style-base @border-color-subtle;
 	border-radius: @border-radius-pill;
 	padding: 0 @spacing-50;
 	line-height: @line-height-small;
