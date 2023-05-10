@@ -1,3 +1,38 @@
+# 0.10.0 / 2023-05-10
+
+## Features
+- Icon: Support icons in CSS-only buttons in Chrome (Anne Tomasevich)
+- Tabs: Add CSS-only version (Anne Tomasevich)
+
+## Styles
+- Button, tokens: Correct button padding values and add tokens (Anne Tomasevich)
+- styles: Add mixins for flush layouts (Anne Tomasevich)
+- tokens: Remove trailing zero (Volker E)
+- TextArea: Add error state styles (LWatson)
+- styles, tokens: Apply correct border color tokens (Volker E)
+- ToggleSwitch, styles: Use slower transition for background color change (Eric Gardner)
+- TextInput: Fix error status styles for a disabled TextInput (LWatson)
+- styles, mixins: Name icon fallback mixin more appropriately (Volker E)
+- InfoChip, styles: Use design specification border color (Volker E)
+- Tabs, styles: Replace SFC vars with tokens (Volker E)
+- tokens, styles: Use min-size appropriately in Select and TextArea (Volker E)
+
+## Code
+- Simplify Codex build process via a JS build script (Eric Gardner)
+- Tabs: Remove getLabelClasses, use aria-* for styling (Eric Gardner)
+
+## Documentation
+- docs: Add "Toolkit" nav item and nested "Composables" item (Anne Tomasevich)
+- docs: Style main nav dropdown menu with Codex tokens (Anne Tomasevich)
+- docs: Add style guide overview and update language around Codex (Anne Tomasevich)
+- docs: Add click handlers to all Button examples (Roan Kattouw)
+- docs: Style dropdown nav to look like Codex Menu (Anne Tomasevich)
+- docs: Add link to Phab task template to style guide overview (Anne Tomasevich)
+- docs: Update component docs to include CSS-only components (Anne Tomasevich)
+- docs: Add Visual Styles section of the Style Guide (Anne Tomasevich)
+- docs: Add Design Principles section of the style guide (Anne Tomasevich)
+- docs: Use relative sizes for th/td and fix token demo presentation (Volker E)
+
 # 0.9.1 / 2023-04-25
 ## Styles
 - binary inputs: Move `border-color` to enabled and transitions to mixin (Volker E)
