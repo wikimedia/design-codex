@@ -742,24 +742,18 @@ export default defineComponent( {
 
 				&:hover {
 					color: @color-progressive--hover;
-					// TODO: Replace box shadow color with upcoming
-					// `box-shadow-color*` tokens.
-					box-shadow: @box-shadow-inset-medium-vertical @border-color-progressive--hover;
+					box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected--hover;
 				}
 
 				&:active {
 					color: @color-progressive--active;
-					// TODO: Replace box shadow color with upcoming
-					// `box-shadow-color*` tokens.
-					box-shadow: @box-shadow-inset-medium-vertical @border-color-progressive--active;
+					box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected--active;
 				}
 			}
 
 			& [ aria-selected='true' ][ role='tab' ] {
 				color: @color-progressive;
-				// TODO: Replace box shadow color with upcoming
-				// `box-shadow-color*` tokens.
-				box-shadow: @box-shadow-inset-medium-vertical @border-color-progressive;
+				box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected;
 
 				&:hover {
 					color: @color-progressive;
