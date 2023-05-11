@@ -24,11 +24,13 @@
 	}
 
 	& when ( @param-is-icon-only = false ) {
-		.apply-margin( @spacing-horizontal-button );
+		// Horizontal button padding is equal to the total horizontal spacing for the button
+		// minus the border width. For this margin, we want to include the border width.
+		.apply-margin( @spacing-horizontal-button + @border-width-base );
 	}
 
 	& when ( @param-is-icon-only = true ) {
 		// TODO: Once T333392 is complete, set a larger padding on small screens.
-		.apply-margin( @spacing-horizontal-button-icon-only );
+		.apply-margin( @spacing-horizontal-button-icon-only + @border-width-base );
 	}
 }
