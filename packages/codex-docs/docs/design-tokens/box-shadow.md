@@ -8,9 +8,18 @@ import aliases from '@wikimedia/codex-design-tokens/deprecated-aliases-wikimedia
 
 <cdx-docs-tokens-table
 	:tokens="tokens['box-shadow']"
+	exclude-tokens="color"
 	token-demo="CdxDocsTokenDemo"
 	token-category="box-shadow"
 	css-property="box-shadow"
+/>
+
+## Box shadow colors
+<cdx-docs-tokens-table
+	:tokens="tokens['box-shadow']['color']"
+	token-demo="CdxDocsTokenDemo"
+	token-category="box-shadow-color"
+	css-property="border-color"
 />
 
 ## Deprecated token aliases

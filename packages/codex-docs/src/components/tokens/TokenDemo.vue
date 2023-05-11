@@ -121,6 +121,14 @@ export default defineComponent( {
 		}
 	}
 
+	&--box-shadow-color &__token {
+		width: @size-300;
+		height: @size-300;
+		border-width: @border-width-base;
+		border-style: @border-style-base;
+		border-radius: @border-radius-base;
+	}
+
 	&--color &__token {
 		width: @size-800;
 		height: @size-800;
