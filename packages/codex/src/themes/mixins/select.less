@@ -37,4 +37,15 @@
 		border-color: @border-color-base;
 		cursor: @cursor-base--hover;
 	}
+
+	&:focus {
+		border-color: @border-color-progressive--focus;
+		box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+		outline: @outline-base--focus;
+	}
+
+	&:active {
+		color: @color-emphasized;
+		border-color: @border-color-interactive;
+	}
 }

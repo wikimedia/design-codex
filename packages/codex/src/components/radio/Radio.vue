@@ -162,7 +162,7 @@ export default defineComponent( {
 	// `span`, which will look like a custom-styled radio.
 	&__input {
 		&:enabled {
-			& + .cdx-checkbox__icon {
+			& + .cdx-radio__icon {
 				border-color: @border-color-input-binary;
 			}
 

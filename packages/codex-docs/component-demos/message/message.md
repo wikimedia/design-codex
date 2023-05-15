@@ -261,16 +261,18 @@ these layouts.
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
-	<div class="cdx-message cdx-message--block cdx-message--notice" aria-live="polite">
-		<span class="cdx-message__icon"></span>
-		<div class="cdx-message__content">
-			This is a block-style message.
+	<div class="cdx-docs-message-layout">
+		<div class="cdx-message cdx-message--block cdx-message--notice" aria-live="polite">
+			<span class="cdx-message__icon"></span>
+			<div class="cdx-message__content">
+				This is a block-style message.
+			</div>
 		</div>
-	</div>
-	<div class="cdx-message cdx-message--inline cdx-message--notice" aria-live="polite">
-		<span class="cdx-message__icon"></span>
-		<div class="cdx-message__content">
-			This is an inline-style message.
+		<div class="cdx-message cdx-message--inline cdx-message--notice" aria-live="polite">
+			<span class="cdx-message__icon"></span>
+			<div class="cdx-message__content">
+				This is an inline-style message.
+			</div>
 		</div>
 	</div>
 </template>
@@ -400,6 +402,13 @@ Message content can contain markup like bold text and links.
 	:deep( p ) {
 		margin: 0;
 		line-height: var( --line-height-medium );
+	}
+
+	.cdx-docs-message-layout {
+		/* stylelint-disable-next-line selector-class-pattern */
+		.cdx-message:first-child {
+			margin-bottom: @spacing-200;
+		}
 	}
 }
 </style>

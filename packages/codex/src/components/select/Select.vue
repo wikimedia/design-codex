@@ -329,17 +329,6 @@ export default defineComponent( {
 					color: @color-base--hover;
 				}
 			}
-
-			&:focus {
-				border-color: @border-color-progressive--focus;
-				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
-				outline: @outline-base--focus;
-			}
-
-			&:active {
-				color: @color-emphasized;
-				border-color: @border-color-interactive;
-			}
 		}
 
 		/* Expanded Menu only happens when enabled. */

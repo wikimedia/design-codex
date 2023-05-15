@@ -109,7 +109,7 @@ export default defineComponent( {
 			background-color: @background-color-disabled;
 		}
 
-		&.cdx-progress-bar--block {
+		&:not( .cdx-progress-bar--inline ) {
 			background-color: @background-color-disabled-subtle;
 		}
 	}

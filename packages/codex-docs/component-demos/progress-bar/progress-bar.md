@@ -130,3 +130,21 @@ For a disabled progress bar, add the `cdx-progress-bar--disabled` class to the r
 
 </template>
 </cdx-demo-wrapper>
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-progress-bar cdx-progress-bar--inline cdx-progress-bar--disabled" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+		<div class="cdx-progress-bar__bar" />
+	</div>
+</template>
+
+<template v-slot:code>
+
+```html
+<div class="cdx-progress-bar cdx-progress-bar--inline cdx-progress-bar--disabled" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+	<div class="cdx-progress-bar__bar" />
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>

@@ -11,11 +11,11 @@ const controlsConfig = [
 	}
 ];
 
-const url = ref( '' );
+const url = ref( new URL( window.location.href ) );
+url.value.hash = 'css-only-version';
 const currentCssTabId = ref( '' );
 
 onMounted( () => {
-	url.value = window.location.href;
 	const searchParams = new URLSearchParams( window.location.search );
 	currentCssTabId.value = searchParams.get( 'tab' ) || 'form-tabs-1';
 } );
@@ -90,6 +90,10 @@ This no-JS implementation of Tabs requires some logic on the server side to set 
 
 To disable a tab:
 - Add the `disabled` attribute to that tab's submit input
+
+:::warning
+Keyboard navigation between tabs can only be done via the Tab key. Arrow keys will not work here.
+:::
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

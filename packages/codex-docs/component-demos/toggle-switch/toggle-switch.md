@@ -148,19 +148,35 @@ To disable the toggle switch, add the `disabled` attribute to the `<input>` elem
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<span class="cdx-toggle-switch">
-		<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox" disabled>
-		<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
-			Disabled, off
-		</label>
-		<span class="cdx-toggle-switch__switch">
-			<span class="cdx-toggle-switch__switch__grip"></span>
-		</span>
-	</span>
+	<div class="cdx-docs-disabled-switches">
+		<div>
+			<span class="cdx-toggle-switch">
+				<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox" disabled>
+				<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
+					Disabled, off
+				</label>
+				<span class="cdx-toggle-switch__switch">
+					<span class="cdx-toggle-switch__switch__grip"></span>
+				</span>
+			</span>
+		</div>
+		<div>
+			<span class="cdx-toggle-switch">
+				<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox" checked disabled>
+				<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
+					Disabled, on
+				</label>
+				<span class="cdx-toggle-switch__switch">
+					<span class="cdx-toggle-switch__switch__grip"></span>
+				</span>
+			</span>
+		</div>
+	</div>
 </template>
 <template v-slot:code>
 
 ```html
+<div>
 	<span class="cdx-toggle-switch">
 		<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox" disabled>
 		<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
@@ -170,7 +186,31 @@ To disable the toggle switch, add the `disabled` attribute to the `<input>` elem
 			<span class="cdx-toggle-switch__switch__grip"></span>
 		</span>
 	</span>
+</div>
+<div>
+	<span class="cdx-toggle-switch">
+		<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox" checked disabled>
+		<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
+			Disabled, on
+		</label>
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip"></span>
+		</span>
+	</span>
+</div>
 ```
 
 </template>
 </cdx-demo-wrapper>
+
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-demo-wrapper {
+	.cdx-docs-disabled-switches {
+		div:first-child {
+			margin-bottom: @spacing-100;
+		}
+	}
+}
+</style>
