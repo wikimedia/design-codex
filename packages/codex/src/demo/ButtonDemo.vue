@@ -136,6 +136,33 @@
 				</p>
 			</div>
 		</div>
+
+		<h4>Large icon-only buttons</h4>
+		<div class="cdx-demo-flush-layout cdx-demo-flush-layout--icon-only-large">
+			<div class="cdx-demo-flush-layout__buttons">
+				<cdx-button
+					weight="quiet"
+					size="large"
+					aria-label="Align left"
+				>
+					<cdx-icon :icon="cdxIconAlignLeft" />
+				</cdx-button>
+				<cdx-button
+					weight="quiet"
+					size="large"
+					aria-label="Align right"
+				>
+					<cdx-icon :icon="cdxIconAlignRight" />
+				</cdx-button>
+			</div>
+			<div class="cdx-demo-flush-layout__content">
+				<p>
+					Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
+					peppermint asian pear frosted gingerbread bites Southern Italian almond milk
+					chai latte mint golden cayenne pepper.
+				</p>
+			</div>
+		</div>
 	</section>
 </template>
 
@@ -186,6 +213,16 @@ const onClick = getEventLogger<Event>( 'click' );
 
 		.cdx-button:last-child {
 			.cdx-mixin-button-layout-flush( 'end', true );
+		}
+	}
+
+	&--icon-only-large {
+		.cdx-button:first-child {
+			.cdx-mixin-button-layout-flush( 'start', true, 'large' );
+		}
+
+		.cdx-button:last-child {
+			.cdx-mixin-button-layout-flush( 'end', true, 'large' );
 		}
 	}
 
