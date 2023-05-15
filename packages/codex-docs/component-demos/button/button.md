@@ -4,6 +4,7 @@ import ButtonWithIcon from '@/../component-demos/button/examples/ButtonWithIcon.
 import QuietButtonWithIcon from '@/../component-demos/button/examples/QuietButtonWithIcon.vue';
 import IconOnlyButton from '@/../component-demos/button/examples/IconOnlyButton.vue';
 import QuietIconOnlyButton from '@/../component-demos/button/examples/QuietIconOnlyButton.vue';
+import ButtonSizes from '@/../component-demos/button/examples/ButtonSizes.vue';
 
 const controlsConfig = [
 	{
@@ -212,6 +213,25 @@ The attribute `aria-label` has to be used on icon-only buttons to be understanda
 </template>
 </cdx-demo-wrapper>
 
+### Button sizes
+
+There are two button sizes: medium and large.
+
+Most buttons should use the medium size. The large size is intended only for accessibility purposes,
+such as making icon-only buttons larger on touchscreens to increase the touch area.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<button-sizes />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/button/examples/ButtonSizes.vue
+
+</template>
+</cdx-demo-wrapper>
+
 ## CSS-only version
 
 ### Markup structure
@@ -404,6 +424,57 @@ reader users.
 </template>
 </cdx-demo-wrapper>
 
+### Button sizes
+
+There are two button sizes: medium and large. Most buttons should use the medium size. The large
+size is intended only for accessibility purposes, such as making icon-only buttons larger on small
+screens to increase the touch area.
+
+Use the following classes to apply these actions:
+- Medium: `cdx-button--size-medium` (class can be omitted since this is the default)
+- Large: `cdx-button--size-large`
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div>
+		<button class="cdx-button cdx-button--icon-only" aria-label="Back">
+			<span class="cdx-button__icon cdx-demo-css-icon--bell"></span>
+		</button>
+	</div>
+	<div>
+		<button class="cdx-button cdx-button--icon-only cdx-button--size-large" aria-label="Back">
+			<span class="cdx-button__icon cdx-demo-css-icon--bell"></span>
+		</button>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div>
+	<button class="cdx-button cdx-button--icon-only" aria-label="Back">
+		<span class="cdx-button__icon cdx-demo-css-icon--bell"></span>
+	</button>
+</div>
+<div>
+	<button class="cdx-button cdx-button--icon-only cdx-button--size-large" aria-label="Back">
+		<span class="cdx-button__icon cdx-demo-css-icon--bell"></span>
+	</button>
+</div>
+```
+
+```less
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon--bell {
+	.cdx-mixin-css-icon( @cdx-icon-bell, @param-is-button-icon: true );
+}
+```
+
+</template>
+</cdx-demo-wrapper>
+
 <style lang="less" scoped>
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
@@ -423,5 +494,9 @@ reader users.
 // selectors, which increases specificity.
 .cdx-demo-css-icon--arrow-previous {
 	.cdx-mixin-css-icon( @cdx-icon-arrow-previous, @param-is-button-icon: true );
+}
+
+.cdx-demo-css-icon--bell {
+	.cdx-mixin-css-icon( @cdx-icon-bell, @param-is-button-icon: true );
 }
 </style>

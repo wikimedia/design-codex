@@ -4,9 +4,6 @@
 // Base styles for <button> elements, used for Button and ToggleButton
 .cdx-mixin-button() {
 	box-sizing: @box-sizing-base;
-	// Interactive elements have a minimum touch area.
-	min-width: @min-size-base;
-	min-height: @min-size-base;
 	max-width: @max-width-button;
 	// Support Firefox, Safari: Normalize by removing the `margin`.
 	margin: 0;
@@ -26,6 +23,19 @@
 	text-transform: none;
 	transition-property: @transition-property-base;
 	transition-duration: @transition-duration-base;
+
+	// Interactive elements have a minimum touch area.
+	// The large button size is meant for use on touch-only devices.
+	&--size-large {
+		min-width: @min-size-interactive-touch;
+		min-height: @min-size-interactive-touch;
+	}
+
+	/* stylelint-disable-next-line selector-not-notation */
+	&:not( &--size-large ) {
+		min-width: @min-size-interactive-pointer;
+		min-height: @min-size-interactive-pointer;
+	}
 
 	// Support Firefox: Normalize by hiding the inner focus `border` and `padding`.
 	&::-moz-focus-inner {

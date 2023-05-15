@@ -10,6 +10,7 @@ import {
 	ButtonActions,
 	ButtonTypes,
 	ButtonWeights,
+	ButtonSizes,
 	IconSizes,
 	TextInputTypes,
 	ValidationStatusTypes,
@@ -24,6 +25,8 @@ export type HTMLDirection = 'ltr' | 'rtl';
 export type ButtonAction = typeof ButtonActions[ number ];
 /** @public */
 export type ButtonWeight = typeof ButtonWeights[ number ];
+/** @public */
+export type ButtonSize = typeof ButtonSizes[ number ];
 /** @public */
 export type ButtonType = typeof ButtonTypes[ number ];
 

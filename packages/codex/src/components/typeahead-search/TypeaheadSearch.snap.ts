@@ -77,7 +77,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
         
       </div>
       <button
-        class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-search-input__end-button"
+        class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-search-input__end-button"
       >
         <!-- @slot Button content -->
         
@@ -179,7 +179,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
         
       </div>
       <button
-        class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-search-input__end-button"
+        class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-search-input__end-button"
       >
         <!-- @slot Button content -->
         
@@ -281,7 +281,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
         
       </div>
       <button
-        class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-search-input__end-button"
+        class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-search-input__end-button"
       >
         <!-- @slot Button content -->
         
@@ -467,7 +467,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
         
       </div>
       <button
-        class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-search-input__end-button"
+        class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-search-input__end-button"
       >
         <!-- @slot Button content -->
         
@@ -775,7 +775,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         
       </div>
       <button
-        class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-search-input__end-button"
+        class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-search-input__end-button"
       >
         <!-- @slot Button content -->
         

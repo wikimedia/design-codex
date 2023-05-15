@@ -38,6 +38,15 @@ interface ButtonGroupItem {
 }
 ```
 
+### ButtonSize
+
+See [ButtonSizes](#buttonsizes).
+
+```ts
+// Allowed values: 'medium', 'large'
+type ButtonSize = typeof ButtonSizes[ number ];
+```
+
 ### ButtonType
 
 See [ButtonTypes](#buttontypes).
@@ -301,6 +310,15 @@ const ButtonActions = [
 	'default',
 	'progressive',
 	'destructive'
+];
+```
+
+### ButtonSizes
+
+```ts
+const ButtonSizes = [
+	'medium',
+	'large'
 ];
 ```
 

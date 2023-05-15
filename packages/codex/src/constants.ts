@@ -19,6 +19,11 @@ export const ButtonWeights = [
 	'quiet'
 ] as const;
 
+export const ButtonSizes = [
+	'medium',
+	'large'
+] as const;
+
 /**
  * Corresponds to the native button types, see
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes.

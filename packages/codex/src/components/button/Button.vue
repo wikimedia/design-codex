@@ -23,13 +23,14 @@ import {
 	computed,
 	warn
 } from 'vue';
-import { ButtonActions, ButtonWeights } from '../../constants';
-import { ButtonAction, ButtonWeight } from '../../types';
+import { ButtonActions, ButtonWeights, ButtonSizes } from '../../constants';
+import { ButtonAction, ButtonWeight, ButtonSize } from '../../types';
 import CdxIcon from '../icon/Icon.vue';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
 const buttonActionValidator = makeStringTypeValidator( ButtonActions );
 const buttonWeightValidator = makeStringTypeValidator( ButtonWeights );
+const buttonSizeValidator = makeStringTypeValidator( ButtonSizes );
 const validateIconOnlyButtonAttrs = ( attrs: SetupContext['attrs'] ) => {
 	if ( !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ] ) {
 		warn( `icon-only buttons require one of the following attribute: aria-label or aria-hidden.
@@ -112,6 +113,19 @@ export default defineComponent( {
 			type: String as PropType<ButtonWeight>,
 			default: 'normal',
 			validator: buttonWeightValidator
+		},
+		/**
+		 * Button size.
+		 *
+		 * Most buttons should use the default medium size. In rare cases the large size should
+		 * be used, for example to make icon-only buttons larger on touchscreens.
+		 *
+		 * @values 'medium', 'large'
+		 */
+		size: {
+			type: String as PropType<ButtonSize>,
+			default: 'medium',
+			validator: buttonSizeValidator
 		}
 	},
 	emits: [ 'click' ],
@@ -125,6 +139,7 @@ export default defineComponent( {
 		const rootClasses = computed( () => ( {
 			[ `cdx-button--action-${props.action}` ]: true,
 			[ `cdx-button--weight-${props.weight}` ]: true,
+			[ `cdx-button--size-${props.size}` ]: true,
 			'cdx-button--framed': props.weight !== 'quiet',
 			'cdx-button--icon-only': isIconOnlyButton( slots.default?.(), attrs ),
 			'cdx-button--is-active': isActive.value
@@ -210,7 +225,11 @@ export default defineComponent( {
 
 // Buttons that only include an icon element.
 .cdx-button--icon-only {
-	padding: 0 @spacing-horizontal-button-icon-only;
+	&:not( .cdx-button--size-large ) {
+		// Medium icon-only buttons have a smaller horizontal padding, to make them square.
+		// Large icon-only buttons use the standard button padding applied in the button mixin.
+		padding: 0 @spacing-horizontal-button-icon-only;
+	}
 }
 
 // Non-quiet “framed” buttons (normal and primary types)

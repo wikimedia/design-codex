@@ -136,7 +136,7 @@ exports[`matches the snapshot Case 2 With hidden title 1`] = `
         <!--v-if-->
         <button
           aria-label="close"
-          class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--icon-only cdx-dialog__header__close-button"
+          class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button"
           type="button"
         >
           <!-- @slot Button content -->
@@ -250,7 +250,7 @@ exports[`matches the snapshot Case 3 With default action 1`] = `
         >
           <!--v-if-->
           <button
-            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-dialog__footer__default-action"
           >
             <!-- @slot Button content -->
             
@@ -327,7 +327,7 @@ exports[`matches the snapshot Case 4 With default disabled action 1`] = `
         >
           <!--v-if-->
           <button
-            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-dialog__footer__default-action"
             disabled=""
           >
             <!-- @slot Button content -->
@@ -404,7 +404,7 @@ exports[`matches the snapshot Case 5 With default and primary actions 1`] = `
           class="cdx-dialog__footer__actions"
         >
           <button
-            class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--framed cdx-dialog__footer__primary-action"
+            class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--size-medium cdx-button--framed cdx-dialog__footer__primary-action"
           >
             <!-- @slot Button content -->
             
@@ -412,7 +412,7 @@ exports[`matches the snapshot Case 5 With default and primary actions 1`] = `
             
           </button>
           <button
-            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-dialog__footer__default-action"
           >
             <!-- @slot Button content -->
             
@@ -488,7 +488,7 @@ exports[`matches the snapshot Case 6 With stacked default and primary actions 1`
           class="cdx-dialog__footer__actions"
         >
           <button
-            class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--framed cdx-dialog__footer__primary-action"
+            class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--size-medium cdx-button--framed cdx-dialog__footer__primary-action"
           >
             <!-- @slot Button content -->
             
@@ -496,7 +496,7 @@ exports[`matches the snapshot Case 6 With stacked default and primary actions 1`
             
           </button>
           <button
-            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-dialog__footer__default-action"
           >
             <!-- @slot Button content -->
             
@@ -576,7 +576,7 @@ exports[`matches the snapshot Case 7 With subtitle 1`] = `
           class="cdx-dialog__footer__actions"
         >
           <button
-            class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--framed cdx-dialog__footer__primary-action"
+            class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--size-medium cdx-button--framed cdx-dialog__footer__primary-action"
           >
             <!-- @slot Button content -->
             
@@ -584,7 +584,7 @@ exports[`matches the snapshot Case 7 With subtitle 1`] = `
             
           </button>
           <button
-            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-dialog__footer__default-action"
           >
             <!-- @slot Button content -->
             
@@ -677,7 +677,7 @@ exports[`matches the snapshot Case 8 With footer text 1`] = `
           class="cdx-dialog__footer__actions"
         >
           <button
-            class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--framed cdx-dialog__footer__primary-action"
+            class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--size-medium cdx-button--framed cdx-dialog__footer__primary-action"
           >
             <!-- @slot Button content -->
             
@@ -685,7 +685,7 @@ exports[`matches the snapshot Case 8 With footer text 1`] = `
             
           </button>
           <button
-            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--framed cdx-dialog__footer__default-action"
+            class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-dialog__footer__default-action"
           >
             <!-- @slot Button content -->
             
