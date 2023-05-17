@@ -46,7 +46,7 @@ tokens without making any assumptions about where that style should be applied.
 All targeting decisions can be made by library consumers in a way that suits
 their own projects. This approach seems like the best balance between design
 consistency and flexibility. Less is supported throughout MediaWiki, so this
-approach will not impose any additional techincal requirements on users.
+approach will not impose any additional technical requirements on users.
 
 There are two kinds of circumstances where we will consider adding new public
 Less mixins to Codex:

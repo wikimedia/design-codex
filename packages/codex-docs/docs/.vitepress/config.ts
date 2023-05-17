@@ -112,7 +112,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'ADR 1 - Design Tokens', link: '/using-codex/adrs/01-adr-design-tokens' },
 						{ text: 'ADR 2 - Demo tool', link: '/using-codex/adrs/02-adr-demo-tool' },
 						{ text: 'ADR 3 - String types in TypeScript', link: '/using-codex/adrs/03-adr-string-types' },
-						{ text: 'ADR 4 - Visual Styles as Less Mixins', link: '/using-codex/adrs/04-adr-less-mixins' }
+						{ text: 'ADR 4 - Visual Styles as Less Mixins', link: '/using-codex/adrs/04-adr-less-mixins' },
+						{ text: 'ADR 5 - CSS Components', link: '/using-codex/adrs/05-adr-css-components' }
 					]
 				}
 			],
