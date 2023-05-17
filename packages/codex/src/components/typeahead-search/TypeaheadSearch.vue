@@ -52,7 +52,7 @@
 				>
 					<template #pending>
 						<div
-							class="cdx-typeahead-search__menu-message"
+							class="cdx-menu-item__content cdx-typeahead-search__menu-message"
 							:class="menuMessageClass"
 						>
 							<span class="cdx-typeahead-search__menu-message__text">
@@ -65,7 +65,7 @@
 					</template>
 					<template #no-results>
 						<div
-							class="cdx-typeahead-search__menu-message"
+							class="cdx-menu-item__content cdx-typeahead-search__menu-message"
 							:class="menuMessageClass"
 						>
 							<span class="cdx-typeahead-search__menu-message__text">
@@ -79,18 +79,22 @@
 					<template #default="{ menuItem, active }">
 						<a
 							v-if="menuItem.value === MenuFooterValue"
-							class="cdx-typeahead-search__search-footer"
+							class="cdx-menu-item__content cdx-typeahead-search__search-footer"
 							:class="{
 								'cdx-typeahead-search__search-footer__active': active
 							}"
 							:href="asSearchResult( menuItem ).url"
 							@click.capture.stop="onSearchFooterClick( asSearchResult( menuItem ) )"
 						>
+							<!-- eslint-disable max-len -->
 							<cdx-icon
-								class="cdx-typeahead-search__search-footer__icon"
+								class="cdx-menu-item__thumbnail cdx-typeahead-search__search-footer__icon"
 								:icon="articleIcon"
 							/>
-							<span class="cdx-typeahead-search__search-footer__text">
+							<span
+								class="cdx-menu-item__text cdx-typeahead-search__search-footer__text"
+							>
+								<!-- eslint-enable max-len -->
 								<!--
 									@slot A slot for passing in translated search footer text.
 									@binding {string} search-query Input text entered by the user
@@ -723,15 +727,6 @@ export default defineComponent( {
 		}
 	}
 
-	&__menu-message,
-	&__search-footer {
-		color: @color-base;
-		display: flex;
-		align-items: center;
-		padding: @spacing-50 @spacing-75;
-		text-decoration: @text-decoration-none;
-	}
-
 	&__search-footer {
 		box-sizing: @box-sizing-base;
 		// Set `min-height` on the footer so that it has the same height as the search results.
@@ -749,11 +744,6 @@ export default defineComponent( {
 
 		&__icon {
 			color: @color-subtle;
-			// Because the footer icon should line up vertically with the search result text when
-			// `showThumbnail` is false, we set its width to `auto` here instead of using the more
-			// intuitive @size-search-figure variable so it doesn't have extra horizontal space.
-			width: auto;
-			margin-right: @spacing-50;
 		}
 
 		// We cannot use a pseudo class ":active" because that does not work
@@ -768,7 +758,7 @@ export default defineComponent( {
 
 	// When props showThumbnail is true, special menu messages (like no results and pending) should
 	// have different padding.
-	&__menu-message--has-thumbnail {
+	.cdx-typeahead-search__menu-message--has-thumbnail {
 		padding-left: @spacing-125;
 	}
 
@@ -813,20 +803,12 @@ export default defineComponent( {
 		}
 
 		.cdx-typeahead-search__search-footer {
-			padding-right: @spacing-75;
-			padding-left: @spacing-start-typeahead-search-figure;
-
 			&__icon {
 				// Prevent the icon container from shrinking when large text is present.
 				flex-shrink: 0;
 				// Prevent the icon container from shrinking on smaller base font sizes.
 				min-width: @min-size-search-figure;
 				width: @size-search-figure;
-			}
-
-			&__text,
-			&__query {
-				.hyphens();
 			}
 		}
 	}

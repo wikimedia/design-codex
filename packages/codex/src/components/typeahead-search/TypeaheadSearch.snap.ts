@@ -382,7 +382,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
 				-->
               
               <div
-                class="cdx-typeahead-search__menu-message cdx-typeahead-search__menu-message--has-thumbnail"
+                class="cdx-menu-item__content cdx-typeahead-search__menu-message cdx-typeahead-search__menu-message--has-thumbnail"
               >
                 <span
                   class="cdx-typeahead-search__menu-message__text"
@@ -414,11 +414,12 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
 				-->
               
               <a
-                class="cdx-typeahead-search__search-footer"
+                class="cdx-menu-item__content cdx-typeahead-search__search-footer"
                 href="https://foo.org/search?query=Co"
               >
+                <!-- eslint-disable max-len -->
                 <span
-                  class="cdx-icon cdx-icon--medium cdx-typeahead-search__search-footer__icon"
+                  class="cdx-icon cdx-icon--medium cdx-menu-item__thumbnail cdx-typeahead-search__search-footer__icon"
                 >
                   <svg
                     aria-hidden="true"
@@ -442,8 +443,9 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
                   </svg>
                 </span>
                 <span
-                  class="cdx-typeahead-search__search-footer__text"
+                  class="cdx-menu-item__text cdx-typeahead-search__search-footer__text"
                 >
+                  <!-- eslint-enable max-len -->
                   <!--
 									@slot A slot for passing in translated search footer text.
 									@binding {string} search-query Input text entered by the user
@@ -722,11 +724,12 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
 				-->
               
               <a
-                class="cdx-typeahead-search__search-footer"
+                class="cdx-menu-item__content cdx-typeahead-search__search-footer"
                 href="https://foo.org/search?query=Co"
               >
+                <!-- eslint-disable max-len -->
                 <span
-                  class="cdx-icon cdx-icon--medium cdx-typeahead-search__search-footer__icon"
+                  class="cdx-icon cdx-icon--medium cdx-menu-item__thumbnail cdx-typeahead-search__search-footer__icon"
                 >
                   <svg
                     aria-hidden="true"
@@ -750,8 +753,9 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                   </svg>
                 </span>
                 <span
-                  class="cdx-typeahead-search__search-footer__text"
+                  class="cdx-menu-item__text cdx-typeahead-search__search-footer__text"
                 >
+                  <!-- eslint-enable max-len -->
                   <!--
 									@slot A slot for passing in translated search footer text.
 									@binding {string} search-query Input text entered by the user
