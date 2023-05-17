@@ -173,6 +173,7 @@ export default defineComponent( {
 .cdx-docs-copy-text-button {
 	&__transition-icon {
 		&-leave-active {
+			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 			transition-property: width, opacity, margin-left;
 			transition-duration: @transition-duration-medium;
 			transition-timing-function: @transition-timing-function-user;

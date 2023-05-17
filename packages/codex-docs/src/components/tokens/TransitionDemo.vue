@@ -60,7 +60,7 @@ export default defineComponent( {
 	height: @size-300;
 	border: @border-base;
 	padding: @spacing-25 @spacing-75;
-	transition-property: border-color, box-shadow, background-color, color, padding;
+	transition-property: @transition-property-base;
 	transition-duration: @transition-duration-medium;
 
 	span {
@@ -69,6 +69,7 @@ export default defineComponent( {
 		left: @spacing-half;
 		margin-left: -@spacing-half;
 		transform: translate( @spacing-75, -@spacing-half );
+		/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 		transition-property: margin-left, transform;
 		transition-duration: @transition-duration-medium;
 	}

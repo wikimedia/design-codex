@@ -359,7 +359,7 @@ module.exports = {
 				'animation-fill-mode',
 				'animation-play-state',
 				'transition',
-				// 'transition-property', TODO: Several static values to even out.
+				'transition-property',
 				'transition-duration',
 				'transition-timing-function',
 				'transition-delay',

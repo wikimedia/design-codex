@@ -160,6 +160,9 @@
 		"icon": {
 			"value": "{ transition-property.color }"
 		},
+		"icon-css-only": {
+			"value": "{ transition-property.background-color }"
+		},
 		"toggle-switch-grip": {
 			"value": "{ transition-property.background-color }, { transition-property.border-color }, { transition-property.transform }"
 		}
