@@ -565,7 +565,7 @@ export default defineComponent( {
 		content: '';
 		position: absolute;
 		top: 0;
-		z-index: 1;
+		z-index: @z-index-stacking-1;
 		width: @size-150;
 		height: @size-full;
 		pointer-events: none;

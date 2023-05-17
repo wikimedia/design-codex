@@ -270,7 +270,7 @@ module.exports = {
 				'right',
 				'bottom',
 				'left',
-				// 'z-index', TODO: Several static values to even out.
+				'z-index',
 				'margin',
 				'margin-top',
 				'margin-right',
