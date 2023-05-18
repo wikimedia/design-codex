@@ -218,6 +218,9 @@ Only notice messages may have a custom icon.
 
 ## CSS-only version
 
+Note that some features of the Vue component require JavaScript and are therefore not supported in
+the CSS-only version (fade in, dismiss button, and auto-dismiss).
+
 ### Markup structure
 
 :::tip
