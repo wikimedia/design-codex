@@ -282,6 +282,9 @@ export default defineComponent( {
 	&:disabled {
 		.cdx-select__handle--disabled();
 		.cdx-mixin-css-icon-background-image( @cdx-icon-expand, @color-disabled );
+
+		// Support: Chrome, which sets an opacity less than 1 for disabled select elements.
+		opacity: @opacity-base;
 	}
 
 	&:enabled {
