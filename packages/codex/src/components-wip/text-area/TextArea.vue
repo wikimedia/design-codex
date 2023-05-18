@@ -12,6 +12,16 @@
 			class="cdx-text-area__textarea"
 			@input="onInput"
 		/>
+		<cdx-icon
+			v-if="startIcon"
+			:icon="startIcon"
+			class="cdx-text-area__icon-vue cdx-text-area__start-icon"
+		/>
+		<cdx-icon
+			v-if="endIcon"
+			:icon="endIcon"
+			class="cdx-text-area__icon-vue cdx-text-area__end-icon"
+		/>
 	</div>
 </template>
 
@@ -23,6 +33,8 @@ import {
 	toRef,
 	PropType
 } from 'vue';
+import CdxIcon from '../../components/icon/Icon.vue';
+import { Icon } from '@wikimedia/codex-icons';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useModelWrapper from '../../composables/useModelWrapper';
 import { ValidationStatusType } from '../../types';
@@ -36,6 +48,7 @@ const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
  */
 export default defineComponent( {
 	name: 'CdxTextArea',
+	components: { CdxIcon },
 	inheritAttrs: false,
 	props: {
 		/**
@@ -69,6 +82,20 @@ export default defineComponent( {
 		autosize: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * An icon at the start of the textarea element. Similar to a `::before` pseudo-element.
+		 */
+		startIcon: {
+			type: [ String, Object ] as PropType<Icon | undefined>,
+			default: undefined
+		},
+		/**
+		 * An icon at the end of the textarea element. Similar to an `::after` pseudo-element.
+		 */
+		endIcon: {
+			type: [ String, Object ] as PropType<Icon | undefined>,
+			default: undefined
 		}
 	},
 	emits: [
@@ -95,7 +122,9 @@ export default defineComponent( {
 		const internalClasses = computed( () => {
 			return {
 				'cdx-text-area--status-default': props.status === 'default',
-				'cdx-text-area--status-error': props.status === 'error'
+				'cdx-text-area--status-error': props.status === 'error',
+				'cdx-text-area--has-start-icon': !!props.startIcon,
+				'cdx-text-area--has-end-icon': !!props.endIcon
 			};
 		} );
 
@@ -109,7 +138,6 @@ export default defineComponent( {
 		const textarea = ref<HTMLTextAreaElement>();
 
 		// Allows the textarea to grow aka auto-resize while typing.
-		// https://medium.com/@adamorlowskipoland/vue-auto-resize-textarea-3-different-approaches-8bbda5d074ce
 		function onInput() {
 			if ( textarea.value && props.autosize ) {
 				textarea.value.style.height = 'auto';
@@ -132,8 +160,34 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '../../themes/mixins/icon-alignment.less';
+@import ( reference ) '../../themes/mixins/public/css-icon.less';
 
 .cdx-text-area {
+	// Added for positioning of icons.
+	position: relative;
+
+	&__start-icon {
+		.cdx-mixin-icon( start, @param-external-padding: @spacing-50 + @border-width-base );
+	}
+
+	&__end-icon {
+		.cdx-mixin-icon(
+			end,
+			@min-size-icon-small
+			@size-icon-small,
+			@spacing-50 + @border-width-base
+		);
+	}
+
+	&__start-icon,
+	&__end-icon {
+		// TODO: Move these overrides into the mixin (T337878)
+		top: @spacing-25;
+		height: @size-150;
+		transform: none;
+	}
+
 	&__textarea {
 		box-sizing: @box-sizing-base;
 		min-height: @min-height-text-area;
@@ -146,6 +200,9 @@ export default defineComponent( {
 		font-family: inherit;
 		font-size: inherit;
 		line-height: @line-height-x-small;
+		// TODO: Support Safari iOS/Webkit
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		resize: vertical;
 
 		&--is-autosize {
 			/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
@@ -166,8 +223,19 @@ export default defineComponent( {
 			transition-property: @transition-property-base;
 			transition-duration: @transition-duration-medium;
 
+			~ .cdx-text-area__icon-vue {
+				color: @color-placeholder;
+			}
+
 			&:hover {
 				border-color: @border-color-input--hover;
+			}
+
+			&:focus,
+			&.cdx-text-area__textarea--has-value {
+				~ .cdx-text-area__icon-vue {
+					color: @color-base;
+				}
 			}
 
 			&:focus {
@@ -186,12 +254,35 @@ export default defineComponent( {
 			background-color: @background-color-disabled-subtle;
 			color: @color-disabled;
 			border-color: @border-color-disabled;
+
+			/* stylelint-disable-next-line no-descending-specificity */
+			~ .cdx-text-area__icon-vue {
+				color: @color-disabled;
+			}
 		}
 
 		// Normalize placeholder styling, see T139034.
 		&::placeholder {
 			color: @color-placeholder;
 			opacity: @opacity-base;
+		}
+	}
+
+	// Add additional padding to textarea when the start icon exists.
+	// Sets the start icon to 1.25em relative to the font size.
+	&--has-start-icon {
+		/* stylelint-disable-next-line no-descending-specificity */
+		.cdx-text-area__textarea {
+			.cdx-mixin-icon-wrapper-padding( start, @spacing-50 );
+		}
+	}
+
+	// Add additional padding to textarea when the end icon exists.
+	// Sets the end icon to 1em relative to the font size.
+	&--has-end-icon {
+		/* stylelint-disable-next-line no-descending-specificity */
+		.cdx-text-area__textarea {
+			.cdx-mixin-icon-wrapper-padding( end, @spacing-50, @size-icon-small );
 		}
 	}
 

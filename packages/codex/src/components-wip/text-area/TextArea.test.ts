@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import CdxTextArea from './TextArea.vue';
+import { Icon, cdxIconNotBright, cdxIconInfo } from '@wikimedia/codex-icons';
 import { ValidationStatusType } from '../../types';
 
 describe( 'TextArea', () => {
@@ -9,7 +10,9 @@ describe( 'TextArea', () => {
 			props: {
 				modelValue?: string,
 				status?: ValidationStatusType,
-				autosize?: boolean
+				autosize?: boolean,
+				startIcon?: Icon,
+				endIcon?: Icon
 			},
 			attrs?: Record<string, string|number|boolean>
 		];
@@ -20,7 +23,10 @@ describe( 'TextArea', () => {
 			[ 'with disabled as true', { modelValue: 'Earth Day' }, { placeholder: 'Start typing...', disabled: true } ],
 			[ 'with readonly as true', { modelValue: 'Earth Day' }, { placeholder: 'Start typing...', readonly: true } ],
 			[ 'with error status', { status: 'error' }, { placeholder: 'Start typing...' } ],
-			[ 'with autosize as true', { autosize: true }, { placeholder: 'Start typing...' } ]
+			[ 'with autosize as true', { autosize: true }, { placeholder: 'Start typing...' } ],
+			[ 'with start icon', { startIcon: cdxIconNotBright }, { placeholder: 'Start typing...' } ],
+			[ 'with end icon', { endIcon: cdxIconInfo }, { placeholder: 'Start typing...' } ],
+			[ 'with start and end icons', { startIcon: cdxIconNotBright, endIcon: cdxIconInfo }, { placeholder: 'Start typing...' } ]
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, attrs = {} ) => {
