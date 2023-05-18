@@ -169,7 +169,13 @@ export default defineComponent( {
 		 *
 		 * @property {FocusEvent} event
 		 */
-		'blur'
+		'blur',
+		/**
+		 * When the input value is cleared through the use of the clear button
+		 *
+		 * @property {MouseEvent} event
+		 */
+		'clear'
 	],
 	setup( props, { emit, attrs } ) {
 		// Take the modelValue provided by the parent component via v-model and
@@ -203,8 +209,9 @@ export default defineComponent( {
 			};
 		} );
 
-		const onClear = () => {
+		const onClear = ( event: MouseEvent ) => {
 			wrappedModel.value = '';
+			emit( 'clear', event );
 		};
 
 		const onKeydown = ( event: KeyboardEvent ) => {

@@ -110,5 +110,16 @@ describe( 'TextInput', () => {
 			expect( wrapper.emitted()[ 'update:modelValue' ] ).toBeTruthy();
 			expect( wrapper.emitted( 'update:modelValue' )?.[ 0 ] ).toEqual( [ '' ] );
 		} );
+
+		it( 'emits a "clear" event on icon click', async () => {
+			const wrapper = mount(
+				CdxTextInput,
+				{ props: { modelValue: 'Initial value', endIcon: cdxIconInfoFilled, clearable: true } }
+			);
+			const clearElement = wrapper.find( '.cdx-text-input__clear-icon' );
+
+			await clearElement.trigger( 'click' );
+			expect( wrapper.emitted().clear ).toBeTruthy();
+		} );
 	} );
 } );
