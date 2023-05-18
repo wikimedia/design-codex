@@ -11,11 +11,12 @@ const controlsConfig = [
 	}
 ];
 
-const url = ref( new URL( window.location.href ) );
-url.value.hash = 'css-only-version';
+const url = ref( null );
 const currentCssTabId = ref( '' );
 
 onMounted( () => {
+	url.value = new URL( window.location.href );
+	url.value.hash = 'css-only-version';
 	const searchParams = new URLSearchParams( window.location.search );
 	currentCssTabId.value = searchParams.get( 'tab' ) || 'form-tabs-1';
 } );
