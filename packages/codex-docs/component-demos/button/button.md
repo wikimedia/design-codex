@@ -18,6 +18,11 @@ const controlsConfig = [
 		options: [ 'normal', 'primary', 'quiet' ],
 	},
 	{
+		name: 'size',
+		type: 'radio',
+		options: [ 'medium', 'large' ],
+	},
+	{
 		name: 'disabled',
 		type: 'boolean'
 	},
