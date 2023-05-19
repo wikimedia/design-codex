@@ -319,7 +319,6 @@ Add the `.cdx-text-input--status-error` class to the root element to show error 
 
 /* stylelint-disable-next-line selector-class-pattern */
 :deep( .cdx-demo-wrapper__demo-pane .cdx-text-input ) {
-	max-width: @size-2800;
 	margin-bottom: @spacing-100;
 }
 
