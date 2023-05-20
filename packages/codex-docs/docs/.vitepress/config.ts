@@ -218,6 +218,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Combobox', link: '/components/demos/combobox' },
 						{ text: 'Dialog', link: '/components/demos/dialog' },
 						{ text: 'Field', link: '/components/demos/field' },
+						{ text: 'FilterChip', link: '/components/demos/filter-chip' },
+						{ text: 'FilterChipInput', link: '/components/demos/filter-chip-input' },
 						{ text: 'Icon', link: '/components/demos/icon' },
 						{ text: 'Label', link: '/components/demos/label' },
 						{ text: 'InfoChip', link: '/components/demos/info-chip' },

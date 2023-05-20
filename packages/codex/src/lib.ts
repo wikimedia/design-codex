@@ -85,7 +85,8 @@ import type {
 	BoxDimensions,
 	ValidationStatusType,
 	ValidationMessages,
-	HeadingLevel
+	HeadingLevel,
+	FilterChipInputItem
 } from './types';
 
 export {
@@ -156,5 +157,6 @@ export {
 	BoxDimensions,
 	ValidationStatusType,
 	ValidationMessages,
-	HeadingLevel
+	HeadingLevel,
+	FilterChipInputItem
 };
