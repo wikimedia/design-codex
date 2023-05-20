@@ -1,6 +1,6 @@
 <template>
-	<cdx-button>
-		<cdx-icon :icon="cdxIconArrowPrevious" @click="onClick" /> Go back
+	<cdx-button @click="onClick">
+		<cdx-icon :icon="cdxIconArrowPrevious" /> Go back
 	</cdx-button>
 </template>
 

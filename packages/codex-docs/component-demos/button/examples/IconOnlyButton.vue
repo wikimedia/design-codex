@@ -1,6 +1,6 @@
 <template>
-	<cdx-button aria-label="Back">
-		<cdx-icon :icon="cdxIconPrevious" @click="onClick" />
+	<cdx-button aria-label="Back" @click="onClick">
+		<cdx-icon :icon="cdxIconPrevious" />
 	</cdx-button>
 </template>
 

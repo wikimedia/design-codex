@@ -1,6 +1,10 @@
 <template>
-	<cdx-button weight="quiet" aria-label="Help">
-		<cdx-icon :icon="cdxIconHelp" @click="onClick" />
+	<cdx-button
+		weight="quiet"
+		aria-label="Help"
+		@click="onClick"
+	>
+		<cdx-icon :icon="cdxIconHelp" />
 	</cdx-button>
 </template>
 

@@ -5,8 +5,8 @@
 		</caption>
 		<tr>
 			<th>
-				<cdx-button aria-label="Medium button example">
-					<cdx-icon :icon="cdxIconBell" @click="onClick" />
+				<cdx-button aria-label="Medium button example" @click="onClick">
+					<cdx-icon :icon="cdxIconBell" />
 				</cdx-button>
 			</th>
 			<td>
@@ -18,8 +18,12 @@
 		</tr>
 		<tr>
 			<th>
-				<cdx-button aria-label="Large button example" size="large">
-					<cdx-icon :icon="cdxIconBell" @click="onClick" />
+				<cdx-button
+					aria-label="Large button example"
+					size="large"
+					@click="onClick"
+				>
+					<cdx-icon :icon="cdxIconBell" />
 				</cdx-button>
 			</th>
 			<td>

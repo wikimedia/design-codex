@@ -1,6 +1,6 @@
 <template>
-	<cdx-button weight="quiet">
-		<cdx-icon :icon="cdxIconDownload" @click="onClick" /> Download
+	<cdx-button weight="quiet" @click="onClick">
+		<cdx-icon :icon="cdxIconDownload" /> Download
 	</cdx-button>
 </template>
 
