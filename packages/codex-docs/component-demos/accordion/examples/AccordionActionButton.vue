@@ -1,0 +1,38 @@
+<template>
+	<cdx-accordion :action-icon="cdxIconEdit" @action-button-click="handleButtonClick">
+		<template #title>
+			Accordion title
+		</template>
+		Accordion content
+	</cdx-accordion>
+	<br>
+	<p v-if="showHandleButtonClickResult">
+		Action button clicked
+	</p>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+import { CdxAccordion } from '@wikimedia/codex';
+import { cdxIconEdit, Icon } from '@wikimedia/codex-icons';
+
+export default defineComponent( {
+	name: 'AccordionActionButton',
+	components: { CdxAccordion },
+	setup() {
+		const showHandleButtonClickResult = ref( false );
+		const handleButtonClick = () => {
+			showHandleButtonClickResult.value = true;
+			setTimeout( () => {
+				showHandleButtonClickResult.value = false;
+			}, 2000 );
+		};
+
+		return {
+			cdxIconEdit: cdxIconEdit as Icon,
+			handleButtonClick,
+			showHandleButtonClickResult
+		};
+	}
+} );
+</script>

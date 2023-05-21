@@ -210,6 +210,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 				{
 					text: '',
 					items: filterComponents( [
+						{ text: 'Accordion', link: '/components/demos/accordion' },
 						{ text: 'Button', link: '/components/demos/button' },
 						{ text: 'ButtonGroup', link: '/components/demos/button-group' },
 						{ text: 'Card', link: '/components/demos/card' },

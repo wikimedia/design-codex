@@ -14,6 +14,7 @@
 
 		<div class="cdx-sandbox__body">
 			<main class="cdx-sandbox__content">
+				<accordion-demo />
 				<button-demo />
 				<button-group-demo />
 				<card-demo />
@@ -59,6 +60,7 @@ import { ref } from 'vue';
 import { HTMLDirection } from '../types';
 import DirectionSwitcher from './DirectionSwitcher.vue';
 
+import AccordionDemo from './AccordionDemo.vue';
 import ButtonDemo from './ButtonDemo.vue';
 import ButtonGroupDemo from './ButtonGroupDemo.vue';
 import CardDemo from './CardDemo.vue';
@@ -85,6 +87,7 @@ import LinkDemo from './LinkDemo.vue';
 
 const dir = ref<HTMLDirection>( 'ltr' );
 const demoSections = [
+	{ name: 'Accordion', id: '#cdx-accordion' },
 	{ name: 'Button', id: '#cdx-button' },
 	{ name: 'ButtonGroup', id: '#cdx-button-group' },
 	{ name: 'Card', id: '#cdx-card' },
