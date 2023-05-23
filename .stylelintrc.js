@@ -284,6 +284,9 @@ module.exports = {
 				'filter',
 				'backdrop-filter',
 				'opacity',
+				'gap',
+				'column-gap',
+				'row-gap',
 				// `position` is excluded from Codex design tokens.
 				// 'position',
 				'top',
