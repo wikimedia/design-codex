@@ -731,6 +731,8 @@ export default defineComponent( {
 		box-sizing: @box-sizing-base;
 		// Set `min-height` on the footer so that it has the same height as the search results.
 		// We can't set it on `&__icon` because the icon would get scaled itself.
+		// Clarify origin of value by calculation instead of component token.
+		/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 		min-height: @min-size-search-figure + ( 2 * @spacing-50 );
 
 		&:visited {

@@ -32,7 +32,8 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-message-fade-in {
-	min-height: 130px;
+	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+	min-height: 128px;
 
 	.cdx-message {
 		margin-top: @spacing-100;

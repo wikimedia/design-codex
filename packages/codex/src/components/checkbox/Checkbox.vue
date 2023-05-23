@@ -157,11 +157,12 @@ export default defineComponent( {
 			background-color: @color-inverted;
 			position: absolute;
 			// Center indeterminate line vertically with negative half pixel.
-			top: calc( @size-half - ( @border-width-base / 2 ) );
+			top: calc( @size-half - ( @size-absolute-1 / 2 ) );
 			// Center horizontally.
 			right: calc( @spacing-25 - @border-width-base );
 			left: calc( @spacing-25 - @border-width-base );
-			height: @border-width-base * 2;
+			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+			height: ( @size-absolute-1 * 2 );
 		}
 
 		// Checked state whether or not the input is enabled or disabled.

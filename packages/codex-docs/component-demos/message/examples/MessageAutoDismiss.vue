@@ -34,7 +34,8 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-message-auto-dismiss {
-	min-height: 112px;
+	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+	min-height: 128px;
 
 	.cdx-button {
 		margin-bottom: @spacing-100;

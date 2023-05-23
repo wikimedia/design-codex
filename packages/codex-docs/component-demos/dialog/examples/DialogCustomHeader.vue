@@ -89,7 +89,8 @@ export default defineComponent( {
 		display: flex;
 		align-items: baseline;
 		justify-content: space-between;
-		height: 200px;
+		// Custom bigger height.
+		height: @size-800;
 		padding: @spacing-100;
 
 		h2 {

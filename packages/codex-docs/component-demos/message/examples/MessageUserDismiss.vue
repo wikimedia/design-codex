@@ -18,6 +18,8 @@ export default defineComponent( {
 
 <style lang="less" scoped>
 .cdx-docs-message-user-dismiss {
+	// Keep the wrapper `div` form shrinking after dismissing the message to prevent reflow.
+	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 	min-height: 64px;
 }
 </style>

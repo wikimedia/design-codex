@@ -110,10 +110,12 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		&__icon {
 			color: @color-inverted;
 			// 5em equivalent to match the title.
+			/* stylelint-disable scale-unlimited/declaration-strict-value */
 			min-width: 80px;
 			min-height: 80px;
 			width: 5em;
 			height: 5em;
+			/* stylelint-enable scale-unlimited/declaration-strict-value */
 			margin-bottom: @spacing-400;
 		}
 

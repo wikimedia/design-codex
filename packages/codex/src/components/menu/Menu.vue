@@ -791,7 +791,7 @@ export default defineComponent( {
 		.cdx-menu-item:last-of-type {
 			position: absolute;
 			bottom: 0;
-			width: 100%;
+			width: @size-full;
 		}
 	}
 
