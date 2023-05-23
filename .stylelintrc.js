@@ -84,7 +84,7 @@ module.exports = {
 			'visibility',
 			'float',
 			'clear',
-			'isolate',
+			'isolation',
 			'align-content',
 			'align-items',
 			'align-self',
