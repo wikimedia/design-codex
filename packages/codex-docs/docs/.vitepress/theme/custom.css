@@ -225,8 +225,16 @@ body {
 	background-color: var( --background-color-progressive-subtle );
 }
 
-.VPSidebar .link .text,
 /* stylelint-disable-next-line no-descending-specificity */
+.VPNavBar .link,
+.VPNavBar .text,
+.VPSidebar .text,
+.VPDocFooter .desc,
+.VPDocFooter .title {
+	font-size: initial;
+}
+
+.VPSidebar .link .text,
 .VPDocAside .content {
 	font-size: initial;
 	font-weight: var( --font-weight-normal );
