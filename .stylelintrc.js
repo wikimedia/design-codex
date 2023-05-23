@@ -96,6 +96,8 @@ module.exports = {
 			'flex-direction',
 			'flex-wrap',
 			'justify-content',
+			'justify-items',
+			'justify-self',
 			'aspect-ratio',
 			'position',
 			'top',
