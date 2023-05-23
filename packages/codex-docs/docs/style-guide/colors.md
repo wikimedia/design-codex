@@ -266,8 +266,8 @@ Find the color palette in the [Design Tokens Figma library](https://www.figma.co
 	&__group {
 		display: flex;
 		flex-wrap: wrap;
-		gap: @spacing-100;
 		justify-content: space-between;
+		gap: @spacing-100;
 	}
 
 	&__color {

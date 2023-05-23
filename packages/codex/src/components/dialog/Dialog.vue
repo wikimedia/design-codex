@@ -416,6 +416,7 @@ export default defineComponent( {
 	background-color: @background-color-base;
 	display: flex;
 	flex-direction: column;
+	gap: @spacing-200;
 	box-sizing: @box-sizing-base;
 	width: calc( @size-full - ( @size-100 * 2) );
 	max-width: @size-3200;
@@ -423,7 +424,6 @@ export default defineComponent( {
 	border: @border-base;
 	border-radius: @border-radius-base;
 	box-shadow: @box-shadow-drop-medium;
-	gap: @spacing-200;
 
 	&__header {
 		// If no custom header content is provided, apply these styles to the
@@ -511,8 +511,8 @@ export default defineComponent( {
 			align-items: baseline;
 			flex-wrap: wrap;
 			justify-content: space-between;
-			padding: 0 @spacing-150 @spacing-150;
 			gap: @spacing-75;
+			padding: 0 @spacing-150 @spacing-150;
 		}
 
 		// Increased specificity to ensure that this style shows up in VitePress

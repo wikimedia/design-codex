@@ -240,8 +240,8 @@ export default defineComponent( {
 
 	&__control-value .cdx-docs-controls__radio-wrapper {
 		display: flex;
-		row-gap: @spacing-100;
 		flex-wrap: wrap;
+		row-gap: @spacing-100;
 	}
 
 	// stylelint-disable-next-line selector-class-pattern
