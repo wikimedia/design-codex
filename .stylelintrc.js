@@ -271,6 +271,7 @@ module.exports = {
 				'bottom',
 				'left',
 				'z-index',
+				'box-sizing',
 				'min-width',
 				'min-height',
 				'width',
