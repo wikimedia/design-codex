@@ -1,3 +1,39 @@
+# 0.11.0 / 2023-05-23
+## Features
+- Button: Add `size` prop (Anne Tomasevich)
+- TextArea: Add fixedHeight and autosize props (LWatson)
+
+## Styles
+- Button: Update flush mixin to handle button sizes (Anne Tomasevich)
+- Combobox, styles: Apply combined minimum width to Combobox (Volker E.)
+- Icon: Fix flush mixin and CSS-only icon button mask styles (Anne Tomasevich)
+- link, styles: Replace SFC variables with tokens (Volker E.)
+- Select: Set opacity of 1 for disabled CSS select (Anne Tomasevich)
+- Tabs, styles: Use appropriate box-shadow color tokens (Volker E.)
+- tokens: Add `outline-color-progressive--focus` token (Volker E.)
+- tokens, binary-input: Replace SFC vars with tokens and add min size (Volker E.)
+- Minimize and fix Wikisource logo (thiemowmde)
+- icons: Manually optimize MediaWiki/Wikinews/Wiktionary logos (thiemowmde)
+- icons: Add 'userTemporary' (Volker E.)
+
+## Code
+- CSS components: Implement design and docs improvements (Anne Tomasevich)
+- TextInput: Emit a "clear" event when clear button is clicked (Eric Gardner)
+- TypeaheadSearch: Use menu item classes for the search footer (bwang)
+- build: Update 'style-dictionary' to latest version (Volker E.)
+- build, styles: Enable `z-index` declaration strict value (Volker E.)
+- build, styles: Add `transition-property` to declaration strict value (Volker E.)
+
+## Documentation
+- docs: Amend `box-shadow` color demo (Volker E.)
+- docs: Add `size` prop to Button configurable demo (Anne Tomasevich)
+- docs: Fix CSS tabs demo (Anne Tomasevich)
+- docs: Explain which Message features aren't supported in CSS version (Anne Tomasevich)
+- docs, Button: Don't set `@click` on Icons (Roan Kattouw)
+- docs: Add ADR for CSS Components (Anne Tomasevich)
+- docs: Make font size relative (Volker E.)
+- docs: Add `aria-label` to CSS-only icon only Button demo (Volker E.)
+
 # 0.10.0 / 2023-05-10
 
 ## Features
