@@ -121,10 +121,16 @@
 		<h4>CSS-only icon-only buttons</h4>
 		<div class="cdx-demo-flush-layout cdx-demo-flush-layout--icon-only">
 			<div class="cdx-demo-flush-layout__buttons">
-				<button class="cdx-button cdx-button--weight-quiet cdx-button--icon-only">
+				<button
+					class="cdx-button cdx-button--weight-quiet cdx-button--icon-only"
+					aria-label="Align left"
+				>
 					<span class="cdx-button__icon cdx-demo-css-icon--align-left" />
 				</button>
-				<button class="cdx-button cdx-button--weight-quiet cdx-button--icon-only">
+				<button
+					class="cdx-button cdx-button--weight-quiet cdx-button--icon-only"
+					aria-label="Align right"
+				>
 					<span class="cdx-button__icon cdx-demo-css-icon--align-right" />
 				</button>
 			</div>

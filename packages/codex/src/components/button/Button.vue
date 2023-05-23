@@ -34,7 +34,7 @@ const buttonSizeValidator = makeStringTypeValidator( ButtonSizes );
 const validateIconOnlyButtonAttrs = ( attrs: SetupContext['attrs'] ) => {
 	if ( !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ] ) {
 		warn( `icon-only buttons require one of the following attribute: aria-label or aria-hidden.
-		See documentation on https://doc.wikimedia.org/codex/latest/components/button.html#default-icon-only` );
+		See documentation on https://doc.wikimedia.org/codex/latest/components/demos/button.html#icon-only-button-1` );
 	}
 };
 
