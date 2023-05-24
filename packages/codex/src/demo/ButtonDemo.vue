@@ -79,6 +79,79 @@
 				</template>
 			</tbody>
 		</table>
+
+		<h3>Link buttons</h3>
+		<table>
+			<thead>
+				<tr>
+					<th aria-hidden="true" />
+					<th>Normal</th>
+					<th>Primary</th>
+					<th>Quiet</th>
+					<th>undefined</th>
+				</tr>
+			</thead>
+			<tbody>
+				<template v-for="buttonAction in [ ...ButtonActions, undefined ]">
+					<tr
+						v-for="disabled in [ true, false ]"
+						:key="`action-${buttonAction}-${Number( disabled )}`"
+					>
+						<th>
+							{{ buttonAction || 'undefined' }}
+							{{ disabled ? ' disabled' : '' }}
+						</th>
+						<td
+							v-for="buttonWeight in [ ...ButtonWeights, undefined ]"
+							:key="`weight-${buttonWeight}`">
+							<!-- eslint-disable max-len -->
+							<a :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} cdx-button--action-${buttonAction} cdx-button--weight-${buttonWeight}`">
+								<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+								Button
+							</a>
+							<!-- eslint-enable max-len -->
+						</td>
+					</tr>
+				</template>
+			</tbody>
+		</table>
+
+		<h3>Checkbox hack</h3>
+		<table>
+			<thead>
+				<tr>
+					<th aria-hidden="true" />
+					<th>Normal</th>
+					<th>Primary</th>
+					<th>Quiet</th>
+					<th>undefined</th>
+				</tr>
+			</thead>
+			<tbody>
+				<template v-for="buttonAction in [ ...ButtonActions, undefined ]">
+					<tr
+						v-for="disabled in [ true, false ]"
+						:key="`action-${buttonAction}-${Number( disabled )}`"
+					>
+						<th>
+							{{ buttonAction || 'undefined' }}
+							{{ disabled ? ' disabled' : '' }}
+						</th>
+						<td
+							v-for="buttonWeight in [ ...ButtonWeights, undefined ]"
+							:key="`weight-${buttonWeight}`">
+							<!-- eslint-disable max-len -->
+							<label :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} cdx-button--action-${buttonAction} cdx-button--weight-${buttonWeight}`">
+								<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+								Button
+							</label>
+							<!-- eslint-enable max-len -->
+						</td>
+					</tr>
+				</template>
+			</tbody>
+		</table>
+
 		<h3>Flush layout for buttons</h3>
 		<h4>Regular buttons</h4>
 		<div class="cdx-demo-flush-layout cdx-demo-flush-layout--regular">

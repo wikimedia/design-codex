@@ -162,6 +162,7 @@ export default defineComponent( {
 } );
 </script>
 
+<!-- eslint-disable max-len -->
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/button.less';
@@ -170,7 +171,28 @@ export default defineComponent( {
 	// mixin for common base styles for buttons
 	.cdx-mixin-button();
 
-	&:enabled {
+	// This class can be applied to inline elements other than `<button>`, like `<a>` or `<label`>.
+	// We do not encourage this, but it is needed for some legacy code and progressive enhancements.
+	// These styles vertically center the button content and approximate the natural space between
+	// the icon and text.
+	&--fake-button {
+		display: inline-flex;
+		align-items: center;
+
+		// In case it's a link.
+		&,
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+
+		&:not( .cdx-button--icon-only ) .cdx-button__icon {
+			margin-right: @spacing-25;
+		}
+	}
+
+	&:enabled,
+	&.cdx-button--fake-button--enabled {
 		color: @color-base;
 
 		.cdx-button__icon {
@@ -201,7 +223,8 @@ export default defineComponent( {
 	}
 
 	/* stylelint-disable-next-line no-descending-specificity */
-	&:disabled {
+	&:disabled,
+	&.cdx-button--fake-button--disabled {
 		border-color: @border-color-transparent;
 	}
 
@@ -234,7 +257,8 @@ export default defineComponent( {
 
 // Non-quiet “framed” buttons (normal and primary types)
 .cdx-button:not( .cdx-button--weight-quiet ) {
-	&:enabled {
+	&:enabled,
+	&.cdx-button--fake-button--enabled {
 		background-color: @background-color-interactive-subtle;
 		border-color: @border-color-base;
 
@@ -262,7 +286,8 @@ export default defineComponent( {
 	}
 
 	/* stylelint-disable no-descending-specificity */
-	&:disabled {
+	&:disabled,
+	&.cdx-button--fake-button--disabled {
 		background-color: @background-color-disabled;
 		color: @color-inverted;
 
@@ -277,7 +302,8 @@ export default defineComponent( {
 .cdx-button--weight-primary {
 	// Progressive primary buttons
 	&.cdx-button--action-progressive {
-		&:enabled {
+		&:enabled,
+		&.cdx-button--fake-button--enabled {
 			background-color: @background-color-progressive;
 			color: @color-inverted;
 			border-color: @border-color-progressive;
@@ -305,6 +331,7 @@ export default defineComponent( {
 				color: @color-inverted;
 				border-color: @border-color-progressive--active;
 
+				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-button__icon {
 					.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 				}
@@ -322,7 +349,8 @@ export default defineComponent( {
 
 	// Destructive primary buttons
 	&.cdx-button--action-destructive {
-		&:enabled {
+		&:enabled,
+		&.cdx-button--fake-button--enabled {
 			background-color: @background-color-destructive;
 			color: @color-inverted;
 			border-color: @border-color-destructive;
@@ -349,6 +377,7 @@ export default defineComponent( {
 				color: @color-inverted;
 				border-color: @border-color-destructive--active;
 
+				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-button__icon {
 					.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 				}
@@ -373,7 +402,8 @@ export default defineComponent( {
 	background-color: @background-color-transparent;
 	border-color: @border-color-transparent;
 
-	&:enabled {
+	&:enabled,
+	&.cdx-button--fake-button--enabled {
 		&:hover {
 			background-color: @background-color-button-quiet--hover;
 		}
@@ -395,7 +425,8 @@ export default defineComponent( {
 
 	// Progressive quiet buttons.
 	&.cdx-button--action-progressive {
-		&:enabled {
+		&:enabled,
+		&.cdx-button--fake-button--enabled {
 			color: @color-progressive;
 
 			/* stylelint-disable-next-line no-descending-specificity */
@@ -418,6 +449,7 @@ export default defineComponent( {
 				color: @color-inverted;
 				border-color: @border-color-progressive--active;
 
+				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-button__icon {
 					.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 				}
@@ -430,7 +462,8 @@ export default defineComponent( {
 
 	// Destructive quiet buttons.
 	&.cdx-button--action-destructive {
-		&:enabled {
+		&:enabled,
+		&.cdx-button--fake-button--enabled {
 			color: @color-destructive;
 
 			/* stylelint-disable-next-line no-descending-specificity */
@@ -453,6 +486,7 @@ export default defineComponent( {
 				color: @color-inverted;
 				border-color: @border-color-destructive--active;
 
+				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-button__icon {
 					.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
 				}
@@ -466,7 +500,8 @@ export default defineComponent( {
 	}
 
 	/* stylelint-disable no-descending-specificity */
-	&:disabled {
+	&:disabled,
+	&.cdx-button--fake-button--disabled {
 		color: @color-disabled;
 
 		.cdx-button__icon {
@@ -477,7 +512,7 @@ export default defineComponent( {
 }
 
 // Normal type buttons (using the not selectors allows this class to be the default).
-&:not( .cdx-button--weight-primary ):not( .cdx-button--weight-quiet ):enabled {
+&:not( .cdx-button--weight-primary ):not( .cdx-button--weight-quiet ):not( :disabled ):not( .cdx-button--fake-button--disabled ) {
 	// Normal progressive buttons
 	&.cdx-button--action-progressive {
 		color: @color-progressive;
@@ -546,3 +581,4 @@ export default defineComponent( {
 	}
 }
 </style>
+<!-- eslint-enable max-len -->

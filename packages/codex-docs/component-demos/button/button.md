@@ -480,12 +480,80 @@ Use the following classes to apply these actions:
 </template>
 </cdx-demo-wrapper>
 
+### Link buttons and other elements
+
+:::danger
+**Do not do this** unless you absolutely have to. Use a `<button>` element styled like a button for
+an action, and use an `<a>` element styled like a link for navigation.
+:::
+
+There are rare occasions where an inline element other than `<button>` needs to be styled to look
+like a button. To achieve this, add the following classes to your inline element:
+
+- The classes detailed above: `cdx-button`, plus any other classes needed for action, weight, or
+  size
+- `cdx-button--fake-button`
+- Either `cdx-button--fake-button--enabled` for an enabled button or `cdx-button--fake-button--disabled`
+  for a disabled button. **You must include one of these classes to get the proper button styles.**
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<a class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-destructive cdx-button--weight-primary" href="#">
+		Primary destructive link button
+	</a>
+</template>
+<template v-slot:code>
+
+```html
+<a class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-destructive cdx-button--weight-primary" href="#">
+	Primary destructive link button
+</a>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<label class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled">
+		<span class="cdx-button__icon cdx-demo-css-icon--user-avatar"></span>
+		Label button
+	</label>
+</template>
+<template v-slot:code>
+
+```html
+<label class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled">
+	<span class="cdx-button__icon cdx-demo-css-icon--user-avatar"></span>
+	Label button
+</label>
+```
+
+```less
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon--user-avatar {
+	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @param-is-button-icon: true );
+}
+```
+
+</template>
+</cdx-demo-wrapper>
+
 <style lang="less" scoped>
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-demo-wrapper {
 	:deep( .cdx-demo-wrapper__demo-pane__demo > div ) {
 		margin-bottom: @spacing-100;
+	}
+
+	// Needed to undo a VitePress link style.
+	/* stylelint-disable-next-line selector-class-pattern */
+	:deep( .cdx-button--fake-button ) {
+		font-weight: @font-weight-bold;
 	}
 }
 </style>
@@ -503,5 +571,9 @@ Use the following classes to apply these actions:
 
 .cdx-demo-css-icon--bell {
 	.cdx-mixin-css-icon( @cdx-icon-bell, @param-is-button-icon: true );
+}
+
+.cdx-demo-css-icon--user-avatar {
+	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @param-is-button-icon: true );
 }
 </style>
