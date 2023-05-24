@@ -92,6 +92,9 @@ This no-JS implementation of Tabs requires some logic on the server side to set 
 To disable a tab:
 - Add the `disabled` attribute to that tab's submit input
 
+The tabs below have long labels, making the tab list too long for its container. When this happens,
+you can horizontally scroll to reach the rest of the tabs list.
+
 :::warning
 Keyboard navigation between tabs can only be done via the Tab key. Arrow keys will not work here.
 :::
@@ -113,7 +116,7 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 						<input id="form-tabs-1-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-1">
 						<!-- Label with tab name. -->
 						<label for="form-tabs-1-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-1'">
-							Tab 1
+							Tab number one
 						</label>
 					</form>
 				</li>
@@ -121,7 +124,7 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 					<form method="get" :action="url">
 						<input id="form-tabs-2-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-2">
 						<label for="form-tabs-2-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-2'">
-							Tab 2
+							Tab number two with a longer label
 						</label>
 					</form>
 				</li>
@@ -131,7 +134,15 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 						<!-- `disabled` attribute means this tab cannot be selected. -->
 						<input id="form-tabs-3-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-3" disabled>
 						<label for="form-tabs-3-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-3'" :aria-disabled="true">
-							Tab 3
+							Tab number three
+						</label>
+					</form>
+				</li>
+				<li id="form-tabs-4-label" class="cdx-tabs__list__item" role="tab">
+					<form method="get" :action="url">
+						<input id="form-tabs-4-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-4">
+						<label for="form-tabs-4-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-4'">
+							Tab number four
 						</label>
 					</form>
 				</li>
@@ -148,6 +159,9 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 			</section>
 			<section id="form-tabs-3" :aria-hidden="currentCssTabId !== 'form-tabs-3'" aria-labelledby="form-tabs-3-label" class="cdx-tab" role="tabpanel" tabindex="-1">
 				Tab 3 content
+			</section>
+			<section id="form-tabs-4" :aria-hidden="currentCssTabId !== 'form-tabs-4'" aria-labelledby="form-tabs-4-label" class="cdx-tab" role="tabpanel" tabindex="-1">
+				Tab 4 content
 			</section>
 		</div>
 	</div>
@@ -170,7 +184,7 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 					<input id="form-tabs-1-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-1">
 					<!-- Label with tab name. -->
 					<label for="form-tabs-1-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-1'">
-						Tab 1
+						Tab number one
 					</label>
 				</form>
 			</li>
@@ -178,7 +192,7 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 				<form method="get" :action="url">
 					<input id="form-tabs-2-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-2">
 					<label for="form-tabs-2-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-2'">
-						Tab 2
+						Tab number two with a longer label
 					</label>
 				</form>
 			</li>
@@ -188,7 +202,15 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 					<!-- `disabled` attribute means this tab cannot be selected. -->
 					<input id="form-tabs-3-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-3" disabled>
 					<label for="form-tabs-3-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-3'">
-						Tab 3
+						Tab number three
+					</label>
+				</form>
+			</li>
+			<li id="form-tabs-4-label" class="cdx-tabs__list__item" role="tab">
+				<form method="get" :action="url">
+					<input id="form-tabs-4-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-4">
+					<label for="form-tabs-4-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-4'">
+						Tab number four
 					</label>
 				</form>
 			</li>
@@ -205,6 +227,9 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 		</section>
 		<section id="form-tabs-3" :aria-hidden="currentCssTabId !== 'form-tabs-3'" aria-labelledby="form-tabs-3-label" class="cdx-tab" role="tabpanel" tabindex="-1">
 			Tab 3 content
+		</section>
+		<section id="form-tabs-4" :aria-hidden="currentCssTabId !== 'form-tabs-4'" aria-labelledby="form-tabs-4-label" class="cdx-tab" role="tabpanel" tabindex="-1">
+			Tab 4 content
 		</section>
 	</div>
 </div>
