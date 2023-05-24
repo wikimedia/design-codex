@@ -663,46 +663,46 @@ export default defineComponent( {
 
 		// Framed Tabs List item.
 		.cdx-tabs__list__item {
+			// Single Framed Tab.
 			[ role='tab' ] {
 				margin: @spacing-50 @spacing-25 0 @spacing-50;
+
+				&:not( [ aria-disabled='true' ] ) {
+					// Clip link background color to border radius.
+					overflow: hidden;
+
+					&:link,
+					&:visited {
+						color: @color-base;
+					}
+
+					&:hover {
+						background-color: fade( @background-color-base, ( @opacity-low * 100 ) );
+						color: @color-base;
+					}
+
+					&:active {
+						background-color: fade( @background-color-base, ( @opacity-medium * 100 ) );
+						color: @color-base;
+					}
+				}
+
+				&[ aria-selected='true' ] {
+					&,
+					&:hover {
+						background-color: @background-color-base;
+					}
+				}
+
+				&[ aria-disabled='true' ] {
+					background-color: @background-color-interactive;
+					color: @color-disabled;
+					cursor: @cursor-base--disabled;
+				}
 			}
 
 			&:last-child [ role='tab' ] {
 				margin-right: @spacing-50;
-			}
-
-			// Single Framed Tab.
-			& [ role='tab' ]:not( [ aria-disabled='true' ] ) {
-				// Clip link background color to border radius.
-				overflow: hidden;
-
-				&:link,
-				&:visited {
-					color: @color-base;
-				}
-
-				&:hover {
-					background-color: fade( @background-color-base, ( @opacity-low * 100 ) );
-					color: @color-base;
-				}
-
-				&:active {
-					background-color: fade( @background-color-base, ( @opacity-medium * 100 ) );
-					color: @color-base;
-				}
-			}
-
-			& [ aria-selected='true' ][ role='tab' ] {
-				&,
-				&:hover {
-					background-color: @background-color-base;
-				}
-			}
-
-			& [ aria-disabled='true' ][ role='tab' ] {
-				background-color: @background-color-interactive;
-				color: @color-disabled;
-				cursor: @cursor-base--disabled;
 			}
 		}
 	}
@@ -724,8 +724,37 @@ export default defineComponent( {
 
 		// Quiet Tabs List item.
 		.cdx-tabs__list__item {
+			// Single Quiet Tab.
 			[ role='tab' ] {
 				margin: 0 @spacing-25;
+
+				&:not( [ aria-disabled='true' ] ) {
+					color: @color-base;
+
+					&:hover {
+						color: @color-progressive--hover;
+						box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected--hover;
+					}
+
+					&:active {
+						color: @color-progressive--active;
+						box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected--active;
+					}
+				}
+
+				&[ aria-selected='true' ] {
+					color: @color-progressive;
+					box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected;
+
+					&:hover {
+						color: @color-progressive;
+					}
+				}
+
+				&[ aria-disabled='true' ] {
+					color: @color-disabled;
+					cursor: @cursor-base--disabled;
+				}
 			}
 
 			&:first-child [ role='tab' ] {
@@ -734,35 +763,6 @@ export default defineComponent( {
 
 			&:last-child [ role='tab' ] {
 				margin-right: 0;
-			}
-
-			// Single Quiet Tab.
-			& [ role='tab' ]:not( [ aria-disabled='true' ] ) {
-				color: @color-base;
-
-				&:hover {
-					color: @color-progressive--hover;
-					box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected--hover;
-				}
-
-				&:active {
-					color: @color-progressive--active;
-					box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected--active;
-				}
-			}
-
-			& [ aria-selected='true' ][ role='tab' ] {
-				color: @color-progressive;
-				box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected;
-
-				&:hover {
-					color: @color-progressive;
-				}
-			}
-
-			& [ role='tab' ][ aria-disabled='true' ] {
-				color: @color-disabled;
-				cursor: @cursor-base--disabled;
 			}
 		}
 	}
