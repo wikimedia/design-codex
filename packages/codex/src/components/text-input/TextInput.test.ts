@@ -122,4 +122,25 @@ describe( 'TextInput', () => {
 			expect( wrapper.emitted().clear ).toBeTruthy();
 		} );
 	} );
+
+	describe( 'Public methods', () => {
+		// Testing DOM element behavior is not really appropriate here
+		// so these tests just serve as a reminder to not break the public
+		// interface that this component exposes
+		it( 'exposes a public focus() method', () => {
+			const wrapper = mount( CdxTextInput, {
+				props: { modelValue: 'Initial value' }
+			} );
+
+			expect( typeof wrapper.vm.focus ).toBe( 'function' );
+		} );
+
+		it( 'exposes a public blur() method', () => {
+			const wrapper = mount( CdxTextInput, {
+				props: { modelValue: 'Initial value' }
+			} );
+
+			expect( typeof wrapper.vm.blur ).toBe( 'function' );
+		} );
+	} );
 } );

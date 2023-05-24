@@ -65,7 +65,10 @@ export default defineComponent( {
 	 */
 	inheritAttrs: false,
 
-	expose: [ 'focus' ],
+	expose: [
+		'focus',
+		'blur'
+	],
 
 	props: {
 		/**
@@ -268,6 +271,16 @@ export default defineComponent( {
 		focus(): void {
 			const input = this.$refs.input as HTMLInputElement;
 			input.focus();
+		},
+
+		/**
+		 * Blur the component's input element.
+		 *
+		 * @public
+		 */
+		blur(): void {
+			const input = this.$refs.input as HTMLInputElement;
+			input.blur();
 		}
 	}
 } );
