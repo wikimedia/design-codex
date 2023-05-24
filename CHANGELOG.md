@@ -873,7 +873,7 @@
 - Tabs, styles: Rename 'frameless' to 'quiet' (Volker E)
 - TextInput: Update TextInput styles to match design spec (Anne Tomasevich)
 - ToggleButton: Update quiet styles and make focusable (Roan Kattouw)
-- Typeaheadsearch, style: Remove border-top for no-results text (Steven Sun)
+- TypeaheadSearch, style: Remove border-top for no-results text (Steven Sun)
 - styles: Introduce `screen-reader-text()` mixin (Volker E)
 - styles: Add `.text-overflow()` mixin and use in MenuItem (Volker E)
 - styles: Add `hyphens` mixin and apply (Volker E)

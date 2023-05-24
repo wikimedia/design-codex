@@ -243,7 +243,7 @@ Then go back to the MediaWiki repository, and commit your change:
 $ git commit -a
 ```
 This will prompt you for a commit message. Type `Update Codex from v1.2.33 to v1.2.34`, then leave
-a blank line, then paste the list of bugs from the preevious step. The full commit message should
+a blank line, then paste the list of bugs from the previous step. The full commit message should
 look like this:
 ```
 Update Codex from v1.2.33 to v1.2.34
