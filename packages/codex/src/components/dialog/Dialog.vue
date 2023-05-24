@@ -456,7 +456,7 @@ export default defineComponent( {
 			line-height: @line-height-xxx-small;
 		}
 
-		// Increased specificity to ensure that this style shows up in Vitepress
+		// Increase specificity to ensure that this style shows up in VitePress.
 		& &__subtitle {
 			color: @color-subtle;
 			margin: 0;
@@ -514,7 +514,7 @@ export default defineComponent( {
 			gap: @spacing-75;
 		}
 
-		// Increased specificity to ensure that this style shows up in Vitepress
+		// Increased specificity to ensure that this style shows up in VitePress
 		& &__text {
 			color: @color-subtle;
 			flex: 1 0 auto;

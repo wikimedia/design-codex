@@ -233,7 +233,7 @@ onMounted( () => {
 <style lang="less" scoped>
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-// Override Vitepress styles.
+// Override VitePress styles.
 // TODO: remove this once T296106 is complete.
 .cdx-demo-wrapper {
 	:deep( li + li ) {

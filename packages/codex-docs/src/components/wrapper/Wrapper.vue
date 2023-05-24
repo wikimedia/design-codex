@@ -544,7 +544,7 @@ export default defineComponent( {
 	}
 
 	// Code output underneath component with code language class, for example `language-vue`.
-	// Element selectors needed to override Vitepress styles.
+	// Element selectors needed to override VitePress styles.
 	&__code-generated div[ class*='language-' ],
 	&__code-slotted div[ class*='language-' ] {
 		margin-top: 0;

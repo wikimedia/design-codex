@@ -81,7 +81,7 @@
 ## Code
 - tests: Add test asserting that all icon .svg files are used (Roan Kattouw)
 - tests: Import component files directly, not from lib.ts (Roan Kattouw)
-- build: Update Vite, Vitepress, and related libraries (Eric Gardner)
+- build: Update Vite, VitePress, and related libraries (Eric Gardner)
 - build: Updating node version equal to CI's (Volker E)
 - build: Add svglint for icon files (Roan Kattouw)
 - build: Remove dependency on @rollup/pluginutils (Roan Kattouw)
@@ -180,14 +180,14 @@
 ## Code
 - Thumbnail, styles: Remove obsolete SFC token (Volker E)
 - build: Update Style Dictionary to latest (Volker E)
-- build: Upgrade Vitepress to 1.0.0-alpha.48 (Eric Gardner)
+- build: Upgrade VitePress to 1.0.0-alpha.48 (Eric Gardner)
 - css-icon: Make Less code compatible with MediaWiki's older Less compiler (Roan Kattouw)
 - tokens: Move Style Dictionary transforms and formats into config file (Roan Kattouw)
 
 ## Documentation
 - docs: Add instructions for configuring VS Code (Anne Tomasevich)
 - docs: Display auto-generated token deprecation messages on docs site (Roan Kattouw)
-- docs: Exclude Vitepress cache from linting (Eric Gardner)
+- docs: Exclude VitePress cache from linting (Eric Gardner)
 - docs: Improve VS Code setup docs (Anne Tomasevich)
 - docs: Unify on 'Less' term (Volker E)
 
@@ -625,7 +625,7 @@
 ## Documentation
 - docs, Thumbnail: Update "placeholder" language (Anne Tomasevich)
 - docs: Don't error when a component-demos .md file doesn't exist (Roan Kattouw)
-- docs: Use TypeScript for Vitepress config and theme files (Roan Kattouw)
+- docs: Use TypeScript for VitePress config and theme files (Roan Kattouw)
 - docs: Use better TypeScript types for vue-docgen templates (Roan Kattouw)
 - docs: Use IconLookup component for Select's defaultIcon prop (Anne Tomasevich)
 - docs: Flag development components, hide them in release docs (Roan Kattouw)
@@ -1082,7 +1082,7 @@
 - docs: Set CODEX_DOC_ROOT default to '/' not '' (James D. Forrester)
 - docs: Explain that icons are monochrome, add SVG conventions (Roan Kattouw)
 - docs: Make CODEX_DOC_ROOT default to / instead of /codex/main (Roan Kattouw)
-- docs: Make Vitepress base URL configurable as an environment variable (Roan Kattouw)
+- docs: Make VitePress base URL configurable as an environment variable (Roan Kattouw)
 - docs: Explicitly set dir="ltr" on direction switcher (Roan Kattouw)
 
 # v0.1.0-alpha.3 / 2022-02-17
