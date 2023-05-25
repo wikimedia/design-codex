@@ -28,7 +28,8 @@ import {
 	CdxProgressBar,
 	CdxToggleButton,
 	CdxToggleSwitch,
-	CdxTextInput
+	CdxTextInput,
+	CdxTextArea
 } from '@wikimedia/codex';
 
 /**
@@ -47,7 +48,8 @@ export default defineComponent( {
 		CdxProgressBar,
 		CdxToggleButton,
 		CdxToggleSwitch,
-		CdxTextInput
+		CdxTextInput,
+		CdxTextArea
 	},
 	inheritAttrs: false,
 	setup() {
