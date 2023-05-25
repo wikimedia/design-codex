@@ -2,7 +2,7 @@
 	<section
 		v-show="isActive"
 		:id="tab.id"
-		:aria-hidden="!isActive"
+		:aria-hidden="!isActive ? true : undefined"
 		:aria-labelledby="`${tab.id}-label`"
 		class="cdx-tab"
 		role="tabpanel"

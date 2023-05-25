@@ -149,7 +149,6 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
     
     
     <section
-      aria-hidden="false"
       aria-labelledby="cdx-a-101-label"
       class="cdx-tab"
       id="cdx-a-101"
@@ -358,7 +357,6 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
     
     <!-- Comment 1 -->
     <section
-      aria-hidden="false"
       aria-labelledby="cdx-a-97-label"
       class="cdx-tab"
       id="cdx-a-97"
@@ -573,7 +571,6 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
     <!-- @slot One or more Tab components must be provided here -->
     
     <section
-      aria-hidden="false"
       aria-labelledby="cdx-apple-0-label"
       class="cdx-tab"
       id="cdx-apple-0"
