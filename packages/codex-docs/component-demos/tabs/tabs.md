@@ -168,48 +168,121 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 </template>
 <template v-slot:code>
 
-```html
+```html-vue
 <!-- Wrapper div. -->
 <div class="cdx-tabs">
 	<!-- Header with tab list. -->
 	<div class="cdx-tabs__header">
 		<!-- List of tabs. -->
-		<ul class="cdx-tabs__list" role="tablist" :aria-activedescendant="currentCssTabId">
+		<ul
+			class="cdx-tabs__list"
+			role="tablist"
+			aria-activedescendant="{{ currentCssTabId }}"
+		>
 			<!-- Tab list item. -->
-			<li id="form-tabs-1-label" class="cdx-tabs__list__item" role="presentation">
-				<!-- Form with a hidden input. When the tab is clicked, the input will submit
-				the form and add the tab name as a URL query param. -->
-				<form method="get" :action="url">
+			<li
+				id="form-tabs-1-label"
+				class="cdx-tabs__list__item"
+				role="presentation"
+			>
+				<!-- Form with a hidden input. When the tab is clicked, the input will
+				     submit the form and add the tab name as a URL query param. -->
+				<form
+					method="get"
+					action="{{ url }}"
+				>
 					<!-- Submit input, which will be visually hidden via CSS. -->
-					<input id="form-tabs-1-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-1">
+					<input
+						id="form-tabs-1-input"
+						class="cdx-tabs__submit"
+						type="submit"
+						name="tab"
+						value="form-tabs-1"
+					>
 					<!-- Label with tab name. -->
-					<label for="form-tabs-1-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-1'">
+					<label
+						for="form-tabs-1-input"
+						role="tab"
+						aria-selected="{{ currentCssTabId === 'form-tabs-1' }}"
+					>
 						Tab number one
 					</label>
 				</form>
 			</li>
-			<li id="form-tabs-2-label" class="cdx-tabs__list__item" role="presentation">
-				<form method="get" :action="url">
-					<input id="form-tabs-2-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-2">
-					<label for="form-tabs-2-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-2'">
+			<li
+				id="form-tabs-2-label"
+				class="cdx-tabs__list__item"
+				role="presentation"
+			>
+				<form
+					method="get"
+					action="{{ url }}"
+				>
+					<input
+						id="form-tabs-2-input"
+						class="cdx-tabs__submit"
+						type="submit"
+						name="tab"
+						value="form-tabs-2"
+					>
+					<label
+						for="form-tabs-2-input"
+						role="tab"
+						aria-selected="{{ currentCssTabId === 'form-tabs-2' }}"
+					>
 						Tab number two with a longer label
 					</label>
 				</form>
 			</li>
 			<!-- Disabled tab's list item has the `cdx-tabs__list__item--disabled` class. -->
-			<li id="form-tabs-3-label" class="cdx-tabs__list__item cdx-tabs__list__item--disabled" role="presentation">
-				<form method="get" :action="url">
+			<li
+				id="form-tabs-3-label"
+				class="cdx-tabs__list__item cdx-tabs__list__item--disabled"
+				role="presentation"
+			>
+				<form
+					method="get"
+					action="{{ url }}"
+				>
 					<!-- `disabled` attribute means this tab cannot be selected. -->
-					<input id="form-tabs-3-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-3" disabled>
-					<label for="form-tabs-3-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-3'">
+					<input
+						id="form-tabs-3-input"
+						class="cdx-tabs__submit"
+						type="submit"
+						name="tab"
+						value="form-tabs-3"
+						disabled
+					>
+					<label
+						for="form-tabs-3-input"
+						role="tab"
+						aria-selected="{{ currentCssTabId === 'form-tabs-3' }}"
+					>
 						Tab number three
 					</label>
 				</form>
 			</li>
-			<li id="form-tabs-4-label" class="cdx-tabs__list__item" role="tab">
-				<form method="get" :action="url">
-					<input id="form-tabs-4-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-4">
-					<label for="form-tabs-4-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-4'">
+			<li
+				id="form-tabs-4-label"
+				class="cdx-tabs__list__item"
+				role="presentation"
+			>
+				<form
+					method="get"
+					action="{{ url }}"
+				>
+					<input
+						id="form-tabs-4-input"
+						class="cdx-tabs__submit"
+						type="submit"
+						name="tab"
+						value="form-tabs-4"
+					>
+					<label
+						for="form-tabs-4-input"
+						role="tab"
+						aria-selected="{{ currentCssTabId === 'form-tabs-4' }}"
+					>
 						Tab number four
 					</label>
 				</form>
@@ -219,37 +292,48 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 	<!-- Tabs. -->
 	<div class="cdx-tabs__content">
 		<!-- <section> element for each tab, with any content inside. -->
-		<section id="form-tabs-1" :aria-hidden="currentCssTabId !== 'form-tabs-1'" aria-labelledby="form-tabs-1-label" class="cdx-tab" role="tabpanel" tabindex="-1">
+		<section
+			id="form-tabs-1"
+			aria-hidden="{{ currentCssTabId !== 'form-tabs-1' }}"
+			aria-labelledby="form-tabs-1-label"
+			class="cdx-tab"
+			role="tabpanel"
+			tabindex="-1"
+		>
 			Tab 1 content
 		</section>
-		<section id="form-tabs-2" :aria-hidden="currentCssTabId !== 'form-tabs-2'" aria-labelledby="form-tabs-2-label" class="cdx-tab" role="tabpanel" tabindex="-1">
+		<section
+			id="form-tabs-2"
+			aria-hidden="{{ currentCssTabId !== 'form-tabs-2' }}"
+			aria-labelledby="form-tabs-2-label"
+			class="cdx-tab"
+			role="tabpanel"
+			tabindex="-1"
+		>
 			Tab 2 content
 		</section>
-		<section id="form-tabs-3" :aria-hidden="currentCssTabId !== 'form-tabs-3'" aria-labelledby="form-tabs-3-label" class="cdx-tab" role="tabpanel" tabindex="-1">
+		<section
+			id="form-tabs-3"
+			aria-hidden="{{ currentCssTabId !== 'form-tabs-3' }}"
+			aria-labelledby="form-tabs-3-label"
+			class="cdx-tab"
+			role="tabpanel"
+			tabindex="-1"
+		>
 			Tab 3 content
 		</section>
-		<section id="form-tabs-4" :aria-hidden="currentCssTabId !== 'form-tabs-4'" aria-labelledby="form-tabs-4-label" class="cdx-tab" role="tabpanel" tabindex="-1">
+		<section
+			id="form-tabs-4"
+			aria-hidden="{{ currentCssTabId !== 'form-tabs-4' }}"
+			aria-labelledby="form-tabs-4-label"
+			class="cdx-tab"
+			role="tabpanel"
+			tabindex="-1"
+		>
 			Tab 4 content
 		</section>
 	</div>
 </div>
-```
-
-```js
-// Note: we're doing this in our client-side JS, but it should be done on the
-// back-end.
-import { onMounted } from 'vue';
-const url = ref( '' );
-const currentCssTabId = ref( '' );
-onMounted( () => {
-	// Grab the page URL so it can be used in the CSS-only Tabs markup.
-	url.value = window.location.href;
-	// Look for a URL query param called 'tab'. If it doesn't exist, default to
-	// the first tab. The currentCssTabId will be used in the CSS-only Tabs
-	// markup to highlight the active tab and display the proper tab content.
-	const searchParams = new URLSearchParams( window.location.search );
-	currentCssTabId.value = searchParams.get( 'tab' ) || 'form-tabs-1';
-} );
 ```
 
 </template>
@@ -274,6 +358,12 @@ onMounted( () => {
 
 	:deep( h3 ) {
 		margin-top: 0;
+	}
+
+	/* stylelint-disable-next-line selector-class-pattern */
+	:deep( .language-html code ) {
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		tab-size: 2;
 	}
 }
 </style>
