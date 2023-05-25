@@ -10,6 +10,7 @@
 			v-model="wrappedModel"
 			:class="textareaClasses"
 			class="cdx-text-area__textarea"
+			@input="onInput"
 		/>
 	</div>
 </template>
@@ -20,9 +21,7 @@ import {
 	computed,
 	ref,
 	toRef,
-	PropType,
-	onMounted,
-	onUnmounted
+	PropType
 } from 'vue';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useModelWrapper from '../../composables/useModelWrapper';
@@ -109,22 +108,12 @@ export default defineComponent( {
 
 		// Allows the textarea to grow aka auto-resize while typing.
 		// https://medium.com/@adamorlowskipoland/vue-auto-resize-textarea-3-different-approaches-8bbda5d074ce
-		const resize = ( () => {
+		function onInput() {
 			if ( textarea.value && props.autosize ) {
 				textarea.value.style.height = 'auto';
 				textarea.value.style.height = `${textarea.value.scrollHeight}px`;
 			}
-		} );
-
-		onMounted( () => {
-			if ( props.autosize ) {
-				textarea.value?.addEventListener( 'input', resize );
-			}
-		} );
-
-		onUnmounted( () => {
-			textarea.value?.removeEventListener( 'input', resize );
-		} );
+		}
 
 		return {
 			rootClasses,
@@ -132,7 +121,8 @@ export default defineComponent( {
 			otherAttrs,
 			wrappedModel,
 			textareaClasses,
-			textarea
+			textarea,
+			onInput
 		};
 	}
 } );
