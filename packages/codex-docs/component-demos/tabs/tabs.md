@@ -108,7 +108,7 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 			<!-- List of tabs. -->
 			<ul class="cdx-tabs__list" role="tablist" :aria-activedescendant="currentCssTabId">
 				<!-- Tab list item. -->
-				<li id="form-tabs-1-label" class="cdx-tabs__list__item">
+				<li id="form-tabs-1-label" class="cdx-tabs__list__item" role="presentation">
 					<!-- Form with a hidden input. When the tab is clicked, the input will submit
 					the form and add the tab name as a URL query param. -->
 					<form method="get" :action="url">
@@ -120,7 +120,7 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 						</label>
 					</form>
 				</li>
-				<li id="form-tabs-2-label" class="cdx-tabs__list__item" role="tab">
+				<li id="form-tabs-2-label" class="cdx-tabs__list__item" role="presentation">
 					<form method="get" :action="url">
 						<input id="form-tabs-2-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-2">
 						<label for="form-tabs-2-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-2'">
@@ -129,7 +129,7 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 					</form>
 				</li>
 				<!-- Disabled tab's list item has the `cdx-tabs__list__item--disabled` class. -->
-				<li id="form-tabs-3-label" class="cdx-tabs__list__item" role="tab">
+				<li id="form-tabs-3-label" class="cdx-tabs__list__item" role="presentation">
 					<form method="get" :action="url">
 						<!-- `disabled` attribute means this tab cannot be selected. -->
 						<input id="form-tabs-3-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-3" disabled>
@@ -176,7 +176,7 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 		<!-- List of tabs. -->
 		<ul class="cdx-tabs__list" role="tablist" :aria-activedescendant="currentCssTabId">
 			<!-- Tab list item. -->
-			<li id="form-tabs-1-label" class="cdx-tabs__list__item">
+			<li id="form-tabs-1-label" class="cdx-tabs__list__item" role="presentation">
 				<!-- Form with a hidden input. When the tab is clicked, the input will submit
 				the form and add the tab name as a URL query param. -->
 				<form method="get" :action="url">
@@ -188,7 +188,7 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 					</label>
 				</form>
 			</li>
-			<li id="form-tabs-2-label" class="cdx-tabs__list__item" role="tab">
+			<li id="form-tabs-2-label" class="cdx-tabs__list__item" role="presentation">
 				<form method="get" :action="url">
 					<input id="form-tabs-2-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-2">
 					<label for="form-tabs-2-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-2'">
@@ -197,7 +197,7 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 				</form>
 			</li>
 			<!-- Disabled tab's list item has the `cdx-tabs__list__item--disabled` class. -->
-			<li id="form-tabs-3-label" class="cdx-tabs__list__item cdx-tabs__list__item--disabled" role="tab">
+			<li id="form-tabs-3-label" class="cdx-tabs__list__item cdx-tabs__list__item--disabled" role="presentation">
 				<form method="get" :action="url">
 					<!-- `disabled` attribute means this tab cannot be selected. -->
 					<input id="form-tabs-3-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-3" disabled>
