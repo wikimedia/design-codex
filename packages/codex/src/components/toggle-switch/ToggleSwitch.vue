@@ -147,7 +147,7 @@ export default defineComponent( {
 		position: relative;
 		box-sizing: @box-sizing-base;
 		min-width: @min-width-toggle-switch;
-		min-height: @min-size-base;
+		min-height: @min-size-interactive-pointer;
 		width: @size-300;
 		height: @size-200;
 		border-width: @border-width-base;
@@ -210,7 +210,7 @@ export default defineComponent( {
 		// Render “on top of” the `span`, so that it's still clickable.
 		z-index: @z-index-stacking-2;
 		min-width: @min-width-toggle-switch;
-		min-height: @min-size-base;
+		min-height: @min-size-interactive-pointer;
 		width: @size-300;
 		height: @size-200;
 		margin: 0;

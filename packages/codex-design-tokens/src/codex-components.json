@@ -56,12 +56,6 @@
 		"icon-medium": {
 			"value": "{ dimension.125 }{ unit.system }"
 		},
-		"interactive-pointer": {
-			"value": "{ dimension.200 }{ unit.system }"
-		},
-		"interactive-touch": {
-			"value": "{ dimension.275 }{ unit.system }"
-		},
 		"input-binary": {
 			"value": "{ dimension.125 }{ unit.system }"
 		},

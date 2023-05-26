@@ -335,7 +335,7 @@ export default defineComponent( {
 		display: block;
 		box-sizing: @box-sizing-base;
 		min-width: @min-width-medium;
-		min-height: @min-size-base;
+		min-height: @min-size-interactive-pointer;
 		width: @size-full;
 		margin: 0;
 		border-width: @border-width-base;

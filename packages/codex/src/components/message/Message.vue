@@ -288,10 +288,10 @@ export default defineComponent( {
 		}
 
 		&.cdx-message--user-dismissable {
-			padding-right: calc( @min-size-base + @spacing-100 );
+			padding-right: calc( @min-size-interactive-pointer + @spacing-100 );
 
 			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				padding-right: calc( @min-size-base + @spacing-150 );
+				padding-right: calc( @min-size-interactive-pointer + @spacing-150 );
 			}
 		}
 	}

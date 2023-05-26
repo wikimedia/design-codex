@@ -259,8 +259,14 @@
 	},
 	"min-size": {
 		"base": {
-			"comment": "TODO: Deprecate key and change to `min-size-component`?",
+			"deprecated": "Use `min-size-interactive-pointer`/`min-size-interactive-touch` instead.",
 			"value": "{ dimension.200 }{ unit.system }"
+		},
+		"interactive-pointer": {
+			"value": "{ dimension.200 }{ unit.system }"
+		},
+		"interactive-touch": {
+			"value": "{ dimension.275 }{ unit.system }"
 		},
 		"search-figure": {
 			"comment": "Alias for use in TypeaheadSearch and Thumbnail components for the same purpose and for better code readability.",
