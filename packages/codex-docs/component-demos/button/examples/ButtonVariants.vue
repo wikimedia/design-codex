@@ -3,7 +3,7 @@
 		<table>
 			<thead>
 				<tr>
-					<th />
+					<th aria-hidden="true" />
 					<th>Normal</th>
 					<th>Primary</th>
 					<th>Quiet</th>
