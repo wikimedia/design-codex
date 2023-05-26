@@ -414,6 +414,10 @@ export default defineComponent( {
 				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 				outline: @outline-base--focus;
 			}
+
+			&:read-only {
+				background-color: @background-color-interactive-subtle;
+			}
 		}
 
 		/* stylelint-disable-next-line no-descending-specificity */

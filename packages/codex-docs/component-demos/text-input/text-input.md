@@ -27,6 +27,10 @@ const controlsConfig = [
 		type: 'boolean'
 	},
 	{
+		name: 'readonly',
+		type: 'boolean'
+	},
+	{
 		name: 'placeholder',
 		type: 'text'
 	}
