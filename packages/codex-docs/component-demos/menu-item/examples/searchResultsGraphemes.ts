@@ -9,7 +9,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 200,
 			height: 133,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/200px-Flag_of_Italy.svg.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/200px-Flag_of_Italy.svg.png'
 		}
 	},
 	{
@@ -20,7 +20,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 169,
 			height: 200,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Italy_UNESCO_WHC_Regions.svg/169px-Italy_UNESCO_WHC_Regions.svg.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Italy_UNESCO_WHC_Regions.svg/169px-Italy_UNESCO_WHC_Regions.svg.png'
 		}
 	},
 	{
@@ -31,7 +31,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 200,
 			height: 93,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Map_Italophone_World_-_updated.png/200px-Map_Italophone_World_-_updated.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Map_Italophone_World_-_updated.png/200px-Map_Italophone_World_-_updated.png'
 		}
 	},
 	{
@@ -42,7 +42,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 119,
 			height: 200,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Federazione_Italiana_Giuoco_Calcio%2C_Logo_2017%2C_4_stars.svg/119px-Federazione_Italiana_Giuoco_Calcio%2C_Logo_2017%2C_4_stars.svg.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Federazione_Italiana_Giuoco_Calcio%2C_Logo_2017%2C_4_stars.svg/119px-Federazione_Italiana_Giuoco_Calcio%2C_Logo_2017%2C_4_stars.svg.png'
 		}
 	},
 	{
@@ -53,7 +53,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 200,
 			height: 199,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/8/88/Transport_Typeface_in_Italy.jpg/200px-Transport_Typeface_in_Italy.jpg'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Transport_Typeface_in_Italy.jpg/200px-Transport_Typeface_in_Italy.jpg'
 		}
 	},
 	{
@@ -64,7 +64,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 153,
 			height: 200,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/2/26/COVID-19_Outbreak_Cases_in_Italy_%28Density%29.svg/153px-COVID-19_Outbreak_Cases_in_Italy_%28Density%29.svg.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/COVID-19_Outbreak_Cases_in_Italy_%28Density%29.svg/153px-COVID-19_Outbreak_Cases_in_Italy_%28Density%29.svg.png'
 		}
 	},
 	{
@@ -75,7 +75,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 119,
 			height: 200,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Federazione_Italiana_Giuoco_Calcio%2C_Logo_2017%2C_4_stars.svg/119px-Federazione_Italiana_Giuoco_Calcio%2C_Logo_2017%2C_4_stars.svg.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Federazione_Italiana_Giuoco_Calcio%2C_Logo_2017%2C_4_stars.svg/119px-Federazione_Italiana_Giuoco_Calcio%2C_Logo_2017%2C_4_stars.svg.png'
 		}
 	},
 	{
@@ -86,7 +86,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 200,
 			height: 103,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Italy_Philippines_Locator.png/200px-Italy_Philippines_Locator.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Italy_Philippines_Locator.png/200px-Italy_Philippines_Locator.png'
 		}
 	},
 	{
@@ -97,7 +97,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 200,
 			height: 144,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/9/93/Enzo_Staiola_in_Bicycle_Thieves.jpg/200px-Enzo_Staiola_in_Bicycle_Thieves.jpg'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Enzo_Staiola_in_Bicycle_Thieves.jpg/200px-Enzo_Staiola_in_Bicycle_Thieves.jpg'
 		}
 	},
 	{
@@ -108,7 +108,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 200,
 			height: 143,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/d/de/Open_access_publications_in_Italy_1990_to_2018_OpenAIRE.png/200px-Open_access_publications_in_Italy_1990_to_2018_OpenAIRE.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Open_access_publications_in_Italy_1990_to_2018_OpenAIRE.png/200px-Open_access_publications_in_Italy_1990_to_2018_OpenAIRE.png'
 		}
 	}
 ];

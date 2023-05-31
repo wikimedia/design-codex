@@ -13,7 +13,7 @@ import { CdxCard, Thumbnail } from '@wikimedia/codex';
 const thumbnailData: Thumbnail = {
 	width: 200,
 	height: 180,
-	url: '//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/200px-Juvenile_Ragdoll.jpg'
+	url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/200px-Juvenile_Ragdoll.jpg'
 };
 
 export default defineComponent( {

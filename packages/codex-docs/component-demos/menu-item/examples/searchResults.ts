@@ -16,7 +16,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 200,
 			height: 150,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/200px-64_365_Color_Macro_%285498808099%29.jpg'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/200px-64_365_Color_Macro_%285498808099%29.jpg'
 		}
 	},
 	{
@@ -27,7 +27,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 200,
 			height: 133,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colorado_designed_by_Andrew_Carlisle_Carson.svg/200px-Flag_of_Colorado_designed_by_Andrew_Carlisle_Carson.svg.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colorado_designed_by_Andrew_Carlisle_Carson.svg/200px-Flag_of_Colorado_designed_by_Andrew_Carlisle_Carson.svg.png'
 		}
 	},
 	{
@@ -38,7 +38,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 200,
 			height: 134,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/4/45/CC_COSPRINGS.jpg/200px-CC_COSPRINGS.jpg'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/CC_COSPRINGS.jpg/200px-CC_COSPRINGS.jpg'
 		}
 	},
 	{
@@ -49,7 +49,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 200,
 			height: 133,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Horseshoe_Bend_TC_27-09-2012_15-34-14.jpg/200px-Horseshoe_Bend_TC_27-09-2012_15-34-14.jpg'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Horseshoe_Bend_TC_27-09-2012_15-34-14.jpg/200px-Horseshoe_Bend_TC_27-09-2012_15-34-14.jpg'
 		}
 	},
 	{
@@ -60,7 +60,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 200,
 			height: 119,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Color_Revolutions_Map.png/200px-Color_Revolutions_Map.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Color_Revolutions_Map.png/200px-Color_Revolutions_Map.png'
 		}
 	},
 	{
@@ -78,7 +78,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 178,
 			height: 200,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/PlanckianLocus.png/178px-PlanckianLocus.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/PlanckianLocus.png/178px-PlanckianLocus.png'
 		}
 	},
 	{
@@ -89,7 +89,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 152,
 			height: 200,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Hillotypie.jpg/152px-Hillotypie.jpg'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Hillotypie.jpg/152px-Hillotypie.jpg'
 		}
 	},
 	{
@@ -100,7 +100,7 @@ const searchResults : SearchResult[] = [
 		thumbnail: {
 			width: 200,
 			height: 195,
-			url: '//upload.wikimedia.org/wikipedia/en/thumb/3/33/Colorado_State_University_seal.svg/200px-Colorado_State_University_seal.svg.png'
+			url: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Colorado_State_University_seal.svg/200px-Colorado_State_University_seal.svg.png'
 		}
 	}
 ];

@@ -23,7 +23,7 @@ import { CdxCard, CdxIcon } from '@wikimedia/codex';
 import { cdxIconWatchlist } from '@wikimedia/codex-icons';
 
 const thumbnailData = {
-	url: '//upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/200px-FullMoon2010.jpg'
+	url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/200px-FullMoon2010.jpg'
 };
 
 export default defineComponent( {

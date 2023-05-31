@@ -37,7 +37,7 @@ const cards = [
 		thumbnail: {
 			width: 150,
 			height: 113,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg/150px-Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg/150px-Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg'
 		},
 		distance: '170m'
 	},
@@ -49,7 +49,7 @@ const cards = [
 		thumbnail: {
 			width: 150,
 			height: 146,
-			url: '//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Internet_Archive_logo_and_wordmark.svg/150px-Internet_Archive_logo_and_wordmark.svg.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Internet_Archive_logo_and_wordmark.svg/150px-Internet_Archive_logo_and_wordmark.svg.png'
 		},
 		distance: '300m'
 	},
