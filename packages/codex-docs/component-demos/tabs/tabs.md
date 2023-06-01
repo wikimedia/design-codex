@@ -90,7 +90,8 @@ This no-JS implementation of Tabs requires some logic on the server side to set 
   specified URL query param, reload the page, and show the new tab.
 
 To disable a tab:
-- Add the `disabled` attribute to that tab's submit input
+- Add the `disabled` attribute to that tab's `<input>`
+- Add the `aria-disabled="true"` attribute to that tab's `<label>`
 
 The tabs below have long labels, making the tab list too long for its container. When this happens,
 you can horizontally scroll to reach the rest of the tabs list.
@@ -128,11 +129,11 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 						</label>
 					</form>
 				</li>
-				<!-- Disabled tab's list item has the `cdx-tabs__list__item--disabled` class. -->
 				<li id="form-tabs-3-label" class="cdx-tabs__list__item" role="presentation">
 					<form method="get" :action="url">
 						<!-- `disabled` attribute means this tab cannot be selected. -->
 						<input id="form-tabs-3-input" class="cdx-tabs__submit" type="submit" name="tab" value="form-tabs-3" disabled>
+						<!-- `aria-disabled` attribute causes this tab to be styled as disabled. -->
 						<label for="form-tabs-3-input" role="tab" :aria-selected="currentCssTabId === 'form-tabs-3'" :aria-disabled="true">
 							Tab number three
 						</label>
@@ -234,10 +235,9 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 					</label>
 				</form>
 			</li>
-			<!-- Disabled tab's list item has the `cdx-tabs__list__item--disabled` class. -->
 			<li
 				id="form-tabs-3-label"
-				class="cdx-tabs__list__item cdx-tabs__list__item--disabled"
+				class="cdx-tabs__list__item"
 				role="presentation"
 			>
 				<form
@@ -253,10 +253,12 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 						value="form-tabs-3"
 						disabled
 					>
+					<!-- `aria-disabled` attribute causes this tab to be styled as disabled. -->
 					<label
 						for="form-tabs-3-input"
 						role="tab"
 						aria-selected="{{ currentCssTabId === 'form-tabs-3' }}"
+						aria-disabled="true"
 					>
 						Tab number three
 					</label>
