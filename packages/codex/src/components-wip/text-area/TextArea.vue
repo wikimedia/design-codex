@@ -45,6 +45,12 @@ const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
  * Multi-line text input that allows manual resizing.
+ *
+ * This form element is useful when you want to create a sizeable amount of free-form text,
+ * for example comments, reviews, feedback, or short essay responses.
+ *
+ * `v-model` is used to track the current value of the textarea. See the events docs for details on
+ * emitted events and their properties.
  */
 export default defineComponent( {
 	name: 'CdxTextArea',
@@ -174,7 +180,7 @@ export default defineComponent( {
 	&__end-icon {
 		.cdx-mixin-icon(
 			end,
-			@min-size-icon-small
+			@min-size-icon-small,
 			@size-icon-small,
 			@spacing-50 + @border-width-base
 		);
