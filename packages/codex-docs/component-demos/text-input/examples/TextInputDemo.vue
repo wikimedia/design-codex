@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref, toRefs } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 import { CdxButton, CdxTextInput } from '@wikimedia/codex';
 import { Icon } from '@wikimedia/codex-icons';
 import { getMultiEventLogger } from '../../../src/utils/getEventLogger';
@@ -83,13 +83,12 @@ export default defineComponent( {
 		}
 	},
 	setup( props ) {
-		const { initialValue } = toRefs( props );
-		const inputValue = ref( initialValue.value );
+		const inputValue = ref( props.initialValue );
 
 		const onEvent = getMultiEventLogger<string>();
 
 		const resetInput = () => {
-			inputValue.value = initialValue.value;
+			inputValue.value = props.initialValue;
 		};
 
 		return {

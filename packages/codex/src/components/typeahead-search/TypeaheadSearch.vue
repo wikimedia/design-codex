@@ -120,7 +120,7 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent, computed, ref, toRefs, watch, onMounted, toRef } from 'vue';
+import { PropType, defineComponent, computed, ref, watch, onMounted, toRef } from 'vue';
 import { cdxIconArticleSearch } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import CdxMenu from '../menu/Menu.vue';
@@ -287,8 +287,6 @@ export default defineComponent( {
 	],
 
 	setup( props, { attrs, emit, slots } ) {
-		const { searchResults, searchFooterUrl, debounceInterval } = toRefs( props );
-
 		const form = ref<HTMLFormElement>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
 
@@ -333,8 +331,8 @@ export default defineComponent( {
 		);
 
 		const footer = computed( () =>
-			searchFooterUrl.value ?
-				{ value: MenuFooterValue, url: searchFooterUrl.value } :
+			props.searchFooterUrl ?
+				{ value: MenuFooterValue, url: props.searchFooterUrl } :
 				undefined
 		);
 
@@ -437,7 +435,7 @@ export default defineComponent( {
 			} else {
 				debounceId = setTimeout( () => {
 					handleUpdateInputValue();
-				}, debounceInterval.value );
+				}, props.debounceInterval );
 			}
 		}
 
@@ -488,8 +486,8 @@ export default defineComponent( {
 			if ( resultWithoutId.value === MenuFooterValue ) {
 				emit( 'search-result-click', {
 					searchResult: null,
-					index: searchResults.value.length,
-					numberOfResults: searchResults.value.length
+					index: props.searchResults.length,
+					numberOfResults: props.searchResults.length
 				} );
 				return;
 			}
@@ -505,10 +503,10 @@ export default defineComponent( {
 		function emitSearchResultClick( searchResult: SearchResult ) {
 			const searchResultClickEvent: SearchResultClickEvent = {
 				searchResult,
-				index: searchResults.value.findIndex(
+				index: props.searchResults.findIndex(
 					( r ) => r.value === searchResult.value
 				),
-				numberOfResults: searchResults.value.length
+				numberOfResults: props.searchResults.length
 			};
 
 			emit( 'search-result-click', searchResultClickEvent );
@@ -569,7 +567,7 @@ export default defineComponent( {
 				const submitEvent: SearchResultClickEvent = {
 					searchResult: null,
 					index: -1,
-					numberOfResults: searchResults.value.length
+					numberOfResults: props.searchResults.length
 				};
 				emit( 'submit', submitEvent );
 			}
@@ -604,7 +602,7 @@ export default defineComponent( {
 						) {
 							// Directly navigate to the search footer URL so the link is the same on
 							// both mouse and keyboard.
-							window.location.assign( searchFooterUrl.value );
+							window.location.assign( props.searchFooterUrl );
 						} else {
 							// Otherwise, handle the item change as usual. But don't prevent the
 							// event, otherwise the form won't be submitted

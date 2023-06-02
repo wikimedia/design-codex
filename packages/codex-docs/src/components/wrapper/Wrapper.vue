@@ -55,7 +55,7 @@
 			<slot name="code" />
 		</div>
 		<div
-			v-else-if="hasGeneratedCode"
+			v-else-if="showGeneratedCode"
 			v-show="showCode"
 			ref="codeDiv"
 			class="cdx-demo-wrapper__code-generated"
@@ -88,7 +88,6 @@ import {
 	ref,
 	computed,
 	onMounted,
-	toRef,
 	watch,
 	nextTick,
 	PropType
@@ -188,11 +187,9 @@ export default defineComponent( {
 	setup( props, { slots } ) {
 		const direction = ref<HTMLDirection>( 'ltr' );
 
-		const hasGeneratedCode = toRef( props, 'showGeneratedCode' );
-
 		// Set up show code/hide code button.
 		const hasCodeSlot = slots && slots.code;
-		const hasCodeSample = computed( () => hasCodeSlot || hasGeneratedCode.value );
+		const hasCodeSample = computed( () => hasCodeSlot || props.showGeneratedCode );
 		const showCode = ref( false );
 		const codeToggleLabel = computed( () => {
 			return showCode.value === true ? 'Hide code' : 'Show code';
@@ -397,7 +394,7 @@ export default defineComponent( {
 			// about the promise returned
 			// eslint-disable-next-line @typescript-eslint/no-floating-promises
 			nextTick( () => {
-				if ( codeDiv.value && hasGeneratedCode.value ) {
+				if ( codeDiv.value && props.showGeneratedCode ) {
 					Prism.highlightAllUnder( codeDiv.value );
 				}
 			} );
@@ -408,7 +405,7 @@ export default defineComponent( {
 		watch(
 			generatedCode,
 			() => {
-				if ( hasGeneratedCode.value ) {
+				if ( props.showGeneratedCode ) {
 					codeText.value = generatedCode.value;
 					updateHighlight();
 				}
@@ -417,7 +414,7 @@ export default defineComponent( {
 		// If we are using generated code, highlight it at the start, and use it for
 		// the code text so that it can be copied even when there are no changes made
 		// (but don't overwrite the code from the slot)
-		if ( hasGeneratedCode.value ) {
+		if ( props.showGeneratedCode ) {
 			codeText.value = generatedCode.value;
 			onMounted( updateHighlight );
 		}
@@ -446,7 +443,6 @@ export default defineComponent( {
 			codeText,
 
 			// generated code
-			hasGeneratedCode,
 			codeDiv,
 			generatedCode,
 
