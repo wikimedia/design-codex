@@ -87,6 +87,7 @@ export default defineComponent( {
 .cdx-docs-tokens-demo {
 	&--animation &__token,
 	&--box-shadow &__token,
+	&--box-shadow-color &__token,
 	&--opacity &__token,
 	&--outline &__token,
 	&--padding &__token {
@@ -119,14 +120,6 @@ export default defineComponent( {
 		&--border-radius-pill {
 			width: @size-800;
 		}
-	}
-
-	&--box-shadow-color &__token {
-		width: @size-300;
-		height: @size-300;
-		border-width: @border-width-base;
-		border-style: @border-style-base;
-		border-radius: @border-radius-base;
 	}
 
 	&--color &__token {
