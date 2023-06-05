@@ -81,10 +81,15 @@ import { Icon, cdxIconExpand } from '@wikimedia/codex-icons';
 
 import CdxIcon from '../icon/Icon.vue';
 import CdxMenu from '../menu/Menu.vue';
+
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useResizeObserver from '../../composables/useResizeObserver';
-import { MenuItemData, MenuConfig } from '../../types';
+
+import { MenuItemData, MenuConfig, ValidationStatusType } from '../../types';
+import { ValidationStatusTypes } from '../../constants';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
  * An input with a dropdown menu of predefined selectable items.
@@ -153,6 +158,17 @@ export default defineComponent( {
 		defaultIcon: {
 			type: [ String, Object ] as PropType<Icon | undefined>,
 			default: undefined
+		},
+
+		/**
+		 * `status` attribute of the input.
+		 *
+		 * @values 'default', 'error'
+		 */
+		status: {
+			type: String as PropType<ValidationStatusType>,
+			default: 'default',
+			validator: statusValidator
 		}
 	},
 
@@ -216,7 +232,8 @@ export default defineComponent( {
 				'cdx-select-vue--expanded': expanded.value,
 				'cdx-select-vue--value-selected': !!selectedMenuItem.value,
 				'cdx-select-vue--no-selections': !selectedMenuItem.value,
-				'cdx-select-vue--has-start-icon': !!startIcon.value
+				'cdx-select-vue--has-start-icon': !!startIcon.value,
+				[ `cdx-select-vue--status-${props.status}` ]: true
 			};
 		} );
 
@@ -364,6 +381,16 @@ export default defineComponent( {
 		}
 	}
 	/* stylelint-enable no-descending-specificity */
+
+	&--status-error&--enabled {
+		.cdx-select-vue__handle {
+			border-color: @border-color-destructive;
+
+			&:focus {
+				border-color: @border-color-progressive--focus;
+			}
+		}
+	}
 
 	// Overrides when used within a Dialog component
 	.cdx-dialog & {

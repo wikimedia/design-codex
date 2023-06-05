@@ -19,7 +19,12 @@ const controlsConfig = [
 	{
 		name: 'defaultIcon',
 		type: 'icon'
-	}
+	},
+	{
+		name: 'status',
+		type: 'radio',
+		options: [ 'default', 'error' ],
+	},
 ];
 </script>
 
