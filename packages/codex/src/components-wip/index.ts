@@ -5,9 +5,11 @@
 //     CdxComponentName
 // };
 import CdxAccordion from './accordion/Accordion.vue';
+import CdxLabel from './label/Label.vue';
 import CdxTextArea from './text-area/TextArea.vue';
 
 export {
 	CdxAccordion,
+	CdxLabel,
 	CdxTextArea
 };

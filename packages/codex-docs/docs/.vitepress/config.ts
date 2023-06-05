@@ -218,6 +218,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Combobox', link: '/components/demos/combobox' },
 						{ text: 'Dialog', link: '/components/demos/dialog' },
 						{ text: 'Icon', link: '/components/demos/icon' },
+						{ text: 'Label', link: '/components/demos/label' },
 						{ text: 'InfoChip', link: '/components/demos/info-chip' },
 						{ text: 'Link', link: '/components/mixins/link' },
 						{ text: 'Lookup', link: '/components/demos/lookup' },

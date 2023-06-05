@@ -22,6 +22,7 @@
 				<combobox-demo />
 				<dialog-demo />
 				<icon-demo />
+				<label-demo />
 				<link-demo />
 				<lookup-demo />
 				<menu-demo />
@@ -68,6 +69,7 @@ import CheckboxDemo from './CheckboxDemo.vue';
 import ComboboxDemo from './ComboboxDemo.vue';
 import DialogDemo from './DialogDemo.vue';
 import IconDemo from './IconDemo.vue';
+import LabelDemo from './LabelDemo.vue';
 import LookupDemo from './LookupDemo.vue';
 import MenuDemo from './MenuDemo.vue';
 import MenuItemDemo from './MenuItemDemo.vue';
@@ -95,6 +97,7 @@ const demoSections = [
 	{ name: 'Combobox', id: '#cdx-combobox' },
 	{ name: 'Dialog', id: '#cdx-dialog' },
 	{ name: 'Icon', id: '#cdx-icon' },
+	{ name: 'Label', id: '#cdx-label' },
 	{ name: 'Link', id: '#cdx-link' },
 	{ name: 'Lookup', id: '#cdx-lookup' },
 	{ name: 'Menu', id: '#cdx-menu' },
