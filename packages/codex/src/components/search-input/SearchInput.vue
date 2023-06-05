@@ -14,6 +14,10 @@
 				:status="status"
 				v-bind="otherAttrs"
 				@keydown.enter="handleSubmit"
+				@input="$event => $emit( 'input', $event )"
+				@change="$event => $emit( 'change', $event )"
+				@focus="$event => $emit( 'focus', $event )"
+				@blur="$event => $emit( 'blur', $event )"
 			/>
 			<!--
 				@slot A slot for passing in an options menu that needs to be positioned
@@ -107,7 +111,31 @@ export default defineComponent( {
 		 *
 		 * @property {string | number} value The current input
 		 */
-		'submit-click'
+		'submit-click',
+		/**
+		 * When the input value changes via direct use of the input
+		 *
+		 * @property {InputEvent} event
+		 */
+		'input',
+		/**
+		 * When an input value change is committed by the user (e.g. on blur)
+		 *
+		 * @property {Event} event
+		 */
+		'change',
+		/**
+		 * When the input comes into focus
+		 *
+		 * @property {FocusEvent} event
+		 */
+		'focus',
+		/**
+		 * When the input loses focus
+		 *
+		 * @property {FocusEvent} event
+		 */
+		'blur'
 	],
 
 	setup( props, { emit, attrs } ) {

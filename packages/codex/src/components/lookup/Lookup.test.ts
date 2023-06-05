@@ -372,4 +372,19 @@ describe( 'Lookup', () => {
 			expect( wrapper.emitted( 'input' )?.[ 0 ] ).toEqual( [ '' ] );
 		} );
 	} );
+
+	describe( 'when a native input event is triggered', () => {
+		const eventNames = [
+			'input',
+			'change',
+			'focus',
+			'blur'
+		];
+		test.each( eventNames )( 'Case %#: emits %s event', async ( eventName ) => {
+			const wrapper = mount( CdxLookup, { props: defaultProps } );
+
+			await wrapper.get( 'input' ).trigger( eventName );
+			expect( wrapper.emitted()[ eventName ] ).toBeTruthy();
+		} );
+	} );
 } );

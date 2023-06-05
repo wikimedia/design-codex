@@ -20,6 +20,8 @@
 				autocomplete="off"
 				role="combobox"
 				@keydown="onKeydown"
+				@input="$event => $emit( 'input', $event )"
+				@change="$event => $emit( 'change', $event )"
 				@focus="onInputFocus"
 				@blur="onInputBlur"
 			/>
@@ -178,7 +180,31 @@ export default defineComponent( {
 		 * If it is possible to add or load more menu items, then now would be a good moment
 		 * so that the user can experience infinite scrolling.
 		 */
-		'load-more'
+		'load-more',
+		/**
+		 * When the input value changes via direct use of the input
+		 *
+		 * @property {InputEvent} event
+		 */
+		'input',
+		/**
+		 * When an input value change is committed by the user (e.g. on blur)
+		 *
+		 * @property {Event} event
+		 */
+		'change',
+		/**
+		 * When the input comes into focus
+		 *
+		 * @property {FocusEvent} event
+		 */
+		'focus',
+		/**
+		 * When the input loses focus
+		 *
+		 * @property {FocusEvent} event
+		 */
+		'blur'
 	],
 
 	setup( props, { emit, attrs, slots } ) {
@@ -215,22 +241,28 @@ export default defineComponent( {
 		 * If the menu is collapsed, expand the menu (if there is anything to
 		 * display). If the menu was already expanded and the expander was just
 		 * clicked, collapse the menu instead.
+		 *
+		 * @param event
 		 */
-		function onInputFocus(): void {
+		function onInputFocus( event: FocusEvent ): void {
 			if ( expanderClicked.value && expanded.value ) {
 				expanded.value = false;
 			} else if ( props.menuItems.length > 0 || slots[ 'no-results' ] ) {
 				expanded.value = true;
 			}
+			emit( 'focus', event );
 		}
 
 		/**
 		 * When the input loses focus, update the state of the menu.
 		 * If the menu was expanded and the expander was just clicked,
 		 * keep the menu open. Otherwise, close the menu.
+		 *
+		 * @param event
 		 */
-		function onInputBlur(): void {
+		function onInputBlur( event: FocusEvent ): void {
 			expanded.value = ( expanderClicked.value && expanded.value );
+			emit( 'blur', event );
 		}
 
 		/**

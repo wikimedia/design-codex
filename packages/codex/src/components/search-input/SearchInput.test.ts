@@ -32,3 +32,18 @@ it( 'calls TextInput focus method', async () => {
 	await wrapper.vm.focus();
 	expect( textInput.vm.focus ).toHaveBeenCalled();
 } );
+
+describe( 'when a native input event is triggered', () => {
+	const eventNames = [
+		'input',
+		'change',
+		'focus',
+		'blur'
+	];
+	test.each( eventNames )( 'Case %#: emits %s event', async ( eventName ) => {
+		const wrapper = mount( CdxSearchInput );
+
+		await wrapper.get( 'input' ).trigger( eventName );
+		expect( wrapper.emitted()[ eventName ] ).toBeTruthy();
+	} );
+} );

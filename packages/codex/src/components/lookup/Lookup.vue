@@ -19,6 +19,7 @@
 			:disabled="disabled"
 			:status="status"
 			@update:model-value="onUpdateInput"
+			@change="$event => $emit( 'change', $event )"
 			@focus="onInputFocus"
 			@blur="onInputBlur"
 			@keydown="onKeydown"
@@ -159,18 +160,36 @@ export default defineComponent( {
 		 */
 		'update:selected',
 		/**
+		 * When the user scrolls towards the bottom of the menu.
+		 *
+		 * If it is possible to add or load more menu items, then now would be a good moment
+		 * so that the user can experience infinite scrolling.
+		 */
+		'load-more',
+		/**
 		 * When the text input value changes.
 		 *
 		 * @property {string | number} value The new value
 		 */
 		'input',
 		/**
-		 * When the user scrolls towards the bottom of the menu.
+		 * When an input value change is committed by the user (e.g. on blur)
 		 *
-		 * If it is possible to add or load more menu items, then now would be a good moment
-		 * so that the user can experience infinite scrolling.
+		 * @property {Event} event
 		 */
-		'load-more'
+		'change',
+		/**
+		 * When the input comes into focus
+		 *
+		 * @property {FocusEvent} event
+		 */
+		'focus',
+		/**
+		 * When the input loses focus
+		 *
+		 * @property {FocusEvent} event
+		 */
+		'blur'
 	],
 
 	setup: ( props, { emit, attrs, slots } ) => {
@@ -238,8 +257,10 @@ export default defineComponent( {
 
 		/**
 		 * On focus, maybe open the menu.
+		 *
+		 * @param event The focus event
 		 */
-		function onInputFocus() {
+		function onInputFocus( event: FocusEvent ) {
 			isActive.value = true;
 			if (
 				// Input value is not null or an empty string.
@@ -250,14 +271,18 @@ export default defineComponent( {
 			) {
 				expanded.value = true;
 			}
+			emit( 'focus', event );
 		}
 
 		/**
 		 * On blur, close the menu
+		 *
+		 * @param event The focus event
 		 */
-		function onInputBlur() {
+		function onInputBlur( event: FocusEvent ) {
 			isActive.value = false;
 			expanded.value = false;
+			emit( 'blur', event );
 		}
 
 		/**

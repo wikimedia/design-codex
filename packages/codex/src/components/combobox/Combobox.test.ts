@@ -215,4 +215,21 @@ describe( 'Basic usage', () => {
 		await inputEl.trigger( 'keydown', { key: 'Enter' } );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
+
+	describe( 'when a native input event is triggered', () => {
+		const eventNames = [
+			'input',
+			'change',
+			'focus',
+			'blur'
+		];
+		test.each( eventNames )( 'Case %#: emits %s event', async ( eventName ) => {
+			const wrapper = mount( CdxCombobox, {
+				props: defaultProps,
+				attachTo: '#root'
+			} );
+			await wrapper.get( 'input' ).trigger( eventName );
+			expect( wrapper.emitted()[ eventName ] ).toBeTruthy();
+		} );
+	} );
 } );
