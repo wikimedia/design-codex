@@ -1,0 +1,243 @@
+<template>
+	<component
+		:is="isFieldset ? 'fieldset' : 'div'"
+		class="cdx-field"
+		:class="rootClasses"
+		:aria-disabled="!isFieldset && computedDisabled ? true : undefined"
+		:disabled="isFieldset && computedDisabled ? true : undefined"
+	>
+		<cdx-label
+			:id="labelId"
+			:icon="labelIcon"
+			:visually-hidden="hideLabel"
+			:optional-flag="optionalFlag"
+			:input-id="inputId"
+			:description-id="descriptionId"
+			:disabled="computedDisabled"
+			:is-legend="isFieldset"
+		>
+			<template #default>
+				<!-- @slot Label text. -->
+				<slot name="label" />
+			</template>
+			<template #description>
+				<!-- @slot Short description text. -->
+				<slot name="description" />
+			</template>
+		</cdx-label>
+
+		<div
+			class="cdx-field__control"
+			:class="{ 'cdx-field__control--has-help-text': ( $slots[ 'help-text' ] &&
+				$slots[ 'help-text' ]().length > 0 ) || validationMessage }"
+		>
+			<!-- @slot Input, control, or input group. -->
+			<slot />
+		</div>
+
+		<div class="cdx-field__help-text">
+			<!-- @slot Further explanation of how to use this field. -->
+			<slot name="help-text" />
+		</div>
+
+		<div
+			v-if="!computedDisabled && validationMessage"
+			class="cdx-field__validation-message"
+		>
+			<cdx-message :type="validationMessageType" :inline="true">
+				{{ validationMessage }}
+			</cdx-message>
+		</div>
+	</component>
+</template>
+
+<script lang="ts">
+import { defineComponent, PropType, provide, toRefs, computed } from 'vue';
+import { Icon } from '@wikimedia/codex-icons';
+
+import CdxLabel from '../label/Label.vue';
+import CdxMessage from '../../components/message/Message.vue';
+
+import { ValidationStatusTypes, DisabledKey, FieldInputIdKey, FieldDescriptionIdKey, FieldStatusKey } from '../../constants';
+import { ValidationStatusType, ValidationMessages } from '../../types';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+import useGeneratedId from '../../composables/useGeneratedId';
+import useComputedDisabled from '../../composables/useComputedDisabled';
+const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
+
+/**
+ * Form field with a label, an input or control, and optional validation handling.
+ *
+ * This component can wrap the following:
+ * - A single form input or control
+ * - An input group (e.g. a group of Radios or Checkboxes)
+ * - A set of nested fields (inputs wrapped in their own Field components).
+ *
+ * The following Codex components can be used inside the Field component:
+ * - Checkbox
+ * - Combobox
+ * - Lookup
+ * - Radio
+ * - SearchInput
+ * - Select
+ * - TextInput
+ * - ToggleSwitch
+ */
+export default defineComponent( {
+	name: 'CdxField',
+	components: { CdxLabel, CdxMessage },
+	props: {
+		/**
+		 * Icon before the label text.
+		 *
+		 * Do not use this if including a start icon within the input component.
+		 */
+		labelIcon: {
+			type: [ String, Object ] as PropType<Icon>,
+			default: ''
+		},
+		/**
+		 * Text to indicate that the field is optional.
+		 *
+		 * For example, this might be '(optional)' in English. This text will be placed next to
+		 * the label text.
+		 */
+		optionalFlag: {
+			type: String,
+			default: ''
+		},
+		/**
+		 * Whether the label should be visually hidden.
+		 *
+		 * Note that this will also hide the description.
+		 */
+		hideLabel: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * Whether this field contains a group of inputs.
+		 *
+		 * When true, this outputs a `<fieldset>` element with a semantic `<legend>`. When false,
+		 * it outputs a `<div>` with a semantic `<label>`.
+		 */
+		isFieldset: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * Whether the entire field is disabled.
+		 */
+		disabled: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * `status` attribute of the input.
+		 *
+		 * @values 'default', 'error'
+		 */
+		status: {
+			type: String as PropType<ValidationStatusType>,
+			default: 'default',
+			validator: statusValidator
+		},
+		/**
+		 * Message text keyed on validation status type.
+		 */
+		messages: {
+			type: Object as PropType<ValidationMessages>,
+			default: () => {
+				return {};
+			}
+		}
+	},
+	setup( props, { slots } ) {
+		const { disabled, status, isFieldset } = toRefs( props );
+		const computedDisabled = useComputedDisabled( disabled );
+
+		const rootClasses = computed( () => {
+			return {
+				'cdx-field--disabled': computedDisabled.value
+			};
+		} );
+
+		// An id attribute is added to the label in case it's useful to dev users.
+		const labelId = useGeneratedId( 'label' );
+		// The description ID is provided to the input for `aria-describedby`.
+		const descriptionId = useGeneratedId( 'description' );
+
+		// In the case of single input fields (not fieldsets), the input id is passed to the label
+		// and provided to the input component.
+		// For fieldsets, this is all taken care of by the native HTML elements (<fieldset> and
+		// <legend>).
+		const inputId = useGeneratedId( 'input' );
+		if ( !isFieldset.value ) {
+			provide( FieldInputIdKey, inputId );
+
+			if ( slots.description ) {
+				provide( FieldDescriptionIdKey, descriptionId );
+			}
+		}
+
+		// Provide the values of the disabled and status props to child components.
+		provide( DisabledKey, computedDisabled );
+		provide( FieldStatusKey, status );
+
+		const validationMessage = computed( () =>
+			props.status !== 'default' && props.status in props.messages ?
+				props.messages[ props.status ] :
+				''
+		);
+
+		// We don't allow notice validation messages, but this assures TypeScript that we won't try
+		// passing 'default' to the type prop of the Message component.
+		const validationMessageType = computed( () =>
+			props.status === 'default' ? 'notice' : props.status );
+
+		return {
+			rootClasses,
+			computedDisabled,
+			labelId,
+			descriptionId,
+			inputId,
+			validationMessage,
+			validationMessageType
+		};
+	}
+} );
+</script>
+
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-field {
+	// Remove <fieldset> border and padding.
+	border: 0;
+	padding: 0;
+
+	&__control {
+		&--has-help-text {
+			padding-bottom: @spacing-50;
+
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+				padding-bottom: @spacing-25;
+			}
+		}
+	}
+
+	&:not( .cdx-field--disabled ) {
+		.cdx-field__help-text {
+			color: @color-subtle;
+		}
+	}
+
+	/* stylelint-disable no-descending-specificity */
+	&--disabled {
+		.cdx-field__help-text {
+			color: @color-disabled;
+		}
+	}
+	/* stylelint-enable no-descending-specificity */
+}
+</style>

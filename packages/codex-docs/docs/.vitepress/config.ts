@@ -217,6 +217,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Checkbox', link: '/components/demos/checkbox' },
 						{ text: 'Combobox', link: '/components/demos/combobox' },
 						{ text: 'Dialog', link: '/components/demos/dialog' },
+						{ text: 'Field', link: '/components/demos/field' },
 						{ text: 'Icon', link: '/components/demos/icon' },
 						{ text: 'Label', link: '/components/demos/label' },
 						{ text: 'InfoChip', link: '/components/demos/info-chip' },

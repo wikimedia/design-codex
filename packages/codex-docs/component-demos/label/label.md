@@ -41,6 +41,12 @@ const controlsConfig = [
 ];
 </script>
 
+:::tip
+You should consider using the [Field](./field.md) component, which includes the Label component and
+handles accessibility features like ARIA attributes internally. If you need more custom behavior,
+you can use the Label component on its own.
+:::
+
 ## Demos
 
 ### Configurable

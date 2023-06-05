@@ -14,7 +14,7 @@
 				:aria-expanded="expanded"
 				:aria-controls="menuId"
 				:aria-owns="menuId"
-				:disabled="disabled"
+				:disabled="computedDisabled"
 				:status="status"
 				aria-autocomplete="list"
 				autocomplete="off"
@@ -32,7 +32,7 @@
 			<cdx-button
 				class="cdx-combobox__expand-button"
 				aria-hidden="true"
-				:disabled="disabled"
+				:disabled="computedDisabled"
 				tabindex="-1"
 				type="button"
 				@mousedown="onButtonMousedown"
@@ -92,6 +92,7 @@ import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useResizeObserver from '../../composables/useResizeObserver';
+import useFieldData from '../../composables/useFieldData';
 
 import { MenuItemData, MenuConfig, ValidationStatusType } from '../../types';
 import { ValidationStatusTypes } from '../../constants';
@@ -219,10 +220,12 @@ export default defineComponent( {
 
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
+		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
+
 		const internalClasses = computed( () => {
 			return {
 				'cdx-combobox--expanded': expanded.value,
-				'cdx-combobox--disabled': props.disabled
+				'cdx-combobox--disabled': computedDisabled.value
 			};
 		} );
 
@@ -271,7 +274,7 @@ export default defineComponent( {
 		 * expander button being clicked.
 		 */
 		function onButtonMousedown(): void {
-			if ( props.disabled ) {
+			if ( computedDisabled.value ) {
 				return;
 			}
 			expanderClicked.value = true;
@@ -283,7 +286,7 @@ export default defineComponent( {
 		 * programmatically.
 		 */
 		function onButtonClick(): void {
-			if ( props.disabled ) {
+			if ( computedDisabled.value ) {
 				return;
 			}
 			input.value?.focus(); // call the public focus() method on TextInput
@@ -292,7 +295,7 @@ export default defineComponent( {
 		function onKeydown( e: KeyboardEvent ) {
 			if (
 				!menu.value ||
-				props.disabled ||
+				computedDisabled.value ||
 				props.menuItems.length === 0 ||
 				e.key === ' '
 			) {
@@ -318,6 +321,7 @@ export default defineComponent( {
 			modelWrapper,
 			expanded,
 			highlightedId,
+			computedDisabled,
 			onInputFocus,
 			onInputBlur,
 			onKeydown,

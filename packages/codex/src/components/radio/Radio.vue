@@ -8,7 +8,7 @@
 			type="radio"
 			:name="name"
 			:value="inputValue"
-			:disabled="disabled"
+			:disabled="computedDisabled"
 		>
 		<span class="cdx-radio__icon" />
 		<label
@@ -26,6 +26,7 @@
 import { defineComponent, ref, toRef, computed } from 'vue';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
+import useFieldData from '../../composables/useFieldData';
 
 /**
  * A binary input, part of a single-select group.
@@ -99,6 +100,8 @@ export default defineComponent( {
 			};
 		} );
 
+		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
+
 		// Declare template ref.
 		const input = ref<HTMLInputElement>();
 		const radioId = useGeneratedId( 'radio' );
@@ -122,6 +125,7 @@ export default defineComponent( {
 
 		return {
 			rootClasses,
+			computedDisabled,
 			input,
 			radioId,
 			focusInput,

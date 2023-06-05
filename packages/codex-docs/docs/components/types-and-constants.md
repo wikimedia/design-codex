@@ -280,6 +280,14 @@ See [TextInputTypes](#textinputtypes).
 type TextInputType = typeof TextInputTypes[ number ];
 ```
 
+### ValidationMessages
+
+```ts
+interface ValidationMessages {
+	error?: string
+}
+```
+
 ### ValidationStatusType
 
 See [ValidationStatusTypes](#validationstatustypes).

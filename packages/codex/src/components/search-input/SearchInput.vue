@@ -11,6 +11,7 @@
 				class="cdx-search-input__text-input"
 				input-type="search"
 				:start-icon="searchIcon"
+				:disabled="computedDisabled"
 				:status="status"
 				v-bind="otherAttrs"
 				@keydown.enter="handleSubmit"
@@ -28,6 +29,7 @@
 		<cdx-button
 			v-if="buttonLabel"
 			class="cdx-search-input__end-button"
+			:disabled="computedDisabled"
 			@click="handleSubmit"
 		>
 			{{ buttonLabel }}
@@ -38,10 +40,14 @@
 <script lang="ts">
 import { defineComponent, computed, toRef, PropType } from 'vue';
 import { cdxIconSearch } from '@wikimedia/codex-icons';
+
 import CdxButton from '../button/Button.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
+
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
+import useFieldData from '../../composables/useFieldData';
+
 import { ValidationStatusTypes } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import { ValidationStatusType } from '../../types';
@@ -86,6 +92,13 @@ export default defineComponent( {
 		buttonLabel: {
 			type: String,
 			default: ''
+		},
+		/**
+		 * Whether the search input is disabled.
+		 */
+		disabled: {
+			type: Boolean,
+			default: false
 		},
 		/**
 		 * `status` property of the TextInput component
@@ -141,6 +154,8 @@ export default defineComponent( {
 	setup( props, { emit, attrs } ) {
 		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
 
+		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
+
 		const internalClasses = computed( () => {
 			return {
 				'cdx-search-input--has-end-button': !!props.buttonLabel
@@ -160,6 +175,7 @@ export default defineComponent( {
 
 		return {
 			wrappedModel,
+			computedDisabled,
 			rootClasses,
 			rootStyle,
 			otherAttrs,

@@ -52,9 +52,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue';
+import { defineComponent, PropType, computed, toRef } from 'vue';
 import { Icon } from '@wikimedia/codex-icons';
 import CdxIcon from '../../components/icon/Icon.vue';
+import useFieldData from '../../composables/useFieldData';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 
 /**
@@ -131,10 +132,12 @@ export default defineComponent( {
 		}
 	},
 	setup( props, { attrs } ) {
+		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
+
 		const internalClasses = computed( () => {
 			return {
 				'cdx-label--visually-hidden': props.visuallyHidden,
-				'cdx-label--disabled': props.disabled
+				'cdx-label--disabled': computedDisabled.value
 			};
 		} );
 

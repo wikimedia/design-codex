@@ -21,7 +21,7 @@
 				class="cdx-toggle-switch__input"
 				type="checkbox"
 				:value="inputValue"
-				:disabled="disabled"
+				:disabled="computedDisabled"
 				v-bind="otherAttrs"
 				@keydown.prevent.enter="clickInput"
 			>
@@ -38,6 +38,7 @@ import { defineComponent, PropType, ref, toRef, computed } from 'vue';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
+import useFieldData from '../../composables/useFieldData';
 
 /**
  * A sliding boolean input used to enable or disable options.
@@ -122,6 +123,8 @@ export default defineComponent( {
 			otherAttrs
 		} = useSplitAttributes( attrs, internalClasses );
 
+		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
+
 		// Take the modelValue provided by the parent component via v-model and generate a wrapped
 		// model that we can use for the input element in this component.
 		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
@@ -140,6 +143,7 @@ export default defineComponent( {
 			rootClasses,
 			rootStyle,
 			otherAttrs,
+			computedDisabled,
 			wrappedModel,
 			clickInput
 		};

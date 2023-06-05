@@ -46,7 +46,9 @@ import CdxTypeaheadSearch from './components/typeahead-search/TypeaheadSearch.vu
 
 // Composables
 import useComputedDirection from './composables/useComputedDirection';
+import useComputedDisabled from './composables/useComputedDisabled';
 import useComputedLanguage from './composables/useComputedLanguage';
+import useFieldData from './composables/useFieldData';
 import useGeneratedId from './composables/useGeneratedId';
 import useIntersectionObserver from './composables/useIntersectionObserver';
 import useModelWrapper from './composables/useModelWrapper';
@@ -75,7 +77,9 @@ import type {
 	Thumbnail,
 	DialogAction,
 	PrimaryDialogAction,
-	BoxDimensions
+	BoxDimensions,
+	ValidationStatusType,
+	ValidationMessages
 } from './types';
 
 export {
@@ -108,7 +112,9 @@ export {
 
 	// Composables
 	useComputedDirection,
+	useComputedDisabled,
 	useComputedLanguage,
+	useFieldData,
 	useGeneratedId,
 	useIntersectionObserver,
 	useModelWrapper,
@@ -136,5 +142,7 @@ export {
 	Thumbnail,
 	DialogAction,
 	PrimaryDialogAction,
-	BoxDimensions
+	BoxDimensions,
+	ValidationStatusType,
+	ValidationMessages
 };

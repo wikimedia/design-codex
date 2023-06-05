@@ -61,6 +61,11 @@ export type TextInputType = typeof TextInputTypes[ number ];
 export type ValidationStatusType = typeof ValidationStatusTypes[ number ];
 
 /** @public */
+export interface ValidationMessages {
+	error?: string
+}
+
+/** @public */
 export interface Thumbnail {
 	url: string;
 	/** Image width in pixels. */

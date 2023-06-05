@@ -16,7 +16,7 @@
 			:aria-owns="menuId"
 			:aria-expanded="expanded"
 			:aria-activedescendant="highlightedId"
-			:disabled="disabled"
+			:disabled="computedDisabled"
 			:status="status"
 			@update:model-value="onUpdateInput"
 			@change="$event => $emit( 'change', $event )"
@@ -64,10 +64,13 @@ import {
 
 import CdxMenu from '../menu/Menu.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
+
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useResizeObserver from '../../composables/useResizeObserver';
+import useFieldData from '../../composables/useFieldData';
+
 import { MenuItemData, MenuConfig, ValidationStatusType } from '../../types';
 import { ValidationStatusTypes } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
@@ -201,6 +204,8 @@ export default defineComponent( {
 		const expanded = ref( false );
 		const isActive = ref( false );
 
+		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
+
 		const selectedProp = toRef( props, 'selected' );
 		const modelWrapper = useModelWrapper( selectedProp, emit, 'update:selected' );
 		const selectedMenuItem = computed( () =>
@@ -216,7 +221,7 @@ export default defineComponent( {
 
 		const internalClasses = computed( () => {
 			return {
-				'cdx-lookup--disabled': props.disabled,
+				'cdx-lookup--disabled': computedDisabled.value,
 				'cdx-lookup--pending': pending.value
 			};
 		} );
@@ -298,7 +303,7 @@ export default defineComponent( {
 		 */
 		function onKeydown( e: KeyboardEvent ) {
 			if ( !menu.value ||
-				props.disabled ||
+				computedDisabled.value ||
 				props.menuItems.length === 0 && !slots[ 'no-results' ] ||
 				e.key === ' ' ) {
 				return;
@@ -360,6 +365,7 @@ export default defineComponent( {
 			inputValue,
 			modelWrapper,
 			expanded,
+			computedDisabled,
 			onInputBlur,
 			rootClasses,
 			rootStyle,

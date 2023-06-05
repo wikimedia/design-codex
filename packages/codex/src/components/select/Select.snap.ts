@@ -9,27 +9,21 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="listbox"
-    aria-labelledby="cdx-select-handle-0"
-    aria-owns="cdx-select-menu-1"
+    aria-owns="cdx-select-menu-0"
     class="cdx-select-vue__handle"
+    id="cdx-select-handle-1"
     role="combobox"
     tabindex="0"
   >
-    <span
-      aria-readonly="true"
-      id="cdx-select-handle-0"
-      role="textbox"
-    >
-      <!--
-					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
-					item
-					@binding {string} default-label The default label, provided via a prop
-				-->
-      
-      Choose an option
-      
-    </span>
+    <!--
+				@slot Display of the current selection or default label
+				@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
+				item
+				@binding {string} default-label The default label, provided via a prop
+			-->
+    
+    Choose an option
+    
     <!--v-if-->
     <span
       class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
@@ -58,7 +52,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     <ul
       aria-multiselectable="false"
       class="cdx-menu__listbox"
-      id="cdx-select-menu-1"
+      id="cdx-select-menu-0"
       role="listbox"
     >
       <!--v-if-->
@@ -278,27 +272,21 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="listbox"
-    aria-labelledby="cdx-select-handle-7"
-    aria-owns="cdx-select-menu-8"
+    aria-owns="cdx-select-menu-7"
     class="cdx-select-vue__handle"
+    id="cdx-select-handle-8"
     role="combobox"
     tabindex="0"
   >
-    <span
-      aria-readonly="true"
-      id="cdx-select-handle-7"
-      role="textbox"
-    >
-      <!--
-					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
-					item
-					@binding {string} default-label The default label, provided via a prop
-				-->
-      
-      Choose an option
-      
-    </span>
+    <!--
+				@slot Display of the current selection or default label
+				@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
+				item
+				@binding {string} default-label The default label, provided via a prop
+			-->
+    
+    Choose an option
+    
     <!--v-if-->
     <span
       class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
@@ -327,7 +315,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
     <ul
       aria-multiselectable="false"
       class="cdx-menu__listbox"
-      id="cdx-select-menu-8"
+      id="cdx-select-menu-7"
       role="listbox"
     >
       <!--v-if-->
@@ -547,27 +535,21 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="listbox"
-    aria-labelledby="cdx-select-handle-14"
-    aria-owns="cdx-select-menu-15"
+    aria-owns="cdx-select-menu-14"
     class="cdx-select-vue__handle"
+    id="cdx-select-handle-15"
     role="combobox"
     tabindex="0"
   >
-    <span
-      aria-readonly="true"
-      id="cdx-select-handle-14"
-      role="textbox"
-    >
-      <!--
-					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
-					item
-					@binding {string} default-label The default label, provided via a prop
-				-->
-      
-      Option A
-      
-    </span>
+    <!--
+				@slot Display of the current selection or default label
+				@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
+				item
+				@binding {string} default-label The default label, provided via a prop
+			-->
+    
+    Option A
+    
     <!--v-if-->
     <span
       class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
@@ -596,7 +578,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
     <ul
       aria-multiselectable="false"
       class="cdx-menu__listbox"
-      id="cdx-select-menu-15"
+      id="cdx-select-menu-14"
       role="listbox"
     >
       <!--v-if-->
@@ -816,27 +798,21 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="listbox"
-    aria-labelledby="cdx-select-handle-21"
-    aria-owns="cdx-select-menu-22"
+    aria-owns="cdx-select-menu-21"
     class="cdx-select-vue__handle"
+    id="cdx-select-handle-22"
     role="combobox"
     tabindex="0"
   >
-    <span
-      aria-readonly="true"
-      id="cdx-select-handle-21"
-      role="textbox"
-    >
-      <!--
-					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
-					item
-					@binding {string} default-label The default label, provided via a prop
-				-->
-      
-      c
-      
-    </span>
+    <!--
+				@slot Display of the current selection or default label
+				@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
+				item
+				@binding {string} default-label The default label, provided via a prop
+			-->
+    
+    c
+    
     <!--v-if-->
     <span
       class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
@@ -865,7 +841,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
     <ul
       aria-multiselectable="false"
       class="cdx-menu__listbox"
-      id="cdx-select-menu-22"
+      id="cdx-select-menu-21"
       role="listbox"
     >
       <!--v-if-->
@@ -1085,27 +1061,21 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="listbox"
-    aria-labelledby="cdx-select-handle-28"
-    aria-owns="cdx-select-menu-29"
+    aria-owns="cdx-select-menu-28"
     class="cdx-select-vue__handle"
+    id="cdx-select-handle-29"
     role="combobox"
     tabindex="0"
   >
-    <span
-      aria-readonly="true"
-      id="cdx-select-handle-28"
-      role="textbox"
-    >
-      <!--
-					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
-					item
-					@binding {string} default-label The default label, provided via a prop
-				-->
-      
-      Option E
-      
-    </span>
+    <!--
+				@slot Display of the current selection or default label
+				@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
+				item
+				@binding {string} default-label The default label, provided via a prop
+			-->
+    
+    Option E
+    
     <span
       class="cdx-icon cdx-icon--medium cdx-select-vue__start-icon"
     >
@@ -1152,7 +1122,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
     <ul
       aria-multiselectable="false"
       class="cdx-menu__listbox"
-      id="cdx-select-menu-29"
+      id="cdx-select-menu-28"
       role="listbox"
     >
       <!--v-if-->
@@ -1372,27 +1342,21 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="listbox"
-    aria-labelledby="cdx-select-handle-35"
-    aria-owns="cdx-select-menu-36"
+    aria-owns="cdx-select-menu-35"
     class="cdx-select-vue__handle"
+    id="cdx-select-handle-36"
     role="combobox"
     tabindex="0"
   >
-    <span
-      aria-readonly="true"
-      id="cdx-select-handle-35"
-      role="textbox"
-    >
-      <!--
-					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
-					item
-					@binding {string} default-label The default label, provided via a prop
-				-->
-      
-      Choose an option
-      
-    </span>
+    <!--
+				@slot Display of the current selection or default label
+				@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
+				item
+				@binding {string} default-label The default label, provided via a prop
+			-->
+    
+    Choose an option
+    
     <span
       class="cdx-icon cdx-icon--medium cdx-select-vue__start-icon"
     >
@@ -1439,7 +1403,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
     <ul
       aria-multiselectable="false"
       class="cdx-menu__listbox"
-      id="cdx-select-menu-36"
+      id="cdx-select-menu-35"
       role="listbox"
     >
       <!--v-if-->
@@ -1659,27 +1623,21 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="listbox"
-    aria-labelledby="cdx-select-handle-42"
-    aria-owns="cdx-select-menu-43"
+    aria-owns="cdx-select-menu-42"
     class="cdx-select-vue__handle"
+    id="cdx-select-handle-43"
     role="combobox"
     tabindex="0"
   >
-    <span
-      aria-readonly="true"
-      id="cdx-select-handle-42"
-      role="textbox"
-    >
-      <!--
-					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
-					item
-					@binding {string} default-label The default label, provided via a prop
-				-->
-      
-      c
-      
-    </span>
+    <!--
+				@slot Display of the current selection or default label
+				@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
+				item
+				@binding {string} default-label The default label, provided via a prop
+			-->
+    
+    c
+    
     <!--v-if-->
     <span
       class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
@@ -1708,7 +1666,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
     <ul
       aria-multiselectable="false"
       class="cdx-menu__listbox"
-      id="cdx-select-menu-43"
+      id="cdx-select-menu-42"
       role="listbox"
     >
       <!--v-if-->
@@ -1928,27 +1886,21 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="listbox"
-    aria-labelledby="cdx-select-handle-49"
-    aria-owns="cdx-select-menu-50"
+    aria-owns="cdx-select-menu-49"
     class="cdx-select-vue__handle"
+    id="cdx-select-handle-50"
     role="combobox"
     tabindex="0"
   >
-    <span
-      aria-readonly="true"
-      id="cdx-select-handle-49"
-      role="textbox"
-    >
-      <!--
-					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
-					item
-					@binding {string} default-label The default label, provided via a prop
-				-->
-      
-      Choose an option
-      
-    </span>
+    <!--
+				@slot Display of the current selection or default label
+				@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
+				item
+				@binding {string} default-label The default label, provided via a prop
+			-->
+    
+    Choose an option
+    
     <!--v-if-->
     <span
       class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
@@ -1977,7 +1929,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
     <ul
       aria-multiselectable="false"
       class="cdx-menu__listbox"
-      id="cdx-select-menu-50"
+      id="cdx-select-menu-49"
       role="listbox"
     >
       <!--v-if-->

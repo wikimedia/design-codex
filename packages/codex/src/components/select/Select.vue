@@ -2,42 +2,39 @@
 	<div
 		class="cdx-select-vue"
 		:class="rootClasses"
-		:aria-disabled="disabled"
+		:style="rootStyle"
+		:aria-disabled="computedDisabled"
 	>
 		<div
+			:id="computedHandleId"
 			ref="handle"
 			class="cdx-select-vue__handle"
+			v-bind="otherAttrsMinusId"
 			tabindex="0"
 			role="combobox"
 			aria-autocomplete="list"
 			:aria-owns="menuId"
-			:aria-labelledby="handleId"
 			:aria-activedescendant="highlightedId"
 			aria-haspopup="listbox"
 			:aria-expanded="expanded"
+			:aria-describedby="descriptionId"
 			@click="onClick"
 			@blur="onBlur"
 			@keydown="onKeydown"
 		>
-			<span
-				:id="handleId"
-				role="textbox"
-				aria-readonly="true"
+			<!--
+				@slot Display of the current selection or default label
+				@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
+				item
+				@binding {string} default-label The default label, provided via a prop
+			-->
+			<slot
+				name="label"
+				:selected-menu-item="selectedMenuItem"
+				:default-label="defaultLabel"
 			>
-				<!--
-					@slot Display of the current selection or default label
-					@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
-					item
-					@binding {string} default-label The default label, provided via a prop
-				-->
-				<slot
-					name="label"
-					:selected-menu-item="selectedMenuItem"
-					:default-label="defaultLabel"
-				>
-					{{ currentLabel }}
-				</slot>
-			</span>
+				{{ currentLabel }}
+			</slot>
 			<cdx-icon
 				v-if="startIcon"
 				:icon="startIcon"
@@ -75,7 +72,8 @@ import {
 	defineComponent,
 	computed,
 	ref,
-	toRef
+	toRef,
+	inject
 } from 'vue';
 import { Icon, cdxIconExpand } from '@wikimedia/codex-icons';
 
@@ -85,9 +83,11 @@ import CdxMenu from '../menu/Menu.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useResizeObserver from '../../composables/useResizeObserver';
+import useFieldData from '../../composables/useFieldData';
+import useSplitAttributes from '../../composables/useSplitAttributes';
 
 import { MenuItemData, MenuConfig, ValidationStatusType } from '../../types';
-import { ValidationStatusTypes } from '../../constants';
+import { ValidationStatusTypes, FieldDescriptionIdKey } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
@@ -103,6 +103,10 @@ export default defineComponent( {
 		CdxIcon,
 		CdxMenu
 	},
+	/**
+	 * We want the select handle to inherit attributes, not the root element.
+	 */
+	inheritAttrs: false,
 
 	props: {
 		/**
@@ -188,13 +192,24 @@ export default defineComponent( {
 		'load-more'
 	],
 
-	setup( props, { emit } ) {
+	setup( props, { emit, attrs } ) {
 		// Set up basic reactive values and template refs.
 		const handle = ref<HTMLDivElement>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
-		const handleId = useGeneratedId( 'select-handle' );
+		const descriptionId = inject( FieldDescriptionIdKey, undefined );
 		const menuId = useGeneratedId( 'select-menu' );
 		const expanded = ref( false );
+
+		const handleId = ( attrs.id as string|undefined ) || useGeneratedId( 'select-handle' );
+		const {
+			computedDisabled,
+			computedStatus,
+			computedInputId: computedHandleId
+		} = useFieldData(
+			toRef( props, 'disabled' ),
+			toRef( props, 'status' ),
+			handleId
+		);
 
 		// The value of the component's current selection is tracked in the parent as a v-model
 		// binding.
@@ -225,16 +240,33 @@ export default defineComponent( {
 			return undefined;
 		} );
 
-		const rootClasses = computed( (): Record<string, boolean> => {
+		const internalClasses = computed( (): Record<string, boolean> => {
 			return {
-				'cdx-select-vue--enabled': !props.disabled,
-				'cdx-select-vue--disabled': props.disabled,
+				'cdx-select-vue--enabled': !computedDisabled.value,
+				'cdx-select-vue--disabled': computedDisabled.value,
 				'cdx-select-vue--expanded': expanded.value,
 				'cdx-select-vue--value-selected': !!selectedMenuItem.value,
 				'cdx-select-vue--no-selections': !selectedMenuItem.value,
 				'cdx-select-vue--has-start-icon': !!startIcon.value,
-				[ `cdx-select-vue--status-${props.status}` ]: true
+				[ `cdx-select-vue--status-${computedStatus.value}` ]: true
 			};
+		} );
+
+		// Get helpers from useSplitAttributes.
+		const {
+			rootClasses,
+			rootStyle,
+			otherAttrs
+		} = useSplitAttributes( attrs, internalClasses );
+
+		// Normally, we use v-bind to bind otherAttrs to the appropriate element. In this case, we
+		// do not want to include the id attribute, since we're using the computed ID via the
+		// useComputedId composable.
+		// This removes the ID and stores all other attributes in otherAttrsMinusId.
+		const otherAttrsMinusId = computed( () => {
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			const { id, ...everythingElse } = otherAttrs.value;
+			return everythingElse;
 		} );
 
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
@@ -244,7 +276,7 @@ export default defineComponent( {
 		}
 
 		function onClick(): void {
-			if ( props.disabled ) {
+			if ( computedDisabled.value ) {
 				return;
 			}
 
@@ -253,7 +285,7 @@ export default defineComponent( {
 		}
 
 		function onKeydown( e: KeyboardEvent ) {
-			if ( props.disabled ) {
+			if ( computedDisabled.value ) {
 				return;
 			}
 			menu.value?.delegateKeyNavigation( e );
@@ -261,17 +293,21 @@ export default defineComponent( {
 
 		return {
 			handle,
-			handleId,
 			menu,
+			computedHandleId,
+			descriptionId,
 			menuId,
 			modelWrapper,
 			selectedMenuItem,
 			highlightedId,
 			expanded,
+			computedDisabled,
 			onBlur,
 			currentLabel,
 			currentWidthInPx,
 			rootClasses,
+			rootStyle,
+			otherAttrsMinusId,
 			onClick,
 			onKeydown,
 			startIcon,

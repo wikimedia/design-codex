@@ -7,7 +7,7 @@
 			class="cdx-checkbox__input"
 			type="checkbox"
 			:value="inputValue"
-			:disabled="disabled"
+			:disabled="computedDisabled"
 			:indeterminate.prop="indeterminate"
 			@keydown.prevent.enter="clickInput"
 		>
@@ -23,6 +23,7 @@
 import { defineComponent, PropType, ref, toRef, computed } from 'vue';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
+import useFieldData from '../../composables/useFieldData';
 
 /**
  * A binary input that can be standalone or in a multiselect group.
@@ -104,6 +105,8 @@ export default defineComponent( {
 			};
 		} );
 
+		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
+
 		// Declare template ref.
 		const input = ref<HTMLInputElement>();
 		const checkboxId = useGeneratedId( 'checkbox' );
@@ -123,6 +126,7 @@ export default defineComponent( {
 
 		return {
 			rootClasses,
+			computedDisabled,
 			input,
 			checkboxId,
 			clickInput,

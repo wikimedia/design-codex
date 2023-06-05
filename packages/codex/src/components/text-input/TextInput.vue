@@ -5,13 +5,15 @@
 		:style="rootStyle"
 	>
 		<input
+			:id="computedInputId"
 			ref="input"
 			v-model="wrappedModel"
 			class="cdx-text-input__input"
 			:class="inputClasses"
-			v-bind="otherAttrs"
+			v-bind="otherAttrsMinusId"
 			:type="inputType"
-			:disabled="disabled"
+			:aria-describedby="descriptionId"
+			:disabled="computedDisabled"
 			@input="onInput"
 			@change="onChange"
 			@focus="onFocus"
@@ -39,14 +41,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, toRef, computed } from 'vue';
+import { defineComponent, PropType, toRef, computed, inject } from 'vue';
 import { Icon, cdxIconClear } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
-import { TextInputTypes, ValidationStatusTypes } from '../../constants';
+import { TextInputTypes, ValidationStatusTypes, FieldDescriptionIdKey } from '../../constants';
 import { TextInputType, ValidationStatusType } from '../../types';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
+import useFieldData from '../../composables/useFieldData';
 
 const textInputTypeValidator = makeStringTypeValidator( TextInputTypes );
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
@@ -181,13 +184,27 @@ export default defineComponent( {
 		'clear'
 	],
 	setup( props, { emit, attrs } ) {
+		// If there is a parent Field component, it may be providing some data to this component.
+		// Grab computed values of each relevant property.
+		const idAttribute = attrs.id as string|undefined;
+		const {
+			computedDisabled,
+			computedStatus,
+			computedInputId
+		} = useFieldData(
+			toRef( props, 'disabled' ),
+			toRef( props, 'status' ),
+			idAttribute
+		);
+		const descriptionId = inject( FieldDescriptionIdKey, undefined );
+
 		// Take the modelValue provided by the parent component via v-model and
 		// generate a wrapped model that we can use for the input element in
 		// this component.
 		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
 
 		const isClearable = computed( () => {
-			return props.clearable && !!wrappedModel.value && !props.disabled;
+			return props.clearable && !!wrappedModel.value && !computedDisabled.value;
 		} );
 
 		const internalClasses = computed( () => {
@@ -195,7 +212,7 @@ export default defineComponent( {
 				'cdx-text-input--has-start-icon': !!props.startIcon,
 				'cdx-text-input--has-end-icon': !!props.endIcon,
 				'cdx-text-input--clearable': isClearable.value,
-				[ `cdx-text-input--status-${props.status}` ]: true
+				[ `cdx-text-input--status-${computedStatus.value}` ]: true
 			};
 		} );
 
@@ -205,6 +222,16 @@ export default defineComponent( {
 			rootStyle,
 			otherAttrs
 		} = useSplitAttributes( attrs, internalClasses );
+
+		// Normally, we use v-bind to bind otherAttrs to the appropriate element. In this case, we
+		// do not want to include the id attribute, since we're using the computed ID via the
+		// useComputedId composable.
+		// This removes the ID and stores all other attributes in otherAttrsMinusId.
+		const otherAttrsMinusId = computed( () => {
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			const { id, ...everythingElse } = otherAttrs.value;
+			return everythingElse;
+		} );
 
 		const inputClasses = computed( () => {
 			return {
@@ -243,12 +270,15 @@ export default defineComponent( {
 		};
 
 		return {
+			computedInputId,
+			descriptionId,
 			wrappedModel,
 			isClearable,
 			rootClasses,
 			rootStyle,
-			otherAttrs,
+			otherAttrsMinusId,
 			inputClasses,
+			computedDisabled,
 			onClear,
 			onInput,
 			onChange,
