@@ -3,8 +3,13 @@ import { ref } from 'vue';
 import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
 import SingleSwitch from '@/../component-demos/toggle-switch/examples/SingleSwitch.vue';
 import SingleSwitchWithLabel from '@/../component-demos/toggle-switch/examples/SingleSwitchWithLabel.vue';
+import SwitchGroup from '@/../component-demos/toggle-switch/examples/SwitchGroup.vue';
 
 const controlsConfig = [
+	{
+		name: 'alignSwitch',
+		type: 'boolean'
+	},
 	{
 		name: 'disabled',
 		type: 'boolean'
@@ -63,6 +68,26 @@ the `<input>`.
 <template v-slot:code>
 
 <<< @/../component-demos/toggle-switch/examples/SingleSwitchWithLabel.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### ToggleSwitch group
+
+For a group of toggle switches, each ToggleSwitch component's `v-model` will be bound to an array of
+the `inputValue` props of the toggle switches that are currently "on".
+
+Use the `alignSwitch` prop to align all of the switches to the end of the container, creating a more
+streamlined look.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<switch-group />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/toggle-switch/examples/SwitchGroup.vue
 
 </template>
 </cdx-demo-wrapper>

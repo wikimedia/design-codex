@@ -4,17 +4,6 @@
 		:class="rootClasses"
 		:style="rootStyle"
 	>
-		<input
-			:id="inputId"
-			ref="input"
-			v-model="wrappedModel"
-			class="cdx-toggle-switch__input"
-			type="checkbox"
-			:disabled="disabled"
-			v-bind="otherAttrs"
-			@keydown.prevent.enter="clickInput"
-		>
-
 		<label
 			v-if="$slots.default"
 			:for="inputId"
@@ -24,14 +13,28 @@
 			<slot />
 		</label>
 
-		<span class="cdx-toggle-switch__switch">
-			<span class="cdx-toggle-switch__switch__grip" />
+		<span class="cdx-toggle-switch__input-wrapper">
+			<input
+				:id="inputId"
+				ref="input"
+				v-model="wrappedModel"
+				class="cdx-toggle-switch__input"
+				type="checkbox"
+				:value="inputValue"
+				:disabled="disabled"
+				v-bind="otherAttrs"
+				@keydown.prevent.enter="clickInput"
+			>
+
+			<span class="cdx-toggle-switch__switch">
+				<span class="cdx-toggle-switch__switch__grip" />
+			</span>
 		</span>
 	</span>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, toRef } from 'vue';
+import { defineComponent, PropType, ref, toRef, computed } from 'vue';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
@@ -56,11 +59,30 @@ export default defineComponent( {
 	inheritAttrs: false,
 	props: {
 		/**
-		 * Current value of the toggle switch.
+		 * Current value of the toggle switch or toggle switch group.
 		 *
-		 * Provided by `v-model` in a parent component.
+		 * Provided by `v-model` binding in the parent component.
 		 */
 		modelValue: {
+			type: [ Boolean, Array ] as PropType<boolean | string[] | number[]>,
+			default: false
+		},
+		/**
+		 * HTML "value" attribute to assign to the input element.
+		 *
+		 * Required for groups of ToggleSwitches. Can be omitted for single true/false switches.
+		 */
+		inputValue: {
+			type: [ String, Number, Boolean ],
+			default: false
+		},
+		/**
+		 * Whether to align the switch to the end of the container.
+		 *
+		 * Useful for ToggleSwitch groups, where each switch should be aligned regardless of
+		 * label length.
+		 */
+		alignSwitch: {
 			type: Boolean,
 			default: false
 		},
@@ -87,12 +109,18 @@ export default defineComponent( {
 		// Input needs an ID so we can connect it and the label element.
 		const inputId = useGeneratedId( 'toggle-switch' );
 
+		const internalClasses = computed( (): Record<string, boolean> => {
+			return {
+				'cdx-toggle-switch--align-switch': props.alignSwitch
+			};
+		} );
+
 		// Get helpers from useSplitAttributes.
 		const {
 			rootClasses,
 			rootStyle,
 			otherAttrs
-		} = useSplitAttributes( attrs );
+		} = useSplitAttributes( attrs, internalClasses );
 
 		// Take the modelValue provided by the parent component via v-model and generate a wrapped
 		// model that we can use for the input element in this component.
@@ -124,16 +152,29 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/common.less';
 
 .cdx-toggle-switch {
-	display: inline-flex;
+	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
 	// Visually hidden `<input>` will be absolutely positioned relative to this element.
 	// Create a stacking context by `position: relative` and `z-index` other than `auto`.
-	position: relative;
 	z-index: @z-index-stacking-0;
+	margin-bottom: @spacing-75;
+
+	&--align-switch {
+		justify-content: space-between;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 
 	&__label:not( :empty ) {
 		padding-right: @spacing-35;
+	}
+
+	&__input-wrapper {
+		display: flex;
+		position: relative;
 	}
 
 	// The visible switch.
