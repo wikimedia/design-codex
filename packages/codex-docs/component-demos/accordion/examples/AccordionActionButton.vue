@@ -14,7 +14,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { CdxAccordion } from '@wikimedia/codex';
-import { cdxIconEdit, Icon } from '@wikimedia/codex-icons';
+import { cdxIconEdit } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'AccordionActionButton',
@@ -29,7 +29,7 @@ export default defineComponent( {
 		};
 
 		return {
-			cdxIconEdit: cdxIconEdit as Icon,
+			cdxIconEdit,
 			handleButtonClick,
 			showHandleButtonClickResult
 		};

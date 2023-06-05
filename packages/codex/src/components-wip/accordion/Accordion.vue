@@ -205,10 +205,6 @@ export default defineComponent( {
 			transition-property: @transition-property-toggle-switch-grip;
 			transition-duration: @transition-duration-medium;
 			transition-timing-function: @transition-timing-function-system;
-
-			&.cdx-rotate {
-				transform: rotate( -180deg );
-			}
 		}
 
 		&[ aria-expanded='true' ] &__icon {
