@@ -9,7 +9,9 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
   >
     <button
       aria-expanded="false"
+      aria-hidden="true"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
+      tabindex="-1"
       type="button"
     >
       <!-- @slot Button content -->
@@ -58,8 +60,10 @@ exports[`Accordion matches the snapshot Case 1 Renders accordion disabled: ({"di
   >
     <button
       aria-expanded="false"
+      aria-hidden="true"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
       disabled=""
+      tabindex="-1"
       type="button"
     >
       <!-- @slot Button content -->
@@ -108,7 +112,9 @@ exports[`Accordion matches the snapshot Case 2 Renders accordion with icon: ({"i
   >
     <button
       aria-expanded="false"
+      aria-hidden="true"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
+      tabindex="-1"
       type="button"
     >
       <!-- @slot Button content -->
@@ -157,7 +163,9 @@ exports[`Accordion matches the snapshot Case 3 Renders accordion with action but
   >
     <button
       aria-expanded="false"
+      aria-hidden="true"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
+      tabindex="-1"
       type="button"
     >
       <!-- @slot Button content -->

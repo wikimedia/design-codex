@@ -9,6 +9,8 @@
 		>
 			<cdx-button
 				:aria-expanded="isExpanded"
+				:aria-hidden="true"
+				tabindex="-1"
 				class="cdx-accordion__toggle"
 				:disabled="disabled"
 				type="button"
@@ -28,6 +30,7 @@
 			<cdx-button
 				v-if="shouldShowActionButton"
 				class="cdx-accordion__action"
+				:aria-label="actionButtonLabel"
 				:disabled="disabled"
 				type="button"
 				weight="quiet"
@@ -35,6 +38,7 @@
 			>
 				<cdx-icon
 					:icon="actionIcon"
+					:icon-label="actionButtonLabel"
 					size="medium"
 				/>
 			</cdx-button>
@@ -68,6 +72,16 @@ export default defineComponent( {
 			type: [ String, Object ] as PropType<Icon>,
 			default: null
 		},
+
+		/**
+		 * Label for the action button. If an action icon is being used, then a label for that icon
+		 * should be provided for ARIA support.
+		 */
+		actionButtonLabel: {
+			type: String,
+			default: ''
+		},
+
 		/**
 		 * Disables the accordion.
 		 *

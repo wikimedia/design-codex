@@ -43,6 +43,12 @@ It's possible to stack accordions by adding them next to each other in the marku
 To add an action button to the accordion, pass the `actionButton` prop. The button is placed in the
 top right corner of the accordion, and it emits an event `actionButtonClicked` when clicked.
 
+::: tip
+If you are displaying an action button, make sure to provide a label for this
+button for accessibility purposes by using the `actionButtonLabel` prop.
+:::
+
+
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
     <accordion-action-button />

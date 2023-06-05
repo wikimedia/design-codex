@@ -1,6 +1,7 @@
 <template>
 	<cdx-accordion
 		:action-icon="cdxIconEdit"
+		action-button-label="Edit"
 		icon-always-visible
 		@action-button-click="handleButtonClick"
 	>
@@ -11,6 +12,7 @@
 	</cdx-accordion>
 	<cdx-accordion
 		:action-icon="cdxIconDie"
+		action-button-label="Random"
 		icon-always-visible
 		@action-button-click="handleButtonClick"
 	>
@@ -21,6 +23,7 @@
 	</cdx-accordion>
 	<cdx-accordion
 		:action-icon="cdxIconBell"
+		action-button-label="Notifications"
 		icon-always-visible
 		@action-button-click="handleButtonClick"
 	>

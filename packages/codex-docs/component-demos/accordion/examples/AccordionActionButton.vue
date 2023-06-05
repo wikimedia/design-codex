@@ -1,5 +1,9 @@
 <template>
-	<cdx-accordion :action-icon="cdxIconEdit" @action-button-click="handleButtonClick">
+	<cdx-accordion
+		:action-icon="cdxIconEdit"
+		action-button-label="Edit"
+		@action-button-click="handleButtonClick"
+	>
 		<template #title>
 			Accordion title
 		</template>
