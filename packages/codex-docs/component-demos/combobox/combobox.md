@@ -6,6 +6,7 @@ import ComboboxCustomMenuItem from '@/../component-demos/combobox/examples/Combo
 import ComboboxNoResults from '@/../component-demos/combobox/examples/ComboboxNoResults.vue';
 import ComboboxWithScroll from '@/../component-demos/combobox/examples/ComboboxWithScroll.vue';
 import ComboboxDisabled from '@/../component-demos/combobox/examples/ComboboxDisabled.vue';
+import ComboboxField from '@/../component-demos/combobox/examples/ComboboxField.vue';
 </script>
 
 ::: tip TextInput props apply
@@ -151,4 +152,20 @@ and enable scrolling, use the `visibleItemLimit` property of the `menuConfig` pr
 
 </template>
 
+</cdx-demo-wrapper>
+
+### Form field
+
+A Combobox can be wrapped in the Field component to add features like a semantic label, description
+and help text, validation messages, and more. See the [Field](./field.md) page for more information.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<combobox-field />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/combobox/examples/ComboboxField.vue
+
+</template>
 </cdx-demo-wrapper>

@@ -1,6 +1,7 @@
 <script setup>
 import RadioGroup from '@/../component-demos/radio/examples/RadioGroup.vue';
 import InlineRadios from '@/../component-demos/radio/examples/InlineRadios.vue';
+import RadioGroupField from '@/../component-demos/radio/examples/RadioGroupField.vue';
 </script>
 
 ## Demos
@@ -29,6 +30,27 @@ import InlineRadios from '@/../component-demos/radio/examples/InlineRadios.vue';
 <template v-slot:code>
 
 <<< @/../component-demos/radio/examples/InlineRadios.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Form field
+
+A single radio or group of radios can be wrapped in the Field component to add features
+like a semantic label, description and help text, validation messages, and more. See the
+[Field](./field.md) page for more information.
+
+When building a Radio field, **always set `isFieldset` to `true`** to ensure proper accessibility
+support.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<radio-group-field />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/radio/examples/RadioGroupField.vue
 
 </template>
 </cdx-demo-wrapper>

@@ -3,6 +3,7 @@ import CheckboxGroup from '@/../component-demos/checkbox/examples/CheckboxGroup.
 import SingleCheckbox from '@/../component-demos/checkbox/examples/SingleCheckbox.vue';
 import InlineCheckboxes from '@/../component-demos/checkbox/examples/InlineCheckboxes.vue';
 import IndeterminateState from '@/../component-demos/checkbox/examples/IndeterminateState.vue';
+import CheckboxField from '@/../component-demos/checkbox/examples/CheckboxField.vue';
 </script>
 
 ## Demos
@@ -82,6 +83,27 @@ a definite value for the checkbox.
 <template v-slot:code>
 
 <<< @/../component-demos/checkbox/examples/IndeterminateState.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Form field
+
+A single Checkbox or group of Checkboxes can be wrapped in the Field component to add features
+like a semantic label, description and help text, validation messages, and more. See the
+[Field](./field.md) page for more information.
+
+When building a checkbox field, **always set `isFieldset` to `true`**, even for a single Checkbox,
+to ensure proper accessibility support.
+
+<cdx-demo-wrapper :allow-link-styles="true">
+<template v-slot:demo>
+	<checkbox-field />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/checkbox/examples/CheckboxField.vue
 
 </template>
 </cdx-demo-wrapper>

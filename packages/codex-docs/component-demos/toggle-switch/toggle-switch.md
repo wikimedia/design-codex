@@ -4,6 +4,7 @@ import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic
 import SingleSwitch from '@/../component-demos/toggle-switch/examples/SingleSwitch.vue';
 import SingleSwitchWithLabel from '@/../component-demos/toggle-switch/examples/SingleSwitchWithLabel.vue';
 import SwitchGroup from '@/../component-demos/toggle-switch/examples/SwitchGroup.vue';
+import SwitchGroupField from '@/../component-demos/toggle-switch/examples/SwitchGroupField.vue';
 
 const controlsConfig = [
 	{
@@ -88,6 +89,27 @@ streamlined look.
 <template v-slot:code>
 
 <<< @/../component-demos/toggle-switch/examples/SwitchGroup.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Form field
+
+A single ToggleSwitch or group of ToggleSwitches can be wrapped in the Field component to add
+features like a semantic label, description and help text, validation messages, and more. See the
+[Field](./field.md) page for more information.
+
+When building a ToggleSwitch field, **always set `isFieldset` to `true`**, even for a single
+ToggleSwitch, to ensure proper accessibility support.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<switch-group-field />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/toggle-switch/examples/SwitchGroupField.vue
 
 </template>
 </cdx-demo-wrapper>

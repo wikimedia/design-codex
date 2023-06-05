@@ -5,6 +5,7 @@ import SelectComplexMenuItem from '@/../component-demos/select/examples/SelectCo
 import SelectCustomMenuItem from '@/../component-demos/select/examples/SelectCustomMenuItem.vue';
 import SelectWithScroll from '@/../component-demos/select/examples/SelectWithScroll.vue';
 import SelectConfigurable from '@/../component-demos/select/examples/SelectConfigurable.vue';
+import SelectField from '@/../component-demos/select/examples/SelectField.vue';
 
 const controlsConfig = [
 	{
@@ -116,6 +117,22 @@ and enable scrolling, use the `visibleItemLimit` property of the `menuConfig` pr
 <template v-slot:code>
 
 <<< @/../component-demos/select/examples/SelectWithScroll.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Form field
+
+A Select can be wrapped in the Field component to add features like a semantic label, description
+and help text, validation messages, and more. See the [Field](./field.md) page for more information.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<select-field />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/select/examples/SelectField.vue
 
 </template>
 </cdx-demo-wrapper>

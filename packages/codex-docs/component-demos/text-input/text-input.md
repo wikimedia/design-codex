@@ -2,6 +2,7 @@
 import { cdxIconSearch, cdxIconInfoFilled } from '@wikimedia/codex-icons';
 import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
 import TextInputDemo from '@/../component-demos/text-input/examples/TextInputDemo.vue';
+import TextInputField from '@/../component-demos/text-input/examples/TextInputField.vue';
 
 const controlsConfig = [
 	{
@@ -69,9 +70,9 @@ Open up the browser console to see events emitted on input, change, focus, and b
 In this example, the parent component sets an initial value and has a reset button that will restore
 that initial value on click.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-<text-input-demo :showValue="true" initialValue="Initial value" :allowReset="true" />
+<text-input-demo :showValue="true" initialValue="Initial value" />
 </template>
 
 <template v-slot:code>
@@ -171,6 +172,23 @@ To disable the input, add the `disabled` attribute.
 ```vue-html
 <cdx-text-input :start-icon="cdxIconSearch" :disabled="true" />
 ```
+
+</template>
+</cdx-demo-wrapper>
+
+### Form field
+
+A TextInput can be wrapped in the Field component to add features like a semantic label, description
+and help text, validation messages, and more. See the [Field](./field.md) page for more information.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<text-input-field />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/text-input/examples/TextInputField.vue
 
 </template>
 </cdx-demo-wrapper>
@@ -316,11 +334,6 @@ Add the `.cdx-text-input--status-error` class to the root element to show error 
 <style lang="less" scoped>
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
-
-/* stylelint-disable-next-line selector-class-pattern */
-:deep( .cdx-demo-wrapper__demo-pane .cdx-text-input ) {
-	margin-bottom: @spacing-100;
-}
 
 .cdx-demo-css-icon {
 	&--search {

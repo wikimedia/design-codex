@@ -15,15 +15,12 @@
 			@focus="onEvent( 'focus', $event )"
 			@blur="onEvent( 'blur', $event )"
 		/>
-		<cdx-button v-if="allowReset" @click="resetInput">
-			Reset
-		</cdx-button>
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType, ref } from 'vue';
-import { CdxButton, CdxTextInput } from '@wikimedia/codex';
+import { CdxTextInput } from '@wikimedia/codex';
 import { Icon } from '@wikimedia/codex-icons';
 import { getMultiEventLogger } from '../../../src/utils/getEventLogger';
 
@@ -42,7 +39,7 @@ interface InputProps {
  */
 export default defineComponent( {
 	name: 'TextInputDemo',
-	components: { CdxButton, CdxTextInput },
+	components: { CdxTextInput },
 	props: {
 		/**
 		 * Whether to show the current input value above the input
@@ -57,13 +54,6 @@ export default defineComponent( {
 		initialValue: {
 			type: String,
 			default: ''
-		},
-		/**
-		 * Whether the reset button should show
-		 */
-		allowReset: {
-			type: Boolean,
-			default: false
 		},
 		/**
 		 * Placeholder text for the input.
@@ -87,14 +77,9 @@ export default defineComponent( {
 
 		const onEvent = getMultiEventLogger<string>();
 
-		const resetInput = () => {
-			inputValue.value = props.initialValue;
-		};
-
 		return {
 			inputValue,
-			onEvent,
-			resetInput
+			onEvent
 		};
 	}
 } );

@@ -1,0 +1,33 @@
+<template>
+	<cdx-field>
+		<cdx-text-input v-model="inputValue" :start-icon="cdxIconWikiText" />
+		<template #label>
+			Signature
+		</template>
+		<template #description>
+			Enter your signature using plain text or wikitext
+		</template>
+		<template #help-text>
+			Use "~~~~" on talk pages to include your signature and a timestamp
+		</template>
+	</cdx-field>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+import { CdxTextInput, CdxField } from '@wikimedia/codex';
+import { cdxIconWikiText } from '@wikimedia/codex-icons';
+
+export default defineComponent( {
+	name: 'TextInputField',
+	components: { CdxTextInput, CdxField },
+	setup() {
+		const inputValue = ref( '' );
+
+		return {
+			inputValue,
+			cdxIconWikiText
+		};
+	}
+} );
+</script>

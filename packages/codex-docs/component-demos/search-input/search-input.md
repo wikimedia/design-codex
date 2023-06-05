@@ -2,6 +2,7 @@
 import SearchInputDefault from '@/../component-demos/search-input/examples/SearchInputDefault.vue';
 import SearchInputWithButton from '@/../component-demos/search-input/examples/SearchInputWithButton.vue';
 import SearchInputClearable from '@/../component-demos/search-input/examples/SearchInputClearable.vue';
+import SearchInputField from '@/../component-demos/search-input/examples/SearchInputField.vue';
 </script>
 
 ::: tip TextInput props apply
@@ -63,6 +64,24 @@ input is present.
 <template v-slot:code>
 
 <<< @/../component-demos/search-input/examples/SearchInputClearable.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Form field
+
+A SearchInput can be wrapped in the Field component to add features like a semantic label,
+description and help text, validation messages, and more. See the [Field](./field.md) page for more
+information.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<search-input-field />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/search-input/examples/SearchInputField.vue
 
 </template>
 </cdx-demo-wrapper>

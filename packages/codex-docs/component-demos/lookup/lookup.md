@@ -5,6 +5,7 @@ import LookupNoResults from '@/../component-demos/lookup/examples/LookupNoResult
 import LookupWithFetch from '@/../component-demos/lookup/examples/LookupWithFetch.vue';
 import LookupClearableStartIcon from '@/../component-demos/lookup/examples/LookupClearableStartIcon.vue';
 import LookupWithPlaceholder from '@/../component-demos/lookup/examples/LookupWithPlaceholder.vue';
+import LookupField from '@/../component-demos/lookup/examples/LookupField.vue';
 </script>
 
 ::: tip TextInput props apply
@@ -131,6 +132,22 @@ Attributes (except for `class`) will fall through to the input element, so you c
 <template v-slot:code>
 
 <<< @/../component-demos/lookup/examples/LookupWithPlaceholder.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Form field
+
+A Lookup can be wrapped in the Field component to add features like a semantic label, description
+and help text, validation messages, and more. See the [Field](./field.md) page for more information.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<lookup-field />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/lookup/examples/LookupField.vue
 
 </template>
 </cdx-demo-wrapper>
