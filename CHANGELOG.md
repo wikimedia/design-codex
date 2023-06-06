@@ -1,3 +1,47 @@
+# 0.12.0 / 2023-06-06
+## Features
+- Accordion: initial implementation of accordion component (szymonswiergosz)
+- Accordion: Add ARIA-labels for icon-only buttons (Eric Gardner)
+- Accordion: Remove unused CSS rule (Roan Kattouw)
+- Button: Add classes to support CSS-only non-button buttons (bwang)
+- Combobox, Lookup, SearchInput: emit input events (Anne Tomasevich)
+- Dialog: automatically display dividers when content is scrollable (Eric Gardner)
+- Select: Add status prop (Anne Tomasevich)
+- Tab: Don't output `aria-hidden` attribute  with "false" values (Eric Gardner)
+- Tabs, styles: Deduplicate tab styles (Roan Kattouw)
+- TextArea: Add config demo to docs page (LWatson)
+- TextArea: Add startIcon and endIcon props (LWatson)
+- TextArea: Refactor autosize (LWatson)
+- TextInput: expose a public blur() method (Eric Gardner)
+- ToggleSwitch: Enable and demonstrate switch groups (Anne Tomasevich)
+
+## Styles
+- tokens: Move `min-size-interactive*` and deprecate `min-size-base` token (Volker E)
+
+## Icons
+- icons: Update 'userTemporary' to latest design (Volker E)
+
+## Code
+- Remove unnecessary uses of toRefs() and toRef() (Roan Kattouw)
+- build, styles: Add `grid` properties to 'properties-order' (Volker E)
+- build, styles: Enable `*width*` and `*height*` declaration strict value (Volker E)
+- build: Add `gap` to 'declaration-strict-value' (Volker E)
+- build: Add `justify-items` and `justify-self` to 'properties-order' (Volker E)
+- build: Enable `box-sizing` declaration strict value (Volker E)
+- build: Update netlify-cli from 10.10.2 to 15.1.1 (Roan Kattouw)
+- build: Use correct name for `isolation` property (Volker E)
+
+## Documentation
+- demo: Hide empty table headers from AT (Volker E)
+- docs: Add ADR for Field component implementation (Anne Tomasevich)
+- docs: Add coded typography example (Anne Tomasevich)
+- docs: Fix typo in “VitePress” (Volker E)
+- docs: Fix typos in 'CHANGELOG.md' and 'RELEASING.md' (Volker E)
+- docs: Make CSS Tabs demo require scroll (Anne Tomasevich)
+- docs: Make box-shadow-color demo more consistent with box-shadow demo (Roan Kattouw)
+- docs: Replace deprecated `line-height-x-small` token (Volker E)
+- docs: Replace protocol-relative URLs with 'https://' only (Volker E)
+
 # 0.11.0 / 2023-05-23
 ## Features
 - Button: Add `size` prop (Anne Tomasevich)
