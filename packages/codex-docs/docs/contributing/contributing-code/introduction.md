@@ -219,6 +219,93 @@ There are some special files at the top level of the `src/` directory:
 - `utils.ts`: Utility functions shared across components, or for use with the types or constants
   in `types.ts` or `constants.ts`.
 
+### Linting
+Codex uses the following lint tools:
+- [ESLint](https://eslint.org/) for JavaScript and TypeScript
+- [typescript-eslint](https://typescript-eslint.io/) for additional linting of TypeScript files
+- [Stylelint](https://stylelint.io/) for CSS and Less
+- [svglint](https://www.npmjs.com/package/svglint) for SVG files in the icons package
+
+We use the Wikimedia coding conventions, and to enforce those we use
+[eslint-config-wikimedia](https://npmjs.com/package/eslint-config-wikimedia) and
+[stylelint-config-wikimedia](https://www.npmjs.com/package/stylelint-config-wikimedia) as the
+starting point for our linter configuration. For Vue files, the Wikimedia coding conventions
+follow the [Vue style guide](https://vuejs.org/style-guide/) closely. This means that HTML-like tags
+in Vue templates sometimes don't follow the same rules as real HTML: for example, an empty div tag
+is `<div />` not `<div></div>`.
+
+In addition to those conventions, Codex-specific rules are enforced. These include:
+- For most CSS properties, design tokens must be used, and raw values are forbidden. (For example,
+  `padding-top: 16px;` is disallowed, use `padding-top: @spacing-100;` instead.)
+- Every `.js`, `.ts` and `.vue` file must be captured by the `include` paths in one of the
+  `tsconfig.json` files, otherwise typescript-eslint can't run properly.
+
+#### Running the linters
+You can use the following commands to run some or all of the lint checks. All of these commands
+must be run in the root directory
+- All lint checks: `npm run lint` (this runs all of the commands listed below)
+- ESLint: `npm run lint:eslint`
+- Stylelint: `npm run lint:stylelint`
+- svglint: `npm run -w @wikimedia/codex-icons lint:svg`
+- TypeScript checks: `npm run -w PACKAGENAME lint:ts`, where `PACKAGENAME` is one of
+  `@wikimedia/codex`, `@wikimedia/codex-design-tokens`, `@wikimedia/codex-icons` or `codex-docs`
+
+You should also consider setting up your IDE to run ESLint, Stylelint and TypeScript on the fly,
+to catch linter violations in real time.
+
+#### Disabling lint rules
+The lint rules produce the desired outcome the vast majority of the time, but sometimes disabling
+a lint rule is necessary. The preferred way of doing this is with a `disable-next-line` comment
+that identifies the name of the rule to be disabled, like this:
+```js
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+input.value!.click();
+```
+```vue-html
+<!-- eslint-disable-next-line vue/no-v-html -->
+<div v-html="foo" />
+```
+```css
+/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+appearance: none;
+```
+
+Sometimes, a rule might have to be disabled for a block of multiple lines, either because it
+appears multiple times in a row or because it's not possible to place a comment directly above
+the offending line. To do this, use a `disable` comment for the specific rule, and then an
+`enable` comment at the end of the block re-enabling the rule.
+
+```js
+/* eslint-disable no-multi-spaces */
+const MODES = [
+  '',             // default mode
+  'rtl',          // RTL stylesheet
+  'legacy',       // Legacy (14px base) stylesheet
+  'legacy-rtl'    // RTL 14px base stylesheet
+];
+/* eslint-enable no-multi-spaces */
+```
+```vue-html
+<!-- eslint-disable vue/no-v-html -->
+<g
+  v-if="iconSvg"
+  v-html="iconSvg"
+/>
+<!-- eslint-enable vue/no-v-html -->
+```
+```css
+/* stylelint-disable plugin/no-unsupported-browser-features */
+-webkit-appearance: none;
+-moz-appearance: textfield;
+/* stylelint-enable plugin/no-unsupported-browser-features */
+```
+
+Some rules are disabled for an entire repository, workspace or directory in the relevant
+`.eslintrc.json` or `.stylelintrc.json` file. This should not be done lightly, and is only
+appropriate when the rule is not useful for a structural reason. For example, we disable the
+`no-unsafe` group of rules from typescript-eslint in Vue files, because they cause lots of false
+positives in Vue code.
+
 ### IDE setup
 
 If you work on Codex using an editor not listed here, please feel free to submit a patch with

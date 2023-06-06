@@ -11,8 +11,7 @@
 			:indeterminate.prop="indeterminate"
 			@keydown.prevent.enter="clickInput"
 		>
-		<!-- eslint-disable-next-line vue/html-self-closing -->
-		<span class="cdx-checkbox__icon"></span>
+		<span class="cdx-checkbox__icon" />
 		<label class="cdx-checkbox__label" :for="checkboxId">
 			<!-- @slot Input label content -->
 			<slot />

@@ -11,7 +11,6 @@ exports[`matches the snapshot Case 0 String value: ("radio-1") => HTML 1`] = `
     type="radio"
     value="radio-1"
   />
-  <!-- eslint-disable-next-line vue/html-self-closing -->
   <span
     class="cdx-radio__icon"
   />
@@ -38,7 +37,6 @@ exports[`matches the snapshot Case 1 Number value: (2) => HTML 1`] = `
     type="radio"
     value="2"
   />
-  <!-- eslint-disable-next-line vue/html-self-closing -->
   <span
     class="cdx-radio__icon"
   />
@@ -65,7 +63,6 @@ exports[`matches the snapshot Case 2 Boolean value: (true) => HTML 1`] = `
     type="radio"
     value="true"
   />
-  <!-- eslint-disable-next-line vue/html-self-closing -->
   <span
     class="cdx-radio__icon"
   />
@@ -93,7 +90,6 @@ exports[`matches the snapshot Case 3 Disabled: ("radio-1") => HTML 1`] = `
     type="radio"
     value="radio-1"
   />
-  <!-- eslint-disable-next-line vue/html-self-closing -->
   <span
     class="cdx-radio__icon"
   />
@@ -120,7 +116,6 @@ exports[`matches the snapshot Case 4 Inline: ("radio-1") => HTML 1`] = `
     type="radio"
     value="radio-1"
   />
-  <!-- eslint-disable-next-line vue/html-self-closing -->
   <span
     class="cdx-radio__icon"
   />

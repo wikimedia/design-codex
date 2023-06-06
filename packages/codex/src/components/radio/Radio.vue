@@ -10,8 +10,7 @@
 			:value="inputValue"
 			:disabled="disabled"
 		>
-		<!-- eslint-disable-next-line vue/html-self-closing -->
-		<span class="cdx-radio__icon"></span>
+		<span class="cdx-radio__icon" />
 		<label
 			class="cdx-radio__label"
 			:for="radioId"

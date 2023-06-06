@@ -10,7 +10,6 @@ exports[`Checkbox matches the snapshot Case 0 Single checkbox: (true) => HTML 1`
     type="checkbox"
     value="false"
   />
-  <!-- eslint-disable-next-line vue/html-self-closing -->
   <span
     class="cdx-checkbox__icon"
   />
@@ -36,7 +35,6 @@ exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: (["c
     type="checkbox"
     value="checkbox-1"
   />
-  <!-- eslint-disable-next-line vue/html-self-closing -->
   <span
     class="cdx-checkbox__icon"
   />
@@ -62,7 +60,6 @@ exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ([1]
     type="checkbox"
     value="1"
   />
-  <!-- eslint-disable-next-line vue/html-self-closing -->
   <span
     class="cdx-checkbox__icon"
   />
@@ -89,7 +86,6 @@ exports[`Checkbox matches the snapshot Case 3 Disabled: (false) => HTML 1`] = `
     type="checkbox"
     value="false"
   />
-  <!-- eslint-disable-next-line vue/html-self-closing -->
   <span
     class="cdx-checkbox__icon"
   />
@@ -115,7 +111,6 @@ exports[`Checkbox matches the snapshot Case 4 Indeterminate: (false) => HTML 1`]
     type="checkbox"
     value="false"
   />
-  <!-- eslint-disable-next-line vue/html-self-closing -->
   <span
     class="cdx-checkbox__icon"
   />
@@ -141,7 +136,6 @@ exports[`Checkbox matches the snapshot Case 5 Inline: ([]) => HTML 1`] = `
     type="checkbox"
     value="checkbox-1"
   />
-  <!-- eslint-disable-next-line vue/html-self-closing -->
   <span
     class="cdx-checkbox__icon"
   />
