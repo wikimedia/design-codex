@@ -163,7 +163,7 @@ $ npm publish -w @wikimedia/codex-search
 Once the NPM packages are published, you need to update MediaWiki core to point to the newly
 published version. This involves the following steps:
 - For each package (`codex`, `codex-design-tokens`, `codex-icons` and `codex-search`):
-  - Update the `src` URL in `foreign-resources.yaml`
+  - Update the `src` URL and `version` in `foreign-resources.yaml`
   - Run `manageForeignResources.php make-sri` to get the new integrity hash
   - Update the integrity hash in `foreign-resources.yaml`
   - Run `manageForeignResources.php update` to update the library
@@ -177,14 +177,16 @@ instructions follow below.
 Edit the `resources/lib/foreign-resources.yaml`, and find the Codex section. It looks like this:
 ```
 codex:
+  ...
+  version: 1.2.33
   type: tar
   src: https://registry.npmjs.org/@wikimedia/codex/-/codex-1.2.33.tgz
   integrity: sha512-wFjrN7mbwPG0P8F3pJiiT9w6s50UlGqz1badAdnvyfWfitkkz3Sa6rCcGsd8+vHHzd0qmONF3eRQ9qgZE0uDJA==
   dest:
     ...
 ```
-Update the version number in the URL to the new version number (e.g. `codex-1.2.34.tgz`).
-Then get the new integrity value by running the `make-sri` command:
+Update the version number in the `version` field and in the `src` URL to the new version number
+(e.g. `codex-1.2.34.tgz`). Then get the new integrity value by running the `make-sri` command:
 ```
 $ php maintenance/manageForeignResources.php make-sri codex
 ... checking 'codex'
