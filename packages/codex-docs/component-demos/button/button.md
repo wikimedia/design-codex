@@ -498,15 +498,15 @@ like a button. To achieve this, add the following classes to your inline element
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<a class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-destructive cdx-button--weight-primary" href="#">
-		Primary destructive link button
+	<a class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-progressive" href="#">
+		Progressive link button
 	</a>
 </template>
 <template v-slot:code>
 
 ```html
-<a class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-destructive cdx-button--weight-primary" href="#">
-	Primary destructive link button
+<a class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-progressive" href="#">
+	Progressive link button
 </a>
 ```
 
