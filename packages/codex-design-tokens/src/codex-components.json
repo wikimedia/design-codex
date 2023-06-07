@@ -99,6 +99,10 @@
 			"comment": "Padding should equal 6px of spacing minus the width of the border",
 			"value": "{ spacing.35 } - { border-width.base }"
 		},
+		"horizontal-button-large": {
+			"comment": "Padding should equal 16px of spacing minus the width of the border",
+			"value": "{ spacing.100 } - { border-width.base }"
+		},
 		"horizontal-input-text-two-end-icons": {
 			"comment": "Rely on `calc()` to make token output usable in all formats. When there are two end icons, (i.e. a clear icon and an end icon), we need to double the horizontal padding and account for the size of the extra icon. This token can be used to calculate the horizontal position of the clear icon and the padding-end of the text input.",
 			"value": "calc( { spacing.50 } * 2 + { size.icon-small } + { border-width.base } )"

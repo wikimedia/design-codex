@@ -10,8 +10,6 @@
 	border-width: @border-width-base;
 	border-style: @border-style-base;
 	border-radius: @border-radius-base;
-	padding-right: @spacing-horizontal-button;
-	padding-left: @spacing-horizontal-button;
 	// Support all browsers: Normalize by inheriting `font-family`.
 	// Initial value depends on user-agent.
 	font-family: inherit;
@@ -29,12 +27,30 @@
 	&--size-large {
 		min-width: @min-size-interactive-touch;
 		min-height: @min-size-interactive-touch;
+		padding-right: @spacing-horizontal-button-large;
+		padding-left: @spacing-horizontal-button-large;
 	}
 
 	/* stylelint-disable-next-line selector-not-notation */
 	&:not( &--size-large ) {
 		min-width: @min-size-interactive-pointer;
 		min-height: @min-size-interactive-pointer;
+		padding-right: @spacing-horizontal-button;
+		padding-left: @spacing-horizontal-button;
+	}
+
+	// Buttons that only include an icon element.
+	&--icon-only&--size-large {
+		// Large icon-only buttons use the standard button padding.
+		padding-right: @spacing-horizontal-button;
+		padding-left: @spacing-horizontal-button;
+	}
+
+	/* stylelint-disable-next-line selector-not-notation */
+	&--icon-only&:not( &--size-large ) {
+		// Medium icon-only buttons have a smaller horizontal padding, to make them square.
+		padding-right: @spacing-horizontal-button-icon-only;
+		padding-left: @spacing-horizontal-button-icon-only;
 	}
 
 	// Support Firefox: Normalize by hiding the inner focus `border` and `padding`.

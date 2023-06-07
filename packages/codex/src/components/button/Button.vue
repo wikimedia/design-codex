@@ -246,15 +246,6 @@ export default defineComponent( {
 	}
 }
 
-// Buttons that only include an icon element.
-.cdx-button--icon-only {
-	&:not( .cdx-button--size-large ) {
-		// Medium icon-only buttons have a smaller horizontal padding, to make them square.
-		// Large icon-only buttons use the standard button padding applied in the button mixin.
-		padding: 0 @spacing-horizontal-button-icon-only;
-	}
-}
-
 // Non-quiet “framed” buttons (normal and primary types)
 .cdx-button:not( .cdx-button--weight-quiet ) {
 	&:enabled,

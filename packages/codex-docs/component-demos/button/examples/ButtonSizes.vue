@@ -3,21 +3,43 @@
 		<caption>
 			Button size examples for all supported <code>size</code> values.
 		</caption>
+		<thead>
+			<th>Size</th>
+			<th>Min-size</th>
+			<th>Text button</th>
+			<th>Icon-only button</th>
+		</thead>
 		<tr>
-			<th>
-				<cdx-button aria-label="Medium button example" @click="onClick">
-					<cdx-icon :icon="cdxIconBell" />
-				</cdx-button>
-			</th>
 			<td>
-				<span>Medium button</span>
+				<span>Medium</span>
 			</td>
 			<td>
 				<span>32px</span>
 			</td>
+			<td>
+				<cdx-button @click="onClick">
+					Medium button
+				</cdx-button>
+			</td>
+			<td>
+				<cdx-button aria-label="Medium button example" @click="onClick">
+					<cdx-icon :icon="cdxIconBell" />
+				</cdx-button>
+			</td>
 		</tr>
 		<tr>
-			<th>
+			<td>
+				<span>Large</span>
+			</td>
+			<td>
+				<span>44px</span>
+			</td>
+			<td>
+				<cdx-button size="large" @click="onClick">
+					Large button
+				</cdx-button>
+			</td>
+			<td>
 				<cdx-button
 					aria-label="Large button example"
 					size="large"
@@ -25,12 +47,6 @@
 				>
 					<cdx-icon :icon="cdxIconBell" />
 				</cdx-button>
-			</th>
-			<td>
-				<span>Large button</span>
-			</td>
-			<td>
-				<span>44px</span>
 			</td>
 		</tr>
 	</table>
