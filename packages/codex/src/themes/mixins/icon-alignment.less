@@ -13,19 +13,20 @@
 // @param {px} min-size-icon - The minimum size of the icon.
 // @param {px|em} size-icon - The size of the icon.
 // @param {px} external-padding - The external horizontal padding expected on the parent element of the icon.
-.cdx-mixin-icon( @param-align, @param-min-size-icon: @min-size-icon-medium, @param-size-icon: @size-icon-medium, @param-external-padding: @spacing-75 ) {
+// @param {px|em|%} top - The vertical position of the icon. If set to @spacing-half, the icon will be vertically centered.
+// @param {px|em} height - The height of the icon. Only change this if that is needed to vertically align the icon when using a custom value for @param-top
+.cdx-mixin-icon( @param-align, @param-min-size-icon: @min-size-icon-medium, @param-size-icon: @size-icon-medium, @param-external-padding: @spacing-75, @param-top: @spacing-half, @param-height: @param-size-icon ) {
 	// Vertically center the icon by moving it down 50% (`@spacing-half`) of the height of the handle,
 	// then moving it up by 50% of the height of the icon (translateY uses the element height
 	// while top uses the offset parent's height).
 	position: absolute;
-	top: @spacing-half;
+	top: @param-top;
 	// Provide way to override default sizes from Icon for small size icons like 'clear'
 	// in clearable TextInput.
 	min-width: @param-min-size-icon;
 	min-height: @param-min-size-icon;
 	width: @param-size-icon;
-	height: @param-size-icon;
-	transform: translateY( -@spacing-half );
+	height: @param-height;
 	transition-property: @transition-property-icon;
 	transition-duration: @transition-duration-base;
 
@@ -37,12 +38,25 @@
 		right: @param-external-padding;
 	};
 
-	// Horizontally center the icon too.
+	// When top is the default 50% and align is not center,
+	// transform & translate Y axis to vertically center the icon.
+	& when ( @param-top = @spacing-half ) and not ( @param-align = center ) {
+		transform: translateY( -@spacing-half );
+	};
+
+	// Horizontally and vertically center the icon when align is center and top is default value.
 	// Note, this could also be achieved by using Flexbox, by using `align-self: center;
 	// vertical-align: initial;`
-	& when ( @param-align = center ) {
+	& when ( @param-align = center ) and ( @param-top = @spacing-half ) {
 		left: @spacing-half;
 		transform: translate( -@spacing-half, -@spacing-half );
+	};
+
+	// When align is center and top is a non-default value,
+	// transform & translate X axis to horizontally center the icon.
+	& when ( @param-align = center ) and not ( @param-top = @spacing-half ) {
+		left: @spacing-half;
+		transform: translateX( -@spacing-half );
 	};
 }
 

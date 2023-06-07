@@ -174,7 +174,12 @@ export default defineComponent( {
 	position: relative;
 
 	&__start-icon {
-		.cdx-mixin-icon( start, @param-external-padding: @spacing-50 + @border-width-base );
+		.cdx-mixin-icon(
+			start,
+			@param-external-padding: @spacing-50 + @border-width-base,
+			@param-top: @spacing-25,
+			@param-height: @size-150
+		);
 	}
 
 	&__end-icon {
@@ -182,16 +187,10 @@ export default defineComponent( {
 			end,
 			@min-size-icon-small,
 			@size-icon-small,
-			@spacing-50 + @border-width-base
+			@spacing-50 + @border-width-base,
+			@spacing-25,
+			@size-150
 		);
-	}
-
-	&__start-icon,
-	&__end-icon {
-		// TODO: Move these overrides into the mixin (T337878)
-		top: @spacing-25;
-		height: @size-150;
-		transform: none;
 	}
 
 	&__textarea {
@@ -206,7 +205,7 @@ export default defineComponent( {
 		font-family: inherit;
 		font-size: inherit;
 		line-height: @line-height-x-small;
-		// TODO: Support Safari iOS/Webkit
+		// TODO: Support Safari/Webkit for iOS. The grabber tool is not present in mobile safari.
 		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		resize: vertical;
 
@@ -215,7 +214,7 @@ export default defineComponent( {
 			resize: none;
 			overflow: hidden;
 
-			// Support Safari/Webkit
+			// Support Safari/Webkit - supports macOS only
 			&::-webkit-resizer {
 				display: none;
 			}
