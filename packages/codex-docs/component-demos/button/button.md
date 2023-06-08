@@ -513,35 +513,6 @@ like a button. To achieve this, add the following classes to your inline element
 </template>
 </cdx-demo-wrapper>
 
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<label class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled">
-		<span class="cdx-button__icon cdx-demo-css-icon--user-avatar"></span>
-		Label button
-	</label>
-</template>
-<template v-slot:code>
-
-```html
-<label class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled">
-	<span class="cdx-button__icon cdx-demo-css-icon--user-avatar"></span>
-	Label button
-</label>
-```
-
-```less
-// Note: you must import the design tokens before importing the css-icon mixin
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
-
-.cdx-demo-css-icon--user-avatar {
-	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @param-is-button-icon: true );
-}
-```
-
-</template>
-</cdx-demo-wrapper>
-
 <style lang="less" scoped>
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
