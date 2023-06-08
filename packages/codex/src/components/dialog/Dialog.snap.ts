@@ -715,7 +715,7 @@ exports[`matches the snapshot Case 9 With custom header and footer 1`] = `
     />
     <div
       aria-label="Dialog"
-      class="cdx-dialog cdx-dialog--horizontal-actions cdx-dialog--has-custom-header cdx-dialog--has-custom-footer"
+      class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
       <header

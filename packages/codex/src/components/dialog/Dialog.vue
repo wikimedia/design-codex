@@ -15,11 +15,7 @@
 			<div
 				ref="dialogElement"
 				class="cdx-dialog"
-				:class="{
-					...rootClasses,
-					'cdx-dialog--has-custom-header': $slots.header,
-					'cdx-dialog--has-custom-footer': $slots.footer
-				}"
+				:class="rootClasses"
 				role="dialog"
 				v-bind="$attrs"
 				:aria-label="$slots.header || hideTitle ? title : undefined"
@@ -442,6 +438,8 @@ export default defineComponent( {
 	box-shadow: @box-shadow-drop-medium;
 
 	&__header {
+		padding: @spacing-100 @spacing-150;
+
 		// If no custom header content is provided, apply these styles to the
 		// <header> element
 		&--default {
@@ -451,7 +449,6 @@ export default defineComponent( {
 			justify-content: flex-end;
 			box-sizing: @box-sizing-base;
 			width: @size-full;
-			padding: @spacing-100 @spacing-150 @spacing-200 @spacing-150;
 		}
 
 		&__title-group {
@@ -488,13 +485,12 @@ export default defineComponent( {
 
 		.cdx-dialog--dividers & {
 			border-bottom: @border-subtle;
-			padding-bottom: @spacing-100;
 		}
 	}
 
 	&__body {
 		flex-grow: 1;
-		padding: 0 @spacing-150;
+		padding: @spacing-100 @spacing-150;
 		overflow-y: auto;
 
 		// If the dialog does not display a <header> element, add some extra
@@ -522,43 +518,11 @@ export default defineComponent( {
 			margin-bottom: 0;
 			padding-bottom: 0;
 		}
-
-		// Accommodate custom header/footer elements (T324708) --------------------------
-		//
-		// Automatically apply padding to the top of dialog body if a custom
-		// header has been supplied by the user
-		.cdx-dialog--has-custom-header & {
-			padding-top: @spacing-100;
-		}
-
-		// Automatically apply padding to the bottom of dialog body if a custom
-		// footer has been supplied by the user
-		.cdx-dialog--has-custom-footer & {
-			padding-bottom: @spacing-100;
-		}
-
-		// Accommodate automatically appearing/disappearing dividers (T332124) ----------
-		//
-		// Adjust padding for body element when content becomes scrollable; we
-		// want to ensure that body text doesn't collide with the top/bottom
-		// border once it appears, while also preventing noticeable layout shifts
-		// (so overall height of the dialog must more or less be the same)
-		//
-		.cdx-dialog--dividers & {
-			padding-top: @spacing-100;
-			padding-bottom: @spacing-100;
-		}
-
-		.cdx-dialog--dividers &--no-header {
-			padding-top: @spacing-150;
-		}
-
-		.cdx-dialog--dividers &--no-footer {
-			padding-bottom: @spacing-150;
-		}
 	}
 
 	&__footer {
+		padding: @spacing-100 @spacing-150 @spacing-150;
+
 		// If no custom footer content is provided, apply these styles to the
 		// <footer> element
 		&--default {
@@ -567,7 +531,6 @@ export default defineComponent( {
 			flex-wrap: wrap;
 			justify-content: space-between;
 			gap: @spacing-50;
-			padding: @spacing-200 @spacing-150 @spacing-150;
 		}
 
 		// Increased specificity to ensure that this style shows up in VitePress
@@ -588,7 +551,6 @@ export default defineComponent( {
 
 		.cdx-dialog--dividers & {
 			border-top: @border-subtle;
-			padding-top: @spacing-100;
 		}
 	}
 
