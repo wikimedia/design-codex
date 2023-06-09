@@ -4,8 +4,8 @@
  * files in the docs package.
  *
  * Note this PostCSS config is ONLY used for building the VitePress docs site. It is NOT used for
- * building the 'codex-demos.*.css' files; those use 'postcss-base.config.js' from the Codex package
- * instead, see also 'packages/codex-docs/vite.config.ts'.
+ * building the 'codex-demos.*.css' files; those use a separate PostCSS config provided by build.mjs
+ * (see also build/utils.mjs in the Codex package).
  */
 const autoprefixer = require( 'autoprefixer' );
 const postcssRtlcss = require( 'postcss-rtlcss' );
@@ -15,7 +15,7 @@ module.exports = {
 	/** @type {import('postcss').AcceptedPlugin[]} */
 	plugins: [
 		scoped( {
-			// Apply rtlcss  to the Codex components so that we can demonstrate them in LTR or RTL.
+			// Apply rtlcss to the Codex components so that we can demonstrate them in LTR or RTL.
 			// The component demo examples are never shown in RTL, but they also need to have
 			// rtlcss applied to them so that their CSS selectors' specificity is enhanced to
 			// match the selectors from Codex they're overriding.
