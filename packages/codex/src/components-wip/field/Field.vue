@@ -226,6 +226,10 @@ export default defineComponent( {
 		}
 	}
 
+	&__help-text {
+		line-height: @line-height-small;
+	}
+
 	&:not( .cdx-field--disabled ) {
 		.cdx-field__help-text {
 			color: @color-subtle;

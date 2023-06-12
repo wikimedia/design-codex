@@ -109,7 +109,7 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-demo-complex-field {
-	margin-bottom: @spacing-100;
+	margin-bottom: @spacing-250;
 
 	&__inputs {
 		@media screen and ( min-width: @min-width-breakpoint-desktop ) {

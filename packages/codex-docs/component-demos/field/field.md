@@ -51,6 +51,10 @@ const controlsConfig = [
 		default: 'Longer help text to explain how to use this field'
 	}
 ];
+// Object props aren't supported in the controls, so just hardcode an error message to show.
+const messages = {
+	error: 'Error message text'
+}
 </script>
 
 ## Demos
@@ -61,9 +65,12 @@ Note that this configurable demo is only shown with a TextInput inside the Field
 below for use of the Field component with other types of inputs or groups of inputs, along with
 code samples.
 
+See the [validation and error state demo](#with-validation-and-error-state) below for more
+information about how to add and customize an error message.
+
 <cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues, slotValues }">
-	<cdx-field v-bind="propValues">
+	<cdx-field v-bind="{ messages, ...propValues }">
 		<template #default>
 			<cdx-text-input v-model="inputValue" />
 		</template>
