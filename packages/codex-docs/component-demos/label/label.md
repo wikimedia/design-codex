@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { CdxLabel, CdxTextInput } from '@wikimedia/codex';
 import LabelBasic from '@/../component-demos/label/examples/LabelBasic.vue';
 import LabelVisuallyHidden from '@/../component-demos/label/examples/LabelVisuallyHidden.vue';
+import LabelWithRichText from '@/../component-demos/label/examples/LabelWithRichText.vue';
 import LabelWithDescription from '@/../component-demos/label/examples/LabelWithDescription.vue';
 import LegendWithDescription from '@/../component-demos/label/examples/LegendWithDescription.vue';
 
@@ -93,6 +94,22 @@ Note that this will hide the entire output of the component, including the descr
 <template v-slot:code>
 
 <<< @/../component-demos/label/examples/LabelVisuallyHidden.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### With rich description text
+
+You can include markup in the `description` slot. Only links and text formatting are recommended as
+description text should be concise.
+
+<cdx-demo-wrapper :allow-link-styles="true">
+<template v-slot:demo>
+	<label-with-rich-text />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/label/examples/LabelWithRichText.vue
 
 </template>
 </cdx-demo-wrapper>
