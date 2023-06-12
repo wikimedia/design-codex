@@ -293,7 +293,7 @@ export default defineComponent( {
 	}
 
 	&--status-error {
-		.cdx-text-area__textarea:enabled {
+		.cdx-text-area__textarea:enabled:not( :read-only ) {
 			border-color: @border-color-error;
 
 			&:focus {
