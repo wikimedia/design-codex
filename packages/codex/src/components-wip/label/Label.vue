@@ -162,7 +162,7 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/common.less';
 
 .cdx-label {
-	line-height: @line-height-small;
+	line-height: @line-height-xx-small;
 
 	&__label {
 		// For legends, display the description on a separate line after the label text.

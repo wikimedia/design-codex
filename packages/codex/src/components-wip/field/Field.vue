@@ -227,7 +227,7 @@ export default defineComponent( {
 	}
 
 	&__help-text {
-		line-height: @line-height-small;
+		line-height: @line-height-xx-small;
 	}
 
 	&:not( .cdx-field--disabled ) {
