@@ -503,7 +503,7 @@ export default defineComponent( {
 }
 
 // Normal type buttons (using the not selectors allows this class to be the default).
-&:not( .cdx-button--weight-primary ):not( .cdx-button--weight-quiet ):not( :disabled ):not( .cdx-button--fake-button--disabled ) {
+.cdx-button:not( .cdx-button--weight-primary ):not( .cdx-button--weight-quiet ):not( :disabled ):not( .cdx-button--fake-button--disabled ) {
 	// Normal progressive buttons
 	&.cdx-button--action-progressive {
 		color: @color-progressive;
