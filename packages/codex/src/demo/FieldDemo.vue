@@ -43,9 +43,7 @@
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-import { CdxTextInput, CdxRadio } from '../lib';
-// eslint-disable-next-line no-restricted-imports
-import CdxField from '../components-wip/field/Field.vue';
+import { CdxField, CdxTextInput, CdxRadio } from '../lib';
 import { cdxIconUserAvatar } from '@wikimedia/codex-icons';
 
 const inputValue = ref( '' );

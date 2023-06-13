@@ -11,7 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-// eslint-disable-next-line no-restricted-imports
-import CdxLabel from '../components-wip/label/Label.vue';
+import { CdxLabel } from '../lib';
 import { cdxIconUserAvatar } from '@wikimedia/codex-icons';
 </script>

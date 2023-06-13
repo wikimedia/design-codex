@@ -5,11 +5,7 @@
 //     CdxComponentName
 // };
 import CdxAccordion from './accordion/Accordion.vue';
-import CdxField from './field/Field.vue';
-import CdxLabel from './label/Label.vue';
 
 export {
-	CdxAccordion,
-	CdxField,
-	CdxLabel
+	CdxAccordion
 };

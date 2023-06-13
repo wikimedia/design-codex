@@ -25,7 +25,9 @@ import CdxCheckbox from './components/checkbox/Checkbox.vue';
 import CdxInfoChip from './components/info-chip/InfoChip.vue';
 import CdxCombobox from './components/combobox/Combobox.vue';
 import CdxDialog from './components/dialog/Dialog.vue';
+import CdxField from './components/field/Field.vue';
 import CdxIcon from './components/icon/Icon.vue';
+import CdxLabel from './components/label/Label.vue';
 import CdxLookup from './components/lookup/Lookup.vue';
 import CdxMenu from './components/menu/Menu.vue';
 import CdxMenuItem from './components/menu-item/MenuItem.vue';
@@ -92,7 +94,9 @@ export {
 	CdxInfoChip,
 	CdxCombobox,
 	CdxDialog,
+	CdxField,
 	CdxIcon,
+	CdxLabel,
 	CdxLookup,
 	CdxMessage,
 	CdxMenu,
