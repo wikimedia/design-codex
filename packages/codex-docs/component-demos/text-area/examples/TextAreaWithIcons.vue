@@ -5,7 +5,7 @@
 			aria-label="TextArea with icons"
 			placeholder="Start typing..."
 			:start-icon="cdxIconNotBright"
-			:end-icon="cdxIconInfo"
+			:end-icon="cdxIconInfoFilled"
 		/>
 	</div>
 </template>
@@ -13,7 +13,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { CdxTextArea } from '@wikimedia/codex';
-import { cdxIconNotBright, cdxIconInfo } from '@wikimedia/codex-icons';
+import { cdxIconNotBright, cdxIconInfoFilled } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'TextAreaWithIcons',
@@ -25,7 +25,7 @@ export default defineComponent( {
 		return {
 			textareaValue,
 			cdxIconNotBright,
-			cdxIconInfo
+			cdxIconInfoFilled
 		};
 	}
 } );
