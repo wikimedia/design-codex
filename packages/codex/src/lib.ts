@@ -37,6 +37,7 @@ import CdxSearchResultTitle from './components/search-result-title/SearchResultT
 import CdxSelect from './components/select/Select.vue';
 import CdxTab from './components/tab/Tab.vue';
 import CdxTabs from './components/tabs/Tabs.vue';
+import CdxTextArea from './components/text-area/TextArea.vue';
 import CdxTextInput from './components/text-input/TextInput.vue';
 import CdxThumbnail from './components/thumbnail/Thumbnail.vue';
 import CdxToggleButton from './components/toggle-button/ToggleButton.vue';
@@ -103,6 +104,7 @@ export {
 	CdxSelect,
 	CdxTab,
 	CdxTabs,
+	CdxTextArea,
 	CdxTextInput,
 	CdxThumbnail,
 	CdxToggleButton,

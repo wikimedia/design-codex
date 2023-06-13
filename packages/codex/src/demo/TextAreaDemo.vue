@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { CdxTextArea } from '../lib-wip';
+import { CdxTextArea } from '../lib';
 import { cdxIconNotBright, cdxIconInfoFilled } from '@wikimedia/codex-icons';
 
 const textareaValue = ref( '' );
