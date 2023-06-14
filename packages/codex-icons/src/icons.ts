@@ -1041,6 +1041,12 @@ export const cdxIconUserGroup: IconFlipForRtl = {
 	shouldFlip: true
 };
 
+import svgUserRights from './images/userRights.svg';
+export const cdxIconUserRights: IconFlipForRtl = {
+	ltr: svgUserRights,
+	shouldFlip: true
+};
+
 import svgUserTalk from './images/userTalk.svg';
 export const cdxIconUserTalk: IconFlipForRtl = {
 	ltr: svgUserTalk,
