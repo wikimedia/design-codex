@@ -5,6 +5,7 @@ import { ValidationStatusType, ValidationMessages } from '../../types';
 import CdxField from './Field.vue';
 import CdxCheckbox from '../../components/checkbox/Checkbox.vue';
 import CdxSelect from '../../components/select/Select.vue';
+import CdxTextArea from '../../components/text-area/TextArea.vue';
 import CdxTextInput from '../../components/text-input/TextInput.vue';
 
 type Case = [
@@ -59,6 +60,24 @@ describe( 'Field', () => {
 			test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, label, description = undefined ) => {
 				const wrapper = mount( CdxField, { props, slots: {
 					default: h( CdxSelect, { selected: null, menuItems: [ { value: '1' } ] } ),
+					...( label === undefined ? {} : { label } ),
+					...( description === undefined ? {} : { description } )
+				} } );
+				expect( wrapper.element ).toMatchSnapshot();
+			} );
+		} );
+
+		describe( 'with a Textarea control', () => {
+			const cases: Case[] = [
+				[ 'Basic field', {}, 'Label text' ],
+				[ 'Disabled', { disabled: true }, 'Label text' ],
+				[ 'Error status with message', { status: 'error', messages: { error: 'Error' } }, 'Label text' ],
+				[ 'With description', {}, 'Label text', 'Field description' ]
+			];
+
+			test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, label, description = undefined ) => {
+				const wrapper = mount( CdxField, { props, slots: {
+					default: h( CdxTextArea, { modelValue: '' } ),
 					...( label === undefined ? {} : { label } ),
 					...( description === undefined ? {} : { description } )
 				} } );

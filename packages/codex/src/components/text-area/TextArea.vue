@@ -5,11 +5,14 @@
 		:style="rootStyle"
 	>
 		<textarea
+			:id="computedInputId"
 			ref="textarea"
-			v-bind="otherAttrs"
+			v-bind="otherAttrsMinusId"
 			v-model="wrappedModel"
 			:class="textareaClasses"
 			class="cdx-text-area__textarea"
+			:aria-describedby="descriptionId"
+			:disabled="computedDisabled"
 			@input="onInput"
 		/>
 		<cdx-icon
@@ -31,14 +34,16 @@ import {
 	computed,
 	ref,
 	toRef,
-	PropType
+	PropType,
+	inject
 } from 'vue';
 import CdxIcon from '../../components/icon/Icon.vue';
 import { Icon } from '@wikimedia/codex-icons';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useModelWrapper from '../../composables/useModelWrapper';
+import useFieldData from '../../composables/useFieldData';
 import { ValidationStatusType } from '../../types';
-import { ValidationStatusTypes } from '../../constants';
+import { ValidationStatusTypes, FieldDescriptionIdKey } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
@@ -75,6 +80,13 @@ export default defineComponent( {
 			type: String as PropType<ValidationStatusType>,
 			default: 'default',
 			validator: statusValidator
+		},
+		/**
+		 * Whether the textarea is disabled.
+		 */
+		disabled: {
+			type: Boolean,
+			default: false
 		},
 		/**
 		 * Describes whether the textarea grows vertically to show all text.
@@ -118,6 +130,20 @@ export default defineComponent( {
 		// this component.
 		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
 
+		// If there is a parent Field component, it may be providing some data to this component.
+		// Grab computed values of each relevant property.
+		const idAttribute = attrs.id as string|undefined;
+		const {
+			computedDisabled,
+			computedStatus,
+			computedInputId
+		} = useFieldData(
+			toRef( props, 'disabled' ),
+			toRef( props, 'status' ),
+			idAttribute
+		);
+		const descriptionId = inject( FieldDescriptionIdKey, undefined );
+
 		const textareaClasses = computed( () => {
 			return {
 				'cdx-text-area__textarea--has-value': !!wrappedModel.value,
@@ -127,8 +153,8 @@ export default defineComponent( {
 
 		const internalClasses = computed( () => {
 			return {
-				'cdx-text-area--status-default': props.status === 'default',
-				'cdx-text-area--status-error': props.status === 'error',
+				'cdx-text-area--status-default': computedStatus.value === 'default',
+				'cdx-text-area--status-error': computedStatus.value === 'error',
 				'cdx-text-area--has-start-icon': !!props.startIcon,
 				'cdx-text-area--has-end-icon': !!props.endIcon
 			};
@@ -140,6 +166,16 @@ export default defineComponent( {
 			rootStyle,
 			otherAttrs
 		} = useSplitAttributes( attrs, internalClasses );
+
+		// Normally, we use v-bind to bind otherAttrs to the appropriate element. In this case, we
+		// do not want to include the id attribute, since we're using the computed ID via the
+		// useComputedId composable.
+		// This removes the ID and stores all other attributes in otherAttrsMinusId.
+		const otherAttrsMinusId = computed( () => {
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			const { id, ...everythingElse } = otherAttrs.value;
+			return everythingElse;
+		} );
 
 		const textarea = ref<HTMLTextAreaElement>();
 
@@ -154,9 +190,12 @@ export default defineComponent( {
 		return {
 			rootClasses,
 			rootStyle,
-			otherAttrs,
 			wrappedModel,
+			computedDisabled,
+			computedInputId,
+			descriptionId,
 			textareaClasses,
+			otherAttrsMinusId,
 			textarea,
 			onInput
 		};

@@ -7,7 +7,7 @@ import TextAreaWithAutosize from '@/../component-demos/text-area/examples/TextAr
 import TextAreaWithDisabled from '@/../component-demos/text-area/examples/TextAreaWithDisabled.vue';
 import TextAreaWithReadonly from '@/../component-demos/text-area/examples/TextAreaWithReadonly.vue';
 import TextAreaWithIcons from '@/../component-demos/text-area/examples/TextAreaWithIcons.vue';
-
+import TextAreaField from '@/../component-demos/text-area/examples/TextAreaField.vue';
 
 const controlsConfig = [
     {
@@ -176,8 +176,6 @@ When `<textarea>` is `readonly`, the user cannot modify the value of the control
 
 One example usage of `readonly` textarea is when you want to prevent a user from typing into the textarea until a condition is met like selecting a a checkbox. In this situation, when the condition is met we can use JavaScript to remove the `readonly` to make the textarea editable.
 
-
-
 <cdx-demo-wrapper>
 <template v-slot:demo>
 <text-area-with-readonly />
@@ -186,6 +184,23 @@ One example usage of `readonly` textarea is when you want to prevent a user from
 <template v-slot:code>
 
 <<< @/../component-demos/text-area/examples/TextAreaWithReadonly.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### Form field
+
+A TextArea can be wrapped in the Field component to add features like a semantic label, description
+and help text, validation messages, and more. See the [Field](./field.md) page for more information.
+
+<cdx-demo-wrapper :allow-link-styles="true">
+<template v-slot:demo>
+	<text-area-field />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/text-area/examples/TextAreaField.vue
 
 </template>
 </cdx-demo-wrapper>

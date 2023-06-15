@@ -80,6 +80,7 @@ const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
  * - Radio
  * - SearchInput
  * - Select
+ * - TextArea
  * - TextInput
  * - ToggleSwitch
  */

@@ -9,7 +9,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
   >
     <legend
       class="cdx-label__label"
-      id="cdx-label-48"
+      id="cdx-label-60"
     >
       <span>
         <!--v-if-->
@@ -50,7 +50,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
     >
       <input
         class="cdx-checkbox__input"
-        id="cdx-checkbox-51"
+        id="cdx-checkbox-63"
         type="checkbox"
         value="false"
       />
@@ -59,7 +59,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
       />
       <label
         class="cdx-checkbox__label"
-        for="cdx-checkbox-51"
+        for="cdx-checkbox-63"
       >
         <!-- @slot Input label content -->
         
@@ -90,7 +90,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
   >
     <legend
       class="cdx-label__label"
-      id="cdx-label-52"
+      id="cdx-label-64"
     >
       <span>
         <!--v-if-->
@@ -132,7 +132,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
       <input
         class="cdx-checkbox__input"
         disabled=""
-        id="cdx-checkbox-55"
+        id="cdx-checkbox-67"
         type="checkbox"
         value="false"
       />
@@ -141,7 +141,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
       />
       <label
         class="cdx-checkbox__label"
-        for="cdx-checkbox-55"
+        for="cdx-checkbox-67"
       >
         <!-- @slot Input label content -->
         
@@ -1469,6 +1469,331 @@ exports[`Field matches the snapshot with a TextInput control Case 7 With help te
         type="text"
       />
       <!--v-if-->
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    
+  </div>
+  <div
+    class="cdx-field__help-text"
+  >
+    <!-- @slot Further explanation of how to use this field. -->
+    
+    
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`Field matches the snapshot with a Textarea control Case 0 Basic field: ({}) => HTML 1`] = `
+<div
+  class="cdx-field"
+>
+  <div
+    class="cdx-label"
+  >
+    <label
+      class="cdx-label__label"
+      for="cdx-input-50"
+      id="cdx-label-48"
+    >
+      <span>
+        <!--v-if-->
+        <span
+          class="cdx-label__label__text"
+        >
+          <!-- @slot Label text. -->
+          
+          <!-- @slot Label text. -->
+          
+          Label text
+          
+          
+        </span>
+        <!--v-if-->
+      </span>
+      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
+				support. -->
+      <!--v-if-->
+    </label>
+    <!-- For single fields, add an ID attribute that will be used on the input for
+			aria-describedby. -->
+    <span
+      class="cdx-label__description"
+      id="cdx-description-49"
+    >
+      <!-- @slot Short description text. -->
+      
+      
+    </span>
+  </div>
+  <div
+    class="cdx-field__control"
+  >
+    <!-- @slot Input, control, or input group. -->
+    
+    <div
+      class="cdx-text-area cdx-text-area--status-default"
+    >
+      <textarea
+        class="cdx-text-area__textarea"
+        id="cdx-input-50"
+      />
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    
+  </div>
+  <div
+    class="cdx-field__help-text"
+  >
+    <!-- @slot Further explanation of how to use this field. -->
+    
+    
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`Field matches the snapshot with a Textarea control Case 1 Disabled: ({"disabled": true}) => HTML 1`] = `
+<div
+  aria-disabled="true"
+  class="cdx-field cdx-field--disabled"
+>
+  <div
+    class="cdx-label cdx-label--disabled"
+  >
+    <label
+      class="cdx-label__label"
+      for="cdx-input-53"
+      id="cdx-label-51"
+    >
+      <span>
+        <!--v-if-->
+        <span
+          class="cdx-label__label__text"
+        >
+          <!-- @slot Label text. -->
+          
+          <!-- @slot Label text. -->
+          
+          Label text
+          
+          
+        </span>
+        <!--v-if-->
+      </span>
+      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
+				support. -->
+      <!--v-if-->
+    </label>
+    <!-- For single fields, add an ID attribute that will be used on the input for
+			aria-describedby. -->
+    <span
+      class="cdx-label__description"
+      id="cdx-description-52"
+    >
+      <!-- @slot Short description text. -->
+      
+      
+    </span>
+  </div>
+  <div
+    class="cdx-field__control"
+  >
+    <!-- @slot Input, control, or input group. -->
+    
+    <div
+      class="cdx-text-area cdx-text-area--status-default"
+    >
+      <textarea
+        class="cdx-text-area__textarea"
+        disabled=""
+        id="cdx-input-53"
+      />
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    
+  </div>
+  <div
+    class="cdx-field__help-text"
+  >
+    <!-- @slot Further explanation of how to use this field. -->
+    
+    
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`Field matches the snapshot with a Textarea control Case 2 Error status with message: ({"messages": [Object], "status": "error"}) => HTML 1`] = `
+<div
+  class="cdx-field"
+>
+  <div
+    class="cdx-label"
+  >
+    <label
+      class="cdx-label__label"
+      for="cdx-input-56"
+      id="cdx-label-54"
+    >
+      <span>
+        <!--v-if-->
+        <span
+          class="cdx-label__label__text"
+        >
+          <!-- @slot Label text. -->
+          
+          <!-- @slot Label text. -->
+          
+          Label text
+          
+          
+        </span>
+        <!--v-if-->
+      </span>
+      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
+				support. -->
+      <!--v-if-->
+    </label>
+    <!-- For single fields, add an ID attribute that will be used on the input for
+			aria-describedby. -->
+    <span
+      class="cdx-label__description"
+      id="cdx-description-55"
+    >
+      <!-- @slot Short description text. -->
+      
+      
+    </span>
+  </div>
+  <div
+    class="cdx-field__control cdx-field__control--has-help-text"
+  >
+    <!-- @slot Input, control, or input group. -->
+    
+    <div
+      class="cdx-text-area cdx-text-area--status-error"
+    >
+      <textarea
+        class="cdx-text-area__textarea"
+        id="cdx-input-56"
+      />
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    
+  </div>
+  <div
+    class="cdx-field__help-text"
+  >
+    <!-- @slot Further explanation of how to use this field. -->
+    
+    
+  </div>
+  <div
+    class="cdx-field__validation-message"
+  >
+    <transition-stub>
+      <div
+        class="cdx-message cdx-message--inline cdx-message--error"
+        role="alert"
+      >
+        <span
+          class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g>
+              <path
+                d="M13.728 1H6.272L1 6.272v7.456L6.272 19h7.456L19 13.728V6.272zM11 15H9v-2h2zm0-4H9V5h2z"
+              />
+            </g>
+          </svg>
+        </span>
+        <div
+          class="cdx-message__content"
+        >
+          <!-- @slot Message content. -->
+          
+          Error
+          
+        </div>
+        <!--v-if-->
+      </div>
+    </transition-stub>
+  </div>
+</div>
+`;
+
+exports[`Field matches the snapshot with a Textarea control Case 3 With description: ({}) => HTML 1`] = `
+<div
+  class="cdx-field"
+>
+  <div
+    class="cdx-label"
+  >
+    <label
+      class="cdx-label__label"
+      for="cdx-input-59"
+      id="cdx-label-57"
+    >
+      <span>
+        <!--v-if-->
+        <span
+          class="cdx-label__label__text"
+        >
+          <!-- @slot Label text. -->
+          
+          <!-- @slot Label text. -->
+          
+          Label text
+          
+          
+        </span>
+        <!--v-if-->
+      </span>
+      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
+				support. -->
+      <!--v-if-->
+    </label>
+    <!-- For single fields, add an ID attribute that will be used on the input for
+			aria-describedby. -->
+    <span
+      class="cdx-label__description"
+      id="cdx-description-58"
+    >
+      <!-- @slot Short description text. -->
+      
+      <!-- @slot Short description text. -->
+      
+      Field description
+      
+      
+    </span>
+  </div>
+  <div
+    class="cdx-field__control"
+  >
+    <!-- @slot Input, control, or input group. -->
+    
+    <div
+      class="cdx-text-area cdx-text-area--status-default"
+    >
+      <textarea
+        aria-describedby="cdx-description-58"
+        class="cdx-text-area__textarea"
+        id="cdx-input-59"
+      />
       <!--v-if-->
       <!--v-if-->
     </div>
