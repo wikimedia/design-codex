@@ -12,17 +12,19 @@ module.exports = {
 		},
 		attr: [
 			{
-				// Require viewBox, width and height attributes to exist on the SVG element.
+				// For the `<svg>` element
 				'rule::selector': 'svg',
+				// Require xmlns to exist and be set to this value
 				xmlns: 'http://www.w3.org/2000/svg',
-				viewBox: true,
-				width: true,
-				height: true
+				// Require viewBox, width and height to be set to the standard 20x20 values
+				viewBox: '0 0 20 20',
+				width: '20',
+				height: '20'
 			},
-			// Disallow the fill attribute, unless it's set to `#fff`.
 			{
-				'rule::selector': '[fill]',
-				fill: '#fff'
+				// For any element
+				// Forbid the fill attribute
+				fill: false
 			}
 		],
 		/**
