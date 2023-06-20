@@ -1,3 +1,39 @@
+# 0.13.0 / 2023-06-20
+
+## Features
+- Label: Add Label component (Anne Tomasevich)
+- Field: Add Field component and enable use with input components (Anne Tomasevich)
+- Field: Set help text line height and improve demos (Anne Tomasevich)
+- Label: Change line height and add a rich text demo (Anne Tomasevich)
+- TextArea: Change icon in demo (LWatson)
+- Field, Label: Set smaller line height (Anne Tomasevich)
+- TextArea: Move from WIP components to public components (LWatson)
+- Field et al: Add demos for supported components (Anne Tomasevich)
+- TextArea: Enable use with Field component (Anne Tomasevich)
+
+## Styles
+- Button: Organize and correct padding styles (Anne Tomasevich)
+- Dialog: Simplify padding styles (Roan Kattouw)
+- TextArea: Remove error styles from readonly (LWatson)
+- TextArea: Move CSS overrides to mixin (LWatson)
+- Button, styles: Fix bare :not() selector (Roan Kattouw)
+
+## Code
+- build: Update doc comment in codex-docs postcss config (Roan Kattouw)
+- build: Make svglint rules stricter (Roan Kattouw)
+
+## Documentation
+- docs: Update release instructions for foreign-resources version field (Roan Kattouw)
+- Tabs: Don't set role="tab" on <li>s in CSS-only markup (Roan Kattouw)
+- Tabs, docs: Don't show Vue code in the CSS-only HTML example (Roan Kattouw)
+- Tabs: Fix CSS-only example for disabled tabs (Roan Kattouw)
+- docs: Show a more realistic link button example (Anne Tomasevich)
+- TextArea: Demonstrate more examples on the Codex docs (LWatson)
+- docs: Add section about linting to the "Contributing code" docs (Roan Kattouw)
+- docs: Remove label button example (Anne Tomasevich)
+- docs: Apply rtlcss ([dir] selectors) to component demo examples (Roan Kattouw)
+- Fix tokens package name (Lucas Werkmeister)
+
 # 0.12.0 / 2023-06-06
 ## Features
 - Accordion: initial implementation of accordion component (szymonswiergosz)
