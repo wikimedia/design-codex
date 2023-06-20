@@ -751,6 +751,9 @@ export const cdxIconQuotes: IconFlipForRtl = {
 	shouldFlip: true
 };
 
+import svgQrCode from './images/qrCode.svg';
+export const cdxIconQrCode = svgQrCode;
+
 import svgRecentChangesLtr from './images/recentChanges-ltr.svg';
 import svgRecentChangesRtl from './images/recentChanges-rtl.svg';
 export const cdxIconRecentChanges: IconVariedByDir = {
