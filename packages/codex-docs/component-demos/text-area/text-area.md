@@ -68,6 +68,10 @@ By default, the initial value of the `autosize` prop is false. When `autosize` i
 
 Note: The initial min-height of the `<textarea>` is set to 64px.
 
+::: warning Browser Support Warning
+While our design system strives to provide a consistent experience across different platforms and browsers, it's important to be aware that the vertical resizing feature will not be available on iOS devices, including iPhones and iPads. This limitation is due to the default behavior of iOS Safari.
+:::
+
 <cdx-demo-wrapper>
 <template v-slot:demo>
 <text-area-default />
