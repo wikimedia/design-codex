@@ -234,17 +234,80 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/public/css-icon.less';
 
 .cdx-message {
+	// Background color and color are for notice type messages.
+	// These will be overridden for other message types.
+	background-color: @background-color-notice-subtle;
 	color: @color-notice;
 	display: flex;
 	align-items: flex-start;
 	position: relative;
+	border: @border-width-base @border-style-base @border-color-notice;
+	padding: @spacing-100 @spacing-100;
 
-	// Add space between stacked messages.
-	& + & {
-		margin-top: @spacing-50;
+	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+		padding-right: @spacing-150;
+		padding-left: @spacing-150;
+	}
+
+	// Set the default CSS icon to the icon for notice messages, which is the default message type.
+	// The icon and icon color will be overridden for other message types below.
+	// The color of the Vue icon for notice messages is inherited from the color rule set on
+	// .cdx-message.
+	.cdx-message__icon {
+		.cdx-mixin-css-icon( @cdx-icon-info-filled );
+	}
+
+	&--warning {
+		background-color: @background-color-warning-subtle;
+		border-color: @border-color-warning;
+
+		.cdx-message__icon {
+			.cdx-mixin-css-icon( @cdx-icon-alert, @color-warning );
+		}
+
+		.cdx-message__icon--vue {
+			color: @color-warning;
+		}
+	}
+
+	&--error {
+		background-color: @background-color-error-subtle;
+		border-color: @border-color-error;
+
+		.cdx-message__icon {
+			.cdx-mixin-css-icon( @cdx-icon-error, @color-error );
+		}
+
+		.cdx-message__icon--vue {
+			color: @color-error;
+		}
+	}
+
+	&--success {
+		background-color: @background-color-success-subtle;
+		border-color: @border-color-success;
+
+		.cdx-message__icon {
+			.cdx-mixin-css-icon( @cdx-icon-success, @color-success );
+		}
+
+		.cdx-message__icon--vue {
+			color: @color-success;
+		}
+	}
+
+	&--user-dismissable {
+		padding-right: calc( @min-size-interactive-pointer + @spacing-100 );
+
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			padding-right: calc( @min-size-interactive-pointer + @spacing-150 );
+		}
 	}
 
 	&--inline {
+		background-color: @background-color-transparent;
+		border: 0;
+		padding: 0;
 		font-weight: @font-weight-bold;
 
 		&.cdx-message--error {
@@ -256,92 +319,12 @@ export default defineComponent( {
 		}
 	}
 
-	// Aka &--block. Writing it this way allows `.cdx-message--block` to become the default.
-	&:not( .cdx-message--inline ) {
-		border-width: @border-width-base;
-		border-style: @border-style-base;
-		padding: @spacing-100 @spacing-100;
-
-		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			padding-right: @spacing-150;
-			padding-left: @spacing-150;
-		}
-
-		&.cdx-message--notice {
-			background-color: @background-color-notice-subtle;
-			border-color: @border-color-notice;
-		}
-
-		&.cdx-message--error {
-			background-color: @background-color-error-subtle;
-			border-color: @border-color-error;
-		}
-
-		&.cdx-message--warning {
-			background-color: @background-color-warning-subtle;
-			border-color: @border-color-warning;
-		}
-
-		&.cdx-message--success {
-			background-color: @background-color-success-subtle;
-			border-color: @border-color-success;
-		}
-
-		&.cdx-message--user-dismissable {
-			padding-right: calc( @min-size-interactive-pointer + @spacing-100 );
-
-			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				padding-right: calc( @min-size-interactive-pointer + @spacing-150 );
-			}
-		}
-	}
-
-	&--warning {
-		.cdx-message__icon {
-			.cdx-mixin-css-icon( @cdx-icon-alert, @color-warning );
-		}
-
-		.cdx-message__icon--vue {
-			color: @color-warning;
-		}
-	}
-
-	&--error {
-		.cdx-message__icon {
-			.cdx-mixin-css-icon( @cdx-icon-error, @color-error );
-		}
-
-		.cdx-message__icon--vue {
-			color: @color-error;
-		}
-	}
-
-	&--success {
-		.cdx-message__icon {
-			.cdx-mixin-css-icon( @cdx-icon-success, @color-success );
-		}
-
-		.cdx-message__icon--vue {
-			color: @color-success;
-		}
-	}
-
-	// Aka &--notice. Writing it this way allows `.cdx-message--notice` to become the default.
-	&:not( .cdx-message--warning ):not( .cdx-message--error ):not( .cdx-message--success ) {
-		.cdx-message__icon {
-			.cdx-mixin-css-icon( @cdx-icon-info-filled );
-		}
-	}
-
-	// Note that for CSS-only icons, the height is already set as part of `.cdx-mixin-css-icon()`,
-	// which is applied above for each message type. In order to override the height here, we have
-	// to match the specificity of the selectors above.
-	// For all types except notice, this means targeting `.cdx-message .cdx-message__icon`.
-	// For the notice type, this means matching the chain of `:not()` selectors used above.
-	/* stylelint-disable-next-line no-descending-specificity */
-	& &__icon,
-	&:not( .cdx-message--warning ):not( .cdx-message--error ):not( .cdx-message--success ) .cdx-message__icon,
-	&__icon--vue {
+	// Note that the height is set above for the CSS icons via the mixin, which is why the selector
+	// used here is `.cdx-message__icon` instead of `&__icon`. This allows the styles included here
+	// to override those set above.
+	// The second selector is written the same way for consistency's sake.
+	.cdx-message__icon,
+	.cdx-message__icon--vue {
 		// Vertically align icon with the text. Flexbox on its own is not enough here.
 		// Use close enough height to `&__content`'s `line-height`.
 		height: @size-150;
@@ -374,6 +357,11 @@ export default defineComponent( {
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			right: @spacing-50;
 		}
+	}
+
+	// Add space between stacked messages.
+	& + & {
+		margin-top: @spacing-50;
 	}
 
 	// Fade-in and auto-dismissal use the system transition timing function.
