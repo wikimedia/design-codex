@@ -9,6 +9,16 @@
 		</template>
 		Accordion content
 	</cdx-accordion>
+	<cdx-accordion
+		:action-icon="cdxIconEdit"
+		action-button-label="Edit"
+		@action-button-click="handleButtonClick"
+	>
+		<template #title>
+			Accordion title which is very long and will be properly wrapped to the next line
+		</template>
+		Accordion content
+	</cdx-accordion>
 	<br>
 	<p v-if="showHandleButtonClickResult">
 		Action button clicked

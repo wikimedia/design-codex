@@ -6,8 +6,10 @@
 		<component
 			:is="headingLevel"
 			class="cdx-accordion__header"
+			:class="{ 'cdx-accordion__header--disabled': disabled }"
 		>
 			<cdx-button
+				:aria-disabled="disabled"
 				:aria-expanded="isExpanded"
 				:aria-hidden="true"
 				tabindex="-1"
@@ -17,14 +19,20 @@
 				weight="quiet"
 				@click="toggle"
 			>
-				<cdx-icon
-					class="cdx-accordion__toggle__icon"
-					:icon="cdxIconExpand"
-					size="small"
-				/>
-				<span class="cdx-accordion__toggle__text">
-					<!-- @slot Customizable Accordion title -->
-					<slot name="title" />
+				<span class="cdx-accordion__toggle__title">
+					<cdx-icon
+						class="cdx-accordion__toggle__title-icon"
+						:icon="cdxIconExpand"
+						size="small"
+					/>
+					<span class="cdx-accordion__toggle__title-text">
+						<!-- @slot Customizable Accordion title -->
+						<slot name="title" />
+					</span>
+				</span>
+				<span class="cdx-accordion__toggle__description">
+					<!-- @slot Customizable Accordion description -->
+					<slot name="description" />
 				</span>
 			</cdx-button>
 			<cdx-button
@@ -65,6 +73,16 @@ export default defineComponent( {
 	components: { CdxButton, CdxIcon },
 	props: {
 		/**
+		 * Forces the accordion to show the action icon.
+		 *
+		 * @values 'true', 'false'
+		 */
+		actionAlwaysVisible: {
+			type: Boolean,
+			default: false
+		},
+
+		/**
 		 * The icon that will be displayed on the right side of the accordion header when expanded.
 		 *
 		 */
@@ -91,6 +109,7 @@ export default defineComponent( {
 			type: Boolean,
 			default: false
 		},
+
 		/**
 		 * The heading level of the accordion title.
 		 *
@@ -99,15 +118,6 @@ export default defineComponent( {
 		headingLevel: {
 			type: String as PropType<HeadingLevel>,
 			default: 'h3'
-		},
-		/**
-		 * Forces the accordion to show the action icon.
-		 *
-		 * @values 'true', 'false'
-		 */
-		iconAlwaysVisible: {
-			type: Boolean,
-			default: false
 		}
 	},
 	emits: [
@@ -129,20 +139,21 @@ export default defineComponent( {
 		};
 
 		const shouldShowActionButton = computed( () => {
-			return props.actionIcon && ( isExpanded.value || props.iconAlwaysVisible );
+			return props.actionIcon && ( isExpanded.value || props.actionAlwaysVisible );
 		} );
 
 		const rootClasses = computed( () => ( {
-			'cdx-accordion--disabled': props.disabled
+			'cdx-accordion--disabled': props.disabled,
+			'cdx-accordion--has-icon': shouldShowActionButton
 		} ) );
 
 		return {
 			cdxIconExpand,
-			isExpanded,
-			toggle,
 			emitActionButtonClick,
+			isExpanded,
 			rootClasses,
-			shouldShowActionButton
+			shouldShowActionButton,
+			toggle
 		};
 	}
 } );
@@ -154,9 +165,10 @@ export default defineComponent( {
 .cdx-accordion {
 	position: relative;
 
-	&--disabled {
-		color: @color-disabled;
-		cursor: @cursor-base--disabled;
+	&--has-icon &__toggle__title-text {
+		// The width of the icon, plus @spacing-35 for the left padding+border on
+		// the button, plus @spacing-50 of buffer space between the text and the button
+		padding-right: calc( @size-icon-medium + @spacing-35 + @spacing-50 );
 	}
 
 	&::after {
@@ -178,7 +190,6 @@ export default defineComponent( {
 		border-top: 0;
 		padding-top: 0;
 		padding-bottom: 0;
-		font-size: @font-size-small;
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-medium;
 		transition-timing-function: @transition-timing-function-system;
@@ -189,51 +200,78 @@ export default defineComponent( {
 			outline: @border-style-base @border-width-thick @color-progressive--focus;
 		}
 
-		&:hover {
-			background-color: @background-color-interactive;
-			cursor: @cursor-base--hover;
-		}
-
 		&:focus:not( :focus-visible ) {
 			outline: @outline-base--focus;
+		}
+
+		&:hover:not( .cdx-accordion__header--disabled ) {
+			background-color: @background-color-interactive;
+			cursor: @cursor-base--hover;
 		}
 	}
 
 	&__content {
-		padding: @spacing-75;
-		font-size: @font-size-small;
+		padding: @spacing-50 @spacing-75 @spacing-75;
+		font-size: @font-size-base;
 	}
 
-	&__toggle {
-		display: flex;
-		align-items: center;
-		flex-grow: 1;
-		flex-basis: 0;
-		gap: @spacing-75;
+	// Add specificity to override button styles
+	& &__toggle {
 		width: @size-full;
 		max-width: unset;
 		padding: @spacing-75;
-		line-height: @line-height-small;
+		font-size: @font-size-base;
+		word-break: break-word;
+		text-align: left;
+		white-space: normal;
 
-		&__icon {
-			transition-property: @transition-property-toggle-switch-grip;
-			transition-duration: @transition-duration-medium;
-			transition-timing-function: @transition-timing-function-system;
+		&__title {
+			display: flex;
+			gap: @spacing-50;
+			line-height: @line-height-xx-small;
+
+			&-icon {
+				height: unit( @line-height-xx-small, em );
+				transition-property: @transition-property-toggle-switch-grip;
+				transition-duration: @transition-duration-medium;
+				transition-timing-function: @transition-timing-function-system;
+			}
 		}
 
-		&[ aria-expanded='true' ] &__icon {
+		&__description {
+			color: @color-subtle;
+			display: flex;
+			padding-left: @spacing-150;
+			font-weight: @font-weight-normal;
+			line-height: @line-height-xx-small;
+		}
+
+		&[ aria-expanded='true' ] .cdx-accordion__toggle__title-icon {
 			transform: rotate( -180deg );
 		}
 	}
 
+	&--disabled,
+	&&--disabled &__toggle__description {
+		color: @color-disabled;
+		cursor: @cursor-base--disabled;
+	}
+
 	// Add specificity to override button styles
-	& &__action {
+	& &__action[ type='button' ] {
+		display: flex;
+		align-items: center;
 		position: absolute;
 		top: 0;
 		right: 0;
-		bottom: 0;
-		z-index: @z-index-stacking-3;
-		padding: 0 @spacing-75;
+		height: calc( unit( @line-height-xx-small, em ) + 2*@spacing-75 + 2*@border-width-base );
+		padding-right: @spacing-75;
+		padding-left: @spacing-75;
+		font-size: @font-size-base;
+
+		&:hover {
+			background-color: unset;
+		}
 	}
 }
 </style>

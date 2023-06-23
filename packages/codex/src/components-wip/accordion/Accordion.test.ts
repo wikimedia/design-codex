@@ -7,9 +7,9 @@ describe( 'Accordion', () => {
 		type Case = [
 			msg: string,
 			props: {
+				actionAlwaysVisible?: boolean
 				actionIcon?: string,
 				disabled?: boolean,
-				iconAlwaysVisible?: boolean
 			},
 			slotTitle: string,
 			slotContent: string,
@@ -18,7 +18,7 @@ describe( 'Accordion', () => {
 		const cases: Case[] = [
 			[ 'Renders with basic basic title and text content', {}, 'Title', 'Content' ],
 			[ 'Renders accordion disabled', { disabled: true }, 'Title', 'Content' ],
-			[ 'Renders accordion with icon', { iconAlwaysVisible: true }, 'Title', 'Content' ],
+			[ 'Renders accordion with icon', { actionAlwaysVisible: true }, 'Title', 'Content' ],
 			[ 'Renders accordion with action button', { actionIcon: cdxIconEdit }, 'Title', 'Content' ]
 		];
 

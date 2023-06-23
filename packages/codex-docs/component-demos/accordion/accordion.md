@@ -1,14 +1,62 @@
 <script setup>
+import { CdxAccordion } from '@wikimedia/codex';
 import AccordionDefault from '@/../component-demos/accordion/examples/AccordionDefault.vue';
+import AccordionDescription from '@/../component-demos/accordion/examples/AccordionDescription.vue';
 import AccordionStacked from '@/../component-demos/accordion/examples/AccordionStacked.vue';
 import AccordionDisabled from '@/../component-demos/accordion/examples/AccordionDisabled.vue';
 import AccordionActionButton from '@/../component-demos/accordion/examples/AccordionActionButton.vue';
-import AccordionImage from '@/../component-demos/accordion/examples/AccordionImage.vue';
-import AccordionIconVisible from '@/../component-demos/accordion/examples/AccordionIconVisible.vue';
+import AccordionDifferentContent from '@/../component-demos/accordion/examples/AccordionDifferentContent.vue';
+import AccordionActionVisible from '@/../component-demos/accordion/examples/AccordionActionVisible.vue';
 import AccordionHeadings from '@/../component-demos/accordion/examples/AccordionHeadings.vue';
+
+const controlsConfig = [
+    {
+        name: 'disabled',
+        type: 'boolean'
+    },
+    {
+		name: 'default',
+		type: 'slot',
+		default: 'The default slot is the content of the accordion'
+	},
+    {
+		name: 'description',
+		type: 'slot',
+		default: ''
+	},
+    {
+		name: 'title',
+		type: 'slot',
+		default: 'Customizable accordion component title'
+	},
+    {
+        name: 'actionIcon',
+        type: 'icon'
+    },
+    {
+        name: 'actionAlwaysVisible',
+        type: 'boolean',
+    }
+];
 </script>
 
 ## Demos
+
+### Configurable
+
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
+<template v-slot:demo="{ propValues, slotValues }">
+    <cdx-accordion  v-bind="propValues">
+        {{ slotValues.default }}
+        <template v-if="slotValues[ 'title' ]" #title>
+            {{ slotValues[ 'title' ] }}
+        </template>
+        <template v-if="slotValues[ 'description' ]" #description>
+            {{ slotValues[ 'description' ] }}
+        </template>
+    </cdx-accordion>
+</template>
+</cdx-demo-wrapper>
 
 ### Default
 
@@ -19,6 +67,19 @@ import AccordionHeadings from '@/../component-demos/accordion/examples/Accordion
 <template v-slot:code>
 
 <<< @/../component-demos/accordion/examples/AccordionDefault.vue
+
+</template>
+</cdx-demo-wrapper>
+
+### With description
+
+<cdx-demo-wrapper :force-controls="true">
+<template v-slot:demo>
+    <accordion-description />
+</template>
+<template v-slot:code>
+
+<<< @/../component-demos/accordion/examples/AccordionDescription.vue
 
 </template>
 </cdx-demo-wrapper>
@@ -60,32 +121,32 @@ button for accessibility purposes by using the `actionButtonLabel` prop.
 </template>
 </cdx-demo-wrapper>
 
-### With always visible icon
+### With always visible action
 
-To show the icon even when the accordion is collapsed, set the `iconAlwaysVisible` prop.
+To show the icon even when the accordion is collapsed, set the `actionAlwaysVisible` prop.
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-    <accordion-icon-visible />
+    <accordion-action-visible />
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/accordion/examples/AccordionIconVisible.vue
+<<< @/../component-demos/accordion/examples/AccordionActionVisible.vue
 
 </template>
 </cdx-demo-wrapper>
 
-### With image
+### With different content
 
-The accordion can be used with different elements, including images.
+The accordion can be used with different elements, including images or tables.
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-    <accordion-image />
+    <accordion-different-content />
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/accordion/examples/AccordionImage.vue
+<<< @/../component-demos/accordion/examples/AccordionDifferentContent.vue
 
 </template>
 </cdx-demo-wrapper>
