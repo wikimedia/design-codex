@@ -4,153 +4,112 @@
 			Button
 		</h2>
 
-		<table>
-			<thead>
-				<tr>
-					<th aria-hidden="true" />
-					<th>Normal</th>
-					<th>Primary</th>
-					<th>Quiet</th>
-					<th>undefined</th>
-				</tr>
-			</thead>
-			<tbody>
-				<template v-for="buttonAction in [ ...ButtonActions, undefined ]">
-					<tr
-						v-for="disabled in [ true, false ]"
-						:key="`action-${buttonAction}-${Number( disabled )}`"
-					>
-						<th>
-							{{ buttonAction || 'undefined' }}
-							{{ disabled ? ' disabled' : '' }}
-						</th>
-						<td
-							v-for="buttonWeight in [ ...ButtonWeights, undefined ]"
-							:key="`weight-${buttonWeight}`">
-							<cdx-button
-								:weight="buttonWeight"
-								:action="buttonAction"
-								:disabled="disabled"
-								@click="onClick">
-								<cdx-icon :icon="cdxIconTrash" />
-								Button
-							</cdx-button>
-						</td>
-					</tr>
-				</template>
-			</tbody>
-		</table>
+		<button-demo-table>
+			<template #default="{ action, size, weight, disabled }">
+				<cdx-button
+					:size="size"
+					:weight="weight"
+					:action="action"
+					:disabled="disabled"
+					@click="onClick"
+				>
+					<cdx-icon :icon="cdxIconTrash" />
+					Button
+				</cdx-button>
+			</template>
+		</button-demo-table>
+
+		<h3>Icon-only buttons</h3>
+		<button-demo-table>
+			<template #default="{ action, size, weight, disabled }">
+				<cdx-button
+					:size="size"
+					:weight="weight"
+					:action="action"
+					:disabled="disabled"
+					aria-label="Button"
+					@click="onClick"
+				>
+					<cdx-icon :icon="cdxIconTrash" />
+				</cdx-button>
+			</template>
+		</button-demo-table>
 
 		<h3>CSS-only version</h3>
-		<table>
-			<thead>
-				<tr>
-					<th aria-hidden="true" />
-					<th>Normal</th>
-					<th>Primary</th>
-					<th>Quiet</th>
-					<th>undefined</th>
-				</tr>
-			</thead>
-			<tbody>
-				<template v-for="buttonAction in [ ...ButtonActions, undefined ]">
-					<tr
-						v-for="disabled in [ true, false ]"
-						:key="`action-${buttonAction}-${Number( disabled )}`"
-					>
-						<th>
-							{{ buttonAction || 'undefined' }}
-							{{ disabled ? ' disabled' : '' }}
-						</th>
-						<td
-							v-for="buttonWeight in [ ...ButtonWeights, undefined ]"
-							:key="`weight-${buttonWeight}`">
-							<!-- eslint-disable max-len -->
-							<button
-								:class="`cdx-button cdx-button--action-${buttonAction} cdx-button--weight-${buttonWeight}`"
-								:disabled="disabled"
-							>
-								<span class="cdx-button__icon cdx-demo-css-icon--trash" />
-								Button
-							</button>
-							<!-- eslint-enable max-len -->
-						</td>
-					</tr>
-				</template>
-			</tbody>
-		</table>
+		<button-demo-table>
+			<template #default="{ action, size, weight, disabled }">
+				<!-- eslint-disable max-len -->
+				<button
+					:class="`cdx-button ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
+					:disabled="disabled"
+				>
+					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+					Button
+				</button>
+				<!-- eslint-enable max-len -->
+			</template>
+		</button-demo-table>
+
+		<h3>CSS-only icon-only buttons</h3>
+		<button-demo-table>
+			<template #default="{ action, size, weight, disabled }">
+				<!-- eslint-disable max-len -->
+				<button
+					:class="`cdx-button cdx-button--icon-only ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
+					:disabled="disabled"
+					aria-label="Button"
+				>
+					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+				</button>
+				<!-- eslint-enable max-len -->
+			</template>
+		</button-demo-table>
 
 		<h3>Link buttons</h3>
-		<table>
-			<thead>
-				<tr>
-					<th aria-hidden="true" />
-					<th>Normal</th>
-					<th>Primary</th>
-					<th>Quiet</th>
-					<th>undefined</th>
-				</tr>
-			</thead>
-			<tbody>
-				<template v-for="buttonAction in [ ...ButtonActions, undefined ]">
-					<tr
-						v-for="disabled in [ true, false ]"
-						:key="`action-${buttonAction}-${Number( disabled )}`"
-					>
-						<th>
-							{{ buttonAction || 'undefined' }}
-							{{ disabled ? ' disabled' : '' }}
-						</th>
-						<td
-							v-for="buttonWeight in [ ...ButtonWeights, undefined ]"
-							:key="`weight-${buttonWeight}`">
-							<!-- eslint-disable max-len -->
-							<a :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} cdx-button--action-${buttonAction} cdx-button--weight-${buttonWeight}`">
-								<span class="cdx-button__icon cdx-demo-css-icon--trash" />
-								Button
-							</a>
-							<!-- eslint-enable max-len -->
-						</td>
-					</tr>
-				</template>
-			</tbody>
-		</table>
+		<button-demo-table>
+			<template #default="{ action, size, weight, disabled }">
+				<!-- eslint-disable max-len -->
+				<a :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`">
+					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+					Button
+				</a>
+				<!-- eslint-enable max-len -->
+			</template>
+		</button-demo-table>
 
-		<h3>Checkbox hack</h3>
-		<table>
-			<thead>
-				<tr>
-					<th aria-hidden="true" />
-					<th>Normal</th>
-					<th>Primary</th>
-					<th>Quiet</th>
-					<th>undefined</th>
-				</tr>
-			</thead>
-			<tbody>
-				<template v-for="buttonAction in [ ...ButtonActions, undefined ]">
-					<tr
-						v-for="disabled in [ true, false ]"
-						:key="`action-${buttonAction}-${Number( disabled )}`"
-					>
-						<th>
-							{{ buttonAction || 'undefined' }}
-							{{ disabled ? ' disabled' : '' }}
-						</th>
-						<td
-							v-for="buttonWeight in [ ...ButtonWeights, undefined ]"
-							:key="`weight-${buttonWeight}`">
-							<!-- eslint-disable max-len -->
-							<label :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} cdx-button--action-${buttonAction} cdx-button--weight-${buttonWeight}`">
-								<span class="cdx-button__icon cdx-demo-css-icon--trash" />
-								Button
-							</label>
-							<!-- eslint-enable max-len -->
-						</td>
-					</tr>
-				</template>
-			</tbody>
-		</table>
+		<h3>Icon-only link buttons</h3>
+		<button-demo-table>
+			<template #default="{ action, size, weight, disabled }">
+				<!-- eslint-disable max-len -->
+				<a :class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`" aria-label="Button">
+					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+				</a>
+				<!-- eslint-enable max-len -->
+			</template>
+		</button-demo-table>
+
+		<h3>Checkbox hack (label buttons)</h3>
+		<button-demo-table>
+			<template #default="{ action, size, weight, disabled }">
+				<!-- eslint-disable max-len -->
+				<label :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`">
+					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+					Button
+				</label>
+				<!-- eslint-enable max-len -->
+			</template>
+		</button-demo-table>
+
+		<h3>Icon-only checkbox hack (label buttons)</h3>
+		<button-demo-table>
+			<template #default="{ action, size, weight, disabled }">
+				<!-- eslint-disable max-len -->
+				<label :class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`" aria-label="Button">
+					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+				</label>
+				<!-- eslint-enable max-len -->
+			</template>
+		</button-demo-table>
 
 		<h3>Flush layout for buttons</h3>
 		<h4>Regular buttons</h4>
@@ -247,9 +206,9 @@
 
 <script lang="ts" setup>
 import { CdxButton, CdxIcon } from '../lib';
-import { ButtonActions, ButtonWeights } from '../constants';
 import { cdxIconTrash, cdxIconAlignLeft, cdxIconAlignRight } from '@wikimedia/codex-icons';
 import getEventLogger from 'codex-docs/src/utils/getEventLogger';
+import ButtonDemoTable from './ButtonDemoTable.vue';
 
 const onClick = getEventLogger<Event>( 'click' );
 </script>
