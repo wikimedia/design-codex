@@ -277,10 +277,11 @@ module.exports = {
 				'caret-color',
 				'text-emphasis-color',
 				'text-fill-color',
-				'list-style',
-				'list-style-image',
-				'list-style-position',
-				'list-style-type',
+				// 'list-style' and friends have no Codex design tokens yet
+				// 'list-style',
+				// 'list-style-image',
+				// 'list-style-position',
+				// 'list-style-type',
 				'filter',
 				'backdrop-filter',
 				'opacity',
@@ -355,7 +356,8 @@ module.exports = {
 				'font-weight',
 				'letter-spacing',
 				'line-height',
-				'text-align',
+				// 'text-align' has no Codex design tokens
+				// 'text-align',
 				'text-decoration',
 				'text-decoration-color',
 				'text-decoration-line',
@@ -370,7 +372,8 @@ module.exports = {
 				// 'white-space', TODO: Several static values to even out. */
 				'word-spacing',
 				'table-layout',
-				'caption-side',
+				// 'caption-side' has no Codex design tokens
+				// 'caption-side',
 				'empty-cells',
 				'border-collapse',
 				'border-spacing',

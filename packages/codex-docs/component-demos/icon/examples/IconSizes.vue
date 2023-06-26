@@ -76,9 +76,7 @@ table {
 
 caption {
 	margin-top: @spacing-25;
-	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 	text-align: left;
-	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 	caption-side: bottom;
 }
 </style>

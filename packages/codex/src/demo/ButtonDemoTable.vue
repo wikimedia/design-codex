@@ -80,7 +80,6 @@ function weightLabel( weight: ButtonWeight|undefined ) {
 
 .cdx-docs-button-demo-table {
 	td {
-		/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 		text-align: center;
 	}
 

@@ -219,7 +219,6 @@ body {
 // Button table.
 /* stylelint-disable-next-line selector-max-id */
 #cdx-button tr th:first-child {
-	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 	text-align: left;
 }
 </style>

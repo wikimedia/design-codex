@@ -516,18 +516,15 @@ font-size: 14px; /* 14 sp equivalent */
 
 		ol ol li {
 			// FIXME: Add token.
-			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 			list-style-type: lower-alpha;
 		}
 
 		ul ul li {
 			// FIXME: Add token.
-			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 			list-style-type: circle;
 
 			li {
 				// FIXME: Add token.
-				/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 				list-style-type: square;
 			}
 		}
