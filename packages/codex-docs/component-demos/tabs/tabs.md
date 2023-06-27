@@ -347,10 +347,6 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 // Override VitePress styles.
 // TODO: remove this once T296106 is complete.
 .cdx-demo-wrapper {
-	:deep( li + li ) {
-		margin-top: 0;
-	}
-
 	:deep( h2 ) {
 		margin: 0 0 @spacing-150;
 		border-top: 0;

@@ -50,17 +50,3 @@ props, as well as slot content.
 
 ## CSS-only version
 See the [Tabs page](./tabs.md#css-only-version) to learn how to build a CSS-only tabbed layout.
-
-<style lang="less" scoped>
-// Override VitePress styles.
-// TODO: remove this once T296106 is complete.
-.cdx-demo-wrapper {
-	:deep( ul ) {
-		list-style: none;
-	}
-
-	:deep( li + li ) {
-		margin-top: 0;
-	}
-}
-</style>

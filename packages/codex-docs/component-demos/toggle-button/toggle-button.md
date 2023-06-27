@@ -79,12 +79,3 @@ Example usage as an icon-only pause/play button, changing the icon when toggled.
 
 </template>
 </cdx-demo-wrapper>
-
-<style lang="less" scoped>
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-
-.cdx-demo--wrapper :deep( p ) {
-	margin: 0 0 @spacing-100 0;
-	font-weight: @font-weight-bold;
-}
-</style>

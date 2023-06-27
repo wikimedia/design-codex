@@ -402,11 +402,6 @@ Message content can contain markup like bold text and links.
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-demo-wrapper {
-	:deep( p ) {
-		margin: 0;
-		line-height: var( --line-height-medium );
-	}
-
 	.cdx-docs-message-layout {
 		/* stylelint-disable-next-line selector-class-pattern */
 		.cdx-message:first-child {
