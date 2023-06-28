@@ -38,6 +38,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -140,6 +141,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -242,6 +244,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -344,6 +347,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -427,6 +431,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
                     viewBox="0 0 20 20"
                     width="20"
                     xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
                   >
                     <!--v-if-->
                     <!-- eslint-disable vue/no-v-html -->
@@ -532,6 +537,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -593,6 +599,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                         viewBox="0 0 20 20"
                         width="20"
                         xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <!--v-if-->
                         <!-- eslint-disable vue/no-v-html -->
@@ -662,6 +669,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                         viewBox="0 0 20 20"
                         width="20"
                         xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <!--v-if-->
                         <!-- eslint-disable vue/no-v-html -->
@@ -737,6 +745,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                     viewBox="0 0 20 20"
                     width="20"
                     xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
                   >
                     <!--v-if-->
                     <!-- eslint-disable vue/no-v-html -->

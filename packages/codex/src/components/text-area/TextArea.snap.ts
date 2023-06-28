@@ -96,6 +96,7 @@ exports[`TextArea matches the snapshot Case 6 with start icon: ({"startIcon": "<
       viewBox="0 0 20 20"
       width="20"
       xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
@@ -130,6 +131,7 @@ exports[`TextArea matches the snapshot Case 7 with end icon: ({"endIcon": [Objec
       viewBox="0 0 20 20"
       width="20"
       xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
@@ -160,6 +162,7 @@ exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIc
       viewBox="0 0 20 20"
       width="20"
       xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
@@ -181,6 +184,7 @@ exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIc
       viewBox="0 0 20 20"
       width="20"
       xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->

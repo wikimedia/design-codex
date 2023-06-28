@@ -38,6 +38,17 @@ const getLessVariableName = ( iconName ) => {
 };
 
 /**
+ * Encode an SVG string for safe use in a data URI.
+ *
+ * This just URL-encodes # characters, as those are the only special characters that are not
+ * allowed in the data portion of a data URI.
+ *
+ * @param {string} svg
+ * @return {string}
+ */
+const encodeSvg = ( svg ) => svg.replace( /#/g, ( char ) => encodeURIComponent( char ) );
+
+/**
  * Build a comma-separated list of icon data to be used as the value of a Less variable.
  *
  * The list is structured as follows:
@@ -66,7 +77,7 @@ const getIconOutput = ( lessVariableName, icon ) => {
 	// anything past this point is an object.
 	if ( typeof icon === 'string' ) {
 		defaultIcon = icon;
-		return `${lessVariableName}: '${defaultIcon}', '${shouldFlip}', '${flipExceptions}', '${rtlIcon}', '${hasLangVariants}';\n`;
+		return `${lessVariableName}: '${encodeSvg( defaultIcon )}', '${shouldFlip}', '${flipExceptions}', '${rtlIcon}', '${hasLangVariants}';\n`;
 	}
 
 	if ( 'ltr' in icon ) {
@@ -103,14 +114,14 @@ const getIconOutput = ( lessVariableName, icon ) => {
 		// that type yet. If we add any, we should account for that here.
 		langCodeMap = Object.entries( icon.langCodeMap )
 			.map( ( [ langCode, langCodeIcon ] ) =>
-				typeof langCodeIcon === 'string' ? `${langCode} '${langCodeIcon}'` : '' )
+				typeof langCodeIcon === 'string' ? `${langCode} '${encodeSvg( langCodeIcon )}'` : '' )
 			// Filter out any empty strings. These would only exist if we introduced an icon with
 			// a language variant that was also of type IconFlipForRtl
 			.filter( ( s ) => s !== '' )
 			.join( ', ' );
 	}
 
-	let iconOutput = `${lessVariableName}: '${defaultIcon}', '${shouldFlip}', '${flipExceptions}', '${rtlIcon}', '${hasLangVariants}'`;
+	let iconOutput = `${lessVariableName}: '${encodeSvg( defaultIcon )}', '${shouldFlip}', '${flipExceptions}', '${encodeSvg( rtlIcon )}', '${hasLangVariants}'`;
 	iconOutput += langCodeMap.length > 0 ? `, ${langCodeMap}` : '';
 	iconOutput += ';\n';
 

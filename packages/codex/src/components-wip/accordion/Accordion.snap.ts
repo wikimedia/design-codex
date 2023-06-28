@@ -29,6 +29,7 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -93,6 +94,7 @@ exports[`Accordion matches the snapshot Case 1 Renders accordion disabled: ({"di
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -156,6 +158,7 @@ exports[`Accordion matches the snapshot Case 2 Renders accordion with icon: ({"a
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -219,6 +222,7 @@ exports[`Accordion matches the snapshot Case 3 Renders accordion with action but
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->

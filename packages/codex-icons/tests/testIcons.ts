@@ -31,3 +31,16 @@ export const complexLangIcon = {
 	},
 	default: exampleFlipIcon
 };
+
+export const exampleIconWithUse = {
+	ltr: '<path id="cdx-icon-use-a" d="M3 3H1v16h18v-2H3z"/><use xlink:href="#cdx-icon-use-a"/>',
+	rtl: '<path id="cdx-icon-use-a" d="M3 3H1v16h18v-2H3z"/><use xlink:href="#cdx-icon-use-a"/>'
+};
+
+export const exampleIconWithUseMultiLang = {
+	langCodeMap: {
+		nl: '<path id="cdx-icon-use-a" d="M3 3H1v16h18v-2H3z"/><use xlink:href="#cdx-icon-use-a"/>',
+		fy: '<path id="cdx-icon-use-a" d="M3 3H1v16h18v-2H3z"/><use xlink:href="#cdx-icon-use-a"/>'
+	},
+	default: '<path id="cdx-icon-use-a" d="M3 3H1v16h18v-2H3z"/><use xlink:href="#cdx-icon-use-a"/>'
+};

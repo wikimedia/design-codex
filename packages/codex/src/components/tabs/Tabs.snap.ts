@@ -31,6 +31,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -128,6 +129,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -239,6 +241,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -336,6 +339,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -450,6 +454,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -551,6 +556,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
