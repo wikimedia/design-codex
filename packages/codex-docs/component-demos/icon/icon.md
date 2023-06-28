@@ -74,7 +74,7 @@ Visit the [Button docs](./button.md#with-css-icon) for details on using CSS icon
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<p>
-		<span class="cdx-demo-css-icon--tag"></span> Label
+		<span class="cdx-demo-css-icon--code"></span> Code
 	</p>
 	<p>
 		<span class="cdx-demo-css-icon--map-pin"></span> Map pin
@@ -85,8 +85,8 @@ Visit the [Button docs](./button.md#with-css-icon) for details on using CSS icon
 
 ```html
 <p>
-	<span class="cdx-demo-css-icon--tag"></span>
-	Label
+	<span class="cdx-demo-css-icon--code"></span>
+	Code
 </p>
 <p>
 	<span class="cdx-demo-css-icon--map-pin"></span>
@@ -100,8 +100,8 @@ Visit the [Button docs](./button.md#with-css-icon) for details on using CSS icon
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon {
-	&--tag {
-		.cdx-mixin-css-icon( @cdx-icon-tag );
+	&--code {
+		.cdx-mixin-css-icon( @cdx-icon-code );
 	}
 
 	&--map-pin {
@@ -321,8 +321,8 @@ The CSS-only icons mixin supports icons with language-specific variants.
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon {
-	&--tag {
-		.cdx-mixin-css-icon( @cdx-icon-tag );
+	&--code {
+		.cdx-mixin-css-icon( @cdx-icon-code );
 	}
 
 	&--map-pin {
