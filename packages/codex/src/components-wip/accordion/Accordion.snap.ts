@@ -60,7 +60,14 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
     </button>
     <!--v-if-->
   </h3>
-  <!--v-if-->
+  <div
+    class="cdx-accordion__content"
+    style="display: none;"
+  >
+    <!-- @slot Customizable Accordion content -->
+    
+    
+  </div>
 </div>
 `;
 
@@ -69,7 +76,7 @@ exports[`Accordion matches the snapshot Case 1 Renders accordion disabled: ({"di
   class="cdx-accordion cdx-accordion--disabled cdx-accordion--has-icon"
 >
   <h3
-    class="cdx-accordion__header cdx-accordion__header--disabled"
+    class="cdx-accordion__header"
   >
     <button
       aria-disabled="true"
@@ -125,7 +132,14 @@ exports[`Accordion matches the snapshot Case 1 Renders accordion disabled: ({"di
     </button>
     <!--v-if-->
   </h3>
-  <!--v-if-->
+  <div
+    class="cdx-accordion__content"
+    style="display: none;"
+  >
+    <!-- @slot Customizable Accordion content -->
+    
+    
+  </div>
 </div>
 `;
 
@@ -189,7 +203,14 @@ exports[`Accordion matches the snapshot Case 2 Renders accordion with icon: ({"a
     </button>
     <!--v-if-->
   </h3>
-  <!--v-if-->
+  <div
+    class="cdx-accordion__content"
+    style="display: none;"
+  >
+    <!-- @slot Customizable Accordion content -->
+    
+    
+  </div>
 </div>
 `;
 
@@ -253,6 +274,13 @@ exports[`Accordion matches the snapshot Case 3 Renders accordion with action but
     </button>
     <!--v-if-->
   </h3>
-  <!--v-if-->
+  <div
+    class="cdx-accordion__content"
+    style="display: none;"
+  >
+    <!-- @slot Customizable Accordion content -->
+    
+    
+  </div>
 </div>
 `;

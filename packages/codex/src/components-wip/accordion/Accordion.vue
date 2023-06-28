@@ -6,7 +6,6 @@
 		<component
 			:is="headingLevel"
 			class="cdx-accordion__header"
-			:class="{ 'cdx-accordion__header--disabled': disabled }"
 		>
 			<cdx-button
 				:aria-disabled="disabled"
@@ -51,7 +50,7 @@
 				/>
 			</cdx-button>
 		</component>
-		<div v-if="isExpanded" class="cdx-accordion__content">
+		<div v-show="isExpanded" class="cdx-accordion__content">
 			<!-- @slot Customizable Accordion content -->
 			<slot />
 		</div>
@@ -165,12 +164,6 @@ export default defineComponent( {
 .cdx-accordion {
 	position: relative;
 
-	&--has-icon &__toggle__title-text {
-		// The width of the icon, plus @spacing-35 for the left padding+border on
-		// the button, plus @spacing-50 of buffer space between the text and the button
-		padding-right: calc( @size-icon-medium + @spacing-35 + @spacing-50 );
-	}
-
 	&::after {
 		content: '';
 		background-color: @border-color-subtle;
@@ -178,7 +171,6 @@ export default defineComponent( {
 		position: absolute;
 		right: 0;
 		left: 0;
-		z-index: @z-index-base;
 		height: @size-absolute-1;
 	}
 
@@ -196,18 +188,18 @@ export default defineComponent( {
 
 		&:focus {
 			position: relative;
-			z-index: @z-index-stacking-2;
 			outline: @border-style-base @border-width-thick @color-progressive--focus;
 		}
 
 		&:focus:not( :focus-visible ) {
 			outline: @outline-base--focus;
 		}
+	}
 
-		&:hover:not( .cdx-accordion__header--disabled ) {
-			background-color: @background-color-interactive;
-			cursor: @cursor-base--hover;
-		}
+	/* stylelint-disable-next-line selector-not-notation */
+	&:not( &--disabled ) &__header:hover {
+		background-color: @background-color-interactive;
+		cursor: @cursor-base--hover;
 	}
 
 	&__content {
@@ -215,8 +207,7 @@ export default defineComponent( {
 		font-size: @font-size-base;
 	}
 
-	// Add specificity to override button styles
-	& &__toggle {
+	&__toggle {
 		width: @size-full;
 		max-width: unset;
 		padding: @spacing-75;
@@ -231,6 +222,8 @@ export default defineComponent( {
 			line-height: @line-height-xx-small;
 
 			&-icon {
+				// Make the icon as tall as the text, so that its vertical centering causes
+				// it to be aligned with the text
 				height: unit( @line-height-xx-small, em );
 				transition-property: @transition-property-toggle-switch-grip;
 				transition-duration: @transition-duration-medium;
@@ -251,27 +244,37 @@ export default defineComponent( {
 		}
 	}
 
-	&--disabled,
-	&&--disabled &__toggle__description {
-		color: @color-disabled;
-		cursor: @cursor-base--disabled;
+	&--has-icon &__toggle__title-text {
+		// The width of the icon, plus @spacing-35 for the left padding+border on
+		// the button, plus @spacing-50 of buffer space between the text and the button
+		padding-right: calc( @size-icon-medium + @spacing-35 + @spacing-50 );
 	}
 
-	// Add specificity to override button styles
-	& &__action[ type='button' ] {
+	&__action {
 		display: flex;
 		align-items: center;
 		position: absolute;
 		top: 0;
 		right: 0;
+		// Align the icon with the text by making it as tall as the text, plus 2 times the distance
+		// between the edge of the button and the text (which is @spacing-75 for the padding and
+		// @border-width-base for the button border)
 		height: calc( unit( @line-height-xx-small, em ) + 2*@spacing-75 + 2*@border-width-base );
 		padding-right: @spacing-75;
 		padding-left: @spacing-75;
+		// Set the font-size so that the em-based height calculation above works correctly
 		font-size: @font-size-base;
 
 		&:hover {
 			background-color: unset;
 		}
+	}
+
+	// Specifically target toggle__description to override its color style
+	&--disabled,
+	&--disabled &__toggle__description {
+		color: @color-disabled;
+		cursor: @cursor-base--disabled;
 	}
 }
 </style>

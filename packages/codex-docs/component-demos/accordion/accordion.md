@@ -10,33 +10,33 @@ import AccordionActionVisible from '@/../component-demos/accordion/examples/Acco
 import AccordionHeadings from '@/../component-demos/accordion/examples/AccordionHeadings.vue';
 
 const controlsConfig = [
-    {
-        name: 'disabled',
-        type: 'boolean'
-    },
-    {
+	{
+		name: 'disabled',
+		type: 'boolean'
+	},
+	{
 		name: 'default',
 		type: 'slot',
 		default: 'The default slot is the content of the accordion'
 	},
-    {
+	{
 		name: 'description',
 		type: 'slot',
 		default: ''
 	},
-    {
+	{
 		name: 'title',
 		type: 'slot',
 		default: 'Customizable accordion component title'
 	},
-    {
-        name: 'actionIcon',
-        type: 'icon'
-    },
-    {
-        name: 'actionAlwaysVisible',
-        type: 'boolean',
-    }
+	{
+		name: 'actionIcon',
+		type: 'icon'
+	},
+	{
+		name: 'actionAlwaysVisible',
+		type: 'boolean',
+	}
 ];
 </script>
 
@@ -46,15 +46,15 @@ const controlsConfig = [
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues, slotValues }">
-    <cdx-accordion  v-bind="propValues">
-        {{ slotValues.default }}
-        <template v-if="slotValues[ 'title' ]" #title>
-            {{ slotValues[ 'title' ] }}
-        </template>
-        <template v-if="slotValues[ 'description' ]" #description>
-            {{ slotValues[ 'description' ] }}
-        </template>
-    </cdx-accordion>
+	<cdx-accordion v-bind="propValues">
+		{{ slotValues.default }}
+		<template v-if="slotValues.title" #title>
+			{{ slotValues.title }}
+		</template>
+		<template v-if="slotValues.description" #description>
+			{{ slotValues.description }}
+		</template>
+	</cdx-accordion>
 </template>
 </cdx-demo-wrapper>
 
@@ -62,7 +62,7 @@ const controlsConfig = [
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-    <accordion-default />
+	<accordion-default />
 </template>
 <template v-slot:code>
 
@@ -75,7 +75,7 @@ const controlsConfig = [
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-    <accordion-description />
+	<accordion-description />
 </template>
 <template v-slot:code>
 
@@ -90,7 +90,7 @@ It's possible to stack accordions by adding them next to each other in the marku
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-    <accordion-stacked />
+	<accordion-stacked />
 </template>
 <template v-slot:code>
 
@@ -112,7 +112,7 @@ button for accessibility purposes by using the `actionButtonLabel` prop.
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-    <accordion-action-button />
+	<accordion-action-button />
 </template>
 <template v-slot:code>
 
@@ -127,7 +127,7 @@ To show the icon even when the accordion is collapsed, set the `actionAlwaysVisi
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-    <accordion-action-visible />
+	<accordion-action-visible />
 </template>
 <template v-slot:code>
 
@@ -142,7 +142,7 @@ The accordion can be used with different elements, including images or tables.
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-    <accordion-different-content />
+	<accordion-different-content />
 </template>
 <template v-slot:code>
 
@@ -157,7 +157,7 @@ The accordion heading can be changed to any heading level by passing the `headin
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-    <accordion-headings />
+	<accordion-headings />
 </template>
 <template v-slot:code>
 
@@ -173,7 +173,7 @@ the action button.
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-    <accordion-disabled />
+	<accordion-disabled />
 </template>
 <template v-slot:code>
 
