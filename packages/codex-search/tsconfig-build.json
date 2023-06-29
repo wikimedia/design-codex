@@ -2,7 +2,6 @@
 	"compilerOptions": {
 		"target": "es2015",
 		"useDefineForClassFields": true,
-		"module": "es2015",
 		"moduleResolution": "node",
 		"strict": true,
 		"jsx": "preserve",
@@ -14,8 +13,7 @@
 		"checkJs": true,
 		"skipLibCheck": true,
 		"declaration": true,
-		"declarationDir": "dist/types",
-		"emitDeclarationOnly": true
+		"declarationDir": "dist/types"
 	},
 	"include": [ "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue" ],
 	"exclude": [ "src/**/*.snap.ts" ]

@@ -1,15 +1,15 @@
 {
 	"compilerOptions": {
-		"target": "es2015",
+		"target": "esnext",
 		"useDefineForClassFields": true,
-		"module": "es2015",
+		"module": "esnext",
 		"moduleResolution": "node",
 		"strict": true,
 		"jsx": "preserve",
 		"sourceMap": true,
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
-		"lib": [ "es2015", "dom" ],
+		"lib": [ "esnext", "dom" ],
 		"types": [ "jest" ],
 		"allowJs": true,
 		"checkJs": true,
@@ -21,6 +21,7 @@
 	},
 	"include": [
 		"./**/*.js",
+		"./**/*.mjs",
 		"./**/*.ts",
 		"./**/*.vue",
 		".jest/*.js",

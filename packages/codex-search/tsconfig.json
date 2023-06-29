@@ -1,4 +1,16 @@
 {
 	"extends": "./tsconfig-build.json",
-	"include": [ "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "./*.ts", "./*.js" ]
+	"compilerOptions": {
+		"noEmit": true,
+		"module": "esnext"
+	},
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"src/**/*.tsx",
+		"src/**/*.vue",
+		"./*.ts",
+		"./*.js",
+		"./*.mjs"
+	]
 }

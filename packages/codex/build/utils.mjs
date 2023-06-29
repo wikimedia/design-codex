@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 import * as url from 'url';
-const __dirname = url.fileURLToPath( new URL( '.', import.meta.url ) );
+const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', import.meta.url ) ) );
 
 import { build, mergeConfig } from 'vite';
 import autoprefixer from 'autoprefixer';
@@ -66,7 +66,7 @@ export async function generateCodexBundle( bundleName, bundleConfig = {} ) {
 					css: {
 						postcss: {
 							plugins: [
-								rtlcss( { useCalc: true } ),
+								rtlcss( /** @type {rtlcss.ConfigOptions} */ ( { useCalc: true } ) ),
 								autoprefixer()
 							]
 						}
@@ -83,7 +83,7 @@ export async function generateCodexBundle( bundleName, bundleConfig = {} ) {
 					css: {
 						postcss: {
 							plugins: [
-								rtlcss( { useCalc: true } ),
+								rtlcss( /** @type {rtlcss.ConfigOptions} */ ( { useCalc: true } ) ),
 								autoprefixer()
 							]
 						}
