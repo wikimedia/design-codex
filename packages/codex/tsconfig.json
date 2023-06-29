@@ -10,6 +10,7 @@
 		"src/**/*.vue",
 		"build/**/*.ts",
 		"build/**/*.mjs",
+		"demos/**/*.ts",
 		".jest/*.js",
 		"./*.ts",
 		"./*.js",

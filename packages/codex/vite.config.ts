@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import postcssRtlcss from 'postcss-rtlcss';
 import autoprefixer from 'autoprefixer';
+import { codexIconNames } from './build/utils.mjs';
 
 // See build.mjs for build settings; this file is only used during dev mode
 export default defineConfig( ( { command } ) => {
@@ -23,6 +24,14 @@ export default defineConfig( ( { command } ) => {
 
 						autoprefixer()
 					]
+				},
+				preprocessorOptions: {
+					less: {
+						globalVars: {
+							// @codexIconNames is used in IconGrid.vue
+							codexIconNames
+						}
+					}
 				}
 			},
 

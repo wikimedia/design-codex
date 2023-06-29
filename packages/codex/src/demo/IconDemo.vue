@@ -1,6 +1,9 @@
 <template>
 	<section id="cdx-icon">
 		<h2>Icons</h2>
+		<p>
+			See also <a href="demos/icons.html">the grid of all icons</a>.
+		</p>
 		<p dir="rtl">
 			<cdx-icon :icon="cdxIconArrowNext" /> next
 		</p>

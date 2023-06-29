@@ -5,6 +5,12 @@ const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', impo
 import { build, mergeConfig } from 'vite';
 import autoprefixer from 'autoprefixer';
 import rtlcss from 'rtlcss';
+import * as allIcons from '@wikimedia/codex-icons';
+
+export const codexIconNames = Object.keys( allIcons )
+	.filter( ( key ) => key.startsWith( 'cdxIcon' ) )
+	.map( ( key ) => key.replace( /[A-Z]/g, ( l ) => `-${l.toLowerCase()}` ).replace( /^-/, '' ) )
+	.join( ', ' );
 
 /**
  * Build Codex (or a sub-set of it) as a set of bundled library files

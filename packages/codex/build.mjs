@@ -7,7 +7,7 @@ import vue from '@vitejs/plugin-vue';
 import copyFiles from './vite-plugin-copy-files.mjs';
 import autoprefixer from 'autoprefixer';
 import postcssRtlcss from 'postcss-rtlcss';
-import { generateCodexBundle } from './build/utils.mjs';
+import { generateCodexBundle, codexIconNames } from './build/utils.mjs';
 
 /** @type {import('vite').UserConfig} */
 const baseConfig = {
@@ -36,7 +36,15 @@ const baseConfig = {
 
 const sandboxConfig = mergeConfig( baseConfig, {
 	base: '/sandbox/',
-	build: { outDir: 'dist/sandbox' },
+	build: {
+		outDir: 'dist/sandbox',
+		rollupOptions: {
+			input: {
+				index: resolve( __dirname, 'index.html' ),
+				icons: resolve( __dirname, 'demos', 'icons.html' )
+			}
+		}
+	},
 	css: {
 		postcss: {
 			plugins: [
@@ -48,6 +56,14 @@ const sandboxConfig = mergeConfig( baseConfig, {
 
 				autoprefixer()
 			]
+		},
+		preprocessorOptions: {
+			less: {
+				globalVars: {
+					// @codexIconNames is used in IconDemo.vue
+					codexIconNames
+				}
+			}
 		}
 	}
 } );
