@@ -122,15 +122,18 @@ ToggleSwitch, to ensure proper accessibility support.
 <template v-slot:demo>
 	<!-- Wrapper <span>. -->
 	<span class="cdx-toggle-switch">
-		<!-- <input> with type="checkbox" and ID. -->
-		<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox">
 		<!-- <label> with for attribute matching input ID. -->
 		<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
 			Label
 		</label>
-		<!-- <span> elements that will be styled to look like the toggle switch. -->
-		<span class="cdx-toggle-switch__switch">
-			<span class="cdx-toggle-switch__switch__grip"></span>
+		<!-- <span> that wraps the input and visible switch. -->
+		<span class="cdx-toggle-switch__input-wrapper">
+			<!-- <input> with type="checkbox" and ID. -->
+			<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox">
+			<!-- <span> elements that will be styled to look like the toggle switch. -->
+			<span class="cdx-toggle-switch__switch">
+				<span class="cdx-toggle-switch__switch__grip"></span>
+			</span>
 		</span>
 	</span>
 </template>
@@ -139,15 +142,18 @@ ToggleSwitch, to ensure proper accessibility support.
 ```html
 <!-- Wrapper <span>. -->
 <span class="cdx-toggle-switch">
-	<!-- <input> with type="checkbox" and ID. -->
-	<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox">
 	<!-- <label> with for attribute matching input ID. -->
 	<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
 		Label
 	</label>
-	<!-- <span> elements that will be styled to look like the toggle switch. -->
-	<span class="cdx-toggle-switch__switch">
-		<span class="cdx-toggle-switch__switch__grip"></span>
+	<!-- <span> that wraps the input and visible switch. -->
+	<span class="cdx-toggle-switch__input-wrapper">
+		<!-- <input> with type="checkbox" and ID. -->
+		<input id="cdx-toggle-switch-11" class="cdx-toggle-switch__input" type="checkbox">
+		<!-- <span> elements that will be styled to look like the toggle switch. -->
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip"></span>
+		</span>
 	</span>
 </span>
 ```
@@ -163,12 +169,14 @@ The toggle switch appears "on" when the hidden checkbox is checked. To initially
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<span class="cdx-toggle-switch">
-		<input id="cdx-toggle-switch-12" class="cdx-toggle-switch__input" type="checkbox" checked>
 		<label for="cdx-toggle-switch-12" class="cdx-toggle-switch__label">
 			Initially on
 		</label>
-		<span class="cdx-toggle-switch__switch">
-			<span class="cdx-toggle-switch__switch__grip"></span>
+		<span class="cdx-toggle-switch__input-wrapper">
+			<input id="cdx-toggle-switch-12" class="cdx-toggle-switch__input" type="checkbox" checked>
+			<span class="cdx-toggle-switch__switch">
+				<span class="cdx-toggle-switch__switch__grip"></span>
+			</span>
 		</span>
 	</span>
 </template>
@@ -176,12 +184,14 @@ The toggle switch appears "on" when the hidden checkbox is checked. To initially
 
 ```html
 <span class="cdx-toggle-switch">
-	<input id="cdx-toggle-switch-13" class="cdx-toggle-switch__input" type="checkbox" checked>
-	<label for="cdx-toggle-switch-13" class="cdx-toggle-switch__label">
+	<label for="cdx-toggle-switch-12" class="cdx-toggle-switch__label">
 		Initially on
 	</label>
-	<span class="cdx-toggle-switch__switch">
-		<span class="cdx-toggle-switch__switch__grip"></span>
+	<span class="cdx-toggle-switch__input-wrapper">
+		<input id="cdx-toggle-switch-12" class="cdx-toggle-switch__input" type="checkbox" checked>
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip"></span>
+		</span>
 	</span>
 </span>
 ```
@@ -198,23 +208,27 @@ To disable the toggle switch, add the `disabled` attribute to the `<input>` elem
 	<div class="cdx-docs-disabled-switches">
 		<div>
 			<span class="cdx-toggle-switch">
-				<input id="cdx-toggle-switch-14" class="cdx-toggle-switch__input" type="checkbox" disabled>
 				<label for="cdx-toggle-switch-14" class="cdx-toggle-switch__label">
 					Disabled, off
 				</label>
-				<span class="cdx-toggle-switch__switch">
-					<span class="cdx-toggle-switch__switch__grip"></span>
+				<span class="cdx-toggle-switch__input-wrapper">
+					<input id="cdx-toggle-switch-14" class="cdx-toggle-switch__input" type="checkbox" disabled>
+					<span class="cdx-toggle-switch__switch">
+						<span class="cdx-toggle-switch__switch__grip"></span>
+					</span>
 				</span>
 			</span>
 		</div>
 		<div>
 			<span class="cdx-toggle-switch">
-				<input id="cdx-toggle-switch-15" class="cdx-toggle-switch__input" type="checkbox" checked disabled>
 				<label for="cdx-toggle-switch-15" class="cdx-toggle-switch__label">
 					Disabled, on
 				</label>
-				<span class="cdx-toggle-switch__switch">
-					<span class="cdx-toggle-switch__switch__grip"></span>
+				<span class="cdx-toggle-switch__input-wrapper">
+					<input id="cdx-toggle-switch-15" class="cdx-toggle-switch__input" type="checkbox" checked disabled>
+					<span class="cdx-toggle-switch__switch">
+						<span class="cdx-toggle-switch__switch__grip"></span>
+					</span>
 				</span>
 			</span>
 		</div>
@@ -225,23 +239,27 @@ To disable the toggle switch, add the `disabled` attribute to the `<input>` elem
 ```html
 <div>
 	<span class="cdx-toggle-switch">
-		<input id="cdx-toggle-switch-16" class="cdx-toggle-switch__input" type="checkbox" disabled>
-		<label for="cdx-toggle-switch-16" class="cdx-toggle-switch__label">
+		<label for="cdx-toggle-switch-14" class="cdx-toggle-switch__label">
 			Disabled, off
 		</label>
-		<span class="cdx-toggle-switch__switch">
-			<span class="cdx-toggle-switch__switch__grip"></span>
+		<span class="cdx-toggle-switch__input-wrapper">
+			<input id="cdx-toggle-switch-14" class="cdx-toggle-switch__input" type="checkbox" disabled>
+			<span class="cdx-toggle-switch__switch">
+				<span class="cdx-toggle-switch__switch__grip"></span>
+			</span>
 		</span>
 	</span>
 </div>
 <div>
 	<span class="cdx-toggle-switch">
-		<input id="cdx-toggle-switch-17" class="cdx-toggle-switch__input" type="checkbox" checked disabled>
-		<label for="cdx-toggle-switch-17" class="cdx-toggle-switch__label">
+		<label for="cdx-toggle-switch-15" class="cdx-toggle-switch__label">
 			Disabled, on
 		</label>
-		<span class="cdx-toggle-switch__switch">
-			<span class="cdx-toggle-switch__switch__grip"></span>
+		<span class="cdx-toggle-switch__input-wrapper">
+			<input id="cdx-toggle-switch-15" class="cdx-toggle-switch__input" type="checkbox" checked disabled>
+			<span class="cdx-toggle-switch__switch">
+				<span class="cdx-toggle-switch__switch__grip"></span>
+			</span>
 		</span>
 	</span>
 </div>
