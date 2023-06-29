@@ -8,11 +8,11 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
     class="cdx-accordion__header"
   >
     <button
+      aria-controls="cdx-accordion-panel-1"
       aria-disabled="false"
       aria-expanded="false"
-      aria-hidden="true"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
-      tabindex="-1"
+      id="cdx-accordion-0"
       type="button"
     >
       <!-- @slot Button content -->
@@ -61,7 +61,11 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
     <!--v-if-->
   </h3>
   <div
+    aria-hidden="true"
+    aria-labelledby="cdx-accordion-0"
     class="cdx-accordion__content"
+    id="cdx-accordion-panel-1"
+    role="region"
     style="display: none;"
   >
     <!-- @slot Customizable Accordion content -->
@@ -79,12 +83,12 @@ exports[`Accordion matches the snapshot Case 1 Renders accordion disabled: ({"di
     class="cdx-accordion__header"
   >
     <button
+      aria-controls="cdx-accordion-panel-3"
       aria-disabled="true"
       aria-expanded="false"
-      aria-hidden="true"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
       disabled=""
-      tabindex="-1"
+      id="cdx-accordion-2"
       type="button"
     >
       <!-- @slot Button content -->
@@ -133,7 +137,11 @@ exports[`Accordion matches the snapshot Case 1 Renders accordion disabled: ({"di
     <!--v-if-->
   </h3>
   <div
+    aria-hidden="true"
+    aria-labelledby="cdx-accordion-2"
     class="cdx-accordion__content"
+    id="cdx-accordion-panel-3"
+    role="region"
     style="display: none;"
   >
     <!-- @slot Customizable Accordion content -->
@@ -151,11 +159,11 @@ exports[`Accordion matches the snapshot Case 2 Renders accordion with icon: ({"a
     class="cdx-accordion__header"
   >
     <button
+      aria-controls="cdx-accordion-panel-5"
       aria-disabled="false"
       aria-expanded="false"
-      aria-hidden="true"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
-      tabindex="-1"
+      id="cdx-accordion-4"
       type="button"
     >
       <!-- @slot Button content -->
@@ -204,7 +212,11 @@ exports[`Accordion matches the snapshot Case 2 Renders accordion with icon: ({"a
     <!--v-if-->
   </h3>
   <div
+    aria-hidden="true"
+    aria-labelledby="cdx-accordion-4"
     class="cdx-accordion__content"
+    id="cdx-accordion-panel-5"
+    role="region"
     style="display: none;"
   >
     <!-- @slot Customizable Accordion content -->
@@ -222,11 +234,11 @@ exports[`Accordion matches the snapshot Case 3 Renders accordion with action but
     class="cdx-accordion__header"
   >
     <button
+      aria-controls="cdx-accordion-panel-7"
       aria-disabled="false"
       aria-expanded="false"
-      aria-hidden="true"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
-      tabindex="-1"
+      id="cdx-accordion-6"
       type="button"
     >
       <!-- @slot Button content -->
@@ -275,7 +287,11 @@ exports[`Accordion matches the snapshot Case 3 Renders accordion with action but
     <!--v-if-->
   </h3>
   <div
+    aria-hidden="true"
+    aria-labelledby="cdx-accordion-6"
     class="cdx-accordion__content"
+    id="cdx-accordion-panel-7"
+    role="region"
     style="display: none;"
   >
     <!-- @slot Customizable Accordion content -->

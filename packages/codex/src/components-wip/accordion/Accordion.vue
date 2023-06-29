@@ -8,10 +8,10 @@
 			class="cdx-accordion__header"
 		>
 			<cdx-button
+				:id="accordionId"
 				:aria-disabled="disabled"
 				:aria-expanded="isExpanded"
-				:aria-hidden="true"
-				tabindex="-1"
+				:aria-controls="accordionPanelId"
 				class="cdx-accordion__toggle"
 				:disabled="disabled"
 				type="button"
@@ -50,7 +50,14 @@
 				/>
 			</cdx-button>
 		</component>
-		<div v-show="isExpanded" class="cdx-accordion__content">
+		<div
+			v-show="isExpanded"
+			:id="accordionPanelId"
+			:aria-labelledby="accordionId"
+			:aria-hidden="isExpanded ? undefined : true"
+			class="cdx-accordion__content"
+			role="region"
+		>
 			<!-- @slot Customizable Accordion content -->
 			<slot />
 		</div>
@@ -63,7 +70,7 @@ import CdxIcon from '../../components/icon/Icon.vue';
 import CdxButton from '../../components/button/Button.vue';
 import { cdxIconExpand, Icon } from '@wikimedia/codex-icons';
 import { HeadingLevel } from '../../types';
-
+import useGeneratedId from '../../composables/useGeneratedId';
 /**
  * A vertical item with hidden content.
  */
@@ -128,6 +135,8 @@ export default defineComponent( {
 	],
 	setup( props, { emit } ) {
 		const isExpanded = ref( false );
+		const accordionId = useGeneratedId( 'accordion' );
+		const accordionPanelId = useGeneratedId( 'accordion-panel' );
 
 		const toggle = (): void => {
 			isExpanded.value = !isExpanded.value;
@@ -152,7 +161,9 @@ export default defineComponent( {
 			isExpanded,
 			rootClasses,
 			shouldShowActionButton,
-			toggle
+			toggle,
+			accordionId,
+			accordionPanelId
 		};
 	}
 } );
@@ -220,6 +231,7 @@ export default defineComponent( {
 			display: flex;
 			gap: @spacing-50;
 			line-height: @line-height-xx-small;
+			pointer-events: none;
 
 			&-icon {
 				// Make the icon as tall as the text, so that its vertical centering causes
@@ -237,6 +249,7 @@ export default defineComponent( {
 			padding-left: @spacing-150;
 			font-weight: @font-weight-normal;
 			line-height: @line-height-xx-small;
+			pointer-events: none;
 		}
 
 		&[ aria-expanded='true' ] .cdx-accordion__toggle__title-icon {
