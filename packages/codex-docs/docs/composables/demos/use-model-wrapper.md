@@ -1,122 +1,143 @@
-<script setup>
-import { CdxMessage } from '@wikimedia/codex';
-</script>
 # useModelWrapper
 
-Returns an editable computed property that emits an event when changed.
+Returns an [editable computed property](https://vuejs.org/guide/essentials/computed.html#writable-computed)
+that emits an event when changed.
 
 This is useful to reduce boilerplate when `v-model` is set on a component in the parent and
 its `modelValue` needs to be bound via `v-model` to an input or another component within the component.
+Setting `v-model="modelValue"` on the child component doesn't work, because
+mutating the `modelValue` prop is not allowed, and an `update:modelValue` event needs to be
+emitted instead.
+
+This composable returns a `wrappedModel` such that `v-model="wrappedModel"`
+does work correctly. When reading from `wrappedModel`, the value of the `modelValue` prop is
+returned; when writing to `wrappedModel`, an `update:modelValue` event is emitted, which
+instructs the parent to change the value it passes into the `modelValue` prop.
 
 This approach was inspired by https://www.vuemastery.com/blog/vue-3-data-down-events-up/.
 
-## Background
-
-With the standard Vue APIs this is the code required to bind a value from a component to an input within
-it:
-
-```vue
-<!-- Example.vue -->
-<message-editor
-	v-model="message"
-/>
-```
-The `modelValue` from `v-model` could be bound to an input like this:
-```vue
-<!-- MessageEditor.vue -->
-<input
-	type="text"
-	v-model="modelValue"
- >
-```
-Which is expanded by Vue's compiler to:
-```vue
-<!-- MessageEditor.vue -->
-<input
-	type="text"
-	:value="modelValue"
-	@input="modelValue = $event.target.value"
->
+## Usage
+To wrap the `modelValue` prop, pass in the prop as a ref (using the `toRef` function from Vue)
+and the `emit` function that is passed to the setup function:
+```js
+const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
 ```
 
-When using this approach with a custom component instead of an input, the event name
-is defined by the component, hence the verbose approach is required to capture it. The event
-handler is then responsible to bubble up the received event and value:
-
-```vue
-<!-- MessageEditor.vue -->
-<my-input
-	:value="modelValue"
-	@update:model-value="( newValue ) => emit( 'update:modelValue', newValue )"
-/>
+To wrap a prop with a different name, pass a third parameter with the name of the event to emit.
+This is `update:` followed by the name of the prop. For example, to wrap a prop called `open`,
+use:
+```js
+const wrappedOpen = useModelWrapper(
+	toRef( props, 'open' ),
+	emit,
+	'update:open'
+);
 ```
+
+Make sure that the event name (`update:open` in the example above, or `update:modelValue` when
+wrapping the `modelValue` prop) is listed in the `emits` array in the component definition.
+If you're using TypeScript, TypeScript will verify that this is the case, and will throw cryptic
+errors if the event is not listed. For more information and examples of what these errors look
+like, see
+[the section about useModelWrapper on the TypeScript page](../../contributing/contributing-code/typescript.md#incorrect-event-name-passed-to-usemodelwrapper).
+
+## Full examples
+
+### Wrapping the `modelValue` prop
+Below is a simple component that wraps a Codex TextArea. It takes a string through its
+`modelValue` prop, and passes it down to the TextArea. It's designed to be used with `v-model`
+in its parent component, e.g. `<message-editor v-model="message" />`.
 ```vue
-<!-- MyInput.vue -->
 <template>
-	<!-- ✗ BAD -->
-	<input v-model="modelValue" />
+	<p>Edit your message:</p>
+	<!-- Conceptually, we want to use v-model="modelValue",
+	     but that causes lint errors -->
+	<cdx-text-area v-model="wrappedModel" />
 </template>
-<script>
-export default {
-	emits: [ 'update:modelValue' ],
+
+<script lang="ts">
+import { defineComponent, toRef } from 'vue';
+import { CdxTextArea, useModelWrapper } from '@wikimedia/codex';
+
+export default defineComponent( {
+	components: {
+		CdxTextArea
+	},
 	props: {
-		/**
-		 * The component model value. Should be provided via a v-model
-		 * binding in the parent scope.
-		 */
 		modelValue: {
 			type: String,
-			default: ''
-		}
-	}
-}
-</script>
-```
-:::warning
-The example above will yield an _eslint_ error for the rule _[vue/no-mutating-props](https://eslint.vuejs.org/rules/no-mutating-props.html)_
-:::
-
-We can't just reuse the bound `modelValue` because that would mutate a prop which is highly discouraged.
-Instead, we need a separate computed property that manually handles setting the value and emitting an event
-when the input is changed.
-
-The described pattern requires some verbosity to bind models down and to bubble events up that
-can be simplified using this composable.
-
-## Example of usage
-
-The prior code could be re-written as follows:
-
-```vue
-<!-- MessageEditor.vue -->
-<template>
-	<my-input v-model="wrappedModel">
-</template>
-<script>
-import { useModelWrapper } from '@wikimedia/codex';
-import MyInput from './MyInput.vue';
-
-export default {
-	components: { MyInput },
-	emits: [ 'update:modelValue' ],
-	props: {
-		/**
-		 * The component model value. Should be provided via a v-model
-		 * binding in the parent scope.
-		 */
-		modelValue: {
-			type: String,
-			default: ''
+			required: true
 		}
 	},
-	setup() {
-		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ) )
+	emits: [
+		'update:modelValue'
+	],
+	setup( props, { emit } ) {
+		const wrappedModel = useModelWrapper(
+			toRef( props, 'modelValue' ),
+			emit
+		);
 		return {
 			wrappedModel
-		}
+		};
 	}
-}
+} );
 </script>
 ```
 
-This also allows you to document the type of the `v-model` bound value with Vue's standard prop definitions.
+### Wrapping a prop not named `modelValue`
+Below is a simple component that wraps a Codex Dialog. It takes an `open` prop, and passes it down
+to the Dialog. It's designed to be used with a named `v-model` in its parent component, e.g.
+`<custom-dialog v-model:open="isDialogOpen" />`. See also the
+[Dialog documentation](../../components/demos/dialog.md#reusable-custom-dialog-example) for a more
+worked-out example.
+
+```vue
+<template>
+	<!-- Conceptually, we want to use v-model:open="open",
+	     but that causes lint errors -->
+	<cdx-dialog v-model:open="wrappedOpen">
+		<p>Hello! I am a custom dialog.</p>
+		<!-- This could also be @click="wrappedOpen = false" -->
+		<cdx-button @click="close">Close me</cdx-button>
+	</cdx-dialog>
+</template>
+
+<script lang="ts">
+import { defineComponent, toRef } from 'vue';
+import { CdxDialog, useModelWrapper } from '@wikimedia/codex';
+
+export default defineComponent( {
+	components: {
+		CdxDialog
+	},
+	props: {
+		open: {
+			type: Boolean,
+			required: true
+		}
+	},
+	emits: [
+		'update:open'
+	],
+	setup( props, { emit } ) {
+		const wrappedOpen = useModelWrapper(
+			toRef( props, 'open' ),
+			emit,
+			'update:open'
+		);
+
+		function close() {
+			// Setting wrappedOpen.value = false; is equivalent to calling
+			// emit( 'update:open', false );
+			wrappedOpen.value = false;
+		}
+
+		return {
+			wrappedOpen,
+			close
+		};
+	}
+} );
+</script>
+```
