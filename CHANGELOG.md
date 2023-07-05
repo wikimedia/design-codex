@@ -1,3 +1,33 @@
+# 0.14.0 / 2023-07-05
+
+## Features
+- ToggleSwitch: Fix layout of CSS-only version (Anne Tomasevich)
+- TextInput: Add `readonly` styling and config demo (Volker E)
+- Icon: Make <use> work in CSS-only icons (Roan Kattouw)
+
+## Styles
+- styles, Button, Message: Remove some `:not()` selectors (Anne Tomasevich)
+- Button, styles: Remove :not() selectors for button size (Roan Kattouw)
+- Accordion: Simplify styles and add comments (Roan Kattouw)
+
+## Icons
+- Icons: add QR code icon (MusikAnimal)
+- Icons: Add user rights icon to Codex (LWatson)
+
+## Code
+- build: Don't make stylelint require tokens where they don't exist (Roan Kattouw)
+- demo: Refactor ButtonDemo and improve coverage (Roan Kattouw)
+- Accordion: changes after design review (szymonswiergosz)
+- Accordion: ARIA fixes and improvements (Eric Gardner)
+
+## Documentation
+- TextArea: Add resize browser support warning to Codex docs (LWatson)
+- docs, ToggleSwitch: Use unique IDs in CSS-only ToggleSwitch examples (Roan Kattouw)
+- Icon, docs: Use "code" instead of "tag" in CSS-only icon demo (Roan Kattouw)
+- docs: Remove unused/unnecessary styles in demos (Roan Kattouw)
+- lib: Export IconSize type (Roan Kattouw)
+- docs: Rewrite useModelWrapper docs (Roan Kattouw)
+
 # 0.13.0 / 2023-06-20
 
 ## Features
