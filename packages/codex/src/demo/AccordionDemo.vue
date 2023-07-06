@@ -60,5 +60,5 @@
 
 <script setup lang="ts">
 import { cdxIconEdit } from '@wikimedia/codex-icons';
-import { CdxAccordion } from '../lib-wip';
+import { CdxAccordion } from '../lib';
 </script>

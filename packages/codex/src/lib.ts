@@ -18,6 +18,7 @@
  */
 
 // Components
+import CdxAccordion from './components/accordion/Accordion.vue';
 import CdxButton from './components/button/Button.vue';
 import CdxButtonGroup from './components/button-group/ButtonGroup.vue';
 import CdxCard from './components/card/Card.vue';
@@ -83,11 +84,13 @@ import type {
 	PrimaryDialogAction,
 	BoxDimensions,
 	ValidationStatusType,
-	ValidationMessages
+	ValidationMessages,
+	HeadingLevel
 } from './types';
 
 export {
 	// Components
+	CdxAccordion,
 	CdxButton,
 	CdxButtonGroup,
 	CdxCard,
@@ -152,5 +155,6 @@ export {
 	PrimaryDialogAction,
 	BoxDimensions,
 	ValidationStatusType,
-	ValidationMessages
+	ValidationMessages,
+	HeadingLevel
 };
