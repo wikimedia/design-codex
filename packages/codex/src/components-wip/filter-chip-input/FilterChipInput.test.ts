@@ -9,6 +9,7 @@ describe( 'matches the snapshot', () => {
 		msg: string,
 		props: {
 			inputChips: FilterChipInputItem[],
+			separateInput?: boolean,
 			status?: ValidationStatusType,
 			disabled?: boolean,
 		}
@@ -17,6 +18,7 @@ describe( 'matches the snapshot', () => {
 	const cases: Case[] = [
 		[ 'Default props', { inputChips: [ { value: 'Sample chip' } ] } ],
 		[ 'No input chips', { inputChips: [] } ],
+		[ 'With separate input', { inputChips: [ { value: 'Sample chip' } ], separateInput: true } ],
 		[ 'With error', { inputChips: [ { value: 'Sample chip' } ], status: 'error' } ],
 		[ 'Disabled', { inputChips: [ { value: 'Sample chip' } ], disabled: true } ],
 		[ 'Input chips with icon', { inputChips: [ { value: 'Sample chip', icon: cdxIconArticle } ] } ]

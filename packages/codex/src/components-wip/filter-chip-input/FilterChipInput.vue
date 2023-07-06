@@ -3,28 +3,48 @@
 		class="cdx-filter-chip-input"
 		:class="rootClasses"
 		:style="rootStyle"
+		@click="focusInput"
 	>
-		<cdx-filter-chip
-			v-for="( chip ) in inputChips"
-			:key="chip.value"
-			class="cdx-filter-chip-input__item"
-			:remove-button-label="removeButtonLabel"
-			:icon="chip.icon"
-			:disabled="disabled"
-			@remove-chip="removeChip( chip )"
-		>
-			{{ chip.value }}
-		</cdx-filter-chip>
-		<input
-			v-model="inputValue"
-			class="cdx-filter-chip-input__input"
-			:disabled="disabled"
-			v-bind="otherAttrs"
-			@blur="onBlur"
-			@focus="onFocus"
-			@keydown="onKeydown"
-			@keydown.enter="onKeydownEnter"
-		>
+		<div class="cdx-filter-chip-input__chips">
+			<cdx-filter-chip
+				v-for="( chip ) in inputChips"
+				:key="chip.value"
+				class="cdx-filter-chip-input__item"
+				:remove-button-label="removeButtonLabel"
+				:icon="chip.icon"
+				:disabled="disabled"
+				@remove-chip="removeChip( chip )"
+			>
+				{{ chip.value }}
+			</cdx-filter-chip>
+
+			<input
+				v-if="!separateInput"
+				ref="input"
+				v-model="inputValue"
+				class="cdx-filter-chip-input__input"
+				:disabled="disabled"
+				v-bind="otherAttrs"
+				@blur="onBlur"
+				@focus="onFocus"
+				@keydown="onKeydown"
+				@keydown.enter="onKeydownEnter"
+			>
+		</div>
+
+		<div v-if="separateInput" class="cdx-filter-chip-input__separate-input">
+			<input
+				ref="input"
+				v-model="inputValue"
+				class="cdx-filter-chip-input__input"
+				:disabled="disabled"
+				v-bind="otherAttrs"
+				@blur="onBlur"
+				@focus="onFocus"
+				@keydown="onKeydown"
+				@keydown.enter="onKeydownEnter"
+			>
+		</div>
 	</div>
 </template>
 
@@ -72,6 +92,15 @@ export default defineComponent( {
 			}
 		},
 		/**
+		 * Whether the text input should appear below the set of filter chips.
+		 *
+		 * By default, the filter chips are inline with the input.
+		 */
+		separateInput: {
+			type: Boolean,
+			default: false
+		},
+		/**
 		 * `status` attribute of the input.
 		 *
 		 * @values 'default', 'error'
@@ -93,6 +122,7 @@ export default defineComponent( {
 		'update:input-chips'
 	],
 	setup( props, { emit, attrs } ) {
+		const input = ref<HTMLInputElement>();
 		// The value in the input element.
 		const inputValue = ref( '' );
 		// Internally validated status. Currently only changes to 'error' when there are duplicates.
@@ -107,10 +137,11 @@ export default defineComponent( {
 		const isFocused = ref( false );
 
 		const internalClasses = computed( () => {
-			// We need to do this explicitly, because we are setting the focus/disabled status
-			// on the parent div (which contains the chips and the input), not the actual input.
 			return {
+				'cdx-filter-chip-input--has-separate-input': props.separateInput,
 				[ `cdx-filter-chip-input--status-${computedStatus.value}` ]: true,
+				// We need focused and disabled classes on the root element, which contains the
+				// chips and the input, since it is styled to look like the input.
 				'cdx-filter-chip-input--focused': isFocused.value,
 				'cdx-filter-chip-input--disabled': props.disabled
 			};
@@ -150,6 +181,11 @@ export default defineComponent( {
 			}
 		}
 
+		const focusInput = (): void => {
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			input.value!.focus();
+		};
+
 		function onFocus() {
 			isFocused.value = true;
 		}
@@ -159,6 +195,7 @@ export default defineComponent( {
 		}
 
 		return {
+			input,
 			inputValue,
 			rootClasses,
 			rootStyle,
@@ -166,6 +203,7 @@ export default defineComponent( {
 			removeChip,
 			onKeydown,
 			onKeydownEnter,
+			focusInput,
 			onFocus,
 			onBlur
 		};
@@ -181,25 +219,34 @@ export default defineComponent( {
 @spacing-vertical-filter-chip: @spacing-25 - @border-width-base;
 
 .cdx-filter-chip-input {
-	display: flex;
-	flex: 1 auto;
-	flex-flow: wrap;
-	gap: @spacing-25;
-	box-sizing: @box-sizing-base;
-	min-width: @min-width-medium;
-	min-height: @min-size-interactive-pointer;
-	border-width: @border-width-base;
-	border-style: @border-style-base;
-	border-radius: @border-radius-base;
-	padding: @spacing-vertical-filter-chip @spacing-50;
+	// Common styles for the chip wrapper and separate input, regardless of disabled status.
+	&__chips,
+	&__separate-input {
+		box-sizing: @box-sizing-base;
+		min-width: @min-width-medium;
+		min-height: @min-size-interactive-pointer;
+		border-width: @border-width-base;
+		border-style: @border-style-base;
+		border-radius: @border-radius-base;
+		padding: @spacing-vertical-filter-chip @spacing-50;
+		line-height: @line-height-x-small;
+	}
+
+	&__chips {
+		display: flex;
+		flex: 1 auto;
+		flex-flow: wrap;
+		gap: @spacing-25;
+	}
 
 	&__input {
 		flex-grow: inherit;
 		border: 0;
 		font-family: inherit;
 		font-size: inherit;
-		// This is necessary to ensure that the root element is the proper height. Instead of using
-		// line height to provide breathing room for the text, we use padding on the root element.
+		// This is necessary to ensure that the root element is the proper height. Instead of
+		// using line height to provide breathing room for the text, we use padding on the root
+		// element.
 		/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 		line-height: 1;
 
@@ -214,39 +261,91 @@ export default defineComponent( {
 		}
 	}
 
-	&:not( .cdx-filter-chip-input--disabled ) {
-		background-color: @background-color-base;
-		border-color: @border-color-base;
-		box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
-		transition-property: @transition-property-base;
-		transition-duration: @transition-duration-medium;
+	&--has-separate-input {
+		.cdx-filter-chip-input__chips {
+			margin-bottom: @position-offset-border-width-base;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
 
-		&:hover {
-			border-color: @border-color-input--hover;
+		.cdx-filter-chip-input__separate-input {
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+	}
+
+	&:not( .cdx-filter-chip-input--disabled ) {
+		.cdx-filter-chip-input__chips,
+		.cdx-filter-chip-input__separate-input {
+			border-color: @border-color-base;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
+			transition-property: @transition-property-base;
+			transition-duration: @transition-duration-medium;
+
+			.cdx-filter-chip-input__input {
+				background-color: @background-color-base;
+			}
+		}
+
+		.cdx-filter-chip-input__separate-input {
+			background-color: @background-color-base;
+		}
+
+		&:not( .cdx-filter-chip-input--has-separate-input ) .cdx-filter-chip-input__chips {
+			background-color: @background-color-base;
+		}
+
+		&.cdx-filter-chip-input--has-separate-input .cdx-filter-chip-input__chips {
+			background-color: @background-color-interactive-subtle;
+		}
+
+		// For a combined input, show hover, error, and focus styles on the chips wrapper, which
+		// contains both the chips and the input.
+		// For a separate input, show those styles only on the separate input itself.
+		&:not( .cdx-filter-chip-input--has-separate-input ) .cdx-filter-chip-input__chips,
+		&.cdx-filter-chip-input--has-separate-input .cdx-filter-chip-input__separate-input {
+			&:hover {
+				border-color: @border-color-input--hover;
+			}
 		}
 
 		&.cdx-filter-chip-input--status-error {
-			border-color: @border-color-destructive;
+			&:not( .cdx-filter-chip-input--has-separate-input ) .cdx-filter-chip-input__chips,
+			&.cdx-filter-chip-input--has-separate-input .cdx-filter-chip-input__separate-input {
+				border-color: @border-color-destructive;
+			}
+		}
+
+		// Focus styles should override error, so they come after the error styles.
+		&.cdx-filter-chip-input--focused {
+			&:not( .cdx-filter-chip-input--has-separate-input ) .cdx-filter-chip-input__chips,
+			&.cdx-filter-chip-input--has-separate-input .cdx-filter-chip-input__separate-input {
+				border-color: @border-color-progressive--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+				outline: @outline-base--focus;
+			}
 		}
 
 		&.cdx-filter-chip-input--status-error&:not( .cdx-filter-chip-input--focused ) {
-			color: @color-destructive;
-		}
-
-		&.cdx-filter-chip-input--focused {
-			border-color: @border-color-progressive--focus;
-			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
-			outline: @outline-base--focus;
+			&:not( .cdx-filter-chip-input--has-separate-input ) .cdx-filter-chip-input__chips,
+			&.cdx-filter-chip-input--has-separate-input .cdx-filter-chip-input__separate-input {
+				color: @color-destructive;
+			}
 		}
 	}
 
 	&--disabled {
-		background-color: @background-color-disabled-subtle;
-		border-color: @border-color-disabled;
+		/* stylelint-disable-next-line no-descending-specificity */
+		.cdx-filter-chip-input__chips,
+		.cdx-filter-chip-input__separate-input {
+			background-color: @background-color-disabled-subtle;
+			border-color: @border-color-disabled;
 
-		.cdx-filter-chip-input__input {
-			color: @color-disabled;
-			-webkit-text-fill-color: @color-disabled;
+			/* stylelint-disable-next-line no-descending-specificity */
+			.cdx-filter-chip-input__input {
+				color: @color-disabled;
+				-webkit-text-fill-color: @color-disabled;
+			}
 		}
 	}
 }

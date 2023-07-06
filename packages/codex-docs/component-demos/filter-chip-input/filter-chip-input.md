@@ -14,6 +14,10 @@ const controlsConfig = [
 		default: 'Remove'
 	},
 	{
+		name: 'separateInput',
+		type: 'boolean'
+	},
+	{
 		name: 'status',
 		type: 'radio',
 		options: [ 'default', 'error' ],
