@@ -191,11 +191,12 @@ export default defineComponent( {
 
 	// This class can be applied to inline elements other than `<button>`, like `<a>` or `<label`>.
 	// We do not encourage this, but it is needed for some legacy code and progressive enhancements.
-	// These styles vertically center the button content and approximate the natural space between
-	// the icon and text.
+	// These styles vertically center the button content approximate the natural space between
+	// the icon and text. It also horizontally centers the content if its smaller than the min-width
 	&--fake-button {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 
 		// In case it's a link.
 		&,
