@@ -88,6 +88,17 @@
 			</template>
 		</button-demo-table>
 
+		<h3>Icon-only link buttons with small icon</h3>
+		<button-demo-table>
+			<template #default="{ action, size, weight, disabled }">
+				<!-- eslint-disable max-len -->
+				<a :class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`" aria-label="Button">
+					<span class="cdx-button__icon cdx-demo-css-icon--trash--small" />
+				</a>
+				<!-- eslint-enable max-len -->
+			</template>
+		</button-demo-table>
+
 		<h3>Checkbox hack (label buttons)</h3>
 		<button-demo-table>
 			<template #default="{ action, size, weight, disabled }">
@@ -222,6 +233,14 @@ const onClick = getEventLogger<Event>( 'click' );
 .cdx-demo-css-icon {
 	&--trash {
 		.cdx-mixin-css-icon( @cdx-icon-trash, @param-is-button-icon: true );
+	}
+
+	&--trash--small {
+		.cdx-mixin-css-icon(
+			@cdx-icon-trash,
+			@param-size-icon: @size-icon-small,
+			@param-is-button-icon: true
+		);
 	}
 
 	&--align-left {
