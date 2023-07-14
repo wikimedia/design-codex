@@ -344,6 +344,16 @@ export default defineComponent( {
 		line-height: @line-height-medium;
 	}
 
+	&__content > *:first-child {
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	&__content > *:last-child {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+
 	&__dismiss-button {
 		position: absolute;
 		// Use `spacing` tokens as the top/right axis orientation can always be in pixels,
