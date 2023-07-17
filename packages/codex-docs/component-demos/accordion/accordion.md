@@ -3,17 +3,12 @@ import { CdxAccordion } from '@wikimedia/codex';
 import AccordionDefault from '@/../component-demos/accordion/examples/AccordionDefault.vue';
 import AccordionDescription from '@/../component-demos/accordion/examples/AccordionDescription.vue';
 import AccordionStacked from '@/../component-demos/accordion/examples/AccordionStacked.vue';
-import AccordionDisabled from '@/../component-demos/accordion/examples/AccordionDisabled.vue';
 import AccordionActionButton from '@/../component-demos/accordion/examples/AccordionActionButton.vue';
 import AccordionDifferentContent from '@/../component-demos/accordion/examples/AccordionDifferentContent.vue';
 import AccordionActionVisible from '@/../component-demos/accordion/examples/AccordionActionVisible.vue';
 import AccordionHeadings from '@/../component-demos/accordion/examples/AccordionHeadings.vue';
 
 const controlsConfig = [
-	{
-		name: 'disabled',
-		type: 'boolean'
-	},
 	{
 		name: 'default',
 		type: 'slot',
@@ -162,22 +157,6 @@ The accordion heading can be changed to any heading level by passing the `headin
 <template v-slot:code>
 
 <<< @/../component-demos/accordion/examples/AccordionHeadings.vue
-
-</template>
-</cdx-demo-wrapper>
-
-### Disabled
-
-The accordion can be disabled by passing the `disabled` prop. This will disable the accordion and
-the action button.
-
-<cdx-demo-wrapper :force-controls="true">
-<template v-slot:demo>
-	<accordion-disabled />
-</template>
-<template v-slot:code>
-
-<<< @/../component-demos/accordion/examples/AccordionDisabled.vue
 
 </template>
 </cdx-demo-wrapper>

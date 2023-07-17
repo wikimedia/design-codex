@@ -9,11 +9,9 @@
 		>
 			<cdx-button
 				:id="accordionId"
-				:aria-disabled="disabled"
 				:aria-expanded="isExpanded"
 				:aria-controls="accordionPanelId"
 				class="cdx-accordion__toggle"
-				:disabled="disabled"
 				type="button"
 				weight="quiet"
 				@click="toggle"
@@ -38,7 +36,6 @@
 				v-if="shouldShowActionButton"
 				class="cdx-accordion__action"
 				:aria-label="actionButtonLabel"
-				:disabled="disabled"
 				type="button"
 				weight="quiet"
 				@click="emitActionButtonClick"
@@ -107,16 +104,6 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Disables the accordion.
-		 *
-		 * @values 'true', 'false'
-		 */
-		disabled: {
-			type: Boolean,
-			default: false
-		},
-
-		/**
 		 * The heading level of the accordion title.
 		 *
 		 * @values 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
@@ -151,7 +138,6 @@ export default defineComponent( {
 		} );
 
 		const rootClasses = computed( () => ( {
-			'cdx-accordion--disabled': props.disabled,
 			'cdx-accordion--has-icon': shouldShowActionButton
 		} ) );
 
@@ -197,6 +183,11 @@ export default defineComponent( {
 		transition-duration: @transition-duration-medium;
 		transition-timing-function: @transition-timing-function-system;
 
+		&:hover {
+			background-color: @background-color-interactive;
+			cursor: @cursor-base--hover;
+		}
+
 		&:focus {
 			position: relative;
 			outline: @border-style-base @border-width-thick @color-progressive--focus;
@@ -205,12 +196,6 @@ export default defineComponent( {
 		&:focus:not( :focus-visible ) {
 			outline: @outline-base--focus;
 		}
-	}
-
-	/* stylelint-disable-next-line selector-not-notation */
-	&:not( &--disabled ) &__header:hover {
-		background-color: @background-color-interactive;
-		cursor: @cursor-base--hover;
 	}
 
 	&__content {
@@ -281,13 +266,6 @@ export default defineComponent( {
 		&:hover {
 			background-color: unset;
 		}
-	}
-
-	// Specifically target toggle__description to override its color style
-	&--disabled,
-	&--disabled &__toggle__description {
-		color: @color-disabled;
-		cursor: @cursor-base--disabled;
 	}
 }
 </style>

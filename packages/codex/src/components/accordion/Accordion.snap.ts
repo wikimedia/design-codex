@@ -9,7 +9,6 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
   >
     <button
       aria-controls="cdx-accordion-panel-1"
-      aria-disabled="false"
       aria-expanded="false"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
       id="cdx-accordion-0"
@@ -77,17 +76,16 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
 
 exports[`Accordion matches the snapshot Case 1 Renders accordion disabled: ({"disabled": true}) => HTML 1`] = `
 <div
-  class="cdx-accordion cdx-accordion--disabled cdx-accordion--has-icon"
+  class="cdx-accordion cdx-accordion--has-icon"
+  disabled="true"
 >
   <h3
     class="cdx-accordion__header"
   >
     <button
       aria-controls="cdx-accordion-panel-3"
-      aria-disabled="true"
       aria-expanded="false"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
-      disabled=""
       id="cdx-accordion-2"
       type="button"
     >
@@ -160,7 +158,6 @@ exports[`Accordion matches the snapshot Case 2 Renders accordion with icon: ({"a
   >
     <button
       aria-controls="cdx-accordion-panel-5"
-      aria-disabled="false"
       aria-expanded="false"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
       id="cdx-accordion-4"
@@ -235,7 +232,6 @@ exports[`Accordion matches the snapshot Case 3 Renders accordion with action but
   >
     <button
       aria-controls="cdx-accordion-panel-7"
-      aria-disabled="false"
       aria-expanded="false"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
       id="cdx-accordion-6"
