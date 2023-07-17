@@ -8,8 +8,7 @@ describe( 'Accordion', () => {
 			msg: string,
 			props: {
 				actionAlwaysVisible?: boolean
-				actionIcon?: string,
-				disabled?: boolean,
+				actionIcon?: string
 			},
 			slotTitle: string,
 			slotContent: string,
@@ -17,9 +16,8 @@ describe( 'Accordion', () => {
 
 		const cases: Case[] = [
 			[ 'Renders with basic basic title and text content', {}, 'Title', 'Content' ],
-			[ 'Renders accordion disabled', { disabled: true }, 'Title', 'Content' ],
-			[ 'Renders accordion with icon', { actionAlwaysVisible: true }, 'Title', 'Content' ],
-			[ 'Renders accordion with action button', { actionIcon: cdxIconEdit }, 'Title', 'Content' ]
+			[ 'Action button is not visible when collapsed', { actionIcon: cdxIconEdit }, 'Title', 'Content' ],
+			[ 'actionAlwaysVisible makes action button visible even when collapsed', { actionIcon: cdxIconEdit, actionAlwaysVisible: true }, 'Title', 'Content' ]
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slotTitle, slotContent ) => {
@@ -44,6 +42,21 @@ describe( 'Accordion', () => {
 			} );
 			await wrapper.find( '.cdx-accordion__toggle' ).trigger( 'click' );
 			expect( wrapper.get( '.cdx-accordion__content' ).text() ).toBe( 'Content' );
+		} );
+
+		it( 'should show the action button', async () => {
+			const wrapper = mount( CdxAccordion, {
+				props: {
+					actionIcon: cdxIconEdit
+				},
+				slots: {
+					title: 'Title',
+					default: 'Content'
+				}
+			} );
+			expect( wrapper.find( '.cdx-accordion__action' ).exists() ).toBeFalsy();
+			await wrapper.find( '.cdx-accordion__toggle' ).trigger( 'click' );
+			expect( wrapper.find( '.cdx-accordion__action' ).exists() ).toBeTruthy();
 		} );
 	} );
 } );
