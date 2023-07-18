@@ -66,7 +66,7 @@ styles specific to the demo have been removed to avoid confusion. -->
 	</cdx-message>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxMessage, CdxButton } from '@wikimedia/codex';
 

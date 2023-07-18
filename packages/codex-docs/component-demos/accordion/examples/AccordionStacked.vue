@@ -19,7 +19,7 @@
 	</cdx-accordion>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxAccordion } from '@wikimedia/codex';
 

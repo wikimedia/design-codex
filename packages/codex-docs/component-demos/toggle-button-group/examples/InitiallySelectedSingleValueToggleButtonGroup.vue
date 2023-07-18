@@ -5,13 +5,13 @@
 	/>
 	<p>
 		Selected value:
-		{{ selectedValue ?? '(null)' }}
+		{{ selectedValue || '(null)' }}
 	</p>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxToggleButtonGroup, ButtonGroupItem } from '@wikimedia/codex';
+import { CdxToggleButtonGroup } from '@wikimedia/codex';
 import {
 	cdxIconImageLayoutBasic,
 	cdxIconImageLayoutFrame,
@@ -25,7 +25,7 @@ export default defineComponent( {
 		CdxToggleButtonGroup
 	},
 	setup() {
-		const buttons: ButtonGroupItem[] = [
+		const buttons = [
 			{ value: 'basic', label: 'Basic', icon: cdxIconImageLayoutBasic },
 			{ value: 'framed', label: 'Framed', icon: cdxIconImageLayoutFrame },
 			{ value: 'frameless', label: 'Frameless', icon: cdxIconImageLayoutFrameless },

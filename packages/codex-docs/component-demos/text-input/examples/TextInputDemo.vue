@@ -18,19 +18,9 @@
 	</div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType, ref } from 'vue';
+<script>
+import { defineComponent, ref } from 'vue';
 import { CdxTextInput } from '@wikimedia/codex';
-import { Icon } from '@wikimedia/codex-icons';
-import { getMultiEventLogger } from '../../../src/utils/getEventLogger';
-
-interface InputProps {
-	inputType?: 'text' | 'search',
-	disabled?: boolean,
-	startIcon?: Icon,
-	endIcon?: Icon,
-	clearable?: boolean
-}
 
 /**
  * Component for demonstrating the TextInput component by showing how the value is bound and
@@ -66,7 +56,7 @@ export default defineComponent( {
 		 * Props to bind to the CdxTextInput
 		 */
 		inputProps: {
-			type: Object as PropType<InputProps>,
+			type: Object,
 			default: () => {
 				return {};
 			}
@@ -75,7 +65,14 @@ export default defineComponent( {
 	setup( props ) {
 		const inputValue = ref( props.initialValue );
 
-		const onEvent = getMultiEventLogger<string>();
+		/**
+		 * @param {string} eventName
+		 * @param {Event|string} event
+		 */
+		const onEvent = function ( eventName, event ) {
+			// eslint-disable-next-line no-console
+			console.log( eventName + ' event emitted with value:', event );
+		};
 
 		return {
 			inputValue,

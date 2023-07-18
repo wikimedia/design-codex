@@ -4,12 +4,12 @@
 	/>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxMenuItem, MenuItemDataWithId } from '@wikimedia/codex';
+import { CdxMenuItem } from '@wikimedia/codex';
 import { cdxIconTag } from '@wikimedia/codex-icons';
 
-const menuItem : MenuItemDataWithId = {
+const menuItem = {
 	value: 5921,
 	label: 'Color',
 	description: 'visual perception of light wavelengths',

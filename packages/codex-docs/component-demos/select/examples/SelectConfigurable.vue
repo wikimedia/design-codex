@@ -8,17 +8,12 @@
 	/>
 </template>
 
-<script lang="ts">
-import {
-	PropType,
-	ref,
-	defineComponent
-} from 'vue';
-import { Icon } from '@wikimedia/codex-icons';
-import { CdxSelect, MenuItemData } from '@wikimedia/codex';
+<script>
+import { ref, defineComponent } from 'vue';
+import { CdxSelect } from '@wikimedia/codex';
 import { cdxIconCamera, cdxIconBook, cdxIconClock } from '@wikimedia/codex-icons';
 
-const menuItems: MenuItemData[] = [
+const menuItems = [
 	{
 		value: 'camera',
 		label: 'Camera',
@@ -44,7 +39,7 @@ export default defineComponent( {
 	components: { CdxSelect },
 	props: {
 		defaultIcon: {
-			type: [ String, Object ] as PropType<Icon>,
+			type: [ String, Object ],
 			default: ''
 		},
 		defaultLabel: {
@@ -57,7 +52,7 @@ export default defineComponent( {
 		}
 	},
 	setup() {
-		const selection = ref<string|number|null>( null );
+		const selection = ref( null );
 
 		return {
 			selection,

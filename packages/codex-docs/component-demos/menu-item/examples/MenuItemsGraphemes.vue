@@ -9,10 +9,10 @@
 	/>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxMenu } from '@wikimedia/codex';
-import searchResults from './searchResultsGraphemes';
+import searchResults from './searchResultsGraphemes.json';
 
 // This demo serves to demonstrate how the highlighting mechanism in the
 // SearchResultTitle component handles languages with characters represented by

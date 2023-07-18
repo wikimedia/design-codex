@@ -16,14 +16,12 @@
 	</cdx-dialog>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 
 import {
 	CdxButton,
-	CdxDialog,
-	PrimaryDialogAction,
-	DialogAction
+	CdxDialog
 } from '@wikimedia/codex';
 
 export default defineComponent( {
@@ -35,12 +33,12 @@ export default defineComponent( {
 	setup() {
 		const open = ref( false );
 
-		const primaryAction: PrimaryDialogAction = {
+		const primaryAction = {
 			label: 'Save',
 			actionType: 'progressive'
 		};
 
-		const defaultAction: DialogAction = {
+		const defaultAction = {
 			label: 'Cancel'
 		};
 

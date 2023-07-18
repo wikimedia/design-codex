@@ -5,11 +5,10 @@
 	/>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxButtonGroup, ButtonGroupItem } from '@wikimedia/codex';
+import { CdxButtonGroup } from '@wikimedia/codex';
 import { cdxIconEdit, cdxIconSpeechBubble, cdxIconCheck, cdxIconDownload, cdxIconTrash } from '@wikimedia/codex-icons';
-import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'ButtonGroupWithIcons',
@@ -17,7 +16,7 @@ export default defineComponent( {
 		CdxButtonGroup
 	},
 	setup() {
-		const buttons: ButtonGroupItem[] = [
+		const buttons = [
 			{ value: 'edit', label: 'Edit', icon: cdxIconEdit },
 			{ value: 'talk', label: 'Discuss', icon: cdxIconSpeechBubble },
 			{ value: 'save', label: 'Done', icon: cdxIconCheck, disabled: true },
@@ -25,7 +24,10 @@ export default defineComponent( {
 			{ value: 'delete', label: 'Delete', icon: cdxIconTrash }
 		];
 
-		const onClick = getEventLogger<string|number>( 'click' );
+		function onClick( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'click event emitted with value:', value );
+		}
 
 		return {
 			buttons,

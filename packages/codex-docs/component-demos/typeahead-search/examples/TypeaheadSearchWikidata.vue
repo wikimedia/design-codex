@@ -10,8 +10,8 @@
 			:visible-item-limit="5"
 			placeholder="Search Wikidata"
 			@input="onInput"
-			@search-result-click="onEvent( 'search-result-click', $event )"
-			@submit="onEvent( 'submit', $event )"
+			@search-result-click="onSearchResultClick"
+			@submit="onSubmit"
 			@load-more="onLoadMore"
 		>
 			<template #default>
@@ -36,26 +36,19 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxTypeaheadSearch, SearchResult, SearchResultClickEvent } from '@wikimedia/codex';
-import { Result } from './types';
-import { getMultiEventLogger } from '../../../src/utils/getEventLogger';
+import { CdxTypeaheadSearch } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'TypeaheadSearchWikidata',
 	components: { CdxTypeaheadSearch },
 	setup() {
-		const searchResults = ref<SearchResult[]>( [] );
+		const searchResults = ref( [] );
 		const searchFooterUrl = ref( '' );
 		const currentSearchTerm = ref( '' );
 
-		const onEvent = getMultiEventLogger<string|SearchResultClickEvent>();
-
-		async function fetchResults(
-			searchTerm: string,
-			offset?: number
-		): Promise<{ search: Result[] }> {
+		function fetchResults( searchTerm, offset ) {
 			const params = new URLSearchParams( {
 				origin: '*',
 				action: 'wbsearchentities',
@@ -70,8 +63,8 @@ export default defineComponent( {
 			if ( offset ) {
 				params.set( 'continue', `${offset}` );
 			}
-			const response = await fetch( `https://www.wikidata.org/w/api.php?${params.toString()}` );
-			return response.json();
+			return fetch( `https://www.wikidata.org/w/api.php?${params.toString()}` )
+				.then( ( response ) => response.json() );
 		}
 
 		/**
@@ -80,7 +73,7 @@ export default defineComponent( {
 		 * @param pages
 		 * @return
 		 */
-		function adaptApiResponse( pages: Result[] ): SearchResult[] {
+		function adaptApiResponse( pages ) {
 			return pages.map( ( { id, label, url, match, description, display = {} } ) => ( {
 				value: id,
 				label,
@@ -88,15 +81,16 @@ export default defineComponent( {
 				description,
 				url,
 				language: {
-					label: display?.label?.language,
+					label: display && display.label && display.label.language,
 					match: match.type === 'alias' ? match.language : undefined,
-					description: display?.description?.language
+					description: display && display.description && display.description.language
 				}
 			} ) );
 		}
 
-		async function onInput( value: string ) {
-			onEvent( 'input', value );
+		function onInput( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'input event emitted with value:', value );
 
 			// Internally track the current search term.
 			currentSearchTerm.value = value;
@@ -108,9 +102,7 @@ export default defineComponent( {
 				return;
 			}
 
-			try {
-				const data = await fetchResults( value );
-
+			fetchResults( value ).then( ( data ) => {
 				// Make sure this data is still relevant first.
 				if ( currentSearchTerm.value === value ) {
 					// If there are results, format them into an array of
@@ -124,33 +116,44 @@ export default defineComponent( {
 					// page for the current search query.
 					searchFooterUrl.value = `https://www.wikidata.org/w/index.php?search=${encodeURIComponent( value )}&title=Special%3ASearch&fulltext=1`;
 				}
-			} catch ( _e ) {
+			} ).catch( () => {
 				// On error, reset search results and search footer URL.
 				searchResults.value = [];
 				searchFooterUrl.value = '';
-			}
-
+			} );
 		}
 
-		function deduplicateResults( results: SearchResult[] ): SearchResult[] {
+		function deduplicateResults( results ) {
 			const seen = new Set( searchResults.value.map( ( result ) => result.value ) );
 			return results.filter( ( result ) => !seen.has( result.value ) );
 		}
 
-		async function onLoadMore() {
-			onEvent( 'load-more', '' );
+		function onLoadMore() {
+			// eslint-disable-next-line no-console
+			console.log( 'load-more event emitted' );
 
 			if ( !currentSearchTerm.value ) {
 				return;
 			}
 
-			const data = await fetchResults( currentSearchTerm.value, searchResults.value.length );
-			const results = data.search && data.search.length > 0 ?
-				adaptApiResponse( data.search ) :
-				[];
+			fetchResults( currentSearchTerm.value, searchResults.value.length ).then( ( data ) => {
+				const results = data.search && data.search.length > 0 ?
+					adaptApiResponse( data.search ) :
+					[];
 
-			const deduplicatedResults = deduplicateResults( results );
-			searchResults.value.push( ...deduplicatedResults );
+				const deduplicatedResults = deduplicateResults( results );
+				searchResults.value.push( ...deduplicatedResults );
+			} );
+		}
+
+		function onSearchResultClick( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'search-result-click event emitted with value:', value );
+		}
+
+		function onSubmit( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'submit event emitted with value:', value );
 		}
 
 		return {
@@ -158,7 +161,8 @@ export default defineComponent( {
 			searchFooterUrl,
 			onInput,
 			onLoadMore,
-			onEvent
+			onSearchResultClick,
+			onSubmit
 		};
 	}
 } );

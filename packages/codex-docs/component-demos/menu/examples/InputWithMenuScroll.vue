@@ -31,7 +31,7 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxMenu, CdxTextInput } from '@wikimedia/codex';
 
@@ -42,7 +42,7 @@ export default defineComponent( {
 		CdxTextInput
 	},
 	setup() {
-		const menu = ref<InstanceType<typeof CdxMenu>>();
+		const menu = ref();
 		const selectedValue = ref( '' );
 		const expanded = ref( false );
 		const menuItems = [
@@ -70,9 +70,9 @@ export default defineComponent( {
 		 * Delegate most keydowns on the text input to the Menu component. This
 		 * allows the Menu component to enable keyboard navigation of the menu.
 		 *
-		 * @param e The keyboard event
+		 * @param {KeyboardEvent} e The keyboard event
 		 */
-		function onKeydown( e: KeyboardEvent ) {
+		function onKeydown( e ) {
 			// The menu component enables the space key to open and close the
 			// menu. However, for text inputs with menus, the space key should
 			// always insert a new space character in the input.
@@ -81,10 +81,12 @@ export default defineComponent( {
 			}
 
 			// Delegate all other key events to the Menu component.
-			menu.value?.delegateKeyNavigation( e );
+			if ( menu.value ) {
+				menu.value.delegateKeyNavigation( e );
+			}
 		}
 
-		function onClick(): void {
+		function onClick() {
 			expanded.value = true;
 		}
 

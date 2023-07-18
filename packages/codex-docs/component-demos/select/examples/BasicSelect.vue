@@ -6,7 +6,7 @@
 	/>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxSelect } from '@wikimedia/codex';
 export default defineComponent( {

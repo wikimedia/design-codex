@@ -9,12 +9,12 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxCombobox, MenuItemData } from '@wikimedia/codex';
+import { CdxCombobox } from '@wikimedia/codex';
 import { cdxIconCamera, cdxIconBook, cdxIconClock } from '@wikimedia/codex-icons';
 
-const menuItems: MenuItemData[] = [
+const menuItems = [
 	{
 		value: 'camera',
 		description: 'optical device for recording or transmitting photographic images or videos',

@@ -14,9 +14,9 @@
 	/>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxButton, CdxDialog, PrimaryDialogAction, DialogAction } from '@wikimedia/codex';
+import { CdxButton, CdxDialog } from '@wikimedia/codex';
 export default defineComponent( {
 	name: 'DialogStackedActions',
 	components: {
@@ -25,11 +25,11 @@ export default defineComponent( {
 	},
 	setup() {
 		const open = ref( false );
-		const primaryAction: PrimaryDialogAction = {
+		const primaryAction = {
 			label: 'Delete all changes and start over',
 			actionType: 'destructive'
 		};
-		const defaultAction: DialogAction = {
+		const defaultAction = {
 			label: 'Cancel'
 		};
 		function onPrimaryAction() {

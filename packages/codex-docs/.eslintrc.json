@@ -46,6 +46,18 @@
 			"env": {
 				"node": true
 			}
+		},
+		{
+			"files": [ "component-demos/**/examples/*.vue" ],
+			"extends": [
+				"wikimedia/language/es6"
+			],
+			"rules": {
+				"vue/block-lang": [ "error", {
+					"script": { "lang": "js" }
+				} ],
+				"es-x/no-array-prototype-includes": "off"
+			}
 		}
 	],
 	"ignorePatterns": [

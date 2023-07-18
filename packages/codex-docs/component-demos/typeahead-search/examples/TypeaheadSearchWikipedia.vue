@@ -12,8 +12,8 @@
 			:auto-expand-width="true"
 			placeholder="Search Wikipedia"
 			@input="onInput"
-			@search-result-click="onEvent( 'search-result-click', $event )"
-			@submit="onEvent( 'submit', $event )"
+			@search-result-click="onSearchResultClick"
+			@submit="onSubmit"
 		>
 			<template #default>
 				<input
@@ -37,24 +37,21 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxTypeaheadSearch, SearchResult, SearchResultClickEvent } from '@wikimedia/codex';
-import { RestResult } from './types';
-import { getMultiEventLogger } from '../../../src/utils/getEventLogger';
+import { CdxTypeaheadSearch } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'TypeaheadSearchWikipedia',
 	components: { CdxTypeaheadSearch },
 	setup() {
-		const searchResults = ref<SearchResult[]>( [] );
+		const searchResults = ref( [] );
 		const searchFooterUrl = ref( '' );
 		const currentSearchTerm = ref( '' );
 
-		const onEvent = getMultiEventLogger<string|SearchResultClickEvent>();
-
-		function onInput( value: string ) {
-			onEvent( 'input', value );
+		function onInput( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'input event emitted with value:', value );
 
 			// Internally track the current search term.
 			currentSearchTerm.value = value;
@@ -72,7 +69,7 @@ export default defineComponent( {
 			 * @param pages
 			 * @return
 			 */
-			function adaptApiResponse( pages: RestResult[] ): SearchResult[] {
+			function adaptApiResponse( pages ) {
 				return pages.map( ( { id, key, title, description, thumbnail } ) => ( {
 					label: title,
 					value: id,
@@ -80,8 +77,8 @@ export default defineComponent( {
 					url: `https://en.wikipedia.org/wiki/${encodeURIComponent( key )}`,
 					thumbnail: thumbnail ? {
 						url: thumbnail.url,
-						width: thumbnail.width ?? undefined,
-						height: thumbnail.height ?? undefined
+						width: thumbnail.width,
+						height: thumbnail.height
 					} : undefined
 				} ) );
 			}
@@ -89,7 +86,7 @@ export default defineComponent( {
 			fetch(
 				`https://en.wikipedia.org/w/rest.php/v1/search/title?q=${encodeURIComponent( value )}&limit=10&`
 			).then( ( resp ) => resp.json() )
-				.then( ( data: { pages: RestResult[] } ) => {
+				.then( ( data ) => {
 					// Make sure this data is still relevant first.
 					if ( currentSearchTerm.value === value ) {
 						// If there are results, format them into an array of
@@ -111,11 +108,22 @@ export default defineComponent( {
 				} );
 		}
 
+		function onSearchResultClick( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'search-result-click event emitted with value:', value );
+		}
+
+		function onSubmit( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'submit event emitted with value:', value );
+		}
+
 		return {
 			searchResults,
 			searchFooterUrl,
 			onInput,
-			onEvent
+			onSearchResultClick,
+			onSubmit
 		};
 	}
 } );

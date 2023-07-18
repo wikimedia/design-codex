@@ -12,12 +12,12 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxCombobox, CdxIcon, MenuItemData } from '@wikimedia/codex';
+import { CdxCombobox, CdxIcon } from '@wikimedia/codex';
 import { cdxIconCamera, cdxIconBook, cdxIconClock } from '@wikimedia/codex-icons';
 
-const menuItems: MenuItemData[] = [
+const menuItems = [
 	{ value: 'camera', icon: cdxIconCamera },
 	{ value: 'book', icon: cdxIconBook },
 	{ value: 'clock', icon: cdxIconClock }

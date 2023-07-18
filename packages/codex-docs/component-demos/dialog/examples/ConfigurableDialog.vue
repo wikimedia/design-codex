@@ -25,8 +25,8 @@
 	</cdx-dialog>
 </template>
 
-<script lang="ts">
-import { PropType, defineComponent, ref, computed } from 'vue';
+<script>
+import { defineComponent, ref, computed } from 'vue';
 import {
 	CdxButton,
 	CdxDialog
@@ -68,7 +68,7 @@ export default defineComponent( {
 			default: ''
 		},
 		primaryActionType: {
-			type: String as PropType<'progressive'|'destructive'>,
+			type: String,
 			default: 'progressive'
 		},
 		primaryActionDisabled: {

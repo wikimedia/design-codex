@@ -36,16 +36,15 @@
 	</cdx-typeahead-search>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxTypeaheadSearch, SearchResult } from '@wikimedia/codex';
-import { RestResult } from './types';
+import { CdxTypeaheadSearch } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'TypeaheadSearchNoResult',
 	components: { CdxTypeaheadSearch },
 	setup() {
-		const searchResults = ref<SearchResult[]>( [] );
+		const searchResults = ref( [] );
 		const searchFooterUrl = ref( '' );
 		const currentSearchTerm = ref( '' );
 
@@ -55,7 +54,7 @@ export default defineComponent( {
 		 * @param pages
 		 * @return
 		 */
-		function adaptApiResponse( pages: RestResult[] ): SearchResult[] {
+		function adaptApiResponse( pages ) {
 			return pages.map( ( { id, key, title, description, thumbnail } ) => ( {
 				label: title,
 				value: id,
@@ -63,13 +62,13 @@ export default defineComponent( {
 				url: `https://en.wikipedia.org/wiki/${encodeURIComponent( key )}`,
 				thumbnail: thumbnail ? {
 					url: thumbnail.url,
-					width: thumbnail.width ?? undefined,
-					height: thumbnail.height ?? undefined
+					width: thumbnail.width,
+					height: thumbnail.height
 				} : undefined
 			} ) );
 		}
 
-		function onInput( value: string ) {
+		function onInput( value ) {
 			// Internally track the current search term.
 			currentSearchTerm.value = value;
 
@@ -83,7 +82,7 @@ export default defineComponent( {
 			fetch(
 				`https://en.wikipedia.org/w/rest.php/v1/search/title?q=${encodeURIComponent( value )}&limit=10&`
 			).then( ( resp ) => resp.json() )
-				.then( ( data: { pages: RestResult[] } ) => {
+				.then( ( data ) => {
 					// Make sure this data is still relevant first.
 					if ( currentSearchTerm.value === value ) {
 						// If there are results, format them into an array of

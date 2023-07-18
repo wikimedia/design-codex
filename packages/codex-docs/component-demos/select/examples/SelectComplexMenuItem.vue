@@ -7,12 +7,12 @@
 	/>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxSelect, MenuItemData } from '@wikimedia/codex';
+import { CdxSelect } from '@wikimedia/codex';
 import { cdxIconCamera, cdxIconBook, cdxIconClock } from '@wikimedia/codex-icons';
 
-const menuItems: MenuItemData[] = [
+const menuItems = [
 	{
 		value: 'camera',
 		label: 'Camera',

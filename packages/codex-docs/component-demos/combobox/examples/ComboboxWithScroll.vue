@@ -9,11 +9,11 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxCombobox, MenuItemData } from '@wikimedia/codex';
+import { CdxCombobox } from '@wikimedia/codex';
 
-const menuItems: MenuItemData[] = [
+const menuItems = [
 	{ label: 'One', value: '1' },
 	{ label: 'Two', value: '2' },
 	{ label: 'Three', value: '3' },

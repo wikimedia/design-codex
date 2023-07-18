@@ -11,19 +11,25 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxSearchInput } from '@wikimedia/codex';
-import { getMultiEventLogger } from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'SearchInputClearable',
 	components: { CdxSearchInput },
 	setup() {
 		// Set up a reactive reference to track the input value.
-		const inputValue = ref<string|number>( '' );
+		const inputValue = ref( '' );
 
-		const onEvent = getMultiEventLogger<string|number>();
+		/**
+		 * @param {string} eventName
+		 * @param {string} value
+		 */
+		const onEvent = function ( eventName, value ) {
+			// eslint-disable-next-line no-console
+			console.log( eventName + ' event emitted with value: ' + value );
+		};
 
 		return {
 			inputValue,

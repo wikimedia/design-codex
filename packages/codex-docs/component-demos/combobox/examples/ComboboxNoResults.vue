@@ -12,11 +12,11 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxCombobox, MenuItemData } from '@wikimedia/codex';
+import { CdxCombobox } from '@wikimedia/codex';
 
-const menuItems: MenuItemData[] = [];
+const menuItems = [];
 
 export default defineComponent( {
 	name: 'ComboboxNoResults',

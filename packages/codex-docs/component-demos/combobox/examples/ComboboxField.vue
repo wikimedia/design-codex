@@ -16,16 +16,16 @@
 	</cdx-field>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxCombobox, CdxField, MenuItemData } from '@wikimedia/codex';
+import { CdxCombobox, CdxField } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'ComboboxField',
 	components: { CdxCombobox, CdxField },
 	setup() {
 		const selection = ref( '' );
-		const menuItems: MenuItemData[] = [
+		const menuItems = [
 			{ value: 'boolean' },
 			{ value: 'function' },
 			{ value: 'object' },

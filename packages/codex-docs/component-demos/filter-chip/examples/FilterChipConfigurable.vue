@@ -10,10 +10,9 @@
 	</cdx-filter-chip>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType, ref } from 'vue';
+<script>
+import { defineComponent, ref } from 'vue';
 import { CdxFilterChip } from '@wikimedia/codex';
-import { Icon } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'FilterChipConfigurable',
@@ -24,7 +23,7 @@ export default defineComponent( {
 			required: true
 		},
 		icon: {
-			type: [ String, Object ] as PropType<Icon>,
+			type: [ String, Object ],
 			default: null
 		},
 		disabled: {

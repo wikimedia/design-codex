@@ -8,7 +8,7 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxTextArea } from '@wikimedia/codex';
 

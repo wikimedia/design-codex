@@ -1,5 +1,5 @@
 <template>
-	<fieldset class="cdx-docs-legend-demo">
+	<fieldset class="cdx-demo-legend">
 		<cdx-label :is-legend="true">
 			Notifications
 			<template #description>
@@ -18,7 +18,7 @@
 	</fieldset>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxRadio, CdxLabel } from '@wikimedia/codex';
 
@@ -51,7 +51,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-.cdx-docs-legend-demo {
+.cdx-demo-legend {
 	// Remove <fieldset> border and padding.
 	border: 0;
 	padding: 0;

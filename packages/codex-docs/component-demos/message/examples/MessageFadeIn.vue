@@ -13,7 +13,7 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxMessage, CdxButton } from '@wikimedia/codex';
 
@@ -28,7 +28,7 @@ export default defineComponent( {
 } );
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-message-fade-in {

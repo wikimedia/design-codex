@@ -41,7 +41,7 @@
 	</cdx-dialog>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref, toRef } from 'vue';
 import { CdxButton, CdxCheckbox, CdxDialog, CdxIcon, useModelWrapper } from '@wikimedia/codex';
 import { cdxIconNext } from '@wikimedia/codex-icons';

@@ -15,20 +15,27 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxLookup, MenuConfig, MenuItemData } from '@wikimedia/codex';
-import { SearchData } from './types';
+import { CdxLookup } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'LookupWithFetch',
 	components: { CdxLookup },
 	setup() {
-		const selection = ref<string|null>( null );
-		const menuItems = ref<MenuItemData[]>( [] );
+		const selection = ref( null );
+		const menuItems = ref( [] );
 		const currentSearchTerm = ref( '' );
 
-		async function fetchResults( searchTerm: string, offset?: number ): Promise<SearchData> {
+		/**
+		 * Get search results.
+		 *
+		 * @param {string} searchTerm
+		 * @param {number} offset Optional result offset
+		 *
+		 * @return {Promise}
+		 */
+		function fetchResults( searchTerm, offset ) {
 			const params = new URLSearchParams( {
 				origin: '*',
 				action: 'wbsearchentities',
@@ -39,83 +46,91 @@ export default defineComponent( {
 				search: searchTerm
 			} );
 			if ( offset ) {
-				params.set( 'continue', `${offset}` );
+				params.set( 'continue', String( offset ) );
 			}
-			const response = await fetch( `https://www.wikidata.org/w/api.php?${params.toString()}` );
-			return response.json();
+			return fetch( `https://www.wikidata.org/w/api.php?${params.toString()}` )
+				.then( ( response ) => response.json() );
 		}
 
-		// TODO: this should be debounced.
-		async function onInput( value: string ) {
+		/**
+		 * Handle lookup input.
+		 *
+		 * TODO: this should be debounced.
+		 *
+		 * @param {string} value
+		 */
+		function onInput( value ) {
 			// Internally track the current search term.
 			currentSearchTerm.value = value;
 
 			// Do nothing if we have no input.
-			if ( !value || value === '' ) {
+			if ( !value ) {
 				menuItems.value = [];
 				return;
 			}
 
-			try {
-				const data = await fetchResults( value );
+			fetchResults( value )
+				.then( ( data ) => {
+					// Make sure this data is still relevant first.
+					if ( currentSearchTerm.value !== value ) {
+						return;
+					}
 
-				// Make sure this data is still relevant first.
-				if ( currentSearchTerm.value !== value ) {
-					return;
-				}
+					// Reset the menu items if there are no results.
+					if ( !data.search || data.search.length === 0 ) {
+						menuItems.value = [];
+						return;
+					}
 
-				// Reset the menu items if there are no results.
-				if ( !data.search || data.search.length === 0 ) {
+					// Build an array of menu items.
+					const results = data.search.map( ( result ) => {
+						return {
+							label: result.label,
+							value: result.id,
+							description: result.description
+						};
+					} );
+
+					// Update menuItems.
+					menuItems.value = results;
+				} )
+				.catch( () => {
+					// On error, set results to empty.
 					menuItems.value = [];
-					return;
-				}
-
-				// Build an array of menu items.
-				const results = data.search.map( ( result ): MenuItemData => {
-					return {
-						label: result.label,
-						value: result.id,
-						description: result.description
-					};
 				} );
-
-				// Update menuItems.
-				menuItems.value = results;
-			} catch ( e ) {
-				// On error, set results to empty.
-				menuItems.value = [];
-			}
 		}
 
-		function deduplicateResults( results: MenuItemData[] ): MenuItemData[] {
+		function deduplicateResults( results ) {
 			const seen = new Set( menuItems.value.map( ( result ) => result.value ) );
 			return results.filter( ( result ) => !seen.has( result.value ) );
 		}
 
-		async function onLoadMore() {
+		function onLoadMore() {
 			if ( !currentSearchTerm.value ) {
 				return;
 			}
 
-			const data = await fetchResults( currentSearchTerm.value, menuItems.value.length );
+			fetchResults( currentSearchTerm.value, menuItems.value.length )
+				.then( ( data ) => {
+					if ( !data.search || data.search.length === 0 ) {
+						return;
+					}
 
-			if ( !data.search || data.search.length === 0 ) {
-				return;
-			}
+					const results = data.search.map( ( result ) => {
+						return {
+							label: result.label,
+							value: result.id,
+							description: result.description
+						};
+					} );
 
-			const results = data.search.map( ( result ): MenuItemData => {
-				return {
-					label: result.label,
-					value: result.id,
-					description: result.description
-				};
-			} );
-			// Update menuItems.
-			const deduplicatedResults = deduplicateResults( results );
-			menuItems.value.push( ...deduplicatedResults );
+					// Update menuItems.
+					const deduplicatedResults = deduplicateResults( results );
+					menuItems.value.push( ...deduplicatedResults );
+				} );
 		}
 
-		const menuConfig: MenuConfig = {
+		const menuConfig = {
 			visibleItemLimit: 6
 		};
 

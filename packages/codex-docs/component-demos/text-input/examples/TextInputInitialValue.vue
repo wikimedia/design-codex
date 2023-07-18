@@ -10,7 +10,7 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxButton, CdxTextInput } from '@wikimedia/codex';
 
@@ -21,7 +21,7 @@ export default defineComponent( {
 		// Set up a reactive reference to track the input value, and set it to
 		// the initial value of the input.
 		const initialValue = 'Initial value';
-		const inputValue = ref<string | number>( initialValue );
+		const inputValue = ref( initialValue );
 
 		const resetInput = () => {
 			inputValue.value = initialValue;

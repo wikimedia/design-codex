@@ -6,7 +6,7 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxInfoChip } from '@wikimedia/codex';
 import { cdxIconCamera } from '@wikimedia/codex-icons';

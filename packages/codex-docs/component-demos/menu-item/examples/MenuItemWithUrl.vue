@@ -4,11 +4,11 @@
 	/>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxMenuItem, MenuItemDataWithId } from '@wikimedia/codex';
+import { CdxMenuItem } from '@wikimedia/codex';
 
-const menuItem : MenuItemDataWithId = {
+const menuItem = {
 	value: 5921,
 	label: 'Color',
 	url: 'https://en.wikipedia.org/wiki/Color',

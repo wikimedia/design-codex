@@ -7,9 +7,9 @@
 	/>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType, Ref, ref } from 'vue';
-import { CdxFilterChipInput, ValidationStatusType, FilterChipInputItem } from '@wikimedia/codex';
+<script>
+import { defineComponent, ref } from 'vue';
+import { CdxFilterChipInput } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'FilterChipInputConfigurable',
@@ -22,7 +22,7 @@ export default defineComponent( {
 			required: true
 		},
 		status: {
-			type: String as PropType<ValidationStatusType>,
+			type: String,
 			default: 'default'
 		},
 		disabled: {
@@ -31,7 +31,7 @@ export default defineComponent( {
 		}
 	},
 	setup() {
-		const exampleChips: Ref<FilterChipInputItem[]> = ref( [
+		const exampleChips = ref( [
 			{ value: 'chip 1' },
 			{ value: 'chip 2' }
 		] );

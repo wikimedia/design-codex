@@ -10,7 +10,7 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxTextInput } from '@wikimedia/codex';
 
@@ -19,7 +19,7 @@ export default defineComponent( {
 	components: { CdxTextInput },
 	setup() {
 		// Set up a reactive reference to track the input value.
-		const inputValue = ref<string | number>( '' );
+		const inputValue = ref( '' );
 
 		return {
 			inputValue

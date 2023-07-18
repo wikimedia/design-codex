@@ -12,7 +12,6 @@
 
 <script lang="ts" setup>
 import { CdxButtonGroup, ButtonGroupItem } from '../lib';
-import getEventLogger from 'codex-docs/src/utils/getEventLogger';
 
 const buttons: ButtonGroupItem[] = [
 	{ value: 1, label: 'One' },
@@ -22,5 +21,8 @@ const buttons: ButtonGroupItem[] = [
 	{ value: 5, label: 'Five' }
 ];
 
-const onClick = getEventLogger<string|number>( 'click' );
+const onClick = function ( value: string ) {
+	// eslint-disable-next-line no-console
+	console.log( 'click event emitted with value:', value );
+};
 </script>

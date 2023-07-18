@@ -9,9 +9,9 @@
 	</p>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxToggleButtonGroup, ButtonGroupItem } from '@wikimedia/codex';
+import { CdxToggleButtonGroup } from '@wikimedia/codex';
 import { cdxIconBell, cdxIconCalendar, cdxIconUserAvatar } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
@@ -20,14 +20,14 @@ export default defineComponent( {
 		CdxToggleButtonGroup
 	},
 	setup() {
-		const buttons: ButtonGroupItem[] = [
+		const buttons = [
 			{ value: 'notification', label: null, icon: cdxIconBell, ariaLabel: 'Notification' },
 			{ value: 'calendar', label: null, icon: cdxIconCalendar, ariaLabel: 'Calendar' },
 			{ value: 'user', label: null, icon: cdxIconUserAvatar, ariaLabel: 'User' }
 		];
 
 		// Initializing to an array indicates that this is a multi-select group
-		const selectedValue = ref<string[]>( [] );
+		const selectedValue = ref( [] );
 
 		return {
 			buttons,

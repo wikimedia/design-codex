@@ -6,11 +6,11 @@
 	</cdx-card>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxCard, Thumbnail } from '@wikimedia/codex';
+import { CdxCard } from '@wikimedia/codex';
 
-const thumbnailData: Thumbnail = {
+const thumbnailData = {
 	width: 200,
 	height: 180,
 	url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/200px-Juvenile_Ragdoll.jpg'

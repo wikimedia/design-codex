@@ -12,13 +12,13 @@
 	</cdx-toggle-button-group>
 	<p>
 		Selected value:
-		{{ selectedValue ?? '(null)' }}
+		{{ selectedValue || '(null)' }}
 	</p>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxToggleButtonGroup, ButtonGroupItem } from '@wikimedia/codex';
+import { CdxToggleButtonGroup } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'ToggleButtonGroupWithSlot',
@@ -26,7 +26,7 @@ export default defineComponent( {
 		CdxToggleButtonGroup
 	},
 	setup() {
-		const buttons: ButtonGroupItem[] = [
+		const buttons = [
 			{ value: 1, label: 'One' },
 			{ value: 2, label: 'Two' }
 		];

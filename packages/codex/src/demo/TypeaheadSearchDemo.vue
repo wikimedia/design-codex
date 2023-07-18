@@ -14,8 +14,8 @@
 				:auto-expand-width="true"
 				placeholder="Search Wikipedia"
 				@input="onInput"
-				@search-result-click="onEvent( 'search-result-click', $event )"
-				@submit="onEvent( 'submit', $event )"
+				@search-result-click="onSearchResultClick"
+				@submit="onSubmit"
 			>
 				<template #default>
 					<input
@@ -65,16 +65,26 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { CdxTypeaheadSearch, SearchResult, SearchResultClickEvent } from '../lib';
-import { RestResult } from 'codex-docs/component-demos/typeahead-search/examples/types';
-import { getMultiEventLogger } from 'codex-docs/src/utils/getEventLogger';
+
+interface RestResult {
+	id: number;
+	key: string;
+	title: string;
+	description?: string;
+	thumbnail?: {
+		url: string;
+		width?: number | null;
+		height?: number | null;
+	} | null;
+}
 
 const searchResults = ref<SearchResult[]>( [] );
 const searchFooterUrl = ref( '' );
 const currentSearchTerm = ref( '' );
-const onEvent = getMultiEventLogger<string|SearchResultClickEvent>();
 
 function onInput( value: string ) {
-	onEvent( 'input', value );
+	// eslint-disable-next-line no-console
+	console.log( 'input event emitted with value:', value );
 
 	// Internally track the current search term.
 	currentSearchTerm.value = value;
@@ -129,5 +139,15 @@ function onInput( value: string ) {
 			searchResults.value = [];
 			searchFooterUrl.value = '';
 		} );
+}
+
+function onSearchResultClick( value: SearchResultClickEvent ) {
+	// eslint-disable-next-line no-console
+	console.log( 'search-result-click event emitted with value:', value );
+}
+
+function onSubmit( value: SearchResultClickEvent ) {
+	// eslint-disable-next-line no-console
+	console.log( 'submit event emitted with value:', value );
 }
 </script>

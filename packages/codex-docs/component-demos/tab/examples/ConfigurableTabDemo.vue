@@ -18,7 +18,7 @@
 	</cdx-tabs>
 </template>
 
-<script lang="ts">
+<script>
 import { CdxTab, CdxTabs } from '@wikimedia/codex';
 import { defineComponent } from 'vue';
 

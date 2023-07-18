@@ -11,7 +11,7 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxSelect, CdxLabel } from '@wikimedia/codex';
 export default defineComponent( {

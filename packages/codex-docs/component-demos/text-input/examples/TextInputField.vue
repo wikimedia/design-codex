@@ -13,7 +13,7 @@
 	</cdx-field>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxTextInput, CdxField } from '@wikimedia/codex';
 import { cdxIconWikiText } from '@wikimedia/codex-icons';

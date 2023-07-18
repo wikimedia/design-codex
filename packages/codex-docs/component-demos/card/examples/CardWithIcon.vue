@@ -9,7 +9,7 @@
 	</cdx-card>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxCard } from '@wikimedia/codex';
 import { cdxIconRobot } from '@wikimedia/codex-icons';

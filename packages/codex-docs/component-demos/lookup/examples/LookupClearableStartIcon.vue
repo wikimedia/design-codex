@@ -11,20 +11,25 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxLookup, MenuItemData } from '@wikimedia/codex';
+import { CdxLookup } from '@wikimedia/codex';
 import { cdxIconSearch } from '@wikimedia/codex-icons';
-import vegetableItems from './data';
+import vegetableItems from './data.json';
 
 export default defineComponent( {
 	name: 'LookupClearableStartIcon',
 	components: { CdxLookup },
 	setup() {
-		const selection = ref<string|null>( null );
-		const menuItems = ref<MenuItemData[]>( [] );
+		const selection = ref( null );
+		const menuItems = ref( [] );
 
-		function onInput( value: string ) {
+		/**
+		 * Filter items on input.
+		 *
+		 * @param {string} value
+		 */
+		function onInput( value ) {
 			if ( value ) {
 				menuItems.value = vegetableItems.filter( ( item ) =>
 					item.label.includes( value )

@@ -6,12 +6,12 @@
 	/>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxMenuItem, MenuItemDataWithId } from '@wikimedia/codex';
+import { CdxMenuItem } from '@wikimedia/codex';
 
 // See https://phabricator.wikimedia.org/T280982.
-const menuItem : MenuItemDataWithId = {
+const menuItem = {
 	value: 2201357,
 	label: 'Donaudampfschiffahrtselektrizitätenhauptbetriebswerkbauunterbeamtengesellschaft',
 	url: 'https://en.wikipedia.org/wiki/Donaudampfschiffahrtselektrizit%C3%A4tenhauptbetriebswerkbauunterbeamtengesellschaft',

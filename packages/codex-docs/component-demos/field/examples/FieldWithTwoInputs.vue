@@ -42,16 +42,14 @@
 	</cdx-toggle-switch>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import {
 	CdxField,
 	CdxLabel,
 	CdxSelect,
 	CdxTextInput,
-	CdxToggleSwitch,
-	MenuItemData,
-	ValidationStatusType
+	CdxToggleSwitch
 } from '@wikimedia/codex';
 import { cdxIconMapPin } from '@wikimedia/codex-icons';
 
@@ -67,7 +65,7 @@ export default defineComponent( {
 	setup() {
 		const coordinatesValue = ref( '' );
 
-		const menuItems: MenuItemData[] = [
+		const menuItems = [
 			{ label: 'to 1/1000 of an arcsecond', value: '.001' },
 			{ label: 'to 1/100 of an arcsecond', value: '.01' },
 			{ label: 'to 1/10 of an arcsecond', value: '.1' },
@@ -76,7 +74,7 @@ export default defineComponent( {
 		const precisionValue = ref( '.001' );
 
 		const messages = { error: 'Please enter a valid coordinate location.' };
-		const status = ref<ValidationStatusType>( 'default' );
+		const status = ref( 'default' );
 
 		function validate() {
 			const regEx = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;

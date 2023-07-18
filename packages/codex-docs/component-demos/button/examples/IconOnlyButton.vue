@@ -4,11 +4,10 @@
 	</cdx-button>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconPrevious } from '@wikimedia/codex-icons';
-import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'IconOnlyButton',
@@ -17,7 +16,10 @@ export default defineComponent( {
 		CdxIcon
 	},
 	setup() {
-		const onClick = getEventLogger<Event>( 'click' );
+		function onClick() {
+			// eslint-disable-next-line no-console
+			console.log( 'click event emitted' );
+		}
 
 		return {
 			cdxIconPrevious,

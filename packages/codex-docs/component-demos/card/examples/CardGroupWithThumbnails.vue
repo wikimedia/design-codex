@@ -22,7 +22,7 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxCard, CdxIcon } from '@wikimedia/codex';
 import { cdxIconMapPin } from '@wikimedia/codex-icons';

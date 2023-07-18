@@ -59,9 +59,9 @@
 	</cdx-dialog>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxButton, CdxDialog, DialogAction } from '@wikimedia/codex';
+import { CdxButton, CdxDialog } from '@wikimedia/codex';
 export default defineComponent( {
 	name: 'DialogMaxContent',
 	components: {
@@ -70,7 +70,7 @@ export default defineComponent( {
 	},
 	setup() {
 		const open = ref( false );
-		const defaultAction: DialogAction = {
+		const defaultAction = {
 			label: 'Close'
 		};
 		return {

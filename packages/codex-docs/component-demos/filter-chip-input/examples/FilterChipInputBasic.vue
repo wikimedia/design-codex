@@ -5,9 +5,9 @@
 	/>
 </template>
 
-<script lang="ts">
-import { defineComponent, Ref, ref } from 'vue';
-import { CdxFilterChipInput, FilterChipInputItem } from '@wikimedia/codex';
+<script>
+import { defineComponent, ref } from 'vue';
+import { CdxFilterChipInput } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'FilterChipInputBasic',
@@ -15,7 +15,7 @@ export default defineComponent( {
 		CdxFilterChipInput
 	},
 	setup() {
-		const exampleChips: Ref<FilterChipInputItem[]> = ref( [
+		const exampleChips = ref( [
 			{ value: 'chip 1' },
 			{ value: 'chip 2' }
 		] );

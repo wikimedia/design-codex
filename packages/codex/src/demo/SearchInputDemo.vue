@@ -33,7 +33,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { CdxSearchInput } from '../lib';
-import getEventLogger from 'codex-docs/src/utils/getEventLogger';
 const inputValue = ref<string|number>( '' );
-const onUpdateModelValue = getEventLogger<string|number>( 'update:modelValue' );
+const onUpdateModelValue = function ( value: string|number ) {
+	// eslint-disable-next-line no-console
+	console.log( 'update:modelValue event emitted with value:', value );
+};
 </script>

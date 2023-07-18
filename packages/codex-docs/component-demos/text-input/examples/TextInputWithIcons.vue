@@ -7,7 +7,7 @@
 	/>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxTextInput } from '@wikimedia/codex';
 import { cdxIconSearch, cdxIconInfoFilled } from '@wikimedia/codex-icons';

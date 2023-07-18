@@ -13,7 +13,7 @@
 	</cdx-field>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref, computed } from 'vue';
 import {
 	CdxField,

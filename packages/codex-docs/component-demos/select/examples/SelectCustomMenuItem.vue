@@ -10,12 +10,12 @@
 	</cdx-select>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxSelect, CdxIcon, MenuItemData } from '@wikimedia/codex';
+import { CdxSelect, CdxIcon } from '@wikimedia/codex';
 import { cdxIconCamera, cdxIconBook, cdxIconClock } from '@wikimedia/codex-icons';
 
-const menuItems: MenuItemData[] = [
+const menuItems = [
 	{
 		value: 'camera',
 		label: 'Camera',

@@ -17,7 +17,7 @@
 	</cdx-card>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxCard, CdxIcon } from '@wikimedia/codex';
 import { cdxIconWatchlist } from '@wikimedia/codex-icons';

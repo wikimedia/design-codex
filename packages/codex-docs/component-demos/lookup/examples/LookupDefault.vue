@@ -14,23 +14,28 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxLookup, MenuItemData, MenuConfig } from '@wikimedia/codex';
-import vegetableItems from './data';
+import { CdxLookup } from '@wikimedia/codex';
+import vegetableItems from './data.json';
 
 export default defineComponent( {
 	name: 'LookupDefault',
 	components: { CdxLookup },
 	setup() {
-		const selection = ref<string|null>( null );
-		const menuItems = ref<MenuItemData[]>( [] );
+		const selection = ref( null );
+		const menuItems = ref( [] );
 
-		const menuConfig: MenuConfig = {
+		const menuConfig = {
 			boldLabel: true
 		};
 
-		function onInput( value: string ) {
+		/**
+		 * Filter items on input.
+		 *
+		 * @param {string} value
+		 */
+		function onInput( value ) {
 			if ( value ) {
 				menuItems.value = vegetableItems.filter( ( item ) =>
 					item.label.includes( value )

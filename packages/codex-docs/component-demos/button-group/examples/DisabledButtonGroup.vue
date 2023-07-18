@@ -6,10 +6,9 @@
 	/>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxButtonGroup, ButtonGroupItem } from '@wikimedia/codex';
-import getEventLogger from '../../../src/utils/getEventLogger';
+import { CdxButtonGroup } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'DisabledButtonGroup',
@@ -17,7 +16,7 @@ export default defineComponent( {
 		CdxButtonGroup
 	},
 	setup() {
-		const buttons: ButtonGroupItem[] = [
+		const buttons = [
 			{ value: 1, label: 'One' },
 			{ value: 2, label: 'Two' },
 			{ value: 3, label: 'Three' },
@@ -25,7 +24,10 @@ export default defineComponent( {
 			{ value: 5, label: 'Five' }
 		];
 
-		const onClick = getEventLogger<string|number>( 'click' );
+		function onClick( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'click event emitted with value:', value );
+		}
 
 		return {
 			buttons,

@@ -9,9 +9,9 @@
 	</p>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxToggleButtonGroup, ButtonGroupItem } from '@wikimedia/codex';
+import { CdxToggleButtonGroup } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'MaximumToggleButtonGroup',
@@ -19,7 +19,7 @@ export default defineComponent( {
 		CdxToggleButtonGroup
 	},
 	setup() {
-		const buttons: ButtonGroupItem[] = [
+		const buttons = [
 			{ value: 1, label: 'First button' },
 			{ value: 2, label: 'Second button' },
 			{ value: 3, label: 'Third button with a long label' },
@@ -27,7 +27,7 @@ export default defineComponent( {
 			{ value: 5, label: 'Fifth button' }
 		];
 
-		const selectedValue = ref<number[]>( [] );
+		const selectedValue = ref( [] );
 
 		return {
 			buttons,

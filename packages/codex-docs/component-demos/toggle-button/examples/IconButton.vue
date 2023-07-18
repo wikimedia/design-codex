@@ -9,10 +9,10 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { computed, defineComponent, ref } from 'vue';
 import { CdxToggleButton, CdxIcon } from '@wikimedia/codex';
-import { cdxIconPause, cdxIconPlay, Icon } from '@wikimedia/codex-icons';
+import { cdxIconPause, cdxIconPlay } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'IconButton',
@@ -21,14 +21,14 @@ export default defineComponent( {
 		const buttonValue = ref( false );
 
 		// Pause/play menu - button not active means currently paused
-		const buttonIcon = computed( (): Icon => {
+		const buttonIcon = computed( () => {
 			if ( buttonValue.value ) {
 				// Currently playing
 				return cdxIconPause;
 			}
 			return cdxIconPlay;
 		} );
-		const buttonText = computed( (): string => {
+		const buttonText = computed( () => {
 			if ( buttonValue.value ) {
 				// Currently playing
 				return 'Pause';

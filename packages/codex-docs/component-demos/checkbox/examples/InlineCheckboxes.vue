@@ -13,10 +13,9 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxCheckbox } from '@wikimedia/codex';
-import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'InlineCheckboxes',
@@ -34,7 +33,10 @@ export default defineComponent( {
 			}
 		];
 
-		const onUpdate = getEventLogger<string>( 'update:modelValue' );
+		function onUpdate( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'update:modelValue event emitted with value:', value );
+		}
 
 		return {
 			checkboxValue,

@@ -9,10 +9,10 @@
 	/>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxMenu } from '@wikimedia/codex';
-import searchResults from './searchResults';
+import searchResults from './searchResults.json';
 
 export default defineComponent( {
 	name: 'MenuItems',

@@ -26,9 +26,9 @@
 	</cdx-dialog>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
-import { CdxButton, CdxDialog, CdxSelect, CdxCombobox, DialogAction } from '@wikimedia/codex';
+import { CdxButton, CdxDialog, CdxSelect, CdxCombobox } from '@wikimedia/codex';
 export default defineComponent( {
 	name: 'DialogWithSelect',
 	components: {
@@ -39,7 +39,7 @@ export default defineComponent( {
 	},
 	setup() {
 		const open = ref( false );
-		const defaultAction: DialogAction = {
+		const defaultAction = {
 			label: 'Close'
 		};
 		const menuItems = [

@@ -39,10 +39,27 @@
 	</div>
 </template>
 
-<script lang="ts" setup>
+<script>
+import { defineComponent } from 'vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { ButtonActions, ButtonWeights } from '../../../../codex/src/constants';
 import { cdxIconTrash } from '@wikimedia/codex-icons';
-import getEventLogger from 'codex-docs/src/utils/getEventLogger';
-const onClick = getEventLogger<Event>( 'click' );
+
+export default defineComponent( {
+	name: 'ButtonVariants',
+	components: { CdxButton, CdxIcon },
+	setup() {
+		function onClick() {
+			// eslint-disable-next-line no-console
+			console.log( 'click event emitted' );
+		}
+
+		return {
+			onClick,
+			cdxIconTrash,
+			ButtonActions,
+			ButtonWeights
+		};
+	}
+} );
 </script>

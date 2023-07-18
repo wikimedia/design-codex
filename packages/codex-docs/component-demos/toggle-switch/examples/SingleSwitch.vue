@@ -12,10 +12,9 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxToggleSwitch } from '@wikimedia/codex';
-import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'SingleSwitch',
@@ -23,7 +22,10 @@ export default defineComponent( {
 	setup() {
 		const switchValue = ref( false );
 
-		const onUpdate = getEventLogger<boolean>( 'update:modelValue' );
+		function onUpdate( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'update:modelValue event emitted with value:', value );
+		}
 
 		return {
 			switchValue,

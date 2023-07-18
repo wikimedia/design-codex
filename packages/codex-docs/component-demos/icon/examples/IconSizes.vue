@@ -1,5 +1,5 @@
 <template>
-	<table>
+	<table class="cdx-demo-icon-sizes">
 		<caption>
 			Icon size examples for all supported <code>size</code> values.
 		</caption>
@@ -51,7 +51,7 @@
 	</table>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxIcon } from '@wikimedia/codex';
 import { cdxIconLogoWikimedia } from '@wikimedia/codex-icons';
@@ -67,16 +67,16 @@ export default defineComponent( {
 } );
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-table {
+.cdx-demo-icon-sizes {
 	width: @size-full;
-}
 
-caption {
-	margin-top: @spacing-25;
-	text-align: left;
-	caption-side: bottom;
+	caption {
+		margin-top: @spacing-25;
+		text-align: left;
+		caption-side: bottom;
+	}
 }
 </style>

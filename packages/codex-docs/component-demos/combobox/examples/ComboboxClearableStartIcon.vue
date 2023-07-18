@@ -14,12 +14,12 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxCombobox, MenuItemData } from '@wikimedia/codex';
+import { CdxCombobox } from '@wikimedia/codex';
 import { cdxIconSearch } from '@wikimedia/codex-icons';
 
-const menuItems: MenuItemData[] = [
+const menuItems = [
 	{ label: 'a', value: 'a' },
 	{ label: 'b', value: 'b' },
 	{ label: 'c', value: 'c' }

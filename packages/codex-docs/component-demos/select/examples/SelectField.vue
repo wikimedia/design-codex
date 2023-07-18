@@ -18,7 +18,7 @@
 	</cdx-field>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxSelect, CdxField } from '@wikimedia/codex';
 export default defineComponent( {

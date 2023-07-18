@@ -5,10 +5,9 @@
 	/>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
-import { CdxButtonGroup, ButtonGroupItem } from '@wikimedia/codex';
-import getEventLogger from '../../../src/utils/getEventLogger';
+import { CdxButtonGroup } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'MaximumButtonGroup',
@@ -16,7 +15,7 @@ export default defineComponent( {
 		CdxButtonGroup
 	},
 	setup() {
-		const buttons: ButtonGroupItem[] = [
+		const buttons = [
 			{ value: 1, label: 'First button' },
 			{ value: 2, label: 'Second button' },
 			{ value: 3, label: 'Third button with a long label' },
@@ -24,7 +23,10 @@ export default defineComponent( {
 			{ value: 5, label: 'Fifth button' }
 		];
 
-		const onClick = getEventLogger<string|number>( 'click' );
+		function onClick( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'click event emitted with value:', value );
+		}
 
 		return {
 			buttons,

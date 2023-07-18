@@ -17,7 +17,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { CdxLookup, MenuItemData, MenuConfig } from '../lib';
-import vegetableItems from 'codex-docs/component-demos/lookup/examples/data';
+import vegetableItems from 'codex-docs/component-demos/lookup/examples/data.json';
 
 const selection = ref<string|null>( null );
 const menuItems = ref<MenuItemData[]>( [] );

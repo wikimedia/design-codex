@@ -7,7 +7,7 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxTextInput, CdxLabel } from '@wikimedia/codex';
 

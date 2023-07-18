@@ -218,10 +218,12 @@
 <script lang="ts" setup>
 import { CdxButton, CdxIcon } from '../lib';
 import { cdxIconTrash, cdxIconAlignLeft, cdxIconAlignRight } from '@wikimedia/codex-icons';
-import getEventLogger from 'codex-docs/src/utils/getEventLogger';
 import ButtonDemoTable from './ButtonDemoTable.vue';
 
-const onClick = getEventLogger<Event>( 'click' );
+const onClick = function () {
+	// eslint-disable-next-line no-console
+	console.log( 'click event emitted' );
+};
 </script>
 
 <style lang="less">

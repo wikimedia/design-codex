@@ -1,5 +1,5 @@
 <template>
-	<table>
+	<table class="cdx-demo-button-sizes">
 		<caption>
 			Button size examples for all supported <code>size</code> values.
 		</caption>
@@ -52,17 +52,19 @@
 	</table>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconBell } from '@wikimedia/codex-icons';
-import getEventLogger from '../../../src/utils/getEventLogger';
 
 export default defineComponent( {
 	name: 'ButtonSizes',
 	components: { CdxButton, CdxIcon },
 	setup() {
-		const onClick = getEventLogger<Event>( 'click' );
+		function onClick() {
+			// eslint-disable-next-line no-console
+			console.log( 'click event emitted' );
+		}
 
 		return {
 			cdxIconBell,
@@ -72,16 +74,18 @@ export default defineComponent( {
 } );
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-table {
-	width: @size-full;
-}
+.cdx-demo-button-sizes {
+	table {
+		width: @size-full;
+	}
 
-caption {
-	margin-top: @spacing-25;
-	text-align: left;
-	caption-side: bottom;
+	caption {
+		margin-top: @spacing-25;
+		text-align: left;
+		caption-side: bottom;
+	}
 }
 </style>

@@ -58,7 +58,7 @@
 	</cdx-accordion>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxAccordion, CdxTextArea } from '@wikimedia/codex';
 

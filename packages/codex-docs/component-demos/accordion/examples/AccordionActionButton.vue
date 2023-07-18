@@ -25,7 +25,7 @@
 	</p>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue';
 import { CdxAccordion } from '@wikimedia/codex';
 import { cdxIconEdit } from '@wikimedia/codex-icons';

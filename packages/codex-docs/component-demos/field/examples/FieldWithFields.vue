@@ -56,15 +56,13 @@
 	</cdx-toggle-switch>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref, computed } from 'vue';
 import {
 	CdxField,
 	CdxLookup,
 	CdxTextInput,
-	CdxToggleSwitch,
-	MenuItemData,
-	ValidationStatusType
+	CdxToggleSwitch
 } from '@wikimedia/codex';
 
 export default defineComponent( {
@@ -78,7 +76,7 @@ export default defineComponent( {
 	setup() {
 		// Set up data for the weight value field.
 		const weightValue = ref( '' );
-		const weightStatus = ref<ValidationStatusType>( 'default' );
+		const weightStatus = ref( 'default' );
 		const weightMessages = { error: 'Invalid weight value' };
 
 		function validateWeight() {
@@ -93,7 +91,7 @@ export default defineComponent( {
 
 		// Set up data for the unit field.
 		const unitsValue = ref( '' );
-		const unitsStatus = ref<ValidationStatusType>( 'default' );
+		const unitsStatus = ref( 'default' );
 		const unitsMessages = { error: 'No matching units found' };
 		const units = [
 			{ value: 'ounces' },
@@ -101,9 +99,14 @@ export default defineComponent( {
 			{ value: 'grams' },
 			{ value: 'kilograms' }
 		];
-		const menuItems = ref<MenuItemData[]>( [] );
+		const menuItems = ref( [] );
 
-		function onLookupInput( value: string ) {
+		/**
+		 * Handle lookup input.
+		 *
+		 * @param {string} value
+		 */
+		function onLookupInput( value ) {
 			if ( value ) {
 				menuItems.value = units.filter( ( item ) =>
 					item.value.includes( value )

@@ -5,7 +5,7 @@
 	</p>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxIcon } from '@wikimedia/codex';
 import { cdxIconTag } from '@wikimedia/codex-icons';
