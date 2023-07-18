@@ -1,3 +1,22 @@
+# 0.15.0 / 2023-07-18
+
+## Features
+- Accordion: Remove "disabled" property for now (Eric Gardner)
+- Accordion: Move from WIP components to public components (Roan Kattouw)
+- FilterChip, FilterChipInput: Add WIP components to Codex (Julia Kieserman)
+- FilterChipInput: Add variant with separate input (Anne Tomasevich)
+
+## Styles
+- Message: Remove top and bottom margins from first/last content children (Eric Gardner)
+- Add horizontal centering to fake button styles (bwang)
+
+## Code
+- Accordion: Improve tests (Roan Kattouw)
+- Accordion: Make tests not throw warning about missing icon label (Roan Kattouw)
+
+## Documentation
+- docs: Add demo table for icon-only link buttons with small icons (Anne Tomasevich)
+
 # 0.14.0 / 2023-07-05
 
 ## Features
