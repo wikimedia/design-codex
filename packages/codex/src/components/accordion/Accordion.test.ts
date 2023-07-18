@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { cdxIconEdit } from '@wikimedia/codex-icons';
+import { cdxIconEdit, Icon } from '@wikimedia/codex-icons';
 import CdxAccordion from './Accordion.vue';
 
 describe( 'Accordion', () => {
@@ -8,7 +8,8 @@ describe( 'Accordion', () => {
 			msg: string,
 			props: {
 				actionAlwaysVisible?: boolean
-				actionIcon?: string
+				actionIcon?: Icon,
+				actionButtonLabel?: string
 			},
 			slotTitle: string,
 			slotContent: string,
@@ -16,8 +17,8 @@ describe( 'Accordion', () => {
 
 		const cases: Case[] = [
 			[ 'Renders with basic basic title and text content', {}, 'Title', 'Content' ],
-			[ 'Action button is not visible when collapsed', { actionIcon: cdxIconEdit }, 'Title', 'Content' ],
-			[ 'actionAlwaysVisible makes action button visible even when collapsed', { actionIcon: cdxIconEdit, actionAlwaysVisible: true }, 'Title', 'Content' ]
+			[ 'Action button is not visible when collapsed', { actionIcon: cdxIconEdit, actionButtonLabel: 'Edit' }, 'Title', 'Content' ],
+			[ 'actionAlwaysVisible makes action button visible even when collapsed', { actionIcon: cdxIconEdit, actionButtonLabel: 'Edit', actionAlwaysVisible: true }, 'Title', 'Content' ]
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slotTitle, slotContent ) => {
@@ -47,7 +48,8 @@ describe( 'Accordion', () => {
 		it( 'should show the action button', async () => {
 			const wrapper = mount( CdxAccordion, {
 				props: {
-					actionIcon: cdxIconEdit
+					actionIcon: cdxIconEdit,
+					actionButtonLabel: 'Edit'
 				},
 				slots: {
 					title: 'Title',
