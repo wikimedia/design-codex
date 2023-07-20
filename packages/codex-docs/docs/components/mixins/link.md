@@ -3,7 +3,7 @@
 // link mixin. It will be moved to a more permanent location once we determine a final documentation
 // structure for component mixins.
 import { CdxIcon } from '@wikimedia/codex';
-import { cdxIconLink, cdxIconLinkExternal } from '@wikimedia/codex-icons';
+import { cdxIconLinkExternal } from '@wikimedia/codex-icons';
 </script>
 
 # Link
@@ -32,7 +32,9 @@ will get errors that look like `variable @color-progressive is undefined`.
 
 <template v-slot:code>
 
-```vue
+:::code-group
+
+```vue [NPM]
 <template>
 	<p>Lorem ipsum <a class="cdx-docs-link" href="https://example.com">dolor sic</a> amet.</p>
 </template>
@@ -48,6 +50,22 @@ will get errors that look like `variable @color-progressive is undefined`.
 </style>
 ```
 
+```vue [MediaWiki]
+<template>
+	<p>Lorem ipsum <a class="cdx-docs-link" href="https://example.com">dolor sic</a> amet.</p>
+</template>
+
+<style lang="less">
+@import 'mediawiki.skin.variables.less';
+
+.cdx-docs-link {
+	.cdx-mixin-link();
+}
+</style>
+```
+
+:::
+
 </template>
 </cdx-demo-wrapper>
 
@@ -60,7 +78,9 @@ will get errors that look like `variable @color-progressive is undefined`.
 
 <template v-slot:code>
 
-```vue
+:::code-group
+
+```vue [NPM]
 <template>
 	<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic</a> amet.</p>
 </template>
@@ -76,6 +96,22 @@ will get errors that look like `variable @color-progressive is undefined`.
 </style>
 ```
 
+```vue [MediaWiki]
+<template>
+	<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic</a> amet.</p>
+</template>
+
+<style lang="less">
+@import 'mediawiki.skin.variables.less';
+
+.cdx-docs-link {
+	.cdx-mixin-link();
+}
+</style>
+```
+
+:::
+
 </template>
 </cdx-demo-wrapper>
 
@@ -88,10 +124,34 @@ will get errors that look like `variable @color-progressive is undefined`.
 
 <template v-slot:code>
 
-```vue
+:::code-group
+
+```vue [NPM]
 <template>
-	<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic<cdx-icon :icon="cdxIconLinkExternal" /></a> amet.</p>
+	<p>
+		Lorem ipsum
+		<a class="cdx-docs-link is-underlined" href="#">
+			dolor sic
+			<cdx-icon :icon="cdxIconLinkExternal" />
+		</a>
+		amet.
+	</p>
 </template>
+
+<script>
+import { defineComponent } from 'vue';
+import { CdxIcon } from '@wikimedia/codex';
+import { cdxIconLinkExternal } from '@wikimedia/codex-icons';
+
+export default {
+	components: { CdxIcon },
+	setup() {
+		return {
+			cdxIconLinkExternal
+		};
+	}
+};
+</script>
 
 <style lang="less">
 // Note: you must import the design tokens before importing the link mixin
@@ -109,6 +169,50 @@ will get errors that look like `variable @color-progressive is undefined`.
 </style>
 ```
 
+```vue [MediaWiki]
+<template>
+	<p>
+		Lorem ipsum
+		<a class="cdx-docs-link is-underlined" href="#">
+			dolor sic
+			<cdx-icon :icon="cdxIconLinkExternal"></cdx-icon>
+		</a>
+		amet.
+	</p>
+</template>
+
+<script>
+const { defineComponent } = require( 'vue' );
+const { CdxIcon } = require( '@wikimedia/codex' );
+const { cdxIconLinkExternal } = require( '@wikimedia/codex-icons' );
+
+/// @vue/components
+module.exports = {
+	components: { CdxIcon },
+	setup() {
+		return {
+			cdxIconLinkExternal
+		};
+	}
+};
+</script>
+
+<style lang="less">
+@import 'mediawiki.skin.variables.less';
+
+.cdx-docs-link {
+	.cdx-mixin-link();
+
+	// stylelint-disable-next-line selector-class-pattern
+	.cdx-icon {
+		color: inherit;
+	}
+}
+</style>
+```
+
+:::
+
 </template>
 </cdx-demo-wrapper>
 
@@ -121,7 +225,9 @@ will get errors that look like `variable @color-progressive is undefined`.
 
 <template v-slot:code>
 
-```vue
+:::code-group
+
+```vue [NPM]
 <template>
 	<p>Lorem ipsum <a class="cdx-docs-link is-red-link" href="#">dolor sic</a> amet.</p>
 </template>
@@ -136,6 +242,22 @@ will get errors that look like `variable @color-progressive is undefined`.
 }
 </style>
 ```
+
+```vue [MediaWiki]
+<template>
+	<p>Lorem ipsum <a class="cdx-docs-link is-red-link" href="#">dolor sic</a> amet.</p>
+</template>
+
+<style lang="less">
+@import 'mediawiki.skin.variables.less';
+
+.cdx-docs-link {
+	.cdx-mixin-link();
+}
+</style>
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -157,11 +279,13 @@ class or to all anchor elements. This will automatically apply underline styles 
 
 <template v-slot:code>
 
-```vue
+:::code-group
+
+```vue [NPM]
 <template>
 	<p>Lorem ipsum <a class="cdx-docs-link" href="#">dolor sic</a> amet.</p>
 	<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic</a> amet.</p>
-	<p>Lorem ipsum <a class="cdx-docs-link is-red-link" href="#">dolor sic</a> amet.<p>
+	<p>Lorem ipsum <a class="cdx-docs-link is-red-link" href="#">dolor sic</a> amet.</p>
 </template>
 
 <style lang="less">
@@ -174,6 +298,24 @@ class or to all anchor elements. This will automatically apply underline styles 
 }
 </style>
 ```
+
+```vue [MediaWiki]
+<template>
+	<p>Lorem ipsum <a class="cdx-docs-link" href="#">dolor sic</a> amet.</p>
+	<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic</a> amet.</p>
+	<p>Lorem ipsum <a class="cdx-docs-link is-red-link" href="#">dolor sic</a> amet.</p>
+</template>
+
+<style lang="less">
+@import 'mediawiki.skin.variables.less';
+
+.cdx-docs-link {
+	.cdx-mixin-link();
+}
+</style>
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -196,7 +338,9 @@ Alternately, you can apply sub-mixins directly to your own CSS selectors. The su
 
 <template v-slot:code>
 
-```vue
+:::code-group
+
+```vue [NPM]
 <template>
 	<div class="cdx-docs-link-wrapper">
 		<p>Lorem ipsum <a href="#">dolor sic</a> amet.</p>
@@ -225,6 +369,36 @@ Alternately, you can apply sub-mixins directly to your own CSS selectors. The su
 }
 </style>
 ```
+
+```vue [MediaWiki]
+<template>
+	<div class="cdx-docs-link-wrapper">
+		<p>Lorem ipsum <a href="#">dolor sic</a> amet.</p>
+		<p>Lorem ipsum <a class="cdx-docs-link-with-underline" href="#">dolor sic</a> amet.</p>
+		<p>Lorem ipsum <a class="cdx-docs-red-link" href="#">dolor sic</a> amet.</p>
+	</div>
+</template>
+
+<style lang="less">
+@import 'mediawiki.skin.variables.less';
+
+.cdx-docs-link-wrapper {
+	a {
+		.cdx-mixin-link-base();
+	}
+
+	.cdx-docs-link-with-underline {
+		.cdx-mixin-link-underlined();
+	}
+
+	.cdx-docs-red-link {
+		.cdx-mixin-link-red();
+	}
+}
+</style>
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>

@@ -2,4 +2,5 @@ coverage/
 dist/
 docs/.vitepress/cache/
 docs/components/demos/
+component-demos/**/examples-mw/
 coverage/

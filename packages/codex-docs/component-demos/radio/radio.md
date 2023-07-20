@@ -15,7 +15,13 @@ import RadioGroupField from '@/../component-demos/radio/examples/RadioGroupField
 
 <template v-slot:code>
 
-<<< @/../component-demos/radio/examples/RadioGroup.vue
+:::code-group
+
+<<< @/../component-demos/radio/examples/RadioGroup.vue [NPM]
+
+<<< @/../component-demos/radio/examples-mw/RadioGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -29,7 +35,13 @@ import RadioGroupField from '@/../component-demos/radio/examples/RadioGroupField
 
 <template v-slot:code>
 
-<<< @/../component-demos/radio/examples/InlineRadios.vue
+:::code-group
+
+<<< @/../component-demos/radio/examples/InlineRadios.vue [NPM]
+
+<<< @/../component-demos/radio/examples-mw/InlineRadios.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -50,7 +62,13 @@ support.
 
 <template v-slot:code>
 
-<<< @/../component-demos/radio/examples/RadioGroupField.vue
+:::code-group
+
+<<< @/../component-demos/radio/examples/RadioGroupField.vue [NPM]
+
+<<< @/../component-demos/radio/examples-mw/RadioGroupField.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

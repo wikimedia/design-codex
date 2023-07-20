@@ -30,7 +30,13 @@ The `placeholder` attribute will be passed down to the `<input>` element.
 
 <template v-slot:code>
 
-<<< @/../component-demos/search-input/examples/SearchInputDefault.vue
+:::code-group
+
+<<< @/../component-demos/search-input/examples/SearchInputDefault.vue [NPM]
+
+<<< @/../component-demos/search-input/examples-mw/SearchInputDefault.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -46,7 +52,13 @@ This example provides a `buttonLabel` prop, which enables the submit button.
 
 <template v-slot:code>
 
-<<< @/../component-demos/search-input/examples/SearchInputWithButton.vue
+:::code-group
+
+<<< @/../component-demos/search-input/examples/SearchInputWithButton.vue [NPM]
+
+<<< @/../component-demos/search-input/examples-mw/SearchInputWithButton.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -63,7 +75,13 @@ input is present.
 
 <template v-slot:code>
 
-<<< @/../component-demos/search-input/examples/SearchInputClearable.vue
+:::code-group
+
+<<< @/../component-demos/search-input/examples/SearchInputClearable.vue [NPM]
+
+<<< @/../component-demos/search-input/examples-mw/SearchInputClearable.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -81,7 +99,13 @@ information.
 
 <template v-slot:code>
 
-<<< @/../component-demos/search-input/examples/SearchInputField.vue
+:::code-group
+
+<<< @/../component-demos/search-input/examples/SearchInputField.vue [NPM]
+
+<<< @/../component-demos/search-input/examples-mw/SearchInputField.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

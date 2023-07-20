@@ -58,7 +58,13 @@ Text for the `aria-label` of each filter chip's "remove" button is a required pr
 
 <template v-slot:code>
 
-<<< @/../component-demos/filter-chip-input/examples/FilterChipInputBasic.vue
+:::code-group
+
+<<< @/../component-demos/filter-chip-input/examples/FilterChipInputBasic.vue [NPM]
+
+<<< @/../component-demos/filter-chip-input/examples-mw/FilterChipInputBasic.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -74,7 +80,13 @@ provided by the parent component.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/filter-chip-input/examples/FilterChipInputWithIcons.vue
+:::code-group
+
+<<< @/../component-demos/filter-chip-input/examples/FilterChipInputWithIcons.vue [NPM]
+
+<<< @/../component-demos/filter-chip-input/examples-mw/FilterChipInputWithIcons.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -90,7 +102,13 @@ component and will be passed down to the `<input>` element within.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/filter-chip-input/examples/FilterChipInputWithPlaceholder.vue
+:::code-group
+
+<<< @/../component-demos/filter-chip-input/examples/FilterChipInputWithPlaceholder.vue [NPM]
+
+<<< @/../component-demos/filter-chip-input/examples-mw/FilterChipInputWithPlaceholder.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -103,7 +121,13 @@ component and will be passed down to the `<input>` element within.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/filter-chip-input/examples/FilterChipInputDisabled.vue
+:::code-group
+
+<<< @/../component-demos/filter-chip-input/examples/FilterChipInputDisabled.vue [NPM]
+
+<<< @/../component-demos/filter-chip-input/examples-mw/FilterChipInputDisabled.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

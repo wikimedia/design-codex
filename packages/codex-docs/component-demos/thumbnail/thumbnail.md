@@ -15,7 +15,13 @@ import ThumbnailCustomIcon from '@/../component-demos/thumbnail/examples/Thumbna
 
 <template v-slot:code>
 
-<<< @/../component-demos/thumbnail/examples/ThumbnailDefault.vue
+:::code-group
+
+<<< @/../component-demos/thumbnail/examples/ThumbnailDefault.vue [NPM]
+
+<<< @/../component-demos/thumbnail/examples-mw/ThumbnailDefault.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -59,7 +65,13 @@ To customize the placeholder icon, use the `placeholderIcon` prop.
 
 <template v-slot:code>
 
-<<< @/../component-demos/thumbnail/examples/ThumbnailCustomIcon.vue
+:::code-group
+
+<<< @/../component-demos/thumbnail/examples/ThumbnailCustomIcon.vue [NPM]
+
+<<< @/../component-demos/thumbnail/examples-mw/ThumbnailCustomIcon.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

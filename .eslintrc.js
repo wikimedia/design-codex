@@ -13,6 +13,9 @@ module.exports = {
 				'packages/*/**/*.ts',
 				'packages/*/**/*.js'
 			],
+			excludedFiles: [
+				'packages/codex-docs/component-demos/**/examples-mw/*.vue'
+			],
 			plugins: [
 				'@typescript-eslint/eslint-plugin'
 			],
@@ -40,6 +43,7 @@ module.exports = {
 			],
 			excludedFiles: [
 				'packages/codex-docs/component-demos/**/examples/*.vue',
+				'packages/codex-docs/component-demos/**/examples-mw/*.vue',
 				'packages/codex-docs/src/lib.ts'
 			],
 			plugins: [

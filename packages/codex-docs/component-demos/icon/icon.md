@@ -17,7 +17,13 @@ See the [Icons section](../../icons/overview.md) for more information, including
 
 <template v-slot:code>
 
-<<< @/../component-demos/icon/examples/SimpleIcon.vue
+:::code-group
+
+<<< @/../component-demos/icon/examples/SimpleIcon.vue [NPM]
+
+<<< @/../component-demos/icon/examples-mw/SimpleIcon.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -39,7 +45,13 @@ If no `size` property is provided, the `medium` size will be used by default.
 
 <template v-slot:code>
 
-<<< @/../component-demos/icon/examples/IconSizes.vue
+:::code-group
+
+<<< @/../component-demos/icon/examples/IconSizes.vue [NPM]
+
+<<< @/../component-demos/icon/examples-mw/IconSizes.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

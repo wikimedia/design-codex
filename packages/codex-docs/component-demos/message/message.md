@@ -52,7 +52,9 @@ When a message is dynamically added to the UI, use the `fadeIn` prop to enable a
 <!-- Note that this code is a simplified version of the MessageFadeIn component. CSS classes and
 styles specific to the demo have been removed to avoid confusion. -->
 
-```vue
+:::code-group
+
+```vue [NPM]
 <template>
 	<cdx-button :disabled="showMessage" @click="showMessage = true">
 		Show message
@@ -81,6 +83,39 @@ export default defineComponent( {
 } );
 </script>
 ```
+
+```vue [MediaWiki]
+<template>
+	<cdx-button :disabled="showMessage" @click="showMessage = true">
+		Show message
+	</cdx-button>
+	<cdx-message
+		v-if="showMessage"
+		type="warning"
+		:fade-in="true"
+	>
+		<p><strong>Warning!</strong> Here's some information you should know.</p>
+	</cdx-message>
+</template>
+
+<script>
+const { defineComponent } = require( 'vue' );
+const { CdxMessage, CdxButton } = require( '@wikimedia/codex' );
+
+// @vue/component
+module.exports = defineComponent( {
+	name: 'MessageFadeIn',
+	components: { CdxMessage, CdxButton },
+	data() {
+		return {
+			showMessage: false
+		};
+	}
+} );
+</script>
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -133,7 +168,10 @@ Auto-dismiss can be used with or without the manual dismiss button.
 <!-- Note that this code is a simplified version of the MessageAutoDismiss component. CSS classes
 and styles specific to the demo, the "reset" tip, and the logic for showing that tip have been
 removed to avoid confusion. -->
-```vue
+
+:::code-group
+
+```vue [NPM]
 <template>
 	<cdx-button :disabled="showMessage" @click="showMessage = true">
 		Show message
@@ -149,7 +187,7 @@ removed to avoid confusion. -->
 	</cdx-message>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { CdxMessage, CdxButton } from '@wikimedia/codex';
 
@@ -164,6 +202,41 @@ export default defineComponent( {
 } );
 </script>
 ```
+
+```vue [MediaWiki]
+<template>
+	<cdx-button :disabled="showMessage" @click="showMessage = true">
+		Show message
+	</cdx-button>
+	<cdx-message
+		v-if="showMessage"
+		type="success"
+		:fade-in="true"
+		:auto-dismiss="true"
+		:display-time="3000"
+	>
+		Success! This message will disappear...
+	</cdx-message>
+</template>
+
+<script>
+const { defineComponent } = require( 'vue' );
+const { CdxMessage, CdxButton } = require( '@wikimedia/codex' );
+
+// @vue/component
+module.exports = defineComponent( {
+	name: 'MessageAutoDismiss',
+	components: { CdxMessage, CdxButton },
+	data() {
+		return {
+			showMessage: false
+		};
+	}
+} );
+</script>
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>

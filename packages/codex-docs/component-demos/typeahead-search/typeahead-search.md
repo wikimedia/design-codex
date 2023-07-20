@@ -31,7 +31,13 @@ events.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/typeahead-search/examples/TypeaheadSearchWikipedia.vue
+:::code-group
+
+<<< @/../component-demos/typeahead-search/examples/TypeaheadSearchWikipedia.vue [NPM]
+
+<<< @/../component-demos/typeahead-search/examples-mw/TypeaheadSearchWikipedia.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -48,7 +54,13 @@ see emitted events.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/typeahead-search/examples/TypeaheadSearchWikidata.vue
+:::code-group
+
+<<< @/../component-demos/typeahead-search/examples/TypeaheadSearchWikidata.vue [NPM]
+
+<<< @/../component-demos/typeahead-search/examples-mw/TypeaheadSearchWikidata.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -70,7 +82,13 @@ when the value changes.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/typeahead-search/examples/TypeaheadSearchInitialValue.vue
+:::code-group
+
+<<< @/../component-demos/typeahead-search/examples/TypeaheadSearchInitialValue.vue [NPM]
+
+<<< @/../component-demos/typeahead-search/examples-mw/TypeaheadSearchInitialValue.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -90,7 +108,13 @@ need to throttle your connection to see them in the demo below.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/typeahead-search/examples/TypeaheadSearchPendingState.vue
+:::code-group
+
+<<< @/../component-demos/typeahead-search/examples/TypeaheadSearchPendingState.vue [NPM]
+
+<<< @/../component-demos/typeahead-search/examples-mw/TypeaheadSearchPendingState.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -106,7 +130,13 @@ A message prompt that no search results were found. To enable this, provide cont
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/typeahead-search/examples/TypeaheadSearchNoResult.vue
+:::code-group
+
+<<< @/../component-demos/typeahead-search/examples/TypeaheadSearchNoResult.vue [NPM]
+
+<<< @/../component-demos/typeahead-search/examples-mw/TypeaheadSearchNoResult.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

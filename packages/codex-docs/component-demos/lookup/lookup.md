@@ -44,7 +44,13 @@ given input, set the `menu-items` prop to an empty array (`[]`).
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/lookup/examples/LookupDefault.vue
+:::code-group
+
+<<< @/../component-demos/lookup/examples/LookupDefault.vue [NPM]
+
+<<< @/../component-demos/lookup/examples-mw/LookupDefault.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -59,7 +65,13 @@ The `menu-item` slot can be used to set up custom menu item content and formatti
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/lookup/examples/LookupWithCustomMenuItem.vue
+:::code-group
+
+<<< @/../component-demos/lookup/examples/LookupWithCustomMenuItem.vue [NPM]
+
+<<< @/../component-demos/lookup/examples-mw/LookupWithCustomMenuItem.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -75,7 +87,13 @@ this slot will automatically display when there are zero menu items.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/lookup/examples/LookupNoResults.vue
+:::code-group
+
+<<< @/../component-demos/lookup/examples/LookupNoResults.vue [NPM]
+
+<<< @/../component-demos/lookup/examples-mw/LookupNoResults.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -99,7 +117,13 @@ list of menu items provided to the Lookup. These new items will then be displaye
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/lookup/examples/LookupWithFetch.vue
+:::code-group
+
+<<< @/../component-demos/lookup/examples/LookupWithFetch.vue [NPM]
+
+<<< @/../component-demos/lookup/examples-mw/LookupWithFetch.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -115,7 +139,13 @@ component inside of it, so you can take advantage of features like the "clear" b
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/lookup/examples/LookupClearableStartIcon.vue
+:::code-group
+
+<<< @/../component-demos/lookup/examples/LookupClearableStartIcon.vue [NPM]
+
+<<< @/../component-demos/lookup/examples-mw/LookupClearableStartIcon.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -131,7 +161,13 @@ Attributes (except for `class`) will fall through to the input element, so you c
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/lookup/examples/LookupWithPlaceholder.vue
+:::code-group
+
+<<< @/../component-demos/lookup/examples/LookupWithPlaceholder.vue [NPM]
+
+<<< @/../component-demos/lookup/examples-mw/LookupWithPlaceholder.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -147,7 +183,13 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/lookup/examples/LookupField.vue
+:::code-group
+
+<<< @/../component-demos/lookup/examples/LookupField.vue [NPM]
+
+<<< @/../component-demos/lookup/examples-mw/LookupField.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

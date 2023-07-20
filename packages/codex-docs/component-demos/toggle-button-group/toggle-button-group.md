@@ -19,7 +19,13 @@ To allow only a single value to be selected, initialize `v-model` to `null`.
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-button-group/examples/SingleValueToggleButtonGroup.vue
+:::code-group
+
+<<< @/../component-demos/toggle-button-group/examples/SingleValueToggleButtonGroup.vue [NPM]
+
+<<< @/../component-demos/toggle-button-group/examples-mw/SingleValueToggleButtonGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -38,7 +44,13 @@ button, see the [ButtonGroup documentation](./button-group).
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-button-group/examples/InitiallySelectedSingleValueToggleButtonGroup.vue
+:::code-group
+
+<<< @/../component-demos/toggle-button-group/examples/InitiallySelectedSingleValueToggleButtonGroup.vue [NPM]
+
+<<< @/../component-demos/toggle-button-group/examples-mw/InitiallySelectedSingleValueToggleButtonGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -56,7 +68,13 @@ buttons.
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-button-group/examples/MultiValueToggleButtonGroup.vue
+:::code-group
+
+<<< @/../component-demos/toggle-button-group/examples/MultiValueToggleButtonGroup.vue [NPM]
+
+<<< @/../component-demos/toggle-button-group/examples-mw/MultiValueToggleButtonGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -72,7 +90,13 @@ disabled by setting their `.disabled` property.
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-button-group/examples/DisabledToggleButtonGroup.vue
+:::code-group
+
+<<< @/../component-demos/toggle-button-group/examples/DisabledToggleButtonGroup.vue [NPM]
+
+<<< @/../component-demos/toggle-button-group/examples-mw/DisabledToggleButtonGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -87,7 +111,13 @@ When the button group is too large to fit on one line, the buttons overflow to t
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-button-group/examples/MaximumToggleButtonGroup.vue
+:::code-group
+
+<<< @/../component-demos/toggle-button-group/examples/MaximumToggleButtonGroup.vue [NPM]
+
+<<< @/../component-demos/toggle-button-group/examples-mw/MaximumToggleButtonGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -105,7 +135,13 @@ after its label, but only if the button is selected.
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-button-group/examples/ToggleButtonGroupWithSlot.vue
+:::code-group
+
+<<< @/../component-demos/toggle-button-group/examples/ToggleButtonGroupWithSlot.vue [NPM]
+
+<<< @/../component-demos/toggle-button-group/examples-mw/ToggleButtonGroupWithSlot.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

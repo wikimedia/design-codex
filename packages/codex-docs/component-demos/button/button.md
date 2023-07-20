@@ -169,7 +169,13 @@ Add the `disabled` attribute for a disabled button.
 
 <template v-slot:code>
 
-<<< @/../component-demos/button/examples/ButtonWithIcon.vue
+:::code-group
+
+<<< @/../component-demos/button/examples/ButtonWithIcon.vue [NPM]
+
+<<< @/../component-demos/button/examples-mw/ButtonWithIcon.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -181,7 +187,13 @@ Add the `disabled` attribute for a disabled button.
 
 <template v-slot:code>
 
-<<< @/../component-demos/button/examples/QuietButtonWithIcon.vue
+:::code-group
+
+<<< @/../component-demos/button/examples/QuietButtonWithIcon.vue [NPM]
+
+<<< @/../component-demos/button/examples-mw/QuietButtonWithIcon.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -201,7 +213,13 @@ The attribute `aria-label` has to be used on icon-only buttons to be understanda
 
 <template v-slot:code>
 
-<<< @/../component-demos/button/examples/IconOnlyButton.vue
+:::code-group
+
+<<< @/../component-demos/button/examples/IconOnlyButton.vue [NPM]
+
+<<< @/../component-demos/button/examples-mw/IconOnlyButton.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -213,7 +231,13 @@ The attribute `aria-label` has to be used on icon-only buttons to be understanda
 
 <template v-slot:code>
 
-<<< @/../component-demos/button/examples/QuietIconOnlyButton.vue
+:::code-group
+
+<<< @/../component-demos/button/examples/QuietIconOnlyButton.vue [NPM]
+
+<<< @/../component-demos/button/examples-mw/QuietIconOnlyButton.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -232,7 +256,13 @@ such as making icon-only buttons larger on touchscreens to increase the touch ar
 
 <template v-slot:code>
 
-<<< @/../component-demos/button/examples/ButtonSizes.vue
+:::code-group
+
+<<< @/../component-demos/button/examples/ButtonSizes.vue [NPM]
+
+<<< @/../component-demos/button/examples-mw/ButtonSizes.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

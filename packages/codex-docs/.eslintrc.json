@@ -48,7 +48,10 @@
 			}
 		},
 		{
-			"files": [ "component-demos/**/examples/*.vue" ],
+			"files": [
+				"component-demos/**/examples/*.vue",
+				"component-demos/**/examples-mw/*.vue"
+			],
 			"extends": [
 				"wikimedia/language/es6"
 			],
@@ -57,6 +60,24 @@
 					"script": { "lang": "js" }
 				} ],
 				"es-x/no-array-prototype-includes": "off"
+			}
+		},
+		{
+			"files": [ "component-demos/**/examples-mw/*.vue" ],
+			"globals": {
+				"require": "readonly",
+				"module": "readonly"
+			},
+			"rules": {
+				"vue/html-self-closing": [ "error", {
+					"html": {
+						"void": "never",
+						"normal": "never",
+						"component": "never"
+					}
+				} ],
+				"vue/no-unused-properties": "off",
+				"max-len": "off"
 			}
 		}
 	],

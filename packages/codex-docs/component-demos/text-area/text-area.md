@@ -79,7 +79,13 @@ While our design system strives to provide a consistent experience across differ
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-area/examples/TextAreaDefault.vue
+:::code-group
+
+<<< @/../component-demos/text-area/examples/TextAreaDefault.vue [NPM]
+
+<<< @/../component-demos/text-area/examples-mw/TextAreaDefault.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -97,7 +103,13 @@ Note: Placeholders are not a substitute for a proper `<label>` element tied to t
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-area/examples/TextAreaWithPlaceholder.vue
+:::code-group
+
+<<< @/../component-demos/text-area/examples/TextAreaWithPlaceholder.vue [NPM]
+
+<<< @/../component-demos/text-area/examples-mw/TextAreaWithPlaceholder.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -115,7 +127,13 @@ The `rows` attribute takes a positive number which represents the number of text
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-area/examples/TextAreaWithRows.vue
+:::code-group
+
+<<< @/../component-demos/text-area/examples/TextAreaWithRows.vue [NPM]
+
+<<< @/../component-demos/text-area/examples-mw/TextAreaWithRows.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -133,7 +151,13 @@ The grabber/resize tool is not displayed when `autosize` is set to `true`.
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-area/examples/TextAreaWithAutosize.vue
+:::code-group
+
+<<< @/../component-demos/text-area/examples/TextAreaWithAutosize.vue [NPM]
+
+<<< @/../component-demos/text-area/examples-mw/TextAreaWithAutosize.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -149,7 +173,13 @@ TextArea can pass in a start icon and end icon as props. This example shows how 
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-area/examples/TextAreaWithIcons.vue
+:::code-group
+
+<<< @/../component-demos/text-area/examples/TextAreaWithIcons.vue [NPM]
+
+<<< @/../component-demos/text-area/examples-mw/TextAreaWithIcons.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -167,7 +197,13 @@ When `<textarea>` is `disabled`, the user cannot interact with the control. User
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-area/examples/TextAreaWithDisabled.vue
+:::code-group
+
+<<< @/../component-demos/text-area/examples/TextAreaWithDisabled.vue [NPM]
+
+<<< @/../component-demos/text-area/examples-mw/TextAreaWithDisabled.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -187,7 +223,13 @@ One example usage of `readonly` textarea is when you want to prevent a user from
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-area/examples/TextAreaWithReadonly.vue
+:::code-group
+
+<<< @/../component-demos/text-area/examples/TextAreaWithReadonly.vue [NPM]
+
+<<< @/../component-demos/text-area/examples-mw/TextAreaWithReadonly.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -204,7 +246,13 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-area/examples/TextAreaField.vue
+:::code-group
+
+<<< @/../component-demos/text-area/examples/TextAreaField.vue [NPM]
+
+<<< @/../component-demos/text-area/examples-mw/TextAreaField.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

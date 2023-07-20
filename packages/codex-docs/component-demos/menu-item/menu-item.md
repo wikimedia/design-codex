@@ -101,7 +101,13 @@ to set these states should be used.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItemDefault.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItemDefault.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItemDefault.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -114,7 +120,13 @@ to set these states should be used.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItemWithDescription.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItemWithDescription.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItemWithDescription.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -129,7 +141,13 @@ If a `url` property is included, the menu item will be wrapped in an anchor tag.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItemWithUrl.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItemWithUrl.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItemWithUrl.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -142,7 +160,13 @@ If a `url` property is included, the menu item will be wrapped in an anchor tag.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItemWithIcon.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItemWithIcon.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItemWithIcon.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -155,7 +179,13 @@ If a `url` property is included, the menu item will be wrapped in an anchor tag.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItemWithThumbnail.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItemWithThumbnail.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItemWithThumbnail.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -175,7 +205,13 @@ In the example below, the search query is "Co".
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItemHighlightQuery.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItemHighlightQuery.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItemHighlightQuery.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -193,7 +229,13 @@ margarita," an alias of the Wikidata item "sand cat."
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItemWithMatch.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItemWithMatch.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItemWithMatch.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -212,7 +254,13 @@ The example below shows a result for the search term "Corn," which redirects to 
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItemWithSupportingText.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItemWithSupportingText.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItemWithSupportingText.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -232,7 +280,13 @@ The example below demonstrates a search result in a Greek interface for the Engl
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItemMultipleLangs.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItemMultipleLangs.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItemMultipleLangs.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -245,7 +299,13 @@ The example below demonstrates a search result in a Greek interface for the Engl
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItemLongText.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItemLongText.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItemLongText.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -258,7 +318,13 @@ The example below demonstrates a search result in a Greek interface for the Engl
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItemHideOverflow.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItemHideOverflow.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItemHideOverflow.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -271,7 +337,13 @@ The example below demonstrates a search result in a Greek interface for the Engl
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItems.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItems.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItems.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -284,7 +356,13 @@ The example below demonstrates a search result in a Greek interface for the Engl
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu-item/examples/MenuItemsGraphemes.vue
+:::code-group
+
+<<< @/../component-demos/menu-item/examples/MenuItemsGraphemes.vue [NPM]
+
+<<< @/../component-demos/menu-item/examples-mw/MenuItemsGraphemes.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

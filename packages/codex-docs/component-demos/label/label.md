@@ -74,7 +74,13 @@ and the `<input>` for the TextInput).
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/label/examples/LabelBasic.vue
+:::code-group
+
+<<< @/../component-demos/label/examples/LabelBasic.vue [NPM]
+
+<<< @/../component-demos/label/examples-mw/LabelBasic.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -93,7 +99,13 @@ Note that this will hide the entire output of the component, including the descr
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/label/examples/LabelVisuallyHidden.vue
+:::code-group
+
+<<< @/../component-demos/label/examples/LabelVisuallyHidden.vue [NPM]
+
+<<< @/../component-demos/label/examples-mw/LabelVisuallyHidden.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -109,7 +121,13 @@ description text should be concise.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/label/examples/LabelWithRichText.vue
+:::code-group
+
+<<< @/../component-demos/label/examples/LabelWithRichText.vue [NPM]
+
+<<< @/../component-demos/label/examples-mw/LabelWithRichText.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -131,7 +149,13 @@ Below are examples of a label and a legend with an associated description.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/label/examples/LabelWithDescription.vue
+:::code-group
+
+<<< @/../component-demos/label/examples/LabelWithDescription.vue [NPM]
+
+<<< @/../component-demos/label/examples-mw/LabelWithDescription.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -142,7 +166,13 @@ Below are examples of a label and a legend with an associated description.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/label/examples/LegendWithDescription.vue
+:::code-group
+
+<<< @/../component-demos/label/examples/LegendWithDescription.vue [NPM]
+
+<<< @/../component-demos/label/examples-mw/LegendWithDescription.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

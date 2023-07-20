@@ -66,7 +66,13 @@ Open up the browser console to see events emitted on input, change, focus, and b
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-input/examples/TextInputDefault.vue
+:::code-group
+
+<<< @/../component-demos/text-input/examples/TextInputDefault.vue [NPM]
+
+<<< @/../component-demos/text-input/examples-mw/TextInputDefault.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -81,7 +87,13 @@ that initial value on click.
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-input/examples/TextInputInitialValue.vue
+:::code-group
+
+<<< @/../component-demos/text-input/examples/TextInputInitialValue.vue [NPM]
+
+<<< @/../component-demos/text-input/examples-mw/TextInputInitialValue.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -99,7 +111,13 @@ Some `inputType` values will result in a browser provided UI like the date
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-input/examples/TextInputDate.vue
+:::code-group
+
+<<< @/../component-demos/text-input/examples/TextInputDate.vue [NPM]
+
+<<< @/../component-demos/text-input/examples-mw/TextInputDate.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -138,7 +156,13 @@ Note that a clearable TextInput with an `endIcon` will display both the clear bu
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-input/examples/TextInputWithIcons.vue
+:::code-group
+
+<<< @/../component-demos/text-input/examples/TextInputWithIcons.vue [NPM]
+
+<<< @/../component-demos/text-input/examples-mw/TextInputWithIcons.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -192,7 +216,13 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 
 <template v-slot:code>
 
-<<< @/../component-demos/text-input/examples/TextInputField.vue
+:::code-group
+
+<<< @/../component-demos/text-input/examples/TextInputField.vue [NPM]
+
+<<< @/../component-demos/text-input/examples-mw/TextInputField.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

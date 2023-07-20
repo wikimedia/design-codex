@@ -61,7 +61,13 @@ const controlsConfig = [
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/accordion/examples/AccordionDefault.vue
+:::code-group
+
+<<< @/../component-demos/accordion/examples/AccordionDefault.vue [NPM]
+
+<<< @/../component-demos/accordion/examples-mw/AccordionDefault.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -74,7 +80,13 @@ const controlsConfig = [
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/accordion/examples/AccordionDescription.vue
+:::code-group
+
+<<< @/../component-demos/accordion/examples/AccordionDescription.vue [NPM]
+
+<<< @/../component-demos/accordion/examples-mw/AccordionDescription.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -89,7 +101,13 @@ It's possible to stack accordions by adding them next to each other in the marku
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/accordion/examples/AccordionStacked.vue
+:::code-group
+
+<<< @/../component-demos/accordion/examples/AccordionStacked.vue [NPM]
+
+<<< @/../component-demos/accordion/examples-mw/AccordionStacked.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -111,7 +129,13 @@ button for accessibility purposes by using the `actionButtonLabel` prop.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/accordion/examples/AccordionActionButton.vue
+:::code-group
+
+<<< @/../component-demos/accordion/examples/AccordionActionButton.vue [NPM]
+
+<<< @/../component-demos/accordion/examples-mw/AccordionActionButton.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -126,7 +150,13 @@ To show the icon even when the accordion is collapsed, set the `actionAlwaysVisi
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/accordion/examples/AccordionActionVisible.vue
+:::code-group
+
+<<< @/../component-demos/accordion/examples/AccordionActionVisible.vue [NPM]
+
+<<< @/../component-demos/accordion/examples-mw/AccordionActionVisible.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -141,7 +171,13 @@ The accordion can be used with different elements, including images or tables.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/accordion/examples/AccordionDifferentContent.vue
+:::code-group
+
+<<< @/../component-demos/accordion/examples/AccordionDifferentContent.vue [NPM]
+
+<<< @/../component-demos/accordion/examples-mw/AccordionDifferentContent.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -156,7 +192,13 @@ The accordion heading can be changed to any heading level by passing the `headin
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/accordion/examples/AccordionHeadings.vue
+:::code-group
+
+<<< @/../component-demos/accordion/examples/AccordionHeadings.vue [NPM]
+
+<<< @/../component-demos/accordion/examples-mw/AccordionHeadings.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

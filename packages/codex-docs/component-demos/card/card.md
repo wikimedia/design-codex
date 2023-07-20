@@ -19,7 +19,13 @@ import CardMaximum from '@/../component-demos/card/examples/CardMaximum.vue';
 
 <template v-slot:code>
 
-<<< @/../component-demos/card/examples/CardDefault.vue
+:::code-group
+
+<<< @/../component-demos/card/examples/CardDefault.vue [NPM]
+
+<<< @/../component-demos/card/examples-mw/CardDefault.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -35,7 +41,13 @@ Adding the `url` prop will make the root element of the Card an anchor element.
 
 <template v-slot:code>
 
-<<< @/../component-demos/card/examples/CardWithLink.vue
+:::code-group
+
+<<< @/../component-demos/card/examples/CardWithLink.vue [NPM]
+
+<<< @/../component-demos/card/examples-mw/CardWithLink.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -54,7 +66,13 @@ unless there is only a title, which will be aligned to the center of the media.
 
 <template v-slot:code>
 
-<<< @/../component-demos/card/examples/CardWithIcon.vue
+:::code-group
+
+<<< @/../component-demos/card/examples/CardWithIcon.vue [NPM]
+
+<<< @/../component-demos/card/examples-mw/CardWithIcon.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -68,7 +86,13 @@ unless there is only a title, which will be aligned to the center of the media.
 
 <template v-slot:code>
 
-<<< @/../component-demos/card/examples/CardWithThumbnail.vue
+:::code-group
+
+<<< @/../component-demos/card/examples/CardWithThumbnail.vue [NPM]
+
+<<< @/../component-demos/card/examples-mw/CardWithThumbnail.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -82,7 +106,13 @@ unless there is only a title, which will be aligned to the center of the media.
 
 <template v-slot:code>
 
-<<< @/../component-demos/card/examples/CardWithThumbnailTitleOnly.vue
+:::code-group
+
+<<< @/../component-demos/card/examples/CardWithThumbnailTitleOnly.vue [NPM]
+
+<<< @/../component-demos/card/examples-mw/CardWithThumbnailTitleOnly.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -105,7 +135,13 @@ The third item has no thumbnail and display a placeholder icon instead.
 
 <template v-slot:code>
 
-<<< @/../component-demos/card/examples/CardGroupWithThumbnails.vue
+:::code-group
+
+<<< @/../component-demos/card/examples/CardGroupWithThumbnails.vue [NPM]
+
+<<< @/../component-demos/card/examples-mw/CardGroupWithThumbnails.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -125,7 +161,13 @@ it is recommended to set the Icon `size` property to `small`.
 
 <template v-slot:code>
 
-<<< @/../component-demos/card/examples/CardMaximum.vue
+:::code-group
+
+<<< @/../component-demos/card/examples/CardMaximum.vue [NPM]
+
+<<< @/../component-demos/card/examples-mw/CardMaximum.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

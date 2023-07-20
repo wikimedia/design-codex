@@ -34,7 +34,13 @@ Two stylistic variants are available, quiet (the default) and framed.
 
 <template v-slot:code>
 
-<<< @/../component-demos/tabs/examples/BasicTabs.vue
+:::code-group
+
+<<< @/../component-demos/tabs/examples/BasicTabs.vue [NPM]
+
+<<< @/../component-demos/tabs/examples-mw/BasicTabs.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -51,7 +57,13 @@ enable scrolling through tab names.
 
 <template v-slot:code>
 
-<<< @/../component-demos/tabs/examples/ManyTabs.vue
+:::code-group
+
+<<< @/../component-demos/tabs/examples/ManyTabs.vue [NPM]
+
+<<< @/../component-demos/tabs/examples-mw/ManyTabs.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -69,7 +81,13 @@ the header row will update to match.
 
 <template v-slot:code>
 
-<<< @/../component-demos/tabs/examples/DynamicallyGeneratedTabs.vue
+:::code-group
+
+<<< @/../component-demos/tabs/examples/DynamicallyGeneratedTabs.vue [NPM]
+
+<<< @/../component-demos/tabs/examples-mw/DynamicallyGeneratedTabs.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

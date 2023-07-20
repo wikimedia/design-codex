@@ -51,7 +51,13 @@ Toggle the ToggleSwitch to see the value change. Open up the console to see emit
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-switch/examples/SingleSwitch.vue
+:::code-group
+
+<<< @/../component-demos/toggle-switch/examples/SingleSwitch.vue [NPM]
+
+<<< @/../component-demos/toggle-switch/examples-mw/SingleSwitch.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -68,7 +74,13 @@ the `<input>`.
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-switch/examples/SingleSwitchWithLabel.vue
+:::code-group
+
+<<< @/../component-demos/toggle-switch/examples/SingleSwitchWithLabel.vue [NPM]
+
+<<< @/../component-demos/toggle-switch/examples-mw/SingleSwitchWithLabel.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -88,7 +100,13 @@ streamlined look.
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-switch/examples/SwitchGroup.vue
+:::code-group
+
+<<< @/../component-demos/toggle-switch/examples/SwitchGroup.vue [NPM]
+
+<<< @/../component-demos/toggle-switch/examples-mw/SwitchGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -109,7 +127,13 @@ ToggleSwitch, to ensure proper accessibility support.
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-switch/examples/SwitchGroupField.vue
+:::code-group
+
+<<< @/../component-demos/toggle-switch/examples/SwitchGroupField.vue [NPM]
+
+<<< @/../component-demos/toggle-switch/examples-mw/SwitchGroupField.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

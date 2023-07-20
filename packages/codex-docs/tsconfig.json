@@ -36,6 +36,7 @@
 		"./docs/.vitepress/cache/**/*",
 		"dist/*",
 		"component-demos/**/examples/*.vue",
+		"component-demos/**/examples-mw/*.vue",
 		"src/lib.ts"
 	]
 }

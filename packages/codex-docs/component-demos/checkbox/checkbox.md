@@ -22,7 +22,13 @@ boolean value: `true` for on, `false` for off.
 
 <template v-slot:code>
 
-<<< @/../component-demos/checkbox/examples/SingleCheckbox.vue
+:::code-group
+
+<<< @/../component-demos/checkbox/examples/SingleCheckbox.vue [NPM]
+
+<<< @/../component-demos/checkbox/examples-mw/SingleCheckbox.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -39,7 +45,13 @@ an array of the `inputValue` props of the checkboxes that are currently "on".
 
 <template v-slot:code>
 
-<<< @/../component-demos/checkbox/examples/CheckboxGroup.vue
+:::code-group
+
+<<< @/../component-demos/checkbox/examples/CheckboxGroup.vue [NPM]
+
+<<< @/../component-demos/checkbox/examples-mw/CheckboxGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -53,7 +65,13 @@ an array of the `inputValue` props of the checkboxes that are currently "on".
 
 <template v-slot:code>
 
-<<< @/../component-demos/checkbox/examples/InlineCheckboxes.vue
+:::code-group
+
+<<< @/../component-demos/checkbox/examples/InlineCheckboxes.vue [NPM]
+
+<<< @/../component-demos/checkbox/examples-mw/InlineCheckboxes.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -82,7 +100,13 @@ a definite value for the checkbox.
 
 <template v-slot:code>
 
-<<< @/../component-demos/checkbox/examples/IndeterminateState.vue
+:::code-group
+
+<<< @/../component-demos/checkbox/examples/IndeterminateState.vue [NPM]
+
+<<< @/../component-demos/checkbox/examples-mw/IndeterminateState.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -103,7 +127,13 @@ to ensure proper accessibility support.
 
 <template v-slot:code>
 
-<<< @/../component-demos/checkbox/examples/CheckboxField.vue
+:::code-group
+
+<<< @/../component-demos/checkbox/examples/CheckboxField.vue [NPM]
+
+<<< @/../component-demos/checkbox/examples-mw/CheckboxField.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

@@ -27,7 +27,13 @@ using `{ value: 'Foo' }` as a shorthand for `{ label: 'Foo', value: 'Foo' }`.
 
 <template v-slot:code>
 
-<<< @/../component-demos/button-group/examples/BasicButtonGroup.vue
+:::code-group
+
+<<< @/../component-demos/button-group/examples/BasicButtonGroup.vue [NPM]
+
+<<< @/../component-demos/button-group/examples-mw/BasicButtonGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -43,7 +49,13 @@ to disable individual buttons.
 
 <template v-slot:code>
 
-<<< @/../component-demos/button-group/examples/ButtonGroupWithIcons.vue
+:::code-group
+
+<<< @/../component-demos/button-group/examples/ButtonGroupWithIcons.vue [NPM]
+
+<<< @/../component-demos/button-group/examples-mw/ButtonGroupWithIcons.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -59,7 +71,13 @@ set the `label` property to `null`.
 
 <template v-slot:code>
 
-<<< @/../component-demos/button-group/examples/IconOnlyButtonGroup.vue
+:::code-group
+
+<<< @/../component-demos/button-group/examples/IconOnlyButtonGroup.vue [NPM]
+
+<<< @/../component-demos/button-group/examples-mw/IconOnlyButtonGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -76,7 +94,13 @@ event.
 
 <template v-slot:code>
 
-<<< @/../component-demos/button-group/examples/DisabledButtonGroup.vue
+:::code-group
+
+<<< @/../component-demos/button-group/examples/DisabledButtonGroup.vue [NPM]
+
+<<< @/../component-demos/button-group/examples-mw/DisabledButtonGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -92,7 +116,13 @@ When the button group is too large to fit on one line, the buttons overflow to t
 
 <template v-slot:code>
 
-<<< @/../component-demos/button-group/examples/MaximumButtonGroup.vue
+:::code-group
+
+<<< @/../component-demos/button-group/examples/MaximumButtonGroup.vue [NPM]
+
+<<< @/../component-demos/button-group/examples-mw/MaximumButtonGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -109,7 +139,13 @@ is displayed in superscript after its label.
 
 <template v-slot:code>
 
-<<< @/../component-demos/button-group/examples/ButtonGroupWithSlot.vue
+:::code-group
+
+<<< @/../component-demos/button-group/examples/ButtonGroupWithSlot.vue [NPM]
+
+<<< @/../component-demos/button-group/examples-mw/ButtonGroupWithSlot.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

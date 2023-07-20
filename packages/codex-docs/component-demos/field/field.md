@@ -99,7 +99,13 @@ are recommended as description and help text should be concise.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/field/examples/FieldWithRichText.vue
+:::code-group
+
+<<< @/../component-demos/field/examples/FieldWithRichText.vue [NPM]
+
+<<< @/../component-demos/field/examples-mw/FieldWithRichText.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -126,7 +132,13 @@ state and error message.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/field/examples/FieldWithValidation.vue
+:::code-group
+
+<<< @/../component-demos/field/examples/FieldWithValidation.vue [NPM]
+
+<<< @/../component-demos/field/examples-mw/FieldWithValidation.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -147,7 +159,13 @@ Groups of [Radio](./radio.md) or [Checkbox](./checkbox.md) components are consid
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/field/examples/FieldWithRadioGroup.vue
+:::code-group
+
+<<< @/../component-demos/field/examples/FieldWithRadioGroup.vue [NPM]
+
+<<< @/../component-demos/field/examples-mw/FieldWithRadioGroup.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -171,7 +189,13 @@ separate states for each input, see the nested Fields example below.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/field/examples/FieldWithTwoInputs.vue
+:::code-group
+
+<<< @/../component-demos/field/examples/FieldWithTwoInputs.vue [NPM]
+
+<<< @/../component-demos/field/examples-mw/FieldWithTwoInputs.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -193,7 +217,13 @@ Nested fields will become disabled when their parent field is disabled.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/field/examples/FieldWithFields.vue
+:::code-group
+
+<<< @/../component-demos/field/examples/FieldWithFields.vue [NPM]
+
+<<< @/../component-demos/field/examples-mw/FieldWithFields.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

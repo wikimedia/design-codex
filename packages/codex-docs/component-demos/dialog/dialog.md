@@ -70,7 +70,13 @@ close button), primary action, and default action.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/dialog/examples/DialogBasic.vue
+:::code-group
+
+<<< @/../component-demos/dialog/examples/DialogBasic.vue [NPM]
+
+<<< @/../component-demos/dialog/examples-mw/DialogBasic.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -85,7 +91,13 @@ frame (instead of being cut off by it).
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/dialog/examples/DialogWithSelect.vue
+:::code-group
+
+<<< @/../component-demos/dialog/examples/DialogWithSelect.vue [NPM]
+
+<<< @/../component-demos/dialog/examples-mw/DialogWithSelect.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -101,7 +113,13 @@ remain in view.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/dialog/examples/DialogMaxContent.vue
+:::code-group
+
+<<< @/../component-demos/dialog/examples/DialogMaxContent.vue [NPM]
+
+<<< @/../component-demos/dialog/examples-mw/DialogMaxContent.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -116,7 +134,13 @@ vertically.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/dialog/examples/DialogStackedActions.vue
+:::code-group
+
+<<< @/../component-demos/dialog/examples/DialogStackedActions.vue [NPM]
+
+<<< @/../component-demos/dialog/examples-mw/DialogStackedActions.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -134,7 +158,13 @@ showing a disclaimer, linking to help or legal documentation, etc. The
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/dialog/examples/DialogFooterText.vue
+:::code-group
+
+<<< @/../component-demos/dialog/examples/DialogFooterText.vue [NPM]
+
+<<< @/../component-demos/dialog/examples-mw/DialogFooterText.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -154,7 +184,13 @@ that wrap the base Dialog with some additional content and styling.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/dialog/examples/DialogCustomHeader.vue
+:::code-group
+
+<<< @/../component-demos/dialog/examples/DialogCustomHeader.vue [NPM]
+
+<<< @/../component-demos/dialog/examples-mw/DialogCustomHeader.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -192,7 +228,13 @@ Custom dialog content.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/dialog/examples/WrappedDialog.vue
+:::code-group
+
+<<< @/../component-demos/dialog/examples/WrappedDialog.vue [NPM]
+
+<<< @/../component-demos/dialog/examples-mw/WrappedDialog.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

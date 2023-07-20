@@ -51,7 +51,13 @@ displayed.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/select/examples/BasicSelect.vue
+:::code-group
+
+<<< @/../component-demos/select/examples/BasicSelect.vue [NPM]
+
+<<< @/../component-demos/select/examples-mw/BasicSelect.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -68,7 +74,13 @@ hide the text overflow of the descriptions.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/select/examples/SelectComplexMenuItem.vue
+:::code-group
+
+<<< @/../component-demos/select/examples/SelectComplexMenuItem.vue [NPM]
+
+<<< @/../component-demos/select/examples-mw/SelectComplexMenuItem.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -84,7 +96,13 @@ for the `menuItem`. In this example, only the menu item's icon is displayed in t
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/select/examples/SelectCustomMenuItem.vue
+:::code-group
+
+<<< @/../component-demos/select/examples/SelectCustomMenuItem.vue [NPM]
+
+<<< @/../component-demos/select/examples-mw/SelectCustomMenuItem.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -100,7 +118,13 @@ bindings for the `selectedMenuItem` and the `defaultLabel`.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/select/examples/SelectCustomLabel.vue
+:::code-group
+
+<<< @/../component-demos/select/examples/SelectCustomLabel.vue [NPM]
+
+<<< @/../component-demos/select/examples-mw/SelectCustomLabel.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -116,7 +140,13 @@ and enable scrolling, use the `visibleItemLimit` property of the `menuConfig` pr
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/select/examples/SelectWithScroll.vue
+:::code-group
+
+<<< @/../component-demos/select/examples/SelectWithScroll.vue [NPM]
+
+<<< @/../component-demos/select/examples-mw/SelectWithScroll.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -132,7 +162,13 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/select/examples/SelectField.vue
+:::code-group
+
+<<< @/../component-demos/select/examples/SelectField.vue [NPM]
+
+<<< @/../component-demos/select/examples-mw/SelectField.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

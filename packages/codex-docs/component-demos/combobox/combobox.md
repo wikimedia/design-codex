@@ -36,7 +36,13 @@ empty).
 
 <template v-slot:code>
 
-<<< @/../component-demos/combobox/examples/ComboboxBasic.vue
+:::code-group
+
+<<< @/../component-demos/combobox/examples/ComboboxBasic.vue [NPM]
+
+<<< @/../component-demos/combobox/examples-mw/ComboboxBasic.vue [MediaWiki]
+
+:::
 
 </template>
 
@@ -55,7 +61,13 @@ passed on to the embedded `TextInput`.
 
 <template v-slot:code>
 
-<<< @/../component-demos/combobox/examples/ComboboxClearableStartIcon.vue
+:::code-group
+
+<<< @/../component-demos/combobox/examples/ComboboxClearableStartIcon.vue [NPM]
+
+<<< @/../component-demos/combobox/examples-mw/ComboboxClearableStartIcon.vue [MediaWiki]
+
+:::
 
 </template>
 
@@ -75,7 +87,13 @@ hide the text overflow of the descriptions.
 
 <template v-slot:code>
 
-<<< @/../component-demos/combobox/examples/ComboboxComplexMenuItem.vue
+:::code-group
+
+<<< @/../component-demos/combobox/examples/ComboboxComplexMenuItem.vue [NPM]
+
+<<< @/../component-demos/combobox/examples-mw/ComboboxComplexMenuItem.vue [MediaWiki]
+
+:::
 
 </template>
 
@@ -94,7 +112,13 @@ the `#menu-item` slot. In this example, only the menu item's icon is displayed i
 
 <template v-slot:code>
 
-<<< @/../component-demos/combobox/examples/ComboboxCustomMenuItem.vue
+:::code-group
+
+<<< @/../component-demos/combobox/examples/ComboboxCustomMenuItem.vue [NPM]
+
+<<< @/../component-demos/combobox/examples-mw/ComboboxCustomMenuItem.vue [MediaWiki]
+
+:::
 
 </template>
 
@@ -113,7 +137,13 @@ this slot will automatically display when there are zero menu items.
 
 <template v-slot:code>
 
-<<< @/../component-demos/combobox/examples/ComboboxNoResults.vue
+:::code-group
+
+<<< @/../component-demos/combobox/examples/ComboboxNoResults.vue [NPM]
+
+<<< @/../component-demos/combobox/examples-mw/ComboboxNoResults.vue [MediaWiki]
+
+:::
 
 </template>
 
@@ -132,7 +162,13 @@ and enable scrolling, use the `visibleItemLimit` property of the `menuConfig` pr
 
 <template v-slot:code>
 
-<<< @/../component-demos/combobox/examples/ComboboxWithScroll.vue
+:::code-group
+
+<<< @/../component-demos/combobox/examples/ComboboxWithScroll.vue [NPM]
+
+<<< @/../component-demos/combobox/examples-mw/ComboboxWithScroll.vue [MediaWiki]
+
+:::
 
 </template>
 
@@ -148,7 +184,13 @@ and enable scrolling, use the `visibleItemLimit` property of the `menuConfig` pr
 
 <template v-slot:code>
 
-<<< @/../component-demos/combobox/examples/ComboboxDisabled.vue
+:::code-group
+
+<<< @/../component-demos/combobox/examples/ComboboxDisabled.vue [NPM]
+
+<<< @/../component-demos/combobox/examples-mw/ComboboxDisabled.vue [MediaWiki]
+
+:::
 
 </template>
 
@@ -165,7 +207,13 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/combobox/examples/ComboboxField.vue
+:::code-group
+
+<<< @/../component-demos/combobox/examples/ComboboxField.vue [NPM]
+
+<<< @/../component-demos/combobox/examples-mw/ComboboxField.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

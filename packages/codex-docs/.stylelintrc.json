@@ -14,7 +14,10 @@
 			}
 		},
 		{
-			"files": [ "component-demos/**/examples/*.vue" ],
+			"files": [
+				"component-demos/**/examples/*.vue",
+				"component-demos/**/examples-mw/*.vue"
+			],
 			"rules": {
 				"selector-class-pattern": null
 			}

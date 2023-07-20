@@ -44,7 +44,13 @@ Toggle the ToggleButton to see the value change. Open up the console to see emit
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-button/examples/SingleButton.vue
+:::code-group
+
+<<< @/../component-demos/toggle-button/examples/SingleButton.vue [NPM]
+
+<<< @/../component-demos/toggle-button/examples-mw/SingleButton.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -60,7 +66,13 @@ Example usage as a pause/play button, changing the icon and text when toggled.
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-button/examples/IconButton.vue
+:::code-group
+
+<<< @/../component-demos/toggle-button/examples/IconButton.vue [NPM]
+
+<<< @/../component-demos/toggle-button/examples-mw/IconButton.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -75,7 +87,13 @@ Example usage as an icon-only pause/play button, changing the icon when toggled.
 
 <template v-slot:code>
 
-<<< @/../component-demos/toggle-button/examples/IconOnlyButton.vue
+:::code-group
+
+<<< @/../component-demos/toggle-button/examples/IconOnlyButton.vue [NPM]
+
+<<< @/../component-demos/toggle-button/examples-mw/IconOnlyButton.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

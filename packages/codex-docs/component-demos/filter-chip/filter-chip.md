@@ -57,7 +57,13 @@ accessibility purposes.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/filter-chip/examples/FilterChipBasic.vue
+:::code-group
+
+<<< @/../component-demos/filter-chip/examples/FilterChipBasic.vue [NPM]
+
+<<< @/../component-demos/filter-chip/examples-mw/FilterChipBasic.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -70,7 +76,13 @@ accessibility purposes.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/filter-chip/examples/FilterChipWithIcon.vue
+:::code-group
+
+<<< @/../component-demos/filter-chip/examples/FilterChipWithIcon.vue [NPM]
+
+<<< @/../component-demos/filter-chip/examples-mw/FilterChipWithIcon.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

@@ -45,7 +45,13 @@ Custom icons can only be used with the `notice` status. If they are passed with 
 
 <template v-slot:code>
 
-<<< @/../component-demos/info-chip/examples/ChipWithIcon.vue
+:::code-group
+
+<<< @/../component-demos/info-chip/examples/ChipWithIcon.vue [NPM]
+
+<<< @/../component-demos/info-chip/examples-mw/ChipWithIcon.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

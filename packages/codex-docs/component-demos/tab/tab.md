@@ -43,7 +43,13 @@ props, as well as slot content.
 
 <template v-slot:code>
 
-<<< @/../component-demos/tab/examples/ConfigurableTabDemo.vue
+:::code-group
+
+<<< @/../component-demos/tab/examples/ConfigurableTabDemo.vue [NPM]
+
+<<< @/../component-demos/tab/examples-mw/ConfigurableTabDemo.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

@@ -24,7 +24,13 @@ internally.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu/examples/InputWithMenu.vue
+:::code-group
+
+<<< @/../component-demos/menu/examples/InputWithMenu.vue [NPM]
+
+<<< @/../component-demos/menu/examples-mw/InputWithMenu.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -37,7 +43,13 @@ internally.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu/examples/InputWithMenuCustomItemDisplay.vue
+:::code-group
+
+<<< @/../component-demos/menu/examples/InputWithMenuCustomItemDisplay.vue [NPM]
+
+<<< @/../component-demos/menu/examples-mw/InputWithMenuCustomItemDisplay.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -56,7 +68,13 @@ See the [TypeaheadSearch](./typeahead-search) demos for a real-world example.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu/examples/InputWithMenuFooter.vue
+:::code-group
+
+<<< @/../component-demos/menu/examples/InputWithMenuFooter.vue [NPM]
+
+<<< @/../component-demos/menu/examples-mw/InputWithMenuFooter.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -78,7 +96,13 @@ This demo includes a footer item, which is "sticky" to the bottom of the menu.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu/examples/InputWithMenuScroll.vue
+:::code-group
+
+<<< @/../component-demos/menu/examples/InputWithMenuScroll.vue [NPM]
+
+<<< @/../component-demos/menu/examples-mw/InputWithMenuScroll.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -94,7 +118,13 @@ are zero menu items.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu/examples/InputWithMenuNoResults.vue
+:::code-group
+
+<<< @/../component-demos/menu/examples/InputWithMenuNoResults.vue [NPM]
+
+<<< @/../component-demos/menu/examples-mw/InputWithMenuNoResults.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -115,7 +145,13 @@ message will display.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu/examples/InputWithMenuPending.vue
+:::code-group
+
+<<< @/../component-demos/menu/examples/InputWithMenuPending.vue [NPM]
+
+<<< @/../component-demos/menu/examples-mw/InputWithMenuPending.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -128,7 +164,13 @@ When there are menu items, only the inline progress bar will display.
 </template>
 <template v-slot:code>
 
-<<< @/../component-demos/menu/examples/InputWithMenuPendingWithItems.vue
+:::code-group
+
+<<< @/../component-demos/menu/examples/InputWithMenuPendingWithItems.vue [NPM]
+
+<<< @/../component-demos/menu/examples-mw/InputWithMenuPendingWithItems.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
