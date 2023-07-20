@@ -4,6 +4,22 @@
 		:class="rootClasses"
 		:style="rootStyle"
 	>
+		<input
+			:id="inputId"
+			ref="input"
+			v-model="wrappedModel"
+			class="cdx-toggle-switch__input"
+			type="checkbox"
+			:value="inputValue"
+			:disabled="computedDisabled"
+			v-bind="otherAttrs"
+			@keydown.prevent.enter="clickInput"
+		>
+
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip" />
+		</span>
+
 		<label
 			v-if="$slots.default"
 			:for="inputId"
@@ -12,24 +28,6 @@
 			<!-- @slot Input label content -->
 			<slot />
 		</label>
-
-		<span class="cdx-toggle-switch__input-wrapper">
-			<input
-				:id="inputId"
-				ref="input"
-				v-model="wrappedModel"
-				class="cdx-toggle-switch__input"
-				type="checkbox"
-				:value="inputValue"
-				:disabled="computedDisabled"
-				v-bind="otherAttrs"
-				@keydown.prevent.enter="clickInput"
-			>
-
-			<span class="cdx-toggle-switch__switch">
-				<span class="cdx-toggle-switch__switch__grip" />
-			</span>
-		</span>
 	</span>
 </template>
 
@@ -156,15 +154,17 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/common.less';
 
 .cdx-toggle-switch {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	justify-content: flex-start;
+	position: relative;
 	// Visually hidden `<input>` will be absolutely positioned relative to this element.
 	// Create a stacking context by `position: relative` and `z-index` other than `auto`.
 	z-index: @z-index-stacking-0;
 	margin-bottom: @spacing-75;
 
 	&--align-switch {
+		display: flex;
 		justify-content: space-between;
 	}
 
@@ -172,18 +172,18 @@ export default defineComponent( {
 		margin-bottom: 0;
 	}
 
-	&__label:not( :empty ) {
-		padding-right: @spacing-35;
-	}
+	&__label {
+		// Put the label first. It needs to come after the input in the markup so we can apply
+		// styles based on the state of the input.
+		order: -1;
 
-	&__input-wrapper {
-		display: flex;
-		position: relative;
+		&:not( :empty ) {
+			padding-right: @spacing-35;
+		}
 	}
 
 	// The visible switch.
 	&__switch {
-		order: 2;
 		.force-gpu-composite-layer();
 		background-color: @background-color-interactive-subtle;
 		display: inline-block;
@@ -273,8 +273,9 @@ export default defineComponent( {
 		}
 
 		&:enabled {
+			// Add hover cursor to switch and label.
 			&:hover,
-			& ~ .cdx-toggle-switch__label-content:hover {
+			& ~ .cdx-toggle-switch__label:hover {
 				cursor: @cursor-base--hover;
 			}
 

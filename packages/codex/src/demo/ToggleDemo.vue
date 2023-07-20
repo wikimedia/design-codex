@@ -14,19 +14,17 @@
 
 		<h3>CSS-only ToggleSwitch</h3>
 		<span class="cdx-toggle-switch">
-			<label for="cdx-toggle-switch-11" class="cdx-toggle-switch__label">
-				Playing:
-			</label>
-			<span class="cdx-toggle-switch__input-wrapper">
-				<input
-					id="cdx-toggle-switch-11"
-					class="cdx-toggle-switch__input"
-					type="checkbox"
-				>
-				<span class="cdx-toggle-switch__switch">
-					<span class="cdx-toggle-switch__switch__grip" />
-				</span>
+			<input
+				id="cdx-toggle-switch-css-1"
+				class="cdx-toggle-switch__input"
+				type="checkbox"
+			>
+			<span class="cdx-toggle-switch__switch">
+				<span class="cdx-toggle-switch__switch__grip" />
 			</span>
+			<label for="cdx-toggle-switch-css-1" class="cdx-toggle-switch__label">
+				Label
+			</label>
 		</span>
 	</section>
 </template>
