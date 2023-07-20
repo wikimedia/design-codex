@@ -6,21 +6,37 @@
 			v-model="wrappedModel"
 			class="cdx-checkbox__input"
 			type="checkbox"
+			:aria-describedby="( $slots.description &&
+				$slots.description().length > 0 ) ? descriptionId : undefined"
 			:value="inputValue"
 			:disabled="computedDisabled"
 			:indeterminate.prop="indeterminate"
 			@keydown.prevent.enter="clickInput"
 		>
 		<span class="cdx-checkbox__icon" />
-		<label class="cdx-checkbox__label" :for="checkboxId">
-			<!-- @slot Input label content -->
+		<!-- Only render a Label component if label text has been provided. This component can also
+			supply a description to the Checkbox if content is provided in the description slot. -->
+		<cdx-label
+			v-if="$slots.default && $slots.default().length"
+			class="cdx-checkbox__label"
+			:input-id="checkboxId"
+			:description-id="( $slots.description &&
+				$slots.description().length > 0 ) ? descriptionId : undefined"
+			:disabled="computedDisabled"
+		>
+			<!-- @slot Label text. -->
 			<slot />
-		</label>
+			<template v-if="$slots.description && $slots.description().length > 0" #description>
+				<!-- @slot Short description text. -->
+				<slot name="description" />
+			</template>
+		</cdx-label>
 	</span>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType, ref, toRef, computed } from 'vue';
+import CdxLabel from '../label/Label.vue';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useFieldData from '../../composables/useFieldData';
@@ -43,6 +59,7 @@ import useFieldData from '../../composables/useFieldData';
  */
 export default defineComponent( {
 	name: 'CdxCheckbox',
+	components: { CdxLabel },
 	props: {
 		/**
 		 * Value of the checkbox or checkbox group.
@@ -110,6 +127,7 @@ export default defineComponent( {
 		// Declare template ref.
 		const input = ref<HTMLInputElement>();
 		const checkboxId = useGeneratedId( 'checkbox' );
+		const descriptionId = useGeneratedId( 'description' );
 
 		/**
 		 * Click (and toggle) the input.
@@ -129,6 +147,7 @@ export default defineComponent( {
 			computedDisabled,
 			input,
 			checkboxId,
+			descriptionId,
 			clickInput,
 			wrappedModel
 		};

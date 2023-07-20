@@ -6,24 +6,37 @@
 			v-model="wrappedModel"
 			class="cdx-radio__input"
 			type="radio"
+			:aria-describedby="( $slots.description &&
+				$slots.description().length > 0 ) ? descriptionId : undefined"
 			:name="name"
 			:value="inputValue"
 			:disabled="computedDisabled"
 		>
 		<span class="cdx-radio__icon" />
-		<label
+		<!-- Only render a Label component if label text has been provided. This component can also
+			supply a description to the Radio if content is provided in the description slot. -->
+		<cdx-label
+			v-if="$slots.default && $slots.default().length"
 			class="cdx-radio__label"
-			:for="radioId"
+			:input-id="radioId"
+			:description-id="( $slots.description &&
+				$slots.description().length > 0 ) ? descriptionId : undefined"
+			:disabled="computedDisabled"
 			@click="focusInput"
 		>
-			<!-- @slot Input label content -->
+			<!-- @slot Label text. -->
 			<slot />
-		</label>
+			<template v-if="$slots.description && $slots.description().length > 0" #description>
+				<!-- @slot Short description text. -->
+				<slot name="description" />
+			</template>
+		</cdx-label>
 	</span>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, toRef, computed } from 'vue';
+import CdxLabel from '../label/Label.vue';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useFieldData from '../../composables/useFieldData';
@@ -39,6 +52,7 @@ import useFieldData from '../../composables/useFieldData';
  */
 export default defineComponent( {
 	name: 'CdxRadio',
+	components: { CdxLabel },
 	props: {
 		/**
 		 * Value of the currently selected radio.
@@ -105,6 +119,7 @@ export default defineComponent( {
 		// Declare template ref.
 		const input = ref<HTMLInputElement>();
 		const radioId = useGeneratedId( 'radio' );
+		const descriptionId = useGeneratedId( 'description' );
 
 		/**
 		 * When the label is clicked, focus on the input.
@@ -128,6 +143,7 @@ export default defineComponent( {
 			computedDisabled,
 			input,
 			radioId,
+			descriptionId,
 			focusInput,
 			wrappedModel
 		};

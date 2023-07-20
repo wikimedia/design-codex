@@ -124,7 +124,7 @@ import ToggleButtonGroupWithSlot from '../component-demos/toggle-button-group/ex
 
 // Toggle switch
 import SingleSwitch from '../component-demos/toggle-switch/examples/SingleSwitch.vue';
-import SingleSwitchWithLabel from '../component-demos/toggle-switch/examples/SingleSwitchWithLabel.vue';
+import SwitchGroup from '../component-demos/toggle-switch/examples/SwitchGroup.vue';
 
 // Typeahead Search
 import TypeaheadSearchWikipedia from '../component-demos/typeahead-search/examples/TypeaheadSearchWikipedia.vue';
@@ -240,7 +240,7 @@ export {
 	ToggleButtonGroupWithSlot,
 
 	SingleSwitch,
-	SingleSwitchWithLabel,
+	SwitchGroup,
 
 	TypeaheadSearchInitialValue,
 	TypeaheadSearchNoResult,

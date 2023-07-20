@@ -3,6 +3,7 @@ import CheckboxGroup from '@/../component-demos/checkbox/examples/CheckboxGroup.
 import SingleCheckbox from '@/../component-demos/checkbox/examples/SingleCheckbox.vue';
 import InlineCheckboxes from '@/../component-demos/checkbox/examples/InlineCheckboxes.vue';
 import IndeterminateState from '@/../component-demos/checkbox/examples/IndeterminateState.vue';
+import CheckboxWithDescription from '@/../component-demos/checkbox/examples/CheckboxWithDescription.vue';
 import CheckboxField from '@/../component-demos/checkbox/examples/CheckboxField.vue';
 </script>
 
@@ -111,6 +112,23 @@ a definite value for the checkbox.
 </template>
 </cdx-demo-wrapper>
 
+### Label and description
+
+Always include label text via the default slot. You can also add description text via the
+`#description` slot.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<checkbox-with-description />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/checkbox/examples/CheckboxWithDescription.vue
+
+</template>
+</cdx-demo-wrapper>
+
 ### Form field
 
 A single Checkbox or group of Checkboxes can be wrapped in the Field component to add features
@@ -141,6 +159,9 @@ to ensure proper accessibility support.
 ## CSS-only version
 
 ### Markup structure
+
+The structure below can be used for most cases. If you need a description, see the section on that
+feature below.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -311,6 +332,51 @@ Add the `cdx-checkbox--inline` class to the root element to get an inline layout
 	<label class="cdx-checkbox__label" for="checkbox-group-inline-css-only-2">
 		Checkbox 2
 	</label>
+</span>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### With description
+
+To add a description below the label:
+- Add a span after the `<label>` element with an ID and class `cdx-label__description`. Include the
+  description text here.
+- Add class `cdx-label__label` to the `<label>` element
+- Wrap the label and description in a div with classes `cdx-checkbox__label` and `cdx-label`
+- Add an `aria-describedby` attribute to the `<input>` element with the value of the ID of the
+  description
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<span class="cdx-checkbox">
+		<input id="checkbox-description-css-only-1" class="cdx-checkbox__input" type="checkbox" aria-describedby="cdx-description-css-1">
+		<span class="cdx-checkbox__icon"></span>
+		<div class="cdx-checkbox__label cdx-label">
+			<label for="checkbox-description-css-only-1" class="cdx-label__label">
+				Send password reset emails only when both email address and username are provided.
+			</label>
+			<span id="cdx-description-css-1" class="cdx-label__description">
+				This improves privacy and helps prevent unsolicited emails.
+			</span>
+		</div>
+	</span>
+</template>
+<template v-slot:code>
+
+```html
+<span class="cdx-checkbox">
+	<input id="checkbox-description-css-only-1" class="cdx-checkbox__input" type="checkbox" aria-describedby="cdx-description-css-1">
+	<span class="cdx-checkbox__icon"></span>
+	<div class="cdx-checkbox__label cdx-label">
+		<label for="checkbox-description-css-only-1" class="cdx-label__label">
+			Send password reset emails only when both email address and username are provided.
+		</label>
+		<span id="cdx-description-css-1" class="cdx-label__description">
+			This improves privacy and helps prevent unsolicited emails.
+		</span>
+	</div>
 </span>
 ```
 

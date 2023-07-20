@@ -4,11 +4,13 @@
 			Toggle switch value: {{ switchValue }}
 		</p>
 
-		<cdx-toggle-switch
-			v-model="switchValue"
-			aria-label="ToggleSwitch demo"
-			@update:model-value="onUpdate"
-		/>
+		<cdx-toggle-switch v-model="switchValue" @update:model-value="onUpdate">
+			Show details
+		</cdx-toggle-switch>
+
+		<p v-show="switchValue">
+			Here are the details
+		</p>
 	</div>
 </template>
 

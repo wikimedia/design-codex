@@ -1,11 +1,18 @@
 <template>
 	<div>
-		<cdx-toggle-switch v-model="switchValue">
-			Show details
+		<p id="cdx-toggle-switch-hidden-label-description">
+			Use the toggle switch to show hidden content.
+		</p>
+		<cdx-toggle-switch
+			v-model="switchValue"
+			:hide-label="true"
+			aria-describedby="cdx-toggle-switch-hidden-label-description"
+		>
+			Show hidden content
 		</cdx-toggle-switch>
 
 		<p v-show="switchValue">
-			Here are the details
+			Here is the hidden content
 		</p>
 	</div>
 </template>
@@ -15,7 +22,7 @@ import { defineComponent, ref } from 'vue';
 import { CdxToggleSwitch } from '@wikimedia/codex';
 
 export default defineComponent( {
-	name: 'SingleSwitchWithLabel',
+	name: 'SwitchWithHiddenLabel',
 	components: { CdxToggleSwitch },
 	setup() {
 		const switchValue = ref( false );

@@ -40,6 +40,15 @@
 		line-height: @line-height-x-small;
 	}
 
+	// Special overrides for the Label component.
+	.cdx-label {
+		padding-bottom: 0;
+
+		&__label__text {
+			font-weight: @font-weight-normal;
+		}
+	}
+
 	&--inline &__label {
 		// Reset to inline to avoid extra space between input and label.
 		display: inline;
@@ -79,9 +88,12 @@
 		cursor: inherit;
 	}
 
-	// Ensure that all elements receive cursor, when enabled.
+	// Ensure that the input and label show hover cursor, when enabled.
+	// The line with the :not() selector is meant to support CSS-only usage of a simple
+	// label element with class `&__label`, rather than use of the Label component.
 	&:hover > &__input:enabled,
-	&:hover > &__input:enabled ~ * {
+	&:hover > &__input:enabled ~ .cdx-label .cdx-label__label,
+	&:hover > &__input:enabled ~ &__label:not( .cdx-label ) {
 		cursor: @cursor-base--hover;
 	}
 }

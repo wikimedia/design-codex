@@ -2,13 +2,18 @@
 import { ref } from 'vue';
 import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
 import SingleSwitch from '@/../component-demos/toggle-switch/examples/SingleSwitch.vue';
-import SingleSwitchWithLabel from '@/../component-demos/toggle-switch/examples/SingleSwitchWithLabel.vue';
+import SwitchWithDescription from '@/../component-demos/toggle-switch/examples/SwitchWithDescription.vue';
+import SwitchWithHiddenLabel from '@/../component-demos/toggle-switch/examples/SwitchWithHiddenLabel.vue';
 import SwitchGroup from '@/../component-demos/toggle-switch/examples/SwitchGroup.vue';
 import SwitchGroupField from '@/../component-demos/toggle-switch/examples/SwitchGroupField.vue';
 
 const controlsConfig = [
 	{
 		name: 'alignSwitch',
+		type: 'boolean'
+	},
+	{
+		name: 'hideLabel',
 		type: 'boolean'
 	},
 	{
@@ -62,23 +67,44 @@ Toggle the ToggleSwitch to see the value change. Open up the console to see emit
 </template>
 </cdx-demo-wrapper>
 
-### With label
+### Label and description
 
-Adding content into ToggleSwitch's default slot will generate a `<label>` element associated with
-the `<input>`.
+Always include label text via the default slot. You can also add description text via the
+`#description` slot.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<single-switch-with-label />
+	<switch-with-description />
 </template>
 
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/toggle-switch/examples/SingleSwitchWithLabel.vue [NPM]
+<<< @/../component-demos/toggle-switch/examples/SwitchWithDescription.vue [NPM]
 
-<<< @/../component-demos/toggle-switch/examples-mw/SingleSwitchWithLabel.vue [MediaWiki]
+<<< @/../component-demos/toggle-switch/examples-mw/SwitchWithDescription.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+In rare cases, a visible label is not necessary. You can use the `hideLabel` prop to visually hide
+the label, which will still appear in the markup for screen reader accessibility.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<switch-with-hidden-label />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/toggle-switch/examples/SwitchWithHiddenLabel.vue [NPM]
+
+<<< @/../component-demos/toggle-switch/examples-mw/SwitchWithHiddenLabel.vue [MediaWiki]
 
 :::
 
@@ -141,6 +167,9 @@ ToggleSwitch, to ensure proper accessibility support.
 ## CSS-only version
 
 ### Markup structure
+
+The structure below can be used for most cases. If you need a description or a visually-hidden
+label, see the sections on those features below.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -260,6 +289,95 @@ To disable the toggle switch, add the `disabled` attribute to the `<input>` elem
 	<label for="cdx-toggle-switch-css-6" class="cdx-toggle-switch__label">
 		Disabled, on
 	</label>
+</span>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### With description
+
+To add a description below the label:
+- Add a span after the `<label>` element with an ID and class `cdx-label__description`. Include the
+  description text here.
+- Add class `cdx-label__label` to the `<label>` element
+- Wrap the label and description in a div with classes `cdx-toggle-switch__label` and `cdx-label`
+- Add an `aria-describedby` attribute to the `<input>` element with the value of the ID of the
+  description
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<span class="cdx-toggle-switch">
+		<input id="cdx-toggle-switch-css-7" class="cdx-toggle-switch__input" type="checkbox" aria-describedby="cdx-description-css-1">
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip"></span>
+		</span>
+		<div class="cdx-toggle-switch__label cdx-label">
+			<label for="cdx-toggle-switch-css-7" class="cdx-label__label">
+				Visual editing mode
+			</label>
+			<span id="cdx-description-css-1" class="cdx-label__description">
+				Turn on to use the visual editor. You can switch back to source mode at any time. 
+			</span>
+		</div>
+	</span>
+</template>
+<template v-slot:code>
+
+```html
+<span class="cdx-toggle-switch">
+	<input id="cdx-toggle-switch-css-7" class="cdx-toggle-switch__input" type="checkbox" aria-describedby="cdx-description-css-1">
+	<span class="cdx-toggle-switch__switch">
+		<span class="cdx-toggle-switch__switch__grip"></span>
+	</span>
+	<div class="cdx-toggle-switch__label cdx-label">
+		<label for="cdx-toggle-switch-css-7" class="cdx-label__label">
+			Visual editing mode
+		</label>
+		<span id="cdx-description-css-1" class="cdx-label__description">
+			Turn on to use the visual editor. You can switch back to source mode at any time. 
+		</span>
+	</div>
+</span>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### With visually-hidden label
+
+For a visually-hidden label:
+- Add class `cdx-label__label` to the `<label>` element
+- Wrap the label in a div with classes `cdx-toggle-switch__label`, `cdx-label`, and
+  `cdx-label--visually-hidden`
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<span class="cdx-toggle-switch">
+		<input id="cdx-toggle-switch-css-8" class="cdx-toggle-switch__input" type="checkbox">
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip"></span>
+		</span>
+		<div class="cdx-toggle-switch__label cdx-label cdx-label--visually-hidden">
+			<label for="cdx-toggle-switch-css-8" class="cdx-label__label">
+				Label text
+			</label>
+		</div>
+	</span>
+</template>
+<template v-slot:code>
+
+```html
+<span class="cdx-toggle-switch">
+	<input id="cdx-toggle-switch-css-8" class="cdx-toggle-switch__input" type="checkbox">
+	<span class="cdx-toggle-switch__switch">
+		<span class="cdx-toggle-switch__switch__grip"></span>
+	</span>
+	<div class="cdx-toggle-switch__label cdx-label cdx-label--visually-hidden">
+		<label for="cdx-toggle-switch-css-8" class="cdx-label__label">
+			Label text
+		</label>
+	</div>
 </span>
 ```
 

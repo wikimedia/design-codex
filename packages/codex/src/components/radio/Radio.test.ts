@@ -4,31 +4,36 @@ import CdxRadio from './Radio.vue';
 describe( 'matches the snapshot', () => {
 	type Case = [
 		msg: string,
-		modelValue: string|number|boolean,
-		inputValue: string|number|boolean,
-		name: string,
-		disabled: boolean,
-		inline: boolean,
-		slot: string
+		props: {
+			modelValue: string|number|boolean,
+			inputValue: string|number|boolean,
+			name: string,
+			disabled?: boolean,
+			inline?: boolean,
+		},
+		defaultSlot: string,
+		description?: string
 	];
 
 	const cases: Case[] = [
-		[ 'String value', 'radio-1', 'radio-1', 'radios-string', false, false, 'Radio 1' ],
-		[ 'Number value', 2, 2, 'radios-number', false, false, 'Radio 2' ],
-		[ 'Boolean value', true, true, 'radios-boolean', false, false, 'True' ],
-		[ 'Disabled', 'radio-1', 'radio-1', 'radios-string', true, false, 'Disabled radio' ],
-		[ 'Inline', 'radio-1', 'radio-1', 'radios-string', false, true, 'Inline radio' ]
+		[ 'String value', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string' }, 'Radio 1' ],
+		[ 'Number value', { modelValue: 2, inputValue: 2, name: 'radios-number' }, 'Radio 2' ],
+		[ 'Boolean value', { modelValue: true, inputValue: true, name: 'radios-boolean' }, 'True' ],
+		[ 'Disabled', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string', disabled: true }, 'Disabled radio' ],
+		[ 'Inline', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string', inline: true }, 'Inline radio' ],
+		[ 'With description', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string' }, 'Radio 1', 'Description text' ]
 	];
 
-	test.each( cases )(
-		'Case %# %s: (%p) => HTML',
-		( _, modelValue, inputValue, name, disabled, inline, slot ) => {
-			const wrapper = mount( CdxRadio, {
-				props: { modelValue, inputValue, name, disabled, inline },
-				slots: { default: slot }
-			} );
-			expect( wrapper.element ).toMatchSnapshot();
+	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, defaultSlot, description = undefined ) => {
+		const wrapper = mount( CdxRadio, {
+			props,
+			slots: {
+				default: defaultSlot,
+				...( description === undefined ? {} : { description } )
+			}
 		} );
+		expect( wrapper.element ).toMatchSnapshot();
+	} );
 } );
 
 describe( 'Radio', () => {
@@ -78,11 +83,11 @@ describe( 'Radio', () => {
 			inputValue: 'radio-2',
 			name: 'radio-group'
 		};
-		const wrapper = shallowMount( CdxRadio, { props: props } );
+		const wrapper = shallowMount( CdxRadio, { props: props, slots: { default: 'Label' } } );
 		const input = wrapper.find( 'input' ).element;
 		input.focus = jest.fn();
 
-		await wrapper.find( 'label' ).trigger( 'click' );
+		await wrapper.find( '.cdx-radio__label' ).trigger( 'click' );
 
 		expect( input.focus ).toHaveBeenCalled();
 	} );

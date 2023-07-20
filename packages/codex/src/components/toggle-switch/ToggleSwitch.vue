@@ -10,6 +10,8 @@
 			v-model="wrappedModel"
 			class="cdx-toggle-switch__input"
 			type="checkbox"
+			:aria-describedby="( $slots.description &&
+				$slots.description().length > 0 ) ? descriptionId : undefined"
 			:value="inputValue"
 			:disabled="computedDisabled"
 			v-bind="otherAttrs"
@@ -20,19 +22,30 @@
 			<span class="cdx-toggle-switch__switch__grip" />
 		</span>
 
-		<label
-			v-if="$slots.default"
-			:for="inputId"
+		<!-- Only render a Label component if label text has been provided. This component can also
+			supply a description to the input if content is provided in the description slot. -->
+		<cdx-label
+			v-if="$slots.default && $slots.default().length"
 			class="cdx-toggle-switch__label"
+			:input-id="inputId"
+			:description-id="( $slots.description &&
+				$slots.description().length > 0 ) ? descriptionId : undefined"
+			:visually-hidden="hideLabel"
+			:disabled="computedDisabled"
 		>
-			<!-- @slot Input label content -->
+			<!-- @slot Label text. -->
 			<slot />
-		</label>
+			<template v-if="$slots.description && $slots.description().length > 0" #description>
+				<!-- @slot Short description text. -->
+				<slot name="description" />
+			</template>
+		</cdx-label>
 	</span>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType, ref, toRef, computed } from 'vue';
+import CdxLabel from '../label/Label.vue';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
@@ -52,6 +65,7 @@ import useFieldData from '../../composables/useFieldData';
  */
 export default defineComponent( {
 	name: 'CdxToggleSwitch',
+	components: { CdxLabel },
 	/**
 	 * The input element will inherit attributes, not the root element.
 	 */
@@ -86,6 +100,15 @@ export default defineComponent( {
 			default: false
 		},
 		/**
+		 * Whether the label should be visually hidden.
+		 *
+		 * Note that this will also hide the description.
+		 */
+		hideLabel: {
+			type: Boolean,
+			default: false
+		},
+		/**
 		 * Whether the disabled attribute should be added to the input.
 		 */
 		disabled: {
@@ -107,6 +130,7 @@ export default defineComponent( {
 
 		// Input needs an ID so we can connect it and the label element.
 		const inputId = useGeneratedId( 'toggle-switch' );
+		const descriptionId = useGeneratedId( 'description' );
 
 		const internalClasses = computed( (): Record<string, boolean> => {
 			return {
@@ -138,6 +162,7 @@ export default defineComponent( {
 		return {
 			input,
 			inputId,
+			descriptionId,
 			rootClasses,
 			rootStyle,
 			otherAttrs,
@@ -179,6 +204,15 @@ export default defineComponent( {
 
 		&:not( :empty ) {
 			padding-right: @spacing-35;
+		}
+	}
+
+	// Special overrides for the Label component.
+	.cdx-label {
+		padding-bottom: 0;
+
+		&__label__text {
+			font-weight: @font-weight-normal;
 		}
 	}
 
@@ -274,8 +308,12 @@ export default defineComponent( {
 
 		&:enabled {
 			// Add hover cursor to switch and label.
+			// The line with the :not() selector is meant to support CSS-only usage of a simple
+			// label element with class `.cdx-toggle-switch__label`, rather than use of the Label
+			// component.
 			&:hover,
-			& ~ .cdx-toggle-switch__label:hover {
+			& ~ .cdx-label .cdx-label__label:hover,
+			& ~ .cdx-toggle-switch__label:not( .cdx-label ):hover {
 				cursor: @cursor-base--hover;
 			}
 

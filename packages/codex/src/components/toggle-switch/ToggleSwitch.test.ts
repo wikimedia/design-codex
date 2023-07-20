@@ -1,22 +1,24 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, mount } from '@vue/test-utils';
 import CdxToggleSwitch from './ToggleSwitch.vue';
 
 describe( 'matches the snapshot', () => {
-	type Case = [ msg: string, props: Record<keyof unknown, unknown>, slot: string ];
-
-	const cases: Case[] = [
-		[ 'Default', { modelValue: true, disabled: false }, '' ],
-		[ 'With label', { modelValue: true, disabled: false }, 'Label' ],
-		[ 'Disabled', { modelValue: true, disabled: true }, '' ],
-		[ 'Disabled with label', { modelValue: true, disabled: true }, 'Label' ]
+	type Case = [
+		msg: string,
+		props: Record<keyof unknown, unknown>,
+		description?: string
 	];
 
-	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slot ) => {
-		const options = { props: props, slots: {} };
-		if ( slot.length > 0 ) {
-			options.slots = { default: slot };
-		}
-		const wrapper = shallowMount( CdxToggleSwitch, options );
+	const cases: Case[] = [
+		[ 'Default', { modelValue: false } ],
+		[ 'Disabled', { modelValue: false, disabled: true } ],
+		[ 'With description', { modelValue: false }, 'Description text' ]
+	];
+
+	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, description = undefined ) => {
+		const wrapper = mount( CdxToggleSwitch, { props, slots: {
+			default: 'Label',
+			...( description === undefined ? {} : { description } )
+		} } );
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 } );
@@ -48,7 +50,7 @@ describe( 'ToggleSwitch', () => {
 	} );
 
 	it( 'toggles the switch on label click', async () => {
-		const wrapper = shallowMount( CdxToggleSwitch,
+		const wrapper = mount( CdxToggleSwitch,
 			{ props: { modelValue: false }, slots: { default: 'Label' } }
 		);
 		const input = wrapper.find( 'input' ).element as HTMLInputElement;

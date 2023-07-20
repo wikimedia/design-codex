@@ -1,6 +1,7 @@
 <script setup>
 import RadioGroup from '@/../component-demos/radio/examples/RadioGroup.vue';
 import InlineRadios from '@/../component-demos/radio/examples/InlineRadios.vue';
+import RadiosWithDescriptions from '@/../component-demos/radio/examples/RadiosWithDescriptions.vue';
 import RadioGroupField from '@/../component-demos/radio/examples/RadioGroupField.vue';
 </script>
 
@@ -46,6 +47,23 @@ import RadioGroupField from '@/../component-demos/radio/examples/RadioGroupField
 </template>
 </cdx-demo-wrapper>
 
+### Label and description
+
+Always include label text via the default slot. You can also add description text via the
+`#description` slot.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<radios-with-descriptions />
+</template>
+
+<template v-slot:code>
+
+<<< @/../component-demos/radio/examples/RadiosWithDescriptions.vue
+
+</template>
+</cdx-demo-wrapper>
+
 ### Form field
 
 A single radio or group of radios can be wrapped in the Field component to add features
@@ -76,6 +94,9 @@ support.
 ## CSS-only version
 
 ### Markup structure
+
+The structure below can be used for most cases. If you need a description, see the section on that
+feature below.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -219,6 +240,81 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 		Radio 2
 	</label>
 </span>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### With description
+
+To add a description below the label:
+- Add a span after the `<label>` element with an ID and class `cdx-label__description`. Include the
+  description text here.
+- Add class `cdx-label__label` to the `<label>` element
+- Wrap the label and description in a div with classes `cdx-radio__label` and `cdx-label`
+- Add an `aria-describedby` attribute to the `<input>` element with the value of the ID of the
+  description
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<fieldset class="cdx-demo-radios-with-descriptions">
+		<legend>Search completion</legend>
+		<span class="cdx-radio">
+			<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
+			<span class="cdx-radio__icon"></span>
+			<div class="cdx-radio__label cdx-label">
+				<label for="radio-group-css-only-description-1" class="cdx-label__label">
+					Default (recommended)
+				</label>
+				<span id="cdx-description-css-1" class="cdx-label__description">
+					Corrects up to two typos. Removes redirects that are very similar to the main title.
+				</span>
+			</div>
+		</span>
+		<span class="cdx-radio">
+			<input id="radio-group-css-only-description-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-2">
+			<span class="cdx-radio__icon"></span>
+			<div class="cdx-radio__label cdx-label">
+				<label for="radio-group-css-only-description-2" class="cdx-label__label">
+					Strict mode (advanced)
+				</label>
+				<span id="cdx-description-css-2" class="cdx-label__description">
+					No typo correction. No accent folding. Strict matching.
+				</span>
+			</div>
+		</span>
+	</fieldset>
+</template>
+<template v-slot:code>
+
+```html
+<fieldset class="cdx-demo-radios-with-descriptions">
+	<legend>Search completion</legend>
+	<span class="cdx-radio">
+		<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
+		<span class="cdx-radio__icon"></span>
+		<div class="cdx-radio__label cdx-label">
+			<label for="radio-group-css-only-description-1" class="cdx-label__label">
+				Default (recommended)
+			</label>
+			<span id="cdx-description-css-1" class="cdx-label__description">
+				Corrects up to two typos. Removes redirects that are very similar to the main title.
+			</span>
+		</div>
+	</span>
+	<span class="cdx-radio">
+		<input id="radio-group-css-only-description-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-2">
+		<span class="cdx-radio__icon"></span>
+		<div class="cdx-radio__label cdx-label">
+			<label for="radio-group-css-only-description-2" class="cdx-label__label">
+				Strict mode (advanced)
+			</label>
+			<span id="cdx-description-css-2" class="cdx-label__description">
+				No typo correction. No accent folding. Strict matching.
+			</span>
+		</div>
+	</span>
+</fieldset>
 ```
 
 </template>

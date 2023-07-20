@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 Default: ({"disabled": false, "modelValue": true}) => HTML 1`] = `
+exports[`matches the snapshot Case 0 Default: ({"modelValue": false}) => HTML 1`] = `
 <span
   class="cdx-toggle-switch"
 >
@@ -17,40 +17,41 @@ exports[`matches the snapshot Case 0 Default: ({"disabled": false, "modelValue":
       class="cdx-toggle-switch__switch__grip"
     />
   </span>
-  <!--v-if-->
+  <!-- Only render a Label component if label text has been provided. This component can also
+			supply a description to the input if content is provided in the description slot. -->
+  <div
+    class="cdx-label cdx-toggle-switch__label"
+  >
+    <label
+      class="cdx-label__label"
+      for="cdx-toggle-switch-0"
+    >
+      <span>
+        <!--v-if-->
+        <span
+          class="cdx-label__label__text"
+        >
+          <!-- @slot Label text. -->
+          
+          
+          Label
+          
+          
+        </span>
+        <!--v-if-->
+      </span>
+      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
+				support. -->
+      <!--v-if-->
+    </label>
+    <!-- For single fields, add an ID attribute that will be used on the input for
+			aria-describedby. -->
+    <!--v-if-->
+  </div>
 </span>
 `;
 
-exports[`matches the snapshot Case 1 With label: ({"disabled": false, "modelValue": true}) => HTML 1`] = `
-<span
-  class="cdx-toggle-switch"
->
-  <input
-    class="cdx-toggle-switch__input"
-    id="cdx-toggle-switch-1"
-    type="checkbox"
-    value="false"
-  />
-  <span
-    class="cdx-toggle-switch__switch"
-  >
-    <span
-      class="cdx-toggle-switch__switch__grip"
-    />
-  </span>
-  <label
-    class="cdx-toggle-switch__label"
-    for="cdx-toggle-switch-1"
-  >
-    <!-- @slot Input label content -->
-    
-    Label
-    
-  </label>
-</span>
-`;
-
-exports[`matches the snapshot Case 2 Disabled: ({"disabled": true, "modelValue": true}) => HTML 1`] = `
+exports[`matches the snapshot Case 1 Disabled: ({"disabled": true, "modelValue": false}) => HTML 1`] = `
 <span
   class="cdx-toggle-switch"
 >
@@ -68,18 +69,48 @@ exports[`matches the snapshot Case 2 Disabled: ({"disabled": true, "modelValue":
       class="cdx-toggle-switch__switch__grip"
     />
   </span>
-  <!--v-if-->
+  <!-- Only render a Label component if label text has been provided. This component can also
+			supply a description to the input if content is provided in the description slot. -->
+  <div
+    class="cdx-label cdx-label--disabled cdx-toggle-switch__label"
+  >
+    <label
+      class="cdx-label__label"
+      for="cdx-toggle-switch-2"
+    >
+      <span>
+        <!--v-if-->
+        <span
+          class="cdx-label__label__text"
+        >
+          <!-- @slot Label text. -->
+          
+          
+          Label
+          
+          
+        </span>
+        <!--v-if-->
+      </span>
+      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
+				support. -->
+      <!--v-if-->
+    </label>
+    <!-- For single fields, add an ID attribute that will be used on the input for
+			aria-describedby. -->
+    <!--v-if-->
+  </div>
 </span>
 `;
 
-exports[`matches the snapshot Case 3 Disabled with label: ({"disabled": true, "modelValue": true}) => HTML 1`] = `
+exports[`matches the snapshot Case 2 With description: ({"modelValue": false}) => HTML 1`] = `
 <span
   class="cdx-toggle-switch"
 >
   <input
+    aria-describedby="cdx-description-5"
     class="cdx-toggle-switch__input"
-    disabled=""
-    id="cdx-toggle-switch-3"
+    id="cdx-toggle-switch-4"
     type="checkbox"
     value="false"
   />
@@ -90,14 +121,47 @@ exports[`matches the snapshot Case 3 Disabled with label: ({"disabled": true, "m
       class="cdx-toggle-switch__switch__grip"
     />
   </span>
-  <label
-    class="cdx-toggle-switch__label"
-    for="cdx-toggle-switch-3"
+  <!-- Only render a Label component if label text has been provided. This component can also
+			supply a description to the input if content is provided in the description slot. -->
+  <div
+    class="cdx-label cdx-toggle-switch__label"
   >
-    <!-- @slot Input label content -->
-    
-    Label
-    
-  </label>
+    <label
+      class="cdx-label__label"
+      for="cdx-toggle-switch-4"
+    >
+      <span>
+        <!--v-if-->
+        <span
+          class="cdx-label__label__text"
+        >
+          <!-- @slot Label text. -->
+          
+          
+          Label
+          
+          
+        </span>
+        <!--v-if-->
+      </span>
+      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
+				support. -->
+      <!--v-if-->
+    </label>
+    <!-- For single fields, add an ID attribute that will be used on the input for
+			aria-describedby. -->
+    <span
+      class="cdx-label__description"
+      id="cdx-description-5"
+    >
+      <!-- @slot Short description text. -->
+      
+      <!-- @slot Short description text. -->
+      
+      Description text
+      
+      
+    </span>
+  </div>
 </span>
 `;

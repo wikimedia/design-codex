@@ -5,32 +5,37 @@ describe( 'Checkbox', () => {
 	describe( 'matches the snapshot', () => {
 		type Case = [
 			msg: string,
-			modelValue: boolean|string[]|number[],
-			inputValue: string|number|boolean|undefined,
-			disabled: boolean,
-			indeterminate: boolean,
-			inline: boolean,
-			slot: string
+			props: {
+				modelValue: boolean|string[]|number[],
+				inputValue?: string|number|boolean|undefined,
+				disabled?: boolean,
+				indeterminate?: boolean,
+				inline?: boolean,
+			},
+			defaultSlot: string,
+			description?: string
 		];
 
 		const cases: Case[] = [
-			[ 'Single checkbox', true, undefined, false, false, false, 'Checked if true' ],
-			[ 'Group checkbox, string value', [ 'checkbox-1' ], 'checkbox-1', false, false, false, 'Checkbox 1' ],
-			[ 'Group checkbox, number value', [ 1 ], 1, false, false, false, '1' ],
-			[ 'Disabled', false, undefined, true, false, false, 'Disabled checkbox' ],
-			[ 'Indeterminate', false, undefined, false, true, false, 'Indeterminate checkbox' ],
-			[ 'Inline', [], 'checkbox-1', false, false, true, 'Inline checkbox' ]
+			[ 'Single checkbox', { modelValue: true }, 'Checked if true' ],
+			[ 'Group checkbox, string value', { modelValue: [ 'checkbox-1' ], inputValue: 'checkbox-1' }, 'Checkbox 1' ],
+			[ 'Group checkbox, number value', { modelValue: [ 1 ], inputValue: 1 }, '1' ],
+			[ 'Disabled', { modelValue: false, disabled: true }, 'Disabled checkbox' ],
+			[ 'Indeterminate', { modelValue: false, indeterminate: true }, 'Indeterminate checkbox' ],
+			[ 'Inline', { modelValue: [], inputValue: 'checkbox-1', inline: true }, 'Inline checkbox' ],
+			[ 'With description', { modelValue: true }, 'Checked if true', 'Description text' ]
 		];
 
-		test.each( cases )(
-			'Case %# %s: (%p) => HTML',
-			( _, modelValue, inputValue, disabled, indeterminate, inline, slot ) => {
-				const wrapper = mount( CdxCheckbox, {
-					props: { modelValue, inputValue, disabled, indeterminate, inline },
-					slots: { default: slot }
-				} );
-				expect( wrapper.element ).toMatchSnapshot();
+		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, defaultSlot, description = undefined ) => {
+			const wrapper = mount( CdxCheckbox, {
+				props,
+				slots: {
+					default: defaultSlot,
+					...( description === undefined ? {} : { description } )
+				}
 			} );
+			expect( wrapper.element ).toMatchSnapshot();
+		} );
 	} );
 
 	describe( 'when there is a single checkbox', () => {

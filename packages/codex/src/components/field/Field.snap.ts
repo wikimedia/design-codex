@@ -51,15 +51,37 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
       <span
         class="cdx-checkbox__icon"
       />
-      <label
-        class="cdx-checkbox__label"
-        for="cdx-checkbox-63"
+      <!-- Only render a Label component if label text has been provided. This component can also
+			supply a description to the Checkbox if content is provided in the description slot. -->
+      <div
+        class="cdx-label cdx-checkbox__label"
       >
-        <!-- @slot Input label content -->
-        
-        Checkbox label
-        
-      </label>
+        <label
+          class="cdx-label__label"
+          for="cdx-checkbox-63"
+        >
+          <span>
+            <!--v-if-->
+            <span
+              class="cdx-label__label__text"
+            >
+              <!-- @slot Label text. -->
+              
+              
+              Checkbox label
+              
+              
+            </span>
+            <!--v-if-->
+          </span>
+          <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
+				support. -->
+          <!--v-if-->
+        </label>
+        <!-- For single fields, add an ID attribute that will be used on the input for
+			aria-describedby. -->
+        <!--v-if-->
+      </div>
     </span>
     
   </div>
@@ -84,7 +106,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
   >
     <legend
       class="cdx-label__label"
-      id="cdx-label-64"
+      id="cdx-label-65"
     >
       <span>
         <!--v-if-->
@@ -120,22 +142,44 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
       <input
         class="cdx-checkbox__input"
         disabled=""
-        id="cdx-checkbox-67"
+        id="cdx-checkbox-68"
         type="checkbox"
         value="false"
       />
       <span
         class="cdx-checkbox__icon"
       />
-      <label
-        class="cdx-checkbox__label"
-        for="cdx-checkbox-67"
+      <!-- Only render a Label component if label text has been provided. This component can also
+			supply a description to the Checkbox if content is provided in the description slot. -->
+      <div
+        class="cdx-label cdx-label--disabled cdx-checkbox__label"
       >
-        <!-- @slot Input label content -->
-        
-        Checkbox label
-        
-      </label>
+        <label
+          class="cdx-label__label"
+          for="cdx-checkbox-68"
+        >
+          <span>
+            <!--v-if-->
+            <span
+              class="cdx-label__label__text"
+            >
+              <!-- @slot Label text. -->
+              
+              
+              Checkbox label
+              
+              
+            </span>
+            <!--v-if-->
+          </span>
+          <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
+				support. -->
+          <!--v-if-->
+        </label>
+        <!-- For single fields, add an ID attribute that will be used on the input for
+			aria-describedby. -->
+        <!--v-if-->
+      </div>
     </span>
     
   </div>
