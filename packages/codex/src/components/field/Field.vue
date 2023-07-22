@@ -173,13 +173,14 @@ export default defineComponent( {
 		// For fieldsets, this is all taken care of by the native HTML elements (<fieldset> and
 		// <legend>).
 		const inputId = useGeneratedId( 'input' );
-		if ( !isFieldset.value ) {
-			provide( FieldInputIdKey, inputId );
 
-			if ( slots.description ) {
-				provide( FieldDescriptionIdKey, descriptionId );
-			}
-		}
+		// Provide the input ID and description ID to child components
+		const computedInputId = computed( () => !isFieldset.value ? inputId : undefined );
+		provide( FieldInputIdKey, computedInputId );
+		const computedDescriptionId = computed( () =>
+			!isFieldset.value && slots.description ? descriptionId : undefined
+		);
+		provide( FieldDescriptionIdKey, computedDescriptionId );
 
 		// Provide the values of the disabled and status props to child components.
 		provide( DisabledKey, computedDisabled );

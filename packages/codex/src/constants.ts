@@ -99,8 +99,8 @@ export const TabsKey: InjectionKey<ComputedRef<Map<string, TabData>>> = Symbol( 
 export const ActiveTabKey: InjectionKey<ComputedRef<string>> = Symbol( 'CdxActiveTab' );
 
 // Keys for data provided by the Field component.
-export const FieldInputIdKey: InjectionKey<string> = Symbol( 'CdxId' );
-export const FieldDescriptionIdKey: InjectionKey<string> = Symbol( 'CdxDescriptionId' );
-export const FieldStatusKey: InjectionKey<Ref<ValidationStatusType>> = Symbol( 'CdxStatus' );
+export const FieldInputIdKey: InjectionKey<ComputedRef<string|undefined>> = Symbol( 'CdxFieldInputId' );
+export const FieldDescriptionIdKey: InjectionKey<ComputedRef<string|undefined>> = Symbol( 'CdxFieldDescriptionId' );
+export const FieldStatusKey: InjectionKey<Ref<ValidationStatusType>> = Symbol( 'CdxFieldStatus' );
 
 export const DisabledKey: InjectionKey<Ref<boolean>> = Symbol( 'CdxDisabled' );

@@ -42,7 +42,9 @@ export default function useFieldData(
 
 	// id: Return the provided ID if there is one. If not, return the ID attribute.
 	const providedId = inject( FieldInputIdKey, undefined );
-	const computedInputId = computed( () => providedId || idAttr );
+	const computedInputId = computed( () => providedId && providedId.value ?
+		providedId.value : idAttr
+	);
 
 	return {
 		computedDisabled,

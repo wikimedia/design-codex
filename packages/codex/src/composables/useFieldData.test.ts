@@ -77,7 +77,7 @@ describe( 'useFieldData', () => {
 				return h( ChildComponent, { id: this.childId } );
 			},
 			setup( props ) {
-				provide( FieldInputIdKey, props.providedId );
+				provide( FieldInputIdKey, computed( () => props.providedId ) );
 			}
 		} );
 
