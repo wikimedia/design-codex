@@ -197,6 +197,11 @@ export default defineComponent( {
 				border-color: @border-color-progressive--active;
 			}
 
+			&:focus + .cdx-radio__icon {
+				border-color: @border-color-input-binary--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+			}
+
 			&:checked {
 				& + .cdx-radio__icon {
 					border-width: @border-width-input-radio--checked;

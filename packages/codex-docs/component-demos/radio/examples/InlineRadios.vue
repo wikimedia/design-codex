@@ -25,7 +25,7 @@ export default defineComponent( {
 	name: 'InlineRadios',
 	components: { CdxRadio, CdxField },
 	setup() {
-		const radioValue = ref( 'radio-2' );
+		const radioValue = ref( 'radio-1' );
 		const radios = [
 			{
 				label: 'Radio 1',

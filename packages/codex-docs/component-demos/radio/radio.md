@@ -1,6 +1,7 @@
 <script setup>
 import RadioGroup from '@/../component-demos/radio/examples/RadioGroup.vue';
 import InlineRadios from '@/../component-demos/radio/examples/InlineRadios.vue';
+import RadioGroupNoSelection from '@/../component-demos/radio/examples/RadioGroupNoSelection.vue';
 import RadiosWithDescriptions from '@/../component-demos/radio/examples/RadiosWithDescriptions.vue';
 import RadioGroupField from '@/../component-demos/radio/examples/RadioGroupField.vue';
 </script>
@@ -108,6 +109,26 @@ Use the `inline` prop to get an inline layout.
 <<< @/../component-demos/radio/examples/InlineRadios.vue [NPM]
 
 <<< @/../component-demos/radio/examples-mw/InlineRadios.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### With no initial selection
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<radio-group-no-selection />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/radio/examples/RadioGroupNoSelection.vue [NPM]
+
+<<< @/../component-demos/radio/examples-mw/RadioGroupNoSelection.vue [MediaWiki]
 
 :::
 
