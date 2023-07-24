@@ -25,7 +25,7 @@ describe( 'matches the snapshot', () => {
 
 describe( 'ToggleSwitch', () => {
 	it( 'emits update:modelValue event with value when selected', async () => {
-		const wrapper = shallowMount( CdxToggleSwitch, { props: { modelValue: false } } );
+		const wrapper = shallowMount( CdxToggleSwitch, { props: { modelValue: false }, slots: { default: 'Label' } } );
 		const input = wrapper.find( 'input' ).element as HTMLInputElement;
 
 		input.checked = true;
@@ -36,14 +36,14 @@ describe( 'ToggleSwitch', () => {
 	} );
 
 	it( 'is on when modelValue is true', () => {
-		const wrapper = shallowMount( CdxToggleSwitch, { props: { modelValue: true } } );
+		const wrapper = shallowMount( CdxToggleSwitch, { props: { modelValue: true }, slots: { default: 'Label' } } );
 		const input = wrapper.find( 'input' ).element as HTMLInputElement;
 
 		expect( input.checked ).toEqual( true );
 	} );
 
 	it( 'is off when modelValue is false', () => {
-		const wrapper = shallowMount( CdxToggleSwitch, { props: { modelValue: false } } );
+		const wrapper = shallowMount( CdxToggleSwitch, { props: { modelValue: false }, slots: { default: 'Label' } } );
 		const input = wrapper.find( 'input' ).element as HTMLInputElement;
 
 		expect( input.checked ).toEqual( false );
@@ -60,7 +60,7 @@ describe( 'ToggleSwitch', () => {
 	} );
 
 	it( 'clicks the input on enter keydown', async () => {
-		const wrapper = shallowMount( CdxToggleSwitch, { props: { modelValue: false } } );
+		const wrapper = shallowMount( CdxToggleSwitch, { props: { modelValue: false }, slots: { default: 'Label' } } );
 		const input = wrapper.find( 'input' ).element as HTMLInputElement;
 		input.click = jest.fn();
 

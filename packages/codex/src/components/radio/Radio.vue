@@ -37,6 +37,7 @@
 <script lang="ts">
 import { defineComponent, ref, toRef, computed } from 'vue';
 import CdxLabel from '../label/Label.vue';
+import useLabelChecker from '../../composables/useLabelChecker';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useFieldData from '../../composables/useFieldData';
@@ -107,7 +108,9 @@ export default defineComponent( {
 		 */
 		'update:modelValue'
 	],
-	setup( props, { emit } ) {
+	setup( props, { emit, slots, attrs } ) {
+		useLabelChecker( slots.default?.(), attrs );
+
 		const rootClasses = computed( (): Record<string, boolean> => {
 			return {
 				'cdx-radio--inline': props.inline

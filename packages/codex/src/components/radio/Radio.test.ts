@@ -43,7 +43,7 @@ describe( 'Radio', () => {
 			inputValue: 'radio-2',
 			name: 'radio-group'
 		};
-		const wrapper = shallowMount( CdxRadio, { props: props } );
+		const wrapper = shallowMount( CdxRadio, { props: props, slots: { default: 'Label' } } );
 		const input = wrapper.find( 'input' ).element;
 
 		input.checked = true;
@@ -59,7 +59,7 @@ describe( 'Radio', () => {
 			inputValue: 'radio-1',
 			name: 'radio-group'
 		};
-		const wrapper = shallowMount( CdxRadio, { props: props } );
+		const wrapper = shallowMount( CdxRadio, { props: props, slots: { default: 'Label' } } );
 		const input = wrapper.find( 'input' ).element;
 
 		expect( input.checked ).toEqual( true );
@@ -71,7 +71,7 @@ describe( 'Radio', () => {
 			inputValue: 'radio-2',
 			name: 'radio-group'
 		};
-		const wrapper = shallowMount( CdxRadio, { props: props } );
+		const wrapper = shallowMount( CdxRadio, { props: props, slots: { default: 'Label' } } );
 		const input = wrapper.find( 'input' ).element;
 
 		expect( input.checked ).toEqual( false );

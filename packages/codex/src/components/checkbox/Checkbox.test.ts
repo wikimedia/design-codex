@@ -42,7 +42,7 @@ describe( 'Checkbox', () => {
 		describe( 'and the checkbox is toggled', () => {
 			it( 'emits update:modelValue event with single boolean value', async () => {
 				const props = { modelValue: false };
-				const wrapper = shallowMount( CdxCheckbox, { props: props } );
+				const wrapper = shallowMount( CdxCheckbox, { props: props, slots: { default: 'Label' } } );
 				const input = wrapper.find( 'input' ).element;
 
 				input.checked = true;
@@ -55,7 +55,7 @@ describe( 'Checkbox', () => {
 		describe( 'and modelValue is true', () => {
 			it( 'is checked', () => {
 				const props = { modelValue: true };
-				const wrapper = shallowMount( CdxCheckbox, { props: props } );
+				const wrapper = shallowMount( CdxCheckbox, { props: props, slots: { default: 'Label' } } );
 				const input = wrapper.find( 'input' ).element;
 
 				expect( input.checked ).toEqual( true );
@@ -65,7 +65,7 @@ describe( 'Checkbox', () => {
 		describe( 'and modelValue is false', () => {
 			it( 'is not checked', () => {
 				const props = { modelValue: false };
-				const wrapper = shallowMount( CdxCheckbox, { props: props } );
+				const wrapper = shallowMount( CdxCheckbox, { props: props, slots: { default: 'Label' } } );
 				const input = wrapper.find( 'input' ).element;
 
 				expect( input.checked ).toEqual( false );
@@ -80,7 +80,7 @@ describe( 'Checkbox', () => {
 					modelValue: [ 'checkbox-1' ],
 					inputValue: 'checkbox-2'
 				};
-				const wrapper = shallowMount( CdxCheckbox, { props: props } );
+				const wrapper = shallowMount( CdxCheckbox, { props: props, slots: { default: 'Label' } } );
 				const input = wrapper.find( 'input' ).element;
 
 				input.checked = true;
@@ -96,7 +96,7 @@ describe( 'Checkbox', () => {
 					modelValue: [ 'checkbox-1' ],
 					inputValue: 'checkbox-1'
 				};
-				const wrapper = shallowMount( CdxCheckbox, { props: props } );
+				const wrapper = shallowMount( CdxCheckbox, { props: props, slots: { default: 'Label' } } );
 				const input = wrapper.find( 'input' ).element;
 
 				expect( input.checked ).toEqual( true );
@@ -109,7 +109,7 @@ describe( 'Checkbox', () => {
 					modelValue: [],
 					inputValue: 'checkbox-1'
 				};
-				const wrapper = shallowMount( CdxCheckbox, { props: props } );
+				const wrapper = shallowMount( CdxCheckbox, { props: props, slots: { default: 'Label' } } );
 				const input = wrapper.find( 'input' ).element;
 
 				expect( input.checked ).toEqual( false );
@@ -120,7 +120,7 @@ describe( 'Checkbox', () => {
 	describe( 'on enter keydown', () => {
 		it( 'clicks the input', async () => {
 			const props = { modelValue: false };
-			const wrapper = shallowMount( CdxCheckbox, { propsData: props } );
+			const wrapper = shallowMount( CdxCheckbox, { propsData: props, slots: { default: 'Label' } } );
 			const input = wrapper.find( 'input' ).element;
 			input.click = jest.fn();
 

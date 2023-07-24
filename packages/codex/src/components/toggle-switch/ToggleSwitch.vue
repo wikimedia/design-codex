@@ -46,6 +46,7 @@
 <script lang="ts">
 import { defineComponent, PropType, ref, toRef, computed } from 'vue';
 import CdxLabel from '../label/Label.vue';
+import useLabelChecker from '../../composables/useLabelChecker';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
@@ -124,7 +125,9 @@ export default defineComponent( {
 		 */
 		'update:modelValue'
 	],
-	setup( props, { attrs, emit } ) {
+	setup( props, { emit, slots, attrs } ) {
+		useLabelChecker( slots.default?.(), attrs );
+
 		// Declare template refs.
 		const input = ref<HTMLInputElement>();
 
