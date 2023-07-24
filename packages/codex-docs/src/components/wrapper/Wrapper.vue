@@ -546,5 +546,16 @@ export default defineComponent( {
 		margin-top: 0;
 		border-radius: 0 0 @border-radius-base @border-radius-base;
 	}
+
+	// Special styles for code groups (for code samples with multiple versions).
+	/* stylelint-disable selector-class-pattern */
+	.vp-code-group {
+		margin-top: 0;
+
+		.tabs {
+			border-radius: 0 0 @border-radius-base @border-radius-base;
+		}
+	}
+	/* stylelint-enable selector-class-pattern */
 }
 </style>
