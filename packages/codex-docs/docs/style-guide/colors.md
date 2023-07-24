@@ -151,11 +151,11 @@ Shades of red, green, and yellow are used as utility colors.
 			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AA</span>
 			<span class="cdx-docs-colors__color__hsb">HSB 0, 74%, 100%</span>
 		</li>
-		<li class="cdx-docs-colors__color" style="background-color: #d33;">
+		<li class="cdx-docs-colors__color" style="background-color: #d73333;">
 			<span class="cdx-docs-colors__color__name">Red600</span>
-			<span class="cdx-docs-colors__color__hex">#d33</span>
+			<span class="cdx-docs-colors__color__hex">#d73333</span>
 			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 360, 77%, 87%</span>
+			<span class="cdx-docs-colors__color__hsb">HSB 360, 76%, 84%</span>
 		</li>
 		<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #b32424;">
 			<span class="cdx-docs-colors__color__name">Red700</span>
