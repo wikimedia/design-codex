@@ -25,13 +25,7 @@ exports[`matches the snapshot Case 0 Default: ("Label text") => HTML 1`] = `
   </label>
   <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-  <span
-    class="cdx-label__description"
-  >
-    <!-- @slot Short description text. -->
-    
-    
-  </span>
+  <!--v-if-->
 </div>
 `;
 
@@ -65,13 +59,7 @@ exports[`matches the snapshot Case 1 With icon: ("Label text") => HTML 1`] = `
   </label>
   <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-  <span
-    class="cdx-label__description"
-  >
-    <!-- @slot Short description text. -->
-    
-    
-  </span>
+  <!--v-if-->
 </div>
 `;
 
@@ -108,13 +96,7 @@ exports[`matches the snapshot Case 2 With optional flag: ("Label text") => HTML 
   </label>
   <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-  <span
-    class="cdx-label__description"
-  >
-    <!-- @slot Short description text. -->
-    
-    
-  </span>
+  <!--v-if-->
 </div>
 `;
 
@@ -143,13 +125,7 @@ exports[`matches the snapshot Case 3 With visually hidden label: ("Label text") 
   </label>
   <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-  <span
-    class="cdx-label__description"
-  >
-    <!-- @slot Short description text. -->
-    
-    
-  </span>
+  <!--v-if-->
 </div>
 `;
 
@@ -174,13 +150,7 @@ exports[`matches the snapshot Case 4 As legend: ("Label text") => HTML 1`] = `
     </span>
     <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
 				support. -->
-    <span
-      class="cdx-label__description"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </legend>
   <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
@@ -214,13 +184,7 @@ exports[`matches the snapshot Case 5 With input ID: ("Label text") => HTML 1`] =
   </label>
   <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-  <span
-    class="cdx-label__description"
-  >
-    <!-- @slot Short description text. -->
-    
-    
-  </span>
+  <!--v-if-->
 </div>
 `;
 
@@ -249,13 +213,7 @@ exports[`matches the snapshot Case 6 Disabled: ("Label text") => HTML 1`] = `
   </label>
   <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-  <span
-    class="cdx-label__description"
-  >
-    <!-- @slot Short description text. -->
-    
-    
-  </span>
+  <!--v-if-->
 </div>
 `;
 

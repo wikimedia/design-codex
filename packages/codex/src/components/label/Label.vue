@@ -32,7 +32,10 @@
 
 			<!-- For legends, the description needs to be inside the <legend> for screen reader
 				support. -->
-			<span v-if="isLegend" class="cdx-label__description">
+			<span
+				v-if="isLegend && $slots.description && $slots.description().length > 0"
+				class="cdx-label__description"
+			>
 				<!-- @slot Short description text. -->
 				<slot name="description" />
 			</span>
@@ -41,7 +44,7 @@
 		<!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
 		<span
-			v-if="!isLegend"
+			v-if="!isLegend && $slots.description && $slots.description().length > 0"
 			:id="descriptionId || undefined"
 			class="cdx-label__description"
 		>

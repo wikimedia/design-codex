@@ -20,7 +20,7 @@
 				<!-- @slot Label text. -->
 				<slot name="label" />
 			</template>
-			<template #description>
+			<template v-if="$slots.description && $slots.description().length > 0" #description>
 				<!-- @slot Short description text. -->
 				<slot name="description" />
 			</template>

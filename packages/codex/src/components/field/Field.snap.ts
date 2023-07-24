@@ -28,13 +28,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
       </span>
       <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
 				support. -->
-      <span
-        class="cdx-label__description"
-      >
-        <!-- @slot Short description text. -->
-        
-        
-      </span>
+      <!--v-if-->
     </legend>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
@@ -109,13 +103,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
       </span>
       <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
 				support. -->
-      <span
-        class="cdx-label__description"
-      >
-        <!-- @slot Short description text. -->
-        
-        
-      </span>
+      <!--v-if-->
     </legend>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
@@ -195,14 +183,7 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-25"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control"
@@ -355,14 +336,7 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-31"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control"
@@ -514,14 +488,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-37"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control cdx-field__control--has-help-text"
@@ -876,14 +843,7 @@ exports[`Field matches the snapshot with a TextInput control Case 0 Basic field:
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-1"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control"
@@ -967,14 +927,7 @@ exports[`Field matches the snapshot with a TextInput control Case 1 With label i
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-4"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control"
@@ -1047,14 +1000,7 @@ exports[`Field matches the snapshot with a TextInput control Case 2 With optiona
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-7"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control"
@@ -1119,14 +1065,7 @@ exports[`Field matches the snapshot with a TextInput control Case 3 With visuall
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-10"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control"
@@ -1192,14 +1131,7 @@ exports[`Field matches the snapshot with a TextInput control Case 4 Disabled: ({
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-13"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control"
@@ -1265,14 +1197,7 @@ exports[`Field matches the snapshot with a TextInput control Case 5 Error status
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-16"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control cdx-field__control--has-help-text"
@@ -1453,14 +1378,7 @@ exports[`Field matches the snapshot with a TextInput control Case 7 With help te
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-22"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control"
@@ -1525,14 +1443,7 @@ exports[`Field matches the snapshot with a Textarea control Case 0 Basic field: 
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-49"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control"
@@ -1596,14 +1507,7 @@ exports[`Field matches the snapshot with a Textarea control Case 1 Disabled: ({"
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-52"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control"
@@ -1667,14 +1571,7 @@ exports[`Field matches the snapshot with a Textarea control Case 2 Error status 
     </label>
     <!-- For single fields, add an ID attribute that will be used on the input for
 			aria-describedby. -->
-    <span
-      class="cdx-label__description"
-      id="cdx-description-55"
-    >
-      <!-- @slot Short description text. -->
-      
-      
-    </span>
+    <!--v-if-->
   </div>
   <div
     class="cdx-field__control cdx-field__control--has-help-text"
