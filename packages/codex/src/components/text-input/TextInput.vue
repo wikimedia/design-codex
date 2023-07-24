@@ -503,7 +503,7 @@ export default defineComponent( {
 
 	&--status-error {
 		.cdx-text-input__input:enabled {
-			border-color: @border-color-destructive;
+			border-color: @border-color-error;
 
 			&:focus {
 				border-color: @border-color-progressive--focus;

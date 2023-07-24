@@ -312,7 +312,7 @@ export default defineComponent( {
 		&.cdx-filter-chip-input--status-error {
 			&:not( .cdx-filter-chip-input--has-separate-input ) .cdx-filter-chip-input__chips,
 			&.cdx-filter-chip-input--has-separate-input .cdx-filter-chip-input__separate-input {
-				border-color: @border-color-destructive;
+				border-color: @border-color-error;
 			}
 		}
 
@@ -329,7 +329,7 @@ export default defineComponent( {
 		&.cdx-filter-chip-input--status-error&:not( .cdx-filter-chip-input--focused ) {
 			&:not( .cdx-filter-chip-input--has-separate-input ) .cdx-filter-chip-input__chips,
 			&.cdx-filter-chip-input--has-separate-input .cdx-filter-chip-input__separate-input {
-				color: @color-destructive;
+				color: @color-error;
 			}
 		}
 	}

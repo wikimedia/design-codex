@@ -420,7 +420,7 @@ export default defineComponent( {
 
 	&--status-error&--enabled {
 		.cdx-select-vue__handle {
-			border-color: @border-color-destructive;
+			border-color: @border-color-error;
 
 			&:focus {
 				border-color: @border-color-progressive--focus;
