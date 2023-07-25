@@ -15,6 +15,8 @@ exports[`Checkbox matches the snapshot Case 0 Single checkbox: ({"modelValue": t
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Checkbox if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-checkbox__label"
   >
@@ -22,28 +24,23 @@ exports[`Checkbox matches the snapshot Case 0 Single checkbox: ({"modelValue": t
       class="cdx-label__label"
       for="cdx-checkbox-0"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          Checked if true
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Checked if true
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
   </div>
+  
 </span>
 `;
 
@@ -62,6 +59,8 @@ exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: ({"i
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Checkbox if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-checkbox__label"
   >
@@ -69,28 +68,23 @@ exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: ({"i
       class="cdx-label__label"
       for="cdx-checkbox-2"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          Checkbox 1
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Checkbox 1
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
   </div>
+  
 </span>
 `;
 
@@ -109,6 +103,8 @@ exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ({"i
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Checkbox if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-checkbox__label"
   >
@@ -116,28 +112,23 @@ exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ({"i
       class="cdx-label__label"
       for="cdx-checkbox-4"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          1
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        1
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
   </div>
+  
 </span>
 `;
 
@@ -157,6 +148,8 @@ exports[`Checkbox matches the snapshot Case 3 Disabled: ({"disabled": true, "mod
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Checkbox if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-label--disabled cdx-checkbox__label"
   >
@@ -164,28 +157,23 @@ exports[`Checkbox matches the snapshot Case 3 Disabled: ({"disabled": true, "mod
       class="cdx-label__label"
       for="cdx-checkbox-6"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          Disabled checkbox
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Disabled checkbox
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
   </div>
+  
 </span>
 `;
 
@@ -204,6 +192,8 @@ exports[`Checkbox matches the snapshot Case 4 Indeterminate: ({"indeterminate": 
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Checkbox if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-checkbox__label"
   >
@@ -211,28 +201,23 @@ exports[`Checkbox matches the snapshot Case 4 Indeterminate: ({"indeterminate": 
       class="cdx-label__label"
       for="cdx-checkbox-8"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          Indeterminate checkbox
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Indeterminate checkbox
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
   </div>
+  
 </span>
 `;
 
@@ -251,6 +236,8 @@ exports[`Checkbox matches the snapshot Case 5 Inline: ({"inline": true, "inputVa
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Checkbox if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-checkbox__label"
   >
@@ -258,28 +245,23 @@ exports[`Checkbox matches the snapshot Case 5 Inline: ({"inline": true, "inputVa
       class="cdx-label__label"
       for="cdx-checkbox-10"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          Inline checkbox
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Inline checkbox
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
   </div>
+  
 </span>
 `;
 
@@ -299,6 +281,8 @@ exports[`Checkbox matches the snapshot Case 6 With description: ({"modelValue": 
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Checkbox if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-checkbox__label"
   >
@@ -306,26 +290,20 @@ exports[`Checkbox matches the snapshot Case 6 With description: ({"modelValue": 
       class="cdx-label__label"
       for="cdx-checkbox-12"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          Checked if true
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Checked if true
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <span
       class="cdx-label__description"
       id="cdx-description-13"
@@ -339,5 +317,6 @@ exports[`Checkbox matches the snapshot Case 6 With description: ({"modelValue": 
       
     </span>
   </div>
+  
 </span>
 `;

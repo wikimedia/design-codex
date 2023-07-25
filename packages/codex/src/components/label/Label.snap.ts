@@ -2,12 +2,16 @@
 
 exports[`matches the snapshot Case 0 Default: ("Label text") => HTML 1`] = `
 <div
-  class="cdx-label"
+  data-v-app=""
 >
-  <label
-    class="cdx-label__label"
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+  <div
+    class="cdx-label"
   >
-    <span>
+    <label
+      class="cdx-label__label"
+    >
       <!--v-if-->
       <span
         class="cdx-label__label__text"
@@ -18,25 +22,26 @@ exports[`matches the snapshot Case 0 Default: ("Label text") => HTML 1`] = `
         
       </span>
       <!--v-if-->
-    </span>
-    <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
+    </label>
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
-  </label>
-  <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
-  <!--v-if-->
+  </div>
+  
 </div>
 `;
 
 exports[`matches the snapshot Case 1 With icon: ("Label text") => HTML 1`] = `
 <div
-  class="cdx-label"
+  data-v-app=""
 >
-  <label
-    class="cdx-label__label"
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+  <div
+    class="cdx-label"
   >
-    <span>
+    <label
+      class="cdx-label__label"
+    >
       <cdx-icon-stub
         class="cdx-label__label__icon"
         icon="<path d=\\"M10 0a7.65 7.65 0 00-8 8c0 2.52 2 5 3 6s5 6 5 6 4-5 5-6 3-3.48 3-6a7.65 7.65 0 00-8-8zm0 11.25A3.25 3.25 0 1113.25 8 3.25 3.25 0 0110 11.25z\\"/>"
@@ -52,25 +57,26 @@ exports[`matches the snapshot Case 1 With icon: ("Label text") => HTML 1`] = `
         
       </span>
       <!--v-if-->
-    </span>
-    <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
+    </label>
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
-  </label>
-  <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
-  <!--v-if-->
+  </div>
+  
 </div>
 `;
 
 exports[`matches the snapshot Case 2 With optional flag: ("Label text") => HTML 1`] = `
 <div
-  class="cdx-label"
+  data-v-app=""
 >
-  <label
-    class="cdx-label__label"
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+  <div
+    class="cdx-label"
   >
-    <span>
+    <label
+      class="cdx-label__label"
+    >
       <!--v-if-->
       <span
         class="cdx-label__label__text"
@@ -84,30 +90,31 @@ exports[`matches the snapshot Case 2 With optional flag: ("Label text") => HTML 
         class="cdx-label__label__optional-flag"
       >
         <!-- Add a space before the optional flag text. Vue strips whitespace
-						between everything except plain text, so we can't rely on a newline to
-						add a natural space here. -->
+					between everything except plain text, so we can't rely on a newline to
+					add a natural space here. -->
         <!-- eslint-disable-next-line vue/no-useless-mustaches -->
            (optional)
       </span>
-    </span>
-    <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
+    </label>
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
-  </label>
-  <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
-  <!--v-if-->
+  </div>
+  
 </div>
 `;
 
 exports[`matches the snapshot Case 3 With visually hidden label: ("Label text") => HTML 1`] = `
 <div
-  class="cdx-label cdx-label--visually-hidden"
+  data-v-app=""
 >
-  <label
-    class="cdx-label__label"
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+  <div
+    class="cdx-label cdx-label--visually-hidden"
   >
-    <span>
+    <label
+      class="cdx-label__label"
+    >
       <!--v-if-->
       <span
         class="cdx-label__label__text"
@@ -118,25 +125,29 @@ exports[`matches the snapshot Case 3 With visually hidden label: ("Label text") 
         
       </span>
       <!--v-if-->
-    </span>
-    <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
+    </label>
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
-  </label>
-  <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
-  <!--v-if-->
+  </div>
+  
 </div>
 `;
 
 exports[`matches the snapshot Case 4 As legend: ("Label text") => HTML 1`] = `
 <div
-  class="cdx-label"
+  data-v-app=""
 >
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+  
+  <!-- &lt;legend&gt; must be the root element so it is a direct child of &lt;fieldset&gt;, and &lt;legend&gt;
+		contains the description. Both required for screen reader support.-->
   <legend
-    class="cdx-label__label"
+    class="cdx-label cdx-label--is-legend"
   >
-    <span>
+    <span
+      class="cdx-label__label"
+    >
       <!--v-if-->
       <span
         class="cdx-label__label__text"
@@ -149,24 +160,27 @@ exports[`matches the snapshot Case 4 As legend: ("Label text") => HTML 1`] = `
       <!--v-if-->
     </span>
     <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
+			support. -->
     <!--v-if-->
   </legend>
-  <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
-  <!--v-if-->
+  
+  
 </div>
 `;
 
 exports[`matches the snapshot Case 5 With input ID: ("Label text") => HTML 1`] = `
 <div
-  class="cdx-label"
+  data-v-app=""
 >
-  <label
-    class="cdx-label__label"
-    for="my-input-123"
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+  <div
+    class="cdx-label"
   >
-    <span>
+    <label
+      class="cdx-label__label"
+      for="my-input-123"
+    >
       <!--v-if-->
       <span
         class="cdx-label__label__text"
@@ -177,25 +191,26 @@ exports[`matches the snapshot Case 5 With input ID: ("Label text") => HTML 1`] =
         
       </span>
       <!--v-if-->
-    </span>
-    <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
+    </label>
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
-  </label>
-  <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
-  <!--v-if-->
+  </div>
+  
 </div>
 `;
 
 exports[`matches the snapshot Case 6 Disabled: ("Label text") => HTML 1`] = `
 <div
-  class="cdx-label cdx-label--disabled"
+  data-v-app=""
 >
-  <label
-    class="cdx-label__label"
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+  <div
+    class="cdx-label cdx-label--disabled"
   >
-    <span>
+    <label
+      class="cdx-label__label"
+    >
       <!--v-if-->
       <span
         class="cdx-label__label__text"
@@ -206,25 +221,26 @@ exports[`matches the snapshot Case 6 Disabled: ("Label text") => HTML 1`] = `
         
       </span>
       <!--v-if-->
-    </span>
-    <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
+    </label>
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
-  </label>
-  <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
-  <!--v-if-->
+  </div>
+  
 </div>
 `;
 
 exports[`matches the snapshot Case 7 With description and description ID: ("Label text") => HTML 1`] = `
 <div
-  class="cdx-label"
+  data-v-app=""
 >
-  <label
-    class="cdx-label__label"
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+  <div
+    class="cdx-label"
   >
-    <span>
+    <label
+      class="cdx-label__label"
+    >
       <!--v-if-->
       <span
         class="cdx-label__label__text"
@@ -235,21 +251,18 @@ exports[`matches the snapshot Case 7 With description and description ID: ("Labe
         
       </span>
       <!--v-if-->
+    </label>
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
+    <span
+      class="cdx-label__description"
+      id="my-description-123"
+    >
+      <!-- @slot Short description text. -->
+      
+      Description text
+      
     </span>
-    <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
-    <!--v-if-->
-  </label>
-  <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
-  <span
-    class="cdx-label__description"
-    id="my-description-123"
-  >
-    <!-- @slot Short description text. -->
-    
-    Description text
-    
-  </span>
+  </div>
+  
 </div>
 `;

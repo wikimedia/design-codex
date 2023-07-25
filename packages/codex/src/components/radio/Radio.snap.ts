@@ -16,6 +16,8 @@ exports[`matches the snapshot Case 0 String value: ({"inputValue": "radio-1", "m
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Radio if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-radio__label"
   >
@@ -23,28 +25,23 @@ exports[`matches the snapshot Case 0 String value: ({"inputValue": "radio-1", "m
       class="cdx-label__label"
       for="cdx-radio-0"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          Radio 1
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Radio 1
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
   </div>
+  
 </span>
 `;
 
@@ -64,6 +61,8 @@ exports[`matches the snapshot Case 1 Number value: ({"inputValue": 2, "modelValu
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Radio if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-radio__label"
   >
@@ -71,28 +70,23 @@ exports[`matches the snapshot Case 1 Number value: ({"inputValue": 2, "modelValu
       class="cdx-label__label"
       for="cdx-radio-2"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          Radio 2
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Radio 2
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
   </div>
+  
 </span>
 `;
 
@@ -112,6 +106,8 @@ exports[`matches the snapshot Case 2 Boolean value: ({"inputValue": true, "model
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Radio if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-radio__label"
   >
@@ -119,28 +115,23 @@ exports[`matches the snapshot Case 2 Boolean value: ({"inputValue": true, "model
       class="cdx-label__label"
       for="cdx-radio-4"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          True
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        True
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
   </div>
+  
 </span>
 `;
 
@@ -161,6 +152,8 @@ exports[`matches the snapshot Case 3 Disabled: ({"disabled": true, "inputValue":
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Radio if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-label--disabled cdx-radio__label"
   >
@@ -168,28 +161,23 @@ exports[`matches the snapshot Case 3 Disabled: ({"disabled": true, "inputValue":
       class="cdx-label__label"
       for="cdx-radio-6"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          Disabled radio
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Disabled radio
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
   </div>
+  
 </span>
 `;
 
@@ -209,6 +197,8 @@ exports[`matches the snapshot Case 4 Inline: ({"inline": true, "inputValue": "ra
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Radio if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-radio__label"
   >
@@ -216,28 +206,23 @@ exports[`matches the snapshot Case 4 Inline: ({"inline": true, "inputValue": "ra
       class="cdx-label__label"
       for="cdx-radio-8"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          Inline radio
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Inline radio
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <!--v-if-->
   </div>
+  
 </span>
 `;
 
@@ -258,6 +243,8 @@ exports[`matches the snapshot Case 5 With description: ({"inputValue": "radio-1"
   />
   <!-- Only render a Label component if label text has been provided. This component can also
 			supply a description to the Radio if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   <div
     class="cdx-label cdx-radio__label"
   >
@@ -265,26 +252,20 @@ exports[`matches the snapshot Case 5 With description: ({"inputValue": "radio-1"
       class="cdx-label__label"
       for="cdx-radio-10"
     >
-      <span>
-        <!--v-if-->
-        <span
-          class="cdx-label__label__text"
-        >
-          <!-- @slot Label text. -->
-          
-          
-          Radio 1
-          
-          
-        </span>
-        <!--v-if-->
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Radio 1
+        
+        
       </span>
-      <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-				support. -->
       <!--v-if-->
     </label>
-    <!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <span
       class="cdx-label__description"
       id="cdx-description-11"
@@ -298,5 +279,6 @@ exports[`matches the snapshot Case 5 With description: ({"inputValue": "radio-1"
       
     </span>
   </div>
+  
 </span>
 `;

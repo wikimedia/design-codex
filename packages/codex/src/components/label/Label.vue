@@ -1,50 +1,38 @@
 <template>
+	<!-- Separate <label> and description are wrapped in a <div>. -->
 	<div
+		v-if="!isLegend"
 		class="cdx-label"
 		:class="rootClasses"
 		:style="rootStyle"
 	>
-		<component
-			:is="isLegend ? 'legend' : 'label'"
+		<label
 			class="cdx-label__label"
-			:for="!isLegend && inputId ? inputId : undefined"
+			:for="inputId ? inputId : undefined"
 			v-bind="otherAttrs"
 		>
-			<span>
-				<cdx-icon
-					v-if="icon"
-					:icon="icon"
-					class="cdx-label__label__icon"
-				/>
-				<span class="cdx-label__label__text">
-					<!-- @slot Label text. -->
-					<slot />
-				</span>
-				<span v-if="optionalFlag" class="cdx-label__label__optional-flag">
-					<!-- Add a space before the optional flag text. Vue strips whitespace
-						between everything except plain text, so we can't rely on a newline to
-						add a natural space here. -->
-					<!-- eslint-disable-next-line vue/no-useless-mustaches -->
-					{{ ' ' }}
-					{{ optionalFlag }}
-				</span>
+			<cdx-icon
+				v-if="icon"
+				:icon="icon"
+				class="cdx-label__label__icon"
+			/>
+			<span class="cdx-label__label__text">
+				<!-- @slot Label text. -->
+				<slot />
 			</span>
-
-			<!-- For legends, the description needs to be inside the <legend> for screen reader
-				support. -->
-			<span
-				v-if="isLegend && $slots.description && $slots.description().length > 0"
-				class="cdx-label__description"
-			>
-				<!-- @slot Short description text. -->
-				<slot name="description" />
+			<span v-if="optionalFlag" class="cdx-label__label__optional-flag">
+				<!-- Add a space before the optional flag text. Vue strips whitespace
+					between everything except plain text, so we can't rely on a newline to
+					add a natural space here. -->
+				<!-- eslint-disable-next-line vue/no-useless-mustaches -->
+				{{ ' ' }}
+				{{ optionalFlag }}
 			</span>
-		</component>
+		</label>
 
-		<!-- For single fields, add an ID attribute that will be used on the input for
-			aria-describedby. -->
+		<!-- Include an ID attribute that will be used on the input for aria-describedby. -->
 		<span
-			v-if="!isLegend && $slots.description && $slots.description().length > 0"
+			v-if="$slots.description && $slots.description().length > 0"
 			:id="descriptionId || undefined"
 			class="cdx-label__description"
 		>
@@ -52,6 +40,46 @@
 			<slot name="description" />
 		</span>
 	</div>
+
+	<!-- <legend> must be the root element so it is a direct child of <fieldset>, and <legend>
+		contains the description. Both required for screen reader support.-->
+	<legend
+		v-else
+		class="cdx-label cdx-label--is-legend"
+		:class="rootClasses"
+		:style="rootStyle"
+		v-bind="otherAttrs"
+	>
+		<span class="cdx-label__label">
+			<cdx-icon
+				v-if="icon"
+				:icon="icon"
+				class="cdx-label__label__icon"
+			/>
+			<span class="cdx-label__label__text">
+				<!-- @slot Label text. -->
+				<slot />
+			</span>
+			<span v-if="optionalFlag" class="cdx-label__label__optional-flag">
+				<!-- Add a space before the optional flag text. Vue strips whitespace
+					between everything except plain text, so we can't rely on a newline to
+					add a natural space here. -->
+				<!-- eslint-disable-next-line vue/no-useless-mustaches -->
+				{{ ' ' }}
+				{{ optionalFlag }}
+			</span>
+		</span>
+
+		<!-- For legends, the description needs to be inside the <legend> for screen reader
+			support. -->
+		<span
+			v-if="$slots.description && $slots.description().length > 0"
+			class="cdx-label__description"
+		>
+			<!-- @slot Short description text. -->
+			<slot name="description" />
+		</span>
+	</legend>
 </template>
 
 <script lang="ts">
@@ -165,13 +193,13 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/common.less';
 
 .cdx-label {
+	display: flex;
+	// Display the description on a separate line after the label text.
+	flex-direction: column;
 	line-height: @line-height-xx-small;
 
+	// Styles for label content.
 	&__label {
-		// For legends, display the description on a separate line after the label text.
-		display: flex;
-		flex-direction: column;
-
 		&__icon {
 			margin-right: @spacing-25;
 		}
@@ -181,8 +209,8 @@ export default defineComponent( {
 		}
 	}
 
-	legend {
-		// Unset browser style.
+	&--is-legend {
+		// Unset <legend> browser style.
 		padding: 0;
 	}
 
