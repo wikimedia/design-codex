@@ -21,7 +21,7 @@
 				role="combobox"
 				autocomplete="off"
 				aria-autocomplete="list"
-				:aria-owns="menuId"
+				:aria-controls="menuId"
 				:aria-expanded="expanded"
 				:aria-activedescendant="highlightedId"
 				@update:model-value="onUpdateInputValue"

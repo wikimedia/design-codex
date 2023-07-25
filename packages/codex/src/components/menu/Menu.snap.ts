@@ -5,7 +5,6 @@ exports[`Matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
   class="cdx-menu"
 >
   <ul
-    aria-multiselectable="false"
     class="cdx-menu__listbox"
     role="listbox"
   >
@@ -239,7 +238,6 @@ exports[`Matches the snapshots Case 1 Something selected: => HTML 1`] = `
   class="cdx-menu"
 >
   <ul
-    aria-multiselectable="false"
     class="cdx-menu__listbox"
     role="listbox"
   >
@@ -474,7 +472,6 @@ exports[`Matches the snapshots Case 2 Not expanded: => HTML 1`] = `
   style="display: none;"
 >
   <ul
-    aria-multiselectable="false"
     class="cdx-menu__listbox"
     role="listbox"
   >
@@ -708,7 +705,6 @@ exports[`Matches the snapshots Case 3 With no results text: => HTML 1`] = `
   class="cdx-menu"
 >
   <ul
-    aria-multiselectable="false"
     class="cdx-menu__listbox"
     role="listbox"
   >
@@ -735,7 +731,6 @@ exports[`Matches the snapshots Case 4 Pending: => HTML 1`] = `
   class="cdx-menu"
 >
   <ul
-    aria-multiselectable="false"
     class="cdx-menu__listbox"
     role="listbox"
   >
@@ -772,7 +767,6 @@ exports[`Matches the snapshots Case 5 Pending with items: => HTML 1`] = `
   class="cdx-menu"
 >
   <ul
-    aria-multiselectable="false"
     class="cdx-menu__listbox"
     role="listbox"
   >
@@ -1016,7 +1010,6 @@ exports[`Matches the snapshots Case 6 Custom menu item rendering: => HTML 1`] = 
   class="cdx-menu"
 >
   <ul
-    aria-multiselectable="false"
     class="cdx-menu__listbox"
     role="listbox"
   >

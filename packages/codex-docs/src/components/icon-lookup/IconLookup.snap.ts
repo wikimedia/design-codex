@@ -11,7 +11,6 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-0"
       aria-expanded="false"
-      aria-owns="cdx-lookup-menu-0"
       autocomplete="off"
       class="cdx-text-input__input"
       placeholder="Start typing an icon name"
@@ -27,7 +26,6 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-lookup-menu-0"
       role="listbox"
@@ -58,7 +56,6 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-1"
       aria-expanded="false"
-      aria-owns="cdx-lookup-menu-1"
       autocomplete="off"
       class="cdx-text-input__input cdx-text-input__input--has-value"
       placeholder="Start typing an icon name"
@@ -92,7 +89,6 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-lookup-menu-1"
       role="listbox"

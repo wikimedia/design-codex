@@ -8,7 +8,6 @@
 		<ul
 			class="cdx-menu__listbox"
 			role="listbox"
-			aria-multiselectable="false"
 			:style="listBoxStyle"
 			v-bind="otherAttrs"
 		>

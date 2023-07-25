@@ -11,7 +11,6 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-0"
       aria-expanded="false"
-      aria-owns="cdx-lookup-menu-0"
       autocomplete="off"
       class="cdx-text-input__input"
       role="combobox"
@@ -26,7 +25,6 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-lookup-menu-0"
       role="listbox"
@@ -60,7 +58,6 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-1"
       aria-expanded="false"
-      aria-owns="cdx-lookup-menu-1"
       autocomplete="off"
       class="cdx-text-input__input cdx-text-input__input--has-value"
       role="combobox"
@@ -75,7 +72,6 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-lookup-menu-1"
       role="listbox"
@@ -245,7 +241,6 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-6"
       aria-expanded="false"
-      aria-owns="cdx-lookup-menu-6"
       autocomplete="off"
       class="cdx-text-input__input cdx-text-input__input--has-value"
       role="combobox"
@@ -260,7 +255,6 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-lookup-menu-6"
       role="listbox"
@@ -430,7 +424,6 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-11"
       aria-expanded="false"
-      aria-owns="cdx-lookup-menu-11"
       autocomplete="off"
       class="cdx-text-input__input"
       disabled=""
@@ -446,7 +439,6 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-lookup-menu-11"
       role="listbox"
@@ -480,7 +472,6 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-12"
       aria-expanded="false"
-      aria-owns="cdx-lookup-menu-12"
       autocomplete="off"
       class="cdx-text-input__input cdx-text-input__input--has-value"
       role="combobox"
@@ -495,7 +486,6 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-lookup-menu-12"
       role="listbox"
@@ -535,7 +525,6 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-13"
       aria-expanded="false"
-      aria-owns="cdx-lookup-menu-13"
       autocomplete="off"
       class="cdx-text-input__input"
       role="combobox"
@@ -550,7 +539,6 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-lookup-menu-13"
       role="listbox"
@@ -584,7 +572,6 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-14"
       aria-expanded="false"
-      aria-owns="cdx-lookup-menu-14"
       autocomplete="off"
       class="cdx-text-input__input"
       placeholder="Type something... "
@@ -600,7 +587,6 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-lookup-menu-14"
       role="listbox"

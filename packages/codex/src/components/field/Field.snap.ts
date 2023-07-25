@@ -234,10 +234,8 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
       class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
     >
       <div
-        aria-autocomplete="list"
+        aria-controls="cdx-select-menu-27"
         aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="cdx-select-menu-27"
         class="cdx-select-vue__handle"
         id="cdx-input-26"
         role="combobox"
@@ -279,7 +277,6 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
         style="display: none;"
       >
         <ul
-          aria-multiselectable="false"
           class="cdx-menu__listbox"
           id="cdx-select-menu-27"
           role="listbox"
@@ -384,10 +381,8 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
       class="cdx-select-vue cdx-select-vue--disabled cdx-select-vue--no-selections cdx-select-vue--status-default"
     >
       <div
-        aria-autocomplete="list"
+        aria-controls="cdx-select-menu-33"
         aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="cdx-select-menu-33"
         class="cdx-select-vue__handle"
         id="cdx-input-32"
         role="combobox"
@@ -429,7 +424,6 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
         style="display: none;"
       >
         <ul
-          aria-multiselectable="false"
           class="cdx-menu__listbox"
           id="cdx-select-menu-33"
           role="listbox"
@@ -533,10 +527,8 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
       class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-error"
     >
       <div
-        aria-autocomplete="list"
+        aria-controls="cdx-select-menu-39"
         aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="cdx-select-menu-39"
         class="cdx-select-vue__handle"
         id="cdx-input-38"
         role="combobox"
@@ -578,7 +570,6 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
         style="display: none;"
       >
         <ul
-          aria-multiselectable="false"
           class="cdx-menu__listbox"
           id="cdx-select-menu-39"
           role="listbox"
@@ -732,11 +723,9 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
       class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
     >
       <div
-        aria-autocomplete="list"
+        aria-controls="cdx-select-menu-45"
         aria-describedby="cdx-description-43"
         aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="cdx-select-menu-45"
         class="cdx-select-vue__handle"
         id="cdx-input-44"
         role="combobox"
@@ -778,7 +767,6 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
         style="display: none;"
       >
         <ul
-          aria-multiselectable="false"
           class="cdx-menu__listbox"
           id="cdx-select-menu-45"
           role="listbox"

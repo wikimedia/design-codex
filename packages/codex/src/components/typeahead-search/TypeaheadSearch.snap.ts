@@ -20,8 +20,8 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
         >
           <input
             aria-autocomplete="list"
+            aria-controls="cdx-typeahead-search-menu-0"
             aria-expanded="false"
-            aria-owns="cdx-typeahead-search-menu-0"
             autocomplete="off"
             class="cdx-text-input__input"
             name="search"
@@ -63,7 +63,6 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
         >
           <ul
             aria-label="Search results"
-            aria-multiselectable="false"
             class="cdx-menu__listbox"
             id="cdx-typeahead-search-menu-0"
             role="listbox"
@@ -123,8 +122,8 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
         >
           <input
             aria-autocomplete="list"
+            aria-controls="cdx-typeahead-search-menu-1"
             aria-expanded="false"
-            aria-owns="cdx-typeahead-search-menu-1"
             autocomplete="off"
             class="cdx-text-input__input"
             name="search"
@@ -166,7 +165,6 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
         >
           <ul
             aria-label="Search results"
-            aria-multiselectable="false"
             class="cdx-menu__listbox"
             id="cdx-typeahead-search-menu-1"
             role="listbox"
@@ -226,8 +224,8 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
         >
           <input
             aria-autocomplete="list"
+            aria-controls="cdx-typeahead-search-menu-2"
             aria-expanded="false"
-            aria-owns="cdx-typeahead-search-menu-2"
             autocomplete="off"
             class="cdx-text-input__input"
             name="search"
@@ -269,7 +267,6 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
         >
           <ul
             aria-label="Search results"
-            aria-multiselectable="false"
             class="cdx-menu__listbox"
             id="cdx-typeahead-search-menu-2"
             role="listbox"
@@ -329,8 +326,8 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
         >
           <input
             aria-autocomplete="list"
+            aria-controls="cdx-typeahead-search-menu-60"
             aria-expanded="false"
-            aria-owns="cdx-typeahead-search-menu-60"
             autocomplete="off"
             class="cdx-text-input__input cdx-text-input__input--has-value"
             name="search"
@@ -372,7 +369,6 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
         >
           <ul
             aria-label="Search results"
-            aria-multiselectable="false"
             class="cdx-menu__listbox"
             id="cdx-typeahead-search-menu-60"
             role="listbox"
@@ -519,8 +515,8 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         >
           <input
             aria-autocomplete="list"
+            aria-controls="cdx-typeahead-search-menu-15"
             aria-expanded="false"
-            aria-owns="cdx-typeahead-search-menu-15"
             autocomplete="off"
             class="cdx-text-input__input cdx-text-input__input--has-value"
             name="search"
@@ -562,7 +558,6 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         >
           <ul
             aria-label="Search results"
-            aria-multiselectable="false"
             class="cdx-menu__listbox"
             id="cdx-typeahead-search-menu-15"
             role="listbox"

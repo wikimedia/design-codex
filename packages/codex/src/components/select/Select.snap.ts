@@ -6,10 +6,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
 >
   <div
-    aria-autocomplete="list"
+    aria-controls="cdx-select-menu-0"
     aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-owns="cdx-select-menu-0"
     class="cdx-select-vue__handle"
     id="cdx-select-handle-1"
     role="combobox"
@@ -51,7 +49,6 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-select-menu-0"
       role="listbox"
@@ -271,10 +268,8 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
 >
   <div
-    aria-autocomplete="list"
+    aria-controls="cdx-select-menu-7"
     aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-owns="cdx-select-menu-7"
     class="cdx-select-vue__handle"
     id="cdx-select-handle-8"
     role="combobox"
@@ -316,7 +311,6 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-select-menu-7"
       role="listbox"
@@ -536,10 +530,8 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
 >
   <div
-    aria-autocomplete="list"
+    aria-controls="cdx-select-menu-14"
     aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-owns="cdx-select-menu-14"
     class="cdx-select-vue__handle"
     id="cdx-select-handle-15"
     role="combobox"
@@ -581,7 +573,6 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-select-menu-14"
       role="listbox"
@@ -801,10 +792,8 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
 >
   <div
-    aria-autocomplete="list"
+    aria-controls="cdx-select-menu-21"
     aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-owns="cdx-select-menu-21"
     class="cdx-select-vue__handle"
     id="cdx-select-handle-22"
     role="combobox"
@@ -846,7 +835,6 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-select-menu-21"
       role="listbox"
@@ -1066,10 +1054,8 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--has-start-icon cdx-select-vue--status-default"
 >
   <div
-    aria-autocomplete="list"
+    aria-controls="cdx-select-menu-28"
     aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-owns="cdx-select-menu-28"
     class="cdx-select-vue__handle"
     id="cdx-select-handle-29"
     role="combobox"
@@ -1130,7 +1116,6 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-select-menu-28"
       role="listbox"
@@ -1350,10 +1335,8 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--has-start-icon cdx-select-vue--status-default"
 >
   <div
-    aria-autocomplete="list"
+    aria-controls="cdx-select-menu-35"
     aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-owns="cdx-select-menu-35"
     class="cdx-select-vue__handle"
     id="cdx-select-handle-36"
     role="combobox"
@@ -1414,7 +1397,6 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-select-menu-35"
       role="listbox"
@@ -1634,10 +1616,8 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
 >
   <div
-    aria-autocomplete="list"
+    aria-controls="cdx-select-menu-42"
     aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-owns="cdx-select-menu-42"
     class="cdx-select-vue__handle"
     id="cdx-select-handle-43"
     role="combobox"
@@ -1679,7 +1659,6 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-select-menu-42"
       role="listbox"
@@ -1899,10 +1878,8 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-error"
 >
   <div
-    aria-autocomplete="list"
+    aria-controls="cdx-select-menu-49"
     aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-owns="cdx-select-menu-49"
     class="cdx-select-vue__handle"
     id="cdx-select-handle-50"
     role="combobox"
@@ -1944,7 +1921,6 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
     style="display: none;"
   >
     <ul
-      aria-multiselectable="false"
       class="cdx-menu__listbox"
       id="cdx-select-menu-49"
       role="listbox"
