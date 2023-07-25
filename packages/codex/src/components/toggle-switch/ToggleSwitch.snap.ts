@@ -7,6 +7,7 @@ exports[`matches the snapshot Case 0 Default: ({"modelValue": false}) => HTML 1`
   <input
     class="cdx-toggle-switch__input"
     id="cdx-toggle-switch-0"
+    role="switch"
     type="checkbox"
     value="false"
   />
@@ -56,6 +57,7 @@ exports[`matches the snapshot Case 1 Disabled: ({"disabled": true, "modelValue":
     class="cdx-toggle-switch__input"
     disabled=""
     id="cdx-toggle-switch-2"
+    role="switch"
     type="checkbox"
     value="false"
   />
@@ -105,6 +107,7 @@ exports[`matches the snapshot Case 2 With description: ({"modelValue": false}) =
     aria-describedby="cdx-description-5"
     class="cdx-toggle-switch__input"
     id="cdx-toggle-switch-4"
+    role="switch"
     type="checkbox"
     value="false"
   />

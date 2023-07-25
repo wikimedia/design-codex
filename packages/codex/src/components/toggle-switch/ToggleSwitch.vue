@@ -10,6 +10,7 @@
 			v-model="wrappedModel"
 			class="cdx-toggle-switch__input"
 			type="checkbox"
+			role="switch"
 			:aria-describedby="( $slots.description &&
 				$slots.description().length > 0 ) ? descriptionId : undefined"
 			:value="inputValue"
@@ -55,14 +56,8 @@ import useFieldData from '../../composables/useFieldData';
 /**
  * A sliding boolean input used to enable or disable options.
  *
- * Unlike Checkbox, ToggleSwitch is meant to be used alone, not in a group.
- *
- * Current styles support a single toggle switch with or without a label. The
- * label should only be omitted here if one is added and connected with the
- * input via the `for` attribute elsewhere (like a future Field component).
- * If you're just using this component by itself, you should include a label.
- *
- * `v-model` value will be boolean.
+ * ToggleSwitch is similar to Checkbox, but meant for circumstances where the
+ * target can be "on" or "off" rather than "checked" or "unchecked."
  */
 export default defineComponent( {
 	name: 'CdxToggleSwitch',
