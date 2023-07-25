@@ -41,7 +41,7 @@
 				:hide-description-overflow="hideDescriptionOverflow"
 				:search-query="searchQuery"
 				@change="( menuState, setState ) =>
-					handleMenuItemChange( menuState, setState && menuItem )"
+					handleMenuItemChange( menuState, setState ? menuItem : null )"
 				@click="$emit( 'menu-item-click', menuItem )"
 			>
 				<!--
@@ -301,10 +301,10 @@ export default defineComponent( {
 		const highlightedViaKeyboard = ref( false );
 		const activeMenuItem = ref<MenuItemDataWithId|null>( null );
 
-		function findSelectedMenuItem(): MenuItemDataWithId|undefined {
+		function findSelectedMenuItem(): MenuItemDataWithId|null {
 			return computedMenuItems.value.find(
 				( menuItem ) => menuItem.value === props.selected
-			);
+			) || null;
 		}
 
 		/**
@@ -313,7 +313,7 @@ export default defineComponent( {
 		 * @param menuState
 		 * @param menuItem
 		 */
-		function handleMenuItemChange( menuState: MenuState, menuItem?: MenuItemDataWithId ) {
+		function handleMenuItemChange( menuState: MenuState, menuItem: MenuItemDataWithId|null ) {
 			if ( menuItem && menuItem.disabled ) {
 				return;
 			}
@@ -538,7 +538,7 @@ export default defineComponent( {
 		 * Always clear active state on mouseup.
 		 */
 		function onMouseUp() {
-			handleMenuItemChange( 'active' );
+			handleMenuItemChange( 'active', null );
 		}
 
 		const menuItemElements: Element[] = [];
@@ -650,23 +650,22 @@ export default defineComponent( {
 		} );
 
 		watch( toRef( props, 'expanded' ), async ( newVal ) => {
-			const selectedMenuItem = findSelectedMenuItem();
-
-			// Clear the highlight states when the menu is closed.
-			if ( !newVal && highlightedMenuItem.value && selectedMenuItem === undefined ) {
-				handleMenuItemChange( 'highlighted' );
-			}
-
-			// When the menu is opened, highlight the selected item first.
-			if ( newVal && selectedMenuItem !== undefined ) {
-				handleMenuItemChange( 'highlighted', selectedMenuItem );
-			}
-
 			if ( newVal ) {
+				// The menu was opened
+				// Highlight the selected item
+				const selectedMenuItem = findSelectedMenuItem();
+				if ( selectedMenuItem ) {
+					handleMenuItemChange( 'highlighted', selectedMenuItem );
+				}
+
 				await nextTick();
 				resizeMenu();
 				await nextTick();
 				maybeScrollIntoView();
+			} else {
+				// The menu was closed
+				// Clear the highlight states
+				handleMenuItemChange( 'highlighted', null );
 			}
 		} );
 
@@ -755,7 +754,7 @@ export default defineComponent( {
 		 * @public
 		 */
 		clearActive(): void {
-			this.handleMenuItemChange( 'active' );
+			this.handleMenuItemChange( 'active', null );
 		},
 
 		/**

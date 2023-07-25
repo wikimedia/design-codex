@@ -491,10 +491,41 @@ it( 'Highlight state is not preserved after menu is closed', async () => {
 	// Close the menu
 	await wrapper.setProps( { expanded: false } );
 
+	expect( wrapper.vm.getHighlightedMenuItem() ).toBe( null );
+
 	// Reopen the menu
 	await delegateKeydownEvent( wrapper, 'Enter' );
 	await wrapper.setProps( { expanded: true } );
 	expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+} );
+
+it( 'Highlight state is not preserved after menu is closed by selecting an item', async () => {
+	const wrapper = mount( CdxMenu, { props: {
+		...defaultProps,
+		expanded: false
+	} } );
+	// Enter opens the menu; first item is not highlighted.
+	await delegateKeydownEvent( wrapper, 'Enter' );
+	// Simulate the parent responding to the update:expanded event
+	await wrapper.setProps( { expanded: true } );
+	expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+
+	// ArrowDown highlights the first item.
+	await delegateKeydownEvent( wrapper, 'ArrowDown' );
+	expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+
+	// Close the menu
+	await delegateKeydownEvent( wrapper, 'Enter' );
+	// Simulate the parent responding to the update:selected event
+	await wrapper.setProps( { selected: 'a' } );
+	// Simulate the parent responding to the update:expanded event
+	await wrapper.setProps( { expanded: false } );
+
+	expect( wrapper.vm.getHighlightedMenuItem() ).toBe( null );
+
+	// We won't try to reopen the menu to assert that there is no highlight, because opening the
+	// menu when an item is selected should highlight the selected item, and that is already
+	// tested elsewhere
 } );
 
 it( 'Menu item becomes highlighted on mousemove and un-highlighted on mouseleave', async () => {
