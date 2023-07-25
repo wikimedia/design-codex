@@ -123,7 +123,7 @@ describe( 'When used along with child Tab components', () => {
 				slots: { default: slotMarkup }
 			} );
 			const targetIndex = 1;
-			const label = wrapper.findAll( '.cdx-tabs__list__item a' )[ targetIndex ];
+			const label = wrapper.findAll( '.cdx-tabs__list__item' )[ targetIndex ];
 			await label.trigger( 'click' );
 			const emitted = wrapper.emitted()[ 'update:active' ][ 0 ];
 			expect( emitted ).toEqual( [ tabData[ targetIndex ].name ] );
@@ -137,7 +137,7 @@ describe( 'When used along with child Tab components', () => {
 			} );
 			// The tab at index 2 ("cantaloupe") is disabled
 			const targetIndex = 2;
-			const label = wrapper.findAll( '.cdx-tabs__list__item a' )[ targetIndex ];
+			const label = wrapper.findAll( '.cdx-tabs__list__item' )[ targetIndex ];
 			await label.trigger( 'click' );
 			expect( wrapper.emitted()[ 'update:active' ] ).toBeFalsy();
 		} );
@@ -151,8 +151,8 @@ describe( 'When used along with child Tab components', () => {
 				slots: { default: slotMarkup }
 			} );
 			const spy = jest.spyOn( wrapper.vm, 'next' );
-			const header = wrapper.get( '.cdx-tabs__header' );
-			await header.trigger( 'keydown.right' );
+			const tab = wrapper.get( '.cdx-tabs__list__item' );
+			await tab.trigger( 'keydown.right' );
 			expect( spy ).toHaveBeenCalled();
 		} );
 
@@ -162,8 +162,8 @@ describe( 'When used along with child Tab components', () => {
 				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
-			const header = wrapper.get( '.cdx-tabs__header' );
-			await header.trigger( 'keydown.right' );
+			const tab = wrapper.get( '.cdx-tabs__list__item' );
+			await tab.trigger( 'keydown.right' );
 			const emitted = wrapper.emitted()[ 'update:active' ][ 0 ];
 			expect( emitted ).toEqual( [ tabData[ 1 ].name ] );
 		} );
@@ -175,8 +175,8 @@ describe( 'When used along with child Tab components', () => {
 				slots: { default: slotMarkup }
 			} );
 			const spy = jest.spyOn( wrapper.vm, 'prev' );
-			const header = wrapper.get( '.cdx-tabs__header' );
-			await header.trigger( 'keydown.left' );
+			const tab = wrapper.get( '.cdx-tabs__list__item' );
+			await tab.trigger( 'keydown.left' );
 			expect( spy ).toHaveBeenCalled();
 		} );
 
@@ -186,8 +186,8 @@ describe( 'When used along with child Tab components', () => {
 				global: { components: { CdxTab } },
 				slots: { default: slotMarkup }
 			} );
-			const header = wrapper.get( '.cdx-tabs__header' );
-			await header.trigger( 'keydown.left' );
+			const tab = wrapper.get( '.cdx-tabs__list__item' );
+			await tab.trigger( 'keydown.left' );
 			const emitted = wrapper.emitted()[ 'update:active' ][ 0 ];
 			expect( emitted ).toEqual( [ tabData[ 0 ].name ] );
 		} );
@@ -277,8 +277,8 @@ describe( 'When used along with child Tab components', () => {
 				attachTo: 'body'
 			} );
 			const appleTab = wrapper.findAll( '.cdx-tab' )[ 0 ];
-			const header = wrapper.get( '.cdx-tabs__header' );
-			await header.trigger( 'keydown', { key: 'ArrowDown' } );
+			const tab = wrapper.get( '.cdx-tabs__list__item' );
+			await tab.trigger( 'keydown', { key: 'ArrowDown' } );
 			expect( document.activeElement ).toBe( appleTab.element );
 		} );
 	} );
@@ -302,8 +302,8 @@ describe( 'When used along with child Tab components', () => {
 				attachTo: '#attach'
 			} );
 			const spy = jest.spyOn( wrapper.vm, 'prev' );
-			const header = wrapper.get( '.cdx-tabs__list' );
-			await header.trigger( 'keydown.right' );
+			const tab = wrapper.get( '.cdx-tabs__list__item' );
+			await tab.trigger( 'keydown.right' );
 			expect( spy ).toHaveBeenCalled();
 		} );
 
@@ -314,8 +314,8 @@ describe( 'When used along with child Tab components', () => {
 				slots: { default: slotMarkup },
 				attachTo: '#attach'
 			} );
-			const header = wrapper.get( '.cdx-tabs__list' );
-			await header.trigger( 'keydown.right' );
+			const tab = wrapper.get( '.cdx-tabs__list__item' );
+			await tab.trigger( 'keydown.right' );
 			const emitted = wrapper.emitted()[ 'update:active' ][ 0 ];
 			expect( emitted ).toEqual( [ tabData[ 0 ].name ] );
 		} );
@@ -328,8 +328,8 @@ describe( 'When used along with child Tab components', () => {
 				attachTo: '#attach'
 			} );
 			const spy = jest.spyOn( wrapper.vm, 'next' );
-			const header = wrapper.get( '.cdx-tabs__list' );
-			await header.trigger( 'keydown.left' );
+			const tab = wrapper.get( '.cdx-tabs__list__item' );
+			await tab.trigger( 'keydown.left' );
 			expect( spy ).toHaveBeenCalled();
 		} );
 
@@ -340,8 +340,8 @@ describe( 'When used along with child Tab components', () => {
 				slots: { default: slotMarkup },
 				attachTo: '#attach'
 			} );
-			const header = wrapper.get( '.cdx-tabs__list' );
-			await header.trigger( 'keydown.left' );
+			const tab = wrapper.get( '.cdx-tabs__list__item' );
+			await tab.trigger( 'keydown.left' );
 			const emitted = wrapper.emitted()[ 'update:active' ][ 0 ];
 			expect( emitted ).toEqual( [ tabData[ 1 ].name ] );
 		} );

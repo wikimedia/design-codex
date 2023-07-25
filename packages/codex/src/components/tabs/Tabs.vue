@@ -4,17 +4,7 @@
 		class="cdx-tabs"
 		:class="rootClasses"
 	>
-		<div
-			class="cdx-tabs__header"
-			tabindex="0"
-			@keydown.right.prevent="onRightArrowKeypress"
-			@keydown.down.prevent="onDownArrowKeypress"
-			@keydown.left.prevent="onLeftArrowKeypress"
-		>
-			<div
-				ref="focusHolder"
-				tabindex="-1"
-			/>
+		<div class="cdx-tabs__header">
 			<div
 				v-show="!firstLabelVisible"
 				ref="prevScroller"
@@ -32,33 +22,31 @@
 					<cdx-icon :icon="cdxIconPrevious" />
 				</cdx-button>
 			</div>
-			<ul
-				ref="listElement"
+			<div
+				ref="tabListElement"
 				class="cdx-tabs__list"
 				role="tablist"
-				:aria-activedescendant="activeTabId"
 			>
-				<li
+				<button
 					v-for="( tab, index ) in tabsData.values()"
 					:id="`${tab.id}-label`"
 					:key="index"
-					:ref="( ref ) => assignTemplateRefIfNecessary( ref, index )"
+					:ref="( ref ) => assignTemplateRefForTabButton( ref, index )"
+					:disabled="tab.disabled ? true : undefined"
+					:aria-controls="tab.id"
+					:aria-selected="tab.name === activeTab"
+					:tabindex="tab.name === activeTab ? undefined : -1"
 					class="cdx-tabs__list__item"
-					role="presentation"
+					role="tab"
+					@click.prevent="select( tab.name )"
+					@keyup.enter="select( tab.name )"
+					@keydown.right.prevent="onRightArrowKeypress"
+					@keydown.down.prevent="onDownArrowKeypress"
+					@keydown.left.prevent="onLeftArrowKeypress"
 				>
-					<a
-						:href="`#${tab.id}`"
-						role="tab"
-						tabIndex="-1"
-						:aria-disabled="tab.disabled"
-						:aria-selected="tab.name === activeTab"
-						@click.prevent="select( tab.name )"
-						@keyup.enter="select( tab.name )"
-					>
-						{{ tab.label }}
-					</a>
-				</li>
-			</ul>
+					<span>{{ tab.label }}</span>
+				</button>
+			</div>
 			<div
 				v-show="!lastLabelVisible"
 				ref="nextScroller"
@@ -173,8 +161,7 @@ export default defineComponent( {
 
 	setup( props, { slots, emit } ) {
 		const rootElement = ref<HTMLDivElement>();
-		const listElement = ref<HTMLUListElement>();
-		const focusHolder = ref<HTMLDivElement>();
+		const tabListElement = ref<HTMLDivElement>();
 		const prevScroller = ref<HTMLDivElement>();
 		const nextScroller = ref<HTMLDivElement>();
 		const currentDirection = useComputedDirection( rootElement );
@@ -250,26 +237,34 @@ export default defineComponent( {
 		provide( ActiveTabKey, activeTab );
 		provide( TabsKey, tabsData );
 
-		// Display logic: framed vs unframed, prev/next buttons
-		const firstTabLabel = ref<HTMLLIElement>();
-		const lastTabLabel = ref<HTMLLIElement>();
+		// Set up a map to contain references to all the tab button elements, so
+		// that they can be programmatically focused at runtime if necessary.
+		const tabButtonRefs = ref( new Map<number, HTMLButtonElement>() );
+
+		// Also set up dedicated refs for the fist and last tab button elements,
+		// which will be used to determine whether or not to show the left and
+		// right scroll buttons inside the tab header based on the user's viewport
+		const firstTabLabel = ref<HTMLButtonElement>();
+		const lastTabLabel = ref<HTMLButtonElement>();
 		const firstLabelVisible = useIntersectionObserver( firstTabLabel, { threshold: 0.95 } );
 		const lastLabelVisible = useIntersectionObserver( lastTabLabel, { threshold: 0.95 } );
 
 		/**
-		 * Assign an element to the appropriate template ref if it is the first
-		 * or last child of its parent. Used to determine whether prev/next
-		 * buttons at the start/end of the tabs list should be enabled or disabled.
+		 * Store pointers to each tab button element which gets rendered into
+		 * previously-prepared reactive variables so that we can keep track of
+		 * them.
 		 *
 		 * @param templateRef
 		 * @param index
 		 */
-		function assignTemplateRefIfNecessary(
+		function assignTemplateRefForTabButton(
 			templateRef: Element | ComponentPublicInstance | null,
 			index: number
 		) {
-			const el = templateRef as HTMLLIElement | null;
+			const el = templateRef as HTMLButtonElement | null;
 			if ( el ) {
+				tabButtonRefs.value.set( index, el );
+
 				if ( index === 0 ) {
 					firstTabLabel.value = el;
 				} else if ( index === ( tabNames.value.length - 1 ) ) {
@@ -294,7 +289,7 @@ export default defineComponent( {
 		 * @return Scroll distance (positive to scroll to the right, negative to scroll to the left)
 		 */
 		function getScrollDistance( tabLabel: HTMLElement ): number {
-			if ( !listElement.value || !prevScroller.value || !nextScroller.value ) {
+			if ( !tabListElement.value || !prevScroller.value || !nextScroller.value ) {
 				return 0;
 			}
 
@@ -313,9 +308,9 @@ export default defineComponent( {
 			// Find the range of X coordinates that is currently scrolled into view and not obscured
 			// by either of the scrollers. This uses .scrollLeft, which uses the same coordinate
 			// system as .offsetLeft above.
-			const visibleLeft = listElement.value.scrollLeft + leftScroller.clientWidth;
-			const visibleRight = listElement.value.scrollLeft +
-				listElement.value.clientWidth - rightScroller.clientWidth;
+			const visibleLeft = tabListElement.value.scrollLeft + leftScroller.clientWidth;
+			const visibleRight = tabListElement.value.scrollLeft +
+				tabListElement.value.clientWidth - rightScroller.clientWidth;
 
 			// If the tab label is (partially) to the left of the visible area, scroll left until
 			// its left edge is just visible
@@ -332,7 +327,7 @@ export default defineComponent( {
 		}
 
 		function scrollTabs( logicalDirection: 'prev' | 'next' ) {
-			if ( !listElement.value || !prevScroller.value || !nextScroller.value ) {
+			if ( !tabListElement.value || !prevScroller.value || !nextScroller.value ) {
 				return;
 			}
 
@@ -346,8 +341,8 @@ export default defineComponent( {
 			// would force us to scroll in the specified direction, then scroll that one into view
 			let scrollDistance = 0;
 			let tabLabel = logicalDirection === 'next' ?
-				listElement.value.firstElementChild as HTMLElement|null :
-				listElement.value.lastElementChild as HTMLElement|null;
+				tabListElement.value.firstElementChild as HTMLElement|null :
+				tabListElement.value.lastElementChild as HTMLElement|null;
 			while ( tabLabel ) {
 				const nextTabLabel = logicalDirection === 'next' ?
 					tabLabel.nextElementSibling as HTMLElement|null :
@@ -360,7 +355,7 @@ export default defineComponent( {
 					// advance one more
 					if (
 						nextTabLabel &&
-						Math.abs( scrollDistance ) < 0.25 * listElement.value.clientWidth
+						Math.abs( scrollDistance ) < 0.25 * tabListElement.value.clientWidth
 					) {
 						scrollDistance = getScrollDistance( nextTabLabel );
 					}
@@ -369,20 +364,20 @@ export default defineComponent( {
 				tabLabel = nextTabLabel;
 			}
 
-			listElement.value.scrollBy( {
+			tabListElement.value.scrollBy( {
 				left: scrollDistance,
 				behavior: 'smooth'
 			} );
 
-			// Focus the focusHolder div, so that we receive any subsequent arrow key presses
-			focusHolder.value?.focus();
+			// Focus the active tab button, so that we receive any subsequent arrow key presses
+			tabButtonRefs.value.get( activeTabIndex.value )?.focus();
 		}
 
 		// Scroll the active tab into view if it changes
 		watch( activeTab, () => {
 			if (
 				activeTabId.value === undefined ||
-				!listElement.value || !prevScroller.value || !nextScroller.value
+				!tabListElement.value || !prevScroller.value || !nextScroller.value
 			) {
 				return;
 			}
@@ -394,7 +389,7 @@ export default defineComponent( {
 			// We'd like to use activeTabLabel.scrollIntoView() here, but that doesn't take into
 			// account that the prev/next buttons obscure part of the tab label even if it is
 			// "in view". Instead, we do the math ourselves.
-			listElement.value.scrollBy( {
+			tabListElement.value.scrollBy( {
 				left: getScrollDistance( activeTabLabel ),
 				behavior: 'smooth'
 			} );
@@ -406,16 +401,16 @@ export default defineComponent( {
 			activeTabId,
 			currentDirection,
 			rootElement,
-			listElement,
-			focusHolder,
+			tabListElement,
 			prevScroller,
 			nextScroller,
 			rootClasses,
 			tabNames,
 			tabsData,
+			tabButtonRefs,
 			firstLabelVisible,
 			lastLabelVisible,
-			assignTemplateRefIfNecessary,
+			assignTemplateRefForTabButton,
 			scrollTabs,
 			cdxIconPrevious,
 			cdxIconNext
@@ -433,12 +428,20 @@ export default defineComponent( {
 		 * Programmatically select a tab based on its "name" prop
 		 *
 		 * @param {string} tabName The name of the tab to select
+		 * @param {boolean} setFocus Whether or not to also set focus to the new tab
 		 * @public
 		 */
-		select( tabName: string ): void {
+		select( tabName: string, setFocus?: boolean ): void {
 			const target = this.tabsData.get( tabName );
 			if ( target && !target?.disabled ) {
 				this.activeTab = tabName;
+				if ( setFocus ) {
+					// Wait for DOM to update before setting focus
+					// eslint-disable-next-line no-void
+					void this.$nextTick().then( () => {
+						this.tabButtonRefs.get( this.activeTabIndex )?.focus();
+					} );
+				}
 			}
 		},
 
@@ -449,14 +452,15 @@ export default defineComponent( {
 		 *
 		 * @param index
 		 * @param increment
+		 * @param setFocus
 		 */
-		selectNonDisabled( index: number, increment: -1 | 1 ): void {
+		selectNonDisabled( index: number, increment: -1 | 1, setFocus?: boolean ): void {
 			const target = this.tabsData.get( this.tabNames[ index + increment ] );
 			if ( target ) {
 				if ( target.disabled ) {
-					this.selectNonDisabled( index + increment, increment );
+					this.selectNonDisabled( index + increment, increment, setFocus );
 				} else {
-					this.select( target.name );
+					this.select( target.name, setFocus );
 				}
 			}
 		},
@@ -464,19 +468,21 @@ export default defineComponent( {
 		/**
 		 * Set the next tab to active, if one exists
 		 *
+		 * @param {boolean} setFocus
 		 * @public
 		 */
-		next(): void {
-			this.selectNonDisabled( this.activeTabIndex, 1 );
+		next( setFocus?: boolean ): void {
+			this.selectNonDisabled( this.activeTabIndex, 1, setFocus );
 		},
 
 		/**
 		 * Set the previous tab to active, if one exists
 		 *
+		 * @param {boolean} setFocus
 		 * @public
 		 */
-		prev(): void {
-			this.selectNonDisabled( this.activeTabIndex, -1 );
+		prev( setFocus?: boolean ): void {
+			this.selectNonDisabled( this.activeTabIndex, -1, setFocus );
 		},
 
 		/**
@@ -484,9 +490,9 @@ export default defineComponent( {
 		 */
 		onLeftArrowKeypress(): void {
 			if ( this.currentDirection === 'rtl' ) {
-				this.next();
+				this.next( true );
 			} else {
-				this.prev();
+				this.prev( true );
 			}
 		},
 
@@ -495,9 +501,9 @@ export default defineComponent( {
 		 */
 		onRightArrowKeypress(): void {
 			if ( this.currentDirection === 'rtl' ) {
-				this.prev();
+				this.prev( true );
 			} else {
-				this.next();
+				this.next( true );
 			}
 		},
 
@@ -526,19 +532,6 @@ export default defineComponent( {
 		display: flex;
 		align-items: flex-end;
 		position: relative;
-
-		// The tabs header as a whole receives focus (via tabindex="0"), rather
-		// than individual label elements inside the header. Once the header
-		// has focus, the user can move between tabs using next/previous arrow
-		// keys. Styling for the active tab label will show an additional
-		// visual outline if the header has focus (indicating that the user)
-		// is using the keyboard to navigate between tabs.
-		//
-		// Since visual indication is applied to individual tabs when the header
-		// is focused, the header's *own* focus style must be suppressed.
-		&:focus {
-			outline: @outline-base--focus;
-		}
 	}
 
 	&__prev-scroller,
@@ -597,50 +590,27 @@ export default defineComponent( {
 		}
 
 		&__item {
+			display: block;
 			flex: 0 0 auto;
+			max-width: @size-1600;
+			border-top-left-radius: @border-radius-base;
+			border-top-right-radius: @border-radius-base;
+			padding: @spacing-25 @spacing-75;
+			font-size: @font-size-base;
+			font-weight: @font-weight-bold;
+			line-height: @line-height-x-small;
+			text-decoration: @text-decoration-none;
+			.text-overflow( @param-visible: false );
+			transition-property: @transition-property-base;
+			transition-duration: @transition-duration-base;
 
-			// Single Tab common styles.
-			// By default the `a` element.
-			[ role='tab' ] {
-				display: block;
-				max-width: @size-1600;
-				border-top-left-radius: @border-radius-base;
-				border-top-right-radius: @border-radius-base;
-				padding: @spacing-25 @spacing-75;
-				font-weight: @font-weight-bold;
-				line-height: @line-height-x-small;
-				text-decoration: @text-decoration-none;
-				.text-overflow( @param-visible: false );
-				transition-property: @transition-property-base;
-				transition-duration: @transition-duration-base;
-
-				// Needed for CSS-only tabs where links are not used.
-				&:hover {
-					cursor: @cursor-base--hover;
-				}
-
-				&:focus {
-					border-top-left-radius: @border-radius-base;
-					border-top-right-radius: @border-radius-base;
-					outline: @outline-base--focus;
-				}
+			&:hover {
+				cursor: @cursor-base--hover;
 			}
 
-			[ aria-selected='true' ][ role='tab' ] {
+			&[ aria-selected='true' ] {
 				cursor: @cursor-base;
 			}
-		}
-	}
-
-	// Increase Tabs list specificity to override selectors like MediaWiki's `.content ul`.
-	// See T321873.
-	& &__list {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-
-		&__item {
-			margin: 0;
 		}
 	}
 
@@ -663,45 +633,37 @@ export default defineComponent( {
 
 		// Framed Tabs List item.
 		.cdx-tabs__list__item {
-			// Single Framed Tab.
-			[ role='tab' ] {
-				margin: @spacing-50 @spacing-25 0 @spacing-50;
+			margin: @spacing-50 @spacing-25 0 @spacing-50;
 
-				&:not( [ aria-disabled='true' ] ) {
-					// Clip link background color to border radius.
-					overflow: hidden;
+			&:enabled {
+				// Clip link background color to border radius.
+				overflow: hidden;
 
-					&:link,
-					&:visited {
-						color: @color-base;
-					}
-
-					&:hover {
-						background-color: fade( @background-color-base, ( @opacity-low * 100 ) );
-						color: @color-base;
-					}
-
-					&:active {
-						background-color: fade( @background-color-base, ( @opacity-medium * 100 ) );
-						color: @color-base;
-					}
+				&:hover {
+					background-color: fade( @background-color-base, ( @opacity-low * 100 ) );
+					color: @color-base;
 				}
 
-				&[ aria-selected='true' ] {
-					&,
-					&:hover {
-						background-color: @background-color-base;
-					}
-				}
-
-				&[ aria-disabled='true' ] {
-					background-color: @background-color-interactive;
-					color: @color-disabled;
-					cursor: @cursor-base--disabled;
+				&:active {
+					background-color: fade( @background-color-base, ( @opacity-medium * 100 ) );
+					color: @color-base;
 				}
 			}
 
-			&:last-child [ role='tab' ] {
+			&[ aria-selected='true' ] {
+				&,
+				&:hover {
+					background-color: @background-color-base;
+				}
+			}
+
+			&:disabled {
+				background-color: @background-color-interactive;
+				color: @color-disabled;
+				cursor: @cursor-base--disabled;
+			}
+
+			&:last-child {
 				margin-right: @spacing-50;
 			}
 		}
@@ -724,67 +686,54 @@ export default defineComponent( {
 
 		// Quiet Tabs List item.
 		.cdx-tabs__list__item {
-			// Single Quiet Tab.
-			[ role='tab' ] {
-				margin: 0 @spacing-25;
+			margin: 0 @spacing-25;
 
-				&:not( [ aria-disabled='true' ] ) {
-					color: @color-base;
+			&:enabled {
+				color: @color-base;
 
-					&:hover {
-						color: @color-progressive--hover;
-						box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected--hover;
-					}
-
-					&:active {
-						color: @color-progressive--active;
-						box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected--active;
-					}
+				&:hover:not( [ aria-selected='true' ] ) {
+					color: @color-progressive--hover;
+					box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected--hover;
 				}
 
-				&[ aria-selected='true' ] {
-					color: @color-progressive;
-					box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected;
-
-					&:hover {
-						color: @color-progressive;
-					}
-				}
-
-				&[ aria-disabled='true' ] {
-					color: @color-disabled;
-					cursor: @cursor-base--disabled;
+				&:active:not( [ aria-selected='true' ] ) {
+					color: @color-progressive--active;
+					box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected--active;
 				}
 			}
 
-			&:first-child [ role='tab' ] {
+			&[ aria-selected='true' ] {
+				color: @color-progressive;
+				box-shadow: @box-shadow-inset-medium-vertical @box-shadow-color-progressive-selected;
+
+				&:hover {
+					color: @color-progressive;
+				}
+			}
+
+			&:disabled {
+				color: @color-disabled;
+				cursor: @cursor-base--disabled;
+			}
+
+			&:first-child {
 				margin-left: 0;
 			}
 
-			&:last-child [ role='tab' ] {
+			&:last-child {
 				margin-right: 0;
 			}
 		}
 	}
 
-	// Keyboard nav indicator on Tabs header focus for framed and quiet.
-	// Selectors are for CSS-only tabs (form implementation) and Vue tabs.
-	// The top-level selectors are necessary due to the high specificity of other selectors
-	// above, which also apply a box-shadow.
+	// focus-visible styles for keyboard navigation only
 	&--framed,
 	&:not( .cdx-tabs--framed ) {
-		> .cdx-tabs__header .cdx-tabs__list__item .cdx-tabs__submit:focus ~ [ role='tab' ],
-		> .cdx-tabs__header:focus [ aria-selected='true' ][ role='tab' ]:not( [ aria-disabled='true' ] ) {
+		> .cdx-tabs__header .cdx-tabs__list__item:focus-visible {
 			box-shadow: @box-shadow-inset-medium @border-color-progressive;
-			// Clip link background color to border radius (framed).
+			outline: @outline-base--focus;
 			overflow: hidden;
 		}
-	}
-
-	// Submit input for CSS-only tabs.
-	// Other styles for the form implementation are mixed in with the styles for Vue tabs.
-	&__submit {
-		.screen-reader-text();
 	}
 }
 </style>

@@ -6,11 +6,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
 >
   <div
     class="cdx-tabs__header"
-    tabindex="0"
   >
-    <div
-      tabindex="-1"
-    />
     <div
       class="cdx-tabs__prev-scroller"
     >
@@ -45,70 +41,60 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
         
       </button>
     </div>
-    <ul
-      aria-activedescendant="cdx-a-101"
+    <div
       class="cdx-tabs__list"
       role="tablist"
     >
       
-      <li
+      <button
+        aria-controls="cdx-a-101"
+        aria-selected="true"
         class="cdx-tabs__list__item"
         id="cdx-a-101-label"
-        role="presentation"
+        role="tab"
       >
-        <a
-          aria-selected="true"
-          href="#cdx-a-101"
-          role="tab"
-          tabindex="-1"
-        >
+        <span>
           a
-        </a>
-      </li>
-      <li
+        </span>
+      </button>
+      <button
+        aria-controls="cdx-b-102"
+        aria-selected="false"
         class="cdx-tabs__list__item"
         id="cdx-b-102-label"
-        role="presentation"
+        role="tab"
+        tabindex="-1"
       >
-        <a
-          aria-selected="false"
-          href="#cdx-b-102"
-          role="tab"
-          tabindex="-1"
-        >
+        <span>
           b
-        </a>
-      </li>
-      <li
+        </span>
+      </button>
+      <button
+        aria-controls="cdx-c-103"
+        aria-selected="false"
         class="cdx-tabs__list__item"
         id="cdx-c-103-label"
-        role="presentation"
+        role="tab"
+        tabindex="-1"
       >
-        <a
-          aria-selected="false"
-          href="#cdx-c-103"
-          role="tab"
-          tabindex="-1"
-        >
+        <span>
           c
-        </a>
-      </li>
-      <li
+        </span>
+      </button>
+      <button
+        aria-controls="cdx-d-104"
+        aria-selected="false"
         class="cdx-tabs__list__item"
         id="cdx-d-104-label"
-        role="presentation"
+        role="tab"
+        tabindex="-1"
       >
-        <a
-          aria-selected="false"
-          href="#cdx-d-104"
-          role="tab"
-          tabindex="-1"
-        >
+        <span>
           d
-        </a>
-      </li>
+        </span>
+      </button>
       
-    </ul>
+    </div>
     <div
       class="cdx-tabs__next-scroller"
     >
@@ -216,11 +202,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
 >
   <div
     class="cdx-tabs__header"
-    tabindex="0"
   >
-    <div
-      tabindex="-1"
-    />
     <div
       class="cdx-tabs__prev-scroller"
     >
@@ -255,70 +237,60 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
         
       </button>
     </div>
-    <ul
-      aria-activedescendant="cdx-a-97"
+    <div
       class="cdx-tabs__list"
       role="tablist"
     >
       
-      <li
+      <button
+        aria-controls="cdx-a-97"
+        aria-selected="true"
         class="cdx-tabs__list__item"
         id="cdx-a-97-label"
-        role="presentation"
+        role="tab"
       >
-        <a
-          aria-selected="true"
-          href="#cdx-a-97"
-          role="tab"
-          tabindex="-1"
-        >
+        <span>
           a
-        </a>
-      </li>
-      <li
+        </span>
+      </button>
+      <button
+        aria-controls="cdx-b-98"
+        aria-selected="false"
         class="cdx-tabs__list__item"
         id="cdx-b-98-label"
-        role="presentation"
+        role="tab"
+        tabindex="-1"
       >
-        <a
-          aria-selected="false"
-          href="#cdx-b-98"
-          role="tab"
-          tabindex="-1"
-        >
+        <span>
           b
-        </a>
-      </li>
-      <li
+        </span>
+      </button>
+      <button
+        aria-controls="cdx-c-99"
+        aria-selected="false"
         class="cdx-tabs__list__item"
         id="cdx-c-99-label"
-        role="presentation"
+        role="tab"
+        tabindex="-1"
       >
-        <a
-          aria-selected="false"
-          href="#cdx-c-99"
-          role="tab"
-          tabindex="-1"
-        >
+        <span>
           c
-        </a>
-      </li>
-      <li
+        </span>
+      </button>
+      <button
+        aria-controls="cdx-d-100"
+        aria-selected="false"
         class="cdx-tabs__list__item"
         id="cdx-d-100-label"
-        role="presentation"
+        role="tab"
+        tabindex="-1"
       >
-        <a
-          aria-selected="false"
-          href="#cdx-d-100"
-          role="tab"
-          tabindex="-1"
-        >
+        <span>
           d
-        </a>
-      </li>
+        </span>
+      </button>
       
-    </ul>
+    </div>
     <div
       class="cdx-tabs__next-scroller"
     >
@@ -429,11 +401,7 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
 >
   <div
     class="cdx-tabs__header"
-    tabindex="0"
   >
-    <div
-      tabindex="-1"
-    />
     <div
       class="cdx-tabs__prev-scroller"
     >
@@ -468,74 +436,61 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         
       </button>
     </div>
-    <ul
-      aria-activedescendant="cdx-apple-0"
+    <div
       class="cdx-tabs__list"
       role="tablist"
     >
       
-      <li
+      <button
+        aria-controls="cdx-apple-0"
+        aria-selected="true"
         class="cdx-tabs__list__item"
         id="cdx-apple-0-label"
-        role="presentation"
+        role="tab"
       >
-        <a
-          aria-disabled="false"
-          aria-selected="true"
-          href="#cdx-apple-0"
-          role="tab"
-          tabindex="-1"
-        >
+        <span>
           Apple
-        </a>
-      </li>
-      <li
+        </span>
+      </button>
+      <button
+        aria-controls="cdx-banana-1"
+        aria-selected="false"
         class="cdx-tabs__list__item"
         id="cdx-banana-1-label"
-        role="presentation"
+        role="tab"
+        tabindex="-1"
       >
-        <a
-          aria-disabled="false"
-          aria-selected="false"
-          href="#cdx-banana-1"
-          role="tab"
-          tabindex="-1"
-        >
+        <span>
           Banana
-        </a>
-      </li>
-      <li
+        </span>
+      </button>
+      <button
+        aria-controls="cdx-cantaloupe-2"
+        aria-selected="false"
         class="cdx-tabs__list__item"
+        disabled=""
         id="cdx-cantaloupe-2-label"
-        role="presentation"
+        role="tab"
+        tabindex="-1"
       >
-        <a
-          aria-disabled="true"
-          aria-selected="false"
-          href="#cdx-cantaloupe-2"
-          role="tab"
-          tabindex="-1"
-        >
+        <span>
           Cantaloupe
-        </a>
-      </li>
-      <li
+        </span>
+      </button>
+      <button
+        aria-controls="cdx-durian-3"
+        aria-selected="false"
         class="cdx-tabs__list__item"
         id="cdx-durian-3-label"
-        role="presentation"
+        role="tab"
+        tabindex="-1"
       >
-        <a
-          aria-disabled="false"
-          aria-selected="false"
-          href="#cdx-durian-3"
-          role="tab"
-          tabindex="-1"
-        >
+        <span>
           Durian
-        </a>
-      </li>
+        </span>
+      </button>
       
-    </ul>
+    </div>
     <div
       class="cdx-tabs__next-scroller"
     >
