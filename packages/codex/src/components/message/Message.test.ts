@@ -81,6 +81,18 @@ describe( 'Message', () => {
 		expect( wrapper.vm.dismissed ).toBeTruthy();
 	} );
 
+	it( 'does not allow auto-dismissal for error messages', () => {
+		jest.useFakeTimers();
+
+		const wrapper = mount( CdxMessage, { props: { type: 'error', autoDismiss: 1000 } } );
+		expect( wrapper.emitted()[ 'auto-dismissed' ] ).toBeFalsy();
+		expect( wrapper.vm.dismissed ).toBeFalsy();
+
+		jest.advanceTimersByTime( 1000 );
+		expect( wrapper.emitted()[ 'auto-dismissed' ] ).toBeFalsy();
+		expect( wrapper.vm.dismissed ).toBeFalsy();
+	} );
+
 	it( 'does not emit an auto-dismissed event when user-dismissed', async () => {
 		jest.useFakeTimers();
 

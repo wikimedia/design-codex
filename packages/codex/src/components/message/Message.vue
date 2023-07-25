@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref, computed, onMounted } from 'vue';
+import { defineComponent, PropType, ref, computed, onMounted, warn } from 'vue';
 import {
 	cdxIconInfoFilled,
 	cdxIconError,
@@ -65,7 +65,8 @@ const iconMap: StatusIconMap = {
  * - By using the `dismissButtonLabel` prop, which adds a dismiss button
  * - By using the `autoDismiss` prop. This can be set to `true` to use the default display time of
  *   4000 milliseconds (4 seconds), or the display time can be customized by setting `autoDismiss`
- *   to a number of milliseconds.
+ *   to a number of milliseconds. Error messages cannot auto-dismiss: if the `type` prop is set to
+ *   `error`, then the `autoDismiss` prop will be ignored.
  */
 export default defineComponent( {
 	name: 'CdxMessage',
@@ -124,6 +125,9 @@ export default defineComponent( {
 		 * This prop can be set to `true` to use the default display time of 4000 milliseconds. To
 		 * customize the display time, set this prop to a number of milliseconds.
 		 *
+		 * Error messages cannot be automatically dismissed. If the `type` prop is set to `error`,
+		 * this prop will be ignored.
+		 *
 		 * TODO: consider adding a stricter validator to set limits on this. If the time is too
 		 * short, the message may not be readable. If the time is too long, the message probably
 		 * shouldn't be auto-dismissed.
@@ -154,7 +158,7 @@ export default defineComponent( {
 		);
 
 		const displayTime = computed( () => {
-			if ( props.autoDismiss === false ) {
+			if ( props.autoDismiss === false || props.type === 'error' ) {
 				return false;
 			} else if ( props.autoDismiss === true ) {
 				// Return default delay time of 4000 milliseconds.
@@ -208,8 +212,11 @@ export default defineComponent( {
 		}
 
 		onMounted( () => {
-			// If auto-dismiss is enabled, set a timer to remove the message after the display time.
-			if ( displayTime.value ) {
+			if ( props.type === 'error' && props.autoDismiss !== false ) {
+				warn( 'CdxMessage with type="error" cannot use auto-dismiss' );
+			} else if ( displayTime.value ) {
+				// If auto-dismiss is enabled, set a timer to remove the message after the
+				// display time.
 				setTimeout( () => onDismiss( 'auto-dismissed' ), displayTime.value );
 			}
 		} );

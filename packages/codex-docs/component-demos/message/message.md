@@ -153,8 +153,10 @@ The `autoDismiss` prop can be used to automatically remove the message after a p
 Set this prop to `true` to use the default display time of 4000 milliseconds (4 seconds). To
 customize the display time, set the `autoDismiss` prop to a number of milliseconds.
 
-This feature should only be used for very short messages to ensure that can be read and understand
-before disappearing. When in doubt, do not use auto-dismiss.
+This feature should only be used for very short messages to ensure that can be read and
+understood before disappearing. When in doubt, do not use auto-dismiss. Auto-dismiss
+cannot be used for error messages: if the `type` prop is set to `error`, the `autoDismiss`
+prop will be ignored and a warning will be thrown if it's set.
 
 Auto-dismiss can be used with or without the manual dismiss button.
 
