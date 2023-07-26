@@ -286,7 +286,7 @@ export default defineComponent( {
 			if ( computedDisabled.value ) {
 				return;
 			}
-			menu.value?.delegateKeyNavigation( e );
+			menu.value?.delegateKeyNavigation( e, { characterNavigation: true } );
 		}
 
 		return {

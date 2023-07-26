@@ -606,7 +606,7 @@ export default defineComponent( {
 						} else {
 							// Otherwise, handle the item change as usual. But don't prevent the
 							// event, otherwise the form won't be submitted
-							menu.value.delegateKeyNavigation( e, false );
+							menu.value.delegateKeyNavigation( e, { prevent: false } );
 						}
 					}
 

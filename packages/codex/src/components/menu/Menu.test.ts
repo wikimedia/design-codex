@@ -65,7 +65,10 @@ async function delegateKeydownEvent(
 	key: string
 ) {
 	const menu = wrapper.vm;
-	const handled = menu.delegateKeyNavigation( new KeyboardEvent( 'keydown', { key } ) );
+	const handled = menu.delegateKeyNavigation(
+		new KeyboardEvent( 'keydown', { key } ),
+		{ characterNavigation: true }
+	);
 	expect( handled ).toBe( true );
 	await nextTick();
 }
@@ -483,6 +486,209 @@ it( 'Esc keydown closes the menu', async () => {
 	expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ false ] );
 } );
 
+describe( 'When typing characters', () => {
+	afterEach( () => {
+		jest.useRealTimers();
+	} );
+
+	it( 'highlights the first matching item', async () => {
+		const wrapper = mount( CdxMenu, { props: defaultProps } );
+		await delegateKeydownEvent( wrapper, 'e' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( exampleMenuItems[ 3 ] );
+	} );
+
+	it( 'highlights the first item matching all typed characters', async () => {
+		const menuItems = [
+			{ value: 'Foo' },
+			{ value: 'Blah' },
+			{ value: 'Bar' },
+			{ value: 'Bleh' }
+		];
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			menuItems
+		} } );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 1 ] );
+		await delegateKeydownEvent( wrapper, 'l' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 1 ] );
+		await delegateKeydownEvent( wrapper, 'e' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 3 ] );
+	} );
+
+	it( 'cycles through items starting with the same letter when a letter is typed repeatedly', async () => {
+		const menuItems = [
+			{ value: 'Blah' },
+			{ value: 'Foo' },
+			{ value: 'Bar' },
+			{ value: 'Bleh' }
+		];
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			menuItems
+		} } );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 0 ] );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 2 ] );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 3 ] );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 0 ] );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 2 ] );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 3 ] );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 0 ] );
+	} );
+
+	it( 'still allows typing prefixes that start with repeated letters', async () => {
+		const menuItems = [
+			{ value: 'Blah' },
+			{ value: 'Foo' },
+			{ value: 'Bbbbbbrrr' },
+			{ value: 'Bleh' }
+		];
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			menuItems
+		} } );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 0 ] );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 2 ] );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 3 ] );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 0 ] );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 2 ] );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 3 ] );
+		await delegateKeydownEvent( wrapper, 'r' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 2 ] );
+	} );
+
+	it( 'Backspace erases a typed character', async () => {
+		const menuItems = [
+			{ value: 'Foo' },
+			{ value: 'Blah' },
+			{ value: 'Bar' },
+			{ value: 'Bleh' }
+		];
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			menuItems
+		} } );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 1 ] );
+		await delegateKeydownEvent( wrapper, 'a' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 2 ] );
+		await delegateKeydownEvent( wrapper, 'Backspace' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 2 ] );
+		await delegateKeydownEvent( wrapper, 'l' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 1 ] );
+		await delegateKeydownEvent( wrapper, 'e' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 3 ] );
+		await delegateKeydownEvent( wrapper, 'Backspace' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 3 ] );
+		await delegateKeydownEvent( wrapper, 'Backspace' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 3 ] );
+		await delegateKeydownEvent( wrapper, 'Backspace' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 3 ] );
+		await delegateKeydownEvent( wrapper, 'f' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 0 ] );
+	} );
+
+	it( 'Clear erases all typed characters', async () => {
+		const menuItems = [
+			{ value: 'Foo' },
+			{ value: 'Blah' },
+			{ value: 'Bar' },
+			{ value: 'Bleh' }
+		];
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			menuItems
+		} } );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 1 ] );
+		await delegateKeydownEvent( wrapper, 'l' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 1 ] );
+		await delegateKeydownEvent( wrapper, 'e' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 3 ] );
+		await delegateKeydownEvent( wrapper, 'Clear' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 3 ] );
+		await delegateKeydownEvent( wrapper, 'f' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 0 ] );
+	} );
+
+	it( 'all typed characters are forgotten after the timeout elapses', async () => {
+		jest.useFakeTimers();
+
+		const menuItems = [
+			{ value: 'Foo' },
+			{ value: 'Bar' },
+			{ value: 'Bfoo' }
+		];
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			menuItems
+		} } );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 1 ] );
+		jest.advanceTimersByTime( 1400 );
+		await delegateKeydownEvent( wrapper, 'f' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 2 ] );
+		jest.advanceTimersByTime( 1500 );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 1 ] );
+		jest.advanceTimersByTime( 1500 );
+		await delegateKeydownEvent( wrapper, 'f' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 0 ] );
+	} );
+
+	it( 'does not change the highlight if there are no matching items', async () => {
+		const menuItems = [
+			{ value: 'Foo' },
+			{ value: 'Blah' },
+			{ value: 'Bar' },
+			{ value: 'Bleh' }
+		];
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			menuItems
+		} } );
+		await delegateKeydownEvent( wrapper, 'x' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toBe( null );
+		await delegateKeydownEvent( wrapper, 'b' );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toBe( null );
+	} );
+
+	it( 'opens the menu', async () => {
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			expanded: false
+		} } );
+		await delegateKeydownEvent( wrapper, 'n' );
+		expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+		await wrapper.setProps( { expanded: true } );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( exampleMenuItems[ 4 ] );
+	} );
+
+	it( 'opens the menu even if the typed character does not match any items', async () => {
+		const wrapper = mount( CdxMenu, { props: {
+			...defaultProps,
+			expanded: false
+		} } );
+		await delegateKeydownEvent( wrapper, 'x' );
+		expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+		await wrapper.setProps( { 'update:expanded': true } );
+		expect( wrapper.vm.getHighlightedMenuItem() ).toBe( null );
+	} );
+} );
+
 it( 'Highlight state is not preserved after menu is closed', async () => {
 	const wrapper = mount( CdxMenu, { props: {
 		...defaultProps,
@@ -674,10 +880,18 @@ describe( 'delegateKeyNavigation returns true or false correctly', () => {
 	const wrapper = mount( CdxMenu, { props: defaultProps } );
 
 	test.each( [ ' ', 'Enter', 'Tab', 'ArrowUp', 'ArrowDown', 'Escape', 'Home', 'End' ] )( 'Returns true for "%s"', ( key ) => {
-		expect( wrapper.vm.delegateKeyNavigation( new KeyboardEvent( 'keydown', { key } ) ) ).toBe( true );
+		expect( wrapper.vm.delegateKeyNavigation( new KeyboardEvent( 'keydown', { key } ), { characterNavigation: true } ) ).toBe( true );
 	} );
 
-	test.each( [ 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown', 'Backspace', 'Delete', 'x', '2' ] )( 'Returns false for "%s"', ( key ) => {
+	test.each( [ 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown', 'Delete' ] )( 'Returns false for "%s"', ( key ) => {
+		expect( wrapper.vm.delegateKeyNavigation( new KeyboardEvent( 'keydown', { key } ), { characterNavigation: true } ) ).toBe( false );
+	} );
+
+	test.each( [ 'Backspace', 'Clear', 'x', '2' ] )( 'Returns false for "%s" when characterNavigation is false', ( key ) => {
 		expect( wrapper.vm.delegateKeyNavigation( new KeyboardEvent( 'keydown', { key } ) ) ).toBe( false );
+	} );
+
+	test.each( [ 'Backspace', 'Clear', 'x', '2' ] )( 'Returns true for "%s" when characterNavigation is true', ( key ) => {
+		expect( wrapper.vm.delegateKeyNavigation( new KeyboardEvent( 'keydown', { key } ), { characterNavigation: true } ) ).toBe( true );
 	} );
 } );

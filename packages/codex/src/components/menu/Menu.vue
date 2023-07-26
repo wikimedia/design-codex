@@ -301,6 +301,34 @@ export default defineComponent( {
 		const highlightedViaKeyboard = ref( false );
 		const activeMenuItem = ref<MenuItemDataWithId|null>( null );
 
+		// When the user types printable characters, buffer those here, so that we can highlight
+		// the first item matching the string the user typed. Clear the buffer if the user
+		// doesn't type for 1.5 seconds.
+		let keyBuffer = '';
+		let keyBufferTimeout: ReturnType<typeof setTimeout>|null = null;
+
+		/**
+		 * Clear the key buffer. Also cancels the timer that will clear the buffer later.
+		 */
+		function clearKeyBuffer() {
+			keyBuffer = '';
+			if ( keyBufferTimeout !== null ) {
+				clearTimeout( keyBufferTimeout );
+				keyBufferTimeout = null;
+			}
+		}
+
+		/**
+		 * Set a timer to clear the key buffer after 1.5 seconds. If the timer is already running,
+		 * this cancels and resets it.
+		 */
+		function resetKeyBufferTimeout() {
+			if ( keyBufferTimeout !== null ) {
+				clearTimeout( keyBufferTimeout );
+			}
+			keyBufferTimeout = setTimeout( clearKeyBuffer, 1500 );
+		}
+
 		function findSelectedMenuItem(): MenuItemDataWithId|null {
 			return computedMenuItems.value.find(
 				( menuItem ) => menuItem.value === props.selected
@@ -420,11 +448,94 @@ export default defineComponent( {
 			handleHighlightViaKeyboard( next );
 		}
 
+		/**
+		 * Handle printable characters. This includes:
+		 * - Highlighting an item by typing the first character (or first few characters) of the
+		 *   item's visible label.
+		 * - Moving the highlight through items whose visible labels start with a character by
+		 *   repeatedly typing that character.
+		 * - Allowing the user to delete some or all of the characters they have typed with the
+		 *   Backspace and Clear keys.
+		 *
+		 * If the key that was pressed was a printable character (without the Ctrl, Alt or Meta key
+		 * pressed) or Backspace or Clear, this function handles it as described above and returns
+		 * true. Otherwise, this function returns false.
+		 *
+		 * @param e Key event
+		 * @return Whether the key event was handled by this function
+		 */
+		function handleCharacterNavigation( e: KeyboardEvent ): boolean {
+			if ( e.key === 'Clear' ) {
+				clearKeyBuffer();
+				return true;
+			}
+
+			if ( e.key === 'Backspace' ) {
+				keyBuffer = keyBuffer.slice( 0, -1 );
+				resetKeyBufferTimeout();
+				return true;
+			}
+
+			if ( e.key.length === 1 && !e.metaKey && !e.ctrlKey && !e.altKey ) {
+				// Open the menu in response to the user typing
+				if ( !props.expanded ) {
+					emit( 'update:expanded', true );
+				}
+
+				keyBuffer += e.key.toLowerCase();
+				const isRepeatedCharacter = keyBuffer.length > 1 &&
+					keyBuffer.split( '' ).every( ( char ) => char === keyBuffer[ 0 ] );
+
+				let itemsToMatch = computedMenuItems.value;
+				let stringToMatch = keyBuffer;
+				if ( isRepeatedCharacter && highlightedMenuItemIndex.value !== undefined ) {
+					// Repeated character: find the next matching item after the currently
+					// highlighted one, or loop back to the first matching item if there isn't a
+					// next one. Do this by rotating itemsToMatch to start right after the
+					// currently highlighted one.
+					itemsToMatch = itemsToMatch.slice( highlightedMenuItemIndex.value + 1 )
+						.concat( itemsToMatch.slice( 0, highlightedMenuItemIndex.value ) );
+					stringToMatch = keyBuffer[ 0 ];
+				}
+
+				const matchingItem = itemsToMatch.find( ( item ) =>
+					!item.disabled &&
+					String( item.label || item.value ).toLowerCase().indexOf( stringToMatch ) === 0
+				);
+				if ( matchingItem ) {
+					handleMenuItemChange( 'highlightedViaKeyboard', matchingItem );
+					maybeScrollIntoView();
+				}
+
+				// Clear the key buffer if the user doesn't type for 1.5 seconds, and restart the
+				// 1.5-second timer if it's already running
+				resetKeyBufferTimeout();
+				return true;
+			}
+			return false;
+		}
+
 		// Handle keyboard events delegated by the parent component. Wrapped by
 		// delegateKeyNavigation() below; in order for their documentation to be displayed, public
 		// methods must be declared in the "methods" block, and moving this function there would
 		// necessitate moving or exposing a lot of other things, so we wrap it instead.
-		function handleKeyNavigation( e: KeyboardEvent, prevent = true ): boolean {
+		function handleKeyNavigation(
+			e: KeyboardEvent,
+			{ prevent = true, characterNavigation = false } = {}
+		): boolean {
+			// If character navigation is enabled, try that first. If handleCharacterNavigation()
+			// returns true, it has handled this key event and we don't need to do anything else.
+			if ( characterNavigation ) {
+				if ( handleCharacterNavigation( e ) ) {
+					return true;
+				}
+				// If it wasn't a character navigation event, clear the key buffer.
+				// We don't want something like A [Up arrow] B to be interpreted as "AB"
+				clearKeyBuffer();
+			}
+
+			// The rest of this function deals with navigation keys (like arrows and Enter)
+
 			function maybePrevent() {
 				if ( prevent ) {
 					e.preventDefault();
@@ -640,9 +751,9 @@ export default defineComponent( {
 		watch( toRef( props, 'expanded' ), async ( newVal ) => {
 			if ( newVal ) {
 				// The menu was opened
-				// Highlight the selected item
+				// Highlight the selected item, unless another item was already highlighted
 				const selectedMenuItem = findSelectedMenuItem();
-				if ( selectedMenuItem ) {
+				if ( selectedMenuItem && !highlightedMenuItem.value ) {
 					handleMenuItemChange( 'highlighted', selectedMenuItem );
 				}
 
@@ -755,11 +866,17 @@ export default defineComponent( {
 		 *
 		 * @public
 		 * @param event {KeyboardEvent} Keydown event object
-		 * @param prevent {boolean} If false, do not call e.preventDefault() or e.stopPropagation()
+		 * @param options
+		 * @param options.prevent {boolean} If false, do not call e.preventDefault() or
+		 *   e.stopPropagation()
+		 * @param options.characterNavigation {boolean}
 		 * @return Whether the event was handled
 		 */
-		delegateKeyNavigation( event: KeyboardEvent, prevent = true ): boolean {
-			return this.handleKeyNavigation( event, prevent );
+		delegateKeyNavigation(
+			event: KeyboardEvent,
+			{ prevent = true, characterNavigation = false } = {}
+		): boolean {
+			return this.handleKeyNavigation( event, { prevent, characterNavigation } );
 		}
 	}
 } );
