@@ -3,12 +3,16 @@
 		<cdx-text-input
 			v-model="selectedValue"
 			class="cdx-docs-input-with-menu__input"
+			role="combobox"
 			:aria-expanded="expanded"
+			:aria-controls="menuId"
+			:aria-activedescendant="activeDescendant"
 			@click="onClick"
 			@blur="expanded = false"
 			@keydown="onKeydown"
 		/>
 		<cdx-menu
+			:id="menuId"
 			ref="menu"
 			v-model:selected="selectedValue"
 			v-model:expanded="expanded"
@@ -22,8 +26,8 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
-import { CdxMenu, CdxTextInput } from '@wikimedia/codex';
+import { defineComponent, ref, computed } from 'vue';
+import { CdxMenu, CdxTextInput, useGeneratedId } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'InputWithMenuNoResults',
@@ -35,6 +39,11 @@ export default defineComponent( {
 		const menu = ref();
 		const selectedValue = ref( '' );
 		const expanded = ref( false );
+		const activeDescendant = computed( () => {
+			const highlightedItem = menu.value && menu.value.getHighlightedMenuItem();
+			return highlightedItem ? highlightedItem.id : undefined;
+		} );
+		const menuId = useGeneratedId( 'menu' );
 		const menuItems = [];
 
 		/**
@@ -65,7 +74,9 @@ export default defineComponent( {
 			menu,
 			selectedValue,
 			expanded,
+			menuId,
 			menuItems,
+			activeDescendant,
 			onKeydown,
 			onClick
 		};
