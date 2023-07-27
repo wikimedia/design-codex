@@ -34,12 +34,6 @@ describe( 'matches the snapshot', () => {
 	} );
 } );
 
-it( 'emits click events', async () => {
-	const wrapper = mount( CdxIcon, { props: { icon: cdxIconAlert } } );
-	await wrapper.trigger( 'click' );
-	expect( wrapper.emitted().click ).toHaveLength( 1 );
-} );
-
 it( 'honors the "size" prop', () => {
 	const wrapper = mount( CdxIcon, { props: { icon: cdxIconAlert, size: 'x-small' } } );
 	expect( wrapper.classes() ).toContain( 'cdx-icon--x-small' );

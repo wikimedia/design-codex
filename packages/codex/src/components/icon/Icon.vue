@@ -3,7 +3,6 @@
 		ref="rootElement"
 		class="cdx-icon"
 		:class="rootClasses"
-		@click="onClick"
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -90,8 +89,7 @@ export default defineComponent( {
 			validator: iconSizeValidator
 		}
 	},
-	emits: [ 'click' ],
-	setup( props, { emit } ) {
+	setup( props ) {
 		const rootElement = ref<HTMLSpanElement>();
 
 		const computedDir = useComputedDirection( rootElement );
@@ -113,16 +111,11 @@ export default defineComponent( {
 		const iconSvg = computed( () => typeof resolvedIcon.value === 'string' ? resolvedIcon.value : '' );
 		const iconPath = computed( () => typeof resolvedIcon.value !== 'string' ? resolvedIcon.value.path : '' );
 
-		const onClick = ( event: Event ) => {
-			emit( 'click', event );
-		};
-
 		return {
 			rootElement,
 			rootClasses,
 			iconSvg,
-			iconPath,
-			onClick
+			iconPath
 		};
 	}
 } );
