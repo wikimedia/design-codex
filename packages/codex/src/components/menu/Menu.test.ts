@@ -452,6 +452,7 @@ it( 'Highlighted menu item is returned by getHighlightedMenuItem', async () => {
 		selected: 'b',
 		expanded: false
 	} } );
+	expect( wrapper.vm.getHighlightedMenuItem() ).toBe( null );
 	// Enter opens the menu and highlights the selected item
 	await delegateKeydownEvent( wrapper, 'Enter' );
 	// Simulate the parent responding to the update:expanded event
@@ -460,6 +461,10 @@ it( 'Highlighted menu item is returned by getHighlightedMenuItem', async () => {
 
 	await delegateKeydownEvent( wrapper, 'ArrowDown' );
 	expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( exampleMenuItems[ 2 ] );
+
+	// Close the menu
+	await wrapper.setProps( { expanded: false } );
+	expect( wrapper.vm.getHighlightedMenuItem() ).toBe( null );
 } );
 
 it( 'Esc keydown closes the menu', async () => {

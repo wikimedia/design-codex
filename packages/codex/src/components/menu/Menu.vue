@@ -717,10 +717,10 @@ export default defineComponent( {
 		 *
 		 * @public
 		 * @return {MenuItemDataWithId|null} The highlighted menu item,
-		 *   or null if no item is highlighted.
+		 *   or null if no item is highlighted or if the menu is closed.
 		 */
 		getHighlightedMenuItem(): MenuItemDataWithId|null {
-			return this.highlightedMenuItem;
+			return this.expanded ? this.highlightedMenuItem : null;
 		},
 
 		/**
