@@ -213,7 +213,7 @@ export default defineComponent( {
 
 		onMounted( () => {
 			if ( props.type === 'error' && props.autoDismiss !== false ) {
-				warn( 'CdxMessage with type="error" cannot use auto-dismiss' );
+				warn( 'CdxMessage: Message with type="error" cannot use auto-dismiss' );
 			} else if ( displayTime.value ) {
 				// If auto-dismiss is enabled, set a timer to remove the message after the
 				// display time.

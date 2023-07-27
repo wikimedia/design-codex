@@ -121,7 +121,7 @@ export default defineComponent( {
 		'update:modelValue'
 	],
 	setup( props, { emit, slots, attrs } ) {
-		useLabelChecker( slots.default?.(), attrs );
+		useLabelChecker( slots.default?.(), attrs, 'CdxToggleSwitch' );
 
 		// Declare template refs.
 		const input = ref<HTMLInputElement>();

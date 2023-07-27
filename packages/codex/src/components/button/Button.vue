@@ -33,7 +33,7 @@ const buttonWeightValidator = makeStringTypeValidator( ButtonWeights );
 const buttonSizeValidator = makeStringTypeValidator( ButtonSizes );
 const validateIconOnlyButtonAttrs = ( attrs: SetupContext['attrs'] ) => {
 	if ( !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ] ) {
-		warn( `icon-only buttons require one of the following attribute: aria-label or aria-hidden.
+		warn( `CdxButton: Icon-only buttons require one of the following attribute: aria-label or aria-hidden.
 		See documentation on https://doc.wikimedia.org/codex/latest/components/demos/button.html#icon-only-button-1` );
 	}
 };

@@ -117,7 +117,7 @@ export default defineComponent( {
 		'update:modelValue'
 	],
 	setup( props, { emit, slots, attrs } ) {
-		useLabelChecker( slots.default?.(), attrs );
+		useLabelChecker( slots.default?.(), attrs, 'CdxCheckbox' );
 
 		const rootClasses = computed( (): Record<string, boolean> => {
 			return {

@@ -16,17 +16,19 @@ import { VNode, SetupContext, warn } from 'vue';
  *
  * @param slotContent The slot where label text is added
  * @param attrs Attributes from context
+ * @param componentName Name of the component, to be used in the warning message
  */
 export default function useLabelChecker(
 	slotContent: VNode[] | undefined,
-	attrs: SetupContext[ 'attrs' ]
+	attrs: SetupContext[ 'attrs' ],
+	componentName: string
 ) {
 	const isProperlyLabelled = slotContent && slotContent.length > 0 ||
 		attrs?.[ 'aria-label' ] ||
 		attrs?.[ 'aria-labelledby' ];
 
 	if ( !isProperlyLabelled ) {
-		warn( `Inputs must have an associated label. Provide one of the following:
+		warn( `${componentName}: Inputs must have an associated label. Provide one of the following:
  - A label via the appropriate slot
  - An \`aria-label\` attribute set to the label text
  - An \`aria-labelledby\` attribute set to the ID of the label element` );
