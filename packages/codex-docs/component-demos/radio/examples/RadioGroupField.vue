@@ -4,7 +4,7 @@
 			v-for="radio in radios"
 			:key="'radio-' + radio.value"
 			v-model="radioValue"
-			name="radio-group"
+			name="radio-group-field"
 			:input-value="radio.value"
 		>
 			{{ radio.label }}
