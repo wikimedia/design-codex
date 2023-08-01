@@ -1,3 +1,7 @@
+# 0.16.1 / 2023-08-01
+## Styles
+- Tabs: Override browser default styles for <button> (Roan Kattouw)
+
 # 0.16.0 / 2023-08-01
 
 ## Breaking
