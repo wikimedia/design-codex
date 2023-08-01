@@ -236,9 +236,9 @@ To add a description below the label:
 
 Native attributes of the `<input>` element can be used. For example:
 - Add the `checked` attribute to the `<input>` element if it should be selected initially.
-- Add the `indeterminate` attribute to the `<input>` element if it should appear to be in an
-  indeterminate state.
 - Add the `disabled` attribute to the `<input>` element if it should be disabled.
+
+Note that `indeterminate` is not supported in the CSS-only version.
 
 Always include one of these two features for accessible grouping:
 1. If using the Checkbox group in a field, wrap the group in a `<fieldset>` element and add a
@@ -277,24 +277,17 @@ Always include one of these two features for accessible grouping:
 			</label>
 		</span>
 		<span class="cdx-checkbox">
-			<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" indeterminate>
+			<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" disabled>
 			<span class="cdx-checkbox__icon"></span>
 			<label class="cdx-checkbox__label" for="checkbox-group-css-only-4">
-				Checkbox 4 (initially indeterminate)
+				Checkbox 4 (disabled)
 			</label>
 		</span>
 		<span class="cdx-checkbox">
-			<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" disabled>
+			<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" checked disabled>
 			<span class="cdx-checkbox__icon"></span>
 			<label class="cdx-checkbox__label" for="checkbox-group-css-only-5">
-				Checkbox 5 (disabled)
-			</label>
-		</span>
-		<span class="cdx-checkbox">
-			<input id="checkbox-group-css-only-6" class="cdx-checkbox__input" type="checkbox" checked disabled>
-			<span class="cdx-checkbox__icon"></span>
-			<label class="cdx-checkbox__label" for="checkbox-group-css-only-6">
-				Checkbox 6 (initially selected, disabled)
+				Checkbox 5 (initially selected, disabled)
 			</label>
 		</span>
 	</fieldset>
@@ -328,24 +321,17 @@ Always include one of these two features for accessible grouping:
 		</label>
 	</span>
 	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" indeterminate>
+		<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" disabled>
 		<span class="cdx-checkbox__icon"></span>
 		<label class="cdx-checkbox__label" for="checkbox-group-css-only-4">
-			Checkbox 4 (initially indeterminate)
+			Checkbox 4 (disabled)
 		</label>
 	</span>
 	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" disabled>
+		<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" checked disabled>
 		<span class="cdx-checkbox__icon"></span>
 		<label class="cdx-checkbox__label" for="checkbox-group-css-only-5">
-			Checkbox 5 (disabled)
-		</label>
-	</span>
-	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-6" class="cdx-checkbox__input" type="checkbox" checked disabled>
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-css-only-6">
-			Checkbox 6 (initially selected, disabled)
+			Checkbox 5 (initially selected, disabled)
 		</label>
 	</span>
 </fieldset>
