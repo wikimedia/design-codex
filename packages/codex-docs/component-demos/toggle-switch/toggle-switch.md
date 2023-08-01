@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
-import SingleSwitch from '@/../component-demos/toggle-switch/examples/SingleSwitch.vue';
 import SwitchWithDescription from '@/../component-demos/toggle-switch/examples/SwitchWithDescription.vue';
 import SwitchWithHiddenLabel from '@/../component-demos/toggle-switch/examples/SwitchWithHiddenLabel.vue';
 import SwitchGroup from '@/../component-demos/toggle-switch/examples/SwitchGroup.vue';
@@ -45,32 +44,13 @@ element within the component.
 </template>
 </cdx-demo-wrapper>
 
-### Default
-
-Toggle the ToggleSwitch to see the value change. Open up the console to see emitted events.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<single-switch />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/toggle-switch/examples/SingleSwitch.vue [NPM]
-
-<<< @/../component-demos/toggle-switch/examples-mw/SingleSwitch.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### Label and description
+### Single switch with label and description
 
 Always include label text via the default slot. You can also add description text via the
 `#description` slot.
+
+A single switch does not need an `inputValue` prop. `v-model` is bound to a boolean value: `true`
+for "on", `false` for "off".
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -111,40 +91,18 @@ the label, which will still appear in the markup for screen reader accessibility
 </template>
 </cdx-demo-wrapper>
 
-### ToggleSwitch group
-
-For a group of toggle switches, each ToggleSwitch component's `v-model` will be bound to an array of
-the `inputValue` props of the toggle switches that are currently "on".
-
-Use the `alignSwitch` prop to align all of the switches to the end of the container, creating a more
-streamlined look.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<switch-group />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/toggle-switch/examples/SwitchGroup.vue [NPM]
-
-<<< @/../component-demos/toggle-switch/examples-mw/SwitchGroup.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
 ### Form field
 
-A single ToggleSwitch or group of ToggleSwitches can be wrapped in the Field component to add
-features like a semantic label, description and help text, validation messages, and more. See the
-[Field](./field.md) page for more information.
+When used in a form, a single ToggleSwitch or group of ToggleSwitches can be wrapped in the Field
+component to add features like a semantic label, description and help text, validation messages,
+and more. See the [Field](./field.md) page for more information.
 
 When building a ToggleSwitch field, **always set `isFieldset` to `true`**, even for a single
-ToggleSwitch, to ensure proper accessibility support.
+ToggleSwitch, to ensure proper accessibility support. This wraps the group in a `<fieldset>`
+element and labels it with an associated `<legend>`.
+
+If using a ToggleSwitch or ToggleSwitch group outside of a form, follow the instructions in the
+next demo.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -158,6 +116,36 @@ ToggleSwitch, to ensure proper accessibility support.
 <<< @/../component-demos/toggle-switch/examples/SwitchGroupField.vue [NPM]
 
 <<< @/../component-demos/toggle-switch/examples-mw/SwitchGroupField.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### ToggleSwitch group
+
+For a group of related toggle switches, each ToggleSwitch component's `v-model` will be bound to an
+array of the `inputValue` props of the toggle switches that are currently "on".
+
+Use the `alignSwitch` prop to align all of the switches to the end of the container, creating a more
+streamlined look.
+
+This demo shows what to do when using a ToggleSwitch group outside of a form:
+1. Wrap the group in an element with `role="group"`
+2. Connect the group with a label via the `aria-labelledby` attribute
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<switch-group />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/toggle-switch/examples/SwitchGroup.vue [NPM]
+
+<<< @/../component-demos/toggle-switch/examples-mw/SwitchGroup.vue [MediaWiki]
 
 :::
 
@@ -201,93 +189,6 @@ label, see the sections on those features below.
 	<!-- <label> with for attribute matching input ID. -->
 	<label for="cdx-toggle-switch-css-1" class="cdx-toggle-switch__label">
 		Label
-	</label>
-</span>
-```
-
-</template>
-</cdx-demo-wrapper>
-
-### Initially on
-
-The toggle switch appears "on" when the hidden checkbox is checked. To initially set the switch to
-"on", add the `checked` attribute to the `<input>`.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<span class="cdx-toggle-switch">
-		<input id="cdx-toggle-switch-css-2" class="cdx-toggle-switch__input" type="checkbox" checked>
-		<span class="cdx-toggle-switch__switch">
-			<span class="cdx-toggle-switch__switch__grip"></span>
-		</span>
-		<label for="cdx-toggle-switch-css-2" class="cdx-toggle-switch__label">
-			Initially on
-		</label>
-	</span>
-</template>
-<template v-slot:code>
-
-```html
-<span class="cdx-toggle-switch">
-	<input id="cdx-toggle-switch-css-2" class="cdx-toggle-switch__input" type="checkbox" checked>
-	<span class="cdx-toggle-switch__switch">
-		<span class="cdx-toggle-switch__switch__grip"></span>
-	</span>
-	<label for="cdx-toggle-switch-css-2" class="cdx-toggle-switch__label">
-		Initially on
-	</label>
-</span>
-```
-
-</template>
-</cdx-demo-wrapper>
-
-### Disabled
-
-To disable the toggle switch, add the `disabled` attribute to the `<input>` element.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<span class="cdx-toggle-switch">
-		<input id="cdx-toggle-switch-css-5" class="cdx-toggle-switch__input" type="checkbox" disabled>
-		<span class="cdx-toggle-switch__switch">
-			<span class="cdx-toggle-switch__switch__grip"></span>
-		</span>
-		<label for="cdx-toggle-switch-css-5" class="cdx-toggle-switch__label">
-			Disabled, off
-		</label>
-	</span>
-	<br>
-	<span class="cdx-toggle-switch">
-		<input id="cdx-toggle-switch-css-6" class="cdx-toggle-switch__input" type="checkbox" checked disabled>
-		<span class="cdx-toggle-switch__switch">
-			<span class="cdx-toggle-switch__switch__grip"></span>
-		</span>
-		<label for="cdx-toggle-switch-css-6" class="cdx-toggle-switch__label">
-			Disabled, on
-		</label>
-	</span>
-</template>
-<template v-slot:code>
-
-```html
-<span class="cdx-toggle-switch">
-	<input id="cdx-toggle-switch-css-5" class="cdx-toggle-switch__input" type="checkbox" disabled>
-	<span class="cdx-toggle-switch__switch">
-		<span class="cdx-toggle-switch__switch__grip"></span>
-	</span>
-	<label for="cdx-toggle-switch-css-5" class="cdx-toggle-switch__label">
-		Disabled, off
-	</label>
-</span>
-<br>
-<span class="cdx-toggle-switch">
-	<input id="cdx-toggle-switch-css-6" class="cdx-toggle-switch__input" type="checkbox" checked disabled>
-	<span class="cdx-toggle-switch__switch">
-		<span class="cdx-toggle-switch__switch__grip"></span>
-	</span>
-	<label for="cdx-toggle-switch-css-6" class="cdx-toggle-switch__label">
-		Disabled, on
 	</label>
 </span>
 ```
@@ -378,6 +279,93 @@ For a visually-hidden label:
 			Label text
 		</label>
 	</div>
+</span>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### Initially on
+
+The toggle switch appears "on" when the hidden checkbox is checked. To initially set the switch to
+"on", add the `checked` attribute to the `<input>`.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<span class="cdx-toggle-switch">
+		<input id="cdx-toggle-switch-css-2" class="cdx-toggle-switch__input" type="checkbox" checked>
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip"></span>
+		</span>
+		<label for="cdx-toggle-switch-css-2" class="cdx-toggle-switch__label">
+			Initially on
+		</label>
+	</span>
+</template>
+<template v-slot:code>
+
+```html
+<span class="cdx-toggle-switch">
+	<input id="cdx-toggle-switch-css-2" class="cdx-toggle-switch__input" type="checkbox" checked>
+	<span class="cdx-toggle-switch__switch">
+		<span class="cdx-toggle-switch__switch__grip"></span>
+	</span>
+	<label for="cdx-toggle-switch-css-2" class="cdx-toggle-switch__label">
+		Initially on
+	</label>
+</span>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### Disabled
+
+To disable the toggle switch, add the `disabled` attribute to the `<input>` element.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<span class="cdx-toggle-switch">
+		<input id="cdx-toggle-switch-css-5" class="cdx-toggle-switch__input" type="checkbox" disabled>
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip"></span>
+		</span>
+		<label for="cdx-toggle-switch-css-5" class="cdx-toggle-switch__label">
+			Disabled, off
+		</label>
+	</span>
+	<br>
+	<span class="cdx-toggle-switch">
+		<input id="cdx-toggle-switch-css-6" class="cdx-toggle-switch__input" type="checkbox" checked disabled>
+		<span class="cdx-toggle-switch__switch">
+			<span class="cdx-toggle-switch__switch__grip"></span>
+		</span>
+		<label for="cdx-toggle-switch-css-6" class="cdx-toggle-switch__label">
+			Disabled, on
+		</label>
+	</span>
+</template>
+<template v-slot:code>
+
+```html
+<span class="cdx-toggle-switch">
+	<input id="cdx-toggle-switch-css-5" class="cdx-toggle-switch__input" type="checkbox" disabled>
+	<span class="cdx-toggle-switch__switch">
+		<span class="cdx-toggle-switch__switch__grip"></span>
+	</span>
+	<label for="cdx-toggle-switch-css-5" class="cdx-toggle-switch__label">
+		Disabled, off
+	</label>
+</span>
+<br>
+<span class="cdx-toggle-switch">
+	<input id="cdx-toggle-switch-css-6" class="cdx-toggle-switch__input" type="checkbox" checked disabled>
+	<span class="cdx-toggle-switch__switch">
+		<span class="cdx-toggle-switch__switch__grip"></span>
+	</span>
+	<label for="cdx-toggle-switch-css-6" class="cdx-toggle-switch__label">
+		Disabled, on
+	</label>
 </span>
 ```
 

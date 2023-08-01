@@ -1,14 +1,20 @@
 <template>
 	<div>
 		<cdx-checkbox
-			v-for="checkbox in checkboxes"
-			:key="'checkbox-' + checkbox.value"
-			v-model="checkboxValue"
-			:input-value="checkbox.value"
+			v-model="checkbox1Value"
+			input-value="checkbox-1"
 			:inline="true"
 			@update:model-value="onUpdate"
 		>
-			{{ checkbox.label }}
+			Checkbox 1
+		</cdx-checkbox>
+		<cdx-checkbox
+			v-model="checkbox2Value"
+			input-value="checkbox-2"
+			:inline="true"
+			@update:model-value="onUpdate"
+		>
+			Checkbox 2
 		</cdx-checkbox>
 	</div>
 </template>
@@ -21,17 +27,8 @@ export default defineComponent( {
 	name: 'InlineCheckboxes',
 	components: { CdxCheckbox },
 	setup() {
-		const checkboxValue = ref( [ 'checkbox-1' ] );
-		const checkboxes = [
-			{
-				label: 'Checkbox 1',
-				value: 'checkbox-1'
-			},
-			{
-				label: 'Checkbox 2',
-				value: 'checkbox-2'
-			}
-		];
+		const checkbox1Value = ref( true );
+		const checkbox2Value = ref( false );
 
 		function onUpdate( value ) {
 			// eslint-disable-next-line no-console
@@ -39,8 +36,8 @@ export default defineComponent( {
 		}
 
 		return {
-			checkboxValue,
-			checkboxes,
+			checkbox1Value,
+			checkbox2Value,
 			onUpdate
 		};
 	}

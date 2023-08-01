@@ -4,27 +4,33 @@
 			Radio group value: {{ radioValue }}
 		</p>
 
-		<cdx-radio
-			v-for="radio in radios"
-			:key="'radio-' + radio.value"
-			v-model="radioValue"
-			name="radio-group"
-			:input-value="radio.value"
-			:disabled="radio.disabled"
-			@update:model-value="onUpdate"
-		>
-			{{ radio.label }}
-		</cdx-radio>
+		<div role="radiogroup" aria-labelledby="cdx-demo-radio-group-label">
+			<cdx-label id="cdx-demo-radio-group-label">
+				Radio group demo
+			</cdx-label>
+
+			<cdx-radio
+				v-for="radio in radios"
+				:key="'radio-' + radio.value"
+				v-model="radioValue"
+				name="radio-group"
+				:input-value="radio.value"
+				:disabled="radio.disabled"
+				@update:model-value="onUpdate"
+			>
+				{{ radio.label }}
+			</cdx-radio>
+		</div>
 	</div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxRadio } from '@wikimedia/codex';
+import { CdxRadio, CdxLabel } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'RadioGroup',
-	components: { CdxRadio },
+	components: { CdxRadio, CdxLabel },
 	setup() {
 		const radioValue = ref( 'radio-2' );
 		const radios = [

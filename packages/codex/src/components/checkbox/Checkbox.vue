@@ -56,7 +56,7 @@ import useFieldData from '../../composables/useFieldData';
  *
  * For multiple checkboxes, the `v-model` value will be an array of the
  * `inputValue` props of any currently checked checkboxes (or an empty array if
- * no checkboxes are  checked).
+ * no checkboxes are checked).
  */
 export default defineComponent( {
 	name: 'CdxCheckbox',

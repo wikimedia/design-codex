@@ -4,27 +4,33 @@
 			Checkbox group value: {{ checkboxValue }}
 		</p>
 
-		<cdx-checkbox
-			v-for="checkbox in checkboxes"
-			:key="'checkbox-' + checkbox.value"
-			v-model="checkboxValue"
-			:input-value="checkbox.value"
-			:disabled="checkbox.disabled"
-			:indeterminate="checkbox.indeterminate"
-			@update:model-value="onUpdate"
-		>
-			{{ checkbox.label }}
-		</cdx-checkbox>
+		<div role="group" aria-labelledby="cdx-demo-checkbox-group-label">
+			<cdx-label id="cdx-demo-checkbox-group-label">
+				Checkbox group demo
+			</cdx-label>
+
+			<cdx-checkbox
+				v-for="checkbox in checkboxes"
+				:key="'checkbox-' + checkbox.value"
+				v-model="checkboxValue"
+				:input-value="checkbox.value"
+				:disabled="checkbox.disabled"
+				:indeterminate="checkbox.indeterminate"
+				@update:model-value="onUpdate"
+			>
+				{{ checkbox.label }}
+			</cdx-checkbox>
+		</div>
 	</div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxCheckbox } from '@wikimedia/codex';
+import { CdxCheckbox, CdxLabel } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'CheckboxGroup',
-	components: { CdxCheckbox },
+	components: { CdxCheckbox, CdxLabel },
 	setup() {
 		const checkboxValue = ref( [ 'checkbox-2', 'checkbox-6' ] );
 		const checkboxes = [

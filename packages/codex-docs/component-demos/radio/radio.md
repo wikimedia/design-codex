@@ -7,9 +7,74 @@ import RadioGroupField from '@/../component-demos/radio/examples/RadioGroupField
 
 ## Demos
 
+Open up the browser console to see events emitted on input.
+
+### Label and description
+
+Always include label text via the default slot. You can also add description text via the
+`#description` slot.
+
+This demo uses the [Field](./field.md) component—usage of this component is described in the next
+section.
+
+<cdx-demo-wrapper :force-controls="true">
+<template v-slot:demo>
+	<radios-with-descriptions />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/radio/examples/RadiosWithDescriptions.vue [NPM]
+
+<<< @/../component-demos/radio/examples-mw/RadiosWithDescriptions.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### Form field
+
+When used in a form, a group of Radios can be wrapped in the Field component to add features like a
+semantic label, description and help text, validation messages, and more. See the
+[Field](./field.md) page for more information.
+
+When building a Radio field, **always set `isFieldset` to `true`** to ensure proper accessibility
+support. This wraps the group in a `<fieldset>` element and labels it with an associated `<legend>`.
+
+If using a Radio group outside of a form, follow the instructions in the next demo.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<radio-group-field />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/radio/examples/RadioGroupField.vue [NPM]
+
+<<< @/../component-demos/radio/examples-mw/RadioGroupField.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
 ### Radio group
 
-<cdx-demo-wrapper :force-reset="true" :force-controls="true">
+For a group of radios, each Radio component's `v-model` will be bound to the same ref, which is
+equal to the `inputValue` prop of the selected Radio. Use the same `name` prop for all of the Radio
+components in a group.
+
+This demo shows what to do when using a Radio group outside of a form:
+1. Wrap the group in an element with `role="radiogroup"`
+2. Connect the group with a label via the `aria-labelledby` attribute
+
+<cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
 	<radio-group />
 </template>
@@ -29,6 +94,8 @@ import RadioGroupField from '@/../component-demos/radio/examples/RadioGroupField
 
 ### Inline radios
 
+Use the `inline` prop to get an inline layout.
+
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<inline-radios />
@@ -41,50 +108,6 @@ import RadioGroupField from '@/../component-demos/radio/examples/RadioGroupField
 <<< @/../component-demos/radio/examples/InlineRadios.vue [NPM]
 
 <<< @/../component-demos/radio/examples-mw/InlineRadios.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### Label and description
-
-Always include label text via the default slot. You can also add description text via the
-`#description` slot.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<radios-with-descriptions />
-</template>
-
-<template v-slot:code>
-
-<<< @/../component-demos/radio/examples/RadiosWithDescriptions.vue
-
-</template>
-</cdx-demo-wrapper>
-
-### Form field
-
-A single radio or group of radios can be wrapped in the Field component to add features
-like a semantic label, description and help text, validation messages, and more. See the
-[Field](./field.md) page for more information.
-
-When building a Radio field, **always set `isFieldset` to `true`** to ensure proper accessibility
-support.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<radio-group-field />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/radio/examples/RadioGroupField.vue [NPM]
-
-<<< @/../component-demos/radio/examples-mw/RadioGroupField.vue [MediaWiki]
 
 :::
 
@@ -127,124 +150,6 @@ feature below.
 </template>
 </cdx-demo-wrapper>
 
-### Radio group
-
-Native attributes of the `<input>` element can be used. For example:
-- Add the `checked` attribute to the `<input>` element if it should be selected initially.
-- Add the `disabled` attribute to the `<input>` element if it should be disabled.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<span class="cdx-radio">
-		<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
-		<span class="cdx-radio__icon"></span>
-		<label class="cdx-radio__label" for="radio-group-css-only-1">
-			Radio 1
-		</label>
-	</span>
-	<span class="cdx-radio">
-		<input id="radio-group-css-only-2" class="cdx-radio__input" type="radio" 	name="radio-group-css-only" checked>
-		<span class="cdx-radio__icon"></span>
-		<label class="cdx-radio__label" for="radio-group-css-only-2">
-			Radio 2 (initially selected)
-		</label>
-	</span>
-	<span class="cdx-radio">
-		<input id="radio-group-css-only-3" class="cdx-radio__input" type="radio" name="radio-group-css-only">
-		<span class="cdx-radio__icon"></span>
-		<label class="cdx-radio__label" for="radio-group-css-only-3">
-			Radio 3, which has a very long label that spans onto a second line to
-			demonstrate what happens when text wraps
-		</label>
-	</span>
-	<span class="cdx-radio">
-		<input id="radio-group-css-only-4" class="cdx-radio__input" type="radio" 	name="radio-group-css-only"	disabled>
-		<span class="cdx-radio__icon"></span>
-		<label class="cdx-radio__label" for="radio-group-css-only-4">
-			Radio 4 (disabled)
-		</label>
-	</span>
-</template>
-<template v-slot:code>
-
-```html
-<span class="cdx-radio">
-	<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
-	<span class="cdx-radio__icon"></span>
-	<label class="cdx-radio__label" for="radio-group-css-only-1">
-		Radio 1
-	</label>
-</span>
-<span class="cdx-radio">
-	<input id="radio-group-css-only-2" class="cdx-radio__input" type="radio" 	name="radio-group-css-only" checked>
-	<span class="cdx-radio__icon"></span>
-	<label class="cdx-radio__label" for="radio-group-css-only-2">
-		Radio 2 (initially selected)
-	</label>
-</span>
-<span class="cdx-radio">
-	<input id="radio-group-css-only-3" class="cdx-radio__input" type="radio" name="radio-group-css-only">
-<span class="cdx-radio__icon"></span>
-	<label class="cdx-radio__label" for="radio-group-css-only-3">
-		Radio 3, which has a very long label that spans onto a second line to
-		demonstrate what happens when text wraps
-	</label>
-</span>
-<span class="cdx-radio">
-	<input id="radio-group-css-only-4" class="cdx-radio__input" type="radio" 	name="radio-group-css-only"	disabled>
-	<span class="cdx-radio__icon"></span>
-	<label class="cdx-radio__label" for="radio-group-css-only-4">
-		Radio 4 (disabled)
-	</label>
-</span>
-```
-
-</template>
-</cdx-demo-wrapper>
-
-### Inline radios
-
-Add the `cdx-radio--inline` class to the root element to get an inline layout.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<span class="cdx-radio cdx-radio--inline">
-		<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
-		<span class="cdx-radio__icon"></span>
-		<label class="cdx-radio__label" for="radio-group-css-only-inline-1">
-			Radio 1
-		</label>
-	</span>
-	<span class="cdx-radio cdx-radio--inline">
-		<input id="radio-group-css-only-inline-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline" checked>
-		<span class="cdx-radio__icon"></span>
-		<label class="cdx-radio__label" for="radio-group-css-only-inline-2">
-			Radio 2
-		</label>
-	</span>
-</template>
-<template v-slot:code>
-
-```html
-<span class="cdx-radio cdx-radio--inline">
-	<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
-	<span class="cdx-radio__icon"></span>
-	<label class="cdx-radio__label" for="radio-group-css-only-inline-1">
-		Radio 1
-	</label>
-</span>
-<span class="cdx-radio cdx-radio--inline">
-	<input id="radio-group-css-only-inline-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline" checked>
-	<span class="cdx-radio__icon"></span>
-	<label class="cdx-radio__label" for="radio-group-css-only-inline-2">
-		Radio 2
-	</label>
-</span>
-```
-
-</template>
-</cdx-demo-wrapper>
-
 ### With description
 
 To add a description below the label:
@@ -257,7 +162,7 @@ To add a description below the label:
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<fieldset class="cdx-demo-radios-with-descriptions">
+	<fieldset class="cdx-demo-css-radio-group">
 		<legend>Search completion</legend>
 		<span class="cdx-radio">
 			<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
@@ -288,7 +193,7 @@ To add a description below the label:
 <template v-slot:code>
 
 ```html
-<fieldset class="cdx-demo-radios-with-descriptions">
+<fieldset class="cdx-demo-css-radio-group">
 	<legend>Search completion</legend>
 	<span class="cdx-radio">
 		<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
@@ -317,5 +222,219 @@ To add a description below the label:
 </fieldset>
 ```
 
+```less
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-demo-css-radio-group {
+	// Reset fieldset styles.
+	border: 0;
+	padding: 0;
+
+	legend {
+		margin-bottom: @spacing-25;
+		// Reset legend padding.
+		padding: 0;
+		font-weight: @font-weight-bold;
+	}
+}
+```
+
 </template>
 </cdx-demo-wrapper>
+
+### Radio group
+
+Native attributes of the `<input>` element can be used. For example:
+- Add the `checked` attribute to the `<input>` element if it should be selected initially.
+- Add the `disabled` attribute to the `<input>` element if it should be disabled.
+
+Always include one of these two features for accessible grouping:
+1. If using the Radio group in a field, wrap the group in a `<fieldset>` element and add a
+  `<legend>` element with the group label. This method is demonstrated below and requires some
+  style resets on `<fieldset>` and `<legend>`.
+2. If using the Radio group outside of a field, wrap the group in a `<div>` with `role="group"`
+  and `aria-labelledby` set to the ID of the group label. See an example of this
+  [above](#radio-group) (you can just include a `<label>` element instead of using the Label
+  component).
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<fieldset class="cdx-demo-css-radio-group">
+		<legend>
+			CSS-only Radio group demo
+		</legend>
+		<span class="cdx-radio">
+			<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
+			<span class="cdx-radio__icon"></span>
+			<label class="cdx-radio__label" for="radio-group-css-only-1">
+				Radio 1
+			</label>
+		</span>
+		<span class="cdx-radio">
+			<input id="radio-group-css-only-2" class="cdx-radio__input" type="radio" 	name="radio-group-css-only" checked>
+			<span class="cdx-radio__icon"></span>
+			<label class="cdx-radio__label" for="radio-group-css-only-2">
+				Radio 2 (initially selected)
+			</label>
+		</span>
+		<span class="cdx-radio">
+			<input id="radio-group-css-only-3" class="cdx-radio__input" type="radio" name="radio-group-css-only">
+			<span class="cdx-radio__icon"></span>
+			<label class="cdx-radio__label" for="radio-group-css-only-3">
+				Radio 3, which has a very long label that spans onto a second line to
+				demonstrate what happens when text wraps
+			</label>
+		</span>
+		<span class="cdx-radio">
+			<input id="radio-group-css-only-4" class="cdx-radio__input" type="radio" 	name="radio-group-css-only"	disabled>
+			<span class="cdx-radio__icon"></span>
+			<label class="cdx-radio__label" for="radio-group-css-only-4">
+				Radio 4 (disabled)
+			</label>
+		</span>
+	</fieldset>
+</template>
+<template v-slot:code>
+
+```html
+<fieldset class="cdx-demo-css-radio-group">
+	<legend>
+		CSS-only Radio group demo
+	</legend>
+	<span class="cdx-radio">
+		<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
+		<span class="cdx-radio__icon"></span>
+		<label class="cdx-radio__label" for="radio-group-css-only-1">
+			Radio 1
+		</label>
+	</span>
+	<span class="cdx-radio">
+		<input id="radio-group-css-only-2" class="cdx-radio__input" type="radio" 	name="radio-group-css-only" checked>
+		<span class="cdx-radio__icon"></span>
+		<label class="cdx-radio__label" for="radio-group-css-only-2">
+			Radio 2 (initially selected)
+		</label>
+	</span>
+	<span class="cdx-radio">
+		<input id="radio-group-css-only-3" class="cdx-radio__input" type="radio" name="radio-group-css-only">
+		<span class="cdx-radio__icon"></span>
+		<label class="cdx-radio__label" for="radio-group-css-only-3">
+			Radio 3, which has a very long label that spans onto a second line to
+			demonstrate what happens when text wraps
+		</label>
+	</span>
+	<span class="cdx-radio">
+		<input id="radio-group-css-only-4" class="cdx-radio__input" type="radio" 	name="radio-group-css-only"	disabled>
+		<span class="cdx-radio__icon"></span>
+		<label class="cdx-radio__label" for="radio-group-css-only-4">
+			Radio 4 (disabled)
+		</label>
+	</span>
+</fieldset>
+```
+
+```less
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-demo-css-radio-group {
+	// Reset fieldset styles.
+	border: 0;
+	padding: 0;
+
+	legend {
+		margin-bottom: @spacing-25;
+		// Reset legend padding.
+		padding: 0;
+		font-weight: @font-weight-bold;
+	}
+}
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### Inline radios
+
+Add the `cdx-radio--inline` class to the root element to get an inline layout.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<fieldset class="cdx-demo-css-radio-group">
+		<legend>
+			CSS-only inline Radio demo
+		</legend>
+		<span class="cdx-radio cdx-radio--inline">
+			<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
+			<span class="cdx-radio__icon"></span>
+			<label class="cdx-radio__label" for="radio-group-css-only-inline-1">
+				Radio 1
+			</label>
+		</span>
+		<span class="cdx-radio cdx-radio--inline">
+			<input id="radio-group-css-only-inline-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline" checked>
+			<span class="cdx-radio__icon"></span>
+			<label class="cdx-radio__label" for="radio-group-css-only-inline-2">
+				Radio 2
+			</label>
+		</span>
+	</fieldset>
+</template>
+<template v-slot:code>
+
+```html
+<fieldset class="cdx-demo-css-radio-group">
+	<legend>
+		CSS-only inline Radio demo
+	</legend>
+	<span class="cdx-radio cdx-radio--inline">
+		<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
+		<span class="cdx-radio__icon"></span>
+		<label class="cdx-radio__label" for="radio-group-css-only-inline-1">
+			Radio 1
+		</label>
+	</span>
+	<span class="cdx-radio cdx-radio--inline">
+		<input id="radio-group-css-only-inline-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline" checked>
+		<span class="cdx-radio__icon"></span>
+		<label class="cdx-radio__label" for="radio-group-css-only-inline-2">
+			Radio 2
+		</label>
+	</span>
+</fieldset>
+```
+
+```less
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-demo-css-radio-group {
+	// Reset fieldset styles.
+	border: 0;
+	padding: 0;
+
+	legend {
+		margin-bottom: @spacing-25;
+		// Reset legend padding.
+		padding: 0;
+		font-weight: @font-weight-bold;
+	}
+}
+```
+
+</template>
+</cdx-demo-wrapper>
+
+<style lang="less" scoped>
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+:deep( .cdx-demo-css-radio-group ) {
+	// Reset fieldset styles.
+	border: 0;
+	padding: 0;
+
+	legend {
+		margin-bottom: @spacing-25;
+		padding: 0;
+		font-weight: @font-weight-bold;
+	}
+}
+</style>

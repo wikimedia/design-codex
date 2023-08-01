@@ -58,6 +58,13 @@ import useFieldData from '../../composables/useFieldData';
  *
  * ToggleSwitch is similar to Checkbox, but meant for circumstances where the
  * target can be "on" or "off" rather than "checked" or "unchecked."
+ *
+ * For a single switch, the `v-model` value will be a boolean `true` when the
+ * switch is "on" and `false` when "off".
+ *
+ * For multiple switches, the `v-model` value will be an array of the
+ * `inputValue` props of any currently "on" switches (or an empty array if all
+ * switches are "off").
  */
 export default defineComponent( {
 	name: 'CdxToggleSwitch',

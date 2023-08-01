@@ -4,25 +4,31 @@
 			ToggleSwitch group value: {{ toggleSwitchValue }}
 		</p>
 
-		<cdx-toggle-switch
-			v-for="toggleSwitch in toggleSwitches"
-			:key="'switch-' + toggleSwitch.value"
-			v-model="toggleSwitchValue"
-			:input-value="toggleSwitch.value"
-			:align-switch="true"
-		>
-			{{ toggleSwitch.label }}
-		</cdx-toggle-switch>
+		<div role="group" aria-labelledby="cdx-demo-switch-group-label">
+			<cdx-label id="cdx-demo-switch-group-label">
+				ToggleSwitch group demo
+			</cdx-label>
+
+			<cdx-toggle-switch
+				v-for="toggleSwitch in toggleSwitches"
+				:key="'switch-' + toggleSwitch.value"
+				v-model="toggleSwitchValue"
+				:input-value="toggleSwitch.value"
+				:align-switch="true"
+			>
+				{{ toggleSwitch.label }}
+			</cdx-toggle-switch>
+		</div>
 	</div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxToggleSwitch } from '@wikimedia/codex';
+import { CdxToggleSwitch, CdxLabel } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'SwitchGroup',
-	components: { CdxToggleSwitch },
+	components: { CdxToggleSwitch, CdxLabel },
 	setup() {
 		const toggleSwitchValue = ref( [ 'switch-1' ] );
 		const toggleSwitches = [

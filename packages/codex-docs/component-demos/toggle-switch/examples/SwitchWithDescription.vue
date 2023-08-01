@@ -1,5 +1,9 @@
 <template>
-	<cdx-toggle-switch v-model="switchValue">
+	<p class="cdx-docs-demo-text">
+		Toggle switch value: {{ switchValue }}
+	</p>
+
+	<cdx-toggle-switch v-model="switchValue" @update:model-value="onUpdate">
 		Visual editing mode
 		<template #description>
 			Turn on to use the visual editor. You can switch back to source mode at any time.
@@ -17,8 +21,14 @@ export default defineComponent( {
 	setup() {
 		const switchValue = ref( false );
 
+		function onUpdate( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'update:modelValue event emitted with value:', value );
+		}
+
 		return {
-			switchValue
+			switchValue,
+			onUpdate
 		};
 	}
 } );

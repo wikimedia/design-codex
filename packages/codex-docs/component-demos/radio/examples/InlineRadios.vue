@@ -1,5 +1,8 @@
 <template>
-	<div>
+	<cdx-field :is-fieldset="true" :hide-label="true">
+		<template #label>
+			Inline Radio group demo
+		</template>
 		<cdx-radio
 			v-for="radio in radios"
 			:key="'radio-' + radio.value"
@@ -11,16 +14,16 @@
 		>
 			{{ radio.label }}
 		</cdx-radio>
-	</div>
+	</cdx-field>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxRadio } from '@wikimedia/codex';
+import { CdxRadio, CdxField } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'InlineRadios',
-	components: { CdxRadio },
+	components: { CdxRadio, CdxField },
 	setup() {
 		const radioValue = ref( 'radio-2' );
 		const radios = [

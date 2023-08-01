@@ -24,7 +24,7 @@ import CardMaximum from '../component-demos/card/examples/CardMaximum.vue';
 
 // Checkbox
 import CheckboxGroup from '../component-demos/checkbox/examples/CheckboxGroup.vue';
-import SingleCheckbox from '../component-demos/checkbox/examples/SingleCheckbox.vue';
+import CheckboxWithDescription from '../component-demos/checkbox/examples/CheckboxWithDescription.vue';
 import InlineCheckboxes from '../component-demos/checkbox/examples/InlineCheckboxes.vue';
 import IndeterminateState from '../component-demos/checkbox/examples/IndeterminateState.vue';
 
@@ -122,7 +122,7 @@ import MaximumToggleButtonGroup from '../component-demos/toggle-button-group/exa
 import ToggleButtonGroupWithSlot from '../component-demos/toggle-button-group/examples/ToggleButtonGroupWithSlot.vue';
 
 // Toggle switch
-import SingleSwitch from '../component-demos/toggle-switch/examples/SingleSwitch.vue';
+import SwitchWithDescription from '../component-demos/toggle-switch/examples/SwitchWithDescription.vue';
 import SwitchGroup from '../component-demos/toggle-switch/examples/SwitchGroup.vue';
 
 // Typeahead Search
@@ -155,7 +155,7 @@ export {
 	CardMaximum,
 
 	CheckboxGroup,
-	SingleCheckbox,
+	CheckboxWithDescription,
 	InlineCheckboxes,
 	IndeterminateState,
 
@@ -237,7 +237,7 @@ export {
 	MaximumToggleButtonGroup,
 	ToggleButtonGroupWithSlot,
 
-	SingleSwitch,
+	SwitchWithDescription,
 	SwitchGroup,
 
 	TypeaheadSearchInitialValue,

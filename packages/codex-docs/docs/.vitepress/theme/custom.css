@@ -434,7 +434,7 @@ body {
 
 /* Higher specificity to override VitePress internal `.vp-doc p`. */
 .vp-doc .cdx-docs-demo-text {
-	margin: 0 0 var( --spacing-50 );
+	margin: 0 0 var( --spacing-100 );
 	font-weight: var( --font-weight-bold );
 }
 

@@ -1,6 +1,5 @@
 <script setup>
 import CheckboxGroup from '@/../component-demos/checkbox/examples/CheckboxGroup.vue';
-import SingleCheckbox from '@/../component-demos/checkbox/examples/SingleCheckbox.vue';
 import InlineCheckboxes from '@/../component-demos/checkbox/examples/InlineCheckboxes.vue';
 import IndeterminateState from '@/../component-demos/checkbox/examples/IndeterminateState.vue';
 import CheckboxWithDescription from '@/../component-demos/checkbox/examples/CheckboxWithDescription.vue';
@@ -11,23 +10,57 @@ import CheckboxField from '@/../component-demos/checkbox/examples/CheckboxField.
 
 Open up the browser console to see events emitted on input.
 
-### Single checkbox
+### Single checkbox with label and description
+
+Always include label text via the default slot. You can also add description text via the
+`#description` slot.
 
 A single checkbox does not need an `inputValue` prop. `v-model` is bound to a
-boolean value: `true` for on, `false` for off.
+boolean value: `true` for checked, `false` for unchecked.
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-	<single-checkbox />
+	<checkbox-with-description />
 </template>
 
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/checkbox/examples/SingleCheckbox.vue [NPM]
+<<< @/../component-demos/checkbox/examples/CheckboxWithDescription.vue [NPM]
 
-<<< @/../component-demos/checkbox/examples-mw/SingleCheckbox.vue [MediaWiki]
+<<< @/../component-demos/checkbox/examples-mw/CheckboxWithDescription.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+
+### Form field
+
+When used in a form, a single Checkbox or group of Checkboxes can be wrapped in the Field component
+to add features like a semantic label, description and help text, validation messages, and more.
+See the [Field](./field.md) page for more information.
+
+When building a Checkbox field, **always set `isFieldset` to `true`**, even for a single Checkbox,
+to ensure proper accessibility support. This wraps the group in a `<fieldset>` element and labels it
+with an associated `<legend>`.
+
+If using a Checkbox or Checkbox group outside of a form, follow the instructions in the next demo.
+
+<cdx-demo-wrapper :allow-link-styles="true">
+<template v-slot:demo>
+	<checkbox-field />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/checkbox/examples/CheckboxField.vue [NPM]
+
+<<< @/../component-demos/checkbox/examples-mw/CheckboxField.vue [MediaWiki]
 
 :::
 
@@ -36,8 +69,12 @@ boolean value: `true` for on, `false` for off.
 
 ### Checkbox group
 
-For a group of checkboxes, each Checkbox component's `v-model` will be bound to
-an array of the `inputValue` props of the checkboxes that are currently "on".
+For a group of related checkboxes, each Checkbox component's `v-model` will be bound to an array of
+the `inputValue` props of the checkboxes that are currently "on".
+
+This demo shows what to do when using a Checkbox group outside of a form:
+1. Wrap the group in an element with `role="group"`
+2. Connect the group with a label via the `aria-labelledby` attribute
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
@@ -58,6 +95,8 @@ an array of the `inputValue` props of the checkboxes that are currently "on".
 </cdx-demo-wrapper>
 
 ### Inline checkboxes
+
+Use the `inline` prop to get an inline layout.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -112,50 +151,6 @@ a definite value for the checkbox.
 </template>
 </cdx-demo-wrapper>
 
-### Label and description
-
-Always include label text via the default slot. You can also add description text via the
-`#description` slot.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<checkbox-with-description />
-</template>
-
-<template v-slot:code>
-
-<<< @/../component-demos/checkbox/examples/CheckboxWithDescription.vue
-
-</template>
-</cdx-demo-wrapper>
-
-### Form field
-
-A single Checkbox or group of Checkboxes can be wrapped in the Field component to add features
-like a semantic label, description and help text, validation messages, and more. See the
-[Field](./field.md) page for more information.
-
-When building a checkbox field, **always set `isFieldset` to `true`**, even for a single Checkbox,
-to ensure proper accessibility support.
-
-<cdx-demo-wrapper :allow-link-styles="true">
-<template v-slot:demo>
-	<checkbox-field />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/checkbox/examples/CheckboxField.vue [NPM]
-
-<<< @/../component-demos/checkbox/examples-mw/CheckboxField.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
 ## CSS-only version
 
 ### Markup structure
@@ -185,152 +180,6 @@ feature below.
 	<!-- Label with `for` attribute matching the input's id. -->
 	<label class="cdx-checkbox__label" for="checkbox-css-only-1">
 		Checkbox 1
-	</label>
-</span>
-```
-
-</template>
-</cdx-demo-wrapper>
-
-### Checkbox group
-
-Native attributes of the `<input>` element can be used. For example:
-- Add the `checked` attribute to the `<input>` element if it should be selected initially.
-- Add the `indeterminate` attribute to the `<input>` element if it should appear to be in an
-  indeterminate state.
-- Add the `disabled` attribute to the `<input>` element if it should be disabled.
-
-<cdx-demo-wrapper :force-reset="true">
-<template v-slot:demo>
-	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-css-only-1">
-			Checkbox 1
-		</label>
-	</span>
-	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-css-only-2">
-			Checkbox 2 (initially selected)
-		</label>
-	</span>
-	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-3" class="cdx-checkbox__input" type="checkbox">
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-css-only-3">
-			Checkbox 3, which has a very long label that spans onto a second line to demonstrate what happens when text wraps
-		</label>
-	</span>
-	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" indeterminate>
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-css-only-4">
-			Checkbox 4 (initially indeterminate)
-		</label>
-	</span>
-	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" disabled>
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-css-only-5">
-			Checkbox 5 (disabled)
-		</label>
-	</span>
-	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-6" class="cdx-checkbox__input" type="checkbox" checked disabled>
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-css-only-6">
-			Checkbox 6 (initially selected, disabled)
-		</label>
-	</span>
-</template>
-<template v-slot:code>
-
-```html
-<span class="cdx-checkbox">
-	<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
-	<span class="cdx-checkbox__icon"></span>
-	<label class="cdx-checkbox__label" for="checkbox-group-css-only-1">
-		Checkbox 1
-	</label>
-</span>
-<span class="cdx-checkbox">
-	<input id="checkbox-group-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
-	<span class="cdx-checkbox__icon"></span>
-	<label class="cdx-checkbox__label" for="checkbox-group-css-only-2">
-		Checkbox 2 (initially selected)
-	</label>
-</span>
-<span class="cdx-checkbox">
-	<input id="checkbox-group-css-only-3" class="cdx-checkbox__input" type="checkbox">
-	<span class="cdx-checkbox__icon"></span>
-	<label class="cdx-checkbox__label" for="checkbox-group-css-only-3">
-		Checkbox 3, which has a very long label that spans onto a second line to demonstrate what happens when text wraps
-	</label>
-</span>
-<span class="cdx-checkbox">
-	<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" indeterminate>
-	<span class="cdx-checkbox__icon"></span>
-	<label class="cdx-checkbox__label" for="checkbox-group-css-only-4">
-		Checkbox 4 (initially indeterminate)
-	</label>
-</span>
-<span class="cdx-checkbox">
-	<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" disabled>
-	<span class="cdx-checkbox__icon"></span>
-	<label class="cdx-checkbox__label" for="checkbox-group-css-only-5">
-		Checkbox 5 (disabled)
-	</label>
-</span>
-<span class="cdx-checkbox">
-	<input id="checkbox-group-css-only-6" class="cdx-checkbox__input" type="checkbox" checked disabled>
-	<span class="cdx-checkbox__icon"></span>
-	<label class="cdx-checkbox__label" for="checkbox-group-css-only-6">
-		Checkbox 6 (initially selected, disabled)
-	</label>
-</span>
-```
-
-</template>
-</cdx-demo-wrapper>
-
-### Inline checkboxes
-
-Add the `cdx-checkbox--inline` class to the root element to get an inline layout.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<span class="cdx-checkbox cdx-checkbox--inline">
-		<input id="checkbox-group-inline-css-only-1" class="cdx-checkbox__input" type="checkbox">
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-inline-css-only-1">
-			Checkbox 1
-		</label>
-	</span>
-	<span class="cdx-checkbox cdx-checkbox--inline">
-		<input id="checkbox-group-inline-css-only-2" class="cdx-checkbox__input" type="checkbox">
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-inline-css-only-2">
-			Checkbox 2
-		</label>
-	</span>
-</template>
-<template v-slot:code>
-
-```html
-<span class="cdx-checkbox cdx-checkbox--inline">
-	<input id="checkbox-group-inline-css-only-1" class="cdx-checkbox__input" type="checkbox">
-	<span class="cdx-checkbox__icon"></span>
-	<label class="cdx-checkbox__label" for="checkbox-group-inline-css-only-1">
-		Checkbox 1
-	</label>
-</span>
-<span class="cdx-checkbox cdx-checkbox--inline">
-	<input id="checkbox-group-inline-css-only-2" class="cdx-checkbox__input" type="checkbox">
-	<span class="cdx-checkbox__icon"></span>
-	<label class="cdx-checkbox__label" for="checkbox-group-inline-css-only-2">
-		Checkbox 2
 	</label>
 </span>
 ```
@@ -382,3 +231,201 @@ To add a description below the label:
 
 </template>
 </cdx-demo-wrapper>
+
+### Checkbox group
+
+Native attributes of the `<input>` element can be used. For example:
+- Add the `checked` attribute to the `<input>` element if it should be selected initially.
+- Add the `indeterminate` attribute to the `<input>` element if it should appear to be in an
+  indeterminate state.
+- Add the `disabled` attribute to the `<input>` element if it should be disabled.
+
+Always include one of these two features for accessible grouping:
+1. If using the Checkbox group in a field, wrap the group in a `<fieldset>` element and add a
+  `<legend>` element with the group label. This method is demonstrated below and requires some
+  style resets on `<fieldset>` and `<legend>`.
+2. If using the Checkbox group outside of a field, wrap the group in a `<div>` with `role="group"`
+  and `aria-labelledby` set to the ID of the group label. See an example of this
+  [above](#checkbox-group) (you can just include a `<label>` element instead of using the Label
+  component).
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<fieldset class="cdx-demo-css-checkbox-group">
+		<legend>
+			CSS-only Checkbox group demo
+		</legend>
+		<span class="cdx-checkbox">
+			<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
+			<span class="cdx-checkbox__icon"></span>
+			<label class="cdx-checkbox__label" for="checkbox-group-css-only-1">
+				Checkbox 1
+			</label>
+		</span>
+		<span class="cdx-checkbox">
+			<input id="checkbox-group-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
+			<span class="cdx-checkbox__icon"></span>
+			<label class="cdx-checkbox__label" for="checkbox-group-css-only-2">
+				Checkbox 2 (initially selected)
+			</label>
+		</span>
+		<span class="cdx-checkbox">
+			<input id="checkbox-group-css-only-3" class="cdx-checkbox__input" type="checkbox">
+			<span class="cdx-checkbox__icon"></span>
+			<label class="cdx-checkbox__label" for="checkbox-group-css-only-3">
+				Checkbox 3, which has a very long label that spans onto a second line to demonstrate what happens when text wraps
+			</label>
+		</span>
+		<span class="cdx-checkbox">
+			<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" indeterminate>
+			<span class="cdx-checkbox__icon"></span>
+			<label class="cdx-checkbox__label" for="checkbox-group-css-only-4">
+				Checkbox 4 (initially indeterminate)
+			</label>
+		</span>
+		<span class="cdx-checkbox">
+			<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" disabled>
+			<span class="cdx-checkbox__icon"></span>
+			<label class="cdx-checkbox__label" for="checkbox-group-css-only-5">
+				Checkbox 5 (disabled)
+			</label>
+		</span>
+		<span class="cdx-checkbox">
+			<input id="checkbox-group-css-only-6" class="cdx-checkbox__input" type="checkbox" checked disabled>
+			<span class="cdx-checkbox__icon"></span>
+			<label class="cdx-checkbox__label" for="checkbox-group-css-only-6">
+				Checkbox 6 (initially selected, disabled)
+			</label>
+		</span>
+	</fieldset>
+</template>
+<template v-slot:code>
+
+```html
+<fieldset class="cdx-demo-css-checkbox-group">
+	<legend>
+		CSS-only Checkbox group demo
+	</legend>
+	<span class="cdx-checkbox">
+		<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
+		<span class="cdx-checkbox__icon"></span>
+		<label class="cdx-checkbox__label" for="checkbox-group-css-only-1">
+			Checkbox 1
+		</label>
+	</span>
+	<span class="cdx-checkbox">
+		<input id="checkbox-group-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
+		<span class="cdx-checkbox__icon"></span>
+		<label class="cdx-checkbox__label" for="checkbox-group-css-only-2">
+			Checkbox 2 (initially selected)
+		</label>
+	</span>
+	<span class="cdx-checkbox">
+		<input id="checkbox-group-css-only-3" class="cdx-checkbox__input" type="checkbox">
+		<span class="cdx-checkbox__icon"></span>
+		<label class="cdx-checkbox__label" for="checkbox-group-css-only-3">
+			Checkbox 3, which has a very long label that spans onto a second line to demonstrate what happens when text wraps
+		</label>
+	</span>
+	<span class="cdx-checkbox">
+		<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" indeterminate>
+		<span class="cdx-checkbox__icon"></span>
+		<label class="cdx-checkbox__label" for="checkbox-group-css-only-4">
+			Checkbox 4 (initially indeterminate)
+		</label>
+	</span>
+	<span class="cdx-checkbox">
+		<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" disabled>
+		<span class="cdx-checkbox__icon"></span>
+		<label class="cdx-checkbox__label" for="checkbox-group-css-only-5">
+			Checkbox 5 (disabled)
+		</label>
+	</span>
+	<span class="cdx-checkbox">
+		<input id="checkbox-group-css-only-6" class="cdx-checkbox__input" type="checkbox" checked disabled>
+		<span class="cdx-checkbox__icon"></span>
+		<label class="cdx-checkbox__label" for="checkbox-group-css-only-6">
+			Checkbox 6 (initially selected, disabled)
+		</label>
+	</span>
+</fieldset>
+```
+
+```less
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-demo-css-checkbox-group {
+	// Reset fieldset styles.
+	border: 0;
+	padding: 0;
+
+	legend {
+		margin-bottom: @spacing-25;
+		// Reset legend padding.
+		padding: 0;
+		font-weight: @font-weight-bold;
+	}
+}
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### Inline checkboxes
+
+Add the `cdx-checkbox--inline` class to the root element to get an inline layout.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<span class="cdx-checkbox cdx-checkbox--inline">
+		<input id="checkbox-group-inline-css-only-1" class="cdx-checkbox__input" type="checkbox">
+		<span class="cdx-checkbox__icon"></span>
+		<label class="cdx-checkbox__label" for="checkbox-group-inline-css-only-1">
+			Checkbox 1
+		</label>
+	</span>
+	<span class="cdx-checkbox cdx-checkbox--inline">
+		<input id="checkbox-group-inline-css-only-2" class="cdx-checkbox__input" type="checkbox">
+		<span class="cdx-checkbox__icon"></span>
+		<label class="cdx-checkbox__label" for="checkbox-group-inline-css-only-2">
+			Checkbox 2
+		</label>
+	</span>
+</template>
+<template v-slot:code>
+
+```html
+<span class="cdx-checkbox cdx-checkbox--inline">
+	<input id="checkbox-group-inline-css-only-1" class="cdx-checkbox__input" type="checkbox">
+	<span class="cdx-checkbox__icon"></span>
+	<label class="cdx-checkbox__label" for="checkbox-group-inline-css-only-1">
+		Checkbox 1
+	</label>
+</span>
+<span class="cdx-checkbox cdx-checkbox--inline">
+	<input id="checkbox-group-inline-css-only-2" class="cdx-checkbox__input" type="checkbox">
+	<span class="cdx-checkbox__icon"></span>
+	<label class="cdx-checkbox__label" for="checkbox-group-inline-css-only-2">
+		Checkbox 2
+	</label>
+</span>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+<style lang="less" scoped>
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+:deep( .cdx-demo-css-checkbox-group ) {
+	// Reset fieldset styles.
+	border: 0;
+	padding: 0;
+
+	legend {
+		margin-bottom: @spacing-25;
+		padding: 0;
+		font-weight: @font-weight-bold;
+	}
+}
+</style>
