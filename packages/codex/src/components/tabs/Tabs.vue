@@ -590,9 +590,13 @@ export default defineComponent( {
 		}
 
 		&__item {
+			// Override browser <button> styles for background
+			background-color: @background-color-transparent;
 			display: block;
 			flex: 0 0 auto;
 			max-width: @size-1600;
+			// Override browser <button> styles for border
+			border-width: 0;
 			border-top-left-radius: @border-radius-base;
 			border-top-right-radius: @border-radius-base;
 			padding: @spacing-25 @spacing-75;
