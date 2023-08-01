@@ -1,3 +1,37 @@
+# 0.16.0 / 2023-08-01
+
+## Breaking
+- Tabs: Align markup closer to APG example (Eric Gardner)
+  - This changes the HTML markup for the CSS-only version of the Tabs component uses.
+    Users of the CSS-only Tabs component must update the HTML they output to the
+    new version to continue to get the correct styling.
+
+## Features
+- ToggleSwitch: Fix label hover behavior (Anne Tomasevich)
+- Label, Field: Do not render description unless it exists (Anne Tomasevich)
+- Checkbox, Radio, ToggleSwitch: Warn when input is not labelled (Anne Tomasevich)
+- Message: Don't allow error messages to be auto-dismissed (Roan Kattouw)
+
+## Styles
+- tokens: Slightly darken color-red600 to improve contrast (Roan Kattouw)
+- tokens: Use the color-link-red tokens for red links (Roan Kattouw)
+- tokens: Consistently use -error tokens for error state (Roan Kattouw)
+
+## Code
+- build: Also check .mjs files with TypeScript (Roan Kattouw)
+- Checkbox, Radio, ToggleSwitch: Use Label internally (Anne Tomasevich)
+- Label: Make <legend> the root element (Anne Tomasevich)
+- ToggleSwitch: Use role="switch" (Anne Tomasevich)
+- Icon: Remove click handler (Anne Tomasevich)
+- Combobox, Lookup, Select, TypeaheadSearch: Clean up ARIA attributes (Roan Kattouw)
+- code: Add component name to warnings (Anne Tomasevich)
+
+## Documentation
+- docs: Limit code examples to plain JS (no TypeScript) and ES6 (Roan Kattouw)
+- docs: Remove margin and border-radius above code groups (Anne Tomasevich)
+- docs, build: Generate MediaWiki-targeted versions of every code example (Roan Kattouw)
+- docs, Radio: Don't use the same name attribute for multiple demos (Roan Kattouw)
+
 # 0.15.0 / 2023-07-18
 
 ## Features
