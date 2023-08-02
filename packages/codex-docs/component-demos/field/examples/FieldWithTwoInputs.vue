@@ -13,11 +13,9 @@
 
 		<div class="cdx-demo-complex-field__inputs">
 			<!-- You can include a visually-hidden label via the Label component... -->
-			<cdx-label
-				label="Coordinates"
-				:hide-label="true"
-				input-id="coordinates-value"
-			/>
+			<cdx-label :visually-hidden="true" input-id="coordinates-value">
+				Coordinates
+			</cdx-label>
 			<cdx-text-input
 				id="coordinates-value"
 				v-model="coordinatesValue"
