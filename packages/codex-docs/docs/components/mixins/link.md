@@ -23,11 +23,13 @@ will get errors that look like `variable @color-progressive is undefined`.
 
 ## Demos
 
+Click on a link to see visited link styles.
+
 ### Standard link
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
-<p>Lorem ipsum <a class="cdx-docs-link" href="https://example.com">dolor sic</a> amet.</p>
+	<p>The cat (Felis catus) is a <a class="cdx-docs-link" href="https://en.wikipedia.org/wiki/Species">domestic species</a> of small <a class="cdx-docs-link" href="https://en.wikipedia.org/wiki/Carnivore">carnivorous mammal</a>.</p>
 </template>
 
 <template v-slot:code>
@@ -36,7 +38,10 @@ will get errors that look like `variable @color-progressive is undefined`.
 
 ```vue [NPM]
 <template>
-	<p>Lorem ipsum <a class="cdx-docs-link" href="https://example.com">dolor sic</a> amet.</p>
+	<p>
+		The cat (Felis catus) is a <a class="cdx-docs-link" href="https://en.wikipedia.org/wiki/Species">domestic species</a>
+		of small <a class="cdx-docs-link" href="https://en.wikipedia.org/wiki/Carnivore">carnivorous mammal</a>.
+	</p>
 </template>
 
 <style lang="less">
@@ -52,7 +57,10 @@ will get errors that look like `variable @color-progressive is undefined`.
 
 ```vue [MediaWiki]
 <template>
-	<p>Lorem ipsum <a class="cdx-docs-link" href="https://example.com">dolor sic</a> amet.</p>
+	<p>
+		The cat (Felis catus) is a <a class="cdx-docs-link" href="https://en.wikipedia.org/wiki/Species">domestic species</a>
+		of small <a class="cdx-docs-link" href="https://en.wikipedia.org/wiki/Carnivore">carnivorous mammal</a>.
+	</p>
 </template>
 
 <style lang="less">
@@ -73,7 +81,7 @@ will get errors that look like `variable @color-progressive is undefined`.
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
-<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic</a> amet.</p>
+	<p>As a <a class="cdx-docs-link is-underlined" href="https://en.wikipedia.org/wiki/Predation">predator</a>, it is <a class="cdx-docs-link is-underlined" href="https://en.wikipedia.org/wiki/Crepuscular_animal">crepuscular</a>, i.e. most active at dawn and dusk.</p>
 </template>
 
 <template v-slot:code>
@@ -82,7 +90,11 @@ will get errors that look like `variable @color-progressive is undefined`.
 
 ```vue [NPM]
 <template>
-	<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic</a> amet.</p>
+	<p>
+		As a <a class="cdx-docs-link is-underlined" href="https://en.wikipedia.org/wiki/Predation">predator</a>,
+		it is <a class="cdx-docs-link is-underlined" href="https://en.wikipedia.org/wiki/Crepuscular_animal">crepuscular</a>,
+		i.e. most active at dawn and dusk.
+	</p>
 </template>
 
 <style lang="less">
@@ -98,7 +110,11 @@ will get errors that look like `variable @color-progressive is undefined`.
 
 ```vue [MediaWiki]
 <template>
-	<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic</a> amet.</p>
+	<p>
+		As a <a class="cdx-docs-link is-underlined" href="https://en.wikipedia.org/wiki/Predation">predator</a>,
+		it is <a class="cdx-docs-link is-underlined" href="https://en.wikipedia.org/wiki/Crepuscular_animal">crepuscular</a>,
+		i.e. most active at dawn and dusk.
+	</p>
 </template>
 
 <style lang="less">
@@ -119,7 +135,7 @@ will get errors that look like `variable @color-progressive is undefined`.
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
-<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic<cdx-icon :icon="cdxIconLinkExternal" /></a> amet.</p>
+	<p>According to <a class="cdx-docs-link is-underlined" href="https://archive.org/details/completebookofca00behr/page/28/mode/2up">"Living with a Cat"<cdx-icon :icon="cdxIconLinkExternal" /></a>, cats are ready to go to new homes at about 12 weeks of age.</p>
 </template>
 
 <template v-slot:code>
@@ -129,12 +145,11 @@ will get errors that look like `variable @color-progressive is undefined`.
 ```vue [NPM]
 <template>
 	<p>
-		Lorem ipsum
-		<a class="cdx-docs-link is-underlined" href="#">
-			dolor sic
-			<cdx-icon :icon="cdxIconLinkExternal" />
-		</a>
-		amet.
+		According to
+		<a class="cdx-docs-link is-underlined" href="https://archive.org/details/completebookofca00behr/page/28/mode/2up">
+			"Living with a Cat" <cdx-icon :icon="cdxIconLinkExternal" />
+		</a>,
+		cats are ready to go to new homes at about 12 weeks of age.
 	</p>
 </template>
 
@@ -172,12 +187,11 @@ export default {
 ```vue [MediaWiki]
 <template>
 	<p>
-		Lorem ipsum
-		<a class="cdx-docs-link is-underlined" href="#">
-			dolor sic
-			<cdx-icon :icon="cdxIconLinkExternal"></cdx-icon>
-		</a>
-		amet.
+		According to
+		<a class="cdx-docs-link is-underlined" href="https://archive.org/details/completebookofca00behr/page/28/mode/2up">
+			"Living with a Cat" <cdx-icon :icon="cdxIconLinkExternal"></cdx-icon>
+		</a>,
+		cats are ready to go to new homes at about 12 weeks of age.
 	</p>
 </template>
 
@@ -220,7 +234,7 @@ module.exports = {
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
-<p>Lorem ipsum <a class="cdx-docs-link is-red-link" href="#">dolor sic</a> amet.</p>
+	<p>Websites for cat lovers include <a class="cdx-docs-link is-red-link" href="https://en.wikipedia.org/w/index.php?title=The_Catnip_Times">The Catnip Times</a> and <a class="cdx-docs-link is-red-link" href="https://en.wikipedia.org/w/index.php?title=Vanggy">Vanggy</a>.</p>
 </template>
 
 <template v-slot:code>
@@ -229,7 +243,10 @@ module.exports = {
 
 ```vue [NPM]
 <template>
-	<p>Lorem ipsum <a class="cdx-docs-link is-red-link" href="#">dolor sic</a> amet.</p>
+	<p>
+		Websites for cat lovers include <a class="cdx-docs-link is-red-link" href="https://en.wikipedia.org/w/index.php?title=The_Catnip_Times">The Catnip Times</a>
+		and <a class="cdx-docs-link is-red-link" href="https://en.wikipedia.org/w/index.php?title=Vanggy">Vanggy</a>.
+	</p>
 </template>
 
 <style lang="less">
@@ -245,7 +262,10 @@ module.exports = {
 
 ```vue [MediaWiki]
 <template>
-	<p>Lorem ipsum <a class="cdx-docs-link is-red-link" href="#">dolor sic</a> amet.</p>
+	<p>
+		Websites for cat lovers include <a class="cdx-docs-link is-red-link" href="https://en.wikipedia.org/w/index.php?title=The_Catnip_Times">The Catnip Times</a>
+		and <a class="cdx-docs-link is-red-link" href="https://en.wikipedia.org/w/index.php?title=Vanggy">Vanggy</a>.
+	</p>
 </template>
 
 <style lang="less">
@@ -272,9 +292,9 @@ class or to all anchor elements. This will automatically apply underline styles 
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
-<p>Lorem ipsum <a class="cdx-docs-link" href="#">dolor sic</a> amet.</p>
-<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic</a> amet.</p>
-<p>Lorem ipsum <a class="cdx-docs-link is-red-link" href="#">dolor sic</a> amet.</p>
+	<p>In <a class="cdx-docs-link" href="#">ancient Egypt</a>, cats were worshipped.</p>
+	<p>In <a class="cdx-docs-link is-underlined" href="#">ancient Egypt</a>, cats were worshipped.</p>
+	<p>In <a class="cdx-docs-link is-red-link" href="#">ancient Egypt</a>, cats were worshipped.</p>
 </template>
 
 <template v-slot:code>
@@ -283,9 +303,9 @@ class or to all anchor elements. This will automatically apply underline styles 
 
 ```vue [NPM]
 <template>
-	<p>Lorem ipsum <a class="cdx-docs-link" href="#">dolor sic</a> amet.</p>
-	<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic</a> amet.</p>
-	<p>Lorem ipsum <a class="cdx-docs-link is-red-link" href="#">dolor sic</a> amet.</p>
+	<p>In <a class="cdx-docs-link" href="#">ancient Egypt</a>, cats were worshipped.</p>
+	<p>In <a class="cdx-docs-link is-underlined" href="#">ancient Egypt</a>, cats were worshipped.</p>
+	<p>In <a class="cdx-docs-link is-red-link" href="#">ancient Egypt</a>, cats were worshipped.</p>
 </template>
 
 <style lang="less">
@@ -301,9 +321,9 @@ class or to all anchor elements. This will automatically apply underline styles 
 
 ```vue [MediaWiki]
 <template>
-	<p>Lorem ipsum <a class="cdx-docs-link" href="#">dolor sic</a> amet.</p>
-	<p>Lorem ipsum <a class="cdx-docs-link is-underlined" href="#">dolor sic</a> amet.</p>
-	<p>Lorem ipsum <a class="cdx-docs-link is-red-link" href="#">dolor sic</a> amet.</p>
+	<p>In <a class="cdx-docs-link" href="#">ancient Egypt</a>, cats were worshipped.</p>
+	<p>In <a class="cdx-docs-link is-underlined" href="#">ancient Egypt</a>, cats were worshipped.</p>
+	<p>In <a class="cdx-docs-link is-red-link" href="#">ancient Egypt</a>, cats were worshipped.</p>
 </template>
 
 <style lang="less">
@@ -329,11 +349,11 @@ Alternately, you can apply sub-mixins directly to your own CSS selectors. The su
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
-<div class="cdx-docs-link-wrapper">
-<p>Lorem ipsum <a href="#">dolor sic</a> amet.</p>
-<p>Lorem ipsum <a class="cdx-docs-link-with-underline" href="#">dolor sic</a> amet.</p>
-<p>Lorem ipsum <a class="cdx-docs-red-link" href="#">dolor sic</a> amet.</p>
-</div>
+	<div class="cdx-docs-link-wrapper">
+		<p>The domestic cat is a <a href="https://en.wikipedia.org/wiki/Cosmopolitan_distribution">cosmopolitan species</a>.</p>
+		<p>The domestic cat is a <a class="cdx-docs-link-with-underline" href="https://en.wikipedia.org/wiki/Cosmopolitan_distribution">cosmopolitan species</a>.</p>
+		<p>The domestic cat is a <a class="cdx-docs-red-link" href="https://en.wikipedia.org/wiki/Cosmopolitan_distribution">cosmopolitan species</a>.</p>
+	</div>
 </template>
 
 <template v-slot:code>
@@ -343,9 +363,9 @@ Alternately, you can apply sub-mixins directly to your own CSS selectors. The su
 ```vue [NPM]
 <template>
 	<div class="cdx-docs-link-wrapper">
-		<p>Lorem ipsum <a href="#">dolor sic</a> amet.</p>
-		<p>Lorem ipsum <a class="cdx-docs-link-with-underline" href="#">dolor sic</a> amet.</p>
-		<p>Lorem ipsum <a class="cdx-docs-red-link" href="#">dolor sic</a> amet.</p>
+		<p>The domestic cat is a <a href="https://en.wikipedia.org/wiki/Cosmopolitan_distribution">cosmopolitan species</a>.</p>
+		<p>The domestic cat is a <a class="cdx-docs-link-with-underline" href="https://en.wikipedia.org/wiki/Cosmopolitan_distribution">cosmopolitan species</a>.</p>
+		<p>The domestic cat is a <a class="cdx-docs-red-link" href="https://en.wikipedia.org/wiki/Cosmopolitan_distribution">cosmopolitan species</a>.</p>
 	</div>
 </template>
 
@@ -373,9 +393,9 @@ Alternately, you can apply sub-mixins directly to your own CSS selectors. The su
 ```vue [MediaWiki]
 <template>
 	<div class="cdx-docs-link-wrapper">
-		<p>Lorem ipsum <a href="#">dolor sic</a> amet.</p>
-		<p>Lorem ipsum <a class="cdx-docs-link-with-underline" href="#">dolor sic</a> amet.</p>
-		<p>Lorem ipsum <a class="cdx-docs-red-link" href="#">dolor sic</a> amet.</p>
+		<p>The domestic cat is a <a href="https://en.wikipedia.org/wiki/Cosmopolitan_distribution">cosmopolitan species</a>.</p>
+		<p>The domestic cat is a <a class="cdx-docs-link-with-underline" href="https://en.wikipedia.org/wiki/Cosmopolitan_distribution">cosmopolitan species</a>.</p>
+		<p>The domestic cat is a <a class="cdx-docs-red-link" href="https://en.wikipedia.org/wiki/Cosmopolitan_distribution">cosmopolitan species</a>.</p>
 	</div>
 </template>
 
