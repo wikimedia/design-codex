@@ -1,8 +1,7 @@
 <template>
-	<cdx-menu-item
-		v-bind="menuItem"
-		:show-thumbnail="true"
-	/>
+	<ul role="listbox">
+		<cdx-menu-item v-bind="menuItem" :show-thumbnail="true" />
+	</ul>
 </template>
 
 <script>

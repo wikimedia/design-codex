@@ -1,9 +1,9 @@
 <template>
 	<section id="cdx-menu-item">
 		<h2>Menu Item</h2>
-		<cdx-menu-item
-			v-bind="menuItem"
-		/>
+		<ul role="listbox">
+			<cdx-menu-item v-bind="menuItem" />
+		</ul>
 	</section>
 </template>
 

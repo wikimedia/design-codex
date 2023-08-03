@@ -1,9 +1,11 @@
 <template>
-	<cdx-menu-item
-		v-bind="menuItem"
-		search-query="Co"
-		:highlight-query="true"
-	/>
+	<ul role="listbox">
+		<cdx-menu-item
+			v-bind="menuItem"
+			search-query="Co"
+			:highlight-query="true"
+		/>
+	</ul>
 </template>
 
 <script>

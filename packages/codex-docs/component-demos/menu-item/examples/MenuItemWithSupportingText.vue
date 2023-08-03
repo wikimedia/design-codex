@@ -1,8 +1,7 @@
 <template>
-	<cdx-menu-item
-		v-bind="menuItem"
-		search-query="corn"
-	/>
+	<ul role="listbox">
+		<cdx-menu-item v-bind="menuItem" search-query="corn" />
+	</ul>
 </template>
 
 <script>

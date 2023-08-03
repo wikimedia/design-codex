@@ -89,7 +89,9 @@ to set these states should be used.
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues }">
-<cdx-menu-item v-bind="propValues" id="cdx-demo-menu-item-configurable" value=""></cdx-menu-item>
+	<ul role="listbox">
+		<cdx-menu-item v-bind="propValues" id="cdx-demo-menu-item-configurable" value=""></cdx-menu-item>
+	</ul>
 </template>
 </cdx-demo-wrapper>
 
@@ -375,6 +377,11 @@ The example below demonstrates a search result in a Greek interface for the Engl
 .cdx-demo-wrapper :deep( .cdx-demo-wrapper__demo-pane .cdx-menu ) {
 	position: static;
 	box-shadow: none;
+}
+
+.cdx-demo-wrapper :deep( ul ) {
+	margin: 0;
+	padding: 0;
 }
 
 // Disable manual hover/select/etc. for the configurable demo

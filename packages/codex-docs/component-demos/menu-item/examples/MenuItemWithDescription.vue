@@ -1,8 +1,7 @@
 <template>
-	<cdx-menu-item
-		v-bind="menuItem"
-		:bold-label="true"
-	/>
+	<ul role="listbox">
+		<cdx-menu-item v-bind="menuItem" :bold-label="true" />
+	</ul>
 </template>
 
 <script>

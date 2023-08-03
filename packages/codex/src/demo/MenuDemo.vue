@@ -5,6 +5,7 @@
 			<cdx-text-input
 				v-model="selectedValue"
 				class="cdx-docs-input-with-menu__input"
+				role="combobox"
 				:aria-expanded="expanded"
 				@click="onClick"
 				@blur="expanded = false"

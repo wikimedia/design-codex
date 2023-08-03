@@ -1,10 +1,12 @@
 <template>
-	<cdx-menu-item
-		v-bind="menuItem"
-		search-query="Donaudampfschiffahrtselektrizit"
-		:highlight-query="true"
-		:hide-description-overflow="true"
-	/>
+	<ul role="listbox">
+		<cdx-menu-item
+			v-bind="menuItem"
+			search-query="Donaudampfschiffahrtselektrizit"
+			:highlight-query="true"
+			:hide-description-overflow="true"
+		/>
+	</ul>
 </template>
 
 <script>
