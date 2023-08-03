@@ -110,7 +110,6 @@ import ThumbnailDefault from '../component-demos/thumbnail/examples/ThumbnailDef
 import ThumbnailCustomIcon from '../component-demos/thumbnail/examples/ThumbnailCustomIcon.vue';
 
 // Toggle button
-import ToggleIconButton from '../component-demos/toggle-button/examples/IconButton.vue';
 import ToggleIconOnlyButton from '../component-demos/toggle-button/examples/IconOnlyButton.vue';
 import ToggleSingleButton from '../component-demos/toggle-button/examples/SingleButton.vue';
 
@@ -228,7 +227,6 @@ export {
 	ThumbnailCustomIcon,
 	ThumbnailDefault,
 
-	ToggleIconButton,
 	ToggleIconOnlyButton,
 	ToggleSingleButton,
 

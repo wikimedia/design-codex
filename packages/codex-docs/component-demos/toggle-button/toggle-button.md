@@ -1,6 +1,5 @@
 <script setup>
 import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
-import IconButton from '@/../component-demos/toggle-button/examples/IconButton.vue';
 import IconOnlyButton from '@/../component-demos/toggle-button/examples/IconOnlyButton.vue';
 import SingleButton from '@/../component-demos/toggle-button/examples/SingleButton.vue';
 
@@ -35,11 +34,15 @@ const controlsConfig = [
 
 ### Default
 
-Toggle the ToggleButton to see the value change. Open up the console to see emitted events.
+Press the ToggleButton to see the value change. Open up the console to see emitted events.
+
+ToggleButtons should always have a static label. This helps indicate to the user (including users
+of assistive technology) what it means for the button to be on or off. If you want a button with a
+label that changes when it is pressed, use the Button component instead.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<single-button />
+	<single-button />
 </template>
 
 <template v-slot:code>
@@ -55,34 +58,14 @@ Toggle the ToggleButton to see the value change. Open up the console to see emit
 </template>
 </cdx-demo-wrapper>
 
-### Stateful
+### Icon only
 
-Example usage as a pause/play button, changing the icon and text when toggled.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-<icon-button />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/toggle-button/examples/IconButton.vue [NPM]
-
-<<< @/../component-demos/toggle-button/examples-mw/IconButton.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### Stateful (icon-only)
-Example usage as an icon-only pause/play button, changing the icon when toggled.
+When the ToggleButton includes only an icon and no text,  add an `aria-label` to the ToggleButton 
+to ensure the button is understandable to those using assistive technology.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<icon-only-button />
+	<icon-only-button />
 </template>
 
 <template v-slot:code>

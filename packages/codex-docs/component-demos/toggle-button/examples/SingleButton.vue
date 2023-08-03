@@ -7,18 +7,20 @@
 			v-model="buttonValue"
 			@update:model-value="onUpdate"
 		>
-			Button label
+			<cdx-icon :icon="cdxIconPlay" />
+			Play
 		</cdx-toggle-button>
 	</div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxToggleButton } from '@wikimedia/codex';
+import { CdxToggleButton, CdxIcon } from '@wikimedia/codex';
+import { cdxIconPlay } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'SingleButton',
-	components: { CdxToggleButton },
+	components: { CdxToggleButton, CdxIcon },
 	setup() {
 		const buttonValue = ref( false );
 
@@ -29,7 +31,8 @@ export default defineComponent( {
 
 		return {
 			buttonValue,
-			onUpdate
+			onUpdate,
+			cdxIconPlay
 		};
 	}
 } );

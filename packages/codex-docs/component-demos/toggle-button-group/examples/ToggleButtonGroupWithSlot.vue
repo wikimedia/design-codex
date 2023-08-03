@@ -3,10 +3,10 @@
 		v-model="selectedValue"
 		:buttons="buttons"
 	>
-		<template #default="{ button, selected }">
+		<template #default="{ button }">
 			{{ button.label }}
-			<span v-if="selected">
-				({{ button.value }})
+			<span>
+				(value: {{ button.value }})
 			</span>
 		</template>
 	</cdx-toggle-button-group>
