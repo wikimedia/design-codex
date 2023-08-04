@@ -160,6 +160,10 @@
 		}
 	},
 	"min-size": {
+		"base": {
+			"deprecated": "Use `min-size-interactive-pointer`/`min-size-interactive-touch` instead.",
+			"value": "{ min-size.interactive-pointer }"
+		},
 		"icon": {
 			"deprecated": true,
 			"value": "{ min-size.icon-medium }"
