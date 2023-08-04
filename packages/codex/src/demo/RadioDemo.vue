@@ -6,7 +6,7 @@
 			:key="option.value"
 			v-model="selection"
 			:input-value="option.value"
-		>
+			name="fruit">
 			{{ option.label }}
 		</cdx-radio>
 		<p>Selected value: {{ selection || '(none)' }}</p>

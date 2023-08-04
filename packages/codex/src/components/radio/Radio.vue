@@ -75,12 +75,10 @@ export default defineComponent( {
 		},
 		/**
 		 * HTML "name" attribute to assign to the input.
-		 *
-		 * Required for input groups
 		 */
 		name: {
 			type: String,
-			default: ''
+			required: true
 		},
 		/**
 		 * Whether the disabled attribute should be added to the input.
