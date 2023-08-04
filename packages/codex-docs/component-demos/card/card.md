@@ -316,7 +316,9 @@ can use to add a [CSS-only icon](./icon.md#css-only-version).
 </span>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -325,6 +327,16 @@ can use to add a [CSS-only icon](./icon.md#css-only-version).
 	.cdx-mixin-css-icon( @cdx-icon-robot );
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon--robot {
+	.cdx-mixin-css-icon( @cdx-icon-robot );
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -435,7 +447,9 @@ See the [documentation above](#card-groups) for UX guidelines.
 </div>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-card-group-with-thumbnails {
@@ -454,6 +468,28 @@ See the [documentation above](#card-groups) for UX guidelines.
 	}
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-docs-card-group-with-thumbnails {
+	p {
+		margin-top: 0;
+		font-weight: @font-weight-bold;
+	}
+
+	// The application implementing Cards must handle Card group layout styles.
+	&__card {
+		margin-bottom: @spacing-100;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>

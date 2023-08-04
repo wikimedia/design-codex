@@ -284,7 +284,9 @@ You will need to add your own CSS classes to set the icon styles and background 
 </div>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -299,6 +301,22 @@ You will need to add your own CSS classes to set the icon styles and background 
 	}
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon {
+	&--search {
+		.cdx-mixin-css-icon( @cdx-icon-search );
+	}
+
+	&--info-filled {
+		.cdx-mixin-css-icon( @cdx-icon-info-filled );
+	}
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -325,7 +343,9 @@ Add the `disabled` attribute to the `<input>` element for a disabled text input.
 </div>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -340,6 +360,22 @@ Add the `disabled` attribute to the `<input>` element for a disabled text input.
 	}
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon {
+	&--search {
+		.cdx-mixin-css-icon( @cdx-icon-search );
+	}
+
+	&--info-filled {
+		.cdx-mixin-css-icon( @cdx-icon-info-filled );
+	}
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>

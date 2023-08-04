@@ -222,7 +222,9 @@ To add a description below the label:
 </fieldset>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-demo-css-radio-group {
@@ -238,6 +240,25 @@ To add a description below the label:
 	}
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-radio-group {
+	// Reset fieldset styles.
+	border: 0;
+	padding: 0;
+
+	legend {
+		margin-bottom: @spacing-25;
+		// Reset legend padding.
+		padding: 0;
+		font-weight: @font-weight-bold;
+	}
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -333,7 +354,9 @@ Always include one of these two features for accessible grouping:
 </fieldset>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-demo-css-radio-group {
@@ -349,6 +372,25 @@ Always include one of these two features for accessible grouping:
 	}
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-radio-group {
+	// Reset fieldset styles.
+	border: 0;
+	padding: 0;
+
+	legend {
+		margin-bottom: @spacing-25;
+		// Reset legend padding.
+		padding: 0;
+		font-weight: @font-weight-bold;
+	}
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -403,7 +445,9 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 </fieldset>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-demo-css-radio-group {
@@ -419,6 +463,25 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 	}
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-radio-group {
+	// Reset fieldset styles.
+	border: 0;
+	padding: 0;
+
+	legend {
+		margin-bottom: @spacing-25;
+		// Reset legend padding.
+		padding: 0;
+		font-weight: @font-weight-bold;
+	}
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>

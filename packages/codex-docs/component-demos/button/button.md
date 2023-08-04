@@ -410,7 +410,9 @@ Be sure to add `aria-hidden="true"` to the icon element to hide it from screen r
 </button>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -419,6 +421,16 @@ Be sure to add `aria-hidden="true"` to the icon element to hide it from screen r
 	.cdx-mixin-css-icon( @cdx-icon-arrow-previous, @param-is-button-icon: true );
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon--arrow-previous {
+	.cdx-mixin-css-icon( @cdx-icon-arrow-previous, @param-is-button-icon: true );
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -446,7 +458,9 @@ reader users.
 </button>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -455,6 +469,16 @@ reader users.
 	.cdx-mixin-css-icon( @cdx-icon-arrow-previous, @param-is-button-icon: true );
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon--arrow-previous {
+	.cdx-mixin-css-icon( @cdx-icon-arrow-previous, @param-is-button-icon: true );
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -497,7 +521,9 @@ Use the following classes to apply these actions:
 </div>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -506,6 +532,16 @@ Use the following classes to apply these actions:
 	.cdx-mixin-css-icon( @cdx-icon-bell, @param-is-button-icon: true );
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon--bell {
+	.cdx-mixin-css-icon( @cdx-icon-bell, @param-is-button-icon: true );
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>

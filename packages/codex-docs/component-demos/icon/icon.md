@@ -106,7 +106,9 @@ Visit the [Button docs](./button.md#with-css-icon) for details on using CSS icon
 </p>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -121,6 +123,22 @@ Visit the [Button docs](./button.md#with-css-icon) for details on using CSS icon
 	}
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon {
+	&--code {
+		.cdx-mixin-css-icon( @cdx-icon-code );
+	}
+
+	&--map-pin {
+		.cdx-mixin-css-icon( @cdx-icon-map-pin );
+	}
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -147,7 +165,9 @@ code as the SVG fill color.
 </p>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -157,6 +177,17 @@ code as the SVG fill color.
 }
 
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon--trash {
+	.cdx-mixin-css-icon( @cdx-icon-trash, @color-destructive );
+}
+
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -197,7 +228,9 @@ Use the third parameter of the `.cdx-mixin-css-icon()` mixin, `@param-size-icon`
 </p>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -218,6 +251,28 @@ Use the third parameter of the `.cdx-mixin-css-icon()` mixin, `@param-size-icon`
 	}
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon {
+	&--bookmark {
+		// No size parameter added, so default size of medium will be used.
+		.cdx-mixin-css-icon( @cdx-icon-bookmark );
+	}
+
+	&--bell {
+		// Size parameter included via a named parameter.
+		.cdx-mixin-css-icon( @cdx-icon-bell, @param-size-icon: @size-icon-small );
+	}
+
+	&--arrow-next {
+		.cdx-mixin-css-icon( @cdx-icon-arrow-next, @param-size-icon: @size-icon-x-small );
+	}
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -261,7 +316,9 @@ icon element itself.
 </p>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -272,6 +329,18 @@ icon element itself.
 	}
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon {
+	&--article {
+		.cdx-mixin-css-icon( @cdx-icon-article );
+	}
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -313,7 +382,9 @@ The CSS-only icons mixin supports icons with language-specific variants.
 </p>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -324,6 +395,18 @@ The CSS-only icons mixin supports icons with language-specific variants.
 	}
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon {
+	&--strikethrough {
+		.cdx-mixin-css-icon( @cdx-icon-strikethrough );
+	}
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>

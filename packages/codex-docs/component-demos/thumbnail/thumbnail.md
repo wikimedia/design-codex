@@ -164,7 +164,9 @@ Be sure to use `@color-placeholder` as the fill color.
 </span>
 ```
 
-```less
+:::code-group
+
+```less [NPM]
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -173,6 +175,16 @@ Be sure to use `@color-placeholder` as the fill color.
 	.cdx-mixin-css-icon( @cdx-icon-article, @color-placeholder );
 }
 ```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon--article {
+	.cdx-mixin-css-icon( @cdx-icon-article, @color-placeholder );
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
