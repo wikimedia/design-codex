@@ -148,6 +148,8 @@ it( 'Enter keydown sets the selected menu item to "highlighted" if a selection i
 		expanded: false
 	} } );
 	await delegateKeydownEvent( wrapper, 'Enter' );
+	// Simulate the parent responding to the update:expanded event
+	await wrapper.setProps( { expanded: true } );
 	expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
 } );
 
@@ -187,6 +189,8 @@ it( 'Down arrow keydown opens menu and highlights selected item when menu is clo
 	await delegateKeydownEvent( wrapper, 'ArrowDown' );
 	expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
 	expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+	// Simulate the parent responding to the update:expanded event
+	await wrapper.setProps( { expanded: true } );
 	expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
 } );
 
@@ -235,6 +239,8 @@ it( 'Up arrow keydown opens menu and highlights selected item when menu is close
 	await delegateKeydownEvent( wrapper, 'ArrowUp' );
 	expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
 	expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+	// Simulate the parent responding to the update:expanded event
+	await wrapper.setProps( { expanded: true } );
 	expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
 } );
 
@@ -290,6 +296,8 @@ describe( 'Home keydown', () => {
 		await delegateKeydownEvent( wrapper, 'Home' );
 		expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
 		expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+		// Simulate the parent responding to the update:expanded event
+		await wrapper.setProps( { expanded: true } );
 		expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
 	} );
 
@@ -356,6 +364,8 @@ describe( 'End keydown', () => {
 		await delegateKeydownEvent( wrapper, 'End' );
 		expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
 		expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+		// Simulate the parent responding to the update:expanded event
+		await wrapper.setProps( { expanded: true } );
 		expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
 	} );
 

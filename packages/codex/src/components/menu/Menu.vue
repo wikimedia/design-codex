@@ -425,18 +425,6 @@ export default defineComponent( {
 		// methods must be declared in the "methods" block, and moving this function there would
 		// necessitate moving or exposing a lot of other things, so we wrap it instead.
 		function handleKeyNavigation( e: KeyboardEvent, prevent = true ): boolean {
-			/**
-			 * Open menu and highlight current selection, if there is one.
-			 *
-			 * If there is not a current selection, nothing should be highlighted when the menu is
-			 * opened via keyboard navigation. This way, if a user presses enter to open the menu, a
-			 * second enter keypress will close the menu rather than selecting anything.
-			 */
-			function handleExpandMenu() {
-				emit( 'update:expanded', true );
-				handleMenuItemChange( 'highlighted', findSelectedMenuItem() );
-			}
-
 			function maybePrevent() {
 				if ( prevent ) {
 					e.preventDefault();
@@ -456,7 +444,7 @@ export default defineComponent( {
 						}
 						emit( 'update:expanded', false );
 					} else {
-						handleExpandMenu();
+						emit( 'update:expanded', true );
 					}
 					return true;
 				case 'Tab':
@@ -479,7 +467,7 @@ export default defineComponent( {
 						}
 						highlightPrev( highlightedMenuItemIndex.value );
 					} else {
-						handleExpandMenu();
+						emit( 'update:expanded', true );
 					}
 					maybeScrollIntoView();
 					return true;
@@ -492,7 +480,7 @@ export default defineComponent( {
 						}
 						highlightNext( highlightedMenuItemIndex.value );
 					} else {
-						handleExpandMenu();
+						emit( 'update:expanded', true );
 					}
 					maybeScrollIntoView();
 
@@ -506,7 +494,7 @@ export default defineComponent( {
 						}
 						highlightNext();
 					} else {
-						handleExpandMenu();
+						emit( 'update:expanded', true );
 					}
 					maybeScrollIntoView();
 
@@ -520,7 +508,7 @@ export default defineComponent( {
 						}
 						highlightPrev();
 					} else {
-						handleExpandMenu();
+						emit( 'update:expanded', true );
 					}
 					maybeScrollIntoView();
 
