@@ -177,7 +177,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 				{
 					text: 'Design Tokens',
 					items: [
-						{ text: 'Overview', link: '/design-tokens/overview' }
+						{ text: 'Overview', link: '/design-tokens/overview' },
+						{ text: 'Definition and structure', link: '/design-tokens/definition-and-structure' }
 					]
 				},
 				{
