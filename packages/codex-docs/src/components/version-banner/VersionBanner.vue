@@ -5,11 +5,11 @@
 	>
 		<cdx-message
 			class="cdx-docs-version-banner"
-			:type="theme.isBranchDeploy ? 'warning' : undefined"
+			type="warning"
 			:dismiss-button-label="theme.isMainBranch ? 'Dismiss' : undefined"
 		>
 			<template v-if="theme.isMainBranch">
-				You're viewing the docs for the main branch of Codex, which may contain features
+				You're viewing the docs for the beta version of Codex, which may contain features
 				that have not been released yet.
 			</template>
 

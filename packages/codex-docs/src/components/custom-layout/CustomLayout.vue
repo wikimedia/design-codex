@@ -6,6 +6,9 @@
 		support nesting multiple containers with dir attributes.
 	-->
 	<Layout :dir="isComponentPage ? undefined : 'ltr'">
+		<template #nav-bar-title-after>
+			<cdx-docs-beta-tag />
+		</template>
 		<template #doc-before>
 			<cdx-docs-version-banner v-if="!frontmatter.isHomepage" />
 		</template>
@@ -14,6 +17,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import CdxDocsBetaTag from '../beta-tag/BetaTag.vue';
 import CdxDocsVersionBanner from '../version-banner/VersionBanner.vue';
 import { useRoute, useData } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
