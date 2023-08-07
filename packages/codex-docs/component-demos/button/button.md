@@ -528,7 +528,7 @@ like a button. To achieve this, add the following classes to your inline element
 
 :::tip
 If your element behaves like a button (triggering an action or event), you should also add
-`role="button"` to the element. See the [ARIA Authoring Practices Guide on buttons](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
+`role="button"` to the element if that role is allowed. See the [ARIA Authoring Practices Guide on buttons](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
 for more information.
 :::
 

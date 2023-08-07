@@ -103,7 +103,7 @@
 		<button-grid-table>
 			<template #default="{ action, size, weight, disabled }">
 				<!-- eslint-disable max-len -->
-				<label role="button" :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`">
+				<label :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`">
 					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
 					Button
 				</label>
@@ -116,7 +116,6 @@
 			<template #default="{ action, size, weight, disabled }">
 				<!-- eslint-disable max-len -->
 				<label
-					role="button"
 					:class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
 					aria-label="Button"
 				>
