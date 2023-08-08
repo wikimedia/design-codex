@@ -25,6 +25,7 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-beta-tag {
+	background-color: @background-color-warning-subtle;
 	color: @color-base;
 	margin-left: @spacing-50;
 	border: @border-width-base @border-style-base @border-color-warning;
