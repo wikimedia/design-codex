@@ -77,7 +77,9 @@ export default defineConfigWithTheme<CustomConfig>( {
 		],
 
 		socialLinks: [
-			{ icon: 'github', link: 'https://github.com/wikimedia/design-codex' }
+			// `as DefaultTheme.SocialLink` is needed because the type information from VitePress
+			// doesn't include the ariaLabel property
+			{ icon: 'github', link: 'https://github.com/wikimedia/design-codex', ariaLabel: 'Codex on GitHub' } as DefaultTheme.SocialLink
 		],
 
 		sidebar: {
