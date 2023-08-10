@@ -26,7 +26,7 @@
 
 			Codex users should visit the
 			<!-- class="vp-raw" prevents VitePress from treating this like an internal link -->
-			<a class="vp-raw" :href="'https://doc.wikimedia.org/codex/latest' + currentPath">official docs</a>.
+			<a class="vp-raw" href="https://doc.wikimedia.org/codex/latest/">official docs</a>.
 		</cdx-message>
 	</div>
 </template>
@@ -42,13 +42,11 @@ export default defineComponent( {
 	components: { CdxMessage },
 	setup() {
 		const route = useRoute();
-		const currentPath = computed( () => route.path );
 		const isComponentPage = computed( () => route.path.includes( '/components/demos/' ) );
 
 		const { theme } = useData<CustomConfig>();
 
 		return {
-			currentPath,
 			isComponentPage,
 			theme
 		};
