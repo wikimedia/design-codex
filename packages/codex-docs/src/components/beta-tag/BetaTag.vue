@@ -1,6 +1,6 @@
 <template>
 	<div v-if="theme.isMainBranch" class="cdx-docs-beta-tag">
-		Beta version
+		<span>Beta</span><span class="cdx-docs-beta-tag__sr-text"> version</span>
 	</div>
 </template>
 
@@ -23,16 +23,23 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '../../../../codex/src/themes/mixins/common.less';
 
 .cdx-docs-beta-tag {
 	background-color: @background-color-warning-subtle;
 	color: @color-base;
+	display: flex;
+	align-items: center;
+	min-height: @min-size-interactive-pointer;
 	margin-left: @spacing-50;
 	border: @border-width-base @border-style-base @border-color-warning;
 	border-radius: @border-radius-pill;
-	padding: 0 @spacing-50;
+	padding: 0 @spacing-75;
 	font-size: @font-size-x-small;
-	font-weight: @font-weight-bold;
 	white-space: nowrap;
+
+	&__sr-text {
+		.screen-reader-text();
+	}
 }
 </style>
