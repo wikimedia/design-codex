@@ -20,6 +20,7 @@
 				v-bind="$attrs"
 				:aria-label="$slots.header || hideTitle ? title : undefined"
 				:aria-labelledby="!$slots.header && !hideTitle ? labelId : undefined"
+				aria-modal="true"
 				@click.stop
 			>
 				<header

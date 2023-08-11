@@ -11,6 +11,7 @@ exports[`matches the snapshot Case 0 Basic usage 1`] = `
     />
     <div
       aria-labelledby="cdx-dialog-label-0"
+      aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
@@ -68,6 +69,7 @@ exports[`matches the snapshot Case 1 Open dialog 1`] = `
     />
     <div
       aria-labelledby="cdx-dialog-label-1"
+      aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
@@ -125,6 +127,7 @@ exports[`matches the snapshot Case 2 With hidden title 1`] = `
     />
     <div
       aria-label="Dialog"
+      aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
@@ -204,6 +207,7 @@ exports[`matches the snapshot Case 3 With default action 1`] = `
     />
     <div
       aria-labelledby="cdx-dialog-label-3"
+      aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
@@ -281,6 +285,7 @@ exports[`matches the snapshot Case 4 With default disabled action 1`] = `
     />
     <div
       aria-labelledby="cdx-dialog-label-4"
+      aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
@@ -359,6 +364,7 @@ exports[`matches the snapshot Case 5 With default and primary actions 1`] = `
     />
     <div
       aria-labelledby="cdx-dialog-label-5"
+      aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
@@ -443,6 +449,7 @@ exports[`matches the snapshot Case 6 With stacked default and primary actions 1`
     />
     <div
       aria-labelledby="cdx-dialog-label-6"
+      aria-modal="true"
       class="cdx-dialog cdx-dialog--vertical-actions"
       role="dialog"
     >
@@ -527,6 +534,7 @@ exports[`matches the snapshot Case 7 With subtitle 1`] = `
     />
     <div
       aria-labelledby="cdx-dialog-label-7"
+      aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
@@ -615,6 +623,7 @@ exports[`matches the snapshot Case 8 With footer text 1`] = `
     />
     <div
       aria-labelledby="cdx-dialog-label-8"
+      aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
@@ -716,6 +725,7 @@ exports[`matches the snapshot Case 9 With custom header and footer 1`] = `
     />
     <div
       aria-label="Dialog"
+      aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
     >
