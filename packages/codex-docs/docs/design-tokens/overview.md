@@ -29,5 +29,5 @@ Learn how to [use Codex design tokens in MediaWiki](https://www.mediawiki.org/wi
 
 ## Resources
 
-- Read about the [definition and structure of the Codex design tokens system](./definition-and-structure.html)
-- Learn how to [contribute or request a new design token](../contributing/designing-tokens.html)
+- Read about the [definition and structure](./definition-and-structure.html) of the Codex design tokens system
+- Learn how to [contribute or request](../contributing/designing-tokens.html) a new design token
