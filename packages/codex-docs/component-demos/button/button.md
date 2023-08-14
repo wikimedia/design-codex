@@ -562,11 +562,9 @@ like a button. To achieve this, add the following classes to your inline element
 - Either `cdx-button--fake-button--enabled` for an enabled button or `cdx-button--fake-button--disabled`
   for a disabled button. **You must include one of these classes to get the proper button styles.**
 
-:::tip
 If your element behaves like a button (triggering an action or event), you should also add
 `role="button"` to the element if that role is allowed. See the [ARIA Authoring Practices Guide on buttons](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
 for more information.
-:::
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

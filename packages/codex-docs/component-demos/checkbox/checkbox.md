@@ -238,7 +238,8 @@ Native attributes of the `<input>` element can be used. For example:
 - Add the `checked` attribute to the `<input>` element if it should be selected initially.
 - Add the `disabled` attribute to the `<input>` element if it should be disabled.
 
-Note that `indeterminate` is not supported in the CSS-only version.
+Note that `indeterminate` is not supported in the CSS-only version since it cannot be set without
+JavaScript.
 
 Always include one of these two features for accessible grouping:
 1. If using the Checkbox group in a field, wrap the group in a `<fieldset>` element and add a
