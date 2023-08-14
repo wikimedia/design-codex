@@ -16,7 +16,7 @@ token, and information about where the token value comes from.
 
 ### Figma
 
-Enable the [Codex Design Tokens Figma library](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?type=design&node-id=0-1&mode=design)
+Enable the [Codex design tokens Figma library](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?type=design&node-id=0-1&mode=design)
 in your Figma projects to use all the design tokens that were translated into Figma styles.
 
 ### NPM package

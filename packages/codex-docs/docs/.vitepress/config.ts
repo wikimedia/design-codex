@@ -69,7 +69,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 			{ text: 'Contributing', link: '/contributing/overview', activeMatch: '/contributing/' },
 			{ text: 'Style Guide', link: '/style-guide/overview', activeMatch: '/style-guide/' },
 			{ text: 'Toolkit', items: [
-				{ text: 'Design Tokens', link: '/design-tokens/overview', activeMatch: '/design-tokens/' },
+				{ text: 'Design tokens', link: '/design-tokens/overview', activeMatch: '/design-tokens/' },
 				{ text: 'Components', link: '/components/overview', activeMatch: '/components/' },
 				{ text: 'Icons', link: '/icons/overview', activeMatch: '/icons/' },
 				{ text: 'Composables', link: '/composables/overview', activeMatch: '/composables/' }
@@ -175,7 +175,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 			],
 			'/design-tokens/': [
 				{
-					text: 'Design Tokens',
+					text: 'Design tokens',
 					items: [
 						{ text: 'Overview', link: '/design-tokens/overview' },
 						{ text: 'Definition and structure', link: '/design-tokens/definition-and-structure' }
