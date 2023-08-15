@@ -1,5 +1,6 @@
 # Releasing a new version of Codex
 To publish a new release of Codex, follow these steps:
+- Run visual regression tests
 - Prepare the release commit
 - Submit the release commit to Gerrit, and ask someone to merge it
 - Once merged, create and publish the tag
@@ -32,6 +33,55 @@ Before you start doing a release, you should first:
   the release. Also look at the [list of open patches](https://gerrit.wikimedia.org/r/q/project:design%252Fcodex+status:open).
   If any patches have been +2ed recently, wait for the CI process to complete so that they are
   actually merged.
+
+## Running visual regression tests
+Ideally, you should do this **the day before the release**, so that there is time to address
+any regressions identified by the tests. If non-trivial changes are merged after the first
+pre-release visual regression tests, you should run the tests again before starting the release
+process.
+
+Update the [VueTest extension](https://gerrit.wikimedia.org/r/admin/repos/mediawiki/extensions/VueTest,general)
+to point to the latest commit on the main branch of Codex, by running the following commands in the
+VueTest repository:
+```
+$ cd lib/codex
+$ git fetch
+$ git checkout origin/master
+$ cd ../..
+$ npm run codex:build-demos
+$ git commit -am "Update Codex to pre-v1.2.34"
+$ git review
+```
+This submits a new change to Gerrit. Ask a member of the Design Systems Team to merge this change.
+
+After the VueTest change is merged, our visual regression testing tool Pixel will use this
+pre-release version of Codex the next time it runs. Pixel runs every hour, and publishes its
+results at https://pixel.wmcloud.org/reports/codex/index.html . Open this page and refresh it
+periodically, until the timestamp at the top of the page changes; this indicates Pixel has rerun
+with the new Codex version.
+
+On the test results page, click the big button with "NN failed" at the top to display the failed
+tests. Review the failures and determine if the visual changes are expected, or if they indicate
+bugs that need to be fixed.
+
+### Running the visual regression tests locally (optional)
+If you don't want to wait for someone else to merge the VueTest patch and then wait up to an hour
+for the new Pixel report to be generated, you can run Pixel locally. This is not the preferred
+process, because Pixel doesn't work on everyone's machine and breaks sometimes.
+
+To run Pixel locally, download the [Pixel repository](https://github.com/wikimedia/pixel) (or if
+you've already downloaded it, update it to its latest version) and run `npm install` in it. Also
+install Docker and make sure it's running.
+
+Then run the following commands in the Pixel repository:
+```
+$ ./pixel.js reference -g codex
+$ ./pixel.js test -g codex -c patchNumber
+```
+where `patchNumber` is the number of the Gerrit patch you submitted to VueTest. You can view the
+resulting report by opening `/path/to/pixel/report/codex/index.html` in your browser. If you
+get a permissions error, you may have to run `sudo chown -R $(whoami) report` first.
+
 
 ## Preparing and submitting the release commit
 First, make sure that you have no uncommitted changes, and that you're on the latest version
@@ -85,32 +135,6 @@ Then, submit this commit to Gerrit for review:
 ```
 $ git review
 ```
-
-### Update VueTest and test for visual regressions
-
-Before this patch gets merged, you can test the new release of Codex via VueTest and Pixel.
-
-0. Ensure you have up-to-date local copies of the [VueTest extension](https://gerrit.wikimedia.org/r/admin/repos/mediawiki/extensions/VueTest,general)
-and the [Pixel repository](https://github.com/wikimedia/pixel). Run `npm install` in both. You
-will also need to have Docker running.
-1. Update VueTest to point at the Codex release patch. In the VueTest extension, `cd lib/codex`,
-then pull in the release patch. `cd ../..` back to the root of VueTest, then run
-`npm run codex:build-demos`. Commit the changes and open a patch in Gerrit.
-2. Capture Pixel reference images. In the Pixel repository, run `./pixel.js reference -g codex`.
-This will capture snapshots of the Codex components on the VueTest sandbox page based on the
-`master` branch of core and VueTest. This will take several minutes to run. When it finishes,
-open `http://localhost:3000/wiki/Special:VueTest/codex` in your browser - this is the VueTest
-sandbox page based on the master branch. Keep this page open.
-3. Capture Pixel test images. In the Pixel repository, run `./pixel.js test -g codex -c [patch number]`,
-with the patch number being the number of the VueTest patch you just opened. This will take
-several minutes. When it's done, it will pop up the results in your browser. You can also open `http://localhost:3000/wiki/Special:VueTest/codex` in a new browser tab to see the sandbox
-page based on your patch.
-4. Review the results. The BackstopJS UI will show you which tests failed. You can click on a
-test to see the reference, test, and a diff. You can also inspect elements on the sandbox pages
-you opened in your browser to compare the reference page versus the test page.
-
-If there are any unexpected regressions, a bug fix might be needed before the release patch can be
-merged. If there are no unexpected changes, you can move to the next step.
 
 ### Get the Codex patch merged
 
