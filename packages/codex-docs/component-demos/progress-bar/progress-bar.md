@@ -8,6 +8,11 @@ const controlsConfig = [
 		type: 'boolean'
 	},
 	{
+		name: 'aria-label',
+		type: 'text',
+		initial: 'ProgressBar example'
+	},
+	{
 		name: 'disabled',
 		type: 'boolean'
 	}
@@ -28,15 +33,21 @@ const controlsConfig = [
 
 Default indeterminate progress bar.
 
+::: warning
+Due to the lack of descriptive text, default progress bars require one of the following attributes: `aria-label` or `aria-hidden`.
+
+The attribute `aria-label` has to be used on progress bars to be understandable by assistive technology users. Exceptions are inline progress bars in component combinations, e.g. in the [Menu component](./menu.md), that are skipped by adding `aria-hidden`.
+:::
+
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<cdx-progress-bar />
+<cdx-progress-bar aria-label="Indeterminate progress bar" />
 </template>
 
 <template v-slot:code>
 
 ```vue-html
-<cdx-progress-bar />
+<cdx-progress-bar aria-label="Indeterminate progress bar" />
 ```
 
 </template>
@@ -49,7 +60,7 @@ sample usage.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<cdx-progress-bar :inline="true" />
+<cdx-progress-bar :inline="true" aria-label="ProgressBar example" />
 </template>
 
 <template v-slot:code>
@@ -68,7 +79,7 @@ sample usage.
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<!-- Wrapper div with ARIA attributes -->
-	<div class="cdx-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+	<div class="cdx-progress-bar" role="progressbar" aria-label="ProgressBar example">
 		<!-- Empty inner div -->
 		<div class="cdx-progress-bar__bar" />
 	</div>
@@ -78,7 +89,7 @@ sample usage.
 
 ```html
 <!-- Wrapper div with ARIA attributes -->
-<div class="cdx-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+<div class="cdx-progress-bar" role="progressbar" aria-label="ProgressBar example">
 	<!-- Empty inner div -->
 	<div class="cdx-progress-bar__bar" />
 </div>
@@ -93,7 +104,7 @@ For an inline progress bar, add the `cdx-progress-bar--inline` class to the root
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<div class="cdx-progress-bar cdx-progress-bar--inline" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+	<div class="cdx-progress-bar cdx-progress-bar--inline" role="progressbar">
 		<div class="cdx-progress-bar__bar" />
 	</div>
 </template>
@@ -101,7 +112,7 @@ For an inline progress bar, add the `cdx-progress-bar--inline` class to the root
 <template v-slot:code>
 
 ```html
-<div class="cdx-progress-bar cdx-progress-bar--inline" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+<div class="cdx-progress-bar cdx-progress-bar--inline" role="progressbar">
 	<div class="cdx-progress-bar__bar" />
 </div>
 ```
@@ -115,7 +126,7 @@ For a disabled progress bar, add the `cdx-progress-bar--disabled` class to the r
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<div class="cdx-progress-bar cdx-progress-bar--disabled" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+	<div class="cdx-progress-bar cdx-progress-bar--disabled" role="progressbar">
 		<div class="cdx-progress-bar__bar" />
 	</div>
 </template>
@@ -123,7 +134,7 @@ For a disabled progress bar, add the `cdx-progress-bar--disabled` class to the r
 <template v-slot:code>
 
 ```html
-<div class="cdx-progress-bar cdx-progress-bar--disabled" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+<div class="cdx-progress-bar cdx-progress-bar--disabled" role="progressbar">
 	<div class="cdx-progress-bar__bar" />
 </div>
 ```
@@ -133,7 +144,7 @@ For a disabled progress bar, add the `cdx-progress-bar--disabled` class to the r
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<div class="cdx-progress-bar cdx-progress-bar--inline cdx-progress-bar--disabled" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+	<div class="cdx-progress-bar cdx-progress-bar--inline cdx-progress-bar--disabled" role="progressbar">
 		<div class="cdx-progress-bar__bar" />
 	</div>
 </template>
@@ -141,7 +152,7 @@ For a disabled progress bar, add the `cdx-progress-bar--disabled` class to the r
 <template v-slot:code>
 
 ```html
-<div class="cdx-progress-bar cdx-progress-bar--inline cdx-progress-bar--disabled" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+<div class="cdx-progress-bar cdx-progress-bar--inline cdx-progress-bar--disabled" role="progressbar">
 	<div class="cdx-progress-bar__bar" />
 </div>
 ```

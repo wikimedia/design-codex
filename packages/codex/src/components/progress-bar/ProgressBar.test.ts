@@ -6,16 +6,21 @@ describe( 'matches the snapshot', () => {
 		msg: string,
 		props: {
 			inline?: boolean
+		},
+		attrs?: {
+			'aria-hidden'?: 'true',
+			'aria-label'?: string
 		}
 	];
 
 	const cases: Case[] = [
-		[ 'Indeterminate', {} ],
-		[ 'Indeterminate, inline', { inline: true } ]
+		[ 'Indeterminate', {}, { 'aria-label': 'Progress bar' } ],
+		[ 'Indeterminate, inline', { inline: true } ],
+		[ 'Indeterminate, with aria-hidden', { inline: true }, { 'aria-hidden': 'true' } ]
 	];
 
-	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
-		const wrapper = shallowMount( CdxProgressBar, { props: props } );
+	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, attrs = {} ) => {
+		const wrapper = shallowMount( CdxProgressBar, { props, attrs } );
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 } );

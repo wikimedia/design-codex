@@ -1,18 +1,23 @@
 <template>
+	<!-- ARIA progressbar default values are `aria-valuemin="0"` and `aria-valuemax="100"`,
+	hence omitting them here. -->
 	<div
 		class="cdx-progress-bar"
 		:class="rootClasses"
 		role="progressbar"
+		:aria-hidden="computedAriaHidden"
 		:aria-disabled="disabled"
-		aria-valuemin="0"
-		aria-valuemax="100"
 	>
 		<div class="cdx-progress-bar__bar" />
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import {
+	defineComponent,
+	computed
+} from 'vue';
+import useWarnOnce from '../../composables/useWarnOnce';
 
 /**
  * A linear indicator of progress.
@@ -42,7 +47,15 @@ export default defineComponent( {
 			default: false
 		}
 	},
-	setup( props ) {
+	setup( props, { attrs } ) {
+		// Emit a warning if block progress bar is without the `aria-label` or
+		// `aria-hidden` attribute set, but do this only once per progress bar.
+		useWarnOnce(
+			() => !props.inline && !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ],
+			'CdxProgressBar: Progress bars require one of the following attribute, aria-label or aria-hidden. ' +
+				'See documentation on https://doc.wikimedia.org/codex/latest/components/demos/progressbar.html'
+		);
+
 		const rootClasses = computed( () => {
 			return {
 				'cdx-progress-bar--block': !props.inline,
@@ -52,8 +65,16 @@ export default defineComponent( {
 			};
 		} );
 
+		// Computed property for `aria-hidden`.
+		const computedAriaHidden = computed( () => {
+			// Set `aria-hidden` to `true` only when `inline` prop is true.
+			// Otherwise, don't set the attribute.
+			return props.inline ? 'true' : undefined;
+		} );
+
 		return {
-			rootClasses
+			rootClasses,
+			computedAriaHidden
 		};
 	}
 } );

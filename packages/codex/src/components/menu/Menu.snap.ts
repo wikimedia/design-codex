@@ -747,10 +747,12 @@ exports[`Matches the snapshots Case 4 Pending: => HTML 1`] = `
     <!--v-if-->
     
     
+    
+    <!-- ARIA progressbar default values are \`aria-valuemin="0"\` and \`aria-valuemax="100"\`,
+	hence omitting them here. -->
     <div
       aria-disabled="false"
-      aria-valuemax="100"
-      aria-valuemin="0"
+      aria-hidden="true"
       class="cdx-progress-bar cdx-progress-bar--inline cdx-progress-bar--enabled cdx-menu__progress-bar"
       role="progressbar"
     >
@@ -758,6 +760,7 @@ exports[`Matches the snapshots Case 4 Pending: => HTML 1`] = `
         class="cdx-progress-bar__bar"
       />
     </div>
+    
   </ul>
 </div>
 `;
@@ -990,10 +993,12 @@ exports[`Matches the snapshots Case 5 Pending with items: => HTML 1`] = `
       
     </li>
     
+    
+    <!-- ARIA progressbar default values are \`aria-valuemin="0"\` and \`aria-valuemax="100"\`,
+	hence omitting them here. -->
     <div
       aria-disabled="false"
-      aria-valuemax="100"
-      aria-valuemin="0"
+      aria-hidden="true"
       class="cdx-progress-bar cdx-progress-bar--inline cdx-progress-bar--enabled cdx-menu__progress-bar"
       role="progressbar"
     >
@@ -1001,6 +1006,7 @@ exports[`Matches the snapshots Case 5 Pending with items: => HTML 1`] = `
         class="cdx-progress-bar__bar"
       />
     </div>
+    
   </ul>
 </div>
 `;
