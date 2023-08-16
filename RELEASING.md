@@ -212,7 +212,8 @@ codex:
 Update the version number in the `version` field and in the `src` URL to the new version number
 (e.g. `codex-1.2.34.tgz`). Then get the new integrity value by running the `make-sri` command:
 ```
-$ php maintenance/manageForeignResources.php make-sri codex
+# For Docker, add "docker-compose mediawiki exec" before this command
+$ php maintenance/run.php manageForeignResources make-sri codex
 ... checking 'codex'
 Integrity for https://registry.npmjs.org/@wikimedia/codex/-/codex-1.2.34.tgz
 	integrity: sha512-8lZ4swHLB9KtMsx6lYOfwqLZJAZ7mfY0jy+VZic6WRDpqQDSE4QgtYg9ptYAyFlkKDTXg72RAoN2yfq6lgzfUQ==
@@ -220,7 +221,8 @@ Integrity for https://registry.npmjs.org/@wikimedia/codex/-/codex-1.2.34.tgz
 Copy this integrity hash to `foreign-resources.yaml`, replacing the old integrity hash.
 Then run the `update` command to update the library:
 ```
-$ php maintenance/manageForeignResources.php update codex
+# For Docker, add "docker-compose mediawiki exec" before this command
+$ php maintenance/run.php manageForeignResources update codex
 ... updating 'codex'
 
 Done!
