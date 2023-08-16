@@ -79,6 +79,9 @@
 			/>
 		</div>
 	</div>
+
+	<!-- Direction-aware target for any teleport usage in demos -->
+	<div ref="teleportTarget" :dir="direction" />
 </template>
 
 <script lang="ts">
@@ -90,7 +93,8 @@ import {
 	onMounted,
 	watch,
 	nextTick,
-	PropType
+	PropType,
+	provide
 } from 'vue';
 import {
 	ControlConfig,
@@ -106,6 +110,7 @@ import useCurrentComponentName from '../../composables/useCurrentComponentName';
 import { generateVueTag } from '../../utils/codegen';
 import getIconByName from '../../utils/getIconByName';
 import { CdxButton, CdxToggleButton, HTMLDirection } from '@wikimedia/codex';
+import { DirectionKey } from '../../constants';
 
 // Don't automatically run Prism highlighting, it breaks the VitePress syntax highlighting
 // for the code slots since Prism doesn't support Vue (and even if it did it would be unneeded
@@ -186,6 +191,16 @@ export default defineComponent( {
 	},
 	setup( props, { slots } ) {
 		const direction = ref<HTMLDirection>( 'ltr' );
+		provide( DirectionKey, direction );
+
+		// Set up a template ref for a demo-specific teleport target. During the
+		// mounted hook (when the ref finally exists), provide this target to
+		// any teleport-using demo components to ensure that direction-specific
+		// styles don't break.
+		const teleportTarget = ref<HTMLDivElement>();
+		onMounted( () => {
+			provide( 'CdxTeleportTarget', teleportTarget.value );
+		} );
 
 		// Set up show code/hide code button.
 		const hasCodeSlot = slots && slots.code;
@@ -449,7 +464,10 @@ export default defineComponent( {
 			// Interactive controls
 			hasControls,
 			controlsWithValues,
-			handleControlChange
+			handleControlChange,
+
+			// Dialog teleport related
+			teleportTarget
 		};
 	}
 } );

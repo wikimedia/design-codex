@@ -59,7 +59,13 @@
 				"vue/block-lang": [ "error", {
 					"script": { "lang": "js" }
 				} ],
-				"es-x/no-array-prototype-includes": "off"
+				"es-x/no-array-prototype-includes": "off",
+				"vue/no-undef-components": [ "error", {
+					"ignorePatterns": [
+						"client-only",
+						"ClientOnly"
+					]
+				} ]
 			}
 		},
 		{

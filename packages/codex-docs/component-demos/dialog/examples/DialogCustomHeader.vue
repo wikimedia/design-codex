@@ -3,61 +3,54 @@
 		Open Dialog
 	</cdx-button>
 
-	<cdx-dialog
-		v-model:open="open"
-		title="My custom dialog"
-		class="my-custom-dialog"
-	>
-		<template #header>
-			<div>
-				<h2>My custom dialog</h2>
-			</div>
-			<div>
+	<client-only>
+		<cdx-dialog
+			v-model:open="open"
+			title="My custom dialog"
+			class="my-custom-dialog"
+		>
+			<template #header>
+				<div>
+					<h2>My custom dialog</h2>
+				</div>
+				<div>
+					<cdx-button
+						weight="quiet"
+						@click="open = false"
+					>
+						Close
+					</cdx-button>
+				</div>
+			</template>
+
+			<p>
+				The header and footer slots of this dialog have been
+				completely customized with custom buttons, styles, and
+				markup.
+			</p>
+
+			<template #footer>
+				<cdx-checkbox v-model="checkboxValue" :inline="true">
+					Footer checkbox
+				</cdx-checkbox>
+
 				<cdx-button
-					weight="quiet"
+					weight="primary"
+					action="progressive"
+					aria-label="Next"
 					@click="open = false"
 				>
-					Close
+					<cdx-icon :icon="cdxIconNext" />
 				</cdx-button>
-			</div>
-		</template>
-
-		<p>
-			The header and footer slots of this dialog have been
-			completely customized with custom buttons, styles, and
-			markup.
-		</p>
-
-		<template #footer>
-			<cdx-checkbox v-model="checkboxValue" :inline="true">
-				Footer checkbox
-			</cdx-checkbox>
-
-			<cdx-button
-				weight="primary"
-				action="progressive"
-				aria-label="Next"
-				@click="open = false"
-			>
-				<cdx-icon :icon="cdxIconNext" />
-			</cdx-button>
-		</template>
-	</cdx-dialog>
+			</template>
+		</cdx-dialog>
+	</client-only>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-
-import {
-	CdxButton,
-	CdxDialog,
-	CdxCheckbox,
-	CdxIcon
-} from '@wikimedia/codex';
-
-import {
-	cdxIconNext
-} from '@wikimedia/codex-icons';
+import { CdxButton, CdxDialog, CdxCheckbox, CdxIcon } from '@wikimedia/codex';
+import { cdxIconNext } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'DialogCustomHeader',
@@ -69,6 +62,7 @@ export default defineComponent( {
 	},
 	setup() {
 		const open = ref( false );
+
 		const checkboxValue = ref( false );
 
 		return {

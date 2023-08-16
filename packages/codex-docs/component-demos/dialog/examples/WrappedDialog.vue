@@ -1,44 +1,46 @@
 <!-- WrappedDialog.vue -->
 <template>
-	<cdx-dialog
-		v-model:open="wrappedModel"
-		:title="title"
-		class="wrapped-dialog"
-	>
-		<template #header>
-			<div>
-				<h2>{{ title }}</h2>
-			</div>
-			<div>
+	<client-only>
+		<cdx-dialog
+			v-model:open="wrappedModel"
+			:title="title"
+			class="wrapped-dialog"
+		>
+			<template #header>
+				<div>
+					<h2>{{ title }}</h2>
+				</div>
+				<div>
+					<cdx-button
+						weight="quiet"
+						aria-label="close"
+						@click="wrappedModel = false"
+					>
+						Skip
+					</cdx-button>
+				</div>
+			</template>
+
+			<slot />
+
+			<template #footer>
+				<cdx-checkbox v-model="checkboxValue">
+					Don't show again
+				</cdx-checkbox>
+
+				<!-- This button is wired to emit a custom "next" event instead of
+				simply closing the dialog -->
 				<cdx-button
-					weight="quiet"
-					aria-label="close"
-					@click="wrappedModel = false"
+					weight="primary"
+					action="progressive"
+					aria-label="Next"
+					@click="$emit( 'next' )"
 				>
-					Skip
+					<cdx-icon :icon="cdxIconNext" />
 				</cdx-button>
-			</div>
-		</template>
-
-		<slot />
-
-		<template #footer>
-			<cdx-checkbox v-model="checkboxValue">
-				Don't show again
-			</cdx-checkbox>
-
-			<!-- This button is wired to emit a custom "next" event instead of
-			simply closing the dialog -->
-			<cdx-button
-				weight="primary"
-				action="progressive"
-				aria-label="Next"
-				@click="$emit( 'next' )"
-			>
-				<cdx-icon :icon="cdxIconNext" />
-			</cdx-button>
-		</template>
-	</cdx-dialog>
+			</template>
+		</cdx-dialog>
+	</client-only>
 </template>
 
 <script>

@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches the snapshot Case 0 Basic usage 1`] = `
-<transition-stub>
+<teleport-stub>
   <div
-    class="cdx-dialog-backdrop"
+    class="cdx-dialog-backdrop cdx-dialog-fade-enter-from cdx-dialog-fade-enter-active"
   >
     <!-- Focus trap start -->
     <div
@@ -55,13 +55,13 @@ exports[`matches the snapshot Case 0 Basic usage 1`] = `
       tabindex="0"
     />
   </div>
-</transition-stub>
+</teleport-stub>
 `;
 
 exports[`matches the snapshot Case 1 Open dialog 1`] = `
-<transition-stub>
+<teleport-stub>
   <div
-    class="cdx-dialog-backdrop"
+    class="cdx-dialog-backdrop cdx-dialog-fade-enter-from cdx-dialog-fade-enter-active"
   >
     <!-- Focus trap start -->
     <div
@@ -113,13 +113,13 @@ exports[`matches the snapshot Case 1 Open dialog 1`] = `
       tabindex="0"
     />
   </div>
-</transition-stub>
+</teleport-stub>
 `;
 
 exports[`matches the snapshot Case 2 With hidden title 1`] = `
-<transition-stub>
+<teleport-stub>
   <div
-    class="cdx-dialog-backdrop"
+    class="cdx-dialog-backdrop cdx-dialog-fade-enter-from cdx-dialog-fade-enter-active"
   >
     <!-- Focus trap start -->
     <div
@@ -193,13 +193,13 @@ exports[`matches the snapshot Case 2 With hidden title 1`] = `
       tabindex="0"
     />
   </div>
-</transition-stub>
+</teleport-stub>
 `;
 
 exports[`matches the snapshot Case 3 With default action 1`] = `
-<transition-stub>
+<teleport-stub>
   <div
-    class="cdx-dialog-backdrop"
+    class="cdx-dialog-backdrop cdx-dialog-fade-enter-from cdx-dialog-fade-enter-active"
   >
     <!-- Focus trap start -->
     <div
@@ -271,13 +271,13 @@ exports[`matches the snapshot Case 3 With default action 1`] = `
       tabindex="0"
     />
   </div>
-</transition-stub>
+</teleport-stub>
 `;
 
 exports[`matches the snapshot Case 4 With default disabled action 1`] = `
-<transition-stub>
+<teleport-stub>
   <div
-    class="cdx-dialog-backdrop"
+    class="cdx-dialog-backdrop cdx-dialog-fade-enter-from cdx-dialog-fade-enter-active"
   >
     <!-- Focus trap start -->
     <div
@@ -350,13 +350,13 @@ exports[`matches the snapshot Case 4 With default disabled action 1`] = `
       tabindex="0"
     />
   </div>
-</transition-stub>
+</teleport-stub>
 `;
 
 exports[`matches the snapshot Case 5 With default and primary actions 1`] = `
-<transition-stub>
+<teleport-stub>
   <div
-    class="cdx-dialog-backdrop"
+    class="cdx-dialog-backdrop cdx-dialog-fade-enter-from cdx-dialog-fade-enter-active"
   >
     <!-- Focus trap start -->
     <div
@@ -435,13 +435,13 @@ exports[`matches the snapshot Case 5 With default and primary actions 1`] = `
       tabindex="0"
     />
   </div>
-</transition-stub>
+</teleport-stub>
 `;
 
 exports[`matches the snapshot Case 6 With stacked default and primary actions 1`] = `
-<transition-stub>
+<teleport-stub>
   <div
-    class="cdx-dialog-backdrop"
+    class="cdx-dialog-backdrop cdx-dialog-fade-enter-from cdx-dialog-fade-enter-active"
   >
     <!-- Focus trap start -->
     <div
@@ -520,13 +520,13 @@ exports[`matches the snapshot Case 6 With stacked default and primary actions 1`
       tabindex="0"
     />
   </div>
-</transition-stub>
+</teleport-stub>
 `;
 
 exports[`matches the snapshot Case 7 With subtitle 1`] = `
-<transition-stub>
+<teleport-stub>
   <div
-    class="cdx-dialog-backdrop"
+    class="cdx-dialog-backdrop cdx-dialog-fade-enter-from cdx-dialog-fade-enter-active"
   >
     <!-- Focus trap start -->
     <div
@@ -609,13 +609,13 @@ exports[`matches the snapshot Case 7 With subtitle 1`] = `
       tabindex="0"
     />
   </div>
-</transition-stub>
+</teleport-stub>
 `;
 
 exports[`matches the snapshot Case 8 With footer text 1`] = `
-<transition-stub>
+<teleport-stub>
   <div
-    class="cdx-dialog-backdrop"
+    class="cdx-dialog-backdrop cdx-dialog-fade-enter-from cdx-dialog-fade-enter-active"
   >
     <!-- Focus trap start -->
     <div
@@ -711,13 +711,13 @@ exports[`matches the snapshot Case 8 With footer text 1`] = `
       tabindex="0"
     />
   </div>
-</transition-stub>
+</teleport-stub>
 `;
 
 exports[`matches the snapshot Case 9 With custom header and footer 1`] = `
-<transition-stub>
+<teleport-stub>
   <div
-    class="cdx-dialog-backdrop"
+    class="cdx-dialog-backdrop cdx-dialog-fade-enter-from cdx-dialog-fade-enter-active"
   >
     <!-- Focus trap start -->
     <div
@@ -769,5 +769,5 @@ exports[`matches the snapshot Case 9 With custom header and footer 1`] = `
       tabindex="0"
     />
   </div>
-</transition-stub>
+</teleport-stub>
 `;

@@ -1,5 +1,5 @@
 import { nextTick } from 'vue';
-import { mount } from '@vue/test-utils';
+import { config, mount } from '@vue/test-utils';
 import { DialogAction, PrimaryDialogAction } from '../../types';
 import CdxDialog from './Dialog.vue';
 
@@ -14,6 +14,8 @@ type Case = [
 		primaryAction?: PrimaryDialogAction,
 		defaultAction?: DialogAction,
 		stackedActions?: boolean,
+		renderInPlace?: boolean,
+		target?: string
 	},
 	slots: {
 		default: string,
@@ -22,6 +24,12 @@ type Case = [
 		footerText?: string,
 	}
 ];
+
+// Ignore all "teleport" behavior for the purpose of testing Dialog;
+// see https://test-utils.vuejs.org/guide/advanced/teleport.html
+config.global.stubs = {
+	teleport: true
+};
 
 describe( 'matches the snapshot', () => {
 	const cases: Case[] = [

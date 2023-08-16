@@ -1,135 +1,137 @@
 <template>
-	<transition name="cdx-dialog-fade" appear>
-		<div
-			v-if="open"
-			class="cdx-dialog-backdrop"
-			@click="close"
-			@keyup.escape="close"
-		>
-			<!-- Focus trap start -->
+	<teleport :to="computedTarget" :disabled="renderInPlace">
+		<transition name="cdx-dialog-fade" appear>
 			<div
-				ref="focusTrapStart"
-				tabindex="0"
-				@focus="focusLast"
-			/>
-			<div
-				ref="dialogElement"
-				class="cdx-dialog"
-				:class="rootClasses"
-				role="dialog"
-				v-bind="$attrs"
-				:aria-label="$slots.header || hideTitle ? title : undefined"
-				:aria-labelledby="!$slots.header && !hideTitle ? labelId : undefined"
-				aria-modal="true"
-				@click.stop
+				v-if="open"
+				class="cdx-dialog-backdrop"
+				@click="close"
+				@keyup.escape="close"
 			>
-				<header
-					v-if="showHeader || $slots.header"
-					class="cdx-dialog__header"
-					:class="{ 'cdx-dialog__header--default': !$slots.header }"
-				>
-					<!-- @slot Customizable Dialog header -->
-					<slot name="header">
-						<div v-if="!hideTitle" class="cdx-dialog__header__title-group">
-							<h2 :id="labelId" class="cdx-dialog__header__title">
-								{{ title }}
-							</h2>
-
-							<p v-if="subtitle" class="cdx-dialog__header__subtitle">
-								{{ subtitle }}
-							</p>
-						</div>
-
-						<cdx-button
-							v-if="closeButtonLabel"
-							class="cdx-dialog__header__close-button"
-							weight="quiet"
-							type="button"
-							:aria-label="closeButtonLabel"
-							@click="close"
-						>
-							<cdx-icon
-								:icon="cdxIconClose"
-								:icon-label="closeButtonLabel"
-							/>
-						</cdx-button>
-					</slot>
-				</header>
-
+				<!-- Focus trap start -->
 				<div
-					ref="focusHolder"
-					class="cdx-dialog-focus-trap"
-					tabindex="-1"
+					ref="focusTrapStart"
+					tabindex="0"
+					@focus="focusLast"
 				/>
-
 				<div
-					ref="dialogBody"
-					class="cdx-dialog__body"
-					:class="{
-						'cdx-dialog__body--no-header': !( showHeader || $slots.header ),
-						'cdx-dialog__body--no-footer': !(
-							showFooterActions ||
-							$slots.footer ||
-							$slots[ 'footer-text' ]
-						)
-					}"
+					ref="dialogElement"
+					class="cdx-dialog"
+					:class="rootClasses"
+					role="dialog"
+					v-bind="$attrs"
+					:aria-label="$slots.header || hideTitle ? title : undefined"
+					:aria-labelledby="!$slots.header && !hideTitle ? labelId : undefined"
+					aria-modal="true"
+					@click.stop
 				>
-					<!-- @slot Dialog content -->
-					<slot />
+					<header
+						v-if="showHeader || $slots.header"
+						class="cdx-dialog__header"
+						:class="{ 'cdx-dialog__header--default': !$slots.header }"
+					>
+						<!-- @slot Customizable Dialog header -->
+						<slot name="header">
+							<div v-if="!hideTitle" class="cdx-dialog__header__title-group">
+								<h2 :id="labelId" class="cdx-dialog__header__title">
+									{{ title }}
+								</h2>
+
+								<p v-if="subtitle" class="cdx-dialog__header__subtitle">
+									{{ subtitle }}
+								</p>
+							</div>
+
+							<cdx-button
+								v-if="closeButtonLabel"
+								class="cdx-dialog__header__close-button"
+								weight="quiet"
+								type="button"
+								:aria-label="closeButtonLabel"
+								@click="close"
+							>
+								<cdx-icon
+									:icon="cdxIconClose"
+									:icon-label="closeButtonLabel"
+								/>
+							</cdx-button>
+						</slot>
+					</header>
+
+					<div
+						ref="focusHolder"
+						class="cdx-dialog-focus-trap"
+						tabindex="-1"
+					/>
+
+					<div
+						ref="dialogBody"
+						class="cdx-dialog__body"
+						:class="{
+							'cdx-dialog__body--no-header': !( showHeader || $slots.header ),
+							'cdx-dialog__body--no-footer': !(
+								showFooterActions ||
+								$slots.footer ||
+								$slots[ 'footer-text' ]
+							)
+						}"
+					>
+						<!-- @slot Dialog content -->
+						<slot />
+					</div>
+
+					<footer
+						v-if="showFooterActions || $slots.footer || $slots[ 'footer-text' ]"
+						class="cdx-dialog__footer"
+						:class="{ 'cdx-dialog__footer--default': !$slots.footer }"
+					>
+						<!-- @slot Customizable Dialog footer -->
+						<slot name="footer">
+							<p v-if="$slots[ 'footer-text' ]" class="cdx-dialog__footer__text">
+								<!-- @slot Optional footer text -->
+								<slot name="footer-text" />
+							</p>
+
+							<div
+								v-if="showFooterActions"
+								class="cdx-dialog__footer__actions"
+							>
+								<cdx-button
+									v-if="primaryAction"
+									class="cdx-dialog__footer__primary-action"
+									weight="primary"
+									:action="primaryAction.actionType"
+									:disabled="primaryAction.disabled"
+									@click="$emit( 'primary' )"
+								>
+									{{ primaryAction.label }}
+								</cdx-button>
+
+								<cdx-button
+									v-if="defaultAction"
+									class="cdx-dialog__footer__default-action"
+									:disabled="defaultAction.disabled"
+									@click="$emit( 'default' )"
+								>
+									{{ defaultAction.label }}
+								</cdx-button>
+							</div>
+						</slot>
+					</footer>
 				</div>
 
-				<footer
-					v-if="showFooterActions || $slots.footer || $slots[ 'footer-text' ]"
-					class="cdx-dialog__footer"
-					:class="{ 'cdx-dialog__footer--default': !$slots.footer }"
-				>
-					<!-- @slot Customizable Dialog footer -->
-					<slot name="footer">
-						<p v-if="$slots[ 'footer-text' ]" class="cdx-dialog__footer__text">
-							<!-- @slot Optional footer text -->
-							<slot name="footer-text" />
-						</p>
-
-						<div
-							v-if="showFooterActions"
-							class="cdx-dialog__footer__actions"
-						>
-							<cdx-button
-								v-if="primaryAction"
-								class="cdx-dialog__footer__primary-action"
-								weight="primary"
-								:action="primaryAction.actionType"
-								:disabled="primaryAction.disabled"
-								@click="$emit( 'primary' )"
-							>
-								{{ primaryAction.label }}
-							</cdx-button>
-
-							<cdx-button
-								v-if="defaultAction"
-								class="cdx-dialog__footer__default-action"
-								:disabled="defaultAction.disabled"
-								@click="$emit( 'default' )"
-							>
-								{{ defaultAction.label }}
-							</cdx-button>
-						</div>
-					</slot>
-				</footer>
+				<!-- Focus trap end -->
+				<div
+					ref="focusTrapEnd"
+					tabindex="0"
+					@focus="focusFirst"
+				/>
 			</div>
-
-			<!-- Focus trap end -->
-			<div
-				ref="focusTrapEnd"
-				tabindex="0"
-				@focus="focusFirst"
-			/>
-		</div>
-	</transition>
+		</transition>
+	</teleport>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, toRef, watch, PropType, ref } from 'vue';
+import { computed, defineComponent, nextTick, toRef, watch, PropType, ref, inject } from 'vue';
 import CdxButton from '../../components/button/Button.vue';
 import CdxIcon from '../../components/icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
@@ -150,13 +152,6 @@ import { DialogAction, PrimaryDialogAction } from '../../types';
  * A Dialog can offer two kinds of actions (represented by buttons of the
  * appropriate type): primary action (can be progressive or destructive), and
  * default action (typically a safe option like "cancel").
- *
- * The Dialog component can either be used on its own (in which case it
- * displays in-place, using CSS positioning and z-index to overlay the rest
- * of the viewport), or it can be used along with Vue's built-in `<teleport>`
- * component to move the component elsewhere in the DOM. This latter approach
- * may be useful when Dialog is embedded in a large/complex page with other
- * absolutely-positioned elements near the end of the markup.
  *
  * When open, the Dialog adds a class to the document body to prevent scrolling;
  * this is applied whether or not teleport is used.
@@ -240,6 +235,23 @@ export default defineComponent( {
 		stackedActions: {
 			type: Boolean,
 			default: false
+		},
+
+		/**
+		 * Where to render the Dialog
+		 */
+		target: {
+			type: String as PropType<string | null>,
+			default: null
+		},
+
+		/**
+		 * Whether to disable the use of teleport and render the Dialog in its
+		 * original location in the document
+		 */
+		renderInPlace: {
+			type: Boolean,
+			default: false
 		}
 	},
 
@@ -283,6 +295,10 @@ export default defineComponent( {
 			'cdx-dialog--horizontal-actions': !props.stackedActions,
 			'cdx-dialog--dividers': showDividers.value
 		} ) );
+
+		// Determine where to teleport the Dialog to
+		const providedTarget = inject<string|undefined>( 'CdxTeleportTarget', undefined );
+		const computedTarget = computed( () => props.target ?? providedTarget ?? 'body' );
 
 		// Value needed to compensate for the width of any visible scrollbar
 		// on the page prior to the dialog taking over; without this, browsers
@@ -398,7 +414,8 @@ export default defineComponent( {
 			dialogBody,
 			focusHolder,
 			showHeader,
-			showFooterActions
+			showFooterActions,
+			computedTarget
 		};
 	}
 } );

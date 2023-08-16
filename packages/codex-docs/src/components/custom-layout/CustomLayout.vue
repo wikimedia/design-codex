@@ -17,14 +17,13 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import CdxDocsBetaTag from '../beta-tag/BetaTag.vue';
-import CdxDocsVersionBanner from '../version-banner/VersionBanner.vue';
 import { useRoute, useData } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
-const { Layout } = DefaultTheme;
+import CdxDocsBetaTag from '../beta-tag/BetaTag.vue';
+import CdxDocsVersionBanner from '../version-banner/VersionBanner.vue';
 
+const { Layout } = DefaultTheme;
 const route = useRoute();
 const isComponentPage = computed( () => route.path.includes( '/components/demos/' ) );
-
 const { frontmatter } = useData();
 </script>

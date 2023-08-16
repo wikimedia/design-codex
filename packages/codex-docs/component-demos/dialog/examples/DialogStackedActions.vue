@@ -2,21 +2,25 @@
 	<cdx-button @click="open = true">
 		Open dialog
 	</cdx-button>
-	<cdx-dialog
-		v-model:open="open"
-		title="Delete all changes?"
-		close-button-label="Close"
-		:stacked-actions="true"
-		:primary-action="primaryAction"
-		:default-action="defaultAction"
-		@primary="onPrimaryAction"
-		@default="open = false"
-	/>
+
+	<client-only>
+		<cdx-dialog
+			v-model:open="open"
+			title="Delete all changes?"
+			close-button-label="Close"
+			:stacked-actions="true"
+			:primary-action="primaryAction"
+			:default-action="defaultAction"
+			@primary="onPrimaryAction"
+			@default="open = false"
+		/>
+	</client-only>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
 import { CdxButton, CdxDialog } from '@wikimedia/codex';
+
 export default defineComponent( {
 	name: 'DialogStackedActions',
 	components: {
@@ -25,6 +29,7 @@ export default defineComponent( {
 	},
 	setup() {
 		const open = ref( false );
+
 		const primaryAction = {
 			label: 'Delete all changes and start over',
 			actionType: 'destructive'

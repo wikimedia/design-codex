@@ -3,13 +3,13 @@
 		<h2>Dialog</h2>
 		<p>
 			<cdx-button @click="showDialog1 = true">
-				Dialog with stacked actions
+				Dialog with teleport disabled
 			</cdx-button>
 
 			&nbsp;
 
 			<cdx-button @click="showDialog2 = true">
-				Teleported Dialog with no header
+				Dialog with no header
 			</cdx-button>
 
 			&nbsp;
@@ -41,35 +41,36 @@
 			v-model:open="showDialog1"
 			close-button-label="close"
 			:stacked-actions="true"
+			:render-in-place="true"
 			:primary-action="{ actionType: 'progressive', label: 'Sweet!' }"
 			:default-action="{ label: 'Bummer' }"
 			title="Example Dialog 1"
 			@default="showDialog1 = false"
 			@primary="showDialog1 = false"
 		>
-			<p>This dialog is displayed in-place using CSS positioning</p>
+			<p>This dialog is displayed in-place</p>
 		</cdx-dialog>
 
-		<teleport to="#teleport-target">
-			<cdx-dialog
-				v-model:open="showDialog2"
-				:primary-action="{ actionType: 'destructive', label: 'Destroy!' }"
-				:default-action="{ label: 'Cancel' }"
-				title="Example Dialog 2"
-				:hide-title="true"
-				@default="showDialog2 = false"
-				@primary="showDialog2 = false"
-			>
-				<p>
-					This dialog is teleported to the #teleport-target element
-					elsewhere on the page.
-				</p>
-			</cdx-dialog>
-		</teleport>
+		<cdx-dialog
+			v-model:open="showDialog2"
+			target="#teleport-target"
+			:primary-action="{ actionType: 'destructive', label: 'Destroy!' }"
+			:default-action="{ label: 'Cancel' }"
+			title="Example Dialog 2"
+			:hide-title="true"
+			@default="showDialog2 = false"
+			@primary="showDialog2 = false"
+		>
+			<p>
+				This dialog is teleported to the #teleport-target element
+				elsewhere on the page.
+			</p>
+		</cdx-dialog>
 
 		<cdx-dialog
 			v-model:open="showDialog3"
 			close-button-label="close"
+			target="#teleport-target"
 			:primary-action="{ actionType: 'progressive', label: 'Sweet!' }"
 			:default-action="{ label: 'Bummer' }"
 			title="Example Dialog 3"
@@ -86,6 +87,7 @@
 
 		<cdx-dialog
 			v-model:open="showDialog4"
+			target="#teleport-target"
 			title="Example Dialog 4"
 			:hide-title="true"
 		>
@@ -94,6 +96,7 @@
 
 		<cdx-dialog
 			v-model:open="showDialog5"
+			target="#teleport-target"
 			:primary-action="{ actionType: 'progressive', label: 'Sweet!' }"
 			:default-action="{ label: 'Bummer' }"
 			title="Example Dialog 5"
@@ -111,6 +114,7 @@
 
 		<wrapped-dialog
 			v-model:open="showDialog6"
+			target="#teleport-target"
 			title="Custom Wrapped Dialog"
 		>
 			Example of a custom wrapped dialog

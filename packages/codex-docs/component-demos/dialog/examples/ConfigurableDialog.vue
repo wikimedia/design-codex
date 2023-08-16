@@ -3,34 +3,33 @@
 		Open dialog
 	</cdx-button>
 
-	<cdx-dialog
-		v-model:open="open"
-		:title="title"
-		:subtitle="subtitle"
-		:hide-title="hideTitle"
-		:close-button-label="closeButtonLabel"
-		:stacked-actions="stackedActions"
-		:primary-action="primaryAction"
-		:default-action="defaultAction"
-		@default="open = false"
-		@primary="open = false"
-	>
-		<template #default>
-			<slot />
-		</template>
+	<client-only>
+		<cdx-dialog
+			v-model:open="open"
+			:title="title"
+			:subtitle="subtitle"
+			:hide-title="hideTitle"
+			:close-button-label="closeButtonLabel"
+			:stacked-actions="stackedActions"
+			:primary-action="primaryAction"
+			:default-action="defaultAction"
+			@default="open = false"
+			@primary="open = false"
+		>
+			<template #default>
+				<slot />
+			</template>
 
-		<template v-if="$slots[ 'footer-text' ]" #footer-text>
-			<slot name="footer-text" />
-		</template>
-	</cdx-dialog>
+			<template v-if="$slots[ 'footer-text' ]" #footer-text>
+				<slot name="footer-text" />
+			</template>
+		</cdx-dialog>
+	</client-only>
 </template>
 
 <script>
 import { defineComponent, ref, computed } from 'vue';
-import {
-	CdxButton,
-	CdxDialog
-} from '@wikimedia/codex';
+import { CdxButton, CdxDialog } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'ConfigurableDialog',

@@ -44,6 +44,23 @@ This component forwards any attributes applied by the user to the inner
 element.
 :::
 
+::: tip Dialog and `<teleport>`
+Dialogs rely on Vue's built-in
+[`<teleport>`](https://vuejs.org/guide/components/provide-inject.html) feature,
+and a "target" prop can be supplied which will be passed to the teleport's `to`
+prop. This prop is optional and defaults to the body element on the page
+(although if Dialog is being used with SSR, a dedicated target should be
+provided).
+
+An alternative default target can be set using Vue's
+[provide/inject](https://vuejs.org/guide/components/provide-inject.html)
+feature. To specify an alternative default teleport target, just `provide` a
+string (selector) using the key `CdxTeleportTarget`.
+
+Finally, Dialog teleportation behavior can be disabled by setting
+`renderInPlace: true`.
+:::
+
 ## Demos
 
 ### Configurable Dialog

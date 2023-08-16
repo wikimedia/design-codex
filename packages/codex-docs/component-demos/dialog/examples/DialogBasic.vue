@@ -3,17 +3,19 @@
 		Open Dialog
 	</cdx-button>
 
-	<cdx-dialog
-		v-model:open="open"
-		title="Save changes"
-		close-button-label="Close"
-		:primary-action="primaryAction"
-		:default-action="defaultAction"
-		@primary="onPrimaryAction"
-		@default="open = false"
-	>
-		<p>Do you want to save your changes?</p>
-	</cdx-dialog>
+	<client-only>
+		<cdx-dialog
+			v-model:open="open"
+			title="Save changes"
+			close-button-label="Close"
+			:primary-action="primaryAction"
+			:default-action="defaultAction"
+			@primary="onPrimaryAction"
+			@default="open = false"
+		>
+			<p>Do you want to save your changes?</p>
+		</cdx-dialog>
+	</client-only>
 </template>
 
 <script>
