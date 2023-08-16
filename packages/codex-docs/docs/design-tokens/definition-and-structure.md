@@ -61,7 +61,7 @@ Component tokens are documented in the JSON file `codex-components.json`.
 ## 2. Tokens in design
 
 ### From design to implementation
-Designers can access an overview of Codex’s foundational styles and principles and their corresponding token translation in the [Design Tokens library](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/✨-Design-Tokens-[WIP]?node-id=1%3A119) in Figma. By enabling the Design tokens library in their project’s Figma files, designers will be able to reuse the system’s visual principles as Figma styles when creating components and compositions.
+Designers can access an overview of Codex’s foundational styles and principles and their corresponding token translation in the [Design tokens library](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/✨-Design-Tokens-[WIP]?node-id=1%3A119) in Figma. By enabling the Design tokens library in their project’s Figma files, designers will be able to reuse the system’s visual principles as Figma styles when creating components and compositions.
 
 ::: info
 Please note that tokens are context-specific: use them accordingly to the intended purpose expressed by their name. E.g. Apply content colors only to text.
@@ -71,7 +71,7 @@ During implementation, engineers will be able to follow the design specification
 
 ![Design tokens when applied in code, here screenshot of primary button variant](../assets/design-tokens-overview/using-tokens-code.png)
 
-Please find all current design system token category demos in this Design Tokens section of Codex, starting at [Animation](animation.md) and ending at [Z-Index](z-index.md).
+Please find all current design system token category demos in this section of the Codex docs, starting at [Animation](animation.md) and ending at [Z-Index](z-index.md).
 
 ## 3. Tokens in code
 ### File organization

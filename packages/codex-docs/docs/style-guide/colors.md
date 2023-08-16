@@ -238,7 +238,7 @@ are perceived at different color vision deficiency conditions.[[1]](#ref1)
 
 ## Resources
 
-Find the color palette in the [Design Tokens Figma library](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=1-3481&t=Us4ogp79l5e37Rpx-11).
+Find the color palette in the [Design tokens Figma library](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=1-3481&t=Us4ogp79l5e37Rpx-11).
 
 ## References
 
