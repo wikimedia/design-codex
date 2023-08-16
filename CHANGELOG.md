@@ -1,3 +1,41 @@
+# 0.17.0 / 2023-08-16
+
+## Features
+- Menu: Don't set aria-activedescendant when the menu is closed (Roan Kattouw)
+- Menu: Always clear the highlighted state when the menu closes (Roan Kattouw)
+- Menu, Select: Allow keyboard navigation through typing (Roan Kattouw)
+- Dialog: Add `aria-modal="true"` to the dialog element (Volker E)
+
+## Styles
+- tokens: Remove min-size-base, make it a deprecated alias (Roan Kattouw)
+
+## Code
+- Menu: Simplify logic for highlighting selected item (Roan Kattouw)
+
+## Documentation
+- docs, Field: Fix Label usage in demo (Anne Tomasevich)
+- Menu, docs: Document ARIA attributes and add them to all examples (Roan Kattouw)
+- docs, ToggleButton: Remove dynamic label examples (Anne Tomasevich)
+- docs, Menu, MenuItem: Use proper HTML structure for demos (Anne Tomasevich)
+- docs, Link: Improve demo text (Anne Tomasevich)
+- docs, Button: Add docs on role="button" for fake buttons (Anne Tomasevich)
+- demo: Add an exhaustive table of all icons (Roan Kattouw)
+- demo: Move grid of all buttons to a separate page (Roan Kattouw)
+- docs: Fix alphabetical order of sidebar items (Anne Tomasevich)
+- docs: Clarify use of role="button" and remove from label demos (Anne Tomasevich)
+- docs: Brand the main site as "beta" (Anne Tomasevich)
+- docs: Change background color of beta tag (Anne Tomasevich)
+- Checkbox, Radio, ToggleSwitch: Improve group docs and demo pages (Anne Tomasevich)
+- docs, Checkbox: Remove CSS-only indeterminate checkbox (Anne Tomasevich)
+- docs: Add MediaWiki versions of inlined Less examples (Roan Kattouw)
+- docs: Add more descriptive `aria-label` to GitHub link (Volker E)
+- docs: Improve beta tag design (Anne Tomasevich)
+- docs: Standardize design tokens and components overview format (Anne Tomasevich)
+- docs: Improve CSS-only button and checkbox docs (Anne Tomasevich)
+- docs: Standardize capitalization of "design tokens" (Anne Tomasevich)
+- docs: Shorten link text on design tokens overview page (Anne Tomasevich)
+- docs: Improve release process docs for visual regression tests (Roan Kattouw)
+
 # 0.16.1 / 2023-08-01
 ## Styles
 - Tabs: Override browser default styles for <button> (Roan Kattouw)
