@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import CdxToggleButton from './ToggleButton.vue';
+import CdxIcon from '../icon/Icon.vue';
 
 describe( 'matches the snapshot', () => {
 	type Case = [
@@ -8,22 +9,33 @@ describe( 'matches the snapshot', () => {
 			disabled: boolean;
 			quiet: boolean;
 			modelValue: boolean;
-		}
+		},
+		slot: string,
+		attrs?: Record<string, unknown>
 	];
 	const cases: Case[] = [
-		[ 'Default', { disabled: false, quiet: false, modelValue: false } ],
-		[ 'Active', { disabled: false, quiet: false, modelValue: true } ],
-		[ 'Disabled, inactive', { disabled: true, quiet: false, modelValue: false } ],
-		[ 'Disabled, active', { disabled: true, quiet: false, modelValue: true } ],
-		[ 'Quiet', { disabled: false, quiet: true, modelValue: false } ],
-		[ 'Quiet, active', { disabled: false, quiet: true, modelValue: true } ],
-		[ 'Quiet, disabled, inactive', { disabled: true, quiet: true, modelValue: false } ],
-		[ 'Quiet, disabled, active', { disabled: true, quiet: true, modelValue: true } ]
+		[ 'Default', { disabled: false, quiet: false, modelValue: false }, 'Button text' ],
+		[ 'Active', { disabled: false, quiet: false, modelValue: true }, 'Button text' ],
+		[ 'Disabled, inactive', { disabled: true, quiet: false, modelValue: false }, 'Button text' ],
+		[ 'Disabled, active', { disabled: true, quiet: false, modelValue: true }, 'Button text' ],
+		[ 'Quiet', { disabled: false, quiet: true, modelValue: false }, 'Button text' ],
+		[ 'Quiet, active', { disabled: false, quiet: true, modelValue: true }, 'Button text' ],
+		[ 'Quiet, disabled, inactive', { disabled: true, quiet: true, modelValue: false }, 'Button text' ],
+		[ 'Quiet, disabled, active', { disabled: true, quiet: true, modelValue: true }, 'Button text' ],
+		[ 'Icon-only (SVG)', { disabled: false, quiet: false, modelValue: false }, '<svg></svg>', { 'aria-label': 'Icon-only example' } ],
+		[ 'Icon-only (CdxIcon)', { disabled: false, quiet: false, modelValue: false }, '<cdx-icon icon=\'<path d="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"/>\' />', { 'aria-hidden': true } ]
 	];
-	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
+	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slot, attrs = {} ) => {
 		const wrapper = shallowMount(
 			CdxToggleButton,
-			{ props: props, slots: { default: 'Button text' } }
+			{
+				props,
+				slots: { default: slot },
+				attrs,
+				global: {
+					components: { CdxIcon }
+				}
+			}
 		);
 		expect( wrapper.element ).toMatchSnapshot();
 	} );

@@ -15,6 +15,7 @@
 
 <script lang="ts">
 import { ref, computed, defineComponent } from 'vue';
+import useIconOnlyButton from '../../composables/useIconOnlyButton';
 
 /**
  * A button that can be toggled on and off.
@@ -60,7 +61,9 @@ export default defineComponent( {
 		 */
 		'update:modelValue'
 	],
-	setup( props, { emit } ) {
+	setup( props, { emit, slots, attrs } ) {
+		const isIconOnly = useIconOnlyButton( slots.default, attrs, 'CdxButton' );
+
 		// Support: Firefox (space), all (enter)
 		// Whether the button is being pressed via the space or enter key. Needed to apply
 		// consistent active styles across browsers. For mousedown/mouseup, the browser's native
@@ -74,6 +77,7 @@ export default defineComponent( {
 			// Provide --toggled-off too so that we can simplify selectors
 			'cdx-toggle-button--toggled-on': props.modelValue,
 			'cdx-toggle-button--toggled-off': !props.modelValue,
+			'cdx-toggle-button--icon-only': isIconOnly.value,
 			'cdx-toggle-button--is-active': isActive.value
 		} ) );
 
