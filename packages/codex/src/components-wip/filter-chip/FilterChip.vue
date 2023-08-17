@@ -129,6 +129,30 @@ export default defineComponent( {
 	font-size: @font-size-small;
 	line-height: @line-height-small;
 
+	&:not( .cdx-filter-chip--disabled ) {
+		transition-property: @transition-property-base;
+		transition-duration: @transition-duration-medium;
+
+		&:hover {
+			background-color: @background-color-base;
+			cursor: @cursor-base--hover;
+		}
+
+		&:focus {
+			outline: @outline-base--focus;
+		}
+
+		&:active {
+			background-color: @background-color-interactive;
+			border-color: @border-color-interactive;
+		}
+
+		&:focus:not( :active ) {
+			border-color: @border-color-progressive--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+		}
+	}
+
 	&--disabled {
 		background-color: @background-color-disabled;
 		color: @color-inverted;
