@@ -133,30 +133,49 @@ describe( 'Basic usage', () => {
 
 	} );
 
-	it( 'does not emit the update:input-chips event when a duplicate chip is added', async () => {
-		const wrapper = shallowMount( CdxFilterChipInput, { props: {
-			removeButtonLabel: 'remove',
-			inputChips: [ { value: 'Do not duplicate chips' } ]
-		} } );
+	describe( 'when a duplicate chip is added', () => {
+		it( 'does not emit the update:input-chips event', async () => {
+			const wrapper = shallowMount( CdxFilterChipInput, { props: {
+				removeButtonLabel: 'remove',
+				inputChips: [ { value: 'Do not duplicate chips' } ]
+			} } );
 
-		const inputElement = wrapper.get( 'input' );
-		await inputElement.setValue( 'Do not duplicate chips' );
-		await inputElement.trigger( 'keydown', { key: 'Enter' } );
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Do not duplicate chips' );
+			await inputElement.trigger( 'keydown', { key: 'Enter' } );
 
-		expect( wrapper.emitted( 'update:input-chips' ) ).toBeFalsy();
-	} );
+			expect( wrapper.emitted( 'update:input-chips' ) ).toBeFalsy();
+		} );
 
-	it( 'sets the outer div class to error when a duplicate chip is added', async () => {
-		const wrapper = shallowMount( CdxFilterChipInput, { props: {
-			removeButtonLabel: 'remove',
-			inputChips: [ { value: 'Do not duplicate chips' } ]
-		} } );
+		it( 'sets the outer div class to error', async () => {
+			const wrapper = shallowMount( CdxFilterChipInput, { props: {
+				removeButtonLabel: 'remove',
+				inputChips: [ { value: 'Do not duplicate chips' } ]
+			} } );
 
-		expect( wrapper.classes() ).not.toContain( 'cdx-filter-chip-input--status-error' );
+			expect( wrapper.classes() ).not.toContain( 'cdx-filter-chip-input--status-error' );
 
-		const inputElement = wrapper.get( 'input' );
-		await inputElement.setValue( 'Do not duplicate chips' );
-		await inputElement.trigger( 'keydown', { key: 'Enter' } );
-		expect( wrapper.classes() ).toContain( 'cdx-filter-chip-input--status-error' );
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Do not duplicate chips' );
+			await inputElement.trigger( 'keydown', { key: 'Enter' } );
+			expect( wrapper.classes() ).toContain( 'cdx-filter-chip-input--status-error' );
+		} );
+
+		it( 'clears the error status if the duplicate chip is removed', async () => {
+			const wrapper = mount( CdxFilterChipInput, { props: {
+				removeButtonLabel: 'remove',
+				inputChips: [ { value: 'Do not duplicate chips' } ],
+				'onUpdate:inputChips': ( e: FilterChipInputItem[] ) => wrapper.setProps( { inputChips: e } )
+			} } );
+
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Do not duplicate chips' );
+			await inputElement.trigger( 'keydown', { key: 'Enter' } );
+			expect( wrapper.classes() ).toContain( 'cdx-filter-chip-input--status-error' );
+
+			const firstChip = wrapper.findComponent( CdxFilterChip );
+			await firstChip.find( 'button' ).trigger( 'click' );
+			expect( wrapper.classes() ).not.toContain( 'cdx-filter-chip-input--status-error' );
+		} );
 	} );
 } );

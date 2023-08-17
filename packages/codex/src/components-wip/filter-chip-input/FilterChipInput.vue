@@ -50,7 +50,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, ref } from 'vue';
+import { defineComponent, PropType, computed, ref, watch, toRef } from 'vue';
 import CdxFilterChip from '../filter-chip/FilterChip.vue';
 import { ValidationStatusTypes } from '../../constants';
 import { FilterChipInputItem, ValidationStatusType } from '../../types';
@@ -208,6 +208,16 @@ export default defineComponent( {
 			isFocused.value = false;
 			addChip();
 		}
+
+		watch( toRef( props, 'inputChips' ), ( newVal ) => {
+			// Check if there are any duplicates between the chips and the input value. If so, set
+			// the status to 'error'. If not, set to 'default'.
+			// This covers the case of adding chip with value 'asdf', typing 'asdf' into the input
+			// (which changes the status to error), then removing the 'asdf' chip. In this case,
+			// the status should be changed back to default.
+			const matchingChip = newVal.find( ( chip ) => chip.value === inputValue.value );
+			internalStatus.value = matchingChip ? 'error' : 'default';
+		} );
 
 		return {
 			input,
