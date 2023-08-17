@@ -11,7 +11,6 @@
 			:value="inputValue"
 			:disabled="computedDisabled"
 			:indeterminate.prop="indeterminate"
-			@keydown.prevent.enter="clickInput"
 		>
 		<span class="cdx-checkbox__icon" />
 		<!-- Only render a Label component if label text has been provided. This component can also
@@ -132,14 +131,6 @@ export default defineComponent( {
 		const checkboxId = useGeneratedId( 'checkbox' );
 		const descriptionId = useGeneratedId( 'description' );
 
-		/**
-		 * Click (and toggle) the input.
-		 */
-		const clickInput = () => {
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			input.value!.click();
-		};
-
 		// Take the modelValue provided by the parent component via v-model and
 		// generate a wrapped model that we can use for the input element in
 		// this component.
@@ -151,7 +142,6 @@ export default defineComponent( {
 			input,
 			checkboxId,
 			descriptionId,
-			clickInput,
 			wrappedModel
 		};
 	}

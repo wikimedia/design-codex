@@ -116,17 +116,4 @@ describe( 'Checkbox', () => {
 			} );
 		} );
 	} );
-
-	describe( 'on enter keydown', () => {
-		it( 'clicks the input', async () => {
-			const props = { modelValue: false };
-			const wrapper = shallowMount( CdxCheckbox, { propsData: props, slots: { default: 'Label' } } );
-			const input = wrapper.find( 'input' ).element;
-			input.click = jest.fn();
-
-			await wrapper.find( 'input' ).trigger( 'keydown.enter' );
-
-			expect( input.click ).toHaveBeenCalled();
-		} );
-	} );
 } );
