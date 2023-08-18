@@ -1,4 +1,6 @@
-import { VNode, SetupContext, warn } from 'vue';
+import { VNode, SetupContext, Slot } from 'vue';
+import useSlotContents from './useSlotContents';
+import useWarnOnce from './useWarnOnce';
 
 /**
  * Warn the developer if a label has not been provided.
@@ -14,23 +16,21 @@ import { VNode, SetupContext, warn } from 'vue';
  *
  * Note that this only runs once when the setup function runs, not when slots or attributes change.
  *
- * @param slotContent The slot where label text is added
+ * @param slot The slot where label text is added
  * @param attrs Attributes from context
  * @param componentName Name of the component, to be used in the warning message
  */
 export default function useLabelChecker(
-	slotContent: VNode[] | undefined,
+	slot: Slot | VNode[] | undefined,
 	attrs: SetupContext[ 'attrs' ],
 	componentName: string
 ) {
-	const isProperlyLabelled = slotContent && slotContent.length > 0 ||
-		attrs?.[ 'aria-label' ] ||
-		attrs?.[ 'aria-labelledby' ];
-
-	if ( !isProperlyLabelled ) {
-		warn( `${componentName}: Inputs must have an associated label. Provide one of the following:
+	useWarnOnce(
+		() => useSlotContents( slot ).length === 0 &&
+			!attrs?.[ 'aria-label' ] && !attrs?.[ 'aria-labelledby' ],
+		`${componentName}: Inputs must have an associated label. Provide one of the following:
  - A label via the appropriate slot
  - An \`aria-label\` attribute set to the label text
- - An \`aria-labelledby\` attribute set to the ID of the label element` );
-	}
+ - An \`aria-labelledby\` attribute set to the ID of the label element`
+	);
 }
