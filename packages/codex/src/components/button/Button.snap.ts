@@ -116,14 +116,30 @@ exports[`matches the snapshot Case 10 Slotted: ({}) => HTML 1`] = `
 </button>
 `;
 
-exports[`matches the snapshot Case 11 Icon-only: ({}) => HTML 1`] = `
+exports[`matches the snapshot Case 11 Icon-only (SVG): ({}) => HTML 1`] = `
 <button
-  aria-label="icon-only-example"
+  aria-label="Icon-only example"
   class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-button--icon-only"
 >
   <!-- @slot Button content -->
   
   <svg />
+  
+</button>
+`;
+
+exports[`matches the snapshot Case 12 Icon-only (CdxIcon): ({}) => HTML 1`] = `
+<button
+  aria-hidden="true"
+  class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-button--icon-only"
+>
+  <!-- @slot Button content -->
+  
+  <cdx-icon-stub
+    icon="<path d=\\"M11 9V4H9v5H4v2h5v5h2v-5h5V9z\\"/>"
+    iconlabel=""
+    size="medium"
+  />
   
 </button>
 `;

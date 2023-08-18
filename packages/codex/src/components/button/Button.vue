@@ -12,49 +12,15 @@
 </template>
 
 <script lang="ts">
-import {
-	PropType,
-	SetupContext,
-	Slot,
-	defineComponent,
-	ref,
-	computed,
-	warn
-} from 'vue';
+import { PropType, defineComponent, ref, computed } from 'vue';
 import { ButtonActions, ButtonWeights, ButtonSizes } from '../../constants';
 import { ButtonAction, ButtonWeight, ButtonSize } from '../../types';
-import CdxIcon from '../icon/Icon.vue';
-import useSlotContents from '../../composables/useSlotContents';
+import useIconOnlyButton from '../../composables/useIconOnlyButton';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
-import { isComponentVNode, isTagVNode } from '../../utils/slotContents';
 
 const buttonActionValidator = makeStringTypeValidator( ButtonActions );
 const buttonWeightValidator = makeStringTypeValidator( ButtonWeights );
 const buttonSizeValidator = makeStringTypeValidator( ButtonSizes );
-const validateIconOnlyButtonAttrs = ( attrs: SetupContext['attrs'] ) => {
-	if ( !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ] ) {
-		warn( `CdxButton: Icon-only buttons require one of the following attribute: aria-label or aria-hidden.
-		See documentation on https://doc.wikimedia.org/codex/latest/components/demos/button.html#icon-only-button-1` );
-	}
-};
-
-const isIconOnlyButton = ( slot: Slot | undefined, attrs: SetupContext['attrs'] ): boolean => {
-	const slotContent = useSlotContents( slot );
-	if ( slotContent.length !== 1 ) {
-		return false;
-	}
-	const soleNode = slotContent[ 0 ];
-	if (
-		typeof soleNode === 'object' && (
-			isComponentVNode( soleNode, CdxIcon.name ) ||
-			isTagVNode( soleNode, 'svg' )
-		)
-	) {
-		validateIconOnlyButtonAttrs( attrs );
-		return true;
-	}
-	return false;
-};
 
 /**
  * A control that can be pressed to trigger an action.
@@ -98,6 +64,8 @@ export default defineComponent( {
 	},
 	emits: [ 'click' ],
 	setup( props, { emit, slots, attrs } ) {
+		const isIconOnly = useIconOnlyButton( slots.default, attrs, 'CdxButton' );
+
 		// Support: Firefox (space), all (enter)
 		// Whether the button is being pressed via the space or enter key. Needed to apply
 		// consistent active styles across browsers. For mousedown/mouseup, the browser's native
@@ -109,7 +77,7 @@ export default defineComponent( {
 			[ `cdx-button--weight-${props.weight}` ]: true,
 			[ `cdx-button--size-${props.size}` ]: true,
 			'cdx-button--framed': props.weight !== 'quiet',
-			'cdx-button--icon-only': isIconOnlyButton( slots.default, attrs ),
+			'cdx-button--icon-only': isIconOnly.value,
 			'cdx-button--is-active': isActive.value
 		} ) );
 

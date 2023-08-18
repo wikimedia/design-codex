@@ -28,7 +28,7 @@
 		</p>
 		<p>
 			Icon-only button:
-			<cdx-button>
+			<cdx-button aria-label="Mark all as read">
 				<cdx-icon :icon="cdxIconCheckAll" />
 			</cdx-button>
 		</p>
