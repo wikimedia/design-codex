@@ -59,6 +59,7 @@ import useModelWrapper from './composables/useModelWrapper';
 import useResizeObserver from './composables/useResizeObserver';
 import useSlotContents from './composables/useSlotContents';
 import useSplitAttributes from './composables/useSplitAttributes';
+import useWarnOnce from './composables/useWarnOnce';
 
 // Utilities
 import * as stringHelpers from './utils/stringHelpers';
@@ -133,6 +134,7 @@ export {
 	useResizeObserver,
 	useSlotContents,
 	useSplitAttributes,
+	useWarnOnce,
 
 	// Utilities
 	stringHelpers,

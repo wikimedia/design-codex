@@ -1,5 +1,6 @@
-import { computed, warn, ComputedRef, SetupContext, Slot } from 'vue';
+import { computed, ComputedRef, SetupContext, Slot } from 'vue';
 import useSlotContents from './useSlotContents';
+import useWarnOnce from './useWarnOnce';
 import { isComponentVNode, isTagVNode } from '../utils/slotContents';
 
 /**
@@ -21,19 +22,7 @@ export default function useIconOnlyButton(
 	attrs: SetupContext['attrs'],
 	componentName: string
 ): ComputedRef<boolean> {
-	// Emit a warning if this button is an icon-only button without the aria-label or
-	// aria-hidden attribute set, but do this only once per button
-	let iconOnlyWarningDone = false;
-	function maybeWarnIconOnly( iconOnly: boolean ) {
-		if ( !iconOnlyWarningDone && iconOnly && !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ] ) {
-			warn( `${componentName}: Icon-only buttons require one of the following attributes: aria-label or aria-hidden. ` +
-				'See documentation at https://doc.wikimedia.org/codex/latest/components/demos/button.html#icon-only-button'
-			);
-			iconOnlyWarningDone = true;
-		}
-	}
-
-	function isIconOnly() {
+	const isIconOnly = computed( () => {
 		const slotContents = useSlotContents( slot );
 		if ( slotContents.length !== 1 ) {
 			return false;
@@ -48,11 +37,15 @@ export default function useIconOnlyButton(
 			return true;
 		}
 		return false;
-	}
-
-	return computed( () => {
-		const result = isIconOnly();
-		maybeWarnIconOnly( result );
-		return result;
 	} );
+
+	// Emit a warning if this button is an icon-only button without the aria-label or
+	// aria-hidden attribute set, but do this only once per button
+	useWarnOnce(
+		() => isIconOnly.value && !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ],
+		`${componentName}: Icon-only buttons require one of the following attributes: aria-label or aria-hidden. ` +
+			'See documentation at https://doc.wikimedia.org/codex/latest/components/demos/button.html#icon-only-button'
+	);
+
+	return isIconOnly;
 }
