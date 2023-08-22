@@ -13,6 +13,7 @@
 				:remove-button-label="removeButtonLabel"
 				:icon="chip.icon"
 				:disabled="disabled"
+				@click-chip="handleChipClick( chip )"
 				@remove-chip="removeChip( chip )"
 			>
 				{{ chip.value }}
@@ -28,7 +29,7 @@
 				@blur="onBlur"
 				@focus="onFocus"
 				@keydown="onKeydown"
-				@keydown.enter="onKeydownEnter"
+				@keydown.enter="addChip"
 			>
 		</div>
 
@@ -42,7 +43,7 @@
 				@blur="onBlur"
 				@focus="onFocus"
 				@keydown="onKeydown"
-				@keydown.enter="onKeydownEnter"
+				@keydown.enter="addChip"
 			>
 		</div>
 	</div>
@@ -154,10 +155,37 @@ export default defineComponent( {
 			otherAttrs
 		} = useSplitAttributes( attrs, internalClasses );
 
+		const focusInput = (): void => {
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			input.value!.focus();
+		};
+
+		/**
+		 * Adds a new chip with the current input value, then clears the input.
+		 */
+		function addChip() {
+			// If the input value is the same as a chip's value, set error status.
+			if ( props.inputChips.find( ( chip ) => chip.value === inputValue.value ) ) {
+				internalStatus.value = 'error';
+			} else if ( inputValue.value.length > 0 ) {
+				emit( 'update:input-chips', props.inputChips.concat( { value: inputValue.value } ) );
+				inputValue.value = '';
+			}
+		}
+
 		function removeChip( chipToRemove: FilterChipInputItem ) {
 			emit( 'update:input-chips', props.inputChips.filter(
 				( chip ) => chip.value !== chipToRemove.value
 			) );
+			focusInput();
+		}
+
+		function handleChipClick( clickedChip: FilterChipInputItem ) {
+			// Remove the chip but add the text to the input so it can be edited.
+			// Note that, if there was a value in the input when the chip was clicked, the onBlur
+			// handler has already handled adding that text as a new chip.
+			removeChip( clickedChip );
+			inputValue.value = clickedChip.value;
 		}
 
 		function onKeydown() {
@@ -167,31 +195,18 @@ export default defineComponent( {
 			}
 		}
 
-		/**
-		 * Try adding the new chip - if it is a duplicate, an error state
-		 * will be thrown and the chip will not be added.
-		 */
-		function onKeydownEnter() {
-			// if the input text is a duplicate
-			if ( props.inputChips.find( ( chip ) => chip.value === inputValue.value ) ) {
-				internalStatus.value = 'error';
-			} else {
-				emit( 'update:input-chips', props.inputChips.concat( { value: inputValue.value } ) );
-				inputValue.value = '';
-			}
-		}
-
-		const focusInput = (): void => {
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			input.value!.focus();
-		};
-
 		function onFocus() {
 			isFocused.value = true;
 		}
 
+		/**
+		 * Handle input blur.
+		 *
+		 * Note that this runs when the user clicks on an input chip, before handleChipClick().
+		 */
 		function onBlur() {
 			isFocused.value = false;
+			addChip();
 		}
 
 		return {
@@ -200,9 +215,10 @@ export default defineComponent( {
 			rootClasses,
 			rootStyle,
 			otherAttrs,
+			handleChipClick,
+			addChip,
 			removeChip,
 			onKeydown,
-			onKeydownEnter,
 			focusInput,
 			onFocus,
 			onBlur
