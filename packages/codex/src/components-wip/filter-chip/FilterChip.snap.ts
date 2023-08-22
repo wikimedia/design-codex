@@ -3,6 +3,7 @@
 exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 <div
   class="cdx-filter-chip"
+  tabindex="0"
 >
   <!--v-if-->
   <span
@@ -21,6 +22,7 @@ exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
     class="cdx-filter-chip__button"
     disabled="false"
     size="medium"
+    tabindex="-1"
     weight="quiet"
   />
 </div>
@@ -29,6 +31,7 @@ exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 exports[`matches the snapshot Case 1 Disabled: ({"disabled": true}) => HTML 1`] = `
 <div
   class="cdx-filter-chip cdx-filter-chip--disabled"
+  tabindex="0"
 >
   <!--v-if-->
   <span
@@ -47,6 +50,7 @@ exports[`matches the snapshot Case 1 Disabled: ({"disabled": true}) => HTML 1`] 
     class="cdx-filter-chip__button"
     disabled="true"
     size="medium"
+    tabindex="-1"
     weight="quiet"
   />
 </div>
@@ -55,6 +59,7 @@ exports[`matches the snapshot Case 1 Disabled: ({"disabled": true}) => HTML 1`] 
 exports[`matches the snapshot Case 2 Icon: ({"icon": [Object]}) => HTML 1`] = `
 <div
   class="cdx-filter-chip"
+  tabindex="0"
 >
   <cdx-icon-stub
     icon="[object Object]"
@@ -77,6 +82,7 @@ exports[`matches the snapshot Case 2 Icon: ({"icon": [Object]}) => HTML 1`] = `
     class="cdx-filter-chip__button"
     disabled="false"
     size="medium"
+    tabindex="-1"
     weight="quiet"
   />
 </div>

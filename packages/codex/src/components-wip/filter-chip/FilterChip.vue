@@ -1,5 +1,11 @@
 <template>
-	<div class="cdx-filter-chip" :class="rootClasses">
+	<div
+		class="cdx-filter-chip"
+		:class="rootClasses"
+		tabindex="0"
+		@keydown="onKeydown"
+		@click="$emit( 'click-chip' )"
+	>
 		<cdx-icon
 			v-if="icon"
 			:icon="icon"
@@ -12,9 +18,10 @@
 		<cdx-button
 			class="cdx-filter-chip__button"
 			weight="quiet"
+			tabindex="-1"
 			:aria-label="removeButtonLabel"
 			:disabled="disabled"
-			@click="$emit( 'remove-chip' )"
+			@click.stop="$emit( 'remove-chip' )"
 		>
 			<cdx-icon :icon="cdxIconClose" size="x-small" />
 		</cdx-button>
@@ -65,17 +72,36 @@ export default defineComponent( {
 		/**
 		 * Emitted when a chip is removed by the user.
 		 */
-		'remove-chip'
+		'remove-chip',
+		/**
+		 * Emitted when a chip is clicked by the user.
+		 */
+		'click-chip'
 	],
-	setup( props ) {
+	setup( props, { emit } ) {
 		const rootClasses = computed( () => {
 			return {
 				'cdx-filter-chip--disabled': props.disabled
 			};
 		} );
 
+		function onKeydown( e: KeyboardEvent ) {
+			switch ( e.key ) {
+				case 'Enter':
+					emit( 'click-chip' );
+					break;
+				case 'Backspace':
+				case 'Delete':
+					emit( 'remove-chip' );
+					break;
+				default:
+					break;
+			}
+		}
+
 		return {
 			rootClasses,
+			onKeydown,
 			cdxIconClose
 		};
 	}
