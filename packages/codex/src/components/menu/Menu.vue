@@ -9,6 +9,8 @@
 			class="cdx-menu__listbox"
 			role="listbox"
 			:style="listBoxStyle"
+			:aria-live="showPending ? 'polite' : undefined"
+			:aria-relevant="showPending ? ariaRelevant : undefined"
 			v-bind="otherAttrs"
 		>
 			<li
@@ -66,7 +68,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted, nextTick, ComponentPublicInstance } from 'vue';
+import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted, nextTick, ComponentPublicInstance, HTMLAttributes } from 'vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import CdxProgressBar from '../progress-bar/ProgressBar.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
@@ -300,6 +302,10 @@ export default defineComponent( {
 		const highlightedMenuItem = ref<MenuItemDataWithId|null>( null );
 		const highlightedViaKeyboard = ref( false );
 		const activeMenuItem = ref<MenuItemDataWithId|null>( null );
+
+		// TODO: `additions removals` should be valid use for `aria-relevant`, but a Vue bug is
+		// preventing using it right now. See https://github.com/vuejs/core/issues/9030
+		const ariaRelevant = 'additions removals' as HTMLAttributes[ 'aria-relevant' ];
 
 		// When the user types printable characters, buffer those here, so that we can highlight
 		// the first item matching the string the user typed. Clear the buffer if the user
@@ -815,7 +821,8 @@ export default defineComponent( {
 			highlightedViaKeyboard,
 			activeMenuItem,
 			handleMenuItemChange,
-			handleKeyNavigation
+			handleKeyNavigation,
+			ariaRelevant
 		};
 	},
 	// Public methods

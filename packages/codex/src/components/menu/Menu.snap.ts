@@ -731,6 +731,8 @@ exports[`Matches the snapshots Case 4 Pending: => HTML 1`] = `
   class="cdx-menu"
 >
   <ul
+    aria-live="polite"
+    aria-relevant="additions removals"
     class="cdx-menu__listbox"
     role="listbox"
   >
@@ -770,6 +772,8 @@ exports[`Matches the snapshots Case 5 Pending with items: => HTML 1`] = `
   class="cdx-menu"
 >
   <ul
+    aria-live="polite"
+    aria-relevant="additions removals"
     class="cdx-menu__listbox"
     role="listbox"
   >
