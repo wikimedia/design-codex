@@ -365,10 +365,10 @@ export default defineComponent( {
 		const codeText = ref( 'Unused' );
 		if ( hasCodeSlot ) {
 			onMounted( () => {
-				// Satisfy typescript, already checked by hasCodeSlot
+				// Satisfy TypeScript, already checked by hasCodeSlot.
 				if ( slots && slots.code ) {
 					const codeSlotNodeElement = slots.code()[ 0 ].el;
-					// Typescript complains that this might be null
+					// TypeScript complains that this might be null.
 					if ( codeSlotNodeElement ) {
 						codeText.value = codeSlotNodeElement.innerText;
 					}
