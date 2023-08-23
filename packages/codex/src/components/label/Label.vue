@@ -42,7 +42,7 @@
 	</div>
 
 	<!-- <legend> must be the root element so it is a direct child of <fieldset>, and <legend>
-		contains the description. Both required for screen reader support.-->
+		contains the description. Both required for assistive technology support. -->
 	<legend
 		v-else
 		class="cdx-label"
@@ -70,8 +70,8 @@
 			</span>
 		</span>
 
-		<!-- For legends, the description needs to be inside the <legend> for screen reader
-			support. -->
+		<!-- For legends, the description needs to be inside the <legend> for
+			assistive technology support. -->
 		<span
 			v-if="$slots.description && $slots.description().length > 0"
 			class="cdx-label__description"

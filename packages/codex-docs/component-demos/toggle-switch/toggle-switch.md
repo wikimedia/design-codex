@@ -71,7 +71,7 @@ for "on", `false` for "off".
 </cdx-demo-wrapper>
 
 In rare cases, a visible label is not necessary. You can use the `hideLabel` prop to visually hide
-the label, which will still appear in the markup for screen reader accessibility.
+the label, which will still appear in the markup for accessibility purposes.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

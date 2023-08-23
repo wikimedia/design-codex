@@ -141,7 +141,7 @@ exports[`matches the snapshot Case 4 As legend: ("Label text") => HTML 1`] = `
   <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
   
   <!-- &lt;legend&gt; must be the root element so it is a direct child of &lt;fieldset&gt;, and &lt;legend&gt;
-		contains the description. Both required for screen reader support.-->
+		contains the description. Both required for assistive technology support. -->
   <legend
     class="cdx-label"
   >
@@ -159,8 +159,8 @@ exports[`matches the snapshot Case 4 As legend: ("Label text") => HTML 1`] = `
       </span>
       <!--v-if-->
     </span>
-    <!-- For legends, the description needs to be inside the &lt;legend&gt; for screen reader
-			support. -->
+    <!-- For legends, the description needs to be inside the &lt;legend&gt; for
+			assistive technology support. -->
     <!--v-if-->
   </legend>
   

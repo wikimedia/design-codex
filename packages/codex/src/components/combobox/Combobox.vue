@@ -24,8 +24,8 @@
 				@blur="onInputBlur"
 			/>
 
-			<!-- Button is only useful for mouse/touch users, hence skipping it
-			for keyboard (`tabindex="-1"`) and screen reader users (`aria-hidden="true"`). -->
+			<!-- Button is only useful for mouse/touch users, hence skipping it for keyboard
+				(`tabindex="-1"`) and assistive technology users (`aria-hidden="true"`). -->
 			<cdx-button
 				class="cdx-combobox__expand-button"
 				aria-hidden="true"

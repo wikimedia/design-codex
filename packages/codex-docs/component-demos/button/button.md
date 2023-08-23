@@ -203,7 +203,7 @@ Add the `disabled` attribute for a disabled button.
 ::: warning
 Due to the lack of descriptive text, icon-only buttons require one of the following attributes: `aria-label` or `aria-hidden`.
 
-The attribute `aria-label` has to be used on icon-only buttons to be understandable by screen reader users. Exceptions are buttons in component combinations, e.g. the button in the [Combobox component](./combobox), that are skipped by adding `aria-hidden` without negatively impacting the component's functionality.
+The attribute `aria-label` has to be used on icon-only buttons to be understandable by assistive technology users. Exceptions are buttons in component combinations, e.g. the button in the [Combobox component](./combobox), that are skipped by adding `aria-hidden` without negatively impacting the component's functionality.
 :::
 
 <cdx-demo-wrapper>
@@ -391,7 +391,7 @@ Note that in Firefox version 52 and below, full color support for icons inside C
 not available, and the icon will fall back to a single color.
 
 :::warning
-Be sure to add `aria-hidden="true"` to the icon element to hide it from screen readers.
+Be sure to add `aria-hidden="true"` to the icon element to hide it from assistive technology.
 :::
 
 <cdx-demo-wrapper>

@@ -112,7 +112,7 @@ export default defineComponent( {
 		 * Label text for the dismiss button for user-dismissable messages.
 		 *
 		 * An icon-only button will be displayed that will hide the message on click. This prop is
-		 * for the hidden button label required for screen reader accessibility and tooltip text.
+		 * for the hidden button label required for accessibility purposes and tooltip text.
 		 */
 		dismissButtonLabel: {
 			type: String,

@@ -33,8 +33,8 @@ in the icon component documentation.
 When an icon appears without immediately adjacent text that makes it clear what the icon means,
 you should provide an *icon label*. The icon label is used by screen readers and other assistive
 technology as replacement text for the icon. Most browsers also display it as a tooltip when the
-user hovers over the icon. If no icon label is set, the icon is hidden from screen readers using the
-`aria-hidden` attribute.
+user hovers over the icon. If no icon label is set, the icon is hidden from assistive technology
+using the `aria-hidden` attribute.
 
 ::: info Note
 **The icon label is invisible**, it's not rendered as visible text next to the icon.
@@ -50,7 +50,7 @@ For example:
 </cdx-button>
 ```
 The code above displays <cdx-button action="destructive"><cdx-icon :icon="cdxIconTrash" icon-label="delete" /></cdx-button>,
-which is read by screen readers as `delete`.
+which is read by assistive technology as `delete`.
 
 
 You **should not** provide an icon label when there is other text explaining the same thing that
@@ -61,9 +61,9 @@ the icon does, and the icon text would be duplicative. For example:
 </cdx-button>
 ```
 The code above displays <cdx-button action="destructive"><cdx-icon :icon="cdxIconTrash" /> Delete this file</cdx-button>.
-Screen readers skip over the icon and just read `Delete this file`, which still makes it clear what
-the button does. If you added `icon-label="delete"` here, a screen reader would read `delete Delete
-this file`, which is not a good experience for screen reader users.
+Assistive technology software skips over the icon and just read `Delete this file`, which still
+makes it clear what the button does. If you added `icon-label="delete"` here, a screen reader would
+read `delete Delete this file`, which is not a good experience for assistive technology users.
 
 ## Icon colors
 All icons are *monochrome*, meaning the entire icon is the same color. By default, CdxIcon

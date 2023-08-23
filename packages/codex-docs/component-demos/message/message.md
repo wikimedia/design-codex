@@ -123,7 +123,8 @@ module.exports = defineComponent( {
 ### Dismiss button
 
 Messages can be made dismissable by supplying a semantic label for the dismiss button via the
-`dismissButtonLabel` prop. This label will be visually hidden but accessible to screen readers.
+`dismissButtonLabel` prop. This label will be visually hidden but accessible to assistive technology,
+specifically screen readers.
 
 When the dismiss button is clicked, the Message component hides itself, and a 'user-dismissed' event
 is emitted to the parent component in case the parent component needs to react to the message

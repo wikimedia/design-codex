@@ -69,7 +69,7 @@ to add features like a semantic label, description and help text, validation mes
 See the [Field](./field.md) page for more information.
 
 When building a Checkbox field, **always set `isFieldset` to `true`**, even for a single Checkbox,
-to ensure proper accessibility support. This wraps the group in a `<fieldset>` element and labels it
+to ensure accessibility support. This wraps the group in a `<fieldset>` element and labels it
 with an associated `<legend>`.
 
 If using a Checkbox or Checkbox group outside of a form, follow the instructions in the next demo.
