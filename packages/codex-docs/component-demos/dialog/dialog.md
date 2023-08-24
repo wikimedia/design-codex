@@ -46,19 +46,28 @@ element.
 
 ::: tip Dialog and `<teleport>`
 Dialogs rely on Vue's built-in
-[`<teleport>`](https://vuejs.org/guide/components/provide-inject.html) feature,
+[`<teleport>`](https://vuejs.org/guide/built-ins/teleport.html) feature,
 and a "target" prop can be supplied which will be passed to the teleport's `to`
-prop. This prop is optional and defaults to the body element on the page
+prop. This prop is optional and defaults to the `<body>` element on the page
 (although if Dialog is being used with SSR, a dedicated target should be
 provided).
 
 An alternative default target can be set using Vue's
 [provide/inject](https://vuejs.org/guide/components/provide-inject.html)
-feature. To specify an alternative default teleport target, just `provide` a
-string (selector) using the key `CdxTeleportTarget`.
+feature, with `provide( 'CdxTeleportTarget', '#my-teleport-target' )`.
+This provided target will be used if the "target" prop is not set.
 
 Finally, Dialog teleportation behavior can be disabled by setting
 `renderInPlace: true`.
+
+The examples on this page are all wrapped with Vitepress's built-in
+[`<client-only>` component](https://vitepress.dev/reference/runtime-api#clientonly),
+since the Codex documentation site (built with Vitepress) uses SSR. Other
+SSRed applications will need to do something similar (only rendering Dialog
+after the `mounted` hook has been fired, etc.).
+
+Use of the Dialog component in features which don't rely on SSR (which includes
+all MediaWiki usage for now) can dispense with this.
 :::
 
 ## Demos

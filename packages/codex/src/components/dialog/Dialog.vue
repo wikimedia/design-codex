@@ -238,16 +238,26 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Where to render the Dialog
+		 * Selector or DOM element identifying the container the dialog should
+		 * be rendered in. The dialog will be `<teleport>`ed to this element.
+		 * An ID selector is recommended, e.g. `#foo-bar`, but providing an
+		 * actual element is also supported.
+		 *
+		 * If this prop is not set, and the parent or one of its ancestors
+		 * provides a teleport target using `provide( 'CdxTeleportTarget',
+		 * '#foo-bar' )`, the provided target will be used. If there is no
+		 * provided target, the dialog will be teleported to the end of the
+		 * `<body>` element.
 		 */
 		target: {
-			type: String as PropType<string | null>,
+			type: String as PropType<string | HTMLElement | null>,
 			default: null
 		},
 
 		/**
 		 * Whether to disable the use of teleport and render the Dialog in its
-		 * original location in the document
+		 * original location in the document. If this is true, the `target` prop
+		 * is ignored.
 		 */
 		renderInPlace: {
 			type: Boolean,
@@ -297,7 +307,7 @@ export default defineComponent( {
 		} ) );
 
 		// Determine where to teleport the Dialog to
-		const providedTarget = inject<string|undefined>( 'CdxTeleportTarget', undefined );
+		const providedTarget = inject<string|HTMLElement|undefined>( 'CdxTeleportTarget', undefined );
 		const computedTarget = computed( () => props.target ?? providedTarget ?? 'body' );
 
 		// Value needed to compensate for the width of any visible scrollbar
