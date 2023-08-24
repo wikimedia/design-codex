@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, toRef, watch } from 'vue';
+import { PropType, defineComponent, ref, toRef, watch } from 'vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconCheck } from '@wikimedia/codex-icons';
 
@@ -32,7 +32,7 @@ export default defineComponent( {
 		 * The text to be copied.
 		 */
 		copyText: {
-			type: String,
+			type: [ String, Object ] as PropType<string|HTMLElement>,
 			required: true
 		},
 
@@ -43,6 +43,22 @@ export default defineComponent( {
 	},
 	setup( props ) {
 		const copySuccess = ref( false );
+
+		const getCopyText = () => {
+			if ( typeof props.copyText === 'string' ) {
+				return props.copyText;
+			}
+			const preNodes = Array.from( props.copyText.querySelectorAll( 'pre' ) );
+			return preNodes
+				// Some code samples use code groups where only one <pre> is visible at any time,
+				// while the others are hidden. To support this, ignore hidden <pre> tags.
+				.filter( ( pre ) => pre.clientHeight > 0 )
+				.map( ( pre ) => pre.innerText )
+				// If there are multiple code blocks visible, separate them with a double newline.
+				// This happens e.g. for CSS-only code samples where there's an HTML block followed
+				// by a Less block.
+				.join( '\n\n' );
+		};
 
 		// Should be false for no current timeout, or the number returned from setTimeout()
 		let currentTimeoutId: ReturnType<typeof setTimeout> | false = false;
@@ -68,7 +84,8 @@ export default defineComponent( {
 				range = document.createRange();
 
 			// Set the value of the textarea to our copytext.
-			textarea.textContent = props.copyText;
+			const copyText = getCopyText();
+			textarea.textContent = copyText;
 
 			// Earlier iOS versions need contenteditable to be true.
 			textarea.contentEditable = 'true';
@@ -90,7 +107,7 @@ export default defineComponent( {
 			selection?.addRange( range );
 			// Set this to a huge number to make sure we're getting the entire
 			// selection.
-			textarea.setSelectionRange( 0, props.copyText.length );
+			textarea.setSelectionRange( 0, copyText.length );
 
 			// Set contenteditable to false just to be safe.
 			textarea.contentEditable = 'false';
@@ -131,7 +148,7 @@ export default defineComponent( {
 			if ( clipboard ) {
 				// Remove any existing timeout to hide the success icon
 				cancelCurrentTimeout();
-				clipboard.writeText( props.copyText ).then(
+				clipboard.writeText( getCopyText() ).then(
 					() => {
 						copySuccess.value = true;
 						currentTimeoutId = setTimeout( () => {

@@ -34,7 +34,7 @@
 						v-show="showCode"
 						class="cdx-demo-wrapper__demo-pane__code-copy"
 						button-text="Copy code"
-						:copy-text="codeText"
+						:copy-text="copyTextOrWrapper"
 					/>
 				</div>
 				<cdx-button
@@ -50,6 +50,7 @@
 		<div
 			v-if="hasCodeSlot"
 			v-show="showCode"
+			ref="slottedCodeWrapper"
 			class="cdx-demo-wrapper__code-slotted"
 		>
 			<slot name="code" />
@@ -57,7 +58,7 @@
 		<div
 			v-else-if="showGeneratedCode"
 			v-show="showCode"
-			ref="codeDiv"
+			ref="generatedCodeWrapper"
 			class="cdx-demo-wrapper__code-generated"
 		>
 			<div class="language-vue">
@@ -209,7 +210,8 @@ export default defineComponent( {
 		const codeToggleLabel = computed( () => {
 			return showCode.value === true ? 'Hide code' : 'Show code';
 		} );
-		const codeDiv = ref<HTMLDivElement>();
+		const slottedCodeWrapper = ref<HTMLDivElement>();
+		const generatedCodeWrapper = ref<HTMLDivElement>();
 
 		// Set up controls if config is provided.
 		const hasControls = computed( () =>
@@ -372,25 +374,6 @@ export default defineComponent( {
 			}
 		};
 
-		/**
-		 * If there is a code slot, this retrieves the content of that slot for copying,
-		 * which cannot be done until after the component is mounted. If not, if there
-		 * is generated code this will be updated with the generated content below.
-		 */
-		const codeText = ref( 'Unused' );
-		if ( hasCodeSlot ) {
-			onMounted( () => {
-				// Satisfy TypeScript, already checked by hasCodeSlot.
-				if ( slots && slots.code ) {
-					const codeSlotNodeElement = slots.code()[ 0 ].el;
-					// TypeScript complains that this might be null.
-					if ( codeSlotNodeElement ) {
-						codeText.value = codeSlotNodeElement.innerText;
-					}
-				}
-			} );
-		}
-
 		const currentComponentName = useCurrentComponentName();
 		const generatedCode = computed( () => generateVueTag(
 			currentComponentName,
@@ -398,6 +381,10 @@ export default defineComponent( {
 			controlsWithValues,
 			props.generatedModelName
 		) );
+
+		const copyTextOrWrapper = computed( () => hasCodeSlot && slottedCodeWrapper.value ?
+			slottedCodeWrapper.value : generatedCode.value
+		);
 
 		/**
 		 * Redo the syntax highlighting for the generated code when it changes, and on mount
@@ -409,8 +396,8 @@ export default defineComponent( {
 			// about the promise returned
 			// eslint-disable-next-line @typescript-eslint/no-floating-promises
 			nextTick( () => {
-				if ( codeDiv.value && props.showGeneratedCode ) {
-					Prism.highlightAllUnder( codeDiv.value );
+				if ( generatedCodeWrapper.value && props.showGeneratedCode ) {
+					Prism.highlightAllUnder( generatedCodeWrapper.value );
 				}
 			} );
 		}
@@ -421,7 +408,6 @@ export default defineComponent( {
 			generatedCode,
 			() => {
 				if ( props.showGeneratedCode ) {
-					codeText.value = generatedCode.value;
 					updateHighlight();
 				}
 			}
@@ -430,7 +416,6 @@ export default defineComponent( {
 		// the code text so that it can be copied even when there are no changes made
 		// (but don't overwrite the code from the slot)
 		if ( props.showGeneratedCode ) {
-			codeText.value = generatedCode.value;
 			onMounted( updateHighlight );
 		}
 
@@ -455,11 +440,12 @@ export default defineComponent( {
 			hasCodeSample,
 			showCode,
 			codeToggleLabel,
-			codeText,
+			slottedCodeWrapper,
+			copyTextOrWrapper,
 
 			// generated code
-			codeDiv,
 			generatedCode,
+			generatedCodeWrapper,
 
 			// Interactive controls
 			hasControls,

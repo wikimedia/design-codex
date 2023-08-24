@@ -185,9 +185,6 @@ it( 'generates and updates text', async () => {
 	expect( wrapper.vm.generatedCode ).toBe(
 		'<cdx-toggle-button>Button text</cdx-toggle-button>'
 	);
-	expect( wrapper.vm.codeText ).toBe(
-		'<cdx-toggle-button>Button text</cdx-toggle-button>'
-	);
 
 	// Toggle disabled
 	const disableToggle = wrapper.find( 'input.cdx-toggle-switch__input' );
@@ -196,9 +193,6 @@ it( 'generates and updates text', async () => {
 
 	// Updated values
 	expect( wrapper.vm.generatedCode ).toBe(
-		'<cdx-toggle-button disabled>Button text</cdx-toggle-button>'
-	);
-	expect( wrapper.vm.codeText ).toBe(
 		'<cdx-toggle-button disabled>Button text</cdx-toggle-button>'
 	);
 } );
