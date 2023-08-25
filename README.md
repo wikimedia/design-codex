@@ -4,7 +4,7 @@ Codex is the design system for Wikimedia. The Codex repository contains four pac
 
 - **Components**: for building usable, accessible, translatable applications. Codex contains
 [Vue 3](https://v3.vuejs.org/) components and CSS-only components
-- **Design tokens**: for writing styles consistent with the [Codex Design Style Guide for Wikimedia](https://doc.wikimedia.org/codex/latest/style-guide/overview.md)
+- **Design tokens**: for writing styles consistent with the [Codex Design Style Guide for Wikimedia](https://doc.wikimedia.org/codex/latest/style-guide/overview.html)
 - **Icons**: a collection of icons with language and directionality variants
 - **VitePress site**: for [Codex documentation, Vue component demos, and design token visualization](https://doc.wikimedia.org/codex/latest/)
 
@@ -50,7 +50,7 @@ Helpful commands:
 - `npm run dev` to start the Vite sandbox
 - `npm run test:unit -w @wikimedia/codex` to run unit tests for e.g. the codex workspace. [Read more about testing.](https://doc.wikimedia.org/codex/latest/contributing/contributing-code/testing-components.html)
 
-See the [contributing code](https://doc.wikimedia.org/codex/latest/contributing/contributing-code.html) guidelines
+See the [contributing code](https://doc.wikimedia.org/codex/latest/contributing/contributing-code/introduction.html) guidelines
 for more information.
 
 ## Contributing
