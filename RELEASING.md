@@ -46,7 +46,7 @@ VueTest repository:
 ```
 $ cd lib/codex
 $ git fetch
-$ git checkout origin/master
+$ git checkout origin/main
 $ cd ../..
 $ npm run codex:build-demos
 $ git commit -am "Update Codex to pre-v1.2.34"
