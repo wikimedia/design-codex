@@ -1,3 +1,50 @@
+# 0.18.0 / 2023-08-29
+
+## Breaking changes
+- [BREAKING CHANGE] Radio: Made the name prop of the Radio component required (didier-ds)
+    - Previously, the CdxRadio component could be used without passing in the
+      "name" prop. This prop is now required, and a warning will be emitted
+      if it is not passed in.
+- [Breaking] Dialog: incorporate Vue's <teleport> feature (Eric Gardner)
+    - Previously, dialogs were rendered in-place, and centered on the page
+      using absolute positioning. Now, all dialogs are teleported to the
+      bottom of the <body> by default. This may cause styling differences,
+      because the styles that would apply to a dialog rendered in place may
+      not apply to a teleported dialog. To address styling issues, applications
+      may have to change CSS selectors that target dialog contents, and/or
+      provide() a teleport target container for dialogs to be teleported into.
+
+## Features
+- ToggleButton: Add icon-only detection (Roan Kattouw)
+- ProgressBar: Add `aria-label` to component and demos (Volker E)
+- Menu: Add ARIA live region when menu items are pending (Volker E)
+
+## Styles
+- Radio: Add focus styles for unchecked radios (Anne Tomasevich)
+- FilterChip: Add interactive styles (Anne Tomasevich)
+
+## Code
+- Checkbox: Remove enter keypress handler to trigger click event (Volker E)
+- codex, utils: Fix typo in stringTypeValidator (Volker E)
+- Button, Tabs: Factor out common slot content analysis code (Roan Kattouw)
+- Button: Move icon-only check into its own composable (Roan Kattouw)
+- useIconOnlyButton: Factor out warn-once logic into new useWarnOnce composable (Roan Kattouw)
+- useLabelChecker: Reimplement using useWarnOnce and useSlotContents (Roan Kattouw)
+- Combobox: Fix typo in screen reader comment (Volker E)
+- FilterChip: Add click-chip event and change keyboard behavior (Anne Tomasevich)
+- FilterChipInput: Make chips editable; add chip on blur (Anne Tomasevich)
+- FilterChipInput: Ensure error state is unset (Anne Tomasevich)
+- Field: Improve reactivity for input ID and description ID (Roan Kattouw)
+
+## Documentation
+- Dialog: Fix target types and clarify teleport documentation (Roan Kattouw)
+- docs: Use consistent casing for "design tokens" (Anne Tomasevich)
+- docs: Update and improve php commands in RELEASING (Anne Tomasevich)
+- docs: Unify on “TypeScript” (Volker E)
+- docs: Update broken links (Martin Urbanec)
+- docs: Fix "Copy code" button, make it work with code groups (Roan Kattouw)
+- docs: Fix reference to origin/master in Codex release docs (Catrope)
+
 # 0.17.0 / 2023-08-16
 
 ## Features
