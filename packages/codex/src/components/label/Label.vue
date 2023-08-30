@@ -45,7 +45,7 @@
 		contains the description. Both required for screen reader support.-->
 	<legend
 		v-else
-		class="cdx-label cdx-label--is-legend"
+		class="cdx-label"
 		:class="rootClasses"
 		:style="rootStyle"
 		v-bind="otherAttrs"
@@ -209,7 +209,7 @@ export default defineComponent( {
 		}
 	}
 
-	&--is-legend {
+	legend& {
 		// Unset <legend> browser style.
 		padding: 0;
 	}

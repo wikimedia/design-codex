@@ -143,7 +143,7 @@ exports[`matches the snapshot Case 4 As legend: ("Label text") => HTML 1`] = `
   <!-- &lt;legend&gt; must be the root element so it is a direct child of &lt;fieldset&gt;, and &lt;legend&gt;
 		contains the description. Both required for screen reader support.-->
   <legend
-    class="cdx-label cdx-label--is-legend"
+    class="cdx-label"
   >
     <span
       class="cdx-label__label"

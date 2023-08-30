@@ -10,7 +10,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
   <!-- &lt;legend&gt; must be the root element so it is a direct child of &lt;fieldset&gt;, and &lt;legend&gt;
 		contains the description. Both required for screen reader support.-->
   <legend
-    class="cdx-label cdx-label--is-legend"
+    class="cdx-label"
     id="cdx-label-60"
   >
     <span
@@ -106,7 +106,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
   <!-- &lt;legend&gt; must be the root element so it is a direct child of &lt;fieldset&gt;, and &lt;legend&gt;
 		contains the description. Both required for screen reader support.-->
   <legend
-    class="cdx-label cdx-label--is-legend cdx-label--disabled"
+    class="cdx-label cdx-label--disabled"
     id="cdx-label-65"
   >
     <span

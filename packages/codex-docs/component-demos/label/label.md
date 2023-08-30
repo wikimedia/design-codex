@@ -176,3 +176,290 @@ Below are examples of a label and a legend with an associated description.
 
 </template>
 </cdx-demo-wrapper>
+
+### CSS-only version
+
+### Markup structure
+
+Examples are shown with inputs to demonstrate the ARIA attributes required to connect the label and
+input.
+
+#### Label
+
+Use a `<label>` element for a single input.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Outer element is a <div>. -->
+	<div class="cdx-label">
+		<!-- Label element. Include a `for` attribute to connect it with an input. -->
+		<label class="cdx-label__label" for="cdx-demo-input-1">
+			<!-- Label text. -->
+			<span class="cdx-label__label__text">Label text</span>
+			<!-- Optional flag. -->
+			<span class="cdx-label__label__optional-flag"> (optional)</span>
+		</label>
+		<!-- Description. Include an `id` attribute so the input can have an `aria-describedby` attribute. -->
+		<span id="cdx-demo-description-1" class="cdx-label__description">
+			Short description text
+		</span>
+	</div>
+	<!-- Input for demo purposes. -->
+	<div class="cdx-text-input">
+		<!-- Has `id` and `aria-describedby` attributes. -->
+		<input id="cdx-demo-input-1" class="cdx-text-input__input" type="text" aria-describedby="cdx-demo-description-1" />
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<!-- Outer element is a <div>. -->
+<div class="cdx-label">
+	<!-- Label element. Include a `for` attribute to connect it with an input. -->
+	<label class="cdx-label__label" for="cdx-demo-input-1">
+		<!-- Label text. -->
+		<span class="cdx-label__label__text">Label text</span>
+		<!-- Optional flag. -->
+		<span class="cdx-label__label__optional-flag"> (optional)</span>
+	</label>
+	<!-- Description. Include an `id` attribute so the input can have an
+	`aria-describedby` attribute. -->
+	<span id="cdx-demo-description-1" class="cdx-label__description">
+		Short description text
+	</span>
+</div>
+<!-- Input for demo purposes. -->
+<div class="cdx-text-input">
+	<!-- Has `id` and `aria-describedby` attributes. -->
+	<input id="cdx-demo-input-1" class="cdx-text-input__input" type="text" aria-describedby="cdx-demo-description-1" />
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+#### Legend
+
+Inside a `<form>`, use a `<legend>` element within a `<fieldset>` for input groups.
+
+When outputting a `<legend>` rather than a `<label>`, the markup of this component is quite
+different:
+- There is no wrapper `<div>`—`<legend>` must be a direct child of `<fieldset>`
+- The description is included inside the `<legend>`
+- The `for` and `aria-describedby` attributes are not needed
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Note that the `cdx-field` class will remove browser fieldset styles. -->
+	<fieldset class="cdx-field">
+		<!-- Outer element is the <legend> element. -->
+		<legend class="cdx-label">
+			<!-- Wrapper span for the first line of text (legend text + optional flag). -->
+			<span class="cdx-label__label">
+				<!-- Legend text. -->
+				<span class="cdx-label__label__text">Legend text</span>
+				<!-- Optional flag. -->
+				<span class="cdx-label__label__optional-flag"> (optional)</span>
+			</span>
+			<!-- Description text, which must be included inside the <legend> element. -->
+			<span class="cdx-label__description">
+				Short description text
+			</span>
+		</legend>
+		<!-- Radio group for demo purposes. -->
+		<div>
+			<span class="cdx-radio">
+				<input id="cdx-docs-radio-1" class="cdx-radio__input" type="radio" name="radio-legend-demo" checked/>
+				<span class="cdx-radio__icon"></span>
+				<label class="cdx-radio__label" for="cdx-docs-radio-1">Radio 1</label>
+			</span>
+			<span class="cdx-radio">
+				<input id="cdx-docs-radio-2" class="cdx-radio__input" type="radio" name="radio-legend-demo" />
+				<span class="cdx-radio__icon"></span>
+				<label class="cdx-radio__label" for="cdx-docs-radio-2">Radio 2</label>
+			</span>
+		</div>
+	</fieldset>
+</template>
+<template v-slot:code>
+
+```html
+<!-- Note that the `cdx-field` class will remove browser fieldset styles. -->
+<fieldset class="cdx-field">
+	<!-- Outer element is the <legend> element. -->
+	<legend class="cdx-label">
+		<!-- Wrapper span for the first line of text (legend text + optional flag). -->
+		<span class="cdx-label__label">
+			<!-- Legend text. -->
+			<span class="cdx-label__label__text">Legend text</span>
+			<!-- Optional flag. -->
+			<span class="cdx-label__label__optional-flag"> (optional)</span>
+		</span>
+		<!-- Description text, which must be included inside the <legend> element. -->
+		<span class="cdx-label__description">
+			Short description text
+		</span>
+	</legend>
+	<!-- Radio group for demo purposes. -->
+	<div>
+		<span class="cdx-radio">
+			<input id="cdx-docs-radio-1" class="cdx-radio__input" type="radio" name="radio-legend-demo" checked/>
+			<span class="cdx-radio__icon"></span>
+			<label class="cdx-radio__label" for="cdx-docs-radio-1">Radio 1</label>
+		</span>
+		<span class="cdx-radio">
+			<input id="cdx-docs-radio-2" class="cdx-radio__input" type="radio" name="radio-legend-demo" />
+			<span class="cdx-radio__icon"></span>
+			<label class="cdx-radio__label" for="cdx-docs-radio-2">Radio 2</label>
+		</span>
+	</div>
+</fieldset>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### With icon
+
+To add an icon to the label:
+- Add an empty `<span>` before the label text with the classes `.cdx-label__label__icon` and a
+  custom class that you can target to add the CSS-only icon
+- Apply the [CSS-only icon mixin](./icon.md#css-only-version) to that `<span>`
+
+This works for `<label>` and `<legend>`.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-label">
+		<label class="cdx-label__label" for="cdx-demo-input-2">
+			<span class="cdx-label__label__icon cdx-demo-css-icon--wiki-text"></span>
+			<span class="cdx-label__label__text">Signature</span>
+		</label>
+		<span id="cdx-demo-description-2" class="cdx-label__description">
+			Enter your signature using plain text or wikitext
+		</span>
+	</div>
+	<div class="cdx-text-input">
+		<input id="cdx-demo-input-2" class="cdx-text-input__input" type="text" aria-describedby="cdx-demo-description-2">
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-label">
+	<label class="cdx-label__label" for="cdx-demo-input-2">
+		<span class="cdx-label__label__icon cdx-demo-css-icon--wiki-text"></span>
+		<span class="cdx-label__label__text">Signature</span>
+	</label>
+	<span id="cdx-demo-description-2" class="cdx-label__description">
+		Enter your signature using plain text or wikitext
+	</span>
+</div>
+<div class="cdx-text-input">
+	<input id="cdx-demo-input-2" class="cdx-text-input__input" type="text" aria-describedby="cdx-demo-description-2">
+</div>
+```
+
+:::code-group
+
+```less [NPM]
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon--wiki-text {
+	.cdx-mixin-css-icon( @cdx-icon-wiki-text );
+}
+```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon--wiki-text {
+	.cdx-mixin-css-icon( @cdx-icon-wiki-text );
+}
+```
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### Visually hidden
+
+Occasionally, there may be a [use case](field.md#complex-field-with-two-inputs) for the label to be
+visually hidden. In these cases, it should still be present in the DOM with appropriate elements
+and ARIA attributes. 
+
+To visually hide the label, add the `.cdx-label--visually-hidden` class to the outer element. This
+works for `<label>` and `<legend>`.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-label cdx-label--visually-hidden">
+		<label class="cdx-label__label" for="cdx-demo-input-3">
+			<span class="cdx-label__label__text">Field with invisible label</span>
+		</label>
+	</div>
+	<div class="cdx-text-input">
+		<input id="cdx-demo-input-3" class="cdx-text-input__input" type="text" placeholder="Do not actually use placeholders as labels!">
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-label cdx-label--visually-hidden">
+	<label class="cdx-label__label" for="cdx-demo-input-3">
+		<span class="cdx-label__label__text">Field with invisible label</span>
+	</label>
+</div>
+<div class="cdx-text-input">
+	<input id="cdx-demo-input-3" class="cdx-text-input__input" type="text" placeholder="Do not actually use placeholders as labels!">
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+#### Disabled
+
+Add the `.cdx-label--disabled` class to the outer element to get disabled styles. This
+works for `<label>` and `<legend>`.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-label cdx-label--disabled">
+		<label class="cdx-label__label" for="cdx-demo-input-4">
+			<span class="cdx-label__label__text">Label text </span>
+		</label>
+	</div>
+	<div class="cdx-text-input">
+		<input id="cdx-demo-input-4" class="cdx-text-input__input" type="text" disabled />
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-label cdx-label--disabled">
+	<label class="cdx-label__label" for="cdx-demo-input-4">
+		<span class="cdx-label__label__text">Label text </span>
+	</label>
+</div>
+<div class="cdx-text-input">
+	<input id="cdx-demo-input-4" class="cdx-text-input__input" type="text" disabled />
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon {
+	&--wiki-text {
+		.cdx-mixin-css-icon( @cdx-icon-wiki-text );
+	}
+}
+</style>
