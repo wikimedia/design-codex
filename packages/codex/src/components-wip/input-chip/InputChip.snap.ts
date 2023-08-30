@@ -2,12 +2,12 @@
 
 exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 <div
-  class="cdx-filter-chip"
+  class="cdx-input-chip"
   tabindex="0"
 >
   <!--v-if-->
   <span
-    class="cdx-filter-chip__text"
+    class="cdx-input-chip__text"
   >
     <!-- @slot Chip text. -->
     
@@ -19,7 +19,7 @@ exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
   <cdx-button-stub
     action="default"
     aria-label="remove"
-    class="cdx-filter-chip__button"
+    class="cdx-input-chip__button"
     disabled="false"
     size="medium"
     tabindex="-1"
@@ -30,12 +30,12 @@ exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 
 exports[`matches the snapshot Case 1 Disabled: ({"disabled": true}) => HTML 1`] = `
 <div
-  class="cdx-filter-chip cdx-filter-chip--disabled"
+  class="cdx-input-chip cdx-input-chip--disabled"
   tabindex="0"
 >
   <!--v-if-->
   <span
-    class="cdx-filter-chip__text"
+    class="cdx-input-chip__text"
   >
     <!-- @slot Chip text. -->
     
@@ -47,7 +47,7 @@ exports[`matches the snapshot Case 1 Disabled: ({"disabled": true}) => HTML 1`] 
   <cdx-button-stub
     action="default"
     aria-label="remove"
-    class="cdx-filter-chip__button"
+    class="cdx-input-chip__button"
     disabled="true"
     size="medium"
     tabindex="-1"
@@ -58,7 +58,7 @@ exports[`matches the snapshot Case 1 Disabled: ({"disabled": true}) => HTML 1`] 
 
 exports[`matches the snapshot Case 2 Icon: ({"icon": [Object]}) => HTML 1`] = `
 <div
-  class="cdx-filter-chip"
+  class="cdx-input-chip"
   tabindex="0"
 >
   <cdx-icon-stub
@@ -67,7 +67,7 @@ exports[`matches the snapshot Case 2 Icon: ({"icon": [Object]}) => HTML 1`] = `
     size="small"
   />
   <span
-    class="cdx-filter-chip__text"
+    class="cdx-input-chip__text"
   >
     <!-- @slot Chip text. -->
     
@@ -79,7 +79,7 @@ exports[`matches the snapshot Case 2 Icon: ({"icon": [Object]}) => HTML 1`] = `
   <cdx-button-stub
     action="default"
     aria-label="remove"
-    class="cdx-filter-chip__button"
+    class="cdx-input-chip__button"
     disabled="false"
     size="medium"
     tabindex="-1"

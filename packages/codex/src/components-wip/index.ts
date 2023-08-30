@@ -4,10 +4,10 @@
 // export {
 //     CdxComponentName
 // };
-import CdxFilterChip from './filter-chip/FilterChip.vue';
-import CdxFilterChipInput from './filter-chip-input/FilterChipInput.vue';
+import CdxInputChip from './input-chip/InputChip.vue';
+import CdxChipInput from './chip-input/ChipInput.vue';
 
 export {
-	CdxFilterChip,
-	CdxFilterChipInput
+	CdxInputChip,
+	CdxChipInput
 };

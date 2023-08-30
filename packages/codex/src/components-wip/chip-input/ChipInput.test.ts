@@ -1,14 +1,14 @@
 import { mount, shallowMount } from '@vue/test-utils';
-import CdxFilterChipInput from './FilterChipInput.vue';
-import CdxFilterChip from '../filter-chip/FilterChip.vue';
-import { FilterChipInputItem, ValidationStatusType } from '../../types';
+import CdxChipInput from './ChipInput.vue';
+import CdxInputChip from '../input-chip/InputChip.vue';
+import { ChipInputItem, ValidationStatusType } from '../../types';
 import { cdxIconArticle } from '@wikimedia/codex-icons';
 
 describe( 'matches the snapshot', () => {
 	type Case = [
 		msg: string,
 		props: {
-			inputChips: FilterChipInputItem[],
+			inputChips: ChipInputItem[],
 			separateInput?: boolean,
 			status?: ValidationStatusType,
 			disabled?: boolean,
@@ -25,7 +25,7 @@ describe( 'matches the snapshot', () => {
 	];
 
 	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
-		const wrapper = shallowMount( CdxFilterChipInput,
+		const wrapper = shallowMount( CdxChipInput,
 			{ props: { removeButtonLabel: 'remove', ...props } } );
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
@@ -33,7 +33,7 @@ describe( 'matches the snapshot', () => {
 
 describe( 'Basic usage', () => {
 	it( 'emits the update:input-chips event when a new chip is added', async () => {
-		const wrapper = shallowMount( CdxFilterChipInput, { props: {
+		const wrapper = shallowMount( CdxChipInput, { props: {
 			removeButtonLabel: 'remove',
 			inputChips: []
 		} } );
@@ -45,7 +45,7 @@ describe( 'Basic usage', () => {
 	} );
 
 	it( 'adds a new chip with the input value on blur', async () => {
-		const wrapper = shallowMount( CdxFilterChipInput, { props: {
+		const wrapper = shallowMount( CdxChipInput, { props: {
 			removeButtonLabel: 'remove',
 			inputChips: []
 		} } );
@@ -57,14 +57,14 @@ describe( 'Basic usage', () => {
 	} );
 
 	it( 'emits the update:input-chips event when a chip is removed', async () => {
-		const wrapper = mount( CdxFilterChipInput, { props: {
+		const wrapper = mount( CdxChipInput, { props: {
 			removeButtonLabel: 'remove',
 			inputChips: [
 				{ value: 'chip 1' },
 				{ value: 'chip 2' }
 			]
 		} } );
-		const firstChip = wrapper.findComponent( CdxFilterChip );
+		const firstChip = wrapper.findComponent( CdxInputChip );
 		await firstChip.find( 'button' ).trigger( 'click' );
 		expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
 		expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'chip 2' } ] ] );
@@ -75,7 +75,7 @@ describe( 'Basic usage', () => {
 
 	describe( 'when a chip is clicked', () => {
 		it( 'removes the chip and adds the value to the input', async () => {
-			const wrapper = mount( CdxFilterChipInput, { props: {
+			const wrapper = mount( CdxChipInput, { props: {
 				removeButtonLabel: 'remove',
 				inputChips: [
 					{ value: 'chip 1' },
@@ -83,8 +83,8 @@ describe( 'Basic usage', () => {
 				]
 			} } );
 			const inputElement = wrapper.get( 'input' );
-			const firstChip = wrapper.findComponent( CdxFilterChip );
-			await firstChip.find( '.cdx-filter-chip' ).trigger( 'click' );
+			const firstChip = wrapper.findComponent( CdxInputChip );
+			await firstChip.find( '.cdx-input-chip' ).trigger( 'click' );
 			expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
 			expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'chip 2' } ] ] );
 			expect( inputElement.element.value ).toBe( 'chip 1' );
@@ -92,16 +92,16 @@ describe( 'Basic usage', () => {
 
 		describe( 'and the input has a value', () => {
 			it( 'adds a new chip with the value of the input', async () => {
-				const wrapper = mount( CdxFilterChipInput, { props: {
+				const wrapper = mount( CdxChipInput, { props: {
 					removeButtonLabel: 'remove',
 					inputChips: [
 						{ value: 'chip 1' },
 						{ value: 'chip 2' }
 					],
-					'onUpdate:inputChips': ( e: FilterChipInputItem[] ) => wrapper.setProps( { inputChips: e } )
+					'onUpdate:inputChips': ( e: ChipInputItem[] ) => wrapper.setProps( { inputChips: e } )
 				} } );
 				const inputElement = wrapper.get( 'input' );
-				const firstChip = wrapper.findComponent( CdxFilterChip );
+				const firstChip = wrapper.findComponent( CdxInputChip );
 
 				// Add a value in the input.
 				await inputElement.setValue( 'New Chip' );
@@ -109,7 +109,7 @@ describe( 'Basic usage', () => {
 				// the browser, because this is how the new chip gets added.
 				await inputElement.trigger( 'blur' );
 				// Then click the first chip.
-				await firstChip.find( '.cdx-filter-chip' ).trigger( 'click' );
+				await firstChip.find( '.cdx-input-chip' ).trigger( 'click' );
 
 				expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
 				expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'chip 1' }, { value: 'chip 2' }, { value: 'New Chip' } ] ] );
@@ -120,22 +120,22 @@ describe( 'Basic usage', () => {
 	} );
 
 	it( 'sets the outer div class to focused when the input is focused', async () => {
-		const wrapper = shallowMount( CdxFilterChipInput, { props: {
+		const wrapper = shallowMount( CdxChipInput, { props: {
 			removeButtonLabel: 'remove',
 			inputChips: []
 		} } );
 		const inputElement = wrapper.find( 'input' );
 
-		expect( wrapper.classes() ).not.toContain( 'cdx-filter-chip-input--focused' );
+		expect( wrapper.classes() ).not.toContain( 'cdx-chip-input--focused' );
 
 		await inputElement.trigger( 'focus' );
-		expect( wrapper.classes() ).toContain( 'cdx-filter-chip-input--focused' );
+		expect( wrapper.classes() ).toContain( 'cdx-chip-input--focused' );
 
 	} );
 
 	describe( 'when a duplicate chip is added', () => {
 		it( 'does not emit the update:input-chips event', async () => {
-			const wrapper = shallowMount( CdxFilterChipInput, { props: {
+			const wrapper = shallowMount( CdxChipInput, { props: {
 				removeButtonLabel: 'remove',
 				inputChips: [ { value: 'Do not duplicate chips' } ]
 			} } );
@@ -148,34 +148,34 @@ describe( 'Basic usage', () => {
 		} );
 
 		it( 'sets the outer div class to error', async () => {
-			const wrapper = shallowMount( CdxFilterChipInput, { props: {
+			const wrapper = shallowMount( CdxChipInput, { props: {
 				removeButtonLabel: 'remove',
 				inputChips: [ { value: 'Do not duplicate chips' } ]
 			} } );
 
-			expect( wrapper.classes() ).not.toContain( 'cdx-filter-chip-input--status-error' );
+			expect( wrapper.classes() ).not.toContain( 'cdx-chip-input--status-error' );
 
 			const inputElement = wrapper.get( 'input' );
 			await inputElement.setValue( 'Do not duplicate chips' );
 			await inputElement.trigger( 'keydown', { key: 'Enter' } );
-			expect( wrapper.classes() ).toContain( 'cdx-filter-chip-input--status-error' );
+			expect( wrapper.classes() ).toContain( 'cdx-chip-input--status-error' );
 		} );
 
 		it( 'clears the error status if the duplicate chip is removed', async () => {
-			const wrapper = mount( CdxFilterChipInput, { props: {
+			const wrapper = mount( CdxChipInput, { props: {
 				removeButtonLabel: 'remove',
 				inputChips: [ { value: 'Do not duplicate chips' } ],
-				'onUpdate:inputChips': ( e: FilterChipInputItem[] ) => wrapper.setProps( { inputChips: e } )
+				'onUpdate:inputChips': ( e: ChipInputItem[] ) => wrapper.setProps( { inputChips: e } )
 			} } );
 
 			const inputElement = wrapper.get( 'input' );
 			await inputElement.setValue( 'Do not duplicate chips' );
 			await inputElement.trigger( 'keydown', { key: 'Enter' } );
-			expect( wrapper.classes() ).toContain( 'cdx-filter-chip-input--status-error' );
+			expect( wrapper.classes() ).toContain( 'cdx-chip-input--status-error' );
 
-			const firstChip = wrapper.findComponent( CdxFilterChip );
+			const firstChip = wrapper.findComponent( CdxInputChip );
 			await firstChip.find( 'button' ).trigger( 'click' );
-			expect( wrapper.classes() ).not.toContain( 'cdx-filter-chip-input--status-error' );
+			expect( wrapper.classes() ).not.toContain( 'cdx-chip-input--status-error' );
 		} );
 	} );
 } );

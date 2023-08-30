@@ -1,25 +1,25 @@
 <template>
-	<cdx-filter-chip-input
+	<cdx-chip-input
 		v-model:input-chips="exampleChips"
 		remove-button-label="Remove"
-		:disabled="true"
 	/>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxFilterChipInput } from '@wikimedia/codex';
+import { CdxChipInput } from '@wikimedia/codex';
+import { cdxIconCamera, cdxIconArticle } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
-	name: 'FilterChipInputDisabled',
+	name: 'ChipInputWithIcons',
 	components: {
-		CdxFilterChipInput
+		CdxChipInput
 	},
 	setup() {
 		const exampleChips = ref( [
-			{ value: 'chip 1' },
-			{ value: 'chip 2' } ]
-		);
+			{ value: 'Camera', icon: cdxIconCamera },
+			{ value: 'Article', icon: cdxIconArticle }
+		] );
 
 		return {
 			exampleChips

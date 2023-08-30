@@ -1,15 +1,15 @@
 <template>
 	<div
-		class="cdx-filter-chip-input"
+		class="cdx-chip-input"
 		:class="rootClasses"
 		:style="rootStyle"
 		@click="focusInput"
 	>
-		<div class="cdx-filter-chip-input__chips">
-			<cdx-filter-chip
+		<div class="cdx-chip-input__chips">
+			<cdx-input-chip
 				v-for="( chip ) in inputChips"
 				:key="chip.value"
-				class="cdx-filter-chip-input__item"
+				class="cdx-chip-input__item"
 				:remove-button-label="removeButtonLabel"
 				:icon="chip.icon"
 				:disabled="disabled"
@@ -17,13 +17,13 @@
 				@remove-chip="removeChip( chip )"
 			>
 				{{ chip.value }}
-			</cdx-filter-chip>
+			</cdx-input-chip>
 
 			<input
 				v-if="!separateInput"
 				ref="input"
 				v-model="inputValue"
-				class="cdx-filter-chip-input__input"
+				class="cdx-chip-input__input"
 				:disabled="disabled"
 				v-bind="otherAttrs"
 				@blur="onBlur"
@@ -33,11 +33,11 @@
 			>
 		</div>
 
-		<div v-if="separateInput" class="cdx-filter-chip-input__separate-input">
+		<div v-if="separateInput" class="cdx-chip-input__separate-input">
 			<input
 				ref="input"
 				v-model="inputValue"
-				class="cdx-filter-chip-input__input"
+				class="cdx-chip-input__input"
 				:disabled="disabled"
 				v-bind="otherAttrs"
 				@blur="onBlur"
@@ -51,21 +51,21 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed, ref, watch, toRef } from 'vue';
-import CdxFilterChip from '../filter-chip/FilterChip.vue';
+import CdxInputChip from '../input-chip/InputChip.vue';
 import { ValidationStatusTypes } from '../../constants';
-import { FilterChipInputItem, ValidationStatusType } from '../../types';
+import { ChipInputItem, ValidationStatusType } from '../../types';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
- * Input for an array of items which are provided in the form of filter chips.
+ * Input for an array of items.
  */
 export default defineComponent( {
-	name: 'CdxFilterChipInput',
+	name: 'CdxChipInput',
 	components: {
-		CdxFilterChip
+		CdxInputChip
 	},
 	/**
 	 * We want the input to inherit attributes, not the root element.
@@ -73,7 +73,7 @@ export default defineComponent( {
 	inheritAttrs: false,
 	props: {
 		/**
-		 * `aria-label` for the icon-only remove button of each filter chip.
+		 * `aria-label` for the icon-only remove button of each input chip.
 		 *
 		 * Text must be provided for accessibility purposes.
 		 */
@@ -82,20 +82,20 @@ export default defineComponent( {
 			required: true
 		},
 		/**
-		 * Current filter chips present in the input.
+		 * Current chips present in the input.
 		 *
 		 * Provided by `v-model` binding in the parent component.
 		 */
 		inputChips: {
-			type: Array as PropType<FilterChipInputItem[]>,
+			type: Array as PropType<ChipInputItem[]>,
 			default: function () {
 				return [];
 			}
 		},
 		/**
-		 * Whether the text input should appear below the set of filter chips.
+		 * Whether the text input should appear below the set of input chips.
 		 *
-		 * By default, the filter chips are inline with the input.
+		 * By default, the input chips are inline with the input.
 		 */
 		separateInput: {
 			type: Boolean,
@@ -120,6 +120,11 @@ export default defineComponent( {
 		}
 	},
 	emits: [
+		/**
+		 * When the input chips change.
+		 *
+		 * @property {ChipInputItem[]} inputChips The new set of inputChips
+		 */
 		'update:input-chips'
 	],
 	setup( props, { emit, attrs } ) {
@@ -139,12 +144,12 @@ export default defineComponent( {
 
 		const internalClasses = computed( () => {
 			return {
-				'cdx-filter-chip-input--has-separate-input': props.separateInput,
-				[ `cdx-filter-chip-input--status-${computedStatus.value}` ]: true,
+				'cdx-chip-input--has-separate-input': props.separateInput,
+				[ `cdx-chip-input--status-${computedStatus.value}` ]: true,
 				// We need focused and disabled classes on the root element, which contains the
 				// chips and the input, since it is styled to look like the input.
-				'cdx-filter-chip-input--focused': isFocused.value,
-				'cdx-filter-chip-input--disabled': props.disabled
+				'cdx-chip-input--focused': isFocused.value,
+				'cdx-chip-input--disabled': props.disabled
 			};
 		} );
 
@@ -173,14 +178,14 @@ export default defineComponent( {
 			}
 		}
 
-		function removeChip( chipToRemove: FilterChipInputItem ) {
+		function removeChip( chipToRemove: ChipInputItem ) {
 			emit( 'update:input-chips', props.inputChips.filter(
 				( chip ) => chip.value !== chipToRemove.value
 			) );
 			focusInput();
 		}
 
-		function handleChipClick( clickedChip: FilterChipInputItem ) {
+		function handleChipClick( clickedChip: ChipInputItem ) {
 			// Remove the chip but add the text to the input so it can be edited.
 			// Note that, if there was a value in the input when the chip was clicked, the onBlur
 			// handler has already handled adding that text as a new chip.
@@ -242,9 +247,9 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/button-group.less';
 
 // TODO: create a component-level design token.
-@spacing-vertical-filter-chip: @spacing-25 - @border-width-base;
+@spacing-vertical-input-chip: @spacing-25 - @border-width-base;
 
-.cdx-filter-chip-input {
+.cdx-chip-input {
 	// Common styles for the chip wrapper and separate input, regardless of disabled status.
 	&__chips,
 	&__separate-input {
@@ -254,7 +259,7 @@ export default defineComponent( {
 		border-width: @border-width-base;
 		border-style: @border-style-base;
 		border-radius: @border-radius-base;
-		padding: @spacing-vertical-filter-chip @spacing-50;
+		padding: @spacing-vertical-input-chip @spacing-50;
 		line-height: @line-height-x-small;
 	}
 
@@ -288,73 +293,73 @@ export default defineComponent( {
 	}
 
 	&--has-separate-input {
-		.cdx-filter-chip-input__chips {
+		.cdx-chip-input__chips {
 			margin-bottom: @position-offset-border-width-base;
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
 		}
 
-		.cdx-filter-chip-input__separate-input {
+		.cdx-chip-input__separate-input {
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
 		}
 	}
 
-	&:not( .cdx-filter-chip-input--disabled ) {
-		.cdx-filter-chip-input__chips,
-		.cdx-filter-chip-input__separate-input {
+	&:not( .cdx-chip-input--disabled ) {
+		.cdx-chip-input__chips,
+		.cdx-chip-input__separate-input {
 			border-color: @border-color-base;
 			box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
 			transition-property: @transition-property-base;
 			transition-duration: @transition-duration-medium;
 
-			.cdx-filter-chip-input__input {
+			.cdx-chip-input__input {
 				background-color: @background-color-base;
 			}
 		}
 
-		.cdx-filter-chip-input__separate-input {
+		.cdx-chip-input__separate-input {
 			background-color: @background-color-base;
 		}
 
-		&:not( .cdx-filter-chip-input--has-separate-input ) .cdx-filter-chip-input__chips {
+		&:not( .cdx-chip-input--has-separate-input ) .cdx-chip-input__chips {
 			background-color: @background-color-base;
 		}
 
-		&.cdx-filter-chip-input--has-separate-input .cdx-filter-chip-input__chips {
+		&.cdx-chip-input--has-separate-input .cdx-chip-input__chips {
 			background-color: @background-color-interactive-subtle;
 		}
 
 		// For a combined input, show hover, error, and focus styles on the chips wrapper, which
 		// contains both the chips and the input.
 		// For a separate input, show those styles only on the separate input itself.
-		&:not( .cdx-filter-chip-input--has-separate-input ) .cdx-filter-chip-input__chips,
-		&.cdx-filter-chip-input--has-separate-input .cdx-filter-chip-input__separate-input {
+		&:not( .cdx-chip-input--has-separate-input ) .cdx-chip-input__chips,
+		&.cdx-chip-input--has-separate-input .cdx-chip-input__separate-input {
 			&:hover {
 				border-color: @border-color-input--hover;
 			}
 		}
 
-		&.cdx-filter-chip-input--status-error {
-			&:not( .cdx-filter-chip-input--has-separate-input ) .cdx-filter-chip-input__chips,
-			&.cdx-filter-chip-input--has-separate-input .cdx-filter-chip-input__separate-input {
+		&.cdx-chip-input--status-error {
+			&:not( .cdx-chip-input--has-separate-input ) .cdx-chip-input__chips,
+			&.cdx-chip-input--has-separate-input .cdx-chip-input__separate-input {
 				border-color: @border-color-error;
 			}
 		}
 
 		// Focus styles should override error, so they come after the error styles.
-		&.cdx-filter-chip-input--focused {
-			&:not( .cdx-filter-chip-input--has-separate-input ) .cdx-filter-chip-input__chips,
-			&.cdx-filter-chip-input--has-separate-input .cdx-filter-chip-input__separate-input {
+		&.cdx-chip-input--focused {
+			&:not( .cdx-chip-input--has-separate-input ) .cdx-chip-input__chips,
+			&.cdx-chip-input--has-separate-input .cdx-chip-input__separate-input {
 				border-color: @border-color-progressive--focus;
 				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 				outline: @outline-base--focus;
 			}
 		}
 
-		&.cdx-filter-chip-input--status-error&:not( .cdx-filter-chip-input--focused ) {
-			&:not( .cdx-filter-chip-input--has-separate-input ) .cdx-filter-chip-input__chips,
-			&.cdx-filter-chip-input--has-separate-input .cdx-filter-chip-input__separate-input {
+		&.cdx-chip-input--status-error&:not( .cdx-chip-input--focused ) {
+			&:not( .cdx-chip-input--has-separate-input ) .cdx-chip-input__chips,
+			&.cdx-chip-input--has-separate-input .cdx-chip-input__separate-input {
 				color: @color-error;
 			}
 		}
@@ -362,13 +367,13 @@ export default defineComponent( {
 
 	&--disabled {
 		/* stylelint-disable-next-line no-descending-specificity */
-		.cdx-filter-chip-input__chips,
-		.cdx-filter-chip-input__separate-input {
+		.cdx-chip-input__chips,
+		.cdx-chip-input__separate-input {
 			background-color: @background-color-disabled-subtle;
 			border-color: @border-color-disabled;
 
 			/* stylelint-disable-next-line no-descending-specificity */
-			.cdx-filter-chip-input__input {
+			.cdx-chip-input__input {
 				color: @color-disabled;
 				-webkit-text-fill-color: @color-disabled;
 			}

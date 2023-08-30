@@ -88,7 +88,7 @@ import type {
 	ValidationStatusType,
 	ValidationMessages,
 	HeadingLevel,
-	FilterChipInputItem
+	ChipInputItem
 } from './types';
 
 export {
@@ -162,5 +162,5 @@ export {
 	ValidationStatusType,
 	ValidationMessages,
 	HeadingLevel,
-	FilterChipInputItem
+	ChipInputItem
 };

@@ -65,6 +65,15 @@ See [ButtonWeights](#buttonweights).
 type ButtonWeight = typeof ButtonWeights[ number ];
 ```
 
+### ChipInputItem
+
+```ts
+interface ChipInputItem {
+	value: string,
+	icon?: Icon
+}
+```
+
 ### DialogAction
 
 ```ts

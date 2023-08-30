@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="cdx-filter-chip"
+		class="cdx-input-chip"
 		:class="rootClasses"
 		tabindex="0"
 		@keydown="onKeydown"
@@ -11,12 +11,12 @@
 			:icon="icon"
 			size="small"
 		/>
-		<span class="cdx-filter-chip__text">
+		<span class="cdx-input-chip__text">
 			<!-- @slot Chip text. -->
 			<slot />
 		</span>
 		<cdx-button
-			class="cdx-filter-chip__button"
+			class="cdx-input-chip__button"
 			weight="quiet"
 			tabindex="-1"
 			:aria-label="removeButtonLabel"
@@ -35,10 +35,12 @@ import CdxIcon from '../../components/icon/Icon.vue';
 import { cdxIconClose, Icon } from '@wikimedia/codex-icons';
 
 /**
- * Interactive chip that can be selected, removed, or generated from an input.
+ * Interactive chip used within the ChipInput.
+ *
+ * This component is not available for public use and should only be used inside ChipInput.
  */
 export default defineComponent( {
-	name: 'CdxFilterChip',
+	name: 'CdxInputChip',
 	components: {
 		CdxButton,
 		CdxIcon
@@ -61,7 +63,7 @@ export default defineComponent( {
 			default: null
 		},
 		/**
-		 * Whether the filter chip can be removed.
+		 * Whether the input chip can be removed.
 		 */
 		disabled: {
 			type: Boolean,
@@ -81,7 +83,7 @@ export default defineComponent( {
 	setup( props, { emit } ) {
 		const rootClasses = computed( () => {
 			return {
-				'cdx-filter-chip--disabled': props.disabled
+				'cdx-input-chip--disabled': props.disabled
 			};
 		} );
 
@@ -115,7 +117,7 @@ export default defineComponent( {
 // TODO: create a design token.
 @min-size-clear-button: 20px;
 
-.cdx-filter-chip {
+.cdx-input-chip {
 	background-color: @background-color-interactive-subtle;
 	color: @color-base;
 	display: inline-flex;
@@ -129,7 +131,7 @@ export default defineComponent( {
 	font-size: @font-size-small;
 	line-height: @line-height-small;
 
-	&:not( .cdx-filter-chip--disabled ) {
+	&:not( .cdx-input-chip--disabled ) {
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-medium;
 

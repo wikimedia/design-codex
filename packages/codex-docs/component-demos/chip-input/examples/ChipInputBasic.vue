@@ -1,22 +1,24 @@
 <template>
-	<cdx-filter-chip-input
+	<cdx-chip-input
 		v-model:input-chips="exampleChips"
 		remove-button-label="Remove"
-		placeholder="Enter one or more items"
 	/>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxFilterChipInput } from '@wikimedia/codex';
+import { CdxChipInput } from '@wikimedia/codex';
 
 export default defineComponent( {
-	name: 'FilterChipInputWithPlaceholder',
+	name: 'ChipInputBasic',
 	components: {
-		CdxFilterChipInput
+		CdxChipInput
 	},
 	setup() {
-		const exampleChips = ref( [] );
+		const exampleChips = ref( [
+			{ value: 'chip 1' },
+			{ value: 'chip 2' }
+		] );
 
 		return {
 			exampleChips

@@ -1,5 +1,5 @@
 <template>
-	<cdx-filter-chip-input
+	<cdx-chip-input
 		v-model:input-chips="exampleChips"
 		:remove-button-label="removeButtonLabel"
 		:status="status"
@@ -9,12 +9,12 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxFilterChipInput } from '@wikimedia/codex';
+import { CdxChipInput } from '@wikimedia/codex';
 
 export default defineComponent( {
-	name: 'FilterChipInputConfigurable',
+	name: 'ChipInputConfigurable',
 	components: {
-		CdxFilterChipInput
+		CdxChipInput
 	},
 	props: {
 		removeButtonLabel: {
