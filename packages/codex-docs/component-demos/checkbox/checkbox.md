@@ -244,7 +244,8 @@ JavaScript.
 Always include one of these two features for accessible grouping:
 1. If using the Checkbox group in a field, wrap the group in a `<fieldset>` element and add a
   `<legend>` element with the group label. This method is demonstrated below and requires some
-  style resets on `<fieldset>` and `<legend>`.
+  style resets on `<fieldset>` and `<legend>`. You can use the CSS-only [Field](./field.md#css-only-version)
+  and [Label](./label.md#css-only-version) components to reset browser styles of these elements.
 2. If using the Checkbox group outside of a field, wrap the group in a `<div>` with `role="group"`
   and `aria-labelledby` set to the ID of the group label. See an example of this
   [above](#checkbox-group) (you can just include a `<label>` element instead of using the Label
@@ -252,10 +253,57 @@ Always include one of these two features for accessible grouping:
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-	<fieldset class="cdx-demo-css-checkbox-group">
-		<legend>
-			CSS-only Checkbox group demo
+	<fieldset class="cdx-field">
+		<legend class="cdx-label">
+			<span class="cdx-label__label__text">CSS-only Checkbox group demo</span>
 		</legend>
+		<div class="cdx-field__control">
+			<span class="cdx-checkbox">
+				<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
+				<span class="cdx-checkbox__icon"></span>
+				<label class="cdx-checkbox__label" for="checkbox-group-css-only-1">
+					Checkbox 1
+				</label>
+			</span>
+			<span class="cdx-checkbox">
+				<input id="checkbox-group-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
+				<span class="cdx-checkbox__icon"></span>
+				<label class="cdx-checkbox__label" for="checkbox-group-css-only-2">
+					Checkbox 2 (initially selected)
+				</label>
+			</span>
+			<span class="cdx-checkbox">
+				<input id="checkbox-group-css-only-3" class="cdx-checkbox__input" type="checkbox">
+				<span class="cdx-checkbox__icon"></span>
+				<label class="cdx-checkbox__label" for="checkbox-group-css-only-3">
+					Checkbox 3, which has a very long label that spans onto a second line to demonstrate what happens when text wraps
+				</label>
+			</span>
+			<span class="cdx-checkbox">
+				<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" disabled>
+				<span class="cdx-checkbox__icon"></span>
+				<label class="cdx-checkbox__label" for="checkbox-group-css-only-4">
+					Checkbox 4 (disabled)
+				</label>
+			</span>
+			<span class="cdx-checkbox">
+				<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" checked disabled>
+				<span class="cdx-checkbox__icon"></span>
+				<label class="cdx-checkbox__label" for="checkbox-group-css-only-5">
+					Checkbox 5 (initially selected, disabled)
+				</label>
+			</span>
+		</div>
+	</fieldset>
+</template>
+<template v-slot:code>
+
+```html
+<fieldset class="cdx-field">
+	<legend class="cdx-label">
+		<span class="cdx-label__label__text">CSS-only Checkbox group demo</span>
+	</legend>
+	<div class="cdx-field__control">
 		<span class="cdx-checkbox">
 			<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
 			<span class="cdx-checkbox__icon"></span>
@@ -291,90 +339,9 @@ Always include one of these two features for accessible grouping:
 				Checkbox 5 (initially selected, disabled)
 			</label>
 		</span>
-	</fieldset>
-</template>
-<template v-slot:code>
-
-```html
-<fieldset class="cdx-demo-css-checkbox-group">
-	<legend>
-		CSS-only Checkbox group demo
-	</legend>
-	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-css-only-1">
-			Checkbox 1
-		</label>
-	</span>
-	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-css-only-2">
-			Checkbox 2 (initially selected)
-		</label>
-	</span>
-	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-3" class="cdx-checkbox__input" type="checkbox">
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-css-only-3">
-			Checkbox 3, which has a very long label that spans onto a second line to demonstrate what happens when text wraps
-		</label>
-	</span>
-	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" disabled>
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-css-only-4">
-			Checkbox 4 (disabled)
-		</label>
-	</span>
-	<span class="cdx-checkbox">
-		<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" checked disabled>
-		<span class="cdx-checkbox__icon"></span>
-		<label class="cdx-checkbox__label" for="checkbox-group-css-only-5">
-			Checkbox 5 (initially selected, disabled)
-		</label>
-	</span>
+	</div>
 </fieldset>
 ```
-
-:::code-group
-
-```less [NPM]
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-
-.cdx-demo-css-checkbox-group {
-	// Reset fieldset styles.
-	border: 0;
-	padding: 0;
-
-	legend {
-		margin-bottom: @spacing-25;
-		// Reset legend padding.
-		padding: 0;
-		font-weight: @font-weight-bold;
-	}
-}
-```
-
-```less [MediaWiki]
-@import 'mediawiki.skin.variables.less';
-
-.cdx-demo-css-checkbox-group {
-	// Reset fieldset styles.
-	border: 0;
-	padding: 0;
-
-	legend {
-		margin-bottom: @spacing-25;
-		// Reset legend padding.
-		padding: 0;
-		font-weight: @font-weight-bold;
-	}
-}
-```
-
-:::
 
 </template>
 </cdx-demo-wrapper>
@@ -421,19 +388,3 @@ Add the `cdx-checkbox--inline` class to the root element to get an inline layout
 
 </template>
 </cdx-demo-wrapper>
-
-<style lang="less" scoped>
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-
-:deep( .cdx-demo-css-checkbox-group ) {
-	// Reset fieldset styles.
-	border: 0;
-	padding: 0;
-
-	legend {
-		margin-bottom: @spacing-25;
-		padding: 0;
-		font-weight: @font-weight-bold;
-	}
-}
-</style>

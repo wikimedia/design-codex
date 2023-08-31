@@ -183,8 +183,46 @@ To add a description below the label:
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<fieldset class="cdx-demo-css-radio-group">
-		<legend>Search completion</legend>
+	<fieldset class="cdx-field">
+		<legend class="cdx-label">
+			<span class="cdx-label__label__text">Search completion</span>
+		</legend>
+		<div class="cdx-field__control">
+			<span class="cdx-radio">
+				<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
+				<span class="cdx-radio__icon"></span>
+				<div class="cdx-radio__label cdx-label">
+					<label for="radio-group-css-only-description-1" class="cdx-label__label">
+						Default (recommended)
+					</label>
+					<span id="cdx-description-css-1" class="cdx-label__description">
+						Corrects up to two typos. Removes redirects that are very similar to the main title.
+					</span>
+				</div>
+			</span>
+			<span class="cdx-radio">
+				<input id="radio-group-css-only-description-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-2">
+				<span class="cdx-radio__icon"></span>
+				<div class="cdx-radio__label cdx-label">
+					<label for="radio-group-css-only-description-2" class="cdx-label__label">
+						Strict mode (advanced)
+					</label>
+					<span id="cdx-description-css-2" class="cdx-label__description">
+						No typo correction. No accent folding. Strict matching.
+					</span>
+				</div>
+			</span>
+		</div>
+	</fieldset>
+</template>
+<template v-slot:code>
+
+```html
+<fieldset class="cdx-field">
+	<legend class="cdx-label">
+		<span class="cdx-label__label__text">Search completion</span>
+	</legend>
+	<div class="cdx-field__control">
 		<span class="cdx-radio">
 			<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
 			<span class="cdx-radio__icon"></span>
@@ -209,77 +247,9 @@ To add a description below the label:
 				</span>
 			</div>
 		</span>
-	</fieldset>
-</template>
-<template v-slot:code>
-
-```html
-<fieldset class="cdx-demo-css-radio-group">
-	<legend>Search completion</legend>
-	<span class="cdx-radio">
-		<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
-		<span class="cdx-radio__icon"></span>
-		<div class="cdx-radio__label cdx-label">
-			<label for="radio-group-css-only-description-1" class="cdx-label__label">
-				Default (recommended)
-			</label>
-			<span id="cdx-description-css-1" class="cdx-label__description">
-				Corrects up to two typos. Removes redirects that are very similar to the main title.
-			</span>
-		</div>
-	</span>
-	<span class="cdx-radio">
-		<input id="radio-group-css-only-description-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-2">
-		<span class="cdx-radio__icon"></span>
-		<div class="cdx-radio__label cdx-label">
-			<label for="radio-group-css-only-description-2" class="cdx-label__label">
-				Strict mode (advanced)
-			</label>
-			<span id="cdx-description-css-2" class="cdx-label__description">
-				No typo correction. No accent folding. Strict matching.
-			</span>
-		</div>
-	</span>
+	</div>
 </fieldset>
 ```
-
-:::code-group
-
-```less [NPM]
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-
-.cdx-demo-css-radio-group {
-	// Reset fieldset styles.
-	border: 0;
-	padding: 0;
-
-	legend {
-		margin-bottom: @spacing-25;
-		// Reset legend padding.
-		padding: 0;
-		font-weight: @font-weight-bold;
-	}
-}
-```
-
-```less [MediaWiki]
-@import 'mediawiki.skin.variables.less';
-
-.cdx-demo-css-radio-group {
-	// Reset fieldset styles.
-	border: 0;
-	padding: 0;
-
-	legend {
-		margin-bottom: @spacing-25;
-		// Reset legend padding.
-		padding: 0;
-		font-weight: @font-weight-bold;
-	}
-}
-```
-
-:::
 
 </template>
 </cdx-demo-wrapper>
@@ -293,7 +263,8 @@ Native attributes of the `<input>` element can be used. For example:
 Always include one of these two features for accessible grouping:
 1. If using the Radio group in a field, wrap the group in a `<fieldset>` element and add a
   `<legend>` element with the group label. This method is demonstrated below and requires some
-  style resets on `<fieldset>` and `<legend>`.
+  style resets on `<fieldset>` and `<legend>`. You can use the CSS-only [Field](./field.md#css-only-version)
+  and [Label](./label.md#css-only-version) components to reset browser styles of these elements.
 2. If using the Radio group outside of a field, wrap the group in a `<div>` with `role="group"`
   and `aria-labelledby` set to the ID of the group label. See an example of this
   [above](#radio-group) (you can just include a `<label>` element instead of using the Label
@@ -301,10 +272,51 @@ Always include one of these two features for accessible grouping:
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<fieldset class="cdx-demo-css-radio-group">
-		<legend>
-			CSS-only Radio group demo
+	<fieldset class="cdx-field">
+		<legend class="cdx-label">
+			<span class="cdx-label__label__text">CSS-only Radio group demo</span>
 		</legend>
+		<div class="cdx-field__control">
+			<span class="cdx-radio">
+				<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
+				<span class="cdx-radio__icon"></span>
+				<label class="cdx-radio__label" for="radio-group-css-only-1">
+					Radio 1
+				</label>
+			</span>
+			<span class="cdx-radio">
+				<input id="radio-group-css-only-2" class="cdx-radio__input" type="radio" 	name="radio-group-css-only" checked>
+				<span class="cdx-radio__icon"></span>
+				<label class="cdx-radio__label" for="radio-group-css-only-2">
+					Radio 2 (initially selected)
+				</label>
+			</span>
+			<span class="cdx-radio">
+				<input id="radio-group-css-only-3" class="cdx-radio__input" type="radio" name="radio-group-css-only">
+				<span class="cdx-radio__icon"></span>
+				<label class="cdx-radio__label" for="radio-group-css-only-3">
+					Radio 3, which has a very long label that spans onto a second line to
+					demonstrate what happens when text wraps
+				</label>
+			</span>
+			<span class="cdx-radio">
+				<input id="radio-group-css-only-4" class="cdx-radio__input" type="radio" 	name="radio-group-css-only"	disabled>
+				<span class="cdx-radio__icon"></span>
+				<label class="cdx-radio__label" for="radio-group-css-only-4">
+					Radio 4 (disabled)
+				</label>
+			</span>
+		</div>
+	</fieldset>
+</template>
+<template v-slot:code>
+
+```html
+<fieldset class="cdx-field">
+	<legend class="cdx-label">
+		<span class="cdx-label__label__text">CSS-only Radio group demo</span>
+	</legend>
+	<div class="cdx-field__control">
 		<span class="cdx-radio">
 			<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
 			<span class="cdx-radio__icon"></span>
@@ -334,84 +346,9 @@ Always include one of these two features for accessible grouping:
 				Radio 4 (disabled)
 			</label>
 		</span>
-	</fieldset>
-</template>
-<template v-slot:code>
-
-```html
-<fieldset class="cdx-demo-css-radio-group">
-	<legend>
-		CSS-only Radio group demo
-	</legend>
-	<span class="cdx-radio">
-		<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
-		<span class="cdx-radio__icon"></span>
-		<label class="cdx-radio__label" for="radio-group-css-only-1">
-			Radio 1
-		</label>
-	</span>
-	<span class="cdx-radio">
-		<input id="radio-group-css-only-2" class="cdx-radio__input" type="radio" 	name="radio-group-css-only" checked>
-		<span class="cdx-radio__icon"></span>
-		<label class="cdx-radio__label" for="radio-group-css-only-2">
-			Radio 2 (initially selected)
-		</label>
-	</span>
-	<span class="cdx-radio">
-		<input id="radio-group-css-only-3" class="cdx-radio__input" type="radio" name="radio-group-css-only">
-		<span class="cdx-radio__icon"></span>
-		<label class="cdx-radio__label" for="radio-group-css-only-3">
-			Radio 3, which has a very long label that spans onto a second line to
-			demonstrate what happens when text wraps
-		</label>
-	</span>
-	<span class="cdx-radio">
-		<input id="radio-group-css-only-4" class="cdx-radio__input" type="radio" 	name="radio-group-css-only"	disabled>
-		<span class="cdx-radio__icon"></span>
-		<label class="cdx-radio__label" for="radio-group-css-only-4">
-			Radio 4 (disabled)
-		</label>
-	</span>
+	</div>
 </fieldset>
 ```
-
-:::code-group
-
-```less [NPM]
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-
-.cdx-demo-css-radio-group {
-	// Reset fieldset styles.
-	border: 0;
-	padding: 0;
-
-	legend {
-		margin-bottom: @spacing-25;
-		// Reset legend padding.
-		padding: 0;
-		font-weight: @font-weight-bold;
-	}
-}
-```
-
-```less [MediaWiki]
-@import 'mediawiki.skin.variables.less';
-
-.cdx-demo-css-radio-group {
-	// Reset fieldset styles.
-	border: 0;
-	padding: 0;
-
-	legend {
-		margin-bottom: @spacing-25;
-		// Reset legend padding.
-		padding: 0;
-		font-weight: @font-weight-bold;
-	}
-}
-```
-
-:::
 
 </template>
 </cdx-demo-wrapper>
@@ -422,10 +359,36 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<fieldset class="cdx-demo-css-radio-group">
-		<legend>
-			CSS-only inline Radio demo
+	<fieldset class="cdx-field">
+		<legend class="cdx-label">
+			<span class="cdx-label__label__text">CSS-only inline Radio demo</span>
 		</legend>
+		<div class="cdx-field__control">
+			<span class="cdx-radio cdx-radio--inline">
+				<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
+				<span class="cdx-radio__icon"></span>
+				<label class="cdx-radio__label" for="radio-group-css-only-inline-1">
+					Radio 1
+				</label>
+			</span>
+			<span class="cdx-radio cdx-radio--inline">
+				<input id="radio-group-css-only-inline-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline" checked>
+				<span class="cdx-radio__icon"></span>
+				<label class="cdx-radio__label" for="radio-group-css-only-inline-2">
+					Radio 2
+				</label>
+			</span>
+		</div>
+	</fieldset>
+</template>
+<template v-slot:code>
+
+```html
+<fieldset class="cdx-field">
+	<legend class="cdx-label">
+		<span class="cdx-label__label__text">CSS-only inline Radio demo</span>
+	</legend>
+	<div class="cdx-field__control">
 		<span class="cdx-radio cdx-radio--inline">
 			<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
 			<span class="cdx-radio__icon"></span>
@@ -440,85 +403,9 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 				Radio 2
 			</label>
 		</span>
-	</fieldset>
-</template>
-<template v-slot:code>
-
-```html
-<fieldset class="cdx-demo-css-radio-group">
-	<legend>
-		CSS-only inline Radio demo
-	</legend>
-	<span class="cdx-radio cdx-radio--inline">
-		<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
-		<span class="cdx-radio__icon"></span>
-		<label class="cdx-radio__label" for="radio-group-css-only-inline-1">
-			Radio 1
-		</label>
-	</span>
-	<span class="cdx-radio cdx-radio--inline">
-		<input id="radio-group-css-only-inline-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline" checked>
-		<span class="cdx-radio__icon"></span>
-		<label class="cdx-radio__label" for="radio-group-css-only-inline-2">
-			Radio 2
-		</label>
-	</span>
+	</div>
 </fieldset>
 ```
 
-:::code-group
-
-```less [NPM]
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-
-.cdx-demo-css-radio-group {
-	// Reset fieldset styles.
-	border: 0;
-	padding: 0;
-
-	legend {
-		margin-bottom: @spacing-25;
-		// Reset legend padding.
-		padding: 0;
-		font-weight: @font-weight-bold;
-	}
-}
-```
-
-```less [MediaWiki]
-@import 'mediawiki.skin.variables.less';
-
-.cdx-demo-css-radio-group {
-	// Reset fieldset styles.
-	border: 0;
-	padding: 0;
-
-	legend {
-		margin-bottom: @spacing-25;
-		// Reset legend padding.
-		padding: 0;
-		font-weight: @font-weight-bold;
-	}
-}
-```
-
-:::
-
 </template>
 </cdx-demo-wrapper>
-
-<style lang="less" scoped>
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-
-:deep( .cdx-demo-css-radio-group ) {
-	// Reset fieldset styles.
-	border: 0;
-	padding: 0;
-
-	legend {
-		margin-bottom: @spacing-25;
-		padding: 0;
-		font-weight: @font-weight-bold;
-	}
-}
-</style>
