@@ -3,6 +3,7 @@
 		<transition name="cdx-dialog-fade" appear>
 			<div
 				v-if="open"
+				ref="backdrop"
 				class="cdx-dialog-backdrop"
 				@click="close"
 				@keyup.escape="close"
@@ -131,7 +132,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, toRef, watch, PropType, ref, inject } from 'vue';
+import { computed, defineComponent, nextTick, toRef, watch, PropType, ref, inject, onUnmounted } from 'vue';
 import CdxButton from '../../components/button/Button.vue';
 import CdxIcon from '../../components/icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
@@ -287,6 +288,7 @@ export default defineComponent( {
 	setup( props, { emit } ) {
 		const labelId = useGeneratedId( 'dialog-label' );
 
+		const backdrop = ref<HTMLDivElement>();
 		const dialogElement = ref<HTMLDivElement>(); // dialog "frame"
 		const dialogBody = ref<HTMLDivElement>(); // dialog content
 		const focusHolder = ref<HTMLDivElement>();
@@ -377,6 +379,63 @@ export default defineComponent( {
 			return false;
 		}
 
+		let ariaHiddenElements: Element[] = [];
+		let inertElements: Element[] = [];
+
+		/**
+		 * Hide all other elements on the page from screen readers, and prevent user
+		 * interaction with them, by setting aria-hidden and inert on all siblings of all
+		 * ancestors of the dialog. This leaves the path from the root node to the
+		 * dialog as the only nodes that aren't covered by aria-hidden and inert.
+		 */
+		function setAriaHiddenAndInert() {
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			let element: HTMLElement = backdrop.value!;
+			while ( element.parentElement && element.nodeName !== 'BODY' ) {
+				for ( const sibling of Array.from( element.parentElement.children ) ) {
+					if ( sibling === element || sibling.nodeName === 'SCRIPT' ) {
+						continue;
+					}
+					// Store the elements we set aria-hidden and inert on, so that we can
+					// unset them when the dialog closes. Exclude elements that already have these
+					// attributes set, so that we don't unset things that were supposed to stay set.
+					if ( !sibling.hasAttribute( 'aria-hidden' ) ) {
+						sibling.setAttribute( 'aria-hidden', 'true' );
+						ariaHiddenElements.push( sibling );
+					}
+					if ( !sibling.hasAttribute( 'inert' ) ) {
+						sibling.setAttribute( 'inert', '' );
+						inertElements.push( sibling );
+					}
+				}
+				element = element.parentElement;
+			}
+		}
+
+		function unsetAriaHiddenAndInert() {
+			for ( const element of ariaHiddenElements ) {
+				element.removeAttribute( 'aria-hidden' );
+			}
+			for ( const element of inertElements ) {
+				element.removeAttribute( 'inert' );
+			}
+			ariaHiddenElements = [];
+			inertElements = [];
+		}
+
+		function onDialogClose() {
+			document.body.classList.remove( 'cdx-dialog-open' );
+			document.documentElement.style.removeProperty( 'margin-right' );
+			unsetAriaHiddenAndInert();
+		}
+
+		// If the dialog is closed while it's still mounted, make sure we clean up behind ourselves
+		onUnmounted( () => {
+			if ( props.open ) {
+				onDialogClose();
+			}
+		} );
+
 		watch( toRef( props, 'open' ), ( opened ) => {
 			if ( opened ) {
 				// Determine the width of the scrollbar and compensate for it if necessary
@@ -393,14 +452,15 @@ export default defineComponent( {
 				// whose click event opened the dialog.
 				// eslint-disable-next-line @typescript-eslint/no-floating-promises
 				nextTick( () => {
+					setAriaHiddenAndInert();
+
 					// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 					if ( !focusFirstFocusableElement( dialogBody.value! ) ) {
 						focusHolder.value?.focus();
 					}
 				} );
 			} else {
-				document.body.classList.remove( 'cdx-dialog-open' );
-				document.documentElement.style.removeProperty( 'margin-right' );
+				onDialogClose();
 			}
 		} );
 
@@ -416,6 +476,7 @@ export default defineComponent( {
 			cdxIconClose,
 			labelId,
 			rootClasses,
+			backdrop,
 			dialogElement,
 			focusTrapStart,
 			focusTrapEnd,
