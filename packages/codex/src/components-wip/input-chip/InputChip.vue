@@ -3,6 +3,8 @@
 		class="cdx-input-chip"
 		:class="rootClasses"
 		tabindex="0"
+		role="option"
+		:aria-description="chipAriaDescription"
 		@keydown="onKeydown"
 		@click="$emit( 'click-chip' )"
 	>
@@ -16,10 +18,11 @@
 			<slot />
 		</span>
 		<cdx-button
+			:id="removeButtonId"
 			class="cdx-input-chip__button"
 			weight="quiet"
 			tabindex="-1"
-			:aria-label="removeButtonLabel"
+			aria-hidden="true"
 			:disabled="disabled"
 			@click.stop="$emit( 'remove-chip' )"
 		>
@@ -32,6 +35,7 @@
 import { defineComponent, PropType, computed } from 'vue';
 import CdxButton from '../../components/button/Button.vue';
 import CdxIcon from '../../components/icon/Icon.vue';
+import useGeneratedId from '../../composables/useGeneratedId';
 import { cdxIconClose, Icon } from '@wikimedia/codex-icons';
 
 /**
@@ -47,11 +51,12 @@ export default defineComponent( {
 	},
 	props: {
 		/**
-		 * `aria-label` for the icon-only remove button.
+		 * `aria-description` for the chip.
 		 *
-		 * Text must be provided for accessibility purposes.
+		 * Text must be provided for accessibility purposes. This prop is temporary and will be
+		 * removed once T345386 is resolved.
 		 */
-		removeButtonLabel: {
+		chipAriaDescription: {
 			type: String,
 			required: true
 		},
@@ -87,6 +92,8 @@ export default defineComponent( {
 			};
 		} );
 
+		const removeButtonId = useGeneratedId( 'input-chip-remove' );
+
 		function onKeydown( e: KeyboardEvent ) {
 			switch ( e.key ) {
 				case 'Enter':
@@ -103,6 +110,7 @@ export default defineComponent( {
 
 		return {
 			rootClasses,
+			removeButtonId,
 			onKeydown,
 			cdxIconClose
 		};

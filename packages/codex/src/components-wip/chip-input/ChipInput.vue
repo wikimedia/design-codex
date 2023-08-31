@@ -5,12 +5,16 @@
 		:style="rootStyle"
 		@click="focusInput"
 	>
-		<div class="cdx-chip-input__chips">
+		<div
+			class="cdx-chip-input__chips"
+			role="listbox"
+			aria-orientation="horizontal"
+		>
 			<cdx-input-chip
-				v-for="( chip ) in inputChips"
+				v-for="chip in inputChips"
 				:key="chip.value"
 				class="cdx-chip-input__item"
-				:remove-button-label="removeButtonLabel"
+				:chip-aria-description="chipAriaDescription"
 				:icon="chip.icon"
 				:disabled="computedDisabled"
 				@click-chip="handleChipClick( chip )"
@@ -74,11 +78,12 @@ export default defineComponent( {
 	inheritAttrs: false,
 	props: {
 		/**
-		 * `aria-label` for the icon-only remove button of each input chip.
+		 * `aria-description` of each input chip.
 		 *
-		 * Text must be provided for accessibility purposes.
+		 * Text must be provided for accessibility purposes. This prop is temporary and will be
+		 * removed once T345386 is resolved.
 		 */
-		removeButtonLabel: {
+		chipAriaDescription: {
 			type: String,
 			required: true
 		},

@@ -1,7 +1,7 @@
 <template>
 	<cdx-chip-input
 		v-model:input-chips="exampleChips"
-		:remove-button-label="removeButtonLabel"
+		:chip-aria-description="chipAriaDescription"
 		:status="status"
 		:disabled="disabled"
 	/>
@@ -17,7 +17,7 @@ export default defineComponent( {
 		CdxChipInput
 	},
 	props: {
-		removeButtonLabel: {
+		chipAriaDescription: {
 			type: String,
 			required: true
 		},

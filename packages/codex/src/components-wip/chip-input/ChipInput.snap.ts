@@ -5,13 +5,15 @@ exports[`matches the snapshot Case 0 Default props: ({"inputChips": [Array]}) =>
   class="cdx-chip-input cdx-chip-input--status-default"
 >
   <div
+    aria-orientation="horizontal"
     class="cdx-chip-input__chips"
+    role="listbox"
   >
     
     <cdx-input-chip-stub
+      chipariadescription="Press Enter to edit or Delete to remove"
       class="cdx-chip-input__item"
       disabled="false"
-      removebuttonlabel="remove"
     />
     
     <input
@@ -27,7 +29,9 @@ exports[`matches the snapshot Case 1 No input chips: ({"inputChips": [Array]}) =
   class="cdx-chip-input cdx-chip-input--status-default"
 >
   <div
+    aria-orientation="horizontal"
     class="cdx-chip-input__chips"
+    role="listbox"
   >
     
     
@@ -44,13 +48,15 @@ exports[`matches the snapshot Case 2 With separate input: ({"inputChips": [Array
   class="cdx-chip-input cdx-chip-input--has-separate-input cdx-chip-input--status-default"
 >
   <div
+    aria-orientation="horizontal"
     class="cdx-chip-input__chips"
+    role="listbox"
   >
     
     <cdx-input-chip-stub
+      chipariadescription="Press Enter to edit or Delete to remove"
       class="cdx-chip-input__item"
       disabled="false"
-      removebuttonlabel="remove"
     />
     
     <!--v-if-->
@@ -70,13 +76,15 @@ exports[`matches the snapshot Case 3 With error: ({"inputChips": [Array], "statu
   class="cdx-chip-input cdx-chip-input--status-error"
 >
   <div
+    aria-orientation="horizontal"
     class="cdx-chip-input__chips"
+    role="listbox"
   >
     
     <cdx-input-chip-stub
+      chipariadescription="Press Enter to edit or Delete to remove"
       class="cdx-chip-input__item"
       disabled="false"
-      removebuttonlabel="remove"
     />
     
     <input
@@ -92,13 +100,15 @@ exports[`matches the snapshot Case 4 Disabled: ({"disabled": true, "inputChips":
   class="cdx-chip-input cdx-chip-input--status-default cdx-chip-input--disabled"
 >
   <div
+    aria-orientation="horizontal"
     class="cdx-chip-input__chips"
+    role="listbox"
   >
     
     <cdx-input-chip-stub
+      chipariadescription="Press Enter to edit or Delete to remove"
       class="cdx-chip-input__item"
       disabled="true"
-      removebuttonlabel="remove"
     />
     
     <input
@@ -115,14 +125,16 @@ exports[`matches the snapshot Case 5 Input chips with icon: ({"inputChips": [Arr
   class="cdx-chip-input cdx-chip-input--status-default"
 >
   <div
+    aria-orientation="horizontal"
     class="cdx-chip-input__chips"
+    role="listbox"
   >
     
     <cdx-input-chip-stub
+      chipariadescription="Press Enter to edit or Delete to remove"
       class="cdx-chip-input__item"
       disabled="false"
       icon="[object Object]"
-      removebuttonlabel="remove"
     />
     
     <input

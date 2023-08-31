@@ -25,8 +25,12 @@ describe( 'matches the snapshot', () => {
 	];
 
 	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
-		const wrapper = shallowMount( CdxChipInput,
-			{ props: { removeButtonLabel: 'remove', ...props } } );
+		const wrapper = shallowMount( CdxChipInput, {
+			props: {
+				chipAriaDescription: 'Press Enter to edit or Delete to remove',
+				...props
+			}
+		} );
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 } );
@@ -34,7 +38,7 @@ describe( 'matches the snapshot', () => {
 describe( 'Basic usage', () => {
 	it( 'emits the update:input-chips event when a new chip is added', async () => {
 		const wrapper = shallowMount( CdxChipInput, { props: {
-			removeButtonLabel: 'remove',
+			chipAriaDescription: 'Press Enter to edit or Delete to remove',
 			inputChips: []
 		} } );
 		const inputElement = wrapper.get( 'input' );
@@ -46,7 +50,7 @@ describe( 'Basic usage', () => {
 
 	it( 'adds a new chip with the input value on blur', async () => {
 		const wrapper = shallowMount( CdxChipInput, { props: {
-			removeButtonLabel: 'remove',
+			chipAriaDescription: 'Press Enter to edit or Delete to remove',
 			inputChips: []
 		} } );
 		const inputElement = wrapper.get( 'input' );
@@ -58,7 +62,7 @@ describe( 'Basic usage', () => {
 
 	it( 'emits the update:input-chips event when a chip is removed', async () => {
 		const wrapper = mount( CdxChipInput, { props: {
-			removeButtonLabel: 'remove',
+			chipAriaDescription: 'Press Enter to edit or Delete to remove',
 			inputChips: [
 				{ value: 'chip 1' },
 				{ value: 'chip 2' }
@@ -76,7 +80,7 @@ describe( 'Basic usage', () => {
 	describe( 'when a chip is clicked', () => {
 		it( 'removes the chip and adds the value to the input', async () => {
 			const wrapper = mount( CdxChipInput, { props: {
-				removeButtonLabel: 'remove',
+				chipAriaDescription: 'Press Enter to edit or Delete to remove',
 				inputChips: [
 					{ value: 'chip 1' },
 					{ value: 'chip 2' }
@@ -93,7 +97,7 @@ describe( 'Basic usage', () => {
 		describe( 'and the input has a value', () => {
 			it( 'adds a new chip with the value of the input', async () => {
 				const wrapper = mount( CdxChipInput, { props: {
-					removeButtonLabel: 'remove',
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [
 						{ value: 'chip 1' },
 						{ value: 'chip 2' }
@@ -121,7 +125,7 @@ describe( 'Basic usage', () => {
 
 	it( 'sets the outer div class to focused when the input is focused', async () => {
 		const wrapper = shallowMount( CdxChipInput, { props: {
-			removeButtonLabel: 'remove',
+			chipAriaDescription: 'Press Enter to edit or Delete to remove',
 			inputChips: []
 		} } );
 		const inputElement = wrapper.find( 'input' );
@@ -136,7 +140,7 @@ describe( 'Basic usage', () => {
 	describe( 'when a duplicate chip is added', () => {
 		it( 'does not emit the update:input-chips event', async () => {
 			const wrapper = shallowMount( CdxChipInput, { props: {
-				removeButtonLabel: 'remove',
+				chipAriaDescription: 'Press Enter to edit or Delete to remove',
 				inputChips: [ { value: 'Do not duplicate chips' } ]
 			} } );
 
@@ -149,7 +153,7 @@ describe( 'Basic usage', () => {
 
 		it( 'sets the outer div class to error', async () => {
 			const wrapper = shallowMount( CdxChipInput, { props: {
-				removeButtonLabel: 'remove',
+				chipAriaDescription: 'Press Enter to edit or Delete to remove',
 				inputChips: [ { value: 'Do not duplicate chips' } ]
 			} } );
 
@@ -163,7 +167,7 @@ describe( 'Basic usage', () => {
 
 		it( 'clears the error status if the duplicate chip is removed', async () => {
 			const wrapper = mount( CdxChipInput, { props: {
-				removeButtonLabel: 'remove',
+				chipAriaDescription: 'Press Enter to edit or Delete to remove',
 				inputChips: [ { value: 'Do not duplicate chips' } ],
 				'onUpdate:inputChips': ( e: ChipInputItem[] ) => wrapper.setProps( { inputChips: e } )
 			} } );
