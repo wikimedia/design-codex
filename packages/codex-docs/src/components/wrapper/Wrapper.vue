@@ -79,10 +79,14 @@
 				@control-change="handleControlChange"
 			/>
 		</div>
+		<!-- Direction-aware target for any teleport usage in demos -->
+		<!--
+			This has to be inside the cdx-demo-wrapper div, it can't be a sibling. If the Wrapper
+			component outputs multiple root nodes, that triggers a bug in VitePress that breaks
+			scoped styles on Wrappers,
+		-->
+		<div ref="teleportTarget" :dir="direction" />
 	</div>
-
-	<!-- Direction-aware target for any teleport usage in demos -->
-	<div ref="teleportTarget" :dir="direction" />
 </template>
 
 <script lang="ts">
