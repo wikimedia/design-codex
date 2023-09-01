@@ -40,6 +40,11 @@ import useLabelChecker from '../../composables/useLabelChecker';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useFieldData from '../../composables/useFieldData';
+import { ValidationStatusType } from '../../types';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+import { ValidationStatusTypes } from '../../constants';
+
+const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
  * A binary input that can be standalone or in a multiselect group.
@@ -105,6 +110,16 @@ export default defineComponent( {
 		inline: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * `status` attribute of the checkbox.
+		 *
+		 * @values 'default', 'error'
+		 */
+		status: {
+			type: String as PropType<ValidationStatusType>,
+			default: 'default',
+			validator: statusValidator
 		}
 	},
 	emits: [
@@ -118,13 +133,20 @@ export default defineComponent( {
 	setup( props, { emit, slots, attrs } ) {
 		useLabelChecker( slots.default?.(), attrs, 'CdxCheckbox' );
 
+		const {
+			computedDisabled,
+			computedStatus
+		} = useFieldData(
+			toRef( props, 'disabled' ),
+			toRef( props, 'status' )
+		);
+
 		const rootClasses = computed( (): Record<string, boolean> => {
 			return {
-				'cdx-checkbox--inline': props.inline
+				'cdx-checkbox--inline': props.inline,
+				[ `cdx-checkbox--status-${computedStatus.value}` ]: true
 			};
 		} );
-
-		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
 
 		// Declare template ref.
 		const input = ref<HTMLInputElement>();
@@ -235,7 +257,7 @@ export default defineComponent( {
 					border-color: @border-color-progressive--active;
 				}
 
-				&:focus:not( :active ):not( :hover ) + .cdx-checkbox__icon {
+				&:focus:not( :hover ) + .cdx-checkbox__icon {
 					background-color: @background-color-input-binary--checked;
 					border-color: @border-color-input-binary--checked;
 				}
@@ -263,6 +285,38 @@ export default defineComponent( {
 			}
 		}
 		/* stylelint-enable no-descending-specificity */
+	}
+
+	&--status-error {
+		.cdx-checkbox__input:enabled {
+			/* stylelint-disable-next-line no-descending-specificity */
+			&:not( :focus ) + .cdx-checkbox__icon {
+				border-color: @border-color-error;
+			}
+
+			&:hover:not( :focus ) + .cdx-checkbox__icon {
+				border-color: @border-color-error-hover;
+			}
+
+			&:checked,
+			&:indeterminate {
+				/* stylelint-disable-next-line no-descending-specificity */
+				& + .cdx-checkbox__icon {
+					background-color: @background-color-error;
+					border-color: @border-color-transparent;
+				}
+
+				&:hover + .cdx-checkbox__icon {
+					background-color: @background-color-error-hover;
+					border-color: @border-color-error-hover;
+				}
+
+				&:focus + .cdx-checkbox__icon {
+					background-color: @background-color-error;
+					border-color: @border-color-progressive--focus;
+				}
+			}
+		}
 	}
 }
 </style>

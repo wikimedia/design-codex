@@ -1,5 +1,6 @@
 import { mount, shallowMount } from '@vue/test-utils';
 import CdxCheckbox from './Checkbox.vue';
+import { ValidationStatusType } from '../../types';
 
 describe( 'Checkbox', () => {
 	describe( 'matches the snapshot', () => {
@@ -11,6 +12,7 @@ describe( 'Checkbox', () => {
 				disabled?: boolean,
 				indeterminate?: boolean,
 				inline?: boolean,
+				status?: ValidationStatusType
 			},
 			defaultSlot: string,
 			description?: string
@@ -23,7 +25,8 @@ describe( 'Checkbox', () => {
 			[ 'Disabled', { modelValue: false, disabled: true }, 'Disabled checkbox' ],
 			[ 'Indeterminate', { modelValue: false, indeterminate: true }, 'Indeterminate checkbox' ],
 			[ 'Inline', { modelValue: [], inputValue: 'checkbox-1', inline: true }, 'Inline checkbox' ],
-			[ 'With description', { modelValue: true }, 'Checked if true', 'Description text' ]
+			[ 'With description', { modelValue: true }, 'Checked if true', 'Description text' ],
+			[ 'With error', { modelValue: false, status: 'error' }, 'Checkbox with error' ]
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, defaultSlot, description = undefined ) => {

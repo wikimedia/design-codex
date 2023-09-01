@@ -2,7 +2,7 @@
 
 exports[`Checkbox matches the snapshot Case 0 Single checkbox: ({"modelValue": true}) => HTML 1`] = `
 <span
-  class="cdx-checkbox"
+  class="cdx-checkbox cdx-checkbox--status-default"
 >
   <input
     class="cdx-checkbox__input"
@@ -46,7 +46,7 @@ exports[`Checkbox matches the snapshot Case 0 Single checkbox: ({"modelValue": t
 
 exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: ({"inputValue": "checkbox-1", "modelValue": [Array]}) => HTML 1`] = `
 <span
-  class="cdx-checkbox"
+  class="cdx-checkbox cdx-checkbox--status-default"
 >
   <input
     class="cdx-checkbox__input"
@@ -90,7 +90,7 @@ exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: ({"i
 
 exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ({"inputValue": 1, "modelValue": [Array]}) => HTML 1`] = `
 <span
-  class="cdx-checkbox"
+  class="cdx-checkbox cdx-checkbox--status-default"
 >
   <input
     class="cdx-checkbox__input"
@@ -134,7 +134,7 @@ exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ({"i
 
 exports[`Checkbox matches the snapshot Case 3 Disabled: ({"disabled": true, "modelValue": false}) => HTML 1`] = `
 <span
-  class="cdx-checkbox"
+  class="cdx-checkbox cdx-checkbox--status-default"
 >
   <input
     class="cdx-checkbox__input"
@@ -179,7 +179,7 @@ exports[`Checkbox matches the snapshot Case 3 Disabled: ({"disabled": true, "mod
 
 exports[`Checkbox matches the snapshot Case 4 Indeterminate: ({"indeterminate": true, "modelValue": false}) => HTML 1`] = `
 <span
-  class="cdx-checkbox"
+  class="cdx-checkbox cdx-checkbox--status-default"
 >
   <input
     class="cdx-checkbox__input"
@@ -223,7 +223,7 @@ exports[`Checkbox matches the snapshot Case 4 Indeterminate: ({"indeterminate": 
 
 exports[`Checkbox matches the snapshot Case 5 Inline: ({"inline": true, "inputValue": "checkbox-1", "modelValue": [Array]}) => HTML 1`] = `
 <span
-  class="cdx-checkbox cdx-checkbox--inline"
+  class="cdx-checkbox cdx-checkbox--inline cdx-checkbox--status-default"
 >
   <input
     class="cdx-checkbox__input"
@@ -267,7 +267,7 @@ exports[`Checkbox matches the snapshot Case 5 Inline: ({"inline": true, "inputVa
 
 exports[`Checkbox matches the snapshot Case 6 With description: ({"modelValue": true}) => HTML 1`] = `
 <span
-  class="cdx-checkbox"
+  class="cdx-checkbox cdx-checkbox--status-default"
 >
   <input
     aria-describedby="cdx-description-13"
@@ -316,6 +316,50 @@ exports[`Checkbox matches the snapshot Case 6 With description: ({"modelValue": 
       
       
     </span>
+  </div>
+  
+</span>
+`;
+
+exports[`Checkbox matches the snapshot Case 7 With error: ({"modelValue": false, "status": "error"}) => HTML 1`] = `
+<span
+  class="cdx-checkbox cdx-checkbox--status-error"
+>
+  <input
+    class="cdx-checkbox__input"
+    id="cdx-checkbox-14"
+    type="checkbox"
+    value="false"
+  />
+  <span
+    class="cdx-checkbox__icon"
+  />
+  <!-- Only render a Label component if label text has been provided. This component can also
+			supply a description to the Checkbox if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+  <div
+    class="cdx-label cdx-checkbox__label"
+  >
+    <label
+      class="cdx-label__label"
+      for="cdx-checkbox-14"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Checkbox with error
+        
+        
+      </span>
+      <!--v-if-->
+    </label>
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
+    <!--v-if-->
   </div>
   
 </span>

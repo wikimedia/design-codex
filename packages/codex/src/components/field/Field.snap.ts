@@ -42,7 +42,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
     <!-- @slot Input, control, or input group. -->
     
     <span
-      class="cdx-checkbox"
+      class="cdx-checkbox cdx-checkbox--status-default"
     >
       <input
         class="cdx-checkbox__input"
@@ -138,7 +138,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
     <!-- @slot Input, control, or input group. -->
     
     <span
-      class="cdx-checkbox"
+      class="cdx-checkbox cdx-checkbox--status-default"
     >
       <input
         class="cdx-checkbox__input"

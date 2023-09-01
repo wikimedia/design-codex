@@ -53,6 +53,12 @@
 		"destructive-subtle": {
 			"value": "{ color.red100 }"
 		},
+		"error": {
+			"value": "{ color.red600 }"
+		},
+		"error-hover": {
+			"value": "{ color.red500 }"
+		},
 		"error-subtle": {
 			"value": "{ color.red100 }"
 		},
@@ -551,6 +557,9 @@
 		},
 		"error": {
 			"value": "{ color.red700 }"
+		},
+		"error-hover": {
+			"value": "{ color.red500 }"
 		},
 		"warning": {
 			"value": "{ color.yellow700 }"

@@ -4,11 +4,36 @@ import InlineCheckboxes from '@/../component-demos/checkbox/examples/InlineCheck
 import IndeterminateState from '@/../component-demos/checkbox/examples/IndeterminateState.vue';
 import CheckboxWithDescription from '@/../component-demos/checkbox/examples/CheckboxWithDescription.vue';
 import CheckboxField from '@/../component-demos/checkbox/examples/CheckboxField.vue';
+import CheckboxConfigurable from '@/../component-demos/checkbox/examples/CheckboxConfigurable.vue';
+
+const controlsConfig = [
+	{
+		name: 'status',
+		type: 'radio',
+		options: [ 'default', 'error' ],
+	},
+	{
+		name: 'disabled',
+		type: 'boolean'
+	},
+	{
+		name: 'indeterminate',
+		type: 'boolean'
+	}
+];
 </script>
 
 ## Demos
 
 Open up the browser console to see events emitted on input.
+
+### Configurable
+
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true" generated-model-name="checkboxValue">
+<template v-slot:demo="{ propValues }">
+	<checkbox-configurable v-bind="propValues" />
+</template>
+</cdx-demo-wrapper>
 
 ### Single checkbox with label and description
 
