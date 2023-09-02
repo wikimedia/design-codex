@@ -360,9 +360,9 @@ export default defineComponent( {
 			cursor: @cursor-base--hover;
 		}
 
-		// Increase padding end when the clear icon appears next to an end icon.
+		// Move the clear icon farther left when it appears next to an end icon.
 		.cdx-text-input__end-icon + & {
-			right: @spacing-horizontal-input-text-two-end-icons;
+			right: calc( @spacing-horizontal-input-text-two-end-icons + @border-width-base );
 		}
 	}
 

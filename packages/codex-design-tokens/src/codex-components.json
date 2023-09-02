@@ -105,7 +105,7 @@
 		},
 		"horizontal-input-text-two-end-icons": {
 			"comment": "Rely on `calc()` to make token output usable in all formats. When there are two end icons, (i.e. a clear icon and an end icon), we need to double the horizontal padding and account for the size of the extra icon. This token can be used to calculate the horizontal position of the clear icon and the padding-end of the text input.",
-			"value": "calc( { spacing.50 } * 2 + { size.icon-small } + { border-width.base } )"
+			"value": "calc( { spacing.50 } * 2 + { size.icon-small } )"
 		},
 		"start-typeahead-search-figure": {
 			"comment": "The amount of space between the TypeaheadSearch figure's parent component and the TypeaheadSearch figure (input icon container, search result thumbnail, and footer icon container). We want this space to be uniform so that the figures vertically line up nicely. We use the same horizontal padding as the MenuItem.",
