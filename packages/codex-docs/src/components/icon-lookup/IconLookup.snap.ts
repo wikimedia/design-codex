@@ -15,6 +15,7 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
       class="cdx-text-input__input"
       placeholder="Start typing an icon name"
       role="combobox"
+      size="1"
       type="text"
     />
     <!---->
@@ -60,6 +61,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
       class="cdx-text-input__input cdx-text-input__input--has-value"
       placeholder="Start typing an icon name"
       role="combobox"
+      size="1"
       type="text"
     />
     <!---->

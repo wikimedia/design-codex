@@ -1,13 +1,53 @@
 <template>
 	<section id="cdx-combobox">
 		<h2>Combobox</h2>
-		<cdx-combobox
-			v-model:selected="selection"
-			:menu-items="options"
-			placeholder="Type or choose an option"
-			:disabled="false"
-			:clearable="true"
-		/>
+		<p>
+			<cdx-combobox
+				v-model:selected="selection"
+				:menu-items="options"
+				placeholder="Type or choose an option"
+				:disabled="false"
+			/>
+		</p>
+		<p>
+			<cdx-combobox
+				v-model:selected="selection"
+				:menu-items="options"
+				placeholder="Type or choose an option"
+				:disabled="false"
+				:clearable="true"
+			/>
+		</p>
+		<p>
+			<cdx-combobox
+				v-model:selected="selection"
+				:menu-items="options"
+				placeholder="Type or choose an option"
+				:disabled="false"
+				:end-icon="cdxIconEdit"
+			/>
+		</p>
+		<p>
+			<cdx-combobox
+				v-model:selected="selection"
+				:menu-items="options"
+				placeholder="Type or choose an option"
+				:disabled="false"
+				clearable
+				:end-icon="cdxIconEdit"
+			/>
+		</p>
+		<p>
+			<cdx-combobox
+				v-model:selected="selection"
+				:menu-items="options"
+				placeholder="Type or choose an option"
+				:disabled="false"
+				clearable
+				:start-icon="cdxIconSearch"
+				:end-icon="cdxIconEdit"
+			/>
+		</p>
 		<p>Selected value: {{ selection || '(none)' }}</p>
 	</section>
 </template>
@@ -15,6 +55,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { CdxCombobox, MenuItemData } from '../lib';
+import { cdxIconEdit, cdxIconSearch } from '@wikimedia/codex-icons';
 
 const options: MenuItemData[] = [
 	{ label: 'Apple', value: 'a' },
@@ -22,5 +63,5 @@ const options: MenuItemData[] = [
 	{ label: 'Canteloupe', value: 'c', disabled: true }
 ];
 
-const selection = ref<string|number>( '' );
+const selection = ref( 'a' );
 </script>

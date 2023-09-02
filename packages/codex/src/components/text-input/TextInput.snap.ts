@@ -4,8 +4,10 @@ exports[`TextInput matches the snapshot Case 0 Input type: text : ({"inputType":
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="text"
   />
   <!--v-if-->
@@ -18,8 +20,10 @@ exports[`TextInput matches the snapshot Case 1 Input type: search : ({"inputType
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="search"
   />
   <!--v-if-->
@@ -32,8 +36,10 @@ exports[`TextInput matches the snapshot Case 2 Input type: number : ({"inputType
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="number"
   />
   <!--v-if-->
@@ -46,8 +52,10 @@ exports[`TextInput matches the snapshot Case 3 Input type: email : ({"inputType"
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="email"
   />
   <!--v-if-->
@@ -60,8 +68,10 @@ exports[`TextInput matches the snapshot Case 4 Input type: month : ({"inputType"
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="month"
   />
   <!--v-if-->
@@ -74,8 +84,10 @@ exports[`TextInput matches the snapshot Case 5 Input type: password : ({"inputTy
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="password"
   />
   <!--v-if-->
@@ -88,8 +100,10 @@ exports[`TextInput matches the snapshot Case 6 Input type: tel : ({"inputType": 
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="tel"
   />
   <!--v-if-->
@@ -102,8 +116,10 @@ exports[`TextInput matches the snapshot Case 7 Input type: url : ({"inputType": 
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="url"
   />
   <!--v-if-->
@@ -116,8 +132,10 @@ exports[`TextInput matches the snapshot Case 8 Input type: week : ({"inputType":
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="week"
   />
   <!--v-if-->
@@ -130,8 +148,10 @@ exports[`TextInput matches the snapshot Case 9 Input type: date : ({"inputType":
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="date"
   />
   <!--v-if-->
@@ -144,8 +164,10 @@ exports[`TextInput matches the snapshot Case 10 Input type: datetime-local : ({"
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="datetime-local"
   />
   <!--v-if-->
@@ -158,8 +180,10 @@ exports[`TextInput matches the snapshot Case 11 Input type: time : ({"inputType"
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="time"
   />
   <!--v-if-->
@@ -172,9 +196,11 @@ exports[`TextInput matches the snapshot Case 12 Disabled: ({"disabled": true}) =
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
     disabled=""
+    size="1"
     type="text"
   />
   <!--v-if-->
@@ -187,8 +213,10 @@ exports[`TextInput matches the snapshot Case 13 With start icon: ({"startIcon": 
 <div
   class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="text"
   />
   <span
@@ -220,8 +248,10 @@ exports[`TextInput matches the snapshot Case 14 With end icon: ({"endIcon": [Obj
 <div
   class="cdx-text-input cdx-text-input--has-end-icon cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="text"
   />
   <!--v-if-->
@@ -253,8 +283,10 @@ exports[`TextInput matches the snapshot Case 15 Clearable, no input: ({"clearabl
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="text"
   />
   <!--v-if-->
@@ -267,8 +299,10 @@ exports[`TextInput matches the snapshot Case 16 Clearable, with input: ({"cleara
 <div
   class="cdx-text-input cdx-text-input--clearable cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input cdx-text-input__input--has-value"
+    size="1"
     type="text"
   />
   <!--v-if-->
@@ -300,8 +334,10 @@ exports[`TextInput matches the snapshot Case 17 With end icon, clearable, no inp
 <div
   class="cdx-text-input cdx-text-input--has-end-icon cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="text"
   />
   <!--v-if-->
@@ -333,8 +369,10 @@ exports[`TextInput matches the snapshot Case 18 With end icon, clearable, with i
 <div
   class="cdx-text-input cdx-text-input--has-end-icon cdx-text-input--clearable cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input cdx-text-input__input--has-value"
+    size="1"
     type="text"
   />
   <!--v-if-->
@@ -385,10 +423,11 @@ exports[`TextInput matches the snapshot Case 19 With attributes: ({}) => HTML 1`
 <div
   class="cdx-text-input cdx-text-input--status-default"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
     placeholder="Start typing..."
-    size="30"
+    size="1"
     type="text"
   />
   <!--v-if-->
@@ -401,8 +440,10 @@ exports[`TextInput matches the snapshot Case 20 With error status: ({"status": "
 <div
   class="cdx-text-input cdx-text-input--status-error"
 >
+  <!-- size="1" is to prevent the browser from setting an implicit min-width -->
   <input
     class="cdx-text-input__input"
+    size="1"
     type="text"
   />
   <!--v-if-->

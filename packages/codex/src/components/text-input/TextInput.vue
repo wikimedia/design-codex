@@ -4,6 +4,7 @@
 		:class="rootClasses"
 		:style="rootStyle"
 	>
+		<!-- size="1" is to prevent the browser from setting an implicit min-width -->
 		<input
 			:id="computedInputId"
 			ref="input"
@@ -14,6 +15,7 @@
 			:type="inputType"
 			:aria-describedby="descriptionId"
 			:disabled="computedDisabled"
+			size="1"
 			@input="onInput"
 			@change="onChange"
 			@focus="onFocus"
@@ -325,6 +327,9 @@ export default defineComponent( {
 	// For proper positioning of icons and slotted elements.
 	position: relative;
 	box-sizing: @box-sizing-base;
+	// min-width is set here instead of in the <input> so that the input's width is consistent
+	// regardless of whether the clear button and start/end icon are present
+	min-width: @min-width-medium;
 
 	&__start-icon {
 		// Border width is included here and for other icon positions because the icon position will
@@ -364,7 +369,6 @@ export default defineComponent( {
 	&__input {
 		display: block;
 		box-sizing: @box-sizing-base;
-		min-width: @min-width-medium;
 		min-height: @min-size-interactive-pointer;
 		width: @size-full;
 		margin: 0;

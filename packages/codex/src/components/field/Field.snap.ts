@@ -868,9 +868,11 @@ exports[`Field matches the snapshot with a TextInput control Case 0 Basic field:
     <div
       class="cdx-text-input cdx-text-input--status-default"
     >
+      <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
         id="cdx-input-2"
+        size="1"
         type="text"
       />
       <!--v-if-->
@@ -949,9 +951,11 @@ exports[`Field matches the snapshot with a TextInput control Case 1 With label i
     <div
       class="cdx-text-input cdx-text-input--status-default"
     >
+      <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
         id="cdx-input-5"
+        size="1"
         type="text"
       />
       <!--v-if-->
@@ -1019,9 +1023,11 @@ exports[`Field matches the snapshot with a TextInput control Case 2 With optiona
     <div
       class="cdx-text-input cdx-text-input--status-default"
     >
+      <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
         id="cdx-input-8"
+        size="1"
         type="text"
       />
       <!--v-if-->
@@ -1081,9 +1087,11 @@ exports[`Field matches the snapshot with a TextInput control Case 3 With visuall
     <div
       class="cdx-text-input cdx-text-input--status-default"
     >
+      <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
         id="cdx-input-11"
+        size="1"
         type="text"
       />
       <!--v-if-->
@@ -1144,10 +1152,12 @@ exports[`Field matches the snapshot with a TextInput control Case 4 Disabled: ({
     <div
       class="cdx-text-input cdx-text-input--status-default"
     >
+      <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
         disabled=""
         id="cdx-input-14"
+        size="1"
         type="text"
       />
       <!--v-if-->
@@ -1207,9 +1217,11 @@ exports[`Field matches the snapshot with a TextInput control Case 5 Error status
     <div
       class="cdx-text-input cdx-text-input--status-error"
     >
+      <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
         id="cdx-input-17"
+        size="1"
         type="text"
       />
       <!--v-if-->
@@ -1319,10 +1331,12 @@ exports[`Field matches the snapshot with a TextInput control Case 6 With descrip
     <div
       class="cdx-text-input cdx-text-input--status-default"
     >
+      <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         aria-describedby="cdx-description-19"
         class="cdx-text-input__input"
         id="cdx-input-20"
+        size="1"
         type="text"
       />
       <!--v-if-->
@@ -1382,9 +1396,11 @@ exports[`Field matches the snapshot with a TextInput control Case 7 With help te
     <div
       class="cdx-text-input cdx-text-input--status-default"
     >
+      <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
         id="cdx-input-23"
+        size="1"
         type="text"
       />
       <!--v-if-->

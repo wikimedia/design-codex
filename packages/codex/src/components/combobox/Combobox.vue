@@ -349,11 +349,11 @@ export default defineComponent( {
 
 	&__input {
 		flex: 1 1 auto;
+		// Override TextInput `min-width` to allow for the expander button.
+		min-width: @min-width-medium - @min-size-interactive-pointer;
 		.cdx-mixin-element-with-menu-expanded();
 
 		.cdx-text-input__input {
-			// Override TextInput `min-width` to allow for the expander button.
-			min-width: @min-width-medium - @min-size-interactive-pointer;
 			border-right-width: 0;
 			border-top-right-radius: 0;
 			border-bottom-right-radius: 0;

@@ -18,6 +18,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
         <div
           class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
         >
+          <!-- size="1" is to prevent the browser from setting an implicit min-width -->
           <input
             aria-autocomplete="list"
             aria-controls="cdx-typeahead-search-menu-0"
@@ -27,6 +28,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
             name="search"
             placeholder="Search Wikipedia"
             role="combobox"
+            size="1"
             type="search"
           />
           <span
@@ -120,6 +122,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
         <div
           class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
         >
+          <!-- size="1" is to prevent the browser from setting an implicit min-width -->
           <input
             aria-autocomplete="list"
             aria-controls="cdx-typeahead-search-menu-1"
@@ -129,6 +132,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
             name="search"
             placeholder="Search Wikipedia"
             role="combobox"
+            size="1"
             type="search"
           />
           <span
@@ -222,6 +226,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
         <div
           class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
         >
+          <!-- size="1" is to prevent the browser from setting an implicit min-width -->
           <input
             aria-autocomplete="list"
             aria-controls="cdx-typeahead-search-menu-2"
@@ -231,6 +236,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
             name="search"
             placeholder="Search Wikipedia"
             role="combobox"
+            size="1"
             type="search"
           />
           <span
@@ -324,6 +330,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
         <div
           class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
         >
+          <!-- size="1" is to prevent the browser from setting an implicit min-width -->
           <input
             aria-autocomplete="list"
             aria-controls="cdx-typeahead-search-menu-60"
@@ -333,6 +340,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
             name="search"
             placeholder="Search Wikipedia"
             role="combobox"
+            size="1"
             type="search"
           />
           <span
@@ -513,6 +521,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
         <div
           class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
         >
+          <!-- size="1" is to prevent the browser from setting an implicit min-width -->
           <input
             aria-autocomplete="list"
             aria-controls="cdx-typeahead-search-menu-15"
@@ -522,6 +531,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             name="search"
             placeholder="Search Wikipedia"
             role="combobox"
+            size="1"
             type="search"
           />
           <span

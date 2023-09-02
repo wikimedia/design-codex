@@ -10,8 +10,10 @@ exports[`matches the snapshot Case 0 Default: ({"modelValue": ""}) => HTML 1`] =
     <div
       class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
     >
+      <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
+        size="1"
         type="search"
       />
       <span
@@ -58,8 +60,10 @@ exports[`matches the snapshot Case 1 With submit button: ({"buttonLabel": "Searc
     <div
       class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
     >
+      <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
+        size="1"
         type="search"
       />
       <span
@@ -113,10 +117,12 @@ exports[`matches the snapshot Case 2 With attributes: ({"modelValue": ""}) => HT
     <div
       class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
     >
+      <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
         disabled=""
         placeholder="Start typing..."
+        size="1"
         type="search"
       />
       <span

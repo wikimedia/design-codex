@@ -7,6 +7,7 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
   <div
     class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
+    <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-0"
@@ -14,6 +15,7 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
       autocomplete="off"
       class="cdx-text-input__input"
       role="combobox"
+      size="1"
       type="text"
     />
     <!--v-if-->
@@ -54,6 +56,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
   <div
     class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
+    <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-1"
@@ -61,6 +64,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       autocomplete="off"
       class="cdx-text-input__input cdx-text-input__input--has-value"
       role="combobox"
+      size="1"
       type="text"
     />
     <!--v-if-->
@@ -237,6 +241,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
   <div
     class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
+    <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-6"
@@ -244,6 +249,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       autocomplete="off"
       class="cdx-text-input__input cdx-text-input__input--has-value"
       role="combobox"
+      size="1"
       type="text"
     />
     <!--v-if-->
@@ -420,6 +426,7 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
   <div
     class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
+    <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-11"
@@ -428,6 +435,7 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
       class="cdx-text-input__input"
       disabled=""
       role="combobox"
+      size="1"
       type="text"
     />
     <!--v-if-->
@@ -468,6 +476,7 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
   <div
     class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
+    <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-12"
@@ -475,6 +484,7 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
       autocomplete="off"
       class="cdx-text-input__input cdx-text-input__input--has-value"
       role="combobox"
+      size="1"
       type="text"
     />
     <!--v-if-->
@@ -521,6 +531,7 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
   <div
     class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
+    <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-13"
@@ -528,6 +539,7 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
       autocomplete="off"
       class="cdx-text-input__input"
       role="combobox"
+      size="1"
       type="text"
     />
     <!--v-if-->
@@ -568,6 +580,7 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
   <div
     class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
+    <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-14"
@@ -576,6 +589,7 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
       class="cdx-text-input__input"
       placeholder="Type something... "
       role="combobox"
+      size="1"
       type="search"
     />
     <!--v-if-->
