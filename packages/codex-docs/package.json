@@ -15,7 +15,7 @@
 		"docgen:build": "node -e \"require( 'fs-extra' ).emptyDir( 'docs/components/demos/' );\" && vue-docgen",
 		"docgen:dev": "vue-docgen --watch",
 		"mw-examples:build": "npm run mw-examples:clean && node ./generateMWExamples.mjs && eslint --fix component-demos/*/examples-mw/",
-		"mw-examples:clean": "rm -f component-demos/*/examples-mw/*",
+		"mw-examples:clean": "rm -rf component-demos/*/examples-mw/",
 		"mw-examples:dev": "npm-watch mw-examples:build",
 		"demos:build": "node build.mjs",
 		"lint": "npm run lint:ts",
