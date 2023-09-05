@@ -75,6 +75,7 @@ const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
  *
  * The following Codex components can be used inside the Field component:
  * - Checkbox
+ * - ChipInput
  * - Combobox
  * - Lookup
  * - Radio

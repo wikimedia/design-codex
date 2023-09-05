@@ -6,6 +6,7 @@ import ChipInputBasic from '@/../component-demos/chip-input/examples/ChipInputBa
 import ChipInputWithIcons from '@/../component-demos/chip-input/examples/ChipInputWithIcons.vue';
 import ChipInputWithPlaceholder from '@/../component-demos/chip-input/examples/ChipInputWithPlaceholder.vue';
 import ChipInputDisabled from '@/../component-demos/chip-input/examples/ChipInputDisabled.vue';
+import ChipInputField from '@/../component-demos/chip-input/examples/ChipInputField.vue';
 
 const controlsConfig = [
 	{
@@ -126,6 +127,28 @@ component and will be passed down to the `<input>` element within.
 <<< @/../component-demos/chip-input/examples/ChipInputDisabled.vue [NPM]
 
 <<< @/../component-demos/chip-input/examples-mw/ChipInputDisabled.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### Form field
+
+A ChipInput can be wrapped in the Field component to add features like a semantic label, description
+and help text, validation messages, and more. See the [Field](./field.md) page for more information.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<chip-input-field />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/chip-input/examples/ChipInputField.vue [NPM]
+
+<<< @/../component-demos/chip-input/examples-mw/ChipInputField.vue [MediaWiki]
 
 :::
 

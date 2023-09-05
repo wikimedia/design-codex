@@ -12,7 +12,7 @@
 				class="cdx-chip-input__item"
 				:remove-button-label="removeButtonLabel"
 				:icon="chip.icon"
-				:disabled="disabled"
+				:disabled="computedDisabled"
 				@click-chip="handleChipClick( chip )"
 				@remove-chip="removeChip( chip )"
 			>
@@ -24,7 +24,7 @@
 				ref="input"
 				v-model="inputValue"
 				class="cdx-chip-input__input"
-				:disabled="disabled"
+				:disabled="computedDisabled"
 				v-bind="otherAttrs"
 				@blur="onBlur"
 				@focus="onFocus"
@@ -38,7 +38,7 @@
 				ref="input"
 				v-model="inputValue"
 				class="cdx-chip-input__input"
-				:disabled="disabled"
+				:disabled="computedDisabled"
 				v-bind="otherAttrs"
 				@blur="onBlur"
 				@focus="onFocus"
@@ -56,6 +56,7 @@ import { ValidationStatusTypes } from '../../constants';
 import { ChipInputItem, ValidationStatusType } from '../../types';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import useSplitAttributes from '../../composables/useSplitAttributes';
+import useFieldData from '../../composables/useFieldData';
 
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
@@ -132,13 +133,14 @@ export default defineComponent( {
 		// The value in the input element.
 		const inputValue = ref( '' );
 		// Internally validated status. Currently only changes to 'error' when there are duplicates.
-		const internalStatus = ref( 'default' );
-		const computedStatus = computed( () => {
-			if ( internalStatus.value === 'error' || props.status === 'error' ) {
+		const validatedStatus = ref( 'default' );
+		const internalStatus = computed( () => {
+			if ( validatedStatus.value === 'error' || props.status === 'error' ) {
 				return 'error';
 			}
 			return 'default';
 		} );
+		const { computedDisabled, computedStatus } = useFieldData( toRef( props, 'disabled' ), internalStatus );
 		// Whether the input is focused.
 		const isFocused = ref( false );
 
@@ -149,7 +151,7 @@ export default defineComponent( {
 				// We need focused and disabled classes on the root element, which contains the
 				// chips and the input, since it is styled to look like the input.
 				'cdx-chip-input--focused': isFocused.value,
-				'cdx-chip-input--disabled': props.disabled
+				'cdx-chip-input--disabled': computedDisabled.value
 			};
 		} );
 
@@ -171,7 +173,7 @@ export default defineComponent( {
 		function addChip() {
 			// If the input value is the same as a chip's value, set error status.
 			if ( props.inputChips.find( ( chip ) => chip.value === inputValue.value ) ) {
-				internalStatus.value = 'error';
+				validatedStatus.value = 'error';
 			} else if ( inputValue.value.length > 0 ) {
 				emit( 'update:input-chips', props.inputChips.concat( { value: inputValue.value } ) );
 				inputValue.value = '';
@@ -195,8 +197,8 @@ export default defineComponent( {
 
 		function onKeydown() {
 			// Clear the error state when the input value is changed.
-			if ( internalStatus.value === 'error' ) {
-				internalStatus.value = 'default';
+			if ( validatedStatus.value === 'error' ) {
+				validatedStatus.value = 'default';
 			}
 		}
 
@@ -221,7 +223,7 @@ export default defineComponent( {
 			// (which changes the status to error), then removing the 'asdf' chip. In this case,
 			// the status should be changed back to default.
 			const matchingChip = newVal.find( ( chip ) => chip.value === inputValue.value );
-			internalStatus.value = matchingChip ? 'error' : 'default';
+			validatedStatus.value = matchingChip ? 'error' : 'default';
 		} );
 
 		return {
@@ -236,7 +238,8 @@ export default defineComponent( {
 			onKeydown,
 			focusInput,
 			onFocus,
-			onBlur
+			onBlur,
+			computedDisabled
 		};
 	}
 } );
