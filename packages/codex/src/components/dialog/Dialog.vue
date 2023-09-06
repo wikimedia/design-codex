@@ -132,7 +132,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, toRef, watch, PropType, ref, inject, onUnmounted } from 'vue';
+import { computed, defineComponent, nextTick, toRef, watch, ref, inject, onMounted, onUnmounted, PropType } from 'vue';
 import CdxButton from '../../components/button/Button.vue';
 import CdxIcon from '../../components/icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
@@ -423,11 +423,47 @@ export default defineComponent( {
 			inertElements = [];
 		}
 
+		function onDialogOpen() {
+			// Most of the things below need to happen on nextTick because they rely on template
+			// refs, and those are not yet set when the watcher for props.open runs.
+			// The documentElement and body manipulations don't need to happen on nextTick, but
+			// it's better to group them with the other DOM changes so that we don't cause two
+			// separate reflows.
+			// eslint-disable-next-line @typescript-eslint/no-floating-promises
+			nextTick( () => {
+				// Determine the width of the scrollbar and compensate for it if necessary
+				scrollWidth.value = window.innerWidth - document.documentElement.clientWidth;
+				document.documentElement.style.setProperty( 'margin-right', `${scrollWidth.value}px` );
+
+				// Add a class to <body> to prevent scrolling
+				document.body.classList.add( 'cdx-dialog-open' );
+
+				setAriaHiddenAndInert();
+
+				// Focus within the dialog so that we can listen to keypress events.
+				// Try focusing on the first focusable element in the body. If there isn't one,
+				// use the focus holder.
+				// This needs to happen on nextTick, otherwise the focus might be stolen back by
+				// e.g. a button whose click event opened the dialog.
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				if ( !focusFirstFocusableElement( dialogBody.value! ) ) {
+					focusHolder.value?.focus();
+				}
+			} );
+		}
+
 		function onDialogClose() {
 			document.body.classList.remove( 'cdx-dialog-open' );
 			document.documentElement.style.removeProperty( 'margin-right' );
 			unsetAriaHiddenAndInert();
 		}
+
+		// If the dialog is mounted in the open state, make sure we set things up properly
+		onMounted( () => {
+			if ( props.open ) {
+				onDialogOpen();
+			}
+		} );
 
 		// If the dialog is closed while it's still mounted, make sure we clean up behind ourselves
 		onUnmounted( () => {
@@ -438,27 +474,7 @@ export default defineComponent( {
 
 		watch( toRef( props, 'open' ), ( opened ) => {
 			if ( opened ) {
-				// Determine the width of the scrollbar and compensate for it if necessary
-				scrollWidth.value = window.innerWidth - document.documentElement.clientWidth;
-				document.documentElement.style.setProperty( 'margin-right', `${scrollWidth.value}px` );
-
-				// Add a class to <body> to prevent scrolling
-				document.body.classList.add( 'cdx-dialog-open' );
-
-				// Focus within the dialog so that we can listen to keypress events.
-				// Try focusing on the first focusable element in the body. If there isn't one,
-				// use the focus holder.
-				// Do this on nextTick, otherwise the focus might be stolen back by e.g. a button
-				// whose click event opened the dialog.
-				// eslint-disable-next-line @typescript-eslint/no-floating-promises
-				nextTick( () => {
-					setAriaHiddenAndInert();
-
-					// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-					if ( !focusFirstFocusableElement( dialogBody.value! ) ) {
-						focusHolder.value?.focus();
-					}
-				} );
+				onDialogOpen();
 			} else {
 				onDialogClose();
 			}
