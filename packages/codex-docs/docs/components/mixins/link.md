@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 <script setup>
 // Note that this file is temporarily located here so we can quickly get a page up documenting the
 // link mixin. It will be moved to a more permanent location once we determine a final documentation
