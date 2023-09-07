@@ -6,6 +6,7 @@ import FieldWithValidation from '@/../component-demos/field/examples/FieldWithVa
 import FieldWithRadioGroup from '@/../component-demos/field/examples/FieldWithRadioGroup.vue';
 import FieldWithTwoInputs from '@/../component-demos/field/examples/FieldWithTwoInputs.vue';
 import FieldWithFields from '@/../component-demos/field/examples/FieldWithFields.vue';
+import FieldWithCharacterCounter from '@/../component-demos/field/examples/FieldWithCharacterCounter.vue';
 
 const inputValue = ref( '' );
 const controlsConfig = [
@@ -227,6 +228,33 @@ Nested fields will become disabled when their parent field is disabled.
 
 </template>
 </cdx-demo-wrapper>
+
+#### With custom help text content
+
+The `help-text` slot is not limited to static text – more complex markup,
+including other components and bound values, can be provided here as well. Below
+is an example of a custom character counter embedded inside a Field. The counter
+is bound to the `modelValue` of the TextArea component inside the Field, and an
+error message is displayed if this text exceeds the maximum allowed number of
+characters.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<field-with-character-counter />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/field/examples/FieldWithCharacterCounter.vue [NPM]
+
+<<< @/../component-demos/field/examples-mw/FieldWithCharacterCounter.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
 
 ### CSS-only version
 
