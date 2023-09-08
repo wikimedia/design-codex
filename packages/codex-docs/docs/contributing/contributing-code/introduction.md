@@ -128,7 +128,8 @@ Patches for new components should include all of the following. Patches that int
 should include or update the following as needed.
 
 - **Commit message:** The first line of the commit message must be prefixed by the component name
-(Button, Icon) or the type of work (build, tests, styles, docs, etc.), e.g. `docs: Add more docs.`
+(Button, Icon) or the type of work (build, tests, styles, docs, sandbox, etc.), e.g. `docs: Add
+more docs.`
   If the commit covers multiple things, include them in a comma-delineated list, e.g.
   `styles, docs, Button: Fix Button styles and document new convention`.
   Deprecating and breaking changes are prefixed with `[DEPRECATING CHANGE]` or `[BREAKING CHANGE]`,
