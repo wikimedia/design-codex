@@ -181,5 +181,460 @@ describe( 'Basic usage', () => {
 			await firstChip.find( 'button' ).trigger( 'click' );
 			expect( wrapper.classes() ).not.toContain( 'cdx-chip-input--status-error' );
 		} );
+
+		it( 'clears the error status when the input value is changed', async () => {
+			const wrapper = mount( CdxChipInput, { props: {
+				chipAriaDescription: 'Press Enter to edit or Delete to remove',
+				inputChips: [ { value: 'Do not duplicate chips' } ],
+				'onUpdate:inputChips': ( e: ChipInputItem[] ) => wrapper.setProps( { inputChips: e } )
+			} } );
+
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Do not duplicate chips' );
+			await inputElement.trigger( 'keydown', { key: 'Enter' } );
+			expect( wrapper.classes() ).toContain( 'cdx-chip-input--status-error' );
+
+			await inputElement.setValue( 'Do not duplicate chipss' );
+			expect( wrapper.classes() ).not.toContain( 'cdx-chip-input--status-error' );
+		} );
+	} );
+} );
+
+describe( 'keyboard interaction', () => {
+	// Because of limitations in jsdom, computedStyle(...).direction doesn't
+	// work unless we manually add CSS rules saying that dir="rtl" means
+	// direction: rtl;
+	const styleTag = document.createElement( 'style' );
+	const ltrDiv = document.createElement( 'div' );
+	ltrDiv.id = 'attach-ltr';
+	ltrDiv.dir = 'ltr';
+	const rtlDiv = document.createElement( 'div' );
+	rtlDiv.id = 'attach-rtl';
+	rtlDiv.dir = 'rtl';
+	styleTag.innerHTML = '[dir="rtl"] * { direction: rtl; } [dir="ltr"] * { direction: ltr; }';
+	document.head.appendChild( styleTag );
+	document.body.appendChild( ltrDiv );
+	document.body.appendChild( rtlDiv );
+
+	// Enter is covered in basic usage above
+
+	it( 'blurs the input when escape is pressed', async () => {
+		const wrapper = mount( CdxChipInput, {
+			props: {
+				chipAriaDescription: 'Press Enter to edit or Delete to remove',
+				inputChips: []
+			},
+			attachTo: 'body'
+		} );
+		const inputElement = wrapper.get( 'input' );
+		inputElement.element.focus();
+		expect( document.activeElement ).toBe( inputElement.element );
+
+		await inputElement.trigger( 'keydown', { key: 'Escape' } );
+		expect( document.activeElement ).not.toBe( inputElement.element );
+	} );
+
+	describe( 'when backspace is pressed', () => {
+		it( 'and the cursor is at the start of the input, moves the focus to the last chip', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
+				},
+				attachTo: 'body'
+			} );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Baz' );
+			inputElement.element.focus();
+			inputElement.element.selectionStart = 0;
+			inputElement.element.selectionEnd = 0;
+
+			await inputElement.trigger( 'keydown', { key: 'Backspace' } );
+			expect( document.activeElement ).toBe( chips[ 1 ].element );
+		} );
+
+		it( 'and the cursor is not at the start of the input, does not move focus', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
+				},
+				attachTo: 'body'
+			} );
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Baz' );
+			inputElement.element.focus();
+			inputElement.element.selectionStart = 3;
+			inputElement.element.selectionEnd = 3;
+
+			await inputElement.trigger( 'keydown', { key: 'Backspace' } );
+			expect( document.activeElement ).toBe( inputElement.element );
+		} );
+
+		it( 'and a chip is focused, deletes that chip and moves focus to the previous chip', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
+				},
+				attachTo: 'body'
+			} );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 1 ].element as HTMLDivElement ).focus();
+
+			await chips[ 1 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'Backspace' } );
+			expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
+			expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'Foo' }, { value: 'Baz' } ] ] );
+			expect( document.activeElement ).toBe( chips[ 0 ].element );
+		} );
+
+		it( 'and the first chip is focused, deletes that chip and moves focus to the now-first chip', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
+				},
+				attachTo: 'body'
+			} );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 0 ].element as HTMLDivElement ).focus();
+
+			await chips[ 0 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'Backspace' } );
+			expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
+			expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'Bar' }, { value: 'Baz' } ] ] );
+			expect( document.activeElement ).toBe( chips[ 1 ].element );
+		} );
+
+		it( 'and the only chip is focused, deletes that chip and moves focus to the input', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' } ]
+				},
+				attachTo: 'body'
+			} );
+			const inputElement = wrapper.get( 'input' );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 0 ].element as HTMLDivElement ).focus();
+
+			await chips[ 0 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'Backspace' } );
+			expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
+			expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [] ] );
+			expect( document.activeElement ).toBe( inputElement.element );
+		} );
+	} );
+
+	describe( 'when delete is pressed', () => {
+		it( 'and a chip is focused, deletes that chip and moves focus to the next chip', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
+				},
+				attachTo: 'body'
+			} );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 1 ].element as HTMLDivElement ).focus();
+
+			await chips[ 1 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'Delete' } );
+			expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
+			expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'Foo' }, { value: 'Baz' } ] ] );
+			expect( document.activeElement ).toBe( chips[ 2 ].element );
+		} );
+
+		it( 'and the last chip is focused, deletes that chip and moves focus to the input', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
+				},
+				attachTo: 'body'
+			} );
+			const inputElement = wrapper.get( 'input' );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 2 ].element as HTMLDivElement ).focus();
+
+			await chips[ 2 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'Delete' } );
+			expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
+			expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'Foo' }, { value: 'Bar' } ] ] );
+			expect( document.activeElement ).toBe( inputElement.element );
+		} );
+	} );
+
+	describe( 'when left arrow is pressed in LTR', () => {
+		it( 'and the cursor is at the start of the input, moves the focus to the last chip', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
+				},
+				attachTo: '#attach-ltr'
+			} );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Baz' );
+			inputElement.element.focus();
+			inputElement.element.selectionStart = 0;
+			inputElement.element.selectionEnd = 0;
+
+			await inputElement.trigger( 'keydown', { key: 'ArrowLeft' } );
+			expect( document.activeElement ).toBe( chips[ 1 ].element );
+		} );
+
+		it( 'and the cursor is not at the start of the input, does not move focus', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
+				},
+				attachTo: '#attach-ltr'
+			} );
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Baz' );
+			inputElement.element.focus();
+			inputElement.element.selectionStart = 3;
+			inputElement.element.selectionEnd = 3;
+
+			await inputElement.trigger( 'keydown', { key: 'ArrowLeft' } );
+			expect( document.activeElement ).toBe( inputElement.element );
+		} );
+
+		it( 'and a chip is focused, moves focus to the previous chip', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
+				},
+				attachTo: '#attach-ltr'
+			} );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 1 ].element as HTMLDivElement ).focus();
+
+			await chips[ 1 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'ArrowLeft' } );
+			expect( document.activeElement ).toBe( chips[ 0 ].element );
+		} );
+
+		it( 'and the first chip is focused, does not move focus', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
+				},
+				attachTo: '#attach-ltr'
+			} );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 0 ].element as HTMLDivElement ).focus();
+
+			await chips[ 0 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'ArrowLeft' } );
+			expect( document.activeElement ).toBe( chips[ 0 ].element );
+		} );
+	} );
+
+	describe( 'when left arrow is pressed in RTL', () => {
+		it( 'and the cursor is at the start of the input, does not move focus', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
+				},
+				attachTo: '#attach-rtl'
+			} );
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Baz' );
+			inputElement.element.focus();
+			inputElement.element.selectionStart = 0;
+			inputElement.element.selectionEnd = 0;
+
+			await inputElement.trigger( 'keydown', { key: 'ArrowLeft' } );
+			expect( document.activeElement ).toBe( inputElement.element );
+		} );
+
+		it( 'and the cursor is not at the start of the input, does not move focus', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
+				},
+				attachTo: '#attach-rtl'
+			} );
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Baz' );
+			inputElement.element.focus();
+			inputElement.element.selectionStart = 3;
+			inputElement.element.selectionEnd = 3;
+
+			await inputElement.trigger( 'keydown', { key: 'ArrowLeft' } );
+			expect( document.activeElement ).toBe( inputElement.element );
+		} );
+
+		it( 'and a chip is focused, moves focus to the next chip', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
+				},
+				attachTo: '#attach-rtl'
+			} );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 1 ].element as HTMLDivElement ).focus();
+
+			await chips[ 1 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'ArrowLeft' } );
+			expect( document.activeElement ).toBe( chips[ 2 ].element );
+		} );
+
+		it( 'and the last chip is focused, moves focus to the input', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
+				},
+				attachTo: '#attach-rtl'
+			} );
+			const inputElement = wrapper.get( 'input' );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 2 ].element as HTMLDivElement ).focus();
+
+			await chips[ 2 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'ArrowLeft' } );
+			expect( document.activeElement ).toBe( inputElement.element );
+		} );
+	} );
+
+	describe( 'when right arrow is pressed in LTR', () => {
+		it( 'and the cursor is at the start of the input, does not move focus', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
+				},
+				attachTo: '#attach-ltr'
+			} );
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Baz' );
+			inputElement.element.focus();
+			inputElement.element.selectionStart = 0;
+			inputElement.element.selectionEnd = 0;
+
+			await inputElement.trigger( 'keydown', { key: 'ArrowRight' } );
+			expect( document.activeElement ).toBe( inputElement.element );
+		} );
+
+		it( 'and the cursor is not at the start of the input, does not move focus', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
+				},
+				attachTo: '#attach-ltr'
+			} );
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Baz' );
+			inputElement.element.focus();
+			inputElement.element.selectionStart = 3;
+			inputElement.element.selectionEnd = 3;
+
+			await inputElement.trigger( 'keydown', { key: 'ArrowRight' } );
+			expect( document.activeElement ).toBe( inputElement.element );
+		} );
+
+		it( 'and a chip is focused, moves focus to the next chip', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
+				},
+				attachTo: '#attach-ltr'
+			} );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 1 ].element as HTMLDivElement ).focus();
+
+			await chips[ 1 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'ArrowRight' } );
+			expect( document.activeElement ).toBe( chips[ 2 ].element );
+		} );
+
+		it( 'and the last chip is focused, moves focus to the input', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
+				},
+				attachTo: '#attach-ltr'
+			} );
+			const inputElement = wrapper.get( 'input' );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 2 ].element as HTMLDivElement ).focus();
+
+			await chips[ 2 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'ArrowRight' } );
+			expect( document.activeElement ).toBe( inputElement.element );
+		} );
+	} );
+
+	describe( 'when right arrow is pressed in RTL', () => {
+		it( 'and the cursor is at the start of the input, moves focus to the last chip', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
+				},
+				attachTo: '#attach-rtl'
+			} );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Baz' );
+			inputElement.element.focus();
+			inputElement.element.selectionStart = 0;
+			inputElement.element.selectionEnd = 0;
+
+			await inputElement.trigger( 'keydown', { key: 'ArrowRight' } );
+			expect( document.activeElement ).toBe( chips[ 1 ].element );
+		} );
+
+		it( 'and the cursor is not at the start of the input, does not move focus', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
+				},
+				attachTo: '#attach-rtl'
+			} );
+			const inputElement = wrapper.get( 'input' );
+			await inputElement.setValue( 'Baz' );
+			inputElement.element.focus();
+			inputElement.element.selectionStart = 3;
+			inputElement.element.selectionEnd = 3;
+
+			await inputElement.trigger( 'keydown', { key: 'ArrowRight' } );
+			expect( document.activeElement ).toBe( inputElement.element );
+		} );
+
+		it( 'and a chip is focused, moves focus to the previous chip', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
+				},
+				attachTo: '#attach-rtl'
+			} );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 1 ].element as HTMLDivElement ).focus();
+
+			await chips[ 1 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'ArrowRight' } );
+			expect( document.activeElement ).toBe( chips[ 0 ].element );
+		} );
+
+		it( 'and the first chip is focused, does not move focus', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					chipAriaDescription: 'Press Enter to edit or Delete to remove',
+					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
+				},
+				attachTo: '#attach-rtl'
+			} );
+			const chips = wrapper.findAllComponents( CdxInputChip );
+			( chips[ 0 ].element as HTMLDivElement ).focus();
+
+			await chips[ 0 ].get( '.cdx-input-chip' ).trigger( 'keydown', { key: 'ArrowRight' } );
+			expect( document.activeElement ).toBe( chips[ 0 ].element );
+		} );
 	} );
 } );

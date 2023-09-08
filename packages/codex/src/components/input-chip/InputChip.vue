@@ -1,5 +1,6 @@
 <template>
 	<div
+		ref="rootElement"
 		class="cdx-input-chip"
 		:class="rootClasses"
 		tabindex="0"
@@ -23,7 +24,7 @@
 			tabindex="-1"
 			aria-hidden="true"
 			:disabled="disabled"
-			@click.stop="$emit( 'remove-chip' )"
+			@click.stop="$emit( 'remove-chip', 'button' )"
 		>
 			<cdx-icon :icon="cdxIconClose" size="x-small" />
 		</cdx-button>
@@ -31,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue';
+import { defineComponent, computed, ref, PropType } from 'vue';
 import CdxButton from '../../components/button/Button.vue';
 import CdxIcon from '../../components/icon/Icon.vue';
 import { cdxIconClose, Icon } from '@wikimedia/codex-icons';
@@ -73,17 +74,31 @@ export default defineComponent( {
 			default: false
 		}
 	},
+	expose: [
+		'focus'
+	],
 	emits: [
 		/**
 		 * Emitted when a chip is removed by the user.
+		 *
+		 * @property {'button'|'Backspace'|'Delete'} method How the chip was removed
 		 */
 		'remove-chip',
 		/**
 		 * Emitted when a chip is clicked by the user.
 		 */
-		'click-chip'
+		'click-chip',
+		/**
+		 * Emitted when the user presses the left arrow key.
+		 */
+		'arrow-left',
+		/**
+		 * Emitted when the user presses the right arrow key.
+		 */
+		'arrow-right'
 	],
 	setup( props, { emit } ) {
+		const rootElement = ref<HTMLDivElement>();
 		const rootClasses = computed( () => {
 			return {
 				'cdx-input-chip--disabled': props.disabled
@@ -94,21 +109,49 @@ export default defineComponent( {
 			switch ( e.key ) {
 				case 'Enter':
 					emit( 'click-chip' );
+					e.preventDefault();
+					e.stopPropagation();
+					break;
+				case 'Escape':
+					rootElement.value?.blur();
+					e.preventDefault();
+					e.stopPropagation();
 					break;
 				case 'Backspace':
 				case 'Delete':
-					emit( 'remove-chip' );
+					emit( 'remove-chip', e.key );
+					e.preventDefault();
+					e.stopPropagation();
 					break;
-				default:
+				case 'ArrowLeft':
+					emit( 'arrow-left' );
+					e.preventDefault();
+					e.stopPropagation();
+					break;
+				case 'ArrowRight':
+					emit( 'arrow-right' );
+					e.preventDefault();
+					e.stopPropagation();
 					break;
 			}
 		}
 
 		return {
+			rootElement,
 			rootClasses,
 			onKeydown,
 			cdxIconClose
 		};
+	},
+	methods: {
+		/**
+		 * Focus the chip.
+		 *
+		 * @public
+		 */
+		focus() {
+			( this.$refs.rootElement as HTMLDivElement ).focus();
+		}
 	}
 } );
 </script>

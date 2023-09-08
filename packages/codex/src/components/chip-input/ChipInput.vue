@@ -1,5 +1,6 @@
 <template>
 	<div
+		ref="rootElement"
 		class="cdx-chip-input"
 		:class="rootClasses"
 		:style="rootStyle"
@@ -11,14 +12,17 @@
 			aria-orientation="horizontal"
 		>
 			<cdx-input-chip
-				v-for="chip in inputChips"
+				v-for="( chip, index ) in inputChips"
 				:key="chip.value"
+				:ref="( ref ) => assignChipTemplateRef( ref, index )"
 				class="cdx-chip-input__item"
 				:chip-aria-description="chipAriaDescription"
 				:icon="chip.icon"
 				:disabled="computedDisabled"
 				@click-chip="handleChipClick( chip )"
-				@remove-chip="removeChip( chip )"
+				@remove-chip="( method ) => handleChipRemove( chip, index, method )"
+				@arrow-left="moveChipFocus( 'left', index )"
+				@arrow-right="moveChipFocus( 'right', index )"
 			>
 				{{ chip.value }}
 			</cdx-input-chip>
@@ -32,8 +36,7 @@
 				v-bind="otherAttrs"
 				@blur="onBlur"
 				@focus="onFocus"
-				@keydown="onKeydown"
-				@keydown.enter="addChip"
+				@keydown="onInputKeydown"
 			>
 		</div>
 
@@ -46,21 +49,21 @@
 				v-bind="otherAttrs"
 				@blur="onBlur"
 				@focus="onFocus"
-				@keydown="onKeydown"
-				@keydown.enter="addChip"
+				@keydown="onInputKeydown"
 			>
 		</div>
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, ref, watch, toRef } from 'vue';
+import { defineComponent, PropType, computed, ref, watch, toRef, ComponentPublicInstance } from 'vue';
 import CdxInputChip from '../input-chip/InputChip.vue';
 import { ValidationStatusTypes } from '../../constants';
 import { ChipInputItem, ValidationStatusType } from '../../types';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useFieldData from '../../composables/useFieldData';
+import useComputedDirection from '../../composables/useComputedDirection';
 
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
@@ -132,6 +135,8 @@ export default defineComponent( {
 		'update:input-chips'
 	],
 	setup( props, { emit, attrs } ) {
+		const rootElement = ref<HTMLDivElement>();
+		const computedDirection = useComputedDirection( rootElement );
 		const input = ref<HTMLInputElement>();
 		// The value in the input element.
 		const inputValue = ref( '' );
@@ -165,6 +170,17 @@ export default defineComponent( {
 			otherAttrs
 		} = useSplitAttributes( attrs, internalClasses );
 
+		const chipRefs: InstanceType<typeof CdxInputChip>[] = [];
+
+		function assignChipTemplateRef(
+			chip: Element | ComponentPublicInstance | null,
+			index: number
+		) {
+			if ( chip !== null ) {
+				chipRefs[ index ] = chip as InstanceType<typeof CdxInputChip>;
+			}
+		}
+
 		const focusInput = (): void => {
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			input.value!.focus();
@@ -187,7 +203,23 @@ export default defineComponent( {
 			emit( 'update:input-chips', props.inputChips.filter(
 				( chip ) => chip.value !== chipToRemove.value
 			) );
-			focusInput();
+		}
+
+		function moveChipFocus( direction: 'left' | 'right', startIndex: number ) {
+			const resolvedDirection =
+				// -1 for prev (left in LTR, right in RTL), +1 for next (right in LTR, left in RTL)
+				( computedDirection.value === 'ltr' && direction === 'left' ) ||
+				( computedDirection.value === 'rtl' && direction === 'right' ) ?
+					-1 : 1;
+			const newIndex = startIndex + resolvedDirection;
+			if ( newIndex < 0 ) {
+				return;
+			}
+			if ( newIndex >= props.inputChips.length ) {
+				focusInput();
+				return;
+			}
+			chipRefs[ newIndex ].focus();
 		}
 
 		function handleChipClick( clickedChip: ChipInputItem ) {
@@ -196,12 +228,75 @@ export default defineComponent( {
 			// handler has already handled adding that text as a new chip.
 			removeChip( clickedChip );
 			inputValue.value = clickedChip.value;
+			focusInput();
 		}
 
-		function onKeydown() {
-			// Clear the error state when the input value is changed.
-			if ( validatedStatus.value === 'error' ) {
-				validatedStatus.value = 'default';
+		function handleChipRemove(
+			chipToRemove: ChipInputItem,
+			index: number,
+			method: 'button' | 'Backspace' | 'Delete'
+		) {
+			if ( method === 'button' ) {
+				focusInput();
+			} else if ( method === 'Backspace' ) {
+				// Move the focus to the chip before the deleted one. If the first chip is going
+				// to be deleted, move the focus to what will then the first chip. If there are no
+				// chips left, focus the input.
+				const newIndex = index === 0 ? 1 : index - 1;
+				if ( newIndex < props.inputChips.length ) {
+					chipRefs[ newIndex ].focus();
+				} else {
+					focusInput();
+				}
+			} else if ( method === 'Delete' ) {
+				// Move the focus to the chip after the deleted one. If there isn't one (either
+				// because there are no chips left, or because the deleted chip was the one at the
+				// end), focus the input.
+				const newIndex = index + 1;
+				if ( newIndex < props.inputChips.length ) {
+					chipRefs[ newIndex ].focus();
+				} else {
+					focusInput();
+				}
+			}
+
+			removeChip( chipToRemove );
+		}
+
+		function onInputKeydown( e: KeyboardEvent ) {
+			const prevArrow = computedDirection.value === 'rtl' ? 'ArrowRight' : 'ArrowLeft';
+			switch ( e.key ) {
+				case 'Enter':
+					if ( inputValue.value.length > 0 ) {
+						addChip();
+						// If the ChipInput is in a <form>, prevent the Enter key from submitting
+						// the form if the input is non-empty and we're adding a chip, but allow
+						// pressing Enter to submit the form if the input is empty.
+						e.preventDefault();
+						e.stopPropagation();
+						return;
+					}
+					break;
+				case 'Escape':
+					input.value?.blur();
+					e.preventDefault();
+					e.stopPropagation();
+					return;
+				case 'Backspace':
+				case prevArrow:
+					// Only make backspace / arrow move to a chip if the cursor is at the start of
+					// the input
+					if (
+						input.value?.selectionStart === 0 &&
+						input.value.selectionEnd === 0 &&
+						props.inputChips.length > 0
+					) {
+						chipRefs[ props.inputChips.length - 1 ].focus();
+						e.preventDefault();
+						e.stopPropagation();
+						return;
+					}
+					break;
 			}
 		}
 
@@ -229,16 +324,25 @@ export default defineComponent( {
 			validatedStatus.value = matchingChip ? 'error' : 'default';
 		} );
 
+		watch( inputValue, () => {
+			// Clear the error state when the input value is changed.
+			if ( validatedStatus.value === 'error' ) {
+				validatedStatus.value = 'default';
+			}
+		} );
+
 		return {
+			rootElement,
 			input,
 			inputValue,
 			rootClasses,
 			rootStyle,
 			otherAttrs,
+			assignChipTemplateRef,
 			handleChipClick,
-			addChip,
-			removeChip,
-			onKeydown,
+			handleChipRemove,
+			moveChipFocus,
+			onInputKeydown,
 			focusInput,
 			onFocus,
 			onBlur,

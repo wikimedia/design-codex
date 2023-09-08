@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import CdxInputChip from './InputChip.vue';
 import CdxButton from '../../components/button/Button.vue';
 import { Icon, cdxIconArticle } from '@wikimedia/codex-icons';
@@ -63,5 +63,37 @@ describe( 'Basic usage', () => {
 		const wrapper = shallowMount( CdxInputChip, { props: { chipAriaDescription: 'Press Enter to edit or Delete to remove' } } );
 		await wrapper.trigger( 'keydown', { key: 'Enter' } );
 		expect( wrapper.emitted()[ 'click-chip' ] ).toBeTruthy();
+	} );
+
+	it( 'emits the "arrow-left" event when left arrow is pressed', async () => {
+		const wrapper = shallowMount( CdxInputChip, { props: { chipAriaDescription: 'Press Enter to edit or Delete to remove' } } );
+		await wrapper.trigger( 'keydown', { key: 'ArrowLeft' } );
+		expect( wrapper.emitted()[ 'arrow-left' ] ).toBeTruthy();
+	} );
+
+	it( 'emits the "arrow-right" event when left arrow is pressed', async () => {
+		const wrapper = shallowMount( CdxInputChip, { props: { chipAriaDescription: 'Press Enter to edit or Delete to remove' } } );
+		await wrapper.trigger( 'keydown', { key: 'ArrowRight' } );
+		expect( wrapper.emitted()[ 'arrow-right' ] ).toBeTruthy();
+	} );
+
+	it( 'focuses when the focus method is called', () => {
+		const wrapper = mount( CdxInputChip, {
+			props: { chipAriaDescription: 'Press Enter to edit or Delete to remove' },
+			attachTo: 'body'
+		} );
+		wrapper.vm.focus();
+		expect( document.activeElement ).toBe( wrapper.element );
+	} );
+
+	it( 'blurs when the escape key is pressed', async () => {
+		const wrapper = mount( CdxInputChip, {
+			props: { chipAriaDescription: 'Press Enter to edit or Delete to remove' },
+			attachTo: 'body'
+		} );
+		( wrapper.element as HTMLDivElement ).focus();
+		expect( document.activeElement ).toBe( wrapper.element );
+		await wrapper.trigger( 'keydown', { key: 'Escape' } );
+		expect( document.activeElement ).not.toBe( wrapper.element );
 	} );
 } );
