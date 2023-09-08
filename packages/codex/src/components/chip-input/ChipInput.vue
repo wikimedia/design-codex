@@ -94,9 +94,7 @@ export default defineComponent( {
 		 */
 		inputChips: {
 			type: Array as PropType<ChipInputItem[]>,
-			default: function () {
-				return [];
-			}
+			required: true
 		},
 		/**
 		 * Whether the text input should appear below the set of input chips.
