@@ -19,6 +19,7 @@
 				<button-group-demo />
 				<card-demo />
 				<checkbox-demo />
+				<chip-input-demo />
 				<combobox-demo />
 				<dialog-demo />
 				<field-demo />
@@ -67,6 +68,7 @@ import ButtonDemo from './ButtonDemo.vue';
 import ButtonGroupDemo from './ButtonGroupDemo.vue';
 import CardDemo from './CardDemo.vue';
 import CheckboxDemo from './CheckboxDemo.vue';
+import ChipInputDemo from './ChipInputDemo.vue';
 import ComboboxDemo from './ComboboxDemo.vue';
 import DialogDemo from './DialogDemo.vue';
 import FieldDemo from './FieldDemo.vue';
@@ -96,6 +98,7 @@ const demoSections = [
 	{ name: 'ButtonGroup', id: '#cdx-button-group' },
 	{ name: 'Card', id: '#cdx-card' },
 	{ name: 'CheckBox', id: '#cdx-checkbox' },
+	{ name: 'ChipInput', id: '#cdx-chip-input' },
 	{ name: 'Combobox', id: '#cdx-combobox' },
 	{ name: 'Dialog', id: '#cdx-dialog' },
 	{ name: 'Field', id: '#cdx-field' },
