@@ -59,6 +59,7 @@ import useComputedLanguage from './composables/useComputedLanguage';
 import useFieldData from './composables/useFieldData';
 import useFloatingMenu from './composables/useFloatingMenu';
 import useGeneratedId from './composables/useGeneratedId';
+import useI18n from './composables/useI18n';
 import useIntersectionObserver from './composables/useIntersectionObserver';
 import useModelWrapper from './composables/useModelWrapper';
 import useResizeObserver from './composables/useResizeObserver';
@@ -71,6 +72,7 @@ import * as stringHelpers from './utils/stringHelpers';
 
 // Types
 import type {
+	I18nFunction,
 	HTMLDirection,
 	ButtonAction,
 	ButtonWeight,
@@ -149,6 +151,7 @@ export {
 	useFieldData,
 	useFloatingMenu,
 	useGeneratedId,
+	useI18n,
 	useIntersectionObserver,
 	useModelWrapper,
 	useResizeObserver,
@@ -160,6 +163,7 @@ export {
 	stringHelpers,
 
 	// Types
+	I18nFunction,
 	HTMLDirection,
 	ButtonAction,
 	ButtonWeight,

@@ -22,6 +22,12 @@ import {
 	TableRowIdentifier
 } from './constants';
 
+export type I18nMessageKey = `cdx-${ string }`;
+
+/** @public */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type I18nFunction = ( messageKey: I18nMessageKey, ...params: any[] ) => string | null;
+
 /** @public */
 export type HTMLDirection = 'ltr' | 'rtl';
 
