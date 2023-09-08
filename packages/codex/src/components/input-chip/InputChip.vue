@@ -18,7 +18,6 @@
 			<slot />
 		</span>
 		<cdx-button
-			:id="removeButtonId"
 			class="cdx-input-chip__button"
 			weight="quiet"
 			tabindex="-1"
@@ -35,7 +34,6 @@
 import { defineComponent, PropType, computed } from 'vue';
 import CdxButton from '../../components/button/Button.vue';
 import CdxIcon from '../../components/icon/Icon.vue';
-import useGeneratedId from '../../composables/useGeneratedId';
 import { cdxIconClose, Icon } from '@wikimedia/codex-icons';
 
 /**
@@ -92,8 +90,6 @@ export default defineComponent( {
 			};
 		} );
 
-		const removeButtonId = useGeneratedId( 'input-chip-remove' );
-
 		function onKeydown( e: KeyboardEvent ) {
 			switch ( e.key ) {
 				case 'Enter':
@@ -110,7 +106,6 @@ export default defineComponent( {
 
 		return {
 			rootClasses,
-			removeButtonId,
 			onKeydown,
 			cdxIconClose
 		};
