@@ -267,7 +267,7 @@ Custom dialog content.
 
 <style lang="less" scoped>
 /* stylelint-disable selector-class-pattern */
-:deep( .cdx-demo-wrapper__demo-pane .cdx-dialog h2 ) {
+.cdx-demo-wrapper :deep( .cdx-dialog h2 ) {
 	margin: unset;
 	border: unset;
 	padding: unset;
