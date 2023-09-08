@@ -10,11 +10,6 @@ import ChipInputField from '@/../component-demos/chip-input/examples/ChipInputFi
 
 const controlsConfig = [
 	{
-		name: 'chipAriaDescription',
-		type: 'text',
-		default: 'Press Enter to edit or Delete to remove'
-	},
-	{
 		name: 'separateInput',
 		type: 'boolean'
 	},

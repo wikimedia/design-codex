@@ -5,7 +5,7 @@
 		:class="rootClasses"
 		tabindex="0"
 		role="option"
-		:aria-description="chipAriaDescription"
+		:aria-description="ariaDescription"
 		@keydown="onKeydown"
 		@click="$emit( 'click-chip' )"
 	>
@@ -35,6 +35,7 @@
 import { defineComponent, computed, ref, PropType } from 'vue';
 import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
+import useI18n from '../../composables/useI18n';
 import { cdxIconClose, Icon } from '@wikimedia/codex-icons';
 
 /**
@@ -62,16 +63,6 @@ export default defineComponent( {
 		disabled: {
 			type: Boolean,
 			default: false
-		},
-		/**
-		 * `aria-description` for the chip.
-		 *
-		 * Text must be provided for accessibility purposes. This prop is temporary and will be
-		 * removed once T345386 is resolved.
-		 */
-		chipAriaDescription: {
-			type: String,
-			default: 'Press Enter to edit or Delete to remove'
 		}
 	},
 	expose: [
@@ -104,6 +95,11 @@ export default defineComponent( {
 				'cdx-input-chip--disabled': props.disabled
 			};
 		} );
+
+		const ariaDescription = useI18n(
+			'cdx-input-chip-aria-description',
+			'Press Enter to edit or Delete to remove'
+		);
 
 		function onKeydown( e: KeyboardEvent ) {
 			switch ( e.key ) {
@@ -139,6 +135,7 @@ export default defineComponent( {
 		return {
 			rootElement,
 			rootClasses,
+			ariaDescription,
 			onKeydown,
 			cdxIconClose
 		};

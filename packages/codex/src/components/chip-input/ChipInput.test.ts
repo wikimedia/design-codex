@@ -26,12 +26,7 @@ describe( 'matches the snapshot', () => {
 	];
 
 	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
-		const wrapper = shallowMount( CdxChipInput, {
-			props: {
-				chipAriaDescription: 'Press Enter to edit or Delete to remove',
-				...props
-			}
-		} );
+		const wrapper = shallowMount( CdxChipInput, { props } );
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
 } );
@@ -39,7 +34,6 @@ describe( 'matches the snapshot', () => {
 describe( 'Basic usage', () => {
 	it( 'emits the update:input-chips event when a new chip is added', async () => {
 		const wrapper = shallowMount( CdxChipInput, { props: {
-			chipAriaDescription: 'Press Enter to edit or Delete to remove',
 			inputChips: []
 		} } );
 		const inputElement = wrapper.get( 'input' );
@@ -51,10 +45,7 @@ describe( 'Basic usage', () => {
 
 	it( 'adds a new chip with the input value when focus leaves the component', async () => {
 		const wrapper = mount( CdxChipInput, {
-			props: {
-				chipAriaDescription: 'Press Enter to edit or Delete to remove',
-				inputChips: []
-			},
+			props: { inputChips: [] },
 			attachTo: 'body'
 		} );
 		const inputElement = wrapper.get( 'input' );
@@ -69,7 +60,6 @@ describe( 'Basic usage', () => {
 	it( 'does not a new chip with the input value when focus moves from the input to a chip', async () => {
 		const wrapper = mount( CdxChipInput, {
 			props: {
-				chipAriaDescription: 'Press Enter to edit or Delete to remove',
 				inputChips: [ { value: 'Existing chip' } ]
 			},
 			attachTo: 'body'
@@ -85,7 +75,6 @@ describe( 'Basic usage', () => {
 
 	it( 'emits the update:input-chips event when a chip is removed', async () => {
 		const wrapper = mount( CdxChipInput, { props: {
-			chipAriaDescription: 'Press Enter to edit or Delete to remove',
 			inputChips: [
 				{ value: 'chip 1' },
 				{ value: 'chip 2' }
@@ -103,7 +92,6 @@ describe( 'Basic usage', () => {
 	describe( 'when a chip is clicked', () => {
 		it( 'removes the chip and adds the value to the input', async () => {
 			const wrapper = mount( CdxChipInput, { props: {
-				chipAriaDescription: 'Press Enter to edit or Delete to remove',
 				inputChips: [
 					{ value: 'chip 1' },
 					{ value: 'chip 2' }
@@ -120,7 +108,6 @@ describe( 'Basic usage', () => {
 		describe( 'and the input has a value', () => {
 			it( 'adds a new chip with the value of the input', async () => {
 				const wrapper = mount( CdxChipInput, { props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [
 						{ value: 'chip 1' },
 						{ value: 'chip 2' }
@@ -145,7 +132,6 @@ describe( 'Basic usage', () => {
 
 	it( 'sets the outer div class to focused when the input is focused', async () => {
 		const wrapper = shallowMount( CdxChipInput, { props: {
-			chipAriaDescription: 'Press Enter to edit or Delete to remove',
 			inputChips: []
 		} } );
 		const inputElement = wrapper.find( 'input' );
@@ -160,7 +146,6 @@ describe( 'Basic usage', () => {
 	describe( 'when a duplicate chip is added', () => {
 		it( 'does not emit the update:input-chips event', async () => {
 			const wrapper = shallowMount( CdxChipInput, { props: {
-				chipAriaDescription: 'Press Enter to edit or Delete to remove',
 				inputChips: [ { value: 'Do not duplicate chips' } ]
 			} } );
 
@@ -173,7 +158,6 @@ describe( 'Basic usage', () => {
 
 		it( 'sets the outer div class to error', async () => {
 			const wrapper = shallowMount( CdxChipInput, { props: {
-				chipAriaDescription: 'Press Enter to edit or Delete to remove',
 				inputChips: [ { value: 'Do not duplicate chips' } ]
 			} } );
 
@@ -187,7 +171,6 @@ describe( 'Basic usage', () => {
 
 		it( 'clears the error status if the duplicate chip is removed', async () => {
 			const wrapper = mount( CdxChipInput, { props: {
-				chipAriaDescription: 'Press Enter to edit or Delete to remove',
 				inputChips: [ { value: 'Do not duplicate chips' } ],
 				'onUpdate:inputChips': ( e: ChipInputItem[] ) => wrapper.setProps( { inputChips: e } )
 			} } );
@@ -204,7 +187,6 @@ describe( 'Basic usage', () => {
 
 		it( 'clears the error status when the input value is changed', async () => {
 			const wrapper = mount( CdxChipInput, { props: {
-				chipAriaDescription: 'Press Enter to edit or Delete to remove',
 				inputChips: [ { value: 'Do not duplicate chips' } ],
 				'onUpdate:inputChips': ( e: ChipInputItem[] ) => wrapper.setProps( { inputChips: e } )
 			} } );
@@ -241,7 +223,6 @@ describe( 'keyboard interaction', () => {
 	it( 'blurs the input when escape is pressed', async () => {
 		const wrapper = mount( CdxChipInput, {
 			props: {
-				chipAriaDescription: 'Press Enter to edit or Delete to remove',
 				inputChips: []
 			},
 			attachTo: 'body'
@@ -258,7 +239,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the cursor is at the start of the input, moves the focus to the last chip', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
 				},
 				attachTo: 'body'
@@ -277,7 +257,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the cursor is not at the start of the input, does not move focus', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
 				},
 				attachTo: 'body'
@@ -295,7 +274,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and a chip is focused, deletes that chip and moves focus to the previous chip', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
 				},
 				attachTo: 'body'
@@ -312,7 +290,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the first chip is focused, deletes that chip and moves focus to the now-first chip', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
 				},
 				attachTo: 'body'
@@ -329,7 +306,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the only chip is focused, deletes that chip and moves focus to the input', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' } ]
 				},
 				attachTo: 'body'
@@ -349,7 +325,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and a chip is focused, deletes that chip and moves focus to the next chip', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
 				},
 				attachTo: 'body'
@@ -366,7 +341,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the last chip is focused, deletes that chip and moves focus to the input', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
 				},
 				attachTo: 'body'
@@ -386,7 +360,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the cursor is at the start of the input, moves the focus to the last chip', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
 				},
 				attachTo: '#attach-ltr'
@@ -405,7 +378,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the cursor is not at the start of the input, does not move focus', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
 				},
 				attachTo: '#attach-ltr'
@@ -423,7 +395,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and a chip is focused, moves focus to the previous chip', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
 				},
 				attachTo: '#attach-ltr'
@@ -438,7 +409,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the first chip is focused, does not move focus', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
 				},
 				attachTo: '#attach-ltr'
@@ -455,7 +425,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the cursor is at the start of the input, does not move focus', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
 				},
 				attachTo: '#attach-rtl'
@@ -473,7 +442,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the cursor is not at the start of the input, does not move focus', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
 				},
 				attachTo: '#attach-rtl'
@@ -491,7 +459,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and a chip is focused, moves focus to the next chip', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
 				},
 				attachTo: '#attach-rtl'
@@ -506,7 +473,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the last chip is focused, moves focus to the input', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
 				},
 				attachTo: '#attach-rtl'
@@ -524,7 +490,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the cursor is at the start of the input, does not move focus', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
 				},
 				attachTo: '#attach-ltr'
@@ -542,7 +507,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the cursor is not at the start of the input, does not move focus', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
 				},
 				attachTo: '#attach-ltr'
@@ -560,7 +524,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and a chip is focused, moves focus to the next chip', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
 				},
 				attachTo: '#attach-ltr'
@@ -575,7 +538,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the last chip is focused, moves focus to the input', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
 				},
 				attachTo: '#attach-ltr'
@@ -593,7 +555,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the cursor is at the start of the input, moves focus to the last chip', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
 				},
 				attachTo: '#attach-rtl'
@@ -612,7 +573,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the cursor is not at the start of the input, does not move focus', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' } ]
 				},
 				attachTo: '#attach-rtl'
@@ -630,7 +590,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and a chip is focused, moves focus to the previous chip', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
 				},
 				attachTo: '#attach-rtl'
@@ -645,7 +604,6 @@ describe( 'keyboard interaction', () => {
 		it( 'and the first chip is focused, does not move focus', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {
-					chipAriaDescription: 'Press Enter to edit or Delete to remove',
 					inputChips: [ { value: 'Foo' }, { value: 'Bar' }, { value: 'Baz' } ]
 				},
 				attachTo: '#attach-rtl'

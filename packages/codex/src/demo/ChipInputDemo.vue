@@ -6,12 +6,10 @@
 		<p>Normal:</p>
 		<cdx-chip-input
 			v-model:input-chips="chips"
-			chip-aria-description="Press Enter to edit or Delete to remove"
 		/>
 		<p>With separate input:</p>
 		<cdx-chip-input
 			v-model:input-chips="chips"
-			chip-aria-description="Press Enter to edit or Delete to remove"
 			separate-input
 		/>
 	</section>

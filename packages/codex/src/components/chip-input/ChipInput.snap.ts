@@ -11,7 +11,6 @@ exports[`matches the snapshot Case 0 Default props: ({"inputChips": [Array]}) =>
   >
     
     <cdx-input-chip-stub
-      chipariadescription="Press Enter to edit or Delete to remove"
       class="cdx-chip-input__item"
       disabled="false"
     />
@@ -54,7 +53,6 @@ exports[`matches the snapshot Case 2 With separate input: ({"inputChips": [Array
   >
     
     <cdx-input-chip-stub
-      chipariadescription="Press Enter to edit or Delete to remove"
       class="cdx-chip-input__item"
       disabled="false"
     />
@@ -82,7 +80,6 @@ exports[`matches the snapshot Case 3 With error: ({"inputChips": [Array], "statu
   >
     
     <cdx-input-chip-stub
-      chipariadescription="Press Enter to edit or Delete to remove"
       class="cdx-chip-input__item"
       disabled="false"
     />
@@ -106,7 +103,6 @@ exports[`matches the snapshot Case 4 Disabled: ({"disabled": true, "inputChips":
   >
     
     <cdx-input-chip-stub
-      chipariadescription="Press Enter to edit or Delete to remove"
       class="cdx-chip-input__item"
       disabled="true"
     />
@@ -131,7 +127,6 @@ exports[`matches the snapshot Case 5 Input chips with icon: ({"inputChips": [Arr
   >
     
     <cdx-input-chip-stub
-      chipariadescription="Press Enter to edit or Delete to remove"
       class="cdx-chip-input__item"
       disabled="false"
       icon="[object Object]"

@@ -17,7 +17,6 @@
 				:key="chip.value"
 				:ref="( ref ) => assignChipTemplateRef( ref, index )"
 				class="cdx-chip-input__item"
-				:chip-aria-description="chipAriaDescription"
 				:icon="chip.icon"
 				:disabled="computedDisabled"
 				@click-chip="handleChipClick( chip )"
@@ -114,16 +113,6 @@ export default defineComponent( {
 		disabled: {
 			type: Boolean,
 			default: false
-		},
-		/**
-		 * `aria-description` of each input chip.
-		 *
-		 * Text must be provided for accessibility purposes. This prop is temporary and will be
-		 * removed once T345386 is resolved.
-		 */
-		chipAriaDescription: {
-			type: String,
-			default: 'Press Enter to edit or Delete to remove'
 		}
 	},
 	emits: [

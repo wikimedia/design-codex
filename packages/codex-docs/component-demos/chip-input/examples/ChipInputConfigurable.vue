@@ -1,7 +1,6 @@
 <template>
 	<cdx-chip-input
 		v-model:input-chips="exampleChips"
-		:chip-aria-description="chipAriaDescription"
 		:status="status"
 		:disabled="disabled"
 	/>
@@ -17,10 +16,6 @@ export default defineComponent( {
 		CdxChipInput
 	},
 	props: {
-		chipAriaDescription: {
-			type: String,
-			required: true
-		},
 		status: {
 			type: String,
 			default: 'default'
