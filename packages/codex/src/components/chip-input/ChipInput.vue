@@ -5,6 +5,7 @@
 		:class="rootClasses"
 		:style="rootStyle"
 		@click="focusInput"
+		@focusout="onFocusOut"
 	>
 		<div
 			class="cdx-chip-input__chips"
@@ -34,8 +35,8 @@
 				class="cdx-chip-input__input"
 				:disabled="computedDisabled"
 				v-bind="otherAttrs"
-				@blur="onBlur"
-				@focus="onFocus"
+				@blur="onInputBlur"
+				@focus="onInputFocus"
 				@keydown="onInputKeydown"
 			>
 		</div>
@@ -47,8 +48,8 @@
 				class="cdx-chip-input__input"
 				:disabled="computedDisabled"
 				v-bind="otherAttrs"
-				@blur="onBlur"
-				@focus="onFocus"
+				@blur="onInputBlur"
+				@focus="onInputFocus"
 				@keydown="onInputKeydown"
 			>
 		</div>
@@ -56,7 +57,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, ref, watch, toRef, ComponentPublicInstance } from 'vue';
+import { defineComponent, computed, ref, watch, toRef, nextTick, ComponentPublicInstance, PropType } from 'vue';
 import CdxInputChip from '../input-chip/InputChip.vue';
 import { ValidationStatusTypes } from '../../constants';
 import { ChipInputItem, ValidationStatusType } from '../../types';
@@ -222,10 +223,13 @@ export default defineComponent( {
 			chipRefs[ newIndex ].focus();
 		}
 
-		function handleChipClick( clickedChip: ChipInputItem ) {
+		async function handleChipClick( clickedChip: ChipInputItem ) {
 			// Remove the chip but add the text to the input so it can be edited.
-			// Note that, if there was a value in the input when the chip was clicked, the onBlur
-			// handler has already handled adding that text as a new chip.
+			// If there is a value in the input, add that value as a new chip first
+			addChip();
+			// Wait for the event emitted by addChip() to propagate and update props.inputChips,
+			// otherwise we'll lose the newly added chip when removeChip() fires another event
+			await nextTick();
 			removeChip( clickedChip );
 			inputValue.value = clickedChip.value;
 			focusInput();
@@ -300,18 +304,23 @@ export default defineComponent( {
 			}
 		}
 
-		function onFocus() {
+		function onInputFocus() {
 			isFocused.value = true;
 		}
 
-		/**
-		 * Handle input blur.
-		 *
-		 * Note that this runs when the user clicks on an input chip, before handleChipClick().
-		 */
-		function onBlur() {
+		function onInputBlur() {
 			isFocused.value = false;
-			addChip();
+		}
+
+		function onFocusOut( e: FocusEvent ) {
+			// When the focus leaves the component (goes from an element inside the component to
+			// an element outside the component), turn any text in the input into a chip.
+			// We don't do this in onInputBlur() because that is also called when the focus moves
+			// from the input to one of the chips.
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			if ( !rootElement.value!.contains( e.relatedTarget as Node ) ) {
+				addChip();
+			}
 		}
 
 		watch( toRef( props, 'inputChips' ), ( newVal ) => {
@@ -344,8 +353,9 @@ export default defineComponent( {
 			moveChipFocus,
 			onInputKeydown,
 			focusInput,
-			onFocus,
-			onBlur,
+			onInputFocus,
+			onInputBlur,
+			onFocusOut,
 			computedDisabled
 		};
 	}

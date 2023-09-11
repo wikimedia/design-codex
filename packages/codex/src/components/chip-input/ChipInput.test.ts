@@ -3,6 +3,7 @@ import CdxChipInput from './ChipInput.vue';
 import CdxInputChip from '../input-chip/InputChip.vue';
 import { ChipInputItem, ValidationStatusType } from '../../types';
 import { cdxIconArticle } from '@wikimedia/codex-icons';
+import { nextTick } from 'vue';
 
 describe( 'matches the snapshot', () => {
 	type Case = [
@@ -48,16 +49,38 @@ describe( 'Basic usage', () => {
 		expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'New Chip' } ] ] );
 	} );
 
-	it( 'adds a new chip with the input value on blur', async () => {
-		const wrapper = shallowMount( CdxChipInput, { props: {
-			chipAriaDescription: 'Press Enter to edit or Delete to remove',
-			inputChips: []
-		} } );
+	it( 'adds a new chip with the input value when focus leaves the component', async () => {
+		const wrapper = mount( CdxChipInput, {
+			props: {
+				chipAriaDescription: 'Press Enter to edit or Delete to remove',
+				inputChips: []
+			},
+			attachTo: 'body'
+		} );
 		const inputElement = wrapper.get( 'input' );
+		inputElement.element.focus();
 		await inputElement.setValue( 'New Chip' );
-		await inputElement.trigger( 'blur' );
+		inputElement.element.blur();
+		await nextTick();
 		expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
 		expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'New Chip' } ] ] );
+	} );
+
+	it( 'does not a new chip with the input value when focus moves from the input to a chip', async () => {
+		const wrapper = mount( CdxChipInput, {
+			props: {
+				chipAriaDescription: 'Press Enter to edit or Delete to remove',
+				inputChips: [ { value: 'Existing chip' } ]
+			},
+			attachTo: 'body'
+		} );
+		const inputElement = wrapper.get( 'input' );
+		const chip = wrapper.findComponent( CdxInputChip );
+		inputElement.element.focus();
+		await inputElement.setValue( 'New Chip' );
+		( chip.element as HTMLDivElement ).focus();
+		await nextTick();
+		expect( wrapper.emitted( 'update:input-chips' ) ).toBeFalsy();
 	} );
 
 	it( 'emits the update:input-chips event when a chip is removed', async () => {
@@ -109,9 +132,6 @@ describe( 'Basic usage', () => {
 
 				// Add a value in the input.
 				await inputElement.setValue( 'New Chip' );
-				// We have to trigger a blur, which happens automatically when a chip is clicked in
-				// the browser, because this is how the new chip gets added.
-				await inputElement.trigger( 'blur' );
 				// Then click the first chip.
 				await firstChip.find( '.cdx-input-chip' ).trigger( 'click' );
 
