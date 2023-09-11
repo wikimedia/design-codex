@@ -273,7 +273,7 @@ export default defineComponent( {
 		display: flex;
 		flex: 1 auto;
 		flex-flow: wrap;
-		gap: @spacing-25;
+		gap: @spacing-50;
 	}
 
 	&__input {
