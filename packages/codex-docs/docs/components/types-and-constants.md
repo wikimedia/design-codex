@@ -433,3 +433,18 @@ Default length of delay for displaying pending state, in milliseconds.
 ```ts
 const PendingDelay = 500;
 ```
+
+### NoInvertClass
+
+A utility class to indicate that certain elements (like thumbnail images) should
+be excluded from any invert-based "dark mode" theming applied downstream (by the
+DarkMode extension, for example). No styles are applied to this class within
+Codex.
+
+```js
+const NoInvertClass = 'cdx-no-invert';
+```
+
+Any user of Codex applying an invert-based color theme can use this class
+to exclude certain elements from color inversion so that they appear in their
+natural colors.

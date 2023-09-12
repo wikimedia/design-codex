@@ -104,3 +104,13 @@ export const FieldDescriptionIdKey: InjectionKey<ComputedRef<string|undefined>> 
 export const FieldStatusKey: InjectionKey<Ref<ValidationStatusType>> = Symbol( 'CdxFieldStatus' );
 
 export const DisabledKey: InjectionKey<Ref<boolean>> = Symbol( 'CdxDisabled' );
+
+/**
+ * A utility class to indicate that certain elements (like thumbnail images)
+ * should be excluded from any invert-based "dark mode" theming applied
+ * downstream (by the DarkMode extension, for example). No styles are applied
+ * to this class within Codex.
+ *
+ * https://phabricator.wikimedia.org/T345281
+ */
+export const NoInvertClass = `${LibraryPrefix}-no-invert` as const;

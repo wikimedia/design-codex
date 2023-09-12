@@ -13,6 +13,7 @@
 			<span
 				v-if="thumbnailLoaded"
 				:style="thumbnailStyle"
+				:class="NoInvertClass"
 				class="cdx-thumbnail__image"
 			/>
 		</Transition>
@@ -24,6 +25,7 @@ import { PropType, defineComponent, ref, onMounted } from 'vue';
 import { cdxIconImageLayoutFrameless, Icon } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import { Thumbnail } from '../../types';
+import { NoInvertClass } from '../../constants';
 
 /**
  * A small preview of an image.
@@ -79,7 +81,8 @@ export default defineComponent( {
 
 		return {
 			thumbnailStyle,
-			thumbnailLoaded
+			thumbnailLoaded,
+			NoInvertClass
 		};
 	}
 } );
