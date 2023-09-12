@@ -295,7 +295,7 @@ export default defineComponent( {
 			}
 
 			&:hover:not( :focus ) + .cdx-checkbox__icon {
-				border-color: @border-color-error-hover;
+				border-color: @border-color-error--hover;
 			}
 
 			&:checked,
@@ -307,8 +307,8 @@ export default defineComponent( {
 				}
 
 				&:hover + .cdx-checkbox__icon {
-					background-color: @background-color-error-hover;
-					border-color: @border-color-error-hover;
+					background-color: @background-color-error--hover;
+					border-color: @border-color-error--hover;
 				}
 
 				&:focus + .cdx-checkbox__icon {
