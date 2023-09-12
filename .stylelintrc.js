@@ -26,7 +26,8 @@ module.exports = {
 	plugins: [
 		'stylelint-declaration-strict-value',
 		'stylelint-no-unsupported-browser-features',
-		'stylelint-order'
+		'stylelint-order',
+		'stylelint-stylistic'
 	],
 	rules: {
 		'max-nesting-depth': [

@@ -285,7 +285,9 @@ body {
 
 .VPDocFooter .pager-link:focus {
 	border-color: var( --border-color-progressive--focus );
-	/* stylelint-disable-next-line value-list-comma-newline-after, scale-unlimited/declaration-strict-value */
+	/* stylelint-disable-next-line stylistic/declaration-colon-newline-after,
+		stylistic/value-list-comma-newline-after,
+		scale-unlimited/declaration-strict-value */
 	box-shadow: var( --box-shadow-inset-small ) var( --box-shadow-color-progressive--focus ),
 		var( --box-shadow-inset-medium ) var( --box-shadow-color-inverted );
 	outline: var( --outline-base--focus );
@@ -326,7 +328,7 @@ body {
 .vp-doc [ class~='language-template' ] > span.lang::after {
 	content: 'vue';
 	/* We can't use em here because the parent's font size is 0 */
-	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value, unit-disallowed-list */
+	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 	font-size: 0.75rem;
 }
 

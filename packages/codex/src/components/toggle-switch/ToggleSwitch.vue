@@ -277,11 +277,13 @@ export default defineComponent( {
 			// As ToggleSwitch background is a big area transition, let's use the slower duration
 			// for it.
 
-			/* stylelint-disable value-list-comma-newline-after */
+			/* stylelint-disable stylistic/declaration-colon-newline-after,
+				stylistic/value-list-comma-newline-after */
 			transition-duration: @transition-duration-medium,
 				@transition-duration-base,
 				@transition-duration-base;
-			/* stylelint-enable value-list-comma-newline-after */
+			/* stylelint-enable stylistic/declaration-colon-newline-after,
+				stylistic/value-list-comma-newline-after */
 		}
 	}
 
