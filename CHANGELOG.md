@@ -1,3 +1,39 @@
+# 0.19.0 / 2023-09-12
+
+## Features
+- FilterChip, FilterChipInput: Rename to ChipInput and InputChip (Anne Tomasevich)
+- ChipInput: Enable in Field and add form field demo (lwatson)
+- ChipInput: Make inputChips prop required (Roan Kattouw)
+- ChipInput: Add ARIA attributes (Roan Kattouw)
+- ChipInput: Add keyboard navigation (Roan Kattouw)
+- ChipInput: Release MVP component (Anne Tomasevich)
+- InputChip: Remove now-unused generated ID on the remove button (Roan Kattouw)
+- Checkbox: Implement the error state (lwatson)
+- Dialog: Put all on-open code together, and run it on mount if needed (Roan Kattouw)
+- Dialog: Set aria-hidden and inert on the rest of the page when open (Roan Kattouw)
+
+## Styles
+- Field: Add CSS-only version (Anne Tomasevich)
+- Label: Add CSS-only version (Anne Tomasevich)
+- TextInput, Combobox: Set consistent min-width regardless of icons (Roan Kattouw)
+- TextInput: Fix padding when both clear button and end icon appear (Roan Kattouw)
+- styles, ChipInput: Increase gap between chips (Anne Tomasevich)
+- styles, Field: Unset margin on the root element (Anne Tomasevich)
+- tokens: Rename error hover tokens to stay consistent (Volker E)
+
+## Code
+- sandbox: Add ChipInput (Roan Kattouw)
+- build: Make mw-examples:clean clean up better (Roan Kattouw)
+
+## Documentation
+- docs, Checkbox, Radio: Use CSS-only Field and Label (Anne Tomasevich)
+- docs: Add a Field demo showing a custom character counter (Eric Gardner)
+- docs: Fix styles for custom Dialog example (Roan Kattouw)
+- docs: Improve accessibility purpose statements (Volker E)
+- docs: Move Wrapper teleport target to work around VitePress bug (Roan Kattouw)
+- docs: Use deep outline on component pages (Anne Tomasevich)
+- docs: add `sandbox:` prefix to contributing code commits docs (Volker E)
+
 # 0.18.0 / 2023-08-29
 
 ## Breaking changes
