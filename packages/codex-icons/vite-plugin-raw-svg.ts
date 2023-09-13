@@ -32,6 +32,7 @@ export default ( options: RawSvgOptions = {
 		async load( id ) {
 			const [ filename ] = id.split( '?', 2 );
 			if ( filter( filename ) ) {
+				// eslint-disable-next-line security/detect-non-literal-fs-filename
 				return await promises.readFile( filename, 'utf-8' );
 			}
 		},

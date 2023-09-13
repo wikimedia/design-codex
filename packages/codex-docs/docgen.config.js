@@ -39,6 +39,7 @@ module.exports = {
 		const docFileName = path.join( componentDemoPath, '/' + kebabCaseName + '/', kebabCaseName + '.md' );
 		// If the .md file doesn't exists, don't return it. This avoids an error while still
 		// displaying the generated documentation.
+		// eslint-disable-next-line security/detect-non-literal-fs-filename
 		return fs.existsSync( docFileName ) ? docFileName : false;
 	},
 	getDestFile: ( componentPath, config ) => {

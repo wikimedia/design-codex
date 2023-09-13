@@ -21,6 +21,7 @@ const convertFileContents = ( fileContents ) => {
 		.replace( /@wikimedia\/codex-icons/, './icons.json' )
 		// Design tokens import to mediawiki.skin.variables.less
 		.replace(
+			// eslint-disable-next-line security/detect-unsafe-regex
 			/^@import (\( ?reference ?\) )?'@wikimedia\/codex-design-tokens\/theme-wikimedia-ui.less';$/m,
 			'@import \'mediawiki.skin.variables.less\';'
 		);
@@ -31,9 +32,12 @@ const convertFileContents = ( fileContents ) => {
 
 const files = globSync( 'component-demos/*/examples/*.vue' );
 for ( const fileName of files ) {
+	// eslint-disable-next-line security/detect-non-literal-fs-filename
 	const contents = readFileSync( fileName, { encoding: 'utf-8' } );
 	const convertedContents = convertFileContents( contents );
 	const newName = fileName.replace( /examples\/([^/]+\.vue)$/, 'examples-mw/$1' );
+	// eslint-disable-next-line security/detect-non-literal-fs-filename
 	mkdirSync( dirname( newName ), { recursive: true } );
+	// eslint-disable-next-line security/detect-non-literal-fs-filename
 	writeFileSync( newName, convertedContents );
 }
