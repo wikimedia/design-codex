@@ -423,33 +423,32 @@ export default defineComponent( {
 			inertElements = [];
 		}
 
-		function onDialogOpen() {
+		async function onDialogOpen() {
 			// Most of the things below need to happen on nextTick because they rely on template
 			// refs, and those are not yet set when the watcher for props.open runs.
 			// The documentElement and body manipulations don't need to happen on nextTick, but
 			// it's better to group them with the other DOM changes so that we don't cause two
 			// separate reflows.
-			// eslint-disable-next-line @typescript-eslint/no-floating-promises
-			nextTick( () => {
-				// Determine the width of the scrollbar and compensate for it if necessary
-				scrollWidth.value = window.innerWidth - document.documentElement.clientWidth;
-				document.documentElement.style.setProperty( 'margin-right', `${scrollWidth.value}px` );
+			await nextTick();
 
-				// Add a class to <body> to prevent scrolling
-				document.body.classList.add( 'cdx-dialog-open' );
+			// Determine the width of the scrollbar and compensate for it if necessary
+			scrollWidth.value = window.innerWidth - document.documentElement.clientWidth;
+			document.documentElement.style.setProperty( 'margin-right', `${scrollWidth.value}px` );
 
-				setAriaHiddenAndInert();
+			// Add a class to <body> to prevent scrolling
+			document.body.classList.add( 'cdx-dialog-open' );
 
-				// Focus within the dialog so that we can listen to keypress events.
-				// Try focusing on the first focusable element in the body. If there isn't one,
-				// use the focus holder.
-				// This needs to happen on nextTick, otherwise the focus might be stolen back by
-				// e.g. a button whose click event opened the dialog.
-				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-				if ( !focusFirstFocusableElement( dialogBody.value! ) ) {
-					focusHolder.value?.focus();
-				}
-			} );
+			setAriaHiddenAndInert();
+
+			// Focus within the dialog so that we can listen to keypress events.
+			// Try focusing on the first focusable element in the body. If there isn't one,
+			// use the focus holder.
+			// This needs to happen on nextTick, otherwise the focus might be stolen back by
+			// e.g. a button whose click event opened the dialog.
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			if ( !focusFirstFocusableElement( dialogBody.value! ) ) {
+				focusHolder.value?.focus();
+			}
 		}
 
 		function onDialogClose() {
@@ -461,6 +460,7 @@ export default defineComponent( {
 		// If the dialog is mounted in the open state, make sure we set things up properly
 		onMounted( () => {
 			if ( props.open ) {
+				// eslint-disable-next-line @typescript-eslint/no-floating-promises
 				onDialogOpen();
 			}
 		} );
@@ -474,6 +474,7 @@ export default defineComponent( {
 
 		watch( toRef( props, 'open' ), ( opened ) => {
 			if ( opened ) {
+				// eslint-disable-next-line @typescript-eslint/no-floating-promises
 				onDialogOpen();
 			} else {
 				onDialogClose();

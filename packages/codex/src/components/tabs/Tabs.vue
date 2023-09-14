@@ -81,6 +81,7 @@ import {
 	ref,
 	toRef,
 	watch,
+	nextTick,
 	VNode,
 	ComponentPublicInstance
 } from 'vue';
@@ -261,6 +262,13 @@ export default defineComponent( {
 		} );
 
 		/**
+		 * Set focus on the active tab button after the DOM has updated
+		 */
+		function focusActiveTab() {
+			tabButtonRefs.value.get( activeTabIndex.value )?.focus();
+		}
+
+		/**
 		 * Compute how far we have to scroll the tabs list (listElement.value) in order to scroll
 		 * tabLabel fully into view, taking into account the fact that the prev/next scroller
 		 * buttons obscure part of the tabs list.
@@ -350,7 +358,7 @@ export default defineComponent( {
 			} );
 
 			// Focus the active tab button, so that we receive any subsequent arrow key presses
-			tabButtonRefs.value.get( activeTabIndex.value )?.focus();
+			focusActiveTab();
 		}
 
 		// Scroll the active tab into view if it changes
@@ -387,11 +395,11 @@ export default defineComponent( {
 			rootClasses,
 			tabNames,
 			tabsData,
-			tabButtonRefs,
 			firstLabelVisible,
 			lastLabelVisible,
 			assignTemplateRefForTabButton,
 			scrollTabs,
+			focusActiveTab,
 			cdxIconPrevious,
 			cdxIconNext
 		};
@@ -417,9 +425,9 @@ export default defineComponent( {
 				this.activeTab = tabName;
 				if ( setFocus ) {
 					// Wait for DOM to update before setting focus
-					// eslint-disable-next-line no-void
-					void this.$nextTick().then( () => {
-						this.tabButtonRefs.get( this.activeTabIndex )?.focus();
+					// eslint-disable-next-line @typescript-eslint/no-floating-promises
+					nextTick( () => {
+						this.focusActiveTab();
 					} );
 				}
 			}

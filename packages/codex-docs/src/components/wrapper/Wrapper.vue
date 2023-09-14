@@ -394,28 +394,21 @@ export default defineComponent( {
 		 * Redo the syntax highlighting for the generated code when it changes, and on mount
 		 * if automatic code generation is enabled.
 		 */
-		function updateHighlight() : void {
-			// can't use void with nextTick() to satisfy typescript, because then it
-			// complains about not using `undefined` instead (no-void), we don't care
-			// about the promise returned
-			// eslint-disable-next-line @typescript-eslint/no-floating-promises
-			nextTick( () => {
-				if ( generatedCodeWrapper.value && props.showGeneratedCode ) {
-					Prism.highlightAllUnder( generatedCodeWrapper.value );
-				}
-			} );
+		async function updateHighlight() {
+			await nextTick();
+			if ( generatedCodeWrapper.value && props.showGeneratedCode ) {
+				Prism.highlightAllUnder( generatedCodeWrapper.value );
+			}
 		}
 
 		// Update code to copy from the generated code when it changes, and rehighlight,
 		// also includes when the component is reset
-		watch(
-			generatedCode,
-			() => {
-				if ( props.showGeneratedCode ) {
-					updateHighlight();
-				}
+		watch( generatedCode, () => {
+			if ( props.showGeneratedCode ) {
+				// eslint-disable-next-line @typescript-eslint/no-floating-promises
+				updateHighlight();
 			}
-		);
+		} );
 		// If we are using generated code, highlight it at the start, and use it for
 		// the code text so that it can be copied even when there are no changes made
 		// (but don't overwrite the code from the slot)
