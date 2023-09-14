@@ -75,9 +75,10 @@ export default defineComponent( {
 .cdx-demo-field-with-counter {
 	&__help-text {
 		display: flex;
-		align-items: center;
+		align-items: baseline;
 		flex-direction: row no-wrap;
 		justify-content: space-between;
+		gap: @spacing-100;
 
 		&--error &__counter {
 			color: @color-error;
