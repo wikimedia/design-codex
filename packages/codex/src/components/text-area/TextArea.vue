@@ -233,6 +233,7 @@ export default defineComponent( {
 	}
 
 	&__textarea {
+		display: block;
 		box-sizing: @box-sizing-base;
 		min-height: @min-height-text-area;
 		width: @size-full;
