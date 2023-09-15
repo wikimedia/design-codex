@@ -59,6 +59,9 @@
 		"error--hover": {
 			"value": "{ color.red500 }"
 		},
+		"error--active": {
+			"value": "{ color.red700 }"
+		},
 		"error-subtle": {
 			"value": "{ color.red100 }"
 		},

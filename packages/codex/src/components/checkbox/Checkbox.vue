@@ -218,6 +218,7 @@ export default defineComponent( {
 			height: @size-full;
 		}
 
+		/* stylelint-disable no-descending-specificity */
 		&:enabled {
 			& + .cdx-checkbox__icon {
 				border-color: @border-color-input-binary;
@@ -239,7 +240,6 @@ export default defineComponent( {
 				outline: @outline-base--focus;
 			}
 
-			/* stylelint-disable no-descending-specificity */
 			&:checked,
 			&:indeterminate {
 				& + .cdx-checkbox__icon {
@@ -257,7 +257,7 @@ export default defineComponent( {
 					border-color: @border-color-progressive--active;
 				}
 
-				&:focus:not( :hover ) + .cdx-checkbox__icon {
+				&:focus:not( :active ):not( :hover ) + .cdx-checkbox__icon {
 					background-color: @background-color-input-binary--checked;
 					border-color: @border-color-input-binary--checked;
 				}
@@ -271,10 +271,50 @@ export default defineComponent( {
 						@box-shadow-inset-medium @box-shadow-color-inverted;
 				}
 			}
-			/* stylelint-enable no-descending-specificity */
+
+			.cdx-checkbox--status-error & {
+				& + .cdx-checkbox__icon {
+					border-color: @border-color-error;
+				}
+
+				&:hover + .cdx-checkbox__icon {
+					border-color: @border-color-error--hover;
+				}
+
+				&:active + .cdx-checkbox__icon {
+					background-color: @background-color-error--active;
+					border-color: @border-color-transparent;
+				}
+
+				&:focus + .cdx-checkbox__icon {
+					border-color: @border-color-progressive--focus;
+				}
+
+				&:checked,
+				&:indeterminate {
+					& + .cdx-checkbox__icon {
+						background-color: @background-color-error;
+						border-color: @border-color-transparent;
+					}
+
+					&:hover + .cdx-checkbox__icon {
+						background-color: @background-color-error--hover;
+						border-color: @border-color-error--hover;
+					}
+
+					&:active + .cdx-checkbox__icon {
+						background-color: @background-color-error--active;
+						border-color: @border-color-transparent;
+					}
+
+					&:focus:not( :active ) + .cdx-checkbox__icon {
+						background-color: @background-color-error;
+						border-color: @border-color-progressive--focus;
+					}
+				}
+			}
 		}
 
-		/* stylelint-disable no-descending-specificity */
 		&:disabled {
 			& + .cdx-checkbox__icon {
 				background-color: @background-color-disabled;
@@ -286,38 +326,6 @@ export default defineComponent( {
 			}
 		}
 		/* stylelint-enable no-descending-specificity */
-	}
-
-	&--status-error {
-		.cdx-checkbox__input:enabled {
-			/* stylelint-disable-next-line no-descending-specificity */
-			&:not( :focus ) + .cdx-checkbox__icon {
-				border-color: @border-color-error;
-			}
-
-			&:hover:not( :focus ) + .cdx-checkbox__icon {
-				border-color: @border-color-error--hover;
-			}
-
-			&:checked,
-			&:indeterminate {
-				/* stylelint-disable-next-line no-descending-specificity */
-				& + .cdx-checkbox__icon {
-					background-color: @background-color-error;
-					border-color: @border-color-transparent;
-				}
-
-				&:hover + .cdx-checkbox__icon {
-					background-color: @background-color-error--hover;
-					border-color: @border-color-error--hover;
-				}
-
-				&:focus + .cdx-checkbox__icon {
-					background-color: @background-color-error;
-					border-color: @border-color-progressive--focus;
-				}
-			}
-		}
 	}
 }
 </style>
