@@ -21,13 +21,9 @@ The components package exports the following things:
 
 ### Files
 Releases of the components package contain the following files:
+- `codex.js`: CommonJS build. Suitable for use within MediaWiki.
+- `codex.umd.js`: UMD build of Codex. Suitable for inclusion via a plain script tag or CDN.
 - `codex.mjs`: ES module build of Codex, which uses ES6 `import` and `export` syntax.
-- `codex.umd.js`: UMD build of Codex. Can be used in CommonJS or AMD environments, or to put
-  the library in the global scope.
-  - If CommonJS is detected, it uses `require('vue')` and `exports.CdxButton = ...`
-  - If AMD is detected, it uses `define(['exports', 'vue'], function(...) { ... })`
-  - If neither CommonJS nor AMD is detected, it puts Codex in the global scope at `window.codex`,
-    and expects Vue to be at `window.Vue`.
 - `codex.style.css`: Styles for all components, for use in left-to-right (LTR) languages
 - `codex.style-rtl.css`: Styles for all components, for use in right-to-left (RTL) languages.
   For more information on right-to-left support, see [the section on bidirectionality](./usage.md#bidirectionality-support)
@@ -58,14 +54,9 @@ The icons package exports the following things:
 ### Files
 Releases of the icons package contain the following files:
 - `codex-icons.mjs`: ES module build, which uses ES6 `import` and `export` syntax.
-- `codex-icons.umd.js`: UMD build. Can be used in CommonJS or AMD environments, or to put the
-  icons in the global scope.
-  - If CommonJS is detected, it `exports.cdxIconAlert = ...`
-  - If AMD is detected, it uses `define(['exports'], function(...) { ... })`
-  - If neither CommonJS nor AMD is detected, it puts the icons in the global scope at
-    `window['codex-icons']`
+- `codex-icons.js`: CommonJS build. Suitable for use in NodeJs.
 - `codex-icons.json`: JSON file with all icon strings and objects, to facilitate use of the icons
-  in languages other than JavaScript
+  in languages other than JavaScript. This is the file that MediaWiki uses.
 - `index.d.ts`: Entry point for the TypeScript type information; refers to `icons.d.ts`, `types.d.ts`
   and `util.d.ts` for the actual type definitions
 

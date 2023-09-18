@@ -74,7 +74,7 @@ const libraryConfig = mergeConfig( baseConfig, {
 			name: 'codex',
 			fileName: 'codex',
 			entry: resolve( __dirname, 'src/lib.ts' ),
-			formats: [ 'es', 'umd' ]
+			formats: [ 'es', 'cjs', 'umd' ]
 		},
 		rollupOptions: {
 			output: {

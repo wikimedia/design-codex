@@ -1,7 +1,7 @@
 const { writeFileSync, existsSync } = require( 'fs' );
 const path = require( 'path' );
 
-const iconsFile = path.resolve( __dirname, 'dist/codex-icons.umd.js' );
+const iconsFile = path.resolve( __dirname, 'dist/codex-icons.js' );
 if ( !existsSync( iconsFile ) ) {
 	throw new Error( `File not found: ${iconsFile}\nRun 'npm run build' first to build this file` );
 }

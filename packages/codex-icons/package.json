@@ -14,7 +14,7 @@
 		"npm": ">=7.21.0",
 		"node": ">=16"
 	},
-	"main": "dist/codex-icons.umd.js",
+	"main": "dist/codex-icons.js",
 	"module": "dist/codex-icons.mjs",
 	"types": "./dist/types/index.d.ts",
 	"files": [
@@ -25,7 +25,7 @@
 		".": {
 			"types": "./dist/types/index.d.ts",
 			"import": "./dist/codex-icons.mjs",
-			"require": "./dist/codex-icons.umd.js"
+			"require": "./dist/codex-icons.js"
 		},
 		"./dist/*": "./dist/*",
 		"./codex-icon-paths.less": "./dist/codex-icon-paths.less"

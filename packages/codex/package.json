@@ -23,7 +23,7 @@
 		"npm": ">=7.21.0",
 		"node": ">=16"
 	},
-	"main": "dist/codex.umd.js",
+	"main": "dist/codex.js",
 	"module": "dist/codex.mjs",
 	"types": "./dist/types/lib.d.ts",
 	"style": "dist/codex.style.css",
@@ -35,7 +35,7 @@
 		".": {
 			"types": "./dist/types/lib.d.ts",
 			"import": "./dist/codex.mjs",
-			"require": "./dist/codex.umd.js"
+			"require": "./dist/codex.js"
 		},
 		"./dist/*": "./dist/*",
 		"./mixins/*": "./mixins/*"

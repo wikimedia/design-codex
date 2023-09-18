@@ -10,16 +10,14 @@ generateCodexBundle( 'codex-search', {
 		target: [ 'es2015', 'edge18', 'safari11' ],
 
 		lib: {
-			name: 'codex-search',
 			fileName: 'codex-search',
 			entry: resolve( __dirname, 'src/lib.ts' ),
-			formats: [ 'es', 'umd' ]
+			formats: [ 'es', 'cjs' ]
 		},
 
 		rollupOptions: {
 			output: {
-				assetFileNames: 'codex-search.[name].[ext]',
-				globals: { vue: 'Vue' }
+				assetFileNames: 'codex-search.[name].[ext]'
 			},
 			external: [ 'vue' ]
 		}

@@ -239,7 +239,7 @@ Changes not staged for commit:
 	modified:   resources/lib/codex/codex.mjs
 	modified:   resources/lib/codex/codex.style-rtl.css
 	modified:   resources/lib/codex/codex.style.css
-	modified:   resources/lib/codex/codex.umd.js
+	modified:   resources/lib/codex/codex.js
 	modified:   resources/lib/foreign-resources.yaml
 ```
 Then repeat these steps for `codex-design-tokens`, `codex-icons` and `codex-search`.

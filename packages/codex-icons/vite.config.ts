@@ -12,7 +12,7 @@ module.exports = defineConfig( {
 		lib: {
 			name: 'codex-icons',
 			entry: resolve( __dirname, 'src/index.ts' ),
-			formats: [ 'es', 'umd' ]
+			formats: [ 'es', 'cjs' ]
 		}
 	},
 	plugins: [

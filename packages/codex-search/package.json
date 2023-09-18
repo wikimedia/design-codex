@@ -14,7 +14,7 @@
 		"npm": ">=7.21.0",
 		"node": ">=16"
 	},
-	"main": "dist/codex-search.umd.js",
+	"main": "dist/codex-search.js",
 	"module": "dist/codex-search.mjs",
 	"types": "./dist/types/codex-search/src/lib.d.ts",
 	"style": "dist/codex-search.style.css",
@@ -25,7 +25,7 @@
 		".": {
 			"types": "./dist/types/codex-search/lib.d.ts",
 			"import": "./dist/codex-search.mjs",
-			"require": "./dist/codex-search.umd.js"
+			"require": "./dist/codex-search.js"
 		},
 		"./dist/*": "./dist/*"
 	},

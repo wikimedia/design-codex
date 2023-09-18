@@ -10,16 +10,14 @@ generateCodexBundle( 'codex-demos', {
 		target: [ 'es2015', 'edge18', 'safari11' ],
 
 		lib: {
-			name: 'codex-demos',
 			fileName: 'codex-demos',
 			entry: resolve( __dirname, 'src/lib.ts' ),
-			formats: [ 'es', 'umd' ]
+			formats: [ 'es', 'cjs' ]
 		},
 
 		rollupOptions: {
 			output: {
-				assetFileNames: 'codex-demos.[name].[ext]',
-				globals: { vue: 'Vue' }
+				assetFileNames: 'codex-demos.[name].[ext]'
 			},
 			external: [ 'vue' ]
 		}
