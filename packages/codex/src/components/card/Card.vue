@@ -48,7 +48,7 @@ import CdxThumbnail from '../thumbnail/Thumbnail.vue';
 import { Thumbnail } from '../../types';
 
 /**
- * A set of information and actions related to a single topic.
+ * An element which groups various kinds of content and is optionally clickable.
  */
 export default defineComponent( {
 	name: 'CdxCard',

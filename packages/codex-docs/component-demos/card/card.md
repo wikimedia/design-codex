@@ -8,6 +8,56 @@ import CardGroupWithThumbnails from '@/../component-demos/card/examples/CardGrou
 import CardMaximum from '@/../component-demos/card/examples/CardMaximum.vue';
 </script>
 
+A Card is used to group information and actions related to a single topic.
+
+Cards can be clickable and offer a way to navigate to the content they represent
+(e.g. Wikipedia articles).
+
+
+## Guidelines
+
+### Using cards
+
+Use the Card component when you need to present individual pieces of information such as articles. Use them to create lists, grids or as standalone elements in the page.
+
+Avoid using cards when you have to display extensive content, multiple elements, or group unrelated topics together. In such cases, consider using a different component or layout.
+
+![Example of Codex Card with thumbnail, title, description, and supporting text.](../../assets/components/card-using.svg)
+
+Use short titles and descriptions along with visual reinforcements, such as thumbnails or icons, to ensure that the card's content is concise and easy to scan.
+
+### Specifications
+
+![Specification of Card.](../../assets/components/card-specifications.svg)
+
+Cards include the following items:
+1. **Visual element** (optional)<br>Cards may include a thumbnail or an icon as a visual representation of the card’s content.
+2. **Title**<br>A concise and descriptive title provides a brief description of the card content.
+3. **Description**<br>A subtle text below the title provides more information about the element represented by the card.
+4. **Supporting text** (optional)<br>An optional subtle text (with an optional icon) could be included to provide additional information about the card’s content.
+5. **Links** (optional)<br>The description and/or the supporting text may contain links to either the element the Cards represent (e.g. Wikipedia articles), or to related content.
+
+Refer to the [Card component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=6842-69713&mode=design&t=2O0ceqiRfqCtnidq-11).
+
+### Types
+Depending on the visual content presented within the card, there are three distinct variations:
+1. **Card with thumbnail**<br>This variation includes a thumbnail image as the primary visual element. You can use this card variation when you intend to showcase articles and their associated images.
+2. **Card with icon**<br>In this version, an icon serves as the primary visual element, enhancing recognition. Icons help users quickly identify and associate cards with specific actions or topics.
+3. **Card with only text**<br>This variation lacks any visual elements and relies solely on text and content for information. This option simplifies the card's design, focusing on textual information and content.
+
+![Example of types of Card.](../../assets/components/card-types-visual-element.svg)
+
+### Interaction states
+Cards have the following visually separate states:
+
+![Interaction states of Card: default, hover, focus, and loading.
+](../../assets/components/card-interaction-states.svg)
+
+1. Default
+2. Hover
+3. Focus
+4. Loading
+
 ## Demos
 
 ### Default

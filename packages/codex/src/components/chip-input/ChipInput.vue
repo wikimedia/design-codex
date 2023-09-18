@@ -69,7 +69,8 @@ import useComputedDirection from '../../composables/useComputedDirection';
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
- * Input for an array of items.
+ * An input field which accepts multiple values and displays them as individual
+ * chip elements.
  */
 export default defineComponent( {
 	name: 'CdxChipInput',

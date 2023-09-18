@@ -68,8 +68,9 @@ import CdxButton from '../../components/button/Button.vue';
 import { cdxIconExpand, Icon } from '@wikimedia/codex-icons';
 import { HeadingLevel } from '../../types';
 import useGeneratedId from '../../composables/useGeneratedId';
+
 /**
- * A vertical item with hidden content.
+ * An item that contains an expandable and collapsible section of content.
  */
 export default defineComponent( {
 	name: 'CdxAccordion',
