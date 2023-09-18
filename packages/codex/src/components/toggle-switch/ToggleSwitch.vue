@@ -409,10 +409,6 @@ export default defineComponent( {
 		&:disabled {
 			cursor: @cursor-base--disabled;
 
-			& ~ .cdx-toggle-switch__label-content {
-				color: @color-disabled;
-			}
-
 			& ~ .cdx-toggle-switch__switch {
 				background-color: @background-color-disabled;
 				border-color: @border-color-disabled;

@@ -163,34 +163,39 @@ Below are some sample styles for a component to demonstrate these conventions:
 	// Common binary input styles.
 	.cdx-mixin-binary-input();
 
-	line-height: @size-125;
-
 	// Custom-styled radio that's visible to the user.
 	&__icon {
-		width: @size-125;
-		height: @size-125;
 		border-radius: @border-radius-circle;
+
+		// …
 	}
 
-	&--inline {
-		// Avoid line break between icon and label text.
-		white-space: nowrap;
-	}
-
+	// HTML `<input type="radio">`.
+	// Based on the HTML attributes of the radio input, we can change the style of the adjacent
+	// `span`, which will look like a custom-styled radio.
 	&__input {
 		&:enabled {
-			// Only enabled radios should have this hover style.
+			& + .cdx-radio__icon {
+				border-color: @border-color-input-binary;
+			}
+
+			// Note: there is no focus behavior for the input in its unchecked state because you
+			// can't focus on it without selecting it.
 			&:hover + .cdx-radio__icon {
 				border-color: @border-color-input-binary--hover;
 			}
+
+			// …
 		}
 
 		/* stylelint-disable no-descending-specificity */
 		&:disabled {
 			// Only disabled radios should have a gray label.
-			& ~ .cdx-radio__label-content {
+			& ~ .cdx-radio__label {
 				color: @color-disabled;
 			}
+
+			// …
 		}
 		/* stylelint-enable no-descending-specificity */
 }
