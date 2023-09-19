@@ -1,13 +1,15 @@
 import { resolve } from 'path';
 import * as url from 'url';
-const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', import.meta.url ) ) );
-
 import { build, mergeConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import copyFiles from './vite-plugin-copy-files.mjs';
 import autoprefixer from 'autoprefixer';
 import postcssRtlcss from 'postcss-rtlcss';
-import { generateCodexBundle, codexIconNames } from './build/utils.mjs';
+import { codexIconNames, getComponentEntryPoints } from './build/utils.mjs';
+import generateCodexBundle from './build/generateCodexBundle.mjs';
+
+const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', import.meta.url ) ) );
+const componentMap = getComponentEntryPoints( resolve( __dirname, 'src', 'components' ) );
 
 /** @type {import('vite').UserConfig} */
 const baseConfig = {
@@ -68,20 +70,43 @@ const sandboxConfig = mergeConfig( baseConfig, {
 	}
 } );
 
+// Build the complete library
 const libraryConfig = mergeConfig( baseConfig, {
 	build: {
 		lib: {
 			name: 'codex',
 			fileName: 'codex',
-			entry: resolve( __dirname, 'src/lib.ts' ),
+			entry: { codex: resolve( __dirname, 'src/lib.ts' ) },
 			formats: [ 'es', 'cjs', 'umd' ]
 		},
+
 		rollupOptions: {
+			external: [ 'vue' ],
 			output: {
-				assetFileNames: 'codex.[name].[ext]',
+				assetFileNames: 'codex.[name]',
 				globals: { vue: 'Vue' }
-			},
-			external: [ 'vue' ]
+			}
+		}
+	}
+} );
+
+// Build individual component modules for use inside of MediaWiki
+const splitConfig = mergeConfig( baseConfig, {
+	build: {
+		manifest: true,
+		cssCodeSplit: true,
+		outDir: 'dist/modules',
+
+		lib: {
+			entry: { ...componentMap },
+			formats: [ 'cjs' ]
+		},
+
+		rollupOptions: {
+			external: [ 'vue' ],
+			output: {
+				assetFileNames: 'Cdx[name]'
+			}
 		}
 	}
 } );
@@ -94,4 +119,5 @@ build( {
 } );
 
 // build the Codex bundles
-generateCodexBundle( 'codex', libraryConfig );
+generateCodexBundle( libraryConfig );
+generateCodexBundle( splitConfig );

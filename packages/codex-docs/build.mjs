@@ -2,10 +2,10 @@ import { resolve } from 'path';
 import * as url from 'url';
 const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', import.meta.url ) ) );
 
-import { generateCodexBundle } from '../codex/build/utils.mjs';
+import generateCodexBundle from '../codex/build/generateCodexBundle.mjs';
 import vue from '@vitejs/plugin-vue';
 
-generateCodexBundle( 'codex-demos', {
+generateCodexBundle( {
 	build: {
 		target: [ 'es2015', 'edge18', 'safari11' ],
 
@@ -16,10 +16,10 @@ generateCodexBundle( 'codex-demos', {
 		},
 
 		rollupOptions: {
+			external: [ 'vue' ],
 			output: {
-				assetFileNames: 'codex-demos.[name].[ext]'
-			},
-			external: [ 'vue' ]
+				assetFileNames: 'codex-demos.[name]'
+			}
 		}
 	},
 
