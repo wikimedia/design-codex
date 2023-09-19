@@ -88,7 +88,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
   </div>
   <div
     class="cdx-menu"
-    style="display: none;"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"

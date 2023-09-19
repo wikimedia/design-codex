@@ -35,6 +35,12 @@
 			<cdx-button @click="showDialog6 = true">
 				Custom dialog example
 			</cdx-button>
+
+			&nbsp;
+
+			<cdx-button @click="showDialog7 = true">
+				With menu components
+			</cdx-button>
 		</p>
 
 		<cdx-dialog
@@ -119,13 +125,111 @@
 		>
 			Example of a custom wrapped dialog
 		</wrapped-dialog>
+
+		<cdx-dialog
+			v-model:open="showDialog7"
+			:render-in-place="true"
+			title="Dialog with long content"
+			close-button-label="Close"
+			:show-dividers="true"
+			:primary-action="{ actionType: 'progressive', label: 'I love veggies!' }"
+			:default-action="{ label: 'I prefer candy' }"
+			@default="showDialog7 = false"
+			@primary="showDialog7 = false"
+		>
+			<p>
+				Zesty tofu pad thai dessert cool cucumbers kung pao pepper
+				grapefruit creamy cauliflower alfredo figs ghost pepper seitan
+				asian pear. Ginger carrot spiced juice sweet potato Indian
+				spiced peppermint onion hearty tofu raspberry fizz mediterranean
+				black beans banana dark and stormy red amazon pepper tomato and
+				basil balsamic vinaigrette.
+			</p>
+			<p>
+				Cool spring earl grey latte lemon lime minty crumbled lentils
+				bite sized kale caesar salad green onions açai blueberry chia
+				seed jam. Lemongrass chili pepper fiery fruit Thai dragon pepper
+				overflowing cashew vegan mediterranean luxury bowl cilantro lime
+				vinaigrette smoky maple tempeh glaze green tea lime cauliflower
+				springtime strawberry bean wraps coconut chocolate peanut butter
+				dip ginger lemongrass agave green tea grain avocado basil pesto.
+			</p>
+			<p>
+				Casserole pine nuts salad lemonade zest samosa habanero golden
+				apple vinaigrette red curry banana bread avocado strawberries
+				spiced peppermint blast homemade balsamic mint taco salsa soy
+				milk lemon chili lentils lime mango crisp muffins mediterranean
+				instant pot peach strawberry mango. Mushroom risotto chai tea
+				summer tahini drizzle pistachio pesto cranberry spritzer
+				artichoke hearts blood orange smash cookies shiitake mushrooms
+				couscous soba noodles.
+			</p>
+			<p>
+				Fall strawberry mango smoothie a delicious meal green grapes
+				crispy iceberg lettuce dragon fruit street style Thai basil
+				tacos banana bread golden cayenne pepper cayenne ultimate
+				Italian pepperoncini thyme miso turmeric glazed aubergine
+				jalapeño pumpkin.  Creamiest leek banh mi salad rolls tempeh
+				oranges toasted hazelnuts apricot hazelnut shiitake lemon tahini
+				dressing roasted brussel sprouts cilantro kale cozy cinnamon
+				kimchi cumin winter cherry arugula salad Caribbean red habanero
+				broccoli peanut butter crunch.
+			</p>
+
+			<cdx-select
+				v-model:selected="selected"
+				:menu-items="menuItems"
+				default-label="Select an option with a really really really long title"
+			/>
+			<br><br>
+			<cdx-select
+				v-model:selected="selected"
+				:menu-items="menuItemsLong"
+				:menu-config="menuConfig"
+				default-label="Select with visible item limit"
+			/>
+			<br><br>
+			<cdx-combobox
+				v-model:selected="comboboxSelected"
+				:menu-items="menuItems"
+				placeholder="Type or choose an option"
+			/>
+			<br><br>
+			<cdx-lookup
+				v-model:selected="lookupSelected"
+				:menu-items="lookupMenuItems"
+				@input="onInput"
+			/>
+			<br>
+			<p>
+				Hemp seeds apple vinaigrette dark and stormy habanero golden
+				coriander peppermint asian pear frosted gingerbread bites
+				Southern Italian almond milk chai latte mint golden cayenne
+				pepper. Salted dark chocolate bruschetta figs green tea lime
+				mediterranean second course dessert sesame soba noodles
+				overflowing strawberry spinach salad.
+			</p>
+			<p>
+				Hearty refreshing cucumber splash cherry chickpea crust pizza
+				banana black bean wraps red amazon pepper banana bread arugula
+				salad edamame avocado dressing drizzle veggie burgers heat green
+				pepper soy milk lingonberry shaved almonds raspberry fizz
+				lemongrass matcha salty. Portobello mushrooms coconut sugar
+				sriracha pecans spring cool cucumbers lemon lime minty chia
+				seeds lemon blueberry chia seed jam Italian pepperoncini
+				Malaysian sweet potato sleepy morning tea balsamic vinaigrette
+				street style Thai basil tacos seeds chai tea crispy ultimate
+				cool off cozy butternut smoked tofu blueberries pasta bananas.
+			</p>
+		</cdx-dialog>
 	</section>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { CdxDialog, CdxButton } from '../lib';
+import { CdxDialog, CdxButton, CdxCombobox, CdxLookup, CdxSelect, MenuItemData } from '../lib';
 import WrappedDialog from './WrappedDialog.vue';
+import vegetableItems from 'codex-docs/component-demos/lookup/examples/data.json';
 
 const showDialog1 = ref( false );
 const showDialog2 = ref( false );
@@ -133,6 +237,43 @@ const showDialog3 = ref( false );
 const showDialog4 = ref( false );
 const showDialog5 = ref( false );
 const showDialog6 = ref( false );
+const showDialog7 = ref( false );
+
+const selected = ref( null );
+const menuItems = [
+	{ label: 'Option A', value: 'a' },
+	{ label: 'Option B', value: 'b' },
+	{ label: 'Option C', value: 'c' },
+	{ label: 'Option D', value: 'd' }
+];
+const menuItemsLong = [
+	{ label: 'Option A', value: 'a' },
+	{ label: 'Option B', value: 'b' },
+	{ label: 'Option C', value: 'c' },
+	{ label: 'Option D', value: 'd' },
+	{ label: 'Option E', value: 'e' },
+	{ label: 'Option F', value: 'f' },
+	{ label: 'Option G', value: 'g' },
+	{ label: 'Option H', value: 'h' },
+	{ label: 'Option I', value: 'i' },
+	{ label: 'Option J', value: 'j' },
+	{ label: 'Option K', value: 'k' }
+];
+const menuConfig = {
+	visibleItemLimit: 6
+};
+
+const comboboxSelected = ref( '' );
+
+const lookupSelected = ref( null );
+const lookupMenuItems = ref<MenuItemData[]>( [] );
+function onInput( value: string ) {
+	if ( value ) {
+		lookupMenuItems.value = vegetableItems.filter( ( item ) =>
+			item.label.includes( value )
+		);
+	}
+}
 </script>
 
 <style lang="less">

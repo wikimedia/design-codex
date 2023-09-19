@@ -80,9 +80,9 @@ import CdxMenu from '../menu/Menu.vue';
 
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
-import useResizeObserver from '../../composables/useResizeObserver';
 import useFieldData from '../../composables/useFieldData';
 import useSplitAttributes from '../../composables/useSplitAttributes';
+import useFloatingMenu from '../../composables/useFloatingMenu';
 
 import { MenuItemData, MenuConfig, ValidationStatusType } from '../../types';
 import { ValidationStatusTypes, FieldDescriptionIdKey } from '../../constants';
@@ -224,9 +224,6 @@ export default defineComponent( {
 				props.defaultLabel;
 		} );
 
-		const currentDimensions = useResizeObserver( handle );
-		const currentWidthInPx = computed( () => `${currentDimensions.value.width ?? 0}px` );
-
 		const startIcon = computed( () => {
 			if ( props.defaultIcon && !selectedMenuItem.value ) {
 				return props.defaultIcon;
@@ -289,6 +286,8 @@ export default defineComponent( {
 			menu.value?.delegateKeyNavigation( e, { characterNavigation: true } );
 		}
 
+		useFloatingMenu( handle, menu );
+
 		return {
 			handle,
 			menu,
@@ -302,7 +301,6 @@ export default defineComponent( {
 			computedDisabled,
 			onBlur,
 			currentLabel,
-			currentWidthInPx,
 			rootClasses,
 			rootStyle,
 			otherAttrsMinusId,
@@ -428,13 +426,8 @@ export default defineComponent( {
 
 	// Overrides when used within a Dialog component
 	.cdx-dialog & {
+		// The menu is positioned relative to the dialog backdrop, not the triggering element.
 		position: static;
-
-		.cdx-menu {
-			left: auto;
-			/* stylelint-disable-next-line value-keyword-case */
-			width: v-bind( currentWidthInPx );
-		}
 	}
 }
 </style>

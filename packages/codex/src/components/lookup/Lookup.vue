@@ -6,6 +6,7 @@
 		:style="rootStyle"
 	>
 		<cdx-text-input
+			ref="textInput"
 			v-model="inputValue"
 			v-bind="otherAttrs"
 			class="cdx-lookup__input"
@@ -55,6 +56,8 @@
 import {
 	defineComponent,
 	PropType,
+	Ref,
+	ComponentPublicInstance,
 	ref,
 	toRef,
 	computed,
@@ -67,14 +70,15 @@ import CdxTextInput from '../text-input/TextInput.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
-import useResizeObserver from '../../composables/useResizeObserver';
 import useFieldData from '../../composables/useFieldData';
+import useFloatingMenu from '../../composables/useFloatingMenu';
 
 import { MenuItemData, MenuConfig, ValidationStatusType } from '../../types';
 import { ValidationStatusTypes } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
+
 /**
  * A predictive text input with a dropdown menu of items.
  *
@@ -197,6 +201,7 @@ export default defineComponent( {
 	setup: ( props, { emit, attrs, slots } ) => {
 		// Set up local reactive data
 		const rootElement = ref<HTMLDivElement>();
+		const textInput = ref<InstanceType<typeof CdxTextInput>>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
 		const menuId = useGeneratedId( 'lookup-menu' );
 		const pending = ref( false );
@@ -214,9 +219,6 @@ export default defineComponent( {
 
 		// This should not be reactive, so we just read the initial value.
 		const inputValue = ref( props.initialInputValue );
-
-		const currentDimensions = useResizeObserver( rootElement );
-		const currentWidthInPx = computed( () => `${currentDimensions.value.width ?? 0}px` );
 
 		const internalClasses = computed( () => {
 			return {
@@ -310,6 +312,8 @@ export default defineComponent( {
 			menu.value.delegateKeyNavigation( e );
 		}
 
+		useFloatingMenu( textInput as Ref<ComponentPublicInstance>, menu );
+
 		// When a new value is selected, update the input value to match.
 		watch( selectedProp, ( newVal ) => {
 			// If there is a newVal, including an empty string...
@@ -357,7 +361,7 @@ export default defineComponent( {
 
 		return {
 			rootElement,
-			currentWidthInPx,
+			textInput,
 			menu,
 			menuId,
 			highlightedId,
@@ -397,13 +401,8 @@ export default defineComponent( {
 
 	// Overrides when used within a Dialog component
 	.cdx-dialog & {
+		// The menu is positioned relative to the dialog backdrop, not the triggering element.
 		position: static;
-
-		.cdx-menu {
-			left: auto;
-			/* stylelint-disable-next-line value-keyword-case */
-			width: v-bind( currentWidthInPx );
-		}
 	}
 }
 </style>

@@ -72,6 +72,8 @@
 <script lang="ts">
 import {
 	PropType,
+	Ref,
+	ComponentPublicInstance,
 	computed,
 	defineComponent,
 	ref,
@@ -88,8 +90,8 @@ import CdxTextInput from '../text-input/TextInput.vue';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
-import useResizeObserver from '../../composables/useResizeObserver';
 import useFieldData from '../../composables/useFieldData';
+import useFloatingMenu from '../../composables/useFloatingMenu';
 
 import { MenuItemData, MenuConfig, ValidationStatusType } from '../../types';
 import { ValidationStatusTypes } from '../../constants';
@@ -226,9 +228,6 @@ export default defineComponent( {
 			};
 		} );
 
-		const currentDimensions = useResizeObserver( inputWrapper );
-		const currentWidthInPx = computed( () => `${currentDimensions.value.width ?? 0}px` );
-
 		// Get helpers from useSplitAttributes.
 		const {
 			rootClasses,
@@ -301,6 +300,8 @@ export default defineComponent( {
 			menu.value.delegateKeyNavigation( e );
 		}
 
+		useFloatingMenu( input as Ref<ComponentPublicInstance>, menu );
+
 		/**
 		 * No matter what, the flag needs to be reset every time the menu
 		 * visibility state changes.
@@ -312,7 +313,6 @@ export default defineComponent( {
 		return {
 			input,
 			inputWrapper,
-			currentWidthInPx,
 			menu,
 			menuId,
 			modelWrapper,
@@ -382,13 +382,8 @@ export default defineComponent( {
 
 	// Overrides when used within a Dialog component
 	.cdx-dialog & {
+		// The menu is positioned relative to the dialog backdrop, not the triggering element.
 		position: static;
-
-		.cdx-menu {
-			left: auto;
-			/* stylelint-disable-next-line value-keyword-case */
-			width: v-bind( currentWidthInPx );
-		}
 	}
 }
 </style>

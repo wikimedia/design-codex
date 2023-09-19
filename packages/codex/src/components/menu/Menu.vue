@@ -261,6 +261,7 @@ export default defineComponent( {
 		'load-more'
 	],
 	expose: [
+		'isExpanded',
 		'clearActive',
 		'getHighlightedMenuItem',
 		'getHighlightedViaKeyboard',
@@ -829,6 +830,15 @@ export default defineComponent( {
 	// These must be in the methods block, not in the setup function, otherwise their documentation
 	// won't be picked up by vue-docgen
 	methods: {
+		/**
+		 * Returns whether the menu is expanded.
+		 *
+		 * @return {boolean}
+		 */
+		isExpanded(): boolean {
+			return this.expanded;
+		},
+
 		/**
 		 * Get the highlighted menu item, if any.
 		 *
