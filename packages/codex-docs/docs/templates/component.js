@@ -5,7 +5,8 @@ module.exports = function component( renderedUsage, doc, config, componentRelati
 	const { displayName, description, docsBlocks, tags } = doc;
 	const { author, since, version } = /** @type {Record<string, ParamTag[]>} */ ( tags || {} );
 
-	const frontMatter = [ 'outline: deep' ];
+	// Limit on-page navigation to headings level 2 and 3.
+	const frontMatter = [ 'outline: [ 2, 3 ]' ];
 	const componentName = displayName.slice( 3 );
 
 	// Don't include a usage header if there are no properties, methods, events, or
