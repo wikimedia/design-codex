@@ -1,7 +1,7 @@
 #! /bin/bash
 set -e
 
-PUBLISH_WORKSPACES="@wikimedia/codex-design-tokens @wikimedia/codex-icons @wikimedia/codex @wikimedia/codex-search"
+PUBLISH_WORKSPACES="@wikimedia/codex-design-tokens @wikimedia/codex-icons @wikimedia/codex"
 
 # Verify that there are no uncommitted changes; error out if there are
 if [ $(git diff | wc -l) -ne 0 ]

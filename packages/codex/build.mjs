@@ -111,6 +111,23 @@ const splitConfig = mergeConfig( baseConfig, {
 	}
 } );
 
+const searchConfig = mergeConfig( baseConfig, {
+	build: {
+		lib: {
+			name: 'codex-search',
+			entry: { 'codex-search': resolve( __dirname, 'src/lib-search.ts' ) },
+			formats: [ 'es', 'cjs' ]
+		},
+
+		rollupOptions: {
+			external: [ 'vue' ],
+			output: {
+				assetFileNames: 'codex-search.[name]'
+			}
+		}
+	}
+} );
+
 // build the sandbox
 // TODO improve TypeScript config so that we can use top-level await
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
@@ -125,3 +142,5 @@ build( {
 generateCodexBundle( libraryConfig );
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 generateCodexBundle( splitConfig );
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
+generateCodexBundle( searchConfig );

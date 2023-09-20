@@ -1,11 +1,11 @@
-import CdxTypeaheadSearch from '../../codex/src/components/typeahead-search/TypeaheadSearch.vue';
+import CdxTypeaheadSearch from './components/typeahead-search/TypeaheadSearch.vue';
 
 import type {
 	SearchResult,
 	SearchResultClickEvent,
 	Thumbnail,
 	MenuConfig
-} from '../../codex/src/types';
+} from './types';
 
 export {
 	CdxTypeaheadSearch,

@@ -164,7 +164,7 @@ $ git push --tags origin v1.2.34
 
 ## Publishing to NPM
 Then build all the packages, and publish them one by one. Only the `@wikimedia/codex`,
-`@wikimedia/codex-design-tokens`, `@wikimedia/codex-icons`, and `@wikimedia/codex-search` packages
+`@wikimedia/codex-design-tokens`, and `@wikimedia/codex-icons` packages
 are published, the other packages are internal.
 ```
 $ npm run build-all
@@ -178,15 +178,12 @@ $ npm publish -w @wikimedia/codex-design-tokens
 
 $ npm publish -w @wikimedia/codex-icons --dry-run
 $ npm publish -w @wikimedia/codex-icons
-
-$ npm publish -w @wikimedia/codex-search --dry-run
-$ npm publish -w @wikimedia/codex-search
 ```
 
 ## Updating MediaWiki
 Once the NPM packages are published, you need to update MediaWiki core to point to the newly
 published version. This involves the following steps:
-- For each package (`codex`, `codex-design-tokens`, `codex-icons` and `codex-search`):
+- For each package (`codex`, `codex-design-tokens`, and `codex-icons`):
   - Update the `src` URL and `version` in `foreign-resources.yaml`
   - Run `manageForeignResources.php make-sri` to get the new integrity hash
   - Update the integrity hash in `foreign-resources.yaml`
@@ -242,7 +239,7 @@ Changes not staged for commit:
 	modified:   resources/lib/codex/codex.js
 	modified:   resources/lib/foreign-resources.yaml
 ```
-Then repeat these steps for `codex-design-tokens`, `codex-icons` and `codex-search`.
+Then repeat these steps for `codex-design-tokens` and `codex-icons`.
 
 Once all packages are updated, edit the `RELEASE-NOTES-1.NN` file in the root directory of the
 MediaWiki repository. If there is already a list item about Codex, update it. For example, if
@@ -306,10 +303,6 @@ Edit the `releases.json` file in that repository. Search for `codex`, and you sh
                 "weight": 10
             },
             "@wikimedia/codex-icons": {
-                "to": "1.2.33",
-                "weight": 10
-            },
-            "@wikimedia/codex-search": {
                 "to": "1.2.33",
                 "weight": 10
             }
