@@ -44,7 +44,7 @@
 		"dev": "vite ${npm_config_port+--port=${npm_config_port}}",
 		"build": "npm run clean && npm run build:vite && npm run build:ts",
 		"build-if-missing": "test -e dist/codex.mjs || npm run build",
-		"build:ts": "vue-tsc -p ./tsconfig-build.json --emitDeclarationOnly",
+		"build:ts": "vue-tsc -p ./tsconfig.json --emitDeclarationOnly",
 		"build:vite": "node ./build.mjs",
 		"clean": "rm -rf dist/",
 		"serve": "vite preview",
@@ -52,7 +52,7 @@
 		"test:unit": "jest -c .jest/jest.config.json",
 		"test:e2e": "start-server-and-test 'npm run dev' http-get://localhost:5173 'cypress run'",
 		"lint": "npm run lint:ts",
-		"lint:ts": "vue-tsc --noEmit && vue-tsc -p ./cypress/tsconfig.json --noEmit",
+		"lint:ts": "vue-tsc -p ./tsconfig-check.json --noEmit && vue-tsc -p ./cypress/tsconfig.json --noEmit",
 		"update-snapshots": "npm run test:unit -- -u",
 		"prepublishOnly": "cp -r dist/mixins .",
 		"postpublish": "rm -rf mixins/"

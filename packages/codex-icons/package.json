@@ -39,7 +39,7 @@
 		"build-if-missing": "test -e dist/codex-icons.json || npm run build",
 		"lint": "npm run lint:svg && npm run lint:ts",
 		"lint:svg": "svglint --ci src/images/*.svg",
-		"lint:ts": "tsc",
+		"lint:ts": "tsc -p ./tsconfig-check.json",
 		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder ./src/images",
 		"test": "npm run lint && npm run build && npm run test:clean-git && npm run test:unit",
 		"test:unit": "jest -c .jest/jest.config.json",

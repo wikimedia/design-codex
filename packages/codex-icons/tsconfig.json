@@ -1,20 +1,20 @@
 {
-	"extends": "./tsconfig-build.json",
 	"compilerOptions": {
-		"noEmit": true,
-		"emitDeclarationOnly": false
+		"target": "es2015",
+		"useDefineForClassFields": true,
+		"module": "es2015",
+		"moduleResolution": "node",
+		"strict": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"lib": [ "es2015", "dom" ],
+		"skipLibCheck": true,
+		"declaration": true,
+		"declarationDir": "dist/types",
+		"emitDeclarationOnly": true,
+		"outDir": "dist",
+		"allowJs": true,
+		"checkJs": true
 	},
-	"include": [
-		"src/**/*.ts",
-		"src/**/*.d.ts",
-		"src/**/*.js",
-		"src/**/*.mjs",
-		"tests/**/*.ts",
-		".jest/**/*.js",
-		"./*.js",
-		"./.*.js",
-		"./*.mjs",
-		"./*.ts",
-		"./*.d.ts"
-	]
+	"include": [ "src/**/*.ts", "src/**/*.d.ts", "src/**/*.js" ]
 }

@@ -1,0 +1,21 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"noEmit": true,
+		"module": "esnext",
+		"target": "esnext"
+	},
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"src/**/*.vue",
+		"build/**/*.ts",
+		"build/**/*.mjs",
+		"demos/**/*.ts",
+		".jest/*.js",
+		"./*.ts",
+		"./*.js",
+		"./*.mjs"
+	],
+	"exclude": [ "src/**/*.snap.ts", "cypress.config.ts" ]
+}

@@ -129,18 +129,13 @@ const searchConfig = mergeConfig( baseConfig, {
 } );
 
 // build the sandbox
-// TODO improve TypeScript config so that we can use top-level await
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-build( {
+await build( {
 	configFile: false,
 	mode: 'sandbox',
 	...sandboxConfig
 } );
 
 // build the Codex bundles
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-generateCodexBundle( libraryConfig );
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-generateCodexBundle( splitConfig );
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-generateCodexBundle( searchConfig );
+await generateCodexBundle( libraryConfig );
+await generateCodexBundle( splitConfig );
+await generateCodexBundle( searchConfig );

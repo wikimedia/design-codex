@@ -1,20 +1,29 @@
 {
-	"extends": "./tsconfig-build.json",
 	"compilerOptions": {
-		"noEmit": true,
-		"module": "esnext"
+		"target": "es2015",
+		"useDefineForClassFields": true,
+		"moduleResolution": "node",
+		"strict": true,
+		"jsx": "preserve",
+		"sourceMap": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"allowJs": true,
+		"checkJs": true,
+		"lib": [ "esnext", "dom" ],
+		"types": [ "jest" ],
+		"skipLibCheck": true,
+		"declaration": true,
+		"declarationDir": "dist/types"
 	},
-	"include": [
-		"src/**/*.ts",
-		"src/**/*.d.ts",
-		"src/**/*.vue",
-		"build/**/*.ts",
-		"build/**/*.mjs",
-		"demos/**/*.ts",
-		".jest/*.js",
-		"./*.ts",
-		"./*.js",
-		"./*.mjs"
-	],
-	"exclude": [ "src/**/*.snap.ts", "cypress.config.ts" ]
+	"include": [ "src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue" ],
+	"exclude": [
+		"src/**/*.test.ts",
+		"src/**/*.snap.ts",
+		"src/testutils",
+		"src/demo",
+		"src/start.ts",
+		"src/lib-wip.ts",
+		"src/components-wip"
+	]
 }

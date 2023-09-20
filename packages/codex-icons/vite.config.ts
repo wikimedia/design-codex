@@ -20,7 +20,7 @@ module.exports = defineConfig( {
 			include: 'src/images/*.svg'
 		} ),
 		typescript( {
-			tsconfig: './tsconfig-build.json'
+			tsconfig: './tsconfig.json'
 		} )
 	]
 } );
