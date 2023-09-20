@@ -34,6 +34,136 @@ const controlsConfig = [
 ];
 </script>
 
+A Button triggers an action when the user clicks or taps on it.
+
+## Guidelines
+
+### Using buttons
+Buttons must contain a label and can also include an icon. For icon-only buttons, the label is
+visually hidden but available to assistive technology users.
+
+Use the Button component when you want to trigger an action or toggle something in the user's
+current context.
+
+Avoid using buttons when:
+- The action is to navigate the user to a new resource, which would take them away from the current
+context. In such cases, consider [Link](../mixins/link.md) instead.<sup>[[1]](#ref1)</sup>
+- You need to represent state-persistent user actions. In this case, use
+[ToggleButton](./toggle-button.md) instead.
+
+![Example of Codex Buttons in three different variants:
+progressive, destructive, and neutral.](../../assets/components/button-using.svg)
+
+### Specifications
+The button styles distinguish types of buttons and each button’s state (e.g.
+hover, active, focussed) in accessible color variations.
+
+![Specification of Button.](../../assets/components/button-specifications.svg)
+
+1. **Icon** (optional)<br>Icons simplify user recognition and provide the ability to shorten button labels to a minimum.
+2. **Label**<br>Button labels should be as short as possible, with text that clearly states what action follows clicking the button (e.g. download, submit form, search).
+
+When using buttons, consider the size of their target area. Make sure that the associated active touch area is at least 44 x 44 dp. Otherwise users may fail to hit the active area, for example due to motor disabilities.
+
+Refer to the [Button component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=10019-91329&mode=design&t=eVqRGnL1b9RbOdZ0-11).
+
+### Types
+
+#### Button content
+Depending on the content of the button, there are the following types:
+
+1. **Text with icon**<br>It combines descriptive text with a reinforcing icon. It's suitable when you need to convey meaning through both textual and visual elements.
+2. **Text-only**<br>It contains only text for simplicity. It is suitable for actions that do not require or benefit from an accompanying icon, or when the icon would not effectively reinforce the meaning of the text.
+3. **Icon-only**<br>It uses an icon alone to create visual impact. It is suitable for actions that can be universally recognized through the icon alone, such as the “edit” action.
+
+![Example of button content: text with icon, text-only and icon-only.](../../assets/components/button-types-content.svg)
+
+#### Button action or variant (“flavor”)
+There three type of buttons based on the type of action they convey:
+
+1. **Neutral**<br>Use neutral buttons for actions that are neutral or secondary in importance.
+2. **Progressive**<br>Use progressive buttons for actions that lead to the next step in the process.
+3. **Destructive**<br>Reserve destructive buttons for actions that involve removal or limitation, such as deleting a page or blocking a user. Avoid using them for actions like cancel buttons.
+
+![Example of button action: progressive, destructive, and neutral.](../../assets/components/button-types-flavors.svg)
+
+#### Button weight
+Buttons can be categorized into three types based on their weight and their significance in their respective contexts:
+
+##### Primary buttons
+Primary buttons signal the main action in a given view – a page or a dialog. As they
+should guide the user to the most important action (“call to action”), there should only be one
+primary button per view.
+
+![Variants of primary buttons: progressive and destructive.](../../assets/components/button-types-primary.svg)
+
+They come in two variants (“flavors”):
+
+1. **Progressive**: Use progressive buttons for actions that lead to the next step in the process.
+2. **Destructive**: Use destructive buttons for actions that remove or limit, such as deleting a
+page or blocking a user. Don't use it for actions such as cancel buttons.
+
+##### Normal buttons
+When designing a project, normal framed buttons are the default choice. Quiet, frameless buttons
+(read next section) should only be used in views, where normal buttons need to be further visually
+de-emphasized, see below.
+
+![Variants of normal buttons: neutral, progressive and destructive.](../../assets/components/button-types-normal.svg)
+
+Normal buttons have three variants (“flavors”):
+
+1. **Neutral**
+2. **Progressive**
+3. **Destructive**
+
+##### Quiet buttons (“frameless”)
+Use quiet buttons for an easily recognizable action that does not detract focus from the content.
+For example, the icon-only edit buttons alongside sections in article view on mobile
+Wikipedia.<sup>[[2]](#ref2)</sup>They still feature minimal target sizes and states to provide the user clear interaction feedback.
+Normal (framed) buttons are the default choice for simplified recognition.
+
+![Variants of quiet buttons: neutral, progressive and destructive.](../../assets/components/button-types-quiet.svg)
+
+Quiet buttons have three variants (“flavors”):
+
+1. **Neutral**
+2. **Progressive**
+3. **Destructive**
+
+### Interaction states
+Buttons have the following visually separate states:
+
+#### Neutral buttons
+
+![Interaction states of the Neutral Button (both normal and quiet buttons): default,
+hover, active, focus, and disabled.](../../assets/components/button-interaction-states-neutral.svg)
+
+#### Progressive buttons
+
+![Interaction states of the Progressive Button (primary, normal,
+and quiet buttons): default, hover, active, focus, and disabled.](../../assets/components/button-interaction-states-progressive.svg)
+
+#### Destructive buttons
+
+![Interaction states of the Destructive Button (primary, normal,
+and quiet buttons): default, hover, active, focus, and disabled.](../../assets/components/button-interaction-states-destructive.svg)
+
+1. Default
+2. Hover
+3. Active
+4. Focus
+5. Disabled
+
+**Accessibility note**: The disabled state does not meet our minimum color contrast rules. WCAG 2.1 states that “…part[s] of an inactive user interface component […] have no contrast requirement”.<sup>[[3]](#ref3)</sup><br>
+Provide sufficient information in a disabled element’s context, so the user can understand what is disabled and how to enable it (if applicable).
+
+### References
+
+1. <span id="ref1">[“Links vs. Buttons in Modern Web Applications” by Marcy Sutton](https://marcysutton.com/links-vs-buttons-in-modern-web-applications)</span>
+2. <span id="ref2">[Mobile English Wikipedia: Button (computing) article with exemplified quiet edit buttons](https://en.m.wikipedia.org/wiki/Button_(computing))</span>
+3. <span id="ref3">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>
+
+
 ## Demos
 
 ### Configurable
@@ -164,7 +294,7 @@ Add the `disabled` attribute for a disabled button.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<button-with-icon />
+	<button-with-icon />
 </template>
 
 <template v-slot:code>
@@ -182,7 +312,7 @@ Add the `disabled` attribute for a disabled button.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<quiet-button-with-icon />
+	<quiet-button-with-icon />
 </template>
 
 <template v-slot:code>
@@ -208,7 +338,7 @@ The attribute `aria-label` has to be used on icon-only buttons to be understanda
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<icon-only-button />
+	<icon-only-button />
 </template>
 
 <template v-slot:code>
@@ -226,7 +356,7 @@ The attribute `aria-label` has to be used on icon-only buttons to be understanda
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<quiet-icon-only-button />
+	<quiet-icon-only-button />
 </template>
 
 <template v-slot:code>

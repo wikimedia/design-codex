@@ -23,7 +23,7 @@ const buttonWeightValidator = makeStringTypeValidator( ButtonWeights );
 const buttonSizeValidator = makeStringTypeValidator( ButtonSizes );
 
 /**
- * A control that can be pressed to trigger an action.
+ * A control that triggers an action when the user clicks or taps on it.
  */
 export default defineComponent( {
 	name: 'CdxButton',

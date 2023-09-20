@@ -7,8 +7,50 @@ import MaximumButtonGroup from '@/../component-demos/button-group/examples/Maxim
 import ButtonGroupWithSlot from '@/../component-demos/button-group/examples/ButtonGroupWithSlot.vue';
 </script>
 
-## Demos
+A button group consists of a set of two or more normal buttons. Buttons in such a group signal a
+number of equally important actions that will occur when the user taps on them.
 
+## Guidelines
+
+### Using button groups
+Each button within the button group must have a label. For icon-only buttons, the label will be
+visually hidden and available only to users of assistive technology.
+
+Use the ButtonGroup component when you want users to choose actions from a set of actions, with the
+restriction that only one can be active at a time. If you want to enable users to select one
+or multiple options from a set of options, use
+[ToggleButtonGroup](./toggle-button-group.md) instead.
+
+![Different examples of how the Codex ButtonGroup can be
+used with and without icons.](../../assets/components/button-group-using.svg)
+
+### Specifications
+
+![Specification of ButtonGroup.](../../assets/components/button-group-specifications.svg)
+
+A button group consists of normal (framed) buttons, which may include the following elements:
+1. **Icon** (optional)<br>Icons simplify user recognition and provide the ability to shorten button
+labels to a minimum.
+2. **Label**<br>Button labels should be as short as possible, with text that clearly states what
+action will be taken once the button is pressed (e.g. download, submit form, search).
+
+Refer to the [ButtonGroup component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=6639-59569&mode=design&t=7wyBmhfdJTJevQmT-11).
+
+### Interaction states
+Button groups have the following visually separate states:
+
+![Interaction states of ButtonGroup: default,
+hover on second button, second button active, focus on second button, disabled second button,
+and disabled button group.](../../assets/components/button-group-interaction-states.svg)
+
+1. Default buttons
+2. Hover on one button
+3. Active button
+4. Focus on one button
+5. Disabled button
+6. Disabled button group
+
+## Demos
 Open up the browser console to see events emitted on click.
 
 ### Basic usage
@@ -22,7 +64,7 @@ using `{ value: 'Foo' }` as a shorthand for `{ label: 'Foo', value: 'Foo' }`.
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-<basic-button-group />
+    <basic-button-group />
 </template>
 
 <template v-slot:code>
@@ -44,7 +86,7 @@ to disable individual buttons.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<button-group-with-icons />
+    <button-group-with-icons />
 </template>
 
 <template v-slot:code>
@@ -66,7 +108,7 @@ set the `label` property to `null`.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<icon-only-button-group />
+    <icon-only-button-group />
 </template>
 
 <template v-slot:code>
@@ -89,7 +131,7 @@ event.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<disabled-button-group />
+    <disabled-button-group />
 </template>
 
 <template v-slot:code>
@@ -111,7 +153,7 @@ When the button group is too large to fit on one line, the buttons overflow to t
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<maximum-button-group />
+    <maximum-button-group />
 </template>
 
 <template v-slot:code>
@@ -134,7 +176,7 @@ is displayed in superscript after its label.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<button-group-with-slot />
+    <button-group-with-slot />
 </template>
 
 <template v-slot:code>

@@ -11,19 +11,74 @@ import { cdxIconLinkExternal } from '@wikimedia/codex-icons';
 </script>
 
 # Link
+A Link navigates the user to another page, view or section, when the user clicks or taps on it.
 
-Styles for text used to navigate between sections or pages.
+## Guidelines
 
-:::tip Less mixin
-This component has been implemented as a [Less mixin](https://lesscss.org/features/#mixins-feature),
-not a Vue component. This mixin must be imported separately in your Less styles. See below for
-[usage information](#usage).
-:::
+### Using links
+Links must include descriptive text, or a combination of text and an icon.
 
-:::warning
-Before importing the Link mixin, you must first import the design tokens. If you don't, you
-will get errors that look like `variable @color-progressive is undefined`.
-:::
+Use the Link component when you need to provide users with a clickable element to navigate to other
+pages. Avoid using Link when the user needs to perform an action. In such cases, use
+[Button](../demos/button.md) instead.
+
+![Example of Codex's Link and external Link variant.](../../assets/components/link-using.svg)
+
+### Specifications
+
+![Specification of Link.](../../assets/components/link-specifications.svg)
+
+1. **Link text**<br>The text that describes the link destination as clearly as possible.
+2. **External link icon**<br>Indicates that the link will take the user to a different website.
+
+Apart from links that navigate to other pages, there are the following non-standard links:
+
+- Links that open a modal instead of a new page (e.g. map links)
+- Links that open a file instead of a web page (e.g. PDF or document links)
+- Links that cause something to happen that the user would otherwise not expect (e.g. play a sound, like pronunciation links)
+- Links that open a new website instead of just a new page (external links)<sup>[[1]](#ref1)</sup>
+- Links that open a non-web protocol URI (e.g. `mailto:`, `tel:` links)
+
+Several Wikimedia Movement projects provide extensive “manuals of style” for applying and designing for links, for example English Wikipedia.<sup>[[2]](#ref2)</sup>
+
+Refer to the [Link component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=7250-67780&mode=design&t=eVqRGnL1b9RbOdZ0-11).
+
+### Types
+
+![Types of links: default, underlined and red link.](../../assets/components/link-types.svg)
+
+1. **Default links**<br>By default, links are only underlined when they are interacted with (hover,
+active).
+2. **Underlined links**<br>To suit user preferences and for accessibility reasons, links can always
+be underlined.
+3. **Red links (aka new links)**<br>Links to pages that do not exist yet. These display the
+color Red600 for both the normal or underlined types.<sup>[[3]](#ref3)</sup>
+
+### Interaction states
+Links display accessible color variations that help clearly differentiate their interaction states:
+
+#### Default link
+
+![Interaction states of Link: default, hover, active, focus, visited, and visited and hover.](../../assets/components/link-interaction-states-blue-link.svg)
+
+#### Red link
+
+![Interaction states of Red link: default, hover, active, focus, visited, and visited and hover.](../../assets/components/link-interaction-states-red-link.svg)
+
+1. Default
+2. Hover
+3. Active
+4. Focus
+5. Visited
+6. Visited and hover
+
+Links display the default browser outline on focus, which is equal to Blue600. The outline style varies in different browsers.<br>
+Links don't feature a disabled state. If you’re trying to convey an action, you might consider using a [quiet button](../demos/button.md#quiet-buttons-frameless) for that scenario instead.
+
+### References
+1. <span id="ref1">[English Wikipedia: External links](https://en.wikipedia.org/wiki/Wikipedia:External_links)</span>
+2. <span id="ref2">[English Wikipedia: Manual of Style/Linking](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Linking)</span>
+3. <span id="ref3">[English Wikipedia: Red link](https://en.wikipedia.org/wiki/Wikipedia:Red_link#When_to_create_red_links)</span>
 
 ## Demos
 
@@ -287,6 +342,17 @@ module.exports = {
 </cdx-demo-wrapper>
 
 ## Less mixin usage
+
+:::tip Less mixin
+This component has been implemented as a [Less mixin](https://lesscss.org/features/#mixins-feature),
+not a Vue component. This mixin must be imported separately in your Less styles. See below for
+[usage information](#usage).
+:::
+
+:::warning
+Before importing the Link mixin, you must first import the design tokens. If you don't, you
+will get errors that look like `variable @color-progressive is undefined`.
+:::
 
 ### Default usage
 
