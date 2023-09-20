@@ -26,16 +26,18 @@
 			}
 		},
 		{
-			"files": [ "**/*.ts", "**/*.js" ],
+			"files": [ "**/*.ts", "**/*.js", "**/*.mjs" ],
 			"excludedFiles": "src/**",
 			"extends": [
-				"wikimedia/server"
+				"wikimedia/common",
+				"wikimedia/node"
 			],
 			"rules": {
 				"strict": "off",
 				"node/no-missing-import": [ "error", {
 					"tryExtensions": [ ".js", ".ts" ]
-				} ]
+				} ],
+				"security/detect-non-literal-fs-filename": "off"
 			}
 		},
 		{
@@ -75,18 +77,6 @@
 			"extends": [
 				"plugin:cypress/recommended"
 			]
-		},
-		{
-			"files": [ "*.mjs" ],
-			"parserOptions": {
-				"sourceType": "module"
-			},
-			"rules": {
-				"no-underscore-dangle": "off"
-			},
-			"env": {
-				"node": true
-			}
 		}
 	],
 	"ignorePatterns": [

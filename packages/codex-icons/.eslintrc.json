@@ -1,10 +1,10 @@
 {
 	"overrides": [
 		{
-			"files": [ "**/*.ts", "**/*.js" ],
+			"files": [ "**/*.ts", "**/*.js", "**/*.mjs" ],
 			"extends": [
-				"wikimedia/server",
-				"plugin:@typescript-eslint/recommended"
+				"wikimedia/common",
+				"wikimedia/node"
 			],
 			"rules": {
 				"strict": "off",
@@ -34,7 +34,7 @@
 			}
 		},
 		{
-			"files": [ "**/*.js" ],
+			"files": [ "**/*.js", "**/*.mjs" ],
 			"excludedFiles": "src/**",
 			"rules": {
 				"jsdoc/valid-types": "off",

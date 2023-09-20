@@ -3,7 +3,7 @@ module.exports = {
 	root: true,
 	extends: [
 		'wikimedia',
-		'wikimedia/language/es2020'
+		'wikimedia/language/es2022'
 	],
 	overrides: [
 		// Disable security/detect-non-literal-fs-filename for all non-Vue files;
@@ -25,7 +25,8 @@ module.exports = {
 			files: [
 				'packages/*/**/*.vue',
 				'packages/*/**/*.ts',
-				'packages/*/**/*.js'
+				'packages/*/**/*.js',
+				'packages/*/**/*.mjs'
 			],
 			excludedFiles: [
 				'packages/codex-docs/component-demos/**/examples-mw/*.vue'
@@ -53,7 +54,8 @@ module.exports = {
 			files: [
 				'packages/*/**/*.vue',
 				'packages/*/**/*.ts',
-				'packages/*/**/*.js'
+				'packages/*/**/*.js',
+				'packages/*/**/*.mjs'
 			],
 			excludedFiles: [
 				'packages/codex-docs/component-demos/**/examples/*.vue',
@@ -81,6 +83,17 @@ module.exports = {
 				// Allow require() to be used in JS files
 				'@typescript-eslint/no-var-requires': 'off',
 				'@typescript-eslint/explicit-module-boundary-types': 'off'
+			}
+		},
+		{
+			files: [ '*.mjs' ],
+			parserOptions: {
+				sourceType: 'module'
+			},
+			rules: {
+				'no-underscore-dangle': [ 'error', {
+					allow: [ '__dirname' ]
+				} ]
 			}
 		},
 		{

@@ -1,17 +1,14 @@
 {
 	"overrides": [
 		{
-			"files": [ "**/*.ts", "**/*.js" ],
+			"files": [ "**/*.ts", "**/*.js", "**/*.mjs" ],
 			"extends": [
-				"wikimedia/server",
-				"wikimedia/language/es2020"
+				"wikimedia/common",
+				"wikimedia/node"
 			],
 			"rules": {
 				"strict": "off",
-				"jsdoc/valid-types": "off",
-				"es-x/no-string-prototype-matchall": "off",
-				"es-x/no-optional-chaining": "off",
-				"es-x/no-nullish-coalescing-operators": "off"
+				"jsdoc/valid-types": "off"
 			}
 		}
 	]

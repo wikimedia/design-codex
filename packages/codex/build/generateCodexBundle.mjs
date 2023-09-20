@@ -38,25 +38,33 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 
 	// Run the multi-modal library build, overriding the provided config where
 	// necessary with mode-specific options
-	MODES.forEach( ( mode ) => {
+	for ( const mode of MODES ) {
 		/** @type {import('vite').UserConfig} */
 		let overrides = {};
 		const manifestFileName = mode === '' ? 'manifest.json' : `manifest-${mode}.json`;
 
 		/**
+		 * @param {import('vite').Rollup.PreRenderedAsset} assetInfo
 		 * @return {string} string
 		 */
-		function getAssetName() {
+		const getAssetName = function ( assetInfo ) {
 			const modeString = mode === '' ? '' : `-${mode}`;
 			const outputOpts = bundleConfig.build?.rollupOptions?.output;
 
-			if ( outputOpts && !Array.isArray( outputOpts ) && outputOpts.assetFileNames ) {
-				return `${outputOpts.assetFileNames}${modeString}[extname]`;
+			if (
+				outputOpts &&
+				!Array.isArray( outputOpts ) &&
+				outputOpts.assetFileNames
+			) {
+				if ( typeof outputOpts.assetFileNames === 'function' ) {
+					return outputOpts.assetFileNames( assetInfo );
+				} else {
+					return `${outputOpts.assetFileNames}${modeString}[extname]`;
+				}
 			} else {
 				return `[name]${modeString}[extname]`;
 			}
-
-		}
+		};
 
 		switch ( mode ) {
 			case '':
@@ -141,10 +149,10 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 		const finalConfig = mergeConfig( buildConfig, overrides );
 
 		// Run the Vite build
-		build( {
+		await build( {
 			configFile: false,
 			mode: mode,
 			...finalConfig
 		} );
-	} );
+	}
 }

@@ -5,6 +5,8 @@ const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', impo
 import generateCodexBundle from '../codex/build/generateCodexBundle.mjs';
 import vue from '@vitejs/plugin-vue';
 
+// TODO improve TypeScript config so that we can use top-level await
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
 generateCodexBundle( {
 	build: {
 		target: [ 'es2015', 'edge18', 'safari11' ],

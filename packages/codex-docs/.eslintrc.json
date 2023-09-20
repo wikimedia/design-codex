@@ -1,16 +1,17 @@
 {
 	"overrides": [
 		{
-			"files": [ "**/*.ts", "**/*.js" ],
+			"files": [ "**/*.ts", "**/*.js", "**/*.mjs" ],
 			"extends": [
-				"wikimedia/server",
-				"wikimedia/language/es2020"
+				"wikimedia/common",
+				"wikimedia/node"
 			],
 			"rules": {
 				"strict": "off",
 				"node/no-missing-import": [ "error", {
 					"tryExtensions": [ ".js", ".ts" ]
-				} ]
+				} ],
+				"security/detect-non-literal-fs-filename": "off"
 			}
 		},
 		{
@@ -29,22 +30,10 @@
 			}
 		},
 		{
-			"files": [ "**/*.js" ],
+			"files": [ "**/*.js", "**/*.mjs" ],
 			"rules": {
 				"jsdoc/valid-types": "off",
 				"jsdoc/no-undefined-types": "off"
-			}
-		},
-		{
-			"files": [ "*.mjs" ],
-			"parserOptions": {
-				"sourceType": "module"
-			},
-			"rules": {
-				"no-underscore-dangle": "off"
-			},
-			"env": {
-				"node": true
 			}
 		},
 		{

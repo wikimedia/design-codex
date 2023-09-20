@@ -16,7 +16,6 @@ const patchID = process.env.CODEX_PATCH_ID;
 const includeWIPComponents = process.env.CODEX_RELEASE === undefined;
 
 function isWIPComponent( componentName: string ): boolean {
-	// eslint-disable-next-line security/detect-non-literal-fs-filename
 	return existsSync( path.join( __dirname, '/../../../codex/src/components-wip/', componentName ) );
 }
 

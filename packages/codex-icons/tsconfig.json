@@ -1,13 +1,19 @@
 {
 	"extends": "./tsconfig-build.json",
+	"compilerOptions": {
+		"noEmit": true,
+		"emitDeclarationOnly": false
+	},
 	"include": [
 		"src/**/*.ts",
 		"src/**/*.d.ts",
-		"src/**/*js",
+		"src/**/*.js",
+		"src/**/*.mjs",
 		"tests/**/*.ts",
 		".jest/**/*.js",
 		"./*.js",
 		"./.*.js",
+		"./*.mjs",
 		"./*.ts",
 		"./*.d.ts"
 	]
