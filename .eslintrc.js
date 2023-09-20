@@ -6,6 +6,20 @@ module.exports = {
 		'wikimedia/language/es2020'
 	],
 	overrides: [
+		// Disable security/detect-non-literal-fs-filename for all non-Vue files;
+		// Our build scripts do not accept user input via web request so
+		// programmatic file access is fine
+		{
+			files: [
+				'packages/*/**/*.js',
+				'packages/*/**/*.mjs',
+				'packages/*/**/*.ts'
+			],
+			rules: {
+				'security/detect-non-literal-fs-filename': 'off'
+			}
+		},
+
 		// Apply basic TypeScript rules to all Vue/TS/JS files
 		{
 			files: [
