@@ -132,17 +132,6 @@ import { DebounceInterval, PendingDelay, MenuFooterValue } from '../../constants
 
 /**
  * A search form that provides a menu with autocomplete suggestions.
- *
- * TypeaheadSearch contains a form with a text input, a submit button, and a slot for hidden inputs.
- * The parent component must listen for changes in the search query (which are debounced by
- * default), fetch or calculate search results, then provide them as an array of search results for
- * display to the user in a dropdown menu.
- *
- * At the end of the list of search results, a final option to go to the search page for the current
- * search query is provided.
- *
- * Events are emitted to the parent when a search result is selected and when the form is submitted,
- * with data about the selected item (e.g. for analytics).
  */
 export default defineComponent( {
 	name: 'CdxTypeaheadSearch',

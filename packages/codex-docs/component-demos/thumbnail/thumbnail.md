@@ -76,7 +76,9 @@ To customize the placeholder icon, use the `placeholderIcon` prop.
 </template>
 </cdx-demo-wrapper>
 
-### CSS-only version
+## Vue usage
+
+## CSS-only version
 
 ### Markup structure
 

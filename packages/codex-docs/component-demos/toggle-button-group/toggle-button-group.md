@@ -145,3 +145,10 @@ after its label, but only if the button is selected.
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage
+
+Whether the group is single-select or multi-select is automatically detected based on the value
+bound to `v-model`: if it's an array, the group allows multiple selections; otherwise, it only
+allows a single selection. To initially select nothing, initialize the `v-model` value to
+`null` (for single-select groups) or `[]` (for multi-select groups).

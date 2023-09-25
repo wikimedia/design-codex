@@ -5,16 +5,6 @@ import SearchInputClearable from '@/../component-demos/search-input/examples/Sea
 import SearchInputField from '@/../component-demos/search-input/examples/SearchInputField.vue';
 </script>
 
-::: tip TextInput props apply
-This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
-to this component and they will be passed to the TextInput within.
-:::
-
-::: tip Attributes passed to input
-This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
-element within the component.
-:::
-
 ## Demos
 
 Open the console to see emitted events.
@@ -109,6 +99,25 @@ information.
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage
+
+This component contains a [TextInput](./text-input.md) with a preset start icon and input type. A
+button can be added by providing the `buttonLabel` prop.
+
+The default slot allows you to pass in an options menu that can be absolutely positioned to line
+up with the text input, e.g. a list of autocomplete options.
+See [TypeaheadSearch](./typeahead-search.md) for an example.
+
+::: tip TextInput props apply
+This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
+to this component and they will be passed to the TextInput within.
+:::
+
+::: tip Attributes passed to input
+This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
+element within the component.
+:::
 
 ## CSS-only version
 

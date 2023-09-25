@@ -92,6 +92,16 @@ the header row will update to match.
 </template>
 </cdx-demo-wrapper>
 
+## Vue usage
+
+One or more [Tab](./tab.md) components must be provided in the default slot of the Tabs component.
+Each child Tab component must have a `name` property. The Tabs component must have an `active` prop
+that matches the name of one of the child Tab components in the slot.
+
+In order for the active tabs to change, the `name` of the active tab must be bound in the parent
+somehow, either using `v-model:active` or by manually binding the `active` prop and listening for
+`update:active` events.
+
 ## CSS-only version
 
 ### Markup structure

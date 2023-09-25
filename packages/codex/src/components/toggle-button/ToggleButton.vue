@@ -19,11 +19,6 @@ import useIconOnlyButton from '../../composables/useIconOnlyButton';
 
 /**
  * A button that can be toggled on and off.
- *
- * You should always include some content to display on the button via the default slot.
- *
- * The `v-model` value will be a boolean, it is `true` if the button is currently toggled ("on")
- * and `false` otherwise (button is "off").
  */
 export default defineComponent( {
 	name: 'CdxToggleButton',

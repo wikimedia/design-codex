@@ -80,3 +80,8 @@ to ensure the button is understandable to those using assistive technology.
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage
+
+The `v-model` value will be a boolean, it is `true` if the button is currently toggled ("on")
+and `false` otherwise ("off").

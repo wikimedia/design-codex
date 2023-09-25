@@ -104,15 +104,6 @@ import { isComponentVNode } from '../../utils/slotContents';
 
 /**
  * A layout for navigating between sections of content.
- *
- * One or more `<Tab>` components must be provided in the default slot of the
- * `<Tabs>` component. Each child `<Tab>` component must have a `name` property.
- * The `<Tabs>` component must have an active prop which matches the name of one
- * of the child `<Tab>` components in the slot.
- *
- * In order for the active tabs to change, the `name` of the active tab must be
- * bound in the parent somehow, either using `v-model:active` or by manually
- * binding the `active` prop and listening for `update:active` events.
  */
 export default defineComponent( {
 	name: 'CdxTabs',

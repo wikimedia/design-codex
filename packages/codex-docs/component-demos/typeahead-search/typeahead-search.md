@@ -6,16 +6,6 @@ import TypeaheadSearchPendingState from '@/../component-demos/typeahead-search/e
 import TypeaheadSearchNoResult from '@/../component-demos/typeahead-search/examples/TypeaheadSearchNoResult.vue';
 </script>
 
-::: tip TextInput props apply
-This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
-to this component and they will be passed to the TextInput within.
-:::
-
-::: tip Attributes passed to input
-This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
-element within the component.
-:::
-
 ## Demos
 
 ### Search Wikipedia articles
@@ -140,6 +130,29 @@ A message prompt that no search results were found. To enable this, provide cont
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage
+
+TypeaheadSearch contains a form with a text input, a submit button, and a slot for hidden inputs.
+The parent component must listen for changes in the search query (which are debounced by
+default), fetch or calculate search results, then provide them as an array of search results for
+display to the user in a dropdown menu.
+
+At the end of the list of search results, a final option to go to the search page for the current
+search query is provided.
+
+Events are emitted to the parent when a search result is selected and when the form is submitted,
+with data about the selected item (e.g. for analytics).
+
+::: tip TextInput props apply
+This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
+to this component and they will be passed to the TextInput within.
+:::
+
+::: tip Attributes passed to input
+This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
+element within the component.
+:::
 
 ## CSS-only version
 

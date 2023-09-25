@@ -46,10 +46,6 @@ const controlsConfig = [
 ];
 </script>
 
-::: tip Attributes passed to textarea
-This component will pass any HTML attributes applied to it, except for CSS class, to the `<textarea>` element within the component.
-:::
-
 ## Demos
 
 ### Configurable
@@ -256,3 +252,12 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage
+
+`v-model` is used to track the current value of the textarea. See the events docs for details on
+emitted events and their properties.
+
+::: tip Attributes passed to textarea
+This component will pass any HTML attributes applied to it, except for CSS class, to the `<textarea>` element within the component.
+:::

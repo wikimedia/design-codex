@@ -56,12 +56,6 @@ const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
  * An input for text search.
- *
- * This component contains a TextInput component with a preset start icon and input type. A button
- * can be added by providing the `buttonLabel` prop.
- *
- * The default slot allows you to pass in an options menu that can be absolutely positioned to line
- * up with the text input, e.g. a list of autocomplete options. See TypeaheadSearch for an example.
  */
 export default defineComponent( {
 	name: 'CdxSearchInput',

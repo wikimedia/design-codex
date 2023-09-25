@@ -34,11 +34,6 @@ import CdxToggleButton from '../toggle-button/ToggleButton.vue';
  * Single-select groups behave like a group of radio buttons: only one value can be selected,
  * and clicking an already-selected value has no effect. Multi-select groups behave like a group of
  * checkboxes: multiple values can be selected, and clicking an already-selected value unselects it.
- *
- * Whether the group is single-select or multi-select is automatically detected based on the value
- * bound to `v-model`: if it's an array, the group allows multiple selections; otherwise, it only
- * allows a single selection. To initially select nothing, initialize the `v-model` value to
- * `null` (for single-select groups) or `[]` (for multi-select groups).
  */
 export default defineComponent( {
 	name: 'CdxToggleButtonGroup',

@@ -20,10 +20,6 @@ import { TabData } from '../../types';
 
 /**
  * A section of content within a Tabs layout.
- *
- * This component can display arbitrary content via its default slot.
- * Provided markup is wrapped inside of a `<section>` tag and given
- * a unique HTML ID.
  */
 export default defineComponent( {
 	name: 'CdxTab',

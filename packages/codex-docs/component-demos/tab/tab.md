@@ -23,12 +23,6 @@ const controlsConfig = [
 ];
 </script>
 
-::: tip Must be used with Tabs component
-This component is only meant to be used inside the default `<slot>` of the `<Tabs>` component.
-It cannot be used as a stand-alone component. See the [Tabs documentation](./tabs) for more
-information.
-:::
-
 ## Demos
 
 ### Configurable example
@@ -54,5 +48,17 @@ props, as well as slot content.
 </template>
 </cdx-demo-wrapper>
 
+## Vue usage
+
+This component can display arbitrary content, including markup, via its default slot. The provided
+content is wrapped in a `<section>` tag and given an HTML ID.
+
+::: tip Must be used with Tabs component
+This component is only meant to be used inside the default `<slot>` of the `<Tabs>` component.
+It cannot be used as a standalone component. See the [Tabs documentation](./tabs) for more
+information.
+:::
+
 ## CSS-only version
+
 See the [Tabs page](./tabs.md#css-only-version) to learn how to build a CSS-only tabbed layout.

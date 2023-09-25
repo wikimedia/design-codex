@@ -53,9 +53,6 @@ const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
  *
  * This form element is useful when you want to create a sizeable amount of free-form text,
  * for example comments, reviews, feedback, or short essay responses.
- *
- * `v-model` is used to track the current value of the textarea. See the events docs for details on
- * emitted events and their properties.
  */
 export default defineComponent( {
 	name: 'CdxTextArea',
