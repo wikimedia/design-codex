@@ -149,3 +149,5 @@ is displayed in superscript after its label.
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage

@@ -91,9 +91,6 @@ const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
  * An input with a dropdown menu of predefined selectable items.
- *
- * Menu items are provided as an array of MenuItemData types, and `v-model` is used
- * to bind the current selection's value.
  */
 export default defineComponent( {
 	name: 'CdxSelect',

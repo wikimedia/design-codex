@@ -176,6 +176,18 @@ a definite value for the checkbox.
 </template>
 </cdx-demo-wrapper>
 
+## Vue usage
+
+Typical use of this component will involve using `v-for` to loop through an array of items and
+output a Checkbox component for each one. Each Checkbox will have the same `v-model` prop, but
+different `inputValue` props and label content.
+
+For a single checkbox, the `v-model` value will be a boolean `true` when the checkbox is checked
+and `false` when unchecked.
+
+For multiple checkboxes, the `v-model` value will be an array of the `inputValue` props of any
+currently checked checkboxes (or an empty array if no checkboxes are checked).
+
 ## CSS-only version
 
 ### Markup structure

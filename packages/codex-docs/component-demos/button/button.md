@@ -267,6 +267,8 @@ such as making icon-only buttons larger on touchscreens to increase the touch ar
 </template>
 </cdx-demo-wrapper>
 
+## Vue usage
+
 ## CSS-only version
 
 ### Markup structure

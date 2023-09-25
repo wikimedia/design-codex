@@ -286,7 +286,7 @@ module.exports = {
 </template>
 </cdx-demo-wrapper>
 
-## Usage
+## Less mixin usage
 
 ### Default usage
 

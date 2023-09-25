@@ -173,6 +173,11 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 </template>
 </cdx-demo-wrapper>
 
+## Vue usage
+
+Menu items are provided as an array of MenuItemData types, and `v-model` is used to bind the current
+selection's value.
+
 ## CSS-only version
 
 ### Markup structure

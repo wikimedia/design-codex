@@ -9,16 +9,6 @@ import ComboboxDisabled from '@/../component-demos/combobox/examples/ComboboxDis
 import ComboboxField from '@/../component-demos/combobox/examples/ComboboxField.vue';
 </script>
 
-::: tip TextInput props apply
-This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
-to this component and they will be passed to the TextInput within.
-:::
-
-::: tip Attributes passed to input
-This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
-element within the component.
-:::
-
 ## Demos
 
 ### Basic Usage
@@ -217,3 +207,15 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage
+
+::: tip TextInput props apply
+This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
+to this component and they will be passed to the TextInput within.
+:::
+
+::: tip Attributes passed to input
+This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
+element within the component.
+:::

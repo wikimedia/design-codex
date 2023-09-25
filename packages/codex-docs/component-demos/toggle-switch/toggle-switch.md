@@ -152,6 +152,13 @@ This demo shows what to do when using a ToggleSwitch group outside of a form:
 </template>
 </cdx-demo-wrapper>
 
+## Vue usage
+
+For a single toggle switch, the `v-model` value will be a boolean `true` when the switch is "on"
+and `false` when "off".<br>
+For multiple toggle switches, the `v-model` value will be an array of the `inputValue` props of
+any currently "on" switches (or an empty array if all switches are "off").
+
 ## CSS-only version
 
 ### Markup structure

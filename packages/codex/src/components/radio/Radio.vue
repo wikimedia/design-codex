@@ -44,12 +44,6 @@ import useFieldData from '../../composables/useFieldData';
 
 /**
  * A binary input, part of a single-select group.
- *
- * Typical use will involve using `v-for` to loop through an array of items and output a Radio
- * component for each one. Each Radio will have the same `v-model` binding and `name` prop, but
- * different `inputValue` props and label content.
- *
- * The `v-model` value is the `inputValue` of the Radio that is currently on.
  */
 export default defineComponent( {
 	name: 'CdxRadio',

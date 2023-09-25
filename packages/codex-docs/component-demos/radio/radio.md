@@ -135,6 +135,13 @@ Use the `inline` prop to get an inline layout.
 </template>
 </cdx-demo-wrapper>
 
+## Vue usage
+
+Typical use of this component will involve using `v-for` to loop through an array of items and
+output a Radio component for each one. Each Radio will have the same `v-model` binding and `name`
+prop, but different `inputValue` props and label content.<br>
+The `v-model` value is the `inputValue` of the Radio that is currently on.
+
 ## CSS-only version
 
 ### Markup structure
