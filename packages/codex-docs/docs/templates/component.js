@@ -9,15 +9,6 @@ module.exports = function component( renderedUsage, doc, config, componentRelati
 	const frontMatter = [ 'outline: [ 2, 3 ]' ];
 	const componentName = displayName.slice( 3 );
 
-	// Don't include a usage header if there are no properties, methods, events, or
-	// slots to document
-	const usageHeader = (
-		renderedUsage.props !== '' ||
-		renderedUsage.methods !== '' ||
-		renderedUsage.events !== '' ||
-		renderedUsage.slots !== ''
-	) ? '## Usage' : '';
-
 	// Include a warning if the component is still in development
 	const devWarning = componentRelativePath.includes( 'components-wip/' ) ?
 		`
@@ -60,8 +51,6 @@ ${since ? `**Since** ${since[ 0 ].description}` : ''}
 ${version ? `**Version** ${version[ 0 ].description}` : ''}
 
 ${vueDocs || ( docsBlocks ? docsBlocks.join( '\n---\n' ) : '' )}
-
-${usageHeader}
 
 ${renderedUsage.props.replace( '## Props', '### Props' )}
 ${renderedUsage.methods.replace( '## Methods', '### Methods' )}
