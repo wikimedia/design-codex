@@ -255,6 +255,24 @@ characters.
 </template>
 </cdx-demo-wrapper>
 
+## Vue usage
+
+This component can wrap the following:
+- A single form input or control
+- An input group (e.g. a group of Radios or Checkboxes)
+- A set of nested fields (inputs wrapped in their own Field components).
+
+The following Codex components can be used inside the Field component:
+- Checkbox
+- ChipInput
+- Combobox
+- Lookup
+- Radio
+- SearchInput
+- Select
+- TextArea
+- TextInput
+- ToggleSwitch
 
 ### CSS-only version
 

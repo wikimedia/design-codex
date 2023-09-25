@@ -202,3 +202,5 @@ The accordion heading can be changed to any heading level by passing the `headin
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage

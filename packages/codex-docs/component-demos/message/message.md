@@ -292,6 +292,14 @@ Only notice messages may have a custom icon.
 </template>
 </cdx-demo-wrapper>
 
+## Vue usage
+
+Message styles and icon will vary depending on the message type (notice, warning, error or success). Messages are block style by default, but can be displayed as inline messages via the `inline` prop.
+
+Block-style messages can be made dismissable in the following ways:
+- By using the `dismissButtonLabel` prop, which adds a dismiss button
+- By using the `autoDismiss` prop. This can be set to `true` to use the default display time of 4000 milliseconds (4 seconds), or the display time can be customized by setting `autoDismiss` to a number of milliseconds. Error messages cannot auto-dismiss: if the `type` prop is set to `error`, then the `autoDismiss` prop will be ignored.
+
 ## CSS-only version
 
 Note that some features of the Vue component require JavaScript and are therefore not supported in

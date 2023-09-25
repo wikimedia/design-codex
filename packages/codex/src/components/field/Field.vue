@@ -67,23 +67,6 @@ const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
  * Form field with a label, an input or control, and optional validation handling.
- *
- * This component can wrap the following:
- * - A single form input or control
- * - An input group (e.g. a group of Radios or Checkboxes)
- * - A set of nested fields (inputs wrapped in their own Field components).
- *
- * The following Codex components can be used inside the Field component:
- * - Checkbox
- * - ChipInput
- * - Combobox
- * - Lookup
- * - Radio
- * - SearchInput
- * - Select
- * - TextArea
- * - TextInput
- * - ToggleSwitch
  */
 export default defineComponent( {
 	name: 'CdxField',

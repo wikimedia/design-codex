@@ -38,38 +38,6 @@ const controlsConfig = [
 const wrappedDialogState = ref( false );
 </script>
 
-::: tip Attributes passed to inner element
-This component forwards any attributes applied by the user to the inner
-`.cdx-dialog` element, instead of applying them to the outermost backdrop
-element.
-:::
-
-::: tip Dialog and `<teleport>`
-Dialogs rely on Vue's built-in
-[`<teleport>`](https://vuejs.org/guide/built-ins/teleport.html) feature,
-and a "target" prop can be supplied which will be passed to the teleport's `to`
-prop. This prop is optional and defaults to the `<body>` element on the page
-(although if Dialog is being used with SSR, a dedicated target should be
-provided).
-
-An alternative default target can be set using Vue's
-[provide/inject](https://vuejs.org/guide/components/provide-inject.html)
-feature, with `provide( 'CdxTeleportTarget', '#my-teleport-target' )`.
-This provided target will be used if the "target" prop is not set.
-
-Finally, Dialog teleportation behavior can be disabled by setting
-`renderInPlace: true`.
-
-The examples on this page are all wrapped with Vitepress's built-in
-[`<client-only>` component](https://vitepress.dev/reference/runtime-api#clientonly),
-since the Codex documentation site (built with Vitepress) uses SSR. Other
-SSRed applications will need to do something similar (only rendering Dialog
-after the `mounted` hook has been fired, etc.).
-
-Use of the Dialog component in features which don't rely on SSR (which includes
-all MediaWiki usage for now) can dispense with this.
-:::
-
 ## Demos
 
 ### Configurable Dialog
@@ -274,3 +242,51 @@ Custom dialog content.
 }
 /* stylelint-enable selector-class-pattern */
 </style>
+
+## Vue usage
+
+The Dialog overtakes the user's entire viewport until it is dismissed,
+preventing mouse and keyboard interaction with other parts of the page
+while open. This is a significant interruption in the user experience,
+so this component should be used with care.
+
+The parent component controls whether the Dialog is open via `v-model:open`.
+
+A Dialog can offer two kinds of actions (represented by buttons of the
+appropriate type): primary action (can be progressive or destructive), and
+default action (typically a safe option like "cancel").
+
+When open, the Dialog adds a class to the document body to prevent scrolling;
+this is applied whether or not teleport is used.
+
+::: tip Attributes passed to inner element
+This component forwards any attributes applied by the user to the inner
+`.cdx-dialog` element, instead of applying them to the outermost backdrop
+element.
+:::
+
+::: tip Dialog and `<teleport>`
+Dialogs rely on Vue's built-in
+[`<teleport>`](https://vuejs.org/guide/built-ins/teleport.html) feature,
+and a "target" prop can be supplied which will be passed to the teleport's `to`
+prop. This prop is optional and defaults to the `<body>` element on the page
+(although if Dialog is being used with SSR, a dedicated target should be
+provided).
+
+An alternative default target can be set using Vue's
+[provide/inject](https://vuejs.org/guide/components/provide-inject.html)
+feature, with `provide( 'CdxTeleportTarget', '#my-teleport-target' )`.
+This provided target will be used if the "target" prop is not set.
+
+Finally, Dialog teleportation behavior can be disabled by setting
+`renderInPlace: true`.
+
+The examples on this page are all wrapped with Vitepress's built-in
+[`<client-only>` component](https://vitepress.dev/reference/runtime-api#clientonly),
+since the Codex documentation site (built with Vitepress) uses SSR. Other
+SSRed applications will need to do something similar (only rendering Dialog
+after the `mounted` hook has been fired, etc.).
+
+Use of the Dialog component in features which don't rely on SSR (which includes
+all MediaWiki usage for now) can dispense with this.
+:::

@@ -172,6 +172,8 @@ it is recommended to set the Icon `size` property to `small`.
 </template>
 </cdx-demo-wrapper>
 
+## Vue usage
+
 ## CSS-only version
 
 ### Markup structure

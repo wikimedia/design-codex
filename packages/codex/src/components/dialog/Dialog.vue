@@ -142,20 +142,6 @@ import { DialogAction, PrimaryDialogAction } from '../../types';
 
 /**
  * A modal element that presents relevant information or actions.
- *
- * The Dialog overtakes the user's entire viewport until it is dismissed,
- * preventing mouse and keyboard interaction with other parts of the page
- * while open. This is a significant interruption in the user experience,
- * so this component should be used with care.
- *
- * The parent component controls whether the Dialog is open via `v-model:open`.
- *
- * A Dialog can offer two kinds of actions (represented by buttons of the
- * appropriate type): primary action (can be progressive or destructive), and
- * default action (typically a safe option like "cancel").
- *
- * When open, the Dialog adds a class to the document body to prevent scrolling;
- * this is applied whether or not teleport is used.
  */
 export default defineComponent( {
 	name: 'CdxDialog',

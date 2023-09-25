@@ -30,11 +30,6 @@ const controlsConfig = [
 ];
 </script>
 
-::: tip Attributes passed to input
-This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
-element within the component.
-:::
-
 ## Demos
 
 ### Configurable
@@ -154,3 +149,10 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage
+
+::: tip Attributes passed to input
+This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
+element within the component.
+:::
