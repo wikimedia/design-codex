@@ -78,30 +78,6 @@ import useSplitAttributes from '../../composables/useSplitAttributes';
 
 /**
  * A contextual list of selectable options, often triggered by a control or an input.
- *
- * Designed for use in components, like Select and Lookup, that display a menu below another element
- * (for example, a text input). This component renders a list of items, manages which item is
- * selected, highlighted, and active, and handles keyboard navigation. It does not display the
- * selected item or manage an input; the parent component needs to do that.
- *
- * The `selected` and `expanded` props must be bound with `v-model`, even if the parent component
- * doesn't use them. Without these `v-model` bindings, the menu won't function correctly.
- *
- * The menu itself is not focusable; for keyboard navigation to work, the parent component
- * needs to provide a focusable element, listen for `keydown` events on that element, and pass
- * those events to the menu by calling the `delegateKeyNavigation` method.
- *
- * For accessibility support, the parent component must set the following attributes on the
- * focusable element:
- * - `role="combobox"`
- * - `aria-controls`, set to the ID of the menu
- * - `aria-expanded`, set to `"true"` when the menu is expanded and to `"false"` when it's closed
- *   (the useGeneratedId composable can be used to assign an ID to the menu)
- * - `aria-activedescendant`, set to the ID of the highlighted menu item (use the `.id` property of
- *   the object returned by the getHighlightedMenuItem method)
- * - If the menu's items change in response to the user typing in a text input, `aria-autocomplete`
- *   should be set to the appropriate value. See [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete)
- *   for documentation on which value to set for this attribute.
  */
 export default defineComponent( {
 	name: 'CdxMenu',

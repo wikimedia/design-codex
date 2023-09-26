@@ -8,16 +8,6 @@ import LookupWithPlaceholder from '@/../component-demos/lookup/examples/LookupWi
 import LookupField from '@/../component-demos/lookup/examples/LookupField.vue';
 </script>
 
-::: tip TextInput props apply
-This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
-to this component and they will be passed to the TextInput within.
-:::
-
-::: tip Attributes passed to input
-This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
-element within the component.
-:::
-
 ## Demos
 
 ### Default
@@ -40,7 +30,7 @@ given input, set the `menu-items` prop to an empty array (`[]`).
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-<lookup-default />
+	<lookup-default />
 </template>
 <template v-slot:code>
 
@@ -61,7 +51,7 @@ The `menu-item` slot can be used to set up custom menu item content and formatti
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<lookup-with-custom-menu-item />
+	<lookup-with-custom-menu-item />
 </template>
 <template v-slot:code>
 
@@ -83,7 +73,7 @@ this slot will automatically display when there are zero menu items.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<lookup-no-results />
+	<lookup-no-results />
 </template>
 <template v-slot:code>
 
@@ -113,7 +103,7 @@ list of menu items provided to the Lookup. These new items will then be displaye
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<lookup-with-fetch />
+	<lookup-with-fetch />
 </template>
 <template v-slot:code>
 
@@ -135,7 +125,7 @@ component inside of it, so you can take advantage of features like the "clear" b
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<lookup-clearable-start-icon />
+	<lookup-clearable-start-icon />
 </template>
 <template v-slot:code>
 
@@ -157,7 +147,7 @@ Attributes (except for `class`) will fall through to the input element, so you c
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<lookup-with-placeholder />
+	<lookup-with-placeholder />
 </template>
 <template v-slot:code>
 
@@ -193,6 +183,21 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage
+
+Typical use of this component will involve listening for `input` events, fetching or otherwise
+computing menu items, then passing those menu items back to the Lookup for display.
+
+::: tip TextInput props apply
+This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
+to this component and they will be passed to the TextInput within.
+:::
+
+::: tip Attributes passed to input
+This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
+element within the component.
+:::
 
 ## CSS-only version
 

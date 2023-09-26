@@ -61,6 +61,8 @@ If no `size` property is provided, the `medium` size will be used by default.
 Most components should use Icons in `small` or `medium` size.
 :::
 
+## Vue usage
+
 ## CSS-only version
 
 You can use icons in a no-JavaScript context via a the CSS icon Less mixin provided by the Codex

@@ -106,16 +106,6 @@ import { MenuState, Thumbnail, MenuItemLanguageData } from '../../types';
 
 /**
  * A selectable option included within a Menu.
- *
- * A value must be provided, and various optional elements can be displayed:
- * - A human-readable label
- * - A description
- * - A thumbnail or icon
- *
- * Alternately, the entire content and layout of the menu item can be customized via the default
- * slot.
- *
- * For search results, the search query can be visually differentiated within the result title.
  */
 export default defineComponent( {
 	name: 'CdxMenuItem',

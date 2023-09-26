@@ -99,7 +99,7 @@ to set these states should be used.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItemDefault />
+	<MenuItemDefault />
 </template>
 <template v-slot:code>
 
@@ -118,7 +118,7 @@ to set these states should be used.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItemWithDescription />
+	<MenuItemWithDescription />
 </template>
 <template v-slot:code>
 
@@ -139,7 +139,7 @@ If a `url` property is included, the menu item will be wrapped in an anchor tag.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItemWithUrl />
+	<MenuItemWithUrl />
 </template>
 <template v-slot:code>
 
@@ -158,7 +158,7 @@ If a `url` property is included, the menu item will be wrapped in an anchor tag.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItemWithIcon />
+	<MenuItemWithIcon />
 </template>
 <template v-slot:code>
 
@@ -177,7 +177,7 @@ If a `url` property is included, the menu item will be wrapped in an anchor tag.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItemWithThumbnail />
+	<MenuItemWithThumbnail />
 </template>
 <template v-slot:code>
 
@@ -203,7 +203,7 @@ In the example below, the search query is "Co".
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItemHighlightQuery />
+	<MenuItemHighlightQuery />
 </template>
 <template v-slot:code>
 
@@ -227,7 +227,7 @@ margarita," an alias of the Wikidata item "sand cat."
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItemWithMatch />
+	<MenuItemWithMatch />
 </template>
 <template v-slot:code>
 
@@ -252,7 +252,7 @@ The example below shows a result for the search term "Corn," which redirects to 
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItemWithSupportingText />
+	<MenuItemWithSupportingText />
 </template>
 <template v-slot:code>
 
@@ -278,7 +278,7 @@ The example below demonstrates a search result in a Greek interface for the Engl
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItemMultipleLangs />
+	<MenuItemMultipleLangs />
 </template>
 <template v-slot:code>
 
@@ -297,7 +297,7 @@ The example below demonstrates a search result in a Greek interface for the Engl
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItemLongText />
+	<MenuItemLongText />
 </template>
 <template v-slot:code>
 
@@ -316,7 +316,7 @@ The example below demonstrates a search result in a Greek interface for the Engl
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItemHideOverflow />
+	<MenuItemHideOverflow />
 </template>
 <template v-slot:code>
 
@@ -335,7 +335,7 @@ The example below demonstrates a search result in a Greek interface for the Engl
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItems />
+	<MenuItems />
 </template>
 <template v-slot:code>
 
@@ -354,7 +354,7 @@ The example below demonstrates a search result in a Greek interface for the Engl
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<MenuItemsGraphemes />
+	<MenuItemsGraphemes />
 </template>
 <template v-slot:code>
 
@@ -368,6 +368,18 @@ The example below demonstrates a search result in a Greek interface for the Engl
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage
+
+A value must be provided, and various optional elements can be displayed:
+- A human-readable label
+- A description
+- A thumbnail or icon
+
+Alternately, the entire content and layout of the menu item can be customized via the default
+slot.
+
+For search results, the search query can be visually differentiated within the result title.
 
 <style lang="less" scoped>
 // Menus in this demo aren't absolutely positioned relative to something else.

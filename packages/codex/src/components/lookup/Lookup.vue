@@ -81,9 +81,6 @@ const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
  * A predictive text input with a dropdown menu of items.
- *
- * Typical use will involve listening for `input` events, fetching or otherwise computing menu
- * items, then passing those menu items back to the Lookup for display.
  */
 export default defineComponent( {
 	name: 'CdxLookup',

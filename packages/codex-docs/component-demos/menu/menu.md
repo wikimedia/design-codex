@@ -8,19 +8,13 @@ import InputWithMenuPending from '@/../component-demos/menu/examples/InputWithMe
 import InputWithMenuPendingWithItems from '@/../component-demos/menu/examples/InputWithMenuPendingWithItems.vue'
 </script>
 
-::: warning
-This is not a standalone component. It's intended for use inside other components, mainly within
-Codex. For example, the [Select](./select) and [Lookup](./lookup) components use this component
-internally.
-:::
-
 ## Demos
 
 ### Simple menu with input
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-<input-with-menu />
+    <input-with-menu />
 </template>
 <template v-slot:code>
 
@@ -39,7 +33,7 @@ internally.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<input-with-menu-custom-item-display />
+    <input-with-menu-custom-item-display />
 </template>
 <template v-slot:code>
 
@@ -64,7 +58,7 @@ See the [TypeaheadSearch](./typeahead-search) demos for a real-world example.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<input-with-menu-footer />
+    <input-with-menu-footer />
 </template>
 <template v-slot:code>
 
@@ -92,7 +86,7 @@ This demo includes a footer item, which is "sticky" to the bottom of the menu.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<input-with-menu-scroll />
+    <input-with-menu-scroll />
 </template>
 <template v-slot:code>
 
@@ -114,7 +108,7 @@ are zero menu items.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<input-with-menu-no-results />
+    <input-with-menu-no-results />
 </template>
 <template v-slot:code>
 
@@ -141,7 +135,7 @@ message will display.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<input-with-menu-pending />
+    <input-with-menu-pending />
 </template>
 <template v-slot:code>
 
@@ -160,7 +154,7 @@ When there are menu items, only the inline progress bar will display.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<input-with-menu-pending-with-items />
+    <input-with-menu-pending-with-items />
 </template>
 <template v-slot:code>
 
@@ -174,3 +168,35 @@ When there are menu items, only the inline progress bar will display.
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage
+
+::: warning
+This is not a standalone component. It's intended for use inside other components, mainly within
+Codex. For example, the [Select](./select) and [Lookup](./lookup) components use this
+component internally.
+:::
+
+Designed for use in components, like Select and Lookup, that display a menu below another element
+(for example, a text input). This component renders a list of items, manages which item is
+selected, highlighted, and active, and handles keyboard navigation. It does not display the
+selected item or manage an input; the parent component needs to do that.
+
+The `selected` and `expanded` props must be bound with `v-model`, even if the parent component
+doesn't use them. Without these `v-model` bindings, the menu won't function correctly.
+
+The menu itself is not focusable; for keyboard navigation to work, the parent component
+needs to provide a focusable element, listen for `keydown` events on that element, and pass
+those events to the menu by calling the `delegateKeyNavigation` method.
+
+For accessibility support, the parent component must set the following attributes on the
+focusable element:
+- `role="combobox"`
+- `aria-controls`, set to the ID of the menu
+- `aria-expanded`, set to `"true"` when the menu is expanded and to `"false"` when it's closed
+  (the useGeneratedId composable can be used to assign an ID to the menu)
+- `aria-activedescendant`, set to the ID of the highlighted menu item (use the `.id` property of
+  the object returned by the getHighlightedMenuItem method)
+- If the menu's items change in response to the user typing in a text input, `aria-autocomplete`
+  should be set to the appropriate value. See [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete)
+  for documentation on which value to set for this attribute.

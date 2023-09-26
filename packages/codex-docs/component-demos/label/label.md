@@ -177,7 +177,9 @@ Below are examples of a label and a legend with an associated description.
 </template>
 </cdx-demo-wrapper>
 
-### CSS-only version
+## Vue usage
+
+## CSS-only version
 
 ### Markup structure
 

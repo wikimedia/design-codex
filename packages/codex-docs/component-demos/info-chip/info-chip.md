@@ -28,9 +28,9 @@ const controlsConfig = [
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 
 <template v-slot:demo="{ propValues, slotValues }" :show-generated-code="true">
-<cdx-info-chip v-bind="propValues">
-	{{ slotValues.default }}
-</cdx-info-chip>
+	<cdx-info-chip v-bind="propValues">
+		{{ slotValues.default }}
+	</cdx-info-chip>
 </template>
 
 </cdx-demo-wrapper>
@@ -40,7 +40,7 @@ Custom icons can only be used with the `notice` status. If they are passed with 
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<chip-with-icon />
+	<chip-with-icon />
 </template>
 
 <template v-slot:code>
@@ -61,6 +61,8 @@ It is generally best practice to use short text with the InfoChip. Long text con
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<chip-with-long-text />
+	<chip-with-long-text />
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage

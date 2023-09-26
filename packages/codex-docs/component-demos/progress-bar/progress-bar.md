@@ -25,7 +25,7 @@ const controlsConfig = [
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues }">
-<cdx-docs-configurable-generic v-bind="propValues" />
+	<cdx-docs-configurable-generic v-bind="propValues" />
 </template>
 </cdx-demo-wrapper>
 
@@ -41,7 +41,7 @@ The attribute `aria-label` has to be used on progress bars to be understandable 
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<cdx-progress-bar aria-label="Indeterminate progress bar" />
+	<cdx-progress-bar aria-label="Indeterminate progress bar" />
 </template>
 
 <template v-slot:code>
@@ -60,7 +60,7 @@ sample usage.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<cdx-progress-bar :inline="true" aria-label="ProgressBar example" />
+	<cdx-progress-bar :inline="true" aria-label="ProgressBar example" />
 </template>
 
 <template v-slot:code>
@@ -71,6 +71,8 @@ sample usage.
 
 </template>
 </cdx-demo-wrapper>
+
+## Vue usage
 
 ## CSS-only version
 
