@@ -1,3 +1,35 @@
+# 0.20.0 / 2023-09-26
+
+## Features
+- Combobox, Lookup, Select: Use FloatingUI (Anne Tomasevich)
+
+## Styles
+- Add cdx-no-invert class to thumbnails (Ed Sanders)
+- Checkbox: Add error-active state (lwatson)
+- TextArea: Update CSS display property (lwatson)
+- icons: Remove unnecessary `standalone` SVG attribute (Volker E)
+
+## Code
+- More consistently use async/await with nextTick() (Roan Kattouw)
+- ChipInput: Add input text as chip when focus leaves component, not input (Roan Kattouw)
+- ToggleSwitch, docs: Remove leftover classes from label content (Volker E)
+- build: Update versions of packages (Roan Kattouw)
+- build: Update 'stylelint-config-wikimedia' and 'stylelint' plugins (Volker E)
+- build: Update 'eslint-config-wikimedia' and remove 'eslint' (Volker E)
+- build: Disable security/detect-non-literal-fs-filename (Eric Gardner)
+- build: Prefer CJS build to UMD for most usage (Eric Gardner)
+- build: Generate Codex bundles for every component (Eric Gardner)
+- build: Configure eslint to lint .mjs files properly (Roan Kattouw)
+- build: Remove codex-search workspace (lwatson)
+- build: Make the build config the primary tsconfig.json file (Roan Kattouw)
+
+## Documentation
+- docs: Style tweaks to character counter example for Field component (Eric Gardner)
+- docs: Update token table style and add caption (Volker E)
+- docs: Fix designing icons Phabricator template link (Volker E)
+- docs: Limit headings in page nav to level 2 and 3 in components (Volker E)
+- docs: Add ADR 07: Floating UI (Eric Gardner)
+
 # 0.19.0 / 2023-09-12
 
 ## Features
