@@ -71,7 +71,7 @@ export default function useResizeObserver(
 		}
 		observer.disconnect();
 
-		// Reset the currentWidth value and observe the new element
+		// Reset the current width and height value and observe the new element
 		currentDimensions.value = {
 			width: undefined,
 			height: undefined

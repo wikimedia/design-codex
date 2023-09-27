@@ -6,7 +6,7 @@ import { ref, onMounted, Ref } from 'vue';
  * detects that and returns 'ar'.
  *
  * The value returned by this composable will initially be null, and will then
- * update to the detected directoin later, when the component mounts. This is
+ * update to the detected language later, when the component mounts. This is
  * because detecting the language is not possible until the component has been
  * mounted. Code using this composable should anticipate this, and check whether
  * the value is null.

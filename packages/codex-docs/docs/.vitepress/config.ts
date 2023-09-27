@@ -267,7 +267,12 @@ export default defineConfigWithTheme<CustomConfig>( {
 				{
 					text: '',
 					items: [
-						{ text: 'useModelWrapper', link: '/composables/demos/use-model-wrapper' }
+						{ text: 'useComputedDirection', link: '/composables/demos/use-computed-direction' },
+						{ text: 'useComputedLanguage', link: '/composables/demos/use-computed-language' },
+						{ text: 'useFloatingMenu', link: '/composables/demos/use-floating-menu' },
+						{ text: 'useIntersectionObserver', link: '/composables/demos/use-intersection-observer' },
+						{ text: 'useModelWrapper', link: '/composables/demos/use-model-wrapper' },
+						{ text: 'useResizeObserver', link: '/composables/demos/use-resize-observer' }
 					]
 				}
 			]
