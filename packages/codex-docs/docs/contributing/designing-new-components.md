@@ -159,9 +159,9 @@ This section will document the different configurations of the component (its pr
 
 ![Select component properties example](../assets/designing-new-components/design-component-component-properties.png)
 
-#### States
+#### Interaction states
 
-The *States* section is one of the most relevant parts of a component’s specifications. It should document the visual properties that a given component presents in each one of its possible interaction states. The states of all the individual component variants (if present) should be showcased here too.
+The *Interaction states* section is one of the most relevant parts of a component’s specifications. It should document the visual properties that a given component presents in each one of its possible interaction states. The states of all the individual component variants (if present) should be showcased here too.
 
 ![Select component states design example](../assets/designing-new-components/design-component-states.png)
 
