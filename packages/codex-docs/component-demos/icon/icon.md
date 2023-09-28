@@ -3,8 +3,53 @@ import SimpleIcon from '@/../component-demos/icon/examples/SimpleIcon.vue';
 import IconSizes from '@/../component-demos/icon/examples/IconSizes.vue';
 </script>
 
-See the [Icons section](../../icons/overview.md) for more information, including a
-[list of all available icons](../../icons/all-icons.md).
+An Icon is a graphical representation of an idea. Icons are used to give the
+user additional context to aid in understanding the interface. This component
+can be used inside other components, like buttons.
+
+## Guidelines
+
+### Using icons
+Codex contains a [list of icons](/icons/all-icons.md).
+Read more about how to [use and create Codex icons](/style-guide/icons.html).
+
+![Example of different Codex Icons.](../../assets/components/icon-using.svg)
+
+### Specifications
+
+#### Size
+
+![Icon in available sizes: 20px, 16px, and 12px.](../../assets/components/icon-using.svg)
+
+Icon size can be 20px, 16px or 12px. Icon base size will be 20px, while 16px
+will be used for small icons. We will use 12px just for a limited set of
+specific use cases.
+
+- **20 px icons** should be used by default size, including in elements with a min-height of 32px (like the start icon within the TextInput).
+- **16 px icons** should be in elements with a height less than 32px (like the start icon within the InfoChip) or for controls in elements with a min-height of 32px (like the dropdown arrow’s icon in the Select).
+- **12 px icons** will only be used for a small set of specific cases, like the external-link icon, or for controls in elements with a height less than 32px (like the remove buttons for chips in the ChipInput).
+
+#### Color
+
+<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
+
+![Example of base-color icons being used within a Menu.](../../assets/components/icon-specfications-color-base.svg)
+</div>
+<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
+
+![Example of icons with colors being used within a Button.](../../assets/components/icon-specfications-color-custom.svg)
+</div>
+
+Icons will always use Gray700 if used individually, and not as part of another component.
+
+Icons used within other components inherit the color of the accompanying label.
+
+Refer to the [Icon component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=8381-79819&mode=design&t=2O0ceqiRfqCtnidq-11).
+
+### Interaction states
+Icons serve as both informative and decorative elements, so they do not
+inherently exhibit states on their own. Instead, an icon will adopt the state of
+the text or component it is placed within.
 
 ## Demos
 

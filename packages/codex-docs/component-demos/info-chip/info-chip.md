@@ -21,6 +21,58 @@ const controlsConfig = [
 ];
 </script>
 
+An InfoChip is a non-interactive item that provides information.
+
+## Guidelines
+
+### Using info chips
+Use the InfoChip component to label, categorize, or organize information using keywords. It can be also used to provide success, warning or error feedback to the user.
+
+![Example of a Codex InfoChip.](../../assets/components/info-chip-using.svg)
+
+This type of chip is just informative so it cannot be clickable or removable.
+
+### Specifications
+![Specification of InfoChip.](../../assets/components/info-chip-specifications.svg)
+
+Info chips may contain the following items:
+1. **Icon** (optional)<br>You can include a starting icon to visually convey the label. For notice chips, this icon is optional, while for chips providing feedback (error, warning, and success chips), the icon is required to communicate the feedback status effectively.
+2. **Label**<br>Descriptive text about the chip.
+
+#### Width
+By default, the InfoChip's width dynamically adjusts based on the length of the text. However, for consistency when grouping similar chips, the width of these chips can also be set to a fixed value, if required.
+
+<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
+
+![Chips with long text whose length grows with the chip's text.](../../assets/components/info-chip-specifications-fixed-width.svg)
+</div>
+<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
+
+![Example of chips with short text and fixed width.](../../assets/components/info-chip-specifications-length.svg)
+</div>
+<br>&nbsp;<br>
+
+### Types
+
+![Types of chip based on its feedback status: notice, success, warning and error.](../../assets/components/info-chip-types.svg)
+
+InfoChip works as an informative element, with its default type being "notice." In addition to this, the chip can offer user feedback by including icons and colors associated with success, warning, or error statuses.
+
+#### Notice chip
+As the notice chip solely conveys information without offering user feedback, its icon serves to emphasize the chip's label in a decorative manner. Any icon can be used, or it can be omitted as needed.
+
+![Example of notice chips with and without start icons.](../../assets/components/info-chip-types-notice.svg)
+
+#### Success, Warning and Error chips
+Conversely, in chips that offer user feedback (success, warning, and error chips), both the icon and its associated feedback color are essential for conveying meaning and feedback effectively to users. Therefore, these icons cannot be replaced or removed.
+
+![Example of a success, warning, and error chip.](../../assets/components/info-chip-types-feedback.svg)
+
+Refer to the [InfoChip component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=8952-74698&mode=design&t=2O0ceqiRfqCtnidq-11).
+
+### Interaction states
+InfoChip is purely informative so it only uses the `default` state.
+
 ## Demos
 
 ### Configurable
@@ -36,7 +88,8 @@ const controlsConfig = [
 </cdx-demo-wrapper>
 
 #### Default, with icon
-Custom icons can only be used with the `notice` status. If they are passed with a different status, they will be ignored.
+Custom icons can only be used with the `notice` status. If they are passed with
+a different status, they will be ignored.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -57,7 +110,8 @@ Custom icons can only be used with the `notice` status. If they are passed with 
 </cdx-demo-wrapper>
 
 #### Long Text
-It is generally best practice to use short text with the InfoChip. Long text content will be truncated with an ellipsis and lines will not be wrapped.
+It is generally best practice to use short text with the InfoChip. Long text
+content will be truncated with an ellipsis and lines will not be wrapped.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

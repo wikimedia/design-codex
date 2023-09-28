@@ -32,7 +32,7 @@ const iconMap: Partial<StatusIconMap> = {
 };
 
 /**
- * A non-interactive chip that provides information.
+ * A non-interactive item that provides information.
  */
 export default defineComponent( {
 	name: 'CdxInfoChip',

@@ -40,7 +40,7 @@ import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 const iconSizeValidator = makeStringTypeValidator( IconSizes );
 
 /**
- * A graphical representation of an idea.
+ * A container for static SVG icon content.
  */
 export default defineComponent( {
 	name: 'CdxIcon',

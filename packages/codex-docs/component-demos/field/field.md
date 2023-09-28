@@ -58,6 +58,94 @@ const messages = {
 }
 </script>
 
+A form field with a label, an input or control, and an optional validation message.
+
+## Guidelines
+
+### Using fields
+Field provides features for building an accessible, understandable form field to
+collect user input.
+
+![Example of a Codex Field with different field items: with a text input, with a select, and with a checkbox group.](../../assets/components/field-using.svg)
+
+Use the Field component to create form layouts and to create a variety of form
+inputs, such as text inputs, selects, radio buttons, checkboxes or toggle
+switches.
+
+If you do not need to collect user input, do not use Field. For example, Field
+is not necessary to display a search input. Although search is built with a text
+input component, it triggers an action and is not a form item.
+
+### Specifications
+
+![Specification of Field.](../../assets/components/field-specifications.svg)
+
+It is composed of the following elements:
+1. **Label**<br>A label serves as a precise and informative title for the form field, indicating the
+type of information to be entered. It can also incorporate a description. Explore [Label](./label.md) to check the different label properties.
+2. **Field**<br>The input element, or a group of inputs,  where the user enters information. Field
+can use any form item such as text input, select, checkbox, etc.
+3. **Helper text** (optional)<br>Text that provides additional information related to the field.
+4. **Validation message**<br>An inline validation message will appear to provide feedback about the
+status of the field. For example, to provide an error message to the user when the field contains
+one or more errors.
+
+Refer to the [Field component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=10193-109478&mode=design&t=2O0ceqiRfqCtnidq-11).
+
+### Types
+The Field component's control can be any form item component designed to gather user input, including:
+- Text input and text area
+- Select
+- Combobox
+- Checkbox, radio groups, and toggle switch
+- Chip input
+- Lookup
+
+However, components not intended for collecting user input, such as SearchInput,
+should not be used within Field.
+
+![Types of Fields based on its field content: with a text
+input, with a select, with a combobox, with a checkbox group, with a radio group, and with a
+toggle switch group.](../../assets/components/field-types-field.svg)
+
+A complex field may comprise multiple inputs, each accompanied by an individual label that can be
+visually concealed.
+
+![A Field component with two field items and an action affecting it all.](../../assets/components/field-types-action.svg)
+
+The helper text slot can include plain text with or without links.
+
+![A Field component with a helper text including a link.](../../assets/components/field-types-helper.svg)
+
+When combining the Field component with TextArea, you can use a custom character counter within the
+helper text section. For non-TextArea items like TextInput, character counters are not used, as they
+are not relevant for shorter inputs.
+
+The character counter counts down as the user types, turning into an error state when the character
+limit is exceeded. It displays the number of exceeded characters as negative numbers along with an
+inline error message, informing the user that the entered message or text is too long.
+
+![Example of a Field with a text area and characters counter.](../../assets/components/field-types-character-counter.svg)
+
+### Interaction states
+Form fields have the following visually separate states:
+
+![Interaction states of the Field component: default, hover on field, focus field, filled field, disabled, read-only field, error, warning and success.](../../assets/components/field-interaction-states.svg)
+
+1. Default
+2. Hover on field item
+3. Focused field item
+4. Filled field item
+5. Disabled
+6. Read-only
+7. Error
+8. Warning
+9. Success
+
+The interactive states will exclusively impact the field item within Field.
+Hover, focus, filled, and read-only states apply solely to the field item (e.g.
+the text input).
+
 ## Demos
 
 ### Configurable
@@ -113,8 +201,11 @@ are recommended as description and help text should be concise.
 
 ### With validation and error state
 
-You can display a validation message based on the current status of the field. Set the `status` prop
-based on the field's validity, then pass in an object of `messages` keyed on [validation status type](../types-and-constants.md#validationstatustype). If there is a message for the current status, it will be displayed.
+You can display a validation message based on the current status of the field.
+Set the `status` prop based on the field's validity, then pass in an object of
+`messages` keyed on [validation status
+type](../types-and-constants.md#validationstatustype).  If there is a message
+for the current status, it will be displayed.
 
 The `status` you bind to the Field component will also be passed down to its child components, which
 will display appropriate styles for that status (e.g. a red border in the error state). You do not

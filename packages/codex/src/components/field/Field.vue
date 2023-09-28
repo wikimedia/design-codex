@@ -66,7 +66,7 @@ import useComputedDisabled from '../../composables/useComputedDisabled';
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
- * Form field with a label, an input or control, and optional validation handling.
+ * Form field with a label, an input or control, and an optional validation message.
  */
 export default defineComponent( {
 	name: 'CdxField',
