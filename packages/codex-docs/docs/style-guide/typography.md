@@ -327,6 +327,7 @@ Color hints are guidance for general use case in a light mode theme.
 	</div>
 </div>
 
+**Code**<br>
 <style>
 /* stylelint-disable declaration-property-unit-disallowed-list, scale-unlimited/declaration-strict-value */
 </style>
@@ -339,7 +340,7 @@ Color hints are guidance for general use case in a light mode theme.
  * `Liberation Mono` – Fedora, Ubuntu, … OFL licensed
  * `'Courier New', monospace` – (Generic) web font fallback
  */
-font-family: 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+font-family: 'Menlo', 'Consolas', 'Liberation Mono', 'Fira Code', 'Courier New', monospace;
 font-size: 14px; /* 14 sp equivalent */
 ```
 <style>
