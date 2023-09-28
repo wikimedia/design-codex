@@ -8,13 +8,17 @@ Accepted
 
 ## Context
 
-*See https://phabricator.wikimedia.org/T346099 for the current status of this work.*
-
 Codex needs a comprehensive solution for handling the positioning and behavior
 of various floating elements – drop-down menus, tooltips, dialogs, etc. We need
 to ensure that these elements demonstrate the correct behavior in a variety of
-circumstances (inside multiple scrolling parents, inside dialogs, in RTL
-contexts, etc).
+circumstances:
+- inside multiple scrolling parents,
+- inside dialogs,
+- in right-to-left (RTL) contexts,
+- etc.
+
+*See [Phabricator task T346099](https://phabricator.wikimedia.org/T346099) for the current status of
+this work.*
 
 ## Considered actions
 
@@ -62,10 +66,10 @@ Adding a new runtime dependency to Codex is not something we do lightly.
 
 DST engineers conducted a preliminary security review of Floating UI (see
 [here](https://phabricator.wikimedia.org/T346097) for details). We will follow
-up with a more formal discussion with the WMF security team to discuss ensuring
+up with a more formal discussion with the Wikimedia Foundation's security team to ensure
 that Codex follows appropriate security practices for a library of its type.
 
-[This task](https://phabricator.wikimedia.org/T346099) describes the inital work
+[This task](https://phabricator.wikimedia.org/T346099) describes the initial work
 that has been done to incorporate Floating UI into Codex.
 
 Regarding RTL behavior, our [initial investigations](https://phabricator.wikimedia.org/T346100)
