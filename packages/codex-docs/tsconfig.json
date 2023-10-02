@@ -27,7 +27,9 @@
 		".jest/*.js",
 		"./docs/.vitepress/**/*.js",
 		"./docs/.vitepress/**/*.ts",
-		"./docs/.vitepress/**/*.vue"
+		"./docs/.vitepress/**/*.vue",
+		".svglintrc.js",
+		".svgo.config.js"
 	],
 	"exclude": [
 		"coverage/**/*",
