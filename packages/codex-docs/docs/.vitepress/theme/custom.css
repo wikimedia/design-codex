@@ -474,4 +474,12 @@ body {
 	margin: 0;
 }
 
+/* Set subtle background color on component demo and mixins image assets.
+   This is scoped pretty narrowly because we don't want to accidentally
+   apply a background color to any visual elements used for styling or
+   branding purposes in the future. */
+.vp-doc[ class*='_components' ] img {
+	background-color: var( --background-color-interactive-subtle );
+}
+
 /* stylelint-enable selector-class-pattern */
