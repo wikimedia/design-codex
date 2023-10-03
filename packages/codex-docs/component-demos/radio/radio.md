@@ -6,6 +6,67 @@ import RadiosWithDescriptions from '@/../component-demos/radio/examples/RadiosWi
 import RadioGroupField from '@/../component-demos/radio/examples/RadioGroupField.vue';
 </script>
 
+A Radio is a binary input that is usually combined in a group of two or more
+options. They signal a pattern where users can only select one of the available
+options. Radios are also known as “radio buttons”.
+
+## Guidelines
+
+### Using radios
+
+Radios must feature a descriptive label. They must be part of a radio group of at least two
+elements. A radio may also have sub-components or child radio groups.
+
+Use the Radio component to make a single selection from a list of options where only one choice is
+allowed. When multiple selections are needed, use [Checkbox](./checkbox.md) instead.
+
+![Example of a group with two Codex Radios.](../../assets/components/radio-using.svg)
+
+### Specifications
+
+![Specification of Radio.](../../assets/components/radio-specifications.svg)
+
+1. **Radio**<br>
+Radio buttons make the selection visually distinct.
+2. **Label**<br>
+The label text size should match the base font size to ensure consistency withthe body text. It can
+also include links and bold text. Labels should be as short as possible, and include text that
+clearly states which selection is being made.
+
+Refer to the
+[Radio component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2549-67656&mode=design&t=7wyBmhfdJTJevQmT-11).
+
+### Interaction states
+
+Radio buttons’ states were designed using  accessible color variations. In addition to the 'disc'
+icon, these make it easier to differentiate between the radio button’s selected and unselected modes
+(e.g. disabled, hover, active):
+
+![States of the Radio component for both unselected and selected states: default, hover, active, focus, and disabled.](../../assets/components/radio-interaction-states.svg)
+
+1. Default unselected
+2. Hover unselected
+3. Active unselected
+4. Focus unselected
+5. Disabled unselected
+6. Default selected
+7. Hover selected
+8. Active selected
+9. Focus selected
+10. Disabled selected
+
+::: tip Accessibility note
+The disabled state does not meet our minimum color contrast rules. WCAG 2.1
+states that “…part[s] of an inactive user interface component […] have no contrast
+requirement”.<sup>[[1]](#ref1)</sup><br>
+Provide sufficient information in a disabled element's context, so the user can understand what is
+disabled and how to enable it (if applicable).
+:::
+
+## References
+
+1. <span id="ref1">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>
+
 ## Demos
 
 Open up the browser console to see events emitted on input.

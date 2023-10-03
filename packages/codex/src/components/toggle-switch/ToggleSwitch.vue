@@ -54,10 +54,7 @@ import useSplitAttributes from '../../composables/useSplitAttributes';
 import useFieldData from '../../composables/useFieldData';
 
 /**
- * A sliding boolean input used to enable or disable options.
- *
- * ToggleSwitch is similar to Checkbox, but meant for circumstances where the
- * target can be "on" or "off" rather than "checked" or "unchecked."
+ * A switch that allows the user to toggle between on and off states.
  */
 export default defineComponent( {
 	name: 'CdxToggleSwitch',

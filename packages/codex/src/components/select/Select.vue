@@ -90,7 +90,7 @@ import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
- * An input with a dropdown menu of predefined selectable items.
+ * An input with a dropdown menu of predefined, selectable items.
  */
 export default defineComponent( {
 	name: 'CdxSelect',

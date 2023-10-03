@@ -47,9 +47,9 @@ import { ValidationStatusTypes } from '../../constants';
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
- * A binary input that can be standalone or in a multiselect group.
+ * A binary input that can appear by itself or in a multiselect group.
  *
- * When in a group, any number of checkboxes can be checked at a time.
+ * Checkboxes can be selected, unselected or in an indeterminate state.
  *
  */
 export default defineComponent( {

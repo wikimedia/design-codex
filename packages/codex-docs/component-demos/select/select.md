@@ -29,6 +29,67 @@ const controlsConfig = [
 ];
 </script>
 
+A Select is an input with a dropdown [menu](./menu.md) of predefined, selectable items.
+
+## Guidelines
+
+### Using selects
+
+Selects must feature a label stating the current selection and a menu of at least two, but
+preferably three or more, options.
+
+Use the Select component when users need to choose an option from a predefined
+list. For example, to select a country or category. If the list of options is
+too long, consider using [Combobox](./combobox.md) instead. If users need a
+multi-selection, use a [Checkbox group](./checkbox.md#checkbox-group) instead.
+
+![Example of a Codex Select with the menu displayed.](../../assets/components/select-using.svg)
+
+### Specifications
+
+![Specification of Select.](../../assets/components/select-specifications.svg)
+
+1. **Icon** (optional)<br>
+An icon can simplify the identification of the available options in selects.
+2. **Label**<br>
+Dropdown labels communicate what selections the component conveys. Labels are required for selects.
+3. **Arrow indicator**<br>
+Selects have a button-like appearance, and include a mandatory arrow indicator to communicate that
+they can be expanded.
+4. **Menu**<br>
+When the select is open, a [menu with options](./menu.md) is displayed.
+
+Refer to the [Select component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2319-6630&mode=design&t=7wyBmhfdJTJevQmT-11).
+
+### Interaction states
+
+Selects have the following visually separate states:
+
+![States of the Select component: default, hover, focus, error, disabled, active, and filled with one option selected from the dropdown menu.](../../assets/components/select-interaction-states.svg)
+
+1. Default
+2. Hover
+3. Focus
+4. Error
+5. Disabled
+6. Active select with menu displayed
+7. Active select and hover on one of the menu options
+8. Active select and one of the menu options being pressed
+9. Active select with one of the menu options selected
+10. Filled (with one option from the menu selected)
+
+::: tip Accessibility note
+The disabled state does not meet our minimum color contrast rules. WCAG 2.1
+states that “…part[s] of an inactive user interface component […] have no contrast requirement”.
+<sup>[[1]](#ref1)</sup><br>
+Provide sufficient information in a disabled element's context, so the user can understand what is
+disabled and how to enable it (if applicable).
+:::
+
+### References
+
+1. <span id="ref1">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>
+
 ## Demos
 
 ### Configurable

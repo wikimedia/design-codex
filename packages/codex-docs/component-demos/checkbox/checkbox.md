@@ -23,6 +23,96 @@ const controlsConfig = [
 ];
 </script>
 
+A Checkbox is a binary input that can appear by itself or in a multiselect
+group. Checkboxes can be selected, unselected or in an indeterminate state.
+
+## Guidelines
+
+### Using checkboxes
+
+Checkboxes must feature a descriptive label. They may appear alone or as a part of a group. A
+checkbox may also have sub-options or child checkboxes.
+
+Use the Checkbox component when you want users to make one or more selections from a list of
+options. A checkbox can also be used to accept terms and conditions. Avoid using checkboxes when
+only one selection is allowed; in such cases, use Radio instead.
+
+![Example of a group of two Codex Checkboxes.](../../assets/components/checkbox-using.svg)
+
+### Specifications
+
+![Specification of Checkbox.](../../assets/components/checkbox-specifications.svg)
+
+1. **Checkbox**<br>
+The checkbox’s input makes the selection visually distinct.
+2. **Label**<br>
+The label text size should match the base font size to ensure consistency with the body text. It can
+also include links and bold text. Labels should be short, with text that clearly states what action
+is selected.
+
+Refer to the
+[Checkbox component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2549-59135&mode=design&t=7wyBmhfdJTJevQmT-11).
+
+### Interaction states
+
+The styles for checkbox states were designed with accessible color variations. In addition to the
+'check' icon, these make the checkboxes’ selected or unselected states (e.g. disabled, hover,
+active) easier to perceive:
+
+![Interaction states of the Checkbox component for both unselected and selected states: default, hover, active, focus, error, error-hover, error-active, error-focus, and disabled.](../../assets/components/checkbox-interaction-states.svg)
+
+1. Default unselected
+2. Hover unselected
+3. Active unselected
+4. Focus unselected
+5. Error unselected
+6. Error-hover unselected
+7. Error-active unselected
+8. Error-focus unselected
+9. Default selected
+10. Hover selected
+11. Active selected
+12. Focus selected
+13. Error selected
+14. Error-hover selected
+15. Error-active selected
+16. Error-focus selected
+17. Default indeterminate
+18. Disabled unselected
+19. Disabled selected
+20. Disabled indeterminate
+
+The error checkbox must always be accompanied by an inline error message,whether for a group or an
+individual checkbox. This message ensures users are informed about the error and provides guidance
+to fix it.
+
+![Example of accompanying inline error messages on Checkboxes in error state.](../../assets/components/checkbox-using-interaction-states-error.svg)
+
+::: tip Accessibility note
+The disabled state does not meet our minimum color contrast rules. WCAG 2.1
+states that “…part[s] of an inactive user interface component […] have no contrast requirement”.
+<sup>[[1]](#ref1)</sup>
+Provide sufficient information in a disabled element's context, so the user can understand what is
+disabled and how to enable it (if applicable).
+:::
+
+**Indeterminate state**
+
+In addition to selected and unselected, a checkbox can be in an indeterminate state. This state uses
+the 'subtract' icon.
+It is common for checkboxes to present a number of sub-options (which are also checkboxes). If all
+of the sub-options are checked, the main checkbox will also be checked, and if they're all
+unchecked, the main checkbox would be unchecked. If any one or more of the sub-options have a
+different state than the others, the main  checkbox would present an indeterminate state.
+<sup>[[2]](#ref2)</sup>
+
+![One checkbox group with all items selected and another with an indeterminate state due to incomplete item selection.](../../assets/components/checkbox-interaction-states-indeterminate.svg)
+
+### References
+
+1. <span id="ref1">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>
+2. <span id="ref2">[MDN: `<input type="checkbox">` Indeterminate state checkboxes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)</span>
+
 ## Demos
 
 Open up the browser console to see events emitted on input.

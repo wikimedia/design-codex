@@ -43,7 +43,7 @@ import useGeneratedId from '../../composables/useGeneratedId';
 import useFieldData from '../../composables/useFieldData';
 
 /**
- * A binary input, part of a single-select group.
+ * A binary input that is usually combined in a group of two or more options.
  */
 export default defineComponent( {
 	name: 'CdxRadio',

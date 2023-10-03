@@ -27,10 +27,62 @@ const controlsConfig = [
 ];
 </script>
 
-::: tip Attributes passed to input
-This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
-element within the component.
+A toggle switch enables the user to instantly toggle between on and off states.
+
+## Guidelines
+
+### Using toggle switches
+
+Toggle switches must feature a descriptive label.
+
+Use the ToggleSwitch component only where an instant change in the
+user-interface based on their assigned action is intended. For non-instant
+selections and selection groups, use [Checkbox](./checkbox.md) instead.
+
+![Example of a group of Codex ToggleSwitches with one on and one off.](../../assets/components/toggle-switch-using.svg)
+
+### Specifications
+
+![Specification of Toggle Switch.](../../assets/components/toggle-switch-specifications.svg)
+
+1. **Toggle switch label**<br>
+The label should be short, with text that clearly describes the state being toggled.
+2. **Toggle switch**<br>
+Toggle switches make the on and off states visually distinct by using different colors and moving
+the grabber from left to right and vice versa.
+
+Refer to the [Toggle Switch component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2554-32423&mode=design&t=7wyBmhfdJTJevQmT-11).
+
+### Interaction states
+
+Toggle switches’ states were designed with accessible color variations. These,
+in addition to the toggle handle, facilitate distinguishing the toggle switch’s
+on or off states (e.g. disabled, hover, active) visually:
+
+![States of the Toggle Switch component for both off and on states: default, hover, active, focus, and disabled.](../../assets/components/toggle-switch-interaction-states.svg)
+
+1. Default off
+2. Hover off
+3. Active off
+4. Focus off
+5. Disabled off
+6. Default on
+7. Hover on
+8. Active on
+9. Focus on
+10. Disabled on
+
+::: tip Accessibility note
+The disabled state does not meet our minimum color contrast rules. WCAG 2.1
+states that “…part[s] of an inactive user interface component […] have no contrast requirement”.
+<sup>[[1]](#ref1)</sup><br>
+Provide sufficient information in a disabled element's context, so the user can understand what is
+disabled and how to enable it (if applicable).
 :::
+
+### References
+
+1. <span id="ref1">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>
 
 ## Demos
 
@@ -153,6 +205,12 @@ This demo shows what to do when using a ToggleSwitch group outside of a form:
 </cdx-demo-wrapper>
 
 ## Vue usage
+
+::: tip Attributes passed to input
+This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
+element within the component.
+:::
+
 
 For a single toggle switch, the `v-model` value will be a boolean `true` when the switch is "on"
 and `false` when "off".<br>
