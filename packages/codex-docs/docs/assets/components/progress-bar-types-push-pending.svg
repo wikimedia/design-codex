@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="691" height="64" fill="none" viewBox="0 0 691 64">
+	<g opacity=".3">
+		<path fill="#EAECF0" d="M.25 0h690v64H.25z"/>
+		<g filter="url(#a)">
+			<g clip-path="url(#b)">
+				<rect width="432" height="16" x="129.25" y="24" fill="url(#c)" rx="8"/>
+				<path fill="#36C" d="M129.25 24h352v16h-352V24Z"/>
+			</g>
+			<rect width="431" height="15" x="129.75" y="24.5" stroke="#A2A9B1" rx="7.5"/>
+		</g>
+	</g>
+	<defs>
+		<clipPath id="b">
+			<rect width="432" height="16" x="129.25" y="24" fill="#fff" rx="8"/>
+		</clipPath>
+		<pattern id="c" width="1" height="1" patternContentUnits="objectBoundingBox">
+			<use href="#d" transform="matrix(.00128 0 0 .03448 -1.664 0)"/>
+		</pattern>
+		<filter id="a" width="434" height="18" x="128.25" y="24" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+			<feOffset dy="1"/>
+			<feGaussianBlur stdDeviation=".5"/>
+			<feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+			<feBlend in2="BackgroundImageFix" result="effect1_dropShadow_827_64475"/>
+			<feBlend in="SourceGraphic" in2="effect1_dropShadow_827_64475" result="shape"/>
+		</filter>
+		<image id="d" width="3389" height="29" data-name="bg.png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAADT0AAAAdCAYAAADSWinYAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAApiSURBVHgB7dtNTlNRAIbhUyWBKIkwIWEVrsEduUSX4A5gB+KAAQlQRY/xj//ntmHwPjPae899adPhtxpbdHLy5eDN2/Fp9Wr1fixgtVqNg3f7Y+f1q7GE9Xo9zr6ej8urq7GE+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1Gdeet/S+j5MfebF941xtr5ef1iNLWnwZOoz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfafBk6jP1mV+Dp6Ojw89bGT01eDL1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pzzR4MvWZ+syfg6f592Y1eDL1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pzzR4MvWZ+sy/g6f52uY0eDL1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pzzR4MvWZ+sxtg6f5+mY0eDL1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pzzR4MvWZ+sxdg6f53vIaPJn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZxo8mfpMfea+wdN8f1kNnkx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqMw2eTH2mPvPQ4Gles5wGT6Y+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mQZPpj5Tn3nM4Glet4wGT6Y+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mQZPpj5Tn3ns4Gle6xo8mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9RnGjyZ+kx95imDp3m9afBk6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U59p8GTqM/WZpw6e5j3P1+DJ1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj7T4MnUZ+ozzxk8zfuep8GTqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mwZOpz9Rnnjt4mvc+XYMnU5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMgydTn6nPyOBp3v80DZ5MfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jMNnkx9pj6jg6d5xuM1eDL1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pzzR4MvWZ+swSg6d5zuM0eDL1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pzzR4MvWZ+sxSg6d51sMaPJn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZxo8mfpMfWbJwdM8734Nnkx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqM/WZ+kx9pj5Tn6nP1GfqMw2eTH2mPrP04GmeebcGT6Y+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mQZPpj5Tn9nE4Gmee7sGT6Y+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mQZPpj5Tn9nU4Gme/b8GT6Y+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mQZPpj5Tn9nk4Gme/7cGT6Y+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mQZPpj5Tn9n04Gk+47cGT6Y+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mQZPpj5Tn9nG4Gk+56cGT6Y+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mfpMfaY+U5+pz9Rn6jP1mQZPpj5Tn9nW4Gk+q8GTqs/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mwZOpz9Rntjl4+vG8Bk+mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9ZkGT6Y+U5/Z9uDpxs7e3ji4Xo2P3/+bsYT93d3FPuAb5+cX4+LyciylPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9Zn6TH2mPlOfqc/UZ+oz9ZmX3re0vg9Tn3nxv7fLcXp8fHg6tugb6XipofoDSR8AAAAASUVORK5CYII="/>
+	</defs>
+</svg>
