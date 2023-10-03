@@ -141,7 +141,8 @@ import useResizeObserver from '../../composables/useResizeObserver';
 import { DialogAction, PrimaryDialogAction } from '../../types';
 
 /**
- * A modal element that presents relevant information or actions.
+ * A modal element that overlays the current page, preventing interaction with
+ * other content until it is dismissed.
  */
 export default defineComponent( {
 	name: 'CdxDialog',

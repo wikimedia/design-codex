@@ -9,6 +9,56 @@ import ComboboxDisabled from '@/../component-demos/combobox/examples/ComboboxDis
 import ComboboxField from '@/../component-demos/combobox/examples/ComboboxField.vue';
 </script>
 
+ A Combobox combines a [text input](./text-input.md)
+ with an [icon-only chevron button](./button.md#icon-only-button).
+ When activated, a dropdown menu of selectable options displays.
+
+## Guidelines
+
+### Using comboboxes
+Through comboboxes, users can input text, numbers, symbols or mixed-format strings (unless
+specifically restricted) while being offered autocomplete options in a dropdown menu.
+
+Use the Combobox component when it's difficult to predict the user's response to a prompt. It
+provides predefined input values as options, for example common responses, to ease filling out the
+input with relevant values.
+
+![Example of a Codex Combobox.](../../assets/components/combobox-using.svg)
+
+### Specifications
+
+![Specification of Combobox.](../../assets/components/combobox-specifications.svg)
+
+1. **Icon** (optional)<br>
+Icons may be added to simplify the identification of specific combobox inputs.
+2. **Placeholder text** (optional)<br>
+The placeholder text provides an example of what type of information is being requested in the
+input. The placeholder text should further illustrate and support the combobox input label. However,
+it should never be the only input description.
+3. **Chevron button**<br>
+An [icon-only chevron button](./button.md#icon-only-button)
+opens the menu.
+4. **Menu**<br>
+When the combobox is active, a [menu with options](./menu.md) is displayed.
+
+Refer to the
+[Combobox component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2606-51961&mode=design&t=g6roQDZkPxHE5omu-11).
+
+### Interaction states
+
+Comboboxes have the following visually separate states:
+
+![States of the Combobox component: default, hover on input, hover on button, disabled, active states, and filled.](../../assets/components/combobox-interaction-states.svg)
+
+1. Default
+2. Hover on input
+3. Hover on button
+4. Disabled
+5. Active with menu displayed
+6. Active and hover on one of the menu items
+7. Typing in the input and having a menu item selected based on the matching text
+8. Combobox filled with one selected menu option
+
 ## Demos
 
 ### Basic Usage
@@ -21,7 +71,7 @@ empty).
 <cdx-demo-wrapper :force-controls="true">
 
 <template v-slot:demo>
-<combobox-basic />
+	<combobox-basic />
 </template>
 
 <template v-slot:code>
@@ -46,7 +96,7 @@ passed on to the embedded `TextInput`.
 <cdx-demo-wrapper>
 
 <template v-slot:demo>
-<combobox-clearable-start-icon />
+	<combobox-clearable-start-icon />
 </template>
 
 <template v-slot:code>
@@ -72,7 +122,7 @@ hide the text overflow of the descriptions.
 <cdx-demo-wrapper>
 
 <template v-slot:demo>
-<combobox-complex-menu-item />
+	<combobox-complex-menu-item />
 </template>
 
 <template v-slot:code>
@@ -97,7 +147,7 @@ the `#menu-item` slot. In this example, only the menu item's icon is displayed i
 <cdx-demo-wrapper>
 
 <template v-slot:demo>
-<combobox-custom-menu-item />
+	<combobox-custom-menu-item />
 </template>
 
 <template v-slot:code>
@@ -122,7 +172,7 @@ this slot will automatically display when there are zero menu items.
 <cdx-demo-wrapper>
 
 <template v-slot:demo>
-<combobox-no-results />
+	<combobox-no-results />
 </template>
 
 <template v-slot:code>
@@ -147,7 +197,7 @@ and enable scrolling, use the `visibleItemLimit` property of the `menuConfig` pr
 <cdx-demo-wrapper>
 
 <template v-slot:demo>
-<combobox-with-scroll />
+	<combobox-with-scroll />
 </template>
 
 <template v-slot:code>
@@ -169,7 +219,7 @@ and enable scrolling, use the `visibleItemLimit` property of the `menuConfig` pr
 <cdx-demo-wrapper>
 
 <template v-slot:demo>
-<combobox-disabled />
+	<combobox-disabled />
 </template>
 
 <template v-slot:code>

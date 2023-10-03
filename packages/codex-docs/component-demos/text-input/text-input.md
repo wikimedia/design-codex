@@ -37,13 +37,69 @@ const controlsConfig = [
 ];
 </script>
 
+A text input is a form element that lets users input and edit a single-line text value.
+
+## Guidelines
+
+### Using text inputs
+
+Through text input fields, users can input text, numbers, symbols or mixed-format strings (unless
+specifically restricted).
+
+Use the TextInput component in forms when the user’s answer to a prompt can not easily be predicted,
+or when there is significant variability in potential inputs. Text inputs should also be used when
+other form components prove more difficult (require additional steps) to achieve the same result
+(e.g. selecting a date from a calendar versus typing in the date). The text input used for search
+queries, known as the search type, is documented in the
+[SearchInput component](./search-input.md).
+
+You can provide autocomplete options that are tailored to the user’s input by using
+[Lookup](./lookup.md).
+
+![Example of a Codex TextInput with placeholder text.](../../assets/components/text-input-using.svg)
+
+### Specifications
+
+![Specification of TextInput.](../../assets/components/text-input-specifications.svg)
+
+1. **Icon** (optional)<br>
+Icons can add to simple identification of specific user inputs. Examples are 'search'  magnifying
+glass for search bars or 'user avatar'  for user login input fields.
+2. **Placeholder text** (optional)<br>
+The placeholder text provides an example of what type of information is being requested in the
+input. The placeholder text should further illustrate and support the text input label. However, it
+should never be the only input description.
+3. **End icon** (optional)<br>
+A secondary end icon can be included if needed.
+4. **Clear button** (optional)<br>
+A 'clear' indicator can be included to remove the typed content within the input field.
+
+Refer to the
+[TextInput component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2547-28279&mode=design&t=yTcArGDe2utFY0wc-11).
+
+### Interaction states
+
+Text inputs have the following visually separate states:
+
+![States of the Text Input component: default, hover, active-focus, filled, disabled, read-only, error default, error focus, and error filled.](../../assets/components/text-input-interaction-states.svg)
+
+1. Default
+2. Hover
+3. Active - Focus
+4. Filled
+5. Disabled
+6. Read-only
+7. Error default
+8. Error focus
+9. Error filled
+
 ## Demos
 
 ### Configurable
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true" generated-model-name="inputValue">
 <template v-slot:demo="{ propValues }">
-<cdx-docs-configurable-generic v-bind="propValues" />
+	<cdx-docs-configurable-generic v-bind="propValues" />
 </template>
 </cdx-demo-wrapper>
 
@@ -56,7 +112,7 @@ Open up the browser console to see events emitted on input, change, focus, and b
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-input-demo :showValue="true" />
+	<text-input-demo :showValue="true" />
 </template>
 
 <template v-slot:code>
@@ -77,7 +133,7 @@ that initial value on click.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-<text-input-demo :showValue="true" initialValue="Initial value" />
+	<text-input-demo :showValue="true" initialValue="Initial value" />
 </template>
 
 <template v-slot:code>
@@ -101,7 +157,7 @@ Some `inputType` values will result in a browser provided UI like the date
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-input-demo :showValue="true" :input-props="{ inputType: 'date' }" />
+	<text-input-demo :showValue="true" :input-props="{ inputType: 'date' }" />
 </template>
 
 <template v-slot:code>
@@ -125,7 +181,7 @@ empty. On click, the clear button will set the input value to an empty string.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-input-demo :showValue="true" :input-props="{ clearable: true }" />
+	<text-input-demo :showValue="true" :input-props="{ clearable: true }" />
 </template>
 
 <template v-slot:code>
@@ -146,7 +202,7 @@ Note that a clearable TextInput with an `endIcon` will display both the clear bu
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-input-demo :input-props="{ inputType: 'search', startIcon: cdxIconSearch, endIcon: cdxIconInfoFilled, clearable: true }" />
+	<text-input-demo :input-props="{ inputType: 'search', startIcon: cdxIconSearch, endIcon: cdxIconInfoFilled, clearable: true }" />
 </template>
 
 <template v-slot:code>
@@ -169,7 +225,7 @@ To add placeholder text, add a `placeholder` attribute.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-input-demo placeholder="Start typing..." />
+	<text-input-demo placeholder="Start typing..." />
 </template>
 
 <template v-slot:code>
@@ -187,7 +243,7 @@ To disable the input, add the `disabled` attribute.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-input-demo :input-props="{ startIcon: cdxIconSearch, disabled: true }" />
+	<text-input-demo :input-props="{ startIcon: cdxIconSearch, disabled: true }" />
 </template>
 
 <template v-slot:code>

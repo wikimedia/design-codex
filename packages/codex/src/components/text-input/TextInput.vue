@@ -57,7 +57,7 @@ const textInputTypeValidator = makeStringTypeValidator( TextInputTypes );
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
 /**
- * A form element that lets users input and edit a single-line text value.
+ * A form element that accepts a single line of text input from the user.
  */
 export default defineComponent( {
 	name: 'CdxTextInput',

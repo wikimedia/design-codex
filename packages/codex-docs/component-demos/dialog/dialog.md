@@ -38,6 +38,103 @@ const controlsConfig = [
 const wrappedDialogState = ref( false );
 </script>
 
+Dialogs are elements that are overlaid on a web page or app in order to present
+necessary information and tasks. Dialogs are also sometimes referred to as
+modals or overlays.
+
+## Guidelines
+
+### Using dialogs
+
+Dialogs facilitate communication between the system and user. They perform best when used for urgent
+decisions or as a workflow within a bigger task, as they don’t require loading a new page and keep
+actions in context.
+
+Dialogs can be intentionally disruptive, since the user needs to interact with or close the dialog
+before moving on. For this reason, they should be used sparingly and only when necessary (more
+information below).
+
+![Example of a Codex Dialog with a title, paragraph, two action buttons, and a close button.](../../assets/components/dialog-using.svg)
+
+**When to use:**
+- When the user needs to make a decision or provide input to the system before continuing with the
+task at hand.
+- When additional information needs to be displayed and separated from the page content.
+- When the user needs to provide additional confirmation before taking an action.
+
+**When not to use:**
+- When the information can be displayed inline within the main interface.
+- When the information is not important enough to interrupt the user's flow.
+- When the content within the dialog is so long that it requires scrolling. In this case, split the
+dialog content into different steps or provide it on a dedicated  page.
+- When dealing with a lengthy form comprising numerous form fields and actions. In this case it's
+more appropriate to create the form on a separate page.
+
+### Specifications
+
+![Specification of Dialog.](../../assets/components/dialog-specifications.svg)
+
+A dialog contains:
+1. **Title**<br>All dialogs should include a title. This should be a short, one-line overview of the
+purpose of the dialog.
+2. **Subtitle** (optional)<br>A subtitle can be used to provide additional information about the
+dialog.
+3. **Body**<br>Any type of content or components can be included within the dialog’s body.
+4. **Footer text** (optional)<br>Further text can be included above the action buttons, in order to
+provide additional information (e.g. terms and conditions to read before publishing).
+5. **Permanent action** (optional)<br>A permanent action can be included (e.g. “Don’t show again”).
+Main action: A primary button (either progressive or destructive) is used to indicate the main
+action.
+6. **Secondary action** (optional)<br>A normal neutral button can be used to indicate a secondary
+action (e.g. “Cancel”).
+7. **Close button** (optional)<br>A quiet, icon-only button may be used to close the dialog. It can
+also be replaced with a text button in some cases.
+
+Behind every dialog, there is an overlay that displays the color White (#fff) at 65% opacity. This
+is to provide continued context while the user focuses on the dialog.
+
+![A white overlay separating a dialog from a Wikipedia page.](../../assets/components/dialog-specifications-overlay.svg)
+
+If the action buttons’ text is too long, the main action button may be stacked above the secondary
+action.
+
+![A dialog with stacked buttons due to their lengthy text.](../../assets/components/dialog-specifications-stacked-actions.svg)
+
+#### Scrolling
+
+If needed, scrolling is allowed in dialogs, but should be used sparingly. While scrolling, top and
+bottom dividers appear and both the top and bottom sections become fixed as content scrolls
+underneath them.
+
+![A dialog is being scrolled with fixed head and footer sections.](../../assets/components/dialog-specifications-scroll.svg)
+
+#### Closing
+
+A dialog can be dismissed by:
+- The close button (X)
+- A dismissive action like “Cancel“
+- Tapping or clicking anywhere outside of the dialog on the background
+- Pressing the key ‘esc’
+
+![A representation of how dialogs can be closed.](../../assets/components/dialog-specifications-closing.svg)
+
+#### Maximum width and height
+
+All dialogs are vertically and horizontally centered on the canvas. We aim to keep dialogs at a
+fixed width of 512dp on desktop, while allowing them to use 90% of the width on mobile web. This
+makes dialogs the focus of the screen.
+
+![A desktop and mobile mockup of a Wikipedia page with a dialog displayed on the center of the page.](../../assets/components/dialog-specifications-max-width-height.svg)
+
+Refer to the
+[Dialog component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=9315-77934&mode=design&t=wP2FzP1WBnRhiMln-11).
+
+### Interaction states
+
+Buttons may be disabled until a required action is completed.
+
+![A dialog with a disabled main button.](../../assets/components/dialog-specifications-disabled-button.svg)
+
 ## Demos
 
 ### Configurable Dialog
@@ -60,7 +157,7 @@ close button), primary action, and default action.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<dialog-basic />
+	<dialog-basic />
 </template>
 <template v-slot:code>
 
@@ -81,7 +178,7 @@ frame (instead of being cut off by it).
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<dialog-with-select />
+	<dialog-with-select />
 </template>
 <template v-slot:code>
 
@@ -103,7 +200,7 @@ remain in view.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<dialog-max-content />
+	<dialog-max-content />
 </template>
 <template v-slot:code>
 
@@ -124,7 +221,7 @@ vertically.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<dialog-stacked-actions />
+		<dialog-stacked-actions />
 </template>
 <template v-slot:code>
 
@@ -148,7 +245,7 @@ showing a disclaimer, linking to help or legal documentation, etc. The
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
-<dialog-footer-text />
+	<dialog-footer-text />
 </template>
 <template v-slot:code>
 
@@ -174,7 +271,7 @@ that wrap the base Dialog with some additional content and styling.
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
-<dialog-custom-header />
+	<dialog-custom-header />
 </template>
 <template v-slot:code>
 
@@ -214,11 +311,11 @@ Usage of the custom component would look like this:
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
-<cdx-button @click="wrappedDialogState = true">Test</cdx-button>
+	<cdx-button @click="wrappedDialogState = true">Test</cdx-button>
 
-<wrapped-dialog title="Custom dialog header" v-model:open="wrappedDialogState">
-Custom dialog content.
-</wrapped-dialog>
+	<wrapped-dialog title="Custom dialog header" v-model:open="wrappedDialogState">
+	Custom dialog content.
+	</wrapped-dialog>
 </template>
 <template v-slot:code>
 

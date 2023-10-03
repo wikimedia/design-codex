@@ -28,6 +28,100 @@ const controlsConfig = [
 ];
 </script>
 
+A Message provides system feedback for users. Messages can be provided as a
+prominently-displayed banner with a longer explanation, or as inline validation
+feedback.
+
+## Guidelines
+
+### Using messages
+
+Messages must include text clearly defining the system feedback to the user. They also include an
+icon to help users recognize the type of message, and they can also feature an optional dismiss
+button to close the message.
+
+![Example of a success type Codex Message.](../../assets/components/message-using.svg)
+
+:::tip Accessibility note
+The message icon adds a point of recognition for color-blind users.
+:::
+
+### Specifications
+
+The message component may contain the following items:
+
+![Specification of Message.](../../assets/components/message-specifications-message.svg)
+
+1. **Icon**<br>
+Icons simplify user recognition and provide the ability to shorten message text.  A specific icon is
+matched with each message type (e.g., ‘success’) to ensure recognition.
+2. **Message text**<br>
+The message text should be as clear and concise as possible, offering feedback to users. If
+applicable, it may also suggest next steps.
+3. **Close button** (optional)<br>
+To allow for the message to be dismissed, an optional icon-only quiet button can be included.
+
+![Specification of Inline Message.](../../assets/components/message-specifications-inline-message.svg)
+
+The inline message component includes both the icon and message elements, excluding the close
+button.
+
+Refer to the
+[Message component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=4902-47684&mode=design&t=yTcArGDe2utFY0wc-11).
+
+### Types
+
+#### Message layout
+
+There are two types of messages, each suited to specific use cases:
+1. **Message:** Utilize it to display system feedback, respond to user actions, or provide
+information.
+2. **Inline message:** Employ it to offer feedback on the validation of form inputs.
+
+![Representation of message and inline message.](../../assets/components/message-types.svg)
+
+#### Message type
+
+Depending on the feedback conveyed to the user, the messages can be categorized as follows:
+1. **Neutral or notice** messages provide general user feedback. They are accompanied by the
+'infoFilled' icon by default, but the icon may be changed to any other system icon to emphasize a
+specific aspect of the notice message.
+2. **Success** messages deliver feedback of a successful user interaction, like publishing an
+article. Accompany the message with the 'success' icon.
+3. **Error** messages have the strongest visual priority of all system messages. Use them to alert
+the user only in situations when their immediate attention is needed. Accompany the message with the
+'error' icon.
+4. **Warning** messages provide important information about circumstances that require caution.
+Accompany the message with the 'alert' icon.
+
+![Message types based on feedback conveyed to the user: notice, success, error, and warning.](../../assets/components/message-types-message.svg)
+
+Inline messages follow the same categorization: notice, success, error, and warning.
+
+![Inline message types based on feedback conveyed to the user: notice, success, error, and warning.](../../assets/components/message-types-inline-message.svg)
+
+#### Dismissability
+
+Messages can be categorized based on how they are removed from the interface as follows:
+
+##### Dismiss button
+
+Messages can be dismissed by utilizing the close button within the message. Note that inline
+messages cannot be dismissable.
+
+![Message with a dismiss button.](../../assets/components/message-types-dismiss.svg)
+
+##### Auto-dismiss
+
+Messages can be also auto-dismissable. This means they will automatically disappear after 4 seconds.
+
+This feature should only be used for very short messages to ensure that they can be read and
+understood before disappearing. When in doubt, do not use auto-dismiss. To prevent error messages
+from disappearing before users fix the error, do not use auto-dismiss with error messages.
+Auto-dismiss can be used with or without the manual dismiss button.
+
+![Two auto-dismissible messages: one without dismiss button and one with a dismiss button.](../../assets/components/message-types-auto-dismiss.svg)
+
 ## Demos
 
 ### Configurable

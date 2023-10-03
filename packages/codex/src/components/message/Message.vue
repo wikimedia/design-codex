@@ -55,7 +55,7 @@ const iconMap: StatusIconMap = {
 };
 
 /**
- * System feedback in response to or to inform a user action.
+ * A message that provides system feedback to the user.
  */
 export default defineComponent( {
 	name: 'CdxMessage',
