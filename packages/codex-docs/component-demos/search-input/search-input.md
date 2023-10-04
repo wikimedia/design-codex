@@ -5,6 +5,68 @@ import SearchInputClearable from '@/../component-demos/search-input/examples/Sea
 import SearchInputField from '@/../component-demos/search-input/examples/SearchInputField.vue';
 </script>
 
+A SearchInput allows users to enter and submit a search query.
+
+## Guidelines
+
+### Using search inputs
+Use the SearchInput component when you need users to perform text-based searches
+for specific content, like finding results on a page.
+
+Avoid using SearchInput if you require a predictive list of options in a menu
+while users type within the input field. In such cases, use
+[TypeaheadSearch](./typeahead-search.md) instead.
+
+Avoid using SearchInput to enable users to search a dataset of options for a
+form field. Instead, use [Lookup](./lookup.md).
+
+![Example of a Codex SearchInput with “Search” placeholder.](../../assets/components/search-input-using.svg)
+
+### Specifications
+
+![Specification of SearchInput.](../../assets/components/search-input-specifications.svg)
+
+Search inputs may include the following elements:
+1. **Input**<br>A text input where users can type their search queries. The input features the 'search' icon for clarity and should also include a placeholder to clarify its purpose.
+2. **Button** (optional)<br>The input can be accompanied with a button, either a text button or an icon-only one, in order to trigger the search action. It's crucial not to customize the label of the search button and consistently employ the term "Search" or its appropriate translation. Additionally, avoid using long text within this button.
+
+### Types
+The SearchInput component can be categorized based on the visibility and type of
+button it contains:
+
+#### Without button
+The SearchInput can consist of the input field alone or include the decorative
+icon. In this scenario, using the icon is suggested to emphasize that the input
+serves as a search input, distinguishing it from a simple text input.
+
+![Example of SearchInput without button.](../../assets/components/search-input-types-no-button.svg)
+
+#### With text button
+The SearchInput also has the option to feature a text button to initiate the
+search process.
+
+![Example of SearchInput with text button.](../../assets/components/search-input-types-text-button.svg)
+
+#### With icon-only button
+The SearchInput can also include an icon-only button, particularly useful when
+space needs to be conserved by omitting the button text, such as on mobile
+devices. In such instances, since the 'search' icon will already be present on
+the button, there's no need to replicate it within the input. In this case,
+refrain from using an icon within the input field to avoid duplication with the
+icon in the button.
+
+![Example of SearchInput with icon-only button.](../../assets/components/search-input-types-icon-only-button.svg)
+
+### Interaction states
+Search inputs have the following visually separate states:
+
+![Interaction states of SearchInput: default, hover, active-focus, and filled.](../../assets/components/search-input-interaction-states.svg)
+
+1. Default
+2. Hover
+3. Active - Focus
+4. Filled
+
 ## Demos
 
 Open the console to see emitted events.

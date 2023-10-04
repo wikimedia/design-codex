@@ -69,23 +69,59 @@ const controlsConfig = [
 ];
 </script>
 
+A MenuItem is a selectable option within a Menu.
+
 ::: warning
-This is not a standalone component, nor will it typically be directly used. It's intended for use
-by the Menu component, which will provide it with props and menu state information. See
-[Menu](./menu) for more details.
+This is not a standalone component, nor will it typically be directly used. It's
+intended for use by the Menu component, which will provide it with props and
+menu state information. See [Menu](./menu) for more details.
 :::
+
+## Guidelines
+
+### Using menu items
+MenuItem is an “internal” component, used exclusively to represent content
+within a Menu. It cannot be used by itself.
+
+MenuItems contain text, and supporting media (icons or thumbnails) that
+represent an available choice for users.
+
+![Example of Codex MenuItems within a menu.](../../assets/components/menu-item-using.svg)
+
+### Specifications
+
+![Specification of MenuItem.](../../assets/components/menu-item-specifications.svg)
+
+Each menu item may include the following elements:
+1. **Visual element** (optional)<br>An icon or thumbnail can be included in order to provide more context about the menu item content.
+2. **Label**<br>A clear and descriptive title for the menu item.
+3. **Supporting text** (optional)<br>Optional and subtle text that supports or explains the label.
+4. **Match text** (optional)<br>In the context of a search suggestions menu, this optional text displays the alternative label of an item that matches the search query (e.g. an alias).
+5. **Description** (optional)<br>Optional and subtle descriptive text that provides additional information about the menu item.
+
+### Interaction states
+Menu items have the following visually separate states:
+
+![Interaction states of MenuItem: default, hover, active, selected, selected-hover, and disabled.](../../assets/components/menu-item-interaction-states.svg)
+
+1. Default
+2. Hover
+3. Active
+4. Selected
+5. Selected hover
+6. Disabled
 
 ## Demos
 
-Note that these demos do not properly show some interactive states of menu items (like active or
-hovered/highlighted), since they display menu items as standalone or as part of an always-expanded,
-detached menu. To see the full interactivity of menu items, check out a component that contains a
-menu, like [Select](./select), [Lookup](./lookup), or [TypeaheadSearch](./typeahead-search).
-
+Note that these demos do not properly show some interactive states of menu items
+(like active or hovered/highlighted), since they display menu items as
+standalone or as part of an always-expanded, detached menu. To see the full
+interactivity of menu items, check out a component that contains a menu, like
+[Select](./select), [Lookup](./lookup), or [TypeaheadSearch](./typeahead-search).
 ### Configurable
 
-Note that manually hovering over or selecting this menu item is disabled, the configuration options
-to set these states should be used.
+Note that manually hovering over or selecting this menu item is disabled, the
+configuration options to set these states should be used.
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues }">
