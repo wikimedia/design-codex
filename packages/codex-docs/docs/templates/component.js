@@ -1,8 +1,9 @@
 /** @typedef {import('vue-docgen-api').ParamTag} ParamTag */
+/** @typedef {import('vue-docgen-cli').Templates[ 'component' ]} Component */
 
-/** @type {import('vue-docgen-cli').Templates['component']} */
+/** @type Component */
 module.exports = function component( renderedUsage, doc, config, componentRelativePath ) {
-	const { displayName, description, docsBlocks, tags } = doc;
+	const { displayName, docsBlocks, tags } = doc;
 	const { author, since, version } = /** @type {Record<string, ParamTag[]>} */ ( tags || {} );
 
 	// Limit on-page navigation to headings level 2 and 3.
@@ -43,8 +44,6 @@ ${frontMatter.join( '\n' )}
 # ${componentName}
 
 ${devWarning}
-
-${description || ''}
 
 ${author ? author.map( ( a ) => `**Author**: ${a.description}` ).join( '\n' ) : ''}
 ${since ? `**Since** ${since[ 0 ].description}` : ''}
