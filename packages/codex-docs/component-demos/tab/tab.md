@@ -23,6 +23,63 @@ const controlsConfig = [
 ];
 </script>
 
+A Tab is one of the selectable items included within [Tabs](./tabs.md).
+
+## Guidelines
+
+### Using tab items
+Two or more tab items are grouped to create a Tabs component. Tab items cannot
+be used individually. For example, different tab items can represent the
+different sections of an article. A tab includes a label, which displays in the
+tabs list, and its associated content.
+
+![Example of different Codex Tab items creating a Tabs component.](../../assets/components/tab-using.svg)
+
+### Specifications
+
+![Specification of Tab item.](../../assets/components/tab-specifications.svg)
+
+Each tab item may include the following elements:
+1. **Text**<br>Currently, tab items solely consist of text elements within the tab, without the inclusion of icons or visual indicators.
+2. **Selected indicator**<br>Both quiet and framed tabs feature a visual indicator when selected. In the case of quiet tabs, this indicator is a blue line positioned below the tab text, which is also colored blue. In contrast, framed tabs use a white background behind the tab text to indicate their selected state.
+
+A Tab will also contain the content that should display when that tab is active.
+
+### Types
+As documented in [Tabs](./tabs.md), there are two different type of tab items depending on the tabs' style and where they are employed:
+
+<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
+
+![Example of quiet tabs.](../../assets/components/tabs-types-quiet.svg)
+
+**Quiet tabs**: They are used on white non-boxed backgrounds.
+</div>
+<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
+
+![Example of framed tabs.](../../assets/components/tabs-types-framed.svg)
+
+**Framed tabs**: They are used within boxes or modules.
+</div>
+<br>&nbsp;<br>
+
+### Interaction states
+Both quiet and framed tab items have the following visually separate states:
+
+**Quiet tab item.**
+
+![Interaction states of the quiet tab item: default, hover, active, selected, focus, and disabled.](../../assets/components/tab-quiet-interaction-states.svg)
+
+**Framed tab item.**
+
+![Interaction states of the framed tab item: default, hover, active, selected, focus, and disabled.](../../assets/components/tab-framed-interaction-states.svg)
+
+1. Default (unselected)
+2. Hover
+3. Active
+4. Selected
+5. Focus
+6. Disabled
+
 ## Demos
 
 ### Configurable example
@@ -32,7 +89,7 @@ props, as well as slot content.
 
 <cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues, slotValues }">
-<configurable-tab-demo v-bind="propValues">{{ slotValues.default }}</configurable-tab-demo>
+    <configurable-tab-demo v-bind="propValues">{{ slotValues.default }}</configurable-tab-demo>
 </template>
 
 <template v-slot:code>

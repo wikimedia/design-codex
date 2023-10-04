@@ -4,6 +4,48 @@ import ThumbnailDefault from '@/../component-demos/thumbnail/examples/ThumbnailD
 import ThumbnailCustomIcon from '@/../component-demos/thumbnail/examples/ThumbnailCustomIcon.vue';
 </script>
 
+A Thumbnail is a visual element used to display a small preview of an image. Thumbnails provide
+users with a quick glimpse of the associated content.
+
+## Guidelines
+
+### Using thumbnails
+Use the Thumbnail component to include small versions of images that can provide
+context or support the meaning of the content included in components such as
+Card or MenuItem.
+
+The placeholder icon will display until the thumbnail image loads, or if a
+thumbnail image is not provided.
+
+![Example of a Codex Thumbnail within a Codex Card.](../../assets/components/thumbnail-using.svg)
+
+### Specifications
+
+![Specification of Thumbnail.](../../assets/components/thumbnail-specifications.svg)
+
+The thumbnail component may include the following elements:
+1. **Image**<br>The thumbnail displays an image if one has been uploaded.
+2. **Placeholder icon**<br>If the thumbnail doesn't have an loaded image, it presents a placeholder gray icon against a light gray background.
+
+In both scenarios, the thumbnail features a Gray300 border to ensure sufficient
+contrast when placed on white backgrounds.
+
+### Types
+There are two types of thumbnails based on whether an image has been loaded or not:
+1. **Image**<br>If an image has been loaded, the thumbnail will display the image.
+2. **Placeholder**<br>If no image has been loaded, the thumbnail will show a placeholder icon against a light gray background.
+
+![Types of Thumbnail: with image and with placeholder.](../../assets/components/thumbnail-types.svg)
+
+### Interaction states
+Thumbnail component just have two states:
+
+![Interaction states of Thumbnail: default and loading.](../../assets/components/thumbnail-interaction-states.svg)
+
+1. **Default**: it will display the image if it is uploaded.
+2. **Loading**: it displays the placeholder view until the thumbnail image loads.
+
+
 ## Demos
 
 ### Default

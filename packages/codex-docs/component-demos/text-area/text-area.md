@@ -46,31 +46,106 @@ const controlsConfig = [
 ];
 </script>
 
+A TextArea is a multi-line text input that allows manual resizing if needed.
+
+## Guidelines
+
+### Using text areas
+This form element is useful when the user needs to enter a sizable amount of
+free-form text, for example comments, reviews, feedback, or short essay
+responses.
+
+Use TextArea to let users enter long text that exceeds one line. Avoid using
+TextArea if the text to be entered is short. In this case use a TextInput
+instead.
+
+![Example of a Codex TextArea.](../../assets/components/text-area-using.svg)
+
+### Specifications
+
+![Specification of TextArea.](../../assets/components/text-area-specifications.svg)
+
+TextArea may include the following optional elements:
+
+1. **Start icon** (optional)<br>Icons can simplify the identification of specific user inputs.
+2. **Placeholder** (optional)<br>The placeholder text provides an example of what type of information is being requested in the input.
+3. **End icon** (optional)<br>A secondary end icon can be included if needed.
+4. **Grabber** (optional)<br>Optionally, the grabber may be displayed to allow users the ability to vertically resize the text area as needed.
+
+### Types
+According to the size properties, there are the following text area types:
+
+#### With grabber
+By default, a grabber will be visible, signaling to users that they can
+vertically resize the text area field. In this scenario, if the content cannot
+fit within the visible area, a scrollbar will appear to to navigate through the
+text that exceeds the visible area.
+
+Use this type of text area when you require it to have a more compact size,
+especially in situations where it is positioned within other components like
+dialogs.
+
+![Example of TextArea with grabber.](../../assets/components/text-area-types-grabber.svg)
+
+#### Autosize
+When the autosize property is enabled, the text area’s height will be
+automatically resized with the length of the text. There is no need for the
+grabber indicator in this case, and scrolling within the content is unnecessary
+since the entire content will be fully visible. Choose this type of text area
+when there is ample space available on the page where the text area is situated.
+
+![Example of TextArea with autosize.](../../assets/components/text-area-types-autosize.svg)
+
+## Interaction states
+Text areas have the following visually separate states:
+
+![Interaction states of TextArea: default, hover, active-focus, filled, disabled, read-only, error default, error focus, and error filled.](../../assets/components/text-area-interaction-states.svg)
+
+1. Default
+2. Hover
+3. Active - Focus
+4. Filled
+5. Disabled
+6. Read-only
+7. Error default
+8. Error focus
+9. Error filled
+
+
 ## Demos
 
 ### Configurable
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true" generated-model-name="textareaValue">
 <template v-slot:demo="{ propValues }">
-<cdx-docs-configurable-generic v-bind="propValues"/>
+    <cdx-docs-configurable-generic v-bind="propValues"/>
 </template>
 </cdx-demo-wrapper>
 
 ### Default
 
-The TextArea component uses `v-model` to two-way bind the reactive reference to the value of `<textarea>`. The reactive reference will automatically update when the value changes in the `<textarea>`. The value updates due to an emitted `input` event.
+The TextArea component uses `v-model` to two-way bind the reactive reference to
+the value of `<textarea>`. The reactive reference will automatically update when
+the value changes in the `<textarea>`. The value updates due to an emitted
+`input` event.
 
-By default, the initial value of the `autosize` prop is false. When `autosize` is false, the textarea will display a grabber/resize tool and a scrollbar to view the overflow content. The `<textarea>` can be manually resized vertically to increase height of the element.
+By default, the initial value of the `autosize` prop is false. When `autosize`
+is false, the textarea will display a grabber/resize tool and a scrollbar to
+view the overflow content. The `<textarea>` can be manually resized vertically
+to increase height of the element.
 
 Note: The initial min-height of the `<textarea>` is set to 64px.
 
 ::: warning Browser Support Warning
-While our design system strives to provide a consistent experience across different platforms and browsers, it's important to be aware that the vertical resizing feature will not be available on iOS devices, including iPhones and iPads. This limitation is due to the default behavior of iOS Safari.
+While our design system strives to provide a consistent experience across
+different platforms and browsers, it's important to be aware that the vertical
+resizing feature will not be available on iOS devices, including iPhones and
+iPads. This limitation is due to the default behavior of iOS Safari.
 :::
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-area-default />
+    <text-area-default />
 </template>
 
 <template v-slot:code>
@@ -94,7 +169,7 @@ Note: Placeholders are not a substitute for a proper `<label>` element tied to t
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-area-with-placeholder />
+    <text-area-with-placeholder />
 </template>
 
 <template v-slot:code>
@@ -118,7 +193,7 @@ The `rows` attribute takes a positive number which represents the number of text
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-area-with-rows />
+    <text-area-with-rows />
 </template>
 
 <template v-slot:code>
@@ -142,7 +217,7 @@ The grabber/resize tool is not displayed when `autosize` is set to `true`.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-area-with-autosize />
+    <text-area-with-autosize />
 </template>
 
 <template v-slot:code>
@@ -164,7 +239,7 @@ TextArea can pass in a start icon and end icon as props. This example shows how 
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-area-with-icons />
+    <text-area-with-icons />
 </template>
 
 <template v-slot:code>
@@ -188,7 +263,7 @@ When `<textarea>` is `disabled`, the user cannot interact with the control. User
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-area-with-disabled />
+    <text-area-with-disabled />
 </template>
 
 <template v-slot:code>
@@ -214,7 +289,7 @@ One example usage of `readonly` textarea is when you want to prevent a user from
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<text-area-with-readonly />
+    <text-area-with-readonly />
 </template>
 
 <template v-slot:code>

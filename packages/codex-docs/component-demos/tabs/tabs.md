@@ -22,6 +22,64 @@ onMounted( () => {
 } );
 </script>
 
+Tabs are a layout for navigating between sections of content.
+
+## Guidelines
+
+### Using tabs
+
+Each tab will display different sections within the same context. For example,
+tabs can display different sections of an article, different topics or different
+edit views.
+
+![Example of Codex Tabs with five Tab items.](../../assets/components/tabs-using.svg)
+
+### Specifications
+The Tabs component always contains two or more Tab items.
+
+![Specification of Tab items.](../../assets/components/tabs-specifications.svg)
+
+Tabs include the following elements:
+1. **Selected tab**<br>Within the tabs component, only one tab item can be selected at a time.
+2. **Unselected tabs**<br>The remaining tab items will remain unselected. Users can choose these tabs by clicking on them or navigating to them via the keyboard’s arrow keys.
+3. **Arrow button**<br>When tabs become scrollable, one or two icon-only buttons will appear. The number of buttons to scroll tabs will vary based on the tabs' scroll position. Users can utilize these buttons to navigate through the scrollable tabs.
+
+### Scrollable tabs
+When there is not enough space to display all tabs, scrolling will be activated.
+When the scroll is enabled, the positions of the tabs will be indicated by arrow
+buttons:
+
+1. **Initial position**: Due to the tabs being in the first position, only the end arrow button will be visible at the end to scroll the tabs.
+2. **Middle position**: Both the start and end arrow buttons will be visible.
+3. **End position**: As scrolling reaches the end, only the start arrow will be visible in order to scroll the tabs from the end to the beginning.
+
+![Scrollable Tabs with arrows indicating scroll-ability.](../../assets/components/tabs-specifications-scroll.svg)
+
+### Types
+Depending on the tabs' style and where they are employed, there are two types of tabs:
+
+#### Quiet tabs
+These tabs feature a transparent background with a Gray400 underline to
+delineate the tabs base. The selected tab is highlighted in blue with a blue
+line underneath. These tabs are intended for use on open white backgrounds, and
+it is not recommended to use them within boxes or modules.
+
+![Example of quiet Tabs.](../../assets/components/tabs-types-quiet.svg)
+
+#### Framed tabs
+These tabs have a Gray200 background, with the selected tab appearing in white.
+They are designed to be used within boxes or modules, where the gray background
+serves as a head for the box. It is not recommended to use framed tabs outside
+of a box context; in such cases, use the quiet tabs instead.
+
+![Example of framed Tabs.](../../assets/components/tabs-types-framed.svg)
+
+### Interaction states
+The Tabs component itself does not have distinct states. Instead, individual
+states will be attributed to each Tab item.
+
+![Tabs with the first tab item selected and the third one in a hover state.](../../assets/components/tabs-interaction-states.svg)
+
 ## Demos
 ### Basic Example
 
@@ -29,7 +87,7 @@ Two stylistic variants are available, quiet (the default) and framed.
 
 <cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues }">
-<basic-tabs v-bind="propValues" />
+	<basic-tabs v-bind="propValues" />
 </template>
 
 <template v-slot:code>
@@ -47,12 +105,12 @@ Two stylistic variants are available, quiet (the default) and framed.
 
 ### Header row scroll
 
-When the width of the header row exceeds the width of its container, arrow buttons will appear to
-enable scrolling through tab names.
+When the width of the header row exceeds the width of its container, arrow
+buttons will appear to enable scrolling through tab names.
 
 <cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues }">
-<many-tabs v-bind="propValues" />
+	<many-tabs v-bind="propValues" />
 </template>
 
 <template v-slot:code>
@@ -76,7 +134,7 @@ the header row will update to match.
 
 <cdx-demo-wrapper>
 <template v-slot:demo="{ propValues }">
-<dynamically-generated-tabs v-bind="propValues" />
+	<dynamically-generated-tabs v-bind="propValues" />
 </template>
 
 <template v-slot:code>
