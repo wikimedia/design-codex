@@ -8,6 +8,69 @@ import InputWithMenuPending from '@/../component-demos/menu/examples/InputWithMe
 import InputWithMenuPendingWithItems from '@/../component-demos/menu/examples/InputWithMenuPendingWithItems.vue'
 </script>
 
+A Menu displays a list of available options or suggestions. They unfold from a
+control (e.g. a button, selector or input) after it is activated by a user.
+
+## Guidelines
+
+### Using menus
+Menus are intended to be used within other components such as Select or Lookup,
+where they appear when the user interacts with or selects the corresponding
+element.
+
+![Example of Codex Menu with different menu items.](../../assets/components/menu-using.svg)
+
+### Specifications
+
+![Specification of Menu.](../../assets/components/menu-specifications.svg)
+
+The menu is always displayed within a control or input, and it may include the
+following elements:
+
+1. **Menu items**<br>
+One or more menu items will appear within the menu. Refer to the MenuItem component to learn more about available display options.
+
+2. **Footer** (optional)<br>
+An optional interactive footer can appear at the end of the menu items to display extra information or provide an access to further results.
+
+Menus have a drop shadow in order to separate it more clearly from the content
+below. This shadow is a 20% opacity Black color with the X axis moved 0 pixels,
+the Y axis moved 2 pixels, and a 2 pixel blur.
+
+Refer to the [Menu component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=6754-63118&mode=design&t=2O0ceqiRfqCtnidq-11).
+
+
+### Types
+The base menu consists of a combination of menu items with an optional footer
+item positioned below the menu items group.
+
+![Example of Menu with different menu items and footer.](../../assets/components/menu-types-footer.svg)
+
+#### Scroll
+The number of visible menu items within the menu can be customized. When a
+visible item limit is set, the menu’s height will be limited so that only that
+number of menu items will display, the rest being available via scroll. When
+scrolling is activated, the footer will remain fixed at the bottom.
+
+![Example of Menu with scroll and sticky footer.](../../assets/components/menu-types-scroll.svg)
+
+#### No results
+When no results are present to show in the menu, a non-interactive "no results"
+message will appear within the menu.
+
+![Example of Menu with no results found.](../../assets/components/menu-types-no-results.svg)
+
+### Interaction states
+The interaction states of the menu affect the entire menu (group of menu items),
+while individual [menu item](./menu-item.md) states are specifically defined
+within each respective item. The menu component has two main states:
+
+![Interaction states of Menu: default and loading.](../../assets/components/menu-types-no-results.svg)
+
+1. Default
+2. Loading
+
+
 ## Demos
 
 ### Simple menu with input

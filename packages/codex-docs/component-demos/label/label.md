@@ -42,13 +42,48 @@ const controlsConfig = [
 ];
 </script>
 
+A Label provides a descriptive title for a form input. Having labels is
+essential when filling out a form, since each field is associated with its
+label.
+
+## Guidelines
+
+### Using labels
+The Label component will be placed above each form [Field](./field.md). An optional indicator, a
+tooltip, and a description could also be included next to the label text.
+
+![Example of Codex Label being used within a Codex Field.](../../assets/components/label-using.svg)
+
+### Specifications
+
+![Specification of Label.](../../assets/components/label-specifications.svg)
+
+The Label may include the following elements:
+1. **Icon** (optional)<br>A start icon can be included to visually enhance the label's context. This icon is fully customizable and any icon from the provided list can be used. Use a simple icon that is easily comprehensible to users.
+2. **Label text**<br>A clear and descriptive title for the form field that tells the user what information to enter.
+3. **Field indicator** (optional)
+Subtle text indicating that the field associated with the label is not required.
+4. **Description** (optional)<br>Subtle descriptive text that provides additional information about the field.
+
+Label is used within Field. It can also be used on its own for cases when the Field component cannot or should not be used (e.g. to label a [SearchInput](./search-input.md)).
+
+Refer to the [Label component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=10192-102686&mode=design&t=2O0ceqiRfqCtnidq-11).
+
+### Interaction states
+Label includes only two states:
+
+![Interaction states of Label: default and disabled.](../../assets/components/label-interaction-states.svg)
+
+1. Default
+2. Disabled
+
+## Demos
+
 :::tip
 You should consider using the [Field](./field.md) component, which includes the Label component and
 handles accessibility features like ARIA attributes internally. If you need more custom behavior,
 you can use the Label component on its own.
 :::
-
-## Demos
 
 ### Configurable
 

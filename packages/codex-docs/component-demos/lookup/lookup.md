@@ -8,6 +8,76 @@ import LookupWithPlaceholder from '@/../component-demos/lookup/examples/LookupWi
 import LookupField from '@/../component-demos/lookup/examples/LookupField.vue';
 </script>
 
+A Lookup is a predictive text input that presents a dropdown menu with
+suggestions based on the current input value.
+
+## Guidelines
+
+### Using lookups
+Use the Lookup component to let users search through a dataset to choose a
+predefined value for a form field. This can be useful when there are many
+options the user can choose from, so they need to filter the items via a text
+query.
+
+Avoid using Lookup to enable users to search for and navigate to content.
+Instead, use [SearchInput](./search-input.md) or
+[TypeaheadSearch](./typeahead-search.md).
+
+![Example of Codex Lookup.](../../assets/components/lookup-using.svg)
+
+### Specifications
+![Specification of Lookup.](../../assets/components/lookup-specifications.svg)
+
+Lookup includes the following elements:
+1. **Input**<br>A TextInput where the user types to look for the suggested results. This can optionally include a start icon, clear button, and placeholder text.
+2. **Dropdown menu**<br>Suggested results are displayed via the Menu component.
+
+Refer to the [Lookup component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=5034-54226&mode=design&t=2O0ceqiRfqCtnidq-11).
+
+### Types
+An input field featuring an optional placeholder will enable users to initiate
+their search for suggested results. These suggestions will be displayed within a
+dropdown menu, and if the menu cannot fully accommodate the results, a scrollbar
+with the choice of infinite scroll can be included.
+
+![Example of Lookup with a custom placeholder.](../../assets/components/lookup-types-scroll.svg)
+
+#### Clearable, with start icon
+An optional start icon and clear button could appear within the input field.
+
+![Example of a clearable Lookup component with a custom start icon.](../../assets/components/lookup-types-start-icon.svg)
+
+#### With custom menu item display
+Custom content and formats can be applied to change the appearance of menu items
+according to your needs.
+
+![Example of Lookup with custom menu items displayed.](../../assets/components/lookup-types-custom-menu.svg)
+
+#### No results
+If there are no results for the text typed by the user, a non-interactive "no
+results" message will be displayed within the menu.
+
+![Example of a Lookup with no results found.](../../assets/components/lookup-types-no-results.svg)
+
+#### Lookup within a form field
+
+A Lookup can be wrapped within the Field component to include features like
+label, description, help text, or validation messages.
+
+![Example of Lookup within a Field component.](../../assets/components/lookup-types-field.svg)
+
+### Interaction states
+Interaction can take place within both the input and the displayed menu:
+
+![Interaction states of the Lookup component: default, hover, focus, active, filled, and filled active where a menu item selected is displayed.](../../assets/components/lookup-interaction-states.svg)
+
+1. Default
+2. Hover
+3. Focus
+4. Active
+5. Filled
+6. Filled active (with a menu item selected)
+
 ## Demos
 
 ### Default
@@ -90,7 +160,7 @@ this slot will automatically display when there are zero menu items.
 
 ### With fetched results and infinite scroll
 
-Often, a Lookup component is used to fetch results from an API endpoint. Parent components should
+Often, Lookup is used to fetch results from an API endpoint. Parent components should
 react to the `input` event emitted by Lookup to search for results, then pass back to the
 Lookup either an array of results to display as menu items or an empty array if there are no
 results. Between those two events, a pending state animation will display in the input.
