@@ -6,6 +6,72 @@ import TypeaheadSearchPendingState from '@/../component-demos/typeahead-search/e
 import TypeaheadSearchNoResult from '@/../component-demos/typeahead-search/examples/TypeaheadSearchNoResult.vue';
 </script>
 
+TypeaheadSearch is a search input that provides a menu of options based on the
+current search query. It is meant to help users search for and navigate to
+content.
+
+## Guidelines
+
+### Using TypeaheadSearch
+
+TypeaheadSearch consists of a search input and a submit button. As users type, predictive search
+results are displayed in a menu. Additionally, there's a final option at the end of the search
+results list, enabling users to navigate to the search page.
+
+Use the TypeaheadSearch component when you need a predictive list of options in a menu that updates
+as users type within the input field. Avoid using TypeaheadSearch if your goal is to enable users to
+perform text-based searches to find specific content, such as locating results on a page. In this
+case use the [SearchInput](./search-input.md) component instead.
+
+![Example of Codex TypeaheadSearch with some results displayed within a menu.](../../assets/components/typeahead-search-using.svg)
+
+### Specifications
+
+TypeaheadSearch may include the following elements:
+
+![Specification of TypeaheadSearch.](../../assets/components/typeahead-search-specifications.svg)
+
+1. **Input**<br>
+A search input where users can type their searches. The input features the 'search' icon for clarity
+and should also include a placeholder to clarify its purpose.
+2. **Button** (optional)<br>
+The input can be accompanied with a button,  in order to trigger the search action. It's crucial not
+to customize the label of the search button: consistently employ the term "Search" or its
+appropriate translation. Additionally, avoid using long text within this button.
+3. **Menu**<br>
+When the user types within the input, a [menu](./menu.md) component with results is
+displayed. By default, menu items will feature a label and an optional description. Thumbnails can
+also be included.
+4. **Footer**<br>
+The final menu item at the end of the search results menu list allows users to navigate to the
+search page.
+
+### Types
+
+As with [SearchInput](./search-input.md), TypeaheadSearch can be categorized
+based on the visibility and type of button it contains:
+1. **Without button**<br>
+The TypeaheadSearch can consist of the input field alone or include the decorative icon. In this
+scenario, using the icon is suggested to emphasize that the input serves as a search input,
+distinguishing it from a simple text input.
+2. **With text button**<br>
+The TypeaheadSearch also has the option to feature a text button to initiate the search process.
+
+![Types of Type-ahead Search: without button and with button.](../../assets/components/typeahead-search-types.svg)
+
+### Interaction states
+
+TypeaheadSearch has the following visually separate states:
+
+![Interaction states of the TypeaheadSearch: default, hover, focus, loading, active with results, and active with no results.](../../assets/components/typeahead-search-interaction-states.svg)
+
+1. Default
+2. Hover
+3. Focus
+4. Loading
+5. Active with results
+6. Active with no results
+
 ## Demos
 
 ### Search Wikipedia articles
@@ -17,7 +83,7 @@ events.
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-<typeahead-search-wikipedia />
+	<typeahead-search-wikipedia />
 </template>
 <template v-slot:code>
 
@@ -40,7 +106,7 @@ see emitted events.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<typeahead-search-wikidata />
+	<typeahead-search-wikidata />
 </template>
 <template v-slot:code>
 
@@ -68,7 +134,7 @@ when the value changes.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-<typeahead-search-initial-value initial-input-value="Color" />
+	<typeahead-search-initial-value initial-input-value="Color" />
 </template>
 <template v-slot:code>
 
@@ -94,7 +160,7 @@ need to throttle your connection to see them in the demo below.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<typeahead-search-pending-state />
+	<typeahead-search-pending-state />
 </template>
 <template v-slot:code>
 
@@ -116,7 +182,7 @@ A message prompt that no search results were found. To enable this, provide cont
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-<typeahead-search-no-result />
+	<typeahead-search-no-result />
 </template>
 <template v-slot:code>
 
