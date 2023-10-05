@@ -67,7 +67,7 @@ The interaction states of the menu affect the entire menu (group of menu items),
 while individual [menu item](./menu-item.md) states are specifically defined
 within each respective item. The menu component has two main states:
 
-![Interaction states of Menu: default and loading.](../../assets/components/menu-types-no-results.svg)
+![Interaction states of Menu: default and loading.](../../assets/components/menu-interaction-states.svg)
 
 1. Default
 2. Loading
