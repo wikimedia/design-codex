@@ -59,13 +59,17 @@ tooltip, and a description could also be included next to the label text.
 ![Specification of Label.](../../assets/components/label-specifications.svg)
 
 The Label may include the following elements:
-1. **Icon** (optional)<br>A start icon can be included to visually enhance the label's context. This icon is fully customizable and any icon from the provided list can be used. Use a simple icon that is easily comprehensible to users.
-2. **Label text**<br>A clear and descriptive title for the form field that tells the user what information to enter.
-3. **Field indicator** (optional)
+1. **Icon** (optional)<br>
+A start icon can be included to visually enhance the label's context. This icon is fully customizable and any icon from the provided list can be used. Use a simple icon that is easily comprehensible to users.
+2. **Label text**<br>
+A clear and descriptive title for the form field that tells the user what information to enter.
+3. **Field indicator** (optional)<br>
 Subtle text indicating that the field associated with the label is not required.
-4. **Description** (optional)<br>Subtle descriptive text that provides additional information about the field.
+4. **Description** (optional)<br>
+Subtle descriptive text that provides additional information about the field.
 
-Label is used within Field. It can also be used on its own for cases when the Field component cannot or should not be used (e.g. to label a [SearchInput](./search-input.md)).
+Label is used within [Field](./field.md). It can also be used on its own for cases when the Field
+component cannot or should not be used (e.g. to label a [SearchInput](./search-input.md)).
 
 Refer to the [Label component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=10192-102686&mode=design&t=2O0ceqiRfqCtnidq-11).
 

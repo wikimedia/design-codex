@@ -61,7 +61,7 @@ results" message will be displayed within the menu.
 
 #### Lookup within a form field
 
-A Lookup can be wrapped within the Field component to include features like
+A Lookup can be wrapped within a [Field](./field.md) to include features like
 label, description, help text, or validation messages.
 
 ![Example of Lookup within a Field component.](../../assets/components/lookup-types-field.svg)

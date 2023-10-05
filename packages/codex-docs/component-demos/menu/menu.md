@@ -28,10 +28,12 @@ The menu is always displayed within a control or input, and it may include the
 following elements:
 
 1. **Menu items**<br>
-One or more menu items will appear within the menu. Refer to the MenuItem component to learn more about available display options.
+One or more menu items will appear within the menu. Refer to [MenuItem](./menu-item.md) to learn
+more about available display options.
 
 2. **Footer** (optional)<br>
-An optional interactive footer can appear at the end of the menu items to display extra information or provide an access to further results.
+An optional interactive footer can appear at the end of the menu items to display extra information
+or provide an access to further results.
 
 Menus have a drop shadow in order to separate it more clearly from the content
 below. This shadow is a 20% opacity Black color with the X axis moved 0 pixels,
