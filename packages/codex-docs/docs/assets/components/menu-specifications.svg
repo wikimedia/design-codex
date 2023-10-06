@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="690" height="274" fill="none" viewBox="0 0 690 274">
-	<path fill="#EAECF0" d="M0 0h690v274H0z"/>
 	<path fill="#fff" d="M101.25 26a1 1 0 0 1 1-1h486a1 1 0 0 1 1 1v29h-488V26Z"/>
 	<path fill="#202122" d="M113.034 31.537V48.28h-.994V31.537h.994Z"/>
 	<path stroke="#36C" stroke-linecap="square" stroke-width="2" d="M101.25 26a1 1 0 0 1 1-1h486a1 1 0 0 1 1 1v29h-488V26Z"/>

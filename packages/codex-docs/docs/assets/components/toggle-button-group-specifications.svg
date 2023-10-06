@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="691" height="129" fill="none" viewBox="0 0 691 129">
-	<path fill="#EAECF0" d="M.25.25h690v128H.25z"/>
 	<g clip-path="url(#a)">
 		<path fill="#F8F9FA" d="M220.25 48.75h79v31h-79z"/>
 		<path fill="#202122" fill-rule="evenodd" d="M232.75 59.76a1.89 1.89 0 0 1 2-1.75h2.37a2 2 0 0 0 1.38-.56l.67-.64a2 2 0 0 1 1.38-.56h4.4a2 2 0 0 1 1.38.55l.67.64a2 2 0 0 0 1.38.56h2.37a1.89 1.89 0 0 1 2 1.76V70.3a1.89 1.89 0 0 1-2 1.76h-16a1.89 1.89 0 0 1-2-1.76V59.76Zm13 5.49a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-3 5a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" clip-rule="evenodd"/>

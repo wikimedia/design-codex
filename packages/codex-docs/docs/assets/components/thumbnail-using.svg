@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="691" height="139" fill="none" viewBox="0 0 691 139">
-	<path fill="#EAECF0" d="M.25 0h690v139H.25z"/>
 	<rect width="315" height="74" x="187.75" y="32.5" fill="#fff" rx="1.5"/>
 	<g clip-path="url(#a)">
 		<path fill="url(#b)" d="M200.25 45h48v48h-48z"/>

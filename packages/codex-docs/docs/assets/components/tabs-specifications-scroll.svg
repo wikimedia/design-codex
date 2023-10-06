@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="691" height="214" fill="none" viewBox="0 0 691 214">
-	<path fill="#F8F9FA" d="M.75.5h689v213H.75z"/>
 	<g style="mix-blend-mode:darken">
 		<g clip-path="url(#a)">
 			<g clip-path="url(#b)" style="mix-blend-mode:darken">
@@ -68,7 +67,6 @@
 		<circle cx="8" cy="8" r="8" fill="#6D50FF" fill-opacity=".8"/>
 	</g>
 	<circle cx="4" cy="4" r="4" fill="#6D50FF" fill-opacity=".9" transform="matrix(1 0 0 -1 124.25 177)"/>
-	<path stroke="#C8CCD1" d="M.75.5h689v213H.75z"/>
 	<defs>
 		<clipPath id="a">
 			<path fill="#fff" d="M129.25 24h432v34h-432V24Z"/>

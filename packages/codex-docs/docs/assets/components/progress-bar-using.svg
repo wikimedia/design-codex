@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="691" height="80" fill="none" viewBox="0 0 691 80">
-	<path fill="#EAECF0" d="M.25 0h690v80H.25z"/>
 	<g filter="url(#a)">
 		<rect width="432" height="16" x="129.25" y="32" fill="#fff" rx="8"/>
 		<path fill="#36C" d="M249.65 32h191.2v16h-191.2V32Z"/>
