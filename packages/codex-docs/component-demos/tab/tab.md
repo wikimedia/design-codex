@@ -28,10 +28,9 @@ A Tab is one of the selectable items included within [Tabs](./tabs.md).
 ## Guidelines
 
 ### Using tab items
-Two or more tab items are grouped to create a Tabs component. Tab items cannot
-be used individually. For example, different tab items can represent the
-different sections of an article. A tab includes a label, which displays in the
-tabs list, and its associated content.
+Two or more tab items are grouped to create a [Tabs](./tabs.md) component. Tab items cannot
+be used individually. For example, different tab items can represent the different sections of an
+article. A tab includes a label, which displays in the tabs list, and its associated content.
 
 ![Example of different Codex Tab items creating a Tabs component.](../../assets/components/tab-using.svg)
 

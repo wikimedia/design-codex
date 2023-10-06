@@ -56,7 +56,7 @@ free-form text, for example comments, reviews, feedback, or short essay
 responses.
 
 Use TextArea to let users enter long text that exceeds one line. Avoid using
-TextArea if the text to be entered is short. In this case use a TextInput
+TextArea if the text to be entered is short. In this case use [TextInput](./text-input.md)
 instead.
 
 ![Example of a Codex TextArea.](../../assets/components/text-area-using.svg)

@@ -22,7 +22,7 @@ onMounted( () => {
 } );
 </script>
 
-Tabs are a layout for navigating between sections of content.
+Tabs consist of two or more tab items created for navigating between different sections of content.
 
 ## Guidelines
 
@@ -35,7 +35,7 @@ edit views.
 ![Example of Codex Tabs with five Tab items.](../../assets/components/tabs-using.svg)
 
 ### Specifications
-The Tabs component always contains two or more Tab items.
+The Tabs component always contains two or more [Tab](./tab.md) items.
 
 ![Specification of Tab items.](../../assets/components/tabs-specifications.svg)
 

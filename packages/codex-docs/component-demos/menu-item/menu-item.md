@@ -74,14 +74,14 @@ A MenuItem is a selectable option within a Menu.
 ::: warning
 This is not a standalone component, nor will it typically be directly used. It's
 intended for use by the Menu component, which will provide it with props and
-menu state information. See [Menu](./menu) for more details.
+menu state information. See [Menu](./menu.md) for more details.
 :::
 
 ## Guidelines
 
 ### Using menu items
 MenuItem is an “internal” component, used exclusively to represent content
-within a Menu. It cannot be used by itself.
+within a [Menu](./menu.md). It cannot be used by itself.
 
 MenuItems contain text, and supporting media (icons or thumbnails) that
 represent an available choice for users.

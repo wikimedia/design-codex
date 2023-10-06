@@ -50,8 +50,7 @@ Use the TextInput component in forms when the user’s answer to a prompt can no
 or when there is significant variability in potential inputs. Text inputs should also be used when
 other form components prove more difficult (require additional steps) to achieve the same result
 (e.g. selecting a date from a calendar versus typing in the date). The text input used for search
-queries, known as the search type, is documented in the
-[SearchInput component](./search-input.md).
+queries, known as the search type, is documented in [SearchInput](./search-input.md).
 
 You can provide autocomplete options that are tailored to the user’s input by using
 [Lookup](./lookup.md).

@@ -12,7 +12,7 @@ users with a quick glimpse of the associated content.
 ### Using thumbnails
 Use the Thumbnail component to include small versions of images that can provide
 context or support the meaning of the content included in components such as
-Card or MenuItem.
+[Card](./card.md) or [MenuItem](./menu-item.md).
 
 The placeholder icon will display until the thumbnail image loads, or if a
 thumbnail image is not provided.
