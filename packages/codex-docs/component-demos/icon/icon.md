@@ -19,7 +19,7 @@ Read more about how to [use and create Codex icons](/style-guide/icons.html).
 
 #### Size
 
-![Icon in available sizes: 20px, 16px, and 12px.](../../assets/components/icon-using.svg)
+![Icon in available sizes: 20px, 16px, and 12px.](../../assets/components/icon-specifications.svg)
 
 Icon size can be 20px, 16px or 12px. Icon base size will be 20px, while 16px
 will be used for small icons. We will use 12px just for a limited set of
