@@ -44,6 +44,8 @@ icon, these make it easier to differentiate between the radio button’s selecte
 
 ![States of the Radio component for both unselected and selected states: default, hover, active, focus, and disabled.](../../assets/components/radio-interaction-states.svg)
 
+<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
+
 1. Default unselected
 2. Hover unselected
 3. Active unselected
@@ -54,6 +56,8 @@ icon, these make it easier to differentiate between the radio button’s selecte
 8. Active selected
 9. Focus selected
 10. Disabled selected
+
+</div>
 
 ::: tip Accessibility note
 The disabled state does not meet our minimum color contrast rules. WCAG 2.1

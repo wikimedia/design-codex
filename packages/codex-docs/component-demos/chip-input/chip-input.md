@@ -70,6 +70,8 @@ ChipInput has the following visually separate states:
 ![Interaction states of ChipInput: default, hover on input, focus-active, filled, disabled, hover on chip’s remove button, error default, error focus, error filled, hover on editable chip,focus on editable chip and chip being edited.
 ](../../assets/components/chip-input-interaction-states.svg)
 
+<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
+
 1. Default
 2. Hover on input
 3. Focus or active
@@ -82,6 +84,8 @@ ChipInput has the following visually separate states:
 10. Hover on editable chip
 11. Focused editable chip
 12. Editing the chip
+
+</div>
 
 ## Demos
 

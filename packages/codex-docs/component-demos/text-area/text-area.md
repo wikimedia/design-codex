@@ -101,6 +101,8 @@ Text areas have the following visually separate states:
 
 ![Interaction states of TextArea: default, hover, active-focus, filled, disabled, read-only, error default, error focus, and error filled.](../../assets/components/text-area-interaction-states.svg)
 
+<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
+
 1. Default
 2. Hover
 3. Active - Focus
@@ -111,6 +113,7 @@ Text areas have the following visually separate states:
 8. Error focus
 9. Error filled
 
+</div>
 
 ## Demos
 

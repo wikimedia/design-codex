@@ -61,6 +61,8 @@ active) easier to perceive:
 
 ![Interaction states of the Checkbox component for both unselected and selected states: default, hover, active, focus, error, error-hover, error-active, error-focus, and disabled.](../../assets/components/checkbox-interaction-states.svg)
 
+<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
+
 1. Default unselected
 2. Hover unselected
 3. Active unselected
@@ -81,6 +83,8 @@ active) easier to perceive:
 18. Disabled unselected
 19. Disabled selected
 20. Disabled indeterminate
+
+</div>
 
 The error checkbox must always be accompanied by an inline error message,whether for a group or an
 individual checkbox. This message ensures users are informed about the error and provides guidance

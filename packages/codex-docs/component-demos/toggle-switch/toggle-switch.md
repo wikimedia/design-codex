@@ -61,6 +61,8 @@ on or off states (e.g. disabled, hover, active) visually:
 
 ![States of the Toggle Switch component for both off and on states: default, hover, active, focus, and disabled.](../../assets/components/toggle-switch-interaction-states.svg)
 
+<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
+
 1. Default off
 2. Hover off
 3. Active off
@@ -71,6 +73,8 @@ on or off states (e.g. disabled, hover, active) visually:
 8. Active on
 9. Focus on
 10. Disabled on
+
+</div>
 
 ::: tip Accessibility note
 The disabled state does not meet our minimum color contrast rules. WCAG 2.1
@@ -283,7 +287,7 @@ To add a description below the label:
 				Visual editing mode
 			</label>
 			<span id="cdx-description-css-1" class="cdx-label__description">
-				Turn on to use the visual editor. You can switch back to source mode at any time. 
+				Turn on to use the visual editor. You can switch back to source mode at any time.
 			</span>
 		</div>
 	</span>
@@ -301,7 +305,7 @@ To add a description below the label:
 			Visual editing mode
 		</label>
 		<span id="cdx-description-css-1" class="cdx-label__description">
-			Turn on to use the visual editor. You can switch back to source mode at any time. 
+			Turn on to use the visual editor. You can switch back to source mode at any time.
 		</span>
 	</div>
 </span>

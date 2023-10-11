@@ -67,6 +67,8 @@ Selects have the following visually separate states:
 
 ![States of the Select component: default, hover, focus, error, disabled, active, and filled with one option selected from the dropdown menu.](../../assets/components/select-interaction-states.svg)
 
+<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
+
 1. Default
 2. Hover
 3. Focus
@@ -77,6 +79,8 @@ Selects have the following visually separate states:
 8. Active select and one of the menu options being pressed
 9. Active select with one of the menu options selected
 10. Filled (with one option from the menu selected)
+
+</div>
 
 ::: tip Accessibility note
 The disabled state does not meet our minimum color contrast rules. WCAG 2.1

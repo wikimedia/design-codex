@@ -382,7 +382,7 @@ body {
 	color: var( --color-destructive--active );
 }
 
-/* Cols */
+/* Columns */
 @media ( min-width: 640px ) {
 	.vp-doc .cdx-docs-col {
 		float: left;
@@ -404,6 +404,17 @@ body {
 	.vp-doc h4 {
 		clear: both;
 	}
+}
+
+/* CSS multi-columns */
+.cdx-docs-multi-column ol {
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+	column-gap: var( --spacing-100 );
+}
+
+.cdx-docs-multi-columns-2 ol {
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+	column-count: 2;
 }
 
 /* Dos and Donts */

@@ -132,6 +132,8 @@ Form fields have the following visually separate states:
 
 ![Interaction states of the Field component: default, hover on field, focus field, filled field, disabled, read-only field, error, warning and success.](../../assets/components/field-interaction-states.svg)
 
+<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
+
 1. Default
 2. Hover on field item
 3. Focused field item
@@ -141,6 +143,8 @@ Form fields have the following visually separate states:
 7. Error
 8. Warning
 9. Success
+
+</div>
 
 The interactive states will exclusively impact the field item within Field.
 Hover, focus, filled, and read-only states apply solely to the field item (e.g.
@@ -546,7 +550,7 @@ This works with single fields and fieldsets.
 			</select>
 		</div>
 		<div class="cdx-field__help-text">
-			What kind of data does the function accept? See <a href="https://wikifunctions.beta.wmflabs.org/wiki/Special:ListObjectsByType/Z4">list of input types</a>. 
+			What kind of data does the function accept? See <a href="https://wikifunctions.beta.wmflabs.org/wiki/Special:ListObjectsByType/Z4">list of input types</a>.
 		</div>
 	</div>
 </template>
@@ -572,7 +576,7 @@ This works with single fields and fieldsets.
 		</select>
 	</div>
 	<div class="cdx-field__help-text">
-		What kind of data does the function accept? See <a href="https://wikifunctions.beta.wmflabs.org/wiki/Special:ListObjectsByType/Z4">list of input types</a>. 
+		What kind of data does the function accept? See <a href="https://wikifunctions.beta.wmflabs.org/wiki/Special:ListObjectsByType/Z4">list of input types</a>.
 	</div>
 </div>
 ```

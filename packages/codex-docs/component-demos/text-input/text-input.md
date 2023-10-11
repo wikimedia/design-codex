@@ -82,6 +82,8 @@ Text inputs have the following visually separate states:
 
 ![States of the Text Input component: default, hover, active-focus, filled, disabled, read-only, error default, error focus, and error filled.](../../assets/components/text-input-interaction-states.svg)
 
+<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
+
 1. Default
 2. Hover
 3. Active - Focus
@@ -91,6 +93,8 @@ Text inputs have the following visually separate states:
 7. Error default
 8. Error focus
 9. Error filled
+
+</div>
 
 ## Demos
 
