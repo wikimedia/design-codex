@@ -1,3 +1,38 @@
+# 1.0.0-rc.1 / 2023-10-12
+
+## Code
+- build: Update 'svglint' and 'glob' packages (Volker E)
+- build: Make svglint check for correct XML declaration (Volker E)
+- build: Add SVGO & svglint to 'codex-docs' (Volker E)
+
+## Documentation
+- docs: Remove "Usage" heading from component pages (Anne Tomasevich)
+- docs: Move Vue-specific component documentation (Anne Tomasevich)
+- docs: Move Vue-specific component documentation, part II (Volker E)
+- docs: Move Vue-specific component documentation, part III (Volker E)
+- docs: Move Vue-specific component documentation, part IV (lwatson)
+- docs: Rename "states" to "interaction states" in docs (Volker E)
+- docs: Expand abbreviations in ADR 07 (Volker E)
+- docs: Add 'Fira Code' monospace font to typography guide (Volker E)
+- docs: Add existing component guidelines image assets (Volker E)
+- docs: Add new component guidelines image assets (Volker E)
+- docs: Add background shade to asset images (Volker E)
+- docs: Don't use SFC comments in component documentation pages (Eric Gardner)
+- docs: Move existing guidelines of Combobox, TextInput, Message, and Dialog (lwatson)
+- docs: Create design guidelines for ToggleButton, ToggleButtonGroup, and TypeaheadSearch (lwatson)
+- docs: Create design guidelines for Tab, Tabs, TextArea and Thumbnail (Volker E)
+- docs: Create design guidelines for Label, Lookup and Menu (Volker E)
+- docs: Create design guidelines for MenuItem, ProgressBar and SearchInput (Volker E)
+- docs: Move existing guidelines of Checkbox, Radio, Select, and ToggleSwitch (lwatson)
+- docs: Create design guidelines for Accordion, Card and ChipInput (Volker E)
+- docs: Move existing guidelines of Button, ButtonGroup and Link (Volker E)
+- docs: Fix minor layout issues and missing links (Volker E)
+- docs: Create design guidelines for Field, Icon and InfoChip (Volker E)
+- docs: Update Menu and Lookup component assets (Volker E)
+- docs: Fix component guideline images by removing backgrounds and borders (Volker E)
+- docs: Follow-up fixes including more links, consistent style (Volker E)
+- docs: Asset images hot fixes for component guidelines (Volker E)
+
 # 0.20.0 / 2023-09-26
 
 ## Features
