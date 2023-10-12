@@ -248,9 +248,7 @@ module.exports = {
 			'error',
 			{
 				ignore: [
-					'calc',
-					'css-gradients',
-					'outline'
+					'css-gradients'
 				]
 			}
 		],
