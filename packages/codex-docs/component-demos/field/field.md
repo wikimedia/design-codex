@@ -111,7 +111,7 @@ toggle switch group.](../../assets/components/field-types-field.svg)
 A complex field may comprise multiple inputs, each accompanied by an individual label that can be
 visually concealed.
 
-![A Field component with two field items and an action affecting it all.](../../assets/components/field-types-action.svg)
+![A Field component with two field items.](../../assets/components/field-types-two-fields.svg)
 
 The helper text slot can include plain text with or without links.
 
