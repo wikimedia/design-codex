@@ -312,7 +312,6 @@ Usage of the custom component would look like this:
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
 	<cdx-button @click="wrappedDialogState = true">Test</cdx-button>
-
 	<wrapped-dialog title="Custom dialog header" v-model:open="wrappedDialogState">
 	Custom dialog content.
 	</wrapped-dialog>
