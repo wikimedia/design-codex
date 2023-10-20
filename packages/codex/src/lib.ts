@@ -54,6 +54,7 @@ import useComputedDirection from './composables/useComputedDirection';
 import useComputedDisabled from './composables/useComputedDisabled';
 import useComputedLanguage from './composables/useComputedLanguage';
 import useFieldData from './composables/useFieldData';
+import useFloatingMenu from './composables/useFloatingMenu';
 import useGeneratedId from './composables/useGeneratedId';
 import useIntersectionObserver from './composables/useIntersectionObserver';
 import useModelWrapper from './composables/useModelWrapper';
@@ -130,6 +131,7 @@ export {
 	useComputedDisabled,
 	useComputedLanguage,
 	useFieldData,
+	useFloatingMenu,
 	useGeneratedId,
 	useIntersectionObserver,
 	useModelWrapper,
