@@ -71,13 +71,13 @@ const sandboxConfig = mergeConfig( baseConfig, {
 } );
 
 // Build the complete library
-const libraryConfig = mergeConfig( baseConfig, {
+const baseLibraryConfig = mergeConfig( baseConfig, {
 	build: {
 		lib: {
 			name: 'codex',
 			fileName: 'codex',
-			entry: { codex: resolve( __dirname, 'src/lib.ts' ) },
-			formats: [ 'es', 'cjs', 'umd' ]
+			entry: { codex: resolve( __dirname, 'src/lib.ts' ) }
+			// formats are added separately below
 		},
 
 		rollupOptions: {
@@ -87,6 +87,23 @@ const libraryConfig = mergeConfig( baseConfig, {
 				globals: { vue: 'Vue' }
 			}
 		}
+	}
+} );
+// Minify the CJS and UMD builds
+const minifiedLibraryConfig = mergeConfig( baseLibraryConfig, {
+	build: {
+		lib: {
+			formats: [ 'cjs', 'umd' ]
+		}
+	}
+} );
+// Don't minify the ES build
+const unminifiedLibraryConfig = mergeConfig( baseLibraryConfig, {
+	build: {
+		lib: {
+			formats: [ 'es' ]
+		},
+		minify: false
 	}
 } );
 
@@ -135,7 +152,10 @@ await build( {
 	...sandboxConfig
 } );
 
-// build the Codex bundles
-await generateCodexBundle( libraryConfig );
+// Build the Codex bundles
+// Build the unminified files first and the minified files second, otherwise
+// the minified CSS files are overwritten with unminified ones
+await generateCodexBundle( unminifiedLibraryConfig );
+await generateCodexBundle( minifiedLibraryConfig );
 await generateCodexBundle( splitConfig );
 await generateCodexBundle( searchConfig );
