@@ -1,3 +1,16 @@
+# 1.0.0 / 2023-10-24
+
+## Code
+- build: Don't minify the ESM library build (Roan Kattouw)
+
+## Documentation
+- docs: Fix broken Dialog demo (lwatson)
+- docs: Remove actions from Field type (Volker E)
+- docs: Use CSS multi-column layout to display interaction states (lwatson)
+- docs: Export useFloatingMenu composable (lwatson)
+- docs: Document Codex Composables (lwatson)
+- docs: Update AUTHORS.txt for 1.0 release (Volker E)
+
 # 1.0.0-rc.1 / 2023-10-12
 
 ## Code
