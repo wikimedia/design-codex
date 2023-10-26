@@ -15,7 +15,11 @@
 		<tbody>
 			<tr v-for="( token, key ) in flattenedTokens" :key="key">
 				<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
-				<td class="cdx-docs-tokens-table__name" dir="ltr">
+				<td
+					:id="token.name"
+					class="cdx-docs-tokens-table__name"
+					dir="ltr"
+				>
 					<strong>{{ token.name }}</strong>
 					<span class="cdx-docs-tokens-table__name__meta">
 						<p v-if="token.deprecated" class="cdx-docs-tokens-table__name__deprecated">
