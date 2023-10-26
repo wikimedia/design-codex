@@ -387,8 +387,13 @@ export default defineComponent( {
 		align-items: flex-start;
 	}
 
-	&__text__description {
-		display: block;
+	&__text {
+		// Make sure long words won't overflow the container.
+		max-width: @size-full;
+
+		&__description {
+			display: block;
+		}
 	}
 
 	&__thumbnail {

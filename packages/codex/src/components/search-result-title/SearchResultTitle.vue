@@ -54,6 +54,8 @@ export default defineComponent( {
 
 .cdx-search-result-title {
 	display: inline-block;
+	// Make sure long words won't overflow the container.
+	max-width: @size-full;
 	font-weight: @font-weight-bold;
 
 	&__match {

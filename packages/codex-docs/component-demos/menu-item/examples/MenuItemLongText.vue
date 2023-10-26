@@ -18,7 +18,11 @@ const menuItem = {
 	label: 'Donaudampfschiffahrtselektrizitätenhauptbetriebswerkbauunterbeamtengesellschaft',
 	url: 'https://en.wikipedia.org/wiki/Donaudampfschiffahrtselektrizit%C3%A4tenhauptbetriebswerkbauunterbeamtengesellschaft',
 	description: 'Arguably the longest German word',
-	id: 'menu-item-long-text'
+	id: 'menu-item-long-text',
+	language: {
+		// Support: Firefox, which only hyphenates capitalized words when lang="de".
+		label: 'de'
+	}
 };
 
 export default defineComponent( {
