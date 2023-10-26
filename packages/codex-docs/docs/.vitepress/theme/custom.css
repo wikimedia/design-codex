@@ -225,6 +225,23 @@ body {
 	background-color: var( --background-color-progressive-subtle );
 }
 
+/*
+ * Large screen social links.
+ * Also show on medium screens so we can avoid a pointless flyout menu with our single social link.
+ * See https://phabricator.wikimedia.org/T345982.
+ */
+.VPSocialLinks.VPNavBarSocialLinks {
+	@media ( min-width: 768px ) {
+		display: flex;
+		align-items: center;
+	}
+}
+
+/* Hide medium-screen flyout menu for social links. */
+.VPFlyout.VPNavBarExtra {
+	display: none;
+}
+
 /* stylelint-disable-next-line no-descending-specificity */
 .VPNavBar .link,
 .VPNavBar .text,

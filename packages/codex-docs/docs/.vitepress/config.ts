@@ -79,6 +79,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 		socialLinks: [
 			// `as DefaultTheme.SocialLink` is needed because the type information from VitePress
 			// doesn't include the ariaLabel property
+			// Note: If we add more social links, we should undo the customization done for
+			// T345982, which hides a flyout menu for social links on medium-size screens.
 			{ icon: 'github', link: 'https://github.com/wikimedia/design-codex', ariaLabel: 'Codex on GitHub' } as DefaultTheme.SocialLink
 		],
 
