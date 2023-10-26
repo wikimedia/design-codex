@@ -22,7 +22,11 @@ module.exports = {
 					// consequently, MediaWiki's CSSMin CSS minifier. libmagic's default database
 					// currently requires that SVGs contain an XML declaration:
 					// https://github.com/threatstack/libmagic/blob/master/magic/Magdir/sgml#L5
-					removeXMLProcInst: false
+					removeXMLProcInst: false,
+					convertPathData: {
+						// Set your desired precision here
+						floatPrecision: 2
+					}
 				}
 			}
 		},

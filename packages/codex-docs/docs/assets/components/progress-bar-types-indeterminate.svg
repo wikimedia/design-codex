@@ -8,7 +8,7 @@
 			<rect width="431" height="15" x="129.75" y="24.5" stroke="#A2A9B1" rx="7.5"/>
 		</g>
 		<path fill="#fff" d="M129.25 72h432v4h-432z"/>
-		<path fill="#36C" d="M253.336 72h183.83v4h-183.83z"/>
+		<path fill="#36C" d="M253.34 72h183.83v4H253.34z"/>
 	</g>
 	<defs>
 		<filter id="a" width="434" height="18" x="128.25" y="24" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
