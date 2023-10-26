@@ -17,13 +17,12 @@
 				<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
 				<td class="cdx-docs-tokens-table__name" dir="ltr">
 					<strong>{{ token.name }}</strong>
-					<strong
-						v-if="token.deprecated"
-						class="cdx-docs-tokens-table__deprecated"
-					>
-						deprecated
-					</strong>
-					<cdx-docs-copy-text-button :copy-text="token.name" />
+					<span class="cdx-docs-tokens-table__name__meta">
+						<p v-if="token.deprecated" class="cdx-docs-tokens-table__name__deprecated">
+							<strong>deprecated</strong>
+						</p>
+						<cdx-docs-copy-text-button :copy-text="token.name" />
+					</span>
 				</td>
 				<td class="cdx-docs-tokens-table__value">
 					<code>{{ token.value }}</code>
@@ -176,13 +175,31 @@ export default defineComponent( {
 			min-width: @size-1600;
 		}
 
-		.cdx-docs-copy-text-button {
+		// "deprecated" tag and copy button.
+		&__meta {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			row-gap: @spacing-25;
 			position: absolute;
-			right: 0;
 			bottom: 0;
+			left: 0;
+			width: @size-full;
 			// Use small at `14px` equivalent `td` font size.
 			// Inherited from `custom.css` `.vp-doc td`.
 			line-height: @line-height-small;
+
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+				flex-direction: row;
+				justify-content: space-between;
+				padding-left: @spacing-50;
+			}
+		}
+
+		&__deprecated {
+			background-color: @background-color-warning-subtle;
+			padding: 0 @spacing-25;
 		}
 	}
 
@@ -201,27 +218,16 @@ export default defineComponent( {
 
 	&__value-meta {
 		color: @color-subtle;
-
-		// Override VitePress's styles that add way too much whitespace around <p>s.
-		p {
-			margin: @spacing-50 0 0;
-			text-decoration: @text-decoration-none;
-
-			&:first-child {
-				margin-top: 0;
-			}
-		}
 	}
 
-	&__deprecated {
-		background-color: @background-color-warning-subtle;
-		display: inline-block;
-		position: absolute;
-		// Compare 'custom.css' `.vp-doc td`.
-		bottom: @spacing-50;
-		left: @spacing-75;
-		padding: 0 @spacing-25;
-		font-weight: @font-weight-normal;
+	// Override VitePress's styles that add way too much whitespace around <p>s.
+	p {
+		margin: @spacing-50 0 0;
+		text-decoration: @text-decoration-none;
+
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 
 	// Prevent long tokens from running off the page.
