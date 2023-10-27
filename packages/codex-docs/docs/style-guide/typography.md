@@ -491,7 +491,7 @@ font-size: 14px; /* 14 sp equivalent */
 			}
 
 			cite {
-				font-family: @font-family-sans;
+				font-family: @font-family-base;
 				font-size: @font-size-small;
 				// FIXME: Add token.
 				/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */

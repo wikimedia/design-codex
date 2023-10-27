@@ -122,8 +122,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		// Need to put `.vp-doc` here to override the default VitePress heading styles.
 		.vp-doc &__title {
 			color: @color-inverted;
-			// FIXME @font-family-sans is deprecated
-			font-family: @font-family-sans;
+			font-family: @font-family-base;
 			font-size: @font-size-cdx-docs-title;
 			font-weight: @font-weight-bold;
 			line-height: initial;
@@ -131,8 +130,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 		.vp-doc &__tagline {
 			margin: 0 0 0 @spacing-50;
-			// FIXME @font-family-sans is deprecated
-			font-family: @font-family-sans;
+			font-family: @font-family-base;
 			font-size: @font-size-xx-large;
 		}
 	}
