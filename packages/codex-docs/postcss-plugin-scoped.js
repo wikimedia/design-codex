@@ -13,7 +13,7 @@ module.exports = ( options ) => {
 	return {
 		postcssPlugin: 'scoped-plugin-' + options.plugin.postcssPlugin,
 		prepare( result ) {
-			const filename = result.root.source && result.root.source.input.file;
+			const filename = result.root.source?.input.file;
 			if ( filter( filename ) ) {
 				return options.plugin.prepare ?
 					{ ...options.plugin, ...options.plugin.prepare( result ) } :

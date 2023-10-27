@@ -14,6 +14,7 @@ import CdxMenu from '../components/menu/Menu.vue';
  */
 export default function useFloatingMenu(
 	referenceElement: Ref<MaybeElement<HTMLElement>>,
+	// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 	menu: Ref<InstanceType<typeof CdxMenu>|undefined>
 ) : void {
 	// typescript-eslint doesn't know that menu.value is a special Vue type (instance of CdxMenu).
@@ -57,7 +58,7 @@ export default function useFloatingMenu(
 	// - The hide middleware has set either `escaped` or `referenceHidden` to true (see above)
 	const menuVisibility = computed( () => {
 		const isHidden = !menuIsExpanded() ||
-			middlewareData.value.hide?.escaped || middlewareData.value.hide?.referenceHidden;
+			!!middlewareData.value.hide?.escaped || middlewareData.value.hide?.referenceHidden;
 		return isHidden ? 'hidden' : 'visible';
 	} );
 
@@ -76,7 +77,7 @@ export default function useFloatingMenu(
 			// the screen, which is what FloatingUI expects when it calculates the translate-x
 			// value for both LTR and RTL.
 			left: `${newStyles.left}px`,
-			transform: newStyles.transform || 'none'
+			transform: newStyles.transform ?? 'none'
 		} );
 	} );
 

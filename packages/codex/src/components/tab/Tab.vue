@@ -74,7 +74,7 @@ export default defineComponent( {
 		// * unique generated ID for the tab
 		// * whether or not the given tab is active
 		// In both cases this info is needed to support correct ARIA attributes.
-		const tab = tabsData.value.get( props.name ) || {} as TabData;
+		const tab = tabsData.value.get( props.name ) ?? {} as TabData;
 		const isActive = computed( () => props.name === activeTab.value );
 
 		return {

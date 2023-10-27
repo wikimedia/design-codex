@@ -71,7 +71,7 @@ describe( 'useFieldData', () => {
 		const ParentComponent = defineComponent( {
 			props: {
 				childId: { type: String, default: '' },
-				providedId: { type: String, default: '' }
+				providedId: { type: String, default: undefined }
 			},
 			render() {
 				return h( ChildComponent, { id: this.childId } );

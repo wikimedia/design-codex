@@ -39,6 +39,7 @@ export function splitStringAtMatch( query: string, title: string ): [ string, st
 	).exec( title );
 
 	// Note well that index is an optional property that could be zero.
+	// eslint-disable-next-line @typescript-eslint/prefer-optional-chain
 	if ( !match || match.index === undefined ) {
 		return [ title, '', '' ];
 	}

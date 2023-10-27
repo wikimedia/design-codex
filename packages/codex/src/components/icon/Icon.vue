@@ -94,8 +94,8 @@ export default defineComponent( {
 
 		const computedDir = useComputedDirection( rootElement );
 		const computedLang = useComputedLanguage( rootElement );
-		const overriddenDir = computed( () => props.dir || computedDir.value );
-		const overriddenLang = computed( () => props.lang || computedLang.value );
+		const overriddenDir = computed( () => props.dir ?? computedDir.value );
+		const overriddenLang = computed( () => props.lang ?? computedLang.value );
 
 		const rootClasses = computed( () => {
 			return {
@@ -106,7 +106,7 @@ export default defineComponent( {
 		} );
 
 		const resolvedIcon = computed( () =>
-			resolveIcon( props.icon, overriddenLang.value || '', overriddenDir.value || 'ltr' )
+			resolveIcon( props.icon, overriddenLang.value ?? '', overriddenDir.value ?? 'ltr' )
 		);
 		const iconSvg = computed( () => typeof resolvedIcon.value === 'string' ? resolvedIcon.value : '' );
 		const iconPath = computed( () => typeof resolvedIcon.value !== 'string' ? resolvedIcon.value.path : '' );

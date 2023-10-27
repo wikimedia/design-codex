@@ -172,7 +172,7 @@ function roundToDecimals( num, decimals ) {
  */
 function makeRelativeUnitTransform( targetUnit ) {
 	return function ( token, platform ) {
-		const basePxFontSize = platform?.basePxFontSize || 16;
+		const basePxFontSize = platform?.basePxFontSize ?? 16;
 		/** @type {string} */
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		const tokenValue = token.value;

@@ -122,7 +122,7 @@ describe( 'Select', () => {
 				selected: 'b'
 			}
 		} );
-		expect( wrapper.find( '.cdx-select-vue__handle' ).text() ).toMatch( data[ 1 ].label || data[ 1 ].value );
+		expect( wrapper.find( '.cdx-select-vue__handle' ).text() ).toMatch( data[ 1 ].label ?? data[ 1 ].value );
 	} );
 
 	it( 'If the selected prop is updated in the parent, the component updates itself to the new value', async () => {
@@ -134,7 +134,7 @@ describe( 'Select', () => {
 			}
 		} );
 		await wrapper.setProps( { selected: 'b' } );
-		expect( wrapper.find( '.cdx-select-vue__handle' ).text() ).toMatch( data[ 1 ].label || data[ 1 ].value );
+		expect( wrapper.find( '.cdx-select-vue__handle' ).text() ).toMatch( data[ 1 ].label ?? data[ 1 ].value );
 	} );
 
 	it( 'Enter keydown expands the menu if it is not already expanded', async () => {

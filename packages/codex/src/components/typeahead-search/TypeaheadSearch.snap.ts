@@ -619,7 +619,12 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                       </svg>
                     </span>
                   </span>
-                  <transition-stub>
+                  <transition-stub
+                    appear="false"
+                    css="true"
+                    name="cdx-thumbnail__image"
+                    persisted="false"
+                  >
                     <!--v-if-->
                   </transition-stub>
                 </span>
@@ -689,7 +694,12 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                       </svg>
                     </span>
                   </span>
-                  <transition-stub>
+                  <transition-stub
+                    appear="false"
+                    css="true"
+                    name="cdx-thumbnail__image"
+                    persisted="false"
+                  >
                     <!--v-if-->
                   </transition-stub>
                 </span>

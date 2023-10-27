@@ -208,7 +208,7 @@ export default defineComponent( {
 		} );
 
 		// Set up show code/hide code button.
-		const hasCodeSlot = slots && slots.code;
+		const hasCodeSlot = !!slots?.code;
 		const hasCodeSample = computed( () => hasCodeSlot || props.showGeneratedCode );
 		const showCode = ref( false );
 		const codeToggleLabel = computed( () => {

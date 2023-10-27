@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  leaveactiveclass=""
+  name="cdx-message"
+  persisted="false"
+>
   <div
     aria-live="polite"
     class="cdx-message cdx-message--block cdx-message--notice"
@@ -42,7 +48,13 @@ exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 `;
 
 exports[`matches the snapshot Case 1 notice message: ({"type": "notice"}) => HTML 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  leaveactiveclass=""
+  name="cdx-message"
+  persisted="false"
+>
   <div
     aria-live="polite"
     class="cdx-message cdx-message--block cdx-message--notice"
@@ -83,7 +95,13 @@ exports[`matches the snapshot Case 1 notice message: ({"type": "notice"}) => HTM
 `;
 
 exports[`matches the snapshot Case 2 warning message: ({"type": "warning"}) => HTML 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  leaveactiveclass=""
+  name="cdx-message"
+  persisted="false"
+>
   <div
     aria-live="polite"
     class="cdx-message cdx-message--block cdx-message--warning"
@@ -124,7 +142,13 @@ exports[`matches the snapshot Case 2 warning message: ({"type": "warning"}) => H
 `;
 
 exports[`matches the snapshot Case 3 error message: ({"type": "error"}) => HTML 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  leaveactiveclass=""
+  name="cdx-message"
+  persisted="false"
+>
   <div
     class="cdx-message cdx-message--block cdx-message--error"
     role="alert"
@@ -165,7 +189,13 @@ exports[`matches the snapshot Case 3 error message: ({"type": "error"}) => HTML 
 `;
 
 exports[`matches the snapshot Case 4 success message: ({"type": "success"}) => HTML 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  leaveactiveclass=""
+  name="cdx-message"
+  persisted="false"
+>
   <div
     aria-live="polite"
     class="cdx-message cdx-message--block cdx-message--success"
@@ -206,7 +236,13 @@ exports[`matches the snapshot Case 4 success message: ({"type": "success"}) => H
 `;
 
 exports[`matches the snapshot Case 5 Inline: ({"inline": true}) => HTML 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  leaveactiveclass=""
+  name="cdx-message"
+  persisted="false"
+>
   <div
     aria-live="polite"
     class="cdx-message cdx-message--inline cdx-message--notice"
@@ -247,7 +283,13 @@ exports[`matches the snapshot Case 5 Inline: ({"inline": true}) => HTML 1`] = `
 `;
 
 exports[`matches the snapshot Case 6 Dismissable: ({"dismissButtonLabel": "Close"}) => HTML 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  leaveactiveclass=""
+  name="cdx-message"
+  persisted="false"
+>
   <div
     aria-live="polite"
     class="cdx-message cdx-message--block cdx-message--user-dismissable cdx-message--notice"
@@ -320,7 +362,13 @@ exports[`matches the snapshot Case 6 Dismissable: ({"dismissButtonLabel": "Close
 `;
 
 exports[`matches the snapshot Case 7 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  leaveactiveclass=""
+  name="cdx-message"
+  persisted="false"
+>
   <div
     aria-live="polite"
     class="cdx-message cdx-message--block cdx-message--notice"

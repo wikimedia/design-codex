@@ -9,7 +9,7 @@ interface BaseConfig {
 }
 export interface RadioPropConfig extends BaseConfig {
 	type: 'radio',
-	options: Array<string | number>,
+	options: ( string | number )[],
 	default?: string | number,
 	initial?: string | number
 }

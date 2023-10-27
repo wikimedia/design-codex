@@ -5,14 +5,14 @@
 		on each container that contains other components, because our bidirectional styles don't
 		support nesting multiple containers with dir attributes.
 	-->
-	<Layout :dir="isComponentPage ? undefined : 'ltr'">
+	<layout :dir="isComponentPage ? undefined : 'ltr'">
 		<template #nav-bar-title-after>
 			<cdx-docs-beta-tag />
 		</template>
 		<template #doc-before>
 			<cdx-docs-version-banner v-if="!frontmatter.isHomepage" />
 		</template>
-	</Layout>
+	</layout>
 </template>
 
 <script setup lang="ts">

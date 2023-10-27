@@ -315,7 +315,7 @@ export default defineComponent( {
 		function findSelectedMenuItem(): MenuItemDataWithId|null {
 			return computedMenuItems.value.find(
 				( menuItem ) => menuItem.value === props.selected
-			) || null;
+			) ?? null;
 		}
 
 		/**
@@ -337,17 +337,17 @@ export default defineComponent( {
 					break;
 
 				case 'highlighted':
-					highlightedMenuItem.value = menuItem || null;
+					highlightedMenuItem.value = menuItem ?? null;
 					highlightedViaKeyboard.value = false;
 					break;
 
 				case 'highlightedViaKeyboard':
-					highlightedMenuItem.value = menuItem || null;
+					highlightedMenuItem.value = menuItem ?? null;
 					highlightedViaKeyboard.value = true;
 					break;
 
 				case 'active':
-					activeMenuItem.value = menuItem || null;
+					activeMenuItem.value = menuItem ?? null;
 					break;
 			}
 		}
@@ -403,7 +403,7 @@ export default defineComponent( {
 
 			// Start at the currently highlighted index if there is one, otherwise, start past the
 			// end of the list so we can begin with the last item on the list.
-			highlightedIndex = highlightedIndex || computedMenuItems.value.length;
+			highlightedIndex = highlightedIndex ?? computedMenuItems.value.length;
 			// Find the previous index, if there is one. Otherwise, start at the end.
 			const prev = findPrevEnabled( highlightedIndex ) ??
 				findPrevEnabled( computedMenuItems.value.length );
@@ -426,7 +426,7 @@ export default defineComponent( {
 			highlightedIndex = highlightedIndex ?? -1;
 			// Find the next index, if there is one, otherwise find the first item so we can
 			// loop back
-			const next = findNextEnabled( highlightedIndex ) || findNextEnabled( -1 );
+			const next = findNextEnabled( highlightedIndex ) ?? findNextEnabled( -1 );
 
 			handleHighlightViaKeyboard( next );
 		}
@@ -483,7 +483,7 @@ export default defineComponent( {
 
 				const matchingItem = itemsToMatch.find( ( item ) =>
 					!item.disabled &&
-					String( item.label || item.value ).toLowerCase().indexOf( stringToMatch ) === 0
+					String( item.label ?? item.value ).toLowerCase().startsWith( stringToMatch )
 				);
 				if ( matchingItem ) {
 					handleMenuItemChange( 'highlightedViaKeyboard', matchingItem );

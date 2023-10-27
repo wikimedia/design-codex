@@ -36,8 +36,8 @@ packages/codex-docs/docs/.vitepress/cache/
 # Ignore PNG files.
 *.png
 
-# Ignore AUTHORS.txt file.
-AUTHORS.txt
+# Ignore .txt files.
+*.txt
 
 # Ignore LICENSE file.
 LICENSE*

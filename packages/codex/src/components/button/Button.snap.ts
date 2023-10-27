@@ -136,7 +136,7 @@ exports[`matches the snapshot Case 12 Icon-only (CdxIcon): ({}) => HTML 1`] = `
   <!-- @slot Button content -->
   
   <cdx-icon-stub
-    icon="<path d=\\"M11 9V4H9v5H4v2h5v5h2v-5h5V9z\\"/>"
+    icon="<path d="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"/>"
     iconlabel=""
     size="medium"
   />

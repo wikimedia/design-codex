@@ -17,7 +17,7 @@ let counter = 0;
  */
 export default function useGeneratedId( identifier? : string ) : string {
 	const vm = getCurrentInstance();
-	const externalId = <string|undefined> vm?.props.id || <string|undefined> vm?.attrs.id;
+	const externalId = vm?.props.id as string|undefined ?? vm?.attrs.id as string|undefined;
 	if ( identifier ) {
 		return `${LibraryPrefix}-${identifier}-${counter++}`;
 	} else if ( externalId ) {

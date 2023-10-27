@@ -335,7 +335,12 @@ exports[`matches the snapshot Case 6 Item with placeholder thumbnail: ({"descrip
           </svg>
         </span>
       </span>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="cdx-thumbnail__image"
+        persisted="false"
+      >
         <!--v-if-->
       </transition-stub>
     </span>

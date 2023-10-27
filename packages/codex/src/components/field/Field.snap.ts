@@ -630,7 +630,13 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
   <div
     class="cdx-field__validation-message"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      leaveactiveclass=""
+      name="cdx-message"
+      persisted="false"
+    >
       <div
         class="cdx-message cdx-message--inline cdx-message--error"
         role="alert"
@@ -1240,7 +1246,13 @@ exports[`Field matches the snapshot with a TextInput control Case 5 Error status
   <div
     class="cdx-field__validation-message"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      leaveactiveclass=""
+      name="cdx-message"
+      persisted="false"
+    >
       <div
         class="cdx-message cdx-message--inline cdx-message--error"
         role="alert"
@@ -1601,7 +1613,13 @@ exports[`Field matches the snapshot with a Textarea control Case 2 Error status 
   <div
     class="cdx-field__validation-message"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      leaveactiveclass=""
+      name="cdx-message"
+      persisted="false"
+    >
       <div
         class="cdx-message cdx-message--inline cdx-message--error"
         role="alert"

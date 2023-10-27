@@ -40,6 +40,7 @@ module.exports = {
 				extraFileExtensions: [ '.vue' ]
 			},
 			extends: [
+				'plugin:@typescript-eslint/stylistic',
 				'plugin:@typescript-eslint/recommended'
 			],
 			rules: {
@@ -79,9 +80,12 @@ module.exports = {
 				extraFileExtensions: [ '.vue' ]
 			},
 			extends: [
-				'plugin:@typescript-eslint/recommended',
-				'plugin:@typescript-eslint/recommended-requiring-type-checking'
-			]
+				'plugin:@typescript-eslint/stylistic-type-checked',
+				'plugin:@typescript-eslint/recommended-type-checked'
+			],
+			rules: {
+				'@typescript-eslint/no-non-null-assertion': 'error'
+			}
 		},
 		{
 			files: [ '**/*.js' ],

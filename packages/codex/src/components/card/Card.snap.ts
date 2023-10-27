@@ -145,7 +145,12 @@ exports[`Card matches the snapshot Case 3 Card with thumbnail: ("Title") => HTML
         </svg>
       </span>
     </span>
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      name="cdx-thumbnail__image"
+      persisted="false"
+    >
       <!--v-if-->
     </transition-stub>
   </span>
@@ -200,7 +205,12 @@ exports[`Card matches the snapshot Case 4 Card with thumbnail placeholder: ("Tit
         </svg>
       </span>
     </span>
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      name="cdx-thumbnail__image"
+      persisted="false"
+    >
       <!--v-if-->
     </transition-stub>
   </span>
@@ -257,7 +267,12 @@ exports[`Card matches the snapshot Case 5 Card with custom placeholder icon: ("T
         </svg>
       </span>
     </span>
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      name="cdx-thumbnail__image"
+      persisted="false"
+    >
       <!--v-if-->
     </transition-stub>
   </span>

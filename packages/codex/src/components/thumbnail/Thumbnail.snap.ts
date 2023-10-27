@@ -31,7 +31,12 @@ exports[`matches the snapshot Case 0 With default placeholder icon: (%p) => HTML
       </svg>
     </span>
   </span>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="cdx-thumbnail__image"
+    persisted="false"
+  >
     <!--v-if-->
   </transition-stub>
 </span>
@@ -65,7 +70,12 @@ exports[`matches the snapshot Case 1 With custom placeholder icon: ({"ltr": "<pa
       </svg>
     </span>
   </span>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="cdx-thumbnail__image"
+    persisted="false"
+  >
     <!--v-if-->
   </transition-stub>
 </span>

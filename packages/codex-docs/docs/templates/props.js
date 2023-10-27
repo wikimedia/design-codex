@@ -27,7 +27,6 @@ const renderTags = ( tags ) => {
 	}
 	return Object.entries( tags )
 		.map( ( [ tag, values ] ) => {
-			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 			return values.map( ( v ) => `<br/>\`@${tag}\` ${isTag( v ) ? v.content : v.description}` ).join( '' );
 		} )
 		.join( '' );
@@ -60,7 +59,7 @@ const tmpl = ( props ) => {
 		let p = '`' + pr.name + '`';
 		// Customization: add the required indicator after the prop name if it is required.
 		p += pr.required ? '<sup class="cdx-docs-required-indicator">(required)</sup>' : '';
-		let t = pr.description || '';
+		let t = pr.description ?? '';
 		t += renderTags( pr.tags );
 		const n = pr.type ? utils.getTypeText( pr.type.name ) : '';
 		const d = pr.defaultValue ? utils.getTypeText( pr.defaultValue.value ) : '';
@@ -93,7 +92,7 @@ module.exports = function ( props, opt = {} ) {
 	const valuesHeading = showValues ? ' | Values     ' : '';
 	const valuesDivider = showValues ? ' | -----------' : '';
 	return `
-${opt.isSubComponent || opt.hasSubComponents ? '#' : ''}## Props
+${!!opt.isSubComponent || opt.hasSubComponents ? '#' : ''}## Props
 
 | Prop name     | Description | Type     ${valuesHeading} | Default     |
 | ------------- | ----------- | ---------${valuesDivider} | ----------- |

@@ -195,6 +195,7 @@ export default defineComponent( {
 		const menuId = useGeneratedId( 'select-menu' );
 		const expanded = ref( false );
 
+		// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
 		const handleId = ( attrs.id as string|undefined ) || useGeneratedId( 'select-handle' );
 		const {
 			computedDisabled,
@@ -217,7 +218,7 @@ export default defineComponent( {
 		// Set up the label that should display in the handle.
 		const currentLabel = computed( () => {
 			return selectedMenuItem.value ?
-				selectedMenuItem.value.label || selectedMenuItem.value.value :
+				selectedMenuItem.value.label ?? selectedMenuItem.value.value :
 				props.defaultLabel;
 		} );
 
@@ -225,7 +226,7 @@ export default defineComponent( {
 			if ( props.defaultIcon && !selectedMenuItem.value ) {
 				return props.defaultIcon;
 			// The selected item includes an icon
-			} else if ( selectedMenuItem.value && selectedMenuItem.value.icon ) {
+			} else if ( selectedMenuItem.value?.icon ) {
 				return selectedMenuItem.value.icon;
 			}
 			// Explicit return is needed to satisfy vue/return-in-computed-property

@@ -5,6 +5,12 @@
 		"src/images/.+\\.svg$": "<rootDir>/.jest/svgTransform.js"
 	},
 	"testEnvironment": "jsdom",
+	"testEnvironmentOptions": {
+		"customExportConditions": [
+			"node",
+			"node-addons"
+		]
+	},
 	"collectCoverage": true,
 	"coverageThreshold": {
 		"global": {

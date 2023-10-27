@@ -47,6 +47,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 	dir: 'auto',
 	title: 'Codex',
 	description: 'Design system for Wikimedia',
+	// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
 	base: process.env.CODEX_DOC_ROOT || '/',
 	// Disable dark mode.
 	appearance: false,

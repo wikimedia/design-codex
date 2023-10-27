@@ -48,7 +48,7 @@ for ( const iconName in allIcons ) {
 		continue;
 	}
 	if ( typeof icon !== 'string' && ( 'langCodeMap' in icon || 'shouldFlipExceptions' in icon ) ) {
-		const langCodes = 'langCodeMap' in icon ? Object.keys( icon.langCodeMap ) : icon.shouldFlipExceptions || [];
+		const langCodes = 'langCodeMap' in icon ? Object.keys( icon.langCodeMap ) : icon.shouldFlipExceptions ?? [];
 		for ( const langCode of langCodes ) {
 			displayIcons.push( {
 				iconName,

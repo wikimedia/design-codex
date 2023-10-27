@@ -14,7 +14,7 @@ const mdclean = utils.mdclean;
 const getParams = ( params ) => {
 	let paramsString = '<ul class="cdx-docs-methods__params">';
 	params.forEach( ( p ) => {
-		const t = p.type && p.type.name ? utils.getTypeText( p.type.name ) : '';
+		const t = p.type?.name ? utils.getTypeText( p.type.name ) : '';
 		const n = p.name ? p.name : '';
 		const d = typeof p.description === 'string' ? p.description : '';
 
@@ -45,14 +45,14 @@ const getReturns = ( m ) => {
 	 * @return {string}
 	 */
 	function getTypeFromReturns() {
-		if ( m.returns && m.returns.type && m.returns.type.name ) {
+		if ( m.returns?.type?.name ) {
 			return utils.getTypeText( m.returns.type.name );
 		}
 		return '';
 	}
 
 	// For methods without a @return tag, see if the parser found a return type and use it.
-	if ( !m.tags || !m.tags.return ) {
+	if ( !m.tags?.return ) {
 		return getTypeFromReturns();
 	}
 
@@ -88,9 +88,9 @@ const tmpl = function ( methods ) {
 	// Build a table row for each method.
 	methods.forEach( ( m ) => {
 		const n = m.name ? '`' + m.name + '`' : '';
-		const d = m.description || '';
+		const d = m.description ?? '';
 		const p = m.params ? '**Params:**\n' + getParams( m.params ) + '\n' : '';
-		const r = m.returns || ( m.tags && m.tags.return ) ? '**Returns:** ' + getReturns( m ) : '';
+		const r = !!m.returns || m.tags?.return ? '**Returns:** ' + getReturns( m ) : '';
 
 		ret += `| ${mdclean( n )} | ${mdclean( d )} | ${mdclean( p + r )} |\n`;
 	} );
@@ -112,7 +112,7 @@ module.exports = function ( methods, opt = {} ) {
 
 	// Display methods as a table, similar to the other usage data.
 	return `
-${opt.isSubComponent || opt.hasSubComponents ? '#' : ''}## Methods
+${!!opt.isSubComponent || opt.hasSubComponents ? '#' : ''}## Methods
 
 | Method name | Description | Signature |
 | ----------- | ----------- | --------- |

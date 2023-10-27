@@ -24,13 +24,11 @@ function formatProperties( properties ) {
 				return utils.getTypeText( typeName );
 			} );
 
-			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 			let eventString = `**${name}** ${formattedTypes.join( ', ' )}`;
 
 			// Customization: only show the description if one exists, to avoid appending
 			// " - undefined" to the string.
 			if ( description ) {
-				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 				eventString += ` - ${description}`;
 			}
 			return eventString;
@@ -64,7 +62,7 @@ const tmpl = ( events ) => {
  */
 module.exports = function ( events, opt = {} ) {
 	return `
-${opt.isSubComponent || opt.hasSubComponents ? '#' : ''}## Events
+${!!opt.isSubComponent || opt.hasSubComponents ? '#' : ''}## Events
 
   | Event name     | Properties     | Description  |
   | -------------- |--------------- | -------------|

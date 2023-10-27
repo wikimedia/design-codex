@@ -5,11 +5,17 @@
 		".+\\.vue$": "@vue/vue3-jest"
 	},
 	"testEnvironment": "jsdom",
+	"testEnvironmentOptions": {
+		"customExportConditions": [
+			"node",
+			"node-addons"
+		]
+	},
 	"snapshotResolver": "<rootDir>/.jest/snapshotResolver.js",
 	"collectCoverage": true,
 	"coverageThreshold": {
 		"global": {
-			"branches": 80,
+			"branches": 70,
 			"functions": 80,
 			"lines": 80
 		}

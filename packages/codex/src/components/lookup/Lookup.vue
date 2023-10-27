@@ -318,7 +318,7 @@ export default defineComponent( {
 				// If there is a menu item selected, use the label (or the value, if there is no
 				// label). Otherwise, use an empty string.
 				const selectedValue = selectedMenuItem.value ?
-					( selectedMenuItem.value.label || selectedMenuItem.value.value ) :
+					( selectedMenuItem.value.label ?? selectedMenuItem.value.value ) :
 					'';
 
 				if ( inputValue.value !== selectedValue ) {

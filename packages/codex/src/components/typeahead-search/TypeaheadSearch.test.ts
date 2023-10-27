@@ -243,7 +243,7 @@ describe( 'TypeaheadSearch, with search results', () => {
 	const assignMock = jest.fn();
 
 	beforeEach( async () => {
-		jest.useFakeTimers( 'modern' );
+		jest.useFakeTimers();
 
 		wrapper = mount( CdxTypeaheadSearch, {
 			// Add in an initial input value so we don't have to simulate entering input.
@@ -393,7 +393,7 @@ describe( 'TypeaheadSearch, with no results', () => {
 
 describe( 'TypeaheadSearch pending state behavior', () => {
 	beforeEach( () => {
-		jest.useFakeTimers( 'modern' );
+		jest.useFakeTimers();
 	} );
 
 	afterEach( () => {

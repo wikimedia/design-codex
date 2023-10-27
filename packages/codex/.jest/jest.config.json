@@ -5,6 +5,12 @@
 		".+\\.vue$": "@vue/vue3-jest"
 	},
 	"testEnvironment": "jsdom",
+	"testEnvironmentOptions": {
+		"customExportConditions": [
+			"node",
+			"node-addons"
+		]
+	},
 	"snapshotResolver": "<rootDir>/.jest/snapshotResolver.js",
 	"collectCoverage": true,
 	"coverageThreshold": {

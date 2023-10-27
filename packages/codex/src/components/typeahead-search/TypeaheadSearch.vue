@@ -443,7 +443,7 @@ export default defineComponent( {
 				// If there is a search result selected, show the label (or the value, if there
 				// is no label). Otherwise, set the input to empty.
 				inputValue.value = selectedResult.value ?
-					selectedResult.value.label || String( selectedResult.value.value ) :
+					selectedResult.value.label ?? String( selectedResult.value.value ) :
 					'';
 			}
 		}
@@ -515,7 +515,7 @@ export default defineComponent( {
 			}
 
 			inputValue.value = searchResult.value ?
-				searchResult.label || String( searchResult.value ) :
+				searchResult.label ?? String( searchResult.value ) :
 				'';
 		}
 
