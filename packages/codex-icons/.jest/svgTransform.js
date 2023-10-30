@@ -7,7 +7,7 @@ module.exports = {
 	 * Accepts a file's contents and returns the transformed result.
 	 *
 	 * @param {string} src
-	 * @return {string}
+	 * @return {{ code: string }}
 	 */
 	process( src ) {
 		const optimized = optimize( src, {
@@ -30,6 +30,8 @@ module.exports = {
 				removeSvgTag
 			]
 		} );
-		return 'module.exports = ' + JSON.stringify( optimized.data ) + ';';
+		return {
+			code: 'module.exports = ' + JSON.stringify( optimized.data ) + ';'
+		};
 	}
 };
