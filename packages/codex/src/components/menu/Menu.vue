@@ -898,6 +898,8 @@ export default defineComponent( {
 	border: @border-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
 	box-shadow: @box-shadow-drop-medium;
+	// FIXME this causes a double scrollbar when the existing menu scrolling feature is used
+	overflow-y: auto;
 
 	&__progress-bar {
 		position: absolute;

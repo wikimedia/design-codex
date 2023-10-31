@@ -1,6 +1,16 @@
 import { Ref, ComponentPublicInstance, computed, watch } from 'vue';
-import { MaybeElement, useFloating, size, hide, autoUpdate } from '@floating-ui/vue';
+import { MaybeElement, useFloating, size, flip, hide, autoUpdate } from '@floating-ui/vue';
 import CdxMenu from '../components/menu/Menu.vue';
+
+// The amount of free space to leave between the bottom of the menu and the bottom of the viewport,
+// in pixels.
+// TODO: Use the spacing-100 token here once tokens are available in JS (T324688)
+const clipPadding = 16;
+
+// The minimum height below which we won't shrink the menu when clipping, in pixels.
+// TODO: Use a token here once tokens are available in JS (T324688), perhaps the size-800 token
+// (size tokens are in ems, so that would require a slightly different approach)
+const minClipHeight = 128;
 
 /**
  * Implements the useFloating() composable from FloatingUI for menu components.
@@ -8,6 +18,10 @@ import CdxMenu from '../components/menu/Menu.vue';
  * This composable will:
  * - Ensure the menu is always visually attached to its triggering element
  * - Ensure the menu is always the same width as its triggering element
+ * - Ensure the menu is positioned below the triggering element when there is enough space,
+ *   and it positioned above the triggering element otherwise.
+ * - Ensure the menu does not extend past the edge of the viewport
+ * - Ensure the menu is hidden if the triggering element is scrolled out of view
  *
  * @param referenceElement The ref of the element the menu is visually attached to
  * @param menu The menu ref
@@ -24,14 +38,29 @@ export default function useFloatingMenu(
 
 	const middleware = [
 		size( {
-			apply( { rects, elements } ) {
-				// Set the width of the menu.
-				// Width is needed in Dialogs, when the menu's position is set relative to
-				// the dialog, not the triggering element.
+			// Don't size the menu to take up exactly all of the available height, because that
+			// makes it look like it's cut off. Instead, leave 16px of free space between the bottom
+			// of the menu and the bottom edge of the viewport / scrollable container.
+			padding: clipPadding,
+			apply( { rects, elements, availableHeight } ) {
 				Object.assign( elements.floating.style, {
-					width: `${ rects.reference.width }px`
+					// Set the width of the menu to be equal to the width of the triggering element.
+					// This is needed in Dialogs, when the menu's position is set relative to
+					// the dialog, not the triggering element.
+					width: `${ rects.reference.width }px`,
+					// Set the max-height to the available height, to prevent the menu from
+					// extending past the edge of the viewport or scrollable container. But don't
+					// allow the menu to be shrunk to less than 128px; this is necessary to make
+					// the flip() call below work.
+					maxHeight: `${ Math.max( minClipHeight, availableHeight ) }px`
 				} );
 			}
+		} ),
+		// If there is not enough space to put the menu below the triggering element, put it above
+		// it instead. Because of the maxHeight logic above, this happens when there is less than
+		// 128px available below the triggering element.
+		flip( {
+			fallbackStrategy: 'initialPlacement'
 		} ),
 		// Hide the menu when it has escaped the reference element's clipping context (e.g. the menu
 		// is opened down and you scroll up until the reference element just starts to leave the

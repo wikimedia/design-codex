@@ -7,11 +7,15 @@ the reference element and one for the Menu, plus
 Menu.
 
 Updates the value of these CSS properties for the Menu: `visibility`, `position`, `top`, `right`,
-`left`, and `transform`.
+`left`, `transform`, `width` and `max-height`.
 
 This composable will:
 - Ensure the menu is always visually attached to its triggering element
 - Ensure the menu is always the same width as its triggering element
+- Ensure the menu is positioned below the triggering element when there is enough space,
+  and it positioned above the triggering element otherwise.
+- Ensure the menu does not extend past the edge of the viewport
+- Ensure the menu is hidden if the triggering element is scrolled out of view
 
 ## Usage
 
