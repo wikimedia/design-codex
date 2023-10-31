@@ -539,4 +539,18 @@ body {
 	background-color: var( --background-color-interactive-subtle );
 }
 
+/* Align the figure and figcaption text. */
+.cdx-docs-figure {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/* Center the figcaption text on smaller screens */
+@media ( max-width: 640px ) {
+	.cdx-docs-figcaption {
+		text-align: center;
+	}
+}
+
 /* stylelint-enable selector-class-pattern */

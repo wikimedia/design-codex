@@ -175,6 +175,12 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Icons', link: '/style-guide/icons' },
 						{ text: 'Images', link: '/style-guide/images' }
 					]
+				},
+				{
+					text: 'Platforms',
+					items: [
+						{ text: 'Wikimedia Apps', link: '/style-guide/wikimedia-apps' }
+					]
 				}
 			],
 			'/design-tokens/': [
