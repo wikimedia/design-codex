@@ -458,14 +458,6 @@
 			"desktop": {
 				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. A desktop device's screen width.",
 				"value": "{ size.viewport.100 }"
-			},
-			"desktop-wide": {
-				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. A wider desktop's screen width.",
-				"value": "{ size.viewport.120 }"
-			},
-			"desktop-extrawide": {
-				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. An extra wide desktop's screen width.",
-				"value": "{ size.viewport.200 }"
 			}
 		}
 	},
