@@ -220,7 +220,6 @@ export default defineComponent( {
 		const internalClasses = computed( () => {
 			return {
 				'cdx-lookup--disabled': computedDisabled.value,
-				'cdx-lookup--expanded': expanded.value,
 				'cdx-lookup--pending': pending.value
 			};
 		} );
@@ -390,11 +389,6 @@ export default defineComponent( {
 
 	&--pending .cdx-text-input__input {
 		.cdx-mixin-pending-state();
-	}
-
-	&--expanded &__input {
-		border-bottom-left-radius: @border-radius-sharp;
-		border-bottom-right-radius: @border-radius-sharp;
 	}
 
 	// Overrides when used within a Dialog component

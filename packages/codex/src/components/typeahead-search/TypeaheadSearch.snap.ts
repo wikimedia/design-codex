@@ -60,7 +60,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
 			-->
         
         <div
-          class="cdx-menu"
+          class="cdx-menu cdx-typeahead-search__menu"
           style="display: none;"
         >
           <ul
@@ -164,7 +164,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
 			-->
         
         <div
-          class="cdx-menu"
+          class="cdx-menu cdx-typeahead-search__menu"
           style="display: none;"
         >
           <ul
@@ -268,7 +268,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
 			-->
         
         <div
-          class="cdx-menu"
+          class="cdx-menu cdx-typeahead-search__menu"
           style="display: none;"
         >
           <ul
@@ -372,7 +372,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
 			-->
         
         <div
-          class="cdx-menu cdx-menu--has-footer"
+          class="cdx-menu cdx-menu--has-footer cdx-typeahead-search__menu"
           style="display: none;"
         >
           <ul
@@ -563,7 +563,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
 			-->
         
         <div
-          class="cdx-menu cdx-menu--has-footer"
+          class="cdx-menu cdx-menu--has-footer cdx-typeahead-search__menu"
           style="display: none;"
         >
           <ul

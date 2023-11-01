@@ -376,11 +376,6 @@ export default defineComponent( {
 		.cdx-combobox__expand-button {
 			border-bottom-right-radius: @border-radius-sharp;
 		}
-
-		.cdx-combobox__input {
-			border-bottom-left-radius: @border-radius-sharp;
-			border-bottom-right-radius: @border-radius-sharp;
-		}
 	}
 
 	// Overrides when used within a Dialog component

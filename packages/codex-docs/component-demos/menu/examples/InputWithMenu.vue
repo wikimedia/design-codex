@@ -95,12 +95,7 @@ export default defineComponent( {
 
 .cdx-docs-input-with-menu {
 	// The Menu component is absolutely positioned, so we need `position: relative` here to
-	// position the menu relative to this div. This ensure the menu will align with the input.
+	// position the menu relative to this div. This ensures the menu will align with the input.
 	position: relative;
-
-	&__input [ aria-expanded='true' ] {
-		border-bottom-left-radius: @border-radius-sharp;
-		border-bottom-right-radius: @border-radius-sharp;
-	}
 }
 </style>

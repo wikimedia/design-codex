@@ -2,6 +2,12 @@ import { Ref, ComponentPublicInstance, computed, watch } from 'vue';
 import { MaybeElement, useFloating, size, flip, hide, autoUpdate } from '@floating-ui/vue';
 import CdxMenu from '../components/menu/Menu.vue';
 
+// Helper function inspired on the function with the same name in @floating-ui/vue (sadly it's
+// not exported by @floating-ui/vue)
+function unwrapElement<T extends Element>( element: MaybeElement<T> ): T | null | undefined {
+	return element && '$el' in element ? element.$el as T : element;
+}
+
 // The amount of free space to leave between the bottom of the menu and the bottom of the viewport,
 // in pixels.
 // TODO: Use the spacing-100 token here once tokens are available in JS (T324688)
@@ -22,6 +28,10 @@ const minClipHeight = 128;
  *   and it positioned above the triggering element otherwise.
  * - Ensure the menu does not extend past the edge of the viewport
  * - Ensure the menu is hidden if the triggering element is scrolled out of view
+ * - Ensure the menu and the reference element don't have rounded corners where they touch.
+ *     - If you want the menu and the reference element to have rounded corners on the sides
+ *       where they don't touch, you must set a `border-radius` on *all* corners. This composable
+ *       will then override the `border-radius` to 0 for the corners that should not be rounded.
  *
  * @param referenceElement The ref of the element the menu is visually attached to
  * @param menu The menu ref
@@ -73,7 +83,7 @@ export default function useFloatingMenu(
 		hide()
 	];
 
-	const { floatingStyles, middlewareData, update } = useFloating(
+	const { floatingStyles, placement, middlewareData, update } = useFloating(
 		referenceElement,
 		menu as Ref<ComponentPublicInstance>,
 		{ middleware }
@@ -92,23 +102,41 @@ export default function useFloatingMenu(
 	} );
 
 	// When floatingStyles change, set CSS values.
-	watch( [ floatingStyles, menuVisibility ], ( [ newStyles, newVisibility ] ) => {
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-		Object.assign( menu.value?.$el.style, {
-			visibility: newVisibility,
-			position: newStyles.position,
-			top: `${ newStyles.top }px`,
-			// `left: 0` is set in the Menu component, which gets transformed to `right: 0` for
-			// RTL. For this component, we must unset `right: 0`, because the transform value
-			// is relative to the left side of the screen regardless of reading direction.
-			right: 'unset',
-			// Set `left` value to ensure the menu is translated relative to the left side of
-			// the screen, which is what FloatingUI expects when it calculates the translate-x
-			// value for both LTR and RTL.
-			left: `${ newStyles.left }px`,
-			transform: newStyles.transform ?? 'none'
-		} );
-	} );
+	watch(
+		[ floatingStyles, menuVisibility, placement ],
+		( [ newStyles, newVisibility, newPlacement ] ) => {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+			Object.assign( menu.value?.$el.style ?? {}, {
+				visibility: newVisibility,
+				position: newStyles.position,
+				top: `${ newStyles.top }px`,
+				// `left: 0` is set in the Menu component, which gets transformed to `right: 0` for
+				// RTL. For this component, we must unset `right: 0`, because the transform value
+				// is relative to the left side of the screen regardless of reading direction.
+				right: 'unset',
+				// Set `left` value to ensure the menu is translated relative to the left side of
+				// the screen, which is what FloatingUI expects when it calculates the translate-x
+				// value for both LTR and RTL.
+				left: `${ newStyles.left }px`,
+				transform: newStyles.transform ?? 'none',
+				// Zero out border-radius on the corners of the menu where it touches the reference
+				// element. Which corners these are depends on whether the menu is flipped
+				borderTopLeftRadius: newPlacement === 'bottom' && newVisibility === 'visible' ? '0' : '',
+				borderTopRightRadius: newPlacement === 'bottom' && newVisibility === 'visible' ? '0' : '',
+				borderBottomLeftRadius: newPlacement === 'top' && newVisibility === 'visible' ? '0' : '',
+				borderBottomRightRadius: newPlacement === 'top' && newVisibility === 'visible' ? '0' : ''
+			} satisfies Partial<CSSStyleDeclaration> );
+
+			Object.assign( unwrapElement( referenceElement.value )?.style ?? {}, {
+				// Zero out border-radius on the corners of the reference element where it touches
+				// the menu. Which corners these are depends on whether the menu is flipped
+				borderTopLeftRadius: newPlacement === 'top' && newVisibility === 'visible' ? '0' : '',
+				borderTopRightRadius: newPlacement === 'top' && newVisibility === 'visible' ? '0' : '',
+				borderBottomLeftRadius: newPlacement === 'bottom' && newVisibility === 'visible' ? '0' : '',
+				borderBottomRightRadius: newPlacement === 'bottom' && newVisibility === 'visible' ? '0' : ''
+			} satisfies Partial<CSSStyleDeclaration> );
+		}
+	);
 
 	// Run FloatingUI's autoUpdate function when the menu is expanded.
 	// autoUpdate returns a cleanup function that enables us to remove event listeners when the

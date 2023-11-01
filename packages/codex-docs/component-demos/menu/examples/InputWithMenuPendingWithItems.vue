@@ -1,9 +1,9 @@
 <template>
-	<div class="cdx-docs-input-with-menu-pending">
+	<div class="cdx-docs-input-with-menu-pending-with-items">
 		<cdx-text-input
 			ref="input"
 			v-model="selectedValue"
-			class="cdx-docs-input-with-menu-pending__input"
+			class="cdx-docs-input-with-menu-pending-with-items__input"
 			role="combobox"
 			:aria-expanded="expanded"
 			:aria-controls="menuId"
@@ -17,7 +17,6 @@
 			ref="menu"
 			v-model:selected="selectedValue"
 			v-model:expanded="expanded"
-			class="cdx-docs-menu-pending"
 			:menu-items="menuItems"
 			:show-pending="true"
 		>
@@ -94,14 +93,9 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-.cdx-docs-input-with-menu-pending {
+.cdx-docs-input-with-menu-pending-with-items {
 	// The Menu component is absolutely positioned, so we need `position: relative` here to
-	// position the menu relative to this div. This ensure the menu will align with the input.
+	// position the menu relative to this div. This ensures the menu will align with the input.
 	position: relative;
-
-	&__input [ aria-expanded='true' ] {
-		border-bottom-left-radius: @border-radius-sharp;
-		border-bottom-right-radius: @border-radius-sharp;
-	}
 }
 </style>

@@ -908,7 +908,7 @@ export default defineComponent( {
 	box-sizing: @box-sizing-base;
 	width: @size-full;
 	border: @border-base;
-	border-radius: 0 0 @border-radius-base @border-radius-base;
+	border-radius: @border-radius-base;
 	box-shadow: @box-shadow-drop-medium;
 
 	&__progress-bar {

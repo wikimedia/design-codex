@@ -103,10 +103,6 @@ Dropdown menus let readers choose one item from a set of options. Giving the cho
 
 ### Simple menu with input
 
-Components using a menu should use the [useFloatingMenu](../../composables/demos/use-floating-menu)
-composable to ensure the menu is positioned correctly relative to the input (or other triggering
-element).
-
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
     <input-with-menu />
@@ -276,6 +272,12 @@ Designed for use in components, like Select and Lookup, that display a menu belo
 (for example, a text input). This component renders a list of items, manages which item is
 selected, highlighted, and active, and handles keyboard navigation. It does not display the
 selected item or manage an input; the parent component needs to do that.
+
+Components using a menu should use the [useFloatingMenu](../../composables/demos/use-floating-menu)
+composable to ensure the menu is positioned correctly relative to the input (or other triggering
+element). The useFloatingMenu composable also manages the rounded corners on the Menu; if you
+are not using the useFloatingMenu composable, you will have to do this yourself, by setting
+`border-top-left-radius` and `border-top-right-radius` to `@border-radius-sharp`.
 
 The `selected` and `expanded` props must be bound with `v-model`, even if the parent component
 doesn't use them. Without these `v-model` bindings, the menu won't function correctly.

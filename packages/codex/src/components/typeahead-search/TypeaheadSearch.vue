@@ -33,6 +33,7 @@
 					:id="menuId"
 					ref="menu"
 					v-model:expanded="expanded"
+					class="cdx-typeahead-search__menu"
 					:show-pending="showPending"
 					:selected="selection"
 					:menu-items="searchResults"
@@ -703,6 +704,11 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
 
 .cdx-typeahead-search {
+	&__menu {
+		border-top-left-radius: @border-radius-sharp;
+		border-top-right-radius: @border-radius-sharp;
+	}
+
 	.cdx-menu-item {
 		// Unset padding so we can add it to the anchor elements instead. This is necessary to get
 		// proper styling on the search footer.

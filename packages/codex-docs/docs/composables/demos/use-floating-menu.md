@@ -16,6 +16,12 @@ This composable will:
   and it positioned above the triggering element otherwise.
 - Ensure the menu does not extend past the edge of the viewport
 - Ensure the menu is hidden if the triggering element is scrolled out of view
+- Ensure the menu and the reference element don't have rounded corners where they touch.
+    - If you want the reference element to have rounded corners on the sides where it doesn't
+      touch the menu, you must set a `border-radius` on *all* corners. This composable will
+      then override the `border-radius` to 0 for the corners that should not be rounded.
+      (If you're using a TextInput as the reference element, you don't have to do anything,
+      because TextInput already sets a `border-radius` on all of its corners.)
 
 ## Usage
 
@@ -69,16 +75,7 @@ is because the Menu is relative to the TextInput.
             v-model:selected="selectedValue"
             v-model:expanded="expanded"
             :menu-items="menuItems"
-            :visible-item-limit="visibleItemLimit || null"
         />
-        <label for="cdx-menu-limit-items-input">
-            Number of visible items in Menu (empty or 0 for show all):
-        </label>
-        <input
-            id="cdx-menu-limit-items-input"
-            v-model="visibleItemLimit"
-            type="number"
-        >
     </div>
 </template>
 
@@ -110,6 +107,15 @@ function onKeydown( event ) {
 function onClick() {
 	expanded.value = true;
 }
-const visibleItemLimit = ref( '' );
 </script>
+
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-docs-input-with-menu {
+	// The Menu component is absolutely positioned, so we need `position: relative` here to
+	// position the menu relative to this div. This ensures the menu will align with the input.
+	position: relative;
+}
+</style>
 ```

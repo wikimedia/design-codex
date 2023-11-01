@@ -383,8 +383,6 @@ export default defineComponent( {
 		&.cdx-select-vue--expanded {
 			.cdx-select-vue__handle {
 				background-color: @background-color-base;
-				border-bottom-left-radius: @border-radius-sharp;
-				border-bottom-right-radius: @border-radius-sharp;
 
 				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-select-vue__indicator {
