@@ -681,6 +681,10 @@ export default defineComponent( {
 			}
 		}
 
+		/**
+		 * If the menu is scrollable, and an item is highlighted, scroll the highlighted item
+		 * into view.
+		 */
 		function maybeScrollIntoView(): void {
 			if (
 				!props.visibleItemLimit ||
@@ -702,35 +706,47 @@ export default defineComponent( {
 		const maxMenuHeight = ref<number | null>( null );
 		const footerHeight = ref<number | null>( null );
 
-		function resizeMenu(): void {
-			footerHeight.value = null;
+		/**
+		 * Update the footer height and menu max-height calculations, then scroll the highlighted
+		 * item into view if there is one. This function is called when the menu is opened or
+		 * when the menu items change.
+		 */
+		async function resizeMenu(): Promise<void> {
+			await nextTick();
+			updateFooterHeight();
+			updateMaxMenuHeight();
+			await nextTick();
+			maybeScrollIntoView();
+		}
+
+		/**
+		 * Mesure the height of the footer item, and store it in the footerHeight ref.
+		 */
+		function updateFooterHeight(): void {
+			if ( props.footer ) {
+				const footerElement = menuItemElements[ menuItemElements.length - 1 ];
+				footerHeight.value = footerElement.scrollHeight;
+			} else {
+				footerHeight.value = null;
+			}
+		}
+
+		/**
+		 * Compute what the max-height of the menu should be based on the visibleItemLimit prop,
+		 * and store that value in the maxMenuHeight ref.
+		 */
+		function updateMaxMenuHeight(): void {
 			if ( !props.visibleItemLimit || menuItemElements.length <= props.visibleItemLimit ) {
 				maxMenuHeight.value = null;
 				return;
 			}
 
-			const firstMenuItemElement = menuItemElements[ 0 ];
-			const firstHiddenMenuItemElement = menuItemElements[ props.visibleItemLimit ];
-
-			maxMenuHeight.value = calculateMenuHeight(
-				firstMenuItemElement,
-				firstHiddenMenuItemElement
-			);
-			if ( props.footer ) {
-				const footerElement = menuItemElements[ menuItemElements.length - 1 ];
-				footerHeight.value = footerElement.scrollHeight;
-			}
-		}
-
-		function calculateMenuHeight(
-			firstMenuItemElement: Element,
-			firstHiddenMenuItemElement: Element
-		) {
-			const firstItemTop = firstMenuItemElement.getBoundingClientRect().top;
-			const hiddenItemTop = firstHiddenMenuItemElement.getBoundingClientRect().top;
+			const firstMenuItemTop = menuItemElements[ 0 ].getBoundingClientRect().top;
+			const firstHiddenMenuItemTop = menuItemElements[ props.visibleItemLimit ]
+				.getBoundingClientRect().top;
 
 			// add 2 pixels to account for the menu's border
-			return ( hiddenItemTop - firstItemTop ) + 2;
+			maxMenuHeight.value = ( firstHiddenMenuItemTop - firstMenuItemTop ) + 2;
 		}
 
 		onMounted( () => {
@@ -750,10 +766,7 @@ export default defineComponent( {
 					handleMenuItemChange( 'highlighted', selectedMenuItem );
 				}
 
-				await nextTick();
-				resizeMenu();
-				await nextTick();
-				maybeScrollIntoView();
+				await resizeMenu();
 			} else {
 				// The menu was closed
 				// Clear the highlight states
@@ -767,25 +780,20 @@ export default defineComponent( {
 			}
 
 			if ( props.expanded ) {
-				await nextTick();
-				resizeMenu();
-				await nextTick();
-				maybeScrollIntoView();
+				await resizeMenu();
 			}
 		}, { deep: true } );
 
 		const listBoxStyle = computed( () => {
 			return {
 				'max-height': maxMenuHeight.value ? `${ maxMenuHeight.value }px` : undefined,
-				'overflow-y': maxMenuHeight.value ? 'scroll' as const : undefined,
 				'margin-bottom': footerHeight.value ? `${ footerHeight.value }px` : undefined
 			};
 		} );
 
 		const internalClasses = computed( () => {
 			return {
-				'cdx-menu--has-footer': !!props.footer,
-				'cdx-menu--has-sticky-footer': !!props.footer && !!maxMenuHeight.value
+				'cdx-menu--has-footer': !!props.footer
 			};
 		} );
 
@@ -890,6 +898,10 @@ export default defineComponent( {
 
 .cdx-menu {
 	background-color: @background-color-base;
+	// Use flexbox to restrict the height of the listbox to the height of the menu.
+	// Without this, the listbox spills out of the menu.
+	display: flex;
+	flex-direction: column;
 	position: absolute;
 	left: 0;
 	z-index: @z-index-dropdown;
@@ -898,8 +910,6 @@ export default defineComponent( {
 	border: @border-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
 	box-shadow: @box-shadow-drop-medium;
-	// FIXME this causes a double scrollbar when the existing menu scrolling feature is used
-	overflow-y: auto;
 
 	&__progress-bar {
 		position: absolute;
@@ -909,19 +919,18 @@ export default defineComponent( {
 	&__listbox {
 		margin: 0;
 		padding: 0;
+		overflow-y: auto;
 	}
 
-	&--has-sticky-footer {
+	&--has-footer {
 		.cdx-menu-item:last-of-type {
 			position: absolute;
 			bottom: 0;
 			width: @size-full;
-		}
-	}
 
-	&--has-footer {
-		.cdx-menu-item:last-of-type:not( :first-of-type ) {
-			border-top: @border-subtle;
+			&:not( :first-of-type ) {
+				border-top: @border-subtle;
+			}
 		}
 	}
 }
