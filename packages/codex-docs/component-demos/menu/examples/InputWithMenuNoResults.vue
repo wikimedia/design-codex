@@ -1,6 +1,7 @@
 <template>
 	<div class="cdx-docs-input-with-menu-no-results">
 		<cdx-text-input
+			ref="input"
 			v-model="selectedValue"
 			class="cdx-docs-input-with-menu__input"
 			role="combobox"
@@ -27,7 +28,7 @@
 
 <script>
 import { defineComponent, ref, computed } from 'vue';
-import { CdxMenu, CdxTextInput, useGeneratedId } from '@wikimedia/codex';
+import { CdxMenu, CdxTextInput, useGeneratedId, useFloatingMenu } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'InputWithMenuNoResults',
@@ -36,6 +37,7 @@ export default defineComponent( {
 		CdxTextInput
 	},
 	setup() {
+		const input = ref();
 		const menu = ref();
 		const selectedValue = ref( '' );
 		const expanded = ref( false );
@@ -45,6 +47,8 @@ export default defineComponent( {
 		} );
 		const menuId = useGeneratedId( 'menu' );
 		const menuItems = [];
+
+		useFloatingMenu( input, menu );
 
 		/**
 		 * Delegate most keydowns on the text input to the Menu component. This
@@ -71,6 +75,7 @@ export default defineComponent( {
 		}
 
 		return {
+			input,
 			menu,
 			selectedValue,
 			expanded,

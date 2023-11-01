@@ -103,6 +103,10 @@ Dropdown menus let readers choose one item from a set of options. Giving the cho
 
 ### Simple menu with input
 
+Components using a menu should use the [useFloatingMenu](../../composables/demos/use-floating-menu)
+composable to ensure the menu is positioned correctly relative to the input (or other triggering
+element).
+
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
     <input-with-menu />

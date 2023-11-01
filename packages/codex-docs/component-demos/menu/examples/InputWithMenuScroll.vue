@@ -1,6 +1,7 @@
 <template>
 	<div class="cdx-docs-input-with-menu-scroll">
 		<cdx-text-input
+			ref="input"
 			v-model="selectedValue"
 			class="cdx-docs-input-with-menu-scroll__input"
 			role="combobox"
@@ -37,7 +38,7 @@
 
 <script>
 import { defineComponent, ref, computed } from 'vue';
-import { CdxMenu, CdxTextInput, useGeneratedId } from '@wikimedia/codex';
+import { CdxMenu, CdxTextInput, useGeneratedId, useFloatingMenu } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'InputWithMenuScroll',
@@ -46,6 +47,7 @@ export default defineComponent( {
 		CdxTextInput
 	},
 	setup() {
+		const input = ref();
 		const menu = ref();
 		const selectedValue = ref( '' );
 		const expanded = ref( false );
@@ -75,6 +77,8 @@ export default defineComponent( {
 			label: 'Sticky footer item'
 		};
 
+		useFloatingMenu( input, menu );
+
 		/**
 		 * Delegate most keydowns on the text input to the Menu component. This
 		 * allows the Menu component to enable keyboard navigation of the menu.
@@ -100,6 +104,7 @@ export default defineComponent( {
 		}
 
 		return {
+			input,
 			menu,
 			selectedValue,
 			expanded,

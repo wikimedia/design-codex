@@ -1,6 +1,7 @@
 <template>
 	<div class="cdx-docs-input-with-menu-pending">
 		<cdx-text-input
+			ref="input"
 			v-model="selectedValue"
 			class="cdx-docs-input-with-menu-pending__input"
 			role="combobox"
@@ -29,7 +30,7 @@
 
 <script>
 import { defineComponent, ref, computed } from 'vue';
-import { CdxMenu, CdxTextInput, useGeneratedId } from '@wikimedia/codex';
+import { CdxMenu, CdxTextInput, useGeneratedId, useFloatingMenu } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'InputWithMenuPendingWithItems',
@@ -38,6 +39,7 @@ export default defineComponent( {
 		CdxTextInput
 	},
 	setup() {
+		const input = ref();
 		const menu = ref();
 		const selectedValue = ref( '' );
 		const expanded = ref( false );
@@ -52,6 +54,8 @@ export default defineComponent( {
 			{ label: 'Three', value: '3' },
 			{ label: 'Four', value: '4' }
 		];
+
+		useFloatingMenu( input, menu );
 
 		/**
 		 * Delegate most keydowns on the text input to the Menu component. This
@@ -74,6 +78,7 @@ export default defineComponent( {
 		}
 
 		return {
+			input,
 			menu,
 			selectedValue,
 			expanded,
