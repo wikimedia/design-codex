@@ -434,6 +434,35 @@ body {
 	column-count: 2;
 }
 
+/* CSS Grid layout */
+@media ( min-width: 640px ) {
+	.cdx-docs-grid {
+		display: grid;
+	}
+
+	.cdx-docs-grid-columns-2 {
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		grid-template-columns: repeat( 2, 1fr );
+		grid-gap: var( --spacing-150 );
+	}
+
+	.cdx-docs-grid-columns-3 {
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		grid-template-columns: repeat( 3, 1fr );
+		grid-gap: var( --spacing-150 );
+	}
+}
+
+@media ( min-width: 1120px ) {
+	.cdx-docs-grid-columns-2 {
+		grid-gap: var( --spacing-200 );
+	}
+
+	.cdx-docs-grid-columns-3 {
+		grid-gap: var( --spacing-200 );
+	}
+}
+
 /* Dos and Donts */
 .vp-doc .cdx-docs-do {
 	color: var( --color-success );
