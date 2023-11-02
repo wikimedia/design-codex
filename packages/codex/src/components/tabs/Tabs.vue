@@ -669,7 +669,7 @@ export default defineComponent( {
 
 		// Quiet Tabs List item.
 		.cdx-tabs__list__item {
-			margin: 0 @spacing-25;
+			margin: 0 @spacing-12;
 
 			&:enabled {
 				color: @color-base;
