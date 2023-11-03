@@ -172,7 +172,7 @@ export default defineComponent( {
 		height: @size-absolute-1;
 	}
 
-	// Add specificity to override heading styles
+	// Add specificity to override heading styles.
 	& &__header {
 		position: relative;
 		margin-top: 0;
@@ -180,6 +180,9 @@ export default defineComponent( {
 		border-top: 0;
 		padding-top: 0;
 		padding-bottom: 0;
+		// Hack to reset font-size to the default for the heading level.
+		// TODO: Decide if we set custom heading levels all the to the same size out of box.
+		font-size: @font-size-medium;
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-medium;
 		transition-timing-function: @transition-timing-function-system;
@@ -201,14 +204,14 @@ export default defineComponent( {
 
 	&__content {
 		padding: @spacing-50 @spacing-75 @spacing-75;
-		font-size: @font-size-base;
+		font-size: @font-size-medium;
 	}
 
 	&__toggle {
 		width: @size-full;
 		max-width: unset;
 		padding: @spacing-75;
-		font-size: @font-size-base;
+		font-size: @font-size-medium;
 		word-break: break-word;
 		text-align: left;
 		white-space: normal;
@@ -262,7 +265,7 @@ export default defineComponent( {
 		padding-right: @spacing-75;
 		padding-left: @spacing-75;
 		// Set the font-size so that the em-based height calculation above works correctly
-		font-size: @font-size-base;
+		font-size: @font-size-medium;
 
 		&:hover {
 			background-color: unset;

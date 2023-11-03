@@ -579,7 +579,7 @@ export default defineComponent( {
 			border-top-left-radius: @border-radius-base;
 			border-top-right-radius: @border-radius-base;
 			padding: @spacing-25 @spacing-75;
-			font-size: @font-size-base;
+			font-size: @font-size-medium;
 			font-weight: @font-weight-bold;
 			line-height: @line-height-x-small;
 			text-decoration: @text-decoration-none;

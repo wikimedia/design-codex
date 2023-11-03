@@ -117,7 +117,7 @@ https://www.mediawiki.org/wiki/Codex#Using_Codex_design_tokens */
 	padding-top: @spacing-75;
 	padding-bottom: @spacing-75;
 	overflow: auto;
-	font-size: @font-size-base;
+	font-size: @font-size-medium;
 }
 
 .cdx-docs-footer {

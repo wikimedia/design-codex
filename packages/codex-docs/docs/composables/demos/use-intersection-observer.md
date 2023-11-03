@@ -80,7 +80,7 @@ body {
 
 h1 {
 	margin-top: @spacing-75;
-	font-size: @font-size-base;
+	font-size: @font-size-medium;
 }
 </style>
 ```
