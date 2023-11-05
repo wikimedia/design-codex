@@ -315,32 +315,32 @@
 			"value": "{ box-shadow.inset-medium } { box-shadow.color.inverted }"
 		},
 		"progressive-filled--focus": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-progressive--focus, box-shadow-inverted` instead.",
-			"value": "{ box-shadow.progressive--focus }, { box-shadow.inverted }"
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-inset-small box-shadow-progressive--focus, box-shadow-inset-medium box-shadow-color-inverted` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.progressive--focus }, { box-shadow.inset-medium } { box-shadow.color.inverted }"
 		},
 		"destructive-filled--focus": {
-			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-destructive--focus, box-shadow-inverted` instead.",
-			"value": "{ box-shadow.destructive--focus }, { box-shadow.inverted }"
+			"deprecated": "Legacy `box-shadow` token shorthand. Use `box-shadow-inset-small box-shadow-color-destructive--focus, box-shadow-inset-medium box-shadow-color-inverted` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.destructive--focus }, { box-shadow.inset-medium } { box-shadow.color.inverted }"
 		},
 		"base": {
 			"deprecated": "Use `box-shadow-inset-small box-shadow-color-transparent` instead.",
 			"value": "{ box-shadow.inset-small } { box-shadow.color.transparent }"
 		},
 		"base--active": {
-			"deprecated": true,
-			"value": "{ box-shadow.progressive--active }"
+			"deprecated": "Use `box-shadow-inset-small box-shadow-color-progressive--active` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.progressive--active }"
 		},
 		"base--focus": {
-			"deprecated": true,
-			"value": "{ box-shadow.progressive--focus }"
+			"deprecated": "Use `box-shadow-inset-small box-shadow-color-progressive--focus` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.progressive--focus }"
 		},
 		"filled--disabled": {
 			"deprecated": "Use `box-shadow-inset-small box-shadow-color-inverted` instead.",
 			"value": "{ box-shadow.inset-small } { box-shadow.color.inverted }"
 		},
 		"primary--focus": {
-			"deprecated": true,
-			"value": "{ box-shadow.progressive-filled--focus }"
+			"deprecated": "Use `box-shadow-inset-small box-shadow-progressive--focus, box-shadow-inset-medium box-shadow-color-inverted` instead.",
+			"value": "{ box-shadow.inset-small } { box-shadow.color.progressive--focus }, { box-shadow.inset-medium } { box-shadow.color.inverted }"
 		},
 		"card": {
 			"deprecated": true,
