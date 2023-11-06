@@ -44,7 +44,7 @@
 						/>
 					</div>
 					<div class="cdx-docs-tokens-table__value-meta">
-						<p>
+						<p v-if="token.filePath">
 							Defined in <code>{{ token.filePath }}</code>
 						</p>
 						<p

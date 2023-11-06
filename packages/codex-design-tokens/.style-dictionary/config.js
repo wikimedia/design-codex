@@ -21,9 +21,10 @@ module.exports = function ( themeConfig ) {
 	const dict = StyleDictionary.extend( {
 		source: [ 'src/codex-*.json', 'src/theme-wikimedia-ui.json' ],
 		tokens: {
-			// Insert a "magic" font-size-base token that is set to baseFontSize
+			// Insert a "magic" font-size-base token that is set to baseFontSize.
 			'font-size': {
 				base: {
+					comment: 'This token is targeted exclusively for font-size derived calculations. Apply `font-size-medium` and similar for component font size property use.',
 					value: `${themeConfig.basePxFontSize}px`
 				}
 			}
