@@ -28,23 +28,19 @@ Consider following Codex design, development, roadmaps, and releases in these pl
 
 ## Task tracking
 
-Tasks are tracked in Phabricator. We use three different Phabricator workboards, for three different purposes:
+Tasks are tracked in Phabricator. We use two different Phabricator workboards:
 
 - [Codex](https://phabricator.wikimedia.org/tag/codex/): used to indicate that a task is related to
   Codex. We do not track task status here.
 - [Design-Systems-Team](https://phabricator.wikimedia.org/tag/design-systems-team/): used to
   triage, sort, prioritize, and refine tasks that the Design Systems team and contributors will
-  work on. 
-- [Design-Systems-Sprint](https://phabricator.wikimedia.org/project/view/5859/): used to track
-  active works-in-progress from Research > Design > Development > Testing > Release. As a
-  contributor, you are welcome to track your work related to the Design System on this board as
-  well—just remember to keep the task in the appropriate column that reflects its status.
+  work on. We track status of actively worked on tasks in
+  [sprint milestones](https://phabricator.wikimedia.org/project/subprojects/5858/).
 
 > I want to know the status of something
 
-Check the [Codex](https://phabricator.wikimedia.org/tag/codex/),
-[Design-Systems-Team](https://phabricator.wikimedia.org/tag/design-systems-team/), and
-[Design-Systems-Sprint](https://phabricator.wikimedia.org/project/view/5859/) workboards in
+Check the [Codex](https://phabricator.wikimedia.org/tag/codex/) and
+[Design-Systems-Team](https://phabricator.wikimedia.org/tag/design-systems-team/) workboards in
 Phabricator to see if a task exists for that work (for detailed Phabricator search tips, visit
 [this page](https://www.mediawiki.org/wiki/Phabricator/Help?tableofcontents=0#Searching_for_items)).
 If so, the task will be in the column that represents its current status. If not, you can
