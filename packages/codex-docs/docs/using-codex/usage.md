@@ -30,7 +30,19 @@ Codex Vue components.
 
 ## Using components
 
+There are two types of components that you can import from the `@wikimedia/codex` package: [Vue 3 components](#vue-3-components) and [CSS-only components](#css-only-components).
+
+Using either requires that you also load the compiled CSS from `@wikimedia/codex` so that styles are applied to imported Codex components. You can do that by:
+
+- Import via JavaScript: `import '@wikimedia/codex/dist/codex.style.css'`, or
+- Import via CSS: `@import '@wikimedia/codex/dist/codex.style.css'`
+
+Styles only need to be loaded once per HTML page load from the server.
+
+A [right-to-left (RTL) stylesheet variant](#bidirectionality-support) is also available.
+
 ### Vue 3 components
+
 Import the components you need from the `@wikimedia/codex` package, and pass them into the
 `components` setting of your component:
 ```vue
@@ -61,9 +73,7 @@ the documentation for `CdxButton` is at [“Button” page](../components/demos/
 ### CSS-only components
 
 Output the HTML of the component with the appropriate CSS classes (see the component page's
-"CSS-only version" section for details, e.g. for the [CSS-only Button](../components/demos/button.md#css-only-version)). Load `codex.style.css` or `codex.style-rtl.css` depending on the reading
-direction of the page (read more about [Codex CSS files](./packages.md#files) and
-[bidirectionality support](#bidirectionality-support)).
+"CSS-only version" section for details, e.g. for the [CSS-only Button](../components/demos/button.md#css-only-version)).
 
 ```html
 <button class="cdx-button cdx-button--action-progressive cdx-button--weight-primary">
