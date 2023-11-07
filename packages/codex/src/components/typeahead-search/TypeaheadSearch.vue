@@ -700,7 +700,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
-@import ( reference ) '../../themes/mixins/element-with-menu-expanded.less';
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
 
 .cdx-typeahead-search {
@@ -751,8 +750,9 @@ export default defineComponent( {
 		padding-left: @spacing-125;
 	}
 
-	&__input {
-		.cdx-mixin-element-with-menu-expanded();
+	&--expanded &__input .cdx-text-input {
+		border-bottom-left-radius: @border-radius-sharp;
+		border-bottom-right-radius: @border-radius-sharp;
 	}
 
 	// TODO: Overwrite TextInput default to feature px based `min-size-icon-medium`.

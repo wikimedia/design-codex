@@ -327,6 +327,10 @@ export default defineComponent( {
 	// min-width is set here instead of in the <input> so that the input's width is consistent
 	// regardless of whether the clear button and start/end icon are present
 	min-width: @min-width-medium;
+	// Set the border-radius on the root element rather than the <input>, so that the focus outline
+	// will also have rounded or straight corners to match the input's corners.
+	border-radius: @border-radius-base;
+	overflow: hidden;
 
 	&__start-icon {
 		// Border width is included here and for other icon positions because the icon position will
@@ -371,7 +375,8 @@ export default defineComponent( {
 		margin: 0;
 		border-width: @border-width-base;
 		border-style: @border-style-base;
-		border-radius: @border-radius-base;
+		// Override border-radius styles from User Agent Stylesheet in iOS Safari
+		border-radius: @border-radius-sharp;
 		padding: @spacing-25 @spacing-50;
 		font-family: inherit;
 		font-size: inherit;

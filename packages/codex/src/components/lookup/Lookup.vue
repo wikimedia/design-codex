@@ -220,6 +220,7 @@ export default defineComponent( {
 		const internalClasses = computed( () => {
 			return {
 				'cdx-lookup--disabled': computedDisabled.value,
+				'cdx-lookup--expanded': expanded.value,
 				'cdx-lookup--pending': pending.value
 			};
 		} );
@@ -381,7 +382,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/pending-state.less';
-@import ( reference ) '../../themes/mixins/element-with-menu-expanded.less';
 
 .cdx-lookup {
 	position: relative;
@@ -392,8 +392,9 @@ export default defineComponent( {
 		.cdx-mixin-pending-state();
 	}
 
-	&__input {
-		.cdx-mixin-element-with-menu-expanded();
+	&--expanded &__input {
+		border-bottom-left-radius: @border-radius-sharp;
+		border-bottom-right-radius: @border-radius-sharp;
 	}
 
 	// Overrides when used within a Dialog component

@@ -337,7 +337,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
-@import ( reference ) '../../themes/mixins/element-with-menu-expanded.less';
 
 .cdx-combobox {
 	display: inline-block;
@@ -351,12 +350,11 @@ export default defineComponent( {
 		flex: 1 1 auto;
 		// Override TextInput `min-width` to allow for the expander button.
 		min-width: @min-width-medium - @min-size-interactive-pointer;
-		.cdx-mixin-element-with-menu-expanded();
+		border-top-right-radius: @border-radius-sharp;
+		border-bottom-right-radius: @border-radius-sharp;
 
 		.cdx-text-input__input {
 			border-right-width: 0;
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
 		}
 	}
 
@@ -376,7 +374,12 @@ export default defineComponent( {
 
 	&--expanded {
 		.cdx-combobox__expand-button {
-			border-bottom-right-radius: 0;
+			border-bottom-right-radius: @border-radius-sharp;
+		}
+
+		.cdx-combobox__input {
+			border-bottom-left-radius: @border-radius-sharp;
+			border-bottom-right-radius: @border-radius-sharp;
 		}
 	}
 

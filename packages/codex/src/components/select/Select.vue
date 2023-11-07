@@ -314,7 +314,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
-@import ( reference ) '../../themes/mixins/element-with-menu-expanded.less';
 @import ( reference ) '../../themes/mixins/select.less';
 @import ( reference ) '../../themes/mixins/public/css-icon.less';
 
@@ -372,7 +371,6 @@ export default defineComponent( {
 	&--enabled {
 		.cdx-select-vue__handle {
 			.cdx-select__handle--enabled();
-			.cdx-mixin-element-with-menu-expanded();
 
 			&:hover {
 				.cdx-select-vue__indicator {
@@ -385,6 +383,8 @@ export default defineComponent( {
 		&.cdx-select-vue--expanded {
 			.cdx-select-vue__handle {
 				background-color: @background-color-base;
+				border-bottom-left-radius: @border-radius-sharp;
+				border-bottom-right-radius: @border-radius-sharp;
 
 				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-select-vue__indicator {
