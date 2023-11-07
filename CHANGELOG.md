@@ -1,3 +1,36 @@
+# 1.0.1 / 2023-11-07
+
+## Features
+- MenuItem: Ensure proper hyphenation and wrapping of long words (Anne Tomasevich)
+
+## Styles
+- Tabs: Update margin of frameless/quiet tabs (lwatson)
+- tokens: Add explanatory comment for `font-size-base` (Volker E)
+- tokens: fix self-references in deprecated `box-shadow-` aliases (Volker E)
+
+## Icons
+- icons: optimize 'qrCode' and 'userRights' code (Volker E)
+
+## Code
+- build: Update browserslist database to latest (Volker E)
+- build: Prepare codex-icons for Jest migration (Roan Kattouw)
+- build: Update TypeScript, eslint, jest, etc (Roan Kattouw)
+- build, tokens: add custom file header representing “Codex Design Tokens” (Volker E)
+
+## Documentation
+- docs: Hide the social link flyout menu (Anne Tomasevich)
+- docs: Improve tokens table name cell layout on mobile (Anne Tomasevich)
+- docs: Add ID to each token's name cell (Anne Tomasevich)
+- docs, styles: Replace fallback sans with Codex font stack choice (Volker E)
+- docs: Optimize formerly oversized and binary containing SVG images (Volker E)
+- docs: Add CSS grid layout to Codex (lwatson)
+- docs: Move Apps guidelines section from DSG to Codex (lwatson)
+- docs: Optimize Apps section's PNGs (Volker E)
+- docs: improve readability of Wikimedia Apps guidelines (Volker E)
+- docs: Reduce size of 'text-area-types-*.svg' (Volker E)
+- docs: Update contributing page Phabricator links (Ty Hopp)
+- docs: Reference to “Apps” as “Wikipedia Apps” (Volker E)
+
 # 1.0.0 / 2023-10-24
 
 ## Code
