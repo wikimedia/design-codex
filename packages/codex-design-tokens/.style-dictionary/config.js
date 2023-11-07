@@ -19,6 +19,16 @@ const {
  */
 module.exports = function ( themeConfig ) {
 	const dict = StyleDictionary.extend( {
+		fileHeader: {
+			codexDesignTokensHeader: () => {
+				const packageJson = require( '../package.json' );
+				return [
+					'Codex Design Tokens v' + packageJson.version,
+					'Design System for Wikimedia',
+					'See https://doc.wikimedia.org/codex/latest/design-tokens/overview.html'
+				];
+			}
+		},
 		source: [ 'src/codex-*.json', 'src/theme-wikimedia-ui.json' ],
 		tokens: {
 			// Insert a "magic" font-size-base token that is set to baseFontSize.
@@ -43,6 +53,11 @@ module.exports = function ( themeConfig ) {
 				],
 				basePxFontSize: themeConfig.basePxFontSize,
 				buildPath: 'dist/',
+				options: {
+					// Reference to registered fileHeader above.
+					// Apply to all files in this platform.
+					fileHeader: 'codexDesignTokensHeader'
+				},
 				files: [
 					{
 						destination: `theme-${themeConfig.themeName}.scss`,

@@ -13,6 +13,16 @@ module.exports = function () {
 	const dict = StyleDictionary.extend( {
 		include: [ 'src/codex-*.json', 'src/theme-wikimedia-ui.json' ],
 		source: [ 'src/deprecated-aliases-wikimedia-ui-base.json' ],
+		fileHeader: {
+			codexDesignTokensHeader: () => {
+				const packageJson = require( '../package.json' );
+				return [
+					'Codex Design Tokens (deprecated aliases) v' + packageJson.version,
+					'Design System for Wikimedia',
+					'See https://doc.wikimedia.org/codex/latest/design-tokens/overview.html'
+				];
+			}
+		},
 		platforms: {
 			stylesheet: {
 				transforms: [
@@ -39,7 +49,10 @@ module.exports = function () {
 					}
 				],
 				options: {
-					outputReferences: true
+					outputReferences: true,
+					// Reference to registered fileHeader above.
+					// Apply to all files in this platform.
+					fileHeader: 'codexDesignTokensHeader'
 				}
 			}
 		}

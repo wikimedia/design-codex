@@ -18,15 +18,6 @@ then
 	exit 1
 fi
 
-# Build everything (and exit if that fails)
-# NOTE: If we ever embed the version number in any of the build results,
-# we will have to build after incrementing the version, then leave things half-baked
-# if the build fails
-for WORKSPACE in $PUBLISH_WORKSPACES
-do
-	npm run build -w $WORKSPACE
-done
-
 # Get the old version from package.json before running npm version
 OLD_VERSION="$(node -pe 'require("./packages/codex/package.json").version')"
 # Update package.json in all workspaces
@@ -38,6 +29,15 @@ done
 npm install
 # Get the updated version from package.json
 NEW_VERSION="$(node -e 'console.log(require("./packages/codex/package.json").version)')"
+
+# Build everything (and exit if that fails)
+# NOTE: This has to be done after the version number is updated, because the version number is
+# embedded in the build results. If the build fails, this unfortunately leaves behind a
+# half-updated state.
+for WORKSPACE in $PUBLISH_WORKSPACES
+do
+	npm run build -w $WORKSPACE
+done
 
 # Get the commits in the new version and prepend them to CHANGELOG.md
 NEW_COMMITS="$(git log --reverse v$OLD_VERSION.. --format="- %s (%aN)")"
