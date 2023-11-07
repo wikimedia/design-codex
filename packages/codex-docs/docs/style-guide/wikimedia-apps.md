@@ -16,8 +16,8 @@
 </div>
 
 Designing for mobile apps presents unique challenges and opportunities compared to traditional
-websites. Mobile apps run natively on a device and access system resources that are harder to access
-within a web-based architecture. Key characteristics of apps are:
+websites. Mobile apps run natively on devices, accessing system resources that web-based
+architectures find more challenging to utilize. Key characteristics of apps are:
 - Apps are designed to fit with the rest of the operating system. When an app fits in with the rest
 of the OS, it looks and feels more at home, and it lowers the user’s learning curve.
 - A deep integration with the OS comes with benefits right out of the box, e.g. accessibility,
@@ -42,8 +42,8 @@ excellence in user experience and aim to break down complex existing flows and p
 **The apps are here to create mobile first experiences** and are not trying to replace existing
 desktop or community tools. Through the apps, we aim to meet potential users where they are. We are
 interested in understanding and addressing the barriers of those historically left behind while not
-compromising the integrity of the workflows of our long-time users on other platforms. Making
-participation fit naturally the mobile first lives we live.
+compromising the integrity of the workflows of our long-time users on other platforms. Ensuring
+participation naturally fits into the mobile-first lives we lead.
 
 **The apps are a place to experiment.** Due to the development speed, richer capabilities, and the
 unique needs of our user base, we can experiment. It is on the apps where we think the future of
@@ -119,10 +119,9 @@ Android app:
     </figure>
 </div>
 
-The design style guide’s color palette is used in the apps. Since both the Android and iOS Wikipedia
-apps are available in four different reading themes (Light, Sepia, Dark, and Black), they use an
-enhanced color palette for an optimal reading experience. Check out more details about the color
-palette for Android or iOS here.
+The apps utilize the color palette defined in the Codex design system. Since both the Android and
+iOS Wikipedia apps are available in four different reading themes (Light, Sepia, Dark, and Black),
+they use an enhanced color palette for an optimal reading experience.
 
 <div class="cdx-docs-grid cdx-docs-grid-columns-2">
     <figure class="cdx-docs-figure">
@@ -179,7 +178,7 @@ neglecting an interface’s functional essence. Guiding questions like: What is 
 feature? What is the purpose of this particular screen? How much information can be deprioritized
 (or left out) to convey a UI’s purpose? Clarity means designing user interfaces with a clear call to
 action, generous use of white space, accessible contrast, and hierarchy when designing with type or
-icons. Writing concise and suitable multilingual UI copy supports in reaching their goals more
+icons. Writing concise and suitable multilingual UI copy supports users in reaching their goals more
 efficiently.
 
 ### Orientation
@@ -210,7 +209,7 @@ efficiently.
 Where am I? [Design for consistency](./design-principles-overview.html#design-for-consistency) and
 orientation are key aspects to help users navigate through an interface in a mobile app. We put
 explicit effort into communicating where users are and where they can go. Spatial awareness in a
-digital product helps users in achieving goals more directly. This is exemplified by consistent
+digital product directly aids users in achieving their goals. This is exemplified by consistent
 navigation, depth usage, and motion application. Deliberate usage of animation and transitions helps
 users navigate an interface. Visual layers and realistic motion convey hierarchy, emotion, and
 understanding when using a device.
@@ -277,9 +276,9 @@ principles of [direct manipulation](https://en.wikipedia.org/wiki/Direct_manipul
 interaction model where effects are immediately visible on the screen to the user. Designing for a
 touch device goes beyond enlarging buttons for bigger fingers. We deeply consider the placement and
 positioning of elements to achieve an ergonomic user experience while being aware of different
-device usage types. And, as voice is considered the most natural machine-human input method
-available, we ensure the interface reflects it. We design experiences that provide ergonomics on
-smartphones, tablets, and hybrid laptop/touch devices.
+device usage types. Considering voice as the most natural machine-human input method, we ensure the
+interface reflects it. We design experiences that provide ergonomics on smartphones, tablets, and
+hybrid laptop/touch devices.
 
 ## Further reading
 
