@@ -179,7 +179,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 				{
 					text: 'Platforms',
 					items: [
-						{ text: 'Wikimedia Apps', link: '/style-guide/wikimedia-apps' }
+						{ text: 'Wikipedia Apps', link: '/style-guide/wikipedia-apps' }
 					]
 				}
 			],

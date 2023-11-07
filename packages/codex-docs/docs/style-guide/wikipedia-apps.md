@@ -28,7 +28,7 @@ content from anywhere, even when they are not connected to the internet or have 
 
 Wikimedia Foundation's apps are essential to meet our
 [“This is for everyone” design principle](./design-principles-overview.html#this-is-for-everyone).
-Wikimedia apps are designed with the philosophy of mobile first in mind. One of the core principles
+Wikipedia apps are designed with the philosophy of mobile first in mind. One of the core principles
 of [mobile first](https://mobile-first.abookapart.com/) is to embrace the constraints of a mobile
 environment and, with it, prioritize essential information, as there’s not enough room for
 everything.
@@ -59,7 +59,7 @@ technology that is changing our world.
 
 ## Theming
 
-![Theming in Wikimedia apps.](../assets/apps/theming_main.png)
+![Theming in Wikipedia apps.](../assets/apps/theming_main.png)
 
 As mentioned in the introduction, iOS and Android both have platform specific guidelines. When
 building apps for the global Wikimedia movement, we aim to create native experiences for the
@@ -282,9 +282,9 @@ hybrid laptop/touch devices.
 
 ## Further reading
 
-The Wikimedia Android, iOS, and KaiOS apps are each designed and developed by a specific team. If
+The Wikipedia Android, iOS, and KaiOS apps are each designed and developed by a specific team. If
 you’re interested in learning more about the apps, or if you like to get involved, please visit
-[Wikimedia Apps on mediawiki.org](https://www.mediawiki.org/wiki/Wikimedia_Apps).
+[Wikipedia Apps on mediawiki.org](https://www.mediawiki.org/wiki/Wikimedia_Apps).
 
 ### Android
 
