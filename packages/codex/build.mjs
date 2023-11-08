@@ -7,6 +7,7 @@ import autoprefixer from 'autoprefixer';
 import postcssRtlcss from 'postcss-rtlcss';
 import { codexIconNames, getComponentEntryPoints } from './build/utils.mjs';
 import generateCodexBundle from './build/generateCodexBundle.mjs';
+import emitAllowlist from './build/vite-plugin-emit-allowlist.mjs';
 
 const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', import.meta.url ) ) );
 const componentMap = getComponentEntryPoints( resolve( __dirname, 'src', 'components' ) );
@@ -89,21 +90,26 @@ const baseLibraryConfig = mergeConfig( baseConfig, {
 		}
 	}
 } );
-// Minify the CJS and UMD builds
-const minifiedLibraryConfig = mergeConfig( baseLibraryConfig, {
-	build: {
-		lib: {
-			formats: [ 'cjs', 'umd' ]
-		}
-	}
-} );
-// Don't minify the ES build
+
+// Don't minify the ES build, emit the mjs file
 const unminifiedLibraryConfig = mergeConfig( baseLibraryConfig, {
 	build: {
 		lib: {
 			formats: [ 'es' ]
 		},
 		minify: false
+	},
+	plugins: [
+		emitAllowlist( [ 'mjs' ] )
+	]
+} );
+
+// Minify the CJS and UMD builds, emit all files
+const minifiedLibraryConfig = mergeConfig( baseLibraryConfig, {
+	build: {
+		lib: {
+			formats: [ 'cjs', 'umd' ]
+		}
 	}
 } );
 
@@ -153,8 +159,6 @@ await build( {
 } );
 
 // Build the Codex bundles
-// Build the unminified files first and the minified files second, otherwise
-// the minified CSS files are overwritten with unminified ones
 await generateCodexBundle( unminifiedLibraryConfig );
 await generateCodexBundle( minifiedLibraryConfig );
 await generateCodexBundle( splitConfig );

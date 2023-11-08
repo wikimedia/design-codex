@@ -3,6 +3,7 @@ import { build, mergeConfig } from 'vite';
 import autoprefixer from 'autoprefixer';
 import rtlcss from 'rtlcss';
 import * as url from 'url';
+import emitAllowlist from './vite-plugin-emit-allowlist.mjs';
 
 const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', import.meta.url ) ) );
 
@@ -67,6 +68,7 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 		};
 
 		switch ( mode ) {
+			// Emit all files for the default mode, and only CSS files for other modes
 			case '':
 				overrides = {
 					css: {
@@ -86,7 +88,10 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-wikimedia-ui-legacy.less' )
 							}
 						]
-					}
+					},
+					plugins: [
+						emitAllowlist( [ 'css' ] )
+					]
 				};
 				break;
 			case 'rtl':
@@ -98,7 +103,10 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 								autoprefixer()
 							]
 						}
-					}
+					},
+					plugins: [
+						emitAllowlist( [ 'css' ] )
+					]
 				};
 				break;
 			case 'legacy-rtl':
@@ -118,7 +126,10 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-wikimedia-ui-legacy.less' )
 							}
 						]
-					}
+					},
+					plugins: [
+						emitAllowlist( [ 'css' ] )
+					]
 				};
 				break;
 		}
