@@ -464,8 +464,14 @@ export default defineComponent( {
 				if ( !props.expanded ) {
 					emit( 'update:expanded', true );
 				}
+				// When space key is pressed and the keyBuffer is empty, return false in order to
+				// handle the key event navigation that opens/closes the menu.
+				if ( e.key === ' ' && keyBuffer.length < 1 ) {
+					return false;
+				}
 
 				keyBuffer += e.key.toLowerCase();
+
 				const isRepeatedCharacter = keyBuffer.length > 1 &&
 					keyBuffer.split( '' ).every( ( char ) => char === keyBuffer[ 0 ] );
 
@@ -493,8 +499,10 @@ export default defineComponent( {
 				// Clear the key buffer if the user doesn't type for 1.5 seconds, and restart the
 				// 1.5-second timer if it's already running
 				resetKeyBufferTimeout();
+
 				return true;
 			}
+
 			return false;
 		}
 
@@ -510,6 +518,7 @@ export default defineComponent( {
 			// returns true, it has handled this key event and we don't need to do anything else.
 			if ( characterNavigation ) {
 				if ( handleCharacterNavigation( e ) ) {
+					e.preventDefault();
 					return true;
 				}
 				// If it wasn't a character navigation event, clear the key buffer.
@@ -610,6 +619,7 @@ export default defineComponent( {
 				case 'Escape':
 					maybePrevent();
 					emit( 'update:expanded', false );
+
 					return true;
 				default:
 					return false;
