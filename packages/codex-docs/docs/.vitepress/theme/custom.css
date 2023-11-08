@@ -265,6 +265,11 @@ body {
 	line-height: var( --line-height-medium );
 }
 
+/* Enlarge outline marker to match enlarged font size of outline links */
+.VPDocAside .outline-marker {
+	height: calc( var( --font-size-small ) * var( --line-height-medium ) + 2 * var( --spacing-35 ) );
+}
+
 /* Higher specificity to override VitePress internal `.VPSidebarItem.level-1.is-link > .item > .link:hover .text[data-v-foo]` */
 .VPSidebar .link:hover .text,
 .VPDocAside .outline-link:hover {
