@@ -201,6 +201,34 @@
 				@input="onInput"
 			/>
 			<br>
+			<div>
+				<cdx-text-input
+					ref="input"
+					v-model="selectedValue"
+					role="combobox"
+					:aria-expanded="expanded"
+					:aria-controls="menuId"
+					:aria-activedescendant="activeDescendant"
+					@click="onClick"
+					@blur="expanded = false"
+					@keydown="onKeydown"
+				/>
+				<cdx-menu
+					:id="menuId"
+					ref="menu"
+					v-model:selected="selectedValue"
+					v-model:expanded="expanded"
+					:menu-items="menuItems"
+					:footer="footer"
+				>
+					<template #default="{ menuItem }">
+						<template v-if="menuItem.value === 'menu-footer'">
+							Footer item with value: {{ menuItem.value }}
+						</template>
+					</template>
+				</cdx-menu>
+			</div>
+			<br>
 			<p>
 				Hemp seeds apple vinaigrette dark and stormy habanero golden
 				coriander peppermint asian pear frosted gingerbread bites
@@ -226,8 +254,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { CdxDialog, CdxButton, CdxCombobox, CdxLookup, CdxSelect, MenuItemData } from '../lib';
+import { Ref, ComponentPublicInstance, ref, computed } from 'vue';
+import { CdxDialog, CdxButton, CdxCombobox, CdxLookup, CdxSelect, MenuItemData, CdxMenu, CdxTextInput, useGeneratedId, useFloatingMenu } from '../lib';
 import WrappedDialog from './WrappedDialog.vue';
 import vegetableItems from 'codex-docs/component-demos/lookup/examples/data.json';
 
@@ -273,6 +301,43 @@ function onInput( value: string ) {
 			item.label.includes( value )
 		);
 	}
+}
+
+const input = ref<InstanceType<typeof CdxTextInput>>();
+const menu = ref<InstanceType<typeof CdxMenu>>();
+const selectedValue = ref( '' );
+const expanded = ref( false );
+const activeDescendant = computed( () => menu.value?.getHighlightedMenuItem()?.id );
+const menuId = useGeneratedId( 'menu' );
+
+const footer = {
+	value: 'menu-footer'
+};
+
+useFloatingMenu( input as Ref<ComponentPublicInstance>, menu );
+
+/**
+ * Delegate most keydowns on the text input to the Menu component. This
+ * allows the Menu component to enable keyboard navigation of the menu.
+ *
+ * @param {KeyboardEvent} e The keyboard event
+ */
+function onKeydown( e: KeyboardEvent ) {
+	// The menu component enables the space key to open and close the
+	// menu. However, for text inputs with menus, the space key should
+	// always insert a new space character in the input.
+	if ( e.key === ' ' ) {
+		return;
+	}
+
+	// Delegate all other key events to the Menu component.
+	if ( menu.value ) {
+		menu.value.delegateKeyNavigation( e );
+	}
+}
+
+function onClick() {
+	expanded.value = true;
 }
 </script>
 
