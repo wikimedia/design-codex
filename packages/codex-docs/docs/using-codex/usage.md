@@ -16,17 +16,20 @@ specific to use of the library within MediaWiki.
 :::
 
 ## Installation
-Install the following packages from NPM:
-- `@wikimedia/codex`
-- `@wikimedia/codex-design-tokens`
-- `@wikimedia/codex-icons`
-```bash
-npm install --save-dev @wikimedia/codex @wikimedia/codex-design-tokens @wikimedia/codex-icons
-```
-Some projects may not need the icons package, but most do.
 
-You will also need to [install Vue.js](https://vuejs.org/guide/quick-start.html) in order to use
-Codex Vue components.
+Install the [`@wikimedia/codex`](https://www.npmjs.com/package/@wikimedia/codex) package from NPM:
+
+```bash
+npm install @wikimedia/codex
+```
+
+This is the only required package to make use of [Codex CSS-only components](#css-only-components).
+
+You may need to install other packages to use Codex in other ways:
+
+- To use [Codex Vue 3 components](#vue-3-components), install [Vue.js](https://vuejs.org/guide/quick-start.html)
+- To use Codex icons and icon utilities, install [`@wikimedia/codex-icons`](https://www.npmjs.com/package/@wikimedia/codex-icons) from NPM
+- To use Codex CSS, Less, or Sass variables, install [`@wikimedia/codex-design-tokens`](https://www.npmjs.com/package/@wikimedia/codex-design-tokens) from NPM
 
 ## Using components
 
