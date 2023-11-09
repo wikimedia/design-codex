@@ -463,32 +463,6 @@ body {
 	}
 }
 
-/* Dos and Donts */
-.vp-doc .cdx-docs-do {
-	color: var( --color-success );
-}
-
-.vp-doc .cdx-docs-do::before {
-	content: '✓';
-}
-
-.vp-doc .cdx-docs-dont {
-	color: var( --color-destructive );
-}
-
-.vp-doc .cdx-docs-dont::before {
-	content: '×';
-}
-
-.vp-doc .cdx-docs-do::before,
-.vp-doc .cdx-docs-dont::before {
-	display: inline-block;
-	margin-right: var( --spacing-25 );
-	font-size: var( --font-size-medium );
-	line-height: unset;
-	vertical-align: top;
-}
-
 /* Custom docs. ------------------------------------------------------------ */
 
 /* Class for visually hidden text for supporting assistive technology.

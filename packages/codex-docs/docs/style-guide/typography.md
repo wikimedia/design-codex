@@ -18,24 +18,24 @@ contrast between the colors used for the text and its background. Accessibility 
 least level AA sufficient contrast (4.5:1). The [color palette](./colors) provides the contrast
 levels for pure white and black surfaces, but you need to ensure the contrast of other combinations.
 
-<div class="cdx-docs-contrast">
-	<div class="cdx-docs-contrast__demo cdx-docs-contrast__demo--do">
-		<div class="cdx-docs-contrast__demo__text">
-			Bento (弁当 bentō) is a single-portion take-out or home-packed meal common in Japanese cuisine.
-		</div>
-		<span class="cdx-docs-contrast__demo__info">
-			<strong class="cdx-docs-do">Do:</strong> Contrast against the background
-		</span>
-	</div>
-	<div class="cdx-docs-contrast__demo cdx-docs-contrast__demo--dont">
-		<div class="cdx-docs-contrast__demo__text">
-			Bento (弁当 bentō) is a single-portion take-out or home-packed meal common in Japanese cuisine.
-		</div>
-		<span class="cdx-docs-contrast__demo__info">
-			<strong class="cdx-docs-dont">Don't:</strong> Low contrast below 4.5:1, especially at smaller sizes, makes text harder to read.
-		</span>
-	</div>
-</div>
+<cdx-demo-rules class="cdx-docs-contrast">
+<template #do-media>
+
+Bento (弁当 bentō) is a single-portion take-out or home-packed meal common in Japanese cuisine.
+
+</template>
+<template #do-text>
+Contrast against the background
+</template>
+<template #dont-media>
+
+Bento (弁当 bentō) is a single-portion take-out or home-packed meal common in Japanese cuisine.
+
+</template>
+<template #dont-text>
+Low contrast below 4.5:1, especially at smaller sizes, makes text harder to read.
+</template>
+</cdx-demo-rules>
 
 ### Tracking and leading
 
@@ -357,40 +357,17 @@ font-size: 14px; /* 14 sp equivalent */
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-contrast {
-	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-		display: flex;
-		gap: @spacing-12;
+	.cdx-demo-rules__media {
+		background-color: @background-color-interactive;
+		padding: @spacing-200;
 	}
 
-	&__demo {
-		&__text {
-			background-color: @background-color-interactive;
-			border-bottom-width: @spacing-25;
-			border-bottom-style: @border-style-base;
-			padding: @spacing-200;
-		}
-
-		&--do {
-			margin-bottom: @spacing-100;
-
-			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				margin-bottom: 0;
-			}
-
-			.cdx-docs-contrast__demo__text {
-				border-bottom-color: @color-success;
-			}
-		}
-
-		&--dont {
-			.cdx-docs-contrast__demo__text {
-				// Our design tokens are so good we don't even have a @color token that's bad
-				// enough for this example.
-				/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-				color: #a2a9b1;
-				border-bottom-color: @color-error;
-			}
-		}
+	.cdx-demo-rules__dont .cdx-demo-rules__media {
+		// Our design tokens are so good we don't even have a @color token that's bad
+		// enough for this example.
+		/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+		color: #a2a9b1;
+		border-bottom-color: @color-error;
 	}
 }
 
