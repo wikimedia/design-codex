@@ -926,6 +926,7 @@ export default defineComponent( {
 		.cdx-menu-item:last-of-type {
 			position: absolute;
 			bottom: 0;
+			box-sizing: @box-sizing-base;
 			width: @size-full;
 
 			&:not( :first-of-type ) {
