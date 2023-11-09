@@ -177,6 +177,14 @@ export default defineConfigWithTheme<CustomConfig>( {
 					]
 				},
 				{
+					text: 'Content Guidelines',
+					items: [
+						{ text: 'Voice and tone', link: '/style-guide/voice-and-tone' },
+						{ text: 'Writing for copy', link: '/style-guide/writing-for-copy' },
+						{ text: 'Additional resources', link: '/style-guide/additional-resources' }
+					]
+				},
+				{
 					text: 'Platforms',
 					items: [
 						{ text: 'Wikipedia Apps', link: '/style-guide/wikipedia-apps' }

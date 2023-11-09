@@ -90,6 +90,34 @@ Provide sufficient information in a disabled element's context, so the user can 
 disabled and how to enable it (if applicable).
 :::
 
+### Content
+
+Select text introduces the options available in a drop-down menu.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of interface selects conveying examples of clear placeholder text.](../../assets/components/select-content-do.svg)
+
+</template>
+<template #do-text>
+
+- Indicate clearly the kinds of options that follow. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear) & [*Trustworthy*](../../style-guide/writing-for-copy.html#is-this-trustworthy)
+
+</template>
+<template #dont-media>
+
+![A screenshot of interface selects conveying examples of vague placeholder text.](../../assets/components/select-content-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Make the select label vague or generic. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear) & [*Trustworthy*](../../style-guide/writing-for-copy.html#is-this-trustworthy)
+- Write a part of a sentence that is completed by the choices. [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable)
+
+</template>
+</cdx-demo-rules>
+
 ### References
 
 1. <span id="ref1">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>

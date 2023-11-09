@@ -500,6 +500,10 @@ body {
 	margin-left: var( --spacing-25 );
 }
 
+.cdx-docs-example img {
+	background-color: var( --background-color-interactive-subtle );
+}
+
 /* Higher specificity to override VitePress internal `.vp-doc ul`. */
 .vp-doc ul.cdx-docs-methods__params {
 	margin: 0;
@@ -524,6 +528,21 @@ body {
 @media ( max-width: 640px ) {
 	.cdx-docs-figcaption {
 		text-align: center;
+	}
+}
+
+.cdx-docs-grid.cdx-docs-content-guidelines p {
+	margin: var( --spacing-100 ) 0 0;
+}
+
+.cdx-docs-content-guidelines ul,
+.cdx-docs-content-guidelines ol {
+	margin: 0;
+}
+
+@media ( min-width: 640px ) {
+	.cdx-docs-grid.cdx-docs-content-guidelines p {
+		margin: 0;
 	}
 }
 

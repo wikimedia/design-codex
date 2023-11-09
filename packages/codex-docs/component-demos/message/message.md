@@ -122,6 +122,121 @@ Auto-dismiss can be used with or without the manual dismiss button.
 
 ![Two auto-dismissible messages: one without dismiss button and one with a dismiss button.](../../assets/components/message-types-auto-dismiss.svg)
 
+### Content
+
+Keeping messages clear is ideal for accessibility (reducing cognitive load) and using the right tone provides relevance.
+
+#### Error message
+
+Error messages let a reader know that there is a problem and should include clear instructions or next steps to solve the problem.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of an error message conveying the use of concise messaging with clear actions.](../../assets/components/message-content-error-do.svg)
+
+</template>
+<template #do-text>
+
+- Keep messages short and simple, with one or two solutions, to reduce cognitive load. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible)
+- Use formatting to make the copy easy to skim and help users move through a flow more quickly and confidently. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
+
+</template>
+<template #dont-media>
+
+![A screenshot of an error message conveying the use of long form messaging with no clear action.](../../assets/components/message-content-error-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Give multiple options for fixing the issue. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
+- Apologize more than once, to avoid eroding the reader’s sense of trust in the experience. [*Trustworthy*](../../style-guide/writing-for-copy.html#is-this-trustworthy)
+
+</template>
+</cdx-demo-rules>
+
+#### Success message
+
+Success messages let a user know that the action they took was successful.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of a success message conveying the use of concise messaging.](../../assets/components/message-content-success-do.svg)
+
+</template>
+<template #do-text>
+
+- Use clear, positive, short messages. [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible) & [*Relevant*](../../style-guide/writing-for-copy.html#is-this-relevant)
+
+</template>
+<template #dont-media>
+
+![A screenshot of a success message conveying the use of long form messaging with no clear action.](../../assets/components/message-content-success-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Include too much information. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
+
+</template>
+</cdx-demo-rules>
+
+#### Warning message
+
+Warning messages indicate urgent information and consequences to the user (e.g., that an impending action is irreversible). Warning messages should also include a solution to the potential problem.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of a warning message conveying the use of concise messaging.](../../assets/components/message-content-warning-do.svg)
+
+</template>
+<template #do-text>
+
+- Keep messages short and precise. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible)
+
+</template>
+<template #dont-media>
+
+![A screenshot of a warning message conveying the use of long form messaging with no clear action.](../../assets/components/message-content-warning-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Write in a way that might cause a reader to panic or worry. [*Trustworthy*](../../style-guide/writing-for-copy.html#is-this-trustworthy)
+
+</template>
+</cdx-demo-rules>
+
+#### Notice message
+
+Notice messages alert a reader to important, but non-urgent, information. These messages are not generally used for feedback on a user’s actions, but rather for offering neutral information or recommendations.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of a notice message conveying the use of concise messaging in a neutral tone.](../../assets/components/message-content-notice-do.svg)
+
+</template>
+<template #do-text>
+
+- Keep messages in an informative, neutral tone. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent) & [*Trustworthy*](../../style-guide/writing-for-copy.html#is-this-trustworthy)
+
+</template>
+<template #dont-media>
+
+![A screenshot of a notice message conveying the use of long form messaging.](../../assets/components/message-content-notice-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Include more than one message. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
+- Use warning or error language. [*Relevant*](../../style-guide/writing-for-copy.html#is-this-relevant) & [*Trustworthy*](../../style-guide/writing-for-copy.html#is-this-trustworthy)
+
+</template>
+</cdx-demo-rules>
+
 ## Demos
 
 ### Configurable

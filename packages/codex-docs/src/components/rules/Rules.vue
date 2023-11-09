@@ -7,7 +7,11 @@
 
 			<div class="cdx-demo-rules__text">
 				<span class="cdx-demo-rules__label">
-					<cdx-icon class="cdx-demo-rules__icon" :icon="cdxIconSuccess" />
+					<cdx-icon
+						class="cdx-demo-rules__icon"
+						:icon="cdxIconSuccess"
+						size="small"
+					/>
 					{{ doLabel }}
 				</span>
 				<slot name="do-text" />
@@ -21,7 +25,11 @@
 
 			<div class="cdx-demo-rules__text">
 				<span class="cdx-demo-rules__label">
-					<cdx-icon class="cdx-demo-rules__icon" :icon="cdxIconClear" />
+					<cdx-icon
+						class="cdx-demo-rules__icon"
+						:icon="cdxIconClear"
+						size="small"
+					/>
 					{{ dontLabel }}
 				</span>
 				<slot name="dont-text" />
@@ -94,6 +102,9 @@ export default defineComponent( {
 	}
 
 	&__label {
+		display: flex;
+		align-items: center;
+		gap: @spacing-25;
 		font-weight: @font-weight-bold;
 	}
 

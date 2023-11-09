@@ -79,6 +79,33 @@ Both quiet and framed tab items have the following visually separate states:
 5. Focus
 6. Disabled
 
+### Content
+
+Tabs allow a reader to access contained, structured content blocks that make pages easier to read. To make the UI effective and consistent, keep tab names short and descriptive.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of interface tabs conveying an example of short, concise titles for sections.](../../assets/components/tab-content-do.svg)
+
+</template>
+<template #do-text>
+
+- Limit tab names to one or two words. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</template>
+<template #dont-media>
+
+![A screenshot of interface tabs conveying an example of mixing verbs and nouns.](../../assets/components/tab-content-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Mix verbs and nouns for the labels. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent) & [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</template>
+</cdx-demo-rules>
+
 ## Demos
 
 ### Configurable example

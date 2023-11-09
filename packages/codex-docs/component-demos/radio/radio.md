@@ -67,6 +67,33 @@ Provide sufficient information in a disabled element's context, so the user can 
 disabled and how to enable it (if applicable).
 :::
 
+### Content
+
+A radio button ensure that a reader chooses only one option from a set of two or more. Keeping choices simple and mutually exclusive makes for concise, effective and trustworthy content.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of interface radio buttons conveying an example of a clear prompt and concise list of options.](../../assets/components/radio-content-do.svg)
+
+</template>
+<template #do-text>
+
+- Keep the choices short and mutually exclusive. [*Concise*](https://doc.wikimedia.org/codex/main/style-guide/writing-for-copy.html#is-this-concise), [*Clear*](https://doc.wikimedia.org/codex/main/style-guide/writing-for-copy.html#is-this-clear) & [*Trustworthy*](https://doc.wikimedia.org/codex/main/style-guide/writing-for-copy.html#is-this-trustworthy)
+
+</template>
+<template #dont-media>
+
+![A screenshot of interface radio buttons conveying an example of a list of options with unnecessarily long descriptions.](../../assets/components/radio-content-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Make the options overly long or complicated. [*Concise*](https://doc.wikimedia.org/codex/main/style-guide/writing-for-copy.html#is-this-concise), [*Clear*](https://doc.wikimedia.org/codex/main/style-guide/writing-for-copy.html#is-this-clear) & [*Trustworthy*](https://doc.wikimedia.org/codex/main/style-guide/writing-for-copy.html#is-this-trustworthy)
+
+</template>
+</cdx-demo-rules>
+
 ## References
 
 1. <span id="ref1">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>

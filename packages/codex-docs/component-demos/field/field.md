@@ -150,6 +150,93 @@ The interactive states will exclusively impact the field item within Field.
 Hover, focus, filled, and read-only states apply solely to the field item (e.g.
 the text input).
 
+### Content
+
+Form elements should guide the user to fill out the form easily. They will prevent the user from making mistakes.
+
+#### Label and placeholder
+
+Labels indicate what the input should be. Placeholders act as sample text for the kind of content the user needs to input. Different browsers handle placeholder text differently, and some have trouble displaying translations of placeholders. Use placeholders as helpful additions, but do not rely on them too heavily.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of interface inputs conveying an example of helpful labels and placeholder text.](../../assets/components/label-placeholder-content-do.svg)
+
+</template>
+<template #do-text>
+
+- Make the label short, clear, and easy to scan. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent) & [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+- Provide more context in the placeholder for what's indicated in the label. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</template>
+<template #dont-media>
+
+![A screenshot of interface inputs conveying an example of repetitive and redundant labels and placeholder text.](../../assets/components/label-placeholder-content-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Leave out the label in favor of just a placeholder. [*Needed*](../../style-guide/writing-for-copy.html#is-this-needed) & [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable)
+- Repeat in the placeholder what’s in the label. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
+
+</template>
+</cdx-demo-rules>
+
+#### Helper text
+
+Helper text gives a user guidance on how to fill in the form field. These messages often clarify formatting or indicate character restrictions. Giving users appropriate context helps them to quickly and efficiently enter the input without errors.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of interface inputs conveying an example of helpful and concise helper text.](../../assets/components/helper-text-content-do.svg)
+
+</template>
+<template #do-text>
+
+- Give clear information about input restrictions. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear) & [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible)
+
+</template>
+<template #dont-media>
+
+![A screenshot of interface inputs conveying an example of unnecessarily long helper text.](../../assets/components/helper-text-content-dont.svg)
+
+</template>
+<template #dont-text>
+
+- List too many restrictions or use overly technical and robotic language. [*Relevant*](../../style-guide/writing-for-copy.html#is-this-relevant)
+
+</template>
+</cdx-demo-rules>
+
+#### Inline error
+
+These are short, simple contextual messages that allow the user to quickly understand how to fix the error they just made.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of interface inputs conveying an example of helpful and useful inline error text.](../../assets/components/inline-error-content-do.svg)
+
+</template>
+<template #do-text>
+
+- Let a reader know exactly what to do to fix the issue. [*Relevant*](../../style-guide/writing-for-copy.html#is-this-relevant) & [*Trustworthy*](../../style-guide/writing-for-copy.html#is-this-trustworthy)
+
+</template>
+<template #dont-media>
+
+![A screenshot of interface inputs conveying an example of inline error text without any instruction to correct the error.](../../assets/components/inline-error-content-dont.svg)
+
+</template>
+<template #dont-text>
+
+- State the error without offering a way to correct it. [*Relevant*](../../style-guide/writing-for-copy.html#is-this-relevant) & [*Trustworthy*](../../style-guide/writing-for-copy.html#is-this-trustworthy)
+
+</template>
+</cdx-demo-rules>
+
 ## Demos
 
 ### Configurable

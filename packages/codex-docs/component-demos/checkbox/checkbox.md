@@ -112,6 +112,33 @@ different state than the others, the main  checkbox would present an indetermina
 
 ![One checkbox group with all items selected and another with an indeterminate state due to incomplete item selection.](../../assets/components/checkbox-interaction-states-indeterminate.svg)
 
+### Content
+
+A checkbox lets a reader choose one or more options from a list.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of interface checkboxes conveying an example of a clear question and list of options.](../../assets/components/checkbox-content-do.svg)
+
+</template>
+<template #do-text>
+
+- Create a direct question or a complete sentence to precede the checkboxes. [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable) & [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</template>
+<template #dont-media>
+
+![A screenshot of interface checkboxes conveying an example of an unclear prompt.](../../assets/components/checkbox-content-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Split the sentence in the leading label across the choices. [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable)
+
+</template>
+</cdx-demo-rules>
+
 ### References
 
 1. <span id="ref1">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>

@@ -75,6 +75,64 @@ Links display accessible color variations that help clearly differentiate their 
 Links display the default browser outline on focus, which is equal to Blue600. The outline style varies in different browsers.<br>
 Links don't feature a disabled state. If you’re trying to convey an action, you might consider using a [quiet button](../demos/button.md#quiet-buttons-frameless) for that scenario instead.
 
+### Content
+
+The tone of a link should let a user know exactly where they will go when they select it. Link copy should be short and descriptive.
+
+#### Base link
+
+Base links signal to users the option to navigate to a different page, view, or resource.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of text conveying an example of a link reading "Get the PDF of this article".](../../assets/components/link-content-progressive-do.svg)
+
+</template>
+<template #do-text>
+
+- Highlight only the phrase that indicates the link destination. [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable)
+
+</template>
+<template #dont-media>
+
+![A screenshot of text conveying an example of a link reading "Click here to get the PDF".](../../assets/components/link-content-progressive-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Use the words click, tap or here. Avoiding these terms makes things clear and precise, whether the reader is using an assistive device, a mobile device or a desktop experience. [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible)
+
+</template>
+</cdx-demo-rules>
+
+#### Red link
+
+Red links are used to indicate that a page does not exist. Typically a red link is added to indicate that a page will be, or should be created soon.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of text conveying an example of a link reading "Roads of Zambia".](../../assets/components/link-content-destructive-do.svg)
+
+</template>
+<template #do-text>
+
+- Create a title using appropriate [naming conventions](https://en.wikipedia.org/wiki/Wikipedia:Article_titles?useskin=vector-2022#Article_title_format). [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</template>
+<template #dont-media>
+
+![A screenshot of text conveying an example of a link reading "#metoo movement".](../../assets/components/link-content-destructive-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Use special characters in the title. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</template>
+</cdx-demo-rules>
+
 ### References
 1. <span id="ref1">[English Wikipedia: External links](https://en.wikipedia.org/wiki/Wikipedia:External_links)</span>
 2. <span id="ref2">[English Wikipedia: Manual of Style/Linking](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Linking)</span>

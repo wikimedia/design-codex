@@ -72,6 +72,32 @@ within each respective item. The menu component has two main states:
 1. Default
 2. Loading
 
+### Content
+
+Dropdown menus let readers choose one item from a set of options. Giving the choices a logical sequence makes them easy to scan and process.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of interface dropdown menus conveying examples of alphabetically organized options.](../../assets/components/dropdown-content-do.svg)
+
+</template>
+<template #do-text>
+
+- Alphabetize the drop-down choices, if appropriate. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear) & [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable)
+
+</template>
+<template #dont-media>
+
+![A screenshot of interface dropdown menus conveying examples of unorganized options.](../../assets/components/dropdown-content-dont.svg)
+
+</template>
+<template #dont-text>
+
+- List the choices randomly. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear) & [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable)
+
+</template>
+</cdx-demo-rules>
 
 ## Demos
 

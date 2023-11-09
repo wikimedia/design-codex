@@ -157,6 +157,95 @@ and quiet buttons): default, hover, active, focus, and disabled.](../../assets/c
 **Accessibility note**: The disabled state does not meet our minimum color contrast rules. WCAG 2.1 states that “…part[s] of an inactive user interface component […] have no contrast requirement”.<sup>[[3]](#ref3)</sup><br>
 Provide sufficient information in a disabled element’s context, so the user can understand what is disabled and how to enable it (if applicable).
 
+### Content
+
+The wording on a button lets a user know what happens when they select it. Users need to know what action will occur, or where they will go, when they click or tap.
+
+Use short, precise verbs, ideally with fewer than 38 characters for English. The average character length of language translations is 42 characters. Logographic (such as Chinese, Japanese, Korean) and Arabic-script (such as Saraiki, Punjabi, Sindhi, Pashto, Balochi) languages tend to use less characters. Language translations which use more characters are Romance (such as Lombard, French, Portuguese, Spanish, Galician, Arpitan, Romanian, Catalan), some Germanic (Colognian, German, Dutch), Slavic (Belarusian, Russian, Bulgarian, Polish, Ukrainian) and Austronesian (Sakizaya, Ilokano, Tagalog, Bikol, Indonesian). Other notable, but not easily grouped languages that tend to be longer are Irish, Greek, Shan, Quechua, Finnish, Hungarian, Basque, and Malayalam. All of them have an average length between 45 and 53 characters.
+
+#### Progressive button
+
+Progressive buttons allow a reader to continue or complete an action.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of an interface button with a short, concise action.](../../assets/components/button-content-progressive-do.svg)
+
+</template>
+<template #do-text>
+
+- Use descriptive, accessible verbs to encourage action. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible)
+- Write in sentence case, capitalising only the first word. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent)
+
+</template>
+<template #dont-media>
+
+![A screenshot of an interface button with unnecessarily long form text which wraps to two lines.](../../assets/components/button-content-progressive-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Choose verbs that imply visual or sensory abilities, or are idiomatic or vague. [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible) & [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable)
+- Write a CTA that wraps over two lines. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
+
+</template>
+</cdx-demo-rules>
+
+#### Destructive button
+
+Destructive buttons are for cancelling, deleting or non-reversible actions. Posing and answering direct questions with matching terminology makes for scannable, effective content.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of an interface button reading "Delete".](../../assets/components/button-content-destructive-do.svg)
+
+</template>
+<template #do-text>
+
+- Answer direct questions in titles or body copy using the same terminology. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</template>
+<template #dont-media>
+
+![A screenshot of an interface button reading "Yes, I'm sure".](../../assets/components/button-content-destructive-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Pose a question in addition to the main action. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
+
+</template>
+</cdx-demo-rules>
+
+#### Neutral button
+
+Neutral buttons are for minor or secondary actions. Always keep the hierarchy of the message simple and direct, and choose the words carefully, in order to make the copy as clear and effective as possible.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of interface buttons reading "Create account" and "Log in".](../../assets/components/button-content-neutral-do.svg)
+
+</template>
+<template #do-text>
+
+- Establish a clear hierarchy of choices on the page. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</template>
+<template #dont-media>
+
+![A screenshot of interface buttons reading "Sign up" and "Sign in".](../../assets/components/button-content-neutral-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Use similar words for different actions. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
+
+</template>
+</cdx-demo-rules>
+
 ### References
 
 1. <span id="ref1">[“Links vs. Buttons in Modern Web Applications” by Marcy Sutton](https://marcysutton.com/links-vs-buttons-in-modern-web-applications)</span>

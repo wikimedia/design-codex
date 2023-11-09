@@ -135,6 +135,33 @@ Buttons may be disabled until a required action is completed.
 
 ![A dialog with a disabled main button.](../../assets/components/dialog-specifications-disabled-button.svg)
 
+### Content
+
+Simple dialogs are for confirmations and information that the user needs in order to continue. It is easier for users to move through the flow when they know what to do from the title and CTAs.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of an interface dialog conveying an example of short, concise titles and text.](../../assets/components/dialog-content-do.svg)
+
+</template>
+<template #do-text>
+
+- Write short titles and simple CTAs to work together. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</template>
+<template #dont-media>
+
+![A screenshot of an interface dialog conveying an example of unnecessarily long text and an action which does not relate to the purpose of the dialog.](../../assets/components/dialog-content-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Give too much information or too many options. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</template>
+</cdx-demo-rules>
+
 ## Demos
 
 ### Configurable Dialog
