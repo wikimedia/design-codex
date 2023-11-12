@@ -22,7 +22,7 @@ View the [Codex Components Figma library](https://www.figma.com/file/KoDuJMadWBX
 
 ### NPM package
 
-Learn how to [use Codex components via the `@wikimedia/codex` package](../using-codex/usage.html#using-components).
+See the [installation](../using-codex/usage.md#installation) and [using components](../using-codex/usage.md#using-components) documentation for information about how to use Codex components in your application.
 
 ### In MediaWiki
 

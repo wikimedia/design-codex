@@ -178,6 +178,17 @@ design tokens.
 }
 ```
 
+### Sample Sass usage
+
+```scss
+@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui.scss';
+
+.my-custom-element {
+	background-color: $background-color-interactive;
+	padding: $spacing-25 $spacing-50;
+}
+```
+
 For more information about design tokens, see the [design tokens overview](../design-tokens/overview.md)
 and design tokens demo pages (e.g. [Color](../design-tokens/color.md)).
 

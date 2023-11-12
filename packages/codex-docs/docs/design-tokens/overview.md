@@ -21,7 +21,7 @@ in your Figma projects to use all the design tokens that were translated into Fi
 
 ### NPM package
 
-Learn how to [use Codex design tokens via the `@wikimedia/codex-design-tokens` package](../using-codex/usage.html#using-design-tokens).
+See the [installation](../using-codex/usage.md#installation) and [using design tokens](../using-codex/usage.md#using-design-tokens) documentation for information about how to use Codex design tokens in your application.
 
 ### In MediaWiki
 
