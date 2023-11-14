@@ -11,10 +11,6 @@
 		"input-binary--checked": {
 			"value": "{ color.blue600 }"
 		},
-		"primary--hover": {
-			"deprecated": "No replacement for this token. Only used in non-Codex products and design decision is to need to rely on background for this state.",
-			"value": "{ color.modifier-blue600-translucent }"
-		},
 		"tab-list-item": {
 			"framed--hover": {
 				"value": "{ color.opacity-low-light }"
@@ -45,14 +41,6 @@
 		},
 		"link-red--visited": {
 			"value": "{ color.maroon500 }"
-		}
-	},
-	"position": {
-		"offset": {
-			"input-radio--focus": {
-				"deprecated": true,
-				"value": "-{ size.25 }"
-			}
 		}
 	},
 	"min-size": {
