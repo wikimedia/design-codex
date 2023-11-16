@@ -95,13 +95,13 @@
 			<path fill="#fff" d="M402 259h24v24h-24z"/>
 		</clipPath>
 		<pattern id="c" width="1" height="1" patternContentUnits="objectBoundingBox">
-			<use href="#m" transform="translate(-.026) scale(.00239)"/>
+			<use href="#m" transform="translate(-.026)scale(.00239)"/>
 		</pattern>
 		<pattern id="f" width="1" height="1" patternContentUnits="objectBoundingBox">
-			<use href="#m" transform="translate(-.026) scale(.00239)"/>
+			<use href="#m" transform="translate(-.026)scale(.00239)"/>
 		</pattern>
 		<pattern id="i" width="1" height="1" patternContentUnits="objectBoundingBox">
-			<use href="#m" transform="translate(-.026) scale(.00239)"/>
+			<use href="#m" transform="translate(-.026)scale(.00239)"/>
 		</pattern>
 		<filter id="l" width="25.603" height="32" x="614.998" y="120" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
 			<feFlood flood-opacity="0" result="BackgroundImageFix"/>

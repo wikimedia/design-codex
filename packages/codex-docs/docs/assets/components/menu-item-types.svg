@@ -66,7 +66,7 @@
 			<path fill="#fff" d="M219.25 274h20v20h-20z"/>
 		</clipPath>
 		<pattern id="d" width="1" height="1" patternContentUnits="objectBoundingBox">
-			<use href="#i" transform="translate(-.026) scale(.00239)"/>
+			<use href="#i" transform="translate(-.026)scale(.00239)"/>
 		</pattern>
 		<pattern id="f" width="1" height="1" patternContentUnits="objectBoundingBox">
 			<use href="#j" transform="scale(.00156)"/>

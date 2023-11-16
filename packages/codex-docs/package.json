@@ -42,8 +42,8 @@
 		"escape-html": "^1.0.3",
 		"prism-themes": "^1.9.0",
 		"prismjs": "^1.27.0",
-		"svglint": "^2.4.0",
-		"svgo": "^3.0.2",
+		"svglint": "^2.6.0",
+		"svgo": "^3.0.3",
 		"vue": "^3.2.37"
 	},
 	"devDependencies": {
