@@ -19,6 +19,9 @@ export const cdxIconAlignLeft = svgAlignLeft;
 import svgAlignRight from './images/alignRight.svg';
 export const cdxIconAlignRight = svgAlignRight;
 
+import svgAppearance from './images/appearance.svg';
+export const cdxIconAppearance = svgAppearance;
+
 import svgArrowNext from './images/arrowNext.svg';
 export const cdxIconArrowNext: IconFlipForRtl = {
 	ltr: svgArrowNext,

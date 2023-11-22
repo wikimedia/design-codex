@@ -5,7 +5,7 @@ import {
 	cdxIconAdd,
 	cdxIconArrowNext,
 	cdxIconArrowPrevious,
-	cdxIconArticleCheck,
+	cdxIconArticleAdd,
 	cdxIconTag
 } from '@wikimedia/codex-icons';
 import CdxDocsIconLookup from './IconLookup.vue';
@@ -49,12 +49,13 @@ describe( 'IconLookup', () => {
 		// alphabetically are the first and last elements in the array
 		expect( wrapper.vm.menuItems.length ).toBe( 10 );
 		// First icon: cdxIconAdd
-		// Tenth icon: cdxIconArticleCheck
+		// Tenth icon: cdxIconArticleAdd
 		expect( wrapper.vm.menuItems[ 0 ] ).toEqual(
 			{ value: 'cdxIconAdd', icon: cdxIconAdd }
 		);
+		// TODO this test breaks when adding a new icon that comes before ArticleAdd in the alphabet
 		expect( wrapper.vm.menuItems[ 9 ] ).toEqual(
-			{ value: 'cdxIconArticleCheck', icon: cdxIconArticleCheck }
+			{ value: 'cdxIconArticleAdd', icon: cdxIconArticleAdd }
 		);
 	} );
 
