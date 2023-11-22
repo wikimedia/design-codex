@@ -134,7 +134,7 @@ export default defineComponent( {
 		const rootClasses = computed( (): Record<string, boolean> => {
 			return {
 				'cdx-checkbox--inline': props.inline,
-				[ `cdx-checkbox--status-${computedStatus.value}` ]: true
+				[ `cdx-checkbox--status-${ computedStatus.value }` ]: true
 			};
 		} );
 

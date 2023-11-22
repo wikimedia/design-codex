@@ -36,7 +36,7 @@ export default defineComponent( {
 			// listed in it are transitioned; if not, transition everything
 			props.cssProperty === 'transition-property' ?
 				props.tokenValue.split( ',' ).map(
-					( tProp ) => `cdx-docs-transition-demo--transition-${tProp.trim()}`
+					( tProp ) => `cdx-docs-transition-demo--transition-${ tProp.trim() }`
 				) :
 				'cdx-docs-transition-demo--transition-all'
 		);

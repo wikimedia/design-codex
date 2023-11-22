@@ -13,8 +13,8 @@ function generateSlotMarkup(
 ) : string {
 	return slotContents.reduce( ( markup, current, index ) => {
 		markup = markup +
-			`<cdx-tab name="${current.name}" label="${current.label ?? ''}" :disabled="${!!current.disabled || false}">
-				Content for tab ${index}
+			`<cdx-tab name="${ current.name }" label="${ current.label ?? '' }" :disabled="${ !!current.disabled || false }">
+				Content for tab ${ index }
 			</cdx-tab>`;
 		return markup;
 	}, '' );
@@ -383,7 +383,7 @@ describe( 'When default slot contains non-Tab children', () => {
 				global: { components: { CdxTab } },
 				slots: { default: `
 					<cdx-tab name="a">Content for tab A</cdx-tab>
-					${middleContent}
+					${ middleContent }
 					<cdx-tab name="b">Content for tab B</cdx-tab>
 				` }
 			} );

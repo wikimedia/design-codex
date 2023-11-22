@@ -101,7 +101,7 @@ export default defineComponent( {
 			return {
 				'cdx-icon--flipped': overriddenDir.value === 'rtl' && overriddenLang.value !== null &&
 					shouldIconFlip( props.icon, overriddenLang.value ),
-				[ `cdx-icon--${props.size}` ]: true
+				[ `cdx-icon--${ props.size }` ]: true
 			};
 		} );
 

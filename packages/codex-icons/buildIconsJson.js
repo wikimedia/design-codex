@@ -3,7 +3,7 @@ const path = require( 'path' );
 
 const iconsFile = path.resolve( __dirname, 'dist/codex-icons.js' );
 if ( !existsSync( iconsFile ) ) {
-	throw new Error( `File not found: ${iconsFile}\nRun 'npm run build' first to build this file` );
+	throw new Error( `File not found: ${ iconsFile }\nRun 'npm run build' first to build this file` );
 }
 
 /** @type {Record<string, unknown>} */

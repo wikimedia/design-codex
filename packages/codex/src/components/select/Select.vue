@@ -241,7 +241,7 @@ export default defineComponent( {
 				'cdx-select-vue--value-selected': !!selectedMenuItem.value,
 				'cdx-select-vue--no-selections': !selectedMenuItem.value,
 				'cdx-select-vue--has-start-icon': !!startIcon.value,
-				[ `cdx-select-vue--status-${computedStatus.value}` ]: true
+				[ `cdx-select-vue--status-${ computedStatus.value }` ]: true
 			};
 		} );
 

@@ -15,17 +15,17 @@ describe( 'matches the snapshot', () => {
 	const cases: Case[] = [
 		[ 'No props and no slot', {}, '' ],
 		...ButtonActions.map( ( action ) : Case => [
-			`${action} action`,
+			`${ action } action`,
 			{ action },
 			''
 		] ),
 		...ButtonWeights.map( ( weight ) : Case => [
-			`${weight} weight`,
+			`${ weight } weight`,
 			{ weight },
 			''
 		] ),
 		...ButtonTypes.map( ( type ) : Case => [
-			`${type} type`,
+			`${ type } type`,
 			{ type },
 			''
 		] ),

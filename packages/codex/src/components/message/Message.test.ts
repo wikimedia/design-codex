@@ -20,7 +20,7 @@ describe( 'matches the snapshot', () => {
 		[ 'Default props', {}, '<p>Message content</p>' ],
 		// A snapshot for each message type.
 		...StatusTypes.map( ( type ) : Case => [
-			`${type} message`,
+			`${ type } message`,
 			{ type },
 			'<p>Message content</p>'
 		] ),

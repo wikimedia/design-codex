@@ -113,4 +113,4 @@ export const DisabledKey: InjectionKey<Ref<boolean>> = Symbol( 'CdxDisabled' );
  *
  * https://phabricator.wikimedia.org/T345281
  */
-export const NoInvertClass = `${LibraryPrefix}-no-invert` as const;
+export const NoInvertClass = `${ LibraryPrefix }-no-invert` as const;

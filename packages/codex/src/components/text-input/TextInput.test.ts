@@ -23,7 +23,7 @@ describe( 'TextInput', () => {
 		const cases: Case[] = [
 			// Add a case for each of the TextInputTypes.
 			...TextInputTypes.map( ( type ) => [
-				`Input type: ${type} `,
+				`Input type: ${ type } `,
 				{ inputType: type }
 			] ) as Case[],
 			// Add other cases.

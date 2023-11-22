@@ -19,10 +19,10 @@ export default function useGeneratedId( identifier? : string ) : string {
 	const vm = getCurrentInstance();
 	const externalId = vm?.props.id as string|undefined ?? vm?.attrs.id as string|undefined;
 	if ( identifier ) {
-		return `${LibraryPrefix}-${identifier}-${counter++}`;
+		return `${ LibraryPrefix }-${ identifier }-${ counter++ }`;
 	} else if ( externalId ) {
-		return `${LibraryPrefix}-${externalId}-${counter++}`;
+		return `${ LibraryPrefix }-${ externalId }-${ counter++ }`;
 	} else {
-		return `${LibraryPrefix}-${counter++}`;
+		return `${ LibraryPrefix }-${ counter++ }`;
 	}
 }

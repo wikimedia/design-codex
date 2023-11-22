@@ -24,12 +24,12 @@ function formatProperties( properties ) {
 				return utils.getTypeText( typeName );
 			} );
 
-			let eventString = `**${name}** ${formattedTypes.join( ', ' )}`;
+			let eventString = `**${ name }** ${ formattedTypes.join( ', ' ) }`;
 
 			// Customization: only show the description if one exists, to avoid appending
 			// " - undefined" to the string.
 			if ( description ) {
-				eventString += ` - ${description}`;
+				eventString += ` - ${ description }`;
 			}
 			return eventString;
 		} )
@@ -46,8 +46,8 @@ const tmpl = ( events ) => {
 	let ret = '';
 	events.forEach( ( evt ) => {
 		const { description = '', ...e } = evt;
-		const readableProperties = e.properties ? `${formatProperties( e.properties )}` : '';
-		ret += `| ${mdclean( '`' + e.name + '`' )} | ${mdclean( readableProperties )} | ${mdclean( description )}\n`;
+		const readableProperties = e.properties ? `${ formatProperties( e.properties ) }` : '';
+		ret += `| ${ mdclean( '`' + e.name + '`' ) } | ${ mdclean( readableProperties ) } | ${ mdclean( description ) }\n`;
 	} );
 	return ret;
 };
@@ -62,10 +62,10 @@ const tmpl = ( events ) => {
  */
 module.exports = function ( events, opt = {} ) {
 	return `
-${!!opt.isSubComponent || opt.hasSubComponents ? '#' : ''}## Events
+${ !!opt.isSubComponent || opt.hasSubComponents ? '#' : '' }## Events
 
   | Event name     | Properties     | Description  |
   | -------------- |--------------- | -------------|
-  ${tmpl( events )}
+  ${ tmpl( events ) }
   `;
 };

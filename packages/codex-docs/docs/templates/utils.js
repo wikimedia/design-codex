@@ -32,7 +32,7 @@ function getTypeText( item ) {
 			return str;
 		}
 
-		return `<code>${str}</code>`;
+		return `<code>${ str }</code>`;
 	}
 
 	/**
@@ -41,7 +41,7 @@ function getTypeText( item ) {
 	 * @return {string} link markup
 	 */
 	function formatAsLink( anchor, text = anchor ) {
-		return `<a href="../types-and-constants.html#${anchor.toLowerCase()}">${text}</a>`;
+		return `<a href="../types-and-constants.html#${ anchor.toLowerCase() }">${ text }</a>`;
 	}
 
 	/**

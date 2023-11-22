@@ -65,7 +65,7 @@ describe( 'computes dir and lang based on its ancestors', () => {
 		langCodeMap: new Proxy( {} as Record<string, IconFlipForRtl>, {
 			get( _, lang ) : IconFlipForRtl|undefined {
 				if ( typeof lang === 'string' && !lang.startsWith( '_' ) ) {
-					return { ltr: `FAKE ICON: language ${lang}`, shouldFlip: true };
+					return { ltr: `FAKE ICON: language ${ lang }`, shouldFlip: true };
 				}
 			},
 			has( _, lang ) {
@@ -87,7 +87,7 @@ describe( 'computes dir and lang based on its ancestors', () => {
 		document.body.append( wrapperDiv );
 		const iconWrapper = mount( CdxIcon, { props: { ...props, icon: fakeIcon }, attachTo: '#attach' } );
 		await nextTick();
-		expect( iconWrapper.get( 'svg g' ).text() ).toBe( `FAKE ICON: language ${expectedLang}` );
+		expect( iconWrapper.get( 'svg g' ).text() ).toBe( `FAKE ICON: language ${ expectedLang }` );
 		expect( iconWrapper.classes().includes( 'cdx-icon--flipped' ) ).toBe( expectedDir === 'rtl' );
 		document.body.removeChild( wrapperDiv );
 	} );

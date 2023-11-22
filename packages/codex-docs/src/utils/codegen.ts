@@ -62,13 +62,13 @@ export function generateProps( propValues: Record<string, unknown> ) : string {
 			// Allow wrapping string values in BoundProp class to ensure they are
 			// displayed using v-bind syntax, but not with JSON.stringify
 			if ( propVal instanceof BoundProp ) {
-				return `:${kebabPropName}="${escapeHtml( propVal.value )}"`;
+				return `:${ kebabPropName }="${ escapeHtml( propVal.value ) }"`;
 			}
 			if ( typeof propVal === 'string' ) {
-				return `${kebabPropName}="${escapeHtml( propVal )}"`;
+				return `${ kebabPropName }="${ escapeHtml( propVal ) }"`;
 			}
 			// For any other type, use a v-bind expression
-			return `:${kebabPropName}="${escapeHtml( JSON.stringify( propVal ) )}"`;
+			return `:${ kebabPropName }="${ escapeHtml( JSON.stringify( propVal ) ) }"`;
 		} )
 		.filter( Boolean )
 		.join( ' ' );
@@ -104,7 +104,7 @@ export function generateSlots( slotValues: SlotValuesWithIcons ) : string {
 			if ( slotName === 'default' ) {
 				return escapedContent;
 			}
-			return `<template #${slotName}>${escapedContent}</template>`;
+			return `<template #${ slotName }>${ escapedContent }</template>`;
 		} )
 		.join( '\n' );
 }
@@ -168,7 +168,7 @@ function extractDemoValues(
 		}
 		// If there is already text for the slot, we need to escape it here, don't add an
 		// extra space if there is no text
-		let slotDisplayText = `<cdx-icon :icon="${control.value}" />`;
+		let slotDisplayText = `<cdx-icon :icon="${ control.value }" />`;
 		if ( constructedSlotValues[ targetSlotName ] ) {
 			slotDisplayText += ' ' + escapeHtml(
 				constructedSlotValues[ targetSlotName ] as string
@@ -209,12 +209,12 @@ export function generateVueTag(
 	const propString = generateProps( propValues );
 	const tagContents = generateSlots( slotValues );
 
-	let demoCode = `<${componentName}`;
+	let demoCode = `<${ componentName }`;
 	if ( vModelName ) {
-		demoCode += ` v-model="${vModelName}"`;
+		demoCode += ` v-model="${ vModelName }"`;
 	}
 	if ( propString ) {
-		demoCode += ` ${propString}`;
+		demoCode += ` ${ propString }`;
 	}
-	return tagContents ? `${demoCode}>${tagContents}</${componentName}>` : `${demoCode} />`;
+	return tagContents ? `${ demoCode }>${ tagContents }</${ componentName }>` : `${ demoCode } />`;
 }

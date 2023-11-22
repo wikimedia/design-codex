@@ -99,7 +99,7 @@ for ( const iconName in allIcons ) {
 	}
 	const cssIconName = iconName
 		.replace( /^cdxIcon/, '' )
-		.replace( /[A-Z]/g, ( letter ) => `-${letter.toLowerCase()}` )
+		.replace( /[A-Z]/g, ( letter ) => `-${ letter.toLowerCase() }` )
 		.replace( /^-/, '' );
 
 	if ( typeof icon !== 'string' && ( 'langCodeMap' in icon || 'shouldFlipExceptions' in icon ) ) {

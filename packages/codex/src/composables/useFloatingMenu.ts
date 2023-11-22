@@ -29,7 +29,7 @@ export default function useFloatingMenu(
 				// Width is needed in Dialogs, when the menu's position is set relative to
 				// the dialog, not the triggering element.
 				Object.assign( elements.floating.style, {
-					width: `${rects.reference.width}px`
+					width: `${ rects.reference.width }px`
 				} );
 			}
 		} ),
@@ -68,7 +68,7 @@ export default function useFloatingMenu(
 		Object.assign( menu.value?.$el.style, {
 			visibility: newVisibility,
 			position: newStyles.position,
-			top: `${newStyles.top}px`,
+			top: `${ newStyles.top }px`,
 			// `left: 0` is set in the Menu component, which gets transformed to `right: 0` for
 			// RTL. For this component, we must unset `right: 0`, because the transform value
 			// is relative to the left side of the screen regardless of reading direction.
@@ -76,7 +76,7 @@ export default function useFloatingMenu(
 			// Set `left` value to ensure the menu is translated relative to the left side of
 			// the screen, which is what FloatingUI expects when it calculates the translate-x
 			// value for both LTR and RTL.
-			left: `${newStyles.left}px`,
+			left: `${ newStyles.left }px`,
 			transform: newStyles.transform ?? 'none'
 		} );
 	} );

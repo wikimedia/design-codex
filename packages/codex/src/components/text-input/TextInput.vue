@@ -211,7 +211,7 @@ export default defineComponent( {
 				'cdx-text-input--has-start-icon': !!props.startIcon,
 				'cdx-text-input--has-end-icon': !!props.endIcon,
 				'cdx-text-input--clearable': isClearable.value,
-				[ `cdx-text-input--status-${computedStatus.value}` ]: true
+				[ `cdx-text-input--status-${ computedStatus.value }` ]: true
 			};
 		} );
 

@@ -360,7 +360,7 @@ export default defineComponent( {
 			) {
 				return;
 			}
-			const activeTabLabel = document.getElementById( `${activeTabId.value}-label` );
+			const activeTabLabel = document.getElementById( `${ activeTabId.value }-label` );
 			if ( !activeTabLabel ) {
 				return;
 			}

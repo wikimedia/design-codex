@@ -184,7 +184,7 @@ function makeRelativeUnitTransform( targetUnit ) {
 		}
 
 		const relativeValue = roundToDecimals( parseFloat( tokenValue ) / basePxFontSize, 7 );
-		return `${relativeValue}${targetUnit}`;
+		return `${ relativeValue }${ targetUnit }`;
 	};
 }
 
@@ -223,7 +223,7 @@ function createCustomStyleFormatter( format ) {
 		let preamble = '', postamble = '';
 		if ( format === 'css' ) {
 			const selector = /** @type {string} */ ( options.selector ) || ':root';
-			preamble = `${selector} {\n`;
+			preamble = `${ selector } {\n`;
 			postamble = '\n}\n';
 		}
 
@@ -251,8 +251,8 @@ function createCustomStyleFormatter( format ) {
 		 * @return {string}
 		 */
 		const makeComment = ( text ) => commentStyle === 'short' ?
-			`// ${text}\n` :
-			`/* ${text} */\n`;
+			`// ${ text }\n` :
+			`/* ${ text } */\n`;
 
 		const deprecatedSectionHeader = deprecatedTokens.length > 0 ?
 			'\n\n' + makeComment( 'DEPRECATED TOKENS' ) : '';
@@ -270,7 +270,7 @@ function createCustomStyleFormatter( format ) {
 
 			// If token.deprecated is a string, add it to the end of the comment.
 			const deprecatedComment = typeof token.deprecated === 'string' ?
-				` (${token.deprecated})` : '';
+				` (${ token.deprecated })` : '';
 
 			// If the token value references exactly one other token, add "use otherTokenName
 			// instead".
@@ -285,7 +285,7 @@ function createCustomStyleFormatter( format ) {
 					// If the referenced token is not going to be output, or is itself deprecated,
 					// don't add a "use instead" comment
 					nonDeprecatedTokens.includes( referencedTokens[ 0 ] ) ?
-				`, use ${referencedTokens[ 0 ].name} instead.` : '';
+				`, use ${ referencedTokens[ 0 ].name } instead.` : '';
 
 			const fullComment = 'Warning: the following token name is deprecated' +
 				useInstead + deprecatedComment;

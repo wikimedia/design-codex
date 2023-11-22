@@ -7,10 +7,7 @@
 				"wikimedia/node"
 			],
 			"rules": {
-				"strict": "off",
-				"node/no-missing-import": [ "error", {
-					"tryExtensions": [ ".js", ".ts" ]
-				} ]
+				"strict": "off"
 			}
 		},
 		{
@@ -23,7 +20,8 @@
 			"files": [ "**/*.ts" ],
 			"rules": {
 				"jsdoc/require-param-type": "off",
-				"jsdoc/require-returns-type": "off"
+				"jsdoc/require-returns-type": "off",
+				"n/no-missing-import": "off"
 			}
 		},
 		{

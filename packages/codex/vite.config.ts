@@ -10,7 +10,7 @@ export default defineConfig( ( { command } ) => {
 	if ( command === 'serve' ) {
 		return {
 			// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-			base: `${process.env.CODEX_DOC_ROOT || ''}/sandbox/`,
+			base: `${ process.env.CODEX_DOC_ROOT || '' }/sandbox/`,
 
 			plugins: [ vue() ],
 

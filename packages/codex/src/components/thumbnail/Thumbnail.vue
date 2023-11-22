@@ -64,7 +64,7 @@ export default defineComponent( {
 			const escapedUrl = url.replace( /([\\"\n])/g, '\\$1' );
 			const image = new Image();
 			image.onload = () => {
-				thumbnailStyle.value = { backgroundImage: `url("${escapedUrl}")` };
+				thumbnailStyle.value = { backgroundImage: `url("${ escapedUrl }")` };
 				thumbnailLoaded.value = true;
 			};
 			image.onerror = () => {

@@ -30,7 +30,7 @@ import { SetupContext, ComputedRef, StyleValue, computed } from 'vue';
  */
 export default function useSplitAttributes(
 	attrs: SetupContext[ 'attrs' ],
-	internalClasses: ComputedRef<Record<string, boolean>> = computed( () => { return {}; } )
+	internalClasses: ComputedRef<Record<string, boolean>> = computed( () => ( {} ) )
 ): {
 	rootClasses: ComputedRef<Record<string, boolean>>,
 	rootStyle: ComputedRef<StyleValue|undefined>,

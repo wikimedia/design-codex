@@ -20,7 +20,7 @@ function getKebabCaseName( componentPath ) {
 		// If the letter is uppercase, add a dash before it (unless it's the first letter), then
 		// transform the letter to lowercase. Otherwise, just add the letter as-is.
 		return letter.toUpperCase() === letter ?
-			`${index !== 0 ? '-' : ''}${letter.toLowerCase()}` :
+			`${ index !== 0 ? '-' : '' }${ letter.toLowerCase() }` :
 			letter;
 	} ).join( '' );
 }

@@ -776,9 +776,9 @@ export default defineComponent( {
 
 		const listBoxStyle = computed( () => {
 			return {
-				'max-height': maxMenuHeight.value ? `${maxMenuHeight.value}px` : undefined,
+				'max-height': maxMenuHeight.value ? `${ maxMenuHeight.value }px` : undefined,
 				'overflow-y': maxMenuHeight.value ? 'scroll' as const : undefined,
-				'margin-bottom': footerHeight.value ? `${footerHeight.value}px` : undefined
+				'margin-bottom': footerHeight.value ? `${ footerHeight.value }px` : undefined
 			};
 		} );
 

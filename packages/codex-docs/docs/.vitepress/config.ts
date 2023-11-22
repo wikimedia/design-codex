@@ -32,7 +32,7 @@ function filterComponents( items: DefaultTheme.SidebarItem[] ): DefaultTheme.Sid
 		const componentName = ( item.link ?? '' ).match( /^\/components\/demos\/([^/]+)/ )?.[ 1 ];
 		if ( componentName && isWIPComponent( componentName ) ) {
 			return includeWIPComponents ?
-				{ ...item, text: `${item.text ?? ''} 🚧` } :
+				{ ...item, text: `${ item.text ?? '' } 🚧` } :
 				[];
 		}
 		return item;

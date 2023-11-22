@@ -46,7 +46,7 @@ const themeConfigs = [
 
 for ( const themeConfig of themeConfigs ) {
 	const dict = dictFactory( themeConfig );
-	console.log( `Building Codex design tokens for ${themeConfig.themeNamePrint} theme…` );
+	console.log( `Building Codex design tokens for ${ themeConfig.themeNamePrint } theme…` );
 	dict.buildAllPlatforms();
 }
 

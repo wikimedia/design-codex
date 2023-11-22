@@ -420,7 +420,7 @@ export default defineComponent( {
 
 			// Determine the width of the scrollbar and compensate for it if necessary
 			scrollWidth.value = window.innerWidth - document.documentElement.clientWidth;
-			document.documentElement.style.setProperty( 'margin-right', `${scrollWidth.value}px` );
+			document.documentElement.style.setProperty( 'margin-right', `${ scrollWidth.value }px` );
 
 			// Add a class to <body> to prevent scrolling
 			document.body.classList.add( 'cdx-dialog-open' );

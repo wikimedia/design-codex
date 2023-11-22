@@ -4,7 +4,7 @@ import * as allIcons from '@wikimedia/codex-icons';
 
 export const codexIconNames = Object.keys( allIcons )
 	.filter( ( key ) => key.startsWith( 'cdxIcon' ) )
-	.map( ( key ) => key.replace( /[A-Z]/g, ( l ) => `-${l.toLowerCase()}` ).replace( /^-/, '' ) )
+	.map( ( key ) => key.replace( /[A-Z]/g, ( l ) => `-${ l.toLowerCase() }` ).replace( /^-/, '' ) )
 	.join( ', ' );
 
 /**
@@ -41,7 +41,7 @@ export function getComponentEntryPoints( path ) {
 
 			if ( sfc ) {
 				const name = getPascalCaseName( component );
-				map[ `Cdx${name}` ] = resolve( current, sfc );
+				map[ `Cdx${ name }` ] = resolve( current, sfc );
 			}
 		}
 

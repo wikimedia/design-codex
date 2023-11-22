@@ -20,7 +20,7 @@ const getParams = ( params ) => {
 
 		// Standard format for params in other usage docs (e.g. events), with
 		// the name in bold, the type in <pre> tags, and the description after a dash.
-		paramsString += `<li>**${mdclean( n )}** ${mdclean( t )} - ${mdclean( d )}</li>`;
+		paramsString += `<li>**${ mdclean( n ) }** ${ mdclean( t ) } - ${ mdclean( d ) }</li>`;
 	} );
 	paramsString += '</ul>';
 	return paramsString;
@@ -68,7 +68,7 @@ const getReturns = ( m ) => {
 	if ( indexOfClosingBracket > 0 ) {
 		const t = utils.getTypeText( returnText.slice( 1, indexOfClosingBracket ) );
 		const d = returnText.slice( indexOfClosingBracket + 2 );
-		return `${t} ${d}`;
+		return `${ t } ${ d }`;
 	}
 
 	// Otherwise, get the type from the `returns` object from the parser, then tack on the @return
@@ -92,7 +92,7 @@ const tmpl = function ( methods ) {
 		const p = m.params ? '**Params:**\n' + getParams( m.params ) + '\n' : '';
 		const r = !!m.returns || m.tags?.return ? '**Returns:** ' + getReturns( m ) : '';
 
-		ret += `| ${mdclean( n )} | ${mdclean( d )} | ${mdclean( p + r )} |\n`;
+		ret += `| ${ mdclean( n ) } | ${ mdclean( d ) } | ${ mdclean( p + r ) } |\n`;
 	} );
 	return ret;
 };
@@ -112,10 +112,10 @@ module.exports = function ( methods, opt = {} ) {
 
 	// Display methods as a table, similar to the other usage data.
 	return `
-${!!opt.isSubComponent || opt.hasSubComponents ? '#' : ''}## Methods
+${ !!opt.isSubComponent || opt.hasSubComponents ? '#' : '' }## Methods
 
 | Method name | Description | Signature |
 | ----------- | ----------- | --------- |
-  ${tmpl( methods )}
+  ${ tmpl( methods ) }
   `;
 };

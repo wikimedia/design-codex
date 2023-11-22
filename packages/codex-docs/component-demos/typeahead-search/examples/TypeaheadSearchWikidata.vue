@@ -61,9 +61,9 @@ export default defineComponent( {
 				search: searchTerm
 			} );
 			if ( offset ) {
-				params.set( 'continue', `${offset}` );
+				params.set( 'continue', `${ offset }` );
 			}
-			return fetch( `https://www.wikidata.org/w/api.php?${params.toString()}` )
+			return fetch( `https://www.wikidata.org/w/api.php?${ params.toString() }` )
 				.then( ( response ) => response.json() );
 		}
 
@@ -77,7 +77,7 @@ export default defineComponent( {
 			return pages.map( ( { id, label, url, match, description, display = {} } ) => ( {
 				value: id,
 				label,
-				match: match.type === 'alias' ? `(${match.text})` : '',
+				match: match.type === 'alias' ? `(${ match.text })` : '',
 				description,
 				url,
 				language: {
@@ -114,7 +114,7 @@ export default defineComponent( {
 
 					// Set the search footer URL to a link to the search
 					// page for the current search query.
-					searchFooterUrl.value = `https://www.wikidata.org/w/index.php?search=${encodeURIComponent( value )}&title=Special%3ASearch&fulltext=1`;
+					searchFooterUrl.value = `https://www.wikidata.org/w/index.php?search=${ encodeURIComponent( value ) }&title=Special%3ASearch&fulltext=1`;
 				}
 			} ).catch( () => {
 				// On error, reset search results and search footer URL.

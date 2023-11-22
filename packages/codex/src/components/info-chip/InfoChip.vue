@@ -61,7 +61,7 @@ export default defineComponent( {
 	setup( props ) {
 		const iconClass = computed( (): Record<string, boolean> => {
 			return {
-				[ `cdx-info-chip__icon--${props.status}` ]: true
+				[ `cdx-info-chip__icon--${ props.status }` ]: true
 			};
 		} );
 

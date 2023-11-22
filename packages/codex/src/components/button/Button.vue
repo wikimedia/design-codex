@@ -73,9 +73,9 @@ export default defineComponent( {
 		const isActive = ref( false );
 
 		const rootClasses = computed( () => ( {
-			[ `cdx-button--action-${props.action}` ]: true,
-			[ `cdx-button--weight-${props.weight}` ]: true,
-			[ `cdx-button--size-${props.size}` ]: true,
+			[ `cdx-button--action-${ props.action }` ]: true,
+			[ `cdx-button--weight-${ props.weight }` ]: true,
+			[ `cdx-button--size-${ props.size }` ]: true,
 			'cdx-button--framed': props.weight !== 'quiet',
 			'cdx-button--icon-only': isIconOnly.value,
 			'cdx-button--is-active': isActive.value

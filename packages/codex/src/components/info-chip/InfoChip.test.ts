@@ -17,7 +17,7 @@ describe( 'matches the snapshot', () => {
 	const cases: Case[] = [
 		[ 'Default props', {}, '<p>Chip content</p>' ],
 		...StatusTypes.map( ( status ) : Case => [
-			`${status} status`,
+			`${ status } status`,
 			{ status },
 			'<p>Chip content</p>'
 		] ),

@@ -28,7 +28,7 @@ export default function useLabelChecker(
 	useWarnOnce(
 		() => useSlotContents( slot ).length === 0 &&
 			!attrs?.[ 'aria-label' ] && !attrs?.[ 'aria-labelledby' ],
-		`${componentName}: Inputs must have an associated label. Provide one of the following:
+		`${ componentName }: Inputs must have an associated label. Provide one of the following:
  - A label via the appropriate slot
  - An \`aria-label\` attribute set to the label text
  - An \`aria-labelledby\` attribute set to the ID of the label element`

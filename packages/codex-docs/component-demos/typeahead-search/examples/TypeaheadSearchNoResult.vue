@@ -59,7 +59,7 @@ export default defineComponent( {
 				label: title,
 				value: id,
 				description: description,
-				url: `https://en.wikipedia.org/wiki/${encodeURIComponent( key )}`,
+				url: `https://en.wikipedia.org/wiki/${ encodeURIComponent( key ) }`,
 				thumbnail: thumbnail ? {
 					url: thumbnail.url,
 					width: thumbnail.width,
@@ -80,7 +80,7 @@ export default defineComponent( {
 			}
 
 			fetch(
-				`https://en.wikipedia.org/w/rest.php/v1/search/title?q=${encodeURIComponent( value )}&limit=10&`
+				`https://en.wikipedia.org/w/rest.php/v1/search/title?q=${ encodeURIComponent( value ) }&limit=10&`
 			).then( ( resp ) => resp.json() )
 				.then( ( data ) => {
 					// Make sure this data is still relevant first.
@@ -94,7 +94,7 @@ export default defineComponent( {
 
 						// Set the search footer URL to a link to the search
 						// page for the current search query.
-						searchFooterUrl.value = `https://en.wikipedia.org/w/index.php?title=Special%3ASearch&fulltext=1&search=${encodeURIComponent( value )}`;
+						searchFooterUrl.value = `https://en.wikipedia.org/w/index.php?title=Special%3ASearch&fulltext=1&search=${ encodeURIComponent( value ) }`;
 
 					}
 				} ).catch( () => {

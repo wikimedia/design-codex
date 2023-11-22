@@ -27,7 +27,7 @@ const renderTags = ( tags ) => {
 	}
 	return Object.entries( tags )
 		.map( ( [ tag, values ] ) => {
-			return values.map( ( v ) => `<br/>\`@${tag}\` ${isTag( v ) ? v.content : v.description}` ).join( '' );
+			return values.map( ( v ) => `<br/>\`@${ tag }\` ${ isTag( v ) ? v.content : v.description }` ).join( '' );
 		} )
 		.join( '' );
 };
@@ -64,16 +64,16 @@ const tmpl = ( props ) => {
 		const n = pr.type ? utils.getTypeText( pr.type.name ) : '';
 		const d = pr.defaultValue ? utils.getTypeText( pr.defaultValue.value ) : '';
 
-		ret += `| ${mdclean( p )} | ${mdclean( t )} | ${mdclean( n )}`;
+		ret += `| ${ mdclean( p ) } | ${ mdclean( t ) } | ${ mdclean( n ) }`;
 		// Customization: only include a values column if any of the props have something
 		// to show
 		if ( showValues ) {
 			const v = pr.values ?
-				pr.values.map( ( pv ) => `\`${pv}\`` ).join( ', ' ) :
+				pr.values.map( ( pv ) => `\`${ pv }\`` ).join( ', ' ) :
 				'-';
-			ret += ` | ${mdclean( v )}`;
+			ret += ` | ${ mdclean( v ) }`;
 		}
-		ret += ` | ${mdclean( d )} |\n`;
+		ret += ` | ${ mdclean( d ) } |\n`;
 	} );
 	return ret;
 };
@@ -92,10 +92,10 @@ module.exports = function ( props, opt = {} ) {
 	const valuesHeading = showValues ? ' | Values     ' : '';
 	const valuesDivider = showValues ? ' | -----------' : '';
 	return `
-${!!opt.isSubComponent || opt.hasSubComponents ? '#' : ''}## Props
+${ !!opt.isSubComponent || opt.hasSubComponents ? '#' : '' }## Props
 
-| Prop name     | Description | Type     ${valuesHeading} | Default     |
-| ------------- | ----------- | ---------${valuesDivider} | ----------- |
-${tmpl( props )}
+| Prop name     | Description | Type     ${ valuesHeading } | Default     |
+| ------------- | ----------- | ---------${ valuesDivider } | ----------- |
+${ tmpl( props ) }
 `;
 };

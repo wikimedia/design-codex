@@ -42,14 +42,14 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 	for ( const mode of MODES ) {
 		/** @type {import('vite').UserConfig} */
 		let overrides = {};
-		const manifestFileName = mode === '' ? 'manifest.json' : `manifest-${mode}.json`;
+		const manifestFileName = mode === '' ? 'manifest.json' : `manifest-${ mode }.json`;
 
 		/**
 		 * @param {import('vite').Rollup.PreRenderedAsset} assetInfo
 		 * @return {string} string
 		 */
 		const getAssetName = function ( assetInfo ) {
-			const modeString = mode === '' ? '' : `-${mode}`;
+			const modeString = mode === '' ? '' : `-${ mode }`;
 			const outputOpts = bundleConfig.build?.rollupOptions?.output;
 
 			if (
@@ -60,10 +60,10 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 				if ( typeof outputOpts.assetFileNames === 'function' ) {
 					return outputOpts.assetFileNames( assetInfo );
 				} else {
-					return `${outputOpts.assetFileNames}${modeString}[extname]`;
+					return `${ outputOpts.assetFileNames }${ modeString }[extname]`;
 				}
 			} else {
-				return `[name]${modeString}[extname]`;
+				return `[name]${ modeString }[extname]`;
 			}
 		};
 

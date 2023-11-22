@@ -35,7 +35,7 @@ module.exports = function ( themeConfig ) {
 			'font-size': {
 				base: {
 					comment: 'This token is targeted exclusively for font-size derived calculations. Apply `font-size-medium` and similar for component font size property use.',
-					value: `${themeConfig.basePxFontSize}px`
+					value: `${ themeConfig.basePxFontSize }px`
 				}
 			}
 		},
@@ -60,19 +60,19 @@ module.exports = function ( themeConfig ) {
 				},
 				files: [
 					{
-						destination: `theme-${themeConfig.themeName}.scss`,
+						destination: `theme-${ themeConfig.themeName }.scss`,
 						format: 'custom/format/scss'
 					},
 					{
-						destination: `theme-${themeConfig.themeName}.css`,
+						destination: `theme-${ themeConfig.themeName }.css`,
 						format: 'custom/format/css'
 					},
 					{
-						destination: `theme-${themeConfig.themeName}.less`,
+						destination: `theme-${ themeConfig.themeName }.less`,
 						format: 'custom/format/less'
 					},
 					{
-						destination: `theme-${themeConfig.themeName}.json`,
+						destination: `theme-${ themeConfig.themeName }.json`,
 						format: 'json'
 					}
 				]

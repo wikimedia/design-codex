@@ -48,7 +48,7 @@ export default defineComponent( {
 			if ( offset ) {
 				params.set( 'continue', String( offset ) );
 			}
-			return fetch( `https://www.wikidata.org/w/api.php?${params.toString()}` )
+			return fetch( `https://www.wikidata.org/w/api.php?${ params.toString() }` )
 				.then( ( response ) => response.json() );
 		}
 

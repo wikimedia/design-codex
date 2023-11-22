@@ -180,7 +180,7 @@ export default defineComponent( {
 		function onInput() {
 			if ( textarea.value && props.autosize ) {
 				textarea.value.style.height = 'auto';
-				textarea.value.style.height = `${textarea.value.scrollHeight}px`;
+				textarea.value.style.height = `${ textarea.value.scrollHeight }px`;
 			}
 		}
 

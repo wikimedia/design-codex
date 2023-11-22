@@ -162,7 +162,7 @@ export default defineComponent( {
 				'cdx-message--inline': props.inline,
 				'cdx-message--block': !props.inline,
 				'cdx-message--user-dismissable': userDismissable.value,
-				[ `cdx-message--${props.type}` ]: true
+				[ `cdx-message--${ props.type }` ]: true
 			};
 		} );
 

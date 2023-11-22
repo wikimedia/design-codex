@@ -55,8 +55,8 @@ export function expandDeprecationMessage( token: DesignToken ): DesignToken {
 		return {
 			...token,
 			deprecated: typeof token.deprecated === 'string' ?
-				`${token.deprecated} (use \`${useInsteadToken}\` instead)` :
-				`Use \`${useInsteadToken}\` instead.`
+				`${ token.deprecated } (use \`${ useInsteadToken }\` instead)` :
+				`Use \`${ useInsteadToken }\` instead.`
 		};
 	}
 	return token;

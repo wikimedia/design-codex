@@ -43,7 +43,7 @@ export default function useIconOnlyButton(
 	// aria-hidden attribute set, but do this only once per button
 	useWarnOnce(
 		() => isIconOnly.value && !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ],
-		`${componentName}: Icon-only buttons require one of the following attributes: aria-label or aria-hidden. ` +
+		`${ componentName }: Icon-only buttons require one of the following attributes: aria-label or aria-hidden. ` +
 			'See documentation at https://doc.wikimedia.org/codex/latest/components/demos/button.html#icon-only-button'
 	);
 

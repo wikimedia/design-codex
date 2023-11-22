@@ -12,7 +12,7 @@ describe( 'useFieldData', () => {
 			setup( props ) {
 				const { computedStatus } = useFieldData( ref( false ), toRef( props, 'status' ) );
 				const rootClasses = computed( () => {
-					return { [ `my-class--${computedStatus.value}` ]: true };
+					return { [ `my-class--${ computedStatus.value }` ]: true };
 				} );
 				return { rootClasses };
 			}

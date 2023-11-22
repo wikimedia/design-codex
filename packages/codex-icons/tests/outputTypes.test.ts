@@ -5,7 +5,7 @@ import * as allIcons from '../src/icons';
 describe( 'type definitions', () => {
 	const iconDefsPath = resolve( __dirname, '../dist/types/icons.d.ts' );
 	if ( !existsSync( iconDefsPath ) ) {
-		throw new Error( `File not found: ${iconDefsPath}\nRun 'npm run build' first to build this file` );
+		throw new Error( `File not found: ${ iconDefsPath }\nRun 'npm run build' first to build this file` );
 	}
 	const iconDefs = readFileSync( iconDefsPath, { encoding: 'utf-8' } );
 

@@ -5,7 +5,7 @@ const path = require( 'path' );
 
 const iconsFile = path.resolve( __dirname, 'dist/codex-icons.js' );
 if ( !existsSync( iconsFile ) ) {
-	throw new Error( `File not found: ${iconsFile}\nRun 'npm run build' first to build this file` );
+	throw new Error( `File not found: ${ iconsFile }\nRun 'npm run build' first to build this file` );
 }
 
 /** @type {Record<string,Icon>} */
@@ -32,7 +32,7 @@ const getLessVariableName = ( iconName ) => {
 		// If the letter is uppercase, add a dash before it (unless it's the first letter), then
 		// transform the letter to lowercase. Otherwise, just add the letter as-is.
 		return letter.toUpperCase() === letter ?
-			`${index !== 0 ? '-' : ''}${letter.toLowerCase()}` :
+			`${ index !== 0 ? '-' : '' }${ letter.toLowerCase() }` :
 			letter;
 	} ).join( '' );
 };
@@ -77,7 +77,7 @@ const getIconOutput = ( lessVariableName, icon ) => {
 	// anything past this point is an object.
 	if ( typeof icon === 'string' ) {
 		defaultIcon = icon;
-		return `${lessVariableName}: '${encodeSvg( defaultIcon )}', '${shouldFlip}', '${flipExceptions}', '${rtlIcon}', '${hasLangVariants}';\n`;
+		return `${ lessVariableName }: '${ encodeSvg( defaultIcon ) }', '${ shouldFlip }', '${ flipExceptions }', '${ rtlIcon }', '${ hasLangVariants }';\n`;
 	}
 
 	if ( 'ltr' in icon ) {
@@ -114,15 +114,15 @@ const getIconOutput = ( lessVariableName, icon ) => {
 		// that type yet. If we add any, we should account for that here.
 		langCodeMap = Object.entries( icon.langCodeMap )
 			.map( ( [ langCode, langCodeIcon ] ) =>
-				typeof langCodeIcon === 'string' ? `${langCode} '${encodeSvg( langCodeIcon )}'` : '' )
+				typeof langCodeIcon === 'string' ? `${ langCode } '${ encodeSvg( langCodeIcon ) }'` : '' )
 			// Filter out any empty strings. These would only exist if we introduced an icon with
 			// a language variant that was also of type IconFlipForRtl
 			.filter( ( s ) => s !== '' )
 			.join( ', ' );
 	}
 
-	let iconOutput = `${lessVariableName}: '${encodeSvg( defaultIcon )}', '${shouldFlip}', '${flipExceptions}', '${encodeSvg( rtlIcon )}', '${hasLangVariants}'`;
-	iconOutput += langCodeMap.length > 0 ? `, ${langCodeMap}` : '';
+	let iconOutput = `${ lessVariableName }: '${ encodeSvg( defaultIcon ) }', '${ shouldFlip }', '${ flipExceptions }', '${ encodeSvg( rtlIcon ) }', '${ hasLangVariants }'`;
+	iconOutput += langCodeMap.length > 0 ? `, ${ langCodeMap }` : '';
 	iconOutput += ';\n';
 
 	return iconOutput;

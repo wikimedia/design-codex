@@ -65,7 +65,7 @@ export default ( options: RawSvgOptions = {
 							// to <use> tags reusing something from a different icon
 							name: 'prefixIds',
 							params: {
-								prefix: `cdx-icon-${iconName}-`,
+								prefix: `cdx-icon-${ iconName }-`,
 								delim: ''
 							}
 						},
@@ -73,7 +73,7 @@ export default ( options: RawSvgOptions = {
 					]
 				} );
 				return {
-					code: `export default ${JSON.stringify( rawSvgContents.data )};`,
+					code: `export default ${ JSON.stringify( rawSvgContents.data ) };`,
 					map: { mappings: '' }
 				};
 			}

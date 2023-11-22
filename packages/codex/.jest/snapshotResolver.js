@@ -9,7 +9,7 @@ module.exports = {
 	 * @return {string}
 	 */
 	resolveSnapshotPath( testPath, snapshotExtension ) {
-		return testPath.replace( /\.test\.([tj]s?)/, `${snapshotExtension}.$1` );
+		return testPath.replace( /\.test\.([tj]s?)/, `${ snapshotExtension }.$1` );
 	},
 
 	/**

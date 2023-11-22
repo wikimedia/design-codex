@@ -88,6 +88,14 @@ module.exports = {
 			}
 		},
 		{
+			files: [ '**/*.ts', '**/*.vue' ],
+			rules: {
+				// Disable the no-missing-import rule, which is broken for TypeScript imports.
+				// We don't need it anyway, because TypeScript verifies the imports already.
+				'n/no-missing-import': 'off'
+			}
+		},
+		{
 			files: [ '**/*.js' ],
 			rules: {
 				// Allow require() to be used in JS files

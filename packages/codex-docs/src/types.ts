@@ -37,7 +37,7 @@ export interface SlotConfig extends BaseConfig {
 // the -icon suffix) that it should be added to. Make this a part of the type interface so that
 // TypeScript validates usage.
 export interface SlotIconConfig extends BaseConfig {
-	name: `${string}-icon`,
+	name: `${ string }-icon`,
 	type: 'slot-icon',
 	default?: string,
 	initial?: string
