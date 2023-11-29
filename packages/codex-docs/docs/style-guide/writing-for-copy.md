@@ -234,7 +234,7 @@ Write UX content to be inclusive to everyone, regardless of their background or 
 </template>
 <template #do-text>
 
-- Use a username with a neutral active voice to describe an action that was taken.
+- Use 'a user' or a username when known with a neutral active voice to describe an action that was taken.
 - Use ‘they’, ‘you’, or ‘we’ if the gender of the person you’re addressing is unknown and gender is required.
 
 </template>

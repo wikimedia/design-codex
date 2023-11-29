@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210" height="84" fill="none" viewBox="0 0 210 84">
+	<path fill="#202122" fill-rule="evenodd" d="M79 35h-3v-2h-2v2h-6v-2h-2v2h-3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V37a2 2 0 0 0-2-2Zm0 14H63v-9h16v9Zm-2-6h-4v4h4v-4Zm54-8h3v-2h2v2h6v-2h2v2h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-16a2 2 0 0 1-2-2V37a2 2 0 0 1 2-2Zm0 14h16v-9h-16v9Zm2-6h4v4h-4v-4Z" clip-rule="evenodd"/>
+</svg>

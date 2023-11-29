@@ -177,7 +177,28 @@ This section showcases how the component will adjust when its content is reduced
 
 This section contains usage recommendations in the form of *Do* and *Don’t* examples. This content will be particularly useful for designers to understand how the component should be used in their designs.
 
-![Do’s and Don’ts example of Select](../assets/designing-new-components/design-component-use-cases.png)
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot example of a select component with a heart icon at the start.](../assets/designing-new-components/designing-new-components-do.svg)
+
+</template>
+<template #do-text>
+
+- Use icons which simplify the identification of the options within a dropdown.
+
+</template>
+<template #dont-media>
+
+![A screenshot example of a select component with a close icon at the start.](../assets/designing-new-components/designing-new-components-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Use icons that look like and imply an individual action.
+
+</template>
+</cdx-demo-rules>
 
 #### Text directionality behavior
 

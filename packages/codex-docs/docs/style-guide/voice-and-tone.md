@@ -43,7 +43,9 @@ It refers to the person who is being spoken to *(you)*. For features, use “You
 
 </template>
 <template #do-text>
-Use second person
+
+- Use second person when instructing the user to perform an action
+
 </template>
 <template #dont-media>
 
@@ -51,7 +53,9 @@ Use second person
 
 </template>
 <template #dont-text>
-Use first person
+
+- Use first person to describe user ownership
+
 </template>
 </cdx-demo-rules>
 

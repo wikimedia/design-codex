@@ -63,28 +63,32 @@ Icons will be designed on a 20px canvas, and be either solid or use a 2px stroke
 
 Design an RTL (or mirrored) version of the icon in case it represents horizontal directionality, lists or text.
 
-![Design RTL icon version](../assets/designing-icons/design-rtl-icon-version.png)
+<cdx-demo-rules>
+<template #do-media>
 
-<div class="cdx-docs-rtl-icon-demo cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
-<strong class="cdx-docs-rtl-icon-demo__do">
-	<cdx-icon class="cdx-docs-rtl-icon-demo__do__icon" :icon="cdxIconSuccess" />
-	Codex will mirror:
-</strong>
+![An example of an arrow icon pointing left for left to right directionality and an arrow icon pointing right for right to left directionality.](../assets/designing-icons/designing-icons-do.svg)
 
-- Icons that represent horizontal directionality
-- Icons that represent lists or text
-</div>
-<div class="cdx-docs-rtl-icon-demo cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
-<strong class="cdx-docs-rtl-icon-demo__dont">
-	<cdx-icon class="cdx-docs-rtl-icon-demo__dont__icon" :icon="cdxIconClear" />
-	Codex will not mirror:
-</strong>
+</template>
+<template #do-text>
 
-- Icons that represent time
-- Check icons
-- Icons that represent objects usually held with the right hand (like a pencil or magnifying glass icon)
-- Icons containing question marks will not be mirrored in Hebrew, but will be in Arabic
-</div>
+- Mirror icons that represent horizontal directionality.
+- Mirror icons that represent lists or text.
+
+</template>
+<template #dont-media>
+
+![An example of a calendar icon unnecessarily flipped horizontally.](../assets/designing-icons/designing-icons-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Mirror icons that represent time.
+- Mirror check icons.
+- Mirror icons that represent objects usually held with the right hand (like a pencil or magnifying glass icon).
+- Mirror icons with question marks; icons will not be mirrored in Hebrew but will be mirrored in Arabic.
+
+</template>
+</cdx-demo-rules>
 
 ### 3.4. Evaluate & iterate
 

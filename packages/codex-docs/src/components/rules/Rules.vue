@@ -80,7 +80,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-@border-width-rules: @border-width-thick * 2;
 @border-color-do: @color-success;
 @border-color-dont: @color-error;
 
@@ -96,15 +95,20 @@ export default defineComponent( {
 	}
 
 	&__text {
-		border-top-width: @border-width-rules;
+		border-top-width: @border-width-thick;
 		border-top-style: @border-style-base;
-		padding-top: @spacing-100;
+		padding-top: @spacing-75;
+
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			font-size: @font-size-small;
+		}
 	}
 
 	&__label {
 		display: flex;
 		align-items: center;
-		gap: @spacing-25;
+		gap: @spacing-35;
+		margin-bottom: @spacing-25;
 		font-weight: @font-weight-bold;
 	}
 
@@ -140,6 +144,15 @@ export default defineComponent( {
 	ul,
 	p {
 		margin: 0;
+	}
+
+	ol,
+	ul {
+		margin-left: @spacing-12;
+	}
+
+	img {
+		margin: auto;
 	}
 }
 </style>
