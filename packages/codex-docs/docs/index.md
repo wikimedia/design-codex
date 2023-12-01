@@ -144,9 +144,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 	&__resources {
 		display: flex;
 		flex-wrap: wrap;
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-		column-gap: @spacing-50;
-		row-gap: @spacing-50;
+		gap: @spacing-50;
 		margin-top: @spacing-200;
 
 		/* stylelint-disable-next-line no-descending-specificity */

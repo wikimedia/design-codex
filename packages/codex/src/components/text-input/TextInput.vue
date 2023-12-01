@@ -255,7 +255,7 @@ export default defineComponent( {
 		};
 
 		// Emit other events to the parent in case they're needed.
-		const onInput = ( event: InputEvent ) => {
+		const onInput = ( event: Event ) => {
 			emit( 'input', event );
 		};
 		const onChange = ( event: Event ) => {

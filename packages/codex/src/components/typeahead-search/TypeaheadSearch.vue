@@ -543,7 +543,7 @@ export default defineComponent( {
 		 *
 		 * @param e
 		 */
-		function onSubmit( e: SubmitEvent ) {
+		function onSubmit( e: Event ) {
 			if ( selectedResult.value ) {
 				// Treat submit with a selected result like a click on the result:
 				// Emit a click event instead of the submit event...

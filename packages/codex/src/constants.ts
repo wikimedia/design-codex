@@ -1,4 +1,4 @@
-import { ComputedRef, Ref, InjectionKey } from 'vue';
+import { ComputedRef, Ref, InjectionKey, WritableComputedRef } from 'vue';
 import { TabData, ValidationStatusType } from './types';
 import { makeStringTypeValidator } from './utils/stringTypeValidator';
 
@@ -96,7 +96,7 @@ export const PendingDelay = 500;
 export const MenuFooterValue = 'cdx-menu-footer-item';
 
 export const TabsKey: InjectionKey<ComputedRef<Map<string, TabData>>> = Symbol( 'CdxTabs' );
-export const ActiveTabKey: InjectionKey<ComputedRef<string>> = Symbol( 'CdxActiveTab' );
+export const ActiveTabKey: InjectionKey<WritableComputedRef<string>> = Symbol( 'CdxActiveTab' );
 
 // Keys for data provided by the Field component.
 export const FieldInputIdKey: InjectionKey<ComputedRef<string|undefined>> = Symbol( 'CdxFieldInputId' );
