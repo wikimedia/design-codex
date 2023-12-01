@@ -70,6 +70,10 @@ export default function useFloatingMenu(
 		// it instead. Because of the maxHeight logic above, this happens when there is less than
 		// 128px available below the triggering element.
 		flip( {
+			// Apply the same padding here as in size(), otherwise the gap between the bottom of
+			// the menu and the bottom edge of the viewport is allowed to shrink to zero before the
+			// menu flips.
+			padding: clipPadding,
 			fallbackStrategy: 'initialPlacement'
 		} ),
 		// Hide the menu when it has escaped the reference element's clipping context (e.g. the menu
