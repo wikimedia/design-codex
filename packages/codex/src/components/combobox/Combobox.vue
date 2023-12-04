@@ -346,7 +346,7 @@ export default defineComponent( {
 		display: flex;
 	}
 
-	&__input {
+	&__input.cdx-text-input {
 		flex: 1 1 auto;
 		// Override TextInput `min-width` to allow for the expander button.
 		min-width: @min-width-medium - @min-size-interactive-pointer;
@@ -358,13 +358,13 @@ export default defineComponent( {
 		}
 	}
 
-	&__expand-button {
+	&__expand-button.cdx-button {
 		position: relative;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
 
-	&__expand-icon {
+	&__expand-icon.cdx-icon {
 		.cdx-mixin-icon(
 			center,
 			@min-size-icon-x-small,
@@ -373,7 +373,7 @@ export default defineComponent( {
 	}
 
 	&--expanded {
-		.cdx-combobox__expand-button {
+		.cdx-combobox__expand-button.cdx-button {
 			border-bottom-right-radius: @border-radius-sharp;
 		}
 	}

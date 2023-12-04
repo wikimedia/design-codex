@@ -396,11 +396,11 @@ export default defineComponent( {
 		}
 	}
 
-	&__thumbnail {
+	&__thumbnail.cdx-thumbnail {
 		margin-right: @spacing-50;
 	}
 
-	&__icon {
+	&__icon.cdx-icon {
 		// Make sure the icon inherits the content element's color.
 		color: inherit;
 		margin-right: @spacing-50;

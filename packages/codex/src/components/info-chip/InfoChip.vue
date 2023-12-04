@@ -102,19 +102,19 @@ export default defineComponent( {
 	}
 
 	&__icon {
-		&--notice {
+		&--notice.cdx-icon {
 			color: @color-notice;
 		}
 
-		&--error {
+		&--error.cdx-icon {
 			color: @color-error;
 		}
 
-		&--warning {
+		&--warning.cdx-icon {
 			color: @color-warning;
 		}
 
-		&--success {
+		&--success.cdx-icon {
 			color: @color-success;
 		}
 	}

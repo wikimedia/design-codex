@@ -192,7 +192,9 @@ export default defineComponent( {
 		margin-bottom: 0;
 	}
 
-	&__label {
+	// TODO: CSS-only component may not have selector `.cdx-label` on <label> (See T353885)
+	&__label,
+	&__label.cdx-label {
 		// Put the label first. It needs to come after the input in the markup so we can apply
 		// styles based on the state of the input.
 		order: -1;
@@ -203,10 +205,10 @@ export default defineComponent( {
 	}
 
 	// Special overrides for the Label component.
-	.cdx-label {
+	& &__label.cdx-label {
 		padding-bottom: 0;
 
-		&__label__text {
+		.cdx-label__label__text {
 			font-weight: @font-weight-normal;
 		}
 	}

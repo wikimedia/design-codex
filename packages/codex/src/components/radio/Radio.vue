@@ -227,7 +227,9 @@ export default defineComponent( {
 
 		/* stylelint-disable no-descending-specificity */
 		&:disabled {
-			& ~ .cdx-radio__label {
+			// TODO: CSS-only components may not have selector `.cdx-label` on <label> (See T353885)
+			& ~ .cdx-radio__label,
+			& ~ .cdx-radio__label.cdx-label {
 				color: @color-disabled;
 			}
 

@@ -354,11 +354,11 @@ export default defineComponent( {
 		.cdx-mixin-icon-wrapper-padding( start );
 	}
 
-	&__start-icon {
+	&__start-icon.cdx-icon {
 		.cdx-mixin-icon( start );
 	}
 
-	&__indicator {
+	&__indicator.cdx-icon {
 		color: @color-base;
 		.cdx-mixin-icon(
 			end,

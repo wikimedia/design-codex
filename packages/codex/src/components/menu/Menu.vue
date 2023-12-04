@@ -911,7 +911,7 @@ export default defineComponent( {
 	border-radius: @border-radius-base;
 	box-shadow: @box-shadow-drop-medium;
 
-	&__progress-bar {
+	&__progress-bar.cdx-progress-bar {
 		position: absolute;
 		top: 0;
 	}

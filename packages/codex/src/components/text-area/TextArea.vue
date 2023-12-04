@@ -209,7 +209,8 @@ export default defineComponent( {
 	// Added for positioning of icons.
 	position: relative;
 
-	&__start-icon {
+	// Added double ampersand to add specificity to Vue and CSS start icons
+	& &__start-icon {
 		.cdx-mixin-icon(
 			start,
 			@param-external-padding: @spacing-50 + @border-width-base,
@@ -218,7 +219,8 @@ export default defineComponent( {
 		);
 	}
 
-	&__end-icon {
+	// Added double ampersand to add specificity to Vue and CSS end icons
+	& &__end-icon {
 		.cdx-mixin-icon(
 			end,
 			@min-size-icon-small,
@@ -265,7 +267,7 @@ export default defineComponent( {
 			transition-property: @transition-property-base;
 			transition-duration: @transition-duration-medium;
 
-			~ .cdx-text-area__icon-vue {
+			~ .cdx-text-area__icon-vue.cdx-icon {
 				color: @color-placeholder;
 			}
 
@@ -275,7 +277,7 @@ export default defineComponent( {
 
 			&:focus,
 			&.cdx-text-area__textarea--has-value {
-				~ .cdx-text-area__icon-vue {
+				~ .cdx-text-area__icon-vue.cdx-icon {
 					color: @color-base;
 				}
 			}
@@ -298,7 +300,7 @@ export default defineComponent( {
 			border-color: @border-color-disabled;
 
 			/* stylelint-disable-next-line no-descending-specificity */
-			~ .cdx-text-area__icon-vue {
+			~ .cdx-text-area__icon-vue.cdx-icon {
 				color: @color-disabled;
 			}
 		}

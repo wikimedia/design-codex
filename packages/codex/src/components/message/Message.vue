@@ -350,7 +350,7 @@ export default defineComponent( {
 		padding-bottom: 0;
 	}
 
-	&__dismiss-button {
+	&__dismiss-button.cdx-button {
 		position: absolute;
 		// Use `spacing` tokens as the top/right axis orientation can always be in pixels,
 		// similar to paddings

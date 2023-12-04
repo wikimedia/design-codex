@@ -387,7 +387,7 @@ export default defineComponent( {
 	box-sizing: @box-sizing-base;
 	vertical-align: middle;
 
-	&--pending .cdx-text-input__input {
+	&--pending .cdx-text-input .cdx-text-input__input {
 		.cdx-mixin-pending-state();
 	}
 

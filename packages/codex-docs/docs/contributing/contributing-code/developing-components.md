@@ -127,6 +127,13 @@ Stylesheet specific token application rules:
   - A variation of that block would have the class `.cdx-component-name__block-name--modifier-name`
   - There is no need to go deeper than 2 block levels in a class name; class names of further
     sub-elements can omit some of the blocks for the sake of brevity.
+- Add specificity when styling a subcomponent to avoid override styles. For example, an Icon
+	component that is inside a Label component would use the selector, `.cdx-label__icon.cdx-icon`. In Less:
+	```
+	cdx-label {
+		&__icon.cdx-icon {}
+	}
+	```
 - If a style or selector isn't self-explanatory, add a comment above it in Less comment style `//`.
 - Avoid HTML element selectors. The style rulesets should aim to be independent from specific
   element choices, which may change.

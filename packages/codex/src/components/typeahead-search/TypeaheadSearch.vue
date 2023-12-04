@@ -720,30 +720,32 @@ export default defineComponent( {
 	}
 
 	&__search-footer {
-		box-sizing: @box-sizing-base;
-		// Set `min-height` on the footer so that it has the same height as the search results.
-		// We can't set it on `&__icon` because the icon would get scaled itself.
-		// Clarify origin of value by calculation instead of component token.
-		/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-		min-height: @min-size-search-figure + ( 2 * @spacing-50 );
+		&.cdx-menu-item {
+			box-sizing: @box-sizing-base;
+			// Set `min-height` on the footer so that it has the same height as the search results.
+			// We can't set it on `&__icon` because the icon would get scaled itself.
+			// Clarify origin of value by calculation instead of component token.
+			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+			min-height: @min-size-search-figure + ( 2 * @spacing-50 );
 
-		&:visited {
-			color: @color-base;
+			&:visited {
+				color: @color-base;
+			}
+
+			&:hover {
+				text-decoration: @text-decoration-none;
+				cursor: @cursor-base--hover;
+			}
 		}
 
-		&:hover {
-			text-decoration: @text-decoration-none;
-			cursor: @cursor-base--hover;
-		}
-
-		&__icon {
+		&__icon.cdx-icon {
 			color: @color-subtle;
 		}
 
 		// We cannot use a pseudo class ":active" because that does not work
 		// in firefox due to the use of "preventDefault" in the menuItem component
-		&__active {
-			.cdx-typeahead-search__search-footer__icon,
+		&__active.cdx-menu-item {
+			.cdx-typeahead-search__search-footer__icon.cdx-icon,
 			.cdx-typeahead-search__search-footer__text {
 				color: @color-progressive;
 			}
@@ -756,7 +758,7 @@ export default defineComponent( {
 		padding-left: @spacing-125;
 	}
 
-	&--expanded &__input .cdx-text-input {
+	&--expanded &__input.cdx-search-input .cdx-text-input {
 		border-bottom-left-radius: @border-radius-sharp;
 		border-bottom-right-radius: @border-radius-sharp;
 	}

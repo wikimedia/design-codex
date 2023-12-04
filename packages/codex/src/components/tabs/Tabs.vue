@@ -551,7 +551,7 @@ export default defineComponent( {
 		right: @size-full;
 	}
 
-	&__scroll-button {
+	&__scroll-button.cdx-button {
 		height: @size-full;
 	}
 

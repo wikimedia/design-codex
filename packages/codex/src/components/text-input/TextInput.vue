@@ -332,7 +332,8 @@ export default defineComponent( {
 	border-radius: @border-radius-base;
 	overflow: hidden;
 
-	&__start-icon {
+	// Added double ampersand to add specificity to Vue and CSS start icons
+	& &__start-icon {
 		// Border width is included here and for other icon positions because the icon position will
 		// be offset from the border, not inside the border, so we need to include its width in the
 		// offset value.
@@ -345,8 +346,9 @@ export default defineComponent( {
 		.cdx-mixin-css-icon-background( @size-icon-small );
 	}
 
-	&__clear-icon,
-	&__end-icon {
+	// Added double ampersand to add specificity to Vue and CSS end icons
+	&__clear-icon.cdx-icon,
+	& &__end-icon {
 		.cdx-mixin-icon(
 			end,
 			@min-size-icon-small,
@@ -355,14 +357,14 @@ export default defineComponent( {
 		);
 	}
 
-	&__clear-icon {
+	&__clear-icon.cdx-icon {
 		// The clear icon result in a pointer cursor on hover.
 		&:hover {
 			cursor: @cursor-base--hover;
 		}
 
 		// Move the clear icon farther left when it appears next to an end icon.
-		.cdx-text-input__end-icon + & {
+		.cdx-text-input__end-icon.cdx-icon + & {
 			right: calc( @spacing-horizontal-input-text-two-end-icons + @border-width-base );
 		}
 	}

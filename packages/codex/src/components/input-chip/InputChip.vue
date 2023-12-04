@@ -217,7 +217,7 @@ export default defineComponent( {
 
 	// The remove button is small and round, which is not supported within the Button component
 	// itself, so the styles are included here.
-	&__button {
+	&__button.cdx-button {
 		min-width: @min-size-clear-button;
 		min-height: @min-size-clear-button;
 		margin-right: @size-absolute-1;

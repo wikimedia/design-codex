@@ -200,7 +200,7 @@ export default defineComponent( {
 
 	// Styles for label content.
 	&__label {
-		&__icon {
+		&__icon.cdx-icon {
 			margin-right: @spacing-25;
 		}
 

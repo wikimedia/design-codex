@@ -137,7 +137,7 @@ export default defineComponent( {
 		&__icon {
 			.cdx-mixin-css-icon( @cdx-icon-image-layout-frameless, @color-placeholder );
 
-			&--vue {
+			&--vue.cdx-icon {
 				color: @color-placeholder;
 			}
 		}

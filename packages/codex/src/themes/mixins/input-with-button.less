@@ -28,7 +28,8 @@
 		}
 	}
 
-	&__end-button {
+	// Increase the specificity of a component's button to prevent overridden button styles
+	&__end-button.cdx-button {
 		// Prevent end button from shrinking on smaller viewports, which causes the button label
 		// to overflow.
 		flex-shrink: 0;

@@ -29,7 +29,9 @@
 		}
 	}
 
-	&__label {
+	// TODO: CSS-only components may not have selector `.cdx-label` on <label> (See T353885)
+	&__label,
+	&__label.cdx-label {
 		// This makes single-line labels only the width of their content and properly aligns
 		// multi-line labels with the input.
 		// Must be inline-flex instead of inline-block to support `flex-direction: column` style on
@@ -43,7 +45,7 @@
 	}
 
 	// Special overrides for the Label component.
-	.cdx-label {
+	& &__label.cdx-label {
 		padding-bottom: 0;
 
 		&__label__text {
@@ -51,6 +53,7 @@
 		}
 	}
 
+	// TODO: CSS-only component may not have selector `.cdx-label` on <label> (See T353885)
 	&--inline &__label {
 		// Reset to inline to avoid extra space between input and label.
 		display: inline;

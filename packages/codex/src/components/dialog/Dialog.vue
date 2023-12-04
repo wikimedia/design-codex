@@ -572,7 +572,7 @@ export default defineComponent( {
 			line-height: @line-height-xx-small;
 		}
 
-		&__close-button {
+		&__close-button.cdx-button {
 			margin-right: -@spacing-50;
 		}
 
@@ -659,8 +659,8 @@ export default defineComponent( {
 			width: @size-full;
 		}
 
-		.cdx-dialog__footer__primary-action,
-		.cdx-dialog__footer__default-action {
+		.cdx-dialog__footer__primary-action.cdx-button,
+		.cdx-dialog__footer__default-action.cdx-button {
 			max-width: none;
 		}
 	}

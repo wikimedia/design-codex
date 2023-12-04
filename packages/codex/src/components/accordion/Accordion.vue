@@ -208,13 +208,15 @@ export default defineComponent( {
 	}
 
 	&__toggle {
-		width: @size-full;
-		max-width: unset;
-		padding: @spacing-75;
-		font-size: @font-size-medium;
-		word-break: break-word;
-		text-align: left;
-		white-space: normal;
+		&.cdx-button {
+			width: @size-full;
+			max-width: unset;
+			padding: @spacing-75;
+			font-size: @font-size-base;
+			word-break: break-word;
+			text-align: left;
+			white-space: normal;
+		}
 
 		&__title {
 			display: flex;
@@ -222,7 +224,7 @@ export default defineComponent( {
 			line-height: @line-height-xx-small;
 			pointer-events: none;
 
-			&-icon {
+			&-icon.cdx-icon {
 				// Make the icon as tall as the text, so that its vertical centering causes
 				// it to be aligned with the text
 				height: unit( @line-height-xx-small, em );
@@ -252,7 +254,7 @@ export default defineComponent( {
 		padding-right: calc( @size-icon-medium + @spacing-35 + @spacing-50 );
 	}
 
-	&__action {
+	&__action.cdx-button {
 		display: flex;
 		align-items: center;
 		position: absolute;
