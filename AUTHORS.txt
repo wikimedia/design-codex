@@ -2,6 +2,7 @@ Principal Authors (major contributors, alphabetically)
 
 Anne Tomasevich <atomasevich@wikimedia.org>
 DannyS712 <dannys712.wiki@gmail.com>
+Derek Torsani <dtorsani@wikimedia.org>
 Eric Gardner <egardner@wikimedia.org>
 Lauralyn Watson <lwatson@wikimedia.org>
 Roan Kattouw <roan@wikimedia.org>
@@ -9,13 +10,24 @@ Volker E. <volker.e@wikimedia.org>
 
 Patch Contributors (minor contributors, alphabetically)
 
-Zelig880 <scuomo1988@gmail.com>
-Thiemo Kreuz <thiemo.kreuz@wikimedia.de>
-Michael Große <michael.grosse@wikimedia.de>
-sunyiming <seedless_steven@outlook.com>
-Lucas Werkmeister <mail@lucaswerkmeister.de>
+bwang <bwang@wikimedia.org>
+ddw <ddwaal-ctr@wikimedia.org>
+didier-ds <didiersenou94@gmail.com>
+Ed Sanders <esanders@wikimedia.org>
+Jon Robson <jdlrobson@gmail.com>
 Julia Kieserman <jkieserman@wikimedia.org>
 Kosta Harlan <kharlan@wikimedia.org>
+Lucas Werkmeister <mail@lucaswerkmeister.de>
+Martin Urbanec <martin.urbanec@wikimedia.cz>
+Michael Große <michael.grosse@wikimedia.de>
+MusikAnimal <musikanimal@gmail.com>
+Noa Rave <noa.rave@wikimedia.de>
+Sergio Gimeno <sgimeno@wikimedia.org>
+sunyiming <seedless_steven@outlook.com>
+szymonswiergosz <szymon.swiergosz@gmail.com>
+Thiemo Kreuz <thiemo.kreuz@wikimedia.de>
+Ty Hopp <hopp.ty.c@gmail.com>
+Zelig880 <scuomo1988@gmail.com>
 
 See also
 https://github.com/wikimedia/design-codex/graphs/contributors
