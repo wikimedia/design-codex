@@ -1,3 +1,37 @@
+# 1.1.0 / 2023-12-05
+
+## Features
+- Select: Prevent Space key from scrolling the page (lwatson)
+- useFloatingMenu: Add clipping and flipping (Roan Kattouw)
+- Menu: Improve scrolling behavior to play nice with useFloatingMenu (Roan Kattouw)
+
+## Styles
+- TextInput: Move border-radius from `<input>` to root element (Roan Kattouw)
+- Menu: Update border-radius when Menu flips (Roan Kattouw)
+- Menu: Fix footer item being too wide (Roan Kattouw)
+- useFloatingMenu: Also apply padding to flip() (Roan Kattouw)
+
+## Icons
+- icons: Add 'appearance' icon (Derek Torsani)
+
+## Code
+- build: Deduplicate build emissions (Ty Hopp)
+- build: update 'svgo' & 'svglint' dependencies (Volker E)
+- build: Update eslint-config-wikimedia 0.25.1 -> 0.26.0 (Roan Kattouw)
+- deps: Update Vue to 3.3.9 and lock key package versions (Eric Gardner)
+
+## Documentation
+- docs: Add Rules component for dos and dont's (Anne Tomasevich)
+- docs: Add Codex CSS import methods to usage page (Ty Hopp)
+- docs: Clarify required packages to install (Ty Hopp)
+- docs: Update readme files to reference usage docs (Ty Hopp)
+- docs: Add content guidelines (Anne Tomasevich)
+- docs: Update build products for icons package (Roan Kattouw)
+- Menu, docs: Use useFloatingMenu in all Menu demos (Roan Kattouw)
+- demo: Add menu with footer to the DialogDemo (Anne Tomasevich)
+- docs: Misc fixes for content guidelines (Derek Torsani)
+- docs: Update AUTHORS.txt (Anne Tomasevich)
+
 # 1.0.1 / 2023-11-07
 
 ## Features
