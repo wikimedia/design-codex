@@ -37,6 +37,23 @@ convey an alert. In other cases, abstract symbols may be preferable, such as usi
 
 Avoid concepts such as gestures, animals, religion, humor, ethnicity, and gender.
 
+## Usage
+
+### Icon size
+
+Icons can be used inside other components, like buttons. Icons support a few different pre-defined
+size options. Right now the supported sizes are: 20px, 16px or 12px. If no size property is
+provided, 20px size will be used by default.
+
+### Adapt and remix
+
+Our icons are freely licensed under [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+The simple style and guidelines make it easy to reuse or adapt existing freely licensed icons that
+you can find on other repos such as [Material icons](https://material.io/guidelines/style/icons.html)[[3]](#ref3)
+or the [Noun project](https://thenounproject.zendesk.com/hc/en-us/articles/200509798-What-licenses-do-you-use-)[[4]](#ref4).
+You are welcome to use existing icons that align to the proposed style instead of reinventing the
+wheel icon.
+
 ## Visual style
 
 ![Dimensions of Codex icons](../assets/visual-styles/icons/02_visual-style.png)
@@ -85,23 +102,6 @@ creating the alternate direction variation. For example, the play button is univ
 triangle with a straight left edge and does not require two variations, whilst a bullet list icon
 would show the “bullets” in the list on the right or left side depending on whether it is shown in
 RTL or LTR language context.
-
-## Usage
-
-### Icon size
-
-Icons can be used inside other components, like buttons. Icons support a few different pre-defined
-size options. Right now the supported sizes are: 20px, 16px or 12px. If no size property is
-provided, 20px size will be used by default.
-
-### Adapt and remix
-
-Our icons are freely licensed under [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
-The simple style and guidelines make it easy to reuse or adapt existing freely licensed icons that
-you can find on other repos such as [Material icons](https://material.io/guidelines/style/icons.html)[[3]](#ref3)
-or the [Noun project](https://thenounproject.zendesk.com/hc/en-us/articles/200509798-What-licenses-do-you-use-)[[4]](#ref4).
-You are welcome to use existing icons that align to the proposed style instead of reinventing the
-wheel icon.
 
 ## Resources
 
