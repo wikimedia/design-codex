@@ -32,7 +32,7 @@
 		<g filter="url(#c)">
 			<g clip-path="url(#d)">
 				<rect width="216.319" height="5.556" x="232.09" y="145.111" fill="#fff" rx="2.778"/>
-				<path fill="#36C" d="M307.06 145.11h66.38v5.56h-66.38v-5.56Z"/>
+				<path fill="#36C" d="M307.06 145.11h66.38v5.56h-66.38z"/>
 			</g>
 			<rect width="215.972" height="5.208" x="232.263" y="145.285" stroke="#A2A9B1" stroke-width=".347" rx="2.604"/>
 		</g>

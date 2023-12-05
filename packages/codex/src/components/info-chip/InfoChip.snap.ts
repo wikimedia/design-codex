@@ -88,7 +88,7 @@ exports[`matches the snapshot Case 4 success status: ({"status": "success"}) => 
 >
   <cdx-icon-stub
     class="cdx-info-chip__icon cdx-info-chip__icon--success"
-    icon="<path d="M10 20a10 10 0 010-20 10 10 0 110 20Zm-2-5 9-8.5L15.5 5 8 12 4.5 8.5 3 10l5 5Z"/>"
+    icon="<path d="M10 20a10 10 0 010-20 10 10 0 110 20m-2-5 9-8.5L15.5 5 8 12 4.5 8.5 3 10z"/>"
     iconlabel=""
     size="medium"
   />

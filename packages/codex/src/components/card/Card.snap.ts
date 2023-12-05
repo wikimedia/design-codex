@@ -84,7 +84,7 @@ exports[`Card matches the snapshot Case 2 Card with icon: ("Title") => HTML 1`] 
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="M10 11c-5.92 0-8 3-8 5v3h16v-3c0-2-2.08-5-8-5z"
+          d="M10 11c-5.92 0-8 3-8 5v3h16v-3c0-2-2.08-5-8-5"
         />
         <circle
           cx="10"
@@ -256,7 +256,7 @@ exports[`Card matches the snapshot Case 5 Card with custom placeholder icon: ("T
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 11c-5.92 0-8 3-8 5v3h16v-3c0-2-2.08-5-8-5z"
+              d="M10 11c-5.92 0-8 3-8 5v3h16v-3c0-2-2.08-5-8-5"
             />
             <circle
               cx="10"

@@ -27,7 +27,7 @@ exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
+            d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
           />
         </g>
       </svg>
@@ -74,7 +74,7 @@ exports[`matches the snapshot Case 1 notice message: ({"type": "notice"}) => HTM
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
+            d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
           />
         </g>
       </svg>
@@ -215,7 +215,7 @@ exports[`matches the snapshot Case 4 success message: ({"type": "success"}) => H
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M10 20a10 10 0 010-20 10 10 0 110 20Zm-2-5 9-8.5L15.5 5 8 12 4.5 8.5 3 10l5 5Z"
+            d="M10 20a10 10 0 010-20 10 10 0 110 20m-2-5 9-8.5L15.5 5 8 12 4.5 8.5 3 10z"
           />
         </g>
       </svg>
@@ -262,7 +262,7 @@ exports[`matches the snapshot Case 5 Inline: ({"inline": true}) => HTML 1`] = `
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
+            d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
           />
         </g>
       </svg>
@@ -309,7 +309,7 @@ exports[`matches the snapshot Case 6 Dismissable: ({"dismissButtonLabel": "Close
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
+            d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
           />
         </g>
       </svg>

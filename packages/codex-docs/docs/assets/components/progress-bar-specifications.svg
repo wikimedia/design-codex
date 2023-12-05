@@ -2,11 +2,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="691" height="64" fill="none" viewBox="0 0 691 64">
 	<g filter="url(#a)">
 		<rect width="432" height="16" x="129.25" y="24" fill="#fff" rx="8"/>
-		<path fill="#36C" d="M249.65 24h191.2v16h-191.2V24Z"/>
+		<path fill="#36C" d="M249.65 24h191.2v16h-191.2z"/>
 		<rect width="431" height="15" x="129.75" y="24.5" stroke="#A2A9B1" rx="7.5"/>
 	</g>
 	<rect width="14" height="20" x="58.25" y="22" fill="#7458FF" rx="4"/>
-	<path fill="#fff" d="M65.99 28.11v6.69h-.84v-5.78l-1.58.96-.37-.6 2.05-1.27H66Zm1.44 6.2V35h-3.98v-.69h3.98Z"/>
+	<path fill="#fff" d="M65.99 28.11v6.69h-.84v-5.78l-1.58.96-.37-.6 2.05-1.27H66Zm1.44 6.2V35h-3.98v-.69z"/>
 	<path fill="#6D50FF" d="M241.25 32.5h-169v-1h169z"/>
 	<g opacity=".26" transform="matrix(1 0 0 -1 241.25 40)">
 		<circle cx="8" cy="8" r="8" fill="#fff"/>

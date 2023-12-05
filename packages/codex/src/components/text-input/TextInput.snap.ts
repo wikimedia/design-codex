@@ -209,7 +209,7 @@ exports[`TextInput matches the snapshot Case 12 Disabled: ({"disabled": true}) =
 </div>
 `;
 
-exports[`TextInput matches the snapshot Case 13 With start icon: ({"startIcon": "<path d=\\"M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z\\"/>"}) => HTML 1`] = `
+exports[`TextInput matches the snapshot Case 13 With start icon: ({"startIcon": "<path d=\\"M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default"
 >
@@ -234,7 +234,7 @@ exports[`TextInput matches the snapshot Case 13 With start icon: ({"startIcon": 
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8z"
+          d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
         />
       </g>
     </svg>
@@ -270,7 +270,7 @@ exports[`TextInput matches the snapshot Case 14 With end icon: ({"endIcon": [Obj
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
+          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
         />
       </g>
     </svg>
@@ -322,7 +322,7 @@ exports[`TextInput matches the snapshot Case 16 Clearable, with input: ({"cleara
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="M10 0a10 10 0 1010 10A10 10 0 0010 0zm5.66 14.24-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z"
+          d="M10 0a10 10 0 1010 10A10 10 0 0010 0m5.66 14.24-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z"
         />
       </g>
     </svg>
@@ -356,7 +356,7 @@ exports[`TextInput matches the snapshot Case 17 With end icon, clearable, no inp
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
+          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
         />
       </g>
     </svg>
@@ -391,7 +391,7 @@ exports[`TextInput matches the snapshot Case 18 With end icon, clearable, with i
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
+          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
         />
       </g>
     </svg>
@@ -411,7 +411,7 @@ exports[`TextInput matches the snapshot Case 18 With end icon, clearable, with i
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="M10 0a10 10 0 1010 10A10 10 0 0010 0zm5.66 14.24-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z"
+          d="M10 0a10 10 0 1010 10A10 10 0 0010 0m5.66 14.24-1.41 1.41L10 11.41l-4.24 4.25-1.42-1.42L8.59 10 4.34 5.76l1.42-1.42L10 8.59l4.24-4.24 1.41 1.41L11.41 10z"
         />
       </g>
     </svg>

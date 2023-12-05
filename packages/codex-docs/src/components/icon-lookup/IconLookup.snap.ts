@@ -113,7 +113,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M9 1.28A1 1 0 008.35 1H2a1 1 0 00-1 1v6.35a1 1 0 00.28.65L11 18.72a1 1 0 001.37 0l6.38-6.38a1 1 0 00-.03-1.34zM5 7a2 2 0 112-2 2 2 0 01-2 2z"
+                  d="M9 1.28A1 1 0 008.35 1H2a1 1 0 00-1 1v6.35a1 1 0 00.28.65L11 18.72a1 1 0 001.37 0l6.38-6.38a1 1 0 00-.03-1.34zM5 7a2 2 0 112-2 2 2 0 01-2 2"
                 />
               </g>
             </svg>

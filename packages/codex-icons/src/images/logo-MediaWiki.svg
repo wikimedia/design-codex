@@ -5,7 +5,7 @@
 	</title>
 	<g transform="translate(10 10)">
 		<g id="b">
-			<path id="a" d="M0 10c-2.9-3.3-.8-5.9 0-5.9S2.9 6.7 0 10z"/>
+			<path id="a" d="M0 10c-2.9-3.3-.8-5.9 0-5.9S2.9 6.7 0 10"/>
 			<use xlink:href="#a" transform="rotate(15)"/>
 			<use xlink:href="#a" transform="rotate(30)"/>
 			<use xlink:href="#a" transform="rotate(45)"/>

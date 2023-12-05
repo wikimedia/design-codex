@@ -898,7 +898,7 @@ exports[`Field matches the snapshot with a TextInput control Case 0 Basic field:
 </div>
 `;
 
-exports[`Field matches the snapshot with a TextInput control Case 1 With label icon: ({"labelIcon": "<path d=\\"M10 0a7.65 7.65 0 00-8 8c0 2.52 2 5 3 6s5 6 5 6 4-5 5-6 3-3.48 3-6a7.65 7.65 0 00-8-8zm0 11.25A3.25 3.25 0 1113.25 8 3.25 3.25 0 0110 11.25z\\"/>"}) => HTML 1`] = `
+exports[`Field matches the snapshot with a TextInput control Case 1 With label icon: ({"labelIcon": "<path d=\\"M10 0a7.65 7.65 0 00-8 8c0 2.52 2 5 3 6s5 6 5 6 4-5 5-6 3-3.48 3-6a7.65 7.65 0 00-8-8m0 11.25A3.25 3.25 0 1113.25 8 3.25 3.25 0 0110 11.25\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -927,7 +927,7 @@ exports[`Field matches the snapshot with a TextInput control Case 1 With label i
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 0a7.65 7.65 0 00-8 8c0 2.52 2 5 3 6s5 6 5 6 4-5 5-6 3-3.48 3-6a7.65 7.65 0 00-8-8zm0 11.25A3.25 3.25 0 1113.25 8 3.25 3.25 0 0110 11.25z"
+              d="M10 0a7.65 7.65 0 00-8 8c0 2.52 2 5 3 6s5 6 5 6 4-5 5-6 3-3.48 3-6a7.65 7.65 0 00-8-8m0 11.25A3.25 3.25 0 1113.25 8 3.25 3.25 0 0110 11.25"
             />
           </g>
         </svg>

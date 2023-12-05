@@ -137,7 +137,7 @@ exports[`TextArea matches the snapshot Case 7 with end icon: ({"endIcon": [Objec
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
+          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
         />
       </g>
     </svg>
@@ -190,7 +190,7 @@ exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIc
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9zm0 4h2v6H9z"
+          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
         />
       </g>
     </svg>

@@ -5,7 +5,7 @@
 		<g filter="url(#a)">
 			<g clip-path="url(#b)">
 				<rect width="432" height="16" x="129.25" y="24" fill="url(#c)" rx="8"/>
-				<path fill="#36C" d="M129.25 24h352v16h-352V24Z"/>
+				<path fill="#36C" d="M129.25 24h352v16h-352z"/>
 			</g>
 			<rect width="431" height="15" x="129.75" y="24.5" stroke="#A2A9B1" rx="7.5"/>
 		</g>

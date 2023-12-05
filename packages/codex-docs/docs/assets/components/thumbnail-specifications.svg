@@ -5,13 +5,13 @@
 	</g>
 	<rect width="39" height="39" x="289.75" y="32.5" stroke="#C8CCD1" rx="1.5"/>
 	<rect width="39" height="39" x="361.75" y="32.5" fill="#F8F9FA" rx="1.5"/>
-	<path fill="#F8F9FA" d="M399.25 33h-36a1 1 0 0 0-1 1v36a1 1 0 0 0 1 1h36a1 1 0 0 0 1-1V34a1 1 0 0 0-1-1Z"/>
+	<path fill="#F8F9FA" d="M399.25 33h-36a1 1 0 0 0-1 1v36a1 1 0 0 0 1 1h36a1 1 0 0 0 1-1V34a1 1 0 0 0-1-1"/>
 	<g clip-path="url(#c)">
-		<path fill="#72777D" fill-rule="evenodd" d="M389.25 44h-16a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V46a2 2 0 0 0-2-2Zm-16.17 13 4.09-5.25 2.92 3.51 4.08-5.26 5.25 7h-16.34Z" clip-rule="evenodd"/>
+		<path fill="#72777D" fill-rule="evenodd" d="M389.25 44h-16a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V46a2 2 0 0 0-2-2m-16.17 13 4.09-5.25 2.92 3.51 4.08-5.26 5.25 7z" clip-rule="evenodd"/>
 	</g>
 	<rect width="39" height="39" x="361.75" y="32.5" stroke="#C8CCD1" rx="1.5"/>
 	<rect width="14" height="20" x="227.25" y="42" fill="#7458FF" rx="4"/>
-	<path fill="#fff" d="M234.99 48.12v6.68h-.84v-5.78l-1.58.96-.37-.6 2.05-1.27h.74Zm1.44 6.2V55h-3.98v-.69h3.98Z"/>
+	<path fill="#fff" d="M234.99 48.12v6.68h-.84v-5.78l-1.58.96-.37-.6 2.05-1.27h.74Zm1.44 6.2V55h-3.98v-.69z"/>
 	<path fill="#6D50FF" d="M291.25 52.5h-50v-1h50z"/>
 	<g opacity=".26" transform="matrix(1 0 0 -1 291.25 60)">
 		<circle cx="8" cy="8" r="8" fill="#fff"/>

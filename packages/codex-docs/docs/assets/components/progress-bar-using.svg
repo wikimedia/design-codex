@@ -2,7 +2,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="691" height="80" fill="none" viewBox="0 0 691 80">
 	<g filter="url(#a)">
 		<rect width="432" height="16" x="129.25" y="32" fill="#fff" rx="8"/>
-		<path fill="#36C" d="M249.65 32h191.2v16h-191.2V32Z"/>
+		<path fill="#36C" d="M249.65 32h191.2v16h-191.2z"/>
 		<rect width="431" height="15" x="129.75" y="32.5" stroke="#A2A9B1" rx="7.5"/>
 	</g>
 	<defs>
