@@ -90,7 +90,7 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 						]
 					},
 					plugins: [
-						emitAllowlist( [ 'css' ] )
+						emitAllowlist( [ 'css', 'json' ] )
 					]
 				};
 				break;
@@ -105,7 +105,7 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 						}
 					},
 					plugins: [
-						emitAllowlist( [ 'css' ] )
+						emitAllowlist( [ 'css', 'json' ] )
 					]
 				};
 				break;
@@ -128,7 +128,7 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 						]
 					},
 					plugins: [
-						emitAllowlist( [ 'css' ] )
+						emitAllowlist( [ 'css', 'json' ] )
 					]
 				};
 				break;
