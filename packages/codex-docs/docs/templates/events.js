@@ -1,7 +1,6 @@
 /** @typedef {import('vue-docgen-api').EventDescriptor} EventDescriptor */
 
-const utils = require( './utils' );
-const mdclean = utils.mdclean;
+import { getTypeText, mdclean } from './utils.js';
 
 /**
  * Format event properties.
@@ -21,7 +20,7 @@ function formatProperties( properties ) {
 			}
 
 			const formattedTypes = type.names.map( ( typeName ) => {
-				return utils.getTypeText( typeName );
+				return getTypeText( typeName );
 			} );
 
 			let eventString = `**${ name }** ${ formattedTypes.join( ', ' ) }`;
@@ -60,7 +59,7 @@ const tmpl = ( events ) => {
  *
  * @type {import('vue-docgen-cli').Templates['events']}
  */
-module.exports = function ( events, opt = {} ) {
+const eventsTemplate = function ( events, opt = {} ) {
 	return `
 ${ !!opt.isSubComponent || opt.hasSubComponents ? '#' : '' }## Events
 
@@ -69,3 +68,5 @@ ${ !!opt.isSubComponent || opt.hasSubComponents ? '#' : '' }## Events
   ${ tmpl( events ) }
   `;
 };
+
+export default eventsTemplate;

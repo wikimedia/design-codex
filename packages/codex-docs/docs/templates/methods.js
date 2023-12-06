@@ -1,5 +1,4 @@
-const utils = require( './utils' );
-const mdclean = utils.mdclean;
+import { getTypeText, mdclean } from './utils.js';
 
 /** @typedef {import('vue-docgen-api').MethodDescriptor} MethodDescriptor */
 /** @typedef {import('vue-docgen-api').Param} Param */
@@ -14,7 +13,7 @@ const mdclean = utils.mdclean;
 const getParams = ( params ) => {
 	let paramsString = '<ul class="cdx-docs-methods__params">';
 	params.forEach( ( p ) => {
-		const t = p.type?.name ? utils.getTypeText( p.type.name ) : '';
+		const t = p.type?.name ? getTypeText( p.type.name ) : '';
 		const n = p.name ? p.name : '';
 		const d = typeof p.description === 'string' ? p.description : '';
 
@@ -46,7 +45,7 @@ const getReturns = ( m ) => {
 	 */
 	function getTypeFromReturns() {
 		if ( m.returns?.type?.name ) {
-			return utils.getTypeText( m.returns.type.name );
+			return getTypeText( m.returns.type.name );
 		}
 		return '';
 	}
@@ -66,7 +65,7 @@ const getReturns = ( m ) => {
 
 	// If so, grab the type and the description and use both.
 	if ( indexOfClosingBracket > 0 ) {
-		const t = utils.getTypeText( returnText.slice( 1, indexOfClosingBracket ) );
+		const t = getTypeText( returnText.slice( 1, indexOfClosingBracket ) );
 		const d = returnText.slice( indexOfClosingBracket + 2 );
 		return `${ t } ${ d }`;
 	}
@@ -105,7 +104,7 @@ const tmpl = function ( methods ) {
  *
  * @type {import('vue-docgen-cli').Templates['methods']}
  */
-module.exports = function ( methods, opt = {} ) {
+const methodsTemplate = function ( methods, opt = {} ) {
 	if ( Object.keys( methods ).length === 0 ) {
 		return '';
 	}
@@ -119,3 +118,5 @@ ${ !!opt.isSubComponent || opt.hasSubComponents ? '#' : '' }## Methods
   ${ tmpl( methods ) }
   `;
 };
+
+export default methodsTemplate;

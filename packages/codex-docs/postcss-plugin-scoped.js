@@ -2,13 +2,13 @@
 /** @typedef {import('postcss').Plugin} Plugin */
 /** @typedef {{ include?: FilterPattern, exclude?: FilterPattern, plugin: Plugin }} PluginOptions */
 
-const { createFilter } = require( 'vite' );
+import { createFilter } from 'vite';
 
 /**
  * @param {PluginOptions} options
  * @return {Plugin}
  */
-module.exports = ( options ) => {
+const scoped = function ( options ) {
 	const filter = createFilter( options.include, options.exclude );
 	return {
 		postcssPlugin: 'scoped-plugin-' + options.plugin.postcssPlugin,
@@ -23,3 +23,5 @@ module.exports = ( options ) => {
 		}
 	};
 };
+
+export default scoped;

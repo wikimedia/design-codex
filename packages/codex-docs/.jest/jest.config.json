@@ -11,7 +11,7 @@
 			"node-addons"
 		]
 	},
-	"snapshotResolver": "<rootDir>/.jest/snapshotResolver.js",
+	"snapshotResolver": "<rootDir>/.jest/snapshotResolver.cjs",
 	"collectCoverage": true,
 	"coverageThreshold": {
 		"global": {

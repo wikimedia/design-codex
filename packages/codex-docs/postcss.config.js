@@ -7,11 +7,11 @@
  * building the 'codex-demos.*.css' files; those use a separate PostCSS config provided by build.mjs
  * (see also build/utils.mjs in the Codex package).
  */
-const autoprefixer = require( 'autoprefixer' );
-const postcssRtlcss = require( 'postcss-rtlcss' );
-const scoped = require( './postcss-plugin-scoped' );
+import autoprefixer from 'autoprefixer';
+import postcssRtlcss from 'postcss-rtlcss';
+import scoped from './postcss-plugin-scoped.js';
 
-module.exports = {
+export default {
 	/** @type {import('postcss').AcceptedPlugin[]} */
 	plugins: [
 		scoped( {

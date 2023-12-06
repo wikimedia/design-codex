@@ -1,9 +1,11 @@
-const path = require( 'path' );
-const fs = require( 'fs' );
-const component = require( './docs/templates/component' );
-const events = require( './docs/templates/events' );
-const methods = require( './docs/templates/methods' );
-const props = require( './docs/templates/props' );
+import { parse, join } from 'path';
+import { existsSync } from 'fs';
+import { defineConfig } from 'vue-docgen-cli';
+import component from './docs/templates/component.js';
+import events from './docs/templates/events.js';
+import methods from './docs/templates/methods.js';
+import props from './docs/templates/props.js';
+
 const componentDemoPath = 'component-demos';
 
 /**
@@ -14,7 +16,7 @@ const componentDemoPath = 'component-demos';
  */
 function getKebabCaseName( componentPath ) {
 	// e.g. TextInput.
-	const componentName = path.parse( componentPath ).base.replace( /\.vue$/, '' );
+	const componentName = parse( componentPath ).base.replace( /\.vue$/, '' );
 	// For each letter in the name...
 	return componentName.split( '' ).map( ( letter, index ) => {
 		// If the letter is uppercase, add a dash before it (unless it's the first letter), then
@@ -25,8 +27,7 @@ function getKebabCaseName( componentPath ) {
 	} ).join( '' );
 }
 
-/** @type import("vue-docgen-cli").DocgenCLIConfig */
-module.exports = {
+export default defineConfig( {
 	// Conceptually componentsRoot is ../codex/src/components, but we want to find components
 	// in ../codex/src/components-wip too
 	componentsRoot: './../codex/src',
@@ -36,14 +37,14 @@ module.exports = {
 		// e.g. 'text-input'
 		const kebabCaseName = getKebabCaseName( componentPath );
 		// e.g. 'component-demos/text-input/text-input.md'
-		const docFileName = path.join( componentDemoPath, '/' + kebabCaseName + '/', kebabCaseName + '.md' );
+		const docFileName = join( componentDemoPath, '/' + kebabCaseName + '/', kebabCaseName + '.md' );
 		// If the .md file doesn't exists, don't return it. This avoids an error while still
 		// displaying the generated documentation.
-		return fs.existsSync( docFileName ) ? docFileName : false;
+		return existsSync( docFileName ) ? docFileName : false;
 	},
 	getDestFile: ( componentPath, config ) => {
 		const kebabCaseName = getKebabCaseName( componentPath );
-		return path.join( config.outDir, '/' + kebabCaseName + '.md' );
+		return join( config.outDir, '/' + kebabCaseName + '.md' );
 	},
 	templates: {
 		component,
@@ -51,4 +52,4 @@ module.exports = {
 		methods,
 		props
 	}
-};
+} );

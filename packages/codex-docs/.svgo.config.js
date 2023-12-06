@@ -6,7 +6,7 @@
  *
  * @type {import('svgo').Config}
  */
-module.exports = {
+export default {
 	plugins: [
 		{
 			// Set of built-in plugins enabled by default.

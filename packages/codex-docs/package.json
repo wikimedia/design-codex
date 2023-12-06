@@ -1,6 +1,7 @@
 {
 	"name": "codex-docs",
 	"private": true,
+	"type": "module",
 	"license": "GPL-2.0+",
 	"engines": {
 		"npm": ">=7.21.0",

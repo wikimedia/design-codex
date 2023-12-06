@@ -3,7 +3,7 @@
 /** @typedef {import('cheerio').Node} CheerioNode */
 /** @typedef {{ error: ( msg: string, node: CheerioNode, ast: any ) => void }} Reporter */
 
-module.exports = {
+export default {
 	rules: {
 		attr: [
 			{

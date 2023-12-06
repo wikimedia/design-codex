@@ -2,7 +2,7 @@
 /** @typedef {import('vue-docgen-cli').Templates[ 'component' ]} Component */
 
 /** @type Component */
-module.exports = function component( renderedUsage, doc, config, componentRelativePath ) {
+const componentTemplate = function ( renderedUsage, doc, config, componentRelativePath ) {
 	const { displayName, docsBlocks, tags } = doc;
 	const { author, since, version } = /** @type {Record<string, ParamTag[]>} */ ( tags ?? {} );
 
@@ -58,3 +58,5 @@ ${ renderedUsage.slots.replace( '## Slots', '### Slots' ) }
 ${ cssOnlyDocs || '' }
 `;
 };
+
+export default componentTemplate;

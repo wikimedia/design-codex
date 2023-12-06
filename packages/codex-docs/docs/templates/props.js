@@ -1,5 +1,4 @@
-const utils = require( './utils' );
-const mdclean = utils.mdclean;
+import { getTypeText, mdclean } from './utils.js';
 
 /** @typedef {import('vue-docgen-api').BlockTag} BlockTag */
 /** @typedef {import('vue-docgen-api').PropDescriptor} PropDescriptor */
@@ -61,8 +60,8 @@ const tmpl = ( props ) => {
 		p += pr.required ? '<sup class="cdx-docs-required-indicator">(required)</sup>' : '';
 		let t = pr.description ?? '';
 		t += renderTags( pr.tags );
-		const n = pr.type ? utils.getTypeText( pr.type.name ) : '';
-		const d = pr.defaultValue ? utils.getTypeText( pr.defaultValue.value ) : '';
+		const n = pr.type ? getTypeText( pr.type.name ) : '';
+		const d = pr.defaultValue ? getTypeText( pr.defaultValue.value ) : '';
 
 		ret += `| ${ mdclean( p ) } | ${ mdclean( t ) } | ${ mdclean( n ) }`;
 		// Customization: only include a values column if any of the props have something
@@ -86,7 +85,7 @@ const tmpl = ( props ) => {
  *
  * @type {import('vue-docgen-cli').Templates['props']}
  */
-module.exports = function ( props, opt = {} ) {
+const propsTemplate = function ( props, opt = {} ) {
 	// Customization: only include a values column if any of the props have something to show
 	const showValues = includeValuesCol( props );
 	const valuesHeading = showValues ? ' | Values     ' : '';
@@ -99,3 +98,5 @@ ${ !!opt.isSubComponent || opt.hasSubComponents ? '#' : '' }## Props
 ${ tmpl( props ) }
 `;
 };
+
+export default propsTemplate;

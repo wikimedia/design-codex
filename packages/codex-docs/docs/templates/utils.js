@@ -4,7 +4,7 @@
  * @param {string} input
  * @return {string}
  */
-function mdclean( input ) {
+export function mdclean( input ) {
 	return input
 		// Replace double newlines with two breaks to maintain the spacing.
 		.replace( /\r?\n\n/g, '<br/><br/>' )
@@ -21,7 +21,7 @@ function mdclean( input ) {
  * @param {string} item
  * @return {string}
  */
-function getTypeText( item ) {
+export function getTypeText( item ) {
 	/**
 	 * @param {string} str
 	 * @return {string} code markup or empty string
@@ -69,8 +69,3 @@ function getTypeText( item ) {
 
 	return formatAsCode( processText( item ) );
 }
-
-module.exports = {
-	mdclean,
-	getTypeText
-};
