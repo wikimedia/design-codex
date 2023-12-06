@@ -1,3 +1,9 @@
+# 1.1.1 / 2023-12-06
+
+## Code
+- build: Don't remove manifest-rtl.json etc from the output (Roan Kattouw)
+- build: Pin style-dictionary to 3.8.0 (Eric Gardner)
+
 # 1.1.0 / 2023-12-05
 
 ## Features
