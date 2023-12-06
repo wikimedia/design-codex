@@ -4,6 +4,15 @@
 /* stylelint-disable selector-class-pattern */
 
 :root {
+	/* syntax highlighting fixes */
+	--vp-code-block-color: rgba( 255, 255, 245, 0.86 );
+	--vp-code-block-bg: #292b30;
+	--vp-code-block-divider-color: #000;
+	--vp-code-lang-color: rgba( 235, 235, 245, 0.38 );
+	--vp-code-tab-text-color: rgba( 235, 235, 245, 0.6 );
+	--vp-code-tab-hover-text-color: rgba( 255, 255, 245, 0.86 );
+	--vp-code-tab-active-text-color: rgba( 255, 255, 245, 0.86 );
+
 	/* Override base VitePress theme variables with Codex design tokens. */
 	--vp-c-brand: var( --color-progressive );
 	--vp-c-brand-light: var( --color-progressive--hover );
