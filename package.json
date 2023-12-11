@@ -16,7 +16,7 @@
 	],
 	"engines": {
 		"npm": ">=7.21.0",
-		"node": ">=16"
+		"node": ">=18"
 	},
 	"scripts": {
 		"branch-deploy": "CODEX_BRANCH_DEPLOY=1 CODEX_PATCH_ID=$ZUUL_CHANGE npm run doc && npm run branch-deploy:sandbox && npx netlify deploy --auth $BRANCHDEPLOY_AUTH_TOKEN --site $BRANCHDEPLOY_SITE_ID --alias $ZUUL_CHANGE --dir packages/codex-docs/docs/.vitepress/dist",
