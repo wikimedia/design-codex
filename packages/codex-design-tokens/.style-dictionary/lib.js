@@ -1,23 +1,28 @@
-'use strict';
-
 /** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
 /** @typedef {import('style-dictionary').TransformedTokens} TransformedTokens */
 /** @typedef {import('style-dictionary/types/Matcher').Matcher} Matcher */
 /** @typedef {import('style-dictionary').Transform} Transform */
 /** @typedef {import('style-dictionary').Formatter} Formatter */
 /** @typedef {import('style-dictionary').Dictionary} Dictionary */
+/** @typedef {import('./types.js').PackageJson} PackageJson */
 
-const { fileHeader, createPropertyFormatter } =
-	require( 'style-dictionary' ).formatHelpers;
+import path from 'node:path';
+import { createRequire } from 'node:module';
+import StyleDictionary from 'style-dictionary';
+
+// Polyfill CommonJS require() for use in ES modules
+const require = createRequire( import.meta.url );
+
+const { formatHelpers } = StyleDictionary;
+const { fileHeader, createPropertyFormatter } = formatHelpers;
 
 // The type of sortByReference is wrong upstream, see https://github.com/amzn/style-dictionary/issues/918
 const sortByReference =
 	/** @type {( dict: Dictionary ) => ( a: TransformedToken, b: TransformedToken ) => number} */ (
 		/** @type {unknown} */ (
-			require( 'style-dictionary' ).formatHelpers.sortByReference
+			formatHelpers.sortByReference
 		)
 	);
-const path = require( 'path' );
 
 /**
  * Attribute transform that adds a "tokens" attribute, containing an array of the names of
@@ -307,12 +312,25 @@ function createCustomStyleFormatter( format ) {
 	};
 }
 
-module.exports = {
+/**
+ * Get the version number from package.json.
+ * @return {string}
+ */
+function getPackageVersion() {
+	const packageJsonPath = path.join( '..', 'package.json' );
+	/** @type {PackageJson} */
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+	const { version } = require( packageJsonPath );
+	return version;
+}
+
+export {
 	getReferencedTokens,
 	getTokenType,
 	kebabCase,
 	makePathMatcher,
 	wrapFormatterWithFilter,
 	makeRelativeUnitTransform,
-	createCustomStyleFormatter
+	createCustomStyleFormatter,
+	getPackageVersion
 };

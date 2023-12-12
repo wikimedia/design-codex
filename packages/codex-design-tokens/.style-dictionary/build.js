@@ -1,8 +1,6 @@
-'use strict';
+/** @typedef {import('./types.js').ThemeConfig} ThemeConfig */
 
-/** @typedef {import('./types').ThemeConfig} ThemeConfig */
-
-const dictFactory = require( './config' );
+import dictFactory from './config.js';
 
 // HACK: Eventually we should implement a real theme system that discovers themes based on
 // theme-foo.json files, and allows themes to specify their basePxFontSize and relativeTransform

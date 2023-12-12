@@ -1,14 +1,13 @@
-'use strict';
-
-const StyleDictionary = require( 'style-dictionary' );
-const {
+import StyleDictionary from 'style-dictionary';
+import {
 	getReferencedTokens,
 	getTokenType,
 	kebabCase,
 	makePathMatcher,
 	makeRelativeUnitTransform,
-	createCustomStyleFormatter
-} = require( './lib' );
+	createCustomStyleFormatter,
+	getPackageVersion
+} from './lib.js';
 
 /** @typedef {import('style-dictionary').Core} StyleDictionaryCore */
 /** @typedef {import('./types').ThemeConfig} ThemeConfig */
@@ -17,13 +16,14 @@ const {
  * @param {ThemeConfig} themeConfig
  * @return {StyleDictionaryCore}
  */
-module.exports = function ( themeConfig ) {
+export default function ( themeConfig ) {
 	const dict = StyleDictionary.extend( {
 		fileHeader: {
 			codexDesignTokensHeader: () => {
-				const packageJson = require( '../package.json' );
+				const packageVersion = getPackageVersion();
+
 				return [
-					'Codex Design Tokens v' + packageJson.version,
+					'Codex Design Tokens v' + packageVersion,
 					'Design System for Wikimedia',
 					'See https://doc.wikimedia.org/codex/latest/design-tokens/overview.html'
 				];
@@ -125,4 +125,4 @@ module.exports = function ( themeConfig ) {
 	} );
 
 	return dict;
-};
+}

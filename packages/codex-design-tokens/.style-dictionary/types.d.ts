@@ -6,3 +6,8 @@ export interface ThemeConfig {
 	relativeTransformPaths: string[],
 	relativeTransformExcludePaths: string[]
 }
+
+export interface PackageJson {
+	name: string,
+	version: string
+}

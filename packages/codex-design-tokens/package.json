@@ -1,6 +1,7 @@
 {
 	"name": "@wikimedia/codex-design-tokens",
 	"version": "1.2.1",
+	"type": "module",
 	"description": "Design tokens for Codex in different formats",
 	"author": "Wikimedia Foundation (https://wikimediafoundation.org/)",
 	"homepage": "https://doc.wikimedia.org/codex/",
@@ -27,7 +28,7 @@
 		"lint": "npm run lint:ts",
 		"lint:ts": "tsc --noEmit",
 		"test": "npm run lint:ts && npm run test:unit",
-		"test:unit": "jest .",
+		"test:unit": "NODE_OPTIONS=--experimental-vm-modules jest .",
 		"watch": "npm-watch",
 		"prepublishOnly": "copyfiles -u 1 \"dist/theme-*.*\" .",
 		"postpublish": "rimraf \"theme-*.*\""

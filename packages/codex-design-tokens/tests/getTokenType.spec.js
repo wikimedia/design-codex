@@ -1,8 +1,6 @@
-'use strict';
-
 /** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
 
-const { getTokenType } = require( '../.style-dictionary/lib' );
+import { getTokenType } from '../.style-dictionary/lib.js';
 
 describe( 'getTokenType', () => {
 	/** @type {[filePath: string, expectedType: string|undefined][]} */

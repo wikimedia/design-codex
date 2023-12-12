@@ -1,6 +1,4 @@
-'use strict';
-
-const { kebabCase } = require( '../.style-dictionary/lib' );
+import { kebabCase } from '../.style-dictionary/lib.js';
 
 describe( 'kebabCase', () => {
 
