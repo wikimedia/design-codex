@@ -5,12 +5,13 @@ import vue from '@vitejs/plugin-vue';
 import copyFiles from './vite-plugin-copy-files.mjs';
 import autoprefixer from 'autoprefixer';
 import postcssRtlcss from 'postcss-rtlcss';
-import { codexIconNames, getComponentEntryPoints } from './build/utils.mjs';
+import { codexIconNames, getLibEntries } from './build/utils.mjs';
 import generateCodexBundle from './build/generateCodexBundle.mjs';
 import emitAllowlist from './build/vite-plugin-emit-allowlist.mjs';
 
 const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', import.meta.url ) ) );
-const componentMap = getComponentEntryPoints( resolve( __dirname, 'src', 'components' ) );
+
+const libEntries = getLibEntries();
 
 /** @type {import('vite').UserConfig} */
 const baseConfig = {
@@ -121,7 +122,7 @@ const splitConfig = mergeConfig( baseConfig, {
 		outDir: 'dist/modules',
 
 		lib: {
-			entry: { ...componentMap },
+			entry: libEntries,
 			formats: [ 'cjs' ]
 		},
 

@@ -1,6 +1,10 @@
 import { resolve } from 'path';
-import { readdirSync, statSync } from 'fs';
+import * as url from 'url';
+import { readFileSync } from 'fs';
+import ts from 'typescript';
 import * as allIcons from '@wikimedia/codex-icons';
+
+const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', import.meta.url ) ) );
 
 export const codexIconNames = Object.keys( allIcons )
 	.filter( ( key ) => key.startsWith( 'cdxIcon' ) )
@@ -8,43 +12,41 @@ export const codexIconNames = Object.keys( allIcons )
 	.join( ', ' );
 
 /**
- * Convert a kebab-case name to PascalCase
+ * Statically analyze the lib.ts file to generate an object representing
+ * module names as keys and module paths as values. This data structure
+ * is passed to Vite as the "entry" option for library mode builds.
  *
- * @param {string} name
- * @return {string}
+ * @return {Object.<string, string>}
  */
-export function getPascalCaseName( name ) {
-	return name
-		.split( '-' )
-		.map( ( s ) => s.charAt( 0 ).toUpperCase() + s.slice( 1 ) )
-		.join( '' );
-}
+export function getLibEntries() {
+	const libPath = resolve( __dirname, '..', 'src', 'lib.ts' );
+	const lib = readFileSync( libPath, 'utf-8' );
+	const source = ts.createSourceFile( libPath, lib, ts.ScriptTarget.ES2015 );
 
-/**
- * Generate a data structure that corresponds to every component
- * in the library, represented as a record object. The keys of this
- * object are PascalCase component names, and the values are absolute
- * file paths to the corresponding Vue SFC. This data structure can be
- * passed directly to Vite as the "entry" option for library mode builds.
- *
- * @param {string} path
- * @return {Object.<string, string>} componentMap
- */
-export function getComponentEntryPoints( path ) {
-	const srcDir = readdirSync( path );
+	/** @type {Object.<string, string>} */
+	const entryMap = {};
 
-	return srcDir.reduce( ( map, component ) => {
-		const current = resolve( path, component );
-
-		if ( statSync( current ).isDirectory() ) {
-			const sfc = readdirSync( current ).find( ( f ) => f.endsWith( '.vue' ) );
-
-			if ( sfc ) {
-				const name = getPascalCaseName( component );
-				map[ `Cdx${ name }` ] = resolve( current, sfc );
-			}
+	for ( const statement of source.statements ) {
+		if ( !ts.isImportDeclaration( statement ) ) {
+			continue;
 		}
 
-		return map;
-	}, /** @type Object.<string, string> */ ( {} ) );
+		const { importClause, moduleSpecifier } = statement;
+
+		if (
+			!importClause ||
+			importClause.isTypeOnly ||
+			!importClause?.name ||
+			!ts.isStringLiteral( moduleSpecifier )
+		) {
+			continue;
+		}
+
+		const moduleName = String( importClause.name.escapedText );
+		const modulePath = resolve( __dirname, '..', 'src', moduleSpecifier.text );
+
+		entryMap[ moduleName ] = modulePath;
+	}
+
+	return entryMap;
 }
