@@ -396,7 +396,7 @@ font-size: 14px; /* 14 sp equivalent */
 
 	// Make h6 font size the same as onwiki.
 	h6 {
-		font-size: var( --font-size-small );
+		font-size: @font-size-small;
 	}
 
 	&__heading {
