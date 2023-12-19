@@ -26,8 +26,10 @@ OLDREV=$(git rev-parse HEAD^)
 NEWREV=$(git symbolic-ref -q --short HEAD || git rev-parse HEAD)
 
 git checkout HEAD^
+npm clean-install
 buildCss $OLDREV.css
 git checkout $NEWREV
+npm clean-install
 buildCss $NEWREV.css
 diff --color=always -u $OLDREV.css $NEWREV.css || true
 rm -f $OLDREV.css $NEWREV.css
