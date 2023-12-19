@@ -1,3 +1,25 @@
+# 1.2.0 / 2023-12-19
+
+## Features
+- docs: Add illustration guidelines (Derek Torsani)
+
+## Styles
+- styles: Replace falsely applied `font-size-base` with `font-size-medium` (Volker E)
+
+## Code
+- build: Migrate codex-docs package to ESM (Eric Gardner)
+- build: Upgrade expected node from 16 to 18 (James D. Forrester)
+- build: Make modular build entries explicit (Ty Hopp)
+- build: Make icons explicit runtime dep of codex package (Ty Hopp)
+- build: Automatically update codex-icons dependency for new releases (Roan Kattouw)
+- build: Rerun npm install after switching branches in diff-css.sh (Roan Kattouw)
+- nvmrc: Update to Node 18 now we've moved CI (James D. Forrester)
+
+## Documentation
+- docs: Adjust sidebar outline marker size (Ty Hopp)
+- docs: Fix minor issues in 4 component images (Volker E)
+- docs: Use Less variable in order to have rules applied (Volker E)
+
 # 1.1.1 / 2023-12-06
 
 ## Code
