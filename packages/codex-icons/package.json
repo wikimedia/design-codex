@@ -12,7 +12,7 @@
 	"license": "MIT",
 	"engines": {
 		"npm": ">=7.21.0",
-		"node": ">=16"
+		"node": ">=18"
 	},
 	"main": "dist/codex-icons.js",
 	"module": "dist/codex-icons.mjs",

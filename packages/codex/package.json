@@ -21,7 +21,7 @@
 	"license": "GPL-2.0+",
 	"engines": {
 		"npm": ">=7.21.0",
-		"node": ">=16"
+		"node": ">=18"
 	},
 	"main": "dist/codex.js",
 	"module": "dist/codex.mjs",

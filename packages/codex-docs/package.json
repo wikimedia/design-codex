@@ -5,7 +5,7 @@
 	"license": "GPL-2.0+",
 	"engines": {
 		"npm": ">=7.21.0",
-		"node": ">=16"
+		"node": ">=18"
 	},
 	"scripts": {
 		"build": "npm run minify:svg && npm run mw-examples:build && npm run docgen:build && npm run vitepress:build && npm run demos:build",
