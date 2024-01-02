@@ -189,9 +189,13 @@ empty. On click, the clear button will set the input value to an empty string.
 
 <template v-slot:code>
 
-```vue-html
-<cdx-text-input :clearable="true" />
-```
+:::code-group
+
+<<< @/../component-demos/text-input/examples/TextInputWithClearable.vue [NPM]
+
+<<< @/../component-demos/text-input/examples-mw/TextInputWithClearable.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>
