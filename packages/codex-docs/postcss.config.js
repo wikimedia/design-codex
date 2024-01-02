@@ -10,10 +10,17 @@
 import autoprefixer from 'autoprefixer';
 import postcssRtlcss from 'postcss-rtlcss';
 import scoped from './postcss-plugin-scoped.js';
+import { postcssIsolateStyles } from 'vitepress';
 
 export default {
 	/** @type {import('postcss').AcceptedPlugin[]} */
 	plugins: [
+		postcssIsolateStyles( {
+			// Don't include styles from these files inside elements with class `.vp-raw`. This is
+			// used to prevent styles for the docs site from polluting the demo pane (see T296106).
+			// This targets VitePress's vp-doc.css and base.css files, and our custom.css file.
+			includeFiles: [ /vp-doc\.css/, /base\.css/, /custom\.css/ ]
+		} ),
 		scoped( {
 			// Apply rtlcss to the Codex components so that we can demonstrate them in LTR or RTL.
 			// The component demo examples are never shown in RTL, but they also need to have

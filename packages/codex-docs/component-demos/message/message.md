@@ -701,5 +701,10 @@ Message content can contain markup like bold text and links.
 			margin-bottom: @spacing-200;
 		}
 	}
+
+	p {
+		// Remove margins on p tags in the multiline message demos.
+		margin: 0;
+	}
 }
 </style>

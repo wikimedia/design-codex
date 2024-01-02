@@ -85,7 +85,7 @@ states will be attributed to each Tab item.
 
 Two stylistic variants are available, quiet (the default) and framed.
 
-<cdx-demo-wrapper :controls-config="controlsConfig">
+<cdx-demo-wrapper :controls-config="controlsConfig" :allow-link-styles="true">
 <template v-slot:demo="{ propValues }">
 	<basic-tabs v-bind="propValues" />
 </template>
@@ -381,29 +381,3 @@ Keyboard navigation between tabs can only be done via the Tab key. Arrow keys wi
 
 </template>
 </cdx-demo-wrapper>
-
-
-<style lang="less" scoped>
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-
-// Override VitePress styles.
-// TODO: remove this once T296106 is complete.
-.cdx-demo-wrapper {
-	:deep( h2 ) {
-		margin: 0 0 @spacing-150;
-		border-top: 0;
-		border-bottom: 1px solid #c8ccd1;
-		padding-bottom: @spacing-25;
-	}
-
-	:deep( h3 ) {
-		margin-top: 0;
-	}
-
-	/* stylelint-disable-next-line selector-class-pattern */
-	:deep( .language-html code ) {
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-		tab-size: 2;
-	}
-}
-</style>

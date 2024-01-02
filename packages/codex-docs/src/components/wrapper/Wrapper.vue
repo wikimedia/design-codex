@@ -9,7 +9,10 @@
 			class="cdx-demo-wrapper__demo-pane"
 			:dir="direction"
 		>
-			<div class="cdx-demo-wrapper__demo-pane__demo" @mousedown.capture="onDemoMousedown">
+			<div
+				class="vp-raw cdx-demo-wrapper__demo-pane__demo"
+				@mousedown.capture="onDemoMousedown"
+			>
 				<!-- The key is used to allow resetting the component -->
 				<slot
 					:key="demoRenderKey"
@@ -464,17 +467,6 @@ export default defineComponent( {
 .cdx-demo-wrapper {
 	margin-top: @spacing-100;
 
-	// Unset VitePress link styles (which have an unfortunately high specificity) in the demo
-	// pane, unless they have explicitly been allowed.
-	// TODO: remove this once T296106 is complete.
-	&:not( .cdx-demo-wrapper--allow-link-styles ) {
-		a,
-		a:hover {
-			color: initial;
-			text-decoration: @text-decoration-none;
-		}
-	}
-
 	&__demo-pane {
 		position: relative;
 		border: @border-subtle;
@@ -517,14 +509,32 @@ export default defineComponent( {
 			}
 		}
 
-		// Remove VitePress's opinionated styles.
-		// TODO: remove this once T296106 is complete.
+		// Set consistent margins on p elements (to override browser styles).
 		p {
-			margin: 0;
+			margin: 0 0 @spacing-100;
 		}
 
-		li + li {
-			margin-top: 0;
+		p:last-child {
+			margin-bottom: 0;
+		}
+
+		// Special styles for text within the demo pane, e.g. a label for the selected value.
+		.cdx-docs-demo-text {
+			font-weight: var( --font-weight-bold );
+		}
+	}
+
+	// Demos don't get link styles from VitePress because of the `vp-raw` class, but sometimes we
+	// want properly styled links (like in the content of a Message demo). This class is added when
+	// the `allow-link-styles` prop is provided to the Wrapper.
+	&--allow-link-styles {
+		a {
+			color: @color-progressive;
+			text-decoration: @text-decoration-none;
+		}
+
+		a:hover {
+			text-decoration: @text-decoration-underline;
 		}
 	}
 

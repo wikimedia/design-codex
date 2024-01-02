@@ -1,0 +1,21 @@
+/**
+ * Special styles to make code blocks readable in browsers that don't support `:where()`.
+ *
+ * See T296106 for more info.
+ */
+
+:root {
+	--vp-code-block-bg: #292b30;
+}
+
+/* stylelint-disable selector-class-pattern */
+
+.vp-doc div[ class*='language-' ] {
+	/* Make background dark so the light text has contrast. */
+	background-color: var( --vp-code-block-bg );
+}
+
+.vp-doc [ class*='language-' ] pre {
+	/* Add horizontal scrolling if needed, so code doesn't overflow the container. */
+	overflow-x: auto;
+}
