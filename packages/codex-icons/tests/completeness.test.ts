@@ -1,6 +1,11 @@
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
+import { readFileSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { globSync } from 'glob';
+
+// Polyfill for legacy CommonJS references
+const __filename = fileURLToPath( import.meta.url );
+const __dirname = dirname( __filename );
 
 describe( 'all image files are used', () => {
 	const iconsTs = readFileSync( resolve( __dirname, '../src/icons.ts' ), { encoding: 'utf-8' } );

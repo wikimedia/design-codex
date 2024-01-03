@@ -1,5 +1,5 @@
 import { Icon } from '../src/types';
-import { getLessVariableName, getIconOutput } from '../buildIconsLess';
+import { getLessVariableName, getIconOutput } from '../build/utils';
 import {
 	exampleSvgIcon,
 	exampleFlipIcon,

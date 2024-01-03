@@ -3,7 +3,7 @@
  *
  * @type {import('svgo').CustomPlugin}
  */
-module.exports = {
+export default {
 	name: 'removeSvgTag',
 	fn() {
 		return {

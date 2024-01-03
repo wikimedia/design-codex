@@ -1,6 +1,11 @@
-import { existsSync, readFileSync } from 'fs';
-import { resolve } from 'path';
+import { existsSync, readFileSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import * as allIcons from '../src/icons';
+
+// Polyfill for legacy CommonJS references
+const __filename = fileURLToPath( import.meta.url );
+const __dirname = dirname( __filename );
 
 describe( 'type definitions', () => {
 	const iconDefsPath = resolve( __dirname, '../dist/types/icons.d.ts' );
@@ -22,6 +27,6 @@ describe( 'type definitions', () => {
 			const match = /^export declare const (cdxIcon[a-zA-Z0-9]+):/.exec( line );
 			return match ? match[ 1 ] : null;
 		} ).filter( Boolean );
-		expect( typedefIcons ).toEqual( Object.keys( allIcons ) );
+		expect( typedefIcons.sort() ).toEqual( Object.keys( allIcons ).sort() );
 	} );
 } );

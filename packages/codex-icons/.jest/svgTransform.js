@@ -1,8 +1,8 @@
-const { optimize } = require( 'svgo' );
-const removeSvgTag = require( '../svgo-plugin-removeSvgTag' );
+import { optimize } from 'svgo';
+import removeSvgTag from '../svgo-plugin-removeSvgTag.js';
 
 // See https://jestjs.io/docs/en/tutorial-react#custom-transformers.
-module.exports = {
+export default {
 	/**
 	 * Accepts a file's contents and returns the transformed result.
 	 *

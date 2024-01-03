@@ -1,7 +1,10 @@
 {
 	"rootDir": "..",
 	"transform": {
-		".+\\.ts$": "ts-jest",
+		".+\\.ts$": [
+			"ts-jest",
+			{ "useESM": true }
+		],
 		"src/images/.+\\.svg$": "<rootDir>/.jest/svgTransform.js"
 	},
 	"testEnvironment": "jsdom",
@@ -28,5 +31,6 @@
 		"!<rootDir>/src/images/**"
 	],
 	"coverageDirectory": "<rootDir>/coverage",
-	"errorOnDeprecated": true
+	"errorOnDeprecated": true,
+	"extensionsToTreatAsEsm": [ ".ts" ]
 }

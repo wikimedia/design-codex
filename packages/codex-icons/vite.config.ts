@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import rawSvg from './vite-plugin-raw-svg';
 import typescript from '@rollup/plugin-typescript';
 
-module.exports = defineConfig( {
+export default defineConfig( {
 	build: {
 		target: 'es2015',
 		minify: true,

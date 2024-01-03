@@ -1,23 +1,4 @@
-const { writeFileSync, existsSync } = require( 'fs' );
-const path = require( 'path' );
-
-/** @typedef {import('./src/types').Icon} Icon */
-
-const iconsFile = path.resolve( __dirname, 'dist/codex-icons.js' );
-if ( !existsSync( iconsFile ) ) {
-	throw new Error( `File not found: ${ iconsFile }\nRun 'npm run build' first to build this file` );
-}
-
-/** @type {Record<string,Icon>} */
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-const iconsExport = require( iconsFile );
-/** @type {Record<string,Icon>} */
-const allIcons = {};
-for ( const key in iconsExport ) {
-	if ( key.startsWith( 'cdxIcon' ) ) {
-		allIcons[ key ] = iconsExport[ key ];
-	}
-}
+/** @typedef {import('../src/types').Icon} Icon */
 
 /**
  * Transform an icon's name into a Less variable name.
@@ -27,7 +8,7 @@ for ( const key in iconsExport ) {
  * @param {string} iconName
  * @return {string}
  */
-const getLessVariableName = ( iconName ) => {
+export function getLessVariableName( iconName ) {
 	return '@' + iconName.split( '' ).map( ( letter, index ) => {
 		// If the letter is uppercase, add a dash before it (unless it's the first letter), then
 		// transform the letter to lowercase. Otherwise, just add the letter as-is.
@@ -35,7 +16,7 @@ const getLessVariableName = ( iconName ) => {
 			`${ index !== 0 ? '-' : '' }${ letter.toLowerCase() }` :
 			letter;
 	} ).join( '' );
-};
+}
 
 /**
  * Encode an SVG string for safe use in a data URI.
@@ -46,7 +27,9 @@ const getLessVariableName = ( iconName ) => {
  * @param {string} svg
  * @return {string}
  */
-const encodeSvg = ( svg ) => svg.replace( /#/g, ( char ) => encodeURIComponent( char ) );
+export function encodeSvg( svg ) {
+	return svg.replace( /#/g, ( char ) => encodeURIComponent( char ) );
+}
 
 /**
  * Build a comma-separated list of icon data to be used as the value of a Less variable.
@@ -65,7 +48,7 @@ const encodeSvg = ( svg ) => svg.replace( /#/g, ( char ) => encodeURIComponent( 
  * @param {Icon} icon
  * @return {string}
  */
-const getIconOutput = ( lessVariableName, icon ) => {
+export function getIconOutput( lessVariableName, icon ) {
 	let defaultIcon = '';
 	let shouldFlip = 'false';
 	let flipExceptions = 'false';
@@ -126,23 +109,4 @@ const getIconOutput = ( lessVariableName, icon ) => {
 	iconOutput += ';\n';
 
 	return iconOutput;
-};
-
-/** @type {string} */
-let output = '';
-for ( const iconName in allIcons ) {
-	const lessVariableName = getLessVariableName( iconName );
-	const icon = allIcons[ iconName ];
-	output += getIconOutput( lessVariableName, icon );
 }
-
-writeFileSync(
-	path.resolve( __dirname, 'dist/codex-icon-paths.less' ),
-	output,
-	{ encoding: 'utf-8' }
-);
-
-module.exports = {
-	getLessVariableName,
-	getIconOutput
-};

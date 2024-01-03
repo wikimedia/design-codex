@@ -1,6 +1,7 @@
 {
 	"name": "@wikimedia/codex-icons",
 	"version": "1.2.1",
+	"type": "module",
 	"description": "Icons for Codex",
 	"author": "Wikimedia Foundation (https://wikimediafoundation.org/)",
 	"homepage": "https://doc.wikimedia.org/codex/",
@@ -15,7 +16,7 @@
 		"node": ">=18"
 	},
 	"main": "dist/codex-icons.js",
-	"module": "dist/codex-icons.mjs",
+	"module": "dist/codex-icons.js",
 	"types": "./dist/types/index.d.ts",
 	"files": [
 		"dist",
@@ -24,8 +25,8 @@
 	"exports": {
 		".": {
 			"types": "./dist/types/index.d.ts",
-			"import": "./dist/codex-icons.mjs",
-			"require": "./dist/codex-icons.js"
+			"import": "./dist/codex-icons.js",
+			"require": "./dist/codex-icons.cjs"
 		},
 		"./dist/*": "./dist/*",
 		"./codex-icon-paths.less": "./dist/codex-icon-paths.less"
@@ -33,8 +34,8 @@
 	"scripts": {
 		"build": "npm run minify:svg && npm run build:vite && npm run build:svg && npm run build:json && npm run build:less && npm run test:output",
 		"build:vite": "vite build",
-		"build:json": "node ./buildIconsJson.js",
-		"build:less": "node ./buildIconsLess.js",
+		"build:json": "node ./build/buildIconsJson.js",
+		"build:less": "node ./build/buildIconsLess.js",
 		"build:svg": "cp -a src/images dist/",
 		"build-if-missing": "test -e dist/codex-icons.json || npm run build",
 		"lint": "npm run lint:svg && npm run lint:ts",
@@ -42,7 +43,7 @@
 		"lint:ts": "tsc -p ./tsconfig-check.json",
 		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder ./src/images",
 		"test": "npm run lint && npm run build && npm run test:clean-git && npm run test:unit",
-		"test:unit": "jest -c .jest/jest.config.json",
+		"test:unit": "NODE_OPTIONS=--experimental-vm-modules jest -c .jest/jest.config.json",
 		"test:output": "npm run test:unit -- tests/outputTypes.test.ts --coverage=false",
 		"test:clean-git": "test $(git diff ./src/images | wc -l) -eq 0 || (echo 'Uncommitted SVG changes:'; git diff ./src/images; false)",
 		"prepublishOnly": "cp dist/codex-icon-paths.less .",

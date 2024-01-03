@@ -3,7 +3,7 @@
 /** @typedef {import('cheerio').Node} CheerioNode */
 /** @typedef {{ error: ( msg: string, node: CheerioNode, ast: any ) => void }} Reporter */
 
-module.exports = {
+export default {
 	rules: {
 		elm: {
 			// Require a `<title>` element to exist, and require it to be a direct child

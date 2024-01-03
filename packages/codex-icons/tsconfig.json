@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"target": "es2015",
 		"useDefineForClassFields": true,
-		"module": "es2015",
+		"module": "ESNext",
 		"moduleResolution": "node",
 		"strict": true,
 		"resolveJsonModule": true,
@@ -16,5 +16,10 @@
 		"allowJs": true,
 		"checkJs": true
 	},
-	"include": [ "src/**/*.ts", "src/**/*.d.ts", "src/**/*.js" ]
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"src/**/*.js",
+		"build/**/*.js"
+	]
 }
