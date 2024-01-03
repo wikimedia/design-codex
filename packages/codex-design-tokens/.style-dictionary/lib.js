@@ -212,15 +212,32 @@ function kebabCase( token ) {
  * This code is largely copied from style-dictionary's own css/variables formatter,
  * but it adds deprecation comments based on the 'deprecated' property.
  *
- * @param {'css'|'less'|'sass'} format
+ * @param {'css'|'less'|'sass'|'javascript/es6'} format
  * @return {Formatter}
  */
 function createCustomStyleFormatter( format ) {
 	const commentStyle = ( {
 		css: 'long',
 		less: 'short',
-		sass: 'short'
+		sass: 'short',
+		'javascript/es6': 'short'
 	} )[ format ];
+
+	/**
+	 * Format a JS token.
+	 *
+	 * Duplicated from javascript/es6 in style-dictionary/lib/common/format.js
+	 *
+	 * @param {TransformedToken} token
+	 * @return {string}
+	 */
+	function jsFormatter( token ) {
+		let toRet = 'export const ' + token.name + ' = ' + JSON.stringify( token.value ) + ';';
+		if ( token.comment ) {
+			toRet = toRet.concat( ' // ' + token.comment );
+		}
+		return toRet;
+	}
 
 	return function ( { dictionary, options, file } ) {
 		// Duplicated from css/variables in style-dictionary/lib/common/format.js
@@ -239,7 +256,7 @@ function createCustomStyleFormatter( format ) {
 			allTokens = [ ...allTokens ].sort( sortByReference( dictionary ) );
 		}
 
-		const formatter = createPropertyFormatter( { outputReferences, dictionary, format } );
+		const formatter = format === 'javascript/es6' ? jsFormatter : createPropertyFormatter( { outputReferences, dictionary, format } );
 
 		// Filter out theme tokens
 		// HACK this should ideally be done through Style Dictionary's filter feature,

@@ -76,6 +76,28 @@ export default function ( themeConfig ) {
 						format: 'json'
 					}
 				]
+			},
+			javascript: {
+				prefix: 'cdx',
+				transforms: [
+					'name/cti/camel',
+					'attr/tokenList',
+					'attr/tokenType',
+					'value/relativeUnit'
+				],
+				basePxFontSize: themeConfig.basePxFontSize,
+				buildPath: 'dist/',
+				options: {
+					// Reference to registered fileHeader above.
+					// Apply to all files in this platform.
+					fileHeader: 'codexDesignTokensHeader'
+				},
+				files: [
+					{
+						destination: `theme-${ themeConfig.themeName }.js`,
+						format: 'custom/format/js'
+					}
+				]
 			}
 		}
 	} );
@@ -122,6 +144,11 @@ export default function ( themeConfig ) {
 	dict.registerFormat( {
 		name: 'custom/format/scss',
 		formatter: createCustomStyleFormatter( 'sass' )
+	} );
+
+	dict.registerFormat( {
+		name: 'custom/format/js',
+		formatter: createCustomStyleFormatter( 'javascript/es6' )
 	} );
 
 	return dict;
