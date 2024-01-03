@@ -5,15 +5,19 @@
  */
 module.exports = {
 	name: 'removeSvgTag',
-	type: 'full',
-	fn( rootNode ) {
-		const svgTag = rootNode.children[ 0 ];
-		// We know rootNode.children[ 0 ] is the <svg> tag and is of type 'element',
-		// but do the check anyway to make TypeScript happy.
-		if ( svgTag.type === 'element' ) {
-			// Unwrap svgTag.
-			rootNode.children = svgTag.children;
-		}
-		return rootNode;
+	fn() {
+		return {
+			root: {
+				// Unwrap the top-level <svg> element from the root node
+				// and return its contents
+				enter( rootNode ) {
+					const svgTag = rootNode.children[ 0 ];
+					if ( svgTag.type === 'element' ) {
+						rootNode.children = svgTag.children;
+					}
+					return rootNode;
+				}
+			}
+		};
 	}
 };
