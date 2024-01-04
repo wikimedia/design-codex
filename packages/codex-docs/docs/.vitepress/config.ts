@@ -149,7 +149,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Developing components', link: '/contributing/contributing-code/developing-components' },
 						{ text: 'Testing components', link: '/contributing/contributing-code/testing-components' },
 						{ text: 'Component demos', link: '/contributing/contributing-code/component-demos' },
-						{ text: 'Working with TypeScript', link: '/contributing/contributing-code/typescript' }
+						{ text: 'Working with TypeScript', link: '/contributing/contributing-code/typescript' },
+						{ text: 'Adding new icons', link: '/contributing/contributing-code/adding-new-icons' }
 					]
 				}
 			],
@@ -270,8 +271,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 					text: 'Icons',
 					items: [
 						{ text: 'Overview', link: '/icons/overview' },
-						{ text: 'List of all icons', link: '/icons/all-icons' },
-						{ text: 'Adding new icons', link: '/icons/adding-new' }
+						{ text: 'List of all icons', link: '/icons/all-icons' }
 					]
 				}
 			],

@@ -16,9 +16,9 @@ const cdxIconListNumberedWronglyFlipped = {
 # Adding new icons
 
 This guide assumes you've already read through and designed your new icon according to the
-style guide's [icon principles](../style-guide/icons.md#principles),
-the [visual style guidelines](../style-guide/icons.md#visual-style)
-and perhaps even followed the [template for creating](../style-guide/icons.md#creating-icons) the
+style guide's [icon principles](../../style-guide/icons.md#principles),
+the [visual style guidelines](../../style-guide/icons.md#visual-style)
+and perhaps even followed the [template for creating](../../style-guide/icons.md#creating-icons) the
 new one before arriving on this page.
 
 ## The basics

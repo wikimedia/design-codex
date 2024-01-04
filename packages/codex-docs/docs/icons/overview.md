@@ -16,6 +16,11 @@ Codex contains a collection of {{ numberOfIcons }} icons that can be used to con
 or other information visually. See [all icons](./all-icons.md) a full list of available icons per
 directionality and language.
 
+If you're interested in adding a new icon to Codex, visit the contributing docs to learn about
+[designing new icons](../contributing/designing-icons.md) and
+[implementing new icons](../contributing/contributing-code/adding-new-icons.md) in the
+`@wikimedia/codex-icons` package.
+
 ## Using icons
 
 Import icons from the `@wikimedia/codex-icons` package individually, like this:
