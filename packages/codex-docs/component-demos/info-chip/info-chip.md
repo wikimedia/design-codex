@@ -87,7 +87,7 @@ InfoChip is purely informative so it only uses the `default` state.
 
 </cdx-demo-wrapper>
 
-#### Default, with icon
+### Default, with icon
 Custom icons can only be used with the `notice` status. If they are passed with
 a different status, they will be ignored.
 
@@ -109,13 +109,25 @@ a different status, they will be ignored.
 </template>
 </cdx-demo-wrapper>
 
-#### Long Text
+### Long Text
 It is generally best practice to use short text with the InfoChip. Long text
 content will be truncated with an ellipsis and lines will not be wrapped.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<chip-with-long-text />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/info-chip/examples/ChipWithLongText.vue [NPM]
+
+<<< @/../component-demos/info-chip/examples-mw/ChipWithLongText.vue [MediaWiki]
+
+:::
+
 </template>
 </cdx-demo-wrapper>
 
