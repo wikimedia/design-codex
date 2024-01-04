@@ -231,6 +231,20 @@ export default defineComponent( {
 		);
 	}
 
+	// Ensure background image rules for CSS start icon
+	&__icon&__start-icon {
+		.cdx-mixin-css-icon-background();
+	}
+
+	// Ensure CSS end icon is size small and it's height is consistent with the Vue icon.
+	&__icon&__end-icon {
+		// Note: the icon-size mixin overrides the height property @size-150 (via cdx-mixin-icon)
+		// therefore, we override height again to get the desired height of @size-150
+		.cdx-mixin-css-icon-size( @size-icon-small );
+		.cdx-mixin-css-icon-background( @size-icon-small );
+		height: @size-150;
+	}
+
 	&__textarea {
 		display: block;
 		box-sizing: @box-sizing-base;
@@ -271,6 +285,10 @@ export default defineComponent( {
 				color: @color-placeholder;
 			}
 
+			~ .cdx-text-area__icon {
+				opacity: @opacity-icon-placeholder;
+			}
+
 			&:hover {
 				border-color: @border-color-input--hover;
 			}
@@ -279,6 +297,10 @@ export default defineComponent( {
 			&.cdx-text-area__textarea--has-value {
 				~ .cdx-text-area__icon-vue.cdx-icon {
 					color: @color-base;
+				}
+
+				~ .cdx-text-area__icon {
+					opacity: @opacity-base;
 				}
 			}
 
@@ -302,6 +324,11 @@ export default defineComponent( {
 			/* stylelint-disable-next-line no-descending-specificity */
 			~ .cdx-text-area__icon-vue.cdx-icon {
 				color: @color-disabled;
+			}
+
+			/* stylelint-disable-next-line no-descending-specificity */
+			~ .cdx-text-area__icon {
+				opacity: @opacity-icon-base--disabled;
 			}
 		}
 

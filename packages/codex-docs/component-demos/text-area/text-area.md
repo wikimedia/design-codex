@@ -339,3 +339,202 @@ emitted events and their properties.
 ::: tip Attributes passed to textarea
 This component will pass any HTML attributes applied to it, except for CSS class, to the `<textarea>` element within the component.
 :::
+
+## CSS-only version
+
+### Markup structure
+
+The CSS-only TextArea component consists of a `<div>` wrapping an `<textarea>` element.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-text-area">
+		<textarea class="cdx-text-area__textarea" placeholder="Start typing..."></textarea>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<!-- Wrapper div. -->
+<div class="cdx-text-area">
+	<!-- Textarea element with CSS class and attributes. -->
+	<textarea class="cdx-text-area__textarea" placeholder="Start typing..."></textarea>
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### With icons
+
+You can use [CSS-only icons](./icon.md#css-only-version) to add start and end icons to the textarea.
+
+#### Using CSS-only icons
+
+I. Add classes to elements.
+
+You'll need the following CSS classes on the root element:
+- Start icon: `.cdx-text-area--has-start-icon`
+- End icon: `.cdx-text-area--has-end-icon`
+
+The icons will be `<span>` elements with the `.cdx-text-area__icon` class, plus:
+- Start icon: `.cdx-text-area__start-icon`
+- End icon: `.cdx-text-area__end-icon`
+
+You will need to add your own CSS classes to set the icon styles and background image.
+
+II. Choose an icon ([list of all icons](/icons/all-icons.html#list-of-all-icons)) to set the background image.
+
+You'll set the background image of the `<span>` with the icon of your choosing by utilizing a Less mixin built into Codex called `.cdx-mixin-css-icon-background-image`.
+
+In the example below, we've chosen cdxIconNotBright as the start icon and added a class called `cdx-demo-css-icon--not-bright` to the `<span>`. In your stylesheet, the selector, `cdx-demo-css-icon--not-bright`, will call the background image mixin and pass in the icon name of your choice. The icon name is passed in the mixin as a argument and is in lower-case and separated by hyphens: `.cdx-mixin-css-icon-background-image( @cdx-icon-not-bright );`.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-text-area cdx-text-area--has-start-icon cdx-text-area--has-end-icon">
+		<textarea class="cdx-text-area__textarea"></textarea>
+		<span class="cdx-text-area__icon cdx-text-area__start-icon cdx-demo-css-icon--not-bright"></span>
+		<span class="cdx-text-area__icon cdx-text-area__end-icon cdx-demo-css-icon--info-filled"></span>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-text-area cdx-text-area--has-start-icon cdx-text-area--has-end-icon">
+	<textarea class="cdx-text-area__textarea"></textarea>
+	<span class="cdx-text-area__icon cdx-text-area__start-icon cdx-demo-css-icon--not-bright"></span>
+	<span class="cdx-text-area__icon cdx-text-area__end-icon cdx-demo-css-icon--info-filled"></span>
+</div>
+```
+
+:::code-group
+
+```less [NPM]
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon {
+	&--not-bright {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-not-bright );
+	}
+
+	&--info-filled {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-info-filled );
+	}
+}
+```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon {
+	&--not-bright {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-not-bright );
+	}
+
+	&--info-filled {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-info-filled );
+	}
+}
+```
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### Disabled
+
+Add the `disabled` attribute to the `<textarea>` element for a disabled textarea.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-text-area cdx-text-area--has-start-icon cdx-text-area--has-end-icon">
+		<textarea class="cdx-text-area__textarea" placeholder="Start typing..." disabled></textarea>
+		<span class="cdx-text-area__icon cdx-text-area__start-icon cdx-demo-css-icon--not-bright"></span>
+		<span class="cdx-text-area__icon cdx-text-area__end-icon cdx-demo-css-icon--info-filled"></span>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-text-area cdx-text-area--has-start-icon cdx-text-area--has-end-icon">
+	<textarea class="cdx-text-area__textarea" placeholder="Start typing..." disabled></textarea>
+	<span class="cdx-text-area__icon cdx-text-area__start-icon cdx-demo-css-icon--not-bright"></span>
+	<span class="cdx-text-area__icon cdx-text-area__end-icon cdx-demo-css-icon--info-filled"></span>
+</div>
+```
+
+:::code-group
+
+```less [NPM]
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon {
+	&--not-bright {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-not-bright );
+	}
+
+	&--info-filled {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-info-filled );
+	}
+}
+```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon {
+	&--not-bright {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-not-bright );
+	}
+
+	&--info-filled {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-info-filled );
+	}
+}
+```
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### Error state
+
+Add the `.cdx-text-area--status-error` class to the root element to show error styles.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-text-area cdx-text-area--status-error">
+		<textarea class="cdx-text-area__textarea" value="Something's wrong"></textarea>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-text-area cdx-text-area--status-error">
+	<textarea class="cdx-text-area__textarea" value="Something's wrong"></textarea>
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+<style lang="less" scoped>
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon {
+	&--not-bright {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-not-bright );
+	}
+
+	&--info-filled {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-info-filled );
+	}
+}
+</style>
