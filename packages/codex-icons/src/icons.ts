@@ -1,3 +1,10 @@
+/**
+ * Icon definitions.
+ *
+ * Icons are listed in alphabetical order. See types.ts or the "Adding new icons" documentation at
+ * https://doc.wikimedia.org/codex/latest/icons/adding-new.html#adding-the-icon-definition
+ */
+
 import {
 	IconFlipForRtl,
 	IconVariedByLang,

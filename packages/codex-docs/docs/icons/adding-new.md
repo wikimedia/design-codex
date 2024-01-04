@@ -18,47 +18,71 @@ const cdxIconListNumberedWronglyFlipped = {
 This guide assumes you've already read through and designed your new icon according to the
 style guide's [icon principles](../style-guide/icons.md#principles),
 the [visual style guidelines](../style-guide/icons.md#visual-style)
-and perhaps even followed the [template for creating](
-https://design.wikimedia.org/style-guide/visual-style_icons.html#creating-icons) the new one before
-arriving on this page.
+and perhaps even followed the [template for creating](../style-guide/icons.md#creating-icons) the
+new one before arriving on this page.
+
+## The basics
 
 When adding a new icon, you should:
-- Add the `.svg` file(s) for the icon to the `packages/codex-icons/src/images/` directory
+- Add the SVG file(s) for the icon to the `packages/codex-icons/src/images/` directory
+- Optimize the SVG file(s)
 - Add the icon definition to `packages/codex-icons/src/icons.ts`
 
-## Naming the icon files
-Icon names in `icons.ts` have the form `cdxIconFooBar`, e.g. `cdxIconFullScreen`. The
-corresponding icon files have the same name but in lowerCamelCase, e.g. `fooBar.svg` or
-`fullScreen.svg`. If there are multiple SVG files for the same icon, those are named
-`iconName-suffix.svg`, e.g. `imageAdd-rtl.svg` or `italic-i.svg`.
-The icon name should describe the icon, not its application, e.g. `bell` instead of `notification`.
+## Internationalization and localization
+In general, we aim to provide universal icons rather than culturally-specific ones. Nonetheless, in
+order for the system to put the user into the center, Codex allows specific overrides in its icon
+system to support directionality- or language-specific overrides to achieve great usability in many
+languages. A few examples of such icons:
 
-## SVG conventions
-Follow these conventions when crafting `.svg` files for icons:
-- Icons have to be 20x20 pixels. Set `width="20" height="20" viewbox="0 0 20 20"` on the `<svg>`
+- Some icons are horizontally flipped between left-to-right (LTR) and right-to-left (RTL) contexts
+- Some icons use different SVGs for LTR and RTL
+- Some icons use different SVGs for different languages
+
+This page contains instructions for adding all of these icon variants and more.
+
+## Conventions
+
+### Naming
+The icon's name should describe the icon, not its application, e.g. `bell` instead of
+`notification`.
+
+Icon files should be named with the icon name in lowerCamelCase, e.g. `fooBar.svg` or
+`fullScreen.svg`. If there are multiple SVG files for the same icon, those are named `iconName-suffix.svg`, e.g. `imageAdd-rtl.svg` or `italic-i.svg` (more on this below).
+
+The variable name of the icon definition in `packages/codex-icons/src/icons.ts` should be in
+lowerCamelCase and consist of the prefix `cdxIcon` followed by the icon name, e.g.
+`cdxIconFullScreen` for the `fullScreen` icon. Icon definitions in this file are in alphabetical
+order.
+
+### SVG conventions
+Follow these conventions when crafting SVG files for icons:
+- Icons must be 20x20 pixels. Set `width="20" height="20" viewbox="0 0 20 20"` on the `<svg>`
   tag.
 - Icons should include a `<title>` tag with the name of the icon.
-- Icons have to be monochrome (only default black color), and should not hard-code this color. This
+- Icons must be monochrome (only default black color), and should not hard-code this color. This
   means the `fill` attribute should not be used.
 
-Icons are also optimized using SVGO during the build process. Codex follows
-[MediaWiki's SVG coding convention](https://www.mediawiki.org/wiki/Manual:Coding_conventions/SVG),
-compare configuration in '.svgo.config.js' file in `codex-icons` package root folder. Note that this
-optimization step *overwrites the icon files* in the `src/images` directory, and removes any
-`<!-- comments -->`
-in the `.svg` files.
+#### SVG optimization
 
-##  Internationalization and localization
-In general the Design System's aim is to provide universal rather than culturally-specific icons.
-Nonetheless, in order for the system to put the user into the center, Codex allows specific overrides in its icon system to accustom directionality or language specific overrides to achieve great usability in many languages.
+Icons are also optimized using SVGO during the build process. Codex follows
+[MediaWiki's SVG coding conventions](https://www.mediawiki.org/wiki/Manual:Coding_conventions/SVG),
+which are captured in the `.svgo.config.js` configuration file in the `@wikimedia/codex-icons`
+package root folder. Note that this optimization step *overwrites the icon files* in the
+`src/images` directory, and removes any `<!-- comments -->` in the SVG files.
+
+To optimize the new icon file(s), run `npm run minify:svg -w @wikimedia/codex-icons` in the root of
+the `codex` repository. Be sure to commit the optimized file(s).
+
+## How to add each type of icon
 
 ### Simple unidirectional icons
-For a simple icon that doesn't vary by directionality (LTR/RTL) or language, use a single `.svg`
-file named in lowerCamelCase, e.g. `fullScreen.svg`. Add an icon definition to `icons.ts`
-that looks like this:
+For a simple icon that doesn't vary by directionality (LTR/RTL) or language, add a single SVG
+file named in lowerCamelCase, e.g. `fullScreen.svg`, to the `images/` directory. Add an icon
+definition to `icons.ts` that looks like this:
+
 ```ts
-import svgAdd from './images/add.svg';
-export const cdxIconAdd = svgAdd;
+import svgFullScreen from './images/fullScreen.svg';
+export const cdxIconFullScreen = svgFullScreen;
 ```
 
 ### Automatically flipped icons
@@ -73,9 +97,10 @@ browser to flip the icon horizontally in RTL contexts.
 For example, `listBullet.svg ` contains the LTR version of the `listBullet` icon: <cdx-icon :icon="cdxIconListBullet" />.
 In RTL contexts, the LTR version is displayed, but is mirrored horizontally: <cdx-icon :icon="cdxIconListBullet" dir="rtl" />.
 
-For these icons, use a single `.svg` file named in lowerCamelCase, e.g. `listBullet.svg`.
-This file contains the LTR version of the icon (but despite that, it doesn't have a `-ltr` suffix).
-Add an icon definition to `icons.ts` that looks like this:
+For these icons, add a single SVG file named in lowerCamelCase, e.g. `listBullet.svg`, to the
+`images/` directory. This file contains the LTR version of the icon (but despite that, it doesn't
+have a `-ltr` suffix). Add an icon definition to `icons.ts` that looks like this:
+
 ```ts
 import svgListBullet from './images/listBullet.svg';
 export const cdxIconListBullet: IconFlipForRtl = {
@@ -109,9 +134,9 @@ the `listNumbered` icon looks like <cdx-icon :icon="cdxIconListNumbered" /> in L
 it automatically would look wrong, because the numbers would be mirrored too: <cdx-icon :icon="cdxIconListNumberedWronglyFlipped" dir="rtl" />.
 Instead, we need a separate SVG file for the RTL version of the icon: <cdx-icon :icon="cdxIconListNumbered" dir="rtl" />.
 
-For these icons, use two SVG files named with `-ltr` and `-rtl` suffixes, e.g.
-`listNumbered-ltr.svg` and `listNumbered-rtl.svg`. Add an icon definition to `icons.ts` that looks
-like this:
+For these icons, add two SVG files to the `images/` directory named with `-ltr` and `-rtl`
+suffixes, e.g. `listNumbered-ltr.svg` and `listNumbered-rtl.svg`. Add an icon definition to
+`icons.ts` that looks like this:
 ```ts
 import svgListNumberedLtr from './images/listNumbered-ltr.svg';
 import svgListNumberedRtl from './images/listNumbered-rtl.svg';
@@ -131,10 +156,9 @@ several languages share the same version of the icon. For example, the `bold` ic
 like <cdx-icon :icon="cdxIconBold" lang="en" /> in Czech, English, Hebrew, Malayalam, Polish and
 Scottish, but like <cdx-icon :icon="cdxIconBold" lang="ru" /> in Kirghiz, Russian and Ukrainian, etc.
 
-For these icons, use a separate SVG file for each version of the icon, each with a suffix that
-describes the variant of the icon. For example, `bold-b.svg`, `bold-f.svg`, `bold-cyrl-zhe.svg`,
-etc.
-There may be many variants; the `bold` icon has 16.
+For these icons, add a separate SVG file for each version of the icon to `images/`, each with a
+suffix that describes the variant of the icon. For example, `bold-b.svg`, `bold-f.svg`,
+`bold-cyrl-zhe.svg`, etc. There may be many variants; the `bold` icon has 16.
 
 In the icon definition in `icons.ts`, first import all the variant files in alphabetical order,
 then define which variant to use for which language, and the default variant to use for all other
@@ -164,3 +188,26 @@ export const cdxIconBold: IconVariedByLang = {
 };
 
 ```
+
+## Testing the new icon
+
+### Lint
+
+After optimizing the SVG file(s), run `npm run lint -w @wikimedia/codex-icons` in the root of
+the `codex` repository. This will run `svglint` and will check your additions to `icons.ts`.
+
+### Testing locally
+
+To view the new icon on the Codex docs site, run these commands from the root of the `codex`
+repository:
+
+```bash
+# Build the icons package.
+npm run build -w @wikimedia/codex-icons
+
+# Serve the docs site.
+npm run doc:dev
+```
+
+Then you can visit `http://localhost:5173/icons/all-icons.html` to view the list of all icons,
+including your new one.
