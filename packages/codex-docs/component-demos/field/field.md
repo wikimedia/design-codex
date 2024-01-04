@@ -304,7 +304,8 @@ need to bind the `status` prop to the child input components.
 
 Setting the status based on field validity is up to you. In the example below, it's done as you're
 changing the input. You could also validate on [blur](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event)
-to give the user a chance to finish filling out the field.
+to give the user a chance to finish filling out the field. For an example of how to do this, see
+the [complex field example](#complex-field-with-two-inputs) below.
 
 Try entering a username into the field below that's longer than a single character to see the error
 state and error message.
@@ -326,13 +327,10 @@ state and error message.
 </template>
 </cdx-demo-wrapper>
 
-### Fieldsets
+### Fieldset with radio group
 
 For any field that contains multiple inputs or controls, set the `isFieldset` prop to `true`. This
-will output a `<fieldset>` element with a `<legend>` instead of a label. Below are some examples of
-fieldsets.
-
-#### Radio group
+will output a `<fieldset>` element with a `<legend>` instead of a label.
 
 Groups of [Radio](./radio.md) or [Checkbox](./checkbox.md) components are considered fieldsets.
 
@@ -353,7 +351,7 @@ Groups of [Radio](./radio.md) or [Checkbox](./checkbox.md) components are consid
 </template>
 </cdx-demo-wrapper>
 
-#### Complex field with two inputs
+### Complex field with two inputs
 
 The field below has two inputs, a TextInput and a Select. In addition to the field-level label, each
 input needs its own individual label. In this case, the individual labels can be visually hidden.
@@ -362,9 +360,14 @@ In the example below, the labels are included in two different ways:
 - For the TextInput, the [Label](./label.md) component is used with `hideLabel` set to `true`
 - For the Select, an `aria-label` is applied
 
+To give the user a chance to type a valid coordinate location, this example doesn't validate as the
+user types, but delays validation until the input is blurred. For an example of how to do validation
+as the user types, see the [validation and error state example](#with-validation-and-error-state)
+above.
+
 Note that, when you enter erroneous data in the TextInput below, error styles for both the TextInput
 and the Select will display since they are both contained in a single Field. If you need to show
-separate states for each input, see the nested Fields example below.
+separate states for each input, see the [nested Fields example](#fieldset-with-nested-fields) below.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -383,7 +386,7 @@ separate states for each input, see the nested Fields example below.
 </template>
 </cdx-demo-wrapper>
 
-#### Fieldset with nested Fields
+### Fieldset with nested Fields
 
 In this example, each input within the field needs its own visible label, description, validation
 status, and validation message. To accomplish this, each input is wrapped in a Field component.
@@ -411,7 +414,7 @@ Nested fields will become disabled when their parent field is disabled.
 </template>
 </cdx-demo-wrapper>
 
-#### With custom help text content
+### Fieldset with custom help text content
 
 The `help-text` slot is not limited to static text – more complex markup,
 including other components and bound values, can be provided here as well. Below
