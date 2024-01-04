@@ -1,6 +1,7 @@
 {
 	"name": "@wikimedia/codex",
 	"version": "1.2.1",
+	"type": "module",
 	"description": "Codex Design System for Wikimedia",
 	"keywords": [
 		"Codex",
@@ -24,7 +25,7 @@
 		"node": ">=18"
 	},
 	"main": "dist/codex.js",
-	"module": "dist/codex.mjs",
+	"module": "dist/codex.js",
 	"types": "./dist/types/lib.d.ts",
 	"style": "dist/codex.style.css",
 	"files": [
@@ -34,8 +35,8 @@
 	"exports": {
 		".": {
 			"types": "./dist/types/lib.d.ts",
-			"import": "./dist/codex.mjs",
-			"require": "./dist/codex.js"
+			"import": "./dist/codex.js",
+			"require": "./dist/codex.cjs"
 		},
 		"./dist/*": "./dist/*",
 		"./mixins/*": "./mixins/*"

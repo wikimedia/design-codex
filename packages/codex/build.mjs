@@ -101,7 +101,7 @@ const baseLibraryConfig = mergeConfig( baseConfig, {
 	}
 } );
 
-// Don't minify the ES build, emit the mjs file
+// Don't minify the ES build, emit the js file
 const unminifiedLibraryConfig = mergeConfig( baseLibraryConfig, {
 	build: {
 		lib: {
@@ -110,7 +110,7 @@ const unminifiedLibraryConfig = mergeConfig( baseLibraryConfig, {
 		minify: false
 	},
 	plugins: [
-		emitAllowlist( [ 'mjs' ] )
+		emitAllowlist( [ 'js' ] )
 	]
 } );
 
