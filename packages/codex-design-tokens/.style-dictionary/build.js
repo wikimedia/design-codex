@@ -1,10 +1,8 @@
 'use strict';
 
 /** @typedef {import('./types').ThemeConfig} ThemeConfig */
-/** @typedef {import('style-dictionary/types/Matcher').Matcher} Matcher */
 
 const dictFactory = require( './config' );
-const aliasDictFactory = require( './aliasConfig' );
 
 // HACK: Eventually we should implement a real theme system that discovers themes based on
 // theme-foo.json files, and allows themes to specify their basePxFontSize and relativeTransform
@@ -49,10 +47,5 @@ for ( const themeConfig of themeConfigs ) {
 	console.log( `Building Codex design tokens for ${ themeConfig.themeNamePrint } theme…` );
 	dict.buildAllPlatforms();
 }
-
-console.log( 'Building aliases…' );
-
-const aliasDict = aliasDictFactory();
-aliasDict.buildAllPlatforms();
 
 console.log( '\nBuild completed!' );
