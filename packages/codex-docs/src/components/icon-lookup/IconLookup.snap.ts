@@ -7,7 +7,6 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
   <div
     class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
-    <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-0"
@@ -36,9 +35,6 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
       <li
         class="cdx-menu__no-results cdx-menu-item"
       >
-        <!--
-					@slot Message to show if there are no menu items to display.
-				-->
         
         
       </li>
@@ -57,7 +53,6 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
   <div
     class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
   >
-    <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
       aria-controls="cdx-lookup-menu-1"
@@ -92,12 +87,10 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
         id="cdx-menu-item-2"
         role="option"
       >
-        <!-- @slot Custom menu item content. -->
         
         <span
           class="cdx-menu-item__content"
         >
-          <!-- Thumbnail, thumbnail placeholder, or icon. -->
           <span
             class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
           >
@@ -110,7 +103,6 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
               xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
-              <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
                   d="M9 1.28A1 1 0 008.35 1H2a1 1 0 00-1 1v6.35a1 1 0 00.28.65L11 18.72a1 1 0 001.37 0l6.38-6.38a1 1 0 00-.03-1.34zM5 7a2 2 0 112-2 2 2 0 01-2 2"
@@ -118,11 +110,9 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
               </g>
             </svg>
           </span>
-          <!-- Item text. -->
           <span
             class="cdx-menu-item__text"
           >
-            <!-- Item label. -->
             <span
               class="cdx-menu-item__text__label"
             >
@@ -130,11 +120,8 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
                 cdxIconTag
               </bdi>
             </span>
-            <!-- Item search query match (e.g. alias). -->
             <!--v-if-->
-            <!-- Item label supporting text. -->
             <!--v-if-->
-            <!-- Item description. -->
             <!--v-if-->
           </span>
         </span>

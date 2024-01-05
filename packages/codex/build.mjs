@@ -20,7 +20,16 @@ const baseConfig = {
 	},
 
 	plugins: [
-		vue(),
+		vue( {
+			// Remove comments from the output (T354394).
+			// Not sure why this isn't set by default, Vite should be setting this when 'mode'
+			// is set to 'production'.
+			template: {
+				compilerOptions: {
+					comments: false
+				}
+			}
+		} ),
 
 		copyFiles( {
 			srcDir: resolve( 'src', 'themes', 'mixins', 'public' ),

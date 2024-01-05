@@ -8,7 +8,6 @@ exports[`matches the snapshot Case 0 ToggleButton with slot content => HTML 1`] 
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     disabled=""
   >
-    <!-- @slot Button content -->
     
     
     Button text
@@ -40,8 +39,6 @@ exports[`matches the snapshot Case 1 ToggleSwitch without slot => HTML 1`] = `
         class="cdx-toggle-switch__switch__grip"
       />
     </span>
-    <!-- Only render a Label component if label text has been provided. This component can also
-			supply a description to the input if content is provided in the description slot. -->
     <!--v-if-->
   </span>
   

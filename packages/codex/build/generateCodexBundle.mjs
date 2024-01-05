@@ -162,7 +162,7 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 		// Run the Vite build
 		await build( {
 			configFile: false,
-			mode: mode,
+			mode: 'production',
 			...finalConfig
 		} );
 	}
