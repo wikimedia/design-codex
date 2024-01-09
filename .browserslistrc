@@ -1,6 +1,6 @@
 # Codex target browsers, aligning to Wikimedia project browser support matrix –
 # https://www.mediawiki.org/wiki/Compatibility#Browser_support_matrix
 # Modern ES6 capable browsers only supported without Codex SSR capabilities at the moment.
-# See https://github.com/wikimedia/browserslist-config-wikimedia
+# See https://gitlab.wikimedia.org/repos/ci-tools/browserslist-config-wikimedia
 
 extends browserslist-config-wikimedia/modern-es6-only
