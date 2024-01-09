@@ -1,3 +1,27 @@
+# 1.2.1 / 2024-01-09
+
+## Styles
+- styles: Increase CSS specificity of subcomponents (lwatson)
+
+## Code
+- build: bump expected node from 16 to 18 everywhere (Volker E)
+- build: Update 'svgo' to v3.0.5 (Volker E)
+- deps: Update vitepress and vue-docgen-cli (Eric Gardner)
+- build: Update custom SVGO plugin to conform to public API (Eric Gardner)
+- build: Remove `<!-- comments -->` from build output (Roan Kattouw)
+- build: Update 'svgo' to latest v3.2.0 (Volker E)
+- build: Update 'browserslist-config-wikimedia' to latest (Volker E)
+- tokens, build: Remove deprecated WikimediaUI Base aliases and its build (Volker E)
+
+## Documentation
+- docs: Redirect from old "adding icons" URL to the new one (Roan Kattouw)
+- docs: Add v-model to TextInput demos (lwatson)
+- docs, Field: Flatten fieldset examples and cross-link them (Roan Kattouw)
+- docs: Standardize InfoChip demo page (Anne Tomasevich)
+- docs: Isolate styles in the demo pane (Anne Tomasevich)
+- docs: Improve the "adding new icons" docs (Anne Tomasevich)
+- docs: Move the "adding new icons" page (Anne Tomasevich)
+
 # 1.2.0 / 2023-12-19
 
 ## Features
