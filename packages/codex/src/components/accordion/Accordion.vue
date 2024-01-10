@@ -12,13 +12,6 @@
 				class="cdx-accordion__header"
 			>
 				<span class="cdx-accordion__header__title">
-					<!-- indicator icon -->
-					<cdx-icon
-						class="cdx-accordion__indicator"
-						:icon="cdxIconExpand"
-						size="small"
-						alt
-					/>
 					<!-- @slot Customizable Accordion title-->
 					<slot name="title" />
 				</span>
@@ -54,7 +47,7 @@
 import { computed, defineComponent, PropType, ref } from 'vue';
 import CdxIcon from '../../components/icon/Icon.vue';
 import CdxButton from '../../components/button/Button.vue';
-import { cdxIconExpand, Icon } from '@wikimedia/codex-icons';
+import { Icon } from '@wikimedia/codex-icons';
 import { HeadingLevel } from '../../types';
 
 /**
@@ -142,7 +135,6 @@ export default defineComponent( {
 		} ) );
 
 		return {
-			cdxIconExpand,
 			emitActionButtonClick,
 			rootClasses,
 			shouldShowActionButton,
@@ -156,6 +148,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '../../themes/mixins/public/css-icon.less';
 
 .cdx-accordion {
 	position: relative;
@@ -165,6 +158,8 @@ export default defineComponent( {
 	& > summary {
 		background-color: @background-color-transparent;
 		list-style: none; // disable the built-in indicator icon since we're providing our own
+		display: flex;
+		gap: @spacing-50;
 		border-width: @border-width-base;
 		border-style: @border-style-base;
 		border-color: @border-color-transparent;
@@ -225,7 +220,6 @@ export default defineComponent( {
 		&__description {
 			color: @color-subtle;
 			display: flex;
-			padding-left: @spacing-150;
 			font-weight: @font-weight-normal;
 			line-height: @line-height-xx-small;
 			pointer-events: none;
@@ -257,16 +251,17 @@ export default defineComponent( {
 		font-size: @font-size-medium;
 	}
 
-	&__indicator.cdx-icon {
-		// Make the icon as tall as the text, so that its vertical centering causes
-		// it to be aligned with the text
+	// Indicator icon
+	& > summary::before {
+		content: '';
+		.cdx-mixin-css-icon( @cdx-icon-expand, @param-size-icon: @size-icon-small );
 		height: unit( @line-height-xx-small, em );
 		transition-property: @transition-property-toggle-switch-grip;
 		transition-duration: @transition-duration-medium;
 		transition-timing-function: @transition-timing-function-system;
 	}
 
-	&[ open ] > summary .cdx-accordion__indicator.cdx-icon {
+	&[ open ] > summary::before {
 		transform: rotate( -180deg );
 	}
 }

@@ -11,28 +11,6 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
       <span
         class="cdx-accordion__header__title"
       >
-        <!-- indicator icon -->
-        <span
-          alt=""
-          class="cdx-icon cdx-icon--small cdx-accordion__indicator"
-        >
-          <svg
-            aria-hidden="true"
-            height="20"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-          >
-            <!--v-if-->
-            <!-- eslint-disable vue/no-v-html -->
-            <g>
-              <path
-                d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
-              />
-            </g>
-          </svg>
-        </span>
         <!-- @slot Customizable Accordion title-->
         
         Title
@@ -69,28 +47,6 @@ exports[`Accordion matches the snapshot Case 1 Action button is not visible when
       <span
         class="cdx-accordion__header__title"
       >
-        <!-- indicator icon -->
-        <span
-          alt=""
-          class="cdx-icon cdx-icon--small cdx-accordion__indicator"
-        >
-          <svg
-            aria-hidden="true"
-            height="20"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-          >
-            <!--v-if-->
-            <!-- eslint-disable vue/no-v-html -->
-            <g>
-              <path
-                d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
-              />
-            </g>
-          </svg>
-        </span>
         <!-- @slot Customizable Accordion title-->
         
         Title
@@ -127,28 +83,6 @@ exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action 
       <span
         class="cdx-accordion__header__title"
       >
-        <!-- indicator icon -->
-        <span
-          alt=""
-          class="cdx-icon cdx-icon--small cdx-accordion__indicator"
-        >
-          <svg
-            aria-hidden="true"
-            height="20"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-          >
-            <!--v-if-->
-            <!-- eslint-disable vue/no-v-html -->
-            <g>
-              <path
-                d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
-              />
-            </g>
-          </svg>
-        </span>
         <!-- @slot Customizable Accordion title-->
         
         Title

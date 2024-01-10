@@ -271,3 +271,198 @@ Adding an [`open` boolean attribute](https://developer.mozilla.org/en-US/docs/We
 to this component will cause it to render in the expanded state initially. All
 other behavior will be unchanged.
 :::
+## CSS-only version
+
+### Markup Structure
+
+The CSS-only Accordion component is just a `<details>` element with some custom styling.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<details class="cdx-accordion">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					CSS-only Accordion Title
+				</span>
+				<span class="cdx-accordion__header__description">
+					CSS-only Accordion Description
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+</template>
+
+<template v-slot:code>
+
+```html
+<details class="cdx-accordion">
+	<!-- The <summary> element must be the first child, and is required -->
+	<summary>
+		<!-- <summary> should contain a header; can be any heading level -->
+		<h3 class="cdx-accordion__header">
+		<!-- If using only a title, no <span> tags are required here;
+		however, if you want a title and a description to appear on
+		separate lines, you should wrap them in spans as below and
+		use the appropriate class names -->
+			<span class="cdx-accordion__header__title">
+				CSS-only Accordion Title
+			</span>
+			<span class="cdx-accordion__header__description">
+				CSS-only Accordion Description
+			</span>
+		</h3>
+	</summary>
+	<!-- The <details> element will treat all other children besides
+	<summary> as collapsible content; it is recommended to wrap
+	this content in a div with the .cdx-accordion__content class
+	to get content which is aligned with the heading above. -->
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+```
+
+</template>
+
+</cdx-demo-wrapper>
+
+### Stacked
+
+As with the Vue version, multiple Accordion components can be stacked.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<details class="cdx-accordion">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Accordion 1
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+	<details class="cdx-accordion">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Accordion 2
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+	<details class="cdx-accordion">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Accordion 3
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+</template>
+
+<template v-slot:code>
+
+```html
+<details class="cdx-accordion">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Accordion 1
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+<details class="cdx-accordion">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Accordion 2
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+<details class="cdx-accordion">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Accordion 2
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+```
+
+</template>
+
+</cdx-demo-wrapper>
+
+#### Open by default
+
+As with the Vue version, the Accordion component can default to the expanded
+state by using the boolean `open` attribute.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<details class="cdx-accordion" open>
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Open by default
+				</span>
+				<span class="cdx-accordion__header__description">
+					This Accordion component is open by default
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+</template>
+
+<template v-slot:code>
+
+```html
+<details class="cdx-accordion" open>
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				CSS-only Accordion Title
+			</span>
+			<span class="cdx-accordion__header__description">
+				CSS-only Accordion Description
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+```
+
+</template>
+
+</cdx-demo-wrapper>
