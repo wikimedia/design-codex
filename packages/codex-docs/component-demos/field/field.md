@@ -3,6 +3,8 @@ import { ref } from 'vue';
 import { CdxField, CdxTextInput } from '@wikimedia/codex';
 import FieldWithRichText from '@/../component-demos/field/examples/FieldWithRichText.vue';
 import FieldWithValidation from '@/../component-demos/field/examples/FieldWithValidation.vue';
+import FieldWithWarning from '@/../component-demos/field/examples/FieldWithWarning.vue';
+import FieldWithSuccess from '@/../component-demos/field/examples/FieldWithSuccess.vue';
 import FieldWithRadioGroup from '@/../component-demos/field/examples/FieldWithRadioGroup.vue';
 import FieldWithTwoInputs from '@/../component-demos/field/examples/FieldWithTwoInputs.vue';
 import FieldWithFields from '@/../component-demos/field/examples/FieldWithFields.vue';
@@ -290,7 +292,7 @@ are recommended as description and help text should be concise.
 </template>
 </cdx-demo-wrapper>
 
-### With validation and error state
+### With validation messages
 
 You can display a validation message based on the current status of the field.
 Set the `status` prop based on the field's validity, then pass in an object of
@@ -299,16 +301,19 @@ type](../types-and-constants.md#validationstatustype).  If there is a message
 for the current status, it will be displayed.
 
 The `status` you bind to the Field component will also be passed down to its child components, which
-will display appropriate styles for that status (e.g. a red border in the error state). You do not
-need to bind the `status` prop to the child input components.
+will display appropriate styles for that status if they exist (e.g. a red border in the error
+state). You do not need to bind the `status` prop to the child input components. Note that form
+input components currently only have special styles for the `error` status.
 
-Setting the status based on field validity is up to you. In the example below, it's done as you're
-changing the input. You could also validate on [blur](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event)
-to give the user a chance to finish filling out the field. For an example of how to do this, see
-the [complex field example](#complex-field-with-two-inputs) below.
+Setting the status based on field validity is up to you. In the [error example](#error) below, it's done as you're changing the input. You could also validate on [blur](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event)
+to give the user a chance to finish filling out the field, as demonstrated in the
+[warning example](#warning) and the [success example](#success).
 
-Try entering a username into the field below that's longer than a single character to see the error
-state and error message.
+#### Error
+
+The `error` status can be used both to show an error message and to display the error state of the
+form input. Try entering a username into the field below that's longer than a single character to
+see the error state and error message.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -321,6 +326,51 @@ state and error message.
 <<< @/../component-demos/field/examples/FieldWithValidation.vue [NPM]
 
 <<< @/../component-demos/field/examples-mw/FieldWithValidation.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+#### Warning
+
+The following example shows a warning message on blur if the username doesn't meet the criteria
+written in the help text. In this case, the username will be corrected to meet the criteria, and
+the message informs the user of this change. Note that form inputs do not display a "warning" state.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<field-with-warning />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/field/examples/FieldWithWarning.vue [NPM]
+
+<<< @/../component-demos/field/examples-mw/FieldWithWarning.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+#### Success
+
+The following example shows a success message on blur when the username is unique. Note that form
+inputs do not display a "success" state.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<field-with-success />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/field/examples/FieldWithSuccess.vue [NPM]
+
+<<< @/../component-demos/field/examples-mw/FieldWithSuccess.vue [MediaWiki]
 
 :::
 

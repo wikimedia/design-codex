@@ -103,8 +103,6 @@ export default defineComponent( {
 		},
 		/**
 		 * `status` attribute of the checkbox.
-		 *
-		 * @values 'default', 'error'
 		 */
 		status: {
 			type: String as PropType<ValidationStatusType>,

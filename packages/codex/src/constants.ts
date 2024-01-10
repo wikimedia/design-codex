@@ -66,7 +66,9 @@ export const TextInputTypes = [
 
 export const ValidationStatusTypes = [
 	'default',
-	'error'
+	'warning',
+	'error',
+	'success'
 ] as const;
 
 export const MenuStates = [

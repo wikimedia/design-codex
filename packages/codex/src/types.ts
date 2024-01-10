@@ -62,7 +62,9 @@ export type ValidationStatusType = typeof ValidationStatusTypes[ number ];
 
 /** @public */
 export interface ValidationMessages {
-	error?: string
+	warning?: string,
+	error?: string,
+	success?: string
 }
 
 /** @public */

@@ -414,7 +414,9 @@ const TextInputTypes = [
 ```ts
 const ValidationStatusTypes = [
 	'default',
-	'error'
+	'warning',
+	'error',
+	'success'
 ];
 ```
 

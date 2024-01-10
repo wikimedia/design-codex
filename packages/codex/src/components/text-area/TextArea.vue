@@ -70,8 +70,6 @@ export default defineComponent( {
 		},
 		/**
 		 * `status` attribute of the textarea.
-		 *
-		 * @values 'default', 'error'
 		 */
 		status: {
 			type: String as PropType<ValidationStatusType>,

@@ -118,9 +118,7 @@ export default defineComponent( {
 			default: false
 		},
 		/**
-		 * `status` attribute of the input.
-		 *
-		 * @values 'default', 'error'
+		 * `status` attribute of the input. This also determines which validation message is shown.
 		 */
 		status: {
 			type: String as PropType<ValidationStatusType>,

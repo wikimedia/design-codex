@@ -161,8 +161,6 @@ export default defineComponent( {
 
 		/**
 		 * `status` attribute of the input.
-		 *
-		 * @values 'default', 'error'
 		 */
 		status: {
 			type: String as PropType<ValidationStatusType>,

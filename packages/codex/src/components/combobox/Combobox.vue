@@ -157,8 +157,6 @@ export default defineComponent( {
 		},
 		/**
 		 * `status` property of the TextInput component
-		 *
-		 * @values 'default', 'error'
 		 */
 		status: {
 			type: String as PropType<ValidationStatusType>,
