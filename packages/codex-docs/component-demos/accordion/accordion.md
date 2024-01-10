@@ -88,10 +88,12 @@ Accordions are divided into collapsed and expanded states as follows:
 
 1. Default collapsed
 2. Hover collapsed
-3. Focus collapsed
-4. Default expanded
-5. Hover expanded
-6. Focus expanded
+3. Active collapsed
+4. Focus collapsed
+5. Default expanded
+6. Hover expanded
+7. Active expanded
+8. Focus expanded
 
 ## Demos
 
@@ -262,3 +264,10 @@ The accordion heading can be changed to any heading level by passing the `headin
 </cdx-demo-wrapper>
 
 ## Vue usage
+
+::: tip `open` Attribute supported
+The Accordion component uses a HTML `<details>` element under the hood.
+Adding an [`open` boolean attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#open)
+to this component will cause it to render in the expanded state initially. All
+other behavior will be unchanged.
+:::

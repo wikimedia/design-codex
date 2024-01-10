@@ -1,26 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Accordion matches the snapshot Case 0 Renders with basic basic title and text content: ({}) => HTML 1`] = `
-<div
-  class="cdx-accordion cdx-accordion--has-icon"
+<details
+  class="cdx-accordion"
 >
-  <h3
-    class="cdx-accordion__header"
-  >
-    <button
-      aria-controls="cdx-accordion-panel-1"
-      aria-expanded="false"
-      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
-      id="cdx-accordion-0"
-      type="button"
+  <summary>
+    <h3
+      class="cdx-accordion__header"
     >
-      <!-- @slot Button content -->
-      
       <span
-        class="cdx-accordion__toggle__title"
+        class="cdx-accordion__header__title"
       >
+        <!-- indicator icon -->
         <span
-          class="cdx-icon cdx-icon--small cdx-accordion__toggle__title-icon"
+          alt=""
+          class="cdx-icon cdx-icon--small cdx-accordion__indicator"
         >
           <svg
             aria-hidden="true"
@@ -39,62 +33,46 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
             </g>
           </svg>
         </span>
-        <span
-          class="cdx-accordion__toggle__title-text"
-        >
-          <!-- @slot Customizable Accordion title -->
-          
-          Title
-          
-        </span>
+        <!-- @slot Customizable Accordion title-->
+        
+        Title
+        
       </span>
       <span
-        class="cdx-accordion__toggle__description"
+        class="cdx-accordion__header__description"
       >
-        <!-- @slot Customizable Accordion description -->
+        <!-- @slot Customizable Accordion description-->
         
         
       </span>
-      
-    </button>
+    </h3>
     <!--v-if-->
-  </h3>
+  </summary>
   <div
-    aria-hidden="true"
-    aria-labelledby="cdx-accordion-0"
     class="cdx-accordion__content"
-    id="cdx-accordion-panel-1"
-    role="region"
-    style="display: none;"
   >
     <!-- @slot Customizable Accordion content -->
     
     
   </div>
-</div>
+</details>
 `;
 
 exports[`Accordion matches the snapshot Case 1 Action button is not visible when collapsed: ({"actionButtonLabel": "Edit", "actionIcon": "<path d=\\"m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z\\"/>"}) => HTML 1`] = `
-<div
-  class="cdx-accordion cdx-accordion--has-icon"
+<details
+  class="cdx-accordion"
 >
-  <h3
-    class="cdx-accordion__header"
-  >
-    <button
-      aria-controls="cdx-accordion-panel-3"
-      aria-expanded="false"
-      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
-      id="cdx-accordion-2"
-      type="button"
+  <summary>
+    <h3
+      class="cdx-accordion__header"
     >
-      <!-- @slot Button content -->
-      
       <span
-        class="cdx-accordion__toggle__title"
+        class="cdx-accordion__header__title"
       >
+        <!-- indicator icon -->
         <span
-          class="cdx-icon cdx-icon--small cdx-accordion__toggle__title-icon"
+          alt=""
+          class="cdx-icon cdx-icon--small cdx-accordion__indicator"
         >
           <svg
             aria-hidden="true"
@@ -113,62 +91,46 @@ exports[`Accordion matches the snapshot Case 1 Action button is not visible when
             </g>
           </svg>
         </span>
-        <span
-          class="cdx-accordion__toggle__title-text"
-        >
-          <!-- @slot Customizable Accordion title -->
-          
-          Title
-          
-        </span>
+        <!-- @slot Customizable Accordion title-->
+        
+        Title
+        
       </span>
       <span
-        class="cdx-accordion__toggle__description"
+        class="cdx-accordion__header__description"
       >
-        <!-- @slot Customizable Accordion description -->
+        <!-- @slot Customizable Accordion description-->
         
         
       </span>
-      
-    </button>
+    </h3>
     <!--v-if-->
-  </h3>
+  </summary>
   <div
-    aria-hidden="true"
-    aria-labelledby="cdx-accordion-2"
     class="cdx-accordion__content"
-    id="cdx-accordion-panel-3"
-    role="region"
-    style="display: none;"
   >
     <!-- @slot Customizable Accordion content -->
     
     
   </div>
-</div>
+</details>
 `;
 
 exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action button visible even when collapsed: ({"actionAlwaysVisible": true, "actionButtonLabel": "Edit", "actionIcon": "<path d=\\"m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z\\"/>"}) => HTML 1`] = `
-<div
+<details
   class="cdx-accordion cdx-accordion--has-icon"
 >
-  <h3
-    class="cdx-accordion__header"
-  >
-    <button
-      aria-controls="cdx-accordion-panel-5"
-      aria-expanded="false"
-      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-accordion__toggle"
-      id="cdx-accordion-4"
-      type="button"
+  <summary>
+    <h3
+      class="cdx-accordion__header"
     >
-      <!-- @slot Button content -->
-      
       <span
-        class="cdx-accordion__toggle__title"
+        class="cdx-accordion__header__title"
       >
+        <!-- indicator icon -->
         <span
-          class="cdx-icon cdx-icon--small cdx-accordion__toggle__title-icon"
+          alt=""
+          class="cdx-icon cdx-icon--small cdx-accordion__indicator"
         >
           <svg
             aria-hidden="true"
@@ -187,24 +149,19 @@ exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action 
             </g>
           </svg>
         </span>
-        <span
-          class="cdx-accordion__toggle__title-text"
-        >
-          <!-- @slot Customizable Accordion title -->
-          
-          Title
-          
-        </span>
+        <!-- @slot Customizable Accordion title-->
+        
+        Title
+        
       </span>
       <span
-        class="cdx-accordion__toggle__description"
+        class="cdx-accordion__header__description"
       >
-        <!-- @slot Customizable Accordion description -->
+        <!-- @slot Customizable Accordion description-->
         
         
       </span>
-      
-    </button>
+    </h3>
     <button
       aria-label="Edit"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-accordion__action"
@@ -235,18 +192,13 @@ exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action 
       </span>
       
     </button>
-  </h3>
+  </summary>
   <div
-    aria-hidden="true"
-    aria-labelledby="cdx-accordion-4"
     class="cdx-accordion__content"
-    id="cdx-accordion-panel-5"
-    role="region"
-    style="display: none;"
   >
     <!-- @slot Customizable Accordion content -->
     
     
   </div>
-</div>
+</details>
 `;

@@ -20,6 +20,16 @@
 			There is no limit to the length of the paragraphs.
 		</p>
 	</cdx-accordion>
+	<cdx-accordion open>
+		<template #title>
+			Open by default
+		</template>
+		<p>This Accordion is open by default</p>
+		<p>
+			Simply add the "open" boolean attribute to this component to have it
+			initially render in the expanded state. All other behavior is unchanged.
+		</p>
+	</cdx-accordion>
 </template>
 
 <script>

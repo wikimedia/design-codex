@@ -1,44 +1,39 @@
 <template>
-	<div
+	<details
+		ref="details"
 		class="cdx-accordion"
 		:class="rootClasses"
+		@toggle="onToggle"
+		@click="onClick"
 	>
-		<component
-			:is="headingLevel"
-			class="cdx-accordion__header"
-		>
-			<cdx-button
-				:id="accordionId"
-				:aria-expanded="isExpanded"
-				:aria-controls="accordionPanelId"
-				class="cdx-accordion__toggle"
-				type="button"
-				weight="quiet"
-				@click="toggle"
+		<summary>
+			<component
+				:is="headingLevel"
+				class="cdx-accordion__header"
 			>
-				<span class="cdx-accordion__toggle__title">
+				<span class="cdx-accordion__header__title">
+					<!-- indicator icon -->
 					<cdx-icon
-						class="cdx-accordion__toggle__title-icon"
+						class="cdx-accordion__indicator"
 						:icon="cdxIconExpand"
 						size="small"
+						alt
 					/>
-					<span class="cdx-accordion__toggle__title-text">
-						<!-- @slot Customizable Accordion title -->
-						<slot name="title" />
-					</span>
+					<!-- @slot Customizable Accordion title-->
+					<slot name="title" />
 				</span>
-				<span class="cdx-accordion__toggle__description">
-					<!-- @slot Customizable Accordion description -->
+				<span class="cdx-accordion__header__description">
+					<!-- @slot Customizable Accordion description-->
 					<slot name="description" />
 				</span>
-			</cdx-button>
+			</component>
 			<cdx-button
 				v-if="shouldShowActionButton"
 				class="cdx-accordion__action"
 				:aria-label="actionButtonLabel"
 				type="button"
 				weight="quiet"
-				@click="emitActionButtonClick"
+				@click.stop="emitActionButtonClick"
 			>
 				<cdx-icon
 					:icon="actionIcon"
@@ -46,19 +41,13 @@
 					size="medium"
 				/>
 			</cdx-button>
-		</component>
-		<div
-			v-show="isExpanded"
-			:id="accordionPanelId"
-			:aria-labelledby="accordionId"
-			:aria-hidden="isExpanded ? undefined : true"
-			class="cdx-accordion__content"
-			role="region"
-		>
+		</summary>
+
+		<div class="cdx-accordion__content" @click.stop>
 			<!-- @slot Customizable Accordion content -->
 			<slot />
 		</div>
-	</div>
+	</details>
 </template>
 
 <script lang="ts">
@@ -67,7 +56,6 @@ import CdxIcon from '../../components/icon/Icon.vue';
 import CdxButton from '../../components/button/Button.vue';
 import { cdxIconExpand, Icon } from '@wikimedia/codex-icons';
 import { HeadingLevel } from '../../types';
-import useGeneratedId from '../../composables/useGeneratedId';
 
 /**
  * An item that contains an expandable and collapsible section of content.
@@ -121,17 +109,28 @@ export default defineComponent( {
 		 */
 		'action-button-click'
 	],
-	setup( props, { emit } ) {
-		const isExpanded = ref( false );
-		const accordionId = useGeneratedId( 'accordion' );
-		const accordionPanelId = useGeneratedId( 'accordion-panel' );
-
-		const toggle = (): void => {
-			isExpanded.value = !isExpanded.value;
-		};
+	setup( props, { attrs, emit } ) {
+		const details = ref<HTMLDetailsElement>();
+		const isExpanded = ref<boolean>( 'open' in attrs );
 
 		const emitActionButtonClick = (): void => {
 			emit( 'action-button-click' );
+		};
+
+		// Click events on <details> are handled before the
+		// DOM element changes its state, so just flip the
+		// existing value of the isExpanded ref here.
+		const onClick = (): void => {
+			isExpanded.value = !isExpanded.value;
+		};
+
+		// It is possible that the "toggle" event can be triggered
+		// directly, without a "click" event firing first. This
+		// can happen when a "find in page" command from the user
+		// matches some of the text hidden inside a collapsed
+		// <details> element.
+		const onToggle = ( e: ToggleEvent ): void => {
+			isExpanded.value = e.newState === 'open';
 		};
 
 		const shouldShowActionButton = computed( () => {
@@ -139,18 +138,17 @@ export default defineComponent( {
 		} );
 
 		const rootClasses = computed( () => ( {
-			'cdx-accordion--has-icon': shouldShowActionButton
+			'cdx-accordion--has-icon': shouldShowActionButton.value
 		} ) );
 
 		return {
 			cdxIconExpand,
 			emitActionButtonClick,
-			isExpanded,
 			rootClasses,
 			shouldShowActionButton,
-			toggle,
-			accordionId,
-			accordionPanelId
+			details,
+			onClick,
+			onToggle
 		};
 	}
 } );
@@ -161,15 +159,49 @@ export default defineComponent( {
 
 .cdx-accordion {
 	position: relative;
+	border-bottom: @border-subtle;
 
-	&::after {
-		content: '';
-		background-color: @border-color-subtle;
-		opacity: @opacity-base;
-		position: absolute;
-		right: 0;
-		left: 0;
-		height: @size-absolute-1;
+	// The summary element is always visible
+	& > summary {
+		background-color: @background-color-transparent;
+		list-style: none; // disable the built-in indicator icon since we're providing our own
+		border-width: @border-width-base;
+		border-style: @border-style-base;
+		border-color: @border-color-transparent;
+		border-radius: @border-radius-sharp;
+		padding: @spacing-75;
+		word-break: break-word;
+		white-space: normal;
+		transition-property: @transition-property-base;
+		transition-duration: @transition-duration-medium;
+		transition-timing-function: @transition-timing-function-system;
+
+		&:hover {
+			background-color: @background-color-interactive-subtle;
+			cursor: @cursor-base--hover;
+		}
+
+		&:active {
+			background-color: @background-color-interactive;
+		}
+
+		&:focus {
+			border-color: @border-color-progressive--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+		}
+
+		&:focus-visible {
+			box-shadow: @box-shadow-inset-medium @border-color-progressive;
+			outline: @outline-base--focus;
+		}
+
+		// Most browsers remove the default indicator triangle icon when
+		// list-style is set to none on the summary element. But webkit requires
+		// this vendor-specific override as well. We are providing our own Codex
+		// Icon instead of the browser-supplied default for this purpose.
+		&::-webkit-details-marker {
+			display: none;
+		}
 	}
 
 	// Add specificity to override heading styles.
@@ -183,55 +215,11 @@ export default defineComponent( {
 		// Hack to reset font-size to the default for the heading level.
 		// TODO: Decide if we set custom heading levels all the to the same size out of box.
 		font-size: @font-size-medium;
-		transition-property: @transition-property-base;
-		transition-duration: @transition-duration-medium;
-		transition-timing-function: @transition-timing-function-system;
-
-		&:hover {
-			background-color: @background-color-interactive;
-			cursor: @cursor-base--hover;
-		}
-
-		&:focus {
-			position: relative;
-			outline: @border-style-base @border-width-thick @color-progressive--focus;
-		}
-
-		&:focus:not( :focus-visible ) {
-			outline: @outline-base--focus;
-		}
-	}
-
-	&__content {
-		padding: @spacing-50 @spacing-75 @spacing-75;
-		font-size: @font-size-medium;
-	}
-
-	&__toggle {
-		&.cdx-button {
-			width: @size-full;
-			max-width: unset;
-			padding: @spacing-75;
-			font-size: @font-size-base;
-			word-break: break-word;
-			text-align: left;
-			white-space: normal;
-		}
 
 		&__title {
 			display: flex;
 			gap: @spacing-50;
 			line-height: @line-height-xx-small;
-			pointer-events: none;
-
-			&-icon.cdx-icon {
-				// Make the icon as tall as the text, so that its vertical centering causes
-				// it to be aligned with the text
-				height: unit( @line-height-xx-small, em );
-				transition-property: @transition-property-toggle-switch-grip;
-				transition-duration: @transition-duration-medium;
-				transition-timing-function: @transition-timing-function-system;
-			}
 		}
 
 		&__description {
@@ -242,16 +230,6 @@ export default defineComponent( {
 			line-height: @line-height-xx-small;
 			pointer-events: none;
 		}
-
-		&[ aria-expanded='true' ] .cdx-accordion__toggle__title-icon {
-			transform: rotate( -180deg );
-		}
-	}
-
-	&--has-icon &__toggle__title-text {
-		// The width of the icon, plus @spacing-35 for the left padding+border on
-		// the button, plus @spacing-50 of buffer space between the text and the button
-		padding-right: calc( @size-icon-medium + @spacing-35 + @spacing-50 );
 	}
 
 	&__action.cdx-button {
@@ -272,6 +250,24 @@ export default defineComponent( {
 		&:hover {
 			background-color: unset;
 		}
+	}
+
+	&__content {
+		padding: @spacing-50 @spacing-75 @spacing-75;
+		font-size: @font-size-medium;
+	}
+
+	&__indicator.cdx-icon {
+		// Make the icon as tall as the text, so that its vertical centering causes
+		// it to be aligned with the text
+		height: unit( @line-height-xx-small, em );
+		transition-property: @transition-property-toggle-switch-grip;
+		transition-duration: @transition-duration-medium;
+		transition-timing-function: @transition-timing-function-system;
+	}
+
+	&[ open ] > summary .cdx-accordion__indicator.cdx-icon {
+		transform: rotate( -180deg );
 	}
 }
 </style>
