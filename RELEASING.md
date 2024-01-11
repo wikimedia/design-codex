@@ -1,6 +1,5 @@
 # Releasing a new version of Codex
 To publish a new release of Codex, follow these steps:
-- Run visual regression tests
 - Prepare the release commit
 - Submit the release commit to Gerrit, and ask someone to merge it
 - Once merged, create and publish the tag
@@ -33,55 +32,6 @@ Before you start doing a release, you should first:
   the release. Also look at the [list of open patches](https://gerrit.wikimedia.org/r/q/project:design%252Fcodex+status:open).
   If any patches have been +2ed recently, wait for the CI process to complete so that they are
   actually merged.
-
-## Running visual regression tests
-Ideally, you should do this **the day before the release**, so that there is time to address
-any regressions identified by the tests. If non-trivial changes are merged after the first
-pre-release visual regression tests, you should run the tests again before starting the release
-process.
-
-Update the [VueTest extension](https://gerrit.wikimedia.org/r/admin/repos/mediawiki/extensions/VueTest,general)
-to point to the latest commit on the main branch of Codex, by running the following commands in the
-VueTest repository:
-```
-$ cd lib/codex
-$ git fetch
-$ git checkout origin/main
-$ cd ../..
-$ npm run codex:build-demos
-$ git commit -am "Update Codex to pre-v1.2.34"
-$ git review
-```
-This submits a new change to Gerrit. Ask a member of the Design Systems Team to merge this change.
-
-After the VueTest change is merged, our visual regression testing tool Pixel will use this
-pre-release version of Codex the next time it runs. Pixel runs every hour, and publishes its
-results at https://pixel.wmcloud.org/reports/codex/index.html . Open this page and refresh it
-periodically, until the timestamp at the top of the page changes; this indicates Pixel has rerun
-with the new Codex version.
-
-On the test results page, click the big button with "NN failed" at the top to display the failed
-tests. Review the failures and determine if the visual changes are expected, or if they indicate
-bugs that need to be fixed.
-
-### Running the visual regression tests locally (optional)
-If you don't want to wait for someone else to merge the VueTest patch and then wait up to an hour
-for the new Pixel report to be generated, you can run Pixel locally. This is not the preferred
-process, because Pixel doesn't work on everyone's machine and breaks sometimes.
-
-To run Pixel locally, download the [Pixel repository](https://github.com/wikimedia/pixel) (or if
-you've already downloaded it, update it to its latest version) and run `npm install` in it. Also
-install Docker and make sure it's running.
-
-Then run the following commands in the Pixel repository:
-```
-$ ./pixel.js reference -g codex
-$ ./pixel.js test -g codex -c patchNumber
-```
-where `patchNumber` is the number of the Gerrit patch you submitted to VueTest. You can view the
-resulting report by opening `/path/to/pixel/report/codex/index.html` in your browser. If you
-get a permissions error, you may have to run `sudo chown -R $(whoami) report` first.
-
 
 ## Preparing and submitting the release commit
 First, make sure that you have no uncommitted changes, and that you're on the latest version
