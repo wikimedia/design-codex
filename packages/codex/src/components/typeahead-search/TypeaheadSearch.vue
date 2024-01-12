@@ -704,7 +704,7 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
 
 .cdx-typeahead-search {
-	&__menu {
+	&__menu.cdx-menu {
 		border-top-left-radius: @border-radius-sharp;
 		border-top-right-radius: @border-radius-sharp;
 	}
