@@ -39,7 +39,7 @@ exports[`matches the snapshot Case 1 ToggleSwitch without slot => HTML 1`] = `
         class="cdx-toggle-switch__switch__grip"
       />
     </span>
-    <!--v-if-->
+    <!---->
   </span>
   
 </div>
