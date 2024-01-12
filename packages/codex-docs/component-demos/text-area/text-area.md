@@ -238,7 +238,7 @@ The grabber/resize tool is not displayed when `autosize` is set to `true`.
 
 ### With icons
 
-TextArea can pass in a start icon and end icon as props. This example shows how to add icons to the component. Also see [Icon](./icon.md).
+TextArea can pass in a start icon and end icon as props. This example shows how to add icons to the component. Refer to [Icon](./icon.md).
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -258,7 +258,7 @@ TextArea can pass in a start icon and end icon as props. This example shows how 
 </template>
 </cdx-demo-wrapper>
 
-### With disabled
+### Disabled
 
 You can disable the component by adding the `disabled` attribute.
 
@@ -282,7 +282,7 @@ When `<textarea>` is `disabled`, the user cannot interact with the control. User
 </template>
 </cdx-demo-wrapper>
 
-### With readonly
+### Readonly
 
 You can make the component `readonly` by adding the `readonly` attribute.
 
@@ -311,7 +311,7 @@ One example usage of `readonly` textarea is when you want to prevent a user from
 ### Form field
 
 A TextArea can be wrapped in the Field component to add features like a semantic label, description
-and help text, validation messages, and more. See the [Field](./field.md) page for more information.
+and help text, validation messages, and more. Refer to the [Field](./field.md) page for more information.
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
@@ -333,7 +333,7 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 
 ## Vue usage
 
-`v-model` is used to track the current value of the textarea. See the events docs for details on
+`v-model` is used to track the current value of the textarea. Refer to the events docs for details on
 emitted events and their properties.
 
 ::: tip Attributes passed to textarea
@@ -344,7 +344,7 @@ This component will pass any HTML attributes applied to it, except for CSS class
 
 ### Markup structure
 
-The CSS-only TextArea component consists of a `<div>` wrapping an `<textarea>` element.
+The CSS-only TextArea component consists of a `<div>` wrapping a `<textarea>` element.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -392,7 +392,7 @@ In the example below, we've chosen cdxIconNotBright as the start icon and added 
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<div class="cdx-text-area cdx-text-area--has-start-icon cdx-text-area--has-end-icon">
-		<textarea class="cdx-text-area__textarea"></textarea>
+		<textarea class="cdx-text-area__textarea" placeholder="Start typing..."></textarea>
 		<span class="cdx-text-area__icon cdx-text-area__start-icon cdx-demo-css-icon--not-bright"></span>
 		<span class="cdx-text-area__icon cdx-text-area__end-icon cdx-demo-css-icon--info-filled"></span>
 	</div>
@@ -401,7 +401,7 @@ In the example below, we've chosen cdxIconNotBright as the start icon and added 
 
 ```html
 <div class="cdx-text-area cdx-text-area--has-start-icon cdx-text-area--has-end-icon">
-	<textarea class="cdx-text-area__textarea"></textarea>
+	<textarea class="cdx-text-area__textarea" placeholder="Start typing..."></textarea>
 	<span class="cdx-text-area__icon cdx-text-area__start-icon cdx-demo-css-icon--not-bright"></span>
 	<span class="cdx-text-area__icon cdx-text-area__end-icon cdx-demo-css-icon--info-filled"></span>
 </div>
@@ -503,9 +503,70 @@ Add the `disabled` attribute to the `<textarea>` element for a disabled textarea
 </template>
 </cdx-demo-wrapper>
 
+### Readonly
+
+Add the `readonly` attribute to the `<textarea>` element for a readonly textarea.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-text-area cdx-text-area--has-start-icon cdx-text-area--has-end-icon">
+		<textarea class="cdx-text-area__textarea" placeholder="Start typing..." readonly>The textarea is readonly.</textarea>
+		<span class="cdx-text-area__icon cdx-text-area__start-icon cdx-demo-css-icon--not-bright"></span>
+		<span class="cdx-text-area__icon cdx-text-area__end-icon cdx-demo-css-icon--info-filled"></span>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-text-area cdx-text-area--has-start-icon cdx-text-area--has-end-icon">
+	<textarea class="cdx-text-area__textarea" placeholder="Start typing..." readonly>
+		The textarea is readonly.
+	</textarea>
+	<span class="cdx-text-area__icon cdx-text-area__start-icon cdx-demo-css-icon--not-bright"></span>
+	<span class="cdx-text-area__icon cdx-text-area__end-icon cdx-demo-css-icon--info-filled"></span>
+</div>
+```
+
+:::code-group
+
+```less [NPM]
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon {
+	&--not-bright {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-not-bright );
+	}
+
+	&--info-filled {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-info-filled );
+	}
+}
+```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon {
+	&--not-bright {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-not-bright );
+	}
+
+	&--info-filled {
+		.cdx-mixin-css-icon-background-image( @cdx-icon-info-filled );
+	}
+}
+```
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
 ### Error state
 
-Add the `.cdx-text-area--status-error` class to the root element to show error styles.
+Add the `cdx-text-area--status-error` class to the root element to show error styles.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -538,3 +599,96 @@ Add the `.cdx-text-area--status-error` class to the root element to show error s
 	}
 }
 </style>
+
+### Form field
+
+The CSS-only Field component can wrap the CSS-only TextArea to add features like a semantic label,
+description, optional flag, and help text. Refer to the [Field](./field.md) for more information.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Outer element is a <div>. -->
+	<div class="cdx-field">
+		<!-- Label. -->
+		<div class="cdx-label">
+			<!-- Label element. Include a `for` attribute to connect it with an textarea. -->
+			<label class="cdx-label__label" for="cdx-demo-textarea">
+			<!-- Label text. -->
+			<span class="cdx-label__label__text">Edit summary</span>
+			</label>
+			<!-- Description. Include an `id` attribute so the textarea can have an `aria-describedby` attribute. -->
+			<span id="cdx-demo-description-1" class="cdx-label__description">
+			Briefly describe your changes
+			</span>
+		</div>
+		<!-- Textarea/control wrapper. -->
+		<div class="cdx-field__control cdx-field__control--has-help-text">
+			<!-- Textarea or control. -->
+			<div class="cdx-text-textarea">
+			<!-- Has `id` and `aria-describedby` attributes. -->
+			<textarea
+				id="cdx-demo-textarea"
+				class="cdx-text-area__textarea"
+				placeholder="Describe what you changed"
+				aria-describedby="cdx-demo-description-1"
+			></textarea>
+			</div>
+		</div>
+		<div class="cdx-field__help-text">
+			By saving changes, you agree to the
+			<a href="https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use">Terms of Use</a>,
+			and you irrevocably agree to release your contribution under the
+			<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0 License</a>
+			and the
+			<a href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License">GFDL</a>.
+			You agree that a hyperlink or URL is sufficient attribution under the Creative Commons
+			license.
+		</div>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<!-- Outer element is a <div>. -->
+	<div class="cdx-field">
+		<!-- Label. -->
+		<div class="cdx-label">
+			<!-- Label element. Include a `for` attribute to connect it with an textarea. -->
+			<label class="cdx-label__label" for="cdx-demo-textarea">
+			<!-- Label text. -->
+			<span class="cdx-label__label__text">Edit summary</span>
+			</label>
+			<!-- Description. Include an `id` attribute so the textarea can have an `aria-describedby` attribute. -->
+			<span id="cdx-demo-description-1" class="cdx-label__description">
+			Briefly describe your changes
+			</span>
+		</div>
+		<!-- Textarea/control wrapper. -->
+		<div class="cdx-field__control cdx-field__control--has-help-text">
+			<!-- Textarea or control. -->
+			<div class="cdx-text-textarea">
+			<!-- Has `id` and `aria-describedby` attributes. -->
+			<textarea
+				id="cdx-demo-textarea"
+				class="cdx-text-area__textarea"
+				placeholder="Describe what you changed"
+				aria-describedby="cdx-demo-description-1"
+			>
+			</textarea>
+			</div>
+		</div>
+		<div class="cdx-field__help-text">
+			By saving changes, you agree to the
+			<a href="https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use">Terms of Use</a>,
+			and you irrevocably agree to release your contribution under the
+			<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0 License</a>
+			and the
+			<a href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License">GFDL</a>.
+			You agree that a hyperlink or URL is sufficient attribution under the Creative Commons
+			license.
+		</div>
+	</div>
+```
+
+</template>
+</cdx-demo-wrapper>
