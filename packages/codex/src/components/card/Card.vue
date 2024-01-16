@@ -208,7 +208,7 @@ export default defineComponent( {
 		}
 	}
 
-	&__icon.cdx-icon {
+	.cdx-card__icon {
 		// Make sure the icon inherits the content element's color.
 		color: inherit;
 		margin-right: @spacing-75;
