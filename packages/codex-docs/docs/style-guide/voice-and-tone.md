@@ -34,7 +34,7 @@ It refers to the speaker *(I, we)*. Generally, avoid using the first person voic
 </div>
 
 #### Second person ####
-It refers to the person who is being spoken to *(you)*. For features, use “Your” instead of “My”. Using “My” in the UI can end up forcing words into quotes. “Me/my” is reserved for when the user is communicating with Wikimedia.
+It refers to the person who is being spoken to *(you)*. For features, use “Your” instead of “My”. Using “My” in the user-interface (UI) can end up forcing words into quotes. “Me/my” is reserved for when the user is communicating with Wikimedia.
 
 <cdx-demo-rules>
 <template #do-media>

@@ -29,7 +29,7 @@ allowed. When multiple selections are needed, use [Checkbox](./checkbox.md) inst
 1. **Radio**<br>
 Radio buttons make the selection visually distinct.
 2. **Label**<br>
-The label text size should match the base font size to ensure consistency withthe body text. It can
+The label text size should match the base font size to ensure consistency with the body text. It can
 also include links and bold text. Labels should be as short as possible, and include text that
 clearly states which selection is being made.
 

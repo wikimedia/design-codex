@@ -6,7 +6,7 @@ Written content should help people learn and understand how Wikimedia products w
 
 ### Content is aligned with our principles
 
-To ensure your UX copy follows our overarching [Wikimedia Design Principles](./design-principles-overview.html), you should consider the following key questions.
+To ensure your user-interface (UI) copy follows our overarching [Wikimedia Design Principles](./design-principles-overview.html), you should consider the following key questions.
 
 <div class="cdx-docs-grid cdx-docs-grid-columns-2">
 
