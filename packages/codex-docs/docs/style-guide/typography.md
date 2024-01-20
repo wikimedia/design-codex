@@ -455,8 +455,7 @@ font-size: 14px; /* 14 sp equivalent */
 		}
 
 		blockquote {
-			// No border color token for this.
-			border-left: @border-width-base * 4 @border-style-base #eaecf0;
+			border-left: @border-width-base * 4 @border-style-base @border-color-muted;
 
 			p {
 				color: @color-base;
