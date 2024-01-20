@@ -525,11 +525,14 @@
 		"interactive": {
 			"value": "{ color.gray500 }"
 		},
+		"disabled": {
+			"value": "{ color.gray300 }"
+		},
 		"subtle": {
 			"value": "{ color.gray300 }"
 		},
-		"disabled": {
-			"value": "{ color.gray300 }"
+		"muted": {
+			"value": "{ color.gray200 }"
 		},
 		"inverted": {
 			"value": "{ color.white }"
