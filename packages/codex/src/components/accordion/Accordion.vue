@@ -1,10 +1,8 @@
 <template>
 	<details
-		ref="details"
 		class="cdx-accordion"
 		:class="rootClasses"
 		@toggle="onToggle"
-		@click="onClick"
 	>
 		<summary>
 			<component
@@ -103,25 +101,12 @@ export default defineComponent( {
 		'action-button-click'
 	],
 	setup( props, { attrs, emit } ) {
-		const details = ref<HTMLDetailsElement>();
 		const isExpanded = ref<boolean>( 'open' in attrs );
 
 		const emitActionButtonClick = (): void => {
 			emit( 'action-button-click' );
 		};
 
-		// Click events on <details> are handled before the
-		// DOM element changes its state, so just flip the
-		// existing value of the isExpanded ref here.
-		const onClick = (): void => {
-			isExpanded.value = !isExpanded.value;
-		};
-
-		// It is possible that the "toggle" event can be triggered
-		// directly, without a "click" event firing first. This
-		// can happen when a "find in page" command from the user
-		// matches some of the text hidden inside a collapsed
-		// <details> element.
 		const onToggle = ( e: ToggleEvent ): void => {
 			isExpanded.value = e.newState === 'open';
 		};
@@ -138,8 +123,6 @@ export default defineComponent( {
 			emitActionButtonClick,
 			rootClasses,
 			shouldShowActionButton,
-			details,
-			onClick,
 			onToggle
 		};
 	}

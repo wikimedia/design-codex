@@ -1,6 +1,27 @@
-import { mount } from '@vue/test-utils';
+import { DOMWrapper, mount } from '@vue/test-utils';
 import { cdxIconEdit, Icon } from '@wikimedia/codex-icons';
 import CdxAccordion from './Accordion.vue';
+
+/**
+ * Toggle the visibility of a `<details>` element.
+ *
+ * This works around limitations in @vue/test-utils and jsdom in their handling of `<details>`.
+ * @param wrapper DOM wrapper for a `<details>` element (e.g. from `wrapper.find( 'details' )`)
+ */
+async function toggleDetails( wrapper: DOMWrapper<HTMLDetailsElement> ) {
+	const wasOpen = wrapper.element.open;
+	// Toggle the value of the `open` attribute. This performs most of the native actions we need:
+	// - It toggles the visiblity of the content outside the `<summary>` element
+	// - It emits a `toggle` event
+	wrapper.element.open = !wasOpen;
+	// However, the emitted `toggle` event does not have the `oldState` and `newState` properties
+	// set. To address this, emit another artificial `toggle` event that does have these properties
+	// set to the correct values.
+	await wrapper.trigger( 'toggle', {
+		oldState: wasOpen ? 'open' : 'closed',
+		newState: wasOpen ? 'closed' : 'open'
+	} );
+}
 
 describe( 'Accordion', () => {
 	describe( 'matches the snapshot', () => {
@@ -41,7 +62,7 @@ describe( 'Accordion', () => {
 					default: 'Content'
 				}
 			} );
-			await wrapper.find( '.cdx-accordion summary' ).trigger( 'click' );
+			await toggleDetails( wrapper.find( 'details' ) );
 			expect( wrapper.get( '.cdx-accordion__content' ).isVisible() ).toBe( true );
 		} );
 
@@ -57,7 +78,7 @@ describe( 'Accordion', () => {
 				}
 			} );
 			expect( wrapper.find( '.cdx-accordion__action' ).exists() ).toBeFalsy();
-			await wrapper.find( '.cdx-accordion summary' ).trigger( 'click' );
+			await toggleDetails( wrapper.find( 'details' ) );
 			expect( wrapper.find( '.cdx-accordion__action' ).exists() ).toBeTruthy();
 		} );
 	} );
@@ -109,7 +130,7 @@ describe( 'Accordion', () => {
 			} );
 
 			expect( wrapper.find( '.cdx-accordion__action' ).exists() ).toBe( true );
-			await wrapper.find( 'summary' ).trigger( 'click' );
+			await toggleDetails( wrapper.find( 'details' ) );
 			expect( wrapper.find( '.cdx-accordion__action' ).exists() ).toBe( false );
 		} );
 	} );
