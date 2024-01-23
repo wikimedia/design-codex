@@ -342,6 +342,10 @@ body {
 	padding: var( --spacing-12 ) var( --spacing-25 );
 }
 
+.custom-block.tip code {
+	color: var( --color-base );
+}
+
 /*
  * Remove bottom margin from last code block in a paragraph, this leaves spacing to
  * be set by `.vp-doc p` only.

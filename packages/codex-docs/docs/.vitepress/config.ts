@@ -179,6 +179,12 @@ export default defineConfigWithTheme<CustomConfig>( {
 					]
 				},
 				{
+					text: 'Layout Guidelines',
+					items: [
+						{ text: 'Using links and buttons', link: '/style-guide/using-links-and-buttons' }
+					]
+				},
+				{
 					text: 'Content Guidelines',
 					items: [
 						{ text: 'Voice and tone', link: '/style-guide/voice-and-tone' },
