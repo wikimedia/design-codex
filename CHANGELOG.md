@@ -1,3 +1,40 @@
+# 1.3.0 / 2024-01-23
+
+## Note
+As of this release, all the Codex packages have been migrated over to
+ESM (and have "type: module" set in their respective package.json files).
+
+## Features
+- Accordion: Use <details> element for markup (Eric Gardner)
+- Accordion: Enable and demonstrate CSS-only usage (Eric Gardner)
+- Accordion: Remove click handler, work around test brokenness (Roan Kattouw)
+- Field: Enable use of warning and success messages (Anne Tomasevich)
+- TextArea: Add CSS-only version (lwatson)
+- TextArea: CSS-only version follow-up (lwatson)
+
+## Styles
+- TypeaheadSearch, styles: Increase specificity of menu CSS overrides (Eric Gardner)
+- styles, Card: Fix CSS-only Card with icon (lwatson)
+- styles, token: Add new border color token for "media" borders (lwatson)
+- styles: Apply border-color-muted in Codex (lwatson)
+- styles: Fix boldening of Labels (Volker E)
+
+## Code
+- build, tokens: Export design tokens as ES6 variables (Anne Tomasevich)
+- build: Migrate @wikimedia/codex package to ESM (Eric Gardner)
+- build: Migrate codex-design-tokens package to ESM (Ty Hopp)
+- build: Migrate codex-icons package to ESM (Eric Gardner)
+- build: Pin dependencies to exact versions (Volker E)
+- build: Update 'vite' to latest 4.n version (Volker E)
+- build: Update .browerslistrc reference to upstream (James D. Forrester)
+
+## Docs
+- docs: Fix code color regression and contrast issue (Volker E)
+- docs: Remove VRT from releasing docs (Anne Tomasevich)
+- docs: fix typo and expand abbreviations in Radio & Voice and tone (Volker E)
+- docs: improve progress bar elevated asset (Volker E)
+- docs: update URL to token typography in Codex (lwatson)
+
 # 1.2.1 / 2024-01-09
 
 ## Styles
