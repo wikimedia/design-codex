@@ -15,7 +15,7 @@
 		"npm": ">=7.21.0",
 		"node": ">=18"
 	},
-	"main": "dist/codex-icons.js",
+	"main": "dist/codex-icons.cjs",
 	"module": "dist/codex-icons.js",
 	"types": "./dist/types/index.d.ts",
 	"files": [

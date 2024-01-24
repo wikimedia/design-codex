@@ -24,7 +24,7 @@
 		"npm": ">=7.21.0",
 		"node": ">=18"
 	},
-	"main": "dist/codex.js",
+	"main": "dist/codex.cjs",
 	"module": "dist/codex.js",
 	"types": "./dist/types/lib.d.ts",
 	"style": "dist/codex.style.css",
