@@ -84,7 +84,7 @@ Refer to the [Accordion component in Codex Figma](https://www.figma.com/file/KoD
 ### Interaction states
 Accordions are divided into collapsed and expanded states as follows:
 
-![Interaction states of Accordion for both collapsed and expanded: default, hover, and focus.](../../assets/components/accordion-interaction-states.svg)
+![Interaction states of Accordion for both collapsed and expanded: default, hover, active and focus.](../../assets/components/accordion-interaction-states.svg)
 
 1. Default collapsed
 2. Hover collapsed

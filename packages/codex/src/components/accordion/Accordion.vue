@@ -163,14 +163,14 @@ export default defineComponent( {
 			background-color: @background-color-interactive;
 		}
 
-		&:focus {
-			border-color: @border-color-progressive--focus;
-			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
-		}
-
 		&:focus-visible {
 			box-shadow: @box-shadow-inset-medium @border-color-progressive;
 			outline: @outline-base--focus;
+		}
+
+		&:focus:not( :active ) {
+			border-color: @border-color-progressive--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 		}
 
 		// Most browsers remove the default indicator triangle icon when
