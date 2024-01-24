@@ -1,3 +1,8 @@
+# 1.3.1 / 2024-01-24
+
+## Code
+- build: Point "main" to the CJS file rather than the ESM file (Roan Kattouw)
+
 # 1.3.0 / 2024-01-23
 
 ## Note
