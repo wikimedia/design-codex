@@ -1,4 +1,4 @@
-import { kebabCase } from '../.style-dictionary/lib.js';
+import { kebabCase } from '../.style-dictionary/transformers.js';
 
 describe( 'kebabCase', () => {
 

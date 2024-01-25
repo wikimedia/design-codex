@@ -1,6 +1,6 @@
 /** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
 
-import { getReferencedTokens } from '../.style-dictionary/lib.js';
+import { getReferencedTokens } from '../.style-dictionary/transformers.js';
 
 describe( 'getReferencedTokens', () => {
 	/** @type {[original: string, expectedTokens: string[]][]} */

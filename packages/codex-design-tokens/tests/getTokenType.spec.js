@@ -1,6 +1,6 @@
 /** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
 
-import { getTokenType } from '../.style-dictionary/lib.js';
+import { getTokenType } from '../.style-dictionary/transformers.js';
 
 describe( 'getTokenType', () => {
 	/** @type {[filePath: string, expectedType: string|undefined][]} */

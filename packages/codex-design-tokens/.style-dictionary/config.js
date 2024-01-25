@@ -1,17 +1,17 @@
+/** @typedef {import('style-dictionary').Core} StyleDictionaryCore */
+/** @typedef {import('./types').ThemeConfig} ThemeConfig */
+
 import StyleDictionary from 'style-dictionary';
+import { getPackageVersion } from './utils.js';
+import { makePathMatcher } from './matchers.js';
+import { createCustomStyleFormatter } from './formatters.js';
 import {
+	camelCaseNegative,
 	getReferencedTokens,
 	getTokenType,
 	kebabCase,
-	camelCaseNegative,
-	makePathMatcher,
-	makeRelativeUnitTransform,
-	createCustomStyleFormatter,
-	getPackageVersion
-} from './lib.js';
-
-/** @typedef {import('style-dictionary').Core} StyleDictionaryCore */
-/** @typedef {import('./types').ThemeConfig} ThemeConfig */
+	makeRelativeUnitTransform
+} from './transformers.js';
 
 /**
  * @param {ThemeConfig} themeConfig
