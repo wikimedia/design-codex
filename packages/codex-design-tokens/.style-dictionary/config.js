@@ -3,6 +3,7 @@ import {
 	getReferencedTokens,
 	getTokenType,
 	kebabCase,
+	camelCaseNegative,
 	makePathMatcher,
 	makeRelativeUnitTransform,
 	createCustomStyleFormatter,
@@ -81,6 +82,7 @@ export default function ( themeConfig ) {
 				prefix: 'cdx',
 				transforms: [
 					'name/cti/camel',
+					'name/cti/camelWithNegative',
 					'attr/tokenList',
 					'attr/tokenType',
 					'value/relativeUnit'
@@ -100,6 +102,15 @@ export default function ( themeConfig ) {
 				]
 			}
 		}
+	} );
+
+	dict.registerTransform( {
+		name: 'name/cti/camelWithNegative',
+		type: 'name',
+		matcher: function ( token ) {
+			return token.path.some( ( fragment ) => fragment.startsWith( '-' ) );
+		},
+		transformer: camelCaseNegative
 	} );
 
 	dict.registerTransform( {

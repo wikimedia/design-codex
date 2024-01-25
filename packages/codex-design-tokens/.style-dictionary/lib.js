@@ -1,5 +1,6 @@
 /** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
 /** @typedef {import('style-dictionary').TransformedTokens} TransformedTokens */
+/** @typedef {import('style-dictionary').Platform} Platform */
 /** @typedef {import('style-dictionary/types/Matcher').Matcher} Matcher */
 /** @typedef {import('style-dictionary').Transform} Transform */
 /** @typedef {import('style-dictionary').Formatter} Formatter */
@@ -9,6 +10,7 @@
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import StyleDictionary from 'style-dictionary';
+import { camelCase } from 'change-case';
 
 // Polyfill CommonJS require() for use in ES modules
 const require = createRequire( import.meta.url );
@@ -207,6 +209,26 @@ function kebabCase( token ) {
 }
 
 /**
+ * A replacement for the "name/cti/camel" transform from Style Dictionary
+ * which gives special treatment to the minus sign (translating it into a word)
+ * to avoid name collisions between eg. "z-index.100" and "z-index.-100".
+ * See https://phabricator.wikimedia.org/T355274
+ *
+ * @param {TransformedToken} token
+ * @param {Platform} options
+ * @return {string}
+ */
+function camelCaseNegative( token, options ) {
+	const transformedPath = token.path
+		.map( ( fragment ) => fragment.replace( /^-/, 'NEGATIVE' ) )
+		.join( ' ' );
+
+	return camelCase(
+		[ options.prefix, transformedPath ].join( ' ' )
+	);
+}
+
+/**
  * Create a custom formatter that adds deprecation comments.
  *
  * This code is largely copied from style-dictionary's own css/variables formatter,
@@ -345,6 +367,7 @@ export {
 	getReferencedTokens,
 	getTokenType,
 	kebabCase,
+	camelCaseNegative,
 	makePathMatcher,
 	wrapFormatterWithFilter,
 	makeRelativeUnitTransform,
