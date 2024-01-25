@@ -11,7 +11,8 @@ fi
 # Verify that there are no uncommitted changes; error out if there are
 if [ $(git diff | wc -l) -ne 0 ]
 then
-	echo "Not running CSS diff because there are uncommitted changes."
+	echo "Not running CSS diff because there are uncommitted changes:"
+	git diff
 	exit 1
 fi
 
