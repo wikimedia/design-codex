@@ -380,7 +380,7 @@ export default defineComponent( {
 		padding: @spacing-25 @spacing-50;
 		font-family: inherit;
 		font-size: inherit;
-		line-height: @line-height-x-small;
+		line-height: @line-height-xx-small;
 
 		&:enabled {
 			background-color: @background-color-base;
