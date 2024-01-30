@@ -118,6 +118,7 @@ export default defineComponent( {
 
 			@media screen and ( min-width: @min-width-breakpoint-desktop ) {
 				margin-right: @spacing-50;
+				margin-bottom: 0;
 			}
 		}
 	}

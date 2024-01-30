@@ -26,11 +26,7 @@
 			</template>
 		</cdx-label>
 
-		<div
-			class="cdx-field__control"
-			:class="{ 'cdx-field__control--has-help-text': ( $slots[ 'help-text' ] &&
-				$slots[ 'help-text' ]().length > 0 ) || validationMessage }"
-		>
+		<div class="cdx-field__control">
 			<!-- @slot Input, control, or input group. -->
 			<slot />
 		</div>
@@ -206,18 +202,17 @@ export default defineComponent( {
 	border: 0;
 	padding: 0;
 
-	&__control {
-		&--has-help-text {
-			padding-bottom: @spacing-50;
-
-			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				padding-bottom: @spacing-25;
-			}
-		}
-	}
-
 	&__help-text {
 		line-height: @line-height-xx-small;
+	}
+
+	&__help-text,
+	&__validation-message {
+		margin-top: @spacing-50;
+
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			margin-top: @spacing-25;
+		}
 	}
 
 	&:not( .cdx-field--disabled ) {

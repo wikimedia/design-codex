@@ -518,7 +518,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
   </div>
   
   <div
-    class="cdx-field__control cdx-field__control--has-help-text"
+    class="cdx-field__control"
   >
     <!-- @slot Input, control, or input group. -->
     
@@ -1216,7 +1216,7 @@ exports[`Field matches the snapshot with a TextInput control Case 5 Error status
   </div>
   
   <div
-    class="cdx-field__control cdx-field__control--has-help-text"
+    class="cdx-field__control"
   >
     <!-- @slot Input, control, or input group. -->
     
@@ -1587,7 +1587,7 @@ exports[`Field matches the snapshot with a Textarea control Case 2 Error status 
   </div>
   
   <div
-    class="cdx-field__control cdx-field__control--has-help-text"
+    class="cdx-field__control"
   >
     <!-- @slot Input, control, or input group. -->
     
