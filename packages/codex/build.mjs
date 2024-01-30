@@ -48,7 +48,8 @@ const baseConfig = {
 };
 
 const sandboxConfig = mergeConfig( baseConfig, {
-	base: '/sandbox/',
+	// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+	base: `${ process.env.CODEX_DOC_ROOT || '' }/sandbox/`,
 	build: {
 		outDir: 'dist/sandbox',
 		rollupOptions: {
