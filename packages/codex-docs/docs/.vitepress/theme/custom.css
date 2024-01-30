@@ -112,6 +112,11 @@ body {
 	line-height: var( --line-height-xxx-small );
 }
 
+.vp-doc h2 .header-anchor {
+	/* Align anchor link with heading. */
+	top: var( --spacing-300 );
+}
+
 .vp-doc h3 {
 	font-size: var( --font-size-x-large );
 	line-height: var( --line-height-xxx-small );
