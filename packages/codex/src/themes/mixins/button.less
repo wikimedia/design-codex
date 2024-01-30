@@ -3,6 +3,11 @@
 
 // Base styles for <button> elements, used for Button and ToggleButton
 .cdx-mixin-button() {
+	// inline-flex with a gap of 4px spaces items within button content, similar to a natural space.
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: @spacing-25;
 	box-sizing: @box-sizing-base;
 	// min-width and min-height are for the medium size (default); --size-large overrides them
 	min-width: @min-size-interactive-pointer;
