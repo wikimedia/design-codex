@@ -32,7 +32,7 @@ See the [installation](../using-codex/usage.md#installation) and [using componen
 ## Component roadmap
 
 If you want to know more about the components we plan to add to Codex in the future, read about
-[Codex planned components on mediawiki.org](https://www.mediawiki.org/wiki/Design_Systems_Team/Codex_Planned_Components).
+[Codex planned components on mediawiki.org](https://www.mediawiki.org/wiki/Codex/Planned_Components).
 
 ## Resources
 

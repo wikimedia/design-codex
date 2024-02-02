@@ -23,7 +23,7 @@ import CdxDocsVersionBanner from '../src/components/version-banner/VersionBanner
 **Codex is the design system for Wikimedia.**<br>
 Current version: **{{ version }}**
 
-Codex is maintained by the [Design Systems Team](https://www.mediawiki.org/wiki/Design_Systems_Team)
+Codex is maintained by the [Design System Team](https://www.mediawiki.org/wiki/Design_System_Team)
 of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 <div class="cdx-docs-home__resources">

@@ -8,7 +8,7 @@ Accepted
 
 ## Context
 
-The Design Systems Team would like to add a Field component to Codex, containing a form input or
+The Design System Team would like to add a Field component to Codex, containing a form input or
 control plus features like a semantic label, helper text, validation messages and styles, and more.
 There are several ways we could implement such a component and we wanted to find a balance between
 ease of use and enough flexibility, all while ensuring a high degree of accessibility.

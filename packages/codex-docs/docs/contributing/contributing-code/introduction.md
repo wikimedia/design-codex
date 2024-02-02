@@ -27,13 +27,14 @@ Tasks are tracked in Phabricator. We use three different Phabricator workboards,
 
 - [Codex](https://phabricator.wikimedia.org/tag/codex/): used to indicate that a task is related to
   Codex. We do not track task status here.
-- [Design-Systems-Team](https://phabricator.wikimedia.org/tag/design-systems-team/): used to
-  triage, sort, prioritize, and refine tasks that the Design Systems team and contributors will
+- [Design-System-Team](https://phabricator.wikimedia.org/tag/design-system-team/): used to
+  triage, sort, prioritize, and refine tasks that the Design System Team and contributors will
   work on.
-- [Design-Systems-Sprint](https://phabricator.wikimedia.org/project/view/5859/): used to track
-  active works-in-progress from Research > Design > Development > Testing > Release. As a
-  contributor, you are welcome to track your work related to the Design System on this board as
-  well—just remember to keep the task in the appropriate column that reflects its status.
+- [Design-System-Sprint](https://phabricator.wikimedia.org/project/board/5858/): find the current
+  sprint on the DST workboard too, starting with "DST-Sprint". The sprint is used to track active
+  works-in-progress from Research > Design > Development > Testing > Release. As a contributor,
+  you are welcome to track your work related to the Design System on this board as well—just
+  remember to keep the task in the appropriate column that reflects its status.
 
 Create or claim a task as soon as you decide to work on it. This will help avoid overlapping
 duplicate, or out-of-order work. Note that very minor contributions (like build asset updates or
@@ -66,11 +67,11 @@ below for more info on different levels of contribution.
   A new component task is considered ready for development only once design specifications have
   been linked in the component task.
 4. **Ready for development.** Once design specifications have been shared and the task has been
-  refined by members of the Design Systems Team, the task will be moved to the "Codex Component
-  Backlog" column on the [Design-Systems-Team](https://phabricator.wikimedia.org/tag/design-systems-team/)
+  refined by members of the Design System Team, the task will be moved to the "Codex Component
+  Backlog" column on the [Design-System-Team](https://phabricator.wikimedia.org/tag/design-system-team/)
   workboard. This indicates that implementation work can begin. You can assign the task to yourself
-  and move it to the 'In Development' column on the [Design-Systems-Sprint](https://phabricator.wikimedia.org/project/view/5859/)
-  workboard.
+  and move it to the 'In Development' column on the current Design-System-Sprint board linked from
+  the DST workboard.
 5. **Build the component.** Create the Vue component, applying the design tokens noted in the design
   specification. Visit [writing styles](./developing-components#writing-styles) for more details.
   As you build the component, add a simple demo to the [Vite Sandbox](./developing-components.md#vite-sandbox)
@@ -160,7 +161,7 @@ breaking change is then released in the next major or minor version after.
 
 ### Code review
 
-The Codex library adheres to the [Design System Team's general process for code review](https://www.mediawiki.org/wiki/Design_Systems_Team/Team_Processes#Code_review).
+The Codex library adheres to the [Design System Team's general process for code review](https://www.mediawiki.org/wiki/Design_System_Team/Team_Processes#Code_review).
 Please review this process before submitting or reviewing a patch for the first time.
 
 ## Development basics

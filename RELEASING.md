@@ -26,7 +26,7 @@ Before you start doing a release, you should first:
   don't wait until too late in the day (or too late in the reviewer's timezone) to
   start the process.
 - Make sure any final patches that should be merged are merged. The day before a scheduled release,
-  a bot posts in the #design-systems-engineering Slack channel asking people to suggest patches that
+  a bot posts in the #design-system Slack channel asking people to suggest patches that
   should be considered for inclusion in the release. Look over this list and make sure that each
   of the suggested patches either has been merged or is consciously being held back until after
   the release. Also look at the [list of open patches](https://gerrit.wikimedia.org/r/q/project:design%252Fcodex+status:open).
@@ -269,17 +269,17 @@ $ git review
 Once the MediaWiki core patch has been merged, announce the new release to Codex stakeholders.
 
 Currently, we are only announcing releases internally, in Slack. Make a post in the
-#talk-to-design-systems-team channel announcing the new version number and listing out the
+#talk-to-design-system-team channel announcing the new version number and listing out the
 following:
 - Breaking changes: list all breaking changes with links to relevant tasks or patches and
   recommendations for handling them, or "none" if there are none for this release
 - Notable new features: list any new features you think Codex users should know about
 - Notable bug fixes: Highlight bug tasks resolved by the new release
 - Be sure to @mention and thank any contributors to the release from outside the
-  Design Systems Team
+  Design System Team
 
 ### Update mediawiki.org pages
-Update the [release timeline](https://www.mediawiki.org/wiki/Design_Systems_Team/Release_Timeline)
+Update the [release timeline](https://www.mediawiki.org/wiki/Codex/Release_Timeline)
 to add the new release. Include a link to the release commit in Gerrit, and a brief list of breaking
 changes and notable new features. You can save time by copying bullet points from the release
 announcement in Slack.
