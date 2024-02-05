@@ -466,3 +466,14 @@ state by using the boolean `open` attribute.
 </template>
 
 </cdx-demo-wrapper>
+
+<style lang="less" scoped>
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-demo-wrapper {
+	// Ensure the demo with an image as Accordion content doesn't overflow the container.
+	:deep( img ) {
+		max-width: @size-full;
+	}
+}
+</style>
