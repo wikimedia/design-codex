@@ -468,7 +468,7 @@ There are two button sizes: medium and large.
 Most buttons should use the medium size. The large size is intended only for accessibility purposes,
 such as making icon-only buttons larger on touchscreens to increase the touch area.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :allow-table-styles="true">
 <template v-slot:demo>
 	<button-sizes />
 </template>

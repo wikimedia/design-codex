@@ -195,6 +195,15 @@ export default defineComponent( {
 		allowLinkStyles: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Whether to allow normal table styles to be applied to the contents of the Wrapper.
+		 *
+		 * Use when the demo contains a table.
+		 */
+		allowTableStyles: {
+			type: Boolean,
+			default: false
 		}
 	},
 	setup( props, { slots } ) {
@@ -233,7 +242,8 @@ export default defineComponent( {
 				'cdx-demo-wrapper--has-code': hasCodeSample.value,
 				'cdx-demo-wrapper--has-reset': includeReset.value,
 				'cdx-demo-wrapper--code-expanded': showCode.value,
-				'cdx-demo-wrapper--allow-link-styles': props.allowLinkStyles
+				'cdx-demo-wrapper--allow-link-styles': props.allowLinkStyles,
+				'cdx-demo-wrapper--allow-table-styles': props.allowTableStyles
 			};
 		} );
 
@@ -535,6 +545,25 @@ export default defineComponent( {
 
 		a:hover {
 			text-decoration: @text-decoration-underline;
+		}
+	}
+
+	&--allow-table-styles {
+		// Add some table styles.
+		table {
+			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+			border-collapse: collapse;
+		}
+
+		th {
+			text-align: left;
+		}
+
+		th,
+		td {
+			border: @border-subtle;
+			padding: @spacing-50 @spacing-75;
+			font-size: @font-size-small;
 		}
 	}
 

@@ -225,7 +225,7 @@ To show the icon even when the accordion is collapsed, set the `actionAlwaysVisi
 
 The accordion can be used with different elements, including images or tables.
 
-<cdx-demo-wrapper :force-controls="true">
+<cdx-demo-wrapper :force-controls="true" :allow-table-styles="true">
 <template v-slot:demo>
 	<accordion-different-content />
 </template>
