@@ -220,12 +220,6 @@ body {
 		}
 	}
 }
-
-// Button table.
-/* stylelint-disable-next-line selector-max-id */
-#cdx-button tr th:first-child {
-	text-align: left;
-}
 </style>
 
 <style lang="less" scoped>

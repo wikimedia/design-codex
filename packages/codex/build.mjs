@@ -8,6 +8,7 @@ import postcssRtlcss from 'postcss-rtlcss';
 import { codexIconNames, getLibEntries } from './build/utils.mjs';
 import generateCodexBundle from './build/generateCodexBundle.mjs';
 import emitAllowlist from './build/vite-plugin-emit-allowlist.mjs';
+import { readdirSync } from 'fs';
 
 const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', import.meta.url ) ) );
 
@@ -47,16 +48,20 @@ const baseConfig = {
 	}
 };
 
+const demoFiles = readdirSync( resolve( __dirname, 'demos' ) )
+	.filter( ( file ) => file.endsWith( '.html' ) )
+	.map( ( file ) => resolve( __dirname, 'demos', file ) );
+
 const sandboxConfig = mergeConfig( baseConfig, {
 	// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
 	base: `${ process.env.CODEX_DOC_ROOT || '' }/sandbox/`,
 	build: {
 		outDir: 'dist/sandbox',
 		rollupOptions: {
-			input: {
-				index: resolve( __dirname, 'index.html' ),
-				icons: resolve( __dirname, 'demos', 'icons.html' )
-			}
+			input: [
+				resolve( __dirname, 'index.html' ),
+				...demoFiles
+			]
 		}
 	},
 	css: {
