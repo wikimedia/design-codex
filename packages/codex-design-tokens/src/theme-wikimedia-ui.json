@@ -152,6 +152,16 @@
 			"value": "0.51"
 		}
 	},
+	"filter": {
+		"invert": {
+			"false": {
+				"value": "0"
+			},
+			"true": {
+				"value": "1"
+			}
+		}
+	},
 	"background-position": {
 		"100": {
 			"value": "center"

@@ -171,6 +171,16 @@
 			"value": "{ opacity.0 }"
 		}
 	},
+	"filter": {
+		"invert": {
+			"icon": {
+				"value": "{ filter.invert.false }"
+			},
+			"primary-button-icon": {
+				"value": "{ filter.invert.true }"
+			}
+		}
+	},
 	"opacity-icon": {
 		"comment": "Legacy opacity for icon states in CSS-only component and non-Codex products.",
 		"base": {
