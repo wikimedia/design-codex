@@ -1,3 +1,23 @@
+# 1.3.2 / 2024-02-06
+
+## Styles
+- Accordion: Update focus styles and docs image alt text (Eric Gardner)
+- TextInput, Select: reduce base height (lwatson)
+- styles, Field: Fix and simplify spacing of help text (Anne Tomasevich)
+
+## Code
+- build, tokens: Add a custom "camelCaseNegative" transformer (Eric Gardner)
+- build: Reorganize custom style-dictionary methods (Eric Gardner)
+- build: Make diff-css.sh show uncommitted changes (Roan Kattouw)
+- build: Update rtlcss and postcss-rtlcss (Roan Kattouw)
+- build: Upgrade Stylelint dependencies and 'postcss-html' to latest (Volker E)
+
+## Documentation
+- docs: Align h2 anchor links with heading text (Anne Tomasevich)
+- docs: Add interaction guidelines in style guide (Derek Torsani)
+- docs: Rename to Design System Team (singular) (Volker E)
+- docs: Style Accordion content image (Anne Tomasevich)
+
 # 1.3.1 / 2024-01-24
 
 ## Code
