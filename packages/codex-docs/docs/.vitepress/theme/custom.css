@@ -214,6 +214,22 @@ body {
 	opacity: var( --opacity-base );
 }
 
+/* Set Codex to absolute position when menu sidebar is visible. Already on mobile. */
+.VPNavBar.has-sidebar .title {
+	background-color: var( --background-color-base );
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: var( --z-index-toolbar );
+	width: var( --vp-sidebar-width );
+	height: var( --vp-nav-height );
+	padding: 0 var( --spacing-200 );
+}
+
+.VPSidebar.open {
+	padding-top: var( --spacing-400 );
+}
+
 /* Main nav dropdown menu. */
 .VPFlyout .VPMenu {
 	border-color: var( --border-color-base );
