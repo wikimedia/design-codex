@@ -301,10 +301,18 @@ body {
 	font-weight: var( --font-weight-bold ) !important;
 }
 
-/* Mobile menu text */
+/* Menu navigation on screen sizes < 960px. */
+.VPLocalNav .menu,
+.VPLocalNav .VPLocalNavOutlineDropdown button,
 .VPLocalNav .menu-text,
 .VPLocalNav .top-link {
 	font-size: var( --font-size-medium );
+}
+
+/* Menu button icon on screen sizes < 960px. */
+.VPLocalNav .menu-icon {
+	min-width: var( --min-size-icon-medium );
+	min-height: var( --min-size-icon-medium );
 }
 
 /* Footer. ----------------------------------------------------------------- */
