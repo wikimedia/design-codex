@@ -37,6 +37,8 @@
 	--vp-font-family-base: var( --font-family-system-sans );
 	--vp-font-family-serif: var( --font-family-serif );
 
+	--vp-shadow-3: var( --box-shadow-drop-medium );
+
 	/* Z-indexes */
 	/* Header is sticky. */
 	--vp-z-index-nav: var( --z-index-sticky );
@@ -329,6 +331,17 @@ body {
 .VPLocalNav .menu-icon {
 	min-width: var( --min-size-icon-medium );
 	min-height: var( --min-size-icon-medium );
+}
+
+/* Mobile 'On this page' menu. */
+.VPLocalNav .items {
+	top: var( --spacing-300 );
+	border-radius: var( --border-radius-base );
+}
+
+.VPLocalNav .items .header,
+.VPLocalNav .items .outline {
+	background-color: var( --background-color-base );
 }
 
 /* Footer. ----------------------------------------------------------------- */
