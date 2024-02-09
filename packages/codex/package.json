@@ -67,7 +67,7 @@
 		"@vue/vue3-jest": "29.2.6",
 		"@wikimedia/codex-design-tokens": "*",
 		"autoprefixer": "10.4.7",
-		"browserslist-config-wikimedia": "0.5.1",
+		"browserslist-config-wikimedia": "0.6.0",
 		"cypress": "13.2.0",
 		"eslint-plugin-cypress": "2.15.1",
 		"jest": "29.7.0",
