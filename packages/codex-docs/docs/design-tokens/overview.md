@@ -7,7 +7,8 @@ We use tokens:
   single source of truth instead of hard-coded style values or single-use variables
 - To ensure that only systematic decisions are used to style components and features
 
-Tokens can be used in several formats: CSS custom properties, Less variables, SCSS variables, and JSON files.
+Tokens can be used in several formats: CSS custom properties, Less variables, SCSS variables,
+ES6 variables and JSON files.
 
 Each token category has a demo page where you can see each token's name and value, a demo of the
 token, and information about where the token value comes from.
