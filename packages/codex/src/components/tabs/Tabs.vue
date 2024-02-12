@@ -623,12 +623,12 @@ export default defineComponent( {
 				overflow: hidden;
 
 				&:hover {
-					background-color: fade( @background-color-base, ( @opacity-low * 100 ) );
+					background-color: @background-color-tab-list-item-framed--hover;
 					color: @color-base;
 				}
 
 				&:active {
-					background-color: fade( @background-color-base, ( @opacity-medium * 100 ) );
+					background-color: @background-color-tab-list-item-framed--active;
 					color: @color-base;
 				}
 			}

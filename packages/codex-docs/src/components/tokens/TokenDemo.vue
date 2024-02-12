@@ -184,13 +184,13 @@ export default defineComponent( {
 		border: @border-base;
 
 		&__inner {
-			background-color: fade( @background-color-progressive, unit( @opacity-medium * 100, % ) );
+			background-color: @background-color-progressive;
+			opacity: @opacity-medium;
 			position: absolute;
 			top: @spacing-half;
 			left: 0;
 			width: @size-150;
 			height: @size-150;
-			border: @border-base;
 			transform: translateY( -@spacing-half );
 		}
 	}

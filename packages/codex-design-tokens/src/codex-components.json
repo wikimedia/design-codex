@@ -14,6 +14,14 @@
 		"primary--hover": {
 			"deprecated": "No replacement for this token. Only used in non-Codex products and design decision is to need to rely on background for this state.",
 			"value": "{ color.modifier-blue600-translucent }"
+		},
+		"tab-list-item": {
+			"framed--hover": {
+				"value": " { color.opacity-low-light }"
+			},
+			"framed--active": {
+				"value": " { color.opacity-medium-light }"
+			}
 		}
 	},
 	"background-image": {
