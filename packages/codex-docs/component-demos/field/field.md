@@ -36,7 +36,7 @@ const controlsConfig = [
 	{
 		name: 'status',
 		type: 'radio',
-		options: [ 'default', 'error' ],
+		options: [ 'default', 'error', 'warning', 'success' ],
 	},
 	{
 		name: 'label',
@@ -56,7 +56,9 @@ const controlsConfig = [
 ];
 // Object props aren't supported in the controls, so just hardcode an error message to show.
 const messages = {
-	error: 'Error message text'
+	error: 'Error message text',
+	warning: 'Warning message text',
+	success: 'Success message text'
 }
 </script>
 
