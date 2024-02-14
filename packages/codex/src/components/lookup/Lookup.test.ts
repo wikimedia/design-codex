@@ -123,19 +123,38 @@ describe( 'Lookup', () => {
 				expect( wrapper.find( '.cdx-lookup' ).classes() ).not.toContain( 'cdx-lookup--pending' );
 			} );
 
-			it( 'closes the menu', async () => {
-				const wrapper = mount( CdxLookup, {
-					props: { selected: 'a', menuItems: menuItemData, initialInputValue: 'Opt' }
+			describe( 'and there were no initial menu items', () => {
+				it( 'closes the menu', async () => {
+					const wrapper = mount( CdxLookup, {
+						props: { selected: 'a', menuItems: [], initialInputValue: 'Opt' }
+					} );
+					const input = wrapper.find( 'input' );
+
+					// First, open the menu.
+					wrapper.vm.expanded = true;
+					// Add menu items.
+					await wrapper.setProps( { menuItems: menuItemData } );
+					// Clear the input.
+					input.element.value = '';
+					await input.trigger( 'input' );
+					expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 				} );
-				const input = wrapper.find( 'input' );
+			} );
 
-				// This doesn't happen automatically on mount because we would never mount a Lookup
-				// with items, so we need to manually open the menu first.
-				wrapper.vm.expanded = true;
+			describe( 'and there were initial menu items', () => {
+				it( 'does not close the menu', async () => {
+					const wrapper = mount( CdxLookup, {
+						props: { selected: 'a', menuItems: menuItemData, initialInputValue: 'Opt' }
+					} );
+					const input = wrapper.find( 'input' );
 
-				input.element.value = '';
-				await input.trigger( 'input' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+					// First, open the menu.
+					wrapper.vm.expanded = true;
+					// Clear the input.
+					input.element.value = '';
+					await input.trigger( 'input' );
+					expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+				} );
 			} );
 		} );
 
@@ -170,11 +189,22 @@ describe( 'Lookup', () => {
 	} );
 
 	describe( 'when the text input is focused', () => {
-		describe( 'and there are menu items to show', () => {
+		describe( 'and there are initial menu items', () => {
 			it( 'opens the menu', async () => {
 				const wrapper = mount( CdxLookup, {
 					props: { ...propsWithData, initialInputValue: 'foo' }
 				} );
+				await wrapper.find( 'input' ).trigger( 'focus' );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+			} );
+		} );
+
+		describe( 'and there is both input and menu items', () => {
+			it( 'opens the menu', async () => {
+				const wrapper = mount( CdxLookup, { props: { ...defaultProps, initialInputValue: 'foo' } } );
+
+				// Add menu items.
+				await wrapper.setProps( { menuItems: menuItemData } );
 				await wrapper.find( 'input' ).trigger( 'focus' );
 				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 			} );

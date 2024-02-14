@@ -2,6 +2,7 @@
 import LookupDefault from '@/../component-demos/lookup/examples/LookupDefault.vue';
 import LookupWithCustomMenuItem from '@/../component-demos/lookup/examples/LookupWithCustomMenuItem.vue';
 import LookupNoResults from '@/../component-demos/lookup/examples/LookupNoResults.vue';
+import LookupWithSuggestions from '@/../component-demos/lookup/examples/LookupWithSuggestions.vue';
 import LookupWithFetch from '@/../component-demos/lookup/examples/LookupWithFetch.vue';
 import LookupClearableStartIcon from '@/../component-demos/lookup/examples/LookupClearableStartIcon.vue';
 import LookupWithPlaceholder from '@/../component-demos/lookup/examples/LookupWithPlaceholder.vue';
@@ -152,6 +153,29 @@ this slot will automatically display when there are zero menu items.
 <<< @/../component-demos/lookup/examples/LookupNoResults.vue [NPM]
 
 <<< @/../component-demos/lookup/examples-mw/LookupNoResults.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### With initial suggestions
+
+You can show an initial list of options as "suggestions" by passing in an array of menu items
+initially. The parent component must handle resetting the menu items to this list of suggestions
+when the input is cleared.
+
+<cdx-demo-wrapper :force-controls="true">
+<template v-slot:demo>
+	<lookup-with-suggestions />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/lookup/examples/LookupWithSuggestions.vue [NPM]
+
+<<< @/../component-demos/lookup/examples-mw/LookupWithSuggestions.vue [MediaWiki]
 
 :::
 

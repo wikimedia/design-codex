@@ -202,6 +202,7 @@ export default defineComponent( {
 		const pending = ref( false );
 		const expanded = ref( false );
 		const isActive = ref( false );
+		const initialMenuItems = ref( props.menuItems );
 
 		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
 
@@ -244,8 +245,9 @@ export default defineComponent( {
 				modelWrapper.value = null;
 			}
 
-			// If the input is cleared, close the menu.
-			if ( newVal === '' ) {
+			// If the input is cleared, close the menu (unless there were initial menu items, as
+			// the parent component may want to show them again when the input is cleared.
+			if ( newVal === '' && initialMenuItems.value.length === 0 ) {
 				expanded.value = false;
 				pending.value = false;
 			} else {
@@ -263,13 +265,15 @@ export default defineComponent( {
 		 */
 		function onInputFocus( event: FocusEvent ) {
 			isActive.value = true;
-			if (
-				// Input value is not null or an empty string.
-				inputValue.value !== null &&
-				inputValue.value !== '' &&
-				// There's either menu items to show or a no results message.
-				( props.menuItems.length > 0 || slots[ 'no-results' ] )
-			) {
+			// One reason to open the menu on focus is if there is input (i.e. the input value is
+			// not null nor an empty string) and there are either menu items to show or a "no
+			// results" message. Store whether this is the case in this variable.
+			const hasInputAndMenuItems = inputValue.value !== null && inputValue.value !== '' &&
+				!!( props.menuItems.length > 0 || slots[ 'no-results' ] );
+
+			// The other reason to open the menu on focus is if there were initial menu items
+			// passed in, e.g. suggested options.
+			if ( hasInputAndMenuItems || initialMenuItems.value.length > 0 ) {
 				expanded.value = true;
 			}
 			emit( 'focus', event );
