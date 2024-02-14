@@ -26,5 +26,8 @@
 	"rules": {
 		"selector-class-pattern": "^(cdx-docs-|cdx-demo)"
 	},
-	"ignoreFiles": [ "**/*.jpg" ]
+	"ignoreFiles": [
+		"**/*.jpg",
+		"docs/using-codex/adrs/08-adr-color-modes.md"
+	]
 }
