@@ -17,10 +17,10 @@
 		},
 		"tab-list-item": {
 			"framed--hover": {
-				"value": " { color.opacity-low-light }"
+				"value": "{ color.opacity-low-light }"
 			},
 			"framed--active": {
-				"value": " { color.opacity-medium-light }"
+				"value": "{ color.opacity-medium-light }"
 			}
 		}
 	},
