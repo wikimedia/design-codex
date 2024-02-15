@@ -280,6 +280,15 @@ device usage types. Considering voice as the most natural machine-human input me
 interface reflects it. We design experiences that provide ergonomics on smartphones, tablets, and
 hybrid laptop/touch devices.
 
+## Conclusion
+
+In conclusion, the Wikimedia Foundation's dedication to creating mobile-first experiences is evident
+in the careful design and development of our apps for Android, iOS, and KaiOS. By prioritizing
+accessibility, performance, and user-centric design, we continue to uphold our commitment to
+"This is for everyone" — ensuring that knowledge remains free, open, and accessible across all
+mobile platforms. We invite you to join us on this journey, contribute to our mission, and help
+shape the future of mobile interaction with Wikimedia's suite of apps.
+
 ## Further reading
 
 The Wikipedia Android, iOS, and KaiOS apps are each designed and developed by a specific team. If
