@@ -30,10 +30,12 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 	// The "modes" that our library bundles need to support are defined here.
 	/* eslint-disable no-multi-spaces */
 	const MODES = [
-		'',             // default mode
-		'rtl',          // RTL stylesheet
-		'legacy',       // Legacy (14px base) stylesheet
-		'legacy-rtl'    // RTL 14px base stylesheet
+		'',                 // default mode
+		'rtl',              // RTL stylesheet
+		'legacy',           // Legacy (14px base) stylesheet
+		'legacy-rtl',       // RTL 14px base stylesheet
+		'experimental',     // Experimental stylesheets with CSS vars for colors
+		'experimental-rtl'
 	];
 	/* eslint-enable no-multi-spaces */
 
@@ -124,6 +126,47 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 							{
 								find: /^@wikimedia\/codex-design-tokens\/(dist\/)?theme-wikimedia-ui\.less$/,
 								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-wikimedia-ui-legacy.less' )
+							}
+						]
+					},
+					plugins: [
+						emitAllowlist( [ 'css', 'json' ] )
+					]
+				};
+				break;
+			case 'experimental':
+				overrides = {
+					css: {
+						postcss: { plugins: [ autoprefixer() ] }
+					},
+					resolve: {
+						alias: [
+							{
+								find: /^@wikimedia\/codex-design-tokens\/(dist\/)?theme-wikimedia-ui\.less$/,
+								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-wikimedia-ui-experimental.less' )
+							}
+						]
+					},
+					plugins: [
+						emitAllowlist( [ 'css', 'json' ] )
+					]
+				};
+				break;
+			case 'experimental-rtl':
+				overrides = {
+					css: {
+						postcss: {
+							plugins: [
+								rtlcss( /** @type {rtlcss.ConfigOptions} */ ( { useCalc: true } ) ),
+								autoprefixer()
+							]
+						}
+					},
+					resolve: {
+						alias: [
+							{
+								find: /^@wikimedia\/codex-design-tokens\/(dist\/)?theme-wikimedia-ui\.less$/,
+								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-wikimedia-ui-experimental.less' )
 							}
 						]
 					},

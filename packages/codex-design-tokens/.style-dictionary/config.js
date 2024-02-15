@@ -4,7 +4,7 @@
 import StyleDictionary from 'style-dictionary';
 import { getPackageVersion } from './utils.js';
 import { makePathMatcher } from './matchers.js';
-import { createCustomStyleFormatter } from './formatters.js';
+import { createCustomStyleFormatter, experimentalLessWithCssVars } from './formatters.js';
 import {
 	camelCaseNegative,
 	getReferencedTokens,
@@ -75,6 +75,10 @@ export default function ( themeConfig ) {
 					{
 						destination: `theme-${ themeConfig.themeName }.json`,
 						format: 'json'
+					},
+					{
+						destination: `theme-${ themeConfig.themeName }-experimental.less`,
+						format: 'custom/format/less-experimental'
 					}
 				]
 			},
@@ -160,6 +164,11 @@ export default function ( themeConfig ) {
 	dict.registerFormat( {
 		name: 'custom/format/js',
 		formatter: createCustomStyleFormatter( 'javascript/es6' )
+	} );
+
+	dict.registerFormat( {
+		name: 'custom/format/less-experimental',
+		formatter: experimentalLessWithCssVars
 	} );
 
 	return dict;

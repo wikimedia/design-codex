@@ -1,15 +1,32 @@
 /** @typedef {import('style-dictionary').Dictionary} Dictionary */
-/** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
-/** @typedef {import('style-dictionary').TransformedTokens} TransformedTokens */
+/** @typedef {import('style-dictionary').File} File */
+/** @typedef {import('style-dictionary').Options} Options */
 /** @typedef {import('style-dictionary').Platform} Platform */
 /** @typedef {import('style-dictionary/types/Matcher').Matcher} Matcher */
-/** @typedef {import('style-dictionary').Transform} Transform */
 /** @typedef {import('style-dictionary').Formatter} Formatter */
+/** @typedef {import('style-dictionary').Transform} Transform */
+/** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
+/** @typedef {import('style-dictionary').TransformedTokens} TransformedTokens */
 
 import StyleDictionary from 'style-dictionary';
 import { getTokenType } from './transformers.js';
 const { formatHelpers } = StyleDictionary;
 const { fileHeader, createPropertyFormatter, sortByReference } = formatHelpers;
+
+/**
+ * Wrap a string of text in the appropriate comment syntax
+ *
+ * @param {string} text
+ * @param {string} commentStyle
+ * @return {string}
+ */
+function makeComment( text, commentStyle = 'short' ) {
+	if ( commentStyle === 'short' ) {
+		return `// ${ text }\n`;
+	} else {
+		return `/* ${ text } */\n`;
+	}
+}
 
 // Custom Formatters (register before use) =========================================================
 
@@ -75,16 +92,8 @@ export function createCustomStyleFormatter( format ) {
 		const deprecatedTokens = filteredTokens.filter( ( token ) => token.deprecated );
 		const nonDeprecatedTokens = filteredTokens.filter( ( token ) => !token.deprecated );
 
-		/**
-		 * @param {string} text
-		 * @return {string}
-		 */
-		const makeComment = ( text ) => commentStyle === 'short' ?
-			`// ${ text }\n` :
-			`/* ${ text } */\n`;
-
 		const deprecatedSectionHeader = deprecatedTokens.length > 0 ?
-			'\n\n' + makeComment( 'DEPRECATED TOKENS' ) : '';
+			'\n\n' + makeComment( 'DEPRECATED TOKENS', commentStyle ) : '';
 
 		/**
 		 * Add deprecation comments above deprecated tokens.
@@ -118,7 +127,7 @@ export function createCustomStyleFormatter( format ) {
 
 			const fullComment = 'Warning: the following token name is deprecated' +
 				useInstead + deprecatedComment;
-			return makeComment( fullComment );
+			return makeComment( fullComment, commentStyle );
 		};
 
 		return header +
@@ -134,4 +143,67 @@ export function createCustomStyleFormatter( format ) {
 				.join( '\n' ) +
 			postamble;
 	};
+}
+
+/**
+ * Generates an experimental LESS stylesheet which includes a subset of tokens as
+ * CSS variables in a :root declaration at the top of the file.
+ *
+ * @param {Object} args
+ * @param {Dictionary} args.dictionary
+ * @param {File} args.file
+ * @param {Options} args.options
+ * @return {string}
+ */
+export function experimentalLessWithCssVars( { dictionary, file, options } ) {
+	const commentStyle = 'short';
+	const preamble = makeComment( 'This is an experimental stylesheet not intended for production use.', commentStyle );
+	const header = fileHeader( { file } );
+	const { outputReferences } = options;
+	let { allTokens } = dictionary;
+
+	// Sort tokens by reference if necessary, to avoid use-before-defined issues
+	if ( outputReferences ) {
+		allTokens = [ ...allTokens ].sort( sortByReference( dictionary ) );
+	}
+
+	const publishedTokens = allTokens.filter( ( t ) => t.attributes?.type !== 'theme' );
+	const cssVarTokens = publishedTokens.filter( ( t ) => {
+		/** @todo hardcoding this here is not ideal, should this data live in config? */
+		const relevantProps = [
+			'color',
+			'background-color',
+			'border-color',
+			'border',
+			'filter',
+			'opacity-icon'
+		];
+
+		return t.path.some( ( element ) => relevantProps.includes( element ) );
+	} );
+
+	const cssFormatter = createPropertyFormatter( { dictionary, outputReferences: false, format: 'css' } );
+	const lessFormatter = createPropertyFormatter( { dictionary, outputReferences: false, format: 'less' } );
+
+	const replacedTokens = publishedTokens.map( ( token ) => {
+		const newToken = { ...token };
+		if ( cssVarTokens.includes( token ) ) {
+			newToken.value = `var( --${ token.name } )`;
+		}
+		return newToken;
+	} );
+	return header +
+		preamble +
+		'\n' +
+		':root {\n' +
+		cssVarTokens
+			.map( ( token ) => cssFormatter( token ) )
+			.filter( Boolean )
+			.join( '\n' ) +
+		'\n' +
+		'}\n\n' +
+		replacedTokens
+			.map( ( token ) => lessFormatter( token ) )
+			.filter( Boolean )
+			.join( '\n' );
 }
