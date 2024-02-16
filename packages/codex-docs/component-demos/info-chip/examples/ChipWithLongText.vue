@@ -3,6 +3,8 @@
 		<cdx-info-chip>
 			This is really really really really really
 			really really really really really really
+			really really really really really really
+			really really really really really really
 			long text
 		</cdx-info-chip>
 	</div>
