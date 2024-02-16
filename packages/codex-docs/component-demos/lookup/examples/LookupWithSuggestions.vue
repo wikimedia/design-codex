@@ -10,7 +10,11 @@
 			:menu-config="menuConfig"
 			aria-label="Lookup with suggested items demo"
 			@input="onInput"
-		/>
+		>
+			<template #no-results>
+				No results found.
+			</template>
+		</cdx-lookup>
 	</div>
 </template>
 
