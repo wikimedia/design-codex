@@ -132,3 +132,107 @@ content will be truncated with an ellipsis and lines will not be wrapped.
 </cdx-demo-wrapper>
 
 ## Vue usage
+
+## CSS-only version
+
+### Markup structure
+
+#### Text only
+
+A simple chip with text content and no icon is straightforward.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Outer element is a <div>. -->
+	<div class="cdx-info-chip">
+		<!-- Text element. -->
+		<span class="cdx-info-chip--text">
+			<!-- Chip text -->
+			Info Chip
+		</span>
+    </div>
+</template>
+<template v-slot:code>
+
+```html
+	<!-- Outer element is a <div>. -->
+	<div class="cdx-info-chip">
+		<!-- Text element. -->
+		<span class="cdx-info-chip--text">
+			<!-- Chip text -->
+			Info Chip
+		</span>
+    </div>
+```
+</template>
+</cdx-demo-wrapper>
+
+The chip will inherit the reading direction of its context.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Establish a right-to-left reading context -->
+	<div dir="rtl">
+		<!-- Outer element is a <div>. -->
+		<div class="cdx-info-chip">
+			<!-- Text element. -->
+			<span class="cdx-info-chip--text">
+				<!-- Chip text -->
+				Right-to-left Chip
+			</span>
+		</div>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+	<!-- Establish a right-to-left reading context -->
+	<div dir="rtl">
+		<!-- Outer element is a <div>. -->
+		<div class="cdx-info-chip">
+			<!-- Text element. -->
+			<span class="cdx-info-chip--text">
+				<!-- Chip text -->
+				Right-to-left Chip
+			</span>
+		</div>
+	</div>
+```
+</template>
+</cdx-demo-wrapper>
+
+Long text behaves the same as with the full chip: it will be
+truncated with an ellipsis and lines will not be wrapped.
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Outer element is a <div>. -->
+	<div class="cdx-info-chip">
+		<!-- Text element. -->
+		<span class="cdx-info-chip--text">
+			<!-- Chip text -->
+			This is really really really really really
+			really really really really really really
+			really really really really really really
+			really really really really really really
+			long text
+		</span>
+    </div>
+</template>
+<template v-slot:code>
+
+```html
+	<!-- Outer element is a <div>. -->
+	<div class="cdx-info-chip">
+		<!-- Text element. -->
+		<span class="cdx-info-chip--text">
+			<!-- Chip text -->
+			This is really really really really really
+			really really really really really really
+			really really really really really really
+			really really really really really really
+			long text
+		</span>
+    </div>
+```
+</template>
+</cdx-demo-wrapper>
