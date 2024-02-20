@@ -1,3 +1,35 @@
+# 1.3.3 / 2024-02-20
+
+## Styles
+- buttons: Use `inline-flex` for content (Anne Tomasevich)
+- Icon, styles: Use mask-image for all CSS icons (Anne Tomasevich)
+- styles: Remove uses of Less's fade() function (Anne Tomasevich)
+- build, tokens: Add "experimental" tokens and stylesheets (Eric Gardner)
+
+## Code
+- Lookup: Enable an initial list of suggestions (Anne Tomasevich)
+- tokens: Remove leading space in tab-list-item tokens (Roan Kattouw)
+- build: Respect CODEX_DOC_ROOT when building the sandbox (Roan Kattouw)
+- build: Updating netlify-cli to 15.11.0 (libraryupgrader)
+- build: update 'browserslist-config-wikimedia' to latest v0.6.0 (Volker E)
+- build: Unify SVGO configurations (Volker E)
+- build: update 'less', 'postcss' and 'autoprefixer' to latest versions (Volker E)
+- build: update 'style-dictionary' to latest 3.9.2 (Volker E)
+- build: Automatically add all demos/*.html files to the sandbox build (Roan Kattouw)
+
+## Documentation
+- docs: add Components Guidelines when designing components (bmartinezcalvo)
+- docs: Add ES6 vars usage ability to formats (Volker E)
+- docs: Add other statuses to the Field configurable demo (Anne Tomasevich)
+- docs: Make really long text in InfoChip demo longer (Bartosz Dziewoński)
+- docs: Fix mobile nav bar font size (Volker E)
+- docs: Add "no results" message to Lookup demo (Anne Tomasevich)
+- docs: Fix mobile menu presentation (Volker E)
+- docs: Fix mobile 'on this page' navigation styling (Volker E)
+- docs: Add conclusion to Wikipedia Apps guidelines (Volker E)
+- docs: Style tables in the demo pane (Anne Tomasevich)
+- docs: Document the CSS-only InfoChip (C. Scott Ananian)
+
 # 1.3.2 / 2024-02-06
 
 ## Styles
