@@ -30,7 +30,9 @@ Instead, use [SearchInput](./search-input.md) or
 ![Specification of Lookup.](../../assets/components/lookup-specifications.svg)
 
 Lookup includes the following elements:
-1. **Input**<br>A TextInput where the user types to look for the suggested results. This can optionally include a start icon, clear button, and placeholder text.
+1. **Input**<br>A TextInput where the user types to look for the suggested
+	results. This can optionally include a start icon, clear button, and placeholder
+	text.
 2. **Dropdown menu**<br>Suggested results are displayed via the Menu component.
 
 Refer to the [Lookup component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=5034-54226&mode=design&t=2O0ceqiRfqCtnidq-11).
@@ -53,6 +55,14 @@ Custom content and formats can be applied to change the appearance of menu items
 according to your needs.
 
 ![Example of Lookup with custom menu items displayed.](../../assets/components/lookup-types-custom-menu.svg)
+
+#### With initial suggestions
+When the input field is focused, an initial list of suggestions may appear within the menu. When
+typing within the input field, these suggestions disappear, and the menu showcases a list of items
+matching the typed value. It is advisable to include a minimum of 2 suggested items and ideally
+limit the maximum to 4 or 5 items.
+
+![Example of a Lookup displaying a list of suggested results in the first image and a list of matched results in the second.](../../assets/components/lookup-types-suggestions.svg)
 
 #### No results
 If there are no results for the text typed by the user, a non-interactive "no
@@ -298,12 +308,15 @@ element within the component.
 ### Markup structure
 
 There is no true CSS-only version of the Lookup component. However, a
-[CSS-only TextInput component](./text-input.md#css-only-version) can be used instead, since it has
-visual parity with the Lookup component with its menu collapsed. For example, you could display a
-CSS-only TextInput on page load while a Vue app loads, then replace it with the Vue Lookup component once the Vue app has mounted.
+[CSS-only TextInput component](./text-input.md#css-only-version) can be used
+instead, since it has visual parity with the Lookup component with its menu
+collapsed. For example, you could display a CSS-only TextInput on page load
+while a Vue app loads, then replace it with the Vue Lookup component once the
+Vue app has mounted.
 
-The example below is a simple text input with a placeholder, but icons and different states are
-supported—see the [TextInput docs](./text-input.md#css-only-version) for more information.
+The example below is a simple text input with a placeholder, but icons and
+different states are supported—see the [TextInput docs](./text-input.md#css-only-version)
+for more information.
 
 
 <cdx-demo-wrapper>
