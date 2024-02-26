@@ -315,17 +315,36 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/select.less';
 @import ( reference ) '../../themes/mixins/public/css-icon.less';
 
+// HACK: We can't use the CSS icon mixin for the select handle's arrow icon, because it uses
+// mask-image, which applies to the background of the entire element. We can't do that with the
+// entire <select> element, and pseudo-elements can't be used for the icon either.
+// Instead, we really need background rules. Unfortunately, we can't rely on our color tokens here,
+// since they will soon output CSS custom properties, which won't work for the SVG's fill property.
+// TODO: Make this work in night mode.
+@color-base-hex: #202122;
+@color-disabled-hex: #72777d;
+@icon-expand-svg-content: extract( @cdx-icon-expand, 1 );
+
+.get-select-icon-background-image( @param-select-icon-color ) {
+	// Older versions of Less don't support using escape() on colors, so use %A instead.
+	@escaped-icon-color: %( '%A', @param-select-icon-color );
+	background-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="@{escaped-icon-color}">@{icon-expand-svg-content}</svg>' );
+}
+
 // CSS-only and Vue implementations are too divergent to combine, so they are included separately.
 // This is the CSS-only version, which is a `<select>` element.
 .cdx-select {
 	.cdx-select__handle();
-	.cdx-mixin-css-icon-background( @size-icon-x-small, center right @spacing-75 );
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	appearance: none;
+	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+	background-position: center right @spacing-75;
+	background-repeat: no-repeat;
+	background-size: calc( ~'max( @{size-icon-x-small}, @{min-size-icon-x-small} )' );
 
 	&:disabled {
 		.cdx-select__handle--disabled();
-		.cdx-mixin-css-icon-background-image( @cdx-icon-expand, @color-disabled );
+		.get-select-icon-background-image( @color-disabled-hex );
 
 		// Support: Chrome, which sets an opacity less than 1 for disabled select elements.
 		opacity: @opacity-base;
@@ -333,7 +352,7 @@ export default defineComponent( {
 
 	&:enabled {
 		.cdx-select__handle--enabled();
-		.cdx-mixin-css-icon-background-image( @cdx-icon-expand );
+		.get-select-icon-background-image( @color-base-hex );
 	}
 }
 
