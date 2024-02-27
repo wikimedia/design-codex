@@ -150,23 +150,6 @@ const splitConfig = mergeConfig( baseConfig, {
 	}
 } );
 
-const searchConfig = mergeConfig( baseConfig, {
-	build: {
-		lib: {
-			name: 'codex-search',
-			entry: { 'codex-search': resolve( __dirname, 'src/lib-search.ts' ) },
-			formats: [ 'es', 'cjs' ]
-		},
-
-		rollupOptions: {
-			external: [ 'vue' ],
-			output: {
-				assetFileNames: 'codex-search.[name]'
-			}
-		}
-	}
-} );
-
 // build the sandbox
 await build( {
 	configFile: false,
@@ -178,4 +161,3 @@ await build( {
 await generateCodexBundle( unminifiedLibraryConfig );
 await generateCodexBundle( minifiedLibraryConfig );
 await generateCodexBundle( splitConfig );
-await generateCodexBundle( searchConfig );
