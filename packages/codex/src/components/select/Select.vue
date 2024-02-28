@@ -326,8 +326,7 @@ export default defineComponent( {
 @icon-expand-svg-content: extract( @cdx-icon-expand, 1 );
 
 .get-select-icon-background-image( @param-select-icon-color ) {
-	// Older versions of Less don't support using escape() on colors, so use %A instead.
-	@escaped-icon-color: %( '%A', @param-select-icon-color );
+	@escaped-icon-color: escape( @param-select-icon-color );
 	background-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="@{escaped-icon-color}">@{icon-expand-svg-content}</svg>' );
 }
 
