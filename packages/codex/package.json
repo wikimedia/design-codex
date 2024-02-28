@@ -30,7 +30,8 @@
 	"style": "dist/codex.style.css",
 	"files": [
 		"dist",
-		"mixins"
+		"mixins",
+		"CHANGELOG.md"
 	],
 	"exports": {
 		".": {
@@ -55,8 +56,8 @@
 		"lint": "npm run lint:ts",
 		"lint:ts": "vue-tsc -p ./tsconfig-check.json --noEmit && vue-tsc -p ./cypress/tsconfig.json --noEmit",
 		"update-snapshots": "npm run test:unit -- -u",
-		"prepublishOnly": "cp -r dist/mixins .",
-		"postpublish": "rm -rf mixins/"
+		"prepack": "cp ../../CHANGELOG.md CHANGELOG.md && cp -r dist/mixins .",
+		"postpack": "rm CHANGELOG.md && rm -rf mixins/"
 	},
 	"devDependencies": {
 		"@types/jest": "29.5.6",
