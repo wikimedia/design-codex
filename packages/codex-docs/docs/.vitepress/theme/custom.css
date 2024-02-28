@@ -579,6 +579,11 @@ body {
 	margin: 0;
 }
 
+.vp-doc p + ul:not( :where( .vp-raw, .vp-raw * ) ),
+.vp-doc p + ol:not( :where( .vp-raw, .vp-raw * ) ) {
+	margin-top: calc( var( --spacing-50 ) * -1 );
+}
+
 @media ( min-width: 640px ) {
 	.cdx-docs-grid.cdx-docs-content-guidelines p {
 		margin: 0;

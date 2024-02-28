@@ -182,7 +182,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 				{
 					text: 'Layout Guidelines',
 					items: [
-						{ text: 'Using links and buttons', link: '/style-guide/using-links-and-buttons' }
+						{ text: 'Using links and buttons', link: '/style-guide/using-links-and-buttons' },
+						{ text: 'Constructing forms', link: '/style-guide/constructing-forms' }
 					]
 				},
 				{
