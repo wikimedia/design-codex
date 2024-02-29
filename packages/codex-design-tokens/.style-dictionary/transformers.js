@@ -54,17 +54,24 @@ export function getReferencedTokens( token ) {
  * @return {{ type?: 'theme'|'base'|'component' }}
  */
 export function getTokenType( token ) {
-	// According to the type information, token.filePath can't be undefined, but that's wrong
-	// It's undefined for the font-size-base token that we add through the 'tokens' property
-	// in config.js
-	const filename = path.basename( token.filePath ?? '' );
-	if ( filename.startsWith( 'theme-' ) ) {
+	if ( !token.filePath ) {
+		return {};
+	}
+
+	const dirname = path.basename( path.dirname( token.filePath ) );
+
+	if ( dirname === 'themes' ) {
 		return { type: 'theme' };
-	} else if ( filename.startsWith( 'codex-components' ) ) {
-		return { type: 'component' };
-	} else if ( filename.startsWith( 'codex-base' ) ) {
+	}
+
+	if ( dirname === 'modes' ) {
 		return { type: 'base' };
 	}
+
+	if ( dirname === 'components' ) {
+		return { type: 'component' };
+	}
+
 	return {};
 }
 

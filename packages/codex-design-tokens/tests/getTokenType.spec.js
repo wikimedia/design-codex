@@ -5,9 +5,9 @@ import { getTokenType } from '../.style-dictionary/transformers.js';
 describe( 'getTokenType', () => {
 	/** @type {[filePath: string, expectedType: string|undefined][]} */
 	const cases = [
-		[ '/home/nobody/codex/packages/codex-design-tokens/theme-foo.json', 'theme' ],
-		[ '/home/nobody/codex/packages/codex-design-tokens/codex-base.json', 'base' ],
-		[ '/home/nobody/codex/packages/codex-design-tokens/codex-components.json', 'component' ],
+		[ '/home/nobody/codex/packages/codex-design-tokens/themes/foo.json', 'theme' ],
+		[ '/home/nobody/codex/packages/codex-design-tokens/modes/foo.json', 'base' ],
+		[ '/home/nobody/codex/packages/codex-design-tokens/components/foo.json', 'component' ],
 		[ '/home/nobody/codex/packages/codex-design-tokens/codex-foo.json', undefined ]
 	];
 

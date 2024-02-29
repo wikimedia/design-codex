@@ -30,7 +30,11 @@ export default function ( themeConfig ) {
 				];
 			}
 		},
-		source: [ 'src/codex-*.json', 'src/theme-wikimedia-ui.json' ],
+		source: [
+			'src/themes/wikimedia-ui.json',
+			'src/modes/base.json',
+			'src/components/components.json'
+		],
 		tokens: {
 			// Insert a "magic" font-size-base token that is set to baseFontSize.
 			'font-size': {
