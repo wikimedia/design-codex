@@ -266,16 +266,17 @@ export default defineComponent( {
 		function onInputFocus( event: FocusEvent ) {
 			isActive.value = true;
 			// One reason to open the menu on focus is if there is input (i.e. the input value is
-			// not null nor an empty string) and there are either menu items to show or a "no
-			// results" message. Store whether this is the case in this variable.
-			const hasInputAndMenuItems = inputValue.value !== null && inputValue.value !== '' &&
-				!!( props.menuItems.length > 0 || slots[ 'no-results' ] );
-
-			// The other reason to open the menu on focus is if there were initial menu items
-			// passed in, e.g. suggested options.
-			if ( hasInputAndMenuItems || initialMenuItems.value.length > 0 ) {
+			// not null nor an empty string). Store whether this is the case in this variable.
+			const hasInput = inputValue.value !== null && inputValue.value !== '';
+			// Another reason to open the menu on focus is if there are either menu items to show
+			// or a "no results" message. Store whether this is the case in this variable.
+			const hasMenuItems = !!( props.menuItems.length > 0 || slots[ 'no-results' ] );
+			// The menu is open on focus when there are menu items and either an input value or
+			// initial menu items passed in, e.g. suggested options.
+			if ( hasMenuItems && ( hasInput || initialMenuItems.value.length > 0 ) ) {
 				expanded.value = true;
 			}
+
 			emit( 'focus', event );
 		}
 
