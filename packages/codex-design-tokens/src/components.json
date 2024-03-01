@@ -50,60 +50,60 @@
 	"position": {
 		"offset": {
 			"input-radio--focus": {
-				"value": "-{ dimension.25 }{ unit.system }"
+				"value": "-{ size.25 }"
 			}
 		}
 	},
 	"min-size": {
 		"icon-x-small": {
-			"value": "{ dimension.75 }{ unit.system }"
+			"value": "{ dimension.75 }"
 		},
 		"icon-small": {
-			"value": "{ dimension.100 }{ unit.system }"
+			"value": "{ dimension.100 }"
 		},
 		"icon-medium": {
-			"value": "{ dimension.125 }{ unit.system }"
+			"value": "{ dimension.125 }"
 		},
 		"input-binary": {
-			"value": "{ dimension.125 }{ unit.system }"
+			"value": "{ dimension.125 }"
 		},
 		"toggle-switch-grip": {
-			"value": "{ dimension.125 }{ unit.system }"
+			"value": "{ dimension.125 }"
 		}
 	},
 	"size": {
 		"icon-x-small": {
-			"value": "{ dimension.75 }{ unit.system }"
+			"value": "{ dimension.75 }"
 		},
 		"icon-small": {
-			"value": "{ dimension.100 }{ unit.system }"
+			"value": "{ dimension.100 }"
 		},
 		"icon-medium": {
-			"value": "{ dimension.125 }{ unit.system }"
+			"value": "{ dimension.125 }"
 		}
 	},
 	"min-width": {
 		"toggle-switch": {
-			"value": "{ dimension.300 }{ unit.system }"
+			"value": "{ dimension.300 }"
 		}
 	},
 	"min-height": {
 		"text-area": {
-			"value": "{ dimension.400 }{ unit.system }"
+			"value": "{ dimension.400 }"
 		},
 		"table": {
 			"header": {
-				"value": "{ dimension.400 }{ unit.system }"
+				"value": "{ dimension.400 }"
 			},
 			"footer": {
-				"value": "{ dimension.400 }{ unit.system }"
+				"value": "{ dimension.400 }"
 			}
 		}
 	},
 	"max-width": {
 		"button": {
 			"comment": "Note, that this is a slight amendment from WikimediaUI Base from `28.75em` = `460px` to `448px` – `dimension.2800`",
-			"value": "{ dimension.2800 }{ unit.system }"
+			"value": "{ dimension.2800 }"
 		}
 	},
 	"spacing": {
@@ -161,7 +161,7 @@
 	},
 	"border-width": {
 		"input-radio--checked": {
-			"value": "{ dimension.35 }{ unit.system }"
+			"value": "{ dimension.absolute.6 }"
 		}
 	},
 	"font-family": {

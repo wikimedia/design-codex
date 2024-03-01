@@ -285,14 +285,14 @@
 	},
 	"min-size": {
 		"interactive-pointer": {
-			"value": "{ dimension.200 }{ unit.system }"
+			"value": "{ dimension.200 }"
 		},
 		"interactive-touch": {
-			"value": "{ dimension.275 }{ unit.system }"
+			"value": "{ dimension.275 }"
 		},
 		"search-figure": {
 			"comment": "Alias for use in TypeaheadSearch and Thumbnail components for the same purpose and for better code readability.",
-			"value": "{ dimension.250 }{ unit.system }"
+			"value": "{ dimension.250 }"
 		}
 	},
 	"size": {
@@ -300,61 +300,61 @@
 			"value": "{ dimension.0 }"
 		},
 		"6": {
-			"value": "{ dimension.6 }{ unit.system }"
+			"value": "{ dimension.6 }"
 		},
 		"12": {
-			"value": "{ dimension.12 }{ unit.system }"
+			"value": "{ dimension.12 }"
 		},
 		"25": {
-			"value": "{ dimension.25 }{ unit.system }"
+			"value": "{ dimension.25 }"
 		},
 		"50": {
-			"value": "{ dimension.50 }{ unit.system }"
+			"value": "{ dimension.50 }"
 		},
 		"75": {
-			"value": "{ dimension.75 }{ unit.system }"
+			"value": "{ dimension.75 }"
 		},
 		"100": {
-			"value": "{ dimension.100 }{ unit.system }"
+			"value": "{ dimension.100 }"
 		},
 		"125": {
-			"value": "{ dimension.125 }{ unit.system }"
+			"value": "{ dimension.125 }"
 		},
 		"150": {
-			"value": "{ dimension.150 }{ unit.system }"
+			"value": "{ dimension.150 }"
 		},
 		"200": {
-			"value": "{ dimension.200 }{ unit.system }"
+			"value": "{ dimension.200 }"
 		},
 		"250": {
-			"value": "{ dimension.250 }{ unit.system }"
+			"value": "{ dimension.250 }"
 		},
 		"275": {
-			"value": "{ dimension.275 }{ unit.system }"
+			"value": "{ dimension.275 }"
 		},
 		"300": {
-			"value": "{ dimension.300 }{ unit.system }"
+			"value": "{ dimension.300 }"
 		},
 		"400": {
-			"value": "{ dimension.400 }{ unit.system }"
+			"value": "{ dimension.400 }"
 		},
 		"800": {
-			"value": "{ dimension.800 }{ unit.system }"
+			"value": "{ dimension.800 }"
 		},
 		"1600": {
-			"value": "{ dimension.1600 }{ unit.system }"
+			"value": "{ dimension.1600 }"
 		},
 		"2400": {
-			"value": "{ dimension.2400 }{ unit.system }"
+			"value": "{ dimension.2400 }"
 		},
 		"2800": {
-			"value": "{ dimension.2800 }{ unit.system }"
+			"value": "{ dimension.2800 }"
 		},
 		"3200": {
-			"value": "{ dimension.3200 }{ unit.system }"
+			"value": "{ dimension.3200 }"
 		},
 		"5600": {
-			"value": "{ dimension.5600 }{ unit.system }"
+			"value": "{ dimension.5600 }"
 		},
 		"absolute": {
 			"1": {
@@ -386,12 +386,12 @@
 		},
 		"search-figure": {
 			"comment": "Alias for use in TypeaheadSearch and Thumbnail components for the same purpose and for better code readability.",
-			"value": "{ dimension.250 }{ unit.system }"
+			"value": "{ dimension.250 }"
 		}
 	},
 	"min-width": {
 		"medium": {
-			"value": "{ dimension.1600 }{ unit.system }"
+			"value": "{ dimension.1600 }"
 		},
 		"breakpoint": {
 			"comment": "Breakpoints. Minimum available screen width to be considered a certain device type.",
@@ -471,45 +471,45 @@
 			"value": "{ dimension.0 }"
 		},
 		"12": {
-			"value": "{ dimension.12 }{ unit.system }"
+			"value": "{ dimension.12 }"
 		},
 		"25": {
-			"value": "{ dimension.25 }{ unit.system }"
+			"value": "{ dimension.25 }"
 		},
 		"30": {
 			"comment": "This token is an exception to the scale.  Used as vertical `padding` in inputs and controls to achieve the default 32px component height.",
-			"value": "{ dimension.30 }{ unit.system }"
+			"value": "{ dimension.30 }"
 		},
 		"35": {
 			"comment": "This token is an exception to the scale.  Used as `padding` of the ToggleSwitch component.",
-			"value": "{ dimension.35 }{ unit.system }"
+			"value": "{ dimension.35 }"
 		},
 		"50": {
-			"value": "{ dimension.50 }{ unit.system }"
+			"value": "{ dimension.50 }"
 		},
 		"75": {
-			"value": "{ dimension.75 }{ unit.system }"
+			"value": "{ dimension.75 }"
 		},
 		"100": {
-			"value": "{ dimension.100 }{ unit.system }"
+			"value": "{ dimension.100 }"
 		},
 		"125": {
-			"value": "{ dimension.125 }{ unit.system }"
+			"value": "{ dimension.125 }"
 		},
 		"150": {
-			"value": "{ dimension.150 }{ unit.system }"
+			"value": "{ dimension.150 }"
 		},
 		"200": {
-			"value": "{ dimension.200 }{ unit.system }"
+			"value": "{ dimension.200 }"
 		},
 		"250": {
-			"value": "{ dimension.250 }{ unit.system }"
+			"value": "{ dimension.250 }"
 		},
 		"300": {
-			"value": "{ dimension.300 }{ unit.system }"
+			"value": "{ dimension.300 }"
 		},
 		"400": {
-			"value": "{ dimension.400 }{ unit.system }"
+			"value": "{ dimension.400 }"
 		},
 		"half": {
 			"comment": "From here on, spacing tokens which are used for positioning values.",
@@ -521,10 +521,10 @@
 	},
 	"border-width": {
 		"base": {
-			"value": "{ dimension.6 }{ unit.system }"
+			"value": "{ dimension.absolute.1 }"
 		},
 		"thick": {
-			"value": "{ dimension.12 }{ unit.system }"
+			"value": "{ dimension.absolute.2 }"
 		}
 	},
 	"border-style": {
@@ -614,7 +614,7 @@
 	},
 	"border-radius": {
 		"base": {
-			"value": "{ dimension.12 }{ unit.system }"
+			"value": "{ dimension.absolute.2 }"
 		},
 		"sharp": {
 			"value": "{ dimension.0 }"
@@ -693,7 +693,7 @@
 		"comment": "Outlines",
 		"base--focus": {
 			"comment": "Enable Windows high contrast mode on certain widgets, that have default outlines overridden.",
-			"value": "{ dimension.6 }{ unit.system } { border-style.100 } { color.transparent }"
+			"value": "{ border-width.base } { border-style.100 } { color.transparent }"
 		},
 		"color": {
 			"progressive--focus": {
@@ -733,25 +733,25 @@
 	"font-size": {
 		"x-small": {
 			"comment": "`x` stands for extra. In this case extra small.",
-			"value": "{ font-size.75 }{ unit.system }"
+			"value": "{ font-size.75 }"
 		},
 		"small": {
-			"value": "{ font-size.90 }{ unit.system }"
+			"value": "{ font-size.90 }"
 		},
 		"medium": {
-			"value": "{ font-size.100 }{ unit.system }"
+			"value": "{ font-size.100 }"
 		},
 		"large": {
-			"value": "{ font-size.110 }{ unit.system }"
+			"value": "{ font-size.110 }"
 		},
 		"x-large": {
-			"value": "{ font-size.125 }{ unit.system }"
+			"value": "{ font-size.125 }"
 		},
 		"xx-large": {
-			"value": "{ font-size.150 }{ unit.system }"
+			"value": "{ font-size.150 }"
 		},
 		"xxx-large": {
-			"value": "{ font-size.175 }{ unit.system }"
+			"value": "{ font-size.175 }"
 		}
 	},
 	"font-weight": {
@@ -909,14 +909,6 @@
 		},
 		"zoom-out": {
 			"value": "{ cursor.zoom-less }"
-		}
-	},
-	"unit": {
-		"absolute": {
-			"value": "{ unit.system }"
-		},
-		"relative": {
-			"value": "{ unit.user }"
 		}
 	}
 }

@@ -1,49 +1,200 @@
-/** @typedef {import('./types.js').ThemeConfig} ThemeConfig */
+// ----------------------------------------------------------------------------
+// Style Dictionary configuration for Codex Design Tokens
+//
+// This configuration does the following:
+//
+// * defines the default sources (WikimediaUI theme with no mode overrides)
+// * registers various custom transforms we need
+// * registers a transform group so we can re-apply those transforms
+// * registers a series of platforms and file formats to output:
+//   - stylesheet platform (CSS, LESS, SCSS, and JSON files); this also
+//     includes the "experimental" LESS file with CSS vars
+//   - javascript platform (JS file)
+//   - "legacy" stylesheet and JS platforms (same as above but with a 14px
+//      base font size).
+//
+// In the future additional "mode" files of the WikimediaUI theme can be produced
+// by calling sd.extend() and providing different files via "source" and "include"
+// properties.
 
-import dictFactory from './config.js';
+import StyleDictionary from 'style-dictionary';
+import { getPackageVersion } from './utils.js';
+import { createCustomStyleFormatter, experimentalLessWithCssVars } from './formatters.js';
+import { shouldUseRelativeSize, shouldUseAbsoluteSize } from './matchers.js';
+import {
+	camelCaseNegative,
+	getReferencedTokens,
+	getTokenType,
+	kebabCase,
+	relativeSizeTransform,
+	absoluteSizeTransform
+} from './transformers.js';
 
-// HACK: Eventually we should implement a real theme system that discovers themes based on
-// theme-foo.json files, and allows themes to specify their basePxFontSize and relativeTransform
-// settings in those files. For now, hard-code this information to build two themes, WikimediaUI
-// and WikimediaUI legacy (which is WikimediaUI but with a 14px base font size)
-
-const sharedConfig = {
-	relativeTransformUnit: 'em',
-	relativeTransformPaths: [
-		'size',
-		'max-width',
-		'font-size',
-		'position.offset'
-	],
-	relativeTransformExcludePaths: [
-		'size.absolute',
-		'size.viewport',
-		'max-width.breakpoint',
-		'font-size.base',
-		'position.offset.border-width-base'
-	]
-};
-
-/** @type {ThemeConfig[]} */
-const themeConfigs = [
-	{
-		themeName: 'wikimedia-ui',
-		themeNamePrint: 'WikimediaUI',
-		basePxFontSize: 16,
-		...sharedConfig
+// WikimediaUI theme, all platforms, including "experimental" and "legacy" builds
+const sd = StyleDictionary.extend( {
+	fileHeader: {
+		default: () => {
+			const packageVersion = getPackageVersion();
+			return [
+				'Codex Design Tokens v' + packageVersion,
+				'Design System for Wikimedia',
+				'See https://doc.wikimedia.org/codex/latest/design-tokens/overview.html'
+			];
+		}
 	},
-	{
-		themeName: 'wikimedia-ui-legacy',
-		themeNamePrint: 'WikimediaUI legacy',
-		basePxFontSize: 14,
-		...sharedConfig
-	}
-];
 
-for ( const themeConfig of themeConfigs ) {
-	const dict = dictFactory( themeConfig );
-	console.log( `Building Codex design tokens for ${ themeConfig.themeNamePrint } theme…` );
-	dict.buildAllPlatforms();
-}
+	source: [
+		'src/themes/wikimedia-ui.json',
+		'src/application.json',
+		'src/components.json'
+	],
+
+	transform: {
+		'custom/kebabCase': {
+			type: 'name',
+			transformer: kebabCase
+		},
+		'custom/camelWithNegative': {
+			type: 'name',
+			matcher: ( token ) => token.path.some( ( fragment ) => fragment.startsWith( '-' ) ),
+			transformer: camelCaseNegative
+		},
+		'custom/tokenList': {
+			type: 'attribute',
+			transformer: getReferencedTokens
+		},
+		'custom/tokenType': {
+			type: 'attribute',
+			transformer: getTokenType
+		},
+		'custom/relativeSize': {
+			type: 'value',
+			matcher: shouldUseRelativeSize,
+			transformer: relativeSizeTransform,
+			transitive: true
+		},
+		'custom/absoluteSize': {
+			type: 'value',
+			matcher: shouldUseAbsoluteSize,
+			transformer: absoluteSizeTransform,
+			transitive: true
+		}
+	},
+
+	transformGroup: {
+		'codex/stylesheet': [
+			'custom/kebabCase',
+			'custom/tokenList',
+			'custom/tokenType',
+			'custom/relativeSize',
+			'custom/absoluteSize'
+		],
+		'codex/js': [
+			'name/cti/camel',
+			'custom/camelWithNegative',
+			'custom/tokenList',
+			'custom/tokenType',
+			'custom/relativeSize',
+			'custom/absoluteSize'
+		]
+	},
+
+	format: {
+		'custom/css': createCustomStyleFormatter( 'css' ),
+		'custom/less': createCustomStyleFormatter( 'less' ),
+		'custom/scss': createCustomStyleFormatter( 'sass' ),
+		'custom/js': createCustomStyleFormatter( 'javascript/es6' ),
+		'custom/less-experimental': experimentalLessWithCssVars
+	},
+
+	platforms: {
+		stylesheet: {
+			transformGroup: 'codex/stylesheet',
+			buildPath: 'dist/',
+			options: { fileHeader: 'default' },
+			files: [
+				{
+					destination: 'theme-wikimedia-ui.css',
+					format: 'custom/css'
+				},
+				{
+					destination: 'theme-wikimedia-ui.less',
+					format: 'custom/less'
+				},
+				{
+					destination: 'theme-wikimedia-ui.scss',
+					format: 'custom/scss'
+				},
+				{
+					destination: 'theme-wikimedia-ui.json',
+					format: 'json'
+				},
+				{
+					destination: 'theme-wikimedia-ui-experimental.less',
+					format: 'custom/less-experimental'
+				}
+			]
+		},
+
+		javascript: {
+			prefix: 'cdx',
+			transformGroup: 'codex/js',
+			buildPath: 'dist/',
+			options: { fileHeader: 'default' },
+			files: [
+				{
+					destination: 'theme-wikimedia-ui.js',
+					format: 'custom/js'
+				}
+			]
+		},
+
+		// These files are identical but are still generated for compatibility purposes
+		stylesheetLegacy: {
+			transformGroup: 'codex/stylesheet',
+			buildPath: 'dist/',
+			options: { fileHeader: 'default' },
+			files: [
+				{
+					destination: 'theme-wikimedia-ui-legacy.css',
+					format: 'custom/css'
+				},
+				{
+					destination: 'theme-wikimedia-ui-legacy.less',
+					format: 'custom/less'
+				},
+				{
+					destination: 'theme-wikimedia-ui-legacy.scss',
+					format: 'custom/scss'
+				},
+				{
+					destination: 'theme-wikimedia-ui-legacy.json',
+					format: 'json'
+				},
+				{
+					destination: 'theme-wikimedia-ui-legacy-experimental.less',
+					format: 'custom/less-experimental'
+				}
+			]
+		},
+
+		// These files are identical but are still generated for compatibility purposes
+		javascriptLegacy: {
+			prefix: 'cdx',
+			transformGroup: 'codex/js',
+			buildPath: 'dist/',
+			options: { fileHeader: 'default' },
+			files: [
+				{
+					destination: 'theme-wikimedia-ui-legacy.js',
+					format: 'custom/js'
+				}
+			]
+		}
+	}
+} );
+
+// Build the normal version
+sd.buildAllPlatforms();
 
 console.log( '\nBuild completed!' );
