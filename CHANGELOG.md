@@ -1,3 +1,26 @@
+# 1.3.4 / 2024-03-05
+
+## Features
+- Lookup: menu is closed if there are no menu items (lwatson)
+
+## Styles
+- Select: Use background rules for the CSS-only icon (Anne Tomasevich)
+- Icon, Select: Use escape() for escaping colors, now that Less.php supports it (Roan Kattouw)
+
+## Code
+- build: add .npmrc to all packages (Volker E)
+- deps: shrinkwrap dependencies (Eric Gardner)
+- build: Remove codex-search build (Ty Hopp)
+- build: use prepack/postpack to manage extra files (Eric Gardner)
+- build: Re-organize Codex design tokens (Eric Gardner)
+- Revert "docs: Fix mobile menu presentation" (Eric Gardner)
+
+## Documentation
+- docs: Remove internal links from "Additional Resources" (Volker E)
+- docs: add guidelines for Lookup with initial suggestions (bmartinezcalvo)
+- ADR 8: Color modes and token organization (Eric Gardner)
+- docs: Add forms guidelines to Codex style guide (Derek Torsani)
+
 # 1.3.3 / 2024-02-20
 
 ## Styles
