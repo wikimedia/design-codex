@@ -59,16 +59,17 @@ export function getTokenType( token ) {
 	}
 
 	const dirname = path.basename( path.dirname( token.filePath ) );
+	const basename = path.basename( token.filePath );
 
 	if ( dirname === 'themes' ) {
 		return { type: 'theme' };
 	}
 
-	if ( dirname === 'modes' ) {
+	if ( basename === 'application.json' || dirname === 'modes' ) {
 		return { type: 'base' };
 	}
 
-	if ( dirname === 'components' ) {
+	if ( basename === 'components.json' ) {
 		return { type: 'component' };
 	}
 

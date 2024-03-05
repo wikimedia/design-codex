@@ -32,8 +32,8 @@ export default function ( themeConfig ) {
 		},
 		source: [
 			'src/themes/wikimedia-ui.json',
-			'src/modes/base.json',
-			'src/components/components.json'
+			'src/application.json',
+			'src/components.json'
 		],
 		tokens: {
 			// Insert a "magic" font-size-base token that is set to baseFontSize.
