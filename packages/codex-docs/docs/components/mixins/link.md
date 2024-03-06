@@ -31,7 +31,7 @@ pages. Avoid using Link when the user needs to perform an action. In such cases,
 1. **Link text**<br>The text that describes the link destination as clearly as possible.
 2. **External link icon**<br>Indicates that the link will take the user to a different website.
 
-Apart from links that navigate to other pages, there are the following non-standard links:
+Apart from links that navigate to other pages, there are the following different links:
 
 - Links that open a modal instead of a new page (e.g. map links)
 - Links that open a file instead of a web page (e.g. PDF or document links)
@@ -45,9 +45,9 @@ Refer to the [Link component in Codex Figma](https://www.figma.com/file/KoDuJMad
 
 ### Types
 
-![Types of links: default, underlined and red link.](../../assets/components/link-types.svg)
+![Types of links: Base, Underlined and Red Link.](../../assets/components/link-types.svg)
 
-1. **Default links**<br>By default, links are only underlined when they are interacted with (hover,
+1. **Base links**<br>By default, links are only underlined when they are interacted with (hover,
 active).
 2. **Underlined links**<br>To suit user preferences and for accessibility reasons, links can always
 be underlined.
@@ -57,7 +57,7 @@ color Red600 for both the normal or underlined types.<sup>[[3]](#ref3)</sup>
 ### Interaction states
 Links display accessible color variations that help clearly differentiate their interaction states:
 
-#### Default link
+#### Base link
 
 ![Interaction states of Link: default, hover, active, focus, visited, and visited and hover.](../../assets/components/link-interaction-states-blue-link.svg)
 
@@ -142,7 +142,7 @@ Red links are used to indicate that a page does not exist. Typically a red link 
 
 Click on a link to see visited link styles.
 
-### Standard link
+### Base link
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
@@ -414,7 +414,7 @@ will get errors that look like `variable @color-progressive is undefined`.
 
 ### Default usage
 
-To use standard, underlined, and red link styles, apply the `.cdx-mixin-link()` mixin to a link
+To use base, underlined, and red link styles, apply the `.cdx-mixin-link()` mixin to a link
 class or to all anchor elements. This will automatically apply underline styles to links with the
 `.is-underlined` class, and red link styles to links with the `.is-red-link` class.
 
