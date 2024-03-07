@@ -774,20 +774,19 @@ This works with single fields and fieldsets.
 ### Error status and message
 
 To display error styles and show an error message:
-- Add the `.cdx-field--status-error` class to the outer element
 - Apply error styles to the input (in the example below, the `.cdx-text-input--status-error` class
   is applied to the text input wrapper)
 - Add the validation message below the control wrapper
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<div class="cdx-field cdx-field--status-error">
+	<div class="cdx-field">
 		<div class="cdx-label">
 			<label class="cdx-label__label" for="cdx-demo-input-3">
 				<span class="cdx-label__label__text">Label text</span>
 			</label>
 		</div>
-		<div class="cdx-field__control cdx-field__control--has-help-text">
+		<div class="cdx-field__control">
 			<div class="cdx-text-input cdx-text-input--status-error">
 				<input id="cdx-demo-input-3" class="cdx-text-input__input" type="text" />
 			</div>
@@ -803,13 +802,13 @@ To display error styles and show an error message:
 <template v-slot:code>
 
 ```html
-<div class="cdx-field cdx-field--status-error">
+<div class="cdx-field">
 	<div class="cdx-label">
 		<label class="cdx-label__label" for="cdx-demo-input-3">
 			<span class="cdx-label__label__text">Label text</span>
 		</label>
 	</div>
-	<div class="cdx-field__control cdx-field__control--has-help-text">
+	<div class="cdx-field__control">
 		<div class="cdx-text-input cdx-text-input--status-error">
 			<input id="cdx-demo-input-3" class="cdx-text-input__input" type="text" />
 		</div>
