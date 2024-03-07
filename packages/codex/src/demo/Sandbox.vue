@@ -34,6 +34,7 @@
 				<radio-demo />
 				<search-input-demo />
 				<select-demo />
+				<table-demo />
 				<tabs-demo />
 				<text-area-demo />
 				<text-input-demo />
@@ -82,6 +83,7 @@ import ProgressBarDemo from './ProgressBarDemo.vue';
 import RadioDemo from './RadioDemo.vue';
 import SearchInputDemo from './SearchInputDemo.vue';
 import SelectDemo from './SelectDemo.vue';
+import TableDemo from './TableDemo.vue';
 import TabsDemo from './TabsDemo.vue';
 import TextAreaDemo from './TextAreaDemo.vue';
 import TextInputDemo from './TextInputDemo.vue';
@@ -113,6 +115,7 @@ const demoSections = [
 	{ name: 'Radio', id: '#cdx-radio' },
 	{ name: 'SearchInput', id: '#cdx-search-input' },
 	{ name: 'Select', id: '#cdx-select' },
+	{ name: 'Table', id: '#cdx-table' },
 	{ name: 'Tabs', id: '#cdx-tabs' },
 	{ name: 'TextArea', id: '#cdx-text-area' },
 	{ name: 'TextInput', id: '#cdx-text-input' },

@@ -180,3 +180,13 @@ export interface ChipInputItem {
 	value: string,
 	icon?: Icon
 }
+
+/** @public */
+export interface TableColumn {
+	id: string,
+	label: string
+}
+
+/** @public */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type TableRow = Record<string, any>;

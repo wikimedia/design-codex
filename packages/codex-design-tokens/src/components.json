@@ -67,6 +67,9 @@
 		"input-binary": {
 			"value": "{ dimension.125 }{ unit.system }"
 		},
+		"table-header": {
+			"value": "{ dimension.400 }{ unit.system }"
+		},
 		"toggle-switch-grip": {
 			"value": "{ dimension.125 }{ unit.system }"
 		}

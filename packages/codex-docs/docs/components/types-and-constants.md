@@ -280,6 +280,21 @@ See [StatusTypes](#statustypes).
 type StatusType = typeof StatusTypes[ number ];
 ```
 
+### TableColumn
+
+```ts
+interface TableColumn {
+	id: string,
+	label: string
+}
+```
+
+### TableRow
+
+```ts
+type TableRow = Record<string, any>;
+```
+
 ### TextInputType
 
 See [TextInputTypes](#textinputtypes).

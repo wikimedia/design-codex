@@ -90,7 +90,9 @@ import type {
 	ValidationStatusType,
 	ValidationMessages,
 	HeadingLevel,
-	ChipInputItem
+	ChipInputItem,
+	TableColumn,
+	TableRow
 } from './types';
 
 export {
@@ -166,5 +168,7 @@ export {
 	ValidationStatusType,
 	ValidationMessages,
 	HeadingLevel,
-	ChipInputItem
+	ChipInputItem,
+	TableColumn,
+	TableRow
 };
