@@ -233,6 +233,20 @@ Finally, submit the commit to Gerrit:
 $ git review
 ```
 
+### Patch demo
+
+Before merging the core patch, create a [Patchdemo](https://patchdemo.wmflabs.org/) to share a
+MediaWiki instance based on the core patch to update the Codex version. We can utilize Patchdemo to
+test TypeaheadSearch by configuring the settings for the Patchdemo as follows:
+- Add the MediaWiki core patch that updates the Codex version.
+- You can optionally leave the defaulted checked extensions/skins as is since we may only need
+Vector and Minerva.
+- Set the landing page to "Main Page".
+- Check the "Proxy articles from wikipedia.org" to import content into your project. TypeaheadSearch
+relies on content.
+- Lastly, click the button "Create Demo". Patchdemo should take 2-3 minutes to generate the wiki
+instance.
+
 ## Updating LibraryUpgrader
 You also need to configure LibraryUpgrader to automatically update the repositories it manages to
 the new Codex version.
