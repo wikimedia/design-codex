@@ -207,7 +207,7 @@ Color hints are guidance for general use case in a light mode theme.
 				Body Paragraph
 			</p>
 			<p>sans-serif font, regular</p>
-			<p>16 sp in Gray700</p>
+			<p>16 sp in Gray750</p>
 		</div>
 		<div class="cdx-docs-paragraphs__example__demo">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius. Itaque laudantium, praesentium maiores distinctio! Voluptate ipsam consequatur corrupti inventore cum illo quae modi.</p>
@@ -219,7 +219,7 @@ Color hints are guidance for general use case in a light mode theme.
 				Complementary
 			</p>
 			<p>sans-serif font, regular</p>
-			<p>14 sp in Gray 500 or Gray700</p>
+			<p>14 sp in Gray 500 or Gray750</p>
 		</div>
 		<div class="cdx-docs-paragraphs__example__demo">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius.</p>

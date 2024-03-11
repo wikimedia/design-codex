@@ -35,7 +35,7 @@ specific use cases.
 
 ![Example of base-color icons being used within a Menu.](../../assets/components/icon-specfications-color-base.svg)
 
-Icons will always use Gray700 if used individually, and not as part of another component.
+Icons will always use Gray750 if used individually, and not as part of another component.
 </div>
 <div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
 

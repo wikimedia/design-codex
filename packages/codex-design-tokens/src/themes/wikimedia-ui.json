@@ -14,6 +14,9 @@
 		"gray200": {
 			"value": "#eaecf0"
 		},
+		"gray250": {
+			"value": "#dadde3"
+		},
 		"gray300": {
 			"value": "#c8ccd1"
 		},
@@ -27,11 +30,16 @@
 			"value": "#54595d"
 		},
 		"gray650": {
-			"deprecated": "Gray 650 will be added as legacy and we are set out to use Gray 600 instead.",
 			"value": "#404244"
 		},
 		"gray700": {
+			"value": "#27292d"
+		},
+		"gray750": {
 			"value": "#202122"
+		},
+		"gray800": {
+			"value": "#101418"
 		},
 		"black": {
 			"value": "#000"
@@ -39,11 +47,23 @@
 		"blue100": {
 			"value": "#eaf3ff"
 		},
+		"blue250": {
+			"value": "#c2d1f0"
+		},
+		"blue300": {
+			"value": "#afb6e9"
+		},
+		"blue400": {
+			"value": "#6d8af2"
+		},
 		"blue500": {
 			"value": "#447ff5"
 		},
 		"blue600": {
 			"value": "#36c"
+		},
+		"blue650": {
+			"value": "#3057ac"
 		},
 		"blue700": {
 			"value": "#2a4b8d"
@@ -51,14 +71,26 @@
 		"red100": {
 			"value": "#fee7e6"
 		},
+		"red300": {
+			"value": "#f8a397"
+		},
+		"red400": {
+			"value": "#ef8174"
+		},
 		"red500": {
 			"value": "#ff4242"
 		},
 		"red600": {
 			"value": "#d73333"
 		},
+		"red650": {
+			"value": "#bd2a2a"
+		},
 		"red700": {
 			"value": "#b32424"
+		},
+		"red800": {
+			"value": "#70231f"
 		},
 		"yellow100": {
 			"value": "#fef6e7"
@@ -69,11 +101,20 @@
 		"yellow600": {
 			"value": "#edab00"
 		},
+		"yellow650": {
+			"value": "#ad822b"
+		},
 		"yellow700": {
-			"value": "#ac6600"
+			"value": "#a66200"
+		},
+		"yellow800": {
+			"value": "#4f3a1a"
 		},
 		"green100": {
 			"value": "#d5fdf4"
+		},
+		"green400": {
+			"value": "#74c9ac"
 		},
 		"green500": {
 			"value": "#00af89"
@@ -84,11 +125,44 @@
 		"green700": {
 			"value": "#096450"
 		},
-		"purple": {
+		"green800": {
+			"value": "#194538"
+		},
+		"purple250": {
+			"value": "#c3b2d8"
+		},
+		"purple300": {
+			"value": "#ad97ca"
+		},
+		"purple400": {
+			"value": "#977dbd"
+		},
+		"purple500": {
+			"value": "#7c5eab"
+		},
+		"purple600": {
 			"value": "#6b4ba1"
 		},
-		"maroon": {
+		"purple700": {
+			"value": "#5a4086"
+		},
+		"maroon250": {
+			"value": "#d8afad"
+		},
+		"maroon300": {
+			"value": "#c99391"
+		},
+		"maroon400": {
+			"value": "#b97876"
+		},
+		"maroon500": {
 			"value": "#a55858"
+		},
+		"maroon600": {
+			"value": "#874949"
+		},
+		"maroon700": {
+			"value": "#733f3f"
 		},
 		"modifier-gray100-translucent": {
 			"comment": "TODO: Not part of DS Figma yet. Equals `color-gray100` on white. Was `rgba( 0, 24, 73, calc( 7 / 255 ) )` before, but due to Less compiler issue, we need to provide calculated value. See T326591.",
@@ -663,7 +737,7 @@
 		},
 		"base10": {
 			"deprecated": true,
-			"value": "{ color.gray700 }"
+			"value": "{ color.gray750 }"
 		},
 		"base20": {
 			"deprecated": true,
@@ -743,7 +817,7 @@
 		},
 		"purple50": {
 			"deprecated": true,
-			"value": "{ color.purple }"
+			"value": "{ color.purple600 }"
 		},
 		"modifier-base10--lighten": {
 			"deprecated": true,

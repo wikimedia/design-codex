@@ -87,7 +87,7 @@
 	},
 	"color": {
 		"base": {
-			"value": "{ color.gray700 }"
+			"value": "{ color.gray750 }"
 		},
 		"base--hover": {
 			"comment": "Aimed to be replaced by `color.gray600` in future.",
@@ -136,7 +136,7 @@
 		},
 		"visited": {
 			"comment": "'Visited' color. In combination with progressive. Used for default links.",
-			"value": "{ color.purple }"
+			"value": "{ color.purple600 }"
 		},
 		"error": {
 			"value": "{ color.red600 }"
@@ -150,7 +150,7 @@
 			"value": "{ color.green600 }"
 		},
 		"notice": {
-			"value": "{ color.gray700 }"
+			"value": "{ color.gray750 }"
 		},
 		"base--subtle": {
 			"deprecated": "Use `color-subtle` instead. Note, that `color-subtle` is using `color.gray600` instead of `color.gray500` now.",

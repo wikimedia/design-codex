@@ -44,7 +44,7 @@
 			"value": "{ color.red600 }"
 		},
 		"link-red--visited": {
-			"value": "{ color.maroon }"
+			"value": "{ color.maroon500 }"
 		}
 	},
 	"position": {

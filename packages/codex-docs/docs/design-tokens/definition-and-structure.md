@@ -88,7 +88,7 @@ In the context of Codex, component tokens are used to document and define
 specific component styles that cannot be documented as shared decisions due to
 their single-use application. The names of component tokens include the name of
 the specific component and the property they define. Like decision tokens, they
-consume option tokens as values, e.g. `color-link-red--visited: color.maroon`.
+consume option tokens as values, e.g. `color-link-red--visited: color.maroon500`.
 
 Component tokens embody exceptions, and are directly applied to style specific
 component properties. If a pattern arises (i.e. the component token can be used

@@ -4,6 +4,10 @@
 /* stylelint-disable scale-unlimited/declaration-strict-value */
 </style>
 
+::: warning NOTICE
+Colors are currently being updated. This page is not a completely accurate depiction of new colors being added and existing colors being altered.
+:::
+
 The color palette represents our character and brings a hint of freshness to our products.
 
 Because content readability for everyone is our main goal, we have made accessibility
@@ -75,7 +79,7 @@ surface. Colors from Gray500 to Black are safe colors for a white surface.
 			<span class="cdx-docs-colors__color__hsb">HSB 210, 6%, 27%</span>
 		</li>
 		<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #202122;">
-			<span class="cdx-docs-colors__color__name">Gray700</span>
+			<span class="cdx-docs-colors__color__name">Gray750</span>
 			<span class="cdx-docs-colors__color__hex">#202122</span>
 			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
 			<span class="cdx-docs-colors__color__hsb">HSB 210, 6%, 13%</span>
@@ -213,9 +217,9 @@ Shades of red, green, and yellow are used as utility colors.
 			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AA</span>
 			<span class="cdx-docs-colors__color__hsb">HSB 43, 100%, 93%</span>
 		</li>
-		<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #ac6600;">
+		<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #a66200;">
 			<span class="cdx-docs-colors__color__name">Yellow700</span>
-			<span class="cdx-docs-colors__color__hex">#ac6600</span>
+			<span class="cdx-docs-colors__color__hex">#a66200</span>
 			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
 			<span class="cdx-docs-colors__color__hsb">HSB 36, 100%, 67%</span>
 		</li>
