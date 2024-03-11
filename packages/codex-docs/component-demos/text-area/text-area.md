@@ -622,7 +622,7 @@ description, optional flag, and help text. Refer to the [Field](./field.md) for 
 			</span>
 		</div>
 		<!-- Textarea/control wrapper. -->
-		<div class="cdx-field__control cdx-field__control--has-help-text">
+		<div class="cdx-field__control">
 			<!-- Textarea or control. -->
 			<div class="cdx-text-textarea">
 			<!-- Has `id` and `aria-describedby` attributes. -->
@@ -664,7 +664,7 @@ description, optional flag, and help text. Refer to the [Field](./field.md) for 
 			</span>
 		</div>
 		<!-- Textarea/control wrapper. -->
-		<div class="cdx-field__control cdx-field__control--has-help-text">
+		<div class="cdx-field__control">
 			<!-- Textarea or control. -->
 			<div class="cdx-text-textarea">
 			<!-- Has `id` and `aria-describedby` attributes. -->

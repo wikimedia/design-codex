@@ -665,9 +665,8 @@ When outputting a `<fieldset>`, the markup of this component is quite different:
 
 ### With help text
 
-To add help text below the input or control:
-- Add the `.cdx-field__control--has-help-text` class to the control wrapper
-- Add a `<div>` below the control wrapper with the class `.cdx-field__help-text`
+To add help text below the input or control, add a `<div>` below the control wrapper with the
+class `cdx-field__help-text`
 
 This works with single fields and fieldsets.
 
@@ -682,7 +681,7 @@ This works with single fields and fieldsets.
 				<a href="https://wikifunctions.beta.wmflabs.org/wiki/Wikifunctions:Main_Page">Wikifunctions</a> input type
 			</span>
 		</div>
-		<div class="cdx-field__control cdx-field__control--has-help-text">
+		<div class="cdx-field__control">
 			<select class="cdx-select">
 				<option value="">Choose an option</option>
 				<option value="boolean">boolean</option>
@@ -708,7 +707,7 @@ This works with single fields and fieldsets.
 			<a href="https://wikifunctions.beta.wmflabs.org/wiki/Wikifunctions:Main_Page">Wikifunctions</a> input type
 		</span>
 	</div>
-	<div class="cdx-field__control cdx-field__control--has-help-text">
+	<div class="cdx-field__control">
 		<select class="cdx-select">
 			<option value="">Choose an option</option>
 			<option value="boolean">boolean</option>
