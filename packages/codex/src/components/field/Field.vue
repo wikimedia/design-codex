@@ -192,15 +192,20 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-field {
-	// Remove <fieldset> margin, border, and padding.
-	// These styles are added by both browsers and in MediaWiki, e.g. the fieldset styles in
-	// resources/src/mediawiki.skinning/elements.less. They are all unset here to ensure that
-	// this component looks the same whether it's a single field or a fieldset.
-	// The margin could be overridden in feature code or in a future CdxForm component to add
-	// space between fields.
-	margin: 0;
+	// These styles (margin, border, and padding) are added by both browsers and in MediaWiki,
+	// e.g. the fieldset styles in resources/src/mediawiki.skinning/elements.less. Border and
+	// padding are unset here to ensure that this component looks the same whether it's a single
+	// field or a fieldset.
+	// Add vertical space between adjacent elements by adding top margin.
+	// Normalize/reset the fieldset by setting margin zero to the other sides of the element.
+	margin: @spacing-150 0 0 0;
+	// Remove border and padding.
 	border: 0;
 	padding: 0;
+
+	&:first-child {
+		margin-top: 0;
+	}
 
 	&__help-text {
 		line-height: @line-height-xx-small;
