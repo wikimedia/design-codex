@@ -15,7 +15,8 @@ import {
 	TextInputTypes,
 	ValidationStatusTypes,
 	StatusTypes,
-	MenuStates
+	MenuStates,
+	TableTextAlignments
 } from './constants';
 
 /** @public */
@@ -184,7 +185,8 @@ export interface ChipInputItem {
 /** @public */
 export interface TableColumn {
 	id: string,
-	label: string
+	label: string,
+	textAlign?: typeof TableTextAlignments[ number ]
 }
 
 /** @public */

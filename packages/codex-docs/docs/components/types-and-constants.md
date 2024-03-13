@@ -285,7 +285,9 @@ type StatusType = typeof StatusTypes[ number ];
 ```ts
 interface TableColumn {
 	id: string,
-	label: string
+	label: string,
+	// Allowed values: 'start' (default), 'center', 'end'
+	textAlign?: typeof TableTextAlignments[ number ]
 }
 ```
 
@@ -402,6 +404,15 @@ const StatusTypes = [
 	'warning',
 	'error',
 	'success'
+];
+```
+
+### TableTextAlignments
+```ts
+const TableTextAlignments = [
+	'start',
+	'center',
+	'end'
 ];
 ```
 

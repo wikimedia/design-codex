@@ -22,6 +22,12 @@ const dataOutOfOrder = [
 	{ col3: 6, col1: 4, col2: 5 }
 ];
 
+const columnsTextAlign = [
+	{ id: 'col1', label: 'Column 1', textAlign: 'start' },
+	{ id: 'col2', label: 'Column 2', textAlign: 'center' },
+	{ id: 'col3', label: 'Column 3', textAlign: 'end' }
+];
+
 const tfoot = `<tfoot>
 	<tr>
 		<td>One</td>
@@ -52,6 +58,7 @@ describe( 'Table', () => {
 		const cases: Case[] = [
 			[ 'Basic table', columnsBasic, dataBasic ],
 			[ 'With out-of-order data', columnsBasic, dataOutOfOrder ],
+			[ 'With text alignment', columnsTextAlign, dataBasic ],
 			[ 'With hidden caption', columnsBasic, dataBasic, true ],
 			[ 'With row headers', columnsBasic, dataBasic, false, true ],
 			[

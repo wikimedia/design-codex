@@ -23,7 +23,11 @@
 				<!-- Visually-hidden caption element, for assistive technology. -->
 				<caption>{{ caption }}</caption>
 				<thead v-if="columns.length > 0">
-					<th v-for="column in columns" :key="column.id">
+					<th
+						v-for="column in columns"
+						:key="column.id"
+						:class="getCellClass( column )"
+					>
 						{{ column.label }}
 					</th>
 				</thead>
@@ -33,6 +37,7 @@
 							:is="getCellElement( column.id )"
 							v-for="column in columns"
 							:key="column.id"
+							:class="getCellClass( column )"
 						>
 							<!--
 								@slot Table cell content, per column.
@@ -59,6 +64,10 @@
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
 import { TableColumn, TableRow } from '../../types';
+import { TableTextAlignments } from '../../constants';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+
+const tableTextAlignmentsValidator = makeStringTypeValidator( TableTextAlignments );
 
 /**
  * An HTML table for displaying data.
@@ -139,8 +148,33 @@ export default defineComponent( {
 			return 'td';
 		}
 
+		/**
+		 * Get a CSS class for a cell based on its column's text alignment.
+		 *
+		 * @param column
+		 * @return Dynamic class object
+		 */
+		function getCellClass( column: TableColumn ): Record<string, boolean>|undefined {
+			// Don't assign a class for the default value 'start'. Instead, we'll set
+			// text-align: left on the td and th elements.
+			if ( !( 'textAlign' in column ) || column.textAlign === 'start' ) {
+				return undefined;
+			}
+
+			if ( !tableTextAlignmentsValidator( column.textAlign ) ) {
+				// eslint-disable-next-line no-console
+				console.warn( 'Invalid value for TableColumn textAlign property.' );
+				return undefined;
+			}
+
+			return {
+				[ `cdx-table__cell--align-${ column.textAlign }` ]: true
+			};
+		}
+
 		return {
-			getCellElement
+			getCellElement,
+			getCellClass
 		};
 	}
 } );
@@ -200,10 +234,19 @@ export default defineComponent( {
 			text-align: left;
 		}
 
+		.cdx-table__cell {
+			&--align-center {
+				text-align: center;
+			}
+
+			&--align-end {
+				text-align: right;
+			}
+		}
+
 		thead {
 			th {
 				border-bottom: @border-base;
-				text-align: left;
 			}
 		}
 

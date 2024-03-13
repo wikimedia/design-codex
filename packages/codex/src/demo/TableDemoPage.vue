@@ -101,34 +101,34 @@
 		<cdx-table caption="Table caption" :columns="columnsBasic">
 			<tbody>
 				<tr>
-					<td colspan="3">
+					<td colspan="3" class="cdx-table__cell--align-center">
 						First section
 					</td>
 				</tr>
 				<tr>
 					<td>One</td>
+					<td class="cdx-table__cell--align-end">1</td>
+					<td>Uno</td>
+				</tr>
+				<tr>
 					<td>Two</td>
-					<td>Three</td>
+					<td class="cdx-table__cell--align-end">2</td>
+					<td>Dos</td>
 				</tr>
 				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-				</tr>
-				<tr>
-					<td colspan="3">
+					<td colspan="3" class="cdx-table__cell--align-center">
 						Second section
 					</td>
 				</tr>
 				<tr>
-					<td>Four</td>
-					<td>Five</td>
-					<td>Six</td>
+					<td>Three</td>
+					<td class="cdx-table__cell--align-end">3</td>
+					<td>Tres</td>
 				</tr>
 				<tr>
-					<td>4</td>
-					<td>5</td>
-					<td>6</td>
+					<td>Four</td>
+					<td class="cdx-table__cell--align-end">4</td>
+					<td>Cuatro</td>
 				</tr>
 			</tbody>
 		</cdx-table>
@@ -143,7 +143,7 @@
 			<tfoot>
 				<tr>
 					<th>Total:</th>
-					<td>$2,200</td>
+					<td class="cdx-table__cell--align-end">$2,200</td>
 				</tr>
 			</tfoot>
 		</cdx-table>
@@ -154,9 +154,17 @@
 				<tr>
 					<th rowspan="2">Season/series</th>
 					<th rowspan="2">Doctor</th>
-					<th rowspan="2">Episodes</th>
-					<th rowspan="1" colspan="2">Originally aired</th>
-					<th rowspan="2">Average viewers (millions)</th>
+					<th rowspan="2" class="cdx-table__cell--align-end">Episodes</th>
+					<th
+						rowspan="1"
+						colspan="2"
+						class="cdx-table__cell--align-center"
+					>
+						Originally aired
+					</th>
+					<th rowspan="2" class="cdx-table__cell--align-end">
+						Average viewers (millions)
+					</th>
 				</tr>
 				<tr>
 					<th>First aired</th>
@@ -171,10 +179,10 @@
 					<tr v-for="( season, index ) in doctor" :key="index">
 						<td>{{ season.season }}</td>
 						<td v-if="season.doctor" :rowspan="doctor.length">{{ season.doctor }}</td>
-						<td>{{ season.episodes }}</td>
+						<td class="cdx-table__cell--align-end">{{ season.episodes }}</td>
 						<td>{{ season.airStart }}</td>
 						<td>{{ season.airEnd }}</td>
-						<td>{{ season.viewers }}</td>
+						<td class="cdx-table__cell--align-end">{{ season.viewers }}</td>
 					</tr>
 				</template>
 			</tbody>
@@ -186,7 +194,7 @@
 import { ref, computed } from 'vue';
 // eslint-disable-next-line no-restricted-imports
 import { CdxTable } from '../components-wip/index';
-import { CdxButton, CdxCheckbox, CdxInfoChip, CdxToggleSwitch } from '../lib';
+import { CdxButton, CdxCheckbox, CdxInfoChip, CdxToggleSwitch, TableColumn } from '../lib';
 
 const restrictWidth = ref( false );
 const rootClasses = computed( () => {
@@ -196,29 +204,29 @@ const rootClasses = computed( () => {
 } );
 
 // Basic table.
-const columnsBasic = [
+const columnsBasic: TableColumn[] = [
 	{ id: 'col1', label: 'Column 1' },
-	{ id: 'col2', label: 'Column 2' },
-	{ id: 'col3', label: 'Column 3' }
+	{ id: 'col2', label: 'Column 2', textAlign: 'end' },
+	{ id: 'col3', label: 'Column 3!' }
 ];
 const dataBasic = [
-	{ col1: 'One', col2: 'Two', col3: 'Three' },
-	{ col1: 1, col2: 2, col3: 3 },
-	{ col1: 'Four', col2: 'Five', col3: 'Six' },
-	{ col1: 4, col2: 5, col3: 6 }
+	{ col1: 'One', col2: 1, col3: 'Uno' },
+	{ col1: 'Two', col2: 2, col3: 'Dos' },
+	{ col1: 'Three', col2: 3, col3: 'Tres' },
+	{ col1: 'Four', col2: 4, col3: 'Cuatro' }
 ];
 
 // Table with data out of order.
 const dataOutOfOrder = [
-	{ col2: 'Two', col1: 'One', col3: 'Three' },
-	{ col2: 2, col3: 3, col1: 1 },
-	{ col1: 'Four', col3: 'Six', col2: 'Five' },
-	{ col3: 6, col1: 4, col2: 5 }
+	{ col2: 1, col1: 'One', col3: 'Uno' },
+	{ col2: 2, col3: 'Dos', col1: 'Two' },
+	{ col1: 'Three', col3: 'Cuatro', col2: 3 },
+	{ col3: 'Cuatro', col1: 'Four', col2: 4 }
 ];
 
 // Table with ID column and extra data.
-const columnsExtraData = [
-	{ id: 'id', label: 'ID' },
+const columnsExtraData: TableColumn[] = [
+	{ id: 'id', label: 'ID', textAlign: 'end' },
 	{ id: 'name', label: 'Name' }
 ];
 const dataExtraData = [
@@ -227,7 +235,7 @@ const dataExtraData = [
 ];
 
 // Table with columns of varied widths.
-const columnsVariedWidth = [
+const columnsVariedWidth: TableColumn[] = [
 	{ id: 'user', label: 'User' },
 	{ id: 'ip', label: 'IP(s)' },
 	{ id: 'userAgent', label: 'User Agent(s)' }
@@ -253,7 +261,7 @@ const dataVariedWidth = [
 ];
 
 // Table with many columns.
-const columnsManyColumns = columnsVariedWidth.concat( [
+const columnsManyColumns: TableColumn[] = columnsVariedWidth.concat( [
 	{ id: 'user2', label: 'User 2' },
 	{ id: 'ip2', label: 'IP(s) 2' },
 	{ id: 'userAgent2', label: 'User Agent(s) 2' }
@@ -268,7 +276,7 @@ const dataManyColumns = [
 ];
 
 // Table using the item slot.
-const columnsItemSlot = [
+const columnsItemSlot: TableColumn[] = [
 	{ id: 'name', label: 'Name' },
 	{ id: 'status', label: 'Status' },
 	{ id: 'language', label: 'Language' }
@@ -311,9 +319,9 @@ function getChipStatus( itemStatus: string ) {
 }
 
 // Table using default slot for tfoot.
-const columnsTfoot = [
+const columnsTfoot: TableColumn[] = [
 	{ id: 'item', label: 'Item' },
-	{ id: 'cost', label: 'Cost' }
+	{ id: 'cost', label: 'Cost', textAlign: 'end' }
 ];
 const dataTfoot = [
 	{ item: 'Housing', cost: '$1,500' },

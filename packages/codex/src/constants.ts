@@ -78,6 +78,12 @@ export const MenuStates = [
 	'active'
 ] as const;
 
+export const TableTextAlignments = [
+	'start',
+	'center',
+	'end'
+];
+
 /**
  * Default length of delay for debouncing, in milliseconds.
  */

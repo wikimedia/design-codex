@@ -38,13 +38,19 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
       </caption>
       <thead>
         
-        <th>
+        <th
+          class=""
+        >
           Column 1
         </th>
-        <th>
+        <th
+          class=""
+        >
           Column 2
         </th>
-        <th>
+        <th
+          class=""
+        >
           Column 3
         </th>
         
@@ -53,7 +59,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
         
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -62,7 +70,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             One
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -71,7 +81,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             Two
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -84,7 +96,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -93,7 +107,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             1
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -102,7 +118,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             2
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -115,7 +133,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -124,7 +144,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             Four
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -133,7 +155,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             Five
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -146,7 +170,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -155,7 +181,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             4
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -164,7 +192,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             5
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -224,13 +254,19 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
       </caption>
       <thead>
         
-        <th>
+        <th
+          class=""
+        >
           Column 1
         </th>
-        <th>
+        <th
+          class=""
+        >
           Column 2
         </th>
-        <th>
+        <th
+          class=""
+        >
           Column 3
         </th>
         
@@ -239,7 +275,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
         
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -248,7 +286,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             One
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -257,7 +297,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             Two
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -270,7 +312,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -279,7 +323,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             1
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -288,7 +334,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             2
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -301,7 +349,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -310,7 +360,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             Four
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -319,7 +371,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             Five
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -332,7 +386,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -341,7 +397,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             4
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -350,7 +408,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             5
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -372,172 +432,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
 </div>
 `;
 
-exports[`Table matches the snapshot Case 2 With hidden caption: ([[Object], [Object], [Object]]) => HTML 1`] = `
-<div
-  class="cdx-table"
->
-  <!--v-if-->
-  <div
-    class="cdx-table__table-wrapper"
-  >
-    <table
-      class="cdx-table__table"
-    >
-      <!-- Visually-hidden caption element, for assistive technology. -->
-      <caption>
-        Table caption
-      </caption>
-      <thead>
-        
-        <th>
-          Column 1
-        </th>
-        <th>
-          Column 2
-        </th>
-        <th>
-          Column 3
-        </th>
-        
-      </thead>
-      <tbody>
-        
-        <tr>
-          
-          <td>
-            <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-            
-            One
-            
-          </td>
-          <td>
-            <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-            
-            Two
-            
-          </td>
-          <td>
-            <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-            
-            Three
-            
-          </td>
-          
-        </tr>
-        <tr>
-          
-          <td>
-            <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-            
-            1
-            
-          </td>
-          <td>
-            <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-            
-            2
-            
-          </td>
-          <td>
-            <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-            
-            3
-            
-          </td>
-          
-        </tr>
-        <tr>
-          
-          <td>
-            <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-            
-            Four
-            
-          </td>
-          <td>
-            <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-            
-            Five
-            
-          </td>
-          <td>
-            <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-            
-            Six
-            
-          </td>
-          
-        </tr>
-        <tr>
-          
-          <td>
-            <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-            
-            4
-            
-          </td>
-          <td>
-            <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-            
-            5
-            
-          </td>
-          <td>
-            <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-            
-            6
-            
-          </td>
-          
-        </tr>
-        
-      </tbody>
-      <!-- @slot Custom thead, tbody, and tfoot. -->
-      
-      
-    </table>
-  </div>
-  <!--v-if-->
-</div>
-`;
-
-exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
 >
@@ -575,13 +470,19 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
       </caption>
       <thead>
         
-        <th>
+        <th
+          class=""
+        >
           Column 1
         </th>
-        <th>
+        <th
+          class="cdx-table__cell--align-center"
+        >
           Column 2
         </th>
-        <th>
+        <th
+          class="cdx-table__cell--align-end"
+        >
           Column 3
         </th>
         
@@ -590,7 +491,9 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
         
         <tr>
           
-          <th>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -598,8 +501,10 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
             
             One
             
-          </th>
-          <td>
+          </td>
+          <td
+            class="cdx-table__cell--align-center"
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -608,7 +513,9 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
             Two
             
           </td>
-          <td>
+          <td
+            class="cdx-table__cell--align-end"
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -621,7 +528,9 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
         </tr>
         <tr>
           
-          <th>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -629,8 +538,10 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
             
             1
             
-          </th>
-          <td>
+          </td>
+          <td
+            class="cdx-table__cell--align-center"
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -639,7 +550,9 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
             2
             
           </td>
-          <td>
+          <td
+            class="cdx-table__cell--align-end"
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -652,7 +565,9 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
         </tr>
         <tr>
           
-          <th>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -660,8 +575,10 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
             
             Four
             
-          </th>
-          <td>
+          </td>
+          <td
+            class="cdx-table__cell--align-center"
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -670,7 +587,9 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
             Five
             
           </td>
-          <td>
+          <td
+            class="cdx-table__cell--align-end"
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -683,7 +602,9 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
         </tr>
         <tr>
           
-          <th>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -691,8 +612,10 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
             
             4
             
-          </th>
-          <td>
+          </td>
+          <td
+            class="cdx-table__cell--align-center"
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -701,7 +624,9 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
             5
             
           </td>
-          <td>
+          <td
+            class="cdx-table__cell--align-end"
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -723,7 +648,418 @@ exports[`Table matches the snapshot Case 3 With row headers: ([[Object], [Object
 </div>
 `;
 
-exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Object], [Object]]) => HTML 1`] = `
+<div
+  class="cdx-table"
+>
+  <!--v-if-->
+  <div
+    class="cdx-table__table-wrapper"
+  >
+    <table
+      class="cdx-table__table"
+    >
+      <!-- Visually-hidden caption element, for assistive technology. -->
+      <caption>
+        Table caption
+      </caption>
+      <thead>
+        
+        <th
+          class=""
+        >
+          Column 1
+        </th>
+        <th
+          class=""
+        >
+          Column 2
+        </th>
+        <th
+          class=""
+        >
+          Column 3
+        </th>
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            One
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Two
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Three
+            
+          </td>
+          
+        </tr>
+        <tr>
+          
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            1
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            2
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            3
+            
+          </td>
+          
+        </tr>
+        <tr>
+          
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Four
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Five
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Six
+            
+          </td>
+          
+        </tr>
+        <tr>
+          
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            4
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            5
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            6
+            
+          </td>
+          
+        </tr>
+        
+      </tbody>
+      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      
+    </table>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object], [Object]]) => HTML 1`] = `
+<div
+  class="cdx-table"
+>
+  <div
+    class="cdx-table__header"
+  >
+    <!-- We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end. -->
+    <div
+      class="cdx-table__header__caption"
+    >
+      <!-- Visible table title. -->
+      
+      Table caption
+      
+    </div>
+    <div
+      class="cdx-table__header__slot"
+    >
+      <!-- @slot Header content. Not to be confused with \`&lt;thead&gt;\`; use the default
+					slot to customize that. -->
+      
+      
+    </div>
+  </div>
+  <div
+    class="cdx-table__table-wrapper"
+  >
+    <table
+      class="cdx-table__table"
+    >
+      <!-- Visually-hidden caption element, for assistive technology. -->
+      <caption>
+        Table caption
+      </caption>
+      <thead>
+        
+        <th
+          class=""
+        >
+          Column 1
+        </th>
+        <th
+          class=""
+        >
+          Column 2
+        </th>
+        <th
+          class=""
+        >
+          Column 3
+        </th>
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          <th
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            One
+            
+          </th>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Two
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Three
+            
+          </td>
+          
+        </tr>
+        <tr>
+          
+          <th
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            1
+            
+          </th>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            2
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            3
+            
+          </td>
+          
+        </tr>
+        <tr>
+          
+          <th
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Four
+            
+          </th>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Five
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Six
+            
+          </td>
+          
+        </tr>
+        <tr>
+          
+          <th
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            4
+            
+          </th>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            5
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            6
+            
+          </td>
+          
+        </tr>
+        
+      </tbody>
+      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      
+    </table>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`Table matches the snapshot Case 5 With header and footer slots: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
 >
@@ -762,13 +1098,19 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
       </caption>
       <thead>
         
-        <th>
+        <th
+          class=""
+        >
           Column 1
         </th>
-        <th>
+        <th
+          class=""
+        >
           Column 2
         </th>
-        <th>
+        <th
+          class=""
+        >
           Column 3
         </th>
         
@@ -777,7 +1119,9 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
         
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -786,7 +1130,9 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
             One
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -795,7 +1141,9 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
             Two
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -808,7 +1156,9 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -817,7 +1167,9 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
             1
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -826,7 +1178,9 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
             2
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -839,7 +1193,9 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -848,7 +1204,9 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
             Four
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -857,7 +1215,9 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
             Five
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -870,7 +1230,9 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -879,7 +1241,9 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
             4
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -888,7 +1252,9 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
             5
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -918,7 +1284,7 @@ exports[`Table matches the snapshot Case 4 With header and footer slots: ([[Obje
 </div>
 `;
 
-exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Table matches the snapshot Case 6 With tfoot: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
 >
@@ -956,13 +1322,19 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
       </caption>
       <thead>
         
-        <th>
+        <th
+          class=""
+        >
           Column 1
         </th>
-        <th>
+        <th
+          class=""
+        >
           Column 2
         </th>
-        <th>
+        <th
+          class=""
+        >
           Column 3
         </th>
         
@@ -971,7 +1343,9 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
         
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -980,7 +1354,9 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
             One
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -989,7 +1365,9 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
             Two
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1002,7 +1380,9 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1011,7 +1391,9 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
             1
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1020,7 +1402,9 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
             2
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1033,7 +1417,9 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1042,7 +1428,9 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
             Four
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1051,7 +1439,9 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
             Five
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1064,7 +1454,9 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1073,7 +1465,9 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
             4
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1082,7 +1476,9 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
             5
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1117,7 +1513,7 @@ exports[`Table matches the snapshot Case 5 With tfoot: ([[Object], [Object], [Ob
 </div>
 `;
 
-exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Table matches the snapshot Case 7 With item slot: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
 >
@@ -1155,13 +1551,19 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
       </caption>
       <thead>
         
-        <th>
+        <th
+          class=""
+        >
           Column 1
         </th>
-        <th>
+        <th
+          class=""
+        >
           Column 2
         </th>
-        <th>
+        <th
+          class=""
+        >
           Column 3
         </th>
         
@@ -1170,7 +1572,9 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
         
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1181,7 +1585,9 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
             </p>
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1190,7 +1596,9 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
             Two
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1203,7 +1611,9 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1214,7 +1624,9 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
             </p>
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1223,7 +1635,9 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
             2
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1236,7 +1650,9 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1247,7 +1663,9 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
             </p>
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1256,7 +1674,9 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
             Five
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1269,7 +1689,9 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
         </tr>
         <tr>
           
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1280,7 +1702,9 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
             </p>
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
@@ -1289,7 +1713,9 @@ exports[`Table matches the snapshot Case 6 With item slot: ([[Object], [Object],
             5
             
           </td>
-          <td>
+          <td
+            class=""
+          >
             <!--
 								@slot Table cell content, per column.
 								@binding item Data for the cell
