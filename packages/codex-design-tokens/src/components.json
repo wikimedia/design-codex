@@ -67,9 +67,6 @@
 		"input-binary": {
 			"value": "{ dimension.125 }{ unit.system }"
 		},
-		"table-header": {
-			"value": "{ dimension.400 }{ unit.system }"
-		},
 		"toggle-switch-grip": {
 			"value": "{ dimension.125 }{ unit.system }"
 		}
@@ -93,6 +90,14 @@
 	"min-height": {
 		"text-area": {
 			"value": "{ dimension.400 }{ unit.system }"
+		},
+		"table": {
+			"header": {
+				"value": "{ dimension.400 }{ unit.system }"
+			},
+			"footer": {
+				"value": "{ dimension.400 }{ unit.system }"
+			}
 		}
 	},
 	"max-width": {

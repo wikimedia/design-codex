@@ -161,7 +161,7 @@ export default defineComponent( {
 		justify-content: space-between;
 		gap: @spacing-100;
 		box-sizing: @box-sizing-base;
-		min-height: @min-size-table-header;
+		min-height: @min-height-table-header;
 		padding: @spacing-100 @spacing-75;
 
 		&__caption {
@@ -229,6 +229,11 @@ export default defineComponent( {
 	}
 
 	&__footer {
+		display: flex;
+		align-items: center;
+		gap: @spacing-100;
+		box-sizing: @box-sizing-base;
+		min-height: @min-height-table-footer;
 		border-top: @border-base;
 		padding: @spacing-75;
 	}
