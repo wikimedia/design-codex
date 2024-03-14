@@ -59,14 +59,14 @@ Depending on the style of the button, there are two types of toggle buttons:
 2. **Quiet toggle buttons (frameless).** Only use quiet toggle buttons for an easily recognizable
 action that does not detract focus from the content.
 
-![Type of Toggle Button based on its style: normal and quiet.](../../assets/components/toggle-button-types.svg)
+![Type of ToggleButton based on its style: normal and quiet.](../../assets/components/toggle-button-types.svg)
 
 Depending on the button's content, it can have one of the following formats:
 1. Icon and text
 2. Text-only
 3. Icon-only
 
-![Type of toggle button based on its content: icon and text, text-only, and icon-only.](../../assets/components/toggle-button-types-content.svg)
+![Type of ToggleButton based on its content: icon and text, text-only, and icon-only.](../../assets/components/toggle-button-types-content.svg)
 
 ### Interaction states
 
@@ -130,7 +130,7 @@ label that changes when it is pressed, use the Button component instead.
 
 ### Icon only
 
-When the ToggleButton includes only an icon and no text,  add an `aria-label` to the ToggleButton 
+When the ToggleButton includes only an icon and no text,  add an `aria-label` to the ToggleButton
 to ensure the button is understandable to those using assistive technology.
 
 <cdx-demo-wrapper>

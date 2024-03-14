@@ -27,7 +27,7 @@ const controlsConfig = [
 ];
 </script>
 
-A toggle switch enables the user to instantly toggle between on and off states.
+A ToggleSwitch enables the user to instantly toggle between on and off states.
 
 ## Guidelines
 
@@ -43,7 +43,7 @@ selections and selection groups, use [Checkbox](./checkbox.md) instead.
 
 ### Specifications
 
-![Specification of Toggle Switch.](../../assets/components/toggle-switch-specifications.svg)
+![Specification of ToggleSwitch.](../../assets/components/toggle-switch-specifications.svg)
 
 1. **Toggle switch label**<br>
 The label should be short, with text that clearly describes the state being toggled.
@@ -51,7 +51,7 @@ The label should be short, with text that clearly describes the state being togg
 Toggle switches make the on and off states visually distinct by using different colors and moving
 the grabber from left to right and vice versa.
 
-Refer to the [Toggle Switch component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2554-32423&mode=design&t=7wyBmhfdJTJevQmT-11).
+Refer to the [ToggleSwitch component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2554-32423&mode=design&t=7wyBmhfdJTJevQmT-11).
 
 ### Interaction states
 
@@ -59,7 +59,7 @@ Toggle switches’ states were designed with accessible color variations. These,
 in addition to the toggle handle, facilitate distinguishing the toggle switch’s
 on or off states (e.g. disabled, hover, active) visually:
 
-![States of the Toggle Switch component for both off and on states: default, hover, active, focus, and disabled.](../../assets/components/toggle-switch-interaction-states.svg)
+![States of the ToggleSwitch component for both off and on states: default, hover, active, focus, and disabled.](../../assets/components/toggle-switch-interaction-states.svg)
 
 <div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
 

@@ -12,7 +12,7 @@ content.
 
 ## Guidelines
 
-### Using TypeaheadSearch
+### Using typeahead searches
 
 TypeaheadSearch consists of a search input and a submit button. As users type, predictive search
 results are displayed in a menu. Additionally, there's a final option at the end of the search
