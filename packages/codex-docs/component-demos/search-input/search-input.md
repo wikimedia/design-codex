@@ -2,7 +2,6 @@
 import SearchInputDefault from '@/../component-demos/search-input/examples/SearchInputDefault.vue';
 import SearchInputWithButton from '@/../component-demos/search-input/examples/SearchInputWithButton.vue';
 import SearchInputClearable from '@/../component-demos/search-input/examples/SearchInputClearable.vue';
-import SearchInputField from '@/../component-demos/search-input/examples/SearchInputField.vue';
 </script>
 
 A SearchInput allows users to enter and submit a search query.
@@ -211,27 +210,9 @@ input is present.
 
 ### Form field
 
-A SearchInput can be wrapped in the Field component to add features like a semantic label,
-description and help text, validation messages, and more. See the [Field](./field.md) page for more
-information.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<search-input-field />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/search-input/examples/SearchInputField.vue [NPM]
-
-<<< @/../component-demos/search-input/examples-mw/SearchInputField.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
+A SearchInput can be wrapped in a Field component, but this is not recommended. Although
+SearchInput uses a TextInput, it's not a form item intended to collect user input; instead,
+it triggers an action. Refer to the [Field](./field.md) guidelines for more information.
 
 ## Vue usage
 
@@ -240,7 +221,7 @@ button can be added by providing the `buttonLabel` prop.
 
 The default slot allows you to pass in an options menu that can be absolutely positioned to line
 up with the text input, e.g. a list of autocomplete options.
-See [TypeaheadSearch](./typeahead-search.md) for an example.
+Refer to [TypeaheadSearch](./typeahead-search.md) for an example.
 
 ::: tip TextInput props apply
 This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
