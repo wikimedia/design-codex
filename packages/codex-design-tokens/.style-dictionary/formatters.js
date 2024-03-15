@@ -56,7 +56,7 @@ export function createCustomStyleFormatter( format ) {
 	 * @return {string}
 	 */
 	function jsFormatter( token ) {
-		let toRet = 'export const ' + token.name + ' = ' + JSON.stringify( token.value ) + ';';
+		let toRet = 'export const ' + token.name + ' = ' + JSON.stringify( String( token.value ) ) + ';';
 		if ( token.comment ) {
 			toRet = toRet.concat( ' // ' + token.comment );
 		}
