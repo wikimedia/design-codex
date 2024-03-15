@@ -50,6 +50,7 @@
 	"position": {
 		"offset": {
 			"input-radio--focus": {
+				"deprecated": true,
 				"value": "-{ size.25 }"
 			}
 		}
