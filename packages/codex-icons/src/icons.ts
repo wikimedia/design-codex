@@ -835,6 +835,9 @@ export const cdxIconSmaller = svgSmaller;
 import svgSmallerText from './images/smallerText.svg';
 export const cdxIconSmallerText = svgSmallerText;
 
+import svgSortVertical from './images/sortVertical.svg';
+export const cdxIconSortVertical = svgSortVertical;
+
 import svgSpecialCharacter from './images/specialCharacter.svg';
 export const cdxIconSpecialCharacter = svgSpecialCharacter;
 
