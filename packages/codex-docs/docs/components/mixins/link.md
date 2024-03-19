@@ -16,20 +16,8 @@ A Link navigates the user to another page, view or section, when the user clicks
 ## Guidelines
 
 ### Using links
-Links must include descriptive text, or a combination of text and an icon.
 
-Use the Link component when you need to provide users with a clickable element to navigate to other
-pages. Avoid using Link when the user needs to perform an action. In such cases, use
-[Button](../demos/button.md) instead.
-
-![Example of Codex's Link and external Link variant.](../../assets/components/link-using.svg)
-
-### Specifications
-
-![Specification of Link.](../../assets/components/link-specifications.svg)
-
-1. **Link text**<br>The text that describes the link destination as clearly as possible.
-2. **External link icon**<br>Indicates that the link will take the user to a different website.
+Use the Link component when you need to provide users with a clickable element to navigate to a different page, resource, or section in the same page. 
 
 Apart from links that navigate to other pages, there are the following different links:
 
@@ -40,6 +28,20 @@ Apart from links that navigate to other pages, there are the following different
 - Links that open a non-web protocol URI (e.g. `mailto:`, `tel:` links)
 
 Several Wikimedia Movement projects provide extensive “manuals of style” for applying and designing for links, for example English Wikipedia.<sup>[[2]](#ref2)</sup>
+
+Avoid using Link when the user needs to perform an action. In such cases, use
+[Button](../demos/button.md) instead. Learn more about the [usage of links and buttons](../../style-guide/using-links-and-buttons.md).
+
+### Specifications
+
+![Specification of Link.](../../assets/components/link-specifications.svg)
+
+1. **Link text**<br>The text that describes the link destination as clearly as possible.
+2. **External link icon**<br>Indicates that the link will take the user to a different website. This icon cannot be replaced with other icons.
+
+By default, the link text style is set to the base font in regular. However, it can be easily customized to other styles by applying any of the existing fonts, text sizes or formats defined in our [font design tokens](../../design-tokens/font.md).
+
+The length of link text can vary according to the context. While there's no strict character limit for links, it's advisable to keep them concise and descriptive as defined in the [guidelines for writing copy](../../style-guide/writing-for-copy.md#content-first).
 
 Refer to the [Link component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=7250-67780&mode=design&t=eVqRGnL1b9RbOdZ0-11).
 
@@ -74,6 +76,60 @@ Links display accessible color variations that help clearly differentiate their 
 
 Links display the default browser outline on focus, which is equal to Blue600. The outline style varies in different browsers.<br>
 Links don't feature a disabled state. If you’re trying to convey an action, you might consider using a [quiet button](../demos/button.md#quiet-buttons-frameless) for that scenario instead.
+
+### Best practices
+
+Consider the following recommendations when incorporating links into your designs to ensure consistency and effective usage.
+
+#### Base link
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of text conveying an example of a link reading "Visit this article".](../../assets/components/link-best-practices-function-do.svg)
+
+</template>
+<template #do-text>
+
+- Use a Link when navigating to a different page, resource, or section in the same page.
+
+</template>
+<template #dont-media>
+
+![A screenshot of text conveying an example of a link reading "Edit this article".](../../assets/components/link-best-practices-function-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Do not use links to perform actions. In that case, use a [Button](../demos/button.md) instead.
+
+</template>
+</cdx-demo-rules>
+
+#### Red link
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of text conveying an example of a red link reading "New article".](../../assets/components/link-best-practices-function-red-do.svg)
+
+</template>
+<template #do-text>
+
+- Use a Red Link to represent that new pages without content can still be navigated to.
+
+</template>
+<template #dont-media>
+
+![A screenshot of text conveying an example of a red link reading "Delete this new article".](../../assets/components/link-best-practices-function-red-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Do not use a Red Link to represent destructive actions. In such instances, use a [destructive Button](../demos/button.md#destructive-buttons) instead.
+
+</template>
+</cdx-demo-rules>
 
 ### Content
 

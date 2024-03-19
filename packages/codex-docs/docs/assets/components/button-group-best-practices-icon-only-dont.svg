@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="112" fill="none" viewBox="0 0 420 112">
+	<g clip-path="url(#a)">
+		<g clip-path="url(#b)">
+			<path fill="#F8F9FA" d="M163.5 40.5h31v31h-31z"/>
+			<path stroke="#A2A9B1" d="M163.5 40.5h31v31h-31z"/>
+			<path fill="#202122" fill-rule="evenodd" d="M187.86 63.49 182 53.61V49h1v-2h-8v2h1v4.61l-5.86 9.88A1 1 0 0 0 171 65h16a1 1 0 0 0 .86-1.51m-10-9.09a1 1 0 0 0 .14-.51V49h2v4.89a1 1 0 0 0 .14.51l2.14 3.6h-6.56z" clip-rule="evenodd"/>
+			<path fill="#F8F9FA" d="M194.5 42a1.5 1.5 0 0 1 1.5-1.5h28a1.5 1.5 0 0 1 1.5 1.5v28a1.5 1.5 0 0 1-1.5 1.5h-28a1.5 1.5 0 0 1-1.5-1.5z"/>
+			<path stroke="#A2A9B1" d="M194.5 42a1.5 1.5 0 0 1 1.5-1.5h28a1.5 1.5 0 0 1 1.5 1.5v28a1.5 1.5 0 0 1-1.5 1.5h-28a1.5 1.5 0 0 1-1.5-1.5z"/>
+			<path fill="#202122" fill-rule="evenodd" d="M217 47h-14a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V49a2 2 0 0 0-2-2m-12 16a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0-10a2 2 0 1 1 0-4 2 2 0 0 1 0 4m5 5a2 2 0 1 1 0-4 2 2 0 0 1 0 4m5 5a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0-10a2 2 0 1 1 0-4 2 2 0 0 1 0 4" clip-rule="evenodd"/>
+			<path fill="#F8F9FA" d="M225.5 42a1.5 1.5 0 0 1 1.5-1.5h28a1.5 1.5 0 0 1 1.5 1.5v28a1.5 1.5 0 0 1-1.5 1.5h-28a1.5 1.5 0 0 1-1.5-1.5z"/>
+			<path stroke="#A2A9B1" d="M225.5 42a1.5 1.5 0 0 1 1.5-1.5h28a1.5 1.5 0 0 1 1.5 1.5v28a1.5 1.5 0 0 1-1.5 1.5h-28a1.5 1.5 0 0 1-1.5-1.5z"/>
+			<path fill="#202122" fill-rule="evenodd" d="M239 47v11h11v7h-18V47zm3 8v-8h8v8zm2-2h4v-4h-4z" clip-rule="evenodd"/>
+		</g>
+	</g>
+	<defs>
+		<clipPath id="a">
+			<path fill="#fff" d="M163 42a2 2 0 0 1 2-2h90a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2h-90a2 2 0 0 1-2-2z"/>
+		</clipPath>
+		<clipPath id="b">
+			<path fill="#fff" d="M163 40h94v32h-94z"/>
+		</clipPath>
+	</defs>
+</svg>

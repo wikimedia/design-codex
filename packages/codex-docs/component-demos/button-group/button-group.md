@@ -21,18 +21,19 @@ restriction that only one can be active at a time. If you want to enable users t
 or multiple options from a set of options, use
 [ToggleButtonGroup](./toggle-button-group.md) instead.
 
-![Different examples of how the Codex ButtonGroup can be
-used with and without icons.](../../assets/components/button-group-using.svg)
-
 ### Specifications
 
 ![Specification of ButtonGroup.](../../assets/components/button-group-specifications.svg)
 
-A button group consists of normal (framed) buttons, which may include the following elements:
+A button group consists of a minimum of two normal (framed) buttons, which may include the following elements:
 1. **Icon** (optional)<br>Icons simplify user recognition and provide the ability to shorten button
 labels to a minimum.
 2. **Label**<br>Button labels should be as short as possible, with text that clearly states what
 action will be taken once the button is pressed (e.g. download, submit form, search).
+
+There is no maximum limit on the number of buttons per group. The width of the button group will adjust to accommodate the expanding text within each button. If the total width of the button group surpasses the maximum width of `@max-width-button` (equivalent to `448px` in the default Codex theme), the buttons will be wrapped into the next line.
+
+![Maximum example for ButtonGroup component.](../../assets/components/button-group-specifications-max.svg)
 
 Refer to the [ButtonGroup component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=6639-59569&mode=design&t=7wyBmhfdJTJevQmT-11).
 
@@ -49,6 +50,87 @@ and disabled button group.](../../assets/components/button-group-interaction-sta
 4. Focus on one button
 5. Disabled button
 6. Disabled button group
+
+### Best practices
+
+Consider the following recommendations when working with button groups.
+
+#### Buttons within the group
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of a ButtonGroup with two neutral normal text buttons.](../../assets/components/button-group-best-practices-buttons-do.svg)
+
+</template>
+<template #do-text>
+
+- Only neutral normal Buttons can be used within the ButtonGroup component.
+
+</template>
+<template #dont-media>
+
+![A screenshot of two ButtonGroups using progressive and destructive normal and primary buttons.](../../assets/components/button-group-best-practices-buttons-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Use other flavors or weights of a Button within the ButtonGroup component.
+
+</template>
+</cdx-demo-rules>
+
+#### Button’s content
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of text conveying an example of a link reading "Get the PDF of this article".](../../assets/components/button-group-best-practices-content-do.svg)
+
+</template>
+<template #do-text>
+
+- Customize the content of each button, allowing for superscript, subscript, or special characters.
+- Use numbers instead of text if needed.
+- Mix text-only and icon-only buttons exclusively when using the ‘ellipsis‘ icon to indicate additional actions.
+
+</template>
+<template #dont-media>
+
+![A screenshot of text conveying an example of a link reading "Click here to get the PDF".](../../assets/components/button-group-best-practices-content-dont.svg)
+
+</template>
+<template #dont-text>
+
+- In order to ensure consistency, avoid mixing different types of buttons within the same ButtonGroup.
+
+</template>
+</cdx-demo-rules>
+
+#### Icon-only buttons
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of a ButtonGroup using icon-only buttons with universal icons.](../../assets/components/button-group-best-practices-icon-only-do.svg)
+
+</template>
+<template #do-text>
+
+- Icon-only buttons may be used to form a ButtonGroupbut only if the icons used are [universally understood](../../style-guide/icons.md#universal-rather-than-culturally-specific) and do not require accompanying text.
+
+</template>
+<template #dont-media>
+
+![A screenshot of a ButtonGroup using icon-only buttons with too complex and non-universal icons".](../../assets/components/button-group-best-practices-icon-only-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Use icon-only buttons if the icons are not easy to understand or do not clearly communicate their purpose.
+
+</template>
+</cdx-demo-rules>
 
 ## Demos
 Open up the browser console to see events emitted on click.

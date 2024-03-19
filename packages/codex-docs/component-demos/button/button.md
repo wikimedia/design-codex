@@ -51,9 +51,6 @@ context. In such cases, consider [Link](../mixins/link.md) instead.<sup>[[1]](#r
 - You need to represent state-persistent user actions. In this case, use
 [ToggleButton](./toggle-button.md) instead.
 
-![Example of Codex Buttons in three different variants:
-progressive, destructive, and neutral.](../../assets/components/button-using.svg)
-
 ### Specifications
 The button styles distinguish types of buttons and each button’s state (e.g.
 hover, active, focussed) in accessible color variations.
@@ -64,6 +61,10 @@ hover, active, focussed) in accessible color variations.
 2. **Label**<br>Button labels should be as short as possible, with text that clearly states what action follows clicking the button (e.g. download, submit form, search).
 
 When using buttons, consider the size of their target area. Make sure that the associated active touch area is at least 44 x 44 dp. Otherwise users may fail to hit the active area, for example due to motor disabilities.
+
+The minimum size for both icon and text buttons is `@min-size-interactive-pointer` (equivalent to `32px` in the default Codex theme). The button will adjust to fit the expanding text but will halt growth at a maximum width of `@max-width-button` (equivalent to `448px` in the default Codex theme). An ellipsis will appear to accommodate the button text if necessary.
+
+On mobile, buttons should span the full-width of the container, except for icon-only buttons, which will maintain their fixed square proportions. For buttons within mobile forms, refer to the [constructing forms](../../style-guide/constructing-forms.md) guidelines.
 
 Refer to the [Button component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=10019-91329&mode=design&t=eVqRGnL1b9RbOdZ0-11).
 
@@ -156,6 +157,36 @@ and quiet buttons): default, hover, active, focus, and disabled.](../../assets/c
 
 **Accessibility note**: The disabled state does not meet our minimum color contrast rules. WCAG 2.1 states that “…part[s] of an inactive user interface component […] have no contrast requirement”.<sup>[[3]](#ref3)</sup><br>
 Provide sufficient information in a disabled element’s context, so the user can understand what is disabled and how to enable it (if applicable).
+
+### Best practices
+
+Consider the following recommendations when working with buttons.
+
+#### Icon
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A screenshot of an edit button using an edit icon.](../../assets/components/button-best-practices-do.svg)
+
+</template>
+<template #do-text>
+
+- Ensure that icons used in buttons are relevant to the action they represent.
+- Use icons just when they are clear and easily recognizable.
+
+</template>
+<template #dont-media>
+
+![A screenshot of an edit button using a complex icon.](../../assets/components/button-best-practices-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Avoid complex or abstract icons that may confuse users.
+
+</template>
+</cdx-demo-rules>
 
 ### Content
 
