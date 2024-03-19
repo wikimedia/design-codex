@@ -47,7 +47,7 @@ for WORKSPACE in $PUBLISH_WORKSPACES
 do
 	# Download the tarball for the old version from NPM
 	# and extract it into tmp-diff-release/versionnumber/packagename/
-	TARBALL=$(npm pack $WORKSPACE@$OLD_VERSION)
+	TARBALL=$(npm pack $WORKSPACE@$OLD_VERSION | tail -n 1)
 	mkdir -p tmp-diff-release/$OLD_VERSION/$WORKSPACE
 	cd tmp-diff-release/$OLD_VERSION/$WORKSPACE
 	tar -zxf $MAINDIR/$TARBALL
@@ -58,7 +58,7 @@ do
 	# Build the release tarball for the current state of the repo
 	# and extract it into tmp-diff-release/commithash/packagename/
 	npm run -w $WORKSPACE build
-	TARBALL=$(npm pack -w $WORKSPACE)
+	TARBALL=$(npm pack -w $WORKSPACE | tail -n 1)
 	mkdir -p tmp-diff-release/$NEWREV/$WORKSPACE
 	cd tmp-diff-release/$NEWREV/$WORKSPACE
 	tar -zxf $MAINDIR/$TARBALL
