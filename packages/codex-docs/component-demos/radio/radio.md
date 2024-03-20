@@ -20,8 +20,6 @@ elements. A radio may also have sub-components or child radio groups.
 Use the Radio component to make a single selection from a list of options where only one choice is
 allowed. When multiple selections are needed, use [Checkbox](./checkbox.md) instead.
 
-![Example of a group with two Codex Radios.](../../assets/components/radio-using.svg)
-
 ### Specifications
 
 ![Specification of Radio.](../../assets/components/radio-specifications.svg)
@@ -29,9 +27,13 @@ allowed. When multiple selections are needed, use [Checkbox](./checkbox.md) inst
 1. **Radio**<br>
 Radio buttons make the selection visually distinct.
 2. **Label**<br>
-The label text size should match the base font size to ensure consistency with the body text. It can
-also include links and bold text. Labels should be as short as possible, and include text that
-clearly states which selection is being made.
+The Radio must always contain a label, with the text size matching the base font size for consistency with the body text. Labels can include links and bold text and should be concise, clearly indicating the selected option.
+3. **Description** (optional)<br>
+If additional information about the label is required, a description can be included.
+
+The Radio label will expand to fit longer text while the radio itself remains aligned with the first line of the label's text.
+
+A group of radios should consist of at least 2 radios, with no maximum limit on the number of radios per group.
 
 Refer to the
 [Radio component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2549-67656&mode=design&t=7wyBmhfdJTJevQmT-11).
@@ -66,6 +68,75 @@ requirement”.<sup>[[1]](#ref1)</sup><br>
 Provide sufficient information in a disabled element's context, so the user can understand what is
 disabled and how to enable it (if applicable).
 :::
+
+### Best practices
+
+Consider the following recommendations when using radios.
+
+#### Label’s format
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of a Radio group including different text formats and a link.](../../assets/components/radio-best-practices-label-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Accompany the Radio with a label that matches the base font size.
+- Include a description below the label to provide additional information.
+- Use text formatting like bold and italic in the label.
+- Include standalone links within the label to provide additional information regarding a specific option when necessary.
+
+</template>
+
+<template #dont-media>
+
+![An example of a Radio group with bolded labels and a link within the last label.](../../assets/components/radio-best-practices-label-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Bold all Radio label.
+- Link the entire Radio label as it could cause issues with the selection.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Inline radios
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of an Inline Radio group including two radios with short labels.](../../assets/components/radio-best-practices-inline-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use inline radios, but reserve its use for specific cases to prevent disruptions in the reading flow.
+
+</template>
+
+<template #dont-media>
+
+![An example of an Inline Radio group with three radios, where the middle one is longer than the others.](../../assets/components/radio-best-practices-inline-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use inline radios if there are too many radios per line.
+- Use inline radios if there is significant variation in the length of the radios labels.
+
+</template>
+
+</cdx-demo-rules>
 
 ### Content
 

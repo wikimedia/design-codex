@@ -37,8 +37,6 @@ Use the Checkbox component when you want users to make one or more selections fr
 options. A checkbox can also be used to accept terms and conditions. Avoid using checkboxes when
 only one selection is allowed; in such cases, use Radio instead.
 
-![Example of a group of two Codex Checkboxes.](../../assets/components/checkbox-using.svg)
-
 ### Specifications
 
 ![Specification of Checkbox.](../../assets/components/checkbox-specifications.svg)
@@ -46,9 +44,13 @@ only one selection is allowed; in such cases, use Radio instead.
 1. **Checkbox**<br>
 The checkbox’s input makes the selection visually distinct.
 2. **Label**<br>
-The label text size should match the base font size to ensure consistency with the body text. It can
-also include links and bold text. Labels should be short, with text that clearly states what action
-is selected.
+The Checkbox must always contain a label, with the text size matching the base font size for consistency with the body text. Labels can include links and bold text and should be concise, clearly indicating the selected option.
+3. **Description** (optional)<br>
+If additional information about the label is required, a description can be included.
+
+The Checkbox label will expand to fit longer text while the checkbox itself remains aligned with the first line of the label's text.
+
+A Checkbox group should consist of at least 2 checkboxes, with no maximum limit on the number of checkboxes per group.
 
 Refer to the
 [Checkbox component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2549-59135&mode=design&t=7wyBmhfdJTJevQmT-11).
@@ -111,6 +113,137 @@ different state than the others, the main  checkbox would present an indetermina
 <sup>[[2]](#ref2)</sup>
 
 ![One checkbox group with all items selected and another with an indeterminate state due to incomplete item selection.](../../assets/components/checkbox-interaction-states-indeterminate.svg)
+
+### Best practices
+
+Consider the following recommendations when using checkboxes.
+
+#### Label’s format
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of a Checkbox group including different text formats and a link.](../../assets/components/checkbox-best-practices-label-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Accompany the Checkbox with a label that matches the base font size.
+- Include a description below the label to provide additional information.
+- Use text formatting like bold and italic in the label.
+- Include standalone links within the label to provide additional information regarding a specific option when necessary.
+
+</template>
+
+<template #dont-media>
+
+![An example of a Checkbox group with bolded labels and a link within the last label.](../../assets/components/checkbox-best-practices-label-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Bold all Checkbox labels, even if a description is included, as this can interfere with the text hierarchy.
+- Link the entire Checkbox label as it could cause issues with the selection.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Error state
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Checkbox group with error including an error inline message.](../../assets/components/checkbox-best-practices-error-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Include inline error messages for both individual and groups of checkboxes to inform users and guide them in fixing issues.
+
+</template>
+
+<template #dont-media>
+
+![A Checkbox with an error without an error inline message.](../../assets/components/checkbox-best-practices-error-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Leave the error checkbox without an accompanying error inline message.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Indeterminate checkbox
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of a Checkbox group with an Indeterminate Checkbox.](../../assets/components/checkbox-best-practices-indeterminate-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use the indeterminate checkbox when there is a long list of sub-checkboxes to select.
+- Align secondary checkboxes with the label of the indeterminate checkbox.
+
+</template>
+
+<template #dont-media>
+
+![A Checkbox group example featuring an Indeterminate Checkbox, with the sub-checkboxes wrongly aligned with the indeterminate one.](../../assets/components/checkbox-best-practices-indeterminate-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use the indeterminate checkbox when there is a short list of sub-checkboxes.
+- Align all checkboxes together when using indeterminate checkboxes.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Inline checkboxes
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of an Inline Checkbox group including two checkboxes with short labels.](../../assets/components/checkbox-best-practices-inline-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use inline checkboxes, but reserve its use for specific cases to prevent disruptions in the reading flow.
+
+</template>
+
+<template #dont-media>
+
+![An example of an Inline Checkbox group with three checkboxes, where the middle one is longer than the others.](../../assets/components/checkbox-best-practices-inline-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use inline checkboxes if there are too many checkboxes per line.
+- Use inline checkboxes if there is significant variation in the length of the checkbox labels.
+
+</template>
+
+</cdx-demo-rules>
 
 ### Content
 

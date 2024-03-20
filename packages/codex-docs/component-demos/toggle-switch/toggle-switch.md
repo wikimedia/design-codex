@@ -39,17 +39,21 @@ Use the ToggleSwitch component only where an instant change in the
 user-interface based on their assigned action is intended. For non-instant
 selections and selection groups, use [Checkbox](./checkbox.md) instead.
 
-![Example of a group of Codex ToggleSwitches with one on and one off.](../../assets/components/toggle-switch-using.svg)
-
 ### Specifications
 
 ![Specification of ToggleSwitch.](../../assets/components/toggle-switch-specifications.svg)
 
 1. **Toggle switch label**<br>
-The label should be short, with text that clearly describes the state being toggled.
+The toggle switch must always contain a label, with the text size matching the base font size for consistency with the body text. The label should be short, with text that clearly describes the state being toggled.
 2. **Toggle switch**<br>
 Toggle switches make the on and off states visually distinct by using different colors and moving
 the grabber from left to right and vice versa.
+3. **Description** (optional)<br>
+If additional information about the label is required, a description can be included.
+
+The ToggleSwitch label will expand to fit longer text while the ToggleSwith itself remains aligned with the first line of the label's text.
+
+A group of toggle switches should consist of at least 2 items, with no maximum limit on the number of toggle switches per group.
 
 Refer to the [ToggleSwitch component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2554-32423&mode=design&t=7wyBmhfdJTJevQmT-11).
 
@@ -83,6 +87,72 @@ states that “…part[s] of an inactive user interface component […] have no 
 Provide sufficient information in a disabled element's context, so the user can understand what is
 disabled and how to enable it (if applicable).
 :::
+
+### Best practices
+
+Consider the following recommendations when using toggle switches.
+
+#### Label’s format
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of a ToggleSwitch group including different text formats and a link.](../../assets/components/toggle-switch-best-practices-label-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Accompany the ToggleSwitch with a label that matches the base font size. 
+- Use text formatting and links in the label. 
+- Include a description below the label to provide additional information.
+
+</template>
+
+<template #dont-media>
+
+![An example of a ToggleSwitch group with bolded labels and a link within the last label.](../../assets/components/toggle-switch-best-practices-label-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Bold all the label.
+- Link the entire ToggleSwitch label as it could cause issues with the selection.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Orientation
+<cdx-demo-rules>
+
+<template #do-media>
+
+![Image's alt text description.](../../assets/components/toggle-switch-best-practices-orientation-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use ToggleSwitch groups in a vertical orientation for a clear and organized layout.
+
+</template>
+
+<template #dont-media>
+
+![Image's alt text description.](../../assets/components/toggle-switch-best-practices-orientation-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use a ToggleSwitch to control opposing options.
+
+</template>
+
+</cdx-demo-rules>
 
 ### References
 
