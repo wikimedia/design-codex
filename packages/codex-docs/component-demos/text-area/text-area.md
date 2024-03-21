@@ -59,8 +59,6 @@ Use TextArea to let users enter long text that exceeds one line. Avoid using
 TextArea if the text to be entered is short. In this case use [TextInput](./text-input.md)
 instead.
 
-![Example of a Codex TextArea.](../../assets/components/text-area-using.svg)
-
 ### Specifications
 
 ![Specification of TextArea.](../../assets/components/text-area-specifications.svg)
@@ -71,6 +69,12 @@ TextArea may include the following optional elements:
 2. **Placeholder** (optional)<br>The placeholder text provides an example of what type of information is being requested in the input.
 3. **End icon** (optional)<br>A secondary end icon can be included if needed.
 4. **Grabber** (optional)<br>Optionally, the grabber may be displayed to allow users the ability to vertically resize the text area as needed.
+
+The base min-width for the TextArea component is `@size-1600` (equivalent to `256px` in the default Codex theme), but it's customizable to a smaller width if necessary. There's no maximum width limit.
+
+The min-height is set at `@size-400` (equivalent to `64px` in the default Codex theme). The grabber allows vertical resizing, and a scrollbar will appear if the text exceeds the height of the TextArea before resizing. If the autosize property is enabled, the height of the TextArea adjusts automatically according to the length of the text.
+
+Refer to the [TextArea component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&mode=design&t=gOjF3EjKCEwZTqj0-0).
 
 ### Types
 According to the size properties, there are the following text area types:
@@ -96,7 +100,7 @@ when there is ample space available on the page where the text area is situated.
 
 ![Example of TextArea with autosize.](../../assets/components/text-area-types-autosize.svg)
 
-## Interaction states
+### Interaction states
 Text areas have the following visually separate states:
 
 ![Interaction states of TextArea: default, hover, active-focus, filled, disabled, read-only, error default, error focus, and error filled.](../../assets/components/text-area-interaction-states.svg)
@@ -114,6 +118,106 @@ Text areas have the following visually separate states:
 9. Error filled
 
 </div>
+
+### Best practices
+
+Consider the following recommendations when using textareas.
+
+#### Usage
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of a TextArea included within a Field component.](../../assets/components/text-area-best-practices-usage-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use a TextArea when the intention is to compose lengthy text entries.
+- Integrate the TextArea within a Field component to use all available properties of Field, such as label, helper text, and validation messages.
+
+
+</template>
+
+<template #dont-media>
+
+![A screenshot with a standalone TextArea and a TextEditor.](../../assets/components/text-area-best-practices-usage-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use TextArea for single-line inputs where a simple [TextInput](https://doc.wikimedia.org/codex/latest/components/demos/text-input.md) is sufficient.
+- Use TextArea for source editing.
+- Use a standalone TextArea outside of a Field component.
+- Use TextArea without a label, as the label is essential for accessibility and ease of scanning.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Icon
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of a TextArea with a recognizable icon.](../../assets/components/text-area-best-practices-icon-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use a start icon to visually reinforce the purpose or context of the TextArea.
+- Use a start icon that meets the input's requirements.
+
+</template>
+
+<template #dont-media>
+
+![An example of a TextArea with a complex icon.](../../assets/components/text-area-best-practices-icon-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use icons that are difficult to understand or do not clearly convey their purpose.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Character counter
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of a TextArea with character counter used for a long message.](../../assets/components/text-area-best-practices-characters-coounter-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use the character counter when users need to input text within a specific character limit.
+
+</template>
+
+<template #dont-media>
+
+![An example of a TextArea with character counter used for Address.](../../assets/components/text-area-best-practices-characters-coounter-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use character counter when users are unlikely to reach the limit.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 

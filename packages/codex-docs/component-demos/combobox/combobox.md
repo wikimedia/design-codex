@@ -23,8 +23,6 @@ Use the Combobox component when it's difficult to predict the user's response to
 provides predefined input values as options, for example common responses, to ease filling out the
 input with relevant values.
 
-![Example of a Codex Combobox.](../../assets/components/combobox-using.svg)
-
 ### Specifications
 
 ![Specification of Combobox.](../../assets/components/combobox-specifications.svg)
@@ -41,6 +39,12 @@ opens the menu.
 4. **Menu**<br>
 When the combobox is active, a [menu with options](./menu.md) is displayed.
 
+The base min-width for the Combobox component is set at `@size-1600` (equivalent to `256px` in the default Codex theme), but it can be customized to a smaller width if needed. There is no maximum width limit. 
+
+If the text in the Combobox component exceeds the available space, it will overflow horizontally.
+
+By default, when the menu is expanded, all menu items are displayed. However, if the menu height is limited, the remaining menu items will be accessible via scrolling.
+
 Refer to the
 [Combobox component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2606-51961&mode=design&t=g6roQDZkPxHE5omu-11).
 
@@ -48,16 +52,50 @@ Refer to the
 
 Comboboxes have the following visually separate states:
 
-![States of the Combobox component: default, hover on input, hover on button, disabled, active states, and filled.](../../assets/components/combobox-interaction-states.svg)
+![States of the Combobox component: default, hover on input, hover on button, disabled, active, filled, and no results.](../../assets/components/combobox-interaction-states.svg)
 
 1. Default
 2. Hover on input
 3. Hover on button
 4. Disabled
-5. Active with menu displayed
-6. Active and hover on one of the menu items
-7. Typing in the input and having a menu item selected based on the matching text
-8. Combobox filled with one selected menu option
+5. Active and hover on one of the menu items
+6. Typing in the input and having a menu item selected based on the matching text
+7. Combobox filled with one selected menu option
+8. Active with no results
+
+### Best practices
+
+Consider the following recommendations when using comboboxes.
+
+#### Icon
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of a Combobox with a complex icon.](../../assets/components/combobox-best-practices-icon-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use a start icon that complements the placeholder text.
+
+</template>
+
+<template #dont-media>
+
+![An example of a Combobox with a search icon.](../../assets/components/combobox-best-practices-icon-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use icons that are difficult to understand or do not clearly convey their purpose.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 

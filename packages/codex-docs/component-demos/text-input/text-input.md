@@ -55,8 +55,6 @@ queries, known as the search type, is documented in [SearchInput](./search-input
 You can provide autocomplete options that are tailored to the user’s input by using
 [Lookup](./lookup.md).
 
-![Example of a Codex TextInput with placeholder text.](../../assets/components/text-input-using.svg)
-
 ### Specifications
 
 ![Specification of TextInput.](../../assets/components/text-input-specifications.svg)
@@ -73,8 +71,35 @@ A secondary end icon can be included if needed.
 4. **Clear button** (optional)<br>
 A 'clear' indicator can be included to remove the typed content within the input field.
 
+The base min-width for the TextInput component is set at `@size-1600` (equivalent to `256px` in the default Codex theme), but it can be customized to a smaller width if needed. There is no maximum width limit. 
+
+If the text entered in the input exceeds the available space, it will overflow horizontally.
+
 Refer to the
 [TextInput component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2547-28279&mode=design&t=yTcArGDe2utFY0wc-11).
+
+### Types
+
+The text input can accommodate the following types of inputs:
+
+![Input types: Text, Search, Number, Email, Password, Telephone, URL, Week, Month, Date, Date and time, and Time.](../../assets/components/text-input-types.svg)
+
+<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
+
+1. Text
+2. Search
+3. Number
+4. Email
+5. Password
+6. Telephone
+7. URL
+8. Week
+9. Month
+10. Date
+11. Date and time
+12. Time
+
+</div>
 
 ### Interaction states
 
@@ -95,6 +120,71 @@ Text inputs have the following visually separate states:
 9. Error filled
 
 </div>
+
+### Best practices
+
+Consider the following recommendations when using text inputs.
+
+#### Usage
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A TextInput included within a Field component.](../../assets/components/text-input-best-practices-usage-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Integrate the TextInput within a Field component to use all available properties of Field, such as label, helper text, and error messages.
+
+</template>
+
+<template #dont-media>
+
+![An standalone TextInput.](../../assets/components/text-input-best-practices-usage-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use standalone TextInput outside of a Field component.
+- Use TextInputs without a label, as the label is essential for accessibility and ease of scanning.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Icon
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of a TextInput with a recognizable icon.](../../assets/components/text-input-best-practices-icon-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use a start icon that meets the input's requirements.
+
+</template>
+
+<template #dont-media>
+
+![An example of a TextInput with a complex icon.](../../assets/components/text-input-best-practices-icon-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use icons that are difficult to understand or do not clearly convey their purpose.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 

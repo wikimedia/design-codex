@@ -43,8 +43,6 @@ list. For example, to select a country or category. If the list of options is
 too long, consider using [Combobox](./combobox.md) instead. If users need a
 multi-selection, use a [Checkbox group](./checkbox.md#checkbox-group) instead.
 
-![Example of a Codex Select with the menu displayed.](../../assets/components/select-using.svg)
-
 ### Specifications
 
 ![Specification of Select.](../../assets/components/select-specifications.svg)
@@ -58,6 +56,10 @@ Selects have a button-like appearance, and include a mandatory arrow indicator t
 they can be expanded.
 4. **Menu**<br>
 When the select is open, a [menu with options](./menu.md) is displayed.
+
+The base min-width for the Select component is set at `@size-1600` (equivalent to `256px` in the default Codex theme), but it can be customized to a smaller width if needed. There is no maximum width limit.
+
+The Select menu must contain a minimum of 2 items. While the number of visible options can vary, we recommend around 5 for optimal usability. If there are more options than what's initially visible, a scrollbar will appear for users to access them.
 
 Refer to the [Select component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2319-6630&mode=design&t=7wyBmhfdJTJevQmT-11).
 
@@ -89,6 +91,40 @@ states that “…part[s] of an inactive user interface component […] have no 
 Provide sufficient information in a disabled element's context, so the user can understand what is
 disabled and how to enable it (if applicable).
 :::
+
+### Best practices
+
+Consider the following recommendations when using selects.
+
+#### Icon
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of a Select component featuring a start icon, as the menu it displays utilizes start icons for its menu items.](../../assets/components/select-best-practices-icon-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Include the start icon in the Select if the selected menu item contains an icon, which is then displayed in the Select.
+
+</template>
+
+<template #dont-media>
+
+![An exxample of a Select component incorrectly using a start icon in its default state.](../../assets/components/select-best-practices-icon-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Include a start icon in the Select component by default unless a menu item with an icon has been selected.
+
+</template>
+
+</cdx-demo-rules>
 
 ### Content
 
