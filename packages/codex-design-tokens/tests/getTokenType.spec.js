@@ -7,7 +7,7 @@ describe( 'getTokenType', () => {
 	const cases = [
 		[ '/home/nobody/codex/packages/codex-design-tokens/themes/foo.json', 'theme' ],
 		[ '/home/nobody/codex/packages/codex-design-tokens/application.json', 'base' ],
-		[ '/home/nobody/codex/packages/codex-design-tokens/modes/foo.json', 'base' ],
+		[ '/home/nobody/codex/packages/codex-design-tokens/modes/foo.json', 'mode' ],
 		[ '/home/nobody/codex/packages/codex-design-tokens/components.json', 'component' ],
 		[ '/home/nobody/codex/packages/codex-design-tokens/codex-foo.json', undefined ]
 	];

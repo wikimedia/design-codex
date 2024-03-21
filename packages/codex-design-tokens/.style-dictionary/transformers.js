@@ -27,10 +27,16 @@ export function getReferencedTokens( token ) {
 }
 
 /**
- * Attribute transform that adds a `type` attribute, set to 'theme', 'base' or 'component'.
+ * Attribute transform that adds the `type` attribute.
+ *
+ * The `type` attribute is set to:
+ * - 'theme' if the token came from the src/themes/ directory
+ * - 'mode' if the token came from the src/modes/ directory
+ * - 'base' if the token came from src/application.json
+ * - 'component' if the token came from src/components.json
  *
  * @param {TransformedToken} token
- * @return {{ type?: 'theme'|'base'|'component' }}
+ * @return {{ type?: 'theme'|'base'|'mode'|'component' }}
  */
 export function getTokenType( token ) {
 	const dirname = path.basename( path.dirname( token.filePath ) );
@@ -40,7 +46,11 @@ export function getTokenType( token ) {
 		return { type: 'theme' };
 	}
 
-	if ( basename === 'application.json' || dirname === 'modes' ) {
+	if ( dirname === 'modes' ) {
+		return { type: 'mode' };
+	}
+
+	if ( basename === 'application.json' ) {
 		return { type: 'base' };
 	}
 

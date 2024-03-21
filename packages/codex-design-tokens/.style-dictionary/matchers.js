@@ -56,3 +56,11 @@ export function shouldExposeCustomProperty( token ) {
 
 	return token.path.some( ( element ) => includedProps.includes( element ) );
 }
+
+/**
+ * @param {TransformedToken} token
+ * @return {boolean}
+ */
+export function isModeToken( token ) {
+	return token.attributes?.type === 'mode';
+}

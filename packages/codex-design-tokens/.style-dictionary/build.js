@@ -22,7 +22,8 @@ import { getPackageVersion } from './utils.js';
 import {
 	shouldUseRelativeSize,
 	shouldUseAbsoluteSize,
-	shouldExposeCustomProperty
+	shouldExposeCustomProperty,
+	isModeToken
 } from './matchers.js';
 import {
 	createCustomStyleFormatter,
@@ -38,7 +39,7 @@ import {
 } from './transformers.js';
 
 // WikimediaUI theme, all platforms, including "experimental" and "legacy" builds
-const sd = StyleDictionary.extend( {
+const sdBase = StyleDictionary.extend( {
 	fileHeader: {
 		default: () => {
 			const packageVersion = getPackageVersion();
@@ -60,7 +61,8 @@ const sd = StyleDictionary.extend( {
 		}
 	},
 
-	source: [
+	// Use "include" for the base files, so that the dark mode build can be added in "source" below
+	include: [
 		'src/themes/wikimedia-ui.json',
 		'src/application.json',
 		'src/components.json'
@@ -124,6 +126,12 @@ const sd = StyleDictionary.extend( {
 		'custom/less-experimental': experimentalLessVariables
 	},
 
+	// Platforms are populated separately for each build below
+	platforms: {}
+} );
+
+// Build the regular Codex build
+sdBase.extend( {
 	platforms: {
 		stylesheet: {
 			transformGroup: 'codex/stylesheet',
@@ -231,9 +239,31 @@ const sd = StyleDictionary.extend( {
 			]
 		}
 	}
-} );
+} ).buildAllPlatforms();
 
-// Build the normal version
-sd.buildAllPlatforms();
+// Build the dark mode variables
+sdBase.extend( {
+	// Use "source" for the dark mode tokens so that they override the base files in "include"
+	source: [
+		'src/modes/dark.json'
+	],
+
+	platforms: {
+		stylesheet: {
+			transformGroup: 'codex/stylesheet',
+			buildPath: 'dist/',
+			options: {
+				fileHeader: 'experimental'
+			},
+			files: [
+				{
+					destination: 'theme-codex-wikimedia-mode-dark.css',
+					format: 'css/variables',
+					filter: isModeToken
+				}
+			]
+		}
+	}
+} ).buildAllPlatforms();
 
 console.log( '\nBuild completed!' );
