@@ -19,8 +19,16 @@
 
 import StyleDictionary from 'style-dictionary';
 import { getPackageVersion } from './utils.js';
-import { createCustomStyleFormatter, experimentalLessWithCssVars } from './formatters.js';
-import { shouldUseRelativeSize, shouldUseAbsoluteSize } from './matchers.js';
+import {
+	shouldUseRelativeSize,
+	shouldUseAbsoluteSize,
+	shouldExposeCustomProperty
+} from './matchers.js';
+import {
+	createCustomStyleFormatter,
+	experimentalCssVariables,
+	experimentalLessVariables
+} from './formatters.js';
 import {
 	camelCaseNegative,
 	getReferencedTokens,
@@ -104,7 +112,8 @@ const sd = StyleDictionary.extend( {
 		'custom/less': createCustomStyleFormatter( 'less' ),
 		'custom/scss': createCustomStyleFormatter( 'sass' ),
 		'custom/js': createCustomStyleFormatter( 'javascript/es6' ),
-		'custom/less-experimental': experimentalLessWithCssVars
+		'custom/less-experimental': experimentalLessVariables,
+		'custom/css-experimental': experimentalCssVariables
 	},
 
 	platforms: {
@@ -132,6 +141,11 @@ const sd = StyleDictionary.extend( {
 				{
 					destination: 'theme-wikimedia-ui-experimental.less',
 					format: 'custom/less-experimental'
+				},
+				{
+					destination: 'theme-wikimedia-ui-experimental.css',
+					format: 'custom/css-experimental',
+					filter: shouldExposeCustomProperty
 				}
 			]
 		},
@@ -174,6 +188,11 @@ const sd = StyleDictionary.extend( {
 				{
 					destination: 'theme-wikimedia-ui-legacy-experimental.less',
 					format: 'custom/less-experimental'
+				},
+				{
+					destination: 'theme-wikimedia-ui-legacy-experimental.css',
+					format: 'custom/css-experimental',
+					filter: shouldExposeCustomProperty
 				}
 			]
 		},

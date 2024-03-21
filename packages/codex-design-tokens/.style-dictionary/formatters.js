@@ -10,6 +10,7 @@
 
 import StyleDictionary from 'style-dictionary';
 import { getTokenType } from './transformers.js';
+import { shouldExposeCustomProperty } from './matchers.js';
 const { formatHelpers } = StyleDictionary;
 const { fileHeader, createPropertyFormatter, sortByReference } = formatHelpers;
 
@@ -146,16 +147,34 @@ export function createCustomStyleFormatter( format ) {
 }
 
 /**
- * Generates an experimental LESS stylesheet which includes a subset of tokens as
- * CSS variables in a :root declaration at the top of the file.
- *
+ * @param {Object} args
+ * @param {Dictionary} args.dictionary
+ * @param {File} args.file
+ * @return {string}
+ */
+export function experimentalCssVariables( { dictionary, file } ) {
+	const preamble = makeComment( 'This is an experimental stylesheet not intended for production use.', 'long' );
+	const header = fileHeader( { file } );
+	const { allTokens } = dictionary;
+
+	const cssFormatter = createPropertyFormatter( { dictionary, outputReferences: false, format: 'css' } );
+	return header +
+		preamble +
+		'\n' +
+		':root {\n' +
+		allTokens.map( ( token ) => cssFormatter( token ) ).filter( Boolean ).join( '\n' ) +
+		'\n' +
+		'}\n';
+}
+
+/**
  * @param {Object} args
  * @param {Dictionary} args.dictionary
  * @param {File} args.file
  * @param {Options} args.options
  * @return {string}
  */
-export function experimentalLessWithCssVars( { dictionary, file, options } ) {
+export function experimentalLessVariables( { dictionary, file, options } ) {
 	const commentStyle = 'short';
 	const preamble = makeComment( 'This is an experimental stylesheet not intended for production use.', commentStyle );
 	const header = fileHeader( { file } );
@@ -167,41 +186,30 @@ export function experimentalLessWithCssVars( { dictionary, file, options } ) {
 		allTokens = [ ...allTokens ].sort( sortByReference( dictionary ) );
 	}
 
-	const publishedTokens = allTokens.filter( ( t ) => t.attributes?.type !== 'theme' );
-	const cssVarTokens = publishedTokens.filter( ( t ) => {
-		/** @todo hardcoding this here is not ideal, should this data live in config? */
-		const relevantProps = [
-			'color',
-			'background-color',
-			'border-color',
-			'border',
-			'filter',
-			'opacity-icon'
-		];
-
-		return t.path.some( ( element ) => relevantProps.includes( element ) );
+	// Set up a LESS formatter
+	const lessFormatter = createPropertyFormatter( {
+		dictionary,
+		outputReferences: false,
+		format: 'less'
 	} );
 
-	const cssFormatter = createPropertyFormatter( { dictionary, outputReferences: false, format: 'css' } );
-	const lessFormatter = createPropertyFormatter( { dictionary, outputReferences: false, format: 'less' } );
+	// Get the list of all published tokens
+	const publishedTokens = allTokens.filter( ( t ) => t.attributes?.type !== 'theme' );
 
+	// Generate a full set of tokens where the "exposed" members have their
+	// values replaced with a CSS var() call.
 	const replacedTokens = publishedTokens.map( ( token ) => {
 		const newToken = { ...token };
-		if ( cssVarTokens.includes( token ) ) {
+		if ( shouldExposeCustomProperty( token ) ) {
 			newToken.value = `var( --${ token.name } )`;
 		}
 		return newToken;
 	} );
+
+	// Output the file contents as a string
 	return header +
 		preamble +
 		'\n' +
-		':root {\n' +
-		cssVarTokens
-			.map( ( token ) => cssFormatter( token ) )
-			.filter( Boolean )
-			.join( '\n' ) +
-		'\n' +
-		'}\n\n' +
 		replacedTokens
 			.map( ( token ) => lessFormatter( token ) )
 			.filter( Boolean )
