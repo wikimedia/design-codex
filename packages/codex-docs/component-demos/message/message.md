@@ -40,12 +40,6 @@ Messages must include text clearly defining the system feedback to the user. The
 icon to help users recognize the type of message, and they can also feature an optional dismiss
 button to close the message.
 
-![Example of a success type Codex Message.](../../assets/components/message-using.svg)
-
-:::tip Accessibility note
-The message icon adds a point of recognition for color-blind users.
-:::
-
 ### Specifications
 
 The message component may contain the following items:
@@ -53,7 +47,7 @@ The message component may contain the following items:
 ![Specification of Message.](../../assets/components/message-specifications-message.svg)
 
 1. **Icon**<br>
-Icons simplify user recognition and provide the ability to shorten message text.  A specific icon is
+Icons simplify user recognition and provide the ability to shorten message text. A specific icon is
 matched with each message type (e.g., ‘success’) to ensure recognition.
 2. **Message text**<br>
 The message text should be as clear and concise as possible, offering feedback to users. If
@@ -65,6 +59,13 @@ To allow for the message to be dismissed, an optional icon-only quiet button can
 
 The inline message component includes both the icon and message elements, excluding the close
 button.
+
+The message can contain an unlimited number of characters, and there is no minimum requirement.
+Ensure that the icon is always aligned on top with the text.
+
+:::tip Accessibility note
+The message icon adds a point of recognition for color-blind users.
+:::
 
 Refer to the
 [Message component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=4902-47684&mode=design&t=yTcArGDe2utFY0wc-11).
@@ -122,13 +123,80 @@ Auto-dismiss can be used with or without the manual dismiss button.
 
 ![Two auto-dismissible messages: one without dismiss button and one with a dismiss button.](../../assets/components/message-types-auto-dismiss.svg)
 
+### Best practices
+
+Consider the following recommendations when working with messages.
+
+#### Icon
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot of a Notice message with the user icon and a Success message with its success icon.](../../assets/components/message-best-practices-icon-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Customize the notice message with another icon if needed.
+- Use the 'success', 'error', and 'alert' icons to represent their corresponding message statuses.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot of a Success message without icon and an Error message with a non-error icon.](../../assets/components/message-best-practices-icon-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Remove the icon, as it is essential for reinforcing the meaning of the message.
+- Replace the status icon in the success, error, and warning messages.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Message's text
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot of a Success Message with different text formats and a link.](../../assets/components/message-best-practices-text-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Incorporate various text formats and links within the message text as necessary.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot of a Success Message with the entire text bolded.](../../assets/components/message-best-practices-text-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Bold all the message text.
+
+</template>
+
+</cdx-demo-rules>
+
 ### Content
 
 Keeping messages clear is ideal for accessibility (reducing cognitive load) and using the right tone provides relevance.
 
 #### Error message
 
-Error messages let a reader know that there is a problem and should include clear instructions or next steps to solve the problem.
+Error messages let a reader know that there is a problem and should include clear instructions or
+next steps to solve the problem.
 
 <cdx-demo-rules>
 <template #do-media>
@@ -184,7 +252,8 @@ Success messages let a user know that the action they took was successful.
 
 #### Warning message
 
-Warning messages indicate urgent information and consequences to the user (e.g., that an impending action is irreversible). Warning messages should also include a solution to the potential problem.
+Warning messages indicate urgent information and consequences to the user (e.g., that an impending
+action is irreversible). Warning messages should also include a solution to the potential problem.
 
 <cdx-demo-rules>
 <template #do-media>
@@ -211,7 +280,9 @@ Warning messages indicate urgent information and consequences to the user (e.g.,
 
 #### Notice message
 
-Notice messages alert a reader to important, but non-urgent, information. These messages are not generally used for feedback on a user’s actions, but rather for offering neutral information or recommendations.
+Notice messages alert a reader to important, but non-urgent, information. These messages are not
+generally used for feedback on a user’s actions, but rather for offering neutral information
+or recommendations.
 
 <cdx-demo-rules>
 <template #do-media>
@@ -332,8 +403,8 @@ module.exports = defineComponent( {
 ### Dismiss button
 
 Messages can be made dismissable by supplying a semantic label for the dismiss button via the
-`dismissButtonLabel` prop. This label will be visually hidden but accessible to assistive technology,
-specifically screen readers.
+`dismissButtonLabel` prop. This label will be visually hidden but accessible to assistive
+technology, specifically screen readers.
 
 When the dismiss button is clicked, the Message component hides itself, and a 'user-dismissed' event
 is emitted to the parent component in case the parent component needs to react to the message

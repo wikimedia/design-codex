@@ -54,8 +54,6 @@ Dialogs can be intentionally disruptive, since the user needs to interact with o
 before moving on. For this reason, they should be used sparingly and only when necessary (more
 information below).
 
-![Example of a Codex Dialog with a title, paragraph, two action buttons, and a close button.](../../assets/components/dialog-using.svg)
-
 **When to use:**
 - When the user needs to make a decision or provide input to the system before continuing with the
 task at hand.
@@ -85,46 +83,56 @@ provide additional information (e.g. terms and conditions to read before publish
 5. **Permanent action** (optional)<br>A permanent action can be included (e.g. “Don’t show again”).
 Main action: A primary button (either progressive or destructive) is used to indicate the main
 action.
-6. **Secondary action** (optional)<br>A normal neutral button can be used to indicate a secondary
+6. **Main action**
+A primary button (either progressive or destructive) is used to indicate the main action.
+7. **Secondary action** (optional)<br>A normal neutral button can be used to indicate a secondary
 action (e.g. “Cancel”).
-7. **Close button** (optional)<br>A quiet, icon-only button may be used to close the dialog. It can
+8. **Close button** (optional)<br>A quiet, icon-only button may be used to close the dialog. It can
 also be replaced with a text button in some cases.
-
+9. **Overlay**
 Behind every dialog, there is an overlay that displays the color White (#fff) at 65% opacity. This
 is to provide continued context while the user focuses on the dialog.
 
-![A white overlay separating a dialog from a Wikipedia page.](../../assets/components/dialog-specifications-overlay.svg)
+Keep the content of the dialog concise as needed, while making sure it includes a title, body text,
+and at least one button. If the body content exceeds the available space, a scrollbar will be
+displayed. Additionally, top and bottom dividers will appear to distinguish the body from the header
+and footer. The padding on these sections will differ from the default state. The subtitle will not
+be visible while scrolling.
 
-If the action buttons’ text is too long, the main action button may be stacked above the secondary
-action.
+<div class="cdx-docs-grid cdx-docs-grid-columns-2">
+    <img src="../../assets/components/dialog-specifications-min-content.svg" alt="An example of a Dialog with just a title, a short body text, and a main action.">
+    <img src="../../assets/components/dialog-specifications-max-content.svg" alt="An example of a Dialog with title, a long body content with scroll, a main button, and a secondary one.">
+</div>
 
-![A dialog with stacked buttons due to their lengthy text.](../../assets/components/dialog-specifications-stacked-actions.svg)
+#### Width and height
 
-#### Scrolling
+All dialogs are vertically and horizontally centered on the canvas. We aim to keep dialogs at a
+fixed width of `size-3200` (equivalent to `512px` in the default Codex theme) on desktop, while
+allowing them to use 90% of the width on mobile web. This makes dialogs the focus of the screen.
 
-If needed, scrolling is allowed in dialogs, but should be used sparingly. While scrolling, top and
-bottom dividers appear and both the top and bottom sections become fixed as content scrolls
-underneath them.
+![A desktop and mobile mockup of a Wikipedia page with a dialog displayed on the center of the page.](../../assets/components/dialog-specifications-max-width-height.svg)
 
-![A dialog is being scrolled with fixed head and footer sections.](../../assets/components/dialog-specifications-scroll.svg)
+#### Stacked actions
+
+Footer actions may stack depending on the length of the text. If the text of a button or a permanent
+action exceeds the available space, the permanent action will be positioned above the buttons. In
+cases where button texts are long, prioritize the main button over the secondary one and ensure
+that the buttons occupy the entire width.
+
+<div class="cdx-docs-grid cdx-docs-grid-columns-2">
+    <img src="../../assets/components/dialog-specifications-max-permanent-action.svg" alt="An example of a Dialog with a lengthy permanent action positioned above the buttons.">
+    <img src="../../assets/components/dialog-specifications-max-buttons.svg" alt="An example of a Dialog with stacked buttons due to their lengthy text.">
+</div>
 
 #### Closing
 
 A dialog can be dismissed by:
-- The close button (X)
-- A dismissive action like “Cancel“
-- Tapping or clicking anywhere outside of the dialog on the background
-- Pressing the key ‘esc’
+1. The close button (X)
+2. A dismissive action like “Cancel“
+3. Tapping or clicking anywhere outside of the dialog on the background
+4. Pressing the key <kbd>esc</kbd>
 
 ![A representation of how dialogs can be closed.](../../assets/components/dialog-specifications-closing.svg)
-
-#### Maximum width and height
-
-All dialogs are vertically and horizontally centered on the canvas. We aim to keep dialogs at a
-fixed width of 512dp on desktop, while allowing them to use 90% of the width on mobile web. This
-makes dialogs the focus of the screen.
-
-![A desktop and mobile mockup of a Wikipedia page with a dialog displayed on the center of the page.](../../assets/components/dialog-specifications-max-width-height.svg)
 
 Refer to the
 [Dialog component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=9315-77934&mode=design&t=wP2FzP1WBnRhiMln-11).
@@ -133,11 +141,170 @@ Refer to the
 
 Buttons may be disabled until a required action is completed.
 
-![A dialog with a disabled main button.](../../assets/components/dialog-specifications-disabled-button.svg)
+<div class="cdx-docs-grid cdx-docs-grid-columns-2">
+    <img src="../../assets/components/dialog-interaction-states-disabled.svg" alt="A dialog with a disabled main button.">
+    <img src="../../assets/components/dialog-interaction-states-enabled.svg" alt="A dialog with its button active.">
+</div>
+
+### Best practices
+
+Consider the following recommendations when using dialogs.
+
+#### Buttons
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Dialog with two buttons: a primary destructive button and a secondary neutral one.](../../assets/components/dialog-best-practices-buttons-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use both progressive and destructive buttons as primary action within the dialog.
+
+</template>
+
+<template #dont-media>
+
+![A Dialog with two normal buttons, one primary and another neutral.](../../assets/components/dialog-best-practices-buttons-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Place the primary button before the secondary one.
+- Use a non-primary button as the main action.
+
+</template>
+
+</cdx-demo-rules>
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Dialog with stacked buttons containing long text.](../../assets/components/dialog-best-practices-buttons-stacked-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Stack footer actions based on text length when needed, giving priority to the primary button over secondary ones if required.
+
+</template>
+
+<template #dont-media>
+
+![A Dialog with stacked buttons containing short text.](../../assets/components/dialog-best-practices-buttons-stacked-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Stack buttons when they can be placed side by side.
+
+</template>
+
+</cdx-demo-rules>
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Dialog with one footer's button.](../../assets/components/dialog-best-practices-footer-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Include at least one button in the Dialog's footer to guide the user, even if the Dialog is purely informative.
+
+</template>
+
+<template #dont-media>
+
+![A Dialog with no footer's button.](../../assets/components/dialog-best-practices-footer-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Remove all buttons from the Dialog's footer.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Body content
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Dialog containing a Field.](../../assets/components/dialog-best-practices-body-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Replace the body content with other components or group of elements.
+
+</template>
+
+<template #dont-media>
+
+![A Dialog containing a Card.](../../assets/components/dialog-best-practices-body-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Replace the body content with cards or other elevated components.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Custom Header and Footer
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Dialog with custom header and footer using the same types of buttons.](../../assets/components/dialog-best-practices-custom-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Customize the header and footer with custom buttons and styles.
+- Ensure the main primary button remains in the footer.
+- Strive for consistency with the rest of the system and designs.
+- Always use a quiet button for the close button of the dialog.
+
+</template>
+
+<template #dont-media>
+
+![A Dialog with custom header and footer altering the weight of the buttons.](../../assets/components/dialog-best-practices-custom-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use styles not present in other system elements or projects.
+- Alter the weight of each button in the dialog.
+
+</template>
+
+</cdx-demo-rules>
 
 ### Content
 
-Simple dialogs are for confirmations and information that the user needs in order to continue. It is easier for users to move through the flow when they know what to do from the title and CTAs.
+Simple dialogs are for confirmations and information that the user needs in order to continue. It is
+easier for users to move through the flow when they know what to do from the title and CTAs.
 
 <cdx-demo-rules>
 <template #do-media>
