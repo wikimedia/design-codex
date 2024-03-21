@@ -150,33 +150,10 @@ export function createCustomStyleFormatter( format ) {
  * @param {Object} args
  * @param {Dictionary} args.dictionary
  * @param {File} args.file
- * @return {string}
- */
-export function experimentalCssVariables( { dictionary, file } ) {
-	const preamble = makeComment( 'This is an experimental stylesheet not intended for production use.', 'long' );
-	const header = fileHeader( { file } );
-	const { allTokens } = dictionary;
-
-	const cssFormatter = createPropertyFormatter( { dictionary, outputReferences: false, format: 'css' } );
-	return header +
-		preamble +
-		'\n' +
-		':root {\n' +
-		allTokens.map( ( token ) => cssFormatter( token ) ).filter( Boolean ).join( '\n' ) +
-		'\n' +
-		'}\n';
-}
-
-/**
- * @param {Object} args
- * @param {Dictionary} args.dictionary
- * @param {File} args.file
  * @param {Options} args.options
  * @return {string}
  */
 export function experimentalLessVariables( { dictionary, file, options } ) {
-	const commentStyle = 'short';
-	const preamble = makeComment( 'This is an experimental stylesheet not intended for production use.', commentStyle );
 	const header = fileHeader( { file } );
 	const { outputReferences } = options;
 	let { allTokens } = dictionary;
@@ -208,8 +185,6 @@ export function experimentalLessVariables( { dictionary, file, options } ) {
 
 	// Output the file contents as a string
 	return header +
-		preamble +
-		'\n' +
 		replacedTokens
 			.map( ( token ) => lessFormatter( token ) )
 			.filter( Boolean )

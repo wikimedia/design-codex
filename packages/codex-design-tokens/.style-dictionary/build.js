@@ -26,7 +26,6 @@ import {
 } from './matchers.js';
 import {
 	createCustomStyleFormatter,
-	experimentalCssVariables,
 	experimentalLessVariables
 } from './formatters.js';
 import {
@@ -47,6 +46,16 @@ const sd = StyleDictionary.extend( {
 				'Codex Design Tokens v' + packageVersion,
 				'Design System for Wikimedia',
 				'See https://doc.wikimedia.org/codex/latest/design-tokens/overview.html'
+			];
+		},
+		experimental: () => {
+			const packageVersion = getPackageVersion();
+			return [
+				'Codex Design Tokens v' + packageVersion,
+				'Design System for Wikimedia',
+				'See https://doc.wikimedia.org/codex/latest/design-tokens/overview.html',
+				'',
+				'This is an experimental stylesheet not intended for production use.'
 			];
 		}
 	},
@@ -112,8 +121,7 @@ const sd = StyleDictionary.extend( {
 		'custom/less': createCustomStyleFormatter( 'less' ),
 		'custom/scss': createCustomStyleFormatter( 'sass' ),
 		'custom/js': createCustomStyleFormatter( 'javascript/es6' ),
-		'custom/less-experimental': experimentalLessVariables,
-		'custom/css-experimental': experimentalCssVariables
+		'custom/less-experimental': experimentalLessVariables
 	},
 
 	platforms: {
@@ -140,12 +148,18 @@ const sd = StyleDictionary.extend( {
 				},
 				{
 					destination: 'theme-wikimedia-ui-experimental.less',
-					format: 'custom/less-experimental'
+					format: 'custom/less-experimental',
+					options: {
+						fileHeader: 'experimental'
+					}
 				},
 				{
 					destination: 'theme-wikimedia-ui-experimental.css',
-					format: 'custom/css-experimental',
-					filter: shouldExposeCustomProperty
+					format: 'css/variables',
+					filter: shouldExposeCustomProperty,
+					options: {
+						fileHeader: 'experimental'
+					}
 				}
 			]
 		},
@@ -187,12 +201,18 @@ const sd = StyleDictionary.extend( {
 				},
 				{
 					destination: 'theme-wikimedia-ui-legacy-experimental.less',
-					format: 'custom/less-experimental'
+					format: 'custom/less-experimental',
+					options: {
+						fileHeader: 'experimental'
+					}
 				},
 				{
 					destination: 'theme-wikimedia-ui-legacy-experimental.css',
-					format: 'custom/css-experimental',
-					filter: shouldExposeCustomProperty
+					format: 'css/variables',
+					filter: shouldExposeCustomProperty,
+					options: {
+						fileHeader: 'experimental'
+					}
 				}
 			]
 		},
