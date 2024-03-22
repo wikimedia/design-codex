@@ -52,13 +52,12 @@ label.
 The Label component will be placed above each form [Field](./field.md). An optional indicator, a
 tooltip, and a description could also be included next to the label text.
 
-![Example of Codex Label being used within a Codex Field.](../../assets/components/label-using.svg)
-
 ### Specifications
 
 ![Specification of Label.](../../assets/components/label-specifications.svg)
 
-The Label may include the following elements:
+Label is used within [Field](./field.md). It can also be used on its own for cases when the Field
+component cannot or should not be used (e.g. to label a [SearchInput](./search-input.md)). The Label may include the following elements:
 1. **Icon** (optional)<br>
 A start icon can be included to visually enhance the label's context. This icon is fully customizable and any icon from the provided list can be used. Use a simple icon that is easily comprehensible to users.
 2. **Label text**<br>
@@ -68,8 +67,11 @@ Subtle text indicating that the field associated with the label is not required.
 4. **Description** (optional)<br>
 Subtle descriptive text that provides additional information about the field.
 
-Label is used within [Field](./field.md). It can also be used on its own for cases when the Field
-component cannot or should not be used (e.g. to label a [SearchInput](./search-input.md)).
+The Label will be bold by default. However, it can be customized to regular weight when needed in specific cases:
+- **Bold labels** should be used when grouping two or more form fields under a title with a larger text size. 
+- **Regular labels** should be used when grouped under a title with the same text size as the form field label. This prevents hierarchy issues and ensures consistency.
+
+Label and description can wrap onto multiple lines as needed, without strict length limits. However, it's best to keep them concise for better form readability. If the label spans multiple lines, the optional indicator will appear next to the last line of the label.
 
 Refer to the [Label component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=10192-102686&mode=design&t=2O0ceqiRfqCtnidq-11).
 
@@ -80,6 +82,164 @@ Label includes only two states:
 
 1. Default
 2. Disabled
+
+### Best practices
+
+Consider the following recommendations when using labels within form fields. For more detailed information about form fields, consult the guidelines for [constructing forms](../../style-guide/constructing-forms.md).
+
+#### Usage
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![Two examples where a Label is used within Fields.](../../assets/components/label-best-practices-usage-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use the label as a title for any Field within a form.
+
+</template>
+
+<template #dont-media>
+
+![An example of a Label being used on top of a ToggleButtonGroup.](../../assets/components/label-best-practices-usage-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use the label component as a title for non-form items such as toggle buttons.
+- Use labels as standalone elements on a page.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Icon
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Field using an start icon next to the Label.](../../assets/components/label-best-practices-icon-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use a start icon next to the label to emphasize the required input in the form field.
+
+</template>
+
+<template #dont-media>
+
+![A Field featuring two icons: one positioned next to the label and the other inside the TextInput.](../../assets/components/label-best-practices-icon-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use another icon in the label's section if the field already contains an icon.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Label and description
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Field component with a short label and a lengthy description.](../../assets/components/label-best-practices-label-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Keep the Field’s label short, clear, and easy to scan. 
+- Utilize the label’s description for additional information if needed.
+
+</template>
+
+<template #dont-media>
+
+![A Field component with a lengthy label.](../../assets/components/label-best-practices-label-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Make the Field’s label text excessively large, which could make it difficult to scan.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Optional fields
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![Two Fields: one featuring the "(optional)" indicator.](../../assets/components/label-best-practices-optional-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Only indicate the optional Fields in the form.
+- Ensure that the entire word "optional" is displayed for translation purposes.
+
+</template>
+
+<template #dont-media>
+
+![Two Fields: one required, marked with an asterisk, and an optional one indicated with "(opt)".](../../assets/components/label-best-practices-optional-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Mark required labels with an asterisk.
+- Use abbreviations in the optional indicator.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Label style
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Fieldset with each field labeled as regular.](../../assets/components/label-best-practices-fieldset-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Customize the label of Fields to regular weight when grouped within a fieldset.
+
+</template>
+
+<template #dont-media>
+
+![A Fieldset with each field labeled as bold.](../../assets/components/label-best-practices-fieldset-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Avoid using bold labels in the Fields within a fieldset to maintain hierarchy and clarity.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 

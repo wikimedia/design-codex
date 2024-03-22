@@ -70,8 +70,6 @@ A form field with a label, an input or control, and an optional validation messa
 Field provides features for building an accessible, understandable form field to
 collect user input.
 
-![Example of a Codex Field with different field items: with a text input, with a select, and with a checkbox group.](../../assets/components/field-using.svg)
-
 Use the Field component to create form layouts and to create a variety of form
 inputs, such as text inputs, selects, radio buttons, checkboxes or toggle
 switches.
@@ -89,10 +87,18 @@ It is composed of the following elements:
 type of information to be entered. It can also incorporate a description. Explore [Label](./label.md) to check the different label properties.
 2. **Field**<br>The input element, or a group of inputs,  where the user enters information. Field
 can use any form item such as text input, select, checkbox, etc.
-3. **Helper text** (optional)<br>Text that provides additional information related to the field.
+3. **Helper text** (optional)<br>Text that provides additional information related to the field. The helper text slot can include plain text with or without links.
 4. **Validation message**<br>An inline validation message will appear to provide feedback about the
 status of the field. For example, to provide an error message to the user when the field contains
 one or more errors.
+
+Both label and description will wrap onto multiple lines as needed. There are no strict length limits for labels and descriptions, but it's recommended to keep them concise for improved form readability and scanning.
+
+When a fieldset is arranged horizontally, labels stay aligned, with field elements stacked below respecting Field component paddings.
+
+Optionally, a helper text can accompany any Field component, with no specified maximum length, although keeping it brief is advised for readability. If a Field with TextArea includes a character counter, both the helper text and character counter will align at the top with a `spacing-100` token (equivalent to `16px` in the default Codex theme).
+
+![Maximum example with a fieldset of two fields arranged horizontally.](../../assets/components/field-specifications-max.svg)
 
 Refer to the [Field component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=10193-109478&mode=design&t=2O0ceqiRfqCtnidq-11).
 
@@ -105,45 +111,23 @@ The Field component's control can be any form item component designed to gather 
 - Chip input
 - Lookup
 
-However, components not intended for collecting user input, such as SearchInput,
-should not be used within Field.
-
 ![Types of Fields based on its field content: with a text
 input, with a select, with a combobox, with a checkbox group, with a radio group, and with a
 toggle switch group.](../../assets/components/field-types-field.svg)
 
-A complex field may comprise multiple inputs, each accompanied by an individual label that can be
-visually concealed.
-
-![A Field component with two field items.](../../assets/components/field-types-two-fields.svg)
-
-The helper text slot can include plain text with or without links.
-
-![A Field component with a helper text including a link.](../../assets/components/field-types-helper.svg)
-
-When combining the Field component with TextArea, you can use a custom character counter within the
-helper text section. For non-TextArea items like TextInput, character counters are not used, as they
-are not relevant for shorter inputs.
-
-The character counter counts down as the user types, turning into an error state when the character
-limit is exceeded. It displays the number of exceeded characters as negative numbers along with an
-inline error message, informing the user that the entered message or text is too long.
-
-![Example of a Field with a text area and characters counter.](../../assets/components/field-types-character-counter.svg)
+However, components not intended for collecting user input, such as SearchInput,
+should not be used within Field.
 
 ### Interaction states
 Form fields have the following visually separate states:
 
-![Interaction states of the Field component: default, hover on field, focus field, filled field, disabled, read-only field, error, warning and success.](../../assets/components/field-interaction-states.svg)
+![Interaction states of the Field component: default, interaction within field, disabled, error, warning, and success.](../../assets/components/field-interaction-states.svg)
 
 <div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
 
 1. Default
-2. Hover on field item
-3. Focused field item
-4. Filled field item
+2. Interactive state within the field
 5. Disabled
-6. Read-only
 7. Error
 8. Warning
 9. Success
@@ -151,8 +135,167 @@ Form fields have the following visually separate states:
 </div>
 
 The interactive states will exclusively impact the field item within Field.
-Hover, focus, filled, and read-only states apply solely to the field item (e.g.
+So hover, focus, filled, and read-only states apply solely to the field item (e.g.
 the text input).
+
+### Best practices
+
+Consider the following recommendations when using fields. For more detailed information about form fields, consult the guidelines for [constructing forms](../../style-guide/constructing-forms.md).
+
+#### Icon
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Field using an start icon next to its label.](../../assets/components/field-best-practices-icon-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use a start icon next to the label to emphasize the required input in the form field.
+
+</template>
+
+<template #dont-media>
+
+![A Field featuring two icons: one positioned next to the label and the other inside the TextInput.](../../assets/components/field-best-practices-icon-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use another icon in the label's section if the field already contains an icon.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Label and description
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Field component with a short label and a lengthy description.](../../assets/components/field-best-practices-label-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Keep the Field’s label short, clear, and easy to scan.
+- Utilize the label’s description for additional information if needed.
+
+</template>
+
+<template #dont-media>
+
+![A Field component with a lengthy label.](../../assets/components/field-best-practices-label-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Make the Field’s label text excessively large, which could make it difficult to scan.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Optional fields
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![Two Fields: one featuring the "(optional)" indicator.](../../assets/components/field-best-practices-optional-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Only indicate the optional Fields in the form.
+- Ensure that the entire word "optional" is displayed for translation purposes.
+
+</template>
+
+<template #dont-media>
+
+![Two Fields: one required, marked with an asterisk, and an optional one indicated with "(opt)".](../../assets/components/field-best-practices-optional-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Mark required labels with an asterisk.
+- Use abbreviations in the optional indicator.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Label style
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Fieldset with each Field labeled as regular.](../../assets/components/field-best-practices-fieldset-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Include multiple Fields within a fieldset for organization.
+- Customize the label of Fields to regular weight when grouped within a fieldset.
+
+</template>
+
+<template #dont-media>
+
+![A Fieldset with each Field labeled as bold.](../../assets/components/field-best-practices-fieldset-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Avoid using bold labels in Fields within a fieldset to maintain hierarchy and clarity.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Characters counter
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Field component including a TextArea with a character counter.](../../assets/components/field-best-practices-characters-counter-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use a character counter just for Fields with a TextArea.
+- If the character limit is surpassed, display an inline error message.
+
+</template>
+
+<template #dont-media>
+
+![A Field component including a TextInput with a character counter.](../../assets/components/field-best-practices-characters-counter-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use a character counters for non-TextArea items such as TextInput.
+
+</template>
+
+</cdx-demo-rules>
 
 ### Content
 

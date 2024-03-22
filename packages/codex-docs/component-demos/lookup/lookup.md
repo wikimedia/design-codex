@@ -24,8 +24,6 @@ Avoid using Lookup to enable users to search for and navigate to content.
 Instead, use [SearchInput](./search-input.md) or
 [TypeaheadSearch](./typeahead-search.md).
 
-![Example of Codex Lookup.](../../assets/components/lookup-using.svg)
-
 ### Specifications
 ![Specification of Lookup.](../../assets/components/lookup-specifications.svg)
 
@@ -34,6 +32,11 @@ Lookup includes the following elements:
 	results. This can optionally include a start icon, clear button, and placeholder
 	text.
 2. **Dropdown menu**<br>Suggested results are displayed via the Menu component.
+
+Since the Lookup component uses a [TextInput](./text-input.md), its base `min-width` is set to
+`size-1600` token (equivalent to `256px` in the default Codex theme), but it can be customized to
+a smaller width if needed. There is no maximum width set. If the text entered in the input exceeds
+the available space, it will overflow horizontally.
 
 Refer to the [Lookup component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=5034-54226&mode=design&t=2O0ceqiRfqCtnidq-11).
 
@@ -88,6 +91,38 @@ Interaction can take place within both the input and the displayed menu:
 4. Active
 5. Filled
 6. Filled active (with a menu item selected)
+
+### Best practices
+
+Consider the following recommendations when using Lookups.
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Lookup wrapped within a Field.](../../assets/components/lookup-best-practices-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Wrap the Lookup within the Field component to incorporate features such as labels, descriptions, help text, or validation messages.
+
+</template>
+
+<template #dont-media>
+
+![A standalone Lookup.](../../assets/components/lookup-best-practices-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use a standalone Lookup on a page.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 
