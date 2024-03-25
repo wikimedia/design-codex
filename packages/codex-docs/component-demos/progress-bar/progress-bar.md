@@ -30,8 +30,6 @@ ongoing operations, such as file uploads or form submissions.
 If the progress of a task is not crucial to user understanding or if the task is
 expected to complete quickly, avoid using a ProgressBar.
 
-![Example of Codex ProgressBar.](../../assets/components/progress-bar-using.svg)
-
 ### Specifications
 
 ![Specification of ProgressBar.](../../assets/components/progress-bar-specifications.svg)

@@ -86,8 +86,6 @@ within a [Menu](./menu.md). It cannot be used by itself.
 MenuItems contain text, and supporting media (icons or thumbnails) that
 represent an available choice for users.
 
-![Example of Codex MenuItems within a menu.](../../assets/components/menu-item-using.svg)
-
 ### Specifications
 
 ![Specification of MenuItem.](../../assets/components/menu-item-specifications.svg)
@@ -98,6 +96,10 @@ Each menu item may include the following elements:
 3. **Supporting text** (optional)<br>Optional and subtle text that supports or explains the label.
 4. **Match text** (optional)<br>In the context of a search suggestions menu, this optional text displays the alternative label of an item that matches the search query (e.g. an alias).
 5. **Description** (optional)<br>Optional and subtle descriptive text that provides additional information about the menu item.
+
+Menu items have no minimum or maximum character requirement, although concise text is recommended. If the label is multiline, the supporting text will be positioned next to the last line of the label.
+
+Refer to the [MenuItem component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=4918-48934&mode=design&t=wJPfPzkECREKvMoi-0).
 
 ### Interaction states
 Menu items have the following visually separate states:
@@ -110,6 +112,72 @@ Menu items have the following visually separate states:
 4. Selected
 5. Selected hover
 6. Disabled
+
+### Best practices
+
+Consider the following recommendations when using menu items within menus.
+
+#### Icon, label, and description
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A MenuItem featuring a simple icon and concise label and description.](../../assets/components/menu-item-best-practices-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use icons to emphasize the meaning of the label, adapting them as needed for each project.
+- Keep the label and optional description concise to enhance menu scannability and readability.
+
+</template>
+
+<template #dont-media>
+
+![A MenuItem featuring a complex icon, a label, and a lengthy description.](../../assets/components/menu-item-best-practices-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use icons that are difficult to understand or do not clearly convey their purpose.
+- Overcrowd menu items with lengthy labels and descriptions.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Supporting text
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A MenuItem featuring supporting text within brackets.](../../assets/components/menu-item-best-practices-do-2.svg)
+
+</template>
+
+<template #do-text>
+
+- Include supporting text within brackets to explain where a search result is redirected from.
+
+</template>
+
+<template #dont-media>
+
+![A MenuItem featuring supporting text without brackets.](../../assets/components/menu-item-best-practices-dont-2.svg)
+
+</template>
+
+<template #dont-text>
+
+- Include supporting text without brackets. It should always be enclosed within brackets to differentiate it from the item label.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 

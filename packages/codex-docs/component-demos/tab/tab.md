@@ -32,8 +32,6 @@ Two or more tab items are grouped to create a [Tabs](./tabs.md) component. Tab i
 be used individually. For example, different tab items can represent the different sections of an
 article. A tab includes a label, which displays in the tabs list, and its associated content.
 
-![Example of different Codex Tab items creating a Tabs component.](../../assets/components/tab-using.svg)
-
 ### Specifications
 
 ![Specification of Tab item.](../../assets/components/tab-specifications.svg)
@@ -42,10 +40,16 @@ Each tab item may include the following elements:
 1. **Text**<br>Currently, tab items solely consist of text elements within the tab, without the inclusion of icons or visual indicators.
 2. **Selected indicator**<br>Both quiet and framed tabs feature a visual indicator when selected. In the case of quiet tabs, this indicator is a blue line positioned below the tab text, which is also colored blue. In contrast, framed tabs use a white background behind the tab text to indicate their selected state.
 
-A Tab will also contain the content that should display when that tab is active.
+The maximum width for each Tab item is `size-1600` token (equivalent to 256px in the default
+Codex theme), with an ellipsis appearing if the text exceeds this length.
+
+![Maximum example of Tab component.](../../assets/components/tab-specifications-max.svg)
+
+Refer to the [Tabs component with Tab items in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2319-7029&mode=design)
 
 ### Types
-As documented in [Tabs](./tabs.md), there are two different type of tab items depending on the tabs' style and where they are employed:
+As documented in [Tabs](./tabs.md), there are two different type of tab items depending on the
+tabs' style and where they are employed:
 
 <div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
 
@@ -79,9 +83,42 @@ Both quiet and framed tab items have the following visually separate states:
 5. Focus
 6. Disabled
 
+### Best practices
+
+Consider the following recommendations when using Tabs.
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An screenshot of Tabs with its items navigating to related content.](../../assets/components/tabs-best-practices-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use Tabs to navigate between various sections of related content.
+
+</template>
+
+<template #dont-media>
+
+![An screenshot of Tabs with its items navigating to sections of the same page.](../../assets/components/tabs-best-practices-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use Tabs to structure content meant to be consumed sequentially, like the sections within an article page.
+
+</template>
+
+</cdx-demo-rules>
+
 ### Content
 
-Tabs allow a reader to access contained, structured content blocks that make pages easier to read. To make the UI effective and consistent, keep tab names short and descriptive.
+Tabs allow a reader to access contained, structured content blocks that make pages easier to read.
+To make the UI effective and consistent, keep tab names short and descriptive.
 
 <cdx-demo-rules>
 <template #do-media>
