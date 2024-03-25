@@ -10,14 +10,12 @@ users with a quick glimpse of the associated content.
 ## Guidelines
 
 ### Using thumbnails
-Use the Thumbnail component to include small versions of images that can provide
+Use the Thumbnail component to include small previews of images that can provide
 context or support the meaning of the content included in components such as
 [Card](./card.md) or [MenuItem](./menu-item.md).
 
 The placeholder icon will display until the thumbnail image loads, or if a
 thumbnail image is not provided.
-
-![Example of a Codex Thumbnail within a Codex Card.](../../assets/components/thumbnail-using.svg)
 
 ### Specifications
 
@@ -29,6 +27,12 @@ The thumbnail component may include the following elements:
 
 In both scenarios, the thumbnail features a Gray300 border to ensure sufficient
 contrast when placed on white backgrounds.
+
+Thumbnails are set to a default square size of `size-250` token (equivalent to `40px` in the default
+Codex theme). They cannot be scaled smaller than this size but can be scaled up to `@ize-800`
+(equivalent to `128px` in the default Codex theme).
+
+Refer to the [Thumbnail component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=6111-59883&mode=design&t=juAVVGeUnMoEFBEV-11).
 
 ### Types
 There are two types of thumbnails based on whether an image has been loaded or not:
@@ -45,6 +49,71 @@ Thumbnail component just have two states:
 1. **Default**: it will display the image if it is uploaded.
 2. **Loading**: it displays the placeholder view until the thumbnail image loads.
 
+### Best practices
+
+Consider the following recommendations when using thumbnails.
+
+#### Usage
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An screenshot of a Thumbnail within a Card component.](../../assets/components/thumbnail-best-practices-usage-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use Thumbnail as a preview of an image within other components such as
+[Card](./card.md) or [MenuItem](./menu-item.md).
+
+</template>
+
+<template #dont-media>
+
+![An screenshot of a Thumbnail within an InfoBox.](../../assets/components/thumbnail-best-practices-usage-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Replace images with Thumbnails, as Thumbnail is intended only as preview and an image should remain high-resolution.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Icon
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A Thumbnail using a customized simple icon.](../../assets/components/thumbnail-best-practices-icon-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Customize the icon within placeholder thumbnails.
+- Use icons that provide clear context for the use of the thumbnail.
+
+</template>
+
+<template #dont-media>
+
+![A Thumbnail using a customized complex icon.](../../assets/components/thumbnail-best-practices-icon-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use icons that are difficult to understand or do not clearly convey their purpose.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 

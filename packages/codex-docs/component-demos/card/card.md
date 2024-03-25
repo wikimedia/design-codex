@@ -22,8 +22,6 @@ Use the Card component when you need to present individual pieces of information
 
 Avoid using cards when you have to display extensive content, multiple elements, or group unrelated topics together. In such cases, consider using a different component or layout.
 
-![Example of Codex Card with thumbnail, title, description, and supporting text.](../../assets/components/card-using.svg)
-
 Use short titles and descriptions along with visual reinforcements, such as thumbnails or icons, to ensure that the card's content is concise and easy to scan.
 
 ### Specifications
@@ -36,6 +34,12 @@ Cards include the following items:
 3. **Description**<br>A subtle text below the title provides more information about the element represented by the card.
 4. **Supporting text** (optional)<br>An optional subtle text (with an optional icon) could be included to provide additional information about the card’s content.
 5. **Links** (optional)<br>The description and/or the supporting text may contain links to either the element the Cards represent (e.g. Wikipedia articles), or to related content.
+
+The label, description, and supporting text within a card can vary in length without any minimum or maximum restrictions. Cards automatically adjust in height to accommodate longer text, although the recommendation is to keep card content concise whenever possible.
+
+The height and width of cards can be customized as needed, and when multiple cards are aligned together, their heights should adjust to match the tallest card in the set.
+
+![A screenshot displaying two cards with varying content lengths, adjusting their height to match the tallest card.](../../assets/components/card-maximum.svg)
 
 Refer to the [Card component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=6842-69713&mode=design&t=2O0ceqiRfqCtnidq-11).
 
@@ -57,6 +61,75 @@ Cards have the following visually separate states:
 2. Hover
 3. Focus
 4. Loading
+
+The interactive states (hover, active, and focus) are only applicable to cards that contain links, while the loading state applies to all Cards.
+
+### Best practices
+
+Consider the following recommendations when using cards.
+
+#### Card content
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![An example of a Card with concise content.](../../assets/components/card-best-practices-content-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use cards to organize information related to a single topic.
+- Ensure that the content within the card remains concise and pertinent.
+
+</template>
+
+<template #dont-media>
+
+![An example of a Card with excessive content.](../../assets/components/card-best-practices-content-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use cards to compile unrelated topics or lists together.
+- Overcrowd cards with excessive content.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Group of cards
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A group of cards aligned to the same height.](../../assets/components/card-best-practices-group-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Maintain consistency in the content and elements of grouped cards, ensuring their heights match for visual consistency.
+
+</template>
+
+<template #dont-media>
+
+![A group of cards with different elements and height.](../../assets/components/card-best-practices-group-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Mix up the content and elements of cards when grouping them,
+- Vary their heights to maintain visual uniformity.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 

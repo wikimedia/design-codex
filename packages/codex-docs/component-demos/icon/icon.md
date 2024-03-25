@@ -3,27 +3,27 @@ import SimpleIcon from '@/../component-demos/icon/examples/SimpleIcon.vue';
 import IconSizes from '@/../component-demos/icon/examples/IconSizes.vue';
 </script>
 
-An Icon is a graphical representation of an idea. Icons are used to give the
-user additional context to aid in understanding the interface. This component
-can be used inside other components, like a [Button](./button.md).
+An Icon is a graphical representation of an idea.
 
 ## Guidelines
 
 ### Using icons
+
+Icons are used to give the user additional context for understanding the interface. This component
+can be used inside other components, like a [Button](./button.md).
+
 Codex contains a [list of icons](/icons/all-icons.md).
 Read more about how to [use and create Codex icons](/style-guide/icons.html).
-
-![Example of different Codex Icons.](../../assets/components/icon-using.svg)
 
 ### Specifications
 
 #### Size
 
-![Icon in available sizes: 20px, 16px, and 12px.](../../assets/components/icon-specifications.svg)
-
 Icon size can be 20px, 16px or 12px. Icon base size will be 20px, while 16px
 will be used for small icons. We will use 12px just for a limited set of
 specific use cases.
+
+![Icon in available sizes: 20px, 16px, and 12px.](../../assets/components/icon-specifications.svg)
 
 - **20px icons** should be used by default size, including in elements with a min-height of 32px (like the start icon within the TextInput).
 - **16px icons** should be in elements with a height less than 32px (like the start icon within the InfoChip) or for controls in elements with a min-height of 32px (like the dropdown arrow’s icon in the Select).

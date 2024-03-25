@@ -48,8 +48,6 @@ Use the Accordion component when you need to organize blocks of content into sec
 
 Expanded accordion content can be as long as needed, and the type of content can vary contextually. Headings should be used to label each section of content.
 
-![Example of an accordion layout with two Codex Accordions, one expanded displaying a paragraph text and the other one collapsed.](../../assets/components/accordion-using.svg)
-
 ### Specifications
 
 ![Specification of Accordion.](../../assets/components/accordion-specifications.svg)
@@ -62,6 +60,8 @@ Accordion includes the following items:
 An action (such as edit) could optionally appear at the end of the heading section and it will affect the entire accordion item.
 5. **Accordion’s content**<br>When the accordion is expanded, its content becomes visible, and the arrow icon rotates to show the expanded state.
 
+The accordion's label and description have no minimum or maximum length restrictions. However, shorter labels are encouraged, as additional information about the label can be included in a description below.
+
 #### Label style
 By default, the label text style is set to the base font in bold. However, it can be easily customized to other styles by applying any of the existing fonts, text sizes or formats defined in our [font design tokens](https://doc.wikimedia.org/codex/latest/design-tokens/font.html).
 
@@ -70,7 +70,7 @@ Always make sure to emphasize the label more prominently than the expanded conte
 ![Different font styles of labeling for accordions.](../../assets/components/accordion-specifications-label.svg)
 
 #### Expanded content
-The content within the accordion can include paragraph text, menu items, links, images, videos, tables, or form items. Avoid nesting additional accordions within an accordion item to keep the component simple. If you need to represent different subsections within an accordion item, use sub-headers instead.
+The content within the accordion can include paragraph text, menu items, links, images, videos, tables, or form items. There are no restrictions on the minimum or maximum amount of content that can be included in the expanded section.
 
 ![Different types of expanded content within an accordion.](../../assets/components/accordion-specifications-content.svg)
 
@@ -94,6 +94,134 @@ Accordions are divided into collapsed and expanded states as follows:
 6. Hover expanded
 7. Active expanded
 8. Focus expanded
+
+### Best practices
+
+Consider the following recommendations when using accordions.
+
+#### Usage
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot of two accordions with an InfoChip adjacent to their labels.](../../assets/components/accordion-practices-usage-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use InfoChip next to the label to provide additional information.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot of two accordions: one with a warning icon and the other with an InfoChip.](../../assets/components/accordion-practices-usage-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Mix different elements within the accordions of the same group.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Label
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot of an Accordion group with customized label styles.](../../assets/components/accordion-best-practices-label-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Customize the label style if needed in your project.
+- Ensure that the label is emphasized more prominently than the expanded content.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot of an Accordion group with customized label colors.](../../assets/components/accordion-best-practices-label-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Customize the label color as it may lead to contrast issues with the various states of the Accordion.
+- Combine different text styles within the labels of the same accordion group.
+- Include links in the accordion label.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Expand icon
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot displaying an Accordion group using the icons ‘expand’ and ‘collapse’.](../../assets/components/accordion-best-practices-expand-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use the ‘expand’ icon when the accordion is collapsed and the ‘collapse’ one when it's expanded.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot displaying an Accordion group using the icons ‘add’ and ‘substract’.](../../assets/components/accordion-best-practices-expand-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Replace the predefined collapse and expand icons with other icons.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Expanded content
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot displaying an Accordion group with one accordion expanded, containing an image and a set of paragraphs.](../../assets/components/accordion-best-practices-content-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Include paragraph text, menu items, links, images, videos, tables, or form items within the accordion content.
+- Use sub-headers to represent different subsections within an accordion item.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot displaying an Accordion group with one accordion expanded, containing other nested accordions.](../../assets/components/accordion-best-practices-content-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Nest additional accordions within an accordion item to create subsections. If you need to represent different subsections within an accordion item, use sub-headers instead.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 
