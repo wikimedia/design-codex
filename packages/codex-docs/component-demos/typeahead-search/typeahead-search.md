@@ -23,8 +23,6 @@ as users type within the input field. Avoid using TypeaheadSearch if your goal i
 perform text-based searches to find specific content, such as locating results on a page. In this
 case use the [SearchInput](./search-input.md) component instead.
 
-![Example of Codex TypeaheadSearch with some results displayed within a menu.](../../assets/components/typeahead-search-using.svg)
-
 ### Specifications
 
 TypeaheadSearch may include the following elements:
@@ -45,6 +43,14 @@ also be included.
 4. **Footer**<br>
 The final menu item at the end of the search results menu list allows users to navigate to the
 search page.
+
+The menu displayed will show a maximum of 10 items, adjusting if there are fewer matching results.
+
+Menu labels will expand to fit text length, possibly wrapping to multiple lines, while descriptions will use an ellipsis if exceeding one line.
+
+The fixed menu footer may also wrap to multiple lines for lengthy text.
+
+Refer to the [TypeaheadSearch component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=13076-168691&mode=design&t=G420ZgFymLfdkY6g-0).
 
 ### Types
 
@@ -71,6 +77,41 @@ TypeaheadSearch has the following visually separate states:
 4. Loading
 5. Active with results
 6. Active with no results
+
+### Best practices
+
+Consider the following recommendations when using the TypeaheadSearch.
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot of a TypeaheadSearch featuring the 'search' icon and a text-only button.](../../assets/components/typeahead-search-best-practices-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use the 'search' icon to emphasize search functionality.
+- Customize the placeholder text as needed.
+- Ensure the copy is concise and includes the term "Search" or an appropriate translation.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot of a TypeaheadSearch featuring a non-'search' icon and a text-only button with long and customized text.](../../assets/components/typeahead-search-best-practices-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Customize or remove the 'search' icon.
+- Customize the copy of the search button or make it lengthy.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 

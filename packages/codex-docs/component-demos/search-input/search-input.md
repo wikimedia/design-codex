@@ -20,8 +20,6 @@ while users type within the input field. In such cases, use
 Avoid using SearchInput to enable users to search a dataset of options for a
 form field. Instead, use [Lookup](./lookup.md).
 
-![Example of a Codex SearchInput with “Search” placeholder.](../../assets/components/search-input-using.svg)
-
 ### Specifications
 
 ![Specification of SearchInput.](../../assets/components/search-input-specifications.svg)
@@ -29,6 +27,12 @@ form field. Instead, use [Lookup](./lookup.md).
 Search inputs may include the following elements:
 1. **Input**<br>A text input where users can type their search queries. The input features the 'search' icon for clarity and should also include a placeholder to clarify its purpose.
 2. **Button** (optional)<br>The input can be accompanied with a button, either a text button or an icon-only one, in order to trigger the search action. It's crucial not to customize the label of the search button and consistently employ the term "Search" or its appropriate translation. Additionally, avoid using long text within this button.
+
+Since the SearchInput component uses a [TextInput](./text-input.md)), the input's minimum width defaults to `@size-1600` (equivalent to `256px` in the default Codex theme). However, it can be adjusted to a narrower width if necessary. The SearchInput button, if visible, does not contribute to this minimum width.
+
+There's no maximum width constraint. If the input text exceeds the available space, it will overflow horizontally.
+
+Refer to the [SearchInput component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=4918-30728&mode=design&t=UwSiKFRRQPBEJVaC-0).
 
 ### Types
 The SearchInput component can be categorized based on the visibility and type of
@@ -66,6 +70,73 @@ Search inputs have the following visually separate states:
 2. Hover
 3. Active - Focus
 4. Filled
+
+### Best practices
+
+Consider the following recommendations when using SearchInput.
+
+#### Icon
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot of a SearchInput using the ‘search’ icon.](../../assets/components/search-input-best-practices-icon-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use the ‘search’ icon in the SearchInput.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot of a SearchInput using the ‘userActive’ icon.](../../assets/components/search-input-best-practices-icon-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Replace the ‘search’ icon with any other icon.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Search button
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot of two SearchInputs: one with an icon-only search button and the other with a text-only search button.](../../assets/components/search-input-best-practices-button-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use the icon-only button when necessary, especially on small screens like mobile devices.
+- Ensure the copy is concise and includes the term "Search" or an appropriate translation when using the text button.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot of a SearchInput with a lengthy search button and a ‘search’ icon in both the input field and the button.](../../assets/components/search-input-best-practices-button-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Duplicate the term "Search" in both the search button and the placeholder text. In such cases, consider hiding the placeholder.
+- Use the ‘search’ icon simultaneously in both the input field and the button.
+- Customize the copy of the search button or make it lengthy.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 
