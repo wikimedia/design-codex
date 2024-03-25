@@ -38,8 +38,6 @@ involved than a typical button click action. Avoid using ToggleButton if you nee
 immediate action or toggle something within the current user context; in this case use a
 [Button](./button.md) instead.
 
-![Example of a normal and a quiet ToggleButton.](../../assets/components/toggle-button-using.svg)
-
 ### Specifications
 
 ![Specification of ToggleButton.](../../assets/components/toggle-button-specifications.svg)
@@ -52,6 +50,15 @@ Button labels should be as short as possible, with text that clearly states what
 when toggling the button (eg. show/hide). Note that the label text should not change depending on
 the button’s toggled state.
 
+The minimum width and height for both icon and text toggle buttons is
+`min-size-interactive-pointer` token (equivalent to `32px` in the default Codex theme). The toggle
+button will adjust to fit the expanding text but will halt growth at a maximum width of
+`max-width-button` (equivalent to `448px` in the default Codex theme). An ellipsis will appear
+to accommodate the text if necessary.
+
+On mobile, toggle buttons should span the full-width of the container, except for icon-only buttons, which will maintain their fixed square proportions.
+
+Refer to the [ToggleButton component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=13076-164059&mode=design&t=PjLN7gsPGhALOhfp-0).
 
 ### Types
 Depending on the style of the button, there are two types of toggle buttons:
@@ -79,6 +86,8 @@ Buttons have the following visually separate states:
 ![Interaction states of the quiet toggle button for both toggled-off and toggled-on: default, hover, active, focus, and disabled.](../../assets/components/toggle-button-framed-interaction-states.svg)
 *<p style="text-align: center;">Quiet buttons</p>*
 
+<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
+
 1. Toggled-off default
 2. Toggled-off hover
 3. Toggled-off active
@@ -89,6 +98,73 @@ Buttons have the following visually separate states:
 8. Toggled-on active
 9. Toggled-on focus
 10. Toggled-on disabled
+
+</div>
+
+### Best practices
+
+Consider the following recommendations when working with toggle buttons.
+
+#### Icon
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot of a ToggleButton featuring an icon relevant to its action.](../../assets/components/toggle-button-best-practices-icon-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Ensure that icons used in buttons are relevant to the action they represent.
+- Use icons only when they are clear and easily recognizable.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot of a ToggleButton displaying a complex icon that doesn't add value to the button's text.](../../assets/components/toggle-button-best-practices-icon-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use icons that are difficult to understand or do not clearly convey their purpose.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Toggle state
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot of a ToggleButton in its default and toggled states, with the same icon used in both states.](../../assets/components/toggle-button-best-practices-toggled-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Maintain consistent text and icon representation across both default and toggled button states to indicate state changes solely through button color.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot of a ToggleButton altering the icon in its default and toggled states.](../../assets/components/toggle-button-best-practices-toggled-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Alter the icon and/or text when the button is toggled.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 

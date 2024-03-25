@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="96" fill="none" viewBox="0 0 420 96">
+	<g clip-path="url(#a)">
+		<path fill="#F8F9FA" d="M163.5 32.5h31v31h-31z"/>
+		<path stroke="#A2A9B1" d="M163.5 32.5h31v31h-31z"/>
+		<path fill="#202122" fill-rule="evenodd" d="M185 45a5.4 5.4 0 0 0-4.46-4.85c.06-.69-.01-2.15-1.54-2.15s-1.6 1.46-1.54 2.15A5.4 5.4 0 0 0 173 45v6l-2 2v1h16v-1l-2-2zm-6 13a3 3 0 0 0 3-3h-6a3 3 0 0 0 3 3" clip-rule="evenodd"/>
+		<path fill="#F8F9FA" d="M194.5 32.5h31v31h-31z"/>
+		<path stroke="#A2A9B1" d="M194.5 32.5h31v31h-31z"/>
+		<path fill="#202122" fill-rule="evenodd" d="M218 41h-3v-2h-2v2h-6v-2h-2v2h-3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V43a2 2 0 0 0-2-2m0 14h-16v-9h16zm-2-6h-4v4h4z" clip-rule="evenodd"/>
+		<path fill="#2A4B8D" d="M225.5 32.5h31v31h-31z"/>
+		<path stroke="#2A4B8D" d="M225.5 32.5h31v31h-31z"/>
+		<path fill="#fff" fill-rule="evenodd" d="M245.5 43.5a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0M233 54c0-2 2.08-5 8-5s8 3 8 5v3h-16z" clip-rule="evenodd"/>
+	</g>
+	<defs>
+		<clipPath id="a">
+			<path fill="#fff" d="M163 34a2 2 0 0 1 2-2h90a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2h-90a2 2 0 0 1-2-2z"/>
+		</clipPath>
+	</defs>
+</svg>

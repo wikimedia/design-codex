@@ -22,13 +22,11 @@ group. If you want users to choose from a set of actions, with the restriction t
 active simultaneously, use the
 [ButtonGroup](./button-group.md) instead.
 
-![Example of a Codex ToggleButtonGroup.](../../assets/components/toggle-button-group-using.svg)
-
 ### Specifications
 
 ![Specification of ToggleButtonGroup.](../../assets/components/toggle-button-group-specifications.svg)
 
-A toggle button group consists of normal (framed) buttons, which may include the following elements:
+A toggle button group consists of of a minimum of 2 toggle buttons, which may include the following elements:
 1. **Icon** (optional)<br>
 Icons simplify user recognition and provide the ability to shorten button labels to a minimum.
 2. **Label**<br>
@@ -38,15 +36,15 @@ selected when the button is toggled on.
 For toggled-on buttons, a white line is added to visually separate them, whether they are on the
 same line or placed on different rows in the stacked version.
 
+There is no maximum limit on the number of toggle buttons per group. The width of the
+ToggleButtonGroup will adjust to accommodate the expanding text within each button. If the total
+width surpasses the maximum width of `max-width-button` token (equivalent to `448px` in the default
+Codex theme), the buttons will be arranged into the next row.
+
+![Maximum example for ToggleButtonGroup component.](../../assets/components/toggle-button-group-specifications-max.svg)
+
 Refer to the
-[ToggleButtonGroup component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=6639-59752&mode=design&t=RQzmW0S7riPfuDMF-11).
-
-#### Stacked buttons
-
-When the ToggleButtonGroup exceeds the available space on a single line, the buttons will wrap onto
-the next line.
-
-![Example of a ToggleButtonGroup with stacked buttons in two lines.](../../assets/components/toggle-button-group-types.svg)
+[ToggleButtonGroup component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=13076-166158&mode=design&t=GijyYqGUqXgv1QVo-0).
 
 ### Interaction states
 
@@ -66,6 +64,72 @@ ToggleButtonGroups have the following visually separate states:
 10. Two buttons are selected
 11. All buttons are selected
 12. All buttons are disabled
+
+### Best practices
+
+Consider the following recommendations when working with toggle button groups.
+
+#### Button’s content
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot with two ToggleButtonGroups: one using icons and the other using numbers instead of text.](../../assets/components/toggle-button-group-best-practices-content-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Consider using text-only, text with icon, or icon-only buttons within the ToggleButtonGroup.
+- Use numbers instead of text within the buttons if appropriate.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot of a ToggleButtonGroup using an icon just in one of the buttons.](../../assets/components/toggle-button-group-best-practices-content-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Mix different types of buttons within the same ToggleButtonGroup to maintain consistency.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Icon-only buttons
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![A screenshot of an icon-only ToggleButtonGroup using easy to recognize icons.](../../assets/components/toggle-button-group-best-practices-icon-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use icon-only toggle buttons to create a ToggleButtonGroup if needed.
+- Ensure the icons used are universally recognizable and don't need accompanying text.
+
+</template>
+
+<template #dont-media>
+
+![A screenshot of an icon-only ToggleButtonGroup using complex icons.](../../assets/components/toggle-button-group-best-practices-icon-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use icon-only buttons if the icons are unclear or don't effectively convey their purpose.
+
+</template>
+
+</cdx-demo-rules>
 
 ## Demos
 
