@@ -260,6 +260,14 @@ sdBase.extend( {
 					destination: 'theme-codex-wikimedia-mode-dark.css',
 					format: 'css/variables',
 					filter: isModeToken
+				},
+				{
+					destination: 'theme-codex-wikimedia-mode-dark.less',
+					format: 'css/variables',
+					filter: isModeToken,
+					options: {
+						selector: '.cdx-mode-dark()'
+					}
 				}
 			]
 		}
