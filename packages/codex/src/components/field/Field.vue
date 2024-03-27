@@ -198,7 +198,7 @@ export default defineComponent( {
 	// field or a fieldset.
 	// Add vertical space between adjacent elements by adding top margin.
 	// Normalize/reset the fieldset by setting margin zero to the other sides of the element.
-	margin: @spacing-150 0 0 0;
+	margin: @spacing-100 0 0 0;
 	// Remove border and padding.
 	border: 0;
 	padding: 0;
