@@ -137,7 +137,7 @@ Be cautious of using a table of contents on a form when there are other navigati
 
 The footer of a form should be fixed to the bottom of the viewport, with a background and top border to separate itself from the form itself. This ensures that any related actions are in the same location at all times and are always accessible while scrolling. For forms that exist within a Dialog or smaller container, the actions should come directly after the last field.
 
-Large Buttons are the default size to use at the end of a form to emphasize the main action on the page. When a form is within a Dialog or in a smaller space, Medium Buttons should be used. Actions should be aligned to the start of the form with the most primary action positioned to the end within that group. Visit [Using links and buttons](../style-guide/using-links-and-buttons.md#group-of-buttons) for more information on hierarchy and spacing.
+A Primary Progressive Button should be the primary action in the footer of a form. Secondary, tertiary, and other actions may be Normal or Quiet Buttons, but should be Neutral in color, to not draw attention away from the primary action. If the form performs a destructive action, a Primary Destructive Button may be used in place of the Primary Progressive Button. Actions should be aligned to the start of the form with the most primary action positioned to the end within that group. Visit [using links and buttons](../style-guide/using-links-and-buttons.md#group-of-buttons) for more information on hierarchy and spacing.
 
 When a form uses a table of contents, the footer should remain the width of the body of the form, or where the fields are, and not span to include the width of the table of contents.
 
@@ -187,8 +187,9 @@ There are two stages at which inline validation can occur:
 
 ## Spacing
 
-- Between a form and other elements on the page, including its own table of contents and footer, should use the `spacing-200` token (equivalent to `32px` in the default Codex theme).
-- Between elements within a form (including section headings and fields from one another) should use the `spacing-150` token (equivalent to `24px` in the default Codex theme).
+- Between a form and other elements on the page, including its own table of contents and footer, should use the `spacing-150` token (equivalent to `24px` in the default Codex theme).
+- Between elements within a form (including section headings and fields from one another) should use the `spacing-100` token (equivalent to `16px` in the default Codex theme).
+- Between sections within a form should use the `spacing-150` token (equivalent to `24px` in the default Codex theme).
 - Between labels and their associated input or fieldset should use the `spacing-25` token (equivalent to `4px` in the default Codex theme) on desktop or `spacing-50` token (equivalent to `8px` in the default Codex theme) on mobile. This is built into the [Field](../components/demos/field.md) component.
 - Modules with an entire form inside should have an interior padding between the edge of the module and any element within the module of `spacing-150` (equivalent to `24px` in the default Codex theme).
 - Modules with fields inside should have an interior padding between the edge of the module and any element within the module of `spacing-75` (equivalent to `12px` in the default Codex theme).
