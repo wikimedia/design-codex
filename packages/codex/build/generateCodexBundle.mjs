@@ -143,7 +143,7 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 						alias: [
 							{
 								find: /^@wikimedia\/codex-design-tokens\/(dist\/)?theme-wikimedia-ui\.less$/,
-								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-wikimedia-ui-experimental.less' )
+								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-codex-wikimedia-experimental.less' )
 							}
 						]
 					},
@@ -166,7 +166,7 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 						alias: [
 							{
 								find: /^@wikimedia\/codex-design-tokens\/(dist\/)?theme-wikimedia-ui\.less$/,
-								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-wikimedia-ui-experimental.less' )
+								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-codex-wikimedia-experimental.less' )
 							}
 						]
 					},

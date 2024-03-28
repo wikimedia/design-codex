@@ -147,14 +147,14 @@ const sd = StyleDictionary.extend( {
 					format: 'json'
 				},
 				{
-					destination: 'theme-wikimedia-ui-experimental.less',
+					destination: 'theme-codex-wikimedia-experimental.less',
 					format: 'custom/less-experimental',
 					options: {
 						fileHeader: 'experimental'
 					}
 				},
 				{
-					destination: 'theme-wikimedia-ui-experimental.css',
+					destination: 'theme-codex-wikimedia-experimental.css',
 					format: 'css/variables',
 					filter: shouldExposeCustomProperty,
 					options: {
@@ -200,14 +200,14 @@ const sd = StyleDictionary.extend( {
 					format: 'json'
 				},
 				{
-					destination: 'theme-wikimedia-ui-legacy-experimental.less',
+					destination: 'theme-codex-wikimedia-legacy-experimental.less',
 					format: 'custom/less-experimental',
 					options: {
 						fileHeader: 'experimental'
 					}
 				},
 				{
-					destination: 'theme-wikimedia-ui-legacy-experimental.css',
+					destination: 'theme-codex-wikimedia-legacy-experimental.css',
 					format: 'css/variables',
 					filter: shouldExposeCustomProperty,
 					options: {
