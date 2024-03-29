@@ -392,7 +392,7 @@ Note that this configurable demo is only shown with a TextInput inside the Field
 below for use of the Field component with other types of inputs or groups of inputs, along with
 code samples.
 
-See the [validation and error state demo](#with-validation-and-error-state) below for more
+See the [validation messages demos](#with-validation-messages) below for more
 information about how to add and customize an error message.
 
 <cdx-demo-wrapper :controls-config="controlsConfig">
@@ -557,7 +557,7 @@ In the example below, the labels are included in two different ways:
 
 To give the user a chance to type a valid coordinate location, this example doesn't validate as the
 user types, but delays validation until the input is blurred. For an example of how to do validation
-as the user types, see the [validation and error state example](#with-validation-and-error-state)
+as the user types, see the [validation message demos](#with-validation-messages)
 above.
 
 Note that, when you enter erroneous data in the TextInput below, error styles for both the TextInput
