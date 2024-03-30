@@ -8,7 +8,7 @@
 		"node": ">=18"
 	},
 	"scripts": {
-		"build": "npm run minify:svg && npm run mw-examples:build && npm run docgen:build && npm run vitepress:build && npm run demos:build",
+		"build": "npm run minify:svg && npm run mw-examples:build && npm run docgen:build && npm run vitepress:build",
 		"build-if-missing": "test -e docs/.vitepress/dist/index.html || npm run build",
 		"serve": "vitepress serve docs",
 		"dev": "concurrently \"npm run mw-examples:dev\" \"npm run docgen:dev\" \"npm run vitepress:dev\"",
@@ -19,7 +19,6 @@
 		"mw-examples:build": "npm run mw-examples:clean && node ./generateMWExamples.mjs && eslint --fix component-demos/*/examples-mw/",
 		"mw-examples:clean": "rm -rf component-demos/*/examples-mw/",
 		"mw-examples:dev": "npm-watch mw-examples:build",
-		"demos:build": "node build.mjs",
 		"lint": "npm run lint:svg && npm run lint:ts",
 		"lint:svg": "svglint --ci docs/assets/**/*.svg",
 		"lint:ts": "vue-tsc --noEmit",
