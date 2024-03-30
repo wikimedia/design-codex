@@ -20,6 +20,14 @@ const baseConfig = {
 		target: [ 'es2015', 'edge18', 'safari11' ]
 	},
 
+	esbuild: {
+		logOverride: {
+			// Suppress nonsensical CSS syntax errors; esbuild appears to consider every attribute
+			// selector a syntax error
+			'css-syntax-error': 'silent'
+		}
+	},
+
 	plugins: [
 		vue( {
 			// Remove comments from the output (T354394).

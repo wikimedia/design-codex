@@ -23,6 +23,14 @@ await generateCodexBundle( {
 		}
 	},
 
+	esbuild: {
+		logOverride: {
+			// Suppress nonsensical CSS syntax errors; esbuild appears to consider every attribute
+			// selector a syntax error
+			'css-syntax-error': 'silent'
+		}
+	},
+
 	plugins: [ vue() ],
 
 	resolve: {

@@ -20,6 +20,14 @@ export default defineConfig( {
 		minify: true
 	},
 
+	esbuild: {
+		logOverride: {
+			// Suppress nonsensical CSS syntax errors; esbuild appears to consider every attribute
+			// selector a syntax error
+			'css-syntax-error': 'silent'
+		}
+	},
+
 	resolve: {
 		alias: [
 			// Alias @ to the docs directory, so that import statements and <<< file inclusions
