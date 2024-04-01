@@ -82,6 +82,10 @@
 			"comment": "Background Colors for static elements (for page layout, sections, etc.) from here on.",
 			"value": "{ color.white }"
 		},
+		"base-fixed": {
+			"comment": "The same as background-color-base in light mode, but does not change in dark mode. Use this for things that should be white in both modes.",
+			"value": "{ color.white }"
+		},
 		"neutral": {
 			"value": "{ color.gray200 }"
 		},
@@ -113,6 +117,10 @@
 			"value": "{ color.gray500 }"
 		},
 		"inverted": {
+			"value": "{ color.white }"
+		},
+		"inverted-fixed": {
+			"comment": "The same as color-inverted in light mode, but does not change in dark mode. Use this for things that should be white in both modes.",
 			"value": "{ color.white }"
 		},
 		"progressive": {

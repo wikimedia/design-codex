@@ -68,6 +68,9 @@
 		"blue700": {
 			"value": "#2a4b8d"
 		},
+		"blue800": {
+			"value": "#1d2a42"
+		},
 		"red100": {
 			"value": "#fee7e6"
 		},
@@ -90,7 +93,7 @@
 			"value": "#b32424"
 		},
 		"red800": {
-			"value": "#70231f"
+			"value": "#421211"
 		},
 		"yellow100": {
 			"value": "#fef6e7"
@@ -108,7 +111,7 @@
 			"value": "#a66200"
 		},
 		"yellow800": {
-			"value": "#4f3a1a"
+			"value": "#301d00"
 		},
 		"green100": {
 			"value": "#d5fdf4"
@@ -126,7 +129,7 @@
 			"value": "#096450"
 		},
 		"green800": {
-			"value": "#194538"
+			"value": "#00261e"
 		},
 		"purple250": {
 			"value": "#c3b2d8"
