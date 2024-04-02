@@ -137,7 +137,8 @@ export default defineComponent( {
 
 		const rootClasses = computed( () => {
 			return {
-				'cdx-field--disabled': computedDisabled.value
+				'cdx-field--disabled': computedDisabled.value,
+				'cdx-field--is-fieldset': isFieldset.value
 			};
 		} );
 

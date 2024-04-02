@@ -2,7 +2,7 @@
 
 exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0 Basic field: ({"isFieldset": true}) => HTML 1`] = `
 <fieldset
-  class="cdx-field"
+  class="cdx-field cdx-field--is-fieldset"
 >
   
   <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
@@ -97,7 +97,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
 
 exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1 Disabled: ({"disabled": true, "isFieldset": true}) => HTML 1`] = `
 <fieldset
-  class="cdx-field cdx-field--disabled"
+  class="cdx-field cdx-field--disabled cdx-field--is-fieldset"
   disabled=""
 >
   
