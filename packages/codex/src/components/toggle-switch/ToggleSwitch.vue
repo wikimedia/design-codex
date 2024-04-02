@@ -317,7 +317,7 @@ export default defineComponent( {
 			}
 
 			& ~ .cdx-toggle-switch__switch .cdx-toggle-switch__switch__grip {
-				background-color: @background-color-interactive-subtle;
+				background-color: @background-color-base-fixed;
 			}
 
 			&:hover ~ .cdx-toggle-switch__switch {
@@ -325,7 +325,7 @@ export default defineComponent( {
 				border-color: @border-color-progressive--hover;
 
 				.cdx-toggle-switch__switch__grip {
-					background-color: @background-color-base;
+					background-color: @background-color-base-fixed;
 					border-color: @border-color-progressive--hover;
 				}
 			}
@@ -380,7 +380,7 @@ export default defineComponent( {
 					}
 
 					.cdx-toggle-switch__switch__grip {
-						background-color: @background-color-base;
+						background-color: @background-color-base-fixed;
 						border-color: @border-color-inverted;
 					}
 				}

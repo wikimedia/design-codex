@@ -390,6 +390,7 @@ export default defineComponent( {
 	}
 
 	&__input {
+		color: @color-base;
 		flex-grow: inherit;
 		border: 0;
 		font-family: inherit;

@@ -616,6 +616,7 @@ export default defineComponent( {
 
 		// Framed Tabs List item.
 		.cdx-tabs__list__item {
+			color: @color-base;
 			margin: @spacing-50 @spacing-25 0 @spacing-50;
 
 			&:enabled {
@@ -637,6 +638,7 @@ export default defineComponent( {
 				&,
 				&:hover {
 					background-color: @background-color-base;
+					color: @color-base;
 				}
 			}
 

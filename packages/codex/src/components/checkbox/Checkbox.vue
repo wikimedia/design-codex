@@ -179,7 +179,7 @@ export default defineComponent( {
 		// Indeterminate state.
 		&:indeterminate + .cdx-checkbox__icon::before {
 			content: ' ';
-			background-color: @color-inverted;
+			background-color: @background-color-base-fixed;
 			position: absolute;
 			// Center indeterminate line vertically with negative half pixel.
 			top: calc( @size-half - ( @size-absolute-1 / 2 ) );

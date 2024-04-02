@@ -167,13 +167,13 @@ export default defineComponent( {
 
 	&.cdx-toggle-button--toggled-on:enabled {
 		background-color: @background-color-progressive--active;
-		color: @color-inverted;
+		color: @color-inverted-fixed;
 		border-color: @border-color-progressive--active;
 
 		&:hover {
 			background-color: @background-color-progressive--hover;
 			// Same color as not hovering, needed to override the other :hover rule above
-			color: @color-inverted;
+			color: @color-inverted-fixed;
 			border-color: @border-color-progressive--hover;
 		}
 

@@ -215,7 +215,7 @@ export default defineComponent( {
 				// Put `:active` after `:focus` at 'filled' progressive components. Otherwise a
 				// focus outline would be visible when actively clicked.
 				&:active + .cdx-radio__icon {
-					background-color: @background-color-base;
+					background-color: @background-color-base-fixed;
 					border-color: @border-color-progressive--active;
 
 					&::before {

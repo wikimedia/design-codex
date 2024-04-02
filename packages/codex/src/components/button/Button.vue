@@ -259,7 +259,7 @@ export default defineComponent( {
 			// Progressive primary buttons.
 			&.cdx-button--action-progressive {
 				background-color: @background-color-progressive;
-				color: @color-inverted;
+				color: @color-inverted-fixed;
 				border-color: @border-color-progressive;
 
 				.cdx-button__icon {
@@ -299,7 +299,7 @@ export default defineComponent( {
 			// Destructive primary buttons.
 			&.cdx-button--action-destructive {
 				background-color: @background-color-destructive;
-				color: @color-inverted;
+				color: @color-inverted-fixed;
 				border-color: @border-color-destructive;
 
 				/* stylelint-disable-next-line no-descending-specificity */
@@ -385,7 +385,7 @@ export default defineComponent( {
 				&:active,
 				&.cdx-button--is-active {
 					background-color: @background-color-progressive--active;
-					color: @color-inverted;
+					color: @color-inverted-fixed;
 					border-color: @border-color-progressive--active;
 
 					.cdx-button__icon {
@@ -418,7 +418,7 @@ export default defineComponent( {
 				&:active,
 				&.cdx-button--is-active {
 					background-color: @background-color-destructive--active;
-					color: @color-inverted;
+					color: @color-inverted-fixed;
 					border-color: @border-color-destructive--active;
 
 					.cdx-button__icon {
