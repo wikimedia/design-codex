@@ -10,9 +10,15 @@
 	>
 		<div
 			class="cdx-sandbox"
+			:class="rootClasses"
 		>
 			<header class="cdx-sandbox__header">
 				<h1>Codex Demo Sandbox</h1>
+				<div class="cdx-dark-mode-toggle">
+					<cdx-toggle-switch v-model="darkMode">
+						Dark mode
+					</cdx-toggle-switch>
+				</div>
 				<div class="cdx-direction-switcher">
 					<direction-switcher v-model="dir" />
 				</div>
@@ -67,8 +73,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { HTMLDirection } from '../types';
+import CdxToggleSwitch from '../components/toggle-switch/ToggleSwitch.vue';
 import DirectionSwitcher from './DirectionSwitcher.vue';
 
 import AccordionDemo from './AccordionDemo.vue';
@@ -100,7 +107,15 @@ import ToggleDemo from './ToggleDemo.vue';
 import TypeaheadSearchDemo from './TypeaheadSearchDemo.vue';
 import LinkDemo from './LinkDemo.vue';
 
+// Start with dark mode off by default;
+// or on by default if the ?darkmode query string param is set.
+const darkMode = ref( new URLSearchParams( window.location.search ).has( 'darkmode' ) );
 const dir = ref<HTMLDirection>( 'ltr' );
+
+const rootClasses = computed( () => ( {
+	'cdx-sandbox--dark': darkMode.value
+} ) );
+
 const demoSections = [
 	{ name: 'Accordion', id: '#cdx-accordion' },
 	{ name: 'Button', id: '#cdx-button' },
@@ -136,6 +151,17 @@ const demoSections = [
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+// Import CSS vars
+@import '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui-root.css';
+// Import dark mode mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui-mixin-dark.less';
+
+// Apply dark mode variables if the dark mode toggle is enabled.
+// Because dialogs are teleported outside of the cdx-sandbox div, apply the variables to the entire
+// document, not just `div.cdx-sandbox`.
+:root:has( .cdx-sandbox--dark ) {
+	.cdx-mode-dark();
+}
 
 // Sandbox-specific values.
 @height-sandbox-header: 4rem;
@@ -149,6 +175,12 @@ html {
 }
 
 body {
+	// Set background-color and color to base values so that they get inverted in dark mode.
+	// Prevent RTLCSS from prefixing this selector with `[dir]`, which breaks it; for some reason
+	// it does that for background-color even though that's not a direction-sensitive property.
+	/* rtl:ignore */
+	background-color: var( --background-color-base );
+	color: var( --color-base );
 	margin: 0;
 }
 
@@ -162,6 +194,7 @@ body {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: @spacing-100;
 		position: sticky;
 		top: 0;
 		z-index: @z-index-sticky;
@@ -172,6 +205,7 @@ body {
 
 		h1 {
 			display: inline-flex;
+			flex-grow: 1;
 			margin-top: 0;
 			margin-bottom: 0;
 		}
