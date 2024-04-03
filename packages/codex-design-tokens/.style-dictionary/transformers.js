@@ -91,30 +91,30 @@ export function camelCaseNegative( token, options ) {
 
 /**
  * @param {TransformedToken} token
+ * @param {PlatformConfig} options
  * @return {string}
  */
-export function relativeSizeTransform( token ) {
+export function relativeSizeTransform( token, options ) {
 	if ( isNaN( Number( token.value ) ) ) {
 		return String( token.value );
 	} else if ( Number( token.value ) === 0 ) {
 		return '0';
 	} else {
-		return `${ token.value }rem`;
+		return `${ token.value / ( options.basePxFontSize ?? 16 ) }rem`;
 	}
 }
 
 /**
  * @param {TransformedToken} token
- * @param {PlatformConfig} options
  * @return {string}
  */
-export function absoluteSizeTransform( token, options ) {
+export function absoluteSizeTransform( token ) {
 	if ( isNaN( Number( token.value ) ) ) {
 		return String( token.value );
 	} else if ( Number( token.value ) === 0 ) {
 		return '0';
 	} else {
-		return `${ token.value * ( options.basePxFontSize ?? 16 ) }px`;
+		return `${ token.value }px`;
 	}
 }
 
