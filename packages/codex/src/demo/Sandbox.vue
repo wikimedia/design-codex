@@ -1,60 +1,67 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
+	<!--
+		Output a wrapper div with the dir attribute. This has to be separate from the cdx-sandbox
+		div, otherwise CSS styles don't work because the selector [dir] .cdx-sandbox doesn't match.
+	-->
 	<div
 		:key="dir"
 		:dir="dir"
-		class="cdx-sandbox"
 	>
-		<header class="cdx-sandbox__header">
-			<h1>Codex Demo Sandbox</h1>
-			<div class="cdx-direction-switcher">
-				<direction-switcher v-model="dir" />
-			</div>
-		</header>
-
-		<div class="cdx-sandbox__body">
-			<main class="cdx-sandbox__content">
-				<accordion-demo />
-				<button-demo />
-				<button-group-demo />
-				<card-demo />
-				<checkbox-demo />
-				<chip-input-demo />
-				<combobox-demo />
-				<dialog-demo />
-				<field-demo />
-				<icon-demo />
-				<label-demo />
-				<link-demo />
-				<lookup-demo />
-				<menu-demo />
-				<menu-item-demo />
-				<message-demo />
-				<progress-bar-demo />
-				<radio-demo />
-				<search-input-demo />
-				<select-demo />
-				<table-demo />
-				<tabs-demo />
-				<text-area-demo />
-				<text-input-demo />
-				<thumbnail-demo />
-				<toggle-button-group-demo />
-				<toggle-demo />
-				<typeahead-search-demo />
-			</main>
-
-			<nav class="cdx-sandbox__nav">
-				<div class="cdx-sandbox__nav__inner">
-					<ul>
-						<li v-for="( section, index ) in demoSections" :key="index">
-							<a :href="section.id">
-								{{ section.name }}
-							</a>
-						</li>
-					</ul>
+		<div
+			class="cdx-sandbox"
+		>
+			<header class="cdx-sandbox__header">
+				<h1>Codex Demo Sandbox</h1>
+				<div class="cdx-direction-switcher">
+					<direction-switcher v-model="dir" />
 				</div>
-			</nav>
+			</header>
+
+			<div class="cdx-sandbox__body">
+				<main class="cdx-sandbox__content">
+					<accordion-demo />
+					<button-demo />
+					<button-group-demo />
+					<card-demo />
+					<checkbox-demo />
+					<chip-input-demo />
+					<combobox-demo />
+					<dialog-demo />
+					<field-demo />
+					<icon-demo />
+					<label-demo />
+					<link-demo />
+					<lookup-demo />
+					<menu-demo />
+					<menu-item-demo />
+					<message-demo />
+					<progress-bar-demo />
+					<radio-demo />
+					<search-input-demo />
+					<select-demo />
+					<table-demo />
+					<tabs-demo />
+					<text-area-demo />
+					<text-input-demo />
+					<thumbnail-demo />
+					<toggle-button-group-demo />
+					<toggle-demo />
+					<typeahead-search-demo />
+				</main>
+
+				<nav class="cdx-sandbox__nav">
+					<div class="cdx-sandbox__nav__inner">
+						<ul>
+							<li v-for="( section, index ) in demoSections" :key="index">
+								<a :href="section.id">
+									{{ section.name }}
+								</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
 		</div>
 	</div>
 </template>
