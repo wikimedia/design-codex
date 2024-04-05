@@ -197,6 +197,7 @@ There are two stages at which inline validation can occur:
 - Between elements within a module grouping multiple fields and/or actions should use the `spacing-100` token (equivalent to `16px` in the default Codex theme).
 - Between two or more options within a component (such as [Checkbox](../components/demos/checkbox.md) or [Radio](../components/demos/radio.md)) should use the `spacing-75` token (equivalent to `12px` in the default Codex theme). This is built into Checkbox and Radio.
 - Between elements within a footer (such as the disclaimer and actions) should use the `spacing-100` token (equivalent to `16px` in the default Codex theme). For guidance on spacing between Buttons in a group, visit [Using links and buttons](../style-guide/using-links-and-buttons.md#group-of-buttons).
+- Between actions in a footer should use the `spacing-75` token (equivalent to `12px` in the default Codex theme).
 
 <div class="cdx-docs-example">
 

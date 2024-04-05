@@ -51,7 +51,7 @@ Links and Buttons can be used in the same group next to one another.
 
 ### Spacing
 
-A Button next to a Link should have `@spacing-75` (equivalent to 12px in the default Codex theme) as the default [spacing token](../design-tokens/spacing.md). Links next to Links should also have `@spacing-75` as the default spacing token. Buttons next to Buttons should have `@spacing-50` (equivalent to 8px in the default Codex theme) as the default spacing token.
+A Button next to a Link or another Button should have `@spacing-75` (equivalent to 12px in the default Codex theme) as the default [spacing token](../design-tokens/spacing.md). Links next to Links should also have `@spacing-75` as the default spacing token.
 
 <div class="cdx-docs-example">
 

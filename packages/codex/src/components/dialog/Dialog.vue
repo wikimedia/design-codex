@@ -623,7 +623,7 @@ export default defineComponent( {
 			align-items: baseline;
 			flex-wrap: wrap;
 			justify-content: space-between;
-			gap: @spacing-50;
+			gap: @spacing-75;
 		}
 
 		// Increased specificity to ensure that this style shows up in VitePress
@@ -639,7 +639,7 @@ export default defineComponent( {
 		&__actions {
 			display: flex;
 			flex-grow: 1;
-			gap: @spacing-50;
+			gap: @spacing-75;
 		}
 
 		.cdx-dialog--dividers & {
