@@ -147,7 +147,7 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-demo-nested-fields {
-	margin-bottom: @spacing-250;
+	margin-bottom: @spacing-200;
 
 	&__inputs {
 		display: flex;
@@ -156,6 +156,11 @@ export default defineComponent( {
 
 		@media screen and ( min-width: @min-width-breakpoint-desktop ) {
 			flex-direction: row;
+		}
+
+		// Disable margin-top on all nested fields.
+		.cdx-field {
+			margin-top: 0;
 		}
 	}
 }
