@@ -77,7 +77,7 @@ Consider the following recommendations when using menus.
 
 <template #do-media>
 
-![An example of a Menu including MenuItems with icon and text.](../../assets/components/menu-best-practices-do.svg)
+![Menu including MenuItems with icon and text.](../../assets/components/menu-best-practices-do.svg)
 
 </template>
 
@@ -89,7 +89,7 @@ Consider the following recommendations when using menus.
 
 <template #dont-media>
 
-![An example of a Menu including MenuIetms with icon only.](../../assets/components/menu-best-practices-dont.svg)
+![Menu including MenuItems with icon only.](../../assets/components/menu-best-practices-dont.svg)
 
 </template>
 
@@ -105,7 +105,7 @@ Consider the following recommendations when using menus.
 
 <template #do-media>
 
-![An example of a Menu including MenuIetms with Thumbnail and text..](../../assets/components/menu-best-practices-do-2.svg)
+![Menu including MenuItems with Thumbnail and text.](../../assets/components/menu-best-practices-do-2.svg)
 
 </template>
 
@@ -117,7 +117,7 @@ Consider the following recommendations when using menus.
 
 <template #dont-media>
 
-![An example of a Menu mixing MenuItems with icons and Thumbnail.](../../assets/components/menu-best-practices-dont-2.svg)
+![Menu mixing MenuItems with icons and Thumbnail.](../../assets/components/menu-best-practices-dont-2.svg)
 
 </template>
 
@@ -137,7 +137,7 @@ sequence makes them easy to scan and process.
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of interface dropdown menus conveying examples of alphabetically organized options.](../../assets/components/dropdown-content-do.svg)
+![Dropdown menus conveying examples of alphabetically organized options.](../../assets/components/dropdown-content-do.svg)
 
 </template>
 <template #do-text>
@@ -147,7 +147,7 @@ sequence makes them easy to scan and process.
 </template>
 <template #dont-media>
 
-![A screenshot of interface dropdown menus conveying examples of unorganized options.](../../assets/components/dropdown-content-dont.svg)
+![Dropdown menus conveying examples of unorganized options.](../../assets/components/dropdown-content-dont.svg)
 
 </template>
 <template #dont-text>

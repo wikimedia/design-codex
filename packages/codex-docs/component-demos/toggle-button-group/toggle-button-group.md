@@ -41,7 +41,7 @@ ToggleButtonGroup will adjust to accommodate the expanding text within each butt
 width surpasses the maximum width of `max-width-button` token (equivalent to `448px` in the default
 Codex theme), the buttons will be arranged into the next row.
 
-![Maximum example for ToggleButtonGroup component.](../../assets/components/toggle-button-group-specifications-max.svg)
+![Maximum example for ToggleButtonGroup.](../../assets/components/toggle-button-group-specifications-max.svg)
 
 Refer to the
 [ToggleButtonGroup component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=13076-166158&mode=design&t=GijyYqGUqXgv1QVo-0).
@@ -75,7 +75,7 @@ Consider the following recommendations when working with toggle button groups.
 
 <template #do-media>
 
-![A screenshot with two ToggleButtonGroups: one using icons and the other using numbers instead of text.](../../assets/components/toggle-button-group-best-practices-content-do.svg)
+![Two ToggleButtonGroups: one using icons and the other using numbers instead of text.](../../assets/components/toggle-button-group-best-practices-content-do.svg)
 
 </template>
 
@@ -88,7 +88,7 @@ Consider the following recommendations when working with toggle button groups.
 
 <template #dont-media>
 
-![A screenshot of a ToggleButtonGroup using an icon just in one of the buttons.](../../assets/components/toggle-button-group-best-practices-content-dont.svg)
+![ToggleButtonGroup using an icon just in one of the buttons.](../../assets/components/toggle-button-group-best-practices-content-dont.svg)
 
 </template>
 
@@ -106,7 +106,7 @@ Consider the following recommendations when working with toggle button groups.
 
 <template #do-media>
 
-![A screenshot of an icon-only ToggleButtonGroup using easy to recognize icons.](../../assets/components/toggle-button-group-best-practices-icon-do.svg)
+![Icon-only ToggleButtonGroup using easy to recognize icons.](../../assets/components/toggle-button-group-best-practices-icon-do.svg)
 
 </template>
 
@@ -119,7 +119,7 @@ Consider the following recommendations when working with toggle button groups.
 
 <template #dont-media>
 
-![A screenshot of an icon-only ToggleButtonGroup using complex icons.](../../assets/components/toggle-button-group-best-practices-icon-dont.svg)
+![Icon-only ToggleButtonGroup using complex icons.](../../assets/components/toggle-button-group-best-practices-icon-dont.svg)
 
 </template>
 

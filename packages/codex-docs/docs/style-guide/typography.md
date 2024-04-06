@@ -5,7 +5,7 @@ Consider the typeface, size, style, and spacing of your text to achieve good [re
 Our typographic choices make our content accessible, present it in a neutral way, and convey its
 reliability.
 
-![A screenshot of a page from English Wikipedia, demonstrating different typography styles](../assets/visual-styles/typography/01_Typography-India-Ink.png)
+![An example of an English Wikipedia article, demonstrating different typography styles.](../assets/visual-styles/typography/01_Typography-India-Ink.png)
 
 ## Readability
 
@@ -137,7 +137,7 @@ family for extended language support.
   languages, providing good alternatives for both serif and sans-serif typefaces.
 
 
-![Examples of the Source Serif Pro and Inter fonts](../assets/visual-styles/typography/03_fonts.png)
+![Examples of the Source Serif Pro and Inter fonts.](../assets/visual-styles/typography/03_fonts.png)
 
 These fonts are provided as a reference, but you may select other free fonts using similar criteria
 when the recommended ones are not available in your context.

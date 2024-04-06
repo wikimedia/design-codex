@@ -59,7 +59,7 @@ Consider the following recommendations when using thumbnails.
 
 <template #do-media>
 
-![An screenshot of a Thumbnail within a Card component.](../../assets/components/thumbnail-best-practices-usage-do.svg)
+![Thumbnail within a Card.](../../assets/components/thumbnail-best-practices-usage-do.svg)
 
 </template>
 
@@ -72,7 +72,7 @@ Consider the following recommendations when using thumbnails.
 
 <template #dont-media>
 
-![An screenshot of a Thumbnail within an InfoBox.](../../assets/components/thumbnail-best-practices-usage-dont.svg)
+![Thumbnail within an InfoBox.](../../assets/components/thumbnail-best-practices-usage-dont.svg)
 
 </template>
 
@@ -90,7 +90,7 @@ Consider the following recommendations when using thumbnails.
 
 <template #do-media>
 
-![A Thumbnail using a customized simple icon.](../../assets/components/thumbnail-best-practices-icon-do.svg)
+![Thumbnail using a customized simple icon.](../../assets/components/thumbnail-best-practices-icon-do.svg)
 
 </template>
 
@@ -103,7 +103,7 @@ Consider the following recommendations when using thumbnails.
 
 <template #dont-media>
 
-![A Thumbnail using a customized complex icon.](../../assets/components/thumbnail-best-practices-icon-dont.svg)
+![Thumbnail using a customized complex icon.](../../assets/components/thumbnail-best-practices-icon-dont.svg)
 
 </template>
 

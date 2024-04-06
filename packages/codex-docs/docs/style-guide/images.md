@@ -5,7 +5,7 @@ engage and communicate with individuals.
 
 ## Image selection
 
-![An image of a bicycle with a caption](../assets/visual-styles/images/01_images-bicycle.png)
+![A bicycle with a caption.](../assets/visual-styles/images/01_images-bicycle.png)
 
 We use images to help increase understanding and engagement with individuals. When using images in
 our projects, the selections follow general guidelines:

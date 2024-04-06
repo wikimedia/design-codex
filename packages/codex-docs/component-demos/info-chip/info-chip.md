@@ -77,7 +77,7 @@ Consider the following recommendations when using info chips.
 
 <template #do-media>
 
-![A screenshot of two accordions with an InfoChip adjacent to their labels.](../../assets/components/info-chip-practices-usage-do.svg)
+![Two accordions with an InfoChip adjacent to their labels.](../../assets/components/info-chip-practices-usage-do.svg)
 
 </template>
 
@@ -89,7 +89,7 @@ Consider the following recommendations when using info chips.
 
 <template #dont-media>
 
-![A screenshot of a standalone InfoChip within a Wikipedia article.](../../assets/components/info-chip-practices-usage-dont.svg)
+![Standalone InfoChip within a Wikipedia article.](../../assets/components/info-chip-practices-usage-dont.svg)
 
 </template>
 

@@ -42,7 +42,7 @@ Please note that the use of Figma is not mandatory. Contributors are free to use
 
 Create a new design exploration file in Figma so that different proposals and versions of the new icon are located in a central place. You can duplicate this [icon exploration template](https://www.figma.com/file/x8sZ7Z4ywQ0o1cQzaIJo8N/Icon-design-(exploration-file-template)?node-id=1%3A3627) and use it to create your own exploration file. The different iterations will be shared in the Phabricator task.
 
-![Figma icon exploration template screenshot](../assets/designing-icons/figma-icon-exploration-template.png)
+![Figma icon exploration template](../assets/designing-icons/figma-icon-exploration-template.png)
 
 Include the following information in the design exploration file:
 
@@ -66,7 +66,7 @@ Design an RTL (or mirrored) version of the icon in case it represents horizontal
 <cdx-demo-rules>
 <template #do-media>
 
-![An example of an arrow icon pointing left for left to right directionality and an arrow icon pointing right for right to left directionality.](../assets/designing-icons/designing-icons-do.svg)
+![An arrow icon pointing left for left to right directionality and an arrow icon pointing right for right to left directionality](../assets/designing-icons/designing-icons-do.svg)
 
 </template>
 <template #do-text>
@@ -77,7 +77,7 @@ Design an RTL (or mirrored) version of the icon in case it represents horizontal
 </template>
 <template #dont-media>
 
-![An example of a calendar icon unnecessarily flipped horizontally.](../assets/designing-icons/designing-icons-dont.svg)
+![A calendar icon unnecessarily flipped horizontally](../assets/designing-icons/designing-icons-dont.svg)
 
 </template>
 <template #dont-text>

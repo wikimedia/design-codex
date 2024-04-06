@@ -61,7 +61,7 @@ The styles for checkbox states were designed with accessible color variations. I
 'check' icon, these make the checkboxes’ selected or unselected states (e.g. disabled, hover,
 active) easier to perceive:
 
-![Interaction states of the Checkbox component for both unselected and selected states: default, hover, active, focus, error, error-hover, error-active, error-focus, and disabled.](../../assets/components/checkbox-interaction-states.svg)
+![Interaction states of Checkbox for both unselected and selected states: default, hover, active, focus, error, error-hover, error-active, error-focus, and disabled.](../../assets/components/checkbox-interaction-states.svg)
 
 <div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
 
@@ -92,7 +92,7 @@ The error checkbox must always be accompanied by an inline error message,whether
 individual checkbox. This message ensures users are informed about the error and provides guidance
 to fix it.
 
-![Example of accompanying inline error messages on Checkboxes in error state.](../../assets/components/checkbox-using-interaction-states-error.svg)
+![Accompanying inline error messages on Checkboxes in error state.](../../assets/components/checkbox-using-interaction-states-error.svg)
 
 ::: tip Accessibility note
 The disabled state does not meet our minimum color contrast rules. WCAG 2.1
@@ -112,7 +112,7 @@ unchecked, the main checkbox would be unchecked. If any one or more of the sub-o
 different state than the others, the main  checkbox would present an indeterminate state.
 <sup>[[2]](#ref2)</sup>
 
-![One checkbox group with all items selected and another with an indeterminate state due to incomplete item selection.](../../assets/components/checkbox-interaction-states-indeterminate.svg)
+![Checkbox group with all items selected and another with an indeterminate state due to incomplete item selection.](../../assets/components/checkbox-interaction-states-indeterminate.svg)
 
 ### Best practices
 
@@ -124,7 +124,7 @@ Consider the following recommendations when using checkboxes.
 
 <template #do-media>
 
-![An example of a Checkbox group including different text formats and a link.](../../assets/components/checkbox-best-practices-label-do.svg)
+![Checkbox group including different text formats and a link.](../../assets/components/checkbox-best-practices-label-do.svg)
 
 </template>
 
@@ -139,7 +139,7 @@ Consider the following recommendations when using checkboxes.
 
 <template #dont-media>
 
-![An example of a Checkbox group with bolded labels and a link within the last label.](../../assets/components/checkbox-best-practices-label-dont.svg)
+![Checkbox group with bolded labels and a link within the last label.](../../assets/components/checkbox-best-practices-label-dont.svg)
 
 </template>
 
@@ -188,7 +188,7 @@ Consider the following recommendations when using checkboxes.
 
 <template #do-media>
 
-![An example of a Checkbox group with an Indeterminate Checkbox.](../../assets/components/checkbox-best-practices-indeterminate-do.svg)
+![Checkbox group with an Indeterminate Checkbox.](../../assets/components/checkbox-best-practices-indeterminate-do.svg)
 
 </template>
 
@@ -201,7 +201,7 @@ Consider the following recommendations when using checkboxes.
 
 <template #dont-media>
 
-![A Checkbox group example featuring an Indeterminate Checkbox, with the sub-checkboxes wrongly aligned with the indeterminate one.](../../assets/components/checkbox-best-practices-indeterminate-dont.svg)
+![Checkbox group featuring an Indeterminate Checkbox, with the sub-checkboxes wrongly aligned with the indeterminate one.](../../assets/components/checkbox-best-practices-indeterminate-dont.svg)
 
 </template>
 
@@ -220,7 +220,7 @@ Consider the following recommendations when using checkboxes.
 
 <template #do-media>
 
-![An example of an Inline Checkbox group including two checkboxes with short labels.](../../assets/components/checkbox-best-practices-inline-do.svg)
+![Inline Checkbox group including two checkboxes with short labels.](../../assets/components/checkbox-best-practices-inline-do.svg)
 
 </template>
 
@@ -232,7 +232,7 @@ Consider the following recommendations when using checkboxes.
 
 <template #dont-media>
 
-![An example of an Inline Checkbox group with three checkboxes, where the middle one is longer than the others.](../../assets/components/checkbox-best-practices-inline-dont.svg)
+![Inline Checkbox group with three checkboxes, where the middle one is longer than the others.](../../assets/components/checkbox-best-practices-inline-dont.svg)
 
 </template>
 
@@ -252,7 +252,7 @@ A checkbox lets a reader choose one or more options from a list.
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of interface checkboxes conveying an example of a clear question and list of options.](../../assets/components/checkbox-content-do.svg)
+![Checkboxes conveying an example of a clear question and list of options.](../../assets/components/checkbox-content-do.svg)
 
 </template>
 <template #do-text>
@@ -262,7 +262,7 @@ A checkbox lets a reader choose one or more options from a list.
 </template>
 <template #dont-media>
 
-![A screenshot of interface checkboxes conveying an example of an unclear prompt.](../../assets/components/checkbox-content-dont.svg)
+![Checkboxes conveying an example of an unclear prompt.](../../assets/components/checkbox-content-dont.svg)
 
 </template>
 <template #dont-text>

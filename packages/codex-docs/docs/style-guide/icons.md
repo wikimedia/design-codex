@@ -2,7 +2,7 @@
 
 Icons help convey a message visually.
 
-![Examples of Codex icons](../assets/visual-styles/icons/01_icons-sample.png)
+![Examples of Codex icons.](../assets/visual-styles/icons/01_icons-sample.png)
 
 ## Principles
 
@@ -56,7 +56,7 @@ wheel icon.
 
 ## Visual style
 
-![Dimensions of Codex icons](../assets/visual-styles/icons/02_visual-style.png)
+![Dimensions of Codex icons.](../assets/visual-styles/icons/02_visual-style.png)
 
 Characteristics of a Codex icon:
 - **Monochromatic**. Solid color icons.
@@ -81,7 +81,7 @@ Characteristics of a Codex icon:
 The default canvas is 20 x 20 dp. In order to allow for optical adjustments, a different margin is
 applied depending on the shape of the icon.
 
-![Visualization of the canvas for Codex icons with different margins for different shapes](../assets/visual-styles/icons/03_creating-icons.png)
+![Visualization of the canvas for Codex icons with different margins for different shapes.](../assets/visual-styles/icons/03_creating-icons.png)
 
 Different shapes have different perceived sizes. A 1 dp margin for a square-shaped icon is used. A
 circle uses the full 20 x 20 dp canvas available to reach a similar perceived size.

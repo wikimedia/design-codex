@@ -33,13 +33,13 @@ specific use cases.
 
 <div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
 
-![Example of base-color icons being used within a Menu.](../../assets/components/icon-specfications-color-base.svg)
+![Base-color icons being used within a Menu.](../../assets/components/icon-specfications-color-base.svg)
 
 Icons will always use Gray750 if used individually, and not as part of another component.
 </div>
 <div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
 
-![Example of icons with colors being used within a Button.](../../assets/components/icon-specfications-color-custom.svg)
+![Icons with colors being used within a Button.](../../assets/components/icon-specfications-color-custom.svg)
 
 Icons used within other components inherit the color of the accompanying label.
 </div>

@@ -46,18 +46,18 @@ their search for suggested results. These suggestions will be displayed within a
 dropdown menu, and if the menu cannot fully accommodate the results, a scrollbar
 with the choice of infinite scroll can be included.
 
-![Example of Lookup with a custom placeholder.](../../assets/components/lookup-types-scroll.svg)
+![Lookup with a custom placeholder.](../../assets/components/lookup-types-scroll.svg)
 
 #### Clearable, with start icon
 An optional start icon and clear button could appear within the input field.
 
-![Example of a clearable Lookup component with a custom start icon.](../../assets/components/lookup-types-start-icon.svg)
+![A clearable Lookup component with a custom start icon.](../../assets/components/lookup-types-start-icon.svg)
 
 #### With custom menu item display
 Custom content and formats can be applied to change the appearance of menu items
 according to your needs.
 
-![Example of Lookup with custom menu items displayed.](../../assets/components/lookup-types-custom-menu.svg)
+![Lookup with custom menu items displayed.](../../assets/components/lookup-types-custom-menu.svg)
 
 #### With initial suggestions
 When the input field is focused, an initial list of suggestions may appear within the menu. When
@@ -65,25 +65,25 @@ typing within the input field, these suggestions disappear, and the menu showcas
 matching the typed value. It is advisable to include a minimum of 2 suggested items and ideally
 limit the maximum to 4 or 5 items.
 
-![Example of a Lookup displaying a list of suggested results in the first image and a list of matched results in the second.](../../assets/components/lookup-types-suggestions.svg)
+![Lookup displaying a list of suggested results in the first image and a list of matched results in the second.](../../assets/components/lookup-types-suggestions.svg)
 
 #### No results
 If there are no results for the text typed by the user, a non-interactive "no
 results" message will be displayed within the menu.
 
-![Example of a Lookup with no results found.](../../assets/components/lookup-types-no-results.svg)
+![Lookup with no results found.](../../assets/components/lookup-types-no-results.svg)
 
 #### Lookup within a form field
 
 A Lookup can be wrapped within a [Field](./field.md) to include features like
 label, description, help text, or validation messages.
 
-![Example of Lookup within a Field component.](../../assets/components/lookup-types-field.svg)
+![Lookup within a Field.](../../assets/components/lookup-types-field.svg)
 
 ### Interaction states
 Interaction can take place within both the input and the displayed menu:
 
-![Interaction states of the Lookup component: default, hover, focus, active, filled, and filled active where a menu item selected is displayed.](../../assets/components/lookup-interaction-states.svg)
+![Interaction states of Lookup: default, hover, focus, active, filled, and filled active where a menu item selected is displayed.](../../assets/components/lookup-interaction-states.svg)
 
 1. Default
 2. Hover
@@ -100,7 +100,7 @@ Consider the following recommendations when using Lookups.
 
 <template #do-media>
 
-![A Lookup wrapped within a Field.](../../assets/components/lookup-best-practices-do.svg)
+![Lookup wrapped within a Field.](../../assets/components/lookup-best-practices-do.svg)
 
 </template>
 

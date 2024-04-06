@@ -73,7 +73,7 @@ Consider the following recommendations when using comboboxes.
 
 <template #do-media>
 
-![An example of a Combobox with a complex icon.](../../assets/components/combobox-best-practices-icon-do.svg)
+![Combobox with a complex icon.](../../assets/components/combobox-best-practices-icon-do.svg)
 
 </template>
 
@@ -85,7 +85,7 @@ Consider the following recommendations when using comboboxes.
 
 <template #dont-media>
 
-![An example of a Combobox with a search icon.](../../assets/components/combobox-best-practices-icon-dont.svg)
+![Combobox with a search icon.](../../assets/components/combobox-best-practices-icon-dont.svg)
 
 </template>
 

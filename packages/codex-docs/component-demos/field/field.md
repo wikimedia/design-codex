@@ -98,7 +98,7 @@ When a fieldset is arranged horizontally, labels stay aligned, with field elemen
 
 Optionally, a helper text can accompany any Field component, with no specified maximum length, although keeping it brief is advised for readability. If a Field with TextArea includes a character counter, both the helper text and character counter will align at the top with a `spacing-100` token (equivalent to `16px` in the default Codex theme).
 
-![Maximum example with a fieldset of two fields arranged horizontally.](../../assets/components/field-specifications-max.svg)
+![Maximum example of a fieldset with two fields arranged horizontally.](../../assets/components/field-specifications-max.svg)
 
 Refer to the [Field component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=10193-109478&mode=design&t=2O0ceqiRfqCtnidq-11).
 
@@ -111,7 +111,7 @@ The Field component's control can be any form item component designed to gather 
 - Chip input
 - Lookup
 
-![Types of Fields based on its field content: with a text
+![Types of Fields based on their content: with a text
 input, with a select, with a combobox, with a checkbox group, with a radio group, and with a
 toggle switch group.](../../assets/components/field-types-field.svg)
 
@@ -148,7 +148,7 @@ Consider the following recommendations when using fields. For more detailed info
 
 <template #do-media>
 
-![A Field using an start icon next to its label.](../../assets/components/field-best-practices-icon-do.svg)
+![Field using an start icon next to its label.](../../assets/components/field-best-practices-icon-do.svg)
 
 </template>
 
@@ -160,7 +160,7 @@ Consider the following recommendations when using fields. For more detailed info
 
 <template #dont-media>
 
-![A Field featuring two icons: one positioned next to the label and the other inside the TextInput.](../../assets/components/field-best-practices-icon-dont.svg)
+![Field featuring two icons: one positioned next to the label and the other inside the TextInput.](../../assets/components/field-best-practices-icon-dont.svg)
 
 </template>
 
@@ -178,7 +178,7 @@ Consider the following recommendations when using fields. For more detailed info
 
 <template #do-media>
 
-![A Field component with a short label and a lengthy description.](../../assets/components/field-best-practices-label-do.svg)
+![Field with a short label and a lengthy description.](../../assets/components/field-best-practices-label-do.svg)
 
 </template>
 
@@ -191,7 +191,7 @@ Consider the following recommendations when using fields. For more detailed info
 
 <template #dont-media>
 
-![A Field component with a lengthy label.](../../assets/components/field-best-practices-label-dont.svg)
+![Field with a lengthy label.](../../assets/components/field-best-practices-label-dont.svg)
 
 </template>
 
@@ -241,7 +241,7 @@ Consider the following recommendations when using fields. For more detailed info
 
 <template #do-media>
 
-![A Fieldset with each Field labeled as regular.](../../assets/components/field-best-practices-fieldset-do.svg)
+![Fieldset with each Field labeled as regular.](../../assets/components/field-best-practices-fieldset-do.svg)
 
 </template>
 
@@ -254,7 +254,7 @@ Consider the following recommendations when using fields. For more detailed info
 
 <template #dont-media>
 
-![A Fieldset with each Field labeled as bold.](../../assets/components/field-best-practices-fieldset-dont.svg)
+![Fieldset with each Field labeled as bold.](../../assets/components/field-best-practices-fieldset-dont.svg)
 
 </template>
 
@@ -272,7 +272,7 @@ Consider the following recommendations when using fields. For more detailed info
 
 <template #do-media>
 
-![A Field component including a TextArea with a character counter.](../../assets/components/field-best-practices-characters-counter-do.svg)
+![Field including a TextArea with a character counter.](../../assets/components/field-best-practices-characters-counter-do.svg)
 
 </template>
 
@@ -285,7 +285,7 @@ Consider the following recommendations when using fields. For more detailed info
 
 <template #dont-media>
 
-![A Field component including a TextInput with a character counter.](../../assets/components/field-best-practices-characters-counter-dont.svg)
+![Field including a TextInput with a character counter.](../../assets/components/field-best-practices-characters-counter-dont.svg)
 
 </template>
 
@@ -308,7 +308,7 @@ Labels indicate what the input should be. Placeholders act as sample text for th
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of interface inputs conveying an example of helpful labels and placeholder text.](../../assets/components/label-placeholder-content-do.svg)
+![Inputs conveying an example of helpful labels and placeholder text.](../../assets/components/label-placeholder-content-do.svg)
 
 </template>
 <template #do-text>
@@ -319,7 +319,7 @@ Labels indicate what the input should be. Placeholders act as sample text for th
 </template>
 <template #dont-media>
 
-![A screenshot of interface inputs conveying an example of repetitive and redundant labels and placeholder text.](../../assets/components/label-placeholder-content-dont.svg)
+![Inputs conveying an example of repetitive and redundant labels and placeholder text.](../../assets/components/label-placeholder-content-dont.svg)
 
 </template>
 <template #dont-text>
@@ -337,7 +337,7 @@ Helper text gives a user guidance on how to fill in the form field. These messag
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of interface inputs conveying an example of helpful and concise helper text.](../../assets/components/helper-text-content-do.svg)
+![Inputs conveying an example of helpful and concise helper text.](../../assets/components/helper-text-content-do.svg)
 
 </template>
 <template #do-text>
@@ -347,7 +347,7 @@ Helper text gives a user guidance on how to fill in the form field. These messag
 </template>
 <template #dont-media>
 
-![A screenshot of interface inputs conveying an example of unnecessarily long helper text.](../../assets/components/helper-text-content-dont.svg)
+![Inputs conveying an example of unnecessarily long helper text.](../../assets/components/helper-text-content-dont.svg)
 
 </template>
 <template #dont-text>
@@ -364,7 +364,7 @@ These are short, simple contextual messages that allow the user to quickly under
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of interface inputs conveying an example of helpful and useful inline error text.](../../assets/components/inline-error-content-do.svg)
+![Inputs conveying an example of helpful and useful inline error text.](../../assets/components/inline-error-content-do.svg)
 
 </template>
 <template #do-text>
@@ -374,7 +374,7 @@ These are short, simple contextual messages that allow the user to quickly under
 </template>
 <template #dont-media>
 
-![A screenshot of interface inputs conveying an example of inline error text without any instruction to correct the error.](../../assets/components/inline-error-content-dont.svg)
+![Inputs conveying an example of inline error text without any instruction to correct the error.](../../assets/components/inline-error-content-dont.svg)
 
 </template>
 <template #dont-text>

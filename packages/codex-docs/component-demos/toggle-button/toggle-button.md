@@ -111,7 +111,7 @@ Consider the following recommendations when working with toggle buttons.
 
 <template #do-media>
 
-![A screenshot of a ToggleButton featuring an icon relevant to its action.](../../assets/components/toggle-button-best-practices-icon-do.svg)
+![ToggleButton featuring an icon relevant to its action.](../../assets/components/toggle-button-best-practices-icon-do.svg)
 
 </template>
 
@@ -124,7 +124,7 @@ Consider the following recommendations when working with toggle buttons.
 
 <template #dont-media>
 
-![A screenshot of a ToggleButton displaying a complex icon that doesn't add value to the button's text.](../../assets/components/toggle-button-best-practices-icon-dont.svg)
+![ToggleButton displaying a complex icon that doesn't add value to the button's text.](../../assets/components/toggle-button-best-practices-icon-dont.svg)
 
 </template>
 
@@ -142,7 +142,7 @@ Consider the following recommendations when working with toggle buttons.
 
 <template #do-media>
 
-![A screenshot of a ToggleButton in its default and toggled states, with the same icon used in both states.](../../assets/components/toggle-button-best-practices-toggled-do.svg)
+![ToggleButton in its default and toggled states, with the same icon used in both states.](../../assets/components/toggle-button-best-practices-toggled-do.svg)
 
 </template>
 
@@ -154,7 +154,7 @@ Consider the following recommendations when working with toggle buttons.
 
 <template #dont-media>
 
-![A screenshot of a ToggleButton altering the icon in its default and toggled states.](../../assets/components/toggle-button-best-practices-toggled-dont.svg)
+![ToggleButton altering the icon in its default and toggled states.](../../assets/components/toggle-button-best-practices-toggled-dont.svg)
 
 </template>
 

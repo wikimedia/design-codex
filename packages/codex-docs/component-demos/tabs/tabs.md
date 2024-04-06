@@ -90,7 +90,7 @@ Consider the following recommendations when using Tabs.
 
 <template #do-media>
 
-![An screenshot of Tabs with its items navigating to related content.](../../assets/components/tabs-best-practices-do.svg)
+![Tabs with its items navigating to related content.](../../assets/components/tabs-best-practices-do.svg)
 
 </template>
 
@@ -102,7 +102,7 @@ Consider the following recommendations when using Tabs.
 
 <template #dont-media>
 
-![An screenshot of Tabs with its items navigating to sections of the same page.](../../assets/components/tabs-best-practices-dont.svg)
+![Tabs with its items navigating to sections of the same page.](../../assets/components/tabs-best-practices-dont.svg)
 
 </template>
 
@@ -121,7 +121,7 @@ Tabs allow a reader to access contained, structured content blocks that make pag
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of interface tabs conveying an example of short, concise titles for sections.](../../assets/components/tab-content-do.svg)
+![Tabs conveying an example of short, concise titles for sections.](../../assets/components/tab-content-do.svg)
 
 </template>
 <template #do-text>
@@ -131,7 +131,7 @@ Tabs allow a reader to access contained, structured content blocks that make pag
 </template>
 <template #dont-media>
 
-![A screenshot of interface tabs conveying an example of mixing verbs and nouns.](../../assets/components/tab-content-dont.svg)
+![Tabs conveying an example of mixing verbs and nouns.](../../assets/components/tab-content-dont.svg)
 
 </template>
 <template #dont-text>

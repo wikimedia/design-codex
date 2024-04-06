@@ -102,7 +102,7 @@ Consider the following recommendations when using selects.
 
 <template #do-media>
 
-![An example of a Select component featuring a start icon, as the menu it displays utilizes start icons for its menu items.](../../assets/components/select-best-practices-icon-do.svg)
+![Select featuring a start icon, as the menu it displays utilizes start icons for its menu items.](../../assets/components/select-best-practices-icon-do.svg)
 
 </template>
 
@@ -114,7 +114,7 @@ Consider the following recommendations when using selects.
 
 <template #dont-media>
 
-![An exxample of a Select component incorrectly using a start icon in its default state.](../../assets/components/select-best-practices-icon-dont.svg)
+![Select incorrectly using a start icon in its default state.](../../assets/components/select-best-practices-icon-dont.svg)
 
 </template>
 
@@ -133,7 +133,7 @@ Select text introduces the options available in a drop-down menu.
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of interface selects conveying examples of clear placeholder text.](../../assets/components/select-content-do.svg)
+![Selects conveying examples of clear placeholder text.](../../assets/components/select-content-do.svg)
 
 </template>
 <template #do-text>
@@ -143,7 +143,7 @@ Select text introduces the options available in a drop-down menu.
 </template>
 <template #dont-media>
 
-![A screenshot of interface selects conveying examples of vague placeholder text.](../../assets/components/select-content-dont.svg)
+![Selects conveying examples of vague placeholder text.](../../assets/components/select-content-dont.svg)
 
 </template>
 <template #dont-text>

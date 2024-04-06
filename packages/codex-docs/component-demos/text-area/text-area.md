@@ -89,7 +89,7 @@ Use this type of text area when you require it to have a more compact size,
 especially in situations where it is positioned within other components like
 dialogs.
 
-![Example of TextArea with grabber.](../../assets/components/text-area-types-grabber.svg)
+![TextArea with grabber.](../../assets/components/text-area-types-grabber.svg)
 
 #### Autosize
 When the autosize property is enabled, the text area’s height will be
@@ -98,7 +98,7 @@ grabber indicator in this case, and scrolling within the content is unnecessary
 since the entire content will be fully visible. Choose this type of text area
 when there is ample space available on the page where the text area is situated.
 
-![Example of TextArea with autosize.](../../assets/components/text-area-types-autosize.svg)
+![TextArea with autosize.](../../assets/components/text-area-types-autosize.svg)
 
 ### Interaction states
 Text areas have the following visually separate states:
@@ -129,7 +129,7 @@ Consider the following recommendations when using textareas.
 
 <template #do-media>
 
-![An example of a TextArea included within a Field component.](../../assets/components/text-area-best-practices-usage-do.svg)
+![TextArea included within a Field.](../../assets/components/text-area-best-practices-usage-do.svg)
 
 </template>
 
@@ -143,7 +143,7 @@ Consider the following recommendations when using textareas.
 
 <template #dont-media>
 
-![A screenshot with a standalone TextArea and a TextEditor.](../../assets/components/text-area-best-practices-usage-dont.svg)
+![Standalone TextArea and a text editor.](../../assets/components/text-area-best-practices-usage-dont.svg)
 
 </template>
 
@@ -164,7 +164,7 @@ Consider the following recommendations when using textareas.
 
 <template #do-media>
 
-![An example of a TextArea with a recognizable icon.](../../assets/components/text-area-best-practices-icon-do.svg)
+![TextArea with a recognizable icon.](../../assets/components/text-area-best-practices-icon-do.svg)
 
 </template>
 
@@ -177,7 +177,7 @@ Consider the following recommendations when using textareas.
 
 <template #dont-media>
 
-![An example of a TextArea with a complex icon.](../../assets/components/text-area-best-practices-icon-dont.svg)
+![TextArea with a complex icon.](../../assets/components/text-area-best-practices-icon-dont.svg)
 
 </template>
 
@@ -195,7 +195,7 @@ Consider the following recommendations when using textareas.
 
 <template #do-media>
 
-![An example of a TextArea with character counter used for a long message.](../../assets/components/text-area-best-practices-characters-coounter-do.svg)
+![TextArea with character counter used for a long message.](../../assets/components/text-area-best-practices-characters-coounter-do.svg)
 
 </template>
 
@@ -207,7 +207,7 @@ Consider the following recommendations when using textareas.
 
 <template #dont-media>
 
-![An example of a TextArea with character counter used for Address.](../../assets/components/text-area-best-practices-characters-coounter-dont.svg)
+![TextArea with character counter used for address.](../../assets/components/text-area-best-practices-characters-coounter-dont.svg)
 
 </template>
 

@@ -71,7 +71,7 @@ A secondary end icon can be included if needed.
 4. **Clear button** (optional)<br>
 A 'clear' indicator can be included to remove the typed content within the input field.
 
-The base min-width for the TextInput component is set at `@size-1600` (equivalent to `256px` in the default Codex theme), but it can be customized to a smaller width if needed. There is no maximum width limit. 
+The base min-width for the TextInput component is set at `@size-1600` (equivalent to `256px` in the default Codex theme), but it can be customized to a smaller width if needed. There is no maximum width limit.
 
 If the text entered in the input exceeds the available space, it will overflow horizontally.
 
@@ -131,7 +131,7 @@ Consider the following recommendations when using text inputs.
 
 <template #do-media>
 
-![A TextInput included within a Field component.](../../assets/components/text-input-best-practices-usage-do.svg)
+![TextInput included within a Field.](../../assets/components/text-input-best-practices-usage-do.svg)
 
 </template>
 
@@ -143,7 +143,7 @@ Consider the following recommendations when using text inputs.
 
 <template #dont-media>
 
-![An standalone TextInput.](../../assets/components/text-input-best-practices-usage-dont.svg)
+![Standalone TextInput.](../../assets/components/text-input-best-practices-usage-dont.svg)
 
 </template>
 
@@ -162,7 +162,7 @@ Consider the following recommendations when using text inputs.
 
 <template #do-media>
 
-![An example of a TextInput with a recognizable icon.](../../assets/components/text-input-best-practices-icon-do.svg)
+![TextInput with a recognizable icon.](../../assets/components/text-input-best-practices-icon-do.svg)
 
 </template>
 
@@ -174,7 +174,7 @@ Consider the following recommendations when using text inputs.
 
 <template #dont-media>
 
-![An example of a TextInput with a complex icon.](../../assets/components/text-input-best-practices-icon-dont.svg)
+![TextInput with a complex icon.](../../assets/components/text-input-best-practices-icon-dont.svg)
 
 </template>
 

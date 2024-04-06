@@ -105,7 +105,7 @@ Consider the following recommendations when using accordions.
 
 <template #do-media>
 
-![A screenshot of two accordions with an InfoChip adjacent to their labels.](../../assets/components/accordion-practices-usage-do.svg)
+![Two accordions with an InfoChip adjacent to their labels.](../../assets/components/accordion-practices-usage-do.svg)
 
 </template>
 
@@ -117,7 +117,7 @@ Consider the following recommendations when using accordions.
 
 <template #dont-media>
 
-![A screenshot of two accordions: one with a warning icon and the other with an InfoChip.](../../assets/components/accordion-practices-usage-dont.svg)
+![Two accordions: one with a warning icon and the other with an InfoChip.](../../assets/components/accordion-practices-usage-dont.svg)
 
 </template>
 
@@ -135,7 +135,7 @@ Consider the following recommendations when using accordions.
 
 <template #do-media>
 
-![A screenshot of an Accordion group with customized label styles.](../../assets/components/accordion-best-practices-label-do.svg)
+![Accordion group with customized label styles.](../../assets/components/accordion-best-practices-label-do.svg)
 
 </template>
 
@@ -148,7 +148,7 @@ Consider the following recommendations when using accordions.
 
 <template #dont-media>
 
-![A screenshot of an Accordion group with customized label colors.](../../assets/components/accordion-best-practices-label-dont.svg)
+![Accordion group with customized label colors.](../../assets/components/accordion-best-practices-label-dont.svg)
 
 </template>
 
@@ -168,7 +168,7 @@ Consider the following recommendations when using accordions.
 
 <template #do-media>
 
-![A screenshot displaying an Accordion group using the icons ‘expand’ and ‘collapse’.](../../assets/components/accordion-best-practices-expand-do.svg)
+![Accordion group using the icons ‘expand’ and ‘collapse’.](../../assets/components/accordion-best-practices-expand-do.svg)
 
 </template>
 
@@ -180,7 +180,7 @@ Consider the following recommendations when using accordions.
 
 <template #dont-media>
 
-![A screenshot displaying an Accordion group using the icons ‘add’ and ‘substract’.](../../assets/components/accordion-best-practices-expand-dont.svg)
+![Accordion group using the icons ‘add’ and ‘substract’.](../../assets/components/accordion-best-practices-expand-dont.svg)
 
 </template>
 
@@ -198,7 +198,7 @@ Consider the following recommendations when using accordions.
 
 <template #do-media>
 
-![A screenshot displaying an Accordion group with one accordion expanded, containing an image and a set of paragraphs.](../../assets/components/accordion-best-practices-content-do.svg)
+![Accordion group with one accordion expanded, containing an image and a set of paragraphs.](../../assets/components/accordion-best-practices-content-do.svg)
 
 </template>
 
@@ -211,7 +211,7 @@ Consider the following recommendations when using accordions.
 
 <template #dont-media>
 
-![A screenshot displaying an Accordion group with one accordion expanded, containing other nested accordions.](../../assets/components/accordion-best-practices-content-dont.svg)
+![Accordion group with one accordion expanded, containing other nested accordions.](../../assets/components/accordion-best-practices-content-dont.svg)
 
 </template>
 

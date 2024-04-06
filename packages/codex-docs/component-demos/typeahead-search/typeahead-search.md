@@ -63,7 +63,7 @@ distinguishing it from a simple text input.
 2. **With text button**<br>
 The TypeaheadSearch also has the option to feature a text button to initiate the search process.
 
-![Types of Type-ahead Search: without button and with button.](../../assets/components/typeahead-search-types.svg)
+![Types of TypeaheadSearch: without button and with button.](../../assets/components/typeahead-search-types.svg)
 
 ### Interaction states
 
@@ -86,7 +86,7 @@ Consider the following recommendations when using the TypeaheadSearch.
 
 <template #do-media>
 
-![A screenshot of a TypeaheadSearch featuring the 'search' icon and a text-only button.](../../assets/components/typeahead-search-best-practices-do.svg)
+![TypeaheadSearch featuring the 'search' icon and a text-only button.](../../assets/components/typeahead-search-best-practices-do.svg)
 
 </template>
 
@@ -100,7 +100,7 @@ Consider the following recommendations when using the TypeaheadSearch.
 
 <template #dont-media>
 
-![A screenshot of a TypeaheadSearch featuring a non-'search' icon and a text-only button with long and customized text.](../../assets/components/typeahead-search-best-practices-dont.svg)
+![TypeaheadSearch featuring a non-'search' icon and a text-only button with long and customized text.](../../assets/components/typeahead-search-best-practices-dont.svg)
 
 </template>
 

@@ -45,14 +45,14 @@ There are different types of progress bars, depending on your intended use.
 Elevated progress bar to indicate that the ongoing system process will affect an
 entire view or page area.
 
-![A ProgressBar displayed on top of a Wikipedia article page.](../../assets/components/progress-bar-types-base.svg)
+![ProgressBar displayed on top of a Wikipedia article page.](../../assets/components/progress-bar-types-base.svg)
 
 #### Inline progress bar
 An inline and smaller version of the progress bar is available to indicate
 progress within other components, such as [Menu](./menu.md) or
 [Dialog](./dialog.md).
 
-![An inline ProgressBar displayed within a dialog.](../../assets/components/progress-bar-types-inline.svg)
+![Inline ProgressBar displayed within a dialog.](../../assets/components/progress-bar-types-inline.svg)
 
 ### Interaction states
 Indeterminate progress bars are always in motion and cannot be in an empty, completed,

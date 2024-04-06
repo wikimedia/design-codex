@@ -30,7 +30,7 @@ When other components exist within the form, but are not form elements such as f
 
 <div class="cdx-docs-example">
 
-![A form including a heading, multiple fields, and a footer with actions to submit.](../assets/layout-guidelines/forms/form-full-page.svg)
+![Form including a heading, multiple fields, and a footer with actions to submit.](../assets/layout-guidelines/forms/form-full-page.svg)
 
 </div>
 
@@ -40,7 +40,7 @@ The header and footer of a form without a table of contents should remain 100% o
 
 <div class="cdx-docs-example">
 
-![A form including a heading, multiple fields within sections, a table of contents, and a footer with actions to submit.](../assets/layout-guidelines/forms/form-full-page-toc.svg)
+![Form including a heading, multiple fields within sections, a table of contents, and a footer with actions to submit.](../assets/layout-guidelines/forms/form-full-page-toc.svg)
 
 </div>
 
@@ -58,7 +58,7 @@ Fields use top labels to help promote the intended flow of reading a page visual
 
 <div class="cdx-docs-example">
 
-![Two vertically stacked fields, one labeled Name and one labeled Last name.](../assets/layout-guidelines/forms/label-top.svg)
+![Two vertically stacked fields, one labeled “Name” and one labeled “Last name”.](../assets/layout-guidelines/forms/label-top.svg)
 
 </div>
 
@@ -69,7 +69,7 @@ Multi-columns of fields in the same row can be used when:
 
 <div class="cdx-docs-example">
 
-![Two horizontally aligned fields as multiple columns in the same row, one labeled Name and one labeled Last name.](../assets/layout-guidelines/forms/fields-multi-column.svg)
+![Two horizontally aligned fields as multiple columns in the same row, one labeled “Name” and one labeled “Last name”.](../assets/layout-guidelines/forms/fields-multi-column.svg)
 
 </div>
 
@@ -125,7 +125,7 @@ A table of contents can be used with sections with the form in place of a multi-
 
 <div class="cdx-docs-example">
 
-![A table of contents within a form.](../assets/layout-guidelines/forms/table-of-contents.svg)
+![Table of contents within a form.](../assets/layout-guidelines/forms/table-of-contents.svg)
 
 </div>
 
@@ -145,7 +145,7 @@ If a disclaimer is needed, it should be included within the footer (fixed or not
 
 <div class="cdx-docs-example">
 
-![A form including a heading, multiple fields within sections, a table of contents, and a footer with actions to submit.](../assets/layout-guidelines/forms/form-full-page-toc.svg)
+![Form including a heading, multiple fields within sections, a table of contents, and a footer with actions to submit.](../assets/layout-guidelines/forms/form-full-page-toc.svg)
 
 </div>
 
@@ -156,7 +156,7 @@ Setting the status based on field validity is up to you. You can read more about
 <cdx-demo-rules>
 <template #do-media>
 
-![A short form with error messages shown on incomplete fields.](../assets/layout-guidelines/forms/validation-do.svg)
+![Short form with error messages shown on incomplete fields.](../assets/layout-guidelines/forms/validation-do.svg)
 
 </template>
 <template #do-text>
@@ -166,7 +166,7 @@ Setting the status based on field validity is up to you. You can read more about
 </template>
 <template #dont-media>
 
-![A short form with a disabled button at the bottom, not showing error messages.](../assets/layout-guidelines/forms/validation-dont.svg)
+![Short form with a disabled button at the bottom, not showing error messages.](../assets/layout-guidelines/forms/validation-dont.svg)
 
 </template>
 <template #dont-text>

@@ -18,7 +18,7 @@ We are focused entirely on empowering our users to create, edit, and read conten
 
 <div class="cdx-docs-example">
 
-![An image of large text reading, "Be clear and concise, whilst not getting too complicated. Be consistent, whilst not feeling mechanical. Be directive, whilst always being respectful."](../assets/content-guidelines/voice-and-tone/voice-neutral.svg)
+![Large text reading "Be clear and concise, whilst not getting too complicated. Be consistent, whilst not feeling mechanical. Be directive, whilst always being respectful."](../assets/content-guidelines/voice-and-tone/voice-neutral.svg)
 
 </div>
 
@@ -29,7 +29,7 @@ It refers to the speaker *(I, we)*. Generally, avoid using the first person voic
 
 <div class="cdx-docs-example">
 
-![An image of large text reading, "We are in this mission together."](../assets/content-guidelines/voice-and-tone/voice-first-person.svg)
+![Large text reading, "We are in this mission together”.](../assets/content-guidelines/voice-and-tone/voice-first-person.svg)
 
 </div>
 
@@ -39,7 +39,7 @@ It refers to the person who is being spoken to *(you)*. For features, use “You
 <cdx-demo-rules>
 <template #do-media>
 
-![An image of large text reading, "Check your events page".](../assets/content-guidelines/voice-and-tone/voice-second-person-do.svg)
+![Large text reading, "Check your events page".](../assets/content-guidelines/voice-and-tone/voice-second-person-do.svg)
 
 </template>
 <template #do-text>
@@ -49,7 +49,7 @@ It refers to the person who is being spoken to *(you)*. For features, use “You
 </template>
 <template #dont-media>
 
-![An image of large text reading, "Check your “My Events” page".](../assets/content-guidelines/voice-and-tone/voice-second-person-dont.svg)
+![Large text reading, "Check your “My Events” page".](../assets/content-guidelines/voice-and-tone/voice-second-person-dont.svg)
 
 </template>
 <template #dont-text>
@@ -64,7 +64,7 @@ It refers to the person who is being spoken about *(he, she, they, it)*. With an
 
 <div class="cdx-docs-example">
 
-![An image of large text suggesting writing, "They received a message."](../assets/content-guidelines/voice-and-tone/voice-third-person.svg)
+![Large text suggesting writing, "They received a message."](../assets/content-guidelines/voice-and-tone/voice-third-person.svg)
 
 </div>
 
@@ -74,6 +74,6 @@ The tone of the Wikimedia voice will shift to reflect the task you are writing f
 
 <div class="cdx-docs-example">
 
-![An image of a warning message above a positive message, both conveying exmaples of how to write tone in a neutral voice for different severity of messages.](../assets/content-guidelines/voice-and-tone/tone.svg)
+![Warning message above a positive message, both conveying exmaples of how to write tone in a neutral voice for different severity of messages.](../assets/content-guidelines/voice-and-tone/tone.svg)
 
 </div>

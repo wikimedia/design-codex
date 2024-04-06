@@ -105,7 +105,7 @@ Consider the following recommendations when using labels within form fields. For
 
 <template #dont-media>
 
-![An example of a Label being used on top of a ToggleButtonGroup.](../../assets/components/label-best-practices-usage-dont.svg)
+![Label being used on top of a ToggleButtonGroup.](../../assets/components/label-best-practices-usage-dont.svg)
 
 </template>
 
@@ -124,7 +124,7 @@ Consider the following recommendations when using labels within form fields. For
 
 <template #do-media>
 
-![A Field using an start icon next to the Label.](../../assets/components/label-best-practices-icon-do.svg)
+![Field using a start icon next to the Label.](../../assets/components/label-best-practices-icon-do.svg)
 
 </template>
 
@@ -136,7 +136,7 @@ Consider the following recommendations when using labels within form fields. For
 
 <template #dont-media>
 
-![A Field featuring two icons: one positioned next to the label and the other inside the TextInput.](../../assets/components/label-best-practices-icon-dont.svg)
+![Field featuring two icons: one positioned next to the label and the other inside the TextInput.](../../assets/components/label-best-practices-icon-dont.svg)
 
 </template>
 
@@ -154,7 +154,7 @@ Consider the following recommendations when using labels within form fields. For
 
 <template #do-media>
 
-![A Field component with a short label and a lengthy description.](../../assets/components/label-best-practices-label-do.svg)
+![Field with a short label and a lengthy description.](../../assets/components/label-best-practices-label-do.svg)
 
 </template>
 
@@ -167,7 +167,7 @@ Consider the following recommendations when using labels within form fields. For
 
 <template #dont-media>
 
-![A Field component with a lengthy label.](../../assets/components/label-best-practices-label-dont.svg)
+![Field with a lengthy label.](../../assets/components/label-best-practices-label-dont.svg)
 
 </template>
 
@@ -217,7 +217,7 @@ Consider the following recommendations when using labels within form fields. For
 
 <template #do-media>
 
-![A Fieldset with each field labeled as regular.](../../assets/components/label-best-practices-fieldset-do.svg)
+![Fieldset with each field labeled as regular.](../../assets/components/label-best-practices-fieldset-do.svg)
 
 </template>
 
@@ -229,7 +229,7 @@ Consider the following recommendations when using labels within form fields. For
 
 <template #dont-media>
 
-![A Fieldset with each field labeled as bold.](../../assets/components/label-best-practices-fieldset-dont.svg)
+![Fieldset with each field labeled as bold.](../../assets/components/label-best-practices-fieldset-dont.svg)
 
 </template>
 

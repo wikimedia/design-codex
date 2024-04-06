@@ -167,7 +167,7 @@ Consider the following recommendations when working with buttons.
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of an edit button using an edit icon.](../../assets/components/button-best-practices-do.svg)
+![Edit button using an edit icon.](../../assets/components/button-best-practices-do.svg)
 
 </template>
 <template #do-text>
@@ -178,7 +178,7 @@ Consider the following recommendations when working with buttons.
 </template>
 <template #dont-media>
 
-![A screenshot of an edit button using a complex icon.](../../assets/components/button-best-practices-dont.svg)
+![Edit button using a complex icon.](../../assets/components/button-best-practices-dont.svg)
 
 </template>
 <template #dont-text>
@@ -201,7 +201,7 @@ Progressive buttons allow a reader to continue or complete an action.
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of an interface button with a short, concise action.](../../assets/components/button-content-progressive-do.svg)
+![Interface button with a short, concise action.](../../assets/components/button-content-progressive-do.svg)
 
 </template>
 <template #do-text>
@@ -212,7 +212,7 @@ Progressive buttons allow a reader to continue or complete an action.
 </template>
 <template #dont-media>
 
-![A screenshot of an interface button with unnecessarily long form text which wraps to two lines.](../../assets/components/button-content-progressive-dont.svg)
+![Interface button with unnecessarily long form text which wraps to two lines.](../../assets/components/button-content-progressive-dont.svg)
 
 </template>
 <template #dont-text>
@@ -230,7 +230,7 @@ Destructive buttons are for cancelling, deleting or non-reversible actions. Posi
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of an interface button reading "Delete".](../../assets/components/button-content-destructive-do.svg)
+![Button reading "Delete".](../../assets/components/button-content-destructive-do.svg)
 
 </template>
 <template #do-text>
@@ -240,7 +240,7 @@ Destructive buttons are for cancelling, deleting or non-reversible actions. Posi
 </template>
 <template #dont-media>
 
-![A screenshot of an interface button reading "Yes, I'm sure".](../../assets/components/button-content-destructive-dont.svg)
+![Button reading "Yes, I'm sure".](../../assets/components/button-content-destructive-dont.svg)
 
 </template>
 <template #dont-text>
@@ -257,7 +257,7 @@ Neutral buttons are for minor or secondary actions. Always keep the hierarchy of
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of interface buttons reading "Create account" and "Log in".](../../assets/components/button-content-neutral-do.svg)
+![Buttons reading "Create account" and "Log in".](../../assets/components/button-content-neutral-do.svg)
 
 </template>
 <template #do-text>
@@ -267,7 +267,7 @@ Neutral buttons are for minor or secondary actions. Always keep the hierarchy of
 </template>
 <template #dont-media>
 
-![A screenshot of interface buttons reading "Sign up" and "Sign in".](../../assets/components/button-content-neutral-dont.svg)
+![Buttons reading "Sign up" and "Sign in".](../../assets/components/button-content-neutral-dont.svg)
 
 </template>
 <template #dont-text>

@@ -20,7 +20,7 @@ These barriers could include accessibility, languages, device and network capabi
 technical expertise, or many other circumstances. When improving the experience for a given group
 of people, we need to make sure we are not increasing the barriers for others.
 
-![A series of icons representing different factors of accessibility and inclusion surrounding a human avatar](../assets/design-principles/overview/01_this-is-for-everyone.svg)
+![A series of icons representing different factors of accessibility and inclusion surrounding a human avatar.](../assets/design-principles/overview/01_this-is-for-everyone.svg)
 
 ## Content first
 
@@ -28,7 +28,7 @@ People come to Wikimedia projects for their content. Our solutions should help t
 creation, consumption, and sharing — without getting in the way. Our content (facts, images,
 quotes, etc.) is our most representative element and needs to be emphasized in our solutions.
 
-![A sample of content from Wikipedia](../assets/design-principles/overview/02_content-first%402x.png)
+![A sample of content from Wikipedia.](../assets/design-principles/overview/02_content-first%402x.png)
 
 ## Open to collaboration
 
@@ -46,7 +46,7 @@ Wikimedia projects provide reliable educational knowledge. At the same time, our
 source of entertainment and satisfy human curiosity. This requires us to find the right balance: we
 need to convey trust with our solutions and remain entertaining and fresh.
 
-![Wikipedia content with a live reader count](../assets/design-principles/overview/04_trustworthy-yet-joyful%402x.png)
+![Wikipedia content with a live reader count.](../assets/design-principles/overview/04_trustworthy-yet-joyful%402x.png)
 
 ## Design for consistency
 

@@ -67,7 +67,7 @@ Depending on the placement of the chips, there are two types of ChipInput:
 1. **Chips within the input field**<br>In this case, when the chips are created they are placed next to the input’s placeholder text, and they are stacked next to each other.
 2. **Chips separated from the input field**<br>In this case, the chips are placed in a light gray box above the input field once they are created.
 
-![Chip input type based on chip placement: chips within the input or chips separated from the input.](../../assets/components/chip-input-types.svg)
+![Chip input types based on chip placement: chips within the input or chips separated from the input.](../../assets/components/chip-input-types.svg)
 
 ### Interaction states
 
@@ -101,7 +101,7 @@ Consider the following recommendations when using chip inputs.
 
 <template #do-media>
 
-![A ChipInput with four chips included.](../../assets/components/chip-input-best-practices-usage-do.svg)
+![ChipInput with four chips included.](../../assets/components/chip-input-best-practices-usage-do.svg)
 
 </template>
 
@@ -113,7 +113,7 @@ Consider the following recommendations when using chip inputs.
 
 <template #dont-media>
 
-![A ChipInput with just one chip included.](../../assets/components/chip-input-best-practices-usage-dont.svg)
+![ChipInput with just one chip included.](../../assets/components/chip-input-best-practices-usage-dont.svg)
 
 </template>
 

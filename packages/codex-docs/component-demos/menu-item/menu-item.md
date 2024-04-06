@@ -123,7 +123,7 @@ Consider the following recommendations when using menu items within menus.
 
 <template #do-media>
 
-![A MenuItem featuring a simple icon and concise label and description.](../../assets/components/menu-item-best-practices-do.svg)
+![MenuItem featuring a simple icon and concise label and description.](../../assets/components/menu-item-best-practices-do.svg)
 
 </template>
 
@@ -136,7 +136,7 @@ Consider the following recommendations when using menu items within menus.
 
 <template #dont-media>
 
-![A MenuItem featuring a complex icon, a label, and a lengthy description.](../../assets/components/menu-item-best-practices-dont.svg)
+![MenuItem featuring a complex icon, a label, and a lengthy description.](../../assets/components/menu-item-best-practices-dont.svg)
 
 </template>
 
@@ -155,7 +155,7 @@ Consider the following recommendations when using menu items within menus.
 
 <template #do-media>
 
-![A MenuItem featuring supporting text within brackets.](../../assets/components/menu-item-best-practices-do-2.svg)
+![MenuItem featuring supporting text within brackets.](../../assets/components/menu-item-best-practices-do-2.svg)
 
 </template>
 
@@ -167,7 +167,7 @@ Consider the following recommendations when using menu items within menus.
 
 <template #dont-media>
 
-![A MenuItem featuring supporting text without brackets.](../../assets/components/menu-item-best-practices-dont-2.svg)
+![MenuItem featuring supporting text without brackets.](../../assets/components/menu-item-best-practices-dont-2.svg)
 
 </template>
 

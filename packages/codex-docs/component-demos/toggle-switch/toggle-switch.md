@@ -98,7 +98,7 @@ Consider the following recommendations when using toggle switches.
 
 <template #do-media>
 
-![An example of a ToggleSwitch group including different text formats and a link.](../../assets/components/toggle-switch-best-practices-label-do.svg)
+![ToggleSwitch group including different text formats and a link.](../../assets/components/toggle-switch-best-practices-label-do.svg)
 
 </template>
 
@@ -112,7 +112,7 @@ Consider the following recommendations when using toggle switches.
 
 <template #dont-media>
 
-![An example of a ToggleSwitch group with bolded labels and a link within the last label.](../../assets/components/toggle-switch-best-practices-label-dont.svg)
+![ToggleSwitch group with bolded labels and a link within the last label.](../../assets/components/toggle-switch-best-practices-label-dont.svg)
 
 </template>
 
@@ -130,7 +130,7 @@ Consider the following recommendations when using toggle switches.
 
 <template #do-media>
 
-![Image's alt text description.](../../assets/components/toggle-switch-best-practices-orientation-do.svg)
+![Two ToggleSwitches stacked vertically.](../../assets/components/toggle-switch-best-practices-orientation-do.svg)
 
 </template>
 
@@ -142,7 +142,7 @@ Consider the following recommendations when using toggle switches.
 
 <template #dont-media>
 
-![Image's alt text description.](../../assets/components/toggle-switch-best-practices-orientation-dont.svg)
+![ToggleSwitch conveying switching between two opposing options.](../../assets/components/toggle-switch-best-practices-orientation-dont.svg)
 
 </template>
 

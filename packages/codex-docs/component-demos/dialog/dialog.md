@@ -110,7 +110,7 @@ All dialogs are vertically and horizontally centered on the canvas. We aim to ke
 fixed width of `size-3200` (equivalent to `512px` in the default Codex theme) on desktop, while
 allowing them to use 90% of the width on mobile web. This makes dialogs the focus of the screen.
 
-![A desktop and mobile mockup of a Wikipedia page with a dialog displayed on the center of the page.](../../assets/components/dialog-specifications-max-width-height.svg)
+![A desktop and mobile mockup of a Wikipedia article with a dialog displayed on the center of the page.](../../assets/components/dialog-specifications-max-width-height.svg)
 
 #### Stacked actions
 
@@ -156,7 +156,7 @@ Consider the following recommendations when using dialogs.
 
 <template #do-media>
 
-![A Dialog with two buttons: a primary destructive button and a secondary neutral one.](../../assets/components/dialog-best-practices-buttons-do.svg)
+![Dialog with two buttons: a primary destructive button and a secondary neutral one.](../../assets/components/dialog-best-practices-buttons-do.svg)
 
 </template>
 
@@ -168,7 +168,7 @@ Consider the following recommendations when using dialogs.
 
 <template #dont-media>
 
-![A Dialog with two normal buttons, one primary and another neutral.](../../assets/components/dialog-best-practices-buttons-dont.svg)
+![Dialog with two normal buttons, one primary and another neutral.](../../assets/components/dialog-best-practices-buttons-dont.svg)
 
 </template>
 
@@ -185,7 +185,7 @@ Consider the following recommendations when using dialogs.
 
 <template #do-media>
 
-![A Dialog with stacked buttons containing long text.](../../assets/components/dialog-best-practices-buttons-stacked-do.svg)
+![Dialog with stacked buttons containing long text.](../../assets/components/dialog-best-practices-buttons-stacked-do.svg)
 
 </template>
 
@@ -197,7 +197,7 @@ Consider the following recommendations when using dialogs.
 
 <template #dont-media>
 
-![A Dialog with stacked buttons containing short text.](../../assets/components/dialog-best-practices-buttons-stacked-dont.svg)
+![Dialog with stacked buttons containing short text.](../../assets/components/dialog-best-practices-buttons-stacked-dont.svg)
 
 </template>
 
@@ -213,7 +213,7 @@ Consider the following recommendations when using dialogs.
 
 <template #do-media>
 
-![A Dialog with one footer's button.](../../assets/components/dialog-best-practices-footer-do.svg)
+![Dialog with one footer's button.](../../assets/components/dialog-best-practices-footer-do.svg)
 
 </template>
 
@@ -225,7 +225,7 @@ Consider the following recommendations when using dialogs.
 
 <template #dont-media>
 
-![A Dialog with no footer's button.](../../assets/components/dialog-best-practices-footer-dont.svg)
+![Dialog with no footer's button.](../../assets/components/dialog-best-practices-footer-dont.svg)
 
 </template>
 
@@ -243,7 +243,7 @@ Consider the following recommendations when using dialogs.
 
 <template #do-media>
 
-![A Dialog containing a Field.](../../assets/components/dialog-best-practices-body-do.svg)
+![Dialog containing a Field.](../../assets/components/dialog-best-practices-body-do.svg)
 
 </template>
 
@@ -255,7 +255,7 @@ Consider the following recommendations when using dialogs.
 
 <template #dont-media>
 
-![A Dialog containing a Card.](../../assets/components/dialog-best-practices-body-dont.svg)
+![Dialog containing a Card.](../../assets/components/dialog-best-practices-body-dont.svg)
 
 </template>
 
@@ -273,7 +273,7 @@ Consider the following recommendations when using dialogs.
 
 <template #do-media>
 
-![A Dialog with custom header and footer using the same types of buttons.](../../assets/components/dialog-best-practices-custom-do.svg)
+![Dialog with custom header and footer using the same types of buttons.](../../assets/components/dialog-best-practices-custom-do.svg)
 
 </template>
 
@@ -288,7 +288,7 @@ Consider the following recommendations when using dialogs.
 
 <template #dont-media>
 
-![A Dialog with custom header and footer altering the weight of the buttons.](../../assets/components/dialog-best-practices-custom-dont.svg)
+![Dialog with custom header and footer altering the weight of the buttons.](../../assets/components/dialog-best-practices-custom-dont.svg)
 
 </template>
 
@@ -309,7 +309,7 @@ easier for users to move through the flow when they know what to do from the tit
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of an interface dialog conveying an example of short, concise titles and text.](../../assets/components/dialog-content-do.svg)
+![Dialog conveying an example of short, concise titles and text.](../../assets/components/dialog-content-do.svg)
 
 </template>
 <template #do-text>
@@ -319,7 +319,7 @@ easier for users to move through the flow when they know what to do from the tit
 </template>
 <template #dont-media>
 
-![A screenshot of an interface dialog conveying an example of unnecessarily long text and an action which does not relate to the purpose of the dialog.](../../assets/components/dialog-content-dont.svg)
+![Dialog conveying an example of unnecessarily long text and an action which does not relate to the purpose of the dialog.](../../assets/components/dialog-content-dont.svg)
 
 </template>
 <template #dont-text>

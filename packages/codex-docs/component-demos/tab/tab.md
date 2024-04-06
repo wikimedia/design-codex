@@ -43,7 +43,7 @@ Each tab item may include the following elements:
 The maximum width for each Tab item is `size-1600` token (equivalent to 256px in the default
 Codex theme), with an ellipsis appearing if the text exceeds this length.
 
-![Maximum example of Tab component.](../../assets/components/tab-specifications-max.svg)
+![Maximum width example of Tab component.](../../assets/components/tab-specifications-max.svg)
 
 Refer to the [Tabs component with Tab items in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2319-7029&mode=design)
 
@@ -91,7 +91,7 @@ Consider the following recommendations when using Tabs.
 
 <template #do-media>
 
-![An screenshot of Tabs with its items navigating to related content.](../../assets/components/tabs-best-practices-do.svg)
+![Tabs with its items navigating to related content.](../../assets/components/tabs-best-practices-do.svg)
 
 </template>
 
@@ -103,7 +103,7 @@ Consider the following recommendations when using Tabs.
 
 <template #dont-media>
 
-![An screenshot of Tabs with its items navigating to sections of the same page.](../../assets/components/tabs-best-practices-dont.svg)
+![Tabs with its items navigating to sections of the same page.](../../assets/components/tabs-best-practices-dont.svg)
 
 </template>
 
@@ -123,7 +123,7 @@ To make the UI effective and consistent, keep tab names short and descriptive.
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of interface tabs conveying an example of short, concise titles for sections.](../../assets/components/tab-content-do.svg)
+![Tabs conveying an example of short, concise titles for sections.](../../assets/components/tab-content-do.svg)
 
 </template>
 <template #do-text>
@@ -133,7 +133,7 @@ To make the UI effective and consistent, keep tab names short and descriptive.
 </template>
 <template #dont-media>
 
-![A screenshot of interface tabs conveying an example of mixing verbs and nouns.](../../assets/components/tab-content-dont.svg)
+![Tabs conveying an example of mixing verbs and nouns.](../../assets/components/tab-content-dont.svg)
 
 </template>
 <template #dont-text>

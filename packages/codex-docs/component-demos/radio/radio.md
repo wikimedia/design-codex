@@ -44,7 +44,7 @@ Radio buttons’ states were designed using  accessible color variations. In add
 icon, these make it easier to differentiate between the radio button’s selected and unselected modes
 (e.g. disabled, hover, active):
 
-![States of the Radio component for both unselected and selected states: default, hover, active, focus, and disabled.](../../assets/components/radio-interaction-states.svg)
+![States of Radio for both unselected and selected states: default, hover, active, focus, and disabled.](../../assets/components/radio-interaction-states.svg)
 
 <div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
 
@@ -79,7 +79,7 @@ Consider the following recommendations when using radios.
 
 <template #do-media>
 
-![An example of a Radio group including different text formats and a link.](../../assets/components/radio-best-practices-label-do.svg)
+![Radio group including different text formats and a link.](../../assets/components/radio-best-practices-label-do.svg)
 
 </template>
 
@@ -94,7 +94,7 @@ Consider the following recommendations when using radios.
 
 <template #dont-media>
 
-![An example of a Radio group with bolded labels and a link within the last label.](../../assets/components/radio-best-practices-label-dont.svg)
+![Radio group with bolded labels and a link within the last label.](../../assets/components/radio-best-practices-label-dont.svg)
 
 </template>
 
@@ -113,7 +113,7 @@ Consider the following recommendations when using radios.
 
 <template #do-media>
 
-![An example of an Inline Radio group including two radios with short labels.](../../assets/components/radio-best-practices-inline-do.svg)
+![Inline Radio group including two radios with short labels.](../../assets/components/radio-best-practices-inline-do.svg)
 
 </template>
 
@@ -125,7 +125,7 @@ Consider the following recommendations when using radios.
 
 <template #dont-media>
 
-![An example of an Inline Radio group with three radios, where the middle one is longer than the others.](../../assets/components/radio-best-practices-inline-dont.svg)
+![Inline Radio group with three radios, where the middle one is longer than the others.](../../assets/components/radio-best-practices-inline-dont.svg)
 
 </template>
 
@@ -145,7 +145,7 @@ A radio button ensure that a reader chooses only one option from a set of two or
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of interface radio buttons conveying an example of a clear prompt and concise list of options.](../../assets/components/radio-content-do.svg)
+![Radio buttons conveying an example of a clear prompt and concise list of options.](../../assets/components/radio-content-do.svg)
 
 </template>
 <template #do-text>
@@ -155,7 +155,7 @@ A radio button ensure that a reader chooses only one option from a set of two or
 </template>
 <template #dont-media>
 
-![A screenshot of interface radio buttons conveying an example of a list of options with unnecessarily long descriptions.](../../assets/components/radio-content-dont.svg)
+![Radio buttons conveying an example of a list of options with unnecessarily long descriptions.](../../assets/components/radio-content-dont.svg)
 
 </template>
 <template #dont-text>

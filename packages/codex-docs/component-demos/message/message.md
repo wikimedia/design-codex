@@ -79,7 +79,7 @@ There are two types of messages, each suited to specific use cases:
 information.
 2. **Inline message:** Employ it to offer feedback on the validation of form inputs.
 
-![Representation of message and inline message.](../../assets/components/message-types.svg)
+![Types of Messages: message and inline message.](../../assets/components/message-types.svg)
 
 #### Message type
 
@@ -133,7 +133,7 @@ Consider the following recommendations when working with messages.
 
 <template #do-media>
 
-![A screenshot of a Notice message with the user icon and a Success message with its success icon.](../../assets/components/message-best-practices-icon-do.svg)
+![Notice message with the user icon and success message with its success icon.](../../assets/components/message-best-practices-icon-do.svg)
 
 </template>
 
@@ -146,7 +146,7 @@ Consider the following recommendations when working with messages.
 
 <template #dont-media>
 
-![A screenshot of a Success message without icon and an Error message with a non-error icon.](../../assets/components/message-best-practices-icon-dont.svg)
+![Success message without icon and error message with a non-error icon.](../../assets/components/message-best-practices-icon-dont.svg)
 
 </template>
 
@@ -165,7 +165,7 @@ Consider the following recommendations when working with messages.
 
 <template #do-media>
 
-![A screenshot of a Success Message with different text formats and a link.](../../assets/components/message-best-practices-text-do.svg)
+![Success Message with different text formats and a link.](../../assets/components/message-best-practices-text-do.svg)
 
 </template>
 
@@ -177,7 +177,7 @@ Consider the following recommendations when working with messages.
 
 <template #dont-media>
 
-![A screenshot of a Success Message with the entire text bolded.](../../assets/components/message-best-practices-text-dont.svg)
+![Success Message with the entire text bolded.](../../assets/components/message-best-practices-text-dont.svg)
 
 </template>
 
@@ -201,7 +201,7 @@ next steps to solve the problem.
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of an error message conveying the use of concise messaging with clear actions.](../../assets/components/message-content-error-do.svg)
+![Error message conveying the use of concise messaging with clear actions.](../../assets/components/message-content-error-do.svg)
 
 </template>
 <template #do-text>
@@ -212,7 +212,7 @@ next steps to solve the problem.
 </template>
 <template #dont-media>
 
-![A screenshot of an error message conveying the use of long form messaging with no clear action.](../../assets/components/message-content-error-dont.svg)
+![Error message conveying the use of long form messaging with no clear action.](../../assets/components/message-content-error-dont.svg)
 
 </template>
 <template #dont-text>
@@ -230,7 +230,7 @@ Success messages let a user know that the action they took was successful.
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of a success message conveying the use of concise messaging.](../../assets/components/message-content-success-do.svg)
+![Success message conveying the use of concise messaging.](../../assets/components/message-content-success-do.svg)
 
 </template>
 <template #do-text>
@@ -240,7 +240,7 @@ Success messages let a user know that the action they took was successful.
 </template>
 <template #dont-media>
 
-![A screenshot of a success message conveying the use of long form messaging with no clear action.](../../assets/components/message-content-success-dont.svg)
+![Success message conveying the use of long form messaging with no clear action.](../../assets/components/message-content-success-dont.svg)
 
 </template>
 <template #dont-text>
@@ -258,7 +258,7 @@ action is irreversible). Warning messages should also include a solution to the 
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of a warning message conveying the use of concise messaging.](../../assets/components/message-content-warning-do.svg)
+![Warning message conveying the use of concise messaging.](../../assets/components/message-content-warning-do.svg)
 
 </template>
 <template #do-text>
@@ -268,7 +268,7 @@ action is irreversible). Warning messages should also include a solution to the 
 </template>
 <template #dont-media>
 
-![A screenshot of a warning message conveying the use of long form messaging with no clear action.](../../assets/components/message-content-warning-dont.svg)
+![Warning message conveying the use of long form messaging with no clear action.](../../assets/components/message-content-warning-dont.svg)
 
 </template>
 <template #dont-text>
@@ -287,7 +287,7 @@ or recommendations.
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of a notice message conveying the use of concise messaging in a neutral tone.](../../assets/components/message-content-notice-do.svg)
+![Notice message conveying the use of concise messaging in a neutral tone.](../../assets/components/message-content-notice-do.svg)
 
 </template>
 <template #do-text>
@@ -297,7 +297,7 @@ or recommendations.
 </template>
 <template #dont-media>
 
-![A screenshot of a notice message conveying the use of long form messaging.](../../assets/components/message-content-notice-dont.svg)
+![Notice message conveying the use of long form messaging.](../../assets/components/message-content-notice-dont.svg)
 
 </template>
 <template #dont-text>

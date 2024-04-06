@@ -218,13 +218,13 @@ understanding when using a device.
 
 <div class="cdx-docs-grid cdx-docs-grid-columns-2">
     <figure class="cdx-docs-figure">
-        <img src="../assets/apps/principles_emotion-android-watchlist_diff_thank.png" alt="Wikipedia for Android app: 'Thanks' interaction screenshot.">
+        <img src="../assets/apps/principles_emotion-android-watchlist_diff_thank.png" alt="Wikipedia for Android app: 'Thanks' interaction.">
         <figcaption class="cdx-docs-figcaption">
             The 'Thanks' interaction in the Wikipedia for Android app.
         </figcaption>
     </figure>
     <figure class="cdx-docs-figure">
-        <img src="../assets/apps/principles_emotion-ios-set_knowledge_free.png" alt="Wikipedia for iOS app: Onboarding experience screenshot.">
+        <img src="../assets/apps/principles_emotion-ios-set_knowledge_free.png" alt="Wikipedia for iOS app: Onboarding experience.">
         <figcaption class="cdx-docs-figcaption">
             The onboarding experience in the Wikipedia for iOS app educates and resonates
             emotionally.
@@ -253,7 +253,7 @@ mission.
         </figcaption>
     </figure>
     <figure class="cdx-docs-figure">
-        <img src="../assets/apps/principles_ergonomics-ios-easy_access.png" alt="Wikipedia for iOS app: Easy access of relevant actions screenshot.">
+        <img src="../assets/apps/principles_ergonomics-ios-easy_access.png" alt="Wikipedia for iOS app: Easy access of relevant actions.">
         <figcaption class="cdx-docs-figcaption">
             Relevant actions are located near the bottom of the screen for easy access.
         </figcaption>

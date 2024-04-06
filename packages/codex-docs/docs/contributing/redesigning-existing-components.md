@@ -256,7 +256,7 @@ Designers will be able to check how components are coming along during the imple
 
 Once the new version of the component has been implemented and signed-off, it will be ready to be added to the [Codex components Figma library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components) so that it can be reused in the different design projects.
 
-![Codex component Figma library screenshot](../assets/redesigning-existing-components/document-add-to-figma-library.png)
+![Codex Figma component library](../assets/redesigning-existing-components/document-add-to-figma-library.png)
 
 ::: info
 In order to avoid problems with current components and instances, system designers will be responsible for adding new components to the library and publish it. Please ping them in the component’s Phabricator task and share the design exploration file with them so they can add the component to the [library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420).

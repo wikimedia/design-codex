@@ -42,13 +42,13 @@ The SearchInput can consist of the input field alone or include the decorative
 icon. In this scenario, using the icon is suggested to emphasize that the input
 serves as a search input, distinguishing it from a simple text input.
 
-![Example of SearchInput without button.](../../assets/components/search-input-types-no-button.svg)
+![SearchInput without button.](../../assets/components/search-input-types-no-button.svg)
 
 #### With text button
 The SearchInput also has the option to feature a text button to initiate the
 search process.
 
-![Example of SearchInput with text button.](../../assets/components/search-input-types-text-button.svg)
+![SearchInput with text button.](../../assets/components/search-input-types-text-button.svg)
 
 #### With icon-only button
 The SearchInput can also include an icon-only button, particularly useful when
@@ -58,7 +58,7 @@ the button, there's no need to replicate it within the input. In this case,
 refrain from using an icon within the input field to avoid duplication with the
 icon in the button.
 
-![Example of SearchInput with icon-only button.](../../assets/components/search-input-types-icon-only-button.svg)
+![SearchInput with icon-only button.](../../assets/components/search-input-types-icon-only-button.svg)
 
 ### Interaction states
 Search inputs have the following visually separate states:
@@ -80,7 +80,7 @@ Consider the following recommendations when using SearchInput.
 
 <template #do-media>
 
-![A screenshot of a SearchInput using the ‘search’ icon.](../../assets/components/search-input-best-practices-icon-do.svg)
+![SearchInput using the ‘search’ icon.](../../assets/components/search-input-best-practices-icon-do.svg)
 
 </template>
 
@@ -92,7 +92,7 @@ Consider the following recommendations when using SearchInput.
 
 <template #dont-media>
 
-![A screenshot of a SearchInput using the ‘userActive’ icon.](../../assets/components/search-input-best-practices-icon-dont.svg)
+![SearchInput using the ‘userActive’ icon.](../../assets/components/search-input-best-practices-icon-dont.svg)
 
 </template>
 
@@ -110,7 +110,7 @@ Consider the following recommendations when using SearchInput.
 
 <template #do-media>
 
-![A screenshot of two SearchInputs: one with an icon-only search button and the other with a text-only search button.](../../assets/components/search-input-best-practices-button-do.svg)
+![Two SearchInputs: one with an icon-only search button and the other with a text-only search button.](../../assets/components/search-input-best-practices-button-do.svg)
 
 </template>
 
@@ -123,7 +123,7 @@ Consider the following recommendations when using SearchInput.
 
 <template #dont-media>
 
-![A screenshot of a SearchInput with a lengthy search button and a ‘search’ icon in both the input field and the button.](../../assets/components/search-input-best-practices-button-dont.svg)
+![SearchInput with a lengthy search button and a ‘search’ icon in both the input field and the button.](../../assets/components/search-input-best-practices-button-dont.svg)
 
 </template>
 

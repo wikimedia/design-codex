@@ -55,7 +55,7 @@ A Button next to a Link or another Button should have `@spacing-75` (equivalent 
 
 <div class="cdx-docs-example">
 
-![A group of links and buttons next to one another, displaying the amount of spacing between each element.](../assets/layout-guidelines/interactions/link-button-group.svg)
+![Group of links and buttons next to one another, displaying the amount of spacing between each element.](../assets/layout-guidelines/interactions/link-button-group.svg)
 
 </div>
 
@@ -65,7 +65,7 @@ Use Link to provide users with a clickable element to navigate to other pages or
 
 <div class="cdx-docs-example">
 
-![A body of text showing links within the content.](../assets/layout-guidelines/interactions/link-usage.svg)
+![Body of text showing links within the content.](../assets/layout-guidelines/interactions/link-usage.svg)
 
 </div>
 
@@ -95,7 +95,7 @@ Use [red Links](../components/mixins/link.md#types) only to represent wiki pages
 
 <div class="cdx-docs-example">
 
-![A body of text conveying the use of a base link and a red link.](../assets/layout-guidelines/interactions/link-blue-red.svg)
+![Body of text conveying the use of a base link and a red link.](../assets/layout-guidelines/interactions/link-blue-red.svg)
 
 </div>
 
@@ -155,7 +155,7 @@ Group of multiple links can be presented in various ways:
 <cdx-demo-rules>
 <template #do-media>
 
-![A Dialog with a Progressive Button as the secondary, "Cancel" action.](../assets/layout-guidelines/interactions/button-neutral-do.svg)
+![Dialog with a Progressive Button as the secondary, "Cancel" action.](../assets/layout-guidelines/interactions/button-neutral-do.svg)
 
 </template>
 <template #do-text>
@@ -165,7 +165,7 @@ Group of multiple links can be presented in various ways:
 </template>
 <template #dont-media>
 
-![A Dialog with a Neutral Button as the primary, "Continue" action.](../assets/layout-guidelines/interactions/button-neutral-dont.svg)
+![Dialog with a Neutral Button as the primary, "Continue" action.](../assets/layout-guidelines/interactions/button-neutral-dont.svg)
 
 </template>
 <template #dont-text>
@@ -180,7 +180,7 @@ Group of multiple links can be presented in various ways:
 <cdx-demo-rules>
 <template #do-media>
 
-![A Dialog with a Progressive Button as the primary, "Save" action.](../assets/layout-guidelines/interactions/button-progressive-do.svg)
+![Dialog with a Progressive Button as the primary, "Save" action.](../assets/layout-guidelines/interactions/button-progressive-do.svg)
 
 </template>
 <template #do-text>
@@ -190,7 +190,7 @@ Group of multiple links can be presented in various ways:
 </template>
 <template #dont-media>
 
-![A Dialog with a Progressive Button as the secondary, "Cancel" action.](../assets/layout-guidelines/interactions/button-progressive-dont.svg)
+![Dialog with a Progressive Button as the secondary, "Cancel" action.](../assets/layout-guidelines/interactions/button-progressive-dont.svg)
 
 </template>
 <template #dont-text>
@@ -205,7 +205,7 @@ Group of multiple links can be presented in various ways:
 <cdx-demo-rules>
 <template #do-media>
 
-![A Dialog with a Destructive Button as the primary, "Delete" action.](../assets/layout-guidelines/interactions/button-destructive-do.svg)
+![Dialog with a Destructive Button as the primary, "Delete" action.](../assets/layout-guidelines/interactions/button-destructive-do.svg)
 
 </template>
 <template #do-text>
@@ -215,7 +215,7 @@ Group of multiple links can be presented in various ways:
 </template>
 <template #dont-media>
 
-![A Dialog with a Destructive Button as the secondary, "Cancel" action.](../assets/layout-guidelines/interactions/button-destructive-dont.svg)
+![Dialog with a Destructive Button as the secondary, "Cancel" action.](../assets/layout-guidelines/interactions/button-destructive-dont.svg)
 
 </template>
 <template #dont-text>
@@ -255,7 +255,7 @@ Use Quiet Buttons to emphasize Normal Buttons when both are combined on the same
 
 <div class="cdx-docs-example">
 
-![A button reading "Edit" with an icon of a pencil.](../assets/layout-guidelines/interactions/button-icon.svg)
+![Button reading "Edit" with an icon of a pencil.](../assets/layout-guidelines/interactions/button-icon.svg)
 
 </div>
 
@@ -276,7 +276,7 @@ Use Quiet Buttons to emphasize Normal Buttons when both are combined on the same
 <cdx-demo-rules>
 <template #do-media>
 
-![A disabled button next to an individual input.](../assets/layout-guidelines/interactions/button-disabled-do.svg)
+![Disabled button next to an individual input.](../assets/layout-guidelines/interactions/button-disabled-do.svg)
 
 </template>
 <template #do-text>
@@ -286,7 +286,7 @@ Use Quiet Buttons to emphasize Normal Buttons when both are combined on the same
 </template>
 <template #dont-media>
 
-![A disabled button after a group of inputs.](../assets/layout-guidelines/interactions/button-disabled-dont.svg)
+![Disabled button after a group of inputs.](../assets/layout-guidelines/interactions/button-disabled-dont.svg)
 
 </template>
 <template #dont-text>
@@ -312,7 +312,7 @@ When actions are direct siblings of one another, affecting a more focused elemen
 
 <div class="cdx-docs-example">
 
-![A ButtonGroup component showing actions to "download", "edit", or "delete".](../assets/layout-guidelines/interactions/buttongroup.svg)
+![ButtonGroup showing actions to "download", "edit", or "delete".](../assets/layout-guidelines/interactions/buttongroup.svg)
 
 </div>
 

@@ -2,7 +2,7 @@
 
 Illustrations are found in Wikimedia projects as visual elements, used to engage with and help communicate a message to individuals.
 
-![A set of illustrations representing language translation.](../assets/visual-styles/illustration/illustration-header.svg)
+![Set of illustrations representing language translation.](../assets/visual-styles/illustration/illustration-header.svg)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Illustrations should never appear pixelated. Test the resolution of your illustr
 
 ## Visual style
 
-![A set of illustrations representing messaging bubbles.](../assets/visual-styles/illustration/illustration-style.svg)
+![Set of illustrations representing messaging bubbles.](../assets/visual-styles/illustration/illustration-style.svg)
 
 ### Colored backgrounds
 
@@ -28,7 +28,7 @@ Grayscale illustrations (for use in empty states) should include a 2 dp outline 
 
 ## Creating illustrations
 
-![A set of illustrations representing a map, an analytics report, and a newspaper.](../assets/visual-styles/illustration/illustration-creating.svg)
+![Set of illustrations representing a map, an analytics report, and a newspaper.](../assets/visual-styles/illustration/illustration-creating.svg)
 
 Illustrations should fit within a 200 dp by 200 dp square. Some illustrations may need to be taller than they are wide (and vice versa) but overall illustrations should look balanced within their 200 dp boundary.
 

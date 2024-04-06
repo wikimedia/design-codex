@@ -60,7 +60,7 @@ Consider the following recommendations when working with button groups.
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of a ButtonGroup with two neutral normal text buttons.](../../assets/components/button-group-best-practices-buttons-do.svg)
+![ButtonGroup with two neutral normal text buttons.](../../assets/components/button-group-best-practices-buttons-do.svg)
 
 </template>
 <template #do-text>
@@ -70,7 +70,7 @@ Consider the following recommendations when working with button groups.
 </template>
 <template #dont-media>
 
-![A screenshot of two ButtonGroups using progressive and destructive normal and primary buttons.](../../assets/components/button-group-best-practices-buttons-dont.svg)
+![Two ButtonGroups using progressive and destructive normal and primary buttons.](../../assets/components/button-group-best-practices-buttons-dont.svg)
 
 </template>
 <template #dont-text>
@@ -85,7 +85,7 @@ Consider the following recommendations when working with button groups.
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of text conveying an example of a link reading "Get the PDF of this article".](../../assets/components/button-group-best-practices-content-do.svg)
+![Two ButtonGroups with text and text numeral neutral buttons.](../../assets/components/button-group-best-practices-content-do.svg)
 
 </template>
 <template #do-text>
@@ -97,12 +97,12 @@ Consider the following recommendations when working with button groups.
 </template>
 <template #dont-media>
 
-![A screenshot of text conveying an example of a link reading "Click here to get the PDF".](../../assets/components/button-group-best-practices-content-dont.svg)
+![ButtonGroup with neutral buttons with mixed contents.](../../assets/components/button-group-best-practices-content-dont.svg)
 
 </template>
 <template #dont-text>
 
-- In order to ensure consistency, avoid mixing different types of buttons within the same ButtonGroup.
+- In order to ensure consistency, avoid mixing different types of button contents within the same ButtonGroup.
 
 </template>
 </cdx-demo-rules>
@@ -112,17 +112,17 @@ Consider the following recommendations when working with button groups.
 <cdx-demo-rules>
 <template #do-media>
 
-![A screenshot of a ButtonGroup using icon-only buttons with universal icons.](../../assets/components/button-group-best-practices-icon-only-do.svg)
+![ButtonGroup using icon-only buttons with universally recognizable icons.](../../assets/components/button-group-best-practices-icon-only-do.svg)
 
 </template>
 <template #do-text>
 
-- Icon-only buttons may be used to form a ButtonGroupbut only if the icons used are [universally understood](../../style-guide/icons.md#universal-rather-than-culturally-specific) and do not require accompanying text.
+- Icon-only buttons may be used to form a ButtonGroup but only if the icons used are [universally understood](../../style-guide/icons.md#universal-rather-than-culturally-specific) and do not require accompanying text.
 
 </template>
 <template #dont-media>
 
-![A screenshot of a ButtonGroup using icon-only buttons with too complex and non-universal icons".](../../assets/components/button-group-best-practices-icon-only-dont.svg)
+![ButtonGroup using icon-only buttons with too complex and non-universal icons.](../../assets/components/button-group-best-practices-icon-only-dont.svg)
 
 </template>
 <template #dont-text>

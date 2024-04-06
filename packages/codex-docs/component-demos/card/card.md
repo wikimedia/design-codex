@@ -39,7 +39,7 @@ The label, description, and supporting text within a card can vary in length wit
 
 The height and width of cards can be customized as needed, and when multiple cards are aligned together, their heights should adjust to match the tallest card in the set.
 
-![A screenshot displaying two cards with varying content lengths, adjusting their height to match the tallest card.](../../assets/components/card-maximum.svg)
+![Two cards with varying content lengths, adjusting their height to match the tallest card.](../../assets/components/card-maximum.svg)
 
 Refer to the [Card component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=6842-69713&mode=design&t=2O0ceqiRfqCtnidq-11).
 
@@ -74,7 +74,7 @@ Consider the following recommendations when using cards.
 
 <template #do-media>
 
-![An example of a Card with concise content.](../../assets/components/card-best-practices-content-do.svg)
+![Card with concise content.](../../assets/components/card-best-practices-content-do.svg)
 
 </template>
 
@@ -87,7 +87,7 @@ Consider the following recommendations when using cards.
 
 <template #dont-media>
 
-![An example of a Card with excessive content.](../../assets/components/card-best-practices-content-dont.svg)
+![Card with excessive content.](../../assets/components/card-best-practices-content-dont.svg)
 
 </template>
 
