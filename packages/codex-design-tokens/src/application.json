@@ -45,7 +45,7 @@
 			"value": "{ color.red700 }"
 		},
 		"destructive--focus": {
-			"value": "{ color.red600 }"
+			"value": "{ color.blue600 }"
 		},
 		"destructive-subtle": {
 			"value": "{ color.red100 }"
@@ -147,7 +147,7 @@
 			"value": "{ color.red700 }"
 		},
 		"destructive--focus": {
-			"value": "{ color.red600 }"
+			"value": "{ color.blue600 }"
 		},
 		"visited": {
 			"comment": "'Visited' color. In combination with progressive. Used for default links.",
@@ -584,7 +584,7 @@
 			"value": "{ color.red700 }"
 		},
 		"destructive--focus": {
-			"value": "{ color.red600 }"
+			"value": "{ color.blue600 }"
 		},
 		"error": {
 			"value": "{ color.red700 }"
@@ -687,7 +687,7 @@
 				"value": "{ color.blue700 }"
 			},
 			"destructive--focus": {
-				"value": "{ color.red600 }"
+				"value": "{ color.blue600 }"
 			},
 			"inverted": {
 				"value": "{ color.white }"

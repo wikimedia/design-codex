@@ -41,7 +41,7 @@
 			"value": "{ color.red700 }"
 		},
 		"link-red--focus": {
-			"value": "{ color.red600 }"
+			"value": "{ color.blue600 }"
 		},
 		"link-red--visited": {
 			"value": "{ color.maroon500 }"
