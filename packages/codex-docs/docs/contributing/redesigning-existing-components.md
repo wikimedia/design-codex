@@ -70,7 +70,7 @@ Designers should also compare components of the same category or elements with s
 
 ### 3.1. Create a new exploration file
 
-Create a new Figma file to explore the different proposals and versions of the new component, so you can share them in the Phabricator task. You can duplicate this [component exploration template](https://www.figma.com/file/6hNSvvL4CoyfemXECihJD5/Exploration-File-(Template)?node-id=1%3A3627) to create your own file. You can also copy the existing main component and its spec sheet from the [Codex components library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420&viewport=262%2C301%2C0.2) into your exploration file: this way, you won’t need to start the component specification sheet from scratch.
+Create a new Figma file to explore the different proposals and versions of the new component, so you can share them in the Phabricator task. You can duplicate this [component exploration template](https://www.figma.com/file/6hNSvvL4CoyfemXECihJD5/Exploration-File-(Template)?node-id=1%3A3627) to create your own file. You can also copy the existing main component and its specification sheet from the [Codex components library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420&viewport=262%2C301%2C0.2) into your exploration file: this way, you won’t need to start the component specification sheet from scratch.
 
 ![Create a Figma exploration file screenshot](../assets/redesigning-existing-components/redesign-component-create-exploration-file.png)
 
@@ -78,7 +78,7 @@ The following information will be included in the design exploration file:
 
 - **Cover:** contains a title, description, Phabricator task link and the task owner.
 - **Inventory** *(optional):* to collect and analyze the current use cases where the existing component is being used.
-- **Component specifications**: this [spec sheet template](https://www.figma.com/file/6hNSvvL4CoyfemXECihJD5/Component-spec-sheet-(exploration-file-template)?node-id=501%3A22874&viewport=532%2C205%2C0.12) should be used to collect the most relevant component specifications, from visual guides to use cases and RTL version. As commented above, you can create this spec sheet from scratch or copy the one from [Codex components library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420&viewport=262%2C301%2C0.2) into your exploration file in order to build on top of it.
+- **Component specifications**: this [specification sheet template](https://www.figma.com/file/6hNSvvL4CoyfemXECihJD5/Component-spec-sheet-(exploration-file-template)?node-id=501%3A22874&viewport=532%2C205%2C0.12) should be used to collect the most relevant component specifications, from visual guides to use cases and RTL version. As commented above, you can create this specification sheet from scratch or copy the one from [Codex components library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420&viewport=262%2C301%2C0.2) into your exploration file in order to build on top of it.
 - **Versioning:** Create a new Figma page for every new version of the component specifications. Indicate the version (e.g. “v1”) and date (e.g. “2022-07-17”) and add an icon to indicate if the version is the final (✅), archived (📁) or WIP (🛠).
 
 ### 3.2. Defining visual styles and interaction
@@ -115,7 +115,7 @@ It is essential to identify the component’s architecture before diving deeper 
 </div>
 
 ::: warning
-This scenario will require you to follow the same design process outlined in the [“Designing new components”](./designing-new-components.md) section to **create each one of the missing components**. Each new Codex component will require a **dedicated component task** and will have its own design spec sheet.
+This scenario will require you to follow the same design process outlined in the [“Designing new components”](./designing-new-components.md) section to **create each one of the missing components**. Each new Codex component will require a **dedicated component task** and will have its own design specification sheet.
 :::
 
 #### Defining the component’s visual style
@@ -155,7 +155,7 @@ When applying design changes to components, remember to:
 
 - Consider **internationalization** needs and make sure that the component remains optimized for the different languages and orientations (learn more about [designing for bi-directionality](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=3149%3A46886)).
 - Make sure to define the **responsive behavior** of the new version of the component, and to provide examples of its adaptation to different devices/ screen sizes. You should define the component for desktop, tablet landscape, tablet portrait and mobile.
-- Research and follow **accessibility** best practices that apply to the typology of the component being defined, and provide keyboard navigation specs if needed for this new version. Read more about [accessibility principles and resources](https://design.wikimedia.org/style-guide/design-principles_accessibility.html).
+- Research and follow **accessibility** best practices that apply to the typology of the component being defined, and provide keyboard navigation specifications if needed for this new version. Read more about [accessibility principles and resources](../style-guide/accessibility.md).
 
 ### 3.3. Redesign the main component in Figma
 
@@ -172,11 +172,11 @@ Figma provides extensive [resources](https://help.figma.com/hc/en-us) that will 
 
 ### 3.4. Create the component’s specification sheet
 
-Once the main Figma component has been updated with the new visual style and interaction, the spec sheet will need to be edited in order to reflect the latest version. As mentioned, you can copy and update the current specs available in the [Codex components library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420&viewport=262%2C301%2C0.2).
+Once the main Figma component has been updated with the new visual style and interaction, the specification sheet will need to be edited in order to reflect the latest version. As mentioned, you can copy and update the current specifications available in the [Codex components library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420&viewport=262%2C301%2C0.2).
 
 ![Component specification sheet on example Message](../assets/redesigning-existing-components/redesign-component-message-example.png)
 
-Make sure to review and update all the relevant sections of the spec sheet that need to reflect the new visual style or behavior of the component. If needed, new sections or subsections can be added to the spec sheet.
+Make sure to review and update all the relevant sections of the specification sheet that need to reflect the new visual style or behavior of the component. If needed, new sections or subsections can be added to the specification sheet.
 
 ### 3.5. Evaluate and iterate
 
@@ -202,15 +202,17 @@ A general recommendation is to test components in a realistic context that simul
 
 As some parts of the component are being redesigned, it is necessary to update the existing component’s guidelines to reflect the changes. The documentation will include the following sections, with only necessary updates to relevant sections:
 
-1. **Component’s Description:** Provide a brief overview, typically 1-3 lines, describing the component's purpose and functionality. This will serve as the main description for the component and will appear below the component's name on its dedicated page in Codex.
+1. **Component’s description:** Provide a brief overview, typically 1-3 lines, describing the component's purpose and functionality. This will serve as the main description for the component and will appear below the component's name on its dedicated page in Codex.
 2. **Using the component** (e.g. "Using Accordion"): Focus on explaining the primary characteristics of the component, detailing when and when not to use it. This section aims to guide users in making informed decisions about using the component within their projects.
-3. **Specifications:** Define the component's anatomy by assigning numbers to its elements. The corresponding text below the image will provide detailed explanations for each numbered element, specifying which of those elements are optional and can be hidden within the component. The link to the component's spec sheet in the Codex Figma library will be provided at the end of this section.
-4. **Types** (if needed): Provide details for the different properties or variants of the component, accompanied by clear images representing each one. This section is applicable only to components offering custom properties or various variants, such as Neutral, Progressive or Destructive Button.
-5. **Interaction States:** Create an image illustrating all interaction states of the component, with each state numbered. A corresponding numbered list will be included below the image, providing names for each state.
-6. **Content** (if needed): If the new component requires guidelines for content, such as recommended character count or writing recommendations, this section will provide clear instructions to do so. You can include Do and Don’t images for each recommendation.
-7. **References** (if needed): This section will serve as a repository for sources that contribute to a comprehensive understanding of the component and its guidelines. Please list and provide links to any references relevant to the documentation.
+3. **Specifications:** Define the component's anatomy by assigning numbers to its elements. The corresponding text below the image will provide detailed explanations for each numbered element, specifying which of those elements are optional and can be hidden within the component. Additionally, outline the component's minimum and maximum requirements, detailing length or element count constraints. Conclude this section with a link to the Figma specification sheet in the library.
+4. **Types** (if needed): Provide details for the different properties or variants of the component, accompanied by clear images representing each one. This section is applicable only to components offering custom properties or various variants.
+5. **Interaction states:** Create an image illustrating all interaction states of the component, with each state numbered. A corresponding numbered list will be included below the image, providing names for each state.
+6. **Best practices:** Offer guidance on optimal usage for each component, including both do and don't images with practical examples. Illustrate how users might use the different component variants and properties effectively, and explain how the component can interact with other system elements like icons, colors, or other components.
+7. **Content** (if needed): If the new component requires guidelines for content, such as recommended character count or writing recommendations, this section will provide clear instructions to do so. You can include Do and Don’t images for each recommendation.
+8. **Keyboard navigation** (if needed): Incorporate keyboard navigation into a table, detailing the keys for interacting with the component via keyboard. This section will clarify how users can navigate the component using various keyboard shortcuts, and it applies only to components with interactive states.
+9. **References** (if needed): This section will serve as a repository for sources that contribute to a comprehensive understanding of the component and its guidelines. Please list and provide links to any references relevant to the documentation.
 
-Ensure that the documentation is visually explained by preparing images for each section. Export these images in SVG format without a background, and remember to include alt text for accessibility. 
+Ensure that the documentation is visually explained by preparing images for each section. Export these images in SVG format, and remember to include alt text for accessibility. 
 
 You can use the following templates to create the component’s guidelines:
 - [Google docs](https://docs.google.com/document/d/1oVTtBk7ShOKj80dz3CYsd09sC9gBbfpbJ8M_E1zdm6c/edit?tab=t.0#heading=h.a76x583bwhh3) template to document the guidelines.
@@ -224,17 +226,17 @@ After documenting the component's guidelines, please link them to the relevant c
 
 ## 5. Hand-off to development
 
-Once the component’s new design has been discussed, iterated on (if needed) and finished, the designer will share the link to the final version of the design spec sheet in the relevant component Phabricator task, so developers can start implementing the component in Codex.
+Once the component’s new design has been discussed, iterated on (if needed) and finished, the designer will share the link to the final version of the design specification sheet in the relevant component Phabricator task, so developers can start implementing the component in Codex.
 
 The following actions are required:
 
-1. **Link the design spec in the task:** the designer will add the link to the exploration file with the design spec sheet in the description of the Phabricator task.
+1. **Link the design specification in the task:** the designer will add the link to the exploration file with the design specification sheet in the description of the Phabricator task.
 2. **Explain the proposal and list what’s being updated:** the designer will explain the proposal in the task description and will clearly list all the things we are updating in this new version of the existing component. It’s important that developers know exactly what is changing in order to save time (e.g. if Button paddings are being updated, list all the paddings and values in the task).
-3. **Post a comment:** in addition to link the spec sheet, the designer will post a comment explaining that the task is ready to be implemented, pinging the developer in that comment if possible.
+3. **Post a comment:** in addition to link the specification sheet, the designer will post a comment explaining that the task is ready to be implemented, pinging the developer in that comment if possible.
 4. **Move task in the board:** the designer will move the task to the next relevant column in the board to indicate that the component can be implemented in Codex.
 5. **Complete the design checklist:** the designer will complete the design checklist in the “Acceptance criteria” section in the task description to indicate which steps in the task were already completed.
 
-We recommend reviewing the component’s interactive and visual specs with the help from the developers that will tackle its implementation as part of the hand-off step.
+We recommend reviewing the component’s interactive and visual specifications with the help from the developers that will tackle its implementation as part of the hand-off step.
 
 Engineers can help detect edge cases and identify potential technological constraints that should be considered during the design process.
 
