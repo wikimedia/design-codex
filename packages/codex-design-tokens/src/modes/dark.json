@@ -48,10 +48,6 @@
 		"base": {
 			"value": "{ color.gray800 }"
 		},
-		"base-fixed": {
-			"comment": "The same as background-color-base in light mode, but does not change in dark mode. Use this for things that should be white in both modes.",
-			"value": "{ color.white }"
-		},
 		"neutral": {
 			"value": "{ color.gray700 }"
 		},
@@ -77,10 +73,6 @@
 		},
 		"inverted": {
 			"value": "{ color.gray800 }"
-		},
-		"inverted-fixed": {
-			"comment": "The same as color-inverted in light mode, but does not change in dark mode. Use this for things that should be white in both modes.",
-			"value": "{ color.white }"
 		},
 		"progressive": {
 			"value": "{ color.blue400 }"
