@@ -104,8 +104,8 @@ Consider the following recommendations when using toggle switches.
 
 <template #do-text>
 
-- Accompany the ToggleSwitch with a label that matches the base font size. 
-- Use text formatting and links in the label. 
+- Accompany the ToggleSwitch with a label that matches the base font size.
+- Use text formatting and links in the label.
 - Include a description below the label to provide additional information.
 
 </template>
@@ -157,6 +157,14 @@ Consider the following recommendations when using toggle switches.
 ### References
 
 1. <span id="ref1">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next ToggleSwitch within a group or to the next interactive element in tab order when the focus is placed on the last ToggleSwitch of a group. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous button within the group or to the previous interactive element when the focus is placed on the first button of the group. |
+| <kbd>Enter</kbd> / <kbd>Space</kbd> | If the focus is placed on the ToggleSwitch, it toggles the switch on and off. |
 
 ## Demos
 

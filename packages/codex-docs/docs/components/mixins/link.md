@@ -17,7 +17,7 @@ A Link navigates the user to another page, view or section, when the user clicks
 
 ### Using links
 
-Use the Link component when you need to provide users with a clickable element to navigate to a different page, resource, or section in the same page. 
+Use the Link component when you need to provide users with a clickable element to navigate to a different page, resource, or section in the same page.
 
 Apart from links that navigate to other pages, there are the following different links:
 
@@ -188,6 +188,12 @@ Red links are used to indicate that a page does not exist. Typically a red link 
 
 </template>
 </cdx-demo-rules>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Enter</kbd> | If the Link is focused, it opens the Link. |
 
 ### References
 1. <span id="ref1">[English Wikipedia: External links](https://en.wikipedia.org/wiki/Wikipedia:External_links)</span>

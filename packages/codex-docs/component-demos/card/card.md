@@ -131,6 +131,14 @@ Consider the following recommendations when using cards.
 
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | If the Card is interactive, it places the focus on the Card. If a non-interactive Card contains a link, this key places the focus in that link. When the focus is placed within an interactive Card or within the link of a non-interactive Card, it moves the focus to the next interactive element in tab order. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous interactive element. |
+| <kbd>Enter</kbd> | If the focus is on an interactive Card, it will open its hyperlink. When the focus is on a link within a Card, it will open the link. |
+
 ## Demos
 
 ### Default

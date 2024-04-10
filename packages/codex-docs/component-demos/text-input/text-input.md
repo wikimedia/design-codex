@@ -186,6 +186,13 @@ Consider the following recommendations when using text inputs.
 
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Left arrow</kbd> / <kbd>Right arrow</kbd> | The left and right arrows navigate through the text content within the input. |
+| <kbd>Up arrow</kbd> / <kbd>Down arrow</kbd> | Up arrow moves the focus from the last position of the input to the first one, while down arrow moves it from the first position to the last. |
+
 ## Demos
 
 ### Configurable

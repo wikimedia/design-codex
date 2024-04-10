@@ -308,6 +308,12 @@ or recommendations.
 </template>
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Enter</kbd> | When the Message is closable and the focus is placed on its close button, it closes the Message. If the focus is placed on a link within the Message, it activates the link. |
+
 ## Demos
 
 ### Configurable

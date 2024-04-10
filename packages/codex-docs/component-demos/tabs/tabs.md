@@ -141,7 +141,16 @@ Tabs allow a reader to access contained, structured content blocks that make pag
 </template>
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next interactive element in tab order. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous interactive element. |
+| <kbd>Left arrow</kbd> / <kbd>Right arrow</kbd> | When focusing on a Tab item, the arrow keys navigate between the rest of Tab items. |
+
 ## Demos
+
 ### Basic Example
 
 Two stylistic variants are available, quiet (the default) and framed.
@@ -227,7 +236,7 @@ somehow, either using `v-model:active` or by manually binding the `active` prop 
 
 The non-JS version of the Tabs component should be seen as a navigational tool.
 It relies on HTML form submission to trigger a change in the current active tab.
-When the user clicks on a tab button (or hits "Enter" while focused over one),
+When the user clicks on a tab button (or hits <kbd>Enter</kbd> while tab button is focused),
 the browser will load a new page.
 
 #### Basic setup:

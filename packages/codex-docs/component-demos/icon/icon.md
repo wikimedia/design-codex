@@ -115,7 +115,7 @@ library. To use this mixin, import the mixin file and apply `.cdx-mixin-css-icon
 empty `<span>` element. The parameters of the mixin are as follows:
 
 | Param name | Description | Default |
-| ---------- | ----------- | ------- |
+| -- | -- | ------- |
 | `@param-icon` <sup class="cdx-docs-required-indicator">(required)</sup> | The icon to use, in the form of a Less variable. These variables are also provided by the mixin file. The syntax for the Less variable version of an icon name is `@cdx-icon-icon-name`, e.g. `@cdx-icon-info-filled`. See the list of [all icons](../../icons/all-icons.md) for icon names. | |
 | `@param-fill-color` | The hex code of the fill color of the icon | `@color-base` |
 | `@param-size-icon` | The icon size | `@size-icon-medium` |

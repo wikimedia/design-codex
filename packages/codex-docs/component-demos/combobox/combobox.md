@@ -39,7 +39,7 @@ opens the menu.
 4. **Menu**<br>
 When the combobox is active, a [menu with options](./menu.md) is displayed.
 
-The base min-width for the Combobox component is set at `@size-1600` (equivalent to `256px` in the default Codex theme), but it can be customized to a smaller width if needed. There is no maximum width limit. 
+The base min-width for the Combobox component is set at `@size-1600` (equivalent to `256px` in the default Codex theme), but it can be customized to a smaller width if needed. There is no maximum width limit.
 
 If the text in the Combobox component exceeds the available space, it will overflow horizontally.
 
@@ -96,6 +96,19 @@ Consider the following recommendations when using comboboxes.
 </template>
 
 </cdx-demo-rules>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It places the focus within the input of the Combobox and opens its menu. It also moves the focus to the next interactive element in tab order. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | When the focus is placed within the Combobox input, it moves the focus to the previous interactive element. |
+| <kbd>Down arrow</kbd> | When the Combobox is focused, it opens the menu. When the menu is open, it navigates through menu options. If pressed at the last visible option, it scrolls to the next "hidden" menu item. |
+| <kbd>Up arrow</kbd> | When the Combobox is focused, it opens the menu. When the menu is open, it navigates through menu options. |
+| <kbd>Enter</kbd> | It opens the menu when the focus is placed on the Combobox. If the menu is open, it closes the menu. If the focus is placed in any of the options within the menu, the focused option is selected. |
+| <kbd>Esc</kbd> | When the menu it’s open, it closes the menu. |
+| <kbd>Home</kbd> | Optionally, it moves the focus to the first option. Optionally, in a single-select listbox, selection may also move with focus. Supporting this key is strongly recommended for lists with more than five options. |
+| <kbd>End</kbd> | Optionally, it moves the focus to the last option. Optionally, in a single-select listbox, selection may also move with focus. Supporting this key is strongly recommended for lists with more than five options. |
 
 ## Demos
 

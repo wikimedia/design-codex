@@ -223,6 +223,14 @@ Consider the following recommendations when using accordions.
 
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next interactive element within the Accordion or to the next Accordion in a group. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous interactive element within the Accordion or to the previous Accordion in a group. |
+| <kbd>Enter</kbd> / <kbd>Space</kbd> | It expands and collapses the accordion content. |
+
 ## Demos
 
 ### Configurable

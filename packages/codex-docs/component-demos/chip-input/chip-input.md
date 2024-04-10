@@ -125,6 +125,17 @@ Consider the following recommendations when using chip inputs.
 
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus between the chips within the input. When the focus is placed on the last chip, it moves the focus to the input to create more chips. While typing in the input, pressing it creates a chip with the typed text and then moves the focus to the next interactive element in tab order. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous chip within the input or to the previous interactive element in the page. |
+| <kbd>Enter</kbd> | While typing in the input, pressing <kbd>Enter</kbd> creates a chip with the typed text and keeps the input focused. If focused on a chip, pressing <kbd>Enter</kbd> makes the chip editable. |
+| <kbd>Esc</kbd> | While typing in the input, pressing <kbd>Esc</kbd> creates a chip with the typed text. Once the chip is created, the input loses focus. When any of the chips or input is focused, pressing <kbd>Esc</kbd> removes the focus from the focused element. |
+| <kbd>backspace</kbd> | If the focus is placed on a chip, this key removes the chip and moves the focus to the previous chip. If it removes the last chip, it moves the focus to the input. If the cursor is at the start of the input, it moves the focus to the last chip. |
+| <kbd>Left arrow</kbd> / <kbd>Right arrow</kbd> | Arrow keys navigate between the chips within the input when they are focused. |
+
 ## Demos
 
 ### Configurable

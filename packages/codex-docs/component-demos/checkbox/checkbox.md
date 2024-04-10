@@ -272,6 +272,14 @@ A checkbox lets a reader choose one or more options from a list.
 </template>
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next Checkbox within a group or to the next interactive element in tab order. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous Checkbox within a group or to the previous interactive element. |
+| <kbd>Space</kbd> | If the focus is placed on the Checkbox, it toggles the Checkbox state. |
+
 ### References
 
 1. <span id="ref1">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>

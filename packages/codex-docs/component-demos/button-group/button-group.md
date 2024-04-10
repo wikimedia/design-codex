@@ -132,6 +132,14 @@ Consider the following recommendations when working with button groups.
 </template>
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next Button within the group or to the next interactive element in tab order when the focus is placed on the last Button of the group. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous Button within the group or to the previous interactive element when the focus is placed on the first Button of the group. |
+| <kbd>Enter</kbd> / <kbd>Space</kbd> | If the focus is placed on one of the buttons, it activates that Button. |
+
 ## Demos
 Open up the browser console to see events emitted on click.
 

@@ -131,6 +131,14 @@ Consider the following recommendations when working with toggle button groups.
 
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next button within the group or to the next interactive element in tab order when the focus is placed on the last button of the group. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous button within the group or to the previous interactive element when the focus is placed on the first button of the group. |
+| <kbd>Enter</kbd> / <kbd>Space</kbd> | If the focus is placed on one of the toggle buttons within the group, it toggles that button on and off. |
+
 ## Demos
 
 ### Single value

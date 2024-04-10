@@ -130,7 +130,7 @@ A dialog can be dismissed by:
 1. The close button (X)
 2. A dismissive action like “Cancel“
 3. Tapping or clicking anywhere outside of the dialog on the background
-4. Pressing the key <kbd>esc</kbd>
+4. Pressing the key <kbd>Esc</kbd>
 
 ![A representation of how dialogs can be closed.](../../assets/components/dialog-specifications-closing.svg)
 
@@ -329,6 +329,15 @@ easier for users to move through the flow when they know what to do from the tit
 </template>
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next interactive element in tab order within the Dialog. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous interactive element within the Dialog. |
+| <kbd>Enter</kbd> | If the focus is placed on one of the Dialog’s buttons, it activates the button. |
+| <kbd>Esc</kbd> | It closes the Dialog. |
+
 ## Demos
 
 ### Configurable Dialog
@@ -495,11 +504,11 @@ the parent context down to the inner Dialog component.
 Usage of the custom component would look like this:
 
 ```vue
-<wrapped-dialog  
-	title="Custom dialog header"  
-	v-model:open="wrappedDialogState"  
->  
-	Custom dialog content.  
+<wrapped-dialog
+	title="Custom dialog header"
+	v-model:open="wrappedDialogState"
+>
+	Custom dialog content.
 </wrapped-dialog>
 ```
 

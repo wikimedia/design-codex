@@ -68,7 +68,7 @@ Subtle text indicating that the field associated with the label is not required.
 Subtle descriptive text that provides additional information about the field.
 
 The Label will be bold by default. However, it can be customized to regular weight when needed in specific cases:
-- **Bold labels** should be used when grouping two or more form fields under a title with a larger text size. 
+- **Bold labels** should be used when grouping two or more form fields under a title with a larger text size.
 - **Regular labels** should be used when grouped under a title with the same text size as the form field label. This prevents hierarchy issues and ensures consistency.
 
 Label and description can wrap onto multiple lines as needed, without strict length limits. However, it's best to keep them concise for better form readability. If the label spans multiple lines, the optional indicator will appear next to the last line of the label.
@@ -160,7 +160,7 @@ Consider the following recommendations when using labels within form fields. For
 
 <template #do-text>
 
-- Keep the Field’s label short, clear, and easy to scan. 
+- Keep the Field’s label short, clear, and easy to scan.
 - Utilize the label’s description for additional information if needed.
 
 </template>
@@ -240,6 +240,12 @@ Consider the following recommendations when using labels within form fields. For
 </template>
 
 </cdx-demo-rules>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Enter</kbd> | If the focus is placed on one of the interactive elements within the Label, it activates them. |
 
 ## Demos
 
@@ -590,7 +596,7 @@ This works for `<label>` and `<legend>`.
 
 Occasionally, there may be a [use case](field.md#complex-field-with-two-inputs) for the label to be
 visually hidden. In these cases, it should still be present in the DOM with appropriate elements
-and ARIA attributes. 
+and ARIA attributes.
 
 To visually hide the label, add the `.cdx-label--visually-hidden` class to the outer element. This
 works for `<label>` and `<legend>`.

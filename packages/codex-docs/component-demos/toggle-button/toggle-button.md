@@ -166,6 +166,14 @@ Consider the following recommendations when working with toggle buttons.
 
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next interactive element. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous interactive element. |
+| <kbd>Enter</kbd> / <kbd>Space</kbd> | If the focus is placed on the button, it toggles the button on and off. |
+
 ## Demos
 
 ### Configurable

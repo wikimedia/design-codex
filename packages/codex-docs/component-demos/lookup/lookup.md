@@ -124,6 +124,15 @@ Consider the following recommendations when using Lookups.
 
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Down arrow</kbd> | When the focus is placed on the Lookup, it opens the menu. When the menu is open, pressing it navigates through menu options. If pressed at the last visible option, it scrolls to the next "hidden" menu item. |
+| <kbd>Up arrow</kbd> | When the focus is placed on the Lookup, it opens the menu. When the menu is open, it navigates through menu options. |
+| <kbd>Esc</kbd> | When the menu is open, it closes the menu. |
+| <kbd>Enter</kbd> | It opens the menu when the focus is placed on the Lookup. If the menu is open, it closes the menu. If the focus is placed in any of the options within the menu, the focused option is selected. |
+
 ## Demos
 
 ### Default

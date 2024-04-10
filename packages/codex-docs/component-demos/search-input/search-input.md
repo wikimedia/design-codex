@@ -137,6 +137,13 @@ Consider the following recommendations when using SearchInput.
 
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Enter</kbd> | It submits the search query or performs the search action when the focus is placed on the search button. |
+| <kbd>Esc</kbd> | It clears the input when there is typed text there. |
+
 ## Demos
 
 Open the console to see emitted events.

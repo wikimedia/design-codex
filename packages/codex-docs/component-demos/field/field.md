@@ -384,6 +384,14 @@ These are short, simple contextual messages that allow the user to quickly under
 </template>
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next interactive element in tab order. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous interactive element. |
+| <kbd>Enter</kbd> | If the focus is placed on one of the interactive elements within the Field, it activates them. |
+
 ## Demos
 
 ### Configurable

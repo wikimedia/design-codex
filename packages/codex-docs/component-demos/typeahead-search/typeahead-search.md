@@ -113,6 +113,14 @@ Consider the following recommendations when using the TypeaheadSearch.
 
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Down arrow</kbd> / <kbd>Up arrow</kbd> | When the menu is displayed, it navigates through the menu items. |
+| <kbd>Enter</kbd> | If the focus is placed in any of the options within the menu, the focused option is selected. |
+| <kbd>Esc</kbd> | This key closes the menu when it is open. |
+
 ## Demos
 
 ### Search Wikipedia articles

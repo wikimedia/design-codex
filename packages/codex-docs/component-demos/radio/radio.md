@@ -165,7 +165,15 @@ A radio button ensure that a reader chooses only one option from a set of two or
 </template>
 </cdx-demo-rules>
 
-## References
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | The focus is placed on the next interactive element in tab order. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | The focus is placed on the previous interactive element. |
+| <kbd>Up arrow</kbd> / <kbd>Down arrow</kbd> | When the focus is placed on a Radio within a group, the arrow keys move the focus between the different Radios. |
+
+### References
 
 1. <span id="ref1">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>
 

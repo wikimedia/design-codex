@@ -154,6 +154,17 @@ Select text introduces the options available in a drop-down menu.
 </template>
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Down arrow</kbd> | When the focus is placed on the input, it opens the menu. When the menu is open, it navigates through menu options. If pressed at the last visible option, it scrolls to the next "hidden" menu item. |
+| <kbd>Up arrow</kbd> | When the focus is placed on the input, it opens the menu. When the menu is open, it navigates through menu options. |
+| <kbd>Enter</kbd> | It expands and collapses the menu when the focus is placed on the Select. If the focus is placed in any of the options within the menu, the focused option is selected. |
+| <kbd>Esc</kbd> | This key closes the menu when it is open. |
+| <kbd>Home</kbd> | Optionally, it moves the focus to the first option. Optionally, in a single-select listbox, selection may also move with focus. Supporting this key is strongly recommended for lists with more than five options. |
+| <kbd>End</kbd> | Optionally, it moves the focus to the last option. Optionally, in a single-select listbox, selection may also move with focus. Supporting this key is strongly recommended for lists with more than five options. |
+
 ### References
 
 1. <span id="ref1">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>

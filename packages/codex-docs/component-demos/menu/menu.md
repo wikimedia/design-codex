@@ -157,6 +157,18 @@ sequence makes them easy to scan and process.
 </template>
 </cdx-demo-rules>
 
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | When tabbing over a menu, it selects the currently selected menu item. |
+| <kbd>Down arrow</kbd> | When the focus is placed on the component that contains the menu, it opens the menu. When the menu is open, it navigates through the menu items. If pressed at the last visible option, it scrolls to the next "hidden" menu item. |
+| <kbd>Up arrow</kbd> | When the focus is placed on the component that contains the menu, it opens the menu. When the menu is open, it navigates through menu options. |
+| <kbd>Enter</kbd> | It opens and closes the menu. When the focus is on an item within the menu, it selects that item. |
+| <kbd>Esc</kbd> | It closes the menu when it is open. |
+| <kbd>Home</kbd> | Optionally, it moves the focus to the first item within the menu. Optionally, in a single-select list box, selection may also move with focus. Supporting this key is strongly recommended for lists with more than five options. |
+| <kbd>End</kbd> | Optionally, it moves the focus to the last option. Optionally, in a single-select listbox, selection may also move with focus. Supporting this key is strongly recommended for lists with more than five options. |
+
 ## Demos
 
 ### Simple menu with input

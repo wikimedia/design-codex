@@ -53,7 +53,7 @@ context. In such cases, consider [Link](../mixins/link.md) instead.<sup>[[1]](#r
 
 ### Specifications
 The button styles distinguish types of buttons and each button’s state (e.g.
-hover, active, focussed) in accessible color variations.
+hover, active, focused) in accessible color variations.
 
 ![Specification of Button.](../../assets/components/button-specifications.svg)
 
@@ -276,6 +276,12 @@ Neutral buttons are for minor or secondary actions. Always keep the hierarchy of
 
 </template>
 </cdx-demo-rules>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Enter</kbd> / <kbd>Space</kbd> | If the focus is placed on the Button, it activates the Button. |
 
 ### References
 
