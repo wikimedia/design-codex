@@ -132,8 +132,8 @@ export default defineComponent( {
 		color: inherit;
 		// TODO: The vertical alignment in the current DOM structure is not ideal. The icon should
 		// be aligned with the text baseline, but this doesn't work well in our multi font-size
-		// theme setup in MediaWiki. This is a temporary compromise to be resolved with either
-		// theme-specific CSS or a DOM structure change. See T326900.
+		// skin setup in MediaWiki. This is a temporary compromise to be resolved with either
+		// skin specific CSS or a DOM structure change. See T326900.
 		vertical-align: middle;
 	}
 }
