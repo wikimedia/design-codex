@@ -24,7 +24,7 @@ Making forms to be as usable, accessible, and inclusive as possible is not only 
 
 ### Width
 
-A form and its fields should span the entire parent container of the page or container it is within. Where horizontal space is available and a form is long, consider breaking the form into intentional sections and use a table of contents. Fields may use a maximum width of `size-3200` (equivalent to `512px` in the default Codex theme) when a table of contents is not used. In either case, all fields should be the same width as one another, whether 100% of the container or page, or as set to a maximum width.
+A form and its fields should span the entire parent container of the page or container it is within. Where horizontal space is available and a form is long, consider breaking the form into intentional sections and use a table of contents. Fields may use a maximum width of `size-4000` (equivalent to `640px` in the default Codex theme) when a table of contents is not used. In either case, all fields should be the same width as one another, whether 100% of the container or page, or as set to a maximum width.
 
 When other components exist within the form, but are not form elements such as fields, these components can span to 100% of the container, similar to the header and footer. Examples of such components are those which warrant more horizontal space, like a Table or [Accordion](../components/demos/accordion.md).
 
