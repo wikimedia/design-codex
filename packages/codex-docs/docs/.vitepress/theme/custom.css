@@ -153,6 +153,38 @@ body {
 	text-decoration: var( --text-decoration-underline );
 }
 
+/* Code. */
+.vp-doc :not( pre ) > code {
+	background-color: var( --background-color-neutral );
+	border-radius: var( --border-radius-base );
+	padding: var( --spacing-12 ) var( --spacing-25 );
+}
+
+.custom-block.tip code {
+	color: var( --color-base );
+}
+
+/*
+ * Remove bottom margin from last code block in a paragraph, this leaves spacing to
+ * be set by `.vp-doc p` only.
+ */
+.vp-doc p > code:last-child {
+	margin-bottom: 0;
+}
+
+.vp-doc a:hover > code {
+	color: var( --color-progressive );
+}
+
+.vp-doc kbd {
+	background-color: var( --background-color-neutral-subtle );
+	border: var( --border-subtle );
+	border-radius: var( --border-radius-base );
+	padding: var( --spacing-12 ) var( --spacing-25 );
+	box-shadow: var( --box-shadow-drop-small );
+	font-size: var( --font-size-small );
+}
+
 .vp-doc p,
 .vp-doc li {
 	clear: both;
@@ -355,30 +387,7 @@ body {
 	color: var( --color-progressive );
 }
 
-/* Syntax highlighting and code. ------------------------------------------- */
-
-.vp-doc :not( pre ) > code {
-	background-color: var( --background-color-neutral );
-	border-radius: var( --border-radius-base );
-	padding: var( --spacing-12 ) var( --spacing-25 );
-}
-
-.custom-block.tip code {
-	color: var( --color-base );
-}
-
-/*
- * Remove bottom margin from last code block in a paragraph, this leaves spacing to
- * be set by `.vp-doc p` only.
- */
-.vp-doc p > code:last-child {
-	margin-bottom: 0;
-}
-
-.vp-doc a:hover > code {
-	color: var( --color-progressive );
-}
-
+/* Syntax highlighting. ------------------------------------------- */
 /*
  * Make sure template-only code blocks are labeled as Vue code.
  * Hide the "template" text and inject "vue" instead.
