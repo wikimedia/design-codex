@@ -100,9 +100,6 @@
 		"base": {
 			"value": "{ color.gray750 }"
 		},
-		"base-fixed": {
-			"value": "{ color.gray750 }"
-		},
 		"base--hover": {
 			"comment": "Aimed to be replaced by `color.gray600` in future.",
 			"value": "{ color.gray650 }"
