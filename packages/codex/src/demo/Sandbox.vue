@@ -162,7 +162,6 @@ body {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		position: sticky;
 		top: 0;
 		z-index: @z-index-sticky;
@@ -217,7 +216,6 @@ body {
 		}
 
 		&__inner {
-			/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 			position: sticky;
 			top: @scroll-padding-top-sandbox;
 
