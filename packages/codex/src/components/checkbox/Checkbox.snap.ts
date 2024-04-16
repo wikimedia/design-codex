@@ -364,3 +364,47 @@ exports[`Checkbox matches the snapshot Case 7 With error: ({"modelValue": false,
   
 </span>
 `;
+
+exports[`Checkbox matches the snapshot Case 8 With hidden label: ({"hideLabel": true, "modelValue": false}) => HTML 1`] = `
+<span
+  class="cdx-checkbox cdx-checkbox--status-default"
+>
+  <input
+    class="cdx-checkbox__input"
+    id="cdx-checkbox-16"
+    type="checkbox"
+    value="false"
+  />
+  <span
+    class="cdx-checkbox__icon"
+  />
+  <!-- Only render a Label component if label text has been provided. This component can also
+			supply a description to the Checkbox if content is provided in the description slot. -->
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+  <div
+    class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
+  >
+    <label
+      class="cdx-label__label"
+      for="cdx-checkbox-16"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        
+        Checkbox with hidden label
+        
+        
+      </span>
+      <!--v-if-->
+    </label>
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
+    <!--v-if-->
+  </div>
+  
+</span>
+`;

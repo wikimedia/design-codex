@@ -22,6 +22,7 @@
 			:description-id="( $slots.description &&
 				$slots.description().length > 0 ) ? descriptionId : undefined"
 			:disabled="computedDisabled"
+			:visually-hidden="hideLabel"
 		>
 			<!-- @slot Label text. -->
 			<slot />
@@ -98,6 +99,15 @@ export default defineComponent( {
 		 * sibling components, for a stacked layout.
 		 */
 		inline: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * Whether the label should be visually hidden.
+		 *
+		 * When true, the label will remain accessible to assistive technology.
+		 */
+		hideLabel: {
 			type: Boolean,
 			default: false
 		},

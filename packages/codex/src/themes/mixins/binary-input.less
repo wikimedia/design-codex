@@ -3,6 +3,10 @@
 // Common styles for checkboxes and radios.
 .cdx-mixin-binary-input() {
 	position: relative;
+	// If the label is visually hidden, all contents of this element will be absolutely positioned,
+	// so we need to set min-sizes on this element.
+	min-width: @min-size-input-binary;
+	min-height: @min-size-input-binary;
 
 	/* stylelint-disable-next-line selector-not-notation */
 	&:not( &--inline ) {

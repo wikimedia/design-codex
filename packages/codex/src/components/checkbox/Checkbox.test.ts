@@ -12,6 +12,7 @@ describe( 'Checkbox', () => {
 				disabled?: boolean,
 				indeterminate?: boolean,
 				inline?: boolean,
+				hideLabel?: boolean,
 				status?: ValidationStatusType
 			},
 			defaultSlot: string,
@@ -26,7 +27,8 @@ describe( 'Checkbox', () => {
 			[ 'Indeterminate', { modelValue: false, indeterminate: true }, 'Indeterminate checkbox' ],
 			[ 'Inline', { modelValue: [], inputValue: 'checkbox-1', inline: true }, 'Inline checkbox' ],
 			[ 'With description', { modelValue: true }, 'Checked if true', 'Description text' ],
-			[ 'With error', { modelValue: false, status: 'error' }, 'Checkbox with error' ]
+			[ 'With error', { modelValue: false, status: 'error' }, 'Checkbox with error' ],
+			[ 'With hidden label', { modelValue: false, hideLabel: true }, 'Checkbox with hidden label' ]
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, defaultSlot, description = undefined ) => {
