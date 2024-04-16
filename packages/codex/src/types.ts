@@ -186,7 +186,8 @@ export interface ChipInputItem {
 export interface TableColumn {
 	id: string,
 	label: string,
-	textAlign?: typeof TableTextAlignments[ number ]
+	textAlign?: typeof TableTextAlignments[ number ],
+	allowSort?: boolean
 }
 
 /** @public */

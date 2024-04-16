@@ -287,7 +287,8 @@ interface TableColumn {
 	id: string,
 	label: string,
 	// Allowed values: 'start' (default), 'center', 'end'
-	textAlign?: typeof TableTextAlignments[ number ]
+	textAlign?: typeof TableTextAlignments[ number ],
+	allowSort?: boolean
 }
 ```
 

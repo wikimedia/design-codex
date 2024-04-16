@@ -39,6 +39,12 @@ const tfoot = `<tfoot>
 
 const itemSlot = '<p>{{params.item}}</p>';
 
+const columnsSortable = [
+	{ id: 'col1', label: 'Column 1' },
+	{ id: 'col2', label: 'Column 2', allowSort: true },
+	{ id: 'col3', label: 'Column 3' }
+];
+
 describe( 'Table', () => {
 	describe( 'matches the snapshot', () => {
 		type Case = [
@@ -84,6 +90,14 @@ describe( 'Table', () => {
 				false,
 				false,
 				{ 'item-col1': itemSlot }
+			],
+			[
+				'With sort icon',
+				columnsSortable,
+				dataBasic,
+				false,
+				false,
+				{ header: 'Header slot content', footer: 'Footer slot content' }
 			]
 		];
 

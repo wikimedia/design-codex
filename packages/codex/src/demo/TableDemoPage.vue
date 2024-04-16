@@ -187,6 +187,13 @@
 				</template>
 			</tbody>
 		</cdx-table>
+
+		<h2>Table with sort icon</h2>
+		<cdx-table
+			caption="Table caption"
+			:columns="columnsSortable"
+			:data="dataBasic"
+		/>
 	</section>
 </template>
 
@@ -307,6 +314,13 @@ const dataItemSlot = [
 		language: 'python'
 	}
 ];
+
+const columnsSortable: TableColumn[] = [
+	{ id: 'col1', label: 'Column 1' },
+	{ id: 'col2', label: 'Column 2', textAlign: 'end', allowSort: true },
+	{ id: 'col3', label: 'Column 3', allowSort: true }
+];
+
 function getChipStatus( itemStatus: string ) {
 	switch ( itemStatus ) {
 		case 'Connected':

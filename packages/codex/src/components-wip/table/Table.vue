@@ -28,7 +28,15 @@
 						:key="column.id"
 						:class="getCellClass( column )"
 					>
-						{{ column.label }}
+						<span class="cdx-table__th-content">
+							{{ column.label }}
+							<cdx-icon
+								v-if="column.allowSort"
+								:icon="cdxIconSortVertical"
+								size="small"
+								class="cdx-table__table__sort-icon"
+							/>
+						</span>
 					</th>
 				</thead>
 				<tbody v-if="data.length > 0">
@@ -66,6 +74,8 @@ import { PropType, defineComponent } from 'vue';
 import { TableColumn, TableRow } from '../../types';
 import { TableTextAlignments } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+import CdxIcon from '../../components/icon/Icon.vue';
+import { cdxIconSortVertical } from '@wikimedia/codex-icons';
 
 const tableTextAlignmentsValidator = makeStringTypeValidator( TableTextAlignments );
 
@@ -74,6 +84,7 @@ const tableTextAlignmentsValidator = makeStringTypeValidator( TableTextAlignment
  */
 export default defineComponent( {
 	name: 'CdxTable',
+	components: { CdxIcon },
 	props: {
 		/**
 		 * Table caption.
@@ -174,7 +185,8 @@ export default defineComponent( {
 
 		return {
 			getCellElement,
-			getCellClass
+			getCellClass,
+			cdxIconSortVertical
 		};
 	}
 } );
@@ -204,6 +216,12 @@ export default defineComponent( {
 			font-weight: @font-weight-bold;
 			line-height: @line-height-xxx-small;
 		}
+	}
+
+	&__th-content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 
 	&__table-wrapper {
@@ -241,6 +259,11 @@ export default defineComponent( {
 
 			&--align-end {
 				text-align: right;
+
+				/* stylelint-disable-next-line max-nesting-depth */
+				.cdx-table__th-content {
+					flex-direction: row-reverse;
+				}
 			}
 		}
 
