@@ -92,7 +92,9 @@ import type {
 	HeadingLevel,
 	ChipInputItem,
 	TableColumn,
-	TableRow
+	TableRow,
+	TableSort,
+	TableSortOption
 } from './types';
 
 export {
@@ -170,5 +172,7 @@ export {
 	HeadingLevel,
 	ChipInputItem,
 	TableColumn,
-	TableRow
+	TableRow,
+	TableSort,
+	TableSortOption
 };

@@ -280,6 +280,18 @@ See [StatusTypes](#statustypes).
 type StatusType = typeof StatusTypes[ number ];
 ```
 
+### TableSort
+
+```ts
+export type TableSort<K extends string = string> = { [P in K]?: TableSortOption };
+```
+
+### TableSortOption
+
+```ts
+export type TableSortOption = 'none' | 'asc' | 'desc';
+```
+
 ### TableColumn
 
 ```ts

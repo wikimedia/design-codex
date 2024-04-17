@@ -45,10 +45,20 @@ const tfoot = `<tfoot>
 
 const itemSlot = '<p>{{params.item}}</p>';
 
-const columnsSortable = [
-	{ id: 'col1', label: 'Column 1' },
-	{ id: 'col2', label: 'Column 2', allowSort: true },
-	{ id: 'col3', label: 'Column 3' }
+const columnsSingleSort = [
+	{ id: 'year', label: 'Year', textAlign: 'end', allowSort: true },
+	{ id: 'name', label: 'Last name', allowSort: true },
+	{ id: 'age', label: 'Age at win', textAlign: 'end', allowSort: true }
+];
+
+const dataSingleSort = [
+	{ year: 2023, name: 'Goldin', age: 77 },
+	{ year: 2022, name: 'Bernanke', age: 69 },
+	{ year: 2022, name: 'Diamond', age: 69 },
+	{ year: 2022, name: 'Dybvig', age: 67 },
+	{ year: 2021, name: 'Card', age: 65 },
+	{ year: 2021, name: 'Angrist', age: 61 },
+	{ year: 2021, name: 'Imbens', age: 58 }
 ];
 
 describe( 'Table', () => {
@@ -105,8 +115,8 @@ describe( 'Table', () => {
 			],
 			[
 				'With sort icon',
-				columnsSortable,
-				dataBasic,
+				columnsSingleSort,
+				dataSingleSort,
 				false,
 				false,
 				false,
@@ -209,6 +219,58 @@ describe( 'Table', () => {
 
 				const selectAllInput = wrapper.find( 'thead' ).find( 'input' );
 				expect( selectAllInput.element.checked ).toBe( true );
+			} );
+		} );
+	} );
+
+	describe( 'when sorting is enabled', () => {
+		describe( 'and a sortable column is clicked', () => {
+			it( 'emits update:sort event to update the sort prop value', async () => {
+				const wrapper = mount( CdxTable, {
+					props: {
+						caption: 'Table caption',
+						columns: columnsSingleSort,
+						data: dataSingleSort,
+						sort: {}
+					}
+				} );
+
+				// Find the first `th` element.
+				const firstTableHeader = wrapper.find( 'th' );
+
+				// Trigger a click event on the first `th` element.
+				await firstTableHeader.trigger( 'click' );
+				expect( wrapper.emitted( 'update:sort' ) ).toBeTruthy();
+				expect( wrapper.emitted( 'update:sort' )?.[ 0 ] ).toEqual( [ { year: 'asc' } ] );
+
+				// Simulate the parent responding to the update:sort event.
+				await wrapper.setProps( { sort: { year: 'asc' } } );
+
+				// Trigger another click event on the first `th` element.
+				await firstTableHeader.trigger( 'click' );
+				expect( wrapper.emitted( 'update:sort' )?.[ 1 ] ).toEqual( [ { year: 'desc' } ] );
+
+				// Simulate the parent responding to the update:sort event.
+				await wrapper.setProps( { sort: { year: 'desc' } } );
+
+				// Trigger another click event on the first `th` element.
+				await firstTableHeader.trigger( 'click' );
+				expect( wrapper.emitted( 'update:sort' )?.[ 2 ] ).toEqual( [ { year: 'none' } ] );
+				expect( wrapper.emitted( 'update:sort' )?.length ).toBe( 3 );
+
+				// Simulate the parent responding to the update:sort event.
+				await wrapper.setProps( { sort: { year: 'none' } } );
+
+				// Find the second `th` element and trigger a click event.
+				await wrapper.findAll( 'th' ).at( 1 )?.trigger( 'click' );
+				expect( wrapper.emitted( 'update:sort' )?.[ 3 ] ).toEqual( [ { name: 'asc' } ] );
+
+				// Simulate the parent responding to the update:sort event.
+				await wrapper.setProps( { sort: { name: 'asc' } } );
+
+				// Find the third `th` element and trigger a click event.
+				await wrapper.findAll( 'th' ).at( 2 )?.trigger( 'click' );
+				expect( wrapper.emitted( 'update:sort' )?.[ 4 ] ).toEqual( [ { age: 'asc' } ] );
 			} );
 		} );
 	} );

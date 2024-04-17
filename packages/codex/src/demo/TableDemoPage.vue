@@ -188,13 +188,6 @@
 			</tbody>
 		</cdx-table>
 
-		<h2>Table with sort icon</h2>
-		<cdx-table
-			caption="Table caption"
-			:columns="columnsSortable"
-			:data="dataBasic"
-		/>
-
 		<h2>Table with row selection</h2>
 		<cdx-table
 			v-model:selected-rows="selectedRows"
@@ -207,14 +200,23 @@
 				Selected rows: {{ selectedRows }}
 			</template>
 		</cdx-table>
+
+		<h2>Table with single sort</h2>
+		<cdx-table
+			v-model:sort="singleSort"
+			caption="Recent Nobel laureates in Economic Sciences"
+			:columns="columnsSingleSort"
+			:data="dataSingleSort"
+			@update:sort="handleSingleSort"
+		/>
 	</section>
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
+import { Ref, ref, computed } from 'vue';
 // eslint-disable-next-line no-restricted-imports
 import { CdxTable } from '../components-wip/index';
-import { CdxButton, CdxCheckbox, CdxInfoChip, CdxToggleSwitch, TableColumn } from '../lib';
+import { CdxButton, CdxCheckbox, CdxInfoChip, CdxToggleSwitch, TableColumn, TableSortOption, TableSort } from '../lib';
 
 const restrictWidth = ref( true );
 const rootClasses = computed( () => {
@@ -328,12 +330,6 @@ const dataItemSlot = [
 	}
 ];
 
-const columnsSortable: TableColumn[] = [
-	{ id: 'col1', label: 'Column 1' },
-	{ id: 'col2', label: 'Column 2', textAlign: 'end', allowSort: true },
-	{ id: 'col3', label: 'Column 3', allowSort: true }
-];
-
 function getChipStatus( itemStatus: string ) {
 	switch ( itemStatus ) {
 		case 'Connected':
@@ -407,8 +403,83 @@ const dataDoctorWho = {
 		}
 	]
 };
-
+// Table with row selection.
 const selectedRows = ref( [] );
+
+// Table with single sort.
+const columnsSingleSort: TableColumn[] = [
+	{ id: 'year', label: 'Year', textAlign: 'end', allowSort: true },
+	{ id: 'name', label: 'Last name', allowSort: true },
+	{ id: 'age', label: 'Age at win', textAlign: 'end', allowSort: true }
+];
+const dataSingleSort = ref( [
+	{ year: 2023, name: 'Goldin', age: 77 },
+	{ year: 2022, name: 'Bernanke', age: 69 },
+	{ year: 2022, name: 'Diamond', age: 69 },
+	{ year: 2022, name: 'Dybvig', age: 67 },
+	{ year: 2021, name: 'Card', age: 65 },
+	{ year: 2021, name: 'Angrist', age: 61 },
+	{ year: 2021, name: 'Imbens', age: 58 }
+] );
+
+interface NobelPrizeWinner {
+	year: number;
+	name: string;
+	age: number;
+}
+
+type SingleSort = TableSort<keyof NobelPrizeWinner>;
+
+const singleSort: Ref<SingleSort> = ref( { year: 'asc' } );
+
+function handleSingleSort( newSort: SingleSort ) {
+	const sortKey = Object.keys( newSort )[ 0 ] as keyof SingleSort;
+
+	function sortNumerically( columnId: 'year' | 'age', sortDir: TableSortOption ) {
+		return dataSingleSort.value.sort( ( a, b ):number => {
+			if ( sortDir === 'asc' ) {
+				return b[ columnId ] - a[ columnId ];
+			}
+			return a[ columnId ] - b[ columnId ];
+		} );
+	}
+
+	function sortByName( sortDir: TableSortOption ) {
+		return dataSingleSort.value.sort( ( a, b ) => {
+			const multiplier = sortDir === 'asc' ? 1 : -1;
+			return multiplier * ( a.name.localeCompare( b.name ) );
+		} );
+	}
+
+	// Handle default sort.
+	if ( newSort[ sortKey ] === 'none' ) {
+		dataSingleSort.value = sortNumerically( 'year', 'asc' );
+		singleSort.value[ sortKey ] = 'none';
+		return;
+	}
+
+	// Update singleSort ref.
+	singleSort.value = { [ sortKey ]: newSort[ sortKey ] };
+
+	// Sort data.
+	switch ( sortKey ) {
+		case 'year':
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			dataSingleSort.value = sortNumerically( 'year', newSort.year! );
+			return;
+		case 'name':
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			dataSingleSort.value = sortByName( newSort.name! );
+			return;
+		case 'age':
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			dataSingleSort.value = sortNumerically( 'age', newSort.age! );
+			return;
+		default:
+			return;
+	}
+}
+
 </script>
 
 <style lang="less">

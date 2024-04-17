@@ -197,3 +197,9 @@ export interface TableColumn {
 /** @public */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TableRow = Record<string, any>;
+
+/** @public */
+export type TableSortOption = 'none' | 'asc' | 'desc';
+
+/** @public */
+export type TableSort<K extends string = string> = { [P in K]?: TableSortOption };

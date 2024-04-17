@@ -36,16 +36,22 @@
 					<th
 						v-for="column in columns"
 						:key="column.id"
-						:class="getCellClass( column )"
+						scope="col"
+						:class="getCellClass( column, column.allowSort )"
+						tabindex="-1"
+						:aria-sort="getSortOrder( column.id, column.allowSort )"
 						:style="getCellStyle( column )"
+						@click="handleSort( column.id )"
 					>
 						<span class="cdx-table__th-content">
 							{{ column.label }}
 							<cdx-icon
 								v-if="column.allowSort"
-								:icon="cdxIconSortVertical"
+								:icon="getSortIcon( column.id )"
 								size="small"
 								class="cdx-table__table__sort-icon"
+								:aria-label="getSortIconLabel( column.id, column.label )"
+								aria-hidden="true"
 							/>
 						</span>
 					</th>
@@ -70,6 +76,7 @@
 							:is="getCellElement( column.id )"
 							v-for="column in columns"
 							:key="column.id"
+							:scope="getRowHeaderScope( column.id )"
 							:class="getCellClass( column )"
 						>
 							<!--
@@ -96,15 +103,29 @@
 
 <script lang="ts">
 import { PropType, defineComponent, nextTick, ref, toRef, computed } from 'vue';
-import { TableColumn, TableRow } from '../../types';
+import { TableColumn, TableRow, TableSort, TableSortOption } from '../../types';
 import { TableTextAlignments } from '../../constants';
 import useModelWrapper from '../../composables/useModelWrapper';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import CdxCheckbox from '../../components/checkbox/Checkbox.vue';
 import CdxIcon from '../../components/icon/Icon.vue';
-import { cdxIconSortVertical } from '@wikimedia/codex-icons';
+import { cdxIconSortVertical, cdxIconUpTriangle, cdxIconDownTriangle, Icon } from '@wikimedia/codex-icons';
+
+type TableSortIconMap = { [P in TableSortOption]: Icon };
+type TableSortDirection = 'none' | 'ascending' | 'descending';
+type TableSortDirectionMap = { [P in TableSortOption]: TableSortDirection };
 
 const tableTextAlignmentsValidator = makeStringTypeValidator( TableTextAlignments );
+const iconMap: TableSortIconMap = {
+	none: cdxIconSortVertical,
+	asc: cdxIconUpTriangle,
+	desc: cdxIconDownTriangle
+};
+const sortOrderMap: TableSortDirectionMap = {
+	none: 'none',
+	asc: 'ascending',
+	desc: 'descending'
+};
 
 /**
  * An HTML table for displaying data.
@@ -208,6 +229,15 @@ export default defineComponent( {
 		selectRowLabel: {
 			type: String,
 			default: 'Select row'
+		},
+		/**
+		 * Definition of sort order. Column(s) can be sorted ascending, descending, or not sorted.
+		 * To display data unsorted initially, set to an empty object initially.
+		 * Must be bound with v-model:sort
+		 */
+		sort: {
+			type: Object as PropType<TableSort>,
+			default: () => ( {} )
 		}
 	},
 	emits: [
@@ -216,8 +246,13 @@ export default defineComponent( {
 		 *
 		 * @property {string[]} selectedRows The new selected rows.
 		 */
-		'update:selectedRows'
-
+		'update:selectedRows',
+		/**
+		 * When the sort order changes emit an event to update the sort order.
+		 *
+		 * @property {Object} sort The new sort order.
+		 */
+		'update:sort'
 	],
 	setup( props, { emit } ) {
 		const tableClasses = computed( () => {
@@ -247,23 +282,23 @@ export default defineComponent( {
 		 * Get a CSS class for a cell based on its column's text alignment.
 		 *
 		 * @param column
+		 * @param hasSort
 		 * @return Dynamic class object
 		 */
-		function getCellClass( column: TableColumn ): Record<string, boolean>|undefined {
-			// Don't assign a class for the default value 'start'. Instead, we'll set
-			// text-align: left on the td and th elements.
-			if ( !( 'textAlign' in column ) || column.textAlign === 'start' ) {
-				return undefined;
-			}
-
-			if ( !tableTextAlignmentsValidator( column.textAlign ) ) {
+		function getCellClass(
+			column: TableColumn, hasSort = false
+		): Record<string, boolean>|undefined {
+			if ( 'textAlign' in column && !tableTextAlignmentsValidator( column.textAlign ) ) {
 				// eslint-disable-next-line no-console
 				console.warn( 'Invalid value for TableColumn textAlign property.' );
 				return undefined;
 			}
 
 			return {
-				[ `cdx-table__cell--align-${ column.textAlign }` ]: true
+				// Don't assign a class for the default value 'start'. Instead, we'll set
+				// text-align: left on the td and th elements.
+				[ `cdx-table__cell--align-${ column.textAlign }` ]: ( ( 'textAlign' in column ) && column.textAlign !== 'start' ),
+				'cdx-table__cell--has-sort': hasSort
 			};
 		}
 
@@ -348,6 +383,83 @@ export default defineComponent( {
 			};
 		}
 
+		// Table sort.
+		/**
+		 * Determine the new sort order based on the current sort state.
+		 * The sort state switches between ascending, descending, or unsorted (in that order).
+		 *
+		 * @param columnId
+		 */
+		function handleSort( columnId: string ) {
+			const currentSortOrder = props.sort[ columnId ] ?? 'none';
+			// newSortOrder is initially set to 'asc' for the case that currentSortOrder is "none".
+			let newSortOrder: TableSortOption = 'asc';
+
+			if ( currentSortOrder === 'asc' ) {
+				newSortOrder = 'desc';
+			}
+			if ( currentSortOrder === 'desc' ) {
+				newSortOrder = 'none';
+			}
+
+			// Sets the sort on a single column at a time and removes any previously sorted column.
+			emit( 'update:sort', { [ columnId ]: newSortOrder } );
+		}
+
+		/**
+		 * Determine the sort icon to display based on the sort order.
+		 *
+		 * @param columnId
+		 * @return Icon
+		 */
+		function getSortIcon( columnId: string ) {
+			const currentSortOrder = props.sort[ columnId ] ?? 'none';
+
+			return iconMap[ currentSortOrder ];
+		}
+
+		/**
+		 * Determine the sort icon's aria label.
+		 *
+		 * @param columnId
+		 * @param columnLabel
+		 * @return string | undefined
+		 */
+		function getSortIconLabel( columnId: string, columnLabel: string ):string | undefined {
+			const currentSortOrder = props.sort[ columnId ] ?? 'none';
+
+			if ( currentSortOrder !== 'none' ) {
+				return `Sort rows by ${ columnLabel.toLowerCase() } in ${ sortOrderMap[ currentSortOrder ] } order.`;
+			}
+		}
+
+		/**
+		 * Determine the sort order for the aria attribute `aria-sort`.
+		 *
+		 * @param columnId
+		 * @param hasSort
+		 * @return string | undefined
+		 */
+		function getSortOrder( columnId: string, hasSort = false ):TableSortDirection | undefined {
+			if ( hasSort ) {
+				const currentSortOrder = props.sort[ columnId ] ?? 'none';
+				return sortOrderMap[ currentSortOrder ];
+			}
+		}
+
+		/**
+		 * Determine the scope attribute for row headers (`th` in a `tr` element).
+		 *
+		 * @param columnId
+		 * @return string | undefined
+		 */
+		function getRowHeaderScope( columnId:string ):string | undefined {
+			const firstColumn = props.columns[ 0 ].id;
+			if ( props.useRowHeaders === true && columnId === firstColumn ) {
+				return 'row';
+			}
+		}
+
 		return {
 			tableClasses,
 			getCellElement,
@@ -359,7 +471,11 @@ export default defineComponent( {
 			handleSelectAll,
 			handleRowSelection,
 			getRowClass,
-			cdxIconSortVertical
+			handleSort,
+			getSortIcon,
+			getSortIconLabel,
+			getSortOrder,
+			getRowHeaderScope
 		};
 	}
 } );
@@ -436,6 +552,24 @@ export default defineComponent( {
 				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-table__th-content {
 					flex-direction: row-reverse;
+				}
+			}
+			// Targets the `th` elements that have a nested label and icon.
+			&--has-sort {
+				&:hover {
+					background-color: @background-color-interactive-subtle;
+					border-color: @border-color-base;
+					cursor: @cursor-base--hover;
+				}
+
+				&:active {
+					background-color: @background-color-base;
+					border-color: @border-color-base;
+				}
+
+				&:focus {
+					background-color: @background-color-interactive;
+					border-color: @border-color-progressive;
 				}
 			}
 		}
