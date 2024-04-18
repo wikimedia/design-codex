@@ -194,6 +194,19 @@
 			:columns="columnsSortable"
 			:data="dataBasic"
 		/>
+
+		<h2>Table with row selection</h2>
+		<cdx-table
+			v-model:selected-rows="selectedRows"
+			caption="Table with row selection"
+			:columns="columnsBasic"
+			:data="dataBasic"
+			:use-row-selection="true"
+		>
+			<template #header>
+				Selected rows: {{ selectedRows }}
+			</template>
+		</cdx-table>
 	</section>
 </template>
 
@@ -214,7 +227,7 @@ const rootClasses = computed( () => {
 const columnsBasic: TableColumn[] = [
 	{ id: 'col1', label: 'Column 1' },
 	{ id: 'col2', label: 'Column 2', textAlign: 'end' },
-	{ id: 'col3', label: 'Column 3!' }
+	{ id: 'col3', label: 'Column 3' }
 ];
 const dataBasic = [
 	{ col1: 'One', col2: 1, col3: 'Uno' },
@@ -394,6 +407,8 @@ const dataDoctorWho = {
 		}
 	]
 };
+
+const selectedRows = ref( [] );
 </script>
 
 <style lang="less">

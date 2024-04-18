@@ -23,6 +23,16 @@
 				<!-- Visually-hidden caption element, for assistive technology. -->
 				<caption>{{ caption }}</caption>
 				<thead v-if="columns.length > 0">
+					<th v-if="useRowSelection" class="cdx-table__row-selection">
+						<cdx-checkbox
+							v-model="selectAll"
+							:hide-label="true"
+							:indeterminate="selectAllIndeterminate"
+							@update:model-value="handleSelectAll"
+						>
+							{{ selectAllLabel }}
+						</cdx-checkbox>
+					</th>
 					<th
 						v-for="column in columns"
 						:key="column.id"
@@ -41,7 +51,21 @@
 					</th>
 				</thead>
 				<tbody v-if="data.length > 0">
-					<tr v-for="( row, rowIndex ) in data" :key="rowIndex">
+					<tr
+						v-for="( row, rowIndex ) in data"
+						:key="rowIndex"
+						:class="getRowClass( rowIndex )"
+					>
+						<td v-if="useRowSelection">
+							<cdx-checkbox
+								v-model="wrappedSelectedRows"
+								:input-value="rowIndex"
+								:hide-label="true"
+								@update:model-value="handleRowSelection"
+							>
+								{{ selectRowLabel }}
+							</cdx-checkbox>
+						</td>
 						<component
 							:is="getCellElement( column.id )"
 							v-for="column in columns"
@@ -71,14 +95,12 @@
 </template>
 
 <script lang="ts">
-import {
-	defineComponent,
-	computed,
-	PropType
-} from 'vue';
+import { PropType, defineComponent, nextTick, ref, toRef, computed } from 'vue';
 import { TableColumn, TableRow } from '../../types';
 import { TableTextAlignments } from '../../constants';
+import useModelWrapper from '../../composables/useModelWrapper';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+import CdxCheckbox from '../../components/checkbox/Checkbox.vue';
 import CdxIcon from '../../components/icon/Icon.vue';
 import { cdxIconSortVertical } from '@wikimedia/codex-icons';
 
@@ -89,7 +111,7 @@ const tableTextAlignmentsValidator = makeStringTypeValidator( TableTextAlignment
  */
 export default defineComponent( {
 	name: 'CdxTable',
-	components: { CdxIcon },
+	components: { CdxCheckbox, CdxIcon },
 	props: {
 		/**
 		 * Table caption.
@@ -154,9 +176,50 @@ export default defineComponent( {
 		showVerticalBorders: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Whether to enable row selection.
+		 */
+		useRowSelection: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * An array of selected row indices. Must be bound with `v-model:selected-rows`.
+		 */
+		selectedRows: {
+			type: Array as PropType<number[]>,
+			default: () => []
+		},
+		/**
+		 * Label for the "select all rows" checkbox.
+		 *
+		 * This label is visually hidden but needed for assistive technology.
+		 */
+		selectAllLabel: {
+			type: String,
+			default: 'Select all rows'
+		},
+		/**
+		 * Label for the "select row" checkboxes.
+		 *
+		 * These labels are visually hidden but needed for assistive technology.
+		 */
+		selectRowLabel: {
+			type: String,
+			default: 'Select row'
 		}
 	},
-	setup( props ) {
+	emits: [
+		/**
+		 * When the selected row(s) changes.
+		 *
+		 * @property {string[]} selectedRows The new selected rows.
+		 */
+		'update:selectedRows'
+
+	],
+	setup( props, { emit } ) {
 		const tableClasses = computed( () => {
 			const useFixedLayout = props.columns?.filter( ( column ) =>
 				( 'width' in column ) || ( 'minWidth' in column ) ).length > 0;
@@ -225,11 +288,77 @@ export default defineComponent( {
 			return styles;
 		}
 
+		// Row selection.
+		const wrappedSelectedRows = useModelWrapper( toRef( props, 'selectedRows' ), emit, 'update:selectedRows' );
+		const selectAll = ref( props.data.length === wrappedSelectedRows.value.length );
+		const selectAllIndeterminate = ref( false );
+
+		/**
+		 * Handle "select all" changes.
+		 *
+		 * @param newValue Whether the "select all" box is checked.
+		 */
+		function handleSelectAll( newValue: boolean ) {
+			// Always remove indeterminate status.
+			selectAllIndeterminate.value = false;
+
+			if ( newValue ) {
+				wrappedSelectedRows.value = props.data.map( ( row, rowIndex ) => rowIndex );
+			} else {
+				wrappedSelectedRows.value = [];
+			}
+		}
+
+		/**
+		 * Handle row selection changes.
+		 */
+		async function handleRowSelection() {
+			// Wait for wrappedSelectedRows.value to update.
+			await nextTick();
+
+			// If all rows are selected, check the "select all" box.
+			if ( props.data.length === wrappedSelectedRows.value.length ) {
+				selectAll.value = true;
+				selectAllIndeterminate.value = false;
+				return;
+			}
+
+			// Now we know that all rows are not selected.
+			// If "select all" was previously checked, set it to indeterminate and uncheck it.
+			if ( selectAll.value === true ) {
+				selectAllIndeterminate.value = true;
+				selectAll.value = false;
+			}
+
+			// If no rows are selected, clear indeterminate status.
+			if ( wrappedSelectedRows.value.length === 0 ) {
+				selectAllIndeterminate.value = false;
+			}
+		}
+
+		/**
+		 * Get a CSS class for a table row based on whether it is selected.
+		 *
+		 * @param rowIndex
+		 * @return Dynamic class object
+		 */
+		function getRowClass( rowIndex: number ): Record<string, boolean>|undefined {
+			return {
+				'cdx-table__row--selected': wrappedSelectedRows.value.indexOf( rowIndex ) !== -1
+			};
+		}
+
 		return {
 			tableClasses,
 			getCellElement,
 			getCellClass,
 			getCellStyle,
+			selectAll,
+			selectAllIndeterminate,
+			wrappedSelectedRows,
+			handleSelectAll,
+			handleRowSelection,
+			getRowClass,
 			cdxIconSortVertical
 		};
 	}
@@ -308,6 +437,18 @@ export default defineComponent( {
 				.cdx-table__th-content {
 					flex-direction: row-reverse;
 				}
+			}
+		}
+
+		// Column of row selection checkboxes.
+		.cdx-table__row-selection {
+			// Make this column as narrow as possible.
+			width: @size-6;
+		}
+
+		.cdx-table__row {
+			&--selected {
+				background-color: @background-color-progressive-subtle;
 			}
 		}
 
