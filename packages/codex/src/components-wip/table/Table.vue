@@ -27,6 +27,7 @@
 						v-for="column in columns"
 						:key="column.id"
 						:class="getCellClass( column )"
+						:style="getCellStyle( column )"
 					>
 						<span class="cdx-table__th-content">
 							{{ column.label }}
@@ -156,9 +157,14 @@ export default defineComponent( {
 		}
 	},
 	setup( props ) {
-		const tableClasses = computed( () => ( {
-			'cdx-table__table--borders-vertical': props.showVerticalBorders
-		} ) );
+		const tableClasses = computed( () => {
+			const useFixedLayout = props.columns?.filter( ( column ) =>
+				( 'width' in column ) || ( 'minWidth' in column ) ).length > 0;
+			return {
+				'cdx-table__table--layout-fixed': useFixedLayout,
+				'cdx-table__table--borders-vertical': props.showVerticalBorders
+			};
+		} );
 
 		/**
 		 * Determine whether a cell in the tbody should be a th or td element.
@@ -198,10 +204,32 @@ export default defineComponent( {
 			};
 		}
 
+		/**
+		 * Get style binding for thead th cells.
+		 *
+		 * Enables users to set width and min-width on columns.
+		 *
+		 * @param column
+		 * @return Dynamic style object
+		 */
+		function getCellStyle( column: TableColumn ): Record<string, string>|undefined {
+			const styles: { width?: string, minWidth?: string } = {};
+
+			if ( 'width' in column ) {
+				styles.width = column.width;
+			}
+			if ( 'minWidth' in column ) {
+				styles.minWidth = column.minWidth;
+			}
+
+			return styles;
+		}
+
 		return {
 			tableClasses,
 			getCellElement,
 			getCellClass,
+			getCellStyle,
 			cdxIconSortVertical
 		};
 	}
@@ -310,6 +338,11 @@ export default defineComponent( {
 					border-top: 0;
 				}
 			}
+		}
+
+		&--layout-fixed {
+			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+			table-layout: fixed;
 		}
 
 		/* stylelint-disable no-descending-specificity */

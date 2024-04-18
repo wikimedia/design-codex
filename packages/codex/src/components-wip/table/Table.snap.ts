@@ -1134,7 +1134,241 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
 </div>
 `;
 
-exports[`Table matches the snapshot Case 5 With header and footer slots: ([[Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Table matches the snapshot Case 5 With column width settings: ([[Object], [Object], [Object]]) => HTML 1`] = `
+<div
+  class="cdx-table"
+>
+  <div
+    class="cdx-table__header"
+  >
+    <!-- We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end. -->
+    <div
+      class="cdx-table__header__caption"
+    >
+      <!-- Visible table title. -->
+      
+      Table caption
+      
+    </div>
+    <div
+      class="cdx-table__header__slot"
+    >
+      <!-- @slot Header content. Not to be confused with \`&lt;thead&gt;\`; use the default
+					slot to customize that. -->
+      
+      
+    </div>
+  </div>
+  <div
+    class="cdx-table__table-wrapper"
+  >
+    <table
+      class="cdx-table__table cdx-table__table--layout-fixed"
+    >
+      <!-- Visually-hidden caption element, for assistive technology. -->
+      <caption>
+        Table caption
+      </caption>
+      <thead>
+        
+        <th
+          class=""
+          style="width: 20%;"
+        >
+          <span
+            class="cdx-table__th-content"
+          >
+            Column 1 
+            <!--v-if-->
+          </span>
+        </th>
+        <th
+          class=""
+          style="min-width: 100px;"
+        >
+          <span
+            class="cdx-table__th-content"
+          >
+            Column 2 
+            <!--v-if-->
+          </span>
+        </th>
+        <th
+          class=""
+          style="width: 20%; min-width: 100px;"
+        >
+          <span
+            class="cdx-table__th-content"
+          >
+            Column 3 
+            <!--v-if-->
+          </span>
+        </th>
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          <th
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            One
+            
+          </th>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Two
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Three
+            
+          </td>
+          
+        </tr>
+        <tr>
+          
+          <th
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            1
+            
+          </th>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            2
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            3
+            
+          </td>
+          
+        </tr>
+        <tr>
+          
+          <th
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Four
+            
+          </th>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Five
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            Six
+            
+          </td>
+          
+        </tr>
+        <tr>
+          
+          <th
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            4
+            
+          </th>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            5
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+								@slot Table cell content, per column.
+								@binding item Data for the cell
+							-->
+            
+            6
+            
+          </td>
+          
+        </tr>
+        
+      </tbody>
+      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      
+    </table>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`Table matches the snapshot Case 6 With header and footer slots: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
 >
@@ -1374,7 +1608,7 @@ exports[`Table matches the snapshot Case 5 With header and footer slots: ([[Obje
 </div>
 `;
 
-exports[`Table matches the snapshot Case 6 With tfoot: ([[Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Table matches the snapshot Case 7 With tfoot: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
 >
@@ -1618,7 +1852,7 @@ exports[`Table matches the snapshot Case 6 With tfoot: ([[Object], [Object], [Ob
 </div>
 `;
 
-exports[`Table matches the snapshot Case 7 With item slot: ([[Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Table matches the snapshot Case 8 With item slot: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
 >
@@ -1857,7 +2091,7 @@ exports[`Table matches the snapshot Case 7 With item slot: ([[Object], [Object],
 </div>
 `;
 
-exports[`Table matches the snapshot Case 8 With sort icon: ([[Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Table matches the snapshot Case 9 With sort icon: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
 >

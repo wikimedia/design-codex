@@ -203,7 +203,7 @@ import { ref, computed } from 'vue';
 import { CdxTable } from '../components-wip/index';
 import { CdxButton, CdxCheckbox, CdxInfoChip, CdxToggleSwitch, TableColumn } from '../lib';
 
-const restrictWidth = ref( false );
+const restrictWidth = ref( true );
 const rootClasses = computed( () => {
 	return {
 		'cdx-demo-table-page--restrict-width': restrictWidth.value
@@ -233,8 +233,8 @@ const dataOutOfOrder = [
 
 // Table with ID column and extra data.
 const columnsExtraData: TableColumn[] = [
-	{ id: 'id', label: 'ID', textAlign: 'end' },
-	{ id: 'name', label: 'Name' }
+	{ id: 'id', label: 'ID', textAlign: 'end', width: '30%' },
+	{ id: 'name', label: 'Name', width: '70%' }
 ];
 const dataExtraData = [
 	{ id: '1234', name: 'Toast', species: 'cat', coat: 'tortoiseshell' },
@@ -245,7 +245,7 @@ const dataExtraData = [
 const columnsVariedWidth: TableColumn[] = [
 	{ id: 'user', label: 'User' },
 	{ id: 'ip', label: 'IP(s)' },
-	{ id: 'userAgent', label: 'User Agent(s)' }
+	{ id: 'userAgent', label: 'User Agent(s)', minWidth: '300px' }
 ];
 
 const ids = [
@@ -253,7 +253,7 @@ const ids = [
 	'Twoword Username',
 	'Shortish',
 	'123.45.6.789',
-	'Short',
+	'Donau­dampf­schiffahrts­elektrizitäten­haupt­betriebs­werk­bau­unter­beamten­gesellschaft',
 	'PascalCase'
 ];
 const ip = '123.45.6.789';
@@ -271,7 +271,7 @@ const dataVariedWidth = [
 const columnsManyColumns: TableColumn[] = columnsVariedWidth.concat( [
 	{ id: 'user2', label: 'User 2' },
 	{ id: 'ip2', label: 'IP(s) 2' },
-	{ id: 'userAgent2', label: 'User Agent(s) 2' }
+	{ id: 'userAgent2', label: 'User Agent(s) 2', minWidth: '300px' }
 ] );
 const dataManyColumns = [
 	{ user: ids[ 0 ], ip, userAgent, user2: ids[ 0 ], ip2: ip, userAgent2: userAgent },

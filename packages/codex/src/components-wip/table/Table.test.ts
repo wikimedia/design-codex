@@ -28,6 +28,12 @@ const columnsTextAlign = [
 	{ id: 'col3', label: 'Column 3', textAlign: 'end' }
 ];
 
+const columnsWithWidths = [
+	{ id: 'col1', label: 'Column 1', width: '20%' },
+	{ id: 'col2', label: 'Column 2', minWidth: '100px' },
+	{ id: 'col3', label: 'Column 3', width: '20%', minWidth: '100px' }
+];
+
 const tfoot = `<tfoot>
 	<tr>
 		<td>One</td>
@@ -67,6 +73,7 @@ describe( 'Table', () => {
 			[ 'With text alignment', columnsTextAlign, dataBasic ],
 			[ 'With hidden caption', columnsBasic, dataBasic, true ],
 			[ 'With row headers', columnsBasic, dataBasic, false, true ],
+			[ 'With column width settings', columnsWithWidths, dataBasic, false, true ],
 			[
 				'With header and footer slots',
 				columnsBasic,
