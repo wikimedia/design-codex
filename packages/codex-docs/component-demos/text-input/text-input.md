@@ -116,8 +116,9 @@ Text inputs have the following visually separate states:
 5. Disabled
 6. Read-only
 7. Error default
-8. Error focus
-9. Error filled
+8. Error hover
+9. Error focus
+10. Error filled
 
 </div>
 
