@@ -7,8 +7,7 @@
 // * registers various custom transforms we need
 // * registers a transform group so we can re-apply those transforms
 // * registers a series of platforms and file formats to output:
-//   - stylesheet platform (CSS, LESS, SCSS, and JSON files); this also
-//     includes the "experimental" LESS file with CSS vars
+//   - stylesheet platform (CSS, LESS, SCSS, and JSON files)
 //   - javascript platform (JS file)
 //
 // In the future additional "mode" files of the WikimediaUI theme can be produced
@@ -25,7 +24,7 @@ import {
 } from './matchers.js';
 import {
 	createCustomStyleFormatter,
-	experimentalLessVariables
+	lessWithCssVariables
 } from './formatters.js';
 import {
 	camelCaseNegative,
@@ -45,16 +44,6 @@ const sdBase = StyleDictionary.extend( {
 				'Codex Design Tokens v' + packageVersion,
 				'Design System for Wikimedia',
 				'See https://doc.wikimedia.org/codex/latest/design-tokens/overview.html'
-			];
-		},
-		experimental: () => {
-			const packageVersion = getPackageVersion();
-			return [
-				'Codex Design Tokens v' + packageVersion,
-				'Design System for Wikimedia',
-				'See https://doc.wikimedia.org/codex/latest/design-tokens/overview.html',
-				'',
-				'This is an experimental stylesheet not intended for production use.'
 			];
 		}
 	},
@@ -118,10 +107,9 @@ const sdBase = StyleDictionary.extend( {
 
 	format: {
 		'custom/css': createCustomStyleFormatter( 'css' ),
-		'custom/less': createCustomStyleFormatter( 'less' ),
 		'custom/scss': createCustomStyleFormatter( 'sass' ),
 		'custom/js': createCustomStyleFormatter( 'javascript/es6' ),
-		'custom/less-experimental': experimentalLessVariables
+		'custom/less-with-css-vars': lessWithCssVariables
 	},
 
 	// Platforms are populated separately for each build below
@@ -141,10 +129,6 @@ sdBase.extend( {
 					format: 'custom/css'
 				},
 				{
-					destination: 'theme-wikimedia-ui.less',
-					format: 'custom/less'
-				},
-				{
 					destination: 'theme-wikimedia-ui.scss',
 					format: 'custom/scss'
 				},
@@ -153,18 +137,18 @@ sdBase.extend( {
 					format: 'json'
 				},
 				{
-					destination: 'theme-codex-wikimedia-experimental.less',
-					format: 'custom/less-experimental',
+					destination: 'theme-wikimedia-ui.less',
+					format: 'custom/less-with-css-vars',
 					options: {
-						fileHeader: 'experimental'
+						fileHeader: 'default'
 					}
 				},
 				{
-					destination: 'theme-codex-wikimedia-experimental.css',
+					destination: 'theme-wikimedia-ui-root.css',
 					format: 'css/variables',
 					filter: shouldExposeCustomProperty,
 					options: {
-						fileHeader: 'experimental'
+						fileHeader: 'default'
 					}
 				}
 			]
@@ -197,16 +181,16 @@ sdBase.extend( {
 			transformGroup: 'codex/stylesheet',
 			buildPath: 'dist/',
 			options: {
-				fileHeader: 'experimental'
+				fileHeader: 'default'
 			},
 			files: [
 				{
-					destination: 'theme-codex-wikimedia-mode-dark.css',
+					destination: 'theme-wikimedia-ui-mode-dark.css',
 					format: 'css/variables',
 					filter: isModeToken
 				},
 				{
-					destination: 'theme-codex-wikimedia-mode-dark.less',
+					destination: 'theme-wikimedia-ui-mixin-dark.less',
 					format: 'css/variables',
 					filter: isModeToken,
 					options: {

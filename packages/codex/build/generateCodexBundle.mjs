@@ -1,11 +1,7 @@
-import { resolve } from 'path';
 import { build, mergeConfig } from 'vite';
 import autoprefixer from 'autoprefixer';
 import rtlcss from 'rtlcss';
-import * as url from 'url';
 import emitAllowlist from './vite-plugin-emit-allowlist.mjs';
-
-const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', import.meta.url ) ) );
 
 /**
  * Build Codex (or a sub-set of it) as a set of bundled library files
@@ -29,9 +25,7 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 	/* eslint-disable no-multi-spaces */
 	const MODES = [
 		'',                 // default mode
-		'rtl',              // RTL stylesheet
-		'experimental',     // Experimental stylesheets with CSS vars for colors
-		'experimental-rtl'
+		'rtl'               // RTL stylesheet
 	];
 	/* eslint-enable no-multi-spaces */
 
@@ -83,47 +77,6 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 								autoprefixer()
 							]
 						}
-					},
-					plugins: [
-						emitAllowlist( [ 'css', 'json' ] )
-					]
-				};
-				break;
-			case 'experimental':
-				overrides = {
-					css: {
-						postcss: { plugins: [ autoprefixer() ] }
-					},
-					resolve: {
-						alias: [
-							{
-								find: /^@wikimedia\/codex-design-tokens\/(dist\/)?theme-wikimedia-ui\.less$/,
-								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-codex-wikimedia-experimental.less' )
-							}
-						]
-					},
-					plugins: [
-						emitAllowlist( [ 'css', 'json' ] )
-					]
-				};
-				break;
-			case 'experimental-rtl':
-				overrides = {
-					css: {
-						postcss: {
-							plugins: [
-								rtlcss( /** @type {rtlcss.ConfigOptions} */ ( { useCalc: true } ) ),
-								autoprefixer()
-							]
-						}
-					},
-					resolve: {
-						alias: [
-							{
-								find: /^@wikimedia\/codex-design-tokens\/(dist\/)?theme-wikimedia-ui\.less$/,
-								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-codex-wikimedia-experimental.less' )
-							}
-						]
 					},
 					plugins: [
 						emitAllowlist( [ 'css', 'json' ] )

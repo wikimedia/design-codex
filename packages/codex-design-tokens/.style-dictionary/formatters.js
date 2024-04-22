@@ -153,7 +153,7 @@ export function createCustomStyleFormatter( format ) {
  * @param {Options} args.options
  * @return {string}
  */
-export function experimentalLessVariables( { dictionary, file, options } ) {
+export function lessWithCssVariables( { dictionary, file, options } ) {
 	const header = fileHeader( { file } );
 	const { outputReferences } = options;
 	let { allTokens } = dictionary;
@@ -178,7 +178,7 @@ export function experimentalLessVariables( { dictionary, file, options } ) {
 	const replacedTokens = publishedTokens.map( ( token ) => {
 		const newToken = { ...token };
 		if ( shouldExposeCustomProperty( token ) ) {
-			newToken.value = `var( --${ token.name } )`;
+			newToken.value = `var( --${ token.name }, ${ token.value } )`;
 		}
 		return newToken;
 	} );
