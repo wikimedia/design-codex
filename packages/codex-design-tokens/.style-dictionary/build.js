@@ -10,8 +10,6 @@
 //   - stylesheet platform (CSS, LESS, SCSS, and JSON files); this also
 //     includes the "experimental" LESS file with CSS vars
 //   - javascript platform (JS file)
-//   - "legacy" stylesheet and JS platforms (same as above but with a 14px
-//      base font size).
 //
 // In the future additional "mode" files of the WikimediaUI theme can be produced
 // by calling sd.extend() and providing different files via "source" and "include"
@@ -38,7 +36,7 @@ import {
 	absoluteSizeTransform
 } from './transformers.js';
 
-// WikimediaUI theme, all platforms, including "experimental" and "legacy" builds
+// WikimediaUI theme, all platforms
 const sdBase = StyleDictionary.extend( {
 	fileHeader: {
 		default: () => {
@@ -180,60 +178,6 @@ sdBase.extend( {
 			files: [
 				{
 					destination: 'theme-wikimedia-ui.js',
-					format: 'custom/js'
-				}
-			]
-		},
-
-		// These files are identical but are still generated for compatibility purposes
-		stylesheetLegacy: {
-			transformGroup: 'codex/stylesheet',
-			buildPath: 'dist/',
-			options: { fileHeader: 'default' },
-			files: [
-				{
-					destination: 'theme-wikimedia-ui-legacy.css',
-					format: 'custom/css'
-				},
-				{
-					destination: 'theme-wikimedia-ui-legacy.less',
-					format: 'custom/less'
-				},
-				{
-					destination: 'theme-wikimedia-ui-legacy.scss',
-					format: 'custom/scss'
-				},
-				{
-					destination: 'theme-wikimedia-ui-legacy.json',
-					format: 'json'
-				},
-				{
-					destination: 'theme-codex-wikimedia-legacy-experimental.less',
-					format: 'custom/less-experimental',
-					options: {
-						fileHeader: 'experimental'
-					}
-				},
-				{
-					destination: 'theme-codex-wikimedia-legacy-experimental.css',
-					format: 'css/variables',
-					filter: shouldExposeCustomProperty,
-					options: {
-						fileHeader: 'experimental'
-					}
-				}
-			]
-		},
-
-		// These files are identical but are still generated for compatibility purposes
-		javascriptLegacy: {
-			prefix: 'cdx',
-			transformGroup: 'codex/js',
-			buildPath: 'dist/',
-			options: { fileHeader: 'default' },
-			files: [
-				{
-					destination: 'theme-wikimedia-ui-legacy.js',
 					format: 'custom/js'
 				}
 			]

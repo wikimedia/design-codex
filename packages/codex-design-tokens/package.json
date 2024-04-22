@@ -22,7 +22,8 @@
 	"scripts": {
 		"prepare": "npm run build",
 		"build": "npm run clean && npm run build:tokens",
-		"build:tokens": "node ./.style-dictionary/build.js",
+		"build:tokens": "node ./.style-dictionary/build.js && npm run copy:legacy",
+		"copy:legacy": "cp ./dist/theme-wikimedia-ui.less ./dist/theme-wikimedia-ui-legacy.less",
 		"build-if-missing": "test -e dist/theme-wikimedia-ui.json || npm run build",
 		"clean": "rm -rf ./dist",
 		"lint": "npm run lint:ts",

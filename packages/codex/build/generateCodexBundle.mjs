@@ -11,14 +11,12 @@ const __dirname = url.fileURLToPath( /** @type {url.URL} */ ( new URL( '.', impo
  * Build Codex (or a sub-set of it) as a set of bundled library files
  * with additional CSS files to support the following modes:
  * - rtl
- * - legacy (14px base font size)
- * - legacy-rtl
  *
  * This method accepts the standard Vite config options as its argument.
  * One caveat: in order to produce the asset names we want, the "assetFileNames"
  * option from Rollup is used, but this method will append some additional
- * suffixes * to the generated CSS files to indicate the mode (-rtl, -legacy,
- * etc). Input of "codex.[name]" will produce output like "codex.style.css",
+ * suffixes * to the generated CSS files to indicate the mode (-rtl, etc).
+ * Input of "codex.[name]" will produce output like "codex.style.css",
  * "codex.style-rtl.css", etc.
  *
  * See * https://rollupjs.org/configuration-options/#output-assetfilenames
@@ -32,8 +30,6 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 	const MODES = [
 		'',                 // default mode
 		'rtl',              // RTL stylesheet
-		'legacy',           // Legacy (14px base) stylesheet
-		'legacy-rtl',       // RTL 14px base stylesheet
 		'experimental',     // Experimental stylesheets with CSS vars for colors
 		'experimental-rtl'
 	];
@@ -78,24 +74,6 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 					}
 				};
 				break;
-			case 'legacy':
-				overrides = {
-					css: {
-						postcss: { plugins: [ autoprefixer() ] }
-					},
-					resolve: {
-						alias: [
-							{
-								find: /^@wikimedia\/codex-design-tokens\/(dist\/)?theme-wikimedia-ui\.less$/,
-								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-wikimedia-ui-legacy.less' )
-							}
-						]
-					},
-					plugins: [
-						emitAllowlist( [ 'css', 'json' ] )
-					]
-				};
-				break;
 			case 'rtl':
 				overrides = {
 					css: {
@@ -105,29 +83,6 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 								autoprefixer()
 							]
 						}
-					},
-					plugins: [
-						emitAllowlist( [ 'css', 'json' ] )
-					]
-				};
-				break;
-			case 'legacy-rtl':
-				overrides = {
-					css: {
-						postcss: {
-							plugins: [
-								rtlcss( /** @type {rtlcss.ConfigOptions} */ ( { useCalc: true } ) ),
-								autoprefixer()
-							]
-						}
-					},
-					resolve: {
-						alias: [
-							{
-								find: /^@wikimedia\/codex-design-tokens\/(dist\/)?theme-wikimedia-ui\.less$/,
-								replacement: resolve( __dirname, '../../codex-design-tokens/dist/theme-wikimedia-ui-legacy.less' )
-							}
-						]
 					},
 					plugins: [
 						emitAllowlist( [ 'css', 'json' ] )
