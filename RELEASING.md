@@ -78,7 +78,7 @@ how to handle them in a codebase that implements Codex:
 
 Once organized, commit the changes locally with the appropriate version number:
 ```
-$ git commit -am "Tag v1.2.34"
+$ git commit --all --message="Tag v1.2.34"
 ```
 
 Then, submit this commit to Gerrit for review:
@@ -215,7 +215,7 @@ clipboard.
 
 Then go back to the MediaWiki repository, and commit your change:
 ```
-$ git commit -a
+$ git commit --all
 ```
 This will prompt you for a commit message. Type `Update Codex from v1.2.33 to v1.2.34`, then leave
 a blank line, then paste the list of bugs from the previous step. The full commit message should
@@ -275,7 +275,7 @@ Change each of the version numbers in the `"to":` fields to the new version numb
 
 Then commit your change and submit it to Gerrit:
 ```
-$ git commit -am "releases: Bump Codex to 1.2.34"
+$ git commit --all --message="releases: Bump Codex to 1.2.34"
 $ git review
 ```
 

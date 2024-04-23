@@ -58,4 +58,4 @@ git checkout -b "tag-$NEW_VERSION"
 
 # After manually sorting the changes according to code contribution guidelines,
 # commit all changes with
-# git commit -am "Tag v$NEW_VERSION"
+# git commit --all --message="Tag v$NEW_VERSION"

@@ -24,7 +24,7 @@ function buildCss() {
 }
 
 OLDREV=$(git rev-parse HEAD^)
-NEWREV=$(git symbolic-ref -q --short HEAD || git rev-parse HEAD)
+NEWREV=$(git symbolic-ref --quiet --short HEAD || git rev-parse HEAD)
 
 git checkout HEAD^
 npm clean-install
