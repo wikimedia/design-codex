@@ -150,6 +150,14 @@ sdBase.extend( {
 					options: {
 						fileHeader: 'default'
 					}
+				},
+				{
+					destination: 'theme-wikimedia-ui-reset.less',
+					format: 'css/variables',
+					filter: shouldExposeCustomProperty,
+					options: {
+						selector: '.cdx-mode-reset()'
+					}
 				}
 			]
 		},
