@@ -511,6 +511,10 @@ export default defineComponent( {
 		.cdx-text-input__input:enabled {
 			border-color: @border-color-error;
 
+			&:hover {
+				border-color: @border-color-error--hover;
+			}
+
 			&:focus {
 				border-color: @border-color-progressive--focus;
 			}

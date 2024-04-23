@@ -430,6 +430,10 @@ export default defineComponent( {
 		.cdx-select-vue__handle {
 			border-color: @border-color-error;
 
+			&:hover {
+				border-color: @border-color-error--hover;
+			}
+
 			&:focus {
 				border-color: @border-color-progressive--focus;
 			}

@@ -359,6 +359,10 @@ export default defineComponent( {
 		.cdx-text-area__textarea:enabled:not( :read-only ) {
 			border-color: @border-color-error;
 
+			&:hover {
+				border-color: @border-color-error--hover;
+			}
+
 			&:focus {
 				border-color: @border-color-progressive--focus;
 			}
