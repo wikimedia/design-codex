@@ -39,6 +39,12 @@
 		"notice-subtle": {
 			"value": "{ color.gray750 }"
 		},
+		"content-added": {
+			"value": "{ color.blue600 }"
+		},
+		"content-removed": {
+			"value": "{ color.yellow700 }"
+		},
 		"backdrop-light": {
 			"value": "{ color.opacity-medium-dark }"
 		},
@@ -106,6 +112,12 @@
 		},
 		"notice": {
 			"value": "{ color.gray100 }"
+		},
+		"content-added": {
+			"value": "{ color.blue400 }"
+		},
+		"content-removed": {
+			"value": "{ color.yellow650 }"
 		}
 	},
 	"border-color": {
@@ -141,6 +153,12 @@
 		},
 		"notice": {
 			"value": "{ color.gray300 }"
+		},
+		"content-added": {
+			"value": "{ color.blue600 }"
+		},
+		"content-removed": {
+			"value": "{ color.yellow700 }"
 		}
 	},
 	"box-shadow": {
