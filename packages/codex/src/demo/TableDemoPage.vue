@@ -148,8 +148,8 @@
 			</tfoot>
 		</cdx-table>
 
-		<h2>Table using default slot</h2>
-		<cdx-table caption="Doctor Who seasons">
+		<h2>Table using default slot, <code>showVerticalBorders</code> is true</h2>
+		<cdx-table caption="Doctor Who seasons" :show-vertical-borders="true">
 			<thead>
 				<tr>
 					<th rowspan="2">Season/series</th>

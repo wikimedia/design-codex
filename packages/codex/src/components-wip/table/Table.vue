@@ -19,7 +19,7 @@
 			</div>
 		</div>
 		<div class="cdx-table__table-wrapper">
-			<table class="cdx-table__table">
+			<table class="cdx-table__table" :class="tableClasses">
 				<!-- Visually-hidden caption element, for assistive technology. -->
 				<caption>{{ caption }}</caption>
 				<thead v-if="columns.length > 0">
@@ -70,7 +70,11 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent } from 'vue';
+import {
+	defineComponent,
+	computed,
+	PropType
+} from 'vue';
 import { TableColumn, TableRow } from '../../types';
 import { TableTextAlignments } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
@@ -142,9 +146,20 @@ export default defineComponent( {
 		useRowHeaders: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Whether vertical borders separating columns should be rendered.
+		 */
+		showVerticalBorders: {
+			type: Boolean,
+			default: false
 		}
 	},
 	setup( props ) {
+		const tableClasses = computed( () => ( {
+			'cdx-table__table--borders-vertical': props.showVerticalBorders
+		} ) );
+
 		/**
 		 * Determine whether a cell in the tbody should be a th or td element.
 		 *
@@ -184,6 +199,7 @@ export default defineComponent( {
 		}
 
 		return {
+			tableClasses,
 			getCellElement,
 			getCellClass,
 			cdxIconSortVertical
@@ -273,6 +289,13 @@ export default defineComponent( {
 			}
 		}
 
+		tfoot {
+			td,
+			th {
+				border-top: @border-base;
+			}
+		}
+
 		tbody {
 			td,
 			th {
@@ -289,9 +312,26 @@ export default defineComponent( {
 			}
 		}
 
-		tfoot {
-			border-top: @border-base;
+		/* stylelint-disable no-descending-specificity */
+		&--borders-vertical {
+			th,
+			td {
+				border-right: @border-subtle;
+			}
+
+			th:last-child,
+			td:last-child {
+				border-right: 0;
+			}
+
+			thead {
+				/* stylelint-disable-next-line max-nesting-depth */
+				th {
+					border-top: @border-base;
+				}
+			}
 		}
+		/* stylelint-enable no-descending-specificity */
 	}
 
 	&__footer {
