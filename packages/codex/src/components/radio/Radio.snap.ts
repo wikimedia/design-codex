@@ -2,7 +2,7 @@
 
 exports[`matches the snapshot Case 0 String value: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
 <div
-  class="cdx-radio"
+  class="cdx-radio cdx-radio--status-default"
 >
   <div
     class="cdx-radio__wrapper"
@@ -54,7 +54,7 @@ exports[`matches the snapshot Case 0 String value: ({"inputValue": "radio-1", "m
 
 exports[`matches the snapshot Case 1 Number value: ({"inputValue": 2, "modelValue": 2, "name": "radios-number"}) => HTML 1`] = `
 <div
-  class="cdx-radio"
+  class="cdx-radio cdx-radio--status-default"
 >
   <div
     class="cdx-radio__wrapper"
@@ -106,7 +106,7 @@ exports[`matches the snapshot Case 1 Number value: ({"inputValue": 2, "modelValu
 
 exports[`matches the snapshot Case 2 Boolean value: ({"inputValue": true, "modelValue": true, "name": "radios-boolean"}) => HTML 1`] = `
 <div
-  class="cdx-radio"
+  class="cdx-radio cdx-radio--status-default"
 >
   <div
     class="cdx-radio__wrapper"
@@ -158,7 +158,7 @@ exports[`matches the snapshot Case 2 Boolean value: ({"inputValue": true, "model
 
 exports[`matches the snapshot Case 3 Disabled: ({"disabled": true, "inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
 <div
-  class="cdx-radio"
+  class="cdx-radio cdx-radio--status-default"
 >
   <div
     class="cdx-radio__wrapper"
@@ -211,7 +211,7 @@ exports[`matches the snapshot Case 3 Disabled: ({"disabled": true, "inputValue":
 
 exports[`matches the snapshot Case 4 Inline: ({"inline": true, "inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
 <div
-  class="cdx-radio cdx-radio--inline"
+  class="cdx-radio cdx-radio--inline cdx-radio--status-default"
 >
   <div
     class="cdx-radio__wrapper"
@@ -263,7 +263,7 @@ exports[`matches the snapshot Case 4 Inline: ({"inline": true, "inputValue": "ra
 
 exports[`matches the snapshot Case 5 With description: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
 <div
-  class="cdx-radio"
+  class="cdx-radio cdx-radio--status-default"
 >
   <div
     class="cdx-radio__wrapper"
@@ -327,7 +327,7 @@ exports[`matches the snapshot Case 5 With description: ({"inputValue": "radio-1"
 
 exports[`matches the snapshot Case 6 With custom input: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-custom-input"}) => HTML 1`] = `
 <div
-  class="cdx-radio"
+  class="cdx-radio cdx-radio--status-default"
 >
   <div
     class="cdx-radio__wrapper"
@@ -401,5 +401,57 @@ exports[`matches the snapshot Case 6 With custom input: ({"inputValue": "radio-1
     </div>
     
   </div>
+</div>
+`;
+
+exports[`matches the snapshot Case 7 With error: ({"inputValue": "", "modelValue": "", "name": "radios-string", "status": "error"}) => HTML 1`] = `
+<div
+  class="cdx-radio cdx-radio--status-error"
+>
+  <div
+    class="cdx-radio__wrapper"
+  >
+    <input
+      class="cdx-radio__input"
+      id="cdx-radio-14"
+      name="radios-string"
+      type="radio"
+      value=""
+    />
+    <span
+      class="cdx-radio__icon"
+    />
+    <!-- Only render a Label component if label text has been provided.
+			This component can also supply a description to the Radio if content
+			is provided in the description slot. -->
+    
+    <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+    <div
+      class="cdx-label cdx-radio__label"
+    >
+      <label
+        class="cdx-label__label"
+        for="cdx-radio-14"
+      >
+        <!--v-if-->
+        <span
+          class="cdx-label__label__text"
+        >
+          <!-- @slot Label text. -->
+          
+          
+          Radio with error
+          
+          
+        </span>
+        <!--v-if-->
+      </label>
+      <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
+      <!--v-if-->
+    </div>
+    
+  </div>
+  <!-- Only render custom input component(s) if custom input has been provided. -->
+  <!--v-if-->
 </div>
 `;

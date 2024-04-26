@@ -47,12 +47,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, toRef, computed } from 'vue';
+import { defineComponent, PropType, ref, toRef, computed } from 'vue';
 import CdxLabel from '../label/Label.vue';
 import useLabelChecker from '../../composables/useLabelChecker';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useFieldData from '../../composables/useFieldData';
+import { ValidationStatusType } from '../../types';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+import { ValidationStatusTypes } from '../../constants';
+
+const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
+
 /**
  * A binary input that is usually combined in a group of two or more options.
  */
@@ -101,6 +107,14 @@ export default defineComponent( {
 		inline: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * `status` attribute of the checkbox.
+		 */
+		status: {
+			type: String as PropType<ValidationStatusType>,
+			default: 'default',
+			validator: statusValidator
 		}
 	},
 	emits: [
@@ -114,9 +128,18 @@ export default defineComponent( {
 	setup( props, { emit, slots, attrs } ) {
 		useLabelChecker( slots.default?.(), attrs, 'CdxRadio' );
 
+		const {
+			computedDisabled,
+			computedStatus
+		} = useFieldData(
+			toRef( props, 'disabled' ),
+			toRef( props, 'status' )
+		);
+
 		const rootClasses = computed( (): Record<string, boolean> => {
 			return {
-				'cdx-radio--inline': props.inline
+				'cdx-radio--inline': props.inline,
+				[ `cdx-radio--status-${ computedStatus.value }` ]: true
 			};
 		} );
 
@@ -125,8 +148,6 @@ export default defineComponent( {
 				'cdx-radio__custom-input--inline': props.inline
 			};
 		} );
-
-		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
 
 		// Declare template ref.
 		const input = ref<HTMLInputElement>();
@@ -167,6 +188,8 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/binary-input.less';
+
+@border-width-input-radio--checked-error-focus: 4px;
 
 .cdx-radio {
 	// Common binary input styles.
@@ -241,6 +264,57 @@ export default defineComponent( {
 					}
 				}
 			}
+
+			/* stylelint-disable no-descending-specificity */
+			.cdx-radio--status-error & {
+				& + .cdx-radio__icon {
+					// TODO: Replace `destructive` with `error-active` when available (T374454).
+					border-color: @border-color-destructive;
+				}
+
+				&:hover + .cdx-radio__icon {
+					border-color: @border-color-error--hover;
+				}
+
+				&:focus + .cdx-radio__icon {
+					border-color: @border-color-input-binary--focus;
+				}
+
+				&:active + .cdx-radio__icon {
+					background-color: @background-color-error--active;
+					border-color: @border-color-destructive--active;
+					box-shadow: none;
+				}
+
+				&:checked {
+					/* stylelint-disable-next-line selector-not-notation */
+					&:focus:not( &:active ) + .cdx-radio__icon {
+						border-width: @border-width-base;
+
+						&::before {
+							top: @spacing-12;
+							right: @spacing-12;
+							bottom: @spacing-12;
+							left: @spacing-12;
+							// TODO: Replace border-width with a new component-level token when
+							// it becomes available (T374454).
+							border-width: @border-width-input-radio--checked-error-focus;
+							border-color: @border-color-destructive;
+						}
+					}
+
+					&:active + .cdx-radio__icon {
+						background-color: @background-color-base-fixed;
+						border-color: @border-color-destructive--active;
+						box-shadow: none;
+
+						&::before {
+							border-color: @border-color-transparent;
+						}
+					}
+				}
+			}
+			/* stylelint-enable no-descending-specificity */
 		}
 
 		/* stylelint-disable no-descending-specificity */

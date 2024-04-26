@@ -5,6 +5,19 @@ import RadioGroupNoSelection from '@/../component-demos/radio/examples/RadioGrou
 import RadiosWithDescriptions from '@/../component-demos/radio/examples/RadiosWithDescriptions.vue';
 import RadioGroupField from '@/../component-demos/radio/examples/RadioGroupField.vue';
 import RadiosWithCustomInput from '@/../component-demos/radio/examples/RadiosWithCustomInput.vue';
+import RadioConfigurable from '@/../component-demos/radio/examples/RadioConfigurable.vue';
+
+const controlsConfig = [
+	{
+		name: 'status',
+		type: 'radio',
+		options: [ 'default', 'error' ],
+	},
+	{
+		name: 'disabled',
+		type: 'boolean'
+	},
+];
 </script>
 
 A Radio is a binary input that is usually combined in a group of two or more
@@ -271,6 +284,14 @@ A radio button ensure that a reader chooses only one option from a set of two or
 ## Demos
 
 Open up the browser console to see events emitted on input.
+
+### Configurable
+
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true" generated-model-name="radioValue">
+<template v-slot:demo="{ propValues }">
+	<radio-configurable v-bind="propValues" />
+</template>
+</cdx-demo-wrapper>
 
 ### Label and description
 

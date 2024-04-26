@@ -1,6 +1,7 @@
 import { mount, shallowMount } from '@vue/test-utils';
 import CdxRadio from './Radio.vue';
 import CdxTextArea from '../text-area/TextArea.vue';
+import { ValidationStatusType } from '../../types';
 
 describe( 'matches the snapshot', () => {
 	type Case = [
@@ -11,6 +12,7 @@ describe( 'matches the snapshot', () => {
 			name: string,
 			disabled?: boolean,
 			inline?: boolean,
+			status?: ValidationStatusType
 		},
 		defaultSlot: string,
 		description?: string,
@@ -24,7 +26,8 @@ describe( 'matches the snapshot', () => {
 		[ 'Disabled', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string', disabled: true }, 'Disabled radio' ],
 		[ 'Inline', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string', inline: true }, 'Inline radio' ],
 		[ 'With description', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string' }, 'Radio 1', 'Description text' ],
-		[ 'With custom input', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-custom-input' }, 'Radio with custom input', 'Description text', '<cdx-text-area />' ]
+		[ 'With custom input', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-custom-input' }, 'Radio with custom input', 'Description text', '<cdx-text-area />' ],
+		[ 'With error', { modelValue: '', inputValue: '', name: 'radios-string', status: 'error' }, 'Radio with error' ]
 	];
 
 	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, defaultSlot, description = undefined, customInput = undefined ) => {
