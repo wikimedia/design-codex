@@ -3,6 +3,7 @@
 exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
+  tabindex="0"
 >
   <div
     class="cdx-table__header"
@@ -45,37 +46,31 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 1 
-              <!--v-if-->
+              Column 1
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 2 
-              <!--v-if-->
+              Column 2
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 3 
-              <!--v-if-->
+              Column 3
             </span>
           </th>
           
@@ -273,6 +268,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
 exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
+  tabindex="0"
 >
   <div
     class="cdx-table__header"
@@ -315,37 +311,31 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 1 
-              <!--v-if-->
+              Column 1
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 2 
-              <!--v-if-->
+              Column 2
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 3 
-              <!--v-if-->
+              Column 3
             </span>
           </th>
           
@@ -543,6 +533,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
 exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
+  tabindex="0"
 >
   <div
     class="cdx-table__header"
@@ -585,37 +576,31 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 1 
-              <!--v-if-->
+              Column 1
             </span>
           </th>
           <th
             class="cdx-table__cell--align-center"
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 2 
-              <!--v-if-->
+              Column 2
             </span>
           </th>
           <th
             class="cdx-table__cell--align-end"
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 3 
-              <!--v-if-->
+              Column 3
             </span>
           </th>
           
@@ -813,6 +798,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
 exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
+  tabindex="0"
 >
   <!--v-if-->
   <div
@@ -834,37 +820,31 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 1 
-              <!--v-if-->
+              Column 1
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 2 
-              <!--v-if-->
+              Column 2
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 3 
-              <!--v-if-->
+              Column 3
             </span>
           </th>
           
@@ -1062,6 +1042,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
 exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
+  tabindex="0"
 >
   <div
     class="cdx-table__header"
@@ -1104,37 +1085,31 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 1 
-              <!--v-if-->
+              Column 1
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 2 
-              <!--v-if-->
+              Column 2
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 3 
-              <!--v-if-->
+              Column 3
             </span>
           </th>
           
@@ -1336,6 +1311,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
 exports[`Table matches the snapshot Case 5 With column width settings: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
+  tabindex="0"
 >
   <div
     class="cdx-table__header"
@@ -1379,39 +1355,33 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             class=""
             scope="col"
             style="width: 20%;"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 1 
-              <!--v-if-->
+              Column 1
             </span>
           </th>
           <th
             class=""
             scope="col"
             style="min-width: 100px;"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 2 
-              <!--v-if-->
+              Column 2
             </span>
           </th>
           <th
             class=""
             scope="col"
             style="width: 20%; min-width: 100px;"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 3 
-              <!--v-if-->
+              Column 3
             </span>
           </th>
           
@@ -1613,6 +1583,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
 exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
+  tabindex="0"
 >
   <div
     class="cdx-table__header"
@@ -1699,37 +1670,31 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 1 
-              <!--v-if-->
+              Column 1
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 2 
-              <!--v-if-->
+              Column 2
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 3 
-              <!--v-if-->
+              Column 3
             </span>
           </th>
           
@@ -2095,6 +2060,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
 exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
+  tabindex="0"
 >
   <div
     class="cdx-table__header"
@@ -2138,37 +2104,31 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 1 
-              <!--v-if-->
+              Column 1
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 2 
-              <!--v-if-->
+              Column 2
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 3 
-              <!--v-if-->
+              Column 3
             </span>
           </th>
           
@@ -2374,6 +2334,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
 exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
+  tabindex="0"
 >
   <div
     class="cdx-table__header"
@@ -2416,37 +2377,31 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 1 
-              <!--v-if-->
+              Column 1
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 2 
-              <!--v-if-->
+              Column 2
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 3 
-              <!--v-if-->
+              Column 3
             </span>
           </th>
           
@@ -2644,6 +2599,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
 exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
+  tabindex="0"
 >
   <div
     class="cdx-table__header"
@@ -2686,37 +2642,31 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 1 
-              <!--v-if-->
+              Column 1
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 2 
-              <!--v-if-->
+              Column 2
             </span>
           </th>
           <th
             class=""
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Column 3 
-              <!--v-if-->
+              Column 3
             </span>
           </th>
           
@@ -2922,6 +2872,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
 exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
+  tabindex="0"
 >
   <div
     class="cdx-table__header"
@@ -2966,99 +2917,111 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             aria-sort="none"
             class="cdx-table__cell--align-end cdx-table__cell--has-sort"
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Year 
-              <span
-                aria-hidden="true"
-                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
+              <button
+                aria-selected="false"
+                class="cdx-table__th-content__button-sort"
               >
-                <svg
+                Year 
+                <span
                   aria-hidden="true"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  width="20"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
                 >
-                  <!--v-if-->
-                  <!-- eslint-disable vue/no-v-html -->
-                  <g>
-                    <path
-                      d="M10 0 3 8h14zm0 18-7-8h14z"
-                    />
-                  </g>
-                </svg>
-              </span>
+                  <svg
+                    aria-hidden="true"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <!--v-if-->
+                    <!-- eslint-disable vue/no-v-html -->
+                    <g>
+                      <path
+                        d="M10 0 3 8h14zm0 18-7-8h14z"
+                      />
+                    </g>
+                  </svg>
+                </span>
+              </button>
             </span>
           </th>
           <th
             aria-sort="none"
             class="cdx-table__cell--has-sort"
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Last name 
-              <span
-                aria-hidden="true"
-                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
+              <button
+                aria-selected="false"
+                class="cdx-table__th-content__button-sort"
               >
-                <svg
+                Last name 
+                <span
                   aria-hidden="true"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  width="20"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
                 >
-                  <!--v-if-->
-                  <!-- eslint-disable vue/no-v-html -->
-                  <g>
-                    <path
-                      d="M10 0 3 8h14zm0 18-7-8h14z"
-                    />
-                  </g>
-                </svg>
-              </span>
+                  <svg
+                    aria-hidden="true"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <!--v-if-->
+                    <!-- eslint-disable vue/no-v-html -->
+                    <g>
+                      <path
+                        d="M10 0 3 8h14zm0 18-7-8h14z"
+                      />
+                    </g>
+                  </svg>
+                </span>
+              </button>
             </span>
           </th>
           <th
             aria-sort="none"
             class="cdx-table__cell--align-end cdx-table__cell--has-sort"
             scope="col"
-            tabindex="-1"
           >
             <span
               class="cdx-table__th-content"
             >
-              Age at win 
-              <span
-                aria-hidden="true"
-                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
+              <button
+                aria-selected="false"
+                class="cdx-table__th-content__button-sort"
               >
-                <svg
+                Age at win 
+                <span
                   aria-hidden="true"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  width="20"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
                 >
-                  <!--v-if-->
-                  <!-- eslint-disable vue/no-v-html -->
-                  <g>
-                    <path
-                      d="M10 0 3 8h14zm0 18-7-8h14z"
-                    />
-                  </g>
-                </svg>
-              </span>
+                  <svg
+                    aria-hidden="true"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <!--v-if-->
+                    <!-- eslint-disable vue/no-v-html -->
+                    <g>
+                      <path
+                        d="M10 0 3 8h14zm0 18-7-8h14z"
+                      />
+                    </g>
+                  </svg>
+                </span>
+              </button>
             </span>
           </th>
           

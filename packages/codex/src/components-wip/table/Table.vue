@@ -1,5 +1,5 @@
 <template>
-	<div class="cdx-table">
+	<div class="cdx-table" tabindex="0">
 		<div
 			v-if="!hideCaption || ( $slots.header && $slots.header().length > 0 )"
 			class="cdx-table__header"
@@ -41,21 +41,27 @@
 								:key="column.id"
 								scope="col"
 								:class="getCellClass( column, column.allowSort )"
-								tabindex="-1"
 								:aria-sort="getSortOrder( column.id, column.allowSort )"
 								:style="getCellStyle( column )"
-								@click="handleSort( column.id )"
 							>
-								<span class="cdx-table__th-content">
+								<span v-if="column.allowSort" class="cdx-table__th-content">
+									<button
+										:aria-selected="column.id === activeSortColumn"
+										class="cdx-table__th-content__button-sort"
+										@click="handleSort( column.id )"
+									>
+										{{ column.label }}
+										<cdx-icon
+											:icon="getSortIcon( column.id )"
+											size="small"
+											class="cdx-table__table__sort-icon"
+											:aria-label="getSortIconLabel( column )"
+											aria-hidden="true"
+										/>
+									</button>
+								</span>
+								<span v-else class="cdx-table__th-content">
 									{{ column.label }}
-									<cdx-icon
-										v-if="column.allowSort"
-										:icon="getSortIcon( column.id )"
-										size="small"
-										class="cdx-table__table__sort-icon"
-										:aria-label="getSortIconLabel( column )"
-										aria-hidden="true"
-									/>
 								</span>
 							</th>
 						</tr>
@@ -266,6 +272,10 @@ export default defineComponent( {
 		'update:sort'
 	],
 	setup( props, { emit } ) {
+		const activeSortColumn = computed( () => {
+			return Object.keys( props.sort )[ 0 ];
+		} );
+
 		const tableClasses = computed( () => {
 			const useFixedLayout = props.columns?.some( ( column ) =>
 				( 'width' in column ) || ( 'minWidth' in column ) );
@@ -290,7 +300,8 @@ export default defineComponent( {
 		}
 
 		/**
-		 * Get a CSS class for a cell based on its column's text alignment.
+		 * Get a CSS class for a cell based on its column's text alignment and whether sorting is
+		 * enabled.
 		 *
 		 * @param column
 		 * @param hasSort
@@ -413,8 +424,8 @@ export default defineComponent( {
 			if ( currentSortOrder === 'desc' ) {
 				newSortOrder = 'none';
 			}
-
-			// Sets the sort on a single column at a time and removes any previously sorted column.
+			// Set the sort order on a single column at a time and remove any previously sorted
+			// column.
 			emit( 'update:sort', { [ columnId ]: newSortOrder } );
 		}
 
@@ -487,7 +498,8 @@ export default defineComponent( {
 			getSortIcon,
 			getSortIconLabel,
 			getSortOrder,
-			getRowHeaderScope
+			getRowHeaderScope,
+			activeSortColumn
 		};
 	}
 } );
@@ -520,10 +532,45 @@ export default defineComponent( {
 		}
 	}
 
-	&__th-content {
+	// Button element styles
+	&__th-content__button-sort {
+		// Override browser <button> styles for background.
+		background-color: @background-color-transparent;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		width: @size-full;
+		max-width: @size-1600;
+		// Override browser <button> styles for border.
+		border: 0;
+		padding: @spacing-75;
+		font-size: @font-size-medium;
+		font-weight: @font-weight-bold;
+		line-height: @line-height-x-small;
+		text-decoration: @text-decoration-none;
+		// Hide overflowing text.
+		.text-overflow( @param-visible: false );
+
+		&:hover {
+			background-color: @background-color-interactive-subtle;
+			border-color: @border-color-base;
+			cursor: @cursor-base--hover;
+		}
+
+		&:focus {
+			// Override browser <button> styles for outline.
+			outline: @outline-base--focus;
+		}
+
+		&:active {
+			background-color: @background-color-interactive;
+			border-color: @border-color-base;
+		}
+
+		&:focus:not( :active ) {
+			background-color: @background-color-base;
+			box-shadow: @box-shadow-inset-medium @box-shadow-color-progressive--focus;
+		}
 	}
 
 	&__table-wrapper {
@@ -568,7 +615,7 @@ export default defineComponent( {
 				text-align: right;
 
 				/* stylelint-disable-next-line max-nesting-depth */
-				.cdx-table__th-content {
+				.cdx-table__th-content__button-sort {
 					flex-direction: row-reverse;
 				}
 
@@ -579,21 +626,7 @@ export default defineComponent( {
 			}
 			// Targets the `th` elements that have a nested label and icon.
 			&--has-sort {
-				&:hover {
-					background-color: @background-color-interactive-subtle;
-					border-color: @border-color-base;
-					cursor: @cursor-base--hover;
-				}
-
-				&:active {
-					background-color: @background-color-base;
-					border-color: @border-color-base;
-				}
-
-				&:focus {
-					background-color: @background-color-interactive;
-					border-color: @border-color-progressive;
-				}
+				padding: 0;
 			}
 		}
 

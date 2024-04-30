@@ -421,16 +421,17 @@ const selectedRows = ref( [] );
 const columnsSingleSort: TableColumn[] = [
 	{ id: 'year', label: 'Year', textAlign: 'end', allowSort: true },
 	{ id: 'name', label: 'Last name', allowSort: true },
+	{ id: 'pronoun', label: 'Pronoun', textAlign: 'end' },
 	{ id: 'age', label: 'Age at win', textAlign: 'end', allowSort: true }
 ];
 const dataSingleSort = ref( [
-	{ year: 2023, name: 'Goldin', age: 77 },
-	{ year: 2022, name: 'Bernanke', age: 69 },
-	{ year: 2022, name: 'Diamond', age: 69 },
-	{ year: 2022, name: 'Dybvig', age: 67 },
-	{ year: 2021, name: 'Card', age: 65 },
-	{ year: 2021, name: 'Angrist', age: 61 },
-	{ year: 2021, name: 'Imbens', age: 58 }
+	{ year: 2023, name: 'Goldin', age: 77, pronoun: 'unknown' },
+	{ year: 2022, name: 'Bernanke', age: 69, pronoun: 'unknown' },
+	{ year: 2022, name: 'Diamond', age: 69, pronoun: 'unknown' },
+	{ year: 2022, name: 'Dybvig', age: 67, pronoun: 'unknown' },
+	{ year: 2021, name: 'Card', age: 65, pronoun: 'unknown' },
+	{ year: 2021, name: 'Angrist', age: 61, pronoun: 'unknown' },
+	{ year: 2021, name: 'Imbens', age: 58, pronoun: 'unknown' }
 ] );
 
 interface NobelPrizeWinner {
