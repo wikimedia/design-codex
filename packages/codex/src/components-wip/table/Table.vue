@@ -638,12 +638,6 @@ export default defineComponent( {
 					border-top: @border-base;
 				}
 			}
-
-			// Class to add a vertical border as needed. Useful for custom layouts with colspans.
-			.cdx-table__cell--force-vertical-border {
-				/* stylelint-disable-next-line declaration-no-important */
-				border-right: @border-subtle !important;
-			}
 		}
 		/* stylelint-enable no-descending-specificity */
 	}

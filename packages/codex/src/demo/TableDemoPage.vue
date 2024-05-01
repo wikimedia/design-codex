@@ -168,7 +168,7 @@
 				</tr>
 				<tr>
 					<th>First aired</th>
-					<th class="cdx-table__cell--force-vertical-border">Last aired</th>
+					<th>Last aired</th>
 				</tr>
 			</thead>
 			<tbody>
