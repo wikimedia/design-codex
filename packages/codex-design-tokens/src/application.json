@@ -159,6 +159,10 @@
 			"comment": "'Visited' color. In combination with progressive. Used for default links.",
 			"value": "{ color.purple600 }"
 		},
+		"destructive--visited": {
+			"comment": "Red link 'Visited' color. Used for visited red links.",
+			"value": "{ color.maroon500 }"
+		},
 		"error": {
 			"value": "{ color.red600 }"
 		},

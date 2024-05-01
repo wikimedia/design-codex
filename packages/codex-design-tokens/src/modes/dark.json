@@ -101,6 +101,9 @@
 		"visited": {
 			"value": "{ color.purple400 }"
 		},
+		"destructive--visited": {
+			"value": "{ color.maroon400 }"
+		},
 		"error": {
 			"value": "{ color.red500 }"
 		},

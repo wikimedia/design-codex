@@ -28,19 +28,19 @@
 	"color": {
 		"link-red": {
 			"comment": "Red ('new') Link color and states",
-			"value": "{ color.red600 }"
+			"value": "{ color.destructive }"
 		},
 		"link-red--hover": {
-			"value": "{ color.red500 }"
+			"value": "{ color.destructive--hover }"
 		},
 		"link-red--active": {
-			"value": "{ color.red700 }"
+			"value": "{ color.destructive--active }"
 		},
 		"link-red--focus": {
-			"value": "{ color.blue600 }"
+			"value": "{ color.destructive--focus }"
 		},
 		"link-red--visited": {
-			"value": "{ color.maroon500 }"
+			"value": "{ color.destructive--visited }"
 		}
 	},
 	"min-size": {
