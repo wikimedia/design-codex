@@ -13,8 +13,8 @@
 				</template>
 			</div>
 			<div class="cdx-table__header__slot">
-				<!-- @slot Header content. Not to be confused with `<thead>`; use the default
-					slot to customize that. -->
+				<!-- eslint-disable-next-line max-len -->
+				<!-- @slot Header content. Not to be confused with <thead>; use the thead slot to customize that. -->
 				<slot name="header" />
 			</div>
 		</div>
@@ -22,80 +22,91 @@
 			<table class="cdx-table__table" :class="tableClasses">
 				<!-- Visually-hidden caption element, for assistive technology. -->
 				<caption>{{ caption }}</caption>
-				<thead v-if="columns.length > 0">
-					<th v-if="useRowSelection" class="cdx-table__row-selection">
-						<cdx-checkbox
-							v-model="selectAll"
-							:hide-label="true"
-							:indeterminate="selectAllIndeterminate"
-							@update:model-value="handleSelectAll"
-						>
-							{{ selectAllLabel }}
-						</cdx-checkbox>
-					</th>
-					<th
-						v-for="column in columns"
-						:key="column.id"
-						scope="col"
-						:class="getCellClass( column, column.allowSort )"
-						tabindex="-1"
-						:aria-sort="getSortOrder( column.id, column.allowSort )"
-						:style="getCellStyle( column )"
-						@click="handleSort( column.id )"
-					>
-						<span class="cdx-table__th-content">
-							{{ column.label }}
-							<cdx-icon
-								v-if="column.allowSort"
-								:icon="getSortIcon( column.id )"
-								size="small"
-								class="cdx-table__table__sort-icon"
-								:aria-label="getSortIconLabel( column.id, column.label )"
-								aria-hidden="true"
-							/>
-						</span>
-					</th>
-				</thead>
-				<tbody v-if="data.length > 0">
-					<tr
-						v-for="( row, rowIndex ) in data"
-						:key="rowIndex"
-						:class="getRowClass( rowIndex )"
-					>
-						<td v-if="useRowSelection">
+				<!-- @slot Custom <thead>. -->
+				<slot name="thead">
+					<thead v-if="columns.length > 0">
+						<th v-if="useRowSelection" class="cdx-table__row-selection">
 							<cdx-checkbox
-								v-model="wrappedSelectedRows"
-								:input-value="rowIndex"
+								v-model="selectAll"
 								:hide-label="true"
-								@update:model-value="handleRowSelection"
+								:indeterminate="selectAllIndeterminate"
+								@update:model-value="handleSelectAll"
 							>
-								{{ selectRowLabel }}
+								{{ selectAllLabel }}
 							</cdx-checkbox>
-						</td>
-						<component
-							:is="getCellElement( column.id )"
+						</th>
+						<th
 							v-for="column in columns"
 							:key="column.id"
-							:scope="getRowHeaderScope( column.id )"
-							:class="getCellClass( column )"
+							scope="col"
+							:class="getCellClass( column, column.allowSort )"
+							tabindex="-1"
+							:aria-sort="getSortOrder( column.id, column.allowSort )"
+							:style="getCellStyle( column )"
+							@click="handleSort( column.id )"
 						>
-							<!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
-							<slot :name="'item-' + column.id" :item="row[ column.id ]">
-								{{ row[ column.id ] }}
-							</slot>
-						</component>
-					</tr>
-				</tbody>
-				<!-- @slot Custom thead, tbody, and tfoot. -->
-				<slot />
+							<span class="cdx-table__th-content">
+								{{ column.label }}
+								<cdx-icon
+									v-if="column.allowSort"
+									:icon="getSortIcon( column.id )"
+									size="small"
+									class="cdx-table__table__sort-icon"
+									:aria-label="getSortIconLabel( column.id, column.label )"
+									aria-hidden="true"
+								/>
+							</span>
+						</th>
+					</thead>
+				</slot>
+
+				<!-- @slot Custom <tbody>. -->
+				<slot name="tbody">
+					<tbody v-if="data.length > 0">
+						<tr
+							v-for="( row, rowIndex ) in data"
+							:key="rowIndex"
+							:class="getRowClass( rowIndex )"
+						>
+							<td v-if="useRowSelection">
+								<cdx-checkbox
+									v-model="wrappedSelectedRows"
+									:input-value="rowIndex"
+									:hide-label="true"
+									@update:model-value="handleRowSelection"
+								>
+									{{ selectRowLabel }}
+								</cdx-checkbox>
+							</td>
+							<component
+								:is="getCellElement( column.id )"
+								v-for="column in columns"
+								:key="column.id"
+								:scope="getRowHeaderScope( column.id )"
+								:class="getCellClass( column )"
+							>
+								<!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
+								<slot
+									:name="'item-' + column.id"
+									:item="row[ column.id ]"
+									:row="row">
+									{{ row[ column.id ] }}
+								</slot>
+							</component>
+						</tr>
+					</tbody>
+				</slot>
+				<!-- @slot Custom <tfoot>. -->
+				<slot name="tfoot" />
 			</table>
 		</div>
 		<div v-if="$slots.footer && $slots.footer().length > 0" class="cdx-table__footer">
-			<!-- @slot Footer content. Not to be confused with `<tfoot>`; use the default
-				slot to add that. -->
+			<!-- eslint-disable-next-line max-len -->
+			<!-- @slot Footer content. Not to be confused with <tfoot>; use the tfoot slot to add that. -->
 			<slot name="footer" />
 		</div>
 	</div>

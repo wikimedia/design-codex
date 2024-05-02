@@ -20,8 +20,8 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
     <div
       class="cdx-table__header__slot"
     >
-      <!-- @slot Header content. Not to be confused with \`&lt;thead&gt;\`; use the default
-					slot to customize that. -->
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
     </div>
@@ -36,6 +36,8 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
       <caption>
         Table caption
       </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
       <thead>
         <!--v-if-->
         
@@ -77,6 +79,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
         </th>
         
       </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
       <tbody>
         
         <tr
@@ -88,9 +93,10 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             One
             
@@ -99,9 +105,10 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Two
             
@@ -110,9 +117,10 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Three
             
@@ -128,9 +136,10 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             1
             
@@ -139,9 +148,10 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2
             
@@ -150,9 +160,10 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             3
             
@@ -168,9 +179,10 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Four
             
@@ -179,9 +191,10 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Five
             
@@ -190,9 +203,10 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Six
             
@@ -208,9 +222,10 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             4
             
@@ -219,9 +234,10 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             5
             
@@ -230,9 +246,10 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             6
             
@@ -241,7 +258,8 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
         </tr>
         
       </tbody>
-      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
       
       
     </table>
@@ -270,8 +288,8 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
     <div
       class="cdx-table__header__slot"
     >
-      <!-- @slot Header content. Not to be confused with \`&lt;thead&gt;\`; use the default
-					slot to customize that. -->
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
     </div>
@@ -286,6 +304,8 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
       <caption>
         Table caption
       </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
       <thead>
         <!--v-if-->
         
@@ -327,6 +347,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
         </th>
         
       </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
       <tbody>
         
         <tr
@@ -338,9 +361,10 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             One
             
@@ -349,9 +373,10 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Two
             
@@ -360,9 +385,10 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Three
             
@@ -378,9 +404,10 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             1
             
@@ -389,9 +416,10 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2
             
@@ -400,9 +428,10 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             3
             
@@ -418,9 +447,10 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Four
             
@@ -429,9 +459,10 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Five
             
@@ -440,9 +471,10 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Six
             
@@ -458,9 +490,10 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             4
             
@@ -469,9 +502,10 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             5
             
@@ -480,9 +514,10 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             6
             
@@ -491,7 +526,8 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
         </tr>
         
       </tbody>
-      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
       
       
     </table>
@@ -520,8 +556,8 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
     <div
       class="cdx-table__header__slot"
     >
-      <!-- @slot Header content. Not to be confused with \`&lt;thead&gt;\`; use the default
-					slot to customize that. -->
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
     </div>
@@ -536,6 +572,8 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
       <caption>
         Table caption
       </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
       <thead>
         <!--v-if-->
         
@@ -577,6 +615,9 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
         </th>
         
       </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
       <tbody>
         
         <tr
@@ -588,9 +629,10 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             One
             
@@ -599,9 +641,10 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class="cdx-table__cell--align-center"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Two
             
@@ -610,9 +653,10 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Three
             
@@ -628,9 +672,10 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             1
             
@@ -639,9 +684,10 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class="cdx-table__cell--align-center"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2
             
@@ -650,9 +696,10 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             3
             
@@ -668,9 +715,10 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Four
             
@@ -679,9 +727,10 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class="cdx-table__cell--align-center"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Five
             
@@ -690,9 +739,10 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Six
             
@@ -708,9 +758,10 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             4
             
@@ -719,9 +770,10 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class="cdx-table__cell--align-center"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             5
             
@@ -730,9 +782,10 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             6
             
@@ -741,7 +794,8 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
         </tr>
         
       </tbody>
-      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
       
       
     </table>
@@ -765,6 +819,8 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
       <caption>
         Table caption
       </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
       <thead>
         <!--v-if-->
         
@@ -806,6 +862,9 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
         </th>
         
       </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
       <tbody>
         
         <tr
@@ -817,9 +876,10 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             One
             
@@ -828,9 +888,10 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Two
             
@@ -839,9 +900,10 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Three
             
@@ -857,9 +919,10 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             1
             
@@ -868,9 +931,10 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2
             
@@ -879,9 +943,10 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             3
             
@@ -897,9 +962,10 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Four
             
@@ -908,9 +974,10 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Five
             
@@ -919,9 +986,10 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Six
             
@@ -937,9 +1005,10 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             4
             
@@ -948,9 +1017,10 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             5
             
@@ -959,9 +1029,10 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             6
             
@@ -970,7 +1041,8 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
         </tr>
         
       </tbody>
-      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
       
       
     </table>
@@ -999,8 +1071,8 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
     <div
       class="cdx-table__header__slot"
     >
-      <!-- @slot Header content. Not to be confused with \`&lt;thead&gt;\`; use the default
-					slot to customize that. -->
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
     </div>
@@ -1015,6 +1087,8 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
       <caption>
         Table caption
       </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
       <thead>
         <!--v-if-->
         
@@ -1056,6 +1130,9 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
         </th>
         
       </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
       <tbody>
         
         <tr
@@ -1068,9 +1145,10 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             scope="row"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             One
             
@@ -1079,9 +1157,10 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Two
             
@@ -1090,9 +1169,10 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Three
             
@@ -1109,9 +1189,10 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             scope="row"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             1
             
@@ -1120,9 +1201,10 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2
             
@@ -1131,9 +1213,10 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             3
             
@@ -1150,9 +1233,10 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             scope="row"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Four
             
@@ -1161,9 +1245,10 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Five
             
@@ -1172,9 +1257,10 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Six
             
@@ -1191,9 +1277,10 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             scope="row"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             4
             
@@ -1202,9 +1289,10 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             5
             
@@ -1213,9 +1301,10 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             6
             
@@ -1224,7 +1313,8 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
         </tr>
         
       </tbody>
-      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
       
       
     </table>
@@ -1253,8 +1343,8 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
     <div
       class="cdx-table__header__slot"
     >
-      <!-- @slot Header content. Not to be confused with \`&lt;thead&gt;\`; use the default
-					slot to customize that. -->
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
     </div>
@@ -1269,6 +1359,8 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
       <caption>
         Table caption
       </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
       <thead>
         <!--v-if-->
         
@@ -1313,6 +1405,9 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
         </th>
         
       </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
       <tbody>
         
         <tr
@@ -1325,9 +1420,10 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             scope="row"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             One
             
@@ -1336,9 +1432,10 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Two
             
@@ -1347,9 +1444,10 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Three
             
@@ -1366,9 +1464,10 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             scope="row"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             1
             
@@ -1377,9 +1476,10 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2
             
@@ -1388,9 +1488,10 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             3
             
@@ -1407,9 +1508,10 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             scope="row"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Four
             
@@ -1418,9 +1520,10 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Five
             
@@ -1429,9 +1532,10 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Six
             
@@ -1448,9 +1552,10 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             scope="row"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             4
             
@@ -1459,9 +1564,10 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             5
             
@@ -1470,9 +1576,10 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             6
             
@@ -1481,7 +1588,8 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
         </tr>
         
       </tbody>
-      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
       
       
     </table>
@@ -1510,8 +1618,8 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
     <div
       class="cdx-table__header__slot"
     >
-      <!-- @slot Header content. Not to be confused with \`&lt;thead&gt;\`; use the default
-					slot to customize that. -->
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
     </div>
@@ -1526,6 +1634,8 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
       <caption>
         Table caption
       </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
       <thead>
         <th
           class="cdx-table__row-selection"
@@ -1611,6 +1721,9 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
         </th>
         
       </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
       <tbody>
         
         <tr
@@ -1664,9 +1777,10 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             One
             
@@ -1675,9 +1789,10 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Two
             
@@ -1686,9 +1801,10 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Three
             
@@ -1746,9 +1862,10 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             1
             
@@ -1757,9 +1874,10 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2
             
@@ -1768,9 +1886,10 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             3
             
@@ -1828,9 +1947,10 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Four
             
@@ -1839,9 +1959,10 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Five
             
@@ -1850,9 +1971,10 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Six
             
@@ -1910,9 +2032,10 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             4
             
@@ -1921,9 +2044,10 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             5
             
@@ -1932,9 +2056,10 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             6
             
@@ -1943,7 +2068,8 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
         </tr>
         
       </tbody>
-      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
       
       
     </table>
@@ -1972,8 +2098,8 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
     <div
       class="cdx-table__header__slot"
     >
-      <!-- @slot Header content. Not to be confused with \`&lt;thead&gt;\`; use the default
-					slot to customize that. -->
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       Header slot content
       
@@ -1989,6 +2115,8 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
       <caption>
         Table caption
       </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
       <thead>
         <!--v-if-->
         
@@ -2030,6 +2158,9 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
         </th>
         
       </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
       <tbody>
         
         <tr
@@ -2041,9 +2172,10 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             One
             
@@ -2052,9 +2184,10 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Two
             
@@ -2063,9 +2196,10 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Three
             
@@ -2081,9 +2215,10 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             1
             
@@ -2092,9 +2227,10 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2
             
@@ -2103,9 +2239,10 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             3
             
@@ -2121,9 +2258,10 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Four
             
@@ -2132,9 +2270,10 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Five
             
@@ -2143,9 +2282,10 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Six
             
@@ -2161,9 +2301,10 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             4
             
@@ -2172,9 +2313,10 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             5
             
@@ -2183,9 +2325,10 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             6
             
@@ -2194,7 +2337,8 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
         </tr>
         
       </tbody>
-      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
       
       
     </table>
@@ -2202,8 +2346,8 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
   <div
     class="cdx-table__footer"
   >
-    <!-- @slot Footer content. Not to be confused with \`&lt;tfoot&gt;\`; use the default
-				slot to add that. -->
+    <!-- eslint-disable-next-line max-len -->
+    <!-- @slot Footer content. Not to be confused with &lt;tfoot&gt;; use the tfoot slot to add that. -->
     
     Footer slot content
     
@@ -2231,8 +2375,8 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
     <div
       class="cdx-table__header__slot"
     >
-      <!-- @slot Header content. Not to be confused with \`&lt;thead&gt;\`; use the default
-					slot to customize that. -->
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
     </div>
@@ -2247,6 +2391,8 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
       <caption>
         Table caption
       </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
       <thead>
         <!--v-if-->
         
@@ -2288,6 +2434,9 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
         </th>
         
       </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
       <tbody>
         
         <tr
@@ -2299,9 +2448,10 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             One
             
@@ -2310,9 +2460,10 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Two
             
@@ -2321,9 +2472,10 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Three
             
@@ -2339,9 +2491,10 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             1
             
@@ -2350,9 +2503,10 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2
             
@@ -2361,9 +2515,10 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             3
             
@@ -2379,9 +2534,10 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Four
             
@@ -2390,9 +2546,10 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Five
             
@@ -2401,9 +2558,10 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Six
             
@@ -2419,9 +2577,10 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             4
             
@@ -2430,9 +2589,10 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             5
             
@@ -2441,9 +2601,10 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             6
             
@@ -2452,21 +2613,9 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
         </tr>
         
       </tbody>
-      <!-- @slot Custom thead, tbody, and tfoot. -->
       
-      <tfoot>
-        <tr>
-          <td>
-            One
-          </td>
-          <td>
-            Two
-          </td>
-          <td>
-            Three
-          </td>
-        </tr>
-      </tfoot>
+      <!-- @slot Custom &lt;tfoot&gt;. -->
+      
       
     </table>
   </div>
@@ -2494,8 +2643,8 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
     <div
       class="cdx-table__header__slot"
     >
-      <!-- @slot Header content. Not to be confused with \`&lt;thead&gt;\`; use the default
-					slot to customize that. -->
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
     </div>
@@ -2510,6 +2659,8 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
       <caption>
         Table caption
       </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
       <thead>
         <!--v-if-->
         
@@ -2551,6 +2702,9 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
         </th>
         
       </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
       <tbody>
         
         <tr
@@ -2562,9 +2716,10 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             <p>
               One
@@ -2575,9 +2730,10 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Two
             
@@ -2586,9 +2742,10 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Three
             
@@ -2604,9 +2761,10 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             <p>
               1
@@ -2617,9 +2775,10 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2
             
@@ -2628,9 +2787,10 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             3
             
@@ -2646,9 +2806,10 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             <p>
               Four
@@ -2659,9 +2820,10 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Five
             
@@ -2670,9 +2832,10 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Six
             
@@ -2688,9 +2851,10 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             <p>
               4
@@ -2701,9 +2865,10 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             5
             
@@ -2712,9 +2877,10 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             6
             
@@ -2723,7 +2889,8 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
         </tr>
         
       </tbody>
-      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
       
       
     </table>
@@ -2752,8 +2919,8 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
     <div
       class="cdx-table__header__slot"
     >
-      <!-- @slot Header content. Not to be confused with \`&lt;thead&gt;\`; use the default
-					slot to customize that. -->
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       Header slot content
       
@@ -2769,6 +2936,8 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
       <caption>
         Table caption
       </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
       <thead>
         <!--v-if-->
         
@@ -2873,6 +3042,9 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
         </th>
         
       </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
       <tbody>
         
         <tr
@@ -2884,9 +3056,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2023
             
@@ -2895,9 +3068,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Goldin
             
@@ -2906,9 +3080,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             77
             
@@ -2924,9 +3099,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2022
             
@@ -2935,9 +3111,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Bernanke
             
@@ -2946,9 +3123,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             69
             
@@ -2964,9 +3142,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2022
             
@@ -2975,9 +3154,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Diamond
             
@@ -2986,9 +3166,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             69
             
@@ -3004,9 +3185,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2022
             
@@ -3015,9 +3197,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Dybvig
             
@@ -3026,9 +3209,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             67
             
@@ -3044,9 +3228,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2021
             
@@ -3055,9 +3240,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Card
             
@@ -3066,9 +3252,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             65
             
@@ -3084,9 +3271,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2021
             
@@ -3095,9 +3283,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Angrist
             
@@ -3106,9 +3295,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             61
             
@@ -3124,9 +3314,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             2021
             
@@ -3135,9 +3326,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class=""
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             Imbens
             
@@ -3146,9 +3338,10 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             class="cdx-table__cell--align-end"
           >
             <!--
-								@slot Table cell content, per column.
-								@binding item Data for the cell
-							-->
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
             
             58
             
@@ -3157,7 +3350,8 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
         </tr>
         
       </tbody>
-      <!-- @slot Custom thead, tbody, and tfoot. -->
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
       
       
     </table>
@@ -3165,8 +3359,8 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
   <div
     class="cdx-table__footer"
   >
-    <!-- @slot Footer content. Not to be confused with \`&lt;tfoot&gt;\`; use the default
-				slot to add that. -->
+    <!-- eslint-disable-next-line max-len -->
+    <!-- @slot Footer content. Not to be confused with &lt;tfoot&gt;; use the tfoot slot to add that. -->
     
     Footer slot content
     
