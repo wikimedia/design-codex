@@ -12,7 +12,7 @@
 					{{ caption }}
 				</template>
 			</div>
-			<div class="cdx-table__header__slot">
+			<div class="cdx-table__header__content">
 				<!-- eslint-disable-next-line max-len -->
 				<!-- @slot Header content. Not to be confused with <thead>; use the thead slot to customize that. -->
 				<slot name="header" />
@@ -500,6 +500,7 @@ export default defineComponent( {
 	color: @color-base;
 	border: @border-base;
 	border-radius: @border-radius-base;
+	.hyphens();
 
 	&__header {
 		display: flex;

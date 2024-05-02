@@ -264,6 +264,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Radio', link: '/components/demos/radio' },
 						{ text: 'SearchInput', link: '/components/demos/search-input' },
 						{ text: 'Select', link: '/components/demos/select' },
+						{ text: 'Table', link: '/components/demos/table' },
 						{ text: 'Tabs', link: '/components/demos/tabs' },
 						{ text: 'Tab', link: '/components/demos/tab' },
 						{ text: 'TextArea', link: '/components/demos/text-area' },

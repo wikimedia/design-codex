@@ -18,7 +18,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
       
     </div>
     <div
-      class="cdx-table__header__slot"
+      class="cdx-table__header__content"
     >
       <!-- eslint-disable-next-line max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
@@ -286,7 +286,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
       
     </div>
     <div
-      class="cdx-table__header__slot"
+      class="cdx-table__header__content"
     >
       <!-- eslint-disable-next-line max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
@@ -554,7 +554,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
       
     </div>
     <div
-      class="cdx-table__header__slot"
+      class="cdx-table__header__content"
     >
       <!-- eslint-disable-next-line max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
@@ -1069,7 +1069,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
       
     </div>
     <div
-      class="cdx-table__header__slot"
+      class="cdx-table__header__content"
     >
       <!-- eslint-disable-next-line max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
@@ -1341,7 +1341,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
       
     </div>
     <div
-      class="cdx-table__header__slot"
+      class="cdx-table__header__content"
     >
       <!-- eslint-disable-next-line max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
@@ -1616,7 +1616,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
       
     </div>
     <div
-      class="cdx-table__header__slot"
+      class="cdx-table__header__content"
     >
       <!-- eslint-disable-next-line max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
@@ -2096,7 +2096,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
       
     </div>
     <div
-      class="cdx-table__header__slot"
+      class="cdx-table__header__content"
     >
       <!-- eslint-disable-next-line max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
@@ -2373,7 +2373,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
       
     </div>
     <div
-      class="cdx-table__header__slot"
+      class="cdx-table__header__content"
     >
       <!-- eslint-disable-next-line max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
@@ -2641,7 +2641,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
       
     </div>
     <div
-      class="cdx-table__header__slot"
+      class="cdx-table__header__content"
     >
       <!-- eslint-disable-next-line max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
@@ -2917,7 +2917,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
       
     </div>
     <div
-      class="cdx-table__header__slot"
+      class="cdx-table__header__content"
     >
       <!-- eslint-disable-next-line max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
