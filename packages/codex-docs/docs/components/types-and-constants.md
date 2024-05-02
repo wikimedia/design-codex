@@ -297,7 +297,7 @@ export type TableSortOption = 'none' | 'asc' | 'desc';
 ```ts
 interface TableColumn {
 	id: string,
-	label: string,
+	label?: string,
 	// Allowed values: 'start' (default), 'center', 'end'
 	textAlign?: typeof TableTextAlignments[ number ]
 	// Value with units.

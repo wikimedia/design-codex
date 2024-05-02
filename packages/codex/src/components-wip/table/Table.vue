@@ -52,7 +52,7 @@
 									:icon="getSortIcon( column.id )"
 									size="small"
 									class="cdx-table__table__sort-icon"
-									:aria-label="getSortIconLabel( column.id, column.label )"
+									:aria-label="getSortIconLabel( column )"
 									aria-hidden="true"
 								/>
 							</span>
@@ -432,12 +432,12 @@ export default defineComponent( {
 		/**
 		 * Determine the sort icon's aria label.
 		 *
-		 * @param columnId
-		 * @param columnLabel
+		 * @param column
 		 * @return string | undefined
 		 */
-		function getSortIconLabel( columnId: string, columnLabel: string ):string | undefined {
-			const currentSortOrder = props.sort[ columnId ] ?? 'none';
+		function getSortIconLabel( column: TableColumn ):string | undefined {
+			const currentSortOrder = props.sort[ column.id ] ?? 'none';
+			const columnLabel = column?.label ?? column.id;
 
 			if ( currentSortOrder !== 'none' ) {
 				return `Sort rows by ${ columnLabel.toLowerCase() } in ${ sortOrderMap[ currentSortOrder ] } order.`;
@@ -552,6 +552,10 @@ export default defineComponent( {
 			text-align: left;
 		}
 
+		.cdx-table__table__sort-icon {
+			padding-left: @spacing-50;
+		}
+
 		.cdx-table__cell {
 			&--align-center {
 				text-align: center;
@@ -563,6 +567,11 @@ export default defineComponent( {
 				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-table__th-content {
 					flex-direction: row-reverse;
+				}
+
+				/* stylelint-disable-next-line max-nesting-depth */
+				.cdx-table__table__sort-icon {
+					padding-right: @spacing-50;
 				}
 			}
 			// Targets the `th` elements that have a nested label and icon.

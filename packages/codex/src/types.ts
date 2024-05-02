@@ -185,7 +185,7 @@ export interface ChipInputItem {
 /** @public */
 export interface TableColumn {
 	id: string,
-	label: string,
+	label?: string,
 	textAlign?: typeof TableTextAlignments[ number ]
 	// Value with units.
 	width?: string,
