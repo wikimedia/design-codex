@@ -6,6 +6,7 @@
 			:key="option.value"
 			v-model="multiSelection"
 			:input-value="option.value"
+			name="fruit"
 		>
 			{{ option.label }}
 		</cdx-checkbox>

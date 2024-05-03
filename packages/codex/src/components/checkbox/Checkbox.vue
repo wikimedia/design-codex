@@ -9,6 +9,7 @@
 			:aria-describedby="( $slots.description &&
 				$slots.description().length > 0 ) ? descriptionId : undefined"
 			:value="inputValue"
+			:name="name"
 			:disabled="computedDisabled"
 			:indeterminate.prop="indeterminate"
 		>
@@ -74,6 +75,13 @@ export default defineComponent( {
 		inputValue: {
 			type: [ String, Number, Boolean ],
 			default: false
+		},
+		/**
+		 * HTML "name" attribute to assign to the input.
+		 */
+		name: {
+			type: String,
+			default: null
 		},
 		/**
 		 * Whether the disabled attribute should be added to the input.
