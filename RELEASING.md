@@ -253,7 +253,7 @@ the new Codex version.
 
 If you haven't already, clone the LibraryUpgrader config repo:
 ```
-$ git clone ssh://gerrit.wikimedia.org:29418/labs/libraryupgrader/config
+$ git clone ssh://git@gitlab.wikimedia.org/repos/ci-tools/libup-config.git
 ```
 
 Edit the `releases.json` file in that repository. Search for `codex`, and you should find this:
@@ -273,10 +273,11 @@ Edit the `releases.json` file in that repository. Search for `codex`, and you sh
 ```
 Change each of the version numbers in the `"to":` fields to the new version number.
 
-Then commit your change and submit it to Gerrit:
+Then commit your change and submit it to GitLab:
 ```
+$ git checkout -b codex-1.2.34
 $ git commit --all --message="releases: Bump Codex to 1.2.34"
-$ git review
+$ git push origin codex-1.2.34
 ```
 
 ## Announcing the new release
