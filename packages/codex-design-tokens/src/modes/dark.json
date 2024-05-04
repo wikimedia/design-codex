@@ -59,6 +59,9 @@
 		},
 		"neutral-subtle": {
 			"value": "{ color.gray750 }"
+		},
+		"inverted": {
+			"value": "{ color.gray100 }"
 		}
 	},
 	"color": {

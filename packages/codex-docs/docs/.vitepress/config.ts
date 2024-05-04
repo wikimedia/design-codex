@@ -29,7 +29,7 @@ function isWIPComponent( componentName: string ): boolean {
  */
 function filterComponents( items: DefaultTheme.SidebarItem[] ): DefaultTheme.SidebarItem[] {
 	return items.flatMap( ( item ) => {
-		const componentName = ( item.link ?? '' ).match( /^\/components\/demos\/([^/]+)/ )?.[ 1 ];
+		const componentName = ( item.link ?? '' ).match( /^\/components\/(demos|directives)\/([^/]+)/ )?.[ 2 ];
 		if ( componentName && isWIPComponent( componentName ) ) {
 			return includeWIPComponents ?
 				{ ...item, text: `${ item.text ?? '' } 🚧` } :
@@ -275,6 +275,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'ToggleButton', link: '/components/demos/toggle-button' },
 						{ text: 'ToggleButtonGroup', link: '/components/demos/toggle-button-group' },
 						{ text: 'ToggleSwitch', link: '/components/demos/toggle-switch' },
+						{ text: 'Tooltip', link: '/components/directives/tooltip' },
 						{ text: 'TypeaheadSearch', link: '/components/demos/typeahead-search' }
 					] )
 				}

@@ -33,6 +33,7 @@
 			<thumbnail-demo />
 			<toggle-button-group-demo />
 			<toggle-demo />
+			<tooltip-demo />
 			<typeahead-search-demo />
 		</template>
 		<template #sideNav>
@@ -77,6 +78,7 @@ import TextInputDemo from './TextInputDemo.vue';
 import ThumbnailDemo from './ThumbnailDemo.vue';
 import ToggleButtonGroupDemo from './ToggleButtonGroupDemo.vue';
 import ToggleDemo from './ToggleDemo.vue';
+import TooltipDemo from './TooltipDemo.vue';
 import TypeaheadSearchDemo from './TypeaheadSearchDemo.vue';
 import LinkDemo from './LinkDemo.vue';
 
@@ -109,6 +111,7 @@ const demoSections = [
 	{ name: 'Thumbnail', id: '#cdx-thumbnail' },
 	{ name: 'ToggleButton and ToggleSwitch', id: '#cdx-toggle' },
 	{ name: 'ToggleButtonGroup', id: '#cdx-toggle-button-group' },
+	{ name: 'Tooltip', id: '#cdx-tooltip' },
 	{ name: 'TypeaheadSearch', id: '#cdx-typeahead-search' }
 ];
 

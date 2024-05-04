@@ -224,3 +224,8 @@ export type TableSortOption = 'none' | 'asc' | 'desc';
 
 /** @public */
 export type TableSort<K extends string = string> = { [P in K]?: TableSortOption };
+
+export interface TooltipOptions {
+	textContent: string,
+	placement?: Placement
+}
