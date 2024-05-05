@@ -240,7 +240,9 @@ export default defineComponent( {
 			}
 
 			&:checked + .cdx-radio__icon {
+				background-color: @background-color-base-fixed;
 				border-width: @border-width-input-radio--checked;
+				border-color: @border-color-disabled;
 			}
 		}
 		/* stylelint-enable no-descending-specificity */

@@ -6,7 +6,8 @@
 			:key="option.value"
 			v-model="selection"
 			:input-value="option.value"
-			name="fruit">
+			name="fruit"
+			:disabled="option.disabled">
 			{{ option.label }}
 		</cdx-radio>
 		<p>Selected value: {{ selection || '(none)' }}</p>
@@ -50,17 +51,45 @@
 				demonstrate what happens when text wraps
 			</label>
 		</span>
+
+		<h3>Disabled radios</h3>
 		<span class="cdx-radio">
 			<input
-				id="radio-group-css-only-4"
+				id="radio-group-disabled-1"
 				class="cdx-radio__input"
 				type="radio"
-				name="radio-group-css-only"
+				name="radio-group-disabled"
+			>
+			<span class="cdx-radio__icon" />
+			<label class="cdx-radio__label" for="radio-group-disabled-1">
+				Radio 1
+			</label>
+		</span>
+		<span class="cdx-radio">
+			<input
+				id="radio-group-disabled-2"
+				class="cdx-radio__input"
+				type="radio"
+				name="radio-group-disabled"
 				disabled
 			>
 			<span class="cdx-radio__icon" />
-			<label class="cdx-radio__label" for="radio-group-css-only-4">
-				Radio 4 (disabled)
+			<label class="cdx-radio__label" for="radio-group-disabled-2">
+				Radio 2 (disabled)
+			</label>
+		</span>
+		<span class="cdx-radio">
+			<input
+				id="radio-group-disabled-3"
+				class="cdx-radio__input"
+				type="radio"
+				name="radio-group-disabled"
+				disabled
+				checked
+			>
+			<span class="cdx-radio__icon" />
+			<label class="cdx-radio__label" for="radio-group-disabled-3">
+				Radio 3 (disabled and checked)
 			</label>
 		</span>
 	</section>
