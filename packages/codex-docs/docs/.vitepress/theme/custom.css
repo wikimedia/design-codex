@@ -360,6 +360,11 @@ body {
 	background-color: var( --background-color-base );
 }
 
+/* Position flyout sidebar over the nav bar, foremost for tablet and mobile screens. */
+.VPSidebar.open {
+	z-index: calc( var( --vp-z-index-nav ) + 1 );
+}
+
 /* Footer. ----------------------------------------------------------------- */
 
 /* Use Codex Card styles on `.pager-link` */
