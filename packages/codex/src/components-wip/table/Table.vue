@@ -115,7 +115,7 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent, nextTick, ref, toRef, computed } from 'vue';
+import { PropType, defineComponent, ref, toRef, computed } from 'vue';
 import { TableColumn, TableRow, TableSort, TableSortOption } from '../../types';
 import { TableTextAlignments } from '../../constants';
 import useModelWrapper from '../../composables/useModelWrapper';
@@ -193,9 +193,7 @@ export default defineComponent( {
 		 */
 		data: {
 			type: Array as PropType<TableRow[]>,
-			default: () => {
-				return [];
-			}
+			default: () => []
 		},
 		/**
 		 * Whether to use `<th>` for the first cell in each row.
@@ -269,8 +267,8 @@ export default defineComponent( {
 	],
 	setup( props, { emit } ) {
 		const tableClasses = computed( () => {
-			const useFixedLayout = props.columns?.filter( ( column ) =>
-				( 'width' in column ) || ( 'minWidth' in column ) ).length > 0;
+			const useFixedLayout = props.columns?.some( ( column ) =>
+				( 'width' in column ) || ( 'minWidth' in column ) );
 			return {
 				'cdx-table__table--layout-fixed': useFixedLayout,
 				'cdx-table__table--borders-vertical': props.showVerticalBorders
@@ -310,7 +308,7 @@ export default defineComponent( {
 			return {
 				// Don't assign a class for the default value 'start'. Instead, we'll set
 				// text-align: left on the td and th elements.
-				[ `cdx-table__cell--align-${ column.textAlign }` ]: ( ( 'textAlign' in column ) && column.textAlign !== 'start' ),
+				[ `cdx-table__cell--align-${ column.textAlign }` ]: ( 'textAlign' in column ) && column.textAlign !== 'start',
 				'cdx-table__cell--has-sort': hasSort
 			};
 		}
@@ -323,7 +321,7 @@ export default defineComponent( {
 		 * @param column
 		 * @return Dynamic style object
 		 */
-		function getCellStyle( column: TableColumn ): Record<string, string>|undefined {
+		function getCellStyle( column: TableColumn ): Record<string, string> {
 			const styles: { width?: string, minWidth?: string } = {};
 
 			if ( 'width' in column ) {
@@ -359,13 +357,14 @@ export default defineComponent( {
 
 		/**
 		 * Handle row selection changes.
+		 * @param newSelectedRows New value of wrappedSelectedRows
 		 */
-		async function handleRowSelection() {
-			// Wait for wrappedSelectedRows.value to update.
-			await nextTick();
+		function handleRowSelection( newSelectedRows: number[] ) {
+			// NOTE: wrappedSelectedRows.value has not yet been updated at this point, so we have
+			// to use newSelectedRows in this function.
 
 			// If all rows are selected, check the "select all" box.
-			if ( props.data.length === wrappedSelectedRows.value.length ) {
+			if ( props.data.length === newSelectedRows.length ) {
 				selectAll.value = true;
 				selectAllIndeterminate.value = false;
 				return;
@@ -379,7 +378,7 @@ export default defineComponent( {
 			}
 
 			// If no rows are selected, clear indeterminate status.
-			if ( wrappedSelectedRows.value.length === 0 ) {
+			if ( newSelectedRows.length === 0 ) {
 				selectAllIndeterminate.value = false;
 			}
 		}
@@ -390,7 +389,7 @@ export default defineComponent( {
 		 * @param rowIndex
 		 * @return Dynamic class object
 		 */
-		function getRowClass( rowIndex: number ): Record<string, boolean>|undefined {
+		function getRowClass( rowIndex: number ): Record<string, boolean> {
 			return {
 				'cdx-table__row--selected': wrappedSelectedRows.value.indexOf( rowIndex ) !== -1
 			};
@@ -425,7 +424,7 @@ export default defineComponent( {
 		 * @param columnId
 		 * @return Icon
 		 */
-		function getSortIcon( columnId: string ) {
+		function getSortIcon( columnId: string ): Icon {
 			const currentSortOrder = props.sort[ columnId ] ?? 'none';
 
 			return iconMap[ currentSortOrder ];
@@ -435,9 +434,9 @@ export default defineComponent( {
 		 * Determine the sort icon's aria label.
 		 *
 		 * @param column
-		 * @return string | undefined
+		 * @return aria-label attribute value
 		 */
-		function getSortIconLabel( column: TableColumn ):string | undefined {
+		function getSortIconLabel( column: TableColumn ): string | undefined {
 			const currentSortOrder = props.sort[ column.id ] ?? 'none';
 			const columnLabel = column?.label ?? column.id;
 
@@ -451,9 +450,9 @@ export default defineComponent( {
 		 *
 		 * @param columnId
 		 * @param hasSort
-		 * @return string | undefined
+		 * @return aria-sort attribute value
 		 */
-		function getSortOrder( columnId: string, hasSort = false ):TableSortDirection | undefined {
+		function getSortOrder( columnId: string, hasSort = false ): TableSortDirection | undefined {
 			if ( hasSort ) {
 				const currentSortOrder = props.sort[ columnId ] ?? 'none';
 				return sortOrderMap[ currentSortOrder ];
@@ -464,9 +463,9 @@ export default defineComponent( {
 		 * Determine the scope attribute for row headers (`th` in a `tr` element).
 		 *
 		 * @param columnId
-		 * @return string | undefined
+		 * @return scope attribute value
 		 */
-		function getRowHeaderScope( columnId:string ):string | undefined {
+		function getRowHeaderScope( columnId:string ): string | undefined {
 			const firstColumn = props.columns[ 0 ].id;
 			if ( props.useRowHeaders === true && columnId === firstColumn ) {
 				return 'row';
