@@ -263,7 +263,7 @@ export default defineComponent( {
 				border-color: @border-color-progressive;
 
 				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
+					.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
 				}
 
 				&:hover {
@@ -271,7 +271,7 @@ export default defineComponent( {
 					border-color: @border-color-progressive--hover;
 
 					.cdx-button__icon {
-						.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
+						.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
 					}
 				}
 
@@ -281,7 +281,7 @@ export default defineComponent( {
 					border-color: @border-color-progressive--active;
 
 					.cdx-button__icon {
-						.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
+						.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
 					}
 				}
 
@@ -304,7 +304,7 @@ export default defineComponent( {
 
 				/* stylelint-disable-next-line no-descending-specificity */
 				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
+					.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
 				}
 
 				&:hover {
@@ -312,7 +312,7 @@ export default defineComponent( {
 					border-color: @border-color-destructive--hover;
 
 					.cdx-button__icon {
-						.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
+						.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
 					}
 				}
 
@@ -322,7 +322,7 @@ export default defineComponent( {
 					border-color: @border-color-destructive--active;
 
 					.cdx-button__icon {
-						.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
+						.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
 					}
 				}
 
