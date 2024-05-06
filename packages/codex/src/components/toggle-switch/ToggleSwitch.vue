@@ -192,7 +192,8 @@ export default defineComponent( {
 		margin-bottom: 0;
 	}
 
-	// TODO: CSS-only component may not have selector `.cdx-label` on <label> (See T353885)
+	// DEPRECATED: Support CSS-only components that don't set the `cdx-label` class on the
+	// label (T353885)
 	&__label,
 	&__label.cdx-label {
 		// Put the label first. It needs to come after the input in the markup so we can apply
@@ -307,9 +308,9 @@ export default defineComponent( {
 
 		&:enabled {
 			// Add hover cursor to switch and label.
-			// The line with the :not() selector is meant to support CSS-only usage of a simple
-			// label element with class `.cdx-toggle-switch__label`, rather than use of the Label
-			// component.
+			// DEPRECATED: The line with the :not() selector is meant to support CSS-only usage of
+			// a simple label element with class `.cdx-toggle-switch__label`, rather than use of
+			// the Label component (this usage is deprecated, see T353885).
 			&:hover,
 			& ~ .cdx-label .cdx-label__label:hover,
 			& ~ .cdx-toggle-switch__label:not( .cdx-label ):hover {

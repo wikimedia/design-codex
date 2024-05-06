@@ -303,9 +303,6 @@ any currently "on" switches (or an empty array if all switches are "off").
 
 ### Markup structure
 
-The structure below can be used for most cases. If you need a description or a visually-hidden
-label, see the sections on those features below.
-
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<!-- Wrapper <span>. -->
@@ -316,10 +313,14 @@ label, see the sections on those features below.
 		<span class="cdx-toggle-switch__switch">
 			<span class="cdx-toggle-switch__switch__grip"></span>
 		</span>
-		<!-- <label> with for attribute matching input ID. -->
-		<label for="cdx-toggle-switch-css-1" class="cdx-toggle-switch__label">
-			Label
-		</label>
+		<div class="cdx-toggle-switch__label cdx-label">
+			<!-- Label with `for` attribute matching the input's id. -->
+			<label for="cdx-toggle-switch-css-1" class="cdx-label__label">
+				<span class="cdx-label__label__text">
+					Label
+				</span>
+			</label>
+		</div>
 	</span>
 </template>
 <template v-slot:code>
@@ -333,10 +334,14 @@ label, see the sections on those features below.
 	<span class="cdx-toggle-switch__switch">
 		<span class="cdx-toggle-switch__switch__grip"></span>
 	</span>
-	<!-- <label> with for attribute matching input ID. -->
-	<label for="cdx-toggle-switch-css-1" class="cdx-toggle-switch__label">
-		Label
-	</label>
+	<div class="cdx-toggle-switch__label cdx-label">
+		<!-- Label with `for` attribute matching the input's id. -->
+		<label for="cdx-toggle-switch-css-1" class="cdx-label__label">
+			<span class="cdx-label__label__text">
+				Label
+			</span>
+		</label>
+	</div>
 </span>
 ```
 
@@ -346,10 +351,8 @@ label, see the sections on those features below.
 ### With description
 
 To add a description below the label:
-- Add a span after the `<label>` element with an ID and class `cdx-label__description`. Include the
-  description text here.
-- Add class `cdx-label__label` to the `<label>` element
-- Wrap the label and description in a div with classes `cdx-toggle-switch__label` and `cdx-label`
+- Add a `<span>` after the `<label>` element with an ID and class `cdx-label__description`.
+  Include the description text here.
 - Add an `aria-describedby` attribute to the `<input>` element with the value of the ID of the
   description
 
@@ -362,7 +365,9 @@ To add a description below the label:
 		</span>
 		<div class="cdx-toggle-switch__label cdx-label">
 			<label for="cdx-toggle-switch-css-7" class="cdx-label__label">
-				Visual editing mode
+				<span class="cdx-label__label__text">
+					Visual editing mode
+				</span>
 			</label>
 			<span id="cdx-description-css-1" class="cdx-label__description">
 				Turn on to use the visual editor. You can switch back to source mode at any time.
@@ -380,7 +385,9 @@ To add a description below the label:
 	</span>
 	<div class="cdx-toggle-switch__label cdx-label">
 		<label for="cdx-toggle-switch-css-7" class="cdx-label__label">
-			Visual editing mode
+			<span class="cdx-label__label__text">
+				Visual editing mode
+			</span>
 		</label>
 		<span id="cdx-description-css-1" class="cdx-label__description">
 			Turn on to use the visual editor. You can switch back to source mode at any time.
@@ -394,10 +401,8 @@ To add a description below the label:
 
 ### With visually-hidden label
 
-For a visually-hidden label:
-- Add class `cdx-label__label` to the `<label>` element
-- Wrap the label in a div with classes `cdx-toggle-switch__label`, `cdx-label`, and
-  `cdx-label--visually-hidden`
+For a visually-hidden label, add the `cdx-label--visually-hidden` class to the `<div>` that has the
+`cdx-label` class.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -408,7 +413,9 @@ For a visually-hidden label:
 		</span>
 		<div class="cdx-toggle-switch__label cdx-label cdx-label--visually-hidden">
 			<label for="cdx-toggle-switch-css-8" class="cdx-label__label">
-				Label text
+				<span class="cdx-label__label__text">
+					Label text
+				</span>
 			</label>
 		</div>
 	</span>
@@ -423,7 +430,9 @@ For a visually-hidden label:
 	</span>
 	<div class="cdx-toggle-switch__label cdx-label cdx-label--visually-hidden">
 		<label for="cdx-toggle-switch-css-8" class="cdx-label__label">
-			Label text
+			<span class="cdx-label__label__text">
+				Label text
+			</span>
 		</label>
 	</div>
 </span>
@@ -444,9 +453,13 @@ The toggle switch appears "on" when the hidden checkbox is checked. To initially
 		<span class="cdx-toggle-switch__switch">
 			<span class="cdx-toggle-switch__switch__grip"></span>
 		</span>
-		<label for="cdx-toggle-switch-css-2" class="cdx-toggle-switch__label">
-			Initially on
-		</label>
+		<div class="cdx-toggle-switch__label cdx-label">
+			<label for="cdx-toggle-switch-css-2" class="cdx-label__label">
+				<span class="cdx-label__label__text">
+					Initially on
+				</span>
+			</label>
+		</div>
 	</span>
 </template>
 <template v-slot:code>
@@ -457,9 +470,13 @@ The toggle switch appears "on" when the hidden checkbox is checked. To initially
 	<span class="cdx-toggle-switch__switch">
 		<span class="cdx-toggle-switch__switch__grip"></span>
 	</span>
-	<label for="cdx-toggle-switch-css-2" class="cdx-toggle-switch__label">
-		Initially on
-	</label>
+	<div class="cdx-toggle-switch__label cdx-label">
+		<label for="cdx-toggle-switch-css-2" class="cdx-label__label">
+			<span class="cdx-label__label__text">
+				Initially on
+			</span>
+		</label>
+	</div>
 </span>
 ```
 
@@ -477,9 +494,13 @@ To disable the toggle switch, add the `disabled` attribute to the `<input>` elem
 		<span class="cdx-toggle-switch__switch">
 			<span class="cdx-toggle-switch__switch__grip"></span>
 		</span>
-		<label for="cdx-toggle-switch-css-5" class="cdx-toggle-switch__label">
-			Disabled, off
-		</label>
+		<div class="cdx-toggle-switch__label cdx-label">
+			<label for="cdx-toggle-switch-css-5" class="cdx-label__label">
+				<span class="cdx-label__label__text">
+					Disabled, off
+				</span>
+			</label>
+		</div>
 	</span>
 	<br>
 	<span class="cdx-toggle-switch">
@@ -487,9 +508,13 @@ To disable the toggle switch, add the `disabled` attribute to the `<input>` elem
 		<span class="cdx-toggle-switch__switch">
 			<span class="cdx-toggle-switch__switch__grip"></span>
 		</span>
-		<label for="cdx-toggle-switch-css-6" class="cdx-toggle-switch__label">
-			Disabled, on
-		</label>
+		<div class="cdx-toggle-switch__label cdx-label">
+			<label for="cdx-toggle-switch-css-6" class="cdx-label__label">
+				<span class="cdx-label__label__text">
+					Disabled, on
+				</span>
+			</label>
+		</div>
 	</span>
 </template>
 <template v-slot:code>
@@ -500,9 +525,13 @@ To disable the toggle switch, add the `disabled` attribute to the `<input>` elem
 	<span class="cdx-toggle-switch__switch">
 		<span class="cdx-toggle-switch__switch__grip"></span>
 	</span>
-	<label for="cdx-toggle-switch-css-5" class="cdx-toggle-switch__label">
-		Disabled, off
-	</label>
+	<div class="cdx-toggle-switch__label cdx-label">
+		<label for="cdx-toggle-switch-css-5" class="cdx-label__label">
+			<span class="cdx-label__label__text">
+				Disabled, off
+			</span>
+		</label>
+	</div>
 </span>
 <br>
 <span class="cdx-toggle-switch">
@@ -510,9 +539,13 @@ To disable the toggle switch, add the `disabled` attribute to the `<input>` elem
 	<span class="cdx-toggle-switch__switch">
 		<span class="cdx-toggle-switch__switch__grip"></span>
 	</span>
-	<label for="cdx-toggle-switch-css-6" class="cdx-toggle-switch__label">
-		Disabled, on
-	</label>
+	<div class="cdx-toggle-switch__label cdx-label">
+		<label for="cdx-toggle-switch-css-6" class="cdx-label__label">
+			<span class="cdx-label__label__text">
+				Disabled, on
+			</span>
+		</label>
+	</div>
 </span>
 ```
 

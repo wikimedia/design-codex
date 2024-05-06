@@ -327,7 +327,8 @@ export default defineComponent( {
 				border-color: @border-color-disabled;
 			}
 
-			// TODO: CSS-only component may not have selector `.cdx-label` on <label> (See T353885)
+			// DEPRECATED: Support CSS-only components that don't set the `cdx-label` class on the
+			// label (T353885)
 			& ~ .cdx-checkbox__label,
 			& ~ .cdx-checkbox__label.cdx-label {
 				color: @color-disabled;
