@@ -39,45 +39,47 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
       <!-- @slot Custom &lt;thead&gt;. -->
       
       <thead>
-        <!--v-if-->
-        
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+        <tr>
+          <!--v-if-->
+          
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 1 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 1 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 2 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 2 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 3 
-            <!--v-if-->
-          </span>
-        </th>
-        
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 3 
+              <!--v-if-->
+            </span>
+          </th>
+          
+        </tr>
       </thead>
       
       <!-- @slot Custom &lt;tbody&gt;. -->
@@ -307,45 +309,47 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
       <!-- @slot Custom &lt;thead&gt;. -->
       
       <thead>
-        <!--v-if-->
-        
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+        <tr>
+          <!--v-if-->
+          
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 1 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 1 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 2 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 2 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 3 
-            <!--v-if-->
-          </span>
-        </th>
-        
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 3 
+              <!--v-if-->
+            </span>
+          </th>
+          
+        </tr>
       </thead>
       
       <!-- @slot Custom &lt;tbody&gt;. -->
@@ -575,45 +579,47 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
       <!-- @slot Custom &lt;thead&gt;. -->
       
       <thead>
-        <!--v-if-->
-        
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+        <tr>
+          <!--v-if-->
+          
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 1 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class="cdx-table__cell--align-center"
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 1 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class="cdx-table__cell--align-center"
+            scope="col"
+            tabindex="-1"
           >
-            Column 2 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class="cdx-table__cell--align-end"
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 2 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class="cdx-table__cell--align-end"
+            scope="col"
+            tabindex="-1"
           >
-            Column 3 
-            <!--v-if-->
-          </span>
-        </th>
-        
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 3 
+              <!--v-if-->
+            </span>
+          </th>
+          
+        </tr>
       </thead>
       
       <!-- @slot Custom &lt;tbody&gt;. -->
@@ -822,45 +828,47 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
       <!-- @slot Custom &lt;thead&gt;. -->
       
       <thead>
-        <!--v-if-->
-        
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+        <tr>
+          <!--v-if-->
+          
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 1 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 1 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 2 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 2 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 3 
-            <!--v-if-->
-          </span>
-        </th>
-        
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 3 
+              <!--v-if-->
+            </span>
+          </th>
+          
+        </tr>
       </thead>
       
       <!-- @slot Custom &lt;tbody&gt;. -->
@@ -1090,45 +1098,47 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
       <!-- @slot Custom &lt;thead&gt;. -->
       
       <thead>
-        <!--v-if-->
-        
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+        <tr>
+          <!--v-if-->
+          
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 1 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 1 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 2 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 2 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 3 
-            <!--v-if-->
-          </span>
-        </th>
-        
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 3 
+              <!--v-if-->
+            </span>
+          </th>
+          
+        </tr>
       </thead>
       
       <!-- @slot Custom &lt;tbody&gt;. -->
@@ -1362,48 +1372,50 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
       <!-- @slot Custom &lt;thead&gt;. -->
       
       <thead>
-        <!--v-if-->
-        
-        <th
-          class=""
-          scope="col"
-          style="width: 20%;"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+        <tr>
+          <!--v-if-->
+          
+          <th
+            class=""
+            scope="col"
+            style="width: 20%;"
+            tabindex="-1"
           >
-            Column 1 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          style="min-width: 100px;"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 1 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            style="min-width: 100px;"
+            tabindex="-1"
           >
-            Column 2 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          style="width: 20%; min-width: 100px;"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 2 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            style="width: 20%; min-width: 100px;"
+            tabindex="-1"
           >
-            Column 3 
-            <!--v-if-->
-          </span>
-        </th>
-        
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 3 
+              <!--v-if-->
+            </span>
+          </th>
+          
+        </tr>
       </thead>
       
       <!-- @slot Custom &lt;tbody&gt;. -->
@@ -1637,89 +1649,91 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
       <!-- @slot Custom &lt;thead&gt;. -->
       
       <thead>
-        <th
-          class="cdx-table__row-selection"
-        >
-          <span
-            class="cdx-checkbox cdx-checkbox--status-default"
+        <tr>
+          <th
+            class="cdx-table__row-selection"
           >
-            <input
-              class="cdx-checkbox__input"
-              id="cdx-checkbox-0"
-              type="checkbox"
-              value="false"
-            />
             <span
-              class="cdx-checkbox__icon"
-            />
-            <!-- Only render a Label component if label text has been provided. This component can also
-			supply a description to the Checkbox if content is provided in the description slot. -->
-            
-            <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
-            <div
-              class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
+              class="cdx-checkbox cdx-checkbox--status-default"
             >
-              <label
-                class="cdx-label__label"
-                for="cdx-checkbox-0"
+              <input
+                class="cdx-checkbox__input"
+                id="cdx-checkbox-0"
+                type="checkbox"
+                value="false"
+              />
+              <span
+                class="cdx-checkbox__icon"
+              />
+              <!-- Only render a Label component if label text has been provided. This component can also
+			supply a description to the Checkbox if content is provided in the description slot. -->
+              
+              <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+              <div
+                class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
               >
-                <!--v-if-->
-                <span
-                  class="cdx-label__label__text"
+                <label
+                  class="cdx-label__label"
+                  for="cdx-checkbox-0"
                 >
-                  <!-- @slot Label text. -->
-                  
-                  
-                  Select all rows
-                  
-                  
-                </span>
+                  <!--v-if-->
+                  <span
+                    class="cdx-label__label__text"
+                  >
+                    <!-- @slot Label text. -->
+                    
+                    
+                    Select all rows
+                    
+                    
+                  </span>
+                  <!--v-if-->
+                </label>
+                <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
                 <!--v-if-->
-              </label>
-              <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
+              </div>
+              
+            </span>
+          </th>
+          
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
+          >
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 1 
               <!--v-if-->
-            </div>
-            
-          </span>
-        </th>
-        
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 1 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 2 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 2 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
-          >
-            Column 3 
-            <!--v-if-->
-          </span>
-        </th>
-        
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 3 
+              <!--v-if-->
+            </span>
+          </th>
+          
+        </tr>
       </thead>
       
       <!-- @slot Custom &lt;tbody&gt;. -->
@@ -2118,45 +2132,47 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
       <!-- @slot Custom &lt;thead&gt;. -->
       
       <thead>
-        <!--v-if-->
-        
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+        <tr>
+          <!--v-if-->
+          
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 1 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 1 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 2 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 2 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 3 
-            <!--v-if-->
-          </span>
-        </th>
-        
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 3 
+              <!--v-if-->
+            </span>
+          </th>
+          
+        </tr>
       </thead>
       
       <!-- @slot Custom &lt;tbody&gt;. -->
@@ -2394,45 +2410,47 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
       <!-- @slot Custom &lt;thead&gt;. -->
       
       <thead>
-        <!--v-if-->
-        
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+        <tr>
+          <!--v-if-->
+          
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 1 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 1 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 2 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 2 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 3 
-            <!--v-if-->
-          </span>
-        </th>
-        
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 3 
+              <!--v-if-->
+            </span>
+          </th>
+          
+        </tr>
       </thead>
       
       <!-- @slot Custom &lt;tbody&gt;. -->
@@ -2662,45 +2680,47 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
       <!-- @slot Custom &lt;thead&gt;. -->
       
       <thead>
-        <!--v-if-->
-        
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+        <tr>
+          <!--v-if-->
+          
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 1 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 1 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 2 
-            <!--v-if-->
-          </span>
-        </th>
-        <th
-          class=""
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 2 
+              <!--v-if-->
+            </span>
+          </th>
+          <th
+            class=""
+            scope="col"
+            tabindex="-1"
           >
-            Column 3 
-            <!--v-if-->
-          </span>
-        </th>
-        
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 3 
+              <!--v-if-->
+            </span>
+          </th>
+          
+        </tr>
       </thead>
       
       <!-- @slot Custom &lt;tbody&gt;. -->
@@ -2939,108 +2959,110 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
       <!-- @slot Custom &lt;thead&gt;. -->
       
       <thead>
-        <!--v-if-->
-        
-        <th
-          aria-sort="none"
-          class="cdx-table__cell--align-end cdx-table__cell--has-sort"
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+        <tr>
+          <!--v-if-->
+          
+          <th
+            aria-sort="none"
+            class="cdx-table__cell--align-end cdx-table__cell--has-sort"
+            scope="col"
+            tabindex="-1"
           >
-            Year 
             <span
-              aria-hidden="true"
-              class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
+              class="cdx-table__th-content"
             >
-              <svg
+              Year 
+              <span
                 aria-hidden="true"
-                height="20"
-                viewBox="0 0 20 20"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
+                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
               >
-                <!--v-if-->
-                <!-- eslint-disable vue/no-v-html -->
-                <g>
-                  <path
-                    d="M10 0 3 8h14zm0 18-7-8h14z"
-                  />
-                </g>
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <!--v-if-->
+                  <!-- eslint-disable vue/no-v-html -->
+                  <g>
+                    <path
+                      d="M10 0 3 8h14zm0 18-7-8h14z"
+                    />
+                  </g>
+                </svg>
+              </span>
             </span>
-          </span>
-        </th>
-        <th
-          aria-sort="none"
-          class="cdx-table__cell--has-sort"
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+          </th>
+          <th
+            aria-sort="none"
+            class="cdx-table__cell--has-sort"
+            scope="col"
+            tabindex="-1"
           >
-            Last name 
             <span
-              aria-hidden="true"
-              class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
+              class="cdx-table__th-content"
             >
-              <svg
+              Last name 
+              <span
                 aria-hidden="true"
-                height="20"
-                viewBox="0 0 20 20"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
+                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
               >
-                <!--v-if-->
-                <!-- eslint-disable vue/no-v-html -->
-                <g>
-                  <path
-                    d="M10 0 3 8h14zm0 18-7-8h14z"
-                  />
-                </g>
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <!--v-if-->
+                  <!-- eslint-disable vue/no-v-html -->
+                  <g>
+                    <path
+                      d="M10 0 3 8h14zm0 18-7-8h14z"
+                    />
+                  </g>
+                </svg>
+              </span>
             </span>
-          </span>
-        </th>
-        <th
-          aria-sort="none"
-          class="cdx-table__cell--align-end cdx-table__cell--has-sort"
-          scope="col"
-          tabindex="-1"
-        >
-          <span
-            class="cdx-table__th-content"
+          </th>
+          <th
+            aria-sort="none"
+            class="cdx-table__cell--align-end cdx-table__cell--has-sort"
+            scope="col"
+            tabindex="-1"
           >
-            Age at win 
             <span
-              aria-hidden="true"
-              class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
+              class="cdx-table__th-content"
             >
-              <svg
+              Age at win 
+              <span
                 aria-hidden="true"
-                height="20"
-                viewBox="0 0 20 20"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
+                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
               >
-                <!--v-if-->
-                <!-- eslint-disable vue/no-v-html -->
-                <g>
-                  <path
-                    d="M10 0 3 8h14zm0 18-7-8h14z"
-                  />
-                </g>
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <!--v-if-->
+                  <!-- eslint-disable vue/no-v-html -->
+                  <g>
+                    <path
+                      d="M10 0 3 8h14zm0 18-7-8h14z"
+                    />
+                  </g>
+                </svg>
+              </span>
             </span>
-          </span>
-        </th>
-        
+          </th>
+          
+        </tr>
       </thead>
       
       <!-- @slot Custom &lt;tbody&gt;. -->

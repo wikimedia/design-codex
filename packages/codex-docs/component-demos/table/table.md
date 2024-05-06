@@ -206,3 +206,156 @@ props to provide translated strings for these visually-hidden accessibility help
 </cdx-demo-wrapper>
 
 ## Vue usage
+
+## CSS-only version
+
+### Markup structure
+
+The CSS-only Table consists of a `<table>` element and its child elements, plus some wrapper
+elements and CSS classes needed to ensure proper styles and accessibility. See the code sample
+below for details.
+
+Cell content is aligned to the start of the cell by default. To change this, you can use these
+classes:
+- `cdx-table__cell--align-center` - align center
+- `cdx-table__cell--align-end` - align to the end of the cell; recommended for columns containing
+  numbers
+
+Note that all cells in a column, including the `<th>` in the `<thead>`, should have the same
+text alignment.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Wrapper div. -->
+	<div class="cdx-table">
+		<!-- Header content. -->
+		<div class="cdx-table__header">
+			<!-- Visible table caption. -->
+			<div class="cdx-table__header__caption">1912 Olympics — Men's marathon</div>
+			<!-- Additional header content goes here if needed. -->
+			<div class="cdx-table__header__header-content"></div>
+		</div>
+		<!-- Wrapper around the table element. Needed for horizontal scroll. -->
+		<div class="cdx-table__table-wrapper">
+			<!-- Table element. -->
+			<table class="cdx-table__table">
+				<!-- Visually-hidden caption element, for assistive technology.
+				Do not omit this! -->
+				<caption>1912 Olympics — Men's marathon</caption>
+				<thead>
+					<tr>
+						<th scope="col">Athlete</th>
+						<th scope="col">Nation</th>
+						<!-- <th> with class to align cell content to the end. -->
+						<th scope="col" class="cdx-table__cell--align-end">
+							Rank
+						</th>
+						<th scope="col" class="cdx-table__cell--align-end">
+							Time
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Ken McArthur</td>
+						<td>South Africa</td>
+						<!-- <td> with class to align cell content to the end. -->
+						<td class="cdx-table__cell--align-end">1</td>
+						<td class="cdx-table__cell--align-end">2:36:54.8</td>
+					</tr>
+					<tr>
+						<td>Christian Gitsham</td>
+						<td>South Africa</td>
+						<td class="cdx-table__cell--align-end">2</td>
+						<td class="cdx-table__cell--align-end">2:37:52.0</td>
+					</tr>
+					<tr>
+						<td>Gaston Strobino</td>
+						<td>United States</td>
+						<td class="cdx-table__cell--align-end">3</td>
+						<td class="cdx-table__cell--align-end">2:38:42.4</td>
+					</tr>
+					<tr>
+						<td>Shizo Kanakuri</td>
+						<td>Japan</td>
+						<td class="cdx-table__cell--align-end">36</td>
+						<td class="cdx-table__cell--align-end">54:08:06:05:32:20.3</td>
+					</tr>
+				</tbody>
+				<!-- <tfoot> goes here if needed. -->
+			</table>
+		</div>
+		<!-- Footer content (optional). -->
+		<div class="cdx-table__footer">
+			<span>Read more on <a href="https://en.wikipedia.org/wiki/Athletics_at_the_1912_Summer_Olympics_%E2%80%93_Men%27s_marathon">Wikipedia</a>.</span>
+		</div>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<!-- Wrapper div. -->
+<div class="cdx-table">
+	<!-- Header content. -->
+	<div class="cdx-table__header">
+		<!-- Visible table caption. -->
+		<div class="cdx-table__header__caption">1912 Olympics — Men's marathon</div>
+	</div>
+	<!-- Wrapper around the table element. Needed for horizontal scroll. -->
+	<div class="cdx-table__table-wrapper">
+		<!-- Table element. -->
+		<table class="cdx-table__table">
+			<!-- Visually-hidden caption element, for assistive technology.
+				Do not omit this! -->
+			<caption>1912 Olympics — Men's marathon</caption>
+			<thead>
+				<tr>
+					<th scope="col">
+						<span class="cdx-table__th-content">Athlete</span>
+					</th>
+					<th scope="col">
+						<span class="cdx-table__th-content">Nation</span>
+					</th>
+					<!-- <th> with class to align cell content to the end. -->
+					<th scope="col" class="cdx-table__cell--align-end">
+						<span class="cdx-table__th-content">Rank</span>
+					</th>
+					<th scope="col" class="cdx-table__cell--align-end">
+						<span class="cdx-table__th-content">Time</span>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Ken McArthur</td>
+					<td>South Africa</td>
+					<!-- <th> with class to align cell content to the end. -->
+					<td class="cdx-table__cell--align-end">1</td>
+					<td class="cdx-table__cell--align-end">2:36:54.8</td>
+				</tr>
+				<tr>
+					<td>Christian Gitsham</td>
+					<td>South Africa</td>
+					<td class="cdx-table__cell--align-end">2</td>
+					<td class="cdx-table__cell--align-end">2:37:52.0</td>
+				</tr>
+				<tr>
+					<td>Gaston Strobino</td>
+					<td>United States</td>
+					<td class="cdx-table__cell--align-end">3</td>
+					<td class="cdx-table__cell--align-end">2:38:42.4</td>
+				</tr>
+				<tr>
+					<td>Shizo Kanakuri</td>
+					<td>Japan</td>
+					<td class="cdx-table__cell--align-end">36</td>
+					<td class="cdx-table__cell--align-end">54:08:06:05:32:20.3</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+```
+
+</template>
+</cdx-demo-wrapper>

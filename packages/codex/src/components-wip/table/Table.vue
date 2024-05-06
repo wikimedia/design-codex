@@ -25,38 +25,40 @@
 				<!-- @slot Custom <thead>. -->
 				<slot name="thead">
 					<thead v-if="columns.length > 0">
-						<th v-if="useRowSelection" class="cdx-table__row-selection">
-							<cdx-checkbox
-								v-model="selectAll"
-								:hide-label="true"
-								:indeterminate="selectAllIndeterminate"
-								@update:model-value="handleSelectAll"
+						<tr>
+							<th v-if="useRowSelection" class="cdx-table__row-selection">
+								<cdx-checkbox
+									v-model="selectAll"
+									:hide-label="true"
+									:indeterminate="selectAllIndeterminate"
+									@update:model-value="handleSelectAll"
+								>
+									{{ selectAllLabel }}
+								</cdx-checkbox>
+							</th>
+							<th
+								v-for="column in columns"
+								:key="column.id"
+								scope="col"
+								:class="getCellClass( column, column.allowSort )"
+								tabindex="-1"
+								:aria-sort="getSortOrder( column.id, column.allowSort )"
+								:style="getCellStyle( column )"
+								@click="handleSort( column.id )"
 							>
-								{{ selectAllLabel }}
-							</cdx-checkbox>
-						</th>
-						<th
-							v-for="column in columns"
-							:key="column.id"
-							scope="col"
-							:class="getCellClass( column, column.allowSort )"
-							tabindex="-1"
-							:aria-sort="getSortOrder( column.id, column.allowSort )"
-							:style="getCellStyle( column )"
-							@click="handleSort( column.id )"
-						>
-							<span class="cdx-table__th-content">
-								{{ column.label }}
-								<cdx-icon
-									v-if="column.allowSort"
-									:icon="getSortIcon( column.id )"
-									size="small"
-									class="cdx-table__table__sort-icon"
-									:aria-label="getSortIconLabel( column )"
-									aria-hidden="true"
-								/>
-							</span>
-						</th>
+								<span class="cdx-table__th-content">
+									{{ column.label }}
+									<cdx-icon
+										v-if="column.allowSort"
+										:icon="getSortIcon( column.id )"
+										size="small"
+										class="cdx-table__table__sort-icon"
+										:aria-label="getSortIconLabel( column )"
+										aria-hidden="true"
+									/>
+								</span>
+							</th>
+						</tr>
 					</thead>
 				</slot>
 
