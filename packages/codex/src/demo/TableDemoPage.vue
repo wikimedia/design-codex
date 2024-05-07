@@ -97,95 +97,106 @@
 			</template>
 		</cdx-table>
 
-		<h2>Table using default slot and columns</h2>
+		<h2>Table using tbody slot and columns</h2>
 		<cdx-table caption="Table caption" :columns="columnsBasic">
-			<tbody>
-				<tr>
-					<td colspan="3" class="cdx-table__cell--align-center">
-						First section
-					</td>
-				</tr>
-				<tr>
-					<td>One</td>
-					<td class="cdx-table__cell--align-end">1</td>
-					<td>Uno</td>
-				</tr>
-				<tr>
-					<td>Two</td>
-					<td class="cdx-table__cell--align-end">2</td>
-					<td>Dos</td>
-				</tr>
-				<tr>
-					<td colspan="3" class="cdx-table__cell--align-center">
-						Second section
-					</td>
-				</tr>
-				<tr>
-					<td>Three</td>
-					<td class="cdx-table__cell--align-end">3</td>
-					<td>Tres</td>
-				</tr>
-				<tr>
-					<td>Four</td>
-					<td class="cdx-table__cell--align-end">4</td>
-					<td>Cuatro</td>
-				</tr>
-			</tbody>
+			<template #tbody>
+				<tbody>
+					<tr>
+						<td colspan="3" class="cdx-table__cell--align-center">
+							First section
+						</td>
+					</tr>
+					<tr>
+						<td>One</td>
+						<td class="cdx-table__cell--align-end">1</td>
+						<td>Uno</td>
+					</tr>
+					<tr>
+						<td>Two</td>
+						<td class="cdx-table__cell--align-end">2</td>
+						<td>Dos</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cdx-table__cell--align-center">
+							Second section
+						</td>
+					</tr>
+					<tr>
+						<td>Three</td>
+						<td class="cdx-table__cell--align-end">3</td>
+						<td>Tres</td>
+					</tr>
+					<tr>
+						<td>Four</td>
+						<td class="cdx-table__cell--align-end">4</td>
+						<td>Cuatro</td>
+					</tr>
+				</tbody>
+			</template>
 		</cdx-table>
 
-		<h2>Table using default slot for tfoot</h2>
+		<h2>Table using tfoot slot</h2>
 		<cdx-table
 			caption="Monthly budget"
 			:columns="columnsTfoot"
 			:data="dataTfoot"
 			:use-row-headers="true"
 		>
-			<tfoot>
-				<tr>
-					<th>Total:</th>
-					<td class="cdx-table__cell--align-end">$2,200</td>
-				</tr>
-			</tfoot>
+			<template #tfoot>
+				<tfoot>
+					<tr>
+						<th>Total:</th>
+						<td class="cdx-table__cell--align-end">$2,200</td>
+					</tr>
+				</tfoot>
+			</template>
 		</cdx-table>
 
-		<h2>Table using default slot, <code>showVerticalBorders</code> is true</h2>
+		<h2>Table using thead and tbody slot, <code>showVerticalBorders</code> is true</h2>
 		<cdx-table caption="Doctor Who seasons" :show-vertical-borders="true">
-			<thead>
-				<tr>
-					<th rowspan="2">Season/series</th>
-					<th rowspan="2">Doctor</th>
-					<th rowspan="2" class="cdx-table__cell--align-end">Episodes</th>
-					<th
-						rowspan="1"
-						colspan="2"
-						class="cdx-table__cell--align-center"
-					>
-						Originally aired
-					</th>
-					<th rowspan="2" class="cdx-table__cell--align-end">
-						Average viewers (millions)
-					</th>
-				</tr>
-				<tr>
-					<th>First aired</th>
-					<th>Last aired</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td colspan="6">Classic era</td>
-				</tr>
-				<template v-for="( doctor, key ) in dataDoctorWho" :key="key">
-					<tr v-for="( season, index ) in doctor" :key="index">
-						<td>{{ season.season }}</td>
-						<td v-if="season.doctor" :rowspan="doctor.length">{{ season.doctor }}</td>
-						<td class="cdx-table__cell--align-end">{{ season.episodes }}</td>
-						<td>{{ season.airStart }}</td>
-						<td>{{ season.airEnd }}</td>
-						<td class="cdx-table__cell--align-end">{{ season.viewers }}</td>
+			<template #thead>
+				<thead>
+					<tr>
+						<th rowspan="2">Season/series</th>
+						<th rowspan="2">Doctor</th>
+						<th rowspan="2" class="cdx-table__cell--align-end">Episodes</th>
+						<th
+							rowspan="1"
+							colspan="2"
+							class="cdx-table__cell--align-center"
+						>
+							Originally aired
+						</th>
+						<th rowspan="2" class="cdx-table__cell--align-end">
+							Average viewers (millions)
+						</th>
 					</tr>
-				</template>
-			</tbody>
+					<tr>
+						<th>First aired</th>
+						<th>Last aired</th>
+					</tr>
+				</thead>
+			</template>
+
+			<template #tbody>
+				<tbody>
+					<tr>
+						<td colspan="6">Classic era</td>
+					</tr>
+					<template v-for="( doctor, key ) in dataDoctorWho" :key="key">
+						<tr v-for="( season, index ) in doctor" :key="index">
+							<td>{{ season.season }}</td>
+							<td v-if="season.doctor" :rowspan="doctor.length">
+								{{ season.doctor }}
+							</td>
+							<td class="cdx-table__cell--align-end">{{ season.episodes }}</td>
+							<td>{{ season.airStart }}</td>
+							<td>{{ season.airEnd }}</td>
+							<td class="cdx-table__cell--align-end">{{ season.viewers }}</td>
+						</tr>
+					</template>
+				</tbody>
+			</template>
 		</cdx-table>
 
 		<h2>Table with row selection</h2>
