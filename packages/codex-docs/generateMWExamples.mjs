@@ -15,8 +15,8 @@ const convertFileContents = ( fileContents ) => {
 			/import ({[^}]+}|[^{};]+) from '([^']+)';/g,
 			'const $1 = require( \'$2\' );'
 		)
-		// Change `export default` to `// @vue/component\nmodule.exports =`
-		.replace( /^export default/m, '// @vue/component\nmodule.exports =' )
+		// Change `export default` to `module.exports =`
+		.replace( /^export default/m, 'module.exports =' )
 		// Icon imports to `./icons.json`
 		.replace( /@wikimedia\/codex-icons/, './icons.json' )
 		// Design tokens import to mediawiki.skin.variables.less

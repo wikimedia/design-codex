@@ -388,7 +388,6 @@ export default defineComponent( {
 const { defineComponent } = require( 'vue' );
 const { CdxMessage, CdxButton } = require( '@wikimedia/codex' );
 
-// @vue/component
 module.exports = defineComponent( {
 	name: 'MessageFadeIn',
 	components: { CdxMessage, CdxButton },
@@ -512,7 +511,6 @@ export default defineComponent( {
 const { defineComponent } = require( 'vue' );
 const { CdxMessage, CdxButton } = require( '@wikimedia/codex' );
 
-// @vue/component
 module.exports = defineComponent( {
 	name: 'MessageAutoDismiss',
 	components: { CdxMessage, CdxButton },

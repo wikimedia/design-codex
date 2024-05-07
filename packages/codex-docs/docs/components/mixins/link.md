@@ -379,15 +379,14 @@ const { defineComponent } = require( 'vue' );
 const { CdxIcon } = require( '@wikimedia/codex' );
 const { cdxIconLinkExternal } = require( '@wikimedia/codex-icons' );
 
-/// @vue/components
-module.exports = {
+module.exports = defineComponent( {
 	components: { CdxIcon },
 	setup() {
 		return {
 			cdxIconLinkExternal
 		};
 	}
-};
+} );
 </script>
 
 <style lang="less">
