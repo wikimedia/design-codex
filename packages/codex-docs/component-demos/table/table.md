@@ -359,3 +359,373 @@ text alignment.
 
 </template>
 </cdx-demo-wrapper>
+
+### Visually hidden caption
+
+To visually hide the header's caption, simply do not add it to the header element (`<div class="cdx-table__header">`). If you have no other header content, the entire header element can be removed, as in the example below. Make sure to always include the `<caption>` element inside the `<table>`, which is visually hidden by default.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<div class="cdx-table">
+	<!-- Header has been omitted since there is no header content. -->
+	<div class="cdx-table__table-wrapper">
+		<table class="cdx-table__table">
+			<caption>List of MediaWikis</caption>
+			<thead>
+				<tr>
+					<th scope="col">Project</th>
+					<th scope="col" class="cdx-table__cell--align-end">No. of wikis</th>
+					<th scope="col" class="cdx-table__cell--align-end">Active users</th>
+					<th scope="col" class="cdx-table__cell--align-end">All users</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="">
+					<td>wikipedias</td>
+					<td class="cdx-table__cell--align-end">342</td>
+					<td class="cdx-table__cell--align-end">292249</td>
+					<td class="cdx-table__cell--align-end">113556337</td>
+				</tr>
+				<tr class="">
+					<td>wiktionaries</td>
+					<td class="cdx-table__cell--align-end">193</td>
+					<td class="cdx-table__cell--align-end">5764</td>
+					<td class="cdx-table__cell--align-end">7275027</td>
+				</tr>
+				<tr class="">
+					<td>wikiquotes</td>
+					<td class="cdx-table__cell--align-end">96</td>
+					<td class="cdx-table__cell--align-end">2042</td>
+					<td class="cdx-table__cell--align-end">4261041</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>Total:</td>
+					<td class="cdx-table__cell--align-end">631</td>
+					<td class="cdx-table__cell--align-end">300055</td>
+					<td class="cdx-table__cell--align-end">125092405</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-table">
+		<!-- Header has been omitted since there is no header content. -->
+	<div class="cdx-table__table-wrapper">
+		<table class="cdx-table__table">
+			<caption>List of MediaWikis</caption>
+			<thead>
+				<tr>
+					<th scope="col">Project</th>
+					<th scope="col" class="cdx-table__cell--align-end">No. of wikis</th>
+					<th scope="col" class="cdx-table__cell--align-end">Active users</th>
+					<th scope="col" class="cdx-table__cell--align-end">All users</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="">
+					<td>wikipedias</td>
+					<td class="cdx-table__cell--align-end">342</td>
+					<td class="cdx-table__cell--align-end">292249</td>
+					<td class="cdx-table__cell--align-end">113556337</td>
+				</tr>
+				<tr class="">
+					<td>wiktionaries</td>
+					<td class="cdx-table__cell--align-end">193</td>
+					<td class="cdx-table__cell--align-end">5764</td>
+					<td class="cdx-table__cell--align-end">7275027</td>
+				</tr>
+				<tr class="">
+					<td>wikiquotes</td>
+					<td class="cdx-table__cell--align-end">96</td>
+					<td class="cdx-table__cell--align-end">2042</td>
+					<td class="cdx-table__cell--align-end">4261041</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>Total:</td>
+					<td class="cdx-table__cell--align-end">631</td>
+					<td class="cdx-table__cell--align-end">300055</td>
+					<td class="cdx-table__cell--align-end">125092405</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>
+```
+</template>
+</cdx-demo-wrapper>
+
+### Vertical borders
+
+To display vertical borders that separate the columns, apply the
+`cdx-table__table--borders-vertical` class to table element. This class may not cover all use
+cases, therefore apply additional border styles to the element as needed.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<div class="cdx-table">
+	<div class="cdx-table__header">
+		<div class="cdx-table__header__caption">List of MediaWikis</div>
+	</div>
+	<div class="cdx-table__table-wrapper">
+		<!-- <table> with the class to add vertical borders/rulers to separate the columns. -->
+		<table class="cdx-table__table cdx-table__table--borders-vertical">
+			<caption>List of MediaWikis</caption>
+			<thead>
+				<tr>
+					<th scope="col" rowspan="2">Project</th>
+					<th scope="col" rowspan="2" class="cdx-table__cell--align-end">No. of wikis</th>
+					<th
+						scope="colgroup"
+						colspan="2"
+						class="cdx-table__cell--align-center"
+					>
+						Users
+					</th>
+				</tr>
+				<tr>
+					<th scope="col" class="cdx-table__cell--align-end">Active</th>
+					<th scope="col" class="cdx-table__cell--align-end">All</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="">
+					<td>wikipedias</td>
+					<td class="cdx-table__cell--align-end">342</td>
+					<td class="cdx-table__cell--align-end">292249</td>
+					<td class="cdx-table__cell--align-end">113556337</td>
+				</tr>
+				<tr class="">
+					<td>wiktionaries</td>
+					<td class="cdx-table__cell--align-end">193</td>
+					<td class="cdx-table__cell--align-end">5764</td>
+					<td class="cdx-table__cell--align-end">7275027</td>
+				</tr>
+				<tr class="">
+					<td>wikiquotes</td>
+					<td class="cdx-table__cell--align-end">96</td>
+					<td class="cdx-table__cell--align-end">2042</td>
+					<td class="cdx-table__cell--align-end">4261041</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<!-- <th> as a row header cell with the scope attribute. -->
+					<th scope="row">Total:</th>
+					<td class="cdx-table__cell--align-end">631</td>
+					<td class="cdx-table__cell--align-end">300055</td>
+					<td class="cdx-table__cell--align-end">125092405</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-table">
+	<div class="cdx-table__header">
+		<div class="cdx-table__header__caption">List of MediaWikis</div>
+	</div>
+	<div class="cdx-table__table-wrapper">
+		<!-- <table> with the class to add vertical borders/rulers to separate the columns. -->
+		<table class="cdx-table__table cdx-table__table--borders-vertical">
+			<caption>List of MediaWikis</caption>
+			<thead>
+				<tr>
+					<th scope="col" rowspan="2">Project</th>
+					<th scope="col" rowspan="2" class="cdx-table__cell--align-end">No. of wikis</th>
+					<th
+						scope="colgroup"
+						colspan="2"
+						class="cdx-table__cell--align-center"
+					>
+						Users
+					</th>
+				</tr>
+				<tr>
+					<th scope="col" class="cdx-table__cell--align-end">Active</th>
+					<th scope="col" class="cdx-table__cell--align-end">All</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="">
+					<td>wikipedias</td>
+					<td class="cdx-table__cell--align-end">342</td>
+					<td class="cdx-table__cell--align-end">292249</td>
+					<td class="cdx-table__cell--align-end">113556337</td>
+				</tr>
+				<tr class="">
+					<td>wiktionaries</td>
+					<td class="cdx-table__cell--align-end">193</td>
+					<td class="cdx-table__cell--align-end">5764</td>
+					<td class="cdx-table__cell--align-end">7275027</td>
+				</tr>
+				<tr class="">
+					<td>wikiquotes</td>
+					<td class="cdx-table__cell--align-end">96</td>
+					<td class="cdx-table__cell--align-end">2042</td>
+					<td class="cdx-table__cell--align-end">4261041</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<!-- <th> as a row header cell with the scope attribute. -->
+					<th scope="row">Total:</th>
+					<td class="cdx-table__cell--align-end">631</td>
+					<td class="cdx-table__cell--align-end">300055</td>
+					<td class="cdx-table__cell--align-end">125092405</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>
+```
+</template>
+</cdx-demo-wrapper>
+
+### Row headers
+
+In some cases, header information can be found in the top row and first column. All header cells are
+marked up as `th` elements with the appropriate `scope` attribute. The scope attribute helps to
+describe the relationship between header and data cells. Refer to
+[WAI](https://www.w3.org/WAI/tutorials/tables/two-headers/) to learn more about Table header row and
+header column.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<div class="cdx-table">
+	<div class="cdx-table__header">
+		<div class="cdx-table__header__caption">List of MediaWikis</div>
+		<div class="cdx-table__header__header-content"></div>
+	</div>
+	<div class="cdx-table__table-wrapper">
+		<table class="cdx-table__table cdx-table__table--borders-vertical">
+			<caption>List of MediaWikis</caption>
+			<thead>
+				<tr>
+					<th scope="col" rowspan="2">Project</th>
+					<th scope="col" rowspan="2" class="cdx-table__cell--align-end">No. of wikis</th>
+					<th
+						scope="colgroup"
+						colspan="2"
+						class="cdx-table__cell--align-center"
+					>
+						Users
+					</th>
+				</tr>
+				<tr>
+					<th scope="col" class="cdx-table__cell--align-end">Active</th>
+					<th scope="col" class="cdx-table__cell--align-end">All</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="">
+					<!-- <th> as a row header cell with the scope attribute. -->
+					<th scope="row">wikipedias</th>
+					<td class="cdx-table__cell--align-end">342</td>
+					<td class="cdx-table__cell--align-end">292249</td>
+					<td class="cdx-table__cell--align-end">113556337</td>
+				</tr>
+				<tr class="">
+					<!-- <th> as a row header cell with the scope attribute. -->
+					<th scope="row">wiktionaries</th>
+					<td class="cdx-table__cell--align-end">193</td>
+					<td class="cdx-table__cell--align-end">5764</td>
+					<td class="cdx-table__cell--align-end">7275027</td>
+				</tr>
+				<tr class="">
+					<!-- <th> as a row header cell with the scope attribute. -->
+					<th scope="row">wikiquotes</th>
+					<td class="cdx-table__cell--align-end">96</td>
+					<td class="cdx-table__cell--align-end">2042</td>
+					<td class="cdx-table__cell--align-end">4261041</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<!-- <th> as a row header cell with the scope attribute. -->
+					<th scope="row">Total:</th>
+					<td class="cdx-table__cell--align-end">631</td>
+					<td class="cdx-table__cell--align-end">300055</td>
+					<td class="cdx-table__cell--align-end">125092405</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-table">
+	<div class="cdx-table__header">
+		<div class="cdx-table__header__caption">List of MediaWikis</div>
+		<div class="cdx-table__header__header-content"></div>
+	</div>
+	<div class="cdx-table__table-wrapper">
+		<table class="cdx-table__table cdx-table__table--borders-vertical">
+			<caption>List of MediaWikis</caption>
+			<thead>
+				<tr>
+					<th scope="col" rowspan="2">Project</th>
+					<th scope="col" rowspan="2" class="cdx-table__cell--align-end">No. of wikis</th>
+					<th
+						scope="colgroup"
+						colspan="2"
+						class="cdx-table__cell--align-center"
+					>
+						Users
+					</th>
+				</tr>
+				<tr>
+					<th scope="col" class="cdx-table__cell--align-end">Active</th>
+					<th scope="col" class="cdx-table__cell--align-end">All</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="">
+					<!-- <th> as a row header cell with the scope attribute. -->
+					<th scope="row">wikipedias</th>
+					<td class="cdx-table__cell--align-end">342</td>
+					<td class="cdx-table__cell--align-end">292249</td>
+					<td class="cdx-table__cell--align-end">113556337</td>
+				</tr>
+				<tr class="">
+					<!-- <th> as a row header cell with the scope attribute. -->
+					<th scope="row">wiktionaries</th>
+					<td class="cdx-table__cell--align-end">193</td>
+					<td class="cdx-table__cell--align-end">5764</td>
+					<td class="cdx-table__cell--align-end">7275027</td>
+				</tr>
+				<tr class="">
+					<!-- <th> as a row header cell with the scope attribute. -->
+					<th scope="row">wikiquotes</th>
+					<td class="cdx-table__cell--align-end">96</td>
+					<td class="cdx-table__cell--align-end">2042</td>
+					<td class="cdx-table__cell--align-end">4261041</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<!-- <th> as a row header cell with the scope attribute. -->
+					<th scope="row">Total:</th>
+					<td class="cdx-table__cell--align-end">631</td>
+					<td class="cdx-table__cell--align-end">300055</td>
+					<td class="cdx-table__cell--align-end">125092405</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>
+```
+</template>
+</cdx-demo-wrapper>
