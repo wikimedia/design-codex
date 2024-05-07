@@ -727,5 +727,171 @@ header column.
 	</div>
 </div>
 ```
+
+</template>
+</cdx-demo-wrapper>
+
+### With row selection
+
+Row selection can be done without JavaScript by following these steps:
+
+- Use a `<form>` element as the outermost element with the class `cdx-table`
+- Add a submit button to the header to handle the row selection data
+- Omit the "select all" checkbox in the `<thead>`
+- Give each row's checkbox the same `name` and a unique `value`
+
+Note that the Table below doesn't actually do anything when you click "Sign up"
+besides submit the form and reload the page.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Use a <form> element instead of a <div>. -->
+	<form class="cdx-table" action="">
+		<div class="cdx-table__header">
+			<div class="cdx-table__header__caption">Sessions</div>
+			<div class="cdx-table__header__header-content">
+				<!-- Include a submit button. -->
+				<button class="cdx-button" type="submit">Sign up</button>
+			</div>
+		</div>
+		<div class="cdx-table__table-wrapper">
+			<table class="cdx-table__table">
+				<caption>Tests</caption>
+				<thead>
+					<tr>
+						<!-- Empty <th> since we are omitting the "select all" option. -->
+						<th></th>
+						<th scope="col">Name</th>
+						<th scope="col">Time</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<span class="cdx-checkbox">
+								<!-- Include the proper attributes on each checkbox input. -->
+								<input id="session-1" class="cdx-checkbox__input" type="checkbox" name="sessions" value="session-1">
+								<span class="cdx-checkbox__icon"></span>
+								<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
+									<label class="cdx-label__label" for="session-1">
+										<span class="cdx-label__label__text">Select row</span>
+									</label>
+								</div>
+							</span>
+						</td>
+						<td>Introduction to Semantic MediaWiki</td>
+						<td>11:00 EEST</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="cdx-checkbox">
+								<input id="session-2" class="cdx-checkbox__input" type="checkbox" name="sessions" value="session-2">
+								<span class="cdx-checkbox__icon"></span>
+								<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
+									<label class="cdx-label__label" for="session-2">
+										<span class="cdx-label__label__text">Select row</span>
+									</label>
+								</div>
+							</span>
+						</td>
+						<td>Wikisource intro session</td>
+						<td>11:30 EEST</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="cdx-checkbox">
+								<input id="session-3" class="cdx-checkbox__input" type="checkbox" name="sessions" value="session-3">
+								<span class="cdx-checkbox__icon"></span>
+								<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
+									<label class="cdx-label__label" for="session-3">
+										<span class="cdx-label__label__text">Select row</span>
+									</label>
+								</div>
+							</span>
+						</td>
+						<td>Introduction to Wikibase Suite</td>
+						<td>12:00 EEST</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
+</template>
+<template v-slot:code>
+
+```html
+<!-- Use a <form> element instead of a <div>. -->
+<form class="cdx-table" action="">
+	<div class="cdx-table__header">
+		<div class="cdx-table__header__caption">Sessions</div>
+		<div class="cdx-table__header__header-content">
+			<!-- Include a submit button. -->
+			<button class="cdx-button" type="submit">Sign up</button>
+		</div>
+	</div>
+	<div class="cdx-table__table-wrapper">
+		<table class="cdx-table__table">
+			<caption>Tests</caption>
+			<thead>
+				<tr>
+					<!-- Empty <th> since we are omitting the "select all" option. -->
+					<th></th>
+					<th scope="col">Name</th>
+					<th scope="col">Time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<span class="cdx-checkbox">
+							<!-- Include the proper attributes on each checkbox input. -->
+							<input id="session-1" class="cdx-checkbox__input" type="checkbox" name="sessions" value="session-1">
+							<span class="cdx-checkbox__icon"></span>
+							<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
+								<label class="cdx-label__label" for="session-1">
+									<span class="cdx-label__label__text">Select row</span>
+								</label>
+							</div>
+						</span>
+					</td>
+					<td>Introduction to Semantic MediaWiki</td>
+					<td>11:00 EEST</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="cdx-checkbox">
+							<input id="session-2" class="cdx-checkbox__input" type="checkbox" name="sessions" value="session-2">
+							<span class="cdx-checkbox__icon"></span>
+							<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
+								<label class="cdx-label__label" for="session-2">
+									<span class="cdx-label__label__text">Select row</span>
+								</label>
+							</div>
+						</span>
+					</td>
+					<td>Wikisource intro session</td>
+					<td>11:30 EEST</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="cdx-checkbox">
+							<input id="session-3" class="cdx-checkbox__input" type="checkbox" name="sessions" value="session-3">
+							<span class="cdx-checkbox__icon"></span>
+							<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
+								<label class="cdx-label__label" for="session-3">
+									<span class="cdx-label__label__text">Select row</span>
+								</label>
+							</div>
+						</span>
+					</td>
+					<td>Introduction to Wikibase Suite</td>
+					<td>12:00 EEST</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</form>
+```
+
 </template>
 </cdx-demo-wrapper>
