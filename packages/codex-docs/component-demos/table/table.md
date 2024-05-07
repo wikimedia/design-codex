@@ -52,6 +52,345 @@ const data = [
 A Table is a structural component used to arrange data in rows and columns to facilitate the
 comparison, analysis and management of information.
 
+## Guidelines
+
+### Using Tables
+
+In order to support the scanning and interpretation of information, the content within Tables needs
+to be well-structured and optimized for readability. For that reason, Tables should be avoided if
+the space is limited, if the interaction with their information is too complex, or if the data
+cannot be easily categorized. Additionally, consider alternative presentations for standalone
+information, or when detailed analysis isn't the primary objective.
+
+**When to use:**
+- When users need a systematic representation of information that allows them to compare and analyze
+  multiple data points across different categories.
+- When users need to perform specific actions to manipulate items within a dataset, such as editing,
+  deleting, or organizing.
+- When users can benefit from the ability to sort or filter data dynamically in order to extract
+  conclusions.
+
+**When not to use:**
+- When the interaction with the data is too complex (e.g. there are interdependencies between data
+  points).
+- When space is constrained. Please find alternative methods to display the information in case the
+  readability of the Table content is compromised.
+- When the goal is to create simple, non-data-centric layouts. Opt for lists or other components in
+  case there aren’t multiple data points to compare, and the information doesn’t require
+  manipulation (sorting, filtering).
+- When the user's primary goal is to obtain a high-level overview rather than detailed, more
+  granular, analysis of the information. Alternative visualization methods such as summaries,
+  charts, or lists may be more suitable for providing an overview.
+- When information is standalone and doesn't require side-by-side comparison, consider using text,
+  lists, or Cards instead.
+
+### Specifications
+
+![Numerical labeling of the Table component’s anatomy.](../../assets/components/table-specifications.svg)
+
+1. **Header** (optional)<br>
+Tables can feature a header section with elements such as a visible caption or actions that can be applied to Table rows in bulk.
+
+1. **Caption**<br>
+A caption provides a clear and concise description of the contents and the purpose of the Table. It
+is key for accessibility, and must always be provided for screen readers. The caption can be
+visually hidden if a visible caption is not needed (e.g. if there is a heading above the Table that
+serves as a title).
+
+1. **Actions** (optional)<br>
+Actions that can be applied to all the items within a Table should be made available from the
+header.
+
+1. **Selection** (optional)<br>
+Row selection can be enabled to allow targeting the items that will be affected by Table actions.
+The checkbox available at the heading row level allows selecting all Table items at once, while
+individual checkboxes allow the selection of independent rows. A custom indicator of the number of
+selected rows can be included in the Table’s header for visibility (See custom header text).
+
+1. **Headings**<br>
+Tables can feature column headings (most commonly), row headings, or both. Headings are used to
+describe the type of information or the category of the data contained by the list of elements they
+label. Column headings are required.
+
+1. **Sorting** (optional)<br>
+Sorting allows users to organize data in an ascending or descending order according to specific
+criteria (e.g. alphabetically). It facilitates the analysis of data, identification of patterns, and
+comparison of values within Tables.
+
+1. **Cell**<br>
+Table cells are individual units of information, organized at the intersection of rows and columns.
+They can contain any sort of content, from simple text to iconography, images and components in any
+necessary order or combination.
+
+1. **Footer** (optional)<br>
+Tables can feature an optional footer to organize adjacent Table information or actions (e.g.
+pagination). The configuration and contents of the Table footer are fully customizable.
+
+#### Table and column width
+
+Tables will occupy the full width of the area assigned to them in a layout. The available space will
+be distributed across Table columns evenly, depending on the data they contain.
+
+Tables are optimized for readability by default, but there might be special cases where adjustments
+might be needed. If so, it is possible to adjust the width of individual columns to distribute space
+more intentionally:
+
+![Table featuring columns with custom widths.](../../assets/components/table-specifications-column-width.svg)
+
+#### Column and row headings
+
+Tables can display column headings, row headings, or both.
+
+Column headings represent the category or type of information contained in each Table column. They
+are essential for the quick identification of the Table’s content.
+
+Row headings are useful when there’s a need to further categorize or label the data presented in
+individual or sets of rows. In Tables with many items, row headings can serve as navigation aids,
+allowing users to quickly jump to specific sections or categories within the data structure. Please
+note that you might or might not include a column heading to give a title to the row headings
+column.
+
+![Table featuring column and row headings.](../../assets/components/table-specifications-column-and-row-headings.svg)
+
+#### Cell customization
+
+Table cells can include combinations of any type of content: from text with end or start icons, to
+images or even components. This level of cell customization allows covering a wide range of
+presentational and interactive use cases like, for example, the introduction of inline, row actions:
+
+![Table featuring cells with custom content.](../../assets/components/table-specifications-cell-customization.svg)
+
+### Types
+
+#### Table with vertical borders
+
+By default, the Table component will only display horizontal borders to separate rows and rely on
+spacing to create columns. Vertical borders can be added in data-heavy Tables, where the cell
+content is too clumped and mistakes might be made when interpreting the data.
+
+Common scenarios where the use of vertical borders is recommended include: when presenting data with
+lengthy textual descriptions or explanations alongside numerical values, in Tables with a long list
+of narrow columns, or when combining data with different horizontal alignment (see example below).
+
+![Table featuring vertical borders.](../../assets/components/table-types-vertical-borders.svg)
+
+#### Table with sorting
+
+Sorting allows reordering all the items included in a Table based on the values of one of its
+columns. Any number of columns can be sortable, but data can only be sorted by one column at a time.
+
+![Table featuring sortable columns.](../../assets/components/table-types-sorting.svg)
+
+#### Table with row selection
+
+Enable row selection when the same action(s) can be applied to all of the items in a Table. We
+recommend including an indicator of the amount of selected items within the Table’s header.
+
+When selection is enabled, users can pick out rows individually, or use the checkbox included at the
+heading level to select or deselect all Table items at once:
+
+![Table featuring row selection.](../../assets/components/table-types-row-selection.svg)
+
+### Interaction states
+
+#### Heading sorting states
+
+Heading cells that include sorting functionality display a hovered state, an active state when
+clicked or tapped, and a focused style after having been activated and until any other interaction
+takes place.
+
+![Interactive states of the headings of sortable columns.](../../assets/components/table-sorting-interaction-states.svg)
+
+1. Default
+2. Hover
+3. Active
+4. Focused
+
+#### Row selection states
+
+In Tables where selection is available, rows present the following styles:
+
+![Interactive states of selectable rows.](../../assets/components/table-states-row-selection.svg)
+
+1. Default
+2. Selected
+
+The heading-level checkbox, which facilitates the simultaneous selection and deselection of all
+Table items, will present an indeterminate state in case some items remain unselected. Please note
+that, while Table rows display a selected state, only the checkboxes are interactive (See 2).
+
+### Best practices
+
+#### Table actions
+
+It is possible to use the header to provide actions that can be applied to all Table items. Enabling
+selection will allow users to target the Table items to be manipulated.
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![Table with header actions represented by normal neutral and destructive buttons.](../../assets/components/table-best-practices-actions-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use normal or quiet Buttons to represent Table actions.
+- Use any of the Button actions (neutral, progressive, and destructive)
+
+</template>
+
+<template #dont-media>
+
+![Table with header actions represented by an icon-only and a primary destructive button.](../../assets/components/table-best-practices-actions-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use primary Buttons to represent Table actions, since they might compete with main page actions.
+  (Exceptions might apply).
+- Use icon-only buttons to represent Table actions, since they might complicate understanding.
+  Exceptions do apply, e.g. in cases where space is scarce, or when they are used to trigger related
+  actions in a menu or modal.
+
+</template>
+
+</cdx-demo-rules>
+
+Make sure to follow the [button and groups of buttons usage recommendations](../../style-guide/using-links-and-buttons.md)
+when defining the best way to represent actions, keeping the Table’s external context in mind too.
+
+#### Inline actions
+
+It is possible to customize Table cells, and include inline actions in them that allow manipulating
+the data of individual rows. Although exceptions might apply, we only recommend using inline actions
+in Tables that will display fewer rows (less than 5) by default.
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![Table with fewer items featuring actions within rows.](../../assets/components/table-best-practices-inline-actions-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use the cell slot to provide inline actions in Tables with fewer items.
+
+</template>
+
+<template #dont-media>
+
+![Table with many items incorrectly featuring actions within rows.](../../assets/components/table-best-practices-inline-actions-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use inline actions in Tables with more than 5 rows. Instead, use the header slot to provide bulk
+  actions and enable selection.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Table width
+
+Achieving the optimal readability of Table content should be the guiding factor when defining the
+width of a Table within a composition. Strive to balance information density with legibility,
+ensuring that Tables occupy just the appropriate amount of space.
+
+Avoid using Tables in narrow spaces. This can cause their content to wrap too tightly, or
+unnecessarily trigger the Table’s default horizontal scroll. At the same time, refrain from
+overstretching Tables to make them fit wider layouts: embedding too much white space within cells
+will make their information harder to parse and compare.
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![Table showcasing an appropriate width.](../../assets/components/table-best-practices-width-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use Tables in layouts where they’ll have enough space to display all relevant information clearly
+  and comprehensively.
+
+</template>
+
+<template #dont-media>
+
+![Table used in a narrow space.](../../assets/components/table-best-practices-width-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use Tables within limited spaces, where their content might have to adjust to the point of
+  compromising readability.
+- Use Tables in wide areas, where they’ll overstretch, complicating the parsing and comparison of
+  information.
+
+</template>
+
+</cdx-demo-rules>
+
+### Content
+
+#### Table caption
+
+The caption provides a clear and succinct description of the content and purpose of a Table. It can
+be visually hidden, or replaced by an external title if a design either requires or allows it.
+Regardless of its visibility, a caption should always be defined in the Table’s code in order to
+provide context for screen reader users.
+
+Visible or not, make sure the caption conveys the Table's content and context in a concise and
+accurate way.
+
+To keep captions readable, don’t exceed a line length of 75 characters. You can apply a maximum width to the caption if necessary in order to follow this recommendation.
+
+![Table displaying a long caption that respects the 75 character per line limit.](../../assets/components/table-content-caption.svg)
+
+#### Heading content
+
+Do not rely on iconography alone to represent categorical information in headings, as it might be
+hard to understand based on the content of the surrounding cells alone:
+
+![Table where headings incorrectly use only icons to describe the data within columns.](../../assets/components/table-content-heading.svg)
+
+#### Cell content alignment
+
+Except for numbers, text within cells should be aligned left or right, according to the
+directionality of the user’s interface language.
+
+Numbers that express quantities should always be aligned right, regardless of the directionality of
+the user’s interface language. This helps readers make easier comparisons of values when scanning
+down columns. For consistency and ease of understanding, the alignment of headings should always
+match the alignment of the data.
+
+![Image’s alt text: Table that features a column with quantitative data.](../../assets/components/table-content-alignment.svg)
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next interactive element within the Table. |
+| <kbd>Shift</kbd>+<kbd>Tab</kbd> | It moves the focus to the previous interactive element within the Table. |
+| <kbd>Up arrow</kbd>, <kbd>Down arrow</kbd> | For screen reader users, they move between the content of column cells. |
+| <kbd>Left arrow</kbd>, <kbd>Right arrow</kbd> | For allow screen reader users, they move between the content of row cells. |
+
+### References
+
+1. [Web Typography: Designing Tables to be Read, Not Looked At](https://alistapart.com/article/web-typography-tables/) by Richard Rutter
+1. [Inclusive Components: Data Tables](https://inclusive-components.design/data-tables/), by Heydon Pickering
+1. [Table Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/table/), ARIA Authoring Practices Guide (APG) by Web Accessibility Initiative (WAI)
+
+
 ## Demos
 
 ### Configurable
@@ -120,7 +459,7 @@ contents of a cell by using the `item-[ columnId ]` slots. For example, for a co
 
 ### With custom table elements
 
-You can further customize the layout of your table by using the `thead`, `tbody`, and `tfoot`
+You can further customize the layout of your Table by using the `thead`, `tbody`, and `tfoot`
 slots. Using these slots will override the default implementation of that element within the Table
 component so you can include your own markup. The example below uses the `thead` slot to add `th`
 elements with custom `colspan` and `rowspan` attributes, and the `tfoot` slot to add a `<tfoot>`
@@ -155,11 +494,11 @@ align cell data to the center or end:
 
 ### With sorting
 
-To enable sorting, pass in the `sort` prop via v-model, and make at least one table column sortable
+To enable sorting, pass in the `sort` prop via v-model, and make at least one Table column sortable
 by adding `allowSort: true` to its definition.
 
 You can initialize the sort ref to an empty object if there is no initial sort order, or to an
-initial sort order as in the table below, where the initial sort order is `{ user: 'asc' }`.
+initial sort order as in the Table below, where the initial sort order is `{ user: 'asc' }`.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

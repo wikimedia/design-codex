@@ -568,6 +568,16 @@ body {
    branding purposes in the future. */
 .vp-doc[ class*='_components' ] img {
 	background-color: var( --background-color-interactive-subtle );
+	/* Center images that are less than full width. */
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* Background for images that are less than full width. In browsers that don't support `:has()`,
+   the background color will just not cover the full width of the content section. */
+.vp-doc[ class*='_components' ] p:has( img ) {
+	background-color: var( --background-color-interactive-subtle );
+	width: var( --size-full );
 }
 
 /* Align the figure and figcaption text. */
@@ -584,6 +594,7 @@ body {
 	}
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .cdx-docs-grid.cdx-docs-content-guidelines p {
 	margin: var( --spacing-100 ) 0 0;
 }
