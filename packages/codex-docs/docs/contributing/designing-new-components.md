@@ -78,7 +78,7 @@ It is essential to identify the new component’s architecture before diving dee
 </div>
 <div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
 
-3. The component is built as a composite of different components, one or more of which haven’t been designed or implemented yet (e.g. Card, which includes a subcomponent – Thumbnail – that requires its own specifications and implementation process )
+3. The component is built as a composite of different components, one or more of which haven’t been designed or implemented yet (e.g. Card, which includes a sub-component – Thumbnail – that requires its own specifications and implementation process )
 
 </div>
 <div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
@@ -86,7 +86,7 @@ It is essential to identify the new component’s architecture before diving dee
 ![Component architecture scenario 3](../assets/designing-new-components/defining-styles-component-scenarios-03.png)
 </div>
 
-The latter scenario will require you to follow the steps of the design process outlined in this section to **create each one of the individual building blocks** that make up the new component: each subcomponent will require the same level of attention, its own exploration file and individual specification sheet. Subcomponents will require **dedicated component tasks**, and also be added to the design components library separately.
+The latter scenario will require you to follow the steps of the design process outlined in this section to **create each one of the individual building blocks** that make up the new component: each sub-component will require the same level of attention, its own exploration file and individual specification sheet. Sub-components will require **dedicated component tasks**, and also be added to the design components library separately.
 
 #### Defining the component’s visual style
 
