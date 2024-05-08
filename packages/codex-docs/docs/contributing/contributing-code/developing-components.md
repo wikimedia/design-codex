@@ -121,13 +121,15 @@ Stylesheet specific token application rules:
   ```
 
 **Selectors and structure**
-- A light version of [BEM](http://getbem.com/) is used for class naming structure:
+- A light version of [BEM](https://getbem.com/) is used for class naming structure:
   - The root element will have the class `.cdx-component-name`
   - A block within that root element would have the class `.cdx-component-name__block-name`
   - A variation of that block would have the class `.cdx-component-name__block-name--modifier-name`
-  - There is no need to go deeper than 2 block levels in a class name; class names of further
-    sub-elements can omit some of the blocks for the sake of brevity.
-- Add specificity when styling a subcomponent to avoid override styles. For example, an Icon
+  - Codex actually expands the block logic structure for direct component children by a class
+    like `.cdx-component-name__block-name__block-child-name`. While following this, there is
+	no need to go deeper than 2 block levels in a class name; class names of further child
+	elements can omit some of the blocks for the sake of brevity.
+- Add specificity when styling a sub-component to avoid override styles. For example, an Icon
 	component that is inside a Label component would use the selector, `.cdx-label__icon.cdx-icon`. In Less:
 	```
 	cdx-label {
