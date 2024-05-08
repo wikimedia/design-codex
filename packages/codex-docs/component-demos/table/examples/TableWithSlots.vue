@@ -8,21 +8,29 @@
 		<template #thead>
 			<thead>
 				<tr>
-					<th rowspan="2">
+					<th scope="col" rowspan="2">
 						Project
 					</th>
-					<th rowspan="2" class="cdx-table__cell--align-end">
+					<th
+						scope="col"
+						rowspan="2"
+						class="cdx-table__cell--align-end"
+					>
 						No. of wikis
 					</th>
-					<th colspan="2" class="cdx-table__cell--align-center">
+					<th
+						scope="colgroup"
+						colspan="2"
+						class="cdx-table__cell--align-center"
+					>
 						Users
 					</th>
 				</tr>
 				<tr>
-					<th class="cdx-table__cell--align-end">
+					<th scope="col" class="cdx-table__cell--align-end">
 						Active
 					</th>
-					<th class="cdx-table__cell--align-end">
+					<th scope="col" class="cdx-table__cell--align-end">
 						All
 					</th>
 				</tr>
