@@ -66,9 +66,9 @@ export default defineComponent( {
 	setup() {
 		const columns = [
 			{ id: 'wiki' },
-			{ id: 'nowikis', textAlign: 'end' },
-			{ id: 'activeusers', textAlign: 'end' },
-			{ id: 'users', textAlign: 'end' }
+			{ id: 'nowikis', textAlign: 'number' },
+			{ id: 'activeusers', textAlign: 'number' },
+			{ id: 'users', textAlign: 'number' }
 		];
 
 		const data = [

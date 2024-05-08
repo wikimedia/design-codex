@@ -108,12 +108,12 @@
 					</tr>
 					<tr>
 						<td>One</td>
-						<td class="cdx-table__cell--align-end">1</td>
+						<td class="cdx-table__cell--align-number">1</td>
 						<td>Uno</td>
 					</tr>
 					<tr>
 						<td>Two</td>
-						<td class="cdx-table__cell--align-end">2</td>
+						<td class="cdx-table__cell--align-number">2</td>
 						<td>Dos</td>
 					</tr>
 					<tr>
@@ -123,12 +123,12 @@
 					</tr>
 					<tr>
 						<td>Three</td>
-						<td class="cdx-table__cell--align-end">3</td>
+						<td class="cdx-table__cell--align-number">3</td>
 						<td>Tres</td>
 					</tr>
 					<tr>
 						<td>Four</td>
-						<td class="cdx-table__cell--align-end">4</td>
+						<td class="cdx-table__cell--align-number">4</td>
 						<td>Cuatro</td>
 					</tr>
 				</tbody>
@@ -146,7 +146,7 @@
 				<tfoot>
 					<tr>
 						<th>Total:</th>
-						<td class="cdx-table__cell--align-end">$2,200</td>
+						<td class="cdx-table__cell--align-number">$2,200</td>
 					</tr>
 				</tfoot>
 			</template>
@@ -159,7 +159,7 @@
 					<tr>
 						<th rowspan="2">Season/series</th>
 						<th rowspan="2">Doctor</th>
-						<th rowspan="2" class="cdx-table__cell--align-end">Episodes</th>
+						<th rowspan="2" class="cdx-table__cell--align-number">Episodes</th>
 						<th
 							rowspan="1"
 							colspan="2"
@@ -167,7 +167,7 @@
 						>
 							Originally aired
 						</th>
-						<th rowspan="2" class="cdx-table__cell--align-end">
+						<th rowspan="2" class="cdx-table__cell--align-number">
 							Average viewers (millions)
 						</th>
 					</tr>
@@ -189,10 +189,10 @@
 							<td v-if="season.doctor" :rowspan="doctor.length">
 								{{ season.doctor }}
 							</td>
-							<td class="cdx-table__cell--align-end">{{ season.episodes }}</td>
+							<td class="cdx-table__cell--align-number">{{ season.episodes }}</td>
 							<td>{{ season.airStart }}</td>
 							<td>{{ season.airEnd }}</td>
-							<td class="cdx-table__cell--align-end">{{ season.viewers }}</td>
+							<td class="cdx-table__cell--align-number">{{ season.viewers }}</td>
 						</tr>
 					</template>
 				</tbody>
@@ -239,7 +239,7 @@ const rootClasses = computed( () => {
 // Basic table.
 const columnsBasic: TableColumn[] = [
 	{ id: 'col1', label: 'Column 1' },
-	{ id: 'col2', label: 'Column 2', textAlign: 'end' },
+	{ id: 'col2', label: 'Column 2', textAlign: 'number' },
 	{ id: 'col3', label: 'Column 3' }
 ];
 const dataBasic = [
@@ -259,7 +259,7 @@ const dataOutOfOrder = [
 
 // Table with ID column and extra data.
 const columnsExtraData: TableColumn[] = [
-	{ id: 'id', label: 'ID', textAlign: 'end', width: '30%' },
+	{ id: 'id', label: 'ID', textAlign: 'number', width: '30%' },
 	{ id: 'name', label: 'Name', width: '70%' }
 ];
 const dataExtraData = [
@@ -355,7 +355,7 @@ function getChipStatus( itemStatus: string ) {
 // Table using default slot for tfoot.
 const columnsTfoot: TableColumn[] = [
 	{ id: 'item', label: 'Item' },
-	{ id: 'cost', label: 'Cost', textAlign: 'end' }
+	{ id: 'cost', label: 'Cost', textAlign: 'number' }
 ];
 const dataTfoot = [
 	{ item: 'Housing', cost: '$1,500' },
@@ -419,10 +419,10 @@ const selectedRows = ref( [] );
 
 // Table with single sort.
 const columnsSingleSort: TableColumn[] = [
-	{ id: 'year', label: 'Year', textAlign: 'end', allowSort: true },
+	{ id: 'year', label: 'Year', textAlign: 'number', allowSort: true },
 	{ id: 'name', label: 'Last name', allowSort: true },
-	{ id: 'pronoun', label: 'Pronoun', textAlign: 'end' },
-	{ id: 'age', label: 'Age at win', textAlign: 'end', allowSort: true }
+	{ id: 'pronoun', label: 'Pronoun', textAlign: 'number' },
+	{ id: 'age', label: 'Age at win', textAlign: 'number', allowSort: true }
 ];
 const dataSingleSort = ref( [
 	{ year: 2023, name: 'Goldin', age: 77, pronoun: 'unknown' },

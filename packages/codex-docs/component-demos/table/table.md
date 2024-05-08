@@ -37,8 +37,8 @@ const controlsConfig = [
 const columns = [
 	{ id: 'athlete', label: 'Athlete' },
 	{ id: 'nation', label: 'Nation' },
-	{ id: 'rank', label: 'Rank', textAlign: 'end' },
-	{ id: 'time', label: 'Time', textAlign: 'end' }
+	{ id: 'rank', label: 'Rank', textAlign: 'number' },
+	{ id: 'time', label: 'Time', textAlign: 'number' }
 ];
 
 const data = [

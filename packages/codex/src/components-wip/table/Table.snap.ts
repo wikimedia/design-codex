@@ -530,7 +530,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
 </div>
 `;
 
-exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -603,6 +603,16 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
               Column 3
             </span>
           </th>
+          <th
+            class="cdx-table__cell--align-number"
+            scope="col"
+          >
+            <span
+              class="cdx-table__th-content"
+            >
+              Column 3
+            </span>
+          </th>
           
         </tr>
       </thead>
@@ -642,6 +652,18 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
           </td>
           <td
             class="cdx-table__cell--align-end"
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
+            
+            Three
+            
+          </td>
+          <td
+            class="cdx-table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -695,6 +717,18 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             3
             
           </td>
+          <td
+            class="cdx-table__cell--align-number"
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
+            
+            3
+            
+          </td>
           
         </tr>
         <tr
@@ -738,6 +772,18 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             Six
             
           </td>
+          <td
+            class="cdx-table__cell--align-number"
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
+            
+            Six
+            
+          </td>
           
         </tr>
         <tr
@@ -771,6 +817,18 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
           </td>
           <td
             class="cdx-table__cell--align-end"
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow} Data for the entire row
+								-->
+            
+            6
+            
+          </td>
+          <td
+            class="cdx-table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.

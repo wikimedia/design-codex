@@ -25,7 +25,8 @@ const dataOutOfOrder = [
 const columnsTextAlign = [
 	{ id: 'col1', label: 'Column 1', textAlign: 'start' },
 	{ id: 'col2', label: 'Column 2', textAlign: 'center' },
-	{ id: 'col3', label: 'Column 3', textAlign: 'end' }
+	{ id: 'col3', label: 'Column 3', textAlign: 'end' },
+	{ id: 'col3', label: 'Column 3', textAlign: 'number' }
 ];
 
 const columnsWithWidths = [

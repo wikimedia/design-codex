@@ -42,8 +42,8 @@ export default defineComponent( {
 			{ id: 'user', label: 'Username', allowSort: true },
 			{ id: 'wiki', label: 'Wiki project', allowSort: true },
 			{ id: 'title', label: 'Page title', allowSort: true },
-			{ id: 'date', label: 'Date', allowSort: true, textAlign: 'end' },
-			{ id: 'size', label: 'Size', allowSort: true, textAlign: 'end' }
+			{ id: 'date', label: 'Date', allowSort: true, textAlign: 'number' },
+			{ id: 'size', label: 'Size', allowSort: true, textAlign: 'number' }
 		];
 
 		// Data is a ref so we can change it on sort.

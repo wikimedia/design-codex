@@ -624,6 +624,16 @@ export default defineComponent( {
 					padding-right: @spacing-50;
 				}
 			}
+
+			// Numbers should be aligned right in both reading directionalities.
+			&--align-number {
+				// Trick postcss-rtlcss into setting text-align to right in both LTR and RTL. We
+				// can't just use the rtl:ignore directive, because in bidirectional mode, we need
+				// the [dir] selector to be added to match the specificity of the text-align rule
+				// applied to all th and td elements. Hat-tip to Roan for this one.
+				text-align: right /* rtl:right */;
+			}
+
 			// Targets the `th` elements that have a nested label and icon.
 			&--has-sort {
 				padding: 0;

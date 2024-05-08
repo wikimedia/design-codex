@@ -298,7 +298,7 @@ export type TableSortOption = 'none' | 'asc' | 'desc';
 interface TableColumn {
 	id: string,
 	label?: string,
-	// Allowed values: 'start' (default), 'center', 'end'
+	// Allowed values: 'start' (default), 'center', 'end', 'number'
 	textAlign?: typeof TableTextAlignments[ number ]
 	// Value with units.
 	width?: string,
@@ -429,7 +429,9 @@ const StatusTypes = [
 const TableTextAlignments = [
 	'start',
 	'center',
-	'end'
+	'end',
+	// Numbers should be aligned to the right in all reading directionalities.
+	'number'
 ];
 ```
 

@@ -81,7 +81,9 @@ export const MenuStates = [
 export const TableTextAlignments = [
 	'start',
 	'center',
-	'end'
+	'end',
+	// Numbers should be aligned to the right in all reading directionalities.
+	'number'
 ];
 
 /**
