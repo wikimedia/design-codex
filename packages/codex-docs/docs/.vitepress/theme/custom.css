@@ -601,12 +601,20 @@ body {
 
 .cdx-docs-content-guidelines ul,
 .cdx-docs-content-guidelines ol {
-	margin: 0;
+	margin-bottom: 0;
 }
 
-.vp-doc p + ul:not( :where( .vp-raw, .vp-raw * ) ),
-.vp-doc p + ol:not( :where( .vp-raw, .vp-raw * ) ) {
+/* Remove space between paragraph and list in content. */
+.vp-doc p + ul,
+.vp-doc p + ol {
 	margin-top: calc( var( --spacing-50 ) * -1 );
+}
+
+/* Maintain space between paragraph and lists in custom blocks, where p tags
+   have no bottom margin. */
+.vp-doc .custom-block ul,
+.vp-doc .custom-block ol {
+	margin: var( --spacing-50 ) 0;
 }
 
 @media ( min-width: 640px ) {
