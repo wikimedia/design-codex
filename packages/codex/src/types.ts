@@ -16,7 +16,8 @@ import {
 	ValidationStatusTypes,
 	StatusTypes,
 	MenuStates,
-	TableTextAlignments
+	TableTextAlignments,
+	TableRowIdentifier
 } from './constants';
 
 /** @public */
@@ -197,6 +198,12 @@ export interface TableColumn {
 /** @public */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TableRow = Record<string, any>;
+
+/** @public */
+export interface TableRowWithIdentifier extends TableRow {
+	// Required when sorting and row selection are both enabled.
+    [TableRowIdentifier]: string|number
+}
 
 /** @public */
 export type TableSortOption = 'none' | 'asc' | 'desc';

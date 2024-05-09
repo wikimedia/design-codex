@@ -64,7 +64,7 @@ export default defineComponent( {
 		 * Provided by `v-model` binding in the parent component.
 		 */
 		modelValue: {
-			type: [ Boolean, Array ] as PropType<boolean | string[] | number[]>,
+			type: [ Boolean, Array ] as PropType<boolean | ( string|number )[]>,
 			default: false
 		},
 		/**

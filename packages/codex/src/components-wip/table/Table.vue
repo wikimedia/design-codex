@@ -73,13 +73,13 @@
 					<tbody v-if="data.length > 0">
 						<tr
 							v-for="( row, rowIndex ) in data"
-							:key="rowIndex"
-							:class="getRowClass( rowIndex )"
+							:key="getRowKey( row, rowIndex )"
+							:class="getRowClass( row, rowIndex )"
 						>
 							<td v-if="useRowSelection">
 								<cdx-checkbox
 									v-model="wrappedSelectedRows"
-									:input-value="rowIndex"
+									:input-value="getRowKey( row, rowIndex )"
 									:hide-label="true"
 									@update:model-value="handleRowSelection"
 								>
@@ -96,7 +96,7 @@
 								<!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
 								<slot
 									:name="'item-' + column.id"
@@ -121,9 +121,9 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent, ref, toRef, computed } from 'vue';
-import { TableColumn, TableRow, TableSort, TableSortOption } from '../../types';
-import { TableTextAlignments } from '../../constants';
+import { PropType, defineComponent, ref, toRef, computed, onMounted, watch } from 'vue';
+import { TableColumn, TableRow, TableRowWithIdentifier, TableSort, TableSortOption } from '../../types';
+import { TableTextAlignments, TableRowIdentifier } from '../../constants';
 import useModelWrapper from '../../composables/useModelWrapper';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import CdxCheckbox from '../../components/checkbox/Checkbox.vue';
@@ -174,9 +174,7 @@ export default defineComponent( {
 		 */
 		columns: {
 			type: Array as PropType<TableColumn[]>,
-			default: () => {
-				return [];
-			},
+			default: () => [],
 			validator: ( value: TableColumn[] ) => {
 				const ids = value.map( ( column: TableColumn ) => column.id );
 				const hasUniqueIds = ( new Set( ids ) ).size === ids.length;
@@ -198,7 +196,7 @@ export default defineComponent( {
 		 * should align with column IDs, as defined in the `columns` prop.
 		 */
 		data: {
-			type: Array as PropType<TableRow[]>,
+			type: Array as PropType<TableRow[]|TableRowWithIdentifier[]>,
 			default: () => []
 		},
 		/**
@@ -224,9 +222,11 @@ export default defineComponent( {
 		},
 		/**
 		 * An array of selected row indices. Must be bound with `v-model:selected-rows`.
+		 *
+		 * If sorting is also enabled, this will be an array of TableRowIdentifiers.
 		 */
 		selectedRows: {
-			type: Array as PropType<number[]>,
+			type: Array as PropType<( number|string )[]>,
 			default: () => []
 		},
 		/**
@@ -293,14 +293,30 @@ export default defineComponent( {
 		} );
 
 		/**
+		 * Get the key for a row, either the row index or the TableRowIdentifier.
+		 *
+		 * @param row
+		 * @param index
+		 * @return The key
+		 */
+		function getRowKey( row: TableRow|TableRowWithIdentifier, index: number ): string|number {
+			return TableRowIdentifier in row ? row[ TableRowIdentifier ] : index;
+		}
+
+		/**
 		 * Get a CSS class for a table row based on whether it is selected.
 		 *
+		 * @param row
 		 * @param rowIndex
 		 * @return Dynamic class object
 		 */
-		function getRowClass( rowIndex: number ): Record<string, boolean> {
+		function getRowClass(
+			row: TableRow|TableRowWithIdentifier,
+			rowIndex: number
+		): Record<string, boolean> {
+			const rowKey = getRowKey( row, rowIndex );
 			return {
-				'cdx-table__table__row--selected': wrappedSelectedRows.value.indexOf( rowIndex ) !== -1
+				'cdx-table__row--selected': wrappedSelectedRows.value.indexOf( rowKey ) !== -1
 			};
 		}
 
@@ -415,7 +431,8 @@ export default defineComponent( {
 			selectAllIndeterminate.value = false;
 
 			if ( newValue ) {
-				wrappedSelectedRows.value = props.data.map( ( row, rowIndex ) => rowIndex );
+				wrappedSelectedRows.value = props.data.map( ( row, rowIndex ) =>
+					getRowKey( row, rowIndex ) );
 			} else {
 				wrappedSelectedRows.value = [];
 			}
@@ -484,6 +501,30 @@ export default defineComponent( {
 			}
 		}
 
+		/**
+		 * Check for TableRowIdentifiers when sorting and row selection are both enabled.
+		 */
+		function validateData() {
+			if ( props.columns.length === 0 || props.data.length === 0 ) {
+				return;
+			}
+
+			const hasSort = props.columns.some( ( column ) => 'allowSort' in column );
+			const rowsHaveIds = props.data.every( ( row ) => TableRowIdentifier in row );
+
+			if ( hasSort && props.useRowSelection && !rowsHaveIds ) {
+				// eslint-disable-next-line no-console
+				console.warn(
+					'For CdxTables with sorting and row selection, each row in the `data` prop must have a `TableRowIdentifier`.'
+				);
+			}
+		}
+
+		onMounted( () => validateData() );
+		watch( toRef( props, 'columns' ), () => validateData() );
+		watch( toRef( props, 'data' ), () => validateData() );
+		watch( toRef( props, 'useRowSelection' ), () => validateData() );
+
 		return {
 			// Row selection constants.
 			wrappedSelectedRows,
@@ -493,8 +534,9 @@ export default defineComponent( {
 			// Sorting constants.
 			activeSortColumn,
 
-			// Elements and CSS classes.
+			// Template helpers.
 			tableClasses,
+			getRowKey,
 			getRowClass,
 			getRowHeaderScope,
 			getCellElement,

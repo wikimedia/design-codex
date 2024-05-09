@@ -1,11 +1,13 @@
 <template>
 	<cdx-table
 		v-model:selected-rows="selectedRows"
+		v-model:sort="sort"
 		class="cdx-docs-table-with-selection"
 		caption="Tests"
 		:columns="columns"
 		:data="data"
 		:use-row-selection="true"
+		@update:sort="onSort"
 	>
 		<template #header>
 			<div class="cdx-docs-table-with-selection__header">
@@ -43,7 +45,7 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxTable, CdxButton, CdxInfoChip, CdxIcon } from '@wikimedia/codex';
+import { CdxTable, CdxButton, CdxInfoChip, CdxIcon, TableRowIdentifier } from '@wikimedia/codex';
 import { cdxIconCheck, cdxIconClose } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
@@ -51,17 +53,20 @@ export default defineComponent( {
 	components: { CdxTable, CdxButton, CdxInfoChip, CdxIcon },
 	setup() {
 		// eslint-disable-next-line jsdoc/valid-types
-		/** @type {import('vue').Ref<number[]>} */
+		/** @type {import('vue').Ref<string[]>} */
 		const selectedRows = ref( [] );
 
+		const sort = ref( { name: 'asc' } );
+
 		const columns = [
-			{ id: 'name', label: 'Name', minWidth: '200px' },
+			{ id: 'name', label: 'Name', minWidth: '200px', allowSort: true },
 			{ id: 'status', label: 'Status' },
 			{ id: 'result', label: 'English verb to agent noun' }
 		];
 
 		const data = ref( [
 			{
+				[ TableRowIdentifier ]: 'Z11401',
 				name: {
 					label: '"illustrate" -> "illustrator"',
 					url: 'https://www.wikifunctions.org/view/en/Z11401'
@@ -70,6 +75,7 @@ export default defineComponent( {
 				result: false
 			},
 			{
+				[ TableRowIdentifier ]: 'Z11405',
 				name: {
 					label: '"listen" -> "listener"',
 					url: 'https://www.wikifunctions.org/view/en/Z11405'
@@ -78,6 +84,7 @@ export default defineComponent( {
 				result: true
 			},
 			{
+				[ TableRowIdentifier ]: 'Z11402',
 				name: {
 					label: '"mentor" -> "mentor"',
 					url: 'https://www.wikifunctions.org/view/en/Z11402'
@@ -86,6 +93,7 @@ export default defineComponent( {
 				result: true
 			},
 			{
+				[ TableRowIdentifier ]: 'Z11404',
 				name: {
 					label: '"swim" -> "swimmer"',
 					url: 'https://www.wikifunctions.org/view/en/Z11404'
@@ -100,18 +108,42 @@ export default defineComponent( {
 		 * tests to passing.
 		 */
 		function handleRerun() {
-			for ( const index of selectedRows.value ) {
-				data.value[ index ].result = true;
-			}
+			data.value.forEach( ( row, index ) => {
+				if ( selectedRows.value.includes( row[ TableRowIdentifier ] ) ) {
+					data.value[ index ].result = true;
+				}
+			} );
 		}
 
 		/**
 		 * Disconnect selected tests.
 		 */
 		function handleDisconnect() {
-			for ( const index of selectedRows.value ) {
-				data.value[ index ].status = false;
+			data.value.forEach( ( row, index ) => {
+				if ( selectedRows.value.includes( row[ TableRowIdentifier ] ) ) {
+					data.value[ index ].status = false;
+				}
+			} );
+		}
+
+		function onSort( newSort ) {
+			const sortOrder = newSort.name;
+
+			function sortAlphabetically( sortDir ) {
+				data.value.sort( ( a, b ) => {
+					const multiplier = sortDir === 'asc' ? 1 : -1;
+					return multiplier * ( a.name.label.localeCompare( b.name.label ) );
+				} );
 			}
+
+			// Reset default sort order.
+			if ( sortOrder === 'none' ) {
+				sortAlphabetically( 'asc' );
+				sort.value = { name: 'asc' };
+				return;
+			}
+
+			sortAlphabetically( sortOrder );
 		}
 
 		function getIconClass( result ) {
@@ -123,10 +155,12 @@ export default defineComponent( {
 
 		return {
 			selectedRows,
+			sort,
 			columns,
 			data,
 			handleRerun,
 			handleDisconnect,
+			onSort,
 			getIconClass,
 			cdxIconCheck,
 			cdxIconClose

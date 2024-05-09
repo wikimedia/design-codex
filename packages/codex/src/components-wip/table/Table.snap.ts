@@ -86,7 +86,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             One
@@ -98,7 +98,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Two
@@ -110,7 +110,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Three
@@ -129,7 +129,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             1
@@ -141,7 +141,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2
@@ -153,7 +153,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             3
@@ -172,7 +172,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Four
@@ -184,7 +184,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Five
@@ -196,7 +196,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Six
@@ -215,7 +215,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             4
@@ -227,7 +227,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             5
@@ -239,7 +239,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             6
@@ -345,7 +345,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             One
@@ -357,7 +357,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Two
@@ -369,7 +369,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Three
@@ -388,7 +388,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             1
@@ -400,7 +400,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2
@@ -412,7 +412,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             3
@@ -431,7 +431,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Four
@@ -443,7 +443,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Five
@@ -455,7 +455,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Six
@@ -474,7 +474,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             4
@@ -486,7 +486,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             5
@@ -498,7 +498,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             6
@@ -612,7 +612,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             One
@@ -624,7 +624,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Two
@@ -636,7 +636,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Three
@@ -648,7 +648,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Three
@@ -667,7 +667,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             1
@@ -679,7 +679,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2
@@ -691,7 +691,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             3
@@ -703,7 +703,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             3
@@ -722,7 +722,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Four
@@ -734,7 +734,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Five
@@ -746,7 +746,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Six
@@ -758,7 +758,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Six
@@ -777,7 +777,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             4
@@ -789,7 +789,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             5
@@ -801,7 +801,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             6
@@ -813,7 +813,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             6
@@ -898,7 +898,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             One
@@ -910,7 +910,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Two
@@ -922,7 +922,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Three
@@ -941,7 +941,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             1
@@ -953,7 +953,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2
@@ -965,7 +965,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             3
@@ -984,7 +984,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Four
@@ -996,7 +996,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Five
@@ -1008,7 +1008,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Six
@@ -1027,7 +1027,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             4
@@ -1039,7 +1039,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             5
@@ -1051,7 +1051,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             6
@@ -1158,7 +1158,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             One
@@ -1170,7 +1170,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Two
@@ -1182,7 +1182,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Three
@@ -1202,7 +1202,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             1
@@ -1214,7 +1214,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2
@@ -1226,7 +1226,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             3
@@ -1246,7 +1246,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Four
@@ -1258,7 +1258,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Five
@@ -1270,7 +1270,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Six
@@ -1290,7 +1290,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             4
@@ -1302,7 +1302,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             5
@@ -1314,7 +1314,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             6
@@ -1424,7 +1424,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             One
@@ -1436,7 +1436,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Two
@@ -1448,7 +1448,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Three
@@ -1468,7 +1468,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             1
@@ -1480,7 +1480,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2
@@ -1492,7 +1492,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             3
@@ -1512,7 +1512,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Four
@@ -1524,7 +1524,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Five
@@ -1536,7 +1536,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Six
@@ -1556,7 +1556,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             4
@@ -1568,7 +1568,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             5
@@ -1580,7 +1580,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             6
@@ -1772,7 +1772,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             One
@@ -1784,7 +1784,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Two
@@ -1796,7 +1796,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Three
@@ -1857,7 +1857,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             1
@@ -1869,7 +1869,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2
@@ -1881,7 +1881,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             3
@@ -1942,7 +1942,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Four
@@ -1954,7 +1954,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Five
@@ -1966,7 +1966,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Six
@@ -2027,7 +2027,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             4
@@ -2039,7 +2039,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             5
@@ -2051,7 +2051,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             6
@@ -2158,7 +2158,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             One
@@ -2170,7 +2170,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Two
@@ -2182,7 +2182,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Three
@@ -2201,7 +2201,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             1
@@ -2213,7 +2213,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2
@@ -2225,7 +2225,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             3
@@ -2244,7 +2244,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Four
@@ -2256,7 +2256,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Five
@@ -2268,7 +2268,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Six
@@ -2287,7 +2287,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             4
@@ -2299,7 +2299,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             5
@@ -2311,7 +2311,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             6
@@ -2425,7 +2425,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             One
@@ -2437,7 +2437,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Two
@@ -2449,7 +2449,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Three
@@ -2468,7 +2468,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             1
@@ -2480,7 +2480,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2
@@ -2492,7 +2492,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             3
@@ -2511,7 +2511,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Four
@@ -2523,7 +2523,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Five
@@ -2535,7 +2535,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Six
@@ -2554,7 +2554,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             4
@@ -2566,7 +2566,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             5
@@ -2578,7 +2578,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             6
@@ -2684,7 +2684,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             <p>
@@ -2698,7 +2698,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Two
@@ -2710,7 +2710,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Three
@@ -2729,7 +2729,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             <p>
@@ -2743,7 +2743,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2
@@ -2755,7 +2755,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             3
@@ -2774,7 +2774,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             <p>
@@ -2788,7 +2788,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Five
@@ -2800,7 +2800,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Six
@@ -2819,7 +2819,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             <p>
@@ -2833,7 +2833,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             5
@@ -2845,7 +2845,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             6
@@ -3027,7 +3027,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2023
@@ -3039,7 +3039,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Goldin
@@ -3051,7 +3051,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             77
@@ -3070,7 +3070,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2022
@@ -3082,7 +3082,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Bernanke
@@ -3094,7 +3094,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             69
@@ -3113,7 +3113,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2022
@@ -3125,7 +3125,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Diamond
@@ -3137,7 +3137,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             69
@@ -3156,7 +3156,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2022
@@ -3168,7 +3168,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Dybvig
@@ -3180,7 +3180,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             67
@@ -3199,7 +3199,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2021
@@ -3211,7 +3211,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Card
@@ -3223,7 +3223,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             65
@@ -3242,7 +3242,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2021
@@ -3254,7 +3254,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Angrist
@@ -3266,7 +3266,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             61
@@ -3285,7 +3285,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             2021
@@ -3297,7 +3297,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             Imbens
@@ -3309,7 +3309,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             <!--
 									@slot Table cell content, per column.
 									@binding item {any} Data for the cell
-									@binding row {TableRow} Data for the entire row
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
             58

@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import CdxTable from './Table.vue';
 import { TableColumn } from '../../types';
+import { TableRowIdentifier } from '../../constants';
 
 const columnsBasic = [
 	{ id: 'col1', label: 'Column 1' },
@@ -60,6 +61,26 @@ const dataSingleSort = [
 	{ year: 2021, name: 'Card', age: 65 },
 	{ year: 2021, name: 'Angrist', age: 61 },
 	{ year: 2021, name: 'Imbens', age: 58 }
+];
+
+const dataSortAndSelection = [
+	{ [ TableRowIdentifier ]: 'goldin', year: 2023, name: 'Goldin', age: 77 },
+	{ [ TableRowIdentifier ]: 'bernanke', year: 2022, name: 'Bernanke', age: 69 },
+	{ [ TableRowIdentifier ]: 'diamond', year: 2022, name: 'Diamond', age: 69 },
+	{ [ TableRowIdentifier ]: 'dybvig', year: 2022, name: 'Dybvig', age: 67 },
+	{ [ TableRowIdentifier ]: 'card', year: 2021, name: 'Card', age: 65 },
+	{ [ TableRowIdentifier ]: 'angrist', year: 2021, name: 'Angrist', age: 61 },
+	{ [ TableRowIdentifier ]: 'imbens', year: 2021, name: 'Imbens', age: 58 }
+];
+
+const dataSortAndSelectionSorted = [
+	{ [ TableRowIdentifier ]: 'angrist', year: 2021, name: 'Angrist', age: 61 },
+	{ [ TableRowIdentifier ]: 'bernanke', year: 2022, name: 'Bernanke', age: 69 },
+	{ [ TableRowIdentifier ]: 'card', year: 2021, name: 'Card', age: 65 },
+	{ [ TableRowIdentifier ]: 'diamond', year: 2022, name: 'Diamond', age: 69 },
+	{ [ TableRowIdentifier ]: 'dybvig', year: 2022, name: 'Dybvig', age: 67 },
+	{ [ TableRowIdentifier ]: 'goldin', year: 2023, name: 'Goldin', age: 77 },
+	{ [ TableRowIdentifier ]: 'imbens', year: 2021, name: 'Imbens', age: 58 }
 ];
 
 describe( 'Table', () => {
@@ -220,6 +241,94 @@ describe( 'Table', () => {
 
 				const selectAllInput = wrapper.find( 'thead' ).find( 'input' );
 				expect( selectAllInput.element.checked ).toBe( true );
+			} );
+		} );
+
+		describe( 'And sorting is also enabled', () => {
+			describe( 'and a single row is selected', () => {
+				it( 'emits update:selectedRow event with the single row index', async () => {
+					const wrapper = mount( CdxTable, {
+						props: {
+							caption: 'Table caption',
+							columns: columnsSingleSort,
+							data: dataSortAndSelection,
+							useRowSelection: true,
+							selectedRows: [],
+							sort: {}
+						}
+					} );
+					const firstRowInput = wrapper.find( 'tbody' ).find( 'input' );
+					firstRowInput.element.checked = true;
+					await firstRowInput.trigger( 'change' );
+
+					expect( wrapper.emitted( 'update:selectedRows' ) ).toBeTruthy();
+					expect( wrapper.emitted( 'update:selectedRows' )?.[ 0 ] ).toEqual( [ [ 'goldin' ] ] );
+				} );
+
+				describe( 'and a sortable column is clicked', () => {
+					it( 'emits update:sort event to update the sort prop value', async () => {
+						const wrapper = mount( CdxTable, {
+							props: {
+								caption: 'Table caption',
+								columns: columnsSingleSort,
+								data: dataSortAndSelection,
+								useRowSelection: true,
+								selectedRows: [ 'goldin' ],
+								sort: {}
+							}
+						} );
+
+						let firstRowInput = wrapper.find( 'tbody' ).find( 'input' );
+						expect( firstRowInput.element.checked ).toBeTruthy();
+
+						// Find the "name" header button.
+						const nameTableHeader = wrapper.findAll( 'button' )[ 1 ];
+
+						// Trigger a click event on the first `th` element.
+						await nameTableHeader.trigger( 'click' );
+						expect( wrapper.emitted( 'update:sort' ) ).toBeTruthy();
+						expect( wrapper.emitted( 'update:sort' )?.[ 0 ] ).toEqual( [ { name: 'asc' } ] );
+
+						// Simulate the parent responding to the update:sort event.
+						await wrapper.setProps( { sort: { year: 'asc' } } );
+						await wrapper.setProps( { data: dataSortAndSelectionSorted } );
+
+						// Find the new first row input.
+						firstRowInput = wrapper.find( 'tbody' ).find( 'input' );
+						// Find the one with 'goldin' now.
+						const sixthRowInput = wrapper.find( 'tbody' ).findAll( 'input' )[ 5 ];
+						// Confirm that 'goldin' is still checked and the first row is not.
+						expect( firstRowInput.element.checked ).toBeFalsy();
+						expect( sixthRowInput.element.checked ).toBeTruthy();
+
+					} );
+				} );
+			} );
+
+			describe( 'and the "select all" checkbox is checked', () => {
+				it( 'handles update:selectedRow events properly', async () => {
+					const wrapper = mount( CdxTable, {
+						props: {
+							caption: 'Table caption',
+							columns: columnsSingleSort,
+							data: dataSortAndSelection,
+							useRowSelection: true,
+							selectedRows: [],
+							sort: {}
+						}
+					} );
+
+					// Select all is checked.
+					const selectAllInput = wrapper.find( 'thead' ).find( 'input' );
+					selectAllInput.element.checked = true;
+					await selectAllInput.trigger( 'change' );
+
+					expect( wrapper.emitted( 'update:selectedRows' ) ).toBeTruthy();
+					expect( wrapper.emitted( 'update:selectedRows' )?.[ 0 ] ).toEqual( [ [
+						'goldin', 'bernanke', 'diamond', 'dybvig', 'card', 'angrist', 'imbens'
+					] ] );
+
+				} );
 			} );
 		} );
 	} );

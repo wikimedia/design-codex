@@ -97,6 +97,9 @@ import type {
 	TableSortOption
 } from './types';
 
+// Constants.
+import { TableRowIdentifier } from './constants';
+
 export {
 	// Components
 	CdxAccordion,
@@ -174,5 +177,8 @@ export {
 	TableColumn,
 	TableRow,
 	TableSort,
-	TableSortOption
+	TableSortOption,
+
+	// Constants.
+	TableRowIdentifier
 };

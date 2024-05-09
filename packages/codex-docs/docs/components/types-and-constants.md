@@ -134,7 +134,7 @@ type IconSize = typeof IconSizes[ number ];
 An icon with a single SVG that should flip horizontally in RTL mode.
 
 ```ts
-export interface IconFlipForRtl {
+interface IconFlipForRtl {
 	/** LTR version of the icon. */
 	ltr: SimpleIcon,
 	/** Indicates that the icon should be flipped via CSS in RTL mode. */
@@ -283,13 +283,13 @@ type StatusType = typeof StatusTypes[ number ];
 ### TableSort
 
 ```ts
-export type TableSort<K extends string = string> = { [P in K]?: TableSortOption };
+type TableSort<K extends string = string> = { [P in K]?: TableSortOption };
 ```
 
 ### TableSortOption
 
 ```ts
-export type TableSortOption = 'none' | 'asc' | 'desc';
+type TableSortOption = 'none' | 'asc' | 'desc';
 ```
 
 ### TableColumn
@@ -312,6 +312,17 @@ interface TableColumn {
 
 ```ts
 type TableRow = Record<string, any>;
+```
+
+### TableRowWithIdentifier
+
+When both sorting and row selection are enabled, an extra unique idenfitier is needed for each
+row. See [TableRowIdentifier](#tablerowidentifier).
+
+```ts
+interface TableRowWithIdentifier extends TableRow {
+    [TableRowIdentifier]: string
+}
 ```
 
 ### TextInputType
@@ -422,6 +433,15 @@ const StatusTypes = [
 	'error',
 	'success'
 ];
+```
+
+### TableRowIdentifier
+
+Special property of a table row for a unique identifier. Required when both sorting and row
+selection are enabled.
+
+```ts
+const TableRowIdentifier = Symbol( 'CdxTableRowIdentifier' );
 ```
 
 ### TableTextAlignments

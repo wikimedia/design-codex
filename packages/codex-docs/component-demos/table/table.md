@@ -5,6 +5,7 @@ import TableCustomCells from '@/../component-demos/table/examples/TableCustomCel
 import TableWithSlots from '@/../component-demos/table/examples/TableWithSlots.vue';
 import TableWithSort from '@/../component-demos/table/examples/TableWithSort.vue';
 import TableWithSelection from '@/../component-demos/table/examples/TableWithSelection.vue';
+import TableWithSelectionAndSort from '@/../component-demos/table/examples/TableWithSelectionAndSort.vue';
 
 const controlsConfig = [
 	{
@@ -537,6 +538,30 @@ props to provide translated strings for these visually-hidden accessibility help
 <<< @/../component-demos/table/examples/TableWithSelection.vue [NPM]
 
 <<< @/../component-demos/table/examples-mw/TableWithSelection.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### With selection and sort
+
+To use both row selection and sorting, you must add a unique identifier to each row:
+- Import the `TableRowIdentifier` constant from Codex
+- Add a property to each row object keyed on `TableRowIdentifier` with a unique ID, e.g.
+  `[ TableRowIdentifier ]: 'Q123'`
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<table-with-selection-and-sort />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/table/examples/TableWithSelectionAndSort.vue [NPM]
+
+<<< @/../component-demos/table/examples-mw/TableWithSelectionAndSort.vue [MediaWiki]
 
 :::
 

@@ -218,7 +218,18 @@
 			caption="Recent Nobel laureates in Economic Sciences"
 			:columns="columnsSingleSort"
 			:data="dataSingleSort"
-			@update:sort="handleSingleSort"
+			@update:sort="( newSort ) => onSort( newSort, 'singleSort' )"
+		/>
+
+		<h2>Table with sort and row selection</h2>
+		<cdx-table
+			v-model:sort="sortWithSelection"
+			v-model:selected-rows="selectedRowsSortWithSelection"
+			caption="Recent Nobel laureates in Economic Sciences"
+			:columns="columnsSingleSort"
+			:data="dataSortWithSelection"
+			:use-row-selection="true"
+			@update:sort="( newSort ) => onSort( newSort, 'withSelection' )"
 		/>
 	</section>
 </template>
@@ -227,7 +238,17 @@
 import { Ref, ref, computed } from 'vue';
 // eslint-disable-next-line no-restricted-imports
 import { CdxTable } from '../components-wip/index';
-import { CdxButton, CdxCheckbox, CdxInfoChip, CdxToggleSwitch, TableColumn, TableSortOption, TableSort } from '../lib';
+import {
+	CdxButton,
+	CdxCheckbox,
+	CdxInfoChip,
+	CdxToggleSwitch,
+	TableColumn,
+	TableSortOption,
+	TableSort,
+	TableRow,
+	TableRowIdentifier
+} from '../lib';
 
 const restrictWidth = ref( true );
 const rootClasses = computed( () => {
@@ -414,8 +435,17 @@ const dataDoctorWho = {
 		}
 	]
 };
+
 // Table with row selection.
 const selectedRows = ref( [] );
+
+// Sort types.
+interface NobelPrizeWinner {
+	year: number;
+	name: string;
+	age: number;
+}
+type SingleSort = TableSort<keyof NobelPrizeWinner>;
 
 // Table with single sort.
 const columnsSingleSort: TableColumn[] = [
@@ -424,7 +454,7 @@ const columnsSingleSort: TableColumn[] = [
 	{ id: 'pronoun', label: 'Pronoun', textAlign: 'number' },
 	{ id: 'age', label: 'Age at win', textAlign: 'number', allowSort: true }
 ];
-const dataSingleSort = ref( [
+const dataSingleSort = ref<TableRow[]>( [
 	{ year: 2023, name: 'Goldin', age: 77, pronoun: 'unknown' },
 	{ year: 2022, name: 'Bernanke', age: 69, pronoun: 'unknown' },
 	{ year: 2022, name: 'Diamond', age: 69, pronoun: 'unknown' },
@@ -433,22 +463,35 @@ const dataSingleSort = ref( [
 	{ year: 2021, name: 'Angrist', age: 61, pronoun: 'unknown' },
 	{ year: 2021, name: 'Imbens', age: 58, pronoun: 'unknown' }
 ] );
+const singleSort = ref<SingleSort>( { year: 'asc' } );
 
-interface NobelPrizeWinner {
-	year: number;
-	name: string;
-	age: number;
+// Table with row selection and sorting.
+const selectedRowsSortWithSelection = ref( [] );
+const dataSortWithSelection = ref( [
+	{ [ TableRowIdentifier ]: 'goldin', year: 2023, name: 'Goldin', age: 77 },
+	{ [ TableRowIdentifier ]: 'bernanke', year: 2022, name: 'Bernanke', age: 69 },
+	{ [ TableRowIdentifier ]: 'diamond', year: 2022, name: 'Diamond', age: 69 },
+	{ [ TableRowIdentifier ]: 'dybvig', year: 2022, name: 'Dybvig', age: 67 },
+	{ [ TableRowIdentifier ]: 'card', year: 2021, name: 'Card', age: 65 },
+	{ [ TableRowIdentifier ]: 'angrist', year: 2021, name: 'Angrist', age: 61 },
+	{ [ TableRowIdentifier ]: 'imbens', year: 2021, name: 'Imbens', age: 58 }
+] );
+const sortWithSelection = ref<SingleSort>( { year: 'asc' } );
+
+function onSort( newSort: SingleSort, demoKey: 'singleSort'|'withSelection' ) {
+	if ( demoKey === 'singleSort' ) {
+		handleSort( newSort, singleSort, dataSingleSort );
+	}
+	if ( demoKey === 'withSelection' ) {
+		handleSort( newSort, sortWithSelection, dataSortWithSelection );
+	}
 }
 
-type SingleSort = TableSort<keyof NobelPrizeWinner>;
-
-const singleSort: Ref<SingleSort> = ref( { year: 'asc' } );
-
-function handleSingleSort( newSort: SingleSort ) {
+function handleSort( newSort: SingleSort, sortRef: Ref<SingleSort>, sortData: Ref<TableRow[]> ) {
 	const sortKey = Object.keys( newSort )[ 0 ] as keyof SingleSort;
 
 	function sortNumerically( columnId: 'year' | 'age', sortDir: TableSortOption ) {
-		return dataSingleSort.value.sort( ( a, b ):number => {
+		return sortData.value.sort( ( a, b ):number => {
 			if ( sortDir === 'asc' ) {
 				return b[ columnId ] - a[ columnId ];
 			}
@@ -457,7 +500,7 @@ function handleSingleSort( newSort: SingleSort ) {
 	}
 
 	function sortByName( sortDir: TableSortOption ) {
-		return dataSingleSort.value.sort( ( a, b ) => {
+		return sortData.value.sort( ( a, b ) => {
 			const multiplier = sortDir === 'asc' ? 1 : -1;
 			return multiplier * ( a.name.localeCompare( b.name ) );
 		} );
@@ -465,27 +508,24 @@ function handleSingleSort( newSort: SingleSort ) {
 
 	// Handle default sort.
 	if ( newSort[ sortKey ] === 'none' ) {
-		dataSingleSort.value = sortNumerically( 'year', 'asc' );
-		singleSort.value[ sortKey ] = 'none';
+		sortData.value = sortNumerically( 'year', 'asc' );
+		sortRef.value[ sortKey ] = 'none';
 		return;
 	}
-
-	// Update singleSort ref.
-	singleSort.value = { [ sortKey ]: newSort[ sortKey ] };
 
 	// Sort data.
 	switch ( sortKey ) {
 		case 'year':
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			dataSingleSort.value = sortNumerically( 'year', newSort.year! );
+			sortData.value = sortNumerically( 'year', newSort.year! );
 			return;
 		case 'name':
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			dataSingleSort.value = sortByName( newSort.name! );
+			sortData.value = sortByName( newSort.name! );
 			return;
 		case 'age':
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			dataSingleSort.value = sortNumerically( 'age', newSort.age! );
+			sortData.value = sortNumerically( 'age', newSort.age! );
 			return;
 		default:
 			return;

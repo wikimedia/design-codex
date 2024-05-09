@@ -124,3 +124,10 @@ export const DisabledKey: InjectionKey<Ref<boolean>> = Symbol( 'CdxDisabled' );
  * https://phabricator.wikimedia.org/T345281
  */
 export const NoInvertClass = `${ LibraryPrefix }-no-invert` as const;
+
+/**
+ * Special property of a table row for a unique identifier. Required when both sorting and row
+ * selection are enabled.
+ * @public
+ */
+export const TableRowIdentifier = Symbol( 'CdxTableRowIdentifier' );
