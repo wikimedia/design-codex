@@ -319,8 +319,8 @@ suggested configurations for optimal development for that editor!
    development in Visual Studio Code (VS Code). These extensions are defined in
    `vscode/extensions.json`. When you open Codex in VS Code, you should be prompted with a message
    to install recommended extensions. You can also go to the Extensions tab and search for
-   '@recommended', then install the extensions you want. 
-2. **Configure settings:** You will also want to configure Stylelint to check your styles, rather
+   '@recommended', then install the extensions you want.
+2. **Configure settings for extensions:** Configure Stylelint to check your styles, rather
    than VS Code's built-in validators. Add the following to your `.vscode/settings.json` file:
 ```json
 {
@@ -338,5 +338,11 @@ suggested configurations for optimal development for that editor!
 		"postcss",
 		"vue"
 	]
+}
+```
+Configure Rewrap to wrap at 100 characters column:
+```json
+{
+	"rewrap.wrappingColumn": 100
 }
 ```

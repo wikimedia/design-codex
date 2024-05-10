@@ -5,6 +5,7 @@
 		"stylelint.vscode-stylelint",
 		"wayou.vscode-todo-highlight",
 		"jkiviluoto.tws",
+		"stkb.rewrap",
 		"streetsidesoftware.code-spell-checker"
 	]
 }
