@@ -460,14 +460,6 @@ export default defineComponent( {
 			}
 		}
 
-		&.cdx-chip-input--status-error {
-			&:not( .cdx-chip-input--has-separate-input ) .cdx-chip-input__chips,
-			&.cdx-chip-input--has-separate-input .cdx-chip-input__separate-input {
-				border-color: @border-color-error;
-			}
-		}
-
-		// Focus styles should override error, so they come after the error styles.
 		&.cdx-chip-input--focused {
 			&:not( .cdx-chip-input--has-separate-input ) .cdx-chip-input__chips,
 			&.cdx-chip-input--has-separate-input .cdx-chip-input__separate-input {
@@ -477,10 +469,16 @@ export default defineComponent( {
 			}
 		}
 
-		&.cdx-chip-input--status-error&:not( .cdx-chip-input--focused ) {
+		// Apply error and error :hover styles, but only when not focused.
+		&.cdx-chip-input--status-error:not( .cdx-chip-input--focused ) {
 			&:not( .cdx-chip-input--has-separate-input ) .cdx-chip-input__chips,
 			&.cdx-chip-input--has-separate-input .cdx-chip-input__separate-input {
 				color: @color-error;
+				border-color: @border-color-error;
+
+				&:hover {
+					border-color: @border-color-error--hover;
+				}
 			}
 		}
 	}
