@@ -84,12 +84,12 @@ ChipInput has the following visually separate states:
 4. Filled
 5. Disabled
 6. Hover on chip’s remove button
-7. Error default
-8. Error focus
-9. Error filled
-10. Hover on editable chip
-11. Focused editable chip
-12. Editing the chip
+7. Hover on editable chip
+8. Focused editable chip
+9. Editing the chip
+10. Error default
+11. Error hover
+12. Error filled
 
 </div>
 

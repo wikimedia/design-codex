@@ -75,8 +75,8 @@ Selects have the following visually separate states:
 2. Hover
 3. Focus
 4. Error
-5. Disabled
-6. Active select with menu displayed
+5. Error hover
+6. Disabled
 7. Active select and hover on one of the menu options
 8. Active select and one of the menu options being pressed
 9. Active select with one of the menu options selected

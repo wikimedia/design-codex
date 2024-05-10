@@ -114,7 +114,7 @@ Text areas have the following visually separate states:
 5. Disabled
 6. Read-only
 7. Error default
-8. Error focus
+8. Error hover
 9. Error filled
 
 </div>
