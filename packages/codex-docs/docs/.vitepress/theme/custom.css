@@ -183,6 +183,7 @@ body {
 	padding: var( --spacing-12 ) var( --spacing-25 );
 	box-shadow: var( --box-shadow-drop-small );
 	font-size: var( --font-size-small );
+	white-space: nowrap;
 }
 
 .vp-doc p,
