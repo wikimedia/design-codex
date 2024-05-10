@@ -151,6 +151,8 @@ export const TablePaginationPositions = [
  * @public
  */
 export const I18nMessageKeys = [
+	'cdx-chip-input-chip-added',
+	'cdx-chip-input-chip-removed',
 	'cdx-dialog-close-button-label',
 	'cdx-input-chip-aria-description',
 	'cdx-label-optional-flag',

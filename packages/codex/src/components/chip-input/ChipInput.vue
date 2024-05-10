@@ -52,6 +52,14 @@
 				@keydown="onInputKeydown"
 			>
 		</div>
+		<!-- Hidden status element (aria live region) for screen readers. -->
+		<div
+			class="cdx-chip-input__aria-status"
+			role="status"
+			aria-live="polite"
+		>
+			{{ statusMessageContent }}
+		</div>
 	</div>
 </template>
 
@@ -65,6 +73,7 @@ import useSplitAttributes from '../../composables/useSplitAttributes';
 import useFieldData from '../../composables/useFieldData';
 import useComputedDirection from '../../composables/useComputedDirection';
 import useOptionalModelWrapper from '../../composables/useOptionalModelWrapper';
+import useI18n from '../../composables/useI18n';
 
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
@@ -151,6 +160,7 @@ export default defineComponent( {
 	],
 	setup( props, { emit, attrs } ) {
 		const rootElement = ref<HTMLDivElement>();
+		const statusMessageContent = ref( '' );
 		const computedDirection = useComputedDirection( rootElement );
 		const input = ref<HTMLInputElement>();
 
@@ -195,6 +205,20 @@ export default defineComponent( {
 
 		const chipRefs: InstanceType<typeof CdxInputChip>[] = [];
 
+		const currentChipToRemove = ref<ChipInputItem | null>( null );
+		const computedChipToRemove = computed( () => currentChipToRemove.value ? currentChipToRemove.value.value : '' );
+
+		const chipAddedMessage = useI18n(
+			'cdx-chip-input-chip-added',
+			( x ) => `Chip ${ x } was added.`,
+			[ computedInputValue ]
+		);
+		const chipRemovedMessage = useI18n(
+			'cdx-chip-input-chip-removed',
+			( x ) => `Chip ${ x } was removed.`,
+			[ computedChipToRemove ]
+		);
+
 		function assignChipTemplateRef(
 			chip: Element | ComponentPublicInstance | null,
 			index: number
@@ -221,6 +245,8 @@ export default defineComponent( {
 			) {
 				validatedStatus.value = 'error';
 			} else if ( computedInputValue.value.length > 0 ) {
+				statusMessageContent.value = chipAddedMessage.value;
+
 				emit( 'update:input-chips', props.inputChips.concat( { value: computedInputValue.value } ) );
 				computedInputValue.value = '';
 			}
@@ -266,6 +292,13 @@ export default defineComponent( {
 			index: number,
 			method: 'button' | 'Backspace' | 'Delete'
 		) {
+
+			// Update currrentChipToRemove ref.
+			currentChipToRemove.value = chipToRemove;
+
+			// Announce the chip removal for all methods, including button clicks.
+			statusMessageContent.value = chipRemovedMessage.value;
+
 			if ( method === 'button' ) {
 				focusInput();
 			} else if ( method === 'Backspace' ) {
@@ -381,7 +414,8 @@ export default defineComponent( {
 			onInputFocus,
 			onInputBlur,
 			onFocusOut,
-			computedDisabled
+			computedDisabled,
+			statusMessageContent
 		};
 	}
 } );
@@ -390,6 +424,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/button-group.less';
+@import ( reference ) '../../themes/mixins/common.less';
 
 // TODO: create a component-level design token.
 @spacing-vertical-input-chip: @spacing-25 - @border-width-base;
@@ -449,6 +484,10 @@ export default defineComponent( {
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
 		}
+	}
+
+	&__aria-status {
+		.screen-reader-text();
 	}
 
 	&:not( .cdx-chip-input--disabled ) {

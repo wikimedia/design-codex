@@ -20,6 +20,12 @@ exports[`matches the snapshot Case 0 Default props: ({"inputChips": [Array]}) =>
     />
   </div>
   <!--v-if-->
+  <!-- Hidden status element (aria live region) for screen readers. -->
+  <div
+    aria-live="polite"
+    class="cdx-chip-input__aria-status"
+    role="status"
+  />
 </div>
 `;
 
@@ -39,6 +45,12 @@ exports[`matches the snapshot Case 1 No input chips: ({"inputChips": [Array]}) =
     />
   </div>
   <!--v-if-->
+  <!-- Hidden status element (aria live region) for screen readers. -->
+  <div
+    aria-live="polite"
+    class="cdx-chip-input__aria-status"
+    role="status"
+  />
 </div>
 `;
 
@@ -66,6 +78,12 @@ exports[`matches the snapshot Case 2 With separate input: ({"inputChips": [Array
       class="cdx-chip-input__input"
     />
   </div>
+  <!-- Hidden status element (aria live region) for screen readers. -->
+  <div
+    aria-live="polite"
+    class="cdx-chip-input__aria-status"
+    role="status"
+  />
 </div>
 `;
 
@@ -89,6 +107,12 @@ exports[`matches the snapshot Case 3 With error: ({"inputChips": [Array], "statu
     />
   </div>
   <!--v-if-->
+  <!-- Hidden status element (aria live region) for screen readers. -->
+  <div
+    aria-live="polite"
+    class="cdx-chip-input__aria-status"
+    role="status"
+  />
 </div>
 `;
 
@@ -113,6 +137,12 @@ exports[`matches the snapshot Case 4 Disabled: ({"disabled": true, "inputChips":
     />
   </div>
   <!--v-if-->
+  <!-- Hidden status element (aria live region) for screen readers. -->
+  <div
+    aria-live="polite"
+    class="cdx-chip-input__aria-status"
+    role="status"
+  />
 </div>
 `;
 
@@ -137,5 +167,11 @@ exports[`matches the snapshot Case 5 Input chips with icon: ({"inputChips": [Arr
     />
   </div>
   <!--v-if-->
+  <!-- Hidden status element (aria live region) for screen readers. -->
+  <div
+    aria-live="polite"
+    class="cdx-chip-input__aria-status"
+    role="status"
+  />
 </div>
 `;

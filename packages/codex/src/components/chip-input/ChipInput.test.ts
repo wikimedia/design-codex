@@ -49,12 +49,15 @@ describe( 'Basic usage', () => {
 			attachTo: 'body'
 		} );
 		const inputElement = wrapper.get( 'input' );
+		const statusMessage = wrapper.get( '.cdx-chip-input__aria-status' );
 		inputElement.element.focus();
 		await inputElement.setValue( 'New Chip' );
 		inputElement.element.blur();
 		await nextTick();
 		expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
 		expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'New Chip' } ] ] );
+		// Updates the status message when a new chip is added.
+		expect( statusMessage.text() ).toBe( 'Chip New Chip was added.' );
 	} );
 
 	it( 'does not a new chip with the input value when focus moves from the input to a chip', async () => {
@@ -89,6 +92,20 @@ describe( 'Basic usage', () => {
 		expect( inputElement.element.value ).toBe( '' );
 	} );
 
+	it( 'updates the status message when a chip is added via keydown "Enter"', async () => {
+		const wrapper = mount( CdxChipInput, {
+			props: {
+				inputChips: []
+			}
+		} );
+		const inputElement = wrapper.get( 'input' );
+		await inputElement.setValue( 'chip 1' );
+		await inputElement.trigger( 'keydown', { key: 'Enter' } );
+
+		const statusMessage = wrapper.get( '.cdx-chip-input__aria-status' );
+		expect( statusMessage.text() ).toBe( 'Chip chip 1 was added.' );
+	} );
+
 	describe( 'when a chip is clicked', () => {
 		it( 'removes the chip and adds the value to the input', async () => {
 			const wrapper = mount( CdxChipInput, { props: {
@@ -103,6 +120,23 @@ describe( 'Basic usage', () => {
 			expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
 			expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'chip 2' } ] ] );
 			expect( inputElement.element.value ).toBe( 'chip 1' );
+		} );
+
+		it( 'updates the status message when a chip is removed via button click', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					inputChips: [
+						{ value: 'chip 1' },
+						{ value: 'chip 2' }
+					]
+				}
+			} );
+
+			const firstChip = wrapper.findComponent( CdxInputChip );
+			await firstChip.find( 'button' ).trigger( 'click' );
+
+			const statusMessage = wrapper.get( '.cdx-chip-input__aria-status' );
+			expect( statusMessage.text() ).toBe( 'Chip chip 1 was removed.' );
 		} );
 
 		describe( 'and the input has a value', () => {
@@ -393,6 +427,23 @@ describe( 'keyboard interaction', () => {
 			expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [] ] );
 			expect( document.activeElement ).toBe( inputElement.element );
 		} );
+
+		it( 'updates the status message when a chip is removed via keydown "Backspace"', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					inputChips: [
+						{ value: 'chip 1' },
+						{ value: 'chip 2' }
+					]
+				}
+			} );
+
+			const firstChip = wrapper.findComponent( CdxInputChip );
+			await firstChip.find( 'button' ).trigger( 'keydown', { key: 'Backspace' } );
+
+			const statusMessage = wrapper.get( '.cdx-chip-input__aria-status' );
+			expect( statusMessage.text() ).toBe( 'Chip chip 1 was removed.' );
+		} );
 	} );
 
 	describe( 'when delete is pressed', () => {
@@ -427,6 +478,23 @@ describe( 'keyboard interaction', () => {
 			expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
 			expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'Foo' }, { value: 'Bar' } ] ] );
 			expect( document.activeElement ).toBe( inputElement.element );
+		} );
+
+		it( 'updates the status message when a chip is removed via keydown "Delete"', async () => {
+			const wrapper = mount( CdxChipInput, {
+				props: {
+					inputChips: [
+						{ value: 'chip 1' },
+						{ value: 'chip 2' }
+					]
+				}
+			} );
+
+			const firstChip = wrapper.findComponent( CdxInputChip );
+			await firstChip.find( 'button' ).trigger( 'keydown', { key: 'Delete' } );
+
+			const statusMessage = wrapper.get( '.cdx-chip-input__aria-status' );
+			expect( statusMessage.text() ).toBe( 'Chip chip 1 was removed.' );
 		} );
 	} );
 
