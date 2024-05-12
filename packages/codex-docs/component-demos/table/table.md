@@ -93,9 +93,9 @@ Tables can feature a header section with elements such as a visible caption or a
 
 1. **Caption**<br>
 A caption provides a clear and concise description of the contents and the purpose of the Table. It
-is key for accessibility, and must always be provided for screen readers. The caption can be
-visually hidden if a visible caption is not needed (e.g. if there is a heading above the Table that
-serves as a title).
+is key for accessibility, and must always be provided for users of assistive technology. The caption
+can be visually hidden if a visible caption is not needed (e.g. if there is a heading above the
+Table that serves as a title).
 
 1. **Actions** (optional)<br>
 Actions that can be applied to all the items within a Table should be made available from the
@@ -166,7 +166,7 @@ presentational and interactive use cases like, for example, the introduction of 
 
 By default, the Table component will only display horizontal borders to separate rows and rely on
 spacing to create columns. Vertical borders can be added in data-heavy Tables, where the cell
-content is too clumped and mistakes might be made when interpreting the data.
+content is too clumped and mistakes might be made when interpreting the data.[[1]](#ref1)
 
 Common scenarios where the use of vertical borders is recommended include: when presenting data with
 lengthy textual descriptions or explanations alongside numerical values, in Tables with a long list
@@ -347,7 +347,7 @@ will make their information harder to parse and compare.
 The caption provides a clear and succinct description of the content and purpose of a Table. It can
 be visually hidden, or replaced by an external title if a design either requires or allows it.
 Regardless of its visibility, a caption should always be defined in the Table’s code in order to
-provide context for screen reader users.
+provide context for users of assistive technology.[[2]](#ref2)
 
 Visible or not, make sure the caption conveys the Table's content and context in a concise and
 accurate way.
@@ -381,14 +381,13 @@ match the alignment of the data.
 | -- | -- |
 | <kbd>Tab</kbd> | It moves the focus to the next interactive element within the Table. |
 | <kbd>Shift</kbd>+<kbd>Tab</kbd> | It moves the focus to the previous interactive element within the Table. |
-| <kbd>Up arrow</kbd>, <kbd>Down arrow</kbd> | For screen reader users, they move between the content of column cells. |
-| <kbd>Left arrow</kbd>, <kbd>Right arrow</kbd> | For allow screen reader users, they move between the content of row cells. |
+| <kbd>Up arrow</kbd>, <kbd>Down arrow</kbd> | For assistive technology users, these keys move between the column cells. |
+| <kbd>Left arrow</kbd>, <kbd>Right arrow</kbd> | For assistive technology users, these keys move between the row cells. |
 
 ### References
 
-1. [Web Typography: Designing Tables to be Read, Not Looked At](https://alistapart.com/article/web-typography-tables/) by Richard Rutter
-1. [Inclusive Components: Data Tables](https://inclusive-components.design/data-tables/), by Heydon Pickering
-1. [Table Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/table/), ARIA Authoring Practices Guide (APG) by Web Accessibility Initiative (WAI)
+1. <span id="ref1">[Web Typography: Designing Tables to be Read, Not Looked At](https://alistapart.com/article/web-typography-tables/) by Richard Rutter</span>
+2. <span id="ref2">[Inclusive Components: Data Tables](https://inclusive-components.design/data-tables/), by Heydon Pickering</span>
 
 
 ## Demos
