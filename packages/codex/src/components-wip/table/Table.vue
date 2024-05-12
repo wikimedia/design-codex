@@ -556,6 +556,7 @@ export default defineComponent( {
 		}
 
 		.cdx-table__table__sort-icon {
+			color: @color-subtle;
 			padding-left: @spacing-50;
 		}
 
