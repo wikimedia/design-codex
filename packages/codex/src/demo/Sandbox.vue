@@ -1,82 +1,53 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-	<!--
-		Output a wrapper div with the dir attribute. This has to be separate from the cdx-sandbox
-		div, otherwise CSS styles don't work because the selector [dir] .cdx-sandbox doesn't match.
-	-->
-	<div
-		:key="dir"
-		:dir="dir"
-	>
-		<div
-			class="cdx-sandbox"
-			:class="rootClasses"
-		>
-			<header class="cdx-sandbox__header">
-				<h1>Codex Demo Sandbox</h1>
-				<div class="cdx-dark-mode-toggle">
-					<cdx-toggle-switch v-model="darkMode">
-						Dark mode
-					</cdx-toggle-switch>
-				</div>
-				<div class="cdx-direction-switcher">
-					<direction-switcher v-model="dir" />
-				</div>
-			</header>
-
-			<div class="cdx-sandbox__body">
-				<main class="cdx-sandbox__content">
-					<accordion-demo />
-					<button-demo />
-					<button-group-demo />
-					<card-demo />
-					<checkbox-demo />
-					<chip-input-demo />
-					<combobox-demo />
-					<dialog-demo />
-					<field-demo />
-					<icon-demo />
-					<label-demo />
-					<link-demo />
-					<lookup-demo />
-					<menu-demo />
-					<menu-item-demo />
-					<message-demo />
-					<progress-bar-demo />
-					<radio-demo />
-					<search-input-demo />
-					<select-demo />
-					<table-demo />
-					<tabs-demo />
-					<text-area-demo />
-					<text-input-demo />
-					<thumbnail-demo />
-					<toggle-button-group-demo />
-					<toggle-demo />
-					<typeahead-search-demo />
-				</main>
-
-				<nav class="cdx-sandbox__nav">
-					<div class="cdx-sandbox__nav__inner">
-						<ul>
-							<li v-for="( section, index ) in demoSections" :key="index">
-								<a :href="section.id">
-									{{ section.name }}
-								</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-		</div>
-	</div>
+	<demo-base-layout class="cdx-sandbox">
+		<template #header>
+			Codex Demo Sandbox
+		</template>
+		<template #content>
+			<accordion-demo />
+			<button-demo />
+			<button-group-demo />
+			<card-demo />
+			<checkbox-demo />
+			<chip-input-demo />
+			<combobox-demo />
+			<dialog-demo />
+			<field-demo />
+			<icon-demo />
+			<label-demo />
+			<link-demo />
+			<lookup-demo />
+			<menu-demo />
+			<menu-item-demo />
+			<message-demo />
+			<progress-bar-demo />
+			<radio-demo />
+			<search-input-demo />
+			<select-demo />
+			<table-demo />
+			<tabs-demo />
+			<text-area-demo />
+			<text-input-demo />
+			<thumbnail-demo />
+			<toggle-button-group-demo />
+			<toggle-demo />
+			<typeahead-search-demo />
+		</template>
+		<template #sideNav>
+			<ul>
+				<li v-for="( section, index ) in demoSections" :key="index">
+					<a :href="section.id">
+						{{ section.name }}
+					</a>
+				</li>
+			</ul>
+		</template>
+	</demo-base-layout>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
-import { HTMLDirection } from '../types';
-import CdxToggleSwitch from '../components/toggle-switch/ToggleSwitch.vue';
-import DirectionSwitcher from './DirectionSwitcher.vue';
+import DemoBaseLayout from './DemoBaseLayout.vue';
 
 import AccordionDemo from './AccordionDemo.vue';
 import ButtonDemo from './ButtonDemo.vue';
@@ -106,15 +77,6 @@ import ToggleButtonGroupDemo from './ToggleButtonGroupDemo.vue';
 import ToggleDemo from './ToggleDemo.vue';
 import TypeaheadSearchDemo from './TypeaheadSearchDemo.vue';
 import LinkDemo from './LinkDemo.vue';
-
-// Start with dark mode off by default;
-// or on by default if the ?darkmode query string param is set.
-const darkMode = ref( new URLSearchParams( window.location.search ).has( 'darkmode' ) );
-const dir = ref<HTMLDirection>( 'ltr' );
-
-const rootClasses = computed( () => ( {
-	'cdx-sandbox--dark': darkMode.value
-} ) );
 
 const demoSections = [
 	{ name: 'Accordion', id: '#cdx-accordion' },
@@ -148,121 +110,6 @@ const demoSections = [
 ];
 
 </script>
-
-<style lang="less">
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-// Import CSS vars
-@import '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui-root.css';
-// Import dark mode mixin
-@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui-mixin-dark.less';
-
-// Apply dark mode variables if the dark mode toggle is enabled.
-// Because dialogs are teleported outside of the cdx-sandbox div, apply the variables to the entire
-// document, not just `div.cdx-sandbox`.
-:root:has( .cdx-sandbox--dark ) {
-	.cdx-mode-dark();
-}
-
-// Sandbox-specific values.
-@height-sandbox-header: 4rem;
-@width-sandbox-sidebar: 20rem;
-
-@scroll-padding-top-sandbox: calc( @height-sandbox-header + ( @spacing-100 * 2 ) + @spacing-200 );
-
-html {
-	scroll-behavior: smooth;
-	scroll-padding-top: @scroll-padding-top-sandbox;
-}
-
-body {
-	// Set background-color and color to base values so that they get inverted in dark mode.
-	// Prevent RTLCSS from prefixing this selector with `[dir]`, which breaks it; for some reason
-	// it does that for background-color even though that's not a direction-sensitive property.
-	/* rtl:ignore */
-	background-color: var( --background-color-base );
-	color: var( --color-base );
-	margin: 0;
-}
-
-.cdx-sandbox {
-	display: flex;
-	flex-direction: column;
-	font-family: @font-family-base;
-
-	&__header {
-		background-color: @background-color-base;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: @spacing-100;
-		position: sticky;
-		top: 0;
-		z-index: @z-index-sticky;
-		box-sizing: @box-sizing-base;
-		height: @height-sandbox-header;
-		border-bottom: @border-base;
-		padding: @spacing-100;
-
-		h1 {
-			display: inline-flex;
-			flex-grow: 1;
-			margin-top: 0;
-			margin-bottom: 0;
-		}
-
-		.cdx-direction-switcher {
-			display: inline-flex;
-		}
-	}
-
-	&__body {
-		display: flex;
-		flex: 1;
-		flex-direction: column;
-		justify-content: space-between;
-		padding: @spacing-100;
-
-		@media ( min-width: @min-width-breakpoint-tablet ) {
-			flex-direction: row;
-		}
-
-		section {
-			margin-bottom: @spacing-200;
-
-			h2 {
-				margin-top: 0;
-			}
-		}
-	}
-
-	&__content {
-		flex: 1;
-	}
-
-	&__nav {
-		flex: 1;
-		order: -1;
-		margin-bottom: @spacing-200;
-
-		@media ( min-width: @min-width-breakpoint-tablet ) {
-			flex: 0 0 @width-sandbox-sidebar;
-			flex-direction: row;
-		}
-
-		&__inner {
-			position: sticky;
-			top: @scroll-padding-top-sandbox;
-
-			ul {
-				list-style: none;
-				margin: 0;
-				padding: 0;
-				line-height: @line-height-medium;
-			}
-		}
-	}
-}
-</style>
 
 <style lang="less" scoped>
 // Note: you must import the design tokens before importing the link mixin

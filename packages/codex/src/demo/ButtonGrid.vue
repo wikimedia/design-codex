@@ -1,226 +1,242 @@
 <template>
-	<section id="cdx-button">
-		<h2>
-			Button
-		</h2>
-
-		<button-grid-table>
-			<template #default="{ action, size, weight, disabled }">
-				<cdx-button
-					:size="size"
-					:weight="weight"
-					:action="action"
-					:disabled="disabled"
-					@click="onClick"
-				>
-					<cdx-icon :icon="cdxIconTrash" />
+	<demo-base-layout class="cdx-button-grid">
+		<template #header>
+			Codex Button Grid
+		</template>
+		<template #content>
+			<section id="cdx-button">
+				<h2>
 					Button
-				</cdx-button>
-			</template>
-		</button-grid-table>
+				</h2>
 
-		<h3>Icon-only buttons</h3>
-		<button-grid-table>
-			<template #default="{ action, size, weight, disabled }">
-				<cdx-button
-					:size="size"
-					:weight="weight"
-					:action="action"
-					:disabled="disabled"
-					aria-label="Button"
-					@click="onClick"
-				>
-					<cdx-icon :icon="cdxIconTrash" />
-				</cdx-button>
-			</template>
-		</button-grid-table>
+				<button-grid-table>
+					<template #default="{ action, size, weight, disabled }">
+						<cdx-button
+							:size="size"
+							:weight="weight"
+							:action="action"
+							:disabled="disabled"
+							@click="onClick"
+						>
+							<cdx-icon :icon="cdxIconTrash" />
+							Button
+						</cdx-button>
+					</template>
+				</button-grid-table>
 
-		<h3>CSS-only version</h3>
-		<button-grid-table>
-			<template #default="{ action, size, weight, disabled }">
-				<!-- eslint-disable max-len -->
-				<button
-					:class="`cdx-button ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
-					:disabled="disabled"
-				>
-					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
-					Button
-				</button>
-				<!-- eslint-enable max-len -->
-			</template>
-		</button-grid-table>
+				<h3>Icon-only buttons</h3>
+				<button-grid-table>
+					<template #default="{ action, size, weight, disabled }">
+						<cdx-button
+							:size="size"
+							:weight="weight"
+							:action="action"
+							:disabled="disabled"
+							aria-label="Button"
+							@click="onClick"
+						>
+							<cdx-icon :icon="cdxIconTrash" />
+						</cdx-button>
+					</template>
+				</button-grid-table>
 
-		<h3>CSS-only icon-only buttons</h3>
-		<button-grid-table>
-			<template #default="{ action, size, weight, disabled }">
-				<!-- eslint-disable max-len -->
-				<button
-					:class="`cdx-button cdx-button--icon-only ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
-					:disabled="disabled"
-					aria-label="Button"
-				>
-					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
-				</button>
-				<!-- eslint-enable max-len -->
-			</template>
-		</button-grid-table>
+				<h3>CSS-only version</h3>
+				<button-grid-table>
+					<template #default="{ action, size, weight, disabled }">
+						<!-- eslint-disable max-len -->
+						<button
+							:class="`cdx-button ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
+							:disabled="disabled"
+						>
+							<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+							Button
+						</button>
+						<!-- eslint-enable max-len -->
+					</template>
+				</button-grid-table>
 
-		<h3>Link buttons</h3>
-		<button-grid-table>
-			<template #default="{ action, size, weight, disabled }">
-				<!-- eslint-disable max-len -->
-				<a :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`">
-					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
-					Button
-				</a>
-				<!-- eslint-enable max-len -->
-			</template>
-		</button-grid-table>
+				<h3>CSS-only icon-only buttons</h3>
+				<button-grid-table>
+					<template #default="{ action, size, weight, disabled }">
+						<!-- eslint-disable max-len -->
+						<button
+							:class="`cdx-button cdx-button--icon-only ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
+							:disabled="disabled"
+							aria-label="Button"
+						>
+							<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+						</button>
+						<!-- eslint-enable max-len -->
+					</template>
+				</button-grid-table>
 
-		<h3>Icon-only link buttons</h3>
-		<button-grid-table>
-			<template #default="{ action, size, weight, disabled }">
-				<!-- eslint-disable max-len -->
-				<a :class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`" aria-label="Button">
-					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
-				</a>
-				<!-- eslint-enable max-len -->
-			</template>
-		</button-grid-table>
+				<h3>Link buttons</h3>
+				<button-grid-table>
+					<template #default="{ action, size, weight, disabled }">
+						<!-- eslint-disable max-len -->
+						<a :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`">
+							<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+							Button
+						</a>
+						<!-- eslint-enable max-len -->
+					</template>
+				</button-grid-table>
 
-		<h3>Icon-only link buttons with small icon</h3>
-		<button-grid-table>
-			<template #default="{ action, size, weight, disabled }">
-				<!-- eslint-disable max-len -->
-				<a :class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`" aria-label="Button">
-					<span class="cdx-button__icon cdx-demo-css-icon--trash--small" />
-				</a>
-				<!-- eslint-enable max-len -->
-			</template>
-		</button-grid-table>
+				<h3>Icon-only link buttons</h3>
+				<button-grid-table>
+					<template #default="{ action, size, weight, disabled }">
+						<!-- eslint-disable max-len -->
+						<a :class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`" aria-label="Button">
+							<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+						</a>
+						<!-- eslint-enable max-len -->
+					</template>
+				</button-grid-table>
 
-		<h3>Checkbox hack (label buttons)</h3>
-		<button-grid-table>
-			<template #default="{ action, size, weight, disabled }">
-				<!-- eslint-disable max-len -->
-				<label :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`">
-					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
-					Button
-				</label>
-				<!-- eslint-enable max-len -->
-			</template>
-		</button-grid-table>
+				<h3>Icon-only link buttons with small icon</h3>
+				<button-grid-table>
+					<template #default="{ action, size, weight, disabled }">
+						<!-- eslint-disable max-len -->
+						<a :class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`" aria-label="Button">
+							<span class="cdx-button__icon cdx-demo-css-icon--trash--small" />
+						</a>
+						<!-- eslint-enable max-len -->
+					</template>
+				</button-grid-table>
 
-		<h3>Icon-only checkbox hack (label buttons)</h3>
-		<button-grid-table>
-			<template #default="{ action, size, weight, disabled }">
-				<!-- eslint-disable max-len -->
-				<label
-					:class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
-					aria-label="Button"
-				>
-					<span class="cdx-button__icon cdx-demo-css-icon--trash" />
-				</label>
-				<!-- eslint-enable max-len -->
-			</template>
-		</button-grid-table>
+				<h3>Checkbox hack (label buttons)</h3>
+				<button-grid-table>
+					<template #default="{ action, size, weight, disabled }">
+						<!-- eslint-disable max-len -->
+						<label :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`">
+							<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+							Button
+						</label>
+						<!-- eslint-enable max-len -->
+					</template>
+				</button-grid-table>
 
-		<h3>Flush layout for buttons</h3>
-		<h4>Regular buttons</h4>
-		<div class="cdx-demo-flush-layout cdx-demo-flush-layout--regular">
-			<div class="cdx-demo-flush-layout__buttons">
-				<cdx-button weight="quiet">
-					Button one
-				</cdx-button>
-				<cdx-button weight="quiet">
-					Button two
-				</cdx-button>
-			</div>
-			<div class="cdx-demo-flush-layout__content">
-				<p>
-					Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
-					peppermint asian pear frosted gingerbread bites Southern Italian almond milk
-					chai latte mint golden cayenne pepper.
-				</p>
-			</div>
-		</div>
+				<h3>Icon-only checkbox hack (label buttons)</h3>
+				<button-grid-table>
+					<template #default="{ action, size, weight, disabled }">
+						<!-- eslint-disable max-len -->
+						<label
+							:class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
+							aria-label="Button"
+						>
+							<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+						</label>
+						<!-- eslint-enable max-len -->
+					</template>
+				</button-grid-table>
 
-		<h4>Icon-only buttons</h4>
-		<div class="cdx-demo-flush-layout cdx-demo-flush-layout--icon-only">
-			<div class="cdx-demo-flush-layout__buttons">
-				<cdx-button weight="quiet" aria-label="Align left">
-					<cdx-icon :icon="cdxIconAlignLeft" />
-				</cdx-button>
-				<cdx-button weight="quiet" aria-label="Align right">
-					<cdx-icon :icon="cdxIconAlignRight" />
-				</cdx-button>
-			</div>
-			<div class="cdx-demo-flush-layout__content">
-				<p>
-					Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
-					peppermint asian pear frosted gingerbread bites Southern Italian almond milk
-					chai latte mint golden cayenne pepper.
-				</p>
-			</div>
-		</div>
+				<h3>Flush layout for buttons</h3>
+				<h4>Regular buttons</h4>
+				<div class="cdx-demo-flush-layout cdx-demo-flush-layout--regular">
+					<div class="cdx-demo-flush-layout__buttons">
+						<cdx-button weight="quiet">
+							Button one
+						</cdx-button>
+						<cdx-button weight="quiet">
+							Button two
+						</cdx-button>
+					</div>
+					<div class="cdx-demo-flush-layout__content">
+						<!-- eslint-disable max-len -->
+						<p>
+							Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
+							peppermint asian pear frosted gingerbread bites Southern Italian almond milk
+							chai latte mint golden cayenne pepper.
+						</p>
+						<!-- eslint-enable max-len -->
+					</div>
+				</div>
 
-		<h4>CSS-only icon-only buttons</h4>
-		<div class="cdx-demo-flush-layout cdx-demo-flush-layout--icon-only">
-			<div class="cdx-demo-flush-layout__buttons">
-				<button
-					class="cdx-button cdx-button--weight-quiet cdx-button--icon-only"
-					aria-label="Align left"
-				>
-					<span class="cdx-button__icon cdx-demo-css-icon--align-left" />
-				</button>
-				<button
-					class="cdx-button cdx-button--weight-quiet cdx-button--icon-only"
-					aria-label="Align right"
-				>
-					<span class="cdx-button__icon cdx-demo-css-icon--align-right" />
-				</button>
-			</div>
-			<div class="cdx-demo-flush-layout__content">
-				<p>
-					Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
-					peppermint asian pear frosted gingerbread bites Southern Italian almond milk
-					chai latte mint golden cayenne pepper.
-				</p>
-			</div>
-		</div>
+				<h4>Icon-only buttons</h4>
+				<div class="cdx-demo-flush-layout cdx-demo-flush-layout--icon-only">
+					<div class="cdx-demo-flush-layout__buttons">
+						<cdx-button weight="quiet" aria-label="Align left">
+							<cdx-icon :icon="cdxIconAlignLeft" />
+						</cdx-button>
+						<cdx-button weight="quiet" aria-label="Align right">
+							<cdx-icon :icon="cdxIconAlignRight" />
+						</cdx-button>
+					</div>
+					<div class="cdx-demo-flush-layout__content">
+						<!-- eslint-disable max-len -->
+						<p>
+							Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
+							peppermint asian pear frosted gingerbread bites Southern Italian almond milk
+							chai latte mint golden cayenne pepper.
+						</p>
+						<!-- eslint-enable max-len -->
+					</div>
+				</div>
 
-		<h4>Large icon-only buttons</h4>
-		<div class="cdx-demo-flush-layout cdx-demo-flush-layout--icon-only-large">
-			<div class="cdx-demo-flush-layout__buttons">
-				<cdx-button
-					weight="quiet"
-					size="large"
-					aria-label="Align left"
-				>
-					<cdx-icon :icon="cdxIconAlignLeft" />
-				</cdx-button>
-				<cdx-button
-					weight="quiet"
-					size="large"
-					aria-label="Align right"
-				>
-					<cdx-icon :icon="cdxIconAlignRight" />
-				</cdx-button>
-			</div>
-			<div class="cdx-demo-flush-layout__content">
-				<p>
-					Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
-					peppermint asian pear frosted gingerbread bites Southern Italian almond milk
-					chai latte mint golden cayenne pepper.
-				</p>
-			</div>
-		</div>
-	</section>
+				<h4>CSS-only icon-only buttons</h4>
+				<div class="cdx-demo-flush-layout cdx-demo-flush-layout--icon-only">
+					<div class="cdx-demo-flush-layout__buttons">
+						<button
+							class="cdx-button cdx-button--weight-quiet cdx-button--icon-only"
+							aria-label="Align left"
+						>
+							<span class="cdx-button__icon cdx-demo-css-icon--align-left" />
+						</button>
+						<button
+							class="cdx-button cdx-button--weight-quiet cdx-button--icon-only"
+							aria-label="Align right"
+						>
+							<span class="cdx-button__icon cdx-demo-css-icon--align-right" />
+						</button>
+					</div>
+					<div class="cdx-demo-flush-layout__content">
+						<!-- eslint-disable max-len -->
+						<p>
+							Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
+							peppermint asian pear frosted gingerbread bites Southern Italian almond milk
+							chai latte mint golden cayenne pepper.
+						</p>
+						<!-- eslint-enable max-len -->
+					</div>
+				</div>
+
+				<h4>Large icon-only buttons</h4>
+				<div class="cdx-demo-flush-layout cdx-demo-flush-layout--icon-only-large">
+					<div class="cdx-demo-flush-layout__buttons">
+						<cdx-button
+							weight="quiet"
+							size="large"
+							aria-label="Align left"
+						>
+							<cdx-icon :icon="cdxIconAlignLeft" />
+						</cdx-button>
+						<cdx-button
+							weight="quiet"
+							size="large"
+							aria-label="Align right"
+						>
+							<cdx-icon :icon="cdxIconAlignRight" />
+						</cdx-button>
+					</div>
+					<div class="cdx-demo-flush-layout__content">
+						<!-- eslint-disable max-len -->
+						<p>
+							Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
+							peppermint asian pear frosted gingerbread bites Southern Italian almond milk
+							chai latte mint golden cayenne pepper.
+						</p>
+						<!-- eslint-enable max-len -->
+					</div>
+				</div>
+			</section>
+		</template>
+	</demo-base-layout>
 </template>
 
 <script lang="ts" setup>
 import { CdxButton, CdxIcon } from '../lib';
 import { cdxIconTrash, cdxIconAlignLeft, cdxIconAlignRight } from '@wikimedia/codex-icons';
+import DemoBaseLayout from './DemoBaseLayout.vue';
 import ButtonGridTable from './ButtonGridTable.vue';
 
 const onClick = function () {
@@ -229,7 +245,7 @@ const onClick = function () {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 // Note: you must import the design tokens before importing the css-icon mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../themes/mixins/public/css-icon.less';
