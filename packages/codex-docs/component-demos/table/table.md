@@ -596,8 +596,11 @@ text alignment.
 	<div class="cdx-table">
 		<!-- Header content. -->
 		<div class="cdx-table__header">
-			<!-- Visible table caption. -->
-			<div class="cdx-table__header__caption">1912 Olympics — Men's marathon</div>
+			<!-- Visible table caption. It is hidden from assistive technology since
+			there is an accessible <caption> in the <table> element. If you add
+			content to the header content div below, remove `aria-hidden` here to
+			ensure the caption is announced first. -->
+			<div class="cdx-table__header__caption" aria-hidden="true">1912 Olympics — Men's marathon</div>
 			<!-- Additional header content goes here if needed. -->
 			<div class="cdx-table__header__header-content"></div>
 		</div>
@@ -664,8 +667,13 @@ text alignment.
 <div class="cdx-table">
 	<!-- Header content. -->
 	<div class="cdx-table__header">
-		<!-- Visible table caption. -->
-		<div class="cdx-table__header__caption">1912 Olympics — Men's marathon</div>
+		<!-- Visible table caption. It is hidden from assistive technology since
+		there is an accessible <caption> in the <table> element. If you add
+		content to the header content div below, remove `aria-hidden` here to
+		ensure the caption is announced first. -->
+		<div class="cdx-table__header__caption" aria-hidden="true">1912 Olympics — Men's marathon</div>
+		<!-- Additional header content goes here if needed. -->
+		<div class="cdx-table__header__header-content"></div>
 	</div>
 	<!-- Wrapper around the table element. Needed for horizontal scroll. -->
 	<div class="cdx-table__table-wrapper">
@@ -838,7 +846,7 @@ cases, therefore apply additional border styles to the element as needed.
 <template v-slot:demo>
 <div class="cdx-table">
 	<div class="cdx-table__header">
-		<div class="cdx-table__header__caption">List of MediaWikis</div>
+		<div class="cdx-table__header__caption" aria-hidden="true">List of MediaWikis</div>
 	</div>
 	<div class="cdx-table__table-wrapper">
 		<!-- <table> with the class to add vertical borders/rulers to separate the columns. -->
@@ -899,7 +907,7 @@ cases, therefore apply additional border styles to the element as needed.
 ```html
 <div class="cdx-table">
 	<div class="cdx-table__header">
-		<div class="cdx-table__header__caption">List of MediaWikis</div>
+		<div class="cdx-table__header__caption" aria-hidden="true">List of MediaWikis</div>
 	</div>
 	<div class="cdx-table__table-wrapper">
 		<!-- <table> with the class to add vertical borders/rulers to separate the columns. -->
@@ -970,8 +978,7 @@ header column.
 <template v-slot:demo>
 <div class="cdx-table">
 	<div class="cdx-table__header">
-		<div class="cdx-table__header__caption">List of MediaWikis</div>
-		<div class="cdx-table__header__header-content"></div>
+		<div class="cdx-table__header__caption" aria-hidden="true">List of MediaWikis</div>
 	</div>
 	<div class="cdx-table__table-wrapper">
 		<table class="cdx-table__table cdx-table__table--borders-vertical">
@@ -1034,8 +1041,7 @@ header column.
 ```html
 <div class="cdx-table">
 	<div class="cdx-table__header">
-		<div class="cdx-table__header__caption">List of MediaWikis</div>
-		<div class="cdx-table__header__header-content"></div>
+		<div class="cdx-table__header__caption" aria-hidden="true">List of MediaWikis</div>
 	</div>
 	<div class="cdx-table__table-wrapper">
 		<table class="cdx-table__table cdx-table__table--borders-vertical">
@@ -1114,6 +1120,9 @@ besides submit the form and reload the page.
 	<!-- Use a <form> element instead of a <div>. -->
 	<form class="cdx-table" action="">
 		<div class="cdx-table__header">
+			<!-- When there is header content (e.g. this "Sign up" button), do
+			not use `aria-hidden` on the visible caption. This way, the caption
+			will be announced before the header content. -->
 			<div class="cdx-table__header__caption">Sessions</div>
 			<div class="cdx-table__header__header-content">
 				<!-- Include a submit button. -->
@@ -1189,6 +1198,9 @@ besides submit the form and reload the page.
 <!-- Use a <form> element instead of a <div>. -->
 <form class="cdx-table" action="">
 	<div class="cdx-table__header">
+		<!-- When there is header content (e.g. this "Sign up" button), do
+		not use `aria-hidden` on the visible caption. This way, the caption
+		will be announced before the header content. -->
 		<div class="cdx-table__header__caption">Sessions</div>
 		<div class="cdx-table__header__header-content">
 			<!-- Include a submit button. -->

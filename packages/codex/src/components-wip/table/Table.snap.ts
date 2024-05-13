@@ -8,9 +8,15 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
   <div
     class="cdx-table__header"
   >
-    <!-- We need this div, even if the caption is hidden, to ensure the
-				slot is aligned to the end. -->
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
     <div
+      aria-hidden="true"
       class="cdx-table__header__caption"
     >
       <!-- Visible table title. -->
@@ -267,9 +273,15 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
   <div
     class="cdx-table__header"
   >
-    <!-- We need this div, even if the caption is hidden, to ensure the
-				slot is aligned to the end. -->
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
     <div
+      aria-hidden="true"
       class="cdx-table__header__caption"
     >
       <!-- Visible table title. -->
@@ -526,9 +538,15 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
   <div
     class="cdx-table__header"
   >
-    <!-- We need this div, even if the caption is hidden, to ensure the
-				slot is aligned to the end. -->
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
     <div
+      aria-hidden="true"
       class="cdx-table__header__caption"
     >
       <!-- Visible table title. -->
@@ -1079,9 +1097,15 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
   <div
     class="cdx-table__header"
   >
-    <!-- We need this div, even if the caption is hidden, to ensure the
-				slot is aligned to the end. -->
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
     <div
+      aria-hidden="true"
       class="cdx-table__header__caption"
     >
       <!-- Visible table title. -->
@@ -1342,9 +1366,15 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
   <div
     class="cdx-table__header"
   >
-    <!-- We need this div, even if the caption is hidden, to ensure the
-				slot is aligned to the end. -->
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
     <div
+      aria-hidden="true"
       class="cdx-table__header__caption"
     >
       <!-- Visible table title. -->
@@ -1608,9 +1638,15 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
   <div
     class="cdx-table__header"
   >
-    <!-- We need this div, even if the caption is hidden, to ensure the
-				slot is aligned to the end. -->
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
     <div
+      aria-hidden="true"
       class="cdx-table__header__caption"
     >
       <!-- Visible table title. -->
@@ -2079,8 +2115,13 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
   <div
     class="cdx-table__header"
   >
-    <!-- We need this div, even if the caption is hidden, to ensure the
-				slot is aligned to the end. -->
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
     <div
       class="cdx-table__header__caption"
     >
@@ -2347,9 +2388,15 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
   <div
     class="cdx-table__header"
   >
-    <!-- We need this div, even if the caption is hidden, to ensure the
-				slot is aligned to the end. -->
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
     <div
+      aria-hidden="true"
       class="cdx-table__header__caption"
     >
       <!-- Visible table title. -->
@@ -2606,9 +2653,15 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
   <div
     class="cdx-table__header"
   >
-    <!-- We need this div, even if the caption is hidden, to ensure the
-				slot is aligned to the end. -->
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
     <div
+      aria-hidden="true"
       class="cdx-table__header__caption"
     >
       <!-- Visible table title. -->
@@ -2873,8 +2926,13 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
   <div
     class="cdx-table__header"
   >
-    <!-- We need this div, even if the caption is hidden, to ensure the
-				slot is aligned to the end. -->
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
     <div
       class="cdx-table__header__caption"
     >

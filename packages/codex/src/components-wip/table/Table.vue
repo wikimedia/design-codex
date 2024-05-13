@@ -4,9 +4,17 @@
 			v-if="!hideCaption || ( $slots.header && $slots.header().length > 0 )"
 			class="cdx-table__header"
 		>
-			<!-- We need this div, even if the caption is hidden, to ensure the
-				slot is aligned to the end. -->
-			<div class="cdx-table__header__caption">
+			<!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the <caption> element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
+			<div
+				class="cdx-table__header__caption"
+				:aria-hidden="$slots.header && $slots.header().length > 0 ? undefined : true"
+			>
 				<!-- Visible table title. -->
 				<template v-if="!hideCaption">
 					{{ caption }}
