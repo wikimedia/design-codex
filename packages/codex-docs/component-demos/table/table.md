@@ -371,7 +371,7 @@ directionality of the user’s interface language.
 Numbers that express quantities should always be aligned right, regardless of the directionality of
 the user’s interface language. This helps readers make easier comparisons of values when scanning
 down columns. For consistency and ease of understanding, the alignment of headings should always
-match the alignment of the data.
+match the alignment of the data.[[1]](#ref1)
 
 ![Image’s alt text: Table that features a column with quantitative data.](../../assets/components/table-content-alignment.svg)
 
