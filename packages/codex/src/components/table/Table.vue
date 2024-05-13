@@ -629,13 +629,13 @@ export default defineComponent( {
 			.screen-reader-text();
 		}
 
-		th {
-			color: @color-emphasized;
-		}
-
 		th,
 		td {
 			padding: @spacing-75;
+		}
+
+		th {
+			color: @color-emphasized;
 			text-align: left;
 		}
 
