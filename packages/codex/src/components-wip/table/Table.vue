@@ -26,7 +26,7 @@
 				<slot name="thead">
 					<thead v-if="columns.length > 0">
 						<tr>
-							<th v-if="useRowSelection" class="cdx-table__row-selection">
+							<th v-if="useRowSelection" class="cdx-table__table__select-rows">
 								<cdx-checkbox
 									v-model="selectAll"
 									:hide-label="true"
@@ -44,10 +44,10 @@
 								:aria-sort="getSortOrder( column.id, column.allowSort )"
 								:style="getCellStyle( column )"
 							>
-								<span v-if="column.allowSort" class="cdx-table__th-content">
+								<template v-if="column.allowSort">
 									<button
 										:aria-selected="column.id === activeSortColumn"
-										class="cdx-table__th-content__button-sort"
+										class="cdx-table__table__sort-button"
 										@click="handleSort( column.id )"
 									>
 										{{ column.label }}
@@ -59,10 +59,10 @@
 											aria-hidden="true"
 										/>
 									</button>
-								</span>
-								<span v-else class="cdx-table__th-content">
+								</template>
+								<template v-else>
 									{{ column.label }}
-								</span>
+								</template>
 							</th>
 						</tr>
 					</thead>
@@ -272,10 +272,17 @@ export default defineComponent( {
 		'update:sort'
 	],
 	setup( props, { emit } ) {
+		// Row selection.
+		const wrappedSelectedRows = useModelWrapper( toRef( props, 'selectedRows' ), emit, 'update:selectedRows' );
+		const selectAll = ref( props.data.length === wrappedSelectedRows.value.length );
+		const selectAllIndeterminate = ref( false );
+
+		// Sorting.
 		const activeSortColumn = computed( () => {
 			return Object.keys( props.sort )[ 0 ];
 		} );
 
+		// Elements and CSS classes.
 		const tableClasses = computed( () => {
 			const useFixedLayout = props.columns?.some( ( column ) =>
 				( 'width' in column ) || ( 'minWidth' in column ) );
@@ -284,6 +291,31 @@ export default defineComponent( {
 				'cdx-table__table--borders-vertical': props.showVerticalBorders
 			};
 		} );
+
+		/**
+		 * Get a CSS class for a table row based on whether it is selected.
+		 *
+		 * @param rowIndex
+		 * @return Dynamic class object
+		 */
+		function getRowClass( rowIndex: number ): Record<string, boolean> {
+			return {
+				'cdx-table__table__row--selected': wrappedSelectedRows.value.indexOf( rowIndex ) !== -1
+			};
+		}
+
+		/**
+		 * Determine the scope attribute for row headers (`th` in a `tr` element).
+		 *
+		 * @param columnId
+		 * @return scope attribute value
+		 */
+		function getRowHeaderScope( columnId: string ): string | undefined {
+			const firstColumn = props.columns[ 0 ].id;
+			if ( props.useRowHeaders === true && columnId === firstColumn ) {
+				return 'row';
+			}
+		}
 
 		/**
 		 * Determine whether a cell in the tbody should be a th or td element.
@@ -319,8 +351,8 @@ export default defineComponent( {
 			return {
 				// Don't assign a class for the default value 'start'. Instead, we'll set
 				// text-align: left on the td and th elements.
-				[ `cdx-table__cell--align-${ column.textAlign }` ]: ( 'textAlign' in column ) && column.textAlign !== 'start',
-				'cdx-table__cell--has-sort': hasSort
+				[ `cdx-table__table__cell--align-${ column.textAlign }` ]: ( 'textAlign' in column ) && column.textAlign !== 'start',
+				'cdx-table__table__cell--has-sort': hasSort
 			};
 		}
 
@@ -343,27 +375,6 @@ export default defineComponent( {
 			}
 
 			return styles;
-		}
-
-		// Row selection.
-		const wrappedSelectedRows = useModelWrapper( toRef( props, 'selectedRows' ), emit, 'update:selectedRows' );
-		const selectAll = ref( props.data.length === wrappedSelectedRows.value.length );
-		const selectAllIndeterminate = ref( false );
-
-		/**
-		 * Handle "select all" changes.
-		 *
-		 * @param newValue Whether the "select all" box is checked.
-		 */
-		function handleSelectAll( newValue: boolean ) {
-			// Always remove indeterminate status.
-			selectAllIndeterminate.value = false;
-
-			if ( newValue ) {
-				wrappedSelectedRows.value = props.data.map( ( row, rowIndex ) => rowIndex );
-			} else {
-				wrappedSelectedRows.value = [];
-			}
 		}
 
 		/**
@@ -395,18 +406,21 @@ export default defineComponent( {
 		}
 
 		/**
-		 * Get a CSS class for a table row based on whether it is selected.
+		 * Handle "select all" changes.
 		 *
-		 * @param rowIndex
-		 * @return Dynamic class object
+		 * @param newValue Whether the "select all" box is checked.
 		 */
-		function getRowClass( rowIndex: number ): Record<string, boolean> {
-			return {
-				'cdx-table__row--selected': wrappedSelectedRows.value.indexOf( rowIndex ) !== -1
-			};
+		function handleSelectAll( newValue: boolean ) {
+			// Always remove indeterminate status.
+			selectAllIndeterminate.value = false;
+
+			if ( newValue ) {
+				wrappedSelectedRows.value = props.data.map( ( row, rowIndex ) => rowIndex );
+			} else {
+				wrappedSelectedRows.value = [];
+			}
 		}
 
-		// Table sort.
 		/**
 		 * Determine the new sort order based on the current sort state.
 		 * The sort state switches between ascending, descending, or unsorted (in that order).
@@ -470,36 +484,32 @@ export default defineComponent( {
 			}
 		}
 
-		/**
-		 * Determine the scope attribute for row headers (`th` in a `tr` element).
-		 *
-		 * @param columnId
-		 * @return scope attribute value
-		 */
-		function getRowHeaderScope( columnId:string ): string | undefined {
-			const firstColumn = props.columns[ 0 ].id;
-			if ( props.useRowHeaders === true && columnId === firstColumn ) {
-				return 'row';
-			}
-		}
-
 		return {
+			// Row selection constants.
+			wrappedSelectedRows,
+			selectAll,
+			selectAllIndeterminate,
+
+			// Sorting constants.
+			activeSortColumn,
+
+			// Elements and CSS classes.
 			tableClasses,
+			getRowClass,
+			getRowHeaderScope,
 			getCellElement,
 			getCellClass,
 			getCellStyle,
-			selectAll,
-			selectAllIndeterminate,
-			wrappedSelectedRows,
-			handleSelectAll,
+
+			// Row selection methods.
 			handleRowSelection,
-			getRowClass,
+			handleSelectAll,
+
+			// Sorting methods.
 			handleSort,
 			getSortIcon,
 			getSortIconLabel,
-			getSortOrder,
-			getRowHeaderScope,
-			activeSortColumn
+			getSortOrder
 		};
 	}
 } );
@@ -532,47 +542,6 @@ export default defineComponent( {
 		}
 	}
 
-	// Button element styles
-	&__th-content__button-sort {
-		// Override browser <button> styles for background.
-		background-color: @background-color-transparent;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		width: @size-full;
-		max-width: @size-1600;
-		// Override browser <button> styles for border.
-		border: 0;
-		padding: @spacing-75;
-		font-size: @font-size-medium;
-		font-weight: @font-weight-bold;
-		line-height: @line-height-x-small;
-		text-decoration: @text-decoration-none;
-		// Hide overflowing text.
-		.text-overflow( @param-visible: false );
-
-		&:hover {
-			background-color: @background-color-interactive-subtle;
-			border-color: @border-color-base;
-			cursor: @cursor-base--hover;
-		}
-
-		&:focus {
-			// Override browser <button> styles for outline.
-			outline: @outline-base--focus;
-		}
-
-		&:active {
-			background-color: @background-color-interactive;
-			border-color: @border-color-base;
-		}
-
-		&:focus:not( :active ) {
-			background-color: @background-color-base;
-			box-shadow: @box-shadow-inset-medium @box-shadow-color-progressive--focus;
-		}
-	}
-
 	&__table-wrapper {
 		// Enable horizontal scroll on just the actual table.
 		overflow-x: auto;
@@ -601,57 +570,6 @@ export default defineComponent( {
 			text-align: left;
 		}
 
-		.cdx-table__table__sort-icon {
-			color: @color-subtle;
-			padding-left: @spacing-50;
-		}
-
-		.cdx-table__cell {
-			&--align-center {
-				text-align: center;
-			}
-
-			&--align-end {
-				text-align: right;
-
-				/* stylelint-disable-next-line max-nesting-depth */
-				.cdx-table__th-content__button-sort {
-					flex-direction: row-reverse;
-				}
-
-				/* stylelint-disable-next-line max-nesting-depth */
-				.cdx-table__table__sort-icon {
-					padding-right: @spacing-50;
-				}
-			}
-
-			// Numbers should be aligned right in both reading directionalities.
-			&--align-number {
-				// Trick postcss-rtlcss into setting text-align to right in both LTR and RTL. We
-				// can't just use the rtl:ignore directive, because in bidirectional mode, we need
-				// the [dir] selector to be added to match the specificity of the text-align rule
-				// applied to all th and td elements. Hat-tip to Roan for this one.
-				text-align: right /* rtl:right */;
-			}
-
-			// Targets the `th` elements that have a nested label and icon.
-			&--has-sort {
-				padding: 0;
-			}
-		}
-
-		// Column of row selection checkboxes.
-		.cdx-table__row-selection {
-			// Make this column as narrow as possible.
-			width: @size-6;
-		}
-
-		.cdx-table__row {
-			&--selected {
-				background-color: @background-color-progressive-subtle;
-			}
-		}
-
 		thead {
 			th {
 				border-bottom: @border-base;
@@ -678,6 +596,100 @@ export default defineComponent( {
 				th {
 					border-top: 0;
 				}
+			}
+		}
+
+		&__sort-button {
+			// Override browser <button> styles for background.
+			background-color: @background-color-transparent;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: @size-full;
+			max-width: @size-1600;
+			// Override browser <button> styles for border.
+			border: 0;
+			padding: @spacing-75;
+			font-size: @font-size-medium;
+			font-weight: @font-weight-bold;
+			line-height: @line-height-x-small;
+			text-decoration: @text-decoration-none;
+			// Hide overflowing text.
+			.text-overflow( @param-visible: false );
+
+			&:hover {
+				background-color: @background-color-interactive-subtle;
+				border-color: @border-color-base;
+				cursor: @cursor-base--hover;
+			}
+
+			&:focus {
+				// Override browser <button> styles for outline.
+				outline: @outline-base--focus;
+			}
+
+			&:active {
+				background-color: @background-color-interactive;
+				border-color: @border-color-base;
+			}
+
+			&:focus:not( :active ) {
+				background-color: @background-color-base;
+				box-shadow: @box-shadow-inset-medium @box-shadow-color-progressive--focus;
+			}
+		}
+
+		&__sort-icon {
+			color: @color-subtle;
+			padding-left: @spacing-50;
+		}
+
+		// Modifiers for table cells (th and td). Note that the extra class selector is needed to
+		// override styles placed on .cdx-table__table th/td above.
+		.cdx-table__table__cell {
+			&--align-center {
+				text-align: center;
+			}
+
+			&--align-end {
+				text-align: right;
+
+				/* stylelint-disable-next-line max-nesting-depth */
+				.cdx-table__table__sort-button {
+					flex-direction: row-reverse;
+				}
+
+				/* stylelint-disable-next-line max-nesting-depth */
+				.cdx-table__table__sort-icon {
+					padding-right: @spacing-50;
+				}
+			}
+
+			// Numbers should be aligned right in both reading directionalities.
+			&--align-number {
+				// Trick postcss-rtlcss into setting text-align to right in both LTR and RTL. We
+				// can't just use the rtl:ignore directive, because in bidirectional mode, we need
+				// the [dir] selector to be added to match the specificity of the text-align rule
+				// applied to all th and td elements. Hat-tip to Roan for this one.
+				text-align: right /* rtl:right */;
+			}
+
+			// Remove padding on th elements if sorting is enabled, since padding will be added to
+			// the sort button instead.
+			&--has-sort {
+				padding: 0;
+			}
+		}
+
+		// Column of row selection checkboxes.
+		&__select-rows {
+			// Make this column as narrow as possible.
+			width: @size-6;
+		}
+
+		&__row {
+			&--selected {
+				background-color: @background-color-progressive-subtle;
 			}
 		}
 

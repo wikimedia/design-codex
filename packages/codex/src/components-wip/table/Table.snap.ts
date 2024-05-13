@@ -47,31 +47,25 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 1
-            </span>
+            
+            Column 1
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 2
-            </span>
+            
+            Column 2
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 3
-            </span>
+            
+            Column 3
+            
           </th>
           
         </tr>
@@ -312,31 +306,25 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 1
-            </span>
+            
+            Column 1
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 2
-            </span>
+            
+            Column 2
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 3
-            </span>
+            
+            Column 3
+            
           </th>
           
         </tr>
@@ -577,41 +565,33 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 1
-            </span>
+            
+            Column 1
+            
           </th>
           <th
-            class="cdx-table__cell--align-center"
+            class="cdx-table__table__cell--align-center"
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 2
-            </span>
+            
+            Column 2
+            
           </th>
           <th
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 3
-            </span>
+            
+            Column 3
+            
           </th>
           <th
-            class="cdx-table__cell--align-number"
+            class="cdx-table__table__cell--align-number"
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 3
-            </span>
+            
+            Column 3
+            
           </th>
           
         </tr>
@@ -639,7 +619,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             
           </td>
           <td
-            class="cdx-table__cell--align-center"
+            class="cdx-table__table__cell--align-center"
           >
             <!--
 									@slot Table cell content, per column.
@@ -651,7 +631,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             
           </td>
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -663,7 +643,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             
           </td>
           <td
-            class="cdx-table__cell--align-number"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -694,7 +674,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             
           </td>
           <td
-            class="cdx-table__cell--align-center"
+            class="cdx-table__table__cell--align-center"
           >
             <!--
 									@slot Table cell content, per column.
@@ -706,7 +686,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             
           </td>
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -718,7 +698,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             
           </td>
           <td
-            class="cdx-table__cell--align-number"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -749,7 +729,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             
           </td>
           <td
-            class="cdx-table__cell--align-center"
+            class="cdx-table__table__cell--align-center"
           >
             <!--
 									@slot Table cell content, per column.
@@ -761,7 +741,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             
           </td>
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -773,7 +753,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             
           </td>
           <td
-            class="cdx-table__cell--align-number"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -804,7 +784,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             
           </td>
           <td
-            class="cdx-table__cell--align-center"
+            class="cdx-table__table__cell--align-center"
           >
             <!--
 									@slot Table cell content, per column.
@@ -816,7 +796,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             
           </td>
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -828,7 +808,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             
           </td>
           <td
-            class="cdx-table__cell--align-number"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -879,31 +859,25 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 1
-            </span>
+            
+            Column 1
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 2
-            </span>
+            
+            Column 2
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 3
-            </span>
+            
+            Column 3
+            
           </th>
           
         </tr>
@@ -1144,31 +1118,25 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 1
-            </span>
+            
+            Column 1
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 2
-            </span>
+            
+            Column 2
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 3
-            </span>
+            
+            Column 3
+            
           </th>
           
         </tr>
@@ -1414,33 +1382,27 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
             scope="col"
             style="width: 20%;"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 1
-            </span>
+            
+            Column 1
+            
           </th>
           <th
             class=""
             scope="col"
             style="min-width: 100px;"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 2
-            </span>
+            
+            Column 2
+            
           </th>
           <th
             class=""
             scope="col"
             style="width: 20%; min-width: 100px;"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 3
-            </span>
+            
+            Column 3
+            
           </th>
           
         </tr>
@@ -1680,7 +1642,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
       <thead>
         <tr>
           <th
-            class="cdx-table__row-selection"
+            class="cdx-table__table__select-rows"
           >
             <span
               class="cdx-checkbox cdx-checkbox--status-default"
@@ -1729,31 +1691,25 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 1
-            </span>
+            
+            Column 1
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 2
-            </span>
+            
+            Column 2
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 3
-            </span>
+            
+            Column 3
+            
           </th>
           
         </tr>
@@ -2163,31 +2119,25 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 1
-            </span>
+            
+            Column 1
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 2
-            </span>
+            
+            Column 2
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 3
-            </span>
+            
+            Column 3
+            
           </th>
           
         </tr>
@@ -2436,31 +2386,25 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 1
-            </span>
+            
+            Column 1
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 2
-            </span>
+            
+            Column 2
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 3
-            </span>
+            
+            Column 3
+            
           </th>
           
         </tr>
@@ -2701,31 +2645,25 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 1
-            </span>
+            
+            Column 1
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 2
-            </span>
+            
+            Column 2
+            
           </th>
           <th
             class=""
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
-            >
-              Column 3
-            </span>
+            
+            Column 3
+            
           </th>
           
         </tr>
@@ -2973,114 +2911,102 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           
           <th
             aria-sort="none"
-            class="cdx-table__cell--align-end cdx-table__cell--has-sort"
+            class="cdx-table__table__cell--align-end cdx-table__table__cell--has-sort"
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
+            <button
+              aria-selected="false"
+              class="cdx-table__table__sort-button"
             >
-              <button
-                aria-selected="false"
-                class="cdx-table__th-content__button-sort"
+              Year 
+              <span
+                aria-hidden="true"
+                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
               >
-                Year 
-                <span
+                <svg
                   aria-hidden="true"
-                  class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
-                  <svg
-                    aria-hidden="true"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                  >
-                    <!--v-if-->
-                    <!-- eslint-disable vue/no-v-html -->
-                    <g>
-                      <path
-                        d="M10 0 3 8h14zm0 18-7-8h14z"
-                      />
-                    </g>
-                  </svg>
-                </span>
-              </button>
-            </span>
+                  <!--v-if-->
+                  <!-- eslint-disable vue/no-v-html -->
+                  <g>
+                    <path
+                      d="M10 0 3 8h14zm0 18-7-8h14z"
+                    />
+                  </g>
+                </svg>
+              </span>
+            </button>
           </th>
           <th
             aria-sort="none"
-            class="cdx-table__cell--has-sort"
+            class="cdx-table__table__cell--has-sort"
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
+            <button
+              aria-selected="false"
+              class="cdx-table__table__sort-button"
             >
-              <button
-                aria-selected="false"
-                class="cdx-table__th-content__button-sort"
+              Last name 
+              <span
+                aria-hidden="true"
+                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
               >
-                Last name 
-                <span
+                <svg
                   aria-hidden="true"
-                  class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
-                  <svg
-                    aria-hidden="true"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                  >
-                    <!--v-if-->
-                    <!-- eslint-disable vue/no-v-html -->
-                    <g>
-                      <path
-                        d="M10 0 3 8h14zm0 18-7-8h14z"
-                      />
-                    </g>
-                  </svg>
-                </span>
-              </button>
-            </span>
+                  <!--v-if-->
+                  <!-- eslint-disable vue/no-v-html -->
+                  <g>
+                    <path
+                      d="M10 0 3 8h14zm0 18-7-8h14z"
+                    />
+                  </g>
+                </svg>
+              </span>
+            </button>
           </th>
           <th
             aria-sort="none"
-            class="cdx-table__cell--align-end cdx-table__cell--has-sort"
+            class="cdx-table__table__cell--align-end cdx-table__table__cell--has-sort"
             scope="col"
           >
-            <span
-              class="cdx-table__th-content"
+            <button
+              aria-selected="false"
+              class="cdx-table__table__sort-button"
             >
-              <button
-                aria-selected="false"
-                class="cdx-table__th-content__button-sort"
+              Age at win 
+              <span
+                aria-hidden="true"
+                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
               >
-                Age at win 
-                <span
+                <svg
                   aria-hidden="true"
-                  class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
-                  <svg
-                    aria-hidden="true"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                  >
-                    <!--v-if-->
-                    <!-- eslint-disable vue/no-v-html -->
-                    <g>
-                      <path
-                        d="M10 0 3 8h14zm0 18-7-8h14z"
-                      />
-                    </g>
-                  </svg>
-                </span>
-              </button>
-            </span>
+                  <!--v-if-->
+                  <!-- eslint-disable vue/no-v-html -->
+                  <g>
+                    <path
+                      d="M10 0 3 8h14zm0 18-7-8h14z"
+                    />
+                  </g>
+                </svg>
+              </span>
+            </button>
           </th>
           
         </tr>
@@ -3096,7 +3022,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3120,7 +3046,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3139,7 +3065,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3163,7 +3089,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3182,7 +3108,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3206,7 +3132,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3225,7 +3151,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3249,7 +3175,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3268,7 +3194,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3292,7 +3218,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3311,7 +3237,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3335,7 +3261,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3354,7 +3280,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3378,7 +3304,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__cell--align-end"
+            class="cdx-table__table__cell--align-end"
           >
             <!--
 									@slot Table cell content, per column.

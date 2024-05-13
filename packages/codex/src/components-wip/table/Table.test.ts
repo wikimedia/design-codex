@@ -237,7 +237,7 @@ describe( 'Table', () => {
 				} );
 
 				// Find the first `<button>` in a `<th>` element.
-				const firstTableHeaderButton = wrapper.find( '.cdx-table__th-content__button-sort' );
+				const firstTableHeaderButton = wrapper.find( '.cdx-table__table__sort-button' );
 
 				// Trigger a click event on the first `<button>` within the `<th>` element.
 				await firstTableHeaderButton.trigger( 'click' );
@@ -263,14 +263,14 @@ describe( 'Table', () => {
 				await wrapper.setProps( { sort: { year: 'none' } } );
 
 				// Find the second `<button>` element and trigger a click event.
-				await wrapper.findAll( '.cdx-table__th-content__button-sort' ).at( 1 )?.trigger( 'click' );
+				await wrapper.findAll( '.cdx-table__table__sort-button' ).at( 1 )?.trigger( 'click' );
 				expect( wrapper.emitted( 'update:sort' )?.[ 3 ] ).toEqual( [ { name: 'asc' } ] );
 
 				// Simulate the parent responding to the update:sort event.
 				await wrapper.setProps( { sort: { name: 'asc' } } );
 
 				// Find the third `<button>` element and trigger a click event.
-				await wrapper.findAll( '.cdx-table__th-content__button-sort' ).at( 2 )?.trigger( 'click' );
+				await wrapper.findAll( '.cdx-table__table__sort-button' ).at( 2 )?.trigger( 'click' );
 				expect( wrapper.emitted( 'update:sort' )?.[ 4 ] ).toEqual( [ { age: 'asc' } ] );
 			} );
 		} );
