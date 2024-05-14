@@ -184,6 +184,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 				{
 					text: 'Layout Guidelines',
 					items: [
+						{ text: 'Content overflow', link: '/style-guide/content-overflow' },
 						{ text: 'Using links and buttons', link: '/style-guide/using-links-and-buttons' },
 						{ text: 'Constructing forms', link: '/style-guide/constructing-forms' }
 					]
