@@ -29,7 +29,12 @@
 		<div class="cdx-table__table-wrapper">
 			<table class="cdx-table__table" :class="tableClasses">
 				<!-- Visually-hidden caption element, for assistive technology. -->
-				<caption>{{ caption }}</caption>
+				<caption>
+					{{ caption }}
+					<span v-if="hasSortableColumns">
+						{{ sortCaption }}
+					</span>
+				</caption>
 				<!-- @slot Custom <thead>. -->
 				<slot name="thead">
 					<thead v-if="columns.length > 0">
@@ -263,6 +268,16 @@ export default defineComponent( {
 		sort: {
 			type: Object as PropType<TableSort>,
 			default: () => ( {} )
+		},
+		/**
+		 * Text that provides additional info for the `<caption>` element when the column header
+		 * has sorting is enabled.
+		 *
+		 * This text is visually hidden but needed for assistive technology.
+		 */
+		sortCaption: {
+			type: String,
+			default: ', column headers with buttons are sortable.'
 		}
 	},
 	emits: [
@@ -288,6 +303,9 @@ export default defineComponent( {
 		// Sorting.
 		const activeSortColumn = computed( () => {
 			return Object.keys( props.sort )[ 0 ];
+		} );
+		const hasSortableColumns = computed( () => {
+			return props.columns.some( ( column ) => column.allowSort );
 		} );
 
 		// Elements and CSS classes.
@@ -541,6 +559,7 @@ export default defineComponent( {
 
 			// Sorting constants.
 			activeSortColumn,
+			hasSortableColumns,
 
 			// Template helpers.
 			tableClasses,

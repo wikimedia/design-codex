@@ -502,6 +502,11 @@ by adding `allowSort: true` to its definition.
 You can initialize the sort ref to an empty object if there is no initial sort order, or to an
 initial sort order as in the Table below, where the initial sort order is `{ user: 'asc' }`.
 
+:::warning
+For translatable interfaces, make sure you also use the `sortCaption` prop to provide
+a translated string for this visually-hidden accessibility helper.
+:::
+
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<table-with-sort />
