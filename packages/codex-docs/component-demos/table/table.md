@@ -471,9 +471,11 @@ component can output the `data` in the `<tbody>`. Always pass in `columns`, unle
 slots to override both the `<thead>` and `<tbody>`.
 
 Cell data is aligned to the start of the cell by default. You can use the following CSS classes to
-align cell data to the center or end:
-- `cdx-table__cell--align-center`
-- `cdx-table__cell--align-end` (recommended for columns containing numbers)
+change the alignment of cell data:
+- `cdx-table__table__cell--align-center`: Align content to the center of the cell
+- `cdx-table__table__cell--align-end`: Align content to the end of the cell (to the right in LTR and to the left in RTL)
+- `cdx-table__table__cell--align-number`: Align content to the right of the cell in both reading
+directionalities. This is recommended for columns that contain numerical values.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -578,11 +580,12 @@ The CSS-only Table consists of a `<table>` element and its child elements, plus 
 elements and CSS classes needed to ensure proper styles and accessibility. See the code sample
 below for details.
 
-Cell content is aligned to the start of the cell by default. To change this, you can use these
-classes:
-- `cdx-table__cell--align-center` - align center
-- `cdx-table__cell--align-end` - align to the end of the cell; recommended for columns containing
-  numbers
+Cell data is aligned to the start of the cell by default. You can use the following CSS classes to
+change the alignment of cell data:
+- `cdx-table__table__cell--align-center`: Align content to the center of the cell
+- `cdx-table__table__cell--align-end`: Align content to the end of the cell (to the right in LTR and to the left in RTL)
+- `cdx-table__table__cell--align-number`: Align content to the right of the cell in both reading
+directionalities. This is recommended for columns that contain numerical values.
 
 Note that all cells in a column, including the `<th>` in the `<thead>`, should have the same
 text alignment.
@@ -610,10 +613,10 @@ text alignment.
 						<th scope="col">Athlete</th>
 						<th scope="col">Nation</th>
 						<!-- <th> with class to align cell content to the end. -->
-						<th scope="col" class="cdx-table__cell--align-end">
+						<th scope="col" class="cdx-table__table__cell--align-number">
 							Rank
 						</th>
-						<th scope="col" class="cdx-table__cell--align-end">
+						<th scope="col" class="cdx-table__table__cell--align-number">
 							Time
 						</th>
 					</tr>
@@ -623,26 +626,26 @@ text alignment.
 						<td>Ken McArthur</td>
 						<td>South Africa</td>
 						<!-- <td> with class to align cell content to the end. -->
-						<td class="cdx-table__cell--align-end">1</td>
-						<td class="cdx-table__cell--align-end">2:36:54.8</td>
+						<td class="cdx-table__table__cell--align-number">1</td>
+						<td class="cdx-table__table__cell--align-number">2:36:54.8</td>
 					</tr>
 					<tr>
 						<td>Christian Gitsham</td>
 						<td>South Africa</td>
-						<td class="cdx-table__cell--align-end">2</td>
-						<td class="cdx-table__cell--align-end">2:37:52.0</td>
+						<td class="cdx-table__table__cell--align-number">2</td>
+						<td class="cdx-table__table__cell--align-number">2:37:52.0</td>
 					</tr>
 					<tr>
 						<td>Gaston Strobino</td>
 						<td>United States</td>
-						<td class="cdx-table__cell--align-end">3</td>
-						<td class="cdx-table__cell--align-end">2:38:42.4</td>
+						<td class="cdx-table__table__cell--align-number">3</td>
+						<td class="cdx-table__table__cell--align-number">2:38:42.4</td>
 					</tr>
 					<tr>
 						<td>Shizo Kanakuri</td>
 						<td>Japan</td>
-						<td class="cdx-table__cell--align-end">36</td>
-						<td class="cdx-table__cell--align-end">54:08:06:05:32:20.3</td>
+						<td class="cdx-table__table__cell--align-number">36</td>
+						<td class="cdx-table__table__cell--align-number">54:08:06:05:32:20.3</td>
 					</tr>
 				</tbody>
 				<!-- <tfoot> goes here if needed. -->
@@ -680,10 +683,10 @@ text alignment.
 						<span class="cdx-table__th-content">Nation</span>
 					</th>
 					<!-- <th> with class to align cell content to the end. -->
-					<th scope="col" class="cdx-table__cell--align-end">
+					<th scope="col" class="cdx-table__table__cell--align-number">
 						<span class="cdx-table__th-content">Rank</span>
 					</th>
-					<th scope="col" class="cdx-table__cell--align-end">
+					<th scope="col" class="cdx-table__table__cell--align-number">
 						<span class="cdx-table__th-content">Time</span>
 					</th>
 				</tr>
@@ -693,26 +696,26 @@ text alignment.
 					<td>Ken McArthur</td>
 					<td>South Africa</td>
 					<!-- <th> with class to align cell content to the end. -->
-					<td class="cdx-table__cell--align-end">1</td>
-					<td class="cdx-table__cell--align-end">2:36:54.8</td>
+					<td class="cdx-table__table__cell--align-number">1</td>
+					<td class="cdx-table__table__cell--align-number">2:36:54.8</td>
 				</tr>
 				<tr>
 					<td>Christian Gitsham</td>
 					<td>South Africa</td>
-					<td class="cdx-table__cell--align-end">2</td>
-					<td class="cdx-table__cell--align-end">2:37:52.0</td>
+					<td class="cdx-table__table__cell--align-number">2</td>
+					<td class="cdx-table__table__cell--align-number">2:37:52.0</td>
 				</tr>
 				<tr>
 					<td>Gaston Strobino</td>
 					<td>United States</td>
-					<td class="cdx-table__cell--align-end">3</td>
-					<td class="cdx-table__cell--align-end">2:38:42.4</td>
+					<td class="cdx-table__table__cell--align-number">3</td>
+					<td class="cdx-table__table__cell--align-number">2:38:42.4</td>
 				</tr>
 				<tr>
 					<td>Shizo Kanakuri</td>
 					<td>Japan</td>
-					<td class="cdx-table__cell--align-end">36</td>
-					<td class="cdx-table__cell--align-end">54:08:06:05:32:20.3</td>
+					<td class="cdx-table__table__cell--align-number">36</td>
+					<td class="cdx-table__table__cell--align-number">54:08:06:05:32:20.3</td>
 				</tr>
 			</tbody>
 		</table>
@@ -737,37 +740,37 @@ To visually hide the header's caption, simply do not add it to the header elemen
 			<thead>
 				<tr>
 					<th scope="col">Project</th>
-					<th scope="col" class="cdx-table__cell--align-end">No. of wikis</th>
-					<th scope="col" class="cdx-table__cell--align-end">Active users</th>
-					<th scope="col" class="cdx-table__cell--align-end">All users</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">No. of wikis</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">Active users</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">All users</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr class="">
 					<td>wikipedias</td>
-					<td class="cdx-table__cell--align-end">342</td>
-					<td class="cdx-table__cell--align-end">292249</td>
-					<td class="cdx-table__cell--align-end">113556337</td>
+					<td class="cdx-table__table__cell--align-number">342</td>
+					<td class="cdx-table__table__cell--align-number">292249</td>
+					<td class="cdx-table__table__cell--align-number">113556337</td>
 				</tr>
 				<tr class="">
 					<td>wiktionaries</td>
-					<td class="cdx-table__cell--align-end">193</td>
-					<td class="cdx-table__cell--align-end">5764</td>
-					<td class="cdx-table__cell--align-end">7275027</td>
+					<td class="cdx-table__table__cell--align-number">193</td>
+					<td class="cdx-table__table__cell--align-number">5764</td>
+					<td class="cdx-table__table__cell--align-number">7275027</td>
 				</tr>
 				<tr class="">
 					<td>wikiquotes</td>
-					<td class="cdx-table__cell--align-end">96</td>
-					<td class="cdx-table__cell--align-end">2042</td>
-					<td class="cdx-table__cell--align-end">4261041</td>
+					<td class="cdx-table__table__cell--align-number">96</td>
+					<td class="cdx-table__table__cell--align-number">2042</td>
+					<td class="cdx-table__table__cell--align-number">4261041</td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<td>Total:</td>
-					<td class="cdx-table__cell--align-end">631</td>
-					<td class="cdx-table__cell--align-end">300055</td>
-					<td class="cdx-table__cell--align-end">125092405</td>
+					<td class="cdx-table__table__cell--align-number">631</td>
+					<td class="cdx-table__table__cell--align-number">300055</td>
+					<td class="cdx-table__table__cell--align-number">125092405</td>
 				</tr>
 			</tfoot>
 		</table>
@@ -785,37 +788,37 @@ To visually hide the header's caption, simply do not add it to the header elemen
 			<thead>
 				<tr>
 					<th scope="col">Project</th>
-					<th scope="col" class="cdx-table__cell--align-end">No. of wikis</th>
-					<th scope="col" class="cdx-table__cell--align-end">Active users</th>
-					<th scope="col" class="cdx-table__cell--align-end">All users</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">No. of wikis</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">Active users</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">All users</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr class="">
 					<td>wikipedias</td>
-					<td class="cdx-table__cell--align-end">342</td>
-					<td class="cdx-table__cell--align-end">292249</td>
-					<td class="cdx-table__cell--align-end">113556337</td>
+					<td class="cdx-table__table__cell--align-number">342</td>
+					<td class="cdx-table__table__cell--align-number">292249</td>
+					<td class="cdx-table__table__cell--align-number">113556337</td>
 				</tr>
 				<tr class="">
 					<td>wiktionaries</td>
-					<td class="cdx-table__cell--align-end">193</td>
-					<td class="cdx-table__cell--align-end">5764</td>
-					<td class="cdx-table__cell--align-end">7275027</td>
+					<td class="cdx-table__table__cell--align-number">193</td>
+					<td class="cdx-table__table__cell--align-number">5764</td>
+					<td class="cdx-table__table__cell--align-number">7275027</td>
 				</tr>
 				<tr class="">
 					<td>wikiquotes</td>
-					<td class="cdx-table__cell--align-end">96</td>
-					<td class="cdx-table__cell--align-end">2042</td>
-					<td class="cdx-table__cell--align-end">4261041</td>
+					<td class="cdx-table__table__cell--align-number">96</td>
+					<td class="cdx-table__table__cell--align-number">2042</td>
+					<td class="cdx-table__table__cell--align-number">4261041</td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<td>Total:</td>
-					<td class="cdx-table__cell--align-end">631</td>
-					<td class="cdx-table__cell--align-end">300055</td>
-					<td class="cdx-table__cell--align-end">125092405</td>
+					<td class="cdx-table__table__cell--align-number">631</td>
+					<td class="cdx-table__table__cell--align-number">300055</td>
+					<td class="cdx-table__table__cell--align-number">125092405</td>
 				</tr>
 			</tfoot>
 		</table>
@@ -844,47 +847,47 @@ cases, therefore apply additional border styles to the element as needed.
 			<thead>
 				<tr>
 					<th scope="col" rowspan="2">Project</th>
-					<th scope="col" rowspan="2" class="cdx-table__cell--align-end">No. of wikis</th>
+					<th scope="col" rowspan="2" class="cdx-table__table__cell--align-number">No. of wikis</th>
 					<th
 						scope="colgroup"
 						colspan="2"
-						class="cdx-table__cell--align-center"
+						class="cdx-table__table__cell--align-center"
 					>
 						Users
 					</th>
 				</tr>
 				<tr>
-					<th scope="col" class="cdx-table__cell--align-end">Active</th>
-					<th scope="col" class="cdx-table__cell--align-end">All</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">Active</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">All</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr class="">
 					<td>wikipedias</td>
-					<td class="cdx-table__cell--align-end">342</td>
-					<td class="cdx-table__cell--align-end">292249</td>
-					<td class="cdx-table__cell--align-end">113556337</td>
+					<td class="cdx-table__table__cell--align-number">342</td>
+					<td class="cdx-table__table__cell--align-number">292249</td>
+					<td class="cdx-table__table__cell--align-number">113556337</td>
 				</tr>
 				<tr class="">
 					<td>wiktionaries</td>
-					<td class="cdx-table__cell--align-end">193</td>
-					<td class="cdx-table__cell--align-end">5764</td>
-					<td class="cdx-table__cell--align-end">7275027</td>
+					<td class="cdx-table__table__cell--align-number">193</td>
+					<td class="cdx-table__table__cell--align-number">5764</td>
+					<td class="cdx-table__table__cell--align-number">7275027</td>
 				</tr>
 				<tr class="">
 					<td>wikiquotes</td>
-					<td class="cdx-table__cell--align-end">96</td>
-					<td class="cdx-table__cell--align-end">2042</td>
-					<td class="cdx-table__cell--align-end">4261041</td>
+					<td class="cdx-table__table__cell--align-number">96</td>
+					<td class="cdx-table__table__cell--align-number">2042</td>
+					<td class="cdx-table__table__cell--align-number">4261041</td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">Total:</th>
-					<td class="cdx-table__cell--align-end">631</td>
-					<td class="cdx-table__cell--align-end">300055</td>
-					<td class="cdx-table__cell--align-end">125092405</td>
+					<td class="cdx-table__table__cell--align-number">631</td>
+					<td class="cdx-table__table__cell--align-number">300055</td>
+					<td class="cdx-table__table__cell--align-number">125092405</td>
 				</tr>
 			</tfoot>
 		</table>
@@ -905,47 +908,47 @@ cases, therefore apply additional border styles to the element as needed.
 			<thead>
 				<tr>
 					<th scope="col" rowspan="2">Project</th>
-					<th scope="col" rowspan="2" class="cdx-table__cell--align-end">No. of wikis</th>
+					<th scope="col" rowspan="2" class="cdx-table__table__cell--align-number">No. of wikis</th>
 					<th
 						scope="colgroup"
 						colspan="2"
-						class="cdx-table__cell--align-center"
+						class="cdx-table__table__cell--align-center"
 					>
 						Users
 					</th>
 				</tr>
 				<tr>
-					<th scope="col" class="cdx-table__cell--align-end">Active</th>
-					<th scope="col" class="cdx-table__cell--align-end">All</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">Active</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">All</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr class="">
 					<td>wikipedias</td>
-					<td class="cdx-table__cell--align-end">342</td>
-					<td class="cdx-table__cell--align-end">292249</td>
-					<td class="cdx-table__cell--align-end">113556337</td>
+					<td class="cdx-table__table__cell--align-number">342</td>
+					<td class="cdx-table__table__cell--align-number">292249</td>
+					<td class="cdx-table__table__cell--align-number">113556337</td>
 				</tr>
 				<tr class="">
 					<td>wiktionaries</td>
-					<td class="cdx-table__cell--align-end">193</td>
-					<td class="cdx-table__cell--align-end">5764</td>
-					<td class="cdx-table__cell--align-end">7275027</td>
+					<td class="cdx-table__table__cell--align-number">193</td>
+					<td class="cdx-table__table__cell--align-number">5764</td>
+					<td class="cdx-table__table__cell--align-number">7275027</td>
 				</tr>
 				<tr class="">
 					<td>wikiquotes</td>
-					<td class="cdx-table__cell--align-end">96</td>
-					<td class="cdx-table__cell--align-end">2042</td>
-					<td class="cdx-table__cell--align-end">4261041</td>
+					<td class="cdx-table__table__cell--align-number">96</td>
+					<td class="cdx-table__table__cell--align-number">2042</td>
+					<td class="cdx-table__table__cell--align-number">4261041</td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">Total:</th>
-					<td class="cdx-table__cell--align-end">631</td>
-					<td class="cdx-table__cell--align-end">300055</td>
-					<td class="cdx-table__cell--align-end">125092405</td>
+					<td class="cdx-table__table__cell--align-number">631</td>
+					<td class="cdx-table__table__cell--align-number">300055</td>
+					<td class="cdx-table__table__cell--align-number">125092405</td>
 				</tr>
 			</tfoot>
 		</table>
@@ -976,50 +979,50 @@ header column.
 			<thead>
 				<tr>
 					<th scope="col" rowspan="2">Project</th>
-					<th scope="col" rowspan="2" class="cdx-table__cell--align-end">No. of wikis</th>
+					<th scope="col" rowspan="2" class="cdx-table__table__cell--align-number">No. of wikis</th>
 					<th
 						scope="colgroup"
 						colspan="2"
-						class="cdx-table__cell--align-center"
+						class="cdx-table__table__cell--align-center"
 					>
 						Users
 					</th>
 				</tr>
 				<tr>
-					<th scope="col" class="cdx-table__cell--align-end">Active</th>
-					<th scope="col" class="cdx-table__cell--align-end">All</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">Active</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">All</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr class="">
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">wikipedias</th>
-					<td class="cdx-table__cell--align-end">342</td>
-					<td class="cdx-table__cell--align-end">292249</td>
-					<td class="cdx-table__cell--align-end">113556337</td>
+					<td class="cdx-table__table__cell--align-number">342</td>
+					<td class="cdx-table__table__cell--align-number">292249</td>
+					<td class="cdx-table__table__cell--align-number">113556337</td>
 				</tr>
 				<tr class="">
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">wiktionaries</th>
-					<td class="cdx-table__cell--align-end">193</td>
-					<td class="cdx-table__cell--align-end">5764</td>
-					<td class="cdx-table__cell--align-end">7275027</td>
+					<td class="cdx-table__table__cell--align-number">193</td>
+					<td class="cdx-table__table__cell--align-number">5764</td>
+					<td class="cdx-table__table__cell--align-number">7275027</td>
 				</tr>
 				<tr class="">
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">wikiquotes</th>
-					<td class="cdx-table__cell--align-end">96</td>
-					<td class="cdx-table__cell--align-end">2042</td>
-					<td class="cdx-table__cell--align-end">4261041</td>
+					<td class="cdx-table__table__cell--align-number">96</td>
+					<td class="cdx-table__table__cell--align-number">2042</td>
+					<td class="cdx-table__table__cell--align-number">4261041</td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">Total:</th>
-					<td class="cdx-table__cell--align-end">631</td>
-					<td class="cdx-table__cell--align-end">300055</td>
-					<td class="cdx-table__cell--align-end">125092405</td>
+					<td class="cdx-table__table__cell--align-number">631</td>
+					<td class="cdx-table__table__cell--align-number">300055</td>
+					<td class="cdx-table__table__cell--align-number">125092405</td>
 				</tr>
 			</tfoot>
 		</table>
@@ -1040,50 +1043,50 @@ header column.
 			<thead>
 				<tr>
 					<th scope="col" rowspan="2">Project</th>
-					<th scope="col" rowspan="2" class="cdx-table__cell--align-end">No. of wikis</th>
+					<th scope="col" rowspan="2" class="cdx-table__table__cell--align-number">No. of wikis</th>
 					<th
 						scope="colgroup"
 						colspan="2"
-						class="cdx-table__cell--align-center"
+						class="cdx-table__table__cell--align-center"
 					>
 						Users
 					</th>
 				</tr>
 				<tr>
-					<th scope="col" class="cdx-table__cell--align-end">Active</th>
-					<th scope="col" class="cdx-table__cell--align-end">All</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">Active</th>
+					<th scope="col" class="cdx-table__table__cell--align-number">All</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr class="">
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">wikipedias</th>
-					<td class="cdx-table__cell--align-end">342</td>
-					<td class="cdx-table__cell--align-end">292249</td>
-					<td class="cdx-table__cell--align-end">113556337</td>
+					<td class="cdx-table__table__cell--align-number">342</td>
+					<td class="cdx-table__table__cell--align-number">292249</td>
+					<td class="cdx-table__table__cell--align-number">113556337</td>
 				</tr>
 				<tr class="">
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">wiktionaries</th>
-					<td class="cdx-table__cell--align-end">193</td>
-					<td class="cdx-table__cell--align-end">5764</td>
-					<td class="cdx-table__cell--align-end">7275027</td>
+					<td class="cdx-table__table__cell--align-number">193</td>
+					<td class="cdx-table__table__cell--align-number">5764</td>
+					<td class="cdx-table__table__cell--align-number">7275027</td>
 				</tr>
 				<tr class="">
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">wikiquotes</th>
-					<td class="cdx-table__cell--align-end">96</td>
-					<td class="cdx-table__cell--align-end">2042</td>
-					<td class="cdx-table__cell--align-end">4261041</td>
+					<td class="cdx-table__table__cell--align-number">96</td>
+					<td class="cdx-table__table__cell--align-number">2042</td>
+					<td class="cdx-table__table__cell--align-number">4261041</td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">Total:</th>
-					<td class="cdx-table__cell--align-end">631</td>
-					<td class="cdx-table__cell--align-end">300055</td>
-					<td class="cdx-table__cell--align-end">125092405</td>
+					<td class="cdx-table__table__cell--align-number">631</td>
+					<td class="cdx-table__table__cell--align-number">300055</td>
+					<td class="cdx-table__table__cell--align-number">125092405</td>
 				</tr>
 			</tfoot>
 		</table>

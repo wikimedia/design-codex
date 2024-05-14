@@ -102,33 +102,33 @@
 			<template #tbody>
 				<tbody>
 					<tr>
-						<td colspan="3" class="cdx-table__cell--align-center">
+						<td colspan="3" class="cdx-table__table__cell--align-center">
 							First section
 						</td>
 					</tr>
 					<tr>
 						<td>One</td>
-						<td class="cdx-table__cell--align-number">1</td>
+						<td class="cdx-table__table__cell--align-number">1</td>
 						<td>Uno</td>
 					</tr>
 					<tr>
 						<td>Two</td>
-						<td class="cdx-table__cell--align-number">2</td>
+						<td class="cdx-table__table__cell--align-number">2</td>
 						<td>Dos</td>
 					</tr>
 					<tr>
-						<td colspan="3" class="cdx-table__cell--align-center">
+						<td colspan="3" class="cdx-table__table__cell--align-center">
 							Second section
 						</td>
 					</tr>
 					<tr>
 						<td>Three</td>
-						<td class="cdx-table__cell--align-number">3</td>
+						<td class="cdx-table__table__cell--align-number">3</td>
 						<td>Tres</td>
 					</tr>
 					<tr>
 						<td>Four</td>
-						<td class="cdx-table__cell--align-number">4</td>
+						<td class="cdx-table__table__cell--align-number">4</td>
 						<td>Cuatro</td>
 					</tr>
 				</tbody>
@@ -146,7 +146,7 @@
 				<tfoot>
 					<tr>
 						<th>Total:</th>
-						<td class="cdx-table__cell--align-number">$2,200</td>
+						<td class="cdx-table__table__cell--align-number">$2,200</td>
 					</tr>
 				</tfoot>
 			</template>
@@ -159,15 +159,15 @@
 					<tr>
 						<th rowspan="2">Season/series</th>
 						<th rowspan="2">Doctor</th>
-						<th rowspan="2" class="cdx-table__cell--align-number">Episodes</th>
+						<th rowspan="2" class="cdx-table__table__cell--align-number">Episodes</th>
 						<th
 							rowspan="1"
 							colspan="2"
-							class="cdx-table__cell--align-center"
+							class="cdx-table__table__cell--align-center"
 						>
 							Originally aired
 						</th>
-						<th rowspan="2" class="cdx-table__cell--align-number">
+						<th rowspan="2" class="cdx-table__table__cell--align-number">
 							Average viewers (millions)
 						</th>
 					</tr>
@@ -189,10 +189,14 @@
 							<td v-if="season.doctor" :rowspan="doctor.length">
 								{{ season.doctor }}
 							</td>
-							<td class="cdx-table__cell--align-number">{{ season.episodes }}</td>
+							<td class="cdx-table__table__cell--align-number">
+								{{ season.episodes }}
+							</td>
 							<td>{{ season.airStart }}</td>
 							<td>{{ season.airEnd }}</td>
-							<td class="cdx-table__cell--align-number">{{ season.viewers }}</td>
+							<td class="cdx-table__table__cell--align-number">
+								{{ season.viewers }}
+							</td>
 						</tr>
 					</template>
 				</tbody>

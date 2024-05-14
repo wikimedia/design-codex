@@ -14,23 +14,23 @@
 					<th
 						scope="col"
 						rowspan="2"
-						class="cdx-table__cell--align-end"
+						class="cdx-table__table__cell--align-number"
 					>
 						No. of wikis
 					</th>
 					<th
 						scope="colgroup"
 						colspan="2"
-						class="cdx-table__cell--align-center"
+						class="cdx-table__table__cell--align-center"
 					>
 						Users
 					</th>
 				</tr>
 				<tr>
-					<th scope="col" class="cdx-table__cell--align-end">
+					<th scope="col" class="cdx-table__table__cell--align-number">
 						Active
 					</th>
-					<th scope="col" class="cdx-table__cell--align-end">
+					<th scope="col" class="cdx-table__table__cell--align-number">
 						All
 					</th>
 				</tr>
@@ -46,7 +46,7 @@
 					<td
 						v-for="( total, index ) in totals"
 						:key="index"
-						class="cdx-table__cell--align-end"
+						class="cdx-table__table__cell--align-number"
 					>
 						{{ total }}
 					</td>

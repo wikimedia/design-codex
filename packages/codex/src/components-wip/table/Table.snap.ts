@@ -2911,7 +2911,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           
           <th
             aria-sort="none"
-            class="cdx-table__table__cell--align-end cdx-table__table__cell--has-sort"
+            class="cdx-table__table__cell--align-number cdx-table__table__cell--has-sort"
             scope="col"
           >
             <button
@@ -2977,7 +2977,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           </th>
           <th
             aria-sort="none"
-            class="cdx-table__table__cell--align-end cdx-table__table__cell--has-sort"
+            class="cdx-table__table__cell--align-number cdx-table__table__cell--has-sort"
             scope="col"
           >
             <button
@@ -3022,7 +3022,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3046,7 +3046,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3065,7 +3065,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3089,7 +3089,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3108,7 +3108,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3132,7 +3132,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3151,7 +3151,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3175,7 +3175,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3194,7 +3194,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3218,7 +3218,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3237,7 +3237,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3261,7 +3261,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3280,7 +3280,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.
@@ -3304,7 +3304,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             
           </td>
           <td
-            class="cdx-table__table__cell--align-end"
+            class="cdx-table__table__cell--align-number"
           >
             <!--
 									@slot Table cell content, per column.

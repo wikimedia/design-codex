@@ -48,9 +48,9 @@ const tfoot = `<tfoot>
 const itemSlot = '<p>{{params.item}}</p>';
 
 const columnsSingleSort = [
-	{ id: 'year', label: 'Year', textAlign: 'end', allowSort: true },
+	{ id: 'year', label: 'Year', textAlign: 'number', allowSort: true },
 	{ id: 'name', label: 'Last name', allowSort: true },
-	{ id: 'age', label: 'Age at win', textAlign: 'end', allowSort: true }
+	{ id: 'age', label: 'Age at win', textAlign: 'number', allowSort: true }
 ];
 
 const dataSingleSort = [
