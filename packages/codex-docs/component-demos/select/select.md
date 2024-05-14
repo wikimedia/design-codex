@@ -33,7 +33,7 @@ A Select is an input with a dropdown [menu](./menu.md) of predefined, selectable
 
 ## Guidelines
 
-### Using selects
+### When to use selects
 
 Selects must feature a label stating the current selection and a menu of at least two, but
 preferably three or more, options.
@@ -56,6 +56,8 @@ Selects have a button-like appearance, and include a mandatory arrow indicator t
 they can be expanded.
 4. **Menu**<br>
 When the select is open, a [menu with options](./menu.md) is displayed.
+
+#### Component limitations
 
 The base min-width for the Select component is set at `@size-1600` (equivalent to `256px` in the default Codex theme), but it can be customized to a smaller width if needed. There is no maximum width limit.
 

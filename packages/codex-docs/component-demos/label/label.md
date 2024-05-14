@@ -48,7 +48,7 @@ label.
 
 ## Guidelines
 
-### Using labels
+### When to use labels
 The Label component will be placed above each form [Field](./field.md). An optional indicator, a
 tooltip, and a description could also be included next to the label text.
 
@@ -67,11 +67,15 @@ Subtle text indicating that the field associated with the label is not required.
 4. **Description** (optional)<br>
 Subtle descriptive text that provides additional information about the field.
 
+#### Component limitations
+
+Label and description can wrap onto multiple lines as needed, without strict length limits. However, it's best to keep them concise for better form readability. If the label spans multiple lines, the optional indicator will appear next to the last line of the label.
+
+#### Label style
+
 The Label will be bold by default. However, it can be customized to regular weight when needed in specific cases:
 - **Bold labels** should be used when grouping two or more form fields under a title with a larger text size.
 - **Regular labels** should be used when grouped under a title with the same text size as the form field label. This prevents hierarchy issues and ensures consistency.
-
-Label and description can wrap onto multiple lines as needed, without strict length limits. However, it's best to keep them concise for better form readability. If the label spans multiple lines, the optional indicator will appear next to the last line of the label.
 
 Refer to the [Label component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=10192-102686&mode=design&t=2O0ceqiRfqCtnidq-11).
 

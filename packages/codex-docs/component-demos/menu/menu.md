@@ -13,7 +13,7 @@ control (e.g. a button, selector or input) after it is activated by a user.
 
 ## Guidelines
 
-### Using menus
+### When to use menus
 Menus are intended to be used within other components such as Select or Lookup,
 where they appear when the user interacts with or selects the corresponding
 element.
@@ -35,6 +35,8 @@ or provide an access to further results.
 Menus have a drop shadow in order to separate it more clearly from the content
 below. This shadow is a 20% opacity Black color with the X axis moved 0 pixels,
 the Y axis moved 2 pixels, and a 2 pixel blur.
+
+#### Component limitations
 
 The Menu component can accommodate numerous items, using a scrollbar when necessary. When scrolling,
 the optional menu footer remains fixed, ensuring consistent navigation.

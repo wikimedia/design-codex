@@ -23,7 +23,7 @@ A ProgressBar is a visual element used to indicate the progress of an action or 
 
 ## Guidelines
 
-### Using progress bars
+### When to use progress bars
 Use a ProgressBar when you want to provide real-time feedback on the progress of
 ongoing operations, such as file uploads or form submissions.
 

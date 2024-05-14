@@ -25,7 +25,7 @@ An InfoChip is a non-interactive item that provides information.
 
 ## Guidelines
 
-### Using info chips
+### When to use info chips
 Use the InfoChip component to label, categorize, or organize information using keywords. It can be also used to provide success, warning or error feedback to the user.
 
 This type of chip is just informative so it cannot be clickable or removable.
@@ -36,6 +36,8 @@ This type of chip is just informative so it cannot be clickable or removable.
 Info chips may contain the following items:
 1. **Icon** (optional)<br>You can include a starting icon to visually convey the label. For notice chips, this icon is optional, while for chips providing feedback (error, warning, and success chips), the icon is required to communicate the feedback status effectively.
 2. **Label**<br>Descriptive text about the chip.
+
+#### Component limitations
 
 The InfoChip label should be kept concise. It's limited to one line of text, and if it exceeds this limit, it will be truncated with an ellipsis, with no text wrapping.
 

@@ -34,7 +34,7 @@ A ChipInput allows users to create chips to filter content or make selections.
 
 ## Guidelines
 
-### Using chip inputs
+### When to use chip inputs
 
 The [TextInput](./text-input.md) is utilized to build the ChipInput component, allowing information to be filtered by typing text that is transformed into a chip.
 
@@ -53,6 +53,8 @@ Avoid using ChipInput if the filtering process is simple and doesn't require cus
 ChipInputs include the following items:
 1. **TextInput**<br>The user can type letters or words within this input to create the chips and filter the information.
 2. **Chip or chips**<br>The chip or chips created are stacked next to each other, and they are editable and can be removed.
+
+#### Component limitations
 
 The base min-width for the ChipInput component is set at `@size-1600` (equivalent to `256px` in the default Codex theme), but it can be customized to a smaller width if needed. There is no maximum width set.
 

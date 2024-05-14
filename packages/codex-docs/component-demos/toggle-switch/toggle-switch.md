@@ -31,7 +31,7 @@ A ToggleSwitch enables the user to instantly toggle between on and off states.
 
 ## Guidelines
 
-### Using toggle switches
+### When to use toggle switches
 
 Toggle switches must feature a descriptive label.
 
@@ -50,6 +50,8 @@ Toggle switches make the on and off states visually distinct by using different 
 the grabber from left to right and vice versa.
 3. **Description** (optional)<br>
 If additional information about the label is required, a description can be included.
+
+#### Component limitations
 
 The ToggleSwitch label will expand to fit longer text while the ToggleSwith itself remains aligned with the first line of the label's text.
 

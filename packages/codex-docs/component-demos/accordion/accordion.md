@@ -42,7 +42,7 @@ navigate.
 
 ## Guidelines
 
-### Using accordions
+### When to use accordions
 
 Use the Accordion component when you need to organize blocks of content into sections. Avoid using an accordion component when the user needs to read the content by default. In this case, use another component or group of elements instead.
 
@@ -59,6 +59,8 @@ Accordion includes the following items:
 4. **Action** (optional)<br>
 An action (such as edit) could optionally appear at the end of the heading section and it will affect the entire accordion item.
 5. **Accordion’s content**<br>When the accordion is expanded, its content becomes visible, and the arrow icon rotates to show the expanded state.
+
+#### Component limitations
 
 The accordion's label and description have no minimum or maximum length restrictions. However, shorter labels are encouraged, as additional information about the label can be included in a description below.
 

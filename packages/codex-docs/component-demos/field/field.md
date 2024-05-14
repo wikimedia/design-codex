@@ -66,7 +66,7 @@ A form field with a label, an input or control, and an optional validation messa
 
 ## Guidelines
 
-### Using fields
+### When to use fields
 Field provides features for building an accessible, understandable form field to
 collect user input.
 
@@ -91,6 +91,8 @@ can use any form item such as text input, select, checkbox, etc.
 4. **Validation message**<br>An inline validation message will appear to provide feedback about the
 status of the field. For example, to provide an error message to the user when the field contains
 one or more errors.
+
+#### Component limitations
 
 Both label and description will wrap onto multiple lines as needed. There are no strict length limits for labels and descriptions, but it's recommended to keep them concise for improved form readability and scanning.
 

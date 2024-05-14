@@ -41,7 +41,7 @@ A text input is a form element that lets users input and edit a single-line text
 
 ## Guidelines
 
-### Using text inputs
+### When to use text inputs
 
 Through text input fields, users can input text, numbers, symbols or mixed-format strings (unless
 specifically restricted).
@@ -70,6 +70,8 @@ should never be the only input description.
 A secondary end icon can be included if needed.
 4. **Clear button** (optional)<br>
 A 'clear' indicator can be included to remove the typed content within the input field.
+
+#### Component limitations
 
 The base min-width for the TextInput component is set at `@size-1600` (equivalent to `256px` in the default Codex theme), but it can be customized to a smaller width if needed. There is no maximum width limit.
 

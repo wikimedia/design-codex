@@ -38,7 +38,8 @@ A Button triggers an action when the user clicks or taps on it.
 
 ## Guidelines
 
-### Using buttons
+### When to use buttons
+
 Buttons must contain a label and can also include an icon. For icon-only buttons, the label is
 visually hidden but available to assistive technology users.
 
@@ -59,6 +60,8 @@ hover, active, focused) in accessible color variations.
 
 1. **Icon** (optional)<br>Icons simplify user recognition and provide the ability to shorten button labels to a minimum.
 2. **Label**<br>Button labels should be as short as possible, with text that clearly states what action follows clicking the button (e.g. download, submit form, search).
+
+#### Component limitations
 
 When using buttons, consider the size of their target area. Make sure that the associated active touch area is at least 44 x 44 dp. Otherwise users may fail to hit the active area, for example due to motor disabilities.
 

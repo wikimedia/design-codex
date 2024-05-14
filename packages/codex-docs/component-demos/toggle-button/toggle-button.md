@@ -24,7 +24,7 @@ A ToggleButton is a button that can be toggled on and off.
 
 ## Guidelines
 
-### Using toggle buttons
+### When to use toggle buttons
 
 Toggle buttons feature a normal and an “on” state. They generally contain a label and can also
 include an icon. For icon-only buttons, the label will be visually hidden while still available to
@@ -49,6 +49,8 @@ Icons simplify user recognition and provide the ability to shorten button labels
 Button labels should be as short as possible, with text that clearly states what state is changed
 when toggling the button (eg. show/hide). Note that the label text should not change depending on
 the button’s toggled state.
+
+#### Component limitations
 
 The minimum width and height for both icon and text toggle buttons is
 `min-size-interactive-pointer` token (equivalent to `32px` in the default Codex theme). The toggle

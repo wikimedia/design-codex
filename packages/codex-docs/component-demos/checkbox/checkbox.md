@@ -28,7 +28,7 @@ group. Checkboxes can be selected, unselected or in an indeterminate state.
 
 ## Guidelines
 
-### Using checkboxes
+### When to use checkboxes
 
 Checkboxes must feature a descriptive label. They may appear alone or as a part of a group. A
 checkbox may also have sub-options or child checkboxes.
@@ -47,6 +47,8 @@ The checkbox’s input makes the selection visually distinct.
 The Checkbox must always contain a label, with the text size matching the base font size for consistency with the body text. Labels can include links and bold text and should be concise, clearly indicating the selected option.
 3. **Description** (optional)<br>
 If additional information about the label is required, a description can be included.
+
+#### Component limitations
 
 The Checkbox label will expand to fit longer text while the checkbox itself remains aligned with the first line of the label's text.
 

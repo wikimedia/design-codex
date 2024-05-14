@@ -8,7 +8,7 @@ A SearchInput allows users to enter and submit a search query.
 
 ## Guidelines
 
-### Using search inputs
+### When to use search inputs
 Use the SearchInput component when you need users to perform text-based searches
 for specific content, like finding results on a page.
 
@@ -26,6 +26,8 @@ form field. Instead, use [Lookup](./lookup.md).
 Search inputs may include the following elements:
 1. **Input**<br>A text input where users can type their search queries. The input features the 'search' icon for clarity and should also include a placeholder to clarify its purpose.
 2. **Button** (optional)<br>The input can be accompanied with a button, either a text button or an icon-only one, in order to trigger the search action. It's crucial not to customize the label of the search button and consistently employ the term "Search" or its appropriate translation. Additionally, avoid using long text within this button.
+
+#### Component limitations
 
 Since the SearchInput component uses a [TextInput](./text-input.md)), the input's minimum width defaults to `@size-1600` (equivalent to `256px` in the default Codex theme). However, it can be adjusted to a narrower width if necessary. The SearchInput button, if visible, does not contribute to this minimum width.
 

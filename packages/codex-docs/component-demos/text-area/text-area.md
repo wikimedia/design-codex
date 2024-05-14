@@ -50,7 +50,7 @@ A TextArea is a multi-line text input that allows manual resizing if needed.
 
 ## Guidelines
 
-### Using text areas
+### When to use text areas
 This form element is useful when the user needs to enter a sizable amount of
 free-form text, for example comments, reviews, feedback, or short essay
 responses.
@@ -69,6 +69,8 @@ TextArea may include the following optional elements:
 2. **Placeholder** (optional)<br>The placeholder text provides an example of what type of information is being requested in the input.
 3. **End icon** (optional)<br>A secondary end icon can be included if needed.
 4. **Grabber** (optional)<br>Optionally, the grabber may be displayed to allow users the ability to vertically resize the text area as needed.
+
+#### Component limitations
 
 The base min-width for the TextArea component is `@size-1600` (equivalent to `256px` in the default Codex theme), but it's customizable to a smaller width if necessary. There's no maximum width limit.
 

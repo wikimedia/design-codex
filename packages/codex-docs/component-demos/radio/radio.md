@@ -12,7 +12,7 @@ options. Radios are also known as “radio buttons”.
 
 ## Guidelines
 
-### Using radios
+### When to use radios
 
 Radios must feature a descriptive label. They must be part of a radio group of at least two
 elements. A radio may also have sub-components or child radio groups.
@@ -30,6 +30,8 @@ Radio buttons make the selection visually distinct.
 The Radio must always contain a label, with the text size matching the base font size for consistency with the body text. Labels can include links and bold text and should be concise, clearly indicating the selected option.
 3. **Description** (optional)<br>
 If additional information about the label is required, a description can be included.
+
+#### Component limitations
 
 The Radio label will expand to fit longer text while the radio itself remains aligned with the first line of the label's text.
 

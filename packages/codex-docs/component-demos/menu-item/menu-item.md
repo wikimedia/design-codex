@@ -79,7 +79,7 @@ menu state information. See [Menu](./menu.md) for more details.
 
 ## Guidelines
 
-### Using menu items
+### When to use menu items
 MenuItem is an “internal” component, used exclusively to represent content
 within a [Menu](./menu.md). It cannot be used by itself.
 
@@ -96,6 +96,8 @@ Each menu item may include the following elements:
 3. **Supporting text** (optional)<br>Optional and subtle text that supports or explains the label.
 4. **Match text** (optional)<br>In the context of a search suggestions menu, this optional text displays the alternative label of an item that matches the search query (e.g. an alias).
 5. **Description** (optional)<br>Optional and subtle descriptive text that provides additional information about the menu item.
+
+#### Component limitations
 
 Menu items have no minimum or maximum character requirement, although concise text is recommended. If the label is multiline, the supporting text will be positioned next to the last line of the label.
 

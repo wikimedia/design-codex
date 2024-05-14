@@ -12,7 +12,7 @@ or multiple buttons from the group.
 
 ## Guidelines
 
-### Using toggle button groups
+### When to use toggle button groups
 
 Buttons within the toggle button group must carry a label. In the case of icon-only buttons, the
 label will be available only to screen reader users.
@@ -35,6 +35,8 @@ selected when the button is toggled on.
 3. **White line**<br>
 For toggled-on buttons, a white line is added to visually separate them, whether they are on the
 same line or placed on different rows in the stacked version.
+
+#### Component limitations
 
 There is no maximum limit on the number of toggle buttons per group. The width of the
 ToggleButtonGroup will adjust to accommodate the expanding text within each button. If the total

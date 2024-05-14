@@ -16,7 +16,7 @@ Cards can be clickable and offer a way to navigate to the content they represent
 
 ## Guidelines
 
-### Using cards
+### When to use cards
 
 Use the Card component when you need to present individual pieces of information such as articles. Use them to create lists, grids or as standalone elements in the page.
 
@@ -34,6 +34,8 @@ Cards include the following items:
 3. **Description**<br>A subtle text below the title provides more information about the element represented by the card.
 4. **Supporting text** (optional)<br>An optional subtle text (with an optional icon) could be included to provide additional information about the card’s content.
 5. **Links** (optional)<br>The description and/or the supporting text may contain links to either the element the Cards represent (e.g. Wikipedia articles), or to related content.
+
+#### Component limitations
 
 The label, description, and supporting text within a card can vary in length without any minimum or maximum restrictions. Cards automatically adjust in height to accommodate longer text, although the recommendation is to keep card content concise whenever possible.
 

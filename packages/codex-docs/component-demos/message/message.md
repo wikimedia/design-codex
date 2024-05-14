@@ -34,7 +34,7 @@ feedback.
 
 ## Guidelines
 
-### Using messages
+### When to use messages
 
 Messages must include text clearly defining the system feedback to the user. They also include an
 icon to help users recognize the type of message, and they can also feature an optional dismiss
@@ -60,12 +60,14 @@ To allow for the message to be dismissed, an optional icon-only quiet button can
 The inline message component includes both the icon and message elements, excluding the close
 button.
 
-The message can contain an unlimited number of characters, and there is no minimum requirement.
-Ensure that the icon is always aligned on top with the text.
-
 :::tip Accessibility note
 The message icon adds a point of recognition for color-blind users.
 :::
+
+#### Component limitations
+
+The message can contain an unlimited number of characters, and there is no minimum requirement.
+Ensure that the icon is always aligned on top with the text.
 
 Refer to the
 [Message component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=4902-47684&mode=design&t=yTcArGDe2utFY0wc-11).

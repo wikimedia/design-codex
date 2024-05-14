@@ -14,7 +14,7 @@ suggestions based on the current input value.
 
 ## Guidelines
 
-### Using lookups
+### When to use lookups
 Use the Lookup component to let users search through a dataset to choose a
 predefined value for a form field. This can be useful when there are many
 options the user can choose from, so they need to filter the items via a text
@@ -32,6 +32,8 @@ Lookup includes the following elements:
 	results. This can optionally include a start icon, clear button, and placeholder
 	text.
 2. **Dropdown menu**<br>Suggested results are displayed via the Menu component.
+
+#### Component limitations
 
 Since the Lookup component uses a [TextInput](./text-input.md), its base `min-width` is set to
 `size-1600` token (equivalent to `256px` in the default Codex theme), but it can be customized to

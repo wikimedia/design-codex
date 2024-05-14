@@ -15,7 +15,7 @@ A Link navigates the user to another page, view or section, when the user clicks
 
 ## Guidelines
 
-### Using links
+### When to use links
 
 Use the Link component when you need to provide users with a clickable element to navigate to a different page, resource, or section in the same page.
 
@@ -40,6 +40,8 @@ Avoid using Link when the user needs to perform an action. In such cases, use
 2. **External link icon**<br>Indicates that the link will take the user to a different website. This icon cannot be replaced with other icons.
 
 By default, the link text style is set to the base font in regular. However, it can be easily customized to other styles by applying any of the existing fonts, text sizes or formats defined in our [font design tokens](../../design-tokens/font.md).
+
+#### Component limitations
 
 The length of link text can vary according to the context. While there's no strict character limit for links, it's advisable to keep them concise and descriptive as defined in the [guidelines for writing copy](../../style-guide/writing-for-copy.md#content-first).
 

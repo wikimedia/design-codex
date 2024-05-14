@@ -27,7 +27,7 @@ A Tab is one of the selectable items included within [Tabs](./tabs.md).
 
 ## Guidelines
 
-### Using tab items
+### When to use tab items
 Two or more tab items are grouped to create a [Tabs](./tabs.md) component. Tab items cannot
 be used individually. For example, different tab items can represent the different sections of an
 article. A tab includes a label, which displays in the tabs list, and its associated content.
@@ -39,6 +39,8 @@ article. A tab includes a label, which displays in the tabs list, and its associ
 Each tab item may include the following elements:
 1. **Text**<br>Currently, tab items solely consist of text elements within the tab, without the inclusion of icons or visual indicators.
 2. **Selected indicator**<br>Both quiet and framed tabs feature a visual indicator when selected. In the case of quiet tabs, this indicator is a blue line positioned below the tab text, which is also colored blue. In contrast, framed tabs use a white background behind the tab text to indicate their selected state.
+
+#### Component limitations
 
 The maximum width for each Tab item is `size-1600` token (equivalent to 256px in the default
 Codex theme), with an ellipsis appearing if the text exceeds this length.

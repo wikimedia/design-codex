@@ -55,7 +55,7 @@ comparison, analysis and management of information.
 
 ## Guidelines
 
-### Using Tables
+### When to use tables
 
 In order to support the scanning and interpretation of information, the content within Tables needs
 to be well-structured and optimized for readability. For that reason, Tables should be avoided if

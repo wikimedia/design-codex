@@ -12,7 +12,7 @@ content.
 
 ## Guidelines
 
-### Using typeahead searches
+### When to use typeahead searches
 
 TypeaheadSearch consists of a search input and a submit button. As users type, predictive search
 results are displayed in a menu. Additionally, there's a final option at the end of the search
@@ -43,6 +43,8 @@ also be included.
 4. **Footer**<br>
 The final menu item at the end of the search results menu list allows users to navigate to the
 search page.
+
+#### Component limitations
 
 The menu displayed will show a maximum of 10 items, adjusting if there are fewer matching results.
 

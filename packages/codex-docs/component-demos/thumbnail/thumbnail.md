@@ -9,7 +9,7 @@ users with a quick glimpse of the associated content.
 
 ## Guidelines
 
-### Using thumbnails
+### When to use thumbnails
 Use the Thumbnail component to include small previews of images that can provide
 context or support the meaning of the content included in components such as
 [Card](./card.md) or [MenuItem](./menu-item.md).
@@ -27,6 +27,8 @@ The thumbnail component may include the following elements:
 
 In both scenarios, the thumbnail features a Gray300 border to ensure sufficient
 contrast when placed on white backgrounds.
+
+#### Component limitations
 
 Thumbnails are set to a default square size of `size-250` token (equivalent to `40px` in the default
 Codex theme). They cannot be scaled smaller than this size but can be scaled up to `@ize-800`

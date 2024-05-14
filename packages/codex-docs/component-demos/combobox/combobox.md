@@ -15,7 +15,7 @@ import ComboboxField from '@/../component-demos/combobox/examples/ComboboxField.
 
 ## Guidelines
 
-### Using comboboxes
+### When to use comboboxes
 Through comboboxes, users can input text, numbers, symbols or mixed-format strings (unless
 specifically restricted) while being offered autocomplete options in a dropdown menu.
 
@@ -38,6 +38,8 @@ An [icon-only chevron button](./button.md#icon-only-button)
 opens the menu.
 4. **Menu**<br>
 When the combobox is active, a [menu with options](./menu.md) is displayed.
+
+#### Component limitations
 
 The base min-width for the Combobox component is set at `@size-1600` (equivalent to `256px` in the default Codex theme), but it can be customized to a smaller width if needed. There is no maximum width limit.
 

@@ -12,7 +12,7 @@ number of equally important actions that will occur when the user taps on them.
 
 ## Guidelines
 
-### Using button groups
+### When to use button groups
 Each button within the button group must have a label. For icon-only buttons, the label will be
 visually hidden and available only to users of assistive technology.
 
@@ -30,6 +30,8 @@ A button group consists of a minimum of two normal (framed) buttons, which may i
 labels to a minimum.
 2. **Label**<br>Button labels should be as short as possible, with text that clearly states what
 action will be taken once the button is pressed (e.g. download, submit form, search).
+
+#### Component limitations
 
 There is no maximum limit on the number of buttons per group. The width of the button group will adjust to accommodate the expanding text within each button. If the total width of the button group surpasses the maximum width of `@max-width-button` (equivalent to `448px` in the default Codex theme), the buttons will be wrapped into the next line.
 

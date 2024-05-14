@@ -7,7 +7,7 @@ An Icon is a graphical representation of an idea.
 
 ## Guidelines
 
-### Using icons
+### When to use icons
 
 Icons are used to give the user additional context for understanding the interface. This component
 can be used inside other components, like a [Button](./button.md).

@@ -26,7 +26,7 @@ Tabs consist of two or more tab items created for navigating between different s
 
 ## Guidelines
 
-### Using tabs
+### When to use tabs
 
 Each tab will display different sections within the same context. For example,
 tabs can display different sections of an article, different topics or different
@@ -41,6 +41,8 @@ Tabs include the following elements:
 1. **Selected tab**<br>Within the tabs component, only one tab item can be selected at a time.
 2. **Unselected tabs**<br>The remaining tab items will remain unselected. Users can choose these tabs by clicking on them or navigating to them via the keyboard’s arrow keys.
 3. **Arrow button**<br>When tabs become scrollable, one or two icon-only buttons will appear. The number of buttons to scroll tabs will vary based on the tabs' scroll position. Users can utilize these buttons to navigate through the scrollable tabs.
+
+#### Component limitations
 
 Each Tabs component will contain a minimum of 2 tab items. There is no maximum limit to the number of tab items per Tabs.
 

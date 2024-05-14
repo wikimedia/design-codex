@@ -44,7 +44,7 @@ modals or overlays.
 
 ## Guidelines
 
-### Using dialogs
+### When to use dialogs
 
 Dialogs facilitate communication between the system and user. They perform best when used for urgent
 decisions or as a workflow within a bigger task, as they don’t require loading a new page and keep
@@ -93,6 +93,8 @@ also be replaced with a text button in some cases.
 Behind every dialog, there is an overlay that displays the color White (#fff) at 65% opacity. This
 is to provide continued context while the user focuses on the dialog.
 
+#### Component limitations
+
 Keep the content of the dialog concise as needed, while making sure it includes a title, body text,
 and at least one button. If the body content exceeds the available space, a scrollbar will be
 displayed. Additionally, top and bottom dividers will appear to distinguish the body from the header
@@ -103,8 +105,6 @@ be visible while scrolling.
     <img src="../../assets/components/dialog-specifications-min-content.svg" alt="An example of a Dialog with just a title, a short body text, and a main action.">
     <img src="../../assets/components/dialog-specifications-max-content.svg" alt="An example of a Dialog with title, a long body content with scroll, a main button, and a secondary one.">
 </div>
-
-#### Width and height
 
 All dialogs are vertically and horizontally centered on the canvas. We aim to keep dialogs at a
 fixed width of `size-3200` (equivalent to `512px` in the default Codex theme) on desktop, while
