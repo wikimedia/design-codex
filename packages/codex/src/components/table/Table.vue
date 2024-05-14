@@ -139,8 +139,8 @@ import { TableColumn, TableRow, TableRowWithIdentifier, TableSort, TableSortOpti
 import { TableTextAlignments, TableRowIdentifier } from '../../constants';
 import useModelWrapper from '../../composables/useModelWrapper';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
-import CdxCheckbox from '../../components/checkbox/Checkbox.vue';
-import CdxIcon from '../../components/icon/Icon.vue';
+import CdxCheckbox from '../checkbox/Checkbox.vue';
+import CdxIcon from '../icon/Icon.vue';
 import { cdxIconSortVertical, cdxIconUpTriangle, cdxIconDownTriangle, Icon } from '@wikimedia/codex-icons';
 
 type TableSortIconMap = { [P in TableSortOption]: Icon };

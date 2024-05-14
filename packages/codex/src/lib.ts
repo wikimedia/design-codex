@@ -39,6 +39,7 @@ import CdxRadio from './components/radio/Radio.vue';
 import CdxSearchInput from './components/search-input/SearchInput.vue';
 import CdxSearchResultTitle from './components/search-result-title/SearchResultTitle.vue';
 import CdxSelect from './components/select/Select.vue';
+import CdxTable from './components/table/Table.vue';
 import CdxTab from './components/tab/Tab.vue';
 import CdxTabs from './components/tabs/Tabs.vue';
 import CdxTextArea from './components/text-area/TextArea.vue';
@@ -123,6 +124,7 @@ export {
 	CdxSearchInput,
 	CdxSearchResultTitle,
 	CdxSelect,
+	CdxTable,
 	CdxTab,
 	CdxTabs,
 	CdxTextArea,

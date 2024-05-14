@@ -240,12 +240,11 @@
 
 <script lang="ts" setup>
 import { Ref, ref, computed } from 'vue';
-// eslint-disable-next-line no-restricted-imports
-import { CdxTable } from '../components-wip/index';
 import {
 	CdxButton,
 	CdxCheckbox,
 	CdxInfoChip,
+	CdxTable,
 	CdxToggleSwitch,
 	TableColumn,
 	TableSortOption,

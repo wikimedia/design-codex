@@ -14,8 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-// eslint-disable-next-line no-restricted-imports
-import { CdxTable } from '../components-wip/index';
+import { CdxTable } from '../lib';
 
 const columns = [
 	{ id: 'user', label: 'User' },
