@@ -18,9 +18,9 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
       size="1"
       type="text"
     />
-    <!---->
-    <!---->
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
   </div>
   <div
     class="cdx-menu"
@@ -31,7 +31,7 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
       id="cdx-lookup-menu-0"
       role="listbox"
     >
-      <!---->
+      <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
       >
@@ -40,7 +40,7 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
       </li>
       
       
-      <!---->
+      <!--v-if-->
     </ul>
   </div>
 </div>
@@ -64,9 +64,9 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
       size="1"
       type="text"
     />
-    <!---->
-    <!---->
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
   </div>
   <div
     class="cdx-menu"
@@ -77,8 +77,8 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
       id="cdx-lookup-menu-1"
       role="listbox"
     >
-      <!---->
-      <!---->
+      <!--v-if-->
+      <!--v-if-->
       
       <li
         aria-disabled="false"
@@ -102,7 +102,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
             >
-              <!---->
+              <!--v-if-->
               <g>
                 <path
                   d="M9 1.28A1 1 0 008.35 1H2a1 1 0 00-1 1v6.35a1 1 0 00.28.65L11 18.72a1 1 0 001.37 0l6.38-6.38a1 1 0 00-.03-1.34zM5 7a2 2 0 112-2 2 2 0 01-2 2"
@@ -120,15 +120,15 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
                 cdxIconTag
               </bdi>
             </span>
-            <!---->
-            <!---->
-            <!---->
+            <!--v-if-->
+            <!--v-if-->
+            <!--v-if-->
           </span>
         </span>
         
       </li>
       
-      <!---->
+      <!--v-if-->
     </ul>
   </div>
 </div>
