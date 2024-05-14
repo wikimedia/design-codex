@@ -625,9 +625,9 @@
 			}
 		},
 		"node_modules/@babel/parser": {
-			"version": "7.23.9",
-			"resolved": "https://registry.npmjs.org/@babel/parser/-/parser-7.23.9.tgz",
-			"integrity": "sha512-9tcKgqKbs3xGJ+NtKF2ndOBBLVwPjl1SHxPQkd36r3Dlirw3xWUeGaTbqr7uGZcTaxkVNwc+03SVP7aCdWrTlA==",
+			"version": "7.24.5",
+			"resolved": "https://registry.npmjs.org/@babel/parser/-/parser-7.24.5.tgz",
+			"integrity": "sha512-EOv5IK8arwh3LI47dz1b0tKUb/1uhHAnHJOrjgtQMIpu1uXd9mlFrJg9IUgGUgZ41Ch0K8REPTYpO7B76b4vJg==",
 			"bin": {
 				"parser": "bin/babel-parser.js"
 			},
@@ -2777,30 +2777,30 @@
 			}
 		},
 		"node_modules/@volar/language-core": {
-			"version": "1.10.10",
-			"resolved": "https://registry.npmjs.org/@volar/language-core/-/language-core-1.10.10.tgz",
-			"integrity": "sha512-nsV1o3AZ5n5jaEAObrS3MWLBWaGwUj/vAsc15FVNIv+DbpizQRISg9wzygsHBr56ELRH8r4K75vkYNMtsSNNWw==",
+			"version": "2.2.2",
+			"resolved": "https://registry.npmjs.org/@volar/language-core/-/language-core-2.2.2.tgz",
+			"integrity": "sha512-GuvEL4JdxbnLVhPLICncCGT+tVW4cIz9GxXNeDofNnJ4iNTKhr5suGVsA1GLOne9PbraSjn8PlLt+pvLxuRVeQ==",
 			"dev": true,
 			"dependencies": {
-				"@volar/source-map": "1.10.10"
+				"@volar/source-map": "2.2.2"
 			}
 		},
 		"node_modules/@volar/source-map": {
-			"version": "1.10.10",
-			"resolved": "https://registry.npmjs.org/@volar/source-map/-/source-map-1.10.10.tgz",
-			"integrity": "sha512-GVKjLnifV4voJ9F0vhP56p4+F3WGf+gXlRtjFZsv6v3WxBTWU3ZVeaRaEHJmWrcv5LXmoYYpk/SC25BKemPRkg==",
+			"version": "2.2.2",
+			"resolved": "https://registry.npmjs.org/@volar/source-map/-/source-map-2.2.2.tgz",
+			"integrity": "sha512-vUwvZuSW6iN4JI9QRinh9EjFasx1TUtnaWMKwgWx08xz1PyYuNkLlWlrZXBZ5GGBhML0u230M/7X+AHY2h9yKg==",
 			"dev": true,
 			"dependencies": {
-				"muggle-string": "^0.3.1"
+				"muggle-string": "^0.4.0"
 			}
 		},
 		"node_modules/@volar/typescript": {
-			"version": "1.10.10",
-			"resolved": "https://registry.npmjs.org/@volar/typescript/-/typescript-1.10.10.tgz",
-			"integrity": "sha512-4a2r5bdUub2m+mYVnLu2wt59fuoYWe7nf0uXtGHU8QQ5LDNfzAR0wK7NgDiQ9rcl2WT3fxT2AA9AylAwFtj50A==",
+			"version": "2.2.2",
+			"resolved": "https://registry.npmjs.org/@volar/typescript/-/typescript-2.2.2.tgz",
+			"integrity": "sha512-WcwOREz7+uOrpjUrKhOMaOKKmyPdtqF95HWX7SE0d9hhBB1KkfahxhaAex5U9Bn43LfINHlycLoYCNEtfeKm0g==",
 			"dev": true,
 			"dependencies": {
-				"@volar/language-core": "1.10.10",
+				"@volar/language-core": "2.2.2",
 				"path-browserify": "^1.0.1"
 			}
 		},
@@ -2857,18 +2857,17 @@
 			"dev": true
 		},
 		"node_modules/@vue/language-core": {
-			"version": "1.8.22",
-			"resolved": "https://registry.npmjs.org/@vue/language-core/-/language-core-1.8.22.tgz",
-			"integrity": "sha512-bsMoJzCrXZqGsxawtUea1cLjUT9dZnDsy5TuZ+l1fxRMzUGQUG9+Ypq4w//CqpWmrx7nIAJpw2JVF/t258miRw==",
+			"version": "2.0.16",
+			"resolved": "https://registry.npmjs.org/@vue/language-core/-/language-core-2.0.16.tgz",
+			"integrity": "sha512-Bc2sexRH99pznOph8mLw2BlRZ9edm7tW51kcBXgx8adAoOcZUWJj3UNSsdQ6H9Y8meGz7BoazVrVo/jUukIsPw==",
 			"dev": true,
 			"dependencies": {
-				"@volar/language-core": "~1.10.5",
-				"@volar/source-map": "~1.10.5",
-				"@vue/compiler-dom": "^3.3.0",
-				"@vue/shared": "^3.3.0",
+				"@volar/language-core": "~2.2.0",
+				"@vue/compiler-dom": "^3.4.0",
+				"@vue/shared": "^3.4.0",
 				"computeds": "^0.0.1",
 				"minimatch": "^9.0.3",
-				"muggle-string": "^0.3.1",
+				"path-browserify": "^1.0.1",
 				"vue-template-compiler": "^2.7.14"
 			},
 			"peerDependencies": {
@@ -2880,6 +2879,35 @@
 				}
 			}
 		},
+		"node_modules/@vue/language-core/node_modules/@vue/compiler-core": {
+			"version": "3.4.27",
+			"resolved": "https://registry.npmjs.org/@vue/compiler-core/-/compiler-core-3.4.27.tgz",
+			"integrity": "sha512-E+RyqY24KnyDXsCuQrI+mlcdW3ALND6U7Gqa/+bVwbcpcR3BRRIckFoz7Qyd4TTlnugtwuI7YgjbvsLmxb+yvg==",
+			"dev": true,
+			"dependencies": {
+				"@babel/parser": "^7.24.4",
+				"@vue/shared": "3.4.27",
+				"entities": "^4.5.0",
+				"estree-walker": "^2.0.2",
+				"source-map-js": "^1.2.0"
+			}
+		},
+		"node_modules/@vue/language-core/node_modules/@vue/compiler-dom": {
+			"version": "3.4.27",
+			"resolved": "https://registry.npmjs.org/@vue/compiler-dom/-/compiler-dom-3.4.27.tgz",
+			"integrity": "sha512-kUTvochG/oVgE1w5ViSr3KUBh9X7CWirebA3bezTbB5ZKBQZwR2Mwj9uoSKRMFcz4gSMzzLXBPD6KpCLb9nvWw==",
+			"dev": true,
+			"dependencies": {
+				"@vue/compiler-core": "3.4.27",
+				"@vue/shared": "3.4.27"
+			}
+		},
+		"node_modules/@vue/language-core/node_modules/@vue/shared": {
+			"version": "3.4.27",
+			"resolved": "https://registry.npmjs.org/@vue/shared/-/shared-3.4.27.tgz",
+			"integrity": "sha512-DL3NmY2OFlqmYYrzp39yi3LDkKxa5vZVwxWdQ3rG0ekuWscHraeIbnI8t+aZK7qhYqEqWKTUdijadunb9pnrgA==",
+			"dev": true
+		},
 		"node_modules/@vue/language-core/node_modules/brace-expansion": {
 			"version": "2.0.1",
 			"resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.1.tgz",
@@ -2890,9 +2918,9 @@
 			}
 		},
 		"node_modules/@vue/language-core/node_modules/minimatch": {
-			"version": "9.0.3",
-			"resolved": "https://registry.npmjs.org/minimatch/-/minimatch-9.0.3.tgz",
-			"integrity": "sha512-RHiac9mvaRw0x3AYRgDC1CxAP7HTcNrrECeA8YYJeWnpo+2Q5CegtZjaotWTWxDG3UeGA1coE05iH1mPjT/2mg==",
+			"version": "9.0.4",
+			"resolved": "https://registry.npmjs.org/minimatch/-/minimatch-9.0.4.tgz",
+			"integrity": "sha512-KqWh+VchfxcMNRAJjj2tnsSJdNbHsVgnkBhTNrW7AjVo6OvLtxw8zfT9oLw1JSohlFzJ8jCoTgaoXvJ+kHt6fw==",
 			"dev": true,
 			"dependencies": {
 				"brace-expansion": "^2.0.1"
@@ -9864,9 +9892,9 @@
 			"dev": true
 		},
 		"node_modules/muggle-string": {
-			"version": "0.3.1",
-			"resolved": "https://registry.npmjs.org/muggle-string/-/muggle-string-0.3.1.tgz",
-			"integrity": "sha512-ckmWDJjphvd/FvZawgygcUeQCxzvohjFO5RxTjj4eq8kw359gFF3E1brjfI+viLMxss5JrHTDRHZvu2/tuy0Qg==",
+			"version": "0.4.1",
+			"resolved": "https://registry.npmjs.org/muggle-string/-/muggle-string-0.4.1.tgz",
+			"integrity": "sha512-VNTrAak/KhO2i8dqqnqnAHOa3cYBwXEZe9h+D5h/1ZqFSTEFHdM65lR7RoIqq3tBBYavsOXV84NoHXZ0AkPyqQ==",
 			"dev": true
 		},
 		"node_modules/multimatch": {
@@ -27881,9 +27909,9 @@
 			}
 		},
 		"node_modules/source-map-js": {
-			"version": "1.0.2",
-			"resolved": "https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz",
-			"integrity": "sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==",
+			"version": "1.2.0",
+			"resolved": "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.0.tgz",
+			"integrity": "sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==",
 			"engines": {
 				"node": ">=0.10.0"
 			}
@@ -29849,13 +29877,13 @@
 			}
 		},
 		"node_modules/vue-tsc": {
-			"version": "1.8.22",
-			"resolved": "https://registry.npmjs.org/vue-tsc/-/vue-tsc-1.8.22.tgz",
-			"integrity": "sha512-j9P4kHtW6eEE08aS5McFZE/ivmipXy0JzrnTgbomfABMaVKx37kNBw//irL3+LlE3kOo63XpnRigyPC3w7+z+A==",
+			"version": "2.0.16",
+			"resolved": "https://registry.npmjs.org/vue-tsc/-/vue-tsc-2.0.16.tgz",
+			"integrity": "sha512-/gHAWJa216PeEhfxtAToIbxdWgw01wuQzo48ZUqMYVEyNqDp+OYV9xMO5HaPS2P3Ls0+EsjguMZLY4cGobX4Ew==",
 			"dev": true,
 			"dependencies": {
-				"@volar/typescript": "~1.10.5",
-				"@vue/language-core": "1.8.22",
+				"@volar/typescript": "~2.2.0",
+				"@vue/language-core": "2.0.16",
 				"semver": "^7.5.4"
 			},
 			"bin": {
@@ -30278,7 +30306,7 @@
 				"ts-jest": "29.1.1",
 				"typescript": "5.2.2",
 				"vite": "4.5.2",
-				"vue-tsc": "1.8.22"
+				"vue-tsc": "2.0.16"
 			},
 			"engines": {
 				"node": ">=18",
@@ -30341,7 +30369,7 @@
 				"vite": "4.5.2",
 				"vitepress": "1.0.0-rc.25",
 				"vue-docgen-cli": "4.67.0",
-				"vue-tsc": "1.8.22"
+				"vue-tsc": "2.0.16"
 			},
 			"engines": {
 				"node": ">=18",
