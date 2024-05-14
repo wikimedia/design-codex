@@ -72,10 +72,10 @@
 			"value": "{ color.gray200 }"
 		},
 		"content-added": {
-			"value": "{ color.blue400 }"
+			"value": "{ color.blue300 }"
 		},
 		"content-removed": {
-			"value": "{ color.yellow650 }"
+			"value": "{ color.yellow500 }"
 		},
 		"backdrop-light": {
 			"comment": "Backdrop is the term used by CSS Fullscreen API and is used to dim the background when a modal Dialog is open. Also known as overlay mask.",
@@ -178,10 +178,10 @@
 			"value": "{ color.gray750 }"
 		},
 		"content-added": {
-			"value": "{ color.blue600 }"
+			"value": "{ color.green700 }"
 		},
 		"content-removed": {
-			"value": "{ color.yellow700 }"
+			"value": "{ color.red700 }"
 		},
 		"base--subtle": {
 			"deprecated": "Use `color-subtle` instead. Note, that `color-subtle` is using `color.gray600` instead of `color.gray500` now.",
@@ -613,10 +613,10 @@
 			"value": "{ color.gray600 }"
 		},
 		"content-added": {
-			"value": "{ color.blue400 }"
+			"value": "{ color.blue300 }"
 		},
 		"content-removed": {
-			"value": "{ color.yellow650 }"
+			"value": "{ color.yellow500 }"
 		},
 		"transparent": {
 			"value": "{ color.transparent }"

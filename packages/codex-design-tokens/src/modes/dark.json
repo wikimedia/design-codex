@@ -40,7 +40,7 @@
 			"value": "{ color.gray750 }"
 		},
 		"content-added": {
-			"value": "{ color.blue600 }"
+			"value": "{ color.blue700 }"
 		},
 		"content-removed": {
 			"value": "{ color.yellow700 }"
@@ -117,10 +117,10 @@
 			"value": "{ color.gray100 }"
 		},
 		"content-added": {
-			"value": "{ color.blue400 }"
+			"value": "{ color.green400 }"
 		},
 		"content-removed": {
-			"value": "{ color.yellow650 }"
+			"value": "{ color.red400 }"
 		}
 	},
 	"border-color": {
@@ -158,7 +158,7 @@
 			"value": "{ color.gray300 }"
 		},
 		"content-added": {
-			"value": "{ color.blue600 }"
+			"value": "{ color.blue700 }"
 		},
 		"content-removed": {
 			"value": "{ color.yellow700 }"
