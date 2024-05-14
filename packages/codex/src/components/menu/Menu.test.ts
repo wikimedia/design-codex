@@ -130,7 +130,7 @@ it( 'If the selected prop is updated in the parent, no update events are emitted
 		...defaultProps,
 		selected: 'c'
 	} } );
-	await wrapper.setProps( { modelValue: 'b' } );
+	await wrapper.setProps( { selected: 'b' } );
 	expect( wrapper.emitted()[ 'update:selected' ] ).toBeFalsy();
 } );
 
@@ -684,7 +684,7 @@ describe( 'When typing characters', () => {
 		} } );
 		await delegateKeydownEvent( wrapper, 'x' );
 		expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
-		await wrapper.setProps( { 'update:expanded': true } );
+		await wrapper.setProps( { expanded: true } );
 		expect( wrapper.vm.getHighlightedMenuItem() ).toBe( null );
 	} );
 } );
