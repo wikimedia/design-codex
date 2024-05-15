@@ -435,10 +435,11 @@ export default defineComponent( {
 			}
 
 			// Now we know that all rows are not selected.
-			// If "select all" was previously checked, set it to indeterminate and uncheck it.
-			if ( selectAll.value === true ) {
+			selectAll.value = false;
+
+			// If some checkboxes are checked then the "select all" checkbox is indeterminate.
+			if ( props.data.length > newSelectedRows.length ) {
 				selectAllIndeterminate.value = true;
-				selectAll.value = false;
 			}
 
 			// If no rows are selected, clear indeterminate status.

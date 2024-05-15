@@ -186,6 +186,39 @@ describe( 'Table', () => {
 			} );
 		} );
 
+		describe( 'and a single row or some rows are selected', () => {
+			it( 'the "select all" checkbox is in an indeterminate state', async () => {
+				const wrapper = mount( CdxTable, {
+					props: {
+						caption: 'Table caption',
+						columns: columnsBasic,
+						data: dataBasic,
+						useRowSelection: true,
+						selectedRows: []
+					}
+				} );
+				const firstRowInput = wrapper.find( 'tbody' ).find( 'input' );
+				const secondRowInput = wrapper.find( 'tbody' ).findAll( 'input' )[ 1 ];
+				const selectAllInput = wrapper.find( 'thead' ).find( 'input' );
+
+				// Simulate selecting the first checkbox input.
+				firstRowInput.element.checked = true;
+				await firstRowInput.trigger( 'change' );
+
+				expect( selectAllInput.element.checked ).toBeFalsy();
+				expect( wrapper.vm.selectAllIndeterminate ).toBeTruthy();
+
+				// Simulate selecting the second checkbox input.
+				secondRowInput.element.checked = true;
+				await secondRowInput.trigger( 'change' );
+
+				// eslint-disable-next-line no-unused-expressions, jest/valid-expect
+				expect( secondRowInput.element.checked ).toBeTruthy;
+				expect( selectAllInput.element.checked ).toBeFalsy();
+				expect( wrapper.vm.selectAllIndeterminate ).toBeTruthy();
+			} );
+		} );
+
 		describe( 'and the "select all" checkbox is checked', () => {
 			it( 'handles update:selectedRow events properly', async () => {
 				const wrapper = mount( CdxTable, {
