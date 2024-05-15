@@ -685,6 +685,8 @@ export default defineComponent( {
 			text-decoration: @text-decoration-none;
 			// Hide overflowing text.
 			.text-overflow( @param-visible: false );
+			transition-property: @transition-property-base;
+			transition-duration: @transition-duration-base;
 
 			&:hover {
 				background-color: @background-color-interactive-subtle;
