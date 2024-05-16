@@ -1,241 +1,248 @@
-<!-- eslint-disable vue/singleline-html-element-content-newline vue/no-static-inline-styles -->
+<!-- eslint-disable vue/singleline-html-element-content-newline -->
 <template>
-	<section class="cdx-demo-table-page" :class="rootClasses">
-		<h1>Table demos</h1>
+	<demo-base-layout class="cdx-demo-table-page">
+		<template #header>
+			Codex Table demos
+		</template>
+		<template #content>
+			<section class="cdx-demo-table-page" :class="rootClasses">
+				<cdx-toggle-switch v-model="restrictWidth">
+					Restrict width to test scroll behavior
+				</cdx-toggle-switch>
 
-		<cdx-toggle-switch v-model="restrictWidth">
-			Restrict width to test scroll behavior
-		</cdx-toggle-switch>
+				<h2>Basic table</h2>
+				<cdx-table
+					caption="Table caption"
+					:columns="columnsBasic"
+					:data="dataBasic"
+				/>
 
-		<h2>Basic table</h2>
-		<cdx-table
-			caption="Table caption"
-			:columns="columnsBasic"
-			:data="dataBasic"
-		/>
+				<h2>Table with data out of order</h2>
+				<p>This should look exactly like the table above.</p>
+				<cdx-table
+					caption="Table caption"
+					:columns="columnsBasic"
+					:data="dataOutOfOrder"
+				/>
 
-		<h2>Table with data out of order</h2>
-		<p>This should look exactly like the table above.</p>
-		<cdx-table
-			caption="Table caption"
-			:columns="columnsBasic"
-			:data="dataOutOfOrder"
-		/>
+				<h2>Table with extra data and an ID column</h2>
+				<p>Only the ID and Name columns should display.</p>
+				<cdx-table
+					caption="Favorite animals"
+					:columns="columnsExtraData"
+					:data="dataExtraData"
+				/>
 
-		<h2>Table with extra data and an ID column</h2>
-		<p>Only the ID and Name columns should display.</p>
-		<cdx-table
-			caption="Favorite animals"
-			:columns="columnsExtraData"
-			:data="dataExtraData"
-		/>
+				<h2>Table with varied content width</h2>
+				<cdx-table
+					caption="User data"
+					:columns="columnsVariedWidth"
+					:data="dataVariedWidth"
+				/>
 
-		<h2>Table with varied content width</h2>
-		<cdx-table
-			caption="User data"
-			:columns="columnsVariedWidth"
-			:data="dataVariedWidth"
-		/>
+				<h2>Table with many columns</h2>
+				<cdx-table
+					caption="User data"
+					:columns="columnsManyColumns"
+					:data="dataManyColumns"
+				/>
 
-		<h2>Table with many columns</h2>
-		<cdx-table
-			caption="User data"
-			:columns="columnsManyColumns"
-			:data="dataManyColumns"
-		/>
+				<h2>Table with row headers</h2>
+				<cdx-table
+					caption="Table caption"
+					:columns="columnsBasic"
+					:data="dataBasic"
+					:use-row-headers="true"
+				/>
 
-		<h2>Table with row headers</h2>
-		<cdx-table
-			caption="Table caption"
-			:columns="columnsBasic"
-			:data="dataBasic"
-			:use-row-headers="true"
-		/>
+				<h2>Table with visually-hidden caption</h2>
+				<cdx-table
+					caption="Table caption"
+					:columns="columnsBasic"
+					:data="dataBasic"
+					:hide-caption="true"
+				/>
 
-		<h2>Table with visually-hidden caption</h2>
-		<cdx-table
-			caption="Table caption"
-			:columns="columnsBasic"
-			:data="dataBasic"
-			:hide-caption="true"
-		/>
-
-		<h2>Table using header and footer slots</h2>
-		<p>With extra-wide columns to demonstrate scroll behavior</p>
-		<cdx-table
-			caption="Table caption"
-			:columns="columnsBasic"
-			:data="dataBasic"
-			class="cdx-demo-table-page__header-footer"
-		>
-			<template #header>
-				<div class="cdx-demo-table-page__header-footer__buttons">
-					<cdx-button>Default action</cdx-button>
-					<cdx-button action="progressive" weight="primary">
-						Primary action
-					</cdx-button>
-				</div>
-			</template>
-			<template #footer>
-				<cdx-checkbox>There's a checkbox here for some reason</cdx-checkbox>
-			</template>
-		</cdx-table>
-
-		<h2>Table using item slot</h2>
-		<cdx-table
-			caption="Function implementations"
-			:columns="columnsItemSlot"
-			:data="dataItemSlot"
-		>
-			<template #item-name="{ item }">
-				<a :href="item.url">{{ item.label }}</a>
-			</template>
-			<template #item-status="{ item }">
-				<cdx-info-chip :status="getChipStatus( item )">
-					{{ item }}
-				</cdx-info-chip>
-			</template>
-		</cdx-table>
-
-		<h2>Table using tbody slot and columns</h2>
-		<cdx-table caption="Table caption" :columns="columnsBasic">
-			<template #tbody>
-				<tbody>
-					<tr>
-						<td colspan="3" class="cdx-table__table__cell--align-center">
-							First section
-						</td>
-					</tr>
-					<tr>
-						<td>One</td>
-						<td class="cdx-table__table__cell--align-number">1</td>
-						<td>Uno</td>
-					</tr>
-					<tr>
-						<td>Two</td>
-						<td class="cdx-table__table__cell--align-number">2</td>
-						<td>Dos</td>
-					</tr>
-					<tr>
-						<td colspan="3" class="cdx-table__table__cell--align-center">
-							Second section
-						</td>
-					</tr>
-					<tr>
-						<td>Three</td>
-						<td class="cdx-table__table__cell--align-number">3</td>
-						<td>Tres</td>
-					</tr>
-					<tr>
-						<td>Four</td>
-						<td class="cdx-table__table__cell--align-number">4</td>
-						<td>Cuatro</td>
-					</tr>
-				</tbody>
-			</template>
-		</cdx-table>
-
-		<h2>Table using tfoot slot</h2>
-		<cdx-table
-			caption="Monthly budget"
-			:columns="columnsTfoot"
-			:data="dataTfoot"
-			:use-row-headers="true"
-		>
-			<template #tfoot>
-				<tfoot>
-					<tr>
-						<th>Total:</th>
-						<td class="cdx-table__table__cell--align-number">$2,200</td>
-					</tr>
-				</tfoot>
-			</template>
-		</cdx-table>
-
-		<h2>Table using thead and tbody slot, <code>showVerticalBorders</code> is true</h2>
-		<cdx-table caption="Doctor Who seasons" :show-vertical-borders="true">
-			<template #thead>
-				<thead>
-					<tr>
-						<th rowspan="2">Season/series</th>
-						<th rowspan="2">Doctor</th>
-						<th rowspan="2" class="cdx-table__table__cell--align-number">Episodes</th>
-						<th
-							rowspan="1"
-							colspan="2"
-							class="cdx-table__table__cell--align-center"
-						>
-							Originally aired
-						</th>
-						<th rowspan="2" class="cdx-table__table__cell--align-number">
-							Average viewers (millions)
-						</th>
-					</tr>
-					<tr>
-						<th>First aired</th>
-						<th>Last aired</th>
-					</tr>
-				</thead>
-			</template>
-
-			<template #tbody>
-				<tbody>
-					<tr>
-						<td colspan="6">Classic era</td>
-					</tr>
-					<template v-for="( doctor, key ) in dataDoctorWho" :key="key">
-						<tr v-for="( season, index ) in doctor" :key="index">
-							<td>{{ season.season }}</td>
-							<td v-if="season.doctor" :rowspan="doctor.length">
-								{{ season.doctor }}
-							</td>
-							<td class="cdx-table__table__cell--align-number">
-								{{ season.episodes }}
-							</td>
-							<td>{{ season.airStart }}</td>
-							<td>{{ season.airEnd }}</td>
-							<td class="cdx-table__table__cell--align-number">
-								{{ season.viewers }}
-							</td>
-						</tr>
+				<h2>Table using header and footer slots</h2>
+				<p>With extra-wide columns to demonstrate scroll behavior</p>
+				<cdx-table
+					caption="Table caption"
+					:columns="columnsBasic"
+					:data="dataBasic"
+					class="cdx-demo-table-page__header-footer"
+				>
+					<template #header>
+						<div class="cdx-demo-table-page__header-footer__buttons">
+							<cdx-button>Default action</cdx-button>
+							<cdx-button action="progressive" weight="primary">
+								Primary action
+							</cdx-button>
+						</div>
 					</template>
-				</tbody>
-			</template>
-		</cdx-table>
+					<template #footer>
+						<cdx-checkbox>There's a checkbox here for some reason</cdx-checkbox>
+					</template>
+				</cdx-table>
 
-		<h2>Table with row selection</h2>
-		<cdx-table
-			v-model:selected-rows="selectedRows"
-			caption="Table with row selection"
-			:columns="columnsBasic"
-			:data="dataBasic"
-			:use-row-selection="true"
-		>
-			<template #header>
-				Selected rows: {{ selectedRows }}
-			</template>
-		</cdx-table>
+				<h2>Table using item slot</h2>
+				<cdx-table
+					caption="Function implementations"
+					:columns="columnsItemSlot"
+					:data="dataItemSlot"
+				>
+					<template #item-name="{ item }">
+						<a :href="item.url">{{ item.label }}</a>
+					</template>
+					<template #item-status="{ item }">
+						<cdx-info-chip :status="getChipStatus( item )">
+							{{ item }}
+						</cdx-info-chip>
+					</template>
+				</cdx-table>
 
-		<h2>Table with single sort</h2>
-		<cdx-table
-			v-model:sort="singleSort"
-			caption="Recent Nobel laureates in Economic Sciences"
-			:columns="columnsSingleSort"
-			:data="dataSingleSort"
-			@update:sort="( newSort ) => onSort( newSort, 'singleSort' )"
-		/>
+				<h2>Table using tbody slot and columns</h2>
+				<cdx-table caption="Table caption" :columns="columnsBasic">
+					<template #tbody>
+						<tbody>
+							<tr>
+								<td colspan="3" class="cdx-table__table__cell--align-center">
+									First section
+								</td>
+							</tr>
+							<tr>
+								<td>One</td>
+								<td class="cdx-table__table__cell--align-number">1</td>
+								<td>Uno</td>
+							</tr>
+							<tr>
+								<td>Two</td>
+								<td class="cdx-table__table__cell--align-number">2</td>
+								<td>Dos</td>
+							</tr>
+							<tr>
+								<td colspan="3" class="cdx-table__table__cell--align-center">
+									Second section
+								</td>
+							</tr>
+							<tr>
+								<td>Three</td>
+								<td class="cdx-table__table__cell--align-number">3</td>
+								<td>Tres</td>
+							</tr>
+							<tr>
+								<td>Four</td>
+								<td class="cdx-table__table__cell--align-number">4</td>
+								<td>Cuatro</td>
+							</tr>
+						</tbody>
+					</template>
+				</cdx-table>
 
-		<h2>Table with sort and row selection</h2>
-		<cdx-table
-			v-model:sort="sortWithSelection"
-			v-model:selected-rows="selectedRowsSortWithSelection"
-			caption="Recent Nobel laureates in Economic Sciences"
-			:columns="columnsSingleSort"
-			:data="dataSortWithSelection"
-			:use-row-selection="true"
-			@update:sort="( newSort ) => onSort( newSort, 'withSelection' )"
-		/>
-	</section>
+				<h2>Table using tfoot slot</h2>
+				<cdx-table
+					caption="Monthly budget"
+					:columns="columnsTfoot"
+					:data="dataTfoot"
+					:use-row-headers="true"
+				>
+					<template #tfoot>
+						<tfoot>
+							<tr>
+								<th>Total:</th>
+								<td class="cdx-table__table__cell--align-number">$2,200</td>
+							</tr>
+						</tfoot>
+					</template>
+				</cdx-table>
+
+				<h2>Table using thead and tbody slot, <code>showVerticalBorders</code> is true</h2>
+				<cdx-table caption="Doctor Who seasons" :show-vertical-borders="true">
+					<template #thead>
+						<thead>
+							<tr>
+								<th rowspan="2">Season/series</th>
+								<th rowspan="2">Doctor</th>
+								<th rowspan="2" class="cdx-table__table__cell--align-number">
+									Episodes
+								</th>
+								<th
+									rowspan="1"
+									colspan="2"
+									class="cdx-table__table__cell--align-center"
+								>
+									Originally aired
+								</th>
+								<th rowspan="2" class="cdx-table__table__cell--align-number">
+									Average viewers (millions)
+								</th>
+							</tr>
+							<tr>
+								<th>First aired</th>
+								<th>Last aired</th>
+							</tr>
+						</thead>
+					</template>
+
+					<template #tbody>
+						<tbody>
+							<tr>
+								<td colspan="6">Classic era</td>
+							</tr>
+							<template v-for="( doctor, key ) in dataDoctorWho" :key="key">
+								<tr v-for="( season, index ) in doctor" :key="index">
+									<td>{{ season.season }}</td>
+									<td v-if="season.doctor" :rowspan="doctor.length">
+										{{ season.doctor }}
+									</td>
+									<td class="cdx-table__table__cell--align-number">
+										{{ season.episodes }}
+									</td>
+									<td>{{ season.airStart }}</td>
+									<td>{{ season.airEnd }}</td>
+									<td class="cdx-table__table__cell--align-number">
+										{{ season.viewers }}
+									</td>
+								</tr>
+							</template>
+						</tbody>
+					</template>
+				</cdx-table>
+
+				<h2>Table with row selection</h2>
+				<cdx-table
+					v-model:selected-rows="selectedRows"
+					caption="Table with row selection"
+					:columns="columnsBasic"
+					:data="dataBasic"
+					:use-row-selection="true"
+				>
+					<template #header>
+						Selected rows: {{ selectedRows }}
+					</template>
+				</cdx-table>
+
+				<h2>Table with single sort</h2>
+				<cdx-table
+					v-model:sort="singleSort"
+					caption="Recent Nobel laureates in Economic Sciences"
+					:columns="columnsSingleSort"
+					:data="dataSingleSort"
+					@update:sort="( newSort ) => onSort( newSort, 'singleSort' )"
+				/>
+
+				<h2>Table with sort and row selection</h2>
+				<cdx-table
+					v-model:sort="sortWithSelection"
+					v-model:selected-rows="selectedRowsSortWithSelection"
+					caption="Recent Nobel laureates in Economic Sciences"
+					:columns="columnsSingleSort"
+					:data="dataSortWithSelection"
+					:use-row-selection="true"
+					@update:sort="( newSort ) => onSort( newSort, 'withSelection' )"
+				/>
+			</section>
+		</template>
+	</demo-base-layout>
 </template>
 
 <script lang="ts" setup>
@@ -252,6 +259,7 @@ import {
 	TableRow,
 	TableRowIdentifier
 } from '../lib';
+import DemoBaseLayout from './DemoBaseLayout.vue';
 
 const restrictWidth = ref( true );
 const rootClasses = computed( () => {
