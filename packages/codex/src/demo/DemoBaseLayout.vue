@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
 	<!--
 		Output a wrapper div with the dir attribute. This has to be separate from the cdx-sandbox
@@ -11,9 +10,12 @@
 		<div
 			class="cdx-demo"
 			:class="rootClasses"
+			v-bind="$attrs"
 		>
 			<header v-if="$slots.header" class="cdx-demo__header">
-				<h1><slot name="header" /></h1>
+				<h1>
+					<slot name="header" />
+				</h1>
 				<div class="cdx-dark-mode-toggle">
 					<cdx-toggle-switch v-model="darkMode">
 						Dark mode
@@ -43,7 +45,9 @@ import { HTMLDirection } from '../types';
 import CdxToggleSwitch from '../components/toggle-switch/ToggleSwitch.vue';
 import DirectionSwitcher from './DirectionSwitcher.vue';
 
-const props = defineProps( { class: { type: String, default: '' } } );
+defineOptions( {
+	inheritAttrs: false
+} );
 
 // Start with dark mode off by default;
 // or on by default if the ?darkmode query string param is set.
@@ -51,8 +55,7 @@ const darkMode = ref( new URLSearchParams( window.location.search ).has( 'darkmo
 const dir = ref<HTMLDirection>( 'ltr' );
 
 const rootClasses = computed( () => ( {
-	'cdx-demo--dark': darkMode.value,
-	[ props.class ]: !!props.class
+	'cdx-demo--dark': darkMode.value
 } ) );
 
 </script>
@@ -130,14 +133,6 @@ body {
 
 		@media ( min-width: @min-width-breakpoint-tablet ) {
 			flex-direction: row;
-		}
-
-		section {
-			margin-bottom: @spacing-200;
-
-			h2 {
-				margin-top: 0;
-			}
 		}
 	}
 

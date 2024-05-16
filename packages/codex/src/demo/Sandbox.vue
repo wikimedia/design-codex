@@ -119,4 +119,12 @@ const demoSections = [
 a {
 	.cdx-mixin-link();
 }
+
+section {
+	margin-bottom: @spacing-200;
+
+	h2 {
+		margin-top: 0;
+	}
+}
 </style>
