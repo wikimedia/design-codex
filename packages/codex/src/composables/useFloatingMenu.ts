@@ -1,5 +1,6 @@
 import { Ref, ComponentPublicInstance, computed, watch } from 'vue';
-import { MaybeElement, useFloating, size, flip, hide, autoUpdate } from '@floating-ui/vue';
+import { MaybeElement, useFloating, size, flip, hide, autoUpdate, offset } from '@floating-ui/vue';
+import { FloatingMenuOptions } from '../types';
 import CdxMenu from '../components/menu/Menu.vue';
 
 // Helper function inspired on the function with the same name in @floating-ui/vue (sadly it's
@@ -35,11 +36,13 @@ const minClipHeight = 128;
  *
  * @param referenceElement The ref of the element the menu is visually attached to
  * @param menu The menu ref
+ * @param opt (optional) of type {FloatingMenuOptions} to pass any overrides or similar
  */
 export default function useFloatingMenu(
 	referenceElement: Ref<MaybeElement<HTMLElement>>,
 	// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
-	menu: Ref<InstanceType<typeof CdxMenu>|undefined>
+	menu: Ref<InstanceType<typeof CdxMenu>|undefined>,
+	opt?: FloatingMenuOptions
 ) : void {
 	// typescript-eslint doesn't know that menu.value is a special Vue type (instance of CdxMenu).
 	// These rules are disabled throughout the file when accessing properties of menu.value.
@@ -47,17 +50,19 @@ export default function useFloatingMenu(
 	const menuIsExpanded = () => menu.value?.isExpanded();
 
 	const middleware = [
+		offset( opt?.offset ),
 		size( {
 			// Don't size the menu to take up exactly all of the available height, because that
 			// makes it look like it's cut off. Instead, leave 16px of free space between the bottom
 			// of the menu and the bottom edge of the viewport / scrollable container.
 			padding: clipPadding,
-			apply( { rects, elements, availableHeight } ) {
+			apply( { rects, elements, availableHeight, availableWidth } ) {
 				Object.assign( elements.floating.style, {
-					// Set the width of the menu to be equal to the width of the triggering element.
+					// Optionally use all available width
+					// Else, set the width of the menu to match the width of the triggering element.
 					// This is needed in Dialogs, when the menu's position is set relative to
 					// the dialog, not the triggering element.
-					width: `${ rects.reference.width }px`,
+					width: `${ opt?.useAvailableWidth ? availableWidth : rects.reference.width }px`,
 					// Set the max-height to the available height, to prevent the menu from
 					// extending past the edge of the viewport or scrollable container. But don't
 					// allow the menu to be shrunk to less than 128px; this is necessary to make
@@ -90,7 +95,7 @@ export default function useFloatingMenu(
 	const { floatingStyles, placement, middlewareData, update } = useFloating(
 		referenceElement,
 		menu as Ref<ComponentPublicInstance>,
-		{ middleware }
+		{ placement: opt?.placement ?? 'bottom', middleware }
 	);
 
 	// Compute the value of the `visibility` CSS property for the menu.
@@ -122,6 +127,7 @@ export default function useFloatingMenu(
 				// the screen, which is what FloatingUI expects when it calculates the translate-x
 				// value for both LTR and RTL.
 				left: `${ newStyles.left }px`,
+				// If menuWidth is specified, transform shifts negative, for now ignore that
 				transform: newStyles.transform ?? 'none',
 				// Zero out border-radius on the corners of the menu where it touches the reference
 				// element. Which corners these are depends on whether the menu is flipped

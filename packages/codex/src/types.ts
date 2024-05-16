@@ -6,6 +6,8 @@
  */
 
 import { Icon } from '@wikimedia/codex-icons';
+import { Placement, OffsetOptions } from '@floating-ui/vue';
+
 import {
 	ButtonActions,
 	ButtonTypes,
@@ -116,6 +118,11 @@ export interface MenuItemDataWithId extends MenuItemData {
 }
 
 /** @public */
+export interface MenuButtonItemData extends MenuItemData {
+	action?: typeof ButtonActions[ 2 ]
+}
+
+/** @public */
 export type MenuState = typeof MenuStates[ number ];
 
 /** @public */
@@ -128,6 +135,13 @@ export interface MenuConfig {
 	boldLabel?: boolean,
 	/** Whether to hide description text overflow via an ellipsis. */
 	hideDescriptionOverflow?: boolean
+}
+
+/** @public */
+export interface FloatingMenuOptions {
+	useAvailableWidth?: boolean,
+	placement?: Placement,
+	offset?: OffsetOptions
 }
 
 /** @public */

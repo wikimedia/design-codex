@@ -25,11 +25,12 @@ This composable will:
 
 ## Usage
 
-`useFloatingMenu()` takes in two arguments:
+`useFloatingMenu()` takes three arguments:
 - The [template ref]( https://vuejs.org/guide/essentials/template-refs.html) of the element that the
 menu is visually attached to
 - The [ref](https://vuejs.org/api/reactivity-core.html#ref) of the menu which is an instance of
 CdxMenu
+- An optional set of [FloatingMenuOptions](../../components/types-and-constants.md#floatingmenuoptions).
 
 ```vue
 <template>

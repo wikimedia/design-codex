@@ -20,6 +20,7 @@
 			<lookup-demo />
 			<menu-demo />
 			<menu-item-demo />
+			<menu-button-demo />
 			<message-demo />
 			<progress-bar-demo />
 			<radio-demo />
@@ -63,6 +64,7 @@ import LabelDemo from './LabelDemo.vue';
 import LookupDemo from './LookupDemo.vue';
 import MenuDemo from './MenuDemo.vue';
 import MenuItemDemo from './MenuItemDemo.vue';
+import MenuButtonDemo from './MenuButtonDemo.vue';
 import MessageDemo from './MessageDemo.vue';
 import ProgressBarDemo from './ProgressBarDemo.vue';
 import RadioDemo from './RadioDemo.vue';
@@ -94,6 +96,7 @@ const demoSections = [
 	{ name: 'Lookup', id: '#cdx-lookup' },
 	{ name: 'Menu', id: '#cdx-menu' },
 	{ name: 'MenuItem', id: '#cdx-menu-item' },
+	{ name: 'MenuButton', id: '#cdx-menu-button' },
 	{ name: 'Message', id: '#cdx-message' },
 	{ name: 'ProgressBar', id: '#cdx-progress-bar' },
 	{ name: 'Radio', id: '#cdx-radio' },

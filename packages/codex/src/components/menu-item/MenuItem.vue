@@ -102,7 +102,7 @@ import { Icon } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import CdxThumbnail from '../thumbnail/Thumbnail.vue';
 import CdxSearchResultTitle from '../search-result-title/SearchResultTitle.vue';
-import { MenuState, Thumbnail, MenuItemLanguageData } from '../../types';
+import { MenuState, Thumbnail, MenuItemLanguageData, ButtonAction } from '../../types';
 
 /**
  * A selectable option included within a Menu.
@@ -263,6 +263,14 @@ export default defineComponent( {
 			default: () => {
 				return {};
 			}
+		},
+
+		/**
+		 * MenuItems inside a MenuButton can also support an "action" prop
+		 */
+		action: {
+			type: String as PropType<ButtonAction>,
+			default: 'default'
 		}
 	},
 
@@ -327,6 +335,7 @@ export default defineComponent( {
 				// the item will be selected.
 				'cdx-menu-item--active': props.active && props.highlighted,
 				'cdx-menu-item--highlighted': props.highlighted,
+				'cdx-menu-item--destructive': props.action && props.action === 'destructive',
 				'cdx-menu-item--enabled': !props.disabled,
 				'cdx-menu-item--disabled': props.disabled,
 				'cdx-menu-item--highlight-query': highlightQuery.value,
@@ -475,6 +484,38 @@ export default defineComponent( {
 
 		.cdx-menu-item__text__description {
 			color: @color-disabled;
+		}
+	}
+	/* stylelint-enable no-descending-specificity */
+
+	/* stylelint-disable no-descending-specificity */
+	&--destructive {
+		color: @color-destructive;
+
+		.cdx-menu-item__content {
+			color: @color-destructive;
+		}
+
+		&.cdx-menu-item--highlighted {
+			color: @color-destructive--hover;
+		}
+
+		&.cdx-menu-item--active {
+			color: @color-destructive--active;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__description {
+				color: @color-destructive--active;
+			}
+		}
+
+		&.cdx-menu-item--selected.cdx-menu-item--highlighted {
+			color: @color-destructive--hover;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__description {
+				color: @color-destructive--hover;
+			}
 		}
 	}
 	/* stylelint-enable no-descending-specificity */

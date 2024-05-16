@@ -259,6 +259,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Link', link: '/components/mixins/link' },
 						{ text: 'Lookup', link: '/components/demos/lookup' },
 						{ text: 'Menu', link: '/components/demos/menu' },
+						{ text: 'MenuButton', link: '/components/demos/menu-button' },
 						{ text: 'MenuItem', link: '/components/demos/menu-item' },
 						{ text: 'Message', link: '/components/demos/message' },
 						{ text: 'ProgressBar', link: '/components/demos/progress-bar' },
