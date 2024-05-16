@@ -19,7 +19,7 @@
 		"node": ">=18"
 	},
 	"scripts": {
-		"branch-deploy": "CODEX_BRANCH_DEPLOY=1 CODEX_PATCH_ID=$ZUUL_CHANGE npm run doc && npx netlify deploy --auth $BRANCHDEPLOY_AUTH_TOKEN --site $BRANCHDEPLOY_SITE_ID --alias $ZUUL_CHANGE --dir packages/codex-docs/docs/.vitepress/dist",
+		"branch-deploy": "./build/branch-deploy.sh",
 		"build": "npm run build-all",
 		"build-all": "npm run build --workspaces --if-present",
 		"build-all-if-missing": "npm run build-if-missing --workspaces --if-present",
