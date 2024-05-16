@@ -36,26 +36,26 @@ Before you start doing a release, you should first:
 ## Preparing and submitting the release commit
 First, make sure that you have no uncommitted changes, and that you're on the latest version
 of the main branch:
-```
-$ git checkout main
-$ git status
-On branch main
-Your branch is up to date with 'origin/main'.
+```bash
+git checkout main
+git status
+# This should output something like:
+# On branch main
+# Your branch is up to date with 'origin/main'.
+# nothing to commit, working tree clean
 
-nothing to commit, working tree clean
-$ git pull
-Already up to date
+git pull
 ```
 
 Generate a preview of the diff of this release, and review it for any unexpected changes:
-```
-$ ./build/diff-release.sh
+```bash
+./build/diff-release.sh
 ```
 
 To prepare the release commit, run the `prepare-release.sh` script. This script takes the new
 version number as an argument:
-```
-$ ./build/prepare-release.sh 1.2.34
+```bash
+./build/prepare-release.sh 1.2.34
 ```
 
 The script starts a commit to update the version number in the right places, and add the
@@ -66,7 +66,7 @@ organized following the conventions documented in
 For any breaking changes, below the commit message, add a bulleted list describing the changes and
 how to handle them in a codebase that implements Codex:
 
-```
+```markdown
 ## Breaking changes
 - [BREAKING CHANGE] Fix inconsistencies across components with menu items (Simone This Dot)
   - Combobox, Lookup, Select: `modelValue` prop is now `selected`; use `v-model:selected` to bind
@@ -77,13 +77,13 @@ how to handle them in a codebase that implements Codex:
 ```
 
 Once organized, commit the changes locally with the appropriate version number:
-```
-$ git commit --all --message="Tag v1.2.34"
+```bash
+git commit --all --message="Tag v1.2.34"
 ```
 
 Then, submit this commit to Gerrit for review:
-```
-$ git review
+```bash
+git review
 ```
 
 ### Get the Codex patch merged
@@ -96,10 +96,10 @@ they're available to merge your release commit immediately after you submit it.
 ## Publishing the tag
 Once the release commit is merged, pull it into your main branch, and verify that it is the latest
 commit:
-```
-$ git checkout main
-$ git pull
-$ git show --stat
+```bash
+git checkout main
+git pull
+git show --stat
 # This should show the release commit
 ```
 (If it is not the latest commit, you should copy the hash of the merged commit from Gerrit, and
@@ -107,27 +107,27 @@ run `git checkout 123abc`, replacing `123abc` with the copied hash. If you're no
 with Git, feel free to ask for help with this step.)
 
 Create and publish the tag for the release:
-```
-$ git tag v1.2.34
-$ git push --tags origin v1.2.34
+```bash
+git tag v1.2.34
+git push --tags origin v1.2.34
 ```
 
 ## Publishing to NPM
 Then build all the packages, and publish them one by one. Only the `@wikimedia/codex`,
 `@wikimedia/codex-design-tokens`, and `@wikimedia/codex-icons` packages
 are published, the other packages are internal.
-```
-$ npm run build-all
+```bash
+npm run build-all
 
-$ npm publish -w @wikimedia/codex --dry-run
+npm publish -w @wikimedia/codex --dry-run
 # Check that the list of published files looks right
-$ npm publish -w @wikimedia/codex
+npm publish -w @wikimedia/codex
 
-$ npm publish -w @wikimedia/codex-design-tokens --dry-run
-$ npm publish -w @wikimedia/codex-design-tokens
+npm publish -w @wikimedia/codex-design-tokens --dry-run
+npm publish -w @wikimedia/codex-design-tokens
 
-$ npm publish -w @wikimedia/codex-icons --dry-run
-$ npm publish -w @wikimedia/codex-icons
+npm publish -w @wikimedia/codex-icons --dry-run
+npm publish -w @wikimedia/codex-icons
 ```
 
 ## Updating MediaWiki
@@ -146,7 +146,7 @@ See https://gerrit.wikimedia.org/r/c/mediawiki/core/+/791651 for an example chan
 instructions follow below.
 
 Edit the `resources/lib/foreign-resources.yaml`, and find the Codex section. It looks like this:
-```
+```yaml
 codex:
   ...
   version: 1.2.33
@@ -158,36 +158,33 @@ codex:
 ```
 Update the version number in the `version` field and in the `src` URL to the new version number
 (e.g. `codex-1.2.34.tgz`). Then get the new integrity value by running the `make-sri` command:
-```
+```bash
 # For Docker, add "docker-compose exec mediawiki" before this command
-$ php maintenance/run.php manageForeignResources make-sri codex
-... checking 'codex'
-Integrity for https://registry.npmjs.org/@wikimedia/codex/-/codex-1.2.34.tgz
-	integrity: sha512-8lZ4swHLB9KtMsx6lYOfwqLZJAZ7mfY0jy+VZic6WRDpqQDSE4QgtYg9ptYAyFlkKDTXg72RAoN2yfq6lgzfUQ==
+php maintenance/run.php manageForeignResources make-sri codex
+# This will output an integrity hash that looks like this:
+#    integrity: sha512-8lZ4swHLB9KtMsx6lYOfwqLZJAZ7mfY0jy+VZic6WRDpqQDSE4QgtYg9ptYAyFlkKDTXg72RAoN2yfq6lgzfUQ==
 ```
 Copy this integrity hash to `foreign-resources.yaml`, replacing the old integrity hash.
 Then run the `update` command to update the library:
-```
+```bash
 # For Docker, add "docker-compose exec mediawiki" before this command
-$ php maintenance/run.php manageForeignResources update codex
-... updating 'codex'
-
-Done!
+php maintenance/run.php manageForeignResources update codex
 ```
 And verify that that updated the files for the library:
-```
-$ git status
-On branch master
-Your branch is up to date with 'origin/master'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   resources/lib/codex/codex.mjs
-	modified:   resources/lib/codex/codex.style-rtl.css
-	modified:   resources/lib/codex/codex.style.css
-	modified:   resources/lib/codex/codex.js
-	modified:   resources/lib/foreign-resources.yaml
+```bash
+git status
+# This should output something like:
+# On branch master
+# Your branch is up to date with 'origin/master'.
+#
+# Changes not staged for commit:
+#  (use "git add <file>..." to update what will be committed)
+#  (use "git restore <file>..." to discard changes in working directory)
+#	    modified:   resources/lib/codex/codex.js
+#     modified:   resources/lib/codex/codex.style-rtl.css
+#     modified:   resources/lib/codex/codex.style.css
+#     modified:   resources/lib/codex/codex.umd.cjs
+#     modified:   resources/lib/foreign-resources.yaml
 ```
 Then repeat these steps for `codex-design-tokens` and `codex-icons`.
 
@@ -207,15 +204,15 @@ number to `v1.2.34`. If there isn't a list item about Codex yet, add one in the
 As the final step before committing your change, generate the list of bugs referenced by commits in
 the new release, so that you can include it in the commit message. To generate this list, run the
 following command *in the Codex repository* (not in the MediaWiki directory):
-```
+```bash
 git log --pretty=format:%b v1.2.33..v1.2.34 | grep Bug: | sort | uniq
 ```
 This command should output a series of lines that look like `Bug: T12345`. Copy this list to the
 clipboard.
 
 Then go back to the MediaWiki repository, and commit your change:
-```
-$ git commit --all
+```bash
+git commit --all
 ```
 This will prompt you for a commit message. Type `Update Codex from v1.2.33 to v1.2.34`, then leave
 a blank line, then paste the list of bugs from the previous step. The full commit message should
@@ -229,8 +226,8 @@ Bug: T789
 ```
 
 Finally, submit the commit to Gerrit:
-```
-$ git review
+```bash
+git review
 ```
 
 ### Patch demo
@@ -252,12 +249,12 @@ You also need to configure LibraryUpgrader to automatically update the repositor
 the new Codex version.
 
 If you haven't already, clone the LibraryUpgrader config repo:
-```
-$ git clone ssh://git@gitlab.wikimedia.org/repos/ci-tools/libup-config.git
+```bash
+git clone ssh://git@gitlab.wikimedia.org/repos/ci-tools/libup-config.git
 ```
 
 Edit the `releases.json` file in that repository. Search for `codex`, and you should find this:
-```
+```json
             "@wikimedia/codex": {
                 "to": "1.2.33",
                 "weight": 10
@@ -274,10 +271,10 @@ Edit the `releases.json` file in that repository. Search for `codex`, and you sh
 Change each of the version numbers in the `"to":` fields to the new version number.
 
 Then commit your change and submit it to GitLab:
-```
-$ git checkout -b codex-1.2.34
-$ git commit --all --message="releases: Bump Codex to 1.2.34"
-$ git push origin codex-1.2.34
+```bash
+git checkout -b codex-1.2.34
+git commit --all --message="releases: Bump Codex to 1.2.34"
+git push origin codex-1.2.34
 ```
 
 ## Announcing the new release

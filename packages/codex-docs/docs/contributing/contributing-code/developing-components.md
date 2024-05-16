@@ -106,7 +106,7 @@ Stylesheet specific token application rules:
 - Codex does not use shorthand properties `background`, `font`, `animation` and `transition` for
   simpler design token scoping and code modularization reasons. Only tokens of a category type are
   summarized into a shorthand token, e.g.
-  ```
+  ```json
   "text-decoration": {
 		"none": {
 			"value": "{ text-decoration.0 }"
@@ -131,9 +131,11 @@ Stylesheet specific token application rules:
 	elements can omit some of the blocks for the sake of brevity.
 - Add specificity when styling a sub-component to avoid override styles. For example, an Icon
 	component that is inside a Label component would use the selector, `.cdx-label__icon.cdx-icon`. In Less:
-	```
+	```less
 	cdx-label {
-		&__icon.cdx-icon {}
+		&__icon.cdx-icon {
+			// ...rules...
+		}
 	}
 	```
 - If a style or selector isn't self-explanatory, add a comment above it in Less comment style `//`.
