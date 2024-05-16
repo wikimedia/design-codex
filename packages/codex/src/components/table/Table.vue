@@ -767,9 +767,19 @@ export default defineComponent( {
 
 			thead {
 				/* stylelint-disable-next-line max-nesting-depth */
-				th {
-					border-top: @border-base;
+				tr:not( :first-child ) {
+					/* stylelint-disable-next-line max-nesting-depth */
+					th {
+						// Border styles for <th> elements that are not in the first <tr>
+						// element of the <thead>.
+						border-top: @border-base;
+					}
 				}
+			}
+
+			.cdx-table__header + .cdx-table__table-wrapper & thead th {
+				// Set border-top style when table header is present.
+				border-top: @border-base;
 			}
 		}
 		/* stylelint-enable no-descending-specificity */
@@ -785,5 +795,4 @@ export default defineComponent( {
 		padding: @spacing-75;
 	}
 }
-
 </style>
