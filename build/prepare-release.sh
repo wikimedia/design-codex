@@ -31,7 +31,7 @@ npm install
 NEW_VERSION="$(node -e 'console.log(require("./packages/codex/package.json").version)')"
 
 # Update the dependency in @wikimedia/codex on @wikimedia/codex-icons
-npm install -w @wikimedia/codex --save-prod @wikimedia/codex-icons@^$NEW_VERSION
+npm install -w @wikimedia/codex --save-prod @wikimedia/codex-icons@$NEW_VERSION
 
 # Build everything (and exit if that fails)
 # NOTE: This has to be done after the version number is updated, because the version number is
