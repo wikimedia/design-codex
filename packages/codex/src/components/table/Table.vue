@@ -683,9 +683,8 @@ export default defineComponent( {
 			font-size: @font-size-medium;
 			font-weight: @font-weight-bold;
 			line-height: @line-height-x-small;
+			text-align: left;
 			text-decoration: @text-decoration-none;
-			// Hide overflowing text.
-			.text-overflow( @param-visible: false );
 			transition-property: @transition-property-base;
 			transition-duration: @transition-duration-base;
 
