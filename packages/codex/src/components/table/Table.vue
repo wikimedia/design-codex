@@ -68,7 +68,6 @@
 											:icon="getSortIcon( column.id )"
 											size="small"
 											class="cdx-table__table__sort-icon"
-											:aria-label="getSortIconLabel( column )"
 											aria-hidden="true"
 										/>
 									</button>
@@ -153,7 +152,7 @@ const iconMap: TableSortIconMap = {
 	asc: cdxIconUpTriangle,
 	desc: cdxIconDownTriangle
 };
-const sortOrderMap: TableSortDirectionMap = {
+const sortDirectionMap: TableSortDirectionMap = {
 	none: 'none',
 	asc: 'ascending',
 	desc: 'descending'
@@ -273,7 +272,7 @@ export default defineComponent( {
 		 * Text that provides additional info for the `<caption>` element when the column header
 		 * has sorting is enabled.
 		 *
-		 * This text is visually hidden but needed for assistive technology.
+		 * This text is visually hidden but needed for assistive technology when sort is enabled.
 		 */
 		sortCaption: {
 			type: String,
@@ -500,21 +499,6 @@ export default defineComponent( {
 		}
 
 		/**
-		 * Determine the sort icon's aria label.
-		 *
-		 * @param column
-		 * @return aria-label attribute value
-		 */
-		function getSortIconLabel( column: TableColumn ): string | undefined {
-			const currentSortOrder = props.sort[ column.id ] ?? 'none';
-			const columnLabel = column?.label ?? column.id;
-
-			if ( currentSortOrder !== 'none' ) {
-				return `Sort rows by ${ columnLabel.toLowerCase() } in ${ sortOrderMap[ currentSortOrder ] } order.`;
-			}
-		}
-
-		/**
 		 * Determine the sort order for the aria attribute `aria-sort`.
 		 *
 		 * @param columnId
@@ -524,7 +508,8 @@ export default defineComponent( {
 		function getSortOrder( columnId: string, hasSort = false ): TableSortDirection | undefined {
 			if ( hasSort ) {
 				const currentSortOrder = props.sort[ columnId ] ?? 'none';
-				return sortOrderMap[ currentSortOrder ];
+				// Don't add an `aria-sort` attribute if the order is 'none'.
+				return currentSortOrder === 'none' ? undefined : sortDirectionMap[ currentSortOrder ];
 			}
 		}
 
@@ -578,7 +563,6 @@ export default defineComponent( {
 			// Sorting methods.
 			handleSort,
 			getSortIcon,
-			getSortIconLabel,
 			getSortOrder
 		};
 	}

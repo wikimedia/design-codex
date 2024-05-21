@@ -2981,7 +2981,6 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
           <!--v-if-->
           
           <th
-            aria-sort="none"
             class="cdx-table__table__cell--align-number cdx-table__table__cell--has-sort"
             scope="col"
           >
@@ -3014,7 +3013,6 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             </button>
           </th>
           <th
-            aria-sort="none"
             class="cdx-table__table__cell--has-sort"
             scope="col"
           >
@@ -3047,7 +3045,6 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
             </button>
           </th>
           <th
-            aria-sort="none"
             class="cdx-table__table__cell--align-number cdx-table__table__cell--has-sort"
             scope="col"
           >
