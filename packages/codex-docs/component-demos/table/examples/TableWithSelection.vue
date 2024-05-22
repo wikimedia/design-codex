@@ -8,16 +8,18 @@
 		:use-row-selection="true"
 	>
 		<template #header>
-			<div class="cdx-docs-table-with-selection__header">
+			<div class="cdx-docs-table-with-selection__header-content">
 				<span>
 					{{ selectedRows.length }} items selected
 				</span>
-				<cdx-button @click="handleRerun">
-					Rerun
-				</cdx-button>
-				<cdx-button @click="handleDisconnect">
-					Disconnect
-				</cdx-button>
+				<span class="cdx-docs-table-with-selection__header-content__buttons">
+					<cdx-button @click="handleRerun">
+						Rerun
+					</cdx-button>
+					<cdx-button @click="handleDisconnect">
+						Disconnect
+					</cdx-button>
+				</span>
 			</div>
 		</template>
 
@@ -139,15 +141,15 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-table-with-selection {
-	&__header {
+	&__header-content {
 		display: flex;
-		align-items: flex-end;
-		flex-direction: column;
+		align-items: center;
+		flex-wrap: wrap;
 		gap: @spacing-50;
 
-		@media ( min-width: @min-width-breakpoint-tablet ) {
-			align-items: center;
-			flex-direction: row;
+		&__buttons {
+			display: flex;
+			gap: @spacing-50;
 		}
 	}
 

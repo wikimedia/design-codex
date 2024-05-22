@@ -582,6 +582,7 @@ export default defineComponent( {
 	&__header {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 		justify-content: space-between;
 		gap: @spacing-100;
 		box-sizing: @box-sizing-base;
