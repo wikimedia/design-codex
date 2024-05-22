@@ -1796,7 +1796,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
                     <!-- @slot Label text. -->
                     
                     
-                    Select row
+                    Select row 1 of 4
                     
                     
                   </span>
@@ -1881,7 +1881,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
                     <!-- @slot Label text. -->
                     
                     
-                    Select row
+                    Select row 2 of 4
                     
                     
                   </span>
@@ -1966,7 +1966,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
                     <!-- @slot Label text. -->
                     
                     
-                    Select row
+                    Select row 3 of 4
                     
                     
                   </span>
@@ -2051,7 +2051,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
                     <!-- @slot Label text. -->
                     
                     
-                    Select row
+                    Select row 4 of 4
                     
                     
                   </span>

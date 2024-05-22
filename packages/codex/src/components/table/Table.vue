@@ -95,7 +95,7 @@
 									:hide-label="true"
 									@update:model-value="handleRowSelection"
 								>
-									{{ selectRowLabel }}
+									{{ selectRowLabel( rowIndex + 1, data.length ) }}
 								</cdx-checkbox>
 							</td>
 							<component
@@ -256,8 +256,8 @@ export default defineComponent( {
 		 * These labels are visually hidden but needed for assistive technology.
 		 */
 		selectRowLabel: {
-			type: String,
-			default: 'Select row'
+			type: Function,
+			default: ( x: number, y:number ) => `Select row ${ x } of ${ y }`
 		},
 		/**
 		 * Definition of sort order. Column(s) can be sorted ascending, descending, or not sorted.
