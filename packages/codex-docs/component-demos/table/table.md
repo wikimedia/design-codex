@@ -1154,7 +1154,7 @@ besides submit the form and reload the page.
 								<span class="cdx-checkbox__icon"></span>
 								<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
 									<label class="cdx-label__label" for="session-1">
-										<span class="cdx-label__label__text">Select row</span>
+										<span class="cdx-label__label__text">Select row 1 of 3</span>
 									</label>
 								</div>
 							</span>
@@ -1169,7 +1169,7 @@ besides submit the form and reload the page.
 								<span class="cdx-checkbox__icon"></span>
 								<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
 									<label class="cdx-label__label" for="session-2">
-										<span class="cdx-label__label__text">Select row</span>
+										<span class="cdx-label__label__text">Select row 2 of 3</span>
 									</label>
 								</div>
 							</span>
@@ -1184,7 +1184,7 @@ besides submit the form and reload the page.
 								<span class="cdx-checkbox__icon"></span>
 								<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
 									<label class="cdx-label__label" for="session-3">
-										<span class="cdx-label__label__text">Select row</span>
+										<span class="cdx-label__label__text">Select row 3 of 3</span>
 									</label>
 								</div>
 							</span>
@@ -1232,7 +1232,7 @@ besides submit the form and reload the page.
 							<span class="cdx-checkbox__icon"></span>
 							<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
 								<label class="cdx-label__label" for="session-1">
-									<span class="cdx-label__label__text">Select row</span>
+									<span class="cdx-label__label__text">Select row 1 of 3</span>
 								</label>
 							</div>
 						</span>
@@ -1247,7 +1247,7 @@ besides submit the form and reload the page.
 							<span class="cdx-checkbox__icon"></span>
 							<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
 								<label class="cdx-label__label" for="session-2">
-									<span class="cdx-label__label__text">Select row</span>
+									<span class="cdx-label__label__text">Select row 2 of 3</span>
 								</label>
 							</div>
 						</span>
@@ -1262,7 +1262,7 @@ besides submit the form and reload the page.
 							<span class="cdx-checkbox__icon"></span>
 							<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
 								<label class="cdx-label__label" for="session-3">
-									<span class="cdx-label__label__text">Select row</span>
+									<span class="cdx-label__label__text">Select row 3 of 3</span>
 								</label>
 							</div>
 						</span>
