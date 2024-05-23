@@ -23,17 +23,15 @@ import {
 	isModeToken,
 	isPublishedToken
 } from './matchers.js';
-import {
-	createCustomStyleFormatter,
-	lessWithCssVariables
-} from './formatters.js';
+import { createCustomStyleFormatter } from './formatters.js';
 import {
 	camelCaseNegative,
 	getReferencedTokens,
 	getTokenType,
 	kebabCase,
 	relativeSizeTransform,
-	absoluteSizeTransform
+	absoluteSizeTransform,
+	cssVarTransform
 } from './transformers.js';
 
 // WikimediaUI theme, all platforms
@@ -85,6 +83,12 @@ const sdBase = StyleDictionary.extend( {
 			matcher: shouldUseAbsoluteSize,
 			transformer: absoluteSizeTransform,
 			transitive: true
+		},
+		'custom/wrapInCssVar': {
+			type: 'value',
+			matcher: shouldExposeCustomProperty,
+			transformer: cssVarTransform,
+			transitive: true
 		}
 	},
 
@@ -95,6 +99,16 @@ const sdBase = StyleDictionary.extend( {
 			'custom/tokenType',
 			'custom/relativeSize',
 			'custom/absoluteSize'
+		],
+		'codex/stylesheet/wrappedInCssVars': [
+			// All the same transforms as codex/stylesheet
+			'custom/kebabCase',
+			'custom/tokenList',
+			'custom/tokenType',
+			'custom/relativeSize',
+			'custom/absoluteSize',
+			// Plus wrapInCssVar at the end
+			'custom/wrapInCssVar'
 		],
 		'codex/js': [
 			'name/cti/camel',
@@ -110,7 +124,7 @@ const sdBase = StyleDictionary.extend( {
 		'custom/css': createCustomStyleFormatter( 'css' ),
 		'custom/scss': createCustomStyleFormatter( 'sass' ),
 		'custom/js': createCustomStyleFormatter( 'javascript/es6' ),
-		'custom/less-with-css-vars': lessWithCssVariables
+		'custom/less': createCustomStyleFormatter( 'less' )
 	},
 
 	// Platforms are populated separately for each build below
@@ -146,10 +160,6 @@ sdBase.extend( {
 					format: 'json'
 				},
 				{
-					destination: 'theme-wikimedia-ui.less',
-					format: 'custom/less-with-css-vars'
-				},
-				{
 					destination: 'theme-wikimedia-ui-root.css',
 					format: 'custom/css',
 					options: {
@@ -166,6 +176,26 @@ sdBase.extend( {
 						outputFilter: shouldExposeCustomProperty,
 						outputReferences: true,
 						selector: '.cdx-mode-reset()'
+					}
+				}
+			]
+		},
+
+		// In the files in this group, some tokens reference CSS custom properties. This is needed
+		// to support switching modes. The other files in the group above set tokens to static
+		// values that don't reference CSS custom properties.
+		stylesheetCssVars: {
+			transformGroup: 'codex/stylesheet/wrappedInCssVars',
+			buildPath: 'dist/',
+			options: {
+				fileHeader: 'default'
+			},
+			files: [
+				{
+					destination: 'theme-wikimedia-ui.less',
+					format: 'custom/less',
+					options: {
+						outputFilter: isPublishedToken
 					}
 				}
 			]

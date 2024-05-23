@@ -121,3 +121,11 @@ export function absoluteSizeTransform( token, options ) {
 		return `${ token.value * ( options.basePxFontSize ?? 16 ) }px`;
 	}
 }
+
+/**
+ * @param {TransformedToken} token
+ * @return {string}
+ */
+export function cssVarTransform( token ) {
+	return `var( --${ token.name }, ${ token.value } )`;
+}

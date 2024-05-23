@@ -1,15 +1,8 @@
-/** @typedef {import('style-dictionary').Dictionary} Dictionary */
-/** @typedef {import('style-dictionary').File} File */
-/** @typedef {import('style-dictionary').Options} Options */
-/** @typedef {import('style-dictionary').Platform} Platform */
 /** @typedef {import('style-dictionary/types/Matcher').Matcher} Matcher */
 /** @typedef {import('style-dictionary').Formatter} Formatter */
-/** @typedef {import('style-dictionary').Transform} Transform */
 /** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
-/** @typedef {import('style-dictionary').TransformedTokens} TransformedTokens */
 
 import StyleDictionary from 'style-dictionary';
-import { isPublishedToken, shouldExposeCustomProperty } from './matchers.js';
 import { regExpEscape } from './utils.js';
 const { formatHelpers } = StyleDictionary;
 const { fileHeader, createPropertyFormatter, sortByReference } = formatHelpers;
@@ -217,49 +210,4 @@ export function createCustomStyleFormatter( format ) {
 				.join( '\n' ) +
 			postamble;
 	};
-}
-
-/**
- * @param {Object} args
- * @param {Dictionary} args.dictionary
- * @param {File} args.file
- * @param {Options} args.options
- * @return {string}
- */
-export function lessWithCssVariables( { dictionary, file, options } ) {
-	const header = fileHeader( { file } );
-	const { outputReferences } = options;
-	let { allTokens } = dictionary;
-
-	// Sort tokens by reference if necessary, to avoid use-before-defined issues
-	if ( outputReferences ) {
-		allTokens = [ ...allTokens ].sort( sortByReference( dictionary ) );
-	}
-
-	// Set up a LESS formatter
-	const lessFormatter = createPropertyFormatter( {
-		dictionary,
-		outputReferences: false,
-		format: 'less'
-	} );
-
-	// Get the list of all published tokens
-	const publishedTokens = allTokens.filter( isPublishedToken );
-
-	// Generate a full set of tokens where the "exposed" members have their
-	// values replaced with a CSS var() call.
-	const replacedTokens = publishedTokens.map( ( token ) => {
-		const newToken = { ...token };
-		if ( shouldExposeCustomProperty( token ) ) {
-			newToken.value = `var( --${ token.name }, ${ token.value } )`;
-		}
-		return newToken;
-	} );
-
-	// Output the file contents as a string
-	return header +
-		replacedTokens
-			.map( ( token ) => lessFormatter( token ) )
-			.filter( Boolean )
-			.join( '\n' );
 }
