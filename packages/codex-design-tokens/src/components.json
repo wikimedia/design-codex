@@ -156,7 +156,7 @@
 	"font-family": {
 		"heading-main": {
 			"comment": "Legacy value from WikimediaUI Base. Use for first heading special treatment.",
-			"value": "{ font-family.serif.100 }"
+			"value": "{ font-family.serif-100 }"
 		}
 	},
 	"transition-property": {
