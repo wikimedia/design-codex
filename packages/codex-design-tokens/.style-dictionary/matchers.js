@@ -44,7 +44,6 @@ export function shouldExposeCustomProperty( token ) {
 		'color',
 		'background-color',
 		'border-color',
-		'border',
 		'filter',
 		'opacity-icon'
 	];
