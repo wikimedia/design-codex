@@ -17,3 +17,17 @@ export function getPackageVersion() {
 	const { version } = require( packageJsonPath );
 	return version;
 }
+
+/**
+ * Escapes special characters.
+ *
+ * Unfortunately this is duplicated from stringHelpers.ts in Codex, which we can't import here
+ * because it's a TypeScript file (and because it would be a wrong-way dependency).
+ *
+ * @param {string} value Value to be escaped
+ *
+ * @return {string}
+ */
+export function regExpEscape( value ) {
+	return value.replace( /([\\{}()|.?*+\-^$[\]])/g, '\\$1' );
+}

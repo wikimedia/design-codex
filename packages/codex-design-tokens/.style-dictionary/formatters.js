@@ -9,8 +9,8 @@
 /** @typedef {import('style-dictionary').TransformedTokens} TransformedTokens */
 
 import StyleDictionary from 'style-dictionary';
-import { getTokenType } from './transformers.js';
-import { shouldExposeCustomProperty } from './matchers.js';
+import { isPublishedToken, shouldExposeCustomProperty } from './matchers.js';
+import { regExpEscape } from './utils.js';
 const { formatHelpers } = StyleDictionary;
 const { fileHeader, createPropertyFormatter, sortByReference } = formatHelpers;
 
@@ -29,13 +29,32 @@ function makeComment( text, commentStyle = 'short' ) {
 	}
 }
 
+/**
+ * Format a reference to a token.
+ *
+ * @param {TransformedToken} token
+ * @param {'css'|'less'|'sass'} styleFormat
+ * @return {string}
+ */
+function formatStyleVariableReference( token, styleFormat ) {
+	return ( {
+		css: `var( --${ token.name } )`,
+		less: `@${ token.name }`,
+		sass: `$${ token.name }`
+	} )[ styleFormat ];
+}
+
 // Custom Formatters (register before use) =========================================================
 
 /**
  * Create a custom formatter that adds deprecation comments.
  *
  * This code is largely copied from style-dictionary's own css/variables formatter,
- * but it adds deprecation comments based on the 'deprecated' property.
+ * but it with some additional features:
+ * - It adds deprecation comments based on the 'deprecated' property
+ * - It implements outputReferences correctly, which upstream doesn't
+ * - It supports combining `filter` and `outputReferences`, but the filter must be passed in as
+ *   `options.outputFilter`
  *
  * @param {'css'|'less'|'sass'|'javascript/es6'} format
  * @return {Formatter}
@@ -78,16 +97,64 @@ export function createCustomStyleFormatter( format ) {
 		const { outputReferences } = options;
 		let { allTokens } = dictionary;
 		if ( outputReferences ) {
-			allTokens = [ ...allTokens ].sort( sortByReference( dictionary ) );
+			// sortByReference() correctly sorts A after B if A refers to B, and sorts all tokens
+			// with references after tokens without references, but within the tokens without
+			// references it reverses the sort order. We don't want output where size-50 comes
+			// before size-25, so work around this annoying behavior by reversing the tokens array
+			// before it's passed to sortByReference().
+			allTokens = [ ...allTokens ].reverse().sort( sortByReference( dictionary ) );
 		}
 
-		const formatter = format === 'javascript/es6' ? jsFormatter : createPropertyFormatter( { outputReferences, dictionary, format } );
+		const outputFilter = /** @type {Matcher} */ ( options.outputFilter ) ?? ( () => true );
+
+		const formatter = format === 'javascript/es6' ?
+			jsFormatter :
+			createPropertyFormatter( {
+				dictionary,
+				format,
+				// Do not use Style Dictionary's built-in outputReferences feature, because it
+				// generates references to tokens that are filtered out
+				outputReferences: false
+			} );
 
 		// Filter out theme tokens
-		// HACK this should ideally be done through Style Dictionary's filter feature,
+		// HACK: This should ideally be done through Style Dictionary's filter feature,
 		// but doing that causes it to throw warnings when the deprecation comment formatter
 		// attempts to access filtered-out theme tokens
-		const filteredTokens = allTokens.filter( ( token ) => getTokenType( token ).type !== 'theme' );
+		let filteredTokens = allTokens.filter( outputFilter );
+
+		// HACK: Implement our own version of outputReferences, because Style Dictionary's doesn't
+		// work well, especially when combined with a filter.
+		if ( outputReferences && format !== 'javascript/es6' ) {
+			filteredTokens = filteredTokens.map( ( token ) => {
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+				const originalValue = /** @type {string} */ ( token.original.value );
+				const referencedTokens = dictionary.usesReference( originalValue ) ?
+					dictionary.getReferences( originalValue ) : [];
+
+				// Start with the original value, which contains references like '{ foo.bar }'
+				let newValue = originalValue;
+				for ( const referencedToken of referencedTokens ) {
+					// Find and replace each reference
+					newValue = newValue.replace(
+						// Search for '{ foo.bar }' or '{ foo.bar.value }'
+						// eslint-disable-next-line security/detect-non-literal-regexp
+						new RegExp( '\\{\\s*' + regExpEscape( referencedToken.path.join( '.' ) ) + '(\\.value)?\\s*\\}' ),
+						// If the referenced token is going to be in the output...
+						outputFilter( referencedToken ) ?
+							// ...then replace it with a variable reference like 'var( --foo-bar )'
+							formatStyleVariableReference( referencedToken, format ) :
+							// otherwise, replace it with the value of the referenced token
+							/** @type {string} */ ( referencedToken.value )
+					);
+				}
+
+				return {
+					...token,
+					value: newValue
+				};
+			} );
+		}
 
 		// Separate deprecated and non-deprecated tokens
 		const deprecatedTokens = filteredTokens.filter( ( token ) => token.deprecated );
@@ -102,7 +169,7 @@ export function createCustomStyleFormatter( format ) {
 		 * @param {TransformedToken} token
 		 * @return {string}
 		 */
-		const deprecationCommentFormatter = ( token ) => {
+		function deprecationCommentFormatter( token ) {
 			if ( !token.deprecated ) {
 				return '';
 			}
@@ -129,7 +196,7 @@ export function createCustomStyleFormatter( format ) {
 			const fullComment = 'Warning: the following token name is deprecated' +
 				useInstead + deprecatedComment;
 			return makeComment( fullComment, commentStyle );
-		};
+		}
 
 		return header +
 			preamble +
@@ -171,7 +238,7 @@ export function lessWithCssVariables( { dictionary, file, options } ) {
 	} );
 
 	// Get the list of all published tokens
-	const publishedTokens = allTokens.filter( ( t ) => t.attributes?.type !== 'theme' );
+	const publishedTokens = allTokens.filter( isPublishedToken );
 
 	// Generate a full set of tokens where the "exposed" members have their
 	// values replaced with a CSS var() call.

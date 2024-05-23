@@ -20,7 +20,8 @@ import {
 	shouldUseRelativeSize,
 	shouldUseAbsoluteSize,
 	shouldExposeCustomProperty,
-	isModeToken
+	isModeToken,
+	isPublishedToken
 } from './matchers.js';
 import {
 	createCustomStyleFormatter,
@@ -122,15 +123,23 @@ sdBase.extend( {
 		stylesheet: {
 			transformGroup: 'codex/stylesheet',
 			buildPath: 'dist/',
-			options: { fileHeader: 'default' },
+			options: {
+				fileHeader: 'default'
+			},
 			files: [
 				{
 					destination: 'theme-wikimedia-ui.css',
-					format: 'custom/css'
+					format: 'custom/css',
+					options: {
+						outputFilter: isPublishedToken
+					}
 				},
 				{
 					destination: 'theme-wikimedia-ui.scss',
-					format: 'custom/scss'
+					format: 'custom/scss',
+					options: {
+						outputFilter: isPublishedToken
+					}
 				},
 				{
 					destination: 'theme-wikimedia-ui.json',
@@ -138,24 +147,24 @@ sdBase.extend( {
 				},
 				{
 					destination: 'theme-wikimedia-ui.less',
-					format: 'custom/less-with-css-vars',
-					options: {
-						fileHeader: 'default'
-					}
+					format: 'custom/less-with-css-vars'
 				},
 				{
 					destination: 'theme-wikimedia-ui-root.css',
-					format: 'css/variables',
-					filter: shouldExposeCustomProperty,
+					format: 'custom/css',
 					options: {
-						fileHeader: 'default'
+						// Note that shouldExposeCustomProperty also implies isPublishedToken
+						outputFilter: shouldExposeCustomProperty,
+						outputReferences: true
 					}
 				},
 				{
 					destination: 'theme-wikimedia-ui-reset.less',
-					format: 'css/variables',
-					filter: shouldExposeCustomProperty,
+					format: 'custom/css',
 					options: {
+						// Note that shouldExposeCustomProperty also implies isPublishedToken
+						outputFilter: shouldExposeCustomProperty,
+						outputReferences: true,
 						selector: '.cdx-mode-reset()'
 					}
 				}
@@ -166,11 +175,16 @@ sdBase.extend( {
 			prefix: 'cdx',
 			transformGroup: 'codex/js',
 			buildPath: 'dist/',
-			options: { fileHeader: 'default' },
+			options: {
+				fileHeader: 'default'
+			},
 			files: [
 				{
 					destination: 'theme-wikimedia-ui.js',
-					format: 'custom/js'
+					format: 'custom/js',
+					options: {
+						outputFilter: isPublishedToken
+					}
 				}
 			]
 		}

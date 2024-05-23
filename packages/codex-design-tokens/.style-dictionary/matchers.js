@@ -61,6 +61,14 @@ export function shouldExposeCustomProperty( token ) {
  * @param {TransformedToken} token
  * @return {boolean}
  */
+export function isPublishedToken( token ) {
+	return token.attributes?.type !== 'theme';
+}
+
+/**
+ * @param {TransformedToken} token
+ * @return {boolean}
+ */
 export function isModeToken( token ) {
 	return token.attributes?.type === 'mode';
 }
