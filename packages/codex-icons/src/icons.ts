@@ -689,8 +689,10 @@ export const cdxIconNext: IconFlipForRtl = {
 	shouldFlip: true
 };
 
-import svgNoWikiText from './images/noWikiText.svg';
-export const cdxIconNoWikiText = svgNoWikiText;
+import svgNoWikitext from './images/noWikitext.svg';
+export const cdxIconNoWikitext = svgNoWikitext;
+// DEPRECATED
+export const cdxIconNoWikiText = svgNoWikitext;
 
 import svgNotBright from './images/notBright.svg';
 export const cdxIconNotBright = svgNotBright;
@@ -1109,8 +1111,10 @@ export const cdxIconWatchlist: IconFlipForRtl = {
 	shouldFlip: true
 };
 
-import svgWikiText from './images/wikiText.svg';
-export const cdxIconWikiText = svgWikiText;
+import svgWikitext from './images/wikitext.svg';
+export const cdxIconWikitext = svgWikitext;
+// DEPRECATED
+export const cdxIconWikiText = svgWikitext;
 
 import svgWindow from './images/window.svg';
 export const cdxIconWindow = svgWindow;

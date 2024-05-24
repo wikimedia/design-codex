@@ -1,6 +1,6 @@
 <template>
 	<cdx-field>
-		<cdx-text-input v-model="inputValue" :start-icon="cdxIconWikiText" />
+		<cdx-text-input v-model="inputValue" :start-icon="cdxIconWikitext" />
 		<template #label>
 			Signature
 		</template>
@@ -16,7 +16,7 @@
 <script>
 import { defineComponent, ref } from 'vue';
 import { CdxTextInput, CdxField } from '@wikimedia/codex';
-import { cdxIconWikiText } from '@wikimedia/codex-icons';
+import { cdxIconWikitext } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'TextInputField',
@@ -26,7 +26,7 @@ export default defineComponent( {
 
 		return {
 			inputValue,
-			cdxIconWikiText
+			cdxIconWikitext
 		};
 	}
 } );
