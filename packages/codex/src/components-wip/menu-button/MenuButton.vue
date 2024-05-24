@@ -11,7 +11,8 @@
 			:aria-controls="menuId"
 			:aria-expanded="expanded"
 			@blur="expanded = false"
-			@keydown="onKeydown">
+			@keydown="onKeydown"
+		>
 			<!-- @slot MenuButton content -->
 			<slot>
 				<cdx-icon :icon="cdxIconEllipsis" />
@@ -42,13 +43,15 @@ import {
 	toRef
 } from 'vue';
 
-import { CdxToggleButton, CdxMenu, CdxIcon } from '../../lib';
-import { MenuButtonItemData, MenuConfig } from '../../types';
-import { cdxIconEllipsis } from '@wikimedia/codex-icons';
+import CdxToggleButton from '../../components/toggle-button/ToggleButton.vue';
+import CdxMenu from '../../components/menu/Menu.vue';
+import CdxIcon from '../../components/icon/Icon.vue';
 import useFieldData from '../../composables/useFieldData';
 import useFloatingMenu from '../../composables/useFloatingMenu';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
+import { MenuButtonItemData, MenuConfig } from '../../types';
+import { cdxIconEllipsis } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'CdxMenuButton',

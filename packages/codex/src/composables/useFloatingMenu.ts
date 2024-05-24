@@ -95,7 +95,10 @@ export default function useFloatingMenu(
 	const { floatingStyles, placement, middlewareData, update } = useFloating(
 		referenceElement,
 		menu as Ref<ComponentPublicInstance>,
-		{ placement: opt?.placement ?? 'bottom', middleware }
+		{
+			middleware,
+			placement: opt?.placement ?? 'bottom'
+		}
 	);
 
 	// Compute the value of the `visibility` CSS property for the menu.
