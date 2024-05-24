@@ -133,8 +133,8 @@
 
 <script lang="ts">
 import { computed, defineComponent, nextTick, toRef, watch, ref, inject, onMounted, onUnmounted, PropType } from 'vue';
-import CdxButton from '../../components/button/Button.vue';
-import CdxIcon from '../../components/icon/Icon.vue';
+import CdxButton from '../button/Button.vue';
+import CdxIcon from '../icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useResizeObserver from '../../composables/useResizeObserver';

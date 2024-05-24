@@ -33,8 +33,8 @@
 
 <script lang="ts">
 import { defineComponent, computed, ref, PropType } from 'vue';
-import CdxButton from '../../components/button/Button.vue';
-import CdxIcon from '../../components/icon/Icon.vue';
+import CdxButton from '../button/Button.vue';
+import CdxIcon from '../icon/Icon.vue';
 import { cdxIconClose, Icon } from '@wikimedia/codex-icons';
 
 /**

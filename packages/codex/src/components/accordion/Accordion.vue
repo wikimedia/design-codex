@@ -43,8 +43,8 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType, ref } from 'vue';
-import CdxIcon from '../../components/icon/Icon.vue';
-import CdxButton from '../../components/button/Button.vue';
+import CdxIcon from '../icon/Icon.vue';
+import CdxButton from '../button/Button.vue';
 import { Icon } from '@wikimedia/codex-icons';
 import { HeadingLevel } from '../../types';
 

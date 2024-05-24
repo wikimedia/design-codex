@@ -85,7 +85,7 @@
 <script lang="ts">
 import { defineComponent, PropType, computed, toRef } from 'vue';
 import { Icon } from '@wikimedia/codex-icons';
-import CdxIcon from '../../components/icon/Icon.vue';
+import CdxIcon from '../icon/Icon.vue';
 import useFieldData from '../../composables/useFieldData';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 

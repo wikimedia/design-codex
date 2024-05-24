@@ -37,7 +37,7 @@ import {
 	PropType,
 	inject
 } from 'vue';
-import CdxIcon from '../../components/icon/Icon.vue';
+import CdxIcon from '../icon/Icon.vue';
 import { Icon } from '@wikimedia/codex-icons';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useModelWrapper from '../../composables/useModelWrapper';

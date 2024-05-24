@@ -52,7 +52,7 @@ import { defineComponent, PropType, provide, toRefs, computed } from 'vue';
 import { Icon } from '@wikimedia/codex-icons';
 
 import CdxLabel from '../label/Label.vue';
-import CdxMessage from '../../components/message/Message.vue';
+import CdxMessage from '../message/Message.vue';
 
 import { ValidationStatusTypes, DisabledKey, FieldInputIdKey, FieldDescriptionIdKey, FieldStatusKey } from '../../constants';
 import { ValidationStatusType, ValidationMessages } from '../../types';
