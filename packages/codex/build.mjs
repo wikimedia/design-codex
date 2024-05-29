@@ -150,10 +150,7 @@ const splitConfig = mergeConfig( baseConfig, {
 		},
 
 		rollupOptions: {
-			external: [ 'vue' ],
-			output: {
-				assetFileNames: 'Cdx[name]'
-			}
+			external: [ 'vue' ]
 		}
 	}
 } );
