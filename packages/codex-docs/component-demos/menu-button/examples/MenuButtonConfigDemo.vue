@@ -2,8 +2,11 @@
 	<cdx-menu-button
 		v-model:selected="selection"
 		:menu-items="menuItems"
-		toggle-button-label="Open and close the menu"
-	/>
+	>
+		<template #default>
+			<slot />
+		</template>
+	</cdx-menu-button>
 </template>
 
 <script>
@@ -19,7 +22,7 @@ const menuItems = [
 ];
 
 export default defineComponent( {
-	name: 'MenuButtonBasic',
+	name: 'MenuButtonConfigDemo',
 	components: { CdxMenuButton },
 	setup() {
 		const selection = ref( null );

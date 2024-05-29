@@ -1,6 +1,29 @@
 <script setup>
 import { CdxMenuButton } from '@wikimedia/codex';
+import MenuButtonConfigDemo from '@/../component-demos/menu-button/examples/MenuButtonConfigDemo.vue';
 import MenuButtonBasic from '@/../component-demos/menu-button/examples/MenuButtonBasic.vue';
+import MenuButtonWithCustomContent from '@/../component-demos/menu-button/examples/MenuButtonWithCustomContent.vue';
+import MenuButtonWithCustomIcon from '@/../component-demos/menu-button/examples/MenuButtonWithCustomIcon.vue';
+import MenuButtonWithCustomIconAndText from '@/../component-demos/menu-button/examples/MenuButtonWithCustomIconAndText.vue';
+import MenuButtonAndMenuItemsWithIcons from '@/../component-demos/menu-button/examples/MenuButtonAndMenuItemsWithIcons.vue';
+import MenuButtonAndMenuItemsWithIconsAndScroll from '@/../component-demos/menu-button/examples/MenuButtonAndMenuItemsWithIconsAndScroll.vue';
+
+const controlsConfig = [
+	{
+		name: 'toggleButtonLabel',
+		type: 'text',
+		default: 'Open and close the menu'
+	},
+	{
+		name: 'disabled',
+		type: 'boolean'
+	},
+	{
+		name: 'default',
+		type: 'slot',
+		default: ''
+	}
+];
 </script>
 
 The MenuButton component is a [ToggleButton](./toggle-button.md) that, when toggled on, displays a [Menu](./menu.md) with options.
@@ -174,7 +197,26 @@ Consider the following recommendations when working with menu buttons.
 | <kbd>End</kbd> | Optionally, it moves the focus to the last option. Optionally, in a single-select listbox, selection may also move with focus. Supporting this key is strongly recommended for lists with more than five options. |
 
 ## Demos
-### Basic Usage
+
+### Configurable
+
+<cdx-demo-wrapper :controls-config="controlsConfig" :force-reset="true">
+<template v-slot:demo="{ propValues, slotValues }">
+	<menu-button-config-demo v-bind="propValues">
+		<template v-if="slotValues.default">
+			{{ slotValues.default }}
+		</template>
+	</menu-button-config-demo>
+</template>
+</cdx-demo-wrapper>
+
+### Default icon
+
+The MenuButton's default icon is `cdxIconEllipsis`.
+
+MenuButton has three required props: `selected`, `menuItems`, and `toggleButtonLabel`.
+The `selected` prop needs to be bound with `v-model`, and
+the `toggleButtonLabel` adds an `aria-label` to the toggle button.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
@@ -193,5 +235,118 @@ Consider the following recommendations when working with menu buttons.
 </template>
 </cdx-demo-wrapper>
 
+### Custom toggle button content
+
+Customize the content within the toggle button by using Vue slots. You can pass in text and/or a
+CdxIcon to the slot content.
+
+#### Custom text-only
+
+To create a custom text-only toggle button, add text to the slot content within the MenuButton
+component.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<menu-button-with-custom-content />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/menu-button/examples/MenuButtonWithCustomContent.vue [NPM]
+
+<<< @/../component-demos/menu-button/examples-mw/MenuButtonWithCustomContent.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+#### Custom icon-only
+
+To customize the icon, use the Icon component in the slot content.
+Refer to the [Icon](./icon.md) component and the [overview of icons](../../icons/overview.md)
+to learn more about using icons.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<menu-button-with-custom-icon />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/menu-button/examples/MenuButtonWithCustomIcon.vue [NPM]
+
+<<< @/../component-demos/menu-button/examples-mw/MenuButtonWithCustomIcon.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+#### Custom icon and text
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<menu-button-with-custom-icon-and-text />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/menu-button/examples/MenuButtonWithCustomIconAndText.vue [NPM]
+
+<<< @/../component-demos/menu-button/examples-mw/MenuButtonWithCustomIconAndText.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### Menu items with icons
+
+You can add icons to individual menu items by including the `icon` property in the list of
+`menuItems`. Be sure to `import` or `require` each icon, then add the icon name from this
+[list of icons](../../icons/all-icons.md) as the `icon` property's value.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<menu-button-and-menu-items-with-icons />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/menu-button/examples/MenuButtonAndMenuItemsWithIcons.vue [NPM]
+
+<<< @/../component-demos/menu-button/examples-mw/MenuButtonAndMenuItemsWithIcons.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### Menu items with icons and scroll
+
+You can use the `menuConfig` prop to set a visible menu item limit.
+Refer to the [`MenuConfig`](../types-and-constants.md#menuconfig) type for more configuration options.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<menu-button-and-menu-items-with-icons-and-scroll />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/menu-button/examples/MenuButtonAndMenuItemsWithIconsAndScroll.vue [NPM]
+
+<<< @/../component-demos/menu-button/examples-mw/MenuButtonAndMenuItemsWithIconsAndScroll.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
 
 ## Vue Usage

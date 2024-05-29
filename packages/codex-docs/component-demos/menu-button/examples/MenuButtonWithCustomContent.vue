@@ -3,7 +3,9 @@
 		v-model:selected="selection"
 		:menu-items="menuItems"
 		toggle-button-label="Open and close the menu"
-	/>
+	>
+		More options
+	</cdx-menu-button>
 </template>
 
 <script>
@@ -11,15 +13,15 @@ import { defineComponent, ref } from 'vue';
 import { CdxMenuButton } from '@wikimedia/codex';
 
 const menuItems = [
-	{ label: 'Contact Owner', value: 'contact' },
-	{ label: 'Delete Instrument', value: 'delete', action: 'destructive' },
-	{ label: 'Edit Configuration', value: 'edit' },
-	{ label: 'Turn Instrument Off', value: 'turn off' },
-	{ label: 'View Phab Ticket', value: 'view' }
+	{ label: 'Edit', value: 'edit' },
+	{ label: 'Delete', value: 'delete', action: 'destructive' },
+	{ label: 'Download', value: 'download' },
+	{ label: 'Print', value: 'print', disabled: true },
+	{ label: 'Share', value: 'share' }
 ];
 
 export default defineComponent( {
-	name: 'MenuButtonBasic',
+	name: 'MenuButtonWithCustomContent',
 	components: { CdxMenuButton },
 	setup() {
 		const selection = ref( null );

@@ -9,17 +9,16 @@
 <script>
 import { defineComponent, ref } from 'vue';
 import { CdxMenuButton } from '@wikimedia/codex';
+import { cdxIconFunction, cdxIconLiteral, cdxIconInstance } from '@wikimedia/codex-icons';
 
 const menuItems = [
-	{ label: 'Contact Owner', value: 'contact' },
-	{ label: 'Delete Instrument', value: 'delete', action: 'destructive' },
-	{ label: 'Edit Configuration', value: 'edit' },
-	{ label: 'Turn Instrument Off', value: 'turn off' },
-	{ label: 'View Phab Ticket', value: 'view' }
+	{ label: 'Function call', value: 'function call', icon: cdxIconFunction },
+	{ label: 'Literal String', value: 'literal string', icon: cdxIconLiteral },
+	{ label: 'Reference', value: 'reference', icon: cdxIconInstance }
 ];
 
 export default defineComponent( {
-	name: 'MenuButtonBasic',
+	name: 'MenuButtonAndMenuItemsWithIcons',
 	components: { CdxMenuButton },
 	setup() {
 		const selection = ref( null );
