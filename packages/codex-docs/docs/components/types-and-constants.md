@@ -90,7 +90,7 @@ The `Placement` and `OffsetOptions` types come from the 3rd-party
 [FloatingUI package.](https://floating-ui.com/)
 
 ```ts
-export interface FloatingMenuOptions {
+interface FloatingMenuOptions {
 	useAvailableWidth?: boolean,
 	placement?: Placement,
 	offset?: OffsetOptions
@@ -234,7 +234,7 @@ interface MenuItemDataWithId extends MenuItemData {
 ### MenuButtonItemData
 
 ```ts
-export interface MenuButtonItemData extends MenuItemData {
+interface MenuButtonItemData extends MenuItemData {
 	// Only the "destructive" action is allowed for now
 	action?: typeof ButtonActions[ 2 ]
 }
