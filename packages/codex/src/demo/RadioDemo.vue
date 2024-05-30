@@ -12,7 +12,18 @@
 		</cdx-radio>
 		<p>Selected value: {{ selection || '(none)' }}</p>
 
-		<h3>CSS-only radios</h3>
+		<h3>Disabled Radios</h3>
+		<cdx-radio
+			v-for="option in options"
+			:key="option.value"
+			v-model="disabledSelection"
+			:input-value="option.value"
+			name="disabled-options"
+			:disabled="true">
+			{{ option.label }}
+		</cdx-radio>
+
+		<h3>CSS-only version</h3>
 		<span class="cdx-radio">
 			<input
 				id="radio-group-css-only-1"
@@ -52,7 +63,7 @@
 			</label>
 		</span>
 
-		<h3>Disabled radios</h3>
+		<h4>Disabled radios</h4>
 		<span class="cdx-radio">
 			<input
 				id="radio-group-disabled-1"
@@ -105,4 +116,5 @@ const options: MenuItemData[] = [
 	{ label: 'Canteloupe', value: 'c', disabled: true }
 ];
 const selection = ref<string>();
+const disabledSelection = ref<string>( 'b' );
 </script>
