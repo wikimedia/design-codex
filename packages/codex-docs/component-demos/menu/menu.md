@@ -14,9 +14,8 @@ control (e.g. a button, selector or input) after it is activated by a user.
 ## Guidelines
 
 ### When to use menus
-Menus are intended to be used within other components such as Select or Lookup,
-where they appear when the user interacts with or selects the corresponding
-element.
+Menus are intended to be used within other components such as Select, Lookup, or MenuButton.
+The Menu appears when the user interacts with or selects the corresponding element.
 
 ### Specifications
 
@@ -336,12 +335,12 @@ When there are menu items, only the inline progress bar will display.
 
 ::: warning
 This is not a standalone component. It's intended for use inside other components, mainly within
-Codex. For example, the [Select](./select) and [Lookup](./lookup) components use this
-component internally.
+Codex. For example, the [Select](./select), [Lookup](./lookup) and [MenuButton](./menu-button)
+components use this component internally.
 :::
 
-Designed for use in components, like Select and Lookup, that display a menu below another element
-(for example, a text input). This component renders a list of items, manages which item is
+Designed for use in components, like Select, Lookup and MenuButton, that display a menu below another
+element (for example, a text input). This component renders a list of items, manages which item is
 selected, highlighted, and active, and handles keyboard navigation. It does not display the
 selected item or manage an input; the parent component needs to do that.
 
