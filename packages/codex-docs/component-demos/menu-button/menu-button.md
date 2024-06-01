@@ -6,6 +6,7 @@ import MenuButtonWithIconOnly from '@/../component-demos/menu-button/examples/Me
 import MenuButtonWithIconAndText from '@/../component-demos/menu-button/examples/MenuButtonWithIconAndText.vue';
 import MenuButtonAndMenuItemsWithIcons from '@/../component-demos/menu-button/examples/MenuButtonAndMenuItemsWithIcons.vue';
 import MenuButtonWithScroll from '@/../component-demos/menu-button/examples/MenuButtonWithScroll.vue';
+import MenuButtonSelection from '@/../component-demos/menu-button/examples/MenuButtonSelection.vue';
 
 const controlsConfig = [
 	{
@@ -312,6 +313,31 @@ Refer to the [`MenuConfig`](../types-and-constants.md#menuconfig) type for more 
 <<< @/../component-demos/menu-button/examples/MenuButtonWithScroll.vue [NPM]
 
 <<< @/../component-demos/menu-button/examples-mw/MenuButtonWithScroll.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### Triggering events on selection
+
+It is possible for a MenuButton to trigger an immediate action when the user selects an item,
+instead of or in addition to storing their choice as a persistent value.
+In this demo, the component listens for `@update:selected` events from the MenuButton component,
+handles the selection change with the `onSelect` method, displays a temporary message using the
+[Message](./message.md) component, and resets the selection after a few seconds.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<menu-button-selection />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/menu-button/examples/MenuButtonSelection.vue [NPM]
+
+<<< @/../component-demos/menu-button/examples-mw/MenuButtonSelection.vue [MediaWiki]
 
 :::
 
