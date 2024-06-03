@@ -132,6 +132,12 @@ export function createCustomStyleFormatter( format ) {
 				const referencedTokens = dictionary.usesReference( originalValue ) ?
 					dictionary.getReferences( originalValue ) : [];
 
+				// If this token doesn't contain any references, or only references tokens that
+				// are not going to be in the output, don't modify it
+				if ( !referencedTokens.some( outputFilter ) ) {
+					return token;
+				}
+
 				// Start with the original value, which contains references like '{ foo.bar }'
 				let newValue = originalValue;
 				for ( const referencedToken of referencedTokens ) {
