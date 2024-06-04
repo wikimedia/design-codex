@@ -34,7 +34,7 @@ const files = globSync( 'component-demos/*/examples/*.vue' );
 for ( const fileName of files ) {
 	const contents = readFileSync( fileName, { encoding: 'utf-8' } );
 	const convertedContents = convertFileContents( contents );
-	const newName = fileName.replace( /examples\/([^/]+\.vue)$/, 'examples-mw/$1' );
+	const newName = fileName.replace( /examples[/\\]([^/\\]+\.vue)$/, 'examples-mw/$1' );
 	mkdirSync( dirname( newName ), { recursive: true } );
 	writeFileSync( newName, convertedContents );
 }
