@@ -143,7 +143,7 @@ sequence makes them easy to scan and process.
 </template>
 <template #do-text>
 
-- Alphabetize the drop-down choices, if appropriate. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear) & [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable)
+- Alphabetize the drop-down choices, if appropriate, or organize them in the most logical order. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear) & [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable)
 
 </template>
 <template #dont-media>
