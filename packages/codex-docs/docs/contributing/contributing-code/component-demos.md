@@ -186,10 +186,11 @@ via a [scoped slot](https://v3.vuejs.org/guide/component-slots.html#scoped-slots
 To set this up, create an array of config objects, one for each prop or slot you want to allow
 the user to control. The following control types are available:
 
-- `radio`: for props with several known value options. Displays a radio for each provided value
+- `radio`: For props with several known value options. Displays a radio for each provided value
 option.
 - `boolean`: For boolean props. Displays a true/false toggle that defaults to false.
 - `text`: For props with string or number values. Displays a text input for the value.
+- `select`: For props with a predefined list of value options displayed in a dropdown/select menu.
 - `slot`: For slots. Displays a text input for the slot content.
 
 You can set a default value for each control (required for slots), otherwise the value will default

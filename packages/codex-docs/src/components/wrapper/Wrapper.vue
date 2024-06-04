@@ -285,6 +285,8 @@ export default defineComponent( {
 			switch ( config.type ) {
 				case 'radio':
 					return config.default ?? config.options[ 0 ];
+				case 'select':
+					return config.default ?? config.menuItems[ 0 ]?.value;
 				case 'boolean':
 					return config.default ?? false;
 				case 'slot':

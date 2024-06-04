@@ -17,8 +17,9 @@
 					<pre>{{ propControl.name }}</pre>
 				</td>
 				<td class="cdx-docs-controls__control-value">
-					<div class="cdx-docs-controls__radio-wrapper">
-						<!-- needs template because v-if and v-for clash -->
+					<div class="cdx-docs-controls__control-value-wrapper">
+						<!-- Special handling for Radio and Select controls. -->
+						<!-- Needs template because v-if and v-for clash. -->
 						<template v-if="propControl.type === 'radio'">
 							<cdx-radio
 								v-for="option in propControl.options"
@@ -32,7 +33,15 @@
 								{{ option }}
 							</cdx-radio>
 						</template>
+						<cdx-select
+							v-if="propControl.type === 'select'"
+							v-model:selected="propControl.value"
+							default-label="Choose an option"
+							:menu-items="propControl.menuItems"
+							@update:model-value="emitControlChange( propControl.name, $event )"
+						/>
 
+						<!-- All other controls. -->
 						<component
 							:is="componentForType( propControl.type )"
 							v-if="componentForType( propControl.type )"
@@ -111,7 +120,7 @@
 <script lang="ts">
 import { defineComponent, PropType, computed, toRef } from 'vue';
 import { ControlConfigWithValue, SlotConfigWithValue, PropConfigWithValue } from '../../types';
-import { CdxRadio, CdxTextInput, CdxToggleSwitch, HTMLDirection, useModelWrapper, useGeneratedId } from '@wikimedia/codex';
+import { CdxRadio, CdxTextInput, CdxToggleSwitch, HTMLDirection, useModelWrapper, useGeneratedId, CdxSelect } from '@wikimedia/codex';
 import CdxDocsIconLookup from '../icon-lookup/IconLookup.vue';
 
 /**
@@ -126,7 +135,7 @@ import CdxDocsIconLookup from '../icon-lookup/IconLookup.vue';
  */
 export default defineComponent( {
 	name: 'CdxDocsControls',
-	components: { CdxRadio, CdxTextInput, CdxToggleSwitch, CdxDocsIconLookup },
+	components: { CdxRadio, CdxTextInput, CdxToggleSwitch, CdxDocsIconLookup, CdxSelect },
 	props: {
 		controlsWithValues: {
 			type: Array as PropType<ControlConfigWithValue[]>,
@@ -183,7 +192,7 @@ export default defineComponent( {
 		/**
 		 * Reduce duplication by adding a helper method to determine which component
 		 * should be used to render a specific type of control. Returns undefined for
-		 * no matching component, e.g. for 'radio' controls.
+		 * no matching component, e.g. for 'radio' and 'select' controls.
 		 *
 		 * @param {string} controlType
 		 * @return {string|undefined}
@@ -238,7 +247,7 @@ export default defineComponent( {
 		overflow: visible;
 	}
 
-	&__control-value .cdx-docs-controls__radio-wrapper {
+	&__control-value .cdx-docs-controls__control-value-wrapper {
 		display: flex;
 		flex-wrap: wrap;
 		row-gap: @spacing-100;

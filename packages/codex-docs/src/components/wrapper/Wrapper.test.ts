@@ -5,6 +5,12 @@ import { ControlsConfig } from './../../types';
 import { DirectionKey } from '../../constants';
 import Prism from 'prismjs';
 
+const menuItems = [
+	{ value: 1, label: 'Option 1' },
+	{ value: 2 },
+	{ value: 3, label: 'Option 3' }
+];
+
 const controlsConfig: ControlsConfig = [
 	{ name: 'radioControl', type: 'radio', options: [ 'Option 1', 'Option 2', 'Option 3' ] },
 	{
@@ -24,6 +30,8 @@ const controlsConfig: ControlsConfig = [
 	{ name: 'textControl', type: 'text' },
 	{ name: 'textWithStringDefault', type: 'text', default: 'Default value' },
 	{ name: 'textWithNumberDefault', type: 'text', default: 42 },
+	{ name: 'selectControl', type: 'select', menuItems },
+	{ name: 'selectWithDefault', type: 'select', menuItems, default: 3 },
 	{ name: 'slotControl', type: 'slot', default: 'Hello world' }
 ];
 const toggleButtonConfig: ControlsConfig = [
@@ -137,7 +145,9 @@ it( 'sets default values appropriately', () => {
 		booleanWithDefault: false,
 		textControl: '',
 		textWithStringDefault: 'Default value',
-		textWithNumberDefault: 42
+		textWithNumberDefault: 42,
+		selectControl: 1,
+		selectWithDefault: 3
 	};
 	const expectedSlots = {
 		slotControl: 'Hello world'

@@ -1,4 +1,5 @@
 // Used for the value of icon properties
+import { MenuItemData } from '@wikimedia/codex';
 import { Icon } from '@wikimedia/codex-icons';
 
 /**
@@ -42,11 +43,18 @@ export interface SlotIconConfig extends BaseConfig {
 	default?: string,
 	initial?: string
 }
+export interface SelectPropConfig extends BaseConfig {
+	type: 'select',
+	menuItems: MenuItemData[],
+	default?: string | number,
+	initial?: string | number
+}
 export type ControlConfig =
 	RadioPropConfig |
 	BooleanPropConfig |
 	TextPropConfig |
 	IconPropConfig |
+	SelectPropConfig|
 	SlotConfig |
 	SlotIconConfig;
 
@@ -67,7 +75,8 @@ export type PropConfigWithValue =
 	DefaultToValue<RadioPropConfig> |
 	DefaultToValue<BooleanPropConfig> |
 	DefaultToValue<TextPropConfig> |
-	DefaultToValue<IconPropConfig>;
+	DefaultToValue<IconPropConfig> |
+	DefaultToValue<SelectPropConfig>;
 export type SlotConfigWithValue = DefaultToValue<SlotConfig> | DefaultToValue<SlotIconConfig>;
 export type ControlConfigWithValue = PropConfigWithValue | SlotConfigWithValue;
 
