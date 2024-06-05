@@ -1,22 +1,24 @@
 <template>
-	<div class="cdx-menu-button">
+	<div
+		class="cdx-menu-button"
+		:class="rootClasses"
+		:style="rootStyle"
+	>
 		<cdx-toggle-button
 			:id="toggleId"
 			ref="toggle"
+			v-bind="otherAttrs"
 			v-model="expanded"
 			:disabled="computedDisabled"
 			quiet
 			aria-haspopup="menu"
-			:aria-label="toggleButtonLabel"
 			:aria-controls="menuId"
 			:aria-expanded="expanded"
 			@blur="expanded = false"
 			@keydown="onKeydown"
 		>
 			<!-- @slot MenuButton content -->
-			<slot>
-				<cdx-icon :icon="cdxIconEllipsis" />
-			</slot>
+			<slot />
 		</cdx-toggle-button>
 		<div class="cdx-menu-button__menu-wrapper">
 			<cdx-menu
@@ -45,22 +47,20 @@ import {
 
 import CdxToggleButton from '../../components/toggle-button/ToggleButton.vue';
 import CdxMenu from '../../components/menu/Menu.vue';
-import CdxIcon from '../../components/icon/Icon.vue';
 import useFieldData from '../../composables/useFieldData';
 import useFloatingMenu from '../../composables/useFloatingMenu';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
+import useSplitAttributes from '../../composables/useSplitAttributes';
 import { MenuButtonItemData, MenuConfig } from '../../types';
-import { cdxIconEllipsis } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'CdxMenuButton',
 	components: {
 		CdxToggleButton,
-		CdxIcon,
 		CdxMenu
 	},
-
+	inheritAttrs: false,
 	props: {
 		/**
 		 * Value of the current selection.
@@ -93,17 +93,6 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Label text for the toggle button
-		 *
-		 * An icon-only toggle button will be used to open or close the menu on click.  This prop is
-		 * for the hidden button label required for accessibility purposes and tooltip text.
-		 */
-		toggleButtonLabel: {
-			type: String,
-			required: true
-		},
-
-		/**
 		 * Whether the dropdown is disabled.
 		 */
 		disabled: {
@@ -121,7 +110,7 @@ export default defineComponent( {
 		'update:selected'
 	],
 
-	setup( props, { emit } ) {
+	setup( props, { emit, attrs } ) {
 		const menu = ref<InstanceType<typeof CdxMenu>>();
 		const toggle = ref<InstanceType<typeof CdxToggleButton>>();
 		const selectedProp = toRef( props, 'selected' );
@@ -130,6 +119,9 @@ export default defineComponent( {
 		const toggleId = useGeneratedId( 'menuToggle' );
 		const menuId = useGeneratedId( 'menu' );
 		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
+
+		// Get helpers from useSplitAttributes() composable.
+		const { rootClasses, rootStyle, otherAttrs } = useSplitAttributes( attrs );
 
 		function onKeydown( e: KeyboardEvent ) {
 			if (
@@ -150,7 +142,6 @@ export default defineComponent( {
 		} );
 
 		return {
-			cdxIconEllipsis,
 			computedDisabled,
 			expanded,
 			menu,
@@ -158,7 +149,10 @@ export default defineComponent( {
 			modelWrapper,
 			onKeydown,
 			toggle,
-			toggleId
+			toggleId,
+			rootClasses,
+			rootStyle,
+			otherAttrs
 		};
 	}
 } );

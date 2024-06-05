@@ -2,10 +2,10 @@
 	<cdx-menu-button
 		v-model:selected="selection"
 		:menu-items="menuItems"
-		toggle-button-label="Open and close the menu"
 	>
 		<template #default>
 			<cdx-icon :icon="cdxIconHelp" />
+			Help
 		</template>
 	</cdx-menu-button>
 </template>
@@ -22,7 +22,7 @@ const menuItems = [
 ];
 
 export default defineComponent( {
-	name: 'MenuButtonWithCustomIcon',
+	name: 'MenuButtonWithIconAndText',
 	components: { CdxMenuButton, CdxIcon },
 	setup() {
 		const selection = ref( null );

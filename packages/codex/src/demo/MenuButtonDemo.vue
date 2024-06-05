@@ -6,8 +6,12 @@
 				v-model:selected="selected"
 				:menu-items="menuItems"
 				:menu-config="menuConfig"
-				toggle-button-label="Open and close the menu"
-			/>
+				aria-label="Change option value"
+			>
+				<template #default>
+					<cdx-icon :icon="cdxIconEllipsis" />
+				</template>
+			</cdx-menu-button>
 			<p>
 				Selected: {{ selected }}
 			</p>
@@ -17,7 +21,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { CdxMenuButton } from '../lib-wip';
+import { CdxMenuButton, CdxIcon } from '../lib-wip';
+import { cdxIconEllipsis } from '@wikimedia/codex-icons';
 
 const selected = ref<string|number|null>( null );
 const menuItems = [

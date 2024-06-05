@@ -14,11 +14,11 @@ import { defineComponent, ref } from 'vue';
 import { CdxMenuButton } from '@wikimedia/codex';
 
 const menuItems = [
-	{ label: 'Contact Owner', value: 'contact' },
-	{ label: 'Delete Instrument', value: 'delete', action: 'destructive' },
 	{ label: 'Edit Configuration', value: 'edit' },
+	{ label: 'View Phab Ticket', value: 'view' },
+	{ label: 'Contact Owner', value: 'contact' },
 	{ label: 'Turn Instrument Off', value: 'turn off' },
-	{ label: 'View Phab Ticket', value: 'view' }
+	{ label: 'Delete Instrument', value: 'delete', action: 'destructive' }
 ];
 
 export default defineComponent( {

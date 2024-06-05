@@ -2,14 +2,18 @@
 	<cdx-menu-button
 		v-model:selected="selection"
 		:menu-items="menuItems"
-		toggle-button-label="Open and close the menu"
-	/>
+		aria-label="Change input type"
+	>
+		<template #default>
+			<cdx-icon :icon="cdxIconEllipsis" />
+		</template>
+	</cdx-menu-button>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxMenuButton } from '@wikimedia/codex';
-import { cdxIconFunction, cdxIconLiteral, cdxIconInstance } from '@wikimedia/codex-icons';
+import { CdxMenuButton, CdxIcon } from '@wikimedia/codex';
+import { cdxIconEllipsis, cdxIconFunction, cdxIconLiteral, cdxIconInstance } from '@wikimedia/codex-icons';
 
 const menuItems = [
 	{ label: 'Function call', value: 'function call', icon: cdxIconFunction },
@@ -19,12 +23,13 @@ const menuItems = [
 
 export default defineComponent( {
 	name: 'MenuButtonAndMenuItemsWithIcons',
-	components: { CdxMenuButton },
+	components: { CdxMenuButton, CdxIcon },
 	setup() {
 		const selection = ref( null );
 		return {
 			selection,
-			menuItems
+			menuItems,
+			cdxIconEllipsis
 		};
 	}
 } );

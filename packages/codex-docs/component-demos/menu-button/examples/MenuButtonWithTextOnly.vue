@@ -2,7 +2,6 @@
 	<cdx-menu-button
 		v-model:selected="selection"
 		:menu-items="menuItems"
-		toggle-button-label="Open and close the menu"
 	>
 		More options
 	</cdx-menu-button>
@@ -14,14 +13,14 @@ import { CdxMenuButton } from '@wikimedia/codex';
 
 const menuItems = [
 	{ label: 'Edit', value: 'edit' },
-	{ label: 'Delete', value: 'delete', action: 'destructive' },
 	{ label: 'Download', value: 'download' },
 	{ label: 'Print', value: 'print', disabled: true },
-	{ label: 'Share', value: 'share' }
+	{ label: 'Share', value: 'share' },
+	{ label: 'Delete', value: 'delete', action: 'destructive' }
 ];
 
 export default defineComponent( {
-	name: 'MenuButtonWithCustomContent',
+	name: 'MenuButtonWithTextOnly',
 	components: { CdxMenuButton },
 	setup() {
 		const selection = ref( null );
