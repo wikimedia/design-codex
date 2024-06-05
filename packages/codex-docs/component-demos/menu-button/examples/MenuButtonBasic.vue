@@ -2,36 +2,31 @@
 	<cdx-menu-button
 		v-model:selected="selection"
 		:menu-items="menuItems"
-		aria-label="Instrument actions"
 	>
-		<template #default>
-			<cdx-icon :icon="cdxIconEllipsis" />
-		</template>
+		More options
 	</cdx-menu-button>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxMenuButton, CdxIcon } from '@wikimedia/codex';
-import { cdxIconEllipsis } from '@wikimedia/codex-icons';
+import { CdxMenuButton } from '@wikimedia/codex';
 
 const menuItems = [
-	{ label: 'Edit Configuration', value: 'edit' },
-	{ label: 'View Phab Ticket', value: 'view' },
-	{ label: 'Contact Owner', value: 'contact' },
-	{ label: 'Turn Instrument Off', value: 'turn off' },
-	{ label: 'Delete Instrument', value: 'delete', action: 'destructive' }
+	{ label: 'Edit', value: 'edit' },
+	{ label: 'Download', value: 'download' },
+	{ label: 'Print', value: 'print', disabled: true },
+	{ label: 'Share', value: 'share' },
+	{ label: 'Delete', value: 'delete', action: 'destructive' }
 ];
 
 export default defineComponent( {
 	name: 'MenuButtonBasic',
-	components: { CdxMenuButton, CdxIcon },
+	components: { CdxMenuButton },
 	setup() {
 		const selection = ref( null );
 		return {
 			selection,
-			menuItems,
-			cdxIconEllipsis
+			menuItems
 		};
 	}
 } );

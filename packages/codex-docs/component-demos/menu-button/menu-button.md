@@ -2,11 +2,10 @@
 import { CdxMenuButton } from '@wikimedia/codex';
 import MenuButtonConfigDemo from '@/../component-demos/menu-button/examples/MenuButtonConfigDemo.vue';
 import MenuButtonBasic from '@/../component-demos/menu-button/examples/MenuButtonBasic.vue';
-import MenuButtonWithTextOnly from '@/../component-demos/menu-button/examples/MenuButtonWithTextOnly.vue';
 import MenuButtonWithIconOnly from '@/../component-demos/menu-button/examples/MenuButtonWithIconOnly.vue';
 import MenuButtonWithIconAndText from '@/../component-demos/menu-button/examples/MenuButtonWithIconAndText.vue';
 import MenuButtonAndMenuItemsWithIcons from '@/../component-demos/menu-button/examples/MenuButtonAndMenuItemsWithIcons.vue';
-import MenuButtonAndMenuItemsWithIconsAndScroll from '@/../component-demos/menu-button/examples/MenuButtonAndMenuItemsWithIconsAndScroll.vue';
+import MenuButtonWithScroll from '@/../component-demos/menu-button/examples/MenuButtonWithScroll.vue';
 
 const controlsConfig = [
 	{
@@ -230,29 +229,7 @@ You can pass in text and/or a Icon to the slot content.
 </template>
 </cdx-demo-wrapper>
 
-#### With text-only
-
-To create a text-only toggle button, add text to the slot content within the MenuButton
-component.
-
-<cdx-demo-wrapper :force-reset="true">
-<template v-slot:demo>
-	<menu-button-with-text-only />
-</template>
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/menu-button/examples/MenuButtonWithTextOnly.vue [NPM]
-
-<<< @/../component-demos/menu-button/examples-mw/MenuButtonWithTextOnly.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-#### With icon-only
+### Icon-only
 
 When using an icon-only toggle button, add an `aria-label`.
 
@@ -277,7 +254,7 @@ to learn more about using icons.
 </template>
 </cdx-demo-wrapper>
 
-#### With icon and text
+### With icon and text
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
@@ -319,22 +296,22 @@ You can add icons to individual menu items by including the `icon` property in t
 </template>
 </cdx-demo-wrapper>
 
-### Menu items with icons and scroll
+### With configurable scroll
 
 You can use the `menuConfig` prop to set a visible menu item limit.
 Refer to the [`MenuConfig`](../types-and-constants.md#menuconfig) type for more configuration options.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-	<menu-button-and-menu-items-with-icons-and-scroll />
+	<menu-button-with-scroll />
 </template>
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/menu-button/examples/MenuButtonAndMenuItemsWithIconsAndScroll.vue [NPM]
+<<< @/../component-demos/menu-button/examples/MenuButtonWithScroll.vue [NPM]
 
-<<< @/../component-demos/menu-button/examples-mw/MenuButtonAndMenuItemsWithIconsAndScroll.vue [MediaWiki]
+<<< @/../component-demos/menu-button/examples-mw/MenuButtonWithScroll.vue [MediaWiki]
 
 :::
 

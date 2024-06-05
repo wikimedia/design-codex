@@ -4,9 +4,7 @@
 		:menu-items="menuItems"
 		aria-label="Help options"
 	>
-		<template #default>
-			<cdx-icon :icon="cdxIconHelp" />
-		</template>
+		<cdx-icon :icon="cdxIconHelp" />
 	</cdx-menu-button>
 </template>
 

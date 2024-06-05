@@ -4,9 +4,7 @@
 		:menu-items="menuItems"
 		aria-label="Change input type"
 	>
-		<template #default>
-			<cdx-icon :icon="cdxIconEllipsis" />
-		</template>
+		<cdx-icon :icon="cdxIconEllipsis" />
 	</cdx-menu-button>
 </template>
 

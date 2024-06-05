@@ -3,9 +3,7 @@
 		v-model:selected="selection"
 		:menu-items="menuItems"
 	>
-		<template #default>
-			<slot />
-		</template>
+		<slot />
 	</cdx-menu-button>
 </template>
 

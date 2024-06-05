@@ -8,9 +8,7 @@
 				:menu-config="menuConfig"
 				aria-label="Change option value"
 			>
-				<template #default>
-					<cdx-icon :icon="cdxIconEllipsis" />
-				</template>
+				<cdx-icon :icon="cdxIconEllipsis" />
 			</cdx-menu-button>
 			<p>
 				Selected: {{ selected }}

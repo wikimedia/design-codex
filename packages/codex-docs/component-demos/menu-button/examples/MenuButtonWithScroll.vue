@@ -5,9 +5,7 @@
 		:menu-config="menuConfig"
 		aria-label="Actions"
 	>
-		<template #default>
-			<cdx-icon :icon="cdxIconEllipsis" />
-		</template>
+		<cdx-icon :icon="cdxIconEllipsis" />
 	</cdx-menu-button>
 </template>
 
@@ -26,7 +24,7 @@ const menuItems = [
 ];
 
 export default defineComponent( {
-	name: 'MenuButtonAndMenuItemsWithIconsAndScroll',
+	name: 'MenuButtonWithScroll',
 	components: { CdxMenuButton, CdxIcon },
 	setup() {
 		const selection = ref( null );

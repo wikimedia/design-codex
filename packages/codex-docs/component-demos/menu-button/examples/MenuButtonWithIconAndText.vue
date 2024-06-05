@@ -3,10 +3,8 @@
 		v-model:selected="selection"
 		:menu-items="menuItems"
 	>
-		<template #default>
-			<cdx-icon :icon="cdxIconHelp" />
-			Help
-		</template>
+		<cdx-icon :icon="cdxIconHelp" />
+		Help
 	</cdx-menu-button>
 </template>
 
