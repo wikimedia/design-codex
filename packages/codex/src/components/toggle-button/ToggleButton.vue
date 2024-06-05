@@ -57,7 +57,7 @@ export default defineComponent( {
 		'update:modelValue'
 	],
 	setup( props, { emit, slots, attrs } ) {
-		const isIconOnly = useIconOnlyButton( slots.default, attrs, 'CdxButton' );
+		const isIconOnly = useIconOnlyButton( slots.default, attrs, 'CdxToggleButton' );
 
 		// Support: Firefox (space), all (enter)
 		// Whether the button is being pressed via the space or enter key. Needed to apply
