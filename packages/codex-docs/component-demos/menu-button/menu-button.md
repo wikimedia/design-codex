@@ -16,7 +16,7 @@ const controlsConfig = [
 	{
 		name: 'default',
 		type: 'slot',
-		default: 'Options'
+		default: 'More options'
 	}
 ];
 </script>
@@ -297,7 +297,7 @@ You can add icons to individual menu items by including the `icon` property in t
 </template>
 </cdx-demo-wrapper>
 
-### With configurable scroll
+### Menu with configurable scroll
 
 You can use the `menuConfig` prop to set a visible menu item limit.
 Refer to the [`MenuConfig`](../types-and-constants.md#menuconfig) type for more configuration options.
