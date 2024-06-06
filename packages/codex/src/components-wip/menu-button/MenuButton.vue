@@ -168,7 +168,7 @@ export default defineComponent( {
 
 	.cdx-menu {
 		min-width: @size-800;
-		max-width: @size-2400;
+		max-width: @size-1600;
 	}
 
 	// Overrides when used within a Dialog component
