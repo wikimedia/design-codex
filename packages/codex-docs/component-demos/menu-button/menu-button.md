@@ -46,11 +46,10 @@ A selectable list of related actions or options that can optionally contain star
 
 #### Component limitations
 
-The menu will display a minimum of 2 actions or options. There is no limit on the number of visible menu items; a scrollbar will appear if the menu size exceeds manageable limits.
+The MenuButton will display a minimum of 2 actions or options. There is no limit on the number of visible menu items; a scrollbar will appear if the menu size exceeds manageable limits.
 
-The base minimum width for the MenuButton component is set at `@size-800` (equivalent to `128px` in the default Codex theme). Once the text exceeds this min-width, the menu will expand to accommodate the content, up to a maximum width of `@size-2400` (equivalent to `384px`).
-
-![Two MenuButtons: one with 2 items and a width of 128px, and the other with 5 items and a width of 384px.](../../assets/components/menu-button-specifications-min-max.svg)
+The Menu inside the MenuButton has a width of `256px` (`@size-1600`). When space is constrained,
+this can shrink down to a minimum width of `128px`(`@size-800`).
 
 #### Position of the menu
 
@@ -89,8 +88,8 @@ The Menu appears once the ToggleButton is selected.
 2. Hover
 3. Active
 4. Focus
-5. Disabled
-6. Toggled-on
+5. Toggled-on focus
+6. Disabled
 
 ### Best practices
 
