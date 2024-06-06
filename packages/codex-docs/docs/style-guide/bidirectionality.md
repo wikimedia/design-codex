@@ -4,7 +4,7 @@ Bidirectionality supports the mirroring of a user interface to support both lang
 
 <div class="cdx-docs-example">
 
-![An active Select component with icons displayed in both left-to-right (LTR) and right-to-left (RTL) directions.](../assets/design-principles/bidirectionality/bidirectionality_select.svg)
+![A Select component displayed in both left-to-right (LTR) and right-to-left (RTL) directions.](../assets/design-principles/bidirectionality/bidirectionality_select.svg)
 
 </div>
 
@@ -23,7 +23,7 @@ When a layout translates from LTR to RTL, or vice versa, this process is called 
 When mirroring a layout, it's important to note that not all elements in the interface will use the same mirroring treatment. Here's a list of elements that should and should not be mirrored:
 
 **Do mirror:**
-- Text from RTL languages
+- Alignment of text in RTL languages
 - Icons with horizontal orientation, like the `cdxIconArrowNext` and `cdxIconArrowPrevious`
 - Elements within components and pages
 - Buttons and group of buttons
@@ -33,7 +33,6 @@ When mirroring a layout, it's important to note that not all elements in the int
 - Navigation items
 
 **Don’t mirror:**
-- Text from LTR languages
 - Icons lacking clear directionality, as well as icons representing time, containing check symbols, or designed for right hand use
 - Phone numbers and ZIP codes
 - URLs and email addresses
@@ -43,37 +42,7 @@ When mirroring a layout, it's important to note that not all elements in the int
 
 ## Text
 
-The text should be oriented correctly according to the reading direction of each language.
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![A “Name” Field in left-to-right (LTR) orientation above and correctly oriented to right-to-left (RTL) below.](../assets/design-principles/bidirectionality/bidirectionality-text-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Display text in the reading direction according to its language.
-- Adjust alignment and spacing to keep visual consistency.
-
-</template>
-
-<template #dont-media>
-
-![A “Name” Field in left-to-right (LTR) orientation above and incorrectly oriented to right-to-left (RTL) below.](../assets/design-principles/bidirectionality/bidirectionality-text-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Translate text without considering the reading direction.
-- Overlook cultural or linguistic nuances that may affect text presentation.
-
-</template>
-
-</cdx-demo-rules>
+The text should maintain its natural reading direction for each language. Adjust the components and text alignment to ensure visual consistency for each reading direction.
 
 #### Paragraphs
 
@@ -110,7 +79,7 @@ In cases where we have both LTR and RTL languages in the same paragraph, we will
 
 #### URL and email addresses
 
-While text is typically mirrored in bidirectional interfaces, URLs and email addresses should remain unaltered. These elements have standardized structures and formats that are universally recognized. Mirroring them may disrupt their functionality, potentially causing errors or user misinterpretation.
+While text formats are typically mirrored in bidirectional interfaces, URLs and email addresses should remain unaltered. These elements have standardized structures and formats that are universally recognized. Mirroring them may disrupt their functionality, potentially causing errors or user misinterpretation.
 
 <cdx-demo-rules>
 
@@ -190,6 +159,7 @@ When adapting phone numbers for bidirectional design, the mirroring will vary ba
 <template #do-text>
 
 - Use LTR numbers in Western Arabic and RTL numbers in Eastern Arabic.
+- Keep the phone prefix in its original position.
 
 </template>
 
@@ -210,7 +180,7 @@ When adapting phone numbers for bidirectional design, the mirroring will vary ba
 
 ## Addresses
 
-When applying mirroring to addresses, words will be mirrored, whereas numbers will remain unchanged.
+When applying mirroring to addresses, words alignment will be mirrored, whereas numbers will remain unchanged.
 
 <cdx-demo-rules>
 
@@ -222,8 +192,8 @@ When applying mirroring to addresses, words will be mirrored, whereas numbers wi
 
 <template #do-text>
 
-- Mirror the names of countries and cities to match the reading direction.
 - Separate letters and numbers into different inputs to mitigate errors.
+- Align country and city names properly to match the reading direction.
 
 </template>
 
