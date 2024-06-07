@@ -32,6 +32,7 @@ import CdxInfoChip from './components/info-chip/InfoChip.vue';
 import CdxLabel from './components/label/Label.vue';
 import CdxLookup from './components/lookup/Lookup.vue';
 import CdxMenu from './components/menu/Menu.vue';
+import CdxMenuButton from './components/menu-button/MenuButton.vue';
 import CdxMenuItem from './components/menu-item/MenuItem.vue';
 import CdxMessage from './components/message/Message.vue';
 import CdxProgressBar from './components/progress-bar/ProgressBar.vue';
@@ -74,9 +75,11 @@ import type {
 	ButtonWeight,
 	ButtonSize,
 	ButtonGroupItem,
+	FloatingMenuOptions,
 	IconSize,
 	StatusType,
 	TextInputType,
+	MenuButtonItemData,
 	MenuConfig,
 	MenuState,
 	MenuItemData,
@@ -118,6 +121,7 @@ export {
 	CdxLookup,
 	CdxMessage,
 	CdxMenu,
+	CdxMenuButton,
 	CdxMenuItem,
 	CdxProgressBar,
 	CdxRadio,
@@ -158,8 +162,10 @@ export {
 	ButtonWeight,
 	ButtonSize,
 	ButtonGroupItem,
+	FloatingMenuOptions,
 	TextInputType,
 	IconSize,
+	MenuButtonItemData,
 	MenuConfig,
 	MenuState,
 	MenuItemData,
