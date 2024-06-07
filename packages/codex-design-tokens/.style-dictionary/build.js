@@ -145,14 +145,16 @@ sdBase.extend( {
 					destination: 'theme-wikimedia-ui.css',
 					format: 'custom/css',
 					options: {
-						outputFilter: isPublishedToken
+						outputFilter: isPublishedToken,
+						outputReferences: true
 					}
 				},
 				{
 					destination: 'theme-wikimedia-ui.scss',
 					format: 'custom/scss',
 					options: {
-						outputFilter: isPublishedToken
+						outputFilter: isPublishedToken,
+						outputReferences: true
 					}
 				},
 				{
@@ -195,7 +197,8 @@ sdBase.extend( {
 					destination: 'theme-wikimedia-ui.less',
 					format: 'custom/less',
 					options: {
-						outputFilter: isPublishedToken
+						outputFilter: isPublishedToken,
+						outputReferences: true
 					}
 				}
 			]
