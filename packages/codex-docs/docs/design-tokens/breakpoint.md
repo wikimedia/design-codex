@@ -18,10 +18,3 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 	:tokens="tokens['max-width']['breakpoint']"
 	token-category="breakpoint"
 />
-
-## Width (legacy)
-
-<cdx-docs-tokens-table
-	:tokens="tokens['width']['breakpoint']"
-	token-category="breakpoint"
-/>

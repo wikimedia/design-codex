@@ -463,23 +463,6 @@
 			}
 		}
 	},
-	"width": {
-		"breakpoint": {
-			"comment": "Legacy Breakpoints. Width for use as minimum available screen width (`min-width`) to be considered a certain device type.",
-			"mobile": {
-				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. A mobile device's screen width. Many older feature phones have screens smaller than this value.",
-				"value": "{ min-width.breakpoint.mobile }"
-			},
-			"tablet": {
-				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. A tablet device's screen width.",
-				"value": "{ size.viewport.72 }"
-			},
-			"desktop": {
-				"deprecated": "Legacy breakpoint. Use `min-width`/`max-width` breakpoint token instead. A desktop device's screen width.",
-				"value": "{ size.viewport.100 }"
-			}
-		}
-	},
 	"position": {
 		"offset": {
 			"comment": "position.offset is a Codex token shorthand to use in `top`, `left`, `bottom`, `right`, and `margin` properties for elements that expand over default boundary box.",
