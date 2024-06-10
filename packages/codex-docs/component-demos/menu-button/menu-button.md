@@ -48,8 +48,7 @@ A selectable list of related actions or options that can optionally contain star
 
 The MenuButton will display a minimum of 2 actions or options. There is no limit on the number of visible menu items; a scrollbar will appear if the menu size exceeds manageable limits.
 
-The Menu inside the MenuButton has a width of `256px` (`@size-1600`). When space is constrained,
-this can shrink down to a minimum width of `128px`(`@size-800`).
+The Menu inside the MenuButton is set to a base size of `@size-1600` (equivalent to `256px` in the default Codex theme). When space is constrained, this can shrink down to a minimum width of `@size-800` (equivalent to `128px` in the default Codex theme).
 
 #### Position of the menu
 
