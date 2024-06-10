@@ -83,6 +83,8 @@ this transition, submit a patch that:
 
 - Moves the component directory from `components-wip` to `components`
 - Exports the component in `lib.ts` instead of `components-wip/index.ts`
+- Updates the paths used to import component, from `../../components/foo/Foo.vue` to
+  `../foo/Foo.vue`.
 
 Once this patch is merged, the component will be included in the dist and will appear on the docs
 site for the next release.

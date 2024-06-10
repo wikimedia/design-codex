@@ -45,8 +45,8 @@ import {
 	toRef
 } from 'vue';
 
-import CdxToggleButton from '../../components/toggle-button/ToggleButton.vue';
-import CdxMenu from '../../components/menu/Menu.vue';
+import CdxToggleButton from '../toggle-button/ToggleButton.vue';
+import CdxMenu from '../menu/Menu.vue';
 import useFieldData from '../../composables/useFieldData';
 import useFloatingMenu from '../../composables/useFloatingMenu';
 import useGeneratedId from '../../composables/useGeneratedId';
