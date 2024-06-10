@@ -119,6 +119,15 @@
 							</component>
 						</tr>
 					</tbody>
+					<!-- eslint-disable-next-line max-len -->
+					<tbody v-else-if="$slots[ 'empty-state' ] && $slots[ 'empty-state' ]().length > 0">
+						<tr class="cdx-table__table__empty-state">
+							<td class="cdx-table__table__empty-state-content">
+								<!-- @slot Empty state content. -->
+								<slot name="empty-state" />
+							</td>
+						</tr>
+					</tbody>
 				</slot>
 				<!-- @slot Custom <tfoot>. -->
 				<slot name="tfoot" />
@@ -784,6 +793,18 @@ export default defineComponent( {
 			}
 		}
 		/* stylelint-enable no-descending-specificity */
+
+		&__empty-state {
+			border-top: @border-base;
+
+			&-content {
+				color: @color-subtle;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: @min-height-table-footer - @spacing-150;
+			}
+		}
 	}
 
 	&__footer {

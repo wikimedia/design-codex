@@ -3404,3 +3404,64 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
   </div>
 </div>
 `;
+
+exports[`Table matches the snapshot Case 11 With empty state: ([]) => HTML 1`] = `
+<div
+  class="cdx-table"
+  tabindex="0"
+>
+  <div
+    class="cdx-table__header"
+  >
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
+    <div
+      aria-hidden="true"
+      class="cdx-table__header__caption"
+    >
+      <!-- Visible table title. -->
+      
+      Table caption
+      
+    </div>
+    <div
+      class="cdx-table__header__content"
+    >
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
+      
+      
+    </div>
+  </div>
+  <div
+    class="cdx-table__table-wrapper"
+  >
+    <table
+      class="cdx-table__table"
+    >
+      <!-- Visually-hidden caption element, for assistive technology. -->
+      <caption>
+        Table caption 
+        <!--v-if-->
+      </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
+      <!--v-if-->
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
+      <!--v-if-->
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
+      
+      
+    </table>
+  </div>
+  <!--v-if-->
+</div>
+`;

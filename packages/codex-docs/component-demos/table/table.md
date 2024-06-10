@@ -192,6 +192,13 @@ heading level to select or deselect all Table items at once:
 
 ![Table featuring row selection.](../../assets/components/table-types-row-selection.svg)
 
+#### Empty table
+
+Tables can dynamically feature an empty state message in case there is no information available to
+be displayed:
+
+![Table showcasing its empty state.](../../assets/components/table-types-empty.svg)
+
 ### Interaction states
 
 #### Heading sorting states
@@ -575,6 +582,35 @@ To use both row selection and sorting, you must add a unique identifier to each 
 </template>
 </cdx-demo-wrapper>
 
+### Empty state
+
+An empty state message can be displayed via the `empty-state` slot.
+If the `empty-state` slot is populated, this slot will automatically display the slot content
+when there are no items in the `data` array and the `tbody` slot is not overridden.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<cdx-table caption="Table Caption">
+		<template #empty-state>
+			There is no data available
+		</template>
+	</cdx-table>
+</template>
+<template v-slot:code>
+
+```vue
+<template v-slot:demo>
+	<cdx-table caption="Table Caption">
+		<template #empty-state>
+			There is no data available
+		</template>
+	</cdx-table>
+</template>
+```
+
+</template>
+</cdx-demo-wrapper>
+
 ## Vue usage
 
 ## CSS-only version
@@ -759,19 +795,19 @@ To visually hide the header's caption, simply do not add it to the header elemen
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="">
+				<tr>
 					<td>wikipedias</td>
 					<td class="cdx-table__table__cell--align-number">342</td>
 					<td class="cdx-table__table__cell--align-number">292249</td>
 					<td class="cdx-table__table__cell--align-number">113556337</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<td>wiktionaries</td>
 					<td class="cdx-table__table__cell--align-number">193</td>
 					<td class="cdx-table__table__cell--align-number">5764</td>
 					<td class="cdx-table__table__cell--align-number">7275027</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<td>wikiquotes</td>
 					<td class="cdx-table__table__cell--align-number">96</td>
 					<td class="cdx-table__table__cell--align-number">2042</td>
@@ -807,19 +843,19 @@ To visually hide the header's caption, simply do not add it to the header elemen
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="">
+				<tr>
 					<td>wikipedias</td>
 					<td class="cdx-table__table__cell--align-number">342</td>
 					<td class="cdx-table__table__cell--align-number">292249</td>
 					<td class="cdx-table__table__cell--align-number">113556337</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<td>wiktionaries</td>
 					<td class="cdx-table__table__cell--align-number">193</td>
 					<td class="cdx-table__table__cell--align-number">5764</td>
 					<td class="cdx-table__table__cell--align-number">7275027</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<td>wikiquotes</td>
 					<td class="cdx-table__table__cell--align-number">96</td>
 					<td class="cdx-table__table__cell--align-number">2042</td>
@@ -875,19 +911,19 @@ cases, therefore apply additional border styles to the element as needed.
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="">
+				<tr>
 					<td>wikipedias</td>
 					<td class="cdx-table__table__cell--align-number">342</td>
 					<td class="cdx-table__table__cell--align-number">292249</td>
 					<td class="cdx-table__table__cell--align-number">113556337</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<td>wiktionaries</td>
 					<td class="cdx-table__table__cell--align-number">193</td>
 					<td class="cdx-table__table__cell--align-number">5764</td>
 					<td class="cdx-table__table__cell--align-number">7275027</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<td>wikiquotes</td>
 					<td class="cdx-table__table__cell--align-number">96</td>
 					<td class="cdx-table__table__cell--align-number">2042</td>
@@ -936,19 +972,19 @@ cases, therefore apply additional border styles to the element as needed.
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="">
+				<tr>
 					<td>wikipedias</td>
 					<td class="cdx-table__table__cell--align-number">342</td>
 					<td class="cdx-table__table__cell--align-number">292249</td>
 					<td class="cdx-table__table__cell--align-number">113556337</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<td>wiktionaries</td>
 					<td class="cdx-table__table__cell--align-number">193</td>
 					<td class="cdx-table__table__cell--align-number">5764</td>
 					<td class="cdx-table__table__cell--align-number">7275027</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<td>wikiquotes</td>
 					<td class="cdx-table__table__cell--align-number">96</td>
 					<td class="cdx-table__table__cell--align-number">2042</td>
@@ -1006,21 +1042,21 @@ header column.
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="">
+				<tr>
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">wikipedias</th>
 					<td class="cdx-table__table__cell--align-number">342</td>
 					<td class="cdx-table__table__cell--align-number">292249</td>
 					<td class="cdx-table__table__cell--align-number">113556337</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">wiktionaries</th>
 					<td class="cdx-table__table__cell--align-number">193</td>
 					<td class="cdx-table__table__cell--align-number">5764</td>
 					<td class="cdx-table__table__cell--align-number">7275027</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">wikiquotes</th>
 					<td class="cdx-table__table__cell--align-number">96</td>
@@ -1069,21 +1105,21 @@ header column.
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="">
+				<tr>
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">wikipedias</th>
 					<td class="cdx-table__table__cell--align-number">342</td>
 					<td class="cdx-table__table__cell--align-number">292249</td>
 					<td class="cdx-table__table__cell--align-number">113556337</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">wiktionaries</th>
 					<td class="cdx-table__table__cell--align-number">193</td>
 					<td class="cdx-table__table__cell--align-number">5764</td>
 					<td class="cdx-table__table__cell--align-number">7275027</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<!-- <th> as a row header cell with the scope attribute. -->
 					<th scope="row">wikiquotes</th>
 					<td class="cdx-table__table__cell--align-number">96</td>
@@ -1276,5 +1312,57 @@ besides submit the form and reload the page.
 </form>
 ```
 
+</template>
+</cdx-demo-wrapper>
+
+### Empty state
+
+You can use the CSS classes, `cdx-table__table__empty-state` and
+`cdx-table__table__empty-state-content`, to style the empty state message
+that indicates that there's no data available.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+<div class="cdx-table">
+	<div class="cdx-table__header">
+		<div class="cdx-table__header__caption" aria-hidden="true">List of MediaWikis</div>
+	</div>
+	<div class="cdx-table__table-wrapper">
+		<table class="cdx-table__table">
+			<caption>List of MediaWikis</caption>
+			<!-- <tbody> with the class for an empty table that has no data available. -->
+			<tbody>
+				<tr class="cdx-table__table__empty-state">
+					<td class="cdx-table__table__empty-state-content">
+						There is no data available
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-table">
+	<div class="cdx-table__header">
+		<div class="cdx-table__header__caption" aria-hidden="true">List of MediaWikis</div>
+	</div>
+	<div class="cdx-table__table-wrapper">
+		<table class="cdx-table__table">
+			<caption>List of MediaWikis</caption>
+			<!-- <tbody> with the class for an empty table that has no data available. -->
+			<tbody>
+				<tr class="cdx-table__table__empty-state">
+					<td class="cdx-table__table__empty-state-content">
+						There is no data available
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+```
 </template>
 </cdx-demo-wrapper>

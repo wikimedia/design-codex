@@ -143,7 +143,8 @@ describe( 'Table', () => {
 				false,
 				false,
 				{ header: 'Header slot content', footer: 'Footer slot content' }
-			]
+			],
+			[ 'With empty state', [], [], false, false, false ]
 		];
 
 		test.each( cases )(
