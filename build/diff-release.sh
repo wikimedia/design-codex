@@ -29,8 +29,8 @@ function beautify() {
 		mv -f $cssfile.pretty $cssfile
 	done
 
-	# Delete minified .js files; keep unminified .mjs files
-	rm -rf $(find . -name '*.js')
+	# Delete minified .cjs files; keep unminified .js files
+	rm -rf $(find . -name '*.cjs')
 
 	# Beautify .json files by parsing them then re-stringifying them in pretty mode
 	for jsonfile in $(find . -name '*.json')
