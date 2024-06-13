@@ -83,16 +83,6 @@ export default defineComponent( {
 	inheritAttrs: false,
 	props: {
 		/**
-		 * `aria-description` of each input chip.
-		 *
-		 * Text must be provided for accessibility purposes. This prop is temporary and will be
-		 * removed once T345386 is resolved.
-		 */
-		chipAriaDescription: {
-			type: String,
-			required: true
-		},
-		/**
 		 * Current chips present in the input.
 		 *
 		 * Provided by `v-model` binding in the parent component.
@@ -124,6 +114,16 @@ export default defineComponent( {
 		disabled: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * `aria-description` of each input chip.
+		 *
+		 * Text must be provided for accessibility purposes. This prop is temporary and will be
+		 * removed once T345386 is resolved.
+		 */
+		chipAriaDescription: {
+			type: String,
+			default: 'Press Enter to edit or Delete to remove'
 		}
 	},
 	emits: [

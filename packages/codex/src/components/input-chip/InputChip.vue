@@ -50,16 +50,6 @@ export default defineComponent( {
 	},
 	props: {
 		/**
-		 * `aria-description` for the chip.
-		 *
-		 * Text must be provided for accessibility purposes. This prop is temporary and will be
-		 * removed once T345386 is resolved.
-		 */
-		chipAriaDescription: {
-			type: String,
-			required: true
-		},
-		/**
 		 * Custom icon.
 		 */
 		icon: {
@@ -72,6 +62,16 @@ export default defineComponent( {
 		disabled: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * `aria-description` for the chip.
+		 *
+		 * Text must be provided for accessibility purposes. This prop is temporary and will be
+		 * removed once T345386 is resolved.
+		 */
+		chipAriaDescription: {
+			type: String,
+			default: 'Press Enter to edit or Delete to remove'
 		}
 	},
 	expose: [
