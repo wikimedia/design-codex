@@ -3,7 +3,6 @@
 exports[`matches the snapshot Case 0 Item without label: ({"id": "test-menu-item", "value": "menuItemValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
-  aria-selected="false"
   class="cdx-menu-item cdx-menu-item--enabled"
   id="test-menu-item"
   role="option"
@@ -42,7 +41,6 @@ exports[`matches the snapshot Case 0 Item without label: ({"id": "test-menu-item
 exports[`matches the snapshot Case 1 Item with label: ({"id": "test-menu-item", "label": "Test menu item", "value": "menuItemValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
-  aria-selected="false"
   class="cdx-menu-item cdx-menu-item--enabled"
   id="test-menu-item"
   role="option"
@@ -81,7 +79,6 @@ exports[`matches the snapshot Case 1 Item with label: ({"id": "test-menu-item", 
 exports[`matches the snapshot Case 2 Item with match: ({"id": "test-menu-item", "match": "(match)", "value": "menuItemValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
-  aria-selected="false"
   class="cdx-menu-item cdx-menu-item--enabled"
   id="test-menu-item"
   role="option"
@@ -133,7 +130,6 @@ exports[`matches the snapshot Case 2 Item with match: ({"id": "test-menu-item", 
 exports[`matches the snapshot Case 3 Item with supporting text: ({"id": "test-menu-item", "supportingText": "(supporting text)", "value": "menuItemValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
-  aria-selected="false"
   class="cdx-menu-item cdx-menu-item--enabled"
   id="test-menu-item"
   role="option"
@@ -182,7 +178,6 @@ exports[`matches the snapshot Case 3 Item with supporting text: ({"id": "test-me
 exports[`matches the snapshot Case 4 Item with url: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
-  aria-selected="false"
   class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--has-description"
   id="test-search-result"
   role="option"
@@ -228,7 +223,6 @@ exports[`matches the snapshot Case 4 Item with url: ({"description": "Test searc
 exports[`matches the snapshot Case 5 Item with icon: ({"description": "Test search result", "icon": [Object], "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
-  aria-selected="false"
   class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--has-description"
   id="test-search-result"
   role="option"
@@ -293,7 +287,6 @@ exports[`matches the snapshot Case 5 Item with icon: ({"description": "Test sear
 exports[`matches the snapshot Case 6 Item with placeholder thumbnail: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
-  aria-selected="false"
   class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--has-description"
   id="test-search-result"
   role="option"
@@ -377,7 +370,6 @@ exports[`matches the snapshot Case 6 Item with placeholder thumbnail: ({"descrip
 exports[`matches the snapshot Case 7 Item with search query: ({"description": "Test search result", "id": "test-search-result", "url": "https://example.org/test", "value": "searchResultValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
-  aria-selected="false"
   class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--highlight-query cdx-menu-item--has-description"
   id="test-search-result"
   role="option"
@@ -429,7 +421,6 @@ exports[`matches the snapshot Case 7 Item with search query: ({"description": "T
 exports[`matches the snapshot Case 8 Item with language attributes: ({"description": "la descripción en español", "id": "test-menu-item-with-lang", "label": "Menu item with lang", "language": [Object], "match": "(match)", "value": "menuItemWithLangValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
-  aria-selected="false"
   class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--has-description"
   id="test-menu-item-with-lang"
   role="option"
@@ -490,7 +481,6 @@ exports[`matches the snapshot Case 8 Item with language attributes: ({"descripti
 exports[`matches the snapshot Case 9 Item with language attributes and search query: ({"description": "la descripción en español", "id": "test-menu-item-with-lang", "label": "Menu item with lang", "language": [Object], "match": "(match)", "value": "menuItemWithLangValue"}) => HTML 1`] = `
 <li
   aria-disabled="false"
-  aria-selected="false"
   class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--highlight-query cdx-menu-item--has-description"
   id="test-menu-item-with-lang"
   role="option"
@@ -556,6 +546,122 @@ exports[`matches the snapshot Case 9 Item with language attributes and search qu
           la descripción en español
         </bdi>
       </span>
+    </span>
+  </span>
+  
+</li>
+`;
+
+exports[`matches the snapshot Case 10 Selected item: ({"id": "test-menu-item", "value": "menuItemValue"}) => HTML 1`] = `
+<li
+  aria-checked="true"
+  aria-disabled="false"
+  class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+  id="test-menu-item"
+  role="option"
+>
+  <!-- @slot Custom menu item content. -->
+  
+  <span
+    class="cdx-menu-item__content"
+  >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
+    <!--v-if-->
+    <!-- Item text. -->
+    <span
+      class="cdx-menu-item__text"
+    >
+      <!-- Item label. -->
+      <span
+        class="cdx-menu-item__text__label"
+      >
+        <bdi>
+          menuItemValue
+        </bdi>
+      </span>
+      <!-- Item search query match (e.g. alias). -->
+      <!--v-if-->
+      <!-- Item label supporting text. -->
+      <!--v-if-->
+      <!-- Item description. -->
+      <!--v-if-->
+    </span>
+  </span>
+  
+</li>
+`;
+
+exports[`matches the snapshot Case 11 Item part of multiselect menu: ({"id": "test-menu-item", "value": "menuItemValue"}) => HTML 1`] = `
+<li
+  aria-disabled="false"
+  class="cdx-menu-item cdx-menu-item--enabled"
+  id="test-menu-item"
+  role="option"
+>
+  <!-- @slot Custom menu item content. -->
+  
+  <span
+    class="cdx-menu-item__content"
+  >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
+    <!--v-if-->
+    <!-- Item text. -->
+    <span
+      class="cdx-menu-item__text"
+    >
+      <!-- Item label. -->
+      <span
+        class="cdx-menu-item__text__label"
+      >
+        <bdi>
+          menuItemValue
+        </bdi>
+      </span>
+      <!-- Item search query match (e.g. alias). -->
+      <!--v-if-->
+      <!-- Item label supporting text. -->
+      <!--v-if-->
+      <!-- Item description. -->
+      <!--v-if-->
+    </span>
+  </span>
+  
+</li>
+`;
+
+exports[`matches the snapshot Case 12 Selected item part of multiselect menu: ({"id": "test-menu-item", "value": "menuItemValue"}) => HTML 1`] = `
+<li
+  aria-checked="true"
+  aria-disabled="false"
+  class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+  id="test-menu-item"
+  role="option"
+>
+  <!-- @slot Custom menu item content. -->
+  
+  <span
+    class="cdx-menu-item__content"
+  >
+    <!-- Thumbnail, thumbnail placeholder, or icon. -->
+    <!--v-if-->
+    <!-- Item text. -->
+    <span
+      class="cdx-menu-item__text"
+    >
+      <!-- Item label. -->
+      <span
+        class="cdx-menu-item__text__label"
+      >
+        <bdi>
+          menuItemValue
+        </bdi>
+      </span>
+      <!-- Item search query match (e.g. alias). -->
+      <!--v-if-->
+      <!-- Item label supporting text. -->
+      <!--v-if-->
+      <!-- Item description. -->
+      <!--v-if-->
     </span>
   </span>
   

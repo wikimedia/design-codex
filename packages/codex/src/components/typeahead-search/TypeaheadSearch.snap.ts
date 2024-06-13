@@ -408,7 +408,6 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
             
             <li
               aria-disabled="false"
-              aria-selected="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
               id="cdx-menu-item-62"
               role="option"
@@ -577,7 +576,6 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             
             <li
               aria-disabled="false"
-              aria-selected="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
               id="cdx-menu-item-17"
               role="option"
@@ -652,7 +650,6 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             </li>
             <li
               aria-disabled="false"
-              aria-selected="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--has-description cdx-menu-item--hide-description-overflow"
               id="cdx-menu-item-18"
               role="option"
@@ -733,7 +730,6 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             </li>
             <li
               aria-disabled="false"
-              aria-selected="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
               id="cdx-menu-item-19"
               role="option"

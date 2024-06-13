@@ -13,7 +13,6 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-6"
       role="option"
@@ -49,7 +48,6 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-7"
       role="option"
@@ -85,7 +83,6 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-8"
       role="option"
@@ -121,7 +118,6 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-9"
       role="option"
@@ -157,7 +153,6 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-10"
       role="option"
@@ -193,7 +188,6 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     </li>
     <li
       aria-disabled="true"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--disabled"
       id="cdx-menu-item-11"
       role="option"
@@ -246,7 +240,6 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
     
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-12"
       role="option"
@@ -318,7 +311,6 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-14"
       role="option"
@@ -354,7 +346,6 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-15"
       role="option"
@@ -390,7 +381,6 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-16"
       role="option"
@@ -426,7 +416,6 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
     </li>
     <li
       aria-disabled="true"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--disabled"
       id="cdx-menu-item-17"
       role="option"
@@ -466,12 +455,12 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
 </div>
 `;
 
-exports[`Menu matches the snapshots Case 2 Not expanded: => HTML 1`] = `
+exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTML 1`] = `
 <div
   class="cdx-menu"
-  style="display: none;"
 >
   <ul
+    aria-multiselectable="true"
     class="cdx-menu__listbox"
     role="listbox"
   >
@@ -480,7 +469,6 @@ exports[`Menu matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-18"
       role="option"
@@ -516,8 +504,7 @@ exports[`Menu matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="true"
-      class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+      class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-19"
       role="option"
     >
@@ -552,7 +539,6 @@ exports[`Menu matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-20"
       role="option"
@@ -588,7 +574,6 @@ exports[`Menu matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-21"
       role="option"
@@ -624,7 +609,6 @@ exports[`Menu matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
       id="cdx-menu-item-22"
       role="option"
@@ -660,7 +644,6 @@ exports[`Menu matches the snapshots Case 2 Not expanded: => HTML 1`] = `
     </li>
     <li
       aria-disabled="true"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--disabled"
       id="cdx-menu-item-23"
       role="option"
@@ -700,7 +683,465 @@ exports[`Menu matches the snapshots Case 2 Not expanded: => HTML 1`] = `
 </div>
 `;
 
-exports[`Menu matches the snapshots Case 3 With no results text: => HTML 1`] = `
+exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => HTML 1`] = `
+<div
+  class="cdx-menu"
+>
+  <ul
+    aria-multiselectable="true"
+    class="cdx-menu__listbox"
+    role="listbox"
+  >
+    <!--v-if-->
+    <!--v-if-->
+    
+    <li
+      aria-disabled="false"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-24"
+      role="option"
+    >
+      <!-- @slot Custom menu item content. -->
+      
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!-- Thumbnail, thumbnail placeholder, or icon. -->
+        <!--v-if-->
+        <!-- Item text. -->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <!-- Item label. -->
+          <span
+            class="cdx-menu-item__text__label"
+          >
+            <bdi>
+              Option A
+            </bdi>
+          </span>
+          <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
+          <!-- Item description. -->
+          <!--v-if-->
+        </span>
+      </span>
+      
+    </li>
+    <li
+      aria-checked="true"
+      aria-disabled="false"
+      class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+      id="cdx-menu-item-25"
+      role="option"
+    >
+      <!-- @slot Custom menu item content. -->
+      
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!-- Thumbnail, thumbnail placeholder, or icon. -->
+        <!--v-if-->
+        <!-- Item text. -->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <!-- Item label. -->
+          <span
+            class="cdx-menu-item__text__label"
+          >
+            <bdi>
+              Option B
+            </bdi>
+          </span>
+          <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
+          <!-- Item description. -->
+          <!--v-if-->
+        </span>
+      </span>
+      
+    </li>
+    <li
+      aria-disabled="false"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-26"
+      role="option"
+    >
+      <!-- @slot Custom menu item content. -->
+      
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!-- Thumbnail, thumbnail placeholder, or icon. -->
+        <!--v-if-->
+        <!-- Item text. -->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <!-- Item label. -->
+          <span
+            class="cdx-menu-item__text__label"
+          >
+            <bdi>
+              c
+            </bdi>
+          </span>
+          <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
+          <!-- Item description. -->
+          <!--v-if-->
+        </span>
+      </span>
+      
+    </li>
+    <li
+      aria-disabled="false"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-27"
+      role="option"
+    >
+      <!-- @slot Custom menu item content. -->
+      
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!-- Thumbnail, thumbnail placeholder, or icon. -->
+        <!--v-if-->
+        <!-- Item text. -->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <!-- Item label. -->
+          <span
+            class="cdx-menu-item__text__label"
+          >
+            <bdi>
+              Empty String
+            </bdi>
+          </span>
+          <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
+          <!-- Item description. -->
+          <!--v-if-->
+        </span>
+      </span>
+      
+    </li>
+    <li
+      aria-disabled="false"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-28"
+      role="option"
+    >
+      <!-- @slot Custom menu item content. -->
+      
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!-- Thumbnail, thumbnail placeholder, or icon. -->
+        <!--v-if-->
+        <!-- Item text. -->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <!-- Item label. -->
+          <span
+            class="cdx-menu-item__text__label"
+          >
+            <bdi>
+              Number 0
+            </bdi>
+          </span>
+          <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
+          <!-- Item description. -->
+          <!--v-if-->
+        </span>
+      </span>
+      
+    </li>
+    <li
+      aria-disabled="true"
+      class="cdx-menu-item cdx-menu-item--disabled"
+      id="cdx-menu-item-29"
+      role="option"
+    >
+      <!-- @slot Custom menu item content. -->
+      
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!-- Thumbnail, thumbnail placeholder, or icon. -->
+        <!--v-if-->
+        <!-- Item text. -->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <!-- Item label. -->
+          <span
+            class="cdx-menu-item__text__label"
+          >
+            <bdi>
+              Option D
+            </bdi>
+          </span>
+          <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
+          <!-- Item description. -->
+          <!--v-if-->
+        </span>
+      </span>
+      
+    </li>
+    
+    <!--v-if-->
+  </ul>
+</div>
+`;
+
+exports[`Menu matches the snapshots Case 4 Not expanded: => HTML 1`] = `
+<div
+  class="cdx-menu"
+  style="display: none;"
+>
+  <ul
+    class="cdx-menu__listbox"
+    role="listbox"
+  >
+    <!--v-if-->
+    <!--v-if-->
+    
+    <li
+      aria-disabled="false"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-30"
+      role="option"
+    >
+      <!-- @slot Custom menu item content. -->
+      
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!-- Thumbnail, thumbnail placeholder, or icon. -->
+        <!--v-if-->
+        <!-- Item text. -->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <!-- Item label. -->
+          <span
+            class="cdx-menu-item__text__label"
+          >
+            <bdi>
+              Option A
+            </bdi>
+          </span>
+          <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
+          <!-- Item description. -->
+          <!--v-if-->
+        </span>
+      </span>
+      
+    </li>
+    <li
+      aria-disabled="false"
+      aria-selected="true"
+      class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+      id="cdx-menu-item-31"
+      role="option"
+    >
+      <!-- @slot Custom menu item content. -->
+      
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!-- Thumbnail, thumbnail placeholder, or icon. -->
+        <!--v-if-->
+        <!-- Item text. -->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <!-- Item label. -->
+          <span
+            class="cdx-menu-item__text__label"
+          >
+            <bdi>
+              Option B
+            </bdi>
+          </span>
+          <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
+          <!-- Item description. -->
+          <!--v-if-->
+        </span>
+      </span>
+      
+    </li>
+    <li
+      aria-disabled="false"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-32"
+      role="option"
+    >
+      <!-- @slot Custom menu item content. -->
+      
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!-- Thumbnail, thumbnail placeholder, or icon. -->
+        <!--v-if-->
+        <!-- Item text. -->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <!-- Item label. -->
+          <span
+            class="cdx-menu-item__text__label"
+          >
+            <bdi>
+              c
+            </bdi>
+          </span>
+          <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
+          <!-- Item description. -->
+          <!--v-if-->
+        </span>
+      </span>
+      
+    </li>
+    <li
+      aria-disabled="false"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-33"
+      role="option"
+    >
+      <!-- @slot Custom menu item content. -->
+      
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!-- Thumbnail, thumbnail placeholder, or icon. -->
+        <!--v-if-->
+        <!-- Item text. -->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <!-- Item label. -->
+          <span
+            class="cdx-menu-item__text__label"
+          >
+            <bdi>
+              Empty String
+            </bdi>
+          </span>
+          <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
+          <!-- Item description. -->
+          <!--v-if-->
+        </span>
+      </span>
+      
+    </li>
+    <li
+      aria-disabled="false"
+      class="cdx-menu-item cdx-menu-item--enabled"
+      id="cdx-menu-item-34"
+      role="option"
+    >
+      <!-- @slot Custom menu item content. -->
+      
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!-- Thumbnail, thumbnail placeholder, or icon. -->
+        <!--v-if-->
+        <!-- Item text. -->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <!-- Item label. -->
+          <span
+            class="cdx-menu-item__text__label"
+          >
+            <bdi>
+              Number 0
+            </bdi>
+          </span>
+          <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
+          <!-- Item description. -->
+          <!--v-if-->
+        </span>
+      </span>
+      
+    </li>
+    <li
+      aria-disabled="true"
+      class="cdx-menu-item cdx-menu-item--disabled"
+      id="cdx-menu-item-35"
+      role="option"
+    >
+      <!-- @slot Custom menu item content. -->
+      
+      <span
+        class="cdx-menu-item__content"
+      >
+        <!-- Thumbnail, thumbnail placeholder, or icon. -->
+        <!--v-if-->
+        <!-- Item text. -->
+        <span
+          class="cdx-menu-item__text"
+        >
+          <!-- Item label. -->
+          <span
+            class="cdx-menu-item__text__label"
+          >
+            <bdi>
+              Option D
+            </bdi>
+          </span>
+          <!-- Item search query match (e.g. alias). -->
+          <!--v-if-->
+          <!-- Item label supporting text. -->
+          <!--v-if-->
+          <!-- Item description. -->
+          <!--v-if-->
+        </span>
+      </span>
+      
+    </li>
+    
+    <!--v-if-->
+  </ul>
+</div>
+`;
+
+exports[`Menu matches the snapshots Case 5 With no results text: => HTML 1`] = `
 <div
   class="cdx-menu"
 >
@@ -726,7 +1167,7 @@ exports[`Menu matches the snapshots Case 3 With no results text: => HTML 1`] = `
 </div>
 `;
 
-exports[`Menu matches the snapshots Case 4 Pending: => HTML 1`] = `
+exports[`Menu matches the snapshots Case 6 Pending: => HTML 1`] = `
 <div
   class="cdx-menu"
 >
@@ -767,7 +1208,7 @@ exports[`Menu matches the snapshots Case 4 Pending: => HTML 1`] = `
 </div>
 `;
 
-exports[`Menu matches the snapshots Case 5 Pending with items: => HTML 1`] = `
+exports[`Menu matches the snapshots Case 7 Pending with items: => HTML 1`] = `
 <div
   class="cdx-menu"
 >
@@ -782,9 +1223,8 @@ exports[`Menu matches the snapshots Case 5 Pending with items: => HTML 1`] = `
     
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="cdx-menu-item-24"
+      id="cdx-menu-item-36"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -818,9 +1258,8 @@ exports[`Menu matches the snapshots Case 5 Pending with items: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="cdx-menu-item-25"
+      id="cdx-menu-item-37"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -854,9 +1293,8 @@ exports[`Menu matches the snapshots Case 5 Pending with items: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="cdx-menu-item-26"
+      id="cdx-menu-item-38"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -890,9 +1328,8 @@ exports[`Menu matches the snapshots Case 5 Pending with items: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="cdx-menu-item-27"
+      id="cdx-menu-item-39"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -926,9 +1363,8 @@ exports[`Menu matches the snapshots Case 5 Pending with items: => HTML 1`] = `
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="cdx-menu-item-28"
+      id="cdx-menu-item-40"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -962,9 +1398,8 @@ exports[`Menu matches the snapshots Case 5 Pending with items: => HTML 1`] = `
     </li>
     <li
       aria-disabled="true"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--disabled"
-      id="cdx-menu-item-29"
+      id="cdx-menu-item-41"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -1015,7 +1450,7 @@ exports[`Menu matches the snapshots Case 5 Pending with items: => HTML 1`] = `
 </div>
 `;
 
-exports[`Menu matches the snapshots Case 6 Custom menu item rendering: => HTML 1`] = `
+exports[`Menu matches the snapshots Case 8 Custom menu item rendering: => HTML 1`] = `
 <div
   class="cdx-menu"
 >
@@ -1028,9 +1463,8 @@ exports[`Menu matches the snapshots Case 6 Custom menu item rendering: => HTML 1
     
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="cdx-menu-item-30"
+      id="cdx-menu-item-42"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -1049,7 +1483,7 @@ exports[`Menu matches the snapshots Case 6 Custom menu item rendering: => HTML 1
       aria-disabled="false"
       aria-selected="true"
       class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-      id="cdx-menu-item-31"
+      id="cdx-menu-item-43"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -1066,9 +1500,8 @@ exports[`Menu matches the snapshots Case 6 Custom menu item rendering: => HTML 1
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="cdx-menu-item-32"
+      id="cdx-menu-item-44"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -1085,9 +1518,8 @@ exports[`Menu matches the snapshots Case 6 Custom menu item rendering: => HTML 1
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="cdx-menu-item-33"
+      id="cdx-menu-item-45"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -1104,9 +1536,8 @@ exports[`Menu matches the snapshots Case 6 Custom menu item rendering: => HTML 1
     </li>
     <li
       aria-disabled="false"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="cdx-menu-item-34"
+      id="cdx-menu-item-46"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -1123,9 +1554,8 @@ exports[`Menu matches the snapshots Case 6 Custom menu item rendering: => HTML 1
     </li>
     <li
       aria-disabled="true"
-      aria-selected="false"
       class="cdx-menu-item cdx-menu-item--disabled"
-      id="cdx-menu-item-35"
+      id="cdx-menu-item-47"
       role="option"
     >
       <!-- @slot Custom menu item content. -->

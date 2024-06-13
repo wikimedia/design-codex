@@ -11,6 +11,7 @@
 			:style="listBoxStyle"
 			:aria-live="showPending ? 'polite' : undefined"
 			:aria-relevant="showPending ? ariaRelevant : undefined"
+			:aria-multiselectable="isMultiselect ? true : undefined"
 			v-bind="otherAttrs"
 		>
 			<li
@@ -35,13 +36,14 @@
 				:key="menuItem.value"
 				:ref="( ref ) => assignTemplateRef( ref, index )"
 				v-bind="menuItem"
-				:selected="menuItem.value === selected"
+				:selected="isItemSelected( menuItem.value )"
 				:active="menuItem.value === activeMenuItem?.value"
 				:highlighted="menuItem.value === highlightedMenuItem?.value"
 				:show-thumbnail="showThumbnail"
 				:bold-label="boldLabel"
 				:hide-description-overflow="hideDescriptionOverflow"
 				:search-query="searchQuery"
+				:multiselect="isMultiselect"
 				@change="( menuState, setState ) =>
 					handleMenuItemChange( menuState, setState ? menuItem : null )"
 				@click="$emit( 'menu-item-click', menuItem )"
@@ -72,9 +74,24 @@ import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUn
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import CdxProgressBar from '../progress-bar/ProgressBar.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
-import { MenuItemData, MenuItemDataWithId, MenuState } from '../../types';
+import { MenuItemData, MenuItemDataWithId, MenuState, MenuItemValue } from '../../types';
 import useIntersectionObserver from '../../composables/useIntersectionObserver';
 import useSplitAttributes from '../../composables/useSplitAttributes';
+
+/**
+ * Type guard for the `selected` prop to determine whether it's an array, signaling that the Menu is
+ * in multiselect mode.
+ *
+ * A computed property returning a boolean value is not enough to tell TypeScript that
+ * props.selected is an array, but this type guard satisfies it.
+ *
+ * @param selected
+ * @return Whether this Menu is in multiselect mode.
+ */
+function selectedIsArray( selected: MenuItemValue | MenuItemValue[] | null ):
+	selected is MenuItemValue[] {
+	return selected !== null && Array.isArray( selected );
+}
 
 /**
  * A contextual list of selectable options, often triggered by a control or an input.
@@ -110,14 +127,17 @@ export default defineComponent( {
 			default: null
 		},
 		/**
-		 * Value of the selected menu item, or undefined if no item is selected.
+		 * Value(s) of the selected menu item(s). A single value for single-select, or an array of
+		 * values for multi-select.
 		 *
 		 * Must be bound with `v-model:selected`.
 		 *
-		 * The property should be initialized to `null` rather than using a falsy value.
+		 * The property should be initialized to `null` (for single-select) or an empty array (for
+		 * multi-select) rather than using a falsy value.
 		 */
 		selected: {
-			type: [ String, Number, null ] as PropType<string|number|null>,
+			// eslint-disable-next-line max-len
+			type: [ String, Number, Array, null ] as PropType<MenuItemValue | MenuItemValue[] | null>,
 			required: true
 		},
 		/**
@@ -199,11 +219,14 @@ export default defineComponent( {
 	emits: [
 		// Don't remove the spaces in the "string | number | null" type below; removing these
 		// spaces causes the documentation to render the type as "union" instead.
+		// Keep property descriptions on a single line or they will get cut off.
 		/**
 		 * When the selected menu item changes.
 		 *
-		 * @property {string | number | null} selectedValue The `.value` property of the
-		 * selected menu item, or null if no item is selected.
+		 * Property will be a single value or `null` in single-select mode, or an array of values or
+		 * an empty array in multiselect mode.
+		 *
+		 * @property {MenuItemValue | MenuItemValue[] | null} selectedValue selected value or values
 		 */
 		'update:selected',
 		/**
@@ -312,10 +335,47 @@ export default defineComponent( {
 			keyBufferTimeout = setTimeout( clearKeyBuffer, 1500 );
 		}
 
-		function findSelectedMenuItem(): MenuItemDataWithId|null {
+		function findFirstSelectedMenuItem(): MenuItemDataWithId|null {
+			// Return the single selected menu item or, in multiselect mode, the first one.
 			return computedMenuItems.value.find(
-				( menuItem ) => menuItem.value === props.selected
+				( menuItem ) => selectedIsArray( props.selected ) ?
+					props.selected.indexOf( menuItem.value ) !== -1 :
+					menuItem.value === props.selected
 			) ?? null;
+		}
+
+		// Note that this computed ref is useful if you just need to know whether the Menu is in
+		// multiselect mode or not (e.g. to show a special icon in the MenuItem component if
+		// selected). This can't be used to prove to TypeScript that props.selected is an array.
+		const isMultiselect = computed( () => selectedIsArray( props.selected ) );
+
+		/**
+		 * Get whether a menu item is selected.
+		 *
+		 * @param value value of the menu item
+		 * @return
+		 */
+		function isItemSelected( value: string | number ): boolean {
+			return selectedIsArray( props.selected ) ?
+				props.selected.indexOf( value ) !== -1 :
+				value === props.selected;
+		}
+
+		/**
+		 * Emit an `update:selected` event after an item is selected or de-selected.
+		 *
+		 * @param value value of the newly selected (or de-selected) menu item
+		 */
+		function updateSelected( value: string | number ) {
+			if ( selectedIsArray( props.selected ) ) {
+				// If this value is not currently selected, add it. If it is selected, remove it.
+				const newSelected = props.selected.indexOf( value ) === -1 ?
+					props.selected.concat( value ) :
+					props.selected.filter( ( item ) => item !== value );
+				emit( 'update:selected', newSelected );
+			} else {
+				emit( 'update:selected', value );
+			}
 		}
 
 		/**
@@ -331,8 +391,12 @@ export default defineComponent( {
 
 			switch ( menuState ) {
 				case 'selected':
-					emit( 'update:selected', menuItem?.value ?? null );
-					emit( 'update:expanded', false );
+					if ( menuItem ) {
+						updateSelected( menuItem.value );
+					}
+					if ( !isMultiselect.value ) {
+						emit( 'update:expanded', false );
+					}
 					activeMenuItem.value = null;
 					break;
 
@@ -541,22 +605,28 @@ export default defineComponent( {
 					maybePrevent();
 
 					if ( props.expanded ) {
-						// Select the highlighted menu item then close the menu.
+						// Select the highlighted menu item....
 						if ( highlightedMenuItem.value && highlightedViaKeyboard.value ) {
-							emit( 'update:selected', highlightedMenuItem.value.value );
+							updateSelected( highlightedMenuItem.value.value );
 						}
-						emit( 'update:expanded', false );
+						// Then close the menu, unless this is multiselect mode.
+						if ( !isMultiselect.value ) {
+							emit( 'update:expanded', false );
+						}
 					} else {
 						emit( 'update:expanded', true );
 					}
 					return true;
 				case 'Tab':
 					if ( props.expanded ) {
-						// Select the highlighted menu item then close the menu.
+						// Select the highlighted menu item....
 						if ( highlightedMenuItem.value && highlightedViaKeyboard.value ) {
-							emit( 'update:selected', highlightedMenuItem.value.value );
+							updateSelected( highlightedMenuItem.value.value );
 						}
-						emit( 'update:expanded', false );
+						// Then close the menu, unless this is multiselect mode.
+						if ( !isMultiselect.value ) {
+							emit( 'update:expanded', false );
+						}
 					}
 					return true;
 				case 'ArrowUp':
@@ -566,7 +636,7 @@ export default defineComponent( {
 					// which will result in T304640.
 					if ( props.expanded ) {
 						if ( highlightedMenuItem.value === null ) {
-							handleMenuItemChange( 'highlightedViaKeyboard', findSelectedMenuItem() );
+							handleMenuItemChange( 'highlightedViaKeyboard', findFirstSelectedMenuItem() );
 						}
 						highlightPrev( highlightedMenuItemIndex.value );
 					} else {
@@ -579,7 +649,7 @@ export default defineComponent( {
 
 					if ( props.expanded ) {
 						if ( highlightedMenuItem.value === null ) {
-							handleMenuItemChange( 'highlightedViaKeyboard', findSelectedMenuItem() );
+							handleMenuItemChange( 'highlightedViaKeyboard', findFirstSelectedMenuItem() );
 						}
 						highlightNext( highlightedMenuItemIndex.value );
 					} else {
@@ -593,7 +663,7 @@ export default defineComponent( {
 
 					if ( props.expanded ) {
 						if ( highlightedMenuItem.value === null ) {
-							handleMenuItemChange( 'highlightedViaKeyboard', findSelectedMenuItem() );
+							handleMenuItemChange( 'highlightedViaKeyboard', findFirstSelectedMenuItem() );
 						}
 						highlightNext();
 					} else {
@@ -607,7 +677,7 @@ export default defineComponent( {
 
 					if ( props.expanded ) {
 						if ( highlightedMenuItem.value === null ) {
-							handleMenuItemChange( 'highlightedViaKeyboard', findSelectedMenuItem() );
+							handleMenuItemChange( 'highlightedViaKeyboard', findFirstSelectedMenuItem() );
 						}
 						highlightPrev();
 					} else {
@@ -720,7 +790,7 @@ export default defineComponent( {
 		}
 
 		/**
-		 * Mesure the height of the footer item, and store it in the footerHeight ref.
+		 * Measure the height of the footer item, and store it in the footerHeight ref.
 		 */
 		function updateFooterHeight(): void {
 			if ( props.footer ) {
@@ -759,9 +829,9 @@ export default defineComponent( {
 
 		watch( toRef( props, 'expanded' ), async ( newVal ) => {
 			if ( newVal ) {
-				// The menu was opened
-				// Highlight the selected item, unless another item was already highlighted
-				const selectedMenuItem = findSelectedMenuItem();
+				// The menu was opened. Highlight the selected item, unless another item was already
+				// highlighted.
+				const selectedMenuItem = findFirstSelectedMenuItem();
 				if ( selectedMenuItem && !highlightedMenuItem.value ) {
 					handleMenuItemChange( 'highlighted', selectedMenuItem );
 				}
@@ -817,7 +887,9 @@ export default defineComponent( {
 			activeMenuItem,
 			handleMenuItemChange,
 			handleKeyNavigation,
-			ariaRelevant
+			ariaRelevant,
+			isMultiselect,
+			isItemSelected
 		};
 	},
 	// Public methods

@@ -2,7 +2,7 @@ import { mount, VueWrapper } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import CdxMenu from './Menu.vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
-import { MenuItemData } from '../../types';
+import { MenuItemData, MenuItemValue } from '../../types';
 
 const exampleMenuItems: MenuItemData[] = [
 	{ value: 'a', label: 'Option A' },
@@ -16,6 +16,12 @@ const exampleMenuItems: MenuItemData[] = [
 const defaultProps = {
 	menuItems: exampleMenuItems,
 	selected: null,
+	expanded: true
+};
+
+const multiselectProps = {
+	menuItems: exampleMenuItems,
+	selected: [],
 	expanded: true
 };
 
@@ -37,7 +43,7 @@ describe( 'Menu', () => {
 		type Case = [
 			msg: string,
 			menuItems: MenuItemData[],
-			selected: string|number|null,
+			selected: MenuItemValue|MenuItemValue[]|null,
 			expanded?: boolean,
 			showPending?: boolean,
 			slots?: {
@@ -50,6 +56,8 @@ describe( 'Menu', () => {
 		const cases: Case[] = [
 			[ 'Nothing selected', exampleMenuItems, null ],
 			[ 'Something selected', exampleMenuItems, 'b' ],
+			[ 'Multiselect, nothing selected', exampleMenuItems, [] ],
+			[ 'Multiselect, something selected', exampleMenuItems, [ 'b' ] ],
 			[ 'Not expanded', exampleMenuItems, 'b', false ],
 			[ 'With no results text', [], null, true, false, { 'no-results': 'No results' } ],
 			[ 'Pending', [], null, true, true, { pending: 'Loading...' } ],
@@ -75,18 +83,43 @@ describe( 'Menu', () => {
 	} );
 
 	describe( 'when a menu item is selected via click', () => {
-		it( 'emits an "update:selected" event with the correct "selectedValue"', async () => {
-			const wrapper = mount( CdxMenu, { props: defaultProps } );
-			await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
-			expect( wrapper.emitted()[ 'update:selected' ] ).toBeTruthy();
-			expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ exampleMenuItems[ 0 ].value ] );
+		describe( 'and the menu is in single-select mode', () => {
+			it( 'emits an "update:selected" event with the correct "selectedValue"', async () => {
+				const wrapper = mount( CdxMenu, { props: defaultProps } );
+				await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
+				expect( wrapper.emitted()[ 'update:selected' ] ).toBeTruthy();
+				expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ exampleMenuItems[ 0 ].value ] );
+			} );
+
+			it( 'emits an "update:expanded" event indicating the menu should be closed', async () => {
+				const wrapper = mount( CdxMenu, { props: defaultProps } );
+				await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
+				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+				expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ false ] );
+			} );
 		} );
 
-		it( 'emits an "update:expanded" event indicating the menu should be closed', async () => {
-			const wrapper = mount( CdxMenu, { props: defaultProps } );
-			await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
-			expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
-			expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ false ] );
+		describe( 'and the menu is in multiselect mode', () => {
+			it( 'emits an "update:selected" event with the correct "selectedValue"', async () => {
+				const wrapper = mount( CdxMenu, { props: multiselectProps } );
+				await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
+				expect( wrapper.emitted()[ 'update:selected' ] ).toBeTruthy();
+				expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ [ exampleMenuItems[ 0 ].value ] ] );
+
+				// Simulate v-model.
+				await wrapper.setProps( { selected: [ exampleMenuItems[ 0 ].value ] } );
+				await wrapper.findAllComponents( CdxMenuItem )[ 1 ].trigger( 'click' );
+				expect( wrapper.emitted()[ 'update:selected' ][ 1 ] ).toEqual( [ [
+					exampleMenuItems[ 0 ].value,
+					exampleMenuItems[ 1 ].value
+				] ] );
+			} );
+
+			it( 'does not emit an "update:expanded" event', async () => {
+				const wrapper = mount( CdxMenu, { props: multiselectProps } );
+				await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
+				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeFalsy();
+			} );
 		} );
 
 		describe( 'and the value is 0', () => {
@@ -124,15 +157,30 @@ describe( 'Menu', () => {
 	} );
 
 	describe( 'when the selected prop is updated by the parent', () => {
-		it( 'the component updates itself to the new value', async () => {
-			const wrapper = mount( CdxMenu, { props: {
-				...defaultProps,
-				selected: 'c'
-			} } );
-			expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--selected' );
-			await wrapper.setProps( { selected: 'b' } );
-			expect( wrapper.findAllComponents( CdxMenuItem )[ 1 ].classes() ).toContain( 'cdx-menu-item--selected' );
-			expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).not.toContain( 'cdx-menu-item--selected' );
+		describe( 'and the menu is in single-select mode', () => {
+			it( 'adds selected styles to the selected item', async () => {
+				const wrapper = mount( CdxMenu, { props: {
+					...defaultProps,
+					selected: 'c'
+				} } );
+				expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--selected' );
+				await wrapper.setProps( { selected: 'b' } );
+				expect( wrapper.findAllComponents( CdxMenuItem )[ 1 ].classes() ).toContain( 'cdx-menu-item--selected' );
+				expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).not.toContain( 'cdx-menu-item--selected' );
+			} );
+		} );
+
+		describe( 'and the menu is in multiselect mode', () => {
+			it( 'adds selected styles to the selected item(s)', async () => {
+				const wrapper = mount( CdxMenu, { props: {
+					...multiselectProps,
+					selected: [ 'c' ]
+				} } );
+				expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--selected' );
+				await wrapper.setProps( { selected: [ 'c', 'b' ] } );
+				expect( wrapper.findAllComponents( CdxMenuItem )[ 1 ].classes() ).toContain( 'cdx-menu-item--selected' );
+				expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--selected' );
+			} );
 		} );
 
 		it( 'no update events are emitted', async () => {
@@ -157,17 +205,34 @@ describe( 'Menu', () => {
 		} );
 
 		describe( 'and a selection is present', () => {
-			it( 'sets the selected menu item to "highlighted" if a selection is present', async () => {
-				const wrapper = mount( CdxMenu, { props: {
-					...defaultProps,
-					selected: 'c',
-					expanded: false
-				} } );
-				await delegateKeydownEvent( wrapper, 'Enter' );
-				// Simulate the parent responding to the update:expanded event
-				await wrapper.setProps( { expanded: true } );
-				expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+			describe( 'and the menu is in single-select mode', () => {
+				it( 'sets the selected menu item to "highlighted" if a selection is present', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...defaultProps,
+						selected: 'c',
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'Enter' );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+				} );
 			} );
+
+			describe( 'and the menu is in multiselect mode', () => {
+				it( 'sets the first selected menu item to "highlighted" if a selection is present', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...multiselectProps,
+						selected: [ 'b', 'c' ],
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'Enter' );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 1 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+				} );
+			} );
+
 		} );
 
 		describe( 'and a menu item is highlighted via the keyboard', () => {
@@ -185,6 +250,25 @@ describe( 'Menu', () => {
 				await delegateKeydownEvent( wrapper, 'ArrowDown' );
 				await delegateKeydownEvent( wrapper, 'Enter' );
 				expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ exampleMenuItems[ 2 ].value ] );
+			} );
+
+			describe( 'and the menu is in single-select mode', () => {
+				it( 'closes the menu', async () => {
+					const wrapper = mount( CdxMenu, { props: defaultProps } );
+					await delegateKeydownEvent( wrapper, 'ArrowDown' );
+					await delegateKeydownEvent( wrapper, 'Enter' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ false ] );
+				} );
+			} );
+
+			describe( 'and the menu is in multiselect mode', () => {
+				it( 'does not close the menu', async () => {
+					const wrapper = mount( CdxMenu, { props: multiselectProps } );
+					await delegateKeydownEvent( wrapper, 'ArrowDown' );
+					await delegateKeydownEvent( wrapper, 'Enter' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeFalsy();
+				} );
 			} );
 		} );
 
@@ -240,29 +324,58 @@ describe( 'Menu', () => {
 		} );
 
 		describe( 'and the menu is closed', () => {
-			it( 'does not highlight an item if nothing is selected', async () => {
-				const wrapper = mount( CdxMenu, { props: {
-					...defaultProps,
-					expanded: false
-				} } );
-				await delegateKeydownEvent( wrapper, 'ArrowDown' );
-				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
-				expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
-				expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+			describe( 'and the menu is in single-select mode', () => {
+				it( 'does not highlight an item if nothing is selected', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...defaultProps,
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'ArrowDown' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+				} );
+
+				it( 'highlights the selected item', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...defaultProps,
+						selected: 'c',
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'ArrowDown' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+				} );
 			} );
 
-			it( 'highlights the selected item', async () => {
-				const wrapper = mount( CdxMenu, { props: {
-					...defaultProps,
-					selected: 'c',
-					expanded: false
-				} } );
-				await delegateKeydownEvent( wrapper, 'ArrowDown' );
-				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
-				expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
-				// Simulate the parent responding to the update:expanded event
-				await wrapper.setProps( { expanded: true } );
-				expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+			describe( 'and the menu is in multiselect mode', () => {
+				it( 'does not highlight an item if nothing is selected', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...multiselectProps,
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'ArrowDown' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+				} );
+
+				it( 'highlights the first selected item', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...defaultProps,
+						selected: [ 'b', 'c' ],
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'ArrowDown' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 1 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+				} );
 			} );
 		} );
 	} );
@@ -300,29 +413,58 @@ describe( 'Menu', () => {
 		} );
 
 		describe( 'and the menu is closed', () => {
-			it( 'does not highlight an item if nothing is selected', async () => {
-				const wrapper = mount( CdxMenu, { props: {
-					...defaultProps,
-					expanded: false
-				} } );
-				await delegateKeydownEvent( wrapper, 'ArrowUp' );
-				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
-				expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
-				expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+			describe( 'and the menu is in single-select mode', () => {
+				it( 'does not highlight an item if nothing is selected', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...defaultProps,
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'ArrowUp' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+				} );
+
+				it( 'highlights the selected item', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...defaultProps,
+						selected: 'c',
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'ArrowUp' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+				} );
 			} );
 
-			it( 'highlights the selected item', async () => {
-				const wrapper = mount( CdxMenu, { props: {
-					...defaultProps,
-					selected: 'c',
-					expanded: false
-				} } );
-				await delegateKeydownEvent( wrapper, 'ArrowUp' );
-				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
-				expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
-				// Simulate the parent responding to the update:expanded event
-				await wrapper.setProps( { expanded: true } );
-				expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+			describe( 'and the menu is in multiselect mode', () => {
+				it( 'does not highlight an item if nothing is selected', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...multiselectProps,
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'ArrowUp' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+				} );
+
+				it( 'highlights the first selected item', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...multiselectProps,
+						selected: [ 'b', 'c' ],
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'ArrowUp' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 1 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+				} );
 			} );
 		} );
 	} );
@@ -365,29 +507,58 @@ describe( 'Menu', () => {
 		} );
 
 		describe( 'and the menu is closed', () => {
-			it( 'opens menu but does not highlight an item if nothing is selected', async () => {
-				const wrapper = mount( CdxMenu, { props: {
-					...defaultProps,
-					expanded: false
-				} } );
-				await delegateKeydownEvent( wrapper, 'Home' );
-				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
-				expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
-				expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+			describe( 'and the menu is in single-select mode', () => {
+				it( 'opens menu but does not highlight an item if nothing is selected', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...defaultProps,
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'Home' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+				} );
+
+				it( 'opens menu and highlights the selected item', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...defaultProps,
+						selected: 'c',
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'Home' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+				} );
 			} );
 
-			it( 'opens menu and highlights the selected', async () => {
-				const wrapper = mount( CdxMenu, { props: {
-					...defaultProps,
-					selected: 'c',
-					expanded: false
-				} } );
-				await delegateKeydownEvent( wrapper, 'Home' );
-				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
-				expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
-				// Simulate the parent responding to the update:expanded event
-				await wrapper.setProps( { expanded: true } );
-				expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+			describe( 'and the menu is in multiselect mode', () => {
+				it( 'opens menu but does not highlight an item if nothing is selected', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...multiselectProps,
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'Home' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+				} );
+
+				it( 'opens menu and highlights the first selected item', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...multiselectProps,
+						selected: [ 'b', 'c' ],
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'Home' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 1 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+				} );
 			} );
 		} );
 	} );
@@ -430,29 +601,58 @@ describe( 'Menu', () => {
 		} );
 
 		describe( 'and the menu is closed', () => {
-			it( 'opens menu but does not highlight an item when nothing is selected', async () => {
-				const wrapper = mount( CdxMenu, { props: {
-					...defaultProps,
-					expanded: false
-				} } );
-				await delegateKeydownEvent( wrapper, 'End' );
-				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
-				expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
-				expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+			describe( 'and the menu is in single-select mode', () => {
+				it( 'opens menu but does not highlight an item when nothing is selected', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...defaultProps,
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'End' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+				} );
+
+				it( 'opens menu and highlights the selected item', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...defaultProps,
+						selected: 'c',
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'End' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+				} );
 			} );
 
-			it( 'opens menu and highlights the selected item', async () => {
-				const wrapper = mount( CdxMenu, { props: {
-					...defaultProps,
-					selected: 'c',
-					expanded: false
-				} } );
-				await delegateKeydownEvent( wrapper, 'End' );
-				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
-				expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
-				// Simulate the parent responding to the update:expanded event
-				await wrapper.setProps( { expanded: true } );
-				expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+			describe( 'and the menu is in multiselect mode', () => {
+				it( 'opens menu but does not highlight an item when nothing is selected', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...multiselectProps,
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'End' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+				} );
+
+				it( 'opens menu and highlights the first selected item', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...multiselectProps,
+						selected: [ 'b', 'c' ],
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'End' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 1 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+				} );
 			} );
 		} );
 	} );

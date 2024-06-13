@@ -34,7 +34,8 @@ describe( 'matches the snapshot', () => {
 		item: MenuItemDataWithId|SearchResultWithId,
 		showThumbnail?: boolean,
 		searchQuery?: string,
-
+		selected?: boolean,
+		multiselect?: boolean
 	];
 
 	const cases: Case[] = [
@@ -47,7 +48,10 @@ describe( 'matches the snapshot', () => {
 		[ 'Item with placeholder thumbnail', testSearchResult, true ],
 		[ 'Item with search query', testSearchResult, false, testQuery ],
 		[ 'Item with language attributes', testMenuItemWithLang ],
-		[ 'Item with language attributes and search query', testMenuItemWithLang, false, 'match' ]
+		[ 'Item with language attributes and search query', testMenuItemWithLang, false, 'match' ],
+		[ 'Selected item', testMenuItem, false, '', true ],
+		[ 'Item part of multiselect menu', testMenuItem, false, '', false, true ],
+		[ 'Selected item part of multiselect menu', testMenuItem, false, '', true, true ]
 	];
 
 	test.each( cases )(
@@ -56,10 +60,17 @@ describe( 'matches the snapshot', () => {
 			_,
 			item,
 			showThumbnail = false,
-			searchQuery = ''
+			searchQuery = '',
+			multiselect = false
 		) => {
 			const wrapper = mount( CdxMenuItem, {
-				props: { ...item, showThumbnail, searchQuery }
+				props: {
+					...item,
+					showThumbnail,
+					searchQuery,
+					multiselect,
+					selected: multiselect
+				}
 			} );
 			expect( wrapper.element ).toMatchSnapshot();
 		} );

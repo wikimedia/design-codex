@@ -5,7 +5,8 @@
 		class="cdx-menu-item"
 		:class="rootClasses"
 		:aria-disabled="disabled"
-		:aria-selected="selected"
+		:aria-selected="selected && !multiselect ? true : undefined"
+		:aria-checked="selected && multiselect ? true : undefined"
 		@mousemove="onMouseMove"
 		@mouseleave="onMouseLeave"
 		@mousedown.prevent="onMouseDown"
@@ -271,6 +272,14 @@ export default defineComponent( {
 		action: {
 			type: String as PropType<ButtonAction>,
 			default: 'default'
+		},
+
+		/**
+		 * Whether this menu is in multiselect mode.
+		 */
+		multiselect: {
+			type: Boolean,
+			default: false
 		}
 	},
 
@@ -409,10 +418,20 @@ export default defineComponent( {
 		margin-right: @spacing-50;
 	}
 
-	&__icon.cdx-icon {
-		// Make sure the icon inherits the content element's color.
-		color: inherit;
+	&__icon {
 		margin-right: @spacing-50;
+	}
+
+	&__selected-icon {
+		margin-left: auto;
+	}
+
+	// Make sure icons inherit the content element's color.
+	&__icon,
+	&__selected-icon {
+		&.cdx-icon {
+			color: inherit;
+		}
 	}
 
 	&--bold-label {

@@ -93,9 +93,12 @@ export interface MenuItemLanguageData {
 }
 
 /** @public */
+export type MenuItemValue = string | number;
+
+/** @public */
 export interface MenuItemData {
 	/** Item value or unique identifier. */
-	value: string | number,
+	value: MenuItemValue,
 	/** Display label for the menu item. */
 	label?: string,
 	/** Text to be appended to the result's label, e.g. text matching a search query. */

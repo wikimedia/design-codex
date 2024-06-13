@@ -58,7 +58,6 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-2"
         role="option"
@@ -94,7 +93,6 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-3"
         role="option"
@@ -130,7 +128,6 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-4"
         role="option"
@@ -166,7 +163,6 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       </li>
       <li
         aria-disabled="true"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--disabled"
         id="cdx-menu-item-5"
         role="option"
@@ -202,7 +198,6 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-6"
         role="option"
@@ -320,7 +315,6 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-9"
         role="option"
@@ -356,7 +350,6 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-10"
         role="option"
@@ -392,7 +385,6 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-11"
         role="option"
@@ -428,7 +420,6 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       </li>
       <li
         aria-disabled="true"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--disabled"
         id="cdx-menu-item-12"
         role="option"
@@ -464,7 +455,6 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-13"
         role="option"
@@ -618,7 +608,6 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-17"
         role="option"
@@ -654,7 +643,6 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-18"
         role="option"
@@ -690,7 +678,6 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       </li>
       <li
         aria-disabled="true"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--disabled"
         id="cdx-menu-item-19"
         role="option"
@@ -726,7 +713,6 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-20"
         role="option"
@@ -844,7 +830,6 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-23"
         role="option"
@@ -880,7 +865,6 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-24"
         role="option"
@@ -952,7 +936,6 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       </li>
       <li
         aria-disabled="true"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--disabled"
         id="cdx-menu-item-26"
         role="option"
@@ -988,7 +971,6 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-27"
         role="option"
@@ -1125,7 +1107,6 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-30"
         role="option"
@@ -1161,7 +1142,6 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-31"
         role="option"
@@ -1197,7 +1177,6 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-32"
         role="option"
@@ -1233,7 +1212,6 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       </li>
       <li
         aria-disabled="true"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--disabled"
         id="cdx-menu-item-33"
         role="option"
@@ -1406,7 +1384,6 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-37"
         role="option"
@@ -1442,7 +1419,6 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-38"
         role="option"
@@ -1478,7 +1454,6 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-39"
         role="option"
@@ -1514,7 +1489,6 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       </li>
       <li
         aria-disabled="true"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--disabled"
         id="cdx-menu-item-40"
         role="option"
@@ -1550,7 +1524,6 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-41"
         role="option"
@@ -1668,7 +1641,6 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-44"
         role="option"
@@ -1704,7 +1676,6 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-45"
         role="option"
@@ -1776,7 +1747,6 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       </li>
       <li
         aria-disabled="true"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--disabled"
         id="cdx-menu-item-47"
         role="option"
@@ -1812,7 +1782,6 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-48"
         role="option"
@@ -1930,7 +1899,6 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-51"
         role="option"
@@ -1966,7 +1934,6 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-52"
         role="option"
@@ -2002,7 +1969,6 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-53"
         role="option"
@@ -2038,7 +2004,6 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       </li>
       <li
         aria-disabled="true"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--disabled"
         id="cdx-menu-item-54"
         role="option"
@@ -2074,7 +2039,6 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-55"
         role="option"

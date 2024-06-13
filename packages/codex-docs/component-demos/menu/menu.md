@@ -6,6 +6,7 @@ import InputWithMenuScroll from '@/../component-demos/menu/examples/InputWithMen
 import InputWithMenuNoResults from '@/../component-demos/menu/examples/InputWithMenuNoResults.vue'
 import InputWithMenuPending from '@/../component-demos/menu/examples/InputWithMenuPending.vue'
 import InputWithMenuPendingWithItems from '@/../component-demos/menu/examples/InputWithMenuPendingWithItems.vue'
+import MultiselectMenu from '@/../component-demos/menu/examples/MultiselectMenu.vue';
 </script>
 
 A Menu displays a list of available options or suggestions. They unfold from a
@@ -325,6 +326,28 @@ When there are menu items, only the inline progress bar will display.
 <<< @/../component-demos/menu/examples/InputWithMenuPendingWithItems.vue [NPM]
 
 <<< @/../component-demos/menu/examples-mw/InputWithMenuPendingWithItems.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### With multiselect
+
+To enable multiple selections, set the `selected` prop to an array: an empty array when there are
+no selections, and an array of the selected menu items' values when there are selections.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+    <multiselect-menu />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/menu/examples/MultiselectMenu.vue [NPM]
+
+<<< @/../component-demos/menu/examples-mw/MultiselectMenu.vue [MediaWiki]
 
 :::
 

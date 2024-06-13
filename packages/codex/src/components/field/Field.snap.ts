@@ -286,7 +286,6 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
           
           <li
             aria-disabled="false"
-            aria-selected="false"
             class="cdx-menu-item cdx-menu-item--enabled"
             id="cdx-menu-item-29"
             role="option"
@@ -433,7 +432,6 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
           
           <li
             aria-disabled="false"
-            aria-selected="false"
             class="cdx-menu-item cdx-menu-item--enabled"
             id="cdx-menu-item-35"
             role="option"
@@ -579,7 +577,6 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
           
           <li
             aria-disabled="false"
-            aria-selected="false"
             class="cdx-menu-item cdx-menu-item--enabled"
             id="cdx-menu-item-41"
             role="option"
@@ -782,7 +779,6 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
           
           <li
             aria-disabled="false"
-            aria-selected="false"
             class="cdx-menu-item cdx-menu-item--enabled"
             id="cdx-menu-item-47"
             role="option"

@@ -202,12 +202,18 @@ interface MenuConfig {
 }
 ```
 
+### MenuItemValue
+
+```ts
+type MenuItemValue = string | number;
+```
+
 ### MenuItemData
 
 ```ts
 interface MenuItemData {
 	/** Item value or unique identifier. */
-	value: string | number,
+	value: MenuItemValue,
 	/** Display label for the menu item. */
 	label?: string,
 	/** Text to be appended to the result's label, e.g. text matching a search query. */

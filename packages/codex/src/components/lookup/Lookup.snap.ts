@@ -85,7 +85,6 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-2"
         role="option"
@@ -121,7 +120,6 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-3"
         role="option"
@@ -157,7 +155,6 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-4"
         role="option"
@@ -193,7 +190,6 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       </li>
       <li
         aria-disabled="true"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--disabled"
         id="cdx-menu-item-5"
         role="option"
@@ -306,7 +302,6 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-8"
         role="option"
@@ -342,7 +337,6 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       </li>
       <li
         aria-disabled="false"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--enabled"
         id="cdx-menu-item-9"
         role="option"
@@ -378,7 +372,6 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       </li>
       <li
         aria-disabled="true"
-        aria-selected="false"
         class="cdx-menu-item cdx-menu-item--disabled"
         id="cdx-menu-item-10"
         role="option"
