@@ -2,7 +2,6 @@
 	<cdx-field>
 		<cdx-chip-input
 			v-model:input-chips="exampleChips"
-			remove-button-label="remove"
 		/>
 		<template #label>
 			Aliases

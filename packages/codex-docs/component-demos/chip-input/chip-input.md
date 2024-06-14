@@ -153,8 +153,6 @@ Consider the following recommendations when using chip inputs.
 Pass an array of chip data to the input using `v-model:input-chips`. When the user adds or
 removes a chip, the array will automatically be updated.
 
-Text for the `aria-label` of each chip's "remove" button is a required prop.
-
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
 	<chip-input-basic />

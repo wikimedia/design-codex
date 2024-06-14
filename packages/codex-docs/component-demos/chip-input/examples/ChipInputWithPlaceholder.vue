@@ -1,7 +1,6 @@
 <template>
 	<cdx-chip-input
 		v-model:input-chips="exampleChips"
-		remove-button-label="Remove"
 		placeholder="Enter one or more items"
 	/>
 </template>
