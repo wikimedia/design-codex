@@ -66,19 +66,16 @@
 	},
 	"color": {
 		"base": {
-			"value": "{ color.gray100 }"
-		},
-		"base--hover": {
-			"value": "{ color.white }"
-		},
-		"emphasized": {
-			"value": "{ color.white }"
-		},
-		"subtle": {
 			"value": "{ color.gray200 }"
 		},
-		"placeholder": {
-			"value": "{ color.gray300 }"
+		"base--hover": {
+			"value": "{ color.gray100 }"
+		},
+		"emphasized": {
+			"value": "{ color.gray100 }"
+		},
+		"subtle": {
+			"value": "{ color.gray400 }"
 		},
 		"inverted": {
 			"value": "{ color.gray800 }"
