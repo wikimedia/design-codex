@@ -388,7 +388,7 @@ module.exports = {
 				'animation-timing-function',
 				'animation-delay',
 				'animation-direction',
-				'animation-fill-mode',
+				// 'animation-fill-mode', /* has no Codex design token */
 				'animation-play-state',
 				'transition',
 				'transition-property',
