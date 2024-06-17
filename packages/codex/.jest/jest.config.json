@@ -2,7 +2,8 @@
 	"rootDir": "..",
 	"transform": {
 		".+\\.ts$": "ts-jest",
-		".+\\.vue$": "@vue/vue3-jest"
+		".+\\.vue$": "@vue/vue3-jest",
+		".+\\.less": "<rootDir>/.jest/lessTransform.js"
 	},
 	"testEnvironment": "jsdom",
 	"testEnvironmentOptions": {
