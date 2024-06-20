@@ -20,9 +20,13 @@ class Tooltip {
 
 	private autoUpdateCleanup: () => void;
 
-	private eventHandlers: Record<string, ( () => void )>;
+	private referenceElementHandlers: Record<string, ( () => void )>;
+
+	private tooltipElementHandlers: Record<string, ( () => void )>;
 
 	private escapeHandler: ( event: KeyboardEvent ) => void;
+
+	private timeoutId: ReturnType<typeof setTimeout>|null;
 
 	constructor( referenceElement: StatefulDirectiveElement, options: TooltipOptions ) {
 		// Initialize tooltip instance properties
@@ -31,6 +35,7 @@ class Tooltip {
 		this.referenceElement = referenceElement;
 		this.textContent = options.textContent;
 		this.placement = options.placement ?? 'bottom';
+		this.timeoutId = null;
 
 		// Set up DOM elements
 		this.tooltipElement = doc.createElement( 'div' );
@@ -41,14 +46,20 @@ class Tooltip {
 		this.tooltipElement.textContent = this.textContent;
 		this.referenceElement.parentElement?.appendChild( this.tooltipElement );
 
-		// Define handler methods (so that they can be easily removed when necessary)
-		this.eventHandlers = {};
-		this.eventHandlers.mouseenter = this.show.bind( this );
-		this.eventHandlers.mouseleave = this.hide.bind( this );
-		this.eventHandlers.focus = this.show.bind( this );
-		this.eventHandlers.blur = this.hide.bind( this );
+		// Event handlers are stashed in an an object for convenient setup/teardown
+		// 1. Reference element handlers
+		this.referenceElementHandlers = {};
+		this.referenceElementHandlers.mouseenter = this.show.bind( this );
+		this.referenceElementHandlers.mouseleave = this.hideAfterDelay.bind( this );
+		this.referenceElementHandlers.focus = this.show.bind( this );
+		this.referenceElementHandlers.blur = this.hide.bind( this );
 
-		// Escape handler requires separate treatment
+		// 2. Tooltip element handlers
+		this.tooltipElementHandlers = {};
+		this.tooltipElementHandlers.mouseenter = this.show.bind( this );
+		this.tooltipElementHandlers.mouseleave = this.hideAfterDelay.bind( this );
+
+		// 3. Escape key handler (global) requires separate treatment
 		this.escapeHandler = this.onKeyup.bind( this );
 
 		// Add the event listeners (except the escape key listener) to the document
@@ -67,6 +78,10 @@ class Tooltip {
 	}
 
 	private show() {
+		if ( this.timeoutId ) {
+			clearTimeout( this.timeoutId );
+		}
+
 		this.tooltipElement.style.display = 'block';
 		// Add the escape key listener when the tooltip is displayed
 		this.tooltipElement.ownerDocument.addEventListener( 'keyup', this.escapeHandler );
@@ -78,6 +93,10 @@ class Tooltip {
 		this.tooltipElement.ownerDocument.removeEventListener( 'keyup', this.escapeHandler );
 	}
 
+	private hideAfterDelay() {
+		this.timeoutId = setTimeout( this.hide.bind( this ), 250 );
+	}
+
 	private onKeyup( event: KeyboardEvent ) {
 		if ( event.key === 'Escape' && this.isVisible() ) {
 			this.hide();
@@ -85,14 +104,22 @@ class Tooltip {
 	}
 
 	private addEventListeners() {
-		Object.keys( this.eventHandlers ).forEach( ( k ) => {
-			this.referenceElement.addEventListener( k, this.eventHandlers[ k ] );
+		Object.keys( this.referenceElementHandlers ).forEach( ( k ) => {
+			this.referenceElement.addEventListener( k, this.referenceElementHandlers[ k ] );
+		} );
+
+		Object.keys( this.tooltipElementHandlers ).forEach( ( k ) => {
+			this.tooltipElement.addEventListener( k, this.tooltipElementHandlers[ k ] );
 		} );
 	}
 
 	private removeEventListeners() {
-		Object.keys( this.eventHandlers ).forEach( ( k ) => {
-			this.referenceElement.removeEventListener( k, this.eventHandlers[ k ] );
+		Object.keys( this.referenceElementHandlers ).forEach( ( k ) => {
+			this.referenceElement.removeEventListener( k, this.referenceElementHandlers[ k ] );
+		} );
+
+		Object.keys( this.tooltipElementHandlers ).forEach( ( k ) => {
+			this.tooltipElement.removeEventListener( k, this.tooltipElementHandlers[ k ] );
 		} );
 	}
 
