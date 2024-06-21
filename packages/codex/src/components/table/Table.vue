@@ -142,7 +142,7 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent, ref, toRef, computed, onMounted, watch } from 'vue';
+import { PropType, defineComponent, ref, toRef, computed } from 'vue';
 import { TableColumn, TableRow, TableRowWithIdentifier, TableSort, TableSortOption } from '../../types';
 import { TableTextAlignments, TableRowIdentifier } from '../../constants';
 import useModelWrapper from '../../composables/useModelWrapper';
@@ -200,12 +200,13 @@ export default defineComponent( {
 				const ids = value.map( ( column: TableColumn ) => column.id );
 				const hasUniqueIds = ( new Set( ids ) ).size === ids.length;
 				if ( !hasUniqueIds ) {
-					// Vue prints an unhelpful warning when the validator fails. Instead, print our
-					// own warning, then return true regardless.
+					// The warning that Vue prints when a validator fails isn't very informative,
+					// so we add our own.
 					// eslint-disable-next-line no-console
 					console.warn(
-						'Each column in the `columns` prop of CdxTable must have a unique `id`.'
+						'Each column in the "columns" prop of CdxTable must have a unique "id".'
 					);
+					return false;
 				}
 				return true;
 			}
@@ -218,7 +219,28 @@ export default defineComponent( {
 		 */
 		data: {
 			type: Array as PropType<TableRow[]|TableRowWithIdentifier[]>,
-			default: () => []
+			default: () => [],
+			validator: ( value: TableRow[]|TableRowWithIdentifier[], props ) => {
+				if (
+					!Array.isArray( props.columns ) ||
+					props.columns.length === 0 ||
+					value.length === 0
+				) {
+					return true;
+				}
+
+				const hasSort = props.columns.some( ( column ) => 'allowSort' in column );
+				const rowsHaveIds = value.every( ( row ) => TableRowIdentifier in row );
+
+				if ( hasSort && props.useRowSelection && !rowsHaveIds ) {
+					// eslint-disable-next-line no-console
+					console.warn(
+						'For CdxTables with sorting and row selection, each row in the "data" prop must have a "TableRowIdentifier".'
+					);
+					return false;
+				}
+				return true;
+			}
 		},
 		/**
 		 * Whether to use `<th>` for the first cell in each row.
@@ -522,30 +544,6 @@ export default defineComponent( {
 			}
 		}
 
-		/**
-		 * Check for TableRowIdentifiers when sorting and row selection are both enabled.
-		 */
-		function validateData() {
-			if ( props.columns.length === 0 || props.data.length === 0 ) {
-				return;
-			}
-
-			const hasSort = props.columns.some( ( column ) => 'allowSort' in column );
-			const rowsHaveIds = props.data.every( ( row ) => TableRowIdentifier in row );
-
-			if ( hasSort && props.useRowSelection && !rowsHaveIds ) {
-				// eslint-disable-next-line no-console
-				console.warn(
-					'For CdxTables with sorting and row selection, each row in the `data` prop must have a `TableRowIdentifier`.'
-				);
-			}
-		}
-
-		onMounted( () => validateData() );
-		watch( toRef( props, 'columns' ), () => validateData() );
-		watch( toRef( props, 'data' ), () => validateData() );
-		watch( toRef( props, 'useRowSelection' ), () => validateData() );
-
 		return {
 			// Row selection constants.
 			wrappedSelectedRows,
@@ -749,7 +747,7 @@ export default defineComponent( {
 		// Column of row selection checkboxes.
 		&__select-rows {
 			// Make this column as narrow as possible.
-			width: @size-6;
+			width: @size-absolute-1;
 		}
 
 		&__row {
