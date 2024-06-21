@@ -10,10 +10,13 @@ Volker E. <volker.e@wikimedia.org>
 
 Patch Contributors (minor contributors, alphabetically)
 
+Akiel <akiel@fandom.com>
+Bartosz Dziewoński <dziewonski@fastmail.fm>
 bwang <bwang@wikimedia.org>
 ddw <ddwaal-ctr@wikimedia.org>
 didier-ds <didiersenou94@gmail.com>
 Ed Sanders <esanders@wikimedia.org>
+JForrester <jforrester@wikimedia.org>
 Jon Robson <jdlrobson@gmail.com>
 Julia Kieserman <jkieserman@wikimedia.org>
 Kosta Harlan <kharlan@wikimedia.org>
@@ -25,6 +28,7 @@ Noa Rave <noa.rave@wikimedia.de>
 Sergio Gimeno <sgimeno@wikimedia.org>
 sunyiming <seedless_steven@outlook.com>
 szymonswiergosz <szymon.swiergosz@gmail.com>
+TheDJ <hartman.wiki@gmail.com>
 Thiemo Kreuz <thiemo.kreuz@wikimedia.de>
 Ty Hopp <hopp.ty.c@gmail.com>
 Zelig880 <scuomo1988@gmail.com>
@@ -40,7 +44,7 @@ Ezekiel Udoh <eudoh@wikimedia.org>
 Lauren de Lench <ldelench@wikimedia.org>
 Leza Zaman <lzaman@wikimedia.org>
 Marcella Florence <mflorence@wikimedia.org>
-Nat Hillard <nathillard@wikimedia.org>
+Nat Baca <nbaca@wikimedia.org>
 Rita Ho <rho@wikimedia.org>
 Sarai Sánchez Fuentes <sarai.sanchez@wikimedia.de>
 STH <sth@wikimedia.org>
