@@ -49,6 +49,7 @@ import CdxThumbnail from './components/thumbnail/Thumbnail.vue';
 import CdxToggleButton from './components/toggle-button/ToggleButton.vue';
 import CdxToggleButtonGroup from './components/toggle-button-group/ToggleButtonGroup.vue';
 import CdxToggleSwitch from './components/toggle-switch/ToggleSwitch.vue';
+import CdxTooltip from './components/tooltip/Tooltip';
 import CdxTypeaheadSearch from './components/typeahead-search/TypeaheadSearch.vue';
 
 // Composables
@@ -138,6 +139,7 @@ export {
 	CdxToggleButton,
 	CdxToggleButtonGroup,
 	CdxToggleSwitch,
+	CdxTooltip,
 	CdxTypeaheadSearch,
 
 	// Composables

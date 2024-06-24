@@ -48,7 +48,7 @@ Tooltip content
 
 ### Component limitations
 
-The maximum width for the Tooltip is set at `@size-600` (256px).
+The maximum width for the Tooltip is set at `@size-1600` (256px).
 
 ## Demos
 
