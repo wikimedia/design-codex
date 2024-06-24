@@ -78,7 +78,7 @@ test.each( cases )( 'Case %# %s', ( _, foo, bar = 'bleh!' ) => {
 ```
 :::warning
 Make sure that the arrow function parameters for optional values have a default value set!
-If no default value is set, tests cases where an optional element is missing may fail with
+If no default value is set, test cases where an optional element is missing may fail with
 `Exceeded timeout of 5000 ms for a test while waiting for done() to be called.` or otherwise behave
 very strangely.
 :::
