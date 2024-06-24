@@ -64,6 +64,25 @@ test.each( cases )( 'Case %# %s', ( _, a, b, expected ) => {
 } );
 ```
 
+Test cases can have optional parameters, but tread carefully. Optional array elements in the `Case`
+type **must** map to optional parameters in the arrow function with a default value, like this:
+```typescript
+type Case = [ msg: string, foo: string, bar?: string ];
+const cases = [
+	[ 'Only a foo', 'foo!' ],
+	[ 'Both a foo and a bar', 'foo!', 'bar!' ]
+];
+test.each( cases )( 'Case %# %s', ( _, foo, bar = 'bleh!' ) => {
+	// ....
+} );
+```
+:::warning
+Make sure that the arrow function parameters for optional values have a default value set!
+If no default value is set, tests cases where an optional element is missing may fail with
+`Exceeded timeout of 5000 ms for a test while waiting for done() to be called.` or otherwise behave
+very strangely.
+:::
+
 ### Structuring unit tests
 Unit tests should be used to test the behavior of a component, independently from other units
 (libraries or components). This section defines some standards to ensure that test files can be
