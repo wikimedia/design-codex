@@ -16,9 +16,8 @@ const controlsConfig = [
 		type: 'boolean'
 	},
 	{
-		name: 'dismissButtonLabel',
-		type: 'text',
-		initial: 'Close'
+		name: 'allowUserDismiss',
+		type: 'boolean'
 	},
 	{
 		name: 'default',
@@ -409,9 +408,7 @@ module.exports = defineComponent( {
 
 ### Dismiss button
 
-Messages can be made dismissable by supplying a semantic label for the dismiss button via the
-`dismissButtonLabel` prop. This label will be visually hidden but accessible to assistive
-technology, specifically screen readers.
+Messages can be made dismissable by setting the `allowUserDismiss` prop to `true`.
 
 When the dismiss button is clicked, the Message component hides itself, and a 'user-dismissed' event
 is emitted to the parent component in case the parent component needs to react to the message
@@ -583,7 +580,7 @@ Only notice messages may have a custom icon.
 Message styles and icon will vary depending on the message type (notice, warning, error or success). Messages are block style by default, but can be displayed as inline messages via the `inline` prop.
 
 Block-style messages can be made dismissable in the following ways:
-- By using the `dismissButtonLabel` prop, which adds a dismiss button
+- By using the `allowUserDismiss` prop, which adds a dismiss button.
 - By using the `autoDismiss` prop. This can be set to `true` to use the default display time of 4000 milliseconds (4 seconds), or the display time can be customized by setting `autoDismiss` to a number of milliseconds. Error messages cannot auto-dismiss: if the `type` prop is set to `error`, then the `autoDismiss` prop will be ignored.
 
 ## CSS-only version

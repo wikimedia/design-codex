@@ -23,10 +23,10 @@
 				class="cdx-message__dismiss-button"
 				weight="quiet"
 				type="button"
-				:aria-label="dismissButtonLabel"
+				:aria-label="translatedDismissButtonLabel"
 				@click="onDismiss( 'user-dismissed' )"
 			>
-				<cdx-icon :icon="cdxIconClose" :icon-label="dismissButtonLabel" />
+				<cdx-icon :icon="cdxIconClose" />
 			</cdx-button>
 		</div>
 	</Transition>
@@ -46,6 +46,7 @@ import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 import { statusTypeValidator } from '../../constants';
 import { StatusType, StatusIconMap } from '../../types';
+import useI18n from '../../composables/useI18n';
 
 const iconMap: StatusIconMap = {
 	notice: cdxIconInfoFilled,
@@ -98,10 +99,18 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Label text for the dismiss button for user-dismissable messages.
+		 * Allow the message to be dismissed by the user. Adds an icon-only dismiss button.
+		 */
+		allowUserDismiss: {
+			type: Boolean,
+			default: false
+		},
+
+		// DEPRECATED: set default to 'Close' (T368444).
+		/**
+		 * Visually-hidden label text for the dismiss button for user-dismissable messages.
 		 *
-		 * An icon-only button will be displayed that will hide the message on click. This prop is
-		 * for the hidden button label required for accessibility purposes and tooltip text.
+		 * Omit this prop to use the default value, "Close".
 		 */
 		dismissButtonLabel: {
 			type: String,
@@ -143,7 +152,14 @@ export default defineComponent( {
 		const dismissed = ref( false );
 		const userDismissable = computed( () =>
 			props.inline === false &&
-			props.dismissButtonLabel.length > 0
+			// DEPRECATED: require use of new prop allowUserDismiss (T368444).
+			( props.dismissButtonLabel.length > 0 || props.allowUserDismiss )
+		);
+
+		// DEPRECATED: just use the dismissButtonLabel prop once it defaults to 'Close' (T368444).
+		const translatedDismissButtonLabel = useI18n(
+			'cdx-message-dismiss-button-label',
+			() => props.dismissButtonLabel || 'Close'
 		);
 
 		const displayTime = computed( () => {
@@ -213,6 +229,7 @@ export default defineComponent( {
 		return {
 			dismissed,
 			userDismissable,
+			translatedDismissButtonLabel,
 			rootClasses,
 			leaveActiveClass,
 			computedIcon,

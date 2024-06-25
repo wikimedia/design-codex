@@ -10,6 +10,7 @@ describe( 'matches the snapshot', () => {
 		props: {
 			type?: StatusType,
 			inline?: boolean,
+			allowUserDismiss?: boolean,
 			dismissButtonLabel?: string,
 			icon?: Icon
 		},
@@ -25,7 +26,8 @@ describe( 'matches the snapshot', () => {
 			'<p>Message content</p>'
 		] ),
 		[ 'Inline', { inline: true }, '<p>Message content</p>' ],
-		[ 'Dismissable', { dismissButtonLabel: 'Close' }, '<p>Message content</p>' ],
+		[ 'Dismissable', { allowUserDismiss: true }, '<p>Message content</p>' ],
+		[ 'Dismissable, custom label', { allowUserDismiss: true, dismissButtonLabel: 'Dismiss' }, '<p>Message content</p>' ],
 		[ 'Custom icon', { icon: cdxIconArticle }, '<p>Message content</p>' ]
 
 	];
@@ -42,8 +44,17 @@ describe( 'Message', () => {
 		jest.useRealTimers();
 	} );
 
+	// DEPRECATED: eventually remove (T368444).
+	it( 'handles user dismissal with the deprecated API', async () => {
+		const wrapper = mount( CdxMessage, { props: { dismissButtonLabel: 'Dismiss' } } );
+		await wrapper.get( 'button' ).trigger( 'click' );
+		expect( wrapper.emitted()[ 'user-dismissed' ] ).toBeTruthy();
+		expect( wrapper.vm.dismissed ).toBeTruthy();
+		expect( wrapper.vm.leaveActiveClass ).toBe( 'cdx-message-leave-active-user' );
+	} );
+
 	it( 'handles user dismissal', async () => {
-		const wrapper = mount( CdxMessage, { props: { dismissButtonLabel: 'Close' } } );
+		const wrapper = mount( CdxMessage, { props: { allowUserDismiss: true } } );
 		await wrapper.get( 'button' ).trigger( 'click' );
 		expect( wrapper.emitted()[ 'user-dismissed' ] ).toBeTruthy();
 		expect( wrapper.vm.dismissed ).toBeTruthy();
