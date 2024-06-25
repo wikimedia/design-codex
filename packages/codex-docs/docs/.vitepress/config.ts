@@ -122,7 +122,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'ADR 6 - Field Component', link: '/using-codex/adrs/06-adr-field-component' },
 						{ text: 'ADR 7 - FloatingUI', link: '/using-codex/adrs/07-adr-floating-ui' },
 						{ text: 'ADR 8 - Alternate Color Modes', link: '/using-codex/adrs/08-adr-color-modes' },
-						{ text: 'ADR 9 - CSS Icons', link: '/using-codex/adrs/09-adr-css-icons' }
+						{ text: 'ADR 9 - CSS Icons', link: '/using-codex/adrs/09-adr-css-icons' },
+						{ text: 'ADR 10 - i18n support', link: '/using-codex/adrs/10-adr-i18n-for-common-strings' }
 					]
 				}
 			],
