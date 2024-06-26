@@ -71,6 +71,10 @@
 		"blue800": {
 			"value": "#1c2940"
 		},
+		"blue999": {
+			"comment": "This value is the current diff color in MediaWiki, which exists outside of the existing Codex palette. It is temporary and therefore out of order. This token will be reconsidered and replaced after a more wholistic diff styling exploration, Phabricator task number T333681.",
+			"value": "#a3d3ff"
+		},
 		"red100": {
 			"value": "#fee7e6"
 		},
@@ -95,6 +99,10 @@
 		"red800": {
 			"value": "#421211"
 		},
+		"red999": {
+			"comment": "This value is the current diff color in MediaWiki, which exists outside of the existing Codex palette. It is temporary and therefore out of order. This token will be reconsidered and replaced after a more wholistic diff styling exploration, Phabricator task number T333681.",
+			"value": "#8b0000"
+		},
 		"yellow100": {
 			"value": "#fef6e7"
 		},
@@ -113,6 +121,10 @@
 		"yellow800": {
 			"value": "#301d00"
 		},
+		"yellow999": {
+			"comment": "This value is the current diff color in MediaWiki, which exists outside of the existing Codex palette. It is temporary and therefore out of order. This token will be reconsidered and replaced after a more wholistic diff styling exploration, Phabricator task number T333681.",
+			"value": "#ffe49c"
+		},
 		"green100": {
 			"value": "#d5fdf4"
 		},
@@ -130,6 +142,10 @@
 		},
 		"green800": {
 			"value": "#00261e"
+		},
+		"green999": {
+			"comment": "This value is the current diff color in MediaWiki, which exists outside of the existing Codex palette. It is temporary and therefore out of order. This token will be reconsidered and replaced after a more wholistic diff styling exploration, Phabricator task number T333681.",
+			"value": "#006400"
 		},
 		"purple250": {
 			"value": "#c3b2d8"
