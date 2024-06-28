@@ -103,6 +103,11 @@ interface FloatingMenuOptions {
 type HTMLDirection = 'ltr' | 'rtl';
 ```
 
+### I18nFunction
+```ts
+export type I18nFunction = ( messageKey: I18nMessageKey, ...params: any[] ) => string | null;
+```
+
 ### Icon
 
 Icons are a special type defined in the `@wikimedia/codex-icons` package. The `Icon` type is a union
