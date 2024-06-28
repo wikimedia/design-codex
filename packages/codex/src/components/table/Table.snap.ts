@@ -33,6 +33,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
       
     </div>
   </div>
+  <!--v-if-->
   <div
     class="cdx-table__table-wrapper"
   >
@@ -263,6 +264,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
       
     </table>
   </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -300,6 +302,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
       
     </div>
   </div>
+  <!--v-if-->
   <div
     class="cdx-table__table-wrapper"
   >
@@ -530,6 +533,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
       
     </table>
   </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -567,6 +571,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
       
     </div>
   </div>
+  <!--v-if-->
   <div
     class="cdx-table__table-wrapper"
   >
@@ -853,6 +858,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
       
     </table>
   </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -863,6 +869,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
   tabindex="0"
 >
   <!--v-if-->
+  <!--v-if-->
   <div
     class="cdx-table__table-wrapper"
   >
@@ -1093,6 +1100,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
       
     </table>
   </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -1130,6 +1138,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
       
     </div>
   </div>
+  <!--v-if-->
   <div
     class="cdx-table__table-wrapper"
   >
@@ -1365,6 +1374,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
     </table>
   </div>
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -1401,6 +1411,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
       
     </div>
   </div>
+  <!--v-if-->
   <div
     class="cdx-table__table-wrapper"
   >
@@ -1639,6 +1650,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
     </table>
   </div>
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -1675,6 +1687,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
       
     </div>
   </div>
+  <!--v-if-->
   <div
     class="cdx-table__table-wrapper"
   >
@@ -2118,6 +2131,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
     </table>
   </div>
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -2154,281 +2168,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
       
     </div>
   </div>
-  <div
-    class="cdx-table__table-wrapper"
-  >
-    <table
-      class="cdx-table__table"
-    >
-      <!-- Visually-hidden caption element, for assistive technology. -->
-      <caption>
-        
-        Table caption
-        
-      </caption>
-      <!-- @slot Custom &lt;thead&gt;. -->
-      
-      <thead>
-        <tr>
-          <!--v-if-->
-          
-          <th
-            class=""
-            scope="col"
-          >
-            
-            Column 1
-            
-          </th>
-          <th
-            class=""
-            scope="col"
-          >
-            
-            Column 2
-            
-          </th>
-          <th
-            class=""
-            scope="col"
-          >
-            
-            Column 3
-            
-          </th>
-          
-        </tr>
-      </thead>
-      
-      <!-- @slot Custom &lt;tbody&gt;. -->
-      
-      <tbody>
-        
-        <tr
-          class=""
-        >
-          <!--v-if-->
-          
-          <td
-            class=""
-          >
-            <!--
-									@slot Table cell content, per column.
-									@binding item {any} Data for the cell
-									@binding row {TableRow|TableRowWithIdentifier} Data for the row
-								-->
-            
-            One
-            
-          </td>
-          <td
-            class=""
-          >
-            <!--
-									@slot Table cell content, per column.
-									@binding item {any} Data for the cell
-									@binding row {TableRow|TableRowWithIdentifier} Data for the row
-								-->
-            
-            Two
-            
-          </td>
-          <td
-            class=""
-          >
-            <!--
-									@slot Table cell content, per column.
-									@binding item {any} Data for the cell
-									@binding row {TableRow|TableRowWithIdentifier} Data for the row
-								-->
-            
-            Three
-            
-          </td>
-          
-        </tr>
-        <tr
-          class=""
-        >
-          <!--v-if-->
-          
-          <td
-            class=""
-          >
-            <!--
-									@slot Table cell content, per column.
-									@binding item {any} Data for the cell
-									@binding row {TableRow|TableRowWithIdentifier} Data for the row
-								-->
-            
-            1
-            
-          </td>
-          <td
-            class=""
-          >
-            <!--
-									@slot Table cell content, per column.
-									@binding item {any} Data for the cell
-									@binding row {TableRow|TableRowWithIdentifier} Data for the row
-								-->
-            
-            2
-            
-          </td>
-          <td
-            class=""
-          >
-            <!--
-									@slot Table cell content, per column.
-									@binding item {any} Data for the cell
-									@binding row {TableRow|TableRowWithIdentifier} Data for the row
-								-->
-            
-            3
-            
-          </td>
-          
-        </tr>
-        <tr
-          class=""
-        >
-          <!--v-if-->
-          
-          <td
-            class=""
-          >
-            <!--
-									@slot Table cell content, per column.
-									@binding item {any} Data for the cell
-									@binding row {TableRow|TableRowWithIdentifier} Data for the row
-								-->
-            
-            Four
-            
-          </td>
-          <td
-            class=""
-          >
-            <!--
-									@slot Table cell content, per column.
-									@binding item {any} Data for the cell
-									@binding row {TableRow|TableRowWithIdentifier} Data for the row
-								-->
-            
-            Five
-            
-          </td>
-          <td
-            class=""
-          >
-            <!--
-									@slot Table cell content, per column.
-									@binding item {any} Data for the cell
-									@binding row {TableRow|TableRowWithIdentifier} Data for the row
-								-->
-            
-            Six
-            
-          </td>
-          
-        </tr>
-        <tr
-          class=""
-        >
-          <!--v-if-->
-          
-          <td
-            class=""
-          >
-            <!--
-									@slot Table cell content, per column.
-									@binding item {any} Data for the cell
-									@binding row {TableRow|TableRowWithIdentifier} Data for the row
-								-->
-            
-            4
-            
-          </td>
-          <td
-            class=""
-          >
-            <!--
-									@slot Table cell content, per column.
-									@binding item {any} Data for the cell
-									@binding row {TableRow|TableRowWithIdentifier} Data for the row
-								-->
-            
-            5
-            
-          </td>
-          <td
-            class=""
-          >
-            <!--
-									@slot Table cell content, per column.
-									@binding item {any} Data for the cell
-									@binding row {TableRow|TableRowWithIdentifier} Data for the row
-								-->
-            
-            6
-            
-          </td>
-          
-        </tr>
-        
-      </tbody>
-      
-      <!-- @slot Custom &lt;tfoot&gt;. -->
-      
-      
-    </table>
-  </div>
-  <div
-    class="cdx-table__footer"
-  >
-    <!-- eslint-disable-next-line max-len -->
-    <!-- @slot Footer content. Not to be confused with &lt;tfoot&gt;; use the tfoot slot to add that. -->
-    
-    Footer slot content
-    
-  </div>
-</div>
-`;
-
-exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Object]]) => HTML 1`] = `
-<div
-  class="cdx-table"
-  tabindex="0"
->
-  <div
-    class="cdx-table__header"
-  >
-    <!--
-				We need this div, even if the caption is hidden, to ensure the
-				slot is aligned to the end.
-				aria-hidden is used so assistive tech will skip the visible caption and only read
-				the &lt;caption&gt; element. However, if there is header content, the visible caption
-				should be read too to ensure the caption is read before the header content.
-			-->
-    <div
-      aria-hidden="true"
-      class="cdx-table__header__caption"
-    >
-      <!-- Visible table title. -->
-      
-      Table caption
-      
-    </div>
-    <div
-      class="cdx-table__header__content"
-    >
-      <!-- eslint-disable-next-line max-len -->
-      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
-      
-      
-    </div>
-  </div>
+  <!--v-if-->
   <div
     class="cdx-table__table-wrapper"
   >
@@ -2660,6 +2400,284 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
     </table>
   </div>
   <!--v-if-->
+  <div
+    class="cdx-table__footer"
+  >
+    <!-- eslint-disable-next-line max-len -->
+    <!-- @slot Footer content. Not to be confused with &lt;tfoot&gt;; use the tfoot slot to add that. -->
+    
+    Footer slot content
+    
+  </div>
+</div>
+`;
+
+exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Object]]) => HTML 1`] = `
+<div
+  class="cdx-table"
+  tabindex="0"
+>
+  <div
+    class="cdx-table__header"
+  >
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
+    <div
+      aria-hidden="true"
+      class="cdx-table__header__caption"
+    >
+      <!-- Visible table title. -->
+      
+      Table caption
+      
+    </div>
+    <div
+      class="cdx-table__header__content"
+    >
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
+      
+      
+    </div>
+  </div>
+  <!--v-if-->
+  <div
+    class="cdx-table__table-wrapper"
+  >
+    <table
+      class="cdx-table__table"
+    >
+      <!-- Visually-hidden caption element, for assistive technology. -->
+      <caption>
+        
+        Table caption
+        
+      </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
+      <thead>
+        <tr>
+          <!--v-if-->
+          
+          <th
+            class=""
+            scope="col"
+          >
+            
+            Column 1
+            
+          </th>
+          <th
+            class=""
+            scope="col"
+          >
+            
+            Column 2
+            
+          </th>
+          <th
+            class=""
+            scope="col"
+          >
+            
+            Column 3
+            
+          </th>
+          
+        </tr>
+      </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
+      <tbody>
+        
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            One
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            Two
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            Three
+            
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            1
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            2
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            3
+            
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            Four
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            Five
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            Six
+            
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            4
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            5
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            6
+            
+          </td>
+          
+        </tr>
+        
+      </tbody>
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
+      
+      
+    </table>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -2696,6 +2714,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
       
     </div>
   </div>
+  <!--v-if-->
   <div
     class="cdx-table__table-wrapper"
   >
@@ -2935,6 +2954,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
     </table>
   </div>
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -2971,6 +2991,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
       
     </div>
   </div>
+  <!--v-if-->
   <div
     class="cdx-table__table-wrapper"
   >
@@ -3402,6 +3423,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
       
     </table>
   </div>
+  <!--v-if-->
   <div
     class="cdx-table__footer"
   >
@@ -3447,6 +3469,7 @@ exports[`Table matches the snapshot Case 11 With empty state: ([]) => HTML 1`] =
       
     </div>
   </div>
+  <!--v-if-->
   <div
     class="cdx-table__table-wrapper"
   >
@@ -3471,6 +3494,1030 @@ exports[`Table matches the snapshot Case 11 With empty state: ([]) => HTML 1`] =
       
       
     </table>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [Object]]) => HTML 1`] = `
+<div
+  class="cdx-table"
+  tabindex="0"
+>
+  <div
+    class="cdx-table__header"
+  >
+    <!--
+				We need this div, even if the caption is hidden, to ensure the
+				slot is aligned to the end.
+				aria-hidden is used so assistive tech will skip the visible caption and only read
+				the &lt;caption&gt; element. However, if there is header content, the visible caption
+				should be read too to ensure the caption is read before the header content.
+			-->
+    <div
+      aria-hidden="true"
+      class="cdx-table__header__caption"
+    >
+      <!-- Visible table title. -->
+      
+      Table caption
+      
+    </div>
+    <div
+      class="cdx-table__header__content"
+    >
+      <!-- eslint-disable-next-line max-len -->
+      <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
+      
+      
+    </div>
+  </div>
+  <div
+    class="cdx-table-pager cdx-table__pagination--top"
+  >
+    <div
+      class="cdx-table-pager__start"
+    >
+      <div
+        aria-disabled="false"
+        class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
+      >
+        <div
+          aria-controls="cdx-select-menu-10"
+          aria-expanded="false"
+          class="cdx-select-vue__handle"
+          id="cdx-select-handle-11"
+          role="combobox"
+          tabindex="0"
+        >
+          <!--
+				@slot Display of the current selection or default label
+				@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
+				item
+				@binding {string} default-label The default label, provided via a prop
+			-->
+          
+          <span>
+            <span>
+              10 rows
+            </span>
+          </span>
+          
+          <!--v-if-->
+          <span
+            class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+                />
+              </g>
+            </svg>
+          </span>
+        </div>
+        <div
+          class="cdx-menu"
+          style="display: none;"
+        >
+          <ul
+            class="cdx-menu__listbox"
+            id="cdx-select-menu-10"
+            role="listbox"
+          >
+            <!--v-if-->
+            <!--v-if-->
+            
+            <li
+              aria-disabled="false"
+              aria-selected="true"
+              class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+              id="cdx-menu-item-12"
+              role="option"
+            >
+              <!-- @slot Custom menu item content. -->
+              
+              <span
+                class="cdx-menu-item__content"
+              >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
+                <!--v-if-->
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      10
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
+                </span>
+              </span>
+              
+            </li>
+            <li
+              aria-disabled="false"
+              class="cdx-menu-item cdx-menu-item--enabled"
+              id="cdx-menu-item-13"
+              role="option"
+            >
+              <!-- @slot Custom menu item content. -->
+              
+              <span
+                class="cdx-menu-item__content"
+              >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
+                <!--v-if-->
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      20
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
+                </span>
+              </span>
+              
+            </li>
+            <li
+              aria-disabled="false"
+              class="cdx-menu-item cdx-menu-item--enabled"
+              id="cdx-menu-item-14"
+              role="option"
+            >
+              <!-- @slot Custom menu item content. -->
+              
+              <span
+                class="cdx-menu-item__content"
+              >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
+                <!--v-if-->
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      50
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
+                </span>
+              </span>
+              
+            </li>
+            
+            <!--v-if-->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      class="cdx-table-pager__center"
+    >
+      <!-- @slot pagination status -->
+      
+      <span
+        class="cdx-table__pagination-status--long"
+      >
+        Showing results 1–10 of 52
+      </span>
+      <span
+        class="cdx-table__pagination-status--short"
+      >
+        1–10 of 52
+      </span>
+      
+    </div>
+    <div
+      class="cdx-table-pager__end"
+    >
+      <button
+        aria-label="First page"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-table-pager__button-first"
+        disabled=""
+      >
+        <!-- @slot Button content -->
+        
+        <span
+          class="cdx-icon cdx-icon--medium"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g>
+              <path
+                d="M3 1h2v18H3zm13.5 1.5L15 1l-9 9 9 9 1.5-1.5L9 10z"
+              />
+            </g>
+          </svg>
+        </span>
+        
+      </button>
+      <button
+        aria-label="Previous page"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-table-pager__button-prev"
+        disabled=""
+      >
+        <!-- @slot Button content -->
+        
+        <span
+          class="cdx-icon cdx-icon--medium"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g>
+              <path
+                d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"
+              />
+            </g>
+          </svg>
+        </span>
+        
+      </button>
+      <button
+        aria-label="Next page"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-table-pager__button-next"
+      >
+        <!-- @slot Button content -->
+        
+        <span
+          class="cdx-icon cdx-icon--medium"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g>
+              <path
+                d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              />
+            </g>
+          </svg>
+        </span>
+        
+      </button>
+      <button
+        aria-label="Last page"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-table-pager__button-last"
+      >
+        <!-- @slot Button content -->
+        
+        <span
+          class="cdx-icon cdx-icon--medium"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g>
+              <path
+                d="M15 1h2v18h-2zM3.5 2.5 11 10l-7.5 7.5L5 19l9-9-9-9z"
+              />
+            </g>
+          </svg>
+        </span>
+        
+      </button>
+    </div>
+  </div>
+  <div
+    class="cdx-table__table-wrapper"
+  >
+    <table
+      class="cdx-table__table"
+    >
+      <!-- Visually-hidden caption element, for assistive technology. -->
+      <caption>
+        
+        Table caption
+        
+      </caption>
+      <!-- @slot Custom &lt;thead&gt;. -->
+      
+      <thead>
+        <tr>
+          <!--v-if-->
+          
+          <th
+            class=""
+            scope="col"
+          >
+            
+            Record Name
+            
+          </th>
+          <th
+            class=""
+            scope="col"
+          >
+            
+            Record ID
+            
+          </th>
+          
+        </tr>
+      </thead>
+      
+      <!-- @slot Custom &lt;tbody&gt;. -->
+      
+      <tbody>
+        
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            AAAAA
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            1001
+            
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            BBBBB
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            1002
+            
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            CCCCC
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            1003
+            
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            DDDDD
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            1004
+            
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            EEEEE
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            1005
+            
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            FFFFF
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            1006
+            
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            GGGGG
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            1007
+            
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            HHHHH
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            1008
+            
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            IIIII
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            1009
+            
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          <!--v-if-->
+          
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            JJJJJ
+            
+          </td>
+          <td
+            class=""
+          >
+            <!--
+									@slot Table cell content, per column.
+									@binding item {any} Data for the cell
+									@binding row {TableRow|TableRowWithIdentifier} Data for the row
+								-->
+            
+            1010
+            
+          </td>
+          
+        </tr>
+        
+      </tbody>
+      
+      <!-- @slot Custom &lt;tfoot&gt;. -->
+      
+      
+    </table>
+  </div>
+  <div
+    class="cdx-table-pager cdx-table__pagination--bottom"
+  >
+    <div
+      class="cdx-table-pager__start"
+    >
+      <div
+        aria-disabled="false"
+        class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
+      >
+        <div
+          aria-controls="cdx-select-menu-15"
+          aria-expanded="false"
+          class="cdx-select-vue__handle"
+          id="cdx-select-handle-16"
+          role="combobox"
+          tabindex="0"
+        >
+          <!--
+				@slot Display of the current selection or default label
+				@binding {MenuItemData|undefined} selected-menu-item The currently selected menu
+				item
+				@binding {string} default-label The default label, provided via a prop
+			-->
+          
+          <span>
+            <span>
+              10 rows
+            </span>
+          </span>
+          
+          <!--v-if-->
+          <span
+            class="cdx-icon cdx-icon--medium cdx-select-vue__indicator"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+                />
+              </g>
+            </svg>
+          </span>
+        </div>
+        <div
+          class="cdx-menu"
+          style="display: none;"
+        >
+          <ul
+            class="cdx-menu__listbox"
+            id="cdx-select-menu-15"
+            role="listbox"
+          >
+            <!--v-if-->
+            <!--v-if-->
+            
+            <li
+              aria-disabled="false"
+              aria-selected="true"
+              class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+              id="cdx-menu-item-17"
+              role="option"
+            >
+              <!-- @slot Custom menu item content. -->
+              
+              <span
+                class="cdx-menu-item__content"
+              >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
+                <!--v-if-->
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      10
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
+                </span>
+              </span>
+              
+            </li>
+            <li
+              aria-disabled="false"
+              class="cdx-menu-item cdx-menu-item--enabled"
+              id="cdx-menu-item-18"
+              role="option"
+            >
+              <!-- @slot Custom menu item content. -->
+              
+              <span
+                class="cdx-menu-item__content"
+              >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
+                <!--v-if-->
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      20
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
+                </span>
+              </span>
+              
+            </li>
+            <li
+              aria-disabled="false"
+              class="cdx-menu-item cdx-menu-item--enabled"
+              id="cdx-menu-item-19"
+              role="option"
+            >
+              <!-- @slot Custom menu item content. -->
+              
+              <span
+                class="cdx-menu-item__content"
+              >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
+                <!--v-if-->
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      50
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
+                </span>
+              </span>
+              
+            </li>
+            
+            <!--v-if-->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      class="cdx-table-pager__center"
+    >
+      <!-- @slot pagination status -->
+      
+      <span
+        class="cdx-table__pagination-status--long"
+      >
+        Showing results 1–10 of 52
+      </span>
+      <span
+        class="cdx-table__pagination-status--short"
+      >
+        1–10 of 52
+      </span>
+      
+    </div>
+    <div
+      class="cdx-table-pager__end"
+    >
+      <button
+        aria-label="First page"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-table-pager__button-first"
+        disabled=""
+      >
+        <!-- @slot Button content -->
+        
+        <span
+          class="cdx-icon cdx-icon--medium"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g>
+              <path
+                d="M3 1h2v18H3zm13.5 1.5L15 1l-9 9 9 9 1.5-1.5L9 10z"
+              />
+            </g>
+          </svg>
+        </span>
+        
+      </button>
+      <button
+        aria-label="Previous page"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-table-pager__button-prev"
+        disabled=""
+      >
+        <!-- @slot Button content -->
+        
+        <span
+          class="cdx-icon cdx-icon--medium"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g>
+              <path
+                d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"
+              />
+            </g>
+          </svg>
+        </span>
+        
+      </button>
+      <button
+        aria-label="Next page"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-table-pager__button-next"
+      >
+        <!-- @slot Button content -->
+        
+        <span
+          class="cdx-icon cdx-icon--medium"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g>
+              <path
+                d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              />
+            </g>
+          </svg>
+        </span>
+        
+      </button>
+      <button
+        aria-label="Last page"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-table-pager__button-last"
+      >
+        <!-- @slot Button content -->
+        
+        <span
+          class="cdx-icon cdx-icon--medium"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g>
+              <path
+                d="M15 1h2v18h-2zM3.5 2.5 11 10l-7.5 7.5L5 19l9-9-9-9z"
+              />
+            </g>
+          </svg>
+        </span>
+        
+      </button>
+    </div>
   </div>
   <!--v-if-->
 </div>

@@ -26,6 +26,28 @@
 				<slot name="header" />
 			</div>
 		</div>
+
+		<cdx-table-pager
+			v-if="paginate && ( paginationPosition === 'top' || paginationPosition === 'both' )"
+			v-model:items-per-page="pageSize"
+			class="cdx-table__pagination--top"
+			:pagination-size-options="paginationSizeOptions"
+			:prev-disabled="prevDisabled"
+			:next-disabled="nextDisabled"
+			@next="onNext"
+			@prev="onPrev"
+			@first="onFirst"
+			@last="onLast"
+		>
+			<span class="cdx-table__pagination-status--long">
+				{{ paginationStatusMessageDeterminateLong }}
+			</span>
+
+			<span class="cdx-table__pagination-status--short">
+				{{ paginationStatusMessageDeterminateShort }}
+			</span>
+		</cdx-table-pager>
+
 		<div class="cdx-table__table-wrapper">
 			<table class="cdx-table__table" :class="tableClasses">
 				<!-- Visually-hidden caption element, for assistive technology. -->
@@ -84,9 +106,9 @@
 
 				<!-- @slot Custom <tbody>. -->
 				<slot name="tbody">
-					<tbody v-if="data.length > 0">
+					<tbody v-if="dataForDisplay.length > 0">
 						<tr
-							v-for="( row, rowIndex ) in data"
+							v-for="( row, rowIndex ) in dataForDisplay"
 							:key="getRowKey( row, rowIndex )"
 							:class="getRowClass( row, rowIndex )"
 						>
@@ -97,7 +119,10 @@
 									:hide-label="true"
 									@update:model-value="handleRowSelection"
 								>
-									{{ translatedSelectRowLabel( rowIndex + 1, data.length ) }}
+									{{ translatedSelectRowLabel(
+										rowIndex + 1,
+										dataForDisplay.length
+									) }}
 								</cdx-checkbox>
 							</td>
 							<component
@@ -135,6 +160,28 @@
 				<slot name="tfoot" />
 			</table>
 		</div>
+
+		<cdx-table-pager
+			v-if="paginate && ( paginationPosition === 'bottom' || paginationPosition === 'both' )"
+			v-model:items-per-page="pageSize"
+			class="cdx-table__pagination--bottom"
+			:pagination-size-options="paginationSizeOptions"
+			:prev-disabled="prevDisabled"
+			:next-disabled="nextDisabled"
+			@next="onNext"
+			@prev="onPrev"
+			@first="onFirst"
+			@last="onLast"
+		>
+			<span class="cdx-table__pagination-status--long">
+				{{ paginationStatusMessageDeterminateLong }}
+			</span>
+
+			<span class="cdx-table__pagination-status--short">
+				{{ paginationStatusMessageDeterminateShort }}
+			</span>
+		</cdx-table-pager>
+
 		<div v-if="$slots.footer && $slots.footer().length > 0" class="cdx-table__footer">
 			<!-- eslint-disable-next-line max-len -->
 			<!-- @slot Footer content. Not to be confused with <tfoot>; use the tfoot slot to add that. -->
@@ -145,20 +192,37 @@
 
 <script lang="ts">
 import { PropType, defineComponent, ref, toRef, computed } from 'vue';
-import { TableColumn, TableRow, TableRowWithIdentifier, TableSort, TableSortOption } from '../../types';
-import { TableTextAlignments, TableRowIdentifier } from '../../constants';
 import useModelWrapper from '../../composables/useModelWrapper';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import CdxCheckbox from '../checkbox/Checkbox.vue';
 import CdxIcon from '../icon/Icon.vue';
+import CdxTablePager from './TablePager.vue';
 import { cdxIconSortVertical, cdxIconUpTriangle, cdxIconDownTriangle, Icon } from '@wikimedia/codex-icons';
 import useI18n from '../../composables/useI18n';
+
+import {
+	TableColumn,
+	TableRow,
+	TableRowWithIdentifier,
+	TableSort,
+	TableSortOption,
+	TablePaginationSizeOption,
+	TablePaginationPosition
+} from '../../types';
+
+import {
+	TableTextAlignments,
+	TableRowIdentifier,
+	TablePaginationPositions
+} from '../../constants';
 
 type TableSortIconMap = { [P in TableSortOption]: Icon };
 type TableSortDirection = 'none' | 'ascending' | 'descending';
 type TableSortDirectionMap = { [P in TableSortOption]: TableSortDirection };
 
 const tableTextAlignmentsValidator = makeStringTypeValidator( TableTextAlignments );
+const paginationPositionValidator = makeStringTypeValidator( TablePaginationPositions );
+
 const iconMap: TableSortIconMap = {
 	none: cdxIconSortVertical,
 	asc: cdxIconUpTriangle,
@@ -174,7 +238,7 @@ const sortDirectionMap: TableSortDirectionMap = {
  */
 export default defineComponent( {
 	name: 'CdxTable',
-	components: { CdxCheckbox, CdxIcon },
+	components: { CdxCheckbox, CdxIcon, CdxTablePager },
 	props: {
 		/**
 		 * Table caption.
@@ -282,6 +346,57 @@ export default defineComponent( {
 		sort: {
 			type: Object as PropType<TableSort>,
 			default: () => ( {} )
+		},
+
+		/**
+		 * Whether to enable pagination.
+		 */
+		paginate: {
+			type: Boolean,
+			default: false
+		},
+
+		/**
+		 * Where the pagination controls should appear relative to the table body.
+		 */
+		paginationPosition: {
+			type: String as PropType<TablePaginationPosition>,
+			default: 'bottom',
+			validator: paginationPositionValidator
+		},
+
+		/**
+		 * Pre-defined options for how may rows should be displayed per page.
+		 * The value of these menu items must be a number.
+		 */
+		paginationSizeOptions: {
+			type: Array as PropType<TablePaginationSizeOption[]>,
+			default: () => [
+				{ value: 10 },
+				{ value: 20 },
+				{ value: 50 }
+			],
+			validator: ( value: TablePaginationSizeOption[] ) => {
+				const hasNumberValue = ( item: TablePaginationSizeOption ) => typeof item.value === 'number';
+				if ( value.every( hasNumberValue ) ) {
+					return true;
+				} else {
+					// eslint-disable-next-line no-console
+					console.warn( '"value" property of all menu items in PaginationOptions must be a number.' );
+					return false;
+				}
+			}
+		},
+
+		/**
+		 * The default number of rows to show per page. This will default to the
+		 * value of the first of the pagination options if not provided.
+		 */
+		paginationSizeDefault: {
+			type: Number,
+			default: (
+				rawProps: { paginationSizeOptions: TablePaginationSizeOption[] }
+			) => rawProps.paginationSizeOptions[ 0 ].value
 		}
 	},
 	emits: [
@@ -299,9 +414,64 @@ export default defineComponent( {
 		'update:sort'
 	],
 	setup( props, { emit } ) {
+		// pagination
+		const offset = ref( 0 );
+		const pageSize = ref( props.paginationSizeDefault );
+		const dataForDisplay = computed( () => {
+			if ( props.paginate ) {
+				return props.data.slice( offset.value, pageSize.value + offset.value );
+			} else {
+				return props.data;
+			}
+		} );
+
+		const firstOrdinal = computed( () => offset.value + 1 );
+		const lastOrdinal = computed( () => offset.value + dataForDisplay.value.length );
+		const totalCount = computed( () => props.data.length );
+		const nextDisabled = computed( () => offset.value + pageSize.value >= totalCount.value );
+		const prevDisabled = computed( () => offset.value <= 0 );
+
+		const paginationStatusMessageDeterminateLong = useI18n(
+			'cdx-table-pagination-status-message-determinate-long',
+			( x, y, z ) => `Showing results ${ x }–${ y } of ${ z }`,
+			[ firstOrdinal, lastOrdinal, totalCount ]
+		);
+
+		const paginationStatusMessageDeterminateShort = useI18n(
+			'cdx-table-pagination-status-message-determinate-short',
+			( x, y, z ) => `${ x }–${ y } of ${ z }`,
+			[ firstOrdinal, lastOrdinal, totalCount ]
+		);
+
+		function onNext() {
+			offset.value += pageSize.value;
+		}
+
+		function onPrev() {
+			if ( offset.value - pageSize.value < 1 ) {
+				onFirst();
+			} else {
+				offset.value -= pageSize.value;
+			}
+		}
+
+		function onFirst() {
+			offset.value = 0;
+		}
+
+		function onLast() {
+			if ( props.data.length % pageSize.value === 0 ) {
+				offset.value = props.data.length - pageSize.value;
+			} else {
+				offset.value = (
+					Math.floor( props.data.length / pageSize.value ) *
+					pageSize.value
+				);
+			}
+		}
 		// Row selection.
 		const wrappedSelectedRows = useModelWrapper( toRef( props, 'selectedRows' ), emit, 'update:selectedRows' );
-		const selectAll = ref( props.data.length === wrappedSelectedRows.value.length );
+		const selectAll = ref( dataForDisplay.value.length === wrappedSelectedRows.value.length );
 		const selectAllIndeterminate = ref( false );
 
 		// Sorting.
@@ -445,7 +615,7 @@ export default defineComponent( {
 			// to use newSelectedRows in this function.
 
 			// If all rows are selected, check the "select all" box.
-			if ( props.data.length === newSelectedRows.length ) {
+			if ( dataForDisplay.value.length === newSelectedRows.length ) {
 				selectAll.value = true;
 				selectAllIndeterminate.value = false;
 				return;
@@ -532,6 +702,18 @@ export default defineComponent( {
 		}
 
 		return {
+			// pagination
+			dataForDisplay,
+			pageSize,
+			onNext,
+			onPrev,
+			onFirst,
+			onLast,
+			nextDisabled,
+			prevDisabled,
+			paginationStatusMessageDeterminateLong,
+			paginationStatusMessageDeterminateShort,
+
 			// Row selection constants.
 			wrappedSelectedRows,
 			selectAll,
@@ -593,6 +775,32 @@ export default defineComponent( {
 			font-size: @font-size-large;
 			font-weight: @font-weight-bold;
 			line-height: @line-height-xxx-small;
+		}
+	}
+
+	&__pagination {
+		&--bottom {
+			border-top: @border-base;
+		}
+	}
+
+	&__pagination-status {
+		&--short {
+			display: block;
+			text-align: right;
+
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+				display: none;
+			}
+		}
+
+		&--long {
+			display: none;
+
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+				display: block;
+				text-align: center;
+			}
 		}
 	}
 

@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import CdxTable from './Table.vue';
-import { TableColumn } from '../../types';
+import CdxTablePager from './TablePager.vue';
+import { TableColumn, TableRow, TablePaginationPosition } from '../../types';
 import { TableRowIdentifier } from '../../constants';
 
 const columnsBasic = [
@@ -83,6 +84,25 @@ const dataSortAndSelectionSorted = [
 	{ [ TableRowIdentifier ]: 'imbens', year: 2021, name: 'Imbens', age: 58 }
 ];
 
+const columnsPagination = [
+	{ id: 'name', label: 'Record Name' },
+	{ id: 'id', label: 'Record ID' }
+];
+
+const dataPagination: TableRow[] = [];
+
+// Set up table data in excess of what is displayed
+const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+let counter = 1001;
+alpha.split( '' ).forEach( ( letter ) => {
+	dataPagination.push( {
+		id: counter,
+		name: letter.repeat( 5 )
+	} );
+
+	counter++;
+} );
+
 describe( 'Table', () => {
 	describe( 'matches the snapshot', () => {
 		type Case = [
@@ -92,6 +112,8 @@ describe( 'Table', () => {
 			hideCaption?: boolean,
 			useRowHeaders?: boolean,
 			useRowSelection?: boolean,
+			paginate?: boolean,
+			paginationPosition?: TablePaginationPosition,
 			slots?: {
 				header?: string,
 				footer?: string,
@@ -115,6 +137,8 @@ describe( 'Table', () => {
 				false,
 				false,
 				false,
+				false,
+				undefined,
 				{ header: 'Header slot content', footer: 'Footer slot content' }
 			],
 			[
@@ -124,6 +148,8 @@ describe( 'Table', () => {
 				false,
 				false,
 				false,
+				false,
+				undefined,
 				{ default: tfoot }
 			],
 			[
@@ -133,6 +159,8 @@ describe( 'Table', () => {
 				false,
 				false,
 				false,
+				false,
+				undefined,
 				{ 'item-col1': itemSlot }
 			],
 			[
@@ -142,9 +170,21 @@ describe( 'Table', () => {
 				false,
 				false,
 				false,
+				false,
+				undefined,
 				{ header: 'Header slot content', footer: 'Footer slot content' }
 			],
-			[ 'With empty state', [], [], false, false, false ]
+			[ 'With empty state', [], [], false, false, false ],
+			[
+				'With basic pagination',
+				columnsPagination,
+				dataPagination,
+				false,
+				false,
+				false,
+				true,
+				'both'
+			]
 		];
 
 		test.each( cases )(
@@ -156,10 +196,12 @@ describe( 'Table', () => {
 				hideCaption = false,
 				useRowHeaders = false,
 				useRowSelection = false,
+				paginate = false,
+				paginationPosition = 'bottom',
 				slots = {}
 			) => {
 				const wrapper = mount( CdxTable, {
-					props: { caption: 'Table caption', columns, data, hideCaption, useRowHeaders, useRowSelection },
+					props: { caption: 'Table caption', columns, data, hideCaption, useRowHeaders, useRowSelection, paginate, paginationPosition },
 					slots
 				} );
 				expect( wrapper.element ).toMatchSnapshot();
@@ -416,6 +458,258 @@ describe( 'Table', () => {
 				await wrapper.findAll( '.cdx-table__table__sort-button' ).at( 2 )?.trigger( 'click' );
 				expect( wrapper.emitted( 'update:sort' )?.[ 4 ] ).toEqual( [ { age: 'asc' } ] );
 			} );
+		} );
+	} );
+
+	describe( 'when pagination is not enabled', () => {
+		it( 'does not show the pagination controls', () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: false
+				}
+			} );
+
+			expect( wrapper.findComponent( CdxTablePager ).exists() ).toBe( false );
+		} );
+
+		it( 'displays all rows', () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: false
+				}
+			} );
+
+			const rows = wrapper.findAll( 'tbody tr' );
+			expect( rows.length ).toEqual( 52 );
+		} );
+	} );
+
+	describe( 'when pagination is enabled', () => {
+		it( 'shows the pagination controls once if set to "top"', () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: true,
+					paginationPosition: 'top'
+				}
+			} );
+
+			const pagers = wrapper.findAllComponents( CdxTablePager );
+			expect( pagers.length ).toEqual( 1 );
+		} );
+
+		it( 'shows the pagination controls once if set to "bottom"', () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: true,
+					paginationPosition: 'bottom'
+				}
+			} );
+
+			const pagers = wrapper.findAllComponents( CdxTablePager );
+			expect( pagers.length ).toEqual( 1 );
+		} );
+
+		it( 'shows the pagination controls twice if set to "both"', () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: true,
+					paginationPosition: 'both'
+				}
+			} );
+
+			const pagers = wrapper.findAllComponents( CdxTablePager );
+			expect( pagers.length ).toEqual( 2 );
+		} );
+
+		it( 'shows 10 rows if no paginationSizeDefault is provided', () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: true
+				}
+			} );
+
+			const rows = wrapper.findAll( 'tbody tr' );
+			expect( rows.length ).toEqual( 10 );
+		} );
+
+		it( 'shows a number of rows equal to paginationSizeDefault if provided', () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: true,
+					paginationSizeDefault: 7
+				}
+			} );
+
+			const rows = wrapper.findAll( 'tbody tr' );
+			expect( rows.length ).toEqual( 7 );
+		} );
+
+		it( 'shows the "first" and "previous" buttons as disabled at the beginning of the sequence', () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: true
+				}
+			} );
+
+			const btnFirst = wrapper.find( 'button.cdx-table-pager__button-first' );
+			const btnPrev = wrapper.find( 'button.cdx-table-pager__button-prev' );
+			expect( btnFirst.attributes() ).toHaveProperty( 'disabled' );
+			expect( btnPrev.attributes() ).toHaveProperty( 'disabled' );
+		} );
+
+		it( 'shows the "next" and "last" buttons as enabled at the beginning of the sequence', () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: true
+				}
+			} );
+
+			const btnNext = wrapper.find( 'button.cdx-table-pager__button-next' );
+			const btnLast = wrapper.find( 'button.cdx-table-pager__button-last' );
+			expect( btnNext.attributes() ).not.toHaveProperty( 'disabled' );
+			expect( btnLast.attributes() ).not.toHaveProperty( 'disabled' );
+		} );
+
+		it( 'shows the "next" and "last" buttons as disabled at the end of the sequence', async () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: true
+				}
+			} );
+
+			const btnNext = wrapper.find( 'button.cdx-table-pager__button-next' );
+			const btnLast = wrapper.find( 'button.cdx-table-pager__button-last' );
+			await btnLast.trigger( 'click' );
+			expect( btnNext.attributes() ).toHaveProperty( 'disabled' );
+			expect( btnLast.attributes() ).toHaveProperty( 'disabled' );
+		} );
+
+		it( 'shows the "first" and "prev" buttons as enabled at the end of the sequence', async () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: true
+				}
+			} );
+
+			const btnFirst = wrapper.find( 'button.cdx-table-pager__button-first' );
+			const btnPrev = wrapper.find( 'button.cdx-table-pager__button-prev' );
+			const btnLast = wrapper.find( 'button.cdx-table-pager__button-last' );
+			await btnLast.trigger( 'click' );
+			expect( btnFirst.attributes() ).not.toHaveProperty( 'disabled' );
+			expect( btnPrev.attributes() ).not.toHaveProperty( 'disabled' );
+		} );
+
+		it( 'pages forward through the results each time "next" is clicked', async () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: true
+				}
+			} );
+
+			const btnNext = wrapper.find( 'button.cdx-table-pager__button-next' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'AAAAA' );
+
+			await btnNext.trigger( 'click' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'KKKKK' );
+
+			await btnNext.trigger( 'click' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'UUUUU' );
+
+			await btnNext.trigger( 'click' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'eeeee' );
+
+			await btnNext.trigger( 'click' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'ooooo' );
+
+			await btnNext.trigger( 'click' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'yyyyy' );
+		} );
+
+		it( 'jumps to the last page of results when "last" is clicked', async () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: true
+				}
+			} );
+
+			const btnLast = wrapper.find( 'button.cdx-table-pager__button-last' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'AAAAA' );
+
+			await btnLast.trigger( 'click' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'yyyyy' );
+			expect( wrapper.findAll( 'tbody tr' ).length ).toEqual( 2 );
+		} );
+
+		it( 'pages backwards through the results each time "prev" is clicked', async () => {
+			const wrapper = mount( CdxTable, {
+				props: {
+					caption: 'Paginated table',
+					data: dataPagination,
+					columns: columnsPagination,
+					paginate: true
+				}
+			} );
+
+			const btnLast = wrapper.find( 'button.cdx-table-pager__button-last' );
+			const btnPrev = wrapper.find( 'button.cdx-table-pager__button-prev' );
+			await btnLast.trigger( 'click' );
+
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'yyyyy' );
+			expect( wrapper.findAll( 'tbody tr' ).length ).toEqual( 2 );
+
+			await btnPrev.trigger( 'click' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'ooooo' );
+
+			await btnPrev.trigger( 'click' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'eeeee' );
+
+			await btnPrev.trigger( 'click' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'UUUUU' );
+
+			await btnPrev.trigger( 'click' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'KKKKK' );
+
+			await btnPrev.trigger( 'click' );
+			expect( wrapper.find( 'tbody tr td' ).text() ).toBe( 'AAAAA' );
 		} );
 	} );
 } );

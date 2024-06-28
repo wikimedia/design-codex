@@ -19,7 +19,8 @@ import {
 	StatusTypes,
 	MenuStates,
 	TableTextAlignments,
-	TableRowIdentifier
+	TableRowIdentifier,
+	TablePaginationPositions
 } from './constants';
 
 export type I18nMessageValue<P> = string | ( ( ...params: P[] ) => string );
@@ -227,7 +228,7 @@ export type TableRow = Record<string, any>;
 /** @public */
 export interface TableRowWithIdentifier extends TableRow {
 	// Required when sorting and row selection are both enabled.
-    [TableRowIdentifier]: string|number
+	[TableRowIdentifier]: string|number
 }
 
 /** @public */
@@ -235,6 +236,14 @@ export type TableSortOption = 'none' | 'asc' | 'desc';
 
 /** @public */
 export type TableSort<K extends string = string> = { [P in K]?: TableSortOption };
+
+/** @public */
+export interface TablePaginationSizeOption extends MenuItemData {
+	value: number;
+}
+
+/** @public */
+export type TablePaginationPosition = typeof TablePaginationPositions[ number ];
 
 export interface TooltipOptions {
 	textContent: string,

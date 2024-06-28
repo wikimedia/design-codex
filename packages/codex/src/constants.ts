@@ -131,3 +131,9 @@ export const NoInvertClass = `${ LibraryPrefix }-no-invert` as const;
  * @public
  */
 export const TableRowIdentifier = Symbol( 'CdxTableRowIdentifier' );
+
+export const TablePaginationPositions = [
+	'top',
+	'bottom',
+	'both'
+] as const;

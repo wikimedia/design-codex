@@ -6,6 +6,7 @@ import TableWithSlots from '@/../component-demos/table/examples/TableWithSlots.v
 import TableWithSort from '@/../component-demos/table/examples/TableWithSort.vue';
 import TableWithSelection from '@/../component-demos/table/examples/TableWithSelection.vue';
 import TableWithSelectionAndSort from '@/../component-demos/table/examples/TableWithSelectionAndSort.vue';
+import TableWithPagination from '@/../component-demos/table/examples/TableWithPagination.vue';
 
 const controlsConfig = [
 	{
@@ -599,6 +600,38 @@ when there are no items in the `data` array and the `tbody` slot is not overridd
 	</cdx-table>
 </template>
 ```
+
+</template>
+</cdx-demo-wrapper>
+
+### With pagination
+
+#### Basic Pagination
+
+To enable basic pagination, set the `paginate` prop to true. The pagination UI
+will display below the Table by default, but the controls can also be moved to
+the top of the table (or shown in both places at once) via the `paginationPosition`
+prop.
+
+Additional configuration is also possible. A `paginationSizeOptions` prop can be
+used to provide different options for the number of rows to display per page, and
+`paginationSizeDefault` can set the default number of rows that are displayed prior
+to the user making a selection. By default, a paginated table will show 10 results
+per page and will allow the user to choose between page sizes of 10, 20, and 50.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<table-with-pagination />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/table/examples/TableWithPagination.vue [NPM]
+
+<<< @/../component-demos/table/examples-mw/TableWithPagination.vue [MediaWiki]
+
+:::
 
 </template>
 </cdx-demo-wrapper>

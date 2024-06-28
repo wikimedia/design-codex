@@ -355,9 +355,26 @@ row. See [TableRowIdentifier](#tablerowidentifier).
 
 ```ts
 interface TableRowWithIdentifier extends TableRow {
-    [TableRowIdentifier]: string
+	[TableRowIdentifier]: string
 }
 ```
+
+### TablePaginationPosition
+
+```ts
+type TablePaginationPosition = 'top' | 'bottom' | 'both';
+```
+
+### TablePaginationSizeOption
+
+Like [MenuItemData](#menuitemdata), but `value` must be a number.
+
+```ts
+export interface TablePaginationSizeOption extends MenuItemData {
+	value: number;
+}
+```
+
 
 ### TextInputType
 

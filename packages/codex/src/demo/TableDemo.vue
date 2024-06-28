@@ -10,11 +10,23 @@
 			:columns="columns"
 			:data="data"
 		/>
+
+		<h3>
+			With basic pagination enabled
+		</h3>
+		<cdx-table
+			caption="Paginated table example"
+			:columns="paginatedColumns"
+			:data="paginatedData"
+			:paginate="true"
+			pagination-position="both"
+			:pagination-size-options="paginationOptions"
+		/>
 	</section>
 </template>
 
 <script lang="ts" setup>
-import { CdxTable } from '../lib';
+import { CdxTable, TableColumn, TableRow } from '../lib';
 
 const columns = [
 	{ id: 'user', label: 'User' },
@@ -40,4 +52,32 @@ const data = [
 	{ user: ids[ 4 ], ip, userAgent },
 	{ user: ids[ 5 ], ip, userAgent }
 ];
+
+// pagination example
+const paginatedColumns: TableColumn[] = [
+	{ id: 'name', label: 'Record Name' },
+	{ id: 'id', label: 'Record ID' }
+];
+
+// Set up table data in excess of what is displayed
+const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+const paginatedData: TableRow[] = [];
+let counter = 1001;
+
+const paginationOptions = [
+	{ value: 5 },
+	{ value: 10 },
+	{ value: 15 },
+	{ value: 20 },
+	{ value: 50 }
+];
+
+alpha.split( '' ).forEach( ( letter ) => {
+	paginatedData.push( {
+		id: counter,
+		name: letter.repeat( 5 )
+	} );
+
+	counter++;
+} );
 </script>
