@@ -3,7 +3,6 @@
 		<cdx-typeahead-search
 			id="typeahead-search-wikidata"
 			form-action="https://www.wikidata.org/w/index.php"
-			search-results-label="Search results"
 			:search-results="searchResults"
 			:search-footer-url="searchFooterUrl"
 			:highlight-query="true"

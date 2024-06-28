@@ -3,7 +3,6 @@
 		id="typeahead-search-pending-state"
 		form-action="https://en.wikipedia.org/w/index.php"
 		button-label="Search"
-		search-results-label="Search results"
 		:search-results="searchResults"
 		:search-footer-url="searchFooterUrl"
 		:show-thumbnail="true"

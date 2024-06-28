@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "searchResultsLabel": "Search results"}) => HTML 1`] = `
+exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array]}) => HTML 1`] = `
 <div
   class="cdx-typeahead-search"
 >
@@ -104,7 +104,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"buttonLabel": "Search"
 </div>
 `;
 
-exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and \`showThumbnail\` true: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "searchResultsLabel": "Search results", "showThumbnail": true}) => HTML 1`] = `
+exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and \`showThumbnail\` true: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "showThumbnail": true}) => HTML 1`] = `
 <div
   class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail cdx-typeahead-search--auto-expand-width"
 >
@@ -208,7 +208,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
 </div>
 `;
 
-exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and \`showThumbnail\` false: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "searchResultsLabel": "Search results", "showThumbnail": false}) => HTML 1`] = `
+exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and \`showThumbnail\` false: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "showThumbnail": false}) => HTML 1`] = `
 <div
   class="cdx-typeahead-search"
 >

@@ -44,7 +44,7 @@
 						$slots['search-no-results-text'] &&
 						$slots['search-no-results-text']().length > 0"
 					v-bind="menuConfig"
-					:aria-label="searchResultsLabel"
+					:aria-label="translatedSearchResultsLabel"
 					@update:selected="onUpdateMenuSelection"
 					@menu-item-click="( menuItem ) =>
 						onSearchResultClick( asSearchResult( menuItem ) )"
@@ -128,6 +128,7 @@ import CdxMenu from '../menu/Menu.vue';
 import CdxSearchInput from '../search-input/SearchInput.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
+import useI18n from '../../composables/useI18n';
 import { SearchResult, SearchResultWithId, SearchResultClickEvent, MenuItemDataWithId, MenuConfig } from '../../types';
 import { DebounceInterval, PendingDelay, MenuFooterValue } from '../../constants';
 
@@ -160,13 +161,6 @@ export default defineComponent( {
 		 * Action attribute for form.
 		 */
 		formAction: {
-			type: String,
-			required: true
-		},
-		/**
-		 * Label attribute for the list of search results.
-		 */
-		searchResultsLabel: {
 			type: String,
 			required: true
 		},
@@ -282,6 +276,9 @@ export default defineComponent( {
 
 		// Generated ID for menu; needed for aria-attributes.
 		const menuId = useGeneratedId( 'typeahead-search-menu' );
+
+		// Inject a translatable message string.
+		const translatedSearchResultsLabel = useI18n( 'cdx-typeahead-search-search-results-label', 'Search results' );
 
 		// Whether the menu should be displayed.
 		const expanded = ref( false );
@@ -679,7 +676,8 @@ export default defineComponent( {
 			onSubmit,
 			onKeydown,
 			MenuFooterValue,
-			articleIcon: cdxIconArticleSearch
+			articleIcon: cdxIconArticleSearch,
+			translatedSearchResultsLabel
 		};
 	},
 	methods: {

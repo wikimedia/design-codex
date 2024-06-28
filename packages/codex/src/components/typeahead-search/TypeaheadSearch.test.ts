@@ -11,7 +11,6 @@ const propsData = {
 	placeholder: 'Search Wikipedia',
 	formAction: '/w/index.php',
 	searchResults: [],
-	searchResultsLabel: 'Search results',
 	id: 'foo'
 };
 
@@ -58,7 +57,6 @@ describe( 'TypeaheadSearch initial state', () => {
 			searchResults: SearchResult[],
 			formAction: string;
 			buttonLabel: string;
-			searchResultsLabel: string
 			placeholder?: string;
 			autoExpandWidth?: boolean;
 			showThumbnail?: boolean;

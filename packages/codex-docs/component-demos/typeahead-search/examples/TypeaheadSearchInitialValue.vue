@@ -4,7 +4,6 @@
 			id="typeahead-search-default"
 			form-action="https://en.wikipedia.org/w/index.php"
 			button-label="Search"
-			search-results-label="Search results"
 			:initial-input-value="initialInputValue"
 			:search-results="searchResults"
 			:search-footer-url="searchFooterUrl"
