@@ -43,17 +43,14 @@
 							</div>
 
 							<cdx-button
-								v-if="closeButtonLabel"
+								v-if="useCloseButtonOrLabel"
 								class="cdx-dialog__header__close-button"
 								weight="quiet"
 								type="button"
-								:aria-label="closeButtonLabel"
+								:aria-label="translatedCloseButtonLabel"
 								@click="close"
 							>
-								<cdx-icon
-									:icon="cdxIconClose"
-									:icon-label="closeButtonLabel"
-								/>
+								<cdx-icon :icon="cdxIconClose" />
 							</cdx-button>
 						</slot>
 					</header>
@@ -137,6 +134,7 @@ import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
 import useGeneratedId from '../../composables/useGeneratedId';
+import useI18n from '../../composables/useI18n';
 import useResizeObserver from '../../composables/useResizeObserver';
 import { DialogAction, PrimaryDialogAction } from '../../types';
 
@@ -191,9 +189,18 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Label for the icon-only close button in the header.
+		 * Add an icon-only close button to the dialog header.
+		 */
+		useCloseButton: {
+			type: Boolean,
+			default: false
+		},
+
+		// DEPRECATED: Set default to 'Close' (T368444)
+		/**
+		 * Visually-hidden label text for the icon-only close button in the header.
 		 *
-		 * Including this prop adds the close button.
+		 * Omit this prop to use the default value, "Close".
 		 */
 		closeButtonLabel: {
 			type: String,
@@ -282,7 +289,16 @@ export default defineComponent( {
 		const focusTrapStart = ref<HTMLDivElement>();
 		const focusTrapEnd = ref<HTMLDivElement>();
 
-		const showHeader = computed( () => !props.hideTitle || !!props.closeButtonLabel );
+		// DEPRECATED: require use of new prop useCloseButton (T368444)
+		const useCloseButtonOrLabel = computed( () =>
+			props.useCloseButton || props.closeButtonLabel.length > 0
+		);
+		const translatedCloseButtonLabel = useI18n(
+			'cdx-dialog-close-button-label',
+			() => props.closeButtonLabel || 'Close'
+		);
+
+		const showHeader = computed( () => !props.hideTitle || useCloseButtonOrLabel.value );
 		const showFooterActions = computed( () => !!props.primaryAction || !!props.defaultAction );
 
 		const bodyDimensions = useResizeObserver( dialogBody );
@@ -490,6 +506,8 @@ export default defineComponent( {
 			focusHolder,
 			showHeader,
 			showFooterActions,
+			useCloseButtonOrLabel,
+			translatedCloseButtonLabel,
 			computedTarget
 		};
 	}

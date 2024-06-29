@@ -9,7 +9,7 @@
 			:title="title"
 			:subtitle="subtitle"
 			:hide-title="hideTitle"
-			:close-button-label="closeButtonLabel"
+			:use-close-button="useCloseButton"
 			:stacked-actions="stackedActions"
 			:primary-action="primaryAction"
 			:default-action="defaultAction"
@@ -50,9 +50,9 @@ export default defineComponent( {
 			type: Boolean,
 			default: false
 		},
-		closeButtonLabel: {
-			type: String,
-			default: ''
+		useCloseButton: {
+			type: Boolean,
+			default: false
 		},
 		stackedActions: {
 			type: Boolean,

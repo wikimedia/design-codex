@@ -7,7 +7,7 @@
 		<cdx-dialog
 			v-model:open="open"
 			title="Save changes"
-			close-button-label="Close"
+			:use-close-button="true"
 			:primary-action="primaryAction"
 			:default-action="defaultAction"
 			@primary="onPrimaryAction"

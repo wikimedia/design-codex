@@ -7,7 +7,7 @@
 		<cdx-dialog
 			v-model:open="open"
 			title="Dialog with long content"
-			close-button-label="Close"
+			:use-close-button="true"
 			:show-dividers="true"
 			:default-action="defaultAction"
 			@default="open = false"

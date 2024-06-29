@@ -48,7 +48,7 @@ composable is used to determine the reading directionaliy which can be either `n
             <cdx-dialog
                 v-model:open="open"
                 title="Save changes"
-                close-button-label="Close"
+                :use-close-button="true"
                 :primary-action="primaryAction"
                 :default-action="defaultAction"
                 @primary="onPrimaryAction"

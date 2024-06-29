@@ -10,6 +10,7 @@ type Case = [
 		subtitle?: string,
 		open?: boolean,
 		hideTitle?: boolean,
+		useCloseButton?: boolean,
 		closeButtonLabel?: string,
 		primaryAction?: PrimaryDialogAction,
 		defaultAction?: DialogAction,
@@ -35,7 +36,10 @@ describe( 'matches the snapshot', () => {
 	const cases: Case[] = [
 		[ 'Basic usage', { title: 'Dialog', open: true }, { default: '<p>Hello world!</p>' } ],
 		[ 'Open dialog', { title: 'Dialog', open: true }, { default: '<p>Hello world!</p>' } ],
-		[ 'With hidden title', { title: 'Dialog', hideTitle: true, closeButtonLabel: 'close', open: true }, { default: '<p>foo</p>' } ],
+		[ 'With hidden title', { title: 'Dialog', hideTitle: true, useCloseButton: true, open: true }, { default: '<p>foo</p>' } ],
+		[ 'With custom close button label', { title: 'Dialog', useCloseButton: true, closeButtonLabel: 'Dismiss', open: true }, { default: '<p>foo</p>' } ],
+		// DEPRECATED: Remove this when backwards compatibility is removed (T368444)
+		[ 'Using deprecated API for close button', { title: 'Dialog', closeButtonLabel: 'Close', open: true }, { default: '<p>foo</p>' } ],
 		[ 'With default action', { title: 'Dialog', defaultAction: { label: 'ok' }, open: true }, { default: '<p>foo</p>' } ],
 		[ 'With default disabled action', { title: 'Dialog', defaultAction: { label: 'ok', disabled: true }, open: true }, { default: '<p>foo</p>' } ],
 		[ 'With default and primary actions', { title: 'Dialog', defaultAction: { label: 'cancel' }, primaryAction: { label: 'save', actionType: 'progressive' }, open: true }, { default: '<p>foo</p>' } ],
@@ -64,7 +68,7 @@ describe( 'Basic usage', () => {
 	const dialogSlotContentsWithInput = '<p id="foo"> Example input: <input id="input" type="text"></p>';
 	const dialogBasicClosed = Object.freeze( { props: { title: 'Dialog Title' }, slots: { default: dialogSlotContents } } );
 	const dialogBasicOpen = Object.freeze( { props: { title: 'Dialog Title', open: true }, slots: { default: dialogSlotContents } } );
-	const dialogWithCloseButtonOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, closeButtonLabel: 'close' }, slots: { default: dialogSlotContents } } );
+	const dialogWithCloseButtonOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, useCloseButton: true }, slots: { default: dialogSlotContents } } );
 	const dialogPrimaryOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, primaryAction: { label: 'save', actionType: 'progressive' } as PrimaryDialogAction }, slots: { default: dialogSlotContents } } );
 	const dialogDefaultOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, defaultAction: { label: 'ok' } as DialogAction }, slots: { default: dialogSlotContents } } );
 	const dialogStackedActions = Object.freeze( { props: { title: 'Dialog Title', open: true, stackedActions: true, primaryAction: { label: 'save', actionType: 'progressive' } as PrimaryDialogAction }, slots: { default: dialogSlotContents } } );

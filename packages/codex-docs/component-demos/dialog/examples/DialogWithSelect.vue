@@ -7,7 +7,7 @@
 		<cdx-dialog
 			v-model:open="open"
 			title="Dialog with expandable menus"
-			close-button-label="Close"
+			:use-close-button="true"
 			:default-action="defaultAction"
 			@default="open = false"
 		>

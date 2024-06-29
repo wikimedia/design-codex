@@ -7,7 +7,7 @@
 		<cdx-dialog
 			v-model:open="open"
 			title="Delete all changes?"
-			close-button-label="Close"
+			:use-close-button="true"
 			:stacked-actions="true"
 			:primary-action="primaryAction"
 			:default-action="defaultAction"

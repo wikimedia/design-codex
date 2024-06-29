@@ -45,7 +45,7 @@
 
 		<cdx-dialog
 			v-model:open="showDialog1"
-			close-button-label="close"
+			:use-close-button="true"
 			:stacked-actions="true"
 			:render-in-place="true"
 			:primary-action="{ actionType: 'progressive', label: 'Sweet!' }"
@@ -75,7 +75,7 @@
 
 		<cdx-dialog
 			v-model:open="showDialog3"
-			close-button-label="close"
+			:use-close-button="true"
 			target="#teleport-target"
 			:primary-action="{ actionType: 'progressive', label: 'Sweet!' }"
 			:default-action="{ label: 'Bummer' }"
@@ -130,7 +130,7 @@
 			v-model:open="showDialog7"
 			:render-in-place="true"
 			title="Dialog with long content"
-			close-button-label="Close"
+			:use-close-button="true"
 			:show-dividers="true"
 			:primary-action="{ actionType: 'progressive', label: 'I love veggies!' }"
 			:default-action="{ label: 'I prefer candy' }"

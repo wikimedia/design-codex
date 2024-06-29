@@ -14,7 +14,7 @@ const controlsConfig = [
 	{ name: 'title', type: 'text', initial: 'Dialog title' },
 	{ name: 'subtitle', type: 'text', initial: 'Dialog subtitle' },
 	{ name: 'hideTitle', type: 'boolean' },
-	{ name: 'closeButtonLabel', type: 'text', initial: 'Close' },
+	{ name: 'useCloseButton', type: 'boolean' },
 	{ name: 'stackedActions', type: 'boolean' },
 	{ name: 'usePrimaryAction', type: 'boolean', initial: true },
 	{ name: 'primaryActionLabel', type: 'text', initial: 'Save' },
@@ -355,8 +355,7 @@ easier for users to move through the flow when they know what to do from the tit
 </cdx-demo-wrapper>
 
 ### Basic example
-This example includes a title, close button label (which enables the appearance of the icon-only
-close button), primary action, and default action.
+This example includes a title, close button, primary action, and default action.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
