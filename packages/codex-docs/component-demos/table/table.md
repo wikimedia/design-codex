@@ -509,11 +509,6 @@ by adding `allowSort: true` to its definition.
 You can initialize the sort ref to an empty object if there is no initial sort order, or to an
 initial sort order as in the Table below, where the initial sort order is `{ user: 'asc' }`.
 
-:::warning
-For translatable interfaces, make sure you also use the `sortCaption` prop to provide a translated
-string for this visually-hidden accessibility helper.
-:::
-
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<table-with-sort />
@@ -535,11 +530,6 @@ string for this visually-hidden accessibility helper.
 
 To enable row selection, set the `useRowSelection` prop to `true`, and use v-model to bind the
 `selectedRows` prop.
-
-:::warning
-For translatable interfaces, make sure you also use the `selectAllLabel` and `selectRowLabel`
-props to provide translated strings for these visually-hidden accessibility helpers.
-:::
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
@@ -777,7 +767,10 @@ text alignment.
 
 ### Visually hidden caption
 
-To visually hide the header's caption, simply do not add it to the header element (`<div class="cdx-table__header">`). If you have no other header content, the entire header element can be removed, as in the example below. Make sure to always include the `<caption>` element inside the `<table>`, which is visually hidden by default.
+To visually hide the header's caption, simply do not add it to the header element
+(`<div class="cdx-table__header">`). If you have no other header content, the entire header element
+can be removed, as in the example below. Make sure to always include the `<caption>` element inside
+the `<table>`, which is visually hidden by default.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

@@ -41,8 +41,9 @@ exports[`Table matches the snapshot Case 0 Basic table: ([[Object], [Object], [O
     >
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
-        Table caption 
-        <!--v-if-->
+        
+        Table caption
+        
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->
       
@@ -307,8 +308,9 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ([[Object], [
     >
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
-        Table caption 
-        <!--v-if-->
+        
+        Table caption
+        
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->
       
@@ -573,8 +575,9 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
     >
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
-        Table caption 
-        <!--v-if-->
+        
+        Table caption
+        
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->
       
@@ -868,8 +871,9 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ([[Object], [Obj
     >
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
-        Table caption 
-        <!--v-if-->
+        
+        Table caption
+        
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->
       
@@ -1134,8 +1138,9 @@ exports[`Table matches the snapshot Case 4 With row headers: ([[Object], [Object
     >
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
-        Table caption 
-        <!--v-if-->
+        
+        Table caption
+        
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->
       
@@ -1404,8 +1409,9 @@ exports[`Table matches the snapshot Case 5 With column width settings: ([[Object
     >
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
-        Table caption 
-        <!--v-if-->
+        
+        Table caption
+        
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->
       
@@ -1677,8 +1683,9 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
     >
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
-        Table caption 
-        <!--v-if-->
+        
+        Table caption
+        
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->
       
@@ -2155,8 +2162,9 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ([[Obje
     >
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
-        Table caption 
-        <!--v-if-->
+        
+        Table caption
+        
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->
       
@@ -2429,8 +2437,9 @@ exports[`Table matches the snapshot Case 8 With tfoot: ([[Object], [Object], [Ob
     >
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
-        Table caption 
-        <!--v-if-->
+        
+        Table caption
+        
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->
       
@@ -2695,8 +2704,9 @@ exports[`Table matches the snapshot Case 9 With item slot: ([[Object], [Object],
     >
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
-        Table caption 
-        <!--v-if-->
+        
+        Table caption
+        
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->
       
@@ -2969,10 +2979,9 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
     >
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
-        Table caption 
-        <span>
-          , column headers with buttons are sortable.
-        </span>
+        
+        Table caption, column headers with buttons are sortable.
+        
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->
       
@@ -3446,8 +3455,9 @@ exports[`Table matches the snapshot Case 11 With empty state: ([]) => HTML 1`] =
     >
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
-        Table caption 
-        <!--v-if-->
+        
+        Table caption
+        
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->
       

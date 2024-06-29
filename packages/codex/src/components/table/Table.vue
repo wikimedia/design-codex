@@ -30,10 +30,12 @@
 			<table class="cdx-table__table" :class="tableClasses">
 				<!-- Visually-hidden caption element, for assistive technology. -->
 				<caption>
-					{{ caption }}
-					<span v-if="hasSortableColumns">
-						{{ sortCaption }}
-					</span>
+					<template v-if="!hasSortableColumns">
+						{{ caption }}
+					</template>
+					<template v-else>
+						{{ translatedSortCaption }}
+					</template>
 				</caption>
 				<!-- @slot Custom <thead>. -->
 				<slot name="thead">
@@ -46,7 +48,7 @@
 									:indeterminate="selectAllIndeterminate"
 									@update:model-value="handleSelectAll"
 								>
-									{{ selectAllLabel }}
+									{{ translatedSelectAllLabel }}
 								</cdx-checkbox>
 							</th>
 							<th
@@ -95,7 +97,7 @@
 									:hide-label="true"
 									@update:model-value="handleRowSelection"
 								>
-									{{ selectRowLabel( rowIndex + 1, data.length ) }}
+									{{ translatedSelectRowLabel( rowIndex + 1, data.length ) }}
 								</cdx-checkbox>
 							</td>
 							<component
@@ -150,6 +152,7 @@ import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import CdxCheckbox from '../checkbox/Checkbox.vue';
 import CdxIcon from '../icon/Icon.vue';
 import { cdxIconSortVertical, cdxIconUpTriangle, cdxIconDownTriangle, Icon } from '@wikimedia/codex-icons';
+import useI18n from '../../composables/useI18n';
 
 type TableSortIconMap = { [P in TableSortOption]: Icon };
 type TableSortDirection = 'none' | 'ascending' | 'descending';
@@ -166,7 +169,6 @@ const sortDirectionMap: TableSortDirectionMap = {
 	asc: 'ascending',
 	desc: 'descending'
 };
-
 /**
  * An HTML table for displaying data.
  */
@@ -273,24 +275,6 @@ export default defineComponent( {
 			default: () => []
 		},
 		/**
-		 * Label for the "select all rows" checkbox.
-		 *
-		 * This label is visually hidden but needed for assistive technology.
-		 */
-		selectAllLabel: {
-			type: String,
-			default: 'Select all rows'
-		},
-		/**
-		 * Label for the "select row" checkboxes.
-		 *
-		 * These labels are visually hidden but needed for assistive technology.
-		 */
-		selectRowLabel: {
-			type: Function,
-			default: ( x: number, y:number ) => `Select row ${ x } of ${ y }`
-		},
-		/**
 		 * Definition of sort order. Column(s) can be sorted ascending, descending, or not sorted.
 		 * To display data unsorted initially, set to an empty object initially.
 		 * Must be bound with v-model:sort
@@ -298,16 +282,6 @@ export default defineComponent( {
 		sort: {
 			type: Object as PropType<TableSort>,
 			default: () => ( {} )
-		},
-		/**
-		 * Text that provides additional info for the `<caption>` element when the column header
-		 * has sorting is enabled.
-		 *
-		 * This text is visually hidden but needed for assistive technology when sort is enabled.
-		 */
-		sortCaption: {
-			type: String,
-			default: ', column headers with buttons are sortable.'
 		}
 	},
 	emits: [
@@ -347,6 +321,19 @@ export default defineComponent( {
 				'cdx-table__table--borders-vertical': props.showVerticalBorders
 			};
 		} );
+
+		// i18n
+		const translatedSortCaption = useI18n(
+			'cdx-table-sort-caption',
+			( caption ) => `${ caption }, column headers with buttons are sortable.`,
+			[ toRef( props, 'caption' ) ]
+		);
+		const translatedSelectRowLabel = ( rowIndex: number, totalRows: number ) => useI18n(
+			'cdx-table-select-row-label',
+			( row, total ) => `Select row ${ row } of ${ total }`,
+			[ rowIndex, totalRows ]
+		).value;
+		const translatedSelectAllLabel = useI18n( 'cdx-table-select-all-label', 'Select all rows' );
 
 		/**
 		 * Get the key for a row, either the row index or the TableRowIdentifier.
@@ -570,7 +557,12 @@ export default defineComponent( {
 			// Sorting methods.
 			handleSort,
 			getSortIcon,
-			getSortOrder
+			getSortOrder,
+
+			// i18n
+			translatedSortCaption,
+			translatedSelectRowLabel,
+			translatedSelectAllLabel
 		};
 	}
 } );
