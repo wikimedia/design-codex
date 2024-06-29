@@ -6,7 +6,7 @@
 				v-model="inputValue"
 				aria-label="SearchInput demo"
 				placeholder="Search"
-				button-label="Search"
+				:use-button="true"
 				@update:model-value="onUpdateModelValue"
 			/>
 		</div>

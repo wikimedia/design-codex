@@ -2,7 +2,7 @@
 	<cdx-typeahead-search
 		id="typeahead-search-pending-state"
 		form-action="https://en.wikipedia.org/w/index.php"
-		button-label="Search"
+		:use-button="true"
 		:search-results="searchResults"
 		:search-footer-url="searchFooterUrl"
 		:show-thumbnail="true"

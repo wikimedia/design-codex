@@ -7,6 +7,14 @@ import { DebounceInterval, PendingDelay } from '../../constants';
 import { SearchResult } from '../../types';
 
 const propsData = {
+	useButton: true,
+	placeholder: 'Search Wikipedia',
+	formAction: '/w/index.php',
+	searchResults: [],
+	id: 'foo'
+};
+
+const propsDataDeprecated = {
 	buttonLabel: 'Search',
 	placeholder: 'Search Wikipedia',
 	formAction: '/w/index.php',
@@ -56,7 +64,8 @@ describe( 'TypeaheadSearch initial state', () => {
 			id: string;
 			searchResults: SearchResult[],
 			formAction: string;
-			buttonLabel: string;
+			useButton?: boolean;
+			buttonLabel?: string;
 			placeholder?: string;
 			autoExpandWidth?: boolean;
 			showThumbnail?: boolean;
@@ -66,7 +75,9 @@ describe( 'TypeaheadSearch initial state', () => {
 	const cases: Case[] = [
 		[ 'Default', propsData ],
 		[ 'With `autoExpandWidth` true and `showThumbnail` true', { ...propsData, autoExpandWidth: true, showThumbnail: true } ],
-		[ 'With `autoExpandWidth` true and `showThumbnail` false', { ...propsData, autoExpandWidth: true, showThumbnail: false } ]
+		[ 'With `autoExpandWidth` true and `showThumbnail` false', { ...propsData, autoExpandWidth: true, showThumbnail: false } ],
+		[ 'With custom visible button label', { ...propsData, buttonLabel: 'Search Results' } ],
+		[ 'With custom visible button label using the depracated API', { ...propsDataDeprecated, autoExpandWidth: true, showThumbnail: true } ]
 	];
 
 	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {

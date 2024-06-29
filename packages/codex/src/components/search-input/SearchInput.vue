@@ -27,12 +27,12 @@
 			<slot />
 		</div>
 		<cdx-button
-			v-if="buttonLabel"
+			v-if="useButtonOrLabel"
 			class="cdx-search-input__end-button"
 			:disabled="computedDisabled"
 			@click="handleSubmit"
 		>
-			{{ buttonLabel }}
+			{{ translatedSearchButtonLabel }}
 		</cdx-button>
 	</div>
 </template>
@@ -47,6 +47,7 @@ import CdxTextInput from '../text-input/TextInput.vue';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useFieldData from '../../composables/useFieldData';
+import useI18n from '../../composables/useI18n';
 
 import { ValidationStatusTypes } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
@@ -79,9 +80,18 @@ export default defineComponent( {
 			default: ''
 		},
 		/**
+		 *
+		 * Whether to display a button.
+		 */
+		useButton: {
+			type: Boolean,
+			default: false
+		},
+		// DEPRECATED: set default to 'Search' (T368444).
+		/**
 		 * Submit button text.
 		 *
-		 * If this is provided, a submit button with this label will be added.
+		 * If no label is provided, the submit button defaults to an English string, "Search".
 		 */
 		buttonLabel: {
 			type: String,
@@ -150,7 +160,7 @@ export default defineComponent( {
 
 		const internalClasses = computed( () => {
 			return {
-				'cdx-search-input--has-end-button': !!props.buttonLabel
+				'cdx-search-input--has-end-button': !!props.buttonLabel || props.useButton
 			};
 		} );
 
@@ -160,6 +170,18 @@ export default defineComponent( {
 			rootStyle,
 			otherAttrs
 		} = useSplitAttributes( attrs, internalClasses );
+
+		// Inject a translatable message string.
+		const translatedSearchButtonLabel = useI18n(
+			'cdx-search-input-search-button-label',
+			// Allow custom button label via props or fallback to a default English string.
+			() => props.buttonLabel || 'Search'
+		);
+
+		// DEPRECATED: require use of new prop useButton (T368444)
+		const useButtonOrLabel = computed( () =>
+			props.useButton || props.buttonLabel.length > 0
+		);
 
 		const handleSubmit = () => {
 			emit( 'submit-click', wrappedModel.value );
@@ -172,7 +194,9 @@ export default defineComponent( {
 			rootStyle,
 			otherAttrs,
 			handleSubmit,
-			searchIcon: cdxIconSearch
+			searchIcon: cdxIconSearch,
+			translatedSearchButtonLabel,
+			useButtonOrLabel
 		};
 	},
 

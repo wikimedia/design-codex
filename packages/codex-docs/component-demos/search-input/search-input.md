@@ -174,7 +174,7 @@ The `placeholder` attribute will be passed down to the `<input>` element.
 
 ### With button
 
-This example provides a `buttonLabel` prop, which enables the submit button.
+This example provides a `useButton` prop, which enables the submit button.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -226,7 +226,7 @@ it triggers an action. Refer to the [Field](./field.md) guidelines for more info
 ## Vue usage
 
 This component contains a [TextInput](./text-input.md) with a preset start icon and input type. A
-button can be added by providing the `buttonLabel` prop.
+button can be added by providing the `useButton` prop.
 
 The default slot allows you to pass in an options menu that can be absolutely positioned to line
 up with the text input, e.g. a list of autocomplete options.

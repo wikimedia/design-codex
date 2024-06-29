@@ -2,7 +2,7 @@
 	<div>
 		<cdx-search-input
 			v-model="inputValue"
-			button-label="Search"
+			:use-button="true"
 			:clearable="true"
 			aria-label="SearchInput clearable demo"
 			@update:model-value="onEvent( 'update:modelValue', $event )"

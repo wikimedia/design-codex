@@ -129,7 +129,7 @@ Consider the following recommendations when using the TypeaheadSearch.
 
 This implementation of TypeaheadSearch fetches articles from English Wikipedia. Note that the input
 expands on focus via the `autoExpandWidth` prop, thumbnails are enabled via the `showThumbnail`
-prop, and the "search" button is added via the `buttonLabel` prop.  Open the console to see emitted
+prop, and the "Search" button is added via the `useButton` prop.  Open the console to see emitted
 events.
 
 <cdx-demo-wrapper :force-controls="true">
@@ -152,7 +152,7 @@ events.
 ### Search Wikidata items
 
 In this example, results are fetched from Wikidata. Thumbnails are disabled, and the input doesn't
-expand on focus. There is no button, because the `buttonLabel` prop is not set. Open the console to
+expand on focus. There is no button, because the `useButton` prop is set to `false`. Open the console to
 see emitted events.
 
 <cdx-demo-wrapper>

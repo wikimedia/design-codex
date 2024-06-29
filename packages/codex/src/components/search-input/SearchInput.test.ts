@@ -7,14 +7,16 @@ describe( 'matches the snapshot', () => {
 		msg: string,
 		props: {
 			modelValue?: string | number,
-			buttonLabel?: string
+			buttonLabel?: string,
+			useButton?: boolean
 		},
 		attrs?: Record<string, string|number|boolean>
 	];
 
 	const cases: Case[] = [
 		[ 'Default', { modelValue: '' } ],
-		[ 'With submit button', { modelValue: '', buttonLabel: 'Search' } ],
+		[ 'With submit button', { modelValue: '', useButton: true } ],
+		[ 'With custom visible button label', { modelValue: '', useButton: true, buttonLabel: 'Search results' } ],
 		[ 'With attributes', { modelValue: '' }, { disabled: true, placeholder: 'Start typing...' } ]
 	];
 

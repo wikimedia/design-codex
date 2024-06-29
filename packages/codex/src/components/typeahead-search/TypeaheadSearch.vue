@@ -15,6 +15,7 @@
 				ref="searchInput"
 				v-model="inputValue"
 				:button-label="buttonLabel"
+				:use-button="useButton"
 				v-bind="otherAttrs"
 				class="cdx-typeahead-search__input"
 				name="search"
@@ -172,9 +173,18 @@ export default defineComponent( {
 			required: true
 		},
 		/**
-		 * Label for the submit button.
 		 *
-		 * If no label is provided, the submit button will not be displayed.
+		 * Whether to display a submit button.
+		 */
+		useButton: {
+			type: Boolean,
+			default: false
+		},
+		// DEPRECATED: set default to 'Search' (T368444).
+		/**
+		 * Custom label for the submit button.
+		 *
+		 * If no label is provided, the submit button defaults to an English string, "Search".
 		 */
 		buttonLabel: {
 			type: String,
