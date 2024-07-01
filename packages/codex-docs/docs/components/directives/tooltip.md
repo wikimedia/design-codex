@@ -29,26 +29,126 @@ const controlsConfig = [
 
 # Tooltip
 
-A tooltip is a small, informative text that appears when a user hovers over a user interface element.
+A tooltip is a brief message that shows up when a user hovers over a specific part of the user interface, providing additional information.
 
 ## Guidelines
 
 ### When to use tooltips
 
-Use the Tooltip component to add a small piece of information to its associated
-element. Tooltips can be used to explain the meaning or purpose of interface
-elements like icons and buttons, or to show the full version of truncated text. 
+Use the Tooltip component to add a small piece of information to its associated element. Tooltips can be used to explain the meaning or purpose of interface elements like icons and buttons where the initial element might not be clear, or to show the full version of truncated text where space is not available.
 
 ### Specifications
 
-![Specification of Tooltip](../../assets/components/tooltip-specifications.svg)
+The Tooltip component includes text-only content.
 
-1. **Content** <br>
-Tooltip content
+![Specification of Tooltip component.](../../assets/components/tooltip-specifications.svg)
 
 ### Component limitations
 
-The maximum width for the Tooltip is set at `@size-1600` (256px).
+The minimum width for the Tooltip component is set at `@size-125` (equivalent to 24px in the default Codex theme). The maximum width is set at `@size-600` (equivalent to 256px).
+
+Refer to the [Tooltip component in Codex Figma](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?m=auto&node-id=17954-2437&t=RVlYIfoOsmLFBzgY-1).
+
+### Types
+
+By default, the Tooltip appears beneath its trigger, but automatically moves based on the position of the trigger and the edge of the viewport. The default position can be set to one of four positions:
+1. Bottom
+2. Top
+3. Right
+4. Left
+
+![Types of Tooltip based on its placement: top, bottom, right, and left.](../../assets/components/tooltip-types-position.svg)
+
+### Interaction states
+
+The Tooltip component is purely informational, and is not inherently interactive. The Tooltip will be shown on hover or focus of its trigger. On touchable screens, the tooltip can be shown by long pressing on the trigger.
+
+### Best practices
+
+Consider the following recommendations when working with tooltips.
+
+#### Usage
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A tooltip displayed from a button with short and concise text.](../../assets/components/tooltip-best-practices-usage-do.svg)
+
+</template>
+<template #do-text>
+
+- Use a tooltip to provide further clarification or give additional context and information.
+
+</template>
+<template #dont-media>
+
+![A tooltip wrongly displaying an error message from a button.](../../assets/components/tooltip-best-practices-usage-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Provide significant details or information, such as errors — tooltips can be easily overlooked.
+
+</template>
+</cdx-demo-rules>
+
+#### Contents
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A tooltip displayed from an icon-only button describing its meaning.](../../assets/components/tooltip-best-practices-contents-do.svg)
+
+</template>
+<template #do-text>
+
+- Use only text within a tooltip.
+
+</template>
+<template #dont-media>
+
+![A tooltip wrongly displaying a blue link.](../../assets/components/tooltip-best-practices-contents-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Include interactive elements like links or buttons within a tooltip.
+
+</template>
+</cdx-demo-rules>
+
+### Content
+
+Tooltips are used to describe visual elements or elaborate on textual elements in as few words as possible. Content for Tooltips should be short and concise.
+
+<cdx-demo-rules>
+<template #do-media>
+
+![A tooltip with more than one sentence using a period at the end of each sentence.](../../assets/components/tooltip-content-do.svg)
+
+</template>
+<template #do-text>
+
+- Use punctuation for more than one sentence, or when the truncated text includes punctuation.
+
+</template>
+<template #dont-media>
+
+![A tooltip wrongly using a period at the end of only one sentence.](../../assets/components/tooltip-content-dont.svg)
+
+</template>
+<template #dont-text>
+
+- Use punctuation when the text consists of just one sentence.
+
+</template>
+</cdx-demo-rules>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Esc</kbd> | Dismisses the tooltip. |
 
 ## Demos
 
