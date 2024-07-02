@@ -65,7 +65,7 @@ exports[`matches the snapshot Case 1 With icon: ("Label text") => HTML 1`] = `
 </div>
 `;
 
-exports[`matches the snapshot Case 2 With optional flag: ("Label text") => HTML 1`] = `
+exports[`matches the snapshot Case 2 With optional flag using deprecated API: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -103,7 +103,45 @@ exports[`matches the snapshot Case 2 With optional flag: ("Label text") => HTML 
 </div>
 `;
 
-exports[`matches the snapshot Case 3 With visually hidden label: ("Label text") => HTML 1`] = `
+exports[`matches the snapshot Case 3 With optional flag: ("Label text ") => HTML 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+  <div
+    class="cdx-label"
+  >
+    <label
+      class="cdx-label__label"
+    >
+      <!--v-if-->
+      <span
+        class="cdx-label__label__text"
+      >
+        <!-- @slot Label text. -->
+        
+        Label text
+        
+      </span>
+      <span
+        class="cdx-label__label__optional-flag"
+      >
+        <!-- Add a space before the optional flag text. Vue strips whitespace
+					between everything except plain text, so we can't rely on a newline to
+					add a natural space here. -->
+        <!-- eslint-disable-next-line vue/no-useless-mustaches -->
+           (optional)
+      </span>
+    </label>
+    <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
+    <!--v-if-->
+  </div>
+  
+</div>
+`;
+
+exports[`matches the snapshot Case 4 With visually hidden label: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -133,7 +171,7 @@ exports[`matches the snapshot Case 3 With visually hidden label: ("Label text") 
 </div>
 `;
 
-exports[`matches the snapshot Case 4 As legend: ("Label text") => HTML 1`] = `
+exports[`matches the snapshot Case 5 As legend: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -168,7 +206,7 @@ exports[`matches the snapshot Case 4 As legend: ("Label text") => HTML 1`] = `
 </div>
 `;
 
-exports[`matches the snapshot Case 5 With input ID: ("Label text") => HTML 1`] = `
+exports[`matches the snapshot Case 6 With input ID: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -199,7 +237,7 @@ exports[`matches the snapshot Case 5 With input ID: ("Label text") => HTML 1`] =
 </div>
 `;
 
-exports[`matches the snapshot Case 6 Disabled: ("Label text") => HTML 1`] = `
+exports[`matches the snapshot Case 7 Disabled: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -229,7 +267,7 @@ exports[`matches the snapshot Case 6 Disabled: ("Label text") => HTML 1`] = `
 </div>
 `;
 
-exports[`matches the snapshot Case 7 With description and description ID: ("Label text") => HTML 1`] = `
+exports[`matches the snapshot Case 8 With description and description ID: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >

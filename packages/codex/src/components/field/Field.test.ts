@@ -13,6 +13,7 @@ type Case = [
 	props: {
 		labelIcon?: Icon,
 		optionalFlag?: string,
+		optional?: boolean,
 		hideLabel?: boolean,
 		isFieldset?: boolean,
 		disabled?: boolean,
@@ -30,7 +31,8 @@ describe( 'Field', () => {
 			const cases: Case[] = [
 				[ 'Basic field', {}, 'Label text' ],
 				[ 'With label icon', { labelIcon: cdxIconMapPin }, 'Label text' ],
-				[ 'With optional flag', { optionalFlag: '(optional)' }, 'Label text' ],
+				[ 'With optional flag using deprecated API', { optionalFlag: '(optional)' }, 'Label text' ],
+				[ 'With optional flag', { optional: true }, 'Label text' ],
 				[ 'With visually hidden label', { hideLabel: true }, 'Label text' ],
 				[ 'Disabled', { disabled: true }, 'Label text' ],
 				[ 'Error status with message', { status: 'error', messages: { error: 'Error' } }, 'Label text' ],

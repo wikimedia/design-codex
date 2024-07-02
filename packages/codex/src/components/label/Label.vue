@@ -20,13 +20,13 @@
 				<!-- @slot Label text. -->
 				<slot />
 			</span>
-			<span v-if="optionalFlag" class="cdx-label__label__optional-flag">
+			<span v-if="optionalFlag || optional" class="cdx-label__label__optional-flag">
 				<!-- Add a space before the optional flag text. Vue strips whitespace
 					between everything except plain text, so we can't rely on a newline to
 					add a natural space here. -->
 				<!-- eslint-disable-next-line vue/no-useless-mustaches -->
 				{{ ' ' }}
-				{{ optionalFlag }}
+				{{ translatedOptionalFlag }}
 			</span>
 		</label>
 
@@ -60,13 +60,13 @@
 				<!-- @slot Label text. -->
 				<slot />
 			</span>
-			<span v-if="optionalFlag" class="cdx-label__label__optional-flag">
+			<span v-if="optionalFlag || optional" class="cdx-label__label__optional-flag">
 				<!-- Add a space before the optional flag text. Vue strips whitespace
 					between everything except plain text, so we can't rely on a newline to
 					add a natural space here. -->
 				<!-- eslint-disable-next-line vue/no-useless-mustaches -->
 				{{ ' ' }}
-				{{ optionalFlag }}
+				{{ translatedOptionalFlag }}
 			</span>
 		</span>
 
@@ -88,6 +88,7 @@ import { Icon } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import useFieldData from '../../composables/useFieldData';
 import useSplitAttributes from '../../composables/useSplitAttributes';
+import useI18n from '../../composables/useI18n';
 
 /**
  * Describes the information requested by a given form field.
@@ -109,6 +110,16 @@ export default defineComponent( {
 			type: [ String, Object ] as PropType<Icon|null>,
 			default: null
 		},
+		/**
+		 * Whether the field is optional.
+		 *
+		 * This will add a flag next to the label indicating that the field is optional.
+		 */
+		optional: {
+			type: Boolean,
+			default: false
+		},
+		// DEPRECATED: set default to '(optional)' (T368444).
 		/**
 		 * Text to indicate that the field is optional.
 		 *
@@ -179,10 +190,16 @@ export default defineComponent( {
 			otherAttrs
 		} = useSplitAttributes( attrs, internalClasses );
 
+		const translatedOptionalFlag = useI18n(
+			'cdx-label-optional-flag',
+			() => props.optionalFlag || '(optional)'
+		);
+
 		return {
 			rootClasses,
 			rootStyle,
-			otherAttrs
+			otherAttrs,
+			translatedOptionalFlag
 		};
 	}
 } );

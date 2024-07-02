@@ -17,9 +17,8 @@ const controlsConfig = [
 		type: 'icon'
 	},
 	{
-		name: 'optionalFlag',
-		type: 'text',
-		initial: '(optional)'
+		name: 'optional',
+		type: 'boolean'
 	},
 	{
 		name: 'hideLabel',

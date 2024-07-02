@@ -10,6 +10,7 @@
 			:id="labelId"
 			:icon="labelIcon"
 			:visually-hidden="hideLabel"
+			:optional="optional"
 			:optional-flag="optionalFlag"
 			:input-id="inputId"
 			:description-id="descriptionId"
@@ -77,6 +78,16 @@ export default defineComponent( {
 			type: [ String, Object ] as PropType<Icon>,
 			default: ''
 		},
+		/**
+		 * Whether the field is optional.
+		 *
+		 * This will add a flag next to the label indicating that the field is optional.
+		 */
+		optional: {
+			type: Boolean,
+			default: false
+		},
+		// DEPRECATED: set default to '(optional)' (T368444).
 		/**
 		 * Text to indicate that the field is optional.
 		 *

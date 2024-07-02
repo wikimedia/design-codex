@@ -9,6 +9,7 @@ describe( 'matches the snapshot', () => {
 		props: {
 			icon?: Icon,
 			optionalFlag?: string,
+			optional?: boolean,
 			visuallyHidden?: boolean,
 			isLegend?: boolean,
 			inputId?: string,
@@ -20,7 +21,8 @@ describe( 'matches the snapshot', () => {
 	const cases: Case[] = [
 		[ 'Default', 'Label text', {} ],
 		[ 'With icon', 'Label text', { icon: cdxIconMapPin } ],
-		[ 'With optional flag', 'Label text', { optionalFlag: '(optional)' } ],
+		[ 'With optional flag using deprecated API', 'Label text', { optionalFlag: '(optional)' } ],
+		[ 'With optional flag', 'Label text ', { optional: true } ],
 		[ 'With visually hidden label', 'Label text', { visuallyHidden: true } ],
 		[ 'As legend', 'Label text', { isLegend: true } ],
 		[ 'With input ID', 'Label text', { inputId: 'my-input-123' } ],
