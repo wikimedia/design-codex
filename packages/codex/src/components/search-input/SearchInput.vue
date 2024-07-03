@@ -81,7 +81,7 @@ export default defineComponent( {
 		},
 		/**
 		 *
-		 * Whether to display a button.
+		 * Whether to display the search button.
 		 */
 		useButton: {
 			type: Boolean,
@@ -89,9 +89,9 @@ export default defineComponent( {
 		},
 		// DEPRECATED: set default to 'Search' (T368444).
 		/**
-		 * Submit button text.
+		 * Search button text.
 		 *
-		 * If no label is provided, the submit button defaults to an English string, "Search".
+		 * Omit this prop to use the default value, "Search".
 		 */
 		buttonLabel: {
 			type: String,

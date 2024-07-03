@@ -91,8 +91,7 @@ export default defineComponent( {
 		/**
 		 * Text to indicate that the field is optional.
 		 *
-		 * For example, this might be '(optional)' in English. This text will be placed next to
-		 * the label text.
+		 * Omit this prop to use the default value, "(optional)".
 		 */
 		optionalFlag: {
 			type: String,

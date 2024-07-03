@@ -184,7 +184,7 @@ export default defineComponent( {
 		/**
 		 * Custom label for the submit button.
 		 *
-		 * If no label is provided, the submit button defaults to an English string, "Search".
+		 * Omit this prop to use the default value, "Search".
 		 */
 		buttonLabel: {
 			type: String,
