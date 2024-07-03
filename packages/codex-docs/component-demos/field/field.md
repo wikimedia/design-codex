@@ -83,11 +83,12 @@ input component, it triggers an action and is not a form item.
 
 It is composed of the following elements:
 1. **Label**<br>A label serves as a precise and informative title for the form field, indicating the
-type of information to be entered. It can also incorporate a description. Explore [Label](./label.md) to check the different label properties.
-2. **Field**<br>The input element, or a group of inputs,  where the user enters information. Field
+type of information to be entered. Explore [Label](./label.md) to check its different properties.
+2. **Label’s description** (optional)<br>An optional description can also be incorporated below the label to provide additional information about it. This description can include plain text, with or without links.
+3. **Field**<br>The input element, or a group of inputs, where the user enters information. Field
 can use any form item such as text input, select, checkbox, etc.
-3. **Helper text** (optional)<br>Text that provides additional information related to the field. The helper text slot can include plain text with or without links.
-4. **Validation message**<br>An inline validation message will appear to provide feedback about the
+4. **Helper text** (optional)<br>Text that provides supplementary information or instructions to guide users in completing the field correctly. The helper text can include plain text with or without links.
+5. **Validation message**<br>An inline validation message will appear to provide feedback about the
 status of the field. For example, to provide an error message to the user when the field contains
 one or more errors.
 
@@ -173,7 +174,7 @@ Consider the following recommendations when using fields. For more detailed info
 
 </cdx-demo-rules>
 
-#### Label and description
+#### Label, description, and helper text 
 
 <cdx-demo-rules>
 
@@ -186,7 +187,8 @@ Consider the following recommendations when using fields. For more detailed info
 <template #do-text>
 
 - Keep the Field’s label short, clear, and easy to scan.
-- Utilize the label’s description for additional information if needed.
+- Use the label’s description for additional information related with the label if needed.
+- Use the helper text to provide supplementary guidance on completing the field correctly, including expected input and error prevention.
 
 </template>
 
@@ -199,12 +201,14 @@ Consider the following recommendations when using fields. For more detailed info
 <template #dont-text>
 
 - Make the Field’s label text excessively large, which could make it difficult to scan.
+- Include field completion guidelines in the label’s description.
+- Place information related to the label below the field. Use the helper text for this purpose instead.
 
 </template>
 
 </cdx-demo-rules>
 
-#### Optional fields
+#### Optional form fields
 
 <cdx-demo-rules>
 
