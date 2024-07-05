@@ -161,6 +161,8 @@ presentational and interactive use cases like, for example, the introduction of 
 
 ![Table featuring cells with custom content.](../../assets/components/table-specifications-cell-customization.svg)
 
+Refer to the [Table component in Codex Figma](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/❖-Codex-components?node-id=17413-13608&t=worf819uF8gGRU5J-11).
+
 ### Types
 
 #### Table with vertical borders
