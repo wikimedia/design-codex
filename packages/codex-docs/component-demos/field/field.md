@@ -320,6 +320,7 @@ Labels indicate what the input should be. Placeholders act as sample text for th
 
 - Make the label short, clear, and easy to scan. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent) & [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
 - Provide more context in the placeholder for what's indicated in the label. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+- Use examples in the placeholder when expected input formats need to be clarified. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
 
 </template>
 <template #dont-media>
