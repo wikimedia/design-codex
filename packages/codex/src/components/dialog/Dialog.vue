@@ -288,6 +288,7 @@ export default defineComponent( {
 		const focusHolder = ref<HTMLDivElement>();
 		const focusTrapStart = ref<HTMLDivElement>();
 		const focusTrapEnd = ref<HTMLDivElement>();
+		let previouslyFocused: Element|null = null;
 
 		// DEPRECATED: require use of new prop useCloseButton (T368444)
 		const useCloseButtonOrLabel = computed( () =>
@@ -427,6 +428,7 @@ export default defineComponent( {
 		}
 
 		async function onDialogOpen() {
+
 			// Most of the things below need to happen on nextTick because they rely on template
 			// refs, and those are not yet set when the watcher for props.open runs.
 			// The documentElement and body manipulations don't need to happen on nextTick, but
@@ -443,6 +445,9 @@ export default defineComponent( {
 
 			setAriaHiddenAndInert();
 
+			// Stash the currently focused element so we can restore it later.
+			previouslyFocused = document.activeElement;
+
 			// Focus within the dialog so that we can listen to keypress events.
 			// Try focusing on the first focusable element in the body. If there isn't one,
 			// use the focus holder.
@@ -458,6 +463,16 @@ export default defineComponent( {
 			document.body.classList.remove( 'cdx-dialog-open' );
 			document.documentElement.style.removeProperty( 'margin-right' );
 			unsetAriaHiddenAndInert();
+
+			// Restore focus to the previously-focused element, if there was one
+			// (and if it still exists in the document).
+			if (
+				previouslyFocused instanceof HTMLElement &&
+				document.contains( previouslyFocused )
+			) {
+				previouslyFocused.focus();
+				previouslyFocused = null;
+			}
 		}
 
 		// If the dialog is mounted in the open state, make sure we set things up properly
