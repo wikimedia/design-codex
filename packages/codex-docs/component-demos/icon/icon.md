@@ -116,7 +116,7 @@ empty `<span>` element. The parameters of the mixin are as follows:
 
 | Param name | Description | Default |
 | -- | -- | ------- |
-| `@param-icon` <sup class="cdx-docs-required-indicator">(required)</sup> | The icon to use, in the form of a Less variable. These variables are also provided by the mixin file. The syntax for the Less variable version of an icon name is `@cdx-icon-icon-name`, e.g. `@cdx-icon-info-filled`. See the list of [all icons](../../icons/all-icons.md) for icon names. | |
+| `@param-icon` <sup class="cdx-docs-required-indicator">(required)</sup> | The icon to use, in the form of a Less variable. These variables are also provided by the mixin file. The syntax for the Less variable version of an icon name is `@cdx-icon-icon-name`, e.g. `@cdx-icon-info-filled`. See the list of [all icons](../../icons/all-icons.md) for icon names. To use a custom icon, set this to `'none'`, see [how to use a custom icon](#custom-icon) below. | |
 | `@param-fill-color` | The hex code of the fill color of the icon | `@color-base` |
 | `@param-size-icon` | The icon size | `@size-icon-medium` |
 | `@param-is-button-icon` | Whether the icon is inside of a `<button>` element | `false` |
@@ -458,6 +458,69 @@ The CSS-only icons mixin supports icons with language-specific variants.
 </template>
 </cdx-demo-wrapper>
 
+### Custom icon
+To use a custom icon:
+- Set the first parameter of the `.cdx-mixin-css-icon()` mixin to `'none'`
+- Set `mask-image` and `-webkit-mask-image` to a URL that points to the icon image (this can be a
+  data URL)
+
+:::warning
+You must set both `mask-image` and `-webkit-mask-image`, because many browsers only respect the
+latter. This may happen automatically if you use a tool like Autoprefixer.
+:::
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<p>
+		<span class="cdx-demo-css-icon--custom"></span>
+		Custom icon
+	</p>
+</template>
+
+<template v-slot:code>
+
+```html
+<p>
+	<span class="cdx-demo-css-icon--custom"></span>
+	Custom icon
+</p>
+```
+
+:::code-group
+
+```less [NPM]
+// Note: you must import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon--custom {
+	.cdx-mixin-css-icon( 'none', @color-progressive );
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features,function-url-quotes */
+	-webkit-mask-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><mask id="inner"><circle cx="10" cy="10" r="10" fill="white"/><circle cx="10" cy="10" r="6" fill="black"/></mask><circle cx="10" cy="10" r="10" fill="black" mask="url(%23inner)"/></svg>' );
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features,function-url-quotes */
+	mask-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><mask id="inner"><circle cx="10" cy="10" r="10" fill="white"/><circle cx="10" cy="10" r="6" fill="black"/></mask><circle cx="10" cy="10" r="10" fill="black" mask="url(%23inner)"/></svg>' );
+}
+
+```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon--custom {
+	.cdx-mixin-css-icon( 'none', @color-progressive );
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features,function-url-quotes */
+	-webkit-mask-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><mask id="inner"><circle cx="10" cy="10" r="10" fill="white"/><circle cx="10" cy="10" r="6" fill="black"/></mask><circle cx="10" cy="10" r="10" fill="black" mask="url(%23inner)"/></svg>' );
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features,function-url-quotes */
+	mask-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><mask id="inner"><circle cx="10" cy="10" r="10" fill="white"/><circle cx="10" cy="10" r="6" fill="black"/></mask><circle cx="10" cy="10" r="10" fill="black" mask="url(%23inner)"/></svg>' );
+}
+
+```
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
 <style lang="less" scoped>
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
@@ -493,6 +556,14 @@ The CSS-only icons mixin supports icons with language-specific variants.
 
 	&--strikethrough {
 		.cdx-mixin-css-icon( @cdx-icon-strikethrough );
+	}
+
+	&--custom {
+		.cdx-mixin-css-icon( 'none', @color-progressive );
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features,function-url-quotes */
+		-webkit-mask-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><mask id="inner"><circle cx="10" cy="10" r="10" fill="white"/><circle cx="10" cy="10" r="6" fill="black"/></mask><circle cx="10" cy="10" r="10" fill="black" mask="url(%23inner)"/></svg>' );
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features,function-url-quotes */
+		mask-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><mask id="inner"><circle cx="10" cy="10" r="10" fill="white"/><circle cx="10" cy="10" r="6" fill="black"/></mask><circle cx="10" cy="10" r="10" fill="black" mask="url(%23inner)"/></svg>' );
 	}
 }
 </style>
