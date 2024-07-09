@@ -5,8 +5,8 @@
 		:aria-pressed="modelValue"
 		:disabled="disabled"
 		@click="onClick"
-		@keydown.space.enter="setActive( true )"
-		@keyup.space.enter="setActive( false )"
+		@keydown.space.enter.prevent="onKeyDown"
+		@keyup.space.enter="onKeyUp"
 	>
 		<!-- @slot Button content -->
 		<slot />
@@ -84,10 +84,20 @@ export default defineComponent( {
 			isActive.value = active;
 		};
 
+		function onKeyDown() {
+			setActive( true );
+		}
+
+		function onKeyUp() {
+			setActive( false );
+			onClick();
+		}
+
 		return {
 			rootClasses,
 			onClick,
-			setActive
+			onKeyDown,
+			onKeyUp
 		};
 	}
 } );

@@ -2,9 +2,9 @@
 	<button
 		class="cdx-button"
 		:class="rootClasses"
+		@keydown.space.enter.prevent="onKeyDown"
+		@keyup.space.enter="onKeyUp"
 		@click="onClick"
-		@keydown.space.enter="setActive( true )"
-		@keyup.space.enter="setActive( false )"
 	>
 		<!-- @slot Button content -->
 		<slot />
@@ -89,10 +89,20 @@ export default defineComponent( {
 			isActive.value = active;
 		};
 
+		function onKeyDown() {
+			setActive( true );
+		}
+
+		function onKeyUp( event: Event ) {
+			setActive( false );
+			emit( 'click', event );
+		}
+
 		return {
 			rootClasses,
 			onClick,
-			setActive
+			onKeyDown,
+			onKeyUp
 		};
 	}
 } );
