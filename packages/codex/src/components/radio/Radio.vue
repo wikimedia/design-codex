@@ -1,36 +1,48 @@
 <template>
 	<span class="cdx-radio" :class="rootClasses">
-		<input
-			:id="radioId"
-			ref="input"
-			v-model="wrappedModel"
-			class="cdx-radio__input"
-			type="radio"
-			:aria-describedby="( $slots.description &&
-				$slots.description().length > 0 ) ? descriptionId : undefined"
-			:name="name"
-			:value="inputValue"
-			:disabled="computedDisabled"
+		<div class="cdx-radio__wrapper">
+			<input
+				:id="radioId"
+				ref="input"
+				v-model="wrappedModel"
+				class="cdx-radio__input"
+				type="radio"
+				:aria-describedby="( $slots.description &&
+					$slots.description().length > 0 ) ? descriptionId : undefined"
+				:name="name"
+				:value="inputValue"
+				:disabled="computedDisabled"
+			>
+			<span class="cdx-radio__icon" />
+			<!-- Only render a Label component if label text has been provided.
+			This component can also supply a description to the Radio if content
+			is provided in the description slot. -->
+			<cdx-label
+				v-if="$slots.default && $slots.default().length"
+				class="cdx-radio__label"
+				:input-id="radioId"
+				:description-id="( $slots.description &&
+					$slots.description().length > 0 ) ? descriptionId : undefined"
+				:disabled="computedDisabled"
+				@click="focusInput"
+			>
+				<!-- @slot Label text. -->
+				<slot />
+				<template v-if="$slots.description && $slots.description().length > 0" #description>
+					<!-- @slot Short description text. -->
+					<slot name="description" />
+				</template>
+			</cdx-label>
+		</div>
+		<!-- Only render custom input component(s) if custom input has been provided. -->
+		<div
+			v-if="$slots[ 'custom-input' ]"
+			class="cdx-radio__custom-input"
+			:class="customInputClasses"
 		>
-		<span class="cdx-radio__icon" />
-		<!-- Only render a Label component if label text has been provided. This component can also
-			supply a description to the Radio if content is provided in the description slot. -->
-		<cdx-label
-			v-if="$slots.default && $slots.default().length"
-			class="cdx-radio__label"
-			:input-id="radioId"
-			:description-id="( $slots.description &&
-				$slots.description().length > 0 ) ? descriptionId : undefined"
-			:disabled="computedDisabled"
-			@click="focusInput"
-		>
-			<!-- @slot Label text. -->
-			<slot />
-			<template v-if="$slots.description && $slots.description().length > 0" #description>
-				<!-- @slot Short description text. -->
-				<slot name="description" />
-			</template>
-		</cdx-label>
+			<!-- @slot Custom input. -->
+			<slot name="custom-input" />
+		</div>
 	</span>
 </template>
 
@@ -41,7 +53,6 @@ import useLabelChecker from '../../composables/useLabelChecker';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useFieldData from '../../composables/useFieldData';
-
 /**
  * A binary input that is usually combined in a group of two or more options.
  */
@@ -109,6 +120,12 @@ export default defineComponent( {
 			};
 		} );
 
+		const customInputClasses = computed( (): Record<string, boolean> => {
+			return {
+				'cdx-radio__custom-input--inline': props.inline
+			};
+		} );
+
 		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
 
 		// Declare template ref.
@@ -140,7 +157,8 @@ export default defineComponent( {
 			radioId,
 			descriptionId,
 			focusInput,
-			wrappedModel
+			wrappedModel,
+			customInputClasses
 		};
 	}
 } );

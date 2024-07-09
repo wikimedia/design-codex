@@ -5,6 +5,7 @@ import IndeterminateState from '@/../component-demos/checkbox/examples/Indetermi
 import CheckboxWithDescription from '@/../component-demos/checkbox/examples/CheckboxWithDescription.vue';
 import CheckboxField from '@/../component-demos/checkbox/examples/CheckboxField.vue';
 import CheckboxConfigurable from '@/../component-demos/checkbox/examples/CheckboxConfigurable.vue';
+import CheckboxWithCustomInput from '@/../component-demos/checkbox/examples/CheckboxWithCustomInput.vue';
 
 const controlsConfig = [
 	{
@@ -434,6 +435,32 @@ a definite value for the checkbox.
 <<< @/../component-demos/checkbox/examples/IndeterminateState.vue [NPM]
 
 <<< @/../component-demos/checkbox/examples-mw/IndeterminateState.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### With custom input
+
+To add a custom input, use the `custom-input` slot to pass in an input like TextInput, TextArea,
+Select, Combobox, ChipInput, Lookup, or a combination of more than one input.
+
+In the example below, the custom input is always visible but remains disabled
+until the parent Checkbox is selected.
+
+<cdx-demo-wrapper :allow-link-styles="true">
+<template v-slot:demo>
+	<checkbox-with-custom-input />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/checkbox/examples/CheckboxWithCustomInput.vue [NPM]
+
+<<< @/../component-demos/checkbox/examples-mw/CheckboxWithCustomInput.vue [MediaWiki]
 
 :::
 

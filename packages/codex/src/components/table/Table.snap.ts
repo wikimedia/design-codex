@@ -1710,43 +1710,50 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <span
               class="cdx-checkbox cdx-checkbox--status-default"
             >
-              <input
-                class="cdx-checkbox__input"
-                id="cdx-checkbox-0"
-                type="checkbox"
-                value="false"
-              />
-              <span
-                class="cdx-checkbox__icon"
-              />
-              <!-- Only render a Label component if label text has been provided. This component can also
-			supply a description to the Checkbox if content is provided in the description slot. -->
-              
-              <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
               <div
-                class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
+                class="cdx-checkbox__wrapper"
               >
-                <label
-                  class="cdx-label__label"
-                  for="cdx-checkbox-0"
+                <input
+                  class="cdx-checkbox__input"
+                  id="cdx-checkbox-0"
+                  type="checkbox"
+                  value="false"
+                />
+                <span
+                  class="cdx-checkbox__icon"
+                />
+                <!-- Only render a Label component if label text has been provided.
+			This component can also supply a description to the Checkbox if content
+			is provided in the description slot. -->
+                
+                <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+                <div
+                  class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
                 >
-                  <!--v-if-->
-                  <span
-                    class="cdx-label__label__text"
+                  <label
+                    class="cdx-label__label"
+                    for="cdx-checkbox-0"
                   >
-                    <!-- @slot Label text. -->
-                    
-                    
-                    Select all rows
-                    
-                    
-                  </span>
+                    <!--v-if-->
+                    <span
+                      class="cdx-label__label__text"
+                    >
+                      <!-- @slot Label text. -->
+                      
+                      
+                      Select all rows
+                      
+                      
+                    </span>
+                    <!--v-if-->
+                  </label>
+                  <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
                   <!--v-if-->
-                </label>
-                <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
-                <!--v-if-->
+                </div>
+                
               </div>
-              
+              <!-- Only render custom input component(s) if custom input has been provided. -->
+              <!--v-if-->
             </span>
           </th>
           
@@ -1789,43 +1796,50 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <span
               class="cdx-checkbox cdx-checkbox--status-default"
             >
-              <input
-                class="cdx-checkbox__input"
-                id="cdx-checkbox-2"
-                type="checkbox"
-                value="0"
-              />
-              <span
-                class="cdx-checkbox__icon"
-              />
-              <!-- Only render a Label component if label text has been provided. This component can also
-			supply a description to the Checkbox if content is provided in the description slot. -->
-              
-              <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
               <div
-                class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
+                class="cdx-checkbox__wrapper"
               >
-                <label
-                  class="cdx-label__label"
-                  for="cdx-checkbox-2"
+                <input
+                  class="cdx-checkbox__input"
+                  id="cdx-checkbox-2"
+                  type="checkbox"
+                  value="0"
+                />
+                <span
+                  class="cdx-checkbox__icon"
+                />
+                <!-- Only render a Label component if label text has been provided.
+			This component can also supply a description to the Checkbox if content
+			is provided in the description slot. -->
+                
+                <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+                <div
+                  class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
                 >
-                  <!--v-if-->
-                  <span
-                    class="cdx-label__label__text"
+                  <label
+                    class="cdx-label__label"
+                    for="cdx-checkbox-2"
                   >
-                    <!-- @slot Label text. -->
-                    
-                    
-                    Select row 1 of 4
-                    
-                    
-                  </span>
+                    <!--v-if-->
+                    <span
+                      class="cdx-label__label__text"
+                    >
+                      <!-- @slot Label text. -->
+                      
+                      
+                      Select row 1 of 4
+                      
+                      
+                    </span>
+                    <!--v-if-->
+                  </label>
+                  <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
                   <!--v-if-->
-                </label>
-                <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
-                <!--v-if-->
+                </div>
+                
               </div>
-              
+              <!-- Only render custom input component(s) if custom input has been provided. -->
+              <!--v-if-->
             </span>
           </td>
           
@@ -1874,43 +1888,50 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <span
               class="cdx-checkbox cdx-checkbox--status-default"
             >
-              <input
-                class="cdx-checkbox__input"
-                id="cdx-checkbox-4"
-                type="checkbox"
-                value="1"
-              />
-              <span
-                class="cdx-checkbox__icon"
-              />
-              <!-- Only render a Label component if label text has been provided. This component can also
-			supply a description to the Checkbox if content is provided in the description slot. -->
-              
-              <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
               <div
-                class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
+                class="cdx-checkbox__wrapper"
               >
-                <label
-                  class="cdx-label__label"
-                  for="cdx-checkbox-4"
+                <input
+                  class="cdx-checkbox__input"
+                  id="cdx-checkbox-4"
+                  type="checkbox"
+                  value="1"
+                />
+                <span
+                  class="cdx-checkbox__icon"
+                />
+                <!-- Only render a Label component if label text has been provided.
+			This component can also supply a description to the Checkbox if content
+			is provided in the description slot. -->
+                
+                <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+                <div
+                  class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
                 >
-                  <!--v-if-->
-                  <span
-                    class="cdx-label__label__text"
+                  <label
+                    class="cdx-label__label"
+                    for="cdx-checkbox-4"
                   >
-                    <!-- @slot Label text. -->
-                    
-                    
-                    Select row 2 of 4
-                    
-                    
-                  </span>
+                    <!--v-if-->
+                    <span
+                      class="cdx-label__label__text"
+                    >
+                      <!-- @slot Label text. -->
+                      
+                      
+                      Select row 2 of 4
+                      
+                      
+                    </span>
+                    <!--v-if-->
+                  </label>
+                  <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
                   <!--v-if-->
-                </label>
-                <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
-                <!--v-if-->
+                </div>
+                
               </div>
-              
+              <!-- Only render custom input component(s) if custom input has been provided. -->
+              <!--v-if-->
             </span>
           </td>
           
@@ -1959,43 +1980,50 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <span
               class="cdx-checkbox cdx-checkbox--status-default"
             >
-              <input
-                class="cdx-checkbox__input"
-                id="cdx-checkbox-6"
-                type="checkbox"
-                value="2"
-              />
-              <span
-                class="cdx-checkbox__icon"
-              />
-              <!-- Only render a Label component if label text has been provided. This component can also
-			supply a description to the Checkbox if content is provided in the description slot. -->
-              
-              <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
               <div
-                class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
+                class="cdx-checkbox__wrapper"
               >
-                <label
-                  class="cdx-label__label"
-                  for="cdx-checkbox-6"
+                <input
+                  class="cdx-checkbox__input"
+                  id="cdx-checkbox-6"
+                  type="checkbox"
+                  value="2"
+                />
+                <span
+                  class="cdx-checkbox__icon"
+                />
+                <!-- Only render a Label component if label text has been provided.
+			This component can also supply a description to the Checkbox if content
+			is provided in the description slot. -->
+                
+                <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+                <div
+                  class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
                 >
-                  <!--v-if-->
-                  <span
-                    class="cdx-label__label__text"
+                  <label
+                    class="cdx-label__label"
+                    for="cdx-checkbox-6"
                   >
-                    <!-- @slot Label text. -->
-                    
-                    
-                    Select row 3 of 4
-                    
-                    
-                  </span>
+                    <!--v-if-->
+                    <span
+                      class="cdx-label__label__text"
+                    >
+                      <!-- @slot Label text. -->
+                      
+                      
+                      Select row 3 of 4
+                      
+                      
+                    </span>
+                    <!--v-if-->
+                  </label>
+                  <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
                   <!--v-if-->
-                </label>
-                <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
-                <!--v-if-->
+                </div>
+                
               </div>
-              
+              <!-- Only render custom input component(s) if custom input has been provided. -->
+              <!--v-if-->
             </span>
           </td>
           
@@ -2044,43 +2072,50 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
             <span
               class="cdx-checkbox cdx-checkbox--status-default"
             >
-              <input
-                class="cdx-checkbox__input"
-                id="cdx-checkbox-8"
-                type="checkbox"
-                value="3"
-              />
-              <span
-                class="cdx-checkbox__icon"
-              />
-              <!-- Only render a Label component if label text has been provided. This component can also
-			supply a description to the Checkbox if content is provided in the description slot. -->
-              
-              <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
               <div
-                class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
+                class="cdx-checkbox__wrapper"
               >
-                <label
-                  class="cdx-label__label"
-                  for="cdx-checkbox-8"
+                <input
+                  class="cdx-checkbox__input"
+                  id="cdx-checkbox-8"
+                  type="checkbox"
+                  value="3"
+                />
+                <span
+                  class="cdx-checkbox__icon"
+                />
+                <!-- Only render a Label component if label text has been provided.
+			This component can also supply a description to the Checkbox if content
+			is provided in the description slot. -->
+                
+                <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+                <div
+                  class="cdx-label cdx-label--visually-hidden cdx-checkbox__label"
                 >
-                  <!--v-if-->
-                  <span
-                    class="cdx-label__label__text"
+                  <label
+                    class="cdx-label__label"
+                    for="cdx-checkbox-8"
                   >
-                    <!-- @slot Label text. -->
-                    
-                    
-                    Select row 4 of 4
-                    
-                    
-                  </span>
+                    <!--v-if-->
+                    <span
+                      class="cdx-label__label__text"
+                    >
+                      <!-- @slot Label text. -->
+                      
+                      
+                      Select row 4 of 4
+                      
+                      
+                    </span>
+                    <!--v-if-->
+                  </label>
+                  <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
                   <!--v-if-->
-                </label>
-                <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
-                <!--v-if-->
+                </div>
+                
               </div>
-              
+              <!-- Only render custom input component(s) if custom input has been provided. -->
+              <!--v-if-->
             </span>
           </td>
           

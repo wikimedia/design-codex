@@ -1,5 +1,6 @@
 import { mount, shallowMount } from '@vue/test-utils';
 import CdxRadio from './Radio.vue';
+import CdxTextArea from '../text-area/TextArea.vue';
 
 describe( 'matches the snapshot', () => {
 	type Case = [
@@ -12,7 +13,8 @@ describe( 'matches the snapshot', () => {
 			inline?: boolean,
 		},
 		defaultSlot: string,
-		description?: string
+		description?: string,
+		customInput?: string
 	];
 
 	const cases: Case[] = [
@@ -21,15 +23,20 @@ describe( 'matches the snapshot', () => {
 		[ 'Boolean value', { modelValue: true, inputValue: true, name: 'radios-boolean' }, 'True' ],
 		[ 'Disabled', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string', disabled: true }, 'Disabled radio' ],
 		[ 'Inline', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string', inline: true }, 'Inline radio' ],
-		[ 'With description', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string' }, 'Radio 1', 'Description text' ]
+		[ 'With description', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string' }, 'Radio 1', 'Description text' ],
+		[ 'With custom input', { modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-custom-input' }, 'Radio with custom input', 'Description text', '<cdx-text-area />' ]
 	];
 
-	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, defaultSlot, description = undefined ) => {
+	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, defaultSlot, description = undefined, customInput = undefined ) => {
 		const wrapper = mount( CdxRadio, {
 			props,
 			slots: {
 				default: defaultSlot,
-				...( description === undefined ? {} : { description } )
+				...( description === undefined ? {} : { description } ),
+				...( customInput === undefined ? {} : { 'custom-input': customInput } )
+			},
+			global: {
+				components: { CdxTextArea }
 			}
 		} );
 		expect( wrapper.element ).toMatchSnapshot();
@@ -90,5 +97,65 @@ describe( 'Radio', () => {
 		await wrapper.find( '.cdx-radio__label' ).trigger( 'click' );
 
 		expect( input.focus ).toHaveBeenCalled();
+	} );
+
+	describe( 'when default slot is provided', () => {
+		it( 'displays a Label component', () => {
+			const props = {
+				modelValue: 'radio-1',
+				inputValue: 'radio-2',
+				name: 'radio-group'
+			};
+			const wrapper = mount( CdxRadio, { props: props, slots: { default: 'Label' } } );
+
+			expect( wrapper.find( '.cdx-radio__label' ).exists() ).toBe( true );
+			expect( wrapper.find( '.cdx-label__label__text' ).exists() ).toBe( true );
+			expect( wrapper.find( '.cdx-label__label__text' ).text() ).toBe( 'Label' );
+		} );
+	} );
+
+	describe( 'when description slot is provided', () => {
+		it( 'displays a short description text in the Label component', () => {
+			const props = {
+				modelValue: 'radio-1',
+				inputValue: 'radio-1',
+				name: 'radio-group'
+			};
+			const wrapper = mount( CdxRadio, {
+				props: props,
+				slots: {
+					default: 'Label',
+					description: 'Radio description'
+				},
+				attachTo: document.body
+			} );
+
+			expect( wrapper.find( '.cdx-radio__label' ).exists() ).toBe( true );
+			expect( wrapper.find( '.cdx-label__description' ).exists() ).toBe( true );
+		} );
+	} );
+
+	describe( 'when custom-input slot is provided', () => {
+		it( 'displays a custom-input component', () => {
+			const props = {
+				modelValue: 'radio-1',
+				inputValue: 'radio-1',
+				name: 'radio-group'
+			};
+			const wrapper = shallowMount( CdxRadio, {
+				props: props,
+				slots: {
+					default: 'Label',
+					'custom-input': '<cdx-text-area />'
+				},
+				global: {
+					components: { CdxTextArea }
+				}
+			} );
+
+			// Find the custom input wrapper div and the TextArea component within its wrapper.
+			expect( wrapper.find( 'div.cdx-radio__custom-input' ).exists() ).toBe( true );
+			expect( wrapper.findComponent( CdxTextArea ).exists() ).toBe( true );
+		} );
 	} );
 } );

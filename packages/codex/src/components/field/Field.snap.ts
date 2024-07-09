@@ -44,43 +44,50 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
     <span
       class="cdx-checkbox cdx-checkbox--status-default"
     >
-      <input
-        class="cdx-checkbox__input"
-        id="cdx-checkbox-66"
-        type="checkbox"
-        value="false"
-      />
-      <span
-        class="cdx-checkbox__icon"
-      />
-      <!-- Only render a Label component if label text has been provided. This component can also
-			supply a description to the Checkbox if content is provided in the description slot. -->
-      
-      <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
       <div
-        class="cdx-label cdx-checkbox__label"
+        class="cdx-checkbox__wrapper"
       >
-        <label
-          class="cdx-label__label"
-          for="cdx-checkbox-66"
+        <input
+          class="cdx-checkbox__input"
+          id="cdx-checkbox-66"
+          type="checkbox"
+          value="false"
+        />
+        <span
+          class="cdx-checkbox__icon"
+        />
+        <!-- Only render a Label component if label text has been provided.
+			This component can also supply a description to the Checkbox if content
+			is provided in the description slot. -->
+        
+        <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+        <div
+          class="cdx-label cdx-checkbox__label"
         >
-          <!--v-if-->
-          <span
-            class="cdx-label__label__text"
+          <label
+            class="cdx-label__label"
+            for="cdx-checkbox-66"
           >
-            <!-- @slot Label text. -->
-            
-            
-            Checkbox label
-            
-            
-          </span>
+            <!--v-if-->
+            <span
+              class="cdx-label__label__text"
+            >
+              <!-- @slot Label text. -->
+              
+              
+              Checkbox label
+              
+              
+            </span>
+            <!--v-if-->
+          </label>
+          <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
           <!--v-if-->
-        </label>
-        <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
-        <!--v-if-->
+        </div>
+        
       </div>
-      
+      <!-- Only render custom input component(s) if custom input has been provided. -->
+      <!--v-if-->
     </span>
     
   </div>
@@ -140,44 +147,51 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
     <span
       class="cdx-checkbox cdx-checkbox--status-default"
     >
-      <input
-        class="cdx-checkbox__input"
-        disabled=""
-        id="cdx-checkbox-71"
-        type="checkbox"
-        value="false"
-      />
-      <span
-        class="cdx-checkbox__icon"
-      />
-      <!-- Only render a Label component if label text has been provided. This component can also
-			supply a description to the Checkbox if content is provided in the description slot. -->
-      
-      <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
       <div
-        class="cdx-label cdx-label--disabled cdx-checkbox__label"
+        class="cdx-checkbox__wrapper"
       >
-        <label
-          class="cdx-label__label"
-          for="cdx-checkbox-71"
+        <input
+          class="cdx-checkbox__input"
+          disabled=""
+          id="cdx-checkbox-71"
+          type="checkbox"
+          value="false"
+        />
+        <span
+          class="cdx-checkbox__icon"
+        />
+        <!-- Only render a Label component if label text has been provided.
+			This component can also supply a description to the Checkbox if content
+			is provided in the description slot. -->
+        
+        <!-- Separate &lt;label&gt; and description are wrapped in a &lt;div&gt;. -->
+        <div
+          class="cdx-label cdx-label--disabled cdx-checkbox__label"
         >
-          <!--v-if-->
-          <span
-            class="cdx-label__label__text"
+          <label
+            class="cdx-label__label"
+            for="cdx-checkbox-71"
           >
-            <!-- @slot Label text. -->
-            
-            
-            Checkbox label
-            
-            
-          </span>
+            <!--v-if-->
+            <span
+              class="cdx-label__label__text"
+            >
+              <!-- @slot Label text. -->
+              
+              
+              Checkbox label
+              
+              
+            </span>
+            <!--v-if-->
+          </label>
+          <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
           <!--v-if-->
-        </label>
-        <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
-        <!--v-if-->
+        </div>
+        
       </div>
-      
+      <!-- Only render custom input component(s) if custom input has been provided. -->
+      <!--v-if-->
     </span>
     
   </div>

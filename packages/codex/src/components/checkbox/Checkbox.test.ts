@@ -1,6 +1,7 @@
 import { mount, shallowMount } from '@vue/test-utils';
 import CdxCheckbox from './Checkbox.vue';
 import { ValidationStatusType } from '../../types';
+import { CdxTextArea } from '../../lib';
 
 describe( 'Checkbox', () => {
 	describe( 'matches the snapshot', () => {
@@ -16,7 +17,8 @@ describe( 'Checkbox', () => {
 				status?: ValidationStatusType
 			},
 			defaultSlot: string,
-			description?: string
+			description?: string,
+			customInput?: string
 		];
 
 		const cases: Case[] = [
@@ -28,15 +30,20 @@ describe( 'Checkbox', () => {
 			[ 'Inline', { modelValue: [], inputValue: 'checkbox-1', inline: true }, 'Inline checkbox' ],
 			[ 'With description', { modelValue: true }, 'Checked if true', 'Description text' ],
 			[ 'With error', { modelValue: false, status: 'error' }, 'Checkbox with error' ],
-			[ 'With hidden label', { modelValue: false, hideLabel: true }, 'Checkbox with hidden label' ]
+			[ 'With hidden label', { modelValue: false, hideLabel: true }, 'Checkbox with hidden label' ],
+			[ 'With custom input', { modelValue: [ 'checkbox-1' ], inputValue: 'checkbox-1' }, 'Checkbox with custom input', 'Description text', '<cdx-text-area />' ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, defaultSlot, description = undefined ) => {
+		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, defaultSlot, description = undefined, customInput = undefined ) => {
 			const wrapper = mount( CdxCheckbox, {
 				props,
 				slots: {
 					default: defaultSlot,
-					...( description === undefined ? {} : { description } )
+					...( description === undefined ? {} : { description } ),
+					...( customInput === undefined ? {} : { 'custom-input': customInput } )
+				},
+				global: {
+					components: { CdxTextArea }
 				}
 			} );
 			expect( wrapper.element ).toMatchSnapshot();
@@ -119,6 +126,26 @@ describe( 'Checkbox', () => {
 
 				expect( input.checked ).toEqual( false );
 			} );
+		} );
+	} );
+
+	describe( 'when custom-input slot is provided', () => {
+		it( 'displays a custom-input component', () => {
+			const props = {
+				modelValue: [],
+				inputValue: 'checkbox-1'
+			};
+			const wrapper = shallowMount( CdxCheckbox, {
+				props: props,
+				slots: {
+					default: 'Label',
+					'custom-input': '<cdx-text-area />'
+				},
+				global: {
+					components: { CdxTextArea }
+				}
+			} );
+			expect( wrapper.findComponent( CdxTextArea ).exists() ).toBe( true );
 		} );
 	} );
 } );

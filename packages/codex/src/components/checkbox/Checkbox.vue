@@ -1,37 +1,49 @@
 <template>
 	<span class="cdx-checkbox" :class="rootClasses">
-		<input
-			:id="checkboxId"
-			ref="input"
-			v-model="wrappedModel"
-			class="cdx-checkbox__input"
-			type="checkbox"
-			:aria-describedby="( $slots.description &&
-				$slots.description().length > 0 ) ? descriptionId : undefined"
-			:value="inputValue"
-			:name="name"
-			:disabled="computedDisabled"
-			:indeterminate.prop="indeterminate"
+		<div class="cdx-checkbox__wrapper">
+			<input
+				:id="checkboxId"
+				ref="input"
+				v-model="wrappedModel"
+				class="cdx-checkbox__input"
+				type="checkbox"
+				:aria-describedby="( $slots.description &&
+					$slots.description().length > 0 ) ? descriptionId : undefined"
+				:value="inputValue"
+				:name="name"
+				:disabled="computedDisabled"
+				:indeterminate.prop="indeterminate"
+			>
+			<span class="cdx-checkbox__icon" />
+			<!-- Only render a Label component if label text has been provided.
+			This component can also supply a description to the Checkbox if content
+			is provided in the description slot. -->
+			<cdx-label
+				v-if="$slots.default && $slots.default().length"
+				class="cdx-checkbox__label"
+				:input-id="checkboxId"
+				:description-id="( $slots.description &&
+					$slots.description().length > 0 ) ? descriptionId : undefined"
+				:disabled="computedDisabled"
+				:visually-hidden="hideLabel"
+			>
+				<!-- @slot Label text. -->
+				<slot />
+				<template v-if="$slots.description && $slots.description().length > 0" #description>
+					<!-- @slot Short description text. -->
+					<slot name="description" />
+				</template>
+			</cdx-label>
+		</div>
+		<!-- Only render custom input component(s) if custom input has been provided. -->
+		<div
+			v-if="$slots[ 'custom-input' ]"
+			class="cdx-checkbox__custom-input"
+			:class="customInputClasses"
 		>
-		<span class="cdx-checkbox__icon" />
-		<!-- Only render a Label component if label text has been provided. This component can also
-			supply a description to the Checkbox if content is provided in the description slot. -->
-		<cdx-label
-			v-if="$slots.default && $slots.default().length"
-			class="cdx-checkbox__label"
-			:input-id="checkboxId"
-			:description-id="( $slots.description &&
-				$slots.description().length > 0 ) ? descriptionId : undefined"
-			:disabled="computedDisabled"
-			:visually-hidden="hideLabel"
-		>
-			<!-- @slot Label text. -->
-			<slot />
-			<template v-if="$slots.description && $slots.description().length > 0" #description>
-				<!-- @slot Short description text. -->
-				<slot name="description" />
-			</template>
-		</cdx-label>
+			<!-- @slot Custom input. -->
+			<slot name="custom-input" />
+		</div>
 	</span>
 </template>
 
@@ -154,6 +166,12 @@ export default defineComponent( {
 			};
 		} );
 
+		const customInputClasses = computed( (): Record<string, boolean> => {
+			return {
+				'cdx-checkbox__custom-input--inline': props.inline
+			};
+		} );
+
 		// Declare template ref.
 		const input = ref<HTMLInputElement>();
 		const checkboxId = useGeneratedId( 'checkbox' );
@@ -170,7 +188,8 @@ export default defineComponent( {
 			input,
 			checkboxId,
 			descriptionId,
-			wrappedModel
+			wrappedModel,
+			customInputClasses
 		};
 	}
 } );

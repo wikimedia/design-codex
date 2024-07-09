@@ -7,7 +7,8 @@
 			v-model="selection"
 			:input-value="option.value"
 			name="fruit"
-			:disabled="option.disabled">
+			:disabled="option.disabled"
+		>
 			{{ option.label }}
 		</cdx-radio>
 		<p>Selected value: {{ selection || '(none)' }}</p>
@@ -19,9 +20,34 @@
 			v-model="disabledSelection"
 			:input-value="option.value"
 			name="disabled-options"
-			:disabled="true">
+			:disabled="true"
+		>
 			{{ option.label }}
 		</cdx-radio>
+
+		<h3>Radio with custom input</h3>
+		<cdx-radio
+			v-for="option in options"
+			:key="option.value"
+			v-model="customSelection"
+			:input-value="option.value"
+			name="custom-options"
+			:disabled="option.disabled"
+		>
+			{{ option.label }}
+			<template v-if="option.value === 'd'" #custom-input>
+				<cdx-select
+					v-model:selected="customInputSelection"
+					:menu-items="menuItems"
+					default-label="Select type"
+					:disabled="customSelection !== 'd'"
+				/>
+			</template>
+		</cdx-radio>
+		<p>
+			Selected value: {{ customSelection || '(none)' }},
+			{{ customSelection === 'd' ? customInputSelection : '(none)' }}
+		</p>
 
 		<h3>CSS-only version</h3>
 		<span class="cdx-radio">
@@ -108,13 +134,23 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { CdxRadio, MenuItemData } from '../lib';
+import { CdxRadio, MenuItemData, CdxSelect } from '../lib';
 
 const options: MenuItemData[] = [
 	{ label: 'Apple', value: 'a' },
 	{ label: 'Banana', value: 'b' },
-	{ label: 'Canteloupe', value: 'c', disabled: true }
+	{ label: 'Canteloupe', value: 'c', disabled: true },
+	{ label: 'Dates', value: 'd' }
 ];
+
+const menuItems: MenuItemData[] = [
+	{ label: 'Pitted', value: 'pitted' },
+	{ label: 'Unpitted', value: 'unpitted' },
+	{ label: 'Pureed', value: 'pureed' }
+];
+
 const selection = ref<string>();
 const disabledSelection = ref<string>( 'b' );
+const customSelection = ref<string>( 'a' );
+const customInputSelection = ref( 'pitted' );
 </script>

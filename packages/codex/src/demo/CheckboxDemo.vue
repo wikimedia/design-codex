@@ -12,6 +12,29 @@
 		</cdx-checkbox>
 		<p>Selected values: {{ multiSelection.join( ', ' ) || '(none)' }}</p>
 
+		<h3>Checkbox with custom input</h3>
+		<cdx-checkbox
+			v-for="checkbox in checkboxes"
+			:key="checkbox.value"
+			v-model="customSelection"
+			:input-value="checkbox.value"
+			name="games"
+		>
+			{{ checkbox.label }}
+			<template v-if="checkbox.value === 'other'" #custom-input>
+				<cdx-text-input
+					v-model="customInputValue"
+					:disabled="!customSelection.includes( 'other' )"
+					aria-label="TextInput custom input"
+					placeholder="Start typing..."
+				/>
+			</template>
+		</cdx-checkbox>
+		<p>
+			Selected values: {{ customSelection.join( ', ' ) || '(none)' }},
+			Other value: {{ customSelection.includes( 'other' ) ? customInputValue : '(none)' }}
+		</p>
+
 		<h3>CSS-only checkboxes</h3>
 		<span class="cdx-checkbox">
 			<input
@@ -90,7 +113,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { CdxCheckbox, MenuItemData } from '../lib';
+import { CdxCheckbox, MenuItemData, CdxTextInput } from '../lib';
 
 const options: MenuItemData[] = [
 	{ label: 'Apple', value: 'a' },
@@ -99,4 +122,14 @@ const options: MenuItemData[] = [
 ];
 
 const multiSelection = ref<string[]>( [] );
+
+// Checkbox with custom input
+const customSelection = ref<string[]>( [] );
+const customInputValue = ref( '' );
+const checkboxes: MenuItemData[] = [
+	{ label: 'Chess', value: 'chess' },
+	{ label: 'Checkers', value: 'checkers' },
+	{ label: 'Cards', value: 'cards' },
+	{ label: 'Other', value: 'other' }
+];
 </script>

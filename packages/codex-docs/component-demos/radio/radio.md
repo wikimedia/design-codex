@@ -4,6 +4,7 @@ import InlineRadios from '@/../component-demos/radio/examples/InlineRadios.vue';
 import RadioGroupNoSelection from '@/../component-demos/radio/examples/RadioGroupNoSelection.vue';
 import RadiosWithDescriptions from '@/../component-demos/radio/examples/RadiosWithDescriptions.vue';
 import RadioGroupField from '@/../component-demos/radio/examples/RadioGroupField.vue';
+import RadiosWithCustomInput from '@/../component-demos/radio/examples/RadiosWithCustomInput.vue';
 </script>
 
 A Radio is a binary input that is usually combined in a group of two or more
@@ -302,6 +303,32 @@ Use the `inline` prop to get an inline layout.
 <<< @/../component-demos/radio/examples/RadioGroupNoSelection.vue [NPM]
 
 <<< @/../component-demos/radio/examples-mw/RadioGroupNoSelection.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### With custom input
+
+To add a custom input, use the `custom-input` slot to pass in an input like TextInput, TextArea,
+Select, Combobox, ChipInput, Lookup, or a combination of more than one input.
+
+In the example below, the custom input is always visible but remains disabled
+until its parent Radio component is selected.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<radios-with-custom-input />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/radio/examples/RadiosWithCustomInput.vue [NPM]
+
+<<< @/../component-demos/radio/examples-mw/RadiosWithCustomInput.vue [MediaWiki]
 
 :::
 

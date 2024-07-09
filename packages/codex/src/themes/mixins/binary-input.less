@@ -8,9 +8,16 @@
 	min-width: @min-size-input-binary;
 	min-height: @min-size-input-binary;
 
+	// Display flex needed to align the Radio and Checkbox <input> with its label.
+	&__wrapper {
+		display: flex;
+	}
+
 	/* stylelint-disable-next-line selector-not-notation */
 	&:not( &--inline ) {
 		display: flex;
+		// Align nested custom inputs below the vertically stacked radio/checkbox.
+		flex-direction: column;
 		// Since we have to use margin-right for inline inputs, use margin-bottom for stacked inputs
 		// for consistency's sake.
 		margin-bottom: @spacing-75;
@@ -105,5 +112,14 @@
 	&:hover > &__input:enabled ~ .cdx-label .cdx-label__label,
 	&:hover > &__input:enabled ~ &__label:not( .cdx-label ) {
 		cursor: @cursor-base--hover;
+	}
+
+	&__custom-input {
+		// Set padding to custom inputs of vertically stacked radio/checkbox.
+		/* stylelint-disable-next-line selector-not-notation */
+		&:not( &--inline ) {
+			padding-top: @spacing-35;
+			padding-left: calc( @size-125 + @spacing-50 );
+		}
 	}
 }
