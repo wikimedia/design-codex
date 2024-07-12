@@ -5,85 +5,6 @@
 		}
 	},
 	"background-color": {
-		"comment": "Background Colors (interactive)",
-		"interactive": {
-			"value": "{ color.gray200 }"
-		},
-		"interactive-subtle": {
-			"value": "{ color.gray100 }"
-		},
-		"disabled": {
-			"comment": "Components like Buttons, Checkboxes, Radios, ProgressBars….",
-			"value": "{ color.gray300 }"
-		},
-		"disabled-subtle": {
-			"comment": "Components like TextInputs, Selects….",
-			"value": "{ color.gray200 }"
-		},
-		"progressive": {
-			"value": "{ color.blue600 }"
-		},
-		"progressive--hover": {
-			"value": "{ color.blue500 }"
-		},
-		"progressive--active": {
-			"value": "{ color.blue700 }"
-		},
-		"progressive--focus": {
-			"value": "{ color.blue600 }"
-		},
-		"progressive-subtle": {
-			"value": "{ color.blue100 }"
-		},
-		"destructive": {
-			"value": "{ color.red600 }"
-		},
-		"destructive--hover": {
-			"value": "{ color.red500 }"
-		},
-		"destructive--active": {
-			"value": "{ color.red700 }"
-		},
-		"destructive--focus": {
-			"value": "{ color.blue600 }"
-		},
-		"destructive-subtle": {
-			"value": "{ color.red100 }"
-		},
-		"error": {
-			"value": "{ color.red600 }"
-		},
-		"error--hover": {
-			"value": "{ color.red500 }"
-		},
-		"error--active": {
-			"value": "{ color.red700 }"
-		},
-		"error-subtle": {
-			"value": "{ color.red100 }"
-		},
-		"warning-subtle": {
-			"value": "{ color.yellow100 }"
-		},
-		"success-subtle": {
-			"value": "{ color.green100 }"
-		},
-		"notice-subtle": {
-			"value": "{ color.gray200 }"
-		},
-		"content-added": {
-			"value": "{ color.blue999 }"
-		},
-		"content-removed": {
-			"value": "{ color.yellow999 }"
-		},
-		"backdrop-light": {
-			"comment": "Backdrop is the term used by CSS Fullscreen API and is used to dim the background when a modal Dialog is open. Also known as overlay mask.",
-			"value": "{ color.opacity-medium-light }"
-		},
-		"backdrop-dark": {
-			"value": "{ color.opacity-medium-dark }"
-		},
 		"base": {
 			"comment": "Background Colors for static elements (for page layout, sections, etc.) from here on.",
 			"value": "{ color.white }"
@@ -93,31 +14,109 @@
 			"value": "{ color.white }"
 		},
 		"neutral": {
-			"value": "{ color.gray200 }"
+			"value": "{ color.gray100 }"
 		},
 		"neutral-subtle": {
+			"value": "{ color.gray50 }"
+		},
+		"comment": "Background Colors (interactive)",
+		"interactive": {
 			"value": "{ color.gray100 }"
+		},
+		"interactive-subtle": {
+			"value": "{ color.gray50 }"
+		},
+		"disabled": {
+			"comment": "Components like Buttons, Checkboxes, Radios, ProgressBars….",
+			"value": "{ color.gray300 }"
+		},
+		"disabled-subtle": {
+			"comment": "Components like TextInputs, Selects….",
+			"value": "{ color.gray100 }"
+		},
+		"inverted": {
+			"value": "{ color.gray1000 }"
+		},
+		"progressive": {
+			"value": "{ color.blue700 }"
+		},
+		"progressive--hover": {
+			"value": "{ color.blue600 }"
+		},
+		"progressive--active": {
+			"value": "{ color.blue900 }"
+		},
+		"progressive--focus": {
+			"value": "{ color.blue700 }"
+		},
+		"progressive-subtle": {
+			"value": "{ color.blue50 }"
+		},
+		"destructive": {
+			"value": "{ color.red600 }"
+		},
+		"destructive--hover": {
+			"value": "{ color.red500 }"
+		},
+		"destructive--active": {
+			"value": "{ color.red800 }"
+		},
+		"destructive--focus": {
+			"value": "{ color.blue700 }"
+		},
+		"destructive-subtle": {
+			"value": "{ color.red50 }"
+		},
+		"error": {
+			"value": "{ color.red600 }"
+		},
+		"error--hover": {
+			"value": "{ color.red500 }"
+		},
+		"error--active": {
+			"value": "{ color.red800 }"
+		},
+		"error-subtle": {
+			"value": "{ color.red50 }"
+		},
+		"warning-subtle": {
+			"value": "{ color.yellow50 }"
+		},
+		"success-subtle": {
+			"value": "{ color.green50 }"
+		},
+		"notice-subtle": {
+			"value": "{ color.gray100 }"
+		},
+		"content-added": {
+			"value": "{ color.blue999 }"
+		},
+		"content-removed": {
+			"value": "{ color.yellow999 }"
 		},
 		"transparent": {
 			"value": "{ color.transparent }"
 		},
-		"inverted": {
-			"value": "{ color.gray800 }"
+		"backdrop-light": {
+			"comment": "Backdrop is the term used by CSS Fullscreen API and is used to dim the background when a modal Dialog is open. Also known as overlay mask.",
+			"value": "{ color.opacity-medium-light }"
+		},
+		"backdrop-dark": {
+			"value": "{ color.opacity-medium-dark }"
 		}
 	},
 	"color": {
 		"base": {
-			"value": "{ color.gray750 }"
+			"value": "{ color.gray900 }"
 		},
 		"base-fixed": {
-			"value": "{ color.gray750 }"
+			"value": "{ color.gray900 }"
 		},
 		"base--hover": {
-			"comment": "Aimed to be replaced by `color.gray600` in future.",
-			"value": "{ color.gray650 }"
+			"value": "{ color.gray700 }"
 		},
 		"emphasized": {
-			"value": "{ color.black }"
+			"value": "{ color.gray1000 }"
 		},
 		"subtle": {
 			"value": "{ color.gray600 }"
@@ -137,16 +136,16 @@
 		},
 		"progressive": {
 			"comment": "'Progressive' Color and states",
-			"value": "{ color.blue600 }"
-		},
-		"progressive--hover": {
-			"value": "{ color.blue500 }"
-		},
-		"progressive--active": {
 			"value": "{ color.blue700 }"
 		},
-		"progressive--focus": {
+		"progressive--hover": {
 			"value": "{ color.blue600 }"
+		},
+		"progressive--active": {
+			"value": "{ color.blue900 }"
+		},
+		"progressive--focus": {
+			"value": "{ color.blue700 }"
 		},
 		"destructive": {
 			"comment": "'Destructive' Color and states",
@@ -156,32 +155,32 @@
 			"value": "{ color.red500 }"
 		},
 		"destructive--active": {
-			"value": "{ color.red700 }"
+			"value": "{ color.red800 }"
 		},
 		"destructive--focus": {
-			"value": "{ color.blue600 }"
+			"value": "{ color.blue700 }"
 		},
 		"visited": {
 			"comment": "'Visited' color. In combination with progressive. Used for default links.",
-			"value": "{ color.purple600 }"
+			"value": "{ color.purple700 }"
 		},
 		"destructive--visited": {
 			"comment": "Red link 'Visited' color. Used for visited red links.",
-			"value": "{ color.maroon500 }"
+			"value": "{ color.maroon700 }"
 		},
 		"error": {
 			"value": "{ color.red600 }"
 		},
 		"warning": {
 			"comment": "Note, this is only meant for warning icon for contrast reasons.",
-			"value": "{ color.yellow600 }"
+			"value": "{ color.yellow300 }"
 		},
 		"success": {
 			"comment": "Note, this needs to use a tone darker than Red and Yellow for contrast reasons with background White.",
-			"value": "{ color.green600 }"
+			"value": "{ color.green700 }"
 		},
 		"notice": {
-			"value": "{ color.gray750 }"
+			"value": "{ color.gray900 }"
 		},
 		"content-added": {
 			"value": "{ color.green999 }"
@@ -191,7 +190,7 @@
 		},
 		"base--subtle": {
 			"deprecated": "Use `color-subtle` instead. Note, that `color-subtle` is using `color.gray600` instead of `color.gray500` now.",
-			"value": "{ color.gray500 }"
+			"value": "{ color.gray600 }"
 		}
 	},
 	"opacity": {
@@ -547,32 +546,32 @@
 		"base": {
 			"value": "{ color.gray400 }"
 		},
-		"interactive": {
-			"value": "{ color.gray500 }"
-		},
-		"disabled": {
-			"value": "{ color.gray300 }"
-		},
 		"subtle": {
 			"value": "{ color.gray300 }"
 		},
 		"muted": {
 			"value": "{ color.gray200 }"
 		},
+		"interactive": {
+			"value": "{ color.gray500 }"
+		},
+		"disabled": {
+			"value": "{ color.gray300 }"
+		},
 		"inverted": {
 			"value": "{ color.white }"
 		},
 		"progressive": {
-			"value": "{ color.blue600 }"
-		},
-		"progressive--hover": {
-			"value": "{ color.blue500 }"
-		},
-		"progressive--active": {
 			"value": "{ color.blue700 }"
 		},
-		"progressive--focus": {
+		"progressive--hover": {
 			"value": "{ color.blue600 }"
+		},
+		"progressive--active": {
+			"value": "{ color.blue900 }"
+		},
+		"progressive--focus": {
+			"value": "{ color.blue700 }"
 		},
 		"destructive": {
 			"value": "{ color.red600 }"
@@ -581,22 +580,22 @@
 			"value": "{ color.red500 }"
 		},
 		"destructive--active": {
-			"value": "{ color.red700 }"
+			"value": "{ color.red800 }"
 		},
 		"destructive--focus": {
-			"value": "{ color.blue600 }"
+			"value": "{ color.blue700 }"
 		},
 		"error": {
-			"value": "{ color.red700 }"
+			"value": "{ color.red800 }"
 		},
 		"error--hover": {
 			"value": "{ color.red500 }"
 		},
 		"warning": {
-			"value": "{ color.yellow700 }"
+			"value": "{ color.yellow600 }"
 		},
 		"success": {
-			"value": "{ color.green700 }"
+			"value": "{ color.green800 }"
 		},
 		"notice": {
 			"value": "{ color.gray600 }"
@@ -678,22 +677,22 @@
 				"value": "{ color.black }"
 			},
 			"progressive--active": {
-				"value": "{ color.blue700 }"
+				"value": "{ color.blue900 }"
 			},
 			"progressive--focus": {
-				"value": "{ color.blue600 }"
-			},
-			"progressive-selected": {
-				"value": "{ color.blue600 }"
-			},
-			"progressive-selected--hover": {
-				"value": "{ color.blue500 }"
-			},
-			"progressive-selected--active": {
 				"value": "{ color.blue700 }"
 			},
-			"destructive--focus": {
+			"progressive-selected": {
+				"value": "{ color.blue700 }"
+			},
+			"progressive-selected--hover": {
 				"value": "{ color.blue600 }"
+			},
+			"progressive-selected--active": {
+				"value": "{ color.blue900 }"
+			},
+			"destructive--focus": {
+				"value": "{ color.blue700 }"
 			},
 			"inverted": {
 				"value": "{ color.white }"

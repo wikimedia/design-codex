@@ -3,18 +3,18 @@
 		"comment": "The colors are given numbers corresponding to their contrast, starting with 100 for the brightest to 700 for the darkest. Note, that single color options of a tone, white, black and purple, don't carry a number. Same goes for transparent.",
 		"accent": {
 			"comment": "Accent color is used for certain HTML5 elements like checkbox and progress bar.",
-			"value": "{ color.blue600 }"
+			"value": "{ color.blue700 }"
 		},
 		"white": {
 			"value": "#fff"
 		},
-		"gray100": {
+		"gray50": {
 			"value": "#f8f9fa"
 		},
-		"gray200": {
+		"gray100": {
 			"value": "#eaecf0"
 		},
-		"gray250": {
+		"gray200": {
 			"value": "#dadde3"
 		},
 		"gray300": {
@@ -29,159 +29,334 @@
 		"gray600": {
 			"value": "#54595d"
 		},
-		"gray650": {
+		"gray700": {
 			"value": "#404244"
 		},
-		"gray700": {
+		"gray800": {
 			"value": "#27292d"
 		},
-		"gray750": {
+		"gray900": {
 			"value": "#202122"
 		},
-		"gray800": {
+		"gray1000": {
 			"value": "#101418"
 		},
 		"black": {
 			"value": "#000"
 		},
-		"blue100": {
-			"value": "#eaf3ff"
-		},
-		"blue250": {
-			"value": "#c2d1f0"
-		},
-		"blue300": {
-			"value": "#afb6e9"
-		},
-		"blue400": {
-			"value": "#6d8af2"
-		},
-		"blue500": {
-			"value": "#447ff5"
-		},
-		"blue600": {
-			"value": "#36c"
-		},
-		"blue650": {
-			"value": "#3057ac"
-		},
-		"blue700": {
-			"value": "#2a4b8d"
-		},
-		"blue800": {
-			"value": "#1c2940"
-		},
-		"blue999": {
-			"comment": "This value is the current diff color in MediaWiki, which exists outside of the existing Codex palette. It is temporary and therefore out of order. This token will be reconsidered and replaced after a more wholistic diff styling exploration, Phabricator task number T333681.",
-			"value": "#a3d3ff"
+		"red50": {
+			"value": "#ffe9e5"
 		},
 		"red100": {
-			"value": "#fee7e6"
+			"value": "#ffdad3"
+		},
+		"red200": {
+			"value": "#ffc8bd"
 		},
 		"red300": {
-			"value": "#f8a397"
+			"value": "#fea898"
 		},
 		"red400": {
-			"value": "#ef8174"
+			"value": "#fd7865"
 		},
 		"red500": {
-			"value": "#ff4242"
+			"value": "#fc493b"
 		},
 		"red600": {
+			"comment": "This value will be updated to #d74032 as a part of Phabricator task number T370446.",
 			"value": "#d73333"
 		},
-		"red650": {
-			"value": "#bd2a2a"
-		},
 		"red700": {
-			"value": "#b32424"
+			"value": "#bf3c2c"
 		},
 		"red800": {
-			"value": "#421211"
+			"value": "#9f3526"
+		},
+		"red900": {
+			"value": "#612419"
 		},
 		"red999": {
 			"comment": "This value is the current diff color in MediaWiki, which exists outside of the existing Codex palette. It is temporary and therefore out of order. This token will be reconsidered and replaced after a more wholistic diff styling exploration, Phabricator task number T333681.",
 			"value": "#8b0000"
 		},
+		"red1000": {
+			"value": "#3c1a13"
+		},
+		"orange50": {
+			"value": "#ffead4"
+		},
+		"orange100": {
+			"value": "#ffdcb8"
+		},
+		"orange200": {
+			"value": "#ffc894"
+		},
+		"orange300": {
+			"value": "#ffa758"
+		},
+		"orange400": {
+			"value": "#f97f26"
+		},
+		"orange500": {
+			"value": "#d96c27"
+		},
+		"orange600": {
+			"value": "#bb5c26"
+		},
+		"orange700": {
+			"value": "#a95226"
+		},
+		"orange800": {
+			"value": "#8e4424"
+		},
+		"orange900": {
+			"value": "#572c19"
+		},
+		"orange1000": {
+			"value": "#361d13"
+		},
+		"yellow50": {
+			"value": "#fdf2d5"
+		},
 		"yellow100": {
-			"value": "#fef6e7"
+			"value": "#fbe2a2"
+		},
+		"yellow200": {
+			"value": "#fecc44"
+		},
+		"yellow300": {
+			"value": "#eeb533"
+		},
+		"yellow400": {
+			"value": "#ca982e"
 		},
 		"yellow500": {
-			"value": "#fc3"
+			"value": "#b0832b"
 		},
 		"yellow600": {
-			"value": "#edab00"
-		},
-		"yellow650": {
-			"value": "#ad822b"
+			"value": "#987027"
 		},
 		"yellow700": {
-			"value": "#a66200"
+			"value": "#886425"
 		},
 		"yellow800": {
-			"value": "#301d00"
+			"value": "#735421"
+		},
+		"yellow900": {
+			"value": "#453217"
 		},
 		"yellow999": {
 			"comment": "This value is the current diff color in MediaWiki, which exists outside of the existing Codex palette. It is temporary and therefore out of order. This token will be reconsidered and replaced after a more wholistic diff styling exploration, Phabricator task number T333681.",
 			"value": "#ffe49c"
 		},
+		"yellow1000": {
+			"value": "#2d2212"
+		},
+		"lime50": {
+			"value": "#e3f2e4"
+		},
+		"lime100": {
+			"value": "#d1e9d2"
+		},
+		"lime200": {
+			"value": "#b9debc"
+		},
+		"lime300": {
+			"value": "#94cb9a"
+		},
+		"lime400": {
+			"value": "#5db26c"
+		},
+		"lime500": {
+			"value": "#269f4b"
+		},
+		"lime600": {
+			"value": "#1f893f"
+		},
+		"lime700": {
+			"value": "#1f7a39"
+		},
+		"lime800": {
+			"value": "#1f6631"
+		},
+		"lime900": {
+			"value": "#183f20"
+		},
+		"lime1000": {
+			"value": "#142817"
+		},
+		"green50": {
+			"value": "#dff2eb"
+		},
 		"green100": {
-			"value": "#d5fdf4"
+			"value": "#c9eadd"
+		},
+		"green200": {
+			"value": "#aedfcd"
+		},
+		"green300": {
+			"value": "#80cdb3"
 		},
 		"green400": {
-			"value": "#74c9ac"
+			"value": "#2cb491"
 		},
 		"green500": {
-			"value": "#00af89"
+			"value": "#099d7c"
 		},
 		"green600": {
-			"value": "#14866d"
+			"value": "#14876b"
 		},
 		"green700": {
-			"value": "#096450"
+			"value": "#177860"
 		},
 		"green800": {
-			"value": "#00261e"
+			"value": "#196551"
+		},
+		"green900": {
+			"value": "#153d31"
 		},
 		"green999": {
 			"comment": "This value is the current diff color in MediaWiki, which exists outside of the existing Codex palette. It is temporary and therefore out of order. This token will be reconsidered and replaced after a more wholistic diff styling exploration, Phabricator task number T333681.",
 			"value": "#006400"
 		},
-		"purple250": {
-			"value": "#c3b2d8"
+		"green1000": {
+			"value": "#132821"
+		},
+		"blue50": {
+			"value": "#f1f4fd"
+		},
+		"blue100": {
+			"value": "#dce3f9"
+		},
+		"blue200": {
+			"value": "#cbd6f6"
+		},
+		"blue300": {
+			"value": "#b0c1f0"
+		},
+		"blue400": {
+			"value": "#88a3e8"
+		},
+		"blue500": {
+			"value": "#6b8edf"
+		},
+		"blue600": {
+			"value": "#4b77d6"
+		},
+		"blue700": {
+			"value": "#36c"
+		},
+		"blue800": {
+			"value": "#3056a9"
+		},
+		"blue900": {
+			"value": "#233566"
+		},
+		"blue999": {
+			"comment": "This value is the current diff color in MediaWiki, which exists outside of the existing Codex palette. It is temporary and therefore out of order. This token will be reconsidered and replaced after a more wholistic diff styling exploration, Phabricator task number T333681.",
+			"value": "#a3d3ff"
+		},
+		"blue1000": {
+			"value": "#1b223d"
+		},
+		"purple50": {
+			"value": "#f0ecf6"
+		},
+		"purple100": {
+			"value": "#e6e0f0"
+		},
+		"purple200": {
+			"value": "#d9d0e9"
 		},
 		"purple300": {
-			"value": "#ad97ca"
+			"value": "#c5b9dd"
 		},
 		"purple400": {
-			"value": "#977dbd"
+			"value": "#a799cd"
 		},
 		"purple500": {
-			"value": "#7c5eab"
+			"value": "#9182c2"
 		},
 		"purple600": {
-			"value": "#6b4ba1"
+			"value": "#7a6db7"
 		},
 		"purple700": {
-			"value": "#5a4086"
+			"value": "#6a60b0"
 		},
-		"maroon250": {
-			"value": "#d8afad"
+		"purple800": {
+			"value": "#534fa3"
+		},
+		"purple900": {
+			"value": "#353262"
+		},
+		"purple1000": {
+			"value": "#23203b"
+		},
+		"pink50": {
+			"value": "#f5ebf2"
+		},
+		"pink100": {
+			"value": "#eedeea"
+		},
+		"pink200": {
+			"value": "#e6cede"
+		},
+		"pink300": {
+			"value": "#d9b4cd"
+		},
+		"pink400": {
+			"value": "#c690b4"
+		},
+		"pink500": {
+			"value": "#b976a1"
+		},
+		"pink600": {
+			"value": "#ac5c90"
+		},
+		"pink700": {
+			"value": "#9b527f"
+		},
+		"pink800": {
+			"value": "#82456a"
+		},
+		"pink900": {
+			"value": "#4e2c40"
+		},
+		"pink1000": {
+			"value": "#311e28"
+		},
+		"maroon50": {
+			"value": "#f6ebeb"
+		},
+		"maroon100": {
+			"value": "#f0dedd"
+		},
+		"maroon200": {
+			"value": "#e8cecd"
 		},
 		"maroon300": {
-			"value": "#c99391"
+			"value": "#dcb5b3"
 		},
 		"maroon400": {
-			"value": "#b97876"
+			"value": "#c99391"
 		},
 		"maroon500": {
-			"value": "#a55858"
+			"value": "#ba7a78"
 		},
 		"maroon600": {
-			"value": "#874949"
+			"value": "#ac6262"
 		},
 		"maroon700": {
-			"value": "#733f3f"
+			"value": "#9f5555"
+		},
+		"maroon800": {
+			"value": "#854848"
+		},
+		"maroon900": {
+			"value": "#512e2e"
+		},
+		"maroon1000": {
+			"value": "#321f1e"
 		},
 		"modifier-gray100-translucent": {
 			"comment": "TODO: Not part of DS Figma yet. Equals `color-gray100` on white. Was `rgba( 0, 24, 73, calc( 7 / 255 ) )` before, but due to Less compiler issue, we need to provide calculated value. See T326591.",
@@ -755,7 +930,7 @@
 		},
 		"base10": {
 			"deprecated": true,
-			"value": "{ color.gray750 }"
+			"value": "{ color.gray900 }"
 		},
 		"base20": {
 			"deprecated": true,
@@ -775,11 +950,11 @@
 		},
 		"base80": {
 			"deprecated": true,
-			"value": "{ color.gray200 }"
+			"value": "{ color.gray100 }"
 		},
 		"base90": {
 			"deprecated": true,
-			"value": "{ color.gray100 }"
+			"value": "{ color.gray50 }"
 		},
 		"base100": {
 			"deprecated": true,
@@ -787,11 +962,11 @@
 		},
 		"accent30": {
 			"deprecated": true,
-			"value": "{ color.blue700 }"
+			"value": "{ color.blue800 }"
 		},
 		"accent50": {
 			"deprecated": true,
-			"value": "{ color.blue600 }"
+			"value": "{ color.blue700 }"
 		},
 		"accent90": {
 			"deprecated": true,
@@ -799,11 +974,11 @@
 		},
 		"red30": {
 			"deprecated": true,
-			"value": "{ color.red700 }"
+			"value": "{ color.red800 }"
 		},
 		"red50": {
 			"deprecated": true,
-			"value": "{ color.red600 }"
+			"value": "{ color.red700 }"
 		},
 		"red90": {
 			"deprecated": true,
@@ -811,11 +986,11 @@
 		},
 		"yellow30": {
 			"deprecated": true,
-			"value": "{ color.yellow700 }"
+			"value": "{ color.yellow800 }"
 		},
 		"yellow50": {
 			"deprecated": true,
-			"value": "{ color.yellow600 }"
+			"value": "{ color.yellow700 }"
 		},
 		"yellow90": {
 			"deprecated": true,
@@ -823,11 +998,11 @@
 		},
 		"green30": {
 			"deprecated": true,
-			"value": "{ color.green700 }"
+			"value": "{ color.green800 }"
 		},
 		"green50": {
 			"deprecated": true,
-			"value": "{ color.green600 }"
+			"value": "{ color.green700 }"
 		},
 		"green90": {
 			"deprecated": true,
@@ -835,15 +1010,15 @@
 		},
 		"purple50": {
 			"deprecated": true,
-			"value": "{ color.purple600 }"
+			"value": "{ color.purple700 }"
 		},
 		"modifier-base10--lighten": {
 			"deprecated": true,
-			"value": "{ color.gray650 }"
+			"value": "{ color.gray700 }"
 		},
 		"modifier-accent50--lighten": {
 			"deprecated": true,
-			"value": "{ color.blue500 }"
+			"value": "{ color.blue400 }"
 		},
 		"modifier-red50--lighten": {
 			"deprecated": true,
