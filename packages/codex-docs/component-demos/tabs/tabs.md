@@ -32,6 +32,8 @@ Each tab will display different sections within the same context. For example,
 tabs can display different sections of an article, different topics or different
 edit views.
 
+Use Tabs to navigate between different sections of content on the page. For filtering information on the screen or switching between views, use a [ToggleButtonGroup](./toggle-button-group.md) instead.
+
 ### Specifications
 The Tabs component always contains two or more [Tab](./tab.md) items.
 
@@ -111,6 +113,34 @@ Consider the following recommendations when using Tabs.
 <template #dont-text>
 
 - Use Tabs to structure content meant to be consumed sequentially, like the sections within an article page.
+
+</template>
+
+</cdx-demo-rules>
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![Tabs used to navigate the “Article” and “Talk” sections on the page.](../../assets/components/tabs-best-practices-usage-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use Tabs to navigate between different sections of content on the page.
+
+</template>
+
+<template #dont-media>
+
+![Tabs wrongly used to filter the list of items on the page into All items, Approved, or Pending.](../../assets/components/tabs-best-practices-usage-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use Tabs to filter information on the screen or switch between views.
 
 </template>
 

@@ -22,6 +22,8 @@ group. If you want users to choose from a set of actions, with the restriction t
 active simultaneously, use the
 [ButtonGroup](./button-group.md) instead.
 
+Use the ToggleButtonGroup to filter information on the screen or switch between views. To navigate between different sections of content on the page, use [Tabs](./tabs.md) instead.
+
 ### Specifications
 
 ![Specification of ToggleButtonGroup.](../../assets/components/toggle-button-group-specifications.svg)
@@ -70,6 +72,36 @@ ToggleButtonGroups have the following visually separate states:
 ### Best practices
 
 Consider the following recommendations when working with toggle button groups.
+
+#### Usage
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![ToggleButtonGroup used to filter the list of items on the page into “All items”, “Approved”, or “Pending”.](../../assets/components/toggle-button-group-best-practices-usage-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use a ToggleButtonGroup to filter information on the screen or switch between views.
+
+</template>
+
+<template #dont-media>
+
+![ToggleButtonGroup wrongly used to navigate the “Article” and “Talk” sections on the page.](../../assets/components/toggle-button-group-best-practices-usage-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use ToggleButtonGroup to navigate between different sections of content on the page.
+
+</template>
+
+</cdx-demo-rules>
 
 #### Button’s content
 
