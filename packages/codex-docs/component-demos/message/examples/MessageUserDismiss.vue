@@ -1,6 +1,6 @@
 <template>
 	<div class="cdx-docs-message-user-dismiss">
-		<cdx-message :allow-dismiss="true">
+		<cdx-message :allow-user-dismiss="true">
 			Notice message with dismiss button
 		</cdx-message>
 	</div>
