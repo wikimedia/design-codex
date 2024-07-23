@@ -63,13 +63,29 @@ hover, active, focused) in accessible color variations.
 
 #### Component limitations
 
-When using buttons, consider the size of their target area. Make sure that the associated active touch area is at least 44 x 44 dp. Otherwise users may fail to hit the active area, for example due to motor disabilities.
+When using buttons, consider the size of their target area. Make sure that the
+associated active touch area is at least 44 x 44 dp. Otherwise users may fail to
+hit the active area, for example due to motor disabilities.
 
-The minimum size for both icon and text buttons is `@min-size-interactive-pointer` (equivalent to `32px` in the default Codex theme). The button will adjust to fit the expanding text but will halt growth at a maximum width of `@max-width-button` (equivalent to `448px` in the default Codex theme). An ellipsis will appear to accommodate the button text if necessary.
+Icon-only buttons have their minimum width set to `@min-size-interactive-pointer`
+(equivalent to `32px` in the default Codex theme). Buttons will adjust to fit the
+expanding text but will halt growth at a maximum width of `@max-width-button`
+(equivalent to `448px` in the default Codex theme). An ellipsis will appear to
+accommodate the button text if necessary.
 
-On mobile, buttons should span the full-width of the container, except for icon-only buttons, which will maintain their fixed square proportions. For buttons within mobile forms, refer to the [constructing forms](../../style-guide/constructing-forms.md) guidelines.
+On mobile, buttons should span the full-width of the container, except for icon-only
+buttons, which will maintain their fixed square proportions. For buttons within mobile
+forms, refer to the [constructing forms](../../style-guide/constructing-forms.md)
+guidelines.
 
 Refer to the [Button component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=10019-91329&mode=design&t=eVqRGnL1b9RbOdZ0-11).
+
+::: tip Set `min-width` manually on Buttons with extremely short labels
+Non-icon-only buttons with text labels of only 1-2 characters in length may fall
+below size of the target area described above. If you are dealing with
+non-icon-only buttons with extremely short labels, it is recommended to set a
+minimum width of: `@min-size-interactive-pointer` in your own CSS.
+:::
 
 ### Types
 

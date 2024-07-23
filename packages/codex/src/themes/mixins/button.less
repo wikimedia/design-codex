@@ -10,7 +10,6 @@
 	gap: @spacing-25;
 	box-sizing: @box-sizing-base;
 	// min-width and min-height are for the medium size (default); --size-large overrides them
-	min-width: @min-size-interactive-pointer;
 	min-height: @min-size-interactive-pointer;
 	max-width: @max-width-button;
 	// Support Firefox, Safari: Normalize by removing the `margin`.
@@ -36,7 +35,6 @@
 	// Interactive elements have a minimum touch area.
 	// The large button size is meant for use on touch-only devices.
 	&--size-large {
-		min-width: @min-size-interactive-touch;
 		min-height: @min-size-interactive-touch;
 		padding-right: @spacing-horizontal-button-large;
 		padding-left: @spacing-horizontal-button-large;
@@ -44,12 +42,16 @@
 
 	// Buttons that only include an icon element.
 	&--icon-only {
+		// Only set min-width on icon-only buttons to prevent too much shrinking in flex layouts
+		// (see T370032).
+		min-width: @min-size-interactive-pointer;
 		// Medium icon-only buttons have a smaller horizontal padding, to make them square.
 		padding-right: @spacing-horizontal-button-icon-only;
 		padding-left: @spacing-horizontal-button-icon-only;
 	}
 
 	&--icon-only&--size-large {
+		min-width: @min-size-interactive-touch;
 		// Large icon-only buttons use the standard button padding.
 		padding-right: @spacing-horizontal-button;
 		padding-left: @spacing-horizontal-button;
