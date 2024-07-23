@@ -228,14 +228,58 @@
 						<!-- eslint-enable max-len -->
 					</div>
 				</div>
+
+				<h4>Buttons in flex layouts</h4>
+				<div class="cdx-demo-buttons-flex cdx-demo-buttons-flex--desktop">
+					<form class="cdx-demo-buttons-flex--desktop__flex-container">
+						<div class="cdx-text-input">
+							<input
+								class="cdx-text-input__input"
+								name="search"
+								value=""
+								size="70"
+							>
+						</div>
+						<input
+							type="submit"
+							name="fulltext"
+							value="Artikel suchen"
+							class="cdx-button"
+						>
+					</form>
+				</div>
+				<div class="cdx-demo-buttons-flex cdx-demo-buttons-flex--mobile">
+					<form class="cdx-demo-buttons-flex--mobile__flex-container">
+						<div class="cdx-text-input">
+							<input
+								name="search"
+								class="cdx-text-input__input"
+								size="50"
+							>
+						</div>
+						<input
+							type="submit"
+							name="go"
+							value="Look up"
+							class="cdx-button"
+						>
+					</form>
+				</div>
+				<div class="cdx-demo-buttons-flex cdx-demo-buttons-flex--icon-only">
+					<cdx-text-input v-model="textValue" />
+					<cdx-button aria-label="Search">
+						<cdx-icon :icon="cdxIconSearch" />
+					</cdx-button>
+				</div>
 			</section>
 		</template>
 	</demo-base-layout>
 </template>
 
 <script lang="ts" setup>
-import { CdxButton, CdxIcon } from '../lib';
-import { cdxIconTrash, cdxIconAlignLeft, cdxIconAlignRight } from '@wikimedia/codex-icons';
+import { ref } from 'vue';
+import { CdxButton, CdxIcon, CdxTextInput } from '../lib';
+import { cdxIconTrash, cdxIconAlignLeft, cdxIconAlignRight, cdxIconSearch } from '@wikimedia/codex-icons';
 import DemoBaseLayout from './DemoBaseLayout.vue';
 import ButtonGridTable from './ButtonGridTable.vue';
 
@@ -243,6 +287,8 @@ const onClick = function () {
 	// eslint-disable-next-line no-console
 	console.log( 'click event emitted' );
 };
+
+const textValue = ref( '' );
 </script>
 
 <style lang="less" scoped>
@@ -315,4 +361,46 @@ const onClick = function () {
 		padding: @spacing-100;
 	}
 }
+
+// Styles taken directly from features noted in T370032.
+/* stylelint-disable */
+.cdx-demo-buttons-flex {
+	font-size: 14px;
+	margin-bottom: @spacing-100;
+
+	&--desktop {
+		max-width: 50em;
+
+		&__flex-container {
+			display: flex;
+			justify-content: center;
+			column-gap: 4px;
+		}
+
+		.cdx-text-input {
+			min-width: auto;
+		}
+	}
+
+	&--mobile {
+		max-width: 341px;
+
+		&__flex-container {
+			display: flex;
+			justify-content: center;
+			column-gap: 4px;
+		}
+
+		.cdx-text-input {
+			min-width: auto;
+		}
+	}
+
+	&--icon-only {
+		display: flex;
+		gap: 4px;
+	}
+}
+/* stylelint-enable */
+
 </style>
