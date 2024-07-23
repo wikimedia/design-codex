@@ -96,12 +96,20 @@ icon, these make it easier to differentiate between the radio button’s selecte
 2. Hover unselected
 3. Active unselected
 4. Focus unselected
-5. Disabled unselected
-6. Default selected
-7. Hover selected
-8. Active selected
-9. Focus selected
-10. Disabled selected
+5. Error unselected
+6. Error-hover unselected
+7. Error-active unselected
+8. Error-focus unselected
+9. Disabled unselected
+10. Default selected
+11. Hover selected
+12. Active selected
+13. Focus selected
+14. Error selected
+15. Error-hover selected
+16. Error-active selected
+17. Error-focus selected
+18. Disabled selected
 
 </div>
 

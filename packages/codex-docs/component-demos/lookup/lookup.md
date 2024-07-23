@@ -107,6 +107,9 @@ Interaction can take place within both the input and the displayed menu:
 4. Active
 5. Filled
 6. Filled active (with a menu item selected)
+7. Error
+8. Error hover
+9. Disabled
 
 ### Best practices
 

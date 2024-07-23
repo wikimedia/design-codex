@@ -100,11 +100,12 @@ Comboboxes have the following visually separate states:
 1. Default
 2. Hover on input
 3. Hover on button
-4. Disabled
-5. Active and hover on one of the menu items
-6. Typing in the input and having a menu item selected based on the matching text
-7. Combobox filled with one selected menu option
-8. Active with no results
+4. Active and hover on one of the menu items
+5. Typing in the input and having a menu item selected based on the matching text
+6. Combobox filled with one selected menu option
+7. Error
+8. Error hover
+9. Disabled
 
 ### Best practices
 
