@@ -332,6 +332,120 @@ and allows the detected direction to be overridden through the `dir` prop. For m
 how bidirectionality is handled for icons in particular, see
 [the icon documentation](../../icons/overview.md#right-to-left-rtl-and-language-support).
 
+## Translatable strings
+
+Sometimes, components contain text that is always or usually the same across features. For
+example:
+- In a Table with row selection, the "select all" checkbox always has the visually-hidden label
+  "Select all rows".
+- The "close" button in a Dialog usually has the `aria-label` "Close".
+
+These are different from feature-specific strings, like a Table's caption or the label of a normal
+Button.
+
+For strings that are always or usually the same across features, we provide two composables
+that do the following:
+1. Take in a message key.
+1. Look for a provided internationalization (i18n) function (like [`mw.msg()` in MediaWiki](https://doc.wikimedia.org/mediawiki-core/master/js/mw.html#.msg)).
+1. If one is provided, get the translated string for that message key. If not, use an English fallback.
+1. Return the value, or if a custom value was provided for strings that can be customized, use that.
+
+In MediaWiki core, we provide `mw.msg()` as the i18n function, along with translated strings for all
+relevant messages, so users of Codex inside MediaWiki will get translated text for these strings by
+default.
+
+### Adding a new message
+
+Every message that is used in a Codex component should also be defined in MediaWiki core. To add a
+new message, in MediaWiki core, add the message to both the `en.json` and `qqq.json` files in
+`languages/i18n/codex`. Ensure the message key is prefixed with `cdx-` and the component name.
+
+### Using the message within a component
+
+Note that both composables return a computed ref containing the translated string.
+
+#### Static strings
+
+For strings that should always be the same and should never be customizable by the dev user, use the
+`useI18n` composable. These strings are typically special text for assistive technology that help
+users understand how to use the component—we want such strings to be consistent across products.
+
+`useI18n` has 3 arguments:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `messageKey` | `I18nMessageKey` | The message's machine name |
+| `defaultValue` | `I18nMessageValue<P>` | The English fallback (as a string, or a function if there are parameters) |
+| `params` | `MaybeRef<P>[]` | An array of parameters for the message, if needed |
+
+The following example comes from the Table component file; see the whole file for more context.
+
+```ts
+import useI18n from '../../composables/useI18n';
+
+const translatedSelectAllLabel = useI18n(
+	// Message key.
+	'cdx-table-select-all-label',
+	// English fallback.
+	'Select all rows'
+);
+```
+
+#### Customizable strings
+
+For strings that are usually the same but could be customized in some cases, use the
+`useI18nWithOverride` composable, which has 4 arguments:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `override` | `Ref<string>` | The component prop used as an override |
+| `messageKey` | `I18nMessageKey` | The message's machine name |
+| `defaultValue` | `I18nMessageValue<P>` | The English fallback (as a string, or a function if there are parameters) |
+| `params` | `MaybeRef<P>[]` | An array of parameters for the message, if needed |
+
+Additionally, add a prop that can be used to provide a custom value for the string if desired.
+
+The following example comes from the SearchInput component file; see the whole file for more
+context. SearchInput has a prop called `buttonLabel` which can be used to provide custom text for
+the "Search" button. If this prop is set, its value is used directly, overriding the translatable
+message.
+
+```ts
+import useI18nWithOverride from '../../composables/useI18nWithOverride';
+
+const translatedSearchButtonLabel = useI18nWithOverride(
+	// The prop that is used for customization of the string.
+	toRef( props, 'buttonLabel' ),
+	// Message key.
+	'cdx-search-input-search-button-label',
+	// English fallback.
+	'Search'
+);
+```
+
+#### With parameters
+
+Both composables can take in parameters for messages with dynamic parts. For example, for sortable
+Tables, some text is appended to the visually-hidden caption explaining that the columns are
+sortable. The following example comes from the Table component file; see the whole file for more
+context.
+
+```ts
+import useI18n from '../../composables/useI18n';
+
+const translatedSortCaption = useI18n(
+	// Message key.
+	'cdx-table-sort-caption',
+	// English fallback, provided as a function to include the parameter.
+	( caption ) => `${ caption }, column headers with buttons are sortable.`,
+	// Array of parameters (in this case, just one: the caption prop).
+	[ toRef( props, 'caption' ) ]
+);
+```
+
+Note that params will typically be refs to support reactivity, but they can be static values as
+well.
+
 ## Inheriting attributes
 
 By default, components will place any attributes bound to them on the root element of the
