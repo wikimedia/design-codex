@@ -1,17 +1,14 @@
 import { PropType, defineComponent, h, provide, toRef } from 'vue';
 import { mount } from '@vue/test-utils';
 import useI18n from './useI18n';
-import { I18nFunction } from '../types';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type I18nDefault = string | ( ( ...params: any[] ) => string );
+import { I18nFunction, I18nMessageValue } from '../types';
 
 describe( 'useI18n', () => {
 	const ChildComponent = defineComponent( {
 		template: '<p>{{ message }}</p>',
 		props: {
 			defaultMessage: {
-				type: [ String, Function ] as PropType<I18nDefault>,
+				type: [ String, Function ] as PropType<I18nMessageValue<string>>,
 				required: true
 			},
 			messageParam: {
@@ -31,7 +28,7 @@ describe( 'useI18n', () => {
 	const ParentComponent = defineComponent( {
 		props: {
 			defaultMessage: {
-				type: [ String, Function ] as PropType<I18nDefault>,
+				type: [ String, Function ] as PropType<I18nMessageValue<string>>,
 				required: true
 			},
 			messageParam: {
@@ -69,7 +66,7 @@ describe( 'useI18n', () => {
 		it( 'uses the default function value', () => {
 			const wrapper = mount( ParentComponent, {
 				props: {
-					defaultMessage: ( n: number ) => `default text from function ${ n }`,
+					defaultMessage: ( n: string ) => `default text from function ${ n }`,
 					messageParam: '123'
 				}
 			} );
@@ -79,7 +76,7 @@ describe( 'useI18n', () => {
 		it( 'is reactive to changes in parameters passed as refs', async () => {
 			const wrapper = mount( ParentComponent, {
 				props: {
-					defaultMessage: ( n: number ) => `default text from function ${ n }`,
+					defaultMessage: ( n: string ) => `default text from function ${ n }`,
 					messageParam: '123'
 				}
 			} );
@@ -95,7 +92,7 @@ describe( 'useI18n', () => {
 				props: {
 					defaultMessage: 'default text',
 					messageParam: '123',
-					providedI18nFunc: ( key: string, n: number ) =>
+					providedI18nFunc: ( key: string, n: string ) =>
 						key === 'cdx-test-message' ? `provided text ${ n }` : null
 				}
 			} );
@@ -107,7 +104,7 @@ describe( 'useI18n', () => {
 				props: {
 					defaultMessage: 'default text',
 					messageParam: '123',
-					providedI18nFunc: ( key: string, n: number ) =>
+					providedI18nFunc: ( key: string, n: string ) =>
 						key === 'cdx-test-message' ? `provided text ${ n }` : null
 				}
 			} );

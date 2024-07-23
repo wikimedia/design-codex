@@ -1,7 +1,5 @@
 import { computed, inject, unref, ComputedRef, MaybeRef } from 'vue';
-import { I18nMessageKey, I18nFunction } from '../types';
-
-type I18nDefault<P> = string | ( ( ...params: P[] ) => string );
+import { I18nMessageValue, I18nMessageKey, I18nFunction } from '../types';
 
 /**
  * Composable for using translatable messages in a component.
@@ -46,7 +44,7 @@ type I18nDefault<P> = string | ( ( ...params: P[] ) => string );
  */
 export default function useI18n<P>(
 	messageKey: I18nMessageKey,
-	defaultValue: I18nDefault<P>,
+	defaultValue: I18nMessageValue<P>,
 	params: MaybeRef<P>[] = []
 ): ComputedRef<string> {
 	const providedI18nFunc = inject<I18nFunction|undefined>( 'CdxI18nFunction', undefined );

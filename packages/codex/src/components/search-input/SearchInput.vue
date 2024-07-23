@@ -47,7 +47,7 @@ import CdxTextInput from '../text-input/TextInput.vue';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useFieldData from '../../composables/useFieldData';
-import useI18n from '../../composables/useI18n';
+import useI18nWithOverride from '../../composables/useI18nWithOverride';
 
 import { ValidationStatusTypes } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
@@ -172,10 +172,11 @@ export default defineComponent( {
 		} = useSplitAttributes( attrs, internalClasses );
 
 		// Inject a translatable message string.
-		const translatedSearchButtonLabel = useI18n(
+		const translatedSearchButtonLabel = useI18nWithOverride(
+			toRef( props, 'buttonLabel' ),
 			'cdx-search-input-search-button-label',
 			// Allow custom button label via props or fallback to a default English string.
-			() => props.buttonLabel || 'Search'
+			'Search'
 		);
 
 		// DEPRECATED: require use of new prop useButton (T368444)

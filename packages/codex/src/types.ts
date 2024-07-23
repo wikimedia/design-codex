@@ -22,6 +22,8 @@ import {
 	TableRowIdentifier
 } from './constants';
 
+export type I18nMessageValue<P> = string | ( ( ...params: P[] ) => string );
+
 export type I18nMessageKey = `cdx-${ string }`;
 
 /** @public */
