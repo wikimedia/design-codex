@@ -47,14 +47,6 @@
 			</template>
 			Accordion content 3
 		</cdx-accordion>
-
-		<h3>Accordion disabled</h3>
-		<cdx-accordion disabled>
-			<template #title>
-				Accordion title
-			</template>
-			Accordion content
-		</cdx-accordion>
 	</section>
 </template>
 
