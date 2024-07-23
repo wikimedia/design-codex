@@ -1,15 +1,15 @@
 <template>
 	<section id="cdx-combobox">
 		<h2>Combobox</h2>
-		<p>
+		<div class="cdx-demo__content__sectioning">
 			<cdx-combobox
 				v-model:selected="selection"
 				:menu-items="options"
 				placeholder="Type or choose an option"
 				:disabled="false"
 			/>
-		</p>
-		<p>
+		</div>
+		<div class="cdx-demo__content__sectioning">
 			<cdx-combobox
 				v-model:selected="selection"
 				:menu-items="options"
@@ -17,8 +17,8 @@
 				:disabled="false"
 				:clearable="true"
 			/>
-		</p>
-		<p>
+		</div>
+		<div class="cdx-demo__content__sectioning">
 			<cdx-combobox
 				v-model:selected="selection"
 				:menu-items="options"
@@ -26,8 +26,8 @@
 				:disabled="false"
 				:end-icon="cdxIconEdit"
 			/>
-		</p>
-		<p>
+		</div>
+		<div class="cdx-demo__content__sectioning">
 			<cdx-combobox
 				v-model:selected="selection"
 				:menu-items="options"
@@ -36,8 +36,8 @@
 				clearable
 				:end-icon="cdxIconEdit"
 			/>
-		</p>
-		<p>
+		</div>
+		<div class="cdx-demo__content__sectioning">
 			<cdx-combobox
 				v-model:selected="selection"
 				:menu-items="options"
@@ -47,7 +47,7 @@
 				:start-icon="cdxIconSearch"
 				:end-icon="cdxIconEdit"
 			/>
-		</p>
+		</div>
 		<p>Selected value: {{ selection || '(none)' }}</p>
 	</section>
 </template>

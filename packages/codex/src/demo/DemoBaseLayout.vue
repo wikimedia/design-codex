@@ -138,6 +138,10 @@ body {
 
 	&__content {
 		flex: 1;
+
+		&__sectioning {
+			margin-bottom: @spacing-100;
+		}
 	}
 
 	&__nav {
