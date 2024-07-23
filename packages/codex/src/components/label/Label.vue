@@ -88,7 +88,7 @@ import { Icon } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import useFieldData from '../../composables/useFieldData';
 import useSplitAttributes from '../../composables/useSplitAttributes';
-import useI18n from '../../composables/useI18n';
+import useI18nWithOverride from '../../composables/useI18nWithOverride';
 
 /**
  * Describes the information requested by a given form field.
@@ -189,9 +189,10 @@ export default defineComponent( {
 			otherAttrs
 		} = useSplitAttributes( attrs, internalClasses );
 
-		const translatedOptionalFlag = useI18n(
+		const translatedOptionalFlag = useI18nWithOverride(
+			toRef( props, 'optionalFlag' ),
 			'cdx-label-optional-flag',
-			() => props.optionalFlag || '(optional)'
+			'(optional)'
 		);
 
 		return {

@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref, computed, onMounted, warn } from 'vue';
+import { defineComponent, PropType, ref, computed, onMounted, warn, toRef } from 'vue';
 import {
 	cdxIconInfoFilled,
 	cdxIconError,
@@ -46,7 +46,7 @@ import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 import { statusTypeValidator } from '../../constants';
 import { StatusType, StatusIconMap } from '../../types';
-import useI18n from '../../composables/useI18n';
+import useI18nWithOverride from '../../composables/useI18nWithOverride';
 
 const iconMap: StatusIconMap = {
 	notice: cdxIconInfoFilled,
@@ -157,9 +157,10 @@ export default defineComponent( {
 		);
 
 		// DEPRECATED: just use the dismissButtonLabel prop once it defaults to 'Close' (T368444).
-		const translatedDismissButtonLabel = useI18n(
+		const translatedDismissButtonLabel = useI18nWithOverride(
+			toRef( props, 'dismissButtonLabel' ),
 			'cdx-message-dismiss-button-label',
-			() => props.dismissButtonLabel || 'Close'
+			'Close'
 		);
 
 		const displayTime = computed( () => {

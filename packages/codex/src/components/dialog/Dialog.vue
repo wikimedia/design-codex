@@ -134,7 +134,7 @@ import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
 import useGeneratedId from '../../composables/useGeneratedId';
-import useI18n from '../../composables/useI18n';
+import useI18nWithOverride from '../../composables/useI18nWithOverride';
 import useResizeObserver from '../../composables/useResizeObserver';
 import { DialogAction, PrimaryDialogAction } from '../../types';
 
@@ -294,9 +294,10 @@ export default defineComponent( {
 		const useCloseButtonOrLabel = computed( () =>
 			props.useCloseButton || props.closeButtonLabel.length > 0
 		);
-		const translatedCloseButtonLabel = useI18n(
+		const translatedCloseButtonLabel = useI18nWithOverride(
+			toRef( props, 'closeButtonLabel' ),
 			'cdx-dialog-close-button-label',
-			() => props.closeButtonLabel || 'Close'
+			'Close'
 		);
 
 		const showHeader = computed( () => !props.hideTitle || useCloseButtonOrLabel.value );

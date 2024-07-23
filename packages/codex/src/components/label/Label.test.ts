@@ -37,4 +37,40 @@ describe( 'matches the snapshot', () => {
 		} } );
 		expect( wrapper.element ).toMatchSnapshot();
 	} );
+
+	describe( 'when an i18n function is provided', () => {
+		const dummyI18nMessage = 'I18n message';
+		const provideI18nFunction = {
+			CdxI18nFunction: () => dummyI18nMessage
+		};
+
+		it( 'and the optionalFlag prop is not set, uses the i18n message', () => {
+			const wrapper = shallowMount( CdxLabel, {
+				props: {
+					optional: true
+				},
+				global: {
+					provide: provideI18nFunction
+				}
+			} );
+			const label = wrapper.findComponent( CdxLabel );
+
+			expect( label.text() ).toBe( 'I18n message' );
+		} );
+
+		it( 'and the optionalFlag prop is set, uses the prop', () => {
+			const wrapper = shallowMount( CdxLabel, {
+				props: {
+					optional: true,
+					optionalFlag: 'Optional flag from prop'
+				},
+				global: {
+					provide: provideI18nFunction
+				}
+			} );
+			const label = wrapper.findComponent( CdxLabel );
+
+			expect( label.text() ).toBe( 'Optional flag from prop' );
+		} );
+	} );
 } );

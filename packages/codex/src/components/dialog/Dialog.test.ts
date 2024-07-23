@@ -69,6 +69,7 @@ describe( 'Basic usage', () => {
 	const dialogBasicClosed = Object.freeze( { props: { title: 'Dialog Title' }, slots: { default: dialogSlotContents } } );
 	const dialogBasicOpen = Object.freeze( { props: { title: 'Dialog Title', open: true }, slots: { default: dialogSlotContents } } );
 	const dialogWithCloseButtonOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, useCloseButton: true }, slots: { default: dialogSlotContents } } );
+	const dialogWithCloseButtonLabelOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, closeButtonLabel: 'Close button label from prop' }, slots: { default: dialogSlotContents } } );
 	const dialogPrimaryOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, primaryAction: { label: 'save', actionType: 'progressive' } as PrimaryDialogAction }, slots: { default: dialogSlotContents } } );
 	const dialogDefaultOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, defaultAction: { label: 'ok' } as DialogAction }, slots: { default: dialogSlotContents } } );
 	const dialogStackedActions = Object.freeze( { props: { title: 'Dialog Title', open: true, stackedActions: true, primaryAction: { label: 'save', actionType: 'progressive' } as PrimaryDialogAction }, slots: { default: dialogSlotContents } } );
@@ -140,5 +141,36 @@ describe( 'Basic usage', () => {
 	it( 'renders no subtitle markup when one is not provided', () => {
 		const wrapper = mount( CdxDialog, dialogBasicOpen );
 		expect( wrapper.find( '.cdx-dialog__header__subtitle' ).exists() ).toBe( false );
+	} );
+
+	describe( 'when an i18n function is provided', () => {
+		const dummyI18nMessage = 'I18n message';
+		const provideI18nFunction = {
+			CdxI18nFunction: () => dummyI18nMessage
+		};
+
+		it( 'and the closeButtonLabel prop is not set, uses the i18n message', () => {
+			const wrapper = mount( CdxDialog, {
+				...dialogWithCloseButtonOpen,
+				global: {
+					provide: provideI18nFunction
+				}
+			} );
+			const button = wrapper.find( '.cdx-dialog__header__close-button' );
+
+			expect( button.attributes( 'aria-label' ) ).toBe( 'I18n message' );
+		} );
+
+		it( 'and the closeButtonLabel prop is set, uses the prop', () => {
+			const wrapper = mount( CdxDialog, {
+				...dialogWithCloseButtonLabelOpen,
+				global: {
+					provide: provideI18nFunction
+				}
+			} );
+			const button = wrapper.find( '.cdx-dialog__header__close-button' );
+
+			expect( button.attributes( 'aria-label' ) ).toBe( 'Close button label from prop' );
+		} );
 	} );
 } );

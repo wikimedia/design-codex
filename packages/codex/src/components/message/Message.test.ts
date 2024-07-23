@@ -125,4 +125,40 @@ describe( 'Message', () => {
 		const wrapper = mount( CdxMessage, { props: { type: 'success', icon: cdxIconArticle } } );
 		expect( wrapper.vm.computedIcon ).toBe( cdxIconSuccess );
 	} );
+
+	describe( 'when an i18n function is provided', () => {
+		const dummyI18nMessage = 'I18n message';
+		const provideI18nFunction = {
+			CdxI18nFunction: () => dummyI18nMessage
+		};
+
+		it( 'and the dismissButtonLabel prop is not set, uses the i18n message', () => {
+			const wrapper = mount( CdxMessage, {
+				props: {
+					allowUserDismiss: true
+				},
+				global: {
+					provide: provideI18nFunction
+				}
+			} );
+			const button = wrapper.find( '.cdx-message__dismiss-button' );
+
+			expect( button.attributes( 'aria-label' ) ).toBe( 'I18n message' );
+		} );
+
+		it( 'and the dismissButtonLabel prop is set, uses the prop', () => {
+			const wrapper = mount( CdxMessage, {
+				props: {
+					allowUserDismiss: true,
+					dismissButtonLabel: 'Label from prop'
+				},
+				global: {
+					provide: provideI18nFunction
+				}
+			} );
+			const button = wrapper.find( '.cdx-message__dismiss-button' );
+
+			expect( button.attributes( 'aria-label' ) ).toBe( 'Label from prop' );
+		} );
+	} );
 } );
