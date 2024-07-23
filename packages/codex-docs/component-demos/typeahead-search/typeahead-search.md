@@ -262,7 +262,7 @@ Events are emitted to the parent when a search result is selected and when the f
 with data about the selected item (e.g. for analytics).
 
 ::: tip TextInput props apply
-This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
+This component contains a TextInput component. You can bind [TextInput props](./text-input.html#props)
 to this component and they will be passed to the TextInput within.
 :::
 

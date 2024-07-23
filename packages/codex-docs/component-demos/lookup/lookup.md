@@ -340,7 +340,7 @@ Typical use of this component will involve listening for `input` events, fetchin
 computing menu items, then passing those menu items back to the Lookup for display.
 
 ::: tip TextInput props apply
-This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
+This component contains a TextInput component. You can bind [TextInput props](./text-input.html#props)
 to this component and they will be passed to the TextInput within.
 :::
 

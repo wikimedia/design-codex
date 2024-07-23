@@ -233,7 +233,7 @@ up with the text input, e.g. a list of autocomplete options.
 Refer to [TypeaheadSearch](./typeahead-search.md) for an example.
 
 ::: tip TextInput props apply
-This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
+This component contains a TextInput component. You can bind [TextInput props](./text-input.html#props)
 to this component and they will be passed to the TextInput within.
 :::
 

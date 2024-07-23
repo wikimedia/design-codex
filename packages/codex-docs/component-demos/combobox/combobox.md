@@ -314,7 +314,7 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 ## Vue usage
 
 ::: tip TextInput props apply
-This component contains a TextInput component. You can bind [TextInput props](./text-input.html#usage)
+This component contains a TextInput component. You can bind [TextInput props](./text-input.html#props)
 to this component and they will be passed to the TextInput within.
 :::
 
