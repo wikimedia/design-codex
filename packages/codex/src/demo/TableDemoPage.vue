@@ -240,6 +240,23 @@
 					:use-row-selection="true"
 					@update:sort="( newSort ) => onSort( newSort, 'withSelection' )"
 				/>
+
+				<h2>Table with row actions</h2>
+				<cdx-table
+					caption="Instruments"
+					:columns="columnsRowActions"
+					:data="dataRowActions"
+				>
+					<template #item-actions>
+						<cdx-menu-button
+							v-model:selected="actionSelection"
+							:menu-items="menuItems"
+							aria-label="Actions"
+						>
+							<cdx-icon :icon="cdxIconEllipsis" />
+						</cdx-menu-button>
+					</template>
+				</cdx-table>
 			</section>
 		</template>
 	</demo-base-layout>
@@ -250,7 +267,9 @@ import { Ref, ref, computed } from 'vue';
 import {
 	CdxButton,
 	CdxCheckbox,
+	CdxIcon,
 	CdxInfoChip,
+	CdxMenuButton,
 	CdxTable,
 	CdxToggleSwitch,
 	TableColumn,
@@ -259,6 +278,7 @@ import {
 	TableRow,
 	TableRowIdentifier
 } from '../lib';
+import { cdxIconEllipsis, cdxIconEdit, cdxIconNotice, cdxIconMessage, cdxIconAlert, cdxIconTrash } from '@wikimedia/codex-icons';
 import DemoBaseLayout from './DemoBaseLayout.vue';
 
 const restrictWidth = ref( true );
@@ -542,6 +562,32 @@ function handleSort( newSort: SingleSort, sortRef: Ref<SingleSort>, sortData: Re
 			return;
 	}
 }
+
+// With row actions.
+const columnsRowActions = [
+	{ id: 'name', label: 'Name' },
+	{ id: 'team', label: 'Team' },
+	{ id: 'type', label: 'Type' },
+	{ id: 'startDate', label: 'Start Date' },
+	{ id: 'progress', label: 'Progress' },
+	{ id: 'status', label: 'Status' },
+	{ id: 'actions', label: 'Actions' }
+];
+const dataRowActions = [
+	{ name: 'test Web Scroll UI', team: 'Web Team', type: 'baseline', startDate: '2024-08-17', progress: '', status: 'Off' },
+	{ name: 'test Desktop UI Interactions', team: 'Growth Team', type: 'baseline', startDate: '2024-08-17', progress: '', status: 'Off' },
+	{ name: 'test Android Article Find in Page', team: 'Android Team', type: 'baseline', startDate: '2024-08-17', progress: '', status: 'Off' },
+	{ name: 'test Android Article Link Preview Interaction', team: 'Android Team', type: 'baseline', startDate: '2024-08-17', progress: '', status: 'Off' },
+	{ name: 'test Android Article TOC', team: 'Android Team', type: 'baseline', startDate: '2024-08-17', progress: '', status: 'Off' }
+];
+const actionSelection = ref( '' );
+const menuItems = [
+	{ label: 'Edit Configuration', value: 'edit', icon: cdxIconEdit },
+	{ label: 'View Phab Ticket', value: 'phab', icon: cdxIconNotice },
+	{ label: 'Contact Owner', value: 'contact', icon: cdxIconMessage },
+	{ label: 'Turn Instrument On', value: 'status', icon: cdxIconAlert },
+	{ label: 'Delete Instrument', value: 'delete', icon: cdxIconTrash }
+];
 
 </script>
 
