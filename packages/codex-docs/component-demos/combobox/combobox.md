@@ -50,6 +50,34 @@ By default, when the menu is expanded, all menu items are displayed. However, if
 Refer to the
 [Combobox component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2606-51961&mode=design&t=g6roQDZkPxHE5omu-11).
 
+### Types
+
+Depending on how the text input and menu are customized, the Combobox can offer different types:
+
+#### Clearable, with start icon
+An optional start icon and clear button could appear within the input field.
+
+![A clearable Combobox component with a custom start icon.](../../assets/components/combobox-types-start-icon.svg)
+
+#### With custom menu item display
+Custom content and formats can be applied to change the appearance of menu items
+according to your needs.
+
+![Combobox with custom menu items displayed.](../../assets/components/combobox-types-custom-menu.svg)
+
+#### No results
+If there are no results for the text typed within the input, a non-interactive "no
+results" message will be displayed within the menu.
+
+![Combobox with no results found.](../../assets/components/combobox-types-no-results.svg)
+
+#### Combobox within a form field
+
+A Combobox can be wrapped within a [Field](./field.md) to include features like
+label, description, help text, or validation messages.
+
+![Combobox within a Field.](../../assets/components/combobox-types-field.svg)
+
 ### Interaction states
 
 Comboboxes have the following visually separate states:
