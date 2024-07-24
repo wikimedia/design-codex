@@ -78,8 +78,7 @@ export default function useFloatingMenu(
 			// Apply the same padding here as in size(), otherwise the gap between the bottom of
 			// the menu and the bottom edge of the viewport is allowed to shrink to zero before the
 			// menu flips.
-			padding: clipPadding,
-			fallbackStrategy: 'initialPlacement'
+			padding: clipPadding
 		} ),
 		// Hide the menu when it has escaped the reference element's clipping context (e.g. the menu
 		// is opened down and you scroll up until the reference element just starts to leave the
