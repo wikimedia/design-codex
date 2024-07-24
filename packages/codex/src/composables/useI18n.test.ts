@@ -1,10 +1,10 @@
-import { PropType, defineComponent, h, provide, toRef } from 'vue';
+import { PropType, defineComponent, toRef } from 'vue';
 import { mount } from '@vue/test-utils';
 import useI18n from './useI18n';
-import { I18nFunction, I18nMessageValue } from '../types';
+import { I18nMessageValue } from '../types';
 
 describe( 'useI18n', () => {
-	const ChildComponent = defineComponent( {
+	const TestComponent = defineComponent( {
 		template: '<p>{{ message }}</p>',
 		props: {
 			defaultMessage: {
@@ -25,37 +25,10 @@ describe( 'useI18n', () => {
 			return { message };
 		}
 	} );
-	const ParentComponent = defineComponent( {
-		props: {
-			defaultMessage: {
-				type: [ String, Function ] as PropType<I18nMessageValue<string>>,
-				required: true
-			},
-			messageParam: {
-				type: String,
-				default: null
-			},
-			providedI18nFunc: {
-				type: Function as PropType<I18nFunction>,
-				default: null
-			}
-		},
-		render() {
-			return h( ChildComponent, {
-				defaultMessage: this.defaultMessage,
-				messageParam: this.messageParam
-			} );
-		},
-		setup( props ) {
-			if ( props.providedI18nFunc ) {
-				provide( 'CdxI18nFunction', props.providedI18nFunc );
-			}
-		}
-	} );
 
 	describe( 'when no i18n function is provided', () => {
 		it( 'uses the default string value', () => {
-			const wrapper = mount( ParentComponent, {
+			const wrapper = mount( TestComponent, {
 				props: {
 					defaultMessage: 'default text'
 				}
@@ -64,7 +37,7 @@ describe( 'useI18n', () => {
 		} );
 
 		it( 'uses the default function value', () => {
-			const wrapper = mount( ParentComponent, {
+			const wrapper = mount( TestComponent, {
 				props: {
 					defaultMessage: ( n: string ) => `default text from function ${ n }`,
 					messageParam: '123'
@@ -74,7 +47,7 @@ describe( 'useI18n', () => {
 		} );
 
 		it( 'is reactive to changes in parameters passed as refs', async () => {
-			const wrapper = mount( ParentComponent, {
+			const wrapper = mount( TestComponent, {
 				props: {
 					defaultMessage: ( n: string ) => `default text from function ${ n }`,
 					messageParam: '123'
@@ -88,24 +61,32 @@ describe( 'useI18n', () => {
 
 	describe( 'when the i18n function returns a value', () => {
 		it( 'uses the returned value', () => {
-			const wrapper = mount( ParentComponent, {
+			const wrapper = mount( TestComponent, {
 				props: {
 					defaultMessage: 'default text',
-					messageParam: '123',
-					providedI18nFunc: ( key: string, n: string ) =>
-						key === 'cdx-test-message' ? `provided text ${ n }` : null
+					messageParam: '123'
+				},
+				global: {
+					provide: {
+						CdxI18nFunction: ( key: string, n: number ) =>
+							key === 'cdx-test-message' ? `provided text ${ n }` : null
+					}
 				}
 			} );
 			expect( wrapper.find( 'p' ).text() ).toBe( 'provided text 123' );
 		} );
 
 		it( 'is reactive to changes in parameters passed as refs', async () => {
-			const wrapper = mount( ParentComponent, {
+			const wrapper = mount( TestComponent, {
 				props: {
 					defaultMessage: 'default text',
-					messageParam: '123',
-					providedI18nFunc: ( key: string, n: string ) =>
-						key === 'cdx-test-message' ? `provided text ${ n }` : null
+					messageParam: '123'
+				},
+				global: {
+					provide: {
+						CdxI18nFunction: ( key: string, n: number ) =>
+							key === 'cdx-test-message' ? `provided text ${ n }` : null
+					}
 				}
 			} );
 			expect( wrapper.find( 'p' ).text() ).toBe( 'provided text 123' );
@@ -116,10 +97,14 @@ describe( 'useI18n', () => {
 
 	describe( 'when the i18n function returns null', () => {
 		it( 'falls back to the default value', () => {
-			const wrapper = mount( ParentComponent, {
+			const wrapper = mount( TestComponent, {
 				props: {
-					defaultMessage: 'default text',
-					providedI18nFunc: () => null
+					defaultMessage: 'default text'
+				},
+				global: {
+					provide: {
+						CdxI18nFunction: () => null
+					}
 				}
 			} );
 			expect( wrapper.find( 'p' ).text() ).toBe( 'default text' );
