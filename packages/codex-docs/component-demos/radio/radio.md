@@ -30,43 +30,15 @@ Radio buttons make the selection visually distinct.
 The Radio must always contain a label, with the text size matching the base font size for consistency with the body text. Labels can include links and bold text and should be concise, clearly indicating the selected option.
 3. **Description** (optional)<br>
 If additional information about the label is required, a description can be included.
-4. **Custom input** (optional)<br>
-An additional input field can be included within the Radio to allow the user to input a custom response.
 
 #### Component limitations
 
-A group of radios should consist of at least 2 radios, with no maximum limit on the number of radios per group.
-
 The Radio label will expand to fit longer text while the radio itself remains aligned with the first line of the label's text.
+
+A group of radios should consist of at least 2 radios, with no maximum limit on the number of radios per group.
 
 Refer to the
 [Radio component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2549-67656&mode=design&t=7wyBmhfdJTJevQmT-11).
-
-### Types
-
-Depending on the content type, the following types of Radios are available:
-
-1. **With only label**<br>
-By default, the Radio always includes a label that matches the base font size for consistency.
-2. **With description**<br>
-In some cases, an optional description can be added below the label for additional information.
-3. **With custom input**<br>
-In cases where additional user input is required, an optional custom input field can be added below the label or description.
-
-![Types of Radio based on its content: with label, with description, and with custom input.](../../assets/components/radio-types.svg)
-
-The custom input within the Radio can include any of the following form components designed to gather user input, including:
-
-1. TextInput and TextArea
-2. Select
-3. Combobox
-4. ChipInput
-5. Lookup
-6. A combination of more than one input
-
-![Types of custom inputs within the Radio: with TextArea, with Select, with Combobox, with ChipInput, with Lookup, and with a combination of 2 inputs.](../../assets/components/radio-types-custom-input.svg)
-
-**Note:** Groups of Checkboxes, Radios, and Toggle switches are not allowed within this custom input.
 
 ### Interaction states
 
@@ -168,66 +140,6 @@ Consider the following recommendations when using radios.
 
 </cdx-demo-rules>
 
-#### Custom input within the Radio
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Radio group displaying a custom input with a combination of TextInput and Select.](../../assets/components/radio-best-practices-custom-input-01-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Combine 2 different fields within the custom input if needed.
-
-</template>
-
-<template #dont-media>
-
-![Radio group displaying a custom input with a nested group of radios.](../../assets/components/radio-best-practices-custom-input-01-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Nest another group of radios, checkboxes, or toggle switches within the custom input.
-
-</template>
-
-</cdx-demo-rules>
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Radio group with the last Radio unselected and displaying a custom input disabled.](../../assets/components/radio-best-practices-custom-input-02-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Display the custom input at the end of a Radio group whenever possible.
-- Disable the custom input unless its corresponding Radio is selected.
-
-</template>
-
-<template #dont-media>
-
-![Radio group displaying one custom input per Radio, with all inputs enabled.](../../assets/components/radio-best-practices-custom-input-02-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Design a layout where multiple Radios include custom inputs visible simultaneously.
-- Enable the custom input when its corresponding Radio is not selected.
-
-</template>
-
-</cdx-demo-rules>
-
 ### Content
 
 A radio button ensure that a reader chooses only one option from a set of two or more. Keeping choices simple and mutually exclusive makes for concise, effective and trustworthy content.
@@ -261,7 +173,7 @@ A radio button ensure that a reader chooses only one option from a set of two or
 | -- | -- |
 | <kbd>Tab</kbd> | The focus is placed on the next interactive element in tab order. |
 | <kbd>Shift</kbd> + <kbd>Tab</kbd> | The focus is placed on the previous interactive element. |
-| <kbd>Up arrow</kbd> / <kbd>Down arrow</kbd> / <kbd>Left arrow</kbd> / <kbd>Right arrow</kbd> | When the focus is placed on a Radio within a group, the arrow keys move the focus between the different Radios and select them. |
+| <kbd>Up arrow</kbd> / <kbd>Down arrow</kbd> | When the focus is placed on a Radio within a group, the arrow keys move the focus between the different Radios. |
 
 ### References
 
