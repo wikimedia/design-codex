@@ -131,6 +131,22 @@ npm publish -w @wikimedia/codex-icons
 ```
 
 ## Updating MediaWiki
+In MediaWiki core, pull down the latest version of `master`.
+```bash
+git checkout master
+git pull
+```
+Then install dependencies.
+
+```bash
+# For Docker, add "docker-compose exec mediawiki" before this command.
+php maintenance/run.php update
+```
+Then create a feature branch to work on.
+```bash
+git checkout -b feature-branch
+```
+
 Once the NPM packages are published, you need to update MediaWiki core to point to the newly
 published version. This involves the following steps:
 - For each package (`codex`, `codex-design-tokens`, and `codex-icons`):
@@ -244,8 +260,8 @@ Before merging the core patch, create a [Patchdemo](https://patchdemo.wmflabs.or
 MediaWiki instance based on the core patch to update the Codex version. We can utilize Patchdemo to
 test TypeaheadSearch by configuring the settings for the Patchdemo as follows:
 - Add the MediaWiki core patch that updates the Codex version.
-- You can optionally leave the defaulted checked extensions/skins as is since we may only need
-Vector and Minerva.
+- You can optionally leave the default selection of extensions/skins as is since we may only need
+Vector and Minerva skins. To find the full list of repos, open “Choose included repos”.
 - Set the landing page to "Main Page".
 - Check the "Proxy articles from wikipedia.org" to import content into your project. TypeaheadSearch
 relies on content.
