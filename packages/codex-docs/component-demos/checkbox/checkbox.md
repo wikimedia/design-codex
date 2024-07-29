@@ -448,6 +448,7 @@ Select, Combobox, ChipInput, Lookup, or a combination of more than one input.
 
 In the example below, the custom input is always visible but remains disabled
 until the parent Checkbox is selected.
+Inside the custom input `<div>`, a Field wraps the TextInput to display its own validation message.
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
