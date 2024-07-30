@@ -34,17 +34,18 @@
 			:pagination-size-options="paginationSizeOptions"
 			:prev-disabled="prevDisabled"
 			:next-disabled="nextDisabled"
+			:last-disabled="lastDisabled"
 			@next="onNext"
 			@prev="onPrev"
 			@first="onFirst"
 			@last="onLast"
 		>
 			<span class="cdx-table__pagination-status--long">
-				{{ paginationStatusMessageDeterminateLong }}
+				{{ paginationStatusMessageLong }}
 			</span>
 
 			<span class="cdx-table__pagination-status--short">
-				{{ paginationStatusMessageDeterminateShort }}
+				{{ paginationStatusMessageShort }}
 			</span>
 		</cdx-table-pager>
 
@@ -103,6 +104,12 @@
 						</tr>
 					</thead>
 				</slot>
+
+				<cdx-progress-bar
+					v-if="pending"
+					:inline="true"
+					class="cdx-table__pending-indicator"
+				/>
 
 				<!-- @slot Custom <tbody>. -->
 				<slot name="tbody">
@@ -168,17 +175,18 @@
 			:pagination-size-options="paginationSizeOptions"
 			:prev-disabled="prevDisabled"
 			:next-disabled="nextDisabled"
+			:last-disabled="lastDisabled"
 			@next="onNext"
 			@prev="onPrev"
 			@first="onFirst"
 			@last="onLast"
 		>
 			<span class="cdx-table__pagination-status--long">
-				{{ paginationStatusMessageDeterminateLong }}
+				{{ paginationStatusMessageLong }}
 			</span>
 
 			<span class="cdx-table__pagination-status--short">
-				{{ paginationStatusMessageDeterminateShort }}
+				{{ paginationStatusMessageShort }}
 			</span>
 		</cdx-table-pager>
 
@@ -191,14 +199,25 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent, ref, toRef, computed } from 'vue';
-import useModelWrapper from '../../composables/useModelWrapper';
-import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+import {
+	PropType,
+	defineComponent,
+	computed,
+	ref,
+	toRef,
+	watch
+} from 'vue';
+
 import CdxCheckbox from '../checkbox/Checkbox.vue';
 import CdxIcon from '../icon/Icon.vue';
 import CdxTablePager from './TablePager.vue';
-import { cdxIconSortVertical, cdxIconUpTriangle, cdxIconDownTriangle, Icon } from '@wikimedia/codex-icons';
+import CdxProgressBar from '../progress-bar/ProgressBar.vue';
+
+import useModelWrapper from '../../composables/useModelWrapper';
 import useI18n from '../../composables/useI18n';
+
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+import { cdxIconSortVertical, cdxIconUpTriangle, cdxIconDownTriangle, Icon } from '@wikimedia/codex-icons';
 
 import {
 	TableColumn,
@@ -238,7 +257,12 @@ const sortDirectionMap: TableSortDirectionMap = {
  */
 export default defineComponent( {
 	name: 'CdxTable',
-	components: { CdxCheckbox, CdxIcon, CdxTablePager },
+	components: {
+		CdxCheckbox,
+		CdxIcon,
+		CdxTablePager,
+		CdxProgressBar
+	},
 	props: {
 		/**
 		 * Table caption.
@@ -349,11 +373,40 @@ export default defineComponent( {
 		},
 
 		/**
+		 * Whether the table is waiting for data to be fetched.
+		 */
+		pending: {
+			type: Boolean,
+			default: false
+		},
+
+		/**
 		 * Whether to enable pagination.
 		 */
 		paginate: {
 			type: Boolean,
 			default: false
+		},
+
+		/**
+		 * Whether the table is paginating through remote data. Setting this to
+		 * "true" will cause the table to emit events indicating that more data
+		 * should be loaded when the user navigates between pages.
+		 */
+		serverPagination: {
+			type: Boolean,
+			default: false
+		},
+
+		/**
+		 * The total number of rows/results available on the server that the
+		 * user can access via pagination. Providing this value will make for
+		 * a better user experience when navigating through pages of remote
+		 * data, but it is not required.
+		 */
+		totalRows: {
+			type: Number,
+			default: NaN
 		},
 
 		/**
@@ -389,14 +442,27 @@ export default defineComponent( {
 		},
 
 		/**
-		 * The default number of rows to show per page. This will default to the
-		 * value of the first of the pagination options if not provided.
+		 * The default number of rows to show per page. For basic pagination,
+		 * this will default to the value of the first of the pagination options
+		 * if not provided. For server-side pagination, this will default to
+		 * the initial number of rows if no default is provided.
 		 */
 		paginationSizeDefault: {
 			type: Number,
 			default: (
-				rawProps: { paginationSizeOptions: TablePaginationSizeOption[] }
-			) => rawProps.paginationSizeOptions[ 0 ].value
+				rawProps: {
+					paginationSizeOptions: TablePaginationSizeOption[],
+					paginate: boolean,
+					serverPagination: boolean,
+					data: TableRow[]|TableRowWithIdentifier[]
+				}
+			) => {
+				if ( rawProps.paginate && rawProps.serverPagination ) {
+					return rawProps.data.length;
+				} else {
+					return rawProps.paginationSizeOptions[ 0 ].value;
+				}
+			}
 		}
 	},
 	emits: [
@@ -406,36 +472,67 @@ export default defineComponent( {
 		 * @property {string[]} selectedRows The new selected rows.
 		 */
 		'update:selectedRows',
+
 		/**
 		 * When the sort order changes emit an event to update the sort order.
 		 *
 		 * @property {Object} sort The new sort order.
 		 */
-		'update:sort'
+		'update:sort',
+
+		/**
+		 * When the user requests another page of data from the server.
+		 *
+		 * @property {number} offset Index of the first visible row on the new page.
+		 * @property {number} rows Number of rows to display.
+		 *
+		 */
+		'load-more',
+
+		/**
+		 * When the user requests the last page of data from the server.
+		 *
+		 * @property {number} rows Number of rows to display.
+		 */
+		'last'
 	],
 	setup( props, { emit } ) {
 		// pagination
 		const offset = ref( 0 );
 		const pageSize = ref( props.paginationSizeDefault );
+
 		const dataForDisplay = computed( () => {
-			if ( props.paginate ) {
+			if ( props.serverPagination && props.paginate ) {
+				return props.data;
+			} else if ( props.paginate ) {
 				return props.data.slice( offset.value, pageSize.value + offset.value );
 			} else {
 				return props.data;
 			}
 		} );
 
+		const totalCount = computed( () => {
+			if ( props.serverPagination ) {
+				return props.totalRows ?? NaN;
+			} else {
+				return props.data.length;
+			}
+		} );
+
+		const indeterminate = computed( () => isNaN( totalCount.value ) );
+		const currentCount = computed( () => dataForDisplay.value.length );
 		const firstOrdinal = computed( () => offset.value + 1 );
-		const lastOrdinal = computed( () => offset.value + dataForDisplay.value.length );
-		const totalCount = computed( () => props.data.length );
-		const nextDisabled = computed( () => offset.value + pageSize.value >= totalCount.value );
+		const lastOrdinal = computed( () => offset.value + currentCount.value );
+		const lastDisabled = computed( () => indeterminate.value );
 		const prevDisabled = computed( () => offset.value <= 0 );
 
-		const paginationStatusMessageDeterminateLong = useI18n(
-			'cdx-table-pagination-status-message-determinate-long',
-			( x, y, z ) => `Showing results ${ x }–${ y } of ${ z }`,
-			[ firstOrdinal, lastOrdinal, totalCount ]
-		);
+		const nextDisabled = computed( () => {
+			if ( indeterminate.value ) {
+				return currentCount.value < pageSize.value;
+			} else {
+				return offset.value + pageSize.value >= totalCount.value;
+			}
+		} );
 
 		const paginationStatusMessageDeterminateShort = useI18n(
 			'cdx-table-pagination-status-message-determinate-short',
@@ -443,8 +540,64 @@ export default defineComponent( {
 			[ firstOrdinal, lastOrdinal, totalCount ]
 		);
 
+		const paginationStatusMessageDeterminateLong = useI18n(
+			'cdx-table-pagination-status-message-determinate-long',
+			( x, y, z ) => `Showing results ${ x }–${ y } of ${ z }`,
+			[ firstOrdinal, lastOrdinal, totalCount ]
+		);
+
+		const paginationStatusMessageIndeterminateShort = useI18n(
+			'cdx-table-pagination-status-message-indeterminate-short',
+			( x, y ) => `${ x }–${ y } of many`,
+			[ firstOrdinal, lastOrdinal ]
+		);
+
+		const paginationStatusMessageIndeterminateLong = useI18n(
+			'cdx-table-pagination-status-message-indeterminate-long',
+			( x, y ) => `Showing results ${ x }–${ y } of many`,
+			[ firstOrdinal, lastOrdinal ]
+		);
+
+		const paginationStatusMessageIndeterminateFinal = useI18n(
+			'cdx-table-pagination-status-message-indeterminate-final',
+			( x ) => `Showing the last ${ x } results`,
+			[ currentCount ]
+		);
+
+		const paginationStatusMessagePending = useI18n(
+			'cdx-table-pagination-status-message-pending',
+			'Loading results...'
+		);
+
+		const paginationStatusMessageShort = computed( () => {
+			if ( props.pending ) {
+				return paginationStatusMessagePending.value;
+			} else if ( indeterminate.value && nextDisabled.value ) {
+				return paginationStatusMessageIndeterminateFinal.value;
+			} else if ( indeterminate.value ) {
+				return paginationStatusMessageIndeterminateShort.value;
+			} else {
+				return paginationStatusMessageDeterminateShort.value;
+			}
+		} );
+
+		const paginationStatusMessageLong = computed( () => {
+			if ( props.pending ) {
+				return paginationStatusMessagePending.value;
+			} else if ( indeterminate.value && nextDisabled.value ) {
+				return paginationStatusMessageIndeterminateFinal.value;
+			} else if ( indeterminate.value ) {
+				return paginationStatusMessageIndeterminateLong.value;
+			} else {
+				return paginationStatusMessageDeterminateLong.value;
+			}
+		} );
+
 		function onNext() {
 			offset.value += pageSize.value;
+			if ( props.serverPagination ) {
+				emit( 'load-more', offset.value, pageSize.value );
+			}
 		}
 
 		function onPrev() {
@@ -452,26 +605,41 @@ export default defineComponent( {
 				onFirst();
 			} else {
 				offset.value -= pageSize.value;
+				if ( props.serverPagination ) {
+					emit( 'load-more', offset.value, pageSize.value );
+				}
 			}
 		}
 
 		function onFirst() {
 			offset.value = 0;
+			if ( props.serverPagination ) {
+				emit( 'load-more', offset.value, pageSize.value );
+			}
 		}
 
 		function onLast() {
-			if ( props.data.length % pageSize.value === 0 ) {
-				offset.value = props.data.length - pageSize.value;
+			if ( totalCount.value % pageSize.value === 0 ) {
+				offset.value = totalCount.value - pageSize.value;
+				emit( 'load-more', offset.value, pageSize.value );
 			} else {
 				offset.value = (
-					Math.floor( props.data.length / pageSize.value ) *
+					Math.floor( totalCount.value / pageSize.value ) *
 					pageSize.value
 				);
+				emit( 'load-more', offset.value, pageSize.value );
 			}
 		}
+
+		watch( pageSize, ( newPageSize ) => {
+			if ( props.serverPagination ) {
+				emit( 'load-more', offset.value, newPageSize );
+			}
+		} );
+
 		// Row selection.
 		const wrappedSelectedRows = useModelWrapper( toRef( props, 'selectedRows' ), emit, 'update:selectedRows' );
-		const selectAll = ref( dataForDisplay.value.length === wrappedSelectedRows.value.length );
+		const selectAll = ref( totalCount.value === wrappedSelectedRows.value.length );
 		const selectAllIndeterminate = ref( false );
 
 		// Sorting.
@@ -615,7 +783,7 @@ export default defineComponent( {
 			// to use newSelectedRows in this function.
 
 			// If all rows are selected, check the "select all" box.
-			if ( dataForDisplay.value.length === newSelectedRows.length ) {
+			if ( totalCount.value === newSelectedRows.length ) {
 				selectAll.value = true;
 				selectAllIndeterminate.value = false;
 				return;
@@ -625,7 +793,7 @@ export default defineComponent( {
 			selectAll.value = false;
 
 			// If some checkboxes are checked then the "select all" checkbox is indeterminate.
-			if ( props.data.length > newSelectedRows.length ) {
+			if ( totalCount.value > newSelectedRows.length ) {
 				selectAllIndeterminate.value = true;
 			}
 
@@ -711,8 +879,9 @@ export default defineComponent( {
 			onLast,
 			nextDisabled,
 			prevDisabled,
-			paginationStatusMessageDeterminateLong,
-			paginationStatusMessageDeterminateShort,
+			lastDisabled,
+			paginationStatusMessageShort,
+			paginationStatusMessageLong,
 
 			// Row selection constants.
 			wrappedSelectedRows,
@@ -804,7 +973,12 @@ export default defineComponent( {
 		}
 	}
 
+	&__pending-indicator {
+		position: absolute;
+	}
+
 	&__table-wrapper {
+		position: relative;
 		// Enable horizontal scroll on just the actual table.
 		overflow-x: auto;
 	}

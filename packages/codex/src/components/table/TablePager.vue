@@ -54,7 +54,7 @@
 			</cdx-button>
 
 			<cdx-button
-				:disabled="nextDisabled"
+				:disabled="nextDisabled || lastDisabled"
 				class="cdx-table-pager__button-last"
 				weight="quiet"
 				:aria-label="btnLabelLast"
@@ -97,6 +97,11 @@ export default defineComponent( {
 		},
 
 		prevDisabled: {
+			type: Boolean,
+			default: false
+		},
+
+		lastDisabled: {
 			type: Boolean,
 			default: false
 		}
