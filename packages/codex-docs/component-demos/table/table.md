@@ -88,43 +88,39 @@ information, or when detailed analysis isn't the primary objective.
 
 ### Specifications
 
-![Numerical labeling of the Table component’s anatomy.](../../assets/components/table-specifications.svg)
+![Specifications of Table component.](../../assets/components/table-specifications.svg)
 
 1. **Header** (optional)<br>
 Tables can feature a header section with elements such as a visible caption or actions that can be applied to Table rows in bulk.
-
-1. **Caption**<br>
+2. **Caption**<br>
 A caption provides a clear and concise description of the contents and the purpose of the Table. It
 is key for accessibility, and must always be provided for users of assistive technology. The caption
 can be visually hidden if a visible caption is not needed (e.g. if there is a heading above the
 Table that serves as a title).
-
-1. **Actions** (optional)<br>
+3. **Actions** (optional)<br>
 Actions that can be applied to all the items within a Table should be made available from the
 header.
-
-1. **Selection** (optional)<br>
+4. **Selection** (optional)<br>
 Row selection can be enabled to allow targeting the items that will be affected by Table actions.
 The checkbox available at the heading row level allows selecting all Table items at once, while
 individual checkboxes allow the selection of independent rows. A custom indicator of the number of
 selected rows can be included in the Table’s header for visibility (See custom header text).
-
-1. **Headings**<br>
+5. **Headings**<br>
 Tables can feature column headings (most commonly), row headings, or both. Headings are used to
 describe the type of information or the category of the data contained by the list of elements they
 label. Column headings are required.
-
-1. **Sorting** (optional)<br>
+6. **Sorting** (optional)<br>
 Sorting allows users to organize data in an ascending or descending order according to specific
 criteria (e.g. alphabetically). It facilitates the analysis of data, identification of patterns, and
 comparison of values within Tables.
-
-1. **Cell**<br>
+7. **Cell**<br>
 Table cells are individual units of information, organized at the intersection of rows and columns.
 They can contain any sort of content, from simple text to iconography, images and components in any
 necessary order or combination.
-
-1. **Footer** (optional)<br>
+8. **Pagination** (optional)<br>
+Optional pagination controls can be included to provide an additional navigation for the Table.
+The user can specify for the pagination to appear above the Table's footer, below the Table's header, or both.
+9. **Footer** (optional)<br>
 Tables can feature an optional footer to organize adjacent Table information or actions (e.g.
 pagination). The configuration and contents of the Table footer are fully customizable.
 
@@ -143,10 +139,9 @@ more intentionally:
 
 Tables can display column headings, row headings, or both.
 
-Column headings represent the category or type of information contained in each Table column. They
+- **Column headings** represent the category or type of information contained in each Table column. They
 are essential for the quick identification of the Table’s content.
-
-Row headings are useful when there’s a need to further categorize or label the data presented in
+- **Row headings** are useful when there’s a need to further categorize or label the data presented in
 individual or sets of rows. In Tables with many items, row headings can serve as navigation aids,
 allowing users to quickly jump to specific sections or categories within the data structure. Please
 note that you might or might not include a column heading to give a title to the row headings
@@ -194,6 +189,17 @@ When selection is enabled, users can pick out rows individually, or use the chec
 heading level to select or deselect all Table items at once:
 
 ![Table featuring row selection.](../../assets/components/table-types-row-selection.svg)
+
+#### Table with pagination
+
+Use pagination to distribute the Table’s content across different pages when
+dealing with large Table data with many rows. There is no minimum number of rows
+required to use pagination, but it is recommended for tables with a substantial
+number of rows. When using pagination, a Select component allows choosing the
+number of rows displayed per page. The default options are 10, 20, and 50 rows
+per page.
+
+![Table with pagination featuring a selection option for displaying 10, 20, or 50 items per page.](../../assets/components/table-types-pagination.svg)
 
 #### Empty table
 
@@ -249,6 +255,8 @@ selection will allow users to target the Table items to be manipulated.
 
 - Use normal or quiet Buttons to represent Table actions.
 - Use any of the Button actions (neutral, progressive, and destructive)
+- Use labelled buttons, preferably with text, or icons and text, to ensure clarity.
+- Use MenuButton to group and display table actions when space in the header is limited (e.g. in smaller viewports).
 
 </template>
 
@@ -260,11 +268,10 @@ selection will allow users to target the Table items to be manipulated.
 
 <template #dont-text>
 
-- Use primary Buttons to represent Table actions, since they might compete with main page actions.
+- Use primary Buttons to represent Table actions, since they could compete with main page actions.
   (Exceptions might apply).
-- Use icon-only buttons to represent Table actions, since they might complicate understanding.
-  Exceptions do apply, e.g. in cases where space is scarce, or when they are used to trigger related
-  actions in a menu or modal.
+- Use icon-only buttons to represent header actions, since they might complicate understanding. 
+- Use several individual buttons when the Table’s width is limited. Instead, use a MenuButton to group all related actions.
 
 </template>
 
@@ -346,6 +353,39 @@ will make their information harder to parse and compare.
   compromising readability.
 - Use Tables in wide areas, where they’ll overstretch, complicating the parsing and comparison of
   information.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Pagination
+
+It is possible to use pagination to distribute the Table’s content across different pages.
+However, pagination is only recommended for tables containing a significant number of rows.
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![Table with 48 rows using pagination.](../../assets/components/table-best-practices-pagination-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use pagination to allow users to navigate long Tables with a less number of rows per page.
+
+</template>
+
+<template #dont-media>
+
+![Table with 11 rows incorrectly using pagination.](../../assets/components/table-best-practices-pagination-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Use pagination if the Table’s rows can be easily displayed on a single page.
 
 </template>
 
