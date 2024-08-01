@@ -51,83 +51,95 @@
 
 		<h3>CSS-only version</h3>
 		<div class="cdx-radio">
-			<input
-				id="radio-group-css-only-1"
-				class="cdx-radio__input"
-				type="radio"
-				name="radio-group-css-only"
-			>
-			<span class="cdx-radio__icon" />
-			<label class="cdx-radio__label" for="radio-group-css-only-1">
-				Radio 1
-			</label>
+			<div class="cdx-radio__wrapper">
+				<input
+					id="radio-group-css-only-1"
+					class="cdx-radio__input"
+					type="radio"
+					name="radio-group-css-only"
+				>
+				<span class="cdx-radio__icon" />
+				<label class="cdx-radio__label" for="radio-group-css-only-1">
+					Radio 1
+				</label>
+			</div>
 		</div>
 		<div class="cdx-radio">
-			<input
-				id="radio-group-css-only-2"
-				class="cdx-radio__input"
-				type="radio"
-				name="radio-group-css-only"
-				checked
-			>
-			<span class="cdx-radio__icon" />
-			<label class="cdx-radio__label" for="radio-group-css-only-2">
-				Radio 2 (initially selected)
-			</label>
+			<div class="cdx-radio__wrapper">
+				<input
+					id="radio-group-css-only-2"
+					class="cdx-radio__input"
+					type="radio"
+					name="radio-group-css-only"
+					checked
+				>
+				<span class="cdx-radio__icon" />
+				<label class="cdx-radio__label" for="radio-group-css-only-2">
+					Radio 2 (initially selected)
+				</label>
+			</div>
 		</div>
 		<div class="cdx-radio">
-			<input
-				id="radio-group-css-only-3"
-				class="cdx-radio__input"
-				type="radio"
-				name="radio-group-css-only"
-			>
-			<span class="cdx-radio__icon" />
-			<label class="cdx-radio__label" for="radio-group-css-only-3">
-				Radio 3, which has a very long label that spans onto a second line to
-				demonstrate what happens when text wraps
-			</label>
+			<div class="cdx-radio__wrapper">
+				<input
+					id="radio-group-css-only-3"
+					class="cdx-radio__input"
+					type="radio"
+					name="radio-group-css-only"
+				>
+				<span class="cdx-radio__icon" />
+				<label class="cdx-radio__label" for="radio-group-css-only-3">
+					Radio 3, which has a very long label that spans onto a second line to
+					demonstrate what happens when text wraps
+				</label>
+			</div>
 		</div>
 
 		<h4>Disabled radios</h4>
 		<div class="cdx-radio">
-			<input
-				id="radio-group-disabled-1"
-				class="cdx-radio__input"
-				type="radio"
-				name="radio-group-disabled"
-			>
-			<span class="cdx-radio__icon" />
-			<label class="cdx-radio__label" for="radio-group-disabled-1">
-				Radio 1
-			</label>
+			<div class="cdx-radio__wrapper">
+				<input
+					id="radio-group-disabled-1"
+					class="cdx-radio__input"
+					type="radio"
+					name="radio-group-disabled"
+				>
+				<span class="cdx-radio__icon" />
+				<label class="cdx-radio__label" for="radio-group-disabled-1">
+					Radio 1
+				</label>
+			</div>
 		</div>
 		<div class="cdx-radio">
-			<input
-				id="radio-group-disabled-2"
-				class="cdx-radio__input"
-				type="radio"
-				name="radio-group-disabled"
-				disabled
-			>
-			<span class="cdx-radio__icon" />
-			<label class="cdx-radio__label" for="radio-group-disabled-2">
-				Radio 2 (disabled)
-			</label>
+			<div class="cdx-radio__wrapper">
+				<input
+					id="radio-group-disabled-2"
+					class="cdx-radio__input"
+					type="radio"
+					name="radio-group-disabled"
+					disabled
+				>
+				<span class="cdx-radio__icon" />
+				<label class="cdx-radio__label" for="radio-group-disabled-2">
+					Radio 2 (disabled)
+				</label>
+			</div>
 		</div>
 		<div class="cdx-radio">
-			<input
-				id="radio-group-disabled-3"
-				class="cdx-radio__input"
-				type="radio"
-				name="radio-group-disabled"
-				disabled
-				checked
-			>
-			<span class="cdx-radio__icon" />
-			<label class="cdx-radio__label" for="radio-group-disabled-3">
-				Radio 3 (disabled and checked)
-			</label>
+			<div class="cdx-radio__wrapper">
+				<input
+					id="radio-group-disabled-3"
+					class="cdx-radio__input"
+					type="radio"
+					name="radio-group-disabled"
+					disabled
+					checked
+				>
+				<span class="cdx-radio__icon" />
+				<label class="cdx-radio__label" for="radio-group-disabled-3">
+					Radio 3 (disabled and checked)
+				</label>
+			</div>
 		</div>
 	</section>
 </template>

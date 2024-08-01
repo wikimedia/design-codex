@@ -459,14 +459,16 @@ The `v-model` value is the `inputValue` of the Radio that is currently on.
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<div class="cdx-radio">
-		<input id="radio-css-only-1" class="cdx-radio__input" type="radio" name="radio-css-only">
-		<span class="cdx-radio__icon"></span>
-		<div class="cdx-radio__label cdx-label">
-			<label for="radio-css-only-1" class="cdx-label__label">
-				<span class="cdx-label__label__text">
-					Radio 1
-				</span>
-			</label>
+		<div class="cdx-radio__wrapper">
+			<input id="radio-css-only-1" class="cdx-radio__input" type="radio" name="radio-css-only">
+			<span class="cdx-radio__icon"></span>
+			<div class="cdx-radio__label cdx-label">
+				<label for="radio-css-only-1" class="cdx-label__label">
+					<span class="cdx-label__label__text">
+						Radio 1
+					</span>
+				</label>
+			</div>
 		</div>
 	</div>
 </template>
@@ -474,18 +476,20 @@ The `v-model` value is the `inputValue` of the Radio that is currently on.
 
 ```html
 <div class="cdx-radio">
-	<!-- <input> element with id, type, name, and any other necessary
-	attributes. The actual input is visually hidden. -->
-	<input id="radio-css-only-1" class="cdx-radio__input" type="radio" name="radio-css-only">
-	<!-- Empty span that will be styled to look like a radio input. -->
-	<span class="cdx-radio__icon"></span>
-	<div class="cdx-radio__label cdx-label">
-		<!-- Label with `for` attribute matching the input's id. -->
-		<label for="radio-css-only-1" class="cdx-label__label">
-			<span class="cdx-label__label__text">
-				Radio 1
-			</span>
-		</label>
+	<div class="cdx-radio__wrapper">
+		<!-- <input> element with id, type, name, and any other necessary
+		attributes. The actual input is visually hidden. -->
+		<input id="radio-css-only-1" class="cdx-radio__input" type="radio" name="radio-css-only">
+		<!-- Empty span that will be styled to look like a radio input. -->
+		<span class="cdx-radio__icon"></span>
+		<div class="cdx-radio__label cdx-label">
+			<!-- Label with `for` attribute matching the input's id. -->
+			<label for="radio-css-only-1" class="cdx-label__label">
+				<span class="cdx-label__label__text">
+					Radio 1
+				</span>
+			</label>
+		</div>
 	</div>
 </div>
 ```
@@ -509,31 +513,35 @@ To add a description below the label:
 		</legend>
 		<div class="cdx-field__control">
 			<div class="cdx-radio">
-				<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
-				<span class="cdx-radio__icon"></span>
-				<div class="cdx-radio__label cdx-label">
-					<label for="radio-group-css-only-description-1" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Default (recommended)
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-description-1" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Default (recommended)
+							</span>
+						</label>
+						<span id="cdx-description-css-1" class="cdx-label__description">
+							Corrects up to two typos. Removes redirects that are very similar to the main title.
 						</span>
-					</label>
-					<span id="cdx-description-css-1" class="cdx-label__description">
-						Corrects up to two typos. Removes redirects that are very similar to the main title.
-					</span>
+					</div>
 				</div>
 			</div>
 			<div class="cdx-radio">
-				<input id="radio-group-css-only-description-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-2">
-				<span class="cdx-radio__icon"></span>
-				<div class="cdx-radio__label cdx-label">
-					<label for="radio-group-css-only-description-2" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Strict mode (advanced)
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-description-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-2">
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-description-2" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Strict mode (advanced)
+							</span>
+						</label>
+						<span id="cdx-description-css-2" class="cdx-label__description">
+							No typo correction. No accent folding. Strict matching.
 						</span>
-					</label>
-					<span id="cdx-description-css-2" class="cdx-label__description">
-						No typo correction. No accent folding. Strict matching.
-					</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -543,40 +551,44 @@ To add a description below the label:
 
 ```html
 <fieldset class="cdx-field">
-	<legend class="cdx-label">
-		<span class="cdx-label__label__text">Search completion</span>
-	</legend>
-	<div class="cdx-field__control">
-		<div class="cdx-radio">
-			<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
-			<span class="cdx-radio__icon"></span>
-			<div class="cdx-radio__label cdx-label">
-				<label for="radio-group-css-only-description-1" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Default (recommended)
-					</span>
-				</label>
-				<span id="cdx-description-css-1" class="cdx-label__description">
-					Corrects up to two typos. Removes redirects that are very similar to the main title.
-				</span>
+		<legend class="cdx-label">
+			<span class="cdx-label__label__text">Search completion</span>
+		</legend>
+		<div class="cdx-field__control">
+			<div class="cdx-radio">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-description-1" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Default (recommended)
+							</span>
+						</label>
+						<span id="cdx-description-css-1" class="cdx-label__description">
+							Corrects up to two typos. Removes redirects that are very similar to the main title.
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-radio">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-description-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-2">
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-description-2" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Strict mode (advanced)
+							</span>
+						</label>
+						<span id="cdx-description-css-2" class="cdx-label__description">
+							No typo correction. No accent folding. Strict matching.
+						</span>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="cdx-radio">
-			<input id="radio-group-css-only-description-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-2">
-			<span class="cdx-radio__icon"></span>
-			<div class="cdx-radio__label cdx-label">
-				<label for="radio-group-css-only-description-2" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Strict mode (advanced)
-					</span>
-				</label>
-				<span id="cdx-description-css-2" class="cdx-label__description">
-					No typo correction. No accent folding. Strict matching.
-				</span>
-			</div>
-		</div>
-	</div>
-</fieldset>
+	</fieldset>
 ```
 
 </template>
@@ -605,48 +617,56 @@ Always include one of these two features for accessible grouping:
 		</legend>
 		<div class="cdx-field__control">
 			<div class="cdx-radio">
-				<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
-				<span class="cdx-radio__icon"></span>
-				<div class="cdx-radio__label cdx-label">
-					<label for="radio-group-css-only-1" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Radio 1
-						</span>
-					</label>
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-1" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 1
+							</span>
+						</label>
+					</div>
 				</div>
 			</div>
 			<div class="cdx-radio">
-				<input id="radio-group-css-only-2" class="cdx-radio__input" type="radio" 	name="radio-group-css-only" checked>
-				<span class="cdx-radio__icon"></span>
-				<div class="cdx-radio__label cdx-label">
-					<label for="radio-group-css-only-2" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Radio 2 (initially selected)
-						</span>
-					</label>
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-2" class="cdx-radio__input" type="radio" 	name="radio-group-css-only" checked>
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-2" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 2 (initially selected)
+							</span>
+						</label>
+					</div>
 				</div>
 			</div>
 			<div class="cdx-radio">
-				<input id="radio-group-css-only-3" class="cdx-radio__input" type="radio" name="radio-group-css-only">
-				<span class="cdx-radio__icon"></span>
-				<div class="cdx-radio__label cdx-label">
-					<label for="radio-group-css-only-3" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Radio 3, which has a very long label that spans onto a second line to
-							demonstrate what happens when text wraps
-						</span>
-					</label>
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-3" class="cdx-radio__input" type="radio" name="radio-group-css-only">
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-3" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 3, which has a very long label that spans onto a second line to
+								demonstrate what happens when text wraps
+							</span>
+						</label>
+					</div>
 				</div>
 			</div>
 			<div class="cdx-radio">
-				<input id="radio-group-css-only-4" class="cdx-radio__input" type="radio" 	name="radio-group-css-only"	disabled>
-				<span class="cdx-radio__icon"></span>
-				<div class="cdx-radio__label cdx-label">
-					<label for="radio-group-css-only-4" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Radio 4 (disabled)
-						</span>
-					</label>
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-4" class="cdx-radio__input" type="radio" 	name="radio-group-css-only"	disabled>
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-4" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 4 (disabled)
+							</span>
+						</label>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -656,57 +676,65 @@ Always include one of these two features for accessible grouping:
 
 ```html
 <fieldset class="cdx-field">
-	<legend class="cdx-label">
-		<span class="cdx-label__label__text">CSS-only Radio group demo</span>
-	</legend>
-	<div class="cdx-field__control">
-		<div class="cdx-radio">
-			<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
-			<span class="cdx-radio__icon"></span>
-			<div class="cdx-radio__label cdx-label">
-				<label for="radio-group-css-only-1" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Radio 1
-					</span>
-				</label>
+		<legend class="cdx-label">
+			<span class="cdx-label__label__text">CSS-only Radio group demo</span>
+		</legend>
+		<div class="cdx-field__control">
+			<div class="cdx-radio">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-1" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 1
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-radio">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-2" class="cdx-radio__input" type="radio" 	name="radio-group-css-only" checked>
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-2" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 2 (initially selected)
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-radio">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-3" class="cdx-radio__input" type="radio" name="radio-group-css-only">
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-3" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 3, which has a very long label that spans onto a second line to
+								demonstrate what happens when text wraps
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-radio">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-4" class="cdx-radio__input" type="radio" 	name="radio-group-css-only"	disabled>
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-4" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 4 (disabled)
+							</span>
+						</label>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="cdx-radio">
-			<input id="radio-group-css-only-2" class="cdx-radio__input" type="radio" 	name="radio-group-css-only" checked>
-			<span class="cdx-radio__icon"></span>
-			<div class="cdx-radio__label cdx-label">
-				<label for="radio-group-css-only-2" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Radio 2 (initially selected)
-					</span>
-				</label>
-			</div>
-		</div>
-		<div class="cdx-radio">
-			<input id="radio-group-css-only-3" class="cdx-radio__input" type="radio" name="radio-group-css-only">
-			<span class="cdx-radio__icon"></span>
-			<div class="cdx-radio__label cdx-label">
-				<label for="radio-group-css-only-3" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Radio 3, which has a very long label that spans onto a second line to
-						demonstrate what happens when text wraps
-					</span>
-				</label>
-			</div>
-		</div>
-		<div class="cdx-radio">
-			<input id="radio-group-css-only-4" class="cdx-radio__input" type="radio" 	name="radio-group-css-only"	disabled>
-			<span class="cdx-radio__icon"></span>
-			<div class="cdx-radio__label cdx-label">
-				<label for="radio-group-css-only-4" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Radio 4 (disabled)
-					</span>
-				</label>
-			</div>
-		</div>
-	</div>
-</fieldset>
+	</fieldset>
 ```
 
 </template>
@@ -724,25 +752,29 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 		</legend>
 		<div class="cdx-field__control">
 			<div class="cdx-radio cdx-radio--inline">
-				<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
-				<span class="cdx-radio__icon"></span>
-				<div class="cdx-radio__label cdx-label">
-					<label for="radio-group-css-only-inline-1" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Radio 1
-						</span>
-					</label>
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-inline-1" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 1
+							</span>
+						</label>
+					</div>
 				</div>
 			</div>
 			<div class="cdx-radio cdx-radio--inline">
-				<input id="radio-group-css-only-inline-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline" checked>
-				<span class="cdx-radio__icon"></span>
-				<div class="cdx-radio__label cdx-label">
-					<label for="radio-group-css-only-inline-2" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Radio 2
-						</span>
-					</label>
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-inline-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline" checked>
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-inline-2" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 2
+							</span>
+						</label>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -752,35 +784,166 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 
 ```html
 <fieldset class="cdx-field">
-	<legend class="cdx-label">
-		<span class="cdx-label__label__text">CSS-only inline Radio demo</span>
-	</legend>
-	<div class="cdx-field__control">
-		<div class="cdx-radio cdx-radio--inline">
-			<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
-			<span class="cdx-radio__icon"></span>
-			<div class="cdx-radio__label cdx-label">
-				<label for="radio-group-css-only-inline-1" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Radio 1
-					</span>
-				</label>
+		<legend class="cdx-label">
+			<span class="cdx-label__label__text">CSS-only inline Radio demo</span>
+		</legend>
+		<div class="cdx-field__control">
+			<div class="cdx-radio cdx-radio--inline">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-inline-1" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 1
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-radio cdx-radio--inline">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-group-css-only-inline-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline" checked>
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-group-css-only-inline-2" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 2
+							</span>
+						</label>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="cdx-radio cdx-radio--inline">
-			<input id="radio-group-css-only-inline-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline" checked>
-			<span class="cdx-radio__icon"></span>
-			<div class="cdx-radio__label cdx-label">
-				<label for="radio-group-css-only-inline-2" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Radio 2
-					</span>
-				</label>
-			</div>
-		</div>
-	</div>
-</fieldset>
+	</fieldset>
 ```
 
+</template>
+</cdx-demo-wrapper>
+
+### With custom input
+
+To add a custom input, add a `<div>` element with the
+`cdx-radio__custom-input` class inside a Radio.
+Inside the custom input, add an input like TextInput, TextArea, Select,
+Combobox, ChipInput, Lookup, or a combination of more than one input.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<fieldset class="cdx-field">
+		<legend class="cdx-label">
+			<span class="cdx-label__label__text">CSS-only Radio custom input demo</span>
+		</legend>
+		<div class="cdx-field__control">
+			<div class="cdx-radio">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-custom-input-css-only-1" class="cdx-radio__input" type="radio" name="radio-custom-input-css-only">
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-custom-input-css-only-1" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 1
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-radio">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-custom-input-css-only-2" class="cdx-radio__input" type="radio" name="radio-custom-input-css-only" checked>
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-custom-input-css-only-2" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 2 (initially selected)
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-radio">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-custom-input-css-only-3" class="cdx-radio__input" type="radio" name="radio-custom-input-css-only">
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-custom-input-css-only-3" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 3, with custom input
+							</span>
+						</label>
+					</div>
+				</div>
+				<div class="cdx-radio__custom-input">
+					<div class="cdx-text-input">
+						<input
+							class="cdx-text-input__input"
+							type="text"
+							placeholder="Start typing..."
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+</template>
+<template v-slot:code>
+
+```html
+<fieldset class="cdx-field">
+		<legend class="cdx-label">
+			<span class="cdx-label__label__text">CSS-only Radio custom input demo</span>
+		</legend>
+		<div class="cdx-field__control">
+			<div class="cdx-radio">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-custom-input-css-only-1" class="cdx-radio__input" type="radio" name="radio-custom-input-css-only">
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-custom-input-css-only-1" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 1
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-radio">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-custom-input-css-only-2" class="cdx-radio__input" type="radio" name="radio-custom-input-css-only" checked>
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-custom-input-css-only-2" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 2 (initially selected)
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-radio">
+				<div class="cdx-radio__wrapper">
+					<input id="radio-custom-input-css-only-3" class="cdx-radio__input" type="radio" name="radio-custom-input-css-only">
+					<span class="cdx-radio__icon"></span>
+					<div class="cdx-radio__label cdx-label">
+						<label for="radio-custom-input-css-only-3" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Radio 3 with custom input
+							</span>
+						</label>
+					</div>
+				</div>
+				<div class="cdx-radio__custom-input">
+					<div class="cdx-text-input">
+						<input
+							class="cdx-text-input__input"
+							type="text"
+							placeholder="Start typing..."
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+```
 </template>
 </cdx-demo-wrapper>

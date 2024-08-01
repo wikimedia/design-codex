@@ -575,14 +575,16 @@ currently checked checkboxes (or an empty array if no checkboxes are checked).
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<div class="cdx-checkbox">
-		<input id="checkbox-css-only-1" class="cdx-checkbox__input" type="checkbox">
-		<span class="cdx-checkbox__icon"></span>
-		<div class="cdx-checkbox__label cdx-label">
-			<label for="checkbox-css-only-1" class="cdx-label__label">
-				<span class="cdx-label__label__text">
-					Checkbox 1
-				</span>
-			</label>
+		<div class="cdx-checkbox__wrapper">
+			<input id="checkbox-css-only-1" class="cdx-checkbox__input" type="checkbox">
+			<span class="cdx-checkbox__icon"></span>
+			<div class="cdx-checkbox__label cdx-label">
+				<label for="checkbox-css-only-1" class="cdx-label__label">
+					<span class="cdx-label__label__text">
+						Checkbox 1
+					</span>
+				</label>
+			</div>
 		</div>
 	</div>
 </template>
@@ -590,18 +592,20 @@ currently checked checkboxes (or an empty array if no checkboxes are checked).
 
 ```html
 <div class="cdx-checkbox">
-	<!-- <input> element with id, type, and any other necessary attributes.
-	The actual input is visually hidden. -->
-	<input id="checkbox-css-only-1" class="cdx-checkbox__input" type="checkbox">
-	<!-- Empty span that will be styled to look like a checkbox input. -->
-	<span class="cdx-checkbox__icon"></span>
-	<div class="cdx-checkbox__label cdx-label">
-		<!-- Label with `for` attribute matching the input's id. -->
-		<label for="checkbox-css-only-1" class="cdx-label__label">
-			<span class="cdx-label__label__text">
-				Checkbox 1
-			</span>
-		</label>
+	<div class="cdx-checkbox__wrapper">
+		<!-- <input> element with id, type, and any other necessary attributes.
+		The actual input is visually hidden. -->
+		<input id="checkbox-css-only-1" class="cdx-checkbox__input" type="checkbox">
+		<!-- Empty span that will be styled to look like a checkbox input. -->
+		<span class="cdx-checkbox__icon"></span>
+		<div class="cdx-checkbox__label cdx-label">
+			<!-- Label with `for` attribute matching the input's id. -->
+			<label for="checkbox-css-only-1" class="cdx-label__label">
+				<span class="cdx-label__label__text">
+					Checkbox 1
+				</span>
+			</label>
+		</div>
 	</div>
 </div>
 ```
@@ -620,6 +624,27 @@ To add a description below the label:
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<div class="cdx-checkbox">
+		<div class="cdx-checkbox__wrapper">
+			<input id="checkbox-description-css-only-1" class="cdx-checkbox__input" type="checkbox" aria-describedby="cdx-description-css-1">
+			<span class="cdx-checkbox__icon"></span>
+			<div class="cdx-checkbox__label cdx-label">
+				<label for="checkbox-description-css-only-1" class="cdx-label__label">
+					<span class="cdx-label__label__text">
+						Send password reset emails only when both email address and username are provided.
+					</span>
+				</label>
+				<span id="cdx-description-css-1" class="cdx-label__description">
+					This improves privacy and helps prevent unsolicited emails.
+				</span>
+			</div>
+		</div>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+<div class="cdx-checkbox">
+	<div class="cdx-checkbox__wrapper">
 		<input id="checkbox-description-css-only-1" class="cdx-checkbox__input" type="checkbox" aria-describedby="cdx-description-css-1">
 		<span class="cdx-checkbox__icon"></span>
 		<div class="cdx-checkbox__label cdx-label">
@@ -632,23 +657,6 @@ To add a description below the label:
 				This improves privacy and helps prevent unsolicited emails.
 			</span>
 		</div>
-	</div>
-</template>
-<template v-slot:code>
-
-```html
-<div class="cdx-checkbox">
-	<input id="checkbox-description-css-only-1" class="cdx-checkbox__input" type="checkbox" aria-describedby="cdx-description-css-1">
-	<span class="cdx-checkbox__icon"></span>
-	<div class="cdx-checkbox__label cdx-label">
-		<label for="checkbox-description-css-only-1" class="cdx-label__label">
-			<span class="cdx-label__label__text">
-				Send password reset emails only when both email address and username are provided.
-			</span>
-		</label>
-		<span id="cdx-description-css-1" class="cdx-label__description">
-			This improves privacy and helps prevent unsolicited emails.
-		</span>
 	</div>
 </div>
 ```
@@ -682,58 +690,68 @@ Always include one of these two features for accessible grouping:
 		</legend>
 		<div class="cdx-field__control">
 			<div class="cdx-checkbox">
-				<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
-				<span class="cdx-checkbox__icon"></span>
-				<div class="cdx-checkbox__label cdx-label">
-					<label for="checkbox-group-css-only-1" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Checkbox 1
-						</span>
-					</label>
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-group-css-only-1" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 1
+							</span>
+						</label>
+					</div>
 				</div>
 			</div>
 			<div class="cdx-checkbox">
-				<input id="checkbox-group-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
-				<span class="cdx-checkbox__icon"></span>
-				<div class="cdx-checkbox__label cdx-label">
-					<label for="checkbox-group-css-only-2" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Checkbox 2 (initially selected)
-						</span>
-					</label>
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-group-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-group-css-only-2" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 2 (initially selected)
+							</span>
+						</label>
+					</div>
 				</div>
 			</div>
 			<div class="cdx-checkbox">
-				<input id="checkbox-group-css-only-3" class="cdx-checkbox__input" type="checkbox">
-				<span class="cdx-checkbox__icon"></span>
-				<div class="cdx-checkbox__label cdx-label">
-					<label for="checkbox-group-css-only-3" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Checkbox 3, which has a very long label that spans onto a second line to demonstrate what happens when text wraps
-						</span>
-					</label>
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-group-css-only-3" class="cdx-checkbox__input" type="checkbox">
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-group-css-only-3" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 3, which has a very long label that spans onto a second line to demonstrate what happens when text wraps
+							</span>
+						</label>
+					</div>
 				</div>
 			</div>
 			<div class="cdx-checkbox">
-				<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" disabled>
-				<span class="cdx-checkbox__icon"></span>
-				<div class="cdx-checkbox__label cdx-label">
-					<label for="checkbox-group-css-only-4" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Checkbox 4 (disabled)
-						</span>
-					</label>
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" disabled>
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-group-css-only-4" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 4 (disabled)
+							</span>
+						</label>
+					</div>
 				</div>
 			</div>
 			<div class="cdx-checkbox">
-				<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" checked disabled>
-				<span class="cdx-checkbox__icon"></span>
-				<div class="cdx-checkbox__label cdx-label">
-					<label for="checkbox-group-css-only-5" class="cdx-label__label">
-						<span class="cdx-label__label__text">
-							Checkbox 5 (initially selected, disabled)
-						</span>
-					</label>
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" checked disabled>
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-group-css-only-5" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 5 (initially selected, disabled)
+							</span>
+						</label>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -743,67 +761,77 @@ Always include one of these two features for accessible grouping:
 
 ```html
 <fieldset class="cdx-field">
-	<legend class="cdx-label">
-		<span class="cdx-label__label__text">CSS-only Checkbox group demo</span>
-	</legend>
-	<div class="cdx-field__control">
-		<div class="cdx-checkbox">
-			<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
-			<span class="cdx-checkbox__icon"></span>
-			<div class="cdx-checkbox__label cdx-label">
-				<label for="checkbox-group-css-only-1" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Checkbox 1
-					</span>
-				</label>
+		<legend class="cdx-label">
+			<span class="cdx-label__label__text">CSS-only Checkbox group demo</span>
+		</legend>
+		<div class="cdx-field__control">
+			<div class="cdx-checkbox">
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-group-css-only-1" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 1
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-checkbox">
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-group-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-group-css-only-2" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 2 (initially selected)
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-checkbox">
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-group-css-only-3" class="cdx-checkbox__input" type="checkbox">
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-group-css-only-3" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 3, which has a very long label that spans onto a second line to demonstrate what happens when text wraps
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-checkbox">
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" disabled>
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-group-css-only-4" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 4 (disabled)
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-checkbox">
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" checked disabled>
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-group-css-only-5" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 5 (initially selected, disabled)
+							</span>
+						</label>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="cdx-checkbox">
-			<input id="checkbox-group-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
-			<span class="cdx-checkbox__icon"></span>
-			<div class="cdx-checkbox__label cdx-label">
-				<label for="checkbox-group-css-only-2" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Checkbox 2 (initially selected)
-					</span>
-				</label>
-			</div>
-		</div>
-		<div class="cdx-checkbox">
-			<input id="checkbox-group-css-only-3" class="cdx-checkbox__input" type="checkbox">
-			<span class="cdx-checkbox__icon"></span>
-			<div class="cdx-checkbox__label cdx-label">
-				<label for="checkbox-group-css-only-3" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Checkbox 3, which has a very long label that spans onto a second line to demonstrate what happens when text wraps
-					</span>
-				</label>
-			</div>
-		</div>
-		<div class="cdx-checkbox">
-			<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" disabled>
-			<span class="cdx-checkbox__icon"></span>
-			<div class="cdx-checkbox__label cdx-label">
-				<label for="checkbox-group-css-only-4" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Checkbox 4 (disabled)
-					</span>
-				</label>
-			</div>
-		</div>
-		<div class="cdx-checkbox">
-			<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" checked disabled>
-			<span class="cdx-checkbox__icon"></span>
-			<div class="cdx-checkbox__label cdx-label">
-				<label for="checkbox-group-css-only-5" class="cdx-label__label">
-					<span class="cdx-label__label__text">
-						Checkbox 5 (initially selected, disabled)
-					</span>
-				</label>
-			</div>
-		</div>
-	</div>
-</fieldset>
+	</fieldset>
 ```
 
 </template>
@@ -816,25 +844,29 @@ Add the `cdx-checkbox--inline` class to the root element to get an inline layout
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<div class="cdx-checkbox cdx-checkbox--inline">
-		<input id="checkbox-group-inline-css-only-1" class="cdx-checkbox__input" type="checkbox">
-		<span class="cdx-checkbox__icon"></span>
-		<div class="cdx-checkbox__label cdx-label">
-			<label for="checkbox-group-inline-css-only-1" class="cdx-label__label">
-				<span class="cdx-label__label__text">
-					Checkbox 1
-				</span>
-			</label>
+		<div class="cdx-checkbox__wrapper">
+			<input id="checkbox-group-inline-css-only-1" class="cdx-checkbox__input" type="checkbox">
+			<span class="cdx-checkbox__icon"></span>
+			<div class="cdx-checkbox__label cdx-label">
+				<label for="checkbox-group-inline-css-only-1" class="cdx-label__label">
+					<span class="cdx-label__label__text">
+						Checkbox 1
+					</span>
+				</label>
+			</div>
 		</div>
 	</div>
 	<div class="cdx-checkbox cdx-checkbox--inline">
-		<input id="checkbox-group-inline-css-only-2" class="cdx-checkbox__input" type="checkbox">
-		<span class="cdx-checkbox__icon"></span>
-		<div class="cdx-checkbox__label cdx-label">
-			<label for="checkbox-group-inline-css-only-2" class="cdx-label__label">
-				<span class="cdx-label__label__text">
-					Checkbox 2
-				</span>
-			</label>
+		<div class="cdx-checkbox__wrapper">
+			<input id="checkbox-group-inline-css-only-2" class="cdx-checkbox__input" type="checkbox">
+			<span class="cdx-checkbox__icon"></span>
+			<div class="cdx-checkbox__label cdx-label">
+				<label for="checkbox-group-inline-css-only-2" class="cdx-label__label">
+					<span class="cdx-label__label__text">
+						Checkbox 2
+					</span>
+				</label>
+			</div>
 		</div>
 	</div>
 </template>
@@ -842,27 +874,159 @@ Add the `cdx-checkbox--inline` class to the root element to get an inline layout
 
 ```html
 <div class="cdx-checkbox cdx-checkbox--inline">
-	<input id="checkbox-group-inline-css-only-1" class="cdx-checkbox__input" type="checkbox">
-	<span class="cdx-checkbox__icon"></span>
-	<div class="cdx-checkbox__label cdx-label">
-		<label for="checkbox-group-inline-css-only-1" class="cdx-label__label">
-			<span class="cdx-label__label__text">
-				Checkbox 1
-			</span>
-		</label>
+		<div class="cdx-checkbox__wrapper">
+			<input id="checkbox-group-inline-css-only-1" class="cdx-checkbox__input" type="checkbox">
+			<span class="cdx-checkbox__icon"></span>
+			<div class="cdx-checkbox__label cdx-label">
+				<label for="checkbox-group-inline-css-only-1" class="cdx-label__label">
+					<span class="cdx-label__label__text">
+						Checkbox 1
+					</span>
+				</label>
+			</div>
+		</div>
 	</div>
-</div>
-<div class="cdx-checkbox cdx-checkbox--inline">
-	<input id="checkbox-group-inline-css-only-2" class="cdx-checkbox__input" type="checkbox">
-	<span class="cdx-checkbox__icon"></span>
-	<div class="cdx-checkbox__label cdx-label">
-		<label for="checkbox-group-inline-css-only-2" class="cdx-label__label">
-			<span class="cdx-label__label__text">
-				Checkbox 2
-			</span>
-		</label>
+	<div class="cdx-checkbox cdx-checkbox--inline">
+		<div class="cdx-checkbox__wrapper">
+			<input id="checkbox-group-inline-css-only-2" class="cdx-checkbox__input" type="checkbox">
+			<span class="cdx-checkbox__icon"></span>
+			<div class="cdx-checkbox__label cdx-label">
+				<label for="checkbox-group-inline-css-only-2" class="cdx-label__label">
+					<span class="cdx-label__label__text">
+						Checkbox 2
+					</span>
+				</label>
+			</div>
+		</div>
 	</div>
-</div>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+### With custom input
+
+To add a custom input, add a `<div>` element with the
+`cdx-radio__custom-input` class inside a Checkbox.
+Inside the custom input, add an input like TextInput, TextArea, Select,
+Combobox, ChipInput, Lookup, or a combination of more than one input.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<fieldset class="cdx-field">
+		<legend class="cdx-label">
+			<span class="cdx-label__label__text">CSS-only Checkbox custom input demo</span>
+		</legend>
+		<div class="cdx-field__control">
+			<div class="cdx-checkbox">
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-custom-input-css-only-1" class="cdx-checkbox__input" type="checkbox">
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-custom-input-css-only-1" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 1
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-checkbox">
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-custom-input-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-custom-input-css-only-2" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 2 (initially selected)
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-checkbox">
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-custom-input-css-only-3" class="cdx-checkbox__input" type="checkbox">
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-custom-input-css-only-3" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 3, with custom input
+							</span>
+						</label>
+					</div>
+				</div>
+				<div class="cdx-checkbox__custom-input">
+					<div class="cdx-text-input">
+						<input
+							class="cdx-text-input__input"
+							type="text"
+							placeholder="Start typing..."
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+</template>
+<template v-slot:code>
+
+```html
+<fieldset class="cdx-field">
+		<legend class="cdx-label">
+			<span class="cdx-label__label__text">CSS-only Checkbox custom input demo</span>
+		</legend>
+		<div class="cdx-field__control">
+			<div class="cdx-checkbox">
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-custom-input-css-only-1" class="cdx-checkbox__input" type="checkbox">
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-custom-input-css-only-1" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 1
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-checkbox">
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-custom-input-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-custom-input-css-only-2" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 2 (initially selected)
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cdx-checkbox">
+				<div class="cdx-checkbox__wrapper">
+					<input id="checkbox-custom-input-css-only-3" class="cdx-checkbox__input" type="checkbox">
+					<span class="cdx-checkbox__icon"></span>
+					<div class="cdx-checkbox__label cdx-label">
+						<label for="checkbox-custom-input-css-only-3" class="cdx-label__label">
+							<span class="cdx-label__label__text">
+								Checkbox 3, with custom input
+							</span>
+						</label>
+					</div>
+				</div>
+				<div class="cdx-checkbox__custom-input">
+					<div class="cdx-text-input">
+						<input
+							class="cdx-text-input__input"
+							type="text"
+							placeholder="Start typing..."
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
 ```
 
 </template>
