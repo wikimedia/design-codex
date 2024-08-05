@@ -222,6 +222,7 @@
 				</cdx-table>
 
 				<h2>Table with single sort</h2>
+				<p>Note that "Age at win" column has textAlign "end" for testing purposes.</p>
 				<cdx-table
 					v-model:sort="singleSort"
 					caption="Recent Nobel laureates in Economic Sciences"
@@ -483,7 +484,7 @@ const columnsSingleSort: TableColumn[] = [
 	{ id: 'year', label: 'Year', textAlign: 'number', allowSort: true },
 	{ id: 'name', label: 'Last name', allowSort: true },
 	{ id: 'pronoun', label: 'Pronoun', textAlign: 'number' },
-	{ id: 'age', label: 'Age at win', textAlign: 'number', allowSort: true }
+	{ id: 'age', label: 'Age at win', textAlign: 'end', allowSort: true }
 ];
 const dataSingleSort = ref<TableRow[]>( [
 	{ year: 2023, name: 'Goldin', age: 77, pronoun: 'unknown' },

@@ -912,6 +912,8 @@ export default defineComponent( {
 		.cdx-table__table__cell {
 			&--align-center {
 				text-align: center;
+				// Note that other styles for the sort button and icon are not included here
+				// because they should behave just like with the default start alignment.
 			}
 
 			&--align-end {
@@ -920,11 +922,15 @@ export default defineComponent( {
 				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-table__table__sort-button {
 					flex-direction: row-reverse;
+					// Override text-align: left style above.
+					text-align: right;
 				}
 
 				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-table__table__sort-icon {
+					// Override margin styles above.
 					margin-right: @spacing-50;
+					margin-left: 0;
 				}
 			}
 
@@ -935,6 +941,26 @@ export default defineComponent( {
 				// the [dir] selector to be added to match the specificity of the text-align rule
 				// applied to all th and td elements. Hat-tip to Roan for this one.
 				text-align: right /* rtl:right */;
+
+				/* stylelint-disable-next-line max-nesting-depth */
+				.cdx-table__table__sort-button {
+					// Only reverse flex direction in LTR. In RTL, this will happen automatically.
+					flex-direction: row-reverse /* rtl: row */;
+					// This can be rtl-ignored because it's already set by flipping the text-align
+					// style on .cdx-table__table__sort-button above, and it's more specific than
+					// that rule.
+					text-align: right /* rtl:ignore */;
+				}
+
+				/* stylelint-disable-next-line max-nesting-depth */
+				.cdx-table__table__sort-icon {
+					// These two styles can be rtl-ignored since they are already set by flipping
+					// the margin-left rule applied to .cdx-table__table__sort-icon above, and
+					// they're more specific than that rule.
+					margin-right: @spacing-50 /* rtl:ignore */;
+					/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+					margin-left: 0 /* rtl:ignore */;
+				}
 			}
 
 			// Remove padding on th elements if sorting is enabled, since padding will be added to
@@ -961,7 +987,6 @@ export default defineComponent( {
 			table-layout: fixed;
 		}
 
-		/* stylelint-disable no-descending-specificity */
 		&--borders-vertical {
 			th,
 			td {
@@ -990,7 +1015,6 @@ export default defineComponent( {
 				border-top: @border-base;
 			}
 		}
-		/* stylelint-enable no-descending-specificity */
 
 		&__empty-state {
 			border-top: @border-base;
