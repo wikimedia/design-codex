@@ -236,6 +236,17 @@ The heading-level checkbox, which facilitates the simultaneous selection and des
 Table items, will present an indeterminate state in case some items remain unselected. Please note
 that, while Table rows display a selected state, only the checkboxes are interactive (See 2).
 
+#### Pagination states
+
+In tables where pagination is displayed, there are the following states:
+
+![Interactive states of Table's pagination.](../../assets/components/table-interaction-states-pagination.svg)
+
+1. Default
+2. Loading
+
+When loading a new page from the pagination, an Inline ProgressBar will appear below the Headings and above the current content of the Table.
+
 ### Best practices
 
 #### Table actions
