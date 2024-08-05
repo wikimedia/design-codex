@@ -437,7 +437,7 @@ The `v-model` value is the `inputValue` of the Radio that is currently on.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<span class="cdx-radio">
+	<div class="cdx-radio">
 		<input id="radio-css-only-1" class="cdx-radio__input" type="radio" name="radio-css-only">
 		<span class="cdx-radio__icon"></span>
 		<div class="cdx-radio__label cdx-label">
@@ -447,12 +447,12 @@ The `v-model` value is the `inputValue` of the Radio that is currently on.
 				</span>
 			</label>
 		</div>
-	</span>
+	</div>
 </template>
 <template v-slot:code>
 
 ```html
-<span class="cdx-radio">
+<div class="cdx-radio">
 	<!-- <input> element with id, type, name, and any other necessary
 	attributes. The actual input is visually hidden. -->
 	<input id="radio-css-only-1" class="cdx-radio__input" type="radio" name="radio-css-only">
@@ -466,7 +466,7 @@ The `v-model` value is the `inputValue` of the Radio that is currently on.
 			</span>
 		</label>
 	</div>
-</span>
+</div>
 ```
 
 </template>
@@ -487,7 +487,7 @@ To add a description below the label:
 			<span class="cdx-label__label__text">Search completion</span>
 		</legend>
 		<div class="cdx-field__control">
-			<span class="cdx-radio">
+			<div class="cdx-radio">
 				<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
 				<span class="cdx-radio__icon"></span>
 				<div class="cdx-radio__label cdx-label">
@@ -500,8 +500,8 @@ To add a description below the label:
 						Corrects up to two typos. Removes redirects that are very similar to the main title.
 					</span>
 				</div>
-			</span>
-			<span class="cdx-radio">
+			</div>
+			<div class="cdx-radio">
 				<input id="radio-group-css-only-description-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-2">
 				<span class="cdx-radio__icon"></span>
 				<div class="cdx-radio__label cdx-label">
@@ -514,7 +514,7 @@ To add a description below the label:
 						No typo correction. No accent folding. Strict matching.
 					</span>
 				</div>
-			</span>
+			</div>
 		</div>
 	</fieldset>
 </template>
@@ -526,7 +526,7 @@ To add a description below the label:
 		<span class="cdx-label__label__text">Search completion</span>
 	</legend>
 	<div class="cdx-field__control">
-		<span class="cdx-radio">
+		<div class="cdx-radio">
 			<input id="radio-group-css-only-description-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-1" checked>
 			<span class="cdx-radio__icon"></span>
 			<div class="cdx-radio__label cdx-label">
@@ -539,8 +539,8 @@ To add a description below the label:
 					Corrects up to two typos. Removes redirects that are very similar to the main title.
 				</span>
 			</div>
-		</span>
-		<span class="cdx-radio">
+		</div>
+		<div class="cdx-radio">
 			<input id="radio-group-css-only-description-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-description" aria-describedby="cdx-description-css-2">
 			<span class="cdx-radio__icon"></span>
 			<div class="cdx-radio__label cdx-label">
@@ -553,7 +553,7 @@ To add a description below the label:
 					No typo correction. No accent folding. Strict matching.
 				</span>
 			</div>
-		</span>
+		</div>
 	</div>
 </fieldset>
 ```
@@ -583,7 +583,7 @@ Always include one of these two features for accessible grouping:
 			<span class="cdx-label__label__text">CSS-only Radio group demo</span>
 		</legend>
 		<div class="cdx-field__control">
-			<span class="cdx-radio">
+			<div class="cdx-radio">
 				<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
 				<span class="cdx-radio__icon"></span>
 				<div class="cdx-radio__label cdx-label">
@@ -593,8 +593,8 @@ Always include one of these two features for accessible grouping:
 						</span>
 					</label>
 				</div>
-			</span>
-			<span class="cdx-radio">
+			</div>
+			<div class="cdx-radio">
 				<input id="radio-group-css-only-2" class="cdx-radio__input" type="radio" 	name="radio-group-css-only" checked>
 				<span class="cdx-radio__icon"></span>
 				<div class="cdx-radio__label cdx-label">
@@ -604,8 +604,8 @@ Always include one of these two features for accessible grouping:
 						</span>
 					</label>
 				</div>
-			</span>
-			<span class="cdx-radio">
+			</div>
+			<div class="cdx-radio">
 				<input id="radio-group-css-only-3" class="cdx-radio__input" type="radio" name="radio-group-css-only">
 				<span class="cdx-radio__icon"></span>
 				<div class="cdx-radio__label cdx-label">
@@ -616,8 +616,8 @@ Always include one of these two features for accessible grouping:
 						</span>
 					</label>
 				</div>
-			</span>
-			<span class="cdx-radio">
+			</div>
+			<div class="cdx-radio">
 				<input id="radio-group-css-only-4" class="cdx-radio__input" type="radio" 	name="radio-group-css-only"	disabled>
 				<span class="cdx-radio__icon"></span>
 				<div class="cdx-radio__label cdx-label">
@@ -627,7 +627,7 @@ Always include one of these two features for accessible grouping:
 						</span>
 					</label>
 				</div>
-			</span>
+			</div>
 		</div>
 	</fieldset>
 </template>
@@ -639,7 +639,7 @@ Always include one of these two features for accessible grouping:
 		<span class="cdx-label__label__text">CSS-only Radio group demo</span>
 	</legend>
 	<div class="cdx-field__control">
-		<span class="cdx-radio">
+		<div class="cdx-radio">
 			<input id="radio-group-css-only-1" class="cdx-radio__input" type="radio" name="radio-group-css-only">
 			<span class="cdx-radio__icon"></span>
 			<div class="cdx-radio__label cdx-label">
@@ -649,8 +649,8 @@ Always include one of these two features for accessible grouping:
 					</span>
 				</label>
 			</div>
-		</span>
-		<span class="cdx-radio">
+		</div>
+		<div class="cdx-radio">
 			<input id="radio-group-css-only-2" class="cdx-radio__input" type="radio" 	name="radio-group-css-only" checked>
 			<span class="cdx-radio__icon"></span>
 			<div class="cdx-radio__label cdx-label">
@@ -660,8 +660,8 @@ Always include one of these two features for accessible grouping:
 					</span>
 				</label>
 			</div>
-		</span>
-		<span class="cdx-radio">
+		</div>
+		<div class="cdx-radio">
 			<input id="radio-group-css-only-3" class="cdx-radio__input" type="radio" name="radio-group-css-only">
 			<span class="cdx-radio__icon"></span>
 			<div class="cdx-radio__label cdx-label">
@@ -672,8 +672,8 @@ Always include one of these two features for accessible grouping:
 					</span>
 				</label>
 			</div>
-		</span>
-		<span class="cdx-radio">
+		</div>
+		<div class="cdx-radio">
 			<input id="radio-group-css-only-4" class="cdx-radio__input" type="radio" 	name="radio-group-css-only"	disabled>
 			<span class="cdx-radio__icon"></span>
 			<div class="cdx-radio__label cdx-label">
@@ -683,7 +683,7 @@ Always include one of these two features for accessible grouping:
 					</span>
 				</label>
 			</div>
-		</span>
+		</div>
 	</div>
 </fieldset>
 ```
@@ -702,7 +702,7 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 			<span class="cdx-label__label__text">CSS-only inline Radio demo</span>
 		</legend>
 		<div class="cdx-field__control">
-			<span class="cdx-radio cdx-radio--inline">
+			<div class="cdx-radio cdx-radio--inline">
 				<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
 				<span class="cdx-radio__icon"></span>
 				<div class="cdx-radio__label cdx-label">
@@ -712,8 +712,8 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 						</span>
 					</label>
 				</div>
-			</span>
-			<span class="cdx-radio cdx-radio--inline">
+			</div>
+			<div class="cdx-radio cdx-radio--inline">
 				<input id="radio-group-css-only-inline-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline" checked>
 				<span class="cdx-radio__icon"></span>
 				<div class="cdx-radio__label cdx-label">
@@ -723,7 +723,7 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 						</span>
 					</label>
 				</div>
-			</span>
+			</div>
 		</div>
 	</fieldset>
 </template>
@@ -735,7 +735,7 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 		<span class="cdx-label__label__text">CSS-only inline Radio demo</span>
 	</legend>
 	<div class="cdx-field__control">
-		<span class="cdx-radio cdx-radio--inline">
+		<div class="cdx-radio cdx-radio--inline">
 			<input id="radio-group-css-only-inline-1" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline">
 			<span class="cdx-radio__icon"></span>
 			<div class="cdx-radio__label cdx-label">
@@ -745,8 +745,8 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 					</span>
 				</label>
 			</div>
-		</span>
-		<span class="cdx-radio cdx-radio--inline">
+		</div>
+		<div class="cdx-radio cdx-radio--inline">
 			<input id="radio-group-css-only-inline-2" class="cdx-radio__input" type="radio" name="radio-group-css-only-inline" checked>
 			<span class="cdx-radio__icon"></span>
 			<div class="cdx-radio__label cdx-label">
@@ -756,7 +756,7 @@ Add the `cdx-radio--inline` class to the root element to get an inline layout.
 					</span>
 				</label>
 			</div>
-		</span>
+		</div>
 	</div>
 </fieldset>
 ```

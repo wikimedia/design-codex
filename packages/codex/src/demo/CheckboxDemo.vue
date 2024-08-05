@@ -36,7 +36,7 @@
 		</p>
 
 		<h3>CSS-only checkboxes</h3>
-		<span class="cdx-checkbox">
+		<div class="cdx-checkbox">
 			<input
 				id="checkbox-group-css-only-1"
 				class="cdx-checkbox__input"
@@ -46,8 +46,8 @@
 			<label class="cdx-checkbox__label" for="checkbox-group-css-only-1">
 				Checkbox 1
 			</label>
-		</span>
-		<span class="cdx-checkbox">
+		</div>
+		<div class="cdx-checkbox">
 			<input
 				id="checkbox-group-css-only-2"
 				class="cdx-checkbox__input"
@@ -58,8 +58,8 @@
 			<label class="cdx-checkbox__label" for="checkbox-group-css-only-2">
 				Checkbox 2 (initially selected)
 			</label>
-		</span>
-		<span class="cdx-checkbox">
+		</div>
+		<div class="cdx-checkbox">
 			<input
 				id="checkbox-group-css-only-3"
 				class="cdx-checkbox__input"
@@ -70,8 +70,8 @@
 				Checkbox 3, which has a very long label that spans onto a second
 				line to demonstrate what happens when text wraps
 			</label>
-		</span>
-		<span class="cdx-checkbox">
+		</div>
+		<div class="cdx-checkbox">
 			<input
 				id="checkbox-group-css-only-4"
 				class="cdx-checkbox__input"
@@ -82,8 +82,8 @@
 			<label class="cdx-checkbox__label" for="checkbox-group-css-only-4">
 				Checkbox 4 (initially indeterminate)
 			</label>
-		</span>
-		<span class="cdx-checkbox">
+		</div>
+		<div class="cdx-checkbox">
 			<input
 				id="checkbox-group-css-only-5"
 				class="cdx-checkbox__input"
@@ -94,8 +94,8 @@
 			<label class="cdx-checkbox__label" for="checkbox-group-css-only-5">
 				Checkbox 5 (disabled)
 			</label>
-		</span>
-		<span class="cdx-checkbox">
+		</div>
+		<div class="cdx-checkbox">
 			<input
 				id="checkbox-group-css-only-6"
 				class="cdx-checkbox__input"
@@ -107,7 +107,7 @@
 			<label class="cdx-checkbox__label" for="checkbox-group-css-only-6">
 				Checkbox 6 (initially selected, disabled)
 			</label>
-		</span>
+		</div>
 	</section>
 </template>
 

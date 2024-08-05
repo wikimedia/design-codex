@@ -1,5 +1,5 @@
 <template>
-	<span class="cdx-radio" :class="rootClasses">
+	<div class="cdx-radio" :class="rootClasses">
 		<div class="cdx-radio__wrapper">
 			<input
 				:id="radioId"
@@ -43,7 +43,7 @@
 			<!-- @slot Custom input. -->
 			<slot name="custom-input" />
 		</div>
-	</span>
+	</div>
 </template>
 
 <script lang="ts">

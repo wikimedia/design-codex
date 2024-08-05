@@ -50,7 +50,7 @@
 		</p>
 
 		<h3>CSS-only version</h3>
-		<span class="cdx-radio">
+		<div class="cdx-radio">
 			<input
 				id="radio-group-css-only-1"
 				class="cdx-radio__input"
@@ -61,8 +61,8 @@
 			<label class="cdx-radio__label" for="radio-group-css-only-1">
 				Radio 1
 			</label>
-		</span>
-		<span class="cdx-radio">
+		</div>
+		<div class="cdx-radio">
 			<input
 				id="radio-group-css-only-2"
 				class="cdx-radio__input"
@@ -74,8 +74,8 @@
 			<label class="cdx-radio__label" for="radio-group-css-only-2">
 				Radio 2 (initially selected)
 			</label>
-		</span>
-		<span class="cdx-radio">
+		</div>
+		<div class="cdx-radio">
 			<input
 				id="radio-group-css-only-3"
 				class="cdx-radio__input"
@@ -87,10 +87,10 @@
 				Radio 3, which has a very long label that spans onto a second line to
 				demonstrate what happens when text wraps
 			</label>
-		</span>
+		</div>
 
 		<h4>Disabled radios</h4>
-		<span class="cdx-radio">
+		<div class="cdx-radio">
 			<input
 				id="radio-group-disabled-1"
 				class="cdx-radio__input"
@@ -101,8 +101,8 @@
 			<label class="cdx-radio__label" for="radio-group-disabled-1">
 				Radio 1
 			</label>
-		</span>
-		<span class="cdx-radio">
+		</div>
+		<div class="cdx-radio">
 			<input
 				id="radio-group-disabled-2"
 				class="cdx-radio__input"
@@ -114,8 +114,8 @@
 			<label class="cdx-radio__label" for="radio-group-disabled-2">
 				Radio 2 (disabled)
 			</label>
-		</span>
-		<span class="cdx-radio">
+		</div>
+		<div class="cdx-radio">
 			<input
 				id="radio-group-disabled-3"
 				class="cdx-radio__input"
@@ -128,7 +128,7 @@
 			<label class="cdx-radio__label" for="radio-group-disabled-3">
 				Radio 3 (disabled and checked)
 			</label>
-		</span>
+		</div>
 	</section>
 </template>
 

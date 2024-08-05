@@ -1263,7 +1263,7 @@ besides submit the form and reload the page.
 				<tbody>
 					<tr>
 						<td>
-							<span class="cdx-checkbox">
+							<div class="cdx-checkbox">
 								<!-- Include the proper attributes on each checkbox input. -->
 								<input id="session-1" class="cdx-checkbox__input" type="checkbox" name="sessions" value="session-1">
 								<span class="cdx-checkbox__icon"></span>
@@ -1272,14 +1272,14 @@ besides submit the form and reload the page.
 										<span class="cdx-label__label__text">Select row 1 of 3</span>
 									</label>
 								</div>
-							</span>
+							</div>
 						</td>
 						<td>Introduction to Semantic MediaWiki</td>
 						<td>11:00 EEST</td>
 					</tr>
 					<tr>
 						<td>
-							<span class="cdx-checkbox">
+							<div class="cdx-checkbox">
 								<input id="session-2" class="cdx-checkbox__input" type="checkbox" name="sessions" value="session-2">
 								<span class="cdx-checkbox__icon"></span>
 								<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
@@ -1287,14 +1287,14 @@ besides submit the form and reload the page.
 										<span class="cdx-label__label__text">Select row 2 of 3</span>
 									</label>
 								</div>
-							</span>
+							</div>
 						</td>
 						<td>Wikisource intro session</td>
 						<td>11:30 EEST</td>
 					</tr>
 					<tr>
 						<td>
-							<span class="cdx-checkbox">
+							<div class="cdx-checkbox">
 								<input id="session-3" class="cdx-checkbox__input" type="checkbox" name="sessions" value="session-3">
 								<span class="cdx-checkbox__icon"></span>
 								<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
@@ -1302,7 +1302,7 @@ besides submit the form and reload the page.
 										<span class="cdx-label__label__text">Select row 3 of 3</span>
 									</label>
 								</div>
-							</span>
+							</div>
 						</td>
 						<td>Introduction to Wikibase Suite</td>
 						<td>12:00 EEST</td>
@@ -1341,7 +1341,7 @@ besides submit the form and reload the page.
 			<tbody>
 				<tr>
 					<td>
-						<span class="cdx-checkbox">
+						<div class="cdx-checkbox">
 							<!-- Include the proper attributes on each checkbox input. -->
 							<input id="session-1" class="cdx-checkbox__input" type="checkbox" name="sessions" value="session-1">
 							<span class="cdx-checkbox__icon"></span>
@@ -1350,14 +1350,14 @@ besides submit the form and reload the page.
 									<span class="cdx-label__label__text">Select row 1 of 3</span>
 								</label>
 							</div>
-						</span>
+						</div>
 					</td>
 					<td>Introduction to Semantic MediaWiki</td>
 					<td>11:00 EEST</td>
 				</tr>
 				<tr>
 					<td>
-						<span class="cdx-checkbox">
+						<div class="cdx-checkbox">
 							<input id="session-2" class="cdx-checkbox__input" type="checkbox" name="sessions" value="session-2">
 							<span class="cdx-checkbox__icon"></span>
 							<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
@@ -1365,14 +1365,14 @@ besides submit the form and reload the page.
 									<span class="cdx-label__label__text">Select row 2 of 3</span>
 								</label>
 							</div>
-						</span>
+						</div>
 					</td>
 					<td>Wikisource intro session</td>
 					<td>11:30 EEST</td>
 				</tr>
 				<tr>
 					<td>
-						<span class="cdx-checkbox">
+						<div class="cdx-checkbox">
 							<input id="session-3" class="cdx-checkbox__input" type="checkbox" name="sessions" value="session-3">
 							<span class="cdx-checkbox__icon"></span>
 							<div class="cdx-label cdx-label--visually-hidden cdx-checkbox__label">
@@ -1380,7 +1380,7 @@ besides submit the form and reload the page.
 									<span class="cdx-label__label__text">Select row 3 of 3</span>
 								</label>
 							</div>
-						</span>
+						</div>
 					</td>
 					<td>Introduction to Wikibase Suite</td>
 					<td>12:00 EEST</td>

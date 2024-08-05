@@ -1713,7 +1713,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
           <th
             class="cdx-table__table__select-rows"
           >
-            <span
+            <div
               class="cdx-checkbox cdx-checkbox--status-default"
             >
               <div
@@ -1760,7 +1760,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
               </div>
               <!-- Only render custom input component(s) if custom input has been provided. -->
               <!--v-if-->
-            </span>
+            </div>
           </th>
           
           <th
@@ -1800,7 +1800,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
           class=""
         >
           <td>
-            <span
+            <div
               class="cdx-checkbox cdx-checkbox--status-default"
             >
               <div
@@ -1847,7 +1847,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
               </div>
               <!-- Only render custom input component(s) if custom input has been provided. -->
               <!--v-if-->
-            </span>
+            </div>
           </td>
           
           <td
@@ -1892,7 +1892,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
           class=""
         >
           <td>
-            <span
+            <div
               class="cdx-checkbox cdx-checkbox--status-default"
             >
               <div
@@ -1939,7 +1939,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
               </div>
               <!-- Only render custom input component(s) if custom input has been provided. -->
               <!--v-if-->
-            </span>
+            </div>
           </td>
           
           <td
@@ -1984,7 +1984,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
           class=""
         >
           <td>
-            <span
+            <div
               class="cdx-checkbox cdx-checkbox--status-default"
             >
               <div
@@ -2031,7 +2031,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
               </div>
               <!-- Only render custom input component(s) if custom input has been provided. -->
               <!--v-if-->
-            </span>
+            </div>
           </td>
           
           <td
@@ -2076,7 +2076,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
           class=""
         >
           <td>
-            <span
+            <div
               class="cdx-checkbox cdx-checkbox--status-default"
             >
               <div
@@ -2123,7 +2123,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
               </div>
               <!-- Only render custom input component(s) if custom input has been provided. -->
               <!--v-if-->
-            </span>
+            </div>
           </td>
           
           <td

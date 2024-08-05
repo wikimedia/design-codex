@@ -574,7 +574,7 @@ currently checked checkboxes (or an empty array if no checkboxes are checked).
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<span class="cdx-checkbox">
+	<div class="cdx-checkbox">
 		<input id="checkbox-css-only-1" class="cdx-checkbox__input" type="checkbox">
 		<span class="cdx-checkbox__icon"></span>
 		<div class="cdx-checkbox__label cdx-label">
@@ -584,12 +584,12 @@ currently checked checkboxes (or an empty array if no checkboxes are checked).
 				</span>
 			</label>
 		</div>
-	</span>
+	</div>
 </template>
 <template v-slot:code>
 
 ```html
-<span class="cdx-checkbox">
+<div class="cdx-checkbox">
 	<!-- <input> element with id, type, and any other necessary attributes.
 	The actual input is visually hidden. -->
 	<input id="checkbox-css-only-1" class="cdx-checkbox__input" type="checkbox">
@@ -603,7 +603,7 @@ currently checked checkboxes (or an empty array if no checkboxes are checked).
 			</span>
 		</label>
 	</div>
-</span>
+</div>
 ```
 
 </template>
@@ -619,7 +619,7 @@ To add a description below the label:
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<span class="cdx-checkbox">
+	<div class="cdx-checkbox">
 		<input id="checkbox-description-css-only-1" class="cdx-checkbox__input" type="checkbox" aria-describedby="cdx-description-css-1">
 		<span class="cdx-checkbox__icon"></span>
 		<div class="cdx-checkbox__label cdx-label">
@@ -632,12 +632,12 @@ To add a description below the label:
 				This improves privacy and helps prevent unsolicited emails.
 			</span>
 		</div>
-	</span>
+	</div>
 </template>
 <template v-slot:code>
 
 ```html
-<span class="cdx-checkbox">
+<div class="cdx-checkbox">
 	<input id="checkbox-description-css-only-1" class="cdx-checkbox__input" type="checkbox" aria-describedby="cdx-description-css-1">
 	<span class="cdx-checkbox__icon"></span>
 	<div class="cdx-checkbox__label cdx-label">
@@ -650,7 +650,7 @@ To add a description below the label:
 			This improves privacy and helps prevent unsolicited emails.
 		</span>
 	</div>
-</span>
+</div>
 ```
 
 </template>
@@ -681,7 +681,7 @@ Always include one of these two features for accessible grouping:
 			<span class="cdx-label__label__text">CSS-only Checkbox group demo</span>
 		</legend>
 		<div class="cdx-field__control">
-			<span class="cdx-checkbox">
+			<div class="cdx-checkbox">
 				<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
 				<span class="cdx-checkbox__icon"></span>
 				<div class="cdx-checkbox__label cdx-label">
@@ -691,8 +691,8 @@ Always include one of these two features for accessible grouping:
 						</span>
 					</label>
 				</div>
-			</span>
-			<span class="cdx-checkbox">
+			</div>
+			<div class="cdx-checkbox">
 				<input id="checkbox-group-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
 				<span class="cdx-checkbox__icon"></span>
 				<div class="cdx-checkbox__label cdx-label">
@@ -702,8 +702,8 @@ Always include one of these two features for accessible grouping:
 						</span>
 					</label>
 				</div>
-			</span>
-			<span class="cdx-checkbox">
+			</div>
+			<div class="cdx-checkbox">
 				<input id="checkbox-group-css-only-3" class="cdx-checkbox__input" type="checkbox">
 				<span class="cdx-checkbox__icon"></span>
 				<div class="cdx-checkbox__label cdx-label">
@@ -713,8 +713,8 @@ Always include one of these two features for accessible grouping:
 						</span>
 					</label>
 				</div>
-			</span>
-			<span class="cdx-checkbox">
+			</div>
+			<div class="cdx-checkbox">
 				<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" disabled>
 				<span class="cdx-checkbox__icon"></span>
 				<div class="cdx-checkbox__label cdx-label">
@@ -724,8 +724,8 @@ Always include one of these two features for accessible grouping:
 						</span>
 					</label>
 				</div>
-			</span>
-			<span class="cdx-checkbox">
+			</div>
+			<div class="cdx-checkbox">
 				<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" checked disabled>
 				<span class="cdx-checkbox__icon"></span>
 				<div class="cdx-checkbox__label cdx-label">
@@ -735,7 +735,7 @@ Always include one of these two features for accessible grouping:
 						</span>
 					</label>
 				</div>
-			</span>
+			</div>
 		</div>
 	</fieldset>
 </template>
@@ -747,7 +747,7 @@ Always include one of these two features for accessible grouping:
 		<span class="cdx-label__label__text">CSS-only Checkbox group demo</span>
 	</legend>
 	<div class="cdx-field__control">
-		<span class="cdx-checkbox">
+		<div class="cdx-checkbox">
 			<input id="checkbox-group-css-only-1" class="cdx-checkbox__input" type="checkbox">
 			<span class="cdx-checkbox__icon"></span>
 			<div class="cdx-checkbox__label cdx-label">
@@ -757,8 +757,8 @@ Always include one of these two features for accessible grouping:
 					</span>
 				</label>
 			</div>
-		</span>
-		<span class="cdx-checkbox">
+		</div>
+		<div class="cdx-checkbox">
 			<input id="checkbox-group-css-only-2" class="cdx-checkbox__input" type="checkbox" checked>
 			<span class="cdx-checkbox__icon"></span>
 			<div class="cdx-checkbox__label cdx-label">
@@ -768,8 +768,8 @@ Always include one of these two features for accessible grouping:
 					</span>
 				</label>
 			</div>
-		</span>
-		<span class="cdx-checkbox">
+		</div>
+		<div class="cdx-checkbox">
 			<input id="checkbox-group-css-only-3" class="cdx-checkbox__input" type="checkbox">
 			<span class="cdx-checkbox__icon"></span>
 			<div class="cdx-checkbox__label cdx-label">
@@ -779,8 +779,8 @@ Always include one of these two features for accessible grouping:
 					</span>
 				</label>
 			</div>
-		</span>
-		<span class="cdx-checkbox">
+		</div>
+		<div class="cdx-checkbox">
 			<input id="checkbox-group-css-only-4" class="cdx-checkbox__input" type="checkbox" disabled>
 			<span class="cdx-checkbox__icon"></span>
 			<div class="cdx-checkbox__label cdx-label">
@@ -790,8 +790,8 @@ Always include one of these two features for accessible grouping:
 					</span>
 				</label>
 			</div>
-		</span>
-		<span class="cdx-checkbox">
+		</div>
+		<div class="cdx-checkbox">
 			<input id="checkbox-group-css-only-5" class="cdx-checkbox__input" type="checkbox" checked disabled>
 			<span class="cdx-checkbox__icon"></span>
 			<div class="cdx-checkbox__label cdx-label">
@@ -801,7 +801,7 @@ Always include one of these two features for accessible grouping:
 					</span>
 				</label>
 			</div>
-		</span>
+		</div>
 	</div>
 </fieldset>
 ```
@@ -815,7 +815,7 @@ Add the `cdx-checkbox--inline` class to the root element to get an inline layout
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<span class="cdx-checkbox cdx-checkbox--inline">
+	<div class="cdx-checkbox cdx-checkbox--inline">
 		<input id="checkbox-group-inline-css-only-1" class="cdx-checkbox__input" type="checkbox">
 		<span class="cdx-checkbox__icon"></span>
 		<div class="cdx-checkbox__label cdx-label">
@@ -825,8 +825,8 @@ Add the `cdx-checkbox--inline` class to the root element to get an inline layout
 				</span>
 			</label>
 		</div>
-	</span>
-	<span class="cdx-checkbox cdx-checkbox--inline">
+	</div>
+	<div class="cdx-checkbox cdx-checkbox--inline">
 		<input id="checkbox-group-inline-css-only-2" class="cdx-checkbox__input" type="checkbox">
 		<span class="cdx-checkbox__icon"></span>
 		<div class="cdx-checkbox__label cdx-label">
@@ -836,12 +836,12 @@ Add the `cdx-checkbox--inline` class to the root element to get an inline layout
 				</span>
 			</label>
 		</div>
-	</span>
+	</div>
 </template>
 <template v-slot:code>
 
 ```html
-<span class="cdx-checkbox cdx-checkbox--inline">
+<div class="cdx-checkbox cdx-checkbox--inline">
 	<input id="checkbox-group-inline-css-only-1" class="cdx-checkbox__input" type="checkbox">
 	<span class="cdx-checkbox__icon"></span>
 	<div class="cdx-checkbox__label cdx-label">
@@ -851,8 +851,8 @@ Add the `cdx-checkbox--inline` class to the root element to get an inline layout
 			</span>
 		</label>
 	</div>
-</span>
-<span class="cdx-checkbox cdx-checkbox--inline">
+</div>
+<div class="cdx-checkbox cdx-checkbox--inline">
 	<input id="checkbox-group-inline-css-only-2" class="cdx-checkbox__input" type="checkbox">
 	<span class="cdx-checkbox__icon"></span>
 	<div class="cdx-checkbox__label cdx-label">
@@ -862,7 +862,7 @@ Add the `cdx-checkbox--inline` class to the root element to get an inline layout
 			</span>
 		</label>
 	</div>
-</span>
+</div>
 ```
 
 </template>

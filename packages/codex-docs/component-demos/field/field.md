@@ -769,16 +769,16 @@ When outputting a `<fieldset>`, the markup of this component is quite different:
 		</legend>
 		<!-- Input/control wrapper. -->
 		<div class="cdx-field__control">
-			<span class="cdx-radio">
+			<div class="cdx-radio">
 				<input id="cdx-docs-radio-1" class="cdx-radio__input" type="radio" name="radio-legend-demo" checked/>
 				<span class="cdx-radio__icon"></span>
 				<label class="cdx-radio__label" for="cdx-docs-radio-1">Radio 1</label>
-			</span>
-			<span class="cdx-radio">
+			</div>
+			<div class="cdx-radio">
 				<input id="cdx-docs-radio-2" class="cdx-radio__input" type="radio" name="radio-legend-demo" />
 				<span class="cdx-radio__icon"></span>
 				<label class="cdx-radio__label" for="cdx-docs-radio-2">Radio 2</label>
-			</span>
+			</div>
 		</div>
 	</fieldset>
 </template>
@@ -803,16 +803,16 @@ When outputting a `<fieldset>`, the markup of this component is quite different:
 	</legend>
 	<!-- Input/control wrapper. -->
 	<div class="cdx-field__control">
-		<span class="cdx-radio">
+		<div class="cdx-radio">
 			<input id="cdx-docs-radio-1" class="cdx-radio__input" type="radio" name="radio-legend-demo" checked/>
 			<span class="cdx-radio__icon"></span>
 			<label class="cdx-radio__label" for="cdx-docs-radio-1">Radio 1</label>
-		</span>
-		<span class="cdx-radio">
+		</div>
+		<div class="cdx-radio">
 			<input id="cdx-docs-radio-2" class="cdx-radio__input" type="radio" name="radio-legend-demo" />
 			<span class="cdx-radio__icon"></span>
 			<label class="cdx-radio__label" for="cdx-docs-radio-2">Radio 2</label>
-		</span>
+		</div>
 	</div>
 </fieldset>
 ```

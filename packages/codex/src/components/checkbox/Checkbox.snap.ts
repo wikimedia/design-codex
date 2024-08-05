@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox matches the snapshot Case 0 Single checkbox: ({"modelValue": true}) => HTML 1`] = `
-<span
+<div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
   <div
@@ -48,11 +48,11 @@ exports[`Checkbox matches the snapshot Case 0 Single checkbox: ({"modelValue": t
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: ({"inputValue": "checkbox-1", "modelValue": [Array]}) => HTML 1`] = `
-<span
+<div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
   <div
@@ -99,11 +99,11 @@ exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: ({"i
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ({"inputValue": 1, "modelValue": [Array]}) => HTML 1`] = `
-<span
+<div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
   <div
@@ -150,11 +150,11 @@ exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ({"i
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`Checkbox matches the snapshot Case 3 Disabled: ({"disabled": true, "modelValue": false}) => HTML 1`] = `
-<span
+<div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
   <div
@@ -202,11 +202,11 @@ exports[`Checkbox matches the snapshot Case 3 Disabled: ({"disabled": true, "mod
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`Checkbox matches the snapshot Case 4 Indeterminate: ({"indeterminate": true, "modelValue": false}) => HTML 1`] = `
-<span
+<div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
   <div
@@ -253,11 +253,11 @@ exports[`Checkbox matches the snapshot Case 4 Indeterminate: ({"indeterminate": 
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`Checkbox matches the snapshot Case 5 Inline: ({"inline": true, "inputValue": "checkbox-1", "modelValue": [Array]}) => HTML 1`] = `
-<span
+<div
   class="cdx-checkbox cdx-checkbox--inline cdx-checkbox--status-default"
 >
   <div
@@ -304,11 +304,11 @@ exports[`Checkbox matches the snapshot Case 5 Inline: ({"inline": true, "inputVa
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`Checkbox matches the snapshot Case 6 With description: ({"modelValue": true}) => HTML 1`] = `
-<span
+<div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
   <div
@@ -367,11 +367,11 @@ exports[`Checkbox matches the snapshot Case 6 With description: ({"modelValue": 
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`Checkbox matches the snapshot Case 7 With error: ({"modelValue": false, "status": "error"}) => HTML 1`] = `
-<span
+<div
   class="cdx-checkbox cdx-checkbox--status-error"
 >
   <div
@@ -418,11 +418,11 @@ exports[`Checkbox matches the snapshot Case 7 With error: ({"modelValue": false,
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`Checkbox matches the snapshot Case 8 With hidden label: ({"hideLabel": true, "modelValue": false}) => HTML 1`] = `
-<span
+<div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
   <div
@@ -469,11 +469,11 @@ exports[`Checkbox matches the snapshot Case 8 With hidden label: ({"hideLabel": 
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`Checkbox matches the snapshot Case 9 With custom input: ({"inputValue": "checkbox-1", "modelValue": [Array]}) => HTML 1`] = `
-<span
+<div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
   <div
@@ -547,5 +547,5 @@ exports[`Checkbox matches the snapshot Case 9 With custom input: ({"inputValue":
     </div>
     
   </div>
-</span>
+</div>
 `;

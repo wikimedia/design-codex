@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches the snapshot Case 0 String value: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
-<span
+<div
   class="cdx-radio"
 >
   <div
@@ -49,11 +49,11 @@ exports[`matches the snapshot Case 0 String value: ({"inputValue": "radio-1", "m
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`matches the snapshot Case 1 Number value: ({"inputValue": 2, "modelValue": 2, "name": "radios-number"}) => HTML 1`] = `
-<span
+<div
   class="cdx-radio"
 >
   <div
@@ -101,11 +101,11 @@ exports[`matches the snapshot Case 1 Number value: ({"inputValue": 2, "modelValu
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`matches the snapshot Case 2 Boolean value: ({"inputValue": true, "modelValue": true, "name": "radios-boolean"}) => HTML 1`] = `
-<span
+<div
   class="cdx-radio"
 >
   <div
@@ -153,11 +153,11 @@ exports[`matches the snapshot Case 2 Boolean value: ({"inputValue": true, "model
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`matches the snapshot Case 3 Disabled: ({"disabled": true, "inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
-<span
+<div
   class="cdx-radio"
 >
   <div
@@ -206,11 +206,11 @@ exports[`matches the snapshot Case 3 Disabled: ({"disabled": true, "inputValue":
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`matches the snapshot Case 4 Inline: ({"inline": true, "inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
-<span
+<div
   class="cdx-radio cdx-radio--inline"
 >
   <div
@@ -258,11 +258,11 @@ exports[`matches the snapshot Case 4 Inline: ({"inline": true, "inputValue": "ra
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`matches the snapshot Case 5 With description: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
-<span
+<div
   class="cdx-radio"
 >
   <div
@@ -322,11 +322,11 @@ exports[`matches the snapshot Case 5 With description: ({"inputValue": "radio-1"
   </div>
   <!-- Only render custom input component(s) if custom input has been provided. -->
   <!--v-if-->
-</span>
+</div>
 `;
 
 exports[`matches the snapshot Case 6 With custom input: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-custom-input"}) => HTML 1`] = `
-<span
+<div
   class="cdx-radio"
 >
   <div
@@ -401,5 +401,5 @@ exports[`matches the snapshot Case 6 With custom input: ({"inputValue": "radio-1
     </div>
     
   </div>
-</span>
+</div>
 `;

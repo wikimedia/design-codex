@@ -41,7 +41,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
   >
     <!-- @slot Input, control, or input group. -->
     
-    <span
+    <div
       class="cdx-checkbox cdx-checkbox--status-default"
     >
       <div
@@ -88,7 +88,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
       </div>
       <!-- Only render custom input component(s) if custom input has been provided. -->
       <!--v-if-->
-    </span>
+    </div>
     
   </div>
   <div
@@ -144,7 +144,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
   >
     <!-- @slot Input, control, or input group. -->
     
-    <span
+    <div
       class="cdx-checkbox cdx-checkbox--status-default"
     >
       <div
@@ -192,7 +192,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
       </div>
       <!-- Only render custom input component(s) if custom input has been provided. -->
       <!--v-if-->
-    </span>
+    </div>
     
   </div>
   <div

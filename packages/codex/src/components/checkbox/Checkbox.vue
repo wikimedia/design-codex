@@ -1,5 +1,5 @@
 <template>
-	<span class="cdx-checkbox" :class="rootClasses">
+	<div class="cdx-checkbox" :class="rootClasses">
 		<div class="cdx-checkbox__wrapper">
 			<input
 				:id="checkboxId"
@@ -44,7 +44,7 @@
 			<!-- @slot Custom input. -->
 			<slot name="custom-input" />
 		</div>
-	</span>
+	</div>
 </template>
 
 <script lang="ts">
