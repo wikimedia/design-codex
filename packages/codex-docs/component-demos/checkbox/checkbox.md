@@ -48,19 +48,47 @@ The checkbox’s input makes the selection visually distinct.
 The Checkbox must always contain a label, with the text size matching the base font size for consistency with the body text. Labels can include links and bold text and should be concise, clearly indicating the selected option.
 3. **Description** (optional)<br>
 If additional information about the label is required, a description can be included.
+4. **Custom input** (optional)<br>
+An additional input field can be included within the Checkbox to allow the user to input a custom response.
 
 #### Component limitations
 
-The Checkbox label will expand to fit longer text while the checkbox itself remains aligned with the first line of the label's text.
-
 A Checkbox group should consist of at least 2 checkboxes, with no maximum limit on the number of checkboxes per group.
+
+The Checkbox label will expand to fit longer text while the checkbox itself remains aligned with the first line of the label's text.
 
 Refer to the
 [Checkbox component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2549-59135&mode=design&t=7wyBmhfdJTJevQmT-11).
 
+### Types
+
+Depending on the content type, the following types of Checkboxes are available:
+
+1. **With only label**<br>
+By default, the Checkbox always includes a label that matches the base font size for consistency.
+2. **With description**<br>
+In some cases, an optional description can be added below the label for additional information.
+3. **With custom input**<br>
+In cases where additional user input is required, an optional custom input field can be added below the label or description.
+
+![Types of Checkbox based on its content: with label, with description, and with custom input.](../../assets/components/checkbox-types.svg)
+
+The custom input within the Radio can include any of the following form components designed to gather user input, including:
+
+1. TextInput and TextArea
+2. Select
+3. Combobox
+4. ChipInput
+5. Lookup
+6. A combination of more than one input
+
+![Types of custom inputs within the Checkbox: with TextArea, with Select, with Combobox, with ChipInput, with Lookup, and with a combination of 2 inputs.](../../assets/components/checkbox-types-custom-input.svg)
+
+**Note:** Groups of Checkboxes, Radios, and Toggle switches are not allowed within this custom input.
+
 ### Interaction states
 
-The styles for checkbox states were designed with accessible color variations. In addition to the
+The styles for Checkbox states were designed with accessible color variations. In addition to the
 'check' icon, these make the checkboxes’ selected or unselected states (e.g. disabled, hover,
 active) easier to perceive:
 
@@ -243,6 +271,66 @@ Consider the following recommendations when using checkboxes.
 
 - Use inline checkboxes if there are too many checkboxes per line.
 - Use inline checkboxes if there is significant variation in the length of the checkbox labels.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Custom input within the Radio
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![Checkbox group displaying a custom input with a combination of TextInput and Select.](../../assets/components/checkbox-best-practices-custom-input-01-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Combine 2 different fields within the custom input if needed.
+
+</template>
+
+<template #dont-media>
+
+![Checkbox group displaying a custom input with a nested group of checkboxes.](../../assets/components/checkbox-best-practices-custom-input-01-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Nest another group of radios, checkboxes, or toggle switches within the custom input.
+
+</template>
+
+</cdx-demo-rules>
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![Checkbox group with the last Checkbox unselected and displaying a custom input disabled.](../../assets/components/checkbox-best-practices-custom-input-02-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Display the custom input at the end of a Checkbox group whenever possible.
+- Disable the custom input unless its corresponding Checkbox is selected.
+
+</template>
+
+<template #dont-media>
+
+![Checkbox group displaying one custom input per Checkbox, with all inputs enabled.](../../assets/components/checkbox-best-practices-custom-input-02-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Design a layout where multiple Checkboxes include custom inputs visible simultaneously.
+- Enable the custom input when its corresponding Checkbox is not selected.
 
 </template>
 
