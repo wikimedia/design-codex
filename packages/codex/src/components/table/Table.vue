@@ -904,7 +904,7 @@ export default defineComponent( {
 
 		&__sort-icon {
 			color: @color-subtle;
-			padding-left: @spacing-50;
+			margin-left: @spacing-50;
 		}
 
 		// Modifiers for table cells (th and td). Note that the extra class selector is needed to
@@ -924,7 +924,7 @@ export default defineComponent( {
 
 				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-table__table__sort-icon {
-					padding-right: @spacing-50;
+					margin-right: @spacing-50;
 				}
 			}
 
