@@ -88,7 +88,9 @@
 										class="cdx-table__table__sort-button"
 										@click="handleSort( column.id )"
 									>
-										{{ column.label }}
+										<span class="cdx-table__table__sort-label">
+											{{ column.label }}
+										</span>
 										<cdx-icon
 											:icon="getSortIcon( column.id )"
 											size="small"
@@ -1052,9 +1054,8 @@ export default defineComponent( {
 			background-color: @background-color-transparent;
 			display: flex;
 			align-items: center;
-			justify-content: space-between;
+			gap: @spacing-50;
 			width: @size-full;
-			max-width: @size-1600;
 			// Override browser <button> styles for border.
 			border: 0;
 			padding: @spacing-75;
@@ -1091,7 +1092,7 @@ export default defineComponent( {
 
 		&__sort-icon {
 			color: @color-subtle;
-			margin-left: @spacing-50;
+			flex-shrink: 0;
 		}
 
 		// Modifiers for table cells (th and td). Note that the extra class selector is needed to
@@ -1112,13 +1113,6 @@ export default defineComponent( {
 					// Override text-align: left style above.
 					text-align: right;
 				}
-
-				/* stylelint-disable-next-line max-nesting-depth */
-				.cdx-table__table__sort-icon {
-					// Override margin styles above.
-					margin-right: @spacing-50;
-					margin-left: 0;
-				}
 			}
 
 			// Numbers should be aligned right in both reading directionalities.
@@ -1137,16 +1131,6 @@ export default defineComponent( {
 					// style on .cdx-table__table__sort-button above, and it's more specific than
 					// that rule.
 					text-align: right /* rtl:ignore */;
-				}
-
-				/* stylelint-disable-next-line max-nesting-depth */
-				.cdx-table__table__sort-icon {
-					// These two styles can be rtl-ignored since they are already set by flipping
-					// the margin-left rule applied to .cdx-table__table__sort-icon above, and
-					// they're more specific than that rule.
-					margin-right: @spacing-50 /* rtl:ignore */;
-					/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-					margin-left: 0 /* rtl:ignore */;
 				}
 			}
 

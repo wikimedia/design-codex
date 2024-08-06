@@ -3063,7 +3063,11 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
               aria-selected="false"
               class="cdx-table__table__sort-button"
             >
-              Year 
+              <span
+                class="cdx-table__table__sort-label"
+              >
+                Year
+              </span>
               <span
                 aria-hidden="true"
                 class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
@@ -3095,7 +3099,11 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
               aria-selected="false"
               class="cdx-table__table__sort-button"
             >
-              Last name 
+              <span
+                class="cdx-table__table__sort-label"
+              >
+                Last name
+              </span>
               <span
                 aria-hidden="true"
                 class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
@@ -3127,7 +3135,11 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
               aria-selected="false"
               class="cdx-table__table__sort-button"
             >
-              Age at win 
+              <span
+                class="cdx-table__table__sort-label"
+              >
+                Age at win
+              </span>
               <span
                 aria-hidden="true"
                 class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"

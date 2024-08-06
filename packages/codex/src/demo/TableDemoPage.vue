@@ -482,8 +482,8 @@ type SingleSort = TableSort<keyof NobelPrizeWinner>;
 // Table with single sort.
 const columnsSingleSort: TableColumn[] = [
 	{ id: 'year', label: 'Year', textAlign: 'number', allowSort: true },
-	{ id: 'name', label: 'Last name', allowSort: true },
-	{ id: 'pronoun', label: 'Pronoun', textAlign: 'number' },
+	{ id: 'name', label: 'Last name with a long column heading', allowSort: true },
+	{ id: 'pronoun', label: 'Pronoun' },
 	{ id: 'age', label: 'Age at win', textAlign: 'end', allowSort: true }
 ];
 const dataSingleSort = ref<TableRow[]>( [
