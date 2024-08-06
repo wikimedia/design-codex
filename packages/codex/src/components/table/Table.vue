@@ -1023,6 +1023,7 @@ export default defineComponent( {
 		thead {
 			th {
 				border-bottom: @border-base;
+				vertical-align: bottom;
 			}
 		}
 
@@ -1053,7 +1054,7 @@ export default defineComponent( {
 			// Override browser <button> styles for background.
 			background-color: @background-color-transparent;
 			display: flex;
-			align-items: center;
+			align-items: flex-end;
 			gap: @spacing-50;
 			width: @size-full;
 			// Override browser <button> styles for border.
@@ -1093,6 +1094,10 @@ export default defineComponent( {
 		&__sort-icon {
 			color: @color-subtle;
 			flex-shrink: 0;
+			// Vertically align the icon with the bottom line of the sort label by setting the
+			// height equal to the text's line height. This needs to be in ems to ensure the height
+			// changes with font size, since the line height of text will do the same.
+			height: unit( @line-height-x-small, em );
 		}
 
 		// Modifiers for table cells (th and td). Note that the extra class selector is needed to
