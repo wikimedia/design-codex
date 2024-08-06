@@ -137,3 +137,39 @@ export const TablePaginationPositions = [
 	'bottom',
 	'both'
 ] as const;
+
+/**
+ * This constant contains all i18n message keys which are currently in use in
+ * the library. Only these values may be provided as key arguments to the
+ * useI18n composable. If a new message needs to be defined, the key should
+ * be added here as well. External consumers of Codex (including MediaWiki)
+ * which implement their own I18n systems will want to ensure that they have
+ * translations avialable for all messages defined here (Codex does not
+ * currently provide its own messages beyond English default values, although
+ * this may change in a future major version release).
+ *
+ * @public
+ */
+export const I18nMessageKeys = [
+	'cdx-dialog-close-button-label',
+	'cdx-input-chip-aria-description',
+	'cdx-label-optional-flag',
+	'cdx-message-dismiss-button-label',
+	'cdx-search-input-search-button-label',
+	'cdx-table-pager-button-first-page',
+	'cdx-table-pager-button-last-page',
+	'cdx-table-pager-button-next-page',
+	'cdx-table-pager-button-prev-page',
+	'cdx-table-pager-items-per-page-current',
+	'cdx-table-pager-items-per-page-default',
+	'cdx-table-pagination-status-message-determinate-long',
+	'cdx-table-pagination-status-message-determinate-short',
+	'cdx-table-pagination-status-message-indeterminate-short',
+	'cdx-table-pagination-status-message-indeterminate-long',
+	'cdx-table-pagination-status-message-indeterminate-final',
+	'cdx-table-pagination-status-message-pending',
+	'cdx-table-select-all-label',
+	'cdx-table-select-row-label',
+	'cdx-table-sort-caption',
+	'cdx-typeahead-search-search-results-label'
+] as const;

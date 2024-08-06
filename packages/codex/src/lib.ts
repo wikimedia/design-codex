@@ -72,6 +72,7 @@ import * as stringHelpers from './utils/stringHelpers';
 
 // Types
 import type {
+	I18nMessageKey,
 	I18nFunction,
 	HTMLDirection,
 	ButtonAction,
@@ -163,6 +164,7 @@ export {
 	stringHelpers,
 
 	// Types
+	I18nMessageKey,
 	I18nFunction,
 	HTMLDirection,
 	ButtonAction,

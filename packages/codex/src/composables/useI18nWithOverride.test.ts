@@ -15,7 +15,7 @@ describe( 'useI18nWithOverride', () => {
 		setup( props ) {
 			const message = useI18nWithOverride(
 				toRef( props, 'overrideMessage' ),
-				'cdx-test-message',
+				'cdx-search-input-search-button-label',
 				'Default message'
 			);
 			return {

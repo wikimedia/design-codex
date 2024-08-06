@@ -20,12 +20,14 @@ import {
 	MenuStates,
 	TableTextAlignments,
 	TableRowIdentifier,
-	TablePaginationPositions
+	TablePaginationPositions,
+	I18nMessageKeys
 } from './constants';
 
 export type I18nMessageValue<P> = string | ( ( ...params: P[] ) => string );
 
-export type I18nMessageKey = `cdx-${ string }`;
+/** @public */
+export type I18nMessageKey = typeof I18nMessageKeys[ number ];
 
 /** @public */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
