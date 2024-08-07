@@ -1,4 +1,4 @@
-import { computed, inject, unref, ComputedRef, MaybeRef } from 'vue';
+import { computed, inject, ComputedRef, WatchSource } from 'vue';
 import { I18nMessageValue, I18nMessageKey, I18nFunction } from '../types';
 
 /**
@@ -36,20 +36,20 @@ import { I18nMessageValue, I18nMessageKey, I18nFunction } from '../types';
  *   (or if it returns null). This can be a string, or a function that returns a string. You must
  *   pass a function if the message takes parameters, or if the default value needs to be reactive
  *   (e.g. is a prop value rather than a hardcoded string).
- * @param params Array of parameters to pass to the message. Parameters can be plain values or refs;
- *   refs will be unwrapped automatically, and will behave reactively. This is optional and can be
- *   omitted if the message doesn't take any parameters.
+ * @param params Array of parameters to pass to the message. This is optional and can be omitted if
+ *   the message doesn't take any parameters. Parameters can be refs or functions; to ensure
+ *   reactivity, plain values are not accepted.
  * @return A computed property with the translated message. This computed property updates when the
  *   parameters change, or when reactive refs accessed by the provided i18n function change.
  */
 export default function useI18n<P>(
 	messageKey: I18nMessageKey,
 	defaultValue: I18nMessageValue<P>,
-	params: MaybeRef<P>[] = []
+	params: WatchSource<P>[] = []
 ): ComputedRef<string> {
 	const providedI18nFunc = inject<I18nFunction|undefined>( 'CdxI18nFunction', undefined );
 	return computed( () => {
-		const unwrappedParams = params.map( unref );
+		const unwrappedParams = params.map( ( p ) => typeof p === 'function' ? p() : p.value );
 		const fromProvidedFunc = providedI18nFunc?.( messageKey, ...unwrappedParams );
 		if ( fromProvidedFunc !== undefined && fromProvidedFunc !== null ) {
 			return fromProvidedFunc;

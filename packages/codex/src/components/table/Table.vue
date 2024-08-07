@@ -669,7 +669,7 @@ export default defineComponent( {
 		const translatedSelectRowLabel = ( rowIndex: number, totalRows: number ) => useI18n(
 			'cdx-table-select-row-label',
 			( row, total ) => `Select row ${ row } of ${ total }`,
-			[ rowIndex, totalRows ]
+			[ () => rowIndex, () => totalRows ]
 		).value;
 		const translatedSelectAllLabel = useI18n( 'cdx-table-select-all-label', 'Select all rows' );
 
