@@ -282,6 +282,8 @@ export default defineComponent( {
 		},
 		/**
 		 * Column definitions.
+		 *
+		 * @default []
 		 */
 		columns: {
 			type: Array as PropType<TableColumn[]>,
@@ -306,6 +308,8 @@ export default defineComponent( {
 		 *
 		 * An array of objects, with each object representing the data for a table row. Item keys
 		 * should align with column IDs, as defined in the `columns` prop.
+		 *
+		 * @default []
 		 */
 		data: {
 			type: Array as PropType<TableRow[]|TableRowWithIdentifier[]>,
@@ -357,6 +361,8 @@ export default defineComponent( {
 		 * An array of selected row indices. Must be bound with `v-model:selected-rows`.
 		 *
 		 * If sorting is also enabled, this will be an array of TableRowIdentifiers.
+		 *
+		 * @default []
 		 */
 		selectedRows: {
 			type: Array as PropType<( number|string )[]>,
@@ -366,6 +372,8 @@ export default defineComponent( {
 		 * Definition of sort order. Column(s) can be sorted ascending, descending, or not sorted.
 		 * To display data unsorted initially, set to an empty object initially.
 		 * Must be bound with v-model:sort
+		 *
+		 * @default {}
 		 */
 		sort: {
 			type: Object as PropType<TableSort>,
@@ -421,6 +429,8 @@ export default defineComponent( {
 		/**
 		 * Pre-defined options for how may rows should be displayed per page.
 		 * The value of these menu items must be a number.
+		 *
+		 * @default [ { value: 10 }, { value: 20 }, { value: 50 } ]
 		 */
 		paginationSizeOptions: {
 			type: Array as PropType<TablePaginationSizeOption[]>,
@@ -446,6 +456,8 @@ export default defineComponent( {
 		 * this will default to the value of the first of the pagination options
 		 * if not provided. For server-side pagination, this will default to
 		 * the initial number of rows if no default is provided.
+		 *
+		 * @default paginationSizeOptions[ 0 ].value
 		 */
 		paginationSizeDefault: {
 			type: Number,

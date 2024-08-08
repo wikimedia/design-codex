@@ -59,9 +59,20 @@ const tmpl = ( props ) => {
 		// Customization: add the required indicator after the prop name if it is required.
 		p += pr.required ? '<sup class="cdx-docs-required-indicator">(required)</sup>' : '';
 		let t = pr.description ?? '';
-		t += renderTags( pr.tags );
+		// Customization: exclude the @default tag from the rendered tags
+		const { default: defaultTag, ...unrecognizedTags } = pr.tags ?? {};
+		t += renderTags( unrecognizedTags );
 		const n = pr.type ? getTypeText( pr.type.name ) : '';
-		const d = pr.defaultValue ? getTypeText( pr.defaultValue.value ) : '';
+		// Customization: use the @default tag, if it exists, to allow doc comments to override the
+		// automatically generated default with something cleaner. This is often needed if the
+		// default comes from a function.
+		const defaultValue =
+			// First try to get the default value from the @default tag
+			defaultTag?.[ 0 ] && !isTag( defaultTag[ 0 ] ) && typeof defaultTag[ 0 ].description === 'string' ?
+				defaultTag[ 0 ].description :
+				// Otherwise use the detected default value
+				pr.defaultValue?.value;
+		const d = defaultValue ? getTypeText( defaultValue ) : '';
 
 		ret += `| ${ mdclean( p ) } | ${ mdclean( t ) } | ${ mdclean( n ) }`;
 		// Customization: only include a values column if any of the props have something
