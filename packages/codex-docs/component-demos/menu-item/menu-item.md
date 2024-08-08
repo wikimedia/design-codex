@@ -106,14 +106,26 @@ Refer to the [MenuItem component in Codex Figma](https://www.figma.com/file/KoDu
 ### Interaction states
 Menu items have the following visually separate states:
 
-![Interaction states of MenuItem: default, hover, active, selected, selected-hover, and disabled.](../../assets/components/menu-item-interaction-states.svg)
+![Interaction states of MenuItem: default, hover, active, selected, selected-hover, selected-active, disabled, destructive-default, destructive-hover, and destructive-active.](../../assets/components/menu-item-interaction-states.svg)
+
+<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
 
 1. Default
 2. Hover
 3. Active
 4. Selected
 5. Selected hover
-6. Disabled
+6. Selected active
+7. Disabled
+8. Destructive default
+9. Destructive hover
+10. Destructive active
+
+</div>
+
+::: tip Note
+Only menu items representing options can be selected, while menu items representing actions can only be clicked.
+:::
 
 ### Best practices
 

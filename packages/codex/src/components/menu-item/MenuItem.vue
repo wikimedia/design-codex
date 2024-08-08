@@ -469,30 +469,51 @@ export default defineComponent( {
 		}
 
 		&.cdx-menu-item--highlighted {
-			background-color: @background-color-interactive;
+			background-color: @background-color-interactive-subtle;
+			color: @color-base--hover;
 			cursor: @cursor-base--hover;
-		}
-
-		&.cdx-menu-item--active {
-			background-color: @background-color-progressive-subtle;
-			color: @color-progressive;
 
 			.cdx-menu-item__content,
 			.cdx-menu-item__text__description {
-				color: @color-progressive;
+				color: @color-base--hover;
+			}
+		}
+
+		&.cdx-menu-item--active {
+			background-color: @background-color-interactive;
+			color: @color-emphasized;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__description {
+				color: @color-emphasized;
 			}
 		}
 
 		&.cdx-menu-item--selected {
 			background-color: @background-color-progressive-subtle;
+
+			.cdx-menu-item__content {
+				color: @color-progressive;
+			}
 		}
 
 		&.cdx-menu-item--selected.cdx-menu-item--highlighted {
-			color: @color-progressive;
+			.cdx-menu-item__content {
+				color: @color-progressive--hover;
+			}
 
-			.cdx-menu-item__content,
 			.cdx-menu-item__text__description {
-				color: @color-progressive;
+				color: @color-subtle;
+			}
+		}
+
+		&.cdx-menu-item--selected.cdx-menu-item--active {
+			.cdx-menu-item__content {
+				color: @color-progressive--active;
+			}
+
+			.cdx-menu-item__text__description {
+				color: @color-subtle;
 			}
 		}
 	}
@@ -510,28 +531,23 @@ export default defineComponent( {
 
 	/* stylelint-disable no-descending-specificity */
 	&--destructive {
-		color: @color-destructive;
-
 		.cdx-menu-item__content {
 			color: @color-destructive;
 		}
 
 		&.cdx-menu-item--highlighted {
-			color: @color-destructive--hover;
+			.cdx-menu-item__content {
+				color: @color-destructive--hover;
+			}
 		}
 
 		&.cdx-menu-item--active {
-			color: @color-destructive--active;
-
-			.cdx-menu-item__content,
-			.cdx-menu-item__text__description {
+			.cdx-menu-item__content {
 				color: @color-destructive--active;
 			}
 		}
 
 		&.cdx-menu-item--selected.cdx-menu-item--highlighted {
-			color: @color-destructive--hover;
-
 			.cdx-menu-item__content,
 			.cdx-menu-item__text__description {
 				color: @color-destructive--hover;
