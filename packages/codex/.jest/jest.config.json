@@ -34,7 +34,8 @@
 		"!<rootDir>/src/lib-wip.ts",
 		"!<rootDir>/src/start.ts",
 		"!<rootDir>/src/types.ts",
-		"!<rootDir>/src/testutils/"
+		"!<rootDir>/src/testutils/",
+		"!<rootDir>/src/messages.ts"
 	],
 	"coverageDirectory": "<rootDir>/coverage",
 	"errorOnDeprecated": true

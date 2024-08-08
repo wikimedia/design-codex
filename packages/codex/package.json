@@ -44,10 +44,11 @@
 	},
 	"scripts": {
 		"dev": "vite ${npm_config_port+--port=${npm_config_port}}",
-		"build": "npm run clean && npm run build:vite && npm run build:ts",
+		"build": "npm run clean && npm run build:vite && npm run build:ts && npm run build:messageKeys",
 		"build-if-missing": "test -e dist/codex.mjs || npm run build",
 		"build:ts": "vue-tsc -p ./tsconfig.json --emitDeclarationOnly",
 		"build:vite": "node ./build.mjs",
+		"build:messageKeys": "tsx src/messages.ts",
 		"clean": "rm -rf dist/",
 		"serve": "vite preview",
 		"test": "npm run lint && npm -s run build && npm -s run test:unit",
@@ -78,6 +79,7 @@
 		"rtlcss": "4.1.1",
 		"start-server-and-test": "1.14.0",
 		"ts-jest": "29.1.1",
+		"tsx": "4.17.0",
 		"typescript": "5.2.2",
 		"vite": "5.2.11",
 		"vue-tsc": "2.0.16"

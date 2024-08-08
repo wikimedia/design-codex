@@ -24,6 +24,7 @@
 		"src/demo",
 		"src/start.ts",
 		"src/lib-wip.ts",
-		"src/components-wip"
+		"src/components-wip",
+		"src/messages.ts"
 	]
 }
