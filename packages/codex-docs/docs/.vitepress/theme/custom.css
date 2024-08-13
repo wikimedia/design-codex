@@ -17,6 +17,10 @@
 	/* Override base VitePress theme variables with Codex design tokens. */
 	--vp-c-brand: var( --color-progressive );
 	--vp-c-brand-light: var( --color-progressive--hover );
+	/* Used for links within content. */
+	--vp-c-brand-1: var( --color-progressive );
+	/* Used for links within content on hover. */
+	--vp-c-brand-2: var( --color-progressive--hover );
 
 	--vp-c-text: var( --color-base );
 	--vp-c-text-1: var( --color-base );
@@ -150,8 +154,12 @@ body {
 }
 
 .vp-doc a:hover {
-	color: var( --color-progressive );
 	text-decoration: var( --text-decoration-underline );
+}
+
+/* VitePress doesn't set a color for active links. */
+.vp-doc a:active {
+	color: var( --color-progressive--active );
 }
 
 /* Code. */
