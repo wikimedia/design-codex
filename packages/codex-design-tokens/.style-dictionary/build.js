@@ -251,6 +251,11 @@ sdBase.extend( {
 					options: {
 						selector: '.cdx-mode-dark()'
 					}
+				},
+				// Full build of tokens including dark overrides.
+				{
+					destination: 'theme-wikimedia-ui-mode-dark.json',
+					format: 'json'
 				}
 			]
 		}

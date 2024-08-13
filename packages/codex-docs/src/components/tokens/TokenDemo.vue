@@ -82,6 +82,7 @@ export default defineComponent( {
 // TODO: Tokenize.
 @animation-duration-token-animation: 2000ms;
 @border-color-token: rgba( 0, 0, 0, 0.1 );
+@border-color-token-inverse: rgba( 255, 255, 255, 0.1 );
 
 /** Demos that style a rectangle (this may be in addition to extra styles below) */
 .cdx-docs-tokens-demo {
@@ -120,13 +121,6 @@ export default defineComponent( {
 		&--border-radius-pill {
 			width: @size-800;
 		}
-	}
-
-	&--color &__token {
-		width: @size-800;
-		height: @size-800;
-		border: @border-width-base @border-style-base @border-color-token;
-		border-radius: @border-radius-circle;
 	}
 
 	&--cursor &__token {
@@ -193,6 +187,18 @@ export default defineComponent( {
 			width: @size-150;
 			height: @size-150;
 			transform: translateY( -@spacing-half );
+		}
+	}
+
+	&--color &__token {
+		width: @size-800;
+		height: @size-800;
+		border: @border-width-base @border-style-base @border-color-token;
+		border-radius: @border-radius-circle;
+
+		/* stylelint-disable-next-line selector-class-pattern */
+		html.dark & {
+			border-color: @border-color-token-inverse;
 		}
 	}
 }
