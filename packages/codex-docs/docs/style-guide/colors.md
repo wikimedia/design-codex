@@ -288,6 +288,11 @@ Find the color palette in the [Design tokens Figma library](https://www.figma.co
 		border: @border-width-base @border-style-base @border-color-inverted;
 		padding: 0 @spacing-75 calc( 50% - @spacing-50 );
 
+		/* stylelint-disable-next-line selector-class-pattern */
+		html.dark & {
+			color: @color-inverted;
+		}
+
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			// On larger screens, make the squares 25% width.
 			// Subtract 1/4 of the total gap width from the width of each color.
@@ -311,6 +316,11 @@ Find the color palette in the [Design tokens Figma library](https://www.figma.co
 		&__wcag-level {
 			span {
 				color: @color-inverted;
+
+				/* stylelint-disable-next-line selector-class-pattern, max-nesting-depth */
+				html.dark & {
+					color: @color-base;
+				}
 			}
 		}
 
@@ -325,6 +335,7 @@ Find the color palette in the [Design tokens Figma library](https://www.figma.co
 			}
 		}
 
+		/* stylelint-disable-next-line no-descending-specificity */
 		&:hover {
 			.cdx-docs-colors__color__hsb {
 				opacity: @opacity-base;
@@ -333,6 +344,11 @@ Find the color palette in the [Design tokens Figma library](https://www.figma.co
 
 		&--dark {
 			color: @color-inverted;
+
+			/* stylelint-disable-next-line selector-class-pattern */
+			html.dark & {
+				color: @color-base;
+			}
 		}
 	}
 }

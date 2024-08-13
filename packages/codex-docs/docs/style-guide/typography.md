@@ -194,7 +194,7 @@ Color hints are guidance for general use case in a light mode theme.
 	</div>
 	<div class="cdx-docs-headings__footer">
 		<p>
-			All headings use color <strong>Black #000</strong>
+			All headings use color <strong>Black #000</strong> in light mode and <strong>Gray100 #f8f9fa</strong> in dark mode.
 			<span class="cdx-docs-headings__footer__color-swatch"></span>
 		</p>
 	</div>
@@ -368,6 +368,13 @@ font-size: 14px; /* 14 sp equivalent */
 		/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 		color: #a2a9b1;
 		border-bottom-color: @color-error;
+	}
+
+	.cdx-demo-rules__do .cdx-demo-rules__media {
+		/* stylelint-disable-next-line selector-class-pattern */
+		html.dark & {
+			color: @color-inverted;
+		}
 	}
 }
 

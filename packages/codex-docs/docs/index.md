@@ -100,7 +100,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 	&__hero {
 		// TODO: This is semantically incorrect, there needs to be a static token.
 		background-color: @background-color-progressive;
-		color: @color-inverted;
+		color: @color-inverted-fixed;
 		// Equals 100% + ( 2 * negative margin per side ).
 		width: calc( @size-full + ( @spacing-200 * 2 ) );
 		margin-right: -@spacing-200;
@@ -109,7 +109,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		padding: @spacing-200;
 
 		&__icon {
-			color: @color-inverted;
+			color: @color-inverted-fixed;
 			// 5em equivalent to match the title.
 			/* stylelint-disable scale-unlimited/declaration-strict-value */
 			min-width: 80px;
@@ -122,7 +122,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 		// Need to put `.vp-doc` here to override the default VitePress heading styles.
 		.vp-doc &__title {
-			color: @color-inverted;
+			color: @color-inverted-fixed;
 			font-family: @font-family-base;
 			font-size: @font-size-cdx-docs-title;
 			font-weight: @font-weight-bold;

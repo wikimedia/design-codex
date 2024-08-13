@@ -92,6 +92,13 @@ export default defineComponent( {
 
 	&__media {
 		background-color: @background-color-interactive-subtle;
+
+		/* stylelint-disable-next-line selector-class-pattern */
+		html.dark & {
+			// This element often contains an image with a light background, so we need to match
+			// it in both color modes.
+			background-color: @background-color-inverted;
+		}
 	}
 
 	&__text {

@@ -3,18 +3,24 @@
 
 /* stylelint-disable selector-class-pattern */
 
+/*
+ * CSS custom property overrides of the default VitePress theme.
+ * Note that dark mode colors are set up in the style block of CustomLayout.vue, because we can use
+ * the dark mode Less mixin there.
+ */
 :root {
 	/* syntax highlighting fixes */
 	--vp-code-block-color: rgba( 255, 255, 245, 0.86 );
 	--vp-code-block-bg: #292b30;
 	--vp-code-block-divider-color: #000;
 	--vp-code-color: var( --color-emphasized );
-	--vp-code-lang-color: var( --color-inverted );
+	/* Language label inside code blocks. We use dark mode code blocks for both color modes, so this
+	   color shouldn't change. */
+	--vp-code-lang-color: var( --color-inverted-fixed );
 	--vp-code-tab-text-color: rgba( 235, 235, 245, 0.6 );
 	--vp-code-tab-hover-text-color: rgba( 255, 255, 245, 0.86 );
 	--vp-code-tab-active-text-color: rgba( 255, 255, 245, 0.86 );
 
-	/* Override base VitePress theme variables with Codex design tokens. */
 	--vp-c-brand: var( --color-progressive );
 	--vp-c-brand-light: var( --color-progressive--hover );
 	/* Used for links within content. */
@@ -258,12 +264,17 @@ body {
 	opacity: var( --opacity-base );
 }
 
-/* Main nav dropdown menu. */
+/* Main nav dropdown menus. */
 .VPFlyout .VPMenu {
 	border-color: var( --border-color-base );
 	border-radius: var( --border-radius-base );
 	padding: 0;
 	box-shadow: var( --box-shadow-drop-medium );
+}
+
+/* Only the extra dropdown menu (for appearnce and social links on tablet screens. */
+.VPNavBarExtra .VPMenu {
+	padding: var( --spacing-75 );
 }
 
 /* Main nav dropdown link. */
@@ -282,23 +293,6 @@ body {
 .VPFlyout .link:active,
 .VPFlyout .link.active {
 	background-color: var( --background-color-progressive-subtle );
-}
-
-/*
- * Large screen social links.
- * Also show on medium screens so we can avoid a pointless flyout menu with our single social link.
- * See https://phabricator.wikimedia.org/T345982.
- */
-.VPSocialLinks.VPNavBarSocialLinks {
-	@media ( min-width: 768px ) {
-		display: flex;
-		align-items: center;
-	}
-}
-
-/* Hide medium-screen flyout menu for social links. */
-.VPFlyout.VPNavBarExtra {
-	display: none;
 }
 
 /* Hide line below main nav on large screens. */
@@ -582,13 +576,13 @@ body {
 	margin-left: var( --spacing-25 );
 }
 
-.cdx-docs-example img {
-	background-color: var( --background-color-interactive-subtle );
-}
-
 /* Higher specificity to override VitePress internal `.vp-doc ul`. */
 .vp-doc ul.cdx-docs-methods__params {
 	margin: 0;
+}
+
+.cdx-docs-example img {
+	background-color: var( --background-color-interactive-subtle );
 }
 
 /* Set subtle background color on component demo and mixins image assets.
@@ -600,6 +594,12 @@ body {
 	/* Center images that are less than full width. */
 	margin-right: auto;
 	margin-left: auto;
+}
+
+/* Maintain a light background to match the image's background. */
+html.dark .cdx-docs-example img,
+html.dark .vp-doc[ class*='_components' ] img {
+	background-color: var( --background-color-inverted );
 }
 
 /* Background for images that are less than full width. In browsers that don't support `:has()`,

@@ -49,8 +49,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 	description: 'Design system for Wikimedia',
 	// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
 	base: process.env.CODEX_DOC_ROOT || '/',
-	// Disable dark mode.
-	appearance: false,
+	// Use the user's preferred color mode.
+	appearance: true,
 
 	markdown: {
 		theme: 'dracula'
@@ -62,7 +62,9 @@ export default defineConfigWithTheme<CustomConfig>( {
 		patchID,
 
 		logo: {
-			src: '/logo-Wikimedia.svg', alt: 'Wikimedia'
+			light: '/logo-Wikimedia.svg',
+			dark: '/logo-Wikimedia-inverted.svg',
+			alt: 'Wikimedia'
 		},
 
 		nav: [
