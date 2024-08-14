@@ -104,10 +104,16 @@ const propsTemplate = function ( props, opt = {} ) {
 	return `
 ${ !!opt.isSubComponent || opt.hasSubComponents ? '#' : '' }## Props
 
+<div class="cdx-docs-table-wrapper">
+
 | Prop name     | Description | Type     ${ valuesHeading } | Default     |
 | ------------- | ----------- | ---------${ valuesDivider } | ----------- |
 ${ tmpl( props ) }
+
+</div>
+
 `;
+
 };
 
 export default propsTemplate;

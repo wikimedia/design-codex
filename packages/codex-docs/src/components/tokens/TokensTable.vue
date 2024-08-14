@@ -1,69 +1,76 @@
 <template>
-	<table class="cdx-docs-tokens-table">
-		<caption>
-			<!-- Expose `table caption` content only to assistive technology users. -->
-			<span class="cdx-docs-is-visually-hidden">
-				List of design token names, values and metadata for <code>{{ cssProperty }}</code>
-			</span>
-		</caption>
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Value</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr v-for="( token, key ) in flattenedTokens" :key="key">
-				<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
-				<td
-					:id="token.name"
-					class="cdx-docs-tokens-table__name"
-					dir="ltr"
-				>
-					<strong>{{ token.name }}</strong>
-					<span class="cdx-docs-tokens-table__name__meta">
-						<p v-if="token.deprecated" class="cdx-docs-tokens-table__name__deprecated">
-							<strong>deprecated</strong>
-						</p>
-						<cdx-docs-copy-text-button :copy-text="token.name" />
-					</span>
-				</td>
-				<td class="cdx-docs-tokens-table__value">
-					<code>{{ token.value }}</code>
-					<div
-						v-if="hasTokenDemo"
-						class="cdx-docs-tokens-table__demo"
-						:class="[ demoClass, `${demoClass}--${tokenCategory}` ]"
+	<div class="cdx-docs-table-wrapper">
+		<table class="cdx-docs-tokens-table">
+			<caption>
+				<!-- Expose `table caption` content only to assistive technology users. -->
+				<span class="cdx-docs-is-visually-hidden">
+					List of design token names, values and metadata for
+					<code>{{ cssProperty }}</code>
+				</span>
+			</caption>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="( token, key ) in flattenedTokens" :key="key">
+					<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
+					<td
+						:id="token.name"
+						class="cdx-docs-tokens-table__name"
+						dir="ltr"
 					>
-						<component
-							:is="tokenDemo"
-							:class="[ `${demoClass}__token`, `${demoClass}__token--${token.name}` ]"
-							:token-value="token.value"
-							:css-property="cssProperty"
-							:style-target="styleTarget"
-						/>
-					</div>
-					<div class="cdx-docs-tokens-table__value-meta">
-						<p v-if="token.filePath">
-							Defined in <code>{{ token.filePath }}</code>
-						</p>
-						<p
-							v-for="referredTokenName in token.attributes.tokens"
-							:key="referredTokenName"
+						<strong>{{ token.name }}</strong>
+						<span class="cdx-docs-tokens-table__name__meta">
+							<p
+								v-if="token.deprecated"
+								class="cdx-docs-tokens-table__name__deprecated"
+							>
+								<strong>deprecated</strong>
+							</p>
+							<cdx-docs-copy-text-button :copy-text="token.name" />
+						</span>
+					</td>
+					<td class="cdx-docs-tokens-table__value">
+						<code>{{ token.value }}</code>
+						<div
+							v-if="hasTokenDemo"
+							class="cdx-docs-tokens-table__demo"
+							:class="[ demoClass, `${demoClass}--${tokenCategory}` ]"
 						>
-							Refers to <code>{{ referredTokenName }}</code>
-						</p>
-						<p v-if="token.comment">
-							<em>{{ token.comment }}</em>
-						</p>
-						<p v-if="typeof token.deprecated === 'string'">
-							<em>Deprecated: {{ token.deprecated }}</em>
-						</p>
-					</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+							<component
+								:is="tokenDemo"
+								:class="[ `${demoClass}__token`,
+									`${demoClass}__token--${token.name}` ]"
+								:token-value="token.value"
+								:css-property="cssProperty"
+								:style-target="styleTarget"
+							/>
+						</div>
+						<div class="cdx-docs-tokens-table__value-meta">
+							<p v-if="token.filePath">
+								Defined in <code>{{ token.filePath }}</code>
+							</p>
+							<p
+								v-for="referredTokenName in token.attributes.tokens"
+								:key="referredTokenName"
+							>
+								Refers to <code>{{ referredTokenName }}</code>
+							</p>
+							<p v-if="token.comment">
+								<em>{{ token.comment }}</em>
+							</p>
+							<p v-if="typeof token.deprecated === 'string'">
+								<em>Deprecated: {{ token.deprecated }}</em>
+							</p>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </template>
 
 <script lang="ts">

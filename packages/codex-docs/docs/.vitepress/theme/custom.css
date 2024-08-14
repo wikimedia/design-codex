@@ -564,6 +564,11 @@ body {
 	overflow: hidden;
 }
 
+.cdx-docs-table-wrapper {
+	/* Enable horizontal scroll on child tables. */
+	overflow-x: auto;
+}
+
 /* Make every tokens table content smaller aside of the token demo. */
 .vp-doc .cdx-docs-tokens-table__value {
 	font-size: var( --font-size-medium );
