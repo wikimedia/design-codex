@@ -10,12 +10,20 @@ import TooltipPosition from '@/../component-demos/tooltip/examples/TooltipPositi
 const controlsConfig = [
 	{
 		name: 'position',
-		type: 'radio',
-		options: [
-			'bottom',
-			'top',
-			'left',
-			'right'
+		type: 'select',
+		menuItems: [
+			{ value: 'bottom' },
+			{ value: 'bottom-start' },
+			{ value: 'bottom-end' },
+			{ value: 'top' },
+			{ value: 'top-start' },
+			{ value: 'top-end' },
+			{ value: 'right' },
+			{ value: 'right-start' },
+			{ value: 'right-end' },
+			{ value: 'left' },
+			{ value: 'left-start' },
+			{ value: 'left-end' }
 		]
 	},
 	{
@@ -219,7 +227,7 @@ The tooltip can be positioned to these values:
 ## Vue Usage
 
 The Tooltip component is implemented as a Vue.js
-[custom directive](https://vuejs.org/guide/reusability/custom-directives.html#custom-directives). 
+[custom directive](https://vuejs.org/guide/reusability/custom-directives.html#custom-directives).
 This means that rather than existing as a stand-alone component, it can be added
 to any component or markup element inside of a Vue.js template.
 
