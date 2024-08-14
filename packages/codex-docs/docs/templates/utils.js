@@ -51,7 +51,7 @@ export function getTypeText( item ) {
 	function processText( str ) {
 		const isUppercase = /^[A-Z]/;
 		const hasBrackets = /\[\]$/;
-		const toIgnore = [ 'Event', 'MouseEvent', 'InputEvent', 'KeyboardEvent', 'FocusEvent' ];
+		const toIgnore = [ 'Event', 'MouseEvent', 'InputEvent', 'KeyboardEvent', 'FocusEvent', 'NaN' ];
 		return str
 			.split( '|' )
 			.map( ( s ) => s.trim() )
