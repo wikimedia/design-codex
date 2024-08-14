@@ -389,7 +389,9 @@ type TextInputType = typeof TextInputTypes[ number ];
 
 ```ts
 interface ValidationMessages {
-	error?: string
+	warning?: string,
+	error?: string,
+	success?: string
 }
 ```
 
