@@ -5,11 +5,11 @@ outline: [ 2, 3 ]
 <script setup>
 import TooltipConfigurable from '@/../component-demos/tooltip/examples/TooltipConfigurable.vue';
 import TooltipBasic from '@/../component-demos/tooltip/examples/TooltipBasic.vue';
-import TooltipPosition from '@/../component-demos/tooltip/examples/TooltipPosition.vue';
+import TooltipPlacement from '@/../component-demos/tooltip/examples/TooltipPlacement.vue';
 
 const controlsConfig = [
 	{
-		name: 'position',
+		name: 'placement',
 		type: 'select',
 		menuItems: [
 			{ value: 'bottom' },
@@ -59,7 +59,7 @@ Refer to the [Tooltip component in Codex Figma](https://www.figma.com/design/KoD
 
 ### Types
 
-By default, the Tooltip appears beneath its trigger, but automatically moves based on the position of the trigger and the edge of the viewport. The default position can be set to one of four positions:
+By default, the Tooltip appears beneath its trigger, but automatically moves based on the placement of the trigger and the edge of the viewport. The default placement can be set to one of four options:
 1. Bottom
 2. Top
 3. Right
@@ -193,13 +193,13 @@ When you hover over the component or element, the tooltip displays additional in
 
 </cdx-demo-wrapper>
 
-### Custom position
+### Custom placement
 
-The default placement of the tooltip is the `bottom` position.
-Specify the tooltip's placement by using arguments in your directive like `v-tooltip:top`.
-The `top` argument specifies to position the tooltip on top of the reference element.
+The default placement of the tooltip is `bottom`. Specify the placement by using an argument in your
+directive like `v-tooltip:top`. The `top` argument places the tooltip on top of the reference
+element.
 
-The tooltip can be positioned to these values:
+The tooltip can appear in the following places:
 - `bottom`, `bottom-start`, `bottom-end`
 - `top`, `top-start`, `top-end`
 - `right`, `right-start`, `right-end`
@@ -207,16 +207,16 @@ The tooltip can be positioned to these values:
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<tooltip-position />
+	<tooltip-placement />
 </template>
 
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/tooltip/examples/TooltipPosition.vue [NPM]
+<<< @/../component-demos/tooltip/examples/TooltipPlacement.vue [NPM]
 
-<<< @/../component-demos/tooltip/examples-mw/TooltipPosition.vue [MediaWiki]
+<<< @/../component-demos/tooltip/examples-mw/TooltipPlacement.vue [MediaWiki]
 
 :::
 

@@ -1,7 +1,7 @@
 <template>
 	<cdx-button
-		:key="`${ textContent }-${ position }`"
-		v-tooltip:[position]="textContent"
+		:key="`${ textContent }-${ placement }`"
+		v-tooltip:[placement]="textContent"
 	>
 		Button with Tooltip
 	</cdx-button>
@@ -22,7 +22,7 @@ export default defineComponent( {
 			type: String,
 			default: ''
 		},
-		position: {
+		placement: {
 			type: String,
 			default: ''
 		}

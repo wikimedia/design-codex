@@ -9,7 +9,7 @@ import { defineComponent } from 'vue';
 import { CdxButton, CdxTooltip } from '@wikimedia/codex';
 
 export default defineComponent( {
-	name: 'TooltipPosition',
+	name: 'TooltipPlacement',
 	components: { CdxButton },
 	directives: {
 		tooltip: CdxTooltip
