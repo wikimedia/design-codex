@@ -358,7 +358,6 @@ font-size: 14px; /* 14 sp equivalent */
 
 .cdx-docs-contrast {
 	.cdx-demo-rules__media {
-		background-color: @background-color-interactive;
 		padding: @spacing-200;
 	}
 
@@ -367,7 +366,6 @@ font-size: 14px; /* 14 sp equivalent */
 		// enough for this example.
 		/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 		color: #a2a9b1;
-		border-bottom-color: @color-error;
 	}
 
 	.cdx-demo-rules__do .cdx-demo-rules__media {
