@@ -136,6 +136,7 @@ export default defineComponent( {
 		 * Configuration for various menu features. All properties default to false.
 		 *
 		 * See the MenuConfig type.
+		 * @default {}
 		 */
 		menuConfig: {
 			type: Object as PropType<MenuConfig>,

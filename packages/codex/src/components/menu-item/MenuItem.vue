@@ -258,6 +258,7 @@ export default defineComponent( {
 		 *
 		 * If included, that language code will be added as a `lang` attribute to the element
 		 * wrapping that text node.
+		 * @default {}
 		 */
 		language: {
 			type: Object as PropType<MenuItemLanguageData>,

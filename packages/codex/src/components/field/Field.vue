@@ -133,6 +133,7 @@ export default defineComponent( {
 		},
 		/**
 		 * Message text keyed on validation status type.
+		 * @default {}
 		 */
 		messages: {
 			type: Object as PropType<ValidationMessages>,
