@@ -1,12 +1,16 @@
 <template>
-	<div class="cdx-toggle-button-group">
+	<div ref="rootElement" class="cdx-toggle-button-group">
 		<cdx-toggle-button
-			v-for="button in buttons"
+			v-for="( button, index ) in buttons"
 			:key="button.value"
+			:ref="( ref ) => assignTemplateRef( ref, index )"
 			:model-value="isSelected( button )"
 			:disabled="button.disabled || disabled"
 			:aria-label="button.ariaLabel"
 			@update:model-value="onUpdate( button, $event )"
+			@focus="onFocus( index )"
+			@blur="onBlur"
+			@keydown="onKeydown"
 		>
 			<!--
 				@slot Content of an individual button
@@ -22,9 +26,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, toRef } from 'vue';
 import { ButtonGroupItem } from '../../types';
 import { getButtonLabel } from '../../utils/buttonHelpers';
+import useButtonGroupKeyboardNav from '../../composables/useButtonGroupKeyboardNav';
 import CdxIcon from '../icon/Icon.vue';
 import CdxToggleButton from '../toggle-button/ToggleButton.vue';
 
@@ -83,6 +88,14 @@ export default defineComponent( {
 		'update:modelValue'
 	],
 	setup( props, { emit } ) {
+		const {
+			rootElement,
+			assignTemplateRef,
+			onFocus,
+			onBlur,
+			onKeydown
+		} = useButtonGroupKeyboardNav( toRef( props, 'buttons' ) );
+
 		function isSelected( button: ButtonGroupItem ): boolean {
 			if ( Array.isArray( props.modelValue ) ) {
 				return props.modelValue.indexOf( button.value ) !== -1;
@@ -115,6 +128,11 @@ export default defineComponent( {
 		}
 
 		return {
+			rootElement,
+			assignTemplateRef,
+			onFocus,
+			onBlur,
+			onKeydown,
 			getButtonLabel,
 			isSelected,
 			onUpdate

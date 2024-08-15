@@ -1,11 +1,15 @@
 <template>
-	<div class="cdx-button-group">
+	<div ref="rootElement" class="cdx-button-group">
 		<cdx-button
-			v-for="button in buttons"
+			v-for="( button, index ) in buttons"
 			:key="button.value"
+			:ref="( ref ) => assignTemplateRef( ref, index )"
 			:disabled="button.disabled || disabled"
 			:aria-label="button.ariaLabel"
 			@click="$emit( 'click', button.value )"
+			@focus="onFocus( index )"
+			@blur="onBlur"
+			@keydown="onKeydown"
 		>
 			<!--
 				@slot Content of an individual button
@@ -20,9 +24,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, toRef } from 'vue';
 import { ButtonGroupItem } from '../../types';
 import { getButtonLabel } from '../../utils/buttonHelpers';
+import useButtonGroupKeyboardNav from '../../composables/useButtonGroupKeyboardNav';
 import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 
@@ -63,8 +68,21 @@ export default defineComponent( {
 		 */
 		'click'
 	],
-	setup() {
+	setup( props ) {
+		const {
+			rootElement,
+			assignTemplateRef,
+			onFocus,
+			onBlur,
+			onKeydown
+		} = useButtonGroupKeyboardNav( toRef( props, 'buttons' ) );
+
 		return {
+			rootElement,
+			assignTemplateRef,
+			onFocus,
+			onBlur,
+			onKeydown,
 			getButtonLabel
 		};
 	}
