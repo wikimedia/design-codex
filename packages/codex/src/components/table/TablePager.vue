@@ -208,6 +208,7 @@ export default defineComponent( {
 	}
 
 	&__start {
+		.cdx-select,
 		.cdx-select-vue__handle {
 			min-width: @size-800;
 		}

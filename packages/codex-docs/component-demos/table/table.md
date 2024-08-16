@@ -7,6 +7,7 @@ import TableWithSort from '@/../component-demos/table/examples/TableWithSort.vue
 import TableWithSelection from '@/../component-demos/table/examples/TableWithSelection.vue';
 import TableWithSelectionAndSort from '@/../component-demos/table/examples/TableWithSelectionAndSort.vue';
 import TableWithPagination from '@/../component-demos/table/examples/TableWithPagination.vue';
+import { ref, onMounted } from 'vue';
 
 const controlsConfig = [
 	{
@@ -49,6 +50,23 @@ const data = [
 	{ athlete: 'Gaston Strobino', nation: 'United States', rank: 3, time: '2:38:42.4' },
 	{ athlete: 'Shizo Kanakuri', nation: 'Japan', rank: 36, time: '54:08:06:05:32:20.3' }
 ];
+
+const url = ref(null);
+const rowsPerPage = ref(10);
+
+onMounted(() => {
+	url.value = new URL(window.location.href);
+	url.value.hash = 'css-only-version';
+	const searchParams = new URLSearchParams(window.location.search);
+	rowsPerPage.value = parseInt(searchParams.get('rows') || '10', 10);
+ });
+
+const handleRowsChange = (event) => {
+	rowsPerPage.value = event.target.value;
+	url.value.searchParams.set('rows', rowsPerPage.value);
+	window.location.href = url.value.href; // Redirect to the updated URL
+};
+
 </script>
 
 A Table is a structural component used to arrange data in rows and columns to facilitate the
@@ -281,7 +299,7 @@ selection will allow users to target the Table items to be manipulated.
 
 - Use primary Buttons to represent Table actions, since they could compete with main page actions.
   (Exceptions might apply).
-- Use icon-only buttons to represent header actions, since they might complicate understanding. 
+- Use icon-only buttons to represent header actions, since they might complicate understanding.
 - Use several individual buttons when the Table’s width is limited. Instead, use a MenuButton to group all related actions.
 
 </template>
@@ -1445,3 +1463,315 @@ that indicates that there's no data available.
 ```
 </template>
 </cdx-demo-wrapper>
+
+
+### Table Pagination
+
+This example demonstrates the markup structure that should be used for visual parity with
+the Vue.js version of the paginated Table component. In a real-world scenario, the `<form>`
+`action` and `<button>` values will need to be set in a way that corresponds with whatever
+back-end is being used. Typical usage will involve a GET request to the URL specified in
+the form `action`, with the select and button values mapped to specific URL parameters.
+
+Buttons for first, next, previous, and last pages use the `cdx-button--icon-only` class.
+Additional imports are needed, and more information on how to use them can be found
+[here](https://doc.wikimedia.org/codex/main/components/demos/button.html#icon-only-button-1).
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<!-- Wrapper div. -->
+	<div class="cdx-table">
+		<!-- Header content. -->
+		<div class="cdx-table__header">
+			<!-- Visible table caption. It is hidden from assistive technology since
+				there is an accessible <caption> in the <table> element. If you add
+				content to the header content div below, remove `aria-hidden` here to
+				ensure the caption is announced first. -->
+			<div class="cdx-table__header__caption" aria-hidden="true">
+				F1 Racing Teams
+			</div>
+			<!-- Additional header content goes here if needed. -->
+			<div class="cdx-table__header__header-content"></div>
+		</div>
+		<!-- Wrapper around the table element. Needed for horizontal scroll. -->
+		<div class="cdx-table__table-wrapper">
+			<!-- Table element. -->
+			<table class="cdx-table__table">
+				<!-- Visually-hidden caption element, for assistive technology.
+					Do not omit this! -->
+				<caption>
+					F1 Racing Teams
+				</caption>
+				<thead>
+					<tr>
+						<th scope="col">
+							<span class="cdx-table__th-content">Team</span>
+						</th>
+						<th scope="col">
+							<span class="cdx-table__th-content">Driver One</span>
+						</th>
+						<th scope="col">
+							<span class="cdx-table__th-content">Driver Two</span>
+						</th>
+						<th scope="col">
+							<span class="cdx-table__th-content">Constructors' Points</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Mercedes</td>
+						<td>Lewis Hamilton</td>
+						<td>George Russell</td>
+						<td>213</td>
+					</tr>
+					<tr>
+						<td>Red Bull</td>
+						<td>Max Verstappen</td>
+						<td>Sergio Perez</td>
+						<td>234</td>
+					</tr>
+					<tr>
+						<td>McLaren</td>
+						<td>Lando Norris</td>
+						<td>Oscar Piastri</td>
+						<td>123</td>
+					</tr>
+					<tr>
+						<td>Ferrari</td>
+						<td>Carlos Sainz</td>
+						<td>Charles Leclerc</td>
+						<td>100</td>
+					</tr>
+					<tr>
+						<td>Alpine</td>
+						<td>Esteban Ocon</td>
+						<td>Pierre Gasly</td>
+						<td>85</td>
+					</tr>
+					<tr>
+						<td>Alfa Romeo</td>
+						<td>Valtteri Bottas</td>
+						<td>Guanyu Zhou</td>
+						<td>60</td>
+					</tr>
+					<tr>
+						<td>Aston Martin</td>
+						<td>Fernando Alonso</td>
+						<td>Lance Stroll</td>
+						<td>95</td>
+					</tr>
+					<tr>
+						<td>Haas</td>
+						<td>Kevin Magnussen</td>
+						<td>Mick Schumacher</td>
+						<td>50</td>
+					</tr>
+					<tr>
+						<td>Williams</td>
+						<td>Alexander Albon</td>
+						<td>Logan Sargeant</td>
+						<td>30</td>
+					</tr>
+					<tr>
+						<td>AlphaTauri</td>
+						<td>Yuki Tsunoda</td>
+						<td>Nyck de Vries</td>
+						<td>40</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<form method="get" :action="url">
+			<div class="cdx-table-pager cdx-table__pagination--bottom">
+				<div class="cdx-table-pager__start">
+		 			<select class="cdx-select" name="rows" :value="rowsPerPage"  @change="handleRowsChange">
+						<option value="10">10 rows</option>
+						<option value="25">25 rows</option>
+						<option value="50">50 rows</option>
+					</select>
+				</div>
+				<div class="cdx-table-pager__center">
+					<div class="cdx-table__pagination-status--long">
+						Showing results 1 - 10 of 52
+					</div>
+				</div>
+				<div class="cdx-table-pager__end">
+	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="First Page">
+						<span class="cdx-button__icon cdx-demo-css-icon--move-first"></span>
+					</button>
+	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Previous Page">
+						<span class="cdx-button__icon cdx-demo-css-icon--previous"></span>
+					</button>
+	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Next Page">
+						<span class="cdx-button__icon cdx-demo-css-icon--next"></span>
+					</button>
+	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Last Page">
+						<span class="cdx-button__icon cdx-demo-css-icon--move-last"></span>
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+<template v-slot:code>
+
+```html-vue
+	<!-- Wrapper div. -->
+	<div class="cdx-table">
+		<!-- Header content. -->
+		<div class="cdx-table__header">
+			<!-- Visible table caption. It is hidden from assistive technology since
+				there is an accessible <caption> in the <table> element. If you add
+				content to the header content div below, remove `aria-hidden` here to
+				ensure the caption is announced first. -->
+			<div class="cdx-table__header__caption" aria-hidden="true">
+				F1 Racing Teams
+			</div>
+			<!-- Additional header content goes here if needed. -->
+			<div class="cdx-table__header__header-content"></div>
+		</div>
+		<!-- Wrapper around the table element. Needed for horizontal scroll. -->
+		<div class="cdx-table__table-wrapper">
+			<!-- Table element. -->
+			<table class="cdx-table__table">
+				<!-- Visually-hidden caption element, for assistive technology.
+					Do not omit this! -->
+				<caption>
+					F1 Racing Teams
+				</caption>
+				<thead>
+					<tr>
+						<th scope="col">
+							<span class="cdx-table__th-content">Team</span>
+						</th>
+						<th scope="col">
+							<span class="cdx-table__th-content">Driver One</span>
+						</th>
+						<th scope="col">
+							<span class="cdx-table__th-content">Driver Two</span>
+						</th>
+						<th scope="col">
+							<span class="cdx-table__th-content">Constructors' Points</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Mercedes</td>
+						<td>Lewis Hamilton</td>
+						<td>George Russell</td>
+						<td>213</td>
+					</tr>
+					<tr>
+						<td>Red Bull</td>
+						<td>Max Verstappen</td>
+						<td>Sergio Perez</td>
+						<td>234</td>
+					</tr>
+					<tr>
+						<td>McLaren</td>
+						<td>Lando Norris</td>
+						<td>Oscar Piastri</td>
+						<td>123</td>
+					</tr>
+					<tr>
+						<td>Ferrari</td>
+						<td>Carlos Sainz</td>
+						<td>Charles Leclerc</td>
+						<td>100</td>
+					</tr>
+					<tr>
+						<td>Alpine</td>
+						<td>Esteban Ocon</td>
+						<td>Pierre Gasly</td>
+						<td>85</td>
+					</tr>
+					<tr>
+						<td>Alfa Romeo</td>
+						<td>Valtteri Bottas</td>
+						<td>Guanyu Zhou</td>
+						<td>60</td>
+					</tr>
+					<tr>
+						<td>Aston Martin</td>
+						<td>Fernando Alonso</td>
+						<td>Lance Stroll</td>
+						<td>95</td>
+					</tr>
+					<tr>
+						<td>Haas</td>
+						<td>Kevin Magnussen</td>
+						<td>Mick Schumacher</td>
+						<td>50</td>
+					</tr>
+					<tr>
+						<td>Williams</td>
+						<td>Alexander Albon</td>
+						<td>Logan Sargeant</td>
+						<td>30</td>
+					</tr>
+					<tr>
+						<td>AlphaTauri</td>
+						<td>Yuki Tsunoda</td>
+						<td>Nyck de Vries</td>
+						<td>40</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<form method="get" :action="url">
+			<div class="cdx-table-pager cdx-table__pagination--bottom">
+				<div class="cdx-table-pager__start">
+		 			<select class="cdx-select" name="rows">
+						<option value="10">10 rows</option>
+						<option value="25">25 rows</option>
+						<option value="50">50 rows</option>
+					</select>
+				</div>
+				<div class="cdx-table-pager__center">
+					<div class="cdx-table__pagination-status--long">
+						Showing results 1 - 10 of 52
+					</div>
+				</div>
+				<div class="cdx-table-pager__end">
+	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="First Page">
+						<span class="cdx-button__icon cdx-demo-css-icon--move-first"></span>
+					</button>
+	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Previous Page">
+						<span class="cdx-button__icon cdx-demo-css-icon--previous"></span>
+					</button>
+	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Next Page">
+						<span class="cdx-button__icon cdx-demo-css-icon--next"></span>
+					</button>
+	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Last Page">
+						<span class="cdx-button__icon cdx-demo-css-icon--move-last"></span>
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+```
+</template>
+</cdx-demo-wrapper>
+
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon--move-first {
+	.cdx-mixin-css-icon( @cdx-icon-move-first, @param-is-button-icon: true );
+}
+
+.cdx-demo-css-icon--previous {
+	.cdx-mixin-css-icon( @cdx-icon-previous, @param-is-button-icon: true );
+}
+
+.cdx-demo-css-icon--next {
+	.cdx-mixin-css-icon( @cdx-icon-next, @param-is-button-icon: true );
+}
+
+.cdx-demo-css-icon--move-last {
+	.cdx-mixin-css-icon( @cdx-icon-move-last, @param-is-button-icon: true );
+}
+</style>
