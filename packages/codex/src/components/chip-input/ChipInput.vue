@@ -306,7 +306,7 @@ export default defineComponent( {
 			// We don't do this in onInputBlur() because that is also called when the focus moves
 			// from the input to one of the chips.
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			if ( !rootElement.value!.contains( e.relatedTarget as Node ) ) {
+			if ( !rootElement.value?.contains( e.relatedTarget as Node ) ) {
 				addChip();
 			}
 		}
