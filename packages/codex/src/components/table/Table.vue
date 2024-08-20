@@ -1058,7 +1058,8 @@ export default defineComponent( {
 			// Override browser <button> styles for border.
 			border: 0;
 			padding: @spacing-75;
-			font-size: @font-size-medium;
+			font-family: inherit;
+			font-size: inherit;
 			font-weight: @font-weight-bold;
 			line-height: @line-height-x-small;
 			text-align: left;
