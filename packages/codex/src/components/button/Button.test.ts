@@ -60,17 +60,17 @@ it( 'emits click events', async () => {
 describe( 'when pressed via keyboard', () => {
 	it( 'looks active on space keydown, then not on keyup', async () => {
 		const wrapper = shallowMount( CdxButton );
-		await wrapper.get( 'button' ).trigger( 'keydown.space' );
+		await wrapper.get( 'button' ).trigger( 'keydown', { key: ' ' } );
 		expect( wrapper.element.classList ).toContain( 'cdx-button--is-active' );
-		await wrapper.get( 'button' ).trigger( 'keyup.space' );
+		await wrapper.get( 'button' ).trigger( 'keyup', { key: ' ' } );
 		expect( wrapper.element.classList ).not.toContain( 'cdx-button--is-active' );
 	} );
 
 	it( 'looks active on enter keydown, then not on keyup', async () => {
 		const wrapper = shallowMount( CdxButton );
-		await wrapper.get( 'button' ).trigger( 'keydown.enter' );
+		await wrapper.get( 'button' ).trigger( 'keydown', { key: 'Enter' } );
 		expect( wrapper.element.classList ).toContain( 'cdx-button--is-active' );
-		await wrapper.get( 'button' ).trigger( 'keyup.enter' );
+		await wrapper.get( 'button' ).trigger( 'keyup', { key: 'Enter' } );
 		expect( wrapper.element.classList ).not.toContain( 'cdx-button--is-active' );
 	} );
 } );

@@ -64,7 +64,7 @@ describe( 'ToggleSwitch', () => {
 		const input = wrapper.find( 'input' ).element as HTMLInputElement;
 		input.click = jest.fn();
 
-		await wrapper.find( 'input' ).trigger( 'keydown.enter' );
+		await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
 
 		expect( input.click ).toHaveBeenCalled();
 	} );

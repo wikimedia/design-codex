@@ -151,7 +151,7 @@ describe( 'When used along with child Tab components', () => {
 				slots: { default: slotMarkup }
 			} );
 			const tab = wrapper.get( '.cdx-tabs__list__item' );
-			await tab.trigger( 'keydown.right' );
+			await tab.trigger( 'keydown', { key: 'ArrowRight' } );
 			const emitted = wrapper.emitted()[ 'update:active' ][ 0 ];
 			expect( emitted ).toEqual( [ tabData[ 1 ].name ] );
 		} );
@@ -163,7 +163,7 @@ describe( 'When used along with child Tab components', () => {
 				slots: { default: slotMarkup }
 			} );
 			const tab = wrapper.get( '.cdx-tabs__list__item' );
-			await tab.trigger( 'keydown.left' );
+			await tab.trigger( 'keydown', { key: 'ArrowLeft' } );
 			const emitted = wrapper.emitted()[ 'update:active' ][ 0 ];
 			expect( emitted ).toEqual( [ tabData[ 0 ].name ] );
 		} );
@@ -279,7 +279,7 @@ describe( 'When used along with child Tab components', () => {
 				attachTo: '#attach'
 			} );
 			const tab = wrapper.get( '.cdx-tabs__list__item' );
-			await tab.trigger( 'keydown.right' );
+			await tab.trigger( 'keydown', { key: 'ArrowRight' } );
 			const emitted = wrapper.emitted()[ 'update:active' ][ 0 ];
 			expect( emitted ).toEqual( [ tabData[ 0 ].name ] );
 		} );
@@ -292,7 +292,7 @@ describe( 'When used along with child Tab components', () => {
 				attachTo: '#attach'
 			} );
 			const tab = wrapper.get( '.cdx-tabs__list__item' );
-			await tab.trigger( 'keydown.left' );
+			await tab.trigger( 'keydown', { key: 'ArrowLeft' } );
 			const emitted = wrapper.emitted()[ 'update:active' ][ 0 ];
 			expect( emitted ).toEqual( [ tabData[ 1 ].name ] );
 		} );

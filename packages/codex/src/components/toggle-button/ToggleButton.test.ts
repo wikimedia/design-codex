@@ -88,17 +88,17 @@ describe( 'ToggleButton', () => {
 	describe( 'when pressed via keyboard', () => {
 		it( 'looks active on space keydown, then not on keyup', async () => {
 			const wrapper = shallowMount( CdxToggleButton, { props: { modelValue: true } } );
-			await wrapper.get( 'button' ).trigger( 'keydown.space' );
+			await wrapper.get( 'button' ).trigger( 'keydown', { key: ' ' } );
 			expect( wrapper.element.classList ).toContain( 'cdx-toggle-button--is-active' );
-			await wrapper.get( 'button' ).trigger( 'keyup.space' );
+			await wrapper.get( 'button' ).trigger( 'keyup', { key: ' ' } );
 			expect( wrapper.element.classList ).not.toContain( 'cdx-toggle-button--is-active' );
 		} );
 
 		it( 'looks active on enter keydown, then not on keyup', async () => {
 			const wrapper = shallowMount( CdxToggleButton, { props: { modelValue: true } } );
-			await wrapper.get( 'button' ).trigger( 'keydown.enter' );
+			await wrapper.get( 'button' ).trigger( 'keydown', { key: 'Enter' } );
 			expect( wrapper.element.classList ).toContain( 'cdx-toggle-button--is-active' );
-			await wrapper.get( 'button' ).trigger( 'keyup.enter' );
+			await wrapper.get( 'button' ).trigger( 'keyup', { key: 'Enter' } );
 			expect( wrapper.element.classList ).not.toContain( 'cdx-toggle-button--is-active' );
 		} );
 	} );
