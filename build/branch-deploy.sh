@@ -7,10 +7,8 @@ set -e
 # variables are stored as secrets in Jenkins and can only be viewed and changed by Jenkins admins
 # through the Jenkins web UI.
 
-CODEX_BRANCH_DEPLOY=1
-CODEX_PATCH_ID=$ZUUL_CHANGE
+CODEX_BRANCH_DEPLOY=1 CODEX_PATCH_ID=$ZUUL_CHANGE npm run doc
 
-npm run doc
 npx netlify deploy \
     --auth $BRANCHDEPLOY_AUTH_TOKEN \
     --site $BRANCHDEPLOY_SITE_ID \
