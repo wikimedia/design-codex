@@ -13,6 +13,7 @@ Patch Contributors (minor contributors, alphabetically)
 Akiel <akiel@fandom.com>
 Bartosz Dziewoński <dziewonski@fastmail.fm>
 bwang <bwang@wikimedia.org>
+Daphne Smit <dsmit@wikimedia.org>
 ddw <ddwaal-ctr@wikimedia.org>
 didier-ds <didiersenou94@gmail.com>
 Ed Sanders <esanders@wikimedia.org>
@@ -25,6 +26,7 @@ Martin Urbanec <martin.urbanec@wikimedia.cz>
 Michael Große <michael.grosse@wikimedia.de>
 MusikAnimal <musikanimal@gmail.com>
 Noa Rave <noa.rave@wikimedia.de>
+NunyaKlah <nunyaklah@gmail.com>
 Sergio Gimeno <sgimeno@wikimedia.org>
 sunyiming <seedless_steven@outlook.com>
 szymonswiergosz <szymon.swiergosz@gmail.com>
