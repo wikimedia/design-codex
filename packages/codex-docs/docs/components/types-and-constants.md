@@ -74,6 +74,12 @@ interface ChipInputItem {
 }
 ```
 
+### ChipValidator
+
+```ts
+type ChipValidator = ( value: string ) => boolean;
+```
+
 ### DialogAction
 
 ```ts

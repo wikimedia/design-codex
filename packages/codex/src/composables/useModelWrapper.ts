@@ -21,7 +21,7 @@ export default function useModelWrapper<ModelValue, EventName extends string>(
 ) : WritableComputedRef<ModelValue>;
 
 /**
- * Returns an editable computed property that is emits an event when changed.
+ * Returns an editable computed property that emits an event when changed.
  *
  * This is useful when v-model will be set on a component in the parent, but that modelValue needs
  * to be bound via v-model to an input within the component. We can't just reuse the first

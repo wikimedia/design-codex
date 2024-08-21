@@ -7,6 +7,7 @@ import ChipInputWithIcons from '@/../component-demos/chip-input/examples/ChipInp
 import ChipInputWithPlaceholder from '@/../component-demos/chip-input/examples/ChipInputWithPlaceholder.vue';
 import ChipInputDisabled from '@/../component-demos/chip-input/examples/ChipInputDisabled.vue';
 import ChipInputField from '@/../component-demos/chip-input/examples/ChipInputField.vue';
+import ChipInputWithLimit from '@/../component-demos/chip-input/examples/ChipInputWithLimit.vue';
 
 const controlsConfig = [
 	{
@@ -245,6 +246,37 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 <<< @/../component-demos/chip-input/examples/ChipInputField.vue [NPM]
 
 <<< @/../component-demos/chip-input/examples-mw/ChipInputField.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### With chip validation
+
+To test chip text before a new chip is added, pass in a validation function via the `chipValidator`
+prop. If the chip text fails validation, a new chip will not be added and the "error" status will be
+set.
+
+If you need access to the current value of the text input, for validation or other purposes, you can
+use `v-model` to bind a string ref to the ChipInput, just like you would with a
+[TextInput](./text-input.md#default).
+
+In the example below, the input value is bound with `v-model` and is used to show the number of
+remaining characters allowed as the user is typing. A `chipValidator` is passed in that tests
+whether the text is 10 or fewer characters.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<chip-input-with-limit />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/chip-input/examples/ChipInputWithLimit.vue [NPM]
+
+<<< @/../component-demos/chip-input/examples-mw/ChipInputWithLimit.vue [MediaWiki]
 
 :::
 

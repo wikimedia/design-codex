@@ -30,7 +30,7 @@
 			<input
 				v-if="!separateInput"
 				ref="input"
-				v-model="inputValue"
+				v-model="computedInputValue"
 				class="cdx-chip-input__input"
 				:disabled="computedDisabled"
 				v-bind="otherAttrs"
@@ -43,7 +43,7 @@
 		<div v-if="separateInput" class="cdx-chip-input__separate-input">
 			<input
 				ref="input"
-				v-model="inputValue"
+				v-model="computedInputValue"
 				class="cdx-chip-input__input"
 				:disabled="computedDisabled"
 				v-bind="otherAttrs"
@@ -59,11 +59,12 @@
 import { defineComponent, computed, ref, watch, toRef, nextTick, ComponentPublicInstance, PropType } from 'vue';
 import CdxInputChip from '../input-chip/InputChip.vue';
 import { ValidationStatusTypes } from '../../constants';
-import { ChipInputItem, ValidationStatusType } from '../../types';
+import { ChipInputItem, ChipValidator, ValidationStatusType } from '../../types';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useFieldData from '../../composables/useFieldData';
 import useComputedDirection from '../../composables/useComputedDirection';
+import useOptionalModelWrapper from '../../composables/useOptionalModelWrapper';
 
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
@@ -91,6 +92,16 @@ export default defineComponent( {
 			required: true
 		},
 		/**
+		 * Current value of the text input. This prop is optional and should only be used if you
+		 * need to keep track of the text input value for some reason (e.g. for validation).
+		 *
+		 * Optionally provided by `v-model:input-value` binding in the parent component.
+		 */
+		inputValue: {
+			type: String,
+			default: null
+		},
+		/**
 		 * Whether the text input should appear below the set of input chips.
 		 *
 		 * By default, the input chips are inline with the input.
@@ -108,6 +119,15 @@ export default defineComponent( {
 			validator: statusValidator
 		},
 		/**
+		 * Validation function for chip text. If it returns false, the chip will not be added and
+		 * the error status will be set.
+		 */
+		chipValidator: {
+			type: Function as PropType<ChipValidator>,
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			default: ( value: string ) => true
+		},
+		/**
 		 * Whether the input is disabled.
 		 */
 		disabled: {
@@ -121,14 +141,28 @@ export default defineComponent( {
 		 *
 		 * @property {ChipInputItem[]} inputChips The new set of inputChips
 		 */
-		'update:input-chips'
+		'update:input-chips',
+		/**
+		 * When the input value changes. Only emitted if the inputValue prop is provided.
+		 *
+		 * @property {string | number} inputValue The new input value
+		 */
+		'update:input-value'
 	],
 	setup( props, { emit, attrs } ) {
 		const rootElement = ref<HTMLDivElement>();
 		const computedDirection = useComputedDirection( rootElement );
 		const input = ref<HTMLInputElement>();
-		// The value in the input element.
-		const inputValue = ref( '' );
+
+		// Ref used if the inputValue prop is omitted.
+		const internalInputValue = ref( '' );
+		const computedInputValue = useOptionalModelWrapper(
+			internalInputValue,
+			toRef( props, 'inputValue' ),
+			emit,
+			'update:input-value'
+		);
+
 		// Internally validated status. Currently only changes to 'error' when there are duplicates.
 		const validatedStatus = ref( 'default' );
 		const internalStatus = computed( () => {
@@ -179,12 +213,16 @@ export default defineComponent( {
 		 * Adds a new chip with the current input value, then clears the input.
 		 */
 		function addChip() {
-			// If the input value is the same as a chip's value, set error status.
-			if ( props.inputChips.find( ( chip ) => chip.value === inputValue.value ) ) {
+			if (
+				// If the input value is the same as a chip's value, or...
+				!!props.inputChips.find( ( chip ) => chip.value === computedInputValue.value ) ||
+				// ...validation fails, set status to error.
+				!props.chipValidator( computedInputValue.value )
+			) {
 				validatedStatus.value = 'error';
-			} else if ( inputValue.value.length > 0 ) {
-				emit( 'update:input-chips', props.inputChips.concat( { value: inputValue.value } ) );
-				inputValue.value = '';
+			} else if ( computedInputValue.value.length > 0 ) {
+				emit( 'update:input-chips', props.inputChips.concat( { value: computedInputValue.value } ) );
+				computedInputValue.value = '';
 			}
 		}
 
@@ -219,7 +257,7 @@ export default defineComponent( {
 			// otherwise we'll lose the newly added chip when removeChip() fires another event
 			await nextTick();
 			removeChip( clickedChip );
-			inputValue.value = clickedChip.value;
+			computedInputValue.value = clickedChip.value;
 			focusInput();
 		}
 
@@ -259,7 +297,7 @@ export default defineComponent( {
 			const prevArrow = computedDirection.value === 'rtl' ? 'ArrowRight' : 'ArrowLeft';
 			switch ( e.key ) {
 				case 'Enter':
-					if ( inputValue.value.length > 0 ) {
+					if ( computedInputValue.value.length > 0 ) {
 						addChip();
 						// If the ChipInput is in a <form>, prevent the Enter key from submitting
 						// the form if the input is non-empty and we're adding a chip, but allow
@@ -316,11 +354,11 @@ export default defineComponent( {
 			// This covers the case of adding chip with value 'asdf', typing 'asdf' into the input
 			// (which changes the status to error), then removing the 'asdf' chip. In this case,
 			// the status should be changed back to default.
-			const matchingChip = newVal.find( ( chip ) => chip.value === inputValue.value );
+			const matchingChip = newVal.find( ( chip ) => chip.value === computedInputValue.value );
 			validatedStatus.value = matchingChip ? 'error' : 'default';
 		} );
 
-		watch( inputValue, () => {
+		watch( computedInputValue, () => {
 			// Clear the error state when the input value is changed.
 			if ( validatedStatus.value === 'error' ) {
 				validatedStatus.value = 'default';
@@ -330,7 +368,7 @@ export default defineComponent( {
 		return {
 			rootElement,
 			input,
-			inputValue,
+			computedInputValue,
 			rootClasses,
 			rootStyle,
 			otherAttrs,

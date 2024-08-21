@@ -212,6 +212,9 @@ export interface ChipInputItem {
 }
 
 /** @public */
+export type ChipValidator = ( value: string ) => boolean;
+
+/** @public */
 export interface TableColumn {
 	id: string,
 	label?: string,

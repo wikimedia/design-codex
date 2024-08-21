@@ -143,6 +143,16 @@ describe( 'Basic usage', () => {
 
 	} );
 
+	it( 'does not emit update:input-value events', async () => {
+		const wrapper = shallowMount( CdxChipInput, { props: {
+			inputChips: []
+		} } );
+		const inputElement = wrapper.find( 'input' );
+		await inputElement.setValue( 'New Chip' );
+
+		expect( wrapper.emitted( 'update:input-value' ) ).toBeFalsy();
+	} );
+
 	describe( 'when a duplicate chip is added', () => {
 		it( 'does not emit the update:input-chips event', async () => {
 			const wrapper = shallowMount( CdxChipInput, { props: {
@@ -199,6 +209,70 @@ describe( 'Basic usage', () => {
 			await inputElement.setValue( 'Do not duplicate chipss' );
 			expect( wrapper.classes() ).not.toContain( 'cdx-chip-input--status-error' );
 		} );
+	} );
+} );
+
+describe( 'with inputValue', () => {
+	describe( 'when text is added to the input', () => {
+		it( 'emits an update:modelWrapper event', async () => {
+			const wrapper = shallowMount( CdxChipInput, { props: {
+				inputChips: [],
+				inputValue: ''
+			} } );
+			await wrapper.get( 'input' ).setValue( 'New chip' );
+
+			expect( wrapper.emitted( 'update:input-value' ) ).toBeTruthy();
+			expect( wrapper.emitted( 'update:input-value' )?.[ 0 ] ).toEqual( [ 'New chip' ] );
+		} );
+
+		describe( 'and the chip is submitted', () => {
+			it( 'adds the new chip', async () => {
+				const wrapper = shallowMount( CdxChipInput, { props: {
+					inputChips: [],
+					inputValue: ''
+				} } );
+				const inputElement = wrapper.get( 'input' );
+				await inputElement.setValue( 'New Chip' );
+				// Simulate v-model.
+				await wrapper.setProps( { inputValue: 'New Chip' } );
+
+				await inputElement.trigger( 'keydown', { key: 'Enter' } );
+
+				expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
+				expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'New Chip' } ] ] );
+			} );
+		} );
+	} );
+} );
+
+describe( 'with chip validator', () => {
+	it( 'adds a chip when validator passes', async () => {
+		const wrapper = shallowMount( CdxChipInput, { props: {
+			inputChips: [],
+			chipValidator: ( value: string ) => value.length < 10
+		} } );
+
+		const inputElement = wrapper.get( 'input' );
+		await inputElement.setValue( 'New Chip' );
+		await inputElement.trigger( 'keydown', { key: 'Enter' } );
+
+		expect( wrapper.emitted( 'update:input-chips' ) ).toBeTruthy();
+		expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'New Chip' } ] ] );
+		expect( wrapper.element.classList ).not.toContain( 'cdx-chip-input--status-error' );
+	} );
+
+	it( 'does not add a chip when validator fails', async () => {
+		const wrapper = shallowMount( CdxChipInput, { props: {
+			inputChips: [],
+			chipValidator: ( value: string ) => value.length < 10
+		} } );
+
+		const inputElement = wrapper.get( 'input' );
+		await inputElement.setValue( 'Longer chip text' );
+		await inputElement.trigger( 'keydown', { key: 'Enter' } );
+
+		expect( wrapper.emitted( 'update:input-chips' ) ).toBeFalsy();
+		expect( wrapper.element.classList ).toContain( 'cdx-chip-input--status-error' );
 	} );
 } );
 
