@@ -138,6 +138,7 @@ published version. This involves the following steps:
   - Run `manageForeignResources.php make-sri` to get the new integrity hash
   - Update the integrity hash in `foreign-resources.yaml`
   - Run `manageForeignResources.php update` to update the library
+- Run `manageForeignResources.php make-cdx`
 - Update the `RELEASE-NOTES` file
 - If necessary, add new design tokens to `mediawiki.skin.defaults.less`
 - Generate the list of bugs for the commit message
@@ -150,14 +151,15 @@ Edit the `resources/lib/foreign-resources.yaml`, and find the Codex section. It 
 codex:
   ...
   version: 1.2.33
+  purl: pkg:npm/@wikimedia/codex@1.2.33
   type: tar
   src: https://registry.npmjs.org/@wikimedia/codex/-/codex-1.2.33.tgz
   integrity: sha512-wFjrN7mbwPG0P8F3pJiiT9w6s50UlGqz1badAdnvyfWfitkkz3Sa6rCcGsd8+vHHzd0qmONF3eRQ9qgZE0uDJA==
   dest:
     ...
 ```
-Update the version number in the `version` field and in the `src` URL to the new version number
-(e.g. `codex-1.2.34.tgz`). Then get the new integrity value by running the `make-sri` command:
+Update the version number in the `version` and `purl` fields and in the `src` URL to the new version
+number (e.g. `codex-1.2.34.tgz`). Then get the new integrity value by running the `make-sri` command:
 ```bash
 # For Docker, add "docker-compose exec mediawiki" before this command
 php maintenance/run.php manageForeignResources make-sri codex
@@ -187,6 +189,12 @@ git status
 #     modified:   resources/lib/foreign-resources.yaml
 ```
 Then repeat these steps for `codex-design-tokens` and `codex-icons`.
+
+Then run the following command to update `foreign-resources.cdx.json`:
+```bash
+# For Docker, add "docker-compose exec mediawiki" before this command
+php maintenance/run.php manageForeignResources make-cdx
+```
 
 Once all packages are updated, edit the `RELEASE-NOTES-1.NN` file in the root directory of the
 MediaWiki repository. If there is already a list item about Codex, update it. For example, if
