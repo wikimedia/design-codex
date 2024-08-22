@@ -87,7 +87,7 @@ type of information to be entered. Explore [Label](./label.md) to check its diff
 2. **Label’s description** (optional)<br>An optional description can also be incorporated below the label to provide additional information about it. This description can include plain text, with or without links.
 3. **Field**<br>The input element, or a group of inputs, where the user enters information. Field
 can use any form item such as text input, select, checkbox, etc.
-4. **Helper text** (optional)<br>Text that provides supplementary information or instructions to guide users in completing the field correctly. The helper text can include plain text with or without links.
+4. **Helper text** (optional)<br>Text that provides supplementary information or instructions to guide users in completing the field correctly. The helper text can include plain text with or without links, and it can also include a number to optionally display the character counter if needed.
 5. **Validation message**<br>An inline validation message will appear to provide feedback about the
 status of the field. For example, to provide an error message to the user when the field contains
 one or more errors.
@@ -98,7 +98,7 @@ Both label and description will wrap onto multiple lines as needed. There are no
 
 When a fieldset is arranged horizontally, labels stay aligned, with field elements stacked below respecting Field component paddings.
 
-Optionally, a helper text can accompany any Field component, with no specified maximum length, although keeping it brief is advised for readability. If a Field with TextArea includes a character counter, both the helper text and character counter will align at the top with a `spacing-100` token (equivalent to `16px` in the default Codex theme).
+If a Field includes both helper text and a character counter, they will be aligned at the top with a `spacing-100` token (equivalent to `16px` in the default Codex theme).
 
 ![Maximum example of a fieldset with two fields arranged horizontally.](../../assets/components/field-specifications-max.svg)
 
@@ -283,8 +283,8 @@ Consider the following recommendations when using fields. For more detailed info
 
 <template #do-text>
 
-- Use a character counter just for Fields with a TextArea.
-- If the character limit is surpassed, display an inline error message.
+- Use a character counter only when it's necessary to limit the number of characters in a form input.
+- Display an inline error message if the character limit is exceeded.
 
 </template>
 
@@ -296,7 +296,7 @@ Consider the following recommendations when using fields. For more detailed info
 
 <template #dont-text>
 
-- Use a character counters for non-TextArea items such as TextInput.
+- Use a character counters when the character limit does not need to be communicated to the user.
 
 </template>
 
