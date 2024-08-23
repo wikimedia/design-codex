@@ -1,5 +1,5 @@
 <template>
-	<cdx-tabs v-model:active="currentTab" :framed="framed">
+	<cdx-tabs :framed="framed">
 		<cdx-tab
 			v-for="( tab, index ) in tabsData"
 			:key="index"
@@ -54,8 +54,7 @@ export default defineComponent( {
 	},
 	data() {
 		return {
-			tabsData,
-			currentTab: 'tab1'
+			tabsData
 		};
 	}
 } );

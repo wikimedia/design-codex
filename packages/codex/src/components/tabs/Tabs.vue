@@ -94,7 +94,7 @@ import CdxTab from '../tab/Tab.vue';
 
 import useGeneratedId from '../../composables/useGeneratedId';
 import useComputedDirection from '../../composables/useComputedDirection';
-import useModelWrapper from '../../composables/useModelWrapper';
+import useOptionalModelWrapper from '../../composables/useOptionalModelWrapper';
 import useIntersectionObserver from '../../composables/useIntersectionObserver';
 import useSlotContents from '../../composables/useSlotContents';
 
@@ -117,11 +117,19 @@ export default defineComponent( {
 		/**
 		 * The `name` of the currently active Tab in the layout.
 		 *
-		 * Provided by `v-model:active` binding in the parent component.
+		 * This prop is optional; if it is provided, it should be bound
+		 * using a `v-model:active` directive in the parent component.
+		 * Two-way binding the active tab is only necessary if some tab
+		 * other than the first should be active as soon as the component
+		 * renders (such as in cases where the active tab is bound to URL
+		 * params). If this prop is not provided, then the first tab will
+		 * be active by default. Regardless, the active tab can be changed
+		 * normally by user interaction (clicking on tab headings) or by
+		 * using the exposed methods "select", "next", and "prev".
 		 */
 		active: {
 			type: String,
-			required: true
+			default: null
 		},
 
 		/**
@@ -136,7 +144,8 @@ export default defineComponent( {
 
 	emits: [
 		/**
-		 * Emitted whenever the active tab changes
+		 * Emitted whenever the active tab changes, assuming that an `active`
+		 * prop has been provided in the parent.
 		 *
 		 * @property {string} active The `name` of the current active tab
 		 */
@@ -200,7 +209,8 @@ export default defineComponent( {
 		} );
 
 		// Properties tracking the current state of the tabs
-		const activeTab = useModelWrapper( toRef( props, 'active' ), emit, 'update:active' );
+		const internalRefForActiveTab = ref( Array.from( tabsData.value.keys() )[ 0 ] );
+		const activeTab = useOptionalModelWrapper( internalRefForActiveTab, toRef( props, 'active' ), emit, 'update:active' );
 		const tabNames = computed( () => Array.from( tabsData.value.keys() ) );
 		const activeTabIndex = computed( () => tabNames.value.indexOf( activeTab.value ) );
 		const activeTabId = computed( () => tabsData.value.get( activeTab.value )?.id );

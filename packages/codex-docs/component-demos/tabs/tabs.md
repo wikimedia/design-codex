@@ -254,13 +254,17 @@ the header row will update to match.
 
 ## Vue usage
 
-One or more [Tab](./tab.md) components must be provided in the default slot of the Tabs component.
-Each child Tab component must have a `name` property. The Tabs component must have an `active` prop
-that matches the name of one of the child Tab components in the slot.
+One or more [Tab](./tab.md) components must be provided in the default slot of
+the Tabs component. Each child Tab component must have a `name` property. By
+default, the first tab will be active when the component renders.
 
-In order for the active tabs to change, the `name` of the active tab must be bound in the parent
-somehow, either using `v-model:active` or by manually binding the `active` prop and listening for
-`update:active` events.
+### Optional 2-way binding of active tab
+
+Optionally, the active tab can be bound in the parent scope using `v-model:active`.
+This is useful in situations where the Tabs need the ability to render with a Tab
+other than the first in the active state and is recommended if tabs are meant to
+respond to URL params. The value of `v-model:active` should correspond to the `name`
+property of the active tab.
 
 ## CSS-only version
 

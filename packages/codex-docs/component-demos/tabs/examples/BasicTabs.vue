@@ -1,5 +1,5 @@
 <template>
-	<cdx-tabs v-model:active="currentTab" :framed="framed">
+	<cdx-tabs :framed="framed">
 		<cdx-tab
 			v-for="( tab, index ) in tabsData"
 			:key="index"
@@ -70,9 +70,7 @@ export default defineComponent( {
 				name: 'history',
 				label: 'View history',
 				heading: 'Sand cat: Revision history'
-			} ],
-
-			currentTab: 'read'
+			} ]
 		};
 	}
 } );

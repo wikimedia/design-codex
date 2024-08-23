@@ -2,7 +2,7 @@
 	<section id="cdx-tabs">
 		<h2>Tabs</h2>
 
-		<cdx-tabs v-model:active="activeTab" :framed="framed">
+		<cdx-tabs :framed="framed">
 			<cdx-tab
 				v-for="( tab, index ) in tabs"
 				:key="index"
@@ -26,7 +26,6 @@
 <script lang="ts" setup>
 import { CdxButton, CdxToggleSwitch, CdxField, CdxTab, CdxTabs } from '../lib';
 import { ref } from 'vue';
-const activeTab = ref( 'tab1' );
 const tabs = ref( [ 'tab1', 'tab2', 'tab3' ] );
 const framed = ref( false );
 
