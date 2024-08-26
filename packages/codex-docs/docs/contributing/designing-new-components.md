@@ -41,14 +41,14 @@ This initial inventory-like process should allow designers to identify the visua
 
 Create a new Figma file to explore the different proposals and versions of the new component, so you can share them in the Phabricator task. You can duplicate this [component exploration template](https://www.figma.com/file/6hNSvvL4CoyfemXECihJD5/Exploration-File-(Template)?node-id=1%3A3627) to create your own file.
 
-![Figma screenshot of creating new exploration file](../assets/designing-new-components/design-component-create-exploration-file.png)
+![A new exploration file in Figma.](../assets/designing-new-components/design-component-create-exploration-file.png)
 
 The following information will be included in the design exploration file:
 
 - **Cover:** contains a title, description, Phabricator task link and the task owner.
-- **Inventory** *(optional):* collect and analyze the real use cases where the new component is needed.
-- **Component specifications**: collect the most relevant component specifications, from visual guides to use cases and RTL version in this [specification sheet template](https://www.figma.com/file/6hNSvvL4CoyfemXECihJD5/Component-spec-sheet-(exploration-file-template)?node-id=501%3A22874&viewport=532%2C205%2C0.12).
-- **Versioning:** create a new Figma page to document every new version of the component specifications. Indicate the version (e.g. “v1”) and date (e.g. “2022-07-17”) and add an icon to indicate if the version is the final (✅), archived (📁) or WIP (🛠).
+- **Inventory:** collect and analyze the real use cases where the new component is needed.
+- **Explorations** (optional): explore design options if needed before documenting the compponent in the Figma spec.
+- **Component specifications**: document the component's specifications, including visual guides and component behaviors in this [specification sheet template](https://www.figma.com/file/6hNSvvL4CoyfemXECihJD5/Component-spec-sheet-(exploration-file-template)?node-id=501%3A22874&viewport=532%2C205%2C0.12). Document all versions of the component on separate tabs, labeling each with the version (e.g. “v1”), date (e.g. “2022-07-17”), and an icon to indicate its status: final version (✅), archived (📁), or WIP (🛠).
 
 ### 3.2. Defining visual styles and interaction
 
@@ -60,7 +60,7 @@ It is essential to identify the new component’s architecture before diving dee
 
 <div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
 
-1. The component is built as a combination of elements with their own styles, but exists as a single element (e.g. Button)
+1. The component is built as a combination of elements with their own styles, but exists as a single element (e.g. Button).
 
 </div>
 <div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
@@ -69,7 +69,7 @@ It is essential to identify the new component’s architecture before diving dee
 </div>
 <div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
 
-2. The component is built as a composite of different components that already exist (e.g. Combobox, which combines an input and a button)
+2. The component is built as a composite of different components that already exist (e.g. Combobox, which combines an input and a button).
 
 </div>
 <div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
@@ -78,7 +78,7 @@ It is essential to identify the new component’s architecture before diving dee
 </div>
 <div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
 
-3. The component is built as a composite of different components, one or more of which haven’t been designed or implemented yet (e.g. Card, which includes a sub-component – Thumbnail – that requires its own specifications and implementation process )
+3. The component is built as a composite of different components, one or more of which haven’t been designed or implemented yet (e.g. Card, which includes a Thumbnail component that requires its own specifications and implementation process).
 
 </div>
 <div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
@@ -112,7 +112,7 @@ Design tokens can help support the visual definition of components, as they repr
 
 Furthermore, components will need to consume only system assets:
 
-- If you need to use iconography in your designs, use a [system icon](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Icon-System?node-id=0%3A1). If you need to use an icon that does not exist in our shared library yet, you can contribute the design of a new icon. (Learn how to do this in the [Designing icons](./designing-icons.md) section).
+- If you need to use iconography in your designs, use a [system icon](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Icon-System?node-id=0%3A1). If you need to use an icon that does not exist in our shared library yet, you can contribute the design of a new icon. Learn how to do this in the [Designing icons](./designing-icons.md) section.
 - If you need to use a Wikimedia logo, please use one from our [logo assets](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Assets-(Icons%2C-Logos%2C-Illustrations)?node-id=2285%3A3747&viewport=993%2C62%2C0.32).
 - If you need to use an illustration, please use one from our [illustration assets](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Assets-(Icons%2C-Logos%2C-Illustrations)?node-id=3232%3A669&viewport=1267%2C-111%2C0.1) or create one with the same styles.
 
@@ -124,7 +124,7 @@ The real use case learnings gathered during the Research and prepare phase shoul
 
 When defining the interactive behavior of new system components, keep in mind to:
 
-- Consider **internationalization** needs and make sure that the component is optimized for the different languages and orientations (learn more about [designing for bi-directionality](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=3149%3A46886)).
+- Consider **internationalization** needs and make sure the component is optimized for the different languages and orientations. Refer to the [Bidirectionality guidelines](../style-guide/bidirectionality.md) for more details.
 - Make sure to define the **responsive behavior** of the component, and to provide examples of its adaptation to different devices/ screen sizes. You should define the component for desktop, tablet landscape, tablet portrait and mobile.
 - Research and follow **accessibility** best practices that apply to the typology of the component being defined, and provide keyboard navigation specifications. Read more about [accessibility principles and resources](../style-guide/accessibility.md).
 
@@ -143,94 +143,26 @@ Figma provides extensive [resources](https://help.figma.com/hc/en-us) that will 
 
 ### 3.4. Create the component’s specification sheet
 
-Once the component’s visual style and interactive behavior have been defined in the main component, the component specification sheet will need to be created in order to document the component’s behavior. You can use the [component specification sheet template](https://www.figma.com/file/6hNSvvL4CoyfemXECihJD5/Component-spec-sheet-(exploration-file-template)?node-id=501%3A22874) that’s available in the Figma exploration file.
+Once the component’s visual style and interactive behavior have been defined in the main component, the component specification sheet will need to be created in order to document the component’s behavior. This spec sheet will serve as the foundation for the component's documentation and guide developers in implementing the component. You can use the [component specification sheet template](https://www.figma.com/file/6hNSvvL4CoyfemXECihJD5/Component-spec-sheet-(exploration-file-template)?node-id=501%3A22874) that’s available in the Figma exploration file.
+
+![Specification sheet template in Figma.](../assets/designing-new-components/design-component-figma-spec.png)
 
 The component specification sheet needs to contain the following sections:
 
-#### Guides
+1. **Guides:** This section will document the component’s specifications by including any relevant info for developers, such as paddings, sizes, tokens used, or any component used to create this component.
+2. **When to use the component (e.g. "When to use accordions"):** Focus on explaining the primary characteristics of the component, detailing when and when not to use it. This section aims to guide users in making informed decisions about using the component within their projects.
+3. **Specifications:** Define the component's anatomy using an image with arrows and numerical labels for each one of the component’s elements. The corresponding text will provide detailed explanations for each numbered element in the image, specifying which of those elements are optional and can be hidden within the component. Additionally, outline the component's minimum and maximum requirements, detailing length or element count constraints. Conclude this section with a link to the Figma spec sheet in the library.
+4. **Component limitations:** This section will include the minimum and maximum requirements for this component, detailing length or element count constraints.
+5. **Bidirectionality:** This section will document how the component will be mirrored for both LTR and RTL. Refer to the Bidirectionality guidelines for more information.
+6. **Types** (if needed): Provide details for the different properties or variants of the component, accompanied by clear images representing each one. This section is applicable only to components offering custom properties or various variants.
+7. **Interaction states:** Create an image illustrating all interaction states of the component, with each state numbered. A corresponding numbered list will be included below the image, providing names for each state. This section applies only to components with interactive states.
+8. **Best practices:** Offer guidance on optimal usage for each component, including both do and don't images with practical examples. Illustrate how users might use the different component variants and properties effectively, and explain how the component can interact with other system elements like icons, colors, or other components.
+9. **Content** (if needed): If the new component requires guidelines for content, such as recommended character count or writing recommendations, this section will provide clear instructions to do so. You can include Do and Don’t images for each recommendation.
+10. **Keyboard navigation** (if needed): Incorporate keyboard navigation into a table, detailing the keys for interacting with the component via keyboard. This section will clarify how users can navigate the component using various keyboard shortcuts, and it applies only to components with interactive states.
 
-This segments collects specifications that indicate which styles and building blocks make up the new system element. You can use size and spacer components, and the documentation bubbles to pinpoint specific values of the component’s properties (e.g. typography) and its anatomy (e.g. if it contains other components):
-
-![Select component design guides example](../assets/designing-new-components/design-component-component-guides.png)
-
-#### Component properties
-
-This section will document the different configurations of the component (its properties, such as whether it presents icons) or its different functional variants. Component properties should be described in a simple and direct way.
-
-![Select component properties example](../assets/designing-new-components/design-component-component-properties.png)
-
-#### Interaction states
-
-The *Interaction states* section is one of the most relevant parts of a component’s specifications. It should document the visual properties that a given component presents in each one of its possible interaction states. The states of all the individual component variants (if present) should be showcased here too.
-
-![Select component states design example](../assets/designing-new-components/design-component-states.png)
-
-Some of the most common states in components are: Default, Hover, Focus and/or Active, Loading, and Disabled. But not all components will necessarily display all these states; keep in mind the use cases and standard behavior of the individual component or variant when documenting their states.
-
-#### Minimum and maximum examples
-
-This section showcases how the component will adjust when its content is reduced to the minimum or increased to the maximum. This section is very important for developers to understand the component’s behavior, and how certain elements should be aligned or positioned in case resizing is necessary.
-
-![Select component minimum and maximum width example](../assets/designing-new-components/design-component-minimum-maximum.png)
-
-#### Use cases
-
-This section contains usage recommendations in the form of *Do* and *Don’t* examples. This content will be particularly useful for designers to understand how the component should be used in their designs.
-
-<cdx-demo-rules>
-<template #do-media>
-
-![A screenshot example of a select component with a heart icon at the start.](../assets/designing-new-components/designing-new-components-do.svg)
-
-</template>
-<template #do-text>
-
-- Use icons which simplify the identification of the options within a dropdown.
-
-</template>
-<template #dont-media>
-
-![A screenshot example of a select component with a close icon at the start.](../assets/designing-new-components/designing-new-components-dont.svg)
-
-</template>
-<template #dont-text>
-
-- Use icons that look like and imply an individual action.
-
-</template>
-</cdx-demo-rules>
-
-#### Text directionality behavior
-
-Document the left-to-right (LTR) and right-to-left (RTL) versions of the component beside each other in this section. This makes it easy to understand the changes in orientation that each version needs to display depending on the directionality of the UI language. Learn more about how to design components for [bi-directionality](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=3149%3A46886).
-
-![Example of Select component's LTR and RTL behavior](../assets/designing-new-components/design-component-text-directionality-behavior.png)
-
-#### Keyboard navigation
-
-This section needs to include a table that specifies all keys that can be used to interact with the component using a keyboard. These specifications are critical to providing full accessibility.
-
-![Keyboard navigation example table Figma](../assets/designing-new-components/design-component-keyboard-navigation.png)
-
-For guidance, you can check the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/), which contains recommendations and live component examples.
-
-#### Responsive behavior
-
-This section need will showcase the component’s responsive behavior in the following screen sizes:
-
-<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
-
-- **Desktop** (1440px screen size)
-- **Tablet landscape** (1024px screen size)
-- **Tablet portrait** (768px screen size)
-- **Mobile** (320px screen size)
-
-*This section should only be provided in case the component displays a responsive behavior. If the component doesn’t need to be adjusted to different viewport widths (e.g. icon, thumbnail) then the Responsive behaviors section can be hidden.*
-</div>
-<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
-
-![Example of Select component's responsive behavior](../assets/designing-new-components/design-component-responsive-behavior-select.png)
-</div>
+::: info
+The Figma file specific to the component should be moved to the [Explorations (WIP)](https://www.figma.com/files/1052664678635144083/project/44938429/Explorations-(WIP)?fuid=1291385767832101845) project within the [Design System](https://www.figma.com/files/1052664678635144083/team/1052677095198424468/Design-System?fuid=1042004517503209744) team in Figma. If you have not already been invited to this project, please request access from a Design System team designer.
+:::
 
 ### 3.5. Evaluate and iterate
 
@@ -254,33 +186,19 @@ A general recommendation is to test components in a realistic context that simul
 
 ## 4. Define the guidelines
 
-In order to offer comprehensive guidance on the usage and behavior of the new component, it is essential to define and document guidelines for its usage. This documentation will consist of the following sections:
+After completing the component specification sheet, duplicate this [Google Doc template](https://docs.google.com/document/d/1oVTtBk7ShOKj80dz3CYsd09sC9gBbfpbJ8M_E1zdm6c/edit#heading=h.a76x583bwhh3) to document the component’s guidelines.
 
-1. **Component’s description:** Provide a brief overview, typically 1-3 lines, describing the component's purpose and functionality. This will serve as the main description for the component and will appear below the component's name on its dedicated page in Codex.
-2. **When to use the component** (e.g. "When to use accordions"): Focus on explaining the primary characteristics of the component, detailing when and when not to use it. This section aims to guide users in making informed decisions about using the component within their projects.
-3. **Specifications:** Define the component's anatomy by assigning numbers to its elements. The corresponding text below the image will provide detailed explanations for each numbered element, specifying which of those elements are optional and can be hidden within the component. Additionally, outline the component's minimum and maximum requirements, detailing length or element count constraints. Conclude this section with a link to the Figma specification sheet in the library.
-4. **Types** (if needed): Provide details for the different properties or variants of the component, accompanied by clear images representing each one. This section is applicable only to components offering custom properties or various variants.
-5. **Interaction states:** Create an image illustrating all interaction states of the component, with each state numbered. A corresponding numbered list will be included below the image, providing names for each state.
-6. **Best practices:** Offer guidance on optimal usage for each component, including both do and don't images with practical examples. Illustrate how users might use the different component variants and properties effectively, and explain how the component can interact with other system elements like icons, colors, or other components.
-7. **Content** (if needed): If the new component requires guidelines for content, such as recommended character count or writing recommendations, this section will provide clear instructions to do so. You can include Do and Don’t images for each recommendation.
-8. **Keyboard navigation** (if needed): Incorporate keyboard navigation into a table, detailing the keys for interacting with the component via keyboard. This section will clarify how users can navigate the component using various keyboard shortcuts, and it applies only to components with interactive states.
-9. **References** (if needed): This section will serve as a repository for sources that contribute to a comprehensive understanding of the component and its guidelines. Please list and provide links to any references relevant to the documentation.
+![Google Doc template to document the component's guidelines.](../assets/designing-new-components/design-component-guidelines.png)
 
-Ensure that the documentation is visually explained by preparing images for each section. Export these images in SVG format, and remember to include alt text for accessibility.
+Follow the sections outlined in the template to structure the guidelines, which will be added to the component's page on the Codex site. You can use the frames designed in the Figma spec sheet as images to illustrate these guidelines.
 
-You can use the following templates to create the component’s guidelines:
-- [Google docs](https://docs.google.com/document/d/1oVTtBk7ShOKj80dz3CYsd09sC9gBbfpbJ8M_E1zdm6c/edit?tab=t.0#heading=h.a76x583bwhh3) template to document the guidelines.
-- [Figma template](https://www.figma.com/file/eVLHdkA9RsjDghiwSSSlf9/Template---Images-for-compoent's-guidelines?type=design&node-id=1-29385&mode=design) to create the images to illustrate the component guidelines.
-
-::: warning 
-If you plan to use these templates to document and mock up the component's guidelines, be sure to duplicate them in your draft.
+::: info
+Move the Google Doc for the component guidelines to the [Component Guidelines](https://drive.google.com/drive/u/1/folders/1TMPY6YJzwUUO0vXaIpiEVoImsNeEiDRC) folder in Google Drive. If you don’t have access to this folder, please request it from a Design System designer.
 :::
-
-After documenting the component's guidelines, please link them to the relevant component's task in Phabricator and share them with the Design System Team for review before publishing.
 
 ## 5. Hand-off to development
 
-Once the component’s design has been discussed, iterated on (if needed) and finished, the designer will share the link to the final version of the design specification sheet in the relevant component Phabricator task, so developers can start implementing the component in Codex.
+Once the component’s documentation has been discussed, iterated on (if needed) and finished, the designer will share the link to the final version of the design specification sheet and guidelines in the relevant component Phabricator task, so developers can start implementing the component in Codex.
 
 The following actions are required:
 
