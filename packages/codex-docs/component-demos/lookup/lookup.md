@@ -8,6 +8,19 @@ import LookupWithFetch from '@/../component-demos/lookup/examples/LookupWithFetc
 import LookupClearableStartIcon from '@/../component-demos/lookup/examples/LookupClearableStartIcon.vue';
 import LookupWithPlaceholder from '@/../component-demos/lookup/examples/LookupWithPlaceholder.vue';
 import LookupField from '@/../component-demos/lookup/examples/LookupField.vue';
+import LookupConfigurable from '@/../component-demos/lookup/examples/LookupConfigurable.vue';
+
+const controlsConfig = [
+	{
+		name: 'status',
+		type: 'radio',
+		options: [ 'default', 'error' ],
+	},
+	{
+		name: 'disabled',
+		type: 'boolean'
+	},
+];
 </script>
 
 A Lookup is a predictive text input that presents a dropdown menu with
@@ -137,6 +150,14 @@ Consider the following recommendations when using Lookups.
 | <kbd>Enter</kbd> | It opens the menu when the focus is placed on the Lookup. If the menu is open, it closes the menu. If the focus is placed in any of the options within the menu, the focused option is selected. |
 
 ## Demos
+
+### Configurable
+
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
+<template v-slot:demo="{ propValues }">
+	<lookup-configurable v-bind="propValues" />
+</template>
+</cdx-demo-wrapper>
 
 ### Default
 

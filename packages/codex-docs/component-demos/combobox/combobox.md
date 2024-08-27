@@ -7,6 +7,19 @@ import ComboboxNoResults from '@/../component-demos/combobox/examples/ComboboxNo
 import ComboboxWithScroll from '@/../component-demos/combobox/examples/ComboboxWithScroll.vue';
 import ComboboxDisabled from '@/../component-demos/combobox/examples/ComboboxDisabled.vue';
 import ComboboxField from '@/../component-demos/combobox/examples/ComboboxField.vue';
+import ComboboxConfigurable from '@/../component-demos/combobox/examples/ComboboxConfigurable.vue';
+
+const controlsConfig = [
+	{
+		name: 'status',
+		type: 'radio',
+		options: [ 'default', 'error' ],
+	},
+	{
+		name: 'disabled',
+		type: 'boolean'
+	},
+];
 </script>
 
  A Combobox combines a [text input](./text-input.md)
@@ -141,6 +154,14 @@ Consider the following recommendations when using comboboxes.
 | <kbd>End</kbd> | Optionally, it moves the focus to the last option. Optionally, in a single-select listbox, selection may also move with focus. Supporting this key is strongly recommended for lists with more than five options. |
 
 ## Demos
+
+### Configurable
+
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
+<template v-slot:demo="{ propValues }">
+	<combobox-configurable v-bind="propValues" />
+</template>
+</cdx-demo-wrapper>
 
 ### Basic Usage
 

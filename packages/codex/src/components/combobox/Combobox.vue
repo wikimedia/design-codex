@@ -14,7 +14,7 @@
 				:aria-expanded="expanded"
 				:aria-controls="menuId"
 				:disabled="computedDisabled"
-				:status="status"
+				:status="computedStatus"
 				autocomplete="off"
 				role="combobox"
 				@keydown="onKeydown"
@@ -218,7 +218,13 @@ export default defineComponent( {
 
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
-		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
+		const {
+			computedDisabled,
+			computedStatus
+		} = useFieldData(
+			toRef( props, 'disabled' ),
+			toRef( props, 'status' )
+		);
 
 		const internalClasses = computed( () => {
 			return {
@@ -318,6 +324,7 @@ export default defineComponent( {
 			expanded,
 			highlightedId,
 			computedDisabled,
+			computedStatus,
 			onInputFocus,
 			onInputBlur,
 			onKeydown,

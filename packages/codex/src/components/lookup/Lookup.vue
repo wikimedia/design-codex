@@ -17,7 +17,7 @@
 			:aria-expanded="expanded"
 			:aria-activedescendant="highlightedId"
 			:disabled="computedDisabled"
-			:status="status"
+			:status="computedStatus"
 			@update:model-value="onUpdateInput"
 			@change="$event => $emit( 'change', $event )"
 			@focus="onInputFocus"
@@ -235,7 +235,13 @@ export default defineComponent( {
 		const isActive = ref( false );
 		const initialMenuItems = ref( props.menuItems );
 
-		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
+		const {
+			computedDisabled,
+			computedStatus
+		} = useFieldData(
+			toRef( props, 'disabled' ),
+			toRef( props, 'status' )
+		);
 
 		const selectedProp = toRef( props, 'selected' );
 		const modelWrapper = useModelWrapper( selectedProp, emit, 'update:selected' );
@@ -412,6 +418,7 @@ export default defineComponent( {
 			modelWrapper,
 			expanded,
 			computedDisabled,
+			computedStatus,
 			onInputBlur,
 			rootClasses,
 			rootStyle,
