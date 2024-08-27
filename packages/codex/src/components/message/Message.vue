@@ -339,9 +339,10 @@ export default defineComponent( {
 	// The second selector is written the same way for consistency's sake.
 	.cdx-message__icon,
 	.cdx-message__icon--vue {
-		// Vertically align icon with the text. Flexbox on its own is not enough here.
-		// Use close enough height to `&__content`'s `line-height`.
-		height: @size-150;
+		// Vertically align the icon with the first line of text by setting the height equal to the
+		// message text's line height. This needs to be in ems to ensure the height changes with
+		// font size, since the line height of text will do the same.
+		height: unit( @line-height-medium, em );
 	}
 
 	&__content {
