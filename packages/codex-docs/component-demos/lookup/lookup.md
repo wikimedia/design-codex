@@ -3,6 +3,7 @@ import LookupDefault from '@/../component-demos/lookup/examples/LookupDefault.vu
 import LookupWithCustomMenuItem from '@/../component-demos/lookup/examples/LookupWithCustomMenuItem.vue';
 import LookupNoResults from '@/../component-demos/lookup/examples/LookupNoResults.vue';
 import LookupWithSuggestions from '@/../component-demos/lookup/examples/LookupWithSuggestions.vue';
+import LookupWithInitialSelection from '@/../component-demos/lookup/examples/LookupWithInitialSelection.vue';
 import LookupWithFetch from '@/../component-demos/lookup/examples/LookupWithFetch.vue';
 import LookupClearableStartIcon from '@/../component-demos/lookup/examples/LookupClearableStartIcon.vue';
 import LookupWithPlaceholder from '@/../component-demos/lookup/examples/LookupWithPlaceholder.vue';
@@ -232,6 +233,35 @@ when the input is cleared.
 <<< @/../component-demos/lookup/examples/LookupWithSuggestions.vue [NPM]
 
 <<< @/../component-demos/lookup/examples-mw/LookupWithSuggestions.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### With initial selection and input
+
+To set an initial selection, do the following:
+1. Set the `selected` prop to the value of the initially selected item.
+2. Use the optional `v-model:input-value` prop to set the input value to the label of the selected
+   item (or the value, if there is no label).
+3. Optional: if you want the selected item to appear in the menu when it is opened, you must provide
+   the selected item in the list of `menuItems`. Otherwise, you can initialize `menuItems` to an
+   empty array or a list of initial suggestions.
+
+You can also use `v-model:input-value` to set an initial input value without an initial selection.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<lookup-with-initial-selection />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/lookup/examples/LookupWithInitialSelection.vue [NPM]
+
+<<< @/../component-demos/lookup/examples-mw/LookupWithInitialSelection.vue [MediaWiki]
 
 :::
 

@@ -7,7 +7,7 @@
 	>
 		<cdx-text-input
 			ref="textInput"
-			v-model="inputValue"
+			v-model="computedInputValue"
 			v-bind="otherAttrs"
 			class="cdx-lookup__input"
 			role="combobox"
@@ -69,6 +69,7 @@ import CdxTextInput from '../text-input/TextInput.vue';
 
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
+import useOptionalModelWrapper from '../../composables/useOptionalModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useFieldData from '../../composables/useFieldData';
 import useFloatingMenu from '../../composables/useFloatingMenu';
@@ -117,11 +118,34 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Initial value of the text input.
+		 * Current value of the input. This prop is optional and should only be used if you need to
+		 * keep track of the input value for some reason (e.g. to set an initial value).
+		 *
+		 * Optionally provided by `v-model:input-value` binding in the parent component.
+		 */
+		inputValue: {
+			type: [ String, Number ] as PropType<string|number>,
+			default: null
+		},
+
+		// DEPRECATED: Remove (T373532).
+		/**
+		 * Initial value of the text input. Non-reactive.
+		 *
+		 * @deprecated Use `inputValue` instead.
 		 */
 		initialInputValue: {
 			type: [ String, Number ] as PropType<string|number>,
-			default: ''
+			default: '',
+			validator: ( value ) => {
+				if ( value ) {
+					// eslint-disable-next-line no-console
+					console.warn(
+						'CdxLookup: prop initialInputValue is deprecated. Use inputValue instead.'
+					);
+				}
+				return true;
+			}
 		},
 
 		/**
@@ -161,6 +185,12 @@ export default defineComponent( {
 		 * @property {string | number | null} selected The new selected value
 		 */
 		'update:selected',
+		/**
+		 * When the input value changes. Only emitted if the inputValue prop is provided.
+		 *
+		 * @property {string | number} inputValue The new input value
+		 */
+		'update:input-value',
 		/**
 		 * When the user scrolls towards the bottom of the menu.
 		 *
@@ -214,8 +244,15 @@ export default defineComponent( {
 		);
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
-		// This should not be reactive, so we just read the initial value.
-		const inputValue = ref( props.initialInputValue );
+		// Ref used if the inputValue prop is omitted.
+		// DEPRECATED: Set to an empty string once the initialInputValue prop is removed (T373532).
+		const internalInputValue = ref( props.initialInputValue );
+		const computedInputValue = useOptionalModelWrapper(
+			internalInputValue,
+			toRef( props, 'inputValue' ),
+			emit,
+			'update:input-value'
+		);
 
 		const internalClasses = computed( () => {
 			return {
@@ -273,7 +310,7 @@ export default defineComponent( {
 			isActive.value = true;
 			// One reason to open the menu on focus is if there is input (i.e. the input value is
 			// not null nor an empty string). Store whether this is the case in this variable.
-			const hasInput = inputValue.value !== null && inputValue.value !== '';
+			const hasInput = computedInputValue.value !== null && computedInputValue.value !== '';
 			// Another reason to open the menu on focus is if there are either menu items to show
 			// or a "no results" message. Store whether this is the case in this variable.
 			const hasMenuItems = !!( props.menuItems.length > 0 || slots[ 'no-results' ] );
@@ -330,12 +367,12 @@ export default defineComponent( {
 					( selectedMenuItem.value.label ?? selectedMenuItem.value.value ) :
 					'';
 
-				if ( inputValue.value !== selectedValue ) {
+				if ( computedInputValue.value !== selectedValue ) {
 					// Make sure that the input matches what was selected
-					inputValue.value = selectedValue;
+					computedInputValue.value = selectedValue;
 
 					// We emit the new value to make sure that the menu is filtered correctly
-					emit( 'input', inputValue.value );
+					emit( 'input', computedInputValue.value );
 				}
 			}
 		} );
@@ -371,7 +408,7 @@ export default defineComponent( {
 			menu,
 			menuId,
 			highlightedId,
-			inputValue,
+			computedInputValue,
 			modelWrapper,
 			expanded,
 			computedDisabled,

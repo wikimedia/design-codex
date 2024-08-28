@@ -32,16 +32,18 @@ const propsWithData: {
 };
 
 describe( 'Lookup', () => {
+	// DEPRECATED: Remove initialInputValue once the prop is removed (T373532).
 	describe( 'matches the snapshot', () => {
 		type Case = [
 			msg: string,
 			menuItems: MenuItemData[],
 			selected: string | null,
-			initialInputValue?: string,
+			inputValue?: string,
 			disabled?: boolean,
 			clearable?: boolean,
 			noResults?: string,
-			attributes?: Record<string, string>
+			attributes?: Record<string, string>,
+			initialInputValue?: string,
 		]
 
 		const cases: Case[] = [
@@ -53,21 +55,23 @@ describe( 'Lookup', () => {
 			[ 'With class attributes', [], null, '', false, false, undefined, { class: 'class-one class-two' } ],
 			[ 'With type and placeholder attributes', [], null, '', false, false, undefined, {
 				inputType: 'search', placeholder: 'Type something... '
-			} ]
+			} ],
+			[ 'With initial input (deprecated)', menuItemData, null, '', false, false, undefined, {}, 'Opt' ]
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', (
 			_,
 			menuItems,
 			selected,
-			initialInputValue = '',
+			inputValue = '',
 			disabled = false,
 			clearable = false,
 			noResults = undefined,
-			attributes = undefined
+			attributes = undefined,
+			initialInputValue = ''
 		) => {
 			const componentOptions = {
-				props: { menuItems, selected, initialInputValue, disabled, clearable },
+				props: { menuItems, selected, inputValue, disabled, clearable, initialInputValue },
 				slots: {},
 				attrs: {}
 			};
@@ -89,6 +93,7 @@ describe( 'Lookup', () => {
 			const textInputWrapper = wrapper.findComponent( CdxTextInput );
 			textInputWrapper.vm.$emit( 'update:modelValue', 'a' );
 			expect( wrapper.emitted( 'input' )?.[ 0 ] ).toEqual( [ 'a' ] );
+			expect( wrapper.emitted( 'update:input-value' ) ).toBeFalsy();
 		} );
 
 		describe( 'and there is an input value', () => {
@@ -360,7 +365,7 @@ describe( 'Lookup', () => {
 			it( 'sets input value to the label of the selected item', async () => {
 				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.setProps( { selected: 'a' } );
-				expect( wrapper.vm.inputValue ).toBe( 'Option A' );
+				expect( wrapper.vm.computedInputValue ).toBe( 'Option A' );
 			} );
 
 			it( 'emits an input event with the label of the selected item', async () => {
@@ -374,7 +379,7 @@ describe( 'Lookup', () => {
 			it( 'sets input value to the value of the selected item', async () => {
 				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.setProps( { selected: 'c' } );
-				expect( wrapper.vm.inputValue ).toBe( 'c' );
+				expect( wrapper.vm.computedInputValue ).toBe( 'c' );
 			} );
 
 			it( 'emits an input event with the value of the selected item', async () => {
@@ -415,13 +420,33 @@ describe( 'Lookup', () => {
 		} );
 	} );
 
+	// DEPRECATED: Remove once the initialInputValue prop is removed (T373532).
 	describe( 'with initialInputValue', () => {
+		it( 'is overridden by inputValue', () => {
+			const wrapper = mount( CdxLookup, { props:
+				{ inputValue: 'foo', initialInputValue: 'bar', ...defaultProps }
+			} );
+			const input = wrapper.find( 'input' );
+			expect( input.element.value ).toBe( 'foo' );
+		} );
+	} );
+
+	describe( 'with inputValue', () => {
+		describe( 'when text is added to the input', () => {
+			it( 'emits an update:input-value event', () => {
+				const wrapper = mount( CdxLookup, { props: { inputValue: '', ...defaultProps } } );
+				const textInputWrapper = wrapper.findComponent( CdxTextInput );
+				textInputWrapper.vm.$emit( 'update:modelValue', 'a' );
+				expect( wrapper.emitted( 'update:input-value' )?.[ 0 ] ).toEqual( [ 'a' ] );
+			} );
+		} );
+
 		// See T370504.
 		describe( 'when the current selection does not match a menu item', () => {
 			describe( 'and the text input is cleared', () => {
 				it( 'clears the selection', async () => {
 					const wrapper = mount( CdxLookup, {
-						props: { selected: 'c', menuItems: [], initialInputValue: 'c' }
+						props: { selected: 'c', menuItems: [], inputValue: 'c' }
 					} );
 					const input = wrapper.find( 'input' );
 
@@ -435,7 +460,7 @@ describe( 'Lookup', () => {
 			describe( 'and the text input changes', () => {
 				it( 'clears the selection', async () => {
 					const wrapper = mount( CdxLookup, {
-						props: { selected: 'a', menuItems: [], initialInputValue: 'Option A' }
+						props: { selected: 'a', menuItems: [], inputValue: 'Option A' }
 					} );
 					const input = wrapper.find( 'input' );
 
@@ -444,6 +469,17 @@ describe( 'Lookup', () => {
 
 					expect( wrapper.emitted( 'update:selected' )?.[ 0 ] ).toEqual( [ null ] );
 				} );
+			} );
+		} );
+
+		describe( 'when the clear button is pressed', () => {
+			it( 'emits an update:input-value event', () => {
+				const wrapper = mount( CdxLookup, {
+					props: { ...defaultProps, inputValue: 'Option A', clearable: true }
+				} );
+				const clearButton = wrapper.find( '.cdx-text-input__clear-icon' ).element as HTMLSpanElement;
+				clearButton.click();
+				expect( wrapper.emitted( 'update:input-value' )?.[ 0 ] ).toEqual( [ '' ] );
 			} );
 		} );
 	} );

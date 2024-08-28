@@ -248,7 +248,7 @@ describe( 'Basic usage', () => {
 
 describe( 'with inputValue', () => {
 	describe( 'when text is added to the input', () => {
-		it( 'emits an update:modelWrapper event', async () => {
+		it( 'emits an update:input-value event', async () => {
 			const wrapper = shallowMount( CdxChipInput, { props: {
 				inputChips: [],
 				inputValue: ''

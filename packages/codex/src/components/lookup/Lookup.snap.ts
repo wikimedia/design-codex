@@ -615,3 +615,184 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
   </div>
 </div>
 `;
+
+exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+<div
+  class="cdx-lookup"
+>
+  <div
+    class="cdx-text-input cdx-text-input--status-default cdx-lookup__input"
+  >
+    <!-- size="1" is to prevent the browser from setting an implicit min-width -->
+    <input
+      aria-autocomplete="list"
+      aria-controls="cdx-lookup-menu-15"
+      aria-expanded="false"
+      autocomplete="off"
+      class="cdx-text-input__input"
+      role="combobox"
+      size="1"
+      type="text"
+    />
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <div
+    class="cdx-menu"
+    style="display: none;"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="cdx-lookup-menu-15"
+      role="listbox"
+    >
+      <!--v-if-->
+      <!--v-if-->
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="cdx-menu-item-16"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option A
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+        </span>
+        
+      </li>
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="cdx-menu-item-17"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option B
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+        </span>
+        
+      </li>
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="cdx-menu-item-18"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                c
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+        </span>
+        
+      </li>
+      <li
+        aria-disabled="true"
+        class="cdx-menu-item cdx-menu-item--disabled"
+        id="cdx-menu-item-19"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option D
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+        </span>
+        
+      </li>
+      
+      <!--v-if-->
+    </ul>
+  </div>
+</div>
+`;
