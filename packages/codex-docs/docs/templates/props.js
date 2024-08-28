@@ -55,14 +55,22 @@ const tmpl = ( props ) => {
 
 	const showValues = includeValuesCol( props );
 	props.forEach( ( pr ) => {
+		// Customization: exclude the @default tag from the rendered tags.
+		const { default: defaultTag, ...unrecognizedTags } = pr.tags ?? {};
+
+		// Prop name.
 		let p = '`' + pr.name + '`';
 		// Customization: add the required indicator after the prop name if it is required.
 		p += pr.required ? '<sup class="cdx-docs-required-indicator">(required)</sup>' : '';
+
+		// Prop description and tags.
 		let t = pr.description ?? '';
-		// Customization: exclude the @default tag from the rendered tags
-		const { default: defaultTag, ...unrecognizedTags } = pr.tags ?? {};
 		t += renderTags( unrecognizedTags );
+
+		// Prop type.
 		const n = pr.type ? getTypeText( pr.type.name ) : '';
+
+		// Prop default value.
 		// Customization: use the @default tag, if it exists, to allow doc comments to override the
 		// automatically generated default with something cleaner. This is often needed if the
 		// default comes from a function.
@@ -74,16 +82,21 @@ const tmpl = ( props ) => {
 				pr.defaultValue?.value;
 		const d = defaultValue ? getTypeText( defaultValue ) : '';
 
+		// Construct row.
 		ret += `| ${ mdclean( p ) } | ${ mdclean( t ) } | ${ mdclean( n ) }`;
-		// Customization: only include a values column if any of the props have something
-		// to show
+
+		// Prop values.
+		// Customization: only include a values column if any of the props have something to show.
 		if ( showValues ) {
 			const v = pr.values ?
 				pr.values.map( ( pv ) => `\`${ pv }\`` ).join( ', ' ) :
 				'-';
 			ret += ` | ${ mdclean( v ) }`;
 		}
-		ret += ` | ${ mdclean( d ) } |\n`;
+
+		// Customization: Add class to deprecated prop rows.
+		const rowClass = unrecognizedTags.deprecated ? '{ .cdx-docs-table-row--warning }' : '';
+		ret += ` | ${ mdclean( d ) } ${ rowClass } |\n`;
 	} );
 	return ret;
 };
