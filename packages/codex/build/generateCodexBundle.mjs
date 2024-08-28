@@ -1,6 +1,7 @@
 import { build, mergeConfig } from 'vite';
 import autoprefixer from 'autoprefixer';
 import rtlcss from 'rtlcss';
+import postcssRTLCSS from 'postcss-rtlcss';
 import emitAllowlist from './vite-plugin-emit-allowlist.mjs';
 
 /**
@@ -25,7 +26,8 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 	/* eslint-disable no-multi-spaces */
 	const MODES = [
 		'',                 // default mode
-		'rtl'               // RTL stylesheet
+		'rtl',              // RTL stylesheet
+		'bidi'              // with both RTL and LTR styles
 	];
 	/* eslint-enable no-multi-spaces */
 
@@ -74,6 +76,26 @@ export default async function generateCodexBundle( bundleConfig = {} ) {
 						postcss: {
 							plugins: [
 								rtlcss( /** @type {rtlcss.ConfigOptions} */ ( { useCalc: true } ) ),
+								autoprefixer()
+							]
+						}
+					},
+					plugins: [
+						emitAllowlist( [ 'css', 'json' ] )
+					]
+				};
+				break;
+			case 'bidi':
+				overrides = {
+					css: {
+						postcss: {
+							plugins: [
+								postcssRTLCSS( {
+									mode: 'combined',
+									useCalc: true,
+									processKeyFrames: true,
+									safeBothPrefix: true
+								} ),
 								autoprefixer()
 							]
 						}

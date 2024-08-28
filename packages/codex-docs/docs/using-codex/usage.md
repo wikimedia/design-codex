@@ -220,9 +220,14 @@ in a right-to-left (RTL) script. It does not support pages with a mix of LTR and
 content, or pages whose directionality changes at runtime, except in some special cases.
 
 Codex provides two direction-specific stylesheets. On LTR pages, use `codex.style.css`; on RTL
-pages, use `codex.style-rtl.css`. Codex does not provide a single stylesheet using attribute
-selectors like `[dir='rtl']` to set the right style for each direction, because of the significant
-limitations of this approach.
+pages, use `codex.style-rtl.css`.
+
+::: tip Experimental Bidirectional Stylesheet
+As of version `1.12.0`, the Codex package also includes a `codex.style-bidi.css` file. This is
+an **experimental** stylesheet that supports client-side direction flipping via `[dir]` selectors.
+See [Bidirectional script support](../contributing/contributing-code/developing-components#bidirectional-script-support)
+for more information and caveats.
+:::
 
 Some Codex components detect the direction of the surrounding content, and adjust their behavior
 accordingly, for example in how they respond to the left and right arrow keys. Icons also adjust

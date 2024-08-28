@@ -227,8 +227,21 @@ At the time of this writing, it's virtually impossible to support those use case
 There are tools (like postcss-rtlcss, see below) that generate bidirectional CSS using attribute
 selectors like `[dir='ltr']`, but this technique is fragile. It breaks in confusing and ugly ways
 on pages that don't have a `dir` attribute set, and on pages where a `dir="ltr"` element is nested
-inside a `dir="rtl"` element or vice versa. Because of these significant limitations, bidirectional
-stylesheets are only useful in very limited circumstances, and Codex does not provide one.
+inside a `dir="rtl"` element or vice versa.
+
+Because of these limitations, Codex provides direction-specific stylesheets for use in MediaWiki.
+The `codex.style.css` file contains LTR styles, and `codex.style-rtl.css` contains RTL styles.
+The CSS files for individual components (used by MediaWiki's Codex code-splitting feature) are
+similarly broken down into direction-specific variants (with an `-rtl` suffix). These files are
+described below.
+
+::: tip Experimental Bidirectional Stylesheet
+As of version `1.12.0`, the Codex package also includes a `codex.style-bidi.css` file. This is
+an **experimental** stylesheet that supports client-side direction flipping via `[dir]` selectors
+as described above. This file is not intended for usage in MediaWiki, but may be useful in
+single-page applications which wish to support client-side language and direction switching.
+The caveats above still apply.
+:::
 
 ### Flipping of direction-specific styles
 Styles in Codex are written for left-to-right (LTR) environments. Codex uses
