@@ -414,4 +414,37 @@ describe( 'Lookup', () => {
 			expect( wrapper.emitted()[ eventName ] ).toBeTruthy();
 		} );
 	} );
+
+	describe( 'with initialInputValue', () => {
+		// See T370504.
+		describe( 'when the current selection does not match a menu item', () => {
+			describe( 'and the text input is cleared', () => {
+				it( 'clears the selection', async () => {
+					const wrapper = mount( CdxLookup, {
+						props: { selected: 'c', menuItems: [], initialInputValue: 'c' }
+					} );
+					const input = wrapper.find( 'input' );
+
+					input.element.value = '';
+					await input.trigger( 'input' );
+
+					expect( wrapper.emitted( 'update:selected' )?.[ 0 ] ).toEqual( [ null ] );
+				} );
+			} );
+
+			describe( 'and the text input changes', () => {
+				it( 'clears the selection', async () => {
+					const wrapper = mount( CdxLookup, {
+						props: { selected: 'a', menuItems: [], initialInputValue: 'Option A' }
+					} );
+					const input = wrapper.find( 'input' );
+
+					input.element.value = 'Option ';
+					await input.trigger( 'input' );
+
+					expect( wrapper.emitted( 'update:selected' )?.[ 0 ] ).toEqual( [ null ] );
+				} );
+			} );
+		} );
+	} );
 } );

@@ -238,11 +238,16 @@ export default defineComponent( {
 		 */
 		function onUpdateInput( newVal: string|number ) {
 			// If there is a selection and it doesn't match the new value, clear it.
-			if (
-				selectedMenuItem.value &&
-				selectedMenuItem.value.label !== newVal &&
-				selectedMenuItem.value.value !== newVal
-			) {
+			if ( selectedMenuItem.value ) {
+				if (
+					selectedMenuItem.value.label !== newVal &&
+					selectedMenuItem.value.value !== newVal
+				) {
+					modelWrapper.value = null;
+				}
+			// Check the selected prop, in case there is no matching menu item (which means
+			// selectedMenuItem.value will be undefined).
+			} else if ( props.selected !== newVal ) {
 				modelWrapper.value = null;
 			}
 
