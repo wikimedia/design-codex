@@ -125,12 +125,12 @@ describe( 'Lookup', () => {
 
 			describe( 'and there were no initial menu items', () => {
 				it( 'closes the menu', async () => {
-					const wrapper = mount( CdxLookup, {
-						props: { selected: 'a', menuItems: [], initialInputValue: 'Opt' }
-					} );
+					const wrapper = mount( CdxLookup, { props: defaultProps } );
+					// Set input.
 					const input = wrapper.find( 'input' );
-
-					// First, open the menu.
+					input.element.value = 'Opt';
+					await input.trigger( 'input' );
+					// Open the menu.
 					wrapper.vm.expanded = true;
 					// Add menu items.
 					await wrapper.setProps( { menuItems: menuItemData } );
@@ -143,12 +143,12 @@ describe( 'Lookup', () => {
 
 			describe( 'and there were initial menu items', () => {
 				it( 'does not close the menu', async () => {
-					const wrapper = mount( CdxLookup, {
-						props: { selected: 'a', menuItems: menuItemData, initialInputValue: 'Opt' }
-					} );
+					const wrapper = mount( CdxLookup, { props: propsWithData } );
+					// Set input.
 					const input = wrapper.find( 'input' );
-
-					// First, open the menu.
+					input.element.value = 'Opt';
+					await input.trigger( 'input' );
+					// Open the menu.
 					wrapper.vm.expanded = true;
 					// Clear the input.
 					input.element.value = '';
@@ -160,12 +160,12 @@ describe( 'Lookup', () => {
 
 		describe( 'and the input value does not match the label of the current selection', () => {
 			it( 'clears the selection', async () => {
-				const wrapper = mount( CdxLookup, {
-					props: { selected: 'a', menuItems: menuItemData, initialInputValue: 'Option A' }
-				} );
-				const input = wrapper.find( 'input' );
+				const wrapper = mount( CdxLookup, { props: propsWithData } );
+				// Set selected, which will update the input value.
+				await wrapper.setProps( { selected: 'a' } );
 
 				// Simulate backspace.
+				const input = wrapper.find( 'input' );
 				input.element.value = 'Option ';
 				await input.trigger( 'input' );
 
@@ -175,11 +175,11 @@ describe( 'Lookup', () => {
 
 		describe( 'and the input value does not match the value of the current selection', () => {
 			it( 'clears the selection', async () => {
-				const wrapper = mount( CdxLookup, {
-					props: { selected: 'c', menuItems: menuItemData, initialInputValue: 'c' }
-				} );
-				const input = wrapper.find( 'input' );
+				const wrapper = mount( CdxLookup, { props: propsWithData } );
+				// Set selected, which will update the input value.
+				await wrapper.setProps( { selected: 'c' } );
 
+				const input = wrapper.find( 'input' );
 				input.element.value = 'ca';
 				await input.trigger( 'input' );
 
@@ -191,9 +191,7 @@ describe( 'Lookup', () => {
 	describe( 'when the text input is focused', () => {
 		describe( 'and there are initial menu items', () => {
 			it( 'opens the menu', async () => {
-				const wrapper = mount( CdxLookup, {
-					props: { ...propsWithData, initialInputValue: 'foo' }
-				} );
+				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.find( 'input' ).trigger( 'focus' );
 				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 			} );
@@ -201,8 +199,11 @@ describe( 'Lookup', () => {
 
 		describe( 'and there is both input and menu items', () => {
 			it( 'opens the menu', async () => {
-				const wrapper = mount( CdxLookup, { props: { ...defaultProps, initialInputValue: 'foo' } } );
-
+				const wrapper = mount( CdxLookup, { props: defaultProps } );
+				// Set input.
+				const input = wrapper.find( 'input' );
+				input.element.value = 'foo';
+				await input.trigger( 'input' );
 				// Add menu items.
 				await wrapper.setProps( { menuItems: menuItemData } );
 				await wrapper.find( 'input' ).trigger( 'focus' );
@@ -219,10 +220,15 @@ describe( 'Lookup', () => {
 
 			it( 'if there is no-results slot content, opens menu and shows "no results" message', async () => {
 				const wrapper = mount( CdxLookup, {
-					props: { ...defaultProps, initialInputValue: 'foo' },
+					props: defaultProps,
 					slots: { 'no-results': 'No results' }
 				} );
-				await wrapper.find( 'input' ).trigger( 'focus' );
+				// Set input.
+				const input = wrapper.find( 'input' );
+				input.element.value = 'foo';
+				await input.trigger( 'input' );
+				// Trigger focus.
+				await input.trigger( 'focus' );
 				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 				expect( wrapper.find( '.cdx-menu__no-results' ).isVisible() ).toBe( true );
 			} );
@@ -232,9 +238,7 @@ describe( 'Lookup', () => {
 	describe( 'when keyboard events occur', () => {
 		describe( 'and the Lookup is enabled', () => {
 			it( 'if there are items to show, passes keyboard events to handler', async () => {
-				const wrapper = mount( CdxLookup, {
-					props: propsWithData
-				} );
+				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
 				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 			} );
@@ -255,10 +259,7 @@ describe( 'Lookup', () => {
 			} );
 
 			it( 'does not pass the space keyboard event to handler', async () => {
-				const wrapper = mount( CdxLookup, {
-					props: propsWithData,
-					initialInputValue: 'foo'
-				} );
+				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: ' ' } );
 				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
@@ -357,17 +358,13 @@ describe( 'Lookup', () => {
 	describe( 'when an item is selected', () => {
 		describe( 'and the selected item has a label', () => {
 			it( 'sets input value to the label of the selected item', async () => {
-				const wrapper = mount( CdxLookup, {
-					props: { ...propsWithData, initialInputValue: 'Opt' }
-				} );
+				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.setProps( { selected: 'a' } );
 				expect( wrapper.vm.inputValue ).toBe( 'Option A' );
 			} );
 
 			it( 'emits an input event with the label of the selected item', async () => {
-				const wrapper = mount( CdxLookup, {
-					props: propsWithData
-				} );
+				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.setProps( { selected: 'a' } );
 				expect( wrapper.emitted( 'input' )?.[ 0 ] ).toEqual( [ 'Option A' ] );
 			} );
@@ -375,17 +372,13 @@ describe( 'Lookup', () => {
 
 		describe( 'and the selected item does not have a label', () => {
 			it( 'sets input value to the value of the selected item', async () => {
-				const wrapper = mount( CdxLookup, {
-					props: { ...propsWithData, initialInputValue: 'Opt' }
-				} );
+				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.setProps( { selected: 'c' } );
 				expect( wrapper.vm.inputValue ).toBe( 'c' );
 			} );
 
 			it( 'emits an input event with the value of the selected item', async () => {
-				const wrapper = mount( CdxLookup, {
-					props: propsWithData
-				} );
+				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.setProps( { selected: 'c' } );
 				expect( wrapper.emitted( 'input' )?.[ 0 ] ).toEqual( [ 'c' ] );
 			} );
@@ -393,13 +386,17 @@ describe( 'Lookup', () => {
 	} );
 
 	describe( 'when the clear button is pressed', () => {
-		it( 'emits an input event', () => {
+		it( 'emits an input event', async () => {
 			const wrapper = mount( CdxLookup, {
-				props: { ...defaultProps, initialInputValue: 'Option A', clearable: true }
+				props: { ...defaultProps, clearable: true }
 			} );
+			const input = wrapper.find( 'input' );
+			input.element.value = 'Option ';
+			await input.trigger( 'input' );
+
 			const clearButton = wrapper.find( '.cdx-text-input__clear-icon' ).element as HTMLSpanElement;
 			clearButton.click();
-			expect( wrapper.emitted( 'input' )?.[ 0 ] ).toEqual( [ '' ] );
+			expect( wrapper.emitted( 'input' )?.[ 1 ] ).toEqual( [ '' ] );
 		} );
 	} );
 
