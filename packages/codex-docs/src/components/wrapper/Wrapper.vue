@@ -88,7 +88,11 @@
 			component outputs multiple root nodes, that triggers a bug in VitePress that breaks
 			scoped styles on Wrappers,
 		-->
-		<div ref="teleportTarget" :dir="direction" />
+		<div
+			ref="teleportTarget"
+			class="vp-raw"
+			:dir="direction"
+		/>
 	</div>
 </template>
 
