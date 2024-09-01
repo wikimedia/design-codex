@@ -75,7 +75,8 @@ describe( 'TextInput', () => {
 			'input',
 			'change',
 			'focus',
-			'blur'
+			'blur',
+			'invalid'
 		];
 		test.each( eventNames )( 'Case %#: emits %s event', async ( eventName ) => {
 			const wrapper = shallowMount( CdxTextInput );

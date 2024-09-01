@@ -21,6 +21,7 @@
 			@focus="onFocus"
 			@blur="onBlur"
 			@keydown="onKeydown"
+			@invalid="onInvalid"
 		>
 		<cdx-icon
 			v-if="startIcon"
@@ -43,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, toRef, computed, inject } from 'vue';
+import { defineComponent, PropType, toRef, computed, inject, ref } from 'vue';
 import { Icon, cdxIconClear } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import { TextInputTypes, ValidationStatusTypes, FieldDescriptionIdKey } from '../../constants';
@@ -178,7 +179,15 @@ export default defineComponent( {
 		 *
 		 * @property {MouseEvent} event
 		 */
-		'clear'
+		'clear',
+		/**
+		 * When the input value is invalid according to the input's constraint
+		 * attributes (e.g. min, max, pattern). See:
+		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event
+		 *
+		 * @property {Event} event
+		 */
+		'invalid'
 	],
 	setup( props, { emit, attrs } ) {
 		// If there is a parent Field component, it may be providing some data to this component.
@@ -265,6 +274,16 @@ export default defineComponent( {
 		const onBlur = ( event: FocusEvent ) => {
 			emit( 'blur', event );
 		};
+		// Keep track of whether the native `reportValidity()` method is used. We want to prevent
+		// the default behavior of the invalid event in all other circumstances to prevent the
+		// native validation message UI from displaying unless it's explicitly called.
+		const shouldReportValidity = ref( false );
+		const onInvalid = ( event: Event ) => {
+			if ( !shouldReportValidity.value ) {
+				event.preventDefault();
+			}
+			emit( 'invalid', event );
+		};
 
 		return {
 			computedInputId,
@@ -282,6 +301,7 @@ export default defineComponent( {
 			onKeydown,
 			onFocus,
 			onBlur,
+			onInvalid,
 			cdxIconClear
 		};
 	},
