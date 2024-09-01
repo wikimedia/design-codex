@@ -112,9 +112,9 @@ export interface MenuItemData {
 	value: MenuItemValue,
 	/** Display label for the menu item. */
 	label?: string,
-	/** Text to be appended to the result's label, e.g. text matching a search query. */
+	/** Text to be appended to the result's label, e.g. a text matching a search query. */
 	match?: string,
-	/** Text to display next to to the item's label. */
+	/** Text to display next to the item's label. */
 	supportingText?: string,
 	description?: string | null,
 	/** Lang attributes of text properties. */
