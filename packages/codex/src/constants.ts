@@ -144,7 +144,7 @@ export const TablePaginationPositions = [
  * useI18n composable. If a new message needs to be defined, the key should
  * be added here as well. External consumers of Codex (including MediaWiki)
  * which implement their own I18n systems will want to ensure that they have
- * translations avialable for all messages defined here (Codex does not
+ * translations available for all messages defined here (Codex does not
  * currently provide its own messages beyond English default values, although
  * this may change in a future major version release).
  *
