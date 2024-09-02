@@ -21,7 +21,7 @@
 			@focus="onFocus"
 			@blur="onBlur"
 			@keydown="onKeydown"
-			@invalid="onInvalid"
+			@invalid="( e ) => onInvalid( e, shouldPreventDefault )"
 		>
 		<cdx-icon
 			v-if="startIcon"
@@ -70,7 +70,10 @@ export default defineComponent( {
 
 	expose: [
 		'focus',
-		'blur'
+		'blur',
+		'checkValidity',
+		'reportValidity',
+		'setCustomValidity'
 	],
 
 	props: {
@@ -274,15 +277,27 @@ export default defineComponent( {
 		const onBlur = ( event: FocusEvent ) => {
 			emit( 'blur', event );
 		};
-		// Keep track of whether the native `reportValidity()` method is used. We want to prevent
-		// the default behavior of the invalid event in all other circumstances to prevent the
-		// native validation message UI from displaying unless it's explicitly called.
-		const shouldReportValidity = ref( false );
-		const onInvalid = ( event: Event ) => {
-			if ( !shouldReportValidity.value ) {
+
+		// We want to prevent the default behavior of the invalid event by default, to prevent the
+		// native validation message UI from displaying unless it's explicitly called. If
+		// `reportValidity()` is used, this ref will be set to false.
+		const shouldPreventDefault = ref( true );
+
+		/**
+		 * Handle the `invalid` event.
+		 *
+		 * Note that we use an argument for `doPreventDefault` instead of the `shouldPreventDefault`
+		 * ref so we can unit test this.
+		 *
+		 * @param event Invalid event
+		 * @param doPreventDefault Whether default behavior should be prevented
+		 */
+		const onInvalid = ( event: Event, doPreventDefault: boolean ) => {
+			if ( doPreventDefault ) {
 				event.preventDefault();
 			}
 			emit( 'invalid', event );
+			shouldPreventDefault.value = true;
 		};
 
 		return {
@@ -302,6 +317,7 @@ export default defineComponent( {
 			onFocus,
 			onBlur,
 			onInvalid,
+			shouldPreventDefault,
 			cdxIconClear
 		};
 	},
@@ -328,6 +344,46 @@ export default defineComponent( {
 		blur(): void {
 			const input = this.$refs.input as HTMLInputElement;
 			input.blur();
+		},
+
+		/**
+		 * Check the validity of the input element according to its constraint attributes. Emits an
+		 * 'invalid' event if the input is invalid. See:
+		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity
+		 *
+		 * @public
+		 * @return {boolean} Whether the input is valid
+		 */
+		checkValidity(): boolean {
+			const input = this.$refs.input as HTMLInputElement;
+			return input.checkValidity();
+		},
+
+		/**
+		 * Check the validity of the input element and report it as a pop up on the UI. See:
+		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/reportValidity
+		 *
+		 * @public
+		 * @return {boolean} Whether the input is valid
+		 */
+		reportValidity(): boolean {
+			// Ensure default behavior of the invalid event is not prevented, so the native UI can
+			// pop up.
+			this.shouldPreventDefault = false;
+			const input = this.$refs.input as HTMLInputElement;
+			return input.reportValidity();
+		},
+
+		/**
+		 * Set custom validity and message for the input element. See:
+		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setCustomValidity
+		 *
+		 * @public
+		 * @param {string} message The custom validation message to set
+		 */
+		setCustomValidity( message: string ): void {
+			const input = this.$refs.input as HTMLInputElement;
+			input.setCustomValidity( message );
 		}
 	}
 } );
