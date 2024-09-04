@@ -53,13 +53,22 @@ Refer to the [Menu component in Codex Figma](https://www.figma.com/file/KoDuJMad
 The base menu consists of a combination of menu items with an optional footer
 item positioned below the menu items group.
 
+![Example of Menu with different menu items and footer.](../../assets/components/menu-types-footer.svg)
+
+Menu items can include selectable options or trigger actions and can be customized with different text or media elements. Refer to [MenuItem](./menu-item.md) to learn more about on available customization options.
+
+#### No results
 When no results are present to show in the menu, a non-interactive "no results"
 message will appear within the menu.
 
-<div class="cdx-docs-grid cdx-docs-grid-columns-2">
-    <img src="../../assets/components/menu-types-footer.svg" alt="Example of Menu with different menu items and footer.">
-    <img src="../../assets/components/menu-types-no-results.svg" alt="Example of Menu with no results found.">
-</div>
+![Example of Menu with no results found.](../../assets/components/menu-types-no-results.svg)
+
+#### Selection types
+Menus can support different selection types depending on the component in which they are displayed:
+1. **Single-selection**<br>Allows the user to select only one item from the menu at a time.
+2. **Multi-selection**<br>Enables the user to select multiple items from the menu. A check icon is displayed next to the label to indicate that more than one item can be selected.
+
+![Types of selection of menu items: single-selection or multi-selection.](../../assets/components/menu-item-types-selection.svg)
 
 ### Interaction states
 The interaction states of the menu affect the entire menu (group of menu items),

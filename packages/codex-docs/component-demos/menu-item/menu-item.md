@@ -73,7 +73,7 @@ const controlsConfig = [
 ];
 </script>
 
-A MenuItem is a selectable option within a Menu.
+A MenuItem is a selectable option within a [Menu](./menu.md).
 
 ::: warning
 This is not a standalone component, nor will it typically be directly used. It's
@@ -87,9 +87,6 @@ menu state information. See [Menu](./menu.md) for more details.
 MenuItem is an “internal” component, used exclusively to represent content
 within a [Menu](./menu.md). It cannot be used by itself.
 
-MenuItems contain text, and supporting media (icons or thumbnails) that
-represent an available choice for users.
-
 ### Specifications
 
 ![Specification of MenuItem.](../../assets/components/menu-item-specifications.svg)
@@ -100,12 +97,48 @@ Each menu item may include the following elements:
 3. **Supporting text** (optional)<br>Optional and subtle text that supports or explains the label.
 4. **Match text** (optional)<br>In the context of a search suggestions menu, this optional text displays the alternative label of an item that matches the search query (e.g. an alias).
 5. **Description** (optional)<br>Optional and subtle descriptive text that provides additional information about the menu item.
+6. **Multi-selection indicator**<br>A check icon is displayed next to the label when the menu supports multi-selection.
 
 #### Component limitations
 
 Menu items have no minimum or maximum character requirement, although concise text is recommended. If the label is multiline, the supporting text will be positioned next to the last line of the label.
 
 Refer to the [MenuItem component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=4918-48934&mode=design&t=wJPfPzkECREKvMoi-0).
+
+### Types
+According to the functionality, type of content, and selection type, the menu items can be categorized as follows.
+
+#### Menu item functionality
+Menu items can also be classified based on its functionality:
+1. **Selectable options**<br>Menu items typically contained in form elements like [Select](./select.md) or [Combobox](./combobox.md) components.
+2. **Trigger actions**<br>Menu items typically contained within a [MenuButton](menu-button.md). According to the type of action, they can be categorized as:
+	- **Standard actions:** neutral actions such as "Edit" or "Share".
+	- **Destructive actions:** actions with potentially negative or irreversible impact, such as "Delete".
+
+![Types of menu items: selectable options and trigger acions.](../../assets/components/menu-item-types-option-action.svg)
+
+#### Media elements within the menu item
+Menu items can incorporate different media types to provide additional visual context to the menu item content:
+1. **Icon**<br>Use the start icon to visually reinforce the menu item content.
+2. **Thumbnail**<br>Use a thumbnail to provide a preview of the menu item content.
+
+![Types of visual elements to reinforce a menu item: icon or thumbnail.](../../assets/components/menu-item-types-props.svg)
+
+#### Text elements within the menu item
+Menu items can differ based on the specific type of content they display or how they handle search results:
+1. **Description**<br>A secondary subtle text can be optionally included to provide additional information about the menu item.
+2. **Supporting text**<br>Text that supports or explains the label can be optionally displayed after the label in a more subtle color.
+3. **Search query highlighted**<br>When displaying search results, the search query is provided in normal font weight, while the rest of the label is in bold to bring attention to the available suggestions based on the search query.
+4. **Search query match**<br>In a search suggestions menu, this optional text provides an alternative label or alias for an item that matches the search query.
+
+![Types of menu items based on the text content: with description below the label, with supporting text next to the label, with highlighted label, or with match text next to the label.](../../assets/components/menu-item-types-text-elements.svg)
+
+#### Selection types
+Menu items can support different selection types depending on the component in which they are displayed:
+1. **Single-selection**<br>Allows the user to select only one item from the menu at a time.
+2. **Multi-selection**<br>Enables the user to select multiple items from the menu. A check icon is displayed next to the label to indicate that more than one item can be selected.
+
+![Types of selection of menu items: single-selection or multi-selection.](../../assets/components/menu-item-types-selection.svg)
 
 ### Interaction states
 Menu items have the following visually separate states:
