@@ -1,356 +1,109 @@
-# Colors
+---
+outline: [2,3]
+---
 
-<style>
-/* stylelint-disable scale-unlimited/declaration-strict-value */
-</style>
+<script setup>
+import CdxDocsColorLists from '../../src/components/color-lists/ColorLists.vue';
+</script>
+
+# Colors
 
 ::: warning NOTICE
 Colors are currently being updated. This page is not a completely accurate depiction of new colors being added and existing colors being altered.
 :::
 
-The color palette represents our character and brings a hint of freshness to our products.
+The Codex color palette is used to bring visual meaning to interface elements and convey specific
+messages in certain instances. The primary colors used are various shades of gray as textual and
+foundational elements, blue as progressive elements, and red, yellow, and green to convey status.
 
-Because content readability for everyone is our main goal, we have made accessibility
-considerations a top priority. Each color detailed below indicates its [WCAG](https://www.w3.org/WAI/intro/wcag)
-conformance level (“AA” or “AAA”). This level is based on a color's contrast against white or black.
+<div class="cdx-docs-primary-colors">
+	<div class="cdx-docs-primary-colors__subtle"></div>
+	<div class="cdx-docs-primary-colors__neutral"></div>
+	<div class="cdx-docs-primary-colors__neutral-subtle"></div>
+	<div class="cdx-docs-primary-colors__base"></div>
+	<div class="cdx-docs-primary-colors__progressive"></div>
+	<div class="cdx-docs-primary-colors__red"></div>
+	<div class="cdx-docs-primary-colors__yellow"></div>
+	<div class="cdx-docs-primary-colors__green"></div>
+</div>
 
-## Gray scale
+For documentation on how all colors are applied, visit [Color tokens](../design-tokens/color.md).
 
-Base colors define the content surface and the main color for content. Different shades of paper
-and ink are useful to emphasize or de-emphasize different content areas.
+To check the contrast ratio between two colors, visit the [WebAIM contrast checker](http://webaim.org/resources/contrastchecker/).
 
-Base colors range from pure white to true black . Intermediate shades of gray include a tint of
-blue for greater harmony with our accent colors.
+## Color options
 
-When applying text on a surface, [check the color contrast](http://webaim.org/resources/contrastchecker/)
-between the text and the background. Colors from White to Gray400 are safe text colors for a black
-surface. Colors from Gray500 to Black are safe colors for a white surface.
-
-<ol class="cdx-docs-colors">
-	<li class="cdx-docs-colors__color" style="background-color: #fff; border-color: #eaecf0;">
-		<span class="cdx-docs-colors__color__name">White</span>
-		<span class="cdx-docs-colors__color__hex">#fff</span>
-		<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-		<span class="cdx-docs-colors__color__hsb">HSB 0, 0%, 100%</span>
-	</li>
-	<span class="cdx-docs-colors__group">
-		<li class="cdx-docs-colors__color" style="background-color: #f8f9fa;">
-			<span class="cdx-docs-colors__color__name">Gray100</span>
-			<span class="cdx-docs-colors__color__hex">#f8f9fa</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 210, 1%, 98%</span>
-		</li>
-		<li class="cdx-docs-colors__color" style="background-color: #eaecf0;">
-			<span class="cdx-docs-colors__color__name">Gray200</span>
-			<span class="cdx-docs-colors__color__hex">#eaecf0</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 220, 3%, 94%</span>
-		</li>
-		<li class="cdx-docs-colors__color" style="background-color: #c8ccd1;">
-			<span class="cdx-docs-colors__color__name">Gray300</span>
-			<span class="cdx-docs-colors__color__hex">#c8ccd1</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 213, 4%, 82%</span>
-		</li>
-		<li class="cdx-docs-colors__color" style="background-color: #a2a9b1;">
-			<span class="cdx-docs-colors__color__name">Gray400</span>
-			<span class="cdx-docs-colors__color__hex">#a2a9b1</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 212, 8%, 69%</span>
-		</li>
-	</span>
-	<span class="cdx-docs-colors__group">
-		<li class="cdx-docs-colors__color" style="background-color: #72777d;">
-			<span class="cdx-docs-colors__color__name">Gray500</span>
-			<span class="cdx-docs-colors__color__hex">#72777d</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AA / <span>AA</span></span>
-			<span class="cdx-docs-colors__color__hsb">HSB 210, 9%, 49%</span>
-		</li>
-		<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #54595d;">
-			<span class="cdx-docs-colors__color__name">Gray600</span>
-			<span class="cdx-docs-colors__color__hex">#54595d</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 207, 10%, 36%</span>
-		</li>
-		<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #404244;">
-			<span class="cdx-docs-colors__color__name">Gray650</span>
-			<span class="cdx-docs-colors__color__hex">#404244</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 210, 6%, 27%</span>
-		</li>
-		<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #202122;">
-			<span class="cdx-docs-colors__color__name">Gray750</span>
-			<span class="cdx-docs-colors__color__hex">#202122</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 210, 6%, 13%</span>
-		</li>
-	</span>
-	<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #000;">
-		<span class="cdx-docs-colors__color__name">Black</span>
-		<span class="cdx-docs-colors__color__hex">#000</span>
-		<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-		<span class="cdx-docs-colors__color__hsb">HSB 0, 0%, 0%</span>
-	</li>
-</ol>
-
-## Accent colors
-
-Accent colors are used to emphasize actions and to highlight key information. Blue is a natural
-choice in our context, where it has been the default color used for links and conveys the idea of
-action.
-
-There are three shades provided for when a lighter (Blue100), regular (Blue600) or a darker
-(Blue700) version of blue is needed.
-
-Blue600 is suitable to use for text and as background. When used for link text, this color provides
-sufficient contrast with black text. When used as a background, it provides sufficient contrast
-with white text.
-
-<ol class="cdx-docs-colors">
-	<span class="cdx-docs-colors__group">
-		<li class="cdx-docs-colors__color" style="background-color: #eaf3ff;">
-			<span class="cdx-docs-colors__color__name">Blue100</span>
-			<span class="cdx-docs-colors__color__hex">#eaf3ff</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 214, 8%, 100%</span>
-		</li>
-		<li class="cdx-docs-colors__color" style="background-color: #447ff5;">
-			<span class="cdx-docs-colors__color__name">Blue500</span>
-			<span class="cdx-docs-colors__color__hex">#447ff5</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 220, 72%, 96%</span>
-		</li>
-		<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #36c;">
-			<span class="cdx-docs-colors__color__name">Blue600</span>
-			<span class="cdx-docs-colors__color__hex">#36c</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 220, 75%, 80%</span>
-		</li>
-		<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #2a4b8d;">
-			<span class="cdx-docs-colors__color__name">Blue700</span>
-			<span class="cdx-docs-colors__color__hex">#2a4b8d</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 220, 70%, 55%</span>
-		</li>
-	</span>
-</ol>
-
-## Utility colors
-
-Utility colors are another type of accent color.
-
-Shades of red, green, and yellow are used as utility colors.
-
-<ol class="cdx-docs-colors">
-	<span class="cdx-docs-colors__group">
-		<li class="cdx-docs-colors__color" style="background-color: #fee7e6;">
-			<span class="cdx-docs-colors__color__name">Red100</span>
-			<span class="cdx-docs-colors__color__hex">#fee7e6</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 2, 10%, 100%</span>
-		</li>
-		<li class="cdx-docs-colors__color" style="background-color: #ff4242;">
-			<span class="cdx-docs-colors__color__name">Red500</span>
-			<span class="cdx-docs-colors__color__hex">#ff4242</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 0, 74%, 100%</span>
-		</li>
-		<li class="cdx-docs-colors__color" style="background-color: #d73333;">
-			<span class="cdx-docs-colors__color__name">Red600</span>
-			<span class="cdx-docs-colors__color__hex">#d73333</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 360, 76%, 84%</span>
-		</li>
-		<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #b32424;">
-			<span class="cdx-docs-colors__color__name">Red700</span>
-			<span class="cdx-docs-colors__color__hex">#b32424</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 360, 60%, 53%</span>
-		</li>
-	</span>
-</ol>
-<ol class="cdx-docs-colors">
-	<span class="cdx-docs-colors__group">
-		<li class="cdx-docs-colors__color" style="background-color: #d5fdf4;">
-			<span class="cdx-docs-colors__color__name">Green100</span>
-			<span class="cdx-docs-colors__color__hex">#d5fdf4</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 167, 16%, 99%</span>
-		</li>
-		<li class="cdx-docs-colors__color" style="background-color: #00af89;">
-			<span class="cdx-docs-colors__color__name">Green500</span>
-			<span class="cdx-docs-colors__color__hex">#00af89</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 167, 100%, 69%</span>
-		</li>
-		<li class="cdx-docs-colors__color" style="background-color: #14866d;">
-			<span class="cdx-docs-colors__color__name">Green600</span>
-			<span class="cdx-docs-colors__color__hex">#14866d</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 167, 85%, 53%</span>
-		</li>
-		<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #096450;">
-			<span class="cdx-docs-colors__color__name">Green700</span>
-			<span class="cdx-docs-colors__color__hex">#096450</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 167, 85%, 53%</span>
-		</li>
-	</span>
-</ol>
-<ol class="cdx-docs-colors">
-	<span class="cdx-docs-colors__group">
-		<li class="cdx-docs-colors__color" style="background-color: #fef6e7;">
-			<span class="cdx-docs-colors__color__name">Yellow100</span>
-			<span class="cdx-docs-colors__color__hex">#fef6e7</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 39, 9%, 100%</span>
-		</li>
-		<li class="cdx-docs-colors__color" style="background-color: #fc3;">
-			<span class="cdx-docs-colors__color__name">Yellow500</span>
-			<span class="cdx-docs-colors__color__hex">#fc3</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 45, 80%, 100%</span>
-		</li>
-		<li class="cdx-docs-colors__color" style="background-color: #edab00;">
-			<span class="cdx-docs-colors__color__name">Yellow600</span>
-			<span class="cdx-docs-colors__color__hex">#edab00</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 43, 100%, 93%</span>
-		</li>
-		<li class="cdx-docs-colors__color cdx-docs-colors__color--dark" style="background-color: #a66200;">
-			<span class="cdx-docs-colors__color__name">Yellow700</span>
-			<span class="cdx-docs-colors__color__hex">#a66200</span>
-			<span class="cdx-docs-colors__color__wcag-level" title="WCAG conformance level">AAA</span>
-			<span class="cdx-docs-colors__color__hsb">HSB 36, 100%, 67%</span>
-		</li>
-	</span>
-</ol>
-
-Common meanings are associated with them:
-- Variants of red indicate errors in components, such as invalid text in a text field. They also
-  represent destructive actions, such as delete or cancel.
-- Variants of green indicate success in components.
-- Variants of yellow indicate a non-disruptive warning or an alert.
-
-When indicating meaning to visually impaired users, do not only rely on a color, but use additionally clear wording and icons.
-
-## Additional colors
-
-Some use cases, such as charts and data visualization, may need a broader color palette. Aim for
-level AA contrast (4.5:1) when extending the default palette. Make sure to test how these colors
-are perceived at different color vision deficiency conditions.[[1]](#ref1)
-
-## Resources
-
-Find the color palette in the [Design tokens Figma library](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?node-id=1-3481&t=Us4ogp79l5e37Rpx-11).
-
-## References
-
-1. <span id="ref1">See also English Wikipedia [on accessible color usage as part of its Manual of Style](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Accessibility#Color).</span>
-
+<cdx-docs-color-lists />
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-.cdx-docs-colors {
-	// Override VitePress list styles.
-	ol& {
-		margin: 0;
-		padding: 0;
+.cdx-docs-primary-colors {
+	display: grid;
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+	grid-template-columns: repeat( 12, 1fr );
+	grid-template-rows: repeat( 6, 1fr );
 
-		&:first-child {
-			margin-top: @spacing-200;
-		}
-
-		li + li {
-			margin-top: 0;
-		}
+	// We want the grid to be 1/3rd as tall as it is wide. This hidden grid item will span 4
+	// columns, or 1/3rd the width of the grid, then has a padding-bottom of 100% to make it the
+	// height of 1/3rd of the grid. This will force the entire visible grid to be the right height.
+	&::before {
+		content: '';
+		// Span 1/3rd the width of the grid.
+		grid-column: 1 / span 4;
+		// Span the full height of the grid.
+		grid-row: 1 / span 6;
+		width: 0;
+		// Make the "height" of this item equal to 4 columns, the column-span of this item.
+		padding-bottom: @size-full;
 	}
 
-	&__group {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		gap: @spacing-100;
+	&__subtle {
+		background-color: @color-subtle;
+		grid-column: 1 / span 2;
+		grid-row: 1 / span 3;
 	}
 
-	&__color {
-		list-style: none none;
-		display: flex;
-		flex-direction: column;
-		position: relative;
-		// On smaller screens, squares are 50% width.
-		// Subtract 1/2 of the total gap width from the width of each color.
-		width: calc( 50% - @spacing-50 );
-		// Make the div square via 0 height and padding-bottom equal to the width.
-		height: 0;
-		margin-bottom: @spacing-100;
-		border: @border-width-base @border-style-base @border-color-inverted;
-		padding: 0 @spacing-75 calc( 50% - @spacing-50 );
+	&__neutral {
+		background-color: @background-color-neutral;
+		grid-column: 3;
+		grid-row: 1 / span 3;
+	}
 
-		/* stylelint-disable-next-line selector-class-pattern */
-		html.dark & {
-			color: @color-inverted;
-		}
+	&__neutral-subtle {
+		background-color: @background-color-neutral-subtle;
+		grid-column: 4;
+		grid-row: 1 / span 3;
+	}
 
-		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			// On larger screens, make the squares 25% width.
-			// Subtract 1/4 of the total gap width from the width of each color.
-			width: calc( 25% - @spacing-75 );
-			padding-bottom: calc( 25% - @spacing-75 );
-			font-size: @font-size-small;
-		}
+	&__base {
+		background-color: @color-base;
+		grid-column: 1 / span 4;
+		grid-row: 4 / span 3;
+	}
 
-		&__name {
-			position: absolute;
-			// This makes the card look like it has 12px of padding-bottom.
-			bottom: @spacing-75;
-			font-size: @font-size-xxx-large;
-		}
+	&__progressive {
+		background-color: @background-color-progressive;
+		grid-column: 5 / span 4;
+		grid-row: 1 / span 6;
+	}
 
-		&__hex {
-			// This makes the card look like it has 12px of padding-top.
-			padding-top: @spacing-75;
-		}
+	&__red {
+		background-color: @color-error;
+		grid-column: 9 / span 4;
+		grid-row: 1 / span 2;
+	}
 
-		&__wcag-level {
-			span {
-				color: @color-inverted;
+	&__yellow {
+		background-color: @color-warning;
+		grid-column: 9 / span 4;
+		grid-row: 3 / span 2;
+	}
 
-				/* stylelint-disable-next-line selector-class-pattern, max-nesting-depth */
-				html.dark & {
-					color: @color-base;
-				}
-			}
-		}
-
-		&__hsb {
-			opacity: @opacity-transparent;
-			font-size: @font-size-small;
-			transition-property: @transition-property-fade;
-			transition-duration: @transition-duration-medium;
-
-			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				font-size: @font-size-x-small;
-			}
-		}
-
-		/* stylelint-disable-next-line no-descending-specificity */
-		&:hover {
-			.cdx-docs-colors__color__hsb {
-				opacity: @opacity-base;
-			}
-		}
-
-		&--dark {
-			color: @color-inverted;
-
-			/* stylelint-disable-next-line selector-class-pattern */
-			html.dark & {
-				color: @color-base;
-			}
-		}
+	&__green {
+		background-color: @color-success;
+		grid-column: 9 / span 4;
+		grid-row: 5 / span 2;
 	}
 }
-/* stylelint-enable scale-unlimited/declaration-strict-value */
 </style>

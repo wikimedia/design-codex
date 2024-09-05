@@ -25,6 +25,9 @@ export function flattenDesignTokensTree( tree: DesignTokensTree, excludeTokens: 
 			continue;
 		}
 		const tokenOrTree = tree[ key ];
+		if ( typeof tokenOrTree === 'string' ) {
+			continue;
+		}
 		if ( 'value' in tokenOrTree ) {
 			// TypeScript doesn't realize it, but we know tokenOrTree is a token in this case
 			result.push( tokenOrTree as DesignToken );

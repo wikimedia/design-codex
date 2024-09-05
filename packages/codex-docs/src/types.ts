@@ -104,9 +104,10 @@ export interface DesignToken {
 }
 
 export interface DesignTokensTree {
-	// We'd like to exclude 'name', 'value', etc. from key here, but that doesn't seem possible
-	// Using [ key: Exclude<string, 'value'> ] doesn't change anything
-	// Adding value: never breaks type inference and causes TypeScript to think that
-	// 'value' in tokenOrTree can never be false
-	[ key: string ]: DesignToken|DesignTokensTree
+	// We'd like to exclude 'name', 'value', etc. from key here, but that doesn't seem possible.
+	// Using [ key: Exclude<string, 'value'> ] doesn't change anything.
+	// Adding value: never breaks type inference and causes TypeScript to think that 'value' in
+	// tokenOrTree can never be false.
+	// `string` is meant to support comments at the tree-level.
+	[ key: string ]: DesignToken|DesignTokensTree|string
 }
