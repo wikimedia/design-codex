@@ -124,6 +124,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
             <!--v-if-->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>

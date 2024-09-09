@@ -115,6 +115,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -150,6 +151,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -185,6 +187,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -220,6 +223,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -297,6 +301,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -332,6 +337,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -367,6 +373,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -402,6 +409,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -682,6 +690,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -717,6 +726,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -752,6 +762,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -787,6 +798,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>

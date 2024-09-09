@@ -33,6 +33,7 @@ exports[`matches the snapshot Case 0 Item without label: ({"id": "test-menu-item
       <!-- Item description. -->
       <!--v-if-->
     </span>
+    <!--v-if-->
   </span>
   
 </li>
@@ -71,6 +72,7 @@ exports[`matches the snapshot Case 1 Item with label: ({"id": "test-menu-item", 
       <!-- Item description. -->
       <!--v-if-->
     </span>
+    <!--v-if-->
   </span>
   
 </li>
@@ -122,6 +124,7 @@ exports[`matches the snapshot Case 2 Item with match: ({"id": "test-menu-item", 
       <!-- Item description. -->
       <!--v-if-->
     </span>
+    <!--v-if-->
   </span>
   
 </li>
@@ -170,6 +173,7 @@ exports[`matches the snapshot Case 3 Item with supporting text: ({"id": "test-me
       <!-- Item description. -->
       <!--v-if-->
     </span>
+    <!--v-if-->
   </span>
   
 </li>
@@ -215,6 +219,7 @@ exports[`matches the snapshot Case 4 Item with url: ({"description": "Test searc
         </bdi>
       </span>
     </span>
+    <!--v-if-->
   </a>
   
 </li>
@@ -279,6 +284,7 @@ exports[`matches the snapshot Case 5 Item with icon: ({"description": "Test sear
         </bdi>
       </span>
     </span>
+    <!--v-if-->
   </a>
   
 </li>
@@ -362,6 +368,7 @@ exports[`matches the snapshot Case 6 Item with placeholder thumbnail: ({"descrip
         </bdi>
       </span>
     </span>
+    <!--v-if-->
   </a>
   
 </li>
@@ -413,6 +420,7 @@ exports[`matches the snapshot Case 7 Item with search query: ({"description": "T
         </bdi>
       </span>
     </span>
+    <!--v-if-->
   </a>
   
 </li>
@@ -473,6 +481,7 @@ exports[`matches the snapshot Case 8 Item with language attributes: ({"descripti
         </bdi>
       </span>
     </span>
+    <!--v-if-->
   </span>
   
 </li>
@@ -547,6 +556,7 @@ exports[`matches the snapshot Case 9 Item with language attributes and search qu
         </bdi>
       </span>
     </span>
+    <!--v-if-->
   </span>
   
 </li>
@@ -586,6 +596,26 @@ exports[`matches the snapshot Case 10 Selected item: ({"id": "test-menu-item", "
       <!-- Item description. -->
       <!--v-if-->
     </span>
+    <span
+      class="cdx-icon cdx-icon--small cdx-menu-item__selected-icon"
+    >
+      <svg
+        aria-hidden="true"
+        height="20"
+        viewBox="0 0 20 20"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <!--v-if-->
+        <!-- eslint-disable vue/no-v-html -->
+        <g>
+          <path
+            d="M7 14.17 2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"
+          />
+        </g>
+      </svg>
+    </span>
   </span>
   
 </li>
@@ -624,6 +654,7 @@ exports[`matches the snapshot Case 11 Item part of multiselect menu: ({"id": "te
       <!-- Item description. -->
       <!--v-if-->
     </span>
+    <!--v-if-->
   </span>
   
 </li>
@@ -662,6 +693,26 @@ exports[`matches the snapshot Case 12 Selected item part of multiselect menu: ({
       <!--v-if-->
       <!-- Item description. -->
       <!--v-if-->
+    </span>
+    <span
+      class="cdx-icon cdx-icon--small cdx-menu-item__selected-icon"
+    >
+      <svg
+        aria-hidden="true"
+        height="20"
+        viewBox="0 0 20 20"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <!--v-if-->
+        <!-- eslint-disable vue/no-v-html -->
+        <g>
+          <path
+            d="M7 14.17 2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"
+          />
+        </g>
+      </svg>
     </span>
   </span>
   

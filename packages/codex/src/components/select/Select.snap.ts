@@ -88,6 +88,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -123,6 +124,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -158,6 +160,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -193,6 +196,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -247,6 +251,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -345,6 +350,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -380,6 +386,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -415,6 +422,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -450,6 +458,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -504,6 +513,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -603,6 +613,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -638,6 +649,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -673,6 +685,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -708,6 +721,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -762,6 +776,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -860,6 +875,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -895,6 +911,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -931,6 +948,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -966,6 +984,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1020,6 +1039,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1137,6 +1157,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1172,6 +1193,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1207,6 +1229,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1242,6 +1265,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1297,6 +1321,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1414,6 +1439,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1449,6 +1475,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1484,6 +1511,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1519,6 +1547,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1573,6 +1602,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1671,6 +1701,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1706,6 +1737,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1742,6 +1774,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1777,6 +1810,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1831,6 +1865,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1929,6 +1964,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1964,6 +2000,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -1999,6 +2036,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -2034,6 +2072,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>
@@ -2088,6 +2127,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
             <!-- Item description. -->
             <!--v-if-->
           </span>
+          <!--v-if-->
         </span>
         
       </li>

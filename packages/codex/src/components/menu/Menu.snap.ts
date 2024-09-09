@@ -43,6 +43,7 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -78,6 +79,7 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -113,6 +115,7 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -148,6 +151,7 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -183,6 +187,7 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -218,6 +223,7 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -270,6 +276,7 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -306,6 +313,7 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -341,6 +349,7 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -376,6 +385,7 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -411,6 +421,7 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -446,6 +457,7 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -499,6 +511,7 @@ exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTM
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -534,6 +547,7 @@ exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTM
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -569,6 +583,7 @@ exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTM
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -604,6 +619,7 @@ exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTM
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -639,6 +655,7 @@ exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTM
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -674,6 +691,7 @@ exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTM
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -727,6 +745,7 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -763,6 +782,26 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <span
+          class="cdx-icon cdx-icon--small cdx-menu-item__selected-icon"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g>
+              <path
+                d="M7 14.17 2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"
+              />
+            </g>
+          </svg>
+        </span>
       </span>
       
     </li>
@@ -798,6 +837,7 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -833,6 +873,7 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -868,6 +909,7 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -903,6 +945,7 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -956,6 +999,7 @@ exports[`Menu matches the snapshots Case 4 Not expanded: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -992,6 +1036,7 @@ exports[`Menu matches the snapshots Case 4 Not expanded: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -1027,6 +1072,7 @@ exports[`Menu matches the snapshots Case 4 Not expanded: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -1062,6 +1108,7 @@ exports[`Menu matches the snapshots Case 4 Not expanded: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -1097,6 +1144,7 @@ exports[`Menu matches the snapshots Case 4 Not expanded: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -1132,6 +1180,7 @@ exports[`Menu matches the snapshots Case 4 Not expanded: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -1253,6 +1302,7 @@ exports[`Menu matches the snapshots Case 7 Pending with items: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -1288,6 +1338,7 @@ exports[`Menu matches the snapshots Case 7 Pending with items: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -1323,6 +1374,7 @@ exports[`Menu matches the snapshots Case 7 Pending with items: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -1358,6 +1410,7 @@ exports[`Menu matches the snapshots Case 7 Pending with items: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -1393,6 +1446,7 @@ exports[`Menu matches the snapshots Case 7 Pending with items: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>
@@ -1428,6 +1482,7 @@ exports[`Menu matches the snapshots Case 7 Pending with items: => HTML 1`] = `
           <!-- Item description. -->
           <!--v-if-->
         </span>
+        <!--v-if-->
       </span>
       
     </li>

@@ -330,6 +330,7 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
                 <!-- Item description. -->
                 <!--v-if-->
               </span>
+              <!--v-if-->
             </span>
             
           </li>
@@ -476,6 +477,7 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
                 <!-- Item description. -->
                 <!--v-if-->
               </span>
+              <!--v-if-->
             </span>
             
           </li>
@@ -621,6 +623,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
                 <!-- Item description. -->
                 <!--v-if-->
               </span>
+              <!--v-if-->
             </span>
             
           </li>
@@ -823,6 +826,7 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
                 <!-- Item description. -->
                 <!--v-if-->
               </span>
+              <!--v-if-->
             </span>
             
           </li>

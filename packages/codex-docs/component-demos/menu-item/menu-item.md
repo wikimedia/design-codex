@@ -65,6 +65,10 @@ const controlsConfig = [
 	{
 		name: 'hideDescriptionOverflow',
 		type: 'boolean'
+	},
+	{
+		name: 'multiselect',
+		type: 'boolean'
 	}
 ];
 </script>
@@ -204,6 +208,8 @@ interactivity of menu items, check out a component that contains a menu, like
 
 Note that manually hovering over or selecting this menu item is disabled, the
 configuration options to set these states should be used.
+
+To display the multiselect icon, toggle on the `selected` and `multiselect` props.
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues }">

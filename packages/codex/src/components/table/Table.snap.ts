@@ -3690,6 +3690,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
                   <!-- Item description. -->
                   <!--v-if-->
                 </span>
+                <!--v-if-->
               </span>
               
             </li>
@@ -3725,6 +3726,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
                   <!-- Item description. -->
                   <!--v-if-->
                 </span>
+                <!--v-if-->
               </span>
               
             </li>
@@ -3760,6 +3762,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
                   <!-- Item description. -->
                   <!--v-if-->
                 </span>
+                <!--v-if-->
               </span>
               
             </li>
@@ -4364,6 +4367,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
                   <!-- Item description. -->
                   <!--v-if-->
                 </span>
+                <!--v-if-->
               </span>
               
             </li>
@@ -4399,6 +4403,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
                   <!-- Item description. -->
                   <!--v-if-->
                 </span>
+                <!--v-if-->
               </span>
               
             </li>
@@ -4434,6 +4439,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
                   <!-- Item description. -->
                   <!--v-if-->
                 </span>
+                <!--v-if-->
               </span>
               
             </li>

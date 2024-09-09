@@ -853,6 +853,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                   <!-- Item description. -->
                   <!--v-if-->
                 </span>
+                <!--v-if-->
               </a>
               
             </li>
@@ -933,6 +934,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
                     </bdi>
                   </span>
                 </span>
+                <!--v-if-->
               </a>
               
             </li>

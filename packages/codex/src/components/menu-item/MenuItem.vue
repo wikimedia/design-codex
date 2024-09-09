@@ -92,6 +92,12 @@
 						<bdi>{{ description }}</bdi>
 					</span>
 				</span>
+				<cdx-icon
+					v-if="multiselect && selected"
+					:icon="cdxIconCheck"
+					size="small"
+					class="cdx-menu-item__selected-icon"
+				/>
 			</component>
 		</slot>
 	</li>
@@ -99,7 +105,7 @@
 
 <script lang="ts">
 import { PropType, computed, defineComponent } from 'vue';
-import { Icon } from '@wikimedia/codex-icons';
+import { Icon, cdxIconCheck } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import CdxThumbnail from '../thumbnail/Thumbnail.vue';
 import CdxSearchResultTitle from '../search-result-title/SearchResultTitle.vue';
@@ -370,7 +376,8 @@ export default defineComponent( {
 			highlightQuery,
 			rootClasses,
 			contentTag,
-			title
+			title,
+			cdxIconCheck
 		};
 	}
 } );
@@ -424,6 +431,10 @@ export default defineComponent( {
 	}
 
 	&__selected-icon {
+		// Vertically align the icon with the first line of text by setting the height equal to the
+		// menu item text's line height. This needs to be in ems to ensure the height changes with
+		// font size, since the line height of text will do the same.
+		height: unit( @line-height-x-small, em );
 		margin-left: auto;
 	}
 
