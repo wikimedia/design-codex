@@ -42,7 +42,7 @@ Illustrations should be simple. They use monochromatic vector-based shapes with 
 - Rounded corners. Corners are slightly rounded (2 dp) to make shapes more friendly and welcoming, but not too much to look goofy.
 - 2 dp outline stroke, except for illustrations that appear on colored backgrounds.
 
-As a general recommendation, an illustration should use no more than 3 accent or supplementary colors (eg. Blue600, Red600, Green500 and Yellow500) to avoid visual complexity. Additionally, special care should be taken when using reds with greens or blues in the same composition. Users with red-green color blindness may have difficulty differentiating between red and green elements, especially if they are overlapping. Red and blue elements should also be treated with care so as to avoid the visual illusion of [chromostereopsis](https://en.wikipedia.org/wiki/Chromostereopsis). Illustrations may include transparent elements or cut outs, however all elements should be shown as either 0 or 100% opacity.
+As a general recommendation, an illustration should use no more than 3 accent or supplementary colors (eg. Blue700, Red600, Green400 and Yellow200) to avoid visual complexity. Additionally, special care should be taken when using reds with greens or blues in the same composition. Users with red-green color blindness may have difficulty differentiating between red and green elements, especially if they are overlapping. Red and blue elements should also be treated with care so as to avoid the visual illusion of [chromostereopsis](https://en.wikipedia.org/wiki/Chromostereopsis). Illustrations may include transparent elements or cut outs, however all elements should be shown as either 0 or 100% opacity.
 
 ## Resources
 

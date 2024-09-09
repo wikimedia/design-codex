@@ -73,7 +73,8 @@ it is not recommended to use them within boxes or modules.
 ![Example of quiet Tabs.](../../assets/components/tabs-types-quiet.svg)
 
 #### Framed tabs
-These tabs have a Gray200 background, with the selected tab appearing in white.
+These tabs have a Gray100 background in light mode, with the selected tab
+appearing in white.
 They are designed to be used within boxes or modules, where the gray background
 serves as a head for the box. It is not recommended to use framed tabs outside
 of a box context; in such cases, use the quiet tabs instead.

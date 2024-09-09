@@ -63,7 +63,7 @@ Refer to the [ChipInput component in Codex Figma](https://www.figma.com/file/KoD
 Depending on the placement of the chips, there are two types of ChipInput:
 
 1. **Chips within the input field**<br>In this case, when the chips are created they are placed next to the input’s placeholder text, and they are stacked next to each other.
-2. **Chips separated from the input field**<br>In this case, the chips are placed in a light gray box above the input field once they are created.
+2. **Chips separated from the input field**<br>In this case, the chips are placed in a box with Gray50 background in light mode above the input field once they are created.
 
 ![Chip input types based on chip placement: chips within the input or chips separated from the input.](../../assets/components/chip-input-types.svg)
 
