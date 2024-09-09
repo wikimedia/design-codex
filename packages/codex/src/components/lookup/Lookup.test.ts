@@ -94,6 +94,7 @@ describe( 'Lookup', () => {
 			textInputWrapper.vm.$emit( 'update:modelValue', 'a' );
 			expect( wrapper.emitted( 'input' )?.[ 0 ] ).toEqual( [ 'a' ] );
 			expect( wrapper.emitted( 'update:input-value' ) ).toBeFalsy();
+			expect( wrapper.emitted( 'update:selected' ) ).toBeFalsy();
 		} );
 
 		describe( 'and there is an input value', () => {

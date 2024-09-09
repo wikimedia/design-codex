@@ -290,7 +290,7 @@ export default defineComponent( {
 				}
 			// Check the selected prop, in case there is no matching menu item (which means
 			// selectedMenuItem.value will be undefined).
-			} else if ( props.selected !== newVal ) {
+			} else if ( props.selected !== null && props.selected !== newVal ) {
 				modelWrapper.value = null;
 			}
 
