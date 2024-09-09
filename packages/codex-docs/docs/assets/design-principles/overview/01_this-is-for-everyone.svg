@@ -149,7 +149,7 @@
 			<use xlink:href="#path-19" fill="#000" filter="url(#filter-20)"/>
 			<use xlink:href="#path-19" fill="#FFF" stroke="#EAECF0"/>
 		</g>
-		<circle id="Oval" cx="394" cy="140" r="96" fill="#EAF3FF" fill-rule="nonzero"/>
+		<circle id="Oval" cx="394" cy="140" r="96" fill="#f1f4fd" fill-rule="nonzero"/>
 		<circle id="Oval" cx="394" cy="140" r="62" fill="#36C" fill-rule="nonzero"/>
 		<g id="halfbright-ltr" fill="#202122" fill-rule="nonzero" transform="translate(626 172)">
 			<path id="Shape" d="M17 6.67V3h-4.2L9.87.07 6.94 3H3v3.67L.07 9.6 3 12.53V17h3.94l2.93 2.93L12.8 17H17v-4.47l2.93-2.93zm-7 8.93v-12a6.2 6.2 0 0 1 6 6 6.2 6.2 0 0 1-6 6"/>

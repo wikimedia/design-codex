@@ -6,9 +6,9 @@
 				<path fill="#fff" d="M26.88-104.73c0-.66.54-1.2 1.2-1.2h170.06c.66 0 1.2.54 1.2 1.2v298.8c0 .67-.54 1.2-1.2 1.2H28.08a1.2 1.2 0 0 1-1.2-1.2z"/>
 				<g clip-path="url(#d)">
 					<g clip-path="url(#e)">
-						<path fill="#EAF3FF" d="M26.88-51.58h172.46v76.65H26.88z"/>
+						<path fill="#f1f4fd" d="M26.88-51.58h172.46v76.65H26.88z"/>
 						<g clip-path="url(#f)">
-							<path fill="#EAF3FF" d="M26.88-51.58h172.46v76.65H26.88z"/>
+							<path fill="#f1f4fd" d="M26.88-51.58h172.46v76.65H26.88z"/>
 							<path fill="url(#g)" d="M0 0h172.46v76.65H0z" transform="translate(26.881 -51.578)"/>
 						</g>
 					</g>
@@ -29,9 +29,9 @@
 				<path fill="#fff" d="M220.66-104.73c0-.66.54-1.2 1.2-1.2h170.06c.66 0 1.2.54 1.2 1.2v298.8c0 .67-.54 1.2-1.2 1.2H221.86a1.2 1.2 0 0 1-1.2-1.2z"/>
 				<g clip-path="url(#j)">
 					<g clip-path="url(#k)">
-						<path fill="#EAF3FF" d="M220.66-51.58h172.46v76.65H220.66z"/>
+						<path fill="#f1f4fd" d="M220.66-51.58h172.46v76.65H220.66z"/>
 						<g clip-path="url(#l)">
-							<path fill="#EAF3FF" d="M220.66-51.58h172.46v76.65H220.66z"/>
+							<path fill="#f1f4fd" d="M220.66-51.58h172.46v76.65H220.66z"/>
 							<path fill="url(#m)" d="M0 0h172.46v76.65H0z" transform="translate(220.662 -51.578)"/>
 						</g>
 					</g>

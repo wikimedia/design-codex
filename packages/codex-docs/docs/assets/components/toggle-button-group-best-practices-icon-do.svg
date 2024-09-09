@@ -7,8 +7,8 @@
 		<path fill="#F8F9FA" d="M194.5 32.5h31v31h-31z"/>
 		<path stroke="#A2A9B1" d="M194.5 32.5h31v31h-31z"/>
 		<path fill="#202122" fill-rule="evenodd" d="M218 41h-3v-2h-2v2h-6v-2h-2v2h-3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V43a2 2 0 0 0-2-2m0 14h-16v-9h16zm-2-6h-4v4h4z" clip-rule="evenodd"/>
-		<path fill="#2A4B8D" d="M225.5 32.5h31v31h-31z"/>
-		<path stroke="#2A4B8D" d="M225.5 32.5h31v31h-31z"/>
+		<path fill="#233566" d="M225.5 32.5h31v31h-31z"/>
+		<path stroke="#233566" d="M225.5 32.5h31v31h-31z"/>
 		<path fill="#fff" fill-rule="evenodd" d="M245.5 43.5a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0M233 54c0-2 2.08-5 8-5s8 3 8 5v3h-16z" clip-rule="evenodd"/>
 	</g>
 	<defs>
