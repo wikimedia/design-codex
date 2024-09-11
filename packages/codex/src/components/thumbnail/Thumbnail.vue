@@ -115,6 +115,7 @@ export default defineComponent( {
 	}
 
 	&__image {
+		background-color: @background-color-base-fixed;
 		display: inline-block;
 
 		// Fade in transition applied to the thumbnail on show.
