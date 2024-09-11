@@ -16,11 +16,7 @@ import MenuItemsGraphemes from '@/../component-demos/menu-item/examples/MenuItem
 
 const controlsConfig = [
 	{
-		name: 'disabled',
-		type: 'boolean'
-	},
-	{
-		name: 'selected',
+		name: 'highlighted',
 		type: 'boolean'
 	},
 	{
@@ -28,13 +24,30 @@ const controlsConfig = [
 		type: 'boolean'
 	},
 	{
-		name: 'highlighted',
+		name: 'selected',
 		type: 'boolean'
+	},
+	{
+		name: 'multiselect',
+		type: 'boolean'
+	},
+	{
+		name: 'disabled',
+		type: 'boolean'
+	},
+	{
+		name: 'icon',
+		type: 'icon',
+		initial: 'cdxIconGlobe'
 	},
 	{
 		name: 'label',
 		type: 'text',
 		initial: 'Item label'
+	},
+	{
+		name: 'boldLabel',
+		type: 'boolean'
 	},
 	{
 		name: 'match',
@@ -45,30 +58,17 @@ const controlsConfig = [
 		type: 'text'
 	},
 	{
-		name: 'icon',
-		type: 'icon',
-		initial: 'cdxIconGlobe'
-	},
-	{
 		name: 'description',
 		type: 'text',
 		initial: 'Description text'
-	},
-	{
-		name: 'searchQuery',
-		type: 'text'
-	},
-	{
-		name: 'boldLabel',
-		type: 'boolean'
 	},
 	{
 		name: 'hideDescriptionOverflow',
 		type: 'boolean'
 	},
 	{
-		name: 'multiselect',
-		type: 'boolean'
+		name: 'searchQuery',
+		type: 'text'
 	}
 ];
 </script>
