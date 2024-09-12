@@ -155,6 +155,7 @@ published version. This involves the following steps:
   - Update the integrity hash in `foreign-resources.yaml`
   - Run `manageForeignResources.php update` to update the library
 - Run `manageForeignResources.php make-cdx`
+- Update 'package.json' file with the latest version of Codex and Codex Icons
 - Update the `RELEASE-NOTES` file
 - If necessary, add new design tokens to `mediawiki.skin.defaults.less`
 - Generate the list of bugs for the commit message
@@ -212,13 +213,20 @@ Then run the following command to update `foreign-resources.cdx.json`:
 php maintenance/run.php manageForeignResources make-cdx
 ```
 
+Also update 'package.json' file with the latest version of 'codex' and
+'codex-icons' packages for the Jest tests to test latest versions, using:
+
+```bash
+npm install @wikimedia/codex@1.2.34 @wikimedia/codex-icons@1.2.34 --save-dev --save-exact
+```
+
 Once all packages are updated, edit the `RELEASE-NOTES-1.NN` file in the root directory of the
 MediaWiki repository. If there is already a list item about Codex, update it. For example, if
 there is a list item that says `Updated Codex from v1.2.28 to v1.2.33`, update the latter version
 number to `v1.2.34`. If there isn't a list item about Codex yet, add one in the
 `Changed external libraries` section.
 
-> **Warning**  
+> **Warning**
 > If any *new design tokens* have been introduced as part of the release, make
 > sure that you add them to `mediawiki.skin.defaults.less`. If you do not do
 > this, tests will fail and the release commit will not be allowed to merge. For
