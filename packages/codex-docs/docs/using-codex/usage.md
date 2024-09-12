@@ -206,6 +206,47 @@ Import the following in your Less code:
 }
 ```
 
+## Dark Mode Support
+Codex 1.5.0 introduced support for a "dark mode" color scheme. This is an optional feature
+that can be used in several different ways. Typical usage will involve automatically switching
+an application's colors to match the user's environment, and/or exposing a control that lets
+the user toggle between light and dark color schemes manually.
+
+### Automatic color-mode switching
+To support automatic switching between light and dark colors in your application (to match
+the user's browser or OS settings), follow these steps.
+
+**Import both the light and dark design tokens as CSS variables into your application's
+main stylesheet.** Please note that the exact file paths will depend on where you have
+downloaded Codex; these examples assume that the library has been installed using NPM.
+
+```css
+@import url( ./node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-root.css );
+@import url( /node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.css ) only screen and (prefers-color-scheme: dark );
+```
+
+Alternatively, you can load these files as separate `<link>` tags in the head of your HTML
+document:
+
+  ```html
+  <!-- The default light values will always be loaded -->
+<link rel="stylesheet" href="./node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-root.css" />
+<!-- The dark values will only be loaded when needed -->
+<link rel="stylesheet" href="./node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.css" media="(prefers-color-scheme: dark)" />
+  ```
+
+Once you've done this, all Codex components will automatically use the correct light or dark
+color tokens.
+
+If you are writing custom CSS in your application and you want it to change as well, be sure
+to reference the appropriate Codex color token instead of hardcoding values in your CSS.
+
+```css
+.my-custom-widget {
+	background-color: var( --background-color-base );
+}
+```
+
 ## Versioning
 Codex follows [the semantic versioning standard](https://semver.org/). The current version is
 `{{ version }}`. Subsequent versions will continue to be numbered `0.x.y`, until Codex is stable
