@@ -29,7 +29,7 @@ foundational elements, blue as progressive elements, and red, yellow, and green 
 
 For documentation on how all colors are applied, visit [Color tokens](../design-tokens/color.md).
 
-To check the contrast ratio between two colors, visit the [WebAIM contrast checker](http://webaim.org/resources/contrastchecker/).
+To check the contrast ratio between two colors, visit the [WebAIM contrast checker](https://webaim.org/resources/contrastchecker/).
 
 ## Color options
 
