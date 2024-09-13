@@ -6,6 +6,7 @@
 		:style="rootStyle"
 	>
 		<ul
+			ref="menuListbox"
 			class="cdx-menu__listbox"
 			role="listbox"
 			:style="listBoxStyle"
@@ -751,15 +752,24 @@ export default defineComponent( {
 			}
 		}
 
+		const menuListbox = ref<HTMLElement>();
+
 		/**
-		 * If the menu is scrollable, and an item is highlighted, scroll the highlighted item
-		 * into view.
+		 * If the menu is scrollable, scroll the highlighted item into view,
+		 * or scroll to the first item if no item is highlighted.
 		 */
 		function maybeScrollIntoView(): void {
+			// Whether the Menu listbox (<ul>) is scrollable; and account for
+			// situations when the Menu is resized (examples include: setting `visibleItemLimit`,
+			// and when the height of the visible content area without scroll aka `clientHeight`
+			// is less than the `scrollHeight`).
+			const isListboxScrollable = menuListbox.value &&
+				menuListbox.value.scrollHeight > menuListbox.value.clientHeight;
+
+			// Ensure the menu is scrollable.
 			if (
-				!props.visibleItemLimit ||
-				props.visibleItemLimit > props.menuItems.length ||
-				highlightedMenuItemIndex.value === undefined
+				highlightedMenuItemIndex.value === undefined ||
+				!isListboxScrollable
 			) {
 				return;
 			}
@@ -767,6 +777,7 @@ export default defineComponent( {
 			const scrollIndex = highlightedMenuItemIndex.value >= 0 ?
 				highlightedMenuItemIndex.value :
 				0;
+
 			menuItemElements[ scrollIndex ].scrollIntoView( {
 				behavior: 'smooth',
 				block: 'nearest'
@@ -889,7 +900,8 @@ export default defineComponent( {
 			handleKeyNavigation,
 			ariaRelevant,
 			isMultiselect,
-			isItemSelected
+			isItemSelected,
+			menuListbox
 		};
 	},
 	// Public methods
