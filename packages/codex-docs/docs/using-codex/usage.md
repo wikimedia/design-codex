@@ -222,7 +222,7 @@ downloaded Codex; these examples assume that the library has been installed usin
 
 ```css
 @import url( ./node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-root.css );
-@import url( /node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.css ) only screen and (prefers-color-scheme: dark );
+@import url( /node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.css ) only screen and ( prefers-color-scheme: dark );
 ```
 
 Alternatively, you can load these files as separate `<link>` tags in the head of your HTML
@@ -230,9 +230,9 @@ document:
 
   ```html
   <!-- The default light values will always be loaded -->
-<link rel="stylesheet" href="./node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-root.css" />
+<link rel="stylesheet" href="./node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-root.css">
 <!-- The dark values will only be loaded when needed -->
-<link rel="stylesheet" href="./node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" href="./node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.css" media="( prefers-color-scheme: dark )">
   ```
 
 Once you've done this, all Codex components will automatically use the correct light or dark
