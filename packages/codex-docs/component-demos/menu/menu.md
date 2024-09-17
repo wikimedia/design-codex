@@ -9,14 +9,14 @@ import InputWithMenuPendingWithItems from '@/../component-demos/menu/examples/In
 import MultiselectMenu from '@/../component-demos/menu/examples/MultiselectMenu.vue';
 </script>
 
-A Menu displays a list of available options or suggestions. They unfold from a
+A Menu displays a list of available options, suggestions, or actions. They unfold from a
 control (e.g. a button, selector or input) after it is activated by a user.
 
 ## Guidelines
 
 ### When to use menus
 Menus are intended to be used within other components such as Select, Lookup, or MenuButton.
-The Menu appears when the user interacts with or selects the corresponding element.
+The Menu is displayed when the user interacts with the corresponding trigger element.
 
 ### Specifications
 
@@ -25,12 +25,16 @@ The Menu appears when the user interacts with or selects the corresponding eleme
 The menu is always displayed within a control or input, and it may include the
 following elements:
 
-1. **Menu items**<br>
+1. **Menu header** (optional)<br>
+An optional non-interactive item that serves to group other menu items under a clear title. This header can optionally include a start icon and a description.
+2. **Menu items**<br>
 One or more menu items will appear within the menu. Refer to [MenuItem](./menu-item.md) to learn
 more about available display options.
-2. **Footer** (optional)<br>
+3. **Footer** (optional)<br>
 An optional interactive footer can appear at the end of the menu items to display extra information
-or provide an access to further results.
+or provide an access to further results. This footer can optionally include a start icon.
+4. **Divider** (optional)<br>
+An optional divider will separate a set of related menu items when there is no clear title to group them.
 
 Menus have a drop shadow in order to separate it more clearly from the content
 below. This shadow is a 20% opacity Black color with the X axis moved 0 pixels,
@@ -70,6 +74,13 @@ Menus can support different selection types depending on the component in which 
 
 ![Types of selection of menu items: single-selection or multi-selection.](../../assets/components/menu-item-types-selection.svg)
 
+#### Grouping
+Items within a menu can be grouped in two ways, depending on whether or not they have a clear title to show for the group:
+1. **With title**<br>A prominent header can be added as a title to group a set of menu items.
+2. **With no title**<br>In those cases where there is no clear title to include for the groups, a divider can be used to separate related items from other items in a menu.
+
+![Types of grouping items within a Menu: with header or with dividers.](../../assets/components/menu-types-grouping.svg)
+
 ### Interaction states
 The interaction states of the menu affect the entire menu (group of menu items),
 while individual [menu item](./menu-item.md) states are specifically defined
@@ -84,29 +95,69 @@ within each respective item. The menu component has two main states:
 
 Consider the following recommendations when using menus.
 
+#### Media elements
+
+Menus can incorporate different content and media types. Refer to [MenuItem](./menu-item.md) to explore all the available customization options for menu items.
+
 <cdx-demo-rules>
 
 <template #do-media>
 
-![Menu including MenuItems with icon and text.](../../assets/components/menu-best-practices-do.svg)
+![Two different menus being displayed within Selects: one using start icons and the other using thumbnails.](../../assets/components/menu-best-practices-media-do.svg)
 
 </template>
 
 <template #do-text>
 
-- Enhance the visual representation of text by incorporating icons into menu items.
+- Use icons to enhance the visual representation of text within menus.
+- Use thumbnails within menu items to display a small preview of an image.
 
 </template>
 
 <template #dont-media>
 
-![Menu including MenuItems with icon only.](../../assets/components/menu-best-practices-dont.svg)
+![Two different menus being displayed within Selects: one menu incorrectly using start icons with no text and the other one combining both icons and thumbnail in the same menu.](../../assets/components/menu-best-practices-media-dont.svg)
 
 </template>
 
 <template #dont-text>
 
-- Include only icons within the menu as it would negatively impact accessibility and readability.
+- Include only icons or thumbnails without labels within the menu as it would negatively impact accessibility and readability.
+- Combine menu items that use both icons and thumbnails within the same menu.
+
+</template>
+
+</cdx-demo-rules>
+
+#### Grouping menu items
+
+<cdx-demo-rules>
+
+<template #do-media>
+
+![Menu using headers with a short label and longer description to group a list of multiple menu items.](../../assets/components/menu-best-practices-headers-do.svg)
+
+</template>
+
+<template #do-text>
+
+- Use headers to group one or more sets of menu items when there is a clear title for the group.
+- Keep the header’s label as short as possible to make the groups titles scannable, and use the header’s description in case you need to include additional information about the label.
+
+</template>
+
+<template #dont-media>
+
+![Menu using headers with long labels with custom styles and dividers to group a list of multiple menu items.](../../assets/components/menu-best-practices-headers-dont.svg)
+
+</template>
+
+<template #dont-text>
+
+- Combine headers and dividers to separate groups within the same menu.
+- Apply custom styles to the headers or dividers.
+- Indent the menu items under the header to avoid misalignment.
+- Make the header’s label too long. Instead, use the header’s description to provide any extra information about the label.
 
 </template>
 
@@ -116,25 +167,27 @@ Consider the following recommendations when using menus.
 
 <template #do-media>
 
-![Menu including MenuItems with Thumbnail and text.](../../assets/components/menu-best-practices-do-2.svg)
+![Menu using dividers to create three group of related menu items.](../../assets/components/menu-best-practices-dividers-do.svg)
 
 </template>
 
 <template #do-text>
 
-- Use Thumbnails within menu items to display a small preview of an image.
+- Use dividers to separate groups of items when there is no clear title to include for the groups.
+- Use dividers to organize a list of multiple items into clear and related groups.
 
 </template>
 
 <template #dont-media>
 
-![Menu mixing MenuItems with icons and Thumbnail.](../../assets/components/menu-best-practices-dont-2.svg)
+![Menu using dividers to separate each one of the three items in the menu.](../../assets/components/menu-best-practices-dividers-dont.svg)
 
 </template>
 
 <template #dont-text>
 
-- Combine menu items that include both icons and thumbnails within the same menu.
+- Use dividers to separate each one of the items in the menu. Instead, use dividers to group related items.
+- Use dividers to create groups if there are few items in the menu, such as only 2 or 3 items.
 
 </template>
 
