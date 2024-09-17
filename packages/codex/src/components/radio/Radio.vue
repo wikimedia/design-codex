@@ -109,7 +109,7 @@ export default defineComponent( {
 			default: false
 		},
 		/**
-		 * `status` attribute of the checkbox.
+		 * Validation status of the Radio.
 		 */
 		status: {
 			type: String as PropType<ValidationStatusType>,
