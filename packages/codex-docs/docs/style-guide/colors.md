@@ -8,10 +8,6 @@ import CdxDocsColorLists from '../../src/components/color-lists/ColorLists.vue';
 
 # Colors
 
-::: warning NOTICE
-Colors are currently being updated. This page is not a completely accurate depiction of new colors being added and existing colors being altered.
-:::
-
 The Codex color palette is used to bring visual meaning to interface elements and convey specific
 messages in certain instances. The primary colors used are various shades of gray as textual and
 foundational elements, blue as progressive elements, and red, yellow, and green to convey status.
