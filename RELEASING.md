@@ -139,7 +139,7 @@ git pull
 Then install dependencies.
 
 ```bash
-# For Docker, add "docker-compose exec mediawiki" before this command.
+# For Docker, add "docker compose exec mediawiki" before this command.
 php maintenance/run.php update
 ```
 Then create a feature branch to work on.
@@ -150,7 +150,7 @@ git checkout -b feature-branch
 Once the NPM packages are published, you need to update MediaWiki core to point to the newly
 published version. This involves the following steps:
 - For each package (`codex`, `codex-design-tokens`, and `codex-icons`):
-  - Update the `src` URL and `version` in `foreign-resources.yaml`
+  - Update the `src` URL, `purl` and `version` in `foreign-resources.yaml`
   - Run `manageForeignResources.php make-sri` to get the new integrity hash
   - Update the integrity hash in `foreign-resources.yaml`
   - Run `manageForeignResources.php update` to update the library
@@ -178,7 +178,7 @@ codex:
 Update the version number in the `version` and `purl` fields and in the `src` URL to the new version
 number (e.g. `codex-1.2.34.tgz`). Then get the new integrity value by running the `make-sri` command:
 ```bash
-# For Docker, add "docker-compose exec mediawiki" before this command
+# For Docker, add "docker compose exec mediawiki" before this command
 php maintenance/run.php manageForeignResources make-sri codex
 # This will output an integrity hash that looks like this:
 #    integrity: sha512-8lZ4swHLB9KtMsx6lYOfwqLZJAZ7mfY0jy+VZic6WRDpqQDSE4QgtYg9ptYAyFlkKDTXg72RAoN2yfq6lgzfUQ==
@@ -186,7 +186,7 @@ php maintenance/run.php manageForeignResources make-sri codex
 Copy this integrity hash to `foreign-resources.yaml`, replacing the old integrity hash.
 Then run the `update` command to update the library:
 ```bash
-# For Docker, add "docker-compose exec mediawiki" before this command
+# For Docker, add "docker compose exec mediawiki" before this command
 php maintenance/run.php manageForeignResources update codex
 ```
 And verify that that updated the files for the library:
@@ -209,7 +209,7 @@ Then repeat these steps for `codex-design-tokens` and `codex-icons`.
 
 Then run the following command to update `foreign-resources.cdx.json`:
 ```bash
-# For Docker, add "docker-compose exec mediawiki" before this command
+# For Docker, add "docker compose exec mediawiki" before this command
 php maintenance/run.php manageForeignResources make-cdx
 ```
 
