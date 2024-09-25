@@ -69,7 +69,8 @@ type ButtonWeight = typeof ButtonWeights[ number ];
 
 ```ts
 interface ChipInputItem {
-	value: string,
+	value: string|number,
+	label?: string,
 	icon?: Icon
 }
 ```
@@ -77,7 +78,7 @@ interface ChipInputItem {
 ### ChipValidator
 
 ```ts
-type ChipValidator = ( value: string ) => boolean;
+type ChipValidator = ( value: string|number ) => boolean;
 ```
 
 ### DialogAction

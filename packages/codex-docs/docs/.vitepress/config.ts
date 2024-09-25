@@ -262,6 +262,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Label', link: '/components/demos/label' },
 						{ text: 'Link', link: '/components/mixins/link' },
 						{ text: 'Lookup', link: '/components/demos/lookup' },
+						{ text: 'LookupMultiselect', link: '/components/demos/lookup-multiselect' },
 						{ text: 'Menu', link: '/components/demos/menu' },
 						{ text: 'MenuButton', link: '/components/demos/menu-button' },
 						{ text: 'MenuItem', link: '/components/demos/menu-item' },

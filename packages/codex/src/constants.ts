@@ -108,6 +108,8 @@ export const MenuFooterValue = 'cdx-menu-footer-item';
 export const TabsKey: InjectionKey<ComputedRef<Map<string, TabData>>> = Symbol( 'CdxTabs' );
 export const ActiveTabKey: InjectionKey<WritableComputedRef<string>> = Symbol( 'CdxActiveTab' );
 
+export const AllowArbitraryKey: InjectionKey<Ref<boolean>> = Symbol( 'CdxAllowArbitrary' );
+
 // Keys for data provided by the Field component.
 export const FieldInputIdKey: InjectionKey<ComputedRef<string|undefined>> = Symbol( 'CdxFieldInputId' );
 export const FieldDescriptionIdKey: InjectionKey<ComputedRef<string|undefined>> = Symbol( 'CdxFieldDescriptionId' );

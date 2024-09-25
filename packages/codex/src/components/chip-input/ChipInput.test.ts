@@ -3,7 +3,8 @@ import CdxChipInput from './ChipInput.vue';
 import CdxInputChip from '../input-chip/InputChip.vue';
 import { ChipInputItem, ValidationStatusType } from '../../types';
 import { cdxIconArticle } from '@wikimedia/codex-icons';
-import { nextTick } from 'vue';
+import { nextTick, h, defineComponent, provide, ref } from 'vue';
+import { AllowArbitraryKey } from '../../constants';
 
 describe( 'matches the snapshot', () => {
 	type Case = [
@@ -283,7 +284,7 @@ describe( 'with chip validator', () => {
 	it( 'adds a chip when validator passes', async () => {
 		const wrapper = shallowMount( CdxChipInput, { props: {
 			inputChips: [],
-			chipValidator: ( value: string ) => value.length < 10
+			chipValidator: ( value: string|number ) => value.toString().length < 10
 		} } );
 
 		const inputElement = wrapper.get( 'input' );
@@ -298,7 +299,7 @@ describe( 'with chip validator', () => {
 	it( 'does not add a chip when validator fails', async () => {
 		const wrapper = shallowMount( CdxChipInput, { props: {
 			inputChips: [],
-			chipValidator: ( value: string ) => value.length < 10
+			chipValidator: ( value: string|number ) => value.toString().length < 10
 		} } );
 
 		const inputElement = wrapper.get( 'input' );
@@ -307,6 +308,25 @@ describe( 'with chip validator', () => {
 
 		expect( wrapper.emitted( 'update:input-chips' ) ).toBeFalsy();
 		expect( wrapper.element.classList ).toContain( 'cdx-chip-input--status-error' );
+	} );
+} );
+
+describe( 'with arbitrary input disabled', () => {
+	const ParentComponent = defineComponent( {
+		render() {
+			return h( CdxChipInput, { inputChips: [] } );
+		},
+		setup() {
+			provide( AllowArbitraryKey, ref( false ) );
+		}
+	} );
+	it( 'does not add a chip', async () => {
+		const wrapper = mount( ParentComponent );
+
+		const inputElement = wrapper.get( 'input' );
+		await inputElement.setValue( 'New Chip' );
+		await inputElement.trigger( 'keydown', { key: 'Enter' } );
+		expect( wrapper.findComponent( CdxChipInput ).emitted( 'update:input-chips' ) ).toBeFalsy();
 	} );
 } );
 

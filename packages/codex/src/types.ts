@@ -207,12 +207,13 @@ export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 /** @public */
 export interface ChipInputItem {
-	value: string,
+	value: string|number,
+	label?: string,
 	icon?: Icon
 }
 
 /** @public */
-export type ChipValidator = ( value: string ) => boolean;
+export type ChipValidator = ( value: string|number ) => boolean;
 
 /** @public */
 export interface TableColumn {

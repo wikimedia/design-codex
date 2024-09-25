@@ -8,6 +8,7 @@
 		@focusout="onFocusOut"
 	>
 		<div
+			ref="chipsContainer"
 			class="cdx-chip-input__chips"
 			role="listbox"
 			aria-orientation="horizontal"
@@ -24,7 +25,7 @@
 				@arrow-left="moveChipFocus( 'left', index )"
 				@arrow-right="moveChipFocus( 'right', index )"
 			>
-				{{ chip.value }}
+				{{ chip.label ?? chip.value }}
 			</cdx-input-chip>
 
 			<input
@@ -40,7 +41,11 @@
 			>
 		</div>
 
-		<div v-if="separateInput" class="cdx-chip-input__separate-input">
+		<div
+			v-if="separateInput"
+			ref="separateInputWrapper"
+			class="cdx-chip-input__separate-input"
+		>
 			<input
 				ref="input"
 				v-model="computedInputValue"
@@ -64,9 +69,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, watch, toRef, nextTick, ComponentPublicInstance, PropType } from 'vue';
+import { defineComponent, computed, ref, watch, toRef, inject, nextTick, ComponentPublicInstance, PropType } from 'vue';
 import CdxInputChip from '../input-chip/InputChip.vue';
-import { ValidationStatusTypes } from '../../constants';
+import { ValidationStatusTypes, AllowArbitraryKey } from '../../constants';
 import { ChipInputItem, ChipValidator, ValidationStatusType } from '../../types';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 import useSplitAttributes from '../../composables/useSplitAttributes';
@@ -107,7 +112,7 @@ export default defineComponent( {
 		 * Optionally provided by `v-model:input-value` binding in the parent component.
 		 */
 		inputValue: {
-			type: String,
+			type: [ String, Number ] as PropType<string|number>,
 			default: null
 		},
 		/**
@@ -134,7 +139,7 @@ export default defineComponent( {
 		chipValidator: {
 			type: Function as PropType<ChipValidator>,
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
-			default: ( value: string ) => true
+			default: ( value: string|number ) => true
 		},
 		/**
 		 * Whether the input is disabled.
@@ -160,12 +165,19 @@ export default defineComponent( {
 	],
 	setup( props, { emit, attrs } ) {
 		const rootElement = ref<HTMLDivElement>();
+		// Note that chipsContainer and separateInputWrapper are used by LookupMultiselect.
+		const chipsContainer = ref<HTMLDivElement>();
+		const separateInputWrapper = ref<HTMLDivElement>();
 		const statusMessageContent = ref( '' );
 		const computedDirection = useComputedDirection( rootElement );
 		const input = ref<HTMLInputElement>();
 
+		// Whether to allow arbitrary chips. This is true by default, but can be set to false if
+		// needed (e.g. for the LookupMultiselectable, where chips are only added via a menu).
+		const allowArbitrary = inject( AllowArbitraryKey, ref( true ) );
+
 		// Ref used if the inputValue prop is omitted.
-		const internalInputValue = ref( '' );
+		const internalInputValue = ref<string|number>( '' );
 		const computedInputValue = useOptionalModelWrapper(
 			internalInputValue,
 			toRef( props, 'inputValue' ),
@@ -244,7 +256,7 @@ export default defineComponent( {
 				!props.chipValidator( computedInputValue.value )
 			) {
 				validatedStatus.value = 'error';
-			} else if ( computedInputValue.value.length > 0 ) {
+			} else if ( computedInputValue.value.toString().length > 0 ) {
 				statusMessageContent.value = chipAddedMessage.value;
 
 				emit( 'update:input-chips', props.inputChips.concat( { value: computedInputValue.value } ) );
@@ -293,7 +305,7 @@ export default defineComponent( {
 			method: 'button' | 'Backspace' | 'Delete'
 		) {
 
-			// Update currrentChipToRemove ref.
+			// Update currentChipToRemove ref.
 			currentChipToRemove.value = chipToRemove;
 
 			// Announce the chip removal for all methods, including button clicks.
@@ -330,7 +342,10 @@ export default defineComponent( {
 			const prevArrow = computedDirection.value === 'rtl' ? 'ArrowRight' : 'ArrowLeft';
 			switch ( e.key ) {
 				case 'Enter':
-					if ( computedInputValue.value.length > 0 ) {
+					if (
+						computedInputValue.value.toString().length > 0 &&
+						allowArbitrary.value
+					) {
 						addChip();
 						// If the ChipInput is in a <form>, prevent the Enter key from submitting
 						// the form if the input is non-empty and we're adding a chip, but allow
@@ -376,7 +391,10 @@ export default defineComponent( {
 			// an element outside the component), turn any text in the input into a chip.
 			// We don't do this in onInputBlur() because that is also called when the focus moves
 			// from the input to one of the chips.
-			if ( !rootElement.value?.contains( e.relatedTarget as Node ) ) {
+			if (
+				!rootElement.value?.contains( e.relatedTarget as Node ) &&
+				allowArbitrary.value
+			) {
 				addChip();
 			}
 		}
@@ -400,6 +418,8 @@ export default defineComponent( {
 
 		return {
 			rootElement,
+			chipsContainer,
+			separateInputWrapper,
 			input,
 			computedInputValue,
 			rootClasses,
