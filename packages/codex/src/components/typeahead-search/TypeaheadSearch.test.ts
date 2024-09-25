@@ -57,12 +57,6 @@ const searchResults : SearchResult[] = [
 
 const searchFooterUrl = 'https://foo.org/search?query=Co';
 
-// Jest doesn't support the scrollIntoView method in jsdom, which is used by our Menu component.
-// We stub it here to prevent errors.
-beforeAll( () => {
-	window.HTMLElement.prototype.scrollIntoView = jest.fn();
-} );
-
 describe( 'TypeaheadSearch initial state', () => {
 	type Case = [
 		msg: string,

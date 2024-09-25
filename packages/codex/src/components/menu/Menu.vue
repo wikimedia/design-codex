@@ -752,13 +752,13 @@ export default defineComponent( {
 		}
 
 		/**
-		 * If the menu is scrollable, scroll the highlighted item into view,
-		 * or scroll to the first item if no item is highlighted.
+		 * If the menu is scrollable, and an item is highlighted, scroll the highlighted item
+		 * into view.
 		 */
 		function maybeScrollIntoView(): void {
 			if (
-				props.visibleItemLimit !== null &&
-				props.visibleItemLimit >= props.menuItems.length ||
+				!props.visibleItemLimit ||
+				props.visibleItemLimit > props.menuItems.length ||
 				highlightedMenuItemIndex.value === undefined
 			) {
 				return;
@@ -767,7 +767,6 @@ export default defineComponent( {
 			const scrollIndex = highlightedMenuItemIndex.value >= 0 ?
 				highlightedMenuItemIndex.value :
 				0;
-
 			menuItemElements[ scrollIndex ].scrollIntoView( {
 				behavior: 'smooth',
 				block: 'nearest'

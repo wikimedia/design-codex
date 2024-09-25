@@ -39,12 +39,6 @@ async function delegateKeydownEvent(
 }
 
 describe( 'Menu', () => {
-	// Jest doesn't support the scrollIntoView method in jsdom, which is used by our Menu component.
-	// We stub it here to prevent errors.
-	beforeAll( () => {
-		window.HTMLElement.prototype.scrollIntoView = jest.fn();
-	} );
-
 	describe( 'matches the snapshots', () => {
 		type Case = [
 			msg: string,

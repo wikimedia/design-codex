@@ -17,14 +17,7 @@ const data: {
 	{ value: 'e', label: 'Option E', icon: cdxIconSearch }
 ];
 
-// Jest doesn't support the scrollIntoView method in jsdom, which is used by our Menu component.
-// We stub it here to prevent errors.
-beforeAll( () => {
-	window.HTMLElement.prototype.scrollIntoView = jest.fn();
-} );
-
 describe( 'Basic usage', () => {
-
 	type Case = [
 		msg: string,
 		menuItems: MenuItemData[],
