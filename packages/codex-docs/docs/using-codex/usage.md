@@ -90,9 +90,44 @@ For more information about icons, visit the [icon documentation](../icons/overvi
 [the list of all icons](../icons/all-icons.md).
 
 ### Vue 3 icons
-Import the icons you need from the `@wikimedia/codex-icons` package, put them in your component's
-`data`, then pass them to a Codex component as a prop:
-```vue
+Import the icons you need from the `@wikimedia/codex-icons` package and import the Icon component
+from `@wikimedia/codex`.
+- If using Vue's Composition API, return the icon from the `setup` method in order to expose the
+icon to the template. Then pass the icon to an Icon component as a prop.
+- If using Vue's Options API, put the icons in your component's `data`,
+then pass them to an Icon component as a prop.
+
+::: code-group
+
+```vue [Composition API]
+<template>
+	<div>
+		<cdx-button action="destructive">
+			<cdx-icon :icon="cdxIconTrash" /> Delete this item
+		</cdx-button>
+	</div>
+</template>
+
+<script>
+import { defineComponent } from 'vue';
+import { CdxButton, CdxIcon } from '@wikimedia/codex';
+import { cdxIconTrash } from '@wikimedia/codex-icons';
+
+export default defineComponent( {
+	components: {
+		CdxButton,
+		CdxIcon
+	},
+    setup() {
+        return {
+            cdxIconTrash
+        }
+    }
+} );
+</script>
+```
+
+```vue [Options API]
 <template>
 	<div>
 		<cdx-button action="destructive">
@@ -119,7 +154,9 @@ export default defineComponent( {
 </script>
 ```
 
-For more information about the Icon component, visit the [Icon demo page](../components/demos/icon.md).
+:::
+
+For more information about the Icon component, see [the Icon demo page](../components/demos/icon.md).
 
 ### CSS-only icons
 Import Codex design tokens and the CSS icon mixin. Then, apply the mixin to an empty `<span>`
