@@ -165,7 +165,6 @@ export default defineComponent( {
 	],
 	setup( props, { emit, attrs } ) {
 		const rootElement = ref<HTMLDivElement>();
-		// Note that chipsContainer and separateInputWrapper are used by LookupMultiselect.
 		const chipsContainer = ref<HTMLDivElement>();
 		const separateInputWrapper = ref<HTMLDivElement>();
 		const statusMessageContent = ref( '' );
@@ -450,6 +449,15 @@ export default defineComponent( {
 @spacing-vertical-input-chip: @spacing-25 - @border-width-base;
 
 .cdx-chip-input {
+	// Set the border radius on the root element so the useFloatingMenu composable can unset them
+	// when a menu opens above or below it, as in LookupMultiselect.
+	border-radius: @border-radius-base;
+
+	// Cover up the sharp corners of the child elements that have borders (the chips container and
+	// the separate input). We need the borders to be on these elements so interactive border styles
+	// work properly, but the outer border radius has to be on the root element as stated above.
+	overflow: hidden;
+
 	// Common styles for the chip wrapper and separate input, regardless of disabled status.
 	&__chips,
 	&__separate-input {
@@ -458,7 +466,6 @@ export default defineComponent( {
 		min-height: @min-size-interactive-pointer;
 		border-width: @border-width-base;
 		border-style: @border-style-base;
-		border-radius: @border-radius-base;
 		padding: @spacing-vertical-input-chip @spacing-50;
 		line-height: @line-height-x-small;
 	}
@@ -495,14 +502,13 @@ export default defineComponent( {
 
 	&--has-separate-input {
 		.cdx-chip-input__chips {
+			// Make it look like there's a 1px border between the chips container and the separate
+			// input.
 			margin-bottom: @position-offset-border-width-base;
-			border-bottom-left-radius: 0;
-			border-bottom-right-radius: 0;
 		}
 
-		.cdx-chip-input__separate-input {
-			border-top-left-radius: 0;
-			border-top-right-radius: 0;
+		.cdx-chip-input__input {
+			width: @size-full;
 		}
 	}
 

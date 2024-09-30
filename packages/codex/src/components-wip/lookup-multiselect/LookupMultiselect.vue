@@ -56,6 +56,8 @@
 <script lang="ts">
 import {
 	defineComponent,
+	ComponentPublicInstance,
+	Ref,
 	PropType,
 	ref,
 	toRef,
@@ -259,14 +261,7 @@ export default defineComponent( {
 			otherAttrs
 		} = useSplitAttributes( attrs, internalClasses );
 
-		// The reference element differs depending on whether there's a separate input or not. This
-		// matters because useFloatingMenu unsets some of the border radiuses of the reference
-		// element when the menu is open to create a flush layout.
-		const referenceElement = computed( () => props.separateInput ?
-			chipInput.value?.separateInputWrapper :
-			chipInput.value?.chipsContainer
-		);
-		useFloatingMenu( referenceElement, menu );
+		useFloatingMenu( chipInput as Ref<ComponentPublicInstance>, menu );
 
 		const selectedWrapper = useModelWrapper( toRef( props, 'selected' ), emit, 'update:selected' );
 		const inputChipsWrapper = useModelWrapper( toRef( props, 'inputChips' ), emit, 'update:input-chips' );
