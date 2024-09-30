@@ -25,7 +25,11 @@
 				<slot name="pending" />
 			</li>
 
-			<li v-if="computedShowNoResultsSlot" class="cdx-menu__no-results cdx-menu-item">
+			<li
+				v-if="computedShowNoResultsSlot"
+				class="cdx-menu__no-results cdx-menu-item"
+				role="option"
+			>
 				<!--
 					@slot Message to show if there are no menu items to display.
 				-->

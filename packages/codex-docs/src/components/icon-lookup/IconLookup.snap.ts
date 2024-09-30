@@ -34,6 +34,7 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
       <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
+        role="option"
       >
         
         

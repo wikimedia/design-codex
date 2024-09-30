@@ -34,6 +34,7 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
       <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
+        role="option"
       >
         <!--
 					@slot Message to show if there are no menu items to display.
@@ -455,6 +456,7 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
       <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
+        role="option"
       >
         <!--
 					@slot Message to show if there are no menu items to display.
@@ -504,6 +506,7 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
       <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
+        role="option"
       >
         <!--
 					@slot Message to show if there are no menu items to display.
@@ -559,6 +562,7 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
       <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
+        role="option"
       >
         <!--
 					@slot Message to show if there are no menu items to display.
@@ -609,6 +613,7 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
       <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
+        role="option"
       >
         <!--
 					@slot Message to show if there are no menu items to display.

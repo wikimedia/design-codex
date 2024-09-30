@@ -1201,6 +1201,7 @@ exports[`Menu matches the snapshots Case 5 With no results text: => HTML 1`] = `
     <!--v-if-->
     <li
       class="cdx-menu__no-results cdx-menu-item"
+      role="option"
     >
       <!--
 					@slot Message to show if there are no menu items to display.

@@ -45,6 +45,7 @@ exports[`LookupMultiselect matches the snapshot Case 0 Default props: ({"inputCh
       <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
+        role="option"
       >
         <!--
 					@slot Message to show if there are no menu items to display.
@@ -397,6 +398,7 @@ exports[`LookupMultiselect matches the snapshot Case 2 With input chips: ({"inpu
       <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
+        role="option"
       >
         <!--
 					@slot Message to show if there are no menu items to display.
@@ -457,6 +459,7 @@ exports[`LookupMultiselect matches the snapshot Case 3 With input value: ({"inpu
       <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
+        role="option"
       >
         <!--
 					@slot Message to show if there are no menu items to display.
@@ -617,6 +620,7 @@ exports[`LookupMultiselect matches the snapshot Case 4 With separate input: ({"i
       <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
+        role="option"
       >
         <!--
 					@slot Message to show if there are no menu items to display.
@@ -773,6 +777,7 @@ exports[`LookupMultiselect matches the snapshot Case 5 With error: ({"inputChips
       <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
+        role="option"
       >
         <!--
 					@slot Message to show if there are no menu items to display.
@@ -932,6 +937,7 @@ exports[`LookupMultiselect matches the snapshot Case 6 Disabled: ({"disabled": t
       <!--v-if-->
       <li
         class="cdx-menu__no-results cdx-menu-item"
+        role="option"
       >
         <!--
 					@slot Message to show if there are no menu items to display.

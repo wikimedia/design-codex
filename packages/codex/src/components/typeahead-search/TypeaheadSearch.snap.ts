@@ -592,6 +592,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
             <!--v-if-->
             <li
               class="cdx-menu__no-results cdx-menu-item"
+              role="option"
             >
               <!--
 					@slot Message to show if there are no menu items to display.
