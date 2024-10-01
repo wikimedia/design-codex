@@ -583,6 +583,7 @@ export default defineComponent( {
 
 			/* stylelint-disable-next-line no-descending-specificity */
 			.cdx-chip-input__input {
+				background-color: inherit;
 				color: @color-disabled;
 				-webkit-text-fill-color: @color-disabled;
 			}
