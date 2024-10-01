@@ -620,12 +620,13 @@ export default defineComponent( {
 					return true;
 				case 'Tab':
 					if ( props.expanded ) {
-						// Select the highlighted menu item....
-						if ( highlightedMenuItem.value && highlightedViaKeyboard.value ) {
+						// Select the highlighted menu item in single-select menus.
+						// Then close the menu.
+						if ( highlightedMenuItem.value &&
+							highlightedViaKeyboard.value &&
+							!isMultiselect.value
+						) {
 							updateSelected( highlightedMenuItem.value.value );
-						}
-						// Then close the menu, unless this is multiselect mode.
-						if ( !isMultiselect.value ) {
 							emit( 'update:expanded', false );
 						}
 					}

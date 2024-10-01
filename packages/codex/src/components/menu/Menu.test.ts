@@ -663,7 +663,7 @@ describe( 'Menu', () => {
 		} );
 	} );
 
-	describe( 'when the user navigates to a new item and presses Tab', () => {
+	describe( 'when the user navigates to a new item and presses Tab in a single-select menu', () => {
 		it( 'emits an update event with the value of that item', async () => {
 			const wrapper = mount( CdxMenu, { props: {
 				...defaultProps,
@@ -678,6 +678,22 @@ describe( 'Menu', () => {
 			await delegateKeydownEvent( wrapper, 'ArrowDown' );
 			await delegateKeydownEvent( wrapper, 'Tab' );
 			expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ exampleMenuItems[ 2 ].value ] );
+		} );
+	} );
+
+	describe( 'when the user navigates to a new item and presses Tab in a multi-select menu', () => {
+		it( 'emits an update event with the value of that item', async () => {
+			const wrapper = mount( CdxMenu, { props: multiselectProps } );
+
+			// Enter opens the menu and highlights the selected item
+			await delegateKeydownEvent( wrapper, 'Enter' );
+			// Simulate the parent responding to the update:expanded event
+			await wrapper.setProps( { expanded: true } );
+
+			await delegateKeydownEvent( wrapper, 'ArrowDown' );
+			await delegateKeydownEvent( wrapper, 'Tab' );
+			// Ensure Tab key does not select/deselect items in a multiselect menu.
+			expect( wrapper.emitted()[ 'update:selected' ] ).toBeFalsy();
 		} );
 	} );
 
