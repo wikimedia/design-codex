@@ -27,6 +27,12 @@
 		"progressive-subtle": {
 			"value": "{ color.blue900 }"
 		},
+		"progressive--focus": {
+			"value": "{ color.blue500 }"
+		},
+		"destructive--focus": {
+			"value": "{ color.blue500 }"
+		},
 		"destructive-subtle": {
 			"value": "{ color.red900 }"
 		},
@@ -146,6 +152,12 @@
 		"inverted": {
 			"value": "{ color.gray1000 }"
 		},
+		"progressive--focus": {
+			"value": "{ color.blue500 }"
+		},
+		"destructive--focus": {
+			"value": "{ color.blue500 }"
+		},
 		"error": {
 			"value": "{ color.red500 }"
 		},
@@ -175,6 +187,12 @@
 			},
 			"inverted": {
 				"value": "{ color.black }"
+			},
+			"progressive--focus": {
+				"value": "{ color.blue500 }"
+			},
+			"destructive--focus": {
+				"value": "{ color.blue500 }"
 			}
 		}
 	}

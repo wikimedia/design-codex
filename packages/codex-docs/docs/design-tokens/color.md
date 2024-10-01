@@ -2,8 +2,8 @@
 import { computed, ref, onMounted } from 'vue';
 import { useData } from 'vitepress';
 import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
-import defaultTokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
-import darkTokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.json';
+import defaultModeTokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
+import darkModeTokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.json';
 
 const { isDark } = useData();
 
@@ -12,7 +12,7 @@ onMounted( () => { isMounted.value = true; } );
 
 // We have to update this on mount to force the server-rendered HTML, which includes inlined styles
 // for the color demo circles' background-colors, to update.
-const tokens = computed( () => isMounted.value && isDark.value ? darkTokens : defaultTokens );
+const tokens = computed( () => isMounted.value && isDark.value ? darkModeTokens : defaultModeTokens );
 </script>
 
 # Color
@@ -20,7 +20,7 @@ const tokens = computed( () => isMounted.value && isDark.value ? darkTokens : de
 :::tip
 Some colors vary between light and dark modes. Use the color mode switcher in the site header to see
 the colors in the different modes. Using design tokens rather than raw hex codes will ensure you're
-automatically using the right color for the right mode.
+automatically using the right color for the chosen mode.
 :::
 
 ## Text colors

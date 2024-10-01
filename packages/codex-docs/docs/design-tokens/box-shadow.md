@@ -1,9 +1,26 @@
 <script setup>
+import { computed, ref, onMounted } from 'vue';
+import { useData } from 'vitepress';
 import CdxDocsTokensTable from '../../src/components/tokens/TokensTable.vue';
-import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
+import defaultModeTokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
+import darkModeTokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.json';
+
+const { isDark } = useData();
+
+const isMounted = ref( false );
+onMounted( () => { isMounted.value = true; } );
+
+// We have to update this on mount to force the server-rendered HTML to update.
+const tokens = computed( () => isMounted.value && isDark.value ? darkModeTokens : defaultModeTokens );
 </script>
 
 # Box shadow
+
+:::tip
+Some box shadow colors vary between light and dark modes. Use the color mode switcher in the site
+header to see the box shadow colors in the different modes. Using design tokens rather than raw hex
+codes will ensure you're automatically using the right color for the chosen mode.
+:::
 
 <cdx-docs-tokens-table
 	:tokens="tokens['box-shadow']"
