@@ -123,6 +123,21 @@ describe( 'Basic usage', () => {
 			expect( inputElement.element.value ).toBe( 'chip 1' );
 		} );
 
+		describe( 'and the chip has a label', () => {
+			it( 'removes the chip and adds the label to the input', async () => {
+				const wrapper = mount( CdxChipInput, { props: {
+					inputChips: [
+						{ value: 'chip 1', label: 'Chip One' },
+						{ value: 'chip 2', label: 'Chip Two' }
+					]
+				} } );
+				const inputElement = wrapper.get( 'input' );
+				const firstChip = wrapper.findComponent( CdxInputChip );
+				await firstChip.find( '.cdx-input-chip' ).trigger( 'click' );
+				expect( inputElement.element.value ).toBe( 'Chip One' );
+			} );
+		} );
+
 		it( 'updates the status message when a chip is removed via button click', async () => {
 			const wrapper = mount( CdxChipInput, {
 				props: {

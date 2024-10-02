@@ -294,7 +294,7 @@ export default defineComponent( {
 			// otherwise we'll lose the newly added chip when removeChip() fires another event
 			await nextTick();
 			removeChip( clickedChip );
-			computedInputValue.value = clickedChip.value;
+			computedInputValue.value = clickedChip.label ?? clickedChip.value;
 			focusInput();
 		}
 
