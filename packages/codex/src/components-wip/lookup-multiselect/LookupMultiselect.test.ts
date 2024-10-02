@@ -330,6 +330,16 @@ describe( 'LookupMultiselect', () => {
 	} );
 
 	describe( 'when an item is selected', () => {
+		it( 'emits "update:input-value" and "input" events', async () => {
+			const wrapper = mount( CdxLookupMultiselect, {
+				props: { ...defaultProps, menuItems, inputValue: 'foo' }
+			} );
+			await wrapper.setProps( { selected: [ 'b' ] } );
+			expect( wrapper.emitted( 'update:input-value' )?.[ 0 ] ).toEqual( [ '' ] );
+			expect( wrapper.emitted( 'input' )?.[ 0 ] ).toEqual( [ '' ] );
+			expect( wrapper.emitted()[ 'update:expanded' ] ).toBeFalsy();
+		} );
+
 		describe( 'and the selected item has a label', () => {
 			it( 'emits an update:input-chips event with a chip that has a label and a value', async () => {
 				const wrapper = mount( CdxLookupMultiselect, {
@@ -355,14 +365,6 @@ describe( 'LookupMultiselect', () => {
 				await wrapper.setProps( { selected: [ 'c' ] } );
 				expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'c' } ] ] );
 			} );
-		} );
-
-		it( 'does not emit an "update:expanded" event', async () => {
-			const wrapper = mount( CdxLookupMultiselect, {
-				props: { ...defaultProps, menuItems }
-			} );
-			await wrapper.findComponent( CdxMenuItem ).trigger( 'click' );
-			expect( wrapper.emitted()[ 'update:expanded' ] ).toBeFalsy();
 		} );
 	} );
 

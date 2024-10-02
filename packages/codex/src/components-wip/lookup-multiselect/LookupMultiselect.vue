@@ -359,6 +359,9 @@ export default defineComponent( {
 
 				// Clear the input.
 				computedInputValue.value = '';
+
+				// Also emit an input event in case the inputValue prop wasn't used.
+				emit( 'input', '' );
 			}
 
 			// Remove any chips that no longer match a selected value.

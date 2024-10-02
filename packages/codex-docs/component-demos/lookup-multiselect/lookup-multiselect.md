@@ -134,7 +134,7 @@ when the input is cleared.
 
 ### With initial selection
 
-To sen an initial selection, do the following:
+To set an initial selection, do the following:
 1. Set the `selected` prop to an array of selected values.
 2. Set the `inputChips` prop to a set of chips matching the selected values.
 
