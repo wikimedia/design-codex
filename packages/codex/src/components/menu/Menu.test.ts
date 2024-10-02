@@ -682,7 +682,7 @@ describe( 'Menu', () => {
 	} );
 
 	describe( 'when the user navigates to a new item and presses Tab in a multi-select menu', () => {
-		it( 'emits an update event with the value of that item', async () => {
+		it( 'does not emit an update event with the value of that item', async () => {
 			const wrapper = mount( CdxMenu, { props: multiselectProps } );
 
 			// Enter opens the menu and highlights the selected item
