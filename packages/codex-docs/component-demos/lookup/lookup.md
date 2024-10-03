@@ -1,12 +1,8 @@
 <script setup>
-import LookupDefault from '@/../component-demos/lookup/examples/LookupDefault.vue';
-import LookupWithCustomMenuItem from '@/../component-demos/lookup/examples/LookupWithCustomMenuItem.vue';
-import LookupNoResults from '@/../component-demos/lookup/examples/LookupNoResults.vue';
+import LookupBasic from '@/../component-demos/lookup/examples/LookupBasic.vue';
 import LookupWithSuggestions from '@/../component-demos/lookup/examples/LookupWithSuggestions.vue';
 import LookupWithInitialSelection from '@/../component-demos/lookup/examples/LookupWithInitialSelection.vue';
 import LookupWithFetch from '@/../component-demos/lookup/examples/LookupWithFetch.vue';
-import LookupClearableStartIcon from '@/../component-demos/lookup/examples/LookupClearableStartIcon.vue';
-import LookupWithPlaceholder from '@/../component-demos/lookup/examples/LookupWithPlaceholder.vue';
 import LookupField from '@/../component-demos/lookup/examples/LookupField.vue';
 import LookupConfigurable from '@/../component-demos/lookup/examples/LookupConfigurable.vue';
 
@@ -162,16 +158,22 @@ Consider the following recommendations when using Lookups.
 </template>
 </cdx-demo-wrapper>
 
-### Default
+### Basic usage
 
-The Lookup component will emit `input` events on input, which the parent component should
-react to by computing or fetching menu items, then providing those items to the Lookup component for
-display by updating the `menu-items` prop.
+The Lookup component emits an event on input. The parent component should react by computing or
+fetching menu items, then providing those items to the Lookup component for display by updating the
+`menu-items` prop. The user can then select an item from the menu.
+
+There are 2 ways to listen for input changes:
+1. Listen for `input` events, like in the example below. Do this if you only need to know about the
+   input when it changes.
+2. Use `v-model` to bind the `inputValue` prop and listen for either `input` or `update:input-value`
+   events. Do this if you need to know the current input value at other times, or if you want to be
+   able to set the input value. See the [Vue usage](#vue-usage) tables for more information.
 
 Items are displayed via the MenuItem component—see the [MenuItem docs](./menu-item) for more
-options. In this example, a `menuConfig` object is passed to the Lookup to bold the label text.
-
-Note that in this example, menu items are Wikidata items with a human-readable label and a Wikidata
+options. In this example, a `menuConfig` object is passed to the Lookup to bold the label text. Note
+that in this example, menu items are Wikidata items with a human-readable label and a Wikidata
 entity ID value.
 
 ::: warning
@@ -182,128 +184,32 @@ given input, set the `menu-items` prop to an empty array (`[]`).
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-	<lookup-default />
+	<lookup-basic />
 </template>
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/lookup/examples/LookupDefault.vue [NPM]
+<<< @/../component-demos/lookup/examples/LookupBasic.vue [NPM]
 
-<<< @/../component-demos/lookup/examples-mw/LookupDefault.vue [MediaWiki]
+<<< @/../component-demos/lookup/examples-mw/LookupBasic.vue [MediaWiki]
 
 :::
 
 </template>
 </cdx-demo-wrapper>
 
-### With custom menu item display
+### With fetched results
 
-The `menu-item` slot can be used to set up custom menu item content and formatting.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<lookup-with-custom-menu-item />
-</template>
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/lookup/examples/LookupWithCustomMenuItem.vue [NPM]
-
-<<< @/../component-demos/lookup/examples-mw/LookupWithCustomMenuItem.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### With "no results" content
-
-A non-interactive "no results" message can be displayed via the `no-results` slot. If populated,
-this slot will automatically display when there are zero menu items.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<lookup-no-results />
-</template>
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/lookup/examples/LookupNoResults.vue [NPM]
-
-<<< @/../component-demos/lookup/examples-mw/LookupNoResults.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### With initial suggestions
-
-You can show an initial list of options as "suggestions" by passing in an array of menu items
-initially. The parent component must handle resetting the menu items to this list of suggestions
-when the input is cleared.
-
-<cdx-demo-wrapper :force-controls="true">
-<template v-slot:demo>
-	<lookup-with-suggestions />
-</template>
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/lookup/examples/LookupWithSuggestions.vue [NPM]
-
-<<< @/../component-demos/lookup/examples-mw/LookupWithSuggestions.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### With initial selection and input
-
-To set an initial selection, do the following:
-1. Set the `selected` prop to the value of the initially selected item.
-2. Use the optional `v-model:input-value` prop to set the input value to the label of the selected
-   item (or the value, if there is no label).
-3. Optional: if you want the selected item to appear in the menu when it is opened, you must provide
-   the selected item in the list of `menuItems`. Otherwise, you can initialize `menuItems` to an
-   empty array or a list of initial suggestions.
-
-You can also use `v-model:input-value` to set an initial input value without an initial selection.
-
-<cdx-demo-wrapper :force-reset="true">
-<template v-slot:demo>
-	<lookup-with-initial-selection />
-</template>
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/lookup/examples/LookupWithInitialSelection.vue [NPM]
-
-<<< @/../component-demos/lookup/examples-mw/LookupWithInitialSelection.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### With fetched results and infinite scroll
-
-Often, Lookup is used to fetch results from an API endpoint. Parent components should
-react to the `input` event emitted by Lookup to search for results, then pass back to the
+Often, Lookup is used to fetch results from an API endpoint. Parent components should react to the
+`input` or `update:input-value` event emitted by Lookup to search for results, then pass back to the
 Lookup either an array of results to display as menu items or an empty array if there are no
-results. Between those two events, a pending state animation will display in the input.
+results. Between those two events, a pending animation will display in the input.
 
-Scrolling is enabled by setting the `visibleItemLimit` property of the `menuConfig` prop.
-
-With scrolling enabled, when the user nears the end of the list of results, a `load-more` event is
-emitted. The parent component can react to this by fetching more results and appending them to the
-list of menu items provided to the Lookup. These new items will then be displayed within the menu.
+With scrolling enabled via the `visibleItemLimit` property of the `menuConfig` prop, when the user
+nears the end of the list of results, a `load-more` event is emitted. The parent component can react
+to this by fetching more results and appending them to the list of menu items provided to the
+Lookup. These new items will then be displayed within the menu.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -322,44 +228,49 @@ list of menu items provided to the Lookup. These new items will then be displaye
 </template>
 </cdx-demo-wrapper>
 
-### Clearable, with start icon
+### With suggestions
 
-Props of the TextInput component can be bound to Lookup and will be passed down to the TextInput
-component inside of it, so you can take advantage of features like the "clear" button and icons.
+You can show a list of suggestions by passing in an array of menu items initially. The parent
+component must handle resetting the menu items to this list of suggestions when the input is
+cleared.
 
-<cdx-demo-wrapper>
+<cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
-	<lookup-clearable-start-icon />
+	<lookup-with-suggestions />
 </template>
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/lookup/examples/LookupClearableStartIcon.vue [NPM]
+<<< @/../component-demos/lookup/examples/LookupWithSuggestions.vue [NPM]
 
-<<< @/../component-demos/lookup/examples-mw/LookupClearableStartIcon.vue [MediaWiki]
+<<< @/../component-demos/lookup/examples-mw/LookupWithSuggestions.vue [MediaWiki]
 
 :::
 
 </template>
 </cdx-demo-wrapper>
 
-### With placeholder
+### With initial value
 
-Attributes (except for `class`) will fall through to the input element, so you can set things like
-`placeholder` on the Lookup component and they'll be applied to the input.
+To set an initial selection and input value, do the following:
+1. Set the `selected` prop to the value of the selected item.
+2. Use the optional `v-model:input-value` prop to set the input value to the label of the selected
+   item (or the value, if there is no label).
 
-<cdx-demo-wrapper>
+You can also use `v-model:input-value` to set an initial input value without an initial selection.
+
+<cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-	<lookup-with-placeholder />
+	<lookup-with-initial-selection />
 </template>
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/lookup/examples/LookupWithPlaceholder.vue [NPM]
+<<< @/../component-demos/lookup/examples/LookupWithInitialSelection.vue [NPM]
 
-<<< @/../component-demos/lookup/examples-mw/LookupWithPlaceholder.vue [MediaWiki]
+<<< @/../component-demos/lookup/examples-mw/LookupWithInitialSelection.vue [MediaWiki]
 
 :::
 
@@ -388,10 +299,15 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 </template>
 </cdx-demo-wrapper>
 
-## Vue usage
+### Other features
 
-Typical use of this component will involve listening for `input` events, fetching or otherwise
-computing menu items, then passing those menu items back to the Lookup for display.
+The Lookup component has an internal Menu and TextInput. You can use the following features from
+those components in the Lookup component:
+- [Custom menu item display](./menu.html#with-custom-menu-item-display)
+- [Start and end icons](./text-input.html#with-icons)
+- [Clearable](./text-input.html#clearable)
+
+## Vue usage
 
 ::: tip TextInput props apply
 This component contains a TextInput component. You can bind [TextInput props](./text-input.html#props)

@@ -5,7 +5,11 @@
 		aria-label="Lookup configurable demo"
 		:status="status"
 		@input="onInput"
-	/>
+	>
+		<template #no-results>
+			No results found.
+		</template>
+	</cdx-lookup>
 </template>
 
 <script>

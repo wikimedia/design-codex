@@ -10,7 +10,11 @@
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
 			aria-label="Lookup demo with initial selection"
-		/>
+		>
+			<template #no-results>
+				No results found.
+			</template>
+		</cdx-lookup>
 	</div>
 </template>
 

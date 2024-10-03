@@ -9,7 +9,7 @@
 			v-model:selected="selection"
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
-			aria-label="LookupMultiselect demo"
+			aria-label="LookupMultiselect basic demo"
 			@input="onInput"
 		>
 			<template #no-results>

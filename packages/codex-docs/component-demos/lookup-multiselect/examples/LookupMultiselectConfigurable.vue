@@ -5,7 +5,11 @@
 		:menu-items="menuItems"
 		aria-label="LookupMultiselect configurable demo"
 		@input="onInput"
-	/>
+	>
+		<template #no-results>
+			No results found.
+		</template>
+	</cdx-lookup-multiselect>
 </template>
 
 <script>

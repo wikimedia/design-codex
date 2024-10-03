@@ -1,9 +1,15 @@
 <template>
 	<div>
+		<p class="cdx-docs-demo-text">
+			Selected value: {{ selection }}
+		</p>
+
 		<cdx-lookup
 			v-model:selected="selection"
 			:menu-items="menuItems"
-			aria-label="Lookup with 'no results' content demo"
+			:menu-config="menuConfig"
+			placeholder="Start typing a vegetable name"
+			aria-label="Lookup basic demo"
 			@input="onInput"
 		>
 			<template #no-results>
@@ -19,11 +25,15 @@ import { CdxLookup } from '@wikimedia/codex';
 import vegetableItems from './data.json';
 
 export default defineComponent( {
-	name: 'LookupNoResults',
+	name: 'LookupBasic',
 	components: { CdxLookup },
 	setup() {
 		const selection = ref( null );
 		const menuItems = ref( [] );
+
+		const menuConfig = {
+			boldLabel: true
+		};
 
 		/**
 		 * Filter items on input.
@@ -41,6 +51,7 @@ export default defineComponent( {
 		return {
 			selection,
 			menuItems,
+			menuConfig,
 			onInput
 		};
 	}
