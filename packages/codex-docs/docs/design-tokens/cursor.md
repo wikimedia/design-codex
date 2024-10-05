@@ -7,7 +7,7 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 
 <cdx-docs-tokens-table
 	:tokens="tokens.cursor"
-	token-demo="CdxDocsTokenDemo"
+	token-demo="CdxDocsCursorDemo"
 	token-category="cursor"
 	css-property="cursor"
 />

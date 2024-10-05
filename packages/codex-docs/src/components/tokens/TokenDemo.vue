@@ -87,9 +87,6 @@ export default defineComponent( {
 /** Demos that style a rectangle (this may be in addition to extra styles below) */
 .cdx-docs-tokens-demo {
 	&--animation &__token,
-	&--box-shadow &__token,
-	&--box-shadow-color &__token,
-	&--opacity &__token,
 	&--outline &__token,
 	&--padding &__token {
 		width: @size-800;
@@ -101,7 +98,9 @@ export default defineComponent( {
 	}
 
 	&--animation &__token {
-		border: @border-base;
+		height: @size-100;
+		border: @border-progressive;
+		border-radius: @border-radius-base;
 
 		&__inner {
 			background-color: @background-color-progressive;
@@ -110,6 +109,15 @@ export default defineComponent( {
 			animation-duration: @animation-duration-token-animation;
 			animation-iteration-count: @animation-iteration-count-base;
 		}
+	}
+
+	&--box-shadow &__token,
+	&--box-shadow-color &__token,
+	&--color &__token,
+	&--opacity &__token {
+		width: @size-250;
+		height: @size-250;
+		border-radius: @border-radius-base;
 	}
 
 	&--border &__token {
@@ -123,21 +131,18 @@ export default defineComponent( {
 		}
 	}
 
-	&--cursor &__token {
-		// TODO: This is semantically incorrect, there needs to be a static token.
-		background-color: @background-color-progressive;
-		width: @size-300;
-		height: @size-300;
-		border-radius: @border-radius-circle;
+	&--font &__token {
+		background-color: @background-color-neutral-subtle;
+		border-radius: @border-radius-base;
+		padding: @spacing-50 @spacing-75;
 	}
 
 	&--opacity {
-		border: @border-base;
-
 		.cdx-docs-tokens-demo__token {
 			background-image: repeating-conic-gradient( #000 0% 25%, transparent 0% 50% );
 			background-position: 0 0;
 			background-size: @size-125 @size-125;
+			border: @border-base;
 		}
 	}
 
@@ -158,43 +163,8 @@ export default defineComponent( {
 		}
 	}
 
-	&--background-position &__token,
-	&--position &__token {
-		position: relative;
-		width: @size-300;
-		height: @size-300;
-		margin-left: @spacing-300;
-
-		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			width: @size-1600;
-		}
-	}
-
-	&--background-position &__token {
-		.cdx-mixin-css-icon( @cdx-icon-map-pin );
-		outline: @border-base;
-	}
-
-	&--position &__token {
-		border: @border-base;
-
-		&__inner {
-			background-color: @background-color-progressive;
-			opacity: @opacity-medium;
-			position: absolute;
-			top: @spacing-half;
-			left: 0;
-			width: @size-150;
-			height: @size-150;
-			transform: translateY( -@spacing-half );
-		}
-	}
-
 	&--color &__token {
-		width: @size-800;
-		height: @size-800;
 		border: @border-width-base @border-style-base @border-color-token;
-		border-radius: @border-radius-circle;
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		html.dark & {

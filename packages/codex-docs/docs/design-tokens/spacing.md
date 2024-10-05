@@ -10,5 +10,5 @@ They are used to create a consistent spacing within and between components.
 
 <cdx-docs-tokens-table
 	:tokens="spacing"
-	token-demo="CdxDocsSpacingDemo"
+    token-category="spacing"
 />

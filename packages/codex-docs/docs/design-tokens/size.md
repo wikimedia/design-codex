@@ -5,21 +5,20 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 
 # Size
 
-## Size
+The size tokens are used to define the size of elements, applied for example on the `width` and `height` properties.
 
-The size tokens are used to define the size of elements, applied for example on the `width` and
-`height` properties.
+## Size
 
 <cdx-docs-tokens-table
 	:tokens="tokens.size"
-	token-demo="CdxDocsSizeDemo"
+	token-category="size"
 />
 
 ## Minimum size
 
 <cdx-docs-tokens-table
 	:tokens="tokens['min-size']"
-	token-demo="CdxDocsSizeDemo"
+	token-category="min-size"
 />
 
 ## Maximum width
@@ -27,6 +26,6 @@ The size tokens are used to define the size of elements, applied for example on 
 <cdx-docs-tokens-table
 	:tokens="tokens['max-width']"
 	exclude-tokens="breakpoint"
-	token-demo="CdxDocsSizeDemo"
+	token-category="max-width"
 	css-property="width"
 />

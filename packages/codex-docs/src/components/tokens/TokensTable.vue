@@ -1,19 +1,11 @@
 <template>
-	<div class="cdx-docs-table-wrapper">
-		<table class="cdx-docs-tokens-table">
-			<caption>
-				<!-- Expose `table caption` content only to assistive technology users. -->
-				<span class="cdx-docs-is-visually-hidden">
-					List of design token names, values and metadata for
-					<code>{{ cssProperty }}</code>
-				</span>
-			</caption>
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Value</th>
-				</tr>
-			</thead>
+	<cdx-table
+		class="cdx-docs-tokens-table"
+		:caption="caption"
+		:columns="columns"
+		:hide-caption="true"
+	>
+		<template #tbody>
 			<tbody>
 				<tr v-for="( token, key ) in flattenedTokens" :key="key">
 					<!-- Needs dir="ltr" to make the bidirectional styles for CdxButton work -->
@@ -22,19 +14,20 @@
 						class="cdx-docs-tokens-table__name"
 						dir="ltr"
 					>
-						<strong>{{ token.name }}</strong>
-						<span class="cdx-docs-tokens-table__name__meta">
+						<span class="cdx-docs-tokens-table__name__token-name">
+							<code>
+								{{ token.name }}
+							</code>
+							<cdx-docs-copy-text-button :copy-text="token.name" />
+						</span>
+						<div class="cdx-docs-tokens-table__name__meta">
 							<p
 								v-if="token.deprecated"
-								class="cdx-docs-tokens-table__name__deprecated"
+								class="cdx-docs-tokens-table__name__meta__deprecated"
 							>
 								<strong>deprecated</strong>
 							</p>
-							<cdx-docs-copy-text-button :copy-text="token.name" />
-						</span>
-					</td>
-					<td class="cdx-docs-tokens-table__value">
-						<code>{{ token.value }}</code>
+						</div>
 						<div
 							v-if="hasTokenDemo"
 							class="cdx-docs-tokens-table__demo"
@@ -49,28 +42,29 @@
 								:style-target="styleTarget"
 							/>
 						</div>
-						<div class="cdx-docs-tokens-table__value-meta">
-							<p v-if="token.filePath">
-								Defined in <code>{{ token.filePath }}</code>
-							</p>
+						<p v-if="token.comment" class="cdx-docs-tokens-table__name__meta__comments">
+							{{ token.comment }}
+						</p>
+					</td>
+					<td class="cdx-docs-tokens-table__value">
+						<span>
+							<code class="cdx-docs-tokens-table__value__token-value">
+								{{ token.value }}
+							</code>
+						</span>
+						<div>
 							<p
 								v-for="referredTokenName in token.attributes.tokens"
 								:key="referredTokenName"
 							>
-								Refers to <code>{{ referredTokenName }}</code>
-							</p>
-							<p v-if="token.comment">
-								<em>{{ token.comment }}</em>
-							</p>
-							<p v-if="typeof token.deprecated === 'string'">
-								<em>Deprecated: {{ token.deprecated }}</em>
+								<code>{{ referredTokenName }}</code>
 							</p>
 						</div>
 					</td>
 				</tr>
 			</tbody>
-		</table>
-	</div>
+		</template>
+	</cdx-table>
 </template>
 
 <script lang="ts">
@@ -78,19 +72,19 @@ import { defineComponent, computed, PropType } from 'vue';
 import { DesignTokensTree } from '../../types';
 import { expandDeprecationMessage, flattenDesignTokensTree } from '../../utils/tokens';
 import CdxDocsTokenDemo from './TokenDemo.vue';
+import CdxDocsCursorDemo from './CursorDemo.vue';
 import CdxDocsFontDemo from './FontDemo.vue';
-import CdxDocsSpacingDemo from './SpacingDemo.vue';
-import CdxDocsSizeDemo from './SizeDemo.vue';
 import CdxDocsTransitionDemo from './TransitionDemo.vue';
 import CdxDocsCopyTextButton from '../copy-text-button/CopyTextButton.vue';
+import { CdxTable } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'TokensTable',
 	components: {
+		CdxTable,
 		CdxDocsTokenDemo,
+		CdxDocsCursorDemo,
 		CdxDocsFontDemo,
-		CdxDocsSpacingDemo,
-		CdxDocsSizeDemo,
 		CdxDocsTransitionDemo,
 		CdxDocsCopyTextButton
 	},
@@ -150,9 +144,17 @@ export default defineComponent( {
 				.map( ( token ) => expandDeprecationMessage( token ) )
 		);
 
+		const caption = computed( () => `List of design token names, values and metadata for ${ props.cssProperty }` );
+		const columns = [
+			{ id: 'name', label: 'Name', width: '50%' },
+			{ id: 'value', label: 'Value', width: '50%' }
+		];
+
 		return {
 			hasTokenDemo,
-			flattenedTokens
+			flattenedTokens,
+			caption,
+			columns
 		};
 	}
 } );
@@ -161,62 +163,85 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
+@token-table-border-none: none;
+
 .cdx-docs-tokens-table {
 	// Undo VitePress style.
 	width: @size-full;
+
+	& table {
+		// Override VitePress style.
+		margin: 0;
+	}
+
+	thead tr,
+	tbody tr {
+		// Override VitePress style.
+		border-top: @token-table-border-none;
+	}
+
+	thead th {
+		// Override VitePress style.
+		background-color: inherit;
+		border: @token-table-border-none;
+	}
+
+	tbody td {
+		// Override VitePress style.
+		border-right: @token-table-border-none;
+		border-bottom: @token-table-border-none;
+		border-left: @token-table-border-none;
+
+		code {
+			// Override VitePress style.
+			color: @color-base;
+		}
+	}
+
+	/* stylelint-disable selector-class-pattern */
+	& .cdx-table__table th,
+	& .cdx-table__table td {
+		// Override VitePress style.
+		border-color: @border-color-base;
+	}
+	/* stylelint-enable selector-class-pattern */
 
 	// Undo GitHub-table-style alternate row striping.
 	tr:nth-child( 2n ) {
 		background-color: @background-color-base;
 	}
 
-	th,
-	td {
-		border-color: @border-color-base;
-	}
-
-	tbody td {
-		border-right-color: @border-color-subtle;
-	}
-
 	&__name {
-		position: relative;
-
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			min-width: @size-1600;
 		}
 
-		// "deprecated" tag and copy button.
+		/* stylelint-disable-next-line selector-class-pattern */
+		.cdx-docs-tokens-table.cdx-table &__token-name code {
+			// Override VitePress style.
+			font-size: @font-size-small;
+		}
+
+		// "deprecated" tag and token comments.
 		&__meta {
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-			justify-content: center;
-			row-gap: @spacing-25;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: @size-full;
 			// Use small at `14px` equivalent `td` font size.
 			// Inherited from `custom.css` `.vp-doc td`.
 			line-height: @line-height-small;
 
-			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				flex-direction: row;
-				justify-content: space-between;
-				padding-left: @spacing-50;
+			&__deprecated strong {
+				background-color: @background-color-warning-subtle;
+				padding: 0 @spacing-25;
 			}
-		}
 
-		&__deprecated {
-			background-color: @background-color-warning-subtle;
-			padding: 0 @spacing-25;
+			&__comments {
+				color: @color-subtle;
+			}
 		}
 	}
 
 	&__value {
-		code {
-			color: @color-emphasized;
+		code.cdx-docs-tokens-table__value__token-value {
+			background-color: inherit;
 			display: inline-block;
 			margin-bottom: @spacing-50;
 		}
@@ -225,10 +250,6 @@ export default defineComponent( {
 	&__demo {
 		margin-top: @spacing-100;
 		margin-bottom: @spacing-125;
-	}
-
-	&__value-meta {
-		color: @color-subtle;
 	}
 
 	// Override VitePress's styles that add way too much whitespace around <p>s.

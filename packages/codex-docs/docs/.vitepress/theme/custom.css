@@ -577,6 +577,11 @@ body {
 	font-size: var( --font-size-small );
 }
 
+.vp-doc .cdx-docs-tokens-table__name .cdx-docs-copy-text-button {
+	/* Override CdxButton styles. */
+	margin-left: var( --spacing-25 );
+}
+
 .cdx-docs-required-indicator {
 	margin-left: var( --spacing-25 );
 }

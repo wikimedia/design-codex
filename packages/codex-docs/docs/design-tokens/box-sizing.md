@@ -7,4 +7,5 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 
 <cdx-docs-tokens-table
 	:tokens="tokens['box-sizing']"
+	token-category="box-sizing"
 />
