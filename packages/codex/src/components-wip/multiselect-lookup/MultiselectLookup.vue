@@ -63,7 +63,8 @@ import {
 	toRef,
 	computed,
 	provide,
-	watch
+	watch,
+	nextTick
 } from 'vue';
 
 import CdxChipInput from '../../components/chip-input/ChipInput.vue';
@@ -283,7 +284,13 @@ export default defineComponent( {
 		 *
 		 * @param newVal
 		 */
-		function onUpdateInputValue( newVal: string|number ) {
+		async function onUpdateInputValue( newVal: string|number ) {
+			// Await nextTick before emitting an input event so the component's `selected` prop can
+			// catch up. This is necessary when the user edits a chip, because the menu might open
+			// with new results before the selected prop has been updated to remove the edited chip,
+			// which will highlight that chip's related option unintentionally.
+			await nextTick();
+
 			// Set pending to true if there is a value.
 			pending.value = newVal !== null && newVal !== '';
 
