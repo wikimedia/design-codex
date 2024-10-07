@@ -1,29 +1,29 @@
 <template>
-	<cdx-lookup-multiselect
+	<cdx-multiselect-lookup
 		v-model:input-chips="chips"
 		v-model:selected="selection"
 		v-model:input-value="inputValue"
 		:menu-items="menuItems"
 		:menu-config="menuConfig"
 		placeholder="Search wikidata items"
-		aria-label="LookupMultiselect with fetched results demo"
+		aria-label="MultiselectLookup with fetched results demo"
 		@input="onInput"
 		@load-more="onLoadMore"
 	>
 		<template #no-results>
 			No results found.
 		</template>
-	</cdx-lookup-multiselect>
+	</cdx-multiselect-lookup>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxLookupMultiselect } from '@wikimedia/codex';
+import { CdxMultiselectLookup } from '@wikimedia/codex';
 
 export default defineComponent( {
-	name: 'LookupMultiselectWithFetch',
+	name: 'MultiselectLookupWithFetch',
 	components: {
-		CdxLookupMultiselect
+		CdxMultiselectLookup
 	},
 	setup() {
 		const chips = ref( [] );

@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import CdxLookupMultiselect from './LookupMultiselect.vue';
+import CdxMultiselectLookup from './MultiselectLookup.vue';
 import CdxInputChip from '../../components/input-chip/InputChip.vue';
 import CdxMenuItem from '../../components/menu-item/MenuItem.vue';
 import { ChipInputItem, MenuItemData, MenuItemValue, ValidationStatusType } from '../../types';
@@ -30,7 +30,7 @@ const inputChips: ChipInputItem[] = [
 	{ value: 'chip 2', label: 'Chip 2' }
 ];
 
-describe( 'LookupMultiselect', () => {
+describe( 'MultiselectLookup', () => {
 	describe( 'matches the snapshot', () => {
 		type Case = [
 			msg: string,
@@ -56,14 +56,14 @@ describe( 'LookupMultiselect', () => {
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
-			const wrapper = mount( CdxLookupMultiselect, { props } );
+			const wrapper = mount( CdxMultiselectLookup, { props } );
 			expect( wrapper.element ).toMatchSnapshot();
 		} );
 	} );
 
 	describe( 'when the text input changes', () => {
 		it( 'emits an input event', async () => {
-			const wrapper = mount( CdxLookupMultiselect, { props: defaultProps } );
+			const wrapper = mount( CdxMultiselectLookup, { props: defaultProps } );
 			const input = wrapper.find( 'input' );
 			input.element.value = 'Opt';
 			await input.trigger( 'input' );
@@ -74,7 +74,7 @@ describe( 'LookupMultiselect', () => {
 
 		describe( 'and the inputValue prop was provided', () => {
 			it( 'emits an update:input-value event', async () => {
-				const wrapper = mount( CdxLookupMultiselect, {
+				const wrapper = mount( CdxMultiselectLookup, {
 					props: { ...defaultProps, inputValue: '' }
 				} );
 				const input = wrapper.find( 'input' );
@@ -86,19 +86,19 @@ describe( 'LookupMultiselect', () => {
 
 		describe( 'and there is input', () => {
 			it( 'enables the pending UI', async () => {
-				const wrapper = mount( CdxLookupMultiselect, { props: defaultProps } );
+				const wrapper = mount( CdxMultiselectLookup, { props: defaultProps } );
 				const input = wrapper.find( 'input' );
 				input.element.value = 'Opt';
 				await input.trigger( 'input' );
 				await nextTick();
 				// Note that we can't check the pending ref because it's not returned by setup.
-				expect( wrapper.element.classList ).toContain( 'cdx-lookup-multiselect--pending' );
+				expect( wrapper.element.classList ).toContain( 'cdx-multiselect-lookup--pending' );
 			} );
 		} );
 
 		describe( 'and there is no input (i.e. input was cleared)', () => {
 			it( 'does not enable the pending UI', async () => {
-				const wrapper = mount( CdxLookupMultiselect, {
+				const wrapper = mount( CdxMultiselectLookup, {
 					props: { ...defaultProps, inputValue: '' }
 				} );
 				const input = wrapper.find( 'input' );
@@ -106,7 +106,7 @@ describe( 'LookupMultiselect', () => {
 				await input.trigger( 'input' );
 				await nextTick();
 				// Note that we can't check the pending ref because it's not returned by setup.
-				expect( wrapper.element.classList ).not.toContain( 'cdx-lookup-multiselect--pending' );
+				expect( wrapper.element.classList ).not.toContain( 'cdx-multiselect-lookup--pending' );
 			} );
 		} );
 	} );
@@ -114,7 +114,7 @@ describe( 'LookupMultiselect', () => {
 	describe( 'when the text input is focused', () => {
 		describe( 'and there are initial menu items', () => {
 			it( 'opens the menu', async () => {
-				const wrapper = mount( CdxLookupMultiselect, {
+				const wrapper = mount( CdxMultiselectLookup, {
 					props: { ...defaultProps, menuItems }
 				} );
 				await wrapper.find( 'input' ).trigger( 'focus' );
@@ -124,7 +124,7 @@ describe( 'LookupMultiselect', () => {
 
 		describe( 'and there are menu items to show', () => {
 			it( 'opens the menu', async () => {
-				const wrapper = mount( CdxLookupMultiselect, { props: defaultProps } );
+				const wrapper = mount( CdxMultiselectLookup, { props: defaultProps } );
 				// Set input.
 				const input = wrapper.find( 'input' );
 				input.element.value = 'foo';
@@ -138,14 +138,14 @@ describe( 'LookupMultiselect', () => {
 
 		describe( 'and there are no menu items to show', () => {
 			it( 'does not open the menu', async () => {
-				const wrapper = mount( CdxLookupMultiselect, { props: defaultProps } );
+				const wrapper = mount( CdxMultiselectLookup, { props: defaultProps } );
 				await wrapper.find( 'input' ).trigger( 'focus' );
 				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
 
 			describe( 'and there is no-results slot content', () => {
 				it( 'opens menu and shows "no results" message if there is input', async () => {
-					const wrapper = mount( CdxLookupMultiselect, {
+					const wrapper = mount( CdxMultiselectLookup, {
 						props: defaultProps,
 						slots: { 'no-results': 'No results' }
 					} );
@@ -160,7 +160,7 @@ describe( 'LookupMultiselect', () => {
 				} );
 
 				it( 'does not open menu nor show "no results" message if there is no input', async () => {
-					const wrapper = mount( CdxLookupMultiselect, {
+					const wrapper = mount( CdxMultiselectLookup, {
 						props: defaultProps,
 						slots: { 'no-results': 'No results' }
 					} );
@@ -176,14 +176,14 @@ describe( 'LookupMultiselect', () => {
 	describe( 'when keyboard events occur', () => {
 		describe( 'and the Lookup is enabled', () => {
 			it( 'does not pass keyboard events to handler', async () => {
-				const wrapper = mount( CdxLookupMultiselect, { props: defaultProps } );
+				const wrapper = mount( CdxMultiselectLookup, { props: defaultProps } );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
 				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
 
 			describe( 'and there are menu items to show', () => {
 				it( 'if there are items to show, passes keyboard events to handler', async () => {
-					const wrapper = mount( CdxLookupMultiselect, {
+					const wrapper = mount( CdxMultiselectLookup, {
 						props: { ...defaultProps, menuItems }
 					} );
 					await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
@@ -193,7 +193,7 @@ describe( 'LookupMultiselect', () => {
 
 			describe( 'and there is no-results slot content', () => {
 				it( 'passes keyboard events to handler if there is input', async () => {
-					const wrapper = mount( CdxLookupMultiselect, {
+					const wrapper = mount( CdxMultiselectLookup, {
 						props: defaultProps,
 						slots: { 'no-results': 'No results' }
 					} );
@@ -206,7 +206,7 @@ describe( 'LookupMultiselect', () => {
 				} );
 
 				it( 'does not pass keyboard events to handler if there is no input', async () => {
-					const wrapper = mount( CdxLookupMultiselect, {
+					const wrapper = mount( CdxMultiselectLookup, {
 						props: defaultProps,
 						slots: { 'no-results': 'No results' }
 					} );
@@ -216,7 +216,7 @@ describe( 'LookupMultiselect', () => {
 			} );
 
 			it( 'does not pass the space keyboard event to handler', async () => {
-				const wrapper = mount( CdxLookupMultiselect, {
+				const wrapper = mount( CdxMultiselectLookup, {
 					props: { ...defaultProps, menuItems }
 				} );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: ' ' } );
@@ -226,7 +226,7 @@ describe( 'LookupMultiselect', () => {
 
 		describe( 'and the Lookup is disabled', () => {
 			it( 'does not pass keyboard events to handler', async () => {
-				const wrapper = mount( CdxLookupMultiselect, {
+				const wrapper = mount( CdxMultiselectLookup, {
 					props: { ...defaultProps, disabled: true }
 				} );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
@@ -237,7 +237,7 @@ describe( 'LookupMultiselect', () => {
 
 	describe( 'when the menu is open and the space key is pressed', () => {
 		it( 'follows default behavior (adds a space character) rather than toggling the menu', async () => {
-			const wrapper = mount( CdxLookupMultiselect, { props: defaultProps } );
+			const wrapper = mount( CdxMultiselectLookup, { props: defaultProps } );
 			wrapper.vm.expanded = true;
 			await wrapper.find( 'input' ).trigger( 'keydown', { key: ' ' } );
 			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
@@ -247,52 +247,52 @@ describe( 'LookupMultiselect', () => {
 	describe( 'when the menuItems prop changes', () => {
 		describe( 'and the input is focused', () => {
 			it( 'sets pending to false and opens the menu', async () => {
-				const wrapper = mount( CdxLookupMultiselect, { props: defaultProps } );
+				const wrapper = mount( CdxMultiselectLookup, { props: defaultProps } );
 				await wrapper.find( 'input' ).trigger( 'focus' );
 				const input = wrapper.find( 'input' );
 				input.element.value = 'Opt';
 				await input.trigger( 'input' );
 				await nextTick();
-				expect( wrapper.element.classList ).toContain( 'cdx-lookup-multiselect--pending' );
+				expect( wrapper.element.classList ).toContain( 'cdx-multiselect-lookup--pending' );
 
 				await wrapper.setProps( { menuItems } );
-				expect( wrapper.element.classList ).not.toContain( 'cdx-lookup-multiselect--pending' );
+				expect( wrapper.element.classList ).not.toContain( 'cdx-multiselect-lookup--pending' );
 				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 			} );
 		} );
 
 		describe( 'and the input is not focused', () => {
 			it( 'sets pending to false and does not open menu', async () => {
-				const wrapper = mount( CdxLookupMultiselect, { props: defaultProps } );
+				const wrapper = mount( CdxMultiselectLookup, { props: defaultProps } );
 				await wrapper.find( 'input' ).trigger( 'focus' );
 				const input = wrapper.find( 'input' );
 				input.element.value = 'Opt';
 				await input.trigger( 'input' );
 				await nextTick();
 				await wrapper.find( 'input' ).trigger( 'blur' );
-				expect( wrapper.element.classList ).toContain( 'cdx-lookup-multiselect--pending' );
+				expect( wrapper.element.classList ).toContain( 'cdx-multiselect-lookup--pending' );
 
 				await wrapper.setProps( { menuItems } );
-				expect( wrapper.element.classList ).not.toContain( 'cdx-lookup-multiselect--pending' );
+				expect( wrapper.element.classList ).not.toContain( 'cdx-multiselect-lookup--pending' );
 				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
 		} );
 
 		describe( 'and the Lookup is not in the pending state', () => {
 			it( 'does not open menu', async () => {
-				const wrapper = mount( CdxLookupMultiselect, { props: defaultProps } );
+				const wrapper = mount( CdxMultiselectLookup, { props: defaultProps } );
 				await wrapper.find( 'input' ).trigger( 'focus' );
-				expect( wrapper.element.classList ).not.toContain( 'cdx-lookup-multiselect--pending' );
+				expect( wrapper.element.classList ).not.toContain( 'cdx-multiselect-lookup--pending' );
 
 				await wrapper.setProps( { menuItems } );
-				expect( wrapper.element.classList ).not.toContain( 'cdx-lookup-multiselect--pending' );
+				expect( wrapper.element.classList ).not.toContain( 'cdx-multiselect-lookup--pending' );
 				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
 		} );
 
 		describe( 'and the new prop is an empty array', () => {
 			it( 'closes the menu', async () => {
-				const wrapper = mount( CdxLookupMultiselect, {
+				const wrapper = mount( CdxMultiselectLookup, {
 					props: { ...defaultProps, menuItems }
 				} );
 				// This doesn't happen automatically on mount because we would never mount a Lookup
@@ -304,7 +304,7 @@ describe( 'LookupMultiselect', () => {
 
 			describe( 'and there is no-results slot content', () => {
 				it( 'leaves the menu open if there is input', async () => {
-					const wrapper = mount( CdxLookupMultiselect, {
+					const wrapper = mount( CdxMultiselectLookup, {
 						props: { ...defaultProps, menuItems },
 						slots: { 'no-results': 'No results' }
 					} );
@@ -317,7 +317,7 @@ describe( 'LookupMultiselect', () => {
 				} );
 
 				it( 'closes the menu open if there is no input', async () => {
-					const wrapper = mount( CdxLookupMultiselect, {
+					const wrapper = mount( CdxMultiselectLookup, {
 						props: { ...defaultProps, menuItems },
 						slots: { 'no-results': 'No results' }
 					} );
@@ -331,7 +331,7 @@ describe( 'LookupMultiselect', () => {
 
 	describe( 'when an item is selected', () => {
 		it( 'emits "update:input-value" and "input" events', async () => {
-			const wrapper = mount( CdxLookupMultiselect, {
+			const wrapper = mount( CdxMultiselectLookup, {
 				props: { ...defaultProps, menuItems, inputValue: 'foo' }
 			} );
 			await wrapper.setProps( { selected: [ 'b' ] } );
@@ -342,7 +342,7 @@ describe( 'LookupMultiselect', () => {
 
 		describe( 'and the selected item has a label', () => {
 			it( 'emits an update:input-chips event with a chip that has a label and a value', async () => {
-				const wrapper = mount( CdxLookupMultiselect, {
+				const wrapper = mount( CdxMultiselectLookup, {
 					props: { ...defaultProps, menuItems }
 				} );
 				await wrapper.setProps( { selected: [ 'b' ] } );
@@ -359,7 +359,7 @@ describe( 'LookupMultiselect', () => {
 
 		describe( 'and the selected item does not have a label', () => {
 			it( 'emits an update:input-chips event with a chip that has only a value', async () => {
-				const wrapper = mount( CdxLookupMultiselect, {
+				const wrapper = mount( CdxMultiselectLookup, {
 					props: { ...defaultProps, menuItems }
 				} );
 				await wrapper.setProps( { selected: [ 'c' ] } );
@@ -371,7 +371,7 @@ describe( 'LookupMultiselect', () => {
 	describe( 'when an item is de-selected', () => {
 		describe( 'via the menu', () => {
 			it( 'emits update:selected and update:input-chips events', async () => {
-				const wrapper = mount( CdxLookupMultiselect, { props: {
+				const wrapper = mount( CdxMultiselectLookup, { props: {
 					menuItems,
 					selected: [ 'a', 'b' ],
 					inputChips: [ { label: 'Option A', value: 'a' }, { label: 'Option B', value: 'b' } ]
@@ -389,7 +389,7 @@ describe( 'LookupMultiselect', () => {
 
 		describe( 'via the input chip', () => {
 			it( 'emits update:input-chips and update:selected events', async () => {
-				const wrapper = mount( CdxLookupMultiselect, { props: {
+				const wrapper = mount( CdxMultiselectLookup, { props: {
 					menuItems,
 					selected: [ 'a', 'b' ],
 					inputChips: [ { label: 'Option A', value: 'a' }, { label: 'Option B', value: 'b' } ]

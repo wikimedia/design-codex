@@ -18,7 +18,7 @@
 			<label-demo />
 			<link-demo />
 			<lookup-demo />
-			<lookup-multiselect-demo />
+			<multiselect-lookup-demo />
 			<menu-demo />
 			<menu-item-demo />
 			<menu-button-demo />
@@ -58,7 +58,7 @@ import ButtonGroupDemo from './ButtonGroupDemo.vue';
 import CardDemo from './CardDemo.vue';
 import CheckboxDemo from './CheckboxDemo.vue';
 import ChipInputDemo from './ChipInputDemo.vue';
-import LookupMultiselectDemo from './LookupMultiselectDemo.vue';
+import MultiselectLookupDemo from './MultiselectLookupDemo.vue';
 import ComboboxDemo from './ComboboxDemo.vue';
 import DialogDemo from './DialogDemo.vue';
 import FieldDemo from './FieldDemo.vue';
@@ -98,7 +98,7 @@ const demoSections = [
 	{ name: 'Label', id: '#cdx-label' },
 	{ name: 'Link', id: '#cdx-link' },
 	{ name: 'Lookup', id: '#cdx-lookup' },
-	{ name: 'LookupMultiselect', id: '#cdx-lookup-multiselect' },
+	{ name: 'MultiselectLookup', id: '#cdx-multiselect-lookup' },
 	{ name: 'Menu', id: '#cdx-menu' },
 	{ name: 'MenuItem', id: '#cdx-menu-item' },
 	{ name: 'MenuButton', id: '#cdx-menu-button' },

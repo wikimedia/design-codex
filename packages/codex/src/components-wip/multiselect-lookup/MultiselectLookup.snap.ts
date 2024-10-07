@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LookupMultiselect matches the snapshot Case 0 Default props: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
+exports[`MultiselectLookup matches the snapshot Case 0 Default props: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
 <div
-  class="cdx-lookup-multiselect"
+  class="cdx-multiselect-lookup"
 >
   <div
-    class="cdx-chip-input cdx-chip-input--status-default cdx-lookup-multiselect__chip-input"
+    class="cdx-chip-input cdx-chip-input--status-default cdx-multiselect-lookup__chip-input"
   >
     <div
       aria-orientation="horizontal"
@@ -16,7 +16,7 @@ exports[`LookupMultiselect matches the snapshot Case 0 Default props: ({"inputCh
       
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-lookup-multiselect-menu-0"
+        aria-controls="cdx-multiselect-lookup-menu-0"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -39,7 +39,7 @@ exports[`LookupMultiselect matches the snapshot Case 0 Default props: ({"inputCh
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-lookup-multiselect-menu-0"
+      id="cdx-multiselect-lookup-menu-0"
       role="listbox"
     >
       <!--v-if-->
@@ -61,12 +61,12 @@ exports[`LookupMultiselect matches the snapshot Case 0 Default props: ({"inputCh
 </div>
 `;
 
-exports[`LookupMultiselect matches the snapshot Case 1 With menu items: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
+exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
 <div
-  class="cdx-lookup-multiselect"
+  class="cdx-multiselect-lookup"
 >
   <div
-    class="cdx-chip-input cdx-chip-input--status-default cdx-lookup-multiselect__chip-input"
+    class="cdx-chip-input cdx-chip-input--status-default cdx-multiselect-lookup__chip-input"
   >
     <div
       aria-orientation="horizontal"
@@ -77,7 +77,7 @@ exports[`LookupMultiselect matches the snapshot Case 1 With menu items: ({"input
       
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-lookup-multiselect-menu-1"
+        aria-controls="cdx-multiselect-lookup-menu-1"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -100,7 +100,7 @@ exports[`LookupMultiselect matches the snapshot Case 1 With menu items: ({"input
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-lookup-multiselect-menu-1"
+      id="cdx-multiselect-lookup-menu-1"
       role="listbox"
     >
       <!--v-if-->
@@ -257,12 +257,12 @@ exports[`LookupMultiselect matches the snapshot Case 1 With menu items: ({"input
 </div>
 `;
 
-exports[`LookupMultiselect matches the snapshot Case 2 With input chips: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
+exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
 <div
-  class="cdx-lookup-multiselect"
+  class="cdx-multiselect-lookup"
 >
   <div
-    class="cdx-chip-input cdx-chip-input--status-default cdx-lookup-multiselect__chip-input"
+    class="cdx-chip-input cdx-chip-input--status-default cdx-multiselect-lookup__chip-input"
   >
     <div
       aria-orientation="horizontal"
@@ -369,7 +369,7 @@ exports[`LookupMultiselect matches the snapshot Case 2 With input chips: ({"inpu
       
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-lookup-multiselect-menu-6"
+        aria-controls="cdx-multiselect-lookup-menu-6"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -392,7 +392,7 @@ exports[`LookupMultiselect matches the snapshot Case 2 With input chips: ({"inpu
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-lookup-multiselect-menu-6"
+      id="cdx-multiselect-lookup-menu-6"
       role="listbox"
     >
       <!--v-if-->
@@ -414,12 +414,12 @@ exports[`LookupMultiselect matches the snapshot Case 2 With input chips: ({"inpu
 </div>
 `;
 
-exports[`LookupMultiselect matches the snapshot Case 3 With input value: ({"inputChips": [Array], "inputValue": "Foo", "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
+exports[`MultiselectLookup matches the snapshot Case 3 With input value: ({"inputChips": [Array], "inputValue": "Foo", "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
 <div
-  class="cdx-lookup-multiselect"
+  class="cdx-multiselect-lookup"
 >
   <div
-    class="cdx-chip-input cdx-chip-input--status-default cdx-lookup-multiselect__chip-input"
+    class="cdx-chip-input cdx-chip-input--status-default cdx-multiselect-lookup__chip-input"
   >
     <div
       aria-orientation="horizontal"
@@ -430,7 +430,7 @@ exports[`LookupMultiselect matches the snapshot Case 3 With input value: ({"inpu
       
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-lookup-multiselect-menu-7"
+        aria-controls="cdx-multiselect-lookup-menu-7"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -453,7 +453,7 @@ exports[`LookupMultiselect matches the snapshot Case 3 With input value: ({"inpu
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-lookup-multiselect-menu-7"
+      id="cdx-multiselect-lookup-menu-7"
       role="listbox"
     >
       <!--v-if-->
@@ -475,12 +475,12 @@ exports[`LookupMultiselect matches the snapshot Case 3 With input value: ({"inpu
 </div>
 `;
 
-exports[`LookupMultiselect matches the snapshot Case 4 With separate input: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array], "separateInput": true}) => HTML 1`] = `
+exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array], "separateInput": true}) => HTML 1`] = `
 <div
-  class="cdx-lookup-multiselect"
+  class="cdx-multiselect-lookup"
 >
   <div
-    class="cdx-chip-input cdx-chip-input--has-separate-input cdx-chip-input--status-default cdx-lookup-multiselect__chip-input"
+    class="cdx-chip-input cdx-chip-input--has-separate-input cdx-chip-input--status-default cdx-multiselect-lookup__chip-input"
   >
     <div
       aria-orientation="horizontal"
@@ -592,7 +592,7 @@ exports[`LookupMultiselect matches the snapshot Case 4 With separate input: ({"i
     >
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-lookup-multiselect-menu-8"
+        aria-controls="cdx-multiselect-lookup-menu-8"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -614,7 +614,7 @@ exports[`LookupMultiselect matches the snapshot Case 4 With separate input: ({"i
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-lookup-multiselect-menu-8"
+      id="cdx-multiselect-lookup-menu-8"
       role="listbox"
     >
       <!--v-if-->
@@ -636,12 +636,12 @@ exports[`LookupMultiselect matches the snapshot Case 4 With separate input: ({"i
 </div>
 `;
 
-exports[`LookupMultiselect matches the snapshot Case 5 With error: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array], "status": "error"}) => HTML 1`] = `
+exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array], "status": "error"}) => HTML 1`] = `
 <div
-  class="cdx-lookup-multiselect"
+  class="cdx-multiselect-lookup"
 >
   <div
-    class="cdx-chip-input cdx-chip-input--status-error cdx-lookup-multiselect__chip-input"
+    class="cdx-chip-input cdx-chip-input--status-error cdx-multiselect-lookup__chip-input"
   >
     <div
       aria-orientation="horizontal"
@@ -748,7 +748,7 @@ exports[`LookupMultiselect matches the snapshot Case 5 With error: ({"inputChips
       
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-lookup-multiselect-menu-9"
+        aria-controls="cdx-multiselect-lookup-menu-9"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -771,7 +771,7 @@ exports[`LookupMultiselect matches the snapshot Case 5 With error: ({"inputChips
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-lookup-multiselect-menu-9"
+      id="cdx-multiselect-lookup-menu-9"
       role="listbox"
     >
       <!--v-if-->
@@ -793,12 +793,12 @@ exports[`LookupMultiselect matches the snapshot Case 5 With error: ({"inputChips
 </div>
 `;
 
-exports[`LookupMultiselect matches the snapshot Case 6 Disabled: ({"disabled": true, "inputChips": [Array], "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
+exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": true, "inputChips": [Array], "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
 <div
-  class="cdx-lookup-multiselect cdx-lookup-multiselect--disabled"
+  class="cdx-multiselect-lookup cdx-multiselect-lookup--disabled"
 >
   <div
-    class="cdx-chip-input cdx-chip-input--status-default cdx-chip-input--disabled cdx-lookup-multiselect__chip-input"
+    class="cdx-chip-input cdx-chip-input--status-default cdx-chip-input--disabled cdx-multiselect-lookup__chip-input"
   >
     <div
       aria-orientation="horizontal"
@@ -907,7 +907,7 @@ exports[`LookupMultiselect matches the snapshot Case 6 Disabled: ({"disabled": t
       
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-lookup-multiselect-menu-10"
+        aria-controls="cdx-multiselect-lookup-menu-10"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -931,7 +931,7 @@ exports[`LookupMultiselect matches the snapshot Case 6 Disabled: ({"disabled": t
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-lookup-multiselect-menu-10"
+      id="cdx-multiselect-lookup-menu-10"
       role="listbox"
     >
       <!--v-if-->

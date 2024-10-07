@@ -172,7 +172,7 @@ export default defineComponent( {
 		const input = ref<HTMLInputElement>();
 
 		// Whether to allow arbitrary chips. This is true by default, but can be set to false if
-		// needed (e.g. for the LookupMultiselectable, where chips are only added via a menu).
+		// needed (e.g. for the MultiselectLookup, where chips are only added via a menu).
 		const allowArbitrary = inject( AllowArbitraryKey, ref( true ) );
 
 		// Ref used if the inputValue prop is omitted.
@@ -450,7 +450,7 @@ export default defineComponent( {
 
 .cdx-chip-input {
 	// Set the border radius on the root element so the useFloatingMenu composable can unset them
-	// when a menu opens above or below it, as in LookupMultiselect.
+	// when a menu opens above or below it, as in MultiselectLookup.
 	border-radius: @border-radius-base;
 
 	// Cover up the sharp corners of the child elements that have borders (the chips container and

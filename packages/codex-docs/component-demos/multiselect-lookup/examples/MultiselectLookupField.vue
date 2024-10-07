@@ -1,6 +1,6 @@
 <template>
 	<cdx-field>
-		<cdx-lookup-multiselect
+		<cdx-multiselect-lookup
 			v-model:input-chips="chips"
 			v-model:selected="selection"
 			v-model:input-value="inputValue"
@@ -12,7 +12,7 @@
 			<template #no-results>
 				No matching namespaces.
 			</template>
-		</cdx-lookup-multiselect>
+		</cdx-multiselect-lookup>
 		<template #label>
 			Namespaces
 		</template>
@@ -24,12 +24,12 @@
 
 <script>
 import { defineComponent, onMounted, ref } from 'vue';
-import { CdxField, CdxLookupMultiselect } from '@wikimedia/codex';
+import { CdxField, CdxMultiselectLookup } from '@wikimedia/codex';
 
 export default defineComponent( {
-	name: 'LookupMultiselectField',
+	name: 'MultiselectLookupField',
 	components: {
-		CdxField, CdxLookupMultiselect
+		CdxField, CdxMultiselectLookup
 	},
 	setup() {
 		const chips = ref( [] );

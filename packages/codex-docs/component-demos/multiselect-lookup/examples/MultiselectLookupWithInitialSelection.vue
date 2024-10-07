@@ -4,34 +4,35 @@
 			Selected value: {{ selection }}
 		</p>
 
-		<cdx-lookup-multiselect
+		<cdx-multiselect-lookup
 			v-model:input-chips="chips"
 			v-model:selected="selection"
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
-			aria-label="LookupMultiselect basic demo"
+			aria-label="MultiselectLookup with initial selection demo"
 			@input="onInput"
 		>
 			<template #no-results>
 				No results found.
 			</template>
-		</cdx-lookup-multiselect>
+		</cdx-multiselect-lookup>
 	</div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxLookupMultiselect } from '@wikimedia/codex';
+import { CdxMultiselectLookup } from '@wikimedia/codex';
 import vegetableItems from '../../lookup/examples/data.json';
 
 export default defineComponent( {
-	name: 'LookupMultiselectBasic',
-	components: {
-		CdxLookupMultiselect
-	},
+	name: 'MultiselectLookupWithInitialSelection',
+	components: { CdxMultiselectLookup },
 	setup() {
-		const chips = ref( [] );
-		const selection = ref( [] );
+		const chips = ref( [
+			{ label: 'carrot', value: 'Q81' },
+			{ label: 'eggplant', value: 'Q7540' }
+		] );
+		const selection = ref( [ 'Q81', 'Q7540' ] );
 		const menuItems = ref( [] );
 
 		const menuConfig = {

@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="cdx-lookup-multiselect"
+		class="cdx-multiselect-lookup"
 		:class="rootClasses"
 		:style="rootStyle"
 	>
@@ -9,7 +9,7 @@
 			v-model:input-chips="inputChipsWrapper"
 			v-model:input-value="computedInputValue"
 			v-bind="otherAttrs"
-			class="cdx-lookup-multiselect__chip-input"
+			class="cdx-multiselect-lookup__chip-input"
 			role="combobox"
 			autocomplete="off"
 			aria-autocomplete="list"
@@ -86,7 +86,7 @@ const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
  * A predictive text input with a dropdown menu of items from which multiple selections can be made.
  */
 export default defineComponent( {
-	name: 'CdxLookupMultiselect',
+	name: 'CdxMultiselectLookup',
 
 	components: {
 		CdxChipInput,
@@ -231,7 +231,7 @@ export default defineComponent( {
 	setup: ( props, { emit, attrs, slots } ) => {
 		const chipInput = ref<InstanceType<typeof CdxChipInput>>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
-		const menuId = useGeneratedId( 'lookup-multiselect-menu' );
+		const menuId = useGeneratedId( 'multiselect-lookup-menu' );
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
 		const pending = ref( false );
@@ -251,8 +251,8 @@ export default defineComponent( {
 
 		const internalClasses = computed( () => {
 			return {
-				'cdx-lookup-multiselect--disabled': computedDisabled.value,
-				'cdx-lookup-multiselect--pending': pending.value
+				'cdx-multiselect-lookup--disabled': computedDisabled.value,
+				'cdx-multiselect-lookup--pending': pending.value
 			};
 		} );
 		const {
@@ -426,7 +426,7 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/pending-state.less';
 
-.cdx-lookup-multiselect {
+.cdx-multiselect-lookup {
 	position: relative;
 	box-sizing: @box-sizing-base;
 	vertical-align: middle;

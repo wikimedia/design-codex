@@ -4,44 +4,36 @@
 			Selected value: {{ selection }}
 		</p>
 
-		<cdx-lookup-multiselect
+		<cdx-multiselect-lookup
 			v-model:input-chips="chips"
 			v-model:selected="selection"
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
-			aria-label="LookupMultiselect with suggestions demo"
+			aria-label="MultiselectLookup basic demo"
 			@input="onInput"
 		>
 			<template #no-results>
 				No results found.
 			</template>
-		</cdx-lookup-multiselect>
+		</cdx-multiselect-lookup>
 	</div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { CdxLookupMultiselect } from '@wikimedia/codex';
+import { CdxMultiselectLookup } from '@wikimedia/codex';
 import vegetableItems from '../../lookup/examples/data.json';
 
 export default defineComponent( {
-	name: 'LookupMultiselectWithSuggestions',
+	name: 'MultiselectLookupBasic',
 	components: {
-		CdxLookupMultiselect
+		CdxMultiselectLookup
 	},
 	setup() {
 		const chips = ref( [] );
 		const selection = ref( [] );
-		// Set up an array of initial menu items to show as suggestions.
-		const initialMenuItems = [
-			{
-				label: 'Suggested items',
-				value: 'suggestion',
-				disabled: true
-			},
-			...vegetableItems.slice( 0, 3 )
-		];
-		const menuItems = ref( initialMenuItems );
+		const menuItems = ref( [] );
+
 		const menuConfig = {
 			boldLabel: true,
 			visibleItemLimit: 6
@@ -58,8 +50,7 @@ export default defineComponent( {
 					item.label.includes( value )
 				);
 			} else {
-				// When the input is cleared, show the suggestions again.
-				menuItems.value = initialMenuItems;
+				menuItems.value = [];
 			}
 		}
 

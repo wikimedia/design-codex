@@ -1,10 +1,10 @@
 <script setup>
-import LookupMultiselectConfigurable from '@/../component-demos/lookup-multiselect/examples/LookupMultiselectConfigurable.vue';
-import LookupMultiselectBasic from '@/../component-demos/lookup-multiselect/examples/LookupMultiselectBasic.vue';
-import LookupMultiselectWithFetch from '@/../component-demos/lookup-multiselect/examples/LookupMultiselectWithFetch.vue';
-import LookupMultiselectWithSuggestions from '@/../component-demos/lookup-multiselect/examples/LookupMultiselectWithSuggestions.vue';
-import LookupMultiselectWithInitialSelection from '@/../component-demos/lookup-multiselect/examples/LookupMultiselectWithInitialSelection.vue';
-import LookupMultiselectField from '@/../component-demos/lookup-multiselect/examples/LookupMultiselectField.vue';
+import MultiselectLookupConfigurable from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupConfigurable.vue';
+import MultiselectLookupBasic from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupBasic.vue';
+import MultiselectLookupWithFetch from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupWithFetch.vue';
+import MultiselectLookupWithSuggestions from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupWithSuggestions.vue';
+import MultiselectLookupWithInitialSelection from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupWithInitialSelection.vue';
+import MultiselectLookupField from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupField.vue';
 
 const controlsConfig = [
 	{
@@ -23,7 +23,7 @@ const controlsConfig = [
 ];
 </script>
 
-A LookupMultiselect is a predictive input that presents a dropdown menu with suggestions based on
+A MultiselectLookup is a predictive input that presents a dropdown menu with suggestions based on
 the current input value. Multiple items can be selected, and selections are represented as chips.
 
 ## Demos
@@ -32,17 +32,17 @@ the current input value. Multiple items can be selected, and selections are repr
 
 <cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues }">
-	<lookup-multiselect-configurable v-bind="propValues" />
+	<multiselect-lookup-configurable v-bind="propValues" />
 </template>
 </cdx-demo-wrapper>
 
 ### Basic usage
 
-The LookupMultiselect component emits an event on input. The parent component should react by
-computing or fetching menu items, then providing those items to the LookupMultiselect component for
+The MultiselectLookup component emits an event on input. The parent component should react by
+computing or fetching menu items, then providing those items to the MultiselectLookup component for
 display by updating the `menu-items` prop. The user can then select an item from the menu.
 
-The LookupMultiselect component is similar to the [Lookup](./lookup.md) component, but there are
+The MultiselectLookup component is similar to the [Lookup](./lookup.md) component, but there are
 some key differences to enable the selection of multiple items:
 
 1. The `selected` prop, which is bound with `v-model`, is an array of selected values (or an empty
@@ -70,16 +70,16 @@ given input, set the `menu-items` prop to an empty array (`[]`).
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-	<lookup-multiselect-basic />
+	<multiselect-lookup-basic />
 </template>
 
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/lookup-multiselect/examples/LookupMultiselectBasic.vue [NPM]
+<<< @/../component-demos/multiselect-lookup/examples/MultiselectLookupBasic.vue [NPM]
 
-<<< @/../component-demos/lookup-multiselect/examples-mw/LookupMultiselectBasic.vue [MediaWiki]
+<<< @/../component-demos/multiselect-lookup/examples-mw/MultiselectLookupBasic.vue [MediaWiki]
 
 :::
 
@@ -88,9 +88,9 @@ given input, set the `menu-items` prop to an empty array (`[]`).
 
 ### With fetched results
 
-Often, LookupMultiselect is used to fetch results from an API endpoint. Parent components should
-react to the `input` or `update:input-value` event emitted by LookupMultiselect to search for
-results, then pass back to the LookupMultiselect either an array of results to display as menu items
+Often, MultiselectLookup is used to fetch results from an API endpoint. Parent components should
+react to the `input` or `update:input-value` event emitted by MultiselectLookup to search for
+results, then pass back to the MultiselectLookup either an array of results to display as menu items
 or an empty array if there are no results. After the input changes and until the menuItems are
 updated, a pending animation will display in the input.
 
@@ -103,16 +103,16 @@ Lookup. These new items will then be displayed within the menu.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-	<lookup-multiselect-with-fetch />
+	<multiselect-lookup-with-fetch />
 </template>
 
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/lookup-multiselect/examples/LookupMultiselectWithFetch.vue [NPM]
+<<< @/../component-demos/multiselect-lookup/examples/MultiselectLookupWithFetch.vue [NPM]
 
-<<< @/../component-demos/lookup-multiselect/examples-mw/LookupMultiselectWithFetch.vue [MediaWiki]
+<<< @/../component-demos/multiselect-lookup/examples-mw/MultiselectLookupWithFetch.vue [MediaWiki]
 
 :::
 
@@ -127,16 +127,16 @@ cleared.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-	<lookup-multiselect-with-suggestions />
+	<multiselect-lookup-with-suggestions />
 </template>
 
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/lookup-multiselect/examples/LookupMultiselectWithSuggestions.vue [NPM]
+<<< @/../component-demos/multiselect-lookup/examples/MultiselectLookupWithSuggestions.vue [NPM]
 
-<<< @/../component-demos/lookup-multiselect/examples-mw/LookupMultiselectWithSuggestions.vue [MediaWiki]
+<<< @/../component-demos/multiselect-lookup/examples-mw/MultiselectLookupWithSuggestions.vue [MediaWiki]
 
 :::
 
@@ -151,16 +151,16 @@ To set an initial selection, do the following:
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-	<lookup-multiselect-with-initial-selection />
+	<multiselect-lookup-with-initial-selection />
 </template>
 
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/lookup-multiselect/examples/LookupMultiselectWithInitialSelection.vue [NPM]
+<<< @/../component-demos/multiselect-lookup/examples/MultiselectLookupWithInitialSelection.vue [NPM]
 
-<<< @/../component-demos/lookup-multiselect/examples-mw/LookupMultiselectWithInitialSelection.vue [MediaWiki]
+<<< @/../component-demos/multiselect-lookup/examples-mw/MultiselectLookupWithInitialSelection.vue [MediaWiki]
 
 :::
 
@@ -169,21 +169,21 @@ To set an initial selection, do the following:
 
 ### Form field
 
-A LookupMultiselect can be wrapped in the Field component to add features like a semantic label,
+A MultiselectLookup can be wrapped in the Field component to add features like a semantic label,
 description and help text, validation messages, and more. See the [Field](./field.md) page for more
 information.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<lookup-multiselect-field />
+	<multiselect-lookup-field />
 </template>
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/lookup-multiselect/examples/LookupMultiselectField.vue [NPM]
+<<< @/../component-demos/multiselect-lookup/examples/MultiselectLookupField.vue [NPM]
 
-<<< @/../component-demos/lookup-multiselect/examples-mw/LookupMultiselectField.vue [MediaWiki]
+<<< @/../component-demos/multiselect-lookup/examples-mw/MultiselectLookupField.vue [MediaWiki]
 
 :::
 
@@ -192,8 +192,8 @@ information.
 
 ### Other features
 
-The LookupMultiselect component has an internal Menu and ChipInput. You can use the following
-features from those components in the LookupMultiselect component:
+The MultiselectLookup component has an internal Menu and ChipInput. You can use the following
+features from those components in the MultiselectLookup component:
 - [Custom menu item display](./menu.html#with-custom-menu-item-display)
 
 ## Vue usage
