@@ -283,7 +283,8 @@ You can also use `v-model:input-value` to set an initial input value without an 
 ### Form field
 
 A Lookup can be wrapped in the Field component to add features like a semantic label, description
-and help text, validation messages, and more. See the [Field](./field.md) page for more information.
+and help text, validation messages, and more. Refer to the [Field](./field.md) page for more
+information.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

@@ -1,39 +1,97 @@
 <template>
-	<cdx-field>
-		<cdx-lookup
-			v-model:selected="selection"
-			:menu-items="menuItems"
-			:menu-config="menuConfig"
-			@input="onInput"
-			@load-more="onLoadMore"
-		>
-			<template #no-results>
-				No results found.
+	<form class="cdx-docs-lookup-form">
+		<cdx-field :status="status" :messages="messages">
+			<cdx-lookup
+				v-model:selected="selection"
+				v-model:input-value="inputValue"
+				:menu-items="menuItems"
+				:menu-config="menuConfig"
+				@input="onInput"
+				@load-more="onLoadMore"
+				@update:selected="onSelection"
+				@blur="validateInstantly"
+				@keydown.enter="validateInstantly"
+			>
+				<template #no-results>
+					No results found.
+				</template>
+			</cdx-lookup>
+			<template #label>
+				Item lookup
 			</template>
-		</cdx-lookup>
-		<template #label>
-			Item lookup
-		</template>
-		<template #description>
-			Search Wikidata items
-		</template>
-		<template #help-text>
-			Start typing the name of a Wikidata item to see suggestions
-		</template>
-	</cdx-field>
+			<template #description>
+				Search Wikidata items
+			</template>
+			<template #help-text>
+				Start typing the name of a Wikidata item to see suggestions
+			</template>
+		</cdx-field>
+		<cdx-button
+			class="cdx-docs-lookup-form__submit"
+			action="progressive"
+			weight="primary"
+			type="submit"
+			@click.prevent="onSubmit"
+		>
+			Submit
+		</cdx-button>
+	</form>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
-import { CdxLookup, CdxField } from '@wikimedia/codex';
+import { defineComponent, ref, nextTick } from 'vue';
+import { CdxLookup, CdxField, CdxButton } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'LookupField',
-	components: { CdxLookup, CdxField },
+	components: { CdxLookup, CdxField, CdxButton },
 	setup() {
 		const selection = ref( null );
 		const menuItems = ref( [] );
-		const currentSearchTerm = ref( '' );
+		const inputValue = ref( '' );
+
+		const status = ref( 'default' );
+		const messages = {
+			warning: 'This entry is invalid. Please select an option from the menu.',
+			error: 'This entry is invalid. Please select an option from the menu.'
+		};
+
+		/**
+		 * Maybe set a warning message when the user moves out of the field or hits enter.
+		 */
+		function validateInstantly() {
+			// Await nextTick in case the user has selected a menu item via the Enter key - this
+			// will ensure the selection ref has been updated.
+			nextTick( () => {
+				// Set 'warning' status if there's input but no selection. This might happen if a
+				// user types something but doesn't select an item from the menu.
+				status.value = inputValue.value.length > 0 && selection.value === null ?
+					'warning' :
+					'default';
+			} );
+		}
+
+		/**
+		 * Show error message on submit if nothing is selected.
+		 */
+		function onSubmit() {
+			if ( selection.value === null ) {
+				status.value = 'error';
+			} else {
+				status.value = 'default';
+				// eslint-disable-next-line no-alert
+				alert( 'Validation successful!' );
+			}
+		}
+
+		/**
+		 * Clear warning or error after a selection is made.
+		 */
+		function onSelection() {
+			if ( selection.value !== null ) {
+				status.value = 'default';
+			}
+		}
 
 		/**
 		 * Get search results.
@@ -68,9 +126,6 @@ export default defineComponent( {
 		 * @param {string} value
 		 */
 		function onInput( value ) {
-			// Internally track the current search term.
-			currentSearchTerm.value = value;
-
 			// Do nothing if we have no input.
 			if ( !value ) {
 				menuItems.value = [];
@@ -80,7 +135,7 @@ export default defineComponent( {
 			fetchResults( value )
 				.then( ( data ) => {
 					// Make sure this data is still relevant first.
-					if ( currentSearchTerm.value !== value ) {
+					if ( inputValue.value !== value ) {
 						return;
 					}
 
@@ -114,11 +169,11 @@ export default defineComponent( {
 		}
 
 		function onLoadMore() {
-			if ( !currentSearchTerm.value ) {
+			if ( !inputValue.value ) {
 				return;
 			}
 
-			fetchResults( currentSearchTerm.value, menuItems.value.length )
+			fetchResults( inputValue.value, menuItems.value.length )
 				.then( ( data ) => {
 					if ( !data.search || data.search.length === 0 ) {
 						return;
@@ -145,10 +200,26 @@ export default defineComponent( {
 		return {
 			selection,
 			menuItems,
-			menuConfig,
+			inputValue,
+			status,
+			messages,
+			validateInstantly,
+			onSubmit,
+			onSelection,
 			onInput,
-			onLoadMore
+			onLoadMore,
+			menuConfig
 		};
 	}
 } );
 </script>
+
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-docs-lookup-form {
+	&__submit {
+		margin-top: @spacing-100;
+	}
+}
+</style>
