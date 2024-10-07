@@ -478,6 +478,7 @@ export default defineComponent( {
 	}
 
 	&__input {
+		background-color: @background-color-transparent;
 		color: @color-base;
 		flex-grow: inherit;
 		border: 0;
@@ -523,10 +524,6 @@ export default defineComponent( {
 			box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
 			transition-property: @transition-property-base;
 			transition-duration: @transition-duration-medium;
-
-			.cdx-chip-input__input {
-				background-color: @background-color-base;
-			}
 		}
 
 		.cdx-chip-input__separate-input {
@@ -581,9 +578,7 @@ export default defineComponent( {
 			background-color: @background-color-disabled-subtle;
 			border-color: @border-color-disabled;
 
-			/* stylelint-disable-next-line no-descending-specificity */
 			.cdx-chip-input__input {
-				background-color: inherit;
 				color: @color-disabled;
 				-webkit-text-fill-color: @color-disabled;
 			}
