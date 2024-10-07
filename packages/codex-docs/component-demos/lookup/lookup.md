@@ -107,6 +107,8 @@ Interaction can take place within both the input and the displayed menu:
 8. Error hover
 9. Disabled
 
+The error state must always be accompanied by an inline error message to ensure users are informed about the error and provides guidance to fix it. This message will be displayed when the Lookup is included within a [Field](field.md).
+
 ### Best practices
 
 Consider the following recommendations when using Lookups.
@@ -115,25 +117,26 @@ Consider the following recommendations when using Lookups.
 
 <template #do-media>
 
-![Lookup wrapped within a Field.](../../assets/components/lookup-best-practices-do.svg)
+![Field with a Lookup displaying a warning Inline Message.](../../assets/components/lookup-best-practices-inline-message-do.svg)
 
 </template>
 
 <template #do-text>
 
-- Wrap the Lookup within the Field component to incorporate features such as labels, descriptions, help text, or validation messages.
+- Wrap the Lookup within the Field component to incorporate features such as labels, descriptions, help text, or inline validation messages.
+- Automatically display an inline warning message if the entered text doesn't match any item from the Lookup's menu, and show an error after form submission.
 
 </template>
 
 <template #dont-media>
 
-![A standalone Lookup.](../../assets/components/lookup-best-practices-dont.svg)
+![Field with a Lookup displaying a success Inline Message.](../../assets/components/lookup-best-practices-inline-message-dont.svg)
 
 </template>
 
 <template #dont-text>
 
-- Use a standalone Lookup on a page.
+- Use an inline success message to confirm a selection from the Lookup menu since it’s unnecessary.
 
 </template>
 
