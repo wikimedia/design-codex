@@ -172,7 +172,7 @@ sequence makes them easy to scan and process.
 
 | Key | Function |
 | -- | -- |
-| <kbd>Tab</kbd> | When tabbing over a single-select menu, it selects the currently selected menu item. |
+| <kbd>Tab</kbd> | When tabbing over a single-select menu, it selects the currently highlighted menu item. |
 | <kbd>Down arrow</kbd> | When the focus is placed on the component that contains the menu, it opens the menu. When the menu is open, it navigates through the menu items. If pressed at the last visible option, it scrolls to the next "hidden" menu item. |
 | <kbd>Up arrow</kbd> | When the focus is placed on the component that contains the menu, it opens the menu. When the menu is open, it navigates through menu options. |
 | <kbd>Enter</kbd> | It opens and closes the menu. When the focus is on an item within the menu, it selects that item. |
