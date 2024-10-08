@@ -1,5 +1,6 @@
 <template>
 	<button
+		ref="button"
 		class="cdx-button"
 		:class="rootClasses"
 		@keydown.space.enter.prevent="onKeyDown"
@@ -64,6 +65,7 @@ export default defineComponent( {
 	},
 	emits: [ 'click' ],
 	setup( props, { emit, slots, attrs } ) {
+		const button = ref<HTMLButtonElement>();
 		const isIconOnly = useIconOnlyButton( slots.default, attrs, 'CdxButton' );
 
 		// Support: Firefox (space), all (enter)
@@ -93,12 +95,15 @@ export default defineComponent( {
 			setActive( true );
 		}
 
-		function onKeyUp( event: Event ) {
+		function onKeyUp() {
 			setActive( false );
-			emit( 'click', event );
+			// Trigger a click. We do this instead of emitting a click event to trigger native
+			// events, like form submission.
+			button.value?.click();
 		}
 
 		return {
+			button,
 			rootClasses,
 			onClick,
 			onKeyDown,
