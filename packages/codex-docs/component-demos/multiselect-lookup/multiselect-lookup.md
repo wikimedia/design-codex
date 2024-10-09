@@ -288,8 +288,8 @@ To set an initial selection, do the following:
 ### Form field
 
 A MultiselectLookup can be wrapped in the Field component to add features like a semantic label,
-description and help text, validation messages, and more. See the [Field](./field.md) page for more
-information.
+description and help text, validation messages, and more. Refer to the [Field](./field.md) page for
+more information.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
