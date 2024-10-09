@@ -316,8 +316,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 							items: filterComponents( [
 								{ text: 'InfoChip', link: '/components/demos/info-chip' },
 								{ text: 'Message', link: '/components/demos/message' },
-								{ text: 'ProgressBar', link: '/components/demos/progress-bar' }
-								// ProgressIndicator
+								{ text: 'ProgressBar', link: '/components/demos/progress-bar' },
+								{ text: 'ProgressIndicator', link: '/components/demos/progress-indicator' }
 								// Skeleton
 								// Toast
 							] )

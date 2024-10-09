@@ -165,6 +165,14 @@
 			"value": "{ font-family.serif-100 }"
 		}
 	},
+	"transform": {
+		"progress-indicator-spinner-start": {
+			"value": "{ transform.-50 }"
+		},
+		"progress-indicator-spinner-end": {
+			"value": "{ transform.350 }"
+		}
+	},
 	"transition-property": {
 		"icon": {
 			"value": "{ transition-property.color }"

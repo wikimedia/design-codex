@@ -982,6 +982,9 @@
 		}
 	},
 	"animation-duration": {
+		"fast": {
+			"value": "{ animation-duration.75 }"
+		},
 		"medium": {
 			"value": "{ animation-duration.100 }"
 		},

@@ -438,6 +438,9 @@ module.exports = {
 					'animation-duration': [
 						'0s'
 					],
+					'animation-delay': [
+						'0s'
+					],
 					'transition-duration': [
 						'0s'
 					]

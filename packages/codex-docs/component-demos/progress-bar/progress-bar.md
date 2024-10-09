@@ -51,7 +51,7 @@ Visual representation of the progress displayed as a filled blue bar.
 
 #### Bar container
 
-Background container that holds the progres bar.
+Background container that holds the progress bar.
 
 ## Examples
 

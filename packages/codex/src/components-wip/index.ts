@@ -12,8 +12,10 @@
 // should CHANGE THIS to "export", removing the "default". See also the import+export example above.
 import CdxImage from './image/Image.vue';
 import CdxPopover from './popover/Popover.vue';
+import CdxProgressIndicator from './progress-indicator/ProgressIndicator.vue';
 
 export {
 	CdxImage,
-	CdxPopover
+	CdxPopover,
+	CdxProgressIndicator
 };

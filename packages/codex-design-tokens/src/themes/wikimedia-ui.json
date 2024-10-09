@@ -827,6 +827,14 @@
 			"value": "4"
 		}
 	},
+	"transform": {
+		"-50": {
+			"value": "rotate( -45deg )"
+		},
+		"350": {
+			"value": "rotate( 315deg )"
+		}
+	},
 	"transition-duration": {
 		"100": {
 			"value": "100ms"
@@ -876,10 +884,13 @@
 			"value": "-160ms"
 		},
 		"200": {
-			"value": "-330ms"
+			"value": "-320ms"
 		}
 	},
 	"animation-duration": {
+		"75": {
+			"value": "1000ms"
+		},
 		"100": {
 			"value": "1600ms"
 		},
