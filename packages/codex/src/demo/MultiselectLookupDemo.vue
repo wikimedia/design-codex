@@ -17,9 +17,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { ChipInputItem, MenuItemData, MenuItemValue, MenuConfig } from '../lib';
-// eslint-disable-next-line no-restricted-imports
-import { CdxMultiselectLookup } from '../components-wip/index';
+import { ChipInputItem, MenuItemData, MenuItemValue, MenuConfig, CdxMultiselectLookup } from '../lib';
 import vegetableItems from 'codex-docs/component-demos/lookup/examples/data.json';
 
 const chips = ref<ChipInputItem[]>( [] );

@@ -67,8 +67,8 @@ import {
 	nextTick
 } from 'vue';
 
-import CdxChipInput from '../../components/chip-input/ChipInput.vue';
-import CdxMenu from '../../components/menu/Menu.vue';
+import CdxChipInput from '../chip-input/ChipInput.vue';
+import CdxMenu from '../menu/Menu.vue';
 
 import useFieldData from '../../composables/useFieldData';
 import useFloatingMenu from '../../composables/useFloatingMenu';
