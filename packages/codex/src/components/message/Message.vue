@@ -251,11 +251,12 @@ export default defineComponent( {
 	// Background color and color are for notice type messages.
 	// These will be overridden for other message types.
 	background-color: @background-color-notice-subtle;
-	color: @color-notice;
+	color: @color-base;
 	display: flex;
 	align-items: flex-start;
 	position: relative;
 	border: @border-width-base @border-style-base @border-color-notice;
+	border-radius: @border-radius-base;
 	padding: @spacing-100 @spacing-100;
 
 	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
@@ -268,7 +269,11 @@ export default defineComponent( {
 	// The color of the Vue icon for notice messages is inherited from the color rule set on
 	// .cdx-message.
 	.cdx-message__icon {
-		.cdx-mixin-css-icon( @cdx-icon-info-filled );
+		.cdx-mixin-css-icon( @cdx-icon-info-filled, @color-icon-notice );
+	}
+
+	.cdx-message__icon--vue {
+		color: @color-icon-notice;
 	}
 
 	&--warning {
@@ -276,11 +281,11 @@ export default defineComponent( {
 		border-color: @border-color-warning;
 
 		.cdx-message__icon {
-			.cdx-mixin-css-icon( @cdx-icon-alert, @color-warning );
+			.cdx-mixin-css-icon( @cdx-icon-alert, @color-icon-warning );
 		}
 
 		.cdx-message__icon--vue {
-			color: @color-warning;
+			color: @color-icon-warning;
 		}
 	}
 
@@ -289,11 +294,11 @@ export default defineComponent( {
 		border-color: @border-color-error;
 
 		.cdx-message__icon {
-			.cdx-mixin-css-icon( @cdx-icon-error, @color-error );
+			.cdx-mixin-css-icon( @cdx-icon-error, @color-icon-error );
 		}
 
 		.cdx-message__icon--vue {
-			color: @color-error;
+			color: @color-icon-error;
 		}
 	}
 
@@ -302,11 +307,11 @@ export default defineComponent( {
 		border-color: @border-color-success;
 
 		.cdx-message__icon {
-			.cdx-mixin-css-icon( @cdx-icon-success, @color-success );
+			.cdx-mixin-css-icon( @cdx-icon-success, @color-icon-success );
 		}
 
 		.cdx-message__icon--vue {
-			color: @color-success;
+			color: @color-icon-success;
 		}
 	}
 
@@ -326,10 +331,6 @@ export default defineComponent( {
 
 		&.cdx-message--error {
 			color: @color-error;
-		}
-
-		&.cdx-message--success {
-			color: @color-success;
 		}
 	}
 
