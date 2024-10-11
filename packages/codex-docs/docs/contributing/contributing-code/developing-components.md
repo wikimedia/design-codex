@@ -134,7 +134,7 @@ Stylesheet specific token application rules:
 - Add specificity when styling a sub-component to avoid override styles. For example, an Icon
 	component that is inside a Label component would use the selector, `.cdx-label__icon.cdx-icon`. In Less:
 	```less
-	cdx-label {
+	.cdx-label {
 		&__icon.cdx-icon {
 			// ...rules...
 		}
