@@ -601,6 +601,9 @@
 		"error--hover": {
 			"value": "{ color.red600 }"
 		},
+		"error--active": {
+			"value": "{ color.red700 }"
+		},
 		"warning": {
 			"value": "{ color.yellow500 }"
 		},

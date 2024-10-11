@@ -268,8 +268,7 @@ export default defineComponent( {
 			/* stylelint-disable no-descending-specificity */
 			.cdx-radio--status-error & {
 				& + .cdx-radio__icon {
-					// TODO: Replace `destructive` with `error-active` when available (T374454).
-					border-color: @border-color-destructive;
+					border-color: @border-color-error;
 				}
 
 				&:hover + .cdx-radio__icon {
@@ -282,7 +281,7 @@ export default defineComponent( {
 
 				&:active + .cdx-radio__icon {
 					background-color: @background-color-error--active;
-					border-color: @border-color-destructive--active;
+					border-color: @border-color-error--active;
 					box-shadow: none;
 				}
 
@@ -299,13 +298,13 @@ export default defineComponent( {
 							// TODO: Replace border-width with a new component-level token when
 							// it becomes available (T374454).
 							border-width: @border-width-input-radio--checked-error-focus;
-							border-color: @border-color-destructive;
+							border-color: @border-color-error;
 						}
 					}
 
 					&:active + .cdx-radio__icon {
 						background-color: @background-color-base-fixed;
-						border-color: @border-color-destructive--active;
+						border-color: @border-color-error--active;
 						box-shadow: none;
 
 						&::before {
