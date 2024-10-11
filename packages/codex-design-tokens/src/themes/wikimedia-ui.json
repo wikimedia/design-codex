@@ -60,7 +60,7 @@
 			"value": "#fd7865"
 		},
 		"red500": {
-			"value": "#fc493b"
+			"value": "#f54739"
 		},
 		"red600": {
 			"value": "#d74032"
@@ -97,7 +97,7 @@
 			"value": "#f97f26"
 		},
 		"orange500": {
-			"value": "#d96c27"
+			"value": "#d46926"
 		},
 		"orange600": {
 			"value": "#bb5c26"
@@ -130,7 +130,7 @@
 			"value": "#ca982e"
 		},
 		"yellow500": {
-			"value": "#b0832b"
+			"value": "#ab7f2a"
 		},
 		"yellow600": {
 			"value": "#987027"
@@ -167,7 +167,7 @@
 			"value": "#5db26c"
 		},
 		"lime500": {
-			"value": "#269f4b"
+			"value": "#259948"
 		},
 		"lime600": {
 			"value": "#1f893f"
@@ -200,7 +200,7 @@
 			"value": "#2cb491"
 		},
 		"green500": {
-			"value": "#099d7c"
+			"value": "#099979"
 		},
 		"green600": {
 			"value": "#14876b"
@@ -237,7 +237,7 @@
 			"value": "#88a3e8"
 		},
 		"blue500": {
-			"value": "#6b8edf"
+			"value": "#6485d1"
 		},
 		"blue600": {
 			"value": "#4b77d6"
@@ -274,7 +274,7 @@
 			"value": "#a799cd"
 		},
 		"purple500": {
-			"value": "#9182c2"
+			"value": "#8d7ebd"
 		},
 		"purple600": {
 			"value": "#7a6db7"
@@ -307,7 +307,7 @@
 			"value": "#c690b4"
 		},
 		"pink500": {
-			"value": "#b976a1"
+			"value": "#b5739e"
 		},
 		"pink600": {
 			"value": "#ac5c90"
@@ -340,7 +340,7 @@
 			"value": "#c99391"
 		},
 		"maroon500": {
-			"value": "#ba7a78"
+			"value": "#b57775"
 		},
 		"maroon600": {
 			"value": "#ac6262"

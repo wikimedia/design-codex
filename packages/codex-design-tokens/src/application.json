@@ -68,13 +68,13 @@
 			"value": "{ color.red50 }"
 		},
 		"error": {
-			"value": "{ color.red600 }"
-		},
-		"error--hover": {
 			"value": "{ color.red500 }"
 		},
+		"error--hover": {
+			"value": "{ color.red600 }"
+		},
 		"error--active": {
-			"value": "{ color.red800 }"
+			"value": "{ color.red700 }"
 		},
 		"error-subtle": {
 			"value": "{ color.red50 }"
@@ -172,15 +172,25 @@
 			"value": "{ color.red700 }"
 		},
 		"warning": {
-			"comment": "Note, this is only meant for warning icon for contrast reasons.",
-			"value": "{ color.yellow300 }"
+			"value": "{ color.yellow700 }"
 		},
 		"success": {
-			"comment": "Note, this needs to use a tone darker than Red and Yellow for contrast reasons with background White.",
 			"value": "{ color.green700 }"
 		},
 		"notice": {
-			"value": "{ color.gray900 }"
+			"value": "{ color.gray700 }"
+		},
+		"icon-error": {
+			"value": "{ color.red500 }"
+		},
+		"icon-warning": {
+			"value": "{ color.yellow500 }"
+		},
+		"icon-success": {
+			"value": "{ color.green500 }"
+		},
+		"icon-notice": {
+			"value": "{ color.gray500 }"
 		},
 		"content-added": {
 			"value": "{ color.green999 }"
@@ -586,19 +596,19 @@
 			"value": "{ color.blue700 }"
 		},
 		"error": {
-			"value": "{ color.red800 }"
-		},
-		"error--hover": {
 			"value": "{ color.red500 }"
 		},
+		"error--hover": {
+			"value": "{ color.red600 }"
+		},
 		"warning": {
-			"value": "{ color.yellow600 }"
+			"value": "{ color.yellow500 }"
 		},
 		"success": {
-			"value": "{ color.green800 }"
+			"value": "{ color.green500 }"
 		},
 		"notice": {
-			"value": "{ color.gray600 }"
+			"value": "{ color.gray500 }"
 		},
 		"content-added": {
 			"value": "{ color.blue999 }"
