@@ -1,9 +1,8 @@
 <template>
-	<div class="cdx-info-chip">
+	<div class="cdx-info-chip" :class="rootClasses">
 		<cdx-icon
 			v-if="computedIcon"
 			class="cdx-info-chip__icon"
-			:class="iconClass"
 			:icon="computedIcon"
 		/>
 		<span class="cdx-info-chip--text">
@@ -59,9 +58,9 @@ export default defineComponent( {
 		}
 	},
 	setup( props ) {
-		const iconClass = computed( (): Record<string, boolean> => {
+		const rootClasses = computed( (): Record<string, boolean> => {
 			return {
-				[ `cdx-info-chip__icon--${ props.status }` ]: true
+				[ `cdx-info-chip--${ props.status }` ]: true
 			};
 		} );
 
@@ -71,7 +70,7 @@ export default defineComponent( {
 		);
 
 		return {
-			iconClass,
+			rootClasses,
 			computedIcon
 		};
 	}
@@ -84,38 +83,51 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/common.less';
 
 .cdx-info-chip {
-	background-color: @background-color-transparent;
+	background-color: @background-color-notice-subtle;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	gap: @spacing-25;
 	max-width: @size-3200;
-	border: @border-width-base @border-style-base @border-color-subtle;
+	border: @border-width-base @border-style-base @border-color-notice;
 	border-radius: @border-radius-pill;
 	padding: 0 @spacing-50;
 	line-height: @line-height-small;
 
 	&--text {
 		.text-overflow( @param-visible: false );
-		color: @color-subtle;
+		color: @color-base;
 		font-size: @font-size-small;
 	}
 
-	&__icon {
-		&--notice.cdx-icon {
-			color: @color-notice;
-		}
+	.cdx-info-chip__icon {
+		color: @color-icon-notice;
+	}
 
-		&--error.cdx-icon {
-			color: @color-error;
-		}
+	&--error {
+		background-color: @background-color-error-subtle;
+		border-color: @border-color-error;
 
-		&--warning.cdx-icon {
-			color: @color-warning;
+		.cdx-info-chip__icon {
+			color: @color-icon-error;
 		}
+	}
 
-		&--success.cdx-icon {
-			color: @color-success;
+	&--warning {
+		background-color: @background-color-warning-subtle;
+		border-color: @border-color-warning;
+
+		.cdx-info-chip__icon {
+			color: @color-icon-warning;
+		}
+	}
+
+	&--success {
+		background-color: @background-color-success-subtle;
+		border-color: @border-color-success;
+
+		.cdx-info-chip__icon {
+			color: @color-icon-success;
 		}
 	}
 
