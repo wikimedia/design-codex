@@ -73,7 +73,7 @@ export default defineComponent( {
 			nextTick( () => {
 				// Set warning status if there's input. This might happen if a user types something
 				// but doesn't select an item from the menu.
-				status.value = inputValue.value.length > 1 ? 'warning' : 'default';
+				status.value = inputValue.value.length > 0 ? 'warning' : 'default';
 			} );
 		}
 
