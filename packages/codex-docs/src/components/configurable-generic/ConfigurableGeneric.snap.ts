@@ -7,6 +7,7 @@ exports[`matches the snapshot Case 0 ToggleButton with slot content => HTML 1`] 
     aria-pressed="false"
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     disabled=""
+    type="button"
   >
     
     

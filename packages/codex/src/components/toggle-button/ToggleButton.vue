@@ -4,6 +4,7 @@
 		:class="rootClasses"
 		:aria-pressed="modelValue"
 		:disabled="disabled"
+		type="button"
 		@click="onClick"
 		@keydown.space.enter.prevent="onKeyDown"
 		@keyup.space.enter="onKeyUp"

@@ -4,6 +4,7 @@ exports[`matches the snapshot Case 0 Default: ({"disabled": false, "modelValue":
 <button
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+  type="button"
 >
   <!-- @slot Button content -->
   
@@ -16,6 +17,7 @@ exports[`matches the snapshot Case 1 Active: ({"disabled": false, "modelValue": 
 <button
   aria-pressed="true"
   class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
+  type="button"
 >
   <!-- @slot Button content -->
   
@@ -29,6 +31,7 @@ exports[`matches the snapshot Case 2 Disabled, inactive: ({"disabled": true, "mo
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
   disabled=""
+  type="button"
 >
   <!-- @slot Button content -->
   
@@ -42,6 +45,7 @@ exports[`matches the snapshot Case 3 Disabled, active: ({"disabled": true, "mode
   aria-pressed="true"
   class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
   disabled=""
+  type="button"
 >
   <!-- @slot Button content -->
   
@@ -54,6 +58,7 @@ exports[`matches the snapshot Case 4 Quiet: ({"disabled": false, "modelValue": f
 <button
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--quiet cdx-toggle-button--toggled-off"
+  type="button"
 >
   <!-- @slot Button content -->
   
@@ -66,6 +71,7 @@ exports[`matches the snapshot Case 5 Quiet, active: ({"disabled": false, "modelV
 <button
   aria-pressed="true"
   class="cdx-toggle-button cdx-toggle-button--quiet cdx-toggle-button--toggled-on"
+  type="button"
 >
   <!-- @slot Button content -->
   
@@ -79,6 +85,7 @@ exports[`matches the snapshot Case 6 Quiet, disabled, inactive: ({"disabled": tr
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--quiet cdx-toggle-button--toggled-off"
   disabled=""
+  type="button"
 >
   <!-- @slot Button content -->
   
@@ -92,6 +99,7 @@ exports[`matches the snapshot Case 7 Quiet, disabled, active: ({"disabled": true
   aria-pressed="true"
   class="cdx-toggle-button cdx-toggle-button--quiet cdx-toggle-button--toggled-on"
   disabled=""
+  type="button"
 >
   <!-- @slot Button content -->
   
@@ -105,6 +113,7 @@ exports[`matches the snapshot Case 8 Icon-only (SVG): ({"disabled": false, "mode
   aria-label="Icon-only example"
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off cdx-toggle-button--icon-only"
+  type="button"
 >
   <!-- @slot Button content -->
   
@@ -118,6 +127,7 @@ exports[`matches the snapshot Case 9 Icon-only (CdxIcon): ({"disabled": false, "
   aria-hidden="true"
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off cdx-toggle-button--icon-only"
+  type="button"
 >
   <!-- @slot Button content -->
   
