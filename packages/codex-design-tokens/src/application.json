@@ -53,7 +53,7 @@
 			"value": "{ color.blue50 }"
 		},
 		"destructive": {
-			"value": "{ color.red600 }"
+			"value": "{ color.red700 }"
 		},
 		"destructive--hover": {
 			"value": "{ color.red500 }"
@@ -149,7 +149,7 @@
 		},
 		"destructive": {
 			"comment": "'Destructive' Color and states",
-			"value": "{ color.red600 }"
+			"value": "{ color.red700 }"
 		},
 		"destructive--hover": {
 			"value": "{ color.red500 }"
@@ -169,7 +169,7 @@
 			"value": "{ color.maroon700 }"
 		},
 		"error": {
-			"value": "{ color.red600 }"
+			"value": "{ color.red700 }"
 		},
 		"warning": {
 			"comment": "Note, this is only meant for warning icon for contrast reasons.",
@@ -574,7 +574,7 @@
 			"value": "{ color.blue700 }"
 		},
 		"destructive": {
-			"value": "{ color.red600 }"
+			"value": "{ color.red700 }"
 		},
 		"destructive--hover": {
 			"value": "{ color.red500 }"

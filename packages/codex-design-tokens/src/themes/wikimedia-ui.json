@@ -63,8 +63,7 @@
 			"value": "#fc493b"
 		},
 		"red600": {
-			"comment": "This value will be updated to #d74032 as a part of Phabricator task number T370446.",
-			"value": "#d73333"
+			"value": "#d74032"
 		},
 		"red700": {
 			"value": "#bf3c2c"
