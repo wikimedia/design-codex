@@ -169,43 +169,6 @@ export default defineComponent( {
 	// Undo VitePress style.
 	width: @size-full;
 
-	& table {
-		// Override VitePress style.
-		margin: 0;
-	}
-
-	thead tr,
-	tbody tr {
-		// Override VitePress style.
-		border-top: @token-table-border-none;
-	}
-
-	thead th {
-		// Override VitePress style.
-		background-color: inherit;
-		border: @token-table-border-none;
-	}
-
-	tbody td {
-		// Override VitePress style.
-		border-right: @token-table-border-none;
-		border-bottom: @token-table-border-none;
-		border-left: @token-table-border-none;
-
-		code {
-			// Override VitePress style.
-			color: @color-base;
-		}
-	}
-
-	/* stylelint-disable selector-class-pattern */
-	& .cdx-table__table th,
-	& .cdx-table__table td {
-		// Override VitePress style.
-		border-color: @border-color-base;
-	}
-	/* stylelint-enable selector-class-pattern */
-
 	// Undo GitHub-table-style alternate row striping.
 	tr:nth-child( 2n ) {
 		background-color: @background-color-base;

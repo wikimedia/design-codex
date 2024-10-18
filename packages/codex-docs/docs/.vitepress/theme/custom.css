@@ -582,6 +582,32 @@ body {
 	margin-left: var( --spacing-25 );
 }
 
+/* Override VitePress style when using CdxTable. */
+.vp-doc .cdx-docs-tokens-table table.cdx-table__table {
+	margin: 0;
+
+	thead tr,
+	tbody tr {
+		border-top: 0;
+	}
+
+	thead th {
+		background-color: inherit;
+		border-top: 0;
+		border-right: 0;
+		border-left: 0;
+	}
+
+	tbody td {
+		border-right: 0;
+		border-left: 0;
+
+		code {
+			color: var( --color-base );
+		}
+	}
+}
+
 .cdx-docs-required-indicator {
 	margin-left: var( --spacing-25 );
 }
