@@ -26,6 +26,12 @@
 		"interactive-subtle": {
 			"value": "{ color.gray50 }"
 		},
+		"interactive-subtle--hover": {
+			"value": "{ color.gray100 }"
+		},
+		"interactive-subtle--active": {
+			"value": "{ color.gray200 }"
+		},
 		"disabled": {
 			"comment": "Components like Buttons, Checkboxes, Radios, ProgressBars….",
 			"value": "{ color.gray200 }"
@@ -78,6 +84,12 @@
 		},
 		"error-subtle": {
 			"value": "{ color.red50 }"
+		},
+		"error-subtle--hover": {
+			"value": "{ color.red100 }"
+		},
+		"error-subtle--active": {
+			"value": "{ color.red200 }"
 		},
 		"warning-subtle": {
 			"value": "{ color.yellow50 }"
@@ -185,6 +197,12 @@
 		},
 		"error": {
 			"value": "{ color.red700 }"
+		},
+		"error--hover": {
+			"value": "{ color.red800 }"
+		},
+		"error--active": {
+			"value": "{ color.red900 }"
 		},
 		"warning": {
 			"value": "{ color.yellow700 }"
@@ -580,6 +598,12 @@
 		"interactive": {
 			"value": "{ color.gray500 }"
 		},
+		"interactive--hover": {
+			"value": "{ color.gray800 }"
+		},
+		"interactive--active": {
+			"value": "{ color.gray900 }"
+		},
 		"disabled": {
 			"value": "{ color.gray300 }"
 		},
@@ -614,10 +638,10 @@
 			"value": "{ color.red500 }"
 		},
 		"error--hover": {
-			"value": "{ color.red600 }"
+			"value": "{ color.red800 }"
 		},
 		"error--active": {
-			"value": "{ color.red700 }"
+			"value": "{ color.red900 }"
 		},
 		"warning": {
 			"value": "{ color.yellow500 }"

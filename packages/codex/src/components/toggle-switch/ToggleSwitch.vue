@@ -217,7 +217,7 @@ export default defineComponent( {
 	// The visible switch.
 	&__switch {
 		.force-gpu-composite-layer();
-		background-color: @background-color-interactive-subtle;
+		background-color: @background-color-base;
 		display: inline-block;
 		flex-shrink: 0;
 		// Grip will be positioned absolutely relative to the switch.
@@ -229,7 +229,7 @@ export default defineComponent( {
 		height: @size-200;
 		border-width: @border-width-base;
 		border-style: @border-style-base;
-		border-color: @border-color-input-binary;
+		border-color: @border-color-interactive;
 		border-radius: @border-radius-pill;
 		overflow: hidden;
 		transition-property: @transition-property-base;
@@ -318,29 +318,26 @@ export default defineComponent( {
 			}
 
 			& ~ .cdx-toggle-switch__switch .cdx-toggle-switch__switch__grip {
-				background-color: @background-color-base-fixed;
+				background-color: @background-color-base;
 			}
 
 			&:hover ~ .cdx-toggle-switch__switch {
-				background-color: @background-color-base;
-				border-color: @border-color-progressive--hover;
+				background-color: @background-color-interactive-subtle--hover;
+				border-color: @border-color-interactive--hover;
 
 				.cdx-toggle-switch__switch__grip {
-					background-color: @background-color-base-fixed;
-					border-color: @border-color-progressive--hover;
+					background-color: @background-color-base;
+					border-color: @border-color-interactive--hover;
 				}
 			}
 
 			&:active ~ .cdx-toggle-switch__switch {
-				background-color: @background-color-progressive--active;
-				border-color: @border-color-progressive--active;
-
-				&::before {
-					border-color: @border-color-progressive--active;
-				}
+				background-color: @background-color-interactive-subtle--active;
+				border-color: @border-color-interactive--active;
 
 				.cdx-toggle-switch__switch__grip {
-					border-color: @border-color-inverted;
+					background-color: @background-color-base;
+					border-color: @border-color-interactive--active;
 				}
 			}
 
@@ -348,27 +345,33 @@ export default defineComponent( {
 				border-color: @border-color-progressive;
 				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 				outline: @outline-base--focus;
-
-				.cdx-toggle-switch__switch__grip {
-					border-color: @border-color-progressive;
-				}
 			}
 
 			// Checked state.
 			/* stylelint-disable no-descending-specificity */
 			&:checked {
 				& ~ .cdx-toggle-switch__switch {
-					background-color: @background-color-input-binary--checked;
-					border-color: @border-color-input-binary--checked;
+					background-color: @background-color-progressive;
+					border-color: @border-color-transparent;
 
 					.cdx-toggle-switch__switch__grip {
-						border-color: @background-color-base;
+						background-color: @background-color-base-fixed;
+						border-color: @background-color-transparent;
 					}
 				}
 
 				&:hover ~ .cdx-toggle-switch__switch {
 					background-color: @background-color-progressive--hover;
 					border-color: @border-color-progressive--hover;
+				}
+
+				&:focus:not( :active ) ~ .cdx-toggle-switch__switch {
+					border-color: @border-color-progressive;
+
+					&::before,
+					.cdx-toggle-switch__switch__grip {
+						border-color: @border-color-inverted;
+					}
 				}
 
 				&:active ~ .cdx-toggle-switch__switch {
@@ -382,15 +385,6 @@ export default defineComponent( {
 
 					.cdx-toggle-switch__switch__grip {
 						background-color: @background-color-base-fixed;
-						border-color: @border-color-inverted;
-					}
-				}
-
-				&:focus:not( :active ) ~ .cdx-toggle-switch__switch {
-					border-color: @border-color-input-binary--checked;
-
-					&::before,
-					.cdx-toggle-switch__switch__grip {
 						border-color: @border-color-inverted;
 					}
 				}

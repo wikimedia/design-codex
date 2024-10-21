@@ -150,7 +150,12 @@ export default defineComponent( {
 		}
 
 		&:hover {
-			border-color: @border-color-interactive;
+			border-color: @border-color-interactive--hover;
+		}
+
+		// TODO: Decide to keep active styles after focus styles update T377727.
+		&:active {
+			border-color: @border-color-interactive--active;
 		}
 
 		&:focus {

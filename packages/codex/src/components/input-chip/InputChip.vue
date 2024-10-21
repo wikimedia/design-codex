@@ -168,7 +168,7 @@ export default defineComponent( {
 	justify-content: center;
 	gap: @spacing-25;
 	max-width: @size-3200;
-	border: @border-width-base @border-style-base @border-color-subtle;
+	border: @border-width-base @border-style-base @border-color-interactive;
 	border-radius: @border-radius-pill;
 	padding: 0 0 0 @spacing-50;
 	font-size: @font-size-small;
@@ -179,7 +179,8 @@ export default defineComponent( {
 		transition-duration: @transition-duration-medium;
 
 		&:hover {
-			background-color: @background-color-base;
+			background-color: @background-color-interactive-subtle--hover;
+			border-color: @border-color-interactive--hover;
 			cursor: @cursor-base--hover;
 		}
 
@@ -188,8 +189,8 @@ export default defineComponent( {
 		}
 
 		&:active {
-			background-color: @background-color-interactive;
-			border-color: @border-color-interactive;
+			background-color: @background-color-interactive-subtle--active;
+			border-color: @border-color-interactive--active;
 		}
 
 		&:focus:not( :active ) {

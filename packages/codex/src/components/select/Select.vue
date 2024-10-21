@@ -431,15 +431,23 @@ export default defineComponent( {
 	/* stylelint-enable no-descending-specificity */
 
 	&--status-error&--enabled {
-		.cdx-select-vue__handle {
+		.cdx-select-vue__handle:not( :focus ) {
+			background-color: @background-color-error-subtle;
+			color: @color-error;
 			border-color: @border-color-error;
 
-			&:hover {
-				border-color: @border-color-error--hover;
+			.cdx-select-vue__start-icon {
+				color: @color-error;
 			}
 
-			&:focus {
-				border-color: @border-color-progressive--focus;
+			&:hover {
+				background-color: @background-color-error-subtle--hover;
+				color: @color-error--hover;
+				border-color: @border-color-error--hover;
+
+				.cdx-select-vue__start-icon {
+					color: @color-error--hover;
+				}
 			}
 		}
 	}

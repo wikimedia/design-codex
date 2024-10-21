@@ -246,45 +246,40 @@ export default defineComponent( {
 		/* stylelint-disable no-descending-specificity */
 		&:enabled {
 			& + .cdx-checkbox__icon {
-				border-color: @border-color-input-binary;
+				background-color: @background-color-base;
+				border-color: @border-color-interactive;
 			}
 
 			&:hover + .cdx-checkbox__icon {
-				border-color: @border-color-input-binary--hover;
-			}
-
-			&:active + .cdx-checkbox__icon {
-				background-color: @background-color-progressive--active;
-				border-color: @border-color-progressive--active;
+				background-color: @background-color-interactive-subtle--hover;
+				border-color: @border-color-interactive--hover;
 			}
 
 			&:focus:not( :active ) + .cdx-checkbox__icon {
-				border-color: @border-color-input-binary--focus;
+				border-color: @border-color-progressive--focus;
 				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 				// In Windows high contrast mode the outline becomes visible.
 				outline: @outline-base--focus;
 			}
 
+			&:active + .cdx-checkbox__icon {
+				background-color: @background-color-interactive-subtle--active;
+				border-color: @border-color-interactive--active;
+			}
+
 			&:checked,
 			&:indeterminate {
 				& + .cdx-checkbox__icon {
-					background-color: @background-color-input-binary--checked;
-					border-color: @border-color-input-binary--checked;
+					background-color: @background-color-progressive;
+					border-color: @border-color-transparent;
 				}
 
 				&:hover + .cdx-checkbox__icon {
 					background-color: @background-color-progressive--hover;
-					border-color: @border-color-input-binary--hover;
-				}
-
-				&:active + .cdx-checkbox__icon {
-					background-color: @background-color-progressive--active;
-					border-color: @border-color-progressive--active;
 				}
 
 				&:focus:not( :active ):not( :hover ) + .cdx-checkbox__icon {
-					background-color: @background-color-input-binary--checked;
-					border-color: @border-color-input-binary--checked;
+					background-color: @background-color-progressive;
 				}
 
 				&:focus:not( :active ) + .cdx-checkbox__icon {
@@ -295,24 +290,34 @@ export default defineComponent( {
 					box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus,
 						@box-shadow-inset-medium @box-shadow-color-inverted;
 				}
+
+				&:active + .cdx-checkbox__icon {
+					background-color: @background-color-progressive--active;
+				}
 			}
 
 			.cdx-checkbox--status-error & {
+				& ~ .cdx-checkbox__label {
+					color: @color-error;
+				}
+
 				& + .cdx-checkbox__icon {
+					background-color: @background-color-error-subtle;
 					border-color: @border-color-error;
 				}
 
 				&:hover + .cdx-checkbox__icon {
+					background-color: @background-color-error-subtle--hover;
 					border-color: @border-color-error--hover;
-				}
-
-				&:active + .cdx-checkbox__icon {
-					background-color: @background-color-error--active;
-					border-color: @border-color-transparent;
 				}
 
 				&:focus + .cdx-checkbox__icon {
 					border-color: @border-color-progressive--focus;
+				}
+
+				&:active + .cdx-checkbox__icon {
+					background-color: @background-color-error-subtle--active;
+					border-color: @border-color-error--active;
 				}
 
 				&:checked,
@@ -324,12 +329,10 @@ export default defineComponent( {
 
 					&:hover + .cdx-checkbox__icon {
 						background-color: @background-color-error--hover;
-						border-color: @border-color-error--hover;
 					}
 
 					&:active + .cdx-checkbox__icon {
 						background-color: @background-color-error--active;
-						border-color: @border-color-transparent;
 					}
 
 					&:focus:not( :active ) + .cdx-checkbox__icon {

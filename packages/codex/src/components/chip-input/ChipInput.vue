@@ -520,7 +520,7 @@ export default defineComponent( {
 	&:not( .cdx-chip-input--disabled ) {
 		.cdx-chip-input__chips,
 		.cdx-chip-input__separate-input {
-			border-color: @border-color-base;
+			border-color: @border-color-interactive;
 			box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
 			transition-property: @transition-property-base;
 			transition-duration: @transition-duration-medium;
@@ -544,7 +544,7 @@ export default defineComponent( {
 		&:not( .cdx-chip-input--has-separate-input ) .cdx-chip-input__chips,
 		&.cdx-chip-input--has-separate-input .cdx-chip-input__separate-input {
 			&:hover {
-				border-color: @border-color-input--hover;
+				border-color: @border-color-interactive--hover;
 			}
 		}
 
@@ -561,11 +561,28 @@ export default defineComponent( {
 		&.cdx-chip-input--status-error:not( .cdx-chip-input--focused ) {
 			&:not( .cdx-chip-input--has-separate-input ) .cdx-chip-input__chips,
 			&.cdx-chip-input--has-separate-input .cdx-chip-input__separate-input {
-				color: @color-error;
+				background-color: @background-color-error-subtle;
 				border-color: @border-color-error;
 
+				& input::placeholder {
+					color: @color-error;
+				}
+
 				&:hover {
+					background-color: @background-color-error-subtle--hover;
 					border-color: @border-color-error--hover;
+
+					& input::placeholder {
+						color: @color-error--hover;
+					}
+				}
+
+				.cdx-chip-input__input {
+					color: @color-error;
+
+					&:hover {
+						color: @color-error--hover;
+					}
 				}
 			}
 		}
@@ -578,6 +595,7 @@ export default defineComponent( {
 			background-color: @background-color-disabled-subtle;
 			border-color: @border-color-disabled;
 
+			/* stylelint-disable-next-line no-descending-specificity */
 			.cdx-chip-input__input {
 				color: @color-disabled;
 				-webkit-text-fill-color: @color-disabled;

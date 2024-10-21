@@ -274,7 +274,7 @@ export default defineComponent( {
 		&:enabled {
 			background-color: @background-color-base;
 			color: @color-base;
-			border-color: @border-color-base;
+			border-color: @border-color-interactive;
 			box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
 			transition-property: @transition-property-base;
 			transition-duration: @transition-duration-medium;
@@ -288,7 +288,7 @@ export default defineComponent( {
 			}
 
 			&:hover {
-				border-color: @border-color-input--hover;
+				border-color: @border-color-interactive--hover;
 			}
 
 			&:focus,
@@ -309,7 +309,8 @@ export default defineComponent( {
 			}
 
 			&:read-only {
-				background-color: @background-color-interactive-subtle;
+				background-color: @background-color-neutral-subtle;
+				border-color: @border-color-base;
 			}
 		}
 
@@ -357,15 +358,25 @@ export default defineComponent( {
 	}
 
 	&--status-error {
-		.cdx-text-area__textarea:enabled:not( :read-only ) {
+		.cdx-text-area__textarea:enabled:not( :read-only ):not( :focus ) {
+			background-color: @background-color-error-subtle;
+			color: @color-error;
 			border-color: @border-color-error;
 
-			&:hover {
-				border-color: @border-color-error--hover;
+			&::placeholder,
+			~ .cdx-text-area__icon-vue.cdx-icon {
+				color: @color-error;
 			}
 
-			&:focus {
-				border-color: @border-color-progressive--focus;
+			&:hover {
+				background-color: @background-color-error-subtle--hover;
+				color: @color-error--hover;
+				border-color: @border-color-error--hover;
+
+				&::placeholder,
+				~ .cdx-text-area__icon-vue.cdx-icon {
+					color: @color-error--hover;
+				}
 			}
 		}
 	}

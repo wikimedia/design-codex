@@ -218,33 +218,37 @@ export default defineComponent( {
 	&__input {
 		&:enabled {
 			& + .cdx-radio__icon {
-				border-color: @border-color-input-binary;
+				background-color: @background-color-base;
+				border-color: @border-color-interactive;
 			}
 
 			// Note: there is no focus behavior for the input in its unchecked state because you
 			// can't focus on it without selecting it.
 			&:hover + .cdx-radio__icon {
-				border-color: @border-color-input-binary--hover;
+				background-color: @background-color-interactive-subtle--hover;
+				border-color: @border-color-interactive--hover;
 			}
 
 			&:active + .cdx-radio__icon {
-				background-color: @background-color-progressive--active;
-				border-color: @border-color-progressive--active;
+				background-color: @background-color-interactive-subtle--active;
+				border-color: @border-color-interactive--active;
 			}
 
-			&:focus + .cdx-radio__icon {
-				border-color: @border-color-input-binary--focus;
+			&:focus:not( :active ) + .cdx-radio__icon {
+				border-color: @border-color-progressive--focus;
 				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			}
 
 			&:checked {
+				/* stylelint-disable-next-line no-descending-specificity */
 				& + .cdx-radio__icon {
+					background-color: @background-color-base-fixed;
 					border-width: @border-width-input-radio--checked;
-					border-color: @border-color-input-binary--checked;
+					border-color: @border-color-progressive;
 				}
 
 				&:hover + .cdx-radio__icon {
-					border-color: @border-color-input-binary--hover;
+					border-color: @border-color-progressive--hover;
 				}
 
 				&:focus + .cdx-radio__icon {
@@ -267,25 +271,42 @@ export default defineComponent( {
 
 			/* stylelint-disable no-descending-specificity */
 			.cdx-radio--status-error & {
+				& ~ .cdx-radio__label {
+					color: @color-error;
+				}
+
 				& + .cdx-radio__icon {
+					background-color: @background-color-error-subtle;
 					border-color: @border-color-error;
 				}
 
 				&:hover + .cdx-radio__icon {
+					background-color: @background-color-error-subtle--hover;
 					border-color: @border-color-error--hover;
 				}
 
 				&:focus + .cdx-radio__icon {
-					border-color: @border-color-input-binary--focus;
+					border-color: @border-color-progressive--focus;
 				}
 
 				&:active + .cdx-radio__icon {
-					background-color: @background-color-error--active;
+					background-color: @background-color-error-subtle--active;
 					border-color: @border-color-error--active;
 					box-shadow: none;
 				}
 
 				&:checked {
+					& + .cdx-radio__icon {
+						// A background color token is being used in place
+						// of a border token because the Radio background
+						// is built with borders only.
+						background-color: @background-color-base-fixed;
+						border-color: @background-color-error;
+					}
+
+					&:hover + .cdx-radio__icon {
+						border-color: @background-color-error--hover;
+					}
 					/* stylelint-disable-next-line selector-not-notation */
 					&:focus:not( &:active ) + .cdx-radio__icon {
 						border-width: @border-width-base;
@@ -303,8 +324,7 @@ export default defineComponent( {
 					}
 
 					&:active + .cdx-radio__icon {
-						background-color: @background-color-base-fixed;
-						border-color: @border-color-error--active;
+						border-color: @background-color-error--active;
 						box-shadow: none;
 
 						&::before {
