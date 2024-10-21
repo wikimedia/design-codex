@@ -326,14 +326,20 @@ export default defineComponent( {
 			}
 
 			& + .cdx-radio__icon {
-				background-color: @background-color-disabled;
+				background-color: @background-color-disabled-subtle;
 				border-color: @border-color-disabled;
 			}
 
 			&:checked + .cdx-radio__icon {
-				background-color: @background-color-base-fixed;
+				// A color token is being used here for a background color
+				// because the center circle of a Radio acts more like an icon
+				// than it does a background, similar to a Checkbox or ToggleSwitch.
+				// Additionally, a background color token is being used on
+				// a border-color because of how Radio is built and the need
+				// to be consistent with Checkbox and ToggleSwitch.
+				background-color: @color-disabled-emphasized;
 				border-width: @border-width-input-radio--checked;
-				border-color: @border-color-disabled;
+				border-color: @background-color-disabled;
 			}
 		}
 		/* stylelint-enable no-descending-specificity */

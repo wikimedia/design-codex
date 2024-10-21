@@ -28,7 +28,7 @@
 		},
 		"disabled": {
 			"comment": "Components like Buttons, Checkboxes, Radios, ProgressBars….",
-			"value": "{ color.gray300 }"
+			"value": "{ color.gray200 }"
 		},
 		"disabled-subtle": {
 			"comment": "Components like TextInputs, Selects….",
@@ -125,7 +125,10 @@
 			"value": "{ color.gray500 }"
 		},
 		"disabled": {
-			"value": "{ color.gray500 }"
+			"value": "{ color.gray400 }"
+		},
+		"disabled-emphasized": {
+			"value": "{ color.gray400 }"
 		},
 		"inverted": {
 			"value": "{ color.white }"

@@ -455,7 +455,7 @@ export default defineComponent( {
 	&:disabled,
 	&.cdx-button--fake-button--disabled {
 		background-color: @background-color-disabled;
-		color: @color-inverted;
+		color: @color-disabled-emphasized;
 		border-color: @border-color-transparent;
 
 		.cdx-button__icon {

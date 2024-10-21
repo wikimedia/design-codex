@@ -172,8 +172,8 @@ export default defineComponent( {
 	/* stylelint-disable-next-line no-descending-specificity */
 	&:disabled {
 		background-color: @background-color-disabled;
-		color: @color-inverted;
-		border-color: @border-color-disabled;
+		color: @color-disabled-emphasized;
+		border-color: @border-color-transparent;
 	}
 
 	&.cdx-toggle-button--toggled-on:enabled {

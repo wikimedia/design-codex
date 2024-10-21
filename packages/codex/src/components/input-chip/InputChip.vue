@@ -200,11 +200,11 @@ export default defineComponent( {
 
 	&--disabled {
 		background-color: @background-color-disabled;
-		color: @color-inverted;
+		color: @color-disabled-emphasized;
 		border-color: @border-color-transparent;
 
 		.cdx-icon {
-			color: @color-inverted;
+			color: @color-disabled-emphasized;
 		}
 	}
 

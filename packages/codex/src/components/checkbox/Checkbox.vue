@@ -342,8 +342,20 @@ export default defineComponent( {
 
 		&:disabled {
 			& + .cdx-checkbox__icon {
-				background-color: @background-color-disabled;
+				background-color: @background-color-disabled-subtle;
 				border-color: @border-color-disabled;
+			}
+
+			&:checked,
+			&:indeterminate {
+				& + .cdx-checkbox__icon {
+					background-color: @background-color-disabled;
+					border-color: @border-color-transparent;
+				}
+			}
+
+			&:indeterminate + .cdx-checkbox__icon::before {
+				background-color: @color-disabled-emphasized;
 			}
 
 			// DEPRECATED: Support CSS-only components that don't set the `cdx-label` class on the

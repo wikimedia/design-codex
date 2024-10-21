@@ -403,18 +403,24 @@ export default defineComponent( {
 			cursor: @cursor-base--disabled;
 
 			& ~ .cdx-toggle-switch__switch {
-				background-color: @background-color-disabled;
+				background-color: @background-color-disabled-subtle;
 				border-color: @border-color-disabled;
 
 				.cdx-toggle-switch__switch__grip {
-					border-color: @border-color-inverted;
-					box-shadow: @box-shadow-inset-small @box-shadow-color-inverted;
+					border-color: @border-color-disabled;
 				}
 			}
 
 			&:checked ~ .cdx-toggle-switch__switch {
+				background-color: @background-color-disabled;
+				border-color: @border-color-transparent;
+
 				.cdx-toggle-switch__switch__grip {
-					background-color: @background-color-base;
+					// A color token is being used here for a background color
+					// because the ToggleSwitch grip acts more like an icon
+					// than it does a background, similar to a Checkbox or Radio.
+					background-color: @color-disabled-emphasized;
+					border-color: @border-color-transparent;
 				}
 			}
 		}

@@ -16,10 +16,10 @@
 			"value": "{ color.gray900 }"
 		},
 		"disabled": {
-			"value": "{ color.gray600 }"
+			"value": "{ color.gray700 }"
 		},
 		"disabled-subtle": {
-			"value": "{ color.gray700 }"
+			"value": "{ color.gray800 }"
 		},
 		"inverted": {
 			"value": "{ color.gray50 }"
@@ -73,6 +73,12 @@
 		},
 		"subtle": {
 			"value": "{ color.gray400 }"
+		},
+		"disabled": {
+			"value": "{ color.gray600 }"
+		},
+		"disabled-emphasized": {
+			"value": "{ color.gray500 }"
 		},
 		"inverted": {
 			"value": "{ color.gray1000 }"
