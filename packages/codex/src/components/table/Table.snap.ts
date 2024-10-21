@@ -3046,7 +3046,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
       <!-- Visually-hidden caption element, for assistive technology. -->
       <caption>
         
-        Table caption, column headers with buttons are sortable.
+        Table caption (column headers with buttons are sortable).
         
       </caption>
       <!-- @slot Custom &lt;thead&gt;. -->

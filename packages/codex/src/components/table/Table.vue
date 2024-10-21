@@ -677,7 +677,7 @@ export default defineComponent( {
 		// i18n
 		const translatedSortCaption = useI18n(
 			'cdx-table-sort-caption',
-			( caption ) => `${ caption }, column headers with buttons are sortable.`,
+			( caption ) => `${ caption } (column headers with buttons are sortable).`,
 			[ toRef( props, 'caption' ) ]
 		);
 		const translatedSelectRowLabel = ( rowIndex: number, totalRows: number ) => useI18n(
