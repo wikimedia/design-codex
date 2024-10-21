@@ -594,9 +594,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
               class="cdx-menu__no-results cdx-menu-item"
               role="option"
             >
-              <!--
-					@slot Message to show if there are no menu items to display.
-				-->
+              <!-- @slot Message to show if there are no menu items to display. -->
               
               <div
                 class="cdx-menu-item__content cdx-typeahead-search__menu-message cdx-typeahead-search__menu-message--has-thumbnail"
@@ -615,6 +613,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
               
             </li>
             
+            
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
@@ -623,11 +622,6 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
             >
               <!-- @slot Custom menu item content. -->
               
-              <!--
-					@slot Display of an individual item in the menu
-					@binding {MenuItem} menuItem The current menu item
-					@binding {boolean} active Whether the current item is visually active
-				-->
               
               <a
                 class="cdx-menu-item__content cdx-typeahead-search__search-footer"
@@ -679,6 +673,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
               
               
             </li>
+            
             
             <!--v-if-->
           </ul>
@@ -783,6 +778,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             <!--v-if-->
             <!--v-if-->
             
+            
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
@@ -858,6 +854,8 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               </a>
               
             </li>
+            
+            
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--has-description cdx-menu-item--hide-description-overflow"
@@ -939,6 +937,8 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               </a>
               
             </li>
+            
+            
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
@@ -947,11 +947,6 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             >
               <!-- @slot Custom menu item content. -->
               
-              <!--
-					@slot Display of an individual item in the menu
-					@binding {MenuItem} menuItem The current menu item
-					@binding {boolean} active Whether the current item is visually active
-				-->
               
               <a
                 class="cdx-menu-item__content cdx-typeahead-search__search-footer"
@@ -1003,6 +998,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
               
               
             </li>
+            
             
             <!--v-if-->
           </ul>

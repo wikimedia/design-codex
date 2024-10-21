@@ -3657,6 +3657,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             <!--v-if-->
             <!--v-if-->
             
+            
             <li
               aria-disabled="false"
               aria-selected="true"
@@ -3694,6 +3695,8 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
               </span>
               
             </li>
+            
+            
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled"
@@ -3730,6 +3733,8 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
               </span>
               
             </li>
+            
+            
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled"
@@ -3766,6 +3771,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
               </span>
               
             </li>
+            
             
             <!--v-if-->
           </ul>
@@ -4334,6 +4340,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             <!--v-if-->
             <!--v-if-->
             
+            
             <li
               aria-disabled="false"
               aria-selected="true"
@@ -4371,6 +4378,8 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
               </span>
               
             </li>
+            
+            
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled"
@@ -4407,6 +4416,8 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
               </span>
               
             </li>
+            
+            
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled"
@@ -4443,6 +4454,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
               </span>
               
             </li>
+            
             
             <!--v-if-->
           </ul>

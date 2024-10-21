@@ -2,7 +2,8 @@ import { mount, VueWrapper } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import CdxMenu from './Menu.vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
-import { MenuItemData, MenuItemValue } from '../../types';
+import { MenuItemData, MenuItemValue, MenuGroupData } from '../../types';
+import { cdxIconGlobe } from '@wikimedia/codex-icons';
 
 const exampleMenuItems: MenuItemData[] = [
 	{ value: 'a', label: 'Option A' },
@@ -11,6 +12,48 @@ const exampleMenuItems: MenuItemData[] = [
 	{ value: '', label: 'Empty String' },
 	{ value: 0, label: 'Number 0' },
 	{ value: 'd', label: 'Option D', disabled: true }
+];
+
+const menuItemsWithGroups: ( MenuItemData | MenuGroupData )[] = [
+	{
+		label: 'Group 1',
+		description: 'Group 1 description',
+		icon: cdxIconGlobe,
+		items: [
+			{ value: 'a', label: 'Option A' },
+			{ value: 'b', label: 'Option B', disabled: true },
+			{ value: 'c' }
+		]
+	},
+	{ value: 'd', label: 'Option D' },
+	{
+		label: 'Group 2',
+		items: [
+			{ value: 'e', label: 'Option E' },
+			{ value: 'f', label: 'Option F' }
+		]
+	},
+	{ value: 'g' }
+];
+
+const menuItemsWithGroupsHiddenLabels: ( MenuItemData | MenuGroupData )[] = [
+	{
+		label: 'Group 1',
+		hideLabel: true,
+		items: [
+			{ value: 'a', label: 'Option A' },
+			{ value: 'b', label: 'Option B' }
+		]
+	},
+	{
+		label: 'Group 2',
+		hideLabel: true,
+		items: [
+			{ value: 'c' },
+			{ value: 'd', label: 'Option D' }
+
+		]
+	}
 ];
 
 const defaultProps = {
@@ -22,6 +65,12 @@ const defaultProps = {
 const multiselectProps = {
 	menuItems: exampleMenuItems,
 	selected: [],
+	expanded: true
+};
+
+const menuGroupsProps = {
+	menuItems: menuItemsWithGroups,
+	selected: null,
 	expanded: true
 };
 
@@ -48,7 +97,7 @@ describe( 'Menu', () => {
 	describe( 'matches the snapshots', () => {
 		type Case = [
 			msg: string,
-			menuItems: MenuItemData[],
+			menuItems: ( MenuItemData|MenuGroupData )[],
 			selected: MenuItemValue|MenuItemValue[]|null,
 			expanded?: boolean,
 			showPending?: boolean,
@@ -64,6 +113,9 @@ describe( 'Menu', () => {
 			[ 'Something selected', exampleMenuItems, 'b' ],
 			[ 'Multiselect, nothing selected', exampleMenuItems, [] ],
 			[ 'Multiselect, something selected', exampleMenuItems, [ 'b' ] ],
+			[ 'With groups, nothing selected', menuItemsWithGroups, null ],
+			[ 'With groups, something selected', menuItemsWithGroups, 'c' ],
+			[ 'With groups, hidden labels', menuItemsWithGroupsHiddenLabels, null ],
 			[ 'Not expanded', exampleMenuItems, 'b', false ],
 			[ 'With no results text', [], null, true, false, { 'no-results': 'No results' } ],
 			[ 'Pending', [], null, true, true, { pending: 'Loading...' } ],
@@ -128,6 +180,22 @@ describe( 'Menu', () => {
 			} );
 		} );
 
+		describe( 'and there are menu groups', () => {
+			it( 'emits an "update:selected" event with the correct "selectedValue"', async () => {
+				const wrapper = mount( CdxMenu, { props: menuGroupsProps } );
+				await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
+				expect( wrapper.emitted()[ 'update:selected' ] ).toBeTruthy();
+				expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ 'a' ] );
+			} );
+
+			it( 'emits an "update:expanded" event indicating the menu should be closed', async () => {
+				const wrapper = mount( CdxMenu, { props: menuGroupsProps } );
+				await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
+				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+				expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ false ] );
+			} );
+		} );
+
 		describe( 'and the value is 0', () => {
 			it( 'emits an "update:selected" event with the correct "selectedValue"', async () => {
 				const wrapper = mount( CdxMenu, { props: {
@@ -189,6 +257,19 @@ describe( 'Menu', () => {
 			} );
 		} );
 
+		describe( 'and there are menu groups', () => {
+			it( 'adds selected styles to the selected item', async () => {
+				const wrapper = mount( CdxMenu, { props: {
+					...menuGroupsProps,
+					selected: 'c'
+				} } );
+				expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--selected' );
+				await wrapper.setProps( { selected: 'a' } );
+				expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).toContain( 'cdx-menu-item--selected' );
+				expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).not.toContain( 'cdx-menu-item--selected' );
+			} );
+		} );
+
 		it( 'no update events are emitted', async () => {
 			const wrapper = mount( CdxMenu, { props: {
 				...defaultProps,
@@ -239,6 +320,19 @@ describe( 'Menu', () => {
 				} );
 			} );
 
+			describe( 'and there are menu groups', () => {
+				it( 'sets the selected menu item to "highlighted" if a selection is present', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...menuGroupsProps,
+						selected: 'c',
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'Enter' );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+				} );
+			} );
 		} );
 
 		describe( 'and a menu item is highlighted via the keyboard', () => {
@@ -274,6 +368,32 @@ describe( 'Menu', () => {
 					await delegateKeydownEvent( wrapper, 'ArrowDown' );
 					await delegateKeydownEvent( wrapper, 'Enter' );
 					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeFalsy();
+				} );
+			} );
+
+			describe( 'and there are menu groups', () => {
+				it( 'emits an update event with the value of that item', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...menuGroupsProps,
+						selected: 'c',
+						expanded: false
+					} } );
+					// Enter opens the menu and highlights the selected item
+					await delegateKeydownEvent( wrapper, 'Enter' );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+
+					await delegateKeydownEvent( wrapper, 'ArrowDown' );
+					await delegateKeydownEvent( wrapper, 'Enter' );
+					expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ 'd' ] );
+				} );
+
+				it( 'closes the menu', async () => {
+					const wrapper = mount( CdxMenu, { props: menuGroupsProps } );
+					await delegateKeydownEvent( wrapper, 'ArrowDown' );
+					await delegateKeydownEvent( wrapper, 'Enter' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ false ] );
 				} );
 			} );
 		} );
@@ -329,6 +449,33 @@ describe( 'Menu', () => {
 			expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
 		} );
 
+		describe( 'and there are menu groups', () => {
+			it( 'sets the next menu item to "highlighted"', async () => {
+				const wrapper = mount( CdxMenu, { props: {
+					...menuGroupsProps,
+					selected: 'c',
+					expanded: false
+				} } );
+				// Enter highlights the selected item
+				await delegateKeydownEvent( wrapper, 'Enter' );
+				// Simulate the parent responding to the update:expanded event
+				await wrapper.setProps( { expanded: true } );
+
+				// Pressing ArrowDown highlights the next item
+				await delegateKeydownEvent( wrapper, 'ArrowDown' );
+				expect( wrapper.findAllComponents( CdxMenuItem )[ 3 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+			} );
+
+			it( 'skips disabled elements and loops around to the beginning if necessary', async () => {
+				const wrapper = mount( CdxMenu, { props: {
+					...menuGroupsProps,
+					selected: 'a' // This is the entry before the disabled menuItem
+				} } );
+				await delegateKeydownEvent( wrapper, 'ArrowDown' );
+				expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+			} );
+		} );
+
 		describe( 'and the menu is closed', () => {
 			describe( 'and the menu is in single-select mode', () => {
 				it( 'does not highlight an item if nothing is selected', async () => {
@@ -381,6 +528,33 @@ describe( 'Menu', () => {
 					// Simulate the parent responding to the update:expanded event
 					await wrapper.setProps( { expanded: true } );
 					expect( wrapper.findAllComponents( CdxMenuItem )[ 1 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
+				} );
+			} );
+
+			describe( 'and there are menu groups', () => {
+				it( 'does not highlight an item if nothing is selected', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...menuGroupsProps,
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'ArrowDown' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 0 ].classes() ).not.toContain( 'cdx-menu-item--highlighted' );
+				} );
+
+				it( 'highlights the selected item', async () => {
+					const wrapper = mount( CdxMenu, { props: {
+						...menuGroupsProps,
+						selected: 'c',
+						expanded: false
+					} } );
+					await delegateKeydownEvent( wrapper, 'ArrowDown' );
+					expect( wrapper.emitted()[ 'update:expanded' ] ).toBeTruthy();
+					expect( wrapper.emitted()[ 'update:expanded' ][ 0 ] ).toEqual( [ true ] );
+					// Simulate the parent responding to the update:expanded event
+					await wrapper.setProps( { expanded: true } );
+					expect( wrapper.findAllComponents( CdxMenuItem )[ 2 ].classes() ).toContain( 'cdx-menu-item--highlighted' );
 				} );
 			} );
 		} );
@@ -733,6 +907,32 @@ describe( 'Menu', () => {
 			expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 1 ] );
 			await delegateKeydownEvent( wrapper, 'e' );
 			expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 3 ] );
+		} );
+
+		describe( 'and there are menu groups', () => {
+			it( 'highlights the first item matching all typed characters', async () => {
+				const menuItems = [
+					{
+						label: 'Group 1',
+						items: [ { value: 'Foo' }, { value: 'Blah' } ]
+					},
+					{
+						label: 'Group 2',
+						items: [ { value: 'Bar' } ]
+					},
+					{ value: 'Bleh' }
+				];
+				const wrapper = mount( CdxMenu, { props: {
+					...defaultProps,
+					menuItems
+				} } );
+				await delegateKeydownEvent( wrapper, 'b' );
+				expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( { value: 'Blah' } );
+				await delegateKeydownEvent( wrapper, 'l' );
+				expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( { value: 'Blah' } );
+				await delegateKeydownEvent( wrapper, 'e' );
+				expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( { value: 'Bleh' } );
+			} );
 		} );
 
 		it( 'cycles through items starting with the same letter when a letter is typed repeatedly', async () => {

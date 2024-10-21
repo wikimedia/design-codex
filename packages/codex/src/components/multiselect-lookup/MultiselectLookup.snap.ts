@@ -47,9 +47,7 @@ exports[`MultiselectLookup matches the snapshot Case 0 Default props: ({"inputCh
         class="cdx-menu__no-results cdx-menu-item"
         role="option"
       >
-        <!--
-					@slot Message to show if there are no menu items to display.
-				-->
+        <!-- @slot Message to show if there are no menu items to display. -->
         
         
       </li>
@@ -106,6 +104,7 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -142,6 +141,8 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -178,6 +179,8 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -214,6 +217,8 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -250,6 +255,7 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>
@@ -400,9 +406,7 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
         class="cdx-menu__no-results cdx-menu-item"
         role="option"
       >
-        <!--
-					@slot Message to show if there are no menu items to display.
-				-->
+        <!-- @slot Message to show if there are no menu items to display. -->
         
         
       </li>
@@ -461,9 +465,7 @@ exports[`MultiselectLookup matches the snapshot Case 3 With input value: ({"inpu
         class="cdx-menu__no-results cdx-menu-item"
         role="option"
       >
-        <!--
-					@slot Message to show if there are no menu items to display.
-				-->
+        <!-- @slot Message to show if there are no menu items to display. -->
         
         
       </li>
@@ -622,9 +624,7 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
         class="cdx-menu__no-results cdx-menu-item"
         role="option"
       >
-        <!--
-					@slot Message to show if there are no menu items to display.
-				-->
+        <!-- @slot Message to show if there are no menu items to display. -->
         
         
       </li>
@@ -779,9 +779,7 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
         class="cdx-menu__no-results cdx-menu-item"
         role="option"
       >
-        <!--
-					@slot Message to show if there are no menu items to display.
-				-->
+        <!-- @slot Message to show if there are no menu items to display. -->
         
         
       </li>
@@ -939,9 +937,7 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
         class="cdx-menu__no-results cdx-menu-item"
         role="option"
       >
-        <!--
-					@slot Message to show if there are no menu items to display.
-				-->
+        <!-- @slot Message to show if there are no menu items to display. -->
         
         
       </li>

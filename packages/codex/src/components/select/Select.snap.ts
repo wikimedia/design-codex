@@ -56,6 +56,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -92,6 +93,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -128,6 +131,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -164,6 +169,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
@@ -200,6 +207,8 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -255,6 +264,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>
@@ -318,6 +328,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -354,6 +365,8 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -390,6 +403,8 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -426,6 +441,8 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
@@ -462,6 +479,8 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -517,6 +536,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>
@@ -580,6 +600,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         aria-selected="true"
@@ -617,6 +638,8 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -653,6 +676,8 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -689,6 +714,8 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
@@ -725,6 +752,8 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -780,6 +809,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>
@@ -843,6 +873,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -879,6 +910,8 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -915,6 +948,8 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         aria-selected="true"
@@ -952,6 +987,8 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
@@ -988,6 +1025,8 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -1043,6 +1082,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>
@@ -1125,6 +1165,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -1161,6 +1202,8 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -1197,6 +1240,8 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -1233,6 +1278,8 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
@@ -1269,6 +1316,8 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         aria-selected="true"
@@ -1325,6 +1374,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>
@@ -1407,6 +1457,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -1443,6 +1494,8 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -1479,6 +1532,8 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -1515,6 +1570,8 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
@@ -1551,6 +1608,8 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -1606,6 +1665,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>
@@ -1669,6 +1729,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -1705,6 +1766,8 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -1741,6 +1804,8 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         aria-selected="true"
@@ -1778,6 +1843,8 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
@@ -1814,6 +1881,8 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -1869,6 +1938,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>
@@ -1932,6 +2002,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -1968,6 +2039,8 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -2004,6 +2077,8 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -2040,6 +2115,8 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
@@ -2076,6 +2153,8 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -2131,6 +2210,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>

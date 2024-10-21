@@ -99,6 +99,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         aria-selected="true"
@@ -147,6 +148,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>

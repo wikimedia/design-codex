@@ -109,7 +109,7 @@ import { Icon, cdxIconCheck } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import CdxThumbnail from '../thumbnail/Thumbnail.vue';
 import CdxSearchResultTitle from '../search-result-title/SearchResultTitle.vue';
-import { MenuState, Thumbnail, MenuItemLanguageData, ButtonAction } from '../../types';
+import { MenuState, Thumbnail, MenuItemLanguageData, ButtonAction, MenuItemValue } from '../../types';
 
 /**
  * A selectable option included within a Menu.
@@ -132,7 +132,7 @@ export default defineComponent( {
 		 * The value provided to the parent menu component when this menu item is selected.
 		 */
 		value: {
-			type: [ String, Number ] as PropType<string|number>,
+			type: [ String, Number ] as PropType<MenuItemValue>,
 			required: true
 		},
 

@@ -298,6 +298,7 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
           <!--v-if-->
           <!--v-if-->
           
+          
           <li
             aria-disabled="false"
             class="cdx-menu-item cdx-menu-item--enabled"
@@ -334,6 +335,7 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
             </span>
             
           </li>
+          
           
           <!--v-if-->
         </ul>
@@ -445,6 +447,7 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
           <!--v-if-->
           <!--v-if-->
           
+          
           <li
             aria-disabled="false"
             class="cdx-menu-item cdx-menu-item--enabled"
@@ -481,6 +484,7 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
             </span>
             
           </li>
+          
           
           <!--v-if-->
         </ul>
@@ -591,6 +595,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
           <!--v-if-->
           <!--v-if-->
           
+          
           <li
             aria-disabled="false"
             class="cdx-menu-item cdx-menu-item--enabled"
@@ -627,6 +632,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
             </span>
             
           </li>
+          
           
           <!--v-if-->
         </ul>
@@ -794,6 +800,7 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
           <!--v-if-->
           <!--v-if-->
           
+          
           <li
             aria-disabled="false"
             class="cdx-menu-item cdx-menu-item--enabled"
@@ -830,6 +837,7 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
             </span>
             
           </li>
+          
           
           <!--v-if-->
         </ul>

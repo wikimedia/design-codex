@@ -4,6 +4,7 @@ import InputWithMenuCustomItemDisplay from '@/../component-demos/menu/examples/I
 import InputWithMenuFooter from '@/../component-demos/menu/examples/InputWithMenuFooter.vue';
 import InputWithMenuScroll from '@/../component-demos/menu/examples/InputWithMenuScroll.vue'
 import InputWithMenuNoResults from '@/../component-demos/menu/examples/InputWithMenuNoResults.vue'
+import InputWithMenuGroups from '@/../component-demos/menu/examples/InputWithMenuGroups.vue';
 import InputWithMenuPending from '@/../component-demos/menu/examples/InputWithMenuPending.vue'
 import InputWithMenuPendingWithItems from '@/../component-demos/menu/examples/InputWithMenuPendingWithItems.vue'
 import MultiselectMenu from '@/../component-demos/menu/examples/MultiselectMenu.vue';
@@ -342,6 +343,29 @@ are zero menu items.
 <<< @/../component-demos/menu/examples/InputWithMenuNoResults.vue [NPM]
 
 <<< @/../component-demos/menu/examples-mw/InputWithMenuNoResults.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### With menu groups
+
+You can group menu items together by adding menu group definitions via the `menuItems` prop. Refer
+to the [MenuGroupData type](../types-and-constants.md#menugroupdata) to learn about other menu
+group features.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+    <input-with-menu-groups />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/menu/examples/InputWithMenuGroups.vue [NPM]
+
+<<< @/../component-demos/menu/examples-mw/InputWithMenuGroups.vue [MediaWiki]
 
 :::
 

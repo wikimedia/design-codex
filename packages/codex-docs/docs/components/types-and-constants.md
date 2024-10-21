@@ -204,13 +204,30 @@ interface IconVariedByLang {
 ```ts
 interface MenuConfig {
 	/** The maximum number of items visible in an expanded menu. */
-	visibleItemLimit?: number | null
+	visibleItemLimit?: number | null,
 	/** Whether to show thumbnails (or placeholder). */
 	showThumbnail?: boolean,
 	/** Whether to bold menu item labels. */
 	boldLabel?: boolean,
 	/** Whether to hide description text overflow via an ellipsis. */
 	hideDescriptionOverflow?: boolean
+}
+```
+
+### MenuGroupData
+
+```ts
+interface MenuGroupData {
+	/** Required label for the group. */
+	label: string,
+	/** The menu items that appear in this group. */
+	items: MenuItemData[],
+	/** Optional description for the group. */
+	description?: string,
+	/** Optional icon for the group. */
+	icon?: Icon,
+	/** Whether to visually hide the label. */
+	hideLabel?: boolean
 }
 ```
 

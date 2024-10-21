@@ -36,9 +36,7 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
         class="cdx-menu__no-results cdx-menu-item"
         role="option"
       >
-        <!--
-					@slot Message to show if there are no menu items to display.
-				-->
+        <!-- @slot Message to show if there are no menu items to display. -->
         
         
       </li>
@@ -84,6 +82,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -120,6 +119,8 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -156,6 +157,8 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -192,6 +195,8 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
@@ -228,6 +233,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>
@@ -269,6 +275,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         aria-selected="true"
@@ -306,6 +313,8 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -342,6 +351,8 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -378,6 +389,8 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
@@ -414,6 +427,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>
@@ -458,9 +472,7 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
         class="cdx-menu__no-results cdx-menu-item"
         role="option"
       >
-        <!--
-					@slot Message to show if there are no menu items to display.
-				-->
+        <!-- @slot Message to show if there are no menu items to display. -->
         
         
       </li>
@@ -508,9 +520,7 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
         class="cdx-menu__no-results cdx-menu-item"
         role="option"
       >
-        <!--
-					@slot Message to show if there are no menu items to display.
-				-->
+        <!-- @slot Message to show if there are no menu items to display. -->
         
         <!--
 					@slot Message to show if there are no results to display.
@@ -564,9 +574,7 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
         class="cdx-menu__no-results cdx-menu-item"
         role="option"
       >
-        <!--
-					@slot Message to show if there are no menu items to display.
-				-->
+        <!-- @slot Message to show if there are no menu items to display. -->
         
         
       </li>
@@ -615,9 +623,7 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
         class="cdx-menu__no-results cdx-menu-item"
         role="option"
       >
-        <!--
-					@slot Message to show if there are no menu items to display.
-				-->
+        <!-- @slot Message to show if there are no menu items to display. -->
         
         
       </li>
@@ -663,6 +669,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
       <!--v-if-->
       <!--v-if-->
       
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -699,6 +706,8 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -735,6 +744,8 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
@@ -771,6 +782,8 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
         </span>
         
       </li>
+      
+      
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
@@ -807,6 +820,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
         </span>
         
       </li>
+      
       
       <!--v-if-->
     </ul>

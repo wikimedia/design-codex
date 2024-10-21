@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
 	<div
 		v-show="expanded"
@@ -19,9 +20,7 @@
 				v-if="showPending && computedMenuItems.length === 0 && $slots.pending"
 				class="cdx-menu__pending cdx-menu-item"
 			>
-				<!--
-					@slot Message to indicate pending state.
-				-->
+				<!-- @slot Message to indicate pending state. -->
 				<slot name="pending" />
 			</li>
 
@@ -30,40 +29,70 @@
 				class="cdx-menu__no-results cdx-menu-item"
 				role="option"
 			>
-				<!--
-					@slot Message to show if there are no menu items to display.
-				-->
+				<!-- @slot Message to show if there are no menu items to display. -->
 				<slot name="no-results" />
 			</li>
 
-			<cdx-menu-item
-				v-for="( menuItem, index ) in computedMenuItems"
-				:key="menuItem.value"
-				:ref="( ref ) => assignTemplateRef( ref, index )"
-				v-bind="menuItem"
-				:selected="isItemSelected( menuItem.value )"
-				:active="menuItem.value === activeMenuItem?.value"
-				:highlighted="menuItem.value === highlightedMenuItem?.value"
-				:show-thumbnail="showThumbnail"
-				:bold-label="boldLabel"
-				:hide-description-overflow="hideDescriptionOverflow"
-				:search-query="searchQuery"
-				:multiselect="isMultiselect"
-				@change="( menuState, setState ) =>
-					handleMenuItemChange( menuState, setState ? menuItem : null )"
-				@click="$emit( 'menu-item-click', menuItem )"
-			>
-				<!--
-					@slot Display of an individual item in the menu
-					@binding {MenuItem} menuItem The current menu item
-					@binding {boolean} active Whether the current item is visually active
-				-->
-				<slot
-					:menu-item="menuItem"
-					:active="menuItem.value === activeMenuItem?.value &&
-						menuItem.value === highlightedMenuItem?.value"
-				/>
-			</cdx-menu-item>
+			<template v-for="( menuEntry, index ) in computedMenuEntries" :key="index">
+				<li
+					v-if="isMenuGroupData( menuEntry )"
+					class="cdx-menu__group-wrapper"
+					:class="getGroupWrapperClasses( menuEntry )"
+				>
+					<ul
+						class="cdx-menu__group"
+						role="group"
+						:aria-labelledby="menuEntry.id + '-label'"
+						:aria-describedby="menuEntry.id + '-description'"
+					>
+						<span class="cdx-menu__group__meta">
+							<cdx-icon
+								v-if="menuEntry.icon"
+								class="cdx-menu__group__icon"
+								:icon="menuEntry.icon"
+							/>
+							<span class="cdx-menu__group__meta__text">
+								<span
+									:id="menuEntry.id + '-label'"
+									class="cdx-menu__group__label"
+								>
+									{{ menuEntry.label }}
+								</span>
+								<span
+									v-if="menuEntry.description"
+									:id="menuEntry.id + '-description'"
+									class="cdx-menu__group__description"
+								>
+									{{ menuEntry.description }}
+								</span>
+							</span>
+						</span>
+						<cdx-menu-item
+							v-for="( menuItemInGroup ) in menuEntry.items"
+							:key="menuItemInGroup.value"
+							:ref="( ref ) => assignTemplateRef( ref, getMenuItemIndex( menuItemInGroup ) )"
+							class="cdx-menu__group__item"
+							v-bind="getMenuItemBindings( menuItemInGroup )"
+							v-on="getMenuItemHandlers( menuItemInGroup )"
+						>
+							<!--
+								@slot Display of an individual item in the menu
+								@binding {MenuItem} menuItem The current menu item
+								@binding {boolean} active Whether the current item is visually active
+							-->
+							<slot v-bind="getSlotBindings( menuItemInGroup )" />
+						</cdx-menu-item>
+					</ul>
+				</li>
+				<cdx-menu-item
+					v-else
+					:ref="( ref ) => assignTemplateRef( ref, getMenuItemIndex( menuEntry ) )"
+					v-bind="getMenuItemBindings( menuEntry )"
+					v-on="getMenuItemHandlers( menuEntry )"
+				>
+					<slot v-bind="getSlotBindings( menuEntry )" />
+				</cdx-menu-item>
+			</template>
 
 			<cdx-progress-bar
 				v-if="showPending"
@@ -73,13 +102,15 @@
 		</ul>
 	</div>
 </template>
+<!-- eslint-enable max-len -->
 
 <script lang="ts">
 import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted, nextTick, ComponentPublicInstance, HTMLAttributes } from 'vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
+import CdxIcon from '../icon/Icon.vue';
 import CdxProgressBar from '../progress-bar/ProgressBar.vue';
 import useGeneratedId from '../../composables/useGeneratedId';
-import { MenuItemData, MenuItemDataWithId, MenuState, MenuItemValue } from '../../types';
+import { MenuItemData, MenuItemDataWithId, MenuState, MenuItemValue, MenuGroupData, MenuGroupDataWithIds } from '../../types';
 import useIntersectionObserver from '../../composables/useIntersectionObserver';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 
@@ -99,12 +130,23 @@ function selectedIsArray( selected: MenuItemValue | MenuItemValue[] | null ):
 }
 
 /**
+ * Type guard for each item within a menu groups definition.
+ *
+ * @param menuEntry
+ * @return Whether this is a menu group or a single menu item.
+ */
+function isMenuGroupData( menuEntry: MenuItemData | MenuGroupData ): menuEntry is MenuGroupData {
+	return 'items' in menuEntry;
+}
+
+/**
  * A contextual list of selectable options, often triggered by a control or an input.
  */
 export default defineComponent( {
 	name: 'CdxMenu',
 	components: {
 		CdxMenuItem,
+		CdxIcon,
 		CdxProgressBar
 	},
 	/**
@@ -112,9 +154,13 @@ export default defineComponent( {
 	 */
 	inheritAttrs: false,
 	props: {
-		/** Menu items. See the MenuItemData type. */
+		/**
+		 * Menu items and menu group definitions.
+		 *
+		 * Menu groups and individual menu items will be output in the order they appear here.
+		 */
 		menuItems: {
-			type: Array as PropType<MenuItemData[]>,
+			type: Array as PropType<( MenuItemData|MenuGroupData )[]>,
 			required: true
 		},
 		/**
@@ -269,21 +315,54 @@ export default defineComponent( {
 		'clearActive',
 		'getHighlightedMenuItem',
 		'getHighlightedViaKeyboard',
+		'getComputedMenuItems',
 		'delegateKeyNavigation'
 	],
 	setup( props, { emit, slots, attrs } ) {
 		/**
-		 * Computed array of menu items with unique IDs added; other methods and properties should
-		 * reference this value instead of the original menuItems prop.
+		 * Computed array of menu items and groups with a unique ID added to each menu item. This
+		 * is used to output menu items and groups in the template.
 		 */
-		const computedMenuItems = computed( (): MenuItemDataWithId[] => {
+		const computedMenuEntries = computed( (): (
+			MenuItemDataWithId | MenuGroupDataWithIds
+		)[] => {
 			const menuItemsWithFooter = props.footer && props.menuItems ?
 				[ ...props.menuItems, props.footer ] :
 				props.menuItems;
-			return menuItemsWithFooter.map( ( menuItem ) => ( {
+
+			const getMenuItemWithId = ( menuItem: MenuItemData ) => ( {
 				...menuItem,
 				id: useGeneratedId( 'menu-item' )
-			} ) );
+			} );
+
+			return menuItemsWithFooter.map( ( menuEntry ) => {
+				if ( isMenuGroupData( menuEntry ) ) {
+					return {
+						...menuEntry,
+						id: useGeneratedId( 'menu-group' ),
+						items: menuEntry.items.map( ( subItem ) =>
+							getMenuItemWithId( subItem ) )
+					};
+				} else {
+					return getMenuItemWithId( menuEntry );
+				}
+			} );
+		} );
+
+		/**
+		 * Computed array of all individual menu items, not organized by group. Other methods and
+		 * properties should reference this instead of the original menuItems prop.
+		 */
+		const computedMenuItems = computed( () => {
+			const items: MenuItemDataWithId[] = [];
+			computedMenuEntries.value.forEach( ( menuEntry ) => {
+				if ( isMenuGroupData( menuEntry ) ) {
+					items.push( ...menuEntry.items );
+				} else {
+					items.push( menuEntry );
+				}
+			} );
+			return items;
 		} );
 
 		/**
@@ -835,6 +914,84 @@ export default defineComponent( {
 			maxMenuHeight.value = ( firstHiddenMenuItemTop - firstMenuItemTop ) + 2;
 		}
 
+		// Menu groups.
+
+		/**
+		 * Get classes for the menu group wrapper element.
+		 *
+		 * @param group
+		 * @return {Object} Class name keys with boolean values
+		 */
+		function getGroupWrapperClasses( group: MenuGroupData ) {
+			return {
+				'cdx-menu__group-wrapper--hide-label': !!group.hideLabel
+			};
+		}
+
+		/**
+		 * Get the index of a menu item within the list of menu items (without menu groups).
+		 *
+		 * @param menuItem
+		 * @return {number} Index of the grouped menu item within the list of all menu items
+		 */
+		function getMenuItemIndex( menuItem: MenuItemDataWithId ) {
+			return computedMenuItems.value.indexOf( menuItem );
+		}
+
+		/**
+		 * Get template bindings for a menu item (bound with v-bind).
+		 *
+		 * Used to provide any relevant props and attributes to the MenuItem component.
+		 *
+		 * @param menuItem
+		 * @return {Object} Prop and attribute bindings for a menu item
+		 */
+		function getMenuItemBindings( menuItem: MenuItemDataWithId ) {
+			return {
+				selected: isItemSelected( menuItem.value ),
+				active: menuItem.value === activeMenuItem.value?.value,
+				highlighted: menuItem.value === highlightedMenuItem.value?.value,
+				showThumbnail: props.showThumbnail,
+				boldLabel: props.boldLabel,
+				hideDescriptionOverflow: props.hideDescriptionOverflow,
+				searchQuery: props.searchQuery,
+				multiselect: isMultiselect.value,
+				...menuItem
+			};
+		}
+
+		/**
+		 * Get event handlers for a menu item (bound with v-on).
+		 *
+		 * Used to provide event handlers to the MenuItem component.
+		 *
+		 * @param menuItem
+		 * @return {Object} Event handlers for a menu item
+		 */
+		function getMenuItemHandlers( menuItem: MenuItemDataWithId ) {
+			return {
+				change: ( menuState: MenuState, setState: boolean ) =>
+					handleMenuItemChange( menuState, setState ? menuItem : null ),
+				click: () => emit( 'menu-item-click', menuItem )
+			};
+		}
+
+		/**
+		 * Get template bindings for the default slot (bound with v-bind).
+		 *
+		 * Used to provide the current menu item's data and its active status to the slot content.
+		 *
+		 * @param menuItem
+		 * @return {Object} Bindings for the default slot (menu item content)
+		 */
+		function getSlotBindings( menuItem: MenuItemDataWithId ) {
+			return {
+				menuItem,
+				active: menuItem.value === activeMenuItem.value?.value &&
+					menuItem.value === highlightedMenuItem.value?.value
+			};
+		}
+
 		onMounted( () => {
 			document.addEventListener( 'mouseup', onMouseUp );
 		} );
@@ -896,17 +1053,22 @@ export default defineComponent( {
 			rootStyle,
 			otherAttrs,
 			assignTemplateRef,
+			computedMenuEntries,
 			computedMenuItems,
 			computedShowNoResultsSlot,
 			highlightedMenuItem,
 			highlightedViaKeyboard,
-			activeMenuItem,
 			handleMenuItemChange,
 			handleKeyNavigation,
 			ariaRelevant,
 			isMultiselect,
-			isItemSelected,
-			menuListbox
+			menuListbox,
+			getGroupWrapperClasses,
+			getMenuItemIndex,
+			getMenuItemBindings,
+			getMenuItemHandlers,
+			getSlotBindings,
+			isMenuGroupData
 		};
 	},
 	// Public methods
@@ -948,6 +1110,16 @@ export default defineComponent( {
 		},
 
 		/**
+		 * Get the computed menu items with IDs (without menu groups).
+		 *
+		 * @public
+		 * @return {MenuItemDataWithId[]} List of current menu items without menu groups.
+		 */
+		getComputedMenuItems(): MenuItemDataWithId[] {
+			return this.computedMenuItems;
+		},
+
+		/**
 		 * Ensure no menu item is active. This unsets the active item if there is one.
 		 *
 		 * @public
@@ -984,6 +1156,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '../../themes/mixins/common.less';
 
 .cdx-menu {
 	background-color: @background-color-base;
@@ -1005,14 +1178,65 @@ export default defineComponent( {
 		top: 0;
 	}
 
-	&__listbox {
+	&__listbox,
+	&__group {
 		margin: 0;
 		padding: 0;
+	}
+
+	&__listbox {
 		overflow-y: auto;
 	}
 
+	&__group {
+		display: flex;
+		flex-direction: column;
+
+		&__meta {
+			display: flex;
+			gap: @spacing-50;
+			padding: @spacing-50 @spacing-75 @spacing-35;
+
+			&__text {
+				display: flex;
+				flex-direction: column;
+				line-height: @line-height-medium;
+			}
+		}
+
+		&__icon {
+			height: unit( @line-height-medium, em );
+		}
+
+		&__label {
+			font-weight: @font-weight-bold;
+		}
+
+		&__description {
+			color: @color-subtle;
+			font-size: @font-size-small;
+		}
+	}
+
+	&__group-wrapper {
+		&--hide-label .cdx-menu__group__meta {
+			.screen-reader-text();
+		}
+	}
+
+	// Add a divider between (1) a group and a menu item, (2) a menu item and a group, (3) anything
+	// and a group with a hidden label, (4) a group with a hidden label and another group.
+	// The only things without dividers between them are two individual menu items and two groups
+	// that both have labels.
+	&__group-wrapper + .cdx-menu-item,
+	.cdx-menu-item + &__group-wrapper,
+	&__group-wrapper--hide-label,
+	&__group-wrapper--hide-label + &__group-wrapper {
+		border-top: @border-width-base @border-style-base @border-color-muted;
+	}
+
 	&--has-footer {
-		.cdx-menu-item:last-of-type {
+		.cdx-menu__listbox > .cdx-menu-item:last-of-type {
 			position: absolute;
 			bottom: 0;
 			box-sizing: @box-sizing-base;

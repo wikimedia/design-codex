@@ -136,9 +136,24 @@ export interface MenuButtonItemData extends MenuItemData {
 export type MenuState = typeof MenuStates[ number ];
 
 /** @public */
+export interface MenuGroupData {
+	label: string,
+	items: MenuItemData[],
+	description?: string,
+	icon?: Icon,
+	hideLabel?: boolean
+}
+
+/** @public */
+export interface MenuGroupDataWithIds extends MenuGroupData {
+	id: string,
+	items: MenuItemDataWithId[]
+}
+
+/** @public */
 export interface MenuConfig {
 	/** The maximum number of items visible in an expanded menu */
-	visibleItemLimit?: number | null
+	visibleItemLimit?: number | null,
 	/** Whether to show thumbnails (or placeholder). */
 	showThumbnail?: boolean,
 	/** Whether to bold menu item labels. */
