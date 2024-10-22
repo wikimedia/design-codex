@@ -1,11 +1,9 @@
 <script setup>
 import ComboboxBasic from '@/../component-demos/combobox/examples/ComboboxBasic.vue';
-import ComboboxClearableStartIcon from '@/../component-demos/combobox/examples/ComboboxClearableStartIcon.vue';
 import ComboboxComplexMenuItem from '@/../component-demos/combobox/examples/ComboboxComplexMenuItem.vue';
 import ComboboxCustomMenuItem from '@/../component-demos/combobox/examples/ComboboxCustomMenuItem.vue';
 import ComboboxNoResults from '@/../component-demos/combobox/examples/ComboboxNoResults.vue';
 import ComboboxWithScroll from '@/../component-demos/combobox/examples/ComboboxWithScroll.vue';
-import ComboboxDisabled from '@/../component-demos/combobox/examples/ComboboxDisabled.vue';
 import ComboboxField from '@/../component-demos/combobox/examples/ComboboxField.vue';
 import ComboboxConfigurable from '@/../component-demos/combobox/examples/ComboboxConfigurable.vue';
 
@@ -191,31 +189,6 @@ empty).
 
 </cdx-demo-wrapper>
 
-### Clearable, with start icon
-
-Valid TextInput props like `startIcon`, `endIcon`, and `clearable` will be
-passed on to the embedded `TextInput`.
-
-<cdx-demo-wrapper>
-
-<template v-slot:demo>
-	<combobox-clearable-start-icon />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/combobox/examples/ComboboxClearableStartIcon.vue [NPM]
-
-<<< @/../component-demos/combobox/examples-mw/ComboboxClearableStartIcon.vue [MediaWiki]
-
-:::
-
-</template>
-
-</cdx-demo-wrapper>
-
 ### With menu item icons and descriptions
 
 Items are displayed via the MenuItem component—see the [MenuItem docs](./menu-item) for more
@@ -317,28 +290,6 @@ and enable scrolling, use the `visibleItemLimit` property of the `menuConfig` pr
 
 </cdx-demo-wrapper>
 
-### Disabled
-
-<cdx-demo-wrapper>
-
-<template v-slot:demo>
-	<combobox-disabled />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/combobox/examples/ComboboxDisabled.vue [NPM]
-
-<<< @/../component-demos/combobox/examples-mw/ComboboxDisabled.vue [MediaWiki]
-
-:::
-
-</template>
-
-</cdx-demo-wrapper>
-
 ### Form field
 
 A Combobox can be wrapped in the Field component to add features like a semantic label, description
@@ -360,6 +311,15 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 
 </template>
 </cdx-demo-wrapper>
+
+### Other features
+
+The Combobox component has an internal Menu and TextInput. You can use the following features from
+those components in the Combobox component:
+- [Start and end icons](./text-input.html#with-icons)
+- [Clearable](./text-input.html#clearable)
+- [Custom menu item display](./menu.html#with-custom-menu-item-display)
+- [Menu groups](./menu.html#with-menu-groups)
 
 ## Vue usage
 

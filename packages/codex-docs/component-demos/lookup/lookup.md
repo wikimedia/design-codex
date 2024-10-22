@@ -307,9 +307,10 @@ information.
 
 The Lookup component has an internal Menu and TextInput. You can use the following features from
 those components in the Lookup component:
-- [Custom menu item display](./menu.html#with-custom-menu-item-display)
 - [Start and end icons](./text-input.html#with-icons)
 - [Clearable](./text-input.html#clearable)
+- [Custom menu item display](./menu.html#with-custom-menu-item-display)
+- [Menu groups](./menu.html#with-menu-groups)
 
 ## Vue usage
 

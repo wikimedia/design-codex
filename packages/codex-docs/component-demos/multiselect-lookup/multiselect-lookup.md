@@ -313,6 +313,7 @@ more information.
 The MultiselectLookup component has an internal Menu and ChipInput. You can use the following
 features from those components in the MultiselectLookup component:
 - [Custom menu item display](./menu.html#with-custom-menu-item-display)
+- [Menu groups](./menu.html#with-menu-groups)
 
 ## Vue usage
 
