@@ -92,12 +92,13 @@ describe( 'IconLookup', () => {
 
 		// From no model value, as if the input had been cleared, set to cdxIconTag
 		await wrapper.setProps( { modelValue: 'cdxIconTag' } );
+
 		// Should only have that single icon set
 		expect( wrapper.vm.menuItems.length ).toBe( 1 );
 		expect( wrapper.vm.menuItems[ 0 ] ).toEqual(
 			{ value: 'cdxIconTag', icon: cdxIconTag }
 		);
-		// Should also be the <input> value
+		// Should also be the <input> value.
 		const input = wrapper.find( 'input' ).element as HTMLInputElement;
 		expect( input.value ).toEqual( 'cdxIconTag' );
 	} );
