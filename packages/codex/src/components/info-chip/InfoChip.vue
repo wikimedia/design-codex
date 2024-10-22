@@ -2,10 +2,10 @@
 	<div class="cdx-info-chip" :class="rootClasses">
 		<cdx-icon
 			v-if="computedIcon"
-			class="cdx-info-chip__icon"
+			class="cdx-info-chip__icon--vue"
 			:icon="computedIcon"
 		/>
-		<span class="cdx-info-chip--text">
+		<span class="cdx-info-chip__text">
 			<!-- @slot Chip content. -->
 			<slot />
 		</span>
@@ -17,6 +17,7 @@ import { defineComponent, PropType, computed } from 'vue';
 import { statusTypeValidator } from '../../constants';
 import { StatusType, StatusIconMap } from '../../types';
 import {
+	cdxIconInfoFilled,
 	cdxIconError,
 	cdxIconAlert,
 	cdxIconSuccess,
@@ -25,6 +26,7 @@ import {
 import CdxIcon from '../icon/Icon.vue';
 
 const iconMap: Partial<StatusIconMap> = {
+	notice: cdxIconInfoFilled,
 	error: cdxIconError,
 	warning: cdxIconAlert,
 	success: cdxIconSuccess
@@ -81,6 +83,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
+@import ( reference ) '../../themes/mixins/public/css-icon.less';
 
 .cdx-info-chip {
 	background-color: @background-color-notice-subtle;
@@ -94,13 +97,18 @@ export default defineComponent( {
 	padding: 0 @spacing-50;
 	line-height: @line-height-small;
 
-	&--text {
+	&__text {
 		.text-overflow( @param-visible: false );
 		color: @color-base;
 		font-size: @font-size-small;
 	}
 
+	// Set the default CSS icon to the icon for notice, which is the default type.
 	.cdx-info-chip__icon {
+		.cdx-mixin-css-icon(  @cdx-icon-info-filled, @color-icon-notice, @size-icon-small );
+	}
+
+	.cdx-info-chip__icon--vue {
 		color: @color-icon-notice;
 	}
 
@@ -109,6 +117,10 @@ export default defineComponent( {
 		border-color: @border-color-error;
 
 		.cdx-info-chip__icon {
+			.cdx-mixin-css-icon( @cdx-icon-error, @color-icon-error, @size-icon-small );
+		}
+
+		.cdx-info-chip__icon--vue {
 			color: @color-icon-error;
 		}
 	}
@@ -118,6 +130,10 @@ export default defineComponent( {
 		border-color: @border-color-warning;
 
 		.cdx-info-chip__icon {
+			.cdx-mixin-css-icon( @cdx-icon-alert, @color-icon-warning, @size-icon-small );
+		}
+
+		.cdx-info-chip__icon--vue {
 			color: @color-icon-warning;
 		}
 	}
@@ -127,6 +143,10 @@ export default defineComponent( {
 		border-color: @border-color-success;
 
 		.cdx-info-chip__icon {
+			.cdx-mixin-css-icon( @cdx-icon-success, @color-icon-success, @size-icon-small );
+		}
+
+		.cdx-info-chip__icon--vue {
 			color: @color-icon-success;
 		}
 	}

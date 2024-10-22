@@ -44,8 +44,8 @@ The InfoChip label should be kept concise. It's limited to one line of text, and
 By default, the InfoChip's width dynamically adjusts based on the length of the text. However, for consistency when grouping similar chips, the width of these chips can also be set to a fixed value, if required.
 
 <div class="cdx-docs-grid cdx-docs-grid-columns-2">
-    <img src="../../assets/components/info-chip-specifications-length.svg" alt="Example of chips with short text and fixed width.">
-    <img src="../../assets/components/info-chip-specifications-fixed-width.svg" alt="Chips with long text whose length grows with the chip's text.">
+	<img src="../../assets/components/info-chip-specifications-length.svg" alt="Example of chips with short text and fixed width.">
+	<img src="../../assets/components/info-chip-specifications-fixed-width.svg" alt="Chips with long text whose length grows with the chip's text.">
 </div>
 
 ### Types
@@ -240,11 +240,11 @@ A simple chip with text content and no icon is straightforward.
 	<!-- Outer element is a <div>. -->
 	<div class="cdx-info-chip">
 		<!-- Text element. -->
-		<span class="cdx-info-chip--text">
+		<span class="cdx-info-chip__text">
 			<!-- Chip text -->
 			Info Chip
 		</span>
-    </div>
+	</div>
 </template>
 <template v-slot:code>
 
@@ -252,11 +252,11 @@ A simple chip with text content and no icon is straightforward.
 	<!-- Outer element is a <div>. -->
 	<div class="cdx-info-chip">
 		<!-- Text element. -->
-		<span class="cdx-info-chip--text">
+		<span class="cdx-info-chip__text">
 			<!-- Chip text -->
 			Info Chip
 		</span>
-    </div>
+	</div>
 ```
 </template>
 </cdx-demo-wrapper>
@@ -270,7 +270,7 @@ The chip will inherit the reading direction of its context.
 		<!-- Outer element is a <div>. -->
 		<div class="cdx-info-chip">
 			<!-- Text element. -->
-			<span class="cdx-info-chip--text">
+			<span class="cdx-info-chip__text">
 				<!-- Chip text -->
 				Right-to-left Chip
 			</span>
@@ -285,7 +285,7 @@ The chip will inherit the reading direction of its context.
 		<!-- Outer element is a <div>. -->
 		<div class="cdx-info-chip">
 			<!-- Text element. -->
-			<span class="cdx-info-chip--text">
+			<span class="cdx-info-chip__text">
 				<!-- Chip text -->
 				Right-to-left Chip
 			</span>
@@ -302,7 +302,7 @@ truncated with an ellipsis and lines will not be wrapped.
 	<!-- Outer element is a <div>. -->
 	<div class="cdx-info-chip">
 		<!-- Text element. -->
-		<span class="cdx-info-chip--text">
+		<span class="cdx-info-chip__text">
 			<!-- Chip text -->
 			This is really really really really really
 			really really really really really really
@@ -310,7 +310,7 @@ truncated with an ellipsis and lines will not be wrapped.
 			really really really really really really
 			long text
 		</span>
-    </div>
+	</div>
 </template>
 <template v-slot:code>
 
@@ -318,7 +318,7 @@ truncated with an ellipsis and lines will not be wrapped.
 	<!-- Outer element is a <div>. -->
 	<div class="cdx-info-chip">
 		<!-- Text element. -->
-		<span class="cdx-info-chip--text">
+		<span class="cdx-info-chip__text">
 			<!-- Chip text -->
 			This is really really really really really
 			really really really really really really
@@ -326,7 +326,249 @@ truncated with an ellipsis and lines will not be wrapped.
 			really really really really really really
 			long text
 		</span>
-    </div>
+	</div>
 ```
 </template>
 </cdx-demo-wrapper>
+
+### Status types
+
+There are four status types, "notice", "warning", "error", and "success".
+
+Apply the following classes to the root element to define the status styles:
+- Notice: `cdx-info-chip--notice` (class can be omitted since this is the default)
+- Warning: `cdx-info-chip--warning`
+- Error: `cdx-info-chip--error`
+- Success: `cdx-info-chip--success`
+
+### Status icons
+
+Each status has a corresponding default icon (`cdxIconInfoFilled` for "notice"
+status, `cdxIconAlert` for "warning" status, `cdxIconError` for "error" status,
+and `cdxIconSuccess` for "success" status). Examples of the default icons can be
+found below.
+
+To use the default icon for a given chip status, simply include an empty `<span>`
+element with the class `cdx-info-chip__icon` inside the chip element.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-demo-flex-container">
+		<!-- Outer element is a <div> with the default "notice" class. -->
+		<div class="cdx-info-chip cdx-info-chip--notice">
+			<!-- Icon element. -->
+			<span class="cdx-info-chip__icon"></span>
+			<!-- Text element. -->
+			<span class="cdx-info-chip__text">
+				<!-- Chip text -->
+				Notice
+			</span>
+		</div>
+		<!-- Outer element is a <div> with the "warning" class. -->
+		<div class="cdx-info-chip cdx-info-chip--warning">
+			<span class="cdx-info-chip__icon"></span>
+			<span class="cdx-info-chip__text">
+				Warning
+			</span>
+		</div>
+		<!-- Outer element is a <div> with the "error" class. -->
+		<div class="cdx-info-chip cdx-info-chip--error">
+			<span class="cdx-info-chip__icon"></span>
+			<span class="cdx-info-chip__text">
+				Error
+			</span>
+		</div>
+		<!-- Outer element is a <div> with the "sucess" class. -->
+		<div class="cdx-info-chip cdx-info-chip--success">
+			<span class="cdx-info-chip__icon"></span>
+			<span class="cdx-info-chip__text">
+				Success
+			</span>
+		</div>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+	<!-- Outer element is a <div> with the default "notice" class. -->
+	<div class="cdx-info-chip cdx-info-chip--notice">
+		<!-- Icon element. -->
+		<span class="cdx-info-chip__icon"></span>
+		<!-- Text element. -->
+		<span class="cdx-info-chip__text">
+			<!-- Chip text -->
+			Notice
+		</span>
+	</div>
+	<!-- Outer element is a <div> with the "warning" class. -->
+	<div class="cdx-info-chip cdx-info-chip--warning">
+		<span class="cdx-info-chip__icon"></span>
+		<span class="cdx-info-chip__text">
+			Warning
+		</span>
+	</div>
+	<!-- Outer element is a <div> with the "error" class. -->
+	<div class="cdx-info-chip cdx-info-chip--error">
+		<span class="cdx-info-chip__icon"></span>
+		<span class="cdx-info-chip__text">
+			Error
+		</span>
+	</div>
+	<!-- Outer element is a <div> with the "success" class. -->
+	<div class="cdx-info-chip cdx-info-chip--success">
+		<span class="cdx-info-chip__icon"></span>
+		<span class="cdx-info-chip__text">
+			Success
+		</span>
+	</div>
+```
+</template>
+</cdx-demo-wrapper>
+
+### Custom icons
+
+You can customize the icon by using the CSS-only Icon Less mixin(`.cdx-mixin-css-icon`)
+to apply the icon styles, passing the appropriate parameters to the mixin.
+
+Custom icons should only be used with "notice" status InfoChips.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<div class="cdx-demo-flex-container">
+		<div class="cdx-info-chip cdx-info-chip--notice">
+			<!-- Custom icon element. -->
+			<span class="cdx-demo-css-icon--heart"></span>
+			<span class="cdx-info-chip__text">
+				Notice
+			</span>
+		</div>
+		<div class="cdx-info-chip cdx-info-chip--notice">
+			<!-- Custom icon element. -->
+			<span class="cdx-demo-css-icon--camera"></span>
+			<span class="cdx-info-chip__text">
+				Photos
+			</span>
+		</div>
+		<div class="cdx-info-chip cdx-info-chip--notice">
+			<!-- Custom icon element. -->
+			<span class="cdx-demo-css-icon--user"></span>
+			<span class="cdx-info-chip__text">
+				Users
+			</span>
+		</div>
+		<div class="cdx-info-chip cdx-info-chip--notice">
+			<!-- Custom icon element. -->
+			<span class="cdx-demo-css-icon--article"></span>
+			<span class="cdx-info-chip__text">
+				Articles
+			</span>
+		</div>
+	</div>
+</template>
+<template v-slot:code>
+
+```html
+	<div class="cdx-info-chip cdx-info-chip--notice">
+		<!-- Custom icon element. -->
+		<span class="cdx-demo-css-icon--heart"></span>
+		<span class="cdx-info-chip__text">
+			Notice
+		</span>
+	</div>
+	<div class="cdx-info-chip cdx-info-chip--notice">
+		<!-- Custom icon element. -->
+		<span class="cdx-demo-css-icon--camera"></span>
+		<span class="cdx-info-chip__text">
+			Photos
+		</span>
+	</div>
+	<div class="cdx-info-chip cdx-info-chip--notice">
+		<!-- Custom icon element. -->
+		<span class="cdx-demo-css-icon--user"></span>
+		<span class="cdx-info-chip__text">
+			Users
+		</span>
+	</div>
+	<div class="cdx-info-chip cdx-info-chip--notice">
+		<!-- Custom icon element. -->
+		<span class="cdx-demo-css-icon--article"></span>
+		<span class="cdx-info-chip__text">
+			Articles
+		</span>
+	</div>
+```
+
+:::code-group
+
+```less [NPM]
+// Note: Import the design tokens before importing the css-icon mixin
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon--heart {
+	.cdx-mixin-css-icon( @cdx-icon-heart, @color-icon-notice, @size-icon-small );
+}
+
+.cdx-demo-css-icon--camera {
+	.cdx-mixin-css-icon( @cdx-icon-camera, @color-icon-notice, @size-icon-small );
+}
+
+.cdx-demo-css-icon--user {
+	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-icon-notice, @size-icon-small );
+}
+
+.cdx-demo-css-icon--article {
+	.cdx-mixin-css-icon( @cdx-icon-article, @color-icon-notice, @size-icon-small );
+}
+```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon--heart {
+	.cdx-mixin-css-icon( @cdx-icon-heart, @color-icon-notice, @size-icon-small );
+}
+
+.cdx-demo-css-icon--camera {
+	.cdx-mixin-css-icon( @cdx-icon-camera, @color-icon-notice, @size-icon-small );
+}
+
+.cdx-demo-css-icon--user {
+	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-icon-notice, @size-icon-small );
+}
+
+.cdx-demo-css-icon--article {
+	.cdx-mixin-css-icon( @cdx-icon-article, @color-icon-notice, @size-icon-small );
+}
+```
+
+:::
+</template>
+</cdx-demo-wrapper>
+
+<style lang="less" scoped>
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-flex-container {
+	display: flex;
+	gap: @spacing-150;
+}
+
+.cdx-demo-css-icon--heart {
+	.cdx-mixin-css-icon( @cdx-icon-heart, @color-icon-notice, @size-icon-small );
+}
+
+.cdx-demo-css-icon--camera {
+	.cdx-mixin-css-icon( @cdx-icon-camera, @color-icon-notice, @size-icon-small );
+}
+
+.cdx-demo-css-icon--user {
+	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-icon-notice, @size-icon-small );
+}
+
+.cdx-demo-css-icon--article {
+	.cdx-mixin-css-icon( @cdx-icon-article, @color-icon-notice, @size-icon-small );
+}
+
+</style>
