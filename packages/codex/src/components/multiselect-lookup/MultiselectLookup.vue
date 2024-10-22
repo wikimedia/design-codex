@@ -77,7 +77,7 @@ import useModelWrapper from '../../composables/useModelWrapper';
 import useOptionalModelWrapper from '../../composables/useOptionalModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 
-import { ChipInputItem, MenuItemData, MenuItemValue, MenuConfig, ValidationStatusType } from '../../types';
+import { ChipInputItem, MenuItemData, MenuItemValue, MenuGroupData, MenuConfig, ValidationStatusType } from '../../types';
 import { ValidationStatusTypes, AllowArbitraryKey } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
@@ -117,12 +117,13 @@ export default defineComponent( {
 			required: true
 		},
 		/**
-		 * Menu items.
+		 * Menu items and/or menu group definitions. Initialize to an empty array if there are no
+		 * initial menu items.
 		 *
-		 * Initialize to an empty array if there are no initial menu items.
+		 * Menu groups and individual menu items will be output in the order they appear here.
 		 */
 		menuItems: {
-			type: Array as PropType<MenuItemData[]>,
+			type: Array as PropType<( MenuItemData|MenuGroupData )[]>,
 			required: true
 		},
 		/**
@@ -357,10 +358,12 @@ export default defineComponent( {
 
 			if ( newSelections.length > 0 ) {
 				newSelections.forEach( ( newSelection ) => {
-					const newMenuItem = props.menuItems.find( ( menuItem ) =>
+					const newMenuItem = menu.value?.getComputedMenuItems().find( ( menuItem ) =>
 						menuItem.value === newSelection );
 					if ( newMenuItem ) {
-						inputChipsWrapper.value.push( newMenuItem );
+						// eslint-disable-next-line @typescript-eslint/no-unused-vars
+						const { id, ...newMenuItemWithoutId } = newMenuItem;
+						inputChipsWrapper.value.push( newMenuItemWithoutId as MenuItemData );
 					}
 				} );
 

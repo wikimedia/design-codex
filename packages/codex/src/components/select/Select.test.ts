@@ -1,8 +1,9 @@
 import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import CdxSelect from './Select.vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import { Icon, cdxIconSearch } from '@wikimedia/codex-icons';
-import { MenuItemData, ValidationStatusType } from '../../types';
+import { MenuItemData, MenuGroupData, ValidationStatusType } from '../../types';
 
 const data: {
 	value: string,
@@ -15,6 +16,24 @@ const data: {
 	{ value: 'c' },
 	{ value: 'd', label: 'Option D', disabled: true },
 	{ value: 'e', label: 'Option E', icon: cdxIconSearch }
+];
+
+const dataWithGroups: ( MenuItemData|MenuGroupData )[] = [
+	{
+		label: 'Group 1',
+		items: [
+			{ value: 'a', label: 'Option A' },
+			{ value: 'b', label: 'Option B', disabled: true },
+			{ value: 'c' }
+		]
+	},
+	{
+		label: 'Group 2',
+		items: [
+			{ value: 'd', label: 'Option D' },
+			{ value: 'e', label: 'Option E' }
+		]
+	}
 ];
 
 // Jest doesn't support the scrollIntoView method in jsdom, which is used by our Menu component.
@@ -47,10 +66,12 @@ describe( 'Basic usage', () => {
 
 	test.each( cases )(
 		'Case %# %s: (%p) => HTML',
-		( _, menuItems, selected, defaultLabel, defaultIcon = undefined, status = 'default' ) => {
+		async ( _, menuItems, selected, defaultLabel, defaultIcon = undefined, status = 'default' ) => {
 			const wrapper = mount( CdxSelect, {
 				props: { menuItems, defaultLabel, selected, defaultIcon, status }
 			} );
+			// Make sure the selectedMenuItem is set.
+			await nextTick();
 			expect( wrapper.element ).toMatchSnapshot();
 		} );
 } );
@@ -121,7 +142,7 @@ describe( 'Select', () => {
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 	} );
 
-	it( 'If a selected is provided it automatically shows the matching item as selected', () => {
+	it( 'If a selected is provided it automatically shows the matching item as selected', async () => {
 		const wrapper = mount( CdxSelect, {
 			props: {
 				defaultLabel: 'Choose an option',
@@ -129,7 +150,20 @@ describe( 'Select', () => {
 				selected: 'b'
 			}
 		} );
+		await nextTick();
 		expect( wrapper.find( '.cdx-select-vue__handle' ).text() ).toMatch( data[ 1 ].label ?? data[ 1 ].value );
+	} );
+
+	it( 'If there are menu groups and a selected is provided it automatically shows the matching item as selected', async () => {
+		const wrapper = mount( CdxSelect, {
+			props: {
+				defaultLabel: 'Choose an option',
+				menuItems: dataWithGroups,
+				selected: 'e'
+			}
+		} );
+		await nextTick();
+		expect( wrapper.find( '.cdx-select-vue__handle' ).text() ).toMatch( 'Option E' );
 	} );
 
 	it( 'If the selected prop is updated in the parent, the component updates itself to the new value', async () => {

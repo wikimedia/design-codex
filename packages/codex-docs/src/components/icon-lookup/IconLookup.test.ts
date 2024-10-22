@@ -98,6 +98,10 @@ describe( 'IconLookup', () => {
 		expect( wrapper.vm.menuItems[ 0 ] ).toEqual(
 			{ value: 'cdxIconTag', icon: cdxIconTag }
 		);
+
+		// We await a tick before setting the inputValue, so we need to await 2 here.
+		await nextTick();
+		await nextTick();
 		// Should also be the <input> value.
 		const input = wrapper.find( 'input' ).element as HTMLInputElement;
 		expect( input.value ).toEqual( 'cdxIconTag' );

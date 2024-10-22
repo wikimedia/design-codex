@@ -84,7 +84,7 @@ import useFieldData from '../../composables/useFieldData';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useFloatingMenu from '../../composables/useFloatingMenu';
 
-import { MenuItemData, MenuConfig, ValidationStatusType } from '../../types';
+import { MenuItemData, MenuGroupData, MenuConfig, ValidationStatusType } from '../../types';
 import { ValidationStatusTypes, FieldDescriptionIdKey } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
@@ -105,10 +105,12 @@ export default defineComponent( {
 
 	props: {
 		/**
-		 * Menu items. See the MenuItemData type.
+		 * Menu items and/or menu group definitions.
+		 *
+		 * Menu groups and individual menu items will be output in the order they appear here.
 		 */
 		menuItems: {
-			type: Array as PropType<MenuItemData[]>,
+			type: Array as PropType<( MenuItemData | MenuGroupData )[]>,
 			required: true
 		},
 		/**
@@ -211,7 +213,8 @@ export default defineComponent( {
 		const modelWrapper = useModelWrapper( toRef( props, 'selected' ), emit, 'update:selected' );
 
 		const selectedMenuItem = computed( () =>
-			props.menuItems.find( ( menuItem ) => menuItem.value === props.selected )
+			menu.value?.getComputedMenuItems().find( ( menuItem ) =>
+				menuItem.value === props.selected )
 		);
 
 		// Set up the label that should display in the handle.

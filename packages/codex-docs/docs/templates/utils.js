@@ -52,8 +52,20 @@ export function getTypeText( item ) {
 		const isUppercase = /^[A-Z]/;
 		const hasBrackets = /\[\]$/;
 		const toIgnore = [ 'Event', 'MouseEvent', 'InputEvent', 'KeyboardEvent', 'FocusEvent', 'NaN' ];
-		return str
-			.split( '|' )
+
+		// If this is an array type, remove the brackets at the end.
+		const isArrayType = str.trim().indexOf( '[]' ) === str.trim().length - 2;
+		if ( isArrayType ) {
+			str = str.slice( 0, str.indexOf( '[' ) );
+		}
+
+		// If this is an array of multiple types, remove the parentheses too.
+		const isArrayOfTypes = str.includes( '(' ) && str.includes( ')' );
+		if ( isArrayOfTypes ) {
+			str = str.slice( str.indexOf( '(' ) + 1, str.indexOf( ')' ) );
+		}
+
+		let typesWithLinks = str.split( '|' )
 			.map( ( s ) => s.trim() )
 			.map( ( s ) => {
 				if ( s.match( isUppercase ) && !toIgnore.includes( s ) ) {
@@ -65,6 +77,18 @@ export function getTypeText( item ) {
 				}
 			} )
 			.join( '|' );
+
+		// Add the parentheses back in.
+		if ( isArrayOfTypes ) {
+			typesWithLinks = '(' + typesWithLinks + ')';
+		}
+
+		// Add the array brackets back in.
+		if ( isArrayType || isArrayOfTypes ) {
+			typesWithLinks += '[]';
+		}
+
+		return typesWithLinks;
 	}
 
 	return formatAsCode( processText( item ) );

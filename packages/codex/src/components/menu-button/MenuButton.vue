@@ -52,7 +52,7 @@ import useFloatingMenu from '../../composables/useFloatingMenu';
 import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
-import { MenuButtonItemData, MenuConfig } from '../../types';
+import { MenuButtonItemData, MenuGroupData, MenuConfig } from '../../types';
 
 export default defineComponent( {
 	name: 'CdxMenuButton',
@@ -73,10 +73,12 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Menu items. See the MenuItemData type.
+		 * Menu items and/or menu group definitions.
+		 *
+		 * Menu groups and individual menu items will be output in the order they appear here.
 		 */
 		menuItems: {
-			type: Array as PropType<MenuButtonItemData[]>,
+			type: Array as PropType<( MenuButtonItemData|MenuGroupData )[]>,
 			required: true
 		},
 

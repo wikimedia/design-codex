@@ -16,6 +16,7 @@ import { defineComponent, onMounted, ref, toRef, watch } from 'vue';
 import { CdxLookup, MenuItemData, MenuConfig, useModelWrapper } from '@wikimedia/codex';
 import * as allIcons from '@wikimedia/codex-icons';
 import { Icon } from '@wikimedia/codex-icons';
+import { nextTick } from 'vue';
 
 // Icon data based on AllIcons.vue in icon demo
 // Type is compatible with MenuItemData
@@ -98,7 +99,11 @@ export default defineComponent( {
 
 		// When the modelValueProp changes from above, this means that the demo was reset,
 		// and we want to make sure that the menu actually uses the new value
-		watch( modelValueProp, ( newValue: string ) => getMenuItems( newValue ) );
+		watch( modelValueProp, async ( newValue: string ) => {
+			getMenuItems( newValue );
+			await nextTick();
+			inputValue.value = newValue;
+		} );
 
 		// Normally, we want to start with an empty menu set, *but* if the model value
 		// is set to have an initial icon, we want to make sure that it is available.

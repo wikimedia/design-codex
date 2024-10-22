@@ -93,7 +93,7 @@ import useSplitAttributes from '../../composables/useSplitAttributes';
 import useFieldData from '../../composables/useFieldData';
 import useFloatingMenu from '../../composables/useFloatingMenu';
 
-import { MenuItemData, MenuConfig, ValidationStatusType } from '../../types';
+import { MenuItemData, MenuGroupData, MenuConfig, ValidationStatusType } from '../../types';
 import { ValidationStatusTypes } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
@@ -119,10 +119,12 @@ export default defineComponent( {
 
 	props: {
 		/**
-		 * Menu items. See the MenuItemData type.
+		 * Menu items and/or menu group definitions.
+		 *
+		 * Menu groups and individual menu items will be output in the order they appear here.
 		 */
 		menuItems: {
-			type: Array as PropType<MenuItemData[]>,
+			type: Array as PropType<( MenuItemData|MenuGroupData )[]>,
 			required: true
 		},
 

@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import CdxTable from './Table.vue';
 import CdxTablePager from './TablePager.vue';
 import { TableColumn, TableRow, TablePaginationPosition } from '../../types';
@@ -189,7 +190,7 @@ describe( 'Table', () => {
 
 		test.each( cases )(
 			'Case %# %s: (%p) => HTML',
-			(
+			async (
 				_,
 				columns = [],
 				data = [],
@@ -204,6 +205,8 @@ describe( 'Table', () => {
 					props: { caption: 'Table caption', columns, data, hideCaption, useRowHeaders, useRowSelection, paginate, paginationPosition },
 					slots
 				} );
+				// Needed to properly render Select in pagination example.
+				await nextTick();
 				expect( wrapper.element ).toMatchSnapshot();
 			} );
 	} );

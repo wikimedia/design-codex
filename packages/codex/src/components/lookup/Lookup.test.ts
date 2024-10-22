@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import CdxLookup from './Lookup.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
-import { MenuItemData } from '../../types';
+import { MenuItemData, MenuGroupData } from '../../types';
 
 const menuItemData: {
 	value: string,
@@ -30,6 +30,24 @@ const propsWithData: {
 	selected: null,
 	menuItems: menuItemData
 };
+
+const menuItemDataWithGroups: ( MenuItemData|MenuGroupData )[] = [
+	{
+		label: 'Group 1',
+		items: [
+			{ value: 'a', label: 'Option A' },
+			{ value: 'b', label: 'Option B', disabled: true },
+			{ value: 'c' }
+		]
+	},
+	{
+		label: 'Group 2',
+		items: [
+			{ value: 'd', label: 'Option D' },
+			{ value: 'e', label: 'Option E' }
+		]
+	}
+];
 
 describe( 'Lookup', () => {
 	// DEPRECATED: Remove initialInputValue once the prop is removed (T373532).
@@ -387,6 +405,26 @@ describe( 'Lookup', () => {
 				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.setProps( { selected: 'c' } );
 				expect( wrapper.emitted( 'input' )?.[ 0 ] ).toEqual( [ 'c' ] );
+			} );
+		} );
+
+		describe( 'and there are menu groups', () => {
+			it( 'sets input value to the label of the selected item', async () => {
+				const wrapper = mount( CdxLookup, { props: {
+					menuItems: menuItemDataWithGroups,
+					selected: null
+				} } );
+				await wrapper.setProps( { selected: 'a' } );
+				expect( wrapper.vm.computedInputValue ).toBe( 'Option A' );
+			} );
+
+			it( 'emits an input event with the label of the selected item', async () => {
+				const wrapper = mount( CdxLookup, { props: {
+					menuItems: menuItemDataWithGroups,
+					selected: null
+				} } );
+				await wrapper.setProps( { selected: 'a' } );
+				expect( wrapper.emitted( 'input' )?.[ 0 ] ).toEqual( [ 'Option A' ] );
 			} );
 		} );
 	} );

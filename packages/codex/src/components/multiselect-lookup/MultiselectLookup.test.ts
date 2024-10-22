@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import CdxMultiselectLookup from './MultiselectLookup.vue';
-import CdxInputChip from '../../components/input-chip/InputChip.vue';
-import CdxMenuItem from '../../components/menu-item/MenuItem.vue';
-import { ChipInputItem, MenuItemData, MenuItemValue, ValidationStatusType } from '../../types';
+import CdxInputChip from '../input-chip/InputChip.vue';
+import CdxMenuItem from '../menu-item/MenuItem.vue';
+import { ChipInputItem, MenuItemData, MenuItemValue, MenuGroupData, ValidationStatusType } from '../../types';
 
 const menuItems: {
 	value: string,
@@ -28,6 +28,24 @@ const defaultProps: {
 const inputChips: ChipInputItem[] = [
 	{ value: 'chip1' },
 	{ value: 'chip 2', label: 'Chip 2' }
+];
+
+const menuItemsWithGroups: ( MenuItemData|MenuGroupData )[] = [
+	{
+		label: 'Group 1',
+		items: [
+			{ value: 'a', label: 'Option A' },
+			{ value: 'b', label: 'Option B', disabled: true },
+			{ value: 'c' }
+		]
+	},
+	{
+		label: 'Group 2',
+		items: [
+			{ value: 'd', label: 'Option D' },
+			{ value: 'e', label: 'Option E' }
+		]
+	}
 ];
 
 describe( 'MultiselectLookup', () => {
@@ -364,6 +382,22 @@ describe( 'MultiselectLookup', () => {
 				} );
 				await wrapper.setProps( { selected: [ 'c' ] } );
 				expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { value: 'c' } ] ] );
+			} );
+		} );
+
+		describe( 'and there are menu groups', () => {
+			it( 'emits an update:input-chips event with proper chip data', async () => {
+				const wrapper = mount( CdxMultiselectLookup, {
+					props: { ...defaultProps, menuItems: menuItemsWithGroups }
+				} );
+				await wrapper.setProps( { selected: [ 'a' ] } );
+				expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toEqual( [ [ { label: 'Option A', value: 'a' } ] ] );
+				// Simulate v-model.
+				await wrapper.setProps( { inputChips: [ { label: 'Option A', value: 'a' } ] } );
+				await wrapper.setProps( { selected: [ 'a', 'c' ] } );
+				expect( wrapper.emitted( 'update:input-chips' )?.[ 1 ] ).toEqual( [ [
+					{ label: 'Option A', value: 'a' }, { value: 'c' }
+				] ] );
 			} );
 		} );
 	} );

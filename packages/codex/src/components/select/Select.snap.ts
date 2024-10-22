@@ -46,7 +46,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
   </div>
   <div
     class="cdx-menu"
-    style="display: none;"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -318,7 +318,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
   </div>
   <div
     class="cdx-menu"
-    style="display: none;"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -590,7 +590,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
   </div>
   <div
     class="cdx-menu"
-    style="display: none;"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -863,7 +863,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
   </div>
   <div
     class="cdx-menu"
-    style="display: none;"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -1155,7 +1155,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
   </div>
   <div
     class="cdx-menu"
-    style="display: none;"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -1447,7 +1447,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
   </div>
   <div
     class="cdx-menu"
-    style="display: none;"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -1719,7 +1719,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
   </div>
   <div
     class="cdx-menu"
-    style="display: none;"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -1992,7 +1992,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
   </div>
   <div
     class="cdx-menu"
-    style="display: none;"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"

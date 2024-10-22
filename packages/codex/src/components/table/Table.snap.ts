@@ -3647,7 +3647,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
         </div>
         <div
           class="cdx-menu"
-          style="display: none;"
+          style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
         >
           <ul
             class="cdx-menu__listbox"
@@ -4330,7 +4330,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
         </div>
         <div
           class="cdx-menu"
-          style="display: none;"
+          style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
         >
           <ul
             class="cdx-menu__listbox"

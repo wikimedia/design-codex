@@ -74,7 +74,7 @@ import useSplitAttributes from '../../composables/useSplitAttributes';
 import useFieldData from '../../composables/useFieldData';
 import useFloatingMenu from '../../composables/useFloatingMenu';
 
-import { MenuItemData, MenuConfig, ValidationStatusType } from '../../types';
+import { MenuItemData, MenuGroupData, MenuConfig, ValidationStatusType } from '../../types';
 import { ValidationStatusTypes } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
@@ -110,10 +110,12 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Menu items.
+		 * Menu items and/or menu group definitions.
+		 *
+		 * Menu groups and individual menu items will be output in the order they appear here.
 		 */
 		menuItems: {
-			type: Array as PropType<MenuItemData[]>,
+			type: Array as PropType<( MenuItemData|MenuGroupData )[]>,
 			required: true
 		},
 
@@ -246,7 +248,7 @@ export default defineComponent( {
 		const selectedProp = toRef( props, 'selected' );
 		const modelWrapper = useModelWrapper( selectedProp, emit, 'update:selected' );
 		const selectedMenuItem = computed( () =>
-			props.menuItems.find( ( item ) => item.value === props.selected )
+			menu.value?.getComputedMenuItems().find( ( item ) => item.value === props.selected )
 		);
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 

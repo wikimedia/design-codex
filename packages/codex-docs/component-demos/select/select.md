@@ -4,6 +4,7 @@ import SelectCustomLabel from '@/../component-demos/select/examples/SelectCustom
 import SelectComplexMenuItem from '@/../component-demos/select/examples/SelectComplexMenuItem.vue';
 import SelectCustomMenuItem from '@/../component-demos/select/examples/SelectCustomMenuItem.vue';
 import SelectWithScroll from '@/../component-demos/select/examples/SelectWithScroll.vue';
+import SelectWithMenuGroups from '@/../component-demos/select/examples/SelectWithMenuGroups.vue';
 import SelectConfigurable from '@/../component-demos/select/examples/SelectConfigurable.vue';
 import SelectField from '@/../component-demos/select/examples/SelectField.vue';
 
@@ -287,6 +288,29 @@ and enable scrolling, use the `visibleItemLimit` property of the `menuConfig` pr
 <<< @/../component-demos/select/examples/SelectWithScroll.vue [NPM]
 
 <<< @/../component-demos/select/examples-mw/SelectWithScroll.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### With menu groups
+
+You can add optgroup-like groupings within the Select via the `menuItems` prop. Refer to the
+[MenuGroupData type](../types-and-constants.md#menugroupdata) for more information about the
+configuration options for each menu group.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<select-with-menu-groups />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/select/examples/SelectWithMenuGroups.vue [NPM]
+
+<<< @/../component-demos/select/examples-mw/SelectWithMenuGroups.vue [MediaWiki]
 
 :::
 
