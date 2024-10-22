@@ -28,14 +28,12 @@ export default defineComponent( {
 	components: { CdxLookup },
 	setup() {
 		const selection = ref( null );
-		// Set up an array of initial menu items to show as suggestions.
+		// Set up a group of initial menu items to show as suggestions.
 		const initialMenuItems = [
 			{
 				label: 'Suggested items',
-				value: 'suggestion',
-				disabled: true
-			},
-			...vegetableItems.slice( 0, 3 )
+				items: vegetableItems.slice( 0, 3 )
+			}
 		];
 		const menuItems = ref( initialMenuItems );
 

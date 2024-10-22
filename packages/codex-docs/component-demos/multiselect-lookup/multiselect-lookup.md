@@ -239,7 +239,7 @@ Lookup. These new items will then be displayed within the menu.
 
 ### With suggestions
 
-You can show a list of suggestions by passing in an array of menu items initially. The parent
+You can show a list of suggestions by passing in a group of menu items initially. The parent
 component must handle resetting the menu items to this list of suggestions when the input is
 cleared.
 

@@ -36,10 +36,8 @@ export default defineComponent( {
 		const initialMenuItems = [
 			{
 				label: 'Suggested items',
-				value: 'suggestion',
-				disabled: true
-			},
-			...vegetableItems.slice( 0, 3 )
+				items: vegetableItems.slice( 0, 3 )
+			}
 		];
 		const menuItems = ref( initialMenuItems );
 		const menuConfig = {
