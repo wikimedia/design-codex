@@ -85,10 +85,6 @@ export interface ValidationMessages {
 /** @public */
 export interface Thumbnail {
 	url: string;
-	/** Image width in pixels. */
-	width?: number | null;
-	/** Image height in pixels. */
-	height?: number | null;
 }
 
 /** @public */

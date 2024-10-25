@@ -5,8 +5,6 @@ import { Icon, cdxIconArticle } from '@wikimedia/codex-icons';
 import { Thumbnail } from '../../types';
 
 const testThumbnail: Thumbnail = {
-	width: 200,
-	height: 150,
 	url: 'https://example.org/test/thumbnail.jpg'
 };
 

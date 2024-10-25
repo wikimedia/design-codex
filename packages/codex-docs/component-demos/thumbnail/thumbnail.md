@@ -30,9 +30,10 @@ contrast when placed on white backgrounds.
 
 #### Component limitations
 
-Thumbnails are set to a default square size of `size-250` token (equivalent to `40px` in the default
-Codex theme). They cannot be scaled smaller than this size but can be scaled up to `@ize-800`
-(equivalent to `128px` in the default Codex theme).
+Thumbnails have a minimum width and height of `size-250` (equivalent to `40px`
+in the default Codex theme). A larger thumbnail size can be specified using CSS
+if desired (the [Card](./card.md) component uses `size-300` for its Thumbnail
+dimensions, for example).
 
 Refer to the [Thumbnail component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=6111-59883&mode=design&t=juAVVGeUnMoEFBEV-11).
 

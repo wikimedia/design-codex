@@ -35,8 +35,6 @@ const cards = [
 		title: 'Golden Gate National Recreation Area',
 		description: 'U.S. National Recreation Area surrounding San Francisco Bay Area',
 		thumbnail: {
-			width: 150,
-			height: 113,
 			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg/150px-Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg'
 		},
 		distance: '170m'
@@ -47,8 +45,6 @@ const cards = [
 		title: 'Internet Archive',
 		description: 'American non-profit organization providing archives of digital media since 1996',
 		thumbnail: {
-			width: 150,
-			height: 146,
 			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Internet_Archive_logo_and_wordmark.svg/150px-Internet_Archive_logo_and_wordmark.svg.png'
 		},
 		distance: '300m'
