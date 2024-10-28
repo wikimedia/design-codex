@@ -39,6 +39,7 @@
 	--vp-c-indigo: var( --color-progressive );
 	--vp-c-indigo-soft: var( --color-progressive--active );
 
+	--vp-c-bg: var( --background-color-base );
 	--vp-c-bg-alt: var( --background-color-interactive-subtle );
 
 	--vp-c-divider: var( --border-color-base );
