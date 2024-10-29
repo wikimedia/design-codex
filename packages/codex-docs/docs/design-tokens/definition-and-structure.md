@@ -100,12 +100,9 @@ Component tokens are documented in a dedicated `components.json` file.
 ## 2. Tokens in design
 
 ### From design to implementation
-Designers can access an overview of Codex’s foundational styles and principles
-and their corresponding token translation in the
-[Design tokens library](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/✨-Design-Tokens-[WIP]?node-id=1%3A119)
-in Figma. By enabling the Design tokens library in their project’s Figma files,
-designers will be able to reuse the system’s visual principles as Figma styles
-when creating components and compositions.
+Designers can access an overview of Codex foundational styles and principles, along with their token translation, in the
+[Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=1891-4420&node-type=canvas&t=plW1hmguHVWs3fWZ-11). By enabling this library in their project’s Figma files,
+designers can reuse the Codex visual principles as Figma styles and variables when creating components and compositions.
 
 ::: info
 Please note that tokens are context-specific: use them accordingly to the

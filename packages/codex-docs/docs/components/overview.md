@@ -18,7 +18,7 @@ Each component in Codex has a demo page where you can interact with working exam
 
 ### Figma
 
-View the [Codex Components Figma library](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=1891-4420&mode=design).
+Enable the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=1891-4420&node-type=canvas&t=plW1hmguHVWs3fWZ-11) to reuse all the Codex components in your Figma files.
 
 ### NPM package
 

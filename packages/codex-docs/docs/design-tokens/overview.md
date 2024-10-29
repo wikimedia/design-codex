@@ -17,8 +17,7 @@ token, and information about where the token value comes from.
 
 ### Figma
 
-Enable the [Codex design tokens Figma library](https://www.figma.com/file/mRvSsFD2Kwh8AZNjlx7rIl/%E2%9C%A8-Design-Tokens-%5BWIP%5D?type=design&node-id=0-1&mode=design)
-in your Figma projects to use all the design tokens that were translated into Figma styles.
+Enable the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=1891-4420&node-type=canvas&t=plW1hmguHVWs3fWZ-11) to reuse all the design tokens that were translated into Figma styles and variables.
 
 ### NPM package
 

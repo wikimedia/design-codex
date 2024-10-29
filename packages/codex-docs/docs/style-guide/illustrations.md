@@ -46,4 +46,4 @@ As a general recommendation, an illustration should use no more than 3 accent or
 
 ## Resources
 
-Illustrations can be found in and exported as SVG from the [Assets Figma file](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Assets-(Icons%2C-Logos%2C-Illustrations)?type=design&node-id=3295%3A5708&mode=design&t=DGD11NDA5ULWR51R-1).
+Illustrations can be found in and exported as SVG from the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=20598-51408&node-type=canvas&t=plW1hmguHVWs3fWZ-11).
