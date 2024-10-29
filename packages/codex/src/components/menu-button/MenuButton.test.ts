@@ -13,7 +13,7 @@ const data: MenuItemData[] = [
 
 const propsWithData: {
 	selected: string,
-	toggleButtonLabel: string
+	toggleButtonLabel: string,
 	menuItems: MenuItemData[]
 } = {
 	selected: '',
@@ -86,5 +86,33 @@ describe( 'Basic usage', () => {
 		await expandButton.trigger( 'focus' );
 		await expandButton.trigger( 'blur' );
 		expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+	} );
+} );
+
+describe( 'MenuButton with custom slot', () => {
+	it( 'renders footer menu item when footer prop is provided', async () => {
+		const wrapper = mount( CdxMenuButton, {
+			props: {
+				...propsWithData,
+				footer: { label: 'Menu Footer', value: 'menu-footer' }
+			},
+			attachTo: 'body',
+			slots: {
+				'menu-item': `<template #menu-item="{ menuItem }">
+								<span v-if="menuItem.value === 'menu-footer'">
+									Custom Footer for {{ menuItem.label }}
+								</span>
+							  </template>`
+			}
+		} );
+
+		// Open the menu.
+		const toggleButton = wrapper.findComponent( CdxToggleButton );
+		await toggleButton.trigger( 'click' );
+
+		// Check custom slot content.
+		const menuitemsList = wrapper.findAll( 'li.cdx-menu-item span' );
+		const footerItem = menuitemsList[ menuitemsList.length - 1 ];
+		expect( footerItem.text() ).toBe( 'Custom Footer for Menu Footer' );
 	} );
 } );

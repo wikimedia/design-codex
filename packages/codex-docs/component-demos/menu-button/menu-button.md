@@ -344,8 +344,8 @@ handles the selection change with the `onSelect` method, displays a temporary me
 
 ### Other features
 
-The MultiselectLookup component has an internal Menu and ChipInput. You can use the following
-features from those components in the MultiselectLookup component:
+The MenuButton component has an internal ToggleButton and Menu. You can use the
+following features from those components in the MenuButton component:
 - [Custom menu item display](./menu.html#with-custom-menu-item-display)
 - [Menu groups](./menu.html#with-menu-groups)
 
