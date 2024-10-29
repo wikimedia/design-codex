@@ -41,6 +41,12 @@
 		},
 		"link-red--visited": {
 			"value": "{ color.destructive--visited }"
+		},
+		"link-red--visited--hover": {
+			"value": "{ color.destructive--visited--hover }"
+		},
+		"link-red--visited--active": {
+			"value": "{ color.destructive--visited--active }"
 		}
 	},
 	"min-size": {

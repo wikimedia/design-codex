@@ -104,8 +104,20 @@
 		"visited": {
 			"value": "{ color.purple400 }"
 		},
+		"visited--hover": {
+			"value": "{ color.purple300 }"
+		},
+		"visited--active": {
+			"value": "{ color.purple200 }"
+		},
 		"destructive--visited": {
 			"value": "{ color.maroon400 }"
+		},
+		"destructive--visited--hover": {
+			"value": "{ color.maroon300 }"
+		},
+		"destructive--visited--active": {
+			"value": "{ color.maroon200 }"
 		},
 		"error": {
 			"value": "{ color.red400 }"

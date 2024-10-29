@@ -142,7 +142,7 @@
 			"value": "{ color.blue700 }"
 		},
 		"progressive--hover": {
-			"value": "{ color.blue600 }"
+			"value": "{ color.blue800 }"
 		},
 		"progressive--active": {
 			"value": "{ color.blue900 }"
@@ -155,10 +155,10 @@
 			"value": "{ color.red700 }"
 		},
 		"destructive--hover": {
-			"value": "{ color.red500 }"
+			"value": "{ color.red800 }"
 		},
 		"destructive--active": {
-			"value": "{ color.red800 }"
+			"value": "{ color.red900 }"
 		},
 		"destructive--focus": {
 			"value": "{ color.blue700 }"
@@ -167,9 +167,21 @@
 			"comment": "'Visited' color. In combination with progressive. Used for default links.",
 			"value": "{ color.purple700 }"
 		},
+		"visited--hover": {
+			"value": "{ color.purple800 }"
+		},
+		"visited--active": {
+			"value": "{ color.purple900 }"
+		},
 		"destructive--visited": {
 			"comment": "Red link 'Visited' color. Used for visited red links.",
 			"value": "{ color.maroon700 }"
+		},
+		"destructive--visited--hover": {
+			"value": "{ color.maroon800 }"
+		},
+		"destructive--visited--active": {
+			"value": "{ color.maroon900 }"
 		},
 		"error": {
 			"value": "{ color.red700 }"
