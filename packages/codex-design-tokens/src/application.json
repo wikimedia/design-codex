@@ -41,7 +41,7 @@
 			"value": "{ color.blue700 }"
 		},
 		"progressive--hover": {
-			"value": "{ color.blue600 }"
+			"value": "{ color.blue800 }"
 		},
 		"progressive--active": {
 			"value": "{ color.blue900 }"
@@ -56,10 +56,10 @@
 			"value": "{ color.red700 }"
 		},
 		"destructive--hover": {
-			"value": "{ color.red500 }"
+			"value": "{ color.red800 }"
 		},
 		"destructive--active": {
-			"value": "{ color.red800 }"
+			"value": "{ color.red900 }"
 		},
 		"destructive--focus": {
 			"value": "{ color.blue700 }"
@@ -590,7 +590,7 @@
 			"value": "{ color.blue700 }"
 		},
 		"progressive--hover": {
-			"value": "{ color.blue600 }"
+			"value": "{ color.blue800 }"
 		},
 		"progressive--active": {
 			"value": "{ color.blue900 }"
@@ -602,10 +602,10 @@
 			"value": "{ color.red700 }"
 		},
 		"destructive--hover": {
-			"value": "{ color.red500 }"
+			"value": "{ color.red800 }"
 		},
 		"destructive--active": {
-			"value": "{ color.red800 }"
+			"value": "{ color.red900 }"
 		},
 		"destructive--focus": {
 			"value": "{ color.blue700 }"
