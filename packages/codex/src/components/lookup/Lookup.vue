@@ -28,7 +28,7 @@
 		<cdx-menu
 			:id="menuId"
 			ref="menu"
-			v-model:selected="modelWrapper"
+			v-model:selected="selection"
 			v-model:expanded="expanded"
 			:menu-items="menuItems"
 			v-bind="menuConfig"
@@ -246,9 +246,9 @@ export default defineComponent( {
 		);
 
 		const selectedProp = toRef( props, 'selected' );
-		const modelWrapper = useModelWrapper( selectedProp, emit, 'update:selected' );
+		const selection = useModelWrapper( selectedProp, emit, 'update:selected' );
 		const selectedMenuItem = computed( () =>
-			menu.value?.getComputedMenuItems().find( ( item ) => item.value === props.selected )
+			menu.value?.getComputedMenuItems().find( ( item ) => item.value === selection.value )
 		);
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
@@ -288,12 +288,12 @@ export default defineComponent( {
 					selectedMenuItem.value.label !== newVal &&
 					selectedMenuItem.value.value !== newVal
 				) {
-					modelWrapper.value = null;
+					selection.value = null;
 				}
 			// Check the selected prop, in case there is no matching menu item (which means
 			// selectedMenuItem.value will be undefined).
 			} else if ( props.selected !== null && props.selected !== newVal ) {
-				modelWrapper.value = null;
+				selection.value = null;
 			}
 
 			// If the input is cleared, close the menu (unless there were initial menu items, as
@@ -366,21 +366,21 @@ export default defineComponent( {
 		useFloatingMenu( textInput as Ref<ComponentPublicInstance>, menu );
 
 		// When a new value is selected, update the input value to match.
-		watch( selectedProp, ( newVal ) => {
+		watch( selection, ( newVal ) => {
 			// If there is a newVal, including an empty string...
 			if ( newVal !== null ) {
 				// If there is a menu item selected, use the label (or the value, if there is no
 				// label). Otherwise, use an empty string.
-				const selectedValue = selectedMenuItem.value ?
+				const inputValueForSelection = selectedMenuItem.value ?
 					( selectedMenuItem.value.label ?? selectedMenuItem.value.value ) :
 					'';
 
-				if ( computedInputValue.value !== selectedValue ) {
+				if ( computedInputValue.value !== inputValueForSelection ) {
 					// Make sure that the input matches what was selected
-					computedInputValue.value = selectedValue;
+					computedInputValue.value = inputValueForSelection;
 
 					// We emit the new value to make sure that the menu is filtered correctly
-					emit( 'input', computedInputValue.value );
+					emit( 'input', inputValueForSelection );
 				}
 			}
 		} );
@@ -417,7 +417,7 @@ export default defineComponent( {
 			menuId,
 			highlightedId,
 			computedInputValue,
-			modelWrapper,
+			selection,
 			expanded,
 			computedDisabled,
 			computedStatus,

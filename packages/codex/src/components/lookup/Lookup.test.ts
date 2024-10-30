@@ -521,5 +521,14 @@ describe( 'Lookup', () => {
 				expect( wrapper.emitted( 'update:input-value' )?.[ 0 ] ).toEqual( [ '' ] );
 			} );
 		} );
+
+		describe( 'when an item is selected', () => {
+			it( 'emits update:input-value and input events with the label of the selected item', async () => {
+				const wrapper = mount( CdxLookup, { props: { inputValue: '', ...propsWithData } } );
+				await wrapper.setProps( { selected: 'a' } );
+				expect( wrapper.emitted( 'input' )?.[ 0 ] ).toEqual( [ 'Option A' ] );
+				expect( wrapper.emitted( 'update:input-value' )?.[ 0 ] ).toEqual( [ 'Option A' ] );
+			} );
+		} );
 	} );
 } );
