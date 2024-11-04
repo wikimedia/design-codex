@@ -8,6 +8,7 @@ import TextAreaWithDisabled from '@/../component-demos/text-area/examples/TextAr
 import TextAreaWithReadonly from '@/../component-demos/text-area/examples/TextAreaWithReadonly.vue';
 import TextAreaWithIcons from '@/../component-demos/text-area/examples/TextAreaWithIcons.vue';
 import TextAreaField from '@/../component-demos/text-area/examples/TextAreaField.vue';
+import TextAreaNativeValidation from '@/../component-demos/text-area/examples/TextAreaNativeValidation.vue';
 
 const controlsConfig = [
     {
@@ -438,6 +439,34 @@ and help text, validation messages, and more. Refer to the [Field](./field.md) p
 <<< @/../component-demos/text-area/examples/TextAreaField.vue [NPM]
 
 <<< @/../component-demos/text-area/examples-mw/TextAreaField.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### Native validation
+
+The TextArea component exposes [native constraint validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation)
+methods. Refer to the [methods](#methods) below to see all of the supported features.
+
+This demo sets the `required` attribute on the textarea and validates it when the form is submitted.
+When the textarea is invalid, it sets the Field's status to "error" and passes the native validation
+message to the Field component for display. Try submitting the form while leaving the TextArea
+blank.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<text-area-native-validation />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/text-area/examples/TextAreaNativeValidation.vue [NPM]
+
+<<< @/../component-demos/text-area/examples-mw/TextAreaNativeValidation.vue [MediaWiki]
 
 :::
 

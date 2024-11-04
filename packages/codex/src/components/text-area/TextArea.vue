@@ -14,6 +14,10 @@
 			:aria-describedby="descriptionId"
 			:disabled="computedDisabled"
 			@input="onInput"
+			@change="onChange"
+			@focus="onFocus"
+			@blur="onBlur"
+			@invalid="( e ) => onInvalid( e, shouldPreventDefault )"
 		/>
 		<cdx-icon
 			v-if="startIcon"
@@ -58,6 +62,13 @@ export default defineComponent( {
 	name: 'CdxTextArea',
 	components: { CdxIcon },
 	inheritAttrs: false,
+	expose: [
+		'focus',
+		'blur',
+		'checkValidity',
+		'reportValidity',
+		'setCustomValidity'
+	],
 	props: {
 		/**
 		 * Current value of the textarea.
@@ -117,9 +128,43 @@ export default defineComponent( {
 		 *
 		 * @property {string} modelValue The new model value
 		 */
-		'update:modelValue'
+		'update:modelValue',
+		/**
+		 * When the input value changes via direct use of the input
+		 *
+		 * @property {InputEvent} event
+		 */
+		'input',
+		/**
+		 * When an input value change is committed by the user (e.g. on blur)
+		 *
+		 * @property {Event} event
+		 */
+		'change',
+		/**
+		 * When the input comes into focus
+		 *
+		 * @property {FocusEvent} event
+		 */
+		'focus',
+		/**
+		 * When the input loses focus
+		 *
+		 * @property {FocusEvent} event
+		 */
+		'blur',
+		/**
+		 * When the textarea value is invalid according to the textarea's constraint
+		 * attributes (e.g. minlength, maxlength, or required). See:
+		 * https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation#validation-related_attributes
+		 *
+		 * @property {Event} event
+		 */
+		'invalid'
 	],
 	setup( props, { attrs, emit } ) {
+		const textarea = ref<HTMLTextAreaElement>();
+
 		// Take the modelValue provided by the parent component via v-model and
 		// generate a wrapped model that we can use for the textarea element in
 		// this component.
@@ -172,17 +217,49 @@ export default defineComponent( {
 			return everythingElse;
 		} );
 
-		const textarea = ref<HTMLTextAreaElement>();
-
 		// Allows the textarea to grow aka auto-resize while typing.
-		function onInput() {
+		function onInput( event: Event ) {
 			if ( textarea.value && props.autosize ) {
 				textarea.value.style.height = 'auto';
 				textarea.value.style.height = `${ textarea.value.scrollHeight }px`;
 			}
+			emit( 'input', event );
 		}
 
+		const onChange = ( event: Event ) => {
+			emit( 'change', event );
+		};
+		const onFocus = ( event: FocusEvent ) => {
+			emit( 'focus', event );
+		};
+		const onBlur = ( event: FocusEvent ) => {
+			emit( 'blur', event );
+		};
+
+		// We want to prevent the default behavior of the invalid event by default, to prevent the
+		// native validation message UI from displaying unless it's explicitly called. If
+		// `reportValidity()` is used, this ref will be set to false.
+		const shouldPreventDefault = ref( true );
+
+		/**
+		 * Handle the `invalid` event.
+		 *
+		 * Note that we use an argument for `doPreventDefault` instead of the `shouldPreventDefault`
+		 * ref so we can unit test this.
+		 *
+		 * @param event Invalid event
+		 * @param doPreventDefault Whether default behavior should be prevented
+		 */
+		const onInvalid = ( event: Event, doPreventDefault: boolean ) => {
+			if ( doPreventDefault ) {
+				event.preventDefault();
+			}
+			emit( 'invalid', event );
+			shouldPreventDefault.value = true;
+		};
+
 		return {
+			textarea,
 			rootClasses,
 			rootStyle,
 			wrappedModel,
@@ -191,9 +268,78 @@ export default defineComponent( {
 			descriptionId,
 			textareaClasses,
 			otherAttrsMinusId,
-			textarea,
-			onInput
+			onInput,
+			onChange,
+			onFocus,
+			onBlur,
+			onInvalid,
+			shouldPreventDefault
 		};
+	},
+
+	// Public methods
+	// These must be in the methods block, not in the setup function, otherwise their documentation
+	// won't be picked up by vue-docgen
+	methods: {
+		/**
+		 * Focus the component's textarea element.
+		 *
+		 * @public
+		 */
+		focus(): void {
+			const textarea = this.$refs.textarea as HTMLTextAreaElement;
+			textarea.focus();
+		},
+
+		/**
+		 * Blur the component's textarea element.
+		 *
+		 * @public
+		 */
+		blur(): void {
+			const textarea = this.$refs.textarea as HTMLTextAreaElement;
+			textarea.blur();
+		},
+
+		/**
+		 * Check the validity of the textarea element according to its constraint attributes. Emits
+		 * an 'invalid' event if the textarea is invalid. See:
+		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement/checkValidity
+		 *
+		 * @public
+		 * @return {boolean} Whether the textarea is valid
+		 */
+		checkValidity(): boolean {
+			const textarea = this.$refs.textarea as HTMLTextAreaElement;
+			return textarea.checkValidity();
+		},
+
+		/**
+		 * Check the validity of the textarea element and report it as a pop up on the UI. See:
+		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement/reportValidity
+		 *
+		 * @public
+		 * @return {boolean} Whether the textarea is valid
+		 */
+		reportValidity(): boolean {
+			// Ensure default behavior of the invalid event is not prevented, so the native UI can
+			// pop up.
+			this.shouldPreventDefault = false;
+			const textarea = this.$refs.textarea as HTMLTextAreaElement;
+			return textarea.reportValidity();
+		},
+
+		/**
+		 * Set custom validity and message for the textarea element. See:
+		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement/setCustomValidity
+		 *
+		 * @public
+		 * @param {string} message The custom validation message to set
+		 */
+		setCustomValidity( message: string ): void {
+			const textarea = this.$refs.textarea as HTMLTextAreaElement;
+			textarea.setCustomValidity( message );
+		}
 	}
 } );
 </script>
