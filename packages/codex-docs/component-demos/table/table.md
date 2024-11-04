@@ -1476,7 +1476,6 @@ that indicates that there's no data available.
 </template>
 </cdx-demo-wrapper>
 
-
 ### Table Pagination
 
 This example demonstrates the markup structure that should be used for visual parity with
@@ -1486,31 +1485,19 @@ back-end is being used. Typical usage will involve a GET request to the URL spec
 the form `action`, with the select and button values mapped to specific URL parameters.
 
 Buttons for first, next, previous, and last pages use the `cdx-button--icon-only` class.
-Additional imports are needed, and more information on how to use them can be found
-[here](https://doc.wikimedia.org/codex/main/components/demos/button.html#icon-only-button-1).
+The icon images are added automatically.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<!-- Wrapper div. -->
 	<div class="cdx-table">
-		<!-- Header content. -->
 		<div class="cdx-table__header">
-			<!-- Visible table caption. It is hidden from assistive technology since
-				there is an accessible <caption> in the <table> element. If you add
-				content to the header content div below, remove `aria-hidden` here to
-				ensure the caption is announced first. -->
 			<div class="cdx-table__header__caption" aria-hidden="true">
 				F1 Racing Teams
 			</div>
-			<!-- Additional header content goes here if needed. -->
 			<div class="cdx-table__header__header-content"></div>
 		</div>
-		<!-- Wrapper around the table element. Needed for horizontal scroll. -->
 		<div class="cdx-table__table-wrapper">
-			<!-- Table element. -->
 			<table class="cdx-table__table">
-				<!-- Visually-hidden caption element, for assistive technology.
-					Do not omit this! -->
 				<caption>
 					F1 Racing Teams
 				</caption>
@@ -1594,32 +1581,38 @@ Additional imports are needed, and more information on how to use them can be fo
 				</tbody>
 			</table>
 		</div>
+		<!-- Table pager form. -->
 		<form method="get" :action="url">
 			<div class="cdx-table-pager cdx-table__pagination--bottom">
 				<div class="cdx-table-pager__start">
+				<!-- Rows per page select. -->
 		 			<select class="cdx-select" name="rows" :value="rowsPerPage"  @change="handleRowsChange">
 						<option value="10">10 rows</option>
 						<option value="25">25 rows</option>
 						<option value="50">50 rows</option>
 					</select>
 				</div>
+				<!-- Pagination status. -->
 				<div class="cdx-table-pager__center">
 					<div class="cdx-table__pagination-status--long">
 						Showing results 1 - 10 of 52
 					</div>
 				</div>
+				<!-- Pagination buttons. -->
 				<div class="cdx-table-pager__end">
+					<!-- Button with ARIA label. -->
 	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="First Page">
-						<span class="cdx-button__icon cdx-demo-css-icon--move-first"></span>
+						<!-- Empty span with icon classes and `aria-hidden`. -->
+						<span class="cdx-table-pager__icon--first cdx-button__icon" aria-hidden="true"></span>
 					</button>
 	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Previous Page">
-						<span class="cdx-button__icon cdx-demo-css-icon--previous"></span>
+						<span class="cdx-table-pager__icon--previous cdx-button__icon" aria-hidden="true"></span>
 					</button>
 	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Next Page">
-						<span class="cdx-button__icon cdx-demo-css-icon--next"></span>
+						<span class="cdx-table-pager__icon--next cdx-button__icon" aria-hidden="true"></span>
 					</button>
 	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Last Page">
-						<span class="cdx-button__icon cdx-demo-css-icon--move-last"></span>
+						<span class="cdx-table-pager__icon--last cdx-button__icon" aria-hidden="true"></span>
 					</button>
 				</div>
 			</div>
@@ -1629,26 +1622,15 @@ Additional imports are needed, and more information on how to use them can be fo
 <template v-slot:code>
 
 ```html-vue
-	<!-- Wrapper div. -->
 	<div class="cdx-table">
-		<!-- Header content. -->
 		<div class="cdx-table__header">
-			<!-- Visible table caption. It is hidden from assistive technology since
-				there is an accessible <caption> in the <table> element. If you add
-				content to the header content div below, remove `aria-hidden` here to
-				ensure the caption is announced first. -->
 			<div class="cdx-table__header__caption" aria-hidden="true">
 				F1 Racing Teams
 			</div>
-			<!-- Additional header content goes here if needed. -->
 			<div class="cdx-table__header__header-content"></div>
 		</div>
-		<!-- Wrapper around the table element. Needed for horizontal scroll. -->
 		<div class="cdx-table__table-wrapper">
-			<!-- Table element. -->
 			<table class="cdx-table__table">
-				<!-- Visually-hidden caption element, for assistive technology.
-					Do not omit this! -->
 				<caption>
 					F1 Racing Teams
 				</caption>
@@ -1732,32 +1714,38 @@ Additional imports are needed, and more information on how to use them can be fo
 				</tbody>
 			</table>
 		</div>
+		<!-- Table pager form. -->
 		<form method="get" :action="url">
 			<div class="cdx-table-pager cdx-table__pagination--bottom">
 				<div class="cdx-table-pager__start">
+				<!-- Rows per page select. -->
 		 			<select class="cdx-select" name="rows">
 						<option value="10">10 rows</option>
 						<option value="25">25 rows</option>
 						<option value="50">50 rows</option>
 					</select>
 				</div>
+				<!-- Pagination status. -->
 				<div class="cdx-table-pager__center">
 					<div class="cdx-table__pagination-status--long">
 						Showing results 1 - 10 of 52
 					</div>
 				</div>
+				<!-- Pagination buttons. -->
 				<div class="cdx-table-pager__end">
+					<!-- Button with ARIA label. -->
 	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="First Page">
-						<span class="cdx-button__icon cdx-demo-css-icon--move-first"></span>
+						<!-- Empty span with icon classes and `aria-hidden`. -->
+						<span class="cdx-table-pager__icon--first cdx-button__icon" aria-hidden="true"></span>
 					</button>
 	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Previous Page">
-						<span class="cdx-button__icon cdx-demo-css-icon--previous"></span>
+						<span class="cdx-table-pager__icon--previous cdx-button__icon" aria-hidden="true"></span>
 					</button>
 	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Next Page">
-						<span class="cdx-button__icon cdx-demo-css-icon--next"></span>
+						<span class="cdx-table-pager__icon--next cdx-button__icon" aria-hidden="true"></span>
 					</button>
 	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Last Page">
-						<span class="cdx-button__icon cdx-demo-css-icon--move-last"></span>
+						<span class="cdx-table-pager__icon--last cdx-button__icon" aria-hidden="true"></span>
 					</button>
 				</div>
 			</div>
@@ -1766,24 +1754,3 @@ Additional imports are needed, and more information on how to use them can be fo
 ```
 </template>
 </cdx-demo-wrapper>
-
-<style lang="less">
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
-
-.cdx-demo-css-icon--move-first {
-	.cdx-mixin-css-icon( @cdx-icon-move-first, @param-is-button-icon: true );
-}
-
-.cdx-demo-css-icon--previous {
-	.cdx-mixin-css-icon( @cdx-icon-previous, @param-is-button-icon: true );
-}
-
-.cdx-demo-css-icon--next {
-	.cdx-mixin-css-icon( @cdx-icon-next, @param-is-button-icon: true );
-}
-
-.cdx-demo-css-icon--move-last {
-	.cdx-mixin-css-icon( @cdx-icon-move-last, @param-is-button-icon: true );
-}
-</style>

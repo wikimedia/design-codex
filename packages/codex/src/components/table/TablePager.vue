@@ -194,6 +194,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '../../themes/mixins/public/css-icon.less';
 
 .cdx-table-pager {
 	display: flex;
@@ -233,6 +234,25 @@ export default defineComponent( {
 
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			flex: 0 1 auto;
+		}
+	}
+
+	// Set up CSS-only icons for the buttons.
+	&__icon {
+		&--first {
+			.cdx-mixin-css-icon( @cdx-icon-move-first );
+		}
+
+		&--previous {
+			.cdx-mixin-css-icon( @cdx-icon-previous );
+		}
+
+		&--next {
+			.cdx-mixin-css-icon( @cdx-icon-next );
+		}
+
+		&--last {
+			.cdx-mixin-css-icon( @cdx-icon-move-last );
 		}
 	}
 }
