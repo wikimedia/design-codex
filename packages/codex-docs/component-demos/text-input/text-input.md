@@ -3,6 +3,7 @@ import { cdxIconSearch, cdxIconInfoFilled } from '@wikimedia/codex-icons';
 import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
 import TextInputDemo from '@/../component-demos/text-input/examples/TextInputDemo.vue';
 import TextInputField from '@/../component-demos/text-input/examples/TextInputField.vue';
+import TextInputNativeValidation from '@/../component-demos/text-input/examples/TextInputNativeValidation.vue';
 
 const controlsConfig = [
 	{
@@ -379,6 +380,33 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 <<< @/../component-demos/text-input/examples/TextInputField.vue [NPM]
 
 <<< @/../component-demos/text-input/examples-mw/TextInputField.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### Native validation
+
+The TextInput component exposes [native constraint validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation)
+methods. Refer to the [methods](#methods) below to see all of the supported features.
+
+This demo sets the input type to "email" and validates the input on blur. When the input is invalid,
+it sets the Field's status to "error" and passes the native validation message to the Field
+component for display.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<text-input-native-validation />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/text-input/examples/TextInputNativeValidation.vue [NPM]
+
+<<< @/../component-demos/text-input/examples-mw/TextInputNativeValidation.vue [MediaWiki]
 
 :::
 
