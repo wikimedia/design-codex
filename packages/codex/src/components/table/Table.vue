@@ -94,7 +94,7 @@
 										<cdx-icon
 											:icon="getSortIcon( column.id )"
 											size="small"
-											class="cdx-table__table__sort-icon"
+											class="cdx-table__table__sort-icon--vue"
 											aria-hidden="true"
 										/>
 									</button>
@@ -936,6 +936,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
+@import ( reference ) '../../themes/mixins/public/css-icon.less';
 
 .cdx-table {
 	color: @color-base;
@@ -1091,6 +1092,25 @@ export default defineComponent( {
 			}
 		}
 
+		// CSS-only sort icons.
+		&__sort-icon {
+			&--unsorted {
+				.cdx-mixin-css-icon( @cdx-icon-sort-vertical, @param-size-icon: @size-icon-small );
+			}
+
+			&--asc {
+				.cdx-mixin-css-icon( @cdx-icon-up-triangle, @param-size-icon: @size-icon-small );
+			}
+
+			&--desc {
+				.cdx-mixin-css-icon( @cdx-icon-down-triangle, @param-size-icon: @size-icon-small );
+			}
+		}
+
+		// Common styles for Vue and CSS-only sort icons. This needs to come after the application
+		// of the CSS icon mixin above so the height set here will override the height set in the
+		// CSS icon mixin.
+		&__sort-icon--vue,
 		&__sort-icon {
 			color: @color-subtle;
 			flex-shrink: 0;

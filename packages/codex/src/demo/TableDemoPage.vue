@@ -1,4 +1,4 @@
-<!-- eslint-disable vue/singleline-html-element-content-newline -->
+<!-- eslint-disable vue/singleline-html-element-content-newline max-len -->
 <template>
 	<demo-base-layout class="cdx-demo-table-page">
 		<template #header>
@@ -258,6 +258,51 @@
 						</cdx-menu-button>
 					</template>
 				</cdx-table>
+
+				<h2>CSS-only table with sort</h2>
+				<p>This doesn't actually work, but it displays the different sort icons.</p>
+				<div class="cdx-table">
+					<div class="cdx-table__header">
+						<div class="cdx-table__header__caption" aria-hidden="true">
+							Table with sort
+						</div>
+					</div>
+					<div class="cdx-table__table-wrapper">
+						<table class="cdx-table__table">
+							<caption>Table with sort</caption>
+							<thead>
+								<tr>
+									<th scope="col" class="cdx-table__table__cell--has-sort">
+										<button class="cdx-table__table__sort-button">
+											<span class="cdx-table__table__sort-label">
+												Column 1
+											</span>
+											<span class="cdx-table__table__sort-icon cdx-table__table__sort-icon--unsorted cdx-button__icon" />
+										</button>
+									</th>
+									<th scope="col" class="cdx-table__table__cell--has-sort">
+										<button class="cdx-table__table__sort-button">
+											<span class="cdx-table__table__sort-label">
+												Column 2
+											</span>
+											<span class="cdx-table__table__sort-icon cdx-table__table__sort-icon--asc cdx-button__icon" />
+										</button>
+									</th>
+									<th scope="col" class="cdx-table__table__cell--has-sort cdx-table__table__cell--align-number">
+										<button class="cdx-table__table__sort-button">
+											<span class="cdx-table__table__sort-label">
+												Column 3
+											</span>
+											<span class="cdx-table__table__sort-icon cdx-table__table__sort-icon--desc cdx-button__icon" />
+										</button>
+									</th>
+									<th scope="col">Column 4 (not sortable)</th>
+								</tr>
+							</thead>
+							<tbody />
+						</table>
+					</div>
+				</div>
 			</section>
 		</template>
 	</demo-base-layout>

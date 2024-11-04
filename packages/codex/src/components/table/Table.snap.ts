@@ -3070,7 +3070,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
               </span>
               <span
                 aria-hidden="true"
-                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
+                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon--vue"
               >
                 <svg
                   aria-hidden="true"
@@ -3106,7 +3106,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
               </span>
               <span
                 aria-hidden="true"
-                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
+                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon--vue"
               >
                 <svg
                   aria-hidden="true"
@@ -3142,7 +3142,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
               </span>
               <span
                 aria-hidden="true"
-                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon"
+                class="cdx-icon cdx-icon--small cdx-table__table__sort-icon--vue"
               >
                 <svg
                   aria-hidden="true"
