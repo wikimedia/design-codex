@@ -174,7 +174,7 @@ Consider the following recommendations when using fields. For more detailed info
 
 </cdx-demo-rules>
 
-#### Label, description, and helper text 
+#### Label, description, and helper text
 
 <cdx-demo-rules>
 
@@ -623,7 +623,7 @@ Nested fields will become disabled when their parent field is disabled.
 </template>
 </cdx-demo-wrapper>
 
-### Fieldset with custom help text content
+### Field with custom help text content
 
 The `help-text` slot is not limited to static text – more complex markup,
 including other components and bound values, can be provided here as well. Below
