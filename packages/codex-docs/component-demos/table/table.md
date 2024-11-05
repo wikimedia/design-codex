@@ -1428,7 +1428,10 @@ besides submit the form and reload the page.
 
 You can use the CSS classes, `cdx-table__table__empty-state` and
 `cdx-table__table__empty-state-content`, to style the empty state message
-that indicates that there's no data available.
+that indicates that there's no data available. The `<td>` element here
+should also have a `colspan` attribute with a value equal to the number
+of columns in the table, but this can be omitted if the table only has
+a single column.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

@@ -158,7 +158,10 @@
 					<!-- eslint-disable-next-line max-len -->
 					<tbody v-else-if="$slots[ 'empty-state' ] && $slots[ 'empty-state' ]().length > 0">
 						<tr class="cdx-table__table__empty-state">
-							<td class="cdx-table__table__empty-state-content">
+							<td
+								:colspan="columns.length"
+								class="cdx-table__table__empty-state-content"
+							>
 								<!-- @slot Empty state content. -->
 								<slot name="empty-state" />
 							</td>
@@ -1215,12 +1218,18 @@ export default defineComponent( {
 		&__empty-state {
 			border-top: @border-base;
 
-			&-content {
+			// Remove border if there's a thead, which has a border-bottom.
+			thead + tbody & {
+				border-top: 0;
+			}
+
+			// Extra specificity is needed to override the vertical-align: top
+			// style that is applied to normal tbody td elements in CdxTable.
+			tbody td&-content {
 				color: @color-subtle;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				min-height: @min-height-table-footer - @spacing-150;
+				height: @min-height-table-footer - @spacing-150;
+				text-align: center;
+				vertical-align: middle;
 			}
 		}
 	}
