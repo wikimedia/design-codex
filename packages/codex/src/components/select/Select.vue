@@ -399,8 +399,22 @@ export default defineComponent( {
 			}
 		}
 
+		// Enabled and a value is selected.
+		&.cdx-select-vue--value-selected .cdx-select-vue__handle {
+			color: @color-base;
+
+			&:hover {
+				color: @color-base;
+			}
+
+			&:active {
+				color: @color-base;
+			}
+		}
+
 		/* Expanded Menu only happens when enabled. */
 		&.cdx-select-vue--expanded {
+			/* stylelint-disable-next-line no-descending-specificity */
 			.cdx-select-vue__handle {
 				background-color: @background-color-base;
 
@@ -450,6 +464,20 @@ export default defineComponent( {
 				}
 			}
 		}
+
+		/* stylelint-disable no-descending-specificity */
+		.cdx-select-vue__handle {
+			&:active {
+				background-color: @background-color-error-subtle--active;
+				color: @color-error--active;
+				border-color: @border-color-error--active;
+
+				.cdx-select-vue__start-icon {
+					color: @color-error--active;
+				}
+			}
+		}
+		/* stylelint-enable no-descending-specificity */
 	}
 
 	// Overrides when used within a Dialog component
