@@ -17,6 +17,33 @@
 			</template>
 		</cdx-field>
 
+		<h3>TextInput field with custom validation message</h3>
+		<p>
+			This example displays the different status validation messages based on the number of
+			characters typed in the input (1 = warning, 2 = success, 3 and above = error).
+			When one character is typed in the input, it displays the warning status.
+			When two characters are typed in the input, it displays the success status.
+			Otherwise, it displays the error status.
+		</p>
+		<cdx-field
+			:status="statusForCustomExample"
+			:messages="messagesForCustomExample"
+		>
+			<cdx-text-input
+				v-model="inputValueForCustomExample"
+			/>
+			<template #label>
+				Improvement
+			</template>
+			<template #description>
+				Describe any improvements you made
+			</template>
+			<!-- Warning slot content will override the warning message via `messages` props. -->
+			<template #warning>
+				Press <kbd><kbd>Ctrl</kbd>+<kbd>Enter</kbd></kbd> to publish your changes.
+			</template>
+		</cdx-field>
+
 		<h3>Radio group fieldset</h3>
 		<cdx-field :is-fieldset="true">
 			<cdx-radio
@@ -46,12 +73,35 @@ import { ref, computed } from 'vue';
 import { CdxField, CdxTextInput, CdxRadio } from '../lib';
 import { cdxIconUserAvatar } from '@wikimedia/codex-icons';
 
+// TextInput with validation.
 const inputValue = ref( '' );
 const status = computed( () =>
 	inputValue.value.length > 1 ? 'error' : 'default'
 );
 const messages = { error: 'Your username is too long' };
 
+// Custom status validation message with HTML.
+const inputValueForCustomExample = ref( '' );
+const statusForCustomExample = computed( () => {
+	if ( inputValueForCustomExample.value.length === 0 ) {
+		return 'default';
+	}
+	if ( inputValueForCustomExample.value.length === 1 ) {
+		return 'warning';
+	}
+	if ( inputValueForCustomExample.value.length === 2 ) {
+		return 'success';
+	}
+	return 'error';
+} );
+const messagesForCustomExample = {
+	// This warning message will not render because the warning slot was provided.
+	warning: 'Press <kbd><kbd>Ctrl</kbd>+<kbd>Enter</kbd></kbd> to publish your changes',
+	error: 'Please check the field for errors.',
+	success: 'Your changes have been successfully saved! 🎉'
+};
+
+// Radio group fieldset.
 const radioValue = ref( 'daily' );
 const radios = [
 	{

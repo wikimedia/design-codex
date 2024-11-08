@@ -686,7 +686,10 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
         >
           <!-- @slot Message content. -->
           
+          <!-- @slot Warning message content for messages containing HTML markup. -->
+          
           Error
+          
           
         </div>
         <!--v-if-->
@@ -1376,7 +1379,10 @@ exports[`Field matches the snapshot with a TextInput control Case 6 Error status
         >
           <!-- @slot Message content. -->
           
+          <!-- @slot Warning message content for messages containing HTML markup. -->
+          
           Error
+          
           
         </div>
         <!--v-if-->
@@ -1743,7 +1749,10 @@ exports[`Field matches the snapshot with a Textarea control Case 2 Error status 
         >
           <!-- @slot Message content. -->
           
+          <!-- @slot Warning message content for messages containing HTML markup. -->
+          
           Error
+          
           
         </div>
         <!--v-if-->

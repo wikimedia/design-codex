@@ -7,6 +7,7 @@ import CdxCheckbox from '../../components/checkbox/Checkbox.vue';
 import CdxSelect from '../../components/select/Select.vue';
 import CdxTextArea from '../../components/text-area/TextArea.vue';
 import CdxTextInput from '../../components/text-input/TextInput.vue';
+import CdxMessage from '../../components/message/Message.vue';
 
 type Case = [
 	msg: string,
@@ -213,6 +214,125 @@ describe( 'Field', () => {
 				expect( wrapper.find( 'input' ).element.id ).not.toBe( 'my-id-123' );
 				expect( wrapper.find( 'input' ).element.id.indexOf( 'cdx-input-' ) ).toBe( 0 );
 			} );
+		} );
+	} );
+
+	describe( 'Field component status messages', () => {
+		// Warning status message.
+		it( 'renders warning slot content when provided', () => {
+			const wrapper = mount( CdxField, {
+				props: { status: 'warning' },
+				slots: {
+					default: h( CdxTextInput, { modelValue: '' } ),
+					warning: 'Custom warning message from slot - press <kbd>Enter</kbd>'
+				}
+			} );
+			const message = wrapper.findComponent( CdxMessage );
+			expect( message.exists() ).toBe( true );
+			expect( message.html() ).toContain( 'Custom warning message from slot - press <kbd>Enter</kbd>' );
+		} );
+
+		it( 'renders slot content when both slot and message prop are provided for warning', () => {
+			const wrapper = mount( CdxField, {
+				props: { status: 'warning', messages: { warning: 'Warning from prop' } },
+				slots: {
+					default: h( CdxTextInput, { modelValue: '' } ),
+					warning: 'Warning message from slot'
+				}
+			} );
+			const message = wrapper.findComponent( CdxMessage );
+			expect( message.exists() ).toBe( true );
+			expect( message.html() ).toContain( 'Warning message from slot' );
+		} );
+
+		it( 'renders message prop when slot is not provided for warning', () => {
+			const wrapper = mount( CdxField, {
+				props: { status: 'warning', messages: { warning: 'Warning from prop' } },
+				slots: {
+					default: h( CdxTextInput, { modelValue: '' } )
+				}
+			} );
+			const message = wrapper.findComponent( CdxMessage );
+			expect( message.exists() ).toBe( true );
+			expect( message.html() ).toContain( 'Warning from prop' );
+		} );
+
+		// Error status message.
+		it( 'renders error slot content when provided', () => {
+			const wrapper = mount( CdxField, {
+				props: { status: 'error' },
+				slots: {
+					default: h( CdxTextInput, { modelValue: '' } ),
+					error: 'Custom error message from slot - press <kbd>Enter</kbd>'
+				}
+			} );
+			const message = wrapper.findComponent( CdxMessage );
+			expect( message.exists() ).toBe( true );
+			expect( message.html() ).toContain( 'Custom error message from slot - press <kbd>Enter</kbd>' );
+		} );
+
+		it( 'renders slot content when both slot and message prop are provided for error', () => {
+			const wrapper = mount( CdxField, {
+				props: { status: 'error', messages: { error: 'Error from prop' } },
+				slots: {
+					default: h( CdxTextInput, { modelValue: '' } ),
+					error: 'Error message from slot'
+				}
+			} );
+			const message = wrapper.findComponent( CdxMessage );
+			expect( message.exists() ).toBe( true );
+			expect( message.html() ).toContain( 'Error message from slot' );
+		} );
+
+		it( 'renders message prop when slot is not provided for error', () => {
+			const wrapper = mount( CdxField, {
+				props: { status: 'error', messages: { error: 'Error from prop' } },
+				slots: {
+					default: h( CdxTextInput, { modelValue: '' } )
+				}
+			} );
+			const message = wrapper.findComponent( CdxMessage );
+			expect( message.exists() ).toBe( true );
+			expect( message.html() ).toContain( 'Error from prop' );
+		} );
+
+		// Success status message.
+		it( 'renders success slot content when provided', () => {
+			const wrapper = mount( CdxField, {
+				props: { status: 'success' },
+				slots: {
+					default: h( CdxTextInput, { modelValue: '' } ),
+					success: 'Custom success message from slot - press <kbd>Enter</kbd>'
+				}
+			} );
+			const message = wrapper.findComponent( CdxMessage );
+			expect( message.exists() ).toBe( true );
+			expect( message.html() ).toContain( 'Custom success message from slot - press <kbd>Enter</kbd>' );
+		} );
+
+		it( 'renders slot content when both slot and message prop are provided for success', () => {
+			const wrapper = mount( CdxField, {
+				props: { status: 'success', messages: { success: 'Success from prop' } },
+				slots: {
+					default: h( CdxTextInput, { modelValue: '' } ),
+					success: 'Success message from slot'
+				}
+			} );
+			const message = wrapper.findComponent( CdxMessage );
+			expect( message.exists() ).toBe( true );
+			expect( message.html() ).toContain( 'Success message from slot' );
+		} );
+
+		it( 'renders message prop when slot is not provided for success', () => {
+			const wrapper = mount( CdxField, {
+				props: { status: 'success', messages: { success: 'Success from prop' } },
+				slots: {
+					default: h( CdxTextInput, { modelValue: '' } )
+				}
+			} );
+			const message = wrapper.findComponent( CdxMessage );
+			expect( message.exists() ).toBe( true );
+			expect( message.html() ).toContain( 'Success from prop' );
 		} );
 	} );
 } );

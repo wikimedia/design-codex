@@ -38,11 +38,21 @@
 		</div>
 
 		<div
-			v-if="!computedDisabled && validationMessage"
+			v-if="!computedDisabled && validationMessage || $slots[ validationMessageType ]"
 			class="cdx-field__validation-message"
 		>
 			<cdx-message :type="validationMessageType" :inline="true">
-				{{ validationMessage }}
+				<!-- @slot Warning message content for messages containing HTML markup. -->
+				<slot v-if="status === 'warning' && $slots.warning" name="warning" />
+
+				<!-- @slot Error message content for messages containing HTML markup. -->
+				<slot v-else-if="status === 'error' && $slots.error" name="error" />
+
+				<!-- @slot Success message content for messages containing HTML markup. -->
+				<slot v-else-if="status === 'success' && $slots.success" name="success" />
+				<template v-else>
+					{{ validationMessage }}
+				</template>
 			</cdx-message>
 		</div>
 	</component>
