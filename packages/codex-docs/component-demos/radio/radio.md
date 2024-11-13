@@ -613,7 +613,7 @@ Always include one of these two features for accessible grouping:
   `<legend>` element with the group label. This method is demonstrated below and requires some
   style resets on `<fieldset>` and `<legend>`. You can use the CSS-only [Field](./field.md#css-only-version)
   and [Label](./label.md#css-only-version) components to reset browser styles of these elements.
-2. If using the Radio group outside of a field, wrap the group in a `<div>` with `role="group"`
+2. If using the Radio group outside of a field, wrap the group in a `<div>` with `role="radiogroup"`
   and `aria-labelledby` set to the ID of the group label. See an example of this
   [above](#radio-group).
 
