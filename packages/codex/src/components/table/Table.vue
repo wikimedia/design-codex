@@ -726,7 +726,7 @@ export default defineComponent( {
 		 */
 		function getRowHeaderScope( columnId: string ): string | undefined {
 			const firstColumn = props.columns[ 0 ].id;
-			if ( props.useRowHeaders === true && columnId === firstColumn ) {
+			if ( props.useRowHeaders && columnId === firstColumn ) {
 				return 'row';
 			}
 		}
