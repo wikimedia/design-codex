@@ -199,6 +199,15 @@ interface IconVariedByLang {
 }
 ```
 
+### ImageAspectRatio
+
+See [ImageAspectRatios](#imageaspectratios).
+
+```ts
+// Allowed values: '16-9','3-2','4-3','1-1','3-4','2-3'
+export type ImageAspectRatio = typeof ImageAspectRatios[ number ];
+```
+
 ### MenuConfig
 
 ```ts
@@ -487,6 +496,19 @@ const IconSizes = [
 ];
 ```
 
+### ImageAspectRatios
+
+```ts
+const ImageAspectRatios = [
+    '16-9',
+    '3-2',
+    '4-3',
+    '1-1',
+    '3-4',
+    '2-3'
+];
+```
+
 ### MenuStates
 
 ```ts
@@ -494,6 +516,30 @@ const MenuStates = [
 	'selected',
 	'highlighted',
 	'active'
+];
+```
+
+### ObjectFitOptions
+
+```ts
+const ObjectFitOptions = [
+    'fill',
+    'contain',
+    'cover',
+    'none',
+    'scale-down'
+];
+```
+
+### ObjectPositions
+
+```ts
+const ObjectPositions = [
+    'top',
+    'bottom',
+    'left',
+    'right',
+    'center'
 ];
 ```
 

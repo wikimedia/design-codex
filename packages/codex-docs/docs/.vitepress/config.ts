@@ -259,6 +259,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Dialog', link: '/components/demos/dialog' },
 						{ text: 'Field', link: '/components/demos/field' },
 						{ text: 'Icon', link: '/components/demos/icon' },
+						{ text: 'Image', link: '/components/demos/image' },
 						{ text: 'InfoChip', link: '/components/demos/info-chip' },
 						{ text: 'Label', link: '/components/demos/label' },
 						{ text: 'Link', link: '/components/mixins/link' },

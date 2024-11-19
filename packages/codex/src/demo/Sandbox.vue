@@ -15,6 +15,7 @@
 			<dialog-demo />
 			<field-demo />
 			<icon-demo />
+			<image-demo />
 			<info-chip-demo />
 			<label-demo />
 			<link-demo />
@@ -64,6 +65,7 @@ import ComboboxDemo from './ComboboxDemo.vue';
 import DialogDemo from './DialogDemo.vue';
 import FieldDemo from './FieldDemo.vue';
 import IconDemo from './IconDemo.vue';
+import ImageDemo from './ImageDemo.vue';
 import InfoChipDemo from './InfoChipDemo.vue';
 import LabelDemo from './LabelDemo.vue';
 import LookupDemo from './LookupDemo.vue';
@@ -97,6 +99,7 @@ const demoSections = [
 	{ name: 'Dialog', id: '#cdx-dialog' },
 	{ name: 'Field', id: '#cdx-field' },
 	{ name: 'Icon', id: '#cdx-icon' },
+	{ name: 'Image', id: '#cdx-image' },
 	{ name: 'InfoChip', id: '#cdx-info-chip' },
 	{ name: 'Label', id: '#cdx-label' },
 	{ name: 'Link', id: '#cdx-link' },

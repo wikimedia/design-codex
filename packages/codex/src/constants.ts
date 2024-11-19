@@ -87,6 +87,55 @@ export const TableTextAlignments = [
 ];
 
 /**
+ * The predefined aspect ratios that can be applied to the image.
+ */
+export const ImageAspectRatios = [
+	'16-9',
+	'3-2',
+	'4-3',
+	'1-1',
+	'3-4',
+	'2-3'
+] as const;
+
+/**
+ * Validator for the `aspectRatio` prop.
+ */
+export const imageAspectRatioValidator = makeStringTypeValidator( ImageAspectRatios );
+
+/**
+ * The available options for the `object-fit` CSS property.
+ */
+export const ObjectFitOptions = [
+	'fill',
+	'contain',
+	'cover',
+	'none',
+	'scale-down'
+] as const;
+
+/**
+ * Validator for the `objectFit` prop.
+ */
+export const objectFitValidator = makeStringTypeValidator( ObjectFitOptions );
+
+/**
+ * The available options for the `object-position` CSS property.
+ */
+export const ObjectPositions = [
+	'top',
+	'bottom',
+	'left',
+	'right',
+	'center'
+] as const;
+
+/**
+ * Validator for the `position` prop.
+ */
+export const imagePositionValidator = makeStringTypeValidator( ObjectPositions );
+
+/**
  * Default length of delay for debouncing, in milliseconds.
  */
 export const DebounceInterval = 120;

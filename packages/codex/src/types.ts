@@ -14,6 +14,7 @@ import {
 	ButtonWeights,
 	ButtonSizes,
 	IconSizes,
+	ImageAspectRatios,
 	TextInputTypes,
 	ValidationStatusTypes,
 	StatusTypes,
@@ -168,6 +169,9 @@ export interface FloatingMenuOptions {
 	placement?: Placement,
 	offset?: OffsetOptions
 }
+
+/** @public */
+export type ImageAspectRatio = typeof ImageAspectRatios[number];
 
 /** @public */
 export interface SearchResult extends MenuItemData {
