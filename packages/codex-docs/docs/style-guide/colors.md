@@ -13,11 +13,11 @@ messages in certain instances. The primary colors used are various shades of gra
 foundational elements, blue as progressive elements, and red, yellow, and green to convey status.
 
 <div class="cdx-docs-primary-colors">
-	<div class="cdx-docs-primary-colors__subtle"></div>
-	<div class="cdx-docs-primary-colors__neutral"></div>
-	<div class="cdx-docs-primary-colors__neutral-subtle"></div>
-	<div class="cdx-docs-primary-colors__base"></div>
-	<div class="cdx-docs-primary-colors__progressive"></div>
+	<div class="cdx-docs-primary-colors__medium-gray"></div>
+	<div class="cdx-docs-primary-colors__light-gray"></div>
+	<div class="cdx-docs-primary-colors__lightest-gray"></div>
+	<div class="cdx-docs-primary-colors__darkest-gray"></div>
+	<div class="cdx-docs-primary-colors__blue"></div>
 	<div class="cdx-docs-primary-colors__red"></div>
 	<div class="cdx-docs-primary-colors__yellow"></div>
 	<div class="cdx-docs-primary-colors__green"></div>
@@ -39,6 +39,7 @@ To check the contrast ratio between two colors, visit the [WebAIM contrast check
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	grid-template-columns: repeat( 12, 1fr );
 	grid-template-rows: repeat( 6, 1fr );
+	grid-gap: 2px;
 
 	// We want the grid to be 1/3rd as tall as it is wide. This hidden grid item will span 4
 	// columns, or 1/3rd the width of the grid, then has a padding-bottom of 100% to make it the
@@ -54,50 +55,50 @@ To check the contrast ratio between two colors, visit the [WebAIM contrast check
 		padding-bottom: @size-full;
 	}
 
-	&__subtle {
+	&__medium-gray {
 		background-color: @color-subtle;
 		grid-column: 1 / span 2;
 		grid-row: 1 / span 3;
 	}
 
-	&__neutral {
-		background-color: @background-color-neutral;
+	&__light-gray {
+		background-color: @border-color-base;
 		grid-column: 3;
 		grid-row: 1 / span 3;
 	}
 
-	&__neutral-subtle {
-		background-color: @background-color-neutral-subtle;
+	&__lightest-gray {
+		background-color: @border-color-muted;
 		grid-column: 4;
 		grid-row: 1 / span 3;
 	}
 
-	&__base {
+	&__darkest-gray {
 		background-color: @color-base;
 		grid-column: 1 / span 4;
 		grid-row: 4 / span 3;
 	}
 
-	&__progressive {
+	&__blue {
 		background-color: @background-color-progressive;
 		grid-column: 5 / span 4;
 		grid-row: 1 / span 6;
 	}
 
 	&__red {
-		background-color: @color-error;
+		background-color: @color-icon-error;
 		grid-column: 9 / span 4;
 		grid-row: 1 / span 2;
 	}
 
 	&__yellow {
-		background-color: @color-warning;
+		background-color: @color-icon-warning;
 		grid-column: 9 / span 4;
 		grid-row: 3 / span 2;
 	}
 
 	&__green {
-		background-color: @color-success;
+		background-color: @color-icon-success;
 		grid-column: 9 / span 4;
 		grid-row: 5 / span 2;
 	}
