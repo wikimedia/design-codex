@@ -159,13 +159,22 @@ export default defineComponent( {
 		}
 
 		&:focus {
-			border-color: @border-color-progressive--focus;
-			// Make `box-shadow` feature a `1px` White inset outline with a value combination.
-			/* stylelint-disable-next-line @stylistic/declaration-colon-newline-after,
-				@stylistic/value-list-comma-newline-after */
-			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus,
-				@box-shadow-inset-medium @box-shadow-color-inverted;
 			outline: @outline-base--focus;
+		}
+
+		// `:focus-visible` styles for keyboard navigation only.
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		&:focus-visible {
+			border-color: @border-color-progressive--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+		}
+
+		// Support: Firefox <= 84, Chrome <= 85, Edge <= 85, Safari <= 15.3.
+		@supports not selector( :focus-visible ) {
+			&:focus {
+				border-color: @border-color-progressive--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+			}
 		}
 	}
 

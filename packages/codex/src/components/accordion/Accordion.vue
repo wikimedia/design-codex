@@ -163,15 +163,22 @@ export default defineComponent( {
 			background-color: @background-color-interactive-subtle--active;
 		}
 
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-		&:focus-visible {
-			box-shadow: @box-shadow-inset-medium @border-color-progressive;
+		&:focus {
 			outline: @outline-base--focus;
 		}
 
-		&:focus:not( :active ) {
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		&:focus-visible {
 			border-color: @border-color-progressive--focus;
 			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+		}
+
+		// Support: Firefox <= 84, Chrome <= 85, Edge <= 85, Safari <= 15.3.
+		@supports not selector( :focus-visible ) {
+			&:focus {
+				border-color: @border-color-progressive--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+			}
 		}
 
 		// Most browsers remove the default indicator triangle icon when
