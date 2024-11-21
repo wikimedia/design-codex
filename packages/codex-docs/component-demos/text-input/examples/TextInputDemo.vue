@@ -57,9 +57,7 @@ export default defineComponent( {
 		 */
 		inputProps: {
 			type: Object,
-			default: () => {
-				return {};
-			}
+			default: () => ( {} )
 		}
 	},
 	setup( props ) {

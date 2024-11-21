@@ -297,8 +297,7 @@ const lookupSelected = ref( null );
 const lookupMenuItems = ref<MenuItemData[]>( [] );
 function onInput( value: string ) {
 	if ( value ) {
-		lookupMenuItems.value = vegetableItems.filter( ( item ) =>
-			item.label.includes( value )
+		lookupMenuItems.value = vegetableItems.filter( ( item ) => item.label.includes( value )
 		);
 	}
 }

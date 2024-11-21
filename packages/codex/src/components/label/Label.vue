@@ -175,12 +175,10 @@ export default defineComponent( {
 	setup( props, { attrs } ) {
 		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
 
-		const internalClasses = computed( () => {
-			return {
-				'cdx-label--visually-hidden': props.visuallyHidden,
-				'cdx-label--disabled': computedDisabled.value
-			};
-		} );
+		const internalClasses = computed( () => ( {
+			'cdx-label--visually-hidden': props.visuallyHidden,
+			'cdx-label--disabled': computedDisabled.value
+		} ) );
 
 		// Get helpers from useSplitAttributes.
 		const {

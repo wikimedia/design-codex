@@ -51,11 +51,9 @@ export default defineComponent( {
 		const charsRemaining = computed( () => MAX_MESSAGE_LENGTH - userMessageText.value.length );
 		const status = computed( () => charsRemaining.value < 0 ? 'error' : 'default' );
 
-		const dynamicClasses = computed( () => {
-			return {
-				'cdx-demo-field-with-counter__help-text--error': status.value === 'error'
-			};
-		} );
+		const dynamicClasses = computed( () => ( {
+			'cdx-demo-field-with-counter__help-text--error': status.value === 'error'
+		} ) );
 
 		return {
 			userMessageText,

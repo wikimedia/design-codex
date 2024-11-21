@@ -111,9 +111,9 @@ export default defineComponent( {
 			isExpanded.value = e.newState === 'open';
 		};
 
-		const shouldShowActionButton = computed( () => {
-			return props.actionIcon && ( isExpanded.value || props.actionAlwaysVisible );
-		} );
+		const shouldShowActionButton = computed(
+			() => props.actionIcon && ( isExpanded.value || props.actionAlwaysVisible )
+		);
 
 		const rootClasses = computed( () => ( {
 			'cdx-accordion--has-icon': shouldShowActionButton.value

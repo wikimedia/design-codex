@@ -97,16 +97,13 @@ export default defineComponent( {
 		const overriddenDir = computed( () => props.dir ?? computedDir.value );
 		const overriddenLang = computed( () => props.lang ?? computedLang.value );
 
-		const rootClasses = computed( () => {
-			return {
-				'cdx-icon--flipped': overriddenDir.value === 'rtl' && overriddenLang.value !== null &&
+		const rootClasses = computed( () => ( {
+			'cdx-icon--flipped': overriddenDir.value === 'rtl' && overriddenLang.value !== null &&
 					shouldIconFlip( props.icon, overriddenLang.value ),
-				[ `cdx-icon--${ props.size }` ]: true
-			};
-		} );
+			[ `cdx-icon--${ props.size }` ]: true
+		} ) );
 
-		const resolvedIcon = computed( () =>
-			resolveIcon( props.icon, overriddenLang.value ?? '', overriddenDir.value ?? 'ltr' )
+		const resolvedIcon = computed( () => resolveIcon( props.icon, overriddenLang.value ?? '', overriddenDir.value ?? 'ltr' )
 		);
 		const iconSvg = computed( () => typeof resolvedIcon.value === 'string' ? resolvedIcon.value : '' );
 		const iconPath = computed( () => typeof resolvedIcon.value !== 'string' ? resolvedIcon.value.path : '' );

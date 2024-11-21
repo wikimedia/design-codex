@@ -328,11 +328,9 @@ import { cdxIconEllipsis, cdxIconEdit, cdxIconNotice, cdxIconMessage, cdxIconAle
 import DemoBaseLayout from './DemoBaseLayout.vue';
 
 const restrictWidth = ref( true );
-const rootClasses = computed( () => {
-	return {
-		'cdx-demo-table-page--restrict-width': restrictWidth.value
-	};
-} );
+const rootClasses = computed( () => ( {
+	'cdx-demo-table-page--restrict-width': restrictWidth.value
+} ) );
 
 // Basic table.
 const columnsBasic: TableColumn[] = [

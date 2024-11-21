@@ -118,9 +118,9 @@ export default defineComponent( {
 			}
 
 			// Update menuItems.
-			menuItems.value = namespaces.value.filter( ( namespace ) => {
-				return namespace.label.includes( value );
-			} );
+			menuItems.value = namespaces.value.filter(
+				( namespace ) => namespace.label.includes( value )
+			);
 		}
 
 		/**

@@ -19,9 +19,7 @@ function formatProperties( properties ) {
 				return '';
 			}
 
-			const formattedTypes = type.names.map( ( typeName ) => {
-				return getTypeText( typeName );
-			} );
+			const formattedTypes = type.names.map( ( typeName ) => getTypeText( typeName ) );
 
 			let eventString = `**${ name }** ${ formattedTypes.join( ', ' ) }`;
 

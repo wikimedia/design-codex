@@ -56,21 +56,19 @@ export default defineComponent( {
 				'See documentation on https://doc.wikimedia.org/codex/latest/components/demos/progressbar.html'
 		);
 
-		const rootClasses = computed( () => {
-			return {
-				'cdx-progress-bar--block': !props.inline,
-				'cdx-progress-bar--inline': props.inline,
-				'cdx-progress-bar--enabled': !props.disabled,
-				'cdx-progress-bar--disabled': props.disabled
-			};
-		} );
+		const rootClasses = computed( () => ( {
+			'cdx-progress-bar--block': !props.inline,
+			'cdx-progress-bar--inline': props.inline,
+			'cdx-progress-bar--enabled': !props.disabled,
+			'cdx-progress-bar--disabled': props.disabled
+		} ) );
 
 		// Computed property for `aria-hidden`.
-		const computedAriaHidden = computed( () => {
+		const computedAriaHidden = computed(
 			// Set `aria-hidden` to `true` only when `inline` prop is true.
 			// Otherwise, don't set the attribute.
-			return props.inline ? 'true' : undefined;
-		} );
+			() => props.inline ? 'true' : undefined
+		);
 
 		return {
 			rootClasses,

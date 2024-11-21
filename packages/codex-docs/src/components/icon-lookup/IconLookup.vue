@@ -88,9 +88,9 @@ export default defineComponent( {
 				// Filter is case-insensitive
 				const lowerCased = value.toLowerCase();
 				// Limit to at most 10 icons
-				menuItems.value = displayIcons.filter( ( item ) =>
-					item.value.toLowerCase().includes( lowerCased )
-				).slice( 0, 10 );
+				menuItems.value = displayIcons
+					.filter( ( item ) => item.value.toLowerCase().includes( lowerCased ) )
+					.slice( 0, 10 );
 			} else {
 				// Clear current filtered items
 				menuItems.value = [];

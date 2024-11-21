@@ -171,8 +171,7 @@ export default defineComponent( {
 
 		const childTabNodes = computed( () => {
 			const slotContents = useSlotContents( slots.default );
-			if ( !slotContents.every( ( node ): node is VNode =>
-				typeof node === 'object' && isComponentVNode( node, CdxTab.name )
+			if ( !slotContents.every( ( node ): node is VNode => typeof node === 'object' && isComponentVNode( node, CdxTab.name )
 			) ) {
 				throw new Error( 'Slot content may only contain CdxTab components' );
 			}
@@ -186,27 +185,25 @@ export default defineComponent( {
 		 * Returns a data structure that represents all provided tabs.
 		 * Data is provided as an ES Map object.
 		 */
-		const tabsData = computed( () => {
-			return childTabNodes.value.reduce( ( map, item ) => {
-				if ( item.props?.name && typeof item.props.name === 'string' ) {
-					// Each tab "name" must be unique. If a given name is already
-					// present in the dataset, throw an error; do not proceed
-					if ( map.get( item.props.name ) ) {
-						throw new Error( 'Tab names must be unique' );
-					}
-
-					// Store the tab's data in the map object, using the "name"
-					// prop as a key
-					map.set( item.props.name, {
-						name: item.props.name,
-						id: useGeneratedId( item.props.name ),
-						label: item.props.label || item.props.name,
-						disabled: item.props.disabled
-					} );
+		const tabsData = computed( () => childTabNodes.value.reduce( ( map, item ) => {
+			if ( item.props?.name && typeof item.props.name === 'string' ) {
+				// Each tab "name" must be unique. If a given name is already
+				// present in the dataset, throw an error; do not proceed
+				if ( map.get( item.props.name ) ) {
+					throw new Error( 'Tab names must be unique' );
 				}
-				return map;
-			}, new Map<string, TabData>() );
-		} );
+
+				// Store the tab's data in the map object, using the "name"
+				// prop as a key
+				map.set( item.props.name, {
+					name: item.props.name,
+					id: useGeneratedId( item.props.name ),
+					label: item.props.label || item.props.name,
+					disabled: item.props.disabled
+				} );
+			}
+			return map;
+		}, new Map<string, TabData>() ) );
 
 		// Properties tracking the current state of the tabs
 		const internalRefForActiveTab = ref( Array.from( tabsData.value.keys() )[ 0 ] );
@@ -255,12 +252,10 @@ export default defineComponent( {
 			}
 		}
 
-		const rootClasses = computed( () => {
-			return {
-				'cdx-tabs--framed': props.framed,
-				'cdx-tabs--quiet': !props.framed
-			};
-		} );
+		const rootClasses = computed( () => ( {
+			'cdx-tabs--framed': props.framed,
+			'cdx-tabs--quiet': !props.framed
+		} ) );
 
 		/**
 		 * Set focus on the active tab button after the DOM has updated

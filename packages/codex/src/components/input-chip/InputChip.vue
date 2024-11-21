@@ -90,11 +90,9 @@ export default defineComponent( {
 	],
 	setup( props, { emit } ) {
 		const rootElement = ref<HTMLDivElement>();
-		const rootClasses = computed( () => {
-			return {
-				'cdx-input-chip--disabled': props.disabled
-			};
-		} );
+		const rootClasses = computed( () => ( {
+			'cdx-input-chip--disabled': props.disabled
+		} ) );
 
 		const ariaDescription = useI18n(
 			'cdx-input-chip-aria-description',

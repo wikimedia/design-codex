@@ -321,26 +321,22 @@ export default defineComponent( {
 			'cdx-typeahead-search__menu-message--has-thumbnail': props.showThumbnail
 		} ) );
 
-		const selectedResult = computed( () =>
-			props.searchResults.find(
-				( searchResult ) => searchResult.value === selection.value
-			)
+		const selectedResult = computed( () => props.searchResults.find(
+			( searchResult ) => searchResult.value === selection.value
+		)
 		);
 
-		const footer = computed( () =>
-			props.searchFooterUrl ?
-				{ value: MenuFooterValue, url: props.searchFooterUrl } :
-				undefined
+		const footer = computed( () => props.searchFooterUrl ?
+			{ value: MenuFooterValue, url: props.searchFooterUrl } :
+			undefined
 		);
 
 		// Get helpers from useSplitAttributes.
-		const internalClasses = computed( () => {
-			return {
-				'cdx-typeahead-search--show-thumbnail': props.showThumbnail,
-				'cdx-typeahead-search--expanded': expanded.value,
-				'cdx-typeahead-search--auto-expand-width': props.showThumbnail && props.autoExpandWidth
-			};
-		} );
+		const internalClasses = computed( () => ( {
+			'cdx-typeahead-search--show-thumbnail': props.showThumbnail,
+			'cdx-typeahead-search--expanded': expanded.value,
+			'cdx-typeahead-search--auto-expand-width': props.showThumbnail && props.autoExpandWidth
+		} ) );
 		const {
 			rootClasses,
 			rootStyle,
@@ -352,15 +348,13 @@ export default defineComponent( {
 		}
 
 		// Create MenuConfig to pass into Menu component.
-		const menuConfig = computed( (): MenuConfig => {
-			return {
-				visibleItemLimit: props.visibleItemLimit,
-				showThumbnail: props.showThumbnail,
-				// In case search queries aren't highlighted, default to a bold label.
-				boldLabel: true,
-				hideDescriptionOverflow: true
-			};
-		} );
+		const menuConfig = computed( (): MenuConfig => ( {
+			visibleItemLimit: props.visibleItemLimit,
+			showThumbnail: props.showThumbnail,
+			// In case search queries aren't highlighted, default to a bold label.
+			boldLabel: true,
+			hideDescriptionOverflow: true
+		} ) );
 
 		let debounceId: ReturnType<typeof setTimeout>|undefined;
 		let pendingDelayId: ReturnType<typeof setTimeout>|undefined;

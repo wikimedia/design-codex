@@ -150,13 +150,12 @@ export default defineComponent( {
 		 * Configuration for various menu features. All properties default to false.
 		 *
 		 * See the MenuConfig type.
+		 *
 		 * @default {}
 		 */
 		menuConfig: {
 			type: Object as PropType<MenuConfig>,
-			default: () => {
-				return {} as MenuConfig;
-			}
+			default: () => ( {} as MenuConfig )
 		},
 		/**
 		 * `status` property of the TextInput component
@@ -228,12 +227,10 @@ export default defineComponent( {
 			toRef( props, 'status' )
 		);
 
-		const internalClasses = computed( () => {
-			return {
-				'cdx-combobox--expanded': expanded.value,
-				'cdx-combobox--disabled': computedDisabled.value
-			};
-		} );
+		const internalClasses = computed( () => ( {
+			'cdx-combobox--expanded': expanded.value,
+			'cdx-combobox--disabled': computedDisabled.value
+		} ) );
 
 		// Get helpers from useSplitAttributes.
 		const {

@@ -340,8 +340,7 @@ export default defineComponent( {
 					return {
 						...menuEntry,
 						id: useGeneratedId( 'menu-group' ),
-						items: menuEntry.items.map( ( subItem ) =>
-							getMenuItemWithId( subItem ) )
+						items: menuEntry.items.map( ( subItem ) => getMenuItemWithId( subItem ) )
 					};
 				} else {
 					return getMenuItemWithId( menuEntry );
@@ -510,9 +509,9 @@ export default defineComponent( {
 				return;
 			}
 
-			return computedMenuItems.value.findIndex( ( menuItem ) =>
+			return computedMenuItems.value.findIndex(
 				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-				menuItem.value === highlightedMenuItem.value!.value
+				( menuItem ) => menuItem.value === highlightedMenuItem.value!.value
 			);
 		} );
 
@@ -566,9 +565,11 @@ export default defineComponent( {
 		 * @param highlightedIndex
 		 */
 		function highlightNext( highlightedIndex?: number ) {
-			const findNextEnabled = ( startIndex: number ) : MenuItemDataWithId|undefined =>
-				computedMenuItems.value.find( ( item, index ) =>
-					!item.disabled && index > startIndex );
+			const findNextEnabled = (
+				startIndex: number
+			) : MenuItemDataWithId|undefined => computedMenuItems.value.find(
+				( item, index ) => !item.disabled && index > startIndex
+			);
 
 			// Start at the currently highlighted index if there is one, otherwise, start at -1.
 			highlightedIndex = highlightedIndex ?? -1;
@@ -635,8 +636,7 @@ export default defineComponent( {
 					stringToMatch = keyBuffer[ 0 ];
 				}
 
-				const matchingItem = itemsToMatch.find( ( item ) =>
-					!item.disabled &&
+				const matchingItem = itemsToMatch.find( ( item ) => !item.disabled &&
 					String( item.label ?? item.value ).toLowerCase().startsWith( stringToMatch )
 				);
 				if ( matchingItem ) {
@@ -970,8 +970,10 @@ export default defineComponent( {
 		 */
 		function getMenuItemHandlers( menuItem: MenuItemDataWithId ) {
 			return {
-				change: ( menuState: MenuState, setState: boolean ) =>
-					handleMenuItemChange( menuState, setState ? menuItem : null ),
+				change: (
+					menuState: MenuState,
+					setState: boolean
+				) => handleMenuItemChange( menuState, setState ? menuItem : null ),
 				click: () => emit( 'menu-item-click', menuItem )
 			};
 		}
@@ -1027,18 +1029,14 @@ export default defineComponent( {
 			}
 		}, { deep: true } );
 
-		const listBoxStyle = computed( () => {
-			return {
-				'max-height': maxMenuHeight.value ? `${ maxMenuHeight.value }px` : undefined,
-				'margin-bottom': footerHeight.value ? `${ footerHeight.value }px` : undefined
-			};
-		} );
+		const listBoxStyle = computed( () => ( {
+			'max-height': maxMenuHeight.value ? `${ maxMenuHeight.value }px` : undefined,
+			'margin-bottom': footerHeight.value ? `${ footerHeight.value }px` : undefined
+		} ) );
 
-		const internalClasses = computed( () => {
-			return {
-				'cdx-menu--has-footer': !!props.footer
-			};
-		} );
+		const internalClasses = computed( () => ( {
+			'cdx-menu--has-footer': !!props.footer
+		} ) );
 
 		// Get helpers from useSplitAttributes.
 		const {

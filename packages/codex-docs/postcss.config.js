@@ -13,7 +13,6 @@ import scoped from './postcss-plugin-scoped.js';
 import { postcssIsolateStyles } from 'vitepress';
 
 export default {
-	/** @type {import('postcss').AcceptedPlugin[]} */
 	plugins: [
 		postcssIsolateStyles( {
 			// Don't include styles from these files inside elements with class `.vp-raw`. This is
@@ -27,6 +26,8 @@ export default {
 			// rtlcss applied to them so that their CSS selectors' specificity is enhanced to
 			// match the selectors from Codex they're overriding.
 			include: [ '../codex/**', 'component-demos/**/examples/**' ],
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			// @ts-ignore
 			plugin: postcssRtlcss( {
 				useCalc: true,
 				processKeyFrames: true,

@@ -75,8 +75,7 @@ import { cdxIconUserAvatar } from '@wikimedia/codex-icons';
 
 // TextInput with validation.
 const inputValue = ref( '' );
-const status = computed( () =>
-	inputValue.value.length > 1 ? 'error' : 'default'
+const status = computed( () => inputValue.value.length > 1 ? 'error' : 'default'
 );
 const messages = { error: 'Your username is too long' };
 

@@ -138,8 +138,8 @@ export default defineComponent( {
 	},
 	setup( props ) {
 		const hasTokenDemo = computed( () => !!props.tokenDemo );
-		const flattenedTokens = computed( () =>
-			flattenDesignTokensTree( props.tokens, props.excludeTokens )
+		const flattenedTokens = computed(
+			() => flattenDesignTokensTree( props.tokens, props.excludeTokens )
 				.filter( ( token ) => token.attributes.type !== 'theme' )
 				.map( ( token ) => expandDeprecationMessage( token ) )
 		);

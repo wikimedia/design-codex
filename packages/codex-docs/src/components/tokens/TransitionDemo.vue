@@ -32,10 +32,10 @@ export default defineComponent( {
 			[ props.cssProperty ]: props.tokenValue
 		} ) );
 
-		const transitionClass = computed( () : string|string[] =>
+		const transitionClass = computed(
 			// If cssProperty is 'transition-property', make sure that only the properties
 			// listed in it are transitioned; if not, transition everything
-			props.cssProperty === 'transition-property' ?
+			() : string|string[] => props.cssProperty === 'transition-property' ?
 				props.tokenValue.split( ',' ).map(
 					( tProp ) => `cdx-docs-transition-demo--transition-${ tProp.trim() }`
 				) :

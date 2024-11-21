@@ -9,13 +9,13 @@
  * @return {string}
  */
 export function getLessVariableName( iconName ) {
-	return '@' + iconName.split( '' ).map( ( letter, index ) => {
+	return '@' + iconName.split( '' ).map(
 		// If the letter is uppercase, add a dash before it (unless it's the first letter), then
 		// transform the letter to lowercase. Otherwise, just add the letter as-is.
-		return letter.toUpperCase() === letter ?
+		( letter, index ) => letter.toUpperCase() === letter ?
 			`${ index !== 0 ? '-' : '' }${ letter.toLowerCase() }` :
-			letter;
-	} ).join( '' );
+			letter
+	).join( '' );
 }
 
 /**
@@ -96,8 +96,7 @@ export function getIconOutput( lessVariableName, icon ) {
 		// Note that language-specific icons can be of type IconFlipForRtl, but there aren't any of
 		// that type yet. If we add any, we should account for that here.
 		langCodeMap = Object.entries( icon.langCodeMap )
-			.map( ( [ langCode, langCodeIcon ] ) =>
-				typeof langCodeIcon === 'string' ? `${ langCode } '${ encodeSvg( langCodeIcon ) }'` : '' )
+			.map( ( [ langCode, langCodeIcon ] ) => typeof langCodeIcon === 'string' ? `${ langCode } '${ encodeSvg( langCodeIcon ) }'` : '' )
 			// Filter out any empty strings. These would only exist if we introduced an icon with
 			// a language variant that was also of type IconFlipForRtl
 			.filter( ( s ) => s !== '' )

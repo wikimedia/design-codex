@@ -30,11 +30,9 @@ export default defineComponent( {
 	setup() {
 		const inputValue = ref( '' );
 		const status = ref( 'default' );
-		const messages = computed( () => {
-			return {
-				success: `The username "${ inputValue.value }" is available.`
-			};
-		} );
+		const messages = computed( () => ( {
+			success: `The username "${ inputValue.value }" is available.`
+		} ) );
 
 		function onInput() {
 			// Reset status when input changes.

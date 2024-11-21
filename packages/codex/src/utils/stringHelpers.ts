@@ -29,7 +29,7 @@ export function splitStringAtMatch( query: string, title: string ): [ string, st
 	}
 
 	const sanitizedQuery = regExpEscape( query );
-	// eslint-disable-next-line security/detect-non-literal-regexp
+
 	const match = new RegExp(
 		// Per https://www.regular-expressions.info/unicode.html, "any code point that is not a
 		// combining mark can be followed by any number of combining marks." See also the

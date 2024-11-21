@@ -162,13 +162,12 @@ export default defineComponent( {
 		 * Configuration for various menu features. All properties default to false.
 		 *
 		 * See the MenuConfig type.
+		 *
 		 * @default {}
 		 */
 		menuConfig: {
 			type: Object as PropType<MenuConfig>,
-			default: () => {
-				return {} as MenuConfig;
-			}
+			default: () => ( {} as MenuConfig )
 		},
 		/**
 		 * `status` property of the TextInput component
@@ -247,8 +246,9 @@ export default defineComponent( {
 
 		const selectedProp = toRef( props, 'selected' );
 		const selection = useModelWrapper( selectedProp, emit, 'update:selected' );
-		const selectedMenuItem = computed( () =>
-			menu.value?.getComputedMenuItems().find( ( item ) => item.value === selection.value )
+		const selectedMenuItem = computed(
+			() => menu.value?.getComputedMenuItems()
+				.find( ( item ) => item.value === selection.value )
 		);
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
@@ -262,12 +262,10 @@ export default defineComponent( {
 			'update:input-value'
 		);
 
-		const internalClasses = computed( () => {
-			return {
-				'cdx-lookup--disabled': computedDisabled.value,
-				'cdx-lookup--pending': pending.value
-			};
-		} );
+		const internalClasses = computed( () => ( {
+			'cdx-lookup--disabled': computedDisabled.value,
+			'cdx-lookup--pending': pending.value
+		} ) );
 
 		// Get helpers from useSplitAttributes.
 		const {

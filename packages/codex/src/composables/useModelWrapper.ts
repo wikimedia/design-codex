@@ -58,9 +58,8 @@ export default function useModelWrapper<ModelValue, EventName extends string>(
 ) : WritableComputedRef<ModelValue> {
 	return computed( {
 		get: () => modelValueRef.value,
-		set: ( value: ModelValue ) =>
-			// If eventName is undefined, then 'update:modelValue' must be a valid EventName,
-			// but TypeScript's type analysis isn't clever enough to realize that
-			emit( ( eventName || 'update:modelValue' ) as EventName, value )
+		// If eventName is undefined, then 'update:modelValue' must be a valid EventName,
+		// but TypeScript's type analysis isn't clever enough to realize that
+		set: ( value: ModelValue ) => emit( ( eventName || 'update:modelValue' ) as EventName, value )
 	} );
 }

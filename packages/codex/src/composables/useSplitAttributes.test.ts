@@ -4,12 +4,10 @@ import useSplitAttributes from './useSplitAttributes';
 const attrs = { placeholder: 'Type something' };
 const attrsWithClass = { ...attrs, class: 'class-1 class-2' };
 const attrsWithStyle = { ...attrs, style: { 'font-weight': 'bold' } };
-const internalClasses = computed( () => {
-	return {
-		'class--modifier-1': true,
-		'class--modifier-2': false
-	};
-} );
+const internalClasses = computed( () => ( {
+	'class--modifier-1': true,
+	'class--modifier-2': false
+} ) );
 
 describe( 'When called without class or style attributes', () => {
 	it( 'returns empty object for rootClasses', () => {

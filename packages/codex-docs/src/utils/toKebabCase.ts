@@ -9,13 +9,13 @@
  */
 function toKebabCase( componentName: string ) : string {
 	// For each letter in the name...
-	return componentName.split( '' ).map( ( letter, index ) => {
+	return componentName.split( '' ).map(
 		// If the letter is uppercase, add a dash before it (unless it's the first letter), then
 		// transform the letter to lowercase. Otherwise, just add the letter as-is.
-		return letter.toUpperCase() === letter ?
+		( letter, index ) => letter.toUpperCase() === letter ?
 			`${ index !== 0 ? '-' : '' }${ letter.toLowerCase() }` :
-			letter;
-	} ).join( '' );
+			letter
+	).join( '' );
 }
 
 export default toKebabCase;

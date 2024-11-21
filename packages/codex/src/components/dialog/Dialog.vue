@@ -291,8 +291,8 @@ export default defineComponent( {
 		let previouslyFocused: Element|null = null;
 
 		// DEPRECATED: require use of new prop useCloseButton (T368444)
-		const useCloseButtonOrLabel = computed( () =>
-			props.useCloseButton || props.closeButtonLabel.length > 0
+		const useCloseButtonOrLabel = computed(
+			() => props.useCloseButton || props.closeButtonLabel.length > 0
 		);
 		const translatedCloseButtonLabel = useI18nWithOverride(
 			toRef( props, 'closeButtonLabel' ),

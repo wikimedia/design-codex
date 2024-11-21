@@ -75,7 +75,6 @@ export default defineComponent( {
 		const status = ref( 'default' );
 
 		function validate() {
-			// eslint-disable-next-line security/detect-unsafe-regex
 			const regEx = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
 
 			if ( coordinatesValue.value.length === 0 ) {

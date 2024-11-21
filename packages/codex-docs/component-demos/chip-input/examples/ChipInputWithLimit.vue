@@ -36,17 +36,14 @@ export default defineComponent( {
 
 		const chipValidator = ( value ) => value.length <= 10;
 
-		const status = computed( () =>
-			chipValidator( inputValue.value ) ? 'default' : 'error'
+		const status = computed( () => chipValidator( inputValue.value ) ? 'default' : 'error'
 		);
 		const messages = { error: 'Chip text is too long' };
 
 		const characterCount = computed( () => 10 - inputValue.value.length );
-		const limitClass = computed( () => {
-			return {
-				'cdx-demo-chip-input-limited__char-count--error': status.value === 'error'
-			};
-		} );
+		const limitClass = computed( () => ( {
+			'cdx-demo-chip-input-limited__char-count--error': status.value === 'error'
+		} ) );
 
 		return {
 			inputValue,

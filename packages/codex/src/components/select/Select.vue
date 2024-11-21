@@ -144,13 +144,12 @@ export default defineComponent( {
 		 * Configuration for various menu features. All properties default to false.
 		 *
 		 * See the MenuConfig type.
+		 *
 		 * @default {}
 		 */
 		menuConfig: {
 			type: Object as PropType<MenuConfig>,
-			default: () => {
-				return {} as MenuConfig;
-			}
+			default: () => ( {} as MenuConfig )
 		},
 
 		/**
@@ -212,17 +211,14 @@ export default defineComponent( {
 		// binding.
 		const modelWrapper = useModelWrapper( toRef( props, 'selected' ), emit, 'update:selected' );
 
-		const selectedMenuItem = computed( () =>
-			menu.value?.getComputedMenuItems().find( ( menuItem ) =>
-				menuItem.value === props.selected )
+		const selectedMenuItem = computed( () => menu.value?.getComputedMenuItems().find(
+			( menuItem ) => menuItem.value === props.selected )
 		);
 
 		// Set up the label that should display in the handle.
-		const currentLabel = computed( () => {
-			return selectedMenuItem.value ?
-				selectedMenuItem.value.label ?? selectedMenuItem.value.value :
-				props.defaultLabel;
-		} );
+		const currentLabel = computed( () => selectedMenuItem.value ?
+			selectedMenuItem.value.label ?? selectedMenuItem.value.value :
+			props.defaultLabel );
 
 		const startIcon = computed( () => {
 			if ( props.defaultIcon && !selectedMenuItem.value ) {
@@ -235,17 +231,15 @@ export default defineComponent( {
 			return undefined;
 		} );
 
-		const internalClasses = computed( (): Record<string, boolean> => {
-			return {
-				'cdx-select-vue--enabled': !computedDisabled.value,
-				'cdx-select-vue--disabled': computedDisabled.value,
-				'cdx-select-vue--expanded': expanded.value,
-				'cdx-select-vue--value-selected': !!selectedMenuItem.value,
-				'cdx-select-vue--no-selections': !selectedMenuItem.value,
-				'cdx-select-vue--has-start-icon': !!startIcon.value,
-				[ `cdx-select-vue--status-${ computedStatus.value }` ]: true
-			};
-		} );
+		const internalClasses = computed( (): Record<string, boolean> => ( {
+			'cdx-select-vue--enabled': !computedDisabled.value,
+			'cdx-select-vue--disabled': computedDisabled.value,
+			'cdx-select-vue--expanded': expanded.value,
+			'cdx-select-vue--value-selected': !!selectedMenuItem.value,
+			'cdx-select-vue--no-selections': !selectedMenuItem.value,
+			'cdx-select-vue--has-start-icon': !!startIcon.value,
+			[ `cdx-select-vue--status-${ computedStatus.value }` ]: true
+		} ) );
 
 		// Get helpers from useSplitAttributes.
 		const {

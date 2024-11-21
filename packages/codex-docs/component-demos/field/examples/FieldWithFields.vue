@@ -108,8 +108,7 @@ export default defineComponent( {
 		 */
 		function onLookupInput( value ) {
 			if ( value ) {
-				menuItems.value = units.filter( ( item ) =>
-					item.value.includes( value )
+				menuItems.value = units.filter( ( item ) => item.value.includes( value )
 				);
 				unitsStatus.value = menuItems.value.length === 0 ? 'error' : 'default';
 			} else {

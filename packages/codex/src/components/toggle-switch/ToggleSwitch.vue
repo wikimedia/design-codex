@@ -127,11 +127,9 @@ export default defineComponent( {
 		const inputId = useGeneratedId( 'toggle-switch' );
 		const descriptionId = useGeneratedId( 'description' );
 
-		const internalClasses = computed( (): Record<string, boolean> => {
-			return {
-				'cdx-toggle-switch--align-switch': props.alignSwitch
-			};
-		} );
+		const internalClasses = computed( (): Record<string, boolean> => ( {
+			'cdx-toggle-switch--align-switch': props.alignSwitch
+		} ) );
 
 		// Get helpers from useSplitAttributes.
 		const {

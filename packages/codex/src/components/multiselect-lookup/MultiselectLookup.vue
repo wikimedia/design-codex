@@ -164,13 +164,12 @@ export default defineComponent( {
 		 * Configuration for various menu features. All properties default to false.
 		 *
 		 * See the MenuConfig type.
+		 *
 		 * @default {}
 		 */
 		menuConfig: {
 			type: Object as PropType<MenuConfig>,
-			default: () => {
-				return {} as MenuConfig;
-			}
+			default: () => ( {} as MenuConfig )
 		}
 	},
 
@@ -251,12 +250,10 @@ export default defineComponent( {
 			toRef( props, 'status' )
 		);
 
-		const internalClasses = computed( () => {
-			return {
-				'cdx-multiselect-lookup--disabled': computedDisabled.value,
-				'cdx-multiselect-lookup--pending': pending.value
-			};
-		} );
+		const internalClasses = computed( () => ( {
+			'cdx-multiselect-lookup--disabled': computedDisabled.value,
+			'cdx-multiselect-lookup--pending': pending.value
+		} ) );
 		const {
 			rootClasses,
 			rootStyle,
@@ -277,8 +274,7 @@ export default defineComponent( {
 			'update:input-value'
 		);
 
-		const showNoResults = computed( () =>
-			computedInputValue.value.toString().length > 0 && slots[ 'no-results' ] );
+		const showNoResults = computed( () => computedInputValue.value.toString().length > 0 && slots[ 'no-results' ] );
 
 		/**
 		 * Handle input changes.
@@ -352,14 +348,16 @@ export default defineComponent( {
 		watch( toRef( props, 'selected' ), ( newVal ) => {
 			// Compare newVal with inputChipsWrapper. If something in newVal is missing from the
 			// chips, add it.
-			const newSelections = newVal.filter( ( selection ) =>
-				inputChipsWrapper.value.find( ( chip ) =>
-					selection === chip.value ) === undefined );
+			const newSelections = newVal.filter(
+				( selection ) => inputChipsWrapper.value
+					.find( ( chip ) => selection === chip.value ) === undefined
+			);
 
 			if ( newSelections.length > 0 ) {
 				newSelections.forEach( ( newSelection ) => {
-					const newMenuItem = menu.value?.getComputedMenuItems().find( ( menuItem ) =>
-						menuItem.value === newSelection );
+					const newMenuItem = menu.value?.getComputedMenuItems().find(
+						( menuItem ) => menuItem.value === newSelection
+					);
 					if ( newMenuItem ) {
 						// eslint-disable-next-line @typescript-eslint/no-unused-vars
 						const { id, ...newMenuItemWithoutId } = newMenuItem;
@@ -375,9 +373,9 @@ export default defineComponent( {
 			}
 
 			// Remove any chips that no longer match a selected value.
-			inputChipsWrapper.value = inputChipsWrapper.value.filter( ( chip ) => {
-				return newVal.find( ( selection ) => chip.value === selection ) !== undefined;
-			} );
+			inputChipsWrapper.value = inputChipsWrapper.value.filter(
+				( chip ) => newVal.find( ( selection ) => chip.value === selection ) !== undefined
+			);
 		} );
 
 		// Keep the selected values in line with the input chips.

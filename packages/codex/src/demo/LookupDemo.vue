@@ -32,9 +32,7 @@ const menuConfig: MenuConfig = {
 
 function onInput( value: string ) {
 	if ( value ) {
-		menuItems.value = vegetableItems.filter( ( item ) =>
-			item.label.includes( value )
-		);
+		menuItems.value = vegetableItems.filter( ( item ) => item.label.includes( value ) );
 
 		// eslint-disable-next-line no-console
 		console.log( `@input: ${ value }` );

@@ -158,11 +158,9 @@ export default defineComponent( {
 
 		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
 
-		const internalClasses = computed( () => {
-			return {
-				'cdx-search-input--has-end-button': !!props.buttonLabel || props.useButton
-			};
-		} );
+		const internalClasses = computed( () => ( {
+			'cdx-search-input--has-end-button': !!props.buttonLabel || props.useButton
+		} ) );
 
 		// Get helpers from useSplitAttributes.
 		const {
@@ -180,8 +178,7 @@ export default defineComponent( {
 		);
 
 		// DEPRECATED: require use of new prop useButton (T368444)
-		const useButtonOrLabel = computed( () =>
-			props.useButton || props.buttonLabel.length > 0
+		const useButtonOrLabel = computed( () => props.useButton || props.buttonLabel.length > 0
 		);
 
 		const handleSubmit = () => {

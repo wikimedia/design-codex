@@ -39,8 +39,9 @@ export default defineComponent( {
 	setup: ( props ) => {
 		// Splits the title into three chunks: the part before the search query, the part containing
 		// the search query, and the part after the search query.
-		const titleChunks = computed( () =>
-			splitStringAtMatch( props.searchQuery, String( props.title ) ) );
+		const titleChunks = computed(
+			() => splitStringAtMatch( props.searchQuery, String( props.title ) )
+		);
 
 		return {
 			titleChunks

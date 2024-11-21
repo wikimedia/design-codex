@@ -264,13 +264,12 @@ export default defineComponent( {
 		 *
 		 * If included, that language code will be added as a `lang` attribute to the element
 		 * wrapping that text node.
+		 *
 		 * @default {}
 		 */
 		language: {
 			type: Object as PropType<MenuItemLanguageData>,
-			default: () => {
-				return {};
-			}
+			default: () => ( {} )
 		},
 
 		/**
@@ -340,26 +339,24 @@ export default defineComponent( {
 
 		const highlightQuery = computed( () => props.searchQuery.length > 0 );
 
-		const rootClasses = computed( () : Record<string, boolean> => {
-			return {
-				'cdx-menu-item--selected': props.selected,
-				// Only show the active visual state when the menu item is both active and
-				// highlighted. This means, on mousedown -> mouseleave, the menu item is still
-				// technically tracked by the menu as active, but will not appear active to the
-				// user. This also means in the case of mousedown -> mouseleave -> mouseenter, the
-				// menu item will appear active again, and on click (releasing the mouse button),
-				// the item will be selected.
-				'cdx-menu-item--active': props.active && props.highlighted,
-				'cdx-menu-item--highlighted': props.highlighted,
-				'cdx-menu-item--destructive': props.action && props.action === 'destructive',
-				'cdx-menu-item--enabled': !props.disabled,
-				'cdx-menu-item--disabled': props.disabled,
-				'cdx-menu-item--highlight-query': highlightQuery.value,
-				'cdx-menu-item--bold-label': props.boldLabel,
-				'cdx-menu-item--has-description': !!props.description,
-				'cdx-menu-item--hide-description-overflow': props.hideDescriptionOverflow
-			};
-		} );
+		const rootClasses = computed( () : Record<string, boolean> => ( {
+			'cdx-menu-item--selected': props.selected,
+			// Only show the active visual state when the menu item is both active and
+			// highlighted. This means, on mousedown -> mouseleave, the menu item is still
+			// technically tracked by the menu as active, but will not appear active to the
+			// user. This also means in the case of mousedown -> mouseleave -> mouseenter, the
+			// menu item will appear active again, and on click (releasing the mouse button),
+			// the item will be selected.
+			'cdx-menu-item--active': props.active && props.highlighted,
+			'cdx-menu-item--highlighted': props.highlighted,
+			'cdx-menu-item--destructive': props.action && props.action === 'destructive',
+			'cdx-menu-item--enabled': !props.disabled,
+			'cdx-menu-item--disabled': props.disabled,
+			'cdx-menu-item--highlight-query': highlightQuery.value,
+			'cdx-menu-item--bold-label': props.boldLabel,
+			'cdx-menu-item--has-description': !!props.description,
+			'cdx-menu-item--hide-description-overflow': props.hideDescriptionOverflow
+		} ) );
 
 		// If a URL is provided for this menu item, the content will be wrapped in an <a> tag.
 		// Otherwise, it'll just be wrapped in a <span>.

@@ -212,18 +212,16 @@ export default defineComponent( {
 		// this component.
 		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
 
-		const isClearable = computed( () => {
-			return props.clearable && !!wrappedModel.value && !computedDisabled.value;
-		} );
+		const isClearable = computed(
+			() => props.clearable && !!wrappedModel.value && !computedDisabled.value
+		);
 
-		const internalClasses = computed( () => {
-			return {
-				'cdx-text-input--has-start-icon': !!props.startIcon,
-				'cdx-text-input--has-end-icon': !!props.endIcon,
-				'cdx-text-input--clearable': isClearable.value,
-				[ `cdx-text-input--status-${ computedStatus.value }` ]: true
-			};
-		} );
+		const internalClasses = computed( () => ( {
+			'cdx-text-input--has-start-icon': !!props.startIcon,
+			'cdx-text-input--has-end-icon': !!props.endIcon,
+			'cdx-text-input--clearable': isClearable.value,
+			[ `cdx-text-input--status-${ computedStatus.value }` ]: true
+		} ) );
 
 		// Get helpers from useSplitAttributes.
 		const {
@@ -242,11 +240,9 @@ export default defineComponent( {
 			return everythingElse;
 		} );
 
-		const inputClasses = computed( () => {
-			return {
-				'cdx-text-input__input--has-value': !!wrappedModel.value
-			};
-		} );
+		const inputClasses = computed( () => ( {
+			'cdx-text-input__input--has-value': !!wrappedModel.value
+		} ) );
 
 		const onClear = ( event: MouseEvent ) => {
 			wrappedModel.value = '';

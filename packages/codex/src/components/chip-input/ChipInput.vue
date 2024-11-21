@@ -196,16 +196,14 @@ export default defineComponent( {
 		// Whether the input is focused.
 		const isFocused = ref( false );
 
-		const internalClasses = computed( () => {
-			return {
-				'cdx-chip-input--has-separate-input': props.separateInput,
-				[ `cdx-chip-input--status-${ computedStatus.value }` ]: true,
-				// We need focused and disabled classes on the root element, which contains the
-				// chips and the input, since it is styled to look like the input.
-				'cdx-chip-input--focused': isFocused.value,
-				'cdx-chip-input--disabled': computedDisabled.value
-			};
-		} );
+		const internalClasses = computed( () => ( {
+			'cdx-chip-input--has-separate-input': props.separateInput,
+			[ `cdx-chip-input--status-${ computedStatus.value }` ]: true,
+			// We need focused and disabled classes on the root element, which contains the
+			// chips and the input, since it is styled to look like the input.
+			'cdx-chip-input--focused': isFocused.value,
+			'cdx-chip-input--disabled': computedDisabled.value
+		} ) );
 
 		// Get helpers from useSplitAttributes.
 		const {

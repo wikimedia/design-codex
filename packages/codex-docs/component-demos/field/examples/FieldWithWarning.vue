@@ -34,11 +34,9 @@ export default defineComponent( {
 		const inputValue = ref( '' );
 		const originalName = ref( '' );
 		const status = ref( 'default' );
-		const messages = computed( () => {
-			return {
-				warning: `The username was automatically changed from "${ originalName.value }" to "${ inputValue.value }".`
-			};
-		} );
+		const messages = computed( () => ( {
+			warning: `The username was automatically changed from "${ originalName.value }" to "${ inputValue.value }".`
+		} ) );
 
 		function onInput() {
 			// Reset status when input changes.

@@ -171,23 +171,18 @@ export default defineComponent( {
 		const slotControls = computed( () : SlotConfigWithValue[] => allControls.value.slotsInfo );
 
 		// Show a note about Icon props if there are any
-		const hasIconProp = computed( () => {
-			return props.controlsWithValues.some(
-				( currentControl ) => currentControl.type === 'icon' ||
+		const hasIconProp = computed( () => props.controlsWithValues.some(
+			( currentControl ) => currentControl.type === 'icon' ||
 					currentControl.type === 'slot-icon'
-			);
-		} );
+		) );
 
 		// When icon properties are included, make sure that the full dropdown menu
 		// can be seen without needing its own scroll bar
-		const rootClasses = computed( () => {
-			return {
-				'cdx-docs-controls--has-icon': hasIconProp.value
-			};
-		} );
+		const rootClasses = computed( () => ( {
+			'cdx-docs-controls--has-icon': hasIconProp.value
+		} ) );
 
-		const emitControlChange = ( name: string, value: string | number | boolean ) =>
-			emit( 'control-change', name, value );
+		const emitControlChange = ( name: string, value: string | number | boolean ) => emit( 'control-change', name, value );
 
 		/**
 		 * Reduce duplication by adding a helper method to determine which component

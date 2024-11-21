@@ -133,8 +133,7 @@ export default defineComponent( {
 		autoDismiss: {
 			type: [ Boolean, Number ],
 			default: false,
-			validator: ( value: unknown ) =>
-				typeof value === 'boolean' ||
+			validator: ( value: unknown ) => typeof value === 'boolean' ||
 				( typeof value === 'number' && value > 0 )
 		}
 	},
@@ -150,8 +149,7 @@ export default defineComponent( {
 	],
 	setup( props, { emit } ) {
 		const dismissed = ref( false );
-		const userDismissable = computed( () =>
-			props.inline === false &&
+		const userDismissable = computed( () => props.inline === false &&
 			// DEPRECATED: require use of new prop allowUserDismiss (T368444).
 			( props.dismissButtonLabel.length > 0 || props.allowUserDismiss )
 		);
@@ -174,18 +172,15 @@ export default defineComponent( {
 			return props.autoDismiss;
 		} );
 
-		const rootClasses = computed( (): Record<string, boolean> => {
-			return {
-				'cdx-message--inline': props.inline,
-				'cdx-message--block': !props.inline,
-				'cdx-message--user-dismissable': userDismissable.value,
-				[ `cdx-message--${ props.type }` ]: true
-			};
-		} );
+		const rootClasses = computed( (): Record<string, boolean> => ( {
+			'cdx-message--inline': props.inline,
+			'cdx-message--block': !props.inline,
+			'cdx-message--user-dismissable': userDismissable.value,
+			[ `cdx-message--${ props.type }` ]: true
+		} ) );
 
 		// For notice messages, use a custom icon if provided. Otherwise, use the default icon.
-		const computedIcon = computed( () =>
-			props.icon && props.type === 'notice' ? props.icon : iconMap[ props.type ]
+		const computedIcon = computed( () => props.icon && props.type === 'notice' ? props.icon : iconMap[ props.type ]
 		);
 
 		// Custom class for the leave-active transition. Will be set on dismissal.

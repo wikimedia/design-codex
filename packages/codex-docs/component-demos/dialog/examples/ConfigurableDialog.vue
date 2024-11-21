@@ -90,22 +90,18 @@ export default defineComponent( {
 	setup( props ) {
 		const open = ref( false );
 
-		const primaryAction = computed( () => {
-			return props.usePrimaryAction ?
-				{
-					label: props.primaryActionLabel,
-					actionType: props.primaryActionType,
-					disabled: props.primaryActionDisabled
-				} : undefined;
-		} );
+		const primaryAction = computed( () => props.usePrimaryAction ?
+			{
+				label: props.primaryActionLabel,
+				actionType: props.primaryActionType,
+				disabled: props.primaryActionDisabled
+			} : undefined );
 
-		const defaultAction = computed( () => {
-			return props.useDefaultAction ?
-				{
-					label: props.defaultActionLabel,
-					disabled: props.defaultActionDisabled
-				} : undefined;
-		} );
+		const defaultAction = computed( () => props.useDefaultAction ?
+			{
+				label: props.defaultActionLabel,
+				disabled: props.defaultActionDisabled
+			} : undefined );
 
 		return {
 			open,

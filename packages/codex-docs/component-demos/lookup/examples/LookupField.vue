@@ -146,13 +146,11 @@ export default defineComponent( {
 					}
 
 					// Build an array of menu items.
-					const results = data.search.map( ( result ) => {
-						return {
-							label: result.label,
-							value: result.id,
-							description: result.description
-						};
-					} );
+					const results = data.search.map( ( result ) => ( {
+						label: result.label,
+						value: result.id,
+						description: result.description
+					} ) );
 
 					// Update menuItems.
 					menuItems.value = results;
@@ -179,13 +177,11 @@ export default defineComponent( {
 						return;
 					}
 
-					const results = data.search.map( ( result ) => {
-						return {
-							label: result.label,
-							value: result.id,
-							description: result.description
-						};
-					} );
+					const results = data.search.map( ( result ) => ( {
+						label: result.label,
+						value: result.id,
+						description: result.description
+					} ) );
 
 					// Update menuItems.
 					const deduplicatedResults = deduplicateResults( results );

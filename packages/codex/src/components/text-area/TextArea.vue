@@ -184,21 +184,17 @@ export default defineComponent( {
 		);
 		const descriptionId = inject( FieldDescriptionIdKey, undefined );
 
-		const textareaClasses = computed( () => {
-			return {
-				'cdx-text-area__textarea--has-value': !!wrappedModel.value,
-				'cdx-text-area__textarea--is-autosize': props.autosize
-			};
-		} );
+		const textareaClasses = computed( () => ( {
+			'cdx-text-area__textarea--has-value': !!wrappedModel.value,
+			'cdx-text-area__textarea--is-autosize': props.autosize
+		} ) );
 
-		const internalClasses = computed( () => {
-			return {
-				'cdx-text-area--status-default': computedStatus.value === 'default',
-				'cdx-text-area--status-error': computedStatus.value === 'error',
-				'cdx-text-area--has-start-icon': !!props.startIcon,
-				'cdx-text-area--has-end-icon': !!props.endIcon
-			};
-		} );
+		const internalClasses = computed( () => ( {
+			'cdx-text-area--status-default': computedStatus.value === 'default',
+			'cdx-text-area--status-error': computedStatus.value === 'error',
+			'cdx-text-area--has-start-icon': !!props.startIcon,
+			'cdx-text-area--has-end-icon': !!props.endIcon
+		} ) );
 
 		// Get helpers from useSplitAttributes() composable.
 		const {

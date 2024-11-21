@@ -159,18 +159,14 @@ export default defineComponent( {
 			toRef( props, 'status' )
 		);
 
-		const rootClasses = computed( (): Record<string, boolean> => {
-			return {
-				'cdx-checkbox--inline': props.inline,
-				[ `cdx-checkbox--status-${ computedStatus.value }` ]: true
-			};
-		} );
+		const rootClasses = computed( (): Record<string, boolean> => ( {
+			'cdx-checkbox--inline': props.inline,
+			[ `cdx-checkbox--status-${ computedStatus.value }` ]: true
+		} ) );
 
-		const customInputClasses = computed( (): Record<string, boolean> => {
-			return {
-				'cdx-checkbox__custom-input--inline': props.inline
-			};
-		} );
+		const customInputClasses = computed( (): Record<string, boolean> => ( {
+			'cdx-checkbox__custom-input--inline': props.inline
+		} ) );
 
 		// Declare template ref.
 		const input = ref<HTMLInputElement>();

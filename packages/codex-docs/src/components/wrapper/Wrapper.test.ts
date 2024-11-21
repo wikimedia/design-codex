@@ -54,18 +54,14 @@ config.global.provide = {
 
 // Mock as if we are on the ToggleButton component page, for autoCodeTag tests - this is
 // set for all test cases to avoid duplication
-jest.mock( 'vitepress', () => {
-	return {
-		__esModule: true,
-		useRoute: jest.fn( () => {
-			return {
-				data: {
-					title: 'ToggleButton'
-				}
-			};
-		} )
-	};
-} );
+jest.mock( 'vitepress', () => ( {
+	__esModule: true,
+	useRoute: jest.fn( () => ( {
+		data: {
+			title: 'ToggleButton'
+		}
+	} ) )
+} ) );
 
 const CodeCopySelector = '.cdx-demo-wrapper__demo-pane__code-copy';
 const CodeToggleSelector = '.cdx-demo-wrapper__demo-pane__code-toggle';

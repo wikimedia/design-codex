@@ -136,18 +136,14 @@ export default defineComponent( {
 			toRef( props, 'status' )
 		);
 
-		const rootClasses = computed( (): Record<string, boolean> => {
-			return {
-				'cdx-radio--inline': props.inline,
-				[ `cdx-radio--status-${ computedStatus.value }` ]: true
-			};
-		} );
+		const rootClasses = computed( (): Record<string, boolean> => ( {
+			'cdx-radio--inline': props.inline,
+			[ `cdx-radio--status-${ computedStatus.value }` ]: true
+		} ) );
 
-		const customInputClasses = computed( (): Record<string, boolean> => {
-			return {
-				'cdx-radio__custom-input--inline': props.inline
-			};
-		} );
+		const customInputClasses = computed( (): Record<string, boolean> => ( {
+			'cdx-radio__custom-input--inline': props.inline
+		} ) );
 
 		// Declare template ref.
 		const input = ref<HTMLInputElement>();

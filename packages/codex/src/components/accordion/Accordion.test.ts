@@ -6,6 +6,7 @@ import CdxAccordion from './Accordion.vue';
  * Toggle the visibility of a `<details>` element.
  *
  * This works around limitations in @vue/test-utils and jsdom in their handling of `<details>`.
+ *
  * @param wrapper DOM wrapper for a `<details>` element (e.g. from `wrapper.find( 'details' )`)
  */
 async function toggleDetails( wrapper: DOMWrapper<HTMLDetailsElement> ) {

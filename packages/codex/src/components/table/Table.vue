@@ -502,7 +502,6 @@ export default defineComponent( {
 		 *
 		 * @property {number} offset Index of the first visible row on the new page.
 		 * @property {number} rows Number of rows to display.
-		 *
 		 */
 		'load-more',
 
@@ -660,17 +659,14 @@ export default defineComponent( {
 		const selectAllIndeterminate = ref( false );
 
 		// Sorting.
-		const activeSortColumn = computed( () => {
-			return Object.keys( props.sort )[ 0 ];
-		} );
-		const hasSortableColumns = computed( () => {
-			return props.columns.some( ( column ) => column.allowSort );
-		} );
+		const activeSortColumn = computed( () => Object.keys( props.sort )[ 0 ] );
+		const hasSortableColumns = computed(
+			() => props.columns.some( ( column ) => column.allowSort )
+		);
 
 		// Elements and CSS classes.
 		const tableClasses = computed( () => {
-			const useFixedLayout = props.columns?.some( ( column ) =>
-				( 'width' in column ) || ( 'minWidth' in column ) );
+			const useFixedLayout = props.columns?.some( ( column ) => ( 'width' in column ) || ( 'minWidth' in column ) );
 			return {
 				'cdx-table__table--layout-fixed': useFixedLayout,
 				'cdx-table__table--borders-vertical': props.showVerticalBorders
@@ -793,6 +789,7 @@ export default defineComponent( {
 
 		/**
 		 * Handle row selection changes.
+		 *
 		 * @param newSelectedRows New value of wrappedSelectedRows
 		 */
 		function handleRowSelection( newSelectedRows: number[] ) {
@@ -830,8 +827,9 @@ export default defineComponent( {
 			selectAllIndeterminate.value = false;
 
 			if ( newValue ) {
-				wrappedSelectedRows.value = props.data.map( ( row, rowIndex ) =>
-					getRowKey( row, rowIndex ) );
+				wrappedSelectedRows.value = props.data.map(
+					( row, rowIndex ) => getRowKey( row, rowIndex )
+				);
 			} else {
 				wrappedSelectedRows.value = [];
 			}

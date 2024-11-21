@@ -29,9 +29,7 @@ export default defineComponent( {
 
 		function onInput( value ) {
 			if ( value ) {
-				menuItems.value = vegetableItems.filter( ( item ) =>
-					item.label.includes( value )
-				);
+				menuItems.value = vegetableItems.filter( ( item ) => item.label.includes( value ) );
 			} else {
 				menuItems.value = [];
 			}

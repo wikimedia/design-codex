@@ -143,25 +143,22 @@ export default defineComponent( {
 		},
 		/**
 		 * Message text keyed on validation status type.
+		 *
 		 * @default {}
 		 */
 		messages: {
 			type: Object as PropType<ValidationMessages>,
-			default: () => {
-				return {};
-			}
+			default: () => ( {} )
 		}
 	},
 	setup( props, { slots } ) {
 		const { disabled, status, isFieldset } = toRefs( props );
 		const computedDisabled = useComputedDisabled( disabled );
 
-		const rootClasses = computed( () => {
-			return {
-				'cdx-field--disabled': computedDisabled.value,
-				'cdx-field--is-fieldset': isFieldset.value
-			};
-		} );
+		const rootClasses = computed( () => ( {
+			'cdx-field--disabled': computedDisabled.value,
+			'cdx-field--is-fieldset': isFieldset.value
+		} ) );
 
 		// An id attribute is added to the label in case it's useful to dev users.
 		const labelId = useGeneratedId( 'label' );
@@ -177,8 +174,8 @@ export default defineComponent( {
 		// Provide the input ID and description ID to child components
 		const computedInputId = computed( () => !isFieldset.value ? inputId : undefined );
 		provide( FieldInputIdKey, computedInputId );
-		const computedDescriptionId = computed( () =>
-			!isFieldset.value && slots.description ? descriptionId : undefined
+		const computedDescriptionId = computed(
+			() => !isFieldset.value && slots.description ? descriptionId : undefined
 		);
 		provide( FieldDescriptionIdKey, computedDescriptionId );
 
@@ -186,16 +183,14 @@ export default defineComponent( {
 		provide( DisabledKey, computedDisabled );
 		provide( FieldStatusKey, status );
 
-		const validationMessage = computed( () =>
-			props.status !== 'default' && props.status in props.messages ?
-				props.messages[ props.status ] :
-				''
+		const validationMessage = computed( () => props.status !== 'default' && props.status in props.messages ?
+			props.messages[ props.status ] :
+			''
 		);
 
 		// We don't allow notice validation messages, but this assures TypeScript that we won't try
 		// passing 'default' to the type prop of the Message component.
-		const validationMessageType = computed( () =>
-			props.status === 'default' ? 'notice' : props.status );
+		const validationMessageType = computed( () => props.status === 'default' ? 'notice' : props.status );
 
 		return {
 			rootClasses,

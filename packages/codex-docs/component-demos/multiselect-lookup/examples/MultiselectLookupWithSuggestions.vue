@@ -52,9 +52,7 @@ export default defineComponent( {
 		 */
 		function onInput( value ) {
 			if ( value ) {
-				menuItems.value = vegetableItems.filter( ( item ) =>
-					item.label.includes( value )
-				);
+				menuItems.value = vegetableItems.filter( ( item ) => item.label.includes( value ) );
 			} else {
 				// When the input is cleared, show the suggestions again.
 				menuItems.value = initialMenuItems;

@@ -149,9 +149,7 @@ export default defineComponent( {
 		 */
 		controlsConfig: {
 			type: Array as PropType<ControlsConfig>,
-			default: () => {
-				return [];
-			}
+			default: () => []
 		},
 		/**
 		 * Add controls, even if no configuration is provided.
@@ -227,29 +225,26 @@ export default defineComponent( {
 		const hasCodeSlot = !!slots?.code;
 		const hasCodeSample = computed( () => hasCodeSlot || props.showGeneratedCode );
 		const showCode = ref( false );
-		const codeToggleLabel = computed( () => {
-			return showCode.value === true ? 'Hide code' : 'Show code';
-		} );
+		const codeToggleLabel = computed( () => showCode.value === true ? 'Hide code' : 'Show code' );
 		const slottedCodeWrapper = ref<HTMLDivElement>();
 		const generatedCodeWrapper = ref<HTMLDivElement>();
 
 		// Set up controls if config is provided.
-		const hasControls = computed( () =>
-			props.controlsConfig.length > 0 || props.forceControls );
+		const hasControls = computed(
+			() => props.controlsConfig.length > 0 || props.forceControls
+		);
 
 		// Set up reset button if configuration is provided, or if the demo wants to
 		// show the button anyway
 		const includeReset = computed( () => hasControls.value || props.forceReset );
 
-		const rootClasses = computed( () => {
-			return {
-				'cdx-demo-wrapper--has-code': hasCodeSample.value,
-				'cdx-demo-wrapper--has-reset': includeReset.value,
-				'cdx-demo-wrapper--code-expanded': showCode.value,
-				'cdx-demo-wrapper--allow-link-styles': props.allowLinkStyles,
-				'cdx-demo-wrapper--allow-table-styles': props.allowTableStyles
-			};
-		} );
+		const rootClasses = computed( () => ( {
+			'cdx-demo-wrapper--has-code': hasCodeSample.value,
+			'cdx-demo-wrapper--has-reset': includeReset.value,
+			'cdx-demo-wrapper--code-expanded': showCode.value,
+			'cdx-demo-wrapper--allow-link-styles': props.allowLinkStyles,
+			'cdx-demo-wrapper--allow-table-styles': props.allowTableStyles
+		} ) );
 
 		// Work around undesired behavior in VitePress that takes over link click handling.
 		// See https://github.com/vuejs/vitepress/issues/591 and T304894.
@@ -322,19 +317,18 @@ export default defineComponent( {
 		 * either the 'initial' field of the control, if set, or the default value, if not.
 		 */
 		const initialControlValues = props.controlsConfig.map(
-			( config ) : ControlConfigWithValue => {
-				// defaultControlValues only holds values appropriate for the
-				// type of the config, but typescript doesn't know that because
-				// it is typed as `Record<string, string|boolean|number>` and
-				// doesn't realize that the values are okay for the config name,
-				// so it complains about trying to assign incompatible types.
-				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-				// @ts-ignore
-				return {
-					...config,
-					value: config.initial ?? defaultControlValues[ config.name ]
-				};
-			}
+			// defaultControlValues only holds values appropriate for the
+			// type of the config, but typescript doesn't know that because
+			// it is typed as `Record<string, string|boolean|number>` and
+			// doesn't realize that the values are okay for the config name,
+			// so it complains about trying to assign incompatible types.
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			// @ts-ignore
+			( config ) : ControlConfigWithValue => ( {
+				...config,
+				value: config.initial ?? defaultControlValues[ config.name ]
+			} )
+
 		);
 
 		/**

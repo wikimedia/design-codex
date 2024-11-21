@@ -60,15 +60,12 @@ export default defineComponent( {
 		}
 	},
 	setup( props ) {
-		const rootClasses = computed( (): Record<string, boolean> => {
-			return {
-				[ `cdx-info-chip--${ props.status }` ]: true
-			};
-		} );
+		const rootClasses = computed( (): Record<string, boolean> => ( {
+			[ `cdx-info-chip--${ props.status }` ]: true
+		} ) );
 
 		// For notice messages, use a custom icon if provided. Otherwise, use the default icon.
-		const computedIcon = computed( () =>
-			props.status === 'notice' ? props.icon : iconMap[ props.status ]
+		const computedIcon = computed( () => props.status === 'notice' ? props.icon : iconMap[ props.status ]
 		);
 
 		return {

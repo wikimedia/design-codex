@@ -29,8 +29,8 @@ export default defineComponent( {
 	setup() {
 		const selection = ref( 'Q81' );
 		const inputValue = ref( 'carrot' );
-		const menuItems = computed( () => vegetableItems.filter( ( item ) =>
-			item.label.includes( inputValue.value )
+		const menuItems = computed( () => vegetableItems.filter(
+			( item ) => item.label.includes( inputValue.value )
 		) );
 
 		const menuConfig = {

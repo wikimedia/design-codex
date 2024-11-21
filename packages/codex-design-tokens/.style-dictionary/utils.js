@@ -8,6 +8,7 @@ const require = createRequire( import.meta.url );
 
 /**
  * Get the version number from package.json.
+ *
  * @return {string}
  */
 export function getPackageVersion() {

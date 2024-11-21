@@ -28,9 +28,7 @@ export default defineComponent( {
 	},
 	setup() {
 		const inputValue = ref( '' );
-		const status = computed( () =>
-			inputValue.value.length > 1 ? 'error' : 'default'
-		);
+		const status = computed( () => inputValue.value.length > 1 ? 'error' : 'default' );
 		const messages = { error: 'Your username is too long' };
 
 		return {

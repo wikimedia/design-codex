@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import postcssRtlcss from 'postcss-rtlcss';
 import autoprefixer from 'autoprefixer';
+// eslint-disable-next-line n/no-missing-import
 import { codexIconNames } from './build/utils.mjs';
 
 // See build.mjs for build settings; this file is only used during dev mode

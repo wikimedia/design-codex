@@ -25,9 +25,7 @@ const renderTags = ( tags ) => {
 		return '';
 	}
 	return Object.entries( tags )
-		.map( ( [ tag, values ] ) => {
-			return values.map( ( v ) => `<br/>\`@${ tag }\` ${ isTag( v ) ? v.content : v.description }` ).join( '' );
-		} )
+		.map( ( [ tag, values ] ) => values.map( ( v ) => `<br/>\`@${ tag }\` ${ isTag( v ) ? v.content : v.description }` ).join( '' ) )
 		.join( '' );
 };
 
@@ -38,11 +36,9 @@ const renderTags = ( tags ) => {
  * @param {PropDescriptor[]} props This component's props
  * @return {boolean}
  */
-const includeValuesCol = ( props ) => {
-	return props.some(
-		( currentProp ) => currentProp.values
-	);
-};
+const includeValuesCol = ( props ) => props.some(
+	( currentProp ) => currentProp.values
+);
 
 /**
  * Returns a formatted markdown table body with prop information.

@@ -65,9 +65,7 @@ export default defineComponent( {
 		}
 
 		function handleSelection( newSelected ) {
-			chips.value = newSelected.map( ( value ) => {
-				return { value };
-			} );
+			chips.value = newSelected.map( ( value ) => ( { value } ) );
 		}
 
 		/**

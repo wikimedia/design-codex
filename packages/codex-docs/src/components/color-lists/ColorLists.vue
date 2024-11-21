@@ -87,10 +87,10 @@ function getColorSets( tokens: DesignTokensTree ): ColorSet[] {
 			category: capitalizedCategory,
 			items
 		};
-	} ).filter( ( set ) => {
+	} ).filter(
 		// Filter out sets with no items yet.
-		return set.items.length > 0;
-	} );
+		( set ) => set.items.length > 0
+	);
 }
 defineExpose( { getColorSets } );
 

@@ -1,7 +1,7 @@
-// svglint doesn't have type defs, so improvise some here.
-/** @typedef {import('cheerio').Cheerio<import('cheerio').Document>} CheerioDocument */
-/** @typedef {import('cheerio').Node} CheerioNode */
-/** @typedef {{ error: ( msg: string, node: CheerioNode, ast: any ) => void }} Reporter */
+/* eslint-disable
+	@typescript-eslint/no-unsafe-assignment,
+	@typescript-eslint/no-unsafe-argument,
+	@typescript-eslint/no-unsafe-member-access */
 
 export default {
 	rules: {
@@ -29,11 +29,8 @@ export default {
 				fill: false
 			}
 		],
-		/**
-		 * @param {Reporter} reporter
-		 * @param {CheerioDocument} $
-		 * @param {any} ast
-		 */
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
 		custom( reporter, $, ast ) {
 			// Require the first thing in the file to be an `<?xml ?>` declaration.
 			const documentNode = $[ 0 ];
@@ -41,7 +38,7 @@ export default {
 
 			if (
 				firstChild &&
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
+
 				firstChild.type === 'directive' &&
 				firstChild.name === '?xml'
 			) {
@@ -56,6 +53,7 @@ export default {
 				}
 			}
 
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 			reporter.error(
 				'File must start exactly with `<?xml version="1.0" encoding="UTF-8"?>` declaration',
 				firstChild ?? documentNode,

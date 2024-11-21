@@ -68,8 +68,7 @@ describe( 'useI18n', () => {
 				},
 				global: {
 					provide: {
-						CdxI18nFunction: ( key: string, n: number ) =>
-							key === 'cdx-search-input-search-button-label' ? `provided text ${ n }` : null
+						CdxI18nFunction: ( key: string, n: number ) => key === 'cdx-search-input-search-button-label' ? `provided text ${ n }` : null
 					}
 				}
 			} );
@@ -84,8 +83,7 @@ describe( 'useI18n', () => {
 				},
 				global: {
 					provide: {
-						CdxI18nFunction: ( key: string, n: number ) =>
-							key === 'cdx-search-input-search-button-label' ? `provided text ${ n }` : null
+						CdxI18nFunction: ( key: string, n: number ) => key === 'cdx-search-input-search-button-label' ? `provided text ${ n }` : null
 					}
 				}
 			} );
