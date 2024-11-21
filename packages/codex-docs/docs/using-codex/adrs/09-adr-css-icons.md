@@ -253,7 +253,7 @@ example above, will yield the following CSS:
 
 ```css
 .my-feature__icon--trash {
-	background-color: #d73333;
+	background-color: #bf3c2c;
 	display: inline-block;
 	min-width: 20px;
 	min-height: 20px;
