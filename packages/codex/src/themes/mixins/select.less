@@ -12,7 +12,7 @@
 	border-radius: @border-radius-base;
 	padding-top: @spacing-25;
 	padding-bottom: @spacing-25;
-	padding-left: @spacing-50;
+	padding-left: @spacing-75;
 	.cdx-mixin-icon-wrapper-padding( end, @spacing-50 );
 	font-size: inherit;
 	line-height: @line-height-xx-small;
@@ -26,26 +26,26 @@
 
 .cdx-select__handle--enabled() {
 	background-color: @background-color-interactive-subtle;
-	color: @color-subtle;
-	border-color: @border-color-interactive;
+	color: @color-base;
+	border-color: @border-color-base;
 	transition-property: @transition-property-base;
 	transition-duration: @transition-duration-base;
 
 	&:hover {
-		background-color: @background-color-interactive-subtle--hover;
-		border-color: @border-color-interactive--hover;
+		background-color: @background-color-base;
+		color: @color-base--hover;
+		border-color: @border-color-base;
 		cursor: @cursor-base--hover;
 	}
 
-	&:focus:not( :active ) {
-		background-color: @background-color-base;
+	&:focus {
 		border-color: @border-color-progressive--focus;
 		box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 		outline: @outline-base--focus;
 	}
 
 	&:active {
-		background-color: @background-color-interactive-subtle--active;
-		border-color: @border-color-interactive--active;
+		color: @color-emphasized;
+		border-color: @border-color-interactive;
 	}
 }
