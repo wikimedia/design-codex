@@ -1,22 +1,20 @@
 <template>
 	<cdx-lookup
-		v-model:selected="wrappedModel"
-		v-model:input-value="inputValue"
+		v-model:selected="selection"
+		v-model:input-value="input"
 		class="cdx-docs-icon-lookup"
 		:menu-items="menuItems"
 		:menu-config="menuConfig"
 		:clearable="true"
 		placeholder="Start typing an icon name"
-		@update:input-value="getMenuItems"
 	/>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, toRef, watch } from 'vue';
-import { CdxLookup, MenuItemData, MenuConfig, useModelWrapper } from '@wikimedia/codex';
+import { defineComponent, ref, toRef, computed, watch, nextTick } from 'vue';
+import { CdxLookup, MenuConfig, useModelWrapper } from '@wikimedia/codex';
 import * as allIcons from '@wikimedia/codex-icons';
 import { Icon } from '@wikimedia/codex-icons';
-import { nextTick } from 'vue';
 
 // Icon data based on AllIcons.vue in icon demo
 // Type is compatible with MenuItemData
@@ -71,50 +69,43 @@ export default defineComponent( {
 	],
 
 	setup( props, { emit } ) {
-		// Take the modelValue provided by the parent component via v-model and
-		// generate a wrapped model that we can use for the model in the inner lookup,
-		// maintaining reactivity
-		const modelValueProp = toRef( props, 'modelValue' );
-		const wrappedModel = useModelWrapper( modelValueProp, emit );
-		const menuItems = ref<MenuItemData[]>( [] );
-		const inputValue = ref( wrappedModel.value );
+		const selection = useModelWrapper( toRef( props, 'modelValue' ), emit );
+		const input = ref( selection.value );
 
 		const menuConfig: MenuConfig = {
 			boldLabel: true
 		};
 
-		function getMenuItems( value: string ) {
-			if ( value ) {
+		const menuItems = computed( () => {
+			if ( input.value ) {
 				// Filter is case-insensitive
-				const lowerCased = value.toLowerCase();
+				const lowerCased = input.value.toLowerCase();
 				// Limit to at most 10 icons
-				menuItems.value = displayIcons
+				return displayIcons
 					.filter( ( item ) => item.value.toLowerCase().includes( lowerCased ) )
 					.slice( 0, 10 );
 			} else {
 				// Clear current filtered items
-				menuItems.value = [];
+				return [];
 			}
-		}
-
-		// When the modelValueProp changes from above, this means that the demo was reset,
-		// and we want to make sure that the menu actually uses the new value
-		watch( modelValueProp, async ( newValue: string ) => {
-			getMenuItems( newValue );
-			await nextTick();
-			inputValue.value = newValue;
 		} );
 
-		// Normally, we want to start with an empty menu set, *but* if the model value
-		// is set to have an initial icon, we want to make sure that it is available.
-		onMounted( () => getMenuItems( props.modelValue ) );
+		// If the selection changes to a non-null value, and that value
+		// does not match the current  value in the text input, then update
+		// the latter to match the former (after waiting for child components
+		// to fully render);
+		watch( selection, async ( newValue ) => {
+			await nextTick();
+			if ( newValue && newValue !== input.value ) {
+				input.value = newValue;
+			}
+		} );
 
 		return {
-			wrappedModel,
+			selection,
 			menuItems,
-			inputValue,
-			menuConfig,
-			getMenuItems
+			input,
+			menuConfig
 		};
 	}
 } );

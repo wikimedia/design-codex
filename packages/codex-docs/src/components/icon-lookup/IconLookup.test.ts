@@ -75,10 +75,12 @@ describe( 'IconLookup', () => {
 	it( 'clears options when input value is empty string', async () => {
 		const wrapper = mount( CdxDocsIconLookup, { props: { modelValue: '' } } );
 		const textInputWrapper = wrapper.findComponent( CdxTextInput );
+
 		// First filter to 'cdx' so that we know the menu items are not empty
 		textInputWrapper.vm.$emit( 'update:modelValue', 'cdx' );
 		await nextTick();
 		expect( wrapper.vm.menuItems.length ).toBe( 10 );
+
 		// Now clear the input, should lead to 0 options
 		textInputWrapper.vm.$emit( 'update:modelValue', '' );
 		await nextTick();
@@ -92,6 +94,7 @@ describe( 'IconLookup', () => {
 
 		// From no model value, as if the input had been cleared, set to cdxIconTag
 		await wrapper.setProps( { modelValue: 'cdxIconTag' } );
+		await nextTick();
 
 		// Should only have that single icon set
 		expect( wrapper.vm.menuItems.length ).toBe( 1 );
@@ -99,8 +102,6 @@ describe( 'IconLookup', () => {
 			{ value: 'cdxIconTag', icon: cdxIconTag }
 		);
 
-		// We await a tick before setting the inputValue, so we need to await 2 here.
-		await nextTick();
 		await nextTick();
 		// Should also be the <input> value.
 		const input = wrapper.find( 'input' ).element as HTMLInputElement;
