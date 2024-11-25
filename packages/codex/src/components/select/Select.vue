@@ -386,23 +386,17 @@ export default defineComponent( {
 	&--enabled {
 		.cdx-select-vue__handle {
 			.cdx-select__handle--enabled();
+		}
 
-			&:hover {
-				.cdx-select-vue__indicator {
-					color: @color-base--hover;
-				}
-			}
+		// Enabled and a value is selected.
+		&.cdx-select-vue--value-selected .cdx-select-vue__handle {
+			color: @color-base;
 		}
 
 		/* Expanded Menu only happens when enabled. */
 		&.cdx-select-vue--expanded {
 			.cdx-select-vue__handle {
 				background-color: @background-color-base;
-
-				/* stylelint-disable-next-line max-nesting-depth */
-				.cdx-select-vue__indicator {
-					color: @color-subtle;
-				}
 			}
 		}
 	}
@@ -426,7 +420,7 @@ export default defineComponent( {
 	/* stylelint-enable no-descending-specificity */
 
 	&--status-error&--enabled {
-		.cdx-select-vue__handle:not( :focus ) {
+		.cdx-select-vue__handle {
 			background-color: @background-color-error-subtle;
 			color: @color-error;
 			border-color: @border-color-error;
@@ -435,7 +429,7 @@ export default defineComponent( {
 				color: @color-error;
 			}
 
-			&:hover {
+			&:hover:not( :focus ) {
 				background-color: @background-color-error-subtle--hover;
 				color: @color-error--hover;
 				border-color: @border-color-error--hover;
@@ -443,6 +437,30 @@ export default defineComponent( {
 				.cdx-select-vue__start-icon {
 					color: @color-error--hover;
 				}
+			}
+
+			/* stylelint-disable-next-line no-descending-specificity */
+			&:active {
+				background-color: @background-color-error-subtle--active;
+				color: @color-error--active;
+				border-color: @border-color-error--active;
+
+				/* stylelint-disable-next-line no-descending-specificity */
+				.cdx-select-vue__start-icon {
+					color: @color-error--active;
+				}
+			}
+
+			&:focus:not( :active ) {
+				color: @color-subtle;
+			}
+		}
+
+		&.cdx-select-vue--value-selected .cdx-select-vue__handle:focus:not( :active ) {
+			color: @color-base;
+
+			.cdx-select-vue__start-icon {
+				color: @color-base;
 			}
 		}
 	}
