@@ -42,7 +42,7 @@
 		"escape-html": "1.0.3",
 		"prism-themes": "1.9.0",
 		"prismjs": "1.27.0",
-		"svglint": "2.7.1",
+		"svglint": "3.1.0",
 		"svgo": "3.3.2",
 		"vue": "3.4.27"
 	},
