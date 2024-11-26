@@ -745,6 +745,9 @@ export const cdxIconPrevious: IconFlipForRtl = {
 	shouldFlip: true
 };
 
+import svgPower from './images/power.svg';
+export const cdxIconPower = svgPower;
+
 import svgPrinter from './images/printer.svg';
 export const cdxIconPrinter = svgPrinter;
 
