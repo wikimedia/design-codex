@@ -170,11 +170,18 @@ class Tooltip {
 
 const CdxTooltip : Directive = {
 	mounted( el: StatefulDirectiveElement, { value, arg } ) {
+		if ( !value ) {
+			return;
+		}
+
+		if ( typeof value === 'string' && value.trim() === '' ) {
+			return;
+		}
+
 		el.tooltip = new Tooltip( el, {
 			textContent: String( value ),
 			placement: arg as Placement
 		} );
-
 	},
 
 	beforeUnmount( el: StatefulDirectiveElement ) {
