@@ -1023,5 +1023,13 @@
 			"deprecated": true,
 			"value": "{ color.red100 }"
 		}
+	},
+	"mix-blend-mode": {
+		"200": {
+			"value": "multiply"
+		},
+		"300": {
+			"value": "screen"
+		}
 	}
 }

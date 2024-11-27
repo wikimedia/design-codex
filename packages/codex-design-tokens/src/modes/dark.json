@@ -31,7 +31,13 @@
 			"value": "{ color.gray50 }"
 		},
 		"progressive-subtle": {
+			"value": "{ color.blue1000 }"
+		},
+		"progressive-subtle--hover": {
 			"value": "{ color.blue900 }"
+		},
+		"progressive-subtle--active": {
+			"value": "{ color.blue800 }"
 		},
 		"progressive--focus": {
 			"value": "{ color.blue500 }"
@@ -40,22 +46,28 @@
 			"value": "{ color.blue500 }"
 		},
 		"destructive-subtle": {
+			"value": "{ color.red1000 }"
+		},
+		"destructive-subtle--hover": {
 			"value": "{ color.red900 }"
 		},
-		"error-subtle": {
-			"value": "{ color.red900 }"
-		},
-		"error-subtle--hover": {
+		"destructive-subtle--active": {
 			"value": "{ color.red800 }"
 		},
+		"error-subtle": {
+			"value": "{ color.red1000 }"
+		},
+		"error-subtle--hover": {
+			"value": "{ color.red900 }"
+		},
 		"error-subtle--active": {
-			"value": "{ color.red700 }"
+			"value": "{ color.red800 }"
 		},
 		"warning-subtle": {
-			"value": "{ color.yellow900 }"
+			"value": "{ color.yellow1000 }"
 		},
 		"success-subtle": {
-			"value": "{ color.green900 }"
+			"value": "{ color.green1000 }"
 		},
 		"notice-subtle": {
 			"value": "{ color.gray800 }"
@@ -171,10 +183,10 @@
 			"value": "{ color.gray700 }"
 		},
 		"interactive--hover": {
-			"value": "{ color.gray300 }"
+			"value": "{ color.gray400 }"
 		},
 		"interactive--active": {
-			"value": "{ color.gray200 }"
+			"value": "{ color.gray300 }"
 		},
 		"disabled": {
 			"value": "{ color.gray600 }"
@@ -182,17 +194,29 @@
 		"inverted": {
 			"value": "{ color.gray1000 }"
 		},
+		"progressive--hover": {
+			"value": "{ color.blue400 }"
+		},
+		"progressive--active": {
+			"value": "{ color.blue300 }"
+		},
 		"progressive--focus": {
 			"value": "{ color.blue500 }"
+		},
+		"destructive--hover": {
+			"value": "{ color.red400 }"
+		},
+		"destructive--active": {
+			"value": "{ color.red300 }"
 		},
 		"destructive--focus": {
 			"value": "{ color.blue500 }"
 		},
 		"error--hover": {
-			"value": "{ color.red300 }"
+			"value": "{ color.red400 }"
 		},
 		"error--active": {
-			"value": "{ color.red200 }"
+			"value": "{ color.red300 }"
 		},
 		"content-added": {
 			"value": "{ color.blue900 }"
@@ -215,6 +239,11 @@
 			"destructive--focus": {
 				"value": "{ color.blue500 }"
 			}
+		}
+	},
+	"mix-blend-mode": {
+		"blend": {
+			"value": "{ mix-blend-mode.300 }"
 		}
 	}
 }

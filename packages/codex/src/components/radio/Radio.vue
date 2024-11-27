@@ -240,11 +240,11 @@ export default defineComponent( {
 				& + .cdx-radio__icon {
 					background-color: @background-color-base-fixed;
 					border-width: @border-width-input-radio--checked;
-					border-color: @border-color-progressive;
+					border-color: @background-color-progressive;
 				}
 
 				&:hover + .cdx-radio__icon {
-					border-color: @border-color-progressive--hover;
+					border-color: @background-color-progressive--hover;
 				}
 
 				&:focus + .cdx-radio__icon {
@@ -257,10 +257,10 @@ export default defineComponent( {
 				// focus outline would be visible when actively clicked.
 				&:active + .cdx-radio__icon {
 					background-color: @background-color-base-fixed;
-					border-color: @border-color-progressive--active;
+					border-color: @background-color-progressive--active;
 
 					&::before {
-						border-color: @border-color-progressive--active;
+						border-color: @background-color-progressive--active;
 					}
 				}
 			}

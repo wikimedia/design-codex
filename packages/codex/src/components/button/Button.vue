@@ -157,33 +157,24 @@ export default defineComponent( {
 	&.cdx-button--fake-button--enabled {
 		background-color: @background-color-interactive-subtle;
 		color: @color-base;
-		border-color: @border-color-base;
+		border-color: @border-color-interactive;
 
 		.cdx-button__icon {
 			.cdx-mixin-button-css-icon-fallback-color( @color-base );
 		}
 
 		&:hover {
-			background-color: @background-color-base;
-			color: @color-base--hover;
+			background-color: @background-color-interactive-subtle--hover;
+			border-color: @border-color-interactive--hover;
 			// Use hand cursor. This is nonstandard for a button but allows for a visible
 			// interactivity distinction from the disabled state.
 			cursor: @cursor-base--hover;
-
-			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-fallback-color( @color-base--hover );
-			}
 		}
 
 		&:active,
 		&.cdx-button--is-active {
-			background-color: @background-color-interactive;
-			color: @color-emphasized;
-			border-color: @border-color-interactive;
-
-			.cdx-button__icon {
-				.cdx-mixin-button-css-icon-fallback-color( @color-emphasized );
-			}
+			background-color: @background-color-interactive-subtle--active;
+			border-color: @border-color-interactive--active;
 		}
 
 		&:focus {
@@ -204,13 +195,16 @@ export default defineComponent( {
 
 		// Normal progressive buttons.
 		&.cdx-button--action-progressive {
+			background-color: @background-color-progressive-subtle;
 			color: @color-progressive;
+			border-color: @border-color-progressive;
 
 			.cdx-button__icon {
 				.cdx-mixin-button-css-icon-fallback-color( @color-progressive );
 			}
 
 			&:hover {
+				background-color: @background-color-progressive-subtle--hover;
 				color: @color-progressive--hover;
 				border-color: @border-color-progressive--hover;
 
@@ -221,7 +215,7 @@ export default defineComponent( {
 
 			&:active,
 			&.cdx-button--is-active {
-				background-color: @background-color-progressive-subtle;
+				background-color: @background-color-progressive-subtle--active;
 				color: @color-progressive--active;
 				border-color: @border-color-progressive--active;
 
@@ -236,7 +230,9 @@ export default defineComponent( {
 
 		// Normal destructive buttons.
 		&.cdx-button--action-destructive {
+			background-color: @background-color-destructive-subtle;
 			color: @color-destructive;
+			border-color: @border-color-destructive;
 
 			/* stylelint-disable-next-line no-descending-specificity */
 			.cdx-button__icon {
@@ -244,6 +240,7 @@ export default defineComponent( {
 			}
 
 			&:hover {
+				background-color: @background-color-destructive-subtle--hover;
 				color: @color-destructive--hover;
 				border-color: @border-color-destructive--hover;
 
@@ -254,7 +251,7 @@ export default defineComponent( {
 
 			&:active,
 			&.cdx-button--is-active {
-				background-color: @background-color-destructive-subtle;
+				background-color: @background-color-destructive-subtle--active;
 				color: @color-destructive--active;
 				border-color: @border-color-destructive--active;
 
@@ -275,29 +272,15 @@ export default defineComponent( {
 			&.cdx-button--action-progressive {
 				background-color: @background-color-progressive;
 				color: @color-inverted-fixed;
-				border-color: @border-color-progressive;
-
-				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
-				}
+				border-color: @border-color-transparent;
 
 				&:hover {
 					background-color: @background-color-progressive--hover;
-					border-color: @border-color-progressive--hover;
-
-					.cdx-button__icon {
-						.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
-					}
 				}
 
 				&:active,
 				&.cdx-button--is-active {
 					background-color: @background-color-progressive--active;
-					border-color: @border-color-progressive--active;
-
-					.cdx-button__icon {
-						.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
-					}
 				}
 
 				&:focus:not( :active ):not( .cdx-button--is-active ) {
@@ -315,30 +298,19 @@ export default defineComponent( {
 			&.cdx-button--action-destructive {
 				background-color: @background-color-destructive;
 				color: @color-inverted-fixed;
-				border-color: @border-color-destructive;
+				border-color: @border-color-transparent;
 
-				/* stylelint-disable-next-line no-descending-specificity */
 				.cdx-button__icon {
 					.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
 				}
 
 				&:hover {
 					background-color: @background-color-destructive--hover;
-					border-color: @border-color-destructive--hover;
-
-					.cdx-button__icon {
-						.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
-					}
 				}
 
 				&:active,
 				&.cdx-button--is-active {
 					background-color: @background-color-destructive--active;
-					border-color: @border-color-destructive--active;
-
-					.cdx-button__icon {
-						.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
-					}
 				}
 
 				&:focus:not( :active ):not( .cdx-button--is-active ) {
@@ -362,19 +334,14 @@ export default defineComponent( {
 			border-color: @border-color-transparent;
 
 			&:hover {
-				background-color: @background-color-button-quiet--hover;
+				background-color: @background-color-interactive-subtle--hover;
+				/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+				mix-blend-mode: @mix-blend-mode-blend;
 			}
 
 			&:active,
 			&.cdx-button--is-active {
-				background-color: @background-color-button-quiet--active;
-				color: @color-emphasized;
-				border-color: @border-color-interactive;
-
-				/* stylelint-disable-next-line no-descending-specificity */
-				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-fallback-color( @color-emphasized );
-				}
+				background-color: @background-color-interactive-subtle--active;
 			}
 
 			// `:focus` styles are the same as normal buttons.
@@ -383,14 +350,14 @@ export default defineComponent( {
 			&.cdx-button--action-progressive {
 				color: @color-progressive;
 
-				/* stylelint-disable-next-line no-descending-specificity */
 				.cdx-button__icon {
 					.cdx-mixin-button-css-icon-fallback-color( @color-progressive );
 				}
 
 				&:hover {
-					background-color: @background-color-progressive-subtle;
+					background-color: @background-color-progressive-subtle--hover;
 					color: @color-progressive--hover;
+					border-color: @border-color-transparent;
 
 					.cdx-button__icon {
 						.cdx-mixin-button-css-icon-fallback-color( @color-progressive--hover );
@@ -399,16 +366,20 @@ export default defineComponent( {
 
 				&:active,
 				&.cdx-button--is-active {
-					background-color: @background-color-progressive--active;
-					color: @color-inverted-fixed;
-					border-color: @border-color-progressive--active;
+					background-color: @background-color-progressive-subtle--active;
+					color: @color-progressive--active;
+					border-color: @border-color-transparent;
 
 					.cdx-button__icon {
-						.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
+						.cdx-mixin-button-css-icon-fallback-color( @color-progressive--active );
 					}
 				}
 
-				// `:focus` styles are the same as normal progressive buttons.
+				&:focus:not( :active ):not( .cdx-button--is-active ) {
+					border-color: @border-color-progressive--focus;
+					box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+				}
+
 				// `color` inherited from `:enabled` rule.
 			}
 
@@ -422,8 +393,9 @@ export default defineComponent( {
 				}
 
 				&:hover {
-					background-color: @background-color-destructive-subtle;
+					background-color: @background-color-destructive-subtle--hover;
 					color: @color-destructive--hover;
+					border-color: @border-color-transparent;
 
 					.cdx-button__icon {
 						.cdx-mixin-button-css-icon-fallback-color( @color-destructive--hover );
@@ -432,12 +404,12 @@ export default defineComponent( {
 
 				&:active,
 				&.cdx-button--is-active {
-					background-color: @background-color-destructive--active;
-					color: @color-inverted-fixed;
-					border-color: @border-color-destructive--active;
+					background-color: @background-color-destructive-subtle--active;
+					color: @color-destructive--active;
+					border-color: @border-color-transparent;
 
 					.cdx-button__icon {
-						.cdx-mixin-button-css-icon-fallback-color( @color-inverted );
+						.cdx-mixin-button-css-icon-fallback-color( @color-destructive--active );
 					}
 				}
 
