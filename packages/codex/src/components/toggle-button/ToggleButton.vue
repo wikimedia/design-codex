@@ -117,6 +117,7 @@ export default defineComponent( {
 		color: @color-base;
 
 		&:hover {
+			background-color: @background-color-interactive-subtle--hover;
 			// Use hand cursor. This is nonstandard for a button but allows for a visible
 			// interactivity distinction from the disabled state.
 			cursor: @cursor-base--hover;
@@ -131,8 +132,8 @@ export default defineComponent( {
 
 		&:active,
 		&.cdx-toggle-button--is-active {
-			color: @color-emphasized;
-			border-color: @border-color-interactive;
+			background-color: @background-color-interactive-subtle--active;
+			border-color: @border-color-transparent;
 			box-shadow: none;
 		}
 	}
@@ -153,17 +154,21 @@ export default defineComponent( {
 .cdx-toggle-button--framed {
 	&:enabled {
 		background-color: @background-color-interactive-subtle;
-		border-color: @border-color-base;
+		color: @color-base;
+		border-color: @border-color-interactive;
 
 		&:hover {
-			background-color: @background-color-base;
-			color: @color-base--hover;
+			background-color: @background-color-interactive-subtle--hover;
+			border-color: @border-color-interactive--hover;
+			cursor: @cursor-base--hover;
 		}
 
 		// Enabled + active state has some shared styles for quiet and framed, see above.
 		&:active,
 		&.cdx-toggle-button--is-active {
-			background-color: @background-color-interactive;
+			background-color: @background-color-interactive-subtle--active;
+			border-color: @border-color-interactive--active;
+			box-shadow: none;
 		}
 
 		// &:enabled:focus has some shared styles for quiet and framed, see above.
@@ -177,15 +182,13 @@ export default defineComponent( {
 	}
 
 	&.cdx-toggle-button--toggled-on:enabled {
-		background-color: @background-color-progressive--active;
+		background-color: @background-color-progressive;
 		color: @color-inverted-fixed;
-		border-color: @border-color-progressive--active;
+		border-color: @border-color-transparent;
 
 		&:hover {
 			background-color: @background-color-progressive--hover;
-			// Same color as not hovering, needed to override the other :hover rule above
-			color: @color-inverted-fixed;
-			border-color: @border-color-progressive--hover;
+			border-color: @border-color-transparent;
 		}
 
 		&:focus {
@@ -199,11 +202,10 @@ export default defineComponent( {
 
 		&:active,
 		&.cdx-toggle-button--is-active {
-			background-color: @background-color-interactive;
+			background-color: @background-color-progressive--active;
+			border-color: @border-color-transparent;
 			// Repeat general enabled + active styles here, to override more specific
 			// color/border-color/box-shadow rules
-			color: @color-emphasized;
-			border-color: @border-color-interactive;
 			box-shadow: none;
 		}
 	}
@@ -218,26 +220,25 @@ export default defineComponent( {
 	&:enabled {
 		&.cdx-toggle-button--toggled-on {
 			background-color: @background-color-interactive;
-		}
 
-		&:hover {
-			background-color: @background-color-interactive-subtle;
-		}
+			&:hover {
+				background-color: @background-color-interactive--hover;
+			}
 
-		// `&:enabled:focus` has some shared styles for quiet and framed, see above.
-		&:focus {
-			background-color: @background-color-interactive-subtle;
-		}
+			// `&:enabled:focus` has some shared styles for quiet and framed, see above.
+			&:focus {
+				background-color: @background-color-interactive;
+			}
 
-		// Enabled + active state has some shared styles for quiet and framed, see above
-		&:active,
-		&.cdx-toggle-button--is-active {
-			background-color: @background-color-interactive;
+			// Enabled + active state has some shared styles for quiet and framed, see above
+			&:active,
+			&.cdx-toggle-button--is-active {
+				background-color: @background-color-interactive--active;
+			}
 		}
 	}
 
 	// No difference between disabled toggled-on and toggled-off.
-	/* stylelint-disable-next-line no-descending-specificity */
 	&:disabled {
 		color: @color-disabled;
 	}

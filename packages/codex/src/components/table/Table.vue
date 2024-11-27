@@ -1072,7 +1072,7 @@ export default defineComponent( {
 			transition-duration: @transition-duration-base;
 
 			&:hover {
-				background-color: @background-color-interactive-subtle;
+				background-color: @background-color-interactive-subtle--hover;
 				border-color: @border-color-base;
 				cursor: @cursor-base--hover;
 			}
@@ -1083,7 +1083,7 @@ export default defineComponent( {
 			}
 
 			&:active {
-				background-color: @background-color-interactive;
+				background-color: @background-color-interactive-subtle--active;
 				border-color: @border-color-base;
 			}
 

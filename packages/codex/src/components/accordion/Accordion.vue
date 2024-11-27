@@ -155,12 +155,12 @@ export default defineComponent( {
 		transition-timing-function: @transition-timing-function-system;
 
 		&:hover {
-			background-color: @background-color-interactive-subtle;
+			background-color: @background-color-interactive-subtle--hover;
 			cursor: @cursor-base--hover;
 		}
 
 		&:active {
-			background-color: @background-color-interactive;
+			background-color: @background-color-interactive-subtle--active;
 		}
 
 		&:focus-visible {

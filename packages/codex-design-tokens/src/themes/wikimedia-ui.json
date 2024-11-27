@@ -1025,6 +1025,9 @@
 		}
 	},
 	"mix-blend-mode": {
+		"100": {
+			"value": "normal"
+		},
 		"200": {
 			"value": "multiply"
 		},

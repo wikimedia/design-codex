@@ -12,6 +12,12 @@
 		"interactive": {
 			"value": "{ color.gray800 }"
 		},
+		"interactive--hover": {
+			"value": "{ color.gray700 }"
+		},
+		"interactive--active": {
+			"value": "{ color.gray600 }"
+		},
 		"interactive-subtle": {
 			"value": "{ color.gray900 }"
 		},
@@ -235,6 +241,15 @@
 			},
 			"progressive--focus": {
 				"value": "{ color.blue500 }"
+			},
+			"progressive-selected": {
+				"value": "{ color.blue400 }"
+			},
+			"progressive-selected--hover": {
+				"value": "{ color.blue300 }"
+			},
+			"progressive-selected--active": {
+				"value": "{ color.blue200 }"
 			},
 			"destructive--focus": {
 				"value": "{ color.blue500 }"

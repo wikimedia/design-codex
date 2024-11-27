@@ -629,12 +629,14 @@ export default defineComponent( {
 				overflow: hidden;
 
 				&:hover {
-					background-color: @background-color-tab-list-item-framed--hover;
+					background-color: @background-color-interactive-subtle--hover;
 					color: @color-base;
+					/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+					mix-blend-mode: @mix-blend-mode-blend;
 				}
 
 				&:active {
-					background-color: @background-color-tab-list-item-framed--active;
+					background-color: @background-color-interactive-subtle--active;
 					color: @color-base;
 				}
 			}
@@ -644,6 +646,8 @@ export default defineComponent( {
 				&:hover {
 					background-color: @background-color-base;
 					color: @color-base;
+					/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+					mix-blend-mode: @mix-blend-mode-base;
 				}
 			}
 

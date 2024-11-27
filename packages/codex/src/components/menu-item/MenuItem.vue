@@ -477,51 +477,39 @@ export default defineComponent( {
 		}
 
 		&.cdx-menu-item--highlighted {
-			background-color: @background-color-interactive-subtle;
-			color: @color-base--hover;
+			background-color: @background-color-interactive-subtle--hover;
 			cursor: @cursor-base--hover;
-
-			.cdx-menu-item__content,
-			.cdx-menu-item__text__description {
-				color: @color-base--hover;
-			}
 		}
 
 		&.cdx-menu-item--active {
-			background-color: @background-color-interactive;
-			color: @color-emphasized;
-
-			.cdx-menu-item__content,
-			.cdx-menu-item__text__description {
-				color: @color-emphasized;
-			}
+			background-color: @background-color-interactive-subtle--active;
 		}
 
 		&.cdx-menu-item--selected {
 			background-color: @background-color-progressive-subtle;
+			color: @color-progressive;
 
-			.cdx-menu-item__content {
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__description {
 				color: @color-progressive;
 			}
 		}
 
 		&.cdx-menu-item--selected.cdx-menu-item--highlighted {
-			.cdx-menu-item__content {
-				color: @color-progressive--hover;
-			}
+			background-color: @background-color-progressive-subtle--hover;
 
+			.cdx-menu-item__content,
 			.cdx-menu-item__text__description {
-				color: @color-subtle;
+				color: @color-progressive--hover;
 			}
 		}
 
 		&.cdx-menu-item--selected.cdx-menu-item--active {
-			.cdx-menu-item__content {
-				color: @color-progressive--active;
-			}
+			background-color: @background-color-progressive-subtle--active;
 
+			.cdx-menu-item__content,
 			.cdx-menu-item__text__description {
-				color: @color-subtle;
+				color: @color-progressive--active;
 			}
 		}
 	}
@@ -539,26 +527,54 @@ export default defineComponent( {
 
 	/* stylelint-disable no-descending-specificity */
 	&--destructive {
-		.cdx-menu-item__content {
+		.cdx-menu-item__content,
+		.cdx-menu-item__text__description {
 			color: @color-destructive;
 		}
 
 		&.cdx-menu-item--highlighted {
-			.cdx-menu-item__content {
+			background-color: @background-color-destructive-subtle--hover;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__description {
 				color: @color-destructive--hover;
 			}
 		}
 
 		&.cdx-menu-item--active {
-			.cdx-menu-item__content {
+			background-color: @background-color-destructive-subtle--active;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__description {
 				color: @color-destructive--active;
 			}
 		}
 
+		&.cdx-menu-item--selected {
+			background-color: @background-color-destructive-subtle;
+			color: @color-destructive;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__description {
+				color: @color-destructive;
+			}
+		}
+
 		&.cdx-menu-item--selected.cdx-menu-item--highlighted {
+			background-color: @background-color-destructive-subtle--hover;
+
 			.cdx-menu-item__content,
 			.cdx-menu-item__text__description {
 				color: @color-destructive--hover;
+			}
+		}
+
+		&.cdx-menu-item--selected.cdx-menu-item--active {
+			background-color: @background-color-destructive-subtle--active;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__description {
+				color: @color-destructive--active;
 			}
 		}
 	}

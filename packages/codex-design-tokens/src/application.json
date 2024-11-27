@@ -23,6 +23,12 @@
 		"interactive": {
 			"value": "{ color.gray100 }"
 		},
+		"interactive--hover": {
+			"value": "{ color.gray200 }"
+		},
+		"interactive--active": {
+			"value": "{ color.gray300 }"
+		},
 		"interactive-subtle": {
 			"value": "{ color.gray50 }"
 		},
@@ -750,7 +756,7 @@
 				"value": "{ color.blue700 }"
 			},
 			"progressive-selected--hover": {
-				"value": "{ color.blue600 }"
+				"value": "{ color.blue800 }"
 			},
 			"progressive-selected--active": {
 				"value": "{ color.blue900 }"
@@ -989,6 +995,9 @@
 		}
 	},
 	"mix-blend-mode": {
+		"base": {
+			"value": "{ mix-blend-mode.100 }"
+		},
 		"blend": {
 			"value": "{ mix-blend-mode.200 }"
 		}
