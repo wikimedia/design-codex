@@ -283,3 +283,14 @@ export interface TooltipOptions {
 	textContent: string,
 	placement?: Placement
 }
+
+/** @public */
+export interface BreadcrumbItem {
+	text: string;
+	href: string;
+	active?: boolean;
+	ariaCurrent?: 'page';
+	showDivider: boolean;
+	isTruncated?: boolean;
+	fullText?: string;
+}

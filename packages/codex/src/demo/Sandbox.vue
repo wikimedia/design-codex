@@ -6,6 +6,7 @@
 		</template>
 		<template #content>
 			<accordion-demo />
+			<breadcrumb-demo />
 			<button-demo />
 			<button-group-demo />
 			<card-demo />
@@ -65,6 +66,7 @@
 import DemoBaseLayout from './DemoBaseLayout.vue';
 
 import AccordionDemo from './AccordionDemo.vue';
+import BreadcrumbDemo from './BreadcrumbDemo.vue';
 import ButtonDemo from './ButtonDemo.vue';
 import ButtonGroupDemo from './ButtonGroupDemo.vue';
 import CardDemo from './CardDemo.vue';
@@ -105,6 +107,7 @@ import TypographyDemo from './TypographyDemo.vue';
 
 const demoSections = [
 	{ name: 'Accordion', id: '#cdx-accordion' },
+	{ name: 'Breadcrumb', id: '#cdx-breadcrumb' },
 	{ name: 'Button', id: '#cdx-button' },
 	{ name: 'ButtonGroup', id: '#cdx-button-group' },
 	{ name: 'Card', id: '#cdx-card' },

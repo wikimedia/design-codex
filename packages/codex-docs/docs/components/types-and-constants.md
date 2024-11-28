@@ -9,6 +9,27 @@ outline: deep
 Since Codex is written in TypeScript, we often make use of special types for things like complex
 props. Below is documentation of all public types.
 
+### BreadcrumbItem
+
+```ts
+interface BreadcrumbItem {
+    /** Text displayed for the breadcrumb item. */
+    text: string;
+    /** URL for navigation when the breadcrumb item is clicked. */
+    href: string;
+    /** Indicates if the breadcrumb item represents the current page. */
+    active?: boolean;
+    /** ARIA attribute to specify the current page breadcrumb. */
+    ariaCurrent?: 'page';
+    /** Whether to show a divider after the breadcrumb item. */
+    showDivider: boolean;
+    /** Indicates if the breadcrumb text is truncated. */
+    isTruncated?: boolean;
+    /** Full text of the item, useful for tooltips or accessibility. */
+    fullText?: string;
+}
+```
+
 ### ContainerSize
 
 See [ContainerSizes](#containersizes).

@@ -316,6 +316,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 							text: 'Navigation',
 							collapsed: true,
 							items: filterComponents( [
+								{ text: 'Breadcrumb', link: '/components/demos/breadcrumb' },
 								{ text: 'Link', link: '/components/mixins/link' },
 								{ text: 'Tabs', link: '/components/demos/tabs' },
 								{ text: 'Tab', link: '/components/demos/tab' }
