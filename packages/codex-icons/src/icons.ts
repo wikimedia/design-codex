@@ -143,6 +143,7 @@ export const cdxIconBold: IconVariedByLang = {
 		de: svgBoldF,
 		hu: svgBoldF,
 		ksh: svgBoldF,
+		nb: svgBoldF,
 		nn: svgBoldF,
 		no: svgBoldF,
 		sv: svgBoldF,
@@ -476,6 +477,7 @@ export const cdxIconItalic: IconVariedByLang = {
 		de: svgItalicK,
 		fi: svgItalicK,
 		ky: svgItalicK,
+		nb: svgItalicK,
 		nn: svgItalicK,
 		no: svgItalicK,
 		os: svgItalicK,
@@ -894,7 +896,10 @@ import svgStrikethroughY from './images/strikethrough-y.svg';
 export const cdxIconStrikethrough: IconVariedByLang = {
 	langCodeMap: {
 		en: svgStrikethroughS,
-		fi: svgStrikethroughY
+		fi: svgStrikethroughY,
+		nb: svgStrikethroughS,
+		nn: svgStrikethroughS,
+		no: svgStrikethroughS
 	},
 	default: svgStrikethroughA
 };
@@ -1024,7 +1029,11 @@ import svgUnderlineU from './images/underline-u.svg';
 export const cdxIconUnderline: IconVariedByLang = {
 	langCodeMap: {
 		en: svgUnderlineU,
-		de: svgUnderlineU
+		de: svgUnderlineU,
+		nb: svgUnderlineU,
+		nn: svgUnderlineU,
+		no: svgUnderlineU,
+		sv: svgUnderlineU
 	},
 	default: svgUnderlineA
 };
