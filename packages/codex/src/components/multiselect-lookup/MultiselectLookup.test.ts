@@ -437,6 +437,36 @@ describe( 'MultiselectLookup', () => {
 				// Which should trigger an update:selected event removing the chip's value.
 				expect( wrapper.emitted( 'update:selected' )?.[ 0 ] ).toEqual( [ [ 'b' ] ] );
 			} );
+
+			it( 'does not emit update:input-chips nor update:selected events when readonly', async () => {
+				const wrapper = mount( CdxMultiselectLookup, { props: {
+					menuItems,
+					selected: [ 'a', 'b' ],
+					inputChips: [ { label: 'Option A', value: 'a' }, { label: 'Option B', value: 'b' } ],
+					readonly: true
+				} } );
+				// Click the close button of the first chip.
+				await wrapper.findComponent( CdxInputChip ).find( 'button' ).trigger( 'click' );
+				// The click event should not trigger an update:input-chips event.
+				expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toBeFalsy();
+				// The click event should not trigger an update:selected event.
+				expect( wrapper.emitted( 'update:selected' )?.[ 0 ] ).toBeFalsy();
+			} );
+
+			it( 'does not emit update:input-chips nor update:selected events when disabled', async () => {
+				const wrapper = mount( CdxMultiselectLookup, { props: {
+					menuItems,
+					selected: [ 'a', 'b' ],
+					inputChips: [ { label: 'Option A', value: 'a' }, { label: 'Option B', value: 'b' } ],
+					disabled: true
+				} } );
+				// Click the close button of the first chip.
+				await wrapper.findComponent( CdxInputChip ).find( 'button' ).trigger( 'click' );
+				// The click event should not trigger an update:input-chips event.
+				expect( wrapper.emitted( 'update:input-chips' )?.[ 0 ] ).toBeFalsy();
+				// The click event should not trigger an update:selected event.
+				expect( wrapper.emitted( 'update:selected' )?.[ 0 ] ).toBeFalsy();
+			} );
 		} );
 	} );
 } );

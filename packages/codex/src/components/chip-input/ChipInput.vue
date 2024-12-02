@@ -4,7 +4,7 @@
 		class="cdx-chip-input"
 		:class="rootClasses"
 		:style="rootStyle"
-		@click="focusInput"
+		@click="disabled || readonly ? null : focusInput"
 		@focusout="onFocusOut"
 	>
 		<div
@@ -19,6 +19,7 @@
 				:ref="( ref ) => assignChipTemplateRef( ref, index )"
 				class="cdx-chip-input__item"
 				:icon="chip.icon"
+				:readonly="readonly"
 				:disabled="computedDisabled"
 				@click-chip="handleChipClick( chip )"
 				@remove-chip="( method ) => handleChipRemove( chip, index, method )"
@@ -33,6 +34,7 @@
 				ref="input"
 				v-model="computedInputValue"
 				class="cdx-chip-input__input"
+				:readonly="readonly"
 				:disabled="computedDisabled"
 				v-bind="otherAttrs"
 				@blur="onInputBlur"
@@ -50,6 +52,7 @@
 				ref="input"
 				v-model="computedInputValue"
 				class="cdx-chip-input__input"
+				:readonly="readonly"
 				:disabled="computedDisabled"
 				v-bind="otherAttrs"
 				@blur="onInputBlur"
@@ -147,6 +150,13 @@ export default defineComponent( {
 		disabled: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Whether the ChipInput is readonly.
+		 */
+		readonly: {
+			type: Boolean,
+			default: false
 		}
 	},
 	emits: [
@@ -202,7 +212,8 @@ export default defineComponent( {
 			// We need focused and disabled classes on the root element, which contains the
 			// chips and the input, since it is styled to look like the input.
 			'cdx-chip-input--focused': isFocused.value,
-			'cdx-chip-input--disabled': computedDisabled.value
+			'cdx-chip-input--disabled': computedDisabled.value,
+			'cdx-chip-input--readonly': props.readonly
 		} ) );
 
 		// Get helpers from useSplitAttributes.
@@ -262,6 +273,9 @@ export default defineComponent( {
 		}
 
 		function removeChip( chipToRemove: ChipInputItem ) {
+			if ( props.readonly || computedDisabled.value ) {
+				return;
+			}
 			emit( 'update:input-chips', props.inputChips.filter(
 				( chip ) => chip.value !== chipToRemove.value
 			) );
@@ -285,6 +299,9 @@ export default defineComponent( {
 		}
 
 		async function handleChipClick( clickedChip: ChipInputItem ) {
+			if ( props.readonly || computedDisabled.value ) {
+				return;
+			}
 			// Remove the chip but add the text to the input so it can be edited.
 			// If there is a value in the input, add that value as a new chip first
 			addChip();
@@ -515,7 +532,7 @@ export default defineComponent( {
 		.screen-reader-text();
 	}
 
-	&:not( .cdx-chip-input--disabled ) {
+	&:not( .cdx-chip-input--disabled ):not( .cdx-chip-input--readonly ) {
 		.cdx-chip-input__chips,
 		.cdx-chip-input__separate-input {
 			border-color: @border-color-interactive;
@@ -584,6 +601,26 @@ export default defineComponent( {
 				}
 			}
 		}
+	}
+
+	&--readonly {
+		/* stylelint-disable no-descending-specificity */
+		.cdx-chip-input__chips,
+		.cdx-chip-input__separate-input {
+			background-color: @background-color-neutral-subtle;
+			border-color: @border-color-base;
+		}
+
+		// TODO: Deduplicate focused styles.
+		&.cdx-chip-input--focused {
+			&:not( .cdx-chip-input--has-separate-input ) .cdx-chip-input__chips,
+			&.cdx-chip-input--has-separate-input .cdx-chip-input__separate-input {
+				border-color: @border-color-progressive--focus;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+				outline: @outline-base--focus;
+			}
+		}
+		/* stylelint-enable no-descending-specificity */
 	}
 
 	&--disabled {

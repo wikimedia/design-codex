@@ -22,6 +22,10 @@ const controlsConfig = [
 	{
 		name: 'disabled',
 		type: 'boolean'
+	},
+	{
+		name: 'readonly',
+		type: 'boolean'
 	}
 ];
 </script>

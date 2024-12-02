@@ -3,7 +3,7 @@
 		ref="rootElement"
 		class="cdx-input-chip"
 		:class="rootClasses"
-		tabindex="0"
+		:tabindex="tabIndex"
 		role="option"
 		:aria-description="ariaDescription"
 		@keydown="onKeydown"
@@ -63,6 +63,13 @@ export default defineComponent( {
 		disabled: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Whether the InputChip is readonly.
+		 */
+		readonly: {
+			type: Boolean,
+			default: false
 		}
 	},
 	expose: [
@@ -89,9 +96,11 @@ export default defineComponent( {
 		'arrow-right'
 	],
 	setup( props, { emit } ) {
+		const tabIndex = computed( () => props.disabled ? -1 : 0 );
 		const rootElement = ref<HTMLDivElement>();
 		const rootClasses = computed( () => ( {
-			'cdx-input-chip--disabled': props.disabled
+			'cdx-input-chip--disabled': props.disabled,
+			'cdx-input-chip--readonly': props.readonly
 		} ) );
 
 		const ariaDescription = useI18n(
@@ -135,7 +144,8 @@ export default defineComponent( {
 			rootClasses,
 			ariaDescription,
 			onKeydown,
-			cdxIconClose
+			cdxIconClose,
+			tabIndex
 		};
 	},
 	methods: {
@@ -172,7 +182,7 @@ export default defineComponent( {
 	font-size: @font-size-small;
 	line-height: @line-height-small;
 
-	&:not( .cdx-input-chip--disabled ) {
+	&:not( .cdx-input-chip--disabled ):not( .cdx-input-chip--readonly ) {
 		transition-property: @transition-property-base;
 		transition-duration: @transition-duration-medium;
 
@@ -197,6 +207,29 @@ export default defineComponent( {
 		}
 	}
 
+	&--readonly {
+		background-color: @background-color-neutral-subtle;
+		border-color: @border-color-base;
+
+		// Override the button's interactive background color and cursor styles.
+		.cdx-input-chip__button.cdx-button {
+			&:hover {
+				background-color: @background-color-transparent;
+				cursor: @cursor-base;
+			}
+
+			&:active {
+				background-color: @background-color-transparent;
+				border-color: @border-color-transparent;
+			}
+
+			&:focus:not( :active ) {
+				border-color: @border-color-transparent;
+				box-shadow: none;
+			}
+		}
+	}
+
 	&--disabled {
 		background-color: @background-color-disabled;
 		color: @color-disabled-emphasized;
@@ -213,6 +246,7 @@ export default defineComponent( {
 
 	// The remove button is small and round, which is not supported within the Button component
 	// itself, so the styles are included here.
+	/* stylelint-disable-next-line no-descending-specificity */
 	&__button.cdx-button {
 		min-width: @min-size-clear-button;
 		min-height: @min-size-clear-button;

@@ -35,7 +35,7 @@ exports[`matches the snapshot Case 1 Disabled: ({"disabled": true}) => HTML 1`] 
   aria-description="Press Enter to edit or Delete to remove"
   class="cdx-input-chip cdx-input-chip--disabled"
   role="option"
-  tabindex="0"
+  tabindex="-1"
 >
   <!--v-if-->
   <span

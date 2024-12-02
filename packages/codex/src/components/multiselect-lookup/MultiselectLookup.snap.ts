@@ -802,7 +802,7 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
         aria-description="Press Enter to edit or Delete to remove"
         class="cdx-input-chip cdx-input-chip--disabled cdx-chip-input__item"
         role="option"
-        tabindex="0"
+        tabindex="-1"
       >
         <!--v-if-->
         <span
@@ -851,7 +851,7 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
         aria-description="Press Enter to edit or Delete to remove"
         class="cdx-input-chip cdx-input-chip--disabled cdx-chip-input__item"
         role="option"
-        tabindex="0"
+        tabindex="-1"
       >
         <!--v-if-->
         <span

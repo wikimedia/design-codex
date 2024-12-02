@@ -17,6 +17,7 @@
 			:aria-expanded="expanded"
 			:aria-activedescendant="highlightedId"
 			:separate-input="separateInput"
+			:readonly="readonly"
 			:disabled="computedDisabled"
 			:status="computedStatus"
 			@update:input-value="onUpdateInputValue"
@@ -148,6 +149,13 @@ export default defineComponent( {
 		 * Whether the entire component is disabled.
 		 */
 		disabled: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * Whether the MultiselectLookup is readonly.
+		 */
+		readonly: {
 			type: Boolean,
 			default: false
 		},

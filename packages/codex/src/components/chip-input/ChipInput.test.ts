@@ -123,6 +123,36 @@ describe( 'Basic usage', () => {
 			expect( inputElement.element.value ).toBe( 'chip 1' );
 		} );
 
+		it( 'does not remove the chip nor adds the value to the input when readonly', async () => {
+			const wrapper = mount( CdxChipInput, { props: {
+				inputChips: [
+					{ value: 'chip 1' },
+					{ value: 'chip 2' }
+				],
+				readonly: true
+			} } );
+			const inputElement = wrapper.get( 'input' );
+			const firstChip = wrapper.findComponent( CdxInputChip );
+			await firstChip.find( '.cdx-input-chip' ).trigger( 'click' );
+			expect( wrapper.emitted( 'update:input-chips' ) ).toBeFalsy();
+			expect( inputElement.element.value ).toBe( '' );
+		} );
+
+		it( 'does not remove the chip nor adds the value to the input when disabled', async () => {
+			const wrapper = mount( CdxChipInput, { props: {
+				inputChips: [
+					{ value: 'chip 1' },
+					{ value: 'chip 2' }
+				],
+				disabled: true
+			} } );
+			const inputElement = wrapper.get( 'input' );
+			const firstChip = wrapper.findComponent( CdxInputChip );
+			await firstChip.find( '.cdx-input-chip' ).trigger( 'click' );
+			expect( wrapper.emitted( 'update:input-chips' ) ).toBeFalsy();
+			expect( inputElement.element.value ).toBe( '' );
+		} );
+
 		describe( 'and the chip has a label', () => {
 			it( 'removes the chip and adds the label to the input', async () => {
 				const wrapper = mount( CdxChipInput, { props: {
