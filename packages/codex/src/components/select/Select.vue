@@ -369,11 +369,12 @@ export default defineComponent( {
 	}
 
 	&__start-icon.cdx-icon {
+		color: @color-subtle;
 		.cdx-mixin-icon( start );
 	}
 
 	&__indicator.cdx-icon {
-		color: @color-base;
+		color: @color-subtle;
 		.cdx-mixin-icon(
 			end,
 			@min-size-icon-x-small,
@@ -400,7 +401,7 @@ export default defineComponent( {
 
 				/* stylelint-disable-next-line max-nesting-depth */
 				.cdx-select-vue__indicator {
-					color: @color-base;
+					color: @color-subtle;
 				}
 			}
 		}

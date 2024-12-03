@@ -436,7 +436,7 @@ export default defineComponent( {
 			&:focus,
 			&.cdx-text-area__textarea--has-value {
 				~ .cdx-text-area__icon-vue.cdx-icon {
-					color: @color-base;
+					color: @color-subtle;
 				}
 
 				~ .cdx-text-area__icon {

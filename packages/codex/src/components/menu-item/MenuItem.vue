@@ -439,7 +439,7 @@ export default defineComponent( {
 	&__icon,
 	&__selected-icon {
 		&.cdx-icon {
-			color: inherit;
+			color: @color-subtle;
 		}
 	}
 

@@ -479,6 +479,10 @@ export default defineComponent( {
 			&:focus,
 			&.cdx-text-input__input--has-value {
 				~ .cdx-text-input__icon-vue {
+					color: @color-subtle;
+				}
+
+				~ .cdx-text-input__clear-icon {
 					color: @color-base;
 				}
 
