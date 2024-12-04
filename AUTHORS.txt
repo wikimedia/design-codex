@@ -16,7 +16,9 @@ bwang <bwang@wikimedia.org>
 Daphne Smit <dsmit@wikimedia.org>
 ddw <ddwaal-ctr@wikimedia.org>
 didier-ds <didiersenou94@gmail.com>
+Doğu Abaris <abaris@null.net>
 Ed Sanders <esanders@wikimedia.org>
+Itamar Givon <itamar.givon@wikimedia.de>
 JForrester <jforrester@wikimedia.org>
 Jon Robson <jdlrobson@gmail.com>
 Julia Kieserman <jkieserman@wikimedia.org>
@@ -46,6 +48,7 @@ Ezekiel Udoh <eudoh@wikimedia.org>
 Lauren de Lench <ldelench@wikimedia.org>
 Leza Zaman <lzaman@wikimedia.org>
 Marcella Florence <mflorence@wikimedia.org>
+Matthew Williams <mwilliams@wikimedia.org>
 Nat Baca <nbaca@wikimedia.org>
 Rita Ho <rho@wikimedia.org>
 Sarai Sánchez Fuentes <sarai.sanchez@wikimedia.de>
