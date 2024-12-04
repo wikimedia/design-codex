@@ -143,7 +143,7 @@ export default defineComponent( {
 				if ( value ) {
 					// eslint-disable-next-line no-console
 					console.warn(
-						'CdxLookup: prop initialInputValue is deprecated. Use inputValue instead.'
+						'[CdxLookup]: prop "initialInputValue" is deprecated. Use "inputValue" instead.'
 					);
 				}
 				return true;

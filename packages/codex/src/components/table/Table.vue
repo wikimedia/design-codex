@@ -301,7 +301,7 @@ export default defineComponent( {
 					// so we add our own.
 					// eslint-disable-next-line no-console
 					console.warn(
-						'Each column in the "columns" prop of CdxTable must have a unique "id".'
+						'[CdxTable]: Each column in the "columns" prop must have a unique "id".'
 					);
 					return false;
 				}
@@ -334,7 +334,7 @@ export default defineComponent( {
 				if ( hasSort && props.useRowSelection && !rowsHaveIds ) {
 					// eslint-disable-next-line no-console
 					console.warn(
-						'For CdxTables with sorting and row selection, each row in the "data" prop must have a "TableRowIdentifier".'
+						'[CdxTable]: With sorting and row selection, each row in the "data" prop must have a "TableRowIdentifier".'
 					);
 					return false;
 				}
@@ -450,7 +450,7 @@ export default defineComponent( {
 					return true;
 				} else {
 					// eslint-disable-next-line no-console
-					console.warn( '"value" property of all menu items in PaginationOptions must be a number.' );
+					console.warn( '[CdxTable]: "value" property of all menu items in PaginationOptions must be a number.' );
 					return false;
 				}
 			}
@@ -754,7 +754,7 @@ export default defineComponent( {
 		): Record<string, boolean>|undefined {
 			if ( 'textAlign' in column && !tableTextAlignmentsValidator( column.textAlign ) ) {
 				// eslint-disable-next-line no-console
-				console.warn( 'Invalid value for TableColumn textAlign property.' );
+				console.warn( '[CdxTable]: Invalid value for TableColumn "textAlign" property.' );
 				return undefined;
 			}
 
