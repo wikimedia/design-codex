@@ -37,7 +37,7 @@
 					Unit
 				</template>
 				<template #description>
-					Must be from pre-approved list of units
+					Select a unit
 				</template>
 				<template #help-text>
 					Hint: try searching for "grams"

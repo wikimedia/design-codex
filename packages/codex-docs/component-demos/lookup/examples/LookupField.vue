@@ -6,6 +6,7 @@
 				v-model:input-value="inputValue"
 				:menu-items="menuItems"
 				:menu-config="menuConfig"
+				placeholder="Search Wikidata items"
 				@input="onInput"
 				@load-more="onLoadMore"
 				@update:selected="onSelection"
@@ -18,9 +19,6 @@
 			</cdx-lookup>
 			<template #label>
 				Item lookup
-			</template>
-			<template #description>
-				Search Wikidata items
 			</template>
 			<template #help-text>
 				Start typing the name of a Wikidata item to see suggestions

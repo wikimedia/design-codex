@@ -41,7 +41,7 @@ export default defineComponent( {
 	},
 	setup() {
 		const MAX_MESSAGE_LENGTH = 100;
-		const helpText = `Please enter a message of ${ MAX_MESSAGE_LENGTH } characters or less`;
+		const helpText = `Enter a message of ${ MAX_MESSAGE_LENGTH } characters or less`;
 
 		const errorMessage = { error: 'Message is too long' };
 		const userMessageText = ref( '' );

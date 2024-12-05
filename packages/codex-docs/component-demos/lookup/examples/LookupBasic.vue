@@ -8,7 +8,6 @@
 			v-model:selected="selection"
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
-			placeholder="Start typing a vegetable name"
 			aria-label="Lookup basic demo"
 			@input="onInput"
 		>

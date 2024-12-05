@@ -3,6 +3,7 @@
 		class="cdx-demo-complex-field"
 		:label-icon="cdxIconMapPin"
 		:is-fieldset="true"
+		:optional="true"
 		:disabled="disabled"
 		:status="status"
 		:messages="messages"

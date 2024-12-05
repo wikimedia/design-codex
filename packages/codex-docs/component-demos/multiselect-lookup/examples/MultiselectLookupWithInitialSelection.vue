@@ -1,22 +1,16 @@
 <template>
-	<div>
-		<p class="cdx-docs-demo-text">
-			Selected value: {{ selection }}
-		</p>
-
-		<cdx-multiselect-lookup
-			v-model:input-chips="chips"
-			v-model:selected="selection"
-			:menu-items="menuItems"
-			:menu-config="menuConfig"
-			aria-label="MultiselectLookup with initial selection demo"
-			@input="onInput"
-		>
-			<template #no-results>
-				No results found.
-			</template>
-		</cdx-multiselect-lookup>
-	</div>
+	<cdx-multiselect-lookup
+		v-model:input-chips="chips"
+		v-model:selected="selection"
+		:menu-items="menuItems"
+		:menu-config="menuConfig"
+		aria-label="MultiselectLookup with initial selection demo"
+		@input="onInput"
+	>
+		<template #no-results>
+			No results found.
+		</template>
+	</cdx-multiselect-lookup>
 </template>
 
 <script>
