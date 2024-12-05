@@ -20,7 +20,6 @@ exports[`MultiselectLookup matches the snapshot Case 0 Default props: ({"inputCh
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
-        disallow-arbitrary="true"
         role="combobox"
       />
     </div>
@@ -79,7 +78,6 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
-        disallow-arbitrary="true"
         role="combobox"
       />
     </div>
@@ -379,7 +377,6 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
-        disallow-arbitrary="true"
         role="combobox"
       />
     </div>
@@ -438,7 +435,6 @@ exports[`MultiselectLookup matches the snapshot Case 3 With input value: ({"inpu
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
-        disallow-arbitrary="true"
         role="combobox"
       />
     </div>
@@ -598,7 +594,6 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
-        disallow-arbitrary="true"
         role="combobox"
       />
     </div>
@@ -752,7 +747,6 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
-        disallow-arbitrary="true"
         role="combobox"
       />
     </div>
@@ -910,7 +904,6 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
         autocomplete="off"
         class="cdx-chip-input__input"
         disabled=""
-        disallow-arbitrary="true"
         role="combobox"
       />
     </div>

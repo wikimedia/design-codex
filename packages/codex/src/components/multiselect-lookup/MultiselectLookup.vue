@@ -19,7 +19,6 @@
 			:separate-input="separateInput"
 			:disabled="computedDisabled"
 			:status="computedStatus"
-			:disallow-arbitrary="true"
 			@update:input-value="onUpdateInputValue"
 			@focus="onInputFocus"
 			@blur="onInputBlur"
