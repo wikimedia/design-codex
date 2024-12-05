@@ -479,9 +479,9 @@ export default defineComponent( {
 
 	&__demo-pane {
 		position: relative;
-		border: @border-subtle;
+		border: @border-width-base @border-style-base @border-color-muted;
 		border-radius: @border-radius-base;
-		padding: @spacing-200 @spacing-125;
+		padding: @spacing-200;
 
 		// Wrapper containing the demo controls: Reset button, show code toggle and
 		// copy code button.
@@ -512,10 +512,7 @@ export default defineComponent( {
 			.cdx-demo-wrapper__demo-pane__code-copy {
 				border-top-left-radius: 0;
 				border-bottom-left-radius: 0;
-			}
-
-			.cdx-demo-wrapper__demo-pane__code-copy {
-				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
 			}
 		}
 
@@ -584,6 +581,7 @@ export default defineComponent( {
 	&__code-generated div[ class*='language-' ],
 	&__code-slotted div[ class*='language-' ] {
 		margin-top: 0;
+		margin-bottom: @spacing-75;
 		border-radius: 0 0 @border-radius-base @border-radius-base;
 	}
 

@@ -559,6 +559,26 @@ body {
 	overflow: hidden;
 }
 
+/* Styles for the "developer notes" accordions. */
+.vp-doc .cdx-accordion {
+	margin-top: var( --spacing-75 );
+	border: var( --border-width-base ) var( --border-style-base ) var( --border-color-muted );
+	border-radius: var( --border-radius-base );
+}
+
+.vp-doc .cdx-accordion summary {
+	/* Undo VitePress margins, which are excessive (margins for p and h tags will suffice). */
+	margin: 0;
+}
+
+.cdx-accordion__content p:first-child {
+	margin-top: 0;
+}
+
+.cdx-accordion__content p:last-child {
+	margin-bottom: 0;
+}
+
 .cdx-docs-table-wrapper {
 	/* Enable horizontal scroll on child tables. */
 	overflow-x: auto;

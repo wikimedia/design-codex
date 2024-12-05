@@ -18,18 +18,26 @@ This component is still under development. It is not yet available in releases o
 :::
 		` : '';
 
-	// If there's a CSS-only version, split that part of the docs out so we can add it after
-	// the Vue usage info.
-	const cssOnlyHeading = '## CSS-only version';
-	let hasCssOnlyVersion = false;
+	// If there's content after the Vue usage section, split it out so we can tack it back on after
+	// the usage tables.
+	const cssOnlyHeading = '### CSS-only version';
+	const keyboardNavHeading = '### Keyboard navigation';
+
 	let vueDocs = '';
 	let cssOnlyDocs = '';
+	let keyboardNavDocs = '';
+
 	if ( docsBlocks && docsBlocks.length > 0 ) {
-		hasCssOnlyVersion = docsBlocks[ 0 ].includes( cssOnlyHeading );
-		if ( hasCssOnlyVersion ) {
+		if ( docsBlocks[ 0 ].includes( cssOnlyHeading ) ) {
+			// Split docs at the CSS-only heading. This will include the keyboard nav section too.
 			const splitDocs = docsBlocks[ 0 ].split( cssOnlyHeading );
 			vueDocs = splitDocs[ 0 ];
 			cssOnlyDocs = cssOnlyHeading + splitDocs[ 1 ];
+		} else if ( docsBlocks[ 0 ].includes( keyboardNavHeading ) ) {
+			// Otherwise, split at the keyboard nav heading.
+			const splitDocs = docsBlocks[ 0 ].split( keyboardNavHeading );
+			vueDocs = splitDocs[ 0 ];
+			keyboardNavDocs = keyboardNavHeading + splitDocs[ 1 ];
 		}
 	}
 
@@ -50,12 +58,14 @@ ${ version ? `**Version** ${ version[ 0 ].description }` : '' }
 
 ${ vueDocs || ( docsBlocks ? docsBlocks.join( '\n---\n' ) : '' ) }
 
-${ renderedUsage.props.replace( '## Props', '### Props' ) }
-${ renderedUsage.methods.replace( '## Methods', '### Methods' ) }
-${ renderedUsage.events.replace( '## Events', '### Events' ) }
-${ renderedUsage.slots.replace( '## Slots', '### Slots' ) }
+${ renderedUsage.props.replace( '## Props', '#### Props' ) }
+${ renderedUsage.methods.replace( '## Methods', '#### Methods' ) }
+${ renderedUsage.events.replace( '## Events', '#### Events' ) }
+${ renderedUsage.slots.replace( '## Slots', '#### Slots' ) }
 
 ${ cssOnlyDocs || '' }
+${ keyboardNavDocs || '' }
+
 `;
 };
 

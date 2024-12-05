@@ -111,3 +111,5 @@ export interface DesignTokensTree {
 	// `string` is meant to support comments at the tree-level.
 	[ key: string ]: DesignToken|DesignTokensTree|string
 }
+
+export type BestPractice = 'do' | 'dont';
