@@ -1,7 +1,8 @@
 <template>
 	<div
 		class="cdx-image-wrapper"
-		:class="{ [`cdx-image-wrapper--${position}`]: !!position }"
+		:class="rootClasses"
+		:style="rootStyle"
 	>
 		<img
 			v-if="imageSrc && !isBroken"
@@ -194,11 +195,20 @@ export default defineComponent( {
 		} ) );
 
 		/**
+		 * Dynamic classes for the root element.
+		 */
+		const internalRootClasses = computed( (): Record<string, boolean> => ( {
+			[ `cdx-image-wrapper--${ props.position }` ]: !!props.position
+		} ) );
+
+		/**
 		 * Get helpers from useSplitAttributes.
 		 */
 		const {
+			rootClasses,
+			rootStyle,
 			otherAttrs
-		} = useSplitAttributes( attrs );
+		} = useSplitAttributes( attrs, internalRootClasses );
 
 		const placeholderStyles = computed( () => ( {
 			width: `${ props.width }px`,
@@ -251,6 +261,8 @@ export default defineComponent( {
 			isBroken,
 			isLoaded,
 			imageClasses,
+			rootClasses,
+			rootStyle,
 			otherAttrs,
 			placeholderStyles,
 			handleError,
