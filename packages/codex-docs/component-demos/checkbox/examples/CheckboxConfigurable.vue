@@ -1,16 +1,17 @@
 <template>
-	<div>
-		<cdx-checkbox
-			v-model="checkboxValue"
-			input-value="checkbox"
-			:status="status"
-			:disabled="disabled"
-			:indeterminate="indeterminate"
-			@update:model-value="onUpdate"
-		>
-			Checkbox
-		</cdx-checkbox>
-	</div>
+	<cdx-checkbox
+		v-model="checkboxValue"
+		input-value="checkbox"
+		:status="status"
+		:disabled="disabled"
+		:indeterminate="indeterminate"
+		@update:model-value="onUpdate"
+	>
+		<slot />
+		<template #description>
+			<slot name="description" />
+		</template>
+	</cdx-checkbox>
 </template>
 
 <script>

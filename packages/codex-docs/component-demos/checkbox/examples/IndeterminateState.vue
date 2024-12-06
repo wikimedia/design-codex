@@ -1,70 +1,124 @@
 <template>
-	<div>
-		<p class="cdx-docs-demo-text">
-			Checkbox group value: {{ checkboxValue }}
-		</p>
+	<cdx-field
+		class="cdx-demo-indeterminate"
+		:is-fieldset="true"
+	>
+		<template #label>
+			Availability
+		</template>
+		<template #description>
+			Select the days on which you are available.
+		</template>
 
-		<cdx-field :is-fieldset="true" :hide-label="true">
-			<template #label>
-				Indeterminate checkbox demos
-			</template>
+		<cdx-checkbox
+			v-model="selectAllValue"
+			:indeterminate="isIndeterminate"
+			@update:model-value="onSelectAll"
+		>
+			Select all
+		</cdx-checkbox>
+
+		<div class="cdx-demo-indeterminate__group">
 			<cdx-checkbox
-				v-for="checkbox in checkboxes"
+				v-for="checkbox in daysCheckboxes"
 				:key="'checkbox-' + checkbox.value"
-				v-model="checkboxValue"
+				v-model="daysValue"
 				:input-value="checkbox.value"
-				:disabled="checkbox.disabled"
-				:indeterminate="true"
-				@update:model-value="onUpdate"
+				@update:model-value="onSelectDay"
 			>
 				{{ checkbox.label }}
 			</cdx-checkbox>
-		</cdx-field>
-	</div>
+		</div>
+	</cdx-field>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import { CdxCheckbox, CdxField } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'IndeterminateState',
 	components: { CdxCheckbox, CdxField },
 	setup() {
-		const checkboxValue = ref( [ 'checkbox-2', 'checkbox-4' ] );
-		const checkboxes = [
+		const selectAllValue = ref( false );
+		const daysValue = ref( [ 'mon', 'tue', 'wed' ] );
+		const daysCheckboxes = [
 			{
-				label: 'Checkbox 1',
-				value: 'checkbox-1',
-				disabled: false
+				label: 'Monday',
+				value: 'mon'
 			},
 			{
-				label: 'Checkbox 2 (initially selected)',
-				value: 'checkbox-2',
-				disabled: false
+				label: 'Tuesday',
+				value: 'tue'
 			},
 			{
-				label: 'Checkbox 3 (disabled)',
-				value: 'checkbox-3',
-				disabled: true
+				label: 'Wednesday',
+				value: 'wed'
 			},
 			{
-				label: 'Checkbox 4 (initially selected, disabled)',
-				value: 'checkbox-4',
-				disabled: true
+				label: 'Thursday',
+				value: 'thur'
+			},
+			{
+				label: 'Friday',
+				value: 'fri'
 			}
 		];
 
-		function onUpdate( value ) {
-			// eslint-disable-next-line no-console
-			console.log( 'update:modelValue event emitted with value:', value );
+		// Set the top checkbox to indeterminate when the days checkboxes are
+		// not all the same (all un-checked or all checked).
+		const isIndeterminate = computed( () => daysValue.value.length > 0 &&
+			daysValue.value.length < daysCheckboxes.length );
+
+		/**
+		 * Handle interaction with the "select all" checkbox.
+		 *
+		 * @param value New value of the "select all" box
+		 */
+		function onSelectAll( value ) {
+			if ( value ) {
+				// If the "select all" box is checked, check all days.
+				daysValue.value = daysCheckboxes.map( ( day ) => day.value );
+			} else {
+				// If "select all" is unchecked, un-check all days.
+				daysValue.value = [];
+			}
+		}
+
+		/**
+		 * Handle interaction with the day checkboxes.
+		 */
+		function onSelectDay() {
+			// If all days are checked, check "select all".
+			if ( daysValue.value.length === daysCheckboxes.length ) {
+				selectAllValue.value = true;
+			}
+			// If no days are checked, un-check "select all".
+			if ( daysValue.value.length === 0 ) {
+				selectAllValue.value = false;
+			}
 		}
 
 		return {
-			checkboxValue,
-			checkboxes,
-			onUpdate
+			selectAllValue,
+			daysValue,
+			daysCheckboxes,
+			isIndeterminate,
+			onSelectAll,
+			onSelectDay
 		};
 	}
 } );
 </script>
+
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-demo-indeterminate {
+	&__group {
+		// Align sub-checkboxes with the label of the top-level checkbox.
+		margin-left: calc( @size-125 + @spacing-50 );
+	}
+}
+
+</style>

@@ -124,6 +124,8 @@ export default defineComponent( {
 				textFieldStatus.value = 'default';
 				// eslint-disable-next-line no-alert
 				alert( 'Validation successful!' );
+				// eslint-disable-next-line no-console
+				console.log( formData.value );
 			// When validation is unsuccessful, show an error state.
 			} else if ( checkboxValue.value.includes( 'other' ) && inputValue.value.length === 0 ) {
 				// When "other" is checked and text field is empty, show text field's error state.

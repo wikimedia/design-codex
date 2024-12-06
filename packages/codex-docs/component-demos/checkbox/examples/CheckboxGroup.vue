@@ -1,26 +1,20 @@
 <template>
-	<div>
-		<p class="cdx-docs-demo-text">
-			Checkbox group value: {{ checkboxValue }}
-		</p>
+	<div role="group" aria-labelledby="cdx-demo-checkbox-group-label">
+		<cdx-label id="cdx-demo-checkbox-group-label">
+			Checkbox group demo
+		</cdx-label>
 
-		<div role="group" aria-labelledby="cdx-demo-checkbox-group-label">
-			<cdx-label id="cdx-demo-checkbox-group-label">
-				Checkbox group demo
-			</cdx-label>
-
-			<cdx-checkbox
-				v-for="checkbox in checkboxes"
-				:key="'checkbox-' + checkbox.value"
-				v-model="checkboxValue"
-				:input-value="checkbox.value"
-				:disabled="checkbox.disabled"
-				:indeterminate="checkbox.indeterminate"
-				@update:model-value="onUpdate"
-			>
-				{{ checkbox.label }}
-			</cdx-checkbox>
-		</div>
+		<cdx-checkbox
+			v-for="checkbox in checkboxes"
+			:key="'checkbox-' + checkbox.value"
+			v-model="checkboxValue"
+			:input-value="checkbox.value"
+			:disabled="checkbox.disabled"
+			:indeterminate="checkbox.indeterminate"
+			@update:model-value="onUpdate"
+		>
+			{{ checkbox.label }}
+		</cdx-checkbox>
 	</div>
 </template>
 

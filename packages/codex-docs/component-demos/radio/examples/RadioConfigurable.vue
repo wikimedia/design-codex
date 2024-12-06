@@ -4,7 +4,10 @@
 		name="radio-configurable-demo"
 		input-value="radio"
 	>
-		Radio
+		<slot />
+		<template #description>
+			<slot name="description" />
+		</template>
 	</cdx-radio>
 </template>
 

@@ -1,26 +1,20 @@
 <template>
-	<div>
-		<p class="cdx-docs-demo-text">
-			Radio group value: {{ radioValue }}
-		</p>
+	<div role="radiogroup" aria-labelledby="cdx-demo-radio-group-label">
+		<cdx-label id="cdx-demo-radio-group-label">
+			Radio group demo
+		</cdx-label>
 
-		<div role="radiogroup" aria-labelledby="cdx-demo-radio-group-label">
-			<cdx-label id="cdx-demo-radio-group-label">
-				Radio group demo
-			</cdx-label>
-
-			<cdx-radio
-				v-for="radio in radios"
-				:key="'radio-' + radio.value"
-				v-model="radioValue"
-				name="radio-group"
-				:input-value="radio.value"
-				:disabled="radio.disabled"
-				@update:model-value="onUpdate"
-			>
-				{{ radio.label }}
-			</cdx-radio>
-		</div>
+		<cdx-radio
+			v-for="radio in radios"
+			:key="'radio-' + radio.value"
+			v-model="radioValue"
+			name="radio-group"
+			:input-value="radio.value"
+			:disabled="radio.disabled"
+			@update:model-value="onUpdate"
+		>
+			{{ radio.label }}
+		</cdx-radio>
 	</div>
 </template>
 

@@ -1,24 +1,18 @@
 <template>
-	<div>
-		<p class="cdx-docs-demo-text">
-			ToggleSwitch group value: {{ toggleSwitchValue }}
-		</p>
+	<div role="group" aria-labelledby="cdx-demo-switch-group-label">
+		<cdx-label id="cdx-demo-switch-group-label">
+			ToggleSwitch group demo
+		</cdx-label>
 
-		<div role="group" aria-labelledby="cdx-demo-switch-group-label">
-			<cdx-label id="cdx-demo-switch-group-label">
-				ToggleSwitch group demo
-			</cdx-label>
-
-			<cdx-toggle-switch
-				v-for="toggleSwitch in toggleSwitches"
-				:key="'switch-' + toggleSwitch.value"
-				v-model="toggleSwitchValue"
-				:input-value="toggleSwitch.value"
-				:align-switch="true"
-			>
-				{{ toggleSwitch.label }}
-			</cdx-toggle-switch>
-		</div>
+		<cdx-toggle-switch
+			v-for="toggleSwitch in toggleSwitches"
+			:key="'switch-' + toggleSwitch.value"
+			v-model="toggleSwitchValue"
+			:input-value="toggleSwitch.value"
+			:align-switch="true"
+		>
+			{{ toggleSwitch.label }}
+		</cdx-toggle-switch>
 	</div>
 </template>
 

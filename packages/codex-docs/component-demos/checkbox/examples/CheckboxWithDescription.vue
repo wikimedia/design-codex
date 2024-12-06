@@ -1,8 +1,4 @@
 <template>
-	<p class="cdx-docs-demo-text">
-		Checkbox value: {{ checkboxValue }}
-	</p>
-
 	<cdx-checkbox v-model="checkboxValue" @update:model-value="onUpdate">
 		Send password reset emails only when both email address and username are provided.
 		<template #description>

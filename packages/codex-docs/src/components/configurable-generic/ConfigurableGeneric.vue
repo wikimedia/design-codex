@@ -27,7 +27,6 @@ import useCurrentComponentName from '../../composables/useCurrentComponentName';
 import {
 	CdxProgressBar,
 	CdxToggleButton,
-	CdxToggleSwitch,
 	CdxTextInput,
 	CdxTextArea
 } from '@wikimedia/codex';
@@ -47,7 +46,6 @@ export default defineComponent( {
 	components: {
 		CdxProgressBar,
 		CdxToggleButton,
-		CdxToggleSwitch,
 		CdxTextInput,
 		CdxTextArea
 	},

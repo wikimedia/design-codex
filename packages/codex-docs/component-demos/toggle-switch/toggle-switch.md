@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
+import { CdxAccordion } from '@wikimedia/codex';
+import SwitchConfigurable from '@/../component-demos/toggle-switch/examples/SwitchConfigurable.vue';
 import SwitchWithDescription from '@/../component-demos/toggle-switch/examples/SwitchWithDescription.vue';
 import SwitchWithHiddenLabel from '@/../component-demos/toggle-switch/examples/SwitchWithHiddenLabel.vue';
 import SwitchGroup from '@/../component-demos/toggle-switch/examples/SwitchGroup.vue';
@@ -22,16 +23,32 @@ const controlsConfig = [
 	{
 		name: 'default',
 		type: 'slot',
-		default: 'Label for ToggleSwitch'
+		default: 'ToggleSwitch label'
+	},
+	{
+		name: 'description',
+		type: 'slot',
+		default: ''
 	}
 ];
 </script>
 
 A ToggleSwitch enables the user to instantly toggle between on and off states.
 
-## Guidelines
+<cdx-demo-wrapper :controls-config="controlsConfig">
+<template v-slot:demo="{ propValues, slotValues }">
+	<switch-configurable v-bind="propValues">
+		{{ slotValues.default }}
+		<template #description>
+			{{ slotValues.description }}
+		</template>
+	</switch-configurable>
+</template>
+</cdx-demo-wrapper>
 
-### When to use toggle switches
+## Overview
+
+### When to use ToggleSwitch
 
 Toggle switches must feature a descriptive label.
 
@@ -39,154 +56,38 @@ Use the ToggleSwitch component only where an instant change in the
 user-interface based on their assigned action is intended. For non-instant
 selections and selection groups, use [Checkbox](./checkbox.md) instead.
 
-### Specifications
+Avoid using a ToggleSwitch to control opposing options like Yes/No.
 
-![Specification of ToggleSwitch.](../../assets/components/toggle-switch-specifications.svg)
+### About ToggleSwitch
 
-1. **Toggle switch label**<br>
-The toggle switch must always contain a label, with the text size matching the base font size for consistency with the body text. The label should be short, with text that clearly describes the state being toggled.
-2. **Toggle switch**<br>
+ToggleSwitch includes the following elements.
+
+#### Label
+
+The ToggleSwitch must always contain a label, with the text size matching the base font size for consistency with the body text. The label should be short, with text that clearly describes the state being toggled.
+
+<cdx-demo-best-practices>
+
+<cdx-demo-best-practice>Use text formatting like bold and italic sparingly in the label.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Include standalone links within the label to provide additional information regarding a specific option when necessary.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Avoid linking the entire label as it could cause issues with the selection.</cdx-demo-best-practice>
+
+</cdx-demo-best-practices>
+
+#### Switch
+
 Toggle switches make the on and off states visually distinct by using different colors and moving
 the grabber from left to right and vice versa.
-3. **Description** (optional)<br>
+
+#### Description (optional)
+
 If additional information about the label is required, a description can be included.
 
-#### Component limitations
+## Examples
 
-The ToggleSwitch label will expand to fit longer text while the ToggleSwith itself remains aligned with the first line of the label's text.
+### Single switch
 
-A group of toggle switches should consist of at least 2 items, with no maximum limit on the number of toggle switches per group.
-
-Refer to the [ToggleSwitch component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2554-32423&mode=design&t=7wyBmhfdJTJevQmT-11).
-
-### Interaction states
-
-Toggle switches’ states were designed with accessible color variations. These,
-in addition to the toggle handle, facilitate distinguishing the toggle switch’s
-on or off states (e.g. disabled, hover, active) visually:
-
-![States of the ToggleSwitch component for both off and on states: default, hover, active, focus, and disabled.](../../assets/components/toggle-switch-interaction-states.svg)
-
-<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
-
-1. Default off
-2. Hover off
-3. Active off
-4. Focus off
-5. Disabled off
-6. Default on
-7. Hover on
-8. Active on
-9. Focus on
-10. Disabled on
-
-</div>
-
-::: tip Accessibility note
-The disabled state does not meet our minimum color contrast rules. WCAG 2.1
-states that “…part[s] of an inactive user interface component […] have no contrast requirement”.
-<sup>[[1]](#ref1)</sup><br>
-Provide sufficient information in a disabled element's context, so the user can understand what is
-disabled and how to enable it (if applicable).
-:::
-
-### Best practices
-
-Consider the following recommendations when using toggle switches.
-
-#### Label’s format
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![ToggleSwitch group including different text formats and a link.](../../assets/components/toggle-switch-best-practices-label-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Accompany the ToggleSwitch with a label that matches the base font size.
-- Use text formatting and links in the label.
-- Include a description below the label to provide additional information.
-
-</template>
-
-<template #dont-media>
-
-![ToggleSwitch group with bolded labels and a link within the last label.](../../assets/components/toggle-switch-best-practices-label-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Bold all the label.
-- Link the entire ToggleSwitch label as it could cause issues with the selection.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Orientation
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Two ToggleSwitches stacked vertically.](../../assets/components/toggle-switch-best-practices-orientation-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use ToggleSwitch groups in a vertical orientation for a clear and organized layout.
-
-</template>
-
-<template #dont-media>
-
-![ToggleSwitch conveying switching between two opposing options.](../../assets/components/toggle-switch-best-practices-orientation-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use a ToggleSwitch to control opposing options.
-
-</template>
-
-</cdx-demo-rules>
-
-### References
-
-1. <span id="ref1">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>
-
-### Keyboard navigation
-
-| Key | Function |
-| -- | -- |
-| <kbd>Tab</kbd> | It moves the focus to the next ToggleSwitch within a group or to the next interactive element in tab order when the focus is placed on the last ToggleSwitch of a group. |
-| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous button within the group or to the previous interactive element when the focus is placed on the first button of the group. |
-| <kbd>Enter</kbd> / <kbd>Space</kbd> | If the focus is placed on the ToggleSwitch, it toggles the switch on and off. |
-
-## Demos
-
-### Configurable
-
-<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true" generated-model-name="switchValue">
-<template v-slot:demo="{ propValues, slotValues }">
-	<cdx-docs-configurable-generic v-bind="propValues">
-		{{ slotValues.default }}
-	</cdx-docs-configurable-generic>
-</template>
-</cdx-demo-wrapper>
-
-### Single switch with label and description
-
-Always include label text via the default slot. You can also add description text via the
-`#description` slot.
-
-A single switch does not need an `inputValue` prop. `v-model` is bound to a boolean value: `true`
-for "on", `false` for "off".
+Single switches can be used, such as turning a setting on or off.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -206,8 +107,21 @@ for "on", `false` for "off".
 </template>
 </cdx-demo-wrapper>
 
-In rare cases, a visible label is not necessary. You can use the `hideLabel` prop to visually hide
-the label, which will still appear in the markup for accessibility purposes.
+<cdx-accordion>
+
+<template #title>Developer notes</template>
+
+Always include label text via the default slot. You can also add description text via the
+`#description` slot.
+
+A single switch does not need an `inputValue` prop. `v-model` is bound to a boolean value: `true`
+for "on", `false` for "off".
+
+In rare cases, a visible label is not necessary.
+
+</cdx-accordion>
+
+In rare cases where the purpose of the ToggleSwitch is made clear in context, a visible label is not necessary.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -227,15 +141,20 @@ the label, which will still appear in the markup for accessibility purposes.
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+
+<template #title>Developer notes</template>
+
+You can use the `hideLabel` prop to visually hide
+the label, which will still appear in the markup for accessibility purposes.
+
+</cdx-accordion>
+
 ### Form field
 
 When used in a form, a single ToggleSwitch or group of ToggleSwitches can be wrapped in the Field
 component to add features like a semantic label, description and help text, validation messages,
 and more. See the [Field](./field.md) page for more information.
-
-When building a ToggleSwitch field, **always set `isFieldset` to `true`**, even for a single
-ToggleSwitch, to ensure proper accessibility support. This wraps the group in a `<fieldset>`
-element and labels it with an associated `<legend>`.
 
 If using a ToggleSwitch or ToggleSwitch group outside of a form, follow the instructions in the
 next demo.
@@ -258,17 +177,27 @@ next demo.
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+
+<template #title>Developer notes</template>
+
+When building a ToggleSwitch field, **always set `isFieldset` to `true`**, even for a single
+ToggleSwitch, to ensure proper accessibility support. This wraps the group in a `<fieldset>`
+element and labels it with an associated `<legend>`.
+
+</cdx-accordion>
+
 ### ToggleSwitch group
 
-For a group of related toggle switches, each ToggleSwitch component's `v-model` will be bound to an
-array of the `inputValue` props of the toggle switches that are currently "on".
+ToggleSwitches can be used in groups.
 
-Use the `alignSwitch` prop to align all of the switches to the end of the container, creating a more
-streamlined look.
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>
 
-This demo shows what to do when using a ToggleSwitch group outside of a form:
-1. Wrap the group in an element with `role="group"`
-2. Connect the group with a label via the `aria-labelledby` attribute
+Use ToggleSwitch groups vertically for a clear and organized layout.
+
+</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -288,22 +217,39 @@ This demo shows what to do when using a ToggleSwitch group outside of a form:
 </template>
 </cdx-demo-wrapper>
 
-## Vue usage
+<cdx-accordion>
+
+<template #title>Developer notes</template>
+
+For a group of related ToggleSwitches, each ToggleSwitch component's `v-model` will be bound to an
+array of the `inputValue` props of the ToggleSwitches that are currently "on".
+
+Use the `alignSwitch` prop to align all of the switches to the end of the container, creating a more
+streamlined look.
+
+This demo shows what to do when using a ToggleSwitch group outside of a form:
+1. Wrap the group in an element with `role="group"`
+2. Connect the group with a label via the `aria-labelledby` attribute
+
+</cdx-accordion>
+
+## Technical implementation
+
+### Vue usage
 
 ::: tip Attributes passed to input
 This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>`
 element within the component.
 :::
 
-
-For a single toggle switch, the `v-model` value will be a boolean `true` when the switch is "on"
+For a single ToggleSwitch, the `v-model` value will be a boolean `true` when the switch is "on"
 and `false` when "off".<br>
-For multiple toggle switches, the `v-model` value will be an array of the `inputValue` props of
+For multiple ToggleSwitches, the `v-model` value will be an array of the `inputValue` props of
 any currently "on" switches (or an empty array if all switches are "off").
 
-## CSS-only version
+### CSS-only version
 
-### Markup structure
+#### Markup structure
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -350,7 +296,7 @@ any currently "on" switches (or an empty array if all switches are "off").
 </template>
 </cdx-demo-wrapper>
 
-### With description
+#### With description
 
 To add a description below the label:
 - Add a `<span>` after the `<label>` element with an ID and class `cdx-label__description`.
@@ -401,7 +347,7 @@ To add a description below the label:
 </template>
 </cdx-demo-wrapper>
 
-### With visually-hidden label
+#### With visually-hidden label
 
 For a visually-hidden label, add the `cdx-label--visually-hidden` class to the `<div>` that has the
 `cdx-label` class.
@@ -443,9 +389,9 @@ For a visually-hidden label, add the `cdx-label--visually-hidden` class to the `
 </template>
 </cdx-demo-wrapper>
 
-### Initially on
+#### Initially on
 
-The toggle switch appears "on" when the hidden checkbox is checked. To initially set the switch to
+The ToggleSwitch appears "on" when the hidden checkbox is checked. To initially set the switch to
 "on", add the `checked` attribute to the `<input>`.
 
 <cdx-demo-wrapper>
@@ -485,9 +431,9 @@ The toggle switch appears "on" when the hidden checkbox is checked. To initially
 </template>
 </cdx-demo-wrapper>
 
-### Disabled
+#### Disabled
 
-To disable the toggle switch, add the `disabled` attribute to the `<input>` element.
+To disable the ToggleSwitch, add the `disabled` attribute to the `<input>` element.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -553,3 +499,11 @@ To disable the toggle switch, add the `disabled` attribute to the `<input>` elem
 
 </template>
 </cdx-demo-wrapper>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next ToggleSwitch within a group or to the next interactive element in tab order when the focus is placed on the last ToggleSwitch of a group. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous button within the group or to the previous interactive element when the focus is placed on the first button of the group. |
+| <kbd>Enter</kbd> / <kbd>Space</kbd> | If the focus is placed on the ToggleSwitch, it toggles the switch on and off. |

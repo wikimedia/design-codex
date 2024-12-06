@@ -18,30 +18,23 @@ exports[`matches the snapshot Case 0 ToggleButton with slot content => HTML 1`] 
 </div>
 `;
 
-exports[`matches the snapshot Case 1 ToggleSwitch without slot => HTML 1`] = `
+exports[`matches the snapshot Case 1 TextInput without slot => HTML 1`] = `
 <div>
   <!-- Have a slot -->
   
   <!-- No slot content -->
-  <span
-    class="cdx-toggle-switch"
+  <div
+    class="cdx-text-input cdx-text-input--status-default"
   >
     <input
-      class="cdx-toggle-switch__input"
-      id="cdx-toggle-switch-0"
-      role="switch"
-      type="checkbox"
-      value="false"
+      class="cdx-text-input__input"
+      size="1"
+      type="text"
     />
-    <span
-      class="cdx-toggle-switch__switch"
-    >
-      <span
-        class="cdx-toggle-switch__switch__grip"
-      />
-    </span>
     <!--v-if-->
-  </span>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
   
 </div>
 `;

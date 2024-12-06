@@ -13,10 +13,7 @@
 		</template>
 		<template #description>
 			These options are provided for the Discussion Tools Beta Feature.
-		</template>
-		<template #help-text>
 			Learn more about these features at the <a href="#">feature summary</a>.
-			These tools require JavaScript to be enabled in your browser.
 		</template>
 	</cdx-field>
 </template>

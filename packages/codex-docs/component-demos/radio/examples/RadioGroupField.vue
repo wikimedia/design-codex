@@ -15,9 +15,6 @@
 		<template #description>
 			Choose how often you'd like to receive notifications
 		</template>
-		<template #help-text>
-			Note that you can update this preference later
-		</template>
 	</cdx-field>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
 	<cdx-toggle-switch v-model="switchValue" @update:model-value="onUpdate">
-		Visual editing mode
+		<slot />
 		<template #description>
-			Turn on to use the visual editor. You can switch back to source mode at any time.
+			<slot name="description" />
 		</template>
 	</cdx-toggle-switch>
 </template>
@@ -12,7 +12,7 @@ import { defineComponent, ref } from 'vue';
 import { CdxToggleSwitch } from '@wikimedia/codex';
 
 export default defineComponent( {
-	name: 'SwitchWithDescription',
+	name: 'SwitchConfigurable',
 	components: { CdxToggleSwitch },
 	setup() {
 		const switchValue = ref( false );
