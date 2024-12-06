@@ -29,7 +29,7 @@ export default defineComponent( {
 			{ value: 'basic', label: 'Basic', icon: cdxIconImageLayoutBasic },
 			{ value: 'framed', label: 'Framed', icon: cdxIconImageLayoutFrame },
 			{ value: 'frameless', label: 'Frameless', icon: cdxIconImageLayoutFrameless },
-			{ value: 'thumbnail', label: 'Thumbnail', icon: cdxIconImageLayoutThumbnail, disabled: true }
+			{ value: 'thumbnail', label: 'Thumbnail', icon: cdxIconImageLayoutThumbnail }
 		];
 
 		// Initially select the 'Framed' button

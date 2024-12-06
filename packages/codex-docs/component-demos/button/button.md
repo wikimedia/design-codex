@@ -1,5 +1,5 @@
 <script setup>
-import { CdxButton } from '@wikimedia/codex';
+import { CdxButton, CdxAccordion } from '@wikimedia/codex';
 import ButtonWithIcon from '@/../component-demos/button/examples/ButtonWithIcon.vue';
 import QuietButtonWithIcon from '@/../component-demos/button/examples/QuietButtonWithIcon.vue';
 import IconOnlyButton from '@/../component-demos/button/examples/IconOnlyButton.vue';
@@ -36,283 +36,6 @@ const controlsConfig = [
 
 A Button triggers an action when the user clicks or taps on it.
 
-## Guidelines
-
-### When to use buttons
-
-Buttons must contain a label and can also include an icon. For icon-only buttons, the label is
-visually hidden but available to assistive technology users.
-
-Use the Button component when you want to trigger an action or toggle something in the user's
-current context.
-
-Avoid using buttons when:
-- The action is to navigate the user to a new resource, which would take them away from the current
-context. In such cases, consider [Link](../mixins/link.md) instead.<sup>[[1]](#ref1)</sup>
-- You need to represent state-persistent user actions. In this case, use
-[ToggleButton](./toggle-button.md) instead.
-
-### Specifications
-The button styles distinguish types of buttons and each button’s state (e.g.
-hover, active, focused) in accessible color variations.
-
-![Specification of Button.](../../assets/components/button-specifications.svg)
-
-1. **Icon** (optional)<br>Icons simplify user recognition and provide the ability to shorten button labels to a minimum.
-2. **Label**<br>Button labels should be as short as possible, with text that clearly states what action follows clicking the button (e.g. download, submit form, search).
-
-#### Component limitations
-
-When using buttons, consider the size of their target area. Make sure that the
-associated active touch area is at least 44 x 44 dp. Otherwise users may fail to
-hit the active area, for example due to motor disabilities.
-
-Icon-only buttons have their minimum width set to `@min-size-interactive-pointer`
-(equivalent to `32px` in the default Codex theme). Buttons will adjust to fit the
-expanding text but will halt growth at a maximum width of `@max-width-button`
-(equivalent to `448px` in the default Codex theme). An ellipsis will appear to
-accommodate the button text if necessary.
-
-On mobile, buttons should span the full-width of the container, except for icon-only
-buttons, which will maintain their fixed square proportions. For buttons within mobile
-forms, refer to the [constructing forms](../../style-guide/constructing-forms.md)
-guidelines.
-
-Refer to the [Button component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=10019-91329&mode=design&t=eVqRGnL1b9RbOdZ0-11).
-
-::: tip Set `min-width` manually on Buttons with extremely short labels
-Non-icon-only buttons with text labels of only 1-2 characters in length may fall
-below size of the target area described above. If you are dealing with
-non-icon-only buttons with extremely short labels, it is recommended to set a
-minimum width of: `@min-size-interactive-pointer` in your own CSS.
-:::
-
-### Types
-
-#### Button content
-Depending on the content of the button, there are the following types:
-
-1. **Text with icon**<br>It combines descriptive text with a reinforcing icon. It's suitable when you need to convey meaning through both textual and visual elements.
-2. **Text-only**<br>It contains only text for simplicity. It is suitable for actions that do not require or benefit from an accompanying icon, or when the icon would not effectively reinforce the meaning of the text.
-3. **Icon-only**<br>It uses an icon alone to create visual impact. It is suitable for actions that can be universally recognized through the icon alone, such as the “edit” action.
-
-![Example of button content: text with icon, text-only and icon-only.](../../assets/components/button-types-content.svg)
-
-#### Button action or variant (“flavor”)
-There three type of buttons based on the type of action they convey:
-
-1. **Neutral**<br>Use neutral buttons for actions that are neutral or secondary in importance.
-2. **Progressive**<br>Use progressive buttons for actions that lead to the next step in the process.
-3. **Destructive**<br>Reserve destructive buttons for actions that involve removal or limitation, such as deleting a page or blocking a user. Avoid using them for actions like cancel buttons.
-
-![Example of button action: progressive, destructive, and neutral.](../../assets/components/button-types-flavors.svg)
-
-#### Button weight
-Buttons can be categorized into three types based on their weight and their significance in their respective contexts:
-
-##### Primary buttons
-Primary buttons signal the main action in a given view – a page or a dialog. As they
-should guide the user to the most important action (“call to action”), there should only be one
-primary button per view.
-
-![Variants of primary buttons: progressive and destructive.](../../assets/components/button-types-primary.svg)
-
-They come in two variants (“flavors”):
-
-1. **Progressive**: Use progressive buttons for actions that lead to the next step in the process.
-2. **Destructive**: Use destructive buttons for actions that remove or limit, such as deleting a
-page or blocking a user. Don't use it for actions such as cancel buttons.
-
-##### Normal buttons
-When designing a project, normal framed buttons are the default choice. Quiet, frameless buttons
-(read next section) should only be used in views, where normal buttons need to be further visually
-de-emphasized, see below.
-
-![Variants of normal buttons: neutral, progressive and destructive.](../../assets/components/button-types-normal.svg)
-
-Normal buttons have three variants (“flavors”):
-
-1. **Neutral**
-2. **Progressive**
-3. **Destructive**
-
-##### Quiet buttons (“frameless”)
-Use quiet buttons for an easily recognizable action that does not detract focus from the content.
-For example, the icon-only edit buttons alongside sections in article view on mobile
-Wikipedia.<sup>[[2]](#ref2)</sup>They still feature minimal target sizes and states to provide the user clear interaction feedback.
-Normal (framed) buttons are the default choice for simplified recognition.
-
-![Variants of quiet buttons: neutral, progressive and destructive.](../../assets/components/button-types-quiet.svg)
-
-Quiet buttons have three variants (“flavors”):
-
-1. **Neutral**
-2. **Progressive**
-3. **Destructive**
-
-### Interaction states
-Buttons have the following visually separate states:
-
-#### Neutral buttons
-
-![Interaction states of the Neutral Button (both normal and quiet buttons): default,
-hover, active, focus, and disabled.](../../assets/components/button-interaction-states-neutral.svg)
-
-#### Progressive buttons
-
-![Interaction states of the Progressive Button (primary, normal,
-and quiet buttons): default, hover, active, focus, and disabled.](../../assets/components/button-interaction-states-progressive.svg)
-
-#### Destructive buttons
-
-![Interaction states of the Destructive Button (primary, normal,
-and quiet buttons): default, hover, active, focus, and disabled.](../../assets/components/button-interaction-states-destructive.svg)
-
-1. Default
-2. Hover
-3. Active
-4. Focus
-5. Disabled
-
-**Accessibility note**: The disabled state does not meet our minimum color contrast rules. WCAG 2.1 states that “…part[s] of an inactive user interface component […] have no contrast requirement”.<sup>[[3]](#ref3)</sup><br>
-Provide sufficient information in a disabled element’s context, so the user can understand what is disabled and how to enable it (if applicable).
-
-### Best practices
-
-Consider the following recommendations when working with buttons.
-
-#### Icon
-
-<cdx-demo-rules>
-<template #do-media>
-
-![Edit button using an edit icon.](../../assets/components/button-best-practices-do.svg)
-
-</template>
-<template #do-text>
-
-- Ensure that icons used in buttons are relevant to the action they represent.
-- Use icons just when they are clear and easily recognizable.
-
-</template>
-<template #dont-media>
-
-![Edit button using a complex icon.](../../assets/components/button-best-practices-dont.svg)
-
-</template>
-<template #dont-text>
-
-- Avoid complex or abstract icons that may confuse users.
-
-</template>
-</cdx-demo-rules>
-
-### Content
-
-The wording on a button lets a user know what happens when they select it. Users need to know what action will occur, or where they will go, when they click or tap.
-
-Use short, precise verbs, ideally with fewer than 38 characters for English. The average character length of language translations is 42 characters. Logographic (such as Chinese, Japanese, Korean) and Arabic-script (such as Saraiki, Punjabi, Sindhi, Pashto, Balochi) languages tend to use less characters. Language translations which use more characters are Romance (such as Lombard, French, Portuguese, Spanish, Galician, Arpitan, Romanian, Catalan), some Germanic (Colognian, German, Dutch), Slavic (Belarusian, Russian, Bulgarian, Polish, Ukrainian) and Austronesian (Sakizaya, Ilokano, Tagalog, Bikol, Indonesian). Other notable, but not easily grouped languages that tend to be longer are Irish, Greek, Shan, Quechua, Finnish, Hungarian, Basque, and Malayalam. All of them have an average length between 45 and 53 characters.
-
-#### Progressive button
-
-Progressive buttons allow a reader to continue or complete an action.
-
-<cdx-demo-rules>
-<template #do-media>
-
-![Interface button with a short, concise action.](../../assets/components/button-content-progressive-do.svg)
-
-</template>
-<template #do-text>
-
-- Use descriptive, accessible verbs to encourage action. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible)
-- Write in sentence case, capitalising only the first word. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent)
-
-</template>
-<template #dont-media>
-
-![Interface button with unnecessarily long form text which wraps to two lines.](../../assets/components/button-content-progressive-dont.svg)
-
-</template>
-<template #dont-text>
-
-- Choose verbs that imply visual or sensory abilities, or are idiomatic or vague. [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible) & [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable)
-- Write a CTA that wraps over two lines. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
-
-</template>
-</cdx-demo-rules>
-
-#### Destructive button
-
-Destructive buttons are for cancelling, deleting or non-reversible actions. Posing and answering direct questions with matching terminology makes for scannable, effective content.
-
-<cdx-demo-rules>
-<template #do-media>
-
-![Button reading "Delete".](../../assets/components/button-content-destructive-do.svg)
-
-</template>
-<template #do-text>
-
-- Answer direct questions in titles or body copy using the same terminology. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
-
-</template>
-<template #dont-media>
-
-![Button reading "Yes, I'm sure".](../../assets/components/button-content-destructive-dont.svg)
-
-</template>
-<template #dont-text>
-
-- Pose a question in addition to the main action. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
-
-</template>
-</cdx-demo-rules>
-
-#### Neutral button
-
-Neutral buttons are for minor or secondary actions. Always keep the hierarchy of the message simple and direct, and choose the words carefully, in order to make the copy as clear and effective as possible.
-
-<cdx-demo-rules>
-<template #do-media>
-
-![Buttons reading "Create account" and "Log in".](../../assets/components/button-content-neutral-do.svg)
-
-</template>
-<template #do-text>
-
-- Establish a clear hierarchy of choices on the page. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
-
-</template>
-<template #dont-media>
-
-![Buttons reading "Sign up" and "Sign in".](../../assets/components/button-content-neutral-dont.svg)
-
-</template>
-<template #dont-text>
-
-- Use similar words for different actions. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
-
-</template>
-</cdx-demo-rules>
-
-### Keyboard navigation
-
-| Key | Function |
-| -- | -- |
-| <kbd>Enter</kbd> / <kbd>Space</kbd> | If the focus is placed on the Button, it activates the Button. |
-
-### References
-
-1. <span id="ref1">[“Links vs. Buttons in Modern Web Applications” by Marcy Sutton](https://marcysutton.com/links-vs-buttons-in-modern-web-applications)</span>
-2. <span id="ref2">[Mobile English Wikipedia: Button (computing) article with exemplified quiet edit buttons](https://en.m.wikipedia.org/wiki/Button_(computing))</span>
-3. <span id="ref3">[Web Content Accessibility Guidelines (WCAG) 2.1 – Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)</span>
-
-
-## Demos
-
-### Configurable
-
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues, slotValues }">
 	<cdx-button v-bind="propValues">
@@ -321,30 +44,98 @@ Neutral buttons are for minor or secondary actions. Always keep the hierarchy of
 </template>
 </cdx-demo-wrapper>
 
-### Default
+## Overview
 
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<cdx-button>Click me</cdx-button>
-</template>
+### When to use Button
 
-<template v-slot:code>
+Use the Button component when you want to trigger an action or toggle something in the user's
+current context.
 
-```vue-html
-<cdx-button>Click me</cdx-button>
-```
+Avoid using Button when:
+- The action is to navigate the user to a new resource, which would take them away from the current
+context. In such cases, consider [Link](../mixins/link.md) instead. Learn more about [using links and buttons](../../style-guide/using-links-and-buttons.html).
+- You need to represent state-persistent user actions. In this case, use
+[ToggleButton](./toggle-button.md) instead.
 
-</template>
-</cdx-demo-wrapper>
+### About Button
 
-### Button actions
+Button includes the following elements.
 
-There are three button actions: default, progressive, and destructive.
+#### Label
+
+Button labels should be as short as possible, with text that clearly states what action follows clicking the button (e.g. download, submit form, search).
+
+Buttons labels should ideally be fewer than 38 characters in English, as translations average 42 characters. Logographic and Arabic-script languages are generally shorter, while Romance, some Germanic, Slavic, Austronesian, and others like Greek and Finnish tend to be longer, averaging 45–53 characters.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>
+
+Use descriptive, accessible verbs to encourage action. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible)
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice>
+
+Write in sentence case, capitalising only the first word. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent)
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice>
+
+Answer direct questions in titles or body copy using the same terminology. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">
+
+Avoid using similar words for different actions. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">
+
+Avoid verbs that imply visual or sensory abilities such as "see", or are idiomatic or vague. [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible) & [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable)
+
+</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Icon (optional)
+
+Icons simplify user recognition and provide the ability to shorten button labels to a minimum. When the Button includes a label, the icon is optional and should be used to add a clear visual reinforcement to the label. If the Button is icon-only, it should use a universally recognizable icon, such as the “edit” action.
+
+<cdx-demo-best-practices>
+
+<cdx-demo-best-practice>Ensure that icons used in buttons are relevant to the action they represent.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Use icons only when they are clear and easily recognizable.</cdx-demo-best-practice>
+
+</cdx-demo-best-practices>
+
+## Examples
+
+### Button types
+
+#### Button action
+
+A Button can convey one of three `action` types.
+
+1. **Neutral**<br>Use neutral buttons for actions that are neutral or secondary in importance.
+2. **Progressive**<br>Use progressive buttons for actions that lead to the next step in the process.
+3. **Destructive**<br>Reserve destructive buttons for actions that involve removal or limitation, such as deleting a page or blocking a user. Avoid using them for actions like cancel buttons.
+
+#### Button weight
+
+A Button can convey one of three `weight` types.
+
+1. **Normal**<br>When designing a project, normal buttons are the default choice.
+
+2. **Primary**<br>Primary buttons signal the main action in a given view – a page or a dialog. As they
+should guide the user to the most important action (“call to action”), there should only be one
+primary button per view.
+
+3. **Quiet**<br>Use quiet buttons for an easily recognizable action that does not detract focus from the content.
+For example, the icon-only edit buttons alongside sections in article view on mobile
+Wikipedia.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<div>
-		<cdx-button>Default button</cdx-button>
+		<cdx-button>Neutral button</cdx-button>
 	</div>
 	<div>
 		<cdx-button action="progressive">Progressive button</cdx-button>
@@ -370,10 +161,6 @@ There are three button actions: default, progressive, and destructive.
 
 </template>
 </cdx-demo-wrapper>
-
-### Button weights
-
-There are three button weights: normal, primary, and quiet.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -417,25 +204,9 @@ There are three button weights: normal, primary, and quiet.
 </template>
 </cdx-demo-wrapper>
 
-### Disabled
-
-Add the `disabled` attribute for a disabled button.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<cdx-button disabled>Disabled button</cdx-button>
-</template>
-
-<template v-slot:code>
-
-```vue-html
-<cdx-button disabled>Disabled button</cdx-button>
-```
-
-</template>
-</cdx-demo-wrapper>
-
 ### With icon
+
+Use an icon with the button label when you need to convey meaning through both textual and visual elements.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -455,25 +226,9 @@ Add the `disabled` attribute for a disabled button.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<quiet-button-with-icon />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/button/examples/QuietButtonWithIcon.vue [NPM]
-
-<<< @/../component-demos/button/examples-mw/QuietButtonWithIcon.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
 ### Icon-only button
+
+Use an icon-only button for actions that can be universally recognized through the icon alone. For an icon-only Button, the label is visually hidden but available to assistive technology users.
 
 ::: warning
 Due to the lack of descriptive text, icon-only buttons require one of the following attributes: `aria-label` or `aria-hidden`.
@@ -499,30 +254,38 @@ The attribute `aria-label` has to be used on icon-only buttons to be understanda
 </template>
 </cdx-demo-wrapper>
 
+### Disabled button
+
+Buttons may be disabled, but disabled buttons should be used sparingly.
+
+<cdx-demo-best-practices>
+
+<cdx-demo-best-practice>Use disabled Buttons when they are related to a single input, therefore implying what must be completed to enable the Button.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Avoid using disabled Buttons to prevent a user from attmepting to continue forward. Instead, rely on providing validation as a response to what might be incomplete or incorrect.</cdx-demo-best-practice>
+
+</cdx-demo-best-practices>
+
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<quiet-icon-only-button />
+	<button class="cdx-button" disabled>Disabled button</button>
 </template>
-
 <template v-slot:code>
 
-:::code-group
-
-<<< @/../component-demos/button/examples/QuietIconOnlyButton.vue [NPM]
-
-<<< @/../component-demos/button/examples-mw/QuietIconOnlyButton.vue [MediaWiki]
-
-:::
+```html
+<button class="cdx-button" disabled>Disabled button</button>
+```
 
 </template>
 </cdx-demo-wrapper>
 
 ### Button sizes
 
-There are two button sizes: medium and large.
+Buttons can be medium or large `size`.
 
-Most buttons should use the medium size. The large size is intended only for accessibility purposes,
-such as making icon-only buttons larger on touchscreens to increase the touch area.
+Most Buttons should use the medium size. The large size is intended only for accessibility purposes,
+such as making icon-only Buttons larger on touchscreens to increase the touch area.
+
+By default, the width of a Button with text is determined by the width of the text until reaching a max-width. However, on mobile, Buttons should span the full-width of the container, except for icon-only Buttons, which will maintain their fixed square proportions.
 
 <cdx-demo-wrapper :allow-table-styles="true">
 <template v-slot:demo>
@@ -542,11 +305,25 @@ such as making icon-only buttons larger on touchscreens to increase the touch ar
 </template>
 </cdx-demo-wrapper>
 
-## Vue usage
+<cdx-accordion>
 
-## CSS-only version
+<template #title>Developer notes</template>
 
-### Markup structure
+Set `min-width` manually on Buttons with extremely short labels
+Non-icon-only Buttons with text labels of only 1-2 characters in length may fall
+below size of the target area described above. If you are dealing with
+non-icon-only Buttons with extremely short labels, it is recommended to set a
+minimum width of: `@min-size-interactive-pointer` in your own CSS.
+
+</cdx-accordion>
+
+## Technical implementation
+
+### Vue usage
+
+### CSS-only version
+
+#### Markup structure
 
 The CSS Button component uses the `<button>` element and the `.cdx-button` class.
 
@@ -564,9 +341,9 @@ The CSS Button component uses the `<button>` element and the `.cdx-button` class
 </template>
 </cdx-demo-wrapper>
 
-### Button actions
+#### Button actions
 
-There are three button actions: default, progressive, and destructive. Use the following classes to
+There are three Button actions: default, progressive, and destructive. Use the following classes to
 apply these actions:
 - Default: `cdx-button--action-default` (class can be omitted since this is the default)
 - Progressive: `cdx-button--action-progressive`
@@ -601,9 +378,9 @@ apply these actions:
 </template>
 </cdx-demo-wrapper>
 
-### Button weights
+#### Button weights
 
-There are three button weights: normal, primary, and quiet. Use the following classes to
+There are three Button weights: normal, primary, and quiet. Use the following classes to
 apply these actions:
 - Normal: `cdx-button--weight-normal` (class can be omitted since this is the default)
 - Primary: `cdx-button--weight-primary`
@@ -638,7 +415,7 @@ apply these actions:
 </template>
 </cdx-demo-wrapper>
 
-### Disabled
+#### Disabled
 
 Add the `disabled` attribute to the `<button>` element to get a disabled element with appropriate
 styles.
@@ -656,10 +433,10 @@ styles.
 </template>
 </cdx-demo-wrapper>
 
-### With CSS icon
+#### With CSS icon
 
 You can use [CSS icons](./icon.md#css-only-version) within button content. To set up an icon within
-a CSS-only button, do the following:
+a CSS-only button, do the following.
 
 1. Add an empty span inside the button before the label with the class `cdx-button__icon`.
 2. Use the `.cdx-mixin-css-icon()` mixin with the `@param-is-button-icon` parameter set to `true`.
@@ -712,9 +489,9 @@ Be sure to add `aria-hidden="true"` to the icon element to hide it from assistiv
 </template>
 </cdx-demo-wrapper>
 
-### Icon-only button
+#### Icon-only Button
 
-Add the `cdx-button--icon-only` class for an icon-only button.
+Add the `cdx-button--icon-only` class for an icon-only Button.
 
 :::warning
 Be sure to add an `aria-label` attribute to the button element so it can be understandable to screen
@@ -760,10 +537,10 @@ reader users.
 </template>
 </cdx-demo-wrapper>
 
-### Button sizes
+#### Button sizes
 
-There are two button sizes: medium and large. Most buttons should use the medium size. The large
-size is intended only for accessibility purposes, such as making icon-only buttons larger on small
+There are two Button sizes: medium and large. Most Buttons should use the medium size. The large
+size is intended only for accessibility purposes, such as making icon-only Buttons larger on small
 screens to increase the touch area.
 
 Use the following classes to apply these actions:
@@ -823,7 +600,7 @@ Use the following classes to apply these actions:
 </template>
 </cdx-demo-wrapper>
 
-### Link buttons and other elements
+#### Link buttons and other elements
 
 :::danger
 **Do not do this** unless you absolutely have to. Use a `<button>` element styled like a button for
@@ -895,3 +672,9 @@ for more information.
 	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @param-is-button-icon: true );
 }
 </style>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Enter</kbd> / <kbd>Space</kbd> | If the focus is placed on the Button, it activates the Button. |

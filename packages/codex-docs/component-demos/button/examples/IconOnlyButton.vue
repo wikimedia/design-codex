@@ -1,13 +1,13 @@
 <template>
 	<cdx-button aria-label="Back" @click="onClick">
-		<cdx-icon :icon="cdxIconPrevious" />
+		<cdx-icon :icon="cdxIconEdit" />
 	</cdx-button>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
-import { cdxIconPrevious } from '@wikimedia/codex-icons';
+import { cdxIconEdit } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'IconOnlyButton',
@@ -22,7 +22,7 @@ export default defineComponent( {
 		}
 
 		return {
-			cdxIconPrevious,
+			cdxIconEdit,
 			onClick
 		};
 	}

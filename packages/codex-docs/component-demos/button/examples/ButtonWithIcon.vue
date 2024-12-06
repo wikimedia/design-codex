@@ -1,13 +1,13 @@
 <template>
 	<cdx-button @click="onClick">
-		<cdx-icon :icon="cdxIconArrowPrevious" /> Go back
+		<cdx-icon :icon="cdxIconDownload" /> Download
 	</cdx-button>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
-import { cdxIconArrowPrevious } from '@wikimedia/codex-icons';
+import { cdxIconDownload } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'ButtonWithIcon',
@@ -22,7 +22,7 @@ export default defineComponent( {
 		}
 
 		return {
-			cdxIconArrowPrevious,
+			cdxIconDownload,
 			onClick
 		};
 	}

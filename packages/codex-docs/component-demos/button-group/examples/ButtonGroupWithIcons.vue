@@ -19,8 +19,8 @@ export default defineComponent( {
 		const buttons = [
 			{ value: 'edit', label: 'Edit', icon: cdxIconEdit },
 			{ value: 'talk', label: 'Discuss', icon: cdxIconSpeechBubble },
-			{ value: 'save', label: 'Done', icon: cdxIconCheck, disabled: true },
-			{ value: 'download', label: 'Download', icon: cdxIconDownload, disabled: true },
+			{ value: 'save', label: 'Done', icon: cdxIconCheck },
+			{ value: 'download', label: 'Download', icon: cdxIconDownload },
 			{ value: 'delete', label: 'Delete', icon: cdxIconTrash }
 		];
 
