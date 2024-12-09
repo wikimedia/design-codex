@@ -1,126 +1,11 @@
 <script setup>
-import { CdxThumbnail } from '@wikimedia/codex';
+import { CdxThumbnail, CdxAccordion } from '@wikimedia/codex';
 import ThumbnailDefault from '@/../component-demos/thumbnail/examples/ThumbnailDefault.vue';
 import ThumbnailCustomIcon from '@/../component-demos/thumbnail/examples/ThumbnailCustomIcon.vue';
 </script>
 
 A Thumbnail is a visual element used to display a small preview of an image. Thumbnails provide
 users with a quick glimpse of the associated content.
-
-## Guidelines
-
-### When to use thumbnails
-Use the Thumbnail component to include small previews of images that can provide
-context or support the meaning of the content included in components such as
-[Card](./card.md) or [MenuItem](./menu-item.md).
-
-The placeholder icon will display until the thumbnail image loads, or if a
-thumbnail image is not provided.
-
-### Specifications
-
-![Specification of Thumbnail.](../../assets/components/thumbnail-specifications.svg)
-
-The thumbnail component may include the following elements:
-1. **Image**<br>The thumbnail displays an image if one has been uploaded.
-2. **Placeholder icon**<br>If the thumbnail doesn't have an loaded image, it presents a placeholder gray icon against a light gray background.
-
-In both scenarios, the thumbnail features a Gray300 border to ensure sufficient
-contrast when placed on white backgrounds.
-
-#### Component limitations
-
-Thumbnails have a minimum width and height of `size-250` (equivalent to `40px`
-in the default Codex theme). A larger thumbnail size can be specified using CSS
-if desired (the [Card](./card.md) component uses `size-300` for its Thumbnail
-dimensions, for example).
-
-Refer to the [Thumbnail component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=6111-59883&mode=design&t=juAVVGeUnMoEFBEV-11).
-
-### Types
-There are two types of thumbnails based on whether an image has been loaded or not:
-1. **Image**<br>If an image has been loaded, the thumbnail will display the image.
-2. **Placeholder**<br>If no image has been loaded, the thumbnail will show a placeholder icon against a light gray background.
-
-![Types of Thumbnail: with image and with placeholder.](../../assets/components/thumbnail-types.svg)
-
-### Interaction states
-Thumbnail component just have two states:
-
-![Interaction states of Thumbnail: default and loading.](../../assets/components/thumbnail-interaction-states.svg)
-
-1. **Default**: it will display the image if it is uploaded.
-2. **Loading**: it displays the placeholder view until the thumbnail image loads.
-
-### Best practices
-
-Consider the following recommendations when using thumbnails.
-
-#### Usage
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Thumbnail within a Card.](../../assets/components/thumbnail-best-practices-usage-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use Thumbnail as a preview of an image within other components such as
-[Card](./card.md) or [MenuItem](./menu-item.md).
-
-</template>
-
-<template #dont-media>
-
-![Thumbnail within an InfoBox.](../../assets/components/thumbnail-best-practices-usage-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Replace images with Thumbnails, as Thumbnail is intended only as preview and an image should remain high-resolution.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Icon
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Thumbnail using a customized simple icon.](../../assets/components/thumbnail-best-practices-icon-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Customize the icon within placeholder thumbnails.
-- Use icons that provide clear context for the use of the thumbnail.
-
-</template>
-
-<template #dont-media>
-
-![Thumbnail using a customized complex icon.](../../assets/components/thumbnail-best-practices-icon-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use icons that are difficult to understand or do not clearly convey their purpose.
-
-</template>
-
-</cdx-demo-rules>
-
-## Demos
-
-### Default
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
@@ -140,17 +25,67 @@ Consider the following recommendations when using thumbnails.
 </template>
 </cdx-demo-wrapper>
 
+## Overview
+
+### When to use Thumbnail
+Use the Thumbnail component to include small previews of images that can provide
+context or support the meaning of the content included in components such as
+[Card](./card.md) or [MenuItem](./menu-item.md).
+
+The placeholder icon will display until the Thumbnail image loads, or if a
+Thumbnail image is not provided.
+
+### About Thumbnail
+
+Thumbnail includes the following elements.
+
+#### Image
+
+The Thumbnail displays an image if one has been uploaded.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice type="dont">
+
+Avoid replacing other images with Thumbnails, as Thumbnail is intended only as preview and an image should remain high-resolution.
+
+</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Placeholder icon
+
+If the Thumbnail doesn't have an loaded image, it presents a placeholder gray icon against a light gray background.
+
+<cdx-demo-best-practices>
+
+<cdx-demo-best-practice>Customize the icon within placeholder Thumbnails.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Use icons that provide clear context for the use of the Thumbnail.</cdx-demo-best-practice>
+
+</cdx-demo-best-practices>
+
+::: tip Accessibility
+In both scenarios, the Thumbnail features a `@border-color-subtle` border to ensure sufficient contrast when placed on `@background-color-base` backgrounds.
+:::
+
+#### Size
+
+Thumbnails have a minimum width and height of `size-250` (equivalent to `40px`
+in the default Codex theme). A larger Thumbnail size can be specified using CSS
+if desired (the [Card](./card.md) component uses `size-300` for its Thumbnail
+dimensions, for example).
+
+## Examples
+
 ### Placeholder
 
 The placeholder serves two purposes:
 
-1. To display while a thumbnail image is loading, improving the experience of those with slower
+1. To display while a Thumbnail image is loading, improving the experience of those with slower
    connections
-2. To display when a thumbnail image is not provided
+2. To display when a Thumbnail image is not provided
 
 The second case may occur in a group of components, like Cards or MenuItems, when some items have a
 thumbnail image but some do not. In this case, the placeholder icon helps maintain a consistent
-layout for all items. See the [MenuItem demo](./menu-item.html#within-a-list) for an example.
+layout for all items. Refer to the [MenuItem demo](./menu-item.html#within-a-list) for an example.
 
 #### Default placeholder
 
@@ -170,8 +105,6 @@ layout for all items. See the [MenuItem demo](./menu-item.html#within-a-list) fo
 
 #### Custom placeholder icon
 
-To customize the placeholder icon, use the `placeholderIcon` prop.
-
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<thumbnail-custom-icon />
@@ -190,11 +123,21 @@ To customize the placeholder icon, use the `placeholderIcon` prop.
 </template>
 </cdx-demo-wrapper>
 
-## Vue usage
+<cdx-accordion>
 
-## CSS-only version
+<template #title>Developer notes</template>
 
-### Markup structure
+To customize the placeholder icon, use the `placeholderIcon` prop.
+
+</cdx-accordion>
+
+## Technical implementation
+
+### Vue usage
+
+### CSS-only version
+
+#### Markup structure
 
 For the CSS-only version, a `background-image` rule must be set on the inner span. You can do this
 via a `style` attribute (like in the example below), or by adding a custom CSS class to the inner
@@ -221,9 +164,9 @@ span and adding the `background-image` rule in your styles.
 </template>
 </cdx-demo-wrapper>
 
-### Placeholder
+#### Placeholder
 
-#### Default placeholder
+##### Default placeholder
 
 To show the default placeholder icon, add two nested `<span>` elements inside the wrapper `<span>`:
 1. An outer `<span>` with the class `cdx-thumbnail__placeholder`
@@ -253,7 +196,7 @@ The default placeholder icon will automatically be added as a background image t
 </template>
 </cdx-demo-wrapper>
 
-#### Custom placeholder icon
+##### Custom placeholder icon
 
 To show a custom placeholder icon, add two nested `<span>` elements inside the wrapper `<span>`:
 1. An outer `<span>` with the class `cdx-thumbnail__placeholder`

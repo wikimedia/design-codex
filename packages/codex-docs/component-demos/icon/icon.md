@@ -1,59 +1,10 @@
 <script setup>
 import SimpleIcon from '@/../component-demos/icon/examples/SimpleIcon.vue';
 import IconSizes from '@/../component-demos/icon/examples/IconSizes.vue';
+import IconInButton from '@/../component-demos/icon/examples/IconInButton.vue';
 </script>
 
 An Icon is a graphical representation of an idea.
-
-## Guidelines
-
-### When to use icons
-
-Icons are used to give the user additional context for understanding the interface. This component
-can be used inside other components, like a [Button](./button.md).
-
-Codex contains a [list of icons](/icons/all-icons.md).
-Read more about how to [use and create Codex icons](/style-guide/icons.html).
-
-### Specifications
-
-#### Size
-
-Icon size can be 20px, 16px or 12px. Icon base size will be 20px, while 16px
-will be used for small icons. We will use 12px just for a limited set of
-specific use cases.
-
-![Icon in available sizes: 20px, 16px, and 12px.](../../assets/components/icon-specifications.svg)
-
-- **20px icons** should be used by default size, including in elements with a min-height of 32px (like the start icon within the TextInput).
-- **16px icons** should be in elements with a height less than 32px (like the start icon within the InfoChip) or for controls in elements with a min-height of 32px (like the dropdown arrow’s icon in the Select).
-- **12px icons** will only be used for a small set of specific cases, like the external-link icon, or for controls in elements with a height less than 32px (like the remove buttons for chips in the ChipInput).
-
-#### Color
-
-<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
-
-![Base-color icons being used within a Menu.](../../assets/components/icon-specfications-color-base.svg)
-
-Icons will always use Gray900 if used individually, and not as part of another component.
-</div>
-<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
-
-![Icons with colors being used within a Button.](../../assets/components/icon-specfications-color-custom.svg)
-
-Icons used within other components inherit the color of the accompanying label.
-</div>
-
-Refer to the [Icon component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=8381-79819&mode=design&t=2O0ceqiRfqCtnidq-11).
-
-### Interaction states
-Icons serve as both informative and decorative elements, so they do not
-inherently exhibit states on their own. Instead, an icon will adopt the state of
-the text or component it is placed within.
-
-## Demos
-
-### Simple icon
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>
@@ -73,11 +24,62 @@ the text or component it is placed within.
 </template>
 </cdx-demo-wrapper>
 
-### Using icons in buttons
-Icons can be used inside other components, like buttons. For demos of how to use icons inside
-buttons, see [the Button documentation](./button#default-with-icon).
+## Overview
+
+### When to use Icon
+
+Icons are used to give the user additional context for understanding the interface. This component
+can be used inside other components, like a [Button](./button.md).
+
+Codex contains a [list of icons](/icons/all-icons.md).
+Read more about how to [use and create Codex icons](/style-guide/icons.html).
+
+### About Icon
+
+#### Size
+
+Icons can be one of three sizes.
+
+- **By default**, Icons use `@size-125` (equivalent to `20px` in the default Codex theme) known as medium.
+- **In elements with a smaller height**, Icons should use `@size-100` (equivalent to `16px` in the default Codex theme) known as small.
+- **In specific cases**, Icons should use `@size-75` (equivalent to `12px` in the default Codex theme) known as x-small.
+
+#### Color
+
+- **By default**, icons use `@color-base`.
+- **Decorative icons** should use `@color-subtle`.
+- **Icons in a placeholder state** should use `@color-placeholder`.
+- **Status-conveying icons** should use their associated status color, either `@color-notice`, `@color-error`, `@color-warning`, or `@color-success`.
+- **Icons as a part of an action or link** inherit the color of the accompanying label.
+
+## Examples
+
+### Basic usage
+
+Icon can be used inside other components, like [Button](./button#with-icon). Note that the icon will
+inherit the text color of that component—for instance, in a destructive primary button, the icon is
+white, like the button label.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<icon-in-button />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/icon/examples/IconInButton.vue [NPM]
+
+<<< @/../component-demos/icon/examples-mw/IconInButton.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
 
 ### Icon sizes
+
 Icons support a few different pre-defined size options. Right now the supported sizes are:
 `medium`, `small`, and `x-small`.
 
@@ -102,15 +104,17 @@ If no `size` property is provided, the `medium` size will be used by default.
 </cdx-demo-wrapper>
 
 ::: warning
-`x-small` icon size is only intended for use in certain special cases.
+`x-small` Icon size is only intended for use in certain special cases.
 Most components should use Icons in `small` or `medium` size.
 :::
 
-## Vue usage
+## Technical implementation
 
-## CSS-only version
+### Vue usage
 
-You can use icons in a no-JavaScript context via a the CSS icon Less mixin provided by the Codex
+#### CSS-only version
+
+You can use icons in a no-JavaScript context via the CSS icon Less mixin provided by the Codex
 library. To use this mixin, import the mixin file and apply `.cdx-mixin-css-icon()` to an
 empty `<span>` element. The parameters of the mixin are as follows:
 
@@ -190,7 +194,7 @@ Visit the [Button docs](./button.md#with-css-icon) for details on using CSS icon
 </template>
 </cdx-demo-wrapper>
 
-### Icon color
+#### Icon color
 
 Use the second parameter of the `.cdx-mixin-css-icon()` mixin, `@param-fill-color`, to apply a hex
 code as the SVG fill color.
@@ -239,7 +243,7 @@ code as the SVG fill color.
 </template>
 </cdx-demo-wrapper>
 
-### Icon sizes
+#### Icon sizes
 
 Use the third parameter of the `.cdx-mixin-css-icon()` mixin, `@param-size-icon`, to use one of the pre-defined size options (`@size-icon-medium`, `@size-icon-small`, or `@size-icon-x-small`).
 
@@ -324,7 +328,7 @@ Use the third parameter of the `.cdx-mixin-css-icon()` mixin, `@param-size-icon`
 </template>
 </cdx-demo-wrapper>
 
-### Bidirectionality
+#### Bidirectionality
 
 The CSS icon mixin supports icons that differ between the left-to-right (LTR) and
 right-to-left (RTL) reading directions. To take advantage of this behavior, in RTL contexts, one of
@@ -392,7 +396,7 @@ icon element itself.
 </template>
 </cdx-demo-wrapper>
 
-### Language support
+#### Language support
 
 The CSS-only icons mixin supports icons with language-specific variants.
 
@@ -458,7 +462,7 @@ The CSS-only icons mixin supports icons with language-specific variants.
 </template>
 </cdx-demo-wrapper>
 
-### Custom icon
+#### Custom icon
 To use a custom icon:
 - Set the first parameter of the `.cdx-mixin-css-icon()` mixin to `'none'`
 - Set `mask-image` and `-webkit-mask-image` to a URL that points to the icon image (this can be a

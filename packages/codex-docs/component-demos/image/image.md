@@ -66,20 +66,7 @@ const controlsConfig = [
 </script>
 
 An Image is a visual element used to display content in various formats and states,
-supporting features like aspect ratios, placeholders,
-and responsive sizing.
-
-## Guidelines
-
-### When to use images
-Use the Image component to display visual content like photos or illustrations that enhance context and meaning.
-Ideal for adding visual elements in layouts, supporting text content, or embedding in components like cards and dialogs.
-Avoid using for purely decorative purposes or stylized visual elements.
-Always include meaningful `alt` text for accessibility.
-
-## Demos
-
-### Configurable
+supporting features like aspect ratios, placeholders, and responsive sizing.
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
   <template v-slot:demo="{ propValues }">
@@ -96,9 +83,19 @@ Always include meaningful `alt` text for accessibility.
   </template>
 </cdx-demo-wrapper>
 
+## Overview
+
+### When to use Image
+Use the Image component to display visual content like photos or illustrations that enhance context and meaning.
+Ideal for adding visual elements in layouts, supporting text content, or embedding in components like cards and dialogs.
+Avoid using for purely decorative purposes or stylized visual elements.
+Always include meaningful `alt` text for accessibility.
+
+## Examples
+
 ### Default
 
-<cdx-demo-wrapper :force-controls="true">
+<cdx-demo-wrapper>
 <template v-slot:demo>
 	<image-default />
 </template>
@@ -118,7 +115,7 @@ Always include meaningful `alt` text for accessibility.
 
 ### Aspect Ratio
 
-<cdx-demo-wrapper :force-controls="true">
+<cdx-demo-wrapper>
 <template v-slot:demo>
 	<image-aspect-ratio />
 </template>
@@ -138,7 +135,7 @@ Always include meaningful `alt` text for accessibility.
 
 ### Placeholder
 
-<cdx-demo-wrapper :force-controls="true">
+<cdx-demo-wrapper>
 <template v-slot:demo>
 	<image-placeholder />
 </template>
@@ -158,7 +155,7 @@ Always include meaningful `alt` text for accessibility.
 
 ### Error
 
-<cdx-demo-wrapper :force-controls="true">
+<cdx-demo-wrapper>
 <template v-slot:demo>
 	<image-error />
 </template>
@@ -176,4 +173,6 @@ Always include meaningful `alt` text for accessibility.
 </template>
 </cdx-demo-wrapper>
 
-## Vue usage
+## Technical implementation
+
+### Vue usage
