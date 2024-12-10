@@ -1,7 +1,12 @@
 <script setup>
+import { CdxAccordion } from '@wikimedia/codex';
 import { cdxIconSearch, cdxIconInfoFilled } from '@wikimedia/codex-icons';
 import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
-import TextInputDemo from '@/../component-demos/text-input/examples/TextInputDemo.vue';
+import TextInputBasic from '@/../component-demos/text-input/examples/TextInputBasic.vue';
+import TextInputInitialValue from '@/../component-demos/text-input/examples/TextInputInitialValue.vue';
+import TextInputDate from '@/../component-demos/text-input/examples/TextInputDate.vue';
+import TextInputWithIcons from '@/../component-demos/text-input/examples/TextInputWithIcons.vue';
+import TextInputWithClearable from '@/../component-demos/text-input/examples/TextInputWithClearable.vue';
 import TextInputField from '@/../component-demos/text-input/examples/TextInputField.vue';
 import TextInputNativeValidation from '@/../component-demos/text-input/examples/TextInputNativeValidation.vue';
 
@@ -17,6 +22,24 @@ const controlsConfig = [
 	{
 		name: 'clearable',
 		type: 'boolean'
+	},
+	{
+		name: 'inputType',
+		type: 'select',
+		menuItems: [
+			{ value: 'text' },
+			{ value: 'search' },
+			{ value: 'number' },
+			{ value: 'email' },
+			{ value: 'password' },
+			{ value: 'tel' },
+			{ value: 'url' },
+			{ value: 'week' },
+			{ value: 'month' },
+			{ value: 'date' },
+			{ value: 'datetime-local' },
+			{ value: 'time' }
+		]
 	},
 	{
 		name: 'status',
@@ -38,58 +61,45 @@ const controlsConfig = [
 ];
 </script>
 
-A text input is a form element that lets users input and edit a single-line text value.
+A TextInput is a form element that lets users input and edit a single-line text value.
 
-## Guidelines
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true" generated-model-name="inputValue">
+<template v-slot:demo="{ propValues }">
+	<cdx-docs-configurable-generic v-bind="propValues" />
+</template>
+</cdx-demo-wrapper>
 
-### When to use text inputs
+## Overview
 
-Through text input fields, users can input text, numbers, symbols or mixed-format strings (unless
-specifically restricted).
+### When to use TextInput
 
 Use the TextInput component in forms when the user’s answer to a prompt can not easily be predicted,
-or when there is significant variability in potential inputs. Text inputs should also be used when
-other form components prove more difficult (require additional steps) to achieve the same result
-(e.g. selecting a date from a calendar versus typing in the date). The text input used for search
-queries, known as the search type, is documented in [SearchInput](./search-input.md).
+or when there is significant variability in potential inputs. For search queries, use [SearchInput](./search-input.md) instead.
 
 You can provide autocomplete options that are tailored to the user’s input by using
 [Lookup](./lookup.md).
 
-### Specifications
+### About TextInput
 
-![Specification of TextInput.](../../assets/components/text-input-specifications.svg)
+With a TextInput, users can input text, numbers, symbols, or mixed-format strings like dates or
+email addresses. TextInput includes the following elements.
 
-1. **Icon** (optional)<br>
-Icons can add to simple identification of specific user inputs. Examples are 'search'  magnifying
-glass for search bars or 'user avatar'  for user login input fields.
-2. **Placeholder text** (optional)<br>
-The placeholder text provides an example of what type of information is being requested in the
-input. The placeholder text should further illustrate and support the text input label. However, it
-should never be the only input description.
-3. **End icon** (optional)<br>
-A secondary end icon can be included if needed.
-4. **Clear button** (optional)<br>
-A 'clear' indicator can be included to remove the typed content within the input field.
+#### Start icon (optional)
 
-#### Component limitations
+A start icon can be included to visually enhance the input's purpose. For example, the "user avatar"
+icon might be used in a username field.
 
-The base min-width for the TextInput component is set at `@size-1600` (equivalent to `256px` in the default Codex theme), but it can be customized to a smaller width if needed. There is no maximum width limit.
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Use a simple icon that is easily understandable to users.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
-If the text entered in the input exceeds the available space, it will overflow horizontally.
+#### Input
 
-Refer to the
-[TextInput component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2547-28279&mode=design&t=yTcArGDe2utFY0wc-11).
-
-### Types
-
-The text input can accommodate the following types of inputs:
-
-![Input types: Text, Search, Number, Email, Password, Telephone, URL, Week, Month, Date, Date and time, and Time.](../../assets/components/text-input-types.svg)
+The following input types can be used:
 
 <div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
 
-1. Text
+1. Text (default)
 2. Search
 3. Number
 4. Email
@@ -104,140 +114,60 @@ The text input can accommodate the following types of inputs:
 
 </div>
 
-### Interaction states
+##### Placeholder text (optional)
 
-Text inputs have the following visually separate states:
+Placeholder text provides an example of what type of information is being requested in the input.
 
-![States of the Text Input component: default, hover, active-focus, filled, disabled, read-only, error default, error focus, and error filled.](../../assets/components/text-input-interaction-states.svg)
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Placeholder text should further illustrate and support the TextInput's label.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Placeholder text should never replace the label nor be the input's only description.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
-<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
+#### End icon (optional)
 
-1. Default
-2. Hover
-3. Active - Focus
-4. Filled
-5. Disabled
-6. Read-only
-7. Error default
-8. Error hover
-9. Error focus
-10. Error filled
+A secondary end icon can be included if needed.
 
-</div>
+#### Clear button (optional)
 
-### Best practices
+A 'clear' button can be included to remove the typed content within the input field.
 
-Consider the following recommendations when using text inputs.
+## Examples
 
-#### Usage
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![TextInput included within a Field.](../../assets/components/text-input-best-practices-usage-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Integrate the TextInput within a Field component to use all available properties of Field, such as label, helper text, and error messages.
-
-</template>
-
-<template #dont-media>
-
-![Standalone TextInput.](../../assets/components/text-input-best-practices-usage-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use standalone TextInput outside of a Field component.
-- Use TextInputs without a label, as the label is essential for accessibility and ease of scanning.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Icon
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![TextInput with a recognizable icon.](../../assets/components/text-input-best-practices-icon-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use a start icon that meets the input's requirements.
-
-</template>
-
-<template #dont-media>
-
-![TextInput with a complex icon.](../../assets/components/text-input-best-practices-icon-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use icons that are difficult to understand or do not clearly convey their purpose.
-
-</template>
-
-</cdx-demo-rules>
-
-### Keyboard navigation
-
-| Key | Function |
-| -- | -- |
-| <kbd>Left arrow</kbd> / <kbd>Right arrow</kbd> | The left and right arrows navigate through the text content within the input. |
-| <kbd>Up arrow</kbd> / <kbd>Down arrow</kbd> | Up arrow moves the focus from the last position of the input to the first one, while down arrow moves it from the first position to the last. |
-
-## Demos
-
-### Configurable
-
-<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true" generated-model-name="inputValue">
-<template v-slot:demo="{ propValues }">
-	<cdx-docs-configurable-generic v-bind="propValues" />
-</template>
-</cdx-demo-wrapper>
-
-### Default
-
-This simple example demonstrates how to bind a reactive reference to the input's value via
-`v-model`. The reactive reference will automatically update when the input value changes.
-
-Open up the browser console to see events emitted on input, change, focus, and blur.
+### Basic usage
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<text-input-demo :showValue="true" />
+	<text-input-basic />
 </template>
 
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/text-input/examples/TextInputDefault.vue [NPM]
+<<< @/../component-demos/text-input/examples/TextInputBasic.vue [NPM]
 
-<<< @/../component-demos/text-input/examples-mw/TextInputDefault.vue [MediaWiki]
+<<< @/../component-demos/text-input/examples-mw/TextInputBasic.vue [MediaWiki]
 
 :::
 
 </template>
 </cdx-demo-wrapper>
 
-In this example, the parent component sets an initial value and has a reset button that will restore
-that initial value on click.
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+This simple example demonstrates how to bind a reactive reference to the input's value via
+`v-model`. The reactive reference will automatically update when the input value changes.
+
+Open up the browser console to review events emitted on input, change, focus, and blur.
+
+</cdx-accordion>
+
+### With initial value
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
-	<text-input-demo :showValue="true" initialValue="Initial value" />
+	<text-input-initial-value />
 </template>
 
 <template v-slot:code>
@@ -255,13 +185,13 @@ that initial value on click.
 
 ### Input type
 
-Use the `inputType` prop to set the native `<input>` type attribute.
-Some `inputType` values will result in a browser provided UI like the date
-`inputType` provided below.
+Any of the [native input
+types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types) can be used.
+Some types may result in a browser-provided user interface, like a date picker for a date input.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<text-input-demo :showValue="true" :input-props="{ inputType: 'date' }" />
+	<text-input-date />
 </template>
 
 <template v-slot:code>
@@ -277,15 +207,21 @@ Some `inputType` values will result in a browser provided UI like the date
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+Use the `inputType` prop to set the native `<input>` type attribute.
+
+</cdx-accordion>
 
 ### Clearable
 
-Including the `clearable` prop will add a clear button to the end of the icon when the input is not
-empty. On click, the clear button will set the input value to an empty string.
+A clearable TextInput will have a clear button when there is text in the input. When clicked, the
+clear button will set the input value to an empty string.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<text-input-demo :showValue="true" :input-props="{ clearable: true }" />
+	<text-input-with-clearable />
 </template>
 
 <template v-slot:code>
@@ -303,14 +239,18 @@ empty. On click, the clear button will set the input value to an empty string.
 
 ### With icons
 
-A TextInput can have a `startIcon`, an `endIcon`, or both. Any Codex icon can be used.
+A TextInput can have a start icon, end icon, or both. Any Codex icon can be used.
 
-Note that a clearable TextInput with an `endIcon` will display both the clear button and the
-`endIcon` when the input is not empty. To see this behavior, type in the input below.
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Use simple icons that are easily understandable to users.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+Note that a clearable TextInput with an end icon will display both the clear button and the
+end icon when the input is not empty. To review this behavior, type in the input below.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<text-input-demo :input-props="{ inputType: 'search', startIcon: cdxIconSearch, endIcon: cdxIconInfoFilled, clearable: true }" />
+	<text-input-with-icons />
 </template>
 
 <template v-slot:code>
@@ -326,47 +266,11 @@ Note that a clearable TextInput with an `endIcon` will display both the clear bu
 </template>
 </cdx-demo-wrapper>
 
-
-### With placeholder
-
-To add placeholder text, add a `placeholder` attribute.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<text-input-demo placeholder="Start typing..." />
-</template>
-
-<template v-slot:code>
-
-```vue-html
-<cdx-text-input placeholder="Start typing..." />
-```
-
-</template>
-</cdx-demo-wrapper>
-
-### Disabled
-
-To disable the input, add the `disabled` attribute.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<text-input-demo :input-props="{ startIcon: cdxIconSearch, disabled: true }" />
-</template>
-
-<template v-slot:code>
-
-```vue-html
-<cdx-text-input :start-icon="cdxIconSearch" :disabled="true" />
-```
-
-</template>
-</cdx-demo-wrapper>
-
 ### Form field
 
 A TextInput can be wrapped in the Field component to add features like a semantic label, description
-and help text, validation messages, and more. See the [Field](./field.md) page for more information.
+and help text, validation messages, and more. Refer to the [Field](./field.md) page for more
+information.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -389,7 +293,7 @@ and help text, validation messages, and more. See the [Field](./field.md) page f
 ### Native validation
 
 The TextInput component exposes [native constraint validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation)
-methods. Refer to the [methods](#methods) below to see all of the supported features.
+methods. Refer to the [methods](#methods) below to review all of the supported features.
 
 This demo sets the input type to "email" and validates the input on blur. When the input is invalid,
 it sets the Field's status to "error" and passes the native validation message to the Field
@@ -413,17 +317,20 @@ component for display.
 </template>
 </cdx-demo-wrapper>
 
-## Vue usage
+## Technical implementation
 
-`v-model` is used to track the current value of the input. See the events docs for details on emitted events and their properties.
+### Vue usage
+
+`v-model` is used to track the current value of the input. Refer to the events table for details on
+emitted events and their properties.
 
 ::: tip Attributes passed to input
 This component will pass any HTML attributes applied to it, except for CSS class, to the `<input>` element within the component.
 :::
 
-## CSS-only version
+### CSS-only version
 
-### Markup structure
+#### Markup structure
 
 The CSS-only TextInput component consists of a `<div>` wrapping an `<input>` element.
 
@@ -446,7 +353,7 @@ The CSS-only TextInput component consists of a `<div>` wrapping an `<input>` ele
 </template>
 </cdx-demo-wrapper>
 
-### With icons
+#### With icons
 
 You can use [CSS-only icons](./icon.md#css-only-version) to add start and end icons to the input.
 
@@ -515,9 +422,10 @@ You will need to add your own CSS classes to set the icon styles and background 
 </template>
 </cdx-demo-wrapper>
 
-### Disabled
+#### Disabled
 
-Add the `disabled` attribute to the `<input>` element for a disabled text input.
+Add the `disabled` attribute to the `<input>` element for a disabled text input. This also works
+for the `readonly` attribute.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -574,7 +482,7 @@ Add the `disabled` attribute to the `<input>` element for a disabled text input.
 </template>
 </cdx-demo-wrapper>
 
-### Error state
+#### Error state
 
 Add the `.cdx-text-input--status-error` class to the root element to show error styles.
 
@@ -609,3 +517,10 @@ Add the `.cdx-text-input--status-error` class to the root element to show error 
 	}
 }
 </style>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Left arrow</kbd> / <kbd>Right arrow</kbd> | The left and right arrows navigate through the text content within the input. |
+| <kbd>Up arrow</kbd> / <kbd>Down arrow</kbd> | Up arrow moves the focus from the last position of the input to the first one, while down arrow moves it from the first position to the last. |

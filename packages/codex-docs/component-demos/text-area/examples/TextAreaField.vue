@@ -1,38 +1,81 @@
 <template>
-	<cdx-field>
-		<cdx-text-area v-model="textareaValue" placeholder="Describe what you changed" />
+	<cdx-field
+		class="cdx-demo-textarea-field"
+		:status="status"
+		:messages="messages"
+	>
+		<cdx-text-area v-model="messageText" placeholder="Post your reply" />
 		<template #label>
-			Edit summary
-		</template>
-		<template #description>
-			Briefly describe your changes
+			Comments
 		</template>
 		<template #help-text>
-			By saving changes, you agree to the
-			<a href="https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use">Terms of Use</a>,
-			and you irrevocably agree to release your contribution under the
-			<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0 License</a>
-			and the
-			<a href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License">GFDL</a>.
-			You agree that a hyperlink or URL is sufficient attribution under the Creative Commons
-			license.
+			<div
+				class="cdx-demo-textarea-field__help-text"
+				:class="dynamicClasses"
+			>
+				<!-- Display help text or error message depending on error status. -->
+				<div class="cdx-demo-textarea-field__help-text__message">
+					<p>{{ helpText }}</p>
+				</div>
+
+				<!-- Display the remaining character count. -->
+				<div class="cdx-demo-textarea-field__help-text__counter">
+					{{ charsRemaining }}
+				</div>
+			</div>
 		</template>
 	</cdx-field>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import { CdxTextArea, CdxField } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'TextAreaField',
 	components: { CdxTextArea, CdxField },
 	setup() {
-		const textareaValue = ref( '' );
+		const MAX_MESSAGE_LENGTH = 100;
+		const helpText = `Enter a message of ${ MAX_MESSAGE_LENGTH } characters or less`;
+
+		const messages = { error: 'Message is too long' };
+		const messageText = ref( '' );
+
+		// This is a simplified example; support for other languages/scripts may
+		// require more complex code.
+		const charsRemaining = computed( () => MAX_MESSAGE_LENGTH - messageText.value.length );
+		const status = computed( () => charsRemaining.value < 0 ? 'error' : 'default' );
+
+		const dynamicClasses = computed( () => ( {
+			'cdx-demo-field-with-counter__help-text--error': status.value === 'error'
+		} ) );
 
 		return {
-			textareaValue
+			messageText,
+			status,
+			charsRemaining,
+			messages,
+			helpText,
+			dynamicClasses
 		};
 	}
 } );
 </script>
+
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-demo-textarea-field {
+	&__help-text {
+		display: flex;
+		align-items: baseline;
+		flex-direction: row no-wrap;
+		justify-content: space-between;
+		gap: @spacing-100;
+
+		&--error &__counter {
+			color: @color-error;
+		}
+	}
+}
+</style>

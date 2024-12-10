@@ -1,9 +1,7 @@
 <template>
 	<div>
-		<p>Input value: {{ inputValue }}</p>
-
 		<cdx-text-input v-model="inputValue" aria-label="TextInput with initial value demo" />
-
+		<br>
 		<cdx-button @click="resetInput">
 			Reset
 		</cdx-button>

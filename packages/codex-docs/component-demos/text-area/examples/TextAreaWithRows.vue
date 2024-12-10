@@ -3,7 +3,6 @@
 		<cdx-text-area
 			v-model="textareaValue"
 			aria-label="TextArea with rows"
-			placeholder="Start typing..."
 			rows="8"
 		/>
 	</div>

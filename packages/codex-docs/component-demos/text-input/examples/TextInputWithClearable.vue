@@ -2,6 +2,7 @@
 	<cdx-text-input
 		v-model="inputValue"
 		:clearable="true"
+		aria-label="Clearable TextInput demo"
 	/>
 </template>
 

@@ -1,11 +1,9 @@
 <script setup>
+import { CdxAccordion } from '@wikimedia/codex';
 import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
 import TextAreaDefault from '@/../component-demos/text-area/examples/TextAreaDefault.vue';
-import TextAreaWithPlaceholder from '@/../component-demos/text-area/examples/TextAreaWithPlaceholder.vue';
 import TextAreaWithRows from '@/../component-demos/text-area/examples/TextAreaWithRows.vue';
 import TextAreaWithAutosize from '@/../component-demos/text-area/examples/TextAreaWithAutosize.vue';
-import TextAreaWithDisabled from '@/../component-demos/text-area/examples/TextAreaWithDisabled.vue';
-import TextAreaWithReadonly from '@/../component-demos/text-area/examples/TextAreaWithReadonly.vue';
 import TextAreaWithIcons from '@/../component-demos/text-area/examples/TextAreaWithIcons.vue';
 import TextAreaField from '@/../component-demos/text-area/examples/TextAreaField.vue';
 import TextAreaNativeValidation from '@/../component-demos/text-area/examples/TextAreaNativeValidation.vue';
@@ -49,214 +47,64 @@ const controlsConfig = [
 
 A TextArea is a multi-line text input that allows manual resizing if needed.
 
-## Guidelines
-
-### When to use text areas
-This form element is useful when the user needs to enter a sizable amount of
-free-form text, for example comments, reviews, feedback, or short essay
-responses.
-
-Use TextArea to let users enter long text that exceeds one line. Avoid using
-TextArea if the text to be entered is short. In this case use [TextInput](./text-input.md)
-instead.
-
-### Specifications
-
-![Specification of TextArea.](../../assets/components/text-area-specifications.svg)
-
-TextArea may include the following optional elements:
-
-1. **Start icon** (optional)<br>Icons can simplify the identification of specific user inputs.
-2. **Placeholder** (optional)<br>The placeholder text provides an example of what type of information is being requested in the input.
-3. **End icon** (optional)<br>A secondary end icon can be included if needed.
-4. **Grabber** (optional)<br>Optionally, the grabber may be displayed to allow users the ability to vertically resize the text area as needed.
-
-#### Component limitations
-
-The base min-width for the TextArea component is `@size-1600` (equivalent to `256px` in the default Codex theme), but it's customizable to a smaller width if necessary. There's no maximum width limit.
-
-The min-height is set at `@size-400` (equivalent to `64px` in the default Codex theme). The grabber allows vertical resizing, and a scrollbar will appear if the text exceeds the height of the TextArea before resizing. If the autosize property is enabled, the height of the TextArea adjusts automatically according to the length of the text.
-
-Refer to the [TextArea component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&mode=design&t=gOjF3EjKCEwZTqj0-0).
-
-### Types
-According to the size properties, there are the following text area types:
-
-#### With grabber
-By default, a grabber will be visible, signaling to users that they can
-vertically resize the text area field. In this scenario, if the content cannot
-fit within the visible area, a scrollbar will appear to to navigate through the
-text that exceeds the visible area.
-
-Use this type of text area when you require it to have a more compact size,
-especially in situations where it is positioned within other components like
-dialogs.
-
-![TextArea with grabber.](../../assets/components/text-area-types-grabber.svg)
-
-#### Autosize
-When the autosize property is enabled, the text area’s height will be
-automatically resized with the length of the text. There is no need for the
-grabber indicator in this case, and scrolling within the content is unnecessary
-since the entire content will be fully visible. Choose this type of text area
-when there is ample space available on the page where the text area is situated.
-
-![TextArea with autosize.](../../assets/components/text-area-types-autosize.svg)
-
-### Interaction states
-Text areas have the following visually separate states:
-
-![Interaction states of TextArea: default, hover, active-focus, filled, disabled, read-only, error default, error focus, and error filled.](../../assets/components/text-area-interaction-states.svg)
-
-<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
-
-1. Default
-2. Hover
-3. Active - Focus
-4. Filled
-5. Disabled
-6. Read-only
-7. Error default
-8. Error hover
-9. Error filled
-
-</div>
-
-### Best practices
-
-Consider the following recommendations when using textareas.
-
-#### Usage
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![TextArea included within a Field.](../../assets/components/text-area-best-practices-usage-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use a TextArea when the intention is to compose lengthy text entries.
-- Integrate the TextArea within a Field component to use all available properties of Field, such as label, helper text, and validation messages.
-
-
-</template>
-
-<template #dont-media>
-
-![Standalone TextArea and a text editor.](../../assets/components/text-area-best-practices-usage-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use TextArea for single-line inputs where a simple [TextInput](https://doc.wikimedia.org/codex/latest/components/demos/text-input.md) is sufficient.
-- Use TextArea for source editing.
-- Use a standalone TextArea outside of a Field component.
-- Use TextArea without a label, as the label is essential for accessibility and ease of scanning.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Icon
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![TextArea with a recognizable icon.](../../assets/components/text-area-best-practices-icon-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use a start icon to visually reinforce the purpose or context of the TextArea.
-- Use a start icon that meets the input's requirements.
-
-</template>
-
-<template #dont-media>
-
-![TextArea with a complex icon.](../../assets/components/text-area-best-practices-icon-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use icons that are difficult to understand or do not clearly convey their purpose.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Character counter
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![TextArea with character counter used for a long message.](../../assets/components/text-area-best-practices-characters-coounter-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use the character counter when users need to input text within a specific character limit.
-
-</template>
-
-<template #dont-media>
-
-![TextArea with character counter used for address.](../../assets/components/text-area-best-practices-characters-coounter-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use character counter when users are unlikely to reach the limit.
-
-</template>
-
-</cdx-demo-rules>
-
-### Keyboard navigation
-
-| Key | Function |
-| -- | -- |
-| <kbd>Left arrow</kbd> / <kbd>Right arrow</kbd> | The left and right arrows navigate through the text content within the input. |
-| <kbd>Up arrow</kbd> / <kbd>Down arrow</kbd> | Up arrow moves the focus from the last position of the input to the first one, while down arrow moves it from the first position to the last. |
-
-## Demos
-
-### Configurable
-
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true" generated-model-name="textareaValue">
 <template v-slot:demo="{ propValues }">
     <cdx-docs-configurable-generic v-bind="propValues"/>
 </template>
 </cdx-demo-wrapper>
 
-### Default
+## Overview
 
-The TextArea component uses `v-model` to two-way bind the reactive reference to
-the value of `<textarea>`. The reactive reference will automatically update when
-the value changes in the `<textarea>`. The value updates due to an emitted
-`input` event.
+### When to use TextArea
 
-By default, the initial value of the `autosize` prop is false. When `autosize`
-is false, the textarea will display a grabber/resize tool and a scrollbar to
-view the overflow content. The `<textarea>` can be manually resized vertically
-to increase height of the element.
+Use the TextArea component to let users enter long text that exceeds one line.
 
-Note: The initial min-height of the `<textarea>` is set to 64px.
+This form element is useful when the user needs to enter a sizable amount of free-form text, for
+example comments, reviews, feedback, or short essay responses. If the text is expected to be short,
+use [TextInput](./text-input.md) instead.
+
+### About TextArea
+
+TextArea includes the following elements.
+
+#### Start icon (optional)
+
+A start icon can be included to visually enhance the TextArea's purpose.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Use a simple icon that is easily understandable to users.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Textarea
+
+The textarea element's has an optional grabber that allows vertical resizing, and a scrollbar will
+appear if the text exceeds the height of the textarea before resizing. If the autosize property is
+enabled, the height of the textarea adjusts automatically according to the length of the text.
+
+##### Placeholder text (optional)
+
+Placeholder text provides an example of what type of information is being requested in the
+TextArea.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Placeholder text should further illustrate and support the TextArea's label.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Placeholder text should never replace the label nor be the input's only description.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### End icon (optional)
+
+A secondary end icon can be included if needed.
+
+## Examples
+
+### Basic usage
+
+By default, the TextArea has a grabber that can be used to manually resize it.
 
 ::: warning Browser Support Warning
-While our design system strives to provide a consistent experience across
+While Codex strives to provide a consistent experience across
 different platforms and browsers, it's important to be aware that the vertical
-resizing feature will not be available on iOS devices, including iPhones and
+resizing feature may not be available on iOS devices, including iPhones and
 iPads. This limitation is due to the default behavior of iOS Safari.
 :::
 
@@ -278,35 +126,22 @@ iPads. This limitation is due to the default behavior of iOS Safari.
 </template>
 </cdx-demo-wrapper>
 
-### With placeholder
+<cdx-accordion>
+<template #title>Developer notes</template>
 
-We passed in a native attribute, `placeholder`, to hint to users what to enter into the control.
+The TextArea component uses `v-model` to two-way bind the reactive reference to
+the value of `<textarea>`. The reactive reference will automatically update when
+the value changes in the `<textarea>`.
 
-Note: Placeholders are not a substitute for a proper `<label>` element tied to the control.
+</cdx-accordion>
 
-<cdx-demo-wrapper>
-<template v-slot:demo>
-    <text-area-with-placeholder />
-</template>
+### Custom rows
 
-<template v-slot:code>
+You can set a number of `rows` of text to display initially.
 
-:::code-group
-
-<<< @/../component-demos/text-area/examples/TextAreaWithPlaceholder.vue [NPM]
-
-<<< @/../component-demos/text-area/examples-mw/TextAreaWithPlaceholder.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### With rows
-
-This example demonstrates how to pass in the native attribute, `rows`, to the `<textarea>`.
-
-The `rows` attribute takes a positive number which represents the number of text lines to display in the control.
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>The number of rows shown should reflect the amount of text expected to be entered.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -328,9 +163,11 @@ The `rows` attribute takes a positive number which represents the number of text
 
 ### With autosize
 
-When the `autosize` prop is set to `true`, the TextArea automatically grows with the height of the content inside `<textarea>`.
+When the `autosize` property is enabled, the TextArea's height will automatically grow with the length of the text. The grabber and scrollbar are removed since the TextArea expands automatically and shows all of the text at once.
 
-The grabber/resize tool is not displayed when `autosize` is set to `true`.
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Use a TextArea with `autosize` when there is ample space in the layout for the TextArea to expand.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -352,7 +189,11 @@ The grabber/resize tool is not displayed when `autosize` is set to `true`.
 
 ### With icons
 
-TextArea can pass in a start icon and end icon as props. This example shows how to add icons to the component. Refer to [Icon](./icon.md).
+A TextArea can have a start icon, end icon, or both. Any Codex icon can be used.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Use simple icons that are easily understandable to users.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -372,60 +213,12 @@ TextArea can pass in a start icon and end icon as props. This example shows how 
 </template>
 </cdx-demo-wrapper>
 
-### Disabled
-
-You can disable the component by adding the `disabled` attribute.
-
-When `<textarea>` is `disabled`, the user cannot interact with the control. Users cannot click or select in the control and the form cannot be submitted.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-    <text-area-with-disabled />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/text-area/examples/TextAreaWithDisabled.vue [NPM]
-
-<<< @/../component-demos/text-area/examples-mw/TextAreaWithDisabled.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### Readonly
-
-You can make the component `readonly` by adding the `readonly` attribute.
-
-When `<textarea>` is `readonly`, the user cannot modify the value of the control. Some key differences between `disabled` and `readonly` is that `readonly` does not prevent users from selecting and clicking in the form. Users can highlight and copy content in readonly. Readonly is tabbable and the form can be submitted.
-
-One example usage of `readonly` textarea is when you want to prevent a user from typing into the textarea until a condition is met like selecting a a checkbox. In this situation, when the condition is met we can use JavaScript to remove the `readonly` to make the textarea editable.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-    <text-area-with-readonly />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/text-area/examples/TextAreaWithReadonly.vue [NPM]
-
-<<< @/../component-demos/text-area/examples-mw/TextAreaWithReadonly.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
 ### Form field
 
 A TextArea can be wrapped in the Field component to add features like a semantic label, description
-and help text, validation messages, and more. Refer to the [Field](./field.md) page for more information.
+and help text, and validation messages. A [character counter](./field.html#custom-help-text-content)
+can also be added via the Field component. Refer to the [Field](./field.md) page for more
+information.
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
@@ -448,7 +241,7 @@ and help text, validation messages, and more. Refer to the [Field](./field.md) p
 ### Native validation
 
 The TextArea component exposes [native constraint validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation)
-methods. Refer to the [methods](#methods) below to see all of the supported features.
+methods. Refer to the [methods](#methods) below to review all of the supported features.
 
 This demo sets the `required` attribute on the textarea and validates it when the form is submitted.
 When the textarea is invalid, it sets the Field's status to "error" and passes the native validation
@@ -473,18 +266,20 @@ blank.
 </template>
 </cdx-demo-wrapper>
 
-## Vue usage
+## Technical implementation
 
-`v-model` is used to track the current value of the textarea. Refer to the events docs for details on
-emitted events and their properties.
+### Vue usage
+
+`v-model` is used to track the current value of the textarea. Refer to the events docs for details
+on emitted events and their properties.
 
 ::: tip Attributes passed to textarea
 This component will pass any HTML attributes applied to it, except for CSS class, to the `<textarea>` element within the component.
 :::
 
-## CSS-only version
+### CSS-only version
 
-### Markup structure
+#### Markup structure
 
 The CSS-only TextArea component consists of a `<div>` wrapping a `<textarea>` element.
 
@@ -507,11 +302,11 @@ The CSS-only TextArea component consists of a `<div>` wrapping a `<textarea>` el
 </template>
 </cdx-demo-wrapper>
 
-### With icons
+#### With icons
 
 You can use [CSS-only icons](./icon.md#css-only-version) to add start and end icons to the textarea.
 
-#### Using CSS-only icons
+##### Using CSS-only icons
 
 I. Add classes to elements.
 
@@ -586,9 +381,10 @@ In the example below, we've chosen cdxIconNotBright as the start icon and added 
 </template>
 </cdx-demo-wrapper>
 
-### Disabled
+#### Disabled
 
-Add the `disabled` attribute to the `<textarea>` element for a disabled textarea.
+Add the `disabled` attribute to the `<textarea>` element for a disabled textarea. This also works
+for the `readonly` attribute.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -645,68 +441,7 @@ Add the `disabled` attribute to the `<textarea>` element for a disabled textarea
 </template>
 </cdx-demo-wrapper>
 
-### Readonly
-
-Add the `readonly` attribute to the `<textarea>` element for a readonly textarea.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<div class="cdx-text-area cdx-text-area--has-start-icon cdx-text-area--has-end-icon">
-		<textarea class="cdx-text-area__textarea" placeholder="Start typing..." readonly>The textarea is readonly.</textarea>
-		<span class="cdx-text-area__icon cdx-text-area__start-icon cdx-demo-css-icon--not-bright"></span>
-		<span class="cdx-text-area__icon cdx-text-area__end-icon cdx-demo-css-icon--info-filled"></span>
-	</div>
-</template>
-<template v-slot:code>
-
-```html
-<div class="cdx-text-area cdx-text-area--has-start-icon cdx-text-area--has-end-icon">
-	<textarea class="cdx-text-area__textarea" placeholder="Start typing..." readonly>
-		The textarea is readonly.
-	</textarea>
-	<span class="cdx-text-area__icon cdx-text-area__start-icon cdx-demo-css-icon--not-bright"></span>
-	<span class="cdx-text-area__icon cdx-text-area__end-icon cdx-demo-css-icon--info-filled"></span>
-</div>
-```
-
-:::code-group
-
-```less [NPM]
-// Note: you must import the design tokens before importing the css-icon mixin
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
-
-.cdx-demo-css-icon {
-	&--not-bright {
-		.cdx-mixin-css-icon-background-image( @cdx-icon-not-bright );
-	}
-
-	&--info-filled {
-		.cdx-mixin-css-icon-background-image( @cdx-icon-info-filled );
-	}
-}
-```
-
-```less [MediaWiki]
-@import 'mediawiki.skin.variables.less';
-
-.cdx-demo-css-icon {
-	&--not-bright {
-		.cdx-mixin-css-icon-background-image( @cdx-icon-not-bright );
-	}
-
-	&--info-filled {
-		.cdx-mixin-css-icon-background-image( @cdx-icon-info-filled );
-	}
-}
-```
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### Error state
+#### Error state
 
 Add the `cdx-text-area--status-error` class to the root element to show error styles.
 
@@ -742,7 +477,7 @@ Add the `cdx-text-area--status-error` class to the root element to show error st
 }
 </style>
 
-### Form field
+#### Form field
 
 The CSS-only Field component can wrap the CSS-only TextArea to add features like a semantic label,
 description, optional flag, and help text. Refer to the [Field](./field.md) for more information.
@@ -834,3 +569,10 @@ description, optional flag, and help text. Refer to the [Field](./field.md) for 
 
 </template>
 </cdx-demo-wrapper>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Left arrow</kbd> / <kbd>Right arrow</kbd> | The left and right arrows navigate through the text content within the input. |
+| <kbd>Up arrow</kbd> / <kbd>Down arrow</kbd> | Up arrow moves the focus from the last position of the input to the first one, while down arrow moves it from the first position to the last. |

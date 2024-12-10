@@ -5,6 +5,7 @@
 		:start-icon="cdxIconSearch"
 		:end-icon="cdxIconInfoFilled"
 		:clearable="true"
+		aria-label="Clearable TextInput with icons demo"
 	/>
 </template>
 

@@ -28,7 +28,7 @@ export default defineComponent( {
 		const messages = ref();
 
 		/**
-		 * On blur, validate the number input.
+		 * On blur, validate the email input.
 		 */
 		function onBlur() {
 			textInput.value.checkValidity();

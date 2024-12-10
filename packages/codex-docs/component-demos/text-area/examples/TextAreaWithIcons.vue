@@ -3,8 +3,7 @@
 		<cdx-text-area
 			v-model="textareaValue"
 			aria-label="TextArea with icons"
-			placeholder="Start typing..."
-			:start-icon="cdxIconNotBright"
+			:start-icon="cdxIconSpeechBubbles"
 			:end-icon="cdxIconInfoFilled"
 		/>
 	</div>
@@ -13,7 +12,7 @@
 <script>
 import { defineComponent, ref } from 'vue';
 import { CdxTextArea } from '@wikimedia/codex';
-import { cdxIconNotBright, cdxIconInfoFilled } from '@wikimedia/codex-icons';
+import { cdxIconSpeechBubbles, cdxIconInfoFilled } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'TextAreaWithIcons',
@@ -24,7 +23,7 @@ export default defineComponent( {
 
 		return {
 			textareaValue,
-			cdxIconNotBright,
+			cdxIconSpeechBubbles,
 			cdxIconInfoFilled
 		};
 	}

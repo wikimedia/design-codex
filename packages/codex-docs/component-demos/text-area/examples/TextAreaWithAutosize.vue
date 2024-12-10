@@ -3,7 +3,6 @@
 		<cdx-text-area
 			v-model="textareaValue"
 			aria-label="TextArea with autosize"
-			placeholder="Start typing..."
 			:autosize="true"
 		/>
 	</div>
