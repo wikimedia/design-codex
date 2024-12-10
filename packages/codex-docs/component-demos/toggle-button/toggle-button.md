@@ -1,8 +1,9 @@
 <script setup>
 import { CdxAccordion } from '@wikimedia/codex';
 import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic/ConfigurableGeneric.vue';
-import IconOnlyButton from '@/../component-demos/toggle-button/examples/IconOnlyButton.vue';
 import SingleButton from '@/../component-demos/toggle-button/examples/SingleButton.vue';
+import ButtonWithIcon from '@/../component-demos/toggle-button/examples/ButtonWithIcon.vue';
+import IconOnlyButton from '@/../component-demos/toggle-button/examples/IconOnlyButton.vue';
 
 const controlsConfig = [
 	{
@@ -114,16 +115,16 @@ Use an icon with the ToggleButton label when you need to convey meaning through 
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<single-button />
+	<button-with-icon />
 </template>
 
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/toggle-button/examples/SingleButton.vue [NPM]
+<<< @/../component-demos/toggle-button/examples/ButtonWithIcon.vue [NPM]
 
-<<< @/../component-demos/toggle-button/examples-mw/SingleButton.vue [MediaWiki]
+<<< @/../component-demos/toggle-button/examples-mw/ButtonWithIcon.vue [MediaWiki]
 
 :::
 

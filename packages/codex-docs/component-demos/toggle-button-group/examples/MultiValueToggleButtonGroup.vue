@@ -2,11 +2,8 @@
 	<cdx-toggle-button-group
 		v-model="selectedValue"
 		:buttons="buttons"
+		@update:model-value="onUpdate"
 	/>
-	<p>
-		Selected values:
-		{{ selectedValue.join( ', ' ) || '(none)' }}
-	</p>
 </template>
 
 <script>
@@ -29,9 +26,15 @@ export default defineComponent( {
 		// Initializing to an array indicates that this is a multi-select group
 		const selectedValue = ref( [] );
 
+		const onUpdate = function ( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'update:modelValue event emitted with value: ' + value );
+		};
+
 		return {
 			buttons,
-			selectedValue
+			selectedValue,
+			onUpdate
 		};
 	}
 } );

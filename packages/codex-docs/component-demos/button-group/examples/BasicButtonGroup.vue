@@ -1,6 +1,7 @@
 <template>
 	<cdx-button-group
 		:buttons="buttons"
+		:disabled="disabled"
 		@click="onClick"
 	/>
 </template>
@@ -13,6 +14,12 @@ export default defineComponent( {
 	name: 'BasicButtonGroup',
 	components: {
 		CdxButtonGroup
+	},
+	props: {
+		disabled: {
+			type: Boolean,
+			default: false
+		}
 	},
 	setup() {
 		const buttons = [

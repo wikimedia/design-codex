@@ -10,10 +10,6 @@
 			</span>
 		</template>
 	</cdx-toggle-button-group>
-	<p>
-		Selected value:
-		{{ selectedValue || '(null)' }}
-	</p>
 </template>
 
 <script>

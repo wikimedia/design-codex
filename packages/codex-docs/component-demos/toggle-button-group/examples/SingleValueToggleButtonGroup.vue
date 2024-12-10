@@ -2,11 +2,9 @@
 	<cdx-toggle-button-group
 		v-model="selectedValue"
 		:buttons="buttons"
+		:disabled="disabled"
+		@update:model-value="onUpdate"
 	/>
-	<p>
-		Selected value:
-		{{ selectedValue || '(null)' }}
-	</p>
 </template>
 
 <script>
@@ -17,6 +15,12 @@ export default defineComponent( {
 	name: 'SingleValueToggleButtonGroup',
 	components: {
 		CdxToggleButtonGroup
+	},
+	props: {
+		disabled: {
+			type: Boolean,
+			default: false
+		}
 	},
 	setup() {
 		const buttons = [
@@ -30,9 +34,15 @@ export default defineComponent( {
 		// Initializing to null indicates that this is a single-select group
 		const selectedValue = ref( null );
 
+		const onUpdate = function ( value ) {
+			// eslint-disable-next-line no-console
+			console.log( 'update:modelValue event emitted with value: ' + value );
+		};
+
 		return {
 			buttons,
-			selectedValue
+			selectedValue,
+			onUpdate
 		};
 	}
 } );

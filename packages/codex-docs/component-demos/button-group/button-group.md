@@ -6,26 +6,21 @@ import IconOnlyButtonGroup from '@/../component-demos/button-group/examples/Icon
 import DisabledButtonGroup from '@/../component-demos/button-group/examples/DisabledButtonGroup.vue';
 import MaximumButtonGroup from '@/../component-demos/button-group/examples/MaximumButtonGroup.vue';
 import ButtonGroupWithSlot from '@/../component-demos/button-group/examples/ButtonGroupWithSlot.vue';
+
+const controlsConfig = [
+	{
+		name: 'disabled',
+		type: 'boolean'
+	}
+];
 </script>
 
 A ButtonGroup consists of a set of two or more normal buttons. Buttons in such a group signal a
 number of equally important actions that will occur when the user taps on them.
 
-<cdx-demo-wrapper :force-controls="true">
-<template v-slot:demo>
-    <basic-button-group />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/button-group/examples/BasicButtonGroup.vue [NPM]
-
-<<< @/../component-demos/button-group/examples-mw/BasicButtonGroup.vue [MediaWiki]
-
-:::
-
+<cdx-demo-wrapper :controls-config="controlsConfig">
+<template v-slot:demo="{ propValues }">
+    <basic-button-group v-bind="propValues" />
 </template>
 </cdx-demo-wrapper>
 

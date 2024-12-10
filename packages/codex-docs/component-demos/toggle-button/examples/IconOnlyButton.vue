@@ -1,18 +1,16 @@
 <template>
-	<div>
-		<cdx-toggle-button
-			v-model="buttonValue"
-			aria-label="Play"
-		>
-			<cdx-icon :icon="cdxIconPlay" />
-		</cdx-toggle-button>
-	</div>
+	<cdx-toggle-button
+		v-model="buttonValue"
+		aria-label="Edit"
+	>
+		<cdx-icon :icon="cdxIconEdit" />
+	</cdx-toggle-button>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
 import { CdxToggleButton, CdxIcon } from '@wikimedia/codex';
-import { cdxIconPlay } from '@wikimedia/codex-icons';
+import { cdxIconEdit } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'IconOnlyButton',
@@ -22,7 +20,7 @@ export default defineComponent( {
 
 		return {
 			buttonValue,
-			cdxIconPlay
+			cdxIconEdit
 		};
 	}
 } );

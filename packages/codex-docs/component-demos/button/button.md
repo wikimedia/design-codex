@@ -1,5 +1,6 @@
 <script setup>
 import { CdxButton, CdxAccordion } from '@wikimedia/codex';
+import ButtonTypes from '@/../component-demos/button/examples/ButtonTypes.vue';
 import ButtonWithIcon from '@/../component-demos/button/examples/ButtonWithIcon.vue';
 import QuietButtonWithIcon from '@/../component-demos/button/examples/QuietButtonWithIcon.vue';
 import IconOnlyButton from '@/../component-demos/button/examples/IconOnlyButton.vue';
@@ -123,83 +124,27 @@ A Button can convey one of three `action` types.
 A Button can convey one of three `weight` types.
 
 1. **Normal**<br>When designing a project, normal buttons are the default choice.
-
 2. **Primary**<br>Primary buttons signal the main action in a given view – a page or a dialog. As they
 should guide the user to the most important action (“call to action”), there should only be one
 primary button per view.
-
 3. **Quiet**<br>Use quiet buttons for an easily recognizable action that does not detract focus from the content.
 For example, the icon-only edit buttons alongside sections in article view on mobile
 Wikipedia.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<div>
-		<cdx-button>Neutral button</cdx-button>
-	</div>
-	<div>
-		<cdx-button action="progressive">Progressive button</cdx-button>
-	</div>
-	<div>
-		<cdx-button action="destructive">Destructive button</cdx-button>
-	</div>
+	<button-types />
 </template>
 
 <template v-slot:code>
 
-```vue-html
-<div>
-	<cdx-button>Default button</cdx-button>
-</div>
-<div>
-	<cdx-button action="progressive">Progressive button</cdx-button>
-</div>
-<div>
-	<cdx-button action="destructive">Destructive button</cdx-button>
-</div>
-```
+:::code-group
 
-</template>
-</cdx-demo-wrapper>
+<<< @/../component-demos/button/examples/ButtonTypes.vue [NPM]
 
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<div>
-		<cdx-button action="progressive">
-			Normal progressive button
-		</cdx-button>
-	</div>
-	<div>
-		<cdx-button action="progressive" weight="primary">
-			Primary progressive button
-		</cdx-button>
-	</div>
-	<div>
-		<cdx-button action="progressive" weight="quiet">
-			Quiet progressive button
-		</cdx-button>
-	</div>
-</template>
+<<< @/../component-demos/button/examples-mw/ButtonTypes.vue [MediaWiki]
 
-<template v-slot:code>
-
-```vue-html
-<div>
-	<cdx-button action="progressive">
-		Normal progressive button
-	</cdx-button>
-</div>
-<div>
-	<cdx-button action="progressive" weight="primary">
-		Primary progressive button
-	</cdx-button>
-</div>
-<div>
-	<cdx-button action="progressive" weight="quiet">
-		Quiet progressive button
-	</cdx-button>
-</div>
-```
+:::
 
 </template>
 </cdx-demo-wrapper>

@@ -3,10 +3,6 @@
 		v-model="selectedValue"
 		:buttons="buttons"
 	/>
-	<p>
-		Selected value:
-		{{ selectedValue || '(null)' }}
-	</p>
 </template>
 
 <script>

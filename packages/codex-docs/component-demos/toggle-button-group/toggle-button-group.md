@@ -6,26 +6,21 @@ import MultiValueToggleButtonGroup from '@/../component-demos/toggle-button-grou
 import DisabledToggleButtonGroup from '@/../component-demos/toggle-button-group/examples/DisabledToggleButtonGroup.vue';
 import MaximumToggleButtonGroup from '@/../component-demos/toggle-button-group/examples/MaximumToggleButtonGroup.vue';
 import ToggleButtonGroupWithSlot from '@/../component-demos/toggle-button-group/examples/ToggleButtonGroupWithSlot.vue';
+
+const controlsConfig = [
+	{
+		name: 'disabled',
+		type: 'boolean'
+	}
+];
 </script>
 
 A ToggleButtonGroup is a group of [ToggleButtons](./toggle-button.md) that allows users to select one
 or multiple buttons from the group.
 
-<cdx-demo-wrapper :force-reset="true" :force-controls="true">
-<template v-slot:demo>
-    <single-value-toggle-button-group />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/toggle-button-group/examples/SingleValueToggleButtonGroup.vue [NPM]
-
-<<< @/../component-demos/toggle-button-group/examples-mw/SingleValueToggleButtonGroup.vue [MediaWiki]
-
-:::
-
+<cdx-demo-wrapper :controls-config="controlsConfig">
+<template v-slot:demo="{ propValues }">
+    <single-value-toggle-button-group v-bind="propValues" :is-config-demo="true" />
 </template>
 </cdx-demo-wrapper>
 
@@ -73,6 +68,8 @@ Icon-only buttons may be used to form a ToggleButtonGroup but only if the icons 
 
 ### Single value
 
+In this example, one button can be selected at a time.
+
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
     <single-value-toggle-button-group />
@@ -95,11 +92,14 @@ Icon-only buttons may be used to form a ToggleButtonGroup but only if the icons 
 
 <template #title>Developer notes</template>
 
-To allow only a single value to be selected, initialize `v-model` to `null`.
+To allow only a single value to be selected, initialize `v-model` to `null`. Open up the console to
+review emitted events.
 
 </cdx-accordion>
 
 ### Initially selected
+
+The ToggleButtonGroup can have an initial selection.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
@@ -133,6 +133,8 @@ button, see the [ButtonGroup documentation](./button-group).
 
 ### Multiple values
 
+In this example, multiple buttons can be selected at a time.
+
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
     <multi-value-toggle-button-group />
@@ -157,7 +159,7 @@ button, see the [ButtonGroup documentation](./button-group).
 
 To allow multiple values to be selected, initialize `v-model` to an empty array (`[]`). To start
 with some of buttons already selected, initialize `v-model` to an array of the values of those
-buttons.
+buttons.  Open up the console to review emitted events.
 
 </cdx-accordion>
 

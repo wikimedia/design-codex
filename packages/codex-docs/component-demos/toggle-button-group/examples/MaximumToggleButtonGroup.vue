@@ -3,10 +3,6 @@
 		v-model="selectedValue"
 		:buttons="buttons"
 	/>
-	<p>
-		Selected values:
-		{{ selectedValue.join( ', ' ) || '(none)' }}
-	</p>
 </template>
 
 <script>
