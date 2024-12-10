@@ -374,7 +374,7 @@ export default defineComponent( {
 	}
 
 	&__indicator.cdx-icon {
-		color: @color-subtle;
+		color: @color-base;
 		.cdx-mixin-icon(
 			end,
 			@min-size-icon-x-small,
