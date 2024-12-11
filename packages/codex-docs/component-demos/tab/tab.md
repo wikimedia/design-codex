@@ -25,133 +25,6 @@ const controlsConfig = [
 
 A Tab is one of the selectable items included within [Tabs](./tabs.md).
 
-## Guidelines
-
-### When to use tab items
-Two or more tab items are grouped to create a [Tabs](./tabs.md) component. Tab items cannot
-be used individually. For example, different tab items can represent the different sections of an
-article. A tab includes a label, which displays in the tabs list, and its associated content.
-
-### Specifications
-
-![Specification of Tab item.](../../assets/components/tab-specifications.svg)
-
-Each tab item may include the following elements:
-1. **Text**<br>Currently, tab items solely consist of text elements within the tab, without the inclusion of icons or visual indicators.
-2. **Selected indicator**<br>Both quiet and framed tabs feature a visual indicator when selected. In the case of quiet tabs, this indicator is a blue line positioned below the tab text, which is also colored blue. In contrast, framed tabs use a white background behind the tab text to indicate their selected state.
-
-#### Component limitations
-
-The maximum width for each Tab item is `size-1600` token (equivalent to 256px in the default
-Codex theme), with an ellipsis appearing if the text exceeds this length.
-
-![Maximum width example of Tab component.](../../assets/components/tab-specifications-max.svg)
-
-Refer to the [Tabs component with Tab items in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=2319-7029&mode=design)
-
-### Types
-As documented in [Tabs](./tabs.md), there are two different type of tab items depending on the
-tabs' style and where they are employed:
-
-<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
-
-![Example of quiet tabs.](../../assets/components/tabs-types-quiet.svg)
-
-**Quiet tabs**: They are used on white non-boxed backgrounds.
-</div>
-<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
-
-![Example of framed tabs.](../../assets/components/tabs-types-framed.svg)
-
-**Framed tabs**: They are used within boxes or modules.
-</div>
-<br>&nbsp;<br>
-
-### Interaction states
-Both quiet and framed tab items have the following visually separate states:
-
-**Quiet tab item.**
-
-![Interaction states of the quiet tab item: default, hover, active, selected, focus, and disabled.](../../assets/components/tab-quiet-interaction-states.svg)
-
-**Framed tab item.**
-
-![Interaction states of the framed tab item: default, hover, active, selected, focus, and disabled.](../../assets/components/tab-framed-interaction-states.svg)
-
-1. Default (unselected)
-2. Hover
-3. Active
-4. Selected
-5. Focus
-6. Disabled
-
-### Best practices
-
-Consider the following recommendations when using Tabs.
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Tabs with its items navigating to related content.](../../assets/components/tabs-best-practices-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use Tabs to navigate between various sections of related content.
-
-</template>
-
-<template #dont-media>
-
-![Tabs with its items navigating to sections of the same page.](../../assets/components/tabs-best-practices-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use Tabs to structure content meant to be consumed sequentially, like the sections within an article page.
-
-</template>
-
-</cdx-demo-rules>
-
-### Content
-
-Tabs allow a reader to access contained, structured content blocks that make pages easier to read.
-To make the UI effective and consistent, keep tab names short and descriptive.
-
-<cdx-demo-rules>
-<template #do-media>
-
-![Tabs conveying an example of short, concise titles for sections.](../../assets/components/tab-content-do.svg)
-
-</template>
-<template #do-text>
-
-- Limit tab names to one or two words. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
-
-</template>
-<template #dont-media>
-
-![Tabs conveying an example of mixing verbs and nouns.](../../assets/components/tab-content-dont.svg)
-
-</template>
-<template #dont-text>
-
-- Mix verbs and nouns for the labels. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent) & [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
-
-</template>
-</cdx-demo-rules>
-
-## Demos
-
-### Configurable example
-
-The demo below allows for configuration of `name`, `label`, and `disabled`
-props, as well as slot content.
-
 <cdx-demo-wrapper :controls-config="controlsConfig">
 <template v-slot:demo="{ propValues, slotValues }">
     <configurable-tab-demo v-bind="propValues">{{ slotValues.default }}</configurable-tab-demo>
@@ -170,7 +43,42 @@ props, as well as slot content.
 </template>
 </cdx-demo-wrapper>
 
-## Vue usage
+## Overview
+
+### When to use Tab
+
+Two or more Tab items are grouped to create a [Tabs](./tabs.md) component. Tab items cannot
+be used individually. For example, different Tab items can represent the different sections of an
+article.
+
+### About Tab
+
+Tab includes the following elements.
+
+#### Label
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>
+
+Limit Tab names to one or two words. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) 
+& [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">
+
+Avoid mixing verbs and nouns for the labels. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent) 
+& [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Content
+
+Tab content appears underneath the Tab when selected, and can include any type of content or components.
+
+## Technical implementations
+
+### Vue usage
 
 This component can display arbitrary content, including markup, via its default slot. The provided
 content is wrapped in a `<section>` tag and given an HTML ID.
@@ -181,6 +89,6 @@ It cannot be used as a standalone component. See the [Tabs documentation](./tabs
 information.
 :::
 
-## CSS-only version
+### CSS-only version
 
 See the [Tabs page](./tabs.md#css-only-version) to learn how to build a CSS-only tabbed layout.
