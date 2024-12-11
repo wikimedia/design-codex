@@ -1,13 +1,11 @@
 <template>
-	<div>
-		<cdx-search-input
-			v-model="inputValue"
-			:use-button="true"
-			aria-label="SearchInput with Button demo"
-			@update:model-value="onEvent( 'update:modelValue', $event )"
-			@submit-click="onEvent( 'submit-click', $event )"
-		/>
-	</div>
+	<cdx-search-input
+		v-model="inputValue"
+		:use-button="true"
+		aria-label="SearchInput with Button demo"
+		@update:model-value="onEvent( 'update:modelValue', $event )"
+		@submit-click="onEvent( 'submit-click', $event )"
+	/>
 </template>
 
 <script>

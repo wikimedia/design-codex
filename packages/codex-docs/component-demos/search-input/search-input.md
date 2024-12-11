@@ -1,160 +1,89 @@
 <script setup>
+import { CdxAccordion } from '@wikimedia/codex';
+import SearchInputConfigurable from '@/../component-demos/search-input/examples/SearchInputConfigurable.vue';
 import SearchInputDefault from '@/../component-demos/search-input/examples/SearchInputDefault.vue';
 import SearchInputWithButton from '@/../component-demos/search-input/examples/SearchInputWithButton.vue';
-import SearchInputClearable from '@/../component-demos/search-input/examples/SearchInputClearable.vue';
+
+const controlsConfig = [
+	{
+		name: 'useButton',
+		type: 'boolean'
+	},
+	{
+		name: 'buttonLabel',
+		type: 'text',
+		// DEPRECATED: set default to 'Search' (T368444).
+		default: ''
+	},
+	{
+		name: 'status',
+		type: 'radio',
+		options: [ 'default', 'error' ]
+	},
+	{
+		name: 'disabled',
+		type: 'boolean'
+	},
+];
 </script>
 
 A SearchInput allows users to enter and submit a search query.
 
-## Guidelines
+<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true" generated-model-name="inputValue">
+<template v-slot:demo="{ propValues }">
+	<search-input-configurable v-bind="propValues" />
+</template>
+</cdx-demo-wrapper>
 
-### When to use search inputs
-Use the SearchInput component when you need users to perform text-based searches
+## Overview
+
+### When to use SearchInput
+
+Use the SearchInput component to enable users to perform text-based searches
 for specific content, like finding results on a page.
 
-Avoid using SearchInput if you require a predictive list of options in a menu
-while users type within the input field. In such cases, use
+To include a predictive list of options in a menu while users type within the input field, use
 [TypeaheadSearch](./typeahead-search.md) instead.
 
 Avoid using SearchInput to enable users to search a dataset of options for a
 form field. Instead, use [Lookup](./lookup.md).
 
-### Specifications
+### About SearchInput
 
-![Specification of SearchInput.](../../assets/components/search-input-specifications.svg)
+SearchInput includes the following elements.
 
-Search inputs may include the following elements:
-1. **Input**<br>A text input where users can type their search queries. The input features the 'search' icon for clarity and should also include a placeholder to clarify its purpose.
-2. **Button** (optional)<br>The input can be accompanied with a button, either a text button or an icon-only one, in order to trigger the search action. It's crucial not to customize the label of the search button and consistently employ the term "Search" or its appropriate translation. Additionally, avoid using long text within this button.
+#### Input
 
-#### Component limitations
+A TextInput where users can type their search queries. The input features the 'search' icon for clarity and can also include a placeholder to clarify its purpose.
 
-Since the SearchInput component uses a [TextInput](./text-input.md)), the input's minimum width defaults to `@size-1600` (equivalent to `256px` in the default Codex theme). However, it can be adjusted to a narrower width if necessary. The SearchInput button, if visible, does not contribute to this minimum width.
+##### Placeholder text (optional)
 
-There's no maximum width constraint. If the input text exceeds the available space, it will overflow horizontally.
+Placeholder text provides an example of what the user might type in the SearchInput.
 
-Refer to the [SearchInput component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=4918-30728&mode=design&t=UwSiKFRRQPBEJVaC-0).
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Placeholder text should further explain what is being searched or sample search queries.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Placeholder text should never replace the label nor be the input's only description.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Placeholder text should not duplicate the search button label.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
-### Types
-The SearchInput component can be categorized based on the visibility and type of
-button it contains:
+#### Button (optional)
 
-#### Without button
-The SearchInput can consist of the input field alone or include the decorative
-icon. In this scenario, using the icon is suggested to emphasize that the input
-serves as a search input, distinguishing it from a simple text input.
+The input can be accompanied with a text button in order to trigger the search action.
 
-![SearchInput without button.](../../assets/components/search-input-types-no-button.svg)
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Use the term "Search" or its appropriate translation.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Don't use long button text or duplicate the placeholder text.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
-#### With text button
-The SearchInput also has the option to feature a text button to initiate the
-search process.
+## Examples
 
-![SearchInput with text button.](../../assets/components/search-input-types-text-button.svg)
+Open the console to review emitted events.
 
-#### With icon-only button
-The SearchInput can also include an icon-only button, particularly useful when
-space needs to be conserved by omitting the button text, such as on mobile
-devices. In such instances, since the 'search' icon will already be present on
-the button, there's no need to replicate it within the input. In this case,
-refrain from using an icon within the input field to avoid duplication with the
-icon in the button.
+### Basic usage
 
-![SearchInput with icon-only button.](../../assets/components/search-input-types-icon-only-button.svg)
+This SearchInput features a placeholder and does not include the search button.
 
-### Interaction states
-Search inputs have the following visually separate states:
-
-![Interaction states of SearchInput: default, hover, active-focus, and filled.](../../assets/components/search-input-interaction-states.svg)
-
-1. Default
-2. Hover
-3. Active - Focus
-4. Filled
-
-### Best practices
-
-Consider the following recommendations when using SearchInput.
-
-#### Icon
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![SearchInput using the ‘search’ icon.](../../assets/components/search-input-best-practices-icon-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use the ‘search’ icon in the SearchInput.
-
-</template>
-
-<template #dont-media>
-
-![SearchInput using the ‘userActive’ icon.](../../assets/components/search-input-best-practices-icon-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Replace the ‘search’ icon with any other icon.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Search button
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Two SearchInputs: one with an icon-only search button and the other with a text-only search button.](../../assets/components/search-input-best-practices-button-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use the icon-only button when necessary, especially on small screens like mobile devices.
-- Ensure the copy is concise and includes the term "Search" or an appropriate translation when using the text button.
-
-</template>
-
-<template #dont-media>
-
-![SearchInput with a lengthy search button and a ‘search’ icon in both the input field and the button.](../../assets/components/search-input-best-practices-button-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Duplicate the term "Search" in both the search button and the placeholder text. In such cases, consider hiding the placeholder.
-- Use the ‘search’ icon simultaneously in both the input field and the button.
-- Customize the copy of the search button or make it lengthy.
-
-</template>
-
-</cdx-demo-rules>
-
-### Keyboard navigation
-
-| Key | Function |
-| -- | -- |
-| <kbd>Enter</kbd> | It submits the search query or performs the search action when the focus is placed on the search button. |
-| <kbd>Esc</kbd> | It clears the input when there is typed text there. |
-
-## Demos
-
-Open the console to see emitted events.
-
-### Default, with placeholder
-
-The `placeholder` attribute will be passed down to the `<input>` element.
-
-<cdx-demo-wrapper :force-controls="true">
+<cdx-demo-wrapper>
 <template v-slot:demo>
 <SearchInputDefault />
 </template>
@@ -172,9 +101,18 @@ The `placeholder` attribute will be passed down to the `<input>` element.
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+The `placeholder` attribute will be passed down to the `<input>` element. Open up the console to
+view `update:modelValue` events.
+
+</cdx-accordion>
+
 ### With button
 
-This example provides a `useButton` prop, which enables the submit button.
+The SearchInput has the option to feature a text button to initiate the search process. Use the
+default button label, "Search" (or its translation).
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -194,43 +132,36 @@ This example provides a `useButton` prop, which enables the submit button.
 </template>
 </cdx-demo-wrapper>
 
-### Clearable
+<cdx-accordion>
+<template #title>Developer notes</template>
 
-The `clearable` prop from the [TextInput](./text-input.md) component adds a "clear" button when
-input is present.
+Use the `useButton` prop to enable the submit button. The default button label is "Search" (or its translation if an internationalization system is being used).
 
-<cdx-demo-wrapper>
-<template v-slot:demo>
-<SearchInputClearable />
-</template>
+You can customize the button label via the `buttonLabel` prop. This is only recommended if you're
+using the SearchInput somewhere that does not have an internationalization system (e.g. outside of
+MediaWiki) and you want to provide a translation for a single language.
 
-<template v-slot:code>
+</cdx-accordion>
 
-:::code-group
+### Other features
 
-<<< @/../component-demos/search-input/examples/SearchInputClearable.vue [NPM]
-
-<<< @/../component-demos/search-input/examples-mw/SearchInputClearable.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### Form field
+The SearchInput component has an internal TextInput. You can use the following features from
+TextInput in the SearchInput component:
+- [Clearable](./text-input.html#clearable)
 
 A SearchInput can be wrapped in a Field component, but this is not recommended. Although
 SearchInput uses a TextInput, it's not a form item intended to collect user input; instead,
 it triggers an action. Refer to the [Field](./field.md) guidelines for more information.
 
-## Vue usage
+## Technical implementation
+
+### Vue usage
 
 This component contains a [TextInput](./text-input.md) with a preset start icon and input type. A
 button can be added by providing the `useButton` prop.
 
 The default slot allows you to pass in an options menu that can be absolutely positioned to line
-up with the text input, e.g. a list of autocomplete options.
-Refer to [TypeaheadSearch](./typeahead-search.md) for an example.
+up with the text input, e.g. a list of autocomplete options. This is used by [TypeaheadSearch](./typeahead-search.md), which you should use if you need a search input with a menu of options.
 
 ::: tip TextInput props apply
 This component contains a TextInput component. You can bind [TextInput props](./text-input.html#props)
@@ -242,9 +173,9 @@ This component will pass any HTML attributes applied to it, except for CSS class
 element within the component.
 :::
 
-## CSS-only version
+### CSS-only version
 
-### Markup structure
+#### Markup structure
 
 The basic CSS-only SearchInput component is a CSS-only TextInput with `type="search"` and a start
 icon, wrapped in a `<div>` with the CSS class `.cdx-search-input`. The CSS-only search icon is set
@@ -277,7 +208,7 @@ up for you, so you do not need to include it in your Less code.
 </template>
 </cdx-demo-wrapper>
 
-### With button
+#### With button
 
 To add a button to the CSS-only SearchInput, do the following:
 - Add the `.cdx-search-input--has-end-button` class to the root element
@@ -312,3 +243,10 @@ To add a button to the CSS-only SearchInput, do the following:
 
 </template>
 </cdx-demo-wrapper>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Enter</kbd> | It submits the search query or performs the search action when the focus is placed on the search button. |
+| <kbd>Esc</kbd> | It clears the input when there is typed text there. |

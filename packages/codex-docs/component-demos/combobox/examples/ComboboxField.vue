@@ -3,15 +3,13 @@
 		<cdx-combobox
 			v-model:selected="selection"
 			:menu-items="menuItems"
+			placeholder="Type or select an input type"
 		/>
 		<template #label>
 			Input type
 		</template>
 		<template #description>
 			What kind of data does the function accept?
-		</template>
-		<template #help-text>
-			Choose a type from the menu or enter a custom type.
 		</template>
 	</cdx-field>
 </template>

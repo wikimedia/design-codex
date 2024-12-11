@@ -1,138 +1,111 @@
 <script setup>
+import { CdxAccordion } from '@wikimedia/codex';
+import TypeaheadSearchConfigurable from '@/../component-demos/typeahead-search/examples/TypeaheadSearchConfigurable.vue';
 import TypeaheadSearchWikipedia from '@/../component-demos/typeahead-search/examples/TypeaheadSearchWikipedia.vue';
 import TypeaheadSearchWikidata from '@/../component-demos/typeahead-search/examples/TypeaheadSearchWikidata.vue';
 import TypeaheadSearchInitialValue from '@/../component-demos/typeahead-search/examples/TypeaheadSearchInitialValue.vue';
 import TypeaheadSearchPendingState from '@/../component-demos/typeahead-search/examples/TypeaheadSearchPendingState.vue';
 import TypeaheadSearchNoResult from '@/../component-demos/typeahead-search/examples/TypeaheadSearchNoResult.vue';
+
+const controlsConfig = [
+	{
+		name: 'useButton',
+		type: 'boolean'
+	},
+	{
+		name: 'buttonLabel',
+		type: 'text',
+		// DEPRECATED: set default to 'Search' (T368444).
+		default: ''
+	},
+	{
+		name: 'highlightQuery',
+		type: 'boolean'
+	},
+	{
+		name: 'showThumbnail',
+		type: 'boolean'
+	},
+	{
+		name: 'autoExpandWidth',
+		type: 'boolean'
+	}
+];
 </script>
 
 TypeaheadSearch is a search input that provides a menu of options based on the
 current search query. It is meant to help users search for and navigate to
 content.
 
-## Guidelines
-
-### When to use typeahead searches
-
-TypeaheadSearch consists of a search input and a submit button. As users type, predictive search
-results are displayed in a menu. Additionally, there's a final option at the end of the search
-results list, enabling users to navigate to the search page.
-
-Use the TypeaheadSearch component when you need a predictive list of options in a menu that updates
-as users type within the input field. Avoid using TypeaheadSearch if your goal is to enable users to
-perform text-based searches to find specific content, such as locating results on a page. In this
-case use the [SearchInput](./search-input.md) component instead.
-
-### Specifications
-
-TypeaheadSearch may include the following elements:
-
-![Specification of TypeaheadSearch.](../../assets/components/typeahead-search-specifications.svg)
-
-1. **Input**<br>
-A search input where users can type their searches. The input features the 'search' icon for clarity
-and should also include a placeholder to clarify its purpose.
-2. **Button** (optional)<br>
-The input can be accompanied with a button,  in order to trigger the search action. It's crucial not
-to customize the label of the search button: consistently employ the term "Search" or its
-appropriate translation. Additionally, avoid using long text within this button.
-3. **Menu**<br>
-When the user types within the input, a [menu](./menu.md) component with results is
-displayed. By default, menu items will feature a label and an optional description. Thumbnails can
-also be included.
-4. **Footer**<br>
-The final menu item at the end of the search results menu list allows users to navigate to the
-search page.
-
-#### Component limitations
-
-The menu displayed will show a maximum of 10 items, adjusting if there are fewer matching results.
-
-Menu labels will expand to fit text length, possibly wrapping to multiple lines, while descriptions will use an ellipsis if exceeding one line.
-
-The fixed menu footer may also wrap to multiple lines for lengthy text.
-
-Refer to the [TypeaheadSearch component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=13076-168691&mode=design&t=G420ZgFymLfdkY6g-0).
-
-### Types
-
-As with [SearchInput](./search-input.md), TypeaheadSearch can be categorized
-based on the visibility and type of button it contains:
-1. **Without button**<br>
-The TypeaheadSearch can consist of the input field alone or include the decorative icon. In this
-scenario, using the icon is suggested to emphasize that the input serves as a search input,
-distinguishing it from a simple text input.
-2. **With text button**<br>
-The TypeaheadSearch also has the option to feature a text button to initiate the search process.
-
-![Types of TypeaheadSearch: without button and with button.](../../assets/components/typeahead-search-types.svg)
-
-### Interaction states
-
-TypeaheadSearch has the following visually separate states:
-
-![Interaction states of the TypeaheadSearch: default, hover, focus, loading, active with results, and active with no results.](../../assets/components/typeahead-search-interaction-states.svg)
-
-1. Default
-2. Hover
-3. Focus
-4. Loading
-5. Active with results
-6. Active with no results
-
-### Best practices
-
-Consider the following recommendations when using the TypeaheadSearch.
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![TypeaheadSearch featuring the 'search' icon and a text-only button.](../../assets/components/typeahead-search-best-practices-do.svg)
-
+<cdx-demo-wrapper :controls-config="controlsConfig">
+<template v-slot:demo="{ propValues }">
+	<typeahead-search-configurable v-bind="propValues" />
 </template>
+</cdx-demo-wrapper>
 
-<template #do-text>
+## Overview
 
-- Use the 'search' icon to emphasize search functionality.
-- Customize the placeholder text as needed.
-- Ensure the copy is concise and includes the term "Search" or an appropriate translation.
+### When to use TypeaheadSearch
 
-</template>
+Use the TypeaheadSearch component to enable users to navigate to a new page and when you need a predictive list of options in a menu that updates as users type within the input field. To enable users to perform text-based searches to find specific content, such as locating results on a page, use [SearchInput](./search-input.md) instead.
 
-<template #dont-media>
+TypeaheadSearch is not a form input. Avoid using TypeaheadSearch to enable users to search a dataset
+of options for a form field. Instead, use [Lookup](./lookup.md).
 
-![TypeaheadSearch featuring a non-'search' icon and a text-only button with long and customized text.](../../assets/components/typeahead-search-best-practices-dont.svg)
+### About TypeaheadSearch
 
-</template>
+TypeaheadSearch includes the following elements.
 
-<template #dont-text>
+#### Input
 
-- Customize or remove the 'search' icon.
-- Customize the copy of the search button or make it lengthy.
+A SearchInput where users can type their search queries. The input features the 'search' icon for
+clarity and can also include a placeholder to clarify its purpose.
 
-</template>
+#### Placeholder text (optional)
 
-</cdx-demo-rules>
+Placeholder text provides an example of what the user might type in the input.
 
-### Keyboard navigation
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Placeholder text should further explain what is being searched or sample search queries.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Placeholder text should never replace the label nor be the input's only description.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Placeholder text should not duplicate the button label.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
-| Key | Function |
-| -- | -- |
-| <kbd>Down arrow</kbd> / <kbd>Up arrow</kbd> | When the menu is displayed, it navigates through the menu items. |
-| <kbd>Enter</kbd> | If the focus is placed in any of the options within the menu, the focused option is selected. |
-| <kbd>Esc</kbd> | This key closes the menu when it is open. |
+#### Button (optional)
 
-## Demos
+The input can be accompanied by a button, in order to trigger the search action.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Use the term "Search" or its appropriate translation.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Don't use long button text or duplicate the placeholder text.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Menu
+
+When the user types within the input, a [Menu](./menu.md) component with results is displayed. By
+default, menu items will feature a label and an optional description. Thumbnails can also be
+included to show a preview of each result.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Limit visible menu items to a maximum of 10.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Enable scrolling if users need access to more than 10 results.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+##### Menu footer
+
+The final menu item at the end of the search results menu allows users to navigate to the search
+page.
+
+## Examples
 
 ### Search Wikipedia articles
 
-This implementation of TypeaheadSearch fetches articles from English Wikipedia. Note that the input
-expands on focus via the `autoExpandWidth` prop, thumbnails are enabled via the `showThumbnail`
-prop, and the "Search" button is added via the `useButton` prop.  Open the console to see emitted
-events.
+This implementation of TypeaheadSearch fetches articles from English Wikipedia. Like the search bar
+on English Wikipedia, thumbnails are included in search results, the input expands on focus to
+accommodate the width of the thumbnails, and the "Search" button is added. Results are limited to
+10 items.
 
-<cdx-demo-wrapper :force-controls="true">
+<cdx-demo-wrapper>
 <template v-slot:demo>
 	<typeahead-search-wikipedia />
 </template>
@@ -149,11 +122,21 @@ events.
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+The `showThumbnails` prop is set to true, along with the `autoExpandWidth` prop to expand the input
+on focus. The `useButton` prop enables the search button.
+
+Open up the console to review emitted events.
+
+</cdx-accordion>
+
 ### Search Wikidata items
 
-In this example, results are fetched from Wikidata. Thumbnails are disabled, and the input doesn't
-expand on focus. There is no button, because the `useButton` prop is set to `false`. Open the console to
-see emitted events.
+In this example, results are fetched from Wikidata. To support Wikidata items as results, Thumbnails
+are not shown and the input does not expand on focus. This example also includes a
+`visibleItemLimit` of 5 items—further items can be access by scrolling.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -172,16 +155,18 @@ see emitted events.
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+Open up the console to review emitted events.
+
+</cdx-accordion>
+
 ### With initial input value
 
-The `initialInputValue` prop can be used to pass in the initial value of the TextInput. This is
-useful when replacing a server-rendered UI where the user may have started typing a search query, or
-for pre-populating the search term when a user navigates back to a page where they had previously
-entered one.
-
-On mount, TypeaheadSearch will fetch search results for the initial input value if it's provided.
-After that, the input value is tracked internally and will be emitted up to the parent component
-when the value changes.
+An `initialInputValue` can be included. This is useful when replacing a server-rendered interface
+where the user may have started typing a search query, or for pre-populating the search term when a
+user navigates back to a page where they had previously entered one.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
@@ -200,14 +185,22 @@ when the value changes.
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+On mount, TypeaheadSearch will fetch search results for the `initialInputValue` if it's provided.
+After that, the input value is tracked internally and will be emitted up to the parent component
+when the value changes.
+
+</cdx-accordion>
+
 ### Pending state
 
-Pending state indicators, including an inline progress bar and a message stating that results are
+Pending state indicators, including an inline ProgressBar and a message stating that results are
 pending, can be displayed to users with slower connections while search results are being fetched.
-To enable this, provide content in the `search-results-pending` slot.
 
 The pending state indicators will display when a search takes longer than half a second, so you may
-need to throttle your connection to see them in the demo below.
+need to throttle your connection to review them in the demo below.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -226,10 +219,16 @@ need to throttle your connection to see them in the demo below.
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+To enable pending state indicators, provide content in the `search-results-pending` slot.
+
+</cdx-accordion>
+
 ### No results message
 
-A message prompt that no search results were found. To enable this, provide content in the
-`search-no-results-text` slot.
+You can show a message when no search results were found.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -247,6 +246,13 @@ A message prompt that no search results were found. To enable this, provide cont
 
 </template>
 </cdx-demo-wrapper>
+
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+To enable the no results message, provide content in the `search-no-results-text` slot.
+
+</cdx-accordion>
 
 ## Vue usage
 
@@ -324,7 +330,8 @@ search icon is automatically added for you.
 ### With thumbnails
 
 When your CSS-only TypeaheadSearch component will be swapped out for a Vue version that shows
-thumbnails (see the ["With initial input value" demo](#with-initial-input-value) above), apply the
+thumbnails (refer to the ["With initial input value" demo](#with-initial-input-value) above), apply
+the
 `.cdx-typeahead-search--show-thumbnail` class to the wrapper `<div>` to expand the start icon width.
 
 <cdx-demo-wrapper>
@@ -362,7 +369,7 @@ thumbnails (see the ["With initial input value" demo](#with-initial-input-value)
 
 ### With thumbnails and auto-expand width
 
-When your CSS-only TypeaheadSearch component will be swapped out for a Vue version that shows thumbnails and expands when results are shown (see the ["Search Wikipedia articles" demo](#search-wikipedia-articles)
+When your CSS-only TypeaheadSearch component will be swapped out for a Vue version that shows thumbnails and expands when results are shown (refer to the ["Search Wikipedia articles" demo](#search-wikipedia-articles)
 above), apply the `.cdx-typeahead-search--show-thumbnail` and `.cdx-typeahead-search--auto-expand-width` classes to the wrapper `<div>` to reduce the starting size
 of the input.
 
@@ -398,3 +405,11 @@ of the input.
 
 </template>
 </cdx-demo-wrapper>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Down arrow</kbd> / <kbd>Up arrow</kbd> | When the menu is displayed, it navigates through the menu items. |
+| <kbd>Enter</kbd> | If the focus is placed in any of the options within the menu, the focused option is selected. |
+| <kbd>Esc</kbd> | This key closes the menu when it is open. |

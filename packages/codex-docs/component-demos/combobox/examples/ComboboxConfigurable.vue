@@ -2,7 +2,6 @@
 	<cdx-combobox
 		v-model:selected="selection"
 		:menu-items="menuItems"
-		placeholder="Type or choose an option"
 	/>
 </template>
 

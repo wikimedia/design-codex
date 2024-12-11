@@ -28,7 +28,7 @@ export default defineComponent( {
 				{ label: 'Option A', value: 'a' },
 				{ label: 'Option B', value: 'b' },
 				{ label: 'Option C', value: 'c' },
-				{ label: 'Option D', value: 'd', disabled: true }
+				{ label: 'Option D', value: 'd' }
 			],
 			selection: null
 		};
