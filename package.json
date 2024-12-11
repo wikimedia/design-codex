@@ -43,7 +43,7 @@
 		"eslint": "8.57.0",
 		"eslint-config-wikimedia": "0.28.2",
 		"jest": "29.7.0",
-		"netlify-cli": "15.11.0",
+		"netlify-cli": "17.38.0",
 		"postcss-html": "1.7.0",
 		"postcss-markdown": "1.2.0",
 		"stylelint-config-wikimedia": "0.16.1",

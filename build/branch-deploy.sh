@@ -12,5 +12,6 @@ CODEX_BRANCH_DEPLOY=1 CODEX_PATCH_ID=$ZUUL_CHANGE npm run doc
 npx netlify deploy \
     --auth $BRANCHDEPLOY_AUTH_TOKEN \
     --site $BRANCHDEPLOY_SITE_ID \
+    --filter codex-docs \
     --alias $ZUUL_CHANGE \
     --dir packages/codex-docs/docs/.vitepress/dist
