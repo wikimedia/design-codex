@@ -561,7 +561,8 @@ export default defineComponent( {
 			color: @color-destructive;
 
 			.cdx-menu-item__content,
-			.cdx-menu-item__text__description {
+			.cdx-menu-item__text__description,
+			.cdx-menu-item__icon {
 				color: @color-destructive;
 			}
 		}
@@ -570,7 +571,8 @@ export default defineComponent( {
 			background-color: @background-color-destructive-subtle--hover;
 
 			.cdx-menu-item__content,
-			.cdx-menu-item__text__description {
+			.cdx-menu-item__text__description,
+			.cdx-menu-item__icon {
 				color: @color-destructive--hover;
 			}
 		}
@@ -579,7 +581,8 @@ export default defineComponent( {
 			background-color: @background-color-destructive-subtle--active;
 
 			.cdx-menu-item__content,
-			.cdx-menu-item__text__description {
+			.cdx-menu-item__text__description,
+			.cdx-menu-item__icon {
 				color: @color-destructive--active;
 			}
 		}
