@@ -1,5 +1,5 @@
 <script setup>
-import { CdxMessage } from '@wikimedia/codex';
+import { CdxMessage, CdxAccordion } from '@wikimedia/codex';
 import { cdxIconArticle } from '@wikimedia/codex-icons';
 import MessageFadeIn from '@/../component-demos/message/examples/MessageFadeIn.vue';
 import MessageUserDismiss from '@/../component-demos/message/examples/MessageUserDismiss.vue';
@@ -31,303 +31,74 @@ A Message provides system feedback for users. Messages can be provided as a
 prominently-displayed banner with a longer explanation, or as inline validation
 feedback.
 
-## Guidelines
-
-### When to use messages
-
-Messages must include text clearly defining the system feedback to the user. They also include an
-icon to help users recognize the type of message, and they can also feature an optional dismiss
-button to close the message.
-
-### Specifications
-
-The message component may contain the following items:
-
-![Specification of Message.](../../assets/components/message-specifications-message.svg)
-
-1. **Icon**<br>
-Icons simplify user recognition and provide the ability to shorten message text. A specific icon is
-matched with each message type (e.g., ‘success’) to ensure recognition.
-2. **Message text**<br>
-The message text should be as clear and concise as possible, offering feedback to users. If
-applicable, it may also suggest next steps.
-3. **Close button** (optional)<br>
-To allow for the message to be dismissed, an optional icon-only quiet button can be included.
-
-![Specification of Inline Message.](../../assets/components/message-specifications-inline-message.svg)
-
-The inline message component includes both the icon and message elements, excluding the close
-button.
-
-:::tip Accessibility note
-The message icon adds a point of recognition for color-blind users.
-:::
-
-#### Component limitations
-
-The message can contain an unlimited number of characters, and there is no minimum requirement.
-Ensure that the icon is always aligned on top with the text.
-
-Refer to the
-[Message component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=4902-47684&mode=design&t=yTcArGDe2utFY0wc-11).
-
-### Types
-
-#### Message layout
-
-There are two types of messages, each suited to specific use cases:
-1. **Message:** Utilize it to display system feedback, respond to user actions, or provide
-information.
-2. **Inline message:** Employ it to offer feedback on the validation of form inputs.
-
-![Types of Messages: message and inline message.](../../assets/components/message-types.svg)
-
-#### Message type
-
-Depending on the feedback conveyed to the user, the messages can be categorized as follows:
-1. **Neutral or notice** messages provide general user feedback. They are accompanied by the
-'infoFilled' icon by default, but the icon may be changed to any other system icon to emphasize a
-specific aspect of the notice message.
-2. **Success** messages deliver feedback of a successful user interaction, like publishing an
-article. Accompany the message with the 'success' icon.
-3. **Error** messages have the strongest visual priority of all system messages. Use them to alert
-the user only in situations when their immediate attention is needed. Accompany the message with the
-'error' icon.
-4. **Warning** messages provide important information about circumstances that require caution.
-Accompany the message with the 'alert' icon.
-
-![Message types based on feedback conveyed to the user: notice, success, error, and warning.](../../assets/components/message-types-message.svg)
-
-Inline messages follow the same categorization: notice, success, error, and warning.
-
-![Inline message types based on feedback conveyed to the user: notice, success, error, and warning.](../../assets/components/message-types-inline-message.svg)
-
-#### Dismissability
-
-Messages can be categorized based on how they are removed from the interface as follows:
-
-##### Dismiss button
-
-Messages can be dismissed by utilizing the close button within the message. Note that inline
-messages cannot be dismissable.
-
-![Message with a dismiss button.](../../assets/components/message-types-dismiss.svg)
-
-##### Auto-dismiss
-
-Messages can be also auto-dismissable. This means they will automatically disappear after 4 seconds.
-
-This feature should only be used for very short messages to ensure that they can be read and
-understood before disappearing. When in doubt, do not use auto-dismiss. To prevent error messages
-from disappearing before users fix the error, do not use auto-dismiss with error messages.
-Auto-dismiss can be used with or without the manual dismiss button.
-
-![Two auto-dismissible messages: one without dismiss button and one with a dismiss button.](../../assets/components/message-types-auto-dismiss.svg)
-
-### Best practices
-
-Consider the following recommendations when working with messages.
-
-#### Icon
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Notice message with the user icon and success message with its success icon.](../../assets/components/message-best-practices-icon-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Customize the notice message with another icon if needed.
-- Use the 'success', 'error', and 'alert' icons to represent their corresponding message statuses.
-
-</template>
-
-<template #dont-media>
-
-![Success message without icon and error message with a non-error icon.](../../assets/components/message-best-practices-icon-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Remove the icon, as it is essential for reinforcing the meaning of the message.
-- Replace the status icon in the success, error, and warning messages.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Message's text
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Success Message with different text formats and a link.](../../assets/components/message-best-practices-text-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Incorporate various text formats and links within the message text as necessary.
-
-</template>
-
-<template #dont-media>
-
-![Success Message with the entire text bolded.](../../assets/components/message-best-practices-text-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Bold all the message text.
-
-</template>
-
-</cdx-demo-rules>
-
-### Content
-
-Keeping messages clear is ideal for accessibility (reducing cognitive load) and using the right tone provides relevance.
-
-#### Error message
-
-Error messages let a reader know that there is a problem and should include clear instructions or
-next steps to solve the problem.
-
-<cdx-demo-rules>
-<template #do-media>
-
-![Error message conveying the use of concise messaging with clear actions.](../../assets/components/message-content-error-do.svg)
-
-</template>
-<template #do-text>
-
-- Keep messages short and simple, with one or two solutions, to reduce cognitive load. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible)
-- Use formatting to make the copy easy to skim and help users move through a flow more quickly and confidently. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
-
-</template>
-<template #dont-media>
-
-![Error message conveying the use of long form messaging with no clear action.](../../assets/components/message-content-error-dont.svg)
-
-</template>
-<template #dont-text>
-
-- Give multiple options for fixing the issue. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
-- Apologize more than once, to avoid eroding the reader’s sense of trust in the experience. [*Trustworthy*](../../style-guide/writing-for-copy.html#is-this-trustworthy)
-
-</template>
-</cdx-demo-rules>
-
-#### Success message
-
-Success messages let a user know that the action they took was successful.
-
-<cdx-demo-rules>
-<template #do-media>
-
-![Success message conveying the use of concise messaging.](../../assets/components/message-content-success-do.svg)
-
-</template>
-<template #do-text>
-
-- Use clear, positive, short messages. [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible) & [*Relevant*](../../style-guide/writing-for-copy.html#is-this-relevant)
-
-</template>
-<template #dont-media>
-
-![Success message conveying the use of long form messaging with no clear action.](../../assets/components/message-content-success-dont.svg)
-
-</template>
-<template #dont-text>
-
-- Include too much information. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
-
-</template>
-</cdx-demo-rules>
-
-#### Warning message
-
-Warning messages indicate urgent information and consequences to the user (e.g., that an impending
-action is irreversible). Warning messages should also include a solution to the potential problem.
-
-<cdx-demo-rules>
-<template #do-media>
-
-![Warning message conveying the use of concise messaging.](../../assets/components/message-content-warning-do.svg)
-
-</template>
-<template #do-text>
-
-- Keep messages short and precise. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible)
-
-</template>
-<template #dont-media>
-
-![Warning message conveying the use of long form messaging with no clear action.](../../assets/components/message-content-warning-dont.svg)
-
-</template>
-<template #dont-text>
-
-- Write in a way that might cause a reader to panic or worry. [*Trustworthy*](../../style-guide/writing-for-copy.html#is-this-trustworthy)
-
-</template>
-</cdx-demo-rules>
-
-#### Notice message
-
-Notice messages alert a reader to important, but non-urgent, information. These messages are not
-generally used for feedback on a user’s actions, but rather for offering neutral information
-or recommendations.
-
-<cdx-demo-rules>
-<template #do-media>
-
-![Notice message conveying the use of concise messaging in a neutral tone.](../../assets/components/message-content-notice-do.svg)
-
-</template>
-<template #do-text>
-
-- Keep messages in an informative, neutral tone. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent) & [*Trustworthy*](../../style-guide/writing-for-copy.html#is-this-trustworthy)
-
-</template>
-<template #dont-media>
-
-![Notice message conveying the use of long form messaging.](../../assets/components/message-content-notice-dont.svg)
-
-</template>
-<template #dont-text>
-
-- Include more than one message. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise)
-- Use warning or error language. [*Relevant*](../../style-guide/writing-for-copy.html#is-this-relevant) & [*Trustworthy*](../../style-guide/writing-for-copy.html#is-this-trustworthy)
-
-</template>
-</cdx-demo-rules>
-
-### Keyboard navigation
-
-| Key | Function |
-| -- | -- |
-| <kbd>Enter</kbd> | When the Message is closable and the focus is placed on its close button, it closes the Message. If the focus is placed on a link within the Message, it activates the link. |
-
-## Demos
-
-### Configurable
-
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues, slotValues }">
 	<cdx-message v-bind="propValues">{{ slotValues.default }}</cdx-message>
 </template>
 </cdx-demo-wrapper>
 
+## Overview
+
+### When to use Message
+
+Use the Message component to display system feedback, respond to user actions, or provide information. Use inline Messages to offer feedback on the validation of form inputs.
+
+Depending on the type of feedback conveyed to the user, Messages can be used to convey one of four statuses.
+
+1. **Notice**<br>Use to provide general, neutral and non-urgent information or recommendations.
+2. **Warning**<br>Use to provide important information about circumstances that require caution.
+3. **Error**<br>Use to alert the user only in situation where their immediate attention is needed. Error Messages have the strongest visual priority of all system messages.
+4. **Success**<br>Use to deliver feedback of a successful user interaction, like publishing an
+article.
+
+### About Message
+
+Message includes the following elements.
+
+#### Icon
+
+Icons simplify user recognition and provide the ability to shorten message text. A specific icon is
+matched with each message type (e.g., ‘success’) to ensure recognition.
+
+<cdx-demo-best-practices>
+
+<cdx-demo-best-practice>Customize the icon in notice Messages, or hide it if needed.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Avoid removing or replacing the icon in warning, error, and success Messages, as it reinforces the meaning of their respective statuses.</cdx-demo-best-practice>
+
+</cdx-demo-best-practices>
+
+#### Message text
+
+The message text should be as clear and concise as possible, offering feedback to users. If
+applicable, it may also suggest next steps.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>
+
+Keep messages short and simple, with one or two solutions, to reduce cognitive load. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible)
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice>
+
+Incorporate various text formats and links within the Message text as necessary.
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">
+
+Avoid bolding all the message text.
+
+</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Close button (optional)
+
+To allow for the message to be dismissed, an optional icon-only quiet button can be included.
+
+## Examples
+
 ### Fade in
 
-When a message is dynamically added to the UI, use the `fadeIn` prop to enable a transition.
+We can apply a transition when a Message is dynamically added to the user interface.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
@@ -406,15 +177,17 @@ module.exports = defineComponent( {
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+
+<template #title>Developer notes</template>
+
+Use the `fadeIn` prop to enable a transition.
+
+</cdx-accordion>
+
 ### Dismiss button
 
-Messages can be made dismissable by setting the `allowUserDismiss` prop to `true`.
-
-When the dismiss button is clicked, the Message component hides itself, and a 'user-dismissed' event
-is emitted to the parent component in case the parent component needs to react to the message
-dismissal in some way.
-
-Note that inline messages cannot be dismissable.
+Messages can be dismissed by using the close button within the Message. Note that inline Messages cannot be dismissable.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
@@ -432,18 +205,28 @@ Note that inline messages cannot be dismissable.
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+
+<template #title>Developer notes</template>
+
+Messages can be made dismissable by setting the `allowUserDismiss` prop to `true`.
+
+When the dismiss button is pressed, the Message component hides itself, and a 'user-dismissed' event
+is emitted to the parent component in case the parent component needs to react to the Message
+dismissal in some way.
+
+</cdx-accordion>
+
 ### Auto-dismiss
 
-The `autoDismiss` prop can be used to automatically remove the message after a period of time.
-Set this prop to `true` to use the default display time of 4000 milliseconds (4 seconds). To
-customize the display time, set the `autoDismiss` prop to a number of milliseconds.
+Messages can be auto-dismissable. Auto-dismiss can be used with or without the manual dismiss button.
 
-This feature should only be used for very short messages to ensure that can be read and
-understood before disappearing. When in doubt, do not use auto-dismiss. Auto-dismiss
-cannot be used for error messages: if the `type` prop is set to `error`, the `autoDismiss`
-prop will be ignored and a warning will be thrown if it's set.
+<cdx-demo-best-practices>
 
-Auto-dismiss can be used with or without the manual dismiss button.
+<cdx-demo-best-practice>Use for very short Messages to ensure that they can be read and understood before disappearing.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Avoid using with error Messages to prevent the message from disappearing before users fix the error.</cdx-demo-best-practice>
+
+</cdx-demo-best-practices>
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
@@ -527,9 +310,24 @@ module.exports = defineComponent( {
 </template>
 </cdx-demo-wrapper>
 
-### Multiline message
+<cdx-accordion>
 
-Message content can contain markup like bold text and links.
+<template #title>Developer notes</template>
+
+The `autoDismiss` prop can be used to automatically remove the Message after a period of time.
+Set this prop to `true` to use the default display time of 4000 milliseconds (4 seconds). To
+customize the display time, set the `autoDismiss` prop to a number of milliseconds.
+
+This feature should only be used for very short messages to ensure they can be read and
+understood before disappearing. When in doubt, do not use auto-dismiss. Auto-dismiss
+cannot be used for error Messages: if the `type` prop is set to `error`, the `autoDismiss`
+prop will be ignored and a warning will be thrown if it's set.
+
+</cdx-accordion>
+
+### Multiline
+
+Message content can contain multiple lines. Message text can incorporate various text formats and links.
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
@@ -555,7 +353,7 @@ Message content can contain markup like bold text and links.
 
 ### With custom icon
 
-Only notice messages may have a custom icon.
+Only notice Messages may have a custom icon.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -575,25 +373,27 @@ Only notice messages may have a custom icon.
 </template>
 </cdx-demo-wrapper>
 
-## Vue usage
+## Technical implementation
 
-Message styles and icon will vary depending on the message type (notice, warning, error or success). Messages are block style by default, but can be displayed as inline messages via the `inline` prop.
+### Vue usage
 
-Block-style messages can be made dismissable in the following ways:
+Message styles and icon will vary depending on the message type (notice, warning, error or success). Messages are block style by default, but can be displayed as inline Messages via the `inline` prop.
+
+Block-style Messages can be made dismissable in the following ways:
 - By using the `allowUserDismiss` prop, which adds a dismiss button.
-- By using the `autoDismiss` prop. This can be set to `true` to use the default display time of 4000 milliseconds (4 seconds), or the display time can be customized by setting `autoDismiss` to a number of milliseconds. Error messages cannot auto-dismiss: if the `type` prop is set to `error`, then the `autoDismiss` prop will be ignored.
+- By using the `autoDismiss` prop. This can be set to `true` to use the default display time of 4000 milliseconds (4 seconds), or the display time can be customized by setting `autoDismiss` to a number of milliseconds. Error Messages cannot auto-dismiss: if the `type` prop is set to `error`, then the `autoDismiss` prop will be ignored.
 
-## CSS-only version
+### CSS-only version
 
 Note that some features of the Vue component require JavaScript and are therefore not supported in
 the CSS-only version (fade in, dismiss button, and auto-dismiss).
 
-### Markup structure
+#### Markup structure
 
 :::tip
 The outer `<div>` should have one of the following ARIA attributes:
-- For notice, warning, and success messages: `aria-live="polite"`
-- For error messages: `role="alert"`
+- For notice, warning, and success Messages: `aria-live="polite"`
+- For error Messages: `role="alert"`
 :::
 
 <cdx-demo-wrapper :allow-link-styles="true">
@@ -622,9 +422,9 @@ The outer `<div>` should have one of the following ARIA attributes:
 </template>
 </cdx-demo-wrapper>
 
-### Message layout
+#### Message layout
 
-There are two layout styles for messages: block and inline. Use the following classes to apply
+There are two layout styles for Messages: block and inline. Use the following classes to apply
 these layouts.
 - Block: `cdx-message--block` (class can be omitted since this is the default)
 - Inline: `cdx-message--inline`
@@ -666,10 +466,10 @@ these layouts.
 </template>
 </cdx-demo-wrapper>
 
-### Message types
+#### Message types
 
-There are 4 message types, which change the colors and icon depending on the message's purpose.
-Use these classes to apply the different message type styles:
+There are 4 Message types, which change the colors and icon depending on the message's purpose.
+Use these classes to apply the different Message type styles:
 - Notice: `cdx-message--notice` (class can be omitted since this is the default)
 - Warning: `cdx-message--warning`
 - Error: `cdx-message--error`
@@ -734,7 +534,7 @@ Use these classes to apply the different message type styles:
 </template>
 </cdx-demo-wrapper>
 
-### Multiline message
+#### Multiline message
 
 Message content can contain markup like bold text and links.
 
@@ -782,3 +582,9 @@ Message content can contain markup like bold text and links.
 	}
 }
 </style>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Enter</kbd> | When the Message is closable and the focus is placed on its close button, it closes the Message. If the focus is placed on a link within the Message, it activates the link. |

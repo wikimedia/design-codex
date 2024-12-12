@@ -21,68 +21,41 @@ const controlsConfig = [
 
 A ProgressBar is a visual element used to indicate the progress of an action or process.
 
-## Guidelines
-
-### When to use progress bars
-Use a ProgressBar when you want to provide real-time feedback on the progress of
-ongoing operations, such as file uploads or form submissions.
-
-If the progress of a task is not crucial to user understanding or if the task is
-expected to complete quickly, avoid using a ProgressBar.
-
-### Specifications
-
-![Specification of ProgressBar.](../../assets/components/progress-bar-specifications.svg)
-
-Progress bars include the following elements:
-1. **Progress bar**<br>Visual representation of the progress displayed as a filled blue bar.
-2. **Bar container**<br>White container that holds the progress bar.
-
-### Types
-There are different types of progress bars, depending on your intended use.
-
-#### Default progress bar
-Elevated progress bar to indicate that the ongoing system process will affect an
-entire view or page area.
-
-![ProgressBar displayed on top of a Wikipedia article page.](../../assets/components/progress-bar-types-base.svg)
-
-#### Inline progress bar
-An inline and smaller version of the progress bar is available to indicate
-progress within other components, such as [Menu](./menu.md) or
-[Dialog](./dialog.md).
-
-![Inline ProgressBar displayed within a dialog.](../../assets/components/progress-bar-types-inline.svg)
-
-### Interaction states
-Indeterminate progress bars are always in motion and cannot be in an empty, completed,
-or disabled state.
-
-![Active state of the indeterminate ProgressBar in constant motion.](../../assets/components/progress-bar-interaction-states.svg)
-
-## Demos
-
-### Configurable
-
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues }">
 	<cdx-docs-configurable-generic v-bind="propValues" />
 </template>
 </cdx-demo-wrapper>
 
-### Default
+## Overview
 
-Default indeterminate progress bar.
+### When to use ProgressBar
 
-::: warning
-Due to the lack of descriptive text, default progress bars require one of the
-following attributes: `aria-label` or `aria-hidden`.
+Use a ProgressBar when you want to provide real-time feedback on the progress of
+ongoing operations, such as file uploads or form submissions. There are different types of ProgressBars, depending on your intended use.
 
-The attribute `aria-label` has to be used on progress bars to be understandable
-by assistive technology users. Exceptions are inline progress bars in component
-combinations, e.g. in the [Menu component](./menu.md), that are skipped by
-adding `aria-hidden`.
-:::
+1. **Default ProgressBar** indicates that the ongoing system process will affect an
+entire view or page area.
+2. **Inline ProgressBar** is available to indicate progress within other components, such as [Menu](./menu.md) or
+[Dialog](./dialog.md).
+
+Avoid using a ProgressBar if the progress of a task is not crucial to user understanding or if the task is expected to complete quickly.
+
+### About ProgressBar
+
+ProgressBar includes the following elements.
+
+#### Progress indication
+
+Visual representation of the progress displayed as a filled blue bar.
+
+#### Bar container
+
+Background container that holds the progres bar.
+
+## Examples
+
+### Basic usage
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -97,6 +70,15 @@ adding `aria-hidden`.
 
 </template>
 </cdx-demo-wrapper>
+
+::: warning
+Due to the lack of descriptive text, a default ProgressBar requires one of the
+following attributes: `aria-label` or `aria-hidden`.
+
+The `aria-label` attribute must be applied to the ProgressBar to ensure it is accessible to assistive technology users. An exception is an inline ProgressBar used within another component,
+such as the [Menu component](./menu.md), where they are excluded from the accessibility tree by
+adding `aria-hidden` attribute.
+:::
 
 ### Inline
 
@@ -117,11 +99,13 @@ An inline version is available for use within other components. See
 </template>
 </cdx-demo-wrapper>
 
-## Vue usage
+## Technical implementation
 
-## CSS-only version
+### Vue usage
 
-### Markup structure
+### CSS-only version
+
+#### Markup structure
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -145,9 +129,9 @@ An inline version is available for use within other components. See
 </template>
 </cdx-demo-wrapper>
 
-### Inline
+#### Inline
 
-For an inline progress bar, add the `cdx-progress-bar--inline` class to the root `<div>`.
+For an inline ProgressBar, add the `cdx-progress-bar--inline` class to the root `<div>`.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -167,9 +151,9 @@ For an inline progress bar, add the `cdx-progress-bar--inline` class to the root
 </template>
 </cdx-demo-wrapper>
 
-### Disabled
+#### Disabled
 
-For a disabled progress bar, add the `cdx-progress-bar--disabled` class to the root `<div>`.
+For a disabled ProgressBar, add the `cdx-progress-bar--disabled` class to the root `<div>`.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

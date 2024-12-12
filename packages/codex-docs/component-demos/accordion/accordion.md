@@ -1,8 +1,6 @@
 <script setup>
 import { CdxAccordion } from '@wikimedia/codex';
 import AccordionDefault from '@/../component-demos/accordion/examples/AccordionDefault.vue';
-import AccordionDescription from '@/../component-demos/accordion/examples/AccordionDescription.vue';
-import AccordionStacked from '@/../component-demos/accordion/examples/AccordionStacked.vue';
 import AccordionActionButton from '@/../component-demos/accordion/examples/AccordionActionButton.vue';
 import AccordionDifferentContent from '@/../component-demos/accordion/examples/AccordionDifferentContent.vue';
 import AccordionActionVisible from '@/../component-demos/accordion/examples/AccordionActionVisible.vue';
@@ -40,203 +38,6 @@ in a vertically stacked list with other Accordions. Accordions are commonly used
 to organize content into collapsed sections, making the interface easier to
 navigate.
 
-## Guidelines
-
-### When to use accordions
-
-Use the Accordion component when you need to organize blocks of content into sections. Avoid using an accordion component when the user needs to read the content by default. In this case, use another component or group of elements instead.
-
-Expanded accordion content can be as long as needed, and the type of content can vary contextually. Headings should be used to label each section of content.
-
-### Specifications
-
-![Specification of Accordion.](../../assets/components/accordion-specifications.svg)
-
-Accordion includes the following items:
-1. **Arrow**<br>An arrow icon is placed next to the accordion’s label to visually indicate that the accordion can be expanded or collapsed.
-2. **Label**<br>The title or label provides a brief description of the accordion's content. Clicking on this section expands or collapses the accordion.
-3. **Description** (optional)<br>A subtle text could optimally appear to provide more information about the title or label.
-4. **Action** (optional)<br>
-An action (such as edit) could optionally appear at the end of the heading section and it will affect the entire accordion item.
-5. **Accordion’s content**<br>When the accordion is expanded, its content becomes visible, and the arrow icon rotates to show the expanded state.
-
-#### Component limitations
-
-The accordion's label and description have no minimum or maximum length restrictions. However, shorter labels are encouraged, as additional information about the label can be included in a description below.
-
-#### Label style
-By default, the label text style is set to the base font in bold. However, it can be easily customized to other styles by applying any of the existing fonts, text sizes or formats defined in our [font design tokens](https://doc.wikimedia.org/codex/latest/design-tokens/font.html).
-
-Always make sure to emphasize the label more prominently than the expanded content.
-
-![Different font styles of labeling for accordions.](../../assets/components/accordion-specifications-label.svg)
-
-#### Expanded content
-The content within the accordion can include paragraph text, menu items, links, images, videos, tables, or form items. There are no restrictions on the minimum or maximum amount of content that can be included in the expanded section.
-
-![Different types of expanded content within an accordion.](../../assets/components/accordion-specifications-content.svg)
-
-#### Scroll
-If the accordion's content exceeds the viewport height, the entire accordion will be vertically scrolled. There will be no scrolling within the expanded content of the accordion.
-
-![Scrolling accordion with three accordion items.](../../assets/components/accordion-specifications-scroll.svg)
-
-Refer to the [Accordion component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=10016-92440&mode=design&t=2O0ceqiRfqCtnidq-11).
-
-### Interaction states
-Accordions are divided into collapsed and expanded states as follows:
-
-![Interaction states of Accordion for both collapsed and expanded: default, hover, active and focus.](../../assets/components/accordion-interaction-states.svg)
-
-1. Default collapsed
-2. Hover collapsed
-3. Active collapsed
-4. Focus collapsed
-5. Default expanded
-6. Hover expanded
-7. Active expanded
-8. Focus expanded
-
-### Best practices
-
-Consider the following recommendations when using accordions.
-
-#### Usage
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Two accordions with an InfoChip adjacent to their labels.](../../assets/components/accordion-practices-usage-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use InfoChip next to the label to provide additional information.
-
-</template>
-
-<template #dont-media>
-
-![Two accordions: one with a warning icon and the other with an InfoChip.](../../assets/components/accordion-practices-usage-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Mix different elements within the accordions of the same group.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Label
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Accordion group with customized label styles.](../../assets/components/accordion-best-practices-label-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Customize the label style if needed in your project.
-- Ensure that the label is emphasized more prominently than the expanded content.
-
-</template>
-
-<template #dont-media>
-
-![Accordion group with customized label colors.](../../assets/components/accordion-best-practices-label-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Customize the label color as it may lead to contrast issues with the various states of the Accordion.
-- Combine different text styles within the labels of the same accordion group.
-- Include links in the accordion label.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Expand icon
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Accordion group using the icons ‘expand’ and ‘collapse’.](../../assets/components/accordion-best-practices-expand-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use the ‘expand’ icon when the accordion is collapsed and the ‘collapse’ one when it's expanded.
-
-</template>
-
-<template #dont-media>
-
-![Accordion group using the icons ‘add’ and ‘substract’.](../../assets/components/accordion-best-practices-expand-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Replace the predefined collapse and expand icons with other icons.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Expanded content
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Accordion group with one accordion expanded, containing an image and a set of paragraphs.](../../assets/components/accordion-best-practices-content-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Include paragraph text, menu items, links, images, videos, tables, or form items within the accordion content.
-- Use sub-headers to represent different subsections within an accordion item.
-
-</template>
-
-<template #dont-media>
-
-![Accordion group with one accordion expanded, containing other nested accordions.](../../assets/components/accordion-best-practices-content-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Nest additional accordions within an accordion item to create subsections. If you need to represent different subsections within an accordion item, use sub-headers instead.
-
-</template>
-
-</cdx-demo-rules>
-
-### Keyboard navigation
-
-| Key | Function |
-| -- | -- |
-| <kbd>Tab</kbd> | It moves the focus to the next interactive element within the Accordion or to the next Accordion in a group. |
-| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous interactive element within the Accordion or to the previous Accordion in a group. |
-| <kbd>Enter</kbd> / <kbd>Space</kbd> | It expands and collapses the accordion content. |
-
-## Demos
-
-### Configurable
-
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues, slotValues }">
 	<cdx-accordion v-bind="propValues">
@@ -251,9 +52,78 @@ Consider the following recommendations when using accordions.
 </template>
 </cdx-demo-wrapper>
 
-### Default
+## Overview
 
-<cdx-demo-wrapper :force-controls="true">
+### When to use Accordion
+
+Use the Accordion component when you need to organize blocks of content into sections. Avoid using an Accordion when the user needs to read the content by default. In this case, use another component or group of elements instead.
+
+Expanded Accordion content can be as long as needed, and the type of content can vary contextually. Headings should be used to label each section of content.
+
+### About Accordion
+
+Accordion includes the following elements.
+
+#### Expand icon
+
+An arrow icon is placed next to the accordion’s label to visually indicate that the Accordion can be expanded or collapsed.
+
+#### Label
+
+The title or label provides a brief description of the Accordion's content. Pressing on this section expands or collapses the Accordion.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>
+
+Customize the label to other styles by applying any of the existing fonts, text sizes or formats defined in our [font design tokens](../../design-tokens/font.html).
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice>
+
+Always make sure to emphasize the label more prominently than the expanded content.
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">
+
+Avoid customizing the label color as it may lead to contrast issues with the various states of the Accordion.
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">
+
+Avoid combining different text styles within the labels of the same Accordion group.
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">
+
+Avoid including links in the Accordion label.
+
+</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Description (optional)
+
+A description can be included to provide more information about the title or label.
+
+#### Action (optional)
+
+An action (such as edit) could appear at the end of the heading section and it will affect the entire Accordion item.
+
+#### Expanded content
+
+The expanded content within the Accordion can include paragraph text, links, images, videos, tables, or form items. There are no restrictions on the minimum or maximum amount of content that can be included in the expanded section.
+
+<cdx-demo-best-practices>
+
+<cdx-demo-best-practice>Use sub-headers to represent different subsections within Accordion content.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Avoid nesting additional Accordions within an Accordion item to create subsections.</cdx-demo-best-practice>
+
+</cdx-demo-best-practices>
+
+## Examples
+
+### Basic usage
+
+<cdx-demo-wrapper>
 <template v-slot:demo>
 	<accordion-default />
 </template>
@@ -270,58 +140,11 @@ Consider the following recommendations when using accordions.
 </template>
 </cdx-demo-wrapper>
 
-### With description
-
-<cdx-demo-wrapper :force-controls="true">
-<template v-slot:demo>
-	<accordion-description />
-</template>
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/accordion/examples/AccordionDescription.vue [NPM]
-
-<<< @/../component-demos/accordion/examples-mw/AccordionDescription.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### Stacked
-
-It's possible to stack accordions by adding them next to each other in the markup.
-
-<cdx-demo-wrapper :force-controls="true">
-<template v-slot:demo>
-	<accordion-stacked />
-</template>
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/accordion/examples/AccordionStacked.vue [NPM]
-
-<<< @/../component-demos/accordion/examples-mw/AccordionStacked.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
 ### With action button
 
-To add an action button to the accordion, pass the `actionButton` prop. The button is placed in the
-top right corner of the accordion, and it emits an event `actionButtonClicked` when clicked.
+By default, action buttons display when the Accordion is open.
 
-::: tip
-If you are displaying an action button, make sure to provide a label for this
-button for accessibility purposes by using the `actionButtonLabel` prop.
-:::
-
-
-<cdx-demo-wrapper :force-controls="true">
+<cdx-demo-wrapper>
 <template v-slot:demo>
 	<accordion-action-button />
 </template>
@@ -338,11 +161,21 @@ button for accessibility purposes by using the `actionButtonLabel` prop.
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+
+<template #title>Developer notes</template>
+
+To add an action button to the Accordion, pass the `actionButton` prop. The button is placed in the
+top right corner of the Accordion, and it emits an event `actionButtonClicked` when clicked.
+
+If you are displaying an action button, make sure to provide a label for this
+button for accessibility purposes by using the `actionButtonLabel` prop.
+
+</cdx-accordion>
+
 ### With always visible action
 
-To show the icon even when the accordion is collapsed, set the `actionAlwaysVisible` prop.
-
-<cdx-demo-wrapper :force-controls="true">
+<cdx-demo-wrapper>
 <template v-slot:demo>
 	<accordion-action-visible />
 </template>
@@ -359,11 +192,19 @@ To show the icon even when the accordion is collapsed, set the `actionAlwaysVisi
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+
+<template #title>Developer notes</template>
+
+To show the icon even when the Accordion is collapsed, set the `actionAlwaysVisible` prop.
+
+</cdx-accordion>
+
 ### With different content
 
-The accordion can be used with different elements, including images or tables.
+The Accordion can be used with different elements, including images, tables, or form items..
 
-<cdx-demo-wrapper :force-controls="true" :allow-table-styles="true">
+<cdx-demo-wrapper>
 <template v-slot:demo>
 	<accordion-different-content />
 </template>
@@ -380,11 +221,15 @@ The accordion can be used with different elements, including images or tables.
 </template>
 </cdx-demo-wrapper>
 
-### With different heading levels
+### Heading levels
 
-The accordion heading can be changed to any heading level by passing the `headingLevel` prop.
+By default, the title of an Accordion is an `<h3>` element. You can customize the heading level if
+level 3 is not appropriate for the context. You can also change the text style of the Accordion
+title using Codex design tokens.
 
-<cdx-demo-wrapper :force-controls="true">
+In the example below, the heading level is set to 2 and the font size is increased.
+
+<cdx-demo-wrapper>
 <template v-slot:demo>
 	<accordion-headings />
 </template>
@@ -401,7 +246,17 @@ The accordion heading can be changed to any heading level by passing the `headin
 </template>
 </cdx-demo-wrapper>
 
-## Vue usage
+<cdx-accordion>
+
+<template #title>Developer notes</template>
+
+The Accordion heading can be changed to any heading level by passing the `headingLevel` prop.
+
+</cdx-accordion>
+
+## Technical implementation
+
+### Vue usage
 
 ::: tip `open` Attribute supported
 The Accordion component uses a HTML `<details>` element under the hood.
@@ -409,9 +264,10 @@ Adding an [`open` boolean attribute](https://developer.mozilla.org/en-US/docs/We
 to this component will cause it to render in the expanded state initially. All
 other behavior will be unchanged.
 :::
-## CSS-only version
 
-### Markup Structure
+### CSS-only version
+
+#### Markup Structure
 
 The CSS-only Accordion component is just a `<details>` element with some custom styling.
 
@@ -468,7 +324,7 @@ The CSS-only Accordion component is just a `<details>` element with some custom 
 
 </cdx-demo-wrapper>
 
-### Stacked
+#### Stacked
 
 As with the Vue version, multiple Accordion components can be stacked.
 
@@ -557,7 +413,7 @@ As with the Vue version, multiple Accordion components can be stacked.
 
 </cdx-demo-wrapper>
 
-#### Open by default
+##### Open by default
 
 As with the Vue version, the Accordion component can default to the expanded
 state by using the boolean `open` attribute.
@@ -615,3 +471,11 @@ state by using the boolean `open` attribute.
 	}
 }
 </style>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next interactive element within the Accordion or to the next Accordion in a group. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous interactive element within the Accordion or to the previous Accordion in a group. |
+| <kbd>Enter</kbd> / <kbd>Space</kbd> | It expands and collapses the Accordion content. |

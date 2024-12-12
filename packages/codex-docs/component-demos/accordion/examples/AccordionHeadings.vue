@@ -1,19 +1,19 @@
 <template>
-	<cdx-accordion heading-level="h2">
+	<cdx-accordion heading-level="h2" class="cdx-demo-accordion-heading-2">
 		<template #title>
-			Accordion heading h2
+			Accordion with h2 title
 		</template>
 		Accordion content 1
 	</cdx-accordion>
-	<cdx-accordion heading-level="h4">
+	<cdx-accordion heading-level="h2" class="cdx-demo-accordion-heading-2">
 		<template #title>
-			Accordion heading h4
+			Accordion with h2 title
 		</template>
 		Accordion content 2
 	</cdx-accordion>
-	<cdx-accordion heading-level="h5">
+	<cdx-accordion heading-level="h2" class="cdx-demo-accordion-heading-2">
 		<template #title>
-			Accordion heading h5
+			Accordion with h2 title
 		</template>
 		Accordion content 3
 	</cdx-accordion>
@@ -28,3 +28,13 @@ export default defineComponent( {
 	components: { CdxAccordion }
 } );
 </script>
+
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-demo-accordion-heading-2 {
+	.cdx-accordion__header {
+		font-size: @font-size-large;
+	}
+}
+</style>

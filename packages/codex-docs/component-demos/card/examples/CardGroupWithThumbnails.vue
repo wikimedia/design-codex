@@ -1,24 +1,26 @@
 <template>
-	<div class="cdx-docs-card-group-with-thumbnails">
+	<div class="cdx-docs-card-group">
 		<p>Nearby Pages</p>
-		<cdx-card
-			v-for="card in cards"
-			:key="card.pageid"
-			class="cdx-docs-card-group-with-thumbnails__card"
-			:url="card.url"
-			:force-thumbnail="true"
-			:thumbnail="card.thumbnail"
-		>
-			<template #title>
-				{{ card.title }}
-			</template>
-			<template #description>
-				{{ card.description }}
-			</template>
-			<template #supporting-text>
-				<cdx-icon :icon="cdxIconMapPin" size="small" /> Distance: {{ card.distance }}
-			</template>
-		</cdx-card>
+		<div class="cdx-docs-card-group__cards">
+			<cdx-card
+				v-for="card in cards"
+				:key="card.pageid"
+				class="cdx-docs-card-group__card"
+				:url="card.url"
+				:force-thumbnail="true"
+				:thumbnail="card.thumbnail"
+			>
+				<template #title>
+					{{ card.title }}
+				</template>
+				<template #description>
+					{{ card.description }}
+				</template>
+				<template #supporting-text>
+					<cdx-icon :icon="cdxIconMapPin" size="small" /> Distance: {{ card.distance }}
+				</template>
+			</cdx-card>
+		</div>
 	</div>
 </template>
 
@@ -55,6 +57,16 @@ const cards = [
 		title: 'Green Apple Books & Music',
 		description: 'Bookstore in San Francisco',
 		distance: '350m'
+	},
+	{
+		pageid: 6761105,
+		url: 'https://en.wikipedia.org/wiki/Mountain_Lake_Park',
+		title: 'Mountain Lake Park',
+		description: 'Park in San Francisco, California',
+		thumbnail: {
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Mountain_Lake_%28468742548%29.jpg/150px-Mountain_Lake_%28468742548%29.jpg'
+		},
+		distance: '570m'
 	}
 ];
 
@@ -73,19 +85,22 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-.cdx-docs-card-group-with-thumbnails {
+.cdx-docs-card-group {
+	// The application implementing Cards must handle Card group layout styles.
+	&__cards {
+		display: flex;
+		flex-wrap: wrap;
+		gap: @spacing-100;
+	}
+
+	&__card {
+		flex-basis: calc( 50% - @spacing-50 );
+		box-sizing: @box-sizing-base;
+	}
+
 	p {
 		margin-top: 0;
 		font-weight: @font-weight-bold;
-	}
-
-	// The application implementing Cards must handle Card group layout styles.
-	&__card {
-		margin-bottom: @spacing-100;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
 	}
 }
 </style>

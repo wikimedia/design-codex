@@ -12,43 +12,13 @@
 		<template #title>
 			Accordion with a table
 		</template>
-		<table>
-			<tr>
-				<th>&nbsp;</th>
-				<th>Rex</th>
-				<th>Bella</th>
-				<th>Max</th>
-				<th>Lola</th>
-			</tr>
-			<tr>
-				<th>Breed</th>
-				<td>German Shepherd</td>
-				<td>Golden Retriever</td>
-				<td>Bulldog</td>
-				<td>Nova Scotia</td>
-			</tr>
-			<tr>
-				<th>Age</th>
-				<td>5</td>
-				<td>3</td>
-				<td>7</td>
-				<td>2</td>
-			</tr>
-			<tr>
-				<th>Owner</th>
-				<td>John</td>
-				<td>Sarah</td>
-				<td>Michael</td>
-				<td>Emily</td>
-			</tr>
-			<tr>
-				<th>Eating Habits</th>
-				<td>Healthy appetite</td>
-				<td>Picky eater</td>
-				<td>Enjoys treats</td>
-				<td>Loves homemade meals</td>
-			</tr>
-		</table>
+		<cdx-table
+			caption="Dogs"
+			:columns="columns"
+			:data="data"
+			:hide-caption="true"
+			:use-row-headings="true"
+		/>
 	</cdx-accordion>
 	<cdx-accordion>
 		<template #title>
@@ -60,10 +30,29 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { CdxAccordion, CdxTextArea } from '@wikimedia/codex';
+import { CdxAccordion, CdxTextArea, CdxTable } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'AccordionDifferentContent',
-	components: { CdxAccordion, CdxTextArea }
+	components: { CdxAccordion, CdxTextArea, CdxTable },
+	setup() {
+		const columns = [
+			{ id: 'trait', label: '' },
+			{ id: 'rex', label: 'Rex' },
+			{ id: 'bella', label: 'Bella' },
+			{ id: 'max', label: 'Max' }
+		];
+		const data = [
+			{ trait: 'Breed', rex: 'German Shepherd', bella: 'Golden Retriever', max: 'Bulldog' },
+			{ trait: 'Age', rex: 5, bella: 3, max: 7 },
+			{ trait: 'Owner', rex: 'John', bella: 'Sarah', max: 'Michael' },
+			{ trait: 'Eating habits', rex: 'Healthy appetite', bella: 'Picky eater', max: 'Enjoys treats' }
+		];
+
+		return {
+			columns,
+			data
+		};
+	}
 } );
 </script>

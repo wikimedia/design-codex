@@ -1,151 +1,121 @@
 <script setup>
+import { CdxAccordion } from '@wikimedia/codex';
+import CardConfigurable from '@/../component-demos/card/examples/CardConfigurable.vue';
 import CardDefault from '@/../component-demos/card/examples/CardDefault.vue';
 import CardWithLink from '@/../component-demos/card/examples/CardWithLink.vue';
 import CardWithIcon from '@/../component-demos/card/examples/CardWithIcon.vue';
 import CardWithThumbnail from '@/../component-demos/card/examples/CardWithThumbnail.vue';
 import CardWithThumbnailTitleOnly from '@/../component-demos/card/examples/CardWithThumbnailTitleOnly.vue';
 import CardGroupWithThumbnails from '@/../component-demos/card/examples/CardGroupWithThumbnails.vue';
-import CardMaximum from '@/../component-demos/card/examples/CardMaximum.vue';
+
+const controlsConfig = [
+	{
+		name: 'icon',
+		type: 'icon'
+	},
+	{
+		name: 'url',
+		type: 'text'
+	},
+	{
+		name: 'title',
+		type: 'slot',
+		default: 'Card title'
+	},
+	{
+		name: 'description',
+		type: 'slot',
+		default: 'Description'
+	},
+	{
+		name: 'supporting-text',
+		type: 'slot',
+		default: 'Supporting text'
+	}
+];
 </script>
 
-A Card is used to group information and actions related to a single topic.
+A Card groups information related to a single topic.
 
-Cards can be clickable and offer a way to navigate to the content they represent
-(e.g. Wikipedia articles).
-
-
-## Guidelines
-
-### When to use cards
-
-Use the Card component when you need to present individual pieces of information such as articles. Use them to create lists, grids or as standalone elements in the page.
-
-Avoid using cards when you have to display extensive content, multiple elements, or group unrelated topics together. In such cases, consider using a different component or layout.
-
-Use short titles and descriptions along with visual reinforcements, such as thumbnails or icons, to ensure that the card's content is concise and easy to scan.
-
-### Specifications
-
-![Specification of Card.](../../assets/components/card-specifications.svg)
-
-Cards include the following items:
-1. **Visual element** (optional)<br>Cards may include a thumbnail or an icon as a visual representation of the card’s content.
-2. **Title**<br>A concise and descriptive title provides a brief description of the card content.
-3. **Description**<br>A subtle text below the title provides more information about the element represented by the card.
-4. **Supporting text** (optional)<br>An optional subtle text (with an optional icon) could be included to provide additional information about the card’s content.
-5. **Links** (optional)<br>The description and/or the supporting text may contain links to either the element the Cards represent (e.g. Wikipedia articles), or to related content.
-
-#### Component limitations
-
-The label, description, and supporting text within a card can vary in length without any minimum or maximum restrictions. Cards automatically adjust in height to accommodate longer text, although the recommendation is to keep card content concise whenever possible.
-
-The height and width of cards can be customized as needed, and when multiple cards are aligned together, their heights should adjust to match the tallest card in the set.
-
-![Two cards with varying content lengths, adjusting their height to match the tallest card.](../../assets/components/card-maximum.svg)
-
-Refer to the [Card component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=6842-69713&mode=design&t=2O0ceqiRfqCtnidq-11).
-
-### Types
-Depending on the visual content presented within the card, there are three distinct variations:
-1. **Card with thumbnail**<br>This variation includes a thumbnail image as the primary visual element. You can use this card variation when you intend to showcase articles and their associated images.
-2. **Card with icon**<br>In this version, an icon serves as the primary visual element, enhancing recognition. Icons help users quickly identify and associate cards with specific actions or topics.
-3. **Card with only text**<br>This variation lacks any visual elements and relies solely on text and content for information. This option simplifies the card's design, focusing on textual information and content.
-
-![Example of types of Card.](../../assets/components/card-types-visual-element.svg)
-
-### Interaction states
-Cards have the following visually separate states:
-
-![Interaction states of Card: default, hover, focus, and loading.
-](../../assets/components/card-interaction-states.svg)
-
-1. Default
-2. Hover
-3. Focus
-4. Loading
-
-The interactive states (hover, active, and focus) are only applicable to cards that contain links, while the loading state applies to all Cards.
-
-### Best practices
-
-Consider the following recommendations when using cards.
-
-#### Card content
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Card with concise content.](../../assets/components/card-best-practices-content-do.svg)
-
+<cdx-demo-wrapper :controls-config="controlsConfig">
+<template v-slot:demo="{ propValues, slotValues }">
+	<card-configurable v-bind="propValues">
+		<template #title>
+			{{ slotValues.title }}
+		</template>
+		<template #description>
+			{{ slotValues.description }}
+		</template>
+			<template #supporting-text>
+			{{ slotValues[ 'supporting-text' ] }}
+		</template>
+	</card-configurable>
 </template>
+</cdx-demo-wrapper>
 
-<template #do-text>
+## Overview
 
-- Use cards to organize information related to a single topic.
-- Ensure that the content within the card remains concise and pertinent.
+### When to use Card
 
-</template>
+Use the Card component when you need to present individual pieces of information such as articles. Use them to create lists, grids or as standalone elements in the page. Cards can be clickable and offer a way to navigate to the content they represent.
 
-<template #dont-media>
+Avoid using Cards when you have to display extensive content, multiple elements, or group unrelated topics together. In such cases, consider using a different component or layout.
 
-![Card with excessive content.](../../assets/components/card-best-practices-content-dont.svg)
+### About Card
 
-</template>
+Card includes the following elements.
 
-<template #dont-text>
+#### Visual element (optional)
 
-- Use cards to compile unrelated topics or lists together.
-- Overcrowd cards with excessive content.
+They may include a Thumbnail or an Icon as a visual representation of its content.
 
-</template>
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>
 
-</cdx-demo-rules>
+Use a [Thumbnail](./thumbnail.md) when you intend to showcase articles and their associated images.
 
-#### Group of cards
+</cdx-demo-best-practice>
+<cdx-demo-best-practice>
 
-<cdx-demo-rules>
+Use an [Icon](./icon.md) to help users quickly identify and associate Cards with specific actions or topics.
 
-<template #do-media>
+</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
-![A group of cards aligned to the same height.](../../assets/components/card-best-practices-group-do.svg)
+#### Title
 
-</template>
+A concise and descriptive title provides a brief description of the Card content.
 
-<template #do-text>
+#### Description
 
-- Maintain consistency in the content and elements of grouped cards, ensuring their heights match for visual consistency.
+A description below the title provides more information about the element represented by the Card. If the Card itself is not a link, you can include links in the description.
 
-</template>
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>
 
-<template #dont-media>
+Ensure that the content within the Card remains concise and pertinent.
 
-![A group of cards with different elements and height.](../../assets/components/card-best-practices-group-dont.svg)
+</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">
 
-</template>
+Avoid overcrowding the Card with excessive content or unrelated topics.
 
-<template #dont-text>
+</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
-- Mix up the content and elements of cards when grouping them,
-- Vary their heights to maintain visual uniformity.
+#### Supporting text (optional)
 
-</template>
+Supporting text can be included to provide additional context about the Card’s content. If the Card itself is not a link, you can include links in the supporting text.
 
-</cdx-demo-rules>
+#### Link (optional)
 
-### Keyboard navigation
+As long as links are not included in the contents of the Card, the Card itself can be made a link.
 
-| Key | Function |
-| -- | -- |
-| <kbd>Tab</kbd> | If the Card is interactive, it places the focus on the Card. If a non-interactive Card contains a link, this key places the focus in that link. When the focus is placed within an interactive Card or within the link of a non-interactive Card, it moves the focus to the next interactive element in tab order. |
-| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous interactive element. |
-| <kbd>Enter</kbd> | If the focus is on an interactive Card, it will open its hyperlink. When the focus is on a link within a Card, it will open the link. |
+## Examples
 
-## Demos
+### Basic usage
 
-### Default
-
-<cdx-demo-wrapper :force-controls="true">
+<cdx-demo-wrapper>
 <template v-slot:demo>
 	<card-default />
 </template>
@@ -165,8 +135,6 @@ Consider the following recommendations when using cards.
 
 ### With link
 
-Adding the `url` prop will make the root element of the Card an anchor element.
-
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<card-with-link />
@@ -185,12 +153,26 @@ Adding the `url` prop will make the root element of the Card an anchor element.
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+
+<template #title>Developer notes</template>
+
+Adding the `url` prop will make the root element of the Card an anchor element.
+
+</cdx-accordion>
+
 ### Media
 
-A Card can have either an icon or a thumbnail. Card text will be aligned to the top of the media,
+A Card can have either a `thumbnail` or an `icon`. Card text will be aligned to the top of the media,
 unless there is only a title, which will be aligned to the center of the media.
 
-#### With icon
+<cdx-demo-best-practices>
+
+<cdx-demo-best-practice>Always use the same media for each Card in a group.</cdx-demo-best-practice>
+
+</cdx-demo-best-practices>
+
+#### With Icon
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -210,7 +192,7 @@ unless there is only a title, which will be aligned to the center of the media.
 </template>
 </cdx-demo-wrapper>
 
-#### With thumbnail
+#### With Thumbnail
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -230,7 +212,7 @@ unless there is only a title, which will be aligned to the center of the media.
 </template>
 </cdx-demo-wrapper>
 
-#### Title only
+#### Media and title only
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -252,14 +234,9 @@ unless there is only a title, which will be aligned to the center of the media.
 
 ### Card groups
 
-Cards will often be displayed in groups. There are two considerations for Card groups:
-- **Layout:** Layout styles for groups of Cards, e.g. margins or grid layout, must be added by the
-application. The example below adds some simple layout styles to a group of Cards.
-- **Media consistency:** As shown above, adding a `thumbnail` prop will display the thumbnail.
-For groups of Cards, you may want to display a thumbnail for each Card if available, and otherwise
-display a placeholder. To enable this behavior, add the `forceThumbnail` prop, as demonstrated
-below.
-The third item has no thumbnail and display a placeholder icon instead.
+Cards will often be displayed in groups. The height and width of cards can be customized as needed,
+and when multiple cards are aligned together, their heights should adjust to match the tallest card
+in the set.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -279,37 +256,29 @@ The third item has no thumbnail and display a placeholder icon instead.
 </template>
 </cdx-demo-wrapper>
 
-### Maximum example
+<cdx-accordion>
 
-The example below contains a title, a description, a thumbnail image, and some
-"supporting text" (which contains an Icon as well as text content).
+<template #title>Developer notes</template>
 
-**Note:** When using an Icon component inside the Card's `supporting-text` slot,
-it is recommended to set the Icon `size` property to `small`.
+There are two considerations for Card groups:
+- **Layout:** Layout styles for groups of Cards, e.g. margins or grid layout, must be added by the
+application. The example above adds some simple layout styles to a group of Cards. Consider using
+flexbox or CSS grid to lay out Cards consistently.
+- **Media consistency:** As shown above, adding a `thumbnail` prop will display the Thumbnail.
+For groups of Cards, you may want to display a Thumbnail for each Card if available, and otherwise
+display a placeholder. To enable this behavior, add the `forceThumbnail` prop, as demonstrated
+below.
+The third item has no Thumbnail and display a placeholder Icon instead.
 
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<card-maximum />
-</template>
+</cdx-accordion>
 
-<template v-slot:code>
+## Technical implementation
 
-:::code-group
+### Vue usage
 
-<<< @/../component-demos/card/examples/CardMaximum.vue [NPM]
+### CSS-only version
 
-<<< @/../component-demos/card/examples-mw/CardMaximum.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-## Vue usage
-
-## CSS-only version
-
-### Markup structure
+#### Markup structure
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -346,7 +315,7 @@ it is recommended to set the Icon `size` property to `small`.
 </template>
 </cdx-demo-wrapper>
 
-### With link
+#### With link
 
 To make the entire Card a link, use an `<a>` element and include the class `cdx-card--is-link`.
 
@@ -373,9 +342,9 @@ To make the entire Card a link, use an `<a>` element and include the class `cdx-
 </template>
 </cdx-demo-wrapper>
 
-### With media
+#### With media
 
-#### Image
+##### Image
 
 To add an image, add the following markup:
 - A `<span>` with the classes `cdx-card--thumbnail` and `cdx-thumbnail`
@@ -422,10 +391,10 @@ See the [CSS-only Thumbnail](./thumbnail.md#css-only-version) documentation for 
 </template>
 </cdx-demo-wrapper>
 
-#### Icon
+##### Icon
 
-To add an icon, add a `<span>` element with the class `cdx-card__icon`, plus a custom class that you
-can use to add a [CSS-only icon](./icon.md#css-only-version).
+To add an Icon, add a `<span>` element with the class `cdx-card__icon`, plus a custom class that you
+can use to add a [CSS-only Icon](./icon.md#css-only-version).
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -476,7 +445,7 @@ can use to add a [CSS-only icon](./icon.md#css-only-version).
 </template>
 </cdx-demo-wrapper>
 
-### Card groups
+#### Card groups
 
 See the [documentation above](#card-groups) for UX guidelines.
 
@@ -647,3 +616,11 @@ See the [documentation above](#card-groups) for UX guidelines.
 	}
 }
 </style>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | If the Card is interactive, it places the focus on the Card. If a non-interactive Card contains a link, this key places the focus in that link. When the focus is placed within an interactive Card or within the link of a non-interactive Card, it moves the focus to the next interactive element in tab order. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous interactive element. |
+| <kbd>Enter</kbd> | If the focus is on an interactive Card, it will open its hyperlink. When the focus is on a link within a Card, it will open the link. |
