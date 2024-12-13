@@ -23,7 +23,7 @@
 			weight="quiet"
 			tabindex="-1"
 			aria-hidden="true"
-			:disabled="disabled"
+			:disabled="disabled || readonly"
 			@click.stop="$emit( 'remove-chip', 'button' )"
 		>
 			<cdx-icon :icon="cdxIconClose" size="x-small" />
