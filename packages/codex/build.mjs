@@ -101,6 +101,9 @@ const baseLibraryConfig = mergeConfig( baseConfig, {
 		lib: {
 			name: 'codex',
 			fileName: 'codex',
+			// For backwards compatibility, keep the style file name as codex.style.css
+			// This was not configurable prior to Vite 6
+			cssFileName: 'codex.style',
 			entry: { codex: resolve( __dirname, 'src/lib.ts' ) }
 			// formats are added separately below
 		},
@@ -108,7 +111,6 @@ const baseLibraryConfig = mergeConfig( baseConfig, {
 		rollupOptions: {
 			external: [ 'vue' ],
 			output: {
-				assetFileNames: 'codex.[name]',
 				globals: { vue: 'Vue' }
 			}
 		}

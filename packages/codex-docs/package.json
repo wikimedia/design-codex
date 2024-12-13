@@ -50,7 +50,7 @@
 		"@types/escape-html": "1.0.4",
 		"@types/jest": "29.5.14",
 		"@types/prismjs": "1.26.5",
-		"@vitejs/plugin-vue": "5.0.4",
+		"@vitejs/plugin-vue": "5.2.1",
 		"@vue/test-utils": "2.4.6",
 		"@vue/vue3-jest": "29.2.6",
 		"autoprefixer": "10.4.20",
@@ -64,7 +64,7 @@
 		"postcss-rtlcss": "5.6.0",
 		"ts-jest": "29.2.5",
 		"typescript": "5.7.2",
-		"vite": "5.2.11",
+		"vite": "6.0.7",
 		"vitepress": "1.1.4",
 		"vue-docgen-cli": "4.79.0",
 		"vue-tsc": "2.1.10"

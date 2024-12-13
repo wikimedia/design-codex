@@ -63,7 +63,7 @@
 	"devDependencies": {
 		"@types/jest": "29.5.14",
 		"@types/rtlcss": "3.5.4",
-		"@vitejs/plugin-vue": "5.0.4",
+		"@vitejs/plugin-vue": "5.2.1",
 		"@vue/test-utils": "2.4.6",
 		"@vue/vue3-jest": "29.2.6",
 		"@wikimedia/codex-design-tokens": "*",
@@ -81,7 +81,7 @@
 		"ts-jest": "29.2.5",
 		"tsx": "4.19.2",
 		"typescript": "5.7.2",
-		"vite": "5.2.11",
+		"vite": "6.0.7",
 		"vue-tsc": "2.1.10"
 	},
 	"peerDependencies": {
