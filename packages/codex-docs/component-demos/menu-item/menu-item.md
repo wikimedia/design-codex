@@ -1,7 +1,6 @@
 <script setup>
 import { CdxMenuItem } from '@wikimedia/codex';
 import MenuItemDefault from '@/../component-demos/menu-item/examples/MenuItemDefault.vue';
-import MenuItemWithDescription from '@/../component-demos/menu-item/examples/MenuItemWithDescription.vue';
 import MenuItemWithUrl from '@/../component-demos/menu-item/examples/MenuItemWithUrl.vue';
 import MenuItemWithThumbnail from '@/../component-demos/menu-item/examples/MenuItemWithThumbnail.vue';
 import MenuItemWithIcon from '@/../component-demos/menu-item/examples/MenuItemWithIcon.vue';
@@ -11,8 +10,6 @@ import MenuItemWithSupportingText from '@/../component-demos/menu-item/examples/
 import MenuItemMultipleLangs from '@/../component-demos/menu-item/examples/MenuItemMultipleLangs.vue';
 import MenuItemLongText from '@/../component-demos/menu-item/examples/MenuItemLongText.vue';
 import MenuItemHideOverflow from '@/../component-demos/menu-item/examples/MenuItemHideOverflow.vue';
-import MenuItems from '@/../component-demos/menu-item/examples/MenuItems.vue';
-import MenuItemsGraphemes from '@/../component-demos/menu-item/examples/MenuItemsGraphemes.vue';
 
 const controlsConfig = [
 	{
@@ -75,175 +72,6 @@ const controlsConfig = [
 
 A MenuItem is a selectable option within a [Menu](./menu.md).
 
-::: warning
-This is not a standalone component, nor will it typically be directly used. It's
-intended for use by the Menu component, which will provide it with props and
-menu state information. See [Menu](./menu.md) for more details.
-:::
-
-## Guidelines
-
-### When to use menu items
-MenuItem is an “internal” component, used exclusively to represent content
-within a [Menu](./menu.md). It cannot be used by itself.
-
-### Specifications
-
-![Specification of MenuItem.](../../assets/components/menu-item-specifications.svg)
-
-Each menu item may include the following elements:
-1. **Visual element** (optional)<br>An icon or thumbnail can be included in order to provide more context about the menu item content.
-2. **Label**<br>A clear and descriptive title for the menu item.
-3. **Supporting text** (optional)<br>Optional and subtle text that supports or explains the label.
-4. **Match text** (optional)<br>In the context of a search suggestions menu, this optional text displays the alternative label of an item that matches the search query (e.g. an alias).
-5. **Description** (optional)<br>Optional and subtle descriptive text that provides additional information about the menu item.
-6. **Multi-selection indicator**<br>A check icon is displayed next to the label when the menu supports multi-selection.
-
-#### Component limitations
-
-Menu items have no minimum or maximum character requirement, although concise text is recommended. If the label is multiline, the supporting text will be positioned next to the last line of the label.
-
-Refer to the [MenuItem component in Codex Figma](https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?type=design&node-id=4918-48934&mode=design&t=wJPfPzkECREKvMoi-0).
-
-### Types
-According to the functionality, type of content, and selection type, the menu items can be categorized as follows.
-
-#### Menu item functionality
-Menu items can also be classified based on its functionality:
-1. **Selectable options**<br>Menu items typically contained in form elements like [Select](./select.md) or [Combobox](./combobox.md) components.
-2. **Trigger actions**<br>Menu items typically contained within a [MenuButton](menu-button.md). According to the type of action, they can be categorized as:
-	- **Standard actions:** neutral actions such as "Edit" or "Share".
-	- **Destructive actions:** actions with potentially negative or irreversible impact, such as "Delete".
-
-![Types of menu items: selectable options and trigger acions.](../../assets/components/menu-item-types-option-action.svg)
-
-#### Media elements within the menu item
-Menu items can incorporate different media types to provide additional visual context to the menu item content:
-1. **Icon**<br>Use the start icon to visually reinforce the menu item content.
-2. **Thumbnail**<br>Use a thumbnail to provide a preview of the menu item content.
-
-![Types of visual elements to reinforce a menu item: icon or thumbnail.](../../assets/components/menu-item-types-props.svg)
-
-#### Text elements within the menu item
-Menu items can differ based on the specific type of content they display or how they handle search results:
-1. **Description**<br>A secondary subtle text can be optionally included to provide additional information about the menu item.
-2. **Supporting text**<br>Text that supports or explains the label can be optionally displayed after the label in a more subtle color.
-3. **Search query highlighted**<br>When displaying search results, the search query is provided in normal font weight, while the rest of the label is in bold to bring attention to the available suggestions based on the search query.
-4. **Search query match**<br>In a search suggestions menu, this optional text provides an alternative label or alias for an item that matches the search query.
-
-![Types of menu items based on the text content: with description below the label, with supporting text next to the label, with highlighted label, or with match text next to the label.](../../assets/components/menu-item-types-text-elements.svg)
-
-#### Selection types
-Menu items can support different selection types depending on the component in which they are displayed:
-1. **Single-selection**<br>Allows the user to select only one item from the menu at a time.
-2. **Multi-selection**<br>Enables the user to select multiple items from the menu. A check icon is displayed next to the label to indicate that more than one item can be selected.
-
-![Types of selection of menu items: single-selection or multi-selection.](../../assets/components/menu-item-types-selection.svg)
-
-### Interaction states
-Menu items have the following visually separate states:
-
-![Interaction states of MenuItem: default, hover, active, selected, selected-hover, selected-active, disabled, destructive-default, destructive-hover, and destructive-active.](../../assets/components/menu-item-interaction-states.svg)
-
-<div class="cdx-docs-multi-column cdx-docs-multi-columns-2">
-
-1. Default
-2. Hover
-3. Active
-4. Selected
-5. Selected hover
-6. Selected active
-7. Disabled
-8. Destructive default
-9. Destructive hover
-10. Destructive active
-
-</div>
-
-::: tip Note
-Only menu items representing options can be selected, while menu items representing actions can only be clicked.
-:::
-
-### Best practices
-
-Consider the following recommendations when using menu items within menus.
-
-#### Icon, label, and description
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![MenuItem featuring a simple icon and concise label and description.](../../assets/components/menu-item-best-practices-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use icons to emphasize the meaning of the label, adapting them as needed for each project.
-- Keep the label and optional description concise to enhance menu scannability and readability.
-
-</template>
-
-<template #dont-media>
-
-![MenuItem featuring a complex icon, a label, and a lengthy description.](../../assets/components/menu-item-best-practices-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use icons that are difficult to understand or do not clearly convey their purpose.
-- Overcrowd menu items with lengthy labels and descriptions.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Supporting text
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![MenuItem featuring supporting text within brackets.](../../assets/components/menu-item-best-practices-do-2.svg)
-
-</template>
-
-<template #do-text>
-
-- Include supporting text within brackets to explain where a search result is redirected from.
-
-</template>
-
-<template #dont-media>
-
-![MenuItem featuring supporting text without brackets.](../../assets/components/menu-item-best-practices-dont-2.svg)
-
-</template>
-
-<template #dont-text>
-
-- Include supporting text without brackets. It should always be enclosed within brackets to differentiate it from the item label.
-
-</template>
-
-</cdx-demo-rules>
-
-## Demos
-
-Note that these demos do not properly show some interactive states of menu items
-(like active or hovered/highlighted), since they display menu items as
-standalone or as part of an always-expanded, detached menu. To see the full
-interactivity of menu items, check out a component that contains a menu, like
-[Select](./select), [Lookup](./lookup), or [TypeaheadSearch](./typeahead-search).
-### Configurable
-
-Note that manually hovering over or selecting this menu item is disabled, the
-configuration options to set these states should be used.
-
-To display the multiselect icon, toggle on the `selected` and `multiselect` props.
-
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
 <template v-slot:demo="{ propValues }">
 	<ul role="listbox">
@@ -252,7 +80,69 @@ To display the multiselect icon, toggle on the `selected` and `multiselect` prop
 </template>
 </cdx-demo-wrapper>
 
-### Default
+## Overview
+
+### When to use MenuItem
+
+MenuItem is an “internal” component, used exclusively to represent content within a
+[Menu](./menu.md). It cannot be used by itself.
+
+### About MenuItem
+
+MenuItems can have one of two functions:
+1. **Selectable options:** MenuItems in form elements like [Select](./select.md) or [Combobox](./combobox.md) are selectable.
+2. **Trigger actions:** MenuItems in [MenuButton](menu-button.md) trigger actions. There are two types of actions:
+	- **Standard actions:** neutral actions such as "Edit" or "Share".
+	- **Destructive actions:** actions with potentially negative or irreversible impact, such as "Delete".
+
+MenuItem includes the following elements.
+
+#### Media (optional)
+
+An icon or thumbnail can be included in order to provide more context about the menu item content.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Use an icon to visually reinforce the MenuItem content.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Use a thumbnail to provide a preview of the menu item content.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Label
+
+A clear and descriptive title for the menu item.
+
+#### Supporting text (optional)
+
+Text that supports or explains the label. This is often used to indicate search redirects in a Menu
+of search results.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Keep supporting text short to avoid overcrowding the layout.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Include supporting text within brackets to explain where a search result is redirected from.</cdx-demo-best-practice>
+
+</cdx-demo-best-practices>
+
+#### Search query match (optional)
+
+In the context of a search suggestions menu, this optional text displays the alternative label of an item that matches the search query (e.g. an alias).
+
+#### Description (optional)
+
+Descriptive text that provides additional information about the menu item.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Keep description text concise to keep the Menu scannable and readable.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+## Examples
+
+Note that these demos do not properly show some interactive states of MenuItems (like active or
+hovered/highlighted), since they display MenuItems as standalone or as part of an always-expanded,
+detached Menu. To see the full interactivity of MenuItems, check out a component that contains a
+Menu, like [Select](./select), [Lookup](./lookup), or [TypeaheadSearch](./typeahead-search).
+
+### Basic usage
+
+This MenuItem has a bold `label` and a `description`.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -271,28 +161,9 @@ To display the multiselect icon, toggle on the `selected` and `multiselect` prop
 </template>
 </cdx-demo-wrapper>
 
-### With description and bold label
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<MenuItemWithDescription />
-</template>
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/menu-item/examples/MenuItemWithDescription.vue [NPM]
-
-<<< @/../component-demos/menu-item/examples-mw/MenuItemWithDescription.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
 ### With link
 
-If a `url` property is included, the menu item will be wrapped in an anchor tag.
+If a `url` property is included, the MenuItem will be wrapped in an anchor tag.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -349,14 +220,14 @@ If a `url` property is included, the menu item will be wrapped in an anchor tag.
 </template>
 </cdx-demo-wrapper>
 
-### With search query highlighted
+### Search query highlight
 
-When a menu item displays a search result, the current search query can be provided (along with the
-`highlightQuery` prop) and it will be visually differentiated within the menu item's title. The
-search query text will have a normal font weight, while the rest of the title will be bold,
-which is meant to bring attention to the available suggestions based on the current search query.
+When a MenuItem displays a search result, the current `searchQuery` can be provided (along with the
+`highlightQuery` prop) and will be visually differentiated within the MenuItem's `label`. The
+`searchQuery` text will have a normal font weight, while the rest of the `label` will be bold,
+which is meant to bring attention to the available suggestions based on the current `searchQuery`.
 
-In the example below, the search query is "Co".
+In the example below, the `searchQuery` is "Co".
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -378,9 +249,11 @@ In the example below, the search query is "Co".
 ### With search query match
 
 For search results, a `match` property may be included that represents the text related to that item
-that matched the search query (e.g. a [Wikidata alias](https://www.wikidata.org/wiki/Help:Aliases)).
-The match will be displayed after the label. In the example below, the search query is "felis
-margarita," an alias of the Wikidata item "sand cat."
+that matched the `searchQuery` (e.g. a [Wikidata alias](https://www.wikidata.org/wiki/Help:Aliases)).
+The `match` will be displayed after the `label`.
+
+In the example below, the `searchQuery` is "felis margarita," an alias of the Wikidata item "sand
+cat." The `match` is included when highlighting the search query within a result's title.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -401,8 +274,9 @@ margarita," an alias of the Wikidata item "sand cat."
 
 ### With supporting text
 
-Text that supports or explains the label can be added via the `supportingText` prop. This text will
-be displayed after the label in a more subtle color.
+Text that supports or explains the `label` can be added via the `supportingText` prop. This text
+will be displayed after the `label` in a more subtle color, and is not included when highlighting
+a search query within the title.
 
 The example below shows a result for the search term "Corn," which redirects to the article for
 "Maize" on English Wikipedia.
@@ -427,7 +301,7 @@ The example below shows a result for the search term "Corn," which redirects to 
 ### With multiple languages
 
 Individual `lang` attributes can be set for the `label`, `description`, `match`, and
-`supportingText` props via the `language` prop, which is an object of `lang` attributes for those 
+`supportingText` props via the `language` prop, which is an object of `lang` attributes for those
 props.
 
 The example below demonstrates a search result in a Greek interface for the English word
@@ -450,7 +324,9 @@ The example below demonstrates a search result in a Greek interface for the Engl
 </template>
 </cdx-demo-wrapper>
 
-### With long title and search query highlighted
+### With long title
+
+Label text should be kept short, but long labels will wrap onto a new line.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -469,7 +345,9 @@ The example below demonstrates a search result in a Greek interface for the Engl
 </template>
 </cdx-demo-wrapper>
 
-### With description text overflow hidden
+### With long description
+
+Use the `hideDescriptionOverflow` property to truncate long descriptions.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -488,55 +366,21 @@ The example below demonstrates a search result in a Greek interface for the Engl
 </template>
 </cdx-demo-wrapper>
 
-### Within a list
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<MenuItems />
-</template>
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/menu-item/examples/MenuItems.vue [NPM]
-
-<<< @/../component-demos/menu-item/examples-mw/MenuItems.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### With graphemes
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<MenuItemsGraphemes />
-</template>
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/menu-item/examples/MenuItemsGraphemes.vue [NPM]
-
-<<< @/../component-demos/menu-item/examples-mw/MenuItemsGraphemes.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
 ## Vue usage
+
+::: warning
+This is not a standalone component, nor will it typically be directly used. It's
+intended for use by the Menu component, which will provide it with props and
+menu state information. See [Menu](./menu.md) for more details.
+:::
 
 A value must be provided, and various optional elements can be displayed:
 - A human-readable label
 - A description
 - A thumbnail or icon
 
-Alternately, the entire content and layout of the menu item can be customized via the default
+Alternately, the entire content and layout of the MenuItem can be customized via the default
 slot.
-
-For search results, the search query can be visually differentiated within the result title.
 
 <style lang="less" scoped>
 // Menus in this demo aren't absolutely positioned relative to something else.
