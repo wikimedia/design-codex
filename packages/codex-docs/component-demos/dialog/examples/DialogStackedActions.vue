@@ -13,7 +13,9 @@
 			:default-action="defaultAction"
 			@primary="onPrimaryAction"
 			@default="open = false"
-		/>
+		>
+			If you delete these changes, you will no longer be able to recover them.
+		</cdx-dialog>
 	</client-only>
 </template>
 

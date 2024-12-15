@@ -1,5 +1,5 @@
 <script setup>
-import { CdxTable } from '@wikimedia/codex';
+import { CdxTable, CdxAccordion } from '@wikimedia/codex';
 import TableColumnWidth from '@/../component-demos/table/examples/TableColumnWidth.vue';
 import TableCustomCells from '@/../component-demos/table/examples/TableCustomCells.vue';
 import TableWithSlots from '@/../component-demos/table/examples/TableWithSlots.vue';
@@ -72,408 +72,6 @@ const handleRowsChange = (event) => {
 A Table is a structural component used to arrange data in rows and columns to facilitate the
 comparison, analysis and management of information.
 
-## Guidelines
-
-### When to use tables
-
-In order to support the scanning and interpretation of information, the content within Tables needs
-to be well-structured and optimized for readability. For that reason, Tables should be avoided if
-the space is limited, if the interaction with their information is too complex, or if the data
-cannot be easily categorized. Additionally, consider alternative presentations for standalone
-information, or when detailed analysis isn't the primary objective.
-
-**When to use:**
-- When users need a systematic representation of information that allows them to compare and analyze
-  multiple data points across different categories.
-- When users need to perform specific actions to manipulate items within a dataset, such as editing,
-  deleting, or organizing.
-- When users can benefit from the ability to sort or filter data dynamically in order to extract
-  conclusions.
-
-**When not to use:**
-- When the interaction with the data is too complex (e.g. there are interdependencies between data
-  points).
-- When space is constrained. Please find alternative methods to display the information in case the
-  readability of the Table content is compromised.
-- When the goal is to create simple, non-data-centric layouts. Opt for lists or other components in
-  case there aren’t multiple data points to compare, and the information doesn’t require
-  manipulation (sorting, filtering).
-- When the user's primary goal is to obtain a high-level overview rather than detailed, more
-  granular, analysis of the information. Alternative visualization methods such as summaries,
-  charts, or lists may be more suitable for providing an overview.
-- When information is standalone and doesn't require side-by-side comparison, consider using text,
-  lists, or Cards instead.
-
-### Specifications
-
-![Specifications of Table component.](../../assets/components/table-specifications.svg)
-
-1. **Header** (optional)<br>
-Tables can feature a header section with elements such as a visible caption or actions that can be applied to Table rows in bulk.
-2. **Caption**<br>
-A caption provides a clear and concise description of the contents and the purpose of the Table. It
-is key for accessibility, and must always be provided for users of assistive technology. The caption
-can be visually hidden if a visible caption is not needed (e.g. if there is a heading above the
-Table that serves as a title).
-3. **Actions** (optional)<br>
-Actions that can be applied to all the items within a Table should be made available from the
-header.
-4. **Selection** (optional)<br>
-Row selection can be enabled to allow targeting the items that will be affected by Table actions.
-The checkbox available at the heading row level allows selecting all Table items at once, while
-individual checkboxes allow the selection of independent rows. A custom indicator of the number of
-selected rows can be included in the Table’s header for visibility (See custom header text).
-5. **Headings**<br>
-Tables can feature column headings (most commonly), row headings, or both. Headings are used to
-describe the type of information or the category of the data contained by the list of elements they
-label. Column headings are required.
-6. **Sorting** (optional)<br>
-Sorting allows users to organize data in an ascending or descending order according to specific
-criteria (e.g. alphabetically). It facilitates the analysis of data, identification of patterns, and
-comparison of values within Tables.
-7. **Cell**<br>
-Table cells are individual units of information, organized at the intersection of rows and columns.
-They can contain any sort of content, from simple text to iconography, images and components in any
-necessary order or combination.
-8. **Pagination** (optional)<br>
-Optional pagination controls can be included to provide an additional navigation for the Table.
-The user can specify for the pagination to appear above the Table's footer, below the Table's header, or both.
-9. **Footer** (optional)<br>
-Tables can feature an optional footer to organize adjacent Table information or actions (e.g.
-pagination). The configuration and contents of the Table footer are fully customizable.
-
-#### Table and column width
-
-Tables will occupy the full width of the area assigned to them in a layout. The available space will
-be distributed across Table columns evenly, depending on the data they contain.
-
-Tables are optimized for readability by default, but there might be special cases where adjustments
-might be needed. If so, it is possible to adjust the width of individual columns to distribute space
-more intentionally:
-
-![Table featuring columns with custom widths.](../../assets/components/table-specifications-column-width.svg)
-
-#### Column and row headings
-
-Tables can display column headings, row headings, or both.
-
-- **Column headings** represent the category or type of information contained in each Table column. They
-are essential for the quick identification of the Table’s content.
-- **Row headings** are useful when there’s a need to further categorize or label the data presented in
-individual or sets of rows. In Tables with many items, row headings can serve as navigation aids,
-allowing users to quickly jump to specific sections or categories within the data structure. Please
-note that you might or might not include a column heading to give a title to the row headings
-column.
-
-![Table featuring column and row headings.](../../assets/components/table-specifications-column-and-row-headings.svg)
-
-#### Cell customization
-
-Table cells can include combinations of any type of content: from text with end or start icons, to
-images or even components. This level of cell customization allows covering a wide range of
-presentational and interactive use cases like, for example, the introduction of inline, row actions:
-
-![Table featuring cells with custom content.](../../assets/components/table-specifications-cell-customization.svg)
-
-Refer to the [Table component in Codex Figma](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/❖-Codex-components?node-id=17413-13608&t=worf819uF8gGRU5J-11).
-
-### Types
-
-#### Table with vertical borders
-
-By default, the Table component will only display horizontal borders to separate rows and rely on
-spacing to create columns. Vertical borders can be added in data-heavy Tables, where the cell
-content is too clumped and mistakes might be made when interpreting the data.[[1]](#ref1)
-
-Common scenarios where the use of vertical borders is recommended include: when presenting data with
-lengthy textual descriptions or explanations alongside numerical values, in Tables with a long list
-of narrow columns, or when combining data with different horizontal alignment (see example below).
-
-![Table featuring vertical borders.](../../assets/components/table-types-vertical-borders.svg)
-
-#### Table with sorting
-
-Sorting allows reordering all the items included in a Table based on the values of one of its
-columns. Any number of columns can be sortable, but data can only be sorted by one column at a time.
-
-![Table featuring sortable columns.](../../assets/components/table-types-sorting.svg)
-
-#### Table with row selection
-
-Enable row selection when the same action(s) can be applied to all of the items in a Table. We
-recommend including an indicator of the amount of selected items within the Table’s header.
-
-When selection is enabled, users can pick out rows individually, or use the checkbox included at the
-heading level to select or deselect all Table items at once:
-
-![Table featuring row selection.](../../assets/components/table-types-row-selection.svg)
-
-#### Table with pagination
-
-Use pagination to distribute the Table’s content across different pages when
-dealing with large Table data with many rows. There is no minimum number of rows
-required to use pagination, but it is recommended for tables with a substantial
-number of rows. When using pagination, a Select component allows choosing the
-number of rows displayed per page. The default options are 10, 20, and 50 rows
-per page.
-
-![Table with pagination featuring a selection option for displaying 10, 20, or 50 items per page.](../../assets/components/table-types-pagination.svg)
-
-#### Empty table
-
-Tables can dynamically feature an empty state message in case there is no information available to
-be displayed:
-
-![Table showcasing its empty state.](../../assets/components/table-types-empty.svg)
-
-### Interaction states
-
-#### Heading sorting states
-
-Heading cells that include sorting functionality display a hovered state, an active state when
-clicked or tapped, and a focused style after having been activated and until any other interaction
-takes place.
-
-![Interactive states of the headings of sortable columns.](../../assets/components/table-sorting-interaction-states.svg)
-
-1. Default
-2. Hover
-3. Active
-4. Focused
-
-#### Row selection states
-
-In Tables where selection is available, rows present the following styles:
-
-![Interactive states of selectable rows.](../../assets/components/table-states-row-selection.svg)
-
-1. Default
-2. Selected
-
-The heading-level checkbox, which facilitates the simultaneous selection and deselection of all
-Table items, will present an indeterminate state in case some items remain unselected. Please note
-that, while Table rows display a selected state, only the checkboxes are interactive (See 2).
-
-#### Pagination states
-
-In tables where pagination is displayed, there are the following states:
-
-![Interactive states of Table's pagination.](../../assets/components/table-interaction-states-pagination.svg)
-
-1. Default
-2. Loading
-
-When loading a new page from the pagination, an Inline ProgressBar will appear below the Headings and above the current content of the Table.
-
-### Best practices
-
-#### Table actions
-
-It is possible to use the header to provide actions that can be applied to all Table items. Enabling
-selection will allow users to target the Table items to be manipulated.
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Table with header actions represented by normal neutral and destructive buttons.](../../assets/components/table-best-practices-actions-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use normal or quiet Buttons to represent Table actions.
-- Use any of the Button actions (neutral, progressive, and destructive)
-- Use labelled buttons, preferably with text, or icons and text, to ensure clarity.
-- Use MenuButton to group and display table actions when space in the header is limited (e.g. in smaller viewports).
-
-</template>
-
-<template #dont-media>
-
-![Table with header actions represented by an icon-only and a primary destructive button.](../../assets/components/table-best-practices-actions-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use primary Buttons to represent Table actions, since they could compete with main page actions.
-  (Exceptions might apply).
-- Use icon-only buttons to represent header actions, since they might complicate understanding.
-- Use several individual buttons when the Table’s width is limited. Instead, use a MenuButton to group all related actions.
-
-</template>
-
-</cdx-demo-rules>
-
-Make sure to follow the [button and groups of buttons usage recommendations](../../style-guide/using-links-and-buttons.md)
-when defining the best way to represent actions, keeping the Table’s external context in mind too.
-
-#### Inline actions
-
-It is possible to customize Table cells, and include inline actions in them that allow manipulating
-the data of individual rows. Although exceptions might apply, we only recommend using inline actions
-in Tables that will display fewer rows (less than 5) by default.
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Table with fewer items featuring actions within rows.](../../assets/components/table-best-practices-inline-actions-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use the cell slot to provide inline actions in Tables with fewer items.
-
-</template>
-
-<template #dont-media>
-
-![Table with many items incorrectly featuring actions within rows.](../../assets/components/table-best-practices-inline-actions-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use inline actions in Tables with more than 5 rows. Instead, use the header slot to provide bulk
-  actions and enable selection.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Table width
-
-Achieving the optimal readability of Table content should be the guiding factor when defining the
-width of a Table within a composition. Strive to balance information density with legibility,
-ensuring that Tables occupy just the appropriate amount of space.
-
-Avoid using Tables in narrow spaces. This can cause their content to wrap too tightly, or
-unnecessarily trigger the Table’s default horizontal scroll. At the same time, refrain from
-overstretching Tables to make them fit wider layouts: embedding too much white space within cells
-will make their information harder to parse and compare.
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Table showcasing an appropriate width.](../../assets/components/table-best-practices-width-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use Tables in layouts where they’ll have enough space to display all relevant information clearly
-  and comprehensively.
-
-</template>
-
-<template #dont-media>
-
-![Table used in a narrow space.](../../assets/components/table-best-practices-width-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use Tables within limited spaces, where their content might have to adjust to the point of
-  compromising readability.
-- Use Tables in wide areas, where they’ll overstretch, complicating the parsing and comparison of
-  information.
-
-</template>
-
-</cdx-demo-rules>
-
-#### Pagination
-
-It is possible to use pagination to distribute the Table’s content across different pages.
-However, pagination is only recommended for tables containing a significant number of rows.
-
-<cdx-demo-rules>
-
-<template #do-media>
-
-![Table with 48 rows using pagination.](../../assets/components/table-best-practices-pagination-do.svg)
-
-</template>
-
-<template #do-text>
-
-- Use pagination to allow users to navigate long Tables with a less number of rows per page.
-
-</template>
-
-<template #dont-media>
-
-![Table with 11 rows incorrectly using pagination.](../../assets/components/table-best-practices-pagination-dont.svg)
-
-</template>
-
-<template #dont-text>
-
-- Use pagination if the Table’s rows can be easily displayed on a single page.
-
-</template>
-
-</cdx-demo-rules>
-
-### Content
-
-#### Table caption
-
-The caption provides a clear and succinct description of the content and purpose of a Table. It can
-be visually hidden, or replaced by an external title if a design either requires or allows it.
-Regardless of its visibility, a caption should always be defined in the Table’s code in order to
-provide context for users of assistive technology.[[2]](#ref2)
-
-Visible or not, make sure the caption conveys the Table's content and context in a concise and
-accurate way.
-
-To keep captions readable, don’t exceed a line length of 75 characters. You can apply a maximum width to the caption if necessary in order to follow this recommendation.
-
-![Table displaying a long caption that respects the 75 character per line limit.](../../assets/components/table-content-caption.svg)
-
-#### Heading content
-
-Do not rely on iconography alone to represent categorical information in headings, as it might be
-hard to understand based on the content of the surrounding cells alone:
-
-![Table where headings incorrectly use only icons to describe the data within columns.](../../assets/components/table-content-heading.svg)
-
-#### Cell content alignment
-
-Except for numbers, text within cells should be aligned left or right, according to the
-directionality of the user’s interface language.
-
-Numbers that express quantities should always be aligned right, regardless of the directionality of
-the user’s interface language. This helps readers make easier comparisons of values when scanning
-down columns. For consistency and ease of understanding, the alignment of headings should always
-match the alignment of the data.[[1]](#ref1)
-
-![Image’s alt text: Table that features a column with quantitative data.](../../assets/components/table-content-alignment.svg)
-
-### Keyboard navigation
-
-| Key | Function |
-| -- | -- |
-| <kbd>Tab</kbd> | It moves the focus to the next interactive element within the Table. |
-| <kbd>Shift</kbd>+<kbd>Tab</kbd> | It moves the focus to the previous interactive element within the Table. |
-| <kbd>Up arrow</kbd>, <kbd>Down arrow</kbd> | For assistive technology users, these keys move between the column cells. |
-| <kbd>Left arrow</kbd>, <kbd>Right arrow</kbd> | For assistive technology users, these keys move between the row cells. |
-
-### References
-
-1. <span id="ref1">[Web Typography: Designing Tables to be Read, Not Looked At](https://alistapart.com/article/web-typography-tables/) by Richard Rutter</span>
-2. <span id="ref2">[Inclusive Components: Data Tables](https://inclusive-components.design/data-tables/), by Heydon Pickering</span>
-
-
-## Demos
-
-### Configurable
-
 <cdx-demo-wrapper :controls-config="controlsConfig" :force-reset="true">
 <template v-slot:demo="{ propValues, slotValues }">
 	<cdx-table v-bind="propValues" :data="data" :columns="columns">
@@ -487,11 +85,124 @@ match the alignment of the data.[[1]](#ref1)
 </template>
 </cdx-demo-wrapper>
 
-### With custom-sized columns
+## Overview
 
-The [TableColumn type](../types-and-constants.md#tablecolumn) has optional properties for `width`
-and `minWidth` so you can customize each column's size. Include the units, e.g. `'120px'` or
-`'100%'`.
+### When to use Table
+
+The content within a Table needs to be well-structured and optimized for readability and scanning. Tables should be avoided if there is limited space, if the information is too complex, or if the data cannot be easily categorized. Also, consider different presentations for standalone information, or when detailed analysis isn't the primary goal.
+
+**Use the Table component when:**
+- Users need a systematic representation of information that allows them to compare and analyze
+  multiple data points across different categories.
+- Users need to perform specific actions to modify items within a dataset, such as editing,
+  deleting, or organizing.
+- Users need to sort or filter data.
+
+**Use lists, Cards, or text when or other simple layouts when:**
+- There aren't multiple data points to compare.
+- The information doesn't require sorting or filtering.
+
+**Use charts or other data visualization methods when:**
+- The primary goal is to provide a high-level overview rather than detailed analysis of the data.
+- The data can't easily be laid out in a Table (e.g. when there are interdependencies between data points).
+
+### About Table
+
+Table includes the following elements.
+
+#### Header (optional)
+
+Tables can feature a header section with elements such as a visible caption or actions that can be applied to Table rows in bulk.
+
+#### Caption
+
+A caption provides a clear and concise description of the contents and the purpose of the Table. It
+is important for accessibility, and must always be provided for users of assistive technology. The
+caption can be visually hidden if a visible caption is not needed (e.g. if there is a heading above
+the Table that serves as a title).
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>A Table's caption should identify its content and context in a concise manner.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Actions (optional)
+
+Actions that can be applied to all the items within a Table should be made available from the
+header.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Use normal or quiet Buttons to represent Table actions.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Use MenuButton to group and display table actions when space in the header is limited.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Don't use primary Buttons to represent Table actions, since they could compete with main page actions.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">
+
+Avoid using Table actions in the header for Tables with 5 rows or fewer. Instead, use [inline
+actions](#custom-cell-content).
+
+</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Row selection (optional)
+
+Row selection allows users to target the items that will be affected by Table actions. A custom
+indicator of the number of selected rows can be included in the Table’s header for visibility (Refer
+to the [row selection demo](#with-selection)).
+
+#### Headings
+
+Tables can feature column headings, row headings, or both. Headings are used to describe the type of
+information or the category of the data contained by the list of elements they label. Column
+headings are required.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Always include column headings.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Don't use icons as column headings.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Sorting (optional)
+
+Sorting allows users to organize data according to specific criteria (e.g. alphabetically). It
+facilitates the analysis of data, identification of patterns, and comparison of values within
+Tables.
+
+#### Table data
+
+Table cells are individual units of information, organized at the intersection of rows and columns.
+They can contain any sort of content, from simple text to iconography, images and components in any
+necessary order or combination.
+
+Tables can also features a `<tfoot>` at the end of the data for things like totals.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>By default, align cell content to the start of the cell. For cells containing numbers that need to be compared, like currencies, align the text to the right of the cell in both reading directionalities.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Match the alignment of column headings with their data.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Add vertical borders to Table data if needed for better readability.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Pagination (optional)
+
+Pagination controls can be included to allow users to page through long datasets. Pagination can be
+placed above the Table data, below it, or both.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice type="dont">Don't use pagination if all rows can easily be displayed on one page.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Footer (optional)
+
+Tables can feature fully customizable footer content.
+
+
+:::tip Learn more about tables
+1. [Web Typography: Designing Tables to be Read, Not Looked At](https://alistapart.com/article/web-typography-tables/) by Richard Rutter
+2.  [Inclusive Components: Data Tables](https://inclusive-components.design/data-tables/), by Heydon Pickering
+:::
+
+## Examples
+
+### Column sizing
+
+By default, the width of each Table column will be determined by its content and the available space. If needed, you can set specific widths on some or all columns.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -510,14 +221,19 @@ and `minWidth` so you can customize each column's size. Include the units, e.g. 
 </template>
 </cdx-demo-wrapper>
 
-### With custom cell content
+<cdx-accordion>
+<template #title>Developer notes</template>
 
-By default, the data provided for a cell will be rendered within it as-is. You can customize the
-contents of a cell by using the `item-[ columnId ]` slots. For example, for a column with the id
-`time`, there is a slot called `item-time`. This slot comes with 2 bindings:
+The [TableColumn type](../types-and-constants.md#tablecolumn) has optional properties for `width`
+and `minWidth` so you can customize each column's size. Include the units, e.g. `'120px'` or
+`'100%'`.
 
-- `item`: the cell content
-- `row`: data for the entire row
+</cdx-accordion>
+
+### Custom cell content
+
+By default, the data provided for a cell will be rendered within it as-is. If needed, you can customize the contents of a whole column or individual cells. For example, you can include a
+MenuButton of actions to take on that row.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -536,25 +252,22 @@ contents of a cell by using the `item-[ columnId ]` slots. For example, for a co
 </template>
 </cdx-demo-wrapper>
 
-### With custom table elements
+<cdx-accordion>
+<template #title>Developer notes</template>
 
-You can further customize the layout of your Table by using the `thead`, `tbody`, and `tfoot`
-slots. Using these slots will override the default implementation of that element within the Table
-component so you can include your own markup. The example below uses the `thead` slot to add `th`
-elements with custom `colspan` and `rowspan` attributes, and the `tfoot` slot to add a `<tfoot>`
-with totals below the `<tbody>`.
+You can customize the contents of a cell by using the `item-[ columnId ]` slots. For example, for a
+column with the id `time`, there is a slot called `item-time`. This slot comes with 2 bindings:
 
-You can use any combination of these slots. Note that in the example below, even though we are
-including custom `thead` markup, we are still passing in the `columns` prop so that the Table
-component can output the `data` in the `<tbody>`. Always pass in `columns`, unless you are using the
-slots to override both the `<thead>` and `<tbody>`.
+- `item`: the cell content
+- `row`: data for the entire row
 
-Cell data is aligned to the start of the cell by default. You can use the following CSS classes to
-change the alignment of cell data:
-- `cdx-table__table__cell--align-center`: Align content to the center of the cell
-- `cdx-table__table__cell--align-end`: Align content to the end of the cell (to the right in LTR and to the left in RTL)
-- `cdx-table__table__cell--align-number`: Align content to the right of the cell in both reading
-directionalities. This is recommended for columns that contain numerical values.
+</cdx-accordion>
+
+### Custom table elements
+
+The Table component outputs each section of the `<table>` element automatically. You can override
+the output of these elements to customize them. In this example, there is special formatting for
+the "users" column headings, plus a "total" section that displays sums at the bottom.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -573,13 +286,32 @@ directionalities. This is recommended for columns that contain numerical values.
 </template>
 </cdx-demo-wrapper>
 
-### With sorting
+<cdx-accordion>
+<template #title>Developer notes</template>
 
-To enable sorting, pass in the `sort` prop via v-model, and make at least one Table column sortable
-by adding `allowSort: true` to its definition.
+You can further customize the layout of your Table by using the `thead`, `tbody`, and `tfoot`
+slots. Using these slots will override the default implementation of that element within the Table
+component so you can include your own markup. This example uses the `thead` slot to add `th`
+elements with custom `colspan` and `rowspan` attributes, and the `tfoot` slot to add a `<tfoot>`
+with totals below the `<tbody>`.
 
-You can initialize the sort ref to an empty object if there is no initial sort order, or to an
-initial sort order as in the Table below, where the initial sort order is `{ user: 'asc' }`.
+You can use any combination of these slots. Note that in the example below, even though we are
+including custom `thead` markup, we are still passing in the `columns` prop so that the Table
+component can output the `data` in the `<tbody>`. Always pass in `columns`, unless you are using the
+slots to override both the `<thead>` and `<tbody>`.
+
+Cell data is aligned to the start of the cell by default. You can use the following CSS classes to
+change the alignment of cell data:
+- `cdx-table__table__cell--align-center`: Align content to the center of the cell.
+- `cdx-table__table__cell--align-end`: Align content to the end of the cell (to the right in LTR and to the left in RTL).
+- `cdx-table__table__cell--align-number`: Align content to the right of the cell in both reading
+directionalities. This is recommended for columns that contain numerical values.
+
+</cdx-accordion>
+
+### Sorting
+
+Any number of columns can be made sortable.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -598,10 +330,20 @@ initial sort order as in the Table below, where the initial sort order is `{ use
 </template>
 </cdx-demo-wrapper>
 
-### With selection
+<cdx-accordion>
+<template #title>Developer notes</template>
 
-To enable row selection, set the `useRowSelection` prop to `true`, and use v-model to bind the
-`selectedRows` prop.
+To enable sorting, pass in the `sort` prop via `v-model`, and make at least one Table column
+sortable by adding `allowSort: true` to its definition.
+
+You can initialize the `sort` ref to an empty object if there is no initial sort order, or to an
+initial sort order as in the Table below, where the initial sort order is `{ user: 'asc' }`.
+
+</cdx-accordion>
+
+### Row selection
+
+Rows can be made selectable. This is useful for selecting rows then choosing a Table action.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
@@ -620,12 +362,15 @@ To enable row selection, set the `useRowSelection` prop to `true`, and use v-mod
 </template>
 </cdx-demo-wrapper>
 
-### With selection and sort
+<cdx-accordion>
+<template #title>Developer notes</template>
 
-To use both row selection and sorting, you must add a unique identifier to each row:
-- Import the `TableRowIdentifier` constant from Codex
-- Add a property to each row object keyed on `TableRowIdentifier` with a unique ID, e.g.
-  `[ TableRowIdentifier ]: 'Q123'`
+To enable row selection, set the `useRowSelection` prop to `true`, and use `v-model` to bind the
+`selectedRows` prop.
+
+</cdx-accordion>
+
+#### Row selection and sort
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
@@ -644,11 +389,57 @@ To use both row selection and sorting, you must add a unique identifier to each 
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+To use both row selection and sorting, you must add a unique identifier to each row:
+- Import the `TableRowIdentifier` constant from Codex
+- Add a property to each row object keyed on `TableRowIdentifier` with a unique ID, e.g.
+  `[ TableRowIdentifier ]: 'Q123'`
+
+</cdx-accordion>
+
+### Pagination
+
+When pagination is enabled, the pager elements will display below the `<table>` by default, but can
+also be displayed above it or in both locations.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<table-with-pagination />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/table/examples/TableWithPagination.vue [NPM]
+
+<<< @/../component-demos/table/examples-mw/TableWithPagination.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+To enable pagination, set the `paginate` prop to true. The pagination interface will display below
+the `<table>` by default, but the controls can also be moved to the top (or shown in both places at
+once) via the `paginationPosition` prop.
+
+Additional configuration is also possible. A `paginationSizeOptions` prop can be used to provide
+different options for the number of rows to display per page, and `paginationSizeDefault` can set
+the default number of rows that are displayed prior to the user making a selection. By default, a
+paginated Table will show 10 results per page and will allow the user to choose between page sizes
+of 10, 20, and 50.
+
+</cdx-accordion>
+
+
 ### Empty state
 
 An empty state message can be displayed via the `empty-state` slot.
-If the `empty-state` slot is populated, this slot will automatically display the slot content
-when there are no items in the `data` array and the `tbody` slot is not overridden.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -673,46 +464,24 @@ when there are no items in the `data` array and the `tbody` slot is not overridd
 </template>
 </cdx-demo-wrapper>
 
-### With pagination
+<cdx-accordion>
+<template #title>Developer notes</template>
 
-#### Basic Pagination
+If the `empty-state` slot is populated, this slot will automatically display the slot content
+when there are no items in the `data` array and the `tbody` slot is not overridden.
 
-To enable basic pagination, set the `paginate` prop to true. The pagination UI
-will display below the Table by default, but the controls can also be moved to
-the top of the table (or shown in both places at once) via the `paginationPosition`
-prop.
+</cdx-accordion>
 
-Additional configuration is also possible. A `paginationSizeOptions` prop can be
-used to provide different options for the number of rows to display per page, and
-`paginationSizeDefault` can set the default number of rows that are displayed prior
-to the user making a selection. By default, a paginated table will show 10 results
-per page and will allow the user to choose between page sizes of 10, 20, and 50.
+## Technical implementation
 
-<cdx-demo-wrapper :force-reset="true">
-<template v-slot:demo>
-	<table-with-pagination />
-</template>
-<template v-slot:code>
+### Vue usage
 
-:::code-group
+### CSS-only version
 
-<<< @/../component-demos/table/examples/TableWithPagination.vue [NPM]
-
-<<< @/../component-demos/table/examples-mw/TableWithPagination.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-## Vue usage
-
-## CSS-only version
-
-### Markup structure
+#### Markup structure
 
 The CSS-only Table consists of a `<table>` element and its child elements, plus some wrapper
-elements and CSS classes needed to ensure proper styles and accessibility. See the code sample
+elements and CSS classes needed to ensure proper styles and accessibility. Refer to the code sample
 below for details.
 
 Cell data is aligned to the start of the cell by default. You can use the following CSS classes to
@@ -869,7 +638,7 @@ text alignment.
 </template>
 </cdx-demo-wrapper>
 
-### Visually hidden caption
+#### Visually hidden caption
 
 To visually hide the header's caption, simply do not add it to the header element
 (`<div class="cdx-table__header">`). If you have no other header content, the entire header element
@@ -974,7 +743,7 @@ the `<table>`, which is visually hidden by default.
 </template>
 </cdx-demo-wrapper>
 
-### Vertical borders
+#### Vertical borders
 
 To display vertical borders that separate the columns, apply the
 `cdx-table__table--borders-vertical` class to table element. This class may not cover all use
@@ -1104,7 +873,7 @@ cases, therefore apply additional border styles to the element as needed.
 </template>
 </cdx-demo-wrapper>
 
-### Row headers
+#### Row headers
 
 In some cases, header information can be found in the top row and first column. All header cells are
 marked up as `th` elements with the appropriate `scope` attribute. The scope attribute helps to
@@ -1241,7 +1010,7 @@ header column.
 </template>
 </cdx-demo-wrapper>
 
-### With row selection
+#### With row selection
 
 Row selection can be done without JavaScript by following these steps:
 
@@ -1424,7 +1193,7 @@ besides submit the form and reload the page.
 </template>
 </cdx-demo-wrapper>
 
-### Empty state
+#### Empty state
 
 You can use the CSS classes, `cdx-table__table__empty-state` and
 `cdx-table__table__empty-state-content`, to style the empty state message
@@ -1479,7 +1248,7 @@ a single column.
 </template>
 </cdx-demo-wrapper>
 
-### Table Pagination
+#### Pagination
 
 This example demonstrates the markup structure that should be used for visual parity with
 the Vue.js version of the paginated Table component. In a real-world scenario, the `<form>`
@@ -1757,3 +1526,12 @@ The icon images are added automatically.
 ```
 </template>
 </cdx-demo-wrapper>
+
+### Keyboard navigation
+
+| Key | Function |
+| -- | -- |
+| <kbd>Tab</kbd> | It moves the focus to the next interactive element within the Table. |
+| <kbd>Shift</kbd>+<kbd>Tab</kbd> | It moves the focus to the previous interactive element within the Table. |
+| <kbd>Up arrow</kbd>, <kbd>Down arrow</kbd> | For assistive technology users, these keys move between the column cells. |
+| <kbd>Left arrow</kbd>, <kbd>Right arrow</kbd> | For assistive technology users, these keys move between the row cells. |

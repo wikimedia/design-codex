@@ -14,6 +14,11 @@
 			@default="open = false"
 		>
 			<p>Do you want to save your changes?</p>
+
+			<template #footer-text>
+				You are not signed in. If you <a href="#">log in</a> or
+				<a href="#">create an account</a>, your edits will be attributed to a username.
+			</template>
 		</cdx-dialog>
 	</client-only>
 </template>
