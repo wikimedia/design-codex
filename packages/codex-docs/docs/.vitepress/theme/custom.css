@@ -385,6 +385,52 @@ body {
 	z-index: calc( var( --vp-z-index-nav ) + 1 );
 }
 
+/* Search. ----------------------------------------------------------------- */
+
+/* Search button in the header. */
+.DocSearch-Button {
+	@media screen and ( min-width: 960px ) {
+		/* Override VitePress fixed size, which is an accessibility no-go. */
+		/* Use same approach as SearchInput. */
+		min-height: var( --min-size-interactive-pointer );
+		height: auto;
+		border-radius: var( --border-radius-base );
+	}
+	/* Make the desktop search button wider for better visibility. */
+	@media ( min-width: 1120px ) {
+		justify-content: space-between;
+		min-width: var( --size-1600 );
+	}
+}
+
+.DocSearch-Button .DocSearch-Button-Placeholder {
+	/* Override VitePress absolute font size, which is an accessibility no-go. */
+	font-size: initial;
+}
+
+.vpi-search,
+.DocSearch-Button .DocSearch-Search-Icon {
+	--icon: url( data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%0D%0A%09%3Cpath%20d%3D%22M12.2%2013.6a7%207%200%201%201%201.4-1.4l5.4%205.4-1.4%201.4zM3%208a5%205%200%201%200%2010%200A5%205%200%200%200%203%208%22%2F%3E%0D%0A%3C%2Fsvg%3E );
+	min-width: var( --min-size-icon-small );
+	min-height: var( --min-size-icon-small );
+}
+
+.VPLocalSearchBox .results .result {
+	border: var( --border-base );
+}
+
+/* Style the highlighted search query. */
+.VPLocalSearchBox .result .titles mark,
+.VPLocalSearchBox .result .excerpt mark {
+	background-color: var( --background-color-progressive );
+	color: var( --color-inverted-fixed );
+}
+
+.search-bar {
+	/* stylelint-disable-next-line declaration-no-important */
+	border-radius: var( --border-radius-base ) !important;
+}
+
 /* Footer. ----------------------------------------------------------------- */
 
 /* Use Codex Card styles on `.pager-link` */

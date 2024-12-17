@@ -87,6 +87,23 @@ export default defineConfigWithTheme<CustomConfig>( {
 			{ icon: 'github', link: 'https://github.com/wikimedia/design-codex', ariaLabel: 'Codex on GitHub' } as DefaultTheme.SocialLink
 		],
 
+		search: {
+			provider: 'local',
+			options: {
+				miniSearch: {
+					searchOptions: {
+						fuzzy: 0.2,
+						prefix: true,
+						boost: {
+							title: 50,
+							text: 2,
+							titles: 1
+						}
+					}
+				}
+			}
+		},
+
 		sidebar: {
 			'/using-codex/': [
 				{

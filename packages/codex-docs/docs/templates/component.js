@@ -7,8 +7,8 @@ const componentTemplate = function ( renderedUsage, doc, config, componentRelati
 	const { author, since, version } = /** @type {Record<string, ParamTag[]>} */ ( tags ?? {} );
 
 	// Limit on-page navigation to headings level 2 and 3.
-	const frontMatter = [ 'outline: [ 2, 3 ]' ];
 	const componentName = displayName.slice( 3 );
+	const frontMatter = [ `title: ${ componentName }`, 'outline: [ 2, 3 ]' ];
 
 	// Include a warning if the component is still in development
 	const devWarning = componentRelativePath.includes( 'components-wip/' ) ?
