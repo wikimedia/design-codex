@@ -15,8 +15,8 @@
 		"packages/codex-docs"
 	],
 	"engines": {
-		"npm": ">=7.21.0",
-		"node": ">=18"
+		"npm": ">=10.8.1",
+		"node": ">=20"
 	},
 	"scripts": {
 		"branch-deploy": "./build/branch-deploy.sh",
