@@ -1,4 +1,3 @@
-// ----------------------------------------------------------------------------
 // Style Dictionary configuration for Codex Design Tokens
 //
 // This configuration does the following:
@@ -34,19 +33,8 @@ import {
 	cssVarTransform
 } from './transformers.js';
 
-// WikimediaUI theme, all platforms
-const sdBase = StyleDictionary.extend( {
-	fileHeader: {
-		default: () => {
-			const packageVersion = getPackageVersion();
-			return [
-				'Codex Design Tokens v' + packageVersion,
-				'Design System for Wikimedia',
-				'See https://doc.wikimedia.org/codex/latest/design-tokens/overview.html'
-			];
-		}
-	},
-
+// WikimediaUI theme, all platforms.
+const sdBase = new StyleDictionary( {
 	// Use "include" for the base files, so that the dark mode build can be added in "source" below
 	include: [
 		'src/themes/wikimedia-ui.json',
@@ -54,91 +42,103 @@ const sdBase = StyleDictionary.extend( {
 		'src/components.json'
 	],
 
-	transform: {
-		'custom/kebabCase': {
-			type: 'name',
-			transformer: kebabCase
+	// Platforms are populated separately for each build below.
+	platforms: {},
+
+	hooks: {
+		fileHeaders: {
+			codexDefaultFileHeader: () => {
+				const packageVersion = getPackageVersion();
+				return [
+					'Codex Design Tokens v' + packageVersion,
+					'Design System for Wikimedia',
+					'See https://doc.wikimedia.org/codex/latest/design-tokens/overview.html'
+				];
+			}
 		},
-		'custom/camelWithNegative': {
-			type: 'name',
-			matcher: ( token ) => token.path.some( ( fragment ) => fragment.startsWith( '-' ) ),
-			transformer: camelCaseNegative
+		formats: {
+			'custom/css': createCustomStyleFormatter( 'css' ),
+			'custom/less': createCustomStyleFormatter( 'less' ),
+			'custom/scss': createCustomStyleFormatter( 'sass' ),
+			'custom/js': createCustomStyleFormatter( 'javascript/es6' )
 		},
-		'custom/tokenList': {
-			type: 'attribute',
-			transformer: getReferencedTokens
+		transforms: {
+			'custom/kebabCase': {
+				type: 'name',
+				transform: kebabCase
+			},
+			'custom/camelWithNegative': {
+				type: 'name',
+				filter: ( token ) => token.path.some( ( fragment ) => fragment.startsWith( '-' ) ),
+				transform: camelCaseNegative
+			},
+			'custom/tokenList': {
+				type: 'attribute',
+				transform: getReferencedTokens
+			},
+			'custom/tokenType': {
+				type: 'attribute',
+				transform: getTokenType
+			},
+			'custom/relativeSize': {
+				type: 'value',
+				filter: shouldUseRelativeSize,
+				transform: relativeSizeTransform,
+				transitive: true
+			},
+			'custom/absoluteSize': {
+				type: 'value',
+				filter: shouldUseAbsoluteSize,
+				transform: absoluteSizeTransform,
+				transitive: true
+			},
+			'custom/wrapInCssVar': {
+				type: 'value',
+				filter: shouldExposeCustomProperty,
+				transform: cssVarTransform,
+				transitive: true
+			}
 		},
-		'custom/tokenType': {
-			type: 'attribute',
-			transformer: getTokenType
-		},
-		'custom/relativeSize': {
-			type: 'value',
-			matcher: shouldUseRelativeSize,
-			transformer: relativeSizeTransform,
-			transitive: true
-		},
-		'custom/absoluteSize': {
-			type: 'value',
-			matcher: shouldUseAbsoluteSize,
-			transformer: absoluteSizeTransform,
-			transitive: true
-		},
-		'custom/wrapInCssVar': {
-			type: 'value',
-			matcher: shouldExposeCustomProperty,
-			transformer: cssVarTransform,
-			transitive: true
+		transformGroups: {
+			'codex/stylesheet': [
+				'custom/kebabCase',
+				'custom/tokenList',
+				'custom/tokenType',
+				'custom/relativeSize',
+				'custom/absoluteSize'
+			],
+			'codex/stylesheet/wrappedInCssVars': [
+				// All the same transforms as codex/stylesheet
+				'custom/kebabCase',
+				'custom/tokenList',
+				'custom/tokenType',
+				'custom/relativeSize',
+				'custom/absoluteSize',
+				// Plus wrapInCssVar at the end
+				'custom/wrapInCssVar'
+			],
+			'codex/js': [
+				'name/camel',
+				'custom/camelWithNegative',
+				'custom/tokenList',
+				'custom/tokenType',
+				'custom/relativeSize',
+				'custom/absoluteSize'
+			]
 		}
-	},
-
-	transformGroup: {
-		'codex/stylesheet': [
-			'custom/kebabCase',
-			'custom/tokenList',
-			'custom/tokenType',
-			'custom/relativeSize',
-			'custom/absoluteSize'
-		],
-		'codex/stylesheet/wrappedInCssVars': [
-			// All the same transforms as codex/stylesheet
-			'custom/kebabCase',
-			'custom/tokenList',
-			'custom/tokenType',
-			'custom/relativeSize',
-			'custom/absoluteSize',
-			// Plus wrapInCssVar at the end
-			'custom/wrapInCssVar'
-		],
-		'codex/js': [
-			'name/cti/camel',
-			'custom/camelWithNegative',
-			'custom/tokenList',
-			'custom/tokenType',
-			'custom/relativeSize',
-			'custom/absoluteSize'
-		]
-	},
-
-	format: {
-		'custom/css': createCustomStyleFormatter( 'css' ),
-		'custom/scss': createCustomStyleFormatter( 'sass' ),
-		'custom/js': createCustomStyleFormatter( 'javascript/es6' ),
-		'custom/less': createCustomStyleFormatter( 'less' )
-	},
-
-	// Platforms are populated separately for each build below
-	platforms: {}
+	}
 } );
 
-// Build the regular Codex build
-sdBase.extend( {
+await sdBase.hasInitialized;
+
+// Build the regular Codex build.
+await ( await sdBase.extend( {
 	platforms: {
 		stylesheet: {
 			transformGroup: 'codex/stylesheet',
 			buildPath: 'dist/',
 			options: {
-				fileHeader: 'default'
+				fileHeader: 'codexDefaultFileHeader'
 			},
 			files: [
 				{
@@ -190,7 +190,7 @@ sdBase.extend( {
 			transformGroup: 'codex/stylesheet/wrappedInCssVars',
 			buildPath: 'dist/',
 			options: {
-				fileHeader: 'default'
+				fileHeader: 'codexDefaultFileHeader'
 			},
 			files: [
 				{
@@ -209,7 +209,7 @@ sdBase.extend( {
 			transformGroup: 'codex/js',
 			buildPath: 'dist/',
 			options: {
-				fileHeader: 'default'
+				fileHeader: 'codexDefaultFileHeader'
 			},
 			files: [
 				{
@@ -222,11 +222,11 @@ sdBase.extend( {
 			]
 		}
 	}
-} ).buildAllPlatforms();
+} ) ).buildAllPlatforms();
 
 // Build the dark mode variables
-sdBase.extend( {
-	// Use "source" for the dark mode tokens so that they override the base files in "include"
+await ( await sdBase.extend( {
+	// Use "source" for the dark mode tokens so that they override the base files in "include".
 	source: [
 		'src/modes/dark.json'
 	],
@@ -236,7 +236,7 @@ sdBase.extend( {
 			transformGroup: 'codex/stylesheet',
 			buildPath: 'dist/',
 			options: {
-				fileHeader: 'default'
+				fileHeader: 'codexDefaultFileHeader'
 			},
 			files: [
 				{
@@ -260,6 +260,6 @@ sdBase.extend( {
 			]
 		}
 	}
-} ).buildAllPlatforms();
+} ) ).buildAllPlatforms();
 
 console.log( '\nBuild completed!' );

@@ -1,4 +1,4 @@
-/** @import { TransformedToken } from 'style-dictionary' */
+/** @import { TransformedToken } from 'style-dictionary/types' */
 
 import { getTokenType } from '../.style-dictionary/transformers.js';
 

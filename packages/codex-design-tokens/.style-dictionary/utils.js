@@ -1,9 +1,10 @@
+// TypeScript uses types.d.ts for type checking.
 /** @import { PackageJson } from './types.js' */
 
 import path from 'node:path';
 import { createRequire } from 'node:module';
 
-// Polyfill CommonJS require() for use in ES modules
+// Polyfill CommonJS require() for use in ES modules.
 const require = createRequire( import.meta.url );
 
 /**

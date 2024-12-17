@@ -1,10 +1,8 @@
-/** @import { Matcher } from 'style-dictionary/types/Matcher' */
-/** @import { Formatter, TransformedToken } from 'style-dictionary' */
-
-import StyleDictionary from 'style-dictionary';
+/** @import { FormatFn, TransformedToken } from 'style-dictionary/types' */
+import { fileHeader, createPropertyFormatter, sortByReference, usesReferences, getReferences } from 'style-dictionary/utils';
 import { regExpEscape } from './utils.js';
-const { formatHelpers } = StyleDictionary;
-const { fileHeader, createPropertyFormatter, sortByReference } = formatHelpers;
+
+/** @typedef {( token: TransformedToken ) => boolean} OutputFilter */
 
 /**
  * Wrap a string of text in the appropriate comment syntax
@@ -49,15 +47,11 @@ function formatStyleVariableReference( token, styleFormat ) {
  *   `options.outputFilter`
  *
  * @param {'css'|'less'|'sass'|'javascript/es6'} format
- * @return {Formatter}
+ * @return {FormatFn}
  */
 export function createCustomStyleFormatter( format ) {
-	const commentStyle = ( {
-		css: 'long',
-		less: 'short',
-		sass: 'short',
-		'javascript/es6': 'short'
-	} )[ format ];
+	// Use long comments for CSS, short comments for everything else.
+	const commentStyle = format === 'css' ? 'long' : 'short';
 
 	/**
 	 * Format a JS token.
@@ -75,9 +69,9 @@ export function createCustomStyleFormatter( format ) {
 		return toRet;
 	}
 
-	return function ( { dictionary, options, file } ) {
+	return async function ( { dictionary, options, file } ) {
 		// Duplicated from css/variables in style-dictionary/lib/common/format.js
-		const header = fileHeader( { file, commentStyle } );
+		const header = await fileHeader( { file, commentStyle } );
 		let preamble = '', postamble = '';
 		if ( format === 'css' ) {
 			const selector = /** @type {string} */ ( options.selector ) || ':root';
@@ -90,14 +84,11 @@ export function createCustomStyleFormatter( format ) {
 		let { allTokens } = dictionary;
 		if ( outputReferences ) {
 			// sortByReference() correctly sorts A after B if A refers to B, and sorts all tokens
-			// with references after tokens without references, but within the tokens without
-			// references it reverses the sort order. We don't want output where size-50 comes
-			// before size-25, so work around this annoying behavior by reversing the tokens array
-			// before it's passed to sortByReference().
-			allTokens = [ ...allTokens ].reverse().sort( sortByReference( dictionary ) );
+			// with references after tokens without references.
+			allTokens = [ ...allTokens ].sort( sortByReference( dictionary.tokens ) );
 		}
 
-		const outputFilter = /** @type {Matcher} */ ( options.outputFilter ) ?? ( () => true );
+		const outputFilter = /** @type {OutputFilter} */ ( options.outputFilter ) ?? ( () => true );
 
 		const formatter = format === 'javascript/es6' ?
 			jsFormatter :
@@ -121,8 +112,8 @@ export function createCustomStyleFormatter( format ) {
 			filteredTokens = filteredTokens.map( ( token ) => {
 				// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 				const originalValue = /** @type {string} */ ( token.original.value );
-				const referencedTokens = dictionary.usesReference( originalValue ) ?
-					dictionary.getReferences( originalValue ) : [];
+				const referencedTokens = usesReferences( originalValue, dictionary.tokens ) ?
+					getReferences( originalValue, dictionary.tokens ) : [];
 
 				// If this token doesn't contain any references, or only references tokens that
 				// are not going to be in the output, don't modify it
@@ -181,8 +172,8 @@ export function createCustomStyleFormatter( format ) {
 			/** @type {string } */
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 			const originalValue = token.original.value;
-			const referencedTokens = dictionary.usesReference( originalValue ) ?
-				dictionary.getReferences( originalValue ) : [];
+			const referencedTokens = usesReferences( originalValue, dictionary.tokens ) ?
+				getReferences( originalValue, dictionary.tokens ) : [];
 			const useInstead = referencedTokens.length === 1 &&
 					// Check that the token only contains a reference and nothing else.
 					originalValue.match( /^\s*{[^{}]+}\s*$/ ) &&

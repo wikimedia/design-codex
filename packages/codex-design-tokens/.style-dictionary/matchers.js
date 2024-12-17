@@ -1,4 +1,4 @@
-/** @import { TransformedToken } from 'style-dictionary' */
+/** @import { TransformedToken } from 'style-dictionary/types' */
 
 /**
  * @param {TransformedToken} token

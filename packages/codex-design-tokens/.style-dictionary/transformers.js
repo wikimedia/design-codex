@@ -1,4 +1,4 @@
-/** @import { TransformedToken, Platform } from 'style-dictionary' */
+/** @import { TransformedToken, PlatformConfig } from 'style-dictionary/types' */
 
 import path from 'node:path';
 import { camelCase } from 'change-case';
@@ -60,7 +60,7 @@ export function getTokenType( token ) {
 /**
  * Name transform that transforms the path to kebab case, while keeping double dashes.
  *
- * We can't use the built-in name/cti/kebab transform because it collapses double dashes to
+ * We can't use the built-in name/kebab transform because it collapses double dashes to
  * single dashes.
  *
  * @param {TransformedToken} token
@@ -71,13 +71,13 @@ export function kebabCase( token ) {
 }
 
 /**
- * A replacement for the "name/cti/camel" transform from Style Dictionary
+ * A replacement for the "name/camel" transform from Style Dictionary
  * which gives special treatment to the minus sign (translating it into a word)
  * to avoid name collisions between eg. "z-index.100" and "z-index.-100".
  * See https://phabricator.wikimedia.org/T355274
  *
  * @param {TransformedToken} token
- * @param {Platform} options
+ * @param {PlatformConfig} options
  * @return {string}
  */
 export function camelCaseNegative( token, options ) {
@@ -105,7 +105,7 @@ export function relativeSizeTransform( token ) {
 
 /**
  * @param {TransformedToken} token
- * @param {Platform} options
+ * @param {PlatformConfig} options
  * @return {string}
  */
 export function absoluteSizeTransform( token, options ) {
