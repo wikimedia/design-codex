@@ -468,7 +468,7 @@ export default defineComponent( {
 		 * @param menuItem
 		 */
 		function handleMenuItemChange( menuState: MenuState, menuItem: MenuItemDataWithId|null ) {
-			if ( menuItem && menuItem.disabled ) {
+			if ( menuItem?.disabled ) {
 				return;
 			}
 

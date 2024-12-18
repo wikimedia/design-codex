@@ -240,9 +240,9 @@ import {
 	TablePaginationPositions
 } from '../../constants';
 
-type TableSortIconMap = { [P in TableSortOption]: Icon };
+type TableSortIconMap = Record<TableSortOption, Icon>;
 type TableSortDirection = 'none' | 'ascending' | 'descending';
-type TableSortDirectionMap = { [P in TableSortOption]: TableSortDirection };
+type TableSortDirectionMap = Record<TableSortOption, TableSortDirection>;
 
 const tableTextAlignmentsValidator = makeStringTypeValidator( TableTextAlignments );
 const paginationPositionValidator = makeStringTypeValidator( TablePaginationPositions );

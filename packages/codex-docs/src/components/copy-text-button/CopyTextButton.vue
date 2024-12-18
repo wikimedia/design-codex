@@ -116,7 +116,7 @@ export default defineComponent( {
 			let copied = true;
 			try {
 				copied = document.execCommand( 'copy' );
-			} catch ( e ) {
+			} catch {
 				copied = false;
 			}
 

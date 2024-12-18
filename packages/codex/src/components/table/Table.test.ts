@@ -258,8 +258,7 @@ describe( 'Table', () => {
 				secondRowInput.element.checked = true;
 				await secondRowInput.trigger( 'change' );
 
-				// eslint-disable-next-line no-unused-expressions, jest/valid-expect
-				expect( secondRowInput.element.checked ).toBeTruthy;
+				expect( secondRowInput.element.checked ).toBeTruthy();
 				expect( selectAllInput.element.checked ).toBeFalsy();
 				expect( wrapper.vm.selectAllIndeterminate ).toBeTruthy();
 			} );

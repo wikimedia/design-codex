@@ -68,7 +68,7 @@ export type IconSize = typeof IconSizes[ number ];
 
 /** @public */
 export type StatusType = typeof StatusTypes[ number ];
-export type StatusIconMap = { [P in StatusType]: Icon }
+export type StatusIconMap = Record<StatusType, Icon>
 
 /** @public */
 export type TextInputType = typeof TextInputTypes[ number ];
@@ -256,7 +256,7 @@ export interface TableRowWithIdentifier extends TableRow {
 export type TableSortOption = 'none' | 'asc' | 'desc';
 
 /** @public */
-export type TableSort<K extends string = string> = { [P in K]?: TableSortOption };
+export type TableSort<K extends string = string> = Partial<Record<K, TableSortOption>>;
 
 /** @public */
 export interface TablePaginationSizeOption extends MenuItemData {

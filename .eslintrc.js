@@ -84,7 +84,8 @@ module.exports = {
 				'plugin:@typescript-eslint/recommended-type-checked'
 			],
 			rules: {
-				'@typescript-eslint/no-non-null-assertion': 'error'
+				'@typescript-eslint/no-non-null-assertion': 'error',
+				'@typescript-eslint/prefer-regexp-exec': 'off'
 			}
 		},
 		{

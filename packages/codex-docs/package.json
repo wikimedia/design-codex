@@ -62,11 +62,11 @@
 		"npm-watch": "0.13.0",
 		"postcss": "8.4.49",
 		"postcss-rtlcss": "5.5.1",
-		"ts-jest": "29.1.1",
-		"typescript": "5.2.2",
+		"ts-jest": "29.2.5",
+		"typescript": "5.7.2",
 		"vite": "5.2.11",
 		"vitepress": "1.1.4",
 		"vue-docgen-cli": "4.67.0",
-		"vue-tsc": "2.0.16"
+		"vue-tsc": "2.1.10"
 	}
 }

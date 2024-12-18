@@ -60,8 +60,8 @@
 		"jest-environment-jsdom": "29.7.0",
 		"svglint": "3.1.0",
 		"svgo": "3.3.2",
-		"ts-jest": "29.1.1",
-		"typescript": "5.2.2",
+		"ts-jest": "29.2.5",
+		"typescript": "5.7.2",
 		"vite": "5.2.11"
 	}
 }

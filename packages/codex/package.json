@@ -78,11 +78,11 @@
 		"postcss-rtlcss": "5.5.1",
 		"rtlcss": "4.3.0",
 		"start-server-and-test": "1.14.0",
-		"ts-jest": "29.1.1",
-		"tsx": "4.17.0",
-		"typescript": "5.2.2",
+		"ts-jest": "29.2.5",
+		"tsx": "4.19.2",
+		"typescript": "5.7.2",
 		"vite": "5.2.11",
-		"vue-tsc": "2.0.16"
+		"vue-tsc": "2.1.10"
 	},
 	"peerDependencies": {
 		"vue": "3.4.28"
