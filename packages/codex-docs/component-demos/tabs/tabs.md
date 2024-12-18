@@ -2,7 +2,6 @@
 import { ref, onMounted } from 'vue';
 import BasicTabs from '@/../component-demos/tabs/examples/BasicTabs.vue';
 import ManyTabs from '@/../component-demos/tabs/examples/ManyTabs.vue';
-import DynamicallyGeneratedTabs from '@/../component-demos/tabs/examples/DynamicallyGeneratedTabs.vue';
 
 const controlsConfig = [
 	{

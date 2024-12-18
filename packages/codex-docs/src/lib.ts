@@ -30,29 +30,18 @@ import IndeterminateState from '../component-demos/checkbox/examples/Indetermina
 
 // Combobox
 import ComboboxBasic from '../component-demos/combobox/examples/ComboboxBasic.vue';
-import ComboboxClearableStartIcon from '../component-demos/combobox/examples/ComboboxClearableStartIcon.vue';
-import ComboboxComplexMenuItem from '../component-demos/combobox/examples/ComboboxComplexMenuItem.vue';
-import ComboboxCustomMenuItem from '../component-demos/combobox/examples/ComboboxCustomMenuItem.vue';
-import ComboboxNoResults from '../component-demos/combobox/examples/ComboboxNoResults.vue';
 import ComboboxWithScroll from '../component-demos/combobox/examples/ComboboxWithScroll.vue';
-import ComboboxDisabled from '../component-demos/combobox/examples/ComboboxDisabled.vue';
 
 // Dialog
 import DialogBasic from '../component-demos/dialog/examples/DialogBasic.vue';
-import DialogWithSelect from '../component-demos/dialog/examples/DialogWithSelect.vue';
-import DialogMaxContent from '../component-demos/dialog/examples/DialogMaxContent.vue';
 import DialogStackedActions from '../component-demos/dialog/examples/DialogStackedActions.vue';
 
 // Icon
 import SimpleIcon from '../component-demos/icon/examples/SimpleIcon.vue';
 
 // Lookup
-import LookupDefault from '../component-demos/lookup/examples/LookupDefault.vue';
-import LookupWithCustomMenuItem from '../component-demos/lookup/examples/LookupWithCustomMenuItem.vue';
-import LookupNoResults from '../component-demos/lookup/examples/LookupNoResults.vue';
+import LookupBasic from '../component-demos/lookup/examples/LookupBasic.vue';
 import LookupWithFetch from '../component-demos/lookup/examples/LookupWithFetch.vue';
-import LookupClearableStartIcon from '../component-demos/lookup/examples/LookupClearableStartIcon.vue';
-import LookupWithPlaceholder from '../component-demos/lookup/examples/LookupWithPlaceholder.vue';
 
 // Menu
 import InputWithMenu from '../component-demos/menu/examples/InputWithMenu.vue';
@@ -70,8 +59,6 @@ import MenuItemWithIcon from '../component-demos/menu-item/examples/MenuItemWith
 import MenuItemHighlightQuery from '../component-demos/menu-item/examples/MenuItemHighlightQuery.vue';
 import MenuItemWithMatch from '../component-demos/menu-item/examples/MenuItemWithMatch.vue';
 import MenuItemMultipleLangs from '../component-demos/menu-item/examples/MenuItemMultipleLangs.vue';
-import MenuItemLongText from '../component-demos/menu-item/examples/MenuItemLongText.vue';
-import MenuItemHideOverflow from '../component-demos/menu-item/examples/MenuItemHideOverflow.vue';
 
 // Message
 import MessageFadeIn from '../component-demos/message/examples/MessageFadeIn.vue';
@@ -90,17 +77,13 @@ import SearchInputClearable from '../component-demos/search-input/examples/Searc
 // Select
 import BasicSelect from '../component-demos/select/examples/BasicSelect.vue';
 import SelectCustomLabel from '../component-demos/select/examples/SelectCustomLabel.vue';
-import SelectComplexMenuItem from '../component-demos/select/examples/SelectComplexMenuItem.vue';
-import SelectCustomMenuItem from '../component-demos/select/examples/SelectCustomMenuItem.vue';
-import SelectWithScroll from '../component-demos/select/examples/SelectWithScroll.vue';
 
 // Tabs
 import BasicTabs from '../component-demos/tabs/examples/BasicTabs.vue';
 import ManyTabs from '../component-demos/tabs/examples/ManyTabs.vue';
-import DynamicallyGeneratedTabs from '../component-demos/tabs/examples/DynamicallyGeneratedTabs.vue';
 
 // TextInput
-import TextInputDemo from '../component-demos/text-input/examples/TextInputDemo.vue';
+import TextInputBasic from '../component-demos/text-input/examples/TextInputBasic.vue';
 
 // Thumbnail
 import ThumbnailDefault from '../component-demos/thumbnail/examples/ThumbnailDefault.vue';
@@ -157,26 +140,15 @@ export {
 	IndeterminateState,
 
 	ComboboxBasic,
-	ComboboxClearableStartIcon,
-	ComboboxComplexMenuItem,
-	ComboboxCustomMenuItem,
-	ComboboxNoResults,
 	ComboboxWithScroll,
-	ComboboxDisabled,
 
 	DialogBasic,
-	DialogMaxContent,
-	DialogWithSelect,
 	DialogStackedActions,
 
 	SimpleIcon,
 
-	LookupDefault,
-	LookupClearableStartIcon,
-	LookupNoResults,
-	LookupWithCustomMenuItem,
+	LookupBasic,
 	LookupWithFetch,
-	LookupWithPlaceholder,
 
 	InputWithMenu,
 	InputWithMenuCustomItemDisplay,
@@ -192,8 +164,6 @@ export {
 	MenuItemHighlightQuery,
 	MenuItemWithMatch,
 	MenuItemMultipleLangs,
-	MenuItemLongText,
-	MenuItemHideOverflow,
 
 	MessageAutoDismiss,
 	MessageFadeIn,
@@ -206,17 +176,13 @@ export {
 	SearchInputDefault,
 	SearchInputWithButton,
 
-	SelectComplexMenuItem,
 	BasicSelect,
 	SelectCustomLabel,
-	SelectCustomMenuItem,
-	SelectWithScroll,
 
 	BasicTabs,
-	DynamicallyGeneratedTabs,
 	ManyTabs,
 
-	TextInputDemo,
+	TextInputBasic,
 
 	ThumbnailCustomIcon,
 	ThumbnailDefault,
