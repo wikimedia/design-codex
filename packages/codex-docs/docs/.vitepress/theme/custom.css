@@ -301,7 +301,7 @@ body {
 	display: none;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
+/* stylelint-disable no-descending-specificity */
 .VPNavBar .link,
 .VPNavBar .text,
 .VPSidebar .text,
@@ -309,6 +309,7 @@ body {
 .VPDocFooter .title {
 	font-size: initial;
 }
+/* stylelint-enable no-descending-specificity */
 
 .VPSidebar .link .text,
 .VPDocAside .content {
@@ -399,8 +400,9 @@ body {
 
 .VPDocFooter .pager-link:focus {
 	border-color: var( --border-color-progressive--focus );
-	/* stylelint-disable-next-line stylistic/declaration-colon-newline-after,
-		stylistic/value-list-comma-newline-after,
+	/* stylelint-disable-next-line
+		@stylistic/declaration-colon-newline-after,
+		@stylistic/value-list-comma-newline-after,
 		scale-unlimited/declaration-strict-value */
 	box-shadow: var( --box-shadow-inset-small ) var( --box-shadow-color-progressive--focus ),
 		var( --box-shadow-inset-medium ) var( --box-shadow-color-inverted );
@@ -519,13 +521,11 @@ body {
 	}
 
 	.cdx-docs-grid-columns-2 {
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		grid-template-columns: repeat( 2, 1fr );
 		grid-gap: var( --spacing-150 );
 	}
 
 	.cdx-docs-grid-columns-3 {
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		grid-template-columns: repeat( 3, 1fr );
 		grid-gap: var( --spacing-150 );
 	}

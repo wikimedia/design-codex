@@ -214,6 +214,8 @@ export default defineComponent( {
 
 	// The visible switch.
 	&__switch {
+		// `force-gpu-composite-layer()` causes Stylelint to complain.
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		.force-gpu-composite-layer();
 		background-color: @background-color-base;
 		display: inline-block;
@@ -268,13 +270,13 @@ export default defineComponent( {
 			// As ToggleSwitch background is a big area transition, let's use the slower duration
 			// for it.
 
-			/* stylelint-disable stylistic/declaration-colon-newline-after,
-				stylistic/value-list-comma-newline-after */
+			/* stylelint-disable @stylistic/declaration-colon-newline-after,
+				@stylistic/value-list-comma-newline-after */
 			transition-duration: @transition-duration-medium,
 				@transition-duration-base,
 				@transition-duration-base;
-			/* stylelint-enable stylistic/declaration-colon-newline-after,
-				stylistic/value-list-comma-newline-after */
+			/* stylelint-enable @stylistic/declaration-colon-newline-after,
+				@stylistic/value-list-comma-newline-after */
 		}
 	}
 

@@ -139,6 +139,7 @@ export default defineComponent( {
 
 	&--opacity {
 		.cdx-docs-tokens-demo__token {
+			/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 			background-image: repeating-conic-gradient( #000 0% 25%, transparent 0% 50% );
 			background-position: 0 0;
 			background-size: @size-125 @size-125;

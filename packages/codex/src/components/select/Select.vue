@@ -337,6 +337,7 @@ export default defineComponent( {
 	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 	background-position: center right @spacing-75;
 	background-repeat: no-repeat;
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	background-size: calc( ~'max( @{size-icon-x-small}, @{min-size-icon-x-small} )' );
 
 	&:disabled {

@@ -6,10 +6,21 @@ module.exports = {
 	reportNeedlessDisables: true,
 	overrides: [
 		{
-			files: [ '**/*.(less|css|html|vue)' ],
+			files: [ '**/*.(less|html|vue)' ],
 			customSyntax: 'postcss-less',
 			rules: {
-				'function-no-unknown': null
+				'function-no-unknown': null,
+				'plugin/no-unsupported-browser-features': [
+					'error',
+					{
+						ignore: [
+							'css-gradients',
+							'css-nesting',
+							'css-overflow',
+							'flexbox-gap'
+						]
+					}
+				]
 			}
 		},
 		{
@@ -24,10 +35,10 @@ module.exports = {
 		}
 	],
 	plugins: [
+		'@stylistic/stylelint-plugin',
 		'stylelint-declaration-strict-value',
 		'stylelint-no-unsupported-browser-features',
-		'stylelint-order',
-		'stylelint-stylistic'
+		'stylelint-order'
 	],
 	rules: {
 		'max-nesting-depth': [

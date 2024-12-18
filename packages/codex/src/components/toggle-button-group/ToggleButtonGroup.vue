@@ -157,8 +157,8 @@ export default defineComponent( {
 			// (those get `z-index: 3;` in 'button-group.less').
 			z-index: @z-index-stacking-2;
 
-			/* stylelint-disable stylistic/declaration-colon-newline-after,
-				stylistic/value-list-comma-newline-after */
+			/* stylelint-disable @stylistic/declaration-colon-newline-after,
+				@stylistic/value-list-comma-newline-after */
 			// When two toggled-on buttons are adjacent to each other, display a white line
 			// between them, using the same box-shadow trick as in 'button-group.less'.
 			box-shadow: @box-shadow-outset-small-top @box-shadow-color-inverted,
@@ -172,8 +172,8 @@ export default defineComponent( {
 					@box-shadow-inset-medium @box-shadow-color-inverted,
 					@box-shadow-outset-small @box-shadow-color-inverted;
 			}
-			/* stylelint-enable stylistic/declaration-colon-newline-after,
-				stylistic/value-list-comma-newline-after */
+			/* stylelint-enable @stylistic/declaration-colon-newline-after,
+				@stylistic/value-list-comma-newline-after */
 		}
 	}
 }

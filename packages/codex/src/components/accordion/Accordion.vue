@@ -163,6 +163,7 @@ export default defineComponent( {
 			background-color: @background-color-interactive-subtle--active;
 		}
 
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		&:focus-visible {
 			box-shadow: @box-shadow-inset-medium @border-color-progressive;
 			outline: @outline-base--focus;

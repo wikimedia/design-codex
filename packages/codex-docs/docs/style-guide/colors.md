@@ -36,7 +36,6 @@ To check the contrast ratio between two colors, visit the [WebAIM contrast check
 
 .cdx-docs-primary-colors {
 	display: grid;
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	grid-template-columns: repeat( 12, 1fr );
 	grid-template-rows: repeat( 6, 1fr );
 	grid-gap: 2px;

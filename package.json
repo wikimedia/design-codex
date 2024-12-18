@@ -32,10 +32,11 @@
 		"doc:dev": "npm run build-if-missing -w @wikimedia/codex-icons  && concurrently \"npm run watch -w @wikimedia/codex-design-tokens\" \"CODEX_DOC_DEV=1 npm run dev -w codex-docs\"",
 		"lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint --workspaces --if-present",
 		"lint:eslint": "npm run build-all-if-missing && eslint --max-warnings 0 .",
-		"lint:stylelint": "stylelint --max-warnings 0 . packages/codex-docs/docs/.vitepress",
+		"lint:stylelint": "stylelint --max-warnings 0 --quiet-deprecation-warnings . packages/codex-docs/docs/.vitepress",
 		"test": "npm run lint && npm run test --workspaces --if-present && ./build/diff-css.sh"
 	},
 	"devDependencies": {
+		"@stylistic/stylelint-plugin": "3.1.1",
 		"@typescript-eslint/eslint-plugin": "6.9.0",
 		"@typescript-eslint/parser": "6.9.0",
 		"concurrently": "6.3.0",
@@ -46,11 +47,10 @@
 		"netlify-cli": "17.38.0",
 		"postcss-html": "1.7.0",
 		"postcss-markdown": "1.2.0",
-		"stylelint-config-wikimedia": "0.16.1",
-		"stylelint-declaration-strict-value": "1.10.4",
-		"stylelint-no-unsupported-browser-features": "7.0.0",
+		"stylelint-config-wikimedia": "0.18.0",
+		"stylelint-declaration-strict-value": "1.10.6",
+		"stylelint-no-unsupported-browser-features": "8.0.2",
 		"stylelint-order": "6.0.4",
-		"stylelint-stylistic": "0.4.3",
 		"typescript": "5.2.2"
 	}
 }

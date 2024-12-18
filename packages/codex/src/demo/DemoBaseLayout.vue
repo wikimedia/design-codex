@@ -70,6 +70,7 @@ const rootClasses = computed( () => ( {
 // Apply dark mode variables if the dark mode toggle is enabled.
 // Because dialogs are teleported outside of the cdx-demo div, apply the variables to the entire
 // document, not just `div.cdx-demo`.
+/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 :root:has( .cdx-demo--dark ) {
 	.cdx-mode-dark();
 }
@@ -79,6 +80,7 @@ const rootClasses = computed( () => ( {
 @scroll-padding-top-demo: calc( @height-demo-header + @spacing-100 );
 
 html {
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	scroll-behavior: smooth;
 	scroll-padding-top: @scroll-padding-top-demo;
 }

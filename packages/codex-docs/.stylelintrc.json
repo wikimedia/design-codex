@@ -10,6 +10,34 @@
 					{
 						"ignorePseudoClasses": [ "deep" ]
 					}
+				],
+				"plugin/no-unsupported-browser-features": [
+					"error",
+					{
+						"ignore": [
+							"css-nesting",
+							"css-overflow",
+							"flexbox-gap"
+						]
+					}
+				]
+			}
+		},
+		{
+			"files": [ "docs/.vitepress/theme/*.css" ],
+			"customSyntax": "postcss-less",
+			"rules": {
+				"function-no-unknown": null,
+				"plugin/no-unsupported-browser-features": [
+					"error",
+					{
+						"ignore": [
+							"css-has",
+							"css-nesting",
+							"css-overflow",
+							"flexbox-gap"
+						]
+					}
 				]
 			}
 		},

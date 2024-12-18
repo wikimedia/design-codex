@@ -564,6 +564,7 @@ export default defineComponent( {
 	&__list {
 		display: flex;
 		overflow-x: auto;
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		scrollbar-width: none;
 		-webkit-overflow-scrolling: touch;
 
@@ -720,9 +721,10 @@ export default defineComponent( {
 		}
 	}
 
-	// focus-visible styles for keyboard navigation only
+	// focus-visible styles for keyboard navigation only.
 	&--framed,
 	&:not( .cdx-tabs--framed ) {
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		> .cdx-tabs__header .cdx-tabs__list__item:focus-visible {
 			box-shadow: @box-shadow-inset-medium @border-color-progressive;
 			outline: @outline-base--focus;

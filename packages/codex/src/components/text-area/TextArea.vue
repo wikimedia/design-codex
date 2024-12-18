@@ -484,7 +484,6 @@ export default defineComponent( {
 	// Add additional padding to textarea when the start icon exists.
 	// Sets the start icon to 1.25em relative to the font size.
 	&--has-start-icon {
-		/* stylelint-disable-next-line no-descending-specificity */
 		.cdx-text-area__textarea {
 			.cdx-mixin-icon-wrapper-padding( start, @spacing-50 );
 		}
@@ -493,7 +492,6 @@ export default defineComponent( {
 	// Add additional padding to textarea when the end icon exists.
 	// Sets the end icon to 1em relative to the font size.
 	&--has-end-icon {
-		/* stylelint-disable-next-line no-descending-specificity */
 		.cdx-text-area__textarea {
 			.cdx-mixin-icon-wrapper-padding( end, @spacing-50, @size-icon-small );
 		}
