@@ -24,7 +24,7 @@ Illustrations that appear on a white background should include a 2 dp outline st
 
 ### Grayscale
 
-Grayscale illustrations (for use in empty states) should include a 2 dp outline stroke in Gray400. Elements inside of the illustration can contain an outline stroke, this stroke should also be a 2 dp stroke in Gray400. Illustrations should only include [grayscale colors](colors.html#gray-scale) available in the excluding Black.
+Grayscale illustrations (for use in empty states) should include a 2 dp outline stroke in Gray400. Elements inside of the illustration can contain an outline stroke, this stroke should also be a 2 dp stroke in Gray400. Illustrations should only include [grayscale colors](colors.html#Gray) available in the excluding Black.
 
 ## Creating illustrations
 

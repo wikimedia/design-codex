@@ -88,9 +88,7 @@ export default defineComponent( {
 ### Wrapping a prop not named `modelValue`
 Below is a simple component that wraps a Codex Dialog. It takes an `open` prop, and passes it down
 to the Dialog. It's designed to be used with a named `v-model` in its parent component, e.g.
-`<custom-dialog v-model:open="isDialogOpen" />`. See also the
-[Dialog documentation](../../components/demos/dialog.md#reusable-custom-dialog-example) for a more
-worked-out example.
+`<custom-dialog v-model:open="isDialogOpen" />`.
 
 ```vue
 <template>

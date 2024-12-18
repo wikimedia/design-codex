@@ -455,9 +455,9 @@ This works for `<label>` and `<legend>`.
 </template>
 </cdx-demo-wrapper>
 
-#### Visually hidden
+#### Visually-hidden
 
-Occasionally, there may be a [use case](field.md#complex-field-with-two-inputs) for the label to be
+Occasionally, there may be a [use case](field.md#field-with-multiple-inputs) for the label to be
 visually hidden. In these cases, it should still be present in the DOM with appropriate elements
 and ARIA attributes.
 

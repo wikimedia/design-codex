@@ -31,7 +31,7 @@ import { cdxIconAlert } from '@wikimedia/codex-icons';
 Use icons through the [icon component](../components/demos/icon.md) or through other components
 that accept icons as props. You can also embed the icon component in another component's slot;
 for example, you can use the icon component inside the button component to create a button with
-an icon. For complete code examples of how to use icons, see the [demos](../components/demos/icon.md#demos)
+an icon. For complete code examples of how to use icons, see the [demos](../components/demos/icon.md#examples)
 in the icon component documentation.
 
 ### Icon labels

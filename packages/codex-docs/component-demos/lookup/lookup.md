@@ -237,13 +237,14 @@ information.
 
 ### Other features
 
-The Lookup component has an internal Menu and TextInput. You can use the following features from
+The Lookup component has an internal TextInput and Menu. You can use the following features from
 those components in the Lookup component:
-- [Menu groups](./menu.html#with-menu-groups)
-- [Custom menu item display](./menu.html#with-custom-menu-item-display)
-- [MenuItem features](./menu-item.html)
 - [Start and end icons](./text-input.html#with-icons)
 - [Clearable](./text-input.html#clearable)
+- [Custom menu item display](./menu.html#menu-item-display)
+- [Limited height with scrolling](./menu.html#with-scrolling-enabled)
+- [Menu groups](./menu.html#menu-groups) (demonstrated above)
+- [MenuItem features](./menu-item.html)
 
 ## Technical implementation
 

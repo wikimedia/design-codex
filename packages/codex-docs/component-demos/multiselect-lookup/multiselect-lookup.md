@@ -280,8 +280,10 @@ more information.
 
 The MultiselectLookup component has an internal Menu and ChipInput. You can use the following
 features from those components in the MultiselectLookup component:
-- [Custom menu item display](./menu.html#with-custom-menu-item-display)
-- [Menu groups](./menu.html#with-menu-groups)
+- [Custom menu item display](./menu.html#menu-item-display)
+- [Limited height with scrolling](./menu.html#with-scrolling-enabled)
+- [Menu groups](./menu.html#menu-groups)
+- [MenuItem features](./menu-item.html)
 
 ## Technical implementation
 

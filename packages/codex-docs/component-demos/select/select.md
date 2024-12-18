@@ -221,9 +221,10 @@ information.
 ### Other features
 
 The Select component has an internal Menu. You can use the following features from Menu in the Select component:
-- [Custom menu item display](./menu.html#with-custom-menu-item-display)
+- [Custom menu item display](./menu.html#menu-item-display)
 - [Limited height with scrolling](./menu.html#with-scrolling-enabled)
-- [Menu groups](./menu.html#with-menu-groups) (demonstrated above)
+- [Menu groups](./menu.html#menu-groups)  (demonstrated above)
+- [MenuItem features](./menu-item.html)
 
 ## Technical implementation
 

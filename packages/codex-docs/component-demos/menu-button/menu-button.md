@@ -187,7 +187,8 @@ The MenuButton component has an internal ToggleButton and Menu. You can use the
 following features from those components in the MenuButton component:
 - [Custom menu item display](./menu.html#menu-item-display)
 - [Limited height with scrolling](./menu.html#with-scrolling-enabled)
-- [Menu groups](./menu.html#with-menu-groups)
+- [Menu groups](./menu.html#menu-groups)
+- [MenuItem features](./menu-item.html)
 
 ## Technical implementation
 

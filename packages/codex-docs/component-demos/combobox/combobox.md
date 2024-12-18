@@ -198,8 +198,11 @@ The Combobox component has an internal TextInput and Menu. You can use the follo
 those components in the Combobox component:
 - [Start and end icons](./text-input.html#with-icons)
 - [Clearable](./text-input.html#clearable)
-- [Custom menu item display](./menu.html#with-custom-menu-item-display)
-- [Menu groups](./menu.html#with-menu-groups)
+- [Custom menu item display](./menu.html#menu-item-display)
+- [Limited height with scrolling](./menu.html#with-scrolling-enabled)
+- [Menu groups](./menu.html#menu-groups)
+- [MenuItem features](./menu-item.html)
+
 
 ## Technical implementation
 

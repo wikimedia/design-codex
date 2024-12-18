@@ -54,7 +54,7 @@ A form can utilize fields in multiple different formats including multi-columns,
 
 #### Labels
 
-Fields use top labels to help promote the intended flow of reading a page visually. All inputs should have an associated label for accessibility purposes, as suggested in the guidelines for [Label](../components/demos/label.md). There are some instances where a [visually-hidden label](../components/demos/label.md#demos) can also be used.
+Fields use top labels to help promote the intended flow of reading a page visually. All inputs should have an associated label for accessibility purposes, as suggested in the guidelines for [Label](../components/demos/label.md). There are some instances where a [visually-hidden label](../components/demos/label.md#visually-hidden-label) can also be used.
 
 <div class="cdx-docs-example">
 

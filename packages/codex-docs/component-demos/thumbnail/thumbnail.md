@@ -85,7 +85,7 @@ The placeholder serves two purposes:
 
 The second case may occur in a group of components, like Cards or MenuItems, when some items have a
 thumbnail image but some do not. In this case, the placeholder icon helps maintain a consistent
-layout for all items. Refer to the [MenuItem demo](./menu-item.html#within-a-list) for an example.
+layout for all items. Refer to the [Card groups demo](./card.html#card-groups) for an example.
 
 #### Default placeholder
 

@@ -87,11 +87,11 @@ Avoid using Link to perform an action (such as “hide” or "edit" when using V
 
 ### Base Link
 
-Use [base Links](../components/mixins/link.md#types) (blue) as the default Link type.
+Use [base Links](../components/mixins/link.md#base-link) (blue) as the default Link type.
 
 ### Red Link
 
-Use [red Links](../components/mixins/link.md#types) only to represent wiki pages that do not exist yet.
+Use [red Links](../components/mixins/link.md#red-link) only to represent wiki pages that do not exist yet.
 
 <div class="cdx-docs-example">
 
