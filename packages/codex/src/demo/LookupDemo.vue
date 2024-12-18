@@ -11,7 +11,7 @@
 			@update:input-value="onUpdateInputValue"
 			@update:selected="onUpdateSelected"
 		/>
-		<p class="cdx-docs-demo-text">
+		<p>
 			Selected value: {{ selection }}
 		</p>
 	</section>

@@ -1,21 +1,15 @@
 <template>
-	<div>
-		<p class="cdx-docs-demo-text">
-			Selected value: {{ selection }}
-		</p>
-
-		<cdx-lookup
-			v-model:selected="selection"
-			v-model:input-value="inputValue"
-			:menu-items="menuItems"
-			:menu-config="menuConfig"
-			aria-label="Lookup demo with initial selection"
-		>
-			<template #no-results>
-				No results found.
-			</template>
-		</cdx-lookup>
-	</div>
+	<cdx-lookup
+		v-model:selected="selection"
+		v-model:input-value="inputValue"
+		:menu-items="menuItems"
+		:menu-config="menuConfig"
+		aria-label="Lookup demo with initial selection"
+	>
+		<template #no-results>
+			No results found.
+		</template>
+	</cdx-lookup>
 </template>
 
 <script>

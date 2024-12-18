@@ -9,7 +9,7 @@
 			aria-label="MultiselectLookup demo"
 			@input="onInput"
 		/>
-		<p class="cdx-docs-demo-text">
+		<p>
 			Selected value(s): {{ selection }}
 		</p>
 	</section>

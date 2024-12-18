@@ -1,7 +1,4 @@
 <template>
-	<p class="cdx-docs-demo-text">
-		Form data: {{ formData }}
-	</p>
 	<!-- Note: This form does not POST or GET on submit -->
 	<form
 		id="discussion-pages"
@@ -161,7 +158,6 @@ export default defineComponent( {
 			checkboxValue,
 			checkboxes,
 			inputValue,
-			formData,
 			status,
 			messages,
 			validate,

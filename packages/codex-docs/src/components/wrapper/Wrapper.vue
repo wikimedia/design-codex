@@ -524,11 +524,6 @@ export default defineComponent( {
 		p:last-child {
 			margin-bottom: 0;
 		}
-
-		// Special styles for text within the demo pane, e.g. a label for the selected value.
-		.cdx-docs-demo-text {
-			font-weight: var( --font-weight-bold );
-		}
 	}
 
 	// Demos don't get link styles from VitePress because of the `vp-raw` class, but sometimes we
