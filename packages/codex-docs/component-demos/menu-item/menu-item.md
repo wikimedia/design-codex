@@ -1,5 +1,5 @@
 <script setup>
-import { CdxMenuItem } from '@wikimedia/codex';
+import { CdxMenuItem, CdxAccordion } from '@wikimedia/codex';
 import MenuItemDefault from '@/../component-demos/menu-item/examples/MenuItemDefault.vue';
 import MenuItemWithUrl from '@/../component-demos/menu-item/examples/MenuItemWithUrl.vue';
 import MenuItemWithThumbnail from '@/../component-demos/menu-item/examples/MenuItemWithThumbnail.vue';
@@ -8,8 +8,6 @@ import MenuItemHighlightQuery from '@/../component-demos/menu-item/examples/Menu
 import MenuItemWithMatch from '@/../component-demos/menu-item/examples/MenuItemWithMatch.vue';
 import MenuItemWithSupportingText from '@/../component-demos/menu-item/examples/MenuItemWithSupportingText.vue';
 import MenuItemMultipleLangs from '@/../component-demos/menu-item/examples/MenuItemMultipleLangs.vue';
-import MenuItemLongText from '@/../component-demos/menu-item/examples/MenuItemLongText.vue';
-import MenuItemHideOverflow from '@/../component-demos/menu-item/examples/MenuItemHideOverflow.vue';
 
 const controlsConfig = [
 	{
@@ -66,6 +64,11 @@ const controlsConfig = [
 	{
 		name: 'searchQuery',
 		type: 'text'
+	},
+	{
+		name: 'action',
+		type: 'radio',
+		options: [ 'default', 'destructive' ],
 	}
 ];
 </script>
@@ -90,25 +93,25 @@ MenuItem is an “internal” component, used exclusively to represent content w
 ### About MenuItem
 
 MenuItems can have one of two functions:
-1. **Selectable options:** MenuItems in form elements like [Select](./select.md) or [Combobox](./combobox.md) are selectable.
-2. **Trigger actions:** MenuItems in [MenuButton](menu-button.md) trigger actions. There are two types of actions:
-	- **Standard actions:** neutral actions such as "Edit" or "Share".
-	- **Destructive actions:** actions with potentially negative or irreversible impact, such as "Delete".
+1. **Selectable options**<br>MenuItems in form elements like [Select](./select.md) or [Combobox](./combobox.md) are selectable.
+2. **Trigger actions**<br>MenuItems in [MenuButton](menu-button.md) trigger actions. There are two types of actions:
+	- **Standard actions**<br>neutral actions such as "Edit" or "Share".
+	- **Destructive actions**<br>actions with potentially negative or irreversible impact, such as "Delete".
 
 MenuItem includes the following elements.
 
 #### Media (optional)
 
-An icon or thumbnail can be included in order to provide more context about the menu item content.
+An Icon or Thumbnail can be included in order to provide more context about the menu item content.
 
 <cdx-demo-best-practices>
-<cdx-demo-best-practice>Use an icon to visually reinforce the MenuItem content.</cdx-demo-best-practice>
-<cdx-demo-best-practice>Use a thumbnail to provide a preview of the menu item content.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Use an Icon to visually reinforce the MenuItem content.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Use a Thumbnail to provide a preview of the MenuItem content.</cdx-demo-best-practice>
 </cdx-demo-best-practices>
 
 #### Label
 
-A clear and descriptive title for the menu item.
+A clear and descriptive title for the MenuItem.
 
 #### Supporting text (optional)
 
@@ -142,6 +145,7 @@ Menu, like [Select](./select), [Lookup](./lookup), or [TypeaheadSearch](./typeah
 
 ### Basic usage
 
+By default, the MenuItem's `label` will be displayed in the regular font weight.
 This MenuItem has a bold `label` and a `description`.
 
 <cdx-demo-wrapper>
@@ -222,10 +226,10 @@ If a `url` property is included, the MenuItem will be wrapped in an anchor tag.
 
 ### Search query highlight
 
-When a MenuItem displays a search result, the current `searchQuery` can be provided (along with the
-`highlightQuery` prop) and will be visually differentiated within the MenuItem's `label`. The
-`searchQuery` text will have a normal font weight, while the rest of the `label` will be bold,
-which is meant to bring attention to the available suggestions based on the current `searchQuery`.
+When a MenuItem displays a search result, the current `searchQuery` can be provided and will be
+visually differentiated within the MenuItem's `label`. The `searchQuery` text will have a normal
+font weight, while the rest of the `label` will be bold, which is meant to bring attention to the
+available suggestions based on the current `searchQuery`.
 
 In the example below, the `searchQuery` is "Co".
 
@@ -246,7 +250,15 @@ In the example below, the `searchQuery` is "Co".
 </template>
 </cdx-demo-wrapper>
 
-### With search query match
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+To highlight the search query within the label text, set `highlightQuery` to `true` and provide the
+current `searchQuery` text.
+
+</cdx-accordion>
+
+### Search query match
 
 For search results, a `match` property may be included that represents the text related to that item
 that matched the `searchQuery` (e.g. a [Wikidata alias](https://www.wikidata.org/wiki/Help:Aliases)).
@@ -272,7 +284,7 @@ cat." The `match` is included when highlighting the search query within a result
 </template>
 </cdx-demo-wrapper>
 
-### With supporting text
+### Supporting text
 
 Text that supports or explains the `label` can be added via the `supportingText` prop. This text
 will be displayed after the `label` in a more subtle color, and is not included when highlighting
@@ -298,14 +310,10 @@ The example below shows a result for the search term "Corn," which redirects to 
 </template>
 </cdx-demo-wrapper>
 
-### With multiple languages
+### Multiple languages
 
-Individual `lang` attributes can be set for the `label`, `description`, `match`, and
-`supportingText` props via the `language` prop, which is an object of `lang` attributes for those
-props.
-
-The example below demonstrates a search result in a Greek interface for the English word
-"moon."
+The MenuItem component can support different languages for different text elements. The example
+below demonstrates a search result in a Greek interface for the English word "moon."
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -324,47 +332,14 @@ The example below demonstrates a search result in a Greek interface for the Engl
 </template>
 </cdx-demo-wrapper>
 
-### With long title
+<cdx-accordion>
+<template #title>Developer notes</template>
 
-Label text should be kept short, but long labels will wrap onto a new line.
+Individual `lang` attributes can be set for the `label`, `description`, `match`, and
+`supportingText` props via the `language` prop, which is an object of `lang` attributes for those
+props.
 
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<MenuItemLongText />
-</template>
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/menu-item/examples/MenuItemLongText.vue [NPM]
-
-<<< @/../component-demos/menu-item/examples-mw/MenuItemLongText.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### With long description
-
-Use the `hideDescriptionOverflow` property to truncate long descriptions.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<MenuItemHideOverflow />
-</template>
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/menu-item/examples/MenuItemHideOverflow.vue [NPM]
-
-<<< @/../component-demos/menu-item/examples-mw/MenuItemHideOverflow.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
+</cdx-accordion>
 
 ## Vue usage
 
