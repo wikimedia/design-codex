@@ -15,14 +15,14 @@
 			"excludedFiles": "src/**/*.test.[jt]s",
 			"extends": [
 				"wikimedia/client-common",
-				"wikimedia/vue3-es6"
+				"wikimedia/vue3-common",
+				"wikimedia/language/es2016"
 			],
 			"rules": {
 				"vue/no-unsupported-features": [ "error", {
 					"version": "^3.4.27"
 				} ],
-				"vue/component-name-in-template-casing": [ "error", "kebab-case" ],
-				"unicorn/prefer-includes": "off"
+				"vue/component-name-in-template-casing": [ "error", "kebab-case" ]
 			}
 		},
 		{
@@ -53,7 +53,7 @@
 				"es-x/no-rest-spread-properties": "off",
 				"es-x/no-nullish-coalescing-operators": "off",
 				"es-x/no-async-functions": "off",
-				"es-x/no-array-prototype-includes": "off",
+				"es-x/no-class-fields": "off",
 				"jsdoc/require-param-type": "off",
 				"jsdoc/require-returns-type": "off",
 				"jsdoc/check-tag-names": [

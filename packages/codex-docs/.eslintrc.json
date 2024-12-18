@@ -40,13 +40,12 @@
 				"component-demos/**/examples-mw/*.vue"
 			],
 			"extends": [
-				"wikimedia/language/es6"
+				"wikimedia/language/es2016"
 			],
 			"rules": {
 				"vue/block-lang": [ "error", {
 					"script": { "lang": "js" }
 				} ],
-				"es-x/no-array-prototype-includes": "off",
 				"vue/no-undef-components": [ "error", {
 					"ignorePatterns": [
 						"client-only",
