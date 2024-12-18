@@ -39,5 +39,5 @@ export function makeStringTypeValidator<T extends string>(
 	allowedValues: readonly T[]
 ) : StringTypeValidator<T> {
 	return ( s: unknown ) : s is T => typeof s === 'string' &&
-		( allowedValues as readonly string[] ).indexOf( s ) !== -1;
+		( allowedValues as readonly string[] ).includes( s );
 }

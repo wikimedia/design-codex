@@ -17,7 +17,7 @@ const libEntries = getLibEntries();
 /** @type {import('vite').UserConfig} */
 const baseConfig = {
 	build: {
-		target: [ 'es2015', 'edge18', 'safari11' ]
+		target: [ 'es2016', 'edge18', 'safari11' ]
 	},
 
 	esbuild: {

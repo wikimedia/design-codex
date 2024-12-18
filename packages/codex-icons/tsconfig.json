@@ -1,13 +1,13 @@
 {
 	"compilerOptions": {
-		"target": "es2015",
+		"target": "es2016",
 		"useDefineForClassFields": true,
 		"module": "ESNext",
 		"moduleResolution": "node",
 		"strict": true,
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
-		"lib": [ "es2015", "dom" ],
+		"lib": [ "es2016", "dom" ],
 		"skipLibCheck": true,
 		"declaration": true,
 		"declarationDir": "dist/types",

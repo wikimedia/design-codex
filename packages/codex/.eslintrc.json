@@ -53,6 +53,7 @@
 				"es-x/no-rest-spread-properties": "off",
 				"es-x/no-nullish-coalescing-operators": "off",
 				"es-x/no-async-functions": "off",
+				"es-x/no-array-prototype-includes": "off",
 				"jsdoc/require-param-type": "off",
 				"jsdoc/require-returns-type": "off",
 				"jsdoc/check-tag-names": [

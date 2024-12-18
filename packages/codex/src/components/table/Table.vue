@@ -710,7 +710,7 @@ export default defineComponent( {
 		): Record<string, boolean> {
 			const rowKey = getRowKey( row, rowIndex );
 			return {
-				'cdx-table__row--selected': wrappedSelectedRows.value.indexOf( rowKey ) !== -1
+				'cdx-table__row--selected': wrappedSelectedRows.value.includes( rowKey )
 			};
 		}
 

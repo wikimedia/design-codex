@@ -85,11 +85,6 @@ const ButtonWeights : readonly ButtonWeight[] = [ 'normal', 'primary', 'quiet' ]
 function isButtonWeight( s: unknown ): s is ButtonWeight {
 	return typeof s === 'string' &&
 		( ButtonWeights as readonly string[] ).includes( s );
-
-	// At the time of writing, we couldn't use .includes() yet because we were
-	// targeting ES6. The ES6 version of the above would be:
-	return typeof s === 'string' &&
-		( ButtonWeights as readonly string[] ).indexOf( s ) !== -1;
 }
 ```
 Unlike with enums, string values can be used directly, so code like `<cdx-button weight="primary">`
@@ -115,11 +110,6 @@ type ButtonWeight = typeof ButtonWeights[ number ];
 function isButtonWeight( s: unknown ): s is ButtonWeight {
 	return typeof s === 'string' &&
 		( ButtonWeights as readonly string[] ).includes( s );
-
-	// At the time of writing, we couldn't use .includes() yet because we were
-	// targeting ES6. The ES6 version of the above would be:
-	return typeof s === 'string' &&
-		( ButtonWeights as readonly string[] ).indexOf( s ) !== -1;
 }
 ```
 This results in `ButtonWeight` being the same union type as in the "Union types" alternative

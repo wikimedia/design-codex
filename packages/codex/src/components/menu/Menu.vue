@@ -422,7 +422,7 @@ export default defineComponent( {
 			// Return the single selected menu item or, in multiselect mode, the first one.
 			return computedMenuItems.value.find(
 				( menuItem ) => selectedIsArray( props.selected ) ?
-					props.selected.indexOf( menuItem.value ) !== -1 :
+					props.selected.includes( menuItem.value ) :
 					menuItem.value === props.selected
 			) ?? null;
 		}
@@ -440,7 +440,7 @@ export default defineComponent( {
 		 */
 		function isItemSelected( value: string | number ): boolean {
 			return selectedIsArray( props.selected ) ?
-				props.selected.indexOf( value ) !== -1 :
+				props.selected.includes( value ) :
 				value === props.selected;
 		}
 
@@ -452,7 +452,7 @@ export default defineComponent( {
 		function updateSelected( value: string | number ) {
 			if ( selectedIsArray( props.selected ) ) {
 				// If this value is not currently selected, add it. If it is selected, remove it.
-				const newSelected = props.selected.indexOf( value ) === -1 ?
+				const newSelected = !props.selected.includes( value ) ?
 					props.selected.concat( value ) :
 					props.selected.filter( ( item ) => item !== value );
 				emit( 'update:selected', newSelected );

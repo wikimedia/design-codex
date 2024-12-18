@@ -98,7 +98,7 @@ export default defineComponent( {
 
 		function isSelected( button: ButtonGroupItem ): boolean {
 			if ( Array.isArray( props.modelValue ) ) {
-				return props.modelValue.indexOf( button.value ) !== -1;
+				return props.modelValue.includes( button.value );
 			} else if ( props.modelValue !== null ) {
 				return props.modelValue === button.value;
 			}
@@ -107,7 +107,7 @@ export default defineComponent( {
 
 		function onUpdate( button: ButtonGroupItem, nowSelected: boolean ) {
 			if ( Array.isArray( props.modelValue ) ) {
-				const wasSelected = props.modelValue.indexOf( button.value ) !== -1;
+				const wasSelected = props.modelValue.includes( button.value );
 				if ( nowSelected && !wasSelected ) {
 					// Add button.value to props.modelValue
 					emit( 'update:modelValue', props.modelValue.concat( button.value ) );
