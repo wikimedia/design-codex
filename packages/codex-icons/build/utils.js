@@ -1,4 +1,4 @@
-/** @typedef {import('../src/types').Icon} Icon */
+/** @import { Icon } from '../src/types' */
 
 /**
  * Transform an icon's name into a Less variable name.

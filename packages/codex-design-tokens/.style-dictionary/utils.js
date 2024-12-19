@@ -1,4 +1,4 @@
-/** @typedef {import('./types.js').PackageJson} PackageJson */
+/** @import { PackageJson } from './types.js' */
 
 import path from 'node:path';
 import { createRequire } from 'node:module';

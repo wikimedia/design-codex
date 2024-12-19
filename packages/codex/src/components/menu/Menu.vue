@@ -124,8 +124,7 @@ import useSplitAttributes from '../../composables/useSplitAttributes';
  * @param selected
  * @return Whether this Menu is in multiselect mode.
  */
-function selectedIsArray( selected: MenuItemValue | MenuItemValue[] | null ):
-	selected is MenuItemValue[] {
+function selectedIsArray( selected: MenuItemValue | MenuItemValue[] | null ) {
 	return selected !== null && Array.isArray( selected );
 }
 

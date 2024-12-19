@@ -41,8 +41,15 @@
 			"files": [ "**/*.js", "**/*.mjs" ],
 			"excludedFiles": "src/**",
 			"rules": {
+				"@typescript-eslint/no-var-requires": "off",
 				"jsdoc/valid-types": "off",
-				"@typescript-eslint/no-var-requires": "off"
+				"jsdoc/no-undefined-types": "off",
+				"jsdoc/check-tag-names": [
+					"error",
+					{
+						"definedTags": [ "import" ]
+					}
+				]
 			}
 		}
 	]

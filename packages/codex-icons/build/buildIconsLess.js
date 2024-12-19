@@ -1,4 +1,4 @@
-/** @typedef {import('../src/types').Icon} Icon */
+/** @import { Icon } from '../src/types' */
 
 import { writeFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';

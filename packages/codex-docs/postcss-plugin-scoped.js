@@ -1,5 +1,6 @@
-/** @typedef {import('vite').FilterPattern} FilterPattern */
-/** @typedef {import('postcss').Plugin} Plugin */
+/** @import { FilterPattern } from 'vite' */
+/** @import { Plugin } from 'postcss' */
+
 /** @typedef {{ include?: FilterPattern, exclude?: FilterPattern, plugin: Plugin }} PluginOptions */
 
 import { createFilter } from 'vite';

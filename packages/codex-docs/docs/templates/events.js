@@ -1,4 +1,4 @@
-/** @typedef {import('vue-docgen-api').EventDescriptor} EventDescriptor */
+/** @import { EventDescriptor } from 'vue-docgen-api' */
 
 import { getTypeText, mdclean } from './utils.js';
 

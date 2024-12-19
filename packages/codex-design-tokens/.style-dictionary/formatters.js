@@ -1,6 +1,5 @@
-/** @typedef {import('style-dictionary/types/Matcher').Matcher} Matcher */
-/** @typedef {import('style-dictionary').Formatter} Formatter */
-/** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
+/** @import { Matcher } from 'style-dictionary/types/Matcher' */
+/** @import { Formatter, TransformedToken } from 'style-dictionary' */
 
 import StyleDictionary from 'style-dictionary';
 import { regExpEscape } from './utils.js';

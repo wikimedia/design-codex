@@ -1,4 +1,4 @@
-/** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
+/** @import { TransformedToken } from 'style-dictionary' */
 
 import { getTokenType } from '../.style-dictionary/transformers.js';
 

@@ -1,8 +1,6 @@
 import { getTypeText, mdclean } from './utils.js';
 
-/** @typedef {import('vue-docgen-api').BlockTag} BlockTag */
-/** @typedef {import('vue-docgen-api').PropDescriptor} PropDescriptor */
-/** @typedef {import('vue-docgen-api').Tag} Tag */
+/** @import { BlockTag, PropDescriptor, Tag } from 'vue-docgen-api' */
 
 /**
  * Return true if the thing is a tag

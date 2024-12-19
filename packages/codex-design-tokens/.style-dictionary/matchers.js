@@ -1,5 +1,4 @@
-/** @typedef {import('style-dictionary/types/Matcher').Matcher} Matcher */
-/** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
+/** @import { TransformedToken } from 'style-dictionary' */
 
 /**
  * @param {TransformedToken} token

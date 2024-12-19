@@ -1,8 +1,6 @@
 import { getTypeText, mdclean } from './utils.js';
 
-/** @typedef {import('vue-docgen-api').MethodDescriptor} MethodDescriptor */
-/** @typedef {import('vue-docgen-api').Param} Param */
-/** @typedef {import('vue-docgen-api').ParamTag} ParamTag */
+/** @import { MethodDescriptor, Param, ParamTag } from 'vue-docgen-api' */
 
 /**
  * Get the contents of the "Params" cell for a method.

@@ -1,7 +1,7 @@
-/** @typedef {import('vue-docgen-api').ParamTag} ParamTag */
-/** @typedef {import('vue-docgen-cli').Templates[ 'component' ]} Component */
+/** @import { ParamTag } from 'vue-docgen-api' */
+/** @import { Templates } from 'vue-docgen-cli' */
 
-/** @type Component */
+/** @type Templates['component'] */
 const componentTemplate = function ( renderedUsage, doc, config, componentRelativePath ) {
 	const { displayName, docsBlocks, tags } = doc;
 	const { author, since, version } = /** @type {Record<string, ParamTag[]>} */ ( tags ?? {} );

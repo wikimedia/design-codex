@@ -9,7 +9,13 @@
 			"rules": {
 				"strict": "off",
 				"jsdoc/valid-types": "off",
-				"jsdoc/no-undefined-types": "off"
+				"jsdoc/no-undefined-types": "off",
+				"jsdoc/check-tag-names": [
+					"error",
+					{
+						"definedTags": [ "import" ]
+					}
+				]
 			}
 		}
 	]

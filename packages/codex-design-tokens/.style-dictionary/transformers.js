@@ -1,8 +1,4 @@
-/** @typedef {import('style-dictionary').TransformedToken} TransformedToken */
-/** @typedef {import('style-dictionary').TransformedTokens} TransformedTokens */
-/** @typedef {import('style-dictionary').Platform} Platform */
-/** @typedef {import('style-dictionary/types/Matcher').Matcher} Matcher */
-/** @typedef {import('style-dictionary').Transform} Transform */
+/** @import { TransformedToken, Platform } from 'style-dictionary' */
 
 import path from 'node:path';
 import { camelCase } from 'change-case';
