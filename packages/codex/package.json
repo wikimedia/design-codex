@@ -85,7 +85,7 @@
 		"vue-tsc": "2.0.16"
 	},
 	"peerDependencies": {
-		"vue": "3.4.27"
+		"vue": "3.4.28"
 	},
 	"dependencies": {
 		"@floating-ui/vue": "1.0.6",
