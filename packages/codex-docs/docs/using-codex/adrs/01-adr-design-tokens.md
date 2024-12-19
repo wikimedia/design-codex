@@ -1,4 +1,4 @@
-# 01) Design Tokens
+# ADR 01) Design Tokens
 
 Date: 2021-10-11
 
@@ -56,5 +56,3 @@ We choose to use [style-dictionary](https://amzn.github.io/style-dictionary/#/RE
 ## Consequences
 
 We achieve agnosticism on the token level and can support many target formats without manual work thanks to our tool of choice.
-
-

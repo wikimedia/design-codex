@@ -1,4 +1,4 @@
-# 10) Internationalization support for common strings in components
+# ADR 10) Internationalization support for common strings in components
 
 Date: 2024-06-25
 

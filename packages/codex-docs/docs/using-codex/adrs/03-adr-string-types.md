@@ -1,4 +1,4 @@
-# 03) String types in TypeScript
+# ADR 03) String types in TypeScript
 
 Date: 2021-10-14
 

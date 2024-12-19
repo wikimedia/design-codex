@@ -1,4 +1,4 @@
-# 11) Generation of Codex-compatible markup in PHP
+# ADR 11) Generation of Codex-compatible markup in PHP
 
 ## Status
 

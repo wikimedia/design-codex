@@ -1,4 +1,4 @@
-# 04) Distribute Visual Styles as Less Mixins
+# ADR 04) Distribute Visual Styles as Less Mixins
 
 Date: 2022-09-01
 

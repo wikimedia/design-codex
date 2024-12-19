@@ -1,4 +1,4 @@
-# 08) Support for Alternate Color Modes
+# ADR 08) Support for Alternate Color Modes
 
 Date: 2024-02-26
 

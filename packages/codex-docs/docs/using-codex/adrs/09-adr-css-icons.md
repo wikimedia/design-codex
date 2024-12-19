@@ -2,7 +2,7 @@
 	/* stylelint-disable selector-class-pattern, function-url-quotes, scale-unlimited/declaration-strict-value, plugin/no-unsupported-browser-features */
 </style>
 
-# 09) CSS icons
+# ADR 09) CSS icons
 
 Date: 2024-02-29
 

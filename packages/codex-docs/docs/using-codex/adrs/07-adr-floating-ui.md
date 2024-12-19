@@ -1,4 +1,4 @@
-# 07) Floating UI
+# ADR 07) Floating UI
 
 Date: 2023-09-22
 
@@ -80,4 +80,3 @@ In the future, we may add additional behavior to our Menu components
 (flipping/clipping based on available space, etc.). Fortunately the library's
 modular concept of "middleware" makes it easy to introduce and fine-tune this
 kind of added behavior.
-
