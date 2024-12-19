@@ -124,7 +124,7 @@ module.exports = {
 			],
 			rules: {
 				'vue/no-unsupported-features': [ 'error', {
-					version: '^3.4.28'
+					version: '^3.5.13'
 				} ],
 				'vue/component-name-in-template-casing': [ 'error', 'kebab-case' ],
 				'vue/custom-event-name-casing': [ 'error', 'kebab-case' ]

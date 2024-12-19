@@ -156,11 +156,15 @@ export default defineComponent( {
 	 * Some methods are exposed to allow for programmatic selection of
 	 * the active tab from outside of the component.
 	 */
+	// expose is temporarily disabled to work around a Vue / vue-tsc bug, see
+	// https://github.com/vuejs/language-tools/issues/5069
+	/*
 	expose: [
 		'select',
 		'next',
 		'prev'
 	],
+	*/
 
 	setup( props, { slots, emit } ) {
 		const rootElement = ref<HTMLDivElement>();

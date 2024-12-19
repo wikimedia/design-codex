@@ -72,9 +72,13 @@ export default defineComponent( {
 			default: false
 		}
 	},
+	// expose is temporarily disabled to work around a Vue / vue-tsc bug, see
+	// https://github.com/vuejs/language-tools/issues/5069
+	/*
 	expose: [
 		'focus'
 	],
+	*/
 	emits: [
 		/**
 		 * Emitted when a chip is removed by the user.

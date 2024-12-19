@@ -309,6 +309,9 @@ export default defineComponent( {
 		 */
 		'load-more'
 	],
+	// expose is temporarily disabled to work around a Vue / vue-tsc bug, see
+	// https://github.com/vuejs/language-tools/issues/5069
+	/*
 	expose: [
 		'isExpanded',
 		'clearActive',
@@ -317,6 +320,7 @@ export default defineComponent( {
 		'getComputedMenuItems',
 		'delegateKeyNavigation'
 	],
+	*/
 	setup( props, { emit, slots, attrs } ) {
 		/**
 		 * Computed array of menu items and groups with a unique ID added to each menu item. This
@@ -1077,6 +1081,7 @@ export default defineComponent( {
 		 *
 		 * @return {boolean}
 		 */
+		// eslint-disable-next-line vue/no-unused-properties
 		isExpanded(): boolean {
 			return this.expanded;
 		},
