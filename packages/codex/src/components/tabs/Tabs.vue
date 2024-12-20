@@ -82,6 +82,7 @@ import {
 	toRef,
 	watch,
 	nextTick,
+	useId,
 	VNode,
 	ComponentPublicInstance
 } from 'vue';
@@ -92,7 +93,6 @@ import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 import CdxTab from '../tab/Tab.vue';
 
-import useGeneratedId from '../../composables/useGeneratedId';
 import useComputedDirection from '../../composables/useComputedDirection';
 import useOptionalModelWrapper from '../../composables/useOptionalModelWrapper';
 import useIntersectionObserver from '../../composables/useIntersectionObserver';
@@ -201,7 +201,7 @@ export default defineComponent( {
 				// prop as a key
 				map.set( item.props.name, {
 					name: item.props.name,
-					id: useGeneratedId( item.props.name ),
+					id: useId(),
 					label: item.props.label || item.props.name,
 					disabled: item.props.disabled
 				} );

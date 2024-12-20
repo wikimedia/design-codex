@@ -383,7 +383,8 @@ focusable element:
 - `role="combobox"`
 - `aria-controls`, set to the ID of the Menu's `ul`
 - `aria-expanded`, set to `"true"` when the Menu is expanded and to `"false"` when it's closed
-  (the useGeneratedId composable can be used to assign an ID to the Menu)
+  (Vue's [useId](https://vuejs.org/api/composition-api-helpers#useid) function can be used to assign
+  an ID to the Menu)
 - `aria-activedescendant`, set to the ID of the highlighted menu item (use the `.id` property of
   the object returned by the getHighlightedMenuItem method)
 - If the `menuItems` change in response to the user typing in a text input, `aria-autocomplete`

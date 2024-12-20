@@ -6,7 +6,7 @@ exports[`matches the snapshot Case 0 Default: ({"modelValue": false}) => HTML 1`
 >
   <input
     class="cdx-toggle-switch__input"
-    id="cdx-toggle-switch-0"
+    id="v-0"
     role="switch"
     type="checkbox"
     value="false"
@@ -27,7 +27,7 @@ exports[`matches the snapshot Case 0 Default: ({"modelValue": false}) => HTML 1`
   >
     <label
       class="cdx-label__label"
-      for="cdx-toggle-switch-0"
+      for="v-0"
     >
       <!--v-if-->
       <span
@@ -56,7 +56,7 @@ exports[`matches the snapshot Case 1 Disabled: ({"disabled": true, "modelValue":
   <input
     class="cdx-toggle-switch__input"
     disabled=""
-    id="cdx-toggle-switch-2"
+    id="v-0"
     role="switch"
     type="checkbox"
     value="false"
@@ -77,7 +77,7 @@ exports[`matches the snapshot Case 1 Disabled: ({"disabled": true, "modelValue":
   >
     <label
       class="cdx-label__label"
-      for="cdx-toggle-switch-2"
+      for="v-0"
     >
       <!--v-if-->
       <span
@@ -104,9 +104,9 @@ exports[`matches the snapshot Case 2 With description: ({"modelValue": false}) =
   class="cdx-toggle-switch"
 >
   <input
-    aria-describedby="cdx-description-5"
+    aria-describedby="v-1"
     class="cdx-toggle-switch__input"
-    id="cdx-toggle-switch-4"
+    id="v-0"
     role="switch"
     type="checkbox"
     value="false"
@@ -127,7 +127,7 @@ exports[`matches the snapshot Case 2 With description: ({"modelValue": false}) =
   >
     <label
       class="cdx-label__label"
-      for="cdx-toggle-switch-4"
+      for="v-0"
     >
       <!--v-if-->
       <span
@@ -145,7 +145,7 @@ exports[`matches the snapshot Case 2 With description: ({"modelValue": false}) =
     <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <span
       class="cdx-label__description"
-      id="cdx-description-5"
+      id="v-1"
     >
       <!-- @slot Short description text. -->
       

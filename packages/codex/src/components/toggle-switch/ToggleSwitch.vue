@@ -45,11 +45,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref, toRef, computed } from 'vue';
+import { defineComponent, PropType, ref, toRef, computed, useId } from 'vue';
 import CdxLabel from '../label/Label.vue';
 import useLabelChecker from '../../composables/useLabelChecker';
 import useModelWrapper from '../../composables/useModelWrapper';
-import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useFieldData from '../../composables/useFieldData';
 
@@ -124,8 +123,8 @@ export default defineComponent( {
 		const input = ref<HTMLInputElement>();
 
 		// Input needs an ID so we can connect it and the label element.
-		const inputId = useGeneratedId( 'toggle-switch' );
-		const descriptionId = useGeneratedId( 'description' );
+		const inputId = useId();
+		const descriptionId = useId();
 
 		const internalClasses = computed( (): Record<string, boolean> => ( {
 			'cdx-toggle-switch--align-switch': props.alignSwitch

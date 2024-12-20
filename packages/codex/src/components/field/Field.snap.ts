@@ -11,7 +11,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
 		contains the description. Both required for assistive technology support. -->
   <legend
     class="cdx-label"
-    id="cdx-label-63"
+    id="v-0"
   >
     <span
       class="cdx-label__label"
@@ -49,7 +49,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
       >
         <input
           class="cdx-checkbox__input"
-          id="cdx-checkbox-66"
+          id="v-3"
           type="checkbox"
           value="false"
         />
@@ -66,7 +66,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
         >
           <label
             class="cdx-label__label"
-            for="cdx-checkbox-66"
+            for="v-3"
           >
             <!--v-if-->
             <span
@@ -114,7 +114,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
 		contains the description. Both required for assistive technology support. -->
   <legend
     class="cdx-label cdx-label--disabled"
-    id="cdx-label-68"
+    id="v-0"
   >
     <span
       class="cdx-label__label"
@@ -153,7 +153,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
         <input
           class="cdx-checkbox__input"
           disabled=""
-          id="cdx-checkbox-71"
+          id="v-3"
           type="checkbox"
           value="false"
         />
@@ -170,7 +170,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
         >
           <label
             class="cdx-label__label"
-            for="cdx-checkbox-71"
+            for="v-3"
           >
             <!--v-if-->
             <span
@@ -217,8 +217,8 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-29"
-      id="cdx-label-27"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -248,10 +248,10 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
       class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
     >
       <div
-        aria-controls="cdx-select-menu-30"
+        aria-controls="v-3"
         aria-expanded="false"
         class="cdx-select-vue__handle"
-        id="cdx-input-29"
+        id="v-2"
         role="combobox"
         tabindex="0"
       >
@@ -292,7 +292,7 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
       >
         <ul
           class="cdx-menu__listbox"
-          id="cdx-select-menu-30"
+          id="v-3"
           role="listbox"
         >
           <!--v-if-->
@@ -302,7 +302,7 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
           <li
             aria-disabled="false"
             class="cdx-menu-item cdx-menu-item--enabled"
-            id="cdx-menu-item-32"
+            id="v-5"
             role="option"
           >
             <!-- @slot Custom menu item content. -->
@@ -366,8 +366,8 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-35"
-      id="cdx-label-33"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -397,10 +397,10 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
       class="cdx-select-vue cdx-select-vue--disabled cdx-select-vue--no-selections cdx-select-vue--status-default"
     >
       <div
-        aria-controls="cdx-select-menu-36"
+        aria-controls="v-3"
         aria-expanded="false"
         class="cdx-select-vue__handle"
-        id="cdx-input-35"
+        id="v-2"
         role="combobox"
         tabindex="0"
       >
@@ -441,7 +441,7 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
       >
         <ul
           class="cdx-menu__listbox"
-          id="cdx-select-menu-36"
+          id="v-3"
           role="listbox"
         >
           <!--v-if-->
@@ -451,7 +451,7 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
           <li
             aria-disabled="false"
             class="cdx-menu-item cdx-menu-item--enabled"
-            id="cdx-menu-item-38"
+            id="v-5"
             role="option"
           >
             <!-- @slot Custom menu item content. -->
@@ -514,8 +514,8 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-41"
-      id="cdx-label-39"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -545,10 +545,10 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
       class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-error"
     >
       <div
-        aria-controls="cdx-select-menu-42"
+        aria-controls="v-3"
         aria-expanded="false"
         class="cdx-select-vue__handle"
-        id="cdx-input-41"
+        id="v-2"
         role="combobox"
         tabindex="0"
       >
@@ -589,7 +589,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
       >
         <ul
           class="cdx-menu__listbox"
-          id="cdx-select-menu-42"
+          id="v-3"
           role="listbox"
         >
           <!--v-if-->
@@ -599,7 +599,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
           <li
             aria-disabled="false"
             class="cdx-menu-item cdx-menu-item--enabled"
-            id="cdx-menu-item-44"
+            id="v-5"
             role="option"
           >
             <!-- @slot Custom menu item content. -->
@@ -710,8 +710,8 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-47"
-      id="cdx-label-45"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -730,7 +730,7 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
     <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <span
       class="cdx-label__description"
-      id="cdx-description-46"
+      id="v-1"
     >
       <!-- @slot Short description text. -->
       
@@ -752,11 +752,11 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
       class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
     >
       <div
-        aria-controls="cdx-select-menu-48"
-        aria-describedby="cdx-description-46"
+        aria-controls="v-3"
+        aria-describedby="v-1"
         aria-expanded="false"
         class="cdx-select-vue__handle"
-        id="cdx-input-47"
+        id="v-2"
         role="combobox"
         tabindex="0"
       >
@@ -797,7 +797,7 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
       >
         <ul
           class="cdx-menu__listbox"
-          id="cdx-select-menu-48"
+          id="v-3"
           role="listbox"
         >
           <!--v-if-->
@@ -807,7 +807,7 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
           <li
             aria-disabled="false"
             class="cdx-menu-item cdx-menu-item--enabled"
-            id="cdx-menu-item-50"
+            id="v-5"
             role="option"
           >
             <!-- @slot Custom menu item content. -->
@@ -870,8 +870,8 @@ exports[`Field matches the snapshot with a TextInput control Case 0 Basic field:
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-2"
-      id="cdx-label-0"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -902,7 +902,7 @@ exports[`Field matches the snapshot with a TextInput control Case 0 Basic field:
       <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
-        id="cdx-input-2"
+        id="v-2"
         size="1"
         type="text"
       />
@@ -934,8 +934,8 @@ exports[`Field matches the snapshot with a TextInput control Case 1 With label i
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-5"
-      id="cdx-label-3"
+      for="v-2"
+      id="v-0"
     >
       <span
         class="cdx-icon cdx-icon--medium cdx-label__label__icon"
@@ -985,7 +985,7 @@ exports[`Field matches the snapshot with a TextInput control Case 1 With label i
       <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
-        id="cdx-input-5"
+        id="v-2"
         size="1"
         type="text"
       />
@@ -1017,8 +1017,8 @@ exports[`Field matches the snapshot with a TextInput control Case 2 With optiona
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-8"
-      id="cdx-label-6"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -1057,7 +1057,7 @@ exports[`Field matches the snapshot with a TextInput control Case 2 With optiona
       <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
-        id="cdx-input-8"
+        id="v-2"
         size="1"
         type="text"
       />
@@ -1089,8 +1089,8 @@ exports[`Field matches the snapshot with a TextInput control Case 3 With optiona
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-11"
-      id="cdx-label-9"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -1129,7 +1129,7 @@ exports[`Field matches the snapshot with a TextInput control Case 3 With optiona
       <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
-        id="cdx-input-11"
+        id="v-2"
         size="1"
         type="text"
       />
@@ -1161,8 +1161,8 @@ exports[`Field matches the snapshot with a TextInput control Case 4 With visuall
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-14"
-      id="cdx-label-12"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -1193,7 +1193,7 @@ exports[`Field matches the snapshot with a TextInput control Case 4 With visuall
       <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
-        id="cdx-input-14"
+        id="v-2"
         size="1"
         type="text"
       />
@@ -1226,8 +1226,8 @@ exports[`Field matches the snapshot with a TextInput control Case 5 Disabled: ({
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-17"
-      id="cdx-label-15"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -1259,7 +1259,7 @@ exports[`Field matches the snapshot with a TextInput control Case 5 Disabled: ({
       <input
         class="cdx-text-input__input"
         disabled=""
-        id="cdx-input-17"
+        id="v-2"
         size="1"
         type="text"
       />
@@ -1291,8 +1291,8 @@ exports[`Field matches the snapshot with a TextInput control Case 6 Error status
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-20"
-      id="cdx-label-18"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -1323,7 +1323,7 @@ exports[`Field matches the snapshot with a TextInput control Case 6 Error status
       <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
-        id="cdx-input-20"
+        id="v-2"
         size="1"
         type="text"
       />
@@ -1403,8 +1403,8 @@ exports[`Field matches the snapshot with a TextInput control Case 7 With descrip
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-23"
-      id="cdx-label-21"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -1423,7 +1423,7 @@ exports[`Field matches the snapshot with a TextInput control Case 7 With descrip
     <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <span
       class="cdx-label__description"
-      id="cdx-description-22"
+      id="v-1"
     >
       <!-- @slot Short description text. -->
       
@@ -1445,9 +1445,9 @@ exports[`Field matches the snapshot with a TextInput control Case 7 With descrip
     >
       <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
-        aria-describedby="cdx-description-22"
+        aria-describedby="v-1"
         class="cdx-text-input__input"
-        id="cdx-input-23"
+        id="v-2"
         size="1"
         type="text"
       />
@@ -1479,8 +1479,8 @@ exports[`Field matches the snapshot with a TextInput control Case 8 With help te
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-26"
-      id="cdx-label-24"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -1511,7 +1511,7 @@ exports[`Field matches the snapshot with a TextInput control Case 8 With help te
       <!-- size="1" is to prevent the browser from setting an implicit min-width -->
       <input
         class="cdx-text-input__input"
-        id="cdx-input-26"
+        id="v-2"
         size="1"
         type="text"
       />
@@ -1543,8 +1543,8 @@ exports[`Field matches the snapshot with a Textarea control Case 0 Basic field: 
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-53"
-      id="cdx-label-51"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -1574,7 +1574,7 @@ exports[`Field matches the snapshot with a Textarea control Case 0 Basic field: 
     >
       <textarea
         class="cdx-text-area__textarea"
-        id="cdx-input-53"
+        id="v-2"
       />
       <!--v-if-->
       <!--v-if-->
@@ -1604,8 +1604,8 @@ exports[`Field matches the snapshot with a Textarea control Case 1 Disabled: ({"
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-56"
-      id="cdx-label-54"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -1636,7 +1636,7 @@ exports[`Field matches the snapshot with a Textarea control Case 1 Disabled: ({"
       <textarea
         class="cdx-text-area__textarea"
         disabled=""
-        id="cdx-input-56"
+        id="v-2"
       />
       <!--v-if-->
       <!--v-if-->
@@ -1665,8 +1665,8 @@ exports[`Field matches the snapshot with a Textarea control Case 2 Error status 
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-59"
-      id="cdx-label-57"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -1696,7 +1696,7 @@ exports[`Field matches the snapshot with a Textarea control Case 2 Error status 
     >
       <textarea
         class="cdx-text-area__textarea"
-        id="cdx-input-59"
+        id="v-2"
       />
       <!--v-if-->
       <!--v-if-->
@@ -1773,8 +1773,8 @@ exports[`Field matches the snapshot with a Textarea control Case 3 With descript
   >
     <label
       class="cdx-label__label"
-      for="cdx-input-62"
-      id="cdx-label-60"
+      for="v-2"
+      id="v-0"
     >
       <!--v-if-->
       <span
@@ -1793,7 +1793,7 @@ exports[`Field matches the snapshot with a Textarea control Case 3 With descript
     <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
     <span
       class="cdx-label__description"
-      id="cdx-description-61"
+      id="v-1"
     >
       <!-- @slot Short description text. -->
       
@@ -1814,9 +1814,9 @@ exports[`Field matches the snapshot with a Textarea control Case 3 With descript
       class="cdx-text-area cdx-text-area--status-default"
     >
       <textarea
-        aria-describedby="cdx-description-61"
+        aria-describedby="v-1"
         class="cdx-text-area__textarea"
-        id="cdx-input-62"
+        id="v-2"
       />
       <!--v-if-->
       <!--v-if-->

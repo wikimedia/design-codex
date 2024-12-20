@@ -21,7 +21,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"formAction": "/w/index
           <!-- size="1" is to prevent the browser from setting an implicit min-width -->
           <input
             aria-autocomplete="list"
-            aria-controls="cdx-typeahead-search-menu-0"
+            aria-controls="v-0"
             aria-expanded="false"
             autocomplete="off"
             class="cdx-text-input__input"
@@ -66,7 +66,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"formAction": "/w/index
           <ul
             aria-label="Search results"
             class="cdx-menu__listbox"
-            id="cdx-typeahead-search-menu-0"
+            id="v-0"
             role="listbox"
           >
             <!--v-if-->
@@ -125,7 +125,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
           <!-- size="1" is to prevent the browser from setting an implicit min-width -->
           <input
             aria-autocomplete="list"
-            aria-controls="cdx-typeahead-search-menu-1"
+            aria-controls="v-0"
             aria-expanded="false"
             autocomplete="off"
             class="cdx-text-input__input"
@@ -170,7 +170,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
           <ul
             aria-label="Search results"
             class="cdx-menu__listbox"
-            id="cdx-typeahead-search-menu-1"
+            id="v-0"
             role="listbox"
           >
             <!--v-if-->
@@ -229,7 +229,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
           <!-- size="1" is to prevent the browser from setting an implicit min-width -->
           <input
             aria-autocomplete="list"
-            aria-controls="cdx-typeahead-search-menu-2"
+            aria-controls="v-0"
             aria-expanded="false"
             autocomplete="off"
             class="cdx-text-input__input"
@@ -274,7 +274,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
           <ul
             aria-label="Search results"
             class="cdx-menu__listbox"
-            id="cdx-typeahead-search-menu-2"
+            id="v-0"
             role="listbox"
           >
             <!--v-if-->
@@ -333,7 +333,7 @@ exports[`TypeaheadSearch initial state Case 3 With custom visible button label: 
           <!-- size="1" is to prevent the browser from setting an implicit min-width -->
           <input
             aria-autocomplete="list"
-            aria-controls="cdx-typeahead-search-menu-3"
+            aria-controls="v-0"
             aria-expanded="false"
             autocomplete="off"
             class="cdx-text-input__input"
@@ -378,7 +378,7 @@ exports[`TypeaheadSearch initial state Case 3 With custom visible button label: 
           <ul
             aria-label="Search results"
             class="cdx-menu__listbox"
-            id="cdx-typeahead-search-menu-3"
+            id="v-0"
             role="listbox"
           >
             <!--v-if-->
@@ -437,7 +437,7 @@ exports[`TypeaheadSearch initial state Case 4 With custom visible button label u
           <!-- size="1" is to prevent the browser from setting an implicit min-width -->
           <input
             aria-autocomplete="list"
-            aria-controls="cdx-typeahead-search-menu-4"
+            aria-controls="v-0"
             aria-expanded="false"
             autocomplete="off"
             class="cdx-text-input__input"
@@ -482,7 +482,7 @@ exports[`TypeaheadSearch initial state Case 4 With custom visible button label u
           <ul
             aria-label="Search results"
             class="cdx-menu__listbox"
-            id="cdx-typeahead-search-menu-4"
+            id="v-0"
             role="listbox"
           >
             <!--v-if-->
@@ -541,7 +541,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
           <!-- size="1" is to prevent the browser from setting an implicit min-width -->
           <input
             aria-autocomplete="list"
-            aria-controls="cdx-typeahead-search-menu-62"
+            aria-controls="v-0"
             aria-expanded="false"
             autocomplete="off"
             class="cdx-text-input__input cdx-text-input__input--has-value"
@@ -586,7 +586,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
           <ul
             aria-label="Search results"
             class="cdx-menu__listbox"
-            id="cdx-typeahead-search-menu-62"
+            id="v-0"
             role="listbox"
           >
             <!--v-if-->
@@ -617,7 +617,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
-              id="cdx-menu-item-64"
+              id="v-2"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -727,7 +727,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           <!-- size="1" is to prevent the browser from setting an implicit min-width -->
           <input
             aria-autocomplete="list"
-            aria-controls="cdx-typeahead-search-menu-17"
+            aria-controls="v-0"
             aria-expanded="false"
             autocomplete="off"
             class="cdx-text-input__input cdx-text-input__input--has-value"
@@ -772,7 +772,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
           <ul
             aria-label="Search results"
             class="cdx-menu__listbox"
-            id="cdx-typeahead-search-menu-17"
+            id="v-0"
             role="listbox"
           >
             <!--v-if-->
@@ -782,7 +782,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
-              id="cdx-menu-item-19"
+              id="v-2"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -859,7 +859,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--has-description cdx-menu-item--hide-description-overflow"
-              id="cdx-menu-item-20"
+              id="v-3"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -942,7 +942,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
-              id="cdx-menu-item-21"
+              id="v-4"
               role="option"
             >
               <!-- @slot Custom menu item content. -->

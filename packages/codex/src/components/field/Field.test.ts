@@ -212,7 +212,7 @@ describe( 'Field', () => {
 					}
 				} );
 				expect( wrapper.find( 'input' ).element.id ).not.toBe( 'my-id-123' );
-				expect( wrapper.find( 'input' ).element.id.indexOf( 'cdx-input-' ) ).toBe( 0 );
+				expect( wrapper.find( 'input' ).element.id.startsWith( 'v-' ) ).toBeTruthy();
 			} );
 		} );
 	} );

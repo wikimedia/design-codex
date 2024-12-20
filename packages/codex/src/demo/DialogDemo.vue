@@ -254,8 +254,8 @@
 </template>
 
 <script lang="ts" setup>
-import { Ref, ComponentPublicInstance, ref, computed } from 'vue';
-import { CdxDialog, CdxButton, CdxCombobox, CdxLookup, CdxSelect, MenuItemData, CdxMenu, CdxTextInput, useGeneratedId, useFloatingMenu } from '../lib';
+import { Ref, ComponentPublicInstance, ref, computed, useId } from 'vue';
+import { CdxDialog, CdxButton, CdxCombobox, CdxLookup, CdxSelect, MenuItemData, CdxMenu, CdxTextInput, useFloatingMenu } from '../lib';
 import WrappedDialog from './WrappedDialog.vue';
 import vegetableItems from 'codex-docs/component-demos/lookup/examples/data.json';
 
@@ -307,7 +307,7 @@ const menu = ref<InstanceType<typeof CdxMenu>>();
 const selectedValue = ref( '' );
 const expanded = ref( false );
 const activeDescendant = computed( () => menu.value?.getHighlightedMenuItem()?.id );
-const menuId = useGeneratedId( 'menu' );
+const menuId = useId();
 
 const footer = {
 	value: 'menu-footer'

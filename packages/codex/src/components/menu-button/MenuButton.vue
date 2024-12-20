@@ -51,14 +51,14 @@ import {
 	ComponentPublicInstance,
 	defineComponent,
 	ref,
-	toRef
+	toRef,
+	useId
 } from 'vue';
 
 import CdxToggleButton from '../toggle-button/ToggleButton.vue';
 import CdxMenu from '../menu/Menu.vue';
 import useFieldData from '../../composables/useFieldData';
 import useFloatingMenu from '../../composables/useFloatingMenu';
-import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import { MenuButtonItemData, MenuGroupData, MenuConfig, MenuItemData } from '../../types';
@@ -142,8 +142,8 @@ export default defineComponent( {
 		const selectedProp = toRef( props, 'selected' );
 		const modelWrapper = useModelWrapper( selectedProp, emit, 'update:selected' );
 		const expanded = ref( false );
-		const toggleId = useGeneratedId( 'menuToggle' );
-		const menuId = useGeneratedId( 'menu' );
+		const toggleId = useId();
+		const menuId = useId();
 		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
 
 		// Get helpers from useSplitAttributes() composable.

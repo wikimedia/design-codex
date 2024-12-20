@@ -47,10 +47,10 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
     >
       
       <button
-        aria-controls="cdx-a-85"
+        aria-controls="v-0"
         aria-selected="true"
         class="cdx-tabs__list__item"
-        id="cdx-a-85-label"
+        id="v-0-label"
         role="tab"
       >
         <span>
@@ -58,10 +58,10 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        aria-controls="cdx-b-86"
+        aria-controls="v-1"
         aria-selected="false"
         class="cdx-tabs__list__item"
-        id="cdx-b-86-label"
+        id="v-1-label"
         role="tab"
         tabindex="-1"
       >
@@ -70,10 +70,10 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        aria-controls="cdx-c-87"
+        aria-controls="v-2"
         aria-selected="false"
         class="cdx-tabs__list__item"
-        id="cdx-c-87-label"
+        id="v-2-label"
         role="tab"
         tabindex="-1"
       >
@@ -82,10 +82,10 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        aria-controls="cdx-d-88"
+        aria-controls="v-3"
         aria-selected="false"
         class="cdx-tabs__list__item"
-        id="cdx-d-88-label"
+        id="v-3-label"
         role="tab"
         tabindex="-1"
       >
@@ -137,9 +137,9 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
     
     
     <section
-      aria-labelledby="cdx-a-85-label"
+      aria-labelledby="v-0-label"
       class="cdx-tab"
-      id="cdx-a-85"
+      id="v-0"
       role="tabpanel"
       tabindex="-1"
     >
@@ -150,9 +150,9 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
     </section>
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-b-86-label"
+      aria-labelledby="v-1-label"
       class="cdx-tab"
-      id="cdx-b-86"
+      id="v-1"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"
@@ -164,9 +164,9 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
     </section>
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-c-87-label"
+      aria-labelledby="v-2-label"
       class="cdx-tab"
-      id="cdx-c-87"
+      id="v-2"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"
@@ -178,9 +178,9 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
     </section>
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-d-88-label"
+      aria-labelledby="v-3-label"
       class="cdx-tab"
-      id="cdx-d-88"
+      id="v-3"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"
@@ -243,10 +243,10 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
     >
       
       <button
-        aria-controls="cdx-a-81"
+        aria-controls="v-0"
         aria-selected="true"
         class="cdx-tabs__list__item"
-        id="cdx-a-81-label"
+        id="v-0-label"
         role="tab"
       >
         <span>
@@ -254,10 +254,10 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        aria-controls="cdx-b-82"
+        aria-controls="v-1"
         aria-selected="false"
         class="cdx-tabs__list__item"
-        id="cdx-b-82-label"
+        id="v-1-label"
         role="tab"
         tabindex="-1"
       >
@@ -266,10 +266,10 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        aria-controls="cdx-c-83"
+        aria-controls="v-2"
         aria-selected="false"
         class="cdx-tabs__list__item"
-        id="cdx-c-83-label"
+        id="v-2-label"
         role="tab"
         tabindex="-1"
       >
@@ -278,10 +278,10 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        aria-controls="cdx-d-84"
+        aria-controls="v-3"
         aria-selected="false"
         class="cdx-tabs__list__item"
-        id="cdx-d-84-label"
+        id="v-3-label"
         role="tab"
         tabindex="-1"
       >
@@ -333,9 +333,9 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
     
     <!-- Comment 1 -->
     <section
-      aria-labelledby="cdx-a-81-label"
+      aria-labelledby="v-0-label"
       class="cdx-tab"
-      id="cdx-a-81"
+      id="v-0"
       role="tabpanel"
       tabindex="-1"
     >
@@ -347,9 +347,9 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
     <!-- Comment 2 -->
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-b-82-label"
+      aria-labelledby="v-1-label"
       class="cdx-tab"
-      id="cdx-b-82"
+      id="v-1"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"
@@ -362,9 +362,9 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
     <!-- Comment 3 -->
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-c-83-label"
+      aria-labelledby="v-2-label"
       class="cdx-tab"
-      id="cdx-c-83"
+      id="v-2"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"
@@ -377,9 +377,9 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
     <!-- Comment 4 -->
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-d-84-label"
+      aria-labelledby="v-3-label"
       class="cdx-tab"
-      id="cdx-d-84"
+      id="v-3"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"
@@ -442,10 +442,10 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
     >
       
       <button
-        aria-controls="cdx-apple-0"
+        aria-controls="v-0"
         aria-selected="true"
         class="cdx-tabs__list__item"
-        id="cdx-apple-0-label"
+        id="v-0-label"
         role="tab"
       >
         <span>
@@ -453,10 +453,10 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        aria-controls="cdx-banana-1"
+        aria-controls="v-1"
         aria-selected="false"
         class="cdx-tabs__list__item"
-        id="cdx-banana-1-label"
+        id="v-1-label"
         role="tab"
         tabindex="-1"
       >
@@ -465,11 +465,11 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        aria-controls="cdx-cantaloupe-2"
+        aria-controls="v-2"
         aria-selected="false"
         class="cdx-tabs__list__item"
         disabled=""
-        id="cdx-cantaloupe-2-label"
+        id="v-2-label"
         role="tab"
         tabindex="-1"
       >
@@ -478,10 +478,10 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        aria-controls="cdx-durian-3"
+        aria-controls="v-3"
         aria-selected="false"
         class="cdx-tabs__list__item"
-        id="cdx-durian-3-label"
+        id="v-3-label"
         role="tab"
         tabindex="-1"
       >
@@ -532,9 +532,9 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
     <!-- @slot One or more Tab components must be provided here -->
     
     <section
-      aria-labelledby="cdx-apple-0-label"
+      aria-labelledby="v-0-label"
       class="cdx-tab"
-      id="cdx-apple-0"
+      id="v-0"
       role="tabpanel"
       tabindex="-1"
     >
@@ -545,9 +545,9 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
     </section>
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-banana-1-label"
+      aria-labelledby="v-1-label"
       class="cdx-tab"
-      id="cdx-banana-1"
+      id="v-1"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"
@@ -559,9 +559,9 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
     </section>
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-cantaloupe-2-label"
+      aria-labelledby="v-2-label"
       class="cdx-tab"
-      id="cdx-cantaloupe-2"
+      id="v-2"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"
@@ -573,9 +573,9 @@ exports[`When used along with child Tab components matches the snapshot 1`] = `
     </section>
     <section
       aria-hidden="true"
-      aria-labelledby="cdx-durian-3-label"
+      aria-labelledby="v-3-label"
       class="cdx-tab"
-      id="cdx-durian-3"
+      id="v-3"
       role="tabpanel"
       style="display: none;"
       tabindex="-1"

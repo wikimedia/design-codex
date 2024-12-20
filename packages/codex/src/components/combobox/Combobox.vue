@@ -78,7 +78,8 @@ import {
 	defineComponent,
 	ref,
 	toRef,
-	watch
+	watch,
+	useId
 } from 'vue';
 import { cdxIconExpand } from '@wikimedia/codex-icons';
 
@@ -88,7 +89,6 @@ import CdxMenu from '../menu/Menu.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
 
 import useModelWrapper from '../../composables/useModelWrapper';
-import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useFieldData from '../../composables/useFieldData';
 import useFloatingMenu from '../../composables/useFloatingMenu';
@@ -211,7 +211,7 @@ export default defineComponent( {
 		const input = ref<InstanceType<typeof CdxTextInput>>();
 		const inputWrapper = ref<HTMLDivElement>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
-		const menuId = useGeneratedId( 'combobox' );
+		const menuId = useId();
 		const selectedProp = toRef( props, 'selected' );
 		const modelWrapper = useModelWrapper( selectedProp, emit, 'update:selected' );
 		const expanded = ref( false );

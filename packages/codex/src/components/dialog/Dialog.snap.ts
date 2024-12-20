@@ -13,7 +13,7 @@ exports[`matches the snapshot Case 0 Basic usage 1`] = `
       tabindex="0"
     />
     <div
-      aria-labelledby="cdx-dialog-label-0"
+      aria-labelledby="v-0"
       aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
@@ -28,7 +28,7 @@ exports[`matches the snapshot Case 0 Basic usage 1`] = `
         >
           <h2
             class="cdx-dialog__header__title"
-            id="cdx-dialog-label-0"
+            id="v-0"
           >
             Dialog
           </h2>
@@ -74,7 +74,7 @@ exports[`matches the snapshot Case 1 Open dialog 1`] = `
       tabindex="0"
     />
     <div
-      aria-labelledby="cdx-dialog-label-1"
+      aria-labelledby="v-0"
       aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
@@ -89,7 +89,7 @@ exports[`matches the snapshot Case 1 Open dialog 1`] = `
         >
           <h2
             class="cdx-dialog__header__title"
-            id="cdx-dialog-label-1"
+            id="v-0"
           >
             Dialog
           </h2>
@@ -217,7 +217,7 @@ exports[`matches the snapshot Case 3 With custom close button label 1`] = `
       tabindex="0"
     />
     <div
-      aria-labelledby="cdx-dialog-label-3"
+      aria-labelledby="v-0"
       aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
@@ -232,7 +232,7 @@ exports[`matches the snapshot Case 3 With custom close button label 1`] = `
         >
           <h2
             class="cdx-dialog__header__title"
-            id="cdx-dialog-label-3"
+            id="v-0"
           >
             Dialog
           </h2>
@@ -309,7 +309,7 @@ exports[`matches the snapshot Case 4 Using deprecated API for close button 1`] =
       tabindex="0"
     />
     <div
-      aria-labelledby="cdx-dialog-label-4"
+      aria-labelledby="v-0"
       aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
@@ -324,7 +324,7 @@ exports[`matches the snapshot Case 4 Using deprecated API for close button 1`] =
         >
           <h2
             class="cdx-dialog__header__title"
-            id="cdx-dialog-label-4"
+            id="v-0"
           >
             Dialog
           </h2>
@@ -401,7 +401,7 @@ exports[`matches the snapshot Case 5 With default action 1`] = `
       tabindex="0"
     />
     <div
-      aria-labelledby="cdx-dialog-label-5"
+      aria-labelledby="v-0"
       aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
@@ -416,7 +416,7 @@ exports[`matches the snapshot Case 5 With default action 1`] = `
         >
           <h2
             class="cdx-dialog__header__title"
-            id="cdx-dialog-label-5"
+            id="v-0"
           >
             Dialog
           </h2>
@@ -482,7 +482,7 @@ exports[`matches the snapshot Case 6 With default disabled action 1`] = `
       tabindex="0"
     />
     <div
-      aria-labelledby="cdx-dialog-label-6"
+      aria-labelledby="v-0"
       aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
@@ -497,7 +497,7 @@ exports[`matches the snapshot Case 6 With default disabled action 1`] = `
         >
           <h2
             class="cdx-dialog__header__title"
-            id="cdx-dialog-label-6"
+            id="v-0"
           >
             Dialog
           </h2>
@@ -564,7 +564,7 @@ exports[`matches the snapshot Case 7 With default and primary actions 1`] = `
       tabindex="0"
     />
     <div
-      aria-labelledby="cdx-dialog-label-7"
+      aria-labelledby="v-0"
       aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
@@ -579,7 +579,7 @@ exports[`matches the snapshot Case 7 With default and primary actions 1`] = `
         >
           <h2
             class="cdx-dialog__header__title"
-            id="cdx-dialog-label-7"
+            id="v-0"
           >
             Dialog
           </h2>
@@ -652,7 +652,7 @@ exports[`matches the snapshot Case 8 With stacked default and primary actions 1`
       tabindex="0"
     />
     <div
-      aria-labelledby="cdx-dialog-label-8"
+      aria-labelledby="v-0"
       aria-modal="true"
       class="cdx-dialog cdx-dialog--vertical-actions"
       role="dialog"
@@ -667,7 +667,7 @@ exports[`matches the snapshot Case 8 With stacked default and primary actions 1`
         >
           <h2
             class="cdx-dialog__header__title"
-            id="cdx-dialog-label-8"
+            id="v-0"
           >
             Dialog
           </h2>
@@ -740,7 +740,7 @@ exports[`matches the snapshot Case 9 With subtitle 1`] = `
       tabindex="0"
     />
     <div
-      aria-labelledby="cdx-dialog-label-9"
+      aria-labelledby="v-0"
       aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
@@ -755,7 +755,7 @@ exports[`matches the snapshot Case 9 With subtitle 1`] = `
         >
           <h2
             class="cdx-dialog__header__title"
-            id="cdx-dialog-label-9"
+            id="v-0"
           >
             Dialog
           </h2>
@@ -832,7 +832,7 @@ exports[`matches the snapshot Case 10 With footer text 1`] = `
       tabindex="0"
     />
     <div
-      aria-labelledby="cdx-dialog-label-10"
+      aria-labelledby="v-0"
       aria-modal="true"
       class="cdx-dialog cdx-dialog--horizontal-actions"
       role="dialog"
@@ -847,7 +847,7 @@ exports[`matches the snapshot Case 10 With footer text 1`] = `
         >
           <h2
             class="cdx-dialog__header__title"
-            id="cdx-dialog-label-10"
+            id="v-0"
           >
             Dialog
           </h2>

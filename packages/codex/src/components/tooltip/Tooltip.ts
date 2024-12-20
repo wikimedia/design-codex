@@ -31,6 +31,8 @@ class Tooltip {
 	constructor( referenceElement: StatefulDirectiveElement, options: TooltipOptions ) {
 		// Initialize tooltip instance properties
 		const doc = referenceElement.ownerDocument;
+		// We can't use useId() here because we're not in a component setup function, use the
+		// deprecated useGeneratedId composable instead
 		const tooltipId = useGeneratedId( 'tooltip' );
 		this.referenceElement = referenceElement;
 		this.textContent = options.textContent;

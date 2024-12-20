@@ -59,7 +59,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, provide, toRefs, computed } from 'vue';
+import { defineComponent, PropType, provide, toRefs, computed, useId } from 'vue';
 import { Icon } from '@wikimedia/codex-icons';
 
 import CdxLabel from '../label/Label.vue';
@@ -68,7 +68,6 @@ import CdxMessage from '../message/Message.vue';
 import { ValidationStatusTypes, DisabledKey, FieldInputIdKey, FieldDescriptionIdKey, FieldStatusKey } from '../../constants';
 import { ValidationStatusType, ValidationMessages } from '../../types';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
-import useGeneratedId from '../../composables/useGeneratedId';
 import useComputedDisabled from '../../composables/useComputedDisabled';
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
 
@@ -161,15 +160,15 @@ export default defineComponent( {
 		} ) );
 
 		// An id attribute is added to the label in case it's useful to dev users.
-		const labelId = useGeneratedId( 'label' );
+		const labelId = useId();
 		// The description ID is provided to the input for `aria-describedby`.
-		const descriptionId = useGeneratedId( 'description' );
+		const descriptionId = useId();
 
 		// In the case of single input fields (not fieldsets), the input id is passed to the label
 		// and provided to the input component.
 		// For fieldsets, this is all taken care of by the native HTML elements (<fieldset> and
 		// <legend>).
-		const inputId = useGeneratedId( 'input' );
+		const inputId = useId();
 
 		// Provide the input ID and description ID to child components
 		const computedInputId = computed( () => !isFieldset.value ? inputId : undefined );

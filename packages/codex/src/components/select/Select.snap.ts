@@ -6,10 +6,10 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
 >
   <div
-    aria-controls="cdx-select-menu-0"
+    aria-controls="v-0"
     aria-expanded="false"
     class="cdx-select-vue__handle"
-    id="cdx-select-handle-1"
+    id="v-1"
     role="combobox"
     tabindex="0"
   >
@@ -50,7 +50,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-select-menu-0"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -60,7 +60,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-2"
+        id="v-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -98,7 +98,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-3"
+        id="v-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -136,7 +136,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-4"
+        id="v-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -174,7 +174,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="cdx-menu-item-5"
+        id="v-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -212,7 +212,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-6"
+        id="v-6"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -278,10 +278,10 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
 >
   <div
-    aria-controls="cdx-select-menu-7"
+    aria-controls="v-0"
     aria-expanded="false"
     class="cdx-select-vue__handle"
-    id="cdx-select-handle-8"
+    id="v-1"
     role="combobox"
     tabindex="0"
   >
@@ -322,7 +322,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-select-menu-7"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -332,7 +332,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-9"
+        id="v-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -370,7 +370,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-10"
+        id="v-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -408,7 +408,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-11"
+        id="v-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -446,7 +446,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="cdx-menu-item-12"
+        id="v-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -484,7 +484,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-13"
+        id="v-6"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -550,10 +550,10 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
 >
   <div
-    aria-controls="cdx-select-menu-14"
+    aria-controls="v-0"
     aria-expanded="false"
     class="cdx-select-vue__handle"
-    id="cdx-select-handle-15"
+    id="v-1"
     role="combobox"
     tabindex="0"
   >
@@ -594,7 +594,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-select-menu-14"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -605,7 +605,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
         aria-disabled="false"
         aria-selected="true"
         class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-        id="cdx-menu-item-16"
+        id="v-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -643,7 +643,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-17"
+        id="v-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -681,7 +681,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-18"
+        id="v-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -719,7 +719,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="cdx-menu-item-19"
+        id="v-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -757,7 +757,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-20"
+        id="v-6"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -823,10 +823,10 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
 >
   <div
-    aria-controls="cdx-select-menu-21"
+    aria-controls="v-0"
     aria-expanded="false"
     class="cdx-select-vue__handle"
-    id="cdx-select-handle-22"
+    id="v-1"
     role="combobox"
     tabindex="0"
   >
@@ -867,7 +867,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-select-menu-21"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -877,7 +877,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-23"
+        id="v-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -915,7 +915,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-24"
+        id="v-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -954,7 +954,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
         aria-disabled="false"
         aria-selected="true"
         class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-        id="cdx-menu-item-25"
+        id="v-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -992,7 +992,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="cdx-menu-item-26"
+        id="v-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1030,7 +1030,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-27"
+        id="v-6"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1096,10 +1096,10 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--has-start-icon cdx-select-vue--status-default"
 >
   <div
-    aria-controls="cdx-select-menu-28"
+    aria-controls="v-0"
     aria-expanded="false"
     class="cdx-select-vue__handle"
-    id="cdx-select-handle-29"
+    id="v-1"
     role="combobox"
     tabindex="0"
   >
@@ -1159,7 +1159,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-select-menu-28"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -1169,7 +1169,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-30"
+        id="v-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1207,7 +1207,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-31"
+        id="v-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1245,7 +1245,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-32"
+        id="v-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1283,7 +1283,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="cdx-menu-item-33"
+        id="v-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1322,7 +1322,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
         aria-disabled="false"
         aria-selected="true"
         class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-        id="cdx-menu-item-34"
+        id="v-6"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1388,10 +1388,10 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--has-start-icon cdx-select-vue--status-default"
 >
   <div
-    aria-controls="cdx-select-menu-35"
+    aria-controls="v-0"
     aria-expanded="false"
     class="cdx-select-vue__handle"
-    id="cdx-select-handle-36"
+    id="v-1"
     role="combobox"
     tabindex="0"
   >
@@ -1451,7 +1451,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-select-menu-35"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -1461,7 +1461,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-37"
+        id="v-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1499,7 +1499,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-38"
+        id="v-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1537,7 +1537,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-39"
+        id="v-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1575,7 +1575,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="cdx-menu-item-40"
+        id="v-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1613,7 +1613,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-41"
+        id="v-6"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1679,10 +1679,10 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
 >
   <div
-    aria-controls="cdx-select-menu-42"
+    aria-controls="v-0"
     aria-expanded="false"
     class="cdx-select-vue__handle"
-    id="cdx-select-handle-43"
+    id="v-1"
     role="combobox"
     tabindex="0"
   >
@@ -1723,7 +1723,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-select-menu-42"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -1733,7 +1733,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-44"
+        id="v-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1771,7 +1771,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-45"
+        id="v-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1810,7 +1810,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
         aria-disabled="false"
         aria-selected="true"
         class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-        id="cdx-menu-item-46"
+        id="v-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1848,7 +1848,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="cdx-menu-item-47"
+        id="v-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1886,7 +1886,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-48"
+        id="v-6"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1952,10 +1952,10 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-error"
 >
   <div
-    aria-controls="cdx-select-menu-49"
+    aria-controls="v-0"
     aria-expanded="false"
     class="cdx-select-vue__handle"
-    id="cdx-select-handle-50"
+    id="v-1"
     role="combobox"
     tabindex="0"
   >
@@ -1996,7 +1996,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-select-menu-49"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -2006,7 +2006,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-51"
+        id="v-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -2044,7 +2044,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-52"
+        id="v-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -2082,7 +2082,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-53"
+        id="v-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -2120,7 +2120,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="cdx-menu-item-54"
+        id="v-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -2158,7 +2158,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-55"
+        id="v-6"
         role="option"
       >
         <!-- @slot Custom menu item content. -->

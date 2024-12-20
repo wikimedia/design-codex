@@ -105,11 +105,10 @@
 <!-- eslint-enable max-len -->
 
 <script lang="ts">
-import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted, nextTick, ComponentPublicInstance, HTMLAttributes } from 'vue';
+import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted, nextTick, useId, ComponentPublicInstance, HTMLAttributes } from 'vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import CdxIcon from '../icon/Icon.vue';
 import CdxProgressBar from '../progress-bar/ProgressBar.vue';
-import useGeneratedId from '../../composables/useGeneratedId';
 import { MenuItemData, MenuItemDataWithId, MenuState, MenuItemValue, MenuGroupData, MenuGroupDataWithIds } from '../../types';
 import useIntersectionObserver from '../../composables/useIntersectionObserver';
 import useSplitAttributes from '../../composables/useSplitAttributes';
@@ -335,14 +334,14 @@ export default defineComponent( {
 
 			const getMenuItemWithId = ( menuItem: MenuItemData ) => ( {
 				...menuItem,
-				id: useGeneratedId( 'menu-item' )
+				id: useId()
 			} );
 
 			return menuItemsWithFooter.map( ( menuEntry ) => {
 				if ( isMenuGroupData( menuEntry ) ) {
 					return {
 						...menuEntry,
-						id: useGeneratedId( 'menu-group' ),
+						id: useId(),
 						items: menuEntry.items.map( ( subItem ) => getMenuItemWithId( subItem ) )
 					};
 				} else {

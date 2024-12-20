@@ -64,7 +64,8 @@ import {
 	computed,
 	provide,
 	watch,
-	nextTick
+	nextTick,
+	useId
 } from 'vue';
 
 import CdxChipInput from '../chip-input/ChipInput.vue';
@@ -72,7 +73,6 @@ import CdxMenu from '../menu/Menu.vue';
 
 import useFieldData from '../../composables/useFieldData';
 import useFloatingMenu from '../../composables/useFloatingMenu';
-import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useOptionalModelWrapper from '../../composables/useOptionalModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
@@ -239,7 +239,7 @@ export default defineComponent( {
 	setup: ( props, { emit, attrs, slots } ) => {
 		const chipInput = ref<InstanceType<typeof CdxChipInput>>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
-		const menuId = useGeneratedId( 'multiselect-lookup-menu' );
+		const menuId = useId();
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
 		const pending = ref( false );

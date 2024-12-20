@@ -118,9 +118,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, toRef } from 'vue';
+import { defineComponent, PropType, computed, toRef, useId } from 'vue';
 import { ControlConfigWithValue, SlotConfigWithValue, PropConfigWithValue } from '../../types';
-import { CdxRadio, CdxTextInput, CdxToggleSwitch, HTMLDirection, useModelWrapper, useGeneratedId, CdxSelect } from '@wikimedia/codex';
+import { CdxRadio, CdxTextInput, CdxToggleSwitch, HTMLDirection, useModelWrapper, CdxSelect } from '@wikimedia/codex';
 import CdxDocsIconLookup from '../icon-lookup/IconLookup.vue';
 
 /**
@@ -211,7 +211,7 @@ export default defineComponent( {
 		};
 
 		const wrappedDirection = useModelWrapper( toRef( props, 'direction' ), emit, 'update:direction' );
-		const directionGroupName = useGeneratedId( 'radio-group-direction' );
+		const directionGroupName = useId();
 
 		return {
 			propControls,

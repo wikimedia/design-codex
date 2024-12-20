@@ -129,11 +129,10 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, toRef, watch, ref, inject, onMounted, onUnmounted, PropType } from 'vue';
+import { computed, defineComponent, nextTick, toRef, watch, ref, inject, onMounted, onUnmounted, useId, PropType } from 'vue';
 import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
-import useGeneratedId from '../../composables/useGeneratedId';
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
 import useResizeObserver from '../../composables/useResizeObserver';
 import { DialogAction, PrimaryDialogAction } from '../../types';
@@ -280,7 +279,7 @@ export default defineComponent( {
 	],
 
 	setup( props, { emit } ) {
-		const labelId = useGeneratedId( 'dialog-label' );
+		const labelId = useId();
 
 		const backdrop = ref<HTMLDivElement>();
 		const dialogElement = ref<HTMLDivElement>(); // dialog "frame"

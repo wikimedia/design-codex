@@ -3,6 +3,8 @@ import { LibraryPrefix } from '../constants';
 let counter = 0;
 
 /**
+ * DEPRECATED: Use Vue's useId() instead.
+ *
  * Get a unique ID suitable for use in HTML templates.
  *
  * All strings begin with the library prefix "cdx-". If an optional identifier
@@ -12,8 +14,9 @@ let counter = 0;
  * a numerical suffix based on an auto-incrementing counter to ensure
  * uniqueness.
  *
+ * @deprecated
  * @param identifier
- * @return generatedId
+ * @return Generated ID
  */
 export default function useGeneratedId( identifier? : string ) : string {
 	const vm = getCurrentInstance();

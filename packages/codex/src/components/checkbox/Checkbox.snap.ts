@@ -9,7 +9,7 @@ exports[`Checkbox matches the snapshot Case 0 Single checkbox: ({"modelValue": t
   >
     <input
       class="cdx-checkbox__input"
-      id="cdx-checkbox-0"
+      id="v-0"
       type="checkbox"
       value="false"
     />
@@ -26,7 +26,7 @@ exports[`Checkbox matches the snapshot Case 0 Single checkbox: ({"modelValue": t
     >
       <label
         class="cdx-label__label"
-        for="cdx-checkbox-0"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -60,7 +60,7 @@ exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: ({"i
   >
     <input
       class="cdx-checkbox__input"
-      id="cdx-checkbox-2"
+      id="v-0"
       type="checkbox"
       value="checkbox-1"
     />
@@ -77,7 +77,7 @@ exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: ({"i
     >
       <label
         class="cdx-label__label"
-        for="cdx-checkbox-2"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -111,7 +111,7 @@ exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ({"i
   >
     <input
       class="cdx-checkbox__input"
-      id="cdx-checkbox-4"
+      id="v-0"
       type="checkbox"
       value="1"
     />
@@ -128,7 +128,7 @@ exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ({"i
     >
       <label
         class="cdx-label__label"
-        for="cdx-checkbox-4"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -163,7 +163,7 @@ exports[`Checkbox matches the snapshot Case 3 Disabled: ({"disabled": true, "mod
     <input
       class="cdx-checkbox__input"
       disabled=""
-      id="cdx-checkbox-6"
+      id="v-0"
       type="checkbox"
       value="false"
     />
@@ -180,7 +180,7 @@ exports[`Checkbox matches the snapshot Case 3 Disabled: ({"disabled": true, "mod
     >
       <label
         class="cdx-label__label"
-        for="cdx-checkbox-6"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -214,7 +214,7 @@ exports[`Checkbox matches the snapshot Case 4 Indeterminate: ({"indeterminate": 
   >
     <input
       class="cdx-checkbox__input"
-      id="cdx-checkbox-8"
+      id="v-0"
       type="checkbox"
       value="false"
     />
@@ -231,7 +231,7 @@ exports[`Checkbox matches the snapshot Case 4 Indeterminate: ({"indeterminate": 
     >
       <label
         class="cdx-label__label"
-        for="cdx-checkbox-8"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -265,7 +265,7 @@ exports[`Checkbox matches the snapshot Case 5 Inline: ({"inline": true, "inputVa
   >
     <input
       class="cdx-checkbox__input"
-      id="cdx-checkbox-10"
+      id="v-0"
       type="checkbox"
       value="checkbox-1"
     />
@@ -282,7 +282,7 @@ exports[`Checkbox matches the snapshot Case 5 Inline: ({"inline": true, "inputVa
     >
       <label
         class="cdx-label__label"
-        for="cdx-checkbox-10"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -315,9 +315,9 @@ exports[`Checkbox matches the snapshot Case 6 With description: ({"modelValue": 
     class="cdx-checkbox__wrapper"
   >
     <input
-      aria-describedby="cdx-description-13"
+      aria-describedby="v-1"
       class="cdx-checkbox__input"
-      id="cdx-checkbox-12"
+      id="v-0"
       type="checkbox"
       value="false"
     />
@@ -334,7 +334,7 @@ exports[`Checkbox matches the snapshot Case 6 With description: ({"modelValue": 
     >
       <label
         class="cdx-label__label"
-        for="cdx-checkbox-12"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -352,7 +352,7 @@ exports[`Checkbox matches the snapshot Case 6 With description: ({"modelValue": 
       <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
       <span
         class="cdx-label__description"
-        id="cdx-description-13"
+        id="v-1"
       >
         <!-- @slot Short description text. -->
         
@@ -379,7 +379,7 @@ exports[`Checkbox matches the snapshot Case 7 With error: ({"modelValue": false,
   >
     <input
       class="cdx-checkbox__input"
-      id="cdx-checkbox-14"
+      id="v-0"
       type="checkbox"
       value="false"
     />
@@ -396,7 +396,7 @@ exports[`Checkbox matches the snapshot Case 7 With error: ({"modelValue": false,
     >
       <label
         class="cdx-label__label"
-        for="cdx-checkbox-14"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -430,7 +430,7 @@ exports[`Checkbox matches the snapshot Case 8 With hidden label: ({"hideLabel": 
   >
     <input
       class="cdx-checkbox__input"
-      id="cdx-checkbox-16"
+      id="v-0"
       type="checkbox"
       value="false"
     />
@@ -447,7 +447,7 @@ exports[`Checkbox matches the snapshot Case 8 With hidden label: ({"hideLabel": 
     >
       <label
         class="cdx-label__label"
-        for="cdx-checkbox-16"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -480,9 +480,9 @@ exports[`Checkbox matches the snapshot Case 9 With custom input: ({"inputValue":
     class="cdx-checkbox__wrapper"
   >
     <input
-      aria-describedby="cdx-description-19"
+      aria-describedby="v-1"
       class="cdx-checkbox__input"
-      id="cdx-checkbox-18"
+      id="v-0"
       type="checkbox"
       value="checkbox-1"
     />
@@ -499,7 +499,7 @@ exports[`Checkbox matches the snapshot Case 9 With custom input: ({"inputValue":
     >
       <label
         class="cdx-label__label"
-        for="cdx-checkbox-18"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -517,7 +517,7 @@ exports[`Checkbox matches the snapshot Case 9 With custom input: ({"inputValue":
       <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
       <span
         class="cdx-label__description"
-        id="cdx-description-19"
+        id="v-1"
       >
         <!-- @slot Short description text. -->
         

@@ -10,7 +10,7 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
     <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
-      aria-controls="cdx-lookup-menu-0"
+      aria-controls="v-0"
       aria-expanded="false"
       autocomplete="off"
       class="cdx-text-input__input"
@@ -28,7 +28,7 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-lookup-menu-0"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -58,7 +58,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
     <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
-      aria-controls="cdx-lookup-menu-1"
+      aria-controls="v-0"
       aria-expanded="false"
       autocomplete="off"
       class="cdx-text-input__input cdx-text-input__input--has-value"
@@ -76,7 +76,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-lookup-menu-1"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -86,7 +86,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-2"
+        id="v-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -124,7 +124,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-3"
+        id="v-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -162,7 +162,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-4"
+        id="v-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -200,7 +200,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="cdx-menu-item-5"
+        id="v-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -251,7 +251,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
     <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
-      aria-controls="cdx-lookup-menu-6"
+      aria-controls="v-0"
       aria-expanded="false"
       autocomplete="off"
       class="cdx-text-input__input cdx-text-input__input--has-value"
@@ -269,7 +269,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-lookup-menu-6"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -280,7 +280,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
         aria-disabled="false"
         aria-selected="true"
         class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-        id="cdx-menu-item-7"
+        id="v-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -318,7 +318,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-8"
+        id="v-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -356,7 +356,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-9"
+        id="v-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -394,7 +394,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="cdx-menu-item-10"
+        id="v-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -445,7 +445,7 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
     <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
-      aria-controls="cdx-lookup-menu-11"
+      aria-controls="v-0"
       aria-expanded="false"
       autocomplete="off"
       class="cdx-text-input__input"
@@ -464,7 +464,7 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-lookup-menu-11"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -494,7 +494,7 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
     <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
-      aria-controls="cdx-lookup-menu-12"
+      aria-controls="v-0"
       aria-expanded="false"
       autocomplete="off"
       class="cdx-text-input__input cdx-text-input__input--has-value"
@@ -512,7 +512,7 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-lookup-menu-12"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -548,7 +548,7 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
     <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
-      aria-controls="cdx-lookup-menu-13"
+      aria-controls="v-0"
       aria-expanded="false"
       autocomplete="off"
       class="cdx-text-input__input"
@@ -566,7 +566,7 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-lookup-menu-13"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -596,7 +596,7 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
     <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
-      aria-controls="cdx-lookup-menu-14"
+      aria-controls="v-0"
       aria-expanded="false"
       autocomplete="off"
       class="cdx-text-input__input"
@@ -615,7 +615,7 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-lookup-menu-14"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -645,7 +645,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
     <!-- size="1" is to prevent the browser from setting an implicit min-width -->
     <input
       aria-autocomplete="list"
-      aria-controls="cdx-lookup-menu-15"
+      aria-controls="v-0"
       aria-expanded="false"
       autocomplete="off"
       class="cdx-text-input__input"
@@ -663,7 +663,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
   >
     <ul
       class="cdx-menu__listbox"
-      id="cdx-lookup-menu-15"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -673,7 +673,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-16"
+        id="v-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -711,7 +711,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-17"
+        id="v-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -749,7 +749,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-18"
+        id="v-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -787,7 +787,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="cdx-menu-item-19"
+        id="v-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->

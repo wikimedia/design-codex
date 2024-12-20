@@ -71,14 +71,14 @@ import {
 	computed,
 	ref,
 	toRef,
-	inject
+	inject,
+	useId
 } from 'vue';
 import { Icon, cdxIconExpand } from '@wikimedia/codex-icons';
 
 import CdxIcon from '../icon/Icon.vue';
 import CdxMenu from '../menu/Menu.vue';
 
-import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useFieldData from '../../composables/useFieldData';
 import useSplitAttributes from '../../composables/useSplitAttributes';
@@ -192,11 +192,11 @@ export default defineComponent( {
 		const handle = ref<HTMLDivElement>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
 		const descriptionId = inject( FieldDescriptionIdKey, undefined );
-		const menuId = useGeneratedId( 'select-menu' );
+		const menuId = useId();
 		const expanded = ref( false );
 
 		// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-		const handleId = ( attrs.id as string|undefined ) || useGeneratedId( 'select-handle' );
+		const handleId = ( attrs.id as string|undefined ) || useId();
 		const {
 			computedDisabled,
 			computedStatus,

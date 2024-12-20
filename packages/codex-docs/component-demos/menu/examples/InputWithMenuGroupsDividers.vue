@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import { defineComponent, ref, computed } from 'vue';
-import { CdxMenu, CdxTextInput, useGeneratedId, useFloatingMenu } from '@wikimedia/codex';
+import { defineComponent, ref, computed, useId } from 'vue';
+import { CdxMenu, CdxTextInput, useFloatingMenu } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'InputWithMenuGroupsDividers',
@@ -63,7 +63,7 @@ export default defineComponent( {
 			const highlightedItem = menu.value && menu.value.getHighlightedMenuItem();
 			return highlightedItem ? highlightedItem.id : undefined;
 		} );
-		const menuId = useGeneratedId( 'menu' );
+		const menuId = useId();
 
 		useFloatingMenu( input, menu );
 

@@ -16,7 +16,7 @@ exports[`MultiselectLookup matches the snapshot Case 0 Default props: ({"inputCh
       
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-multiselect-lookup-menu-0"
+        aria-controls="v-0"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -38,7 +38,7 @@ exports[`MultiselectLookup matches the snapshot Case 0 Default props: ({"inputCh
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-multiselect-lookup-menu-0"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -74,7 +74,7 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
       
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-multiselect-lookup-menu-1"
+        aria-controls="v-0"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -96,7 +96,7 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-multiselect-lookup-menu-1"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -106,7 +106,7 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-2"
+        id="v-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -144,7 +144,7 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-3"
+        id="v-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -182,7 +182,7 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-4"
+        id="v-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -220,7 +220,7 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="cdx-menu-item-5"
+        id="v-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -373,7 +373,7 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
       
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-multiselect-lookup-menu-6"
+        aria-controls="v-0"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -395,7 +395,7 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-multiselect-lookup-menu-6"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -431,7 +431,7 @@ exports[`MultiselectLookup matches the snapshot Case 3 With input value: ({"inpu
       
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-multiselect-lookup-menu-7"
+        aria-controls="v-0"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -453,7 +453,7 @@ exports[`MultiselectLookup matches the snapshot Case 3 With input value: ({"inpu
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-multiselect-lookup-menu-7"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -590,7 +590,7 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
     >
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-multiselect-lookup-menu-8"
+        aria-controls="v-0"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -611,7 +611,7 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-multiselect-lookup-menu-8"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -743,7 +743,7 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
       
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-multiselect-lookup-menu-9"
+        aria-controls="v-0"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -765,7 +765,7 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-multiselect-lookup-menu-9"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->
@@ -899,7 +899,7 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
       
       <input
         aria-autocomplete="list"
-        aria-controls="cdx-multiselect-lookup-menu-10"
+        aria-controls="v-0"
         aria-expanded="false"
         autocomplete="off"
         class="cdx-chip-input__input"
@@ -922,7 +922,7 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
     <ul
       aria-multiselectable="true"
       class="cdx-menu__listbox"
-      id="cdx-multiselect-lookup-menu-10"
+      id="v-0"
       role="listbox"
     >
       <!--v-if-->

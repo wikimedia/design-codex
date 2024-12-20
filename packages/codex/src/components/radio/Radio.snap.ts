@@ -9,7 +9,7 @@ exports[`matches the snapshot Case 0 String value: ({"inputValue": "radio-1", "m
   >
     <input
       class="cdx-radio__input"
-      id="cdx-radio-0"
+      id="v-0"
       name="radios-string"
       type="radio"
       value="radio-1"
@@ -27,7 +27,7 @@ exports[`matches the snapshot Case 0 String value: ({"inputValue": "radio-1", "m
     >
       <label
         class="cdx-label__label"
-        for="cdx-radio-0"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -61,7 +61,7 @@ exports[`matches the snapshot Case 1 Number value: ({"inputValue": 2, "modelValu
   >
     <input
       class="cdx-radio__input"
-      id="cdx-radio-2"
+      id="v-0"
       name="radios-number"
       type="radio"
       value="2"
@@ -79,7 +79,7 @@ exports[`matches the snapshot Case 1 Number value: ({"inputValue": 2, "modelValu
     >
       <label
         class="cdx-label__label"
-        for="cdx-radio-2"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -113,7 +113,7 @@ exports[`matches the snapshot Case 2 Boolean value: ({"inputValue": true, "model
   >
     <input
       class="cdx-radio__input"
-      id="cdx-radio-4"
+      id="v-0"
       name="radios-boolean"
       type="radio"
       value="true"
@@ -131,7 +131,7 @@ exports[`matches the snapshot Case 2 Boolean value: ({"inputValue": true, "model
     >
       <label
         class="cdx-label__label"
-        for="cdx-radio-4"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -166,7 +166,7 @@ exports[`matches the snapshot Case 3 Disabled: ({"disabled": true, "inputValue":
     <input
       class="cdx-radio__input"
       disabled=""
-      id="cdx-radio-6"
+      id="v-0"
       name="radios-string"
       type="radio"
       value="radio-1"
@@ -184,7 +184,7 @@ exports[`matches the snapshot Case 3 Disabled: ({"disabled": true, "inputValue":
     >
       <label
         class="cdx-label__label"
-        for="cdx-radio-6"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -218,7 +218,7 @@ exports[`matches the snapshot Case 4 Inline: ({"inline": true, "inputValue": "ra
   >
     <input
       class="cdx-radio__input"
-      id="cdx-radio-8"
+      id="v-0"
       name="radios-string"
       type="radio"
       value="radio-1"
@@ -236,7 +236,7 @@ exports[`matches the snapshot Case 4 Inline: ({"inline": true, "inputValue": "ra
     >
       <label
         class="cdx-label__label"
-        for="cdx-radio-8"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -269,9 +269,9 @@ exports[`matches the snapshot Case 5 With description: ({"inputValue": "radio-1"
     class="cdx-radio__wrapper"
   >
     <input
-      aria-describedby="cdx-description-11"
+      aria-describedby="v-1"
       class="cdx-radio__input"
-      id="cdx-radio-10"
+      id="v-0"
       name="radios-string"
       type="radio"
       value="radio-1"
@@ -289,7 +289,7 @@ exports[`matches the snapshot Case 5 With description: ({"inputValue": "radio-1"
     >
       <label
         class="cdx-label__label"
-        for="cdx-radio-10"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -307,7 +307,7 @@ exports[`matches the snapshot Case 5 With description: ({"inputValue": "radio-1"
       <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
       <span
         class="cdx-label__description"
-        id="cdx-description-11"
+        id="v-1"
       >
         <!-- @slot Short description text. -->
         
@@ -333,9 +333,9 @@ exports[`matches the snapshot Case 6 With custom input: ({"inputValue": "radio-1
     class="cdx-radio__wrapper"
   >
     <input
-      aria-describedby="cdx-description-13"
+      aria-describedby="v-1"
       class="cdx-radio__input"
-      id="cdx-radio-12"
+      id="v-0"
       name="radios-custom-input"
       type="radio"
       value="radio-1"
@@ -353,7 +353,7 @@ exports[`matches the snapshot Case 6 With custom input: ({"inputValue": "radio-1
     >
       <label
         class="cdx-label__label"
-        for="cdx-radio-12"
+        for="v-0"
       >
         <!--v-if-->
         <span
@@ -371,7 +371,7 @@ exports[`matches the snapshot Case 6 With custom input: ({"inputValue": "radio-1
       <!-- Include an ID attribute that will be used on the input for aria-describedby. -->
       <span
         class="cdx-label__description"
-        id="cdx-description-13"
+        id="v-1"
       >
         <!-- @slot Short description text. -->
         
@@ -413,7 +413,7 @@ exports[`matches the snapshot Case 7 With error: ({"inputValue": "", "modelValue
   >
     <input
       class="cdx-radio__input"
-      id="cdx-radio-14"
+      id="v-0"
       name="radios-string"
       type="radio"
       value=""
@@ -431,7 +431,7 @@ exports[`matches the snapshot Case 7 With error: ({"inputValue": "", "modelValue
     >
       <label
         class="cdx-label__label"
-        for="cdx-radio-14"
+        for="v-0"
       >
         <!--v-if-->
         <span

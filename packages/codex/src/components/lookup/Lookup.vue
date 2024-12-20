@@ -61,13 +61,13 @@ import {
 	ref,
 	toRef,
 	computed,
-	watch
+	watch,
+	useId
 } from 'vue';
 
 import CdxMenu from '../menu/Menu.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
 
-import useGeneratedId from '../../composables/useGeneratedId';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useOptionalModelWrapper from '../../composables/useOptionalModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
@@ -230,7 +230,7 @@ export default defineComponent( {
 		const rootElement = ref<HTMLDivElement>();
 		const textInput = ref<InstanceType<typeof CdxTextInput>>();
 		const menu = ref<InstanceType<typeof CdxMenu>>();
-		const menuId = useGeneratedId( 'lookup-menu' );
+		const menuId = useId();
 		const pending = ref( false );
 		const expanded = ref( false );
 		const isActive = ref( false );

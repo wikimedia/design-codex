@@ -1721,7 +1721,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
               >
                 <input
                   class="cdx-checkbox__input"
-                  id="cdx-checkbox-0"
+                  id="v-0"
                   type="checkbox"
                   value="false"
                 />
@@ -1738,7 +1738,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
                 >
                   <label
                     class="cdx-label__label"
-                    for="cdx-checkbox-0"
+                    for="v-0"
                   >
                     <!--v-if-->
                     <span
@@ -1808,7 +1808,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
               >
                 <input
                   class="cdx-checkbox__input"
-                  id="cdx-checkbox-2"
+                  id="v-2"
                   type="checkbox"
                   value="0"
                 />
@@ -1825,7 +1825,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
                 >
                   <label
                     class="cdx-label__label"
-                    for="cdx-checkbox-2"
+                    for="v-2"
                   >
                     <!--v-if-->
                     <span
@@ -1900,7 +1900,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
               >
                 <input
                   class="cdx-checkbox__input"
-                  id="cdx-checkbox-4"
+                  id="v-4"
                   type="checkbox"
                   value="1"
                 />
@@ -1917,7 +1917,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
                 >
                   <label
                     class="cdx-label__label"
-                    for="cdx-checkbox-4"
+                    for="v-4"
                   >
                     <!--v-if-->
                     <span
@@ -1992,7 +1992,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
               >
                 <input
                   class="cdx-checkbox__input"
-                  id="cdx-checkbox-6"
+                  id="v-6"
                   type="checkbox"
                   value="2"
                 />
@@ -2009,7 +2009,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
                 >
                   <label
                     class="cdx-label__label"
-                    for="cdx-checkbox-6"
+                    for="v-6"
                   >
                     <!--v-if-->
                     <span
@@ -2084,7 +2084,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
               >
                 <input
                   class="cdx-checkbox__input"
-                  id="cdx-checkbox-8"
+                  id="v-8"
                   type="checkbox"
                   value="3"
                 />
@@ -2101,7 +2101,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ([[Object], [Obje
                 >
                   <label
                     class="cdx-label__label"
-                    for="cdx-checkbox-8"
+                    for="v-8"
                   >
                     <!--v-if-->
                     <span
@@ -3603,10 +3603,10 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
         class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
       >
         <div
-          aria-controls="cdx-select-menu-10"
+          aria-controls="v-0"
           aria-expanded="false"
           class="cdx-select-vue__handle"
-          id="cdx-select-handle-11"
+          id="v-1"
           role="combobox"
           tabindex="0"
         >
@@ -3651,7 +3651,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
         >
           <ul
             class="cdx-menu__listbox"
-            id="cdx-select-menu-10"
+            id="v-0"
             role="listbox"
           >
             <!--v-if-->
@@ -3662,7 +3662,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
               aria-disabled="false"
               aria-selected="true"
               class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-              id="cdx-menu-item-12"
+              id="v-2"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -3700,7 +3700,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled"
-              id="cdx-menu-item-13"
+              id="v-3"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -3738,7 +3738,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled"
-              id="cdx-menu-item-14"
+              id="v-4"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -4286,10 +4286,10 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
         class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
       >
         <div
-          aria-controls="cdx-select-menu-15"
+          aria-controls="v-5"
           aria-expanded="false"
           class="cdx-select-vue__handle"
-          id="cdx-select-handle-16"
+          id="v-6"
           role="combobox"
           tabindex="0"
         >
@@ -4334,7 +4334,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
         >
           <ul
             class="cdx-menu__listbox"
-            id="cdx-select-menu-15"
+            id="v-5"
             role="listbox"
           >
             <!--v-if-->
@@ -4345,7 +4345,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
               aria-disabled="false"
               aria-selected="true"
               class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-              id="cdx-menu-item-17"
+              id="v-7"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -4383,7 +4383,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled"
-              id="cdx-menu-item-18"
+              id="v-8"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -4421,7 +4421,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled"
-              id="cdx-menu-item-19"
+              id="v-9"
               role="option"
             >
               <!-- @slot Custom menu item content. -->

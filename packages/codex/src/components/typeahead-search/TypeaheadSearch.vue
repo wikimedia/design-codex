@@ -122,12 +122,11 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent, computed, ref, watch, onMounted, toRef } from 'vue';
+import { PropType, defineComponent, computed, ref, watch, onMounted, toRef, useId } from 'vue';
 import { cdxIconArticleSearch } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import CdxMenu from '../menu/Menu.vue';
 import CdxSearchInput from '../search-input/SearchInput.vue';
-import useGeneratedId from '../../composables/useGeneratedId';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 import useI18n from '../../composables/useI18n';
 import { SearchResult, SearchResultWithId, SearchResultClickEvent, MenuItemDataWithId, MenuConfig } from '../../types';
@@ -285,7 +284,7 @@ export default defineComponent( {
 		const menu = ref<InstanceType<typeof CdxMenu>>();
 
 		// Generated ID for menu; needed for aria-attributes.
-		const menuId = useGeneratedId( 'typeahead-search-menu' );
+		const menuId = useId();
 
 		// Inject a translatable message string.
 		const translatedSearchResultsLabel = useI18n( 'cdx-typeahead-search-search-results-label', 'Search results' );

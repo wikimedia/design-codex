@@ -48,11 +48,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref, toRef, computed } from 'vue';
+import { defineComponent, PropType, ref, toRef, computed, useId } from 'vue';
 import CdxLabel from '../label/Label.vue';
 import useLabelChecker from '../../composables/useLabelChecker';
 import useModelWrapper from '../../composables/useModelWrapper';
-import useGeneratedId from '../../composables/useGeneratedId';
 import useFieldData from '../../composables/useFieldData';
 import { ValidationStatusType } from '../../types';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
@@ -170,8 +169,8 @@ export default defineComponent( {
 
 		// Declare template ref.
 		const input = ref<HTMLInputElement>();
-		const checkboxId = useGeneratedId( 'checkbox' );
-		const descriptionId = useGeneratedId( 'description' );
+		const checkboxId = useId();
+		const descriptionId = useId();
 
 		// Take the modelValue provided by the parent component via v-model and
 		// generate a wrapped model that we can use for the input element in
