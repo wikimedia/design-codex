@@ -61,7 +61,7 @@
 		"postpack": "rm CHANGELOG.md && rm -rf mixins/"
 	},
 	"devDependencies": {
-		"@types/jest": "29.5.6",
+		"@types/jest": "29.5.14",
 		"@types/rtlcss": "3.5.4",
 		"@vitejs/plugin-vue": "5.0.4",
 		"@vue/test-utils": "2.4.6",
