@@ -12,6 +12,9 @@
 		<template #doc-before>
 			<cdx-docs-version-banner v-if="!frontmatter.isHomepage" />
 		</template>
+		<template #doc-bottom>
+			<cdx-docs-return-to-top />
+		</template>
 	</layout>
 </template>
 
@@ -21,6 +24,7 @@ import { useRoute, useData } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import CdxDocsBetaTag from '../beta-tag/BetaTag.vue';
 import CdxDocsVersionBanner from '../version-banner/VersionBanner.vue';
+import CdxDocsReturnToTop from '../return-to-top/ReturnToTop.vue';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
