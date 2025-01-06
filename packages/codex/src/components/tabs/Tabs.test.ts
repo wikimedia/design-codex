@@ -35,6 +35,25 @@ beforeAll( () => {
 	};
 } );
 
+beforeEach( () => {
+	// Because of limitations in jsdom, computedStyle(...).direction doesn't
+	// work unless we manually add CSS rules saying that dir="rtl" means
+	// direction: rtl;
+	const styleTag = document.createElement( 'style' );
+	const div = document.createElement( 'div' );
+	div.id = 'attach';
+	div.dir = 'rtl';
+	styleTag.innerHTML = '[dir="rtl"] * { direction: rtl; } [dir="ltr"] * { direction: ltr; }';
+	document.head.appendChild( styleTag );
+	document.body.appendChild( div );
+} );
+
+afterEach( () => {
+	// Clear the DOM to prevent pollution / ID collisions between tests
+	document.body.innerHTML = '';
+	document.head.innerHTML = '';
+} );
+
 describe( 'When used along with child Tab components', () => {
 	it( 'matches the snapshot', () => {
 		const wrapper = mount( CdxTabs, {
@@ -104,7 +123,7 @@ describe( 'When used along with child Tab components', () => {
 			props: { active: 'apple' },
 			global: { components: { CdxTab } },
 			slots: { default: slotMarkup },
-			attachTo: 'body'
+			attachTo: '#attach'
 		} );
 		const listElement = wrapper.find( '.cdx-tabs__list' );
 		// Note: jsdom does not provide scrollBy, so jest.spyOn() doesn't work
@@ -250,7 +269,7 @@ describe( 'When used along with child Tab components', () => {
 				props: { active: 'apple' },
 				global: { components: { CdxTab } },
 				slots: { default: slotMarkup },
-				attachTo: 'body'
+				attachTo: '#attach'
 			} );
 			const appleTab = wrapper.findAll( '.cdx-tab' )[ 0 ];
 			const tab = wrapper.get( '.cdx-tabs__list__item' );
@@ -260,17 +279,6 @@ describe( 'When used along with child Tab components', () => {
 	} );
 
 	describe( 'When component is used inside an element with dir="rtl"', () => {
-		// Because of limitations in jsdom, computedStyle(...).direction doesn't
-		// work unless we manually add CSS rules saying that dir="rtl" means
-		// direction: rtl;
-		const styleTag = document.createElement( 'style' );
-		const div = document.createElement( 'div' );
-		div.id = 'attach';
-		div.dir = 'rtl';
-		styleTag.innerHTML = '[dir="rtl"] * { direction: rtl; } [dir="ltr"] * { direction: ltr; }';
-		document.head.appendChild( styleTag );
-		document.body.appendChild( div );
-
 		it( 'Right arrow keypress emits an "update:active" event with the name of the previous tab', async () => {
 			const wrapper = mount( CdxTabs, {
 				props: { active: 'banana' },
