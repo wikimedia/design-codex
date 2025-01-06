@@ -49,7 +49,8 @@ the generated file in `packages/codex-docs/docs/components/demos`.
 Most code examples live in their own `.vue` file, in an `examples` directory underneath the relevant
 component's demos directory. These files are imported in the component's Markdown file, both to
 demonstrate the example and to display the source code. To make these code examples widely usable,
-they do not use TypeScript, and don't use JavaScript features that are not available in ES6.
+they do not use TypeScript, and only use JavaScript features that are available in
+ECMAScript 2016 (ES7) and not more recently added features.
 
 Because the way Vue and Codex is used in MediaWiki is different, component demos display two
 versions of each code example: the original (labeled "NPM") and a transformed one for use in
