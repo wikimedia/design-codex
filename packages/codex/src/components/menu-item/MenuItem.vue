@@ -425,6 +425,10 @@ export default defineComponent( {
 
 	&__icon {
 		margin-right: @spacing-50;
+
+		&.cdx-icon {
+			color: @color-subtle;
+		}
 	}
 
 	&__selected-icon {
@@ -433,16 +437,7 @@ export default defineComponent( {
 		// font size, since the line height of text will do the same.
 		height: unit( @line-height-x-small, em );
 		margin-left: auto;
-	}
 
-	// Make sure icons inherit the content element's color.
-	&__icon {
-		&.cdx-icon {
-			color: @color-subtle;
-		}
-	}
-
-	&__selected-icon {
 		&.cdx-icon {
 			color: inherit;
 		}
