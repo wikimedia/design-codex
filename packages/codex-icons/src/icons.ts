@@ -29,6 +29,9 @@ export const cdxIconAlignRight = svgAlignRight;
 import svgAppearance from './images/appearance.svg';
 export const cdxIconAppearance = svgAppearance;
 
+import svgArrowDown from './images/arrowDown.svg';
+export const cdxIconArrowDown = svgArrowDown;
+
 import svgArrowNext from './images/arrowNext.svg';
 export const cdxIconArrowNext: IconFlipForRtl = {
 	ltr: svgArrowNext,
@@ -40,6 +43,9 @@ export const cdxIconArrowPrevious: IconFlipForRtl = {
 	ltr: svgArrowPrevious,
 	shouldFlip: true
 };
+
+import svgArrowUp from './images/arrowUp.svg';
+export const cdxIconArrowUp = svgArrowUp;
 
 import svgArticle from './images/article.svg';
 export const cdxIconArticle: IconFlipForRtl = {

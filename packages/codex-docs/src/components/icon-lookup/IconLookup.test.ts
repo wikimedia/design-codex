@@ -5,7 +5,8 @@ import {
 	cdxIconAdd,
 	cdxIconArrowNext,
 	cdxIconArrowPrevious,
-	cdxIconArticleAdd,
+	cdxIconArrowUp,
+	cdxIconArrowDown,
 	cdxIconTag
 } from '@wikimedia/codex-icons';
 import CdxDocsIconLookup from './IconLookup.vue';
@@ -49,13 +50,13 @@ describe( 'IconLookup', () => {
 		// alphabetically are the first and last elements in the array
 		expect( wrapper.vm.menuItems.length ).toBe( 10 );
 		// First icon: cdxIconAdd
-		// Tenth icon: cdxIconArticleAdd
+		// Tenth icon: cdxIconArrowUp
 		expect( wrapper.vm.menuItems[ 0 ] ).toEqual(
 			{ value: 'cdxIconAdd', icon: cdxIconAdd }
 		);
-		// TODO this test breaks when adding a new icon that comes before ArticleAdd in the alphabet
+		// TODO this test breaks when adding a new icon that comes before ArrowUp in the alphabet
 		expect( wrapper.vm.menuItems[ 9 ] ).toEqual(
-			{ value: 'cdxIconArticleAdd', icon: cdxIconArticleAdd }
+			{ value: 'cdxIconArrowUp', icon: cdxIconArrowUp }
 		);
 	} );
 
@@ -66,8 +67,10 @@ describe( 'IconLookup', () => {
 		textInputWrapper.vm.$emit( 'update:modelValue', 'Arrow' );
 		await nextTick();
 		const arrowIcons: MenuItemData[] = [
+			{ value: 'cdxIconArrowDown', icon: cdxIconArrowDown },
 			{ value: 'cdxIconArrowNext', icon: cdxIconArrowNext },
-			{ value: 'cdxIconArrowPrevious', icon: cdxIconArrowPrevious }
+			{ value: 'cdxIconArrowPrevious', icon: cdxIconArrowPrevious },
+			{ value: 'cdxIconArrowUp', icon: cdxIconArrowUp }
 		];
 		expect( wrapper.vm.menuItems ).toEqual( arrowIcons );
 	} );
