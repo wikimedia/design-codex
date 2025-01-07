@@ -23,7 +23,7 @@ additional rules for how tokens should be organized going forward.
 Codex currently organizes design tokens in three different layers or tiers.
 
 1. **Option Tokens**: Option tokens represent the universe of possible values for
-  our system. Option tokens have descriptive names (`color-blue500`), and
+  our system. Option tokens have descriptive names (`color-blue700`), and
   primitive values (i.e. `#36c`). By default, options tokens are not shipped to
   the user. This allows for the set of options tokens to be as comprehensive as
   necessary without worrying about negative performance impacts. Currently,

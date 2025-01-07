@@ -20,11 +20,11 @@ Illustrations that appear on a colored background should not include an outline 
 
 ### White background
 
-Illustrations that appear on a white background should include a 2 dp outline stroke in Gray500. Elements inside of the illustration can contain an outline stroke, this stroke should also be a 2 dp stroke in Gray500. Illustrations can use any of the [colors](colors.html) available in the Style Guide excluding Black.
+Illustrations that appear on a white background should include a 2 dp outline stroke in `color-gray500`. Elements inside of the illustration can contain an outline stroke, this stroke should also be a 2 dp stroke in `color-gray500`. Illustrations can use any of the [colors](colors.html) available in the Style Guide excluding Black.
 
 ### Grayscale
 
-Grayscale illustrations (for use in empty states) should include a 2 dp outline stroke in Gray400. Elements inside of the illustration can contain an outline stroke, this stroke should also be a 2 dp stroke in Gray400. Illustrations should only include [grayscale colors](colors.html#Gray) available in the excluding Black.
+Grayscale illustrations (for use in empty states) should include a 2 dp outline stroke in `color-gray400`. Elements inside of the illustration can contain an outline stroke, this stroke should also be a 2 dp stroke in `color-gray400`. Illustrations should only include [grayscale colors](colors.html#Gray) available in the excluding Black.
 
 ## Creating illustrations
 
@@ -42,7 +42,7 @@ Illustrations should be simple. They use monochromatic vector-based shapes with 
 - Rounded corners. Corners are slightly rounded (2 dp) to make shapes more friendly and welcoming, but not too much to look goofy.
 - 2 dp outline stroke, except for illustrations that appear on colored backgrounds.
 
-As a general recommendation, an illustration should use no more than 3 accent or supplementary colors (eg. Blue700, Red600, Green400 and Yellow200) to avoid visual complexity. Additionally, special care should be taken when using reds with greens or blues in the same composition. Users with red-green color blindness may have difficulty differentiating between red and green elements, especially if they are overlapping. Red and blue elements should also be treated with care so as to avoid the visual illusion of [chromostereopsis](https://en.wikipedia.org/wiki/Chromostereopsis). Illustrations may include transparent elements or cut outs, however all elements should be shown as either 0 or 100% opacity.
+As a general recommendation, an illustration should use no more than 3 accent or supplementary colors (eg. `color-blue700`, `color-red600`, `color-green400` and `color-yellow200`) to avoid visual complexity. Additionally, special care should be taken when using reds with greens or blues in the same composition. Users with red-green color blindness may have difficulty differentiating between red and green elements, especially if they are overlapping. Red and blue elements should also be treated with care so as to avoid the visual illusion of [chromostereopsis](https://en.wikipedia.org/wiki/Chromostereopsis). Illustrations may include transparent elements or cut outs, however all elements should be shown as either 0 or 100% opacity.
 
 ## Resources
 

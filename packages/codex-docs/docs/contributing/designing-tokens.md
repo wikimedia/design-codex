@@ -56,7 +56,7 @@ In the exploration Figma file, create a new Figma tab for each version of the ne
 
 ### 3.2. Create option and decision tokens
 
-Designers will need to add both option and decision tokens in their respective specifications sheets. Option tokens consume “raw” values (e.g. `#36c`), and usually have more abstract names (e.g. Blue 500). The names of decision tokens should express their intended use (e.g. content-progressive). They consume option tokens as values. Learn more about the different [token typologies](../design-tokens/definition-and-structure.md).
+Designers will need to add both option and decision tokens in their respective specifications sheets. Option tokens consume “raw” values (e.g. `#36c`), and usually have more abstract names (e.g. `color-blue700`). The names of decision tokens should express their intended use (e.g. `color-progressive`). They consume option tokens as values. Learn more about the different [token typologies](../design-tokens/definition-and-structure.md).
 
 ![Option and decision tokens on example box shadows](../assets/designing-tokens/design-token-create-option-decision-tokens.png)
 

@@ -192,13 +192,9 @@ Color hints are guidance for general use case in a light mode theme.
 			sans-serif font, bold 14/22.4
 		</h6>
 	</div>
-	<div class="cdx-docs-headings__footer">
-		<p>
-			All headings use color <strong>Black #000</strong> in light mode and <strong>Gray50 #f8f9fa</strong> in dark mode.
-			<span class="cdx-docs-headings__footer__color-swatch"></span>
-		</p>
-	</div>
 </div>
+
+All headings use `color-emphasized`<span class="cdx-docs-headings__footer__color-swatch"></span> by default.
 
 <div class="cdx-docs-paragraphs">
 	<div class="cdx-docs-paragraphs__example">
@@ -207,7 +203,7 @@ Color hints are guidance for general use case in a light mode theme.
 				Body Paragraph
 			</p>
 			<p>sans-serif font, regular</p>
-			<p>16 sp in Gray900</p>
+			<p>16 sp in color-base</p>
 		</div>
 		<div class="cdx-docs-paragraphs__example__demo">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius. Itaque laudantium, praesentium maiores distinctio! Voluptate ipsam consequatur corrupti inventore cum illo quae modi.</p>
@@ -219,7 +215,7 @@ Color hints are guidance for general use case in a light mode theme.
 				Complementary
 			</p>
 			<p>sans-serif font, regular</p>
-			<p>14 sp in Gray500 or Gray900</p>
+			<p>14 sp in color-placeholder or color-subtle</p>
 		</div>
 		<div class="cdx-docs-paragraphs__example__demo">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius.</p>
@@ -233,7 +229,7 @@ Color hints are guidance for general use case in a light mode theme.
 		</div>
 		<div class="cdx-docs-paragraphs__example__demo">
 			<blockquote>
-				<p>sans-serif font, italic 20sp, 4px border before in Gray100</p>
+				<p>sans-serif font, italic 20sp, 4px border before in border-color-muted</p>
 				<cite>— sans-serif font, regular 14 sp</cite>
 			</blockquote>
 		</div>
@@ -244,7 +240,7 @@ Color hints are guidance for general use case in a light mode theme.
 				Figure caption
 			</p>
 			<p>sans-serif font, italic</p>
-			<p>12 sp in Gray500</p>
+			<p>12 sp in color-placeholder</p>
 		</div>
 		<div class="cdx-docs-paragraphs__example__demo">
 			<figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius.</figcaption>
@@ -268,7 +264,7 @@ Color hints are guidance for general use case in a light mode theme.
 				Placeholder
 			</p>
 			<p>sans-serif font, regular</p>
-			<p>16 sp in Gray500</p>
+			<p>16 sp in color-placeholder</p>
 		</div>
 		<div class="cdx-docs-paragraphs__example__demo">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius.</p>
