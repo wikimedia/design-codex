@@ -380,9 +380,46 @@ body {
 	background-color: var( --background-color-base );
 }
 
+/* Main Sidebar */
 /* Position flyout sidebar over the nav bar, foremost for tablet and mobile screens. */
 .VPSidebar.open {
 	z-index: calc( var( --vp-z-index-nav ) + 1 );
+}
+
+/* Style component categories. */
+.VPSidebarItem.level-1.collapsible h3.text {
+	font-weight: var( --font-weight-bold );
+}
+
+/* Add space between groups. */
+.VPSidebarItem.collapsible:not( :last-child ) {
+	margin-bottom: var( --spacing-75 );
+}
+
+/* Make sidebar caret icons point up when the section is open. */
+/* Add `.vpi-chevron-right` for higher specificity. */
+.VPSidebarItem.collapsible .vpi-chevron-right.caret-icon {
+	transform: rotate( -90deg );
+}
+
+/* Make sidebar caret icons point down when the section is collapsed. */
+.VPSidebarItem.collapsed .vpi-chevron-right.caret-icon {
+	transform: rotate( 90deg );
+}
+
+/* Remove line to the left of nested items. */
+.VPSidebarItem.level-1.collapsible .items {
+	border: 0;
+	padding: 0;
+}
+
+/* Add a little more space between nested items. */
+.collapsible .VPSidebarItem.level-2 {
+	margin-top: var( --spacing-12 );
+}
+
+.collapsible .VPSidebarItem.level-2 .indicator {
+	display: none;
 }
 
 /* Search. ----------------------------------------------------------------- */

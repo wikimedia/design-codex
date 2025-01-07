@@ -265,43 +265,90 @@ export default defineConfigWithTheme<CustomConfig>( {
 				},
 				{
 					text: '',
-					items: filterComponents( [
-						{ text: 'Accordion', link: '/components/demos/accordion' },
-						{ text: 'Button', link: '/components/demos/button' },
-						{ text: 'ButtonGroup', link: '/components/demos/button-group' },
-						{ text: 'Card', link: '/components/demos/card' },
-						{ text: 'Checkbox', link: '/components/demos/checkbox' },
-						{ text: 'ChipInput', link: '/components/demos/chip-input' },
-						{ text: 'Combobox', link: '/components/demos/combobox' },
-						{ text: 'Dialog', link: '/components/demos/dialog' },
-						{ text: 'Field', link: '/components/demos/field' },
-						{ text: 'Icon', link: '/components/demos/icon' },
-						{ text: 'Image', link: '/components/demos/image' },
-						{ text: 'InfoChip', link: '/components/demos/info-chip' },
-						{ text: 'Label', link: '/components/demos/label' },
-						{ text: 'Link', link: '/components/mixins/link' },
-						{ text: 'Lookup', link: '/components/demos/lookup' },
-						{ text: 'Menu', link: '/components/demos/menu' },
-						{ text: 'MenuButton', link: '/components/demos/menu-button' },
-						{ text: 'MenuItem', link: '/components/demos/menu-item' },
-						{ text: 'Message', link: '/components/demos/message' },
-						{ text: 'MultiselectLookup', link: '/components/demos/multiselect-lookup' },
-						{ text: 'ProgressBar', link: '/components/demos/progress-bar' },
-						{ text: 'Radio', link: '/components/demos/radio' },
-						{ text: 'SearchInput', link: '/components/demos/search-input' },
-						{ text: 'Select', link: '/components/demos/select' },
-						{ text: 'Table', link: '/components/demos/table' },
-						{ text: 'Tabs', link: '/components/demos/tabs' },
-						{ text: 'Tab', link: '/components/demos/tab' },
-						{ text: 'TextArea', link: '/components/demos/text-area' },
-						{ text: 'TextInput', link: '/components/demos/text-input' },
-						{ text: 'Thumbnail', link: '/components/demos/thumbnail' },
-						{ text: 'ToggleButton', link: '/components/demos/toggle-button' },
-						{ text: 'ToggleButtonGroup', link: '/components/demos/toggle-button-group' },
-						{ text: 'ToggleSwitch', link: '/components/demos/toggle-switch' },
-						{ text: 'Tooltip', link: '/components/directives/tooltip' },
-						{ text: 'TypeaheadSearch', link: '/components/demos/typeahead-search' }
-					] )
+					items: [
+						{
+							text: 'Buttons',
+							collapsed: true,
+							items: filterComponents( [
+								{ text: 'Button', link: '/components/demos/button' },
+								{ text: 'ButtonGroup', link: '/components/demos/button-group' },
+								{ text: 'MenuButton', link: '/components/demos/menu-button' },
+								{ text: 'ToggleButton', link: '/components/demos/toggle-button' },
+								{ text: 'ToggleButtonGroup', link: '/components/demos/toggle-button-group' }
+							] )
+						},
+						{
+							text: 'Form elements',
+							collapsed: true,
+							items: filterComponents( [
+								{ text: 'Checkbox', link: '/components/demos/checkbox' },
+								{ text: 'ChipInput', link: '/components/demos/chip-input' },
+								{ text: 'Combobox', link: '/components/demos/combobox' },
+								{ text: 'Field', link: '/components/demos/field' },
+								{ text: 'Label', link: '/components/demos/label' },
+								{ text: 'Lookup', link: '/components/demos/lookup' },
+								{ text: 'MultiselectLookup', link: '/components/demos/multiselect-lookup' },
+								{ text: 'Radio', link: '/components/demos/radio' },
+								{ text: 'Select', link: '/components/demos/select' },
+								{ text: 'TextArea', link: '/components/demos/text-area' },
+								{ text: 'TextInput', link: '/components/demos/text-input' },
+								{ text: 'ToggleSwitch', link: '/components/demos/toggle-switch' }
+							] )
+						},
+						{
+							text: 'Content & data',
+							collapsed: true,
+							items: filterComponents( [
+								{ text: 'Accordion', link: '/components/demos/accordion' },
+								{ text: 'Card', link: '/components/demos/card' },
+								{ text: 'Dialog', link: '/components/demos/dialog' },
+								{ text: 'Menu', link: '/components/demos/menu' },
+								{ text: 'MenuItem', link: '/components/demos/menu-item' },
+								{ text: 'Table', link: '/components/demos/table' },
+								{ text: 'Tooltip', link: '/components/directives/tooltip' }
+							] )
+						},
+						{
+							text: 'Feedback',
+							collapsed: true,
+							items: filterComponents( [
+								{ text: 'InfoChip', link: '/components/demos/info-chip' },
+								{ text: 'Message', link: '/components/demos/message' },
+								{ text: 'ProgressBar', link: '/components/demos/progress-bar' }
+								// ProgressIndicator
+								// Skeleton
+								// Toast
+							] )
+						},
+						{
+							text: 'Media',
+							collapsed: true,
+							items: filterComponents( [
+								// Figure
+								{ text: 'Icon', link: '/components/demos/icon' },
+								{ text: 'Image', link: '/components/demos/image' },
+								{ text: 'Thumbnail', link: '/components/demos/thumbnail' }
+							] )
+						},
+						// Layout with Container and Divider
+						{
+							text: 'Navigation',
+							collapsed: true,
+							items: filterComponents( [
+								{ text: 'Link', link: '/components/mixins/link' },
+								{ text: 'Tabs', link: '/components/demos/tabs' },
+								{ text: 'Tab', link: '/components/demos/tab' }
+							] )
+						},
+						{
+							text: 'Search',
+							collapsed: true,
+							items: filterComponents( [
+								{ text: 'SearchInput', link: '/components/demos/search-input' },
+								{ text: 'TypeaheadSearch', link: '/components/demos/typeahead-search' }
+							] )
+						}
+					]
 				}
 			],
 			'/icons/': [
