@@ -436,10 +436,15 @@ export default defineComponent( {
 	}
 
 	// Make sure icons inherit the content element's color.
-	&__icon,
-	&__selected-icon {
+	&__icon {
 		&.cdx-icon {
 			color: @color-subtle;
+		}
+	}
+
+	&__selected-icon {
+		&.cdx-icon {
+			color: inherit;
 		}
 	}
 
@@ -522,8 +527,9 @@ export default defineComponent( {
 		color: @color-disabled;
 		cursor: @cursor-base--disabled;
 
-		.cdx-menu-item__text__description {
-			color: @color-disabled;
+		.cdx-menu-item__text__description,
+		.cdx-menu-item__icon {
+			color: inherit;
 		}
 	}
 	/* stylelint-enable no-descending-specificity */
