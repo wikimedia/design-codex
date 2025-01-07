@@ -1,3 +1,6 @@
+# 1.19.1 / 2025-01-07
+Dummy release to fix a publishing problem with 1.19.0.
+
 # 1.19.0 / 2025-01-07
 
 ## Styles
