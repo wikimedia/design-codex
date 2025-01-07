@@ -309,8 +309,10 @@ export const cdxIconFunctionArgument: IconFlipForRtl = {
 	shouldFlip: true
 };
 
-import svgFullScreen from './images/fullScreen.svg';
-export const cdxIconFullScreen = svgFullScreen;
+import svgFullscreen from './images/fullscreen.svg';
+export const cdxIconFullscreen = svgFullscreen;
+// DEPRECATED
+export const cdxIconFullScreen = svgFullscreen;
 
 import svgFunnel from './images/funnel.svg';
 export const cdxIconFunnel: IconFlipForRtl = {

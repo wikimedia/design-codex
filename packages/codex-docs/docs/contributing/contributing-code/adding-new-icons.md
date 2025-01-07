@@ -47,11 +47,11 @@ The icon's name should describe the icon, not its application, e.g. `bell` inste
 `notification`.
 
 Icon files should be named with the icon name in lowerCamelCase, e.g. `fooBar.svg` or
-`fullScreen.svg`. If there are multiple SVG files for the same icon, those are named `iconName-suffix.svg`, e.g. `imageAdd-rtl.svg` or `italic-i.svg` (more on this below).
+`articleAdd.svg`. If there are multiple SVG files for the same icon, those are named `iconName-suffix.svg`, e.g. `imageAdd-rtl.svg` or `italic-i.svg` (more on this below).
 
 The variable name of the icon definition in `packages/codex-icons/src/icons.ts` should be in
 lowerCamelCase and consist of the prefix `cdxIcon` followed by the icon name, e.g.
-`cdxIconFullScreen` for the `fullScreen` icon. Icon definitions in this file are in alphabetical
+`cdxIconArticleAdd` for the `articleAdd` icon. Icon definitions in this file are in alphabetical
 order.
 
 ### SVG conventions
@@ -77,12 +77,12 @@ the `codex` repository. Be sure to commit the optimized file(s).
 
 ### Simple unidirectional icons
 For a simple icon that doesn't vary by directionality (LTR/RTL) or language, add a single SVG
-file named in lowerCamelCase, e.g. `fullScreen.svg`, to the `images/` directory. Add an icon
+file named in lowerCamelCase, e.g. `articleAdd.svg`, to the `images/` directory. Add an icon
 definition to `icons.ts` that looks like this:
 
 ```ts
-import svgFullScreen from './images/fullScreen.svg';
-export const cdxIconFullScreen = svgFullScreen;
+import svgArticleAdd from './images/articleAdd.svg';
+export const cdxIconArticleAdd = svgArticleAdd;
 ```
 
 ### Automatically flipped icons
