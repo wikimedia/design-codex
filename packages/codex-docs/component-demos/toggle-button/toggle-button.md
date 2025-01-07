@@ -40,7 +40,7 @@ Use the ToggleButton component for options that require state persistence and ar
 involved than a typical button click action. Avoid using ToggleButton if you need to trigger an
 immediate action; in this case use a [Button](./button.md) instead.
 
-There are two types of ToggleButton: normal and quiet. Only use quiet ToggleButton for an easily recognizable
+There are two types of ToggleButtons: normal and quiet. Only use quiet ToggleButton for an easily recognizable
 action that does not detract focus from the content. There is no ToggleButton variant designed
 for progressive or destructive actions.
 
@@ -50,14 +50,36 @@ ToggleButton includes the following elements.
 
 #### Label
 
-Labels should be as short as possible, with text that clearly states what state is changed
-when toggling the ToggleButton (eg. show/hide). Note that the label text should not change depending on
-the button’s toggled state.
+Labels should be as short as possible, with text that clearly states what state is changed when toggling the ToggleButton (eg. show/hide).
+
+ToggleButton label should ideally be fewer than 38 characters in English, as translations average 42 characters. Logographic and Arabic-script languages are generally shorter, while Romance, some Germanic, Slavic, Austronesian, and others like Greek and Finnish tend to be longer, averaging 45–53 characters.
 
 <cdx-demo-best-practices>
+<cdx-demo-best-practice>
 
-<cdx-demo-best-practice>Use the same text and icon in both off and on states.</cdx-demo-best-practice>
+Use the same text and icon in both off and on states.
 
+</cdx-demo-best-practice>
+<cdx-demo-best-practice>
+
+Use descriptive, accessible verbs to encourage action. [*Concise*](../../style-guide/writing-for-copy.html#is-this-concise) & [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible)
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice>
+
+Write in sentence case, capitalising only the first word. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent)
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">
+
+Avoid using similar words for different ToggleButtons. [*Clear*](../../style-guide/writing-for-copy.html#is-this-clear)
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">
+
+Avoid verbs that imply visual or sensory abilities such as "see", or are idiomatic or vague. [*Accessible*](../../style-guide/writing-for-copy.html#is-this-accessible) & [*Translatable*](../../style-guide/writing-for-copy.html#is-this-translatable)
+
+</cdx-demo-best-practice>
 </cdx-demo-best-practices>
 
 #### Icon (optional)
@@ -67,8 +89,7 @@ screen reader users.
 
 <cdx-demo-best-practices>
 
-<cdx-demo-best-practice>Ensure that icons used in buttons are relevant to the action they represent.</cdx-demo-best-practice>
-<cdx-demo-best-practice>Use icons only when they are clear and easily recognizable.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Ensure that icons used in ToggleButtons are relevant and easily recognizable.</cdx-demo-best-practice>
 <cdx-demo-best-practice type="dont">Avoid using icons that are difficult to recognize or do not clearly convey their purpose.</cdx-demo-best-practice>
 
 </cdx-demo-best-practices>

@@ -6,7 +6,7 @@ exports[`matches the snapshot Case 0 Default: ({"disabled": false, "modelValue":
   class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
   type="button"
 >
-  <!-- @slot Button content -->
+  <!-- @slot ToggleButton content -->
   
   Button text
   
@@ -19,7 +19,7 @@ exports[`matches the snapshot Case 1 Active: ({"disabled": false, "modelValue": 
   class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
   type="button"
 >
-  <!-- @slot Button content -->
+  <!-- @slot ToggleButton content -->
   
   Button text
   
@@ -33,7 +33,7 @@ exports[`matches the snapshot Case 2 Disabled, inactive: ({"disabled": true, "mo
   disabled=""
   type="button"
 >
-  <!-- @slot Button content -->
+  <!-- @slot ToggleButton content -->
   
   Button text
   
@@ -47,7 +47,7 @@ exports[`matches the snapshot Case 3 Disabled, active: ({"disabled": true, "mode
   disabled=""
   type="button"
 >
-  <!-- @slot Button content -->
+  <!-- @slot ToggleButton content -->
   
   Button text
   
@@ -60,7 +60,7 @@ exports[`matches the snapshot Case 4 Quiet: ({"disabled": false, "modelValue": f
   class="cdx-toggle-button cdx-toggle-button--quiet cdx-toggle-button--toggled-off"
   type="button"
 >
-  <!-- @slot Button content -->
+  <!-- @slot ToggleButton content -->
   
   Button text
   
@@ -73,7 +73,7 @@ exports[`matches the snapshot Case 5 Quiet, active: ({"disabled": false, "modelV
   class="cdx-toggle-button cdx-toggle-button--quiet cdx-toggle-button--toggled-on"
   type="button"
 >
-  <!-- @slot Button content -->
+  <!-- @slot ToggleButton content -->
   
   Button text
   
@@ -87,7 +87,7 @@ exports[`matches the snapshot Case 6 Quiet, disabled, inactive: ({"disabled": tr
   disabled=""
   type="button"
 >
-  <!-- @slot Button content -->
+  <!-- @slot ToggleButton content -->
   
   Button text
   
@@ -101,7 +101,7 @@ exports[`matches the snapshot Case 7 Quiet, disabled, active: ({"disabled": true
   disabled=""
   type="button"
 >
-  <!-- @slot Button content -->
+  <!-- @slot ToggleButton content -->
   
   Button text
   
@@ -115,7 +115,7 @@ exports[`matches the snapshot Case 8 Icon-only (SVG): ({"disabled": false, "mode
   class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off cdx-toggle-button--icon-only"
   type="button"
 >
-  <!-- @slot Button content -->
+  <!-- @slot ToggleButton content -->
   
   <svg />
   
@@ -129,7 +129,7 @@ exports[`matches the snapshot Case 9 Icon-only (CdxIcon): ({"disabled": false, "
   class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off cdx-toggle-button--icon-only"
   type="button"
 >
-  <!-- @slot Button content -->
+  <!-- @slot ToggleButton content -->
   
   <cdx-icon-stub
     icon="<path d="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"/>"

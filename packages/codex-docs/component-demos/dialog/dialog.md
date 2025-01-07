@@ -34,7 +34,7 @@ const controlsConfig = [
 ];
 </script>
 
-A Dialogs is a container that is overlaid on a web page or app in order to present necessary
+A Dialog is a container that is overlaid on a web page or app in order to present necessary
 information and tasks. A Dialog is sometimes referred to as a modal or an overlay.
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :allow-link-styles="true">

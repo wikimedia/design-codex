@@ -40,7 +40,7 @@ export default defineComponent( {
 			validator: buttonActionValidator
 		},
 		/**
-		 * Visual prominence of the button.
+		 * Visual prominence of Button.
 		 *
 		 * @values 'normal', 'primary', 'quiet'
 		 */
@@ -52,7 +52,7 @@ export default defineComponent( {
 		/**
 		 * Button size.
 		 *
-		 * Most buttons should use the default medium size. In rare cases the large size should
+		 * Most Buttons should use the default medium size. In rare cases the large size should
 		 * be used, for example to make icon-only buttons larger on touchscreens.
 		 *
 		 * @values 'medium', 'large'

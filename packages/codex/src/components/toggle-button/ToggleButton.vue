@@ -9,7 +9,7 @@
 		@keydown.space.enter.prevent="onKeyDown"
 		@keyup.space.enter="onKeyUp"
 	>
-		<!-- @slot Button content -->
+		<!-- @slot ToggleButton content -->
 		<slot />
 	</button>
 </template>
@@ -25,7 +25,7 @@ export default defineComponent( {
 	name: 'CdxToggleButton',
 	props: {
 		/**
-		 * Whether the button should be set to "on" (true) or "off" (false).
+		 * Whether the ToggleButton should be set to "on" (true) or "off" (false).
 		 *
 		 * Provided by `v-model` binding in the parent component.
 		 */
@@ -34,7 +34,7 @@ export default defineComponent( {
 			default: false
 		},
 		/**
-		 * Whether the disabled attribute should be added to the button, which prevents
+		 * Whether the disabled attribute should be added to the ToggleButton, which prevents
 		 * it from being clicked.
 		 */
 		disabled: {
@@ -42,7 +42,7 @@ export default defineComponent( {
 			default: false
 		},
 		/**
-		 * Whether the toggle button should be "quiet", which renders more minimally.
+		 * Whether the ToggleButton should be "quiet", which renders more minimally.
 		 */
 		quiet: {
 			type: Boolean,
@@ -61,7 +61,7 @@ export default defineComponent( {
 		const isIconOnly = useIconOnlyButton( slots.default, attrs, 'CdxToggleButton' );
 
 		// Support: Firefox (space), all (enter)
-		// Whether the button is being pressed via the space or enter key. Needed to apply
+		// Whether the ToggleButton is being pressed via the space or enter key. Needed to apply
 		// consistent active styles across browsers. For mousedown/mouseup, the browser's native
 		// :active state will suffice.
 		const isActive = ref( false );

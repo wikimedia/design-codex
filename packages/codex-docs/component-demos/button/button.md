@@ -98,14 +98,10 @@ Avoid verbs that imply visual or sensory abilities such as "see", or are idiomat
 
 #### Icon (optional)
 
-Icons simplify user recognition and provide the ability to shorten button labels to a minimum. When the Button includes a label, the icon is optional and should be used to add a clear visual reinforcement to the label. If the Button is icon-only, it should use a universally recognizable icon, such as the “edit” action.
+Icons simplify user recognition and provide the ability to shorten Button labels to a minimum. When the Button includes a label, the icon is optional and should be used to add a clear visual reinforcement to the label. If the Button is icon-only, it should use a universally recognizable icon, such as the “edit” action.
 
-<cdx-demo-best-practices>
-
-<cdx-demo-best-practice>Ensure that icons used in buttons are relevant to the action they represent.</cdx-demo-best-practice>
-<cdx-demo-best-practice>Use icons only when they are clear and easily recognizable.</cdx-demo-best-practice>
-
-</cdx-demo-best-practices>
+<cdx-demo-best-practice>Ensure that icons used in buttons are relevant and easily recognizable.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Avoid using icons that are difficult to recognize or do not clearly convey their purpose.</cdx-demo-best-practice>
 
 ## Examples
 

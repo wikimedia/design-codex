@@ -10,7 +10,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 0 Simple, single-select, no
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -28,7 +28,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 0 Simple, single-select, no
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -47,7 +47,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 0 Simple, single-select, no
     disabled=""
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -65,7 +65,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 0 Simple, single-select, no
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -92,7 +92,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 1 Simple, multi-select, not
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -110,7 +110,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 1 Simple, multi-select, not
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -129,7 +129,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 1 Simple, multi-select, not
     disabled=""
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -147,7 +147,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 1 Simple, multi-select, not
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -174,7 +174,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 2 Simple, #2 selected: ([[O
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -192,7 +192,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 2 Simple, #2 selected: ([[O
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -211,7 +211,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 2 Simple, #2 selected: ([[O
     disabled=""
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -229,7 +229,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 2 Simple, #2 selected: ([[O
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -256,7 +256,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 3 Simple, #1 and #2 selecte
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -274,7 +274,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 3 Simple, #1 and #2 selecte
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -293,7 +293,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 3 Simple, #1 and #2 selecte
     disabled=""
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -311,7 +311,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 3 Simple, #1 and #2 selecte
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -339,7 +339,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 4 Simple, #2 and #4 selecte
     disabled=""
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -358,7 +358,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 4 Simple, #2 and #4 selecte
     disabled=""
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -377,7 +377,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 4 Simple, #2 and #4 selecte
     disabled=""
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -396,7 +396,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 4 Simple, #2 and #4 selecte
     disabled=""
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -423,7 +423,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -445,7 +445,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -468,7 +468,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
     disabled=""
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -490,7 +490,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -522,7 +522,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off cdx-toggle-button--icon-only"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -545,7 +545,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on cdx-toggle-button--icon-only"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -569,7 +569,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
     disabled=""
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -592,7 +592,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off cdx-toggle-button--icon-only"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -623,7 +623,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 7 With slot: ([[Object], [O
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -644,7 +644,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 7 With slot: ([[Object], [O
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -668,7 +668,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 7 With slot: ([[Object], [O
     disabled=""
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
@@ -689,7 +689,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 7 With slot: ([[Object], [O
     class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
-    <!-- @slot Button content -->
+    <!-- @slot ToggleButton content -->
     
     <!--
 				@slot Content of an individual button
