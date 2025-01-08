@@ -127,7 +127,7 @@ To start with one button already selected, initialize `v-model` to that value.
 
 Use the `icon` property to add an icon before the text of a button. Use the `disabled` property
 to disable individual buttons. For more information on how to control the appearance of each
-button, see the [ButtonGroup documentation](./button-group).
+button, visit the [ButtonGroup documentation](./button-group).
 
 </cdx-accordion>
 

@@ -71,7 +71,7 @@ contributions in this area.
 At some point in the future, we may still explore true SSR in MediaWiki. This would
 integrate better with many of the tools we are already using (Vue, Vite, etc), but
 a lot of new technical infrastructure will need to be adopted in order for MediaWiki
-(or even just WMF projects) to be able to rely on such a feature.
+(or even WMF projects) to be able to rely on such a feature.
 
 
 [def]: https://github.com/wikimedia/oojs-ui/tree/master/php

@@ -19,7 +19,7 @@ Given that the Field component would contain various features such as a `<label>
 popup next to the label, description/helper text, validation message, character counter, and field
 action (such as a "delete" button), we opted to build a component rather than a composable. If we
 wrote a composable, we would have had to handle all of the different markup and slots within render
-functions. This is something we have avoided elsewhere in the library; we try to use templates
+functions. This is something we have avoided elsewhere in the library; we use templates
 whenever possible as we find them easier to read and accessible to more people.
 
 We considered several implementation paths:

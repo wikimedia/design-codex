@@ -166,7 +166,7 @@ fill color:
 The Less mixin approach means that only a single class and a single line of Less is needed to add
 the icon. We preferred this approach over the use of CSS utility classes since it only requires
 importing the mixin to work, and all of the customization is done in one place (via the mixin
-parameters). This follows a common pattern in Codex in which we try to minimize the number of ways
+parameters). This follows a common pattern in Codex in which we minimize the number of ways
 there are to do something in order to provide a simpler, more streamlined developer experience.
 
 #### Icons in buttons

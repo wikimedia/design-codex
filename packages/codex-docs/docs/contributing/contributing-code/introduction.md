@@ -120,7 +120,7 @@ Here are some options based on different parts of the development process:
   added to the backlog to be completed later.
 
 If you have questions about how you can contribute to a new component, or a proposal for how you
-would like to contribute to one, please add a comment to that component's Phabricator task and we
+would like to contribute to one, add a comment to that component's Phabricator task and we
 will help develop a plan for who will do which parts of the component development process.
 
 ### Patch requirements
@@ -168,7 +168,7 @@ Please review this process before submitting or reviewing a patch for the first 
 
 ### Requirements
 
-- **Node:** see `.nvmrc` in the root of the repository. To install and use the required version of Node, run `nvm install "$(<.nvmrc)"` then `nvm use` in the root of the repository.
+- **Node:** verify `.nvmrc` in the root of the repository. To install and use the required version of Node, run `nvm install "$(<.nvmrc)"` then `nvm use` in the root of the repository.
 - **NPM:** v7.21 or greater is required to support workspaces; it is not included by default in older
 versions of Node (prior to v15) and will need to be upgraded manually.
 
@@ -310,7 +310,7 @@ positives in Vue code.
 
 ### IDE setup
 
-If you work on Codex using an editor not listed here, please feel free to submit a patch with
+If you work on Codex using an editor not listed here, submit a patch with
 suggested configurations for optimal development for that editor!
 
 #### Visual Studio Code

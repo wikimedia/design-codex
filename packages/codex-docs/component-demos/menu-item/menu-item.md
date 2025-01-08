@@ -140,7 +140,7 @@ Descriptive text that provides additional information about the menu item.
 
 Note that these demos do not properly show some interactive states of MenuItems (like active or
 hovered/highlighted), since they display MenuItems as standalone or as part of an always-expanded,
-detached Menu. To see the full interactivity of MenuItems, check out a component that contains a
+detached Menu. To understand the full interactivity of MenuItems, check out a component that contains a
 Menu, like [Select](./select), [Lookup](./lookup), or [TypeaheadSearch](./typeahead-search).
 
 ### Basic usage
@@ -346,7 +346,7 @@ props.
 ::: warning
 This is not a standalone component, nor will it typically be directly used. It's
 intended for use by the Menu component, which will provide it with props and
-menu state information. See [Menu](./menu.md) for more details.
+menu state information. Visit [Menu](./menu.md) for more details.
 :::
 
 A value must be provided, and various optional elements can be displayed:

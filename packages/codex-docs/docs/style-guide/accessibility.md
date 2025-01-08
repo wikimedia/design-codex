@@ -32,7 +32,7 @@ Note, that our principles mainly focus on designing for:
 - Motor impairment needs
 
 Other categories like speech impairments don't apply in our graphical user-interface focus; while
-hearing and cognitive impairments are to be covered on a content level. See for example Simple
+hearing and cognitive impairments are to be covered on a content level. Visit, for example, Simple
 Wikipedia (English)[[4]](#ref4) for being inclusive to users with learning difficulties.
 
 ## Accessible by design
@@ -79,7 +79,7 @@ ARIA Authoring practices standard[[5](#ref5), [6](#ref6)]. This lets assistive t
 identify them correctly. Additionally, it improves machine readability, resulting in better search
 optimization or alternative content delivery, for example in popular voice interfaces.
 
-## See also
+## Check also
 Please have a look at further [documentation for developers in Wikimedia projects](https://www.mediawiki.org/wiki/Accessibility_guide_for_developers)
 and [English Wikipedia's Manual of style for accessibility on content](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Accessibility).
 

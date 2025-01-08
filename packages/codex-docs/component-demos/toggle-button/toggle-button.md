@@ -105,7 +105,7 @@ Press the ToggleButton to check the value change.
 
 <template #title>Developer notes</template>
 
-Open up the console to see emitted events.
+Open up the console to check emitted events.
 
 </cdx-accordion>
 

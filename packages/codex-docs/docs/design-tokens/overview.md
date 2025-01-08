@@ -10,7 +10,7 @@ We use tokens:
 Tokens can be used in several formats: CSS custom properties, Less variables, SCSS variables,
 ES6 variables and JSON files.
 
-Each token category has a demo page where you can see each token's name and value, a demo of the
+Each token category has a demo page where you can check each token's name and value, a demo of the
 token, and information about where the token value comes from.
 
 ## Using design tokens

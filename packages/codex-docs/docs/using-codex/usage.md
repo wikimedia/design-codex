@@ -86,7 +86,7 @@ Output the HTML of the component with the appropriate CSS classes (see the compo
 
 ## Using icons
 
-For more information about icons, see [the icon documentation](../icons/overview.md), and
+For more information about icons, visit the [icon documentation](../icons/overview.md), and
 [the list of all icons](../icons/all-icons.md).
 
 ### Vue 3 icons
@@ -119,7 +119,7 @@ export default defineComponent( {
 </script>
 ```
 
-For more information about the Icon component, see [the Icon demo page](../components/demos/icon.md).
+For more information about the Icon component, visit the [Icon demo page](../components/demos/icon.md).
 
 ### CSS-only icons
 Import Codex design tokens and the CSS icon mixin. Then, apply the mixin to an empty `<span>`
@@ -150,7 +150,7 @@ element.
 }
 ```
 
-For more information about the CSS-only icon, see [the Icon demo page](../components/demos/icon.md#css-only-version).
+For more information about the CSS-only icon, visit the [Icon demo page](../components/demos/icon.md#css-only-version).
 
 ## Using design tokens
 Import the appropriate design tokens theme file in your CSS, Less, or SCSS code to access Codex
@@ -189,7 +189,7 @@ design tokens.
 }
 ```
 
-For more information about design tokens, see the [design tokens overview](../design-tokens/overview.md)
+For more information about design tokens, visit the [design tokens overview](../design-tokens/overview.md)
 and design tokens demo pages (e.g. [Color](../design-tokens/color.md)).
 
 ## Using Less mixins
@@ -217,7 +217,7 @@ To support automatic switching between light and dark colors in your application
 the user's browser or OS settings), follow these steps.
 
 **Import both the light and dark design tokens as CSS variables into your application's
-main stylesheet.** Please note that the exact file paths will depend on where you have
+main stylesheet.** Note that the exact file paths will depend on where you have
 downloaded Codex; these examples assume that the library has been installed using NPM.
 
 ```css
@@ -275,7 +275,7 @@ accordingly, for example in how they respond to the left and right arrow keys. I
 to the surrounding direction. For more information on how bidirectionality is handled for icons,
 see [the icon documentation](../icons/overview.md#right-to-left-rtl-and-language-support).
 
-For more information on this topic, see [the developer documentation on bidirectionality](../contributing/contributing-code/developing-components#bidirectional-script-support).
+For more information on this topic, visit the [developer documentation on bidirectionality](../contributing/contributing-code/developing-components#bidirectional-script-support).
 
 <style>
 /* stylelint-enable selector-class-pattern */

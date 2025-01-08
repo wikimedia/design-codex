@@ -28,7 +28,7 @@ You can engage in many ways:
 - **Request a change or provide feedback.** [File a task on our workboard][new-style-guide-task-phab-template]
   to request a change to the style guide.
 - **Explore our design process.** Read through [our design process](https://www.mediawiki.org/wiki/Design/Participate#Our_Process)
-  and view a guide on [how Wikimedia Product designers typically work](https://www.mediawiki.org/wiki/File:Working_with_Design_2020-01-10.pdf).
+  and a guide on [how Wikimedia Product designers typically work](https://www.mediawiki.org/wiki/File:Working_with_Design_2020-01-10.pdf).
 - **Read the blog.** Stay up-to-date by reading the [design blog](https://design.wikimedia.org/blog/).
 - **Follow Wikimedia Product Design team updates.** Follow [@WikimediaDesign on Twitter](https://twitter.com/WikimediaDesign).
 - **Play around.** Check out our [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=1891-4420&node-type=canvas&t=plW1hmguHVWs3fWZ-11).

@@ -17,7 +17,7 @@
 
 Designing for mobile apps presents unique challenges and opportunities compared to traditional
 websites. Mobile apps run natively on devices, accessing system resources that web-based
-architectures find more challenging to utilize. Key characteristics of apps are:
+architectures find more challenging to use. Key characteristics of apps are:
 - Apps are designed to fit with the rest of the operating system. When an app fits in with the rest
 of the OS, it looks and feels more at home, and it lowers the user’s learning curve.
 - A deep integration with the OS comes with benefits right out of the box, e.g. accessibility,
@@ -119,7 +119,7 @@ Android app:
     </figure>
 </div>
 
-The apps utilize the color palette defined in the Codex design system. Since both the Android and
+The apps use the color palette defined in the Codex design system. Since both the Android and
 iOS Wikipedia apps are available in four different reading themes (Light, Sepia, Dark, and Black),
 they use an enhanced color palette for an optimal reading experience.
 
@@ -239,7 +239,7 @@ the most impactful is emotional design. Along with our
 Especially on a device that is as personal as your mobile phone. Instead of creating one more cheap
 and fast mass feature, we follow a philosophy paved by artists, designers, and architects of the
 arts and crafts movement. After all, we design for humans and strive to create humane and emotional
-experiences. Through design, we can see and connect with other human beings. To design emotional
+experiences. Through design, we can understand and connect with other human beings. To design emotional
 experiences, we consider understanding the needs of the people we are designing for as the core
 mission.
 
@@ -292,7 +292,7 @@ shape the future of mobile interaction with Wikimedia's suite of apps.
 ## Further reading
 
 The Wikipedia Android, iOS, and KaiOS apps are each designed and developed by a specific team. If
-you’re interested in learning more about the apps, or if you like to get involved, please visit
+you’re interested in learning more about the apps, or if you like to get involved, visit
 [Wikipedia Apps on mediawiki.org](https://www.mediawiki.org/wiki/Wikimedia_Apps).
 
 ### Android

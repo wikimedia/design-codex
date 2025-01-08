@@ -154,7 +154,7 @@ the label, which will still appear in the markup for accessibility purposes.
 
 When used in a form, a single ToggleSwitch or group of ToggleSwitches can be wrapped in the Field
 component to add features like a semantic label, description and help text, validation messages,
-and more. See the [Field](./field.md) page for more information.
+and more. Visit the [Field documentation](./field.md) for more information.
 
 If using a ToggleSwitch or ToggleSwitch group outside of a form, follow the instructions in the
 next demo.

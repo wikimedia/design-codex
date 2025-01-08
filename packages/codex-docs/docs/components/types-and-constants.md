@@ -175,7 +175,7 @@ interface IconFlipForRtl {
 
 #### IconVariedByDir
 
-An icon that varies per text direction (but can't just be flipped).
+An icon that varies per text direction (but can't only be flipped).
 
 ```ts
 interface IconVariedByDir {
@@ -384,7 +384,7 @@ type TableRow = Record<string, any>;
 ### TableRowWithIdentifier
 
 When both sorting and row selection are enabled, an extra unique idenfitier is needed for each
-row. See [TableRowIdentifier](#tablerowidentifier).
+row. Check [TableRowIdentifier](#tablerowidentifier).
 
 ```ts
 interface TableRowWithIdentifier extends TableRow {

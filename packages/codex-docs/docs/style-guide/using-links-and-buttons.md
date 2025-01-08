@@ -251,7 +251,7 @@ Use Quiet Buttons to emphasize Normal Buttons when both are combined on the same
 #### Button with Icon
 
 - Use an icon to visually reinforce the text of the Button, conveying meaning both textually and visually.
-- Try incorporating icons only when they are universally recognizable and provide meaningful reinforcement, reducing the user's cognitive effort for comprehension.
+- Incorporate icons only when they are universally recognizable and provide meaningful reinforcement, reducing the user's cognitive effort for comprehension.
 
 <div class="cdx-docs-example">
 

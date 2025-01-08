@@ -31,7 +31,7 @@ To add a new component demo to the sandbox:
 ### VitePress docs site
 
 Aside from Vite Sandbox, you can also run the VitePress site locally to write and test a full
-suite of component demos. See the [component demos](./component-demos) section for more information.
+suite of component demos. Visit the [component demos](./component-demos) section for more information.
 
 ## Component basics
 
@@ -39,7 +39,7 @@ The `codex` package uses [Vue 3](https://v3.vuejs.org/guide/introduction.html) a
 the [Composition API](https://v3.vuejs.org/guide/composition-api-introduction.html) over the
 Options API.
 
-Codex is written in TypeScript: see the [Working with TypeScript](./typescript.md) section for
+Codex is written in TypeScript: check the [Working with TypeScript](./typescript.md) section for
 information about code conventions, solved problems, and potential pitfalls.
 
 ### Conventions
@@ -224,7 +224,7 @@ At the time of this writing, it's virtually impossible to support those use case
 `:dir()` CSS pseudo-class, which is
 [not yet supported by most browsers](https://caniuse.com/css-dir-pseudo).
 
-There are tools (like postcss-rtlcss, see below) that generate bidirectional CSS using attribute
+There are tools (like postcss-rtlcss, check below) that generate bidirectional CSS using attribute
 selectors like `[dir='ltr']`, but this technique is fragile. It breaks in confusing and ugly ways
 on pages that don't have a `dir` attribute set, and on pages where a `dir="ltr"` element is nested
 inside a `dir="rtl"` element or vice versa.
@@ -391,7 +391,7 @@ users understand how to use the component—we want such strings to be consisten
 | `defaultValue` | `I18nMessageValue<P>` | The English fallback (as a string, or a function if there are parameters) |
 | `params` | `MaybeRef<P>[]` | An array of parameters for the message, if needed |
 
-The following example comes from the Table component file; see the whole file for more context.
+The following example comes from the Table component file; check the whole file for more context.
 
 ```ts
 import useI18n from '../../composables/useI18n';
@@ -418,7 +418,7 @@ For strings that are usually the same but could be customized in some cases, use
 
 Additionally, add a prop that can be used to provide a custom value for the string if desired.
 
-The following example comes from the SearchInput component file; see the whole file for more
+The following example comes from the SearchInput component file; check the whole file for more
 context. SearchInput has a prop called `buttonLabel` which can be used to provide custom text for
 the "Search" button. If this prop is set, its value is used directly, overriding the translatable
 message.
@@ -440,7 +440,7 @@ const translatedSearchButtonLabel = useI18nWithOverride(
 
 Both composables can take in parameters for messages with dynamic parts. For example, for sortable
 Tables, some text is appended to the visually-hidden caption explaining that the columns are
-sortable. The following example comes from the Table component file; see the whole file for more
+sortable. The following example comes from the Table component file; check the whole file for more
 context.
 
 ```ts

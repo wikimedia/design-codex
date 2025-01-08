@@ -178,7 +178,7 @@ is not simple, consider moving it to a file and importing it.
 ### Configurable demos
 
 If a component has several variations depending on prop and slot input, it may benefit from a
-configurable demo that enables users to input different prop and slot values and see the results on
+configurable demo that enables users to input different prop and slot values and check the results on
 the fly. This can be achieved within the Wrapper component, which can take in configuration for prop
 and slot controls, then provide the current values of those props and slots to the component demo
 via a [scoped slot](https://v3.vuejs.org/guide/component-slots.html#scoped-slots).

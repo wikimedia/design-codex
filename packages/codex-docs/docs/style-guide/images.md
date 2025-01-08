@@ -23,7 +23,7 @@ our projects, the selections follow general guidelines:
 
 ## Resources
 
-For project-specific details, see the [Image use policy](https://www.wikidata.org/wiki/Q6618850)
+For project-specific details, visit the [Image use policy](https://www.wikidata.org/wiki/Q6618850)
 pages (e.g. for [English Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Image_use_policy)), and
 [Manual of Style/Images](https://www.wikidata.org/wiki/Q16745099) guideline pages (e.g. for
 [English Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Images)), that exist at

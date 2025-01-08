@@ -131,8 +131,8 @@ Design tokens can help support the visual definition of components, as they repr
 Furthermore, components will need to consume only system assets:
 
 - If you need to use iconography in your designs, use a [system icon](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=20598-51338&node-type=canvas&t=plW1hmguHVWs3fWZ-11). If you need to use an icon that does not exist in our shared library yet, you can contribute the design of a new icon. Learn how to do this in the [Designing icons](./designing-icons.md) section.
-- If you need to use a Wikimedia logo, please use one from our [logo assets](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=20598-51478&node-type=canvas&t=plW1hmguHVWs3fWZ-11).
-- If you need to use an illustration, please use one from our [illustration assets](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=20598-51408&node-type=canvas&t=plW1hmguHVWs3fWZ-11) or create one with the same styles.
+- If you need to use a Wikimedia logo, use one from our [logo assets](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=20598-51478&node-type=canvas&t=plW1hmguHVWs3fWZ-11).
+- If you need to use an illustration, use one from our [illustration assets](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=20598-51408&node-type=canvas&t=plW1hmguHVWs3fWZ-11) or create one with the same styles.
 
 #### Defining the component's interaction
 

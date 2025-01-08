@@ -283,7 +283,7 @@ element within the component.
 
 The CSS-only version of TypeaheadSearch is simply a SearchInput component styled to look like
 the Vue version of TypeaheadSearch. It will have no menu of results and is meant to be replaced
-by the Vue component once JavaScript has loaded. If you just need a SearchInput, check out the
+by the Vue component once JavaScript has loaded. If you only need a SearchInput, check out the
 [CSS-only version of the SearchInput component](./search-input.md#css-only-version). Note that the
 search icon is automatically added for you.
 

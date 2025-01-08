@@ -24,7 +24,7 @@ Apart from links that navigate to other pages, there are the following different
 - Links that open a modal instead of a new page (e.g. map links)
 - Links that open a file instead of a web page (e.g. PDF or document links)
 - Links that cause something to happen that the user would otherwise not expect (e.g. play a sound, like pronunciation links)
-- Links that open a new website instead of just a new page [(external links)](https://en.wikipedia.org/wiki/Wikipedia:External_links)
+- Links that open a new website instead of solely a new page [(external links)](https://en.wikipedia.org/wiki/Wikipedia:External_links)
 - Links that open a non-web protocol URI (e.g. `mailto:`, `tel:` links)
 
 Several Wikimedia Movement projects provide extensive [“manuals of style”](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Linking) for applying and designing for links, for example English Wikipedia.
@@ -57,7 +57,7 @@ Avoid using the words click, tap or here. Avoiding these terms makes things clea
 
 ## Examples
 
-Visit a link to see visited link styles.
+Visit a link to check visited link styles.
 
 ### Base Link
 
@@ -329,7 +329,7 @@ module.exports = defineComponent( {
 
 :::tip Less mixin
 This component has been implemented as a [Less mixin](https://lesscss.org/features/#mixins-feature),
-not a Vue component. This mixin must be imported separately in your Less styles. See below for
+not a Vue component. This mixin must be imported separately in your Less styles. Check below for
 [usage information](#usage).
 :::
 

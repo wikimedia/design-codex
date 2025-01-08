@@ -6,4 +6,4 @@ The ADRs in this repo follow [this template](https://github.com/joelparkerhender
 
 For convenience a [template file](./NNNN-adr-template.md) is provided in this folder. When writing a new ADR copy the template and start from there.
 
-To read more about ADRs, please visit https://adr.github.io/
+To read more about ADRs, visit https://adr.github.io/

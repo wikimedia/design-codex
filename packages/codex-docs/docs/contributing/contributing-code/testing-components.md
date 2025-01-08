@@ -8,7 +8,7 @@ outline: deep
 
 ::: tip TL;DR
 - Every component needs [Jest unit tests](#test-cases-pattern) and [snapshots](#snapshot-tests)
-- Unit tests can utilize the [Vue test utils](#vue-test-utils) library
+- Unit tests can use the [Vue test utils](#vue-test-utils) library
 - To run unit tests: `npm run -w @wikimedia/codex test:unit`
 - To update all snapshots: `npm run build-and-update-snapshots`
 - To update a workspace specific snapshots: `npm run -w [workspace-name] update-snapshots` (For some packages a build may be required for the snapshots to be updated correctly)
@@ -255,7 +255,7 @@ legitimate change in the snapshot output, run `npm run build-and-update-snapshot
 the snapshot file. Both the author and the code reviewers should review the changes to the snapshot
 file to verify that they are as expected.
 
-For more information on snapshot testing in Jest, see [the Jest documentation](https://jestjs.io/docs/snapshot-testing).
+For more information on snapshot testing in Jest, visit [the Jest documentation](https://jestjs.io/docs/snapshot-testing).
 
 ### Type errors in Jest tests
 If the type of one of the props in the `Case` type doesn't match the type of the prop as defined

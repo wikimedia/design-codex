@@ -198,7 +198,7 @@ the `codex` repository. This will run `svglint` and will check your additions to
 
 ### Testing locally
 
-To view the new icon on the Codex docs site, run these commands from the root of the `codex`
+To check the new icon on the Codex docs site, run these commands from the root of the `codex`
 repository:
 
 ```bash
@@ -209,5 +209,5 @@ npm run build -w @wikimedia/codex-icons
 npm run doc:dev
 ```
 
-Then you can visit `http://localhost:5173/icons/all-icons.html` to view the list of all icons,
+Then you can visit `http://localhost:5173/icons/all-icons.html` to check the list of all icons,
 including your new one.

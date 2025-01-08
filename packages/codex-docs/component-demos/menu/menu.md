@@ -387,7 +387,7 @@ focusable element:
 - `aria-activedescendant`, set to the ID of the highlighted menu item (use the `.id` property of
   the object returned by the getHighlightedMenuItem method)
 - If the `menuItems` change in response to the user typing in a text input, `aria-autocomplete`
-  should be set to the appropriate value. See [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete)
+  should be set to the appropriate value. Visit [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete)
   for documentation on which value to set for this attribute.
 
 ### Keyboard navigation

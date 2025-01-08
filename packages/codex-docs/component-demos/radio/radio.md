@@ -124,7 +124,7 @@ section. Always include label text via the default slot. You can also add descri
 ### Form field
 
 When used in a form, a group of Radios can be wrapped in the Field component to add features like a
-semantic label, description and help text, validation messages, and more. See the
+semantic label, description and help text, validation messages, and more. Visit the
 [Field](./field.md) page for more information.
 
 If using a Radio group outside of a form, follow the instructions in the next demo.
@@ -463,7 +463,7 @@ Always include one of these two features for accessible grouping:
   style resets on `<fieldset>` and `<legend>`. You can use the CSS-only [Field](./field.md#css-only-version)
   and [Label](./label.md#css-only-version) components to reset browser styles of these elements.
 2. If using the Radio group outside of a field, wrap the group in a `<div>` with `role="group"`
-  and `aria-labelledby` set to the ID of the group label. See an example of this
+  and `aria-labelledby` set to the ID of the group label. Check an example of this
   [above](#radio-group).
 
 <cdx-demo-wrapper>

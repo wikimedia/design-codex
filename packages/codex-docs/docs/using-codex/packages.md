@@ -26,7 +26,7 @@ Releases of the components package contain the following files:
 - `codex.mjs`: ES module build of Codex, which uses ES6 `import` and `export` syntax.
 - `codex.style.css`: Styles for all components, for use in left-to-right (LTR) languages
 - `codex.style-rtl.css`: Styles for all components, for use in right-to-left (RTL) languages.
-  For more information on right-to-left support, see [the section on bidirectionality](./usage.md#bidirectionality-support)
+  For more information on right-to-left support, visit [the section on bidirectionality](./usage.md#bidirectionality-support)
 - `index.d.ts`: Entry point for TypeScript type information; the actual types are defined in
   various `.d.ts` files in the `src/` directory
 
@@ -43,7 +43,7 @@ technique that minimizes the number of unused icons being sent to the browser.
 ### Exports
 The icons package exports the following things:
 - Icons, which are SVG strings or objects wrapping SVG strings. These are named `cdxIconFoo`
-  (e.g. `cdxIconAlert`, `cdxIconArrowNext`). See [the list of all icons](../icons/all-icons.md)
+  (e.g. `cdxIconAlert`, `cdxIconArrowNext`). Visit [the list of all icons](../icons/all-icons.md)
   for a complete list of icon names.
 - Utility functions for working with icon objects. These are used by the Icon component in the
   components package, but can also be used by any other code that needs to work with icons. To

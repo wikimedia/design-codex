@@ -39,9 +39,9 @@ Tasks are tracked in Phabricator. We use two different Phabricator workboards:
 
 > I want to know the status of something
 
-Check the [Codex](https://phabricator.wikimedia.org/tag/codex/) and
+Visit the [Codex](https://phabricator.wikimedia.org/tag/codex/) and
 [Design-System-Team](https://phabricator.wikimedia.org/tag/design-system-team/) workboards in
-Phabricator to see if a task exists for that work (for detailed Phabricator search tips, visit
+Phabricator to check if a task exists for that work (for detailed Phabricator search tips, visit
 [this page](https://www.mediawiki.org/wiki/Phabricator/Help?tableofcontents=0#Searching_for_items)).
 If so, the task will be in the column that represents its current status. If not, you can
 create a task (see below) or contact us (see the

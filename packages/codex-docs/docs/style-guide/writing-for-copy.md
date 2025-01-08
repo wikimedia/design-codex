@@ -55,7 +55,7 @@ Users read a lot of content every day, so don’t use more content than necessar
 </template>
 <template #do-text>
 
-- A minimally textual UI should be tested to see if users can understand what to do.
+- A minimally textual UI should be tested to check if users can understand what to do.
 
 </template>
 <template #dont-media>
@@ -220,7 +220,7 @@ The content in a UI should be for everyone, no matter their background, language
 </template>
 </cdx-demo-rules>
 
-*If you are looking for guidance on readability, please reference our [Typography guidelines](./typography.html#readability).*
+*If you are looking for guidance on readability, refer to our [Typography guidelines](./typography.html#readability).*
 
 ### Is this inclusive?
 

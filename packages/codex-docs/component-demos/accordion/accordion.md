@@ -269,7 +269,7 @@ other behavior will be unchanged.
 
 #### Markup Structure
 
-The CSS-only Accordion component is just a `<details>` element with some custom styling.
+The CSS-only Accordion component is a `<details>` element with some custom styling.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

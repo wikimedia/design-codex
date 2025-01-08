@@ -245,7 +245,7 @@ methods. Refer to the [methods](#methods) below to review all of the supported f
 
 This demo sets the `required` attribute on the textarea and validates it when the form is submitted.
 When the textarea is invalid, it sets the Field's status to "error" and passes the native validation
-message to the Field component for display. Try submitting the form while leaving the TextArea
+message to the Field component for display. Submit the form while leaving the TextArea
 blank.
 
 <cdx-demo-wrapper :force-reset="true">

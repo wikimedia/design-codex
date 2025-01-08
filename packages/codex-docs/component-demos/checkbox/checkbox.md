@@ -469,7 +469,7 @@ Always include one of these two features for accessible grouping:
   style resets on `<fieldset>` and `<legend>`. You can use the CSS-only [Field](./field.md#css-only-version)
   and [Label](./label.md#css-only-version) components to reset browser styles of these elements.
 2. If using the Checkbox group outside of a field, wrap the group in a `<div>` with `role="group"`
-  and `aria-labelledby` set to the ID of the group label. See an example of this
+  and `aria-labelledby` set to the ID of the group label. Check an example of this
   [above](#checkbox-group).
 
 <cdx-demo-wrapper :force-reset="true">

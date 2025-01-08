@@ -50,7 +50,7 @@ The header and footer of a form with table of contents will remain 100% of the f
 
 ### Format
 
-A form can utilize fields in multiple different formats including multi-columns, [fieldsets](../components/demos/field.md#fieldset-with-nested-fields), and modules (read more below). The font weight of the label can be changed as needed to represent different levels of hierarchy.
+A form can use fields in multiple different formats including multi-columns, [fieldsets](../components/demos/field.md#fieldset-with-nested-fields), and modules (read more below). The font weight of the label can be changed as needed to represent different levels of hierarchy.
 
 #### Labels
 
@@ -65,7 +65,7 @@ Fields use top labels to help promote the intended flow of reading a page visual
 Multi-columns of fields in the same row can be used when:
 - Fields are related (such as “Name” and “Surname” or “Phone” and “Email” or “Start date” and “End date”).
 - Translation of language in input or label will not become very long.
-- Avoid grouping related horizontal fields or multi-column fields of just one line within boxes. Instead use smaller spacing between fields.
+- Avoid grouping related horizontal fields or multi-column fields of only one line within boxes. Instead use smaller spacing between fields.
 
 <div class="cdx-docs-example">
 

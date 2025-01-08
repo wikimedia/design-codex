@@ -76,7 +76,7 @@ Use descriptive, accessible verbs to encourage action. [*Concise*](../../style-g
 </cdx-demo-best-practice>
 <cdx-demo-best-practice>
 
-Write in sentence case, capitalising only the first word. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent)
+Write in sentence case, capitalizing only the first word. [*Consistent*](../../style-guide/writing-for-copy.html#is-this-consistent)
 
 </cdx-demo-best-practice>
 <cdx-demo-best-practice>
@@ -128,7 +128,7 @@ A Button can convey one of three `weight` types.
 should guide the user to the most important action (“call to action”), there should only be one
 primary button per view.
 3. **Quiet**<br>Use quiet buttons for an easily recognizable action that does not detract focus from the content.
-For example, the icon-only edit buttons alongside sections in article view on mobile
+For example, the icon-only edit buttons alongside sections in an article on mobile
 Wikipedia.
 
 <cdx-demo-wrapper>
@@ -562,7 +562,7 @@ like a button. To achieve this, add the following classes to your inline element
   for a disabled button. **You must include one of these classes to get the proper button styles.**
 
 If your element behaves like a button (triggering an action or event), you should also add
-`role="button"` to the element if that role is allowed. See the [ARIA Authoring Practices Guide on buttons](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
+`role="button"` to the element if that role is allowed. Visit the [ARIA Authoring Practices Guide on buttons](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
 for more information.
 
 <cdx-demo-wrapper>

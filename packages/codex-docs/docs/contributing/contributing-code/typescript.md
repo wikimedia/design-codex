@@ -116,7 +116,7 @@ For more information on why we chose this approach, see
 String types that are particular to a prop are named for their component first and their prop
 second. For example, the type for the `action` prop of the `Button` component is `ButtonAction`; for
 the `type` prop of the `Input` component we use `InputType`, etc. If the string type is not
-related to a single prop, try to follow a similar naming convention.
+related to a single prop, follow a similar naming convention.
 
 ### Type definition
 The possible values of each string type are defined in `constants.ts`. The constant is the plural

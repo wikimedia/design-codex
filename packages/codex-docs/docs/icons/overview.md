@@ -13,7 +13,7 @@ const numberOfIcons = Object.keys( allIcons )
 # Icons
 
 Codex contains a collection of {{ numberOfIcons }} icons that can be used to convey actions
-or other information visually. See [all icons](./all-icons.md) a full list of available icons per
+or other information visually. Visit [all icons](./all-icons.md) a full list of available icons per
 directionality and language.
 
 If you're interested in adding a new icon to Codex, visit the contributing docs to learn about
@@ -31,7 +31,7 @@ import { cdxIconAlert } from '@wikimedia/codex-icons';
 Use icons through the [icon component](../components/demos/icon.md) or through other components
 that accept icons as props. You can also embed the icon component in another component's slot;
 for example, you can use the icon component inside the button component to create a button with
-an icon. For complete code examples of how to use icons, see the [demos](../components/demos/icon.md#examples)
+an icon. For complete code examples of how to use icons, visit the [demos](../components/demos/icon.md#examples)
 in the icon component documentation.
 
 ### Icon labels
@@ -66,7 +66,7 @@ the icon does, and the icon text would be duplicative. For example:
 </cdx-button>
 ```
 The code above displays <cdx-button action="destructive"><cdx-icon :icon="cdxIconTrash" /> Delete this file</cdx-button>.
-Assistive technology software skips over the icon and just read `Delete this file`, which still
+Assistive technology software skips over the icon and reads `Delete this file`, which still
 makes it clear what the button does. If you added `icon-label="delete"` here, a screen reader would
 read `delete Delete this file`, which is not a good experience for assistive technology users.
 

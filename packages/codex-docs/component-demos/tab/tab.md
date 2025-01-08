@@ -85,7 +85,7 @@ content is wrapped in a `<section>` tag and given an HTML ID.
 
 ::: tip Must be used with Tabs component
 This component is only meant to be used inside the default `<slot>` of the `<Tabs>` component.
-It cannot be used as a standalone component. See the [Tabs documentation](./tabs) for more
+It cannot be used as a standalone component. Visit the [Tabs documentation](./tabs) for more
 information.
 :::
 

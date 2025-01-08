@@ -18,7 +18,7 @@ const tokens = computed( () => isMounted.value && isDark.value ? darkModeTokens 
 
 :::tip
 Some box shadow colors vary between light and dark modes. Use the color mode switcher in the site
-header to see the box shadow colors in the different modes. Using design tokens rather than raw hex
+header to check the box shadow colors in the different modes. Using design tokens rather than raw hex
 codes will ensure you're automatically using the right color for the chosen mode.
 :::
 

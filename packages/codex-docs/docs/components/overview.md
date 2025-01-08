@@ -12,7 +12,7 @@ Vue 3 and JavaScript.
 [Link](./mixins/link.md)). Most of the Vue components have a corresponding CSS-only version. These
 components can be used without JavaScript.
 
-Each component in Codex has a demo page where you can interact with working examples, see code samples, and read detailed usage information about the Vue and CSS-only implementations.
+Each component in Codex has a demo page where you can interact with working examples, check code samples, and read detailed usage information about the Vue and CSS-only implementations.
 
 ## Using components
 

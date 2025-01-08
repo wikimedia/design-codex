@@ -59,7 +59,7 @@ The resulting demos and code samples are not useful examples for library users.
 #### Advantages
 
 - Built specifically for Vue 3 and for Vite
-- Component demos are just regular Vue components. End users see real-world examples and associated
+- Component demos are regular Vue components. End users check real-world examples and associated
 code samples, and library developers use the components their building in realistic ways. Creating
 component demos is easy and intuitive.
 - Smaller and faster with fewer dependencies

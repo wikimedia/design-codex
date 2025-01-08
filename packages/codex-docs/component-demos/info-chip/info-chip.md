@@ -37,7 +37,7 @@ An InfoChip is a non-interactive indicator that provides information and/or conv
 
 ### When to use InfoChip
 
-Use the InfoChip component to label, categorize, or organize information using keywords. This type of chip is just informative so it cannot be clickable or removable.
+Use the InfoChip component to label, categorize, or organize information using keywords. This type of chip is informative so it cannot be clickable or removable.
 
 Depending on the type of feedback conveyed to the user, InfoChips can be used to convey one of four statuses.
 

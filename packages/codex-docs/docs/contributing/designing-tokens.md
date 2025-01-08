@@ -50,7 +50,7 @@ Work on your new token proposal using a Figma exploration file. This way, you’
 - [Size & Spacing](https://www.figma.com/file/hcCHhevNA5aHo2D1Gajydc/Size-%26-spacing---Tokens)
 - [Font](https://www.figma.com/file/X8pKlndyPaqZg4I3GubQs6/Font)
 
-In the exploration Figma file, create a new Figma tab for each version of the new token proposal you explore. Please indicate the version (e.g. “v1”) and date (e.g. “2022-07-17”), and add an icon to point out whether the version is final (✅), archived (📁) or work-in-progress (🛠 WIP).
+In the exploration Figma file, create a new Figma tab for each version of the new token proposal you explore. Indicate the version (e.g. “v1”) and date (e.g. “2022-07-17”), and add an icon to point out whether the version is final (✅), archived (📁) or work-in-progress (🛠 WIP).
 
 ![Screenshot of Figma Color tokens exploration](../assets/designing-tokens/design-token-figma-exploration.png)
 

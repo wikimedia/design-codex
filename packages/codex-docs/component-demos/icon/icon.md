@@ -120,7 +120,7 @@ empty `<span>` element. The parameters of the mixin are as follows:
 
 | Param name | Description | Default |
 | -- | -- | ------- |
-| `@param-icon` <sup class="cdx-docs-required-indicator">(required)</sup> | The icon to use, in the form of a Less variable. These variables are also provided by the mixin file. The syntax for the Less variable version of an icon name is `@cdx-icon-icon-name`, e.g. `@cdx-icon-info-filled`. See the list of [all icons](../../icons/all-icons.md) for icon names. To use a custom icon, set this to `'none'`, see [how to use a custom icon](#custom-icon) below. | |
+| `@param-icon` <sup class="cdx-docs-required-indicator">(required)</sup> | The icon to use, in the form of a Less variable. These variables are also provided by the mixin file. The syntax for the Less variable version of an icon name is `@cdx-icon-icon-name`, e.g. `@cdx-icon-info-filled`. Visit the list of [all icons](../../icons/all-icons.md) for icon names. To use a custom icon, set this to `'none'`, check [how to use a custom icon](#custom-icon) below. | |
 | `@param-fill-color` | The hex code of the fill color of the icon | `@color-base` |
 | `@param-size-icon` | The icon size | `@size-icon-medium` |
 | `@param-is-button-icon` | Whether the icon is inside of a `<button>` element | `false` |

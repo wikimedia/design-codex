@@ -18,7 +18,7 @@ const tokens = computed( () => isMounted.value && isDark.value ? darkModeTokens 
 
 :::tip
 Some border colors vary between light and dark modes. Use the color mode switcher in the site
-header to see the border colors in the different modes. Using design tokens rather than raw hex
+header to check the border colors in the different modes. Using design tokens rather than raw hex
 codes will ensure you're automatically using the right color for the chosen mode.
 :::
 

@@ -193,7 +193,7 @@ element of that component is a `<button>` element), but it will *not* behave cor
 when used with the `CdxTextInput` component (which has a `<div>` as the outermost element).
 
 Future Codex releases may update components like `CdxTextInput` so that the
-tooltip functionality is built-in. See the Vue docs about custom directives for more
+tooltip functionality is built-in. Check the Vue docs about custom directives for more
 information about how to work with custom directives.
 :::
 

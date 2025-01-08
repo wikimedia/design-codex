@@ -19,7 +19,7 @@ colors, text formatting, sizes, spacing…) of new system components from scratc
 2. **Codify design styles**: Designers use tokens to specify all the visual
 styles and interactive properties of a given component. These design decisions
 are translated to code. For more details regarding the use of design tokens for
-design specification, please refer to the section dedicated to specification
+design specification, refer to the section dedicated to specification
 hand-off to development in the [Designing Components](../contributing/designing-new-components.md)
 documentation.
 
@@ -81,7 +81,7 @@ A given Codex theme may also optionally support one or more variants, called
 "modes". For example, a dark or high-contrast color mode might override certain
 color tokens defined in `application.json` with alternate values drawn from the
 same set of option tokens. For more information about how Codex will represent
-modes, see [ADR 08](../using-codex/adrs/08-adr-color-modes.md).
+modes, visit [ADR 08](../using-codex/adrs/08-adr-color-modes.md).
 
 #### Component decision tokens
 In the context of Codex, component tokens are used to document and define

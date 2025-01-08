@@ -89,7 +89,7 @@ Most platforms have plenty of options for supporting latin-based languages, wher
 makes sense. Among the different serif system fonts we recommend [Source Serif Pro](https://en.wikipedia.org/wiki/Source_Serif?useskin=vector)
 (present in many operating systems).
 
-Below you can see an example CSS code to support the default system fonts:
+Below you can check an example CSS code to support the default system fonts:
 
 <style>
 /* stylelint-disable font-family-name-quotes */
@@ -346,7 +346,7 @@ font-size: 14px; /* 14 sp equivalent */
 ## References
 
 1. <span id="ref1">For a historic reference on the former default platform-specific font families
-  choice in 2014, a predecessor of current selection, see [Typography_refresh/Font_choice on MediaWiki](https://www.mediawiki.org/wiki/Typography_refresh/Font_choice)</span>
+  choice in 2014, a predecessor of current selection, visit [Typography_refresh/Font_choice on MediaWiki](https://www.mediawiki.org/wiki/Typography_refresh/Font_choice)</span>
 2. <span id="ref2">Find a selection of background information on fonts in our choice at [Font family stack article on MediaWiki](https://www.mediawiki.org/wiki/Wikimedia_User_Interface/Use_cases/Font_family_stack)</span>
 
 <style lang="less">
