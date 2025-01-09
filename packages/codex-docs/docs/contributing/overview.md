@@ -1,15 +1,22 @@
 # Contributing
 
-We welcome contributions from everyone! There are several ways to contribute:
+We welcome contributions from everyone! There are several ways to contribute, including the following.
 
-- Adding or commenting on tasks in our project management system, Phabricator (links below)
-- Contributing to the design process
-- Suggesting new components and design tokens
-- Writing and submitting code
-- Reviewing code
-- Updating and expanding library documentation
+- Adding or commenting on tasks in our project management system, Phabricator (links below).
+- Contributing to the design process.
+- Suggesting new components and design tokens.
+- Writing and submitting code.
+- Reviewing code.
+- Updating and expanding library documentation.
 
 Contributions to Codex are covered by the [Code of Conduct for Wikimedia technical spaces](https://www.mediawiki.org/wiki/Special:MyLanguage/Code_of_Conduct).
+
+## Resources
+
+- [**Codex Figma**](https://www.figma.com/community/file/1448742124788019850/codex): design with Codex components in Figma.
+- [**MediaWiki**](https://www.mediawiki.org/wiki/Codex): learn about using Codex within MediaWiki.
+- [**Gerrit**](https://gerrit.wikimedia.org/r/admin/repos/design/codex): visit the canonical Codex codebase.
+- [**GitHub**](https://github.com/wikimedia/design-codex): visit a mirror of the Gerrit codebase on GitHub.
 
 ## How to stay up-to-date
 

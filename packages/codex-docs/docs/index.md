@@ -61,21 +61,21 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 ## Resources
 
 <div class="cdx-docs-home__resources">
-	<cdx-card url="https://www.figma.com/file/KoDuJMadWBXtsOtzGS4134/%E2%9D%96-Codex-components?node-id=1891%3A4420">
-		<template #title>Figma kit</template>
-		<template #description>View the Figma design specifications</template>
+	<cdx-card url="https://www.figma.com/community/file/1448742124788019850/codex">
+		<template #title>Codex Figma</template>
+		<template #description>Design with Codex components in Figma</template>
 	</cdx-card>
 	<cdx-card url="https://www.mediawiki.org/wiki/Codex">
-		<template #title>Using Codex in MediaWiki</template>
-		<template #description>Learn about using Codex within the MediaWiki platform</template>
+		<template #title>MediaWiki</template>
+		<template #description>Learn about using Codex within MediaWiki</template>
 	</cdx-card>
 	<cdx-card url="https://gerrit.wikimedia.org/r/admin/repos/design/codex">
-		<template #title>View code on Gerrit</template>
-		<template #description>The canonical Codex codebase</template>
+		<template #title>Gerrit</template>
+		<template #description>Visit the canonical Codex codebase</template>
 	</cdx-card>
 	<cdx-card url="https://github.com/wikimedia/design-codex">
-		<template #title>View code on GitHub</template>
-		<template #description>A mirror of the Gerrit codebase on GitHub</template>
+		<template #title>GitHub</template>
+		<template #description>Visit a mirror of the Gerrit codebase on GitHub</template>
 	</cdx-card>
 </div>
 
