@@ -1,6 +1,7 @@
 Principal Authors (major contributors, alphabetically)
 
 Anne Tomasevich <atomasevich@wikimedia.org>
+Bárbara Martínez Calvo <bmartinezcalvo@wikimedia.org>
 DannyS712 <dannys712.wiki@gmail.com>
 Derek Torsani <dtorsani@wikimedia.org>
 Eric Gardner <egardner@wikimedia.org>
@@ -10,31 +11,41 @@ Volker E. <volker.e@wikimedia.org>
 
 Patch Contributors (minor contributors, alphabetically)
 
+Abijeet Patro <apatro@wikimedia.org>
 Akiel <akiel@fandom.com>
+Arthur Taylor <arthur.taylor@wikimedia.de>
 Bartosz Dziewoński <dziewonski@fastmail.fm>
 bwang <bwang@wikimedia.org>
+C. Scott Ananian <cscott@cscott.net>
+Cyndywikime <csimiyu@wikimedia.org>
 Daphne Smit <dsmit@wikimedia.org>
 ddw <ddwaal-ctr@wikimedia.org>
 didier-ds <didiersenou94@gmail.com>
 Doğu Abaris <abaris@null.net>
 Ed Sanders <esanders@wikimedia.org>
 Itamar Givon <itamar.givon@wikimedia.de>
-JForrester <jforrester@wikimedia.org>
+James D. Forrester <jforrester@wikimedia.org>
 Jon Robson <jdlrobson@gmail.com>
 Julia Kieserman <jkieserman@wikimedia.org>
 Kosta Harlan <kharlan@wikimedia.org>
 Lucas Werkmeister <mail@lucaswerkmeister.de>
 Martin Urbanec <martin.urbanec@wikimedia.cz>
 Michael Große <michael.grosse@wikimedia.de>
+Milimetric <dandreescu@wikimedia.org>
 MusikAnimal <musikanimal@gmail.com>
+Nicholas Ray <nray@wikimedia.org>
+Nicole Barnabee <nicole.barnabee@gmail.com>
 Noa Rave <noa.rave@wikimedia.de>
 NunyaKlah <nunyaklah@gmail.com>
+QChris <christian@quelltextlich.at>
 Sergio Gimeno <sgimeno@wikimedia.org>
-sunyiming <seedless_steven@outlook.com>
-szymonswiergosz <szymon.swiergosz@gmail.com>
+Steven Sun <seedless_steven@outlook.com>
+Szymon Świergosz <szymon.swiergosz@gmail.com>
 TheDJ <hartman.wiki@gmail.com>
 Thiemo Kreuz <thiemo.kreuz@wikimedia.de>
+Tonina Zhelyazkova <tonina.zhelyazkova@wikimedia.de>
 Ty Hopp <hopp.ty.c@gmail.com>
+Winston Sung <winston21.sung@gmail.com>
 Zelig880 <scuomo1988@gmail.com>
 
 See also
@@ -42,7 +53,6 @@ https://github.com/wikimedia/design-codex/graphs/contributors
 
 Principal Contributors Beyond Code – Product And Design (alphabetically)
 
-Bárbara Martínez Calvo <bmartinezcalvo@wikimedia.org>
 Chris Ciufo <cciufo@wikimedia.org>
 Ezekiel Udoh <eudoh@wikimedia.org>
 Lauren de Lench <ldelench@wikimedia.org>
