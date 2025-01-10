@@ -16,15 +16,27 @@
 // It is advisable to set the `lang` attribute on the HTML element to enable hyphenation support.
 .hyphens( @param-value: auto ) {
 	& when ( @param-value = auto ) {
-		// Legacy `word-wrap`; IE 6-11, Edge 12+, Firefox 3.5+, Chrome 4+, Safari 3.1+,
+		// Break words with legacy `word-wrap`; Edge 12+, Firefox 3.5+, Chrome 4+, Safari 3.1+,
 		//   Opera 11.5+, iOS 3.2+, Android 2.1+
 		// `overflow-wrap` is W3 standard, but it doesn't seem as if browser vendors
-		//   will abandon `word-wrap` (it has wider support), therefore no duplication.
+		//   will abandon `word-wrap` (it has wider support).
 		word-wrap: break-word;
+
+		// Given that basic support, use `@supports` still needs to account for Firefox 49+,
+		// Chrome 49+ and Safari 10+ with above.
+		@supports ( overflow-wrap: anywhere ) {
+			// No need to `word-wrap: unset` as `overflow-wrap` is a superset of `word-wrap`.
+			overflow-wrap: anywhere;
+			word-break: normal;
+		}
 	}
 
 	& when ( @param-value = none ) {
 		word-wrap: normal;
+
+		@supports ( overflow-wrap: anywhere ) {
+			overflow-wrap: normal;
+		}
 	}
 
 	// Chrome < 55 and Android 4.0 Browser support `-webkit-hyphens: none`,
