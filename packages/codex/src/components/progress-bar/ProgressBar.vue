@@ -98,9 +98,8 @@ export default defineComponent( {
 		z-index: @z-index-stacking-1;
 		height: @size-100;
 		max-width: @max-width-base;
-		border: @border-base;
 		border-radius: @border-radius-pill;
-		box-shadow: @box-shadow-drop-medium;
+		box-shadow: @box-shadow-small;
 	}
 
 	&--inline {

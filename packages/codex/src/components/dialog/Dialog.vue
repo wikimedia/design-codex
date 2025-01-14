@@ -581,7 +581,7 @@ export default defineComponent( {
 	max-height: calc( @size-viewport-height-full - @size-250 );
 	border: @border-base;
 	border-radius: @border-radius-base;
-	box-shadow: @box-shadow-drop-medium;
+	box-shadow: @box-shadow-large;
 
 	&__header {
 		padding: @spacing-100 @spacing-150;

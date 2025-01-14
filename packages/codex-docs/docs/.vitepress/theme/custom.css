@@ -49,7 +49,7 @@
 	--vp-font-family-base: var( --font-family-system-sans );
 	--vp-font-family-serif: var( --font-family-serif );
 
-	--vp-shadow-3: var( --box-shadow-drop-medium );
+	--vp-shadow-3: var( --box-shadow-medium );
 
 	/* Z-indexes */
 	/* Header is sticky. */
@@ -197,7 +197,7 @@ body {
 	border: var( --border-subtle );
 	border-radius: var( --border-radius-base );
 	padding: var( --spacing-12 ) var( --spacing-25 );
-	box-shadow: var( --box-shadow-drop-small );
+	box-shadow: var( --box-shadow-small );
 	font-size: var( --font-size-small );
 	white-space: nowrap;
 }
@@ -270,7 +270,7 @@ body {
 	border-color: var( --border-color-base );
 	border-radius: var( --border-radius-base );
 	padding: 0;
-	box-shadow: var( --box-shadow-drop-medium );
+	box-shadow: var( --box-shadow-medium );
 }
 
 /* Only the extra dropdown menu (for appearnce and social links on tablet screens. */

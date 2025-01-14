@@ -711,40 +711,75 @@
 		}
 	},
 	"box-shadow": {
-		"drop-small": {
-			"comment": "This features color as part of the theme token value.",
-			"value": "{ box-shadow.100 }"
+		"drop": {
+			"small": {
+				"deprecated": "Shadow shorthands should be used in place of `drop` shadows.",
+				"value": "{ box-shadow.outset.small } { box-shadow.color.base }"
+			},
+			"medium": {
+				"deprecated": "Shadow shorthands should be used in place of `drop` shadows.",
+				"value": "{ box-shadow.outset.medium-below } { box-shadow.color.alpha-base }, { box-shadow.outset.medium-around } { box-shadow.color.alpha-base }"
+			},
+			"xx-large": {
+				"deprecated": "For elements which previously used `xx-large`, consider using `large` instead, or referring to the guidance above to best choose the appropriate shadow.",
+				"value": "{ box-shadow.500 }"
+			}
 		},
-		"drop-medium": {
-			"comment": "This features color as part of the theme token value.",
-			"value": "{ box-shadow.200 }"
+		"small": {
+			"value": "{ box-shadow.outset.small } { box-shadow.color.base }"
 		},
-		"drop-xx-large": {
-			"comment": "This features color as part of the theme token value.",
-			"value": "{ box-shadow.500 }"
+		"small-top": {
+			"value": "{ box-shadow.outset.small-top } { box-shadow.color.base }"
 		},
-		"inset-small": {
-			"value": "{ box-shadow.25 }"
+		"small-bottom": {
+			"value": "{ box-shadow.outset.small-bottom } { box-shadow.color.base }"
 		},
-		"inset-medium": {
-			"value": "{ box-shadow.50 }"
+		"medium": {
+			"value": "{ box-shadow.outset.medium-below } { box-shadow.color.alpha-base }, { box-shadow.outset.medium-around } { box-shadow.color.alpha-base }"
 		},
-		"inset-medium-vertical": {
-			"value": "{ box-shadow.50-vertical }"
+		"large": {
+			"value": "{ box-shadow.outset.large-below } { box-shadow.color.alpha-base }, { box-shadow.outset.large-around } { box-shadow.color.alpha-base }"
 		},
-		"outset-small": {
-			"value": "{ box-shadow.25-outset }"
+		"inset": {
+			"small": {
+				"value": "{ box-shadow.25 }"
+			},
+			"medium": {
+				"value": "{ box-shadow.50 }"
+			},
+			"medium-vertical": {
+				"value": "{ box-shadow.50-vertical }"
+			}
 		},
-		"outset-small-top": {
-			"value": "{ box-shadow.25-top }"
-		},
-		"outset-small-start": {
-			"value": "{ box-shadow.25-start }"
+		"outset": {
+			"small": {
+				"value": "{ box-shadow.25-outset }"
+			},
+			"small-top": {
+				"value": "{ box-shadow.25-top }"
+			},
+			"small-bottom": {
+				"value": "{ box-shadow.25-bottom }"
+			},
+			"small-start": {
+				"value": "{ box-shadow.25-start }"
+			},
+			"medium-below": {
+				"value": "{ box-shadow.100 }"
+			},
+			"medium-around": {
+				"value": "{ box-shadow.200 }"
+			},
+			"large-below": {
+				"value": "{ box-shadow.300 }"
+			},
+			"large-around": {
+				"value": "{ box-shadow.400 }"
+			}
 		},
 		"color": {
-			"comment": "Separate `box-shadow` colors from colors to apply clean, property specific tokens.",
 			"base": {
-				"value": "{ color.black }"
+				"value": "{ color.gray400 }"
 			},
 			"progressive--active": {
 				"value": "{ color.blue900 }"
@@ -766,6 +801,9 @@
 			},
 			"inverted": {
 				"value": "{ color.white }"
+			},
+			"alpha-base": {
+				"value": "rgba( 0, 0, 0, 0.06 )"
 			},
 			"transparent": {
 				"value": "{ color.transparent }"

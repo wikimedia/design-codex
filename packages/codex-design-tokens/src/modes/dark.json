@@ -234,7 +234,7 @@
 	"box-shadow": {
 		"color": {
 			"base": {
-				"value": "{ color.white }"
+				"value": "{ color.gray500 }"
 			},
 			"inverted": {
 				"value": "{ color.black }"
@@ -253,6 +253,9 @@
 			},
 			"destructive--focus": {
 				"value": "{ color.blue500 }"
+			},
+			"alpha-base": {
+				"value": "rgba( 0, 0, 0, 0.87 )"
 			}
 		}
 	},

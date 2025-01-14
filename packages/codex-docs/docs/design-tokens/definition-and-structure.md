@@ -69,7 +69,7 @@ Decision tokens consume option tokens as values. They represent design decisions
 that can be reused to style system components. For this reason, decision tokens
 are documented in our [Codex token demo](./color.md). They communicate their
 intended use case via their name (so are not agnostic, like option tokens), e.g.
-`box-shadow-drop-medium: box-shadow.200`.
+`box-shadow-medium: { box-shadow.outset.medium-below } { box-shadow.color.alpha }, { box-shadow.outset.medium-around } { box-shadow.color.alpha }`.
 
 ![decision token naming scheme: property, category and variant](../assets/design-tokens-overview/what-are-design-tokens-decision-token.png)
 

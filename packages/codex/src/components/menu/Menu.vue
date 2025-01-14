@@ -1253,7 +1253,7 @@ export default defineComponent( {
 	width: @size-full;
 	border: @border-base;
 	border-radius: @border-radius-base;
-	box-shadow: @box-shadow-drop-medium;
+	box-shadow: @box-shadow-medium;
 
 	&__progress-bar.cdx-progress-bar {
 		position: absolute;
