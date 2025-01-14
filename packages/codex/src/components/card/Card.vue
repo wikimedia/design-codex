@@ -187,7 +187,7 @@ export default defineComponent( {
 		flex-direction: column;
 		font-size: @font-size-medium;
 		line-height: @line-height-small;
-		.hyphens();
+		.break-words();
 
 		&__title {
 			color: @color-base;

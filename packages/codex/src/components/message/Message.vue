@@ -347,14 +347,10 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 	}
 
 	&__content {
-		.hyphens();
+		.break-words();
 		// Vertically center message with icon.
 		align-self: center;
 		flex-grow: 1;
-		// Take all horizontal space remaining next to the icon,
-		// but don't let the width grow beyond the width of the container.
-		// TODO: Remove the width override after T372896, it should no longer be needed.
-		width: 0;
 		// Add space between icon and message content.
 		margin-left: @spacing-50;
 	}

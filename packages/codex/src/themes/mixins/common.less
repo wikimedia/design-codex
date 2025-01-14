@@ -11,26 +11,63 @@
 	transform: translateZ( 0 );
 }
 
-// CSS3 hyphenation
+// CSS3 hyphenation. In the future, when browser support is wider, we may include some CSS4
+// properties to improve hyphenation behavior.
 // It is advisable to set the `lang` attribute on the HTML element to enable hyphenation support.
 .hyphens( @param-value: auto ) {
-	& when ( @param-value = auto ) {
-		// Legacy `word-wrap`; IE 6-11, Edge 12+, Firefox 3.5+, Chrome 4+, Safari 3.1+,
-		//   Opera 11.5+, iOS 3.2+, Android 2.1+
-		// `overflow-wrap` is W3 standard, but it doesn't seem as if browser vendors
-		//   will abandon `word-wrap` (it has wider support), therefore no duplication.
-		word-wrap: break-word;
-	}
-
-	& when ( @param-value = none ) {
-		word-wrap: normal;
-	}
-
 	// Chrome < 55 and Android 4.0 Browser support `-webkit-hyphens: none`,
 	// but not the `auto` value.
 	// Chrome 55-87 only supports `auto` exclusively on Mac platform.
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	hyphens: @param-value;
+}
+
+// Apply word-breaking CSS rules to ensure long words, URLs, and numbers do not overflow their
+// container and break onto newlines sensibly.
+// @param {boolean} should-break Whether long strings should break to avoid overflow
+// @param {string} overflow-wrap Value of the overflow-wrap property. Refer to https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap#values
+.break-words( @param-should-break: true, @param-overflow-wrap: anywhere ) {
+	& when ( @param-should-break = true ) {
+		// Support Firefox 3.5+, Opera 11.5+, and Android 2.1+.
+		// `overflow-wrap` is W3 standard, but it doesn't seem as if browser vendors
+		//   will abandon `word-wrap` (it has wider support).
+		// Note that this property has many shortcomings that are fixed in the rulesets below for
+		// more modern browsers.
+		word-wrap: break-word;
+
+		// Better word-breaking for Edge 12+, Firefox 67+, Chrome 4+, Safari 3.1+, Opera 15+,
+		// iOS 3.2+, and Android 4.4+. This will break things like long numbers and URLs, but the
+		// `break-word` value is deprecated since 2019. `word-break: break-word` has the same effect
+		// as `overflow-wrap: anywhere` combined with `word-break: normal`.
+		@supports ( word-break: break-word; ) {
+			word-wrap: unset;
+			word-break: break-word;
+		}
+
+		// Use the current standard, `overflow-wrap`.
+		@supports ( overflow-wrap: @param-overflow-wrap ) {
+			word-break: normal;
+			// No need to `word-wrap: unset` as `overflow-wrap` is a superset of `word-wrap`.
+			overflow-wrap: @param-overflow-wrap;
+		}
+
+		// Apply CSS hyphens only in languages for which they are critical to readability.
+		&:lang( de ),
+		&:lang( de-AT ),
+		&:lang( de-CH ),
+		&:lang( de-DE ),
+		&:lang( de-LI ),
+		&:lang( de-LU ),
+		&:lang( de-x-formal ) {
+			.hyphens();
+		}
+	}
+
+	& when ( @param-should-break = false ) {
+		word-wrap: unset;
+		word-break: unset;
+		overflow-wrap: unset;
+	}
 }
 
 // Truncate overflow text with value of `ellipsis` (mixin default),

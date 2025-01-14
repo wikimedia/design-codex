@@ -396,7 +396,7 @@ export default defineComponent( {
 	&__content {
 		display: flex;
 		align-items: center;
-		.hyphens();
+		.break-words();
 
 		&,
 		&:hover {

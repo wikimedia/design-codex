@@ -943,7 +943,7 @@ export default defineComponent( {
 	color: @color-base;
 	border: @border-base;
 	border-radius: @border-radius-base;
-	.hyphens();
+	.break-words( @param-overflow-wrap: break-word );
 
 	&__header {
 		display: flex;
