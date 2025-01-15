@@ -21,7 +21,6 @@ exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -68,7 +67,6 @@ exports[`matches the snapshot Case 1 notice message: ({"type": "notice"}) => HTM
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -115,7 +113,6 @@ exports[`matches the snapshot Case 2 warning message: ({"type": "warning"}) => H
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -162,7 +159,6 @@ exports[`matches the snapshot Case 3 error message: ({"type": "error"}) => HTML 
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -209,7 +205,6 @@ exports[`matches the snapshot Case 4 success message: ({"type": "success"}) => H
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -256,7 +251,6 @@ exports[`matches the snapshot Case 5 Inline: ({"inline": true}) => HTML 1`] = `
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -303,7 +297,6 @@ exports[`matches the snapshot Case 6 Dismissable: ({"allowUserDismiss": true}) =
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -340,7 +333,6 @@ exports[`matches the snapshot Case 6 Dismissable: ({"allowUserDismiss": true}) =
           viewBox="0 0 20 20"
           width="20"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->
@@ -381,7 +373,6 @@ exports[`matches the snapshot Case 7 Dismissable, custom label: ({"allowUserDism
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -418,7 +409,6 @@ exports[`matches the snapshot Case 7 Dismissable, custom label: ({"allowUserDism
           viewBox="0 0 20 20"
           width="20"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->
@@ -459,7 +449,6 @@ exports[`matches the snapshot Case 8 Custom icon: ({"icon": [Object]}) => HTML 1
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->

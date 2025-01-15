@@ -830,7 +830,6 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -1036,7 +1035,6 @@ exports[`Menu matches the snapshots Case 4 With groups, nothing selected: => HTM
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -1395,7 +1393,6 @@ exports[`Menu matches the snapshots Case 5 With groups, something selected: => H
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->

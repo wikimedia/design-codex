@@ -228,7 +228,6 @@ exports[`TextInput matches the snapshot Case 13 With start icon: ({"startIcon": 
       viewBox="0 0 20 20"
       width="20"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
@@ -264,7 +263,6 @@ exports[`TextInput matches the snapshot Case 14 With end icon: ({"endIcon": [Obj
       viewBox="0 0 20 20"
       width="20"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
@@ -316,7 +314,6 @@ exports[`TextInput matches the snapshot Case 16 Clearable, with input: ({"cleara
       viewBox="0 0 20 20"
       width="20"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
@@ -350,7 +347,6 @@ exports[`TextInput matches the snapshot Case 17 With end icon, clearable, no inp
       viewBox="0 0 20 20"
       width="20"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
@@ -385,7 +381,6 @@ exports[`TextInput matches the snapshot Case 18 With end icon, clearable, with i
       viewBox="0 0 20 20"
       width="20"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
@@ -405,7 +400,6 @@ exports[`TextInput matches the snapshot Case 18 With end icon, clearable, with i
       viewBox="0 0 20 20"
       width="20"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->

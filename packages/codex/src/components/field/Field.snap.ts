@@ -274,7 +274,6 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -423,7 +422,6 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -571,7 +569,6 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -670,7 +667,6 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -779,7 +775,6 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -946,7 +941,6 @@ exports[`Field matches the snapshot with a TextInput control Case 1 With label i
           viewBox="0 0 20 20"
           width="20"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->
@@ -1363,7 +1357,6 @@ exports[`Field matches the snapshot with a TextInput control Case 6 Error status
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -1733,7 +1726,6 @@ exports[`Field matches the snapshot with a Textarea control Case 2 Error status 
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->

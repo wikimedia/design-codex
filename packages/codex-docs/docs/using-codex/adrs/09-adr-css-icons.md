@@ -44,7 +44,7 @@ to generate the icon CSS, and it only supports a limited set of icon colors.
 ```css
 /* Generated CSS */
 .cdx-icon--progressive.cdx-icon--info-filled {
-	background-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="#3366cc">...SVG markup...</svg>' );
+	background-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#3366cc">...SVG markup...</svg>' );
 }
 ```
 
@@ -150,7 +150,7 @@ fill color:
 
 ```css
 .my-feature__icon--trash {
-	background-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="%23D73333"><path d="M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 002 2h8a2 2 0 002-2V5H4z"/></svg>' );
+	background-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="%23D73333"><path d="M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 002 2h8a2 2 0 002-2V5H4z"/></svg>' );
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: calc( max( 1.25em, 20px ) );
@@ -254,7 +254,7 @@ example above, will yield the following CSS:
 ```css
 .my-feature__icon--trash {
 	background-color: #bf3c2c;
-	mask-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="%23000000"><path d="M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 002 2h8a2 2 0 002-2V5H4z"/></svg>' );
+	mask-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="%23000000"><path d="M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 002 2h8a2 2 0 002-2V5H4z"/></svg>' );
 	mask-position: center;
 	mask-repeat: no-repeat;
 	mask-size: calc( max( 1.25em, 20px ) );

@@ -10,7 +10,6 @@ exports[`matches the snapshot Case 0 Simple path icon: ({"icon": [Object]}) => H
     viewBox="0 0 20 20"
     width="20"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <!--v-if-->
     <!-- eslint-disable vue/no-v-html -->
@@ -34,7 +33,6 @@ exports[`matches the snapshot Case 1 Simple SVG icon: ({"icon": "<path d=\\"M3 3
     viewBox="0 0 20 20"
     width="20"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <!--v-if-->
     <!-- eslint-disable vue/no-v-html -->
@@ -60,7 +58,6 @@ exports[`matches the snapshot Case 2 Alert icon: ({"icon": "<path d=\\"M11.53 2.
     viewBox="0 0 20 20"
     width="20"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <!--v-if-->
     <!-- eslint-disable vue/no-v-html -->
@@ -82,7 +79,6 @@ exports[`matches the snapshot Case 3 Icon with title: ({"icon": "<path d=\\"M3 3
     viewBox="0 0 20 20"
     width="20"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <title>
       Foo
@@ -110,7 +106,6 @@ exports[`matches the snapshot Case 4 Flippable icon (LTR): ({"dir": "ltr", "icon
     viewBox="0 0 20 20"
     width="20"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <!--v-if-->
     <!-- eslint-disable vue/no-v-html -->
@@ -134,7 +129,6 @@ exports[`matches the snapshot Case 5 Flippable icon (RTL): ({"dir": "rtl", "icon
     viewBox="0 0 20 20"
     width="20"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <!--v-if-->
     <!-- eslint-disable vue/no-v-html -->
@@ -158,7 +152,6 @@ exports[`matches the snapshot Case 6 Flippable icon (RTL, non-exception language
     viewBox="0 0 20 20"
     width="20"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <!--v-if-->
     <!-- eslint-disable vue/no-v-html -->
@@ -182,7 +175,6 @@ exports[`matches the snapshot Case 7 Flippable icon (RTL, exception language): (
     viewBox="0 0 20 20"
     width="20"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <!--v-if-->
     <!-- eslint-disable vue/no-v-html -->

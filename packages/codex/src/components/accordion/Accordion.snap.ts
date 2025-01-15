@@ -111,7 +111,6 @@ exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action 
           viewBox="0 0 20 20"
           width="20"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
         >
           <title>
             Edit

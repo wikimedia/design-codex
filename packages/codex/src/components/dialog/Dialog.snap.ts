@@ -162,7 +162,6 @@ exports[`matches the snapshot Case 2 With hidden title 1`] = `
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -254,7 +253,6 @@ exports[`matches the snapshot Case 3 With custom close button label 1`] = `
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -346,7 +344,6 @@ exports[`matches the snapshot Case 4 Using deprecated API for close button 1`] =
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->

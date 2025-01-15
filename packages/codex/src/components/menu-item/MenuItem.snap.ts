@@ -248,7 +248,6 @@ exports[`matches the snapshot Case 5 Item with icon: ({"description": "Test sear
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -319,7 +318,6 @@ exports[`matches the snapshot Case 6 Item with placeholder thumbnail: ({"descrip
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -605,7 +603,6 @@ exports[`matches the snapshot Case 10 Selected item: ({"id": "test-menu-item", "
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -703,7 +700,6 @@ exports[`matches the snapshot Case 12 Selected item part of multiselect menu: ({
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->

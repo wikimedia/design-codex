@@ -25,7 +25,6 @@ exports[`matches the snapshot Case 0 Default: ({"modelValue": ""}) => HTML 1`] =
           viewBox="0 0 20 20"
           width="20"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->
@@ -75,7 +74,6 @@ exports[`matches the snapshot Case 1 With submit button: ({"modelValue": "", "us
           viewBox="0 0 20 20"
           width="20"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->
@@ -132,7 +130,6 @@ exports[`matches the snapshot Case 2 With custom visible button label: ({"button
           viewBox="0 0 20 20"
           width="20"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->
@@ -191,7 +188,6 @@ exports[`matches the snapshot Case 3 With attributes: ({"modelValue": ""}) => HT
           viewBox="0 0 20 20"
           width="20"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
         >
           <!--v-if-->
           <!-- eslint-disable vue/no-v-html -->

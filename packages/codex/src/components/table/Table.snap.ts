@@ -3078,7 +3078,6 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
                   viewBox="0 0 20 20"
                   width="20"
                   xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <!--v-if-->
                   <!-- eslint-disable vue/no-v-html -->
@@ -3114,7 +3113,6 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
                   viewBox="0 0 20 20"
                   width="20"
                   xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <!--v-if-->
                   <!-- eslint-disable vue/no-v-html -->
@@ -3150,7 +3148,6 @@ exports[`Table matches the snapshot Case 10 With sort icon: ([[Object], [Object]
                   viewBox="0 0 20 20"
                   width="20"
                   xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <!--v-if-->
                   <!-- eslint-disable vue/no-v-html -->
@@ -3633,7 +3630,6 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -3814,7 +3810,6 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -3843,7 +3838,6 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -3871,7 +3865,6 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -3899,7 +3892,6 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -4316,7 +4308,6 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -4497,7 +4488,6 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -4526,7 +4516,6 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -4554,7 +4543,6 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->
@@ -4582,7 +4570,6 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             viewBox="0 0 20 20"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!--v-if-->
             <!-- eslint-disable vue/no-v-html -->

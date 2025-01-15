@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 	<title>
 		settings
 	</title>
-	<g transform="translate(10 10)">
+	<g xmlns:xlink="http://www.w3.org/1999/xlink" transform="translate(10 10)">
 		<path id="a" d="M1.5-10h-3l-1 6.5h5m0 7h-5l1 6.5h3"/>
 		<use xlink:href="#a" transform="rotate(45)"/>
 		<use xlink:href="#a" transform="rotate(90)"/>

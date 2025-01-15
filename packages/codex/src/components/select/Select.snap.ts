@@ -32,7 +32,6 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -230,7 +229,6 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -304,7 +302,6 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -502,7 +499,6 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -576,7 +572,6 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -775,7 +770,6 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -849,7 +843,6 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -1048,7 +1041,6 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -1121,7 +1113,6 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -1141,7 +1132,6 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -1340,7 +1330,6 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -1413,7 +1402,6 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -1433,7 +1421,6 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -1631,7 +1618,6 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -1705,7 +1691,6 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -1904,7 +1889,6 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -1978,7 +1962,6 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -2176,7 +2159,6 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->

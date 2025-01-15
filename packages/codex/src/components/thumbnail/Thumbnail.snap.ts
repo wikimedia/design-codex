@@ -16,7 +16,6 @@ exports[`matches the snapshot Case 0 With default placeholder icon: (%p) => HTML
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->
@@ -58,7 +57,6 @@ exports[`matches the snapshot Case 1 With custom placeholder icon: ({"ltr": "<pa
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <!-- eslint-disable vue/no-v-html -->

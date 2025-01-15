@@ -305,7 +305,6 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -353,7 +352,6 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -517,7 +515,6 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -565,7 +562,6 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -675,7 +671,6 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -723,7 +718,6 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -830,7 +824,6 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->
@@ -879,7 +872,6 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
               viewBox="0 0 20 20"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <!--v-if-->
               <!-- eslint-disable vue/no-v-html -->

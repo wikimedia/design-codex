@@ -325,7 +325,7 @@ export default defineComponent( {
 
 .get-select-icon-background-image( @param-select-icon-color ) {
 	@escaped-icon-color: escape( @param-select-icon-color );
-	background-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="@{escaped-icon-color}">@{icon-expand-svg-content}</svg>' );
+	background-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="@{escaped-icon-color}">@{icon-expand-svg-content}</svg>' );
 }
 
 // CSS-only and Vue implementations are too divergent to combine, so they are included separately.
