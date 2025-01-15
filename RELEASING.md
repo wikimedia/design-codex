@@ -78,8 +78,15 @@ how to handle them in a codebase that implements Codex:
 
 Once organized, commit the changes locally with the appropriate version number:
 ```bash
-git commit --all --message="Tag v1.2.34"
+git commit --all
 ```
+This will prompt you for a commit message. Your commit message should look like this:
+```
+Tag v1.2.34
+
+Bug: T123456
+```
+Where `v1.2.34` is the new version number, and `T123456` is the Phabricator task for the release.
 
 Then, submit this commit to Gerrit for review:
 ```bash
@@ -302,10 +309,20 @@ Edit the `releases.json` file in that repository. Search for `codex`, and you sh
 ```
 Change each of the version numbers in the `"to":` fields to the new version number.
 
-Then commit your change and submit it to GitLab:
+Then commit your change:
 ```bash
 git checkout -b codex-1.2.34
-git commit --all --message="releases: Bump Codex to 1.2.34"
+git commit --all
+```
+Your commit message should look like this:
+```
+releases: Bump Codex to 1.2.34
+
+Bug: T123456
+```
+
+Finally, submit it to GitLab:
+```bash
 git push origin codex-1.2.34
 ```
 
