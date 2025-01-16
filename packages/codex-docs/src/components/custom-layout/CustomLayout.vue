@@ -12,14 +12,14 @@
 		<template #doc-before>
 			<cdx-docs-version-banner v-if="!frontmatter.isHomepage" />
 		</template>
-		<template #doc-bottom>
+		<template v-if="showReturnToTopButton && !isTopOfPage" #doc-bottom>
 			<cdx-docs-return-to-top />
 		</template>
 	</layout>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, onMounted, onUnmounted } from 'vue';
 import { useRoute, useData } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import CdxDocsBetaTag from '../beta-tag/BetaTag.vue';
@@ -28,8 +28,27 @@ import CdxDocsReturnToTop from '../return-to-top/ReturnToTop.vue';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
-const isComponentPage = computed( () => route.path.includes( '/components/demos/' ) );
 const { frontmatter } = useData();
+const isComponentPage = computed( () => route.path.includes( '/components/demos/' ) );
+const isLinkPage = computed( () => route.path.includes( '/components/mixins/link' ) );
+const isTooltipPage = computed( () => route.path.includes( '/components/directives/tooltip' ) );
+const showReturnToTopButton = computed(
+	() => isComponentPage.value || isLinkPage.value || isTooltipPage.value
+);
+// Initially hide the "return to top" button when at the top of the page.
+const isTopOfPage = ref( true );
+
+function handleScroll() {
+	isTopOfPage.value = window.scrollY === 0;
+}
+
+onMounted( () => {
+	window.addEventListener( 'scroll', handleScroll );
+} );
+
+onUnmounted( () => {
+	window.removeEventListener( 'scroll', handleScroll );
+} );
 </script>
 
 <style lang="less">

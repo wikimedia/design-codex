@@ -19,9 +19,6 @@ export default defineComponent( {
 	name: 'CdxDocsReturnToTop',
 	components: { CdxButton, CdxIcon },
 	setup() {
-		// TODO: Initially hide the button at the top of the page,
-		// detect a scroll, then display the button.
-
 		function onClick() {
 			// Navigate smoothly to the top of the page.
 			window.scrollTo( { top: 0, behavior: 'smooth' } );
