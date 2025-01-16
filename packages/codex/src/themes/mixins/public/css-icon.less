@@ -40,20 +40,24 @@
 	.get-calculated-min-size-icon( @param-size-icon );
 
 	// Support Firefox v39-52: fall back to background rules.
-	// Support Chrome: Chrome requires the -webkit prefix so we must use it in all @supports queries.
+	// Support Chrome: Chrome requires the `-webkit` prefix so we must use it in all
+	// `@supports` queries.
 	@supports not ( ( -webkit-mask-image: none ) or ( mask-image: none ) ) {
 		background-position: @param-background-position;
 		background-repeat: no-repeat;
-		// Set background size to the relative @param-size-icon or to @calculated-min-size-icon, whichever is larger.
+		// Set background size to the relative @param-size-icon or to @calculated-min-size-icon,
+		// whichever is larger.
 		// This ensures that the icon will never appear smaller than @calculated-min-size-icon.
-		// Escape the max() call to prevent older Less versions from trying to do the max() calculation at compile time.
+		// Escape the max() call to prevent older Less versions from trying to do the max()
+		// calculation at compile time.
 		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		background-size: calc( ~'max( @{param-size-icon}, @{calculated-min-size-icon} )' );
 	}
 
 	@supports ( -webkit-mask-image: none ) or ( mask-image: none ) {
 		/* stylelint-disable plugin/no-unsupported-browser-features */
-		// Support Chrome
+		// Support Chrome: set `-webkit` prefixes explicitly for usage without Autoprefixer.
+		// While Codex integrates Autoprefixer, MediaWiki does not.
 		-webkit-mask-size: calc( ~'max( @{param-size-icon}, @{calculated-min-size-icon} )' );
 		mask-size: calc( ~'max( @{param-size-icon}, @{calculated-min-size-icon} )' );
 		// Support Chrome
@@ -130,7 +134,8 @@
 	@image-url: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="@{escaped-color-black}">@{param-icon}</svg>';
 
 	// Support Firefox v39-52: fall back to background-image.
-	// Support Chrome: Chrome requires the -webkit prefix so we must use it in all @supports queries.
+	// Support Chrome: Chrome requires the `-webkit` prefix so we must use it in all
+	// `@supports` queries.
 	@supports not ( ( -webkit-mask-image: none ) or ( mask-image: none ) ) {
 		background-image: url( @image-url );
 		// Set icon color to white in night mode.
