@@ -143,12 +143,14 @@
 		// Set icon color closer to @color-base.
 		opacity: @opacity-icon-base;
 
-		// Fallback for @color-inverted icons.
-		.cdx-button:not( .cdx-button--weight-quiet ):disabled &,
-		.cdx-button--weight-primary.cdx-button--action-progressive &,
-		.cdx-button--weight-primary.cdx-button--action-destructive & {
-			// Set icon color close to @color-inverted.
-			filter: invert( @filter-invert-primary-button-icon );
+		// Fallback for @color-inverted icons within buttons.
+		& when ( @param-is-button-icon ) {
+			.cdx-button:not( .cdx-button--weight-quiet ):disabled &,
+			.cdx-button--weight-primary.cdx-button--action-progressive &,
+			.cdx-button--weight-primary.cdx-button--action-destructive & {
+				// Set icon color close to @color-inverted.
+				filter: invert( @filter-invert-primary-button-icon );
+			}
 		}
 	}
 
