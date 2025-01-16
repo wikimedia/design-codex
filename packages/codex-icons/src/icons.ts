@@ -421,6 +421,7 @@ export const cdxIconInstance: IconFlipForRtl = {
 };
 
 import svgLightbulb from './images/lightbulb.svg';
+export const cdxIconLightbulb = svgLightbulb;
 
 import svgLiteral from './images/literal.svg';
 export const cdxIconLiteral: IconFlipForRtl = {
