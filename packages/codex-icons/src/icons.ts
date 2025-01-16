@@ -124,11 +124,13 @@ import svgBoldG from './images/bold-g.svg';
 import svgBoldGeorMan from './images/bold-geor-man.svg';
 import svgBoldL from './images/bold-l.svg';
 import svgBoldN from './images/bold-n.svg';
+import svgBoldQ from './images/bold-q.svg';
 import svgBoldV from './images/bold-v.svg';
 
 export const cdxIconBold: IconVariedByLang = {
 	langCodeMap: {
 		ar: svgBoldArabAin,
+		az: svgBoldQ,
 		be: svgBoldCyrlTe,
 		ce: svgBoldCyrlPalochka,
 		cs: svgBoldB,
@@ -459,6 +461,7 @@ import svgItalicS from './images/italic-s.svg';
 export const cdxIconItalic: IconVariedByLang = {
 	langCodeMap: {
 		ar: svgItalicArabMeem,
+		az: svgItalicK,
 		cs: svgItalicI,
 		en: svgItalicI,
 		fr: svgItalicI,
