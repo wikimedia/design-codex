@@ -58,14 +58,14 @@
 		/* stylelint-disable plugin/no-unsupported-browser-features */
 		// Support Chrome: set `-webkit` prefixes explicitly for usage without Autoprefixer.
 		// While Codex integrates Autoprefixer, MediaWiki does not.
-		-webkit-mask-size: calc( ~'max( @{param-size-icon}, @{calculated-min-size-icon} )' );
-		mask-size: calc( ~'max( @{param-size-icon}, @{calculated-min-size-icon} )' );
+		-webkit-mask-position: @param-background-position;
+		mask-position: @param-background-position;
 		// Support Chrome
 		-webkit-mask-repeat: no-repeat;
 		mask-repeat: no-repeat;
 		// Support Chrome
-		-webkit-mask-position: @param-background-position;
-		mask-position: @param-background-position;
+		-webkit-mask-size: calc( ~'max( @{param-size-icon}, @{calculated-min-size-icon} )' );
+		mask-size: calc( ~'max( @{param-size-icon}, @{calculated-min-size-icon} )' );
 		/* stylelint-enable plugin/no-unsupported-browser-features */
 	}
 }
