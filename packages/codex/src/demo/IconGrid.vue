@@ -8,68 +8,72 @@
 				<h2>Icon</h2>
 				<table class="cdx-demo-icon-table">
 					<caption>All icons</caption>
-					<tr>
-						<th>Icon name (language)</th>
-						<th colspan="4">
-							Default size, default color
-						</th>
-						<th colspan="4">
-							Medium size, red color
-						</th>
-						<th colspan="4">
-							Small size, default color
-						</th>
-						<th colspan="4">
-							Extra small size, blue color
-						</th>
-					</tr>
-					<tr>
-						<th aria-hidden="true" />
-						<th>Vue LTR</th>
-						<th>Vue RTL</th>
-						<th>CSS-only LTR</th>
-						<th>CSS-only RTL</th>
-						<th>Vue LTR</th>
-						<th>Vue RTL</th>
-						<th>CSS-only LTR</th>
-						<th>CSS-only RTL</th>
-						<th>Vue LTR</th>
-						<th>Vue RTL</th>
-						<th>CSS-only LTR</th>
-						<th>CSS-only RTL</th>
-						<th>Vue LTR</th>
-						<th>Vue RTL</th>
-						<th>CSS-only LTR</th>
-						<th>CSS-only RTL</th>
-					</tr>
-					<tr v-for="iconData in displayIcons" :key="iconData.iconName">
-						<th>
-							{{ iconData.iconName }}
-							<template v-if="iconData.langLabel">
-								({{ iconData.langLabel }})
-							</template>
-						</th>
-						<!-- eslint-disable max-len -->
-						<template v-for="{ size, color } in sizesAndColors" :key="`${size}-${color}`">
-							<td v-for="dir in directions" :key="dir">
-								<cdx-icon
-									:class="{ [ `cdx-demo-icon-vue-icon--color-${color}` ]: !!color } "
-									:icon="iconData.icon"
+					<thead>
+						<tr>
+							<th>Icon name (language)</th>
+							<th colspan="4">
+								Default size, default color
+							</th>
+							<th colspan="4">
+								Medium size, red color
+							</th>
+							<th colspan="4">
+								Small size, default color
+							</th>
+							<th colspan="4">
+								Extra small size, blue color
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th aria-hidden="true" />
+							<th>Vue LTR</th>
+							<th>Vue RTL</th>
+							<th>CSS-only LTR</th>
+							<th>CSS-only RTL</th>
+							<th>Vue LTR</th>
+							<th>Vue RTL</th>
+							<th>CSS-only LTR</th>
+							<th>CSS-only RTL</th>
+							<th>Vue LTR</th>
+							<th>Vue RTL</th>
+							<th>CSS-only LTR</th>
+							<th>CSS-only RTL</th>
+							<th>Vue LTR</th>
+							<th>Vue RTL</th>
+							<th>CSS-only LTR</th>
+							<th>CSS-only RTL</th>
+						</tr>
+						<tr v-for="iconData in displayIcons" :key="iconData.iconName">
+							<th>
+								{{ iconData.iconName }}
+								<template v-if="iconData.langLabel">
+									({{ iconData.langLabel }})
+								</template>
+							</th>
+							<!-- eslint-disable max-len -->
+							<template v-for="{ size, color } in sizesAndColors" :key="`${size}-${color}`">
+								<td v-for="dir in directions" :key="dir">
+									<cdx-icon
+										:class="{ [ `cdx-demo-icon-vue-icon--color-${color}` ]: !!color } "
+										:icon="iconData.icon"
+										:lang="iconData.langCode"
+										:dir="dir"
+										:size="size"
+									/>
+								</td>
+								<td
+									v-for="dir in directions"
+									:key="dir"
 									:lang="iconData.langCode"
-									:dir="dir"
-									:size="size"
-								/>
-							</td>
-							<td
-								v-for="dir in directions"
-								:key="dir"
-								:lang="iconData.langCode"
-							>
-								<span :class="`cdx-demo-icon-css-icon--${iconData.cssIconName}${size ? `--size-${size}` : ''}${color ? `--color-${color}` : ''}`" :dir="dir" />
-							</td>
-						</template>
-						<!-- eslint-enable max-len -->
-					</tr>
+								>
+									<span :class="`cdx-demo-icon-css-icon--${iconData.cssIconName}${size ? `--size-${size}` : ''}${color ? `--color-${color}` : ''}`" :dir="dir" />
+								</td>
+							</template>
+							<!-- eslint-enable max-len -->
+						</tr>
+					</tbody>
 				</table>
 			</section>
 		</template>
