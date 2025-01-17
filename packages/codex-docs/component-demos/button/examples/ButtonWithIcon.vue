@@ -1,6 +1,7 @@
 <template>
 	<cdx-button @click="onClick">
-		<cdx-icon :icon="cdxIconDownload" /> Download
+		<cdx-icon :icon="cdxIconDownload" />
+		Download
 	</cdx-button>
 </template>
 

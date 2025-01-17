@@ -53,7 +53,7 @@ export default defineComponent( {
 
 	> div {
 		display: flex;
-		gap: @spacing-50;
+		gap: @spacing-75;
 	}
 }
 </style>
