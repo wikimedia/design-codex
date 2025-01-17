@@ -291,6 +291,10 @@ export default defineComponent( {
 					box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus,
 						@box-shadow-inset-medium @box-shadow-color-inverted;
 				}
+
+				.cdx-button__icon {
+					.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
+				}
 			}
 
 			// Destructive primary buttons.
@@ -298,10 +302,6 @@ export default defineComponent( {
 				background-color: @background-color-destructive;
 				color: @color-inverted-fixed;
 				border-color: @border-color-transparent;
-
-				.cdx-button__icon {
-					.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
-				}
 
 				&:hover {
 					background-color: @background-color-destructive--hover;
@@ -322,6 +322,10 @@ export default defineComponent( {
 						@stylistic/value-list-comma-newline-after */
 					box-shadow: @box-shadow-inset-small @box-shadow-color-destructive--focus,
 						@box-shadow-inset-medium @box-shadow-color-inverted;
+				}
+
+				.cdx-button__icon {
+					.cdx-mixin-button-css-icon-fallback-color( @color-inverted-fixed );
 				}
 			}
 		}
