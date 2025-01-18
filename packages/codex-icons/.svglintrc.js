@@ -16,6 +16,9 @@ export default {
 				'rule::selector': 'svg',
 				// Require xmlns to exist and be set to this value
 				xmlns: 'http://www.w3.org/2000/svg',
+				// Disallow `xmlns:xlink` attribute in root.
+				// Apply it on individual elements instead.
+				'xmlns:xlink': false,
 				// Disallow `standalone` attribute, which would be wrong on `svg` anyway.
 				standalone: false,
 				// Require viewBox, width and height to be set to the standard 20x20 values
