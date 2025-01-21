@@ -352,6 +352,9 @@ export default defineComponent( {
 .cdx-text-area {
 	// Added for positioning of icons.
 	position: relative;
+	// Set `min-width` here instead of on the `<textarea>` element so that the TextArea's width
+	// is consistent regardless of whether the start/end icons are present.
+	min-width: @min-width-medium;
 
 	// Added double ampersand to add specificity to Vue and CSS start icons
 	& &__start-icon {
