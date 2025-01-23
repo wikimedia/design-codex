@@ -85,6 +85,7 @@ describe( 'Basic usage', () => {
 
 	it( 'clicking the dialog backdrop emits an update:open event with a value of "false"', async () => {
 		const wrapper = mount( CdxDialog, dialogBasicOpen );
+		await wrapper.find( '.cdx-dialog-backdrop' ).trigger( 'mousedown' );
 		await wrapper.find( '.cdx-dialog-backdrop' ).trigger( 'click' );
 		expect( wrapper.emitted()[ 'update:open' ][ 0 ] ).toEqual( [ false ] );
 	} );

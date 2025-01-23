@@ -5,7 +5,8 @@
 				v-if="open"
 				ref="backdrop"
 				class="cdx-dialog-backdrop"
-				@click="close"
+				@mousedown="onBackdropMouseDown"
+				@click="onBackdropClick"
 				@keyup.escape="close"
 			>
 				<!-- Focus trap start -->
@@ -328,6 +329,23 @@ export default defineComponent( {
 			emit( 'update:open', false );
 		}
 
+		// We close the dialog when the backdrop is clicked, but unfortunately the click event
+		// also fires if the user holds the mouse down inside the dialog, drags the mouse out of
+		// the dialog onto the backdrop, and releases it on the backdrop (T358544). We only want
+		// to close the dialog on a "true" click on the backdrop, so only close the dialog on click
+		// if the preceding mousedown event happened on the backdrop.
+		let mousedownOnBackdrop = false;
+
+		function onBackdropMouseDown( e: MouseEvent ) {
+			mousedownOnBackdrop = e.target === backdrop.value;
+		}
+
+		function onBackdropClick() {
+			if ( mousedownOnBackdrop ) {
+				close();
+			}
+		}
+
 		/**
 		 * Programmatically focus the first focusable element inside the dialog
 		 * frame.
@@ -508,6 +526,8 @@ export default defineComponent( {
 
 		return {
 			close,
+			onBackdropClick,
+			onBackdropMouseDown,
 			cdxIconClose,
 			labelId,
 			rootClasses,
