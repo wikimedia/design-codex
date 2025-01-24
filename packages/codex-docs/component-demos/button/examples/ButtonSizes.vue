@@ -4,10 +4,12 @@
 			Button size examples for all supported <code>size</code> values.
 		</caption>
 		<thead>
-			<th>Size</th>
-			<th>Min-size</th>
-			<th>Text button</th>
-			<th>Icon-only button</th>
+			<tr>
+				<th>Size</th>
+				<th>Min-size</th>
+				<th>Text button</th>
+				<th>Icon-only button</th>
+			</tr>
 		</thead>
 		<tbody>
 			<tr>
