@@ -13,14 +13,15 @@ import CdxDocsVersionBanner from '../src/components/version-banner/VersionBanner
 <div class="cdx-docs-home">
 
 <div class="cdx-docs-home__hero">
-	<cdx-icon class="cdx-docs-home__hero__icon" :icon="cdxIconLogoWikimedia" />
-	<h1 class="cdx-docs-home__hero__title">Codex</h1>
-	<p class="cdx-docs-home__hero__tagline">Wikimedia Design System</p>
+	<img src="/logo-Codex-inverted.svg">
+	<div>
+		<h1 class="cdx-docs-home__hero__title">Codex</h1>
+		<p class="cdx-docs-home__hero__tagline">The design system for Wikimedia.</p>
+	</div>
 </div>
 
 <cdx-docs-version-banner />
 
-**Codex is the design system for Wikimedia.**<br>
 Current version: **{{ version }}**
 
 Codex is maintained by the [Design System Team](https://www.mediawiki.org/wiki/Design_System_Team)
@@ -84,7 +85,8 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-@font-size-cdx-docs-title: 5em;
+@font-size-cdx-docs-title: 4em;
+@font-size-cdx-docs-tagline: 4em;
 
 /* stylelint-disable selector-class-pattern */
 .cdx-docs-home {
@@ -102,27 +104,36 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		background-color: @background-color-progressive;
 		color: @color-inverted-fixed;
 		// Equals 100% + ( 2 * negative margin per side ).
+		display: block;
 		width: calc( @size-full + ( @spacing-200 * 2 ) );
 		margin-right: -@spacing-200;
 		margin-bottom: @spacing-200;
 		margin-left: -@spacing-200;
 		padding: @spacing-200;
 
-		&__icon {
-			color: @color-inverted-fixed;
-			// 5em equivalent to match the title.
-			/* stylelint-disable scale-unlimited/declaration-strict-value */
-			min-width: 80px;
-			min-height: 80px;
-			width: 5em;
-			height: 5em;
-			/* stylelint-enable scale-unlimited/declaration-strict-value */
-			margin-bottom: @spacing-400;
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			display: flex;
+		}
+
+		img {
+			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+			width: 6.5em;
+			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+			height: 6.5em;
+			margin-top: @spacing-50;
+			margin-right: 0;
+			margin-bottom: @spacing-50;
+
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+				margin-right: @spacing-125;
+			}
 		}
 
 		// Need to put `.vp-doc` here to override the default VitePress heading styles.
 		.vp-doc &__title {
 			color: @color-inverted-fixed;
+			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+			max-width: 400px;
 			font-family: @font-family-base;
 			font-size: @font-size-cdx-docs-title;
 			font-weight: @font-weight-bold;
@@ -130,9 +141,13 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		}
 
 		.vp-doc &__tagline {
+			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+			max-width: 400px;
 			margin: 0 0 0 @spacing-50;
 			font-family: @font-family-base;
-			font-size: @font-size-xx-large;
+			font-size: @font-size-cdx-docs-tagline;
+			font-weight: @font-weight-bold;
+			line-height: initial;
 		}
 	}
 

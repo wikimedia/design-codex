@@ -20,9 +20,9 @@
 		"mw-examples:clean": "rm -rf component-demos/*/examples-mw/",
 		"mw-examples:dev": "npm-watch mw-examples:build",
 		"lint": "npm run lint:svg && npm run lint:ts",
-		"lint:svg": "svglint --ci docs/assets/**/*.svg",
+		"lint:svg": "svglint --ci docs/assets/**/*.svg docs/public/**/*.svg",
 		"lint:ts": "vue-tsc --noEmit",
-		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder ./docs/assets",
+		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder ./docs/assets --folder ./docs/public",
 		"test": "npm run lint && npm run build && npm -s run test:unit",
 		"test:unit": "jest -c .jest/jest.config.json",
 		"update-snapshots": "npm run test:unit -- -u"

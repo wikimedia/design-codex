@@ -62,9 +62,9 @@ export default defineConfigWithTheme<CustomConfig>( {
 		patchID,
 
 		logo: {
-			light: '/logo-Wikimedia.svg',
-			dark: '/logo-Wikimedia-inverted.svg',
-			alt: 'Wikimedia'
+			light: '/logo-Codex-small.svg',
+			dark: '/logo-Codex-small-inverted.svg',
+			alt: 'Codex'
 		},
 
 		nav: [
