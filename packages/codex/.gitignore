@@ -1,10 +1,7 @@
-dist/
-node_modules/
-coverage/
-cypress/videos/
-cypress/screenshots/
+/cypress/videos/
+/cypress/screenshots/
 
 # We copy some files during packaging but want to ensure that
 # they do not get committed to history
-CHANGELOG.md
-mixins/
+/CHANGELOG.md
+/mixins/
