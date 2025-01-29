@@ -108,7 +108,7 @@ to indicate a default action (e.g. “Cancel”).
 The Dialog footer can include text above the action buttons to provide additional information (e.g.
 terms and conditions to read before publishing).
 
-A permanent action can be included (e.g. a "Don't show again" checkbox) (refer to the [Multi-step Dialog][#multi-step-dialog] for an example).
+A permanent action can be included (e.g. a "Don't show again" checkbox) (refer to the [Multi-step Dialog](#multi-step-dialog) for an example).
 
 ## Examples
 
