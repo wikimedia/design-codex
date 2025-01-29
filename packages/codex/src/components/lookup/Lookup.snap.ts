@@ -86,7 +86,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-1"
+        id="v-1-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -124,7 +124,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-2"
+        id="v-1-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -162,7 +162,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-3"
+        id="v-1-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -200,7 +200,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="v-4"
+        id="v-1-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -280,7 +280,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
         aria-disabled="false"
         aria-selected="true"
         class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-        id="v-1"
+        id="v-1-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -318,7 +318,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-2"
+        id="v-1-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -356,7 +356,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-3"
+        id="v-1-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -394,7 +394,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="v-4"
+        id="v-1-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -673,7 +673,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-1"
+        id="v-1-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -711,7 +711,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-2"
+        id="v-1-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -749,7 +749,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-3"
+        id="v-1-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -787,7 +787,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="v-4"
+        id="v-1-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->

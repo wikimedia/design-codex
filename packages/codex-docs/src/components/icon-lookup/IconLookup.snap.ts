@@ -103,7 +103,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
         aria-disabled="false"
         aria-selected="true"
         class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled cdx-menu-item--bold-label"
-        id="v-1"
+        id="v-1-1"
         role="option"
       >
         

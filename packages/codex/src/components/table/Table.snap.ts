@@ -3658,7 +3658,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
               aria-disabled="false"
               aria-selected="true"
               class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-              id="v-2"
+              id="v-2-1"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -3696,7 +3696,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled"
-              id="v-3"
+              id="v-2-2"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -3734,7 +3734,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled"
-              id="v-4"
+              id="v-2-3"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -4278,10 +4278,10 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
         class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
       >
         <div
-          aria-controls="v-5"
+          aria-controls="v-3"
           aria-expanded="false"
           class="cdx-select-vue__handle"
-          id="v-6"
+          id="v-4"
           role="combobox"
           tabindex="0"
         >
@@ -4325,7 +4325,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
         >
           <ul
             class="cdx-menu__listbox"
-            id="v-5"
+            id="v-3"
             role="listbox"
           >
             <!--v-if-->
@@ -4336,7 +4336,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
               aria-disabled="false"
               aria-selected="true"
               class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-              id="v-7"
+              id="v-5-1"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -4374,7 +4374,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled"
-              id="v-8"
+              id="v-5-2"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -4412,7 +4412,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled"
-              id="v-9"
+              id="v-5-3"
               role="option"
             >
               <!-- @slot Custom menu item content. -->

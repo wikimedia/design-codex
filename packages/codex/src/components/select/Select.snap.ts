@@ -59,7 +59,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-2"
+        id="v-2-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -97,7 +97,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-3"
+        id="v-2-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -135,7 +135,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-4"
+        id="v-2-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -173,7 +173,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="v-5"
+        id="v-2-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -211,7 +211,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-6"
+        id="v-2-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -329,7 +329,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-2"
+        id="v-2-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -367,7 +367,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-3"
+        id="v-2-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -405,7 +405,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-4"
+        id="v-2-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -443,7 +443,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="v-5"
+        id="v-2-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -481,7 +481,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-6"
+        id="v-2-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -600,7 +600,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
         aria-disabled="false"
         aria-selected="true"
         class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-        id="v-2"
+        id="v-2-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -638,7 +638,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-3"
+        id="v-2-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -676,7 +676,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-4"
+        id="v-2-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -714,7 +714,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="v-5"
+        id="v-2-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -752,7 +752,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-6"
+        id="v-2-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -870,7 +870,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-2"
+        id="v-2-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -908,7 +908,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-3"
+        id="v-2-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -947,7 +947,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
         aria-disabled="false"
         aria-selected="true"
         class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-        id="v-4"
+        id="v-2-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -985,7 +985,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="v-5"
+        id="v-2-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1023,7 +1023,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-6"
+        id="v-2-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1159,7 +1159,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-2"
+        id="v-2-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1197,7 +1197,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-3"
+        id="v-2-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1235,7 +1235,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-4"
+        id="v-2-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1273,7 +1273,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="v-5"
+        id="v-2-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1312,7 +1312,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
         aria-disabled="false"
         aria-selected="true"
         class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-        id="v-6"
+        id="v-2-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1448,7 +1448,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-2"
+        id="v-2-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1486,7 +1486,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-3"
+        id="v-2-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1524,7 +1524,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-4"
+        id="v-2-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1562,7 +1562,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="v-5"
+        id="v-2-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1600,7 +1600,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-6"
+        id="v-2-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1718,7 +1718,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-2"
+        id="v-2-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1756,7 +1756,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-3"
+        id="v-2-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1795,7 +1795,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
         aria-disabled="false"
         aria-selected="true"
         class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-        id="v-4"
+        id="v-2-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1833,7 +1833,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="v-5"
+        id="v-2-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1871,7 +1871,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-6"
+        id="v-2-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -1989,7 +1989,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-2"
+        id="v-2-1"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -2027,7 +2027,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-3"
+        id="v-2-2"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -2065,7 +2065,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-4"
+        id="v-2-3"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -2103,7 +2103,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       <li
         aria-disabled="true"
         class="cdx-menu-item cdx-menu-item--disabled"
-        id="v-5"
+        id="v-2-4"
         role="option"
       >
         <!-- @slot Custom menu item content. -->
@@ -2141,7 +2141,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       <li
         aria-disabled="false"
         class="cdx-menu-item cdx-menu-item--enabled"
-        id="v-6"
+        id="v-2-5"
         role="option"
       >
         <!-- @slot Custom menu item content. -->

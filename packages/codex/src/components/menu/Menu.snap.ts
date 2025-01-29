@@ -15,7 +15,7 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-0"
+      id="v-0-1"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -53,7 +53,7 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-1"
+      id="v-0-2"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -91,7 +91,7 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-2"
+      id="v-0-3"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -129,7 +129,7 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-3"
+      id="v-0-4"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -167,7 +167,7 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-4"
+      id="v-0-5"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -205,7 +205,7 @@ exports[`Menu matches the snapshots Case 0 Nothing selected: => HTML 1`] = `
     <li
       aria-disabled="true"
       class="cdx-menu-item cdx-menu-item--disabled"
-      id="v-5"
+      id="v-0-6"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -260,7 +260,7 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-0"
+      id="v-0-1"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -299,7 +299,7 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
       aria-disabled="false"
       aria-selected="true"
       class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-      id="v-1"
+      id="v-0-2"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -337,7 +337,7 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-2"
+      id="v-0-3"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -375,7 +375,7 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-3"
+      id="v-0-4"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -413,7 +413,7 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-4"
+      id="v-0-5"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -451,7 +451,7 @@ exports[`Menu matches the snapshots Case 1 Something selected: => HTML 1`] = `
     <li
       aria-disabled="true"
       class="cdx-menu-item cdx-menu-item--disabled"
-      id="v-5"
+      id="v-0-6"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -507,7 +507,7 @@ exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTM
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-0"
+      id="v-0-1"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -545,7 +545,7 @@ exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTM
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-1"
+      id="v-0-2"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -583,7 +583,7 @@ exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTM
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-2"
+      id="v-0-3"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -621,7 +621,7 @@ exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTM
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-3"
+      id="v-0-4"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -659,7 +659,7 @@ exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTM
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-4"
+      id="v-0-5"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -697,7 +697,7 @@ exports[`Menu matches the snapshots Case 2 Multiselect, nothing selected: => HTM
     <li
       aria-disabled="true"
       class="cdx-menu-item cdx-menu-item--disabled"
-      id="v-5"
+      id="v-0-6"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -753,7 +753,7 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-0"
+      id="v-0-1"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -792,7 +792,7 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
       aria-checked="true"
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-      id="v-1"
+      id="v-0-2"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -848,7 +848,7 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-2"
+      id="v-0-3"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -886,7 +886,7 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-3"
+      id="v-0-4"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -924,7 +924,7 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-4"
+      id="v-0-5"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -962,7 +962,7 @@ exports[`Menu matches the snapshots Case 3 Multiselect, something selected: => H
     <li
       aria-disabled="true"
       class="cdx-menu-item cdx-menu-item--disabled"
-      id="v-5"
+      id="v-0-6"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -1018,8 +1018,8 @@ exports[`Menu matches the snapshots Case 4 With groups, nothing selected: => HTM
       class="cdx-menu__group-wrapper"
     >
       <ul
-        aria-describedby="v-0-description"
-        aria-labelledby="v-0-label"
+        aria-describedby="v-0-1-description"
+        aria-labelledby="v-0-1-label"
         class="cdx-menu__group"
         role="group"
       >
@@ -1050,13 +1050,13 @@ exports[`Menu matches the snapshots Case 4 With groups, nothing selected: => HTM
           >
             <span
               class="cdx-menu__group__label"
-              id="v-0-label"
+              id="v-0-1-label"
             >
               Group 1
             </span>
             <span
               class="cdx-menu__group__description"
-              id="v-0-description"
+              id="v-0-1-description"
             >
               Group 1 description
             </span>
@@ -1066,7 +1066,7 @@ exports[`Menu matches the snapshots Case 4 With groups, nothing selected: => HTM
         <li
           aria-disabled="false"
           class="cdx-menu-item cdx-menu-item--enabled cdx-menu__group__item"
-          id="v-1"
+          id="v-0-2"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1102,7 +1102,7 @@ exports[`Menu matches the snapshots Case 4 With groups, nothing selected: => HTM
         <li
           aria-disabled="true"
           class="cdx-menu-item cdx-menu-item--disabled cdx-menu__group__item"
-          id="v-2"
+          id="v-0-3"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1138,7 +1138,7 @@ exports[`Menu matches the snapshots Case 4 With groups, nothing selected: => HTM
         <li
           aria-disabled="false"
           class="cdx-menu-item cdx-menu-item--enabled cdx-menu__group__item"
-          id="v-3"
+          id="v-0-4"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1179,7 +1179,7 @@ exports[`Menu matches the snapshots Case 4 With groups, nothing selected: => HTM
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-4"
+      id="v-0-5"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -1218,8 +1218,8 @@ exports[`Menu matches the snapshots Case 4 With groups, nothing selected: => HTM
       class="cdx-menu__group-wrapper"
     >
       <ul
-        aria-describedby="v-5-description"
-        aria-labelledby="v-5-label"
+        aria-describedby="v-0-6-description"
+        aria-labelledby="v-0-6-label"
         class="cdx-menu__group"
         role="group"
       >
@@ -1232,7 +1232,7 @@ exports[`Menu matches the snapshots Case 4 With groups, nothing selected: => HTM
           >
             <span
               class="cdx-menu__group__label"
-              id="v-5-label"
+              id="v-0-6-label"
             >
               Group 2
             </span>
@@ -1243,7 +1243,7 @@ exports[`Menu matches the snapshots Case 4 With groups, nothing selected: => HTM
         <li
           aria-disabled="false"
           class="cdx-menu-item cdx-menu-item--enabled cdx-menu__group__item"
-          id="v-6"
+          id="v-0-7"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1279,7 +1279,7 @@ exports[`Menu matches the snapshots Case 4 With groups, nothing selected: => HTM
         <li
           aria-disabled="false"
           class="cdx-menu-item cdx-menu-item--enabled cdx-menu__group__item"
-          id="v-7"
+          id="v-0-8"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1320,7 +1320,7 @@ exports[`Menu matches the snapshots Case 4 With groups, nothing selected: => HTM
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-8"
+      id="v-0-9"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -1376,8 +1376,8 @@ exports[`Menu matches the snapshots Case 5 With groups, something selected: => H
       class="cdx-menu__group-wrapper"
     >
       <ul
-        aria-describedby="v-0-description"
-        aria-labelledby="v-0-label"
+        aria-describedby="v-0-1-description"
+        aria-labelledby="v-0-1-label"
         class="cdx-menu__group"
         role="group"
       >
@@ -1408,13 +1408,13 @@ exports[`Menu matches the snapshots Case 5 With groups, something selected: => H
           >
             <span
               class="cdx-menu__group__label"
-              id="v-0-label"
+              id="v-0-1-label"
             >
               Group 1
             </span>
             <span
               class="cdx-menu__group__description"
-              id="v-0-description"
+              id="v-0-1-description"
             >
               Group 1 description
             </span>
@@ -1424,7 +1424,7 @@ exports[`Menu matches the snapshots Case 5 With groups, something selected: => H
         <li
           aria-disabled="false"
           class="cdx-menu-item cdx-menu-item--enabled cdx-menu__group__item"
-          id="v-1"
+          id="v-0-2"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1460,7 +1460,7 @@ exports[`Menu matches the snapshots Case 5 With groups, something selected: => H
         <li
           aria-disabled="true"
           class="cdx-menu-item cdx-menu-item--disabled cdx-menu__group__item"
-          id="v-2"
+          id="v-0-3"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1497,7 +1497,7 @@ exports[`Menu matches the snapshots Case 5 With groups, something selected: => H
           aria-disabled="false"
           aria-selected="true"
           class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled cdx-menu__group__item"
-          id="v-3"
+          id="v-0-4"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1538,7 +1538,7 @@ exports[`Menu matches the snapshots Case 5 With groups, something selected: => H
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-4"
+      id="v-0-5"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -1577,8 +1577,8 @@ exports[`Menu matches the snapshots Case 5 With groups, something selected: => H
       class="cdx-menu__group-wrapper"
     >
       <ul
-        aria-describedby="v-5-description"
-        aria-labelledby="v-5-label"
+        aria-describedby="v-0-6-description"
+        aria-labelledby="v-0-6-label"
         class="cdx-menu__group"
         role="group"
       >
@@ -1591,7 +1591,7 @@ exports[`Menu matches the snapshots Case 5 With groups, something selected: => H
           >
             <span
               class="cdx-menu__group__label"
-              id="v-5-label"
+              id="v-0-6-label"
             >
               Group 2
             </span>
@@ -1602,7 +1602,7 @@ exports[`Menu matches the snapshots Case 5 With groups, something selected: => H
         <li
           aria-disabled="false"
           class="cdx-menu-item cdx-menu-item--enabled cdx-menu__group__item"
-          id="v-6"
+          id="v-0-7"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1638,7 +1638,7 @@ exports[`Menu matches the snapshots Case 5 With groups, something selected: => H
         <li
           aria-disabled="false"
           class="cdx-menu-item cdx-menu-item--enabled cdx-menu__group__item"
-          id="v-7"
+          id="v-0-8"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1679,7 +1679,7 @@ exports[`Menu matches the snapshots Case 5 With groups, something selected: => H
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-8"
+      id="v-0-9"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -1735,8 +1735,8 @@ exports[`Menu matches the snapshots Case 6 With groups, hidden labels: => HTML 1
       class="cdx-menu__group-wrapper cdx-menu__group-wrapper--hide-label"
     >
       <ul
-        aria-describedby="v-0-description"
-        aria-labelledby="v-0-label"
+        aria-describedby="v-0-1-description"
+        aria-labelledby="v-0-1-label"
         class="cdx-menu__group"
         role="group"
       >
@@ -1749,7 +1749,7 @@ exports[`Menu matches the snapshots Case 6 With groups, hidden labels: => HTML 1
           >
             <span
               class="cdx-menu__group__label"
-              id="v-0-label"
+              id="v-0-1-label"
             >
               Group 1
             </span>
@@ -1760,7 +1760,7 @@ exports[`Menu matches the snapshots Case 6 With groups, hidden labels: => HTML 1
         <li
           aria-disabled="false"
           class="cdx-menu-item cdx-menu-item--enabled cdx-menu__group__item"
-          id="v-1"
+          id="v-0-2"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1796,7 +1796,7 @@ exports[`Menu matches the snapshots Case 6 With groups, hidden labels: => HTML 1
         <li
           aria-disabled="false"
           class="cdx-menu-item cdx-menu-item--enabled cdx-menu__group__item"
-          id="v-2"
+          id="v-0-3"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1838,8 +1838,8 @@ exports[`Menu matches the snapshots Case 6 With groups, hidden labels: => HTML 1
       class="cdx-menu__group-wrapper cdx-menu__group-wrapper--hide-label"
     >
       <ul
-        aria-describedby="v-3-description"
-        aria-labelledby="v-3-label"
+        aria-describedby="v-0-4-description"
+        aria-labelledby="v-0-4-label"
         class="cdx-menu__group"
         role="group"
       >
@@ -1852,7 +1852,7 @@ exports[`Menu matches the snapshots Case 6 With groups, hidden labels: => HTML 1
           >
             <span
               class="cdx-menu__group__label"
-              id="v-3-label"
+              id="v-0-4-label"
             >
               Group 2
             </span>
@@ -1863,7 +1863,7 @@ exports[`Menu matches the snapshots Case 6 With groups, hidden labels: => HTML 1
         <li
           aria-disabled="false"
           class="cdx-menu-item cdx-menu-item--enabled cdx-menu__group__item"
-          id="v-4"
+          id="v-0-5"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1899,7 +1899,7 @@ exports[`Menu matches the snapshots Case 6 With groups, hidden labels: => HTML 1
         <li
           aria-disabled="false"
           class="cdx-menu-item cdx-menu-item--enabled cdx-menu__group__item"
-          id="v-5"
+          id="v-0-6"
           role="option"
         >
           <!-- @slot Custom menu item content. -->
@@ -1958,7 +1958,7 @@ exports[`Menu matches the snapshots Case 7 Not expanded: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-0"
+      id="v-0-1"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -1997,7 +1997,7 @@ exports[`Menu matches the snapshots Case 7 Not expanded: => HTML 1`] = `
       aria-disabled="false"
       aria-selected="true"
       class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-      id="v-1"
+      id="v-0-2"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2035,7 +2035,7 @@ exports[`Menu matches the snapshots Case 7 Not expanded: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-2"
+      id="v-0-3"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2073,7 +2073,7 @@ exports[`Menu matches the snapshots Case 7 Not expanded: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-3"
+      id="v-0-4"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2111,7 +2111,7 @@ exports[`Menu matches the snapshots Case 7 Not expanded: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-4"
+      id="v-0-5"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2149,7 +2149,7 @@ exports[`Menu matches the snapshots Case 7 Not expanded: => HTML 1`] = `
     <li
       aria-disabled="true"
       class="cdx-menu-item cdx-menu-item--disabled"
-      id="v-5"
+      id="v-0-6"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2270,7 +2270,7 @@ exports[`Menu matches the snapshots Case 10 Pending with items: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-0"
+      id="v-0-1"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2308,7 +2308,7 @@ exports[`Menu matches the snapshots Case 10 Pending with items: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-1"
+      id="v-0-2"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2346,7 +2346,7 @@ exports[`Menu matches the snapshots Case 10 Pending with items: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-2"
+      id="v-0-3"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2384,7 +2384,7 @@ exports[`Menu matches the snapshots Case 10 Pending with items: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-3"
+      id="v-0-4"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2422,7 +2422,7 @@ exports[`Menu matches the snapshots Case 10 Pending with items: => HTML 1`] = `
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-4"
+      id="v-0-5"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2460,7 +2460,7 @@ exports[`Menu matches the snapshots Case 10 Pending with items: => HTML 1`] = `
     <li
       aria-disabled="true"
       class="cdx-menu-item cdx-menu-item--disabled"
-      id="v-5"
+      id="v-0-6"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2528,7 +2528,7 @@ exports[`Menu matches the snapshots Case 11 Custom menu item rendering: => HTML 
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-0"
+      id="v-0-1"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2544,7 +2544,7 @@ exports[`Menu matches the snapshots Case 11 Custom menu item rendering: => HTML 
       aria-disabled="false"
       aria-selected="true"
       class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
-      id="v-1"
+      id="v-0-2"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2559,7 +2559,7 @@ exports[`Menu matches the snapshots Case 11 Custom menu item rendering: => HTML 
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-2"
+      id="v-0-3"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2574,7 +2574,7 @@ exports[`Menu matches the snapshots Case 11 Custom menu item rendering: => HTML 
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-3"
+      id="v-0-4"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2589,7 +2589,7 @@ exports[`Menu matches the snapshots Case 11 Custom menu item rendering: => HTML 
     <li
       aria-disabled="false"
       class="cdx-menu-item cdx-menu-item--enabled"
-      id="v-4"
+      id="v-0-5"
       role="option"
     >
       <!-- @slot Custom menu item content. -->
@@ -2604,7 +2604,7 @@ exports[`Menu matches the snapshots Case 11 Custom menu item rendering: => HTML 
     <li
       aria-disabled="true"
       class="cdx-menu-item cdx-menu-item--disabled"
-      id="v-5"
+      id="v-0-6"
       role="option"
     >
       <!-- @slot Custom menu item content. -->

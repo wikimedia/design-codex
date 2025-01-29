@@ -301,7 +301,7 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
           <li
             aria-disabled="false"
             class="cdx-menu-item cdx-menu-item--enabled"
-            id="v-5"
+            id="v-5-1"
             role="option"
           >
             <!-- @slot Custom menu item content. -->
@@ -449,7 +449,7 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
           <li
             aria-disabled="false"
             class="cdx-menu-item cdx-menu-item--enabled"
-            id="v-5"
+            id="v-5-1"
             role="option"
           >
             <!-- @slot Custom menu item content. -->
@@ -596,7 +596,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
           <li
             aria-disabled="false"
             class="cdx-menu-item cdx-menu-item--enabled"
-            id="v-5"
+            id="v-5-1"
             role="option"
           >
             <!-- @slot Custom menu item content. -->
@@ -802,7 +802,7 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
           <li
             aria-disabled="false"
             class="cdx-menu-item cdx-menu-item--enabled"
-            id="v-5"
+            id="v-5-1"
             role="option"
           >
             <!-- @slot Custom menu item content. -->

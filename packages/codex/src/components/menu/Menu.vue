@@ -321,27 +321,108 @@ export default defineComponent( {
 	],
 	*/
 	setup( props, { emit, slots, attrs } ) {
+		// Generate a unique ID prefix for each Menu instance,
+		// along with a counter we will increment as items are added
+		const menuInstanceId = useId();
+		let idCounter = 0;
+
+		// Set up a Map object to store and retrieve generated IDs for
+		// menu items
+		const menuItemIds = new Map<string|number, string>();
+
+		// Generate a new ID using menu prefix and counter
+		function generateId(): string {
+			idCounter += 1;
+			return `${ menuInstanceId }-${ idCounter }`;
+		}
+
+		// Assign ids to menu items that don't have them yet
+		function assignIds( items: ( MenuItemData | MenuGroupData )[] ): void {
+			items.forEach( ( item ) => {
+				if ( isMenuGroupData( item ) ) {
+					const groupKey = `group-${ item.label }`;
+					if ( !menuItemIds.has( groupKey ) ) {
+						menuItemIds.set( groupKey, generateId() );
+					}
+					item.items.forEach( ( subItem ) => {
+						if ( !menuItemIds.has( subItem.value ) ) {
+							menuItemIds.set( subItem.value, generateId() );
+						}
+					} );
+				} else if ( !menuItemIds.has( item.value ) ) {
+					menuItemIds.set( item.value, generateId() );
+				}
+			} );
+		}
+
 		/**
-		 * Computed array of menu items and groups with a unique ID added to each menu item. This
-		 * is used to output menu items and groups in the template.
+		 * Clean up stale IDs when menu items change
+		 */
+		watch( toRef( props, 'menuItems' ), ( newItems ) => {
+			// Helper to get all item values from a menu items array, including those in groups
+			// eslint-disable-next-line max-len
+			function getAllItemValues( items: ( MenuItemData | MenuGroupData )[] ): Set<string | number> {
+				const values = new Set<string | number>();
+
+				items.forEach( ( item ) => {
+					if ( isMenuGroupData( item ) ) {
+						values.add( `group-${ item.label }` );
+						item.items.forEach( ( subItem ) => values.add( subItem.value ) );
+					} else {
+						values.add( item.value );
+					}
+				} );
+				return values;
+			}
+
+			// Create a Set (entries guaranteed unique) for all entries of the updated
+			// menuItems prop
+			const newItemSet = getAllItemValues( newItems );
+
+			// Go through the Map of IDs we generated in setup(), and remove any entries
+			// that do not correspond to the Set we just created
+			menuItemIds.forEach( ( _, key ) => {
+				if ( !newItemSet.has( key ) ) {
+					menuItemIds.delete( key );
+				}
+			} );
+		}, { deep: true } );
+
+		/**
+		 * Computed array of menu items and groups with a unique ID added to
+		 * each menu item. This is used to output menu items and groups in the
+		 * template.
 		 */
 		const computedMenuEntries = computed( (): (
 			MenuItemDataWithId | MenuGroupDataWithIds
 		)[] => {
+			// Ensure that all menu items get assigned IDs whenever this property is computed
+			assignIds( props.menuItems );
+			if ( props.footer ) {
+				assignIds( [ props.footer ] );
+			}
+
 			const menuItemsWithFooter = props.footer && props.menuItems ?
 				[ ...props.menuItems, props.footer ] :
 				props.menuItems;
 
-			const getMenuItemWithId = ( menuItem: MenuItemData ) => ( {
-				...menuItem,
-				id: useId()
-			} );
+			function getMenuItemWithId( menuItem: MenuItemData ) : MenuItemDataWithId {
+				const id = menuItemIds.get( menuItem.value );
+				if ( !id ) {
+					throw new Error( `No ID found for menu item with value ${ menuItem.value }` );
+				}
+				return { ...menuItem, id };
+			}
 
 			return menuItemsWithFooter.map( ( menuEntry ) => {
 				if ( isMenuGroupData( menuEntry ) ) {
+					const groupId = menuItemIds.get( `group-${ menuEntry.label }` );
+					if ( !groupId ) {
+						throw new Error( `No ID found for menu item with value group-${ menuEntry.label }` );
+					}
 					return {
 						...menuEntry,
-						id: useId(),
+						id: groupId,
 						items: menuEntry.items.map( ( subItem ) => getMenuItemWithId( subItem ) )
 					};
 				} else {
