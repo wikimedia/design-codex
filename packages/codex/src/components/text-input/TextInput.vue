@@ -534,12 +534,6 @@ export default defineComponent( {
 			opacity: @opacity-base;
 		}
 
-		// Support IE 10-11, and Edge 12+: Hide proprietary pseudo-element.
-		// See https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-clear
-		&::-ms-clear {
-			display: none;
-		}
-
 		&[ type='search' ] {
 			// Support Safari/iOS: Normalize by applying `none`,
 			// Chrome would accept `textfield` as well.
