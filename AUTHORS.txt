@@ -13,6 +13,7 @@ Patch Contributors (minor contributors, alphabetically)
 
 Abijeet Patro <apatro@wikimedia.org>
 Akiel <akiel@fandom.com>
+Alexandra Paskulin <apaskulin@wikimedia.org>
 Arthur Taylor <arthur.taylor@wikimedia.de>
 Bartosz Dziewoński <dziewonski@fastmail.fm>
 bwang <bwang@wikimedia.org>
@@ -23,6 +24,7 @@ ddw <ddwaal-ctr@wikimedia.org>
 didier-ds <didiersenou94@gmail.com>
 Doğu Abaris <abaris@null.net>
 Ed Sanders <esanders@wikimedia.org>
+GauriGuptaa <agrahariya21@gmail.com>
 Itamar Givon <itamar.givon@wikimedia.de>
 James D. Forrester <jforrester@wikimedia.org>
 Jon Robson <jdlrobson@gmail.com>
