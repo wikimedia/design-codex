@@ -178,6 +178,13 @@ export default defineComponent( {
 		menuConfig: {
 			type: Object as PropType<MenuConfig>,
 			default: () => ( {} as MenuConfig )
+		},
+		/**
+		 * Whether to keep the search term in the input after selection.
+		 */
+		keepInputOnSelection: {
+			type: Boolean,
+			default: false
 		}
 	},
 
@@ -379,11 +386,12 @@ export default defineComponent( {
 					}
 				} );
 
-				// Clear the input.
-				computedInputValue.value = '';
-
-				// Also emit an input event in case the inputValue prop wasn't used.
-				emit( 'input', '' );
+				// Clear the input when the menu closes after selection.
+				if ( !props.keepInputOnSelection ) {
+					computedInputValue.value = '';
+					// Also emit an input event in case the inputValue prop wasn't used.
+					emit( 'input', '' );
+				}
 			}
 
 			// Remove any chips that no longer match a selected value.

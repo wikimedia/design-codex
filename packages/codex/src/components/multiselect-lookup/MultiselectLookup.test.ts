@@ -15,6 +15,15 @@ const menuItems: {
 	{ value: 'd', label: 'Option D' }
 ];
 
+const veggies: {
+	value: string,
+	label?: string
+}[] = [
+	{ label: 'potato', value: 'Q10998' },
+	{ label: 'carrot', value: 'Q81' },
+	{ label: 'cauliflower', value: 'Q23900272' }
+];
+
 const defaultProps: {
 	inputChips: ChipInputItem[],
 	selected: MenuItemValue[],
@@ -356,6 +365,25 @@ describe( 'MultiselectLookup', () => {
 			expect( wrapper.emitted( 'update:input-value' )?.[ 0 ] ).toEqual( [ '' ] );
 			expect( wrapper.emitted( 'input' )?.[ 0 ] ).toEqual( [ '' ] );
 			expect( wrapper.emitted()[ 'update:expanded' ] ).toBeFalsy();
+		} );
+
+		describe( 'and the keepInputOnSelection prop is set to true', () => {
+			it( 'allows multiple selection based on the search term', async () => {
+				const wrapper = mount( CdxMultiselectLookup, {
+					props: { ...defaultProps, veggies, inputValue: 'c', keepInputOnSelection: true }
+				} );
+
+				await wrapper.setProps( { menuItems: [ { label: 'carrot', value: 'Q81' }, { label: 'cauliflower', value: 'Q23900272' } ] } );
+				wrapper.vm.expanded = true;
+				await wrapper.setProps( { selected: [ 'Q81' ] } );
+
+				// Assert that the menu remains open after selection.
+				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeFalsy();
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+
+				// Assert that the input is not cleared.
+				expect( wrapper.find( 'input' ).element.value ).toBe( 'c' );
+			} );
 		} );
 
 		describe( 'and the selected item has a label', () => {

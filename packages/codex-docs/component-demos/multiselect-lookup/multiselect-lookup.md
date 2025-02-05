@@ -5,6 +5,7 @@ import MultiselectLookupWithFetch from '@/../component-demos/multiselect-lookup/
 import MultiselectLookupWithSuggestions from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupWithSuggestions.vue';
 import MultiselectLookupWithInitialSelection from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupWithInitialSelection.vue';
 import MultiselectLookupField from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupField.vue';
+import MultiselectLookupWithKeepInput from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupWithKeepInput.vue'
 import { CdxAccordion } from '@wikimedia/codex';
 
 const controlsConfig = [
@@ -147,6 +148,28 @@ Open the console, where the current selection is output each time an item is sel
 de-selected.
 
 </cdx-accordion>
+
+### With keep input on selection
+
+By default, when the user makes a selection, the input will be cleared and the menu will be closed. Sometimes, it might be more helpful to enable users to select multiple items based on the same search term. In these cases, use the `keepInputOnSelection` prop, which will keep the same input and make the menu stay open on selection.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<multiselect-lookup-with-keep-input />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/multiselect-lookup/examples/MultiselectLookupWithKeepInput.vue [NPM]
+
+<<< @/../component-demos/multiselect-lookup/examples-mw/MultiselectLookupWithKeepInput.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
 
 ### With fetched results
 

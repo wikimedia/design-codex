@@ -1,0 +1,110 @@
+[
+	{
+		"label": "Media",
+		"value": "NMS222"
+	},
+	{
+		"label": "Special",
+		"value": "NMS111"
+	},
+	{
+		"label": "Talk",
+		"value": "NMS100"
+	},
+	{
+		"label": "User",
+		"value": "NMS200"
+	},
+	{
+		"label": "User talk",
+		"value": "NMS300"
+	},
+	{
+		"label": "Project",
+		"value": "NMS400"
+	},
+	{
+		"label": "Project talk",
+		"value": "NMS500"
+	},
+	{
+		"label": "File",
+		"value": "NMS600"
+	},
+	{
+		"label": "File talk",
+		"value": "NMS700"
+	},
+	{
+		"label": "MediaWiki",
+		"value": "NMS800"
+	},
+	{
+		"label": "MediaWiki talk",
+		"value": "NMS900"
+	},
+	{
+		"label": "Template",
+		"value": "NMS1000"
+	},
+	{
+		"label": "Template talk",
+		"value": "NMS1100"
+	},
+	{
+		"label": "Help",
+		"value": "NMS1200"
+	},
+	{
+		"label": "Help talk",
+		"value": "NMS1300"
+	},
+	{
+		"label": "Category",
+		"value": "NMS1400"
+	},
+	{
+		"label": "Category talk",
+		"value": "NMS1500"
+	},
+	{
+		"label": "Portal",
+		"value": "NMS10000"
+	},
+	{
+		"label": "Portal talk",
+		"value": "NMS10100"
+	},
+	{
+		"label": "Draft",
+		"value": "NMS11800"
+	},
+	{
+		"label": "Draft talk",
+		"value": "NMS11900"
+	},
+	{
+		"label": "MOS",
+		"value": "NMS12600"
+	},
+	{
+		"label": "MOS talk",
+		"value": "NMS12700"
+	},
+	{
+		"label": "TimedText",
+		"value": "NMS71000"
+	},
+	{
+		"label": "TimedText talk",
+		"value": "NMS71100"
+	},
+	{
+		"label": "Module",
+		"value": "NMS82800"
+	},
+	{
+		"label": "Module talk",
+		"value": "NMS82900"
+	}
+]
