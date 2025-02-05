@@ -494,10 +494,9 @@ export default defineComponent( {
 		}
 
 		// If the dialog is mounted in the open state, make sure we set things up properly
-		onMounted( () => {
+		onMounted( async () => {
 			if ( props.open ) {
-				// eslint-disable-next-line @typescript-eslint/no-floating-promises
-				onDialogOpen();
+				await onDialogOpen();
 			}
 		} );
 
@@ -508,10 +507,9 @@ export default defineComponent( {
 			}
 		} );
 
-		watch( toRef( props, 'open' ), ( opened ) => {
+		watch( toRef( props, 'open' ), async ( opened ) => {
 			if ( opened ) {
-				// eslint-disable-next-line @typescript-eslint/no-floating-promises
-				onDialogOpen();
+				await onDialogOpen();
 			} else {
 				onDialogClose();
 			}
