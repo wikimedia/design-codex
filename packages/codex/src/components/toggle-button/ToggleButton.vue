@@ -219,21 +219,24 @@ export default defineComponent( {
 
 	&:enabled {
 		&.cdx-toggle-button--toggled-on {
-			background-color: @background-color-interactive;
+			background-color: @background-color-progressive-subtle;
+			color: @color-progressive;
 
 			&:hover {
-				background-color: @background-color-interactive--hover;
+				background-color: @background-color-progressive-subtle--hover;
+				color: @color-progressive--hover;
 			}
 
 			// `&:enabled:focus` has some shared styles for quiet and framed, see above.
 			&:focus {
-				background-color: @background-color-interactive;
+				background-color: @background-color-progressive-subtle;
 			}
 
 			// Enabled + active state has some shared styles for quiet and framed, see above
 			&:active,
 			&.cdx-toggle-button--is-active {
-				background-color: @background-color-interactive--active;
+				background-color: @background-color-progressive-subtle--active;
+				color: @color-progressive--active;
 			}
 		}
 	}
