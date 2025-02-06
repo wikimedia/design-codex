@@ -58,7 +58,7 @@ Message includes the following elements.
 #### Icon
 
 Icons simplify user recognition and provide the ability to shorten message text. A specific icon is
-matched with each message type (e.g., ‘success’) to ensure recognition.
+matched with each message type (e.g., "success") to ensure recognition.
 
 <cdx-demo-best-practices>
 

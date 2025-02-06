@@ -43,15 +43,15 @@ This page contains instructions for adding all of these icon variants and more.
 ## Conventions
 
 ### Naming
-The icon's name should describe the icon, not its application, e.g. `bell` instead of
-`notification`.
+The icon's name should describe the icon, not its application, e.g. "bell" instead of
+"notification".
 
 Icon files should be named with the icon name in lowerCamelCase, e.g. `fooBar.svg` or
 `articleAdd.svg`. If there are multiple SVG files for the same icon, those are named `iconName-suffix.svg`, e.g. `imageAdd-rtl.svg` or `italic-i.svg` (more on this below).
 
 The variable name of the icon definition in `packages/codex-icons/src/icons.ts` should be in
 lowerCamelCase and consist of the prefix `cdxIcon` followed by the icon name, e.g.
-`cdxIconArticleAdd` for the `articleAdd` icon. Icon definitions in this file are in alphabetical
+`cdxIconArticleAdd` for the "articleAdd" icon. Icon definitions in this file are in alphabetical
 order.
 
 ### SVG conventions
@@ -152,13 +152,13 @@ export const cdxIconListNumbered: IconVariedByDir = {
 	Icons at the start of a line are not inlined, but start a new paragraph, which we don't want.
 -->
 Some icons look different in different languages, especially those based on letters. In many cases,
-several languages share the same version of the icon. For example, the `bold` icon looks
+several languages share the same version of the icon. For example, the "bold" icon looks
 like <cdx-icon :icon="cdxIconBold" lang="en" /> in Czech, English, Hebrew, Malayalam, Polish and
 Scottish, but like <cdx-icon :icon="cdxIconBold" lang="ru" /> in Kirghiz, Russian and Ukrainian, etc.
 
 For these icons, add a separate SVG file for each version of the icon to `images/`, each with a
 suffix that describes the variant of the icon. For example, `bold-b.svg`, `bold-f.svg`,
-`bold-cyrl-zhe.svg`, etc. There may be many variants; the `bold` icon has 16.
+`bold-cyrl-zhe.svg`, etc. There may be many variants; the "bold" icon has 16.
 
 In the icon definition in `icons.ts`, first import all the variant files in alphabetical order,
 then define which variant to use for which language, and the default variant to use for all other

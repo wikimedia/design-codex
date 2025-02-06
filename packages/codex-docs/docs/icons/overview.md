@@ -55,7 +55,7 @@ For example:
 </cdx-button>
 ```
 The code above displays <cdx-button action="destructive"><cdx-icon :icon="cdxIconTrash" icon-label="delete" /></cdx-button>,
-which is read by assistive technology as `delete`.
+which is read by assistive technology as "delete".
 
 
 You **should not** provide an icon label when there is other text explaining the same thing that
@@ -66,9 +66,9 @@ the icon does, and the icon text would be duplicative. For example:
 </cdx-button>
 ```
 The code above displays <cdx-button action="destructive"><cdx-icon :icon="cdxIconTrash" /> Delete this file</cdx-button>.
-Assistive technology software skips over the icon and reads `Delete this file`, which still
+Assistive technology software skips over the icon and reads "Delete this file", which still
 makes it clear what the button does. If you added `icon-label="delete"` here, a screen reader would
-read `delete Delete this file`, which is not a good experience for assistive technology users.
+read "delete Delete this file", which is not a good experience for assistive technology users.
 
 ## Icon colors
 All icons are *monochrome*, meaning the entire icon is the same color. By default, CdxIcon
