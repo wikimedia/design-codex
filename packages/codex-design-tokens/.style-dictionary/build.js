@@ -7,7 +7,7 @@
 // * registers various custom transforms we need
 // * registers a transform group so we can re-apply those transforms
 // * registers a series of platforms and file formats to output:
-//   - stylesheet platform (CSS, LESS, SCSS, and JSON files)
+//   - stylesheet platform (CSS, Less, SCSS, and JSON files)
 //   - javascript platform (JS file)
 //
 // In the future additional "mode" files of the WikimediaUI theme can be produced
