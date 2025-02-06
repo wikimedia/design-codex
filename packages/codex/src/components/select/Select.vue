@@ -316,11 +316,13 @@ export default defineComponent( {
 // HACK: We can't use the CSS icon mixin for the select handle's arrow icon, because it uses
 // mask-image, which applies to the background of the entire element. We can't do that with the
 // entire <select> element, and pseudo-elements can't be used for the icon either.
-// Instead, we really need background rules. Unfortunately, we can't rely on our color tokens here,
-// since they will soon output CSS custom properties, which won't work for the SVG's fill property.
+// Instead, we really need background rules. We can't directly rely on our color tokens here,
+// since they feature CSS custom properties, which won't work for the SVG's fill property.
+// Workaround is to extract the hex color value from the token custom property value and
+// use it directly.
 // TODO: Make this work in night mode.
-@color-base-hex: #202122;
-@color-disabled-hex: #72777d;
+@color-base-hex: color( replace( '@{color-base}', '.*(#(?:[0-9a-fA-F]{3,6})).*', '$1' ) );
+@color-disabled-hex: color( replace( '@{color-disabled}', '.*(#(?:[0-9a-fA-F]{3,6})).*', '$1' ) );
 @icon-expand-svg-content: extract( @cdx-icon-expand, 1 );
 
 .get-select-icon-background-image( @param-select-icon-color ) {
