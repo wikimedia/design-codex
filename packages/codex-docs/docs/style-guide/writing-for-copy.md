@@ -321,7 +321,7 @@ Check the following list whenever you create new content to make sure your copy 
 - **Make consequences clear.** Tell the user what happens when they do something, but don’t overload them with too much information.
 - **Give the user their best option(s).** In the case of errors especially, if there is more than one way to correct things, list them in order of effectiveness.
 - **Give lists of actions in order.** Give directions clearly by indicating the order of operations. In the case of errors especially, if there is more than one way to correct things, list them in order of effectiveness.
-- **Use verbs for actions, and nouns for places.** Verbs lead somewhere or to do something (e.g., buttons, links), and nouns orient a user in a place (e.g., tab names).
+- **Use verbs for actions, nouns for places.** Verbs tell users what to do, like pressing a submit button, while nouns show where they are, such as a user page or preferences tab on a page.
 - **Speak the user’s language.** Avoid terms such as “invalid,” “input,” “value” or other phrases rooted in code/development.
     - Instead of “invalid”, use “incorrect”.
     - Instead of “input”, use “content”, “text”, etc.

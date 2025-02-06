@@ -25,7 +25,7 @@ the colors in the different modes. Using design tokens rather than raw hex codes
 automatically using the right color for the chosen mode.
 :::
 
-## Text colors
+## Text color
 
 <cdx-docs-tokens-table
 	:tokens="tokens.color"
@@ -34,13 +34,35 @@ automatically using the right color for the chosen mode.
 	css-property="background-color"
 />
 
-## Background colors
+## Background color
 
 <cdx-docs-tokens-table
 	:tokens="tokens['background-color']"
 	token-demo="CdxDocsTokenDemo"
 	token-category="color"
 	css-property="background-color"
+/>
+
+## Border color
+
+For more information on border tokens visit the [Border](/design-tokens/border) page.
+
+<cdx-docs-tokens-table
+	:tokens="tokens['border-color']"
+	token-demo="CdxDocsTokenDemo"
+	token-category="border"
+	css-property="border-color"
+/>
+
+## Box-shadow color
+
+For more information on border tokens visit the [Box-shadow](/design-tokens/box-shadow) page.
+
+<cdx-docs-tokens-table
+	:tokens="tokens['box-shadow']['color']"
+	token-demo="CdxDocsTokenDemo"
+	token-category="box-shadow-color"
+	css-property="--cdx-demo-box-shadow-color"
 />
 
 ## Accent color
@@ -51,9 +73,3 @@ automatically using the right color for the chosen mode.
 	token-category="color"
 	css-property="background-color"
 />
-
-## Border and box-shadow colors
-
-For information on border colors visit
-[Border](/design-tokens/border) and for box-shadow colors [Box-shadow](/design-tokens/box-shadow)
-token page.

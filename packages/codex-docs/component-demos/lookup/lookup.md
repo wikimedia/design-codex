@@ -151,7 +151,7 @@ Lookup. These new items will then be displayed within the menu.
 
 You can show a list of 2–5 initial suggestions if it's helpful.
 
-<cdx-demo-wrapper :force-controls="true">
+<cdx-demo-wrapper>
 <template v-slot:demo>
 	<lookup-with-suggestions />
 </template>
