@@ -1,5 +1,6 @@
 <template>
 	<cdx-multiselect-lookup
+		id="cdx-demo-wikidata"
 		v-model:input-chips="chips"
 		v-model:selected="selection"
 		v-model:input-value="inputValue"

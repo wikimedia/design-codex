@@ -1,5 +1,6 @@
 <template>
 	<cdx-multiselect-lookup
+		id="cdx-demo-vegetables-configurable"
 		v-model:input-chips="chips"
 		v-model:selected="selection"
 		:menu-items="menuItems"

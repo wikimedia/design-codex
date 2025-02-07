@@ -2,6 +2,7 @@
 	<form class="cdx-docs-multiselect-lookup-form">
 		<cdx-field :status="status" :messages="messages">
 			<cdx-multiselect-lookup
+				id="cdx-demo-namespaces"
 				v-model:input-chips="chips"
 				v-model:selected="selection"
 				v-model:input-value="inputValue"
