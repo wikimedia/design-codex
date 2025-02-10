@@ -224,7 +224,9 @@ export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export interface ChipInputItem {
 	value: string|number,
 	label?: string,
-	icon?: Icon
+	icon?: Icon,
+	// CSS class for customizing chip styles.
+	className?: string
 }
 
 /** @public */

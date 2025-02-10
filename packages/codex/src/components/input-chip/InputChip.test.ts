@@ -8,7 +8,8 @@ describe( 'matches the snapshot', () => {
 		msg: string,
 		props: {
 			icon?: Icon,
-			disabled?: boolean
+			disabled?: boolean,
+			className?: string
 		},
 		slot: string
 	];
@@ -16,7 +17,8 @@ describe( 'matches the snapshot', () => {
 	const cases: Case[] = [
 		[ 'Default props', {}, '<p>Chip content</p>' ],
 		[ 'Disabled', { disabled: true }, '<p>Chip content</p>' ],
-		[ 'Icon', { icon: cdxIconArticle }, '<p>Chip content</p>' ]
+		[ 'Icon', { icon: cdxIconArticle }, '<p>Chip content</p>' ],
+		[ 'CSS class', { className: 'my-css-class' }, '<p>Chip content</p>' ]
 	];
 
 	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slot ) => {

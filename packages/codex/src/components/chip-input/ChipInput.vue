@@ -18,6 +18,7 @@
 				:key="chip.value"
 				:ref="( ref ) => assignChipTemplateRef( ref, index )"
 				class="cdx-chip-input__item"
+				:class="chip.className"
 				:icon="chip.icon"
 				:readonly="readonly"
 				:disabled="computedDisabled"

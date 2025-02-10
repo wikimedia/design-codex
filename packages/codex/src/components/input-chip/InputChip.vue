@@ -58,7 +58,7 @@ export default defineComponent( {
 			default: null
 		},
 		/**
-		 * Whether the input chip can be removed.
+		 * Whether the InputChip can be removed.
 		 */
 		disabled: {
 			type: Boolean,
@@ -70,6 +70,13 @@ export default defineComponent( {
 		readonly: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * CSS class for the InputChip.
+		 */
+		className: {
+			type: String,
+			default: ''
 		}
 	},
 	// expose is temporarily disabled to work around a Vue / vue-tsc bug, see
@@ -104,7 +111,8 @@ export default defineComponent( {
 		const rootElement = ref<HTMLDivElement>();
 		const rootClasses = computed( () => ( {
 			'cdx-input-chip--disabled': props.disabled,
-			'cdx-input-chip--readonly': props.readonly
+			'cdx-input-chip--readonly': props.readonly,
+			[ props.className ]: props.className.length > 0
 		} ) );
 
 		const ariaDescription = useI18n(

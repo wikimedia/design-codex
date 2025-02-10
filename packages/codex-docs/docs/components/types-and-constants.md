@@ -71,7 +71,8 @@ type ButtonWeight = typeof ButtonWeights[ number ];
 interface ChipInputItem {
 	value: string|number,
 	label?: string,
-	icon?: Icon
+	icon?: Icon,
+	className?: string
 }
 ```
 
