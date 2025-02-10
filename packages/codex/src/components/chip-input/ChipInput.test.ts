@@ -108,6 +108,19 @@ describe( 'Basic usage', () => {
 	} );
 
 	describe( 'when a chip is clicked', () => {
+		it( 'emits a chip-click event', async () => {
+			const wrapper = mount( CdxChipInput, { props: {
+				inputChips: [
+					{ value: 'chip 1' },
+					{ value: 'chip 2' }
+				]
+			} } );
+			const firstChip = wrapper.findComponent( CdxInputChip );
+			await firstChip.find( '.cdx-input-chip' ).trigger( 'click' );
+			expect( wrapper.emitted( 'chip-click' ) ).toBeTruthy();
+			expect( wrapper.emitted( 'chip-click' )?.[ 0 ] ).toEqual( [ { value: 'chip 1' } ] );
+		} );
+
 		it( 'removes the chip and adds the value to the input', async () => {
 			const wrapper = mount( CdxChipInput, { props: {
 				inputChips: [
@@ -359,12 +372,13 @@ describe( 'with chip validator', () => {
 describe( 'with arbitrary input disabled', () => {
 	const ParentComponent = defineComponent( {
 		render() {
-			return h( CdxChipInput, { inputChips: [] } );
+			return h( CdxChipInput, { inputChips: [ { value: 'chip 1' } ] } );
 		},
 		setup() {
 			provide( AllowArbitraryKey, ref( false ) );
 		}
 	} );
+
 	it( 'does not add a chip', async () => {
 		const wrapper = mount( ParentComponent );
 
@@ -372,6 +386,23 @@ describe( 'with arbitrary input disabled', () => {
 		await inputElement.setValue( 'New Chip' );
 		await inputElement.trigger( 'keydown', { key: 'Enter' } );
 		expect( wrapper.findComponent( CdxChipInput ).emitted( 'update:input-chips' ) ).toBeFalsy();
+	} );
+
+	describe( 'when a chip is clicked', () => {
+		it( 'emits a chip-click event', async () => {
+			const wrapper = mount( ParentComponent );
+			const firstChip = wrapper.findComponent( CdxInputChip );
+			await firstChip.find( '.cdx-input-chip' ).trigger( 'click' );
+			expect( wrapper.findComponent( CdxChipInput ).emitted( 'chip-click' ) ).toBeTruthy();
+			expect( wrapper.findComponent( CdxChipInput ).emitted( 'chip-click' )?.[ 0 ] ).toEqual( [ { value: 'chip 1' } ] );
+		} );
+
+		it( 'does not remove the chip', async () => {
+			const wrapper = mount( ParentComponent );
+			const firstChip = wrapper.findComponent( CdxInputChip );
+			await firstChip.find( '.cdx-input-chip' ).trigger( 'click' );
+			expect( wrapper.findComponent( CdxChipInput ).emitted( 'update:input-chips' ) ).toBeFalsy();
+		} );
 	} );
 } );
 

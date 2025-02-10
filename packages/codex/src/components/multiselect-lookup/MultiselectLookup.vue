@@ -24,6 +24,7 @@
 			@focus="onInputFocus"
 			@blur="onInputBlur"
 			@keydown="onKeydown"
+			@chip-click="( chip ) => $emit( 'chip-click', chip )"
 		/>
 
 		<cdx-menu
@@ -202,6 +203,12 @@ export default defineComponent( {
 		 * @property {string | number} inputValue The new input value
 		 */
 		'update:input-value',
+		/**
+		 * When a chip is clicked.
+		 *
+		 * @property {ChipInputItem} chip The clicked chip
+		 */
+		'chip-click',
 		/**
 		 * When the user scrolls towards the bottom of the menu.
 		 *

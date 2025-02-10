@@ -469,4 +469,18 @@ describe( 'MultiselectLookup', () => {
 			} );
 		} );
 	} );
+
+	describe( 'when a chip is clicked', () => {
+		it( 'emits a chip-click event', async () => {
+			const wrapper = mount( CdxMultiselectLookup, { props: {
+				menuItems,
+				selected: [ 'a', 'b' ],
+				inputChips: [ { label: 'Option A', value: 'a' }, { label: 'Option B', value: 'b' } ]
+			} } );
+			// Click the first chip.
+			await wrapper.findComponent( CdxInputChip ).trigger( 'click' );
+			expect( wrapper.emitted( 'chip-click' ) ).toBeTruthy();
+			expect( wrapper.emitted( 'chip-click' )?.[ 0 ] ).toEqual( [ { label: 'Option A', value: 'a' } ] );
+		} );
+	} );
 } );

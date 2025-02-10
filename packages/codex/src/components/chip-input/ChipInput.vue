@@ -171,7 +171,13 @@ export default defineComponent( {
 		 *
 		 * @property {string | number} inputValue The new input value
 		 */
-		'update:input-value'
+		'update:input-value',
+		/**
+		 * When a chip is clicked.
+		 *
+		 * @property {ChipInputItem} chip The clicked chip
+		 */
+		'chip-click'
 	],
 	setup( props, { emit, attrs } ) {
 		const rootElement = ref<HTMLDivElement>();
@@ -299,7 +305,10 @@ export default defineComponent( {
 		}
 
 		async function handleChipClick( clickedChip: ChipInputItem ) {
-			if ( props.readonly || computedDisabled.value ) {
+			emit( 'chip-click', clickedChip );
+			// Do nothing on chip click if the input is readonly or disabled, or if this is a
+			// MultiselectLookup and, therefore, arbitrary chips aren't allowed.
+			if ( props.readonly || computedDisabled.value || !allowArbitrary.value ) {
 				return;
 			}
 			// Remove the chip but add the text to the input so it can be edited.
