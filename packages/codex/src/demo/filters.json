@@ -1,0 +1,74 @@
+[
+	{
+		"label": "Very likely good",
+		"description": "Highly accurate at finding almost problem-free edits.",
+		"value": "vlg",
+		"isHighlighted": false
+	},
+	{
+		"label": "May have problems",
+		"description": "Finds most flawed or damaging edits but with lower accuracy.",
+		"value": "mhp",
+		"isHighlighted": false
+	},
+	{
+		"label": "Likely have problems",
+		"description": "With medium accuracy",
+		"value": "lhp",
+		"isHighlighted": false
+	},
+	{
+		"label": "Very likely good faith",
+		"description": "Highly accurate at finding almost all good-faith edits.",
+		"value": "vlgf",
+		"isHighlighted": false
+	},
+	{
+		"label": "May be bad faith",
+		"description": "Finds most bad-faith edits but with a lower accuracy.",
+		"value": "mbbf",
+		"isHighlighted": false
+	},
+	{
+		"label": "Likely bad faith",
+		"description": "With medium accuracy, finds an intermediate fraction of bad-faith edits.",
+		"value": "lbf",
+		"isHighlighted": false
+	},
+	{
+		"label": "Very likely bad faith",
+		"description": "Very highly accurate at finding the most obvious bad-faith edits.",
+		"value": "Q150463",
+		"isHighlighted": false
+	},
+	{
+		"label": "Unregistered",
+		"description": "Editors who aren't logged in.",
+		"value": "unreg",
+		"isHighlighted": false
+	},
+	{
+		"label": "Registered",
+		"description": "Logged-in editors.",
+		"value": "reg",
+		"isHighlighted": false
+	},
+	{
+		"label": "Newcomers",
+		"description": "Registered editors who have fewer than 10 edits or 4 days of activity.",
+		"value": "nc",
+		"isHighlighted": false
+	},
+	{
+		"label": "Learners",
+		"description": "Registered editors whose experience falls between \"Newcomers\" and \"Experienced users.\"",
+		"value": "lrn",
+		"isHighlighted": false
+	},
+	{
+		"label": "Experienced users",
+		"description": "Registered editors with more than 500 edits and 30 days of activity.",
+		"value": "eu",
+		"isHighlighted": false
+	}
+]
