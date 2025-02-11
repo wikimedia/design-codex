@@ -371,8 +371,14 @@
 		"opacity-low-light": {
 			"value": "rgba( 255, 255, 255, 0.3 )"
 		},
+		"opacity-high-dark": {
+			"value": "rgba( 0, 0, 0, 0.87 )"
+		},
 		"opacity-medium-dark": {
 			"value": "rgba( 0, 0, 0, 0.65 )"
+		},
+		"opacity-lowest-dark": {
+			"value": "rgba( 0, 0, 0, 0.06 )"
 		},
 		"transparent": {
 			"value": "transparent"

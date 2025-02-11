@@ -803,7 +803,7 @@
 				"value": "{ color.white }"
 			},
 			"alpha-base": {
-				"value": "rgba( 0, 0, 0, 0.06 )"
+				"value": "{ color.opacity-lowest-dark }"
 			},
 			"transparent": {
 				"value": "{ color.transparent }"
