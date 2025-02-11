@@ -46,7 +46,7 @@ export function shouldExposeCustomProperty( token ) {
 		'filter',
 		'opacity-icon',
 		'mix-blend-mode',
-		'box-shadow'
+		'box-shadow.color'
 	];
 
 	// Exclude all option tokens
