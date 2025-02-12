@@ -457,6 +457,17 @@
 				"value": "{ dimension.absolute.9999 }"
 			}
 		},
+		"content": {
+			"min": {
+				"value": "{ dimension.content.min }"
+			},
+			"fit": {
+				"value": "{ dimension.content.fit }"
+			},
+			"max": {
+				"value": "{ dimension.content.max }"
+			}
+		},
 		"third": {
 			"value": "{ dimension.third }"
 		},

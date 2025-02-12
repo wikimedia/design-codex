@@ -607,6 +607,17 @@
 		"double": {
 			"value": "200%"
 		},
+		"content": {
+			"min": {
+				"value": "min-content"
+			},
+			"fit": {
+				"value": "fit-content"
+			},
+			"max": {
+				"value": "max-content"
+			}
+		},
 		"viewport": {
 			"width-full": {
 				"comment": "From here on, viewport sizes",
