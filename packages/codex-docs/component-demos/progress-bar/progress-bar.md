@@ -45,7 +45,7 @@ Avoid using a ProgressBar if the progress of a task is not crucial to user under
 
 ProgressBar includes the following elements.
 
-#### Progress indication
+#### Progress element
 
 Visual representation of the progress displayed as a filled blue bar.
 
