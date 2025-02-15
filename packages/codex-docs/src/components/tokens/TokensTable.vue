@@ -163,8 +163,6 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-@token-table-border-none: none;
-
 .cdx-docs-tokens-table {
 	// Undo VitePress style.
 	width: @size-full;
