@@ -4,11 +4,11 @@ Bidirectionality supports the mirroring of a user interface to support both lang
 
 <div class="cdx-docs-example">
 
-![A Select component displayed in both left-to-right (LTR) and right-to-left (RTL) directions.](../assets/design-principles/bidirectionality/bidirectionality_select.svg)
+![A Select component displayed in both left-to-right and right-to-left directions.](../assets/design-principles/bidirectionality/bidirectionality_select.svg)
 
 </div>
 
-Languages with left-to-right directionality (LTR) are those with Latin script (English, Spanish, French, German, etc.), Cyrillic (as Russian and Bulgarian), Chinese and Japanese (they maintain their top-to-bottom and RTL in printing and writing, but they use the LTR system in digital experiences).[[2]](#ref2) Conversely, languages with right-to-left directionality (RTL), such as Arabic or Hebrew, are read from right to left.[[3]](#ref3)
+Languages with left-to-right directionality (LTR) are those with Latin script (English, Spanish, French, German, etc.), Cyrillic (as Russian and Bulgarian), Armenian, Georgian, and Devanagari. Chinese and Japanese also follow the LTR system in digital experiences, although they traditionally use top-to-bottom and RTL directions in printing and writing. [[2]](#ref2) Conversely, languages with right-to-left directionality (RTL), such as Arabic or Hebrew, are read from right to left.[[3]](#ref3)
 
 ## Mirroring behavior
 
@@ -16,7 +16,7 @@ When a layout translates from LTR to RTL, or vice versa, this process is called 
 
 <div class="cdx-docs-example">
 
-![A form for “Personal data” displayed in both left-to-right (LTR) and right-to-left (RTL) directions.](../assets/design-principles/bidirectionality/bidirectionality_form.svg)
+![A form for “Personal data” displayed in both left-to-right and right-to-left directions.](../assets/design-principles/bidirectionality/bidirectionality_form.svg)
 
 </div>
 
@@ -34,7 +34,7 @@ When mirroring a layout, it's important to note that not all elements in the int
 
 **Don’t mirror:**
 - Icons lacking clear directionality, as well as icons representing time, containing check symbols, or designed for right hand use
-- Phone numbers and ZIP codes
+- Phone numbers and postal codes
 - URLs and email addresses
 - Components or elements representing time
 - Charts and graphs if mirroring could impact data interpretation
@@ -52,7 +52,7 @@ In cases where we have both LTR and RTL languages in the same paragraph, we will
 
 <template #do-media>
 
-![A paragraph using Latin scripts aligned in the left-to-right (LTR) direction.](../assets/design-principles/bidirectionality/bidirectionality-paragraph-do.svg)
+![A paragraph using Latin scripts aligned in the left-to-right direction.](../assets/design-principles/bidirectionality/bidirectionality-paragraph-do.svg)
 
 </template>
 
@@ -64,7 +64,7 @@ In cases where we have both LTR and RTL languages in the same paragraph, we will
 
 <template #dont-media>
 
-![A paragraph using Latin scripts wrongly aligned in the right-to-left (RTL) direction.](../assets/design-principles/bidirectionality/bidirectionality-paragraph-dont.svg)
+![A paragraph using Latin scripts wrongly aligned in the right-to-left direction.](../assets/design-principles/bidirectionality/bidirectionality-paragraph-dont.svg)
 
 </template>
 
@@ -85,7 +85,7 @@ While text formats are typically mirrored in bidirectional interfaces, URLs and 
 
 <template #do-media>
 
-![A list of form fields, including email address and URL, correctly oriented to right-to-left (RTL) direction.](../assets/design-principles/bidirectionality/bidirectionality-url-and-email-do.svg)
+![A list of form fields, including email address and URL, correctly oriented to right-to-left direction.](../assets/design-principles/bidirectionality/bidirectionality-url-and-email-do.svg)
 
 </template>
 
@@ -98,7 +98,7 @@ While text formats are typically mirrored in bidirectional interfaces, URLs and 
 
 <template #dont-media>
 
-![A list of form fields, including email address and URL, incorrectly oriented to right-to-left (RTL) direction.](../assets/design-principles/bidirectionality/bidirectionality-url-and-email-dont.svg)
+![A list of form fields, including email address and URL, incorrectly oriented to right-to-left direction.](../assets/design-principles/bidirectionality/bidirectionality-url-and-email-dont.svg)
 
 </template>
 
@@ -119,7 +119,7 @@ When mirroring actions, ensure that both buttons and their accompanying icons, i
 
 <template #do-media>
 
-![An Onboarding Dialog displayed in both left-to-right (LTR) and right-to-left (RTL) directions.](../assets/design-principles/bidirectionality/bidirectionality-navgation-do.svg)
+![An onboarding Dialog displayed in both left-to-right and right-to-left directions.](../assets/design-principles/bidirectionality/bidirectionality-navgation-do.svg)
 
 </template>
 
@@ -132,7 +132,7 @@ When mirroring actions, ensure that both buttons and their accompanying icons, i
 
 <template #dont-media>
 
-![A mobile form with stacked buttons shown in both left-to-right (LTR) direction and its traduction to right-to-left (RTL) direction where buttons are rearranged incorrectly.](../assets/design-principles/bidirectionality/bidirectionality-navgation-dont.svg)
+![A mobile form with stacked buttons shown in both left-to-right direction and its traduction to right-to-left direction where buttons are rearranged incorrectly.](../assets/design-principles/bidirectionality/bidirectionality-navgation-dont.svg)
 
 </template>
 
@@ -146,26 +146,26 @@ When mirroring actions, ensure that both buttons and their accompanying icons, i
 
 ## Phone numbers
 
-When adapting phone numbers for bidirectional design, the mirroring will vary based on the specific phone element being considered.
+Phone numbers should never be mirrored and must remain left-aligned in both LTR and RTL layouts to ensure proper readability and formatting.
 
 <cdx-demo-rules>
 
 <template #do-media>
 
-![A “Phone” Field in left-to-right (LTR) orientation above and correctly oriented to right-to-left (RTL) below.](../assets/design-principles/bidirectionality/bidirectionality-phone-do.svg)
+![A “Phone” Field in left-to-right orientation above and correctly oriented to right-to-left below.](../assets/design-principles/bidirectionality/bidirectionality-phone-do.svg)
 
 </template>
 
 <template #do-text>
 
-- Use LTR numbers in Western Arabic and RTL numbers in Eastern Arabic.
+- Always use LTR for numbers in Western Arabic (123) or Eastern Arabic (١٢٣).
 - Keep the phone prefix in its original position.
 
 </template>
 
 <template #dont-media>
 
-![A “Phone” Field in left-to-right (LTR) orientation above and incorrectly oriented to right-to-left (RTL) below.](../assets/design-principles/bidirectionality/bidirectionality-phone-dont.svg)
+![A “Phone” Field in left-to-right orientation above and incorrectly oriented to right-to-left below.](../assets/design-principles/bidirectionality/bidirectionality-phone-dont.svg)
 
 </template>
 
@@ -186,7 +186,7 @@ When applying mirroring to addresses, words alignment will be mirrored, whereas 
 
 <template #do-media>
 
-![An “Address” Field in left-to-right (LTR) orientation above and correctly oriented to right-to-left (RTL) below.](../assets/design-principles/bidirectionality/bidirectionality-address-do.svg)
+![An “Address” Field in left-to-right orientation above and correctly oriented to right-to-left below.](../assets/design-principles/bidirectionality/bidirectionality-address-do.svg)
 
 </template>
 
@@ -199,13 +199,13 @@ When applying mirroring to addresses, words alignment will be mirrored, whereas 
 
 <template #dont-media>
 
-![An “Address” Field in left-to-right (LTR) orientation above and incorrectly oriented to right-to-left (RTL) below.](../assets/design-principles/bidirectionality/bidirectionality-address-dont.svg)
+![An “Address” Field in left-to-right orientation above and incorrectly oriented to right-to-left below.](../assets/design-principles/bidirectionality/bidirectionality-address-dont.svg)
 
 </template>
 
 <template #dont-text>
 
-- Mirror ZIP codes or numerical data.
+- Mirror ZIP codes or other numerical data.
 
 </template>
 
@@ -219,7 +219,7 @@ When adapting date and time components for bidirectional design, the sequence of
 
 <template #do-media>
 
-![A “Time” Field in left-to-right (LTR) orientation above and correctly oriented to right-to-left (RTL) below.](../assets/design-principles/bidirectionality/bidirectionality-time-do.svg)
+![A “Time” Field in left-to-right orientation above and correctly oriented to right-to-left below.](../assets/design-principles/bidirectionality/bidirectionality-time-do.svg)
 
 </template>
 
@@ -232,7 +232,7 @@ When adapting date and time components for bidirectional design, the sequence of
 
 <template #dont-media>
 
-![A “Time” Field in left-to-right (LTR) orientation above and incorrectly oriented to right-to-left (RTL) below.](../assets/design-principles/bidirectionality/bidirectionality-time-dont.svg)
+![A “Time” Field in left-to-right orientation above and incorrectly oriented to right-to-left below.](../assets/design-principles/bidirectionality/bidirectionality-time-dont.svg)
 
 </template>
 
@@ -254,19 +254,20 @@ In a list, all rows should align according to the language direction of the brow
 
 <template #do-media>
 
-![A list of languages oriented to right-to-left (RTL) direction.](../assets/design-principles/bidirectionality/bidirectionality-lists-do.svg)
+![A list of languages oriented to right-to-left direction.](../assets/design-principles/bidirectionality/bidirectionality-lists-do.svg)
 
 </template>
 
 <template #do-text>
 
 - Align all rows of the list according to the language direction of the browser or article.
+- Keep the alignment consistent while ensuring each item has the correct language and direction attributes.
 
 </template>
 
 <template #dont-media>
 
-![A list of languages incorrectly oriented to both left-to-right (LTR) and right-to-left (RTL) directions.](../assets/design-principles/bidirectionality/bidirectionality-lists-dont.svg)
+![A list of languages incorrectly oriented to both left-to-right and right-to-left directions.](../assets/design-principles/bidirectionality/bidirectionality-lists-dont.svg)
 
 </template>
 
@@ -278,33 +279,33 @@ In a list, all rows should align according to the language direction of the brow
 
 </cdx-demo-rules>
 
-## Progress indicators
+## Progress elements
 
-When mirroring progress indicators, only the ones related to sequences should be mirrored.
+When mirroring progress elements, only the ones related to sequences should be mirrored.
 
 <cdx-demo-rules>
 
 <template #do-media>
 
-![A stepper indicator within an Onboarding Dialog, correctly oriented to right-to-left (RTL) direction.](../assets/design-principles/bidirectionality/bidirectionality-progress-do.svg)
+![A stepper indicator within an Onboarding Dialog, correctly oriented to right-to-left direction.](../assets/design-principles/bidirectionality/bidirectionality-progress-do.svg)
 
 </template>
 
 <template #do-text>
 
-- Mirror progress indicators when they indicate progress or steps, aligning the sequence with the reading direction of each language for consistency.
+- Mirror progress elements when they indicate progress or steps, aligning the sequence with the reading direction of each language for consistency.
 
 </template>
 
 <template #dont-media>
 
-![A timeline indicator within a video player incorrectly oriented to the right-to-left (RTL) direction.](../assets/design-principles/bidirectionality/bidirectionality-progress-dont.svg)
+![A timeline indicator within a video player incorrectly oriented to the right-to-left direction.](../assets/design-principles/bidirectionality/bidirectionality-progress-dont.svg)
 
 </template>
 
 <template #dont-text>
 
-- Mirror progress indicators when they relate to time, such as the timeline within a video player.
+- Mirror progress elements when they relate to time, such as the timeline within a video player.
 
 </template>
 
@@ -318,7 +319,7 @@ The original orientation of images and illustrations will not be mirrored. Howev
 
 <template #do-media>
 
-![An image displayed in right-to-left (RTL) orientation with a non-mirrored image and a mirrored caption.](../assets/design-principles/bidirectionality/bidirectionality-image-do.svg)
+![An image displayed in right-to-left orientation with a non-mirrored image and a mirrored caption.](../assets/design-principles/bidirectionality/bidirectionality-image-do.svg)
 
 </template>
 
@@ -331,7 +332,7 @@ The original orientation of images and illustrations will not be mirrored. Howev
 
 <template #dont-media>
 
-![An image displayed in right-to-left (RTL) orientation with an incorrectly mirrored image and a mirrored caption.](../assets/design-principles/bidirectionality/bidirectionality-image-dont.svg)
+![An image displayed in right-to-left orientation with an incorrectly mirrored image and a mirrored caption.](../assets/design-principles/bidirectionality/bidirectionality-image-dont.svg)
 
 </template>
 

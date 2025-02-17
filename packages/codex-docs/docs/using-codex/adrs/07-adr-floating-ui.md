@@ -74,7 +74,7 @@ that has been done to incorporate Floating UI into Codex.
 
 Regarding RTL behavior, our [initial investigations](https://phabricator.wikimedia.org/T346100)
 indicate that this approach is compatible with our current strategy for supporting
-bi-directionality.
+bidirectionality.
 
 In the future, we may add additional behavior to our Menu components
 (flipping/clipping based on available space, etc.). Fortunately the library's
