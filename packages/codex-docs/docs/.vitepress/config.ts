@@ -304,6 +304,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 								{ text: 'Dialog', link: '/components/demos/dialog' },
 								{ text: 'Menu', link: '/components/demos/menu' },
 								{ text: 'MenuItem', link: '/components/demos/menu-item' },
+								{ text: 'Popover', link: '/components/demos/popover' },
 								{ text: 'Table', link: '/components/demos/table' },
 								{ text: 'Tooltip', link: '/components/directives/tooltip' }
 							] )

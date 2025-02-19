@@ -25,6 +25,7 @@
 			<menu-item-demo />
 			<menu-button-demo />
 			<message-demo />
+			<popover-demo />
 			<progress-bar-demo />
 			<radio-demo />
 			<search-input-demo />
@@ -73,6 +74,7 @@ import MenuDemo from './MenuDemo.vue';
 import MenuItemDemo from './MenuItemDemo.vue';
 import MenuButtonDemo from './MenuButtonDemo.vue';
 import MessageDemo from './MessageDemo.vue';
+import PopoverDemo from './PopoverDemo.vue';
 import ProgressBarDemo from './ProgressBarDemo.vue';
 import RadioDemo from './RadioDemo.vue';
 import SearchInputDemo from './SearchInputDemo.vue';
@@ -109,6 +111,7 @@ const demoSections = [
 	{ name: 'MenuItem', id: '#cdx-menu-item' },
 	{ name: 'MenuButton', id: '#cdx-menu-button' },
 	{ name: 'Message', id: '#cdx-message' },
+	{ name: 'Popover', id: '#cdx-popover' },
 	{ name: 'ProgressBar', id: '#cdx-progress-bar' },
 	{ name: 'Radio', id: '#cdx-radio' },
 	{ name: 'SearchInput', id: '#cdx-search-input' },

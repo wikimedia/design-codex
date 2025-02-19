@@ -11,7 +11,9 @@
 // "Coverage data for src/components-wip was not found". When adding a new component here, you
 // should CHANGE THIS to "export", removing the "default". See also the import+export example above.
 import CdxImage from './image/Image.vue';
+import CdxPopover from './popover/Popover.vue';
 
 export {
-	CdxImage
+	CdxImage,
+	CdxPopover
 };
