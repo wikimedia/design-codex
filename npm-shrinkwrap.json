@@ -32900,11 +32900,11 @@
 		},
 		"packages/codex": {
 			"name": "@wikimedia/codex",
-			"version": "1.20.1",
+			"version": "1.20.2",
 			"license": "GPL-2.0+",
 			"dependencies": {
 				"@floating-ui/vue": "1.0.6",
-				"@wikimedia/codex-icons": "1.20.1"
+				"@wikimedia/codex-icons": "1.20.2"
 			},
 			"devDependencies": {
 				"@types/jest": "29.5.14",
@@ -32941,7 +32941,7 @@
 		},
 		"packages/codex-design-tokens": {
 			"name": "@wikimedia/codex-design-tokens",
-			"version": "1.20.1",
+			"version": "1.20.2",
 			"license": "GPL-2.0+",
 			"devDependencies": {
 				"@types/jest": "29.5.14",
@@ -33228,7 +33228,7 @@
 		},
 		"packages/codex-icons": {
 			"name": "@wikimedia/codex-icons",
-			"version": "1.20.1",
+			"version": "1.20.2",
 			"license": "MIT",
 			"devDependencies": {
 				"@rollup/plugin-typescript": "12.1.2",

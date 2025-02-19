@@ -1,3 +1,58 @@
+# 1.20.2 / 2025-02-19
+
+## Deprecating Changes
+- [DEPRECATING CHANGE] tokens, components: Add new and update box-shadow tokens and apply (Derek Torsani)
+
+## Features
+- MultiselectLookup: support multiple selection based on same search (Lauralyn Watson)
+
+## Styles
+- ToggleButton: update `quiet` enabled color (Derek Torsani)
+- MenuItem: Update color of supporting text (Derek Torsani)
+- Select: Instead of relying on hardcoded values, rely on tokens directly (Volker E.)
+- tokens: Add opacity color option tokens (Derek Torsani)
+- tokens, Tooltip: Add `min`, `fit` and `max` content width tokens & apply (Volker E.)
+
+## New design tokens
+- `size-content-min`
+- `size-content-fit`
+- `size-content-max`
+- `box-shadow-small`
+- `box-shadow-small-top`
+- `box-shadow-small-bottom`
+- `box-shadow-medium`
+- `box-shadow-large`
+Only used as general `box-shadow` token constructors:
+- `box-shadow-outset-small-bottom`
+- `box-shadow-outset-medium-below`
+- `box-shadow-outset-medium-around`
+- `box-shadow-outset-large-below`
+- `box-shadow-outset-large-around`
+
+## Icons
+- icons: Add more language-specific text icons for Norwegian and Swedish (Jon Harald Søby)
+
+## Code
+- MultiselectLookup: Change behavior on chip click (Anne Tomasevich)
+- ChipInput: Add CSS class to input chip data (Anne Tomasevich)
+- build: Remove `prepare` script (Volker E.)
+- build: Update 'style-dictionary' (Volker E.)
+- build: Limit color references only to `box-shadow` colors, not to all tokens (Volker E.)
+- build: upgrade browserslist-db to 1.0.30001700 (Volker E.)
+
+## Docs
+- docs: Update Codex logo (Derek Torsani)
+- docs: Update AUTHORS.txt (Roan Kattouw)
+- docs: Conduct various clean up on the docs site (Derek Torsani)
+- docs: It's 'Less', not more, not less (Volker E.)
+- docs: Change icon names to be unwrapped from code markup (Volker E.)
+- docs: update usage of icons (Lauralyn Watson)
+- docs: Fix contributor name to unified format (Volker E.)
+- demo: Add custom RCFilters MultiselectLookup demo (Anne Tomasevich)
+- demos: add `id` HTML attribute (Lauralyn Watson)
+- demo: Add new sandbox page for experiments + RCFilters demo (Anne Tomasevich)
+- demos: Remove obsolete Less variable (Volker E.)
+
 # 1.20.1 / 2025-02-04
 
 ## Styles
@@ -150,14 +205,14 @@ Dummy release to fix a publishing problem with 1.19.0.
 - docs: Add recent authors (>1 commit) and other contributors (Volker E.)
 
 ## New design tokens
-- mix-blend-mode-base
-- mix-blend-mode-blend
-- background-color-interactive--hover
-- background-color-interactive--active
-- background-color-progressive-subtle--hover
-- background-color-progressive-subtle--active
-- background-color-destructive-subtle--hover
-- background-color-destructive-subtle--active
+- `mix-blend-mode-base`
+- `mix-blend-mode-blend`
+- `background-color-interactive--hover`
+- `background-color-interactive--active`
+- `background-color-progressive-subtle--hover`
+- `background-color-progressive-subtle--active`
+- `background-color-destructive-subtle--hover`
+- `background-color-destructive-subtle--active`
 
 # 1.17.0 / 2024-11-26
 
