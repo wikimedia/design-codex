@@ -53,6 +53,14 @@ export function getTypeText( item ) {
 		const hasBrackets = /\[\]$/;
 		const toIgnore = [ 'Event', 'MouseEvent', 'InputEvent', 'KeyboardEvent', 'FocusEvent', 'NaN' ];
 
+		// Throw some backticks in and bail early if this is a generic type, e.g.
+		// `MaybeElement<HtmlElement>`. The angle brackets confuse the Markdown parser.
+		// TODO: Actually support generic types.
+		const isGeneric = /<|>$/;
+		if ( str.match( isGeneric ) ) {
+			return '`' + str + '`';
+		}
+
 		// If this is an array type, remove the brackets at the end.
 		const isArrayType = str.trim().indexOf( '[]' ) === str.trim().length - 2;
 		if ( isArrayType ) {
