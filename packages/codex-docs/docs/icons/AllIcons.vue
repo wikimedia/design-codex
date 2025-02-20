@@ -13,6 +13,11 @@
 		<tbody>
 			<tr v-for="iconData in displayIcons" :key="`${iconData.iconName}/${iconData.langCode}`">
 				<td>
+					<a
+						v-if="getIconId( iconData )"
+						:id="getIconId( iconData )"
+						class="cdx-docs-all-icons-table__anchor-link"
+					/>
 					{{ iconData.iconName }}
 				</td>
 				<td>
@@ -34,13 +39,15 @@ import { CdxIcon } from '@wikimedia/codex';
 import * as allIcons from '@wikimedia/codex-icons';
 import { Icon } from '@wikimedia/codex-icons';
 
-const displayIcons : {
+interface DisplayIcon {
 	iconName: string,
 	icon: Icon,
 	dirSpecific: boolean,
 	langCode?: string,
 	langLabel?: string
-}[] = [];
+}
+
+const displayIcons : DisplayIcon[] = [];
 for ( const iconName in allIcons ) {
 	const icon = allIcons[ iconName as keyof typeof allIcons ];
 	// Some of the exports are utility functions, filter those out
@@ -72,14 +79,33 @@ for ( const iconName in allIcons ) {
 		} );
 	}
 }
+
+function getIconId( iconData: DisplayIcon ) {
+	let iconId = iconData.iconName;
+	// Add language-specific variant if needed.
+	iconId += ( 'langCode' in iconData ) ? `-${ iconData.langCode }` : '';
+	return iconId;
+}
 </script>
 
 <style lang="less">
-.cdx-docs-all-icons-table__icon-name {
-	text-align: left;
-}
+.cdx-docs-all-icons-table {
+	td[ dir ] {
+		text-align: center;
+	}
 
-.cdx-docs-all-icons-table td[ dir ] {
-	text-align: center;
+	&__icon-name {
+		text-align: left;
+	}
+
+	&__anchor-link {
+		// Account for the fixed header.
+		padding-top: var( --vp-nav-height );
+
+		// Taller header on larger screens.
+		@media screen and ( min-width: 960px ) {
+			padding-top: calc( var( --vp-nav-height ) + var( --spacing-75 ) );
+		}
+	}
 }
 </style>
