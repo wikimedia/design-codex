@@ -30,6 +30,7 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <li
@@ -94,6 +95,7 @@ exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->

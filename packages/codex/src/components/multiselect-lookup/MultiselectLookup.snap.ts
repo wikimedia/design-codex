@@ -40,6 +40,7 @@ exports[`MultiselectLookup matches the snapshot Case 0 Default props: ({"inputCh
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <li
@@ -98,6 +99,7 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->
@@ -395,6 +397,7 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <li
@@ -453,6 +456,7 @@ exports[`MultiselectLookup matches the snapshot Case 3 With input value: ({"inpu
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <li
@@ -609,6 +613,7 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <li
@@ -761,6 +766,7 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <li
@@ -916,6 +922,7 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <li

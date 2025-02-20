@@ -30,6 +30,7 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <li
@@ -78,6 +79,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->
@@ -271,6 +273,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->
@@ -466,6 +469,7 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <li
@@ -514,6 +518,7 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <li
@@ -568,6 +573,7 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <li
@@ -617,6 +623,7 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <li
@@ -665,6 +672,7 @@ exports[`Lookup matches the snapshot Case 7 With initial input (deprecated): ([[
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->

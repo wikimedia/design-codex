@@ -67,6 +67,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"formAction": "/w/index
             class="cdx-menu__listbox"
             id="v-0"
             role="listbox"
+            tabindex="-1"
           >
             <!--v-if-->
             <!--v-if-->
@@ -170,6 +171,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
             class="cdx-menu__listbox"
             id="v-0"
             role="listbox"
+            tabindex="-1"
           >
             <!--v-if-->
             <!--v-if-->
@@ -273,6 +275,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
             class="cdx-menu__listbox"
             id="v-0"
             role="listbox"
+            tabindex="-1"
           >
             <!--v-if-->
             <!--v-if-->
@@ -376,6 +379,7 @@ exports[`TypeaheadSearch initial state Case 3 With custom visible button label: 
             class="cdx-menu__listbox"
             id="v-0"
             role="listbox"
+            tabindex="-1"
           >
             <!--v-if-->
             <!--v-if-->
@@ -479,6 +483,7 @@ exports[`TypeaheadSearch initial state Case 4 With custom visible button label u
             class="cdx-menu__listbox"
             id="v-0"
             role="listbox"
+            tabindex="-1"
           >
             <!--v-if-->
             <!--v-if-->
@@ -582,6 +587,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
             class="cdx-menu__listbox"
             id="v-0"
             role="listbox"
+            tabindex="-1"
           >
             <!--v-if-->
             <li
@@ -766,6 +772,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             class="cdx-menu__listbox"
             id="v-0"
             role="listbox"
+            tabindex="-1"
           >
             <!--v-if-->
             <!--v-if-->

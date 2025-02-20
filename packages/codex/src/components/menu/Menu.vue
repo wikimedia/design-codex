@@ -10,6 +10,7 @@
 			ref="menuListbox"
 			class="cdx-menu__listbox"
 			role="listbox"
+			tabindex="-1"
 			:style="listBoxStyle"
 			:aria-live="showPending ? 'polite' : undefined"
 			:aria-relevant="showPending ? ariaRelevant : undefined"

@@ -293,6 +293,7 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
           class="cdx-menu__listbox"
           id="v-3"
           role="listbox"
+          tabindex="-1"
         >
           <!--v-if-->
           <!--v-if-->
@@ -441,6 +442,7 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
           class="cdx-menu__listbox"
           id="v-3"
           role="listbox"
+          tabindex="-1"
         >
           <!--v-if-->
           <!--v-if-->
@@ -588,6 +590,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
           class="cdx-menu__listbox"
           id="v-3"
           role="listbox"
+          tabindex="-1"
         >
           <!--v-if-->
           <!--v-if-->
@@ -794,6 +797,7 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
           class="cdx-menu__listbox"
           id="v-3"
           role="listbox"
+          tabindex="-1"
         >
           <!--v-if-->
           <!--v-if-->

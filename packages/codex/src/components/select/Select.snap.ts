@@ -51,6 +51,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->
@@ -321,6 +322,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->
@@ -591,6 +593,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->
@@ -862,6 +865,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->
@@ -1151,6 +1155,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->
@@ -1440,6 +1445,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->
@@ -1710,6 +1716,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->
@@ -1981,6 +1988,7 @@ exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [
       class="cdx-menu__listbox"
       id="v-0"
       role="listbox"
+      tabindex="-1"
     >
       <!--v-if-->
       <!--v-if-->

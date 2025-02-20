@@ -3649,6 +3649,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             class="cdx-menu__listbox"
             id="v-0"
             role="listbox"
+            tabindex="-1"
           >
             <!--v-if-->
             <!--v-if-->
@@ -4327,6 +4328,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ([[Object], [
             class="cdx-menu__listbox"
             id="v-3"
             role="listbox"
+            tabindex="-1"
           >
             <!--v-if-->
             <!--v-if-->
