@@ -13,11 +13,11 @@ import CdxDocsVersionBanner from '../src/components/version-banner/VersionBanner
 <div class="cdx-docs-home">
 
 <div class="cdx-docs-home__hero">
-	<img src="/logo-Codex-inverted.svg">
 	<div>
+		<img src="/logo-Codex-inverted.svg">
 		<h1 class="cdx-docs-home__hero__title">Codex</h1>
-		<p class="cdx-docs-home__hero__tagline">The design system for Wikimedia.</p>
 	</div>
+	<p class="cdx-docs-home__hero__tagline">The design system for Wikimedia.</p>
 </div>
 
 <cdx-docs-version-banner />
@@ -85,8 +85,8 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-@font-size-cdx-docs-title: 4em;
-@font-size-cdx-docs-tagline: 4em;
+@font-size-cdx-docs-title: 5em;
+@font-size-cdx-docs-tagline: 2em;
 
 /* stylelint-disable selector-class-pattern */
 .cdx-docs-home {
@@ -104,28 +104,34 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		background-color: @background-color-progressive;
 		color: @color-inverted-fixed;
 		// Equals 100% + ( 2 * negative margin per side ).
-		display: block;
+		display: grid;
 		width: calc( @size-full + ( @spacing-200 * 2 ) );
 		margin-right: -@spacing-200;
 		margin-bottom: @spacing-200;
 		margin-left: -@spacing-200;
 		padding: @spacing-200;
 
-		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+		/* @media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			display: flex;
-		}
+		} */
 
 		img {
 			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-			width: 6.5em;
+			width: 6em;
 			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-			height: 6.5em;
-			margin-top: @spacing-50;
-			margin-right: 0;
-			margin-bottom: @spacing-50;
+			height: 6em;
+			margin-top: 0;
+			margin-right: @spacing-100;
+		}
+
+		div {
+			display: block;
+			margin-bottom: 0;
 
 			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				margin-right: @spacing-125;
+				display: flex;
+				align-items: flex-end;
+				margin-bottom: @spacing-400;
 			}
 		}
 
@@ -142,7 +148,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 
 		.vp-doc &__tagline {
 			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-			max-width: 400px;
+			max-width: 330px;
 			margin: 0 0 0 @spacing-50;
 			font-family: @font-family-base;
 			font-size: @font-size-cdx-docs-tagline;

@@ -256,6 +256,10 @@ body {
 	}
 }
 
+.VPNavBarTitle .logo {
+	margin-right: var( --spacing-35 );
+}
+
 .VPNavBarTitle .title {
 	font-size: var( --font-size-x-large );
 }
