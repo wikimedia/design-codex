@@ -11,6 +11,9 @@
 		<cdx-popover
 			id="popover"
 			v-model:open="showPopover"
+			title="Popover demo"
+			:default-action
+			:primary-action
 			:use-close-button="true"
 			:render-in-place="true"
 		>
@@ -21,6 +24,7 @@
 
 <script lang="ts" setup>
 import { CdxPopover, CdxToggleButton } from '../lib-wip';
+import { ModalAction, PrimaryModalAction } from '../lib';
 import { ref } from 'vue';
 
 // TODO: Add a template ref for the reference element.
@@ -31,4 +35,7 @@ const onUpdate = function ( value: boolean ) {
 	// eslint-disable-next-line no-console
 	console.log( 'update:modelValue event emitted with value: ' + value );
 };
+
+const defaultAction: ModalAction = { label: 'Cancel' };
+const primaryAction: PrimaryModalAction = { label: 'Save', actionType: 'progressive' };
 </script>
