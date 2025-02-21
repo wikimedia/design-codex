@@ -14,17 +14,19 @@ const controlsConfig = [
 ];
 
 const showPopover = ref( false );
+const anchorElement = ref( null );
 </script>
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :allow-link-styles="true">
 <template v-slot:demo="{ propValues, slotValues }">
-<cdx-toggle-button v-model="showPopover">
+<cdx-toggle-button v-model="showPopover" ref="anchorElement">
 	Open Popover
 </cdx-toggle-button>
 <cdx-popover
 	v-model:open="showPopover"
 	render-in-place
 	v-bind="propValues"
+    :anchor="anchorElement"
 >
 	<template #default>
 		{{ slotValues.default }}

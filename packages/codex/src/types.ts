@@ -171,6 +171,11 @@ export interface FloatingMenuOptions {
 }
 
 /** @public */
+export interface PositionConfig {
+	placement?: Placement
+}
+
+/** @public */
 export type ImageAspectRatio = typeof ImageAspectRatios[number];
 
 /** @public */

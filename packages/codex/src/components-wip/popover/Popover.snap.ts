@@ -7,6 +7,7 @@ exports[`Popover matches the snapshot Case 0 Basic usage 1`] = `
 >
   <div
     class="cdx-popover"
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <!--v-if-->
     <div
@@ -29,6 +30,7 @@ exports[`Popover matches the snapshot Case 1 With title 1`] = `
 >
   <div
     class="cdx-popover"
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <header
       class="cdx-popover__header"
@@ -68,6 +70,7 @@ exports[`Popover matches the snapshot Case 2 With icon 1`] = `
 >
   <div
     class="cdx-popover"
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <header
       class="cdx-popover__header"
@@ -121,6 +124,7 @@ exports[`Popover matches the snapshot Case 3 With close button 1`] = `
 >
   <div
     class="cdx-popover"
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <header
       class="cdx-popover__header"
@@ -186,6 +190,7 @@ exports[`Popover matches the snapshot Case 4 With custom close button label 1`] 
 >
   <div
     class="cdx-popover"
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <header
       class="cdx-popover__header"
@@ -251,6 +256,7 @@ exports[`Popover matches the snapshot Case 5 With primary action 1`] = `
 >
   <div
     class="cdx-popover"
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <!--v-if-->
     <div
@@ -292,6 +298,7 @@ exports[`Popover matches the snapshot Case 6 With default action 1`] = `
 >
   <div
     class="cdx-popover"
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <!--v-if-->
     <div
@@ -333,6 +340,7 @@ exports[`Popover matches the snapshot Case 7 With stacked actions 1`] = `
 >
   <div
     class="cdx-popover"
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <!--v-if-->
     <div
@@ -381,6 +389,7 @@ exports[`Popover matches the snapshot Case 8 With header and footer slots 1`] = 
 >
   <div
     class="cdx-popover"
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <header
       class="cdx-popover__header"

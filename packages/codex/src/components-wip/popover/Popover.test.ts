@@ -1,7 +1,8 @@
-import { mount, config } from '@vue/test-utils';
+import { mount, config, shallowMount } from '@vue/test-utils';
 import CdxPopover from './Popover.vue';
 import { cdxIconInfoFilled, Icon } from '@wikimedia/codex-icons';
-import { ModalAction, PrimaryModalAction } from '../../types';
+import { ModalAction, PrimaryModalAction, PositionConfig } from '../../types';
+import CdxToggleButton from '../../components/toggle-button/ToggleButton.vue';
 
 describe( 'Popover', () => {
 	// Ignore all "teleport" behavior for the purpose of testing Popover.
@@ -9,6 +10,11 @@ describe( 'Popover', () => {
 	config.global.stubs = {
 		teleport: true
 	};
+
+	const toggleButton = shallowMount( CdxToggleButton, {
+		props: { modelValue: false },
+		attachTo: 'body'
+	} );
 
 	describe( 'matches the snapshot', () => {
 		type Case = [
@@ -23,6 +29,7 @@ describe( 'Popover', () => {
 				stackedActions?: boolean,
 				target?: string,
 				renderInPlace?: boolean,
+				positionConfig?: PositionConfig
 			},
 			slots?: {
 				header?: string,
@@ -46,8 +53,12 @@ describe( 'Popover', () => {
 		];
 
 		test.each( cases )( 'Case %# %s', ( _, props, slots = {} ) => {
-			const popover = mount( CdxPopover, {
-				props: { renderInPlace: true, open: true, ...props },
+			const wrapper = mount( CdxPopover, {
+				props: {
+					anchor: toggleButton.vm.$el,
+					renderInPlace: true, open: true,
+					...props
+				},
 				slots: {
 					default: 'Popover body content',
 					...( slots.header === undefined ? {} : { header: slots.header } ),
@@ -55,7 +66,7 @@ describe( 'Popover', () => {
 				}
 			} );
 
-			expect( popover.element ).toMatchSnapshot();
+			expect( wrapper.element ).toMatchSnapshot();
 		} );
 	} );
 } );

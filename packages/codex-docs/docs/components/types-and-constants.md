@@ -93,6 +93,22 @@ interface DialogAction {
 }
 ```
 
+### PositionConfig
+
+Options for positioning elements, like Popovers, with the 3rd-party
+[Floating UI package](https://floating-ui.com/).
+
+```ts
+interface PositionConfig {
+    // Placement positions the floating element:
+    // 'top', 'top-start', 'top-end',
+    // 'right', 'right-start', 'right-end',
+    // 'bottom', 'bottom-start', 'bottom-end',
+    // 'left', 'left-start', and 'left-end'.
+	placement?: Placement
+}
+```
+
 ### FloatingMenuOptions
 
 Options which can be passed to the `useFloatingMenu` composable.
@@ -522,12 +538,12 @@ const IconSizes = [
 
 ```ts
 const ImageAspectRatios = [
-    '16-9',
-    '3-2',
-    '4-3',
-    '1-1',
-    '3-4',
-    '2-3'
+	'16-9',
+	'3-2',
+	'4-3',
+	'1-1',
+	'3-4',
+	'2-3'
 ];
 ```
 
@@ -545,11 +561,11 @@ const MenuStates = [
 
 ```ts
 const ObjectFitOptions = [
-    'fill',
-    'contain',
-    'cover',
-    'none',
-    'scale-down'
+	'fill',
+	'contain',
+	'cover',
+	'none',
+	'scale-down'
 ];
 ```
 
@@ -557,11 +573,11 @@ const ObjectFitOptions = [
 
 ```ts
 const ObjectPositions = [
-    'top',
-    'bottom',
-    'left',
-    'right',
-    'center'
+	'top',
+	'bottom',
+	'left',
+	'right',
+	'center'
 ];
 ```
 

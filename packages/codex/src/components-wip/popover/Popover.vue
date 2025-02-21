@@ -1,79 +1,85 @@
 <template>
 	<teleport :to="computedTarget" :disabled="renderInPlace">
-		<div
-			v-if="open"
-			class="cdx-popover"
-			v-bind="$attrs"
-		>
-			<header v-if="showHeader || $slots.header" class="cdx-popover__header">
-				<!-- @slot Customizable Popover header. -->
-				<slot name="header">
-					<cdx-icon
-						v-if="icon"
-						class="cdx-popover__header__icon"
-						:icon
-					/>
-					<div v-if="title" class="cdx-popover__header__title">
-						{{ title }}
-					</div>
-					<div class="cdx-popover__header__close-button-wrapper">
-						<cdx-button
-							v-if="useCloseButton"
-							class="cdx-popover__header__close-button"
-							weight="quiet"
-							type="button"
-							:aria-label="translatedCloseButtonLabel"
-							@click="close"
-						>
-							<cdx-icon :icon="cdxIconClose" />
-						</cdx-button>
-					</div>
-				</slot>
-			</header>
+		<transition name="cdx-popover-transition">
+			<div
+				v-if="open"
+				ref="floating"
+				class="cdx-popover"
+				:style="floatingStyles"
+				v-bind="$attrs"
+			>
+				<header v-if="showHeader || $slots.header" class="cdx-popover__header">
+					<!-- @slot Customizable Popover header. -->
+					<slot name="header">
+						<cdx-icon
+							v-if="icon"
+							class="cdx-popover__header__icon"
+							:icon
+						/>
+						<div v-if="title" class="cdx-popover__header__title">
+							{{ title }}
+						</div>
+						<div class="cdx-popover__header__close-button-wrapper">
+							<cdx-button
+								v-if="useCloseButton"
+								class="cdx-popover__header__close-button"
+								weight="quiet"
+								type="button"
+								:aria-label="translatedCloseButtonLabel"
+								@click="close"
+							>
+								<cdx-icon :icon="cdxIconClose" />
+							</cdx-button>
+						</div>
+					</slot>
+				</header>
 
-			<div class="cdx-popover__body">
-				<!-- @slot Popover body content. -->
-				<slot />
+				<div class="cdx-popover__body">
+					<!-- @slot Popover body content. -->
+					<slot />
+				</div>
+
+				<footer v-if="showFooter || $slots.footer" class="cdx-popover__footer">
+					<!-- @slot Customizable Popover footer. -->
+					<slot name="footer">
+						<div
+							class="cdx-popover__footer__actions"
+							:class="footerActionsClasses"
+						>
+							<cdx-button
+								v-if="primaryAction"
+								class="cdx-popover__footer__primary-action"
+								weight="primary"
+								:action="primaryAction.actionType"
+								:disabled="primaryAction.disabled"
+								@click="$emit( 'primary' )"
+							>
+								{{ primaryAction.label }}
+							</cdx-button>
+
+							<cdx-button
+								v-if="defaultAction"
+								class="cdx-popover__footer__default-action"
+								:disabled="defaultAction.disabled"
+								@click="$emit( 'default' )"
+							>
+								{{ defaultAction.label }}
+							</cdx-button>
+						</div>
+					</slot>
+				</footer>
 			</div>
-
-			<footer v-if="showFooter || $slots.footer" class="cdx-popover__footer">
-				<!-- @slot Customizable Popover footer. -->
-				<slot name="footer">
-					<div
-						class="cdx-popover__footer__actions"
-						:class="footerActionsClasses"
-					>
-						<cdx-button
-							v-if="primaryAction"
-							class="cdx-popover__footer__primary-action"
-							weight="primary"
-							:action="primaryAction.actionType"
-							:disabled="primaryAction.disabled"
-							@click="$emit( 'primary' )"
-						>
-							{{ primaryAction.label }}
-						</cdx-button>
-
-						<cdx-button
-							v-if="defaultAction"
-							class="cdx-popover__footer__default-action"
-							:disabled="defaultAction.disabled"
-							@click="$emit( 'default' )"
-						>
-							{{ defaultAction.label }}
-						</cdx-button>
-					</div>
-				</slot>
-			</footer>
-		</div>
+		</transition>
 	</teleport>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, inject, toRef } from 'vue';
+import { defineComponent, PropType, computed, inject, toRef, ref } from 'vue';
 import { CdxButton, CdxIcon, PrimaryModalAction, ModalAction } from '../../lib';
 import { Icon, cdxIconClose } from '@wikimedia/codex-icons';
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
+import { useFloating, MaybeElement, offset, flip, autoUpdate, size } from '@floating-ui/vue';
+import { PositionConfig } from '../../types';
 
 /**
  * A Popover is a localized, non-disruptive container that is overlaid on a web page or app,
@@ -90,6 +96,14 @@ export default defineComponent( {
 	inheritAttrs: false,
 
 	props: {
+		/**
+		 * The reference or triggering element that opens and closes the popover.
+		 */
+		anchor: {
+			type: Object as PropType<MaybeElement<HTMLElement> | null>,
+			required: true
+		},
+
 		/**
 		 * Whether the popover is visible.
 		 * Should be provided via a v-model:open binding in the parent scope.
@@ -165,6 +179,13 @@ export default defineComponent( {
 		renderInPlace: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Positioning options for the Popover.
+		 */
+		positionConfig: {
+			type: Object as PropType<PositionConfig | null>,
+			default: null
 		}
 	},
 	emits: [
@@ -184,7 +205,36 @@ export default defineComponent( {
 		'default'
 	],
 	setup( props, { emit } ) {
-		// TODO: Add Floating UI behavior and pass floating and reference elements as args.
+		// Floating UI behavior.
+		const floating = ref<HTMLDivElement>();
+		const reference = toRef( props, 'anchor' );
+		const clipPadding = 16;
+		const minClipWidth = 256;
+		const minClipHeight = 128;
+		const computedPlacement = computed( () => props.positionConfig?.placement ?? 'bottom-start' );
+		const computedMiddleware = computed( () => [
+			// Margin space (px) between Popover and its triggering element.
+			offset( 4 ),
+			// Default flip behavior will flip floating element across the main axis.
+			flip(),
+			size( {
+				// Spacing between the floating element and the viewport.
+				padding: clipPadding,
+				// Apply styles based on available width/height.
+				apply( { availableWidth, availableHeight, elements } ) {
+					Object.assign( elements.floating.style, {
+						width: `${ Math.max( minClipWidth, availableWidth ) }px`,
+						maxHeight: `${ Math.max( minClipHeight, availableHeight ) }px`
+					} );
+				}
+			} )
+			// TODO: Add arrow middleware
+		] );
+		const { floatingStyles } = useFloating( reference, floating, {
+			whileElementsMounted: autoUpdate,
+			placement: computedPlacement,
+			middleware: computedMiddleware
+		} );
 
 		// Determine where to teleport the Popover to.
 		const providedTarget = inject<string|HTMLElement|undefined>( 'CdxTeleportTarget', undefined );
@@ -218,7 +268,9 @@ export default defineComponent( {
 			showFooter,
 			footerActionsClasses,
 			close,
-			cdxIconClose
+			cdxIconClose,
+			floating,
+			floatingStyles
 		};
 	}
 } );
@@ -232,11 +284,13 @@ export default defineComponent( {
 	position: absolute;
 	// TODO: Replace with a popover design token.
 	z-index: @z-index-tooltip;
+	box-sizing: @box-sizing-base;
 	min-width: @size-1600;
 	max-width: @size-3200;
 	border: @border-base;
 	border-radius: @border-radius-base;
 	padding: @spacing-100;
+	overflow-y: auto;
 
 	&__header {
 		display: flex;
