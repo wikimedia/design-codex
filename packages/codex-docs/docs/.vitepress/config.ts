@@ -144,7 +144,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'ADR 9 - CSS Icons', link: '/using-codex/adrs/09-adr-css-icons' },
 						{ text: 'ADR 10 - i18n support', link: '/using-codex/adrs/10-adr-i18n-for-common-strings' },
 						{ text: 'ADR 11 - Codex PHP', link: '/using-codex/adrs/11-adr-codex-php' },
-						{ text: 'ADR 12 - Native constraint validation', link: '/using-codex/adrs/12-adr-native-constraint-validation' }
+						{ text: 'ADR 12 - Native constraint validation', link: '/using-codex/adrs/12-adr-native-constraint-validation' },
+						{ text: 'ADR 13 - Alternate Font Modes', link: '/using-codex/adrs/13-adr-font-modes' }
 					]
 				}
 			],
