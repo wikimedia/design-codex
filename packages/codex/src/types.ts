@@ -9,6 +9,7 @@ import { Icon } from '@wikimedia/codex-icons';
 import { Placement, OffsetOptions } from '@floating-ui/vue';
 
 import {
+	ContainerSizes,
 	ButtonActions,
 	ButtonTypes,
 	ButtonWeights,
@@ -40,6 +41,9 @@ export type I18nFunction = ( messageKey: I18nMessageKey, ...params: any[] ) => s
 
 /** @public */
 export type HTMLDirection = 'ltr' | 'rtl';
+
+/** @public */
+export type ContainerSize = typeof ContainerSizes[ number ];
 
 /** @public */
 export type ButtonAction = typeof ButtonActions[ number ];

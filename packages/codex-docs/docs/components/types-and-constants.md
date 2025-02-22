@@ -9,6 +9,15 @@ outline: deep
 Since Codex is written in TypeScript, we often make use of special types for things like complex
 props. Below is documentation of all public types.
 
+### ContainerSize
+
+See [ContainerSizes](#containersizes).
+
+```ts
+// Allowed values: 'medium', 'large', 'x-large', 'full'
+type ContainerSize = typeof ContainerSizes[ number ];
+```
+
 ### ButtonAction
 
 See [ButtonActions](#buttonactions).
@@ -476,6 +485,17 @@ type ValidationStatusType = typeof ValidationStatusTypes[ number ];
 ```
 
 ## Constants
+
+### ContainerSizes
+
+```ts
+const ContainerSizes = [
+	'medium',
+	'large',
+	'x-large',
+	'full'
+];
+```
 
 ### ButtonActions
 

@@ -12,6 +12,7 @@
 			<checkbox-demo />
 			<chip-input-demo />
 			<combobox-demo />
+			<container-demo />
 			<dialog-demo />
 			<field-demo />
 			<icon-demo />
@@ -62,6 +63,7 @@ import ButtonGroupDemo from './ButtonGroupDemo.vue';
 import CardDemo from './CardDemo.vue';
 import CheckboxDemo from './CheckboxDemo.vue';
 import ChipInputDemo from './ChipInputDemo.vue';
+import ContainerDemo from './ContainerDemo.vue';
 import MultiselectLookupDemo from './MultiselectLookupDemo.vue';
 import ComboboxDemo from './ComboboxDemo.vue';
 import DialogDemo from './DialogDemo.vue';
@@ -100,6 +102,7 @@ const demoSections = [
 	{ name: 'CheckBox', id: '#cdx-checkbox' },
 	{ name: 'ChipInput', id: '#cdx-chip-input' },
 	{ name: 'Combobox', id: '#cdx-combobox' },
+	{ name: 'Container', id: '#cdx-container' },
 	{ name: 'Dialog', id: '#cdx-dialog' },
 	{ name: 'Field', id: '#cdx-field' },
 	{ name: 'Icon', id: '#cdx-icon' },

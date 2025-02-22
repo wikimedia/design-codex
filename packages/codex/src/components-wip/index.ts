@@ -10,11 +10,13 @@
 // This export default is needed to prevent Jest from failing with
 // "Coverage data for src/components-wip was not found". When adding a new component here, you
 // should CHANGE THIS to "export", removing the "default". See also the import+export example above.
+import CdxContainer from './container/Container.vue';
 import CdxImage from './image/Image.vue';
 import CdxPopover from './popover/Popover.vue';
 import CdxProgressIndicator from './progress-indicator/ProgressIndicator.vue';
 
 export {
+	CdxContainer,
 	CdxImage,
 	CdxPopover,
 	CdxProgressIndicator

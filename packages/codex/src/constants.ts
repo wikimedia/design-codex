@@ -8,6 +8,13 @@ import { Placement, Side } from '@floating-ui/vue';
  */
 export const LibraryPrefix = 'cdx';
 
+export const ContainerSizes = [
+	'medium',
+	'large',
+	'x-large',
+	'full'
+] as const;
+
 export const ButtonActions = [
 	'default',
 	'progressive',

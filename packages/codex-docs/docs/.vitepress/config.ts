@@ -301,6 +301,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 							collapsed: true,
 							items: filterComponents( [
 								{ text: 'Accordion', link: '/components/demos/accordion' },
+								{ text: 'Container', link: '/components/demos/container' },
 								{ text: 'Card', link: '/components/demos/card' },
 								{ text: 'Dialog', link: '/components/demos/dialog' },
 								{ text: 'Menu', link: '/components/demos/menu' },
