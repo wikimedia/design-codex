@@ -74,12 +74,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, inject, toRef, ref } from 'vue';
+import { defineComponent, PropType, computed, inject, toRef, ref, watch, onMounted, onUnmounted } from 'vue';
 import { CdxButton, CdxIcon, PrimaryModalAction, ModalAction } from '../../lib';
 import { Icon, cdxIconClose } from '@wikimedia/codex-icons';
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
 import { useFloating, MaybeElement, offset, flip, autoUpdate, size } from '@floating-ui/vue';
 import { PositionConfig } from '../../types';
+import { unwrapElement } from '../../utils/unwrapElement';
 
 /**
  * A Popover is a localized, non-disruptive container that is overlaid on a web page or app,
@@ -261,6 +262,62 @@ export default defineComponent( {
 			emit( 'update:open', false );
 		}
 
+		/**
+		 * Global "Escape" key handler.
+		 * Close the popover when Escape key is pressed.
+		 *
+		 * @param event
+		 */
+		function onKeydown( event: KeyboardEvent ) {
+			if ( event.key === 'Escape' ) {
+				close();
+			}
+		}
+
+		/**
+		 * Close the popover when focus is lost e.g. mousedown and focus events
+		 * that occur outside the Popover.
+		 *
+		 * @param event
+		 */
+		function onFocusOut( event: MouseEvent | FocusEvent ) {
+			// Check if the event occurred outside Popover and trigger.
+			const isOutsidePopoverAndTrigger = (
+				( floating.value && !floating.value.contains( event.target as Node ) ) &&
+				( reference.value && event.target !== unwrapElement( reference.value ) )
+			);
+
+			if ( isOutsidePopoverAndTrigger ) {
+				close();
+			}
+		}
+
+		watch( () => props.open, ( isOpen ) => {
+			if ( isOpen ) {
+				document.addEventListener( 'keydown', onKeydown );
+				document.addEventListener( 'mousedown', onFocusOut );
+				document.addEventListener( 'focusin', onFocusOut );
+			} else {
+				document.removeEventListener( 'keydown', onKeydown );
+				document.removeEventListener( 'mousedown', onFocusOut );
+				document.removeEventListener( 'focusin', onFocusOut );
+			}
+		} );
+
+		onMounted( () => {
+			if ( props.open ) {
+				document.addEventListener( 'keydown', onKeydown );
+				document.addEventListener( 'mousedown', onFocusOut );
+				document.addEventListener( 'focusin', onFocusOut );
+			}
+		} );
+
+		onUnmounted( () => {
+			document.removeEventListener( 'keydown', onKeydown );
+			document.removeEventListener( 'mousedown', onFocusOut );
+			document.removeEventListener( 'focusin', onFocusOut );
+		} );
+
 		return {
 			computedTarget,
 			translatedCloseButtonLabel,
@@ -290,6 +347,7 @@ export default defineComponent( {
 	border: @border-base;
 	border-radius: @border-radius-base;
 	padding: @spacing-100;
+	box-shadow: @box-shadow-medium;
 	overflow-y: auto;
 
 	&__header {
