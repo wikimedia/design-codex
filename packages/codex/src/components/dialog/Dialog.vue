@@ -136,7 +136,7 @@ import CdxIcon from '../icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
 import useResizeObserver from '../../composables/useResizeObserver';
-import { DialogAction, PrimaryDialogAction } from '../../types';
+import { ModalAction, PrimaryModalAction } from '../../types';
 
 /**
  * A modal element that overlays the current page, preventing interaction with
@@ -212,7 +212,7 @@ export default defineComponent( {
 		 * (progressive or destructive).
 		 */
 		primaryAction: {
-			type: Object as PropType<PrimaryDialogAction>,
+			type: Object as PropType<PrimaryModalAction>,
 			default: null
 		},
 
@@ -220,7 +220,7 @@ export default defineComponent( {
 		 * Default user action. This will display a normal button.
 		 */
 		defaultAction: {
-			type: Object as PropType<DialogAction>,
+			type: Object as PropType<ModalAction>,
 			default: null
 		},
 

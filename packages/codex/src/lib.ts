@@ -95,7 +95,11 @@ import type {
 	SearchResult,
 	SearchResultClickEvent,
 	Thumbnail,
+	ModalAction,
+	PrimaryModalAction,
+	// DEPRECATED: Remove in favor of ModalAction (T387128).
 	DialogAction,
+	// DEPRECATED: Remove in favor of PrimaryModalAction (T387128).
 	PrimaryDialogAction,
 	BoxDimensions,
 	ValidationStatusType,
@@ -190,7 +194,11 @@ export {
 	SearchResultClickEvent,
 	StatusType,
 	Thumbnail,
+	ModalAction,
+	PrimaryModalAction,
+	// DEPRECATED: Remove in favor of ModalAction (T387128).
 	DialogAction,
+	// DEPRECATED: Remove in favor of PrimaryModalAction (T387128).
 	PrimaryDialogAction,
 	BoxDimensions,
 	ValidationStatusType,

@@ -201,15 +201,23 @@ export interface TabData {
 }
 
 /** @public */
-export interface DialogAction {
+export interface ModalAction {
 	label: string,
 	disabled?: boolean
 }
 
 /** @public */
-export interface PrimaryDialogAction extends DialogAction {
+export interface PrimaryModalAction extends ModalAction {
 	actionType: 'progressive' | 'destructive'
 }
+
+// DEPRECATED: Remove in favor of modal action types (T387128).
+/** @public */
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface DialogAction extends ModalAction {}
+/** @public */
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface PrimaryDialogAction extends PrimaryModalAction {}
 
 /** @public */
 export interface BoxDimensions {

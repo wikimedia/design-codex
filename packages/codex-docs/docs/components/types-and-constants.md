@@ -84,6 +84,8 @@ type ChipValidator = ( value: string|number ) => boolean;
 
 ### DialogAction
 
+Deprecated: use [ModalAction](#modalaction) instead.
+
 ```ts
 interface DialogAction {
 	label: string,
@@ -307,12 +309,31 @@ See [MenuStates](#menustates).
 type MenuState = typeof MenuStates[ number ];
 ```
 
+### ModalAction
+
+```ts
+interface ModalAction {
+	label: string,
+	disabled?: boolean
+}
+```
+
 ### PrimaryDialogAction
 
-See [DialogAction](#dialogaction).
+Deprecated: use [PrimaryModalAction](#primarymodalaction) instead.
 
 ```ts
 interface PrimaryDialogAction extends DialogAction {
+	actionType: 'progressive' | 'destructive'
+}
+```
+
+### PrimaryModalAction
+
+Refer to [ModalAction](#modalaction).
+
+```ts
+interface PrimaryModalAction extends ModalAction {
 	actionType: 'progressive' | 'destructive'
 }
 ```

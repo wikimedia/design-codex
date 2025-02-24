@@ -1,6 +1,6 @@
 import { nextTick } from 'vue';
 import { config, mount } from '@vue/test-utils';
-import { DialogAction, PrimaryDialogAction } from '../../types';
+import { ModalAction, PrimaryModalAction } from '../../types';
 import CdxDialog from './Dialog.vue';
 
 type Case = [
@@ -12,8 +12,8 @@ type Case = [
 		hideTitle?: boolean,
 		useCloseButton?: boolean,
 		closeButtonLabel?: string,
-		primaryAction?: PrimaryDialogAction,
-		defaultAction?: DialogAction,
+		primaryAction?: PrimaryModalAction,
+		defaultAction?: ModalAction,
 		stackedActions?: boolean,
 		renderInPlace?: boolean,
 		target?: string
@@ -70,9 +70,9 @@ describe( 'Basic usage', () => {
 	const dialogBasicOpen = Object.freeze( { props: { title: 'Dialog Title', open: true }, slots: { default: dialogSlotContents } } );
 	const dialogWithCloseButtonOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, useCloseButton: true }, slots: { default: dialogSlotContents } } );
 	const dialogWithCloseButtonLabelOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, closeButtonLabel: 'Close button label from prop' }, slots: { default: dialogSlotContents } } );
-	const dialogPrimaryOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, primaryAction: { label: 'save', actionType: 'progressive' } as PrimaryDialogAction }, slots: { default: dialogSlotContents } } );
-	const dialogDefaultOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, defaultAction: { label: 'ok' } as DialogAction }, slots: { default: dialogSlotContents } } );
-	const dialogStackedActions = Object.freeze( { props: { title: 'Dialog Title', open: true, stackedActions: true, primaryAction: { label: 'save', actionType: 'progressive' } as PrimaryDialogAction }, slots: { default: dialogSlotContents } } );
+	const dialogPrimaryOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, primaryAction: { label: 'save', actionType: 'progressive' } as PrimaryModalAction }, slots: { default: dialogSlotContents } } );
+	const dialogDefaultOpen = Object.freeze( { props: { title: 'Dialog Title', open: true, defaultAction: { label: 'ok' } as ModalAction }, slots: { default: dialogSlotContents } } );
+	const dialogStackedActions = Object.freeze( { props: { title: 'Dialog Title', open: true, stackedActions: true, primaryAction: { label: 'save', actionType: 'progressive' } as PrimaryModalAction }, slots: { default: dialogSlotContents } } );
 	const dialogBasicClosedWithInput = Object.freeze( { props: { title: 'Dialog Title' }, slots: { default: dialogSlotContentsWithInput } } );
 	const dialogWithSubtitle = Object.freeze( { props: { title: 'Dialog Title', subtitle: 'Subtitle', open: true }, slots: { default: dialogSlotContents } } );
 
