@@ -16,16 +16,18 @@
 					<div v-if="title" class="cdx-popover__header__title">
 						{{ title }}
 					</div>
-					<cdx-button
-						v-if="useCloseButton"
-						class="cdx-popover__header__close-button"
-						weight="quiet"
-						type="button"
-						:aria-label="translatedCloseButtonLabel"
-						@click="close"
-					>
-						<cdx-icon :icon="cdxIconClose" />
-					</cdx-button>
+					<div class="cdx-popover__header__close-button-wrapper">
+						<cdx-button
+							v-if="useCloseButton"
+							class="cdx-popover__header__close-button"
+							weight="quiet"
+							type="button"
+							:aria-label="translatedCloseButtonLabel"
+							@click="close"
+						>
+							<cdx-icon :icon="cdxIconClose" />
+						</cdx-button>
+					</div>
 				</slot>
 			</header>
 
@@ -238,10 +240,13 @@ export default defineComponent( {
 
 	&__header {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
+		gap: @spacing-50;
 		margin-bottom: @spacing-100;
 
 		&__icon {
+			// Vertically align the icon with the first line of the title.
+			height: unit( @line-height-medium, em );
 			margin-right: @spacing-50;
 		}
 
@@ -249,7 +254,16 @@ export default defineComponent( {
 			font-weight: @font-weight-semi-bold;
 		}
 
-		&__close-button {
+		&__close-button-wrapper {
+			// Vertically center the button within the wrapper div.
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			// Vertically center the wrapper div with the first line of the title.
+			height: unit( @line-height-medium, em );
+			// Move the button over so the edge of the icon aligns with the edge of the content.
+			// This makes the quiet button seem to take up less space.
+			margin-right: -@spacing-50;
 			// Send to the end of the flex container.
 			margin-left: auto;
 		}

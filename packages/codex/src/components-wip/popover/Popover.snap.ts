@@ -41,7 +41,11 @@ exports[`Popover matches the snapshot Case 1 With title 1`] = `
       >
         Popover title
       </div>
-      <!--v-if-->
+      <div
+        class="cdx-popover__header__close-button-wrapper"
+      >
+        <!--v-if-->
+      </div>
       
     </header>
     <div
@@ -90,7 +94,11 @@ exports[`Popover matches the snapshot Case 2 With icon 1`] = `
         </svg>
       </span>
       <!--v-if-->
-      <!--v-if-->
+      <div
+        class="cdx-popover__header__close-button-wrapper"
+      >
+        <!--v-if-->
+      </div>
       
     </header>
     <div
@@ -121,37 +129,41 @@ exports[`Popover matches the snapshot Case 3 With close button 1`] = `
       
       <!--v-if-->
       <!--v-if-->
-      <button
-        aria-label="Close"
-        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-popover__header__close-button"
-        type="button"
+      <div
+        class="cdx-popover__header__close-button-wrapper"
       >
-        <!-- @slot Button content -->
-        
-        <span
-          class="cdx-icon cdx-icon--medium"
+        <button
+          aria-label="Close"
+          class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-popover__header__close-button"
+          type="button"
         >
-          <svg
-            aria-hidden="true"
-            height="20"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+          <!-- @slot Button content -->
+          
+          <span
+            class="cdx-icon cdx-icon--medium"
           >
-            <!--v-if-->
-            <!-- eslint-disable vue/no-v-html -->
-            <g>
-              <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
-              />
-            </g>
-          </svg>
-        </span>
-        
-      </button>
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+                />
+                <path
+                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                />
+              </g>
+            </svg>
+          </span>
+          
+        </button>
+      </div>
       
     </header>
     <div
@@ -182,37 +194,41 @@ exports[`Popover matches the snapshot Case 4 With custom close button label 1`] 
       
       <!--v-if-->
       <!--v-if-->
-      <button
-        aria-label="Dismiss"
-        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-popover__header__close-button"
-        type="button"
+      <div
+        class="cdx-popover__header__close-button-wrapper"
       >
-        <!-- @slot Button content -->
-        
-        <span
-          class="cdx-icon cdx-icon--medium"
+        <button
+          aria-label="Dismiss"
+          class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-popover__header__close-button"
+          type="button"
         >
-          <svg
-            aria-hidden="true"
-            height="20"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+          <!-- @slot Button content -->
+          
+          <span
+            class="cdx-icon cdx-icon--medium"
           >
-            <!--v-if-->
-            <!-- eslint-disable vue/no-v-html -->
-            <g>
-              <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
-              />
-            </g>
-          </svg>
-        </span>
-        
-      </button>
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+                />
+                <path
+                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                />
+              </g>
+            </svg>
+          </span>
+          
+        </button>
+      </div>
       
     </header>
     <div
