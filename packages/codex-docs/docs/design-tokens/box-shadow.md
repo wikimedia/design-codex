@@ -78,7 +78,7 @@ The "light source" for these shadows is oriented between the top and center of t
 />
 
 <style lang="less">
-@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-tokens-demo--box-shadow-color {
 	.cdx-docs-tokens-demo__token {

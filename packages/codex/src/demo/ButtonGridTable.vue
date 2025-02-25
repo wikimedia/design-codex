@@ -76,7 +76,7 @@ function weightLabel( weight: ButtonWeight|undefined ) {
 </script>
 
 <style lang="less">
-@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-docs-button-demo-table {
 	td {
