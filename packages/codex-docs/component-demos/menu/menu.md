@@ -41,6 +41,12 @@ trigger actions and can be customized with different text or media elements. Ref
 
 <cdx-demo-best-practices>
 <cdx-demo-best-practice>Set a visible item limit when there are many menu items to enable scrolling.</cdx-demo-best-practice>
+<cdx-demo-best-practice>When choosing a visible item limit, consider the layout, item types, and the number of items useful to view at once, depending on the triggering component.</cdx-demo-best-practice>
+<cdx-demo-best-practice>
+
+Generally, 5–7 visible items are recommended. Refer to [The Magical Number Seven, Plus or Minus Two](https://en.wikipedia.org/wiki/The_Magical_Number_Seven%2C_Plus_or_Minus_Two).
+
+</cdx-demo-best-practice>
 <cdx-demo-best-practice type="dont">Don't combine menu items that use both Icons and Thumbnails within the same Menu.</cdx-demo-best-practice>
 <cdx-demo-best-practice>
 
