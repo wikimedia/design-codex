@@ -1,9 +1,18 @@
 import { Directive } from 'vue';
-import useGeneratedId from '../../composables/useGeneratedId';
 import { computePosition, flip, shift, hide, offset, autoUpdate, Placement } from '@floating-ui/vue';
 import { TooltipOptions } from '../../types';
+import { generateHashId } from '../../utils/generateHashId';
 import './Tooltip.less';
 import { oppositeSides } from '../../constants';
+
+/**
+ * Map used for deterministic and SSR-safe ID generation.
+ * Keys (strings) correspond to tooltip content; values (numbers)
+ * correspond to the number of tooltips that use the same content.
+ * This allows us to guarantee ~unique, deterministic IDs which
+ * will be the same on both server and client.
+ */
+const contentCounters = new Map<string, number>();
 
 interface StatefulDirectiveElement extends HTMLElement {
 	// eslint-disable-next-line no-use-before-define
@@ -32,9 +41,8 @@ class Tooltip {
 	constructor( referenceElement: StatefulDirectiveElement, options: TooltipOptions ) {
 		// Initialize tooltip instance properties
 		const doc = referenceElement.ownerDocument;
-		// We can't use useId() here because we're not in a component setup function, use the
-		// deprecated useGeneratedId composable instead
-		const tooltipId = useGeneratedId( 'tooltip' );
+		// Generate a unique, deterministic ID based on tooltip content
+		const tooltipId = this.generateTooltipId( options.textContent );
 		this.referenceElement = referenceElement;
 		this.textContent = options.textContent;
 		this.placement = options.placement ?? 'bottom';
@@ -74,6 +82,26 @@ class Tooltip {
 			this.tooltipElement,
 			() => this.update()
 		);
+	}
+
+	/**
+	 * Assign each Tooltip a (reasonably) unique, deterministic, and SSR-safe ID
+	 * based on its content.
+	 *
+	 * @param content The tooltip content text
+	 * @return A unique ID for the tooltip
+	 */
+	private generateTooltipId( content: string ): string {
+		// Each tooltip has an entry in the contentCounters Map, keyed to the
+		// tooltip content. Multiple occurrences of the same content string
+		// are tracked by incrementing the corresponding value. This allows
+		// us to generate unique & deterministic IDs even when content
+		// is the same across multiple tooltips.
+		const contentKey = content.trim();
+		const count = contentCounters.get( contentKey ) ?? 0;
+		contentCounters.set( contentKey, count + 1 );
+
+		return generateHashId( contentKey + '-' + count, 'cdx-tooltip' );
 	}
 
 	private isVisible() {
