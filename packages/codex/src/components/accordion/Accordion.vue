@@ -57,8 +57,6 @@ export default defineComponent( {
 	props: {
 		/**
 		 * Forces the accordion to show the action icon.
-		 *
-		 * @values 'true', 'false'
 		 */
 		actionAlwaysVisible: {
 			type: Boolean,

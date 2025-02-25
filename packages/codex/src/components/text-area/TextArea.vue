@@ -104,8 +104,6 @@ export default defineComponent( {
 		 * When autosize is true, the textarea automatically grows in height (vertically).
 		 * The height of the textarea expands while the user types in the textarea.
 		 * The content inside the textarea is visible and there's no scroll.
-		 *
-		 * @values true, false
 		 */
 		autosize: {
 			type: Boolean,
