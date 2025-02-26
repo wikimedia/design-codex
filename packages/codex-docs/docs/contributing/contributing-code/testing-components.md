@@ -212,9 +212,11 @@ provide more visibility.
 
 ### Vue test utils
 Tests in Codex use the Vue test utils to mount and interact with components. To learn how to use
-this library, read the [Vue test utils guide](https://next.vue-test-utils.vuejs.org/guide/),
-particularly the sections on [passing data to components](https://next.vue-test-utils.vuejs.org/guide/essentials/passing-data.html), [slots](https://next.vue-test-utils.vuejs.org/guide/advanced/slots.html) and
-[testing emitted events](https://next.vue-test-utils.vuejs.org/guide/essentials/event-handling.html).
+this library, read the [Vue test utils guide](https://test-utils.vuejs.org/),
+particularly the sections on
+[passing data to components](https://test-utils.vuejs.org/guide/essentials/passing-data.html),
+[slots](https://test-utils.vuejs.org/guide/advanced/slots.html), and
+[testing emitted events](https://test-utils.vuejs.org/guide/essentials/event-handling.html).
 
 ### Snapshot tests
 At minimum, each component should have snapshot tests for a representative set of prop values and
