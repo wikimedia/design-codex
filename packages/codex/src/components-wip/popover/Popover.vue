@@ -98,11 +98,14 @@ export default defineComponent( {
 
 	props: {
 		/**
-		 * The reference or triggering element that opens and closes the popover.
+		 * The triggering element that opens and closes the popover. This should be a template ref.
+		 *
+		 * This must be provided so the popover can be positioned relative to the triggering
+		 * element. If omitted, the popover will not display.
 		 */
 		anchor: {
 			type: Object as PropType<MaybeElement<HTMLElement> | null>,
-			required: true
+			default: null
 		},
 
 		/**
@@ -309,6 +312,12 @@ export default defineComponent( {
 				document.addEventListener( 'keydown', onKeydown );
 				document.addEventListener( 'mousedown', onFocusOut );
 				document.addEventListener( 'focusin', onFocusOut );
+			}
+
+			if ( props.anchor === null ) {
+				// eslint-disable-next-line no-console
+				console.warn( '[CdxPopover]: The "anchor" prop must be provided to position the CdxPopover.' );
+
 			}
 		} );
 
