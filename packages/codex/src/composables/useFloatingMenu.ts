@@ -2,12 +2,7 @@ import { Ref, ComponentPublicInstance, computed, watch } from 'vue';
 import { MaybeElement, useFloating, size, flip, hide, autoUpdate, offset } from '@floating-ui/vue';
 import { FloatingMenuOptions } from '../types';
 import CdxMenu from '../components/menu/Menu.vue';
-
-// Helper function inspired on the function with the same name in @floating-ui/vue (sadly it's
-// not exported by @floating-ui/vue)
-function unwrapElement<T extends Element>( element: MaybeElement<T> ): T | null | undefined {
-	return element && '$el' in element ? element.$el as T : element;
-}
+import { unwrapElement } from '../utils/unwrapElement';
 
 // The amount of free space to leave between the bottom of the menu and the bottom of the viewport,
 // in pixels.
