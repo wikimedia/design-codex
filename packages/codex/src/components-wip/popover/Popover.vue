@@ -68,19 +68,25 @@
 						</div>
 					</slot>
 				</footer>
+				<div
+					ref="arrowRef"
+					class="cdx-popover__arrow"
+					:style="arrowStyles"
+				/>
 			</div>
 		</transition>
 	</teleport>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, inject, toRef, ref, watch, onMounted, onUnmounted, nextTick } from 'vue';
+import { defineComponent, PropType, computed, inject, toRef, ref, watch, onMounted, onUnmounted, nextTick, reactive } from 'vue';
 import { CdxButton, CdxIcon, PrimaryModalAction, ModalAction } from '../../lib';
 import { Icon, cdxIconClose } from '@wikimedia/codex-icons';
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
-import { useFloating, MaybeElement, offset, flip, autoUpdate, size } from '@floating-ui/vue';
+import { useFloating, MaybeElement, offset, flip, autoUpdate, size, arrow, Side } from '@floating-ui/vue';
 import { PositionConfig } from '../../types';
 import { unwrapElement } from '../../utils/unwrapElement';
+import { oppositeSides } from '../../constants';
 
 /**
  * A Popover is a localized, non-disruptive container that is overlaid on a web page or app,
@@ -212,13 +218,26 @@ export default defineComponent( {
 		// Floating UI behavior.
 		const floating = ref<HTMLDivElement>();
 		const reference = toRef( props, 'anchor' );
+		const arrowRef = ref<HTMLDivElement>();
+		// TODO: Convert hardcoded values to JS Token T388062.
 		const clipPadding = 16;
 		const minClipWidth = 256;
-		const minClipHeight = 128;
+		const minClipHeight = 200;
+		// Initial placement provided via props, otherwise defaults to "bottom-start".
 		const computedPlacement = computed( () => props.positionConfig?.placement ?? 'bottom-start' );
+
+		// triangle math; this holds for right triangles (of which our arrow tip is one)
+		// leaving the full calculation here for posterity, and also in case we ever pull
+		// in a dynamic token value for the length of the sides or offset distance
+		const sideA = 16;
+		const sideB = 16;
+		const sideC = Math.sqrt( ( sideA ** 2 ) + ( sideB ** 2 ) ); // Per Pythagoras
+		const triangleHeight = sideC / 2;
+		const arrowOffset = 4; // desired distance between arrow point and anchor element
+		const offsetDistance = triangleHeight + arrowOffset;
+
 		const computedMiddleware = computed( () => [
-			// Margin space (px) between Popover and its triggering element.
-			offset( 4 ),
+			offset( offsetDistance ),
 			// Default flip behavior will flip floating element across the main axis.
 			flip(),
 			size( {
@@ -231,13 +250,67 @@ export default defineComponent( {
 						maxHeight: `${ Math.max( minClipHeight, availableHeight ) }px`
 					} );
 				}
-			} )
-			// TODO: Add arrow middleware
+			} ),
+			arrow( { element: arrowRef } )
 		] );
-		const { floatingStyles } = useFloating( reference, floating, {
+
+		const {
+			floatingStyles,
+			middlewareData,
+			// Final placement which can be different than the initial placement due to middleware.
+			placement,
+			x,
+			y
+		} = useFloating( reference, floating, {
 			whileElementsMounted: autoUpdate,
 			placement: computedPlacement,
 			middleware: computedMiddleware
+		} );
+
+		const arrowStyles = reactive<Record<Side|'transform', string>>( {
+			left: '0',
+			top: '0',
+			right: '0',
+			bottom: '0',
+			transform: 'none'
+		} );
+
+		const oppositeSide = computed( () => oppositeSides[ placement.value ] );
+
+		// Check for changes in popover, and update the arrow inline styles.
+		watch( [ x, y ], () => {
+			if ( middlewareData.value.arrow ) {
+				const { x: arrowX, y: arrowY } = middlewareData.value.arrow;
+
+				arrowStyles.left = arrowX ? `${ arrowX }px` : '';
+				arrowStyles.top = arrowY ? `${ arrowY }px` : '';
+				arrowStyles.right = '';
+				arrowStyles.bottom = '';
+
+				// Apply negative px to the placement's opposite side when popover flips.
+				// We also need to account for the 1px border width.
+				arrowStyles[ oppositeSide.value ] = `${ ( -16 / 2 ) - 1 }px`;
+
+				// A note on rotation:
+				//
+				// The "arrow" we use for the popover is just a CSS box. Then we
+				// apply "clip-path: polygon()" to mask out part of the shape
+				// (so that it appears seamlessly connected with the adjacent
+				// Popover body.
+				//
+				// After applying the clipping mask, the resulting shape needs
+				// to be rotated by 45 degrees (to point up), or by 45 degrees
+				// plus some multiple of 90 degrees (to point in a different
+				// direction).
+				const arrowTransforms = {
+					top: 'rotate( 45deg )',
+					right: 'rotate( 135deg )',
+					bottom: 'rotate( 225deg )',
+					left: 'rotate( 315deg )'
+				};
+
+				arrowStyles.transform = arrowTransforms[ oppositeSide.value ];
+			}
 		} );
 
 		// Determine where to teleport the Popover to.
@@ -337,7 +410,9 @@ export default defineComponent( {
 			close,
 			cdxIconClose,
 			floating,
-			floatingStyles
+			floatingStyles,
+			arrowRef,
+			arrowStyles
 		};
 	}
 } );
@@ -346,10 +421,12 @@ export default defineComponent( {
 <style lang="less">
 @import (reference) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
+// TODO: Replace `z-index` with a component design token T387218.
 .cdx-popover {
 	background-color: @background-color-base;
+	display: flex;
+	flex-direction: column;
 	position: absolute;
-	// TODO: Replace with a popover design token.
 	z-index: @z-index-tooltip;
 	box-sizing: @box-sizing-base;
 	min-width: @size-1600;
@@ -358,11 +435,11 @@ export default defineComponent( {
 	border-radius: @border-radius-base;
 	padding: @spacing-100;
 	box-shadow: @box-shadow-medium;
-	overflow-y: auto;
 
 	&__header {
 		display: flex;
 		align-items: flex-start;
+		flex-shrink: 0;
 		gap: @spacing-50;
 		margin-bottom: @spacing-100;
 
@@ -391,7 +468,14 @@ export default defineComponent( {
 		}
 	}
 
+	&__body {
+		flex-grow: 1;
+		flex-shrink: 1;
+		overflow-y: auto;
+	}
+
 	&__footer {
+		flex-shrink: 0;
 		margin-top: @spacing-100;
 
 		&__actions {
@@ -407,6 +491,17 @@ export default defineComponent( {
 				width: @size-full;
 			}
 		}
+	}
+
+	&__arrow {
+		background-color: @background-color-base;
+		position: absolute;
+		width: @size-100;
+		height: @size-100;
+		border: @border-base;
+		box-shadow: @box-shadow-medium;
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		clip-path: polygon( 0 0, 100% 0, 0 100% );
 	}
 }
 </style>

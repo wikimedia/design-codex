@@ -3,6 +3,7 @@ import useGeneratedId from '../../composables/useGeneratedId';
 import { computePosition, flip, shift, hide, offset, autoUpdate, Placement } from '@floating-ui/vue';
 import { TooltipOptions } from '../../types';
 import './Tooltip.less';
+import { oppositeSides } from '../../constants';
 
 interface StatefulDirectiveElement extends HTMLElement {
 	// eslint-disable-next-line no-use-before-define
@@ -139,26 +140,12 @@ class Tooltip {
 			// Tooltip placement based on middleware data - considers flipping since the
 			// offset property is calculated after flipping.
 			const finalPlacement = middlewareData.offset?.placement ?? this.placement;
-			const opposites: Record<Placement, string> = {
-				left: 'right',
-				'left-start': 'right',
-				'left-end': 'right',
-				top: 'bottom',
-				'top-start': 'bottom',
-				'top-end': 'bottom',
-				bottom: 'top',
-				'bottom-start': 'top',
-				'bottom-end': 'top',
-				right: 'left',
-				'right-start': 'left',
-				'right-end': 'left'
-			};
 
 			Object.assign( this.tooltipElement.style, {
 				left: `${ x }px`,
 				top: `${ y }px`,
 				visibility: middlewareData.hide?.referenceHidden ? 'hidden' : 'visible',
-				transformOrigin: opposites[ finalPlacement ]
+				transformOrigin: oppositeSides[ finalPlacement ]
 			} );
 		} );
 	}

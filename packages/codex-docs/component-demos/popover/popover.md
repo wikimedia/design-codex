@@ -26,7 +26,7 @@ const anchorElement = ref( null );
 	v-model:open="showPopover"
 	render-in-place
 	v-bind="propValues"
-    :anchor="anchorElement"
+	:anchor="anchorElement"
 >
 	<template #default>
 		{{ slotValues.default }}

@@ -1,6 +1,7 @@
 import { ComputedRef, Ref, InjectionKey, WritableComputedRef } from 'vue';
 import { TabData, ValidationStatusType } from './types';
 import { makeStringTypeValidator } from './utils/stringTypeValidator';
+import { Placement, Side } from '@floating-ui/vue';
 
 /**
  * String prefix for use in namespacing, etc
@@ -228,3 +229,27 @@ export const I18nMessageKeys = [
 	'cdx-table-sort-caption',
 	'cdx-typeahead-search-search-results-label'
 ] as const;
+
+/**
+ * Components like Popover and Tooltip use Floating UI to position itself.
+ * This object's key-value pair is placements as the key and its opposite side as the value.
+ * Opposite sides include 'top', 'bottom', 'left', and 'right'.
+ * The final placement's opposite side is needed to reposition the component
+ * e.g. when it flips across an axis.
+ * In Popover, apply negative pixel to final placement's opposite side.
+ * In Tooltip, set the `transform-origin` to the final placement's opposite side.
+ */
+export const oppositeSides: Record<Placement, Side> = {
+	left: 'right',
+	'left-start': 'right',
+	'left-end': 'right',
+	top: 'bottom',
+	'top-start': 'bottom',
+	'top-end': 'bottom',
+	bottom: 'top',
+	'bottom-start': 'top',
+	'bottom-end': 'top',
+	right: 'left',
+	'right-start': 'left',
+	'right-end': 'left'
+} as const;

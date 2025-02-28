@@ -19,6 +19,10 @@ exports[`Popover matches the snapshot Case 0 Basic usage 1`] = `
       
     </div>
     <!--v-if-->
+    <div
+      class="cdx-popover__arrow"
+      style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
+    />
   </div>
 </teleport-stub>
 `;
@@ -59,6 +63,10 @@ exports[`Popover matches the snapshot Case 1 With title 1`] = `
       
     </div>
     <!--v-if-->
+    <div
+      class="cdx-popover__arrow"
+      style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
+    />
   </div>
 </teleport-stub>
 `;
@@ -113,6 +121,10 @@ exports[`Popover matches the snapshot Case 2 With icon 1`] = `
       
     </div>
     <!--v-if-->
+    <div
+      class="cdx-popover__arrow"
+      style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
+    />
   </div>
 </teleport-stub>
 `;
@@ -179,6 +191,10 @@ exports[`Popover matches the snapshot Case 3 With close button 1`] = `
       
     </div>
     <!--v-if-->
+    <div
+      class="cdx-popover__arrow"
+      style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
+    />
   </div>
 </teleport-stub>
 `;
@@ -245,6 +261,10 @@ exports[`Popover matches the snapshot Case 4 With custom close button label 1`] 
       
     </div>
     <!--v-if-->
+    <div
+      class="cdx-popover__arrow"
+      style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
+    />
   </div>
 </teleport-stub>
 `;
@@ -287,6 +307,10 @@ exports[`Popover matches the snapshot Case 5 With primary action 1`] = `
       </div>
       
     </footer>
+    <div
+      class="cdx-popover__arrow"
+      style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
+    />
   </div>
 </teleport-stub>
 `;
@@ -329,6 +353,10 @@ exports[`Popover matches the snapshot Case 6 With default action 1`] = `
       </div>
       
     </footer>
+    <div
+      class="cdx-popover__arrow"
+      style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
+    />
   </div>
 </teleport-stub>
 `;
@@ -378,6 +406,10 @@ exports[`Popover matches the snapshot Case 7 With stacked actions 1`] = `
       </div>
       
     </footer>
+    <div
+      class="cdx-popover__arrow"
+      style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
+    />
   </div>
 </teleport-stub>
 `;
@@ -415,6 +447,10 @@ exports[`Popover matches the snapshot Case 8 With header and footer slots 1`] = 
       Custom footer text
       
     </footer>
+    <div
+      class="cdx-popover__arrow"
+      style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
+    />
   </div>
 </teleport-stub>
 `;
