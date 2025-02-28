@@ -474,6 +474,7 @@ export default defineComponent( {
 @spacing-vertical-input-chip: @spacing-25 - @border-width-base;
 
 .cdx-chip-input {
+	min-height: @min-size-interactive-pointer;
 	// Set the border radius on the root element so the useFloatingMenu composable can unset them
 	// when a menu opens above or below it, as in MultiselectLookup.
 	border-radius: @border-radius-base;
@@ -486,20 +487,21 @@ export default defineComponent( {
 	// Common styles for the chip wrapper and separate input, regardless of disabled status.
 	&__chips,
 	&__separate-input {
+		align-items: center;
 		box-sizing: @box-sizing-base;
 		min-width: @min-width-medium;
 		min-height: @min-size-interactive-pointer;
 		border-width: @border-width-base;
 		border-style: @border-style-base;
-		padding: @spacing-vertical-input-chip @spacing-50;
-		line-height: @line-height-x-small;
+		padding: @spacing-vertical-input-chip @spacing-25;
+		line-height: @line-height-small;
 	}
 
 	&__chips {
 		display: flex;
 		flex: 1 auto;
 		flex-flow: wrap;
-		gap: @spacing-50;
+		gap: @spacing-25;
 	}
 
 	&__input {
@@ -507,8 +509,9 @@ export default defineComponent( {
 		color: @color-base;
 		flex-grow: inherit;
 		border: 0;
+		padding: 0 @spacing-25;
 		font-family: inherit;
-		font-size: inherit;
+		font-size: @font-size-medium;
 		// This is necessary to ensure that the root element is the proper height. Instead of
 		// using line height to provide breathing room for the text, we use padding on the root
 		// element.

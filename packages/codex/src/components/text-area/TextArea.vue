@@ -346,6 +346,7 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/icon-alignment.less';
 @import ( reference ) '../../themes/mixins/public/css-icon.less';
+@import ( reference ) '../../themes/mixins/public/typography.less';
 
 .cdx-text-area {
 	// Added for positioning of icons.
@@ -360,7 +361,9 @@ export default defineComponent( {
 			start,
 			@param-external-padding: @spacing-50 + @border-width-base,
 			@param-top: @spacing-25,
-			@param-height: @size-150
+			// Set the height of the icon to the line-height of the accompanying text
+			// to ensure centering of the icon to text.
+			@param-height: @line-height-medium
 		);
 	}
 
@@ -372,7 +375,9 @@ export default defineComponent( {
 			@size-icon-small,
 			@spacing-50 + @border-width-base,
 			@spacing-25,
-			@size-150
+			// Set the height of the icon to the line-height of the accompanying text
+			// to ensure centering of the icon to text.
+			@line-height-medium
 		);
 	}
 
@@ -387,7 +392,6 @@ export default defineComponent( {
 		// therefore, we override height again to get the desired height of @size-150
 		.cdx-mixin-css-icon-size( @size-icon-small );
 		.cdx-mixin-css-icon-background( @size-icon-small );
-		height: @size-150;
 	}
 
 	&__textarea {
@@ -400,9 +404,7 @@ export default defineComponent( {
 		border-radius: @border-radius-base;
 		padding: @spacing-25 @spacing-50;
 		overflow: auto;
-		font-family: inherit;
-		font-size: inherit;
-		line-height: @line-height-x-small;
+		.cdx-mixin-body-text();
 		// TODO: Support Safari/Webkit for iOS. The grabber tool is not present in mobile safari.
 		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		resize: vertical;

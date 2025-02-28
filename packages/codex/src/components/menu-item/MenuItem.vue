@@ -388,16 +388,14 @@ export default defineComponent( {
 	list-style: none;
 	position: relative;
 	padding: @spacing-50 @spacing-75;
-	line-height: @line-height-medium;
+	font-size: @font-size-medium;
+	line-height: @line-height-small;
 	transition-property: @transition-property-base;
 	transition-duration: @transition-duration-base;
 
 	&__content {
 		display: flex;
 		align-items: center;
-		// TODO: change from this deprecated value to @line-height-small.
-		// This will require some associated changes in thumbnail size, see T322384
-		line-height: @line-height-x-small;
 		.hyphens();
 
 		&,
@@ -424,6 +422,9 @@ export default defineComponent( {
 	}
 
 	&__icon {
+		// Setting the height of the icon to the line-height of the accompanying text
+		// to ensure centering of the icon to text
+		height: @line-height-small;
 		margin-right: @spacing-50;
 
 		&.cdx-icon {
@@ -432,10 +433,9 @@ export default defineComponent( {
 	}
 
 	&__selected-icon {
-		// Vertically align the icon with the first line of text by setting the height equal to the
-		// menu item text's line height. This needs to be in ems to ensure the height changes with
-		// font size, since the line height of text will do the same.
-		height: unit( @line-height-x-small, em );
+		// Setting the height of the icon to the line-height of the accompanying text
+		// to ensure centering of the icon to text
+		height: @line-height-small;
 		margin-left: auto;
 
 		&.cdx-icon {

@@ -92,7 +92,8 @@ export default defineComponent( {
 	max-width: @size-full;
 	border: @border-width-base @border-style-base @border-color-notice;
 	border-radius: @border-radius-pill;
-	padding: 0 @spacing-50;
+	// Equal to `7px` in `16px` base at default font size mode.
+	padding: 0 calc( ( @font-size-medium - 2px ) * 0.5 );
 	line-height: @line-height-small;
 
 	&__text {
@@ -108,6 +109,10 @@ export default defineComponent( {
 
 	.cdx-info-chip__icon--vue {
 		color: @color-icon-notice;
+		// Adding some negative margin to the icon when it is present. That way, when
+		// the InfoChip is text only, the spacing is even, but when there is an icon,
+		// it fits nicely with the side of the chip it is on.
+		margin-left: calc( -1 * @spacing-12 );
 	}
 
 	&--error {

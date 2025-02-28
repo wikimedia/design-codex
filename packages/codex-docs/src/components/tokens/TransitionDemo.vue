@@ -70,7 +70,7 @@ export default defineComponent( {
 	border-radius: @border-radius-base;
 	padding: @spacing-25 @spacing-75;
 	font-size: @font-size-x-small;
-	line-height: @line-height-xx-small;
+	line-height: @line-height-small;
 	text-align: center;
 	transition-property: @transition-property-base;
 	transition-duration: @transition-duration-medium;

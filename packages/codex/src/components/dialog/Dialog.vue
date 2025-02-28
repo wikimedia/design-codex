@@ -549,6 +549,7 @@ export default defineComponent( {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '../../themes/mixins/public/typography.less';
 
 .cdx-dialog-backdrop {
 	background-color: @background-color-backdrop-light;
@@ -582,7 +583,7 @@ export default defineComponent( {
 	box-shadow: @box-shadow-large;
 
 	&__header {
-		padding: @spacing-100 @spacing-150;
+		padding: @spacing-125 @spacing-150 0;
 
 		// If no custom header content is provided, apply these styles to the
 		// <header> element
@@ -599,7 +600,6 @@ export default defineComponent( {
 			display: flex;
 			flex-grow: 1;
 			flex-direction: column;
-			gap: @spacing-35;
 		}
 
 		// Add specificity to override h2 styles, e.g. in MediaWiki skins.
@@ -609,9 +609,9 @@ export default defineComponent( {
 			border: 0;
 			padding: 0;
 			font-family: inherit;
-			font-size: @font-size-large;
+			font-size: @font-size-x-large;
 			font-weight: @font-weight-bold;
-			line-height: @line-height-xxx-small;
+			line-height: @line-height-x-large;
 		}
 
 		// Increase specificity to ensure that this style shows up in VitePress.
@@ -620,7 +620,7 @@ export default defineComponent( {
 			margin: 0;
 			padding: 0;
 			font-size: @font-size-medium;
-			line-height: @line-height-xx-small;
+			line-height: @line-height-small;
 		}
 
 		&__close-button.cdx-button {
@@ -634,8 +634,9 @@ export default defineComponent( {
 
 	&__body {
 		flex-grow: 1;
-		padding: @spacing-100 @spacing-150;
+		padding: @spacing-75 @spacing-150 @spacing-125;
 		overflow-y: auto;
+		.cdx-mixin-body-text();
 
 		// If the dialog does not display a <header> element, add some extra
 		// padding at the top of the body
@@ -665,7 +666,7 @@ export default defineComponent( {
 	}
 
 	&__footer {
-		padding: @spacing-100 @spacing-150 @spacing-150;
+		padding: 0 @spacing-150 @spacing-150;
 
 		// If no custom footer content is provided, apply these styles to the
 		// <footer> element

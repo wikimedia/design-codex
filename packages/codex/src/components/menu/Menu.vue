@@ -1255,6 +1255,8 @@ export default defineComponent( {
 	border: @border-base;
 	border-radius: @border-radius-base;
 	box-shadow: @box-shadow-medium;
+	font-size: @font-size-medium;
+	line-height: @line-height-small;
 
 	&__progress-bar.cdx-progress-bar {
 		position: absolute;
@@ -1283,12 +1285,15 @@ export default defineComponent( {
 			&__text {
 				display: flex;
 				flex-direction: column;
-				line-height: @line-height-medium;
+				font-size: @font-size-medium;
+				line-height: @line-height-small;
 			}
 		}
 
 		&__icon {
-			height: unit( @line-height-medium, em );
+			// Setting the height of the icon to the line-height of the accompanying text
+			// to ensure centering of the icon to text
+			height: @line-height-small;
 		}
 
 		&__label {
@@ -1298,6 +1303,7 @@ export default defineComponent( {
 		&__description {
 			color: @color-subtle;
 			font-size: @font-size-small;
+			line-height: @line-height-small;
 		}
 	}
 

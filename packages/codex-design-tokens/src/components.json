@@ -46,35 +46,43 @@
 	},
 	"min-size": {
 		"icon-x-small": {
-			"value": "{ dimension.75 }"
+			"value": "{ dimension.65 }"
 		},
 		"icon-small": {
-			"value": "{ dimension.100 }"
+			"value": "{ dimension.90 }"
 		},
 		"icon-medium": {
-			"value": "{ dimension.125 }"
+			"value": "{ dimension.110 }"
 		},
 		"input-binary": {
 			"value": "{ dimension.125 }"
 		},
 		"toggle-switch-grip": {
-			"value": "{ dimension.125 }"
+			"value": "{ dimension.110 }"
 		}
 	},
 	"size": {
 		"icon-x-small": {
-			"value": "{ dimension.75 }"
+			"value": "calc( { font-size.medium } - 4px )"
 		},
 		"icon-small": {
-			"value": "{ dimension.100 }"
+			"value": "{ font-size.medium }"
 		},
 		"icon-medium": {
-			"value": "{ dimension.125 }"
+			"value": "calc( { font-size.medium } + 4px )"
+		},
+		"toggle-switch-grip": {
+			"value": "calc( { font-size.medium } * 1.25 )"
 		}
 	},
 	"min-width": {
 		"toggle-switch": {
-			"value": "{ dimension.300 }"
+			"value": "{ dimension.265 }"
+		}
+	},
+	"width": {
+		"toggle-switch": {
+			"value": "calc( { font-size.medium } * 3 )"
 		}
 	},
 	"min-height": {
@@ -83,11 +91,19 @@
 		},
 		"table": {
 			"header": {
-				"value": "{ dimension.400 }"
+				"value": "{ dimension.250 }"
 			},
 			"footer": {
-				"value": "{ dimension.400 }"
+				"value": "{ dimension.250 }"
 			}
+		},
+		"toggle-switch": {
+			"value": "{ dimension.175 }"
+		}
+	},
+	"height": {
+		"toggle-switch": {
+			"value": "calc( { font-size.medium } * 2 )"
 		}
 	},
 	"max-width": {
@@ -124,6 +140,12 @@
 		"typeahead-search-focus-addition": {
 			"comment": "The amount the width of the input increases when it is focused to allow for the extra spacing around the search figures. The caret position should remain static. This calculates the padding-left of the input when expanded minus the padding-left of the input when not expanded. (Note that both padding values actually include `@spacing-50` as well, but it was left out of the calculation for simplicity's sake.)",
 			"value": "calc( ( { spacing.start-typeahead-search-figure } + { min-size.search-figure } ) - ( { min-size.icon-medium } + { spacing.50 } ) )"
+		},
+		"toggle-switch-grip-start": {
+			"value": "calc( { font-size.medium } * 0.375 )"
+		},
+		"toggle-switch-grip-end": {
+			"value": "calc( { font-size.medium } * 1.25 )"
 		}
 	},
 	"border-color": {

@@ -185,13 +185,14 @@ export default defineComponent( {
 	&__text {
 		display: flex;
 		flex-direction: column;
+		font-size: @font-size-medium;
 		line-height: @line-height-small;
 		.hyphens();
 
 		&__title {
 			color: @color-base;
 			font-weight: @font-weight-bold;
-			line-height: @line-height-x-small;
+			line-height: @line-height-small;
 		}
 
 		&__description,
@@ -225,7 +226,10 @@ export default defineComponent( {
 	.cdx-card__icon {
 		// Make sure the icon inherits the content element's color.
 		color: @color-subtle;
-		margin-right: @spacing-75;
+		// Setting the height of the icon to the line-height of the accompanying text
+		// to ensure centering of the icon to text
+		height: @line-height-small;
+		margin-right: @spacing-50;
 	}
 }
 </style>

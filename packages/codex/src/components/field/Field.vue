@@ -224,7 +224,8 @@ export default defineComponent( {
 	}
 
 	&__help-text {
-		line-height: @line-height-xx-small;
+		font-size: @font-size-medium;
+		line-height: @line-height-small;
 	}
 
 	&__help-text,

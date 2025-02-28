@@ -186,14 +186,20 @@ export default defineComponent( {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	gap: @spacing-25;
+	gap: @spacing-12;
 	box-sizing: @box-sizing-base;
 	max-width: @size-full;
+	max-height: @size-150;
 	border: @border-width-base @border-style-base @border-color-interactive;
 	border-radius: @border-radius-pill;
-	padding: 0 0 0 @spacing-50;
+	padding: 0 @spacing-12 0 @spacing-50;
 	font-size: @font-size-small;
-	line-height: @line-height-small;
+	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+	line-height: 1;
+
+	.cdx-icon {
+		margin-right: @spacing-12;
+	}
 
 	&:not( .cdx-input-chip--disabled ):not( .cdx-input-chip--readonly ) {
 		transition-property: @transition-property-base;
@@ -267,7 +273,7 @@ export default defineComponent( {
 		border-radius: @border-radius-pill;
 		padding-right: @spacing-12;
 		padding-left: @spacing-12;
-		font-size: @font-size-x-small;
+		font-size: @font-size-small;
 	}
 }
 </style>

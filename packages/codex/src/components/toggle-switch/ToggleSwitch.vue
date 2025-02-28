@@ -166,6 +166,7 @@ export default defineComponent( {
 } );
 </script>
 
+<!-- eslint-disable max-len -->
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
@@ -178,7 +179,7 @@ export default defineComponent( {
 	// Visually hidden `<input>` will be absolutely positioned relative to this element.
 	// Create a stacking context by `position: relative` and `z-index` other than `auto`.
 	z-index: @z-index-stacking-0;
-	margin-bottom: @spacing-75;
+	margin-bottom: @spacing-35;
 
 	&--align-switch {
 		display: flex;
@@ -198,7 +199,7 @@ export default defineComponent( {
 		order: -1;
 
 		&:not( :empty ) {
-			padding-right: @spacing-35;
+			padding-right: @spacing-50;
 		}
 	}
 
@@ -223,9 +224,13 @@ export default defineComponent( {
 		position: relative;
 		box-sizing: @box-sizing-base;
 		min-width: @min-width-toggle-switch;
-		min-height: @min-size-interactive-pointer;
-		width: @size-300;
-		height: @size-200;
+		min-height: @min-height-toggle-switch;
+		// Switch width and height is scaling proportionally to the font-size
+		// being used in each mode.
+		// Equal to `48px` in `16px` base at default font size mode.
+		width: @width-toggle-switch;
+		// Equal to `32px` in `16px` base at default font size mode.
+		height: @height-toggle-switch;
 		border-width: @border-width-base;
 		border-style: @border-style-base;
 		border-color: @border-color-interactive;
@@ -258,16 +263,18 @@ export default defineComponent( {
 			box-sizing: @box-sizing-base;
 			min-width: @min-size-toggle-switch-grip;
 			min-height: @min-size-toggle-switch-grip;
-			width: @size-125;
-			height: @size-125;
+			// Equal to `20px` in `16px` base at default font size mode.
+			width: @size-toggle-switch-grip;
+			// Equal to `20px` in `16px` base at default font size mode.
+			height: @size-toggle-switch-grip;
 			border: @border-width-base @border-style-base @border-color-input-binary;
 			border-radius: @border-radius-circle;
 			// Set starting position with `transform` and add 1px equivalent to x position.
 			// Divide height by 50% to center the grip vertically.
-			/* stylelint-disable @stylistic/declaration-colon-newline-after */
-			transform: translateX( ( @size-25 + @size-6 ) )
-				translateY( calc( -1 * @size-half ) );
-			/* stylelint-enable @stylistic/declaration-colon-newline-after */
+			// Grip must translate dynamically based on the adaptive size
+			// of the switch being used in each mode.
+			// Translate X equal to `6px` in `16px` base at default font size mode.
+			transform: translate( @spacing-toggle-switch-grip-start, calc( -1 * @size-half ) );
 			transition-property: @transition-property-toggle-switch-grip;
 			// As ToggleSwitch background is a big area transition, let's use the slower duration
 			// for it.
@@ -295,7 +302,7 @@ export default defineComponent( {
 		width: @size-300;
 		height: @size-200;
 		margin: 0;
-		font-size: inherit;
+		font-size: @font-size-medium;
 
 		// Checked (on) state whether or not the input is enabled or disabled.
 		&:checked ~ .cdx-toggle-switch__switch {
@@ -304,10 +311,10 @@ export default defineComponent( {
 				border-color: @border-color-inverted;
 				// Move the grip to the right and add 1px equivalent to x position.
 				// Continue to divide height by 50% to center the grip.
-				/* stylelint-disable @stylistic/declaration-colon-newline-after */
-				transform: translateX( calc( @size-full + @size-6 ) )
-					translateY( calc( -1 * @size-half ) );
-				/* stylelint-enable @stylistic/declaration-colon-newline-after */
+				// Grip must translate dynamically based on the adaptive size
+				// of the switch being used in each mode.
+				// Translate X equal to `20px` in `16px` base at default font size mode.
+				transform: translate( @spacing-toggle-switch-grip-end, calc( -1 * @size-half ) );
 			}
 		}
 

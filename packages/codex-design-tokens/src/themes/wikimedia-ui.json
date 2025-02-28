@@ -536,11 +536,20 @@
 		"50": {
 			"value": 8
 		},
+		"65": {
+			"value": 10
+		},
 		"75": {
 			"value": 12
 		},
+		"90": {
+			"value": 14
+		},
 		"100": {
 			"value": 16
+		},
+		"110": {
+			"value": 18
 		},
 		"125": {
 			"value": 20
@@ -548,11 +557,17 @@
 		"150": {
 			"value": 24
 		},
+		"175": {
+			"value": 28
+		},
 		"200": {
 			"value": 32
 		},
 		"250": {
 			"value": 40
+		},
+		"265": {
+			"value": 42
 		},
 		"275": {
 			"value": 44
@@ -749,6 +764,9 @@
 		}
 	},
 	"font-size": {
+		"65": {
+			"value": 10
+		},
 		"75": {
 			"value": 12
 		},
@@ -764,11 +782,23 @@
 		"125": {
 			"value": 20
 		},
+		"140": {
+			"value": 22
+		},
 		"150": {
 			"value": 24
 		},
+		"160": {
+			"value": 26
+		},
 		"175": {
 			"value": 28
+		},
+		"190": {
+			"value": 30
+		},
+		"200": {
+			"value": 32
 		}
 	},
 	"font-weight": {
@@ -790,21 +820,52 @@
 		}
 	},
 	"line-height": {
-		"60": {
-			"value": "1.25"
-		},
-		"70": {
-			"value": "1.375"
-		},
 		"80": {
 			"deprecated": "Legacy line-height. Use `line-height-90` instead.",
-			"value": "1.4285714"
+			"value": "22.8571424"
 		},
 		"90": {
-			"value": "1.5714285"
+			"deprecated": "Deprecated, part of old font-size/line-height system",
+			"value": "25.142856"
 		},
 		"100": {
-			"value": "1.6"
+			"value": 16
+		},
+		"110": {
+			"value": 18
+		},
+		"125": {
+			"value": 20
+		},
+		"140": {
+			"value": 22
+		},
+		"160": {
+			"value": 26
+		},
+		"175": {
+			"value": 28
+		},
+		"190": {
+			"value": 30
+		},
+		"200": {
+			"value": 32
+		},
+		"210": {
+			"value": 34
+		},
+		"225": {
+			"value": 36
+		},
+		"240": {
+			"value": 38
+		},
+		"250": {
+			"value": 40
+		},
+		"260": {
+			"value": 42
 		}
 	},
 	"text-decoration": {

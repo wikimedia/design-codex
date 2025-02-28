@@ -262,4 +262,118 @@ await ( await sdBase.extend( {
 	}
 } ) ).buildAllPlatforms();
 
+// Build the small mode variables
+await ( await sdBase.extend( {
+	// Use "source" for the small mode tokens so that they override the base files in "include".
+	source: [
+		'src/modes/small.json'
+	],
+
+	platforms: {
+		stylesheet: {
+			transformGroup: 'codex/stylesheet',
+			buildPath: 'dist/',
+			options: {
+				fileHeader: 'codexDefaultFileHeader'
+			},
+			files: [
+				{
+					destination: 'theme-wikimedia-ui-mode-small.css',
+					format: 'css/variables',
+					filter: isModeToken
+				},
+				{
+					destination: 'theme-wikimedia-ui-mixin-small.less',
+					format: 'css/variables',
+					filter: isModeToken,
+					options: {
+						selector: '.cdx-mode-small()'
+					}
+				},
+				// Full build of tokens including small overrides.
+				{
+					destination: 'theme-wikimedia-ui-mode-small.json',
+					format: 'json'
+				}
+			]
+		}
+	}
+} ) ).buildAllPlatforms();
+
+// Build the large mode variables
+await ( await sdBase.extend( {
+	// Use "source" for the large mode tokens so that they override the base files in "include".
+	source: [
+		'src/modes/large.json'
+	],
+
+	platforms: {
+		stylesheet: {
+			transformGroup: 'codex/stylesheet',
+			buildPath: 'dist/',
+			options: {
+				fileHeader: 'codexDefaultFileHeader'
+			},
+			files: [
+				{
+					destination: 'theme-wikimedia-ui-mode-large.css',
+					format: 'css/variables',
+					filter: isModeToken
+				},
+				{
+					destination: 'theme-wikimedia-ui-mixin-large.less',
+					format: 'css/variables',
+					filter: isModeToken,
+					options: {
+						selector: '.cdx-mode-large()'
+					}
+				},
+				// Full build of tokens including large overrides.
+				{
+					destination: 'theme-wikimedia-ui-mode-large.json',
+					format: 'json'
+				}
+			]
+		}
+	}
+} ) ).buildAllPlatforms();
+
+// Build the x-large mode variables
+await ( await sdBase.extend( {
+	// Use "source" for the x-large mode tokens so that they override the base files in "include".
+	source: [
+		'src/modes/x-large.json'
+	],
+
+	platforms: {
+		stylesheet: {
+			transformGroup: 'codex/stylesheet',
+			buildPath: 'dist/',
+			options: {
+				fileHeader: 'codexDefaultFileHeader'
+			},
+			files: [
+				{
+					destination: 'theme-wikimedia-ui-mode-x-large.css',
+					format: 'css/variables',
+					filter: isModeToken
+				},
+				{
+					destination: 'theme-wikimedia-ui-mixin-x-large.less',
+					format: 'css/variables',
+					filter: isModeToken,
+					options: {
+						selector: '.cdx-mode-x-large()'
+					}
+				},
+				// Full build of tokens including x-large overrides.
+				{
+					destination: 'theme-wikimedia-ui-mode-x-large.json',
+					format: 'json'
+				}
+			]
+		}
+	}
+} ) ).buildAllPlatforms();
+
 console.log( '\nBuild completed!' );

@@ -53,11 +53,35 @@ onUnmounted( () => {
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui-mixin-dark.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui-mixin-small.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui-mixin-large.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui-mixin-x-large.less';
 
 // Use the dark mode mixin to set up dark mode CSS properties when the html element has the `dark`
 // class (which gets added by VitePress when dark mode is on).
 /* stylelint-disable-next-line selector-class-pattern */
 html.dark {
 	.cdx-mode-dark();
+}
+
+// Use the small mode mixin to set up small mode CSS properties when the html element has the
+// `small` class (which gets added by VitePress when small mode is on).
+/* stylelint-disable-next-line selector-class-pattern */
+html.small {
+	.cdx-mode-small();
+}
+
+// Use the large mode mixin to set up large mode CSS properties when the html element has the
+// `large` class (which gets added by VitePress when large mode is on).
+/* stylelint-disable-next-line selector-class-pattern */
+html.large {
+	.cdx-mode-large();
+}
+
+// Use the x-large mode mixin to set up x-large mode CSS properties when the html element has the
+// `x-large` class (which gets added by VitePress when x-large mode is on).
+/* stylelint-disable-next-line selector-class-pattern */
+html.x-large {
+	.cdx-mode-x-large();
 }
 </style>

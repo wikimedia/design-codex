@@ -7,6 +7,7 @@
 export function shouldUseRelativeSize( token ) {
 	const includedProps = [
 		'font-size',
+		'line-height',
 		'size',
 		'max-width',
 		'max-height'
@@ -47,7 +48,9 @@ export function shouldExposeCustomProperty( token ) {
 		'filter',
 		'opacity-icon',
 		'mix-blend-mode',
-		'box-shadow.color'
+		'box-shadow.color',
+		'font-size',
+		'line-height'
 	];
 
 	// Exclude all option tokens

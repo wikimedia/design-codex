@@ -4,6 +4,7 @@
 // clicks to open/close the menu. For a CSS-only select, this will be the `<select>` element.
 // For the Vue implementation, it will be the `.cdx-select-vue__handle` element.
 .cdx-select__handle() {
+	align-content: center;
 	box-sizing: @box-sizing-base;
 	min-width: @min-width-medium;
 	min-height: @min-size-interactive-pointer;
@@ -14,8 +15,9 @@
 	padding-bottom: @spacing-25;
 	padding-left: @spacing-50;
 	.cdx-mixin-icon-wrapper-padding( end, @spacing-50 );
-	font-size: inherit;
-	line-height: @line-height-xx-small;
+	font-size: @font-size-medium;
+	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+	line-height: 1;
 }
 
 .cdx-select__handle--disabled() {

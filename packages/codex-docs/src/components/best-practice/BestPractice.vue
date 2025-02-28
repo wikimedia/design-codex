@@ -59,11 +59,14 @@ export default defineComponent( {
 	// text aligns with the icon.
 	p {
 		margin: 0;
+		line-height: @line-height-small;
 	}
 
 	.cdx-demo-best-practice__icon {
-		// Vertically center the icon with the first line of text.
-		height: unit( @line-height-medium, em );
+		flex-shrink: 0;
+		// Setting the height of the icon to the line-height of the accompanying text
+		// to ensure centering of the icon to text
+		height: @line-height-small;
 	}
 
 	&--do {

@@ -177,6 +177,7 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/public/css-icon.less';
+@import ( reference ) '../../themes/mixins/public/typography.less';
 
 .cdx-accordion {
 	position: relative;
@@ -250,14 +251,14 @@ export default defineComponent( {
 		&__title {
 			display: flex;
 			gap: @spacing-50;
-			line-height: @line-height-xx-small;
+			line-height: @line-height-small;
 		}
 
 		&__description {
 			color: @color-subtle;
 			display: flex;
 			font-weight: @font-weight-normal;
-			line-height: @line-height-xx-small;
+			line-height: @line-height-small;
 			pointer-events: none;
 		}
 	}
@@ -271,7 +272,7 @@ export default defineComponent( {
 		// Align the icon with the text by making it as tall as the text, plus 2 times the distance
 		// between the edge of the button and the text (which is @spacing-75 for the padding and
 		// @border-width-base for the button border)
-		height: calc( unit( @line-height-xx-small, em ) + 2*@spacing-75 + 2*@border-width-base );
+		height: @size-full;
 		padding-right: @spacing-75;
 		padding-left: @spacing-75;
 		// Set the font-size so that the em-based height calculation above works correctly
@@ -284,14 +285,16 @@ export default defineComponent( {
 
 	&__content {
 		padding: @spacing-50 @spacing-75 @spacing-75;
-		font-size: @font-size-medium;
+		.cdx-mixin-body-text();
 	}
 
 	// Indicator icon
 	& > summary::before {
 		content: '';
 		.cdx-mixin-css-icon( @cdx-icon-expand, @param-size-icon: @size-icon-small );
-		height: unit( @line-height-xx-small, em );
+		// Setting the height of the icon to the line-height of the accompanying text
+		// to ensure centering of the icon to text
+		height: @line-height-small;
 		transition-property: @transition-property-toggle-switch-grip;
 		transition-duration: @transition-duration-medium;
 		transition-timing-function: @transition-timing-function-system;

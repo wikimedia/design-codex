@@ -218,6 +218,11 @@ body {
 	margin-top: var( --spacing-75 );
 }
 
+.vp-doc .cdx-demo-best-practice p,
+.vp-doc .cdx-demo-best-practices li {
+	line-height: var( --line-height-small );
+}
+
 .vp-doc table {
 	display: table;
 }

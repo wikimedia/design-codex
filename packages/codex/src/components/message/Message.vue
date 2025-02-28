@@ -252,12 +252,7 @@ export default defineComponent( {
 	position: relative;
 	border: @border-width-base @border-style-base @border-color-notice;
 	border-radius: @border-radius-base;
-	padding: @spacing-100 @spacing-100;
-
-	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-		padding-right: @spacing-150;
-		padding-left: @spacing-150;
-	}
+	padding: @spacing-75;
 
 	// Set the default CSS icon to the icon for notice messages, which is the default message type.
 	// The icon and icon color will be overridden for other message types below.
@@ -335,10 +330,9 @@ export default defineComponent( {
 	// The second selector is written the same way for consistency's sake.
 	.cdx-message__icon,
 	.cdx-message__icon--vue {
-		// Vertically align the icon with the first line of text by setting the height equal to the
-		// message text's line height. This needs to be in ems to ensure the height changes with
-		// font size, since the line height of text will do the same.
-		height: unit( @line-height-medium, em );
+		// Setting the height of the icon to the line-height of the accompanying text
+		// to ensure centering of the icon to text
+		height: @line-height-small;
 	}
 
 	&__content {
@@ -356,7 +350,8 @@ export default defineComponent( {
 
 	&__content,
 	&__content > * {
-		line-height: @line-height-medium;
+		font-size: @font-size-medium;
+		line-height: @line-height-small;
 	}
 
 	&__content > *:first-child {
@@ -371,17 +366,15 @@ export default defineComponent( {
 
 	&__dismiss-button.cdx-button {
 		position: absolute;
-		// Use `spacing` tokens as the top/right axis orientation can always be in pixels,
-		// similar to paddings
-		top: @spacing-75;
-		right: @spacing-100;
+		// In order to keep the button centered to the content, we must calculate
+		// its distance from the top dynamically based on the changing line-height
+		// across the different font modes.
+		// Equal to `7px` in `16px` base at default font size mode.
+		top: calc( ( @font-size-medium - 2px ) * 0.5 );
+		right: @spacing-50;
 		padding: @spacing-30;
 		// Remove `line-height` to not overgrow button.
 		line-height: 0;
-
-		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			right: @spacing-50;
-		}
 	}
 
 	// Add space between stacked messages.

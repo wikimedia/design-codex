@@ -448,6 +448,7 @@ export default defineComponent( {
 		box-sizing: @box-sizing-base;
 		min-height: @min-size-interactive-pointer;
 		width: @size-full;
+		max-height: @size-200;
 		margin: 0;
 		border-width: @border-width-base;
 		border-style: @border-style-base;
@@ -455,8 +456,8 @@ export default defineComponent( {
 		border-radius: @border-radius-sharp;
 		padding: @spacing-25 @spacing-50;
 		font-family: inherit;
-		font-size: inherit;
-		line-height: @line-height-xx-small;
+		font-size: @font-size-medium;
+		line-height: @line-height-small;
 
 		&:enabled {
 			background-color: @background-color-base;

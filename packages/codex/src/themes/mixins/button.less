@@ -7,7 +7,7 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	gap: @spacing-25;
+	gap: @spacing-35;
 	box-sizing: @box-sizing-base;
 	// min-width and min-height are for the medium size (default); --size-large overrides them
 	min-height: @min-size-interactive-pointer;
@@ -24,7 +24,7 @@
 	// Initial value depends on user-agent.
 	font-family: inherit;
 	// Support all browsers: Normalize by inheriting `font-size` over initial value of `none`.
-	font-size: inherit;
+	font-size: @font-size-medium;
 	font-weight: @font-weight-bold;
 	.text-overflow( @param-visible: false );
 	// Support Edge, Firefox, and IE: Normalize by removing the inheritance of `text-transform`.

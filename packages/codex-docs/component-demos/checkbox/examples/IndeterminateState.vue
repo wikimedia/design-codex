@@ -117,7 +117,8 @@ export default defineComponent( {
 .cdx-demo-indeterminate {
 	&__group {
 		// Align sub-checkboxes with the label of the top-level checkbox.
-		margin-left: calc( @size-125 + @spacing-50 );
+		// Equal to `26px` in `16px` base at default font size mode.
+		padding-left: calc( @font-size-medium + 10px );
 	}
 }
 

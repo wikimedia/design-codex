@@ -449,15 +449,18 @@ export default defineComponent( {
 		align-items: flex-start;
 		flex-shrink: 0;
 		gap: @spacing-50;
-		margin-bottom: @spacing-75;
+		margin-bottom: @spacing-50;
 
 		&__icon {
-			// Vertically align the icon with the first line of the title.
-			height: unit( @line-height-medium, em );
+			// Setting the height of the icon to the line-height of the accompanying text
+			// to ensure centering of the icon to text
+			height: @line-height-small;
 		}
 
 		&__title {
-			font-weight: @font-weight-semi-bold;
+			font-size: @font-size-medium;
+			font-weight: @font-weight-bold;
+			line-height: @line-height-small;
 		}
 
 		&__button-wrapper {
@@ -465,8 +468,9 @@ export default defineComponent( {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			// Vertically center the wrapper div with the first line of the title.
-			height: unit( @line-height-medium, em );
+			// Setting the height of the button wrapper to the line-height of the
+			// accompanying text to ensure centering of the button to text
+			height: @line-height-small;
 			// Move the button over so the edge of the icon aligns with the edge of the content.
 			// This makes the quiet button seem to take up less space.
 			margin-right: -@spacing-50;
@@ -479,6 +483,8 @@ export default defineComponent( {
 		flex-grow: 1;
 		flex-shrink: 1;
 		overflow-y: auto;
+		font-size: @font-size-medium;
+		line-height: @line-height-small;
 	}
 
 	&__footer {

@@ -1,0 +1,50 @@
+{
+	"font-size": {
+		"x-small": {
+			"comment": "`x` stands for extra. In this case extra small.",
+			"value": "{ font-size.65 }"
+		},
+		"small": {
+			"value": "{ font-size.75 }"
+		},
+		"medium": {
+			"value": "{ font-size.90 }"
+		},
+		"large": {
+			"value": "{ font-size.100 }"
+		},
+		"x-large": {
+			"value": "{ font-size.110 }"
+		},
+		"xx-large": {
+			"value": "{ font-size.140 }"
+		},
+		"xxx-large": {
+			"value": "{ font-size.160 }"
+		}
+	},
+	"line-height": {
+		"x-small": {
+			"comment": "`x` stands for extra. In this case extra small.",
+			"value": "{ line-height.110 }"
+		},
+		"small": {
+			"value": "{ line-height.125 }"
+		},
+		"medium": {
+			"value": "{ line-height.140 }"
+		},
+		"large": {
+			"value": "{ line-height.160 }"
+		},
+		"x-large": {
+			"value": "{ line-height.175 }"
+		},
+		"xx-large": {
+			"value": "{ line-height.200 }"
+		},
+		"xxx-large": {
+			"value": "{ line-height.225 }"
+		}
+	}
+}

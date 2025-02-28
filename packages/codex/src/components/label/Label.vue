@@ -211,7 +211,8 @@ export default defineComponent( {
 	display: flex;
 	// Display the description on a separate line after the label text.
 	flex-direction: column;
-	line-height: @line-height-xx-small;
+	font-size: @font-size-medium;
+	line-height: @line-height-small;
 
 	// Styles for label content.
 	&__label {

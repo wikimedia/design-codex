@@ -552,6 +552,9 @@
 		"0": {
 			"value": "{ dimension.0 }"
 		},
+		"6": {
+			"value": "{ dimension.6 }"
+		},
 		"12": {
 			"value": "{ dimension.12 }"
 		},
@@ -568,6 +571,9 @@
 		},
 		"50": {
 			"value": "{ dimension.50 }"
+		},
+		"65": {
+			"value": "{ dimension.65 }"
 		},
 		"75": {
 			"value": "{ dimension.75 }"
@@ -912,21 +918,34 @@
 	},
 	"line-height": {
 		"xxx-small": {
-			"comment": "`x` stands for extra. In this case extra-extra-extra small.",
-			"value": "{ line-height.60 }"
-		},
-		"xx-small": {
-			"value": "{ line-height.70 }"
-		},
-		"x-small": {
-			"deprecated": "Legacy line-height. Use `line-height-small` instead.",
+			"deprecated": "Use `line-height-x-small` instead. Deprecated, part of old font-size/line-height system",
 			"value": "{ line-height.80 }"
 		},
-		"small": {
+		"xx-small": {
+			"deprecated": "Use `line-height-small` instead. Deprecated, part of old font-size/line-height system",
 			"value": "{ line-height.90 }"
 		},
+		"x-small": {
+			"comment": "`x` stands for extra. In this case extra small.",
+			"value": "{ line-height.125 }"
+		},
+		"small": {
+			"value": "{ line-height.140 }"
+		},
 		"medium": {
-			"value": "{ line-height.100 }"
+			"value": "{ line-height.160 }"
+		},
+		"large": {
+			"value": "{ line-height.175 }"
+		},
+		"x-large": {
+			"value": "{ line-height.190 }"
+		},
+		"xx-large": {
+			"value": "{ line-height.210 }"
+		},
+		"xxx-large": {
+			"value": "{ line-height.240 }"
 		}
 	},
 	"text-decoration": {

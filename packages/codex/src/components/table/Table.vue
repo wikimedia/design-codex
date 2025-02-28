@@ -953,13 +953,13 @@ export default defineComponent( {
 		gap: @spacing-100;
 		box-sizing: @box-sizing-base;
 		min-height: @min-height-table-header;
-		padding: @spacing-100 @spacing-75;
+		padding: @spacing-50 @spacing-75;
 
 		&__caption {
 			color: @color-emphasized;
-			font-size: @font-size-large;
+			font-size: @font-size-x-large;
 			font-weight: @font-weight-bold;
-			line-height: @line-height-xxx-small;
+			line-height: @line-height-x-large;
 		}
 	}
 
@@ -1001,7 +1001,8 @@ export default defineComponent( {
 
 	&__table {
 		min-width: @size-full;
-		line-height: @line-height-xx-small;
+		font-size: @font-size-medium;
+		line-height: @line-height-small;
 		/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 		border-collapse: collapse;
 
@@ -1057,15 +1058,15 @@ export default defineComponent( {
 			background-color: @background-color-transparent;
 			display: flex;
 			align-items: flex-end;
-			gap: @spacing-50;
+			gap: @spacing-35;
 			width: @size-full;
 			// Override browser <button> styles for border.
 			border: 0;
 			padding: @spacing-75;
 			font-family: inherit;
-			font-size: inherit;
+			font-size: @font-size-medium;
 			font-weight: @font-weight-bold;
-			line-height: @line-height-x-small;
+			line-height: @line-height-small;
 			text-align: left;
 			text-decoration: @text-decoration-none;
 			transition-property: @transition-property-base;
@@ -1115,10 +1116,9 @@ export default defineComponent( {
 		&__sort-icon {
 			color: @color-subtle;
 			flex-shrink: 0;
-			// Vertically align the icon with the bottom line of the sort label by setting the
-			// height equal to the text's line height. This needs to be in ems to ensure the height
-			// changes with font size, since the line height of text will do the same.
-			height: unit( @line-height-x-small, em );
+			// Setting the height of the icon to the line-height of the accompanying text
+			// to ensure centering of the icon to text
+			height: @line-height-small;
 		}
 
 		// Modifiers for table cells (th and td). Note that the extra class selector is needed to
@@ -1240,6 +1240,8 @@ export default defineComponent( {
 		min-height: @min-height-table-footer;
 		border-top: @border-base;
 		padding: @spacing-75;
+		font-size: @font-size-medium;
+		line-height: @line-height-small;
 	}
 }
 </style>
