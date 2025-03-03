@@ -14,4 +14,4 @@ npx netlify deploy \
     --site $BRANCHDEPLOY_SITE_ID \
     --filter codex-docs \
     --alias $ZUUL_CHANGE \
-    --dir packages/codex-docs/docs/.vitepress/dist
+    --dir packages/codex-docs/docs/.vitepress/dist || true
