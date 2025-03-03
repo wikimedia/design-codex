@@ -23,10 +23,13 @@ const convertFileContents = ( fileContents ) => fileContents
 		// eslint-disable-next-line security/detect-unsafe-regex
 		/^@import (\( ?reference ?\) )?'@wikimedia\/codex-design-tokens\/theme-wikimedia-ui.less';$/m,
 		'@import \'mediawiki.skin.variables.less\';'
-	);
+	)
 	// Self-closing tags need to be changed to open+close tags, but that is not done here.
 	// Instead, this is done by running `eslint --fix` on the output of this script in the
 	// mw-examples:build NPM script
+
+	// Remove any <client-only> tags
+	.replace( /<\/?client-only>/gi, '' );
 
 const files = globSync( 'component-demos/*/examples/*.vue' );
 for ( const fileName of files ) {

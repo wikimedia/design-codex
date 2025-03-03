@@ -141,6 +141,17 @@ Write short titles and simple calls to action to help users understand what to d
 </template>
 </cdx-demo-wrapper>
 
+:::tip `<client-only>` tag
+The examples on this page are all wrapped with VitePress's built-in
+[`<client-only>` component](https://vitepress.dev/reference/runtime-api#clientonly),
+since the Codex documentation site (built with VitePress) uses SSR. Other
+SSRed applications will need to do something similar (only rendering Dialog
+after the `mounted` hook has been fired, etc.).
+
+This tag has been removed from the MediaWiki examples, as `<client-only>` is
+meaningless there.
+:::
+
 ### With form inputs
 
 A Dialog can be used to gather user input. For long forms with many inputs, consider splitting the
@@ -301,15 +312,6 @@ This provided target will be used if the "target" prop is not set.
 
 Finally, Dialog teleportation behavior can be disabled by setting
 `renderInPlace: true`.
-
-The examples on this page are all wrapped with Vitepress's built-in
-[`<client-only>` component](https://vitepress.dev/reference/runtime-api#clientonly),
-since the Codex documentation site (built with Vitepress) uses SSR. Other
-SSRed applications will need to do something similar (only rendering Dialog
-after the `mounted` hook has been fired, etc.).
-
-Use of the Dialog component in features which don't rely on SSR (which includes
-all MediaWiki usage for now) can dispense with this.
 :::
 
 
