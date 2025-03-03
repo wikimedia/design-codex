@@ -149,7 +149,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		.vp-doc &__tagline {
 			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 			max-width: 330px;
-			margin: 0 0 0 @spacing-50;
+			margin: 0;
 			font-family: @font-family-base;
 			font-size: @font-size-cdx-docs-tagline;
 			font-weight: @font-weight-bold;
