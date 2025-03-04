@@ -14,6 +14,11 @@
 - Popover: handle keynav and clicks outside (Lauralyn Watson)
 - styles: Consistently import tokens in Less as references (Volker E.)
 
+## New design tokens
+- `animation-duration-fast`
+- `transform-progress-indicator-spinner-start`
+- `transform-progress-indicator-spinner-end`
+
 ## Code
 - Menu: Add `tabindex="-1"` to `ul` element (Anne Tomasevich)
 - Dialog: Properly await onDialogOpen (Roan Kattouw)
