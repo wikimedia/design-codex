@@ -1,80 +1,78 @@
 <template>
 	<teleport :to="computedTarget" :disabled="renderInPlace">
-		<transition name="cdx-popover-transition">
-			<div
-				v-if="open"
-				ref="floating"
-				class="cdx-popover"
-				:style="floatingStyles"
-				v-bind="$attrs"
-			>
-				<header v-if="showHeader || $slots.header" class="cdx-popover__header">
-					<!-- @slot Customizable Popover header. -->
-					<slot name="header">
-						<cdx-icon
-							v-if="icon"
-							class="cdx-popover__header__icon"
-							:icon
-						/>
-						<div v-if="title" class="cdx-popover__header__title">
-							{{ title }}
-						</div>
-						<div class="cdx-popover__header__close-button-wrapper">
-							<cdx-button
-								v-if="useCloseButton"
-								class="cdx-popover__header__close-button"
-								weight="quiet"
-								type="button"
-								:aria-label="translatedCloseButtonLabel"
-								@click="close"
-							>
-								<cdx-icon :icon="cdxIconClose" />
-							</cdx-button>
-						</div>
-					</slot>
-				</header>
-
-				<div class="cdx-popover__body">
-					<!-- @slot Popover body content. -->
-					<slot />
-				</div>
-
-				<footer v-if="showFooter || $slots.footer" class="cdx-popover__footer">
-					<!-- @slot Customizable Popover footer. -->
-					<slot name="footer">
-						<div
-							class="cdx-popover__footer__actions"
-							:class="footerActionsClasses"
+		<div
+			v-if="open"
+			ref="floating"
+			class="cdx-popover"
+			:style="floatingStyles"
+			v-bind="$attrs"
+		>
+			<header v-if="showHeader || $slots.header" class="cdx-popover__header">
+				<!-- @slot Customizable Popover header. -->
+				<slot name="header">
+					<cdx-icon
+						v-if="icon"
+						class="cdx-popover__header__icon"
+						:icon
+					/>
+					<div v-if="title" class="cdx-popover__header__title">
+						{{ title }}
+					</div>
+					<div class="cdx-popover__header__close-button-wrapper">
+						<cdx-button
+							v-if="useCloseButton"
+							class="cdx-popover__header__close-button"
+							weight="quiet"
+							type="button"
+							:aria-label="translatedCloseButtonLabel"
+							@click="close"
 						>
-							<cdx-button
-								v-if="primaryAction"
-								class="cdx-popover__footer__primary-action"
-								weight="primary"
-								:action="primaryAction.actionType"
-								:disabled="primaryAction.disabled"
-								@click="$emit( 'primary' )"
-							>
-								{{ primaryAction.label }}
-							</cdx-button>
+							<cdx-icon :icon="cdxIconClose" />
+						</cdx-button>
+					</div>
+				</slot>
+			</header>
 
-							<cdx-button
-								v-if="defaultAction"
-								class="cdx-popover__footer__default-action"
-								:disabled="defaultAction.disabled"
-								@click="$emit( 'default' )"
-							>
-								{{ defaultAction.label }}
-							</cdx-button>
-						</div>
-					</slot>
-				</footer>
-				<div
-					ref="arrowRef"
-					class="cdx-popover__arrow"
-					:style="arrowStyles"
-				/>
+			<div class="cdx-popover__body">
+				<!-- @slot Popover body content. -->
+				<slot />
 			</div>
-		</transition>
+
+			<footer v-if="showFooter || $slots.footer" class="cdx-popover__footer">
+				<!-- @slot Customizable Popover footer. -->
+				<slot name="footer">
+					<div
+						class="cdx-popover__footer__actions"
+						:class="footerActionsClasses"
+					>
+						<cdx-button
+							v-if="primaryAction"
+							class="cdx-popover__footer__primary-action"
+							weight="primary"
+							:action="primaryAction.actionType"
+							:disabled="primaryAction.disabled"
+							@click="$emit( 'primary' )"
+						>
+							{{ primaryAction.label }}
+						</cdx-button>
+
+						<cdx-button
+							v-if="defaultAction"
+							class="cdx-popover__footer__default-action"
+							:disabled="defaultAction.disabled"
+							@click="$emit( 'default' )"
+						>
+							{{ defaultAction.label }}
+						</cdx-button>
+					</div>
+				</slot>
+			</footer>
+			<div
+				ref="arrowRef"
+				class="cdx-popover__arrow"
+				:style="arrowStyles"
+			/>
+		</div>
 	</teleport>
 </template>
 

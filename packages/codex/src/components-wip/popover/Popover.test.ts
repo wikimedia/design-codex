@@ -1,8 +1,27 @@
+import { ref } from 'vue';
 import { mount, config, shallowMount } from '@vue/test-utils';
 import CdxPopover from './Popover.vue';
 import CdxToggleButton from '../../components/toggle-button/ToggleButton.vue';
 import { cdxIconInfoFilled, Icon } from '@wikimedia/codex-icons';
 import { ModalAction, PrimaryModalAction, PositionConfig } from '../../types';
+
+// Mock `useFloating` from FloatingUI. If we use the real composable, Jest will crash in an
+// infinite loop of repositioning.
+// TODO: Consider moving this to a jest setup file to provide a global mock.
+jest.mock( '@floating-ui/vue', () => ( {
+	__esModule: true,
+	useFloating: jest.fn( () => ( {
+		floatingStyles: {
+			position: 'absolute',
+			left: '0px',
+			top: '0px'
+		},
+		middlewareData: {},
+		placement: {},
+		x: ref(),
+		y: ref()
+	} ) )
+} ) );
 
 describe( 'Popover', () => {
 	// Ignore all "teleport" behavior for the purpose of testing Popover.
