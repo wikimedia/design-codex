@@ -31,7 +31,7 @@
 		"test:unit": "NODE_OPTIONS=--experimental-vm-modules jest .",
 		"watch": "npm-watch",
 		"prepublishOnly": "copyfiles -u 1 \"dist/theme-*.*\" .",
-		"postpublish": "rimraf \"theme-*.*\""
+		"postpublish": "rimraf --glob \"theme-*.*\""
 	},
 	"watch": {
 		"build:tokens": "src/**/*.json"
