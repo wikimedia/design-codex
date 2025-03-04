@@ -49,8 +49,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 	description: 'Design system for Wikimedia',
 	// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
 	base: process.env.CODEX_DOC_ROOT || '/',
-	// Use the user's preferred color mode.
-	appearance: true,
+	// Don't show the color mode switcher; we add our own in CustomLayout.vue.
+	appearance: false,
 
 	markdown: {
 		theme: 'dracula'

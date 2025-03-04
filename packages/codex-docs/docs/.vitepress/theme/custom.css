@@ -282,9 +282,11 @@ body {
 	box-shadow: var( --box-shadow-medium );
 }
 
-/* Only the extra dropdown menu (for appearnce and social links on tablet screens. */
-.VPNavBarExtra .VPMenu {
-	padding: var( --spacing-75 );
+/* Hide the social links navbar menu on medium/large screens since we add our own GitHub link for
+   those sizes. */
+.VPFlyout.VPNavBarExtra,
+.VPSocialLinks.VPNavBarSocialLinks {
+	display: none;
 }
 
 /* Main nav dropdown link. */
@@ -303,6 +305,36 @@ body {
 .VPFlyout .link:active,
 .VPFlyout .link.active {
 	background-color: var( --background-color-progressive-subtle );
+}
+
+/* Hamburger menu icon, styled to look like an icon-only quiet button. */
+.VPNavBar .VPNavBarHamburger {
+	min-width: var( --min-size-interactive-pointer );
+	min-height: var( --min-size-interactive-pointer );
+	width: auto;
+	height: auto;
+	border-radius: var( --border-radius-base );
+	padding: 0 var( --spacing-horizontal-button );
+	transition-property: @transition-property-base;
+	transition-duration: @transition-duration-base;
+}
+
+.VPNavBar .VPNavBarHamburger:hover {
+	background-color: var( --background-color-interactive-subtle--hover );
+	border-color: var( --border-color-transparent );
+}
+
+.VPNavBar .VPNavBarHamburger:active {
+	background-color: var( --background-color-interactive-subtle--active );
+	border-color: var( --border-color-transparent );
+}
+
+.VPNavBar .content-body {
+	@media ( max-width: 767px ) {
+		/* Override column-gap style from VitePress. */
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		column-gap: var( --spacing-75 );
+	}
 }
 
 /* Hide line below main nav on large screens. */
@@ -433,32 +465,53 @@ body {
 
 /* Search. ----------------------------------------------------------------- */
 
-/* Search button in the header. */
+/* Position search button with the nav menu. */
+.VPNavBarSearch {
+	flex-grow: 0;
+}
+
+/* Search button in the header, which we style to look like an icon-only quiet button. */
 .DocSearch-Button {
+	background-color: var( --background-color-transparent );
+	justify-content: center;
+	box-sizing: var( --box-sizing-base );
+	width: var( --min-size-interactive-pointer );
+	height: var( --min-size-interactive-pointer );
+	border-radius: var( --border-radius-base );
+	padding: 0 var( --spacing-horizontal-button );
+	transition-property: @transition-property-base;
+	transition-duration: @transition-duration-base;
+
 	@media screen and ( min-width: 960px ) {
 		/* Override VitePress fixed size, which is an accessibility no-go. */
 		/* Use same approach as SearchInput. */
 		min-height: var( --min-size-interactive-pointer );
 		height: auto;
-		border-radius: var( --border-radius-base );
-	}
-	/* Make the desktop search button wider for better visibility. */
-	@media ( min-width: 1120px ) {
-		justify-content: space-between;
-		min-width: var( --size-1600 );
 	}
 }
 
-.DocSearch-Button .DocSearch-Button-Placeholder {
-	/* Override VitePress absolute font size, which is an accessibility no-go. */
-	font-size: initial;
+.DocSearch-Button:hover {
+	background-color: var( --background-color-interactive-subtle--hover );
+	border-color: var( --border-color-transparent );
+}
+
+.DocSearch-Button:active {
+	background-color: var( --background-color-interactive-subtle--active );
+	border-color: var( --border-color-transparent );
+}
+
+/* Hide placeholder text (that makes the button look like an input) and keyboard nav hint. */
+.DocSearch-Button .DocSearch-Button-Placeholder,
+.DocSearch-Button .DocSearch-Button-Keys {
+	display: none;
 }
 
 .vpi-search,
 .DocSearch-Button .DocSearch-Search-Icon {
 	--icon: url( data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%0D%0A%09%3Cpath%20d%3D%22M12.2%2013.6a7%207%200%201%201%201.4-1.4l5.4%205.4-1.4%201.4zM3%208a5%205%200%201%200%2010%200A5%205%200%200%200%203%208%22%2F%3E%0D%0A%3C%2Fsvg%3E );
-	min-width: var( --min-size-icon-small );
-	min-height: var( --min-size-icon-small );
+	min-width: var( --min-size-icon-medium );
+	min-height: var( --min-size-icon-medium );
+	margin: 0;
 }
 
 .VPLocalSearchBox .results .result {

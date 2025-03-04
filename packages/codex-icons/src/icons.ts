@@ -221,6 +221,9 @@ export const cdxIconCode = svgCode;
 import svgCollapse from './images/collapse.svg';
 export const cdxIconCollapse = svgCollapse;
 
+import svgConfigure from './images/configure.svg';
+export const cdxIconConfigure = svgConfigure;
+
 import svgCopy from './images/copy.svg';
 export const cdxIconCopy: IconFlipForRtl = {
 	ltr: svgCopy,
