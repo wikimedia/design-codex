@@ -74,7 +74,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, inject, toRef, ref, watch, onMounted, onUnmounted } from 'vue';
+import { defineComponent, PropType, computed, inject, toRef, ref, watch, onMounted, onUnmounted, nextTick } from 'vue';
 import { CdxButton, CdxIcon, PrimaryModalAction, ModalAction } from '../../lib';
 import { Icon, cdxIconClose } from '@wikimedia/codex-icons';
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
@@ -307,13 +307,14 @@ export default defineComponent( {
 			}
 		} );
 
-		onMounted( () => {
+		onMounted( async () => {
 			if ( props.open ) {
 				document.addEventListener( 'keydown', onKeydown );
 				document.addEventListener( 'mousedown', onFocusOut );
 				document.addEventListener( 'focusin', onFocusOut );
 			}
 
+			await nextTick();
 			if ( props.anchor === null ) {
 				// eslint-disable-next-line no-console
 				console.warn( '[CdxPopover]: The "anchor" prop must be provided to position the CdxPopover.' );
