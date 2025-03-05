@@ -373,6 +373,9 @@ Every message that is used in a Codex component should also be defined in MediaW
 new message, in MediaWiki core, add the message to both the `en.json` and `qqq.json` files in
 `languages/i18n/codex`. Ensure the message key is prefixed with `cdx-` and the component name.
 
+In the Codex repository, add the new message key to the `I18nMessageKeys` constant,
+which maintains a list of all message keys used in Codex.
+
 ### Using the message within a component
 
 Note that both composables return a computed ref containing the translated string.
