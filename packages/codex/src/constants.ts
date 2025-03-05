@@ -209,6 +209,7 @@ export const I18nMessageKeys = [
 	'cdx-input-chip-aria-description',
 	'cdx-label-optional-flag',
 	'cdx-message-dismiss-button-label',
+	'cdx-popover-close-button-label',
 	'cdx-search-input-search-button-label',
 	'cdx-table-pager-button-first-page',
 	'cdx-table-pager-button-last-page',

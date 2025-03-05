@@ -246,7 +246,7 @@ export default defineComponent( {
 
 		const translatedCloseButtonLabel = useI18nWithOverride(
 			toRef( props, 'closeButtonLabel' ),
-			'cdx-dialog-close-button-label',
+			'cdx-popover-close-button-label',
 			'Close'
 		);
 
