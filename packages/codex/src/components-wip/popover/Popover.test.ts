@@ -3,7 +3,8 @@ import { mount, config, shallowMount } from '@vue/test-utils';
 import CdxPopover from './Popover.vue';
 import CdxToggleButton from '../../components/toggle-button/ToggleButton.vue';
 import { cdxIconInfoFilled, Icon } from '@wikimedia/codex-icons';
-import { ModalAction, PrimaryModalAction, PositionConfig } from '../../types';
+import { ModalAction, PrimaryModalAction } from '../../types';
+import { Placement } from '@floating-ui/vue';
 
 // Mock `useFloating` from FloatingUI. If we use the real composable, Jest will crash in an
 // infinite loop of repositioning.
@@ -48,7 +49,7 @@ describe( 'Popover', () => {
 				stackedActions?: boolean,
 				target?: string,
 				renderInPlace?: boolean,
-				positionConfig?: PositionConfig
+				placement?: Placement
 			},
 			slots?: {
 				header?: string,

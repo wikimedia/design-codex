@@ -25,6 +25,10 @@ import {
 	I18nMessageKeys
 } from './constants';
 
+// Export the Placement type from FloatingUI for ease of use downstream
+/** @public */
+export { Placement };
+
 export type I18nMessageValue<P> = string | ( ( ...params: P[] ) => string );
 
 /** @public */
@@ -168,11 +172,6 @@ export interface FloatingMenuOptions {
 	useAvailableWidth?: boolean,
 	placement?: Placement,
 	offset?: OffsetOptions
-}
-
-/** @public */
-export interface PositionConfig {
-	placement?: Placement
 }
 
 /** @public */

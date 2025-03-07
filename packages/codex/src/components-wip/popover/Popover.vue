@@ -81,8 +81,7 @@ import { defineComponent, PropType, computed, inject, toRef, ref, watch, onMount
 import { CdxButton, CdxIcon, PrimaryModalAction, ModalAction } from '../../lib';
 import { Icon, cdxIconClose } from '@wikimedia/codex-icons';
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
-import { useFloating, MaybeElement, offset, flip, autoUpdate, size, arrow, Side } from '@floating-ui/vue';
-import { PositionConfig } from '../../types';
+import { useFloating, MaybeElement, offset, flip, autoUpdate, size, arrow, Side, Placement } from '@floating-ui/vue';
 import { unwrapElement } from '../../utils/unwrapElement';
 import { oppositeSides } from '../../constants';
 
@@ -191,9 +190,9 @@ export default defineComponent( {
 		/**
 		 * Positioning options for the Popover.
 		 */
-		positionConfig: {
-			type: Object as PropType<PositionConfig | null>,
-			default: null
+		placement: {
+			type: String as PropType<Placement>,
+			default: 'bottom'
 		}
 	},
 	emits: [
@@ -213,16 +212,19 @@ export default defineComponent( {
 		'default'
 	],
 	setup( props, { emit } ) {
+		// Destructure "placement" prop to a reactive ref so we can pass
+		// it to useFloating
+		const placementRef = toRef( props, 'placement' );
+
 		// Floating UI behavior.
 		const floating = ref<HTMLDivElement>();
 		const reference = toRef( props, 'anchor' );
 		const arrowRef = ref<HTMLDivElement>();
+
 		// TODO: Convert hardcoded values to JS Token T388062.
 		const clipPadding = 16;
 		const minClipWidth = 256;
 		const minClipHeight = 200;
-		// Initial placement provided via props, otherwise defaults to "bottom-start".
-		const computedPlacement = computed( () => props.positionConfig?.placement ?? 'bottom-start' );
 
 		// triangle math; this holds for right triangles (of which our arrow tip is one)
 		// leaving the full calculation here for posterity, and also in case we ever pull
@@ -255,13 +257,12 @@ export default defineComponent( {
 		const {
 			floatingStyles,
 			middlewareData,
-			// Final placement which can be different than the initial placement due to middleware.
 			placement,
 			x,
 			y
 		} = useFloating( reference, floating, {
 			whileElementsMounted: autoUpdate,
-			placement: computedPlacement,
+			placement: placementRef,
 			middleware: computedMiddleware
 		} );
 

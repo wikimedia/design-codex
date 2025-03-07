@@ -93,22 +93,6 @@ interface DialogAction {
 }
 ```
 
-### PositionConfig
-
-Options for positioning elements, like Popovers, with the 3rd-party
-[Floating UI package](https://floating-ui.com/).
-
-```ts
-interface PositionConfig {
-    // Placement positions the floating element:
-    // 'top', 'top-start', 'top-end',
-    // 'right', 'right-start', 'right-end',
-    // 'bottom', 'bottom-start', 'bottom-end',
-    // 'left', 'left-start', and 'left-end'.
-	placement?: Placement
-}
-```
-
 ### FloatingMenuOptions
 
 Options which can be passed to the `useFloatingMenu` composable.
@@ -136,36 +120,13 @@ export type I18nFunction = ( messageKey: I18nMessageKey, ...params: any[] ) => s
 
 ### Icon
 
-Icons are a special type defined in the `@wikimedia/codex-icons` package. The `Icon` type is a union
-of several different other types.
+The `Icon` type is a union of several other types.
 
 ```ts
 type Icon = SimpleIcon | IconFlipForRtl | IconVariedByDir | IconVariedByLang;
 ```
 
-#### SimpleIcon
-
-Either an object with a `path` property or a string.
-
-```ts
-interface PathIcon {
-	/**
-	 * An SVG path string, e.g. 'M3 3H1v16h18v-2H3z'
-	 */
-	path: string
-}
-
-/**
- * An SVG string, e.g. '<path d="M3 3H1v16h18v-2H3z"/>'. An SVG string may contain multiple tags,
- * e.g. '<circle x="..." y="..." r="..."/><path d="..."/>'. SVG strings should not contain an
- * <?xml ...?> tag or a wrapping <svg> tag.
- */
-type SvgIcon = string;
-
-type SimpleIcon = PathIcon | SvgIcon;
-```
-
-#### IconSize
+### IconSize
 
 See [IconSizes](#iconsizes).
 
@@ -174,7 +135,7 @@ See [IconSizes](#iconsizes).
 type IconSize = typeof IconSizes[ number ];
 ```
 
-#### IconFlipForRtl
+### IconFlipForRtl
 
 An icon with a single SVG that should flip horizontally in RTL mode.
 
@@ -192,7 +153,7 @@ interface IconFlipForRtl {
 }
 ```
 
-#### IconVariedByDir
+### IconVariedByDir
 
 An icon that varies per text direction (but can't only be flipped).
 
@@ -205,7 +166,7 @@ interface IconVariedByDir {
 }
 ```
 
-#### IconVariedByLang
+### IconVariedByLang
 
 An icon that varies per language.
 
@@ -334,6 +295,15 @@ interface ModalAction {
 }
 ```
 
+### Placement
+
+Codex re-exports the `Placement` type from [FloatingUI](https://floating-ui.com/) for convenience.
+
+```ts
+type Placement = "top" | "right" | "bottom" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end";
+```
+
+
 ### PrimaryDialogAction
 
 Deprecated: use [PrimaryModalAction](#primarymodalaction) instead.
@@ -374,6 +344,28 @@ interface SearchResultClickEvent {
 	/** Number of search results. */
 	numberOfResults: number
 }
+```
+
+### SimpleIcon
+
+Either an object with a `path` property or a string.
+
+```ts
+interface PathIcon {
+	/**
+	 * An SVG path string, e.g. 'M3 3H1v16h18v-2H3z'
+	 */
+	path: string
+}
+
+/**
+ * An SVG string, e.g. '<path d="M3 3H1v16h18v-2H3z"/>'. An SVG string may contain multiple tags,
+ * e.g. '<circle x="..." y="..." r="..."/><path d="..."/>'. SVG strings should not contain an
+ * <?xml ...?> tag or a wrapping <svg> tag.
+ */
+type SvgIcon = string;
+
+type SimpleIcon = PathIcon | SvgIcon;
 ```
 
 ### StatusType
@@ -446,7 +438,6 @@ export interface TablePaginationSizeOption extends MenuItemData {
 }
 ```
 
-
 ### TextInputType
 
 See [TextInputTypes](#textinputtypes).
@@ -455,6 +446,15 @@ See [TextInputTypes](#textinputtypes).
 // Allowed values: 'text', 'search', 'number', 'email', 'password', 'tel', 'url', 'week', 'month', 'date', 'datetime-local', 'time'
 type TextInputType = typeof TextInputTypes[ number ];
 ```
+
+### Thumbnail
+
+```ts
+interface Thumbnail {
+	url: string;
+}
+```
+
 
 ### ValidationMessages
 
@@ -473,14 +473,6 @@ See [ValidationStatusTypes](#validationstatustypes).
 ```ts
 // Allowed values: 'default', 'error'
 type ValidationStatusType = typeof ValidationStatusTypes[ number ];
-```
-
-### Thumbnail
-
-```ts
-interface Thumbnail {
-	url: string;
-}
 ```
 
 ## Constants

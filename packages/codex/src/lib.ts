@@ -73,6 +73,7 @@ import * as stringHelpers from './utils/stringHelpers';
 
 // Types
 import type {
+	Placement,
 	I18nMessageKey,
 	I18nFunction,
 	HTMLDirection,
@@ -80,7 +81,6 @@ import type {
 	ButtonWeight,
 	ButtonSize,
 	ButtonGroupItem,
-	PositionConfig,
 	FloatingMenuOptions,
 	IconSize,
 	StatusType,
@@ -173,6 +173,7 @@ export {
 	stringHelpers,
 
 	// Types
+	Placement,
 	I18nMessageKey,
 	I18nFunction,
 	HTMLDirection,
@@ -180,7 +181,6 @@ export {
 	ButtonWeight,
 	ButtonSize,
 	ButtonGroupItem,
-	PositionConfig,
 	FloatingMenuOptions,
 	TextInputType,
 	IconSize,

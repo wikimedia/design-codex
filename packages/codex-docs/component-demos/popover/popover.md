@@ -7,6 +7,24 @@ const controlsConfig = [
 	{ name: 'icon', type: 'icon' },
 	{ name: 'useCloseButton', type: 'boolean' },
 	{
+		name: 'placement',
+		type: 'select',
+		menuItems: [
+			{ value: 'bottom' },
+			{ value: 'bottom-start' },
+			{ value: 'bottom-end' },
+			{ value: 'top' },
+			{ value: 'top-start' },
+			{ value: 'top-end' },
+			{ value: 'right' },
+			{ value: 'right-start' },
+			{ value: 'right-end' },
+			{ value: 'left' },
+			{ value: 'left-start' },
+			{ value: 'left-end' }
+		]
+	},
+	{
 		name: 'default',
 		type: 'slot',
 		default: 'Popover body content.'
