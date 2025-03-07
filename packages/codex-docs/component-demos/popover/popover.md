@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue';
-import { CdxPopover, CdxToggleButton } from '@wikimedia/codex';
+import { CdxPopover, CdxToggleButton, CdxAccordion } from '@wikimedia/codex';
+import PopoverBasic from '@/../component-demos/popover/examples/PopoverBasic.vue';
+import PopoverArticlePreview from '@/../component-demos/popover/examples/PopoverArticlePreview.vue';
 
 const controlsConfig = [
 	{ name: 'title', type: 'text', initial: 'Popover title' },
@@ -144,6 +146,33 @@ Use the header to align standard text content to the dismiss action.
 </cdx-demo-best-practice>
 </cdx-demo-best-practices>
 
+<cdx-demo-wrapper>
+<template v-slot:demo>
+    <popover-basic />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/popover/examples/PopoverBasic.vue [NPM]
+
+<<< @/../component-demos/popover/examples-mw/PopoverBasic.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+Create a template ref for the trigger element, and then pass that ref to the `anchor` prop.
+The `anchor` prop is required to correctly position the Popover.
+
+Ensure the toggle button's on/off state and the popover's visibility is synchronized via `v-model`.
+
+</cdx-accordion>
+
 ### Article preview
 
 This example uses the `hover` trigger since a link leads to a new page or section.
@@ -160,6 +189,37 @@ Use `hover` as a trigger only for elements which have a separate `press` action,
 
 </cdx-demo-best-practice>
 </cdx-demo-best-practices>
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+    <popover-article-preview />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/popover/examples/PopoverArticlePreview.vue [NPM]
+
+<<< @/../component-demos/popover/examples-mw/PopoverArticlePreview.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+The example has multiple anchor tags that displays Popover content when hovered or focused.
+The trigger element and Popover content is dynamically updated based on where the event took
+place.
+
+- Assign each trigger element e.g. anchor tag a template ref, and store them in
+the `triggerElements` array.
+- To show and hide the Popover on hover and focus, add `mouseover`, `focus`, `mouseleave`, and `blur`
+event listeners to the anchor tags that trigger a Popover.
+
+</cdx-accordion>
 
 ## Technical implementation
 
