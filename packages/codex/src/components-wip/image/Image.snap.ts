@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Image matches the snapshot Case 0 renders correctly in the default state with a valid source: ({"alt": "Valid image", "height": 220, "src": "https://upload.wikimedia.org/wikipedia/commons/d/df/Full_moon_partially_obscured_by_atmosphere.jpg", "width": 400}) => HTML 1`] = `
+exports[`Image matches the snapshot Case 0 renders in the default state with a valid source: ({"alt": "Valid image", "height": 220, "src": "https://upload.wikimedia.org/wikipedia/commons/d/df/Full_moon_partially_obscured_by_atmosphere.jpg", "width": 400}) => HTML 1`] = `
 <div
   class="cdx-image-wrapper"
 >

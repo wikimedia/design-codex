@@ -19,7 +19,7 @@ describe( 'Image', () => {
 
 	describe( 'matches the snapshot', () => {
 		const cases: Case[] = [
-			[ 'renders correctly in the default state with a valid source', { src: validImageSrc, alt: 'Valid image', width: 400, height: 220 } ],
+			[ 'renders in the default state with a valid source', { src: validImageSrc, alt: 'Valid image', width: 400, height: 220 } ],
 			[ 'renders with a custom aspect ratio', { src: validImageSrc, alt: 'Image with aspect ratio', aspectRatio: '16-9', width: 400, height: 220 } ]
 		];
 
