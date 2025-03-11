@@ -1,3 +1,13 @@
+<script setup>
+import { CdxTable } from '@wikimedia/codex';
+
+// TODO: Replace static minWidth value with design token.
+const columns = [
+	{ id: 'style', label: 'Style', minWidth: '256px' },
+	{ id: 'example', label: 'Example' },
+]
+</script>
+
 # Typography
 
 Wikimedia projects rely on writing and reading. Typography is a key component of their design.
@@ -155,173 +165,126 @@ when zoomed 200% on a 1x device).
 Common text styles are based on the defined scale to clearly communicate the content hierarchy.
 Color hints are guidance for general use case in a light mode theme.
 
-<div class="cdx-docs-headings">
-	<div class="cdx-docs-headings__heading">
-		<h1>
-			Heading 1<br>
-			serif font, regular 28/35
-		</h1>
-	</div>
-	<div class="cdx-docs-headings__heading">
-		<h2>
-			Heading 2<br>
-			serif font, regular 24/30
-		</h2>
-	</div>
-	<div class="cdx-docs-headings__heading">
-		<h3>
-			Heading 3<br>
-			sans-serif font, bold 20/25
-		</h3>
-	</div>
-	<div class="cdx-docs-headings__heading">
-		<h4>
-			Heading 4<br>
-			sans-serif font, bold 18/22.5
-		</h4>
-	</div>
-	<div class="cdx-docs-headings__heading">
-		<h5>
-			Heading 5<br>
-			sans-serif font, bold 16/20
-		</h5>
-	</div>
-	<div class="cdx-docs-headings__heading">
-		<h6>
-			Heading 6<br>
-			sans-serif font, bold 14/22.4
-		</h6>
-	</div>
-</div>
-
-All headings use `color-emphasized`<span class="cdx-docs-headings__footer__color-swatch"></span> by default.
-
-<div class="cdx-docs-paragraphs">
-	<div class="cdx-docs-paragraphs__example">
-		<div class="cdx-docs-paragraphs__example__info">
-			<p class="cdx-docs-paragraphs__example__info__label">
-				Body Paragraph
-			</p>
-			<p>sans-serif font, regular</p>
-			<p>16 sp in color-base</p>
-		</div>
-		<div class="cdx-docs-paragraphs__example__demo">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius. Itaque laudantium, praesentium maiores distinctio! Voluptate ipsam consequatur corrupti inventore cum illo quae modi.</p>
-		</div>
-	</div>
-	<div class="cdx-docs-paragraphs__example cdx-docs-paragraphs__example--complementary">
-		<div class="cdx-docs-paragraphs__example__info">
-			<p class="cdx-docs-paragraphs__example__info__label">
-				Complementary
-			</p>
-			<p>sans-serif font, regular</p>
-			<p>14 sp in color-placeholder or color-subtle</p>
-		</div>
-		<div class="cdx-docs-paragraphs__example__demo">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius.</p>
-		</div>
-	</div>
-	<div class="cdx-docs-paragraphs__example">
-		<div class="cdx-docs-paragraphs__example__info">
-			<p class="cdx-docs-paragraphs__example__info__label">
-				Block quotation / citation
-			</p>
-		</div>
-		<div class="cdx-docs-paragraphs__example__demo">
-			<blockquote>
-				<p>sans-serif font, italic 20sp, 4px border before in border-color-muted</p>
-				<cite>— sans-serif font, regular 14 sp</cite>
-			</blockquote>
-		</div>
-	</div>
-	<div class="cdx-docs-paragraphs__example">
-		<div class="cdx-docs-paragraphs__example__info">
-			<p class="cdx-docs-paragraphs__example__info__label">
-				Figure caption
-			</p>
-			<p>sans-serif font, italic</p>
-			<p>12 sp in color-placeholder</p>
-		</div>
-		<div class="cdx-docs-paragraphs__example__demo">
-			<figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius.</figcaption>
-		</div>
-	</div>
-	<div class="cdx-docs-paragraphs__example cdx-docs-paragraphs__example--small-text">
-		<div class="cdx-docs-paragraphs__example__info">
-			<p class="cdx-docs-paragraphs__example__info__label">
-				Small text
-			</p>
-			<p>sans-serif font, regular</p>
-			<p>12 sp</p>
-		</div>
-		<div class="cdx-docs-paragraphs__example__demo">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius.</p>
-		</div>
-	</div>
-	<div class="cdx-docs-paragraphs__example cdx-docs-paragraphs__example--placeholder">
-		<div class="cdx-docs-paragraphs__example__info">
-			<p class="cdx-docs-paragraphs__example__info__label">
-				Placeholder
-			</p>
-			<p>sans-serif font, regular</p>
-			<p>16 sp in color-placeholder</p>
-		</div>
-		<div class="cdx-docs-paragraphs__example__demo">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius.</p>
-		</div>
-	</div>
-	<div class="cdx-docs-paragraphs__example">
-		<div class="cdx-docs-paragraphs__example__info">
-			<p class="cdx-docs-paragraphs__example__info__label">
-				Unordered list
-			</p>
-			<p>sans-serif font, regular</p>
-			<p>16 sp</p>
-		</div>
-		<div class="cdx-docs-paragraphs__example__demo">
-			<ul>
-				<li>list-style-type: disc; list-style-position: outside</li>
-				<li>list-style-type: disc; list-style-position: outside</li>
-				<li>list-style-type: disc; list-style-position: outside</li>
-				<li>
-					list-style-type: disc; list-style-position: outside
-					<ul>
-						<li>Nested list item, second order; list-style-type: circle</li>
-						<li>
-							Nested list item, second order; list-style-type: circle
-							<ul>
-								<li>Nested list item, third order; list-style-type: square</li>
-								<li>Nested list item, third order; list-style-type: square</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="cdx-docs-paragraphs__example">
-		<div class="cdx-docs-paragraphs__example__info">
-			<p class="cdx-docs-paragraphs__example__info__label">
-				Ordered list
-			</p>
-			<p>sans-serif font, regular</p>
-			<p>16 sp</p>
-		</div>
-		<div class="cdx-docs-paragraphs__example__demo">
-			<ol>
-				<li>list-style-position: outside</li>
-				<li>list-style-position: outside</li>
-				<li>list-style-position: outside</li>
-				<li>
-					list-style-position: outside
-					<ol>
-						<li>Nested list item</li>
-					</ol>
-				</li>
-			</ol>
-		</div>
-	</div>
-</div>
+<cdx-table class="cdx-docs-text-styles vp-raw" :columns="columns" caption="List of text styles" :hide-caption="true">
+<template #tbody>
+<tbody>
+	<tr>
+		<th>
+			Heading 1
+			<code>font-family-serif</code>
+			<code>font-size-xxx-large</code>
+			<code>font-weight-normal</code>
+			<code>line-height-xxx-large</code>
+		</th>
+		<td>
+			<h1>Wikipedia’s vast pages quickly inform curious minds worldwide.</h1>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Heading 2
+			<code>font-family-serif</code>
+			<code>font-size-xx-large</code>
+			<code>font-weight-normal</code>
+			<code>line-height-xx-large</code>
+		</th>
+		<td>
+			<h2>Wikipedia’s vast pages quickly inform curious minds worldwide.</h2>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Heading 3
+			<code>font-family-sans</code>
+			<code>font-size-x-large</code>
+			<code>font-weight-bold</code>
+			<code>line-height-x-large</code>
+		</th>
+		<td>
+			<h3>Wikipedia’s vast pages quickly inform curious minds worldwide.</h3>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Heading 4
+			<code>font-family-sans</code>
+			<code>font-size-large</code>
+			<code>font-weight-bold</code>
+			<code>line-height-large</code>
+		</th>
+		<td>
+			<h4>Wikipedia’s vast pages quickly inform curious minds worldwide.</h4>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Body
+			<code>font-family-sans</code>
+			<code>font-size-medium</code>
+			<code>font-weight-normal</code>
+			<code>line-height-medium</code>
+		</th>
+		<td>
+			<p>Wikipedia’s vast pages quickly inform curious minds worldwide.</p>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Small
+			<code>font-family-sans</code>
+			<code>font-size-small</code>
+			<code>font-weight-normal</code>
+			<code>line-height-small</code>
+		</th>
+		<td>
+			<small>Wikipedia’s vast pages quickly inform curious minds worldwide.</small>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Figure caption
+			<code>font-family-sans</code>
+			<code>font-size-small</code>
+			<code>font-weight-normal</code>
+			<code>line-height-small</code>
+		</th>
+		<td>
+			<figure>
+				<figcaption>Wikipedia’s vast pages quickly inform curious minds worldwide.</figcaption>
+			</figure>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Block quote
+			<code>font-family-serif</code>
+			<code>font-size-medium</code>
+			<code>font-weight-normal</code>
+			<code>line-height-medium</code>
+		</th>
+		<td>
+			<div class="cdx-docs-blockquote">
+				<blockquote>Wikipedia’s vast pages quickly inform curious minds worldwide.</blockquote>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Cite
+			<code>font-family-sans</code>
+			<code>font-size-small</code>
+			<code>font-weight-normal</code>
+			<code>line-height-small</code>
+		</th>
+		<td>
+			<div class="cdx-docs-blockquote">
+				<cite>— a Wikimedia themed pangram</cite>
+			</div>
+		</td>
+	</tr>
+</tbody>
+</template>
+</cdx-table>
 
 **Code**<br>
 <style>
@@ -351,6 +314,7 @@ font-size: 14px; /* 14 sp equivalent */
 
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '../codex/src/themes/mixins/public/typography.less';
 
 .cdx-docs-contrast {
 	.cdx-demo-rules__media {
@@ -372,159 +336,42 @@ font-size: 14px; /* 14 sp equivalent */
 	}
 }
 
-.cdx-docs-headings {
-	// Get rid of VitePress styles.
+.cdx-docs-text-styles {
+	.cdx-mixin-typography();
+
 	h1,
 	h2,
 	h3,
 	h4,
-	h5,
-	h6 {
+	p,
+	small,
+	figcaption,
+	blockquote,
+	cite,
+	figure {
 		margin: 0;
-		border: 0;
-		// Necessary to override VitePress's h2 styles.
-		/* stylelint-disable-next-line declaration-no-important */
-		padding: 0 !important;
 	}
 
-	// Make h2 font family and weight the same as onwiki.
-	h2 {
-		font-family: @font-family-serif;
-		// Necessary to override VitePress's h2 styles.
-		/* stylelint-disable-next-line declaration-no-important */
-		font-weight: @font-weight-normal !important;
+	.cdx-docs-blockquote {
+		border-left: @border-width-base * 4 @border-style-base @border-color-subtle;
+		padding-left: @spacing-100;
 	}
 
-	// Make h6 font size the same as onwiki.
-	h6 {
+	tbody th {
+		display: grid;
+		gap: @spacing-25;
+		// Don't bold row headings; it's too much bold text.
+		font-weight: @font-weight-normal;
+	}
+
+	code {
+		background-color: @background-color-neutral;
+		color: @color-base;
+		width: @size-content-fit;
+		border-radius: @border-radius-base;
+		padding: @spacing-12 @spacing-25;
 		font-size: @font-size-small;
 	}
-
-	&__heading {
-		border-bottom: @border-subtle;
-		padding: @spacing-100 0;
-	}
-
-	&__footer {
-		background-color: @background-color-interactive-subtle;
-		margin-top: @spacing-100;
-		padding: @spacing-100;
-
-		p {
-			margin: 0;
-		}
-
-		&__color-swatch {
-			// This is a swatch of a color, not a background color.
-			background-color: @color-emphasized;
-			display: inline-block;
-			width: @size-75;
-			height: @size-75;
-			margin-left: @spacing-25;
-			border-radius: @border-radius-circle;
-		}
-	}
 }
 
-.cdx-docs-paragraphs {
-	margin-top: @spacing-200;
-
-	&__example {
-		display: flex;
-		border-bottom: @border-subtle;
-		padding: @spacing-100 0;
-
-		p {
-			margin: 0;
-		}
-
-		&__info {
-			background-color: @background-color-interactive-subtle;
-			flex-shrink: 0;
-			flex-basis: 50%;
-			margin-right: @spacing-100;
-			padding: @spacing-50;
-			font-size: @font-size-small;
-
-			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				flex-basis: @size-1600 + @size-200;
-			}
-
-			&__label {
-				font-weight: @font-weight-bold;
-			}
-		}
-
-		blockquote {
-			border-left: @border-width-base * 4 @border-style-base @border-color-muted;
-
-			p {
-				color: @color-base;
-				font-family: @font-family-serif;
-				font-size: @font-size-x-large;
-				// FIXME: Add token.
-				/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-				font-style: italic;
-			}
-
-			cite {
-				font-family: @font-family-base;
-				font-size: @font-size-small;
-				// FIXME: Add token.
-				/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-				font-style: normal;
-			}
-		}
-
-		figcaption {
-			color: @color-placeholder;
-			font-size: @font-size-x-small;
-		}
-
-		ul,
-		ol {
-			margin: 0;
-
-			li,
-			ul,
-			ol {
-				margin: 0;
-			}
-		}
-
-		ol ol li {
-			// FIXME: Add token.
-			list-style-type: lower-alpha;
-		}
-
-		ul ul li {
-			// FIXME: Add token.
-			list-style-type: circle;
-
-			li {
-				// FIXME: Add token.
-				list-style-type: square;
-			}
-		}
-
-		&--complementary {
-			.cdx-docs-paragraphs__example__demo p {
-				color: @color-placeholder;
-				font-size: @font-size-small;
-			}
-		}
-
-		&--small-text {
-			.cdx-docs-paragraphs__example__demo p {
-				font-size: @font-size-x-small;
-			}
-		}
-
-		&--placeholder {
-			.cdx-docs-paragraphs__example__demo p {
-				color: @color-placeholder;
-			}
-		}
-	}
-}
 </style>
