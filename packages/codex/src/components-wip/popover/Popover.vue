@@ -357,9 +357,10 @@ export default defineComponent( {
 		 */
 		function onFocusOut( event: MouseEvent | FocusEvent ) {
 			// Check if the event occurred outside Popover and trigger.
+			const referenceEl = unwrapElement( reference.value );
 			const isOutsidePopoverAndTrigger = (
 				( floating.value && !floating.value.contains( event.target as Node ) ) &&
-				( reference.value && event.target !== unwrapElement( reference.value ) )
+				( !referenceEl?.contains( event.target as Node ) )
 			);
 
 			if ( isOutsidePopoverAndTrigger ) {

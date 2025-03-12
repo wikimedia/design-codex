@@ -178,24 +178,53 @@ describe( 'Popover', () => {
 		} );
 	} );
 
-	describe( 'when click or mousedown outside the popover', () => {
-		it( 'closes the popover', async () => {
+	describe( 'when clicking outside the popover', () => {
+		it( 'emits an "update:open" event', async () => {
 			const wrapper = mount( CdxPopover, {
 				props: { anchor: toggleButton.vm.$el, renderInPlace: true, open: true },
 				slots: { default: 'Popover Content' },
 				attachTo: 'body'
 			} );
 
-			// Ensure the popover is open.
-			expect( wrapper.find( '.cdx-popover' ).exists() ).toBe( true );
-
 			// Simulate clicking outside the popover.
 			await wrapper.trigger( 'mousedown' );
-			await wrapper.setProps( { open: false } );
-
-			// Assert that the Popover is not visible.
 			expect( wrapper.emitted()[ 'update:open' ][ 0 ] ).toEqual( [ false ] );
-			expect( wrapper.find( '.cdx-popover' ).exists() ).toBe( false );
+		} );
+	} );
+
+	describe( 'when clicking on the trigger element', () => {
+		it( 'does not emit an "update:open" event', async () => {
+			const wrapper = mount( CdxPopover, {
+				props: { anchor: toggleButton.vm.$el, renderInPlace: true, open: true },
+				slots: { default: 'Popover Content' },
+				attachTo: 'body'
+			} );
+
+			// Simulate clicking the toggle button.
+			await toggleButton.trigger( 'mousedown' );
+			// We don't emit an "update:open" event, because clicking on the trigger element may
+			// toggle the open state.
+			expect( wrapper.emitted()[ 'update:open' ] ).toBeFalsy();
+		} );
+	} );
+
+	describe( 'when clicking on an element within the trigger element', () => {
+		it( 'does not emit an "update:open" event', async () => {
+			const toggleButtonWithIcon = shallowMount( CdxToggleButton, {
+				props: { modelValue: false },
+				slots: { default: '<span id="cdx-toggle-button-icon"></span> Toggle Button' },
+				attachTo: 'body'
+			} );
+
+			const wrapper = mount( CdxPopover, {
+				props: { anchor: toggleButtonWithIcon.vm.$el, renderInPlace: true, open: true },
+				slots: { default: 'Popover Content' },
+				attachTo: 'body'
+			} );
+
+			// Simulate clicking the icon within the toggle button.
+			await toggleButtonWithIcon.find( '#cdx-toggle-button-icon' ).trigger( 'mousedown' );
+			expect( wrapper.emitted()[ 'update:open' ] ).toBeFalsy();
 		} );
 	} );
 
