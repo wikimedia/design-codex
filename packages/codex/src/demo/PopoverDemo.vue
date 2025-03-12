@@ -97,15 +97,22 @@
 </template>
 
 <script lang="ts" setup>
-import { ComponentPublicInstance, Ref, ref } from 'vue';
+import { ComponentPublicInstance, ref, useTemplateRef } from 'vue';
 import { CdxPopover, CdxToggleButton } from '../lib-wip';
 import { ModalAction, PrimaryModalAction } from '../lib';
 
-// Template ref for the reference element.
-const toggleButton = ref<InstanceType<typeof CdxToggleButton>>() as Ref<ComponentPublicInstance>;
+// Template ref for the reference elements
+const toggleButton = useTemplateRef<ComponentPublicInstance>( 'toggleButton' );
+const toggleButton2 = useTemplateRef<ComponentPublicInstance>( 'toggleButton2' );
+const toggleButton3 = useTemplateRef<ComponentPublicInstance>( 'toggleButton3' );
+const toggleButton4 = useTemplateRef<ComponentPublicInstance>( 'toggleButton4' );
 
 // Enable and disable the toggle button state and popover visibility.
 const showPopover = ref( false );
+const showPopover2 = ref( false );
+const showPopover3 = ref( false );
+const showPopover4 = ref( false );
+
 const onUpdate = function ( value: boolean ) {
 	// eslint-disable-next-line no-console
 	console.log( 'update:modelValue event emitted with value: ' + value );
@@ -114,11 +121,4 @@ const onUpdate = function ( value: boolean ) {
 const defaultAction: ModalAction = { label: 'Cancel' };
 const primaryAction: PrimaryModalAction = { label: 'Save', actionType: 'progressive' };
 
-// Additional demos
-const toggleButton2 = ref<InstanceType<typeof CdxToggleButton>>() as Ref<ComponentPublicInstance>;
-const showPopover2 = ref( false );
-const toggleButton3 = ref<InstanceType<typeof CdxToggleButton>>() as Ref<ComponentPublicInstance>;
-const showPopover3 = ref( false );
-const toggleButton4 = ref<InstanceType<typeof CdxToggleButton>>() as Ref<ComponentPublicInstance>;
-const showPopover4 = ref( false );
 </script>

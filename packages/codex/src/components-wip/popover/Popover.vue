@@ -77,11 +77,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, inject, toRef, ref, watch, onMounted, onUnmounted, nextTick, reactive } from 'vue';
+import { defineComponent, PropType, ComponentPublicInstance, computed, inject, toRef, ref, watch, onMounted, onUnmounted, nextTick, reactive } from 'vue';
 import { CdxButton, CdxIcon, PrimaryModalAction, ModalAction } from '../../lib';
 import { Icon, cdxIconClose } from '@wikimedia/codex-icons';
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
-import { useFloating, MaybeElement, offset, flip, autoUpdate, size, arrow, Side, Placement } from '@floating-ui/vue';
+import { useFloating, offset, flip, autoUpdate, size, arrow, Side, Placement } from '@floating-ui/vue';
 import { unwrapElement } from '../../utils/unwrapElement';
 import { oppositeSides } from '../../constants';
 
@@ -101,13 +101,14 @@ export default defineComponent( {
 
 	props: {
 		/**
-		 * The triggering element that opens and closes the popover. This should be a template ref.
+		 * The triggering element that opens and closes the popover. This should be a template ref,
+		 * which can be either an HTML element or a Vue component.
 		 *
 		 * This must be provided so the popover can be positioned relative to the triggering
-		 * element. If omitted, the popover will not display.
+		 * element.
 		 */
 		anchor: {
-			type: Object as PropType<MaybeElement<HTMLElement> | null>,
+			type: Object as PropType<HTMLElement | ComponentPublicInstance | null>,
 			default: null
 		},
 

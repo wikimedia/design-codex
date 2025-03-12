@@ -171,6 +171,20 @@ The `anchor` prop is required to correctly position the Popover.
 
 Ensure the toggle button's on/off state and the popover's visibility is synchronized via `v-model`.
 
+::: tip Usage in Typescript
+Vue 3.5 introduced the `useTemplateRef()` composable to simplify the creation of
+template refs in Vue components using the Composition API. If you are using
+Typescript, consider annotating the types for any template refs like this:
+
+```ts
+// Basic component typing with ComponentPublicInstance
+const anchorRef = useTemplateRef<ComponentPublicInstance>( 'my-anchor-id' );
+```
+
+More information on typing component template refs can be found in the
+[Vue.js docs.](https://vuejs.org/guide/typescript/composition-api#typing-component-template-refs)
+:::
+
 </cdx-accordion>
 
 ### Article preview

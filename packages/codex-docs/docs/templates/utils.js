@@ -41,7 +41,11 @@ export function getTypeText( item ) {
 	 * @return {string} link markup
 	 */
 	function formatAsLink( anchor, text = anchor ) {
-		return `<a href="../types-and-constants.html#${ anchor.toLowerCase() }">${ text }</a>`;
+		// Format anchor to match the anchor link as Markdown processes it.
+		const formattedAnchor = anchor.replace( '<', '' ).replace( '>', '' ).toLowerCase();
+		// Format text to encode angle brackets to avoid breaking the markdown parser.
+		const formattedText = text.replace( '<', '&lt;' ).replace( '>', '&gt;' );
+		return `<a href="../types-and-constants.html#${ formattedAnchor }">${ formattedText }</a>`;
 	}
 
 	/**
@@ -51,15 +55,12 @@ export function getTypeText( item ) {
 	function processText( str ) {
 		const isUppercase = /^[A-Z]/;
 		const hasBrackets = /\[\]$/;
-		const toIgnore = [ 'Event', 'MouseEvent', 'InputEvent', 'KeyboardEvent', 'FocusEvent', 'NaN' ];
-
-		// Throw some backticks in and bail early if this is a generic type, e.g.
-		// `MaybeElement<HtmlElement>`. The angle brackets confuse the Markdown parser.
-		// TODO: Actually support generic types.
-		const isGeneric = /<|>$/;
-		if ( str.match( isGeneric ) ) {
-			return '`' + str + '`';
-		}
+		const toIgnore = [
+			'HTMLElement',
+			'ComponentPublicInstance',
+			'Event', 'MouseEvent', 'InputEvent', 'KeyboardEvent', 'FocusEvent',
+			'NaN'
+		];
 
 		// If this is an array type, remove the brackets at the end.
 		const isArrayType = str.trim().indexOf( '[]' ) === str.trim().length - 2;
