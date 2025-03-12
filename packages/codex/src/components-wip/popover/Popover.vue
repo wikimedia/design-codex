@@ -224,7 +224,8 @@ export default defineComponent( {
 		// TODO: Convert hardcoded values to JS Token T388062.
 		const clipPadding = 16;
 		const minClipWidth = 256;
-		const minClipHeight = 200;
+		const minClipHeight = 200; // TODO: Should be `@size-1600`, which is in rems.
+		const maxClipWidth = 512; // TODO: Should be `@size-3200`, which is in rems.
 
 		// triangle math; this holds for right triangles (of which our arrow tip is one)
 		// leaving the full calculation here for posterity, and also in case we ever pull
@@ -245,8 +246,11 @@ export default defineComponent( {
 				padding: clipPadding,
 				// Apply styles based on available width/height.
 				apply( { availableWidth, availableHeight, elements } ) {
+					// Max width possible is the availableWidth up to the max clip width.
+					const maxWidth = Math.min( maxClipWidth, availableWidth );
 					Object.assign( elements.floating.style, {
-						width: `${ Math.max( minClipWidth, availableWidth ) }px`,
+						// Effective max width is the possible max width down to the min clip width.
+						maxWidth: `${ Math.max( minClipWidth, maxWidth ) }px`,
 						maxHeight: `${ Math.max( minClipHeight, availableHeight ) }px`
 					} );
 				}
@@ -429,8 +433,8 @@ export default defineComponent( {
 	position: absolute;
 	z-index: @z-index-tooltip;
 	box-sizing: @box-sizing-base;
+	// Note that max-width is set by FloatingUI's size middleware.
 	min-width: @size-1600;
-	max-width: @size-3200;
 	border: @border-base;
 	border-radius: @border-radius-base;
 	padding: @spacing-100;
