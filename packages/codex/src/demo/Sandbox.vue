@@ -41,10 +41,16 @@
 			<toggle-demo />
 			<tooltip-demo />
 			<typeahead-search-demo />
+			<typography-demo />
 		</template>
 		<template #sideNav>
-			<ul>
-				<li v-for="( section, index ) in demoSections" :key="index">
+			<ul class="cdx-demo__nav-list">
+				<li
+					v-for="( section, index ) in demoSections"
+					:key="index"
+					:class="'cdx-demo__nav-list__item cdx-demo__nav-list__item--' +
+						section.name.toLowerCase()"
+				>
 					<a :href="section.id">
 						{{ section.name }}
 					</a>
@@ -93,6 +99,7 @@ import ToggleDemo from './ToggleDemo.vue';
 import TooltipDemo from './TooltipDemo.vue';
 import TypeaheadSearchDemo from './TypeaheadSearchDemo.vue';
 import LinkDemo from './LinkDemo.vue';
+import TypographyDemo from './TypographyDemo.vue';
 
 const demoSections = [
 	{ name: 'Accordion', id: '#cdx-accordion' },
@@ -130,7 +137,8 @@ const demoSections = [
 	{ name: 'ToggleButton and ToggleSwitch', id: '#cdx-toggle' },
 	{ name: 'ToggleButtonGroup', id: '#cdx-toggle-button-group' },
 	{ name: 'Tooltip', id: '#cdx-tooltip' },
-	{ name: 'TypeaheadSearch', id: '#cdx-typeahead-search' }
+	{ name: 'TypeaheadSearch', id: '#cdx-typeahead-search' },
+	{ name: 'Typography', id: '#cdx-typography' }
 ];
 
 </script>
@@ -149,6 +157,12 @@ section {
 
 	h2 {
 		margin-top: 0;
+	}
+}
+
+.cdx-demo__nav-list {
+	&__item--typography {
+		margin-top: @spacing-100;
 	}
 }
 </style>
