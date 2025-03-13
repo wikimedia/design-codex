@@ -40,6 +40,7 @@ export function shouldUseAbsoluteSize( token ) {
  */
 export function shouldExposeCustomProperty( token ) {
 	const includedProps = [
+		'accent-color',
 		'color',
 		'background-color',
 		'border-color',
