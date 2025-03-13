@@ -9,8 +9,8 @@
 				<h2>Layouts</h2>
 				<h3 id="container-ordered">Container</h3>
 				<p>
-					This demo uses the Container layout component to list containers from extra
-					large to medium top to bottom.
+					This demo uses the Container layout component to list containers from medium to
+					full size top to bottom.
 				</p>
 				<cdx-container
 					class="cdx-demo-layout__container--ordered"
@@ -58,16 +58,13 @@ import DemoBaseLayout from './DemoBaseLayout.vue';
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-.cdx-demo-layout__container--ordered {
+.cdx-container.cdx-demo-layout__container--ordered {
+	background-color: @background-color-neutral;
 	min-height: @size-400;
-	margin-bottom: @spacing-50;
+	margin-bottom: @spacing-100;
+	border: @border-base;
 	border-radius: @border-radius-base;
 	padding: @spacing-100;
-}
-
-.cdx-container {
-	background-color: @background-color-neutral;
-	border: @border-base;
 }
 
 .cdx-demo-layout__container__content {
