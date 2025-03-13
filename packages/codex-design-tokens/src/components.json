@@ -20,11 +20,6 @@
 			}
 		}
 	},
-	"background-image": {
-		"input-checkbox--checked": {
-			"value": "url( 'data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\"><path fill=\"%23fff\" d=\"M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z\"/></svg>' )"
-		}
-	},
 	"color": {
 		"link-red": {
 			"comment": "Red ('new') Link color and states",
@@ -166,6 +161,9 @@
 		}
 	},
 	"transform": {
+		"checkbox-tick--checked": {
+			"value": "{ transform.50 }"
+		},
 		"progress-indicator-spinner-start": {
 			"value": "{ transform.-50 }"
 		},

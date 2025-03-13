@@ -200,7 +200,6 @@ export default defineComponent( {
 	// Custom-styled checkbox that's visible to the user. More styles are added below depending on
 	// the state of the input element.
 	&__icon {
-		background-size: 0 0;
 		border-radius: @border-radius-base;
 	}
 
@@ -211,6 +210,7 @@ export default defineComponent( {
 		// Indeterminate state.
 		&:indeterminate + .cdx-checkbox__icon::before {
 			content: ' ';
+			// Indeterminate is constructed as a line based on background color.
 			background-color: @background-color-base-fixed;
 			position: absolute;
 			// Center indeterminate line vertically with negative half pixel.
@@ -222,20 +222,24 @@ export default defineComponent( {
 			height: ( @size-absolute-1 * 2 );
 		}
 
+		// The tick. As pseudo-element.
 		// Checked state whether or not the input is enabled or disabled.
 		&:checked:not( :indeterminate ) + .cdx-checkbox__icon::before {
 			content: ' ';
-			background-image: @background-image-input-checkbox--checked;
-			background-position: @background-position-base;
-			background-repeat: no-repeat;
-			// This must have two values to match `background-size: 0 0` above,
-			// otherwise the transition does not work (at least in Chrome).
-			background-size: @size-icon-small @size-icon-small;
-			position: absolute;
-			// Use `@size-full` as `@size-input-binary` would lead to offset by
-			// `@border-width-base`.
-			width: @size-full;
-			height: @size-full;
+			// Enable sizing pseudo-element.
+			display: block;
+			width: @size-25;
+			height: calc( @size-full - @spacing-25 - @border-width-thick );
+			// Center vertically.
+			margin: 0 auto @spacing-25;
+			/* rtl:ignore */
+			border-right-width: @border-width-thick;
+			/* rtl:ignore */
+			border-right-style: @border-style-base;
+			border-bottom-width: @border-width-thick;
+			border-bottom-style: @border-style-base;
+			/* rtl:ignore */
+			transform: @transform-checkbox-tick--checked;
 		}
 
 		/* stylelint-disable no-descending-specificity */
@@ -291,6 +295,10 @@ export default defineComponent( {
 				}
 			}
 
+			&:checked:not( :indeterminate ) + .cdx-checkbox__icon::before {
+				border-color: @border-color-inverted-fixed;
+			}
+
 			.cdx-checkbox--status-error & {
 				& ~ .cdx-checkbox__label {
 					color: @color-error;
@@ -342,6 +350,10 @@ export default defineComponent( {
 			& + .cdx-checkbox__icon {
 				background-color: @background-color-disabled-subtle;
 				border-color: @border-color-disabled;
+
+				&::before {
+					border-color: @border-color-inverted-fixed;
+				}
 			}
 
 			&:checked,

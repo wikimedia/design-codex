@@ -835,6 +835,9 @@
 		"-50": {
 			"value": "rotate( -45deg )"
 		},
+		"50": {
+			"value": "rotate( 45deg )"
+		},
 		"350": {
 			"value": "rotate( 315deg )"
 		}

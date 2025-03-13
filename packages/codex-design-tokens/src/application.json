@@ -642,6 +642,10 @@
 		"inverted": {
 			"value": "{ color.white }"
 		},
+		"inverted-fixed": {
+			"comment": "The same as color-inverted in light mode, but does not change in dark mode. Use this for things that should be white in both modes.",
+			"value": "{ color.white }"
+		},
 		"progressive": {
 			"value": "{ color.blue500 }"
 		},
