@@ -345,6 +345,9 @@
 		"overlay": {
 			"value": "{ z-index.450 }"
 		},
+		"popover": {
+			"value": "{ z-index.700 }"
+		},
 		"tooltip": {
 			"value": "{ z-index.800 }"
 		},

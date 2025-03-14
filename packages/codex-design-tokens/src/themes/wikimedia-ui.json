@@ -490,6 +490,10 @@
 			"comment": "Use for overlay, f.e. Dialog itself.",
 			"value": "450"
 		},
+		"700": {
+			"comment": "Use for Popover.",
+			"value": "700"
+		},
 		"800": {
 			"comment": "Use for Tooltip.",
 			"value": "800"

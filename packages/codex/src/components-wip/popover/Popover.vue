@@ -425,13 +425,12 @@ export default defineComponent( {
 <style lang="less">
 @import (reference) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-// TODO: Replace `z-index` with a component design token T387218.
 .cdx-popover {
 	background-color: @background-color-base;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
-	z-index: @z-index-tooltip;
+	z-index: @z-index-popover;
 	box-sizing: @box-sizing-base;
 	// Note that max-width is set by FloatingUI's size middleware.
 	min-width: @size-1600;
