@@ -445,12 +445,11 @@ export default defineComponent( {
 		align-items: flex-start;
 		flex-shrink: 0;
 		gap: @spacing-50;
-		margin-bottom: @spacing-100;
+		margin-bottom: @spacing-75;
 
 		&__icon {
 			// Vertically align the icon with the first line of the title.
 			height: unit( @line-height-medium, em );
-			margin-right: @spacing-50;
 		}
 
 		&__title {
@@ -503,6 +502,7 @@ export default defineComponent( {
 		width: @size-100;
 		height: @size-100;
 		border: @border-base;
+		border-top-left-radius: @border-radius-base;
 		box-shadow: @box-shadow-medium;
 		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		clip-path: polygon( 0 0, 100% 0, 0 100% );
