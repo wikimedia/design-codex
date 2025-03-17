@@ -187,7 +187,8 @@ export default defineComponent( {
 	align-items: center;
 	justify-content: center;
 	gap: @spacing-25;
-	max-width: @size-3200;
+	box-sizing: @box-sizing-base;
+	max-width: @size-full;
 	border: @border-width-base @border-style-base @border-color-interactive;
 	border-radius: @border-radius-pill;
 	padding: 0 0 0 @spacing-50;
