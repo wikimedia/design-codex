@@ -36,6 +36,7 @@ import CdxMenuButton from './components/menu-button/MenuButton.vue';
 import CdxMenuItem from './components/menu-item/MenuItem.vue';
 import CdxMessage from './components/message/Message.vue';
 import CdxMultiselectLookup from './components/multiselect-lookup/MultiselectLookup.vue';
+import CdxPopover from './components/popover/Popover.vue';
 import CdxProgressBar from './components/progress-bar/ProgressBar.vue';
 import CdxProgressIndicator from './components/progress-indicator/ProgressIndicator.vue';
 import CdxRadio from './components/radio/Radio.vue';
@@ -138,6 +139,7 @@ export {
 	CdxMenuItem,
 	CdxMessage,
 	CdxMultiselectLookup,
+	CdxPopover,
 	CdxProgressBar,
 	CdxProgressIndicator,
 	CdxRadio,

@@ -98,8 +98,7 @@
 
 <script lang="ts" setup>
 import { ComponentPublicInstance, ref, useTemplateRef } from 'vue';
-import { CdxPopover, CdxToggleButton } from '../lib-wip';
-import { ModalAction, PrimaryModalAction } from '../lib';
+import { CdxPopover, CdxToggleButton, ModalAction, PrimaryModalAction } from '../lib';
 
 // Template ref for the reference elements
 const toggleButton = useTemplateRef<ComponentPublicInstance>( 'toggleButton' );
