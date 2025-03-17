@@ -48,7 +48,7 @@ exports[`Popover matches the snapshot Case 1 With title 1`] = `
         Popover title
       </div>
       <div
-        class="cdx-popover__header__close-button-wrapper"
+        class="cdx-popover__header__button-wrapper"
       >
         <!--v-if-->
       </div>
@@ -106,7 +106,7 @@ exports[`Popover matches the snapshot Case 2 With icon 1`] = `
       </span>
       <!--v-if-->
       <div
-        class="cdx-popover__header__close-button-wrapper"
+        class="cdx-popover__header__button-wrapper"
       >
         <!--v-if-->
       </div>
@@ -146,7 +146,7 @@ exports[`Popover matches the snapshot Case 3 With close button 1`] = `
       <!--v-if-->
       <!--v-if-->
       <div
-        class="cdx-popover__header__close-button-wrapper"
+        class="cdx-popover__header__button-wrapper"
       >
         <button
           aria-label="Close"
@@ -216,7 +216,7 @@ exports[`Popover matches the snapshot Case 4 With custom close button label 1`] 
       <!--v-if-->
       <!--v-if-->
       <div
-        class="cdx-popover__header__close-button-wrapper"
+        class="cdx-popover__header__button-wrapper"
       >
         <button
           aria-label="Dismiss"

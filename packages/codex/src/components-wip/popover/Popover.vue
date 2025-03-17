@@ -18,7 +18,7 @@
 					<div v-if="title" class="cdx-popover__header__title">
 						{{ title }}
 					</div>
-					<div class="cdx-popover__header__close-button-wrapper">
+					<div class="cdx-popover__header__button-wrapper">
 						<cdx-button
 							v-if="useCloseButton"
 							class="cdx-popover__header__close-button"
@@ -223,8 +223,8 @@ export default defineComponent( {
 
 		// TODO: Convert hardcoded values to JS Token T388062.
 		const clipPadding = 16;
-		const minClipWidth = 256;
-		const minClipHeight = 200; // TODO: Should be `@size-1600`, which is in rems.
+		const minClipWidth = 256; // TODO: Should be `@size-1600`, which is in rems.
+		const minClipHeight = 200;
 		const maxClipWidth = 512; // TODO: Should be `@size-3200`, which is in rems.
 
 		// triangle math; this holds for right triangles (of which our arrow tip is one)
@@ -455,7 +455,7 @@ export default defineComponent( {
 			font-weight: @font-weight-semi-bold;
 		}
 
-		&__close-button-wrapper {
+		&__button-wrapper {
 			// Vertically center the button within the wrapper div.
 			display: flex;
 			flex-direction: column;
