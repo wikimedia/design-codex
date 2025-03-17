@@ -23,6 +23,5 @@
 </template>
 
 <script lang="ts" setup>
-// eslint-disable-next-line no-restricted-imports
-import CdxProgressIndicator from '../components-wip/progress-indicator/ProgressIndicator.vue';
+import { CdxProgressIndicator } from '../lib';
 </script>

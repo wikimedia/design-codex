@@ -13,11 +13,9 @@
 import CdxContainer from './container/Container.vue';
 import CdxImage from './image/Image.vue';
 import CdxPopover from './popover/Popover.vue';
-import CdxProgressIndicator from './progress-indicator/ProgressIndicator.vue';
 
 export {
 	CdxContainer,
 	CdxImage,
-	CdxPopover,
-	CdxProgressIndicator
+	CdxPopover
 };

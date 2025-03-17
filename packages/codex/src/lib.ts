@@ -37,6 +37,7 @@ import CdxMenuItem from './components/menu-item/MenuItem.vue';
 import CdxMessage from './components/message/Message.vue';
 import CdxMultiselectLookup from './components/multiselect-lookup/MultiselectLookup.vue';
 import CdxProgressBar from './components/progress-bar/ProgressBar.vue';
+import CdxProgressIndicator from './components/progress-indicator/ProgressIndicator.vue';
 import CdxRadio from './components/radio/Radio.vue';
 import CdxSearchInput from './components/search-input/SearchInput.vue';
 import CdxSearchResultTitle from './components/search-result-title/SearchResultTitle.vue';
@@ -138,6 +139,7 @@ export {
 	CdxMessage,
 	CdxMultiselectLookup,
 	CdxProgressBar,
+	CdxProgressIndicator,
 	CdxRadio,
 	CdxSearchInput,
 	CdxSearchResultTitle,
