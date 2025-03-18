@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { CdxPopover, CdxToggleButton, CdxAccordion } from '@wikimedia/codex';
+import PopoverConfigurable from '@/../component-demos/popover/examples/PopoverConfigurable.vue';
 import PopoverBasic from '@/../component-demos/popover/examples/PopoverBasic.vue';
 import PopoverArticlePreview from '@/../component-demos/popover/examples/PopoverArticlePreview.vue';
 
@@ -26,6 +27,12 @@ const controlsConfig = [
 			{ value: 'left-end' }
 		]
 	},
+	{ name: 'stackedActions', type: 'boolean' },
+	{ name: 'usePrimaryAction', type: 'boolean', initial: true },
+	{ name: 'primaryActionLabel', type: 'text', initial: 'Save' },
+	{ name: 'primaryActionType', type: 'radio', options: [ 'progressive', 'destructive' ] },
+	{ name: 'useDefaultAction', type: 'boolean', initial: true },
+	{ name: 'defaultActionLabel', type: 'text', initial: 'Cancel' },
 	{
 		name: 'default',
 		type: 'slot',
@@ -33,27 +40,17 @@ const controlsConfig = [
 	},
 ];
 
-const showPopover = ref( false );
-const anchorElement = ref( null );
 </script>
 
 A Popover is a localized, non-disruptive container that is overlaid on a web page or app, near its trigger, in order to present necessary information and tasks.
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :allow-link-styles="true">
 <template v-slot:demo="{ propValues, slotValues }">
-<cdx-toggle-button v-model="showPopover" ref="anchorElement">
-	Open Popover
-</cdx-toggle-button>
-<cdx-popover
-	v-model:open="showPopover"
-	render-in-place
-	v-bind="propValues"
-	:anchor="anchorElement"
->
-	<template #default>
-		{{ slotValues.default }}
-	</template>
-</cdx-popover>
+	<popover-configurable v-bind="propValues">
+		<template #default>
+			{{ slotValues.default }}
+		</template>
+	</popover-configurable>
 </template>
 </cdx-demo-wrapper>
 
@@ -136,7 +133,7 @@ Popovers have an arrow which points to the trigger.
 
 ### Basic usage
 
-This example includes text with the ability to manually dismiss the Popover.
+This example includes text, a custom placement, and the ability to manually dismiss the Popover.
 
 <cdx-demo-best-practices>
 <cdx-demo-best-practice>
@@ -148,7 +145,7 @@ Use the header to align standard text content to the dismiss action.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-    <popover-basic />
+	<popover-basic />
 </template>
 <template v-slot:code>
 
@@ -206,7 +203,7 @@ Use `hover` as a trigger only for elements which have a separate `press` action,
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-    <popover-article-preview />
+	<popover-article-preview />
 </template>
 <template v-slot:code>
 

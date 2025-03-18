@@ -10,6 +10,7 @@
 	<cdx-popover
 		v-model:open="showPopover"
 		:anchor="triggerElement"
+		placement="bottom-start"
 		:render-in-place="true"
 		title="Alerts"
 		:use-close-button="true"
