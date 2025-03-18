@@ -13,6 +13,7 @@
 			<chip-input-demo />
 			<combobox-demo />
 			<container-demo />
+			<grid-demo />
 			<dialog-demo />
 			<field-demo />
 			<icon-demo />
@@ -70,6 +71,7 @@ import CardDemo from './CardDemo.vue';
 import CheckboxDemo from './CheckboxDemo.vue';
 import ChipInputDemo from './ChipInputDemo.vue';
 import ContainerDemo from './ContainerDemo.vue';
+import GridDemo from './GridDemo.vue';
 import MultiselectLookupDemo from './MultiselectLookupDemo.vue';
 import ComboboxDemo from './ComboboxDemo.vue';
 import DialogDemo from './DialogDemo.vue';
@@ -110,6 +112,7 @@ const demoSections = [
 	{ name: 'ChipInput', id: '#cdx-chip-input' },
 	{ name: 'Combobox', id: '#cdx-combobox' },
 	{ name: 'Container', id: '#cdx-container' },
+	{ name: 'Grid', id: '#cdx-grid' },
 	{ name: 'Dialog', id: '#cdx-dialog' },
 	{ name: 'Field', id: '#cdx-field' },
 	{ name: 'Icon', id: '#cdx-icon' },
@@ -140,7 +143,6 @@ const demoSections = [
 	{ name: 'TypeaheadSearch', id: '#cdx-typeahead-search' },
 	{ name: 'Typography', id: '#cdx-typography' }
 ];
-
 </script>
 
 <style lang="less" scoped>
