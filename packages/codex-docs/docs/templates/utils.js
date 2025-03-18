@@ -43,7 +43,7 @@ export function getTypeText( item ) {
 	function formatAsLink( anchor, text = anchor ) {
 		// Format anchor to match the anchor link as Markdown processes it.
 		const formattedAnchor = anchor.replace( '<', '' ).replace( '>', '' ).toLowerCase();
-		// Format text to encode angle brackets to avoid breaking the markdown parser.
+		// Format text to encode angle brackets to avoid breaking the Markdown parser.
 		const formattedText = text.replace( '<', '&lt;' ).replace( '>', '&gt;' );
 		return `<a href="../types-and-constants.html#${ formattedAnchor }">${ formattedText }</a>`;
 	}
