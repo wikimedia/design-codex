@@ -1,3 +1,8 @@
+# 1.21.1 / 2025-03-19
+
+## Code
+- code: Update Popover imports (Anne Tomasevich)
+
 # 1.21.0 / 2025-03-19
 
 ## Features
