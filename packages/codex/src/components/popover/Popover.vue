@@ -78,11 +78,15 @@
 
 <script lang="ts">
 import { defineComponent, PropType, ComponentPublicInstance, computed, inject, toRef, ref, watch, onMounted, onUnmounted, nextTick, reactive } from 'vue';
-import { CdxButton, CdxIcon, PrimaryModalAction, ModalAction } from '../../lib';
-import { Icon, cdxIconClose } from '@wikimedia/codex-icons';
-import useI18nWithOverride from '../../composables/useI18nWithOverride';
 import { useFloating, offset, flip, autoUpdate, size, arrow, Side, Placement } from '@floating-ui/vue';
+import { Icon, cdxIconClose } from '@wikimedia/codex-icons';
+
+import CdxButton from '../button/Button.vue';
+import CdxIcon from '../icon/Icon.vue';
+
+import useI18nWithOverride from '../../composables/useI18nWithOverride';
 import { unwrapElement } from '../../utils/unwrapElement';
+import { PrimaryModalAction, ModalAction } from '../../types';
 import { oppositeSides } from '../../constants';
 
 /**
