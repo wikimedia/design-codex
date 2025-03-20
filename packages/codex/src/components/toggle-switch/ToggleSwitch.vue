@@ -264,7 +264,10 @@ export default defineComponent( {
 			border-radius: @border-radius-circle;
 			// Set starting position with `transform` and add 1px equivalent to x position.
 			// Divide height by 50% to center the grip vertically.
-			transform: translateX( ( @size-25 + @size-6 ) ) translateY( -@size-half );
+			/* stylelint-disable @stylistic/declaration-colon-newline-after */
+			transform: translateX( ( @size-25 + @size-6 ) )
+				translateY( calc( -1 * @size-half ) );
+			/* stylelint-enable @stylistic/declaration-colon-newline-after */
 			transition-property: @transition-property-toggle-switch-grip;
 			// As ToggleSwitch background is a big area transition, let's use the slower duration
 			// for it.
@@ -301,7 +304,10 @@ export default defineComponent( {
 				border-color: @border-color-inverted;
 				// Move the grip to the right and add 1px equivalent to x position.
 				// Continue to divide height by 50% to center the grip.
-				transform: translateX( calc( @size-full + @size-6 ) ) translateY( -@size-half );
+				/* stylelint-disable @stylistic/declaration-colon-newline-after */
+				transform: translateX( calc( @size-full + @size-6 ) )
+					translateY( calc( -1 * @size-half ) );
+				/* stylelint-enable @stylistic/declaration-colon-newline-after */
 			}
 		}
 

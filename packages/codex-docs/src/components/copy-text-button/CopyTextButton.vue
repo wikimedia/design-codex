@@ -199,7 +199,7 @@ export default defineComponent( {
 		&-leave-to {
 			opacity: 0;
 			width: 0;
-			margin-left: -@spacing-25;
+			margin-left: calc( -1 * @spacing-25 );
 		}
 	}
 }

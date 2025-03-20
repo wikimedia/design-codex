@@ -135,7 +135,7 @@ export default defineComponent( {
 
 @keyframes cdx-animation-progress-bar__bar {
 	from {
-		transform: translate( -@size-full );
+		transform: translate( calc( -1 * @size-full ) );
 	}
 
 	to {

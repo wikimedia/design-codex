@@ -277,7 +277,7 @@ Below is an example that demonstrates these directives:
 
 .bar {
 	// This rule uses -100% (`@size-full`) in RTL, because that value is explicitly specified.
-	transform: translateX( 0 ) /* rtl:translateX( -@size-full ) */;
+	transform: translateX( 0 ) /* rtl:translateX( calc( -1 * @size-full ) ) */;
 
 	// This rule is NOT flipped to margin-right, because an explicit RTL value is specified
 	// In RTL, this rule becomes margin-left: 30px; (NOT margin-right: 30px;)

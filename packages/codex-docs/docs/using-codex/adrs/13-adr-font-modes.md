@@ -73,4 +73,12 @@ Font modes can be applied independently to meet different needs:
 
 We may need to make changes to our current tokens and how they are rendered so that new tokens conform to the rules and definitions above, but no breaking changes in our current system should be required as a result of this ADR.
 
-In the future we may introduce additional font modes, which might require us to reconsider certain calculations.
+In the future, we may introduce additional font modes, which might require us to reconsider certain calculations.
+
+## Appendix 2025-03-25
+
+When using CSS custom properties in Less code, we encountered compilation errors with calculations
+like `-@spacing-25`. To address this, we have switched to using the native CSS `calc()` function.
+Note: The Less compiler, as of versions 3 and 4, will only output the `calc()` function when the
+calculation involves a CSS custom property. Otherwise, the compiler optimizes the input by
+reducing the calculated output to a single value.

@@ -41,7 +41,7 @@
 	// When top is the default 50% and align is not center,
 	// transform & translate Y axis to vertically center the icon.
 	& when ( @param-top = @spacing-half ) and not ( @param-align = center ) {
-		transform: translateY( -@spacing-half );
+		transform: translateY( calc( -1 * @spacing-half ) );
 	};
 
 	// Horizontally and vertically center the icon when align is center and top is default value.
@@ -49,14 +49,14 @@
 	// vertical-align: initial;`
 	& when ( @param-align = center ) and ( @param-top = @spacing-half ) {
 		left: @spacing-half;
-		transform: translate( -@spacing-half, -@spacing-half );
+		transform: translate( calc( -1 * @spacing-half ), calc( -1 * @spacing-half ) );
 	};
 
 	// When align is center and top is a non-default value,
 	// transform & translate X axis to horizontally center the icon.
 	& when ( @param-align = center ) and not ( @param-top = @spacing-half ) {
 		left: @spacing-half;
-		transform: translateX( -@spacing-half );
+		transform: translateX( calc( -1 * @spacing-half ) );
 	};
 }
 

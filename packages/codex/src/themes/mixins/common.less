@@ -67,8 +67,8 @@
 	position: absolute !important;
 	width: @size-absolute-1;
 	height: @size-absolute-1;
-	// Use negative `@size` token here as they are inherently connected.
-	margin: -@size-absolute-1;
+	// Use negative `@size-absolute-1` token here as they are inherently connected.
+	margin: calc( -1 * @size-absolute-1 );
 	border: 0;
 	padding: 0;
 	overflow: hidden;

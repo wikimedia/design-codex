@@ -198,10 +198,10 @@ export default defineComponent( {
 		&::before {
 			content: ' ';
 			position: absolute;
-			top: -@size-25;
-			right: -@size-25;
-			bottom: -@size-25;
-			left: -@size-25;
+			top: calc( -1 * @size-25 );
+			right: calc( -1 * @size-25 );
+			bottom: calc( -1 * @size-25 );
+			left: calc( -1 * @size-25 );
 			border: @border-width-base @border-style-base @border-color-transparent;
 			border-radius: @border-radius-circle;
 		}

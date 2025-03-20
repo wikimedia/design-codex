@@ -103,12 +103,12 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		// TODO: This is semantically incorrect, there needs to be a static token.
 		background-color: @background-color-progressive;
 		color: @color-inverted-fixed;
-		// Equals 100% + ( 2 * negative margin per side ).
 		display: grid;
+		// Equals 100% + ( 2 * negative margin ) per side.
 		width: calc( @size-full + ( @spacing-200 * 2 ) );
-		margin-right: -@spacing-200;
+		margin-right: calc( -1 * @spacing-200 );
 		margin-bottom: @spacing-200;
-		margin-left: -@spacing-200;
+		margin-left: calc( -1 * @spacing-200 );
 		padding: @spacing-200;
 
 		/* @media screen and ( min-width: @min-width-breakpoint-tablet ) {
