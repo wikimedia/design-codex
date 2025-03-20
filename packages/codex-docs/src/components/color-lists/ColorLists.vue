@@ -9,40 +9,26 @@
 			<h3 :id="set.category">
 				{{ set.category }}
 			</h3>
-			<ol>
-				<li
-					v-for="item in set.items"
-					:key="item.name"
-					class="cdx-docs-color-lists__list__item"
-					:style="{ backgroundColor: item.value }"
-				>
-					<code class="cdx-docs-color-lists__list__item__color-name">
-						{{ item.name }}
-					</code>
-					<code class="cdx-docs-color-lists__list__item__color-code">
-						{{ item.value }}
-					</code>
-				</li>
-			</ol>
+			<cdx-docs-color-list class="cdx-docs-color-lists__list" :items="set.items" />
 		</li>
 	</ol>
 </template>
 
 <script lang="ts" setup>
 import { defineExpose } from 'vue';
-import { DesignTokensTree } from '../../types';
+import CdxDocsColorList from './ColorList.vue';
+import { DesignTokensTree, ColorItem } from '../../types';
 import optionTokens from '../../../../codex-design-tokens/src/themes/wikimedia-ui.json';
 const colorTokens = optionTokens.color;
+
+/**
+ * Lists of base colors for the Colors page in the Style Guide.
+ */
 
 // Allowed color categories. If we add more color categories in the future, the category
 // names should be added here.
 const colorCategories = [ 'white', 'black', 'gray', 'red', 'orange', 'yellow', 'lime',
 	'green', 'blue', 'purple', 'pink', 'maroon' ];
-
-interface ColorItem {
-	name: string,
-	value: string
-}
 
 interface ColorSet {
 	category: string,
@@ -128,19 +114,6 @@ const colorSets = getColorSets( colorTokens );
 
 		h3 {
 			margin-bottom: @spacing-25;
-		}
-
-		&__item {
-			display: flex;
-			justify-content: space-between;
-			padding: @spacing-50;
-		}
-
-		// Give the white item a border.
-		&:first-child {
-			.cdx-docs-color-lists__list__item {
-				border: @border-width-base @border-style-base @border-color-muted;
-			}
 		}
 	}
 }

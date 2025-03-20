@@ -113,3 +113,9 @@ export interface DesignTokensTree {
 }
 
 export type BestPractice = 'do' | 'dont';
+
+// Used to show and compare colors in the style guide.
+export interface ColorItem {
+	name: string,
+	value: string
+}

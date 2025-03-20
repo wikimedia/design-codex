@@ -172,7 +172,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 						{ text: 'Typography', link: '/style-guide/typography' },
 						{ text: 'Icons', link: '/style-guide/icons' },
 						{ text: 'Images', link: '/style-guide/images' },
-						{ text: 'Illustrations', link: '/style-guide/illustrations' }
+						{ text: 'Illustrations', link: '/style-guide/illustrations' },
+						{ text: 'Data visualization', link: '/style-guide/data-visualization' }
 					]
 				},
 				{
