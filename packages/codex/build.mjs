@@ -93,6 +93,7 @@ const sandboxConfig = mergeConfig( baseConfig, {
 		},
 		preprocessorOptions: {
 			less: {
+				math: 'strict',
 				globalVars: {
 					// @codexIconNames is used in IconDemo.vue
 					codexIconNames

@@ -29,6 +29,7 @@ export default defineConfig( ( { command } ) => {
 				},
 				preprocessorOptions: {
 					less: {
+						math: 'strict',
 						globalVars: {
 							// @codexIconNames is used in IconGrid.vue
 							codexIconNames
