@@ -42,7 +42,8 @@ const controlsConfig = [
 
 </script>
 
-A Popover is a localized, non-disruptive container that is overlaid on a web page or app, near its trigger, in order to present necessary information and tasks.
+A Popover is a non-disruptive container that is overlaid on a web page or app, positioned near
+its trigger, in order to present necessary information and tasks.
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :allow-link-styles="true">
 <template v-slot:demo="{ propValues, slotValues }">
