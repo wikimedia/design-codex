@@ -11,8 +11,8 @@
 
 	// Make groups only as wide as they need to be, so that the rounded corners on the group also
 	// apply to the rightmost button
-	box-sizing: @box-sizing-base;
-	max-width: @size-full;
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+	width: fit-content;
 
 	// Set rounded corners on the group, rather than on the individual buttons
 	border-radius: @border-radius-base;
