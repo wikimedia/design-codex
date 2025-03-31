@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent, ref, onMounted } from 'vue';
+import { PropType, defineComponent, ref, onMounted, watch, toRef } from 'vue';
 import { cdxIconImageLayoutFrameless, Icon } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import { Thumbnail } from '../../types';
@@ -78,6 +78,20 @@ export default defineComponent( {
 				preloadThumbnail( props.thumbnail.url );
 			}
 		} );
+
+		// Ensure that any changes to thumbnail image URL get handled
+		watch( toRef( props, 'thumbnail' ), ( newThumbnail, oldThumbnail ) => {
+			if ( !newThumbnail?.url ) {
+				thumbnailLoaded.value = false;
+				thumbnailStyle.value = {};
+				return;
+			}
+
+			if ( oldThumbnail?.url !== newThumbnail.url ) {
+				thumbnailLoaded.value = false;
+				preloadThumbnail( newThumbnail.url );
+			}
+		}, { deep: true } );
 
 		return {
 			thumbnailStyle,
