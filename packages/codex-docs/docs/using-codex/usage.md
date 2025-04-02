@@ -173,8 +173,8 @@ element.
 ```
 
 ```less
-@import (reference) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-@import (reference) '@wikimedia/codex/mixins/css-icon.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .my-icon-class {
 	&--map-pin {

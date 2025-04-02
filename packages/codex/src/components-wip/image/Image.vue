@@ -276,7 +276,7 @@ export default defineComponent( {
 </script>
 
 <style lang="less">
-@import (reference) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
 .cdx-image-wrapper {
 	display: flex;
