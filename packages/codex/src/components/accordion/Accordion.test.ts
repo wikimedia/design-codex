@@ -147,4 +147,33 @@ describe( 'Accordion', () => {
 			expect( wrapper.get( '.cdx-accordion__content' ).isVisible() ).toBe( false );
 		} );
 	} );
+
+	describe( 'toggle event', () => {
+		it( 'should emit "toggle" with true when expanded', async () => {
+			const wrapper = mount( CdxAccordion, {
+				slots: {
+					title: 'Title',
+					default: 'Content'
+				}
+			} );
+			await toggleDetails( wrapper.find( 'details' ) );
+			expect( wrapper.emitted().toggle ).toBeTruthy();
+			expect( wrapper.emitted().toggle[ 0 ] ).toEqual( [ true ] );
+		} );
+
+		it( 'should emit "toggle" with false when collapsed', async () => {
+			const wrapper = mount( CdxAccordion, {
+				attrs: {
+					open: 'open'
+				},
+				slots: {
+					title: 'Title',
+					default: 'Content'
+				}
+			} );
+			await toggleDetails( wrapper.find( 'details' ) );
+			expect( wrapper.emitted().toggle ).toBeTruthy();
+			expect( wrapper.emitted().toggle[ 0 ] ).toEqual( [ false ] );
+		} );
+	} );
 } );

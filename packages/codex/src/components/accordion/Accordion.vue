@@ -94,9 +94,15 @@ export default defineComponent( {
 	emits: [
 		/**
 		 * When the action button is clicked.
-		 *
 		 */
-		'action-button-click'
+		'action-button-click',
+		/**
+		 * When the accordion expanded state is toggled.
+		 *
+		 * @property {boolean} newValue The new expanded/collapsed state
+		 * (true for expanded, false for collapsed)
+		 */
+		'toggle'
 	],
 	setup( props, { attrs, emit } ) {
 		const isExpanded = ref<boolean>( 'open' in attrs );
@@ -107,6 +113,7 @@ export default defineComponent( {
 
 		const onToggle = ( e: ToggleEvent ): void => {
 			isExpanded.value = e.newState === 'open';
+			emit( 'toggle', isExpanded.value );
 		};
 
 		const shouldShowActionButton = computed(
