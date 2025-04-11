@@ -7,6 +7,8 @@ long time.[[1]](#ref1) Aligning to [Wikimedia's vision](https://meta.wikimedia.o
 and to our principle [“This is for everyone”](./design-principles-overview.md#this-is-for-everyone),
 we aim for our interfaces to be accessible by design.
 
+![A series of icons representing different factors of accessibility and inclusion surrounding a human avatar.](../assets/design-principles/overview/01_this-is-for-everyone.svg)
+
 We'll introduce key accessibility concepts, illustrate how they are supported in the style guide,
 and provide guidance for you when applying them.
 
