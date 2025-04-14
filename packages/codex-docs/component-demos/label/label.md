@@ -438,7 +438,7 @@ This works for `<label>` and `<legend>`.
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-css-icon--wiki-text {
-	.cdx-mixin-css-icon( @cdx-icon-wiki-text );
+	.cdx-mixin-css-icon( @cdx-icon-wikitext );
 }
 ```
 
@@ -446,7 +446,7 @@ This works for `<label>` and `<legend>`.
 @import 'mediawiki.skin.variables.less';
 
 .cdx-demo-css-icon--wiki-text {
-	.cdx-mixin-css-icon( @cdx-icon-wiki-text );
+	.cdx-mixin-css-icon( @cdx-icon-wikitext );
 }
 ```
 
@@ -529,7 +529,7 @@ works for `<label>` and `<legend>`.
 
 .cdx-demo-css-icon {
 	&--wiki-text {
-		.cdx-mixin-css-icon( @cdx-icon-wiki-text );
+		.cdx-mixin-css-icon( @cdx-icon-wikitext );
 	}
 }
 </style>

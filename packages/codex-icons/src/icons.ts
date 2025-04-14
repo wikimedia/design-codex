@@ -320,8 +320,6 @@ export const cdxIconFunctionArgument: IconFlipForRtl = {
 
 import svgFullscreen from './images/fullscreen.svg';
 export const cdxIconFullscreen = svgFullscreen;
-// DEPRECATED
-export const cdxIconFullScreen = svgFullscreen;
 
 import svgFunnel from './images/funnel.svg';
 export const cdxIconFunnel: IconFlipForRtl = {
@@ -705,8 +703,6 @@ export const cdxIconNext: IconFlipForRtl = {
 
 import svgNoWikitext from './images/noWikitext.svg';
 export const cdxIconNoWikitext = svgNoWikitext;
-// DEPRECATED
-export const cdxIconNoWikiText = svgNoWikitext;
 
 import svgNotBright from './images/notBright.svg';
 export const cdxIconNotBright = svgNotBright;
@@ -1137,8 +1133,6 @@ export const cdxIconWatchlist: IconFlipForRtl = {
 
 import svgWikitext from './images/wikitext.svg';
 export const cdxIconWikitext = svgWikitext;
-// DEPRECATED
-export const cdxIconWikiText = svgWikitext;
 
 import svgWindow from './images/window.svg';
 export const cdxIconWindow = svgWindow;
