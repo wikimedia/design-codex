@@ -91,17 +91,6 @@ interface ChipInputItem {
 type ChipValidator = ( value: string|number ) => boolean;
 ```
 
-### DialogAction
-
-Deprecated: use [ModalAction](#modalaction) instead.
-
-```ts
-interface DialogAction {
-	label: string,
-	disabled?: boolean
-}
-```
-
 ### FloatingMenuOptions
 
 Options which can be passed to the `useFloatingMenu` composable.
@@ -310,17 +299,6 @@ Codex re-exports the `Placement` type from [FloatingUI](https://floating-ui.com/
 
 ```ts
 type Placement = "top" | "right" | "bottom" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end";
-```
-
-
-### PrimaryDialogAction
-
-Deprecated: use [PrimaryModalAction](#primarymodalaction) instead.
-
-```ts
-interface PrimaryDialogAction extends DialogAction {
-	actionType: 'progressive' | 'destructive'
-}
 ```
 
 ### PrimaryModalAction
