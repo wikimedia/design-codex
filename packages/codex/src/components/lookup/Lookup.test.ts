@@ -50,7 +50,6 @@ const menuItemDataWithGroups: ( MenuItemData|MenuGroupData )[] = [
 ];
 
 describe( 'Lookup', () => {
-	// DEPRECATED: Remove initialInputValue once the prop is removed (T373532).
 	describe( 'matches the snapshot', () => {
 		type Case = [
 			msg: string,
@@ -61,7 +60,6 @@ describe( 'Lookup', () => {
 			clearable?: boolean,
 			noResults?: string,
 			attributes?: Record<string, string>,
-			initialInputValue?: string,
 		]
 
 		const cases: Case[] = [
@@ -73,8 +71,7 @@ describe( 'Lookup', () => {
 			[ 'With class attributes', [], null, '', false, false, undefined, { class: 'class-one class-two' } ],
 			[ 'With type and placeholder attributes', [], null, '', false, false, undefined, {
 				inputType: 'search', placeholder: 'Type something... '
-			} ],
-			[ 'With initial input (deprecated)', menuItemData, null, '', false, false, undefined, {}, 'Opt' ]
+			} ]
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', (
@@ -85,11 +82,10 @@ describe( 'Lookup', () => {
 			disabled = false,
 			clearable = false,
 			noResults = undefined,
-			attributes = undefined,
-			initialInputValue = ''
+			attributes = undefined
 		) => {
 			const componentOptions = {
-				props: { menuItems, selected, inputValue, disabled, clearable, initialInputValue },
+				props: { menuItems, selected, inputValue, disabled, clearable },
 				slots: {},
 				attrs: {}
 			};
@@ -456,17 +452,6 @@ describe( 'Lookup', () => {
 
 			await wrapper.get( 'input' ).trigger( eventName );
 			expect( wrapper.emitted()[ eventName ] ).toBeTruthy();
-		} );
-	} );
-
-	// DEPRECATED: Remove once the initialInputValue prop is removed (T373532).
-	describe( 'with initialInputValue', () => {
-		it( 'is overridden by inputValue', () => {
-			const wrapper = mount( CdxLookup, { props:
-				{ inputValue: 'foo', initialInputValue: 'bar', ...defaultProps }
-			} );
-			const input = wrapper.find( 'input' );
-			expect( input.element.value ).toBe( 'foo' );
 		} );
 	} );
 

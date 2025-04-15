@@ -130,26 +130,6 @@ export default defineComponent( {
 			default: null
 		},
 
-		// DEPRECATED: Remove (T373532).
-		/**
-		 * Initial value of the text input. Non-reactive.
-		 *
-		 * @deprecated Use `inputValue` instead.
-		 */
-		initialInputValue: {
-			type: [ String, Number ] as PropType<string|number>,
-			default: '',
-			validator: ( value ) => {
-				if ( value ) {
-					// eslint-disable-next-line no-console
-					console.warn(
-						'[CdxLookup]: prop "initialInputValue" is deprecated. Use "inputValue" instead.'
-					);
-				}
-				return true;
-			}
-		},
-
 		/**
 		 * Whether the entire component is disabled.
 		 */
@@ -253,8 +233,7 @@ export default defineComponent( {
 		const highlightedId = computed( () => menu.value?.getHighlightedMenuItem()?.id );
 
 		// Ref used if the inputValue prop is omitted.
-		// DEPRECATED: Set to an empty string once the initialInputValue prop is removed (T373532).
-		const internalInputValue = ref( props.initialInputValue );
+		const internalInputValue = ref( '' );
 		const computedInputValue = useOptionalModelWrapper(
 			internalInputValue,
 			toRef( props, 'inputValue' ),
