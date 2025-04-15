@@ -147,4 +147,120 @@ describe( 'Accordion', () => {
 			expect( wrapper.get( '.cdx-accordion__content' ).isVisible() ).toBe( false );
 		} );
 	} );
+
+	describe( 'When the optional modelValue prop is provided', () => {
+		it( 'should render in the expanded state when this value is true', () => {
+			const wrapper = mount( CdxAccordion, {
+				props: {
+					modelValue: true
+				},
+				slots: {
+					title: 'Title',
+					default: 'Content'
+				}
+			} );
+
+			expect( wrapper.get( '.cdx-accordion__content' ).isVisible() ).toBe( true );
+		} );
+
+		it( 'should render in the collapsed state when this value is false', () => {
+			const wrapper = mount( CdxAccordion, {
+				props: {
+					modelValue: false
+				},
+				slots: {
+					title: 'Title',
+					default: 'Content'
+				}
+			} );
+
+			expect( wrapper.get( '.cdx-accordion__content' ).isVisible() ).toBe( false );
+		} );
+
+		it( 'should update programmatically when v-model changes', async () => {
+			const wrapper = mount( CdxAccordion, {
+				props: {
+					modelValue: false
+				},
+				slots: {
+					title: 'Title',
+					default: 'Content'
+				}
+			} );
+
+			// Initially closed
+			expect( wrapper.get( '.cdx-accordion__content' ).isVisible() ).toBe( false );
+
+			// Update modelValue
+			await wrapper.setProps( { modelValue: true } );
+
+			// Should now be open
+			expect( wrapper.get( '.cdx-accordion__content' ).isVisible() ).toBe( true );
+		} );
+	} );
+
+	describe( 'Events emitted by the Accordion', () => {
+		it( 'should emit toggle event when the accordion is toggled', async () => {
+			const wrapper = mount( CdxAccordion, {
+				slots: {
+					title: 'Title',
+					default: 'Content'
+				}
+			} );
+
+			await toggleDetails( wrapper.find( 'details' ) );
+			expect( wrapper.emitted( 'toggle' ) ).toBeTruthy();
+			expect( wrapper.emitted( 'toggle' )?.[ 0 ] ).toEqual( [ true ] );
+
+			await toggleDetails( wrapper.find( 'details' ) );
+			expect( wrapper.emitted( 'toggle' )?.[ 1 ] ).toEqual( [ false ] );
+		} );
+
+		it( 'should emit update:modelValue event only when modelValue is provided', async () => {
+			// Without modelValue provided
+			const wrapper = mount( CdxAccordion, {
+				slots: {
+					title: 'Title',
+					default: 'Content'
+				}
+			} );
+
+			await toggleDetails( wrapper.find( 'details' ) );
+			expect( wrapper.emitted( 'update:modelValue' ) ).toBeFalsy();
+
+			// With modelValue provided
+			const wrapperWithModel = mount( CdxAccordion, {
+				props: {
+					modelValue: false
+				},
+				slots: {
+					title: 'Title',
+					default: 'Content'
+				}
+			} );
+
+			await toggleDetails( wrapperWithModel.find( 'details' ) );
+			expect( wrapperWithModel.emitted( 'update:modelValue' ) ).toBeTruthy();
+			expect( wrapperWithModel.emitted( 'update:modelValue' )?.[ 0 ] ).toEqual( [ true ] );
+		} );
+	} );
+
+	describe( 'v-model and open attribute interaction', () => {
+		it( 'should prioritize open attribute for initial state when both are provided', () => {
+			const wrapper = mount( CdxAccordion, {
+				props: {
+					modelValue: false
+				},
+				attrs: {
+					open: 'open'
+				},
+				slots: {
+					title: 'Title',
+					default: 'Content'
+				}
+			} );
+
+			expect( wrapper.get( '.cdx-accordion__content' ).isVisible() ).toBe( true );
+		} );
+	} );
 } );

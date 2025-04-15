@@ -1,12 +1,33 @@
 <template>
 	<section id="cdx-accordion">
 		<h2>Accordion</h2>
-		<h3>Accordion with title and content</h3>
+		<h3>Accordion with title and content (v-model binding)</h3>
+		<div>
+			<cdx-toggle-button v-model="open1">
+				{{ open1 ? 'Accordion is Open' : 'Accordion is Closed' }}
+			</cdx-toggle-button>
+		</div>
+		<br>
+
+		<cdx-accordion v-model="open1">
+			<template #title>
+				Accordion title
+				<span class="green">
+					(Using v-model, current state: {{ open1 ? 'open' : 'closed' }})
+				</span>
+			</template>
+			Accordion content
+		</cdx-accordion>
+
+		<h3>Native accordion (uncontrolled)</h3>
 		<cdx-accordion>
 			<template #title>
 				Accordion title
+				<span class="blue">
+					(Native behavior - no v-model)
+				</span>
 			</template>
-			Accordion content
+			This accordion uses native HTML behavior without programmatic control
 		</cdx-accordion>
 
 		<h3>Accordion with a title and an image as a content</h3>
@@ -51,6 +72,22 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { cdxIconEdit } from '@wikimedia/codex-icons';
-import { CdxAccordion } from '../lib';
+import { CdxAccordion, CdxToggleButton } from '../lib';
+
+const open1 = ref( false );
 </script>
+
+<style scoped lang="less">
+@blue: blue;
+@green: green;
+
+.blue {
+	color: @blue;
+}
+
+.green {
+	color: @green;
+}
+</style>

@@ -5,6 +5,7 @@ import AccordionActionButton from '@/../component-demos/accordion/examples/Accor
 import AccordionDifferentContent from '@/../component-demos/accordion/examples/AccordionDifferentContent.vue';
 import AccordionActionVisible from '@/../component-demos/accordion/examples/AccordionActionVisible.vue';
 import AccordionHeadings from '@/../component-demos/accordion/examples/AccordionHeadings.vue';
+import AccordionProgrammaticControl from '@/../component-demos/accordion/examples/AccordionProgrammaticControl.vue';
 
 const controlsConfig = [
 	{
@@ -140,6 +141,26 @@ The expanded content within the Accordion can include paragraph text, links, ima
 </template>
 </cdx-demo-wrapper>
 
+<cdx-accordion>
+<template #title>Developer notes</template>
+The Accordion component supports two different modes of usage:
+
+1. "Native" behavior – the component's embedded `<details>` element
+  bears the responsibility for managing the open/closed state of the
+  component. If desired, an initial `open` attribute can be provided
+  to ensure that the component renders in the expanded state initially.
+  Use this behavior if you don't care about controlling the state of
+  Accordion component's programmatically. Refer to the [basic usage](#basic-usage)
+  example for how to implement this behavior.
+2. `v-model` behavior – by binding a reactive value to the component
+  using `v-model`, programmatic control can be achieved. Use this
+  approach if something outside of the Accordion (URL, another component,
+  etc) needs to be able to open or close the component based on some
+  criteria. Refer to the [programmatically controlled section](#programmatically-controlled) for an example
+  of how to implement this behavior.
+
+</cdx-accordion>
+
 ### With action button
 
 By default, action buttons display when the Accordion is open.
@@ -253,6 +274,29 @@ In the example below, the heading level is set to 2 and the font size is increas
 The Accordion heading can be changed to any heading level by passing the `headingLevel` prop.
 
 </cdx-accordion>
+
+### Programmatically controlled
+
+It is possible to control the Accordion component programmatically, using a `v-model` binding
+in the parent scope. Use this approach if something outside of the Accordion needs to be able
+to trigger or respond to changes in the component's state.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<accordion-programmatic-control />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/accordion/examples/AccordionProgrammaticControl.vue [NPM]
+
+<<< @/../component-demos/accordion/examples-mw/AccordionProgrammaticControl.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
 
 ## Technical implementation
 

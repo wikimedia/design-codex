@@ -2,6 +2,7 @@
 	<details
 		class="cdx-accordion"
 		:class="rootClasses"
+		:open="computedOpen || undefined"
 		@toggle="onToggle"
 	>
 		<summary>
@@ -42,11 +43,12 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, ref } from 'vue';
+import { computed, defineComponent, PropType, ref, toRef } from 'vue';
 import CdxIcon from '../icon/Icon.vue';
 import CdxButton from '../button/Button.vue';
 import { Icon } from '@wikimedia/codex-icons';
 import { HeadingLevel } from '../../types';
+import useOptionalModelWrapper from '../../composables/useOptionalModelWrapper';
 
 /**
  * An item that contains an expandable and collapsible section of content.
@@ -55,6 +57,18 @@ export default defineComponent( {
 	name: 'CdxAccordion',
 	components: { CdxButton, CdxIcon },
 	props: {
+		/**
+		 * This component accepts an optional v-model binding; use it if you
+		 * want to programmatically control the Accordion's open/closed state.
+		 * If this feature is not needed, you can omit `v-model` and just use
+		 * the "open" attribute if you want the component to render in the
+		 * expanded state.
+		 */
+		modelValue: {
+			type: [ Boolean, null ],
+			default: null
+		},
+
 		/**
 		 * Forces the accordion to show the action icon.
 		 */
@@ -96,22 +110,54 @@ export default defineComponent( {
 		 * When the action button is clicked.
 		 *
 		 */
-		'action-button-click'
+		'action-button-click',
+
+		/**
+		 * When the "open" state changes. Only emitted if v-model binding
+		 * is used in the parent scope.
+		 *
+		 * @param {boolean} newVal
+		 */
+		'update:modelValue',
+
+		/**
+		 * When the Accordion is toggled open or closed. Always emitted
+		 * regardless of v-model binding.
+		 *
+		 * @param {boolean} isOpen
+		 */
+		'toggle'
 	],
 	setup( props, { attrs, emit } ) {
-		const isExpanded = ref<boolean>( 'open' in attrs );
+		const internalOpen = ref<boolean>( 'open' in attrs );
+		const computedOpen = useOptionalModelWrapper(
+			internalOpen,
+			toRef( props, 'modelValue' ),
+			emit
+		);
 
 		const emitActionButtonClick = (): void => {
 			emit( 'action-button-click' );
 		};
 
 		const onToggle = ( e: ToggleEvent ): void => {
-			isExpanded.value = e.newState === 'open';
+			computedOpen.value = e.newState === 'open';
+			emit( 'toggle', computedOpen.value );
 		};
 
-		const shouldShowActionButton = computed(
-			() => props.actionIcon && ( isExpanded.value || props.actionAlwaysVisible )
-		);
+		const shouldShowActionButton = computed( () => {
+			if ( props.actionIcon ) {
+				if ( computedOpen.value ) {
+					return true;
+				} else if ( props.actionAlwaysVisible ) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} );
 
 		const rootClasses = computed( () => ( {
 			'cdx-accordion--has-icon': shouldShowActionButton.value
@@ -121,7 +167,8 @@ export default defineComponent( {
 			emitActionButtonClick,
 			rootClasses,
 			shouldShowActionButton,
-			onToggle
+			onToggle,
+			computedOpen
 		};
 	}
 } );
