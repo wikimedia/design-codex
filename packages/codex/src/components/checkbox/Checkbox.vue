@@ -350,10 +350,6 @@ export default defineComponent( {
 			& + .cdx-checkbox__icon {
 				background-color: @background-color-disabled-subtle;
 				border-color: @border-color-disabled;
-
-				&::before {
-					border-color: @border-color-inverted-fixed;
-				}
 			}
 
 			&:checked,
@@ -362,6 +358,11 @@ export default defineComponent( {
 					background-color: @background-color-disabled;
 					border-color: @border-color-transparent;
 				}
+			}
+
+			&:checked:not( :indeterminate ) + .cdx-checkbox__icon::before {
+				border-right-color: @color-disabled;
+				border-bottom-color: @color-disabled;
 			}
 
 			&:indeterminate + .cdx-checkbox__icon::before {
