@@ -20,7 +20,9 @@ import {
 	shouldUseAbsoluteSize,
 	shouldExposeCustomProperty,
 	isModeToken,
-	isPublishedToken
+	isPublishedToken,
+	isColorProperty,
+	isTypographyProperty
 } from './matchers.js';
 import { createCustomStyleFormatter } from './formatters.js';
 import {
@@ -171,13 +173,31 @@ await ( await sdBase.extend( {
 					}
 				},
 				{
-					destination: 'theme-wikimedia-ui-reset.less',
+					destination: 'theme-wikimedia-ui-mixin-mode-reset.less',
 					format: 'custom/css',
 					options: {
 						// Note that shouldExposeCustomProperty also implies isPublishedToken
 						outputFilter: shouldExposeCustomProperty,
 						outputReferences: true,
 						selector: '.cdx-mode-reset()'
+					}
+				},
+				{
+					destination: 'theme-wikimedia-ui-mixin-light.less',
+					format: 'custom/css',
+					options: {
+						outputFilter: isColorProperty,
+						outputReferences: true,
+						selector: '.cdx-mode-light()'
+					}
+				},
+				{
+					destination: 'theme-wikimedia-ui-mixin-medium.less',
+					format: 'custom/css',
+					options: {
+						outputFilter: isTypographyProperty,
+						outputReferences: true,
+						selector: '.cdx-mode-medium()'
 					}
 				}
 			]

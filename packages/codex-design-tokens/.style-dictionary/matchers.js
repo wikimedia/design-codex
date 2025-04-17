@@ -40,6 +40,17 @@ export function shouldUseAbsoluteSize( token ) {
  * @return {boolean}
  */
 export function shouldExposeCustomProperty( token ) {
+	return isColorProperty( token ) || isTypographyProperty( token );
+}
+
+/**
+ * Determines if a token is related to color properties.
+ * Used for color-mode specific resets.
+ *
+ * @param {TransformedToken} token
+ * @return {boolean}
+ */
+export function isColorProperty( token ) {
 	const includedProps = [
 		'accent-color',
 		'color',
@@ -48,13 +59,30 @@ export function shouldExposeCustomProperty( token ) {
 		'filter',
 		'opacity-icon',
 		'mix-blend-mode',
-		'box-shadow.color',
+		'box-shadow.color'
+	];
+
+	if ( !isPublishedToken( token ) ) {
+		return false;
+	}
+
+	return token.path.some( ( element ) => includedProps.includes( element ) );
+}
+
+/**
+ * Determines if a token is related to typography properties.
+ * Used for font-mode specific resets.
+ *
+ * @param {TransformedToken} token
+ * @return {boolean}
+ */
+export function isTypographyProperty( token ) {
+	const includedProps = [
 		'font-size',
 		'line-height'
 	];
 
-	// Exclude all option tokens
-	if ( token.attributes?.type === 'theme' ) {
+	if ( !isPublishedToken( token ) ) {
 		return false;
 	}
 
