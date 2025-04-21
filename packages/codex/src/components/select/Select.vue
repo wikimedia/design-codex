@@ -333,7 +333,7 @@ export default defineComponent( {
 // CSS-only and Vue implementations are too divergent to combine, so they are included separately.
 // This is the CSS-only version, which is a `<select>` element.
 .cdx-select {
-	.cdx-select__handle();
+	.cdx-mixin-select__handle();
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	appearance: none;
 	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
@@ -343,7 +343,7 @@ export default defineComponent( {
 	background-size: calc( ~'max( @{size-icon-x-small}, @{min-size-icon-x-small} )' );
 
 	&:disabled {
-		.cdx-select__handle--disabled();
+		.cdx-mixin-select__handle--disabled();
 		.get-select-icon-background-image( @color-disabled-hex );
 
 		// Support: Chrome, which sets an opacity less than 1 for disabled select elements.
@@ -351,7 +351,7 @@ export default defineComponent( {
 	}
 
 	&:enabled {
-		.cdx-select__handle--enabled();
+		.cdx-mixin-select__handle--enabled();
 		.get-select-icon-background-image( @color-base-hex );
 	}
 }
@@ -362,7 +362,7 @@ export default defineComponent( {
 	position: relative;
 
 	&__handle {
-		.cdx-select__handle();
+		.cdx-mixin-select__handle();
 		position: relative;
 		width: @size-full;
 	}
@@ -388,7 +388,7 @@ export default defineComponent( {
 
 	&--enabled {
 		.cdx-select-vue__handle {
-			.cdx-select__handle--enabled();
+			.cdx-mixin-select__handle--enabled();
 		}
 
 		// Enabled and a value is selected.
@@ -407,7 +407,7 @@ export default defineComponent( {
 	/* stylelint-disable no-descending-specificity */
 	&--disabled {
 		.cdx-select-vue__handle {
-			.cdx-select__handle--disabled();
+			.cdx-mixin-select__handle--disabled();
 			// Don't implement coined effect on text-shadow from OOUI.
 			// This has never gone through design review and was a hack to increase
 			// color contrast.

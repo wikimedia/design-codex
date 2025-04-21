@@ -3,7 +3,7 @@
 // Mixins for select components. These mixins target the "handle," or the element that the user
 // clicks to open/close the menu. For a CSS-only select, this will be the `<select>` element.
 // For the Vue implementation, it will be the `.cdx-select-vue__handle` element.
-.cdx-select__handle() {
+.cdx-mixin-select__handle() {
 	align-content: center;
 	box-sizing: @box-sizing-base;
 	min-width: @min-width-medium;
@@ -20,13 +20,13 @@
 	line-height: 1;
 }
 
-.cdx-select__handle--disabled() {
+.cdx-mixin-select__handle--disabled() {
 	background-color: @background-color-disabled-subtle;
 	color: @color-disabled;
 	border-color: @border-color-disabled;
 }
 
-.cdx-select__handle--enabled() {
+.cdx-mixin-select__handle--enabled() {
 	background-color: @background-color-interactive-subtle;
 	color: @color-subtle;
 	border-color: @border-color-interactive;
