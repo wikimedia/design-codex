@@ -259,7 +259,7 @@ downloaded Codex; these examples assume that the library has been installed usin
 
 ```css
 @import url( ./node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-root.css );
-@import url( /node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.css ) only screen and ( prefers-color-scheme: dark );
+@import url( ./node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.css ) only screen and ( prefers-color-scheme: dark );
 ```
 
 Alternatively, you can load these files as separate `<link>` tags in the head of your HTML
