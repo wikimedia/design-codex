@@ -282,6 +282,10 @@ export default defineComponent( {
 		&:hover {
 			background-color: unset;
 		}
+
+		svg {
+			pointer-events: none;
+		}
 	}
 
 	&__content {
