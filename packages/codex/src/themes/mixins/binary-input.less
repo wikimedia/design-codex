@@ -113,9 +113,9 @@
 	// Ensure that the input and label show hover cursor, when enabled.
 	// The line with the :not() selector is meant to support CSS-only usage of a simple
 	// label element with class `&__label`, rather than use of the Label component.
-	&:hover > &__input:enabled,
-	&:hover > &__input:enabled ~ .cdx-label .cdx-label__label,
-	&:hover > &__input:enabled ~ &__label:not( .cdx-label ) {
+	&__wrapper:hover > &__input:enabled,
+	&__wrapper:hover > &__input:enabled ~ .cdx-label .cdx-label__label,
+	&__wrapper:hover > &__input:enabled ~ &__label:not( .cdx-label ) {
 		cursor: @cursor-base--hover;
 	}
 
