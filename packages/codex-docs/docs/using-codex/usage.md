@@ -286,9 +286,8 @@ to reference the appropriate Codex color token instead of hardcoding values in y
 
 ## Versioning
 Codex follows [the semantic versioning standard](https://semver.org/). The current version is
-`{{ version }}`. Subsequent versions will continue to be numbered `0.x.y`, until Codex is stable
-and mature enough to warrant a `1.0.0` release. If a release contains breaking changes, the
-minor version number (the `x` in `0.x.y`) will be incremented, and the breaking changes will
+`{{ version }}`. If a release contains breaking changes, the
+major version number (the `n` in `n.x.y`) will be incremented, and the breaking changes will
 be clearly documented in `CHANGELOG.md`.
 
 ## Bidirectionality support
