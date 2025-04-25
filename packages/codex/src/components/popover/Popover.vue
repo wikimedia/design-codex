@@ -452,6 +452,8 @@ export default defineComponent( {
 		margin-bottom: @spacing-50;
 
 		&__icon {
+			// Ensure the icon doesn't shrink when space is limited in the header.
+			flex-shrink: 0;
 			// Setting the height of the icon to the line-height of the accompanying text
 			// to ensure centering of the icon to text
 			height: @line-height-small;
