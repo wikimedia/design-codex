@@ -36,31 +36,13 @@ Designers will start creating an initial inventory with the relevant use cases w
 
 ## 3. Design the token
 
-### 3.1. Work on the existing Figma exploration file
+When creating new tokens, define the type of token based on the specific design need:
 
-Work on your new token proposal using a Figma exploration file. This way, you’ll also be able to share your iterative designs in the relevant Phabricator task. If the token belongs into one of the existing categories, you’ll be able to reuse the available Figma exploration files:
+- **Option token**: create when you need to define a raw value — a value like a color (e.g., `#36c` defined as `color.blue700`), a spacing unit, or a font size — that doesn’t have a specific meaning yet and won’t be applied directly to components. Option tokens serve as the foundation for creating decision or component tokens.
+- **Decision token**: create when the style will be reused across multiple components. Decision tokens are based on option tokens (e.g., the decision token `color-progressive` reuses the option token `color.blue700`), so make sure the required option token already exists, or create it first if necessary.
+- **Component token**: create only in exceptional cases, when the style is specific to a single component and cannot be reused. Component tokens reuse option or decision tokens (e.g., the component token `color-link-red` reuses the decision token `color-destructive`), so ensure the necessary token exists, or create it first if needed.
 
-- [Animation & Transition](https://www.figma.com/file/UNAWyVXbcioeVPCiCHhbh8/Motion-tokens---T304443)
-- [Border](https://www.figma.com/file/PqH1gxenUEtB6Kw9vlwISW/Border-Tokens---T300562)
-- [Box-shadow](https://www.figma.com/file/4cXXU5YqFnDqrMRefj3K89/Shadows-Tokens---T297003)
-- [Breakpoint](https://www.figma.com/file/AH1Vtfc2PpjBdzZeyaIc8x/Breakpoints---T303522)
-- [Color](https://www.figma.com/file/E6hxGwEOs9YFVF4fFRyqSv/Colors-Tokens---T296995)
-- [Cursor](https://www.figma.com/file/z5oKZ1rsAFu9fQxGN4oArU/Cursor-Tokens---T302181)
-- [Opacity](https://www.figma.com/file/h9pA2CCl2i0wtlTKNChaES/Opacities---Tokens)
-- [Size & Spacing](https://www.figma.com/file/hcCHhevNA5aHo2D1Gajydc/Size-%26-spacing---Tokens)
-- [Font](https://www.figma.com/file/X8pKlndyPaqZg4I3GubQs6/Font)
-
-In the exploration Figma file, create a new Figma tab for each version of the new token proposal you explore. Indicate the version (e.g. “v1”) and date (e.g. “2022-07-17”), and add an icon to point out whether the version is final (✅), archived (📁) or work-in-progress (🛠 WIP).
-
-![Screenshot of Figma Color tokens exploration](../assets/designing-tokens/design-token-figma-exploration.png)
-
-### 3.2. Create option and decision tokens
-
-Designers will need to add both option and decision tokens in their respective specifications sheets. Option tokens consume “raw” values (e.g. `#36c`), and usually have more abstract names (e.g. `color-blue700`). The names of decision tokens should express their intended use (e.g. `color-progressive`). They consume option tokens as values. Learn more about the different [token typologies](../design-tokens/definition-and-structure.md).
-
-![Option and decision tokens on example box shadows](../assets/designing-tokens/design-token-create-option-decision-tokens.png)
-
-Make sure that both option and decision tokens fit within the existing value scale. Apply the value of the token to its “swatch” in Figma in order to showcase the new style. Also, make sure to use the right naming, which might depend on the token’s category.
+Make sure the new token fits within the existing token scale, and use the appropiate naming based on its category. Learn more about the different [token typologies](../design-tokens/definition-and-structure.md).
 
 ### 3.4. Evaluate and iterate
 
