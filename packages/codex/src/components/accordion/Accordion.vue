@@ -293,6 +293,8 @@ export default defineComponent( {
 	& > summary::before {
 		content: '';
 		.cdx-mixin-css-icon( @cdx-icon-expand, @param-size-icon: @size-icon-small );
+		// Ensure icon doesn't shrink if text is especially long and/or in large font size
+		flex-shrink: 0;
 		// Setting the height of the icon to the line-height of the accompanying text
 		// to ensure centering of the icon to text
 		height: @line-height-small;
