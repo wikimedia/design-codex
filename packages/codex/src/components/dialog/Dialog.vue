@@ -583,7 +583,7 @@ export default defineComponent( {
 	box-shadow: @box-shadow-large;
 
 	&__header {
-		padding: @spacing-125 @spacing-150 0;
+		padding: @spacing-100 @spacing-150 @spacing-50;
 
 		// If no custom header content is provided, apply these styles to the
 		// <header> element
@@ -634,7 +634,7 @@ export default defineComponent( {
 
 	&__body {
 		flex-grow: 1;
-		padding: @spacing-75 @spacing-150 @spacing-125;
+		padding: @spacing-50 @spacing-150;
 		overflow-y: auto;
 		.cdx-mixin-body-text();
 
@@ -666,7 +666,7 @@ export default defineComponent( {
 	}
 
 	&__footer {
-		padding: 0 @spacing-150 @spacing-150;
+		padding: @spacing-100 @spacing-150 @spacing-150;
 
 		// If no custom footer content is provided, apply these styles to the
 		// <footer> element
