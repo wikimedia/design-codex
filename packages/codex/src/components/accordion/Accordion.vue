@@ -189,6 +189,7 @@ export default defineComponent( {
 		list-style: none; // disable the built-in indicator icon since we're providing our own
 		display: flex;
 		gap: @spacing-50;
+		position: relative;
 		border-width: @border-width-base;
 		border-style: @border-style-base;
 		border-color: @border-color-transparent;
