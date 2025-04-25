@@ -201,7 +201,6 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/public/typography.less';
 
 .cdx-accordion {
-	position: relative;
 	margin: @size-6;
 	overflow: hidden;
 
@@ -218,7 +217,6 @@ export default defineComponent( {
 		list-style: none; // disable the built-in indicator icon since we're providing our own
 		display: flex;
 		gap: @spacing-50;
-		position: relative;
 		border-radius: @border-radius-sharp;
 		padding: @spacing-75;
 		word-break: break-word;
@@ -265,7 +263,7 @@ export default defineComponent( {
 
 	// Add specificity to override heading styles.
 	& &__header {
-		position: relative;
+		flex-grow: 1;
 		margin-top: 0;
 		margin-bottom: 0;
 		border-top: 0;
@@ -291,19 +289,10 @@ export default defineComponent( {
 	}
 
 	&__action.cdx-button {
-		display: flex;
-		align-items: center;
-		position: absolute;
-		top: 0;
-		right: 0;
-		// Align the icon with the text by making it as tall as the text, plus 2 times the distance
-		// between the edge of the button and the text (which is @spacing-75 for the padding and
-		// @border-width-base for the button border)
-		height: @size-full;
-		padding-right: @spacing-75;
-		padding-left: @spacing-75;
-		// Set the font-size so that the em-based height calculation above works correctly
-		font-size: @font-size-medium;
+		align-self: flex-start;
+		flex-shrink: 0;
+		margin-top: -@spacing-12;
+		margin-bottom: -@spacing-12;
 
 		&:hover {
 			background-color: unset;

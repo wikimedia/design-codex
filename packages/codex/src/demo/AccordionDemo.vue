@@ -42,7 +42,10 @@
 		</cdx-accordion>
 
 		<h3>Accordion with an action icon</h3>
-		<cdx-accordion :action-icon="cdxIconEdit">
+		<cdx-accordion
+			:action-icon="cdxIconEdit"
+			action-button-label="Edit"
+		>
 			<template #title>
 				Accordion title
 			</template>
