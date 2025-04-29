@@ -1,6 +1,6 @@
 {
 	"name": "@wikimedia/codex",
-	"version": "1.23.0",
+	"version": "2.0.0-rc.1",
 	"type": "module",
 	"description": "Codex Design System for Wikimedia",
 	"keywords": [
@@ -90,6 +90,6 @@
 	},
 	"dependencies": {
 		"@floating-ui/vue": "1.0.6",
-		"@wikimedia/codex-icons": "1.23.0"
+		"@wikimedia/codex-icons": "2.0.0-rc.1"
 	}
 }
