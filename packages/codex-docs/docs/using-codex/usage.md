@@ -193,6 +193,11 @@ For more information about the CSS-only icon, visit the [Icon demo page](../comp
 Import the appropriate design tokens theme file in your CSS, Less, or SCSS code to access Codex
 design tokens.
 
+Certain categories of design tokens (see modes below) are referencing CSS custom properties, also
+known as CSS variables, rather than raw values. This means that the relevant variables will no
+longer work in preprocessor mathematical functions (like Less `unit()`) and may require the use of
+the CSS `calc()` function to work in basic calculations.
+
 ### Sample CSS usage
 
 ```css
@@ -200,6 +205,8 @@ design tokens.
 
 .my-custom-element {
 	background-color: var( --background-color-interactive );
+	width: calc( var( --size-icon-medium ) + 2 * var( --spacing-100 ) );
+	margin-left: calc( var( --size-icon-medium ) * -1 );
 	padding: var( --spacing-25 ) var( --spacing-50 );
 }
 ```
@@ -211,6 +218,8 @@ design tokens.
 
 .my-custom-element {
 	background-color: @background-color-interactive;
+	width: calc( @size-icon-medium + ( 2 * @spacing-100 ) );
+	margin-left: calc( @size-icon-medium * -1 );
 	padding: @spacing-25 @spacing-50;
 }
 ```
@@ -222,6 +231,8 @@ design tokens.
 
 .my-custom-element {
 	background-color: $background-color-interactive;
+	width: calc( $size-icon-medium + ( 2 * $spacing-100 ) );
+	margin-left: calc( $size-icon-medium * -1 );
 	padding: $spacing-25 $spacing-50;
 }
 ```

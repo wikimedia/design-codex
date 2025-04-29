@@ -9,6 +9,12 @@ The size tokens are used to define the size of elements, applied for example on 
 
 ## Size
 
+:::tip
+Some size design tokens, e.g. `size-icon` are referencing CSS custom properties rather than raw
+values. This means that the tokens will not work in various preprocessor functions (like Less
+`unit()`) and may require relying on CSS `calc()` function for basic calculations.
+:::
+
 <cdx-docs-tokens-table
 	:tokens="tokens.size"
 	token-category="size"

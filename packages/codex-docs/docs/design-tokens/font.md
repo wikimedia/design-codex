@@ -16,6 +16,12 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 
 ## Font size
 
+:::tip
+Font size design tokens are referencing CSS custom properties rather than raw values. This means
+that the tokens will not work in various preprocessor functions (like Less `unit()`) and
+may require relying on CSS `calc()` function for basic calculations.
+:::
+
 <cdx-docs-tokens-table
 	:tokens="tokens['font-size']"
 	token-demo="CdxDocsFontDemo"
@@ -33,6 +39,12 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 />
 
 ## Line height
+
+:::tip
+Line height design tokens are referencing CSS custom properties rather than raw values. This means
+that the tokens will not work in various preprocessor functions (like Less `unit()`) and
+may require relying on CSS `calc()` function for basic calculations.
+:::
 
 <cdx-docs-tokens-table
 	:tokens="tokens['line-height']"
