@@ -570,6 +570,9 @@ export const cdxIconLogOut: IconFlipForRtl = {
 import svgLogoCC from './images/logo-CC.svg';
 export const cdxIconLogoCC = svgLogoCC;
 
+import svgLogoCodex from './images/logo-Codex.svg';
+export const cdxIconLogoCodex = svgLogoCodex;
+
 import svgLogoMediaWiki from './images/logo-MediaWiki.svg';
 export const cdxIconLogoMediaWiki = svgLogoMediaWiki;
 
