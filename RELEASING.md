@@ -59,8 +59,8 @@ version number as an argument:
 ```
 
 The script creates a new branch, starts a commit to update the version number in the right places,
-and adds the changes in that release to `CHANGELOG.md`. Those changes then need to be manually
-organized following the conventions documented in
+and adds the changes in that release to `CHANGELOG.md`. The changes are automatically sorted based on
+commit prefixes, but may need to be manually organized following the conventions documented in
 [contributing code](https://doc.wikimedia.org/codex/latest/contributing/development-basics.html#patch-requirements).
 
 For any breaking changes, below the commit message, add a bulleted list describing the changes and
@@ -276,9 +276,9 @@ MediaWiki instance based on the core patch to update the Codex version. We can u
 test TypeaheadSearch by configuring the settings for the Patchdemo as follows:
 - Add the MediaWiki core patch that updates the Codex version.
 - You can optionally leave the default selection of extensions/skins as is since we may only need
-Vector and Minerva skins. To find the full list of repos, open “Choose included repos”.
+Vector and Minerva skins. To find the full list of repos, open "Choose included repos".
 - Set the landing page to "Main Page".
-- Check the "Proxy articles from wikipedia.org" to import content into your project. TypeaheadSearch
+- Check "Proxy articles from wikipedia.org" to import content into your project. TypeaheadSearch
 relies on content.
 - Lastly, click the button "Create Demo". Patchdemo should take 2-3 minutes to generate the wiki
 instance.

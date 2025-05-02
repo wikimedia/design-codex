@@ -44,10 +44,17 @@ do
 	npm run build -w $WORKSPACE
 done
 
-# Get the commits in the new version and prepend them to CHANGELOG.md
+# Get the commits in the new version
 NEW_COMMITS="$(git log --reverse v$OLD_VERSION.. --format="- %s (%aN)")"
+# Categorize the commits via Node.js
+# The bash script pipes the commit messages to the Node script.
+# Node executes the JavaScript file and captures the output.
+CATEGORIZED_COMMITS="$(echo "$NEW_COMMITS" | node build/sortCommits.mjs)"
 TODAY="$(date -u +%Y-%m-%d)"
-echo -e "# $NEW_VERSION / $TODAY\n$NEW_COMMITS\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
+CHANGELOG_HEADER="# $NEW_VERSION / $TODAY"
+
+# Write to CHANGELOG.md
+echo -e "$CHANGELOG_HEADER\n\n$CATEGORIZED_COMMITS\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
 
 # Display publishing preview
 for WORKSPACE in $PUBLISH_WORKSPACES
