@@ -43,7 +43,7 @@ import CdxDocsReturnToTop from '../return-to-top/ReturnToTop.vue';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
-const { frontmatter } = useData();
+const { frontmatter, isDark } = useData();
 
 // Set up return-to-top button.
 const isComponentPage = computed( () => route.path.includes( '/components/demos/' ) );
@@ -60,7 +60,7 @@ function handleScroll() {
 
 // Color and font modes.
 const colorMode = ref( 'system' );
-const isDark = computed( () => colorMode.value === 'dark' ||
+const colorModeIsDark = computed( () => colorMode.value === 'dark' ||
 	( colorMode.value === 'system' && window.matchMedia && window.matchMedia( '(prefers-color-scheme: dark)' ).matches ) );
 const fontMode = ref( 'medium' );
 
@@ -75,7 +75,10 @@ const layoutClasses = computed( () => ( {
  * class is used by VitePress to apply their dark mode tokens.
  */
 function updateDocumentClass() {
-	if ( isDark.value ) {
+	// Update VitePress's ref that tracks whether we're in dark mode. This can be used throughout
+	// the site, e.g. on the Colors design tokens page.
+	isDark.value = colorModeIsDark.value;
+	if ( colorModeIsDark.value ) {
 		document.documentElement.classList.add( 'cdx-docs-color-mode--dark', 'dark' );
 	} else {
 		document.documentElement.classList.remove( 'cdx-docs-color-mode--dark', 'dark' );
