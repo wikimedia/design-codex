@@ -8,7 +8,7 @@ const controlsConfig = [
 		type: 'boolean'
 	},
 	{
-		name: 'aria-label',
+		name: 'ariaLabel',
 		type: 'text',
 		initial: 'ProgressBar example'
 	},
