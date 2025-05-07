@@ -1100,6 +1100,12 @@ export const cdxIconUserTemporary: IconFlipForRtl = {
 	shouldFlip: true
 };
 
+import svgUserTemporaryLocation from './images/userTemporaryLocation.svg';
+export const cdxIconUserTemporaryLocation: IconFlipForRtl = {
+	ltr: svgUserTemporaryLocation,
+	shouldFlip: true
+};
+
 import svgVolumeDown from './images/volumeDown.svg';
 export const cdxIconVolumeDown: IconFlipForRtl = {
 	ltr: svgVolumeDown,
