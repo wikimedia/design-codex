@@ -195,7 +195,7 @@ Color hints are guidance for general use case in a light mode theme.
 	<tr>
 		<th>
 			Heading 3
-			<code>font-family-sans</code>
+			<code>font-family-base</code>
 			<code>font-size-x-large</code>
 			<code>font-weight-bold</code>
 			<code>line-height-x-large</code>
@@ -207,7 +207,7 @@ Color hints are guidance for general use case in a light mode theme.
 	<tr>
 		<th>
 			Heading 4
-			<code>font-family-sans</code>
+			<code>font-family-base</code>
 			<code>font-size-large</code>
 			<code>font-weight-bold</code>
 			<code>line-height-large</code>
@@ -219,7 +219,7 @@ Color hints are guidance for general use case in a light mode theme.
 	<tr>
 		<th>
 			Body
-			<code>font-family-sans</code>
+			<code>font-family-base</code>
 			<code>font-size-medium</code>
 			<code>font-weight-normal</code>
 			<code>line-height-medium</code>
@@ -231,7 +231,7 @@ Color hints are guidance for general use case in a light mode theme.
 	<tr>
 		<th>
 			Small
-			<code>font-family-sans</code>
+			<code>font-family-base</code>
 			<code>font-size-small</code>
 			<code>font-weight-normal</code>
 			<code>line-height-small</code>
@@ -243,7 +243,7 @@ Color hints are guidance for general use case in a light mode theme.
 	<tr>
 		<th>
 			Figure caption
-			<code>font-family-sans</code>
+			<code>font-family-base</code>
 			<code>font-size-small</code>
 			<code>font-weight-normal</code>
 			<code>line-height-small</code>
@@ -271,7 +271,7 @@ Color hints are guidance for general use case in a light mode theme.
 	<tr>
 		<th>
 			Cite
-			<code>font-family-sans</code>
+			<code>font-family-base</code>
 			<code>font-size-small</code>
 			<code>font-weight-normal</code>
 			<code>line-height-small</code>

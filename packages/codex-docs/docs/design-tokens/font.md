@@ -7,6 +7,8 @@ import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
 
 ## Font family
 
+When referring to `sans-serif` or `serif`, the font-family that will be used is dependent on the operating system. For example, the default sans-serif font in Windows is [Segoe UI](https://en.wikipedia.org/wiki/Segoe#Segoe_UI), and the default sans-serif font in macOS is [SF Pro](https://en.wikipedia.org/wiki/San_Francisco_(sans-serif_typeface)#SF_Pro/SF_UI). Other common system sans-serif fonts include [Arial](https://en.wikipedia.org/wiki/Arial), [Roboto](https://en.wikipedia.org/wiki/Roboto), and [Helvetica](https://en.wikipedia.org/wiki/Helvetica). Common system serif fonts include [Times New Roman](https://en.wikipedia.org/wiki/Times_New_Roman) and [Georgia](https://en.wikipedia.org/wiki/Georgia_(typeface)).
+
 <cdx-docs-tokens-table
 	:tokens="tokens['font-family']"
 	token-demo="CdxDocsFontDemo"
