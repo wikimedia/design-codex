@@ -341,7 +341,9 @@ props.
 
 </cdx-accordion>
 
-## Vue usage
+## Technical implementation
+
+### Vue usage
 
 ::: warning
 This is not a standalone component, nor will it typically be directly used. It's

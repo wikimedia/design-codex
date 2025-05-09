@@ -46,8 +46,10 @@ content can be placed.
 	</cdx-demo-best-practice>
 </cdx-demo-best-practices>
 
-### Examples
+## Examples
 A container can hold any type of content, such as text, images, forms, or group of elements. It also
 supports nesting other containers, enabling the creation of complex and flexible layouts.
 
-## Vue usage
+## Technical implementation
+
+### Vue usage

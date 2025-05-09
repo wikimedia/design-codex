@@ -416,7 +416,7 @@ exports[`TypeaheadSearch initial state Case 3 With custom visible button label: 
 </div>
 `;
 
-exports[`TypeaheadSearch initial state Case 4 With custom visible button label using the depracated API: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "showThumbnail": true}) => HTML 1`] = `
+exports[`TypeaheadSearch initial state Case 4 With custom visible button label using the deprecated API: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "showThumbnail": true}) => HTML 1`] = `
 <div
   class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail cdx-typeahead-search--auto-expand-width"
 >

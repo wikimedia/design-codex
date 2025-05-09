@@ -254,7 +254,9 @@ To enable the no results message, provide content in the `search-no-results-text
 
 </cdx-accordion>
 
-## Vue usage
+## Technical implementation
+
+### Vue usage
 
 TypeaheadSearch contains a form with a text input, a submit button, and a slot for hidden inputs.
 The parent component must listen for changes in the search query (which are debounced by
@@ -277,9 +279,9 @@ This component will pass any HTML attributes applied to it, except for CSS class
 element within the component.
 :::
 
-## CSS-only version
+### CSS-only version
 
-### Markup structure
+#### Markup structure
 
 The CSS-only version of TypeaheadSearch is simply a SearchInput component styled to look like
 the Vue version of TypeaheadSearch. It will have no menu of results and is meant to be replaced
@@ -327,7 +329,7 @@ search icon is automatically added for you.
 </template>
 </cdx-demo-wrapper>
 
-### With thumbnails
+#### With thumbnails
 
 When your CSS-only TypeaheadSearch component will be swapped out for a Vue version that shows
 thumbnails (refer to the ["With initial input value" demo](#with-initial-input-value) above), apply
@@ -367,7 +369,7 @@ the
 </template>
 </cdx-demo-wrapper>
 
-### With thumbnails and auto-expand width
+#### With thumbnails and auto-expand width
 
 When your CSS-only TypeaheadSearch component will be swapped out for a Vue version that shows thumbnails and expands when results are shown (refer to the ["Search Wikipedia articles" demo](#search-wikipedia-articles)
 above), apply the `.cdx-typeahead-search--show-thumbnail` and `.cdx-typeahead-search--auto-expand-width` classes to the wrapper `<div>` to reduce the starting size

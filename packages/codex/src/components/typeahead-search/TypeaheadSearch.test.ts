@@ -81,7 +81,7 @@ describe( 'TypeaheadSearch initial state', () => {
 		[ 'With `autoExpandWidth` true and `showThumbnail` true', { ...propsData, autoExpandWidth: true, showThumbnail: true } ],
 		[ 'With `autoExpandWidth` true and `showThumbnail` false', { ...propsData, autoExpandWidth: true, showThumbnail: false } ],
 		[ 'With custom visible button label', { ...propsData, buttonLabel: 'Search Results' } ],
-		[ 'With custom visible button label using the depracated API', { ...propsDataDeprecated, autoExpandWidth: true, showThumbnail: true } ]
+		[ 'With custom visible button label using the deprecated API', { ...propsDataDeprecated, autoExpandWidth: true, showThumbnail: true } ]
 	];
 
 	test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
