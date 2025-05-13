@@ -617,7 +617,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
-              id="v-1-2"
+              id="v-1-1"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -781,7 +781,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
-              id="v-1-2"
+              id="v-1-1"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -857,7 +857,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--has-description cdx-menu-item--hide-description-overflow"
-              id="v-1-3"
+              id="v-1-2"
               role="option"
             >
               <!-- @slot Custom menu item content. -->
@@ -939,7 +939,7 @@ exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
             <li
               aria-disabled="false"
               class="cdx-menu-item cdx-menu-item--enabled cdx-menu-item--bold-label cdx-menu-item--hide-description-overflow"
-              id="v-1-4"
+              id="v-1-3"
               role="option"
             >
               <!-- @slot Custom menu item content. -->

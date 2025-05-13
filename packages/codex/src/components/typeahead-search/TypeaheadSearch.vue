@@ -22,7 +22,12 @@
 				role="combobox"
 				autocomplete="off"
 				aria-autocomplete="list"
-				:aria-controls="menuId"
+				:aria-owns="showEmptyQueryResults && searchQuery.length === 0 ?
+					menuId :
+					undefined"
+				:aria-controls="!showEmptyQueryResults || searchQuery.length > 0 ?
+					menuId :
+					undefined"
 				:aria-expanded="expanded"
 				:aria-activedescendant="highlightedId"
 				@update:model-value="onUpdateInputValue"
@@ -248,6 +253,15 @@ export default defineComponent( {
 		visibleItemLimit: {
 			type: Number as PropType<number|null>,
 			default: null
+		},
+		/**
+		 * By default, search results will be shown only when the query is not empty.
+		 * When this prop is set to true, search results will be shown even if the query is empty
+		 * This is used for empty search recommendations in Vector & MinervaNeue
+		 */
+		showEmptyQueryResults: {
+			type: Boolean,
+			default: false
 		}
 	},
 
@@ -325,7 +339,7 @@ export default defineComponent( {
 		)
 		);
 
-		const footer = computed( () => props.searchFooterUrl ?
+		const footer = computed( () => props.searchFooterUrl && searchQuery.value.length > 0 ?
 			{ value: MenuFooterValue, url: props.searchFooterUrl } :
 			undefined
 		);
@@ -452,7 +466,7 @@ export default defineComponent( {
 		function onFocus() {
 			isActive.value = true;
 
-			if ( searchQuery.value || showPending.value ) {
+			if ( searchQuery.value || showPending.value || props.showEmptyQueryResults ) {
 				expanded.value = true;
 			}
 		}
@@ -632,13 +646,19 @@ export default defineComponent( {
 			// 1. The input is currently focused
 			// 2. Pending state is true, which indicates that the new searchResults value was
 			//    returned after new user input
-			// 3. The input is not empty
+			// 3. The input is not empty or the showEmptyQueryResults prop is true
 			// Whether we open the menu doesn't depend on whether there are results to show, because
 			// we always show the search footer, even if there are no results and the no-results
 			// slot is not set.
 			// Note that the menu may already have been expanded if the pending delay threshold has
 			// been met and the pending state is being displayed to the user.
-			if ( isActive.value && pending.value && searchQuery.value.length > 0 ) {
+			if (
+				isActive.value &&
+				// The user has entered input and new results were fetched.
+				( pending.value && searchQuery.value.length > 0 ) ||
+				// There are empty search results suggestions to show.
+				( props.showEmptyQueryResults && props.searchResults.length > 0 )
+			) {
 				expanded.value = true;
 			}
 
