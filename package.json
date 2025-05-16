@@ -31,8 +31,8 @@
 		"doc-release": "CODEX_RELEASE=1 npm run doc",
 		"doc:dev": "npm run build-if-missing -w @wikimedia/codex-icons  && concurrently \"npm run watch -w @wikimedia/codex-design-tokens\" \"CODEX_DOC_DEV=1 npm run dev -w codex-docs\"",
 		"lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint --workspaces --if-present",
-		"lint:eslint": "npm run build-all-if-missing && eslint --max-warnings 0 .",
-		"lint:stylelint": "stylelint --max-warnings 0 --quiet-deprecation-warnings . packages/codex-docs/docs/.vitepress",
+		"lint:eslint": "npm run build-all-if-missing && eslint --cache --max-warnings 0 .",
+		"lint:stylelint": "stylelint --cache --max-warnings 0 --quiet-deprecation-warnings . packages/codex-docs/docs/.vitepress",
 		"test": "npm run lint && npm run test --workspaces --if-present && ./build/diff-css.sh"
 	},
 	"devDependencies": {
