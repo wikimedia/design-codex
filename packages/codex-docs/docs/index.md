@@ -13,11 +13,13 @@ import CdxDocsVersionBanner from '../src/components/version-banner/VersionBanner
 <div class="cdx-docs-home">
 
 <div class="cdx-docs-home__hero">
-	<div>
-		<img src="/logo-Codex-inverted.svg">
-		<h1 class="cdx-docs-home__hero__title">Codex</h1>
+	<div class="cdx-docs-home__hero__content">
+		<div>
+			<img src="/logo-Codex-inverted.svg">
+			<h1 class="cdx-docs-home__hero__title">Codex</h1>
+		</div>
+		<p class="cdx-docs-home__hero__tagline">The design system for Wikimedia.</p>
 	</div>
-	<p class="cdx-docs-home__hero__tagline">The design system for Wikimedia.</p>
 </div>
 
 <cdx-docs-version-banner />
@@ -103,13 +105,47 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 		// TODO: This is semantically incorrect, there needs to be a static token.
 		background-color: @background-color-progressive;
 		color: @color-inverted-fixed;
-		display: grid;
-		// Equals 100% + ( 2 * negative margin ) per side.
-		width: calc( @size-full + ( @spacing-200 * 2 ) );
-		margin-right: calc( -1 * @spacing-200 );
+		position: relative;
+		left: @spacing-half;
+		width: @size-viewport-width-full;
 		margin-bottom: @spacing-200;
-		margin-left: calc( -1 * @spacing-200 );
-		padding: @spacing-200;
+		margin-left: calc( @size-viewport-width-full / -2 );
+		padding: @spacing-150;
+
+		@media screen and ( min-width: @min-width-breakpoint-mobile ) {
+			/* Accounts for .VPDoc having padding-top: 32px */
+			margin-top: -@spacing-200;
+		}
+
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			/* Accounts for .VPDoc having padding-top: 48px */
+			margin-top: -@spacing-300;
+			padding: @spacing-200;
+		}
+
+		&__content {
+			--vp-width-tablet: 752px;
+			--vp-width-desktop: 784px;
+
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+				/* borrowing width value of .VPDoc > .container > .content
+					to ensure content stays aligned */
+				max-width: var( --vp-width-tablet );
+				margin: 0;
+			}
+
+			@media screen and ( min-width: @min-width-breakpoint-desktop ) {
+				/* borrowing width value of .VPDoc > .container > .content
+					to ensure content stays aligned */
+				max-width: var( --vp-width-desktop );
+				margin: 0 auto;
+				padding: 0 @spacing-300;
+			}
+
+			@media screen and ( min-width: @min-width-breakpoint-desktop-wide ) {
+				padding: 0 @spacing-200;
+			}
+		}
 
 		/* @media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			display: flex;
@@ -124,7 +160,7 @@ of the [Wikimedia Foundation](https://wikimediafoundation.org/).
 			margin-right: @spacing-100;
 		}
 
-		div {
+		&__content div {
 			display: block;
 			margin-bottom: 0;
 
