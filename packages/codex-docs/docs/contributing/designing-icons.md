@@ -1,11 +1,22 @@
 <script setup>
 import { cdxIconSuccess, cdxIconClear } from '@wikimedia/codex-icons';
 import { CdxIcon } from '@wikimedia/codex';
+import {
+	cdxIconListBullet,
+	cdxIconListNumbered,
+	cdxIconHelp,
+	cdxIconBold
+ } from '@wikimedia/codex-icons';
+
+ const cdxIconListNumberedWronglyFlipped = {
+	ltr: cdxIconListNumbered.ltr,
+	shouldFlip: true
+};
 </script>
 
 # Designing icons
 
-This page outlines the steps that collaborators should follow to contribute a new design or design improvement to Codex’s icon library.
+This page outlines the steps that collaborators should follow to contribute a new icon in Codex.
 
 ::: info
 If you need support or have questions during the contribution process, reach out through one of the following channels:
@@ -17,9 +28,9 @@ If you need support or have questions during the contribution process, reach out
 
 ### 1.1. File a task
 
-In order to validate the need to design or redesign an icon for the Codex design system, a new Phabricator task needs to be created. Use this [icon creation task template][icon-creation-phab-template] to file the task, and provide as much information as possible.
+In order to validate the need of this new icon, a new Phabricator task needs to be created. Use this [icon creation task template][icon-creation-phab-template] to file the task, and provide as much information as possible.
 
-Once the task is validated and the need of this new token is clear, you’ll be able to start designing the new Codex icon.
+Once the task is validated and the need of this new token is clear, you’ll be able to start contributing the new Codex icon.
 
 ::: warning
 Create a new icon just if none of the [existing icons](../icons/all-icons.md) meet your need.
@@ -34,24 +45,23 @@ Collect and compare use cases to detect requirements. You can check the followin
 - [Style guide](../style-guide/icons): understand the visual style that the new icon should follow.
 - [Wikimedia web products](https://www.wikimedia.org/): find current (and future) use cases where we use this icon.
 
-::: info
-Make sure the new icon is consistent with the rest of icons in our iconography.
-:::
-
-## 2. Design and implement
+## 2. Design the icon
 
 ::: info
-Duplicate this [icon exploration template](https://www.figma.com/design/bCNMpuclrDREgTnCLr34Si/Icon-design--exploration-file-template-?node-id=1-3627&p=f&t=UINHzWVjmVkyFaFq-11) to work on the icon's design if needed.
+If you are not contributing the **design** part of this new icon, you can skip this section.
 :::
 
-
-### 2.1. Design the icon following Wikimedia’s guidelines
+### 2.1. Follow Wikimedia’s guidelines
 
 While designing the icon, follow the principles and visual styles described in our [style guide](../style-guide/icons). Wikimedia icons should be simple, neutral, monochromatic and front-facing.
 
 Icons will be designed on a `20px` canvas, and be either solid or use a `2px` stroke if they’re outlined.
 
 ![Designing icons in Figma](../assets/designing-icons/designing-icons-figma.png)
+
+::: info
+Duplicate this [icon exploration template](https://www.figma.com/design/bCNMpuclrDREgTnCLr34Si/Icon-design--exploration-file-template-?node-id=1-3627&p=f&t=UINHzWVjmVkyFaFq-11) to work on the icon's design if needed.
+:::
 
 ### 2.2. Create an RTL version (if needed)
 
@@ -144,12 +154,172 @@ Include the exported SVG in the “SVG icon” section of the task so developers
 - Add a description in the “Proposal” section in the task's description to explain the icon’s design.
 - Link the Figma exploration file in the “Design spec” section for easy reference.
 
-## 3. Review and document
+## 3. Implement the icon
 
-Once the icon implementation has been completed, the designer will need to:
+::: info
+If you are not contributing the **implementation** part of this new icon, you can skip this section.
+:::
 
-- **Design sign-off**: Confirm the new icon was implemented correctly in Codex.
-- **Publish in Figma**: Add the approved icon to the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=1891-4420&node-type=canvas&t=plW1hmguHVWs3fWZ-11) for reuse in design projects.
+When adding a new icon, you should:
+1. Add the SVG file(s) for the icon to the `packages/codex-icons/src/images/` directory
+2. Optimize the SVG file(s)
+3. Add the icon definition to `packages/codex-icons/src/icons.ts`
+
+### Naming
+The icon's name should describe the icon, not its application, e.g. "bell" instead of
+"notification".
+
+Icon files should be named with the icon name in lowerCamelCase, e.g. `fooBar.svg` or
+`articleAdd.svg`. If there are multiple SVG files for the same icon, those are named `iconName-suffix.svg`, e.g. `imageAdd-rtl.svg` or `italic-i.svg` (more on this below).
+
+The variable name of the icon definition in `packages/codex-icons/src/icons.ts` should be in
+lowerCamelCase and consist of the prefix `cdxIcon` followed by the icon name, e.g.
+`cdxIconArticleAdd` for the "articleAdd" icon. Icon definitions in this file are in alphabetical
+order.
+
+### SVG conventions
+Follow these conventions when crafting SVG files for icons:
+- Icons must be 20x20 pixels canvas. Set `width="20" height="20" viewbox="0 0 20 20"` on the `<svg>`
+  tag.
+- Icons should include a `<title>` tag with the name of the icon.
+- Icons must be monochrome (only default black color), and should not hard-code this color. This
+  means the `fill` attribute should not be used.
+
+#### SVG optimization
+
+Icons are also optimized using SVGO during the build process. Codex follows
+[MediaWiki's SVG coding conventions](https://www.mediawiki.org/wiki/Manual:Coding_conventions/SVG),
+which are captured in the `.svgo.config.js` configuration file in the `@wikimedia/codex-icons`
+package root folder. Note that this optimization step *overwrites the icon files* in the
+`src/images` directory, and removes any `<!-- comments -->` in the SVG files.
+
+To optimize the new icon file(s), run `npm run minify:svg -w @wikimedia/codex-icons` in the root of
+the `codex` repository. Be sure to commit the optimized file(s).
+
+### How to add each type of icon
+
+#### Simple unidirectional icons
+For a simple icon that doesn't vary by directionality (LTR/RTL) or language, add a single SVG file named in lowerCamelCase, e.g. `articleAdd.svg`, to the `images/` directory. Add an icon definition to `icons.ts` that looks like this:
+
+```ts
+import svgArticleAdd from './images/articleAdd.svg';
+export const cdxIconArticleAdd = svgArticleAdd;
+```
+
+#### Automatically flipped icons
+Automatically flipped icons are icons whose RTL version is a perfect mirror image of the LTR version. For these icons, we only put the LTR version in the repository, and then tell the browser to flip the icon horizontally in RTL contexts.
+
+<!--
+	In the paragraph below, do not allow the <cdx-icon> tags to be at the start of the line!
+	Icons at the start of a line are not inlined, but start a new paragraph, which we don't want.
+-->
+For example, `listBullet.svg ` contains the LTR version of the `listBullet` icon: <cdx-icon :icon="cdxIconListBullet" />.
+In RTL contexts, the LTR version is displayed, but is mirrored horizontally: <cdx-icon :icon="cdxIconListBullet" dir="rtl" />.
+
+For these icons, add a single SVG file named in lowerCamelCase, e.g. `listBullet.svg`, to the `images/` directory. This file contains the LTR version of the icon (but despite that, it doesn't have a `-ltr` suffix). Add an icon definition to `icons.ts` that looks like this:
+
+```ts
+import svgListBullet from './images/listBullet.svg';
+export const cdxIconListBullet: IconFlipForRtl = {
+	ltr: svgListBullet,
+	shouldFlip: true
+};
+```
+
+##### Per-language exceptions to automatic flipping
+For some icons, certain RTL languages need to use the LTR version of an icon. For example, question marks are flipped in most RTL languages, but not in Hebrew and Yiddish, so icons like `help` (<cdx-icon :icon="cdxIconHelp" />) that depict a question mark should not be flipped in those languages. To indicate this, list the RTL languages in which the icon shouldn't be flipped in the `shouldFlipExceptions` property, like this:
+```ts
+import svgHelp from './images/help.svg';
+export const cdxIconHelp: IconFlipForRtl = {
+	ltr: svgHelp,
+	shouldFlip: true,
+	shouldFlipExceptions: [ 'he', 'yi' ]
+};
+```
+
+#### Icons with different LTR and RTL versions
+<!--
+	In the paragraph below, do not allow the <cdx-icon> tags to be at the start of the line!
+	Icons at the start of a line are not inlined, but start a new paragraph, which we don't want.
+-->
+For some icons, the RTL version isn't a simple mirror image of the LTR version. For example, the `listNumbered` icon looks like <cdx-icon :icon="cdxIconListNumbered" /> in LTR. Flipping it automatically would look wrong, because the numbers would be mirrored too: `<cdx-icon :icon="cdxIconListNumberedWronglyFlipped" dir="rtl" />`.
+Instead, we need a separate SVG file for the RTL version of the icon: `<cdx-icon :icon="cdxIconListNumbered" dir="rtl" />`.
+
+For these icons, add two SVG files to the `images/` directory named with `-ltr` and `-rtl`
+suffixes, e.g. `listNumbered-ltr.svg` and `listNumbered-rtl.svg`. Add an icon definition to
+`icons.ts` that looks like this:
+```ts
+import svgListNumberedLtr from './images/listNumbered-ltr.svg';
+import svgListNumberedRtl from './images/listNumbered-rtl.svg';
+export const cdxIconListNumbered: IconVariedByDir = {
+	ltr: svgListNumberedLtr,
+	rtl: svgListNumberedRtl
+};
+```
+
+#### Icons with different versions per language
+<!--
+	In the paragraph below, do not allow the <cdx-icon> tags to be at the start of the line!
+	Icons at the start of a line are not inlined, but start a new paragraph, which we don't want.
+-->
+Some icons look different in different languages, especially those based on letters. In many cases, several languages share the same version of the icon. For example, the "bold" icon looks like `<cdx-icon :icon="cdxIconBold" lang="en" />` in Czech, English, Hebrew, Malayalam, Polish and Scottish, but like `<cdx-icon:icon="cdxIconBold" lang="ru" />` in Kirghiz, Russian and Ukrainian, etc.
+
+For these icons, add a separate SVG file for each version of the icon to `images/`, each with a suffix that describes the variant of the icon. For example, `bold-b.svg`, `bold-f.svg`, `bold-cyrl-zhe.svg`, etc. There may be many variants; the "bold" icon has 16.
+
+In the icon definition in `icons.ts`, first import all the variant files in alphabetical order, then define which variant to use for which language, and the default variant to use for all other languages.
+
+```ts
+import svgBoldA from './images/bold-a.svg';
+import svgBoldB from './images/bold-b.svg';
+import svgBoldCyrlZhe from './images/bold-cyrl-zhe.svg';
+// … many more …
+
+export const cdxIconBold: IconVariedByLang = {
+	langCodeMap: {
+		cs: svgBoldB,
+		en: svgBoldB,
+		he: svgBoldB,
+		ml: svgBoldB,
+		pl: svgBoldB,
+		sco: svgBoldB,
+		ky: svgBoldCyrlZhe,
+		ru: svgBoldCyrlZhe,
+		uk: svgBoldCyrlZhe,
+		// … many more …
+	},
+	// 'bold-a.svg' will be used for all other languages not listed above.
+	default: svgBoldA
+};
+
+```
+
+### Testing the new icon
+
+#### Lint
+
+After optimizing the SVG file(s), run `npm run lint -w @wikimedia/codex-icons` in the root of the `codex` repository. This will run `svglint` and will check your additions to `icons.ts`.
+
+#### Testing locally
+
+To check the new icon on the Codex docs site, run these commands from the root of the `codex` repository:
+
+```bash
+# Build the icons package.
+npm run build -w @wikimedia/codex-icons
+
+# Serve the docs site.
+npm run doc:dev
+```
+
+Then you can visit `http://localhost:5173/icons/all-icons.html` to check the list of all icons,
+including your new one.
+
+## 4. Review and document
+
+Once the icon implementation has been completed, the contributor will need to:
+
+- Confirm the new icon was implemented correctly in Codex.
+- Add the approved icon to the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=1891-4420&node-type=canvas&t=plW1hmguHVWs3fWZ-11) for reuse in design projects.
 
 ::: info
 Due to [team permissions in Figma](https://help.figma.com/hc/en-us/articles/360039970673-Team-permissions), only designers in the Wikimedia Foundation in Figma can edit the library.
