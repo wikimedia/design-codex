@@ -868,6 +868,21 @@
 			"value": 42
 		}
 	},
+	"line-height-unitless": {
+		"comment": "These unitless values are only intended for the line-height-content application token",
+		"150": {
+			"value": "1.5"
+		},
+		"155": {
+			"value": "1.55"
+		},
+		"157": {
+			"value": "1.5714285"
+		},
+		"163": {
+			"value": "1.625"
+		}
+	},
 	"text-decoration": {
 		"0": {
 			"value": "none"

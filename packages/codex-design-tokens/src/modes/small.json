@@ -45,6 +45,9 @@
 		},
 		"xxx-large": {
 			"value": "{ line-height.225 }"
+		},
+		"content": {
+			"value": "{ line-height-unitless.157 }"
 		}
 	}
 }

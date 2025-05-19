@@ -946,6 +946,11 @@
 		},
 		"xxx-large": {
 			"value": "{ line-height.240 }"
+		},
+		"content": {
+			"comment": "Intended for user-generated content that comes from outside of the design system. Components and features should use the standard font-size and line-height tokens instead.",
+			"value": "{ line-height-unitless.163 }",
+			"unitless": true
 		}
 	},
 	"text-decoration": {

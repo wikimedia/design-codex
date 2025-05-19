@@ -13,6 +13,10 @@ export function shouldUseRelativeSize( token ) {
 		'max-height'
 	];
 
+	if ( token.original.unitless === true ) {
+		return false;
+	}
+
 	return includedProps.some( ( prop ) => token.path.includes( prop ) );
 }
 
