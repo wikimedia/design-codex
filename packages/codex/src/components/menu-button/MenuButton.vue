@@ -61,7 +61,13 @@ import useFieldData from '../../composables/useFieldData';
 import useFloatingMenu from '../../composables/useFloatingMenu';
 import useModelWrapper from '../../composables/useModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
-import { MenuButtonItemData, MenuGroupData, MenuConfig, MenuItemData } from '../../types';
+import {
+	MenuButtonItemData,
+	MenuGroupData,
+	MenuConfig,
+	MenuItemData,
+	MenuItemValue
+} from '../../types';
 
 export default defineComponent( {
 	name: 'CdxMenuButton',
@@ -74,10 +80,14 @@ export default defineComponent( {
 		/**
 		 * Value of the current selection.
 		 *
+		 * This prop should be initialized to `null` (for single-select) or an empty array (for
+		 * multi-select) rather than using a falsy value.
+		 *
 		 * Must be bound with `v-model:selected`.
 		 */
 		selected: {
-			type: [ String, Number, null ] as PropType<string|number|null>,
+			// eslint-disable-next-line max-len
+			type: [ String, Number, Array, null ] as PropType<MenuItemValue | MenuItemValue[] | null>,
 			required: true
 		},
 

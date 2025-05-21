@@ -37,6 +37,21 @@
 				Selected: {{ selectedWithGroup }}
 			</p>
 		</div>
+		<h3>MenuButton with multiselect</h3>
+		<div class="cdx-docs-menu-button">
+			<cdx-menu-button
+				v-model:selected="selectedWithMulti"
+				:menu-items="menuItemsWithMulti"
+				aria-label="Change option value"
+			>
+				<template #default>
+					<cdx-icon :icon="cdxIconEllipsis" />
+				</template>
+			</cdx-menu-button>
+			<p>
+				Selected: {{ selectedWithMulti }}
+			</p>
+		</div>
 	</section>
 </template>
 
@@ -44,6 +59,7 @@
 import { ref } from 'vue';
 import { CdxMenuButton, CdxIcon } from '../lib-wip';
 import { cdxIconEllipsis } from '@wikimedia/codex-icons';
+import { MenuItemValue } from '../types';
 
 const selected = ref<string|number|null>( null );
 const menuItems = [
@@ -73,6 +89,16 @@ const menuItemsWithGroup = [
 			{ label: 'Seven', value: '7' }
 		]
 	}
+];
+
+// MenuButton with multiselect
+const selectedWithMulti = ref<MenuItemValue[]>( [] );
+const menuItemsWithMulti = [
+	{ label: 'English', value: 'en' },
+	{ label: 'Spanish', value: 'es' },
+	{ label: 'French', value: 'fr' },
+	{ label: 'German', value: 'de' },
+	{ label: 'Russian', value: 'ru' }
 ];
 
 const footer = ref( { label: 'Menu Footer', value: 'menu-footer' } );
