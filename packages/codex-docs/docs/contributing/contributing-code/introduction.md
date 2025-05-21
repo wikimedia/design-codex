@@ -223,10 +223,10 @@ There are some special files at the top level of the `src/` directory:
 
 ### Linting
 Codex uses the following lint tools:
-- [ESLint](https://eslint.org/) for JavaScript and TypeScript
+- [ESLint](https://eslint.org/) for ECMAScript files like JavaScript and TypeScript
 - [typescript-eslint](https://typescript-eslint.io/) for additional linting of TypeScript files
-- [Stylelint](https://stylelint.io/) for CSS and Less
-- [svglint](https://www.npmjs.com/package/svglint) for SVG files in the icons package
+- [Stylelint](https://stylelint.io/) for stylesheet files like CSS and Less
+- [SVGlint](https://www.npmjs.com/package/svglint) for SVG files in the icons package
 
 We use the Wikimedia coding conventions, and to enforce those we use
 [eslint-config-wikimedia](https://npmjs.com/package/eslint-config-wikimedia) and
@@ -246,14 +246,14 @@ In addition to those conventions, Codex-specific rules are enforced. These inclu
 You can use the following commands to run some or all of the lint checks. All of these commands
 must be run in the root directory
 - All lint checks: `npm run lint` (this runs all of the commands listed below)
-- ESLint: `npm run lint:eslint`
-- Stylelint: `npm run lint:stylelint`
-- svglint: `npm run -w @wikimedia/codex-icons lint:svg`
+- ESLint: `npm run lint:scripts`
+- Stylelint: `npm run lint:styles`
+- SVGlint: `npm run -w @wikimedia/codex-icons lint:svg`
 - TypeScript checks: `npm run -w PACKAGENAME lint:ts`, where `PACKAGENAME` is one of
   `@wikimedia/codex`, `@wikimedia/codex-design-tokens`, `@wikimedia/codex-icons` or `codex-docs`
 
-You should also consider setting up your IDE to run ESLint, Stylelint and TypeScript on the fly,
-to catch linter violations in real time.
+You should also consider setting up your IDE to run ESLint, Stylelint and TypeScript checks on the
+fly, to catch linter violations in real time.
 
 #### Disabling lint rules
 The lint rules produce the desired outcome the vast majority of the time, but sometimes disabling
