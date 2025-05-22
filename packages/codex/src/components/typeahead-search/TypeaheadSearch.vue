@@ -15,7 +15,9 @@
 				ref="searchInput"
 				v-model="inputValue"
 				:button-label="buttonLabel"
-				:use-button="useButton"
+				:use-button="useButton && !isMobileView"
+				:hide-icon="isMobileView"
+				:clearable="isMobileView"
 				v-bind="otherAttrs"
 				class="cdx-typeahead-search__input"
 				name="search"
@@ -260,6 +262,14 @@ export default defineComponent( {
 		 * This is used for empty search recommendations in Vector & MinervaNeue
 		 */
 		showEmptyQueryResults: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * When this prop is set to true, the UI will be modified to accommodate mobile devices,
+		 * including making the button clearable and the removal of the search icon to save space
+		 */
+		isMobileView: {
 			type: Boolean,
 			default: false
 		}

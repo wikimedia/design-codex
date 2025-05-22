@@ -10,7 +10,8 @@
 				v-model="wrappedModel"
 				class="cdx-search-input__text-input"
 				input-type="search"
-				:start-icon="searchIcon"
+				:start-icon="hideIcon ? undefined : searchIcon"
+				:clearable="clearable"
 				:disabled="computedDisabled"
 				:status="status"
 				v-bind="otherAttrs"
@@ -80,10 +81,23 @@ export default defineComponent( {
 			default: ''
 		},
 		/**
-		 *
 		 * Whether to display the search button.
 		 */
 		useButton: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * Whether to hide the start icon.
+		 */
+		hideIcon: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * `clearable` property of the TextInput component
+		 */
+		clearable: {
 			type: Boolean,
 			default: false
 		},
