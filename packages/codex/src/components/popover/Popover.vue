@@ -228,7 +228,8 @@ export default defineComponent( {
 
 		// TODO: Convert hardcoded values to JS Token T388062.
 		const clipPadding = 16;
-		const minClipWidth = 256; // TODO: Should be `@size-1600`, which is in rems.
+		// 256px was causing issues in small screens < 412px, see T395085
+		const minClipWidth = 192; // TODO: Should be `@size-1200`, which is in rems.
 		const minClipHeight = 200;
 		const maxClipWidth = 512; // TODO: Should be `@size-3200`, which is in rems.
 
@@ -438,7 +439,7 @@ export default defineComponent( {
 	z-index: @z-index-popover;
 	box-sizing: @box-sizing-base;
 	// Note that max-width is set by FloatingUI's size middleware.
-	min-width: @size-1600;
+	min-width: @size-1200;
 	border: @border-base;
 	border-radius: @border-radius-base;
 	padding: @spacing-100;

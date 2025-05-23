@@ -434,6 +434,9 @@
 		"800": {
 			"value": "{ dimension.800 }"
 		},
+		"1200": {
+			"value": "{ dimension.1200 }"
+		},
 		"1600": {
 			"value": "{ dimension.1600 }"
 		},
