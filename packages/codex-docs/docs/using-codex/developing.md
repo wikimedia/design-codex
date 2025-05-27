@@ -1,3 +1,7 @@
+---
+outline: [ 2, 3 ]
+---
+
 <script setup>
 import { version } from '../../../codex/package.json';
 </script>
@@ -6,9 +10,9 @@ import { version } from '../../../codex/package.json';
 /* stylelint-disable selector-class-pattern */
 </style>
 
-# Usage
+# Developing with Codex
 
-This page describes how to use the different NPM packages available as part of Codex. Read more about [the different packages and their contents](./packages.md).
+This page describes how to use the different NPM packages available as part of Codex. Read more about [the different packages and their contents](#packages).
 
 ::: tip Using Codex in MediaWiki?
 Visit the [Codex docs on mediawiki.org](https://www.mediawiki.org/wiki/Codex) for more instructions
@@ -254,13 +258,95 @@ Import the following in your Less code:
 }
 ```
 
-## Dark Mode Support
+## Packages
+
+### `@wikimedia/codex`
+This package contains Vue components – as building blocks for complex user interfaces.
+These components are written for [Vue 3](https://v3.vuejs.org/), and do not work with Vue 2.
+Documentation for individual components can be found in the [Components section](../components/overview.md).
+For example, the documentation for `CdxButton` is located on the [Button page](../components/demos/button.md).
+
+#### Exports
+The components package exports the following things:
+- Vue components. These are named `CdxFooBar` (e.g. `CdxButton`, `CdxTextInput`).
+- Composables, which are functions designed to be used with the composition API. These are named
+  `useFooBar` (e.g. `useComputedDirection`, `useModelWrapper`).
+- TypeScript type definitions used for component props. These don't follow any particular naming
+  pattern, but always start with a capital letter (e.g. `ButtonType`, `HTMLDirection`).
+	- Note that the `Icon` type, which is used by some components, is not exported here.
+	  It lives in the [icons package](#wikimedia-codex-icons) instead.
+
+#### Files
+Releases of the components package contain the following files:
+- `codex.js`: CommonJS build. Suitable for use within MediaWiki.
+- `codex.umd.js`: UMD build of Codex. Suitable for inclusion via a plain script tag or CDN.
+- `codex.mjs`: ES module build of Codex, which uses ES6 `import` and `export` syntax.
+- `codex.style.css`: Styles for all components, for use in left-to-right (LTR) languages.
+- `codex.style-rtl.css`: Styles for all components, for use in right-to-left (RTL) languages.
+  For more information on right-to-left support, visit [the section on bidirectionality](#bidirectionality).
+- `index.d.ts`: Entry point for TypeScript type information; the actual types are defined in
+  various `.d.ts` files in the `src/` directory.
+
+### `@wikimedia/codex-icons`
+This package contains icons that can be used with the components from the Vue components package,
+or in other contexts. More detailed information can be found in the
+[icon documentation](../icons/overview.md).
+
+Because the icons package is large, and most applications use a relatively small subset of all icons,
+web applications should not send the entire icon package to the browser. Instead, use a bundler that
+performs tree shaking (i.e. extracting only those icons used in the application) or some other
+technique that minimizes the number of unused icons being sent to the browser.
+
+#### Exports
+The icons package exports the following things:
+- Icons, which are SVG strings or objects wrapping SVG strings. These are named `cdxIconFoo`
+  (e.g. `cdxIconAlert`, `cdxIconArrowNext`). Visit [the list of all icons](../icons/all-icons.md)
+  for a complete list of icon names.
+- Utility functions for working with icon objects. These are used by the Icon component in the
+  components package, but can also be used by any other code that needs to work with icons. To
+  distinguish them from icons, the names of these functions do not start with `cdxIcon` (they are
+  named `resolveIcon` and `shouldIconFlip`).
+- TypeScript type definitions for the `Icon` type and related types.
+
+#### Files
+Releases of the icons package contain the following files:
+- `codex-icons.mjs`: ES module build, which uses ES6 `import` and `export` syntax.
+- `codex-icons.js`: CommonJS build. Suitable for use in NodeJs.
+- `codex-icons.json`: JSON file with all icon strings and objects, to facilitate use of the icons
+  in languages other than JavaScript. This is the file that MediaWiki uses.
+- `index.d.ts`: Entry point for the TypeScript type information; refers to `icons.d.ts`, `types.d.ts`
+  and `util.d.ts` for the actual type definitions.
+
+### `@wikimedia/codex-design-tokens`
+This package contains design tokens, which are style variables that can be used to write styles
+consistent with the Codex design system. This is mainly useful for people who develop their own
+components and want their appearance to be consistent with Codex.
+
+The components package also uses these tokens internally for styling, but using the components
+package does not require installing the tokens package.
+
+#### Files
+Releases of the tokens package contain the following files:
+- `theme-wikimedia-ui.css`: The tokens as CSS variables (e.g. `--color-placeholder: #72777d;`).
+- `theme-wikimedia-ui.less`: The tokens as Less variables (e.g. `@color-placeholder: #72777d;`).
+- `theme-wikimedia-ui.scss`: The tokens as SASS variables (e.g. `$color-placeholder: #72777d;`).
+- `theme-wikimedia-ui.json`: A JSON structure with detailed data about each token.
+
+### Versioning
+Codex follows [the semantic versioning standard](https://semver.org/). The current version is
+`{{ version }}`. If a release contains breaking changes, the
+major version number (the `n` in `n.x.y`) will be incremented, and the breaking changes will
+be clearly documented in `CHANGELOG.md`.
+
+## Support
+
+### Dark mode
 Codex 1.5.0 introduced support for a "dark mode" color scheme. This is an optional feature
 that can be used in several different ways. Typical usage will involve automatically switching
 an application's colors to match the user's environment, and/or exposing a control that lets
 the user toggle between light and dark color schemes manually.
 
-### Automatic color-mode switching
+#### Automatic color-mode switching
 To support automatic switching between light and dark colors in your application (to match
 the user's browser or OS settings), follow these steps.
 
@@ -295,13 +381,7 @@ to reference the appropriate Codex color token instead of hardcoding values in y
 }
 ```
 
-## Versioning
-Codex follows [the semantic versioning standard](https://semver.org/). The current version is
-`{{ version }}`. If a release contains breaking changes, the
-major version number (the `n` in `n.x.y`) will be incremented, and the breaking changes will
-be clearly documented in `CHANGELOG.md`.
-
-## Bidirectionality support
+### Bidirectionality
 Codex has limited support for [bidirectional text](https://en.wikipedia.org/wiki/Bidirectional_text).
 It supports pages that are entirely in a left-to-right (LTR) script, or pages that are entirely
 in a right-to-left (RTL) script. It does not support pages with a mix of LTR and RTL
@@ -313,8 +393,6 @@ pages, use `codex.style-rtl.css`.
 ::: tip Experimental Bidirectional Stylesheet
 As of version `1.12.0`, the Codex package also includes a `codex.style-bidi.css` file. This is
 an **experimental** stylesheet that supports client-side direction flipping via `[dir]` selectors.
-See [Bidirectional script support](../contributing/contributing-code/developing-components#bidirectional-script-support)
-for more information and caveats.
 :::
 
 Some Codex components detect the direction of the surrounding content, and adjust their behavior
@@ -322,7 +400,7 @@ accordingly, for example in how they respond to the left and right arrow keys. I
 to the surrounding direction. For more information on how bidirectionality is handled for icons,
 see [the icon documentation](../icons/overview.md#right-to-left-rtl-and-language-support).
 
-For more information on this topic, visit the [developer documentation on bidirectionality](../contributing/contributing-code/developing-components#bidirectional-script-support).
+For more information on this topic, visit the [developer documentation on bidirectionality](../contributing/developing-components#bidirectional-script-support).
 
 <style>
 /* stylelint-enable selector-class-pattern */

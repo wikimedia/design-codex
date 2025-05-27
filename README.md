@@ -31,7 +31,7 @@ To use icons:
 import { cdxIconAlert, cdxIconNewWindow } from '@wikimedia/codex-icons';
 ```
 
-For more information on how to set up and use the library, see the [usage documentation](https://doc.wikimedia.org/codex/latest/using-codex/usage.html).
+For more information on how to set up and use the library, see the [usage documentation](https://doc.wikimedia.org/codex/latest/using-codex/developing.html).
 
 ### Development
 
@@ -39,8 +39,8 @@ Codex development requires the following:
 
 - **Node:** the required version is pinned in `.nvmrc`. To install and use the required version of
 Node, run `nvm install "$(<.nvmrc)"` then `nvm use` in the root of the repository.
-- **npm:** version 7 or higher is required to support workspaces; it is not included by default in 
-older versions of Node (prior to version 15) and will need to be upgraded manually. You can do this 
+- **npm:** version 7 or higher is required to support workspaces; it is not included by default in
+older versions of Node (prior to version 15) and will need to be upgraded manually. You can do this
 with nvm via `nvm install --latest-npm`.
 
 Helpful commands:
@@ -48,9 +48,9 @@ Helpful commands:
 - `npm install` in the root of the repository to install requirements for all workspaces
 - `npm run doc:dev` to start the docs site
 - `npm run dev` to start the Vite sandbox
-- `npm run test:unit -w @wikimedia/codex` to run unit tests for e.g. the codex workspace. [Read more about testing.](https://doc.wikimedia.org/codex/latest/contributing/contributing-code/testing-components.html)
+- `npm run test:unit -w @wikimedia/codex` to run unit tests for e.g. the codex workspace. [Read more about testing.](https://doc.wikimedia.org/codex/latest/contributing/testing-components.html)
 
-See the [contributing code](https://doc.wikimedia.org/codex/latest/contributing/contributing-code/introduction.html) guidelines
+See the [contributing code](https://doc.wikimedia.org/codex/latest/contributing/development-basics.html) guidelines
 for more information.
 
 ## Contributing

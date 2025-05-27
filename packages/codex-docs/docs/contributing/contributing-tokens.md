@@ -1,4 +1,4 @@
-# Designing tokens
+# Contributing tokens
 
 This page outlines the steps that collaborators should follow to contribute a new Codex design token.
 
@@ -53,6 +53,26 @@ The following actions are required by the designer:
 1. Link the design spec in the task's description.
 2. Post a comment explaining that the task is ready to be implemented.
 3. Move the task to the next relevant column in the board.
+
+TODO: include implementation info. This should be included:
+Stylesheet specific token application rules:
+- Tokens should follow [naming patterns established for MediaWiki](https://www.mediawiki.org/wiki/Manual:Coding_conventions/CSS#Variable_naming).
+- Codex does not use shorthand properties `background`, `font`, `animation` and `transition` for
+  simpler design token scoping and code modularization reasons. Only tokens of a category type are
+  summarized into a shorthand token, e.g.
+  ```json
+  "text-decoration": {
+		"none": {
+			"value": "{ text-decoration.0 }"
+		},
+		"line-through": {
+			"value": "{ text-decoration.150 }"
+		},
+		"underline": {
+			"value": "{ text-decoration.200 }"
+		}
+  },
+  ```
 
 ## 3. Review and document
 

@@ -39,7 +39,7 @@ wrapping the `modelValue` prop) is listed in the `emits` array in the component 
 If you're using TypeScript, TypeScript will verify that this is the case, and will throw cryptic
 errors if the event is not listed. For more information and examples of what these errors look
 like, see
-[the section about useModelWrapper on the TypeScript page](../../contributing/contributing-code/typescript.md#incorrect-event-name-passed-to-usemodelwrapper).
+[the section about useModelWrapper on the TypeScript page](../../contributing/typescript.md#incorrect-event-name-passed-to-usemodelwrapper).
 
 ## Full examples
 

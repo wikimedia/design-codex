@@ -5,7 +5,7 @@ coverage/
 packages/codex/cypress/
 
 # Ignore documentation Contributing code Markdown file.
-packages/codex-docs/docs/contributing/contributing-code/developing-components.md
+packages/codex-docs/docs/contributing/developing-components.md
 
 # Ignore documentation Components generated Markdown files.
 packages/codex-docs/docs/components/demos/

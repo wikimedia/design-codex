@@ -100,7 +100,7 @@ variables from the `@wikimedia/codex-design-tokens` package, using the default
 
 **Design tokens**
 
-See [tokens organization, naming and structure for a detailed overview](../../design-tokens/overview.md).<br>
+See [tokens organization, naming and structure for a detailed overview](../design-tokens/overview.md).<br>
 Stylesheet specific token application rules:
 - If a component uses a value not represented by a Codex token yet, add a
   component-level Less variable in the `<style>` tag before the first selector.
@@ -340,10 +340,10 @@ export default defineComponent( {
 </script>
 ```
 
-The [Icon component](../../components/demos/icon.md) also uses this composable to detect the text direction,
+The [Icon component](../components/demos/icon.md) also uses this composable to detect the text direction,
 and allows the detected direction to be overridden through the `dir` prop. For more information about
 how bidirectionality is handled for icons in particular, see
-[the icon documentation](../../icons/overview.md#right-to-left-rtl-and-language-support).
+[the icon documentation](../icons/overview.md#right-to-left-rtl-and-language-support).
 
 ## Translatable strings
 

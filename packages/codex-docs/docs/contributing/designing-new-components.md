@@ -51,9 +51,9 @@ There are three possible scenarios:
 
 ### 2.2. Visual style and interaction
 
-All Codex components should follow the visual guidelines defined in the [style guide](../style-guide/overview.html). Design tokens can help support the visual definition of components, as they represent pre-made systematic decisions. If you need to use a token that is not documented yet, or you need to apply it in a different context of use, please read the [Designing tokens](designing-tokens.md) guidelines.
+All Codex components should follow the visual guidelines defined in the [style guide](../style-guide/overview.html). Design tokens can help support the visual definition of components, as they represent pre-made systematic decisions. If you need to use a token that is not documented yet, or you need to apply it in a different context of use, please read the [Contributing tokens](contributing-tokens.md) guidelines.
 
-You can also reuse the existing [system icons](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=20598-51338&node-type=canvas&t=plW1hmguHVWs3fWZ-11) and [illustration assets](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=20598-51408&node-type=canvas&t=plW1hmguHVWs3fWZ-11), or create new ones following Codex styles. If you need an icon that does not exist in Codex yet, you can contribute the design of a new icon following the [Designing icons](./designing-icons.md) guidelines.
+You can also reuse the existing [system icons](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=20598-51338&node-type=canvas&t=plW1hmguHVWs3fWZ-11) and [illustration assets](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=20598-51408&node-type=canvas&t=plW1hmguHVWs3fWZ-11), or create new ones following Codex styles. If you need an icon that does not exist in Codex yet, you can contribute the design of a new icon following the [Contributing icons](./contributing-icons.md) guidelines.
 
 ::: info
 You will need to enable the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=1891-4420&node-type=canvas&t=plW1hmguHVWs3fWZ-11) in your Figma file to reuse the Codex’s styles and icons. Learn more about [how to enable Figma libraries](https://help.figma.com/hc/en-us/articles/360038743434#access).

@@ -61,7 +61,7 @@ version number as an argument:
 The script creates a new branch, starts a commit to update the version number in the right places,
 and adds the changes in that release to `CHANGELOG.md`. Those changes then need to be manually
 organized following the conventions documented in
-[contributing code](https://doc.wikimedia.org/codex/latest/contributing/contributing-code/introduction.html#patch-requirements).
+[contributing code](https://doc.wikimedia.org/codex/latest/contributing/development-basics.html#patch-requirements).
 
 For any breaking changes, below the commit message, add a bulleted list describing the changes and
 how to handle them in a codebase that implements Codex:

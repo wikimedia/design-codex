@@ -2,11 +2,11 @@
 outline: deep
 ---
 
-# Contributing code
+# Getting started with development
 
 ::: tip Before you dive into contributing code:
-- Read the [general contribution guidelines](../overview.md)
-- Check out the [code design principles](../../using-codex/about.md#code-design-patterns)
+- Read the [general contribution guidelines](./overview.md)
+- Check out the [code design principles](../using-codex/guiding-principles.md#code-design-patterns)
 :::
 
 ## Get the code

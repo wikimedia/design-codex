@@ -21,7 +21,7 @@ Enable the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS
 
 ### NPM package
 
-See the [installation](../using-codex/usage.md#installation) and [using design tokens](../using-codex/usage.md#using-design-tokens) documentation for information about how to use Codex design tokens in your application.
+See the [installation](../using-codex/developing.md#installation) and [using design tokens](../using-codex/developing.md#using-design-tokens) documentation for information about how to use Codex design tokens in your application.
 
 ### In MediaWiki
 
@@ -30,4 +30,4 @@ Learn how to [use Codex design tokens in MediaWiki](https://www.mediawiki.org/wi
 ## Resources
 
 - Read about the [definition and structure](./definition-and-structure.html) of the Codex design tokens system
-- Learn how to [contribute or request](../contributing/designing-tokens.html) a new design token
+- Learn how to [contribute or request](../contributing/contributing-tokens.html) a new design token

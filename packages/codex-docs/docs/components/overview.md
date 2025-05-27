@@ -22,7 +22,7 @@ Enable the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS
 
 ### NPM package
 
-See the [installation](../using-codex/usage.md#installation) and [using components](../using-codex/usage.md#using-components) documentation for information about how to use Codex components in your application.
+See the [installation](../using-codex/developing.md#installation) and [using components](../using-codex/developing.md#using-components) documentation for information about how to use Codex components in your application.
 
 ### In MediaWiki
 

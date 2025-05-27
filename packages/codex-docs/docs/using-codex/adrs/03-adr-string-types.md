@@ -134,4 +134,4 @@ End users will have a simpler experience, and validating these types or iteratin
 values will be easier too.
 
 For details on how string types are structured, see
-[the Working with TypeScript section](../../contributing/contributing-code/typescript#string-types).
+[the Working with TypeScript section](../../contributing/typescript#string-types).

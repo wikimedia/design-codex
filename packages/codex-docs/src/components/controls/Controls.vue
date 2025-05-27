@@ -107,7 +107,7 @@
 					imported from the
 					<code>@wikimedia/codex-icons</code>
 					package. See
-					<a href="../../using-codex/usage.html#using-icons">
+					<a href="../../using-codex/developing.html#using-icons">
 						the usage documentation
 					</a>
 					for more information.

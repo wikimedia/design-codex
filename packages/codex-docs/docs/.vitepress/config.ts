@@ -68,11 +68,11 @@ export default defineConfigWithTheme<CustomConfig>( {
 		},
 
 		nav: [
-			{ text: 'Using Codex', link: '/using-codex/about', activeMatch: '/using-codex/' },
+			{ text: 'Using Codex', link: '/using-codex/accessing-codex', activeMatch: '/using-codex/' },
 			{ text: 'Contributing', link: '/contributing/overview', activeMatch: '/contributing/' },
 			{ text: 'Style Guide', link: '/style-guide/overview', activeMatch: '/style-guide/' },
 			{ text: 'Toolkit', items: [
-				{ text: 'Design tokens', link: '/design-tokens/overview', activeMatch: '/design-tokens/' },
+				{ text: 'Design Tokens', link: '/design-tokens/overview', activeMatch: '/design-tokens/' },
 				{ text: 'Components', link: '/components/overview', activeMatch: '/components/' },
 				{ text: 'Icons', link: '/icons/overview', activeMatch: '/icons/' },
 				{ text: 'Composables', link: '/composables/overview', activeMatch: '/composables/' }
@@ -109,73 +109,41 @@ export default defineConfigWithTheme<CustomConfig>( {
 				{
 					text: 'Using Codex',
 					items: [
-						{ text: 'About Codex', link: '/using-codex/about' }
-					]
-				},
-				/*
-				{
-					text: 'Designing',
-					items: [
-						{ text: 'Design principles', link: '/using-codex/design-principles' },
-						{ text: 'Design resources', link: '/using-codex/design-resources' },
-					]
-				},
-				*/
-				{
-					text: 'Developing',
-					items: [
-						{ text: 'Usage', link: '/using-codex/usage' },
-						{ text: 'Packages', link: '/using-codex/packages' }
-					]
-				},
-				{
-
-					text: 'Architecture Decisions',
-					items: [
-						{ text: 'Overview', link: '/using-codex/adrs/overview' },
-						{ text: 'ADR 1 - Design Tokens', link: '/using-codex/adrs/01-adr-design-tokens' },
-						{ text: 'ADR 2 - Demo tool', link: '/using-codex/adrs/02-adr-demo-tool' },
-						{ text: 'ADR 3 - String types in TypeScript', link: '/using-codex/adrs/03-adr-string-types' },
-						{ text: 'ADR 4 - Visual Styles as Less Mixins', link: '/using-codex/adrs/04-adr-less-mixins' },
-						{ text: 'ADR 5 - CSS Components', link: '/using-codex/adrs/05-adr-css-components' },
-						{ text: 'ADR 6 - Field Component', link: '/using-codex/adrs/06-adr-field-component' },
-						{ text: 'ADR 7 - FloatingUI', link: '/using-codex/adrs/07-adr-floating-ui' },
-						{ text: 'ADR 8 - Alternate Color Modes', link: '/using-codex/adrs/08-adr-color-modes' },
-						{ text: 'ADR 9 - CSS Icons', link: '/using-codex/adrs/09-adr-css-icons' },
-						{ text: 'ADR 10 - i18n support', link: '/using-codex/adrs/10-adr-i18n-for-common-strings' },
-						{ text: 'ADR 11 - Codex PHP', link: '/using-codex/adrs/11-adr-codex-php' },
-						{ text: 'ADR 12 - Native constraint validation', link: '/using-codex/adrs/12-adr-native-constraint-validation' },
-						{ text: 'ADR 13 - Alternate Font Modes', link: '/using-codex/adrs/13-adr-font-modes' }
+						{ text: 'Accessing Codex', link: '/using-codex/accessing-codex' },
+						{ text: 'Designing with Codex', link: '/using-codex/designing' },
+						{ text: 'Developing with Codex', link: '/using-codex/developing' },
+						{ text: 'Guiding principles', link: 'using-codex/guiding-principles' },
+						{ text: 'Architecture decisions', link: '/using-codex/adrs/overview' },
+						{ text: 'Contact', link: '/using-codex/contact' }
 					]
 				}
 			],
 			'/contributing/': [
 				{
-					text: 'Contributing',
+					text: 'Getting started',
 					items: [
-						{ text: 'Overview', link: '/contributing/overview' }
-						// eslint-disable-next-line max-len
-						// { text: 'Contribution workflow', link: '/contributing/contribution-workflow' }
+						{ text: 'How to contribute', link: '/contributing/overview' },
+						{ text: 'Design basics', link: '/contributing/design-basics' },
+						{ text: 'Development basics', link: '/contributing/development-basics' }
 					]
 				},
 				{
-					text: 'Contributing design',
+					text: 'Contributions',
 					items: [
-						{ text: 'Designing tokens', link: '/contributing/designing-tokens' },
-						{ text: 'Designing new components', link: '/contributing/designing-new-components' },
-						{ text: 'Redesigning existing components', link: '/contributing/redesigning-existing-components' },
-						{ text: 'Designing icons', link: '/contributing/designing-icons' }
-					]
-				},
-				{
-					text: 'Contributing code',
-					items: [
-						{ text: 'Introduction', link: '/contributing/contributing-code/introduction' },
-						{ text: 'Developing components', link: '/contributing/contributing-code/developing-components' },
-						{ text: 'Testing components', link: '/contributing/contributing-code/testing-components' },
-						{ text: 'Component demos', link: '/contributing/contributing-code/component-demos' },
-						{ text: 'Working with TypeScript', link: '/contributing/contributing-code/typescript' },
-						{ text: 'Adding new icons', link: '/contributing/contributing-code/adding-new-icons' }
+						{ text: 'Documentation', link: '/contributing/contributing-documentation' },
+						{ text: 'Design Tokens', link: '/contributing/contributing-tokens' },
+						{ text: 'Icons', link: '/contributing/contributing-icons' },
+						{
+							text: 'Components',
+							link: '/contributing/contributing-components',
+							items: [
+								{ text: 'Designing components', link: '/contributing/designing-components' },
+								{ text: 'Developing components', link: '/contributing/developing-components' },
+								{ text: 'Testing components', link: '/contributing/testing-components' },
+								{ text: 'Component demos', link: '/contributing/component-demos' },
+								{ text: 'Working with TypeScript', link: '/contributing/typescript' }
+							]
+						}
 					]
 				}
 			],
@@ -230,7 +198,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 			],
 			'/design-tokens/': [
 				{
-					text: 'Design tokens',
+					text: 'Design Tokens',
 					items: [
 						{ text: 'Overview', link: '/design-tokens/overview' },
 						{ text: 'Definition and structure', link: '/design-tokens/definition-and-structure' }

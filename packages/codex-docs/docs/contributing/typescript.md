@@ -97,7 +97,7 @@ function itself, because the `.value` property will still be undefined at that t
 If you don't use a `!` when accessing `searchInput.value`, you will get an error like `Object is
 possibly undefined`.
 
-See also the Vue documentation on [typing template refs in the composition API](https://v3.vuejs.org/guide/typescript-support.html#typing-template-refs).
+Refer also to the Vue documentation on [typing template refs in the composition API](https://v3.vuejs.org/guide/typescript-support.html#typing-template-refs).
 
 ::: tip Accessing public component instance methods
 If you are calling a method like "focus" that is defined inside another
@@ -109,8 +109,8 @@ otherwise the TS compiler may complain and throw errors.
 Some components have props that take only certain predefined string values. For example, the Button
 component has a `action` prop that can be one of `'default'`, `'progressive'` or `'destructive'`.
 This section documents how these string types are organized, and how to create a new one.
-For more information on why we chose this approach, see
-[the relevant ADR](../../using-codex/adrs/03-adr-string-types.md).
+For more information on why we chose this approach, refer to
+[the relevant ADR](../using-codex/adrs/03-adr-string-types.md).
 
 ### Naming
 String types that are particular to a prop are named for their component first and their prop

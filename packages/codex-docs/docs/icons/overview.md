@@ -17,8 +17,7 @@ or other information visually. Visit [all icons](./all-icons.md) a full list of 
 directionality and language.
 
 If you're interested in adding a new icon to Codex, visit the contributing docs to learn about
-[designing new icons](../contributing/designing-icons.md) and
-[implementing new icons](../contributing/contributing-code/adding-new-icons.md) in the
+[contributing new icons](../contributing/contributing-icons.md) in the
 `@wikimedia/codex-icons` package.
 
 ## Using icons

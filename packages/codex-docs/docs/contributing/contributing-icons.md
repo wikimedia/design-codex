@@ -14,7 +14,7 @@ import {
 };
 </script>
 
-# Designing icons
+# Contributing icons
 
 This page outlines the steps that collaborators should follow to contribute a new icon in Codex.
 
