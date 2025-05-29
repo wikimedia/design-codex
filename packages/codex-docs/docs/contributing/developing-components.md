@@ -9,8 +9,7 @@ outline: deep
 ### Vite Sandbox
 
 Running the Vite server for local development will spin up the component sandbox. Each component
-should have a simple working demo in the sandbox for local development and testing. These basic
-demos will also be used for testing components within MediaWiki.
+should have a simple working demo in the sandbox for local development and testing.
 
 To start the local dev server, run this command in the root of the Codex repository:
 
@@ -30,44 +29,74 @@ To add a new component demo to the sandbox:
 
 ### VitePress docs site
 
-Aside from Vite Sandbox, you can also run the VitePress site locally to write and test a full
-suite of component demos. Visit the [component demos](./component-demos) section for more information.
+Aside from Vite Sandbox, you can also run the VitePress docs site locally to write and test a full
+suite of user-facing component demos. Visit the [component demos](./component-demos) section for
+more information or run this command in the root of the Codex repository:
+
+
+```bash
+npm run doc:dev
+```
 
 ## Component basics
 
-The `codex` package uses [Vue 3](https://v3.vuejs.org/guide/introduction.html) and prefers
-the [Composition API](https://v3.vuejs.org/guide/composition-api-introduction.html) over the
+The `@wikimedia/codex` package uses [Vue 3](https://v3.vuejs.org/guide/introduction.html) and
+prefers the [Composition API](https://v3.vuejs.org/guide/composition-api-introduction.html) over the
 Options API.
 
 Codex is written in TypeScript: check the [Working with TypeScript](./typescript.md) section for
 information about code conventions, solved problems, and potential pitfalls.
 
+Patches related to components should include the following as applicable:
+
+- **Documentation:** Each component should have a docblock describing what the component is and the
+  basics of how it works. Props, slots, and events should be documented in the code.
+- **Vite Sandbox demo:** Each component should have a simple demo in the
+  [Vite Sandbox](./developing-components.md#vite-sandbox) for testing the basic functionality of
+  the component locally and within MediaWiki.
+- **Jest snapshots:** Include snapshots for all variations of props and slots.
+- **Unit tests (not required for [WIP components](./developing-components.md#wip-components)):** Attempt to meet the established coverage
+  threshold, which will be calculated and output in the command line interface when you run tests.
+- **Demos (not required for WIP components):** Each component should have a demo page on the
+  VitePress site that shows realistic examples of different variations and uses of the component.
+
 ### Conventions
 
 - Export all components that are ready for public consumption in `src/lib.ts` to make them
 available to library users.
-- PascalCase multi-word component names are used per the Vue.js Style Guide. Component names should
-be prefixed with "Cdx," e.g. `CdxButton`
+- PascalCase multi-word component names are used per the [Vue.js Style Guide](https://vuejs.org/style-guide/).
+Component names should be prefixed with "Cdx," e.g. CdxButton.
+- Use consistent prop, slot, and event names across components. When adding a feature to a component, consult other components with similar features and follow existing patterns.
 - Slot names should be all lowercase. Use `kebab-case` for slot names with multiple words. This is
 necessary to ensure support for environments that use DOM templates, including MediaWiki.
+- Boolean props always default to false to create a consistent mental model across components.
 
-### WIP components
+### Using this guide
+
+- When adding a new component, start with a [WIP component](#wip-components).
+- Follow our guide for [writing styles](#writing-styles).
+- Ensure the component properly [inherits attributes](#inheriting-attributes).
+- Learn how to support [bidirectional text](#bidirectional-text).
+- Ensure text within components is [translatable](#translatable-strings).
+- Review the list of [composables](../composables/overview.md) for reusable logic.
+
+## WIP components
 
 Until a component is ready for public consumption, it is considered a "work in progress" or "WIP"
 component. WIP components are housed in a separate directory, `packages/codex/src/components-wip`,
-and are included in `index.ts` in that same directory. WIP components will not be included in
+and are included in `index.ts` in that same directory. WIP components are not included in
 public dist files, nor will they appear on the docs site when viewing the documentation for a
 specific Codex release. However, WIP components will appear on the docs site for the main branch,
 and when serving the docs site locally.
 
-#### Adding a WIP component
+### Adding a WIP component
 
 To add a new WIP component:
 - Add a new directory and `.vue` file to the WIP components directory, e.g.
   `packages/codex/src/components-wip/my-new-component/MyNewComponent.vue`
 - Import this component into `packages/codex/src/components-wip/index.ts`
 
-Before submitting a patch for the new component, we recommend at least adding a [basic demo to the
+Before submitting a patch for the new component, add a [basic demo to the
 sandbox](#vite-sandbox) and [snapshot tests](./testing-components.md#snapshot-tests).
 
 When adding examples for the VitePress demo page in the `codex-docs` package, the component should
@@ -75,64 +104,53 @@ be imported from the `@wikimedia/codex` package as usual. This will not work in 
 as the component is still WIP, but the `codex-docs` package is set up to be able to access
 WIP components this way.
 
-#### Transition to public component
+### WIP to public component
 
-Once the entire design spec has been implemented, the component has a full suite of interactive
-demos, and the component has reached the unit test threshold, it is ready for public use. To make
-this transition, submit a patch that:
+Once the entire design specification has been implemented, the component has a full suite of
+interactive demos, and the component has reached the unit test threshold, it is ready for public
+use. To make this transition, submit a patch that:
 
 - Moves the component directory from `components-wip` to `components`
 - Exports the component in `lib.ts` instead of `components-wip/index.ts`
 - Updates the paths used to import component, from `../../components/foo/Foo.vue` to
   `../foo/Foo.vue`.
 
-Once this patch is merged, the component will be included in the dist and will appear on the docs
-site for the next release.
+Once this patch is merged, the component will be included in the `/dist` directory and will appear
+on the docs site for the next release.
 
 ## Writing styles
 
-Styles are written in [Less](https://lesscss.org/#) and are included in the single-file component
-at the end in a `<style lang="less">` wrapped section. Codex design tokens are imported as Less
-variables from the `@wikimedia/codex-design-tokens` package, using the default
-`theme-wikimedia-ui` theme.
+Styles are written in [Less](https://lesscss.org/#) and are included at the end of the single-file
+component in a `<style lang="less">` block. Codex design tokens are imported as Less variables from
+the `@wikimedia/codex-design-tokens` package.
 
 ### Conventions
 
 **Design tokens**
-
-See [tokens organization, naming and structure for a detailed overview](../design-tokens/overview.md).<br>
-Stylesheet specific token application rules:
-- If a component uses a value not represented by a Codex token yet, add a
-  component-level Less variable in the `<style>` tag before the first selector.
-- Tokens should follow [naming patterns established for MediaWiki](https://www.mediawiki.org/wiki/Manual:Coding_conventions/CSS#Variable_naming).
-- Codex does not use shorthand properties `background`, `font`, `animation` and `transition` for
-  simpler design token scoping and code modularization reasons. Only tokens of a category type are
-  summarized into a shorthand token, e.g.
-  ```json
-  "text-decoration": {
-		"none": {
-			"value": "{ text-decoration.0 }"
-		},
-		"line-through": {
-			"value": "{ text-decoration.150 }"
-		},
-		"underline": {
-			"value": "{ text-decoration.200 }"
-		}
-  },
-  ```
+- Token usage is enforced via Stylelint. See [token definition and structure](../design-tokens/definition-and-structure.md) for a detailed overview.
 
 **Selectors and structure**
-- A light version of [BEM](https://getbem.com/) is used for class naming structure:
-  - The root element will have the class `.cdx-component-name`
-  - A block within that root element would have the class `.cdx-component-name__block-name`
-  - A variation of that block would have the class `.cdx-component-name__block-name--modifier-name`
-  - Codex actually expands the block logic structure for direct component children by a class
-    like `.cdx-component-name__block-name__block-child-name`. While following this, there is
-	no need to go deeper than 2 block levels in a class name; class names of further child
-	elements can omit some of the blocks for the sake of brevity.
+- A light version of block-element-modifier or [BEM](https://getbem.com/) is used for class naming structure:
+  - The root element (block) will have the class `.cdx-component-name`
+  - A sub-element, such as a header, would have the class name `.cdx-component-name__header`
+  - A variation of that header with a close button would have the class `.cdx-component-name__header--has-close-button`
+  - The header's close button element would have the class `.cdx-component-name__header__close-button`.
+  - Do not go deeper than 2 element levels in a class name; class names of further child
+	elements can omit some of the elements for the sake of brevity.
+- If a style or selector isn't self-explanatory, add a comment explaining it.
+- Avoid HTML element selectors. The style rulesets should aim to be independent from specific
+  element choices, which may change.
+- Styles specific to a component's enabled or disabled state should be contained in a selector
+  specific to that state. This structure allows us to avoid overriding enabled styles for the
+  disabled state.
+  - The pseudo-classes `&:enabled` and `&:disabled` can be used when available, otherwise
+    `&--enabled` and `&--disabled` classes should be added (e.g. `.cdx-menu-item--enabled`).
+  - The stylelint `no-descending-specificity` rule can be disabled to maintain this structure (see
+    [styles example](#examples) below).
+- Use `--has-` and `--is-` prefixes for modifiers that are not tied to a specific state, e.g.
+  `--has-thumbnail` or `--is-link`.
 - Add specificity when styling a sub-component to avoid override styles. For example, an Icon
-	component that is inside a Label component would use the selector, `.cdx-label__icon.cdx-icon`. In Less:
+	component that is inside a Label component would use the selector `.cdx-label__icon.cdx-icon`. In Less:
 	```less
 	.cdx-label {
 		&__icon.cdx-icon {
@@ -140,31 +158,20 @@ Stylesheet specific token application rules:
 		}
 	}
 	```
-- If a style or selector isn't self-explanatory, add a comment above it in Less comment style `//`.
-- Avoid HTML element selectors. The style rulesets should aim to be independent from specific
-  element choices, which may change.
-- Use `--has-` and `--is-` prefixes for modifiers that are not tied to a specific state, e.g.
-  `--has-thumbnail` or `--is-link`.
-- Styles specific to a component's enabled or disabled state should be contained in a selector
-  specific to that state. This structure allows us to avoid overriding enabled styles for the
-  disabled state.
-  - The pseudo-classes `&:enabled` and `&:disabled` can be used when available, otherwise
-    `&--enabled` and `&--disabled` classes should be added (e.g. `.cdx-menu-item--enabled`).
-    These are available to contain styles for the two states and for simpler styles orientation.
-  - The stylelint `no-descending-specificity` rule can be disabled to maintain this structure (see
-    sample code below).
-
-**Less mixin parameters**
-- In order to distinguish clearer from CSS variables and Codex tokens, Less mixin function
-  parameters should be prefixed with `param` (e.g. `@param-size`).
 
 **Linting**
 - Codex uses [stylelint-order](https://github.com/hudochenkov/stylelint-order/) to order CSS/Less
-  rules
-- Enforce relying only on specific CSS properties over shorthands for `background`, `font`,
+  rules.
+- Stylelint requires reliance on specific CSS properties over shorthands for `background`, `font`,
   `animation` and `transition`.
-- Stylelint rules can be disabled/enabled and should be marked as CSS style comment `/* stylelint-disable-next-line rule-name */`.
+- When there is a legitimate reason to disable Stylelint, do it for a single line using a CSS style
+ comment `/* stylelint-disable-next-line rule-name */`.
 
+**Less mixin parameters**
+- In order to distinguish them from CSS variables and Codex tokens, Less mixin function
+  parameters should be prefixed with `param` (e.g. `@param-size`).
+
+### Examples
 Below are some sample styles for a component to demonstrate these conventions:
 
 ```less
@@ -184,16 +191,16 @@ Below are some sample styles for a component to demonstrate these conventions:
 	}
 
 	// HTML `<input type="radio">`.
-	// Based on the HTML attributes of the radio input, we can change the style of the adjacent
-	// `span`, which will look like a custom-styled radio.
+	// Based on the HTML attributes of the radio input, we can change the style
+	// of the adjacent `span`, which will look like a custom-styled radio.
 	&__input {
 		&:enabled {
 			& + .cdx-radio__icon {
 				border-color: @border-color-input-binary;
 			}
 
-			// Note: there is no focus behavior for the input in its unchecked state because you
-			// can't focus on it without selecting it.
+			// Note: there is no focus behavior for the input in its unchecked
+			// state because you can't focus on it without selecting it.
 			&:hover + .cdx-radio__icon {
 				border-color: @border-color-input-binary--hover;
 			}
@@ -215,7 +222,79 @@ Below are some sample styles for a component to demonstrate these conventions:
 </style>
 ```
 
-## Bidirectional script support
+## Inheriting attributes
+
+By default, components will place any [attributes bound to them](https://vuejs.org/guide/components/attrs.html#fallthrough-attributes)
+(e.g. `class`, `type`, or `aria-label`) on the root element of the component. Sometimes, this is not
+desired: for example, for a component that contains an `<input>` element, it's helpful to bind most
+of the attributes to that `<input>` element rather than the root element.
+
+Some attributes, however, should always be bound to the root element to provide expected
+results for library users. This includes `class` and `style` attributes.
+
+To achieve the desired behavior in such components, use the `useSplitAttributes` composable. It
+returns the following properties:
+1. `rootClasses`: all CSS classes that should be bound to the root element, including those set via
+the `class` attribute on the component and those that are internal to the component, like dynamic
+and conditional classes.
+2. `rootStyle`: the `style` attribute bound to the component, should one be provided.
+2. `otherAttrs`: all other attributes, which can be bound to the desired child element.
+
+Below is sample usage from the TextInput component:
+
+```vue
+<template>
+	<!-- Add rootClasses and rootStyle to the root element. -->
+	<div
+		class="cdx-text-input"
+		:class="rootClasses"
+		:style="rootStyle"
+	>
+		<!-- Bind otherAttrs to the input. -->
+		<input
+			class="cdx-text-input__input"
+			v-bind="otherAttrs"
+		>
+	</div>
+</template>
+
+<script>
+// Import the composable.
+import useSplitAttributes from '../../composables/useSplitAttributes';
+
+export default defineComponent( {
+	name: 'CdxTextInput',
+	// Set inheritAttrs to false.
+	inheritAttrs: false,
+	setup( props, context ) {
+		// Define dynamic classes internal to the component,
+		// in Vue's object syntax format.
+		const internalClasses = computed( () => {
+			return {
+				'cdx-text-input--has-start-icon': !!props.startIcon,
+				'cdx-text-input--has-end-icon': !!props.endIcon || props.clearable,
+				'cdx-text-input--clearable': isClearable.value
+			};
+		} );
+
+		// Get helpers from the composable.
+		const {
+			rootClasses,
+			rootStyle,
+			otherAttrs
+		} = useSplitAttributes( context.attrs, internalClasses );
+
+		return {
+			rootClasses,
+			rootStyle,
+			otherAttrs
+		}
+	}
+} );
+</script>
+```
+
+## Bidirectional text
 Codex has limited support for [bidirectional text](https://en.wikipedia.org/wiki/Bidirectional_text).
 It supports pages that are entirely in a left-to-right (LTR) script, or pages that are entirely
 in a right-to-left (RTL) script. It does not support pages with a mix of LTR and RTL
@@ -224,15 +303,16 @@ At the time of this writing, it's virtually impossible to support those use case
 `:dir()` CSS pseudo-class, which is
 [not yet supported by most browsers](https://caniuse.com/css-dir-pseudo).
 
-There are tools (like postcss-rtlcss, check below) that generate bidirectional CSS using attribute
-selectors like `[dir='ltr']`, but this technique is fragile. It breaks in confusing and ugly ways
-on pages that don't have a `dir` attribute set, and on pages where a `dir="ltr"` element is nested
-inside a `dir="rtl"` element or vice versa.
+There are tools (like postcss-rtlcss; read more below) that generate bidirectional CSS using
+attribute selectors like `[dir='ltr']`, but this technique is fragile. It breaks in confusing and
+ugly ways on pages that don't have a `dir` attribute set, and on pages where a `dir="ltr"` element
+is nested inside a `dir="rtl"` element or vice versa.
 
 Because of these limitations, Codex provides direction-specific stylesheets for use in MediaWiki.
 The `codex.style.css` file contains LTR styles, and `codex.style-rtl.css` contains RTL styles.
-The CSS files for individual components (used by MediaWiki's Codex code-splitting feature) are
-similarly broken down into direction-specific variants (with an `-rtl` suffix). These files are
+The CSS files for individual components (used by MediaWiki's
+[Codex code-splitting feature](https://www.mediawiki.org/wiki/Codex#Using_a_limited_subset_of_components))
+are similarly broken down into direction-specific variants (with an `-rtl` suffix). These files are
 described below.
 
 ::: tip Experimental Bidirectional Stylesheet
@@ -243,7 +323,7 @@ single-page applications which wish to support client-side language and directio
 The caveats above still apply.
 :::
 
-### Flipping of direction-specific styles
+### Flipping styles
 Styles in Codex are written for left-to-right (LTR) environments. Codex uses
 [RTLCSS](https://rtlcss.com/) to generate flipped versions of these styles for right-to-left (RTL)
 environments. For example, a rule like `.foo { padding-left: 4px; }` will be changed to
@@ -266,13 +346,14 @@ for more information.
 Below is an example that demonstrates these directives:
 ```less
 .foo {
-	// This rule isn't flipped. It uses float: left; in both LTR and RTL
+	// This rule gets flipped to padding-right: 12px; in RTL.
+	padding-left: 12px;
+
+	// This rule isn't flipped. It uses float: left; in both LTR and RTL.
 	/* rtl:ignore */
 	float: left;
 
-	// This rule is flipped, because there is no rtl:ignore directive above it
-	// It becomes padding-right: 12px; in RTL
-	padding-left: 12px;
+
 }
 
 .bar {
@@ -285,17 +366,18 @@ Below is an example that demonstrates these directives:
 }
 ```
 
-### Direction-specific behavior in components
+### Component behavior
 Some components need to adjust their behavior depending on the text direction. For example,
 components that listen for the left and right arrow keys being pressed may need to react to those
 key presses differently depending on the text direction.
 
-To achieve this, components should use the `useComputedDirection()` composable, which detects the
-direction of the surrounding context of the component at mount time. This works even on pages with
-mixed or nested directionality; however it does not detect changes in directionality that happen
-after the component is mounted.
+To achieve this, components should use the
+[`useComputedDirection` composable](../composables/demos/use-computed-direction.md), which detects
+the direction of the surrounding context of the component at mount time. This works even on pages
+with mixed or nested directionality; however it does not detect changes in directionality that
+happen after the component is mounted.
 
-Below is an example that demonstrates the use of the `useComputedDirection()` composable function:
+Below is an example that demonstrates the use of the `useComputedDirection` composable function:
 ```vue
 <template>
 	<!-- Set ref="rootElement" on the root element of your component -->
@@ -351,7 +433,7 @@ Sometimes, components contain text that is always or usually the same across fea
 example:
 - In a Table with row selection, the "select all" checkbox always has the visually-hidden label
   "Select all rows".
-- The "close" button in a Dialog usually has the `aria-label` "Close".
+- The "search" button in a SearchInput usually has the label "Search".
 
 These are different from feature-specific strings, like a Table's caption or the label of a normal
 Button.
@@ -376,13 +458,13 @@ new message, in MediaWiki core, add the message to both the `en.json` and `qqq.j
 In the Codex repository, add the new message key to the `I18nMessageKeys` constant,
 which maintains a list of all message keys used in Codex.
 
-### Using the message within a component
+### Using the message
 
 Note that both composables return a computed ref containing the translated string.
 
 #### Static strings
 
-For strings that should always be the same and should never be customizable by the dev user, use the
+For strings that should always be the same and should never be customizable by developer users, use the
 `useI18n` composable. These strings are typically special text for assistive technology that help
 users understand how to use the component—we want such strings to be consistent across products.
 
@@ -461,74 +543,3 @@ const translatedSortCaption = useI18n(
 
 Note that params will typically be refs to support reactivity, but they can be static values as
 well.
-
-## Inheriting attributes
-
-By default, components will place any attributes bound to them on the root element of the
-component. Sometimes, though, we don't want this behavior. For example, for a component that
-contains an `<input>` element, we may want to bind most of the attributes to that `<input>` element
-rather than the root element.
-
-Some attributes, however, should always be bound to the root element in order to provide expected
-results for library users. This includes `class` and `style` attributes.
-
-::: warning
-Binding a `style` attribute to a component is highly discouraged as it could interfere with Design
-System consistency and negatively impact performance. Nonetheless, if one is provided, it will be
-bound to the root element of the component.
-:::
-
-To help achieve the desired behavior in components like this, we have a composable called
-`useSplitAttributes`. It provides the following:
-1. `rootClasses`: all CSS classes that should be bound to the root element, including those set via
-the `class` attribute on the component and those that are internal to the component, like dynamic
-and conditional classes
-2. `rootStyle`: the `style` attribute bound to the component, should one be provided
-2. `otherAttrs`: all other attributes, which can be bound to the desired child element
-
-Below is sample usage from the TextInput component:
-
-```vue
-<template>
-	<!-- Add rootClasses and rootStyle to the root element. -->
-	<div
-		class="cdx-text-input"
-		:class="rootClasses"
-		:style="rootStyle"
-	>
-		<!-- Bind otherAttrs to the input. -->
-		<input
-			v-bind="otherAttrs"
-		>
-	</div>
-</template>
-
-<script>
-// Import the composable.
-import useSplitAttributes from '../../composables/useSplitAttributes';
-
-export default defineComponent( {
-	name: 'CdxTextInput',
-	// Set inheritAttrs to false.
-	inheritAttrs: false,
-	setup( props, context ) {
-		// Define dynamic classes internal to the component, in Vue's object
-		// syntax format.
-		const internalClasses = computed( () => {
-			return {
-				'cdx-text-input--has-start-icon': !!props.startIcon,
-				'cdx-text-input--has-end-icon': !!props.endIcon || props.clearable,
-				'cdx-text-input--clearable': isClearable.value
-			};
-		} );
-
-		// Get helpers from the composable.
-		const {
-			rootClasses,
-			rootStyle,
-			otherAttrs
-		} = useSplitAttributes( context.attrs, internalClasses );
-	}
-} );
-</script>
-```

@@ -3,14 +3,14 @@
 **Design tokens are the smallest stylistic pieces of our design system**.
 
 We use tokens:
-- To maintain a scalable and consistent visual system for user-interface (UI) development in a
-  single source of truth instead of hard-coded style values or single-use variables
-- To ensure that only systematic decisions are used to style components and features
+- To maintain a scalable and consistent visual system for user-interface development in a
+  single source of truth instead of hard-coded style values or single-use variables.
+- To ensure that only systematic decisions are used to style components and features.
 
 Tokens can be used in several formats: CSS custom properties, Less variables, SCSS variables,
 ES6 variables and JSON files.
 
-Each token category has a demo page where you can check each token's name and value, a demo of the
+Each token category has a demo page where you can review each token's name and value, a demo of the
 token, and information about where the token value comes from.
 
 ## Using design tokens
@@ -25,7 +25,7 @@ See the [installation](../using-codex/developing.md#installation) and [using des
 
 ### In MediaWiki
 
-Learn how to [use Codex design tokens in MediaWiki](https://www.mediawiki.org/wiki/Codex#Using_Codex_design_tokens).
+Learn how to [use Codex design tokens in MediaWiki](https://www.mediawiki.org/wiki/Codex#Using_design_tokens_directly).
 
 ## Resources
 

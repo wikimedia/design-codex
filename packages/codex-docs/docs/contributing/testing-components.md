@@ -7,15 +7,140 @@ outline: deep
 ## Unit tests
 
 ::: tip TL;DR
-- Every component needs [Jest unit tests](#test-cases-pattern) and [snapshots](#snapshot-tests)
-- Unit tests can use the [Vue test utils](#vue-test-utils) library
-- To run unit tests: `npm run -w @wikimedia/codex test:unit`
-- To update all snapshots: `npm run build-and-update-snapshots`
-- To update a workspace specific snapshots: `npm run -w [workspace-name] update-snapshots` (For some packages a build may be required for the snapshots to be updated correctly)
+- Every component needs [Jest unit tests](#test-cases-pattern) and [snapshots](#snapshot-tests).
+- Unit tests can use the [Vue test utils](#vue-test-utils) library.
+- To run unit tests: `npm run -w @wikimedia/codex test:unit`.
+- To update all snapshots: `npm run build-and-update-snapshots`.
 :::
 
 Every component should have Jest unit tests. For a component named `FooBar`, the tests should be
 in the file `src/components/foo-bar/FooBar.test.ts`.
+
+### Structuring unit tests
+Unit tests should test the behavior of a component independently from other units (libraries or
+other components). This section defines some standards to ensure that test files can be maintained
+and updated with minimal effort.
+
+It is common for test files to get very long, making adding new tests or finding a specific test a
+complex task. Defining patterns makes the tests easier to maintain and update.
+
+#### Namespace tests
+
+The first `describe` block within a test file should be named for the component (or function) that
+is being tested. This will improve the debugging experience by providing the component name in the
+error message when a test fails.
+
+```typescript
+// MenuItem.test.ts
+
+describe( 'MenuItem', () => {
+	describe( 'matches the snapshots', () => {
+	} );
+
+	describe( 'descriptive test name', () => {
+	} );
+}
+```
+
+#### Describe behavior
+
+The name of a `describe` block should describe the behavior expected by the test, not how the the
+test is implemented internally. This should start with words like "when", "with" or "without".
+
+```typescript
+// Bad
+describe( 'expanded property is "true" ', () => {
+} );
+
+// Good
+describe( 'when the dropdown is expanded', () => {
+} );
+```
+
+#### Given-when-then
+
+When writing a set of unit tests for your component, the test's collection of `describe` and `it`
+blocks should compose sentences that resemble given-when-then notation. The block names do not have
+to start with those exact words ("given", "when", "then"), but they should express the same meaning:
+
+- **Given**: Some context on what is being tested. This is typically the component name.
+- **When/And**: One or more actions or scenarios that would set the test to the correct state.
+- **Then**: One or more consequences resulting from the above actions.
+
+```typescript
+describe( 'Button', () => {
+	describe( 'when clicked', () => {
+		it( 'should notify its parent', () => {
+		} );
+	} );
+} );
+// Output -> Button, when clicked, should notify its parent
+```
+
+#### Common logic
+
+Writing tests using given-when-then notation provides opportunities to abstract common logic within
+the various `describe` blocks. Doing so makes the individual tests simple to write and debug and
+reduces the risk of manual error.
+
+A common use case is to set all the variables, properties, and mocks required for a specific action
+to take place within the `beforeEach` hook, then cleaning them up using the `afterEach` hook.
+
+```typescript
+// Props, slots, and search results variables defined above...
+describe( 'TypeaheadSearch', () => {
+	describe( 'when there are search results', () => {
+		let wrapper: VueWrapper<any>;
+		let input: DOMWrapper<Element>;
+		let menu: DOMWrapper<Element>;
+
+		// Before each test, we'll set up a component wrapper, advance past the debounce
+		// interval of the input handler, then set search results.
+		beforeEach( async () => {
+			jest.useFakeTimers( 'modern' );
+
+			wrapper = mount( CdxTypeaheadSearch, {
+				// Add in an initial input value so we don't have to simulate entering input.
+				props: { initialInputValue: 'Co', searchFooterUrl, showThumbnail: true, ...propsData },
+				slots: {
+					default: defaultSlot,
+					searchFooterText: searchFooterTextSlot
+				}
+			} );
+
+			jest.advanceTimersByTime( DebounceInterval );
+			await wrapper.setProps( { searchResults } );
+
+			// Grab the input and menu, which we'll need for a few tests.
+			input = wrapper.find( '.cdx-text-input__input' );
+			menu = wrapper.find( '.cdx-menu' );
+		} );
+
+		// After each test, we'll reset timers.
+		afterEach( () => {
+			jest.useRealTimers();
+		} );
+
+		it( 'matches the snapshot', () => {
+			expect( wrapper.element ).toMatchSnapshot();
+		} );
+
+		it( 'closes menu when input is cleared', async () => {
+			await input.trigger( 'focus' );
+			expect( menu.isVisible() ).toBe( true );
+			await input.setValue( '' );
+			jest.advanceTimersByTime( DebounceInterval );
+			expect( menu.isVisible() ).toBe( false );
+		} );
+	} );
+} );
+```
+
+::: warning
+Even if it is possible to use the same variables and progressively change them in each layer of
+the test, it is better to actually declare the complete required object in (or before) each test to
+provide more visibility.
+:::
 
 ### Test cases pattern
 A common pattern in unit tests is to perform the same test multiple times with different parameters,
@@ -81,133 +206,6 @@ Make sure that the arrow function parameters for optional values have a default 
 If no default value is set, test cases where an optional element is missing may fail with
 `Exceeded timeout of 5000 ms for a test while waiting for done() to be called.` or otherwise behave
 very strangely.
-:::
-
-### Structuring unit tests
-Unit tests should be used to test the behavior of a component, independently from other units
-(libraries or components). This section defines some standards to ensure that test files can be
-maintained and updated with minimal effort.
-
-It is common for test files to get very large, making adding new tests or finding a specific test a
-complex task. Defining patterns makes the tests easier to maintain and update.
-
-
-#### Start with a filename
-
-The first `describe` block within a test file should be named for the component (or function) that
-is being tested. This will improve the debugging experience by providing the component name in the
-error message when a test fails.
-
-```typescript
-// MenuItem.test.ts
-
-describe( 'MenuItem', () => {
-	describe( 'matches the snapshots', () => {
-	} );
-
-	describe( 'descriptive test name', () => {
-	} );
-}
-```
-
-#### Define names that describe a behaviour not an implementation
-
-The name of a `describe` block should describe the behavior expected by the test, not how the the
-test is implemented internally. This should start with words like "when", "with" or "without".
-
-```typescript
-// Bad
-describe( 'has an expanded property of "true" ', () => {
-} );
-
-// Good
-describe( 'when the dropdown is expanded', () => {
-} );
-```
-
-#### Use given-when-then notation
-
-When writing a set of unit tests for your component, the test's collection of `describe` and `it`
-blocks should compose sentences that resemble given-when-then notation. The block names do not have
-to start with those exact words ("given", "when", "then"), but they should express the same meaning:
-
-- **Given**: Some context on what is being tested. This is typically the component name
-- **When/And**: One or more actions or scenarios that would set the test to the correct state
-- **Then**: One or more consequences resulting from the above actions
-
-```typescript
-describe( 'Button', () => {
-	describe( 'when clicked', () => {
-		it( 'should notify its parent', () => {
-		} );
-	} );
-} );
-// Output -> Button, when clicked, should notify its parent
-```
-
-#### Abstract common logic when possible
-
-Writing tests using given-when-then notation provides opportunities to abstract common logic within
-the various `describe` blocks. Doing so makes the individual tests simple to write and debug and
-also reduces the risk of manual error.
-
-A common use case is to set all the variables, properties, and mocks required for a specific action
-to take place within the `beforeEach` hook, then cleaning them up using the `afterEach` hook.
-
-```typescript
-// Props, slots, and search results variables defined above...
-describe( 'TypeaheadSearch', () => {
-	describe( 'when there are search results', () => {
-		let wrapper: VueWrapper<any>;
-		let input: DOMWrapper<Element>;
-		let menu: DOMWrapper<Element>;
-
-		// Before each test, we'll set up a component wrapper, advance past the debounce
-		// interval of the input handler, then set search results.
-		beforeEach( async () => {
-			jest.useFakeTimers( 'modern' );
-
-			wrapper = mount( CdxTypeaheadSearch, {
-				// Add in an initial input value so we don't have to simulate entering input.
-				props: { initialInputValue: 'Co', searchFooterUrl, showThumbnail: true, ...propsData },
-				slots: {
-					default: defaultSlot,
-					searchFooterText: searchFooterTextSlot
-				}
-			} );
-
-			jest.advanceTimersByTime( DebounceInterval );
-			await wrapper.setProps( { searchResults } );
-
-			// Grab the input and menu, which we'll need for a few tests.
-			input = wrapper.find( '.cdx-text-input__input' );
-			menu = wrapper.find( '.cdx-menu' );
-		} );
-
-		// After each test, we'll reset timers.
-		afterEach( () => {
-			jest.useRealTimers();
-		} );
-
-		it( 'matches the snapshot', () => {
-			expect( wrapper.element ).toMatchSnapshot();
-		} );
-
-		it( 'closes menu when input is cleared', async () => {
-			await input.trigger( 'focus' );
-			expect( menu.isVisible() ).toBe( true );
-			await input.setValue( '' );
-			jest.advanceTimersByTime( DebounceInterval );
-			expect( menu.isVisible() ).toBe( false );
-		} );
-	} );
-} );
-```
-
-::: warning
-Even if it is possible to use the same variables and progressively change them in each layer of
-the test, it is better to actually declare the complete required object in (or before) each test to
-provide more visibility.
 :::
 
 ### Vue test utils

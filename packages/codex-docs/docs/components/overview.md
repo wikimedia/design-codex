@@ -12,7 +12,8 @@ Vue 3 and JavaScript.
 [Link](./mixins/link.md)). Most of the Vue components have a corresponding CSS-only version. These
 components can be used without JavaScript.
 
-Each component in Codex has a demo page where you can interact with working examples, check code samples, and read detailed usage information about the Vue and CSS-only implementations.
+Each component in Codex has a demo page where you can interact with working examples, review and
+copy code samples, and read detailed usage information about the Vue and CSS-only implementations.
 
 ## Using components
 
@@ -26,8 +27,8 @@ See the [installation](../using-codex/developing.md#installation) and [using com
 
 ### In MediaWiki
 
-- Learn how to [use Vue Codex components in MediaWiki](https://www.mediawiki.org/wiki/Codex#Using_Codex_Vue_3_components).
-- Learn how to [use CSS-only Codex components in MediaWiki](https://www.mediawiki.org/wiki/Codex#Using_CSS-only_Codex_components).
+- Learn how to [use Vue Codex components in MediaWiki](https://www.mediawiki.org/wiki/Codex#Usage_with_JavaScript).
+- Learn how to [use CSS-only Codex components in MediaWiki](https://www.mediawiki.org/wiki/Codex#Usage_without_JavaScript_(CSS-only_Codex_components)).
 
 ## Component roadmap
 
@@ -37,5 +38,4 @@ If you want to know more about the components we plan to add to Codex in the fut
 ## Resources
 
 - Learn how to [contribute or request a component](../contributing/overview.html)
-- Read about [designing new Codex components](../contributing/designing-new-components.html)
-- Read about [updating existing Codex components](../contributing/redesigning-existing-components.html)
+- Read about [adding new Codex components](../contributing/contributing-components.html)

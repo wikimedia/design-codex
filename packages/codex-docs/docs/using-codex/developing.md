@@ -334,9 +334,13 @@ Releases of the tokens package contain the following files:
 
 ### Versioning
 Codex follows [the semantic versioning standard](https://semver.org/). The current version is
-`{{ version }}`. If a release contains breaking changes, the
-major version number (the `n` in `n.x.y`) will be incremented, and the breaking changes will
-be clearly documented in `CHANGELOG.md`.
+`{{ version }}`.
+
+If a release contains breaking changes, the major version number (the `n` in `n.x.y`) will be
+incremented, and the breaking changes will be clearly documented in `CHANGELOG.md`. Each breaking
+change must be preceded by a deprecating change at least a minor version before. A deprecating
+change warns when using the functionality that is about to be changed, and provides an alternative
+where applicable.
 
 ## Support
 
