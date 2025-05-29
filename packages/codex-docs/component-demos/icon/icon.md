@@ -1,23 +1,45 @@
 <script setup>
-import SimpleIcon from '@/../component-demos/icon/examples/SimpleIcon.vue';
+import { CdxAccordion, CdxButton, CdxIcon } from '@wikimedia/codex';
+import { cdxIconTrash, cdxIconJournal, cdxIconBold } from '@wikimedia/codex-icons';
+import ConfigurableIcon from '@/../component-demos/icon/examples/ConfigurableIcon.vue';
 import IconSizes from '@/../component-demos/icon/examples/IconSizes.vue';
 import IconInButton from '@/../component-demos/icon/examples/IconInButton.vue';
+import IconColor from '@/../component-demos/icon/examples/IconColor.vue';
+import tokens from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.json';
+
+const controlsConfig = [
+	{
+		name: 'icon',
+		type: 'icon',
+		default: 'cdxIconGlobe'
+	},
+	{
+		name: 'size',
+		type: 'radio',
+		options: [ 'medium', 'small', 'x-small' ],
+	},
+		{
+		name: 'language',
+		type: 'text',
+		default: 'en'
+	}
+];
 </script>
 
 An Icon is a graphical representation of an idea.
 
-<cdx-demo-wrapper :force-controls="true">
-<template v-slot:demo>
-	<simple-icon />
+<cdx-demo-wrapper :controls-config="controlsConfig">
+<template v-slot:demo="{ propValues }">
+	<configurable-icon v-bind="propValues" />
 </template>
 
 <template v-slot:code>
 
 :::code-group
 
-<<< @/../component-demos/icon/examples/SimpleIcon.vue [NPM]
+<<< @/../component-demos/icon/examples/ConfigurableIcon.vue [NPM]
 
-<<< @/../component-demos/icon/examples-mw/SimpleIcon.vue [MediaWiki]
+<<< @/../component-demos/icon/examples-mw/ConfigurableIcon.vue [MediaWiki]
 
 :::
 
@@ -107,6 +129,114 @@ If no `size` property is provided, the `medium` size will be used by default.
 `x-small` Icon size is only intended for use in certain special cases.
 Most components should use Icons in `small` or `medium` size.
 :::
+
+### Icon colors
+
+All icons are monochrome, meaning the entire icon is the same color. By default, Icon uses the
+base color (`{{ tokens.color.base.value }}`), but this can be overridden by changing the `color`
+property of the `.cdx-icon` element in CSS.
+
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<icon-color />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/icon/examples/IconColor.vue [NPM]
+
+<<< @/../component-demos/icon/examples-mw/IconColor.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+Note that the SVG inherits the Icon `color` by applying `fill: currentColor`. Some components style
+their icons to match the surrounding text color. For example, [Button](./button.md) features red
+icons matching the red (`{{tokens.color.destructive.value }}`) text in its destructive variant.
+
+</cdx-accordion>
+
+### Internationalization
+
+Many icons, like `cdxIconJournal`, have different versions for left-to-right (LTR) and right-to-left
+(RTL) contexts. The Icon component automatically detects the direction of its environment, and
+chooses the correct icon accordingly. For example, if the journal icon appears on a page that is
+RTL, or inside of a `<div dir="rtl">` tag, the RTL version of the icon will be displayed.
+
+<cdx-demo-wrapper :force-controls="true">
+<template v-slot:demo>
+	<cdx-icon :icon="cdxIconJournal" />
+</template>
+
+<template v-slot:code>
+
+```vue-html
+<cdx-icon :icon="cdxIconJournal" />
+```
+
+</template>
+</cdx-demo-wrapper>
+
+Similarly, some icons, like `cdxIconBold` have different versions for different languages. The icon
+component also automatically detects the language of its environment, so if for example the bold
+icon appears on a page that has `<html lang="fr">` at the root, or inside of a `<p lang="fr">`, the
+French version of the icon will be displayed.
+
+<cdx-demo-wrapper :force-controls="true">
+<template v-slot:demo>
+	<p><cdx-icon :icon="cdxIconBold" /> Default</p>
+	<p lang="en"><cdx-icon :icon="cdxIconBold" /> English</p>
+	<p lang="fr"><cdx-icon :icon="cdxIconBold" /> French</p>
+	<p lang="ar"><cdx-icon :icon="cdxIconBold" /> Arabic</p>
+</template>
+
+<template v-slot:code>
+
+```vue-html
+<p>
+	<cdx-icon :icon="cdxIconBold" /> Default
+</p>
+<p lang="en">
+	<cdx-icon :icon="cdxIconBold" /> English
+</p>
+<p lang="fr">
+	<cdx-icon :icon="cdxIconBold" /> French
+</p>
+<p lang="ar">
+	<cdx-icon :icon="cdxIconBold" /> Arabic
+</p>
+```
+
+</template>
+</cdx-demo-wrapper>
+
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+The automatic direction and language detection feature has limitations. It only detects the
+direction and language of the surrounding context when the icon component is initially mounted.
+If the surrounding context changes later, for example because the `lang` or `dir` attribute on the
+parent/ancestor is changed, the icon will not notice these changes and will not update to reflect
+them.
+
+If you run into this limitation, or if the automatic direction/language detection isn't working
+for other reasons, you can set the direction and/or language explicitly through the `dir` and
+`lang` props:
+
+```vue-html
+Bold icon in German: <cdx-icon :icon="cdxIconBold" lang="de" />
+Journal icon in RTL: <cdx-icon :icon="cdxIconJournal" dir="rtl" />
+```
+
+</cdx-accordion>
 
 ## Technical implementation
 
