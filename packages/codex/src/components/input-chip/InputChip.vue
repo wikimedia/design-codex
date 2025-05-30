@@ -1,6 +1,7 @@
 <template>
 	<div
 		ref="rootElement"
+		v-tooltip="tooltipContent"
 		class="cdx-input-chip"
 		:class="rootClasses"
 		:tabindex="tabIndex"
@@ -14,7 +15,10 @@
 			:icon="icon"
 			size="small"
 		/>
-		<span class="cdx-input-chip__text">
+		<span
+			ref="textElement"
+			class="cdx-input-chip__text"
+		>
 			<!-- @slot Chip text. -->
 			<slot />
 		</span>
@@ -32,11 +36,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, PropType } from 'vue';
+import { defineComponent, computed, ref, PropType, onMounted } from 'vue';
+import useSlotContents from '../../composables/useSlotContents';
 import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 import useI18n from '../../composables/useI18n';
 import { cdxIconClose, Icon } from '@wikimedia/codex-icons';
+import CdxTooltip from '../tooltip/Tooltip';
 
 /**
  * Interactive chip used within the ChipInput.
@@ -48,6 +54,9 @@ export default defineComponent( {
 	components: {
 		CdxButton,
 		CdxIcon
+	},
+	directives: {
+		tooltip: CdxTooltip
 	},
 	props: {
 		/**
@@ -106,7 +115,7 @@ export default defineComponent( {
 		 */
 		'arrow-right'
 	],
-	setup( props, { emit } ) {
+	setup( props, { emit, slots } ) {
 		const tabIndex = computed( () => props.disabled ? -1 : 0 );
 		const rootElement = ref<HTMLDivElement>();
 		const rootClasses = computed( () => ( {
@@ -119,6 +128,29 @@ export default defineComponent( {
 			'cdx-input-chip-aria-description',
 			'Press Enter to edit or Delete to remove'
 		);
+
+		const textElement = ref<HTMLSpanElement>();
+		const isMounted = ref( false );
+		const tooltipContent = computed( () => {
+			if ( !isMounted.value ) {
+				return null;
+			}
+
+			// Check for content overflow and return slot content for the tooltip
+			// if it does overflow
+			if (
+				textElement.value && textElement.value.scrollWidth > textElement.value.clientWidth
+			) {
+				return useSlotContents( slots?.default )[ 0 ];
+			}
+
+			// No tooltip by default
+			return null;
+		} );
+
+		onMounted( () => {
+			isMounted.value = true;
+		} );
 
 		function onKeydown( e: KeyboardEvent ) {
 			switch ( e.key ) {
@@ -157,7 +189,9 @@ export default defineComponent( {
 			ariaDescription,
 			onKeydown,
 			cdxIconClose,
-			tabIndex
+			tabIndex,
+			tooltipContent,
+			textElement
 		};
 	},
 	methods: {

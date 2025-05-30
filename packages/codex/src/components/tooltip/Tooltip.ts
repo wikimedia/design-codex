@@ -178,6 +178,13 @@ class Tooltip {
 		} );
 	}
 
+	public updateWithOptions( options: TooltipOptions ) {
+		this.textContent = options.textContent;
+		this.placement = options.placement ?? this.placement;
+		this.tooltipElement.textContent = this.textContent;
+		this.update();
+	}
+
 	public remove() {
 		this.tooltipElement.remove();
 		this.autoUpdateCleanup();
@@ -199,6 +206,24 @@ const CdxTooltip : Directive = {
 			textContent: String( value ),
 			placement: arg as Placement
 		} );
+	},
+
+	updated( el: StatefulDirectiveElement, { value, arg } ) {
+		if ( value === null ) {
+			return;
+		}
+		// If there was no tooltip on the element, add a new one
+		if ( !el.tooltip ) {
+			el.tooltip = new Tooltip( el, {
+				textContent: String( value ),
+				placement: arg as Placement
+			} );
+		} else { // If there was a tooltip, then update it with the new content
+			el.tooltip.updateWithOptions( {
+				textContent: String( value ),
+				placement: arg as Placement
+			} );
+		}
 	},
 
 	beforeUnmount( el: StatefulDirectiveElement ) {

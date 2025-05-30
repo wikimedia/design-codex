@@ -1,11 +1,15 @@
 <template>
-	<div class="cdx-info-chip" :class="rootClasses">
+	<div
+		v-tooltip="tooltipContent"
+		class="cdx-info-chip"
+		:class="rootClasses"
+	>
 		<cdx-icon
 			v-if="computedIcon"
 			class="cdx-info-chip__icon--vue"
 			:icon="computedIcon"
 		/>
-		<span class="cdx-info-chip__text">
+		<span ref="textElement" class="cdx-info-chip__text">
 			<!-- @slot Chip content. -->
 			<slot />
 		</span>
@@ -13,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue';
+import { defineComponent, PropType, computed, ref, onMounted } from 'vue';
 import { statusTypeValidator } from '../../constants';
 import { StatusType, StatusIconMap } from '../../types';
 import {
@@ -24,6 +28,8 @@ import {
 	Icon
 } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
+import useSlotContents from '../../composables/useSlotContents';
+import CdxTooltip from '../tooltip/Tooltip';
 
 const iconMap: Partial<StatusIconMap> = {
 	notice: cdxIconInfoFilled,
@@ -38,6 +44,9 @@ const iconMap: Partial<StatusIconMap> = {
 export default defineComponent( {
 	name: 'CdxInfoChip',
 	components: { CdxIcon },
+	directives: {
+		tooltip: CdxTooltip
+	},
 	props: {
 		/**
 		 * Status type.
@@ -59,7 +68,7 @@ export default defineComponent( {
 			default: null
 		}
 	},
-	setup( props ) {
+	setup( props, { slots } ) {
 		const rootClasses = computed( (): Record<string, boolean> => ( {
 			[ `cdx-info-chip--${ props.status }` ]: true
 		} ) );
@@ -68,9 +77,34 @@ export default defineComponent( {
 		const computedIcon = computed( () => props.status === 'notice' ? props.icon : iconMap[ props.status ]
 		);
 
+		const textElement = ref<HTMLSpanElement>();
+		const isMounted = ref( false );
+		const tooltipContent = computed( () => {
+			if ( !isMounted.value ) {
+				return null;
+			}
+
+			// Check for content overflow and return slot content for the tooltip
+			// if it does overflow
+			if (
+				textElement.value && textElement.value.scrollWidth > textElement.value.clientWidth
+			) {
+				return useSlotContents( slots?.default )[ 0 ];
+			}
+
+			// No tooltip by default
+			return null;
+		} );
+
+		onMounted( () => {
+			isMounted.value = true;
+		} );
+
 		return {
 			rootClasses,
-			computedIcon
+			computedIcon,
+			tooltipContent,
+			textElement
 		};
 	}
 } );
