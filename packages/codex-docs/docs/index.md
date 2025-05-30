@@ -36,7 +36,7 @@ volunteer community. [Get in touch](./using-codex/contact.md) with us.
 		<template #description>Learn how to use Codex to design and build user interfaces</template>
 	</cdx-card>
 	<cdx-card url="./contributing/overview.html">
-		<template #title>Contributing guidelines</template>
+		<template #title>Contributing</template>
 		<template #description>Learn about how we work on Codex and how you can help</template>
 	</cdx-card>
 </div>
@@ -49,7 +49,7 @@ volunteer community. [Get in touch](./using-codex/contact.md) with us.
 		<template #description>Create harmonious designs across Wikimedia</template>
 	</cdx-card>
 	<cdx-card url="./design-tokens/overview.html" :icon="cdxIconListBullet">
-		<template #title>Tokens</template>
+		<template #title>Design tokens</template>
 		<template #description>Write styles consistent with the Codex Style Guide</template>
 	</cdx-card>
 	<cdx-card url="./components/overview.html" :icon="cdxIconPuzzle">
@@ -68,24 +68,10 @@ volunteer community. [Get in touch](./using-codex/contact.md) with us.
 
 ## Resources
 
-<div class="cdx-docs-home__resources">
-	<cdx-card url="https://www.figma.com/community/file/1448742124788019850/codex">
-		<template #title>Codex Figma</template>
-		<template #description>Design with Codex components in Figma</template>
-	</cdx-card>
-	<cdx-card url="https://www.mediawiki.org/wiki/Codex">
-		<template #title>MediaWiki</template>
-		<template #description>Learn about using Codex within MediaWiki</template>
-	</cdx-card>
-	<cdx-card url="https://gerrit.wikimedia.org/r/admin/repos/design/codex">
-		<template #title>Gerrit</template>
-		<template #description>Visit the canonical Codex codebase</template>
-	</cdx-card>
-	<cdx-card url="https://github.com/wikimedia/design-codex">
-		<template #title>GitHub</template>
-		<template #description>Visit a mirror of the Gerrit codebase on GitHub</template>
-	</cdx-card>
-</div>
+- [**Figma**](https://www.figma.com/community/file/1448742124788019850/codex): design with Codex components in Figma.
+- [**MediaWiki**](https://www.mediawiki.org/wiki/Codex): learn about using Codex within MediaWiki.
+- [**Gerrit**](https://gerrit.wikimedia.org/r/admin/repos/design/codex): visit the canonical Codex codebase.
+- [**GitHub**](https://github.com/wikimedia/design-codex): visit a mirror of the Gerrit codebase on GitHub.
 
 ## Posts
 

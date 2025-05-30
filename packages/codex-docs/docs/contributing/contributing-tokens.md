@@ -14,7 +14,7 @@ If you need support or have questions during the contribution process, reach out
 
 If the task doesn’t already exist in the [Codex Phabricator board](https://phabricator.wikimedia.org/tag/codex/), create one using this [task template][token-creation-task-template]. Make sure to file in as much information as possible in the predefined sections.
 
-::: warning
+::: tip
 Create a new token only if none of the [existing Codex design tokens](../design-tokens/overview.md) meet your need.
 :::
 
@@ -44,44 +44,93 @@ When creating new tokens, define the type of token based on the specific design 
 
 Make sure the new token fits within the existing token scale, and use the appropiate naming based on its category. Learn more about the different [token typologies](../design-tokens/definition-and-structure.md).
 
-::: warning
+::: tip
 Make sure the new token fits into the existing scale.
 :::
+
+### Name the token
+
+Depending on the type of token being created, the naming of the token may vary.
+
+- When creating an option token, the name should describe the purest form of the value it represents. For example, the `color.blue700` token is: 1) a color, 2) the color blue, and 3) the 700 level of the scale.
+- When creating a decision token, the name should describe the general application of the token. For example, the `color-progressive` token can be used for progressive text elements, such as links or buttons.
+- When creating a component token, the name should explicitly describe a single-purpose use. For example, the `link-red--visited` token is used specifically for [red links](../components/mixins/link.html#red-link) that have already been visited.
+
+#### Naming structure
+
+Follow these rules when naming tokens to maintain a consistent and extensible set of tokens:
+
+- Token keys follow CSS property names for the sake of familiarity and readability. For example, we
+  use `{ font-weight.100 }` instead of `{ font.weight.100 }`. There are some exceptions like `size`
+  and `spacing` tokens, in order to reuse them in different property contexts – such as values in
+  `width`, `height`, `padding`, etc.
+- The name describing the CSS property or category value always comes first, which makes it obvious
+  when a token is improperly applied to a different property, e.g.
+  ~~`color: @background-color-base`~~.
+- Tokens with numerical values are centered around a default key of `100`. For example, base size is
+  defined by `{ dimension.100 }`, which could be used to define a default theme base font size of
+  `16px`, or a theme-specific base font size of `14px`, depending on what theme the size token is
+  set to.
 
 ### Prepare for implementation
 
 Once the design proposal has been discussed, iterated on (if needed) and finished, the designer will share the link to the final version in the Phabricator task to prepare it for implementation.
 
-The following actions are required by the designer:
+## Implement the token
 
-1. Link the design spec in the task's description.
-2. Post a comment explaining that the task is ready to be implemented.
-3. Move the task to the next relevant column in the board.
+Once the token’s design proposal has been discussed, iterated on (if needed) and finished, the Phabricator task should be updated so the token can be implemented in Codex.
 
-## Implementing the token
+### File organization
 
-Stylesheet specific token application rules:
-- Tokens should follow [naming patterns established for MediaWiki](https://www.mediawiki.org/wiki/Manual:Coding_conventions/CSS#Variable_naming).
+Codex token files are structured to cater to Wikimedia's multi-theme, multi-mode environment. Note
+that all filepaths listed below are located in the `@wikimedia/codex-design-tokens` package.
+
+1. **Option tokens (`themes/*.json` files)**<br>
+Themes are defined in JSON files with theme-agnostic keys and theme-specific values. Theme tokens
+are not directly applied in Codex components or UI elements. They are only the internal pool of
+design options for the decisions represented by decision and component tokens.
+
+2. **Decision tokens (`application.json` and `modes/*.json`)**<br>
+These tokens document design decisions. Token names are semantic and communicate the token's
+intended use case. Mode-specific overrides live in `modes/*.json` files; these files contain a
+subset of the decision tokens (using the same names) and provide new values (drawing from different
+option tokens within the same theme).
+
+3. **Component tokens (`components.json`)**<br>
+These tokens represent single-component design decisions that are not covered by decision tokens.
+Component token names contain the token category and component name, e.g.
+`background-color-button-quiet--hover`.
+
+### Adding the token
+
+Add the new token(s) to the appropriate file(s) mentioned above. Ensure that:
+
+- You're adding the token to the correct file.
+- You're adding the new token in the proper place/order depending on the applicable token scale.
+- You add a comment if the token is not self-explanatory or represents an exception.
+
+### Testing the new token
+
+#### Lint
+
+Run `npm run lint -w @wikimedia/codex-design-tokens` in the root of the Codex repository.
+
+#### Testing locally
+
+To check the new token on the Codex docs site, run `npm run doc:dev` from the root of the Codex repository to serve the docs site. Then you can visit `http://localhost:5173/design-tokens/overview.html` to find and review the new token.
+
+### Further technical notes
+
 - Codex does not use shorthand properties `background`, `font`, `animation` and `transition` for
-  simpler design token scoping and code modularization reasons. Only tokens of a category type are
-  summarized into a shorthand token, e.g.
-  ```json
-  "text-decoration": {
-		"none": {
-			"value": "{ text-decoration.0 }"
-		},
-		"line-through": {
-			"value": "{ text-decoration.150 }"
-		},
-		"underline": {
-			"value": "{ text-decoration.200 }"
-		}
-  },
-  ```
+  simpler design token scoping and code modularization reasons.
+- Note, that normalization and reset values like `0` or `none` are not tokenized as they aren't used
+  for design decisions. `z-index: 0`, on the other hand, represents a design decision.
+- We're not using [Style Dictionary's predefined transform groups](https://github.com/amzn/style-dictionary/blob/main/docs/transform_groups.md)
+  for all stylesheet formats (CSS, Less and Sass) in order to keep precise control over output.
 
 ## Reviewing and documenting
 
-Once the implementation has been completed, the designer will need to:
+Once the implementation has been completed, the following actions will need to be completed:
 
 - **Design sign-off**: Confirm the new token was implemented correctly.
 - **Publish in Figma**: Add the approved token to the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=1891-4420&node-type=canvas&t=plW1hmguHVWs3fWZ-11) for reuse in design projects. Due to [team permissions in Figma](https://help.figma.com/hc/en-us/articles/360039970673-Team-permissions), only designers in the Wikimedia Foundation Figma team can edit the library. If you are part of the team, create a Figma branch adding the token before publishing; if you are not, someone from the team will handle the publishing for you.
