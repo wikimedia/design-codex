@@ -20,8 +20,10 @@ const expectedSlotControls: ControlConfigWithValue[] = [
 ];
 const controlsWithValues = expectedPropControls.concat( expectedSlotControls );
 
-it( 'properly separates prop and slot controls', () => {
-	const wrapper = mount( Controls, { props: { controlsWithValues } } );
-	expect( wrapper.vm.propControls ).toMatchObject( expectedPropControls );
-	expect( wrapper.vm.slotControls ).toMatchObject( expectedSlotControls );
+describe( 'Controls', () => {
+	it( 'properly separates prop and slot controls', () => {
+		const wrapper = mount( Controls, { props: { controlsWithValues } } );
+		expect( wrapper.vm.propControls ).toMatchObject( expectedPropControls );
+		expect( wrapper.vm.slotControls ).toMatchObject( expectedSlotControls );
+	} );
 } );

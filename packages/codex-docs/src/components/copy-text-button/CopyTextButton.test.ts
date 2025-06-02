@@ -5,7 +5,7 @@ import CdxDocsCopyTextButton from './CopyTextButton.vue';
 const CopyButtonSelector = '.cdx-docs-copy-text-button';
 const SuccessIconSelector = '.cdx-docs-copy-text-button__icon';
 
-describe( 'CopyTextButon', () => {
+describe( 'CopyTextButton', () => {
 	afterEach( () => {
 		// Some tests use fake timers
 		jest.useRealTimers();

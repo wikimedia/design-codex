@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 ToggleButton with slot content => HTML 1`] = `
+exports[`ConfigurableGeneric matches the snapshot Case 0 ToggleButton with slot content => HTML 1`] = `
 <div>
   <!-- Have a slot -->
   <button
@@ -18,7 +18,7 @@ exports[`matches the snapshot Case 0 ToggleButton with slot content => HTML 1`] 
 </div>
 `;
 
-exports[`matches the snapshot Case 1 TextInput without slot => HTML 1`] = `
+exports[`ConfigurableGeneric matches the snapshot Case 1 TextInput without slot => HTML 1`] = `
 <div>
   <!-- Have a slot -->
   

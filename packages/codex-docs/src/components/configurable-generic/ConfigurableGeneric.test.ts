@@ -17,22 +17,24 @@ jest.mock( 'vitepress', () => {
 	};
 } );
 
-describe( 'matches the snapshot', () => {
-	type Case = [
-		msg: string,
-		props: Record<keyof unknown, unknown>,
-		slot: string
-	];
-	const cases: Case[] = [
-		[ 'ToggleButton with slot content', { disabled: true }, 'Button text' ],
-		[ 'TextInput without slot', {}, '' ]
-	];
-	test.each( cases )( 'Case %# %s => HTML', ( _, props, slot ) => {
-		const options = { props: props, slots: {} };
-		if ( slot.length > 0 ) {
-			options.slots = { default: slot };
-		}
-		const wrapper = mount( CdxDocsConfigurableGeneric, options );
-		expect( wrapper.element ).toMatchSnapshot();
+describe( 'ConfigurableGeneric', () => {
+	describe( 'matches the snapshot', () => {
+		type Case = [
+			msg: string,
+			props: Record<keyof unknown, unknown>,
+			slot: string
+		];
+		const cases: Case[] = [
+			[ 'ToggleButton with slot content', { disabled: true }, 'Button text' ],
+			[ 'TextInput without slot', {}, '' ]
+		];
+		test.each( cases )( 'Case %# %s => HTML', ( _, props, slot ) => {
+			const options = { props: props, slots: {} };
+			if ( slot.length > 0 ) {
+				options.slots = { default: slot };
+			}
+			const wrapper = mount( CdxDocsConfigurableGeneric, options );
+			expect( wrapper.element ).toMatchSnapshot();
+		} );
 	} );
 } );

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
+exports[`IconLookup matches the snapshot icon lookup (no default icon) => HTML 1`] = `
 <div
   class="cdx-lookup cdx-docs-icon-lookup"
 >
@@ -48,7 +48,7 @@ exports[`matches the snapshot icon lookup (no default icon) => HTML 1`] = `
 </div>
 `;
 
-exports[`matches the snapshot icon lookup (with default icon) => HTML 1`] = `
+exports[`IconLookup matches the snapshot icon lookup (with default icon) => HTML 1`] = `
 <div
   class="cdx-lookup cdx-docs-icon-lookup"
 >

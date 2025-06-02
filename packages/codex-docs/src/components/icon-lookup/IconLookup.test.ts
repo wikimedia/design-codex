@@ -11,21 +11,21 @@ import {
 } from '@wikimedia/codex-icons';
 import CdxDocsIconLookup from './IconLookup.vue';
 
-describe( 'matches the snapshot', () => {
-	// No need for fancier logic with cases just yet
-	it( 'icon lookup (no default icon) => HTML', () => {
-		const wrapper = mount( CdxDocsIconLookup, { props: { modelValue: '' } } );
-		expect( wrapper.element ).toMatchSnapshot();
-	} );
-	it( 'icon lookup (with default icon) => HTML', async () => {
-		const wrapper = mount( CdxDocsIconLookup, { props: { modelValue: 'cdxIconTag' } } );
-		// Give time for events
-		await nextTick();
-		expect( wrapper.element ).toMatchSnapshot();
-	} );
-} );
-
 describe( 'IconLookup', () => {
+	describe( 'matches the snapshot', () => {
+		// No need for fancier logic with cases just yet
+		it( 'icon lookup (no default icon) => HTML', () => {
+			const wrapper = mount( CdxDocsIconLookup, { props: { modelValue: '' } } );
+			expect( wrapper.element ).toMatchSnapshot();
+		} );
+		it( 'icon lookup (with default icon) => HTML', async () => {
+			const wrapper = mount( CdxDocsIconLookup, { props: { modelValue: 'cdxIconTag' } } );
+			// Give time for events
+			await nextTick();
+			expect( wrapper.element ).toMatchSnapshot();
+		} );
+	} );
+
 	it( 'starts with no icons by default', () => {
 		const wrapper = mount( CdxDocsIconLookup, { props: { modelValue: '' } } );
 		expect( wrapper.vm.menuItems ).toEqual( [] );
