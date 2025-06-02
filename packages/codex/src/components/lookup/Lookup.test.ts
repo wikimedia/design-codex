@@ -53,34 +53,38 @@ describe( 'Lookup', () => {
 	describe( 'matches the snapshot', () => {
 		type Case = [
 			msg: string,
-			menuItems: MenuItemData[],
-			selected: string | null,
-			inputValue?: string,
-			disabled?: boolean,
-			clearable?: boolean,
+			props: {
+				menuItems: MenuItemData[],
+				selected: string | null,
+				inputValue?: string,
+				disabled?: boolean,
+				clearable?: boolean,
+			},
 			noResults?: string,
 			attributes?: Record<string, string>,
 		]
 
 		const cases: Case[] = [
-			[ 'Default', [], null ],
-			[ 'With initial input', menuItemData, null, 'Opt' ],
-			[ 'With selection', menuItemData, 'a', 'Option A' ],
-			[ 'Disabled', [], null, '', true ],
-			[ 'With no results content', [], null, 'asdf', false, false, 'No results' ],
-			[ 'With class attributes', [], null, '', false, false, undefined, { class: 'class-one class-two' } ],
-			[ 'With type and placeholder attributes', [], null, '', false, false, undefined, {
+			[ 'Default', { menuItems: [], selected: null } ],
+			[ 'With initial input', { menuItems: menuItemData, selected: null, inputValue: 'Opt' } ],
+			[ 'With selection', { menuItems: menuItemData, selected: 'a', inputValue: 'Option A' } ],
+			[ 'Disabled', { menuItems: [], selected: null, disabled: true } ],
+			[ 'With no results content', { menuItems: [], selected: null, inputValue: 'asdf' }, 'No results' ],
+			[ 'With class attributes', { menuItems: [], selected: null }, '', { class: 'class-one class-two' } ],
+			[ 'With type and placeholder attributes', { menuItems: [], selected: null }, '', {
 				inputType: 'search', placeholder: 'Type something... '
 			} ]
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', (
 			_,
-			menuItems,
-			selected,
-			inputValue = '',
-			disabled = false,
-			clearable = false,
+			{
+				menuItems,
+				selected,
+				inputValue = '',
+				disabled = false,
+				clearable = false
+			},
 			noResults = undefined,
 			attributes = undefined
 		) => {

@@ -15,50 +15,50 @@ describe( 'ButtonGroup', () => {
 	describe( 'matches the snapshot', () => {
 		type Case = [
 			msg: string,
-			buttons: ButtonGroupItem[],
-			disabled?: boolean,
+			props: {
+				buttons: ButtonGroupItem[],
+				disabled?: boolean,
+			},
 			slots?: Record<string, string>
 		];
 
 		const cases: Case[] = [
 			[
 				'Simple',
-				simpleButtons
+				{ buttons: simpleButtons }
 			],
 			[
 				'Disabled',
-				simpleButtons,
-				true
+				{ buttons: simpleButtons, disabled: true }
 			],
 			[
 				'With icons',
-				[
+				{ buttons: [
 					{ value: 1, label: 'One', icon: cdxIconEdit },
 					{ value: 2, label: 'Two', icon: cdxIconSpeechBubble },
 					{ value: 3, label: 'Three', disabled: true, icon: cdxIconCheck },
 					{ value: 4, label: 'Four', icon: cdxIconTrash }
-				]
+				] }
 			],
 			[
 				'Icon-only',
-				[
+				{ buttons: [
 					{ value: 1, label: null, icon: cdxIconEdit, ariaLabel: 'One' },
 					{ value: 2, label: null, icon: cdxIconSpeechBubble, ariaLabel: 'Two' },
 					{ value: 3, label: null, disabled: true, icon: cdxIconCheck, ariaLabel: 'Three' },
 					{ value: 4, label: null, icon: cdxIconTrash, ariaLabel: 'Four' }
-				]
+				] }
 			],
 			[
 				'With slot',
-				simpleButtons,
-				false,
+				{ buttons: simpleButtons },
 				{
 					default: '<template #default="{ button }">{{ button.label }} <em>({{ button.value }})</em></template>'
 				}
 			]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, buttons, disabled = false, slots = {} ) => {
+		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, { buttons, disabled = false }, slots = {} ) => {
 			const wrapper = shallowMount( CdxButtonGroup, {
 				props: {
 					buttons,

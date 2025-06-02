@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonGroup matches the snapshot Case 0 Simple: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ButtonGroup matches the snapshot Case 0 Simple: ({"buttons": [Array]}) => HTML 1`] = `
 <div
   class="cdx-button-group"
 >
@@ -70,7 +70,7 @@ exports[`ButtonGroup matches the snapshot Case 0 Simple: ([[Object], [Object], [
 </div>
 `;
 
-exports[`ButtonGroup matches the snapshot Case 1 Disabled: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ButtonGroup matches the snapshot Case 1 Disabled: ({"buttons": [Array], "disabled": true}) => HTML 1`] = `
 <div
   class="cdx-button-group"
 >
@@ -143,7 +143,7 @@ exports[`ButtonGroup matches the snapshot Case 1 Disabled: ([[Object], [Object],
 </div>
 `;
 
-exports[`ButtonGroup matches the snapshot Case 2 With icons: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ButtonGroup matches the snapshot Case 2 With icons: ({"buttons": [Array]}) => HTML 1`] = `
 <div
   class="cdx-button-group"
 >
@@ -229,7 +229,7 @@ exports[`ButtonGroup matches the snapshot Case 2 With icons: ([[Object], [Object
 </div>
 `;
 
-exports[`ButtonGroup matches the snapshot Case 3 Icon-only: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ButtonGroup matches the snapshot Case 3 Icon-only: ({"buttons": [Array]}) => HTML 1`] = `
 <div
   class="cdx-button-group"
 >
@@ -319,7 +319,7 @@ exports[`ButtonGroup matches the snapshot Case 3 Icon-only: ([[Object], [Object]
 </div>
 `;
 
-exports[`ButtonGroup matches the snapshot Case 4 With slot: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ButtonGroup matches the snapshot Case 4 With slot: ({"buttons": [Array]}) => HTML 1`] = `
 <div
   class="cdx-button-group"
 >

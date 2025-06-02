@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 0 Default: ({"menuItems": [Array], "selected": null}) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -49,7 +49,7 @@ exports[`Lookup matches the snapshot Case 0 Default: ([]) => HTML 1`] = `
 </div>
 `;
 
-exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 1 With initial input: ({"inputValue": "Opt", "menuItems": [Array], "selected": null}) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -243,7 +243,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ([[Object], [Obj
 </div>
 `;
 
-exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 2 With selection: ({"inputValue": "Option A", "menuItems": [Array], "selected": "a"}) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -438,7 +438,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ([[Object], [Object]
 </div>
 `;
 
-exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 3 Disabled: ({"disabled": true, "menuItems": [Array], "selected": null}) => HTML 1`] = `
 <div
   class="cdx-lookup cdx-lookup--disabled"
 >
@@ -488,7 +488,7 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ([]) => HTML 1`] = `
 </div>
 `;
 
-exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 4 With no results content: ({"inputValue": "asdf", "menuItems": [Array], "selected": null}) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -543,7 +543,7 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ([]) => HTM
 </div>
 `;
 
-exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 5 With class attributes: ({"menuItems": [Array], "selected": null}) => HTML 1`] = `
 <div
   class="cdx-lookup class-one class-two"
 >
@@ -592,7 +592,7 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ([]) => HTML 
 </div>
 `;
 
-exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes: ([]) => HTML 1`] = `
+exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes: ({"menuItems": [Array], "selected": null}) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >

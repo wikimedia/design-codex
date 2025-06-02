@@ -108,13 +108,15 @@ describe( 'Table', () => {
 	describe( 'matches the snapshot', () => {
 		type Case = [
 			msg: string,
-			columns?: TableColumn[],
-			data?: Record<string, string|number|object>[],
-			hideCaption?: boolean,
-			useRowHeaders?: boolean,
-			useRowSelection?: boolean,
-			paginate?: boolean,
-			paginationPosition?: TablePaginationPosition,
+			props: {
+				columns?: TableColumn[],
+				data?: Record<string, string|number|object>[],
+				hideCaption?: boolean,
+				useRowHeaders?: boolean,
+				useRowSelection?: boolean,
+				paginate?: boolean,
+				paginationPosition?: TablePaginationPosition,
+			},
 			slots?: {
 				header?: string,
 				footer?: string,
@@ -124,67 +126,37 @@ describe( 'Table', () => {
 		];
 
 		const cases: Case[] = [
-			[ 'Basic table', columnsBasic, dataBasic ],
-			[ 'With out-of-order data', columnsBasic, dataOutOfOrder ],
-			[ 'With text alignment', columnsTextAlign, dataBasic ],
-			[ 'With hidden caption', columnsBasic, dataBasic, true ],
-			[ 'With row headers', columnsBasic, dataBasic, false, true ],
-			[ 'With column width settings', columnsWithWidths, dataBasic, false, true ],
-			[ 'With row selection', columnsBasic, dataBasic, false, false, true ],
+			[ 'Basic table', { columns: columnsBasic, data: dataBasic } ],
+			[ 'With out-of-order data', { columns: columnsBasic, data: dataOutOfOrder } ],
+			[ 'With text alignment', { columns: columnsTextAlign, data: dataBasic } ],
+			[ 'With hidden caption', { columns: columnsBasic, data: dataBasic, hideCaption: true } ],
+			[ 'With row headers', { columns: columnsBasic, data: dataBasic, useRowHeaders: true } ],
+			[ 'With column width settings', { columns: columnsWithWidths, data: dataBasic, useRowHeaders: true } ],
+			[ 'With row selection', { columns: columnsBasic, data: dataBasic, useRowSelection: true } ],
 			[
 				'With header and footer slots',
-				columnsBasic,
-				dataBasic,
-				false,
-				false,
-				false,
-				false,
-				undefined,
+				{ columns: columnsBasic, data: dataBasic },
 				{ header: 'Header slot content', footer: 'Footer slot content' }
 			],
 			[
 				'With tfoot',
-				columnsBasic,
-				dataBasic,
-				false,
-				false,
-				false,
-				false,
-				undefined,
+				{ columns: columnsBasic, data: dataBasic },
 				{ default: tfoot }
 			],
 			[
 				'With item slot',
-				columnsBasic,
-				dataBasic,
-				false,
-				false,
-				false,
-				false,
-				undefined,
+				{ columns: columnsBasic, data: dataBasic },
 				{ 'item-col1': itemSlot }
 			],
 			[
 				'With sort icon',
-				columnsSingleSort,
-				dataSingleSort,
-				false,
-				false,
-				false,
-				false,
-				undefined,
+				{ columns: columnsSingleSort, data: dataSingleSort },
 				{ header: 'Header slot content', footer: 'Footer slot content' }
 			],
-			[ 'With empty state', [], [], false, false, false ],
+			[ 'With empty state', { columns: [], data: [] } ],
 			[
 				'With basic pagination',
-				columnsPagination,
-				dataPagination,
-				false,
-				false,
-				false,
-				true,
-				'both'
+				{ columns: columnsPagination, data: dataPagination, paginate: true, paginationPosition: 'both' }
 			]
 		];
 
@@ -192,13 +164,15 @@ describe( 'Table', () => {
 			'Case %# %s: (%p) => HTML',
 			async (
 				_,
-				columns = [],
-				data = [],
-				hideCaption = false,
-				useRowHeaders = false,
-				useRowSelection = false,
-				paginate = false,
-				paginationPosition = 'bottom',
+				{
+					columns = [],
+					data = [],
+					hideCaption = false,
+					useRowHeaders = false,
+					useRowSelection = false,
+					paginate = false,
+					paginationPosition = 'bottom'
+				},
 				slots = {}
 			) => {
 				const wrapper = mount( CdxTable, {

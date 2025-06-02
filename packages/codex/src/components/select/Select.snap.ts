@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Select matches the snapshot Case 0 No selection: ({"menuItems": [Array], "selected": null}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
@@ -271,7 +271,7 @@ exports[`Basic usage Case 0 No selection: ([[Object], [Object], [Object], [Objec
 </div>
 `;
 
-exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Select matches the snapshot Case 1 No selection with empty string: ({"menuItems": [Array], "selected": null}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
@@ -542,7 +542,7 @@ exports[`Basic usage Case 1 No selection with empty string: ([[Object], [Object]
 </div>
 `;
 
-exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Select matches the snapshot Case 2 Menu item with label selected: ({"menuItems": [Array], "selected": "a"}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
@@ -814,7 +814,7 @@ exports[`Basic usage Case 2 Menu item with label selected: ([[Object], [Object],
 </div>
 `;
 
-exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Select matches the snapshot Case 3 Menu item with no label selected: ({"menuItems": [Array], "selected": "c"}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
@@ -1086,7 +1086,7 @@ exports[`Basic usage Case 3 Menu item with no label selected: ([[Object], [Objec
 </div>
 `;
 
-exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Select matches the snapshot Case 4 Menu item with icon selected: ({"menuItems": [Array], "selected": "e"}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--has-start-icon cdx-select-vue--status-default"
@@ -1376,7 +1376,7 @@ exports[`Basic usage Case 4 Menu item with icon selected: ([[Object], [Object], 
 </div>
 `;
 
-exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Select matches the snapshot Case 5 With Start icon: ({"defaultIcon": "<path d=\\"M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8\\"/>", "menuItems": [Array], "selected": null}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--has-start-icon cdx-select-vue--status-default"
@@ -1665,7 +1665,7 @@ exports[`Basic usage Case 5 With Start icon: ([[Object], [Object], [Object], [Ob
 </div>
 `;
 
-exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Select matches the snapshot Case 6 With Start icon and selection: ({"defaultIcon": "<path d=\\"M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8\\"/>", "menuItems": [Array], "selected": "c"}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
@@ -1937,7 +1937,7 @@ exports[`Basic usage Case 6 With Start icon and selection: ([[Object], [Object],
 </div>
 `;
 
-exports[`Basic usage Case 7 With error status: ([[Object], [Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`Select matches the snapshot Case 7 With error status: ({"menuItems": [Array], "selected": null, "status": "error"}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-error"

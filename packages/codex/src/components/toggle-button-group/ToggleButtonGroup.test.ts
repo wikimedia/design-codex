@@ -15,64 +15,63 @@ describe( 'ToggleButtonGroup', () => {
 	describe( 'matches the snapshot', () => {
 		type Case = [
 			msg: string,
-			buttons: ButtonGroupItem[],
-			modelValue: string|number|null|( string|number )[],
-			disabled?: boolean,
+			props: {
+				buttons: ButtonGroupItem[],
+				modelValue: string|number|null|( string|number )[],
+				disabled?: boolean
+			},
 			slots?: Record<string, string>
 		];
 
 		const cases: Case[] = [
 			[
 				'Simple, single-select, nothing selected',
-				simpleButtons,
-				null
+				{ buttons: simpleButtons, modelValue: null }
 			],
 			[
 				'Simple, multi-select, nothing selected',
-				simpleButtons,
-				[]
+				{ buttons: simpleButtons, modelValue: [] }
 			],
 			[
 				'Simple, #2 selected',
-				simpleButtons,
-				2
+				{ buttons: simpleButtons, modelValue: 2 }
+
 			],
 			[
 				'Simple, #1 and #2 selected',
-				simpleButtons,
-				[ 1, 2 ]
+				{ buttons: simpleButtons, modelValue: [ 1, 2 ] }
 			],
 			[
 				'Simple, #2 and #4 selected, entire group disabled',
-				simpleButtons,
-				[ 2, 4 ],
-				true
+				{ buttons: simpleButtons, modelValue: [ 2, 4 ], disabled: true }
 			],
 			[
 				'With icons, multi-select, #2 selected',
-				[
-					{ value: 1, label: 'One', icon: cdxIconEdit },
-					{ value: 2, label: 'Two', icon: cdxIconSpeechBubble },
-					{ value: 3, label: 'Three', disabled: true, icon: cdxIconCheck },
-					{ value: 4, label: 'Four', icon: cdxIconTrash }
-				],
-				[ 2 ]
+				{
+					buttons: [
+						{ value: 1, label: 'One', icon: cdxIconEdit },
+						{ value: 2, label: 'Two', icon: cdxIconSpeechBubble },
+						{ value: 3, label: 'Three', disabled: true, icon: cdxIconCheck },
+						{ value: 4, label: 'Four', icon: cdxIconTrash }
+					],
+					modelValue: [ 2 ]
+				}
 			],
 			[
 				'Icon-only, single-select, #2 selected',
-				[
-					{ value: 1, label: null, icon: cdxIconEdit, ariaLabel: 'One' },
-					{ value: 2, label: null, icon: cdxIconSpeechBubble, ariaLabel: 'Two' },
-					{ value: 3, label: null, disabled: true, icon: cdxIconCheck, ariaLabel: 'Three' },
-					{ value: 4, label: null, icon: cdxIconTrash, ariaLabel: 'Four' }
-				],
-				2
+				{
+					buttons: [
+						{ value: 1, label: null, icon: cdxIconEdit, ariaLabel: 'One' },
+						{ value: 2, label: null, icon: cdxIconSpeechBubble, ariaLabel: 'Two' },
+						{ value: 3, label: null, disabled: true, icon: cdxIconCheck, ariaLabel: 'Three' },
+						{ value: 4, label: null, icon: cdxIconTrash, ariaLabel: 'Four' }
+					],
+					modelValue: 2
+				}
 			],
 			[
 				'With slot',
-				simpleButtons,
-				2,
-				false,
+				{ buttons: simpleButtons, modelValue: 2 },
 				{
 					default: `
 					<template #default="{ button, selected }">
@@ -84,7 +83,7 @@ describe( 'ToggleButtonGroup', () => {
 			]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, buttons, modelValue, disabled = false, slots = {} ) => {
+		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, { buttons, modelValue, disabled = false }, slots = {} ) => {
 			const wrapper = shallowMount( CdxToggleButtonGroup, {
 				props: {
 					buttons,

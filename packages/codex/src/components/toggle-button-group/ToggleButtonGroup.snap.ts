@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ToggleButtonGroup matches the snapshot Case 0 Simple, single-select, nothing selected: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ToggleButtonGroup matches the snapshot Case 0 Simple, single-select, nothing selected: ({"buttons": [Array], "modelValue": null}) => HTML 1`] = `
 <div
   class="cdx-toggle-button-group"
 >
@@ -82,7 +82,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 0 Simple, single-select, no
 </div>
 `;
 
-exports[`ToggleButtonGroup matches the snapshot Case 1 Simple, multi-select, nothing selected: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ToggleButtonGroup matches the snapshot Case 1 Simple, multi-select, nothing selected: ({"buttons": [Array], "modelValue": [Array]}) => HTML 1`] = `
 <div
   class="cdx-toggle-button-group"
 >
@@ -164,7 +164,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 1 Simple, multi-select, not
 </div>
 `;
 
-exports[`ToggleButtonGroup matches the snapshot Case 2 Simple, #2 selected: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ToggleButtonGroup matches the snapshot Case 2 Simple, #2 selected: ({"buttons": [Array], "modelValue": 2}) => HTML 1`] = `
 <div
   class="cdx-toggle-button-group"
 >
@@ -246,7 +246,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 2 Simple, #2 selected: ([[O
 </div>
 `;
 
-exports[`ToggleButtonGroup matches the snapshot Case 3 Simple, #1 and #2 selected: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ToggleButtonGroup matches the snapshot Case 3 Simple, #1 and #2 selected: ({"buttons": [Array], "modelValue": [Array]}) => HTML 1`] = `
 <div
   class="cdx-toggle-button-group"
 >
@@ -328,7 +328,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 3 Simple, #1 and #2 selecte
 </div>
 `;
 
-exports[`ToggleButtonGroup matches the snapshot Case 4 Simple, #2 and #4 selected, entire group disabled: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ToggleButtonGroup matches the snapshot Case 4 Simple, #2 and #4 selected, entire group disabled: ({"buttons": [Array], "disabled": true, "modelValue": [Array]}) => HTML 1`] = `
 <div
   class="cdx-toggle-button-group"
 >
@@ -413,7 +413,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 4 Simple, #2 and #4 selecte
 </div>
 `;
 
-exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select, #2 selected: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select, #2 selected: ({"buttons": [Array], "modelValue": [Array]}) => HTML 1`] = `
 <div
   class="cdx-toggle-button-group"
 >
@@ -511,7 +511,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
 </div>
 `;
 
-exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select, #2 selected: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select, #2 selected: ({"buttons": [Array], "modelValue": 2}) => HTML 1`] = `
 <div
   class="cdx-toggle-button-group"
 >
@@ -613,7 +613,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
 </div>
 `;
 
-exports[`ToggleButtonGroup matches the snapshot Case 7 With slot: ([[Object], [Object], [Object], [Object]]) => HTML 1`] = `
+exports[`ToggleButtonGroup matches the snapshot Case 7 With slot: ({"buttons": [Array], "modelValue": 2}) => HTML 1`] = `
 <div
   class="cdx-toggle-button-group"
 >

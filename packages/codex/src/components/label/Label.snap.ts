@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 Default: ("Label text") => HTML 1`] = `
+exports[`Label matches the snapshot Case 0 Default: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -30,7 +30,7 @@ exports[`matches the snapshot Case 0 Default: ("Label text") => HTML 1`] = `
 </div>
 `;
 
-exports[`matches the snapshot Case 1 With icon: ("Label text") => HTML 1`] = `
+exports[`Label matches the snapshot Case 1 With icon: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -65,7 +65,7 @@ exports[`matches the snapshot Case 1 With icon: ("Label text") => HTML 1`] = `
 </div>
 `;
 
-exports[`matches the snapshot Case 2 With optional flag using deprecated API: ("Label text") => HTML 1`] = `
+exports[`Label matches the snapshot Case 2 With optional flag using deprecated API: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -103,7 +103,7 @@ exports[`matches the snapshot Case 2 With optional flag using deprecated API: ("
 </div>
 `;
 
-exports[`matches the snapshot Case 3 With optional flag: ("Label text ") => HTML 1`] = `
+exports[`Label matches the snapshot Case 3 With optional flag: ("Label text ") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -141,7 +141,7 @@ exports[`matches the snapshot Case 3 With optional flag: ("Label text ") => HTML
 </div>
 `;
 
-exports[`matches the snapshot Case 4 With visually hidden label: ("Label text") => HTML 1`] = `
+exports[`Label matches the snapshot Case 4 With visually hidden label: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -171,7 +171,7 @@ exports[`matches the snapshot Case 4 With visually hidden label: ("Label text") 
 </div>
 `;
 
-exports[`matches the snapshot Case 5 As legend: ("Label text") => HTML 1`] = `
+exports[`Label matches the snapshot Case 5 As legend: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -206,7 +206,7 @@ exports[`matches the snapshot Case 5 As legend: ("Label text") => HTML 1`] = `
 </div>
 `;
 
-exports[`matches the snapshot Case 6 With input ID: ("Label text") => HTML 1`] = `
+exports[`Label matches the snapshot Case 6 With input ID: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -237,7 +237,7 @@ exports[`matches the snapshot Case 6 With input ID: ("Label text") => HTML 1`] =
 </div>
 `;
 
-exports[`matches the snapshot Case 7 Disabled: ("Label text") => HTML 1`] = `
+exports[`Label matches the snapshot Case 7 Disabled: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -267,7 +267,7 @@ exports[`matches the snapshot Case 7 Disabled: ("Label text") => HTML 1`] = `
 </div>
 `;
 
-exports[`matches the snapshot Case 8 With description and description ID: ("Label text") => HTML 1`] = `
+exports[`Label matches the snapshot Case 8 With description and description ID: ("Label text") => HTML 1`] = `
 <div
   data-v-app=""
 >
