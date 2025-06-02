@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 String value: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
+exports[`Radio matches the snapshot Case 0 String value: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-default"
 >
@@ -52,7 +52,7 @@ exports[`matches the snapshot Case 0 String value: ({"inputValue": "radio-1", "m
 </div>
 `;
 
-exports[`matches the snapshot Case 1 Number value: ({"inputValue": 2, "modelValue": 2, "name": "radios-number"}) => HTML 1`] = `
+exports[`Radio matches the snapshot Case 1 Number value: ({"inputValue": 2, "modelValue": 2, "name": "radios-number"}) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-default"
 >
@@ -104,7 +104,7 @@ exports[`matches the snapshot Case 1 Number value: ({"inputValue": 2, "modelValu
 </div>
 `;
 
-exports[`matches the snapshot Case 2 Boolean value: ({"inputValue": true, "modelValue": true, "name": "radios-boolean"}) => HTML 1`] = `
+exports[`Radio matches the snapshot Case 2 Boolean value: ({"inputValue": true, "modelValue": true, "name": "radios-boolean"}) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-default"
 >
@@ -156,7 +156,7 @@ exports[`matches the snapshot Case 2 Boolean value: ({"inputValue": true, "model
 </div>
 `;
 
-exports[`matches the snapshot Case 3 Disabled: ({"disabled": true, "inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
+exports[`Radio matches the snapshot Case 3 Disabled: ({"disabled": true, "inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-default"
 >
@@ -209,7 +209,7 @@ exports[`matches the snapshot Case 3 Disabled: ({"disabled": true, "inputValue":
 </div>
 `;
 
-exports[`matches the snapshot Case 4 Inline: ({"inline": true, "inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
+exports[`Radio matches the snapshot Case 4 Inline: ({"inline": true, "inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--inline cdx-radio--status-default"
 >
@@ -261,7 +261,7 @@ exports[`matches the snapshot Case 4 Inline: ({"inline": true, "inputValue": "ra
 </div>
 `;
 
-exports[`matches the snapshot Case 5 With description: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
+exports[`Radio matches the snapshot Case 5 With description: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-default"
 >
@@ -325,7 +325,7 @@ exports[`matches the snapshot Case 5 With description: ({"inputValue": "radio-1"
 </div>
 `;
 
-exports[`matches the snapshot Case 6 With custom input: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-custom-input"}) => HTML 1`] = `
+exports[`Radio matches the snapshot Case 6 With custom input: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-custom-input"}) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-default"
 >
@@ -404,7 +404,7 @@ exports[`matches the snapshot Case 6 With custom input: ({"inputValue": "radio-1
 </div>
 `;
 
-exports[`matches the snapshot Case 7 With error: ({"inputValue": "", "modelValue": "", "name": "radios-string", "status": "error"}) => HTML 1`] = `
+exports[`Radio matches the snapshot Case 7 With error: ({"inputValue": "", "modelValue": "", "name": "radios-string", "status": "error"}) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-error"
 >
