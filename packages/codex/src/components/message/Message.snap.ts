@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -46,7 +46,7 @@ exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 </transition-stub>
 `;
 
-exports[`matches the snapshot Case 1 notice message: ({"type": "notice"}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 1 notice message: ({"type": "notice"}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -92,7 +92,7 @@ exports[`matches the snapshot Case 1 notice message: ({"type": "notice"}) => HTM
 </transition-stub>
 `;
 
-exports[`matches the snapshot Case 2 warning message: ({"type": "warning"}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 2 warning message: ({"type": "warning"}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -138,7 +138,7 @@ exports[`matches the snapshot Case 2 warning message: ({"type": "warning"}) => H
 </transition-stub>
 `;
 
-exports[`matches the snapshot Case 3 error message: ({"type": "error"}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 3 error message: ({"type": "error"}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -184,7 +184,7 @@ exports[`matches the snapshot Case 3 error message: ({"type": "error"}) => HTML 
 </transition-stub>
 `;
 
-exports[`matches the snapshot Case 4 success message: ({"type": "success"}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 4 success message: ({"type": "success"}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -230,7 +230,7 @@ exports[`matches the snapshot Case 4 success message: ({"type": "success"}) => H
 </transition-stub>
 `;
 
-exports[`matches the snapshot Case 5 Inline: ({"inline": true}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 5 Inline: ({"inline": true}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -276,7 +276,7 @@ exports[`matches the snapshot Case 5 Inline: ({"inline": true}) => HTML 1`] = `
 </transition-stub>
 `;
 
-exports[`matches the snapshot Case 6 Dismissable: ({"allowUserDismiss": true}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 6 Dismissable: ({"allowUserDismiss": true}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -352,7 +352,7 @@ exports[`matches the snapshot Case 6 Dismissable: ({"allowUserDismiss": true}) =
 </transition-stub>
 `;
 
-exports[`matches the snapshot Case 7 Dismissable, custom label: ({"allowUserDismiss": true, "dismissButtonLabel": "Dismiss"}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 7 Dismissable, custom label: ({"allowUserDismiss": true, "dismissButtonLabel": "Dismiss"}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -428,7 +428,7 @@ exports[`matches the snapshot Case 7 Dismissable, custom label: ({"allowUserDism
 </transition-stub>
 `;
 
-exports[`matches the snapshot Case 8 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 8 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"

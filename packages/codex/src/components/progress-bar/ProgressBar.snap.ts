@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 Indeterminate: ({}) => HTML 1`] = `
+exports[`ProgressBar matches the snapshot Case 0 Indeterminate: ({}) => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -21,7 +21,7 @@ exports[`matches the snapshot Case 0 Indeterminate: ({}) => HTML 1`] = `
 </div>
 `;
 
-exports[`matches the snapshot Case 1 Indeterminate, inline: ({"inline": true}) => HTML 1`] = `
+exports[`ProgressBar matches the snapshot Case 1 Indeterminate, inline: ({"inline": true}) => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -42,7 +42,7 @@ exports[`matches the snapshot Case 1 Indeterminate, inline: ({"inline": true}) =
 </div>
 `;
 
-exports[`matches the snapshot Case 2 Indeterminate, with aria-hidden: ({"inline": true}) => HTML 1`] = `
+exports[`ProgressBar matches the snapshot Case 2 Indeterminate, with aria-hidden: ({"inline": true}) => HTML 1`] = `
 <div
   data-v-app=""
 >

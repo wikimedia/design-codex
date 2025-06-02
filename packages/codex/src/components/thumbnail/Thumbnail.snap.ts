@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 With default placeholder icon: (%p) => HTML 1`] = `
+exports[`Thumbnail matches the snapshot Case 0 With default placeholder icon: (%p) => HTML 1`] = `
 <span
   class="cdx-thumbnail"
 >
@@ -41,7 +41,7 @@ exports[`matches the snapshot Case 0 With default placeholder icon: (%p) => HTML
 </span>
 `;
 
-exports[`matches the snapshot Case 1 With custom placeholder icon: ({"ltr": "<path d=\\"M5 1a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V3a2 2 0 00-2-2zm0 3h5v1H5zm0 2h5v1H5zm0 2h5v1H5zm10 7H5v-1h10zm0-2H5v-1h10zm0-2H5v-1h10zm0-2h-4V4h4z\\"/>", "shouldFlip": true}) => HTML 1`] = `
+exports[`Thumbnail matches the snapshot Case 1 With custom placeholder icon: ({"ltr": "<path d=\\"M5 1a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V3a2 2 0 00-2-2zm0 3h5v1H5zm0 2h5v1H5zm0 2h5v1H5zm10 7H5v-1h10zm0-2H5v-1h10zm0-2H5v-1h10zm0-2h-4V4h4z\\"/>", "shouldFlip": true}) => HTML 1`] = `
 <span
   class="cdx-thumbnail"
 >

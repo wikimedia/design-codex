@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
+exports[`Tabs When Tab children are provided using v-for matches the snapshot 1`] = `
 <div
   class="cdx-tabs cdx-tabs--quiet"
 >
@@ -194,7 +194,7 @@ exports[`When Tab children are provided using v-for matches the snapshot 1`] = `
 </div>
 `;
 
-exports[`When Tab children have comments in between matches the snapshot 1`] = `
+exports[`Tabs When Tab children have comments in between matches the snapshot 1`] = `
 <div
   class="cdx-tabs cdx-tabs--quiet"
 >
@@ -391,7 +391,7 @@ exports[`When Tab children have comments in between matches the snapshot 1`] = `
 </div>
 `;
 
-exports[`When used along with child Tab components matches the snapshot 1`] = `
+exports[`Tabs When used along with child Tab components matches the snapshot 1`] = `
 <div
   class="cdx-tabs cdx-tabs--quiet"
 >

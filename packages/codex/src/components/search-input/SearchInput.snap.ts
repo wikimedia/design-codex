@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 Default: ({"modelValue": ""}) => HTML 1`] = `
+exports[`SearchInput matches the snapshot Case 0 Default: ({"modelValue": ""}) => HTML 1`] = `
 <div
   class="cdx-search-input"
 >
@@ -49,7 +49,7 @@ exports[`matches the snapshot Case 0 Default: ({"modelValue": ""}) => HTML 1`] =
 </div>
 `;
 
-exports[`matches the snapshot Case 1 With submit button: ({"modelValue": "", "useButton": true}) => HTML 1`] = `
+exports[`SearchInput matches the snapshot Case 1 With submit button: ({"modelValue": "", "useButton": true}) => HTML 1`] = `
 <div
   class="cdx-search-input cdx-search-input--has-end-button"
 >
@@ -105,7 +105,7 @@ exports[`matches the snapshot Case 1 With submit button: ({"modelValue": "", "us
 </div>
 `;
 
-exports[`matches the snapshot Case 2 With custom visible button label: ({"buttonLabel": "Search results", "modelValue": "", "useButton": true}) => HTML 1`] = `
+exports[`SearchInput matches the snapshot Case 2 With custom visible button label: ({"buttonLabel": "Search results", "modelValue": "", "useButton": true}) => HTML 1`] = `
 <div
   class="cdx-search-input cdx-search-input--has-end-button"
 >
@@ -161,7 +161,7 @@ exports[`matches the snapshot Case 2 With custom visible button label: ({"button
 </div>
 `;
 
-exports[`matches the snapshot Case 3 With attributes: ({"modelValue": ""}) => HTML 1`] = `
+exports[`SearchInput matches the snapshot Case 3 With attributes: ({"modelValue": ""}) => HTML 1`] = `
 <div
   class="cdx-search-input"
 >

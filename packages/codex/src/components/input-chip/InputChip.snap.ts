@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
+exports[`InputChip matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 <div
   aria-description="Press Enter to edit or Delete to remove"
   class="cdx-input-chip"
@@ -30,7 +30,7 @@ exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 </div>
 `;
 
-exports[`matches the snapshot Case 1 Disabled: ({"disabled": true}) => HTML 1`] = `
+exports[`InputChip matches the snapshot Case 1 Disabled: ({"disabled": true}) => HTML 1`] = `
 <div
   aria-description="Press Enter to edit or Delete to remove"
   class="cdx-input-chip cdx-input-chip--disabled"
@@ -60,7 +60,7 @@ exports[`matches the snapshot Case 1 Disabled: ({"disabled": true}) => HTML 1`] 
 </div>
 `;
 
-exports[`matches the snapshot Case 2 Icon: ({"icon": [Object]}) => HTML 1`] = `
+exports[`InputChip matches the snapshot Case 2 Icon: ({"icon": [Object]}) => HTML 1`] = `
 <div
   aria-description="Press Enter to edit or Delete to remove"
   class="cdx-input-chip"
@@ -94,7 +94,7 @@ exports[`matches the snapshot Case 2 Icon: ({"icon": [Object]}) => HTML 1`] = `
 </div>
 `;
 
-exports[`matches the snapshot Case 3 CSS class: ({"className": "my-css-class"}) => HTML 1`] = `
+exports[`InputChip matches the snapshot Case 3 CSS class: ({"className": "my-css-class"}) => HTML 1`] = `
 <div
   aria-description="Press Enter to edit or Delete to remove"
   class="cdx-input-chip my-css-class"

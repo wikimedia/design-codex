@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
+exports[`InfoChip matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--notice"
 >
@@ -18,7 +18,7 @@ exports[`matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 </div>
 `;
 
-exports[`matches the snapshot Case 1 notice status: ({"status": "notice"}) => HTML 1`] = `
+exports[`InfoChip matches the snapshot Case 1 notice status: ({"status": "notice"}) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--notice"
 >
@@ -36,7 +36,7 @@ exports[`matches the snapshot Case 1 notice status: ({"status": "notice"}) => HT
 </div>
 `;
 
-exports[`matches the snapshot Case 2 warning status: ({"status": "warning"}) => HTML 1`] = `
+exports[`InfoChip matches the snapshot Case 2 warning status: ({"status": "warning"}) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--warning"
 >
@@ -59,7 +59,7 @@ exports[`matches the snapshot Case 2 warning status: ({"status": "warning"}) => 
 </div>
 `;
 
-exports[`matches the snapshot Case 3 error status: ({"status": "error"}) => HTML 1`] = `
+exports[`InfoChip matches the snapshot Case 3 error status: ({"status": "error"}) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--error"
 >
@@ -82,7 +82,7 @@ exports[`matches the snapshot Case 3 error status: ({"status": "error"}) => HTML
 </div>
 `;
 
-exports[`matches the snapshot Case 4 success status: ({"status": "success"}) => HTML 1`] = `
+exports[`InfoChip matches the snapshot Case 4 success status: ({"status": "success"}) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--success"
 >
@@ -105,7 +105,7 @@ exports[`matches the snapshot Case 4 success status: ({"status": "success"}) => 
 </div>
 `;
 
-exports[`matches the snapshot Case 5 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
+exports[`InfoChip matches the snapshot Case 5 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--notice"
 >

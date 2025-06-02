@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 Default: ({"modelValue": false}) => HTML 1`] = `
+exports[`ToggleSwitch matches the snapshot Case 0 Default: ({"modelValue": false}) => HTML 1`] = `
 <span
   class="cdx-toggle-switch"
 >
@@ -49,7 +49,7 @@ exports[`matches the snapshot Case 0 Default: ({"modelValue": false}) => HTML 1`
 </span>
 `;
 
-exports[`matches the snapshot Case 1 Disabled: ({"disabled": true, "modelValue": false}) => HTML 1`] = `
+exports[`ToggleSwitch matches the snapshot Case 1 Disabled: ({"disabled": true, "modelValue": false}) => HTML 1`] = `
 <span
   class="cdx-toggle-switch"
 >
@@ -99,7 +99,7 @@ exports[`matches the snapshot Case 1 Disabled: ({"disabled": true, "modelValue":
 </span>
 `;
 
-exports[`matches the snapshot Case 2 With description: ({"modelValue": false}) => HTML 1`] = `
+exports[`ToggleSwitch matches the snapshot Case 2 With description: ({"modelValue": false}) => HTML 1`] = `
 <span
   class="cdx-toggle-switch"
 >

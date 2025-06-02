@@ -520,7 +520,7 @@ exports[`TypeaheadSearch initial state Case 4 With custom visible button label u
 </div>
 `;
 
-exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
+exports[`TypeaheadSearch with no results matches the snapshot 1`] = `
 <div
   class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail"
 >
@@ -705,7 +705,7 @@ exports[`TypeaheadSearch, with no results matches the snapshot 1`] = `
 </div>
 `;
 
-exports[`TypeaheadSearch, with search results matches the snapshot 1`] = `
+exports[`TypeaheadSearch with search results matches the snapshot 1`] = `
 <div
   class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail"
 >

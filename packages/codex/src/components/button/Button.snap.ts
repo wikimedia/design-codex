@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the snapshot Case 0 No props and no slot: ({}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 0 No props and no slot: ({}) => HTML 1`] = `
 <button
   class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed"
 >
@@ -10,7 +10,7 @@ exports[`matches the snapshot Case 0 No props and no slot: ({}) => HTML 1`] = `
 </button>
 `;
 
-exports[`matches the snapshot Case 1 default action: ({"action": "default"}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 1 default action: ({"action": "default"}) => HTML 1`] = `
 <button
   class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed"
 >
@@ -20,7 +20,7 @@ exports[`matches the snapshot Case 1 default action: ({"action": "default"}) => 
 </button>
 `;
 
-exports[`matches the snapshot Case 2 progressive action: ({"action": "progressive"}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 2 progressive action: ({"action": "progressive"}) => HTML 1`] = `
 <button
   class="cdx-button cdx-button--action-progressive cdx-button--weight-normal cdx-button--size-medium cdx-button--framed"
 >
@@ -30,7 +30,7 @@ exports[`matches the snapshot Case 2 progressive action: ({"action": "progressiv
 </button>
 `;
 
-exports[`matches the snapshot Case 3 destructive action: ({"action": "destructive"}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 3 destructive action: ({"action": "destructive"}) => HTML 1`] = `
 <button
   class="cdx-button cdx-button--action-destructive cdx-button--weight-normal cdx-button--size-medium cdx-button--framed"
 >
@@ -40,7 +40,7 @@ exports[`matches the snapshot Case 3 destructive action: ({"action": "destructiv
 </button>
 `;
 
-exports[`matches the snapshot Case 4 normal weight: ({"weight": "normal"}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 4 normal weight: ({"weight": "normal"}) => HTML 1`] = `
 <button
   class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed"
 >
@@ -50,7 +50,7 @@ exports[`matches the snapshot Case 4 normal weight: ({"weight": "normal"}) => HT
 </button>
 `;
 
-exports[`matches the snapshot Case 5 primary weight: ({"weight": "primary"}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 5 primary weight: ({"weight": "primary"}) => HTML 1`] = `
 <button
   class="cdx-button cdx-button--action-default cdx-button--weight-primary cdx-button--size-medium cdx-button--framed"
 >
@@ -60,7 +60,7 @@ exports[`matches the snapshot Case 5 primary weight: ({"weight": "primary"}) => 
 </button>
 `;
 
-exports[`matches the snapshot Case 6 quiet weight: ({"weight": "quiet"}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 6 quiet weight: ({"weight": "quiet"}) => HTML 1`] = `
 <button
   class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium"
 >
@@ -70,7 +70,7 @@ exports[`matches the snapshot Case 6 quiet weight: ({"weight": "quiet"}) => HTML
 </button>
 `;
 
-exports[`matches the snapshot Case 7 button type: ({"type": "button"}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 7 button type: ({"type": "button"}) => HTML 1`] = `
 <button
   class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed"
   type="button"
@@ -81,7 +81,7 @@ exports[`matches the snapshot Case 7 button type: ({"type": "button"}) => HTML 1
 </button>
 `;
 
-exports[`matches the snapshot Case 8 submit type: ({"type": "submit"}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 8 submit type: ({"type": "submit"}) => HTML 1`] = `
 <button
   class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed"
   type="submit"
@@ -92,7 +92,7 @@ exports[`matches the snapshot Case 8 submit type: ({"type": "submit"}) => HTML 1
 </button>
 `;
 
-exports[`matches the snapshot Case 9 reset type: ({"type": "reset"}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 9 reset type: ({"type": "reset"}) => HTML 1`] = `
 <button
   class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed"
   type="reset"
@@ -103,7 +103,7 @@ exports[`matches the snapshot Case 9 reset type: ({"type": "reset"}) => HTML 1`]
 </button>
 `;
 
-exports[`matches the snapshot Case 10 Slotted: ({}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 10 Slotted: ({}) => HTML 1`] = `
 <button
   class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed"
 >
@@ -116,7 +116,7 @@ exports[`matches the snapshot Case 10 Slotted: ({}) => HTML 1`] = `
 </button>
 `;
 
-exports[`matches the snapshot Case 11 Icon-only (SVG): ({}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 11 Icon-only (SVG): ({}) => HTML 1`] = `
 <button
   aria-label="Icon-only example"
   class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-button--icon-only"
@@ -128,7 +128,7 @@ exports[`matches the snapshot Case 11 Icon-only (SVG): ({}) => HTML 1`] = `
 </button>
 `;
 
-exports[`matches the snapshot Case 12 Icon-only (CdxIcon): ({}) => HTML 1`] = `
+exports[`Button matches the snapshot Case 12 Icon-only (CdxIcon): ({}) => HTML 1`] = `
 <button
   aria-hidden="true"
   class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-medium cdx-button--framed cdx-button--icon-only"
