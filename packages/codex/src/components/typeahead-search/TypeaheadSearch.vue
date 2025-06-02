@@ -476,7 +476,12 @@ export default defineComponent( {
 		function onFocus() {
 			isActive.value = true;
 
-			if ( searchQuery.value || showPending.value || props.showEmptyQueryResults ) {
+			if (
+				searchQuery.value ||
+				showPending.value ||
+				( props.showEmptyQueryResults && props.searchResults.length > 0 )
+			) {
+
 				expanded.value = true;
 			}
 		}
