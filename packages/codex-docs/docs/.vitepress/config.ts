@@ -137,11 +137,13 @@ export default defineConfigWithTheme<CustomConfig>( {
 							text: 'Components',
 							link: '/contributing/contributing-components',
 							items: [
+								{ text: 'Reporting and validating', link: '/contributing/reporting-and-validating' },
 								{ text: 'Designing components', link: '/contributing/designing-components' },
 								{ text: 'Developing components', link: '/contributing/developing-components' },
 								{ text: 'Testing components', link: '/contributing/testing-components' },
 								{ text: 'Component demos', link: '/contributing/component-demos' },
-								{ text: 'Working with TypeScript', link: '/contributing/typescript' }
+								{ text: 'Working with TypeScript', link: '/contributing/typescript' },
+								{ text: 'Reviewing and documenting', link: '/contributing/reviewing-and-documenting' }
 							]
 						}
 					]
