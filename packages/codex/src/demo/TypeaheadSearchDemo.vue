@@ -37,6 +37,44 @@
 			</cdx-typeahead-search>
 		</div>
 
+		<h3>Mobile view version</h3>
+		<div>
+			<cdx-typeahead-search
+				id="typeahead-search-wikipedia-mobile"
+				form-action="https://en.wikipedia.org/w/index.php"
+				:use-button="true"
+				:search-results="searchResults"
+				:search-footer-url="searchFooterUrl"
+				:show-thumbnail="true"
+				:highlight-query="true"
+				:auto-expand-width="true"
+				:is-mobile-view="true"
+				placeholder="Search Wikipedia"
+				@input="onInput"
+				@search-result-click="onSearchResultClick"
+				@submit="onSubmit"
+			>
+				<template #default>
+					<input
+						type="hidden"
+						name="language"
+						value="en"
+					>
+					<input
+						type="hidden"
+						name="title"
+						value="Special:Search"
+					>
+				</template>
+				<template #search-footer-text="{ searchQuery }">
+					Search Wikipedia for pages containing
+					<strong class="cdx-typeahead-search__search-footer__query">
+						{{ searchQuery }}
+					</strong>
+				</template>
+			</cdx-typeahead-search>
+		</div>
+
 		<h3>CSS-only version</h3>
 		<div
 			class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail

@@ -356,9 +356,11 @@ export default defineComponent( {
 
 		// Get helpers from useSplitAttributes.
 		const internalClasses = computed( () => ( {
-			'cdx-typeahead-search--show-thumbnail': props.showThumbnail,
 			'cdx-typeahead-search--expanded': expanded.value,
-			'cdx-typeahead-search--auto-expand-width': props.showThumbnail && props.autoExpandWidth
+			// isMobileView will override thumbnail and autoExpandWidth classes because the
+			// search input on mobile views shouldnt have extra space for thumbnails to save space
+			'cdx-typeahead-search--show-thumbnail': props.showThumbnail && !props.isMobileView,
+			'cdx-typeahead-search--auto-expand-width': props.showThumbnail && props.autoExpandWidth && !props.isMobileView
 		} ) );
 		const {
 			rootClasses,
