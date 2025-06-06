@@ -35,6 +35,7 @@
 		"lint:scripts": "npm run build-all-if-missing && eslint --cache --max-warnings 0 .",
 		"lint:styles": "stylelint --cache --max-warnings 0 --quiet-deprecation-warnings . packages/codex-docs/docs/.vitepress",
 		"lint:eslint": "npm run lint:scripts",
+		"lint:js": "npm run lint:scripts",
 		"lint:stylelint": "npm run lint:styles",
 		"test": "npm run lint && npm run test --workspaces --if-present && ./build/diff-css.sh"
 	},
