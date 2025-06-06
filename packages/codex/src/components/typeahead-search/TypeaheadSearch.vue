@@ -605,7 +605,7 @@ export default defineComponent( {
 		function onKeydown( e: KeyboardEvent ) {
 			if (
 				!menu.value ||
-				!searchQuery.value ||
+				( !searchQuery.value && !props.showEmptyQueryResults ) ||
 				e.key === ' '
 			) {
 				return;
