@@ -5,25 +5,19 @@ import ImageAspectRatio from '@/../component-demos/image/examples/ImageAspectRat
 import ImagePlaceholder from '@/../component-demos/image/examples/ImagePlaceholder.vue';
 import ImageError from '@/../component-demos/image/examples/ImageError.vue';
 
+const imageData = {
+    url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/003_Olive-bellied_Sunbird_in_flight_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg/2560px-003_Olive-bellied_Sunbird_in_flight_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg',
+    alt: 'Olive-bellied Sunbird flying from a flower to another at Kibale forest National Park.',
+    width: 350
+}
+
 const controlsConfig = [
-  {
-    name: 'src',
-    type: 'text',
-    label: 'Image Source',
-    default: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/003_Olive-bellied_Sunbird_in_flight_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg/2560px-003_Olive-bellied_Sunbird_in_flight_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg',
-  },
-  {
-    name: 'alt',
-    type: 'text',
-    label: 'Alt Text',
-    default: 'Olive-bellied Sunbird flying from a flower to another at Kibale forest National Park.',
-  },
   {
     name: 'aspectRatio',
     type: 'radio',
     label: 'Aspect Ratio',
-    options: ['16-9', '3-2', '4-3', '1-1', '3-4', '2-3'],
-    default: 'null',
+    options: ['16:9', '3:2', '4:3', '1:1', '3:4', '2:3'],
+    default: '16:9',
   },
   {
     name: 'objectFit',
@@ -49,19 +43,7 @@ const controlsConfig = [
       'right',
     ],
     default: 'center',
-  },
-  {
-    name: 'width',
-    type: 'text',
-    label: 'Width',
-    default: 350,
-  },
-  {
-    name: 'height',
-    type: 'text',
-    label: 'Height',
-    default: 200,
-  },
+  }
 ];
 </script>
 
@@ -71,14 +53,13 @@ supporting features like aspect ratios, placeholders, and responsive sizing.
 <cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
   <template v-slot:demo="{ propValues }">
     <cdx-image
-        :src="propValues.src"
-        :alt="propValues.alt"
+        :src="imageData.url"
+        :alt="imageData.alt"
         :aspect-ratio="propValues.aspectRatio"
         :object-fit="propValues.objectFit"
         :objectPosition="propValues.objectPosition"
         :position="propValues.position"
-        :width="propValues.width"
-        :height="propValues.height"
+        :width="imageData.width"
       />
   </template>
 </cdx-demo-wrapper>

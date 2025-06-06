@@ -20,7 +20,7 @@ const imageData = {
 	height: 220
 };
 
-const aspectRatio = '3-4';
+const aspectRatio = '3:4';
 const objectFit = 'cover';
 
 export default defineComponent( {

@@ -8,7 +8,7 @@ type Case = [
 		alt: string;
 		width?: number;
 		height?: number;
-		aspectRatio?: '16-9' | '3-2' | '4-3' | '1-1' | '3-4' | '2-3';
+		aspectRatio?: '16:9' | '3:2' | '4:3' | '1:1' | '3:4' | '2:3';
 	},
 	attrs?: Record<string, string|number|boolean>
 ];
@@ -20,7 +20,7 @@ describe( 'Image', () => {
 	describe( 'matches the snapshot', () => {
 		const cases: Case[] = [
 			[ 'renders in the default state with a valid source', { src: validImageSrc, alt: 'Valid image', width: 400, height: 220 } ],
-			[ 'renders with a custom aspect ratio', { src: validImageSrc, alt: 'Image with aspect ratio', aspectRatio: '16-9', width: 400, height: 220 } ]
+			[ 'renders with a custom aspect ratio', { src: validImageSrc, alt: 'Image with aspect ratio', aspectRatio: '16:9', width: 400, height: 220 } ]
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {

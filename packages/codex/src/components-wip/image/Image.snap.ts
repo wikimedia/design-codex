@@ -40,7 +40,7 @@ exports[`Image matches the snapshot Case 0 renders in the default state with a v
 </div>
 `;
 
-exports[`Image matches the snapshot Case 1 renders with a custom aspect ratio: ({"alt": "Image with aspect ratio", "aspectRatio": "16-9", "height": 220, "src": "https://upload.wikimedia.org/wikipedia/commons/d/df/Full_moon_partially_obscured_by_atmosphere.jpg", "width": 400}) => HTML 1`] = `
+exports[`Image matches the snapshot Case 1 renders with a custom aspect ratio: ({"alt": "Image with aspect ratio", "aspectRatio": "16:9", "height": 220, "src": "https://upload.wikimedia.org/wikipedia/commons/d/df/Full_moon_partially_obscured_by_atmosphere.jpg", "width": 400}) => HTML 1`] = `
 <div
   class="cdx-image-wrapper"
 >

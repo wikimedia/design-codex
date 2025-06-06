@@ -98,12 +98,12 @@ export const TableTextAlignments = [
  * The predefined aspect ratios that can be applied to the image.
  */
 export const ImageAspectRatios = [
-	'16-9',
-	'3-2',
-	'4-3',
-	'1-1',
-	'3-4',
-	'2-3'
+	'16:9',
+	'3:2',
+	'4:3',
+	'1:1',
+	'3:4',
+	'2:3'
 ] as const;
 
 /**

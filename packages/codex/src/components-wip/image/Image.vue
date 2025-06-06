@@ -188,7 +188,7 @@ export default defineComponent( {
 		 * Includes the base class and conditional classes based on props and state.
 		 */
 		const imageClasses = computed( (): Record<string, boolean> => ( {
-			[ `cdx-image--${ props.aspectRatio }` ]: !!props.aspectRatio,
+			[ `cdx-image--${ props.aspectRatio?.split( ':' ).join( '-' ) }` ]: !!props.aspectRatio,
 			[ `cdx-image--object-position-${ props.objectPosition }` ]: !!props.objectPosition,
 			[ `cdx-image--object-fit-${ props.objectFit }` ]: !!props.objectFit,
 			'cdx-image--is-broken': isBroken.value
@@ -359,6 +359,8 @@ export default defineComponent( {
 	min-width: @spacing-150;
 	min-height: @spacing-150;
 	margin: 0;
+	border: @border-subtle;
+	border-radius: @border-radius-base;
 
 	&--16-9 {
 		aspect-ratio: 16 / 9;
