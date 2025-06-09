@@ -16,6 +16,7 @@
 			:aria-relevant="showPending ? ariaRelevant : undefined"
 			:aria-multiselectable="isMultiselect ? true : undefined"
 			v-bind="otherAttrs"
+			@mousedown.prevent
 		>
 			<li
 				v-if="showPending && computedMenuItems.length === 0 && $slots.pending"
