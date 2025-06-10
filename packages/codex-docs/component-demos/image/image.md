@@ -67,14 +67,46 @@ supporting features like aspect ratios, placeholders, and responsive sizing.
 ## Overview
 
 ### When to use Image
-Use the Image component to display visual content like photos or illustrations that enhance context and meaning.
-Ideal for adding visual elements in layouts, supporting text content, or embedding in components like cards and dialogs.
-Avoid using for purely decorative purposes or stylized visual elements.
-Always include meaningful `alt` text for accessibility.
+Use the Image component to display visual content like photos or illustrations that enhance context and meaning of surrounding content.
+
+Avoid using the Image component for small previews. Use the [Thumbnail](./thumbnail.md) component instead.
+
+::: tip Accessibility
+Always provide meaningful `alt` text in Image to ensure accessibility.
+:::
+
+### About Image
+
+Image includes the following elements.
+
+#### Image
+
+The Image component displays an image element if one has been uploaded.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>
+
+Use contextually relevant, neutral, high-quality images that accurately represent the subject and respect copyright requirements. Refer to the [Style Guide](../../style-guide/images.md) to learn more about how to use images.
+
+</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+#### Placeholder icon
+
+If the image element is missing or loading, a placeholder icon on a light background is displayed.
+
+<cdx-demo-best-practices>
+
+<cdx-demo-best-practice>Customize the icon if needed.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Use icons that provide clear context for the use of the Image.</cdx-demo-best-practice>
+
+</cdx-demo-best-practices>
 
 ## Examples
 
 ### Default
+
+By default, the Image component displays an image in its original dimensions.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -96,6 +128,8 @@ Always include meaningful `alt` text for accessibility.
 
 ### Aspect Ratio
 
+The component supports aspect ratios to preserve layout structure.
+
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<image-aspect-ratio />
@@ -116,6 +150,11 @@ Always include meaningful `alt` text for accessibility.
 
 ### Placeholder
 
+The placeholder serves two purposes:
+
+1. To display while the image is loading, improving the experience of those with slower connections.
+2. To display when an image element is not provided.
+
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<image-placeholder />
@@ -135,6 +174,8 @@ Always include meaningful `alt` text for accessibility.
 </cdx-demo-wrapper>
 
 ### Error
+
+An error is displayed when the image fails to load, indicating that the content could not be retrieved.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

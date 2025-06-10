@@ -28,12 +28,11 @@ users with a quick glimpse of the associated content.
 ## Overview
 
 ### When to use Thumbnail
-Use the Thumbnail component to include small previews of images that can provide
+Use the Thumbnail component to display small previews of images that can provide
 context or support the meaning of the content included in components such as
 [Card](./card.md) or [MenuItem](./menu-item.md).
 
-The placeholder icon will display until the Thumbnail image loads, or if a
-Thumbnail image is not provided.
+Avoid using the Thumbnail component for high-resolution images. Use the [Image](./image.md) component instead.
 
 ### About Thumbnail
 
@@ -41,19 +40,11 @@ Thumbnail includes the following elements.
 
 #### Image
 
-The Thumbnail displays an image if one has been uploaded.
-
-<cdx-demo-best-practices>
-<cdx-demo-best-practice type="dont">
-
-Avoid replacing other images with Thumbnails, as Thumbnail is intended only as preview and an image should remain high-resolution.
-
-</cdx-demo-best-practice>
-</cdx-demo-best-practices>
+The Thumbnail displays a preview of an image if one has been uploaded.
 
 #### Placeholder icon
 
-If the Thumbnail doesn't have an loaded image, it presents a placeholder gray icon against a light gray background.
+If the Thumbnail's image is missing or loading, a placeholder icon on a light background is displayed.
 
 <cdx-demo-best-practices>
 
@@ -61,10 +52,6 @@ If the Thumbnail doesn't have an loaded image, it presents a placeholder gray ic
 <cdx-demo-best-practice>Use icons that provide clear context for the use of the Thumbnail.</cdx-demo-best-practice>
 
 </cdx-demo-best-practices>
-
-::: tip Accessibility
-In both scenarios, the Thumbnail features a `@border-color-subtle` border to ensure sufficient contrast when placed on `@background-color-base` backgrounds.
-:::
 
 #### Size
 
@@ -79,13 +66,10 @@ dimensions, for example).
 
 The placeholder serves two purposes:
 
-1. To display while a Thumbnail image is loading, improving the experience of those with slower
-   connections
-2. To display when a Thumbnail image is not provided
+1. To display while a Thumbnail image is loading, improving the experience of those with slower connections.
+2. To display when a Thumbnail image is not provided.
 
-The second case may occur in a group of components, like Cards or MenuItems, when some items have a
-thumbnail image but some do not. In this case, the placeholder icon helps maintain a consistent
-layout for all items. Refer to the [Card groups demo](./card.html#card-groups) for an example.
+The second case may occur in a group of components, like Cards or MenuItems, when some items have a thumbnail image but some do not. In this case, the placeholder icon helps maintain a consistent layout for all items. Refer to the [Card groups demo](./card.html#card-groups) for an example.
 
 #### Default placeholder
 
