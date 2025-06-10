@@ -14,11 +14,11 @@ import CdxDocsVersionBanner from '../src/components/version-banner/VersionBanner
 
 <div class="cdx-docs-home__hero">
 	<div class="cdx-docs-home__hero__content">
-		<div>
-			<img src="/logo-Codex-inverted.svg">
-			<h1 class="cdx-docs-home__hero__title">Codex</h1>
+		<div class="cdx-docs-home__hero__title">
+			<img class="cdx-docs-home__hero__title-image" src="/logo-Codex-inverted.svg">
+			<h1 class="cdx-docs-home__hero__title-text">Codex</h1>
 		</div>
-		<p class="cdx-docs-home__hero__tagline">The design system for Wikimedia.</p>
+		<p class="cdx-docs-home__hero__tagline">The design system<br>for Wikimedia.</p>
 	</div>
 </div>
 
@@ -30,7 +30,7 @@ Codex is designed and developed by contributors from the [Wikimedia Foundation](
 [Wikimedia Deutschland](https://www.wikimedia.de/), and the [Wikimedia](https://www.wikimedia.org/)
 volunteer community. [Get in touch](./using-codex/contact.md) with us.
 
-<div class="cdx-docs-home__resources">
+<div class="cdx-docs-home__intros">
 	<cdx-card url="./using-codex/accessing-codex.html">
 		<template #title>Using Codex</template>
 		<template #description>Learn how to use Codex to design and build user interfaces</template>
@@ -98,22 +98,18 @@ volunteer community. [Get in touch](./using-codex/contact.md) with us.
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-@font-size-cdx-docs-title: 5em;
+@font-size-cdx-docs-title--mobile: 4em;
+@font-size-cdx-docs-title: 8em;
+@size-cdx-docs-title-icon--mobile: 3em;
+@size-cdx-docs-title-icon: 6em;
+@font-size-cdx-docs-tagline--mobile: 1.5em;
 @font-size-cdx-docs-tagline: 2em;
+@line-height-cdx-docs-tagline: 2.625rem;
+@border-width-cdx-docs-intro-cards: 6px;
 
 /* stylelint-disable selector-class-pattern */
 .cdx-docs-home {
-	.cdx-card {
-		color: @color-base;
-
-		&:hover {
-			color: @color-base;
-			text-decoration: @text-decoration-none;
-		}
-	}
-
 	&__hero {
-		// TODO: This is semantically incorrect, there needs to be a static token.
 		background-color: @background-color-progressive;
 		color: @color-inverted-fixed;
 		position: relative;
@@ -131,17 +127,16 @@ volunteer community. [Get in touch](./using-codex/contact.md) with us.
 		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			/* Accounts for .VPDoc having padding-top: 48px */
 			margin-top: -@spacing-300;
-			padding: @spacing-200;
+			padding: calc( @spacing-300 * 2 ) @spacing-200;
 		}
 
 		&__content {
-			--vp-width-tablet: 752px;
 			--vp-width-desktop: 784px;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
 
 			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				/* borrowing width value of .VPDoc > .container > .content
-					to ensure content stays aligned */
-				max-width: var( --vp-width-tablet );
 				margin: 0;
 			}
 
@@ -158,39 +153,42 @@ volunteer community. [Get in touch](./using-codex/contact.md) with us.
 			}
 		}
 
-		/* @media screen and ( min-width: @min-width-breakpoint-tablet ) {
+		&__title {
 			display: flex;
-		} */
-
-		img {
-			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-			width: 6em;
-			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-			height: 6em;
-			margin-top: 0;
-			margin-right: @spacing-100;
-		}
-
-		&__content div {
-			display: block;
-			margin-bottom: 0;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: @spacing-100;
 
 			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-				display: flex;
-				align-items: flex-end;
-				margin-bottom: @spacing-400;
+				margin-bottom: @spacing-200;
 			}
 		}
 
-		// Need to put `.vp-doc` here to override the default VitePress heading styles.
-		.vp-doc &__title {
+		// Need to put `.vp-doc` here to override default VitePress styles for images and headings.
+
+		.vp-doc &__title-image {
+			width: @size-cdx-docs-title-icon--mobile;
+			height: @size-cdx-docs-title-icon--mobile;
+			margin-top: 0;
+			margin-right: @spacing-100;
+
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+				width: @size-cdx-docs-title-icon;
+				height: @size-cdx-docs-title-icon;
+			}
+		}
+
+		.vp-doc &__title-text {
 			color: @color-inverted-fixed;
 			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 			max-width: 400px;
-			font-family: @font-family-base;
-			font-size: @font-size-cdx-docs-title;
-			font-weight: @font-weight-bold;
+			font-family: @font-family-serif;
+			font-size: @font-size-cdx-docs-title--mobile;
 			line-height: initial;
+
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+				font-size: @font-size-cdx-docs-title;
+			}
 		}
 
 		.vp-doc &__tagline {
@@ -198,17 +196,58 @@ volunteer community. [Get in touch](./using-codex/contact.md) with us.
 			max-width: 330px;
 			margin: 0;
 			font-family: @font-family-base;
-			font-size: @font-size-cdx-docs-tagline;
-			font-weight: @font-weight-bold;
+			font-size: @font-size-cdx-docs-tagline--mobile;
 			line-height: initial;
+			text-align: center;
+
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+				font-size: @font-size-cdx-docs-tagline;
+				line-height: @line-height-cdx-docs-tagline;
+			}
 		}
 	}
 
-	&__features,
-	&__posts {
+	&__intros,
+	&__features {
+		.cdx-card__text__title {
+			color: @color-progressive;
+			font-size: @font-size-large;
+		}
+	}
+
+	&__intros {
 		display: flex;
-		flex-direction: column;
-		row-gap: @spacing-50;
+		gap: @spacing-100;
+		margin-top: @spacing-200;
+
+		.cdx-card {
+			border: 0;
+			border-top: @border-style-base @border-width-cdx-docs-intro-cards @border-color-interactive--active;
+			border-radius: 0;
+			padding: @spacing-100 0 0;
+		}
+	}
+
+	&__features {
+		display: grid;
+		grid-gap: @spacing-125;
+
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+			grid-template-columns: repeat( 2, 1fr );
+			grid-template-rows: repeat( 3, 1fr );
+		}
+
+		@media screen and ( min-width: @min-width-breakpoint-desktop ) {
+			grid-template-columns: repeat( 3, 1fr );
+			grid-template-rows: repeat( 2, 1fr );
+		}
+
+		.cdx-card {
+			flex-direction: column;
+			gap: @spacing-35;
+			border: 0;
+			padding: 0;
+		}
 	}
 
 	&__resources {
@@ -217,7 +256,6 @@ volunteer community. [Get in touch](./using-codex/contact.md) with us.
 		gap: @spacing-50;
 		margin-top: @spacing-200;
 
-		/* stylelint-disable-next-line no-descending-specificity */
 		.cdx-card {
 			width: calc( @size-half - @spacing-25 );
 
@@ -228,11 +266,25 @@ volunteer community. [Get in touch](./using-codex/contact.md) with us.
 	}
 
 	&__posts {
+		display: flex;
+		flex-direction: column;
+		row-gap: @spacing-75;
+
 		&__post--set-background-position {
 			.cdx-thumbnail__image {
 				/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 				background-position: 0, 0;
 			}
+		}
+	}
+
+	h2 {
+		margin-bottom: @spacing-150;
+	}
+
+	.cdx-card {
+		&:hover {
+			text-decoration: @text-decoration-none;
 		}
 	}
 }
