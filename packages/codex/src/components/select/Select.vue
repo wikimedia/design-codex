@@ -61,6 +61,11 @@
 				<slot name="menu-item" :menu-item="menuItem" />
 			</template>
 		</cdx-menu>
+		<input
+			v-if="name"
+			type="hidden"
+			:name="name"
+			:value="selected">
 	</div>
 </template>
 
@@ -130,6 +135,14 @@ export default defineComponent( {
 		defaultLabel: {
 			type: String,
 			default: ''
+		},
+
+		/**
+		 * Name of the input, used for forms.
+		 */
+		name: {
+			type: String,
+			default: undefined
 		},
 
 		/**

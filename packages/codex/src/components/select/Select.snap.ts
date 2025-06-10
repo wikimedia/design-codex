@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select matches the snapshot Case 0 No selection: ({"menuItems": [Array], "selected": null}) => HTML 1`] = `
+exports[`Select matches the snapshot Case 0 No selection: ({"menuItems": [Array], "name": "foo", "selected": null}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
@@ -268,10 +268,14 @@ exports[`Select matches the snapshot Case 0 No selection: ({"menuItems": [Array]
       <!--v-if-->
     </ul>
   </div>
+  <input
+    name="foo"
+    type="hidden"
+  />
 </div>
 `;
 
-exports[`Select matches the snapshot Case 1 No selection with empty string: ({"menuItems": [Array], "selected": null}) => HTML 1`] = `
+exports[`Select matches the snapshot Case 1 No selection with empty string: ({"menuItems": [Array], "name": "foo", "selected": null}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
@@ -539,10 +543,14 @@ exports[`Select matches the snapshot Case 1 No selection with empty string: ({"m
       <!--v-if-->
     </ul>
   </div>
+  <input
+    name="foo"
+    type="hidden"
+  />
 </div>
 `;
 
-exports[`Select matches the snapshot Case 2 Menu item with label selected: ({"menuItems": [Array], "selected": "a"}) => HTML 1`] = `
+exports[`Select matches the snapshot Case 2 Menu item with label selected: ({"menuItems": [Array], "name": "foo", "selected": "a"}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
@@ -811,10 +819,15 @@ exports[`Select matches the snapshot Case 2 Menu item with label selected: ({"me
       <!--v-if-->
     </ul>
   </div>
+  <input
+    name="foo"
+    type="hidden"
+    value="a"
+  />
 </div>
 `;
 
-exports[`Select matches the snapshot Case 3 Menu item with no label selected: ({"menuItems": [Array], "selected": "c"}) => HTML 1`] = `
+exports[`Select matches the snapshot Case 3 Menu item with no label selected: ({"menuItems": [Array], "name": "foo", "selected": "c"}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
@@ -1083,10 +1096,15 @@ exports[`Select matches the snapshot Case 3 Menu item with no label selected: ({
       <!--v-if-->
     </ul>
   </div>
+  <input
+    name="foo"
+    type="hidden"
+    value="c"
+  />
 </div>
 `;
 
-exports[`Select matches the snapshot Case 4 Menu item with icon selected: ({"menuItems": [Array], "selected": "e"}) => HTML 1`] = `
+exports[`Select matches the snapshot Case 4 Menu item with icon selected: ({"menuItems": [Array], "name": "foo", "selected": "e"}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--has-start-icon cdx-select-vue--status-default"
@@ -1373,6 +1391,11 @@ exports[`Select matches the snapshot Case 4 Menu item with icon selected: ({"men
       <!--v-if-->
     </ul>
   </div>
+  <input
+    name="foo"
+    type="hidden"
+    value="e"
+  />
 </div>
 `;
 
@@ -1662,6 +1685,7 @@ exports[`Select matches the snapshot Case 5 With Start icon: ({"defaultIcon": "<
       <!--v-if-->
     </ul>
   </div>
+  <!--v-if-->
 </div>
 `;
 
@@ -1934,6 +1958,7 @@ exports[`Select matches the snapshot Case 6 With Start icon and selection: ({"de
       <!--v-if-->
     </ul>
   </div>
+  <!--v-if-->
 </div>
 `;
 
@@ -2205,5 +2230,6 @@ exports[`Select matches the snapshot Case 7 With error status: ({"menuItems": [A
       <!--v-if-->
     </ul>
   </div>
+  <!--v-if-->
 </div>
 `;

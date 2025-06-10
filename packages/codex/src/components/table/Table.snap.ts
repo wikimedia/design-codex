@@ -3773,6 +3773,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
             <!--v-if-->
           </ul>
         </div>
+        <!--v-if-->
       </div>
     </div>
     <div
@@ -4452,6 +4453,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
             <!--v-if-->
           </ul>
         </div>
+        <!--v-if-->
       </div>
     </div>
     <div

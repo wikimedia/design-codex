@@ -49,17 +49,18 @@ describe( 'Select', () => {
 			props: {
 				menuItems: MenuItemData[],
 				selected: string|number|null,
+				name?: string,
 				defaultIcon?: Icon,
 				status?: ValidationStatusType
 			}
 		]
 
 		const cases: Case[] = [
-			[ 'No selection', { menuItems: data, selected: null } ],
-			[ 'No selection with empty string', { menuItems: data, selected: null } ],
-			[ 'Menu item with label selected', { menuItems: data, selected: 'a' } ],
-			[ 'Menu item with no label selected', { menuItems: data, selected: 'c' } ],
-			[ 'Menu item with icon selected', { menuItems: data, selected: 'e' } ],
+			[ 'No selection', { menuItems: data, name: 'foo', selected: null } ],
+			[ 'No selection with empty string', { menuItems: data, name: 'foo', selected: null } ],
+			[ 'Menu item with label selected', { menuItems: data, name: 'foo', selected: 'a' } ],
+			[ 'Menu item with no label selected', { menuItems: data, name: 'foo', selected: 'c' } ],
+			[ 'Menu item with icon selected', { menuItems: data, name: 'foo', selected: 'e' } ],
 			[ 'With Start icon', { menuItems: data, selected: null, defaultIcon: cdxIconSearch } ],
 			[ 'With Start icon and selection', { menuItems: data, selected: 'c', defaultIcon: cdxIconSearch } ],
 			[ 'With error status', { menuItems: data, selected: null, status: 'error' } ]
@@ -67,9 +68,9 @@ describe( 'Select', () => {
 
 		test.each( cases )(
 			'Case %# %s: (%p) => HTML',
-			async ( _, { menuItems, selected, defaultIcon = undefined, status = 'default' } ) => {
+			async ( _, { menuItems, selected, name = undefined, defaultIcon = undefined, status = 'default' } ) => {
 				const wrapper = mount( CdxSelect, {
-					props: { menuItems, defaultLabel: 'Choose an option', selected, defaultIcon, status }
+					props: { menuItems, defaultLabel: 'Choose an option', selected, name, defaultIcon, status }
 				} );
 				// Make sure the selectedMenuItem is set.
 				await nextTick();
@@ -241,6 +242,38 @@ describe( 'Select', () => {
 			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 			await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'blur' );
 			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+		} );
+	} );
+
+	describe( 'when the name prop is set', () => {
+		it( 'Reports data to HTML forms', () => {
+			const wrapper = mount( {
+				template: '<form id="form"><CdxSelect v-bind="$props" /></form>',
+				components: { CdxSelect },
+				props: CdxSelect.props
+			}, {
+				props: { menuItems: data, selected: data[ 0 ].value, name: 'formTest' }
+			} );
+
+			const formData = new FormData( wrapper.find( 'form' ).element );
+
+			expect( formData.get( 'formTest' ) ).toBe( data[ 0 ].value );
+		} );
+
+		it( 'Updates HTML form data with selection', async () => {
+			const wrapper = mount( {
+				template: '<form id="form"><CdxSelect v-bind="$props" /></form>',
+				components: { CdxSelect },
+				props: CdxSelect.props
+			}, {
+				props: { menuItems: data, selected: data[ 0 ].value, name: 'formTest' }
+			} );
+
+			await wrapper.setProps( { selected: data[ 1 ].value } );
+
+			const formData = new FormData( wrapper.find( 'form' ).element );
+
+			expect( formData.get( 'formTest' ) ).toBe( data[ 1 ].value );
 		} );
 	} );
 } );
