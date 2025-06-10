@@ -3,6 +3,9 @@
  *
  * Exported types should be marked with `@public` comments in this file, AND explicitly
  * exported in lib.ts.
+ *
+ * IMPORTANT NOTE: All types should be added to the Types and Constants page on the Codex docs site.
+ * Refer to `packages/codex-docs/docs/components/types-and-constants.md`.
  */
 
 import { Icon } from '@wikimedia/codex-icons';

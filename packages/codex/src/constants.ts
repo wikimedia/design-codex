@@ -1,3 +1,13 @@
+/*!
+ * This file contains all constants used in the codex package.
+ *
+ * Exported constants should be marked with `@public` comments in this file, AND explicitly
+ * exported in lib.ts.
+ *
+ * IMPORTANT NOTE: All constants should be added to the Types and Constants page on the Codex docs
+ * site. Refer to `packages/codex-docs/docs/components/types-and-constants.md`.
+ */
+
 import { ComputedRef, Ref, InjectionKey, WritableComputedRef } from 'vue';
 import { TabData, ValidationStatusType } from './types';
 import { makeStringTypeValidator } from './utils/stringTypeValidator';
@@ -207,8 +217,6 @@ export const TablePaginationPositions = [
  * translations available for all messages defined here (Codex does not
  * currently provide its own messages beyond English default values, although
  * this may change in a future major version release).
- *
- * @public
  */
 export const I18nMessageKeys = [
 	'cdx-chip-input-chip-added',
