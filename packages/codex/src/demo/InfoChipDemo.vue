@@ -102,6 +102,12 @@ import { cdxIconHeart, cdxIconCamera, cdxIconInfoFilled } from '@wikimedia/codex
 .cdx-demo-flex-container {
 	display: flex;
 	gap: @spacing-100;
+
+	@media ( max-width: @max-width-breakpoint-mobile ) {
+		flex-direction: column;
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		width: fit-content;
+	}
 }
 
 </style>

@@ -124,6 +124,11 @@ body {
 			flex-grow: 1;
 			margin-top: 0;
 			margin-bottom: 0;
+
+			@media ( max-width: @max-width-breakpoint-mobile ) {
+				font-size: @font-size-x-large;
+				line-height: @line-height-large;
+			}
 		}
 
 		.cdx-direction-switcher {
