@@ -49,6 +49,7 @@ Tonina Zhelyazkova <tonina.zhelyazkova@wikimedia.de>
 Ty Hopp <hopp.ty.c@gmail.com>
 Winston Sung <winston21.sung@gmail.com>
 Zelig880 <scuomo1988@gmail.com>
+Parthiv Menon <parthivmenon.dev@gmail.com>
 
 See also
 https://github.com/wikimedia/design-codex/graphs/contributors
