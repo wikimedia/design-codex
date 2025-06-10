@@ -4,8 +4,8 @@ This page outlines the steps that collaborators should follow to contribute a ne
 
 ::: info
 If you need support or have questions during the contribution process, reach out through one of the following channels:
-- [Slack](https://wikimedia.enterprise.slack.com/archives/C03DKGSEPL2): If you're an internal contributor at the Wikimedia Foundation, join the Codex Slack channel for support and collaboration.
 - [Telegram](https://t.me/+oeXgL95hvgZiMDgx): If you are an external contributor, join the Codex Telegram channel.
+- [Slack](https://wikimedia.enterprise.slack.com/archives/C03DKGSEPL2): If you're an internal contributor at the Wikimedia Foundation, join the Codex Slack channel for support and collaboration.
 :::
 
 ## Reporting and validating

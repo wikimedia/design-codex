@@ -46,7 +46,7 @@ Using either requires that you also load the compiled CSS from `@wikimedia/codex
 
 Styles only need to be loaded once per HTML page load from the server.
 
-A [right-to-left (RTL) stylesheet variant](#bidirectionality-support) is also available.
+A [right-to-left (RTL) stylesheet variant](#bidirectionality) is also available.
 
 ### Vue 3 components
 
@@ -402,9 +402,9 @@ an **experimental** stylesheet that supports client-side direction flipping via 
 Some Codex components detect the direction of the surrounding content, and adjust their behavior
 accordingly, for example in how they respond to the left and right arrow keys. Icons also adjust
 to the surrounding direction. For more information on how bidirectionality is handled for icons,
-see [the icon documentation](../icons/overview.md#right-to-left-rtl-and-language-support).
+see the [Icon component](../components/demos/icon.html#internationalization).
 
-For more information on this topic, visit the [developer documentation on bidirectionality](../contributing/developing-components#bidirectional-script-support).
+For more information on this topic, visit the [developer documentation on bidirectionality](../contributing/developing-components#bidirectional-text).
 
 <style>
 /* stylelint-enable selector-class-pattern */

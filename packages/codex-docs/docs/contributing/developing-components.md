@@ -78,7 +78,10 @@ necessary to ensure support for environments that use DOM templates, including M
 - Ensure the component properly [inherits attributes](#inheriting-attributes).
 - Learn how to support [bidirectional text](#bidirectional-text).
 - Ensure text within components is [translatable](#translatable-strings).
-- Review the list of [composables](../composables/overview.md) for reusable logic.
+- Review the list of composables for reusable logic, located in `packages/codex/src/composables`.
+  The composables that are exported for use are documented in the
+  [composables section](../composables/overview.md); otherwise refer to documentation in the
+  composable files.
 
 ## WIP components
 

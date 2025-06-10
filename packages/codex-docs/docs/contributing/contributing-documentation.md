@@ -121,10 +121,16 @@ and it includes [work in progress components](./developing-components.md#wip-com
 
 ### Patch preview
 
-For each open gerrit patch, a Netlify deploy preview is launched with an iteration of the site
+For each open Gerrit patch, a Netlify deploy preview is launched with an iteration of the site
 based on that patch. The preview will update each time a new patchset is pushed. This is done via
 the `branchdeploy` CI job - if the preview is not displaying properly, you should check to see if
 the CI job failed for some reason.
 
 These previews are useful for testing changes on the site without having to pull the patch locally,
 which can be helpful to those doing code review or people who do not have the site set up locally.
+
+To view the preview for a patch:
+- Add the patch number and two dashes to the beginning of the URL https://wikimedia-codex.netlify.app/.
+- For example, for the patch https://gerrit.wikimedia.org/r/c/design/codex/+/1111342, the Netlify
+preview is hosted at https://1111342--wikimedia-codex.netlify.app/.
+- You can also view the development sandbox at https://1111342--wikimedia-codex.netlify.app/sandbox.
