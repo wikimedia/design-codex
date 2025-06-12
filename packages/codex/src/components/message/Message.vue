@@ -343,7 +343,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 	.cdx-message__icon--vue {
 		// Setting the height of the icon to the line-height of the accompanying text
 		// to ensure centering of the icon to text
-		height: @line-height-small;
+		height: @line-height-medium;
 	}
 
 	&__content {
@@ -353,12 +353,13 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 		flex-grow: 1;
 		// Add space between icon and message content.
 		margin-left: @spacing-50;
+		font-size: @font-size-medium;
+		line-height: @line-height-medium;
 	}
 
-	&__content,
 	&__content > * {
 		font-size: @font-size-medium;
-		line-height: @line-height-small;
+		line-height: @line-height-medium;
 	}
 
 	&__content > *:first-child {
@@ -377,7 +378,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 		// its distance from the top dynamically based on the changing line-height
 		// across the different font modes.
 		// Equal to `7px` in `16px` base at default font size mode.
-		top: calc( ( @font-size-medium - 2px ) * 0.5 );
+		top: calc( @font-size-medium * 0.5 );
 		right: @spacing-50;
 		padding: @spacing-30;
 		// Remove `line-height` to not overgrow button.
