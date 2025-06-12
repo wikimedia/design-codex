@@ -1,52 +1,31 @@
 <template>
 	<div
-		class="cdx-image-wrapper"
+		class="cdx-image"
 		:class="rootClasses"
 		:style="rootStyle"
 	>
 		<img
-			v-if="imageSrc && !isBroken"
+			v-if="src"
 			v-bind="otherAttrs"
 			:src="imageSrc"
 			:alt="alt"
 			:width="width"
 			:height="height"
 			:loading="loadingPriority"
-			class="cdx-image"
+			class="cdx-image__image"
 			:class="imageClasses"
 			@load="handleLoad"
 			@error="handleError"
 		>
 		<div
-			v-if="imageSrc && !isBroken && !isLoaded"
-			class="cdx-image-wrapper__loading"
+			v-if="!src || ( !isLoaded && !isBroken )"
+			class="cdx-image__placeholder"
+			:class="placeholderClasses"
 			:style="placeholderStyles"
 		>
 			<cdx-icon
 				:icon="cdxIconImage"
-				class="cdx-image__icon"
-				:class="[ iconSizeClass ]"
-			/>
-		</div>
-		<div
-			v-else-if="!imageSrc && !isBroken"
-			class="cdx-image-wrapper__placeholder"
-			:style="placeholderStyles"
-		>
-			<cdx-icon
-				:icon="cdxIconImage"
-				class="cdx-image__icon"
-				:class="[ iconSizeClass ]"
-			/>
-		</div>
-		<div
-			v-if="isBroken"
-			class="cdx-image-wrapper__error"
-			:style="placeholderStyles"
-		>
-			<cdx-icon
-				:icon="cdxIconImageBroken"
-				class="cdx-image__icon"
+				class="cdx-image__placeholder__icon"
 				:class="[ iconSizeClass ]"
 			/>
 		</div>
@@ -55,7 +34,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType, ref, computed } from 'vue';
-import { cdxIconImage, cdxIconImageBroken } from '@wikimedia/codex-icons';
+import { cdxIconImage } from '@wikimedia/codex-icons';
 import CdxIcon from '../../components/icon/Icon.vue';
 import {
 	imageAspectRatioValidator,
@@ -188,17 +167,19 @@ export default defineComponent( {
 		 * Includes the base class and conditional classes based on props and state.
 		 */
 		const imageClasses = computed( (): Record<string, boolean> => ( {
-			[ `cdx-image--${ props.aspectRatio?.split( ':' ).join( '-' ) }` ]: !!props.aspectRatio,
-			[ `cdx-image--object-position-${ props.objectPosition }` ]: !!props.objectPosition,
-			[ `cdx-image--object-fit-${ props.objectFit }` ]: !!props.objectFit,
-			'cdx-image--is-broken': isBroken.value
+			[ `cdx-image__image--${ props.aspectRatio?.split( ':' ).join( '-' ) }` ]: !!props.aspectRatio,
+			[ `cdx-image__image--object-position-${ props.objectPosition }` ]: !!props.objectPosition,
+			[ `cdx-image__image--object-fit-${ props.objectFit }` ]: !!props.objectFit,
+			'cdx-image__image--is-broken': isBroken.value,
+			'cdx-image__image--is-loading': !isLoaded.value && !isBroken.value
+
 		} ) );
 
 		/**
 		 * Dynamic classes for the root element.
 		 */
 		const internalRootClasses = computed( (): Record<string, boolean> => ( {
-			[ `cdx-image-wrapper--${ props.position }` ]: !!props.position
+			[ `cdx-image--${ props.position }` ]: !!props.position
 		} ) );
 
 		/**
@@ -216,14 +197,21 @@ export default defineComponent( {
 		} ) );
 
 		/**
-		 * Handles image loading errors by marking the image as broken,
-		 * clearing the source, and emitting an error event.
+		 * Computes the aspect ratio classes to apply to the placeholder element.
+		 * Includes conditional classes based on props.
+		 */
+		const placeholderClasses = computed( (): Record<string, boolean> => ( {
+			[ `cdx-image__placeholder--${ props.aspectRatio?.split( ':' ).join( '-' ) }` ]: !!props.aspectRatio
+		} ) );
+
+		/**
+		 * Handles image loading errors by marking the image as broken and
+		 * emitting an error event to notify parent component of image load failures.
 		 *
 		 * @param event
 		 */
 		const handleError = ( event: Event ) => {
 			isBroken.value = true;
-			imageSrc.value = '';
 			emit( 'error', event );
 		};
 
@@ -248,12 +236,12 @@ export default defineComponent( {
 		const iconSizeClass = computed( () => {
 			const placeholderWidth = Number( props.width );
 			return placeholderWidth <= 32 ?
-				'cdx-image__icon--size-smallest' :
+				'cdx-image__placeholder__icon--size-smallest' :
 				placeholderWidth <= 180 ?
-					'cdx-image__icon--size-small' :
+					'cdx-image__placeholder__icon--size-small' :
 					placeholderWidth <= 280 ?
-						'cdx-image__icon--size-medium' :
-						'cdx-image__icon--size-large';
+						'cdx-image__placeholder__icon--size-medium' :
+						'cdx-image__placeholder__icon--size-large';
 		} );
 
 		return {
@@ -268,8 +256,8 @@ export default defineComponent( {
 			handleError,
 			handleLoad,
 			cdxIconImage,
-			cdxIconImageBroken,
-			iconSizeClass
+			iconSizeClass,
+			placeholderClasses
 		};
 	}
 } );
@@ -278,7 +266,9 @@ export default defineComponent( {
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 
-.cdx-image-wrapper {
+@border-cdx-image-error: none;
+
+.cdx-image {
 	display: flex;
 	align-items: center;
 	position: relative;
@@ -295,139 +285,131 @@ export default defineComponent( {
 		justify-content: flex-end;
 	}
 
-	&__error,
-	&__loading,
-	&__placeholder {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: @size-full;
-	}
+	&__image {
+		display: inline-block;
+		flex-grow: 0;
+		position: relative;
+		min-width: @spacing-150;
+		min-height: @spacing-150;
+		margin: 0;
+		border: @border-subtle;
+		border-radius: @border-radius-base;
+		font-size: @font-size-x-small;
 
-	&__error {
-		background-color: @background-color-error-subtle;
-
-		.cdx-image__icon svg {
-			fill: @color-error;
+		&--object-fit-fill {
+			object-fit: fill;
 		}
-	}
 
-	&__loading {
-		background-color: @background-color-progressive-subtle;
-		position: absolute;
+		&--object-fit-contain {
+			object-fit: contain;
+		}
 
-		.cdx-image__icon svg {
-			fill: @color-progressive;
+		&--object-fit-cover {
+			object-fit: cover;
+		}
+
+		&--object-fit-none {
+			object-fit: none;
+		}
+
+		&--object-fit-scale-down {
+			object-fit: scale-down;
+		}
+
+		&--object-position-top {
+			object-position: top;
+		}
+
+		&--object-position-bottom {
+			object-position: bottom;
+		}
+
+		&--object-position-left {
+			object-position: left;
+		}
+
+		&--object-position-right {
+			object-position: right;
+		}
+
+		&--object-position-center {
+			object-position: center;
+		}
+
+		&--is-broken {
+			border: @border-cdx-image-error;
+		}
+
+		&--is-loading {
+			visibility: hidden;
 		}
 	}
 
 	&__placeholder {
 		background-color: @background-color-interactive-subtle;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: @size-full;
+		border: @border-subtle;
+		border-radius: @border-radius-base;
 
-		.cdx-image__icon svg {
+		&__icon {
+			&--size-smallest {
+				width: @size-75;
+				height: @size-75;
+			}
+
+			&--size-small {
+				width: @size-125;
+				height: @size-125;
+			}
+
+			&--size-medium {
+				width: @size-200;
+				height: @size-200;
+			}
+
+			&--size-large {
+				width: @size-250;
+				height: @size-250;
+			}
+		}
+
+		&__icon svg {
 			fill: @color-placeholder;
 		}
 	}
-}
 
-.cdx-image__icon {
-	&--size-smallest {
-		width: @size-75;
-		height: @size-75;
+	&__image + &__placeholder {
+		position: absolute;
 	}
 
-	&--size-small {
-		width: @size-125;
-		height: @size-125;
-	}
+	&__image,
+	&__placeholder {
+		&--16-9 {
+			aspect-ratio: 16 / 9;
+		}
 
-	&--size-medium {
-		width: @size-200;
-		height: @size-200;
-	}
+		&--3-2 {
+			aspect-ratio: 3 / 2;
+		}
 
-	&--size-large {
-		width: @size-250;
-		height: @size-250;
-	}
-}
+		&--4-3 {
+			aspect-ratio: 4 / 3;
+		}
 
-.cdx-image {
-	display: inline-block;
-	flex-grow: 0;
-	position: relative;
-	min-width: @spacing-150;
-	min-height: @spacing-150;
-	margin: 0;
-	border: @border-subtle;
-	border-radius: @border-radius-base;
+		&--1-1 {
+			aspect-ratio: 1 / 1;
+		}
 
-	&--16-9 {
-		aspect-ratio: 16 / 9;
-	}
+		&--3-4 {
+			aspect-ratio: 3 / 4;
+		}
 
-	&--3-2 {
-		aspect-ratio: 3 / 2;
-	}
-
-	&--4-3 {
-		aspect-ratio: 4 / 3;
-	}
-
-	&--1-1 {
-		aspect-ratio: 1 / 1;
-	}
-
-	&--3-4 {
-		aspect-ratio: 3 / 4;
-	}
-
-	&--2-3 {
-		aspect-ratio: 2 / 3;
-	}
-
-	&--object-fit-fill {
-		object-fit: fill;
-	}
-
-	&--object-fit-contain {
-		object-fit: contain;
-	}
-
-	&--object-fit-cover {
-		object-fit: cover;
-	}
-
-	&--object-fit-none {
-		object-fit: none;
-	}
-
-	&--object-fit-scale-down {
-		object-fit: scale-down;
-	}
-
-	&--object-position-top {
-		object-position: top;
-	}
-
-	&--object-position-bottom {
-		object-position: bottom;
-	}
-
-	&--object-position-left {
-		object-position: left;
-	}
-
-	&--object-position-right {
-		object-position: right;
-	}
-
-	&--object-position-center {
-		object-position: center;
-	}
-
-	&--is-broken {
-		border: @border-width-base @border-style-base @border-color-error;
+		&--2-3 {
+			aspect-ratio: 2 / 3;
+		}
 	}
 }
 </style>

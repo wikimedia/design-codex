@@ -6,6 +6,7 @@
 		:object-fit="objectFit"
 		:width="imageData.width"
 		:height="imageData.height"
+		:position="imageData.position"
 	/>
 </template>
 
@@ -17,7 +18,8 @@ const imageData = {
 	url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/003_Olive-bellied_Sunbird_in_flight_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg/2560px-003_Olive-bellied_Sunbird_in_flight_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg',
 	alt: 'An example image with aspect ratio 16:9',
 	width: 400,
-	height: 220
+	height: 220,
+	position: 'center'
 };
 
 const aspectRatio = '3:4';

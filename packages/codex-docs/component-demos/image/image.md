@@ -3,7 +3,6 @@ import { CdxImage } from '@wikimedia/codex';
 import ImageDefault from '@/../component-demos/image/examples/ImageDefault.vue';
 import ImageAspectRatio from '@/../component-demos/image/examples/ImageAspectRatio.vue';
 import ImagePlaceholder from '@/../component-demos/image/examples/ImagePlaceholder.vue';
-import ImageError from '@/../component-demos/image/examples/ImageError.vue';
 
 const imageData = {
     url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/003_Olive-bellied_Sunbird_in_flight_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg/2560px-003_Olive-bellied_Sunbird_in_flight_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg',
@@ -167,28 +166,6 @@ The placeholder serves two purposes:
 <<< @/../component-demos/image/examples/ImagePlaceholder.vue [NPM]
 
 <<< @/../component-demos/image/examples-mw/ImagePlaceholder.vue [MediaWiki]
-
-:::
-
-</template>
-</cdx-demo-wrapper>
-
-### Error
-
-An error is displayed when the image fails to load, indicating that the content could not be retrieved.
-
-<cdx-demo-wrapper>
-<template v-slot:demo>
-	<image-error />
-</template>
-
-<template v-slot:code>
-
-:::code-group
-
-<<< @/../component-demos/image/examples/ImageError.vue [NPM]
-
-<<< @/../component-demos/image/examples-mw/ImageError.vue [MediaWiki]
 
 :::
 

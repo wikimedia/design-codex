@@ -44,7 +44,7 @@ describe( 'Image', () => {
 
 			await wrapper.find( 'img' ).trigger( 'error' );
 			expect( wrapper.emitted().error ).toBeTruthy();
-			expect( wrapper.vm.isBroken ).toBeTruthy();
+			expect( wrapper.find( '.cdx-image__image' ).classes() ).toContain( 'cdx-image__image--is-broken' );
 		} );
 
 		it( 'computes the correct placeholder icon size based on width', () => {

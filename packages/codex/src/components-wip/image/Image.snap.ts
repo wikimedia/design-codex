@@ -2,22 +2,22 @@
 
 exports[`Image matches the snapshot Case 0 renders in the default state with a valid source: ({"alt": "Valid image", "height": 220, "src": "https://upload.wikimedia.org/wikipedia/commons/d/df/Full_moon_partially_obscured_by_atmosphere.jpg", "width": 400}) => HTML 1`] = `
 <div
-  class="cdx-image-wrapper"
+  class="cdx-image"
 >
   <img
     alt="Valid image"
-    class="cdx-image cdx-image--object-position-center cdx-image--object-fit-cover"
+    class="cdx-image__image cdx-image__image--object-position-center cdx-image__image--object-fit-cover cdx-image__image--is-loading"
     height="220"
     loading="lazy"
     src="https://upload.wikimedia.org/wikipedia/commons/d/df/Full_moon_partially_obscured_by_atmosphere.jpg"
     width="400"
   />
   <div
-    class="cdx-image-wrapper__loading"
+    class="cdx-image__placeholder"
     style="width: 400px; height: 220px;"
   >
     <span
-      class="cdx-icon cdx-icon--medium cdx-image__icon cdx-image__icon--size-large"
+      class="cdx-icon cdx-icon--medium cdx-image__placeholder__icon cdx-image__placeholder__icon--size-large"
     >
       <svg
         aria-hidden="true"
@@ -36,28 +36,27 @@ exports[`Image matches the snapshot Case 0 renders in the default state with a v
       </svg>
     </span>
   </div>
-  <!--v-if-->
 </div>
 `;
 
 exports[`Image matches the snapshot Case 1 renders with a custom aspect ratio: ({"alt": "Image with aspect ratio", "aspectRatio": "16:9", "height": 220, "src": "https://upload.wikimedia.org/wikipedia/commons/d/df/Full_moon_partially_obscured_by_atmosphere.jpg", "width": 400}) => HTML 1`] = `
 <div
-  class="cdx-image-wrapper"
+  class="cdx-image"
 >
   <img
     alt="Image with aspect ratio"
-    class="cdx-image cdx-image--16-9 cdx-image--object-position-center cdx-image--object-fit-cover"
+    class="cdx-image__image cdx-image__image--16-9 cdx-image__image--object-position-center cdx-image__image--object-fit-cover cdx-image__image--is-loading"
     height="220"
     loading="lazy"
     src="https://upload.wikimedia.org/wikipedia/commons/d/df/Full_moon_partially_obscured_by_atmosphere.jpg"
     width="400"
   />
   <div
-    class="cdx-image-wrapper__loading"
+    class="cdx-image__placeholder cdx-image__placeholder--16-9"
     style="width: 400px; height: 220px;"
   >
     <span
-      class="cdx-icon cdx-icon--medium cdx-image__icon cdx-image__icon--size-large"
+      class="cdx-icon cdx-icon--medium cdx-image__placeholder__icon cdx-image__placeholder__icon--size-large"
     >
       <svg
         aria-hidden="true"
@@ -76,6 +75,5 @@ exports[`Image matches the snapshot Case 1 renders with a custom aspect ratio: (
       </svg>
     </span>
   </div>
-  <!--v-if-->
 </div>
 `;

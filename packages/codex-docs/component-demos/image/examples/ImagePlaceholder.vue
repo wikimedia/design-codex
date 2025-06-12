@@ -4,6 +4,7 @@
 		:alt="imageData.alt"
 		:width="imageData.width"
 		:height="imageData.height"
+		:position="imageData.position"
 	/>
 </template>
 
@@ -15,7 +16,8 @@ const imageData = {
 	url: '',
 	alt: 'This is an example of an image placeholder',
 	width: 400,
-	height: 220
+	height: 220,
+	position: 'center'
 };
 
 export default defineComponent( {

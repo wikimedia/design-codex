@@ -49,7 +49,7 @@ describe( 'Container', () => {
 					default: `<cdx-image src="${ validImageSrc }" width="400" height="220" alt="Valid image." />`
 				}
 			} );
-			expect( wrapper.findComponent( CdxImage ).classes() ).toContain( 'cdx-image-wrapper' );
+			expect( wrapper.findComponent( CdxImage ).classes() ).toContain( 'cdx-image' );
 		} );
 	} );
 } );
