@@ -49,26 +49,19 @@
 
 	// Buttons that only include an icon element.
 	&--icon-only {
-		// Only set min-width on icon-only buttons to prevent too much shrinking in flex layouts
-		// (see T370032).
+		// Set min-width on icon-only buttons to prevent too much shrinking in flex layouts.
+		// See T370032 for why we only set this on icon-only buttons.
 		min-width: @min-size-interactive-pointer;
-		// Medium icon-only buttons have a smaller horizontal padding, to make them square.
-		padding-right: @spacing-horizontal-button-icon-only;
-		padding-left: @spacing-horizontal-button-icon-only;
+		padding-right: 0;
+		padding-left: 0;
 	}
 
 	&--icon-only&--size-small {
 		min-width: @size-150;
-		// Small icon-only buttons have a smaller horizontal padding, to make them square.
-		padding-right: @spacing-horizontal-button-small-icon-only;
-		padding-left: @spacing-horizontal-button-small-icon-only;
 	}
 
 	&--icon-only&--size-large {
 		min-width: @min-size-interactive-touch;
-		// Large icon-only buttons use the standard button padding.
-		padding-right: @spacing-horizontal-button;
-		padding-left: @spacing-horizontal-button;
 	}
 
 	// Support Firefox: Normalize by hiding the inner focus `border` and `padding`.
