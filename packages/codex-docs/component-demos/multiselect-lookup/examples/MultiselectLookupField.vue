@@ -47,8 +47,10 @@ export default defineComponent( {
 		CdxField, CdxMultiselectLookup, CdxButton
 	},
 	setup() {
-		const chips = ref( [] );
-		const selection = ref( [] );
+		const chips = ref( [
+			{ label: 'Category', value: '14' }
+		] );
+		const selection = ref( [ '14' ] );
 		const inputValue = ref( '' );
 
 		const namespaces = ref( [] );
