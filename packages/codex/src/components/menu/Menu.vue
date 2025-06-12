@@ -947,9 +947,13 @@ export default defineComponent( {
 				highlightedMenuItemIndex.value :
 				0;
 
-			menuItemElements[ scrollIndex ].scrollIntoView( {
-				behavior: 'smooth',
-				block: 'nearest'
+			// Defer scrolling until after the DOM has rerendered
+			// This avoids bugs when floating-ui is about to reposition the menu (T382505)
+			requestAnimationFrame( () => {
+				menuItemElements[ scrollIndex ].scrollIntoView( {
+					behavior: 'smooth',
+					block: 'nearest'
+				} );
 			} );
 		}
 
