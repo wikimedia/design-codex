@@ -182,7 +182,7 @@ interface IconVariedByLang {
 See [ImageAspectRatios](#imageaspectratios).
 
 ```ts
-// Allowed values: '16-9','3-2','4-3','1-1','3-4','2-3'
+// Allowed values: '16:9','3:2','4:3','1:1','3:4','2:3'
 export type ImageAspectRatio = typeof ImageAspectRatios[ number ];
 ```
 
@@ -528,12 +528,12 @@ const IconSizes = [
 
 ```ts
 const ImageAspectRatios = [
-	'16-9',
-	'3-2',
-	'4-3',
-	'1-1',
-	'3-4',
-	'2-3'
+    '16:9',
+    '3:2',
+    '4:3',
+    '1:1',
+    '3:4',
+    '2:3'
 ];
 ```
 
