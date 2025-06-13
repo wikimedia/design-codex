@@ -79,15 +79,22 @@ volunteer community. [Get in touch](./using-codex/contact.md) with us.
 	<cdx-card
 		class="cdx-docs-home__posts__post--set-background-position"
 		url="https://diff.wikimedia.org/2024/12/18/codex-year-2024-in-reviewkey-milestones-and-innovations/"
-		:thumbnail="{ url: 'https://diff.wikimedia.org/wp-content/uploads/2024/12/grid-template-2.jpg?fit=600%2C400' }">
+		:thumbnail="{ url: '/homepage-images/year-2024-in-review.jpg' }"
+    >
 		<template #title>Codex – Year 2024 in Review</template>
 		<template #description> 18 December 2024 by Volker E. and Wikimedia Foundation Design System Team</template>
 	</cdx-card>
-	<cdx-card url="https://diff.wikimedia.org/2024/05/16/making-the-wikiverse-more-inclusive-our-journey-with-codex-and-beyond/" :thumbnail="{ url: 'https://diff.wikimedia.org/wp-content/uploads/2024/05/this-is-for-everyone.png?fit=600%2C213' }">
+	<cdx-card
+        url="https://diff.wikimedia.org/2024/05/16/making-the-wikiverse-more-inclusive-our-journey-with-codex-and-beyond/"
+        :thumbnail="{ url: '/homepage-images/wikiverse-inclusive.jpg' }"
+    >
 		<template #title>Making the Wikiverse More Inclusive: Our Journey with Codex and Beyond</template>
 		<template #description>16 May 2024 by Volker E.</template>
 	</cdx-card>
-	<cdx-card url="https://diff.wikimedia.org/2022/12/22/creating-the-wikimedia-design-system/" :thumbnail="{ url: 'https://diff.wikimedia.org/wp-content/uploads/2022/12/CodexDiffPost-HeaderImage.png?fit=600%2C238' }">
+	<cdx-card
+        url="https://diff.wikimedia.org/2022/12/22/creating-the-wikimedia-design-system/"
+        :thumbnail="{ url: '/homepage-images/creating-the-wikimedia-design-system.jpg' }"
+    >
 		<template #title>Creating the Wikimedia Design System</template>
 		<template #description>22 December 2022 by ATomasevich WMF, Lauren de Lench, Bárbara Martínezand Volker E.	</template>
 	</cdx-card>
