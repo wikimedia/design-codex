@@ -630,6 +630,9 @@
 		"base": {
 			"value": "{ color.gray400 }"
 		},
+		"emphasized": {
+			"value": "{ color.gray900 }"
+		},
 		"subtle": {
 			"value": "{ color.gray300 }"
 		},
