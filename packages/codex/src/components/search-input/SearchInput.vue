@@ -101,7 +101,7 @@ export default defineComponent( {
 			type: Boolean,
 			default: false
 		},
-		// DEPRECATED: set default to 'Search' (T368444).
+		// DEPRECATED: set default to 'Search' and remove validator (T368444).
 		/**
 		 * Search button text.
 		 *
@@ -109,7 +109,18 @@ export default defineComponent( {
 		 */
 		buttonLabel: {
 			type: String,
-			default: ''
+			default: '',
+			validator: ( value: string, props ) => {
+				if ( value.length > 0 && !props.useButton ) {
+					// eslint-disable-next-line no-console
+					console.warn(
+						`[CdxSearchInput]: The boolean \`useButton\` prop is required to show the search button.\n
+Refer to https://doc.wikimedia.org/codex/latest/components/demos/search-input.html#props.`
+					);
+					return false;
+				}
+				return true;
+			}
 		},
 		/**
 		 * Whether the search input is disabled.

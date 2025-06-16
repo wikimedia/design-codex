@@ -196,7 +196,7 @@ export default defineComponent( {
 			default: false
 		},
 
-		// DEPRECATED: Set default to 'Close' (T368444)
+		// DEPRECATED: Set default to 'Close' and remove validator (T368444).
 		/**
 		 * Visually-hidden label text for the icon-only close button in the header.
 		 *
@@ -204,7 +204,18 @@ export default defineComponent( {
 		 */
 		closeButtonLabel: {
 			type: String,
-			default: ''
+			default: '',
+			validator: ( value: string, props ) => {
+				if ( value.length > 0 && !props.useCloseButton ) {
+					// eslint-disable-next-line no-console
+					console.warn(
+						`[CdxDialog]: The boolean \`useCloseButton\` prop is required to show the close button.\n
+Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#props.`
+					);
+					return false;
+				}
+				return true;
+			}
 		},
 
 		/**

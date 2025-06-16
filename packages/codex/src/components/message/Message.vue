@@ -106,7 +106,7 @@ export default defineComponent( {
 			default: false
 		},
 
-		// DEPRECATED: set default to 'Close' (T368444).
+		// DEPRECATED: set default to 'Close' and remove validator (T368444).
 		/**
 		 * Visually-hidden label text for the dismiss button for user-dismissable messages.
 		 *
@@ -114,7 +114,18 @@ export default defineComponent( {
 		 */
 		dismissButtonLabel: {
 			type: String,
-			default: ''
+			default: '',
+			validator: ( value: string, props ) => {
+				if ( value.length > 0 && !props.allowUserDismiss ) {
+					// eslint-disable-next-line no-console
+					console.warn(
+						`[CdxMessage]: The boolean \`allowUserDismiss\` prop is required to show the dismiss button.\n
+Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#props.`
+					);
+					return false;
+				}
+				return true;
+			}
 		},
 
 		/**

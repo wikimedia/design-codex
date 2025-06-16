@@ -96,7 +96,7 @@ export default defineComponent( {
 			type: Boolean,
 			default: false
 		},
-		// DEPRECATED: set default to '(optional)' (T368444).
+		// DEPRECATED: set default to '(optional)' and remove validator (T368444).
 		/**
 		 * Text to indicate that the field is optional.
 		 *
@@ -104,7 +104,18 @@ export default defineComponent( {
 		 */
 		optionalFlag: {
 			type: String,
-			default: ''
+			default: '',
+			validator: ( value: string, props ) => {
+				if ( value.length > 0 && !props.optional ) {
+					// eslint-disable-next-line no-console
+					console.warn(
+						`[CdxField]: The boolean \`optional\` prop is required to show the optional flag.\n
+Refer to https://doc.wikimedia.org/codex/latest/components/demos/field.html#props.`
+					);
+					return false;
+				}
+				return true;
+			}
 		},
 		/**
 		 * Whether the label should be visually hidden.
