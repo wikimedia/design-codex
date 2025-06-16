@@ -621,7 +621,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
             scope="col"
           >
             
-            Column 3
+            Column 4
             
           </th>
           
@@ -683,7 +683,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
 									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
-            Three
+            
             
           </td>
           
@@ -738,7 +738,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
 									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
-            3
+            
             
           </td>
           
@@ -793,7 +793,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
 									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
-            Six
+            
             
           </td>
           
@@ -848,7 +848,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ([[Object], [Obj
 									@binding row {TableRow|TableRowWithIdentifier} Data for the row
 								-->
             
-            6
+            
             
           </td>
           

@@ -51,6 +51,7 @@ describe( 'Image', () => {
 			const wrapper = mount( CdxImage, {
 				props: {
 					src: '',
+					alt: 'Alt text',
 					width: 150,
 					height: 220
 				}

@@ -30,6 +30,7 @@ describe( 'useIconOnlyButton', () => {
 	];
 
 	const TestComponent = defineComponent( {
+		template: '<div><slot /></div>',
 		setup( props, { slots, attrs } ) {
 			const isIconOnly = useIconOnlyButton( slots.default, attrs, 'IconOnlyButtonTest' );
 

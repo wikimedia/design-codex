@@ -1,5 +1,8 @@
 {
 	"rootDir": "..",
+	"setupFilesAfterEnv": [
+		"<rootDir>/.jest/suppressExpected.js"
+	],
 	"transform": {
 		".+\\.ts$": "ts-jest",
 		".+\\.vue$": "@vue/vue3-jest",
