@@ -73,7 +73,19 @@ and adds the changes in that release to `CHANGELOG.md`.
 manually organized into the following categories: Features, Styles (includes tokens), Icons, Code,
 Documentation. List any new design tokens.
 
+For any deprecating or breaking changes, below the relevant commit message, add a bulleted list
+describing the changes and how to handle them in a codebase that implements Codex:
+
+```markdown
+## Deprecating changes
+- [DEPRECATING CHANGE] icons: Unify capitalization (Winston Sung)
+
+This release renames `cdxIconWikiText` to `cdxIconWikitext`, and `cdxIconNoWikiText` to
+`cdxIconNoWikitext`. The old names are deprecated, but can still be used.
+```
+
 5: Commit the changes locally with the appropriate version number:
+
 ```bash
 git commit --all
 ```

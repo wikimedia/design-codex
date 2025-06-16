@@ -43,8 +43,9 @@ packages/codex-docs/docs/.vitepress/cache/
 LICENSE*
 
 # Ignore CHANGELOG, README and other Markdown files.
+BREAKING_CHANGES.md
+BUILDING.md
 CHANGELOG.md
 CODE_OF_CONDUCT.md
 README.md
-BUILDING.md
 RELEASING.md
