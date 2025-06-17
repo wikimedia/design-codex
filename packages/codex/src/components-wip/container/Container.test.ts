@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { ContainerSize } from '../../types';
 import { ContainerSizes } from '../../constants';
 import CdxContainer from './Container.vue';
-import CdxImage from '../image/Image.vue';
+import CdxImage from '../../components/image/Image.vue';
 
 describe( 'Container', () => {
 	const validImageSrc = 'https://upload.wikimedia.org/wikipedia/commons/d/d9/MoYu_accessories_box.jpg';

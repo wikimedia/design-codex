@@ -23,8 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-// eslint-disable-next-line no-restricted-imports
-import CdxImage from '../components-wip/image/Image.vue';
+import { CdxImage } from '../lib';
 
 const imageData = {
 	url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/003_Olive-bellied_Sunbird_in_flight_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg/2560px-003_Olive-bellied_Sunbird_in_flight_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg',
