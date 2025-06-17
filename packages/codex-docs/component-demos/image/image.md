@@ -66,9 +66,11 @@ supporting features like aspect ratios, placeholders, and responsive sizing.
 ## Overview
 
 ### When to use Image
-Use the Image component to display visual content like photos or illustrations that enhance context and meaning of surrounding content.
+Use the Image component to display visual content like photos or illustrations that enhance context
+and meaning of surrounding content.
 
-Avoid using the Image component for small previews. Use the [Thumbnail](./thumbnail.md) component instead.
+Avoid using the Image component for small previews. Use the [Thumbnail](./thumbnail.md) component
+instead.
 
 ::: tip Accessibility
 Always provide meaningful `alt` text in Image to ensure accessibility.
@@ -80,24 +82,26 @@ Image includes the following elements.
 
 #### Image
 
-The Image component displays an image element if one has been uploaded.
+The Image component displays an image element if an image has been provided.
 
 <cdx-demo-best-practices>
 <cdx-demo-best-practice>
 
-Use contextually relevant, neutral, high-quality images that accurately represent the subject and respect copyright requirements. Refer to the [Style Guide](../../style-guide/images.md) to learn more about how to use images.
+Use contextually relevant, neutral, high-quality images that accurately represent the subject and
+respect copyright requirements. Refer to the [Style Guide](../../style-guide/images.md) to learn
+more about how to use images.
 
 </cdx-demo-best-practice>
 </cdx-demo-best-practices>
 
 #### Placeholder icon
 
-If the image element is missing or loading, a placeholder icon on a light background is displayed.
+If the image is missing or loading, a placeholder icon on a background is displayed.
 
 <cdx-demo-best-practices>
 
 <cdx-demo-best-practice>Customize the icon if needed.</cdx-demo-best-practice>
-<cdx-demo-best-practice>Use icons that provide clear context for the use of the Image.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Use an icon that provides clear context for the use of the Image.</cdx-demo-best-practice>
 
 </cdx-demo-best-practices>
 
@@ -125,7 +129,7 @@ By default, the Image component displays an image in its original dimensions.
 </template>
 </cdx-demo-wrapper>
 
-### Aspect Ratio
+### Aspect ratio
 
 The component supports aspect ratios to preserve layout structure.
 
@@ -152,7 +156,7 @@ The component supports aspect ratios to preserve layout structure.
 The placeholder serves two purposes:
 
 1. To display while the image is loading, improving the experience of those with slower connections.
-2. To display when an image element is not provided.
+2. To display when an image is not provided.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
