@@ -66,6 +66,8 @@ const rootClasses = computed( () => ( {
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui-root.css';
 // Import dark mode mixin
 @import ( reference ) '@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui-mixin-dark.less';
+// Import typography mixin
+@import ( reference ) '../codex/src/themes/mixins/public/typography.less';
 
 // Apply dark mode variables if the dark mode toggle is enabled.
 // Because dialogs are teleported outside of the cdx-demo div, apply the variables to the entire
@@ -78,6 +80,9 @@ const rootClasses = computed( () => ( {
 @height-demo-header: 4rem;
 @width-demo-sidebar: 20rem;
 @scroll-padding-top-demo: calc( @height-demo-header + @spacing-100 );
+
+// Apply typography mixin.
+.cdx-mixin-typography();
 
 html {
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */

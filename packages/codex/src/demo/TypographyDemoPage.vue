@@ -118,45 +118,16 @@ p {
 	margin-bottom: 0;
 }
 
-h1 {
-	font-family: @font-family-heading-main;
-	font-size: @font-size-xxx-large;
-	font-weight: @font-weight-normal;
-	line-height: @line-height-xxx-small;
-}
-
-h2 {
-	margin-top: @spacing-150;
-	font-family: @font-family-serif;
-	font-size: @font-size-xx-large;
-	font-weight: @font-weight-normal;
-	line-height: @line-height-xxx-small;
-}
-
-h3 {
-	margin-top: @spacing-150;
-	font-size: @font-size-x-large;
-	line-height: @line-height-xxx-small;
-}
-
+h2,
+h3,
 h4 {
 	margin-top: @spacing-150;
-	font-size: @font-size-large;
-	line-height: @line-height-xxx-small;
 }
 
 h5 {
 	margin-top: @spacing-125;
-	font-size: @font-size-medium;
-	line-height: @line-height-xxx-small;
 }
 
-h6 {
-	font-size: @font-size-medium;
-	line-height: @line-height-medium;
-}
-
-p,
 li {
 	clear: both;
 	line-height: @line-height-medium;
@@ -190,16 +161,10 @@ blockquote {
 	}
 
 	cite {
-		font-family: @font-family-base;
-		font-size: @font-size-small;
 		// FIXME: Add token.
 		/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 		font-style: normal;
 	}
-}
-
-figcaption {
-	font-size: @font-size-x-small;
 }
 
 ol,
@@ -213,7 +178,6 @@ ul {
 
 small {
 	display: inline-block;
-	font-size: @font-size-x-small;
 
 	h1 + & {
 		margin-top: @spacing-50;
