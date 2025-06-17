@@ -7,7 +7,7 @@
 				:menu-items="menuItems"
 				:menu-config="menuConfig"
 				placeholder="Search Wikidata items"
-				@input="onInput"
+				@update:input-value="onUpdateInputValue"
 				@load-more="onLoadMore"
 				@update:selected="onSelection"
 				@blur="validateInstantly"
@@ -45,8 +45,11 @@ export default defineComponent( {
 	components: { CdxLookup, CdxField, CdxButton },
 	setup() {
 		const selection = ref( null );
-		const menuItems = ref( [] );
 		const inputValue = ref( '' );
+		const menuItems = ref( [] );
+		const menuConfig = {
+			visibleItemLimit: 6
+		};
 
 		const status = ref( 'default' );
 		const messages = {
@@ -123,8 +126,8 @@ export default defineComponent( {
 		 *
 		 * @param {string} value
 		 */
-		function onInput( value ) {
-			// Do nothing if we have no input.
+		function onUpdateInputValue( value ) {
+			// Clear menu items if there is no input.
 			if ( !value ) {
 				menuItems.value = [];
 				return;
@@ -187,22 +190,18 @@ export default defineComponent( {
 				} );
 		}
 
-		const menuConfig = {
-			visibleItemLimit: 6
-		};
-
 		return {
 			selection,
-			menuItems,
 			inputValue,
+			menuItems,
+			menuConfig,
 			status,
 			messages,
 			validateInstantly,
 			onSubmit,
 			onSelection,
-			onInput,
-			onLoadMore,
-			menuConfig
+			onUpdateInputValue,
+			onLoadMore
 		};
 	}
 } );

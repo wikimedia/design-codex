@@ -122,7 +122,7 @@ export default defineComponent( {
 
 			// Update menuItems.
 			menuItems.value = namespaces.value.filter(
-				( namespace ) => namespace.label.includes( value )
+				( namespace ) => namespace.label.toLowerCase().includes( value.toLowerCase() )
 			);
 		}
 

@@ -8,7 +8,7 @@
 		:menu-config="menuConfig"
 		placeholder="Search wikidata items"
 		aria-label="MultiselectLookup with fetched results demo"
-		@input="onInput"
+		@update:input-value="onUpdateInputValue"
 		@load-more="onLoadMore"
 	>
 		<template #no-results>
@@ -27,9 +27,15 @@ export default defineComponent( {
 		CdxMultiselectLookup
 	},
 	setup() {
+		// Chips to display in the input, representing selected items.
 		const chips = ref( [] );
+		// Array of selected values.
 		const selection = ref( [] );
+		// Current input value. This is helpful to track so we can fetch results for the current
+		// search term, and is bound to the MultiselectLookup via v-model.
 		const inputValue = ref( '' );
+		// Menu items to show. On input, results will be fetched and provided as menu items. When
+		// the input is cleared, the menu items will be reset to an empty array.
 		const menuItems = ref( [] );
 
 		const menuConfig = {
@@ -69,7 +75,7 @@ export default defineComponent( {
 		 *
 		 * @param {string} value The new input value
 		 */
-		function onInput( value ) {
+		function onUpdateInputValue( value ) {
 			// Clear menu items if the input was cleared.
 			if ( !value ) {
 				menuItems.value = [];
@@ -139,7 +145,7 @@ export default defineComponent( {
 			inputValue,
 			menuItems,
 			menuConfig,
-			onInput,
+			onUpdateInputValue,
 			onLoadMore
 		};
 	}

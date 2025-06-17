@@ -2,10 +2,11 @@
 	<div>
 		<cdx-lookup
 			v-model:selected="selection"
+			v-model:input-value="inputValue"
 			:menu-items="menuItems"
 			:menu-config="menuConfig"
 			aria-label="Lookup with fetched results demo"
-			@input="onInput"
+			@update:input-value="onUpdateInputValue"
 			@load-more="onLoadMore"
 		>
 			<template #no-results>
@@ -23,9 +24,21 @@ export default defineComponent( {
 	name: 'LookupWithFetch',
 	components: { CdxLookup },
 	setup() {
+		// Selected item, defaulting to null.
 		const selection = ref( null );
+		// Current input value. This is helpful to track so we can fetch results for the current
+		// search term, and is bound to the Lookup via v-model.
+		// Note that, on selection, the input updates to match the selected item.
+		const inputValue = ref( '' );
+		// Menu items to show. On input, results will be fetched and provided as menu items. When
+		// the input is cleared, the menu items will be reset to an empty array.
+		// On selection, since the input updates to match the selected item, the
+		// `onUpdateInputValue` method runs and fetches new results based on the selected item.
 		const menuItems = ref( [] );
-		const currentSearchTerm = ref( '' );
+		// Limit the height of the menu and enable scrolling.
+		const menuConfig = {
+			visibleItemLimit: 6
+		};
 
 		/**
 		 * Get search results.
@@ -59,11 +72,8 @@ export default defineComponent( {
 		 *
 		 * @param {string} value
 		 */
-		function onInput( value ) {
-			// Internally track the current search term.
-			currentSearchTerm.value = value;
-
-			// Do nothing if we have no input.
+		function onUpdateInputValue( value ) {
+			// Clear menu items if there is no input.
 			if ( !value ) {
 				menuItems.value = [];
 				return;
@@ -72,7 +82,7 @@ export default defineComponent( {
 			fetchResults( value )
 				.then( ( data ) => {
 					// Make sure this data is still relevant first.
-					if ( currentSearchTerm.value !== value ) {
+					if ( inputValue.value !== value ) {
 						return;
 					}
 
@@ -104,11 +114,11 @@ export default defineComponent( {
 		}
 
 		function onLoadMore() {
-			if ( !currentSearchTerm.value ) {
+			if ( !inputValue.value ) {
 				return;
 			}
 
-			fetchResults( currentSearchTerm.value, menuItems.value.length )
+			fetchResults( inputValue.value, menuItems.value.length )
 				.then( ( data ) => {
 					if ( !data.search || data.search.length === 0 ) {
 						return;
@@ -126,15 +136,12 @@ export default defineComponent( {
 				} );
 		}
 
-		const menuConfig = {
-			visibleItemLimit: 6
-		};
-
 		return {
 			selection,
+			inputValue,
 			menuItems,
 			menuConfig,
-			onInput,
+			onUpdateInputValue,
 			onLoadMore
 		};
 	}
