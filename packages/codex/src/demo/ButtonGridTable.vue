@@ -59,6 +59,7 @@ const weights = [ undefined, ...ButtonWeights ] as const;
 
 function sizeLabel( size: ButtonSize|undefined ) {
 	const sizeLabels: Record<ButtonSize, string> = {
+		small: 'Small',
 		medium: 'Medium',
 		large: 'Large'
 	};

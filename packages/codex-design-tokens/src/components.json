@@ -121,6 +121,14 @@
 			"comment": "Padding should equal 6px of spacing minus the width of the border",
 			"value": "{ spacing.35 } - { border-width.base }"
 		},
+		"horizontal-button-small-icon-only": {
+			"comment": "Padding should equal 2px of spacing minus the width of the border",
+			"value": "{ spacing.12 } - { border-width.base }"
+		},
+		"horizontal-button-small": {
+			"comment": "Padding should equal 6px of spacing minus the width of the border",
+			"value": "{ spacing.35 } - { border-width.base }"
+		},
 		"horizontal-button-large": {
 			"comment": "Padding should equal 16px of spacing minus the width of the border",
 			"value": "{ spacing.100 } - { border-width.base }"

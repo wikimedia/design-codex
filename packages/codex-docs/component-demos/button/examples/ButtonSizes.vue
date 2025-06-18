@@ -14,6 +14,27 @@
 		<tbody>
 			<tr>
 				<td>
+					<span>Small</span>
+				</td>
+				<td>
+					<span>24px</span>
+				</td>
+				<td>
+					<cdx-button size="small" @click="onClick">
+						Small button
+					</cdx-button>
+				</td>
+				<td>
+					<cdx-button
+						aria-label="Small button example"
+						size="small"
+						@click="onClick">
+						<cdx-icon size="small" :icon="cdxIconBell" />
+					</cdx-button>
+				</td>
+			</tr>
+			<tr>
+				<td>
 					<span>Medium</span>
 				</td>
 				<td>

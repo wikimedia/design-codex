@@ -32,6 +32,13 @@
 	transition-property: @transition-property-base;
 	transition-duration: @transition-duration-base;
 
+	// Avoid using the Small Button on touchable screens and use medium button size (32px) if possible.
+	&--size-small {
+		gap: @spacing-25;
+		min-height: @size-150;
+		padding-right: @spacing-horizontal-button-small;
+		padding-left: @spacing-horizontal-button-small;
+	}
 	// Interactive elements have a minimum touch area.
 	// The large button size is meant for use on touch-only devices.
 	&--size-large {
@@ -48,6 +55,13 @@
 		// Medium icon-only buttons have a smaller horizontal padding, to make them square.
 		padding-right: @spacing-horizontal-button-icon-only;
 		padding-left: @spacing-horizontal-button-icon-only;
+	}
+
+	&--icon-only&--size-small {
+		min-width: @size-150;
+		// Small icon-only buttons have a smaller horizontal padding, to make them square.
+		padding-right: @spacing-horizontal-button-small-icon-only;
+		padding-left: @spacing-horizontal-button-small-icon-only;
 	}
 
 	&--icon-only&--size-large {

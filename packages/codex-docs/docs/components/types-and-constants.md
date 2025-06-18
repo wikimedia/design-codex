@@ -52,7 +52,7 @@ interface ButtonGroupItem {
 See [ButtonSizes](#buttonsizes).
 
 ```ts
-// Allowed values: 'medium', 'large'
+// Allowed values: 'small', 'medium', 'large'
 type ButtonSize = typeof ButtonSizes[ number ];
 ```
 
@@ -489,6 +489,7 @@ const ButtonActions = [
 
 ```ts
 const ButtonSizes = [
+	'small',
 	'medium',
 	'large'
 ];

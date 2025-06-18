@@ -38,6 +38,7 @@ export const ButtonWeights = [
 ] as const;
 
 export const ButtonSizes = [
+	'small',
 	'medium',
 	'large'
 ] as const;

@@ -18,8 +18,11 @@
 							:disabled="disabled"
 							@click="onClick"
 						>
-							<cdx-icon :icon="cdxIconTrash" />
-							Button
+							<cdx-icon
+								:size="size === 'small' ? 'small' : 'medium'"
+								:icon="cdxIconTrash"
+							/>
+							{{ size === 'small' ? "button" : "Button" }}
 						</cdx-button>
 					</template>
 				</button-grid-table>
@@ -35,7 +38,10 @@
 							aria-label="Button"
 							@click="onClick"
 						>
-							<cdx-icon :icon="cdxIconTrash" />
+							<cdx-icon
+								:size="size === 'small' ? 'small' : 'medium'"
+								:icon="cdxIconTrash"
+							/>
 						</cdx-button>
 					</template>
 				</button-grid-table>
@@ -48,8 +54,11 @@
 							:class="`cdx-button ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
 							:disabled="disabled"
 						>
-							<span class="cdx-button__icon cdx-demo-css-icon--trash" />
-							Button
+							<span
+								class="cdx-button__icon"
+								:class="size === 'small' ? `cdx-demo-css-icon--trash--small` : 'cdx-demo-css-icon--trash'"
+							/>
+							{{ size === 'small' ? "button" : "Button" }}
 						</button>
 						<!-- eslint-enable max-len -->
 					</template>
@@ -64,7 +73,10 @@
 							:disabled="disabled"
 							aria-label="Button"
 						>
-							<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+							<span
+								class="cdx-button__icon"
+								:class="size === 'small' ? `cdx-demo-css-icon--trash--small` : 'cdx-demo-css-icon--trash'"
+							/>
 						</button>
 						<!-- eslint-enable max-len -->
 					</template>
@@ -75,8 +87,11 @@
 					<template #default="{ action, size, weight, disabled }">
 						<!-- eslint-disable max-len -->
 						<a :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`">
-							<span class="cdx-button__icon cdx-demo-css-icon--trash" />
-							Button
+							<span
+								class="cdx-button__icon"
+								:class="size === 'small' ? `cdx-demo-css-icon--trash--small` : 'cdx-demo-css-icon--trash'"
+							/>
+							{{ size === 'small' ? "button" : "Button" }}
 						</a>
 						<!-- eslint-enable max-len -->
 					</template>
@@ -87,7 +102,10 @@
 					<template #default="{ action, size, weight, disabled }">
 						<!-- eslint-disable max-len -->
 						<a :class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`" aria-label="Button">
-							<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+							<span
+								class="cdx-button__icon"
+								:class="size === 'small' ? `cdx-demo-css-icon--trash--small` : 'cdx-demo-css-icon--trash'"
+							/>
 						</a>
 						<!-- eslint-enable max-len -->
 					</template>
@@ -109,8 +127,11 @@
 					<template #default="{ action, size, weight, disabled }">
 						<!-- eslint-disable max-len -->
 						<label :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`">
-							<span class="cdx-button__icon cdx-demo-css-icon--trash" />
-							Button
+							<span
+								class="cdx-button__icon"
+								:class="size === 'small' ? `cdx-demo-css-icon--trash--small` : 'cdx-demo-css-icon--trash'"
+							/>
+							{{ size === 'small' ? "button" : "Button" }}
 						</label>
 						<!-- eslint-enable max-len -->
 					</template>
@@ -124,7 +145,10 @@
 							:class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
 							aria-label="Button"
 						>
-							<span class="cdx-button__icon cdx-demo-css-icon--trash" />
+							<span
+								class="cdx-button__icon"
+								:class="size === 'small' ? `cdx-demo-css-icon--trash--small` : 'cdx-demo-css-icon--trash'"
+							/>
 						</label>
 						<!-- eslint-enable max-len -->
 					</template>
@@ -188,6 +212,35 @@
 						>
 							<span class="cdx-button__icon cdx-demo-css-icon--align-right" />
 						</button>
+					</div>
+					<div class="cdx-demo-flush-layout__content">
+						<!-- eslint-disable max-len -->
+						<p>
+							Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
+							peppermint asian pear frosted gingerbread bites Southern Italian almond milk
+							chai latte mint golden cayenne pepper.
+						</p>
+						<!-- eslint-enable max-len -->
+					</div>
+				</div>
+
+				<h4>Small icon-only buttons</h4>
+				<div class="cdx-demo-flush-layout cdx-demo-flush-layout--icon-only-small">
+					<div class="cdx-demo-flush-layout__buttons">
+						<cdx-button
+							weight="quiet"
+							size="small"
+							aria-label="Align left"
+						>
+							<cdx-icon size="small" :icon="cdxIconAlignLeft" />
+						</cdx-button>
+						<cdx-button
+							weight="quiet"
+							size="small"
+							aria-label="Align right"
+						>
+							<cdx-icon size="small" :icon="cdxIconAlignRight" />
+						</cdx-button>
 					</div>
 					<div class="cdx-demo-flush-layout__content">
 						<!-- eslint-disable max-len -->
@@ -337,6 +390,16 @@ const textValue = ref( '' );
 
 		.cdx-button:last-child {
 			.cdx-mixin-button-layout-flush( 'end', true );
+		}
+	}
+
+	&--icon-only-small {
+		.cdx-button:first-child {
+			.cdx-mixin-button-layout-flush( 'start', true, 'small' );
+		}
+
+		.cdx-button:last-child {
+			.cdx-mixin-button-layout-flush( 'end', true, 'small' );
 		}
 	}
 

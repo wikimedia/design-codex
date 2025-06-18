@@ -52,10 +52,12 @@ export default defineComponent( {
 		/**
 		 * Button size.
 		 *
-		 * Most Buttons should use the default medium size. In rare cases the large size should
-		 * be used, for example to make icon-only buttons larger on touchscreens.
+		 * Medium: Default for most cases.
+		 * Large: Use rarely, mainly for icon-only buttons on touchscreens.
+		 * Small: Use in tight spaces or inline with text.
+		 * Avoid on touchscreens - prefer medium for better accessibility.
 		 *
-		 * @values 'medium', 'large'
+		 * @values 'small', 'medium', 'large'
 		 */
 		size: {
 			type: String as PropType<ButtonSize>,
