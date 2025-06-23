@@ -21,7 +21,7 @@
 				</td>
 				<td>
 					<cdx-button size="small" @click="onClick">
-						Small button
+						small button
 					</cdx-button>
 				</td>
 				<td>

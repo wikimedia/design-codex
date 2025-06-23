@@ -101,8 +101,10 @@ Avoid verbs that imply visual or sensory abilities such as "see", or are idiomat
 
 Icons simplify user recognition and provide the ability to shorten Button labels to a minimum. When the Button includes a label, the icon is optional and should be used to add a clear visual reinforcement to the label. If the Button is icon-only, it should use a universally recognizable icon, such as the “edit” action.
 
+<cdx-demo-best-practices>
 <cdx-demo-best-practice>Ensure that icons used in buttons are relevant and easily recognizable.</cdx-demo-best-practice>
 <cdx-demo-best-practice type="dont">Avoid using icons that are difficult to recognize or do not clearly convey their purpose.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
 ## Examples
 
@@ -148,13 +150,18 @@ Wikipedia.
 
 ### Button sizes
 
-Buttons can be small, medium (default) or large `size`. 
+Buttons can be small, medium (default) or large `size`.
 
-- Use __small__ size only when space is tight - for example, inline with text or in compact layouts.<br>
-Do: Use non-capital letter to make it fit better with surrounding texts.<br>
-Don't: Avoid using the Small Button on touchable screens.
-- Use __medium__ as the standard button size.
-- Use __large__ size to support accessibility on touchscreens by increasing the touch area.
+1. **Small**<br>Use the small size only when space is tight: for example, inline with text or in compact layouts.
+
+<cdx-demo-best-practices class="cdx-demo-small-button-best-practices">
+<cdx-demo-best-practice>Use lowercase letters to make the button fit better with surrounding text.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Avoid using small buttons on touchable screens.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+2. **Medium**<br>Use medium as the standard button size.
+3. **Large**<br>Use the large size to support accessibility on touchscreens by increasing the touch area.
+
 
 By default, the width of a Button with text is determined by the width of the text until reaching a max-width. However, on mobile, Buttons should span the full-width of the container, except for icon-only Buttons, which will maintain their fixed square proportions.
 
@@ -180,11 +187,9 @@ By default, the width of a Button with text is determined by the width of the te
 
 <template #title>Developer notes</template>
 
-Set `min-width` manually on Buttons with extremely short labels
-Non-icon-only Buttons with text labels of only 1-2 characters in length may fall
-below size of the target area described above. If you are dealing with
-non-icon-only Buttons with extremely short labels, it is recommended to set a
-minimum width of: `@min-size-interactive-pointer` in your own CSS.
+Set `min-width` manually on Buttons with extremely short labels. Buttons with text labels of only
+1-2 characters in length may fall below size of the target area described above. In these cases, set
+a minimum width of `@min-size-interactive-pointer` in your own CSS.
 
 </cdx-accordion>
 
@@ -493,7 +498,7 @@ There are three Button sizes: small, medium (default) and large.
 - Avoid using small buttons on touchscreens. If possible, use the medium size to maintain touch accessibility.
 
 Use the following classes to apply these actions:
-- Small: `cdx-button--size-small` 
+- Small: `cdx-button--size-small`
 - Medium: `cdx-button--size-medium` (class can be omitted since this is the default)
 - Large: `cdx-button--size-large`
 
@@ -646,6 +651,11 @@ for more information.
 
 .cdx-demo-css-icon--user-avatar {
 	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @param-is-button-icon: true );
+}
+
+ul.cdx-demo-small-button-best-practices {
+	// Align best practices with list item text.
+	margin-left: @spacing-125;
 }
 </style>
 
