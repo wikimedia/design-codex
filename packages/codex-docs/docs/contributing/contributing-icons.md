@@ -1,7 +1,8 @@
 <script setup>
-import { cdxIconSuccess, cdxIconClear } from '@wikimedia/codex-icons';
 import { CdxIcon } from '@wikimedia/codex';
 import {
+	cdxIconSuccess,
+	cdxIconClear,
 	cdxIconListBullet,
 	cdxIconListNumbered,
 	cdxIconHelp,
