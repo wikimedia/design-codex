@@ -30,7 +30,7 @@ export default function useResizeObserver(
 	// Set up the ResizeObserver
 	const observer = new window.ResizeObserver(
 		( entries: ResizeObserverEntry[] ) => {
-			const entry = entries[ 0 ];
+			const entry = entries?.[ 0 ];
 
 			/**
 			 * When writing direction is horizontal, inlineSize corresponds to
@@ -40,8 +40,8 @@ export default function useResizeObserver(
 			 */
 			if ( entry ) {
 				currentDimensions.value = {
-					width: entry.borderBoxSize[ 0 ].inlineSize,
-					height: entry.borderBoxSize[ 0 ].blockSize
+					width: entry.borderBoxSize?.[ 0 ].inlineSize,
+					height: entry.borderBoxSize?.[ 0 ].blockSize
 				};
 			}
 		}
