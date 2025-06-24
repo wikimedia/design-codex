@@ -369,7 +369,11 @@ export default defineComponent( {
 			// Check if the event occurred outside Popover and trigger.
 			const referenceEl = unwrapElement( reference.value );
 			const isOutsidePopoverAndTrigger = (
+				// Don't close the popover when the viewport's native scrollbar is clicked (T388302)
+				event.target !== document.documentElement &&
+				// ...or when the popover or something inside it is clicked
 				( floating.value && !floating.value.contains( event.target as Node ) ) &&
+				// ...or when the trigger or something inside it is clicked
 				( !referenceEl?.contains( event.target as Node ) )
 			);
 
