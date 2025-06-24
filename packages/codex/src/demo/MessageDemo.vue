@@ -5,6 +5,7 @@
 			v-for="( type ) in StatusTypes"
 			:key="type"
 			:type="type"
+			:allow-user-dismiss="true"
 			dismiss-button-label="Dismiss"
 		>
 			{{ 'This is a ' + type + ' message.' }}
@@ -15,6 +16,7 @@
 			:key="type + '-inline'"
 			:type="type"
 			:inline="true"
+			:allow-user-dismiss="true"
 			dismiss-button-label="Dismiss"
 		>
 			{{ 'This is an inline ' + type + ' message.' }}

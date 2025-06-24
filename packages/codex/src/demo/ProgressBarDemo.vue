@@ -2,9 +2,8 @@
 	<section id="cdx-progress-bar">
 		<h2>ProgressBar</h2>
 		<cdx-progress-bar aria-label="ProgressBar example" />
-		<cdx-progress-bar aria-label="" />
 		<br>
-		<cdx-progress-bar :inline="true" />
+		<cdx-progress-bar :inline="true" aria-label="Inline ProgressBar" />
 		<br>
 		<cdx-progress-bar aria-label="Disabled ProgressBar" :disabled="true" />
 
