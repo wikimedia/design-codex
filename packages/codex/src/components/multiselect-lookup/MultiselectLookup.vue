@@ -472,9 +472,10 @@ export default defineComponent( {
 		}
 	}
 
-	// Overrides when used within a Dialog component
-	.cdx-dialog & {
-		// The menu is positioned relative to the dialog backdrop, not the triggering element.
+	// Overrides when used within a scrollable container in another component (e.g. Dialog)
+	.cdx-scrollable-container & {
+		// The menu is positioned relative to a positioned ancestor of the scrollable container
+		// (e.g. the Dialog's backdrop), not the triggering element.
 		position: static;
 	}
 }

@@ -98,6 +98,14 @@
 							{{ item }}
 						</cdx-info-chip>
 					</template>
+					<template #item-action>
+						<cdx-menu-button
+							v-model:selected="menuButtonSelected"
+							:menu-items="menuButtonItems"
+						>
+							<cdx-icon :icon="cdxIconEllipsis" />
+						</cdx-menu-button>
+					</template>
 				</cdx-table>
 
 				<h2>Table using tbody slot and columns</h2>
@@ -408,7 +416,8 @@ const dataManyColumns = [
 const columnsItemSlot: TableColumn[] = [
 	{ id: 'name', label: 'Name' },
 	{ id: 'status', label: 'Status' },
-	{ id: 'language', label: 'Language' }
+	{ id: 'language', label: 'Language' },
+	{ id: 'action', label: 'Action' }
 ];
 const dataItemSlot = [
 	{
@@ -447,6 +456,16 @@ function getChipStatus( itemStatus: string ) {
 			return 'notice';
 	}
 }
+
+const menuButtonSelected = ref<string|number|null>( null );
+const menuButtonItems = [
+	{ label: 'One', value: '1' },
+	{ label: 'Two', value: '2' },
+	{ label: 'Three', value: '3' },
+	{ label: 'Four', value: '4' },
+	{ label: 'Five', value: '5' },
+	{ label: 'Six', value: '6' }
+];
 
 // Table using default slot for tfoot.
 const columnsTfoot: TableColumn[] = [

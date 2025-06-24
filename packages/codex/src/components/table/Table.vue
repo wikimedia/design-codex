@@ -49,7 +49,10 @@
 			</span>
 		</cdx-table-pager>
 
-		<div class="cdx-table__table-wrapper">
+		<div
+			class="cdx-table__table-wrapper cdx-scrollable-container"
+			:class="tableWrapperClasses"
+		>
 			<table class="cdx-table__table" :class="tableClasses">
 				<!-- Visually-hidden caption element, for assistive technology. -->
 				<caption>
@@ -666,6 +669,10 @@ export default defineComponent( {
 			};
 		} );
 
+		const tableWrapperClasses = computed( () => ( {
+			'cdx-table__table-wrapper--has-pending-indicator': props.pending
+		} ) );
+
 		// i18n
 		const translatedSortCaption = useI18n(
 			'cdx-table-sort-caption',
@@ -902,6 +909,7 @@ export default defineComponent( {
 
 			// Template helpers.
 			tableClasses,
+			tableWrapperClasses,
 			getRowKey,
 			getRowClass,
 			getRowHeaderScope,
@@ -987,9 +995,15 @@ export default defineComponent( {
 	}
 
 	&__table-wrapper {
-		position: relative;
 		// Enable horizontal scroll on just the actual table.
 		overflow-x: auto;
+
+		// Only make this element relatively positioned when the progress bar is displayed. This
+		// will ensure that the progress bar is absolutely positioned relative to this element and
+		// that, when the progress bar is not displayed, menus within the table can overflow it.
+		&--has-pending-indicator {
+			position: relative;
+		}
 	}
 
 	&__table {

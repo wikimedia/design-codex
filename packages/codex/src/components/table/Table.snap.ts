@@ -35,7 +35,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ({"columns": [Array], "d
   </div>
   <!--v-if-->
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table"
@@ -305,7 +305,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ({"columns": 
   </div>
   <!--v-if-->
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table"
@@ -575,7 +575,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ({"columns": [Ar
   </div>
   <!--v-if-->
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table"
@@ -874,7 +874,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ({"columns": [Ar
   <!--v-if-->
   <!--v-if-->
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table"
@@ -1144,7 +1144,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ({"columns": [Array
   </div>
   <!--v-if-->
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table"
@@ -1418,7 +1418,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ({"column
   </div>
   <!--v-if-->
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table cdx-table__table--layout-fixed"
@@ -1695,7 +1695,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ({"columns": [Arr
   </div>
   <!--v-if-->
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table"
@@ -2212,7 +2212,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ({"colu
   </div>
   <!--v-if-->
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table"
@@ -2490,7 +2490,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ({"columns": [Array], "da
   </div>
   <!--v-if-->
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table"
@@ -2760,7 +2760,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ({"columns": [Array],
   </div>
   <!--v-if-->
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table"
@@ -3038,7 +3038,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ({"columns": [Array]
   </div>
   <!--v-if-->
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table"
@@ -3526,7 +3526,7 @@ exports[`Table matches the snapshot Case 11 With empty state: ({"columns": [Arra
   </div>
   <!--v-if-->
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table"
@@ -3909,7 +3909,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
     </div>
   </div>
   <div
-    class="cdx-table__table-wrapper"
+    class="cdx-table__table-wrapper cdx-scrollable-container"
   >
     <table
       class="cdx-table__table"

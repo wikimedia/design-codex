@@ -64,7 +64,7 @@
 
 					<div
 						ref="dialogBody"
-						class="cdx-dialog__body"
+						class="cdx-dialog__body cdx-scrollable-container"
 						:class="{
 							'cdx-dialog__body--no-header': !( showHeader || $slots.header ),
 							'cdx-dialog__body--no-footer': !(

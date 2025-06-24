@@ -42,7 +42,7 @@ exports[`Dialog matches the snapshot Case 0 Basic usage 1`] = `
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body cdx-dialog__body--no-footer"
+        class="cdx-dialog__body cdx-scrollable-container cdx-dialog__body--no-footer"
       >
         <!-- @slot Dialog content -->
         
@@ -103,7 +103,7 @@ exports[`Dialog matches the snapshot Case 1 Open dialog 1`] = `
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body cdx-dialog__body--no-footer"
+        class="cdx-dialog__body cdx-scrollable-container cdx-dialog__body--no-footer"
       >
         <!-- @slot Dialog content -->
         
@@ -184,7 +184,7 @@ exports[`Dialog matches the snapshot Case 2 With hidden title 1`] = `
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body cdx-dialog__body--no-footer"
+        class="cdx-dialog__body cdx-scrollable-container cdx-dialog__body--no-footer"
       >
         <!-- @slot Dialog content -->
         
@@ -275,7 +275,7 @@ exports[`Dialog matches the snapshot Case 3 With custom close button label 1`] =
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body cdx-dialog__body--no-footer"
+        class="cdx-dialog__body cdx-scrollable-container cdx-dialog__body--no-footer"
       >
         <!-- @slot Dialog content -->
         
@@ -366,7 +366,7 @@ exports[`Dialog matches the snapshot Case 4 Using deprecated API for close butto
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body cdx-dialog__body--no-footer"
+        class="cdx-dialog__body cdx-scrollable-container cdx-dialog__body--no-footer"
       >
         <!-- @slot Dialog content -->
         
@@ -427,7 +427,7 @@ exports[`Dialog matches the snapshot Case 5 With default action 1`] = `
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body"
+        class="cdx-dialog__body cdx-scrollable-container"
       >
         <!-- @slot Dialog content -->
         
@@ -508,7 +508,7 @@ exports[`Dialog matches the snapshot Case 6 With default disabled action 1`] = `
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body"
+        class="cdx-dialog__body cdx-scrollable-container"
       >
         <!-- @slot Dialog content -->
         
@@ -590,7 +590,7 @@ exports[`Dialog matches the snapshot Case 7 With default and primary actions 1`]
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body"
+        class="cdx-dialog__body cdx-scrollable-container"
       >
         <!-- @slot Dialog content -->
         
@@ -678,7 +678,7 @@ exports[`Dialog matches the snapshot Case 8 With stacked default and primary act
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body"
+        class="cdx-dialog__body cdx-scrollable-container"
       >
         <!-- @slot Dialog content -->
         
@@ -770,7 +770,7 @@ exports[`Dialog matches the snapshot Case 9 With subtitle 1`] = `
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body"
+        class="cdx-dialog__body cdx-scrollable-container"
       >
         <!-- @slot Dialog content -->
         
@@ -862,7 +862,7 @@ exports[`Dialog matches the snapshot Case 10 With footer text 1`] = `
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body"
+        class="cdx-dialog__body cdx-scrollable-container"
       >
         <!-- @slot Dialog content -->
         
@@ -954,7 +954,7 @@ exports[`Dialog matches the snapshot Case 11 With custom header and footer 1`] =
         tabindex="-1"
       />
       <div
-        class="cdx-dialog__body"
+        class="cdx-dialog__body cdx-scrollable-container"
       >
         <!-- @slot Dialog content -->
         
