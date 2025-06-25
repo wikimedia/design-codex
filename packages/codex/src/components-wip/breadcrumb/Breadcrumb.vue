@@ -1,10 +1,11 @@
 <template>
+	<!-- TODO: use translatable message. -->
 	<nav class="cdx-breadcrumb" aria-label="Breadcrumb">
-		<ol>
-			<li v-if="overflowItems.length" class="cdx-breadcrumb__overflow">
+		<ol class="cdx-breadcrumb__list">
+			<li v-if="overflowItems.length" class="cdx-breadcrumb__list__overflow">
 				<cdx-menu-button
-					v-model:selected="selection"
-					:menu-items="overflowMenuItems"
+					v-model:selected="selectedOverflowItem"
+					:menu-items="overflowItems"
 					:aria-label="breadcrumbOverflowAriaLabel"
 					class="cdx-breadcrumb__overflow-button"
 				>
@@ -18,16 +19,17 @@
 				/>
 			</li>
 			<li
-				v-for="( item, index ) in Items"
-				:key="index">
+				v-for="( item, index ) in visibleItems"
+				:key="index"
+				class="cdx-breadcrumb__list__item"
+			>
 				<a
 					v-tooltip:top="item.isTruncated ? item.fullText : undefined"
-					:title="item.text"
-					:href="item.href"
-					:aria-current="item.ariaCurrent"
+					:href="item.url"
+					:aria-current="item.isCurrentPage ? 'page' : undefined"
 					class="cdx-breadcrumb__link"
 				>
-					{{ item.text }}
+					{{ item.label }}
 				</a>
 				<cdx-icon
 					v-if="item.showDivider"
@@ -43,7 +45,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType, ref } from 'vue';
-import { BreadcrumbItem, MenuButtonItemData, MenuGroupData } from '../../types';
+import { BreadcrumbItem, BreadcrumbData, MenuButtonItemData } from '../../types';
 import {
 	cdxIconNext,
 	cdxIconDoubleChevronEnd,
@@ -67,15 +69,8 @@ export default defineComponent( {
 	},
 	props: {
 		/**
-		 * An array of breadcrumb items.
-		 * Each item is an object with the following:
-		 * - `text` (string): The display text.
-		 * - `href` (string): The URL. Use an empty string if not needed.
-		 * - `active` (boolean, optional): Marks the current page.
-		 * - `ariaCurrent` (`'page'`, optional): ARIA attribute for the current page.
-		 * - `showDivider` (boolean): Shows a divider after the item.
-		 * - `isTruncated` (boolean, optional): Truncates the text if needed.
-		 * - `fullText` (string, optional): Full text for tooltips or accessibility.
+		 * An array of breadcrumb items. Items will be displayed in the order they appear. The
+		 * final item should be the current page.
 		 */
 		items: {
 			type: Array as PropType<BreadcrumbItem[]>,
@@ -92,20 +87,12 @@ export default defineComponent( {
 		},
 		/**
 		 * The maximum number of visible breadcrumb items.
-		 * If the number of items exceeds this number,
-		 * the extra items will be moved into an overflow menu.
+		 * Extra items will be moved into an overflow menu.
 		 */
 		maxVisible: {
 			type: Number,
 			default: 6,
 			validator: ( value: number ) => {
-				if ( typeof value !== 'number' ) {
-					// eslint-disable-next-line no-console
-					console.warn(
-						'[CdxBreadcrumb]: The "maxVisible" property must be of type number.'
-					);
-					return false;
-				}
 				if ( value < 1 ) {
 					// eslint-disable-next-line no-console
 					console.warn(
@@ -118,32 +105,30 @@ export default defineComponent( {
 		}
 	},
 	setup( props ) {
-		const selection = ref( null );
+		const selectedOverflowItem = ref( null );
 
 		/**
 		 * Computes the effective maximum number of visible breadcrumb items.
 		 * If `maxVisible` is less than 1, it falls back to 1.
 		 */
-		const effectiveMaxVisible = computed( () => props.maxVisible >= 1 ? props.maxVisible : 1 );
+		const computedMaxVisible = computed( () => props.maxVisible >= 1 ? props.maxVisible : 1 );
 
 		/**
 		 * Computes the visible breadcrumb items that will be displayed in the breadcrumb trail.
 		 * These are the most recent breadcrumb items, up to the maximum number of visible items.
 		 * Also handles truncation of page names according to content overflow guidelines.
 		 */
-		const Items = computed<BreadcrumbItem[]>( () => {
-			const visibleItems = props.items.slice( -effectiveMaxVisible.value );
+		const visibleItems = computed<BreadcrumbData[]>( () => {
+			const itemsToShow = props.items.slice( -computedMaxVisible.value );
 
-			return visibleItems.map( ( item, index ) => {
-				const isCurrentPage = item.active;
-				const { truncatedText, isTruncated } = truncateText( item.text );
+			return itemsToShow.map( ( item, index ) => {
+				const { truncatedText, isTruncated } = truncateText( item.label );
 				return {
-					...item,
-					href: item.href ?? '',
-					ariaCurrent: isCurrentPage ? 'page' : undefined,
-					showDivider: index < visibleItems.length - 1,
-					text: truncatedText,
-					fullText: item.text,
+					label: truncatedText,
+					url: item.url,
+					isCurrentPage: index === itemsToShow.length - 1,
+					showDivider: index < itemsToShow.length - 1,
+					fullText: item.label,
 					isTruncated: isTruncated
 				};
 			} );
@@ -154,33 +139,20 @@ export default defineComponent( {
 		 * These are the earliest breadcrumb items, from first to the ones
 		 * that are not in the visible items.
 		 */
-		const overflowItems = computed( (): BreadcrumbItem[] => {
-			if ( props.items.length > effectiveMaxVisible.value ) {
+		const overflowItems = computed( (): MenuButtonItemData[] => {
+			if ( props.items.length > computedMaxVisible.value ) {
 				const overflowEndIndex =
-					effectiveMaxVisible.value === 1 ?
+					computedMaxVisible.value === 1 ?
 						props.items.length - 1 :
-						props.items.length - effectiveMaxVisible.value;
+						props.items.length - computedMaxVisible.value;
 				return props.items.slice( 0, overflowEndIndex ).map( ( item ) => ( {
-					...item,
-					href: item.href ?? '',
-					showDivider: false
+					label: item.label,
+					value: item.url ?? item.label,
+					url: item.url ?? ''
 				} ) );
 			}
 			return [];
 		} );
-
-		/**
-		 * Computes the menu items to be displayed in the overflow menu.
-		 * These are the overflowed breadcrumb items, and should include their values and URLs.
-		 */
-		const overflowMenuItems = computed(
-			(): ( MenuGroupData | MenuButtonItemData )[] => overflowItems.value.map( ( item ) => ( {
-				label: item.text,
-				value: item.href ?? item.text,
-				url: item.href ?? '',
-				disabled: false
-			} ) )
-		);
 
 		/**
 		 * i18n label message for the overflow menu button
@@ -213,14 +185,13 @@ export default defineComponent( {
 		}
 
 		return {
+			selectedOverflowItem,
+			visibleItems,
+			overflowItems,
+			breadcrumbOverflowAriaLabel,
 			cdxIconNext,
 			cdxIconDoubleChevronEnd,
-			cdxIconEllipsis,
-			Items,
-			overflowItems,
-			overflowMenuItems,
-			selection,
-			breadcrumbOverflowAriaLabel
+			cdxIconEllipsis
 		};
 	}
 } );
@@ -228,63 +199,43 @@ export default defineComponent( {
 
 <style lang="less">
 @import (reference) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import (reference) '../../themes/mixins/public/link.less';
 
 .cdx-breadcrumb {
 	display: flex;
-	flex-wrap: nowrap;
-	height: @size-200;
+	align-items: center;
+	gap: @spacing-25;
 
-	ol {
+	&__list {
 		list-style: none;
 		display: flex;
 		align-items: center;
+		gap: @spacing-25;
 		margin: @spacing-0;
 		padding-left: @spacing-0;
-	}
 
-	li {
-		display: flex;
-		align-items: center;
-		flex-shrink: 1;
-		height: @size-150;
+		&__overflow,
+		&__item {
+			display: flex;
+			align-items: center;
+			gap: @spacing-25;
+		}
 
-		.cdx-tooltip {
-			background-color: @color-placeholder;
-			color: @color-inverted;
-			min-width: @size-150;
-			max-width: @size-1600;
-			border-radius: @border-radius-base;
-			padding: @spacing-12 @spacing-35;
-			font-size: @spacing-75;
+		&__item {
+			flex-shrink: 1;
+
+			.cdx-tooltip {
+				background-color: @color-placeholder;
+				font-size: @font-size-small;
+			}
 		}
 	}
 
 	&__link {
-		color: @color-progressive;
-		min-width: @spacing-0;
-		border-radius: @border-radius-base;
+		.cdx-mixin-link-base();
 		overflow: hidden;
-		font-size: @font-size-small;
-		text-decoration: @text-decoration-none;
 		text-overflow: @text-overflow-ellipsis;
 		white-space: nowrap;
-
-		&:hover {
-			color: @color-progressive--hover;
-			text-decoration: @text-decoration-underline;
-		}
-
-		&:visited {
-			color: @color-visited;
-
-			&:hover {
-				color: @color-visited--hover;
-			}
-
-			&:active {
-				color: @color-visited--active;
-			}
-		}
 
 		&[ aria-current='page' ] {
 			color: @color-base;
@@ -295,9 +246,7 @@ export default defineComponent( {
 	}
 
 	&__separator-icon {
-		flex-shrink: @spacing-0;
-		margin: @spacing-0 @spacing-25;
-		vertical-align: middle;
+		flex-shrink: 0;
 	}
 }
 

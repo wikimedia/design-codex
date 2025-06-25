@@ -286,11 +286,13 @@ export interface TooltipOptions {
 
 /** @public */
 export interface BreadcrumbItem {
-	text: string;
-	href: string;
-	active?: boolean;
-	ariaCurrent?: 'page';
+	label: string;
+	url: string;
+}
+
+export interface BreadcrumbData extends BreadcrumbItem {
+	isCurrentPage: boolean,
 	showDivider: boolean;
-	isTruncated?: boolean;
+	isTruncated?: boolean
 	fullText?: string;
 }

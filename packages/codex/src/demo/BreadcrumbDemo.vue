@@ -5,7 +5,6 @@
 		<div class="cdx-demo__content__sectioning cdx-demo-flex-container">
 			<cdx-breadcrumb
 				:items="breadcrumbItems"
-				overflow-aria-label="More navigation options"
 				:max-visible="4"
 				:truncate-length="20"
 			/>
@@ -14,7 +13,6 @@
 		<div class="cdx-demo__content__sectioning cdx-demo-flex-container">
 			<cdx-breadcrumb
 				:items="breadcrumbItems"
-				overflow-aria-label="More navigation options"
 				:max-visible="3"
 				:truncate-length="20"
 			/>
@@ -23,7 +21,6 @@
 		<div class="cdx-demo__content__sectioning cdx-demo-flex-container">
 			<cdx-breadcrumb
 				:items="breadcrumbItems"
-				overflow-aria-label="More navigation options"
 				:max-visible="1"
 				:truncate-length="15"
 			/>
@@ -32,7 +29,6 @@
 		<div class="cdx-demo__content__sectioning cdx-demo-flex-container">
 			<cdx-breadcrumb
 				:items="breadcrumbItems"
-				overflow-aria-label="More navigation options"
 				:max-visible="4"
 				:truncate-length="15"
 			/>
@@ -43,21 +39,13 @@
 <script lang="ts" setup>
 // eslint-disable-next-line no-restricted-imports
 import CdxBreadcrumb from '../components-wip/breadcrumb/Breadcrumb.vue';
+import { BreadcrumbItem } from '../types';
 
-const breadcrumbItems = [
-	{ text: 'Main Page', href: 'https://en.wikipedia.org/wiki/Main_Page', showDivider: true },
-	{ text: 'Contents', href: 'https://en.wikipedia.org/wiki/Wikipedia:Contents', showDivider: true },
-	{ text: 'Featured content', href: 'https://en.wikipedia.org/wiki/Wikipedia:Featured_content', showDivider: true },
-	{ text: 'Featured topics', href: 'https://en.wikipedia.org/wiki/Wikipedia:Featured_topics', active: true, showDivider: false }
+const breadcrumbItems: BreadcrumbItem[] = [
+	{ label: 'Main Page', url: 'https://en.wikipedia.org/wiki/Main_Page' },
+	{ label: 'Contents', url: 'https://en.wikipedia.org/wiki/Wikipedia:Contents' },
+	{ label: 'Featured content', url: 'https://en.wikipedia.org/wiki/Wikipedia:Featured_content' },
+	{ label: 'Featured topics', url: 'https://en.wikipedia.org/wiki/Wikipedia:Featured_topics' }
 ];
 
 </script>
-
-<style lang="less" scoped>
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-
-.cdx-demo-flex-container {
-	display: flex;
-	gap: @spacing-100;
-}
-</style>
