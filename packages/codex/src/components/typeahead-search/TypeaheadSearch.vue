@@ -789,6 +789,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/typeahead-searc
 
 		&__icon.cdx-icon {
 			color: @color-subtle;
+			margin-right: @spacing-50;
 		}
 
 		// We cannot use a pseudo class ":active" because that does not work
@@ -855,6 +856,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/typeahead-searc
 				// Prevent the icon container from shrinking on smaller base font sizes.
 				min-width: @min-size-search-figure;
 				width: @size-search-figure;
+				margin-right: 0;
 			}
 		}
 	}
