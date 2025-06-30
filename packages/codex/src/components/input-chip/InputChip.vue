@@ -223,13 +223,11 @@ export default defineComponent( {
 	gap: @spacing-12;
 	box-sizing: @box-sizing-base;
 	max-width: @size-full;
-	max-height: @size-150;
+	max-height: @max-height-chip;
 	border: @border-width-base @border-style-base @border-color-interactive;
 	border-radius: @border-radius-pill;
 	padding: 0 @spacing-12 0 @spacing-50;
 	font-size: @font-size-small;
-	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-	line-height: 1;
 
 	.cdx-icon {
 		margin-right: @spacing-12;

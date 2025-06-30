@@ -112,6 +112,11 @@
 			"value": "{ dimension.2800 }"
 		}
 	},
+	"max-height": {
+		"chip": {
+			"value": "{ dimension.140 }"
+		}
+	},
 	"spacing": {
 		"horizontal-button": {
 			"comment": "Padding should equal 12px of spacing minus the width of the border",
