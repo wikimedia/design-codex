@@ -52,6 +52,10 @@ export default defineConfigWithTheme<CustomConfig>( {
 	// Don't show the color mode switcher; we add our own in CustomLayout.vue.
 	appearance: false,
 
+	head: [
+		[ 'link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' } ]
+	],
+
 	markdown: {
 		theme: 'dracula'
 	},
