@@ -220,6 +220,7 @@ export const TablePaginationPositions = [
  * this may change in a future major version release).
  */
 export const I18nMessageKeys = [
+	'cdx-breadcrumb-navigation-label',
 	'cdx-breadcrumb-overflow-label',
 	'cdx-chip-input-chip-added',
 	'cdx-chip-input-chip-removed',

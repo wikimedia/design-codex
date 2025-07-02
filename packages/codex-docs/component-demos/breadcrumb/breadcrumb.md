@@ -1,10 +1,12 @@
 <script setup>
 import { CdxBreadcrumb } from '@wikimedia/codex';
+import BreadcrumbBasic from '@/../component-demos/breadcrumb/examples/BreadcrumbBasic.vue';
+import BreadcrumbOverflow from '@/../component-demos/breadcrumb/examples/BreadcrumbOverflow.vue';
 
 const items = [
     { label: 'Home', url: '/' },
-    { label: 'Components', url: '/components/overview.html'},
-    { label: 'Breadcrumb' },
+    { label: 'Components', url: '/components/overview.html' },
+    { label: 'Breadcrumb', url: '' }
 ];
 
 const controlsConfig = [
@@ -18,10 +20,14 @@ Breadcrumb is a list of links to the parent pages of the current page in hierarc
 
 ### Configurable
 
-<cdx-demo-wrapper :controls-config="controlsConfig" :show-generated-code="true">
-  <template v-slot:demo="{ propValues }">
-    <cdx-breadcrumb :items="items" :max-visible="propValues.maxVisible" />
-  </template>
+<cdx-demo-wrapper :controls-config="controlsConfig">
+  	<template v-slot:demo="{ propValues }">
+		<cdx-breadcrumb
+			:items="items"
+			:max-visible="propValues.maxVisible"
+			:truncate-length="propValues.truncateLength"
+		/>
+  	</template>
 </cdx-demo-wrapper>
 
 ## Overview
@@ -60,7 +66,23 @@ displayed in a MenuButton.
 
 </cdx-demo-best-practices>
 
-TODO: add demo
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<breadcrumb-basic />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/breadcrumb/examples/BreadcrumbBasic.vue [NPM]
+
+<<< @/../component-demos/breadcrumb/examples-mw/BreadcrumbBasic.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
 
 ### With overflow menu
 
@@ -70,7 +92,23 @@ TODO: add demo
 
 </cdx-demo-best-practices>
 
-TODO: add demo
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<breadcrumb-overflow />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/breadcrumb/examples/BreadcrumbOverflow.vue [NPM]
+
+<<< @/../component-demos/breadcrumb/examples-mw/BreadcrumbOverflow.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
 
 ## Technical implementation
 

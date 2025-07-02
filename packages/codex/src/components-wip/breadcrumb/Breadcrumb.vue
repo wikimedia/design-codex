@@ -1,12 +1,11 @@
 <template>
-	<!-- TODO: use translatable message. -->
-	<nav class="cdx-breadcrumb" aria-label="Breadcrumb">
+	<nav class="cdx-breadcrumb" :aria-label="translatedNavigationLabel">
 		<ol class="cdx-breadcrumb__list">
 			<li v-if="overflowItems.length" class="cdx-breadcrumb__list__overflow">
 				<cdx-menu-button
 					v-model:selected="selectedOverflowItem"
 					:menu-items="overflowItems"
-					:aria-label="breadcrumbOverflowAriaLabel"
+					:aria-label="translatedOverflowLabel"
 					class="cdx-breadcrumb__overflow-button"
 				>
 					<cdx-icon size="small" :icon="cdxIconEllipsis" />
@@ -157,9 +156,17 @@ export default defineComponent( {
 		/**
 		 * i18n label message for the overflow menu button
 		 */
-		const breadcrumbOverflowAriaLabel = useI18n(
+		const translatedOverflowLabel = useI18n(
 			'cdx-breadcrumb-overflow-label',
 			'More navigation options'
+		);
+
+		/**
+		 * i18n label message for the nav element's navigation type.
+		 */
+		const translatedNavigationLabel = useI18n(
+			'cdx-breadcrumb-navigation-label',
+			'Breadcrumb'
 		);
 
 		/**
@@ -188,7 +195,8 @@ export default defineComponent( {
 			selectedOverflowItem,
 			visibleItems,
 			overflowItems,
-			breadcrumbOverflowAriaLabel,
+			translatedOverflowLabel,
+			translatedNavigationLabel,
 			cdxIconNext,
 			cdxIconDoubleChevronEnd,
 			cdxIconEllipsis
