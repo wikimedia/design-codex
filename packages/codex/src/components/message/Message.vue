@@ -265,6 +265,11 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 	border-radius: @border-radius-base;
 	padding: @spacing-75;
 
+	&__icon,
+	&__icon--vue {
+		flex-shrink: 0;
+	}
+
 	// Set the default CSS icon to the icon for notice messages, which is the default message type.
 	// The icon and icon color will be overridden for other message types below.
 	// The color of the Vue icon for notice messages is inherited from the color rule set on
