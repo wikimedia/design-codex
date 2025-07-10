@@ -379,11 +379,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 
 	&__dismiss-button.cdx-button {
 		position: absolute;
-		// In order to keep the button centered to the content, we must calculate
-		// its distance from the top dynamically based on the changing line-height
-		// across the different font modes.
-		// Equal to `7px` in `16px` base at default font size mode.
-		top: calc( @font-size-medium * 0.5 );
+		top: @spacing-50;
 		right: @spacing-50;
 		padding: @spacing-30;
 		// Remove `line-height` to not overgrow button.
