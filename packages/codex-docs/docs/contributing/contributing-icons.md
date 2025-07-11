@@ -238,8 +238,8 @@ export const cdxIconHelp: IconFlipForRtl = {
 	In the paragraph below, do not allow the <cdx-icon> tags to be at the start of the line!
 	Icons at the start of a line are not inlined, but start a new paragraph, which we don't want.
 -->
-For some icons, the RTL version isn't a simple mirror image of the LTR version. For example, the `listNumbered` icon looks like <cdx-icon :icon="cdxIconListNumbered" /> in LTR. Flipping it automatically would look wrong, because the numbers would be mirrored too: `<cdx-icon :icon="cdxIconListNumberedWronglyFlipped" dir="rtl" />`.
-Instead, we need a separate SVG file for the RTL version of the icon: `<cdx-icon :icon="cdxIconListNumbered" dir="rtl" />`.
+For some icons, the RTL version isn't a simple mirror image of the LTR version. For example, the `listNumbered` icon looks like <cdx-icon :icon="cdxIconListNumbered" /> in LTR. Flipping it automatically would look wrong, because the numbers would be mirrored too: <cdx-icon :icon="cdxIconListNumberedWronglyFlipped" dir="rtl" />.
+Instead, we need a separate SVG file for the RTL version of the icon: <cdx-icon :icon="cdxIconListNumbered" dir="rtl" />.
 
 For these icons, add two SVG files to the `images/` directory named with `-ltr` and `-rtl`
 suffixes, e.g. `listNumbered-ltr.svg` and `listNumbered-rtl.svg`. Add an icon definition to
@@ -258,7 +258,7 @@ export const cdxIconListNumbered: IconVariedByDir = {
 	In the paragraph below, do not allow the <cdx-icon> tags to be at the start of the line!
 	Icons at the start of a line are not inlined, but start a new paragraph, which we don't want.
 -->
-Some icons look different in different languages, especially those based on letters. In many cases, several languages share the same version of the icon. For example, the "bold" icon looks like `<cdx-icon :icon="cdxIconBold" lang="en" />` in Czech, English, Hebrew, Malayalam, Polish and Scottish, but like `<cdx-icon:icon="cdxIconBold" lang="ru" />` in Kirghiz, Russian and Ukrainian, etc.
+Some icons look different in different languages, especially those based on letters. In many cases, several languages share the same version of the icon. For example, the "bold" icon looks like <cdx-icon :icon="cdxIconBold" lang="en" /> in Czech, English, Hebrew, Malayalam, Polish and Scottish, but like <cdx-icon :icon="cdxIconBold" lang="ru" /> in Kirghiz, Russian and Ukrainian, etc.
 
 For these icons, add a separate SVG file for each version of the icon to `images/`, each with a suffix that describes the variant of the icon. For example, `bold-b.svg`, `bold-f.svg`, `bold-cyrl-zhe.svg`, etc. There may be many variants; the "bold" icon has 16.
 
