@@ -36,6 +36,9 @@ packages/codex-docs/docs/.vitepress/cache/
 # Ignore PNG files.
 *.png
 
+# Ignore ICO files.
+*.ico
+
 # Ignore .txt files.
 *.txt
 
