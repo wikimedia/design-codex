@@ -1,8 +1,6 @@
 <script setup>
 import { CdxIcon } from '@wikimedia/codex';
 import {
-	cdxIconSuccess,
-	cdxIconClear,
 	cdxIconListBullet,
 	cdxIconListNumbered,
 	cdxIconHelp,
@@ -68,6 +66,7 @@ Duplicate this [icon exploration template](https://www.figma.com/design/bCNMpucl
 
 Design an RTL (or mirrored) version of the icon in case it represents horizontal directionality, lists or text. Refer to the [Bidirectionality](../style-guide/bidirectionality.md) guidelines to read more about how to mirror icons.
 
+<cdx-demo-best-practices>
 <cdx-demo-best-practice>
 
 Mirror icons with horizontal orientation, like the `cdxIconArrowNext` and `cdxIconArrowPrevious`
@@ -88,6 +87,7 @@ Do not mirror Icons lacking clear directionality, as well as icons representing 
 Do not mirror question mark icons or media icons such as play, pause, or rewind.
 
 </cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
 ::: info
 Share the icon proposal in the Phabricator task to gather feedback and iterate as needed.
@@ -319,31 +319,3 @@ Once the icon implementation has been completed, the contributor will need to:
 - **Publish in Figma**: Add the approved icon to the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=1891-4420&node-type=canvas&t=plW1hmguHVWs3fWZ-11) for reuse in design projects. Due to [team permissions in Figma](https://help.figma.com/hc/en-us/articles/360039970673-Team-permissions), only designers in the Wikimedia Foundation Figma team can edit the library. If you are part of the team, create a Figma branch adding the new icon before publishing; if you are not, someone from the team will handle the publishing for you.
 
 [icon-creation-phab-template]: https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?title=%5BIconName%5D%3A%20Add%20%5BIconName%5D%20icon%20to%20Codex%20and%20OOUI&description=%23%23%20Background%0D%0A%0D%0ANOTE%3A%20%2F%2FWhen%20creating%20a%20component%20task%2C%20please%20try%20to%20fill%20out%20the%20entire%20Background%20section.%20The%20rest%20of%20the%20task%20description%20can%20be%20populated%20later.%2F%2F%0D%0A%0D%0A%20%20%20%20-%20**Description%3A**%20provide%20context%20about%20usage%20of%20the%20new%20icon%0D%0A%20%20%20%20-%20**History%3A**%20describe%20or%20link%20to%20prior%20discussions%20related%20to%20this%20icon%0D%0A%20%20%20%20-%20**Known%20use%20case(s)%3A**%20describe%20known%20use%20cases%20for%20this%20icon%2C%20including%20the%20project%20and%20team%20where%20you%20will%20use%20this%20icon%20(and%20timeline%20if%20needed)%0D%0A%20%20%20%20-%20**Considerations%3A**%20list%20any%20known%20challenges%20or%20blockers%2C%20or%20any%20other%20important%20information%0D%0A%0D%0A%23%23%23%20User%20stories%0D%0A%0D%0A%2F%2FAdd%20at%20least%20one%20user%20story%20in%20the%20task%2F%2F%0D%0A%0D%0A%23%23%23%20Open%20questions%0D%0A%0D%0A%2F%2F%20Add%20here%20the%20questions%20to%20be%20answered%20in%20order%20to%20design%20and%20implement%20the%20component%20%2F%2F%0D%0A%0D%0A%23%23%23%20Design%20proposal%0D%0A%0D%0A%2F%2FOnce%20the%20icon%20proposal%20has%20been%20defined%2C%20it%20will%20be%20explained%20in%20this%20section%2C%20so%20any%20user%20can%20easily%20find%20and%20understand%20it.%2F%2F%0D%0A%0D%0A%23%23%23%20SVG%20icon%0D%0A%0D%0A%2F%2FOnce%20the%20icon%20has%20been%20created%2C%20we%20will%20export%20it%20in%20SVG%20format%20and%20add%20it%20here.%2F%2F%0D%0A%0D%0A%23%23%23%20Acceptance%20criteria%20for%20Done%0D%0A%0D%0A**Design**%0D%0A%20%0D%0A%5B%20%5D%20%20The%20design%20of%20the%20new%20icon%20is%20ready%2C%20and%20it%20follows%20the%20%5Bicon%20guidelines%5D(https%3A%2F%2Fdoc.wikimedia.org%2Fcodex%2Flatest%2Fstyle-guide%2Ficons.html)%0D%0A%20%20%20%5B%20%5D%20%20An%20RTL%20icon%20has%20been%20created%20%2F%2F(if%20needed)%2F%2F%0D%0A%20%20%20%5B%20%5D%20%20The%20icon%20is%20recognizable%20on%20low%20DPI%20resolutions%0D%0A%20%20%20%5B%20%5D%20%20The%20icon%20has%20been%20exported%20as%20an%20optimized%20SVG%20and%20added%20to%20this%20task%E2%80%99s%20description%0D%0A%20%20%20%5B%20%5D%20%20The%20new%20icon%20has%20been%20included%20and%20published%20in%20the%20%5BCodex%20Figma%20library%5D(https%3A%2F%2Fwww.figma.com%2Fdesign%2FKoDuJMadWBXtsOtzGS4134%2FCodex%3Fnode-id%3D20598-51339%26t%3DCLcY4nY3roYuHgVq-11)%0D%0A%20%20%20%20%0D%0A**Code**%0D%0A%0D%0A%5B%20%5D%20%20Add%20icon%20in%20Codex%0D%0A%5B%20%5D%20%20Add%20icon%20in%20OOUI%0D%0A%0D%0A%0D%0A**Documentation**%0D%0A%5B%20%5D%20Update%20%7BT141801%7D&projects=Codex%2C%20OOUI
-
-
-<style lang="less">
-@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-
-// Mimic other do/don't sections.
-// TODO: Split the demo's image into two, then this can use the Rules component and these custom
-// styles can be removed.
-.cdx-docs-rtl-icon-demo {
-	&__do {
-		&,
-		&__icon {
-			color: @color-success;
-		}
-	}
-
-	&__dont {
-		&,
-		&__icon {
-			color: @color-error;
-		}
-	}
-
-	ul {
-		margin: 0;
-	}
-}
-</style>
