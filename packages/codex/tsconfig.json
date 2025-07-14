@@ -2,7 +2,8 @@
 	"compilerOptions": {
 		"target": "es2016",
 		"useDefineForClassFields": true,
-		"moduleResolution": "node",
+		"module": "preserve",
+		"moduleResolution": "bundler",
 		"strict": true,
 		"jsx": "preserve",
 		"sourceMap": true,

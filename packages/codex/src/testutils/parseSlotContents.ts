@@ -1,6 +1,5 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, Component, VNode } from 'vue';
 import { mount } from '@vue/test-utils';
-import { GlobalMountOptions } from '@vue/test-utils/dist/types';
 
 /**
  * Helper component for parseSlotContents().
@@ -36,7 +35,7 @@ const TestComponent = defineComponent( {
  */
 export default function parseSlotContents(
 	slotContents: string,
-	components?: GlobalMountOptions['components']
+	components?: Record<string, Component>
 ): VNode[] | undefined {
 	const wrapper = mount( TestComponent, {
 		slots: { default: slotContents },
