@@ -312,7 +312,86 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
 </div>
 `;
 
-exports[`TypeaheadSearch initial state Case 3 With custom visible button label: ({"buttonLabel": "Search Results", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "useButton": true}) => HTML 1`] = `
+exports[`TypeaheadSearch initial state Case 3 With \`showThumbnail\` and \`isMobileView\`: ({"formAction": "/w/index.php", "id": "foo", "isMobileView": true, "placeholder": "Search Wikipedia", "searchResults": [Array], "showThumbnail": true, "useButton": true}) => HTML 1`] = `
+<div
+  class="cdx-typeahead-search cdx-typeahead-search--is-mobile-view cdx-typeahead-search--show-thumbnail"
+>
+  <form
+    action="/w/index.php"
+    class="cdx-typeahead-search__form"
+    id="foo"
+  >
+    <div
+      class="cdx-search-input cdx-typeahead-search__input"
+    >
+      <div
+        class="cdx-search-input__input-wrapper"
+      >
+        <div
+          class="cdx-text-input cdx-text-input--status-default cdx-search-input__text-input"
+        >
+          <!-- size="1" is to prevent the browser from setting an implicit min-width -->
+          <input
+            aria-autocomplete="list"
+            aria-controls="v-0"
+            aria-expanded="false"
+            autocomplete="off"
+            class="cdx-text-input__input"
+            name="search"
+            placeholder="Search Wikipedia"
+            role="combobox"
+            size="1"
+            type="search"
+          />
+          <!--v-if-->
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+        <!--
+				@slot A slot for passing in an options menu that needs to be positioned
+				relatively to the text input. See TypeaheadSearch for sample usage.
+			-->
+        
+        <div
+          class="cdx-menu cdx-typeahead-search__menu"
+          style="display: none;"
+        >
+          <ul
+            aria-label="Search results"
+            class="cdx-menu__listbox"
+            id="v-0"
+            role="listbox"
+            tabindex="-1"
+          >
+            <!--v-if-->
+            <!--v-if-->
+            
+            
+            <!--v-if-->
+          </ul>
+        </div>
+        
+      </div>
+      <!--v-if-->
+    </div>
+    <!--
+				@slot A slot for passing hidden inputs, i.e.
+				\`&lt;input type="hidden" name="language" value="en"&gt;\`
+			-->
+    
+    
+    <input
+      name="title"
+      type="hidden"
+      value="Special:Search"
+    />
+    
+    
+  </form>
+</div>
+`;
+
+exports[`TypeaheadSearch initial state Case 4 With custom visible button label: ({"buttonLabel": "Search Results", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "useButton": true}) => HTML 1`] = `
 <div
   class="cdx-typeahead-search"
 >
@@ -416,7 +495,7 @@ exports[`TypeaheadSearch initial state Case 3 With custom visible button label: 
 </div>
 `;
 
-exports[`TypeaheadSearch initial state Case 4 With custom visible button label using the deprecated API: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "showThumbnail": true}) => HTML 1`] = `
+exports[`TypeaheadSearch initial state Case 5 With custom visible button label using the deprecated API: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "showThumbnail": true}) => HTML 1`] = `
 <div
   class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail cdx-typeahead-search--auto-expand-width"
 >

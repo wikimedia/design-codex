@@ -368,9 +368,8 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/typeahead-searc
 		// Get helpers from useSplitAttributes.
 		const internalClasses = computed( () => ( {
 			'cdx-typeahead-search--expanded': expanded.value,
-			// isMobileView will override thumbnail and autoExpandWidth classes because the
-			// search input on mobile views shouldnt have extra space for thumbnails to save space
-			'cdx-typeahead-search--show-thumbnail': props.showThumbnail && !props.isMobileView,
+			'cdx-typeahead-search--is-mobile-view': props.isMobileView,
+			'cdx-typeahead-search--show-thumbnail': props.showThumbnail,
 			'cdx-typeahead-search--auto-expand-width': props.showThumbnail && props.autoExpandWidth && !props.isMobileView
 		} ) );
 		const {
@@ -826,6 +825,17 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/typeahead-searc
 	}
 
 	&--show-thumbnail {
+		.cdx-typeahead-search__search-footer__icon {
+			// Prevent the icon container from shrinking when large text is present.
+			flex-shrink: 0;
+			// Prevent the icon container from shrinking on smaller base font sizes.
+			min-width: @min-size-search-figure;
+			width: @size-search-figure;
+		}
+	}
+
+	// Only for desktop view.
+	&--show-thumbnail:not( .cdx-typeahead-search--is-mobile-view ) {
 		&.cdx-typeahead-search--auto-expand-width:not( .cdx-typeahead-search--expanded ) {
 			margin-left: @spacing-typeahead-search-focus-addition;
 		}
@@ -846,17 +856,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/typeahead-searc
 				.cdx-mixin-icon(
 					start,
 					@param-external-padding: @spacing-start-typeahead-search-icon );
-			}
-		}
-
-		.cdx-typeahead-search__search-footer {
-			&__icon {
-				// Prevent the icon container from shrinking when large text is present.
-				flex-shrink: 0;
-				// Prevent the icon container from shrinking on smaller base font sizes.
-				min-width: @min-size-search-figure;
-				width: @size-search-figure;
-				margin-right: 0;
 			}
 		}
 	}

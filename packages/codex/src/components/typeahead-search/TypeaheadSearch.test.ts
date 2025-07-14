@@ -74,6 +74,7 @@ describe( 'TypeaheadSearch', () => {
 				placeholder?: string;
 				autoExpandWidth?: boolean;
 				showThumbnail?: boolean;
+				isMobileView?: boolean;
 			}
 		];
 
@@ -81,6 +82,7 @@ describe( 'TypeaheadSearch', () => {
 			[ 'Default', propsData ],
 			[ 'With `autoExpandWidth` true and `showThumbnail` true', { ...propsData, autoExpandWidth: true, showThumbnail: true } ],
 			[ 'With `autoExpandWidth` true and `showThumbnail` false', { ...propsData, autoExpandWidth: true, showThumbnail: false } ],
+			[ 'With `showThumbnail` and `isMobileView`', { ...propsData, showThumbnail: true, isMobileView: true } ],
 			[ 'With custom visible button label', { ...propsData, buttonLabel: 'Search Results' } ],
 			[ 'With custom visible button label using the deprecated API', { ...propsDataDeprecated, autoExpandWidth: true, showThumbnail: true } ]
 		];
