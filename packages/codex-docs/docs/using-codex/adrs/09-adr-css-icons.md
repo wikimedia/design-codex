@@ -243,7 +243,7 @@ custom property would work.
 This option has some downsides:
 - It would be a breaking change
 - It would require an entirely new system, built in PHP and in MediaWiki
-- It would be Mediawiki-specific
+- It would be MediaWiki-specific
 
 ### Decision
 
@@ -254,7 +254,7 @@ example above, will yield the following CSS:
 ```css
 .my-feature__icon--trash {
 	background-color: #bf3c2c;
-	mask-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="%23000000"><path d="M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 002 2h8a2 2 0 002-2V5H4z"/></svg>' );
+	mask-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="%23000"><path d="M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 002 2h8a2 2 0 002-2V5H4z"/></svg>' );
 	mask-position: center;
 	mask-repeat: no-repeat;
 	mask-size: calc( max( 1.25em, 20px ) );
