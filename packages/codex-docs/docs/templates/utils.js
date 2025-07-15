@@ -37,14 +37,13 @@ export function getTypeText( item ) {
 
 	/**
 	 * @param {string} anchor
-	 * @param {string} text
 	 * @return {string} link markup
 	 */
-	function formatAsLink( anchor, text = anchor ) {
+	function formatAsLink( anchor ) {
 		// Format anchor to match the anchor link as Markdown processes it.
 		const formattedAnchor = anchor.replace( '<', '' ).replace( '>', '' ).toLowerCase();
 		// Format text to encode angle brackets to avoid breaking the Markdown parser.
-		const formattedText = text.replace( '<', '&lt;' ).replace( '>', '&gt;' );
+		const formattedText = anchor.replace( '<', '&lt;' ).replace( '>', '&gt;' );
 		return `<a href="../types-and-constants.html#${ formattedAnchor }">${ formattedText }</a>`;
 	}
 
@@ -53,8 +52,10 @@ export function getTypeText( item ) {
 	 * @return {string}
 	 */
 	function processText( str ) {
-		const isUppercase = /^[A-Z]/;
-		const hasBrackets = /\[\]$/;
+		// Check for parentheses followed by brackets.
+		const isArrayOfTypes = str.match( /^\((.*)\)\[\]$/ );
+		const isUppercaseTest = /^[A-Z]/;
+		const hasBracketsTest = /\[\]$/;
 		const toIgnore = [
 			'HTMLElement',
 			'ComponentPublicInstance',
@@ -62,14 +63,7 @@ export function getTypeText( item ) {
 			'NaN'
 		];
 
-		// If this is an array type, remove the brackets at the end.
-		const isArrayType = str.trim().indexOf( '[]' ) === str.trim().length - 2;
-		if ( isArrayType ) {
-			str = str.slice( 0, str.indexOf( '[' ) );
-		}
-
-		// If this is an array of multiple types, remove the parentheses too.
-		const isArrayOfTypes = str.includes( '(' ) && str.includes( ')' );
+		// If this is an array of multiple types, remove the parentheses for now.
 		if ( isArrayOfTypes ) {
 			str = str.slice( str.indexOf( '(' ) + 1, str.indexOf( ')' ) );
 		}
@@ -77,9 +71,10 @@ export function getTypeText( item ) {
 		let typesWithLinks = str.split( '|' )
 			.map( ( s ) => s.trim() )
 			.map( ( s ) => {
-				if ( s.match( isUppercase ) && !toIgnore.includes( s ) ) {
-					return s.match( hasBrackets ) ?
-						formatAsLink( s.slice( 0, s.length - 2 ), s ) :
+				if ( s.match( isUppercaseTest ) && !toIgnore.includes( s ) ) {
+					return s.match( hasBracketsTest ) ?
+						// Don't include brackets in link text.
+						formatAsLink( s.slice( 0, s.length - 2 ) ) + '[]' :
 						formatAsLink( s );
 				} else {
 					return s;
@@ -89,12 +84,7 @@ export function getTypeText( item ) {
 
 		// Add the parentheses back in.
 		if ( isArrayOfTypes ) {
-			typesWithLinks = '(' + typesWithLinks + ')';
-		}
-
-		// Add the array brackets back in.
-		if ( isArrayType || isArrayOfTypes ) {
-			typesWithLinks += '[]';
+			typesWithLinks = '(' + typesWithLinks + ')[]';
 		}
 
 		return typesWithLinks;
