@@ -19,7 +19,7 @@ token, and information about where the token value comes from.
 
 Enable the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=1891-4420&node-type=canvas&t=plW1hmguHVWs3fWZ-11) to reuse all the design tokens that were translated into Figma styles and variables.
 
-### NPM package
+### npm package
 
 See the [installation](../using-codex/developing.md#installation) and [using design tokens](../using-codex/developing.md#using-design-tokens) documentation for information about how to use Codex design tokens in your application.
 

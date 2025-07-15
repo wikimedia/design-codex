@@ -45,7 +45,7 @@ MAINDIR=$(pwd)
 
 for WORKSPACE in $PUBLISH_WORKSPACES
 do
-	# Download the tarball for the old version from NPM
+	# Download the tarball for the old version from npm
 	# and extract it into tmp-diff-release/versionnumber/packagename/
 	TARBALL=$(npm pack $WORKSPACE@$OLD_VERSION | tail -n 1)
 	mkdir -p tmp-diff-release/$OLD_VERSION/$WORKSPACE

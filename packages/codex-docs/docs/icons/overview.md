@@ -31,7 +31,7 @@ that accept icons as props. You can also embed the icon component in another com
 for example, you can use the icon component inside the button component to create a button with
 an icon.
 
-### NPM package
+### npm package
 
 See the [installation](../using-codex/developing.html#installation) and [using icons](../using-codex/developing.html#using-icons) documentation for information about how to use Codex icons in
 your application.

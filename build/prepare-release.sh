@@ -25,7 +25,7 @@ for WORKSPACE in $PUBLISH_WORKSPACES
 do
 	npm version --no-git-tag-version $1 -w $WORKSPACE
 done
-# Unfortunately this doesn't update package-lock.json in older versions of NPM, update it manually
+# Unfortunately this doesn't update package-lock.json in older versions of npm, update it manually
 npm install
 # Get the updated version from package.json
 NEW_VERSION="$(node -e 'console.log(require("./packages/codex/package.json").version)')"

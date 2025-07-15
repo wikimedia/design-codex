@@ -12,7 +12,7 @@ import { version } from '../../../codex/package.json';
 
 # Developing with Codex
 
-This page describes how to use the different NPM packages available as part of Codex. Read more about [the different packages and their contents](#packages).
+This page describes how to use the different npm packages available as part of Codex. Read more about [the different packages and their contents](#packages).
 
 ::: tip Using Codex in MediaWiki?
 Visit the [Codex docs on mediawiki.org](https://www.mediawiki.org/wiki/Codex) for more instructions
@@ -21,7 +21,7 @@ specific to use of the library within MediaWiki.
 
 ## Installation
 
-Install the [`@wikimedia/codex`](https://www.npmjs.com/package/@wikimedia/codex) package from NPM:
+Install the [`@wikimedia/codex`](https://www.npmjs.com/package/@wikimedia/codex) package from npm:
 
 ```bash
 npm install @wikimedia/codex
@@ -32,8 +32,8 @@ This is the only required package to make use of [Codex CSS-only components](#cs
 You may need to install other packages to use Codex in other ways:
 
 - To use [Codex Vue 3 components](#vue-3-components), install [Vue.js](https://vuejs.org/guide/quick-start.html)
-- To use Codex icons and icon utilities, install [`@wikimedia/codex-icons`](https://www.npmjs.com/package/@wikimedia/codex-icons) from NPM
-- To use Codex CSS, Less, or Sass variables, install [`@wikimedia/codex-design-tokens`](https://www.npmjs.com/package/@wikimedia/codex-design-tokens) from NPM
+- To use Codex icons and icon utilities, install [`@wikimedia/codex-icons`](https://www.npmjs.com/package/@wikimedia/codex-icons) from npm
+- To use Codex CSS, Less, or Sass variables, install [`@wikimedia/codex-design-tokens`](https://www.npmjs.com/package/@wikimedia/codex-design-tokens) from npm
 
 ## Using components
 
@@ -356,7 +356,7 @@ the user's browser or OS settings), follow these steps.
 
 **Import both the light and dark design tokens as CSS variables into your application's
 main stylesheet.** Note that the exact file paths will depend on where you have
-downloaded Codex; these examples assume that the library has been installed using NPM.
+downloaded Codex; these examples assume that the library has been installed using npm.
 
 ```css
 @import url( ./node_modules/@wikimedia/codex-design-tokens/theme-wikimedia-ui-root.css );

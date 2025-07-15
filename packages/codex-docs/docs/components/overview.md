@@ -21,7 +21,7 @@ copy code samples, and read detailed usage information about the Vue and CSS-onl
 
 Enable the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS4134/Codex?node-id=1891-4420&node-type=canvas&t=plW1hmguHVWs3fWZ-11) to reuse all the Codex components in your Figma files.
 
-### NPM package
+### npm package
 
 See the [installation](../using-codex/developing.md#installation) and [using components](../using-codex/developing.md#using-components) documentation for information about how to use Codex components in your application.
 

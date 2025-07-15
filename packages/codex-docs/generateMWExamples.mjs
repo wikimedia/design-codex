@@ -26,7 +26,7 @@ const convertFileContents = ( fileContents ) => fileContents
 	)
 	// Self-closing tags need to be changed to open+close tags, but that is not done here.
 	// Instead, this is done by running `eslint --fix` on the output of this script in the
-	// mw-examples:build NPM script
+	// mw-examples:build npm script
 
 	// Remove any <client-only> tags
 	.replace( /<\/?client-only>/gi, '' );

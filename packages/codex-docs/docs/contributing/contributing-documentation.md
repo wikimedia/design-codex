@@ -96,8 +96,7 @@ components, or Codex components, design tokens, or icons, the site will automati
 
 If you run into errors, try the following steps:
 
-- Ensure you're using the correct version of Node. Refer to `.nvmrc` in the root of the Codex
-  repository. If you have [nvm](https://github.com/nvm-sh/nvm) installed, run `nvm use`.
+- Ensure you're using the correct version of Node. Refer to [Node requirements](./development-basics.md)
 - Run `npm ci` to clear out and install node modules. This is often necessary after a build update
   is merged.
 - Run `npm run build-all` to build all packages. This is sometimes necessary, e.g. when a new icon

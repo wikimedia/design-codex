@@ -50,13 +50,17 @@ Please review this process before submitting or reviewing a patch for the first 
 
 ### Requirements
 
-- **Node:** verify `.nvmrc` in the root of the repository. To install and use the required version of Node, run `nvm install "$(<.nvmrc)"` then `nvm use` in the root of the repository.
-- **NPM:** v7.21 or greater is required to support workspaces; it is not included by default in older
-versions of Node (prior to v15) and will need to be upgraded manually.
+- **Node:** verify the required version of Node pinned in `.nvmrc` file. To install run `nvm install "$(<.nvmrc)"` then `nvm use` in the root of the repository.
+- **npm:** version 7 or greater is required to support workspaces. You can install the latest version of npm with nvm via `nvm install --latest-npm`.
+
+::: tip What is Node Version Manager (NVM)?
+NVM is a handy tool that lets you install and switch between multiple versions of Node.js on your machine. This is especially useful when working on multiple projects that depend on different Node versions.<br>
+[Learn more about NVM on GitHub](https://github.com/nvm-sh/nvm).
+:::
 
 ### Workspaces
 
-The Codex codebase is configured as a monorepo using NPM. Sub-projects are defined in the
+The Codex codebase is configured as a monorepo using npm. Sub-projects are defined in the
 `packages/` directory with their own `package.json` and an appropriate `name`.
 
 To run a command in a specific workspace, do the following:

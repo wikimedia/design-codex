@@ -37,11 +37,8 @@ For more information on how to set up and use the library, see the [usage docume
 
 Codex development requires the following:
 
-- **Node:** the required version is pinned in `.nvmrc`. To install and use the required version of
-Node, run `nvm install "$(<.nvmrc)"` then `nvm use` in the root of the repository.
-- **npm:** version 7 or higher is required to support workspaces; it is not included by default in
-older versions of Node (prior to version 15) and will need to be upgraded manually. You can do this
-with nvm via `nvm install --latest-npm`.
+- **Node:** the required version of Node is pinned in `.nvmrc`. To install and use the required version, run `nvm install "$(<.nvmrc)"` then `nvm use` in the root of the repository. **Node Version Manager (NVM)** is a handy tool that lets you install and switch between multiple versions of Node on your machine. This is especially useful when working on multiple projects that depend on different Node versions.<br>[Learn more about NVM on GitHub](https://github.com/nvm-sh/nvm).
+- **npm:** version 7 or higher is required to support workspaces. You can install latest version of npm with nvm via `nvm install --latest-npm`.
 
 Helpful commands:
 

@@ -167,7 +167,7 @@ Keep the code samples relevant to the library user. Your code sample doesn't act
 the code used in the demo. For example, you might display an example component for the demo but
 include a simplified version of that example component to display as the code snippet.
 
-Non-trivial code snippets should have an NPM version and a MediaWiki version. For imported code
+Non-trivial code snippets should have an npm version and a MediaWiki version. For imported code
 snippets, the MediaWiki version is generated automatically. Code blocks written directly in the
 Markdown file are usually so simple that a separate MediaWiki version is not needed. If an embedded
 code block is not simple, consider moving it to a file and importing it.

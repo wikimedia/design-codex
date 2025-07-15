@@ -5,7 +5,7 @@ Publishing a new release of Codex requires these steps:
 0. Review the latest changes and regression tests.
 1. Prepare the release commit, submit for review, get it merged.
 2. Create and publish the Git tag.
-3. Publish the release to NPM.
+3. Publish the release to npm.
 4. Pull the new versions into MediaWiki.
 5. Update the Codex version in the LibraryUpgrader configuration.
 6. Document and announce the new release.
@@ -13,13 +13,13 @@ Publishing a new release of Codex requires these steps:
 ## Prerequisites
 
 Do the following before you conduct your first release:
-- [Create an NPM account](https://www.npmjs.com/signup), if you don't have one already.
-- Verify that you can [log into your NPM account](https://www.npmjs.com/login).
+- [Create an npm account](https://www.npmjs.com/signup), if you don't have one already.
+- Verify that you can [log into your npm account](https://www.npmjs.com/login).
 - Verify that you are [listed as a maintainer](https://www.npmjs.com/package/@wikimedia/codex/access)
   of the Codex package. If not, ask an existing maintainer to add you.
 - Set up two-factor authentication (2FA) set up (required).
 - Run `npm login` and follow the steps. You should only need to do this once on each computer.
-  If you're not sure if you've already done this, run `npm whoami`; if it prints your NPM username,
+  If you're not sure if you've already done this, run `npm whoami`; if it prints your npm username,
   you're already logged in.
 
 ---
@@ -129,7 +129,7 @@ git push --tags origin v1.2.34
 
 ---
 
-## Step 3: Publish to NPM
+## Step 3: Publish to npm
 
 1: Build all the packages:
 ```bash
