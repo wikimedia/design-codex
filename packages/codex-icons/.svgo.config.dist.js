@@ -1,6 +1,6 @@
 /**
  * SVGO Configuration
- * Compatible to v3.0.0+
+ * Compatible to v4.0.0+
  * Recommended options from:
  * https://www.mediawiki.org/wiki/Manual:Coding_conventions/SVG#Exemplified_safe_configuration
  */

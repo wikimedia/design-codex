@@ -69,6 +69,9 @@ export default ( options: RawSvgOptions = {
 								delim: ''
 							}
 						},
+						// Enable `removeTitle` plugin to remove the title tag from the SVG.
+						// It is disabled by default in the SVGO preset since v4.0.0.
+						'removeTitle',
 						removeSvgTag
 					]
 				} );
