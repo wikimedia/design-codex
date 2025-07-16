@@ -164,7 +164,8 @@ export default defineComponent( {
 				!menu.value ||
 				computedDisabled.value ||
 				props.menuItems.length === 0 ||
-				e.key === ' '
+				e.key === ' ' ||
+				e.key === 'Enter'
 			) {
 				return;
 			}
