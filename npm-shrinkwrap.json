@@ -13,7 +13,7 @@
 				"packages/codex-docs"
 			],
 			"devDependencies": {
-				"@stylistic/stylelint-plugin": "3.1.1",
+				"@stylistic/stylelint-plugin": "3.1.3",
 				"@typescript-eslint/eslint-plugin": "8.19.0",
 				"@typescript-eslint/parser": "8.19.0",
 				"concurrently": "9.1.2",
@@ -25,8 +25,8 @@
 				"postcss-html": "1.7.0",
 				"postcss-markdown": "1.2.0",
 				"stylelint-config-wikimedia": "0.18.0",
-				"stylelint-declaration-strict-value": "1.10.6",
-				"stylelint-no-unsupported-browser-features": "8.0.2",
+				"stylelint-declaration-strict-value": "1.10.11",
+				"stylelint-no-unsupported-browser-features": "8.0.4",
 				"stylelint-order": "6.0.4",
 				"typescript": "5.7.2"
 			},
@@ -2761,9 +2761,9 @@
 			}
 		},
 		"node_modules/@stylistic/stylelint-plugin": {
-			"version": "3.1.1",
-			"resolved": "https://registry.npmjs.org/@stylistic/stylelint-plugin/-/stylelint-plugin-3.1.1.tgz",
-			"integrity": "sha512-XagAHHIa528EvyGybv8EEYGK5zrVW74cHpsjhtovVATbhDRuJYfE+X4HCaAieW9lCkwbX6L+X0I4CiUG3w/hFw==",
+			"version": "3.1.3",
+			"resolved": "https://registry.npmjs.org/@stylistic/stylelint-plugin/-/stylelint-plugin-3.1.3.tgz",
+			"integrity": "sha512-85fsmzgsIVmyG3/GFrjuYj6Cz8rAM7IZiPiXCMiSMfoDOC1lOrzrXPDk24WqviAghnPqGpx8b0caK2PuewWGFg==",
 			"dev": true,
 			"license": "MIT",
 			"dependencies": {
@@ -2771,10 +2771,10 @@
 				"@csstools/css-tokenizer": "^3.0.1",
 				"@csstools/media-query-list-parser": "^3.0.1",
 				"is-plain-object": "^5.0.0",
+				"postcss": "^8.4.41",
 				"postcss-selector-parser": "^6.1.2",
 				"postcss-value-parser": "^4.2.0",
-				"style-search": "^0.1.0",
-				"stylelint": "^16.8.2"
+				"style-search": "^0.1.0"
 			},
 			"engines": {
 				"node": "^18.12 || >=20.9"
@@ -29811,6 +29811,30 @@
 				"postcss-less": "^6.0.0"
 			}
 		},
+		"node_modules/stylelint-config-wikimedia/node_modules/@csstools/media-query-list-parser": {
+			"version": "3.0.1",
+			"resolved": "https://registry.npmjs.org/@csstools/media-query-list-parser/-/media-query-list-parser-3.0.1.tgz",
+			"integrity": "sha512-HNo8gGD02kHmcbX6PvCoUuOQvn4szyB9ca63vZHKX5A81QytgDG4oxG4IaEfHTlEZSZ6MjPEMWIVU+zF2PZcgw==",
+			"dev": true,
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"license": "MIT",
+			"engines": {
+				"node": ">=18"
+			},
+			"peerDependencies": {
+				"@csstools/css-parser-algorithms": "^3.0.1",
+				"@csstools/css-tokenizer": "^3.0.1"
+			}
+		},
 		"node_modules/stylelint-config-wikimedia/node_modules/@stylistic/stylelint-config": {
 			"version": "2.0.0",
 			"resolved": "https://registry.npmjs.org/@stylistic/stylelint-config/-/stylelint-config-2.0.0.tgz",
@@ -29819,6 +29843,29 @@
 			"license": "MIT",
 			"dependencies": {
 				"@stylistic/stylelint-plugin": "^3.0.0"
+			},
+			"engines": {
+				"node": "^18.12 || >=20.9"
+			},
+			"peerDependencies": {
+				"stylelint": "^16.8.0"
+			}
+		},
+		"node_modules/stylelint-config-wikimedia/node_modules/@stylistic/stylelint-plugin": {
+			"version": "3.1.1",
+			"resolved": "https://registry.npmjs.org/@stylistic/stylelint-plugin/-/stylelint-plugin-3.1.1.tgz",
+			"integrity": "sha512-XagAHHIa528EvyGybv8EEYGK5zrVW74cHpsjhtovVATbhDRuJYfE+X4HCaAieW9lCkwbX6L+X0I4CiUG3w/hFw==",
+			"dev": true,
+			"license": "MIT",
+			"dependencies": {
+				"@csstools/css-parser-algorithms": "^3.0.1",
+				"@csstools/css-tokenizer": "^3.0.1",
+				"@csstools/media-query-list-parser": "^3.0.1",
+				"is-plain-object": "^5.0.0",
+				"postcss-selector-parser": "^6.1.2",
+				"postcss-value-parser": "^4.2.0",
+				"style-search": "^0.1.0",
+				"stylelint": "^16.8.2"
 			},
 			"engines": {
 				"node": "^18.12 || >=20.9"
@@ -29850,10 +29897,27 @@
 				"stylelint": "^16.1.0"
 			}
 		},
+		"node_modules/stylelint-config-wikimedia/node_modules/stylelint-no-unsupported-browser-features": {
+			"version": "8.0.2",
+			"resolved": "https://registry.npmjs.org/stylelint-no-unsupported-browser-features/-/stylelint-no-unsupported-browser-features-8.0.2.tgz",
+			"integrity": "sha512-4PY2qJ3ZTEje9RgGfaQ82eJoPioXxs6hazeKpji/wzLNVzTX2wd4b0Ds3ewdLkH3ID+o63IInuTquU2MNJO3YQ==",
+			"dev": true,
+			"license": "MIT",
+			"dependencies": {
+				"doiuse": "^6.0.5",
+				"postcss": "^8.4.32"
+			},
+			"engines": {
+				"node": ">=18.12.0"
+			},
+			"peerDependencies": {
+				"stylelint": "^16.0.2"
+			}
+		},
 		"node_modules/stylelint-declaration-strict-value": {
-			"version": "1.10.6",
-			"resolved": "https://registry.npmjs.org/stylelint-declaration-strict-value/-/stylelint-declaration-strict-value-1.10.6.tgz",
-			"integrity": "sha512-aZGEW4Ee26Tx4UvpQJbcElVXZ42EleujEByiyKDTT7t83EeSe9t0lAG3OOLJnnvLjz/dQnp+L+3IYTMeQI51vQ==",
+			"version": "1.10.11",
+			"resolved": "https://registry.npmjs.org/stylelint-declaration-strict-value/-/stylelint-declaration-strict-value-1.10.11.tgz",
+			"integrity": "sha512-oVQvhZlFZAiDz9r2BPFZLtTGm1A2JVhdKObKAJoTjFfR4F/NpApC4bMBTxf4sZS76Na3njYKVOaAaKSZ4+FU+g==",
 			"dev": true,
 			"license": "MIT",
 			"engines": {
@@ -29864,9 +29928,9 @@
 			}
 		},
 		"node_modules/stylelint-no-unsupported-browser-features": {
-			"version": "8.0.2",
-			"resolved": "https://registry.npmjs.org/stylelint-no-unsupported-browser-features/-/stylelint-no-unsupported-browser-features-8.0.2.tgz",
-			"integrity": "sha512-4PY2qJ3ZTEje9RgGfaQ82eJoPioXxs6hazeKpji/wzLNVzTX2wd4b0Ds3ewdLkH3ID+o63IInuTquU2MNJO3YQ==",
+			"version": "8.0.4",
+			"resolved": "https://registry.npmjs.org/stylelint-no-unsupported-browser-features/-/stylelint-no-unsupported-browser-features-8.0.4.tgz",
+			"integrity": "sha512-MNdjegsgfTu1iDBsJM+1uBVZsIt0EWzqAX5qgUBAGavXkddwRqh+S1KD2VnWqUhiEuyddVrWJH8vKsNI40orxA==",
 			"dev": true,
 			"license": "MIT",
 			"dependencies": {
