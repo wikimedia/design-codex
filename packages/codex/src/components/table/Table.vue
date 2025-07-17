@@ -503,14 +503,7 @@ export default defineComponent( {
 		 * @property {number} offset Index of the first visible row on the new page.
 		 * @property {number} rows Number of rows to display.
 		 */
-		'load-more',
-
-		/**
-		 * When the user requests the last page of data from the server.
-		 *
-		 * @property {number} rows Number of rows to display.
-		 */
-		'last'
+		'load-more'
 	],
 	setup( props, { emit } ) {
 		// pagination
