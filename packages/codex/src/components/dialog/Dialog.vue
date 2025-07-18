@@ -130,13 +130,13 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, toRef, watch, ref, inject, onMounted, onUnmounted, useId, PropType } from 'vue';
+import { computed, defineComponent, nextTick, toRef, watch, ref, inject, onMounted, onUnmounted, useId, PropType, unref } from 'vue';
 import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
 import useResizeObserver from '../../composables/useResizeObserver';
-import { ModalAction, PrimaryModalAction } from '../../types';
+import { TeleportTarget, ModalAction, PrimaryModalAction } from '../../types';
 
 /**
  * A modal element that overlays the current page, preventing interaction with
@@ -325,8 +325,8 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		} ) );
 
 		// Determine where to teleport the Dialog to
-		const providedTarget = inject<string|HTMLElement|undefined>( 'CdxTeleportTarget', undefined );
-		const computedTarget = computed( () => props.target ?? providedTarget ?? 'body' );
+		const providedTarget = inject<TeleportTarget>( 'CdxTeleportTarget', undefined );
+		const computedTarget = computed( () => props.target ?? unref( providedTarget ) ?? 'body' );
 
 		// Value needed to compensate for the width of any visible scrollbar
 		// on the page prior to the dialog taking over; without this, browsers

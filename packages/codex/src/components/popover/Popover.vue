@@ -77,7 +77,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ComponentPublicInstance, computed, inject, toRef, ref, watch, onMounted, onUnmounted, nextTick, reactive } from 'vue';
+import { defineComponent, PropType, ComponentPublicInstance, computed, inject, toRef, ref, watch, onMounted, onUnmounted, nextTick, reactive, unref } from 'vue';
 import { useFloating, offset, flip, autoUpdate, size, arrow, Side, Placement } from '@floating-ui/vue';
 import { Icon, cdxIconClose } from '@wikimedia/codex-icons';
 
@@ -86,7 +86,7 @@ import CdxIcon from '../icon/Icon.vue';
 
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
 import { unwrapElement } from '../../utils/unwrapElement';
-import { PrimaryModalAction, ModalAction } from '../../types';
+import { PrimaryModalAction, ModalAction, TeleportTarget } from '../../types';
 import { oppositeSides } from '../../constants';
 
 /**
@@ -323,8 +323,8 @@ export default defineComponent( {
 		} );
 
 		// Determine where to teleport the Popover to.
-		const providedTarget = inject<string|HTMLElement|undefined>( 'CdxTeleportTarget', undefined );
-		const computedTarget = computed( () => providedTarget ?? 'body' );
+		const providedTarget = inject<TeleportTarget>( 'CdxTeleportTarget', undefined );
+		const computedTarget = computed( () => unref( providedTarget ) ?? 'body' );
 
 		const translatedCloseButtonLabel = useI18nWithOverride(
 			toRef( props, 'closeButtonLabel' ),

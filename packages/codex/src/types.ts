@@ -8,6 +8,7 @@
  * Refer to `packages/codex-docs/docs/components/types-and-constants.md`.
  */
 
+import { MaybeRef } from 'vue';
 import { Icon } from '@wikimedia/codex-icons';
 import { Placement, OffsetOptions } from '@floating-ui/vue';
 
@@ -296,3 +297,6 @@ export interface BreadcrumbData extends BreadcrumbItem {
 	isTruncated?: boolean
 	fullText?: string;
 }
+
+/** @public */
+export type TeleportTarget = MaybeRef<string | HTMLElement | undefined>;
