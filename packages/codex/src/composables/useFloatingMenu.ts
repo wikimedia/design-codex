@@ -154,11 +154,14 @@ export default function useFloatingMenu(
 	let cleanupAutoUpdate: ( () => void ) | null = null;
 	watch( menuIsExpanded, ( newExpanded ) => {
 		if ( newExpanded ) {
+			if ( !referenceElement.value || !menu.value ) {
+				return;
+			}
 			cleanupAutoUpdate = autoUpdate(
 				// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-				( referenceElement.value && '$el' in referenceElement.value ) ? referenceElement.value.$el : referenceElement,
+				'$el' in referenceElement.value ? referenceElement.value.$el : referenceElement.value,
 				// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
-				menu.value?.$el,
+				menu.value.$el,
 				update
 			);
 		} else {
