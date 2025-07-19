@@ -63,6 +63,7 @@
 </template>
 
 <script lang="ts" setup>
+import { provide } from 'vue';
 import DemoBaseLayout from './DemoBaseLayout.vue';
 
 import AccordionDemo from './AccordionDemo.vue';
@@ -146,6 +147,9 @@ const demoSections = [
 	{ name: 'TypeaheadSearch', id: '#cdx-typeahead-search' },
 	{ name: 'Typography', id: '#cdx-typography' }
 ];
+
+provide( 'CdxTeleportTarget', '#teleport-target' );
+
 </script>
 
 <style lang="less" scoped>

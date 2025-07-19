@@ -124,13 +124,16 @@
 					tabindex="0"
 					@focus="focusFirst"
 				/>
+
+				<!-- Teleport target for menus inside this dialog -->
+				<div ref="innerTeleportTarget" />
 			</div>
 		</transition>
 	</teleport>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, toRef, watch, ref, inject, onMounted, onUnmounted, useId, PropType, unref } from 'vue';
+import { computed, defineComponent, nextTick, toRef, watch, ref, inject, onMounted, onUnmounted, useId, PropType, provide, unref } from 'vue';
 import CdxButton from '../button/Button.vue';
 import CdxIcon from '../icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
@@ -299,6 +302,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		const focusHolder = ref<HTMLDivElement>();
 		const focusTrapStart = ref<HTMLDivElement>();
 		const focusTrapEnd = ref<HTMLDivElement>();
+		const innerTeleportTarget = ref<HTMLDivElement>();
 		let previouslyFocused: Element|null = null;
 
 		// DEPRECATED: require use of new prop useCloseButton (T368444)
@@ -327,6 +331,8 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		// Determine where to teleport the Dialog to
 		const providedTarget = inject<TeleportTarget>( 'CdxTeleportTarget', undefined );
 		const computedTarget = computed( () => props.target ?? unref( providedTarget ) ?? 'body' );
+		// Provide our own inner teleport target as the teleport target to child components
+		provide( 'CdxTeleportTarget', innerTeleportTarget );
 
 		// Value needed to compensate for the width of any visible scrollbar
 		// on the page prior to the dialog taking over; without this, browsers
@@ -544,6 +550,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			dialogElement,
 			focusTrapStart,
 			focusTrapEnd,
+			innerTeleportTarget,
 			focusFirst,
 			focusLast,
 			dialogBody,

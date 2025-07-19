@@ -1,4 +1,4 @@
-import { Ref, ComponentPublicInstance, computed, watch } from 'vue';
+import { Ref, computed, watch } from 'vue';
 import { MaybeElement, useFloating, size, flip, hide, autoUpdate, offset } from '@floating-ui/vue';
 import { FloatingMenuOptions } from '../types';
 import CdxMenu from '../components/menu/Menu.vue';
@@ -43,6 +43,8 @@ export default function useFloatingMenu(
 	// These rules are disabled throughout the file when accessing properties of menu.value.
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 	const menuIsExpanded = () => menu.value?.isExpanded();
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+	const menuRootElement = computed<HTMLElement|undefined>( () => menu.value?.getRootElement() );
 
 	const middleware = [
 		offset( opt?.offset ),
@@ -91,7 +93,7 @@ export default function useFloatingMenu(
 
 	const { floatingStyles, placement, middlewareData, update } = useFloating(
 		referenceElement,
-		menu as Ref<ComponentPublicInstance>,
+		menuRootElement,
 		{
 			middleware,
 			placement: opt?.placement ?? 'bottom'
@@ -114,8 +116,7 @@ export default function useFloatingMenu(
 	watch(
 		[ floatingStyles, menuVisibility, placement ],
 		( [ newStyles, newVisibility, newPlacement ] ) => {
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-			Object.assign( menu.value?.$el.style ?? {}, {
+			Object.assign( menuRootElement.value?.style ?? {}, {
 				visibility: newVisibility,
 				position: newStyles.position,
 				top: `${ newStyles.top }px`,
@@ -154,14 +155,13 @@ export default function useFloatingMenu(
 	let cleanupAutoUpdate: ( () => void ) | null = null;
 	watch( menuIsExpanded, ( newExpanded ) => {
 		if ( newExpanded ) {
-			if ( !referenceElement.value || !menu.value ) {
+			if ( !referenceElement.value || !menuRootElement.value ) {
 				return;
 			}
 			cleanupAutoUpdate = autoUpdate(
 				// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 				'$el' in referenceElement.value ? referenceElement.value.$el : referenceElement.value,
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
-				menu.value.$el,
+				menuRootElement.value,
 				update
 			);
 		} else {

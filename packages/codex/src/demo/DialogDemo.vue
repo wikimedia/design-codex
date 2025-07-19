@@ -59,7 +59,6 @@
 
 		<cdx-dialog
 			v-model:open="showDialog2"
-			target="#teleport-target"
 			:primary-action="{ actionType: 'destructive', label: 'Destroy!' }"
 			:default-action="{ label: 'Cancel' }"
 			title="Example Dialog 2"
@@ -76,7 +75,6 @@
 		<cdx-dialog
 			v-model:open="showDialog3"
 			:use-close-button="true"
-			target="#teleport-target"
 			:primary-action="{ actionType: 'progressive', label: 'Sweet!' }"
 			:default-action="{ label: 'Bummer' }"
 			title="Example Dialog 3"
@@ -93,7 +91,6 @@
 
 		<cdx-dialog
 			v-model:open="showDialog4"
-			target="#teleport-target"
 			title="Example Dialog 4"
 			:hide-title="true"
 		>
@@ -102,7 +99,6 @@
 
 		<cdx-dialog
 			v-model:open="showDialog5"
-			target="#teleport-target"
 			:primary-action="{ actionType: 'progressive', label: 'Sweet!' }"
 			:default-action="{ label: 'Bummer' }"
 			title="Example Dialog 5"
@@ -120,7 +116,6 @@
 
 		<wrapped-dialog
 			v-model:open="showDialog6"
-			target="#teleport-target"
 			title="Custom Wrapped Dialog"
 		>
 			Example of a custom wrapped dialog

@@ -3,6 +3,7 @@ import { nextTick } from 'vue';
 import CdxLookup from './Lookup.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
 import { MenuItemData, MenuGroupData } from '../../types';
+import getMenuRoot from '../../testutils/getMenuRoot';
 
 const menuItemData: {
 	value: string,
@@ -161,7 +162,7 @@ describe( 'Lookup', () => {
 					// Clear the input.
 					input.element.value = '';
 					await input.trigger( 'input' );
-					expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+					expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 				} );
 			} );
 
@@ -177,7 +178,7 @@ describe( 'Lookup', () => {
 					// Clear the input.
 					input.element.value = '';
 					await input.trigger( 'input' );
-					expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+					expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 				} );
 			} );
 		} );
@@ -217,7 +218,7 @@ describe( 'Lookup', () => {
 			it( 'opens the menu', async () => {
 				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.find( 'input' ).trigger( 'focus' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 			} );
 		} );
 
@@ -231,7 +232,7 @@ describe( 'Lookup', () => {
 				// Add menu items.
 				await wrapper.setProps( { menuItems: menuItemData } );
 				await wrapper.find( 'input' ).trigger( 'focus' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 			} );
 		} );
 
@@ -239,7 +240,7 @@ describe( 'Lookup', () => {
 			it( 'does not open the menu', async () => {
 				const wrapper = mount( CdxLookup, { props: defaultProps } );
 				await wrapper.find( 'input' ).trigger( 'focus' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 
 			it( 'if there is no-results slot content, opens menu and shows "no results" message', async () => {
@@ -249,12 +250,13 @@ describe( 'Lookup', () => {
 				} );
 				// Set input.
 				const input = wrapper.find( 'input' );
+				const menu = getMenuRoot( wrapper );
 				input.element.value = 'foo';
 				await input.trigger( 'input' );
 				// Trigger focus.
 				await input.trigger( 'focus' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
-				expect( wrapper.find( '.cdx-menu__no-results' ).isVisible() ).toBe( true );
+				expect( menu.isVisible() ).toBe( true );
+				expect( menu.find( '.cdx-menu__no-results' ).isVisible() ).toBe( true );
 			} );
 		} );
 	} );
@@ -264,7 +266,7 @@ describe( 'Lookup', () => {
 			it( 'if there are items to show, passes keyboard events to handler', async () => {
 				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 			} );
 
 			it( 'if there is no-results content, passes keyboard events to handler', async () => {
@@ -273,19 +275,19 @@ describe( 'Lookup', () => {
 					slots: { 'no-results': 'No results' }
 				} );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 			} );
 
 			it( 'if there are no items or no-results content, does not pass keyboard events to handler', async () => {
 				const wrapper = mount( CdxLookup, { props: defaultProps } );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 
 			it( 'does not pass the space keyboard event to handler', async () => {
 				const wrapper = mount( CdxLookup, { props: propsWithData } );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: ' ' } );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 		} );
 
@@ -295,7 +297,7 @@ describe( 'Lookup', () => {
 					props: { ...defaultProps, disabled: true }
 				} );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 		} );
 	} );
@@ -305,7 +307,7 @@ describe( 'Lookup', () => {
 			const wrapper = mount( CdxLookup, { props: defaultProps } );
 			wrapper.vm.expanded = true;
 			await wrapper.find( 'input' ).trigger( 'keydown', { key: ' ' } );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+			expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 		} );
 	} );
 
@@ -321,7 +323,7 @@ describe( 'Lookup', () => {
 
 				await wrapper.setProps( { menuItems: menuItemData } );
 				expect( wrapper.find( '.cdx-lookup' ).classes() ).not.toContain( 'cdx-lookup--pending' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 			} );
 		} );
 
@@ -337,7 +339,7 @@ describe( 'Lookup', () => {
 
 				await wrapper.setProps( { menuItems: menuItemData } );
 				expect( wrapper.find( '.cdx-lookup' ).classes() ).not.toContain( 'cdx-lookup--pending' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 		} );
 
@@ -349,7 +351,7 @@ describe( 'Lookup', () => {
 
 				await wrapper.setProps( { menuItems: menuItemData } );
 				expect( wrapper.find( '.cdx-lookup' ).classes() ).not.toContain( 'cdx-lookup--pending' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 		} );
 
@@ -362,7 +364,7 @@ describe( 'Lookup', () => {
 				// with items, so we need to manually open the menu first.
 				wrapper.vm.expanded = true;
 				await wrapper.setProps( { menuItems: [] } );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 
 			it( 'if there is no-results content, leaves the menu open', async () => {
@@ -374,7 +376,7 @@ describe( 'Lookup', () => {
 				// with items, so we need to manually open the menu first.
 				wrapper.vm.expanded = true;
 				await wrapper.setProps( { menuItems: [] } );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 			} );
 		} );
 	} );

@@ -4,6 +4,7 @@ import CdxButton from '../button/Button.vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
 import { MenuItemData, ValidationStatusType } from '../../types';
+import getMenuRoot from '../../testutils/getMenuRoot';
 
 const data: MenuItemData[] = [
 	{ value: 'a', label: 'Option A' },
@@ -81,7 +82,7 @@ describe( 'Combobox', () => {
 			} );
 			const expandButton = wrapper.findComponent( CdxButton );
 			await expandButton.trigger( 'click' );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+			expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 		} );
 
 		describe( 'and the component is disabled', () => {
@@ -95,7 +96,7 @@ describe( 'Combobox', () => {
 				} );
 				const expandButton = wrapper.findComponent( CdxButton );
 				await expandButton.trigger( 'click' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 		} );
 	} );
@@ -121,7 +122,7 @@ describe( 'Combobox', () => {
 			const expandButton = wrapper.findComponent( CdxButton );
 			await expandButton.trigger( 'click' );
 			await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+			expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 		} );
 	} );
 
@@ -145,7 +146,7 @@ describe( 'Combobox', () => {
 			} );
 			const inputEl = wrapper.find( '.cdx-text-input input' );
 			await inputEl.trigger( 'focus' );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+			expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 		} );
 	} );
 
@@ -158,7 +159,7 @@ describe( 'Combobox', () => {
 			const inputEl = wrapper.find( '.cdx-text-input input' );
 			await inputEl.trigger( 'focus' );
 			await inputEl.trigger( 'blur' );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+			expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 		} );
 	} );
 
@@ -171,11 +172,12 @@ describe( 'Combobox', () => {
 				} );
 				const inputEl = wrapper.find( '.cdx-text-input input' );
 				const expanderBtn = wrapper.findComponent( CdxButton );
+				const menu = getMenuRoot( wrapper );
 				await inputEl.trigger( 'focus' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+				expect( menu.isVisible() ).toBe( true );
 				await expanderBtn.trigger( 'mousedown' );
 				await expanderBtn.trigger( 'click' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( menu.isVisible() ).toBe( false );
 			} );
 		} );
 
@@ -188,7 +190,7 @@ describe( 'Combobox', () => {
 				const expanderBtn = wrapper.findComponent( CdxButton );
 				await expanderBtn.trigger( 'mousedown' );
 				await expanderBtn.trigger( 'click' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 		} );
 
@@ -204,7 +206,7 @@ describe( 'Combobox', () => {
 				const expanderBtn = wrapper.findComponent( CdxButton );
 				await expanderBtn.trigger( 'mousedown' );
 				await expanderBtn.trigger( 'click' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 		} );
 	} );
@@ -218,7 +220,7 @@ describe( 'Combobox', () => {
 				} );
 				const inputEl = wrapper.find( '.cdx-text-input input' );
 				await inputEl.trigger( 'keydown', { key: 'Enter' } );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 			} );
 		} );
 
@@ -230,7 +232,7 @@ describe( 'Combobox', () => {
 				} );
 				const inputEl = wrapper.find( '.cdx-text-input input' );
 				await inputEl.trigger( 'keydown', { key: 'Enter' } );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 		} );
 	} );
@@ -243,7 +245,7 @@ describe( 'Combobox', () => {
 			} );
 			const inputEl = wrapper.find( '.cdx-text-input input' );
 			await inputEl.trigger( 'keydown', { key: ' ' } );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+			expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 		} );
 	} );
 

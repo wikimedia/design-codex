@@ -1,117 +1,120 @@
 <!-- eslint-disable max-len -->
 <template>
-	<div
-		v-show="expanded"
-		class="cdx-menu"
-		:class="rootClasses"
-		:style="rootStyle"
-	>
-		<ul
-			ref="menuListbox"
-			class="cdx-menu__listbox"
-			role="listbox"
-			tabindex="-1"
-			:style="listBoxStyle"
-			:aria-live="showPending ? 'polite' : undefined"
-			:aria-relevant="showPending ? ariaRelevant : undefined"
-			:aria-multiselectable="isMultiselect ? true : undefined"
-			v-bind="otherAttrs"
-			@mousedown.prevent
+	<teleport :to="computedTarget" :disabled="renderInPlace">
+		<div
+			v-show="expanded"
+			ref="rootElement"
+			class="cdx-menu"
+			:class="rootClasses"
+			:style="rootStyle"
 		>
-			<li
-				v-if="showPending && computedMenuItems.length === 0 && $slots.pending"
-				class="cdx-menu__pending cdx-menu-item"
+			<ul
+				ref="menuListbox"
+				class="cdx-menu__listbox"
+				role="listbox"
+				tabindex="-1"
+				:style="listBoxStyle"
+				:aria-live="showPending ? 'polite' : undefined"
+				:aria-relevant="showPending ? ariaRelevant : undefined"
+				:aria-multiselectable="isMultiselect ? true : undefined"
+				v-bind="otherAttrs"
+				@mousedown.prevent
 			>
-				<!-- @slot Message to indicate pending state. -->
-				<slot name="pending" />
-			</li>
-
-			<li
-				v-if="computedShowNoResultsSlot"
-				class="cdx-menu__no-results cdx-menu-item"
-				role="option"
-			>
-				<!-- @slot Message to show if there are no menu items to display. -->
-				<slot name="no-results" />
-			</li>
-
-			<template v-for="( menuEntry, index ) in computedMenuEntries" :key="index">
 				<li
-					v-if="isMenuGroupData( menuEntry )"
-					class="cdx-menu__group-wrapper"
-					:class="getGroupWrapperClasses( menuEntry )"
+					v-if="showPending && computedMenuItems.length === 0 && $slots.pending"
+					class="cdx-menu__pending cdx-menu-item"
 				>
-					<ul
-						class="cdx-menu__group"
-						role="group"
-						:aria-labelledby="menuEntry.id + '-label'"
-						:aria-describedby="menuEntry.id + '-description'"
+					<!-- @slot Message to indicate pending state. -->
+					<slot name="pending" />
+				</li>
+
+				<li
+					v-if="computedShowNoResultsSlot"
+					class="cdx-menu__no-results cdx-menu-item"
+					role="option"
+				>
+					<!-- @slot Message to show if there are no menu items to display. -->
+					<slot name="no-results" />
+				</li>
+
+				<template v-for="( menuEntry, index ) in computedMenuEntries" :key="index">
+					<li
+						v-if="isMenuGroupData( menuEntry )"
+						class="cdx-menu__group-wrapper"
+						:class="getGroupWrapperClasses( menuEntry )"
 					>
-						<span class="cdx-menu__group__meta">
-							<cdx-icon
-								v-if="menuEntry.icon"
-								class="cdx-menu__group__icon"
-								:icon="menuEntry.icon"
-							/>
-							<span class="cdx-menu__group__meta__text">
-								<span
-									:id="menuEntry.id + '-label'"
-									class="cdx-menu__group__label"
-								>
-									{{ menuEntry.label }}
-								</span>
-								<span
-									v-if="menuEntry.description"
-									:id="menuEntry.id + '-description'"
-									class="cdx-menu__group__description"
-								>
-									{{ menuEntry.description }}
+						<ul
+							class="cdx-menu__group"
+							role="group"
+							:aria-labelledby="menuEntry.id + '-label'"
+							:aria-describedby="menuEntry.id + '-description'"
+						>
+							<span class="cdx-menu__group__meta">
+								<cdx-icon
+									v-if="menuEntry.icon"
+									class="cdx-menu__group__icon"
+									:icon="menuEntry.icon"
+								/>
+								<span class="cdx-menu__group__meta__text">
+									<span
+										:id="menuEntry.id + '-label'"
+										class="cdx-menu__group__label"
+									>
+										{{ menuEntry.label }}
+									</span>
+									<span
+										v-if="menuEntry.description"
+										:id="menuEntry.id + '-description'"
+										class="cdx-menu__group__description"
+									>
+										{{ menuEntry.description }}
+									</span>
 								</span>
 							</span>
-						</span>
-						<cdx-menu-item
-							v-for="( menuItemInGroup ) in menuEntry.items"
-							:key="menuItemInGroup.value"
-							:ref="( ref ) => assignTemplateRef( ref, getMenuItemIndex( menuItemInGroup ) )"
-							class="cdx-menu__group__item"
-							v-bind="getMenuItemBindings( menuItemInGroup )"
-							v-on="getMenuItemHandlers( menuItemInGroup )"
-						>
-							<!--
-								@slot Display of an individual item in the menu
-								@binding {MenuItem} menuItem The current menu item
-								@binding {boolean} active Whether the current item is visually active
-							-->
-							<slot v-bind="getSlotBindings( menuItemInGroup )" />
-						</cdx-menu-item>
-					</ul>
-				</li>
-				<cdx-menu-item
-					v-else
-					:ref="( ref ) => assignTemplateRef( ref, getMenuItemIndex( menuEntry ) )"
-					v-bind="getMenuItemBindings( menuEntry )"
-					v-on="getMenuItemHandlers( menuEntry )"
-				>
-					<slot v-bind="getSlotBindings( menuEntry )" />
-				</cdx-menu-item>
-			</template>
+							<cdx-menu-item
+								v-for="( menuItemInGroup ) in menuEntry.items"
+								:key="menuItemInGroup.value"
+								:ref="( ref ) => assignTemplateRef( ref, getMenuItemIndex( menuItemInGroup ) )"
+								class="cdx-menu__group__item"
+								v-bind="getMenuItemBindings( menuItemInGroup )"
+								v-on="getMenuItemHandlers( menuItemInGroup )"
+							>
+								<!--
+									@slot Display of an individual item in the menu
+									@binding {MenuItem} menuItem The current menu item
+									@binding {boolean} active Whether the current item is visually active
+								-->
+								<slot v-bind="getSlotBindings( menuItemInGroup )" />
+							</cdx-menu-item>
+						</ul>
+					</li>
+					<cdx-menu-item
+						v-else
+						:ref="( ref ) => assignTemplateRef( ref, getMenuItemIndex( menuEntry ) )"
+						v-bind="getMenuItemBindings( menuEntry )"
+						v-on="getMenuItemHandlers( menuEntry )"
+					>
+						<slot v-bind="getSlotBindings( menuEntry )" />
+					</cdx-menu-item>
+				</template>
 
-			<cdx-progress-bar
-				v-if="showPending"
-				class="cdx-menu__progress-bar"
-				:inline="true"
-			/>
-		</ul>
-	</div>
+				<cdx-progress-bar
+					v-if="showPending"
+					class="cdx-menu__progress-bar"
+					:inline="true"
+				/>
+			</ul>
+		</div>
+	</teleport>
 </template>
 <!-- eslint-enable max-len -->
 
 <script lang="ts">
-import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted, nextTick, useId, ComponentPublicInstance, HTMLAttributes } from 'vue';
+import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted, nextTick, useId, ComponentPublicInstance, HTMLAttributes, inject, unref } from 'vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import CdxIcon from '../icon/Icon.vue';
 import CdxProgressBar from '../progress-bar/ProgressBar.vue';
-import { MenuItemData, MenuItemDataWithId, MenuState, MenuItemValue, MenuGroupData, MenuGroupDataWithIds } from '../../types';
+import { MenuItemData, MenuItemDataWithId, MenuState, MenuItemValue, MenuGroupData, MenuGroupDataWithIds, TeleportTarget } from '../../types';
 import useIntersectionObserver from '../../composables/useIntersectionObserver';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 
@@ -265,6 +268,14 @@ export default defineComponent( {
 		showNoResultsSlot: {
 			type: Boolean as PropType<boolean|null>,
 			default: null
+		},
+		/**
+		 * Whether to disable the use of teleport and render the Menu in its
+		 * original location in the document.
+		 */
+		renderInPlace: {
+			type: Boolean,
+			default: false
 		}
 	},
 	emits: [
@@ -315,6 +326,7 @@ export default defineComponent( {
 	/*
 	expose: [
 		'isExpanded',
+		'getRootElement',
 		'clearActive',
 		'getHighlightedMenuItem',
 		'getHighlightedViaKeyboard',
@@ -470,6 +482,10 @@ export default defineComponent( {
 		const highlightedMenuItem = ref<MenuItemDataWithId|null>( null );
 		const highlightedViaKeyboard = ref( false );
 		const activeMenuItem = ref<MenuItemDataWithId|null>( null );
+
+		// Determine where to teleport the Menu to
+		const providedTarget = inject<TeleportTarget>( 'CdxTeleportTarget', undefined );
+		const computedTarget = computed( () => unref( providedTarget ) ?? 'body' );
 
 		// TODO: `additions removals` should be valid use for `aria-relevant`, but a Vue bug is
 		// preventing using it right now. See https://github.com/vuejs/core/issues/9030
@@ -921,6 +937,7 @@ export default defineComponent( {
 			}
 		}
 
+		const rootElement = ref<HTMLElement>();
 		const menuListbox = ref<HTMLElement>();
 
 		/**
@@ -1145,10 +1162,12 @@ export default defineComponent( {
 			computedShowNoResultsSlot,
 			highlightedMenuItem,
 			highlightedViaKeyboard,
+			computedTarget,
 			handleMenuItemChange,
 			handleKeyNavigation,
 			ariaRelevant,
 			isMultiselect,
+			rootElement,
 			menuListbox,
 			getGroupWrapperClasses,
 			getMenuItemIndex,
@@ -1170,6 +1189,18 @@ export default defineComponent( {
 		// eslint-disable-next-line vue/no-unused-properties
 		isExpanded(): boolean {
 			return this.expanded;
+		},
+
+		/**
+		 * Get the root element of the menu. The normal `.$el` property doesn't work due to the use
+		 * of teleport; it returns a `<!-- teleport start -->` comment instead. This method returns
+		 * the real, teleported root element.
+		 *
+		 * @return {HTMLElement|undefined}
+		 */
+		// eslint-disable-next-line vue/no-unused-properties
+		getRootElement(): HTMLElement|undefined {
+			return this.rootElement;
 		},
 
 		/**

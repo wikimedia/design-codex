@@ -11,6 +11,14 @@
 			margin: 0;
 			padding: 0;
 		}
+
+		/* Make sure the teleport target appears above the sandbox header */
+		/* stylelint-disable-next-line selector-max-id */
+		#teleport-target {
+			position: fixed;
+			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+			z-index: 200; /* @z-index-sticky */
+		}
 	</style>
 </head>
 

@@ -4,6 +4,7 @@ import CdxSelect from './Select.vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import { Icon, cdxIconSearch } from '@wikimedia/codex-icons';
 import { MenuItemData, MenuGroupData, ValidationStatusType } from '../../types';
+import getMenuRoot from '../../testutils/getMenuRoot';
 
 const data: {
 	value: string,
@@ -84,12 +85,14 @@ describe( 'Select', () => {
 				props: {
 					defaultLabel: 'Choose an option',
 					menuItems: data,
-					selected: null
+					selected: null,
+					renderInPlace: true
 				}
 			} );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+			const menu = getMenuRoot( wrapper );
+			expect( menu.isVisible() ).toBe( false );
 			await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'click' );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+			expect( menu.isVisible() ).toBe( true );
 		} );
 
 		describe( 'and the component is disabled', () => {
@@ -102,9 +105,10 @@ describe( 'Select', () => {
 						selected: null
 					}
 				} );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				const menu = getMenuRoot( wrapper );
+				expect( menu.isVisible() ).toBe( false );
 				await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'click' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( menu.isVisible() ).toBe( false );
 			} );
 		} );
 	} );
@@ -134,7 +138,7 @@ describe( 'Select', () => {
 			} );
 			await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'click' );
 			await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+			expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 		} );
 	} );
 
@@ -178,7 +182,7 @@ describe( 'Select', () => {
 				}
 			} );
 			await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'Enter' } );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+			expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 		} );
 
 		describe( 'and the component is disabled', () => {
@@ -192,7 +196,7 @@ describe( 'Select', () => {
 					}
 				} );
 				await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'Enter' } );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 		} );
 
@@ -223,9 +227,10 @@ describe( 'Select', () => {
 				}
 			} );
 			await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'Enter' } );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+			const menu = getMenuRoot( wrapper );
+			expect( menu.isVisible() ).toBe( true );
 			await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'Escape' } );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+			expect( menu.isVisible() ).toBe( false );
 		} );
 	} );
 
@@ -239,9 +244,10 @@ describe( 'Select', () => {
 				}
 			} );
 			await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'keydown', { key: 'Enter' } );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+			const menu = getMenuRoot( wrapper );
+			expect( menu.isVisible() ).toBe( true );
 			await wrapper.find( '.cdx-select-vue__handle' ).trigger( 'blur' );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+			expect( menu.isVisible() ).toBe( false );
 		} );
 	} );
 

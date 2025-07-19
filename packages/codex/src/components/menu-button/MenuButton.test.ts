@@ -3,6 +3,7 @@ import CdxMenuButton from './MenuButton.vue';
 import CdxToggleButton from '../../components/toggle-button/ToggleButton.vue';
 import CdxMenuItem from '../../components/menu-item/MenuItem.vue';
 import { MenuItemData } from '../../types';
+import getMenuRoot from '../../testutils/getMenuRoot';
 
 const data: MenuItemData[] = [
 	{ value: 'a', label: 'Option A' },
@@ -69,7 +70,7 @@ describe( 'MenuButton', () => {
 			} );
 			const expandButton = wrapper.findComponent( CdxToggleButton );
 			await expandButton.trigger( 'click' );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+			expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
 		} );
 
 		describe( 'and the component is disabled', () => {
@@ -83,7 +84,7 @@ describe( 'MenuButton', () => {
 				} );
 				const expandButton = wrapper.findComponent( CdxToggleButton );
 				await expandButton.trigger( 'click' );
-				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 			} );
 		} );
 	} );
@@ -109,7 +110,7 @@ describe( 'MenuButton', () => {
 			const expandButton = wrapper.findComponent( CdxToggleButton );
 			await expandButton.trigger( 'click' );
 			await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+			expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 		} );
 	} );
 
@@ -122,7 +123,7 @@ describe( 'MenuButton', () => {
 			const expandButton = wrapper.findComponent( CdxToggleButton );
 			await expandButton.trigger( 'focus' );
 			await expandButton.trigger( 'blur' );
-			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+			expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
 		} );
 	} );
 
@@ -148,7 +149,8 @@ describe( 'MenuButton', () => {
 			await toggleButton.trigger( 'click' );
 
 			// Check custom slot content.
-			const menuitemsList = wrapper.findAll( 'li.cdx-menu-item span' );
+			const menu = getMenuRoot( wrapper );
+			const menuitemsList = menu.findAll( 'li.cdx-menu-item span' );
 			const footerItem = menuitemsList[ menuitemsList.length - 1 ];
 			expect( footerItem.text() ).toBe( 'Custom Footer for Menu Footer' );
 		} );
