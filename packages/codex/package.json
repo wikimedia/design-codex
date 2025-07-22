@@ -52,7 +52,7 @@
 		"clean": "rm -rf dist/",
 		"serve": "vite preview",
 		"test": "npm run lint && npm -s run build && npm -s run test:unit",
-		"test:unit": "jest -c .jest/jest.config.json",
+		"test:unit": "NODE_OPTIONS=--experimental-vm-modules jest -c .jest/jest.config.json",
 		"test:e2e": "start-server-and-test 'npm run dev' http-get://localhost:5173 'cypress run'",
 		"lint": "npm run lint:ts",
 		"lint:ts": "vue-tsc -p ./tsconfig-check.json --noEmit && vue-tsc -p ./cypress/tsconfig.json --noEmit",
