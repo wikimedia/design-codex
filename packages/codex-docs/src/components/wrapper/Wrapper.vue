@@ -531,7 +531,7 @@ export default defineComponent( {
 	// the `allow-link-styles` prop is provided to the Wrapper.
 	&--allow-link-styles {
 		a {
-			color: @color-progressive;
+			color: @color-link;
 			text-decoration: @text-decoration-none;
 		}
 
