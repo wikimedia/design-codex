@@ -21,6 +21,28 @@
 		}
 	},
 	"color": {
+		"link": {
+			"comment": "Default Link color and states",
+			"value": "{ color.progressive }"
+		},
+		"link--hover": {
+			"value": "{ color.progressive--hover }"
+		},
+		"link--active": {
+			"value": "{ color.progressive--active }"
+		},
+		"link--focus": {
+			"value": "{ color.progressive--focus }"
+		},
+		"link--visited": {
+			"value": "{ color.visited }"
+		},
+		"link--visited--hover": {
+			"value": "{ color.visited--hover }"
+		},
+		"link--visited--active": {
+			"value": "{ color.visited--active }"
+		},
 		"link-red": {
 			"comment": "Red ('new') Link color and states",
 			"value": "{ color.destructive }"
