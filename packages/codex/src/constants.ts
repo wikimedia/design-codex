@@ -1,4 +1,4 @@
-/*!
+/**
  * This file contains all constants used in the codex package.
  *
  * Exported constants should be marked with `@public` comments in this file, AND explicitly
