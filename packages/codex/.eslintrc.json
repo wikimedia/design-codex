@@ -14,8 +14,8 @@
 			"files": [ "src/**" ],
 			"excludedFiles": "src/**/*.test.[jt]s",
 			"extends": [
-				"wikimedia/client-common",
-				"wikimedia/vue3-common",
+				"wikimedia/client/common",
+				"wikimedia/vue3/common",
 				"wikimedia/language/es2016"
 			],
 			"rules": {

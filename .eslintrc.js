@@ -119,8 +119,8 @@ module.exports = {
 			files: [ '**/*.vue' ],
 			parser: 'vue-eslint-parser',
 			extends: [
-				'wikimedia/vue3-common',
-				'wikimedia/client-common'
+				'wikimedia/vue3/common',
+				'wikimedia/client/common'
 			],
 			rules: {
 				'vue/no-unsupported-features': [ 'error', {
@@ -147,7 +147,7 @@ module.exports = {
 			files: [ '**/*.spec.[jt]s', '**/*.test.[jt]s' ],
 			extends: [
 				'plugin:jest/recommended',
-				'wikimedia/client-common'
+				'wikimedia/client/common'
 			]
 		}
 	]
