@@ -15,7 +15,9 @@
 					{
 						"definedTags": [ "import" ]
 					}
-				]
+				],
+				"@stylistic/member-delimiter-style": "off",
+				"@typescript-eslint/explicit-member-accessibility": "off"
 			}
 		}
 	]

@@ -7,7 +7,6 @@ type EmitFunc<EventName extends string, ParamType> =
 	( event: EventName, param: ParamType ) => void;
 
 // See the docblock comment below for details on these function signatures.
-/* eslint-disable no-redeclare */
 export default function useModelWrapper<ModelValue, EventName extends 'update:modelValue'>(
 	modelValueRef: Ref<ModelValue>,
 	emit: EmitFunc<EventName, ModelValue>,

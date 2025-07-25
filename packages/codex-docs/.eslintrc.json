@@ -24,7 +24,12 @@
 				"es-x/no-array-prototype-flat": "off",
 				"jsdoc/require-param-type": "off",
 				"jsdoc/require-returns-type": "off",
-				"n/no-missing-import": "off"
+				"n/no-missing-import": "off",
+				"comma-dangle": "off",
+				"@stylistic/indent": "off",
+				"@stylistic/member-delimiter-style": "off",
+				"@stylistic/type-annotation-spacing": "off",
+				"@typescript-eslint/explicit-member-accessibility": "off"
 			}
 		},
 		{

@@ -6,7 +6,6 @@ import { computed, WritableComputedRef, Ref } from 'vue';
 type EmitFunc<EventName extends string, ParamType> =
 	( event: EventName, param: ParamType ) => void;
 
-/* eslint-disable no-redeclare */
 export default function useOptionalModelWrapper<ModelValue, EventName extends 'update:modelValue'>(
 	internalValueRef: Ref<ModelValue>,
 	modelValueRef: Ref<ModelValue>,

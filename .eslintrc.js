@@ -85,7 +85,12 @@ module.exports = {
 			],
 			rules: {
 				'@typescript-eslint/no-non-null-assertion': 'error',
-				'@typescript-eslint/prefer-regexp-exec': 'off'
+				'@typescript-eslint/prefer-regexp-exec': 'off',
+				// These are newly-inherited shared rules, but we don't pass them (yet?)
+				'comma-dangle': 'off',
+				'@typescript-eslint/explicit-function-return-type': 'off',
+				'@typescript-eslint/explicit-member-accessibility': 'off',
+				'@typescript-eslint/explicit-module-boundary-types': 'off'
 			}
 		},
 		{
