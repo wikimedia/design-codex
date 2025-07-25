@@ -1,3 +1,7 @@
+---
+outline: [ 2, 3 ]
+---
+
 <script setup>
 import { CdxIcon } from '@wikimedia/codex';
 import {

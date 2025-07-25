@@ -1,8 +1,9 @@
 /**
  * Icon definitions.
  *
- * Icons are listed in alphabetical order. See types.ts or the "Adding new icons" documentation at
- * https://doc.wikimedia.org/codex/latest/icons/adding-new.html#adding-the-icon-definition
+ * Icons are listed in alphabetical order. For more information on the different types of icons,
+ * see types.ts or the documentation at
+ * https://doc.wikimedia.org/codex/main/contributing/contributing-icons.html#how-to-add-each-type-of-icon
  */
 
 import {

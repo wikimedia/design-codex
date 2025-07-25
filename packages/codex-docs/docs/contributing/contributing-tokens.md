@@ -1,3 +1,7 @@
+---
+outline: [ 2, 3 ]
+---
+
 # Contributing tokens
 
 This page outlines the steps that collaborators should follow to contribute a new Codex design token.
