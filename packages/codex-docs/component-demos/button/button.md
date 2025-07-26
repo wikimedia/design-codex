@@ -595,17 +595,55 @@ for more information.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<a class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-progressive" href="#">
-		Progressive link button
-	</a>
+	<div>
+		<a class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-progressive" href="#">
+			Progressive link button
+		</a>
+	</div>
+	<div>
+		<a class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-progressive cdx-button--weight-quiet" href="#">
+			<span class="cdx-button__icon cdx-demo-css-icon--language"></span>
+			Quiet progressive link button
+		</a>
+	</div>
 </template>
 <template v-slot:code>
 
 ```html
-<a class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-progressive" href="#">
-	Progressive link button
-</a>
+<div>
+	<a class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-progressive" href="#">
+		Progressive link button
+	</a>
+</div>
+<div>
+	<a class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-progressive cdx-button--weight-quiet" href="#">
+		<span class="cdx-button__icon cdx-demo-css-icon--language"></span>
+		Quiet progressive link button
+	</a>
+</div>
 ```
+
+:::code-group
+
+```less [NPM]
+// Note: you must import the design tokens before importing the css-icon mixin.
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
+
+.cdx-demo-css-icon--language {
+	.cdx-mixin-css-icon( @cdx-icon-language, @param-is-button-icon: true );
+}
+```
+
+```less [MediaWiki]
+@import 'mediawiki.skin.variables.less';
+
+.cdx-demo-css-icon--language {
+	.cdx-mixin-css-icon( @cdx-icon-language, @param-is-button-icon: true );
+}
+```
+
+:::
 
 </template>
 </cdx-demo-wrapper>
@@ -647,6 +685,10 @@ for more information.
 			@param-is-button-icon: true
 		);
 	}
+}
+
+.cdx-demo-css-icon--language {
+	.cdx-mixin-css-icon( @cdx-icon-language, @param-is-button-icon: true );
 }
 
 .cdx-demo-css-icon--user-avatar {
