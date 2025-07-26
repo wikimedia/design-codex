@@ -74,7 +74,7 @@ The Radio must always contain a label, with the text size matching the base font
 
 <cdx-demo-best-practice>
 
-Keep the choices short and mutually exclusive. [*Concise*](https://doc.wikimedia.org/codex/main/style-guide/writing-for-copy.html#is-this-concise), [*Clear*](https://doc.wikimedia.org/codex/main/style-guide/writing-for-copy.html#is-this-clear) & [*Trustworthy*](https://doc.wikimedia.org/codex/main/style-guide/writing-for-copy.html#is-this-trustworthy)
+Keep the choices short and mutually exclusive. [*Concise*](https://doc.wikimedia.org/codex/latest/style-guide/writing-for-copy.html#is-this-concise), [*Clear*](https://doc.wikimedia.org/codex/latest/style-guide/writing-for-copy.html#is-this-clear) & [*Trustworthy*](https://doc.wikimedia.org/codex/latest/style-guide/writing-for-copy.html#is-this-trustworthy)
 
 </cdx-demo-best-practice>
 <cdx-demo-best-practice>Use text formatting like bold and italic sparingly in the label.</cdx-demo-best-practice>

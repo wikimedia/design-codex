@@ -3,7 +3,7 @@
  *
  * Icons are listed in alphabetical order. For more information on the different types of icons,
  * see types.ts or the documentation at
- * https://doc.wikimedia.org/codex/main/contributing/contributing-icons.html#how-to-add-each-type-of-icon
+ * https://doc.wikimedia.org/codex/latest/contributing/contributing-icons.html#how-to-add-each-type-of-icon
  */
 
 import {

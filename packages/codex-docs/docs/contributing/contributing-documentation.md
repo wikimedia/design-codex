@@ -70,8 +70,8 @@ same code quality and testing standards as Codex components.
 ### Miscellaneous
 
 - Use simple, direct language to serve a global audience. Follow the
-  [Voice and tone](https://doc.wikimedia.org/codex/main/style-guide/voice-and-tone.html) and
-  [Writing for copy](https://doc.wikimedia.org/codex/main/style-guide/writing-for-copy.html)
+  [Voice and tone](https://doc.wikimedia.org/codex/latest/style-guide/voice-and-tone.html) and
+  [Writing for copy](https://doc.wikimedia.org/codex/latest/style-guide/writing-for-copy.html)
   guidelines.
 - Follow patterns established in other files. Familiarize yourself with the file you're working in
   and related pages, then follow the structure and syntax used there.
