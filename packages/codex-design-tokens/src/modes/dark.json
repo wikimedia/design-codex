@@ -227,6 +227,12 @@
 		"error--active": {
 			"value": "{ color.red300 }"
 		},
+		"warning--hover": {
+			"value": "{ color.yellow400 }"
+		},
+		"warning--active": {
+			"value": "{ color.yellow300 }"
+		},
 		"content-added": {
 			"value": "{ color.blue900 }"
 		},

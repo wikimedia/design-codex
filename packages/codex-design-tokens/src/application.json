@@ -694,6 +694,12 @@
 		"warning": {
 			"value": "{ color.yellow500 }"
 		},
+		"warning--hover": {
+			"value": "{ color.yellow800 }"
+		},
+		"warning--active": {
+			"value": "{ color.yellow900 }"
+		},
 		"success": {
 			"value": "{ color.green500 }"
 		},
