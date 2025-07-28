@@ -758,7 +758,7 @@
 			"value": "serif"
 		},
 		"serif-100": {
-			"value": "'Linux Libertine', 'Georgia', 'Times', 'Source Serif Pro', serif"
+			"value": "'Linux Libertine', 'Georgia', 'Times', 'Source Serif 4', serif"
 		},
 		"monospace-10": {
 			"comment": "Use for `monospace--fallback`. See T176636.",

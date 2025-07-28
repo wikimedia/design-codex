@@ -96,8 +96,7 @@ To select an appropriate font family for a given language script or device, foll
 We recommend relying on the operating system's default sans-serif typeface.[[1]](#ref1)[[2]](#ref2)
 
 Most platforms have plenty of options for supporting latin-based languages, where the serif concept
-makes sense. Among the different serif system fonts we recommend [Source Serif Pro](https://en.wikipedia.org/wiki/Source_Serif?useskin=vector)
-(present in many operating systems).
+makes sense.
 
 Below you can check an example CSS code to support the default system fonts:
 
@@ -136,21 +135,7 @@ In some cases you may be designing in a neutral-platform context. For example, c
 convey a general interface concept targeting multiple platforms, or contributing to this style
 guide. In those cases, it is convenient to select free fonts that follow the above criteria.
 
-We recommend Source Serif Pro and Inter when available in your language, as well as the Noto font
-family for extended language support.
-- **Source Serif Pro** is a serif typeface created by Frank Grießhammer for Adobe Systems. The
-  typeface is inspired by the forms of [Pierre Simon Fournier](https://en.wikipedia.org/wiki/Pierre_Simon_Fournier)
-  and is a complementary design to the [Source Sans](https://en.wikipedia.org/wiki/Source_Sans_Pro)
-  family.
-- **Inter** is a sans-serif typeface family designed for computer screens.
-- The [**Noto family**](https://en.wikipedia.org/wiki/Noto_fonts) provides a great coverage of
-  languages, providing good alternatives for both serif and sans-serif typefaces.
-
-
-![Examples of the Source Serif Pro and Inter fonts.](../assets/visual-styles/typography/03_fonts.png)
-
-These fonts are provided as a reference, but you may select other free fonts using similar criteria
-when the recommended ones are not available in your context.
+Read more about the default Codex [font tokens](../design-tokens/font).
 
 ## Use of styles
 
