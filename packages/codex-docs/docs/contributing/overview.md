@@ -30,7 +30,7 @@ Tasks are tracked in Phabricator on the [**Codex Phabricator workboard**](https:
 Within this board, filters are used to organize tasks into categories, including but not limited to:
 
 - [**Good first tasks**](https://phabricator.wikimedia.org/project/board/5587/?filter=c9UOyCZr719w): tasks that are good starting points for new contributors.
-- [**New components**](https://phabricator.wikimedia.org/project/board/5587/): tasks relating to the addition of new components in Codex.
+- [**New components**](https://phabricator.wikimedia.org/project/board/5587/?filter=a44lKJ_qnMtz): tasks relating to the addition of new components in Codex.
 - [**Bugs**](https://phabricator.wikimedia.org/project/board/5587/?filter=O6HKiEI.xB_F): tasks that have reported a bug in Codex.
 - [**Accessibility tasks**](https://phabricator.wikimedia.org/project/board/5587/?filter=MLMTMPqdLxbb): tasks to improve accessibility in Codex.
 - [**Design tasks**](https://phabricator.wikimedia.org/project/board/5587/?filter=C_Ge5L58Ujv7): tasks that are design oriented.
