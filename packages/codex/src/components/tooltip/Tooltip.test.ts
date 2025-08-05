@@ -34,7 +34,7 @@ describe( 'Tooltip', () => {
 		} );
 	} );
 
-	describe( 'when a button element uses a Tooltip', () => {
+	describe( 'when a `<button>` element uses a Tooltip', () => {
 		const textContent = 'Tooltip text';
 
 		it( 'displays a Tooltip when hovering over an element', async () => {
@@ -44,11 +44,11 @@ describe( 'Tooltip', () => {
 				attachTo: 'body'
 			} );
 
-			// Find the button element and tooltip directive.
+			// Find the `<button>` element and tooltip directive.
 			const button = wrapper.find( 'button' );
 			const tooltip = wrapper.find( '.cdx-tooltip' );
 
-			// Simulate hovering over a button element.
+			// Simulate hovering over a `<button>` element.
 			await button.trigger( 'mouseenter' );
 
 			// Check if the tooltip is visible.

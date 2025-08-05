@@ -389,7 +389,7 @@ styles.
 You can use [CSS icons](./icon.md#css-only-version) within button content. To set up an icon within
 a CSS-only button, do the following.
 
-1. Add an empty span inside the button before the label with the class `cdx-button__icon`.
+1. Add an empty `<span>` element inside the `<button>` before the label with the class `cdx-button__icon`.
 2. Use the `.cdx-mixin-css-icon()` mixin with the `@param-is-button-icon` parameter set to `true`.
 
 Note that in Firefox version 52 and below, full color support for icons inside CSS-only buttons is
@@ -445,8 +445,8 @@ Be sure to add `aria-hidden="true"` to the icon element to hide it from assistiv
 Add the `cdx-button--icon-only` class for an icon-only Button.
 
 :::warning
-Be sure to add an `aria-label` attribute to the button element so it can be understandable to screen
-reader users.
+Be sure to add an `aria-label` attribute to the `<button>` element so it can be understandable
+to screen reader users.
 :::
 
 <cdx-demo-wrapper>

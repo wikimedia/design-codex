@@ -177,8 +177,8 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/field.html#prop
 
 		// In the case of single input fields (not fieldsets), the input id is passed to the label
 		// and provided to the input component.
-		// For fieldsets, this is all taken care of by the native HTML elements (<fieldset> and
-		// <legend>).
+		// For fieldsets, this is all taken care of by the native HTML elements (`<fieldset>` and
+		// `<legend>`).
 		const inputId = useId();
 
 		// Provide the input ID and description ID to child components

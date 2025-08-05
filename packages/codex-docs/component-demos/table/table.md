@@ -496,7 +496,7 @@ text alignment.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<!-- Wrapper div. -->
+	<!-- Wrapper `<div>` element. -->
 	<div class="cdx-table">
 		<!-- Header content. -->
 		<div class="cdx-table__header">
@@ -508,7 +508,7 @@ text alignment.
 			<!-- Additional header content goes here if needed. -->
 			<div class="cdx-table__header__header-content"></div>
 		</div>
-		<!-- Wrapper around the table element. Needed for horizontal scroll. -->
+		<!-- Wrapper around the `<table>` element. Needed for horizontal scroll. -->
 		<div class="cdx-table__table-wrapper">
 			<!-- Table element. -->
 			<table class="cdx-table__table">
@@ -567,7 +567,7 @@ text alignment.
 <template v-slot:code>
 
 ```html
-<!-- Wrapper div. -->
+<!-- Wrapper `<div>` element. -->
 <div class="cdx-table">
 	<!-- Header content. -->
 	<div class="cdx-table__header">
@@ -579,7 +579,7 @@ text alignment.
 		<!-- Additional header content goes here if needed. -->
 		<div class="cdx-table__header__header-content"></div>
 	</div>
-	<!-- Wrapper around the table element. Needed for horizontal scroll. -->
+	<!-- Wrapper around the `<table>` element. Needed for horizontal scroll. -->
 	<div class="cdx-table__table-wrapper">
 		<!-- Table element. -->
 		<table class="cdx-table__table">
@@ -640,7 +640,7 @@ text alignment.
 
 #### Visually hidden caption
 
-To visually hide the header's caption, simply do not add it to the header element
+To visually hide the header's caption, simply do not add it to the `<header>` element
 (`<div class="cdx-table__header">`). If you have no other header content, the entire header element
 can be removed, as in the example below. Make sure to always include the `<caption>` element inside
 the `<table>`, which is visually hidden by default.
@@ -876,7 +876,7 @@ cases, therefore apply additional border styles to the element as needed.
 #### Row headers
 
 In some cases, header information can be found in the top row and first column. All header cells are
-marked up as `th` elements with the appropriate `scope` attribute. The scope attribute helps to
+marked up as `<th>` elements with the appropriate `scope` attribute. The scope attribute helps to
 describe the relationship between header and data cells. Refer to
 [WAI](https://www.w3.org/WAI/tutorials/tables/two-headers/) to learn more about Table header row and
 header column.
@@ -1374,7 +1374,7 @@ The icon images are added automatically.
 				<div class="cdx-table-pager__end">
 					<!-- Button with ARIA label. -->
 	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="First Page">
-						<!-- Empty span with icon classes and `aria-hidden`. -->
+						<!-- Empty `<span>` element with icon classes and `aria-hidden`. -->
 						<span class="cdx-table-pager__icon--first cdx-button__icon" aria-hidden="true"></span>
 					</button>
 	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Previous Page">
@@ -1507,7 +1507,7 @@ The icon images are added automatically.
 				<div class="cdx-table-pager__end">
 					<!-- Button with ARIA label. -->
 	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="First Page">
-						<!-- Empty span with icon classes and `aria-hidden`. -->
+						<!-- Empty `<span>` element with icon classes and `aria-hidden`. -->
 						<span class="cdx-table-pager__icon--first cdx-button__icon" aria-hidden="true"></span>
 					</button>
 	 				<button class="cdx-button cdx-button--icon-only cdx-button--weight-quiet" aria-label="Previous Page">

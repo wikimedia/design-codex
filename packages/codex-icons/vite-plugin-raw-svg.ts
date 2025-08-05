@@ -15,7 +15,7 @@ interface RawSvgOptions {
  * This allows TypeScript code to do `import foo from './foo.svg'`, and have `foo` be a string
  * containing the contents of that SVG file. The SVG file is processed by SVGO using the default
  * preset. Additionally, all IDs in the SVG file are prefixed with `cdx-icon-foo-` (where `foo`
- * is the name of the file without the extension), and the outer <svg> tag is removed.
+ * is the name of the file without the extension), and the outer `<svg>` tag is removed.
  *
  * @param options
  * @param options.include
@@ -62,14 +62,14 @@ export default ( options: RawSvgOptions = {
 							// Prefix IDs with the icon name, so that they are unique
 							// Otherwise, using multiple icons on the same page causes ID
 							// collisions, which result in very strange rendering bugs due
-							// to <use> tags reusing something from a different icon
+							// to `<use>` elements reusing something from a different icon.
 							name: 'prefixIds',
 							params: {
 								prefix: `cdx-icon-${ iconName }-`,
 								delim: ''
 							}
 						},
-						// Enable `removeTitle` plugin to remove the title tag from the SVG.
+						// Enable `removeTitle` plugin to remove the `<title>` element from the SVG.
 						// It is disabled by default in the SVGO preset since v4.0.0.
 						'removeTitle',
 						removeSvgTag

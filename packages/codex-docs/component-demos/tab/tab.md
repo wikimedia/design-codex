@@ -81,7 +81,7 @@ Tab content appears underneath the Tab when selected, and can include any type o
 ### Vue usage
 
 This component can display arbitrary content, including markup, via its default slot. The provided
-content is wrapped in a `<section>` tag and given an HTML ID.
+content is wrapped in a `<section>` element and given an HTML ID.
 
 ::: tip Must be used with Tabs component
 This component is only meant to be used inside the default `<slot>` of the `<Tabs>` component.

@@ -6,7 +6,7 @@ import { SetupContext, ComputedRef, StyleValue, computed } from 'vue';
  * For some components, attributes that are bound to the component shouldn't be bound to the root
  * element of the component (the default behavior), but rather should be bound to a child element
  * within the component. For example, you might want to be able to add a `placeholder` attribute on
- * a component which is then applied to an <input> element within that component.
+ * a component which is then applied to an `<input>` element within that component.
  *
  * However, there are some attributes that should always be placed on the root element, namely
  * class and style.

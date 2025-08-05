@@ -50,7 +50,7 @@ describe( 'TextArea', () => {
 	} );
 
 	describe( 'when rendered to the UI', () => {
-		it( 'should have an empty string value inside the textarea element', () => {
+		it( 'should have an empty string value inside the `<textarea>` element', () => {
 			const wrapper = mount( CdxTextArea );
 
 			expect( wrapper.get( 'textarea' ).text() ).toBe( '' );

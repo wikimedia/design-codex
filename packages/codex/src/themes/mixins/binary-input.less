@@ -90,7 +90,7 @@
 		transition-duration: @transition-duration-base;
 	}
 
-	// HTML input element.
+	// HTML `<input>` element.
 	&__input {
 		// The actual input is visually hidden.
 		opacity: 0;
@@ -112,7 +112,7 @@
 
 	// Ensure that the input and label show hover cursor, when enabled.
 	// The line with the :not() selector is meant to support CSS-only usage of a simple
-	// label element with class `&__label`, rather than use of the Label component.
+	// `<label>` element with class `&__label`, rather than use of the Label component.
 	&__wrapper:hover > &__input:enabled,
 	&__wrapper:hover > &__input:enabled ~ .cdx-label .cdx-label__label,
 	&__wrapper:hover > &__input:enabled ~ &__label:not( .cdx-label ) {

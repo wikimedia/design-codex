@@ -54,9 +54,9 @@ export default defineComponent( {
 	gap: @spacing-35;
 	font-size: var( --font-size-small );
 
-	// Slot content will get a p tag wrapped around it if there's whitespace around it, which is
-	// necessary to get markdown to also process things like links. Remove the extra margins so the
-	// text aligns with the icon.
+	// Slot content will get a `<p>` element wrapped around it if there's whitespace around it,
+	// which is necessary to get markdown to also process things like links. Remove the extra
+	// margins so the text aligns with the icon.
 	p {
 		margin: 0;
 		line-height: @line-height-small;

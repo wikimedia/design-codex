@@ -285,7 +285,7 @@ for more information.
 <template v-slot:code>
 
 ```html
-<!-- Wrapper div. -->
+<!-- Wrapper `<div>` element. -->
 <div class="cdx-text-input">
 	<!-- Input element with CSS class and attributes. -->
 	<input class="cdx-text-input__input" type="text" placeholder="Start typing a vegetable name...">

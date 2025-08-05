@@ -109,9 +109,9 @@ An inline version is available for use within other components. See
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<!-- Wrapper div with ARIA attributes -->
+	<!-- Wrapper `<div>` element with ARIA attributes. -->
 	<div class="cdx-progress-bar" role="progressbar" aria-label="ProgressBar example">
-		<!-- Empty inner div -->
+		<!-- Empty inner `<div>`. -->
 		<div class="cdx-progress-bar__bar" />
 	</div>
 </template>
@@ -119,9 +119,9 @@ An inline version is available for use within other components. See
 <template v-slot:code>
 
 ```html
-<!-- Wrapper div with ARIA attributes -->
+<!-- Wrapper `<div>` element with ARIA attributes. -->
 <div class="cdx-progress-bar" role="progressbar" aria-label="ProgressBar example">
-	<!-- Empty inner div -->
+	<!-- Empty inner `<div>`. -->
 	<div class="cdx-progress-bar__bar" />
 </div>
 ```

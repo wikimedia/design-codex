@@ -26,12 +26,12 @@ Making the difference between Links and Buttons is important to help inform the 
 <cdx-demo-best-practices>
 <cdx-demo-best-practice type="dont">
 
-Avoid styling an anchor tag `<a>` as a button and instead use a Codex [Button](../components/demos/button.md).
+Avoid styling an anchor `<a>` element as a button and instead use a Codex [Button](../components/demos/button.md).
 
 </cdx-demo-best-practice>
 <cdx-demo-best-practice type="dont">
 
-Avoid styling a button tag `<button>` as a link and instead use a Codex [Link](../components/mixins/link.md).
+Avoid styling a `<button>` element as a link and instead use a Codex [Link](../components/mixins/link.md).
 
 </cdx-demo-best-practice>
 </cdx-demo-best-practices>

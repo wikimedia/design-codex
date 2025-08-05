@@ -212,7 +212,7 @@ export default defineComponent( {
 		border-top: @border-subtle;
 	}
 
-	// The summary element is always visible
+	// The `<summary>` element is always visible.
 	& > summary {
 		background-color: @background-color-transparent;
 		list-style: none; // disable the built-in indicator icon since we're providing our own
@@ -255,7 +255,7 @@ export default defineComponent( {
 		}
 
 		// Most browsers remove the default indicator triangle icon when
-		// list-style is set to none on the summary element. But webkit requires
+		// list-style is set to none on the `<summary>` element. But WebKit requires
 		// this vendor-specific override as well. We are providing our own Codex
 		// Icon instead of the browser-supplied default for this purpose.
 		&::-webkit-details-marker {

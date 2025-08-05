@@ -128,7 +128,7 @@ The icon mixin, `.cdx-mixin-css-icon`, takes in the following parameters:
 To create a CSS icon, the mixin is applied to an empty element:
 
 ```html
-<!-- Create an empty span with a class. -->
+<!-- Create an empty `<span>` element with a class. -->
 <span class="my-feature__icon--trash"></span>
 ```
 

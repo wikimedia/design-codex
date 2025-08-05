@@ -259,7 +259,7 @@ styled to match the Vue version, but the menu will use native browser styles.
 ```html
 <!-- The CSS-only version uses the `<select>` element. -->
 <select class="cdx-select">
-	<!-- Use <option> and <optgroup> elements as needed. -->
+	<!-- Use `<option>` and `<optgroup>` elements as needed. -->
 	<option value="">Choose an option</option>
 	<option value="a">Option A</option>
 	<option value="b">Option B</option>

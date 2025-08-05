@@ -12,7 +12,7 @@ import CdxAccordion from './Accordion.vue';
 async function toggleDetails( wrapper: DOMWrapper<HTMLDetailsElement> ) {
 	const wasOpen = wrapper.element.open;
 	// Toggle the value of the `open` attribute. This performs most of the native actions we need:
-	// - It toggles the visiblity of the content outside the `<summary>` element
+	// - It toggles the visibility of the content outside the `<summary>` element
 	// - It emits a `toggle` event
 	wrapper.element.open = !wasOpen;
 	// However, the emitted `toggle` event does not have the `oldState` and `newState` properties

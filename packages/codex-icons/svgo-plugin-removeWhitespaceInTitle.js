@@ -1,5 +1,5 @@
 /**
- * SVGO plugin that removes whitespace in <title> tag.
+ * SVGO plugin that removes whitespace in `<title>` element.
  *
  * @type {import('svgo').CustomPlugin}
  */

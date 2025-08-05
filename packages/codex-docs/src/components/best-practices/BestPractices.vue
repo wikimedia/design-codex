@@ -39,7 +39,7 @@ export default defineComponent( {
 	h5,
 	h6 {
 		+ .cdx-demo-best-practices {
-			// Add the same margin that p and ul tags have to ensure there's
+			// Add the same margin that `<p>` and `<ul>` elements have to ensure there's
 			// space when this comes right after a heading.
 			margin-top: @spacing-100;
 		}

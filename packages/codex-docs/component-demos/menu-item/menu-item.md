@@ -167,7 +167,7 @@ This MenuItem has a bold `label` and a `description`.
 
 ### With link
 
-If a `url` property is included, the MenuItem will be wrapped in an anchor tag.
+If a `url` property is included, the MenuItem will be wrapped in an anchor `<a>` element.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

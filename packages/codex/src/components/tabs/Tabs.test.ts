@@ -381,7 +381,7 @@ describe( 'Tabs', () => {
 		type Case = [ msg: string, middleContent: string ];
 		const cases: Case[] = [
 			[ 'Raw text', 'Text outside of a tab' ],
-			[ 'HTML tag', '<hr />' ],
+			[ 'HTML element', '<hr />' ],
 			[ 'Non-Tab component', '<blah-component>Content in a non-tab component</blah-component>' ]
 		];
 

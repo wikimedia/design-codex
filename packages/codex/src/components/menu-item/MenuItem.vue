@@ -196,7 +196,7 @@ export default defineComponent( {
 
 		/**
 		 * URL for the menu item. If provided, the content of the menu item will be wrapped in an
-		 * anchor tag.
+		 * anchor `<a>` element.
 		 */
 		url: {
 			type: String,
@@ -358,8 +358,8 @@ export default defineComponent( {
 			'cdx-menu-item--hide-description-overflow': props.hideDescriptionOverflow
 		} ) );
 
-		// If a URL is provided for this menu item, the content will be wrapped in an <a> tag.
-		// Otherwise, it'll just be wrapped in a <span>.
+		// If a URL is provided for this menu item, the content will be wrapped in an `<a>` element.
+		// Otherwise, it'll just be wrapped in a `<span>` element.
 		const contentTag = computed( () => props.url ? 'a' : 'span' );
 
 		// Get the title, which will be passed to the Title component. Must be a string.
@@ -465,7 +465,8 @@ export default defineComponent( {
 	&--enabled {
 		// We need to set the color here, so it applies to all icons and text, regardless of whether
 		// the default slot is customized or not. Then, we need to specifically target the
-		// `&__content` element, which may be an anchor tag, since many sites set a color on `a`.
+		// `&__content` element, which may be an anchor element, since many sites set a color
+		// on `<a>`.
 		&,
 		.cdx-menu-item__content {
 			color: @color-base;

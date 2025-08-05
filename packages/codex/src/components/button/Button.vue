@@ -154,7 +154,7 @@ export default defineComponent( {
 	}
 
 	// Styles for enabled buttons of all weights and actions.
-	// The class is included to enable these styles for elements other than <button>.
+	// The class is included to enable these styles for elements other than `<button>`.
 	&:enabled,
 	&.cdx-button--fake-button--enabled {
 		background-color: @background-color-interactive-subtle;

@@ -16,7 +16,7 @@ const getParams = ( params ) => {
 		const d = typeof p.description === 'string' ? p.description : '';
 
 		// Standard format for params in other usage docs (e.g. events), with
-		// the name in bold, the type in <pre> tags, and the description after a dash.
+		// the name in bold, the type in a `<pre>` element, and the description after a dash.
 		paramsString += `<li>**${ mdclean( n ) }** ${ mdclean( t ) } - ${ mdclean( d ) }</li>`;
 	} );
 	paramsString += '</ul>';

@@ -6,7 +6,7 @@ import { flattenSlotContents } from '../utils/slotContents';
  *
  * This function removes comments (including v-if placeholders) and unwraps fragments and other
  * things causing a nested structure. It returns a flat array of strings (representing loose text)
- * or VNodes (representing components or HTML tags).
+ * or VNodes (representing components or HTML elements).
  *
  * This function should be used in code that programmatically analyzes the contents of a slot, to
  * make it resilient against extra VNodes added by comments, or extra levels of wrapping added when

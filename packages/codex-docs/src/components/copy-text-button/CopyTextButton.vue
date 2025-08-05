@@ -50,8 +50,9 @@ export default defineComponent( {
 			}
 			const preNodes = Array.from( props.copyText.querySelectorAll( 'pre' ) );
 			return preNodes
-				// Some code samples use code groups where only one <pre> is visible at any time,
-				// while the others are hidden. To support this, ignore hidden <pre> tags.
+				// Some code samples use code groups where only one `<pre>` element is visible at
+				// any time, while the others are hidden. To support this, ignore hidden
+				// `<pre>` elements.
 				.filter( ( pre ) => pre.clientHeight > 0 )
 				.map( ( pre ) => pre.innerText )
 				// If there are multiple code blocks visible, separate them with a double newline.
@@ -135,7 +136,7 @@ export default defineComponent( {
 				copySuccess.value = false;
 			}
 
-			// Remove the textarea element.
+			// Remove the `<textarea>` element.
 			document.body.removeChild( textarea );
 		};
 

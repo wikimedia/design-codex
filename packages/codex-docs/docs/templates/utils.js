@@ -27,7 +27,7 @@ export function getTypeText( item ) {
 	 * @return {string} code markup or empty string
 	 */
 	function formatAsCode( str ) {
-		// Don't wrap empty strings in <code> tags
+		// Don't wrap empty strings in `<code>` elements.
 		if ( str.length === 0 ) {
 			return str;
 		}

@@ -291,11 +291,11 @@ search icon is automatically added for you.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<!-- Wrapper div. -->
+	<!-- Wrapper `<div>` element. -->
 	<div class="cdx-typeahead-search">
 		<!-- Search input div with classes. -->
 		<div class="cdx-search-input cdx-search-input--has-end-button">
-			<!-- Search input wrapper div. -->
+			<!-- Search input wrapper `<div>`. -->
 			<div class="cdx-search-input__input-wrapper">
 				<!-- CSS-only TextInput with start icon. -->
 				<div class="cdx-text-input cdx-text-input--has-start-icon">

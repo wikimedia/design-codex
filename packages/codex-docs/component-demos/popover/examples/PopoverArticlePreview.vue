@@ -166,9 +166,9 @@ export default defineComponent( {
 	},
 	setup() {
 		// Provide a template ref for the trigger element to properly position the Popover.
-		// Store multiple template refs for anchor tags.
+		// Store multiple template refs for anchor `<a>` elements.
 		const triggerElements = ref( [] );
-		// Currently hovered anchor tag.
+		// Currently hovered anchor element.
 		const currentTrigger = ref( null );
 		const currentTitle = ref( '' );
 		const currentPreview = ref( '' );

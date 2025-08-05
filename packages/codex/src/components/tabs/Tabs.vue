@@ -233,7 +233,7 @@ export default defineComponent( {
 		const lastLabelVisible = useIntersectionObserver( lastTabLabel, { threshold: 0.95 } );
 
 		/**
-		 * Store pointers to each tab button element which gets rendered into
+		 * Store pointers to each tab `<button>` element which gets rendered into
 		 * previously-prepared reactive variables so that we can keep track of
 		 * them.
 		 *
@@ -579,12 +579,12 @@ export default defineComponent( {
 		}
 
 		&__item {
-			// Override browser <button> styles for background
+			// Override browser `<button>` element styles for background
 			background-color: @background-color-transparent;
 			display: block;
 			flex: 0 0 auto;
 			max-width: @size-1600;
-			// Override browser <button> styles for border
+			// Override browser `<button>` element styles for border
 			border-width: 0;
 			border-top-left-radius: @border-radius-base;
 			border-top-right-radius: @border-radius-base;

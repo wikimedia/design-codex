@@ -604,7 +604,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		padding: @spacing-100 @spacing-150 @spacing-50;
 
 		// If no custom header content is provided, apply these styles to the
-		// <header> element
+		// `<header>` element
 		&--default {
 			display: flex;
 			align-items: baseline;
@@ -656,13 +656,13 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		overflow-y: auto;
 		.cdx-mixin-body-text();
 
-		// If the dialog does not display a <header> element, add some extra
+		// If the dialog does not display a `<header>` element, add some extra
 		// padding at the top of the body
 		&--no-header {
 			padding-top: @spacing-150;
 		}
 
-		// If the dialog does not display a <footer> element, add some extra
+		// If the dialog does not display a `<footer>` element, add some extra
 		// padding at the bottom of the body
 		&--no-footer {
 			padding-bottom: @spacing-150;
@@ -687,7 +687,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		padding: @spacing-100 @spacing-150 @spacing-150;
 
 		// If no custom footer content is provided, apply these styles to the
-		// <footer> element
+		// `<footer>` element
 		&--default {
 			display: flex;
 			align-items: baseline;
@@ -737,7 +737,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 }
 
 // This element is not used for visual styling, just
-// focus managmenent. It needs to be invisible but cannot
+// focus management. It needs to be invisible but cannot
 // have display:none, and its position in the markup is
 // important (must be inside the dialog element).
 .cdx-dialog-focus-trap {

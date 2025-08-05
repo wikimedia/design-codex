@@ -1,7 +1,8 @@
 <template>
 	<!--
-		Output a wrapper div with the dir attribute. This has to be separate from the cdx-sandbox
-		div, otherwise CSS styles don't work because the selector [dir] .cdx-sandbox doesn't match.
+		Output a wrapper `<div>` element. with the dir attribute. This has to be separate from the
+		cdx-sandbox `<div>`, otherwise CSS styles don't work because the selector
+		`[dir] .cdx-sandbox` doesn't match.
 	-->
 	<div
 		:key="dir"

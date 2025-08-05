@@ -8,7 +8,7 @@ export interface PathIcon {
 /**
  * An SVG string, e.g. '<path d="M3 3H1v16h18v-2H3z"/>'. An SVG string may contain multiple tags,
  * e.g. '<circle x="..." y="..." r="..."/><path d="..."/>'. SVG strings should not contain an
- * <?xml ...?> tag or a wrapping <svg> tag.
+ * <?xml ...?> declaration or a wrapping `<svg>` element.
  */
 export type SvgIcon = string;
 

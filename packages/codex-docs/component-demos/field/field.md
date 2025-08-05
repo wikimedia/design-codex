@@ -135,7 +135,7 @@ description can include plain text and links.
 
 #### Input(s)
 
-The input element, or a group of inputs, where the user enters information. Field
+The `<input>` element, or a group of inputs, where the user enters information. Field
 can use any form input such as TextInput, Select, Checkbox, etc.
 
 #### Placeholder (when applicable)

@@ -59,7 +59,7 @@ const base = process.env.CODEX_DOC_ROOT ?? '/';
 
 export default defineConfigWithTheme<CustomConfig>( {
 	lang: 'en-US',
-	// Tell VitePress not to set dir="ltr" on the <html> tag, as this breaks our
+	// Tell VitePress not to set dir="ltr" on the `<html>` element, as this breaks our
 	// bidi hacks. We can't remove the dir attribute entirely, but setting it to
 	// "auto" is good enough.
 	dir: 'auto',

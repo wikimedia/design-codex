@@ -12,8 +12,8 @@ describe( 'useIconOnlyButton', () => {
 
 	const cases: Case[] = [
 		[ 'Empty', '', false ],
-		[ 'SVG tag', '<svg></svg>', true ],
-		[ 'BR tag', '<br />', false ],
+		[ 'SVG element', '<svg></svg>', true ],
+		[ 'BR element', '<br />', false ],
 		[ 'CdxIcon component', '<cdx-icon icon="foo" />', true ],
 		[ 'CdxIcon component with text', '<cdx-icon icon="foo" /> Foo', false ],
 		[ 'Two CdxIcon components', '<cdx-icon icon="foo" /><cdx-icon icon="bar" />', false ],
@@ -26,7 +26,7 @@ describe( 'useIconOnlyButton', () => {
 		[ 'v-for generating a single CdxIcon component', '<cdx-icon v-for="icon in [ \'foo\' ]" :icon="icon" />', true ],
 		[ 'v-for generating three CdxIcon components', '<cdx-icon v-for="icon in [ \'foo\', \'bar\', \'baz\' ]" :icon="icon" />', false ],
 		[ 'component tag conditionally generating a CdxIcon component', '<component :is="true ? \'CdxIcon\' : \'p\'" icon="foo" />', true ],
-		[ 'component tag conditionally generating a p tag', '<component :is="false ? \'CdxIcon\' : \'p\'" icon="foo" />', false ]
+		[ 'component tag conditionally generating a `<p>` element', '<component :is="false ? \'CdxIcon\' : \'p\'" icon="foo" />', false ]
 	];
 
 	const TestComponent = defineComponent( {

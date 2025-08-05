@@ -383,10 +383,10 @@ currently checked checkboxes (or an empty array if no checkboxes are checked).
 ```html
 <div class="cdx-checkbox">
 	<div class="cdx-checkbox__wrapper">
-		<!-- <input> element with id, type, and any other necessary attributes.
+		<!-- `<input>` element with id, type, and any other necessary attributes.
 		The actual input is visually hidden. -->
 		<input id="checkbox-css-only-1" class="cdx-checkbox__input" type="checkbox">
-		<!-- Empty span that will be styled to look like a checkbox input. -->
+		<!-- Empty `<span>` element that will be styled to look like a checkbox input. -->
 		<span class="cdx-checkbox__icon"></span>
 		<div class="cdx-checkbox__label cdx-label">
 			<!-- Label with `for` attribute matching the input's id. -->

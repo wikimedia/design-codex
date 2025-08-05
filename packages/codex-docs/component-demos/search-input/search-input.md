@@ -193,7 +193,7 @@ up for you, so you do not need to include it in your Less code.
 <template v-slot:code>
 
 ```html
-<!-- Wrapper div. -->
+<!-- Wrapper `<div>` element. -->
 <div class="cdx-search-input">
 	<!-- CSS-only TextInput with start icon. -->
 	<div class="cdx-text-input cdx-text-input--has-start-icon">

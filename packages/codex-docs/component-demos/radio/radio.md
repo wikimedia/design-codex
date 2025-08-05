@@ -334,10 +334,10 @@ The `v-model` value is the `inputValue` of the Radio that is currently on.
 ```html
 <div class="cdx-radio">
 	<div class="cdx-radio__wrapper">
-		<!-- <input> element with id, type, name, and any other necessary
+		<!-- `<input>` element with id, type, name, and any other necessary
 		attributes. The actual input is visually hidden. -->
 		<input id="radio-css-only-1" class="cdx-radio__input" type="radio" name="radio-css-only">
-		<!-- Empty span that will be styled to look like a radio input. -->
+		<!-- Empty `<span>` element that will be styled to look like a radio input. -->
 		<span class="cdx-radio__icon"></span>
 		<div class="cdx-radio__label cdx-label">
 			<!-- Label with `for` attribute matching the input's id. -->

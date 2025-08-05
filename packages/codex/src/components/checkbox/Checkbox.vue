@@ -173,7 +173,7 @@ export default defineComponent( {
 		const descriptionId = useId();
 
 		// Take the modelValue provided by the parent component via v-model and
-		// generate a wrapped model that we can use for the input element in
+		// generate a wrapped model that we can use for the `<input>` element in
 		// this component.
 		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
 
@@ -198,7 +198,7 @@ export default defineComponent( {
 	.cdx-mixin-binary-input();
 
 	// Custom-styled checkbox that's visible to the user. More styles are added below depending on
-	// the state of the input element.
+	// the state of the `<input>` element.
 	&__icon {
 		border-radius: @border-radius-base;
 	}

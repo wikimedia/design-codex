@@ -142,7 +142,7 @@ A simple chip with text content and no icon is straightforward.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<!-- Outer element is a <div>. -->
+	<!-- Outer element is a `<div>`. -->
 	<div class="cdx-info-chip">
 		<!-- Text element. -->
 		<span class="cdx-info-chip__text">
@@ -154,7 +154,7 @@ A simple chip with text content and no icon is straightforward.
 <template v-slot:code>
 
 ```html
-	<!-- Outer element is a <div>. -->
+	<!-- Outer element is a `<div>`. -->
 	<div class="cdx-info-chip">
 		<!-- Text element. -->
 		<span class="cdx-info-chip__text">
@@ -189,7 +189,7 @@ element with the class `cdx-info-chip__icon` inside the chip element.
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<div class="cdx-demo-flex-container">
-		<!-- Outer element is a <div> with the default "notice" class. -->
+		<!-- Outer element is a `<div>` with the default `--notice` class. -->
 		<div class="cdx-info-chip cdx-info-chip--notice">
 			<!-- Icon element. -->
 			<span class="cdx-info-chip__icon"></span>
@@ -199,21 +199,21 @@ element with the class `cdx-info-chip__icon` inside the chip element.
 				Notice
 			</span>
 		</div>
-		<!-- Outer element is a <div> with the "warning" class. -->
+		<!-- Outer element is a `<div>` with the `--warning` class. -->
 		<div class="cdx-info-chip cdx-info-chip--warning">
 			<span class="cdx-info-chip__icon"></span>
 			<span class="cdx-info-chip__text">
 				Warning
 			</span>
 		</div>
-		<!-- Outer element is a <div> with the "error" class. -->
+		<!-- Outer element is a `<div>` with the `--error` class. -->
 		<div class="cdx-info-chip cdx-info-chip--error">
 			<span class="cdx-info-chip__icon"></span>
 			<span class="cdx-info-chip__text">
 				Error
 			</span>
 		</div>
-		<!-- Outer element is a <div> with the "sucess" class. -->
+		<!-- Outer element is a `<div>` with the `--success` class. -->
 		<div class="cdx-info-chip cdx-info-chip--success">
 			<span class="cdx-info-chip__icon"></span>
 			<span class="cdx-info-chip__text">
@@ -225,7 +225,7 @@ element with the class `cdx-info-chip__icon` inside the chip element.
 <template v-slot:code>
 
 ```html
-	<!-- Outer element is a <div> with the default "notice" class. -->
+	<!-- Outer element is a `<div>` with the default `--notice` class. -->
 	<div class="cdx-info-chip cdx-info-chip--notice">
 		<!-- Icon element. -->
 		<span class="cdx-info-chip__icon"></span>
@@ -235,21 +235,21 @@ element with the class `cdx-info-chip__icon` inside the chip element.
 			Notice
 		</span>
 	</div>
-	<!-- Outer element is a <div> with the "warning" class. -->
+	<!-- Outer element is a `<div>` with the `--warning` class. -->
 	<div class="cdx-info-chip cdx-info-chip--warning">
 		<span class="cdx-info-chip__icon"></span>
 		<span class="cdx-info-chip__text">
 			Warning
 		</span>
 	</div>
-	<!-- Outer element is a <div> with the "error" class. -->
+	<!-- Outer element is a `<div>` with the `--error` class. -->
 	<div class="cdx-info-chip cdx-info-chip--error">
 		<span class="cdx-info-chip__icon"></span>
 		<span class="cdx-info-chip__text">
 			Error
 		</span>
 	</div>
-	<!-- Outer element is a <div> with the "success" class. -->
+	<!-- Outer element is a `<div>` with the `--success` class. -->
 	<div class="cdx-info-chip cdx-info-chip--success">
 		<span class="cdx-info-chip__icon"></span>
 		<span class="cdx-info-chip__text">

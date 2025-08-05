@@ -181,8 +181,8 @@ order.
 ### SVG conventions
 Follow these conventions when crafting SVG files for icons:
 - Icons must be 20x20 pixels canvas. Set `width="20" height="20" viewbox="0 0 20 20"` on the `<svg>`
-  tag.
-- Icons should include a `<title>` tag with the name of the icon.
+  element.
+- Icons should include a `<title>` element with the name of the icon.
 - Icons must be monochrome (only default black color), and should not hard-code this color. This
   means the `fill` attribute should not be used.
 

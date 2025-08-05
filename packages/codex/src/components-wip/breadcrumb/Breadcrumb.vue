@@ -162,7 +162,7 @@ export default defineComponent( {
 		);
 
 		/**
-		 * i18n label message for the nav element's navigation type.
+		 * i18n label message for the `<nav>` element's navigation type.
 		 */
 		const translatedNavigationLabel = useI18n(
 			'cdx-breadcrumb-navigation-label',

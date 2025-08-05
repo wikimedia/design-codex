@@ -153,7 +153,7 @@ export default defineComponent( {
 		CdxProgressBar
 	},
 	/**
-	 * Attributes, besides class and style, will be passed to the <ul> element.
+	 * Attributes, besides class and style, will be passed to the `<ul>` element.
 	 */
 	inheritAttrs: false,
 	props: {

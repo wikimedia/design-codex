@@ -292,9 +292,9 @@ The CSS-only TextArea component consists of a `<div>` wrapping a `<textarea>` el
 <template v-slot:code>
 
 ```html
-<!-- Wrapper div. -->
+<!-- Wrapper `<div>` element. -->
 <div class="cdx-text-area">
-	<!-- Textarea element with CSS class and attributes. -->
+	<!-- `<textarea>` element with CSS class and attributes. -->
 	<textarea class="cdx-text-area__textarea" placeholder="Start typing..."></textarea>
 </div>
 ```

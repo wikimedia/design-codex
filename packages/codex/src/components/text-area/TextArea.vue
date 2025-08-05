@@ -110,14 +110,14 @@ export default defineComponent( {
 			default: false
 		},
 		/**
-		 * An icon at the start of the textarea element. Similar to a `::before` pseudo-element.
+		 * An icon at the start of the `<textarea>` element. Similar to a `::before` pseudo-element.
 		 */
 		startIcon: {
 			type: [ String, Object ] as PropType<Icon | undefined>,
 			default: undefined
 		},
 		/**
-		 * An icon at the end of the textarea element. Similar to an `::after` pseudo-element.
+		 * An icon at the end of the `<textarea>` element. Similar to an `::after` pseudo-element.
 		 */
 		endIcon: {
 			type: [ String, Object ] as PropType<Icon | undefined>,
@@ -168,7 +168,7 @@ export default defineComponent( {
 		const textarea = ref<HTMLTextAreaElement>();
 
 		// Take the modelValue provided by the parent component via v-model and
-		// generate a wrapped model that we can use for the textarea element in
+		// generate a wrapped model that we can use for the `<textarea>` element in
 		// this component.
 		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
 
@@ -280,7 +280,7 @@ export default defineComponent( {
 	// won't be picked up by vue-docgen
 	methods: {
 		/**
-		 * Focus the component's textarea element.
+		 * Focus the component's `<textarea>` element.
 		 *
 		 * @public
 		 */
@@ -290,7 +290,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Blur the component's textarea element.
+		 * Blur the component's `<textarea>` element.
 		 *
 		 * @public
 		 */
@@ -300,8 +300,8 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Check the validity of the textarea element according to its constraint attributes. Emits
-		 * an 'invalid' event if the textarea is invalid. See:
+		 * Check the validity of the `<textarea>` element according to its constraint attributes.
+		 * Emits an 'invalid' event if the textarea is invalid. See:
 		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement/checkValidity
 		 *
 		 * @public
@@ -313,7 +313,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Check the validity of the textarea element and report it as a pop up on the UI. See:
+		 * Check the validity of the `<textarea>` element and report it as a pop up on the UI. See:
 		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement/reportValidity
 		 *
 		 * @public
@@ -328,7 +328,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Set custom validity and message for the textarea element. See:
+		 * Set custom validity and message for the `<textarea>` element. See:
 		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement/setCustomValidity
 		 *
 		 * @public

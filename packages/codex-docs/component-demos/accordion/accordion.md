@@ -412,14 +412,14 @@ The CSS-only Accordion component is a `<details>` element with some custom styli
 
 ```html
 <details class="cdx-accordion">
-	<!-- The <summary> element must be the first child, and is required -->
+	<!-- The `<summary>` element must be the first child, and is required. -->
 	<summary>
-		<!-- <summary> should contain a header; can be any heading level -->
+		<!-- `<summary>` should contain a header; can be any heading level. -->
 		<h3 class="cdx-accordion__header">
-		<!-- If using only a title, no <span> tags are required here;
+		<!-- If using only a title, no `<span>` elements are required here;
 		however, if you want a title and a description to appear on
-		separate lines, you should wrap them in spans as below and
-		use the appropriate class names -->
+		separate lines, you should wrap them in `<span>`s as below and
+		use the appropriate class names. -->
 			<span class="cdx-accordion__header__title">
 				CSS-only Accordion Title
 			</span>
@@ -428,9 +428,9 @@ The CSS-only Accordion component is a `<details>` element with some custom styli
 			</span>
 		</h3>
 	</summary>
-	<!-- The <details> element will treat all other children besides
-	<summary> as collapsible content; it is recommended to wrap
-	this content in a div with the .cdx-accordion__content class
+	<!-- The `<details>` element will treat all other children besides
+	`<summary>` as collapsible content; it is recommended to wrap
+	this content in a `<div>` element with the `cdx-accordion__content` class
 	to get content which is aligned with the heading above. -->
 	<div class="cdx-accordion__content">
 		<p>Lorem ipsum dolor sic amet...</p>

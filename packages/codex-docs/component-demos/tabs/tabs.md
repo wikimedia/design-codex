@@ -160,7 +160,7 @@ Keyboard navigation between tabs can only be done via the <kbd>tab</kbd> key. Ar
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<!-- Wrapper div. -->
+	<!-- Wrapper `<div>` element. -->
 	<div class="cdx-tabs">
 		<!-- Header with tab list. -->
 		<form class="cdx-tabs__header" method="get" :action="url">
@@ -216,7 +216,7 @@ Keyboard navigation between tabs can only be done via the <kbd>tab</kbd> key. Ar
 		</form>
 		<!-- Tabs. -->
 		<div class="cdx-tabs__content">
-			<!-- <section> element for each tab, with any content inside. -->
+			<!-- `<section>` element for each tab, with any content inside. -->
 			<section id="form-tabs-1" :aria-hidden="currentCssTabId !== 'form-tabs-1'" aria-labelledby="form-tabs-1-label" class="cdx-tab" role="tabpanel" tabindex="-1">
 				Tab 1 content
 			</section>
@@ -235,7 +235,7 @@ Keyboard navigation between tabs can only be done via the <kbd>tab</kbd> key. Ar
 <template v-slot:code>
 
 ```html-vue
-	<!-- Wrapper div. -->
+	<!-- Wrapper `<div>` element. -->
 	<div class="cdx-tabs">
 		<!-- Header with tab buttons -->
 		<form class="cdx-tabs__header" method="get" action="{{ url }}">
@@ -291,7 +291,7 @@ Keyboard navigation between tabs can only be done via the <kbd>tab</kbd> key. Ar
 		</form>
 		<!-- Tabs. -->
 		<div class="cdx-tabs__content">
-			<!-- <section> element for each tab, with any content inside. -->
+			<!-- `<section>` element for each tab, with any content inside. -->
 			<section
 				id="form-tabs-1"
 				aria-hidden="{{ currentCssTabId !== 'form-tabs-1' }}"

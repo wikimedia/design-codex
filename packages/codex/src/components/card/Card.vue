@@ -111,8 +111,9 @@ export default defineComponent( {
 	},
 
 	setup( props ) {
-		// If a URL is provided for this menu item, the content will be wrapped in an <a> tag with
-		// the href value set to the URL. Otherwise, it'll just be wrapped in a <span>.
+		// If a URL is provided for this menu item, the content will be wrapped in an `<a>` element
+		// with the href value set to the URL. Otherwise, it'll just be wrapped in a
+		// `<span>` element.
 		const isLink = computed( () => !!props.url );
 		const contentTag = computed( () => isLink.value ? 'a' : 'span' );
 		const cardLink = computed( () => isLink.value ? props.url : undefined );

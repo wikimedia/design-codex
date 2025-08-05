@@ -283,7 +283,7 @@ Use a `<label>` element for a single input.
 <template v-slot:code>
 
 ```html
-<!-- Outer element is a <div>. -->
+<!-- Outer element is a `<div>`. -->
 <div class="cdx-label">
 	<!-- Label element. Include a `for` attribute to connect it with an input. -->
 	<label class="cdx-label__label" for="cdx-demo-input-1">
@@ -320,7 +320,7 @@ different:
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-	<!-- Note that the `cdx-field` class will remove browser fieldset styles. -->
+	<!-- Note that the `cdx-field` class will remove browser `<fieldset>` styles. -->
 	<fieldset class="cdx-field">
 		<!-- Outer element is the <legend> element. -->
 		<legend class="cdx-label">
@@ -331,7 +331,7 @@ different:
 				<!-- Optional flag. -->
 				<span class="cdx-label__label__optional-flag"> (optional)</span>
 			</span>
-			<!-- Description text, which must be included inside the <legend> element. -->
+			<!-- Description text, which must be included inside the `<legend>` element. -->
 			<span class="cdx-label__description">
 				Short description text
 			</span>
@@ -354,9 +354,9 @@ different:
 <template v-slot:code>
 
 ```html
-<!-- Note that the `cdx-field` class will remove browser fieldset styles. -->
+<!-- Note that the `cdx-field` class will remove browser `<fieldset>` styles. -->
 <fieldset class="cdx-field">
-	<!-- Outer element is the <legend> element. -->
+	<!-- Outer element is the `<legend>` element. -->
 	<legend class="cdx-label">
 		<!-- Wrapper span for the first line of text (legend text + optional flag). -->
 		<span class="cdx-label__label">
@@ -365,7 +365,7 @@ different:
 			<!-- Optional flag. -->
 			<span class="cdx-label__label__optional-flag"> (optional)</span>
 		</span>
-		<!-- Description text, which must be included inside the <legend> element. -->
+		<!-- Description text, which must be included inside the `<legend>` element. -->
 		<span class="cdx-label__description">
 			Short description text
 		</span>

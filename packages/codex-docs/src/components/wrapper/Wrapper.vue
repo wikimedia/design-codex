@@ -65,8 +65,8 @@
 			class="cdx-demo-wrapper__code-generated"
 		>
 			<div class="language-vue">
-				<!-- Carefully avoid leaving whitespace inside the <pre> and <code> tags -->
-				<!-- language-markup is used because prism does not support Vue -->
+				<!-- Carefully avoid leaving whitespace inside the `<pre>` and `<code>`
+					elements. `language-markup` is used because prism does not support Vue. -->
 				<pre><code class="language-markup"
 				>{{ generatedCode }}</code></pre>
 			</div>
@@ -84,9 +84,9 @@
 		</div>
 		<!-- Direction-aware target for any teleport usage in demos -->
 		<!--
-			This has to be inside the cdx-demo-wrapper div, it can't be a sibling. If the Wrapper
-			component outputs multiple root nodes, that triggers a bug in VitePress that breaks
-			scoped styles on Wrappers,
+			This has to be inside the `cdx-demo-wrapper` `<div>` element, it can't be a sibling. If
+			the Wrapper component outputs multiple root nodes, that triggers a bug in VitePress that
+			breaks scoped styles on Wrappers.
 		-->
 		<div
 			ref="teleportTarget"

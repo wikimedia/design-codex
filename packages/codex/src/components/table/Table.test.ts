@@ -336,7 +336,7 @@ describe( 'Table', () => {
 						// Find the "name" header button.
 						const nameTableHeader = wrapper.findAll( 'button' )[ 1 ];
 
-						// Trigger a click event on the first `th` element.
+						// Trigger a click event on the first `<th>` element.
 						await nameTableHeader.trigger( 'click' );
 						expect( wrapper.emitted( 'update:sort' ) ).toBeTruthy();
 						expect( wrapper.emitted( 'update:sort' )?.[ 0 ] ).toEqual( [ { name: 'asc' } ] );

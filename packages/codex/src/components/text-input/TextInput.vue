@@ -117,21 +117,21 @@ export default defineComponent( {
 			default: false
 		},
 		/**
-		 * An icon at the start of the input element. Similar to a `::before` pseudo-element.
+		 * An icon at the start of the `<input>` element. Similar to a `::before` pseudo-element.
 		 */
 		startIcon: {
 			type: [ String, Object ] as PropType<Icon | undefined>,
 			default: undefined
 		},
 		/**
-		 * An icon at the end of the input element. Similar to an `::after` pseudo-element.
+		 * An icon at the end of the `<input>` element. Similar to an `::after` pseudo-element.
 		 */
 		endIcon: {
 			type: [ String, Object ] as PropType<Icon | undefined>,
 			default: undefined
 		},
 		/**
-		 * Add a clear button at the end of the input element.
+		 * Add a clear button at the end of the `<input>` element.
 		 *
 		 * When the clear button is pressed, the input's value is set to an empty string.
 		 * The clear button is displayed when input text is present.
@@ -212,7 +212,7 @@ export default defineComponent( {
 		const descriptionId = inject( FieldDescriptionIdKey, undefined );
 
 		// Take the modelValue provided by the parent component via v-model and
-		// generate a wrapped model that we can use for the input element in
+		// generate a wrapped model that we can use for the `<input>` element in
 		// this component.
 		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
 
@@ -327,7 +327,7 @@ export default defineComponent( {
 	// won't be picked up by vue-docgen
 	methods: {
 		/**
-		 * Focus the component's input element.
+		 * Focus the component's `<input>` element.
 		 *
 		 * @public
 		 */
@@ -337,7 +337,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Blur the component's input element.
+		 * Blur the component's `<input>` element.
 		 *
 		 * @public
 		 */
@@ -347,8 +347,8 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Check the validity of the input element according to its constraint attributes. Emits an
-		 * 'invalid' event if the input is invalid. See:
+		 * Check the validity of the `<input>` element according to its constraint attributes.
+		 * Emits an 'invalid' event if the input is invalid. See:
 		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity
 		 *
 		 * @public
@@ -360,7 +360,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Check the validity of the input element and report it as a pop up on the UI. See:
+		 * Check the validity of the `<input>` element and report it as a pop up on the UI. See:
 		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/reportValidity
 		 *
 		 * @public
@@ -375,7 +375,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Set custom validity and message for the input element. See:
+		 * Set custom validity and message for the `<input>` element. See:
 		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setCustomValidity
 		 *
 		 * @public

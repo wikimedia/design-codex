@@ -131,7 +131,7 @@ export interface MenuItemData {
 	language?: MenuItemLanguageData,
 	icon?: Icon,
 	thumbnail?: Thumbnail | null,
-	/** If URL is included, menu item will be wrapped in an anchor element. */
+	/** If URL is included, menu item will be wrapped in an anchor `<a>` element. */
 	url?: string,
 	disabled?: boolean
 }

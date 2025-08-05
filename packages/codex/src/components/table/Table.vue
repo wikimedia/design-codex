@@ -715,7 +715,7 @@ export default defineComponent( {
 		}
 
 		/**
-		 * Determine the scope attribute for row headers (`th` in a `tr` element).
+		 * Determine the scope attribute for row headers (`<th>` in a `<tr>` element).
 		 *
 		 * @param columnId
 		 * @return scope attribute value
@@ -728,7 +728,7 @@ export default defineComponent( {
 		}
 
 		/**
-		 * Determine whether a cell in the tbody should be a th or td element.
+		 * Determine whether a cell in the tbody should be a `<th>` or `<td>` element.
 		 *
 		 * @param columnId
 		 * @return 'th' or 'td'
@@ -760,14 +760,14 @@ export default defineComponent( {
 
 			return {
 				// Don't assign a class for the default value 'start'. Instead, we'll set
-				// text-align: left on the td and th elements.
+				// text-align: left on the `<th>` or `<td>` elements.
 				[ `cdx-table__table__cell--align-${ column.textAlign }` ]: ( 'textAlign' in column ) && column.textAlign !== 'start',
 				'cdx-table__table__cell--has-sort': hasSort
 			};
 		}
 
 		/**
-		 * Get style binding for thead th cells.
+		 * Get style binding for `<thead> <th>` cells.
 		 *
 		 * Enables users to set width and min-width on columns.
 		 *
@@ -1061,13 +1061,13 @@ export default defineComponent( {
 		}
 
 		&__sort-button {
-			// Override browser <button> styles for background.
+			// Override browser `<button>` element styles for background.
 			background-color: @background-color-transparent;
 			display: flex;
 			align-items: flex-end;
 			gap: @spacing-35;
 			width: @size-full;
-			// Override browser <button> styles for border.
+			// Override browser `<button>` element styles for border.
 			border: 0;
 			padding: @spacing-75;
 			font-family: inherit;
@@ -1086,7 +1086,7 @@ export default defineComponent( {
 			}
 
 			&:focus {
-				// Override browser <button> styles for outline.
+				// Override browser `<button>` element styles for outline.
 				outline: @outline-base--focus;
 			}
 
@@ -1153,7 +1153,7 @@ export default defineComponent( {
 				// Trick postcss-rtlcss into setting text-align to right in both LTR and RTL. We
 				// can't just use the rtl:ignore directive, because in bidirectional mode, we need
 				// the [dir] selector to be added to match the specificity of the text-align rule
-				// applied to all th and td elements. Hat-tip to Roan for this one.
+				// applied to all `<th>` and `<td>` elements. Hat-tip to Roan for this one.
 				text-align: right /* rtl:right */;
 
 				/* stylelint-disable-next-line max-nesting-depth */
@@ -1167,8 +1167,8 @@ export default defineComponent( {
 				}
 			}
 
-			// Remove padding on th elements if sorting is enabled, since padding will be added to
-			// the sort button instead.
+			// Remove padding on `<th>` elements if sorting is enabled, since padding will be added
+			// to the sort button instead.
 			&--has-sort {
 				padding: 0;
 			}
@@ -1207,8 +1207,8 @@ export default defineComponent( {
 				tr:not( :first-child ) {
 					/* stylelint-disable-next-line max-nesting-depth */
 					th {
-						// Border styles for <th> elements that are not in the first <tr>
-						// element of the <thead>.
+						// Border styles for `<th>` elements that are not in the first `<tr>`
+						// element of the `<thead>`.
 						border-top: @border-base;
 					}
 				}
@@ -1229,7 +1229,7 @@ export default defineComponent( {
 			}
 
 			// Extra specificity is needed to override the vertical-align: top
-			// style that is applied to normal tbody td elements in CdxTable.
+			// style that is applied to normal `<td>` elements in CdxTable.
 			tbody td&-content {
 				color: @color-subtle;
 				height: @min-height-table-footer - @spacing-150;

@@ -26,7 +26,7 @@ describe( 'useSlotContents', () => {
 			[ ' Text' ]
 		],
 		[
-			'comment, text, component and HTML tag',
+			'comment, text, component and HTML element',
 			`
 			<!-- Comment -->
 			Text

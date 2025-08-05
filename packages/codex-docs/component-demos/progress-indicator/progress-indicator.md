@@ -152,7 +152,7 @@ loading process.
 
 The most common usage of ProgressIndicators is without a label. In the CSS-only version, there
 is a small deviation from the Vue version. The `aria-label` attribute is used to provide a
-description of the progress indicator to assistive technologies – instead of a label element to
+description of the progress indicator to assistive technologies – instead of a `<label>` element to
 ensure leaner markup.
 
 <cdx-demo-wrapper>

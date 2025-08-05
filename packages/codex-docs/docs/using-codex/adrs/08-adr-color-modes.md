@@ -118,7 +118,7 @@ re-load the entire set of tokens. A page could do something like this:
     --color-base: #f8f9fa;
 }
 
-/* user-controlled mode toggle would apply this class to the body or html element,
+/* user-controlled mode toggle would apply this class to the `<body>` or `<html>` element,
    forcing all descendants to use dark mode from the media query above */
 .dark {
     color-scheme: dark;

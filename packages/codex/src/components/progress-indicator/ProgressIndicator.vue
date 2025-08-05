@@ -125,7 +125,7 @@ export default defineComponent( {
 	&__label {
 		margin-left: @spacing-50;
 
-		// Over-specify the label element to avoid inheriting styles from CdxLabel.
+		// Over-specify the `<label>` element to avoid inheriting styles from CdxLabel.
 		&.cdx-label {
 			padding-bottom: 0;
 		}

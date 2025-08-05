@@ -169,7 +169,7 @@ icons matching the red (`{{tokens.color.destructive.value }}`) text in its destr
 Many icons, like `cdxIconJournal`, have different versions for left-to-right (LTR) and right-to-left
 (RTL) contexts. The Icon component automatically detects the direction of its environment, and
 chooses the correct icon accordingly. For example, if the journal icon appears on a page that is
-RTL, or inside of a `<div dir="rtl">` tag, the RTL version of the icon will be displayed.
+RTL, or inside of a `<div dir="rtl">` element, the RTL version of the icon will be displayed.
 
 <cdx-demo-wrapper :force-controls="true">
 <template v-slot:demo>

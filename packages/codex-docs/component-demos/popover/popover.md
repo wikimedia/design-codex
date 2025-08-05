@@ -222,14 +222,14 @@ Use `hover` as a trigger only for elements which have a separate `press` action,
 <cdx-accordion>
 <template #title>Developer notes</template>
 
-The example has multiple anchor tags that displays Popover content when hovered or focused.
+The example has multiple anchor elements that displays Popover content when hovered or focused.
 The trigger element and Popover content is dynamically updated based on where the event took
 place.
 
-- Assign each trigger element e.g. anchor tag a template ref, and store them in
+- Assign each trigger element e.g. anchor element a template ref, and store them in
 the `triggerElements` array.
 - To show and hide the Popover on hover and focus, add `mouseover`, `focus`, `mouseleave`, and `blur`
-event listeners to the anchor tags that trigger a Popover.
+event listeners to the anchor elements that trigger a Popover.
 
 </cdx-accordion>
 

@@ -710,7 +710,8 @@ body {
 }
 
 .vp-doc .cdx-accordion summary {
-	/* Undo VitePress margins, which are excessive (margins for p and h tags will suffice). */
+	/* Undo VitePress margins, which are excessive (margins for `<p>` and heading `<h1>`–`<h6>`
+	elements will suffice). */
 	margin: 0;
 }
 
@@ -839,7 +840,7 @@ html.dark .vp-doc[ class*='_components' ] img {
 	margin-top: calc( var( --spacing-50 ) * -1 );
 }
 
-/* Maintain space between paragraph and lists in custom blocks, where p tags
+/* Maintain space between paragraph and lists in custom blocks, where `<p>` elements
    have no bottom margin. */
 .vp-doc .custom-block ul,
 .vp-doc .custom-block ol {

@@ -1,5 +1,5 @@
 /**
- * SVGO plugin that removes the outer <svg> tag.
+ * SVGO plugin that removes the outer `<svg>` tag aka element.
  *
  * @type {import('svgo').CustomPlugin}
  */

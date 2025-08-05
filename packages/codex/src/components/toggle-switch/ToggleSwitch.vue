@@ -59,7 +59,7 @@ export default defineComponent( {
 	name: 'CdxToggleSwitch',
 	components: { CdxLabel },
 	/**
-	 * The input element will inherit attributes, not the root element.
+	 * The `<input>` element will inherit attributes, not the root element.
 	 */
 	inheritAttrs: false,
 	props: {
@@ -73,7 +73,7 @@ export default defineComponent( {
 			default: false
 		},
 		/**
-		 * HTML "value" attribute to assign to the input element.
+		 * HTML "value" attribute to assign to the `<input>` element.
 		 *
 		 * Required for groups of ToggleSwitches. Can be omitted for single true/false switches.
 		 */
@@ -122,7 +122,7 @@ export default defineComponent( {
 		// Declare template refs.
 		const input = ref<HTMLInputElement>();
 
-		// Input needs an ID so we can connect it and the label element.
+		// Input needs an ID so we can connect it and the `<label>` element.
 		const inputId = useId();
 		const descriptionId = useId();
 
@@ -140,7 +140,7 @@ export default defineComponent( {
 		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
 
 		// Take the modelValue provided by the parent component via v-model and generate a wrapped
-		// model that we can use for the input element in this component.
+		// model that we can use for the `<input>` element in this component.
 		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
 
 		/**
@@ -321,7 +321,7 @@ export default defineComponent( {
 		&:enabled {
 			// Add hover cursor to switch and label.
 			// DEPRECATED: The line with the :not() selector is meant to support CSS-only usage of
-			// a simple label element with class `.cdx-toggle-switch__label`, rather than use of
+			// a simple `<label>` element with class `.cdx-toggle-switch__label`, rather than use of
 			// the Label component (this usage is deprecated, see T353885).
 			&:hover,
 			& ~ .cdx-label .cdx-label__label:hover,

@@ -68,7 +68,7 @@ export default defineComponent( {
 	},
 
 	/**
-	 * Attributes, besides class, will be passed to the TextInput's input element.
+	 * Attributes, besides class, will be passed to the TextInput's `<input>` element.
 	 */
 	inheritAttrs: false,
 
@@ -225,7 +225,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/search-input.ht
 
 	methods: {
 		/**
-		 * Focus the component's input element.
+		 * Focus the component's `<input>` element.
 		 *
 		 * @public
 		 */

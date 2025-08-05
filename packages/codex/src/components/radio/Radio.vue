@@ -162,7 +162,7 @@ export default defineComponent( {
 		};
 
 		// Take the modelValue provided by the parent component via v-model and
-		// generate a wrapped model that we can use for the input element in
+		// generate a wrapped model that we can use for the `<input>` element in
 		// this component.
 		const wrappedModel = useModelWrapper( toRef( props, 'modelValue' ), emit );
 

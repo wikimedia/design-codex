@@ -471,7 +471,7 @@ export default defineComponent( {
 		}
 
 		&__button-wrapper {
-			// Vertically center the button within the wrapper div.
+			// Vertically center the button within the wrapper `<div>` element.
 			display: flex;
 			flex-direction: column;
 			justify-content: center;

@@ -410,9 +410,9 @@ The outer `<div>` should have one of the following ARIA attributes:
 ```html
 <!-- Root element with layout and type classes, and additional attribute(s). -->
 <div class="cdx-message cdx-message--block cdx-message--notice" aria-live="polite">
-	<!-- Empty span for message icon. -->
+	<!-- Empty `<span>` element for message icon. -->
 	<span class="cdx-message__icon"></span>
-	<!-- Div for content. -->
+	<!-- `<div>` element for content. -->
 	<div class="cdx-message__content">
 		Message content (can include markup)
 	</div>
@@ -577,7 +577,7 @@ Message content can contain markup like bold text and links.
 	}
 
 	p {
-		// Remove margins on p tags in the multiline message demos.
+		// Remove margins on `<p>` elements in the multiline message demos.
 		margin: 0;
 	}
 }

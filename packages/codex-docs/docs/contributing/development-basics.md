@@ -117,8 +117,8 @@ We use the Wikimedia coding conventions, and to enforce those we use
 [stylelint-config-wikimedia](https://www.npmjs.com/package/stylelint-config-wikimedia) as the
 starting point for our linter configuration. For Vue files, the Wikimedia coding conventions
 follow the [Vue style guide](https://vuejs.org/style-guide/) closely. This means that HTML-like tags
-in Vue templates sometimes don't follow the same rules as real HTML: for example, an empty div tag
-is `<div />` not `<div></div>`.
+in Vue templates sometimes don't follow the same rules as real HTML: for example, an empty
+`<div>` element is `<div />` not `<div></div>`.
 
 In addition to those conventions, Codex-specific rules are enforced. These include:
 - For most CSS properties, design tokens must be used, and raw values are forbidden. (For example,

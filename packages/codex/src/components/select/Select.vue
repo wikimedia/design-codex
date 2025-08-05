@@ -166,7 +166,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * An icon at the start of the select element
+		 * An icon at the start of the `<select>` element
 		 * displayed when no selection has been made.
 		 */
 		defaultIcon: {
@@ -328,7 +328,7 @@ export default defineComponent( {
 
 // HACK: We can't use the CSS icon mixin for the select handle's arrow icon, because it uses
 // mask-image, which applies to the background of the entire element. We can't do that with the
-// entire <select> element, and pseudo-elements can't be used for the icon either.
+// entire `<select>` element, and pseudo-elements can't be used for the icon either.
 // Instead, we really need background rules. We can't directly rely on our color tokens here,
 // since they feature CSS custom properties, which won't work for the SVG's fill property.
 // Workaround is to extract the hex color value from the token custom property value and
@@ -359,7 +359,7 @@ export default defineComponent( {
 		.cdx-mixin-select__handle--disabled();
 		.get-select-icon-background-image( @color-disabled-hex );
 
-		// Support: Chrome, which sets an opacity less than 1 for disabled select elements.
+		// Support: Chrome, which sets an opacity less than 1 for disabled `<select>` elements.
 		opacity: @opacity-base;
 	}
 
