@@ -17,6 +17,7 @@
 			:aria-expanded="expanded"
 			:aria-activedescendant="highlightedId"
 			:disabled="computedDisabled"
+			:readonly="readonly"
 			:status="computedStatus"
 			@update:model-value="onUpdateInput"
 			@change="$event => $emit( 'change', $event )"
@@ -26,6 +27,7 @@
 		/>
 
 		<cdx-menu
+			v-if="!readonly"
 			:id="menuId"
 			ref="menu"
 			v-model:selected="selection"
@@ -156,6 +158,10 @@ export default defineComponent( {
 			type: String as PropType<ValidationStatusType>,
 			default: 'default',
 			validator: statusValidator
+		},
+		readonly: {
+			type: Boolean,
+			default: false
 		}
 	},
 
@@ -292,6 +298,11 @@ export default defineComponent( {
 		 * @param event The focus event
 		 */
 		function onInputFocus( event: FocusEvent ) {
+			if ( props.readonly ) {
+				// Only emit the focus event, do NOT open the menu or set isActive
+				emit( 'focus', event );
+				return;
+			}
 			isActive.value = true;
 			// One reason to open the menu on focus is if there is input (i.e. the input value is
 			// not null nor an empty string). Store whether this is the case in this variable.
@@ -331,7 +342,9 @@ export default defineComponent( {
 		 * @param e
 		 */
 		function onKeydown( e: KeyboardEvent ) {
-			if ( !menu.value ||
+			if (
+				props.readonly ||
+				!menu.value ||
 				computedDisabled.value ||
 				props.menuItems.length === 0 && !slots[ 'no-results' ] ||
 				e.key === ' ' ) {
