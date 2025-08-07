@@ -226,10 +226,10 @@ export default defineComponent( {
 		 * Computes the CSS class for the placeholder icon size based on the image width.
 		 *
 		 * The mapping is as follows:
-		 * — 0 to 32 px: `cdx-icon--size-smallest`
-		 * — 33 to 180 px: `cdx-icon--size-small`
-		 * — 181 to 280 px: `cdx-icon--size-medium`
-		 * — 281 px and above: `cdx-icon--size-large`
+		 * — 0 to 32 px: `cdx-image__placeholder__icon--size-smallest`
+		 * — 33 to 180 px: `cdx-image__placeholder__icon--size-small`
+		 * — 181 to 280 px: `cdx-image__placeholder__icon--size-medium`
+		 * — 281 px and above: `cdx-image__placeholder__icon--size-large`
 		 *
 		 * This applies predefined CSS classes to scale the icon, ensuring visual consistency.
 		 */
