@@ -211,9 +211,6 @@ export default defineComponent( {
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
 
-// TODO: create a design token.
-@min-size-clear-button: 20px;
-
 .cdx-input-chip {
 	background-color: @background-color-interactive-subtle;
 	color: @color-base;
@@ -299,8 +296,8 @@ export default defineComponent( {
 	// itself, so the styles are included here.
 	/* stylelint-disable-next-line no-descending-specificity */
 	&__button.cdx-button {
-		min-width: @min-size-clear-button;
-		min-height: @min-size-clear-button;
+		min-width: @min-size-input-chip-clear-button;
+		min-height: @min-size-input-chip-clear-button;
 		margin-right: @size-absolute-1;
 		border-radius: @border-radius-pill;
 		padding-right: @spacing-12;

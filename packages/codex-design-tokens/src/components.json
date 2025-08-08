@@ -79,6 +79,9 @@
 		"input-binary": {
 			"value": "{ dimension.125 }"
 		},
+		"input-chip-clear-button": {
+			"value": "{ dimension.125 }"
+		},
 		"toggle-switch-grip": {
 			"value": "{ dimension.110 }"
 		}
