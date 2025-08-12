@@ -1,4 +1,4 @@
-import { defineConfigWithTheme, DefaultTheme } from 'vitepress';
+import { defineConfigWithTheme, DefaultTheme, HeadConfig } from 'vitepress';
 import { existsSync } from 'fs';
 import path from 'path';
 import { CustomConfig } from './types';
@@ -17,6 +17,22 @@ const includeWIPComponents = process.env.CODEX_RELEASE === undefined;
 
 function isWIPComponent( componentName: string ): boolean {
 	return existsSync( path.join( __dirname, '/../../../codex/src/components-wip/', componentName ) );
+}
+
+function getMatomoScripts(): HeadConfig[] {
+	if ( process.env.CODEX_MATOMO_URL === undefined ) {
+		return [];
+	}
+	return [
+		[ 'script', {}, `
+var _mtm = window._mtm = window._mtm || [];
+_mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+(function() {
+  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+  g.async=true; g.src=${ JSON.stringify( process.env.CODEX_MATOMO_URL ) }; s.parentNode.insertBefore(g,s);
+})();
+		` ]
+	];
 }
 
 /**
@@ -55,7 +71,10 @@ export default defineConfigWithTheme<CustomConfig>( {
 	head: [
 		[ 'link', { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon', sizes: '32x32' } ],
 		[ 'link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' } ],
-		[ 'link', { rel: 'icon', href: '/favicon-32x32.png', type: 'image/png' } ]
+		[ 'link', { rel: 'icon', href: '/favicon-32x32.png', type: 'image/png' } ],
+
+		// Add Matomo pageview analytics if CODEX_MATOMO_URL is set
+		...getMatomoScripts()
 	],
 
 	markdown: {
