@@ -223,12 +223,8 @@ export default defineComponent( {
 	max-height: @max-height-chip;
 	border: @border-width-base @border-style-base @border-color-interactive;
 	border-radius: @border-radius-pill;
-	padding: 0 @spacing-12 0 @spacing-50;
+	padding: 0 0 0 @spacing-35;
 	font-size: @font-size-small;
-
-	.cdx-icon {
-		margin-right: @spacing-12;
-	}
 
 	&:not( .cdx-input-chip--disabled ):not( .cdx-input-chip--readonly ) {
 		transition-property: @transition-property-base;
@@ -298,10 +294,7 @@ export default defineComponent( {
 	&__button.cdx-button {
 		min-width: @min-size-input-chip-clear-button;
 		min-height: @min-size-input-chip-clear-button;
-		margin-right: @size-absolute-1;
 		border-radius: @border-radius-pill;
-		padding-right: @spacing-12;
-		padding-left: @spacing-12;
 		font-size: @font-size-small;
 	}
 }
