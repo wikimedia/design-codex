@@ -369,8 +369,8 @@ git push origin codex-1.2.34
 
 Once the MediaWiki core patch has been merged, announce the new release to Codex stakeholders.
 
-Currently, we only announce releases internally, in WMF Slack. Make a post in the
-#talk-to-design-system-team channel announcing the new version number and listing out the following:
+Currently, we only announce releases internally, in Wikimedia Foundation's Slack. Make a post in the
+#codex-design-system channel announcing the new version number and listing out the following:
 - Notable new features: list any new features you think Codex users should know about.
 - Notable bug fixes: Highlight bug tasks resolved by the new release.
 - Be sure to @mention and thank any contributors to the release from outside the Design System Team.
