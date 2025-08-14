@@ -14,7 +14,7 @@
 			<cdx-search-input
 				ref="searchInput"
 				v-model="inputValue"
-				:button-label="buttonLabel"
+				:button-label="!isMobileView ? buttonLabel : undefined"
 				:use-button="useButton && !isMobileView"
 				:hide-icon="isMobileView"
 				:clearable="isMobileView"
