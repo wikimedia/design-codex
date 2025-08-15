@@ -42,6 +42,7 @@
 					ref="menu"
 					v-model:expanded="expanded"
 					class="cdx-typeahead-search__menu"
+					render-in-place
 					:show-pending="showPending"
 					:selected="selection"
 					:menu-items="searchResults"
