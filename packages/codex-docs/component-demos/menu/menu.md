@@ -401,8 +401,20 @@ In some environments, Menus might get cut off by other interface elements that a
 positioned. This can be remedied by teleporting menus to another place in the DOM. Teleportation
 for Menus is disabled by default, but can be enabled with `provide( 'CdxTeleportMenus', true );`.
 To control where Menus are teleported, provide the `'CdxTeleportTarget'` key; see
-[the Dialog documentation](./dialog.html#vue-usage).
+[the Dialog documentation](./dialog.html#vue-usage). Teleportation can be disabled on a per-Menu
+basis by setting the `renderInPlace` prop, which prevents the Menu from being teleported even if
+`'CdxTeleportMenus'` is true.
 
+::: warning Styling content in teleported Menus
+When a Menu is teleported. its contents will not be descendants of the element that contains
+the `<cdx-menu>` tag. When styling the Menu or its MenuItems, be careful not to
+use CSS selectors that assume the Menu is inside its parent component.
+
+For example, CSS selectors like `.my-component .cdx-menu` or
+`.my-component .cdx-menu-item` won't work. Instead,
+set e.g. `class="my-component-menu"` on the `<cdx-menu>` tag, and use that
+class to style the menu and its items.
+:::
 
 ### Keyboard navigation
 

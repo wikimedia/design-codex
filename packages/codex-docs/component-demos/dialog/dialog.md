@@ -299,19 +299,26 @@ element.
 
 ::: tip Dialog and `<teleport>`
 Dialogs rely on Vue's built-in
-[`<teleport>`](https://vuejs.org/guide/built-ins/teleport.html) feature,
-and a "target" prop can be supplied which will be passed to the teleport's `to`
-prop. This prop is optional and defaults to the `<body>` element on the page
-(although if Dialog is being used with SSR, a dedicated target should be
-provided).
-
-An alternative default target can be set using Vue's
+[`<teleport>`](https://vuejs.org/guide/built-ins/teleport.html) feature. By
+default, Dialogs will be teleported to the `<body>` element on the page, but
+this can be changed using Vue's
 [provide/inject](https://vuejs.org/guide/components/provide-inject.html)
 feature, with `provide( 'CdxTeleportTarget', '#my-teleport-target' )`.
-This provided target will be used if the "target" prop is not set.
+If Dialog is being used with SSR, a dedicated teleport target should be provided.
 
-Finally, Dialog teleportation behavior can be disabled by setting
-`renderInPlace: true`.
+Dialog teleportation can be disabled by setting the `renderInPlace` prop.
+:::
+
+::: warning Styling content in teleported Dialogs
+When a Dialog is teleported (which is the default unless the `renderInPlace`
+prop is set), its contents will not be descendants of the element that contains
+the `<cdx-dialog>` tag. When styling the contents of a Dialog, be careful not to
+use CSS selectors that assume the Dialog is inside its parent component.
+
+For example, CSS selectors like `.my-component .cdx-dialog` or
+`.my-component .something-inside-the-dialog` won't work. Instead,
+set e.g. `class="my-component-dialog"` on the `<cdx-dialog>` tag, and use that
+class to style the dialog and things inside it.
 :::
 
 

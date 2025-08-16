@@ -237,6 +237,30 @@ event listeners to the anchor tags that trigger a Popover.
 
 ### Vue usage
 
+::: tip Popover and `<teleport>`
+Popovers rely on Vue's built-in
+[`<teleport>`](https://vuejs.org/guide/built-ins/teleport.html) feature. By
+default, Popovers will be teleported to the `<body>` element on the page, but
+this can be changed using Vue's
+[provide/inject](https://vuejs.org/guide/components/provide-inject.html)
+feature, with `provide( 'CdxTeleportTarget', '#my-teleport-target' )`.
+If Popover is being used with SSR, a dedicated teleport target should be provided.
+
+Popover teleportation can be disabled by setting the `renderInPlace` prop.
+:::
+
+::: warning Styling content in teleported Popovers
+When a Popover is teleported (which is the default unless the `renderInPlace`
+prop is set), its contents will not be descendants of the element that contains
+the `<cdx-popover>` tag. When styling the contents of a Dialog, be careful not to
+use CSS selectors that assume the Dialog is inside its parent component.
+
+For example, CSS selectors like `.my-component .cdx-popover` or
+`.my-component .something-inside-the-popover` won't work. Instead,
+set e.g. `class="my-component-popover"` on the `<cdx-popover>` tag, and use that
+class to style the dialog and things inside it.
+:::
+
 ### Keyboard navigation
 
 | Key | Function |
