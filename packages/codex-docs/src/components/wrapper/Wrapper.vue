@@ -212,14 +212,11 @@ export default defineComponent( {
 		const direction = ref<HTMLDirection>( 'ltr' );
 		provide( DirectionKey, direction );
 
-		// Set up a template ref for a demo-specific teleport target. During the
-		// mounted hook (when the ref finally exists), provide this target to
-		// any teleport-using demo components to ensure that direction-specific
-		// styles don't break.
+		// Set up a template ref for a demo-specific teleport target.
+		// Provide this target to any teleport-using demo components to ensure that
+		// direction-specific styles don't break.
 		const teleportTarget = ref<HTMLDivElement>();
-		onMounted( () => {
-			provide( 'CdxTeleportTarget', teleportTarget.value );
-		} );
+		provide( 'CdxTeleportTarget', teleportTarget );
 
 		// Set up show code/hide code button.
 		const hasCodeSlot = !!slots?.code;

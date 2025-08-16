@@ -30,10 +30,19 @@
 			<cdx-docs-return-to-top />
 		</template>
 	</layout>
+	<!--
+		Teleport target provided to any teleport-using components.
+		This is needed so that direction-specific styles don't break for teleported elements.
+	-->
+	<div
+		ref="teleportTarget"
+		dir="ltr"
+		class="vp-raw"
+	/>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted, watch } from 'vue';
+import { computed, ref, onMounted, onUnmounted, watch, provide } from 'vue';
 import { useRoute, useData } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import CdxDocsBetaTag from '../beta-tag/BetaTag.vue';
@@ -44,6 +53,9 @@ import CdxDocsReturnToTop from '../return-to-top/ReturnToTop.vue';
 const { Layout } = DefaultTheme;
 const route = useRoute();
 const { frontmatter, isDark } = useData();
+
+const teleportTarget = ref<HTMLDivElement>();
+provide( 'CdxTeleportTarget', teleportTarget );
 
 // Set up return-to-top button.
 const isComponentPage = computed( () => route.path.includes( '/components/demos/' ) );
