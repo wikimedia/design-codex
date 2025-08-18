@@ -177,6 +177,12 @@ export const cdxIconBook: IconFlipForRtl = {
 import svgBookmark from './images/bookmark.svg';
 export const cdxIconBookmark = svgBookmark;
 
+import svgBookmarkList from './images/bookmarkList.svg';
+export const cdxIconBookmarkList: IconFlipForRtl = {
+	ltr: svgBookmarkList,
+	shouldFlip: true
+};
+
 import svgBookmarkOutline from './images/bookmarkOutline.svg';
 export const cdxIconBookmarkOutline = svgBookmarkOutline;
 
