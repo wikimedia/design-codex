@@ -44,6 +44,231 @@ exports[`Select matches the snapshot Case 0 No selection: ({"menuItems": [Array]
     </span>
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <!--v-if-->
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-1"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option A
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-2"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option B
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-3"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                c
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="true"
+        class="cdx-menu-item cdx-menu-item--disabled"
+        id="v-2-4"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option D
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-5"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <span
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                />
+              </g>
+            </svg>
+          </span>
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option E
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
   <input
     name="foo"
@@ -96,6 +321,231 @@ exports[`Select matches the snapshot Case 1 No selection with empty string: ({"m
     </span>
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <!--v-if-->
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-1"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option A
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-2"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option B
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-3"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                c
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="true"
+        class="cdx-menu-item cdx-menu-item--disabled"
+        id="v-2-4"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option D
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-5"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <span
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                />
+              </g>
+            </svg>
+          </span>
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option E
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
   <input
     name="foo"
@@ -148,6 +598,232 @@ exports[`Select matches the snapshot Case 2 Menu item with label selected: ({"me
     </span>
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <!--v-if-->
+      
+      
+      <li
+        aria-disabled="false"
+        aria-selected="true"
+        class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+        id="v-2-1"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option A
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-2"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option B
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-3"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                c
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="true"
+        class="cdx-menu-item cdx-menu-item--disabled"
+        id="v-2-4"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option D
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-5"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <span
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                />
+              </g>
+            </svg>
+          </span>
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option E
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
   <input
     name="foo"
@@ -201,6 +877,232 @@ exports[`Select matches the snapshot Case 3 Menu item with no label selected: ({
     </span>
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <!--v-if-->
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-1"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option A
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-2"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option B
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        aria-selected="true"
+        class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+        id="v-2-3"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                c
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="true"
+        class="cdx-menu-item cdx-menu-item--disabled"
+        id="v-2-4"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option D
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-5"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <span
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                />
+              </g>
+            </svg>
+          </span>
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option E
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
   <input
     name="foo"
@@ -272,6 +1174,232 @@ exports[`Select matches the snapshot Case 4 Menu item with icon selected: ({"men
     </span>
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <!--v-if-->
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-1"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option A
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-2"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option B
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-3"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                c
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="true"
+        class="cdx-menu-item cdx-menu-item--disabled"
+        id="v-2-4"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option D
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        aria-selected="true"
+        class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+        id="v-2-5"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <span
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                />
+              </g>
+            </svg>
+          </span>
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option E
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
   <input
     name="foo"
@@ -343,6 +1471,231 @@ exports[`Select matches the snapshot Case 5 With Start icon: ({"defaultIcon": "<
     </span>
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <!--v-if-->
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-1"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option A
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-2"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option B
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-3"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                c
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="true"
+        class="cdx-menu-item cdx-menu-item--disabled"
+        id="v-2-4"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option D
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-5"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <span
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                />
+              </g>
+            </svg>
+          </span>
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option E
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
   <!--v-if-->
 </div>
@@ -392,6 +1745,232 @@ exports[`Select matches the snapshot Case 6 With Start icon and selection: ({"de
     </span>
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <!--v-if-->
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-1"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option A
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-2"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option B
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        aria-selected="true"
+        class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+        id="v-2-3"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                c
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="true"
+        class="cdx-menu-item cdx-menu-item--disabled"
+        id="v-2-4"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option D
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-5"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <span
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                />
+              </g>
+            </svg>
+          </span>
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option E
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
   <!--v-if-->
 </div>
@@ -441,6 +2020,231 @@ exports[`Select matches the snapshot Case 7 With error status: ({"menuItems": [A
     </span>
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <!--v-if-->
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-1"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option A
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-2"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option B
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-3"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                c
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="true"
+        class="cdx-menu-item cdx-menu-item--disabled"
+        id="v-2-4"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option D
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-2-5"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <span
+            class="cdx-icon cdx-icon--medium cdx-menu-item__icon"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                />
+              </g>
+            </svg>
+          </span>
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option E
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
   <!--v-if-->
 </div>

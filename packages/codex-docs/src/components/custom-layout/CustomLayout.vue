@@ -56,6 +56,7 @@ const { frontmatter, isDark } = useData();
 
 const teleportTarget = ref<HTMLDivElement>();
 provide( 'CdxTeleportTarget', teleportTarget );
+provide( 'CdxTeleportMenus', true );
 
 // Set up return-to-top button.
 const isComponentPage = computed( () => route.path.includes( '/components/demos/' ) );

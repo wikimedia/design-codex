@@ -286,6 +286,61 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
         </span>
       </div>
       <!--teleport start-->
+      <div
+        class="cdx-menu"
+        style="display: none;"
+      >
+        <ul
+          class="cdx-menu__listbox"
+          id="v-3"
+          role="listbox"
+          tabindex="-1"
+        >
+          <!--v-if-->
+          <!--v-if-->
+          
+          
+          <li
+            aria-disabled="false"
+            class="cdx-menu-item cdx-menu-item--enabled"
+            id="v-5-1"
+            role="option"
+          >
+            <!-- @slot Custom menu item content. -->
+            
+            <span
+              class="cdx-menu-item__content"
+            >
+              <!-- Thumbnail, thumbnail placeholder, or icon. -->
+              <!--v-if-->
+              <!-- Item text. -->
+              <span
+                class="cdx-menu-item__text"
+              >
+                <!-- Item label. -->
+                <span
+                  class="cdx-menu-item__text__label"
+                >
+                  <bdi>
+                    1
+                  </bdi>
+                </span>
+                <!-- Item search query match (e.g. alias). -->
+                <!--v-if-->
+                <!-- Item label supporting text. -->
+                <!--v-if-->
+                <!-- Item description. -->
+                <!--v-if-->
+              </span>
+              <!--v-if-->
+            </span>
+            
+          </li>
+          
+          
+          <!--v-if-->
+        </ul>
+      </div>
       <!--teleport end-->
       <!--v-if-->
     </div>
@@ -383,6 +438,61 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
         </span>
       </div>
       <!--teleport start-->
+      <div
+        class="cdx-menu"
+        style="display: none;"
+      >
+        <ul
+          class="cdx-menu__listbox"
+          id="v-3"
+          role="listbox"
+          tabindex="-1"
+        >
+          <!--v-if-->
+          <!--v-if-->
+          
+          
+          <li
+            aria-disabled="false"
+            class="cdx-menu-item cdx-menu-item--enabled"
+            id="v-5-1"
+            role="option"
+          >
+            <!-- @slot Custom menu item content. -->
+            
+            <span
+              class="cdx-menu-item__content"
+            >
+              <!-- Thumbnail, thumbnail placeholder, or icon. -->
+              <!--v-if-->
+              <!-- Item text. -->
+              <span
+                class="cdx-menu-item__text"
+              >
+                <!-- Item label. -->
+                <span
+                  class="cdx-menu-item__text__label"
+                >
+                  <bdi>
+                    1
+                  </bdi>
+                </span>
+                <!-- Item search query match (e.g. alias). -->
+                <!--v-if-->
+                <!-- Item label supporting text. -->
+                <!--v-if-->
+                <!-- Item description. -->
+                <!--v-if-->
+              </span>
+              <!--v-if-->
+            </span>
+            
+          </li>
+          
+          
+          <!--v-if-->
+        </ul>
+      </div>
       <!--teleport end-->
       <!--v-if-->
     </div>
@@ -479,6 +589,61 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
         </span>
       </div>
       <!--teleport start-->
+      <div
+        class="cdx-menu"
+        style="display: none;"
+      >
+        <ul
+          class="cdx-menu__listbox"
+          id="v-3"
+          role="listbox"
+          tabindex="-1"
+        >
+          <!--v-if-->
+          <!--v-if-->
+          
+          
+          <li
+            aria-disabled="false"
+            class="cdx-menu-item cdx-menu-item--enabled"
+            id="v-5-1"
+            role="option"
+          >
+            <!-- @slot Custom menu item content. -->
+            
+            <span
+              class="cdx-menu-item__content"
+            >
+              <!-- Thumbnail, thumbnail placeholder, or icon. -->
+              <!--v-if-->
+              <!-- Item text. -->
+              <span
+                class="cdx-menu-item__text"
+              >
+                <!-- Item label. -->
+                <span
+                  class="cdx-menu-item__text__label"
+                >
+                  <bdi>
+                    1
+                  </bdi>
+                </span>
+                <!-- Item search query match (e.g. alias). -->
+                <!--v-if-->
+                <!-- Item label supporting text. -->
+                <!--v-if-->
+                <!-- Item description. -->
+                <!--v-if-->
+              </span>
+              <!--v-if-->
+            </span>
+            
+          </li>
+          
+          
+          <!--v-if-->
+        </ul>
+      </div>
       <!--teleport end-->
       <!--v-if-->
     </div>
@@ -634,6 +799,61 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
         </span>
       </div>
       <!--teleport start-->
+      <div
+        class="cdx-menu"
+        style="display: none;"
+      >
+        <ul
+          class="cdx-menu__listbox"
+          id="v-3"
+          role="listbox"
+          tabindex="-1"
+        >
+          <!--v-if-->
+          <!--v-if-->
+          
+          
+          <li
+            aria-disabled="false"
+            class="cdx-menu-item cdx-menu-item--enabled"
+            id="v-5-1"
+            role="option"
+          >
+            <!-- @slot Custom menu item content. -->
+            
+            <span
+              class="cdx-menu-item__content"
+            >
+              <!-- Thumbnail, thumbnail placeholder, or icon. -->
+              <!--v-if-->
+              <!-- Item text. -->
+              <span
+                class="cdx-menu-item__text"
+              >
+                <!-- Item label. -->
+                <span
+                  class="cdx-menu-item__text__label"
+                >
+                  <bdi>
+                    1
+                  </bdi>
+                </span>
+                <!-- Item search query match (e.g. alias). -->
+                <!--v-if-->
+                <!-- Item label supporting text. -->
+                <!--v-if-->
+                <!-- Item description. -->
+                <!--v-if-->
+              </span>
+              <!--v-if-->
+            </span>
+            
+          </li>
+          
+          
+          <!--v-if-->
+        </ul>
+      </div>
       <!--teleport end-->
       <!--v-if-->
     </div>

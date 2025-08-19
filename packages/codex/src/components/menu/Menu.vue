@@ -1,6 +1,6 @@
 <!-- eslint-disable max-len -->
 <template>
-	<teleport :to="computedTarget" :disabled="renderInPlace">
+	<teleport :to="computedTarget" :disabled="teleportDisabled">
 		<div
 			v-show="expanded"
 			ref="rootElement"
@@ -110,7 +110,7 @@
 <!-- eslint-enable max-len -->
 
 <script lang="ts">
-import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted, nextTick, useId, ComponentPublicInstance, HTMLAttributes, inject, unref } from 'vue';
+import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted, nextTick, useId, ComponentPublicInstance, HTMLAttributes, inject, unref, MaybeRef } from 'vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import CdxIcon from '../icon/Icon.vue';
 import CdxProgressBar from '../progress-bar/ProgressBar.vue';
@@ -272,6 +272,10 @@ export default defineComponent( {
 		/**
 		 * Whether to disable the use of teleport and render the Menu in its
 		 * original location in the document.
+		 *
+		 * Teleport is disabled by default for Menus, but it will be enabled if `'CdxTeleportMenus'`
+		 * is provided and set to true. Setting this prop prevents the Menu from being teleported
+		 * regardless of the value of `'CdxTeleportMenus'`.
 		 */
 		renderInPlace: {
 			type: Boolean,
@@ -483,7 +487,12 @@ export default defineComponent( {
 		const highlightedViaKeyboard = ref( false );
 		const activeMenuItem = ref<MenuItemDataWithId|null>( null );
 
-		// Determine where to teleport the Menu to
+		// Determine whether to teleport the Menu.
+		const providedTeleport = inject<MaybeRef<boolean>>( 'CdxTeleportMenus', false );
+		const teleportDisabled = computed(
+			() => !unref( providedTeleport ) || props.renderInPlace
+		);
+		// Determine where to teleport the Menu to.
 		const providedTarget = inject<TeleportTarget>( 'CdxTeleportTarget', undefined );
 		const computedTarget = computed( () => unref( providedTarget ) ?? 'body' );
 
@@ -1162,6 +1171,7 @@ export default defineComponent( {
 			computedShowNoResultsSlot,
 			highlightedMenuItem,
 			highlightedViaKeyboard,
+			teleportDisabled,
 			computedTarget,
 			handleMenuItemChange,
 			handleKeyNavigation,

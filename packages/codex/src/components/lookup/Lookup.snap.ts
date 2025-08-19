@@ -23,6 +23,30 @@ exports[`Lookup matches the snapshot Case 0 Default: ({"menuItems": [Array], "se
     <!--v-if-->
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none;"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <li
+        class="cdx-menu__no-results cdx-menu-item"
+        role="option"
+      >
+        <!-- @slot Message to show if there are no menu items to display. -->
+        
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
 </div>
 `;
@@ -50,6 +74,175 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ({"inputValue": 
     <!--v-if-->
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none;"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <!--v-if-->
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-1-1"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option A
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-1-2"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option B
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-1-3"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                c
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="true"
+        class="cdx-menu-item cdx-menu-item--disabled"
+        id="v-1-4"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option D
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
 </div>
 `;
@@ -77,6 +270,176 @@ exports[`Lookup matches the snapshot Case 2 With selection: ({"inputValue": "Opt
     <!--v-if-->
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none;"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <!--v-if-->
+      
+      
+      <li
+        aria-disabled="false"
+        aria-selected="true"
+        class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+        id="v-1-1"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option A
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-1-2"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option B
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="false"
+        class="cdx-menu-item cdx-menu-item--enabled"
+        id="v-1-3"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                c
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <li
+        aria-disabled="true"
+        class="cdx-menu-item cdx-menu-item--disabled"
+        id="v-1-4"
+        role="option"
+      >
+        <!-- @slot Custom menu item content. -->
+        
+        <span
+          class="cdx-menu-item__content"
+        >
+          <!-- Thumbnail, thumbnail placeholder, or icon. -->
+          <!--v-if-->
+          <!-- Item text. -->
+          <span
+            class="cdx-menu-item__text"
+          >
+            <!-- Item label. -->
+            <span
+              class="cdx-menu-item__text__label"
+            >
+              <bdi>
+                Option D
+              </bdi>
+            </span>
+            <!-- Item search query match (e.g. alias). -->
+            <!--v-if-->
+            <!-- Item label supporting text. -->
+            <!--v-if-->
+            <!-- Item description. -->
+            <!--v-if-->
+          </span>
+          <!--v-if-->
+        </span>
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
 </div>
 `;
@@ -105,6 +468,30 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ({"disabled": true, "menuI
     <!--v-if-->
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none;"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <li
+        class="cdx-menu__no-results cdx-menu-item"
+        role="option"
+      >
+        <!-- @slot Message to show if there are no menu items to display. -->
+        
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
 </div>
 `;
@@ -132,6 +519,36 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ({"inputVal
     <!--v-if-->
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none;"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <li
+        class="cdx-menu__no-results cdx-menu-item"
+        role="option"
+      >
+        <!-- @slot Message to show if there are no menu items to display. -->
+        
+        <!--
+					@slot Message to show if there are no results to display.
+				-->
+        
+        No results
+        
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
 </div>
 `;
@@ -159,6 +576,30 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ({"menuItems"
     <!--v-if-->
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none;"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <li
+        class="cdx-menu__no-results cdx-menu-item"
+        role="option"
+      >
+        <!-- @slot Message to show if there are no menu items to display. -->
+        
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
 </div>
 `;
@@ -187,6 +628,30 @@ exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes
     <!--v-if-->
   </div>
   <!--teleport start-->
+  <div
+    class="cdx-menu"
+    style="display: none;"
+  >
+    <ul
+      class="cdx-menu__listbox"
+      id="v-0"
+      role="listbox"
+      tabindex="-1"
+    >
+      <!--v-if-->
+      <li
+        class="cdx-menu__no-results cdx-menu-item"
+        role="option"
+      >
+        <!-- @slot Message to show if there are no menu items to display. -->
+        
+        
+      </li>
+      
+      
+      <!--v-if-->
+    </ul>
+  </div>
   <!--teleport end-->
 </div>
 `;

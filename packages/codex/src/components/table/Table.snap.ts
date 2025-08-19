@@ -3642,6 +3642,138 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
           </span>
         </div>
         <!--teleport start-->
+        <div
+          class="cdx-menu"
+          style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+        >
+          <ul
+            class="cdx-menu__listbox"
+            id="v-0"
+            role="listbox"
+            tabindex="-1"
+          >
+            <!--v-if-->
+            <!--v-if-->
+            
+            
+            <li
+              aria-disabled="false"
+              aria-selected="true"
+              class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+              id="v-2-1"
+              role="option"
+            >
+              <!-- @slot Custom menu item content. -->
+              
+              <span
+                class="cdx-menu-item__content"
+              >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
+                <!--v-if-->
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      10
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
+                </span>
+                <!--v-if-->
+              </span>
+              
+            </li>
+            
+            
+            <li
+              aria-disabled="false"
+              class="cdx-menu-item cdx-menu-item--enabled"
+              id="v-2-2"
+              role="option"
+            >
+              <!-- @slot Custom menu item content. -->
+              
+              <span
+                class="cdx-menu-item__content"
+              >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
+                <!--v-if-->
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      20
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
+                </span>
+                <!--v-if-->
+              </span>
+              
+            </li>
+            
+            
+            <li
+              aria-disabled="false"
+              class="cdx-menu-item cdx-menu-item--enabled"
+              id="v-2-3"
+              role="option"
+            >
+              <!-- @slot Custom menu item content. -->
+              
+              <span
+                class="cdx-menu-item__content"
+              >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
+                <!--v-if-->
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      50
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
+                </span>
+                <!--v-if-->
+              </span>
+              
+            </li>
+            
+            
+            <!--v-if-->
+          </ul>
+        </div>
         <!--teleport end-->
         <!--v-if-->
       </div>
@@ -4192,6 +4324,138 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
           </span>
         </div>
         <!--teleport start-->
+        <div
+          class="cdx-menu"
+          style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+        >
+          <ul
+            class="cdx-menu__listbox"
+            id="v-3"
+            role="listbox"
+            tabindex="-1"
+          >
+            <!--v-if-->
+            <!--v-if-->
+            
+            
+            <li
+              aria-disabled="false"
+              aria-selected="true"
+              class="cdx-menu-item cdx-menu-item--selected cdx-menu-item--enabled"
+              id="v-5-1"
+              role="option"
+            >
+              <!-- @slot Custom menu item content. -->
+              
+              <span
+                class="cdx-menu-item__content"
+              >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
+                <!--v-if-->
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      10
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
+                </span>
+                <!--v-if-->
+              </span>
+              
+            </li>
+            
+            
+            <li
+              aria-disabled="false"
+              class="cdx-menu-item cdx-menu-item--enabled"
+              id="v-5-2"
+              role="option"
+            >
+              <!-- @slot Custom menu item content. -->
+              
+              <span
+                class="cdx-menu-item__content"
+              >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
+                <!--v-if-->
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      20
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
+                </span>
+                <!--v-if-->
+              </span>
+              
+            </li>
+            
+            
+            <li
+              aria-disabled="false"
+              class="cdx-menu-item cdx-menu-item--enabled"
+              id="v-5-3"
+              role="option"
+            >
+              <!-- @slot Custom menu item content. -->
+              
+              <span
+                class="cdx-menu-item__content"
+              >
+                <!-- Thumbnail, thumbnail placeholder, or icon. -->
+                <!--v-if-->
+                <!-- Item text. -->
+                <span
+                  class="cdx-menu-item__text"
+                >
+                  <!-- Item label. -->
+                  <span
+                    class="cdx-menu-item__text__label"
+                  >
+                    <bdi>
+                      50
+                    </bdi>
+                  </span>
+                  <!-- Item search query match (e.g. alias). -->
+                  <!--v-if-->
+                  <!-- Item label supporting text. -->
+                  <!--v-if-->
+                  <!-- Item description. -->
+                  <!--v-if-->
+                </span>
+                <!--v-if-->
+              </span>
+              
+            </li>
+            
+            
+            <!--v-if-->
+          </ul>
+        </div>
         <!--teleport end-->
         <!--v-if-->
       </div>

@@ -397,6 +397,13 @@ focusable element:
   should be set to the appropriate value. Visit [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete)
   for documentation on which value to set for this attribute.
 
+In some environments, Menus might get cut off by other interface elements that are absolutely
+positioned. This can be remedied by teleporting menus to another place in the DOM. Teleportation
+for Menus is disabled by default, but can be enabled with `provide( 'CdxTeleportMenus', true );`.
+To control where Menus are teleported, provide the `'CdxTeleportTarget'` key; see
+[the Dialog documentation](./dialog.html#vue-usage).
+
+
 ### Keyboard navigation
 
 | Key | Function |
