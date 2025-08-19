@@ -4,7 +4,6 @@ import CdxMultiselectLookup from './MultiselectLookup.vue';
 import CdxInputChip from '../input-chip/InputChip.vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import { ChipInputItem, MenuItemData, MenuItemValue, MenuGroupData, ValidationStatusType } from '../../types';
-import getMenuRoot from '../../testutils/getMenuRoot';
 
 const menuItems: {
 	value: string,
@@ -146,7 +145,7 @@ describe( 'MultiselectLookup', () => {
 					props: { ...defaultProps, menuItems }
 				} );
 				await wrapper.find( 'input' ).trigger( 'focus' );
-				expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 			} );
 		} );
 
@@ -160,7 +159,7 @@ describe( 'MultiselectLookup', () => {
 				// Add menu items.
 				await wrapper.setProps( { menuItems } );
 				await wrapper.find( 'input' ).trigger( 'focus' );
-				expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 			} );
 		} );
 
@@ -168,7 +167,7 @@ describe( 'MultiselectLookup', () => {
 			it( 'does not open the menu', async () => {
 				const wrapper = mount( CdxMultiselectLookup, { props: defaultProps } );
 				await wrapper.find( 'input' ).trigger( 'focus' );
-				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
 
 			describe( 'and there is no-results slot content', () => {
@@ -179,13 +178,12 @@ describe( 'MultiselectLookup', () => {
 					} );
 					// Set input.
 					const input = wrapper.find( 'input' );
-					const menu = getMenuRoot( wrapper );
 					input.element.value = 'foo';
 					await input.trigger( 'input' );
 					// Trigger focus.
 					await input.trigger( 'focus' );
-					expect( menu.isVisible() ).toBe( true );
-					expect( menu.find( '.cdx-menu__no-results' ).isVisible() ).toBe( true );
+					expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+					expect( wrapper.find( '.cdx-menu__no-results' ).isVisible() ).toBe( true );
 				} );
 
 				it( 'does not open menu nor show "no results" message if there is no input', async () => {
@@ -193,11 +191,10 @@ describe( 'MultiselectLookup', () => {
 						props: defaultProps,
 						slots: { 'no-results': 'No results' }
 					} );
-					const menu = getMenuRoot( wrapper );
 					// Trigger focus.
 					await wrapper.find( 'input' ).trigger( 'focus' );
-					expect( menu.isVisible() ).toBe( false );
-					expect( menu.find( '.cdx-menu__no-results' ).isVisible() ).toBe( false );
+					expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+					expect( wrapper.find( '.cdx-menu__no-results' ).isVisible() ).toBe( false );
 				} );
 			} );
 		} );
@@ -208,7 +205,7 @@ describe( 'MultiselectLookup', () => {
 			it( 'does not pass keyboard events to handler', async () => {
 				const wrapper = mount( CdxMultiselectLookup, { props: defaultProps } );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
-				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
 
 			describe( 'and there are menu items to show', () => {
@@ -217,7 +214,7 @@ describe( 'MultiselectLookup', () => {
 						props: { ...defaultProps, menuItems }
 					} );
 					await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
-					expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
+					expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 				} );
 			} );
 
@@ -232,7 +229,7 @@ describe( 'MultiselectLookup', () => {
 					input.element.value = 'foo';
 					await input.trigger( 'input' );
 					await input.trigger( 'keydown', { key: 'Enter' } );
-					expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
+					expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 				} );
 
 				it( 'does not pass keyboard events to handler if there is no input', async () => {
@@ -241,7 +238,7 @@ describe( 'MultiselectLookup', () => {
 						slots: { 'no-results': 'No results' }
 					} );
 					await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
-					expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
+					expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 				} );
 			} );
 
@@ -250,7 +247,7 @@ describe( 'MultiselectLookup', () => {
 					props: { ...defaultProps, menuItems }
 				} );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: ' ' } );
-				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
 		} );
 
@@ -260,7 +257,7 @@ describe( 'MultiselectLookup', () => {
 					props: { ...defaultProps, disabled: true }
 				} );
 				await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
-				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
 		} );
 	} );
@@ -270,7 +267,7 @@ describe( 'MultiselectLookup', () => {
 			const wrapper = mount( CdxMultiselectLookup, { props: defaultProps } );
 			wrapper.vm.expanded = true;
 			await wrapper.find( 'input' ).trigger( 'keydown', { key: ' ' } );
-			expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
+			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 		} );
 	} );
 
@@ -287,7 +284,7 @@ describe( 'MultiselectLookup', () => {
 
 				await wrapper.setProps( { menuItems } );
 				expect( wrapper.element.classList ).not.toContain( 'cdx-multiselect-lookup--pending' );
-				expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 			} );
 		} );
 
@@ -304,7 +301,7 @@ describe( 'MultiselectLookup', () => {
 
 				await wrapper.setProps( { menuItems } );
 				expect( wrapper.element.classList ).not.toContain( 'cdx-multiselect-lookup--pending' );
-				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
 		} );
 
@@ -316,7 +313,7 @@ describe( 'MultiselectLookup', () => {
 
 				await wrapper.setProps( { menuItems } );
 				expect( wrapper.element.classList ).not.toContain( 'cdx-multiselect-lookup--pending' );
-				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
 		} );
 
@@ -329,7 +326,7 @@ describe( 'MultiselectLookup', () => {
 				// with items, so we need to manually open the menu first.
 				wrapper.vm.expanded = true;
 				await wrapper.setProps( { menuItems: [] } );
-				expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
 
 			describe( 'and there is no-results slot content', () => {
@@ -343,7 +340,7 @@ describe( 'MultiselectLookup', () => {
 					await input.trigger( 'input' );
 					wrapper.vm.expanded = true;
 					await wrapper.setProps( { menuItems: [] } );
-					expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
+					expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 				} );
 
 				it( 'closes the menu open if there is no input', async () => {
@@ -353,7 +350,7 @@ describe( 'MultiselectLookup', () => {
 					} );
 					wrapper.vm.expanded = true;
 					await wrapper.setProps( { menuItems: [] } );
-					expect( getMenuRoot( wrapper ).isVisible() ).toBe( false );
+					expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 				} );
 			} );
 		} );
@@ -382,7 +379,7 @@ describe( 'MultiselectLookup', () => {
 
 				// Assert that the menu remains open after selection.
 				expect( wrapper.emitted()[ 'update:expanded' ] ).toBeFalsy();
-				expect( getMenuRoot( wrapper ).isVisible() ).toBe( true );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 
 				// Assert that the input is not cleared.
 				expect( wrapper.find( 'input' ).element.value ).toBe( 'c' );

@@ -1,11 +1,10 @@
 import { DOMWrapper, mount, VueWrapper } from '@vue/test-utils';
 import CdxTypeaheadSearch from './TypeaheadSearch.vue';
-import CdxMenu from '../menu/Menu.vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import CdxSearchInput from '../search-input/SearchInput.vue';
+import CdxMenu from '../menu/Menu.vue';
 import { DebounceInterval, PendingDelay } from '../../constants';
 import { SearchResult } from '../../types';
-import getMenuRoot from '../../testutils/getMenuRoot';
 
 const propsData = {
 	useButton: true,
@@ -280,7 +279,8 @@ describe( 'TypeaheadSearch', () => {
 	} );
 
 	describe( 'with search results', () => {
-		let wrapper: VueWrapper<InstanceType<typeof CdxTypeaheadSearch>>;
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		let wrapper: VueWrapper<any>;
 		let input: DOMWrapper<Element>;
 		let inputElement: HTMLInputElement;
 		const oldLocation = window.location;
@@ -343,8 +343,7 @@ describe( 'TypeaheadSearch', () => {
 				await input.trigger( 'focus' );
 				expect( wrapper.vm.expanded ).toStrictEqual( true );
 
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-				const searchFooter = getMenuRoot( wrapper ).find( '.cdx-typeahead-search__search-footer' );
+				const searchFooter = wrapper.find( '.cdx-typeahead-search__search-footer' );
 				await searchFooter.trigger( 'click' );
 
 				expect( wrapper.vm.expanded ).toBeFalsy();
