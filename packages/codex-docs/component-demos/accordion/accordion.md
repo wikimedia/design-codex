@@ -3,6 +3,9 @@ import { CdxAccordion } from '@wikimedia/codex';
 import AccordionDefault from '@/../component-demos/accordion/examples/AccordionDefault.vue';
 import AccordionActionButton from '@/../component-demos/accordion/examples/AccordionActionButton.vue';
 import AccordionDifferentContent from '@/../component-demos/accordion/examples/AccordionDifferentContent.vue';
+import AccordionOutlined from '@/../component-demos/accordion/examples/AccordionOutlined.vue';
+import AccordionMinimal from '@/../component-demos/accordion/examples/AccordionMinimal.vue';
+import AccordionNoSeparation from '@/../component-demos/accordion/examples/AccordionNoSeparation.vue';
 import AccordionActionVisible from '@/../component-demos/accordion/examples/AccordionActionVisible.vue';
 import AccordionHeadings from '@/../component-demos/accordion/examples/AccordionHeadings.vue';
 import AccordionProgrammaticControl from '@/../component-demos/accordion/examples/AccordionProgrammaticControl.vue';
@@ -30,6 +33,12 @@ const controlsConfig = [
 	{
 		name: 'actionAlwaysVisible',
 		type: 'boolean',
+	},
+	{
+		name: 'separation',
+		type: 'radio',
+		options: [ 'none', 'minimal', 'divider', 'outline' ],
+		default: 'divider'
 	}
 ];
 </script>
@@ -123,6 +132,8 @@ The expanded content within the Accordion can include paragraph text, links, ima
 ## Examples
 
 ### Basic usage
+
+The default `separation` is `divider`, which only appears between Accordions when multiple are present in a group.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -223,7 +234,7 @@ To show the icon even when the Accordion is collapsed, set the `actionAlwaysVisi
 
 ### With different content
 
-The Accordion can be used with different elements, including images, tables, or form items..
+The Accordion can be used with different elements, including images, tables, or form items.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -236,6 +247,69 @@ The Accordion can be used with different elements, including images, tables, or 
 <<< @/../component-demos/accordion/examples/AccordionDifferentContent.vue [NPM]
 
 <<< @/../component-demos/accordion/examples-mw/AccordionDifferentContent.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### Outlined
+
+The Accordion can be styled with a visual outline for further containment and separation.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<accordion-outlined />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/accordion/examples/AccordionOutlined.vue [NPM]
+
+<<< @/../component-demos/accordion/examples-mw/AccordionOutlined.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### Minimal
+
+The Accordion can be styled more minimally to save space.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<accordion-minimal />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/accordion/examples/AccordionMinimal.vue [NPM]
+
+<<< @/../component-demos/accordion/examples-mw/AccordionMinimal.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+### No separation
+
+The Accordion can be styled without any visual separation.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<accordion-no-separation />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/accordion/examples/AccordionNoSeparation.vue [NPM]
+
+<<< @/../component-demos/accordion/examples-mw/AccordionNoSeparation.vue [MediaWiki]
 
 :::
 
@@ -443,7 +517,7 @@ As with the Vue version, multiple Accordion components can be stacked.
 	<summary>
 		<h3 class="cdx-accordion__header">
 			<span class="cdx-accordion__header__title">
-				Accordion 2
+				Accordion 3
 			</span>
 		</h3>
 	</summary>
@@ -492,6 +566,355 @@ state by using the boolean `open` attribute.
 			</span>
 			<span class="cdx-accordion__header__description">
 				CSS-only Accordion Description
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+```
+
+</template>
+
+</cdx-demo-wrapper>
+
+##### Separation types
+
+There are 4 separation types, which change the style of the Accordion, specifically the way multiple Accordions are separated from one another.
+Use these classes to determine the different separation type styles:
+- None: `cdx-accordion--separation-none`
+- Minimal: `cdx-message--separation-minimal`
+- Divider: `cdx-message--separation-divider` (class can be omitted since this is the default)
+- Outline: `cdx-message--separation-outline`
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<details class="cdx-accordion cdx-accordion--separation-none">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Separation none
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+	<details class="cdx-accordion cdx-accordion--separation-none">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Separation none
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+	<details class="cdx-accordion cdx-accordion--separation-none">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Separation none
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+</template>
+
+<template v-slot:code>
+
+```html
+<details class="cdx-accordion cdx-accordion--separation-none">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Separation none
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+<details class="cdx-accordion cdx-accordion--separation-none">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Separation none
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+<details class="cdx-accordion cdx-accordion--separation-none">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Separation none
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+```
+
+</template>
+
+</cdx-demo-wrapper>
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<details class="cdx-accordion cdx-accordion--separation-minimal">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Separation minimal
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+	<details class="cdx-accordion cdx-accordion--separation-minimal">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Separation minimal
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+	<details class="cdx-accordion cdx-accordion--separation-minimal">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Separation minimal
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+</template>
+
+<template v-slot:code>
+
+```html
+<details class="cdx-accordion cdx-accordion--separation-minimal">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Separation minimal
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+<details class="cdx-accordion cdx-accordion--separation-minimal">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Separation minimal
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+<details class="cdx-accordion cdx-accordion--separation-minimal">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Separation minimal
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+```
+
+</template>
+
+</cdx-demo-wrapper>
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<details class="cdx-accordion cdx-accordion--separation-divider">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Separation divider
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+	<details class="cdx-accordion cdx-accordion--separation-divider">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Separation divider
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+	<details class="cdx-accordion cdx-accordion--separation-divider">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Separation divider
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+</template>
+
+<template v-slot:code>
+
+```html
+<details class="cdx-accordion cdx-accordion--separation-divider">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Separation divider
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+<details class="cdx-accordion cdx-accordion--separation-divider">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Separation divider
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+<details class="cdx-accordion cdx-accordion--separation-divider">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Separation divider
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+```
+
+</template>
+
+</cdx-demo-wrapper>
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<details class="cdx-accordion cdx-accordion--separation-outline">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Separation outline
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+	<details class="cdx-accordion cdx-accordion--separation-outline">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Separation outline
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+	<details class="cdx-accordion cdx-accordion--separation-outline">
+		<summary>
+			<h3 class="cdx-accordion__header">
+				<span class="cdx-accordion__header__title">
+					Separation outline
+				</span>
+			</h3>
+		</summary>
+		<div class="cdx-accordion__content">
+			<p>Lorem ipsum dolor sic amet...</p>
+		</div>
+	</details>
+</template>
+
+<template v-slot:code>
+
+```html
+<details class="cdx-accordion cdx-accordion--separation-outline">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Separation outline
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+<details class="cdx-accordion cdx-accordion--separation-outline">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Separation outline
+			</span>
+		</h3>
+	</summary>
+	<div class="cdx-accordion__content">
+		<p>Lorem ipsum dolor sic amet...</p>
+	</div>
+</details>
+<details class="cdx-accordion cdx-accordion--separation-outline">
+	<summary>
+		<h3 class="cdx-accordion__header">
+			<span class="cdx-accordion__header__title">
+				Separation outline
 			</span>
 		</h3>
 	</summary>

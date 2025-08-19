@@ -729,6 +729,9 @@
 		},
 		"destructive": {
 			"value": "{ border-width.base } { border-style.base } { border-color.destructive }"
+		},
+		"transparent": {
+			"value": "{ border-width.base } { border-style.base } { border-color.transparent }"
 		}
 	},
 	"border-radius": {

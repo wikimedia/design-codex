@@ -27,7 +27,8 @@ import {
 	TableTextAlignments,
 	TableRowIdentifier,
 	TablePaginationPositions,
-	I18nMessageKeys
+	I18nMessageKeys,
+	AccordionSeparations
 } from './constants';
 
 // Export the Placement type from FloatingUI for ease of use downstream
@@ -302,3 +303,6 @@ export interface BreadcrumbData extends BreadcrumbItem {
 
 /** @public */
 export type TeleportTarget = MaybeRef<string | HTMLElement | undefined>;
+
+/** @public */
+export type AccordionSeparation = typeof AccordionSeparations[ number ];

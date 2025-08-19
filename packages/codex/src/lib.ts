@@ -111,7 +111,8 @@ import type {
 	TableRow,
 	TableSort,
 	TableSortOption,
-	TeleportTarget
+	TeleportTarget,
+	AccordionSeparation
 } from './types';
 
 // Constants.
@@ -212,6 +213,7 @@ export {
 	TableSort,
 	TableSortOption,
 	TeleportTarget,
+	AccordionSeparation,
 
 	// Constants.
 	TableRowIdentifier

@@ -2,7 +2,7 @@
 
 exports[`Accordion matches the snapshot Case 0 Renders with basic basic title and text content: ({}) => HTML 1`] = `
 <details
-  class="cdx-accordion"
+  class="cdx-accordion cdx-accordion--separation-divider"
 >
   <summary>
     <h3
@@ -38,7 +38,7 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
 
 exports[`Accordion matches the snapshot Case 1 Action button is not visible when collapsed: ({"actionButtonLabel": "Edit", "actionIcon": "<path d=\\"m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z\\"/>"}) => HTML 1`] = `
 <details
-  class="cdx-accordion"
+  class="cdx-accordion cdx-accordion--separation-divider"
 >
   <summary>
     <h3
@@ -74,7 +74,7 @@ exports[`Accordion matches the snapshot Case 1 Action button is not visible when
 
 exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action button visible even when collapsed: ({"actionAlwaysVisible": true, "actionButtonLabel": "Edit", "actionIcon": "<path d=\\"m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z\\"/>"}) => HTML 1`] = `
 <details
-  class="cdx-accordion cdx-accordion--has-icon"
+  class="cdx-accordion cdx-accordion--has-icon cdx-accordion--separation-divider"
 >
   <summary>
     <h3

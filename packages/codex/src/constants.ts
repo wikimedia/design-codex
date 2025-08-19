@@ -155,6 +155,16 @@ export const ObjectPositions = [
 export const imagePositionValidator = makeStringTypeValidator( ObjectPositions );
 
 /**
+ * Available options for Accordion's `separation` prop.
+ */
+export const AccordionSeparations = [
+	'none',
+	'minimal',
+	'divider',
+	'outline'
+] as const;
+
+/**
  * Default length of delay for debouncing, in milliseconds.
  */
 export const DebounceInterval = 120;

@@ -47,8 +47,12 @@ import { computed, defineComponent, PropType, ref, toRef } from 'vue';
 import CdxIcon from '../icon/Icon.vue';
 import CdxButton from '../button/Button.vue';
 import { Icon } from '@wikimedia/codex-icons';
-import { HeadingLevel } from '../../types';
+import { AccordionSeparation, HeadingLevel } from '../../types';
 import useOptionalModelWrapper from '../../composables/useOptionalModelWrapper';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+import { AccordionSeparations } from '../../constants';
+
+const separationValidator = makeStringTypeValidator( AccordionSeparations );
 
 /**
  * An item that contains an expandable and collapsible section of content.
@@ -75,6 +79,22 @@ export default defineComponent( {
 		actionAlwaysVisible: {
 			type: Boolean,
 			default: false
+		},
+
+		/**
+		 * Sets the visual style and sometimes size of the accordion.
+		 *
+		 * - 'none': no divider or outline, size scales with header content.
+		 * - 'minimal': no divider or outline, fixed small size.
+		 * - 'divider': divider line between mmultiple accordions, size scales with header content.
+		 * - 'outline': border around entire accordion, size scales with header content.
+		 *
+		 * @values 'none', 'minimal', 'divider', 'outline'
+		 */
+		separation: {
+			type: String as PropType<AccordionSeparation>,
+			default: 'divider',
+			validator: separationValidator
 		},
 
 		/**
@@ -160,7 +180,8 @@ export default defineComponent( {
 		} );
 
 		const rootClasses = computed( () => ( {
-			'cdx-accordion--has-icon': shouldShowActionButton.value
+			'cdx-accordion--has-icon': shouldShowActionButton.value,
+			[ `cdx-accordion--separation-${ props.separation }` ]: true,
 		} ) );
 
 		return {
@@ -181,7 +202,13 @@ export default defineComponent( {
 
 .cdx-accordion {
 	position: relative;
-	border-bottom: @border-subtle;
+	border: @border-transparent;
+
+	& + & {
+		// This avoids having a 1px gap between accordions due to the default transparent border.
+		margin-top: calc( @spacing-6 * -1 );
+		border-top: @border-subtle;
+	}
 
 	// The summary element is always visible
 	& > summary {
@@ -190,9 +217,6 @@ export default defineComponent( {
 		display: flex;
 		gap: @spacing-50;
 		position: relative;
-		border-width: @border-width-base;
-		border-style: @border-style-base;
-		border-color: @border-color-transparent;
 		border-radius: @border-radius-sharp;
 		padding: @spacing-75;
 		word-break: break-word;
@@ -309,6 +333,53 @@ export default defineComponent( {
 
 	&[ open ] > summary::before {
 		transform: rotate( -180deg );
+	}
+
+	// No separator
+	& + &--separation-none,
+	& + &--separation-minimal {
+		border-top: @border-transparent;
+	}
+
+	// Outline
+	&--separation-outline {
+		border: @border-subtle;
+	}
+
+	// Minimal
+	&--separation-minimal {
+		/* stylelint-disable-next-line no-descending-specificity */
+		> summary {
+			padding: @spacing-35 0;
+
+			&:hover {
+				background-color: @background-color-transparent;
+				color: @color-progressive--hover;
+				cursor: @cursor-base--hover;
+
+				&::before {
+					background-color: @color-progressive--hover;
+				}
+			}
+
+			&:active {
+				background-color: @background-color-transparent;
+				color: @color-progressive--active;
+
+				&::before {
+					background-color: @color-progressive--active;
+				}
+			}
+		}
+	}
+
+	&--separation-minimal &__action.cdx-button {
+		padding-right: @spacing-35;
+		padding-left: @spacing-35;
+	}
+
+	&--separation-minimal &__content {
+		padding: 0;
 	}
 }
 </style>
