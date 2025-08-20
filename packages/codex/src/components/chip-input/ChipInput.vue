@@ -61,7 +61,7 @@
 				@keydown="onInputKeydown"
 			>
 		</div>
-		<!-- Hidden status element (aria live region) for screen readers. -->
+		<!-- Hidden status element (ARIA live region) for screen readers. -->
 		<div
 			class="cdx-chip-input__aria-status"
 			role="status"

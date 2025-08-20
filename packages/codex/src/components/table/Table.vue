@@ -870,7 +870,7 @@ export default defineComponent( {
 		}
 
 		/**
-		 * Determine the sort order for the aria attribute `aria-sort`.
+		 * Determine the sort order for the ARIA attribute `aria-sort`.
 		 *
 		 * @param columnId
 		 * @param hasSort

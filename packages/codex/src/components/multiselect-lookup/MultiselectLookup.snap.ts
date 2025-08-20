@@ -24,7 +24,7 @@ exports[`MultiselectLookup matches the snapshot Case 0 Default props: ({"inputCh
       />
     </div>
     <!--v-if-->
-    <!-- Hidden status element (aria live region) for screen readers. -->
+    <!-- Hidden status element (ARIA live region) for screen readers. -->
     <div
       aria-live="polite"
       class="cdx-chip-input__aria-status"
@@ -60,7 +60,7 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
       />
     </div>
     <!--v-if-->
-    <!-- Hidden status element (aria live region) for screen readers. -->
+    <!-- Hidden status element (ARIA live region) for screen readers. -->
     <div
       aria-live="polite"
       class="cdx-chip-input__aria-status"
@@ -190,7 +190,7 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
       />
     </div>
     <!--v-if-->
-    <!-- Hidden status element (aria live region) for screen readers. -->
+    <!-- Hidden status element (ARIA live region) for screen readers. -->
     <div
       aria-live="polite"
       class="cdx-chip-input__aria-status"
@@ -226,7 +226,7 @@ exports[`MultiselectLookup matches the snapshot Case 3 With input value: ({"inpu
       />
     </div>
     <!--v-if-->
-    <!-- Hidden status element (aria live region) for screen readers. -->
+    <!-- Hidden status element (ARIA live region) for screen readers. -->
     <div
       aria-live="polite"
       class="cdx-chip-input__aria-status"
@@ -360,7 +360,7 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
         role="combobox"
       />
     </div>
-    <!-- Hidden status element (aria live region) for screen readers. -->
+    <!-- Hidden status element (ARIA live region) for screen readers. -->
     <div
       aria-live="polite"
       class="cdx-chip-input__aria-status"
@@ -490,7 +490,7 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
       />
     </div>
     <!--v-if-->
-    <!-- Hidden status element (aria live region) for screen readers. -->
+    <!-- Hidden status element (ARIA live region) for screen readers. -->
     <div
       aria-live="polite"
       class="cdx-chip-input__aria-status"
@@ -623,7 +623,7 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
       />
     </div>
     <!--v-if-->
-    <!-- Hidden status element (aria live region) for screen readers. -->
+    <!-- Hidden status element (ARIA live region) for screen readers. -->
     <div
       aria-live="polite"
       class="cdx-chip-input__aria-status"

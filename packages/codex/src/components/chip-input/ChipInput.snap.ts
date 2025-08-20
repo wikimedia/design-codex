@@ -20,7 +20,7 @@ exports[`ChipInput matches the snapshot Case 0 Default props: ({"inputChips": [A
     />
   </div>
   <!--v-if-->
-  <!-- Hidden status element (aria live region) for screen readers. -->
+  <!-- Hidden status element (ARIA live region) for screen readers. -->
   <div
     aria-live="polite"
     class="cdx-chip-input__aria-status"
@@ -45,7 +45,7 @@ exports[`ChipInput matches the snapshot Case 1 No input chips: ({"inputChips": [
     />
   </div>
   <!--v-if-->
-  <!-- Hidden status element (aria live region) for screen readers. -->
+  <!-- Hidden status element (ARIA live region) for screen readers. -->
   <div
     aria-live="polite"
     class="cdx-chip-input__aria-status"
@@ -78,7 +78,7 @@ exports[`ChipInput matches the snapshot Case 2 With separate input: ({"inputChip
       class="cdx-chip-input__input"
     />
   </div>
-  <!-- Hidden status element (aria live region) for screen readers. -->
+  <!-- Hidden status element (ARIA live region) for screen readers. -->
   <div
     aria-live="polite"
     class="cdx-chip-input__aria-status"
@@ -107,7 +107,7 @@ exports[`ChipInput matches the snapshot Case 3 With error: ({"inputChips": [Arra
     />
   </div>
   <!--v-if-->
-  <!-- Hidden status element (aria live region) for screen readers. -->
+  <!-- Hidden status element (ARIA live region) for screen readers. -->
   <div
     aria-live="polite"
     class="cdx-chip-input__aria-status"
@@ -137,7 +137,7 @@ exports[`ChipInput matches the snapshot Case 4 Disabled: ({"disabled": true, "in
     />
   </div>
   <!--v-if-->
-  <!-- Hidden status element (aria live region) for screen readers. -->
+  <!-- Hidden status element (ARIA live region) for screen readers. -->
   <div
     aria-live="polite"
     class="cdx-chip-input__aria-status"
@@ -167,7 +167,7 @@ exports[`ChipInput matches the snapshot Case 5 Input chips with icon: ({"inputCh
     />
   </div>
   <!--v-if-->
-  <!-- Hidden status element (aria live region) for screen readers. -->
+  <!-- Hidden status element (ARIA live region) for screen readers. -->
   <div
     aria-live="polite"
     class="cdx-chip-input__aria-status"
