@@ -1,3 +1,27 @@
+# 2.3.1 / 2025-08-21
+
+## Styles
+- InputChip, styles: Fix horizontal spacing (Volker E.)
+
+## Icons
+- icons: Add 'bookmarkList' icon (Volker E.)
+
+## Code
+- TypeaheadSearch: Fix unavoidable deprecation warning in mobile view mode (Roan Kattouw)
+- TypeaheadSearch: Disable Menu teleportation (Roan Kattouw)
+- Menu: Make teleportation optional, triggered by CdxTeleportMenus (Roan Kattouw)
+
+## Build
+- build: sync node and npm versions across packages with ''.nvmrc' (Volker E.)
+- build: sync node and npm versions across packages with '.nvmrc' II (Volker E.)
+- tests: Remove getMenuRoot helper, no longer needed (Roan Kattouw)
+
+## Documentation
+- docs: Set up teleport target for docs site components (Roan Kattouw)
+- docs: Add support for Matomo pageview analytics (Roan Kattouw)
+- docs: Fix 'ARIA' acronym case in documentation (Volker E.)
+- docs: Better document teleportation and styling pitfalls (Roan Kattouw)
+
 # 2.3.0 / 2025-08-14
 
 ## Features
