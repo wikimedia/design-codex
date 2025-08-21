@@ -661,6 +661,12 @@ export const cdxIconMathematicsDisplayInline = svgMathematicsDisplayInline;
 import svgMenu from './images/menu.svg';
 export const cdxIconMenu = svgMenu;
 
+import svgMerge from './images/merge.svg';
+export const cdxIconMerge: IconFlipForRtl = {
+	ltr: svgMerge,
+	shouldFlip: true
+};
+
 import svgMessage from './images/message.svg';
 export const cdxIconMessage = svgMessage;
 
@@ -1050,6 +1056,12 @@ export const cdxIconUnderline: IconVariedByLang = {
 import svgUndo from './images/undo.svg';
 export const cdxIconUndo: IconFlipForRtl = {
 	ltr: svgUndo,
+	shouldFlip: true
+};
+
+import svgUpdate from './images/update.svg';
+export const cdxIconUpdate: IconFlipForRtl = {
+	ltr: svgUpdate,
 	shouldFlip: true
 };
 
