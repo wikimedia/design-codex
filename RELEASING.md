@@ -170,7 +170,7 @@ php maintenance/run.php update
 
 3: Create a feature branch to work on.
 ```bash
-git checkout -b feature-branch
+git checkout -b codex-update
 ```
 
 ### Update Codex packages in MediaWiki
@@ -261,6 +261,16 @@ number to `v1.2.34`. If there isn't a list item about Codex yet, add one in the
 ### Add default design tokens
 
 If any new design tokens have been introduced as part of the release, add them to `mediawiki.skin.defaults.less`. Example of a commit that adds new tokens: https://gerrit.wikimedia.org/r/c/mediawiki/core/+/907988/2/resources/src/mediawiki.less/mediawiki.skin.defaults.less.
+
+### Update Jest snapshots when necessary
+
+Codex uses Jest for testing, Jest snapshots allow developers to capture the rendered output of a
+component at a specific point in time. And some tests in MediaWiki core use snapshots to verify
+the output of components. In case of a test failure on an intended markup change, you have to
+update the snapshots by running in core repository's root directory:
+```bash
+npm run jest -- --updateSnapshot
+```
 
 ### Generate bug list
 
