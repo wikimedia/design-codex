@@ -40,7 +40,7 @@ page files in `packages/codex-docs/docs/components/demos` are automatically gene
 [vue-docgen-cli](https://vue-styleguidist.github.io/docs/docgen-cli.html).
 
 Component demos are written in Markdown files outside of the `packages/codex-docs/docs` directory
-(see below). vue-docgen-cli is configured to grab the demo file, add documentation that's generated
+(refer to the documentation below). vue-docgen-cli is configured to grab the demo file, add documentation that's generated
 from the component's `.vue` file (page title, description, meta info, usage docs, etc.), and place
 the generated file in `packages/codex-docs/docs/components/demos`.
 
@@ -56,7 +56,7 @@ Because the way Vue and Codex is used in MediaWiki is different, component demos
 versions of each code example: the original (labeled "NPM") and a transformed one for use in
 MediaWiki (labeled "MediaWiki"). The transformation is done by an automatic build process, which
 places MediaWiki-targeted versions of each example file in the `examples-mw` directory. These files
-then have to be imported in the Markdown files (see the examples [below](#formatting-demos)).
+then have to be imported in the Markdown files (refer to the examples [below](#formatting-demos)).
 
 If, for some reason, the automatic transformation process doesn't produce the right output,
 you can also create the MediaWiki version manually. To do this, create a new file in the `examples`
@@ -194,7 +194,7 @@ You can set a default value for each control (required for slots), otherwise the
 to the first option (for `radio` controls), `false` (for `boolean` controls), or an empty string
 (for `text` controls)
 
-See `packages/codex-docs/docs/utils/types.ts` for full details on control configuration, or check out
+Refer to `packages/codex-docs/docs/utils/types.ts` for full details on control configuration, or check out
 the configuration for the Button demo:
 
 ```js

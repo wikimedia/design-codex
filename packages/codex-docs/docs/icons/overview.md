@@ -33,7 +33,7 @@ an icon.
 
 ### npm package
 
-See the [installation](../using-codex/developing.html#installation) and [using icons](../using-codex/developing.html#using-icons) documentation for information about how to use Codex icons in
+Refer to the [installation](../using-codex/developing.html#installation) and [using icons](../using-codex/developing.html#using-icons) documentation for information about how to use Codex icons in
 your application.
 
 ### In MediaWiki

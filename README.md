@@ -31,7 +31,7 @@ To use icons:
 import { cdxIconAlert, cdxIconNewWindow } from '@wikimedia/codex-icons';
 ```
 
-For more information on how to set up and use the library, see the [usage documentation](https://doc.wikimedia.org/codex/latest/using-codex/developing.html).
+For more information on how to set up and use the library, refer to the [usage documentation](https://doc.wikimedia.org/codex/latest/using-codex/developing.html).
 
 ### Development
 
@@ -47,7 +47,7 @@ Helpful commands:
 - `npm run dev` to start the Vite sandbox
 - `npm run test:unit -w @wikimedia/codex` to run unit tests for e.g. the codex workspace. [Read more about testing.](https://doc.wikimedia.org/codex/latest/contributing/testing-components.html)
 
-See the [contributing code](https://doc.wikimedia.org/codex/latest/contributing/development-basics.html) guidelines
+Refer to the [contributing code](https://doc.wikimedia.org/codex/latest/contributing/development-basics.html) guidelines
 for more information.
 
 ## Contributing

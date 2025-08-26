@@ -280,7 +280,7 @@ You can display an inline [ProgressBar](./progress-bar.md#inline) and a "pending
 Menu is in a pending state, such as when `menuItems` are being fetched. In the simplified example
 below, the pending state always displays when you focus on the input.
 
-See [TypeaheadSearch](./typeahead-search#pending-state) for a real-world implementation of this.
+Refer to [TypeaheadSearch](./typeahead-search#pending-state) for a real-world implementation of this.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -400,8 +400,7 @@ focusable element:
 In some environments, Menus might get cut off by other interface elements that are absolutely
 positioned. This can be remedied by teleporting menus to another place in the DOM. Teleportation
 for Menus is disabled by default, but can be enabled with `provide( 'CdxTeleportMenus', true );`.
-To control where Menus are teleported, provide the `'CdxTeleportTarget'` key; see
-[the Dialog documentation](./dialog.html#vue-usage). Teleportation can be disabled on a per-Menu
+To control where Menus are teleported, provide the `'CdxTeleportTarget'` key; refer to [the Dialog documentation](./dialog.html#vue-usage). Teleportation can be disabled on a per-Menu
 basis by setting the `renderInPlace` prop, which prevents the Menu from being teleported even if
 `'CdxTeleportMenus'` is true.
 

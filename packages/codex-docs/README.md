@@ -19,7 +19,7 @@ This will serve the VitePress Codex docs site locally at http://localhost:5173.
 General docs are located in the `docs/` directory. `docs/index.md` is the landing page of the static
 site, and other docs are organized into folders.
 
-Docs are written in Markdown, see the [VitePress docs](https://vitepress.vuejs.org/guide/markdown.html)
+Docs are written in Markdown, refer to the [VitePress docs](https://vitepress.vuejs.org/guide/markdown.html)
 for details.
 
 ### Updating the sidebar
@@ -28,15 +28,14 @@ The sidebar is configured in docs/.vitepress/config.js.
 
 ### Component demos
 
-See the [developer docs](./docs/contributing/contributing-code.md#component-demos) for details about how to create and work with component demos. It's important to note that the files in `docs/components` are generated
+Refer to the [developer docs](./docs/contributing/contributing-code.md#component-demos) for details about how to create and work with component demos. It's important to note that the files in `docs/components` are generated
 by `vue-docgen-cli`; component demos are set up outside the `docs/` directory in `component-demos/`.
 
 ## Configuration
 
 ### VitePress config
 
-General site information and sidebar configuration are housed in `docs/.vitepress/config.js`. See
-the [VitePress docs](https://vitepress.vuejs.org/config/basics.html) or the
+General site information and sidebar configuration are housed in `docs/.vitepress/config.js`. Refer to the [VitePress docs](https://vitepress.vuejs.org/config/basics.html) or the
 [`Config` type definition](https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/config.ts)
 for more info.
 

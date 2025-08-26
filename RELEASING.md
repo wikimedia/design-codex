@@ -309,7 +309,7 @@ Submit the commit to Gerrit:
 git review
 ```
 
-See https://gerrit.wikimedia.org/r/c/mediawiki/core/+/1155734 for an example change.
+Refer to https://gerrit.wikimedia.org/r/c/mediawiki/core/+/1155734 for an example change.
 
 ### Patch demo
 

@@ -91,4 +91,4 @@ information.
 
 ### CSS-only version
 
-See the [Tabs page](./tabs.md#css-only-version) to learn how to build a CSS-only tabbed layout.
+Refer to the [Tabs page](./tabs.md#css-only-version) to learn how to build a CSS-only tabbed layout.

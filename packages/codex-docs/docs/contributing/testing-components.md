@@ -265,5 +265,4 @@ phrases `No overload matches this call`, `Types of property 'setup' are incompat
 `Types of parameters 'props and 'props' are incompatible`. Most IDEs don't surface these errors,
 so they may not be discovered until `vue-tsc` is run (locally or in CI). To fix this error, make
 sure that the types of the props passed into the mount function match the types that the component
-expects. For more on how these errors happen and how to fix them, see
-[the TypeScript guidelines](./typescript.md#wrong-types-for-props-in-jest-tests).
+expects. For more on how these errors happen and how to fix them, refer to [the TypeScript guidelines](./typescript.md#wrong-types-for-props-in-jest-tests).

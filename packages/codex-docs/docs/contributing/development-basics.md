@@ -15,7 +15,7 @@ Clone [the repository](https://gerrit.wikimedia.org/g/design/codex/):
 `git clone ssh://gerrit.wikimedia.org:29418/design/codex`
 
 ::: tip First time using Gerrit?
-See [the Gerrit tutorial on mediawiki.org](https://www.mediawiki.org/wiki/Gerrit/Tutorial) for a
+Refer to [the Gerrit tutorial on mediawiki.org](https://www.mediawiki.org/wiki/Gerrit/Tutorial) for a
 detailed guide.
 :::
 

@@ -79,7 +79,7 @@ the documentation for `CdxButton` is at [“Button” page](../components/demos/
 
 ### CSS-only components
 
-Output the HTML of the component with the appropriate CSS classes (see the component page's
+Output the HTML of the component with the appropriate CSS classes (refer to the component page's
 "CSS-only version" section for details, e.g. for the [CSS-only Button](../components/demos/button.md#css-only-version)).
 
 ```html
@@ -160,7 +160,7 @@ export default defineComponent( {
 
 :::
 
-For more information about the Icon component, see [the Icon demo page](../components/demos/icon.md).
+For more information about the Icon component, refer to [the Icon demo page](../components/demos/icon.md).
 
 ### CSS-only icons
 Import Codex design tokens and the CSS icon mixin. Then, apply the mixin to an empty `<span>`
@@ -197,7 +197,7 @@ For more information about the CSS-only icon, visit the [Icon demo page](../comp
 Import the appropriate design tokens theme file in your CSS, Less, or SCSS code to access Codex
 design tokens.
 
-Certain categories of design tokens (see modes below) are referencing CSS custom properties, also
+Certain categories of design tokens (refer to the modes below) are referencing CSS custom properties, also
 known as CSS variables, rather than raw values. This means that the relevant variables will no
 longer work in preprocessor mathematical functions (like Less `unit()`) and may require the use of
 the CSS `calc()` function to work in basic calculations.
@@ -402,7 +402,7 @@ an **experimental** stylesheet that supports client-side direction flipping via 
 Some Codex components detect the direction of the surrounding content, and adjust their behavior
 accordingly, for example in how they respond to the left and right arrow keys. Icons also adjust
 to the surrounding direction. For more information on how bidirectionality is handled for icons,
-see the [Icon component](../components/demos/icon.html#internationalization).
+refer to the [Icon component](../components/demos/icon.html#internationalization).
 
 For more information on this topic, visit the [developer documentation on bidirectionality](../contributing/developing-components#bidirectional-text).
 

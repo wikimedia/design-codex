@@ -43,7 +43,7 @@ Please [get in touch](../using-codex/contact.md) with us.
 
 ### What is the status of something Codex related?
 
-The status of a particular task can be found on the [**Codex**](https://phabricator.wikimedia.org/tag/codex/) Phabricator workboard. If a task exists, the task will be in the column that represents its current status. If not, you can create a task (see below) or [get in touch](../using-codex/contact.md) with us.
+The status of a particular task can be found on the [**Codex**](https://phabricator.wikimedia.org/tag/codex/) Phabricator workboard. If a task exists, the task will be in the column that represents its current status. If not, you can create a task (refer to the documentation below) or [get in touch](../using-codex/contact.md) with us.
 
 ### Can I request a feature?
 

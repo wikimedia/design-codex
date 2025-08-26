@@ -797,7 +797,7 @@ Dummy release to fix a publishing problem with 1.19.0.
 - This release deprecates the `initialInputValue` prop of the Lookup component.
   This prop will be removed in the next major release of Codex (v2.0). In the
   meantime it is recommended that users stop using this prop in their own code;
-  the new `inputValue` prop should be used instead. See the Lookup component's
+  the new `inputValue` prop should be used instead. Refer to the Lookup component's
   documentation for more information.
 
 ## Features

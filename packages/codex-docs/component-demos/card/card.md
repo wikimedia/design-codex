@@ -352,7 +352,7 @@ To add an image, add the following markup:
   a custom CSS class that you can use to add a `background-image` rule (alternately, you can add
   the `background-image` rule via a `style` attribute on this `<span>`)
 
-See the [CSS-only Thumbnail](./thumbnail.md#css-only-version) documentation for more examples.
+Refer to the [CSS-only Thumbnail](./thumbnail.md#css-only-version) documentation for more examples.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -447,7 +447,7 @@ can use to add a [CSS-only Icon](./icon.md#css-only-version).
 
 #### Card groups
 
-See the [documentation above](#card-groups) for UX guidelines.
+Refer to the [documentation above](#card-groups) for UX guidelines.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

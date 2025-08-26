@@ -129,7 +129,7 @@ boolean value: `true` for checked, `false` for unchecked.
 
 When used in a form, a single Checkbox or group of Checkboxes can be wrapped in the Field component
 to add features like a semantic label, description and help text, validation messages, and more.
-See the [Field](./field.md) page for more information.
+Refer to the [Field](./field.md) page for more information.
 
 <cdx-demo-best-practices>
 <cdx-demo-best-practice>

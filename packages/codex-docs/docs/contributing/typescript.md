@@ -110,7 +110,7 @@ Some components have props that take only certain predefined string values. For 
 component has a `action` prop that can be one of `'default'`, `'progressive'` or `'destructive'`.
 This section documents how these string types are organized, and how to create a new one.
 For more information on why we chose this approach, refer to
-[the relevant ADR](../using-codex/adrs/03-adr-string-types.md).
+[string types](../using-codex/adrs/03-adr-string-types.md).
 
 ### Naming
 String types that are particular to a prop are named for their component first and their prop
@@ -149,7 +149,7 @@ import { ButtonAction } from '../../types';
 import { ButtonActions } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
-// NOTE: This variable is necessary, see "Pitfall" below // [!code error]
+// NOTE: This variable is necessary, refer to "Pitfall" below // [!code error]
 const isButtonAction = makeStringTypeValidator( ButtonActions );
 
 export default defineComponent( {

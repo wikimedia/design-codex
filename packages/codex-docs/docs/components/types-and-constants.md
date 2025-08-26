@@ -22,7 +22,7 @@ interface BreadcrumbItem {
 
 ### ContainerSize
 
-See [ContainerSizes](#containersizes).
+Refer to [ContainerSizes](#containersizes).
 
 ```ts
 // Allowed values: 'medium', 'large', 'x-large', 'full'
@@ -31,7 +31,7 @@ type ContainerSize = typeof ContainerSizes[ number ];
 
 ### ButtonAction
 
-See [ButtonActions](#buttonactions).
+Refer to [ButtonActions](#buttonactions).
 
 ```ts
 // Allowed values: 'default', 'progressive', 'destructive'
@@ -60,7 +60,7 @@ interface ButtonGroupItem {
 
 ### ButtonSize
 
-See [ButtonSizes](#buttonsizes).
+Refer to [ButtonSizes](#buttonsizes).
 
 ```ts
 // Allowed values: 'small', 'medium', 'large'
@@ -69,7 +69,7 @@ type ButtonSize = typeof ButtonSizes[ number ];
 
 ### ButtonType
 
-See [ButtonTypes](#buttontypes).
+Refer to [ButtonTypes](#buttontypes).
 
 ```ts
 // Allowed values: 'button', 'submit', 'reset'
@@ -78,7 +78,7 @@ type ButtonType = typeof ButtonTypes[ number ];
 
 ### ButtonWeight
 
-See [ButtonWeights](#buttonweights).
+Refer to [ButtonWeights](#buttonweights).
 
 ```ts
 // Allowed values: 'normal', 'primary', 'quiet'
@@ -137,7 +137,7 @@ type Icon = SimpleIcon | IconFlipForRtl | IconVariedByDir | IconVariedByLang;
 
 ### IconSize
 
-See [IconSizes](#iconsizes).
+Refer to [IconSizes](#iconsizes).
 
 ```ts
 // Allowed values: 'medium', 'small', 'x-small'
@@ -190,7 +190,7 @@ interface IconVariedByLang {
 
 ### ImageAspectRatio
 
-See [ImageAspectRatios](#imageaspectratios).
+Refer to [ImageAspectRatios](#imageaspectratios).
 
 ```ts
 // Allowed values: '16:9','3:2','4:3','1:1','3:4','2:3'
@@ -290,7 +290,7 @@ interface MenuItemLanguageData {
 
 ### MenuState
 
-See [MenuStates](#menustates).
+Refer to [MenuStates](#menustates).
 
 ```ts
 // Allowed values: 'selected', 'highlighted', 'active'
@@ -370,7 +370,7 @@ type SimpleIcon = PathIcon | SvgIcon;
 
 ### StatusType
 
-See [StatusTypes](#statustypes).
+Refer to [StatusTypes](#statustypes).
 
 ```ts
 // Allowed values: 'notice', 'warning', 'error', 'success'
@@ -440,7 +440,7 @@ export interface TablePaginationSizeOption extends MenuItemData {
 
 ### TextInputType
 
-See [TextInputTypes](#textinputtypes).
+Refer to [TextInputTypes](#textinputtypes).
 
 ```ts
 // Allowed values: 'text', 'search', 'number', 'email', 'password', 'tel', 'url', 'week', 'month', 'date', 'datetime-local', 'time'
@@ -468,7 +468,7 @@ interface ValidationMessages {
 
 ### ValidationStatusType
 
-See [ValidationStatusTypes](#validationstatustypes).
+Refer to [ValidationStatusTypes](#validationstatustypes).
 
 ```ts
 // Allowed values: 'default', 'error'

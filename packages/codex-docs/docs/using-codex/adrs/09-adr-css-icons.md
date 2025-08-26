@@ -230,7 +230,7 @@ This option has two downsides:
   depending on which has more contrast, but no more color granularity)
 - This only works when the icon is placed within an empty element. For example, the CSS-only Select
   includes the icon on the `<select>` element, and using `mask-image` there disrupts the background
-  of the entire element (see [T358513](https://phabricator.wikimedia.org/T358513)). Note that as
+  of the entire element (refer to [T358513](https://phabricator.wikimedia.org/T358513)). Note that as
   part of that task, we developed a workaround where either a dark or inverted icon can be shown.
 
 #### Redo the CSS icon system

@@ -100,7 +100,7 @@ There are 2 ways to listen for input changes:
    events. Do this if you need to know the current input value at other times, or if you want to be
    able to set the input value. Refer to the [Vue usage](#vue-usage) tables for more information.
 
-Items are displayed via the MenuItem component—see the [MenuItem docs](./menu-item) for more
+Items are displayed via the MenuItem component—refer to the [MenuItem docs](./menu-item) for more
 options. In this example, a `menuConfig` object is passed to the Lookup to bold the label text. Note
 that in this example, menu items are Wikidata items with a human-readable label and a Wikidata
 entity ID value.

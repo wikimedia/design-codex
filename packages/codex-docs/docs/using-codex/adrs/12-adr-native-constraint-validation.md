@@ -88,6 +88,6 @@ Native validation will provide an easy and standard way to validate form inputs.
 
 This feature was proposed by Itamar Givon of Wikimedia Deutschland, including several patches
 demonstrating an implementation strategy for TextInput and the new composable that we intend to
-finalize and publish (see [task](https://phabricator.wikimedia.org/T373872),
+finalize and publish (refer to [T373872](https://phabricator.wikimedia.org/T373872),
 [patch chain](https://gerrit.wikimedia.org/r/c/design/codex/+/1070241)). Many thanks to Itamar for
 proposing this work and contributing code to Codex!

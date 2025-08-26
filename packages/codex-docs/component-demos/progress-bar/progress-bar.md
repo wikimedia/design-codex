@@ -82,8 +82,7 @@ adding `aria-hidden` attribute.
 
 ### Inline
 
-An inline version is available for use within other components. See
-[Menu](./menu#pending-state) for sample usage.
+An inline version is available for use within other components. Refer to [Menu](./menu#pending-state) for sample usage.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

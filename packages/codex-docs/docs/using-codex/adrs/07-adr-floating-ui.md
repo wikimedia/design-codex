@@ -17,7 +17,7 @@ circumstances:
 - in right-to-left (RTL) contexts,
 - etc.
 
-*See [Phabricator task T346099](https://phabricator.wikimedia.org/T346099) for the current status of
+*Refer to [T346099](https://phabricator.wikimedia.org/T346099) for the current status of
 this work.*
 
 ## Considered actions
@@ -43,7 +43,7 @@ production-readiness of Codex.
 
 ## Decision
 
-After some investigation (see
+After some investigation (refer to
 [T345116](https://phabricator.wikimedia.org/T345116)), we believe that the best
 path forward is to leverage the [Floating UI library](https://floating-ui.com)
 and avoid re-inventing the wheel ourselves.
@@ -64,8 +64,7 @@ Finally, Floating UI already includes a [Vue.js composable](https://floating-ui.
 
 Adding a new runtime dependency to Codex is not something we do lightly.
 
-DST engineers conducted a preliminary security review of Floating UI (see
-[here](https://phabricator.wikimedia.org/T346097) for details). We will follow
+DST engineers conducted a preliminary security review of Floating UI (refer to [T346097](https://phabricator.wikimedia.org/T346097) for details). We will follow
 up with a more formal discussion with the Wikimedia Foundation's security team to ensure
 that Codex follows appropriate security practices for a library of its type.
 

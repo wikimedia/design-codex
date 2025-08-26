@@ -21,7 +21,7 @@ Enable the [Codex Figma library](https://www.figma.com/design/KoDuJMadWBXtsOtzGS
 
 ### npm package
 
-See the [installation](../using-codex/developing.md#installation) and [using design tokens](../using-codex/developing.md#using-design-tokens) documentation for information about how to use Codex design tokens in your application.
+Refer to the [installation](../using-codex/developing.md#installation) and [using design tokens](../using-codex/developing.md#using-design-tokens) documentation for information about how to use Codex design tokens in your application.
 
 ### In MediaWiki
 

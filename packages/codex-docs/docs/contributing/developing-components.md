@@ -33,7 +33,6 @@ Aside from Vite Sandbox, you can also run the VitePress docs site locally to wri
 suite of user-facing component demos. Visit the [component demos](./component-demos) section for
 more information or run this command in the root of the Codex repository:
 
-
 ```bash
 npm run doc:dev
 ```
@@ -130,7 +129,7 @@ the `@wikimedia/codex-design-tokens` package.
 ### Conventions
 
 **Design tokens**
-- Token usage is enforced via Stylelint. See [token definition and structure](../design-tokens/definition-and-structure.md) for a detailed overview.
+- Token usage is enforced via Stylelint. Refer to [token definition and structure](../design-tokens/definition-and-structure.md) for a detailed overview.
 
 **Selectors and structure**
 - A light version of block-element-modifier or [BEM](https://getbem.com/) is used for class naming structure:
@@ -148,7 +147,7 @@ the `@wikimedia/codex-design-tokens` package.
   disabled state.
   - The pseudo-classes `&:enabled` and `&:disabled` can be used when available, otherwise
     `&--enabled` and `&--disabled` classes should be added (e.g. `.cdx-menu-item--enabled`).
-  - The stylelint `no-descending-specificity` rule can be disabled to maintain this structure (see
+  - The stylelint `no-descending-specificity` rule can be disabled to maintain this structure (refer to the
     [styles example](#examples) below).
 - Use `--has-` and `--is-` prefixes for modifiers that are not tied to a specific state, e.g.
   `--has-thumbnail` or `--is-link`.
@@ -175,6 +174,7 @@ the `@wikimedia/codex-design-tokens` package.
   parameters should be prefixed with `param` (e.g. `@param-size`).
 
 ### Examples
+
 Below are some sample styles for a component to demonstrate these conventions:
 
 ```less
@@ -298,6 +298,7 @@ export default defineComponent( {
 ```
 
 ## Bidirectional text
+
 Codex has limited support for [bidirectional text](https://en.wikipedia.org/wiki/Bidirectional_text).
 It supports pages that are entirely in a left-to-right (LTR) script, or pages that are entirely
 in a right-to-left (RTL) script. It does not support pages with a mix of LTR and RTL
@@ -327,6 +328,7 @@ The caveats above still apply.
 :::
 
 ### Flipping styles
+
 Styles in Codex are written for left-to-right (LTR) environments. Codex uses
 [RTLCSS](https://rtlcss.com/) to generate flipped versions of these styles for right-to-left (RTL)
 environments. For example, a rule like `.foo { padding-left: 4px; }` will be changed to
@@ -342,7 +344,7 @@ In some cases, the automatic flipping transformation doesn't produce the correct
 directives can be used to address this. To prevent a rule from being flipped, put `/* rtl:ignore */`
 on the line above it. To set a different value for a property in RTL, put the RTL value in
 a comment like `/* rtl:4px */`. These two directives are the most important ones, but others exist;
-see the postcss-rtlcss documentation on [control directives](https://rtlcss.com/learn/usage-guide/control-directives/)
+refer to the postcss-rtlcss documentation on [control directives](https://rtlcss.com/learn/usage-guide/control-directives/)
 and [value directives](https://rtlcss.com/learn/usage-guide/value-directives/)
 for more information.
 
@@ -355,8 +357,6 @@ Below is an example that demonstrates these directives:
 	// This rule isn't flipped. It uses float: left; in both LTR and RTL.
 	/* rtl:ignore */
 	float: left;
-
-
 }
 
 .bar {
@@ -370,6 +370,7 @@ Below is an example that demonstrates these directives:
 ```
 
 ### Component behavior
+
 Some components need to adjust their behavior depending on the text direction. For example,
 components that listen for the left and right arrow keys being pressed may need to react to those
 key presses differently depending on the text direction.
@@ -427,7 +428,7 @@ export default defineComponent( {
 
 The [Icon component](../components/demos/icon.md) also uses this composable to detect the text direction,
 and allows the detected direction to be overridden through the `dir` prop. For more information about
-how bidirectionality is handled for icons in particular, see
+how bidirectionality is handled for icons in particular, refer to
 [the icon documentation](../icons/overview.md#right-to-left-rtl-and-language-support).
 
 ## Translatable strings

@@ -20,7 +20,7 @@ const tokens = computed( () => isMounted.value && isDark.value ? darkModeTokens 
 For documentation on the entire color palette, visit [Colors](../style-guide/colors.md).
 
 :::tip
-Some colors vary between light and dark modes. Use the color mode switcher in the site header to see
+Some colors vary between light and dark modes. Use the color mode switcher in the site header to check
 the colors in the different modes. Using design tokens rather than raw hex codes will ensure you're
 automatically using the right color for the chosen mode.
 :::

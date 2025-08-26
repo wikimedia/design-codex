@@ -133,5 +133,4 @@ Our type definitions won't have to duplicate string values, but they'll be more 
 End users will have a simpler experience, and validating these types or iterating over all possible
 values will be easier too.
 
-For details on how string types are structured, see
-[the Working with TypeScript section](../../contributing/typescript#string-types).
+For details on how string types are structured, refer to [the Working with TypeScript section](../../contributing/typescript#string-types).
