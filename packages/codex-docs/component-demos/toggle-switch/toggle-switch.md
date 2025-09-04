@@ -107,7 +107,7 @@ Single switches can be used, such as turning a setting on or off.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -141,7 +141,7 @@ In rare cases where the purpose of the ToggleSwitch is made clear in context, a 
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -177,7 +177,7 @@ next demo.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -217,7 +217,7 @@ Use ToggleSwitch groups vertically for a clear and organized layout.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 

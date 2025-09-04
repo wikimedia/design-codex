@@ -707,8 +707,6 @@ body {
 /* Styles for the "developer notes" accordions. */
 .vp-doc .cdx-accordion {
 	margin-top: var( --spacing-75 );
-	border: var( --border-width-base ) var( --border-style-base ) var( --border-color-muted );
-	border-radius: var( --border-radius-base );
 }
 
 .vp-doc .cdx-accordion summary {

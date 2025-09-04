@@ -152,7 +152,7 @@ The default `separation` is `divider`, which only appears between Accordions whe
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 <template #title>Developer notes</template>
 The Accordion component supports two different modes of usage:
 
@@ -193,7 +193,7 @@ By default, action buttons display when the Accordion is open.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -224,7 +224,7 @@ button for accessibility purposes by using the `actionButtonLabel` prop.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -341,7 +341,7 @@ In the example below, the heading level is set to 2 and the font size is increas
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 

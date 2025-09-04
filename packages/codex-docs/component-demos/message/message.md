@@ -177,7 +177,7 @@ module.exports = defineComponent( {
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -205,7 +205,7 @@ Messages can be dismissed by using the close button within the Message. Note tha
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -310,7 +310,7 @@ module.exports = defineComponent( {
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 

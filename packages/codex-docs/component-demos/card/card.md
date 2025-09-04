@@ -153,7 +153,7 @@ As long as links are not included in the contents of the Card, the Card itself c
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -256,7 +256,7 @@ in the set.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 

@@ -183,7 +183,7 @@ By default, the width of a Button with text is determined by the width of the te
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 

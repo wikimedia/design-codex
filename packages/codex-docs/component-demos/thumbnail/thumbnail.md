@@ -107,7 +107,7 @@ The second case may occur in a group of components, like Cards or MenuItems, whe
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 

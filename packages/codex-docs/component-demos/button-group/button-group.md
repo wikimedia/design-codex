@@ -81,7 +81,7 @@ Icons simplify user recognition and provide the ability to shorten button labels
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -147,7 +147,7 @@ Icon-only buttons may be used to form a ButtonGroup but only if the icons used a
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -178,7 +178,7 @@ You can disable the entire ButtonGroup or individual buttons.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -232,7 +232,7 @@ The contents of the buttons can be customized using the default slot.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 

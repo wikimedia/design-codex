@@ -202,10 +202,12 @@ export default defineComponent( {
 
 .cdx-accordion {
 	position: relative;
-	border: @border-transparent;
+	margin: @size-6;
+	overflow: hidden;
 
 	& + & {
-		// This avoids having a 1px gap between accordions due to the default transparent border.
+		// This avoids having a 1px gap between accordions due to the default margin,
+		// or a double border between two outlined accordions
 		margin-top: calc( @spacing-6 * -1 );
 		border-top: @border-subtle;
 	}
@@ -338,17 +340,35 @@ export default defineComponent( {
 	// No separator
 	& + &--separation-none,
 	& + &--separation-minimal {
+		margin-top: 0;
 		border-top: @border-transparent;
 	}
 
 	// Outline
 	&--separation-outline {
+		margin: 0;
 		border: @border-subtle;
+		border-radius: @border-radius-base;
+		border-bottom-left-radius: @border-radius-sharp;
+		border-bottom-right-radius: @border-radius-sharp;
+	}
+
+	& + &--separation-outline {
+		border-radius: @border-radius-sharp;
+	}
+
+	// The last accordion in a group (an accordion not followed by another accordion)
+	// For older browsers that don't support :has(), fall back to :last-child.
+	// This won't catch all cases, but it will catch some
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+	&--separation-outline:not( :has( + & ) ),
+	& + &--separation-outline:last-child {
+		border-bottom-left-radius: @border-radius-base;
+		border-bottom-right-radius: @border-radius-base;
 	}
 
 	// Minimal
 	&--separation-minimal {
-		/* stylelint-disable-next-line no-descending-specificity */
 		> summary {
 			padding: @spacing-35 0;
 

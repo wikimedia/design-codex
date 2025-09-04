@@ -181,7 +181,7 @@ For more detailed information about form fields, consult the guidelines for [con
 
 You can display a validation message based on the current status of the field.
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 

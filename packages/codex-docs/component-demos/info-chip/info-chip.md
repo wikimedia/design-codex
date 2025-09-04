@@ -97,7 +97,7 @@ For notice chips, the icon can be customized.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 

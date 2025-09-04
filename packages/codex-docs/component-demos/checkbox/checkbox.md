@@ -113,7 +113,7 @@ Checkboxes must always have a label and can also feature a description.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -164,7 +164,7 @@ If using a Checkbox or Checkbox group outside of a form, follow the instructions
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -196,7 +196,7 @@ Checkboxes are most typically used in groups.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -239,7 +239,7 @@ Checkboxes can be horizontally stacked if needed in some specific cases. However
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -277,7 +277,7 @@ different state than the others, the main checkbox would present an [indetermina
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -329,7 +329,7 @@ An additional input field can be included within the Checkbox to allow the user 
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 

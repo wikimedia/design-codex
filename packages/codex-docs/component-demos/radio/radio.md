@@ -111,7 +111,7 @@ Radios must always have a label and can also feature a description.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -147,7 +147,7 @@ If using a Radio group outside of a form, follow the instructions in the next de
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -178,7 +178,7 @@ Radios must be used in multiples.
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -222,7 +222,7 @@ Radios can be horizontally stacked if needed in some specific cases. However, th
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
@@ -287,7 +287,7 @@ An additional input field can be included within the Radio to allow the user to 
 </template>
 </cdx-demo-wrapper>
 
-<cdx-accordion>
+<cdx-accordion separation="outline">
 
 <template #title>Developer notes</template>
 
