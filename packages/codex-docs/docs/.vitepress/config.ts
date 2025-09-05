@@ -55,6 +55,8 @@ function filterComponents( items: DefaultTheme.SidebarItem[] ): DefaultTheme.Sid
 	} );
 }
 
+const base = process.env.CODEX_DOC_ROOT ?? '/';
+
 export default defineConfigWithTheme<CustomConfig>( {
 	lang: 'en-US',
 	// Tell VitePress not to set dir="ltr" on the <html> tag, as this breaks our
@@ -63,15 +65,14 @@ export default defineConfigWithTheme<CustomConfig>( {
 	dir: 'auto',
 	title: 'Codex',
 	description: 'Design system for Wikimedia',
-	// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-	base: process.env.CODEX_DOC_ROOT || '/',
+	base,
 	// Don't show the color mode switcher; we add our own in CustomLayout.vue.
 	appearance: false,
 
 	head: [
-		[ 'link', { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon', sizes: '32x32' } ],
-		[ 'link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' } ],
-		[ 'link', { rel: 'icon', href: '/favicon-32x32.png', type: 'image/png' } ],
+		[ 'link', { rel: 'icon', href: `${ base }favicon.ico`, type: 'image/x-icon', sizes: '32x32' } ],
+		[ 'link', { rel: 'icon', href: `${ base }favicon.svg`, type: 'image/svg+xml' } ],
+		[ 'link', { rel: 'icon', href: `${ base }favicon-32x32.png`, type: 'image/png' } ],
 
 		// Add Matomo pageview analytics if CODEX_MATOMO_URL is set
 		...getMatomoScripts()
