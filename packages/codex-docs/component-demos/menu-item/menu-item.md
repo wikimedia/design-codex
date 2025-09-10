@@ -168,6 +168,7 @@ This MenuItem has a bold `label` and a `description`.
 ### With link
 
 If a `url` property is included, the MenuItem will be wrapped in an anchor `<a>` element.
+If the `urlNewTab` prop is set, the link will open in a new tab.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>

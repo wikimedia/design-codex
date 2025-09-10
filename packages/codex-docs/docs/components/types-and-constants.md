@@ -252,6 +252,8 @@ interface MenuItemData {
 	thumbnail?: Thumbnail | null,
 	/** If URL is included, menu item will be wrapped in an anchor element. */
 	url?: string,
+	/** Whether to open the URL in a new tab. */
+	urlNewTab?: boolean,
 	disabled?: boolean
 }
 ```

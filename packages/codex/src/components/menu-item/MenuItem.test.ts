@@ -45,6 +45,7 @@ describe( 'MenuItem', () => {
 			[ 'Item with match', { ...testMenuItem, match: '(match)' } ],
 			[ 'Item with supporting text', { ...testMenuItem, supportingText: '(supporting text)' } ],
 			[ 'Item with url', testSearchResult ],
+			[ 'Item with url that opens in new tab', { ...testSearchResult, urlNewTab: true } ],
 			[ 'Item with icon', { ...testSearchResult, icon: cdxIconTag } ],
 			[ 'Item with placeholder thumbnail', testSearchResult, true ],
 			[ 'Item with search query', testSearchResult, false, testQuery ],

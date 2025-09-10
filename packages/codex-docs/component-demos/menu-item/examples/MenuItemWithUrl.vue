@@ -12,6 +12,7 @@ const menuItem = {
 	value: 5921,
 	label: 'Color',
 	url: 'https://en.wikipedia.org/wiki/Color',
+	urlNewTab: true,
 	description: 'visual perception of light wavelengths',
 	id: 'menu-item-with-url'
 };

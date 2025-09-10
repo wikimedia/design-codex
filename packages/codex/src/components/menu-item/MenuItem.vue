@@ -17,6 +17,7 @@
 			<component
 				:is="contentTag"
 				:href="url ? url : undefined"
+				v-bind="url ? linkAttrs : {}"
 				class="cdx-menu-item__content"
 			>
 				<!-- Thumbnail, thumbnail placeholder, or icon. -->
@@ -204,6 +205,14 @@ export default defineComponent( {
 		},
 
 		/**
+		 * Whether to open the URL in a new tab when url is provided.
+		 */
+		urlNewTab: {
+			type: Boolean,
+			default: false
+		},
+
+		/**
 		 * Icon for the menu item.
 		 */
 		icon: {
@@ -362,6 +371,12 @@ export default defineComponent( {
 		// Otherwise, it'll just be wrapped in a `<span>` element.
 		const contentTag = computed( () => props.url ? 'a' : 'span' );
 
+		// Compute link attributes for anchor tag
+		const linkAttrs = computed( () => props.url && props.urlNewTab ? {
+			target: '_blank',
+			rel: 'noopener noreferrer'
+		} : {} );
+
 		// Get the title, which will be passed to the Title component. Must be a string.
 		const title = computed( () => props.label || String( props.value ) );
 
@@ -373,6 +388,7 @@ export default defineComponent( {
 			highlightQuery,
 			rootClasses,
 			contentTag,
+			linkAttrs,
 			title,
 			cdxIconCheck
 		};
