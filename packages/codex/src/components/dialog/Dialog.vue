@@ -709,17 +709,12 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		&__actions {
 			display: flex;
 			flex-grow: 1;
+			flex-direction: row-reverse;
 			gap: @spacing-75;
 		}
 
 		.cdx-dialog--dividers & {
 			border-top: @border-subtle;
-		}
-	}
-
-	&--horizontal-actions &__footer {
-		&__actions {
-			flex-direction: row-reverse;
 		}
 	}
 
@@ -732,6 +727,13 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		.cdx-dialog__footer__primary-action.cdx-button,
 		.cdx-dialog__footer__default-action.cdx-button {
 			max-width: none;
+		}
+	}
+
+	@media ( max-width: @min-width-breakpoint-tablet ) {
+		&__footer__actions {
+			flex-direction: column;
+			width: @size-full;
 		}
 	}
 }

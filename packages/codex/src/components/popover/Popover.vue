@@ -524,5 +524,12 @@ export default defineComponent( {
 		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		clip-path: polygon( 0 0, 100% 0, 0 100% );
 	}
+
+	@media ( max-width: @min-width-breakpoint-tablet ) {
+		&__footer__actions {
+			flex-direction: column;
+			width: @size-full;
+		}
+	}
 }
 </style>
