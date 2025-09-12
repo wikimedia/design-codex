@@ -4,7 +4,9 @@
 
 ### Set high accessibility, internationalization, and browser/device coverage standards
 
-Wikimedia intends to serve everyone. We will follow [Wikimedia's accessibility principles](https://design.wikimedia.org/style-guide/design-principles_accessibility.html) and aim to support many languages.
+Wikimedia intends to serve everyone. We will follow
+[Wikimedia's accessibility principles](../style-guide/accessibility.md)
+and aim to support many languages.
 
 Codex follows MediaWiki's [browser support matrix](https://www.mediawiki.org/wiki/Compatibility#Browsers).
 Codex supports the subset of the “Modern” support list, with the difference being that only
