@@ -28,15 +28,17 @@
 @max-width-grid-content: 99.75rem; // equals to 1596px.
 
 // Container mixin - creates the Grid container.
-// First param is the row gap, second param is the column gap, equivalent to the CSS `gap` property.
-// Third param is a multiplier for the gaps on larger screens (tablet and up).
-.cdx-mixin-grid-container( @param-gap-row: @spacing-100; @param-gap-column: @spacing-100; @param-gap-multiplier: 1.5 ) {
+// Only parametrize the row gap as column gap would mean that downstream consumers could
+// directly break out of Grid, leading too easily to unwanted inconsistencies.
+// @param {string} gap-row is the row gap.
+// @param {string} gap-multiplier is a multiplying the gaps on larger screens (tablet and up).
+.cdx-mixin-grid-container( @param-gap-row: @spacing-100; @param-gap-multiplier: 1.5 ) {
 	display: grid;
 	// Mobile layout (default).
 	// TODO: Turn into design token.
 	grid-template-columns: repeat( 4, 1fr );
 	// Grid `gap` for columns and rows.
-	gap: @param-gap-row @param-gap-column;
+	gap: @param-gap-row @spacing-100;
 	box-sizing: @box-sizing-base;
 	width: @size-full;
 	// Mobile layout (default) continuation.
@@ -46,7 +48,7 @@
 	// Tablet layout.
 	@media ( min-width: @min-width-breakpoint-tablet ) {
 		grid-template-columns: repeat( 8, 1fr );
-		gap: calc( @param-gap-row * @param-gap-multiplier ) calc( @param-gap-column * @param-gap-multiplier );
+		gap: calc( @param-gap-row * @param-gap-multiplier ) @spacing-150;
 		padding-right: @spacing-150;
 		padding-left: @spacing-150;
 	}
@@ -54,7 +56,7 @@
 	// Desktop layout.
 	@media ( min-width: @min-width-breakpoint-desktop ) {
 		grid-template-columns: repeat( 24, 1fr );
-		gap: calc( @param-gap-row * @param-gap-multiplier ) calc( @param-gap-column * @param-gap-multiplier );
+		gap: calc( @param-gap-row * @param-gap-multiplier ) @spacing-150;
 		max-width: @max-width-grid-content;
 		margin: 0 auto;
 		padding-right: @spacing-200;
