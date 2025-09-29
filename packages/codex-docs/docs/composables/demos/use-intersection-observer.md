@@ -9,7 +9,7 @@ Returns a boolean [ref](https://vuejs.org/api/reactivity-core.html#ref) which wi
 the current intersection status of the targeted element (true if the element is in view and false
 otherwise).
 
-If the the browser doesn't support IntersectionObserver, the returned `ref` will always be false.
+If the browser doesn't support IntersectionObserver, the returned `ref` will always be false.
 
 ## Usage
 

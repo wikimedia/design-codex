@@ -44,7 +44,7 @@ describe( 'MenuItem', () => {
 
 #### Describe behavior
 
-The name of a `describe` block should describe the behavior expected by the test, not how the the
+The name of a `describe` block should describe the behavior expected by the test, not how the
 test is implemented internally. This should start with words like "when", "with" or "without".
 
 ```typescript
