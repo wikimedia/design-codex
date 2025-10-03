@@ -336,8 +336,7 @@ export default defineComponent( {
 		const showFooter = computed( () => !!props.primaryAction || !!props.defaultAction );
 
 		const footerActionsClasses = computed( () => ( {
-			'cdx-popover__footer__actions--vertical': props.stackedActions,
-			'cdx-popover__footer__actions--horizontal': !props.stackedActions
+			'cdx-popover__footer__actions--vertical': props.stackedActions
 		} ) );
 
 		/**
@@ -500,15 +499,27 @@ export default defineComponent( {
 
 		&__actions {
 			display: flex;
+			flex-direction: row-reverse;
 			gap: @spacing-75;
-
-			&--horizontal {
-				flex-direction: row-reverse;
-			}
 
 			&--vertical {
 				flex-direction: column;
 				width: @size-full;
+
+				/* stylelint-disable-next-line max-nesting-depth */
+				.cdx-button {
+					max-width: none;
+				}
+			}
+
+			@media ( max-width: @min-width-breakpoint-tablet ) {
+				flex-direction: column;
+				width: @size-full;
+
+				/* stylelint-disable-next-line max-nesting-depth */
+				.cdx-button {
+					max-width: none;
+				}
 			}
 		}
 	}
@@ -523,13 +534,6 @@ export default defineComponent( {
 		box-shadow: @box-shadow-medium;
 		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		clip-path: polygon( 0 0, 100% 0, 0 100% );
-	}
-
-	@media ( max-width: @min-width-breakpoint-tablet ) {
-		&__footer__actions {
-			flex-direction: column;
-			width: @size-full;
-		}
 	}
 }
 </style>

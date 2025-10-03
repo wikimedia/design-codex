@@ -324,7 +324,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 
 		const rootClasses = computed( () => ( {
 			'cdx-dialog--vertical-actions': props.stackedActions,
-			'cdx-dialog--horizontal-actions': !props.stackedActions,
 			'cdx-dialog--dividers': showDividers.value
 		} ) );
 
@@ -686,6 +685,10 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 	&__footer {
 		padding: @spacing-100 @spacing-150 @spacing-150;
 
+		.cdx-dialog--dividers & {
+			border-top: @border-subtle;
+		}
+
 		// If no custom footer content is provided, apply these styles to the
 		// `<footer>` element
 		&--default {
@@ -711,29 +714,25 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			flex-grow: 1;
 			flex-direction: row-reverse;
 			gap: @spacing-75;
-		}
 
-		.cdx-dialog--dividers & {
-			border-top: @border-subtle;
+			@media ( max-width: @max-width-breakpoint-mobile ) {
+				flex-direction: column;
+				width: @size-full;
+
+				/* stylelint-disable-next-line max-nesting-depth */
+				.cdx-button {
+					max-width: none;
+				}
+			}
 		}
 	}
 
-	&--vertical-actions &__footer {
-		&__actions {
-			flex-direction: column;
-			width: @size-full;
-		}
+	&--vertical-actions &__footer__actions {
+		flex-direction: column;
+		width: @size-full;
 
-		.cdx-dialog__footer__primary-action.cdx-button,
-		.cdx-dialog__footer__default-action.cdx-button {
+		.cdx-button {
 			max-width: none;
-		}
-	}
-
-	@media ( max-width: @min-width-breakpoint-tablet ) {
-		&__footer__actions {
-			flex-direction: column;
-			width: @size-full;
 		}
 	}
 }

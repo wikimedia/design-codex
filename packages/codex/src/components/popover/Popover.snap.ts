@@ -293,7 +293,7 @@ exports[`Popover matches the snapshot Case 5 With primary action 1`] = `
       <!-- @slot Customizable Popover footer. -->
       
       <div
-        class="cdx-popover__footer__actions cdx-popover__footer__actions--horizontal"
+        class="cdx-popover__footer__actions"
       >
         <button
           class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--size-medium cdx-button--framed cdx-popover__footer__primary-action"
@@ -339,7 +339,7 @@ exports[`Popover matches the snapshot Case 6 With default action 1`] = `
       <!-- @slot Customizable Popover footer. -->
       
       <div
-        class="cdx-popover__footer__actions cdx-popover__footer__actions--horizontal"
+        class="cdx-popover__footer__actions"
       >
         <!--v-if-->
         <button

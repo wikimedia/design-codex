@@ -15,7 +15,7 @@ exports[`Dialog matches the snapshot Case 0 Basic usage 1`] = `
     <div
       aria-labelledby="v-0"
       aria-modal="true"
-      class="cdx-dialog cdx-dialog--horizontal-actions"
+      class="cdx-dialog"
       role="dialog"
     >
       <header
@@ -78,7 +78,7 @@ exports[`Dialog matches the snapshot Case 1 Open dialog 1`] = `
     <div
       aria-labelledby="v-0"
       aria-modal="true"
-      class="cdx-dialog cdx-dialog--horizontal-actions"
+      class="cdx-dialog"
       role="dialog"
     >
       <header
@@ -141,7 +141,7 @@ exports[`Dialog matches the snapshot Case 2 With hidden title 1`] = `
     <div
       aria-label="Dialog"
       aria-modal="true"
-      class="cdx-dialog cdx-dialog--horizontal-actions"
+      class="cdx-dialog"
       role="dialog"
     >
       <header
@@ -224,7 +224,7 @@ exports[`Dialog matches the snapshot Case 3 With custom close button label 1`] =
     <div
       aria-labelledby="v-0"
       aria-modal="true"
-      class="cdx-dialog cdx-dialog--horizontal-actions"
+      class="cdx-dialog"
       role="dialog"
     >
       <header
@@ -317,7 +317,7 @@ exports[`Dialog matches the snapshot Case 4 Using deprecated API for close butto
     <div
       aria-labelledby="v-0"
       aria-modal="true"
-      class="cdx-dialog cdx-dialog--horizontal-actions"
+      class="cdx-dialog"
       role="dialog"
     >
       <header
@@ -410,7 +410,7 @@ exports[`Dialog matches the snapshot Case 5 With default action 1`] = `
     <div
       aria-labelledby="v-0"
       aria-modal="true"
-      class="cdx-dialog cdx-dialog--horizontal-actions"
+      class="cdx-dialog"
       role="dialog"
     >
       <header
@@ -493,7 +493,7 @@ exports[`Dialog matches the snapshot Case 6 With default disabled action 1`] = `
     <div
       aria-labelledby="v-0"
       aria-modal="true"
-      class="cdx-dialog cdx-dialog--horizontal-actions"
+      class="cdx-dialog"
       role="dialog"
     >
       <header
@@ -577,7 +577,7 @@ exports[`Dialog matches the snapshot Case 7 With default and primary actions 1`]
     <div
       aria-labelledby="v-0"
       aria-modal="true"
-      class="cdx-dialog cdx-dialog--horizontal-actions"
+      class="cdx-dialog"
       role="dialog"
     >
       <header
@@ -757,7 +757,7 @@ exports[`Dialog matches the snapshot Case 9 With subtitle 1`] = `
     <div
       aria-labelledby="v-0"
       aria-modal="true"
-      class="cdx-dialog cdx-dialog--horizontal-actions"
+      class="cdx-dialog"
       role="dialog"
     >
       <header
@@ -851,7 +851,7 @@ exports[`Dialog matches the snapshot Case 10 With footer text 1`] = `
     <div
       aria-labelledby="v-0"
       aria-modal="true"
-      class="cdx-dialog cdx-dialog--horizontal-actions"
+      class="cdx-dialog"
       role="dialog"
     >
       <header
@@ -958,7 +958,7 @@ exports[`Dialog matches the snapshot Case 11 With custom header and footer 1`] =
     <div
       aria-label="Dialog"
       aria-modal="true"
-      class="cdx-dialog cdx-dialog--horizontal-actions"
+      class="cdx-dialog"
       role="dialog"
     >
       <header
