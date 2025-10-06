@@ -43,6 +43,13 @@ const baseConfig = {
 		copyFiles( {
 			srcDir: resolve( 'src', 'themes', 'mixins', 'public' ),
 			destDir: resolve( 'dist', 'mixins' )
+		} ),
+
+		// Copy the 'wip' directory as well. Keeping it under 'dist/mixins/wip'
+		// keeps the work-in-progress files separated from the public mixins.
+		copyFiles( {
+			srcDir: resolve( 'src', 'themes', 'mixins', 'wip' ),
+			destDir: resolve( 'dist', 'mixins', 'wip' )
 		} )
 	],
 
