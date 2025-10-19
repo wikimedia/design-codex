@@ -592,12 +592,21 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 	display: flex;
 	flex-direction: column;
 	box-sizing: @box-sizing-base;
-	width: calc( @size-full - ( @size-100 * 2) );
-	max-width: @size-3200;
-	max-height: calc( @size-viewport-height-full - @size-250 );
-	border: @border-base;
-	border-radius: @border-radius-base;
-	box-shadow: @box-shadow-large;
+	// On narrow screens, make dialogs full screen
+	width: @size-full;
+	height: @size-full;
+
+	@media ( min-width: @min-width-breakpoint-tablet ) {
+		// On wide screens, ensure some space around the sides
+		// Dynamically size the height of the dialog to fit the content, up to a limit
+		width: calc( @size-full - ( @size-100 * 2 ) );
+		height: unset;
+		max-width: @size-3200;
+		max-height: calc( @size-viewport-height-full - @size-250 );
+		border: @border-base;
+		border-radius: @border-radius-base;
+		box-shadow: @box-shadow-large;
+	}
 
 	&__header {
 		padding: @spacing-100 @spacing-150 @spacing-50;
@@ -650,7 +659,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 	}
 
 	&__body {
-		flex-grow: 1;
 		padding: @spacing-50 @spacing-150;
 		overflow-y: auto;
 		.cdx-mixin-body-text();
@@ -683,6 +691,10 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 	}
 
 	&__footer {
+		// Put the footer at the bottom without making the body larger than it needs to be
+		// This ensures the ResizeObserver on the body works even in full-screen mode, which
+		// it would not if we set flex-grow: 1; on the body.
+		margin-top: auto;
 		padding: @spacing-100 @spacing-150 @spacing-150;
 
 		.cdx-dialog--dividers & {
