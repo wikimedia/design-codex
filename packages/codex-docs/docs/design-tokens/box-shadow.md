@@ -20,7 +20,7 @@ const tokens = computed( () => isMounted.value && isDark.value ? darkModeTokens 
 
 Shadows are used to show depth on the surface of a page. Borders are used alongside shadows to further emphasize the edge of a shape, especially in dark mode, where shadows are far more subtle.
 
-The "light source" for these shadows is oriented between the top and center of the object which has the shadow applied. There are two levels of shadows in Codex represented as `small`, `medium`, and `large`.
+The "light source" for these shadows is oriented between the top and center of the object which has the shadow applied. There are three levels of shadows in Codex represented as `small`, `medium`, and `large`.
 
 - **Small** should be used for elements which other content disappears behind, and are on the lowest possible elevated plane, such as ProgressBars, toolbars, and collapsed headers.
 - **Medium** should be used for elements which appear overtop of other content, but are triggered from a directly related element on the page, such as Menus.
