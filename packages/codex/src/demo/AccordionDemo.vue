@@ -57,6 +57,9 @@
 			<template #title>
 				Accordion title 1
 			</template>
+			<template #description>
+				Accordion <em>description</em> 1
+			</template>
 			Accordion content 1
 		</cdx-accordion>
 		<cdx-accordion>

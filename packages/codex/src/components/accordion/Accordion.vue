@@ -274,14 +274,13 @@ export default defineComponent( {
 		font-size: @font-size-medium;
 
 		&__title {
-			display: flex;
-			gap: @spacing-50;
+			display: block;
 			line-height: @line-height-small;
 		}
 
 		&__description {
 			color: @color-subtle;
-			display: flex;
+			display: block;
 			font-weight: @font-weight-normal;
 			line-height: @line-height-small;
 			pointer-events: none;

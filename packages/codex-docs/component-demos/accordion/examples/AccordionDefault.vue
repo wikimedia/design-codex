@@ -3,6 +3,9 @@
 		<template #title>
 			Accordion title
 		</template>
+		<template #description>
+			Accordion description. You can use <em>markup</em> here.
+		</template>
 		<p>
 			The accordion content can be as longer as needed, and the type of content can vary
 			according to the need of each use case.
