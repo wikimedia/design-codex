@@ -19,7 +19,7 @@
 		{
 			"files": [ "src/**/*.ts", "src/**/*.js" ],
 			"extends": [
-				"wikimedia/language/es2016"
+				"wikimedia/language/es2017"
 			]
 		},
 		{

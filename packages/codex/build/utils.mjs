@@ -21,7 +21,7 @@ export const codexIconNames = Object.keys( allIcons )
 export function getLibEntries() {
 	const libPath = resolve( __dirname, '..', 'src', 'lib.ts' );
 	const lib = readFileSync( libPath, 'utf-8' );
-	const source = ts.createSourceFile( libPath, lib, ts.ScriptTarget.ES2015 );
+	const source = ts.createSourceFile( libPath, lib, ts.ScriptTarget.ES2017 );
 
 	/** @type {Object.<string, string>} */
 	const entryMap = {};

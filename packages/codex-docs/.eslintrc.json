@@ -51,7 +51,7 @@
 				"component-demos/**/examples-mw/*.vue"
 			],
 			"extends": [
-				"wikimedia/language/es2016"
+				"wikimedia/language/es2017"
 			],
 			"rules": {
 				"vue/block-lang": [ "error", {

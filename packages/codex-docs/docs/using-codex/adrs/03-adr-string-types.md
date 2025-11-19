@@ -31,12 +31,6 @@ enum ButtonWeight {
 // Validator:
 function isButtonWeight( s: unknown ): s is ButtonWeight {
 	return typeof s === 'string' && Object.values( ButtonWeight ).includes( s );
-
-	// At the time of writing, we couldn't use Object.values() or .includes() yet
-	// because we were targeting ES6. The ES6 version of the above would be:
-	return typeof s === 'string' && Object.keys( buttonWeight ).some(
-		( key ) => buttonWeight[ key as keyof typeof ButtonWeight ] === val
-	);
 }
 ```
 However, string values can't be assigned to an enum type directly, you have to get the value

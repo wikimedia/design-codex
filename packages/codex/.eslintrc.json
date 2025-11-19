@@ -16,7 +16,7 @@
 			"extends": [
 				"wikimedia/client/common",
 				"wikimedia/vue3/common",
-				"wikimedia/language/es2016"
+				"wikimedia/language/es2017"
 			],
 			"rules": {
 				"vue/no-unsupported-features": [ "error", {

@@ -5,7 +5,7 @@ import typescript from '@rollup/plugin-typescript';
 
 export default defineConfig( {
 	build: {
-		target: 'es2016',
+		target: 'es2017',
 		minify: true,
 		emptyOutDir: true,
 
