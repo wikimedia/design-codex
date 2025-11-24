@@ -176,7 +176,10 @@ Dialog into multiple steps or creating a separate page instead.
 
 ### Stacked actions
 
-Footer actions may stack depending on the length of the text.
+The action buttons in the footer are stacked vertically on narrow screens,
+but appear side by side on wide screens. In some situations, like when the button text
+is long, you can force the action buttons to always be stacked vertically regardless
+of screen size.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -198,8 +201,8 @@ Footer actions may stack depending on the length of the text.
 <cdx-accordion>
 <template #title>Developer notes</template>
 
-When using the default Dialog footer, use the `stackedActions` prop to stack the action buttons
-vertically.
+When using the default Dialog footer, use the `stackedActions` prop to force the
+action buttons to be stacked vertically, even on wide screens.
 
 </cdx-accordion>
 

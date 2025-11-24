@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { CdxPopover, CdxToggleButton, CdxAccordion } from '@wikimedia/codex';
 import PopoverConfigurable from '@/../component-demos/popover/examples/PopoverConfigurable.vue';
 import PopoverBasic from '@/../component-demos/popover/examples/PopoverBasic.vue';
+import PopoverStackedActions from '@/../component-demos/popover/examples/PopoverStackedActions.vue';
 import PopoverArticlePreview from '@/../component-demos/popover/examples/PopoverArticlePreview.vue';
 
 const controlsConfig = [
@@ -182,6 +183,38 @@ const anchorRef = useTemplateRef<ComponentPublicInstance>( 'my-anchor-id' );
 More information on typing component template refs can be found in the
 [Vue.js docs.](https://vuejs.org/guide/typescript/composition-api#typing-component-template-refs)
 :::
+
+</cdx-accordion>
+
+### Stacked actions
+
+The action buttons in the footer are stacked vertically on narrow screens,
+but appear side by side on wide screens. In some situations, like when the button text
+is long, you can force the action buttons to always be stacked vertically regardless
+of screen size.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<popover-stacked-actions />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/popover/examples/PopoverStackedActions.vue [NPM]
+
+<<< @/../component-demos/popover/examples-mw/PopoverStackedActions.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+Use the `stackedActions` prop to force the action buttons to be stacked vertically,
+even on wide screens.
 
 </cdx-accordion>
 
