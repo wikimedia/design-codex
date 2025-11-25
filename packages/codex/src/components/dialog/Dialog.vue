@@ -27,9 +27,11 @@
 					@click.stop
 				>
 					<header
-						v-if="showHeader || $slots.header"
 						class="cdx-dialog__header"
-						:class="{ 'cdx-dialog__header--default': !$slots.header }"
+						:class="{
+							'cdx-dialog__header--default': !$slots.header,
+							'cdx-dialog__header--no-close-button': !useCloseButtonOrLabel
+						}"
 					>
 						<!-- @slot Customizable Dialog header -->
 						<slot name="header">
@@ -44,7 +46,6 @@
 							</div>
 
 							<cdx-button
-								v-if="useCloseButtonOrLabel"
 								class="cdx-dialog__header__close-button"
 								weight="quiet"
 								type="button"
@@ -66,7 +67,6 @@
 						ref="dialogBody"
 						class="cdx-dialog__body cdx-scrollable-container"
 						:class="{
-							'cdx-dialog__body--no-header': !( showHeader || $slots.header ),
 							'cdx-dialog__body--no-footer': !(
 								showFooterActions ||
 								$slots.footer ||
@@ -193,6 +193,9 @@ export default defineComponent( {
 
 		/**
 		 * Add an icon-only close button to the dialog header.
+		 *
+		 * On narrow screens, the close button is always displayed. On wide screens, it's only
+		 * displayed if this prop is set.
 		 */
 		useCloseButton: {
 			type: Boolean,
@@ -315,7 +318,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			'Close'
 		);
 
-		const showHeader = computed( () => !props.hideTitle || useCloseButtonOrLabel.value );
 		const showFooterActions = computed( () => !!props.primaryAction || !!props.defaultAction );
 
 		const bodyDimensions = useResizeObserver( dialogBody );
@@ -554,7 +556,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			focusLast,
 			dialogBody,
 			focusHolder,
-			showHeader,
 			showFooterActions,
 			useCloseButtonOrLabel,
 			translatedCloseButtonLabel,
@@ -653,6 +654,13 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			margin-right: -@spacing-50;
 		}
 
+		// Only hide the close button on wide screens; always display it on narrow screens
+		@media ( min-width: @min-width-breakpoint-tablet ) {
+			&--no-close-button &__close-button {
+				display: none;
+			}
+		}
+
 		.cdx-dialog--dividers & {
 			border-bottom: @border-subtle;
 		}
@@ -662,12 +670,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		padding: @spacing-50 @spacing-150;
 		overflow-y: auto;
 		.cdx-mixin-body-text();
-
-		// If the dialog does not display a `<header>` element, add some extra
-		// padding at the top of the body
-		&--no-header {
-			padding-top: @spacing-150;
-		}
 
 		// If the dialog does not display a `<footer>` element, add some extra
 		// padding at the bottom of the body

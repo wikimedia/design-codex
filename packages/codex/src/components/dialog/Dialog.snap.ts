@@ -19,7 +19,7 @@ exports[`Dialog matches the snapshot Case 0 Basic usage 1`] = `
       role="dialog"
     >
       <header
-        class="cdx-dialog__header cdx-dialog__header--default"
+        class="cdx-dialog__header cdx-dialog__header--default cdx-dialog__header--no-close-button"
       >
         <!-- @slot Customizable Dialog header -->
         
@@ -34,7 +34,37 @@ exports[`Dialog matches the snapshot Case 0 Basic usage 1`] = `
           </h2>
           <!--v-if-->
         </div>
-        <!--v-if-->
+        <button
+          aria-label="Close"
+          class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button"
+          type="button"
+        >
+          <!-- @slot Button content -->
+          
+          <span
+            class="cdx-icon cdx-icon--medium"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+                />
+                <path
+                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                />
+              </g>
+            </svg>
+          </span>
+          
+        </button>
         
       </header>
       <div
@@ -82,7 +112,7 @@ exports[`Dialog matches the snapshot Case 1 Open dialog 1`] = `
       role="dialog"
     >
       <header
-        class="cdx-dialog__header cdx-dialog__header--default"
+        class="cdx-dialog__header cdx-dialog__header--default cdx-dialog__header--no-close-button"
       >
         <!-- @slot Customizable Dialog header -->
         
@@ -97,7 +127,37 @@ exports[`Dialog matches the snapshot Case 1 Open dialog 1`] = `
           </h2>
           <!--v-if-->
         </div>
-        <!--v-if-->
+        <button
+          aria-label="Close"
+          class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button"
+          type="button"
+        >
+          <!-- @slot Button content -->
+          
+          <span
+            class="cdx-icon cdx-icon--medium"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+                />
+                <path
+                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                />
+              </g>
+            </svg>
+          </span>
+          
+        </button>
         
       </header>
       <div
@@ -414,7 +474,7 @@ exports[`Dialog matches the snapshot Case 5 With default action 1`] = `
       role="dialog"
     >
       <header
-        class="cdx-dialog__header cdx-dialog__header--default"
+        class="cdx-dialog__header cdx-dialog__header--default cdx-dialog__header--no-close-button"
       >
         <!-- @slot Customizable Dialog header -->
         
@@ -429,7 +489,37 @@ exports[`Dialog matches the snapshot Case 5 With default action 1`] = `
           </h2>
           <!--v-if-->
         </div>
-        <!--v-if-->
+        <button
+          aria-label="Close"
+          class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button"
+          type="button"
+        >
+          <!-- @slot Button content -->
+          
+          <span
+            class="cdx-icon cdx-icon--medium"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+                />
+                <path
+                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                />
+              </g>
+            </svg>
+          </span>
+          
+        </button>
         
       </header>
       <div
@@ -497,7 +587,7 @@ exports[`Dialog matches the snapshot Case 6 With default disabled action 1`] = `
       role="dialog"
     >
       <header
-        class="cdx-dialog__header cdx-dialog__header--default"
+        class="cdx-dialog__header cdx-dialog__header--default cdx-dialog__header--no-close-button"
       >
         <!-- @slot Customizable Dialog header -->
         
@@ -512,7 +602,37 @@ exports[`Dialog matches the snapshot Case 6 With default disabled action 1`] = `
           </h2>
           <!--v-if-->
         </div>
-        <!--v-if-->
+        <button
+          aria-label="Close"
+          class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button"
+          type="button"
+        >
+          <!-- @slot Button content -->
+          
+          <span
+            class="cdx-icon cdx-icon--medium"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+                />
+                <path
+                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                />
+              </g>
+            </svg>
+          </span>
+          
+        </button>
         
       </header>
       <div
@@ -581,7 +701,7 @@ exports[`Dialog matches the snapshot Case 7 With default and primary actions 1`]
       role="dialog"
     >
       <header
-        class="cdx-dialog__header cdx-dialog__header--default"
+        class="cdx-dialog__header cdx-dialog__header--default cdx-dialog__header--no-close-button"
       >
         <!-- @slot Customizable Dialog header -->
         
@@ -596,7 +716,37 @@ exports[`Dialog matches the snapshot Case 7 With default and primary actions 1`]
           </h2>
           <!--v-if-->
         </div>
-        <!--v-if-->
+        <button
+          aria-label="Close"
+          class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button"
+          type="button"
+        >
+          <!-- @slot Button content -->
+          
+          <span
+            class="cdx-icon cdx-icon--medium"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+                />
+                <path
+                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                />
+              </g>
+            </svg>
+          </span>
+          
+        </button>
         
       </header>
       <div
@@ -671,7 +821,7 @@ exports[`Dialog matches the snapshot Case 8 With stacked default and primary act
       role="dialog"
     >
       <header
-        class="cdx-dialog__header cdx-dialog__header--default"
+        class="cdx-dialog__header cdx-dialog__header--default cdx-dialog__header--no-close-button"
       >
         <!-- @slot Customizable Dialog header -->
         
@@ -686,7 +836,37 @@ exports[`Dialog matches the snapshot Case 8 With stacked default and primary act
           </h2>
           <!--v-if-->
         </div>
-        <!--v-if-->
+        <button
+          aria-label="Close"
+          class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button"
+          type="button"
+        >
+          <!-- @slot Button content -->
+          
+          <span
+            class="cdx-icon cdx-icon--medium"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+                />
+                <path
+                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                />
+              </g>
+            </svg>
+          </span>
+          
+        </button>
         
       </header>
       <div
@@ -761,7 +941,7 @@ exports[`Dialog matches the snapshot Case 9 With subtitle 1`] = `
       role="dialog"
     >
       <header
-        class="cdx-dialog__header cdx-dialog__header--default"
+        class="cdx-dialog__header cdx-dialog__header--default cdx-dialog__header--no-close-button"
       >
         <!-- @slot Customizable Dialog header -->
         
@@ -780,7 +960,37 @@ exports[`Dialog matches the snapshot Case 9 With subtitle 1`] = `
             Subtitle
           </p>
         </div>
-        <!--v-if-->
+        <button
+          aria-label="Close"
+          class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button"
+          type="button"
+        >
+          <!-- @slot Button content -->
+          
+          <span
+            class="cdx-icon cdx-icon--medium"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+                />
+                <path
+                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                />
+              </g>
+            </svg>
+          </span>
+          
+        </button>
         
       </header>
       <div
@@ -855,7 +1065,7 @@ exports[`Dialog matches the snapshot Case 10 With footer text 1`] = `
       role="dialog"
     >
       <header
-        class="cdx-dialog__header cdx-dialog__header--default"
+        class="cdx-dialog__header cdx-dialog__header--default cdx-dialog__header--no-close-button"
       >
         <!-- @slot Customizable Dialog header -->
         
@@ -874,7 +1084,37 @@ exports[`Dialog matches the snapshot Case 10 With footer text 1`] = `
             Subtitle
           </p>
         </div>
-        <!--v-if-->
+        <button
+          aria-label="Close"
+          class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-dialog__header__close-button"
+          type="button"
+        >
+          <!-- @slot Button content -->
+          
+          <span
+            class="cdx-icon cdx-icon--medium"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!--v-if-->
+              <!-- eslint-disable vue/no-v-html -->
+              <g>
+                <path
+                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+                />
+                <path
+                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                />
+              </g>
+            </svg>
+          </span>
+          
+        </button>
         
       </header>
       <div
@@ -962,7 +1202,7 @@ exports[`Dialog matches the snapshot Case 11 With custom header and footer 1`] =
       role="dialog"
     >
       <header
-        class="cdx-dialog__header"
+        class="cdx-dialog__header cdx-dialog__header--no-close-button"
       >
         <!-- @slot Customizable Dialog header -->
         
