@@ -32,7 +32,7 @@ Use the ToggleButtonGroup component when you require users to select either one 
 group. If you want users to choose from a set of actions, with the restriction that only one can be
 active at a time, use the [ButtonGroup](./button-group.md) instead.
 
-Use the ToggleButtonGroup to filter information on the screen or switch between views. To navigate between different sections of content on the page, use [Tabs](./tabs.md) instead.
+Use the ToggleButtonGroup to filter information on the screen or switch between views of the same content, such as "View as list" and "View as table". To navigate between different sets of content on the page, use [Tabs](./tabs.md) instead.
 
 ### About ToggleButtonGroup
 

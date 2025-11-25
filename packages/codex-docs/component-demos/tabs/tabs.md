@@ -45,8 +45,8 @@ Tabs consist of two or more tab items created for navigating between different s
 
 ### When to use Tabs
 
-Use Tabs to navigate between different sections of content on the page. For
-filtering information on the screen or switching between views, use a
+Use Tabs to navigate between different sets of content on the page. For
+filtering information on the screen or switching between views of the same content, use a
 [ToggleButtonGroup](./toggle-button-group.md) instead. Tabs can be visually
 styled as framed or quiet (by default). Framed Tabs should only be used when
 appearing within a box or module.
