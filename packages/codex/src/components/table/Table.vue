@@ -162,7 +162,7 @@
 					<tbody v-else-if="$slots[ 'empty-state' ] && $slots[ 'empty-state' ]().length > 0">
 						<tr class="cdx-table__table__empty-state">
 							<td
-								:colspan="columns.length"
+								:colspan="columns.length + ( useRowSelection ? 1 : 0 )"
 								class="cdx-table__table__empty-state-content"
 							>
 								<!-- @slot Empty state content. -->
