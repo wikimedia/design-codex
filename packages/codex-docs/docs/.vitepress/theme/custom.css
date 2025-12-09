@@ -853,4 +853,9 @@ html.dark .vp-doc[ class*='_components' ] img {
 	}
 }
 
+/* Customize target text highlight color. */
+::target-text {
+	background-color: var( --background-color-target-text );
+}
+
 /* stylelint-enable selector-class-pattern */

@@ -89,6 +89,9 @@
 		},
 		"backdrop-dark": {
 			"value": "{ color.opacity-medium-light }"
+		},
+		"target-text": {
+			"value": "{ color.orange900 }"
 		}
 	},
 	"color": {

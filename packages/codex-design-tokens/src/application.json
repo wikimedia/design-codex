@@ -124,6 +124,9 @@
 		"content-removed": {
 			"value": "{ color.yellow999 }"
 		},
+		"target-text": {
+			"value": "{ color.orange50 }"
+		},
 		"transparent": {
 			"value": "{ color.transparent }"
 		},
