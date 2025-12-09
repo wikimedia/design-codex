@@ -8,6 +8,17 @@ import MenuButtonSelection from '@/../component-demos/menu-button/examples/MenuB
 
 const controlsConfig = [
 	{
+		name: 'action',
+		type: 'radio',
+		options: [ 'default', 'progressive', 'destructive' ],
+	},
+	{
+		name: 'weight',
+		type: 'radio',
+		options: [ 'normal', 'primary', 'quiet' ],
+		default: 'quiet'
+	},
+	{
 		name: 'disabled',
 		type: 'boolean'
 	},
@@ -19,7 +30,7 @@ const controlsConfig = [
 ];
 </script>
 
-The MenuButton component is a [ToggleButton](./toggle-button.md) that, when toggled on, displays a [Menu](./menu.md) with actions.
+The MenuButton component is a [Button](./button.md) that, when pressed toggles the display of a [Menu](./menu.md) with actions.
 
 <cdx-demo-wrapper :controls-config="controlsConfig" :force-reset="true">
 <template v-slot:demo="{ propValues, slotValues }">
@@ -47,7 +58,7 @@ The items within the Menu are meant to be actions. For a menu of selectable opti
 
 MenuButton includes the following elements.
 
-#### ToggleButton
+#### Button
 
 A single button to display the Menu. It can include an icon, a text label, or both.
 
@@ -68,7 +79,7 @@ MenuItems can represent two types of actions:
 
 ### Basic usage
 
-The ToggleButton that displays the Menu can be customized with text, an Icon, or both.
+The Button that displays the Menu can be customized with text, an Icon, or both.
 
 <cdx-demo-wrapper :force-reset="true">
 <template v-slot:demo>
@@ -101,7 +112,7 @@ To add an icon, insert the Icon component in the slot content. Refer to the [Ico
 component and the [overview of icons](../../icons/overview.md) to learn more about using icons.
 
 <cdx-demo-best-practices>
-<cdx-demo-best-practice>When using an icon-only ToggleButton, add an `aria-label` to provide a label to users of assistive technology.</cdx-demo-best-practice>
+<cdx-demo-best-practice>When using an icon-only Button, add an `aria-label` to provide a label to users of assistive technology.</cdx-demo-best-practice>
 </cdx-demo-best-practices>
 
 <cdx-demo-wrapper :force-reset="true">
@@ -183,12 +194,13 @@ handles the selection change with the `onSelect` method, displays a temporary me
 
 ### Other features
 
-The MenuButton component has an internal ToggleButton and Menu. You can use the
+The MenuButton component has an internal Button and Menu. You can use the
 following features from those components in the MenuButton component:
 - [Custom menu item display](./menu.html#menu-item-display)
 - [Limited height with scrolling](./menu.html#with-scrolling-enabled)
 - [Menu groups](./menu.html#menu-groups)
 - [MenuItem features](./menu-item.html)
+- [Button types](./button#button-types)
 
 ## Technical implementation
 
@@ -198,7 +210,7 @@ following features from those components in the MenuButton component:
 
 | Key | Function |
 | -- | -- |
-| <kbd>Enter</kbd> | If the focus is placed on the button, it opens and closes the menu. If the focus is placed in any of the options within the displayed menu, it activates that option. |
+| <kbd>Enter</kbd> | If the focus is placed on the button, it opens and closes the menu. If the focus is placed on any of the options within the displayed menu, it activates that option. |
 | <kbd>Space</kbd> | If the focus is placed on the button, it opens and closes the menu. |
 | <kbd>Down arrow</kbd> / <kbd>Up arrow</kbd> | If the menu is displayed, it navigates through menu options. |
 | <kbd>Esc</kbd> | It closes the menu when it is open. |

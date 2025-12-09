@@ -1,8 +1,8 @@
 import { mount, enableAutoUnmount } from '@vue/test-utils';
 import CdxMenuButton from './MenuButton.vue';
-import CdxToggleButton from '../../components/toggle-button/ToggleButton.vue';
+import CdxButton from '../../components/button/Button.vue';
 import CdxMenuItem from '../../components/menu-item/MenuItem.vue';
-import { MenuItemData } from '../../types';
+import { MenuItemData, ButtonAction, ButtonWeight } from '../../types';
 
 const data: MenuItemData[] = [
 	{ value: 'a', label: 'Option A' },
@@ -13,12 +13,12 @@ const data: MenuItemData[] = [
 
 const propsWithData: {
 	selected: string,
-	toggleButtonLabel: string,
+	buttonLabel: string,
 	menuItems: MenuItemData[]
 } = {
 	selected: '',
 	menuItems: data,
-	toggleButtonLabel: 'Open and close the menu'
+	buttonLabel: 'Open and close the menu'
 };
 
 describe( 'MenuButton', () => {
@@ -37,6 +37,8 @@ describe( 'MenuButton', () => {
 			props: {
 				menuItems: MenuItemData[],
 				selected: string|number,
+				action?: ButtonAction,
+				weight?: ButtonWeight,
 				disabled?: boolean,
 				footer?: MenuItemData
 			}
@@ -47,27 +49,30 @@ describe( 'MenuButton', () => {
 			[ 'Menu item with label selected', { menuItems: data, selected: 'a' } ],
 			[ 'Menu item with no label selected', { menuItems: data, selected: 'c' } ],
 			[ 'Disabled', { menuItems: data, selected: '', disabled: true } ],
-			[ 'With footer', { menuItems: data, selected: '', footer: { value: 'footer', label: 'Footer item' } } ]
+			[ 'With footer', { menuItems: data, selected: '', footer: { value: 'footer', label: 'Footer item' } } ],
+			[ 'With primary progressive action button', { menuItems: data, selected: '', action: 'progressive', weight: 'primary' } ],
+			[ 'With normal destructive action button', { menuItems: data, selected: '', action: 'destructive', weight: 'normal' } ]
+
 		];
 
 		test.each( cases )(
 			'Case %# %s: (%p) => HTML',
-			( _, { menuItems, selected, disabled = false, footer = undefined } ) => {
+			( _, { menuItems, selected, disabled = false, footer = undefined, action = 'default', weight = 'quiet' } ) => {
 				const wrapper = mount( CdxMenuButton, {
-					props: { menuItems, selected, disabled, footer },
+					props: { menuItems, selected, disabled, footer, action, weight },
 					attachTo: '#root'
 				} );
 				expect( wrapper.element ).toMatchSnapshot();
 			} );
 	} );
 
-	describe( 'when the toggle button is clicked', () => {
+	describe( 'when the button is clicked', () => {
 		it( 'toggles the menu visibility', async () => {
 			const wrapper = mount( CdxMenuButton, {
 				props: propsWithData,
 				attachTo: '#root'
 			} );
-			const expandButton = wrapper.findComponent( CdxToggleButton );
+			const expandButton = wrapper.findComponent( CdxButton );
 			await expandButton.trigger( 'click' );
 			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
 		} );
@@ -81,7 +86,7 @@ describe( 'MenuButton', () => {
 					},
 					attachTo: '#root'
 				} );
-				const expandButton = wrapper.findComponent( CdxToggleButton );
+				const expandButton = wrapper.findComponent( CdxButton );
 				await expandButton.trigger( 'click' );
 				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 			} );
@@ -94,7 +99,7 @@ describe( 'MenuButton', () => {
 				props: propsWithData,
 				attachTo: '#root'
 			} );
-			const expandButton = wrapper.findComponent( CdxToggleButton );
+			const expandButton = wrapper.findComponent( CdxButton );
 			await expandButton.trigger( 'click' );
 			await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
 			expect( wrapper.emitted()[ 'update:selected' ] ).toBeTruthy();
@@ -106,20 +111,82 @@ describe( 'MenuButton', () => {
 				props: propsWithData,
 				attachTo: '#root'
 			} );
-			const expandButton = wrapper.findComponent( CdxToggleButton );
+			const expandButton = wrapper.findComponent( CdxButton );
 			await expandButton.trigger( 'click' );
 			await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
 			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
 		} );
 	} );
 
-	describe( 'when the toggle button loses focus', () => {
+	describe( 'when Enter is pressed', () => {
+		describe( 'and focus is on the MenuButton', () => {
+			it( 'toggles the menu visibility', async () => {
+				const wrapper = mount( CdxMenuButton, {
+					props: propsWithData,
+					attachTo: '#root'
+				} );
+				const expandButton = wrapper.findComponent( CdxButton );
+				await expandButton.trigger( 'keydown', { key: 'Enter' } );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( true );
+			} );
+
+			describe( 'and the component is disabled', () => {
+				it( 'does nothing', async () => {
+					const wrapper = mount( CdxMenuButton, {
+						props: {
+							...propsWithData,
+							disabled: true
+						},
+						attachTo: '#root'
+					} );
+					const expandButton = wrapper.findComponent( CdxButton );
+					await expandButton.trigger( 'keydown', { key: 'Enter' } );
+					expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+				} );
+			} );
+		} );
+
+		describe( 'and a highlighted menu item is selected with Enter', () => {
+			it( 'emits an "update:selected" event with the correct "value"', async () => {
+				const wrapper = mount( CdxMenuButton, {
+					props: propsWithData,
+					attachTo: '#root'
+				} );
+				const expandButton = wrapper.findComponent( CdxButton );
+				// Open the menu with Enter
+				await expandButton.trigger( 'keydown', { key: 'Enter' } );
+				// Navigate down to highlight the first menu item
+				await expandButton.trigger( 'keydown', { key: 'ArrowDown' } );
+				// Select the highlighted item with Enter
+				await expandButton.trigger( 'keydown', { key: 'Enter' } );
+				expect( wrapper.emitted()[ 'update:selected' ] ).toBeTruthy();
+				expect( wrapper.emitted()[ 'update:selected' ][ 0 ] ).toEqual( [ data[ 0 ].value ] );
+			} );
+
+			it( 'closes the menu', async () => {
+				const wrapper = mount( CdxMenuButton, {
+					props: propsWithData,
+					attachTo: '#root'
+				} );
+				const expandButton = wrapper.findComponent( CdxButton );
+				// Open the menu with Enter
+				await expandButton.trigger( 'keydown', { key: 'Enter' } );
+				// Navigate down to highlight the first menu item
+				await expandButton.trigger( 'keydown', { key: 'ArrowDown' } );
+				// Select the highlighted item with Enter
+				await expandButton.trigger( 'keydown', { key: 'Enter' } );
+				expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
+			} );
+		} );
+	} );
+
+	describe( 'when the button loses focus', () => {
 		it( 'closes the menu', async () => {
 			const wrapper = mount( CdxMenuButton, {
 				props: propsWithData,
 				attachTo: '#root'
 			} );
-			const expandButton = wrapper.findComponent( CdxToggleButton );
+			const expandButton = wrapper.findComponent( CdxButton );
 			await expandButton.trigger( 'focus' );
 			await expandButton.trigger( 'blur' );
 			expect( wrapper.find( '.cdx-menu' ).isVisible() ).toBe( false );
@@ -144,8 +211,8 @@ describe( 'MenuButton', () => {
 			} );
 
 			// Open the menu.
-			const toggleButton = wrapper.findComponent( CdxToggleButton );
-			await toggleButton.trigger( 'click' );
+			const button = wrapper.findComponent( CdxButton );
+			await button.trigger( 'click' );
 
 			// Check custom slot content.
 			const menuitemsList = wrapper.findAll( 'li.cdx-menu-item span' );

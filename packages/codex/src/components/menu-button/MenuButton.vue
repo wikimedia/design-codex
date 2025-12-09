@@ -4,22 +4,23 @@
 		:class="rootClasses"
 		:style="rootStyle"
 	>
-		<cdx-toggle-button
-			:id="toggleId"
-			ref="toggle"
+		<cdx-button
+			:id="buttonId"
+			ref="button"
 			v-bind="otherAttrs"
-			v-model="expanded"
 			:disabled="computedDisabled"
-			quiet
+			:weight="weight"
+			:action="action"
 			aria-haspopup="menu"
 			:aria-controls="menuId"
 			:aria-expanded="expanded"
-			@blur="expanded = false"
+			@click="onClick"
+			@blur="onBlur"
 			@keydown="onKeydown"
 		>
 			<!-- @slot MenuButton content -->
 			<slot />
-		</cdx-toggle-button>
+		</cdx-button>
 		<div class="cdx-menu-button__menu-wrapper">
 			<cdx-menu
 				:id="menuId"
@@ -29,7 +30,7 @@
 				:menu-items="menuItems"
 				v-bind="menuConfig"
 				role="menu"
-				:aria-labelledby="toggleId"
+				:aria-labelledby="buttonId"
 				:footer="footer"
 			>
 				<template #default="{ menuItem }">
@@ -55,7 +56,7 @@ import {
 	useId
 } from 'vue';
 
-import CdxToggleButton from '../toggle-button/ToggleButton.vue';
+import CdxButton from '../button/Button.vue';
 import CdxMenu from '../menu/Menu.vue';
 import useFieldData from '../../composables/useFieldData';
 import useFloatingMenu from '../../composables/useFloatingMenu';
@@ -66,13 +67,15 @@ import {
 	MenuGroupData,
 	MenuConfig,
 	MenuItemData,
-	MenuItemValue
+	MenuItemValue,
+	ButtonAction,
+	ButtonWeight
 } from '../../types';
 
 export default defineComponent( {
 	name: 'CdxMenuButton',
 	components: {
-		CdxToggleButton,
+		CdxButton,
 		CdxMenu
 	},
 	inheritAttrs: false,
@@ -114,6 +117,26 @@ export default defineComponent( {
 		},
 
 		/**
+		 * The kind of action that will be taken on click.
+		 *
+		 * @values 'default', 'progressive', 'destructive'
+		 */
+		action: {
+			type: String as PropType<ButtonAction>,
+			default: 'default',
+		},
+
+		/**
+		 * Visual prominence of Button.
+		 *
+		 * @values 'normal', 'primary', 'quiet'
+		 */
+		weight: {
+			type: String as PropType<ButtonWeight>,
+			default: 'quiet',
+		},
+
+		/**
 		 * Whether the dropdown is disabled.
 		 */
 		disabled: {
@@ -148,31 +171,70 @@ export default defineComponent( {
 
 	setup( props, { emit, attrs } ) {
 		const menu = ref<InstanceType<typeof CdxMenu>>();
-		const toggle = ref<InstanceType<typeof CdxToggleButton>>();
+		const button = ref<InstanceType<typeof CdxButton>>();
 		const selectedProp = toRef( props, 'selected' );
 		const modelWrapper = useModelWrapper( selectedProp, emit, 'update:selected' );
 		const expanded = ref( false );
-		const toggleId = useId();
+		const buttonId = useId();
 		const menuId = useId();
 		const { computedDisabled } = useFieldData( toRef( props, 'disabled' ) );
 
 		// Get helpers from useSplitAttributes() composable.
 		const { rootClasses, rootStyle, otherAttrs } = useSplitAttributes( attrs );
 
+		// Track whether a keyboard action was just handled to prevent click event
+		let keyboardActionHandled = false;
+
 		function onKeydown( e: KeyboardEvent ) {
 			if (
 				!menu.value ||
 				computedDisabled.value ||
 				props.menuItems.length === 0 ||
-				e.key === ' ' ||
-				e.key === 'Enter'
+				e.key === ' '
 			) {
 				return;
 			}
+
+			// Handle Enter key
+			if ( e.key === 'Enter' ) {
+				// Check if a menu item is highlighted
+				const highlightedItem = menu.value.getHighlightedMenuItem();
+				const highlightedViaKeyboard = menu.value.getHighlightedViaKeyboard();
+
+				if ( expanded.value && highlightedItem && highlightedViaKeyboard ) {
+					// When a menu item is highlighted, delegate to menu to select it
+					menu.value.delegateKeyNavigation( e );
+				} else {
+					// When no menu item is highlighted, toggle the menu
+					e.preventDefault();
+					expanded.value = !expanded.value;
+				}
+
+				// Prevent the click event from firing
+				keyboardActionHandled = true;
+				return;
+			}
+
+			// Delegate other keys to menu for navigation
 			menu.value.delegateKeyNavigation( e );
 		}
 
-		useFloatingMenu( toggle as Ref<ComponentPublicInstance>, menu, {
+		function onClick() {
+			// Ignore click events when keyboard events were already handled.
+			// This prevents the menu from toggling again (immediately closing
+			// the menu) on keyup.
+			if ( keyboardActionHandled ) {
+				keyboardActionHandled = false;
+				return;
+			}
+			expanded.value = !expanded.value;
+		}
+
+		function onBlur() {
+			expanded.value = false;
+		}
+
+		useFloatingMenu( button as Ref<ComponentPublicInstance>, menu, {
 			useAvailableWidth: true,
 			placement: 'bottom-start',
 			offset: 4
@@ -185,8 +247,10 @@ export default defineComponent( {
 			menuId,
 			modelWrapper,
 			onKeydown,
-			toggle,
-			toggleId,
+			onClick,
+			onBlur,
+			button,
+			buttonId,
 			rootClasses,
 			rootStyle,
 			otherAttrs

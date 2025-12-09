@@ -192,11 +192,13 @@ exports[`Breadcrumb matches the snapshot Case 3 With overflow: ({"items": [Array
       class="cdx-breadcrumb__list__overflow"
     >
       <cdx-menu-button-stub
+        action="default"
         aria-label="More navigation options"
         class="cdx-breadcrumb__overflow-button"
         disabled="false"
         menuconfig="[object Object]"
         menuitems="[object Object]"
+        weight="quiet"
       />
       <span
         aria-hidden="true"
@@ -330,11 +332,13 @@ exports[`Breadcrumb matches the snapshot Case 4 With truncation and overflow: ({
       class="cdx-breadcrumb__list__overflow"
     >
       <cdx-menu-button-stub
+        action="default"
         aria-label="More navigation options"
         class="cdx-breadcrumb__overflow-button"
         disabled="false"
         menuconfig="[object Object]"
         menuitems="[object Object],[object Object]"
+        weight="quiet"
       />
       <span
         aria-hidden="true"
