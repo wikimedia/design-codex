@@ -15,8 +15,13 @@
 </template>
 
 <script lang="ts">
-import { ref, computed, defineComponent } from 'vue';
+import { PropType, ref, computed, defineComponent } from 'vue';
+import { ButtonSizes } from '../../constants';
+import { ButtonSize } from '../../types';
 import useIconOnlyButton from '../../composables/useIconOnlyButton';
+import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
+
+const buttonSizeValidator = makeStringTypeValidator( ButtonSizes );
 
 /**
  * A button that can be toggled on and off.
@@ -47,6 +52,21 @@ export default defineComponent( {
 		quiet: {
 			type: Boolean,
 			default: false
+		},
+		/**
+		 * Button size.
+		 *
+		 * Medium: Default for most cases.
+		 * Large: Use rarely, mainly for icon-only buttons on touchscreens.
+		 * Small: Use in tight spaces or inline with text.
+		 * Avoid on touchscreens - prefer medium for better accessibility.
+		 *
+		 * @values 'small', 'medium', 'large'
+		 */
+		size: {
+			type: String as PropType<ButtonSize>,
+			default: 'medium',
+			validator: buttonSizeValidator
 		}
 	},
 	emits: [
@@ -67,6 +87,7 @@ export default defineComponent( {
 		const isActive = ref( false );
 
 		const rootClasses = computed( () => ( {
+			[ `cdx-toggle-button--size-${ props.size }` ]: true,
 			// Quiet means frameless among other things
 			'cdx-toggle-button--quiet': props.quiet,
 			'cdx-toggle-button--framed': !props.quiet,

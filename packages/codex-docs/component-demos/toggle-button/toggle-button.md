@@ -4,6 +4,7 @@ import CdxDocsConfigurableGeneric from '@/../src/components/configurable-generic
 import SingleButton from '@/../component-demos/toggle-button/examples/SingleButton.vue';
 import ButtonWithIcon from '@/../component-demos/toggle-button/examples/ButtonWithIcon.vue';
 import IconOnlyButton from '@/../component-demos/toggle-button/examples/IconOnlyButton.vue';
+import ButtonSizes from '@/../component-demos/toggle-button/examples/ButtonSizes.vue';
 
 const controlsConfig = [
 	{
@@ -13,6 +14,12 @@ const controlsConfig = [
 	{
 		name: 'quiet',
 		type: 'boolean'
+	},
+	{
+		name: 'size',
+		type: 'radio',
+		options: [ 'small', 'medium', 'large' ],
+		default: 'medium'
 	},
 	{
 		name: 'default',
@@ -129,6 +136,53 @@ Press the ToggleButton to check the value change.
 Open up the console to check emitted events.
 
 </cdx-accordion>
+
+### Button sizes
+
+Buttons can be small, medium (default) or large `size`.
+
+1. **Small**<br>Use the small size only when space is tight: for example, inline with text or in compact layouts.
+
+<cdx-demo-best-practices class="cdx-demo-small-button-best-practices">
+<cdx-demo-best-practice>Use lowercase letters to make the button fit better with surrounding text.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Avoid using small buttons on touchable screens.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+2. **Medium**<br>Use medium as the standard button size.
+3. **Large**<br>Use the large size to support accessibility on touchscreens by increasing the touch area.
+
+
+By default, the width of a Button with text is determined by the width of the text until reaching a max-width. However, on mobile, Buttons should span the full-width of the container, except for icon-only Buttons, which will maintain their fixed square proportions.
+
+<cdx-demo-wrapper :allow-table-styles="true">
+<template v-slot:demo>
+	<button-sizes />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/toggle-button/examples/ButtonSizes.vue [NPM]
+
+<<< @/../component-demos/toggle-button/examples-mw/ButtonSizes.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+<cdx-accordion separation="outline">
+
+<template #title>Developer notes</template>
+
+Set `min-width` manually on Buttons with extremely short labels. Buttons with text labels of only
+1-2 characters in length may fall below size of the target area described above. In these cases, set
+a minimum width of `@min-size-interactive-pointer` in your own CSS.
+
+</cdx-accordion>
+
+
 
 ### With icon
 

@@ -7,7 +7,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 0 Simple, single-select, no
   
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -25,7 +25,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 0 Simple, single-select, no
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -43,7 +43,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 0 Simple, single-select, no
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     disabled=""
     type="button"
   >
@@ -62,7 +62,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 0 Simple, single-select, no
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -89,7 +89,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 1 Simple, multi-select, not
   
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -107,7 +107,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 1 Simple, multi-select, not
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -125,7 +125,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 1 Simple, multi-select, not
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     disabled=""
     type="button"
   >
@@ -144,7 +144,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 1 Simple, multi-select, not
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -171,7 +171,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 2 Simple, #2 selected: ({"b
   
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -189,7 +189,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 2 Simple, #2 selected: ({"b
   </button>
   <button
     aria-pressed="true"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-on"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -207,7 +207,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 2 Simple, #2 selected: ({"b
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     disabled=""
     type="button"
   >
@@ -226,7 +226,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 2 Simple, #2 selected: ({"b
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -253,7 +253,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 3 Simple, #1 and #2 selecte
   
   <button
     aria-pressed="true"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-on"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -271,7 +271,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 3 Simple, #1 and #2 selecte
   </button>
   <button
     aria-pressed="true"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-on"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -289,7 +289,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 3 Simple, #1 and #2 selecte
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     disabled=""
     type="button"
   >
@@ -308,7 +308,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 3 Simple, #1 and #2 selecte
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -335,7 +335,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 4 Simple, #2 and #4 selecte
   
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     disabled=""
     type="button"
   >
@@ -354,7 +354,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 4 Simple, #2 and #4 selecte
   </button>
   <button
     aria-pressed="true"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-on"
     disabled=""
     type="button"
   >
@@ -373,7 +373,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 4 Simple, #2 and #4 selecte
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     disabled=""
     type="button"
   >
@@ -392,7 +392,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 4 Simple, #2 and #4 selecte
   </button>
   <button
     aria-pressed="true"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-on"
     disabled=""
     type="button"
   >
@@ -420,7 +420,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
   
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -442,7 +442,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
   </button>
   <button
     aria-pressed="true"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-on"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -464,7 +464,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     disabled=""
     type="button"
   >
@@ -487,7 +487,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -519,7 +519,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
   <button
     aria-label="One"
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off cdx-toggle-button--icon-only"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off cdx-toggle-button--icon-only"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -542,7 +542,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
   <button
     aria-label="Two"
     aria-pressed="true"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on cdx-toggle-button--icon-only"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-on cdx-toggle-button--icon-only"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -565,7 +565,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
   <button
     aria-label="Three"
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off cdx-toggle-button--icon-only"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off cdx-toggle-button--icon-only"
     disabled=""
     type="button"
   >
@@ -589,7 +589,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
   <button
     aria-label="Four"
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off cdx-toggle-button--icon-only"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off cdx-toggle-button--icon-only"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -620,7 +620,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 7 With slot: ({"buttons": [
   
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -641,7 +641,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 7 With slot: ({"buttons": [
   </button>
   <button
     aria-pressed="true"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-on"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-on"
     type="button"
   >
     <!-- @slot ToggleButton content -->
@@ -664,7 +664,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 7 With slot: ({"buttons": [
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     disabled=""
     type="button"
   >
@@ -686,7 +686,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 7 With slot: ({"buttons": [
   </button>
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     type="button"
   >
     <!-- @slot ToggleButton content -->

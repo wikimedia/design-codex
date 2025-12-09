@@ -5,7 +5,7 @@ exports[`ConfigurableGeneric matches the snapshot Case 0 ToggleButton with slot 
   <!-- Have a slot -->
   <button
     aria-pressed="false"
-    class="cdx-toggle-button cdx-toggle-button--framed cdx-toggle-button--toggled-off"
+    class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
     disabled=""
     type="button"
   >

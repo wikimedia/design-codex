@@ -1,4 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
+import { ButtonSize } from '../../types';
+import { ButtonSizes } from '../../constants';
 import CdxToggleButton from './ToggleButton.vue';
 import CdxIcon from '../icon/Icon.vue';
 
@@ -7,9 +9,10 @@ describe( 'ToggleButton', () => {
 		type Case = [
 			msg: string,
 			props: {
-				disabled: boolean;
-				quiet: boolean;
-				modelValue: boolean;
+				disabled?: boolean;
+				quiet?: boolean;
+				size?: ButtonSize;
+				modelValue?: boolean;
 			},
 			slot: string,
 			attrs?: Record<string, unknown>
@@ -24,7 +27,8 @@ describe( 'ToggleButton', () => {
 			[ 'Quiet, disabled, inactive', { disabled: true, quiet: true, modelValue: false }, 'Button text' ],
 			[ 'Quiet, disabled, active', { disabled: true, quiet: true, modelValue: true }, 'Button text' ],
 			[ 'Icon-only (SVG)', { disabled: false, quiet: false, modelValue: false }, '<svg></svg>', { 'aria-label': 'Icon-only example' } ],
-			[ 'Icon-only (CdxIcon)', { disabled: false, quiet: false, modelValue: false }, '<cdx-icon icon=\'<path d="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"/>\' />', { 'aria-hidden': true } ]
+			[ 'Icon-only (CdxIcon)', { disabled: false, quiet: false, modelValue: false }, '<cdx-icon icon=\'<path d="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"/>\' />', { 'aria-hidden': true } ],
+			...ButtonSizes.map( ( size ) : Case => [ `${ size } size`, { size }, 'Button text' ] )
 		];
 		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slot, attrs = {} ) => {
 			const wrapper = shallowMount(
