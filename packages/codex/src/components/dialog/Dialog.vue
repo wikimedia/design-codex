@@ -341,6 +341,36 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		const scrollWidth = ref( 0 );
 
 		/**
+		 * Calculate the width of the browser's vertical scrollbar.
+		 *
+		 * Using window.innerWidth can be thrown off by horizontal overflow on the page,
+		 * so measure using a temporary element instead.
+		 *
+		 * @return {number} Scrollbar width in pixels
+		 */
+		function getScrollbarWidth(): number {
+			const root = document.documentElement;
+
+			// If there's no vertical overflow, no scrollbar is visible.
+			if ( root.scrollHeight <= root.clientHeight ) {
+				return 0;
+			}
+
+			const measurement = document.createElement( 'div' );
+			measurement.style.position = 'absolute';
+			measurement.style.top = '-9999px';
+			measurement.style.width = '100px';
+			measurement.style.height = '100px';
+			measurement.style.overflow = 'scroll';
+
+			document.body.appendChild( measurement );
+			const scrollbarWidth = measurement.offsetWidth - measurement.clientWidth;
+			document.body.removeChild( measurement );
+
+			return scrollbarWidth;
+		}
+
+		/**
 		 * Close the dialog by emitting an event to the parent
 		 */
 		function close() {
@@ -473,11 +503,11 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			await nextTick();
 
 			// Determine the width of the scrollbar and compensate for it if necessary
-			scrollWidth.value = window.innerWidth - document.documentElement.clientWidth;
+			scrollWidth.value = getScrollbarWidth();
 			document.documentElement.style.setProperty( 'margin-right', `${ scrollWidth.value }px` );
 
-			// Add a class to <body> to prevent scrolling
-			document.body.classList.add( 'cdx-dialog-open' );
+			// Add a class to `<html>` element to prevent scrolling.
+			document.documentElement.classList.add( 'cdx-dialog-open' );
 
 			setAriaHiddenAndInert();
 
@@ -496,7 +526,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		}
 
 		function onDialogClose() {
-			document.body.classList.remove( 'cdx-dialog-open' );
+			document.documentElement.classList.remove( 'cdx-dialog-open' );
 			document.documentElement.style.removeProperty( 'margin-right' );
 			unsetAriaHiddenAndInert();
 
@@ -780,7 +810,16 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 	opacity: @opacity-transparent;
 }
 
-body.cdx-dialog-open {
-	overflow: hidden;
+html.cdx-dialog-open {
+	&,
+	body {
+		overflow: hidden;
+		// Prevent scrolling and touch actions outside the dialog when the dialog is open.
+		// @see https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/overscroll-behavior
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		overscroll-behavior: none;
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		touch-action: none;
+	}
 }
 </style>
