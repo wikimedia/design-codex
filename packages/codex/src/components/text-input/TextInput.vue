@@ -17,6 +17,9 @@
 			:disabled="computedDisabled"
 			size="1"
 			@input="onInput"
+			@compositionstart="onCompositionStart"
+			@compositionupdate="onCompositionUpdate"
+			@compositionend="onCompositionEnd"
 			@change="onChange"
 			@focus="onFocus"
 			@blur="onBlur"
@@ -182,6 +185,24 @@ export default defineComponent( {
 		 */
 		'blur',
 		/**
+		 * When composition begins
+		 *
+		 * @property {CompositionEvent} event
+		 */
+		'compositionstart',
+		/**
+		 * When composition is updated
+		 *
+		 * @property {CompositionEvent} event
+		 */
+		'compositionupdate',
+		/**
+		 * When composition ends
+		 *
+		 * @property {CompositionEvent} event
+		 */
+		'compositionend',
+		/**
 		 * When the input value is cleared through the use of the clear button
 		 *
 		 * @property {MouseEvent} event
@@ -277,6 +298,15 @@ export default defineComponent( {
 		const onBlur = ( event: FocusEvent ) => {
 			emit( 'blur', event );
 		};
+		const onCompositionStart = ( event: CompositionEvent ) => {
+			emit( 'compositionstart', event );
+		};
+		const onCompositionUpdate = ( event: CompositionEvent ) => {
+			emit( 'compositionupdate', event );
+		};
+		const onCompositionEnd = ( event: CompositionEvent ) => {
+			emit( 'compositionend', event );
+		};
 
 		// We want to prevent the default behavior of the invalid event by default, to prevent the
 		// native validation message UI from displaying unless it's explicitly called. If
@@ -316,6 +346,9 @@ export default defineComponent( {
 			onKeydown,
 			onFocus,
 			onBlur,
+			onCompositionStart,
+			onCompositionUpdate,
+			onCompositionEnd,
 			onInvalid,
 			shouldPreventDefault,
 			cdxIconClear

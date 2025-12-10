@@ -20,6 +20,9 @@
 				@change="$event => $emit( 'change', $event )"
 				@focus="$event => $emit( 'focus', $event )"
 				@blur="$event => $emit( 'blur', $event )"
+				@compositionstart="$event => $emit( 'compositionstart', $event )"
+				@compositionupdate="$event => $emit( 'compositionupdate', $event )"
+				@compositionend="$event => $emit( 'compositionend', $event )"
 			/>
 			<!--
 				@slot A slot for passing in an options menu that needs to be positioned
@@ -175,7 +178,25 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/search-input.ht
 		 *
 		 * @property {FocusEvent} event
 		 */
-		'blur'
+		'blur',
+		/**
+		 * When composition begins
+		 *
+		 * @property {CompositionEvent} event
+		 */
+		'compositionstart',
+		/**
+		 * When composition is updated
+		 *
+		 * @property {CompositionEvent} event
+		 */
+		'compositionupdate',
+		/**
+		 * When composition ends
+		 *
+		 * @property {CompositionEvent} event
+		 */
+		'compositionend'
 	],
 
 	setup( props, { emit, attrs } ) {
