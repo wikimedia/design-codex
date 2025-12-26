@@ -38,7 +38,7 @@
 		// iOS 3.2+, and Android 4.4+. This will break things like long numbers and URLs, but the
 		// `break-word` value is deprecated since 2019. `word-break: break-word` has the same effect
 		// as `overflow-wrap: anywhere` combined with `word-break: normal`.
-		@supports ( word-break: break-word; ) {
+		@supports ( word-break: break-word ) {
 			word-wrap: unset;
 			word-break: break-word;
 		}
