@@ -27,6 +27,7 @@
 				ref="menu"
 				v-model:selected="modelWrapper"
 				v-model:expanded="expanded"
+				class="cdx-menu-button__menu"
 				:menu-items="menuItems"
 				v-bind="menuConfig"
 				role="menu"
@@ -267,7 +268,7 @@ export default defineComponent( {
 		position: relative;
 	}
 
-	.cdx-menu {
+	&__menu {
 		min-width: @size-800;
 		max-width: @size-1600;
 	}

@@ -20,7 +20,7 @@ exports[`MenuButton matches the snapshot Case 0 No selection: ({"menuItems": [Ar
   >
     <!--teleport start-->
     <div
-      class="cdx-menu"
+      class="cdx-menu cdx-menu-button__menu"
       style="display: none;"
     >
       <ul
@@ -214,7 +214,7 @@ exports[`MenuButton matches the snapshot Case 1 Menu item with label selected: (
   >
     <!--teleport start-->
     <div
-      class="cdx-menu"
+      class="cdx-menu cdx-menu-button__menu"
       style="display: none;"
     >
       <ul
@@ -409,7 +409,7 @@ exports[`MenuButton matches the snapshot Case 2 Menu item with no label selected
   >
     <!--teleport start-->
     <div
-      class="cdx-menu"
+      class="cdx-menu cdx-menu-button__menu"
       style="display: none;"
     >
       <ul
@@ -605,7 +605,7 @@ exports[`MenuButton matches the snapshot Case 3 Disabled: ({"disabled": true, "m
   >
     <!--teleport start-->
     <div
-      class="cdx-menu"
+      class="cdx-menu cdx-menu-button__menu"
       style="display: none;"
     >
       <ul
@@ -799,7 +799,7 @@ exports[`MenuButton matches the snapshot Case 4 With footer: ({"footer": [Object
   >
     <!--teleport start-->
     <div
-      class="cdx-menu cdx-menu--has-footer"
+      class="cdx-menu cdx-menu--has-footer cdx-menu-button__menu"
       style="display: none;"
     >
       <ul
@@ -1031,7 +1031,7 @@ exports[`MenuButton matches the snapshot Case 5 With primary progressive action 
   >
     <!--teleport start-->
     <div
-      class="cdx-menu"
+      class="cdx-menu cdx-menu-button__menu"
       style="display: none;"
     >
       <ul
@@ -1225,7 +1225,7 @@ exports[`MenuButton matches the snapshot Case 6 With normal destructive action b
   >
     <!--teleport start-->
     <div
-      class="cdx-menu"
+      class="cdx-menu cdx-menu-button__menu"
       style="display: none;"
     >
       <ul
