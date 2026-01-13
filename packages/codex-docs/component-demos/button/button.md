@@ -150,17 +150,17 @@ Wikipedia.
 
 ### Button sizes
 
-Buttons can be small, medium (default) or large `size`.
+Buttons can be small, medium or large `size`.
 
-1. **Small**<br>Use the small size only when space is tight: for example, inline with text or in compact layouts.
+- **Small**<br>Use the small size only when space is tight: for example, inline with text or in compact layouts.
 
 <cdx-demo-best-practices class="cdx-demo-small-button-best-practices">
 <cdx-demo-best-practice>Use lowercase letters to make the button fit better with surrounding text.</cdx-demo-best-practice>
 <cdx-demo-best-practice type="dont">Avoid using small buttons on touchable screens.</cdx-demo-best-practice>
 </cdx-demo-best-practices>
 
-2. **Medium**<br>Use medium as the standard button size.
-3. **Large**<br>Use the large size to support accessibility on touchscreens by increasing the touch area.
+- **Medium** (default)<br>Use medium as the standard button size.
+- **Large**<br>Use the large size to support usability on touchscreens by further increasing the touch area.
 
 
 By default, the width of a Button with text is determined by the width of the text until reaching a max-width. However, on mobile, Buttons should span the full-width of the container, except for icon-only Buttons, which will maintain their fixed square proportions.
