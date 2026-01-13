@@ -12,7 +12,7 @@ import { DesignToken, DesignTokensTree } from '../types';
 export function flattenDesignTokensTree( tree: DesignTokensTree, excludeTokens: string[] = [] )
 : DesignToken[] {
 	const result : DesignToken[] = [];
-	for ( const key in tree ) {
+	for ( const [ key, tokenOrTree ] of Object.entries( tree ) ) {
 		if ( key === 'comment' ) {
 			// TODO visualize comments at these levels too
 			continue;
@@ -24,7 +24,6 @@ export function flattenDesignTokensTree( tree: DesignTokensTree, excludeTokens: 
 			// This is an excluded token; don't add it to the output and don't recurse into it
 			continue;
 		}
-		const tokenOrTree = tree[ key ];
 		if ( typeof tokenOrTree === 'string' ) {
 			continue;
 		}

@@ -45,8 +45,7 @@ interface ColorSet {
 function getColorSets( tokens: DesignTokensTree ): ColorSet[] {
 	return colorCategories.map( ( category ) => {
 		const items: ColorItem[] = [];
-		for ( const tokenName in tokens ) {
-			const token = tokens[ tokenName ];
+		for ( const [ tokenName, token ] of Object.entries( tokens ) ) {
 			// Do nothing if this is just a string (i.e. a comment).
 			if ( typeof token === 'string' ) {
 				continue;

@@ -146,11 +146,11 @@ export default defineComponent( {
 
 		function formatData( namespaceData ) {
 			const formattedData = [];
-			for ( const namespaceId of Object.keys( namespaceData ) ) {
-				if ( 'canonical' in namespaceData[ namespaceId ] ) {
+			for ( const [ namespaceId, namespace ] of Object.entries( namespaceData ) ) {
+				if ( 'canonical' in namespace ) {
 					formattedData.push( {
 						value: namespaceId,
-						label: namespaceData[ namespaceId ].canonical
+						label: namespace.canonical
 					} );
 				}
 			}

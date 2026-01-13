@@ -137,22 +137,22 @@ class Tooltip {
 	}
 
 	private addEventListeners() {
-		Object.keys( this.referenceElementHandlers ).forEach( ( k ) => {
-			this.referenceElement.addEventListener( k, this.referenceElementHandlers[ k ] );
+		Object.entries( this.referenceElementHandlers ).forEach( ( [ k, handler ] ) => {
+			this.referenceElement.addEventListener( k, handler );
 		} );
 
-		Object.keys( this.tooltipElementHandlers ).forEach( ( k ) => {
-			this.tooltipElement.addEventListener( k, this.tooltipElementHandlers[ k ] );
+		Object.entries( this.tooltipElementHandlers ).forEach( ( [ k, handler ] ) => {
+			this.tooltipElement.addEventListener( k, handler );
 		} );
 	}
 
 	private removeEventListeners() {
-		Object.keys( this.referenceElementHandlers ).forEach( ( k ) => {
-			this.referenceElement.removeEventListener( k, this.referenceElementHandlers[ k ] );
+		Object.entries( this.referenceElementHandlers ).forEach( ( [ k, handler ] ) => {
+			this.referenceElement.removeEventListener( k, handler );
 		} );
 
-		Object.keys( this.tooltipElementHandlers ).forEach( ( k ) => {
-			this.tooltipElement.removeEventListener( k, this.tooltipElementHandlers[ k ] );
+		Object.entries( this.tooltipElementHandlers ).forEach( ( [ k, handler ] ) => {
+			this.tooltipElement.removeEventListener( k, handler );
 		} );
 	}
 

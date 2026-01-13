@@ -23,8 +23,7 @@ const displayIcons : {
 	icon: Icon
 }[] = [];
 
-for ( const iconName in allIcons ) {
-	const icon = allIcons[ iconName as keyof typeof allIcons ];
+for ( const [ iconName, icon ] of Object.entries( allIcons ) ) {
 	// Some of the exports are utility functions, filter those out
 	if ( typeof icon === 'function' ) {
 		continue;

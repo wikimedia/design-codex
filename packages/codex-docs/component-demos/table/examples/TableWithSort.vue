@@ -84,8 +84,7 @@ export default defineComponent( {
 		const sort = ref( { user: 'asc' } );
 
 		function onSort( newSort ) {
-			const sortKey = Object.keys( newSort )[ 0 ];
-			const sortOrder = newSort[ sortKey ];
+			const [ sortKey, sortOrder ] = Object.entries( newSort )[ 0 ];
 
 			function sortNumerically( columnId, sortDir ) {
 				return data.value.sort( ( a, b ) => {

@@ -16,9 +16,8 @@ async function buildIconsLess() {
 	const icons = await import( /** @type {string} */ ( '../dist/codex-icons.js' ) );
 	let output = '';
 
-	for ( const key in icons ) {
+	for ( const [ key, icon ] of Object.entries( icons ) ) {
 		if ( key.startsWith( 'cdxIcon' ) ) {
-			const icon = icons[ key ];
 			const lessVariableName = getLessVariableName( key );
 			const iconString = getIconOutput( lessVariableName, icon );
 			output += iconString;

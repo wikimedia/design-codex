@@ -16,9 +16,9 @@ async function buildIconsJson() {
 	/** @type {Record<string, Icon>} */
 	const data = {};
 
-	for ( const key in icons ) {
+	for ( const [ key, icon ] of Object.entries( icons ) ) {
 		if ( key.startsWith( 'cdxIcon' ) ) {
-			data[ key ] = icons[ key ];
+			data[ key ] = icon;
 		}
 	}
 

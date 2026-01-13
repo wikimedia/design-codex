@@ -46,9 +46,8 @@ export type SlotValuesWithIcons = Record<string, string | EscapedSlotContent>;
  * @return {string}
  */
 export function generateProps( propValues: Record<string, unknown> ) : string {
-	return Object.keys( propValues )
-		.map( ( propName ) => {
-			const propVal = propValues[ propName ];
+	return Object.entries( propValues )
+		.map( ( [ propName, propVal ] ) => {
 			if ( propVal === undefined || propVal === null ) {
 				return '';
 			}
@@ -98,9 +97,9 @@ function escapeSlotContent( slotContent: string | EscapedSlotContent ) : string 
  */
 export function generateSlots( slotValues: SlotValuesWithIcons ) : string {
 	// Default slot does not need <template> wrapper
-	return Object.keys( slotValues )
-		.map( ( slotName ) => {
-			const escapedContent = escapeSlotContent( slotValues[ slotName ] );
+	return Object.entries( slotValues )
+		.map( ( [ slotName, slotContent ] ) => {
+			const escapedContent = escapeSlotContent( slotContent );
 			if ( slotName === 'default' ) {
 				return escapedContent;
 			}
