@@ -81,12 +81,12 @@ describe( 'Dialog', () => {
 		} );
 	} );
 
-	it( 'adds the "cdx-dialog-open" class to the document element when open, and removes it when closed', async () => {
+	it( 'adds the "cdx-dialog-open" class to the body when open, and removes it when closed', async () => {
 		const wrapper = mount( CdxDialog, { attachTo: document.body, ...dialogBasicClosed } );
 		await wrapper.setProps( { open: true } );
-		expect( document.documentElement.classList ).toContain( 'cdx-dialog-open' );
+		expect( document.body.classList ).toContain( 'cdx-dialog-open' );
 		await wrapper.setProps( { open: false } );
-		expect( document.documentElement.classList ).not.toContain( 'cdx-dialog-open' );
+		expect( document.body.classList ).not.toContain( 'cdx-dialog-open' );
 	} );
 
 	describe( 'when the dialog is opened', () => {

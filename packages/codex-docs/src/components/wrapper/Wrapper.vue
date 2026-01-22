@@ -523,11 +523,6 @@ export default defineComponent( {
 		}
 	}
 
-	&__controls {
-		max-width: @size-viewport-width-full;
-		overflow-x: auto;
-	}
-
 	// Demos don't get link styles from VitePress because of the `vp-raw` class, but sometimes we
 	// want properly styled links (like in the content of a Message demo). This class is added when
 	// the `allow-link-styles` prop is provided to the Wrapper.
