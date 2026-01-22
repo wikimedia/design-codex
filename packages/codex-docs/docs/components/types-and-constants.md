@@ -111,6 +111,8 @@ The `Placement` and `OffsetOptions` types come from the 3rd-party
 ```ts
 interface FloatingMenuOptions {
 	useAvailableWidth?: boolean,
+	/* Default value: true */
+	matchTriggerWidth?: boolean, 
 	placement?: Placement,
 	offset?: OffsetOptions
 }

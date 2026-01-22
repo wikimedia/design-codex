@@ -183,6 +183,7 @@ export interface MenuConfig {
 /** @public */
 export interface FloatingMenuOptions {
 	useAvailableWidth?: boolean,
+	matchTriggerWidth?: boolean,
 	placement?: Placement,
 	offset?: OffsetOptions
 }

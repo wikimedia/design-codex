@@ -54,12 +54,25 @@ export default function useFloatingMenu(
 			// of the menu and the bottom edge of the viewport / scrollable container.
 			padding: clipPadding,
 			apply( { rects, elements, availableHeight, availableWidth } ) {
-				Object.assign( elements.floating.style, {
-					// Optionally use all available width
-					// Else, set the width of the menu to match the width of the triggering element.
+				
+				// Determine Width Logic
+				let calculatedWidth = '';
+				
+				if ( opt?.useAvailableWidth ) {
+					// 1. Use all available width (viewport width)
+					calculatedWidth = `${ availableWidth }px`;
+				} else if ( opt?.matchTriggerWidth !== false ) {
+					// 2. Default: Match the width of the triggering element.
 					// This is needed in Dialogs, when the menu's position is set relative to
 					// the dialog, not the triggering element.
-					width: `${ opt?.useAvailableWidth ? availableWidth : rects.reference.width }px`,
+					// Check !== false to maintain backward compatibility (defaults to true)
+					calculatedWidth = `${ rects.reference.width }px`;
+				} 
+				// 3. If matchTriggerWidth is explicitly false, calculatedWidth stays ''
+				// allowing intrinsic sizing via CSS.
+
+				Object.assign( elements.floating.style, {
+					width: calculatedWidth,
 					// Set the max-height to the available height, to prevent the menu from
 					// extending past the edge of the viewport or scrollable container. But don't
 					// allow the menu to be shrunk to less than 128px; this is necessary to make
