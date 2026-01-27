@@ -139,6 +139,7 @@ import CdxIcon from '../icon/Icon.vue';
 import { cdxIconClose } from '@wikimedia/codex-icons';
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
 import useResizeObserver from '../../composables/useResizeObserver';
+import useFocusTrap from '../../composables/useFocusTrap';
 import { TeleportTarget, ModalAction, PrimaryModalAction } from '../../types';
 
 /**
@@ -313,11 +314,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		const backdrop = ref<HTMLDivElement>();
 		const dialogElement = ref<HTMLDivElement>(); // dialog "frame"
 		const dialogBody = ref<HTMLDivElement>(); // dialog content
-		const focusHolder = ref<HTMLDivElement>();
-		const focusTrapStart = ref<HTMLDivElement>();
-		const focusTrapEnd = ref<HTMLDivElement>();
 		const innerTeleportTarget = ref<HTMLDivElement>();
-		let previouslyFocused: Element|null = null;
 
 		// DEPRECATED: require use of new prop useCloseButton (T368444)
 		const useCloseButtonOrLabel = computed(
@@ -379,60 +376,19 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			}
 		}
 
-		/**
-		 * Programmatically focus the first focusable element inside the dialog
-		 * frame.
-		 */
-		function focusFirst() {
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			focusFirstFocusableElement( dialogElement.value! );
-		}
-
-		/**
-		 * Programmatically focus the last focusable element inside the dialog
-		 * frame.
-		 */
-		function focusLast() {
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			focusFirstFocusableElement( dialogElement.value!, true );
-		}
-
-		/**
-		 * Programmatically assign focus to the first focusable element in a
-		 * specified container. Can optionally run backwards. This method is
-		 * used in the component's focus trap implementation, which ensures that
-		 * the user cannot focus outside the Dialog while it is open.
-		 *
-		 * @param container {HTMLElement}
-		 * @param backwards {boolean}
-		 * @return {boolean}
-		 */
-		function focusFirstFocusableElement( container: HTMLElement, backwards = false ): boolean {
-			// Find all focusable elements in the container.
-			// Exclude elements with a negative tabindex; those are technically focusable, but are
-			// skipped when tabbing
-			let candidates = Array.from(
-				container.querySelectorAll<HTMLElement>( `
-					input, select, textarea, button, object, a, area,
-					[contenteditable], [tabindex]:not([tabindex^="-"])
-				` )
-			);
-
-			// If we're looking for the previous element, reverse the array.
-			if ( backwards ) {
-				candidates = candidates.reverse();
-			}
-
-			for ( const candidate of candidates ) {
-				// Try to focus each element.
-				candidate.focus();
-				// Once it works, return true.
-				if ( document.activeElement === candidate ) {
-					return true;
-				}
-			}
-			return false;
-		}
+		const {
+			focusTrapStart,
+			focusTrapEnd,
+			focusHolder,
+			focusFirst,
+			focusLast,
+			activateFocusTrap,
+			deactivateFocusTrap,
+		} = useFocusTrap( {
+			// dialogElement is the container for the focus trap
+			containerRef: dialogElement,
+			bodyRef: dialogBody
+		} );
 
 		let ariaHiddenElements: Element[] = [];
 		let inertElements: Element[] = [];
@@ -496,18 +452,8 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 
 			setAriaHiddenAndInert();
 
-			// Stash the currently focused element so we can restore it later.
-			previouslyFocused = document.activeElement;
-
-			// Focus within the dialog so that we can listen to keypress events.
-			// Try focusing on the first focusable element in the body. If there isn't one,
-			// use the focus holder.
-			// This needs to happen on nextTick, otherwise the focus might be stolen back by
-			// e.g. a button whose click event opened the dialog.
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			if ( !focusFirstFocusableElement( dialogBody.value! ) ) {
-				focusHolder.value?.focus();
-			}
+			// Run shared focus trap setup.
+			await activateFocusTrap();
 		}
 
 		function onDialogClose() {
@@ -515,15 +461,8 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			document.documentElement.style.removeProperty( 'margin-right' );
 			unsetAriaHiddenAndInert();
 
-			// Restore focus to the previously-focused element, if there was one
-			// (and if it still exists in the document).
-			if (
-				previouslyFocused instanceof HTMLElement &&
-				document.contains( previouslyFocused )
-			) {
-				previouslyFocused.focus();
-				previouslyFocused = null;
-			}
+			// Run shared focus trap teardown.
+			deactivateFocusTrap();
 		}
 
 		// If the dialog is mounted in the open state, make sure we set things up properly

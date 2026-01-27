@@ -298,6 +298,7 @@ class to style the dialog and things inside it.
 
 | Key | Function |
 | -- | -- |
-| <kbd>Tab</kbd> | It moves focus to the next interactive element and, if that element is outside the Popover, it closes the Popover. |
-| <kbd>Shift + Tab</kbd> | It moves focus to the previous interactive element and, if that element is outside the Popover, it closes the Popover. |
+| <kbd>Tab</kbd> | It moves the focus to the next interactive element in tab order within the Popover. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous interactive element within the Popover. |
 | <kbd>Esc</kbd> | It closes the Popover. |
+

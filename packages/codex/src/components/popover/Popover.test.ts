@@ -1,9 +1,10 @@
-import { ref } from 'vue';
-import { mount, config, shallowMount } from '@vue/test-utils';
+import { Icon, cdxIconInfoFilled } from '@wikimedia/codex-icons';
+import { ModalAction, PrimaryModalAction } from '../../types';
+import { config, mount, shallowMount } from '@vue/test-utils';
+import { nextTick, ref } from 'vue';
+
 import CdxPopover from './Popover.vue';
 import CdxToggleButton from '../../components/toggle-button/ToggleButton.vue';
-import { cdxIconInfoFilled, Icon } from '@wikimedia/codex-icons';
-import { ModalAction, PrimaryModalAction } from '../../types';
 import { Placement } from '@floating-ui/vue';
 
 // Mock `useFloating` from FloatingUI. If we use the real composable, Jest will crash in an
@@ -287,6 +288,26 @@ describe( 'Popover', () => {
 			await defaultAction.trigger( 'keydown', { key: 'Tab', shiftKey: true } );
 			( primaryAction.element as HTMLElement ).focus();
 			expect( document.activeElement ).toBe( primaryAction.element );
+		} );
+	} );
+
+	describe( 'when the popover is opened', () => {
+		it( 'automatically focuses the first focusable element inside the popover', async () => {
+			const wrapper = mount( CdxPopover, {
+				props: {
+					anchor: toggleButton.vm.$el,
+					renderInPlace: true,
+				},
+				slots: {
+					default: '<p>Example input: <input id="input" type="text"></p>'
+				},
+				attachTo: document.body
+			} );
+			await wrapper.setProps( { open: true } );
+			await nextTick();
+
+			const input = wrapper.find( '#input' ).element;
+			expect( document.activeElement ).toBe( input );
 		} );
 	} );
 } );

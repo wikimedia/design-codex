@@ -1,7 +1,8 @@
-import { nextTick } from 'vue';
-import { config, mount } from '@vue/test-utils';
 import { ModalAction, PrimaryModalAction } from '../../types';
+import { config, mount } from '@vue/test-utils';
+
 import CdxDialog from './Dialog.vue';
+import { nextTick } from 'vue';
 
 type Case = [
 	msg: string,
@@ -96,6 +97,10 @@ describe( 'Dialog', () => {
 				...dialogBasicClosedWithInput
 			} );
 			await wrapper.setProps( { open: true } );
+			await nextTick();
+			// Need an extra nextTick() because onDialogOpen() does its own nextTick() before
+			// calling onFocusTrapActivate(), which also does a nextTick(). Popover doesn't need
+			// this because it calls onFocusTrapActivate() directly from the watcher.
 			await nextTick();
 
 			const input = wrapper.find( '#input' ).element;

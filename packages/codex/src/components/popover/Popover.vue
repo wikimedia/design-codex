@@ -1,5 +1,12 @@
 <template>
 	<teleport :to="computedTarget" :disabled="renderInPlace">
+		<!-- Focus trap start -->
+		<div
+			v-if="open"
+			ref="focusTrapStart"
+			tabindex="0"
+			@focus="focusLast"
+		/>
 		<div
 			v-if="open"
 			ref="floating"
@@ -33,7 +40,16 @@
 				</slot>
 			</header>
 
-			<div class="cdx-popover__body">
+			<div
+				ref="focusHolder"
+				class="cdx-popover-focus-trap"
+				tabindex="-1"
+			/>
+
+			<div
+				ref="popoverBody"
+				class="cdx-popover__body"
+			>
 				<!-- @slot Popover body content. -->
 				<slot />
 			</div>
@@ -73,6 +89,13 @@
 				:style="arrowStyles"
 			/>
 		</div>
+		<!-- Focus trap end -->
+		<div
+			v-if="open"
+			ref="focusTrapEnd"
+			tabindex="0"
+			@focus="focusFirst"
+		/>
 	</teleport>
 </template>
 
@@ -88,6 +111,7 @@ import useI18nWithOverride from '../../composables/useI18nWithOverride';
 import { unwrapElement } from '../../utils/unwrapElement';
 import { PrimaryModalAction, ModalAction, TeleportTarget } from '../../types';
 import { oppositeSides } from '../../constants';
+import useFocusTrap from '../../composables/useFocusTrap';
 
 /**
  * A Popover is a localized, non-disruptive container that is overlaid on a web page or app,
@@ -225,6 +249,7 @@ export default defineComponent( {
 		const floating = ref<HTMLDivElement>();
 		const reference = toRef( props, 'anchor' );
 		const arrowRef = ref<HTMLDivElement>();
+		const popoverBody = ref<HTMLDivElement>();
 
 		// TODO: Convert hardcoded values to JS Token T388062.
 		const clipPadding = 16;
@@ -346,6 +371,23 @@ export default defineComponent( {
 			emit( 'update:open', false );
 		}
 
+		const {
+			focusTrapStart,
+			focusTrapEnd,
+			focusHolder,
+			focusFirst,
+			focusLast,
+			activateFocusTrap,
+			deactivateFocusTrap,
+		} = useFocusTrap( {
+			// floating is the container for the focus trap
+			containerRef: floating,
+			bodyRef: popoverBody,
+			// Pass the anchor ref so we don't move focus away from it if it's the trigger
+			anchorRef: reference,
+			preventScroll: true
+		} );
+
 		/**
 		 * Global "Escape" key handler.
 		 * Close the popover when Escape key is pressed.
@@ -381,15 +423,17 @@ export default defineComponent( {
 			}
 		}
 
-		watch( () => props.open, ( isOpen ) => {
+		watch( () => props.open, async ( isOpen ) => {
 			if ( isOpen ) {
 				document.addEventListener( 'keydown', onKeydown );
 				document.addEventListener( 'mousedown', onFocusOut );
 				document.addEventListener( 'focusin', onFocusOut );
+				await activateFocusTrap();
 			} else {
 				document.removeEventListener( 'keydown', onKeydown );
 				document.removeEventListener( 'mousedown', onFocusOut );
 				document.removeEventListener( 'focusin', onFocusOut );
+				deactivateFocusTrap();
 			}
 		} );
 
@@ -398,6 +442,7 @@ export default defineComponent( {
 				document.addEventListener( 'keydown', onKeydown );
 				document.addEventListener( 'mousedown', onFocusOut );
 				document.addEventListener( 'focusin', onFocusOut );
+				await activateFocusTrap();
 			}
 
 			await nextTick();
@@ -409,6 +454,7 @@ export default defineComponent( {
 		} );
 
 		onUnmounted( () => {
+			deactivateFocusTrap();
 			document.removeEventListener( 'keydown', onKeydown );
 			document.removeEventListener( 'mousedown', onFocusOut );
 			document.removeEventListener( 'focusin', onFocusOut );
@@ -425,7 +471,13 @@ export default defineComponent( {
 			floating,
 			floatingStyles,
 			arrowRef,
-			arrowStyles
+			arrowStyles,
+			focusTrapStart,
+			focusTrapEnd,
+			focusHolder,
+			popoverBody,
+			focusFirst,
+			focusLast
 		};
 	}
 } );
@@ -536,4 +588,20 @@ export default defineComponent( {
 		clip-path: polygon( 0 0, 100% 0, 0 100% );
 	}
 }
+
+// This element is not used for visual styling, just
+// focus management. It needs to be invisible but cannot
+// have display:none, and its position in the markup is
+// important (must be inside the popover element).
+.cdx-popover-focus-trap {
+	// Set position to absolute so that this element is
+	// omitted from all flex layout calculations
+	position: absolute;
+
+	// Don't show visible focus outline for the focus-trap element
+	&:focus {
+		outline: 0;
+	}
+}
+
 </style>
