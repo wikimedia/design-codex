@@ -66,6 +66,17 @@ export default function useFocusTrap(
 	}
 
 	/**
+	 * Scroll the focused element into view inside the body.
+	 *
+	 * @param focused - Element that was focused
+	 */
+	function scrollFocusedElement( focused: HTMLElement ) {
+		setTimeout( () => {
+			focused.scrollIntoView( { behavior: 'smooth', block: 'nearest', inline: 'nearest' } );
+		}, 500 );
+	}
+
+	/**
 	 * Programmatically assign focus to the first focusable element in a
 	 * specified container. Can optionally run backwards. This method is
 	 * used in the component's focus trap implementation, which ensures that
@@ -99,6 +110,11 @@ export default function useFocusTrap(
 			candidate.focus( { preventScroll } );
 			// Once it works, return true.
 			if ( document.activeElement === candidate ) {
+				// If preventScroll is true, we should not scroll the body.
+				// Instead, scroll the focused element into view.
+				if ( preventScroll ) {
+					scrollFocusedElement( candidate );
+				}
 				return true;
 			}
 		}

@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import { mount } from '@vue/test-utils';
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 import useFocusTrap from './useFocusTrap';
 
 describe( 'useFocusTrap', () => {
@@ -431,6 +431,52 @@ describe( 'useFocusTrap', () => {
 
 			expect( focusSpy ).toHaveBeenCalledWith( { preventScroll: false } );
 			focusSpy.mockRestore();
+		} );
+
+		it( 'scrolls focused element into view when preventScroll is true', async () => {
+			jest.useFakeTimers();
+			try {
+				const TestComponent = defineComponent( {
+					template: `
+						<div ref="container">
+							<div ref="body" class="scroll-body" style="overflow-y:auto;height:80px;width:200px;">
+								<div style="height:120px"></div>
+								<input id="field" type="text" />
+							</div>
+						</div>
+					`,
+					setup() {
+						const container = ref<HTMLElement>();
+						const body = ref<HTMLElement>();
+						const { activateFocusTrap } = useFocusTrap( {
+							containerRef: container,
+							bodyRef: body,
+							preventScroll: true
+						} );
+						return { container, body, activateFocusTrap };
+					}
+				} );
+
+				const wrapper = mount( TestComponent, { attachTo: document.body } );
+				const field = wrapper.find( '#field' ).element as HTMLElement;
+				const scrollIntoSpy = jest.fn();
+				field.scrollIntoView = scrollIntoSpy;
+
+				await wrapper.vm.activateFocusTrap();
+				await nextTick();
+
+				expect( document.activeElement ).toBe( field );
+
+				jest.advanceTimersByTime( 500 );
+
+				expect( scrollIntoSpy ).toHaveBeenCalledWith( {
+					behavior: 'smooth',
+					block: 'nearest',
+					inline: 'nearest'
+				} );
+			} finally {
+				jest.useRealTimers();
+			}
 		} );
 	} );
 } );

@@ -1,7 +1,7 @@
 import { Icon, cdxIconInfoFilled } from '@wikimedia/codex-icons';
 import { ModalAction, PrimaryModalAction } from '../../types';
 import { config, mount, shallowMount } from '@vue/test-utils';
-import { nextTick, ref } from 'vue';
+import { nextTick, reactive, ref } from 'vue';
 
 import CdxPopover from './Popover.vue';
 import CdxToggleButton from '../../components/toggle-button/ToggleButton.vue';
@@ -25,6 +25,18 @@ jest.mock( '@floating-ui/vue', () => ( {
 	} ) )
 } ) );
 
+// Mock useBreakpoint to control mobile/desktop detection
+const mockBreakpoint = reactive( {
+	mobile: false,
+	tablet: false,
+	desktop: true,
+	'desktop-wide': false
+} );
+jest.mock( '../../composables/useBreakpoint', () => ( {
+	__esModule: true,
+	default: jest.fn( () => mockBreakpoint )
+} ) );
+
 describe( 'Popover', () => {
 	// Ignore all "teleport" behavior for the purpose of testing Popover.
 	// Refer to https://test-utils.vuejs.org/guide/advanced/teleport.html
@@ -35,6 +47,14 @@ describe( 'Popover', () => {
 	const toggleButton = shallowMount( CdxToggleButton, {
 		props: { modelValue: false },
 		attachTo: 'body'
+	} );
+
+	beforeEach( () => {
+		// Reset to desktop by default
+		mockBreakpoint.mobile = false;
+		mockBreakpoint.tablet = false;
+		mockBreakpoint.desktop = true;
+		mockBreakpoint[ 'desktop-wide' ] = false;
 	} );
 
 	describe( 'matches the snapshot', () => {
@@ -308,6 +328,212 @@ describe( 'Popover', () => {
 
 			const input = wrapper.find( '#input' ).element;
 			expect( document.activeElement ).toBe( input );
+		} );
+	} );
+
+	describe( 'bottom sheet variant', () => {
+		describe( 'when useBottomSheet is true and on mobile', () => {
+			beforeEach( () => {
+				mockBreakpoint.mobile = true;
+				mockBreakpoint.tablet = false;
+				mockBreakpoint.desktop = false;
+				mockBreakpoint[ 'desktop-wide' ] = false;
+			} );
+
+			it( 'renders bottom sheet instead of floating popover', () => {
+				const wrapper = mount( CdxPopover, {
+					props: {
+						anchor: toggleButton.vm.$el,
+						renderInPlace: true,
+						open: true,
+						useBottomSheet: true
+					},
+					slots: { default: 'Popover Content' }
+				} );
+
+				expect( wrapper.find( '.cdx-popover-bottom-sheet' ).exists() ).toBe( true );
+				expect( wrapper.find( '.cdx-popover' ).exists() ).toBe( false );
+			} );
+
+			it( 'renders bottom sheet with title', () => {
+				const wrapper = mount( CdxPopover, {
+					props: {
+						anchor: toggleButton.vm.$el,
+						renderInPlace: true,
+						open: true,
+						useBottomSheet: true,
+						title: 'Bottom Sheet Title'
+					},
+					slots: { default: 'Popover Content' }
+				} );
+
+				const header = wrapper.find( '.cdx-popover-bottom-sheet__header' );
+				expect( header.exists() ).toBe( true );
+				expect( header.text() ).toContain( 'Bottom Sheet Title' );
+			} );
+
+			it( 'renders bottom sheet with backdrop by default', () => {
+				const wrapper = mount( CdxPopover, {
+					props: {
+						anchor: toggleButton.vm.$el,
+						renderInPlace: true,
+						open: true,
+						useBottomSheet: true
+					},
+					slots: { default: 'Popover Content' }
+				} );
+
+				const backdrop = wrapper.find( '.cdx-popover-bottom-sheet-backdrop' );
+				expect( backdrop.exists() ).toBe( true );
+				expect( backdrop.classes() ).not.toContain( 'cdx-popover-bottom-sheet-backdrop--no-backdrop' );
+			} );
+
+			it( 'renders bottom sheet without backdrop when hideBackdrop is true', () => {
+				const wrapper = mount( CdxPopover, {
+					props: {
+						anchor: toggleButton.vm.$el,
+						renderInPlace: true,
+						open: true,
+						useBottomSheet: true,
+						hideBackdrop: true
+					},
+					slots: { default: 'Popover Content' }
+				} );
+
+				const backdrop = wrapper.find( '.cdx-popover-bottom-sheet-backdrop' );
+				expect( backdrop.exists() ).toBe( true );
+				expect( backdrop.classes() ).toContain( 'cdx-popover-bottom-sheet-backdrop--no-backdrop' );
+			} );
+
+			it( 'closes bottom sheet when Escape key is pressed', async () => {
+				const wrapper = mount( CdxPopover, {
+					props: {
+						anchor: toggleButton.vm.$el,
+						renderInPlace: true,
+						open: true,
+						useBottomSheet: true
+					},
+					slots: { default: 'Popover Content' }
+				} );
+
+				expect( wrapper.find( '.cdx-popover-bottom-sheet' ).exists() ).toBe( true );
+
+				document.dispatchEvent( new KeyboardEvent( 'keydown', { key: 'Escape' } ) );
+				await wrapper.setProps( { open: false } );
+
+				expect( wrapper.find( '.cdx-popover-bottom-sheet' ).exists() ).toBe( false );
+				expect( wrapper.emitted()[ 'update:open' ][ 0 ] ).toEqual( [ false ] );
+			} );
+
+			it( 'closes bottom sheet when backdrop is clicked', async () => {
+				const wrapper = mount( CdxPopover, {
+					props: {
+						anchor: toggleButton.vm.$el,
+						renderInPlace: true,
+						open: true,
+						useBottomSheet: true
+					},
+					slots: { default: 'Popover Content' }
+				} );
+
+				const backdrop = wrapper.find( '.cdx-popover-bottom-sheet-backdrop' );
+				// Simulate mousedown then click on backdrop
+				await backdrop.trigger( 'mousedown' );
+				await backdrop.trigger( 'click' );
+				await wrapper.vm.$nextTick();
+
+				expect( wrapper.emitted()[ 'update:open' ] ).toBeTruthy();
+				expect( wrapper.emitted()[ 'update:open' ][ 0 ] ).toEqual( [ false ] );
+			} );
+
+			it( 'emits primary and default events when action buttons are clicked', async () => {
+				const wrapper = mount( CdxPopover, {
+					props: {
+						anchor: toggleButton.vm.$el,
+						renderInPlace: true,
+						open: true,
+						useBottomSheet: true,
+						primaryAction: { label: 'Save', actionType: 'progressive' },
+						defaultAction: { label: 'Cancel' }
+					},
+					slots: { default: 'Popover Content' }
+				} );
+
+				const primaryAction = wrapper.find( '.cdx-popover-bottom-sheet__footer__primary-action' );
+				const defaultAction = wrapper.find( '.cdx-popover-bottom-sheet__footer__default-action' );
+
+				await primaryAction.trigger( 'click' );
+				expect( wrapper.emitted() ).toHaveProperty( 'primary' );
+
+				await defaultAction.trigger( 'click' );
+				expect( wrapper.emitted() ).toHaveProperty( 'default' );
+			} );
+
+			it( 'renders stacked actions when stackedActions is true', () => {
+				const wrapper = mount( CdxPopover, {
+					props: {
+						anchor: toggleButton.vm.$el,
+						renderInPlace: true,
+						open: true,
+						useBottomSheet: true,
+						primaryAction: { label: 'Save', actionType: 'progressive' },
+						defaultAction: { label: 'Cancel' },
+						stackedActions: true
+					},
+					slots: { default: 'Popover Content' }
+				} );
+
+				const actions = wrapper.find( '.cdx-popover-bottom-sheet__footer__actions' );
+				expect( actions.classes() ).toContain( 'cdx-popover-bottom-sheet__footer__actions--stacked' );
+			} );
+		} );
+
+		describe( 'when useBottomSheet is true but on desktop', () => {
+			beforeEach( () => {
+				mockBreakpoint.mobile = false;
+				mockBreakpoint.tablet = false;
+				mockBreakpoint.desktop = true;
+				mockBreakpoint[ 'desktop-wide' ] = false;
+			} );
+
+			it( 'renders floating popover instead of bottom sheet', () => {
+				const wrapper = mount( CdxPopover, {
+					props: {
+						anchor: toggleButton.vm.$el,
+						renderInPlace: true,
+						open: true,
+						useBottomSheet: true
+					},
+					slots: { default: 'Popover Content' }
+				} );
+
+				expect( wrapper.find( '.cdx-popover' ).exists() ).toBe( true );
+				expect( wrapper.find( '.cdx-popover-bottom-sheet' ).exists() ).toBe( false );
+			} );
+		} );
+
+		describe( 'when useBottomSheet is false', () => {
+			beforeEach( () => {
+				mockBreakpoint.mobile = true;
+				mockBreakpoint.tablet = false;
+				mockBreakpoint.desktop = false;
+				mockBreakpoint[ 'desktop-wide' ] = false;
+			} );
+
+			it( 'renders floating popover even on mobile', () => {
+				const wrapper = mount( CdxPopover, {
+					props: {
+						anchor: toggleButton.vm.$el,
+						renderInPlace: true,
+						open: true,
+						useBottomSheet: false
+					},
+					slots: { default: 'Popover Content' }
+				} );
+
+				expect( wrapper.find( '.cdx-popover' ).exists() ).toBe( true );
+				expect( wrapper.find( '.cdx-popover-bottom-sheet' ).exists() ).toBe( false );
+			} );
 		} );
 	} );
 } );

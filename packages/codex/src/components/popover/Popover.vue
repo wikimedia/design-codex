@@ -1,117 +1,70 @@
 <template>
-	<teleport :to="computedTarget" :disabled="renderInPlace">
-		<!-- Focus trap start -->
-		<div
-			v-if="open"
-			ref="focusTrapStart"
-			tabindex="0"
-			@focus="focusLast"
-		/>
-		<div
-			v-if="open"
-			ref="floating"
-			class="cdx-popover"
-			:style="floatingStyles"
-			v-bind="$attrs"
-		>
-			<header v-if="showHeader || $slots.header" class="cdx-popover__header">
-				<!-- @slot Customizable Popover header. -->
-				<slot name="header">
-					<cdx-icon
-						v-if="icon"
-						class="cdx-popover__header__icon"
-						:icon
-					/>
-					<div v-if="title" class="cdx-popover__header__title">
-						{{ title }}
-					</div>
-					<div class="cdx-popover__header__button-wrapper">
-						<cdx-button
-							v-if="useCloseButton"
-							class="cdx-popover__header__close-button"
-							weight="quiet"
-							type="button"
-							:aria-label="translatedCloseButtonLabel"
-							@click="close"
-						>
-							<cdx-icon :icon="cdxIconClose" />
-						</cdx-button>
-					</div>
-				</slot>
-			</header>
+	<!-- Bottom Sheet variant for mobile (when useBottomSheet is true and on mobile) -->
+	<cdx-popover-bottom-sheet
+		v-if="shouldUseBottomSheet"
+		:open="open"
+		:title="title"
+		:icon="icon"
+		:use-close-button="useCloseButton"
+		:close-button-label="closeButtonLabel"
+		:primary-action="primaryAction"
+		:default-action="defaultAction"
+		:stacked-actions="stackedActions"
+		:hide-backdrop="hideBackdrop"
+		:render-in-place="renderInPlace"
+		v-bind="$attrs"
+		@update:open="$emit( 'update:open', $event )"
+		@primary="$emit( 'primary' )"
+		@default="$emit( 'default' )"
+	>
+		<template v-if="$slots.header" #header>
+			<slot name="header" />
+		</template>
+		<slot />
+		<template v-if="$slots.footer" #footer>
+			<slot name="footer" />
+		</template>
+	</cdx-popover-bottom-sheet>
 
-			<div
-				ref="focusHolder"
-				class="cdx-popover-focus-trap"
-				tabindex="-1"
-			/>
-
-			<div
-				ref="popoverBody"
-				class="cdx-popover__body"
-			>
-				<!-- @slot Popover body content. -->
-				<slot />
-			</div>
-
-			<footer v-if="showFooter || $slots.footer" class="cdx-popover__footer">
-				<!-- @slot Customizable Popover footer. -->
-				<slot name="footer">
-					<div
-						class="cdx-popover__footer__actions"
-						:class="footerActionsClasses"
-					>
-						<cdx-button
-							v-if="primaryAction"
-							class="cdx-popover__footer__primary-action"
-							weight="primary"
-							:action="primaryAction.actionType"
-							:disabled="primaryAction.disabled"
-							@click="$emit( 'primary' )"
-						>
-							{{ primaryAction.label }}
-						</cdx-button>
-
-						<cdx-button
-							v-if="defaultAction"
-							class="cdx-popover__footer__default-action"
-							:disabled="defaultAction.disabled"
-							@click="$emit( 'default' )"
-						>
-							{{ defaultAction.label }}
-						</cdx-button>
-					</div>
-				</slot>
-			</footer>
-			<div
-				ref="arrowRef"
-				class="cdx-popover__arrow"
-				:style="arrowStyles"
-			/>
-		</div>
-		<!-- Focus trap end -->
-		<div
-			v-if="open"
-			ref="focusTrapEnd"
-			tabindex="0"
-			@focus="focusFirst"
-		/>
-	</teleport>
+	<!-- Floating Popover variant (default or when useBottomSheet is true but on desktop) -->
+	<cdx-popover-floating
+		v-else
+		:open="open"
+		:anchor="anchor"
+		:title="title"
+		:icon="icon"
+		:use-close-button="useCloseButton"
+		:close-button-label="closeButtonLabel"
+		:primary-action="primaryAction"
+		:default-action="defaultAction"
+		:stacked-actions="stackedActions"
+		:placement="placement"
+		:render-in-place="renderInPlace"
+		v-bind="$attrs"
+		@update:open="$emit( 'update:open', $event )"
+		@primary="$emit( 'primary' )"
+		@default="$emit( 'default' )"
+	>
+		<template v-if="$slots.header" #header>
+			<slot name="header" />
+		</template>
+		<slot />
+		<template v-if="$slots.footer" #footer>
+			<slot name="footer" />
+		</template>
+	</cdx-popover-floating>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ComponentPublicInstance, computed, inject, toRef, ref, watch, onMounted, onUnmounted, nextTick, reactive, unref } from 'vue';
-import { useFloating, offset, flip, autoUpdate, size, arrow, Side, Placement } from '@floating-ui/vue';
-import { Icon, cdxIconClose } from '@wikimedia/codex-icons';
+import { defineComponent, PropType, ComponentPublicInstance, computed } from 'vue';
+import { Icon } from '@wikimedia/codex-icons';
+import { Placement } from '@floating-ui/vue';
 
-import CdxButton from '../button/Button.vue';
-import CdxIcon from '../icon/Icon.vue';
+import CdxPopoverBottomSheet from './PopoverBottomSheet.vue';
+import CdxPopoverFloating from './PopoverFloating.vue';
 
-import useI18nWithOverride from '../../composables/useI18nWithOverride';
-import { unwrapElement } from '../../utils/unwrapElement';
-import { PrimaryModalAction, ModalAction, TeleportTarget } from '../../types';
-import { oppositeSides } from '../../constants';
-import useFocusTrap from '../../composables/useFocusTrap';
+import { PrimaryModalAction, ModalAction } from '../../types';
+import useBreakpoint from '../../composables/useBreakpoint';
 
 /**
  * A Popover is a localized, non-disruptive container that is overlaid on a web page or app,
@@ -120,11 +73,11 @@ import useFocusTrap from '../../composables/useFocusTrap';
 export default defineComponent( {
 	name: 'CdxPopover',
 
-	components: { CdxButton, CdxIcon },
+	components: {
+		CdxPopoverBottomSheet,
+		CdxPopoverFloating
+	},
 
-	/**
-	 * The popover will inherit attributes, not the root element.
-	 */
 	inheritAttrs: false,
 
 	props: {
@@ -216,14 +169,35 @@ export default defineComponent( {
 			type: Boolean,
 			default: false
 		},
+
 		/**
 		 * Positioning options for the Popover.
 		 */
 		placement: {
 			type: String as PropType<Placement>,
 			default: 'bottom'
-		}
+		},
+
+		/**
+		 * Whether to use the bottom sheet variant on mobile devices.
+		 * When true, the popover will render as a bottom sheet on mobile breakpoints.
+		 */
+		useBottomSheet: {
+			type: Boolean,
+			default: false
+		},
+
+		/**
+		 * Whether to hide the backdrop/scrim behind the bottom sheet.
+		 * Only applies when useBottomSheet is true.
+		 */
+		hideBackdrop: {
+			type: Boolean,
+			default: false
+		},
+
 	},
+
 	emits: [
 		/**
 		 * When the open/close state changes, e.g. when the close button is clicked.
@@ -240,368 +214,16 @@ export default defineComponent( {
 		 */
 		'default'
 	],
-	setup( props, { emit } ) {
-		// Destructure "placement" prop to a reactive ref so we can pass
-		// it to useFloating
-		const placementRef = toRef( props, 'placement' );
 
-		// Floating UI behavior.
-		const floating = ref<HTMLDivElement>();
-		const reference = toRef( props, 'anchor' );
-		const arrowRef = ref<HTMLDivElement>();
-		const popoverBody = ref<HTMLDivElement>();
+	setup( props ) {
+		const breakpoint = useBreakpoint();
 
-		// TODO: Convert hardcoded values to JS Token T388062.
-		const clipPadding = 16;
-		// 256px was causing issues in small screens < 412px, see T395085
-		const minClipWidth = 192; // TODO: Should be `@size-1200`, which is in rems.
-		const minClipHeight = 200;
-		const maxClipWidth = 512; // TODO: Should be `@size-3200`, which is in rems.
-
-		// triangle math; this holds for right triangles (of which our arrow tip is one)
-		// leaving the full calculation here for posterity, and also in case we ever pull
-		// in a dynamic token value for the length of the sides or offset distance
-		const sideA = 16;
-		const sideB = 16;
-		const sideC = Math.sqrt( ( sideA ** 2 ) + ( sideB ** 2 ) ); // Per Pythagoras
-		const triangleHeight = sideC / 2;
-		const arrowOffset = 4; // desired distance between arrow point and anchor element
-		const offsetDistance = triangleHeight + arrowOffset;
-
-		const computedMiddleware = computed( () => [
-			offset( offsetDistance ),
-			// Default flip behavior will flip floating element across the main axis.
-			flip(),
-			size( {
-				// Spacing between the floating element and the viewport.
-				padding: clipPadding,
-				// Apply styles based on available width/height.
-				apply( { availableWidth, availableHeight, elements } ) {
-					// Max width possible is the availableWidth up to the max clip width.
-					const maxWidth = Math.min( maxClipWidth, availableWidth );
-					Object.assign( elements.floating.style, {
-						// Effective max width is the possible max width down to the min clip width.
-						maxWidth: `${ Math.max( minClipWidth, maxWidth ) }px`,
-						maxHeight: `${ Math.max( minClipHeight, availableHeight ) }px`
-					} );
-				}
-			} ),
-			arrow( { element: arrowRef } )
-		] );
-
-		const {
-			floatingStyles,
-			middlewareData,
-			placement,
-			x,
-			y
-		} = useFloating( reference, floating, {
-			whileElementsMounted: autoUpdate,
-			placement: placementRef,
-			middleware: computedMiddleware
-		} );
-
-		const arrowStyles = reactive<Record<Side|'transform', string>>( {
-			left: '0',
-			top: '0',
-			right: '0',
-			bottom: '0',
-			transform: 'none'
-		} );
-
-		const oppositeSide = computed( () => oppositeSides[ placement.value ] );
-
-		// Check for changes in popover, and update the arrow inline styles.
-		watch( [ x, y ], () => {
-			if ( middlewareData.value.arrow ) {
-				const { x: arrowX, y: arrowY } = middlewareData.value.arrow;
-
-				arrowStyles.left = arrowX ? `${ arrowX }px` : '';
-				arrowStyles.top = arrowY ? `${ arrowY }px` : '';
-				arrowStyles.right = '';
-				arrowStyles.bottom = '';
-
-				// Apply negative px to the placement's opposite side when popover flips.
-				// We also need to account for the 1px border width.
-				arrowStyles[ oppositeSide.value ] = `${ ( -16 / 2 ) - 1 }px`;
-
-				// A note on rotation:
-				//
-				// The "arrow" we use for the popover is just a CSS box. Then we
-				// apply "clip-path: polygon()" to mask out part of the shape
-				// (so that it appears seamlessly connected with the adjacent
-				// Popover body.
-				//
-				// After applying the clipping mask, the resulting shape needs
-				// to be rotated by 45 degrees (to point up), or by 45 degrees
-				// plus some multiple of 90 degrees (to point in a different
-				// direction).
-				const arrowTransforms = {
-					top: 'rotate( 45deg )',
-					right: 'rotate( 135deg )',
-					bottom: 'rotate( 225deg )',
-					left: 'rotate( 315deg )'
-				};
-
-				arrowStyles.transform = arrowTransforms[ oppositeSide.value ];
-			}
-		} );
-
-		// Determine where to teleport the Popover to.
-		const providedTarget = inject<TeleportTarget>( 'CdxTeleportTarget', undefined );
-		const computedTarget = computed( () => unref( providedTarget ) ?? 'body' );
-
-		const translatedCloseButtonLabel = useI18nWithOverride(
-			toRef( props, 'closeButtonLabel' ),
-			'cdx-popover-close-button-label',
-			'Close'
-		);
-
-		const showHeader = computed( () => !!props.title || !!props.icon || props.useCloseButton );
-		const showFooter = computed( () => !!props.primaryAction || !!props.defaultAction );
-
-		const footerActionsClasses = computed( () => ( {
-			'cdx-popover__footer__actions--vertical': props.stackedActions
-		} ) );
-
-		/**
-		 * Close the popover by emitting an event to the parent.
-		 */
-		function close() {
-			emit( 'update:open', false );
-		}
-
-		const {
-			focusTrapStart,
-			focusTrapEnd,
-			focusHolder,
-			focusFirst,
-			focusLast,
-			activateFocusTrap,
-			deactivateFocusTrap,
-		} = useFocusTrap( {
-			// floating is the container for the focus trap
-			containerRef: floating,
-			bodyRef: popoverBody,
-			// Pass the anchor ref so we don't move focus away from it if it's the trigger
-			anchorRef: reference,
-			preventScroll: true
-		} );
-
-		/**
-		 * Global "Escape" key handler.
-		 * Close the popover when Escape key is pressed.
-		 *
-		 * @param event
-		 */
-		function onKeydown( event: KeyboardEvent ) {
-			if ( event.key === 'Escape' ) {
-				close();
-			}
-		}
-
-		/**
-		 * Close the popover when focus is lost e.g. mousedown and focus events
-		 * that occur outside the Popover.
-		 *
-		 * @param event
-		 */
-		function onFocusOut( event: MouseEvent | FocusEvent ) {
-			// Check if the event occurred outside Popover and trigger.
-			const referenceEl = unwrapElement( reference.value );
-			const isOutsidePopoverAndTrigger = (
-				// Don't close the popover when the viewport's native scrollbar is clicked (T388302)
-				event.target !== document.documentElement &&
-				// ...or when the popover or something inside it is clicked
-				( floating.value && !floating.value.contains( event.target as Node ) ) &&
-				// ...or when the trigger or something inside it is clicked
-				( !referenceEl?.contains( event.target as Node ) )
-			);
-
-			if ( isOutsidePopoverAndTrigger ) {
-				close();
-			}
-		}
-
-		watch( () => props.open, async ( isOpen ) => {
-			if ( isOpen ) {
-				document.addEventListener( 'keydown', onKeydown );
-				document.addEventListener( 'mousedown', onFocusOut );
-				document.addEventListener( 'focusin', onFocusOut );
-				await activateFocusTrap();
-			} else {
-				document.removeEventListener( 'keydown', onKeydown );
-				document.removeEventListener( 'mousedown', onFocusOut );
-				document.removeEventListener( 'focusin', onFocusOut );
-				deactivateFocusTrap();
-			}
-		} );
-
-		onMounted( async () => {
-			if ( props.open ) {
-				document.addEventListener( 'keydown', onKeydown );
-				document.addEventListener( 'mousedown', onFocusOut );
-				document.addEventListener( 'focusin', onFocusOut );
-				await activateFocusTrap();
-			}
-
-			await nextTick();
-			if ( props.anchor === null ) {
-				// eslint-disable-next-line no-console
-				console.warn( '[CdxPopover]: The "anchor" prop must be provided to position the CdxPopover.' );
-
-			}
-		} );
-
-		onUnmounted( () => {
-			deactivateFocusTrap();
-			document.removeEventListener( 'keydown', onKeydown );
-			document.removeEventListener( 'mousedown', onFocusOut );
-			document.removeEventListener( 'focusin', onFocusOut );
-		} );
+		// Only use bottom sheet if the prop is enabled AND we're on mobile
+		const shouldUseBottomSheet = computed( () => props.useBottomSheet && breakpoint.mobile );
 
 		return {
-			computedTarget,
-			translatedCloseButtonLabel,
-			showHeader,
-			showFooter,
-			footerActionsClasses,
-			close,
-			cdxIconClose,
-			floating,
-			floatingStyles,
-			arrowRef,
-			arrowStyles,
-			focusTrapStart,
-			focusTrapEnd,
-			focusHolder,
-			popoverBody,
-			focusFirst,
-			focusLast
+			shouldUseBottomSheet
 		};
 	}
 } );
 </script>
-
-<style lang="less">
-@import (reference) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
-
-.cdx-popover {
-	background-color: @background-color-base;
-	display: flex;
-	flex-direction: column;
-	position: absolute;
-	z-index: @z-index-popover;
-	box-sizing: @box-sizing-base;
-	// Note that max-width is set by FloatingUI's size middleware.
-	min-width: @size-1200;
-	border: @border-base;
-	border-radius: @border-radius-base;
-	padding: @spacing-100;
-	box-shadow: @box-shadow-medium;
-
-	&__header {
-		display: flex;
-		align-items: flex-start;
-		flex-shrink: 0;
-		gap: @spacing-50;
-		margin-bottom: @spacing-50;
-
-		&__icon {
-			// Ensure the icon doesn't shrink when space is limited in the header.
-			flex-shrink: 0;
-			// Setting the height of the icon to the line-height of the accompanying text
-			// to ensure centering of the icon to text
-			height: @line-height-small;
-		}
-
-		&__title {
-			font-size: @font-size-medium;
-			font-weight: @font-weight-bold;
-			line-height: @line-height-small;
-		}
-
-		&__button-wrapper {
-			// Vertically center the button within the wrapper `<div>` element.
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			// Setting the height of the button wrapper to the line-height of the
-			// accompanying text to ensure centering of the button to text
-			height: @line-height-small;
-			// Move the button over so the edge of the icon aligns with the edge of the content.
-			// This makes the quiet button seem to take up less space.
-			margin-right: -@spacing-50;
-			// Send to the end of the flex container.
-			margin-left: auto;
-		}
-	}
-
-	&__body {
-		flex-grow: 1;
-		flex-shrink: 1;
-		overflow-y: auto;
-		font-size: @font-size-medium;
-		line-height: @line-height-small;
-	}
-
-	&__footer {
-		flex-shrink: 0;
-		margin-top: @spacing-100;
-
-		&__actions {
-			display: flex;
-			flex-direction: row-reverse;
-			gap: @spacing-75;
-
-			&--vertical {
-				flex-direction: column;
-				width: @size-full;
-
-				/* stylelint-disable-next-line max-nesting-depth */
-				.cdx-button {
-					max-width: none;
-				}
-			}
-
-			@media ( max-width: @min-width-breakpoint-tablet ) {
-				flex-direction: column;
-				width: @size-full;
-
-				/* stylelint-disable-next-line max-nesting-depth */
-				.cdx-button {
-					max-width: none;
-				}
-			}
-		}
-	}
-
-	&__arrow {
-		background-color: @background-color-base;
-		position: absolute;
-		width: @size-100;
-		height: @size-100;
-		border: @border-base;
-		border-top-left-radius: @border-radius-base;
-		box-shadow: @box-shadow-medium;
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-		clip-path: polygon( 0 0, 100% 0, 0 100% );
-	}
-}
-
-// This element is not used for visual styling, just
-// focus management. It needs to be invisible but cannot
-// have display:none, and its position in the markup is
-// important (must be inside the popover element).
-.cdx-popover-focus-trap {
-	// Set position to absolute so that this element is
-	// omitted from all flex layout calculations
-	position: absolute;
-
-	// Don't show visible focus outline for the focus-trap element
-	&:focus {
-		outline: 0;
-	}
-}
-
-</style>

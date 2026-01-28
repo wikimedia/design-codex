@@ -34,6 +34,18 @@ config.global.stubs = {
 };
 
 describe( 'Dialog', () => {
+	beforeEach( () => {
+		// Suppress console errors from jsdom not supporting @layer CSS syntax
+		jest.spyOn( console, 'error' ).mockImplementation( () => {
+			// Do nothing
+		} );
+	} );
+
+	afterEach( () => {
+		// Restore console.error
+		jest.restoreAllMocks();
+	} );
+
 	describe( 'matches the snapshot', () => {
 		const cases: Case[] = [
 			[ 'Basic usage', { title: 'Dialog', open: true }, { default: '<p>Hello world!</p>' } ],
@@ -82,12 +94,13 @@ describe( 'Dialog', () => {
 		} );
 	} );
 
-	it( 'adds the "cdx-dialog-open" class to the body when open, and removes it when closed', async () => {
+	it( 'locks body scroll when open, and unlocks it when closed', async () => {
 		const wrapper = mount( CdxDialog, { attachTo: document.body, ...dialogBasicClosed } );
 		await wrapper.setProps( { open: true } );
-		expect( document.body.classList ).toContain( 'cdx-dialog-open' );
+		expect( document.body.style.overflow ).toBe( 'hidden' );
 		await wrapper.setProps( { open: false } );
-		expect( document.body.classList ).not.toContain( 'cdx-dialog-open' );
+		expect( document.body.style.overflow ).toBe( '' );
+		expect( document.body.style.paddingRight ).toBe( '' );
 	} );
 
 	describe( 'when the dialog is opened', () => {
@@ -99,8 +112,8 @@ describe( 'Dialog', () => {
 			await wrapper.setProps( { open: true } );
 			await nextTick();
 			// Need an extra nextTick() because onDialogOpen() does its own nextTick() before
-			// calling onFocusTrapActivate(), which also does a nextTick(). Popover doesn't need
-			// this because it calls onFocusTrapActivate() directly from the watcher.
+			// calling activateFocusTrap(), which also does a nextTick(). Popover doesn't need
+			// this because it calls activateFocusTrap() directly from the watcher.
 			await nextTick();
 
 			const input = wrapper.find( '#input' ).element;

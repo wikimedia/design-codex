@@ -140,6 +140,7 @@ import { cdxIconClose } from '@wikimedia/codex-icons';
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
 import useResizeObserver from '../../composables/useResizeObserver';
 import useFocusTrap from '../../composables/useFocusTrap';
+import useScrollLock from '../../composables/useScrollLock';
 import { TeleportTarget, ModalAction, PrimaryModalAction } from '../../types';
 
 /**
@@ -347,10 +348,8 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		// Provide our own inner teleport target as the teleport target to child components
 		provide( 'CdxTeleportTarget', innerTeleportTarget );
 
-		// Value needed to compensate for the width of any visible scrollbar
-		// on the page prior to the dialog taking over; without this, browsers
-		// that permanently display scrollbars will exhibit a layout shift.
-		const scrollWidth = ref( 0 );
+		const isDialogOpen = computed( () => props.open );
+		useScrollLock( isDialogOpen );
 
 		/**
 		 * Close the dialog by emitting an event to the parent
@@ -387,7 +386,8 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		} = useFocusTrap( {
 			// dialogElement is the container for the focus trap
 			containerRef: dialogElement,
-			bodyRef: dialogBody
+			bodyRef: dialogBody,
+			preventScroll: true
 		} );
 
 		let ariaHiddenElements: Element[] = [];
@@ -435,20 +435,9 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		}
 
 		async function onDialogOpen() {
-
 			// Most of the things below need to happen on nextTick because they rely on template
 			// refs, and those are not yet set when the watcher for props.open runs.
-			// The documentElement and body manipulations don't need to happen on nextTick, but
-			// it's better to group them with the other DOM changes so that we don't cause two
-			// separate reflows.
 			await nextTick();
-
-			// Determine the width of the scrollbar and compensate for it if necessary
-			scrollWidth.value = window.innerWidth - document.documentElement.clientWidth;
-			document.documentElement.style.setProperty( 'margin-right', `${ scrollWidth.value }px` );
-
-			// Add a class to <body> to prevent scrolling
-			document.body.classList.add( 'cdx-dialog-open' );
 
 			setAriaHiddenAndInert();
 
@@ -457,8 +446,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		}
 
 		function onDialogClose() {
-			document.body.classList.remove( 'cdx-dialog-open' );
-			document.documentElement.style.removeProperty( 'margin-right' );
 			unsetAriaHiddenAndInert();
 
 			// Run shared focus trap teardown.
@@ -743,7 +730,4 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 	opacity: @opacity-transparent;
 }
 
-body.cdx-dialog-open {
-	overflow: hidden;
-}
 </style>

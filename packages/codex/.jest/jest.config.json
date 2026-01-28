@@ -29,6 +29,8 @@
 	"collectCoverageFrom": [
 		"<rootDir>/src/**/*.(ts|vue)",
 		"!<rootDir>/src/**/*.(d|test|snap).ts",
+		"!<rootDir>/src/components/popover/PopoverBottomSheet.vue",
+		"!<rootDir>/src/components/popover/PopoverFloating.vue",
 		"!<rootDir>/src/constants.ts",
 		"!<rootDir>/src/lib.ts",
 		"!<rootDir>/src/lib-wip.ts",

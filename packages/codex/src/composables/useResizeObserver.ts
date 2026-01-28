@@ -37,12 +37,26 @@ export default function useResizeObserver(
 			 * width and blockSize corresponds to height. In vertical-direction
 			 * layouts, these are reversed. For now this composable only
 			 * supports horizontal directionality.
+			 *
+			 * `borderBoxSize` is not available in older Safari (e.g. iOS 14);
+			 * fall back to `contentRect`, which is supported wherever
+			 * ResizeObserver exists.
+			 *
+			 * @see https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserverEntry/borderBoxSize
 			 */
 			if ( entry ) {
-				currentDimensions.value = {
-					width: entry.borderBoxSize?.[ 0 ].inlineSize,
-					height: entry.borderBoxSize?.[ 0 ].blockSize
-				};
+				const borderBox = entry.borderBoxSize?.[ 0 ];
+				if ( borderBox ) {
+					currentDimensions.value = {
+						width: borderBox.inlineSize,
+						height: borderBox.blockSize
+					};
+				} else {
+					currentDimensions.value = {
+						width: entry.contentRect.width,
+						height: entry.contentRect.height
+					};
+				}
 			}
 		}
 	);
@@ -70,7 +84,6 @@ export default function useResizeObserver(
 			return;
 		}
 		observer.disconnect();
-
 		// Reset the current width and height value and observe the new element
 		currentDimensions.value = {
 			width: undefined,

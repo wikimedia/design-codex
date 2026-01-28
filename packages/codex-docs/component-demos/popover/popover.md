@@ -5,6 +5,7 @@ import PopoverConfigurable from '@/../component-demos/popover/examples/PopoverCo
 import PopoverBasic from '@/../component-demos/popover/examples/PopoverBasic.vue';
 import PopoverStackedActions from '@/../component-demos/popover/examples/PopoverStackedActions.vue';
 import PopoverArticlePreview from '@/../component-demos/popover/examples/PopoverArticlePreview.vue';
+import PopoverBottomSheet from '@/../component-demos/popover/examples/PopoverBottomSheet.vue';
 
 const controlsConfig = [
 	{ name: 'title', type: 'text', initial: 'Popover title' },
@@ -39,6 +40,8 @@ const controlsConfig = [
 		type: 'slot',
 		default: 'Popover body content.'
 	},
+	{ name: 'useBottomSheet', type: 'boolean' },
+	{ name: 'hideBackdrop', type: 'boolean' },
 ];
 
 </script>
@@ -263,6 +266,70 @@ place.
 the `triggerElements` array.
 - To show and hide the Popover on hover and focus, add `mouseover`, `focus`, `mouseleave`, and `blur`
 event listeners to the anchor elements that trigger a Popover.
+
+</cdx-accordion>
+
+### Bottom sheet (mobile)
+
+The Popover component can be configured to display as a bottom sheet on mobile devices.
+This provides a better mobile experience with touch-friendly interactions, keyboard awareness,
+and safe area support.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>
+
+Use the bottom sheet variant on mobile devices when the popover content is substantial
+or requires user interaction, such as forms or multi-step workflows.
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice>
+
+The bottom sheet adapts to its content size, only expanding to full viewport height
+when necessary. Content will scroll when it exceeds the available space.
+
+</cdx-demo-best-practice>
+<cdx-demo-best-practice>
+
+Use a backdrop/scrim to clearly separate the bottom sheet from the underlying content.
+
+</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<popover-bottom-sheet />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/popover/examples/PopoverBottomSheet.vue [NPM]
+
+<<< @/../component-demos/popover/examples-mw/PopoverBottomSheet.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+To enable the bottom sheet variant, set the `use-bottom-sheet` prop to `true`.
+The bottom sheet will automatically appear on mobile devices (≤639px) and the regular
+popover will appear on larger screens.
+
+- The `hide-backdrop` prop controls whether a backdrop/scrim is hidden (defaults to `false`, so the backdrop is shown by default)
+- The bottom sheet adapts to its content size, only expanding to full viewport height when necessary (accounting for safe areas)
+- The bottom sheet automatically handles IOS keyboard visibility and adjusts its position accordingly
+- Safe area insets are automatically applied for device notches and home indicators
+- When content exceeds the available height, scrolling is automatically enabled
+
+::: tip Testing on mobile
+To test the bottom sheet functionality, resize your browser window to mobile size
+(≤639px) or use your browser's device emulation tools. The bottom sheet will only
+appear on mobile breakpoints when `use-bottom-sheet` is enabled.
+:::
 
 </cdx-accordion>
 

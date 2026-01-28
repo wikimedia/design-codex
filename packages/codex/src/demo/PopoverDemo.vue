@@ -93,6 +93,84 @@
 				This is the body of a Popover where text, inputs, or other elements can be.
 			</cdx-popover>
 		</div>
+
+		<div class="cdx-demo__content__sectioning">
+			<cdx-toggle-button
+				ref="toggleButton5"
+				v-model="showPopover5"
+				@update:model-value="onUpdate"
+			>
+				Popover as Bottom Sheet (Mobile Only)
+			</cdx-toggle-button>
+			<cdx-popover
+				v-model:open="showPopover5"
+				title="Popover demo"
+				:default-action
+				:primary-action
+				:use-bottom-sheet="true"
+				:stacked-actions="true"
+				:use-close-button="true"
+				:render-in-place="true"
+				:anchor="toggleButton5"
+				placement="left"
+			>
+				This is the body of a Popover as a Bottom Sheet on mobile where text,
+				inputs, or other elements can be.
+			</cdx-popover>
+		</div>
+
+		<div class="cdx-demo__content__sectioning">
+			<cdx-toggle-button
+				ref="toggleButton6"
+				v-model="showPopover6"
+				@update:model-value="onUpdate"
+			>
+				Popover as Bottom Sheet + long content (Mobile Only)
+			</cdx-toggle-button>
+			<cdx-popover
+				v-model:open="showPopover6"
+				title="Popover demo"
+				:default-action
+				:primary-action
+				:use-bottom-sheet="true"
+				:stacked-actions="true"
+				:use-close-button="true"
+				:render-in-place="true"
+				:anchor="toggleButton6"
+				placement="left"
+			>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus
+					augue eget placerat eleifend. Nulla eleifend ligula at accumsan
+					ullamcorper. Maecenas pretium erat sit amet venenatis tincidunt. Nunc
+					suscipit vel lacus eleifend euismod. Vivamus dui nisi, interdum sed
+					sodales ut, consectetur quis ante. Nunc nec metus id lectus efficitur
+					volutpat. Fusce luctus est quis faucibus eleifend. Etiam vel nisl in quam
+					elementum tempor quis eu dui. Nulla facilisi. Vivamus rutrum ac lorem sed
+					feugiat.
+				</p>
+				<p>
+					Donec elementum sapien augue, et iaculis nisi scelerisque vitae. Nunc
+					quis viverra quam. Nam maximus libero eget sodales maximus. Aenean in
+					interdum elit. Sed ac elit gravida, tincidunt odio et, scelerisque turpis.
+					Curabitur vel cursus diam. Praesent in mi sollicitudin, egestas erat eu,
+					ornare ante. Mauris id dui lacinia, congue lectus a, dictum urna.
+					Phasellus et quam blandit, vulputate leo ac, consequat mi. Nulla ut
+					ornare sapien. Proin nec dui a tortor pretium interdum sit amet ac ex.
+					Curabitur congue tempus mauris, in auctor urna egestas id. Sed vitae nunc
+					nec tortor porta fermentum.
+				</p>
+				<p>
+					Praesent venenatis, ipsum non gravida viverra, nibh ipsum dictum arcu,
+					eget tincidunt nisl ex a lectus. Suspendisse ultrices tincidunt ipsum quis
+					laoreet. Maecenas aliquet placerat urna auctor sagittis. Nullam et
+					placerat purus. Aenean aliquam mollis diam ut scelerisque. Etiam rutrum
+					tempor erat, quis commodo neque aliquet in. Sed id magna at libero dictum
+					blandit id vehicula orci. Vivamus sollicitudin auctor consequat. Nullam
+					pharetra mauris vitae tortor consequat mattis.
+				</p>
+			</cdx-popover>
+		</div>
 	</section>
 </template>
 
@@ -105,13 +183,15 @@ const toggleButton = useTemplateRef<ComponentPublicInstance>( 'toggleButton' );
 const toggleButton2 = useTemplateRef<ComponentPublicInstance>( 'toggleButton2' );
 const toggleButton3 = useTemplateRef<ComponentPublicInstance>( 'toggleButton3' );
 const toggleButton4 = useTemplateRef<ComponentPublicInstance>( 'toggleButton4' );
-
+const toggleButton5 = useTemplateRef<ComponentPublicInstance>( 'toggleButton5' );
+const toggleButton6 = useTemplateRef<ComponentPublicInstance>( 'toggleButton6' );
 // Enable and disable the toggle button state and popover visibility.
 const showPopover = ref( false );
 const showPopover2 = ref( false );
 const showPopover3 = ref( false );
 const showPopover4 = ref( false );
-
+const showPopover5 = ref( false );
+const showPopover6 = ref( false );
 const onUpdate = function ( value: boolean ) {
 	// eslint-disable-next-line no-console
 	console.log( 'update:modelValue event emitted with value: ' + value );

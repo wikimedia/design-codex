@@ -14,6 +14,8 @@
 		:title
 		:icon
 		:use-close-button
+		:use-bottom-sheet="useBottomSheet"
+		:hide-backdrop="hideBackdrop"
 		:stacked-actions
 		:primary-action
 		:default-action
@@ -76,6 +78,14 @@ export default defineComponent( {
 		placement: {
 			type: String,
 			default: 'bottom'
+		},
+		useBottomSheet: {
+			type: Boolean,
+			default: false
+		},
+		hideBackdrop: {
+			type: Boolean,
+			default: false
 		}
 	},
 	setup( props ) {
