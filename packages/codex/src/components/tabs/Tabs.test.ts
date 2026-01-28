@@ -1,6 +1,7 @@
-import { mount, config } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import CdxTabs from './Tabs.vue';
 import CdxTab from '../tab/Tab.vue';
+import suppressSlotRenderWarning from '../../testutils/suppressSlotRenderWarning';
 
 /**
  * Utility function to construct realistic slot markup content
@@ -28,11 +29,14 @@ const tabData = [
 ];
 
 const slotMarkup = generateSlotMarkup( tabData );
+let restoreWarnHandler: () => void;
 
 beforeAll( () => {
-	config.global.config.warnHandler = () => {
-		// silence warnings for this component to avoid test pollution
-	};
+	restoreWarnHandler = suppressSlotRenderWarning();
+} );
+
+afterAll( () => {
+	restoreWarnHandler();
 } );
 
 beforeEach( () => {

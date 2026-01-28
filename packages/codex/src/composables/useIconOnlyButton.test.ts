@@ -2,8 +2,19 @@ import { defineComponent } from 'vue';
 import { mount } from '@vue/test-utils';
 import useIconOnlyButton from './useIconOnlyButton';
 import CdxIcon from '../components/icon/Icon.vue';
+import suppressSlotRenderWarning from '../testutils/suppressSlotRenderWarning';
 
 describe( 'useIconOnlyButton', () => {
+	let restoreWarnHandler: () => void;
+
+	beforeAll( () => {
+		restoreWarnHandler = suppressSlotRenderWarning();
+	} );
+
+	afterAll( () => {
+		restoreWarnHandler();
+	} );
+
 	type Case = [
 		msg: string,
 		content: string,
@@ -42,6 +53,7 @@ describe( 'useIconOnlyButton', () => {
 
 	test.each( cases )( 'Case %# %s: %s => %p', ( _, content, expectedIconOnly ) => {
 		const wrapper = mount( TestComponent, {
+			attrs: { 'aria-hidden': true },
 			slots: { default: content },
 			global: {
 				components: { CdxIcon }

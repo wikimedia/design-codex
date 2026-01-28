@@ -1,9 +1,10 @@
-import { DOMWrapper, mount, VueWrapper } from '@vue/test-utils';
-import CdxTypeaheadSearch from './TypeaheadSearch.vue';
+import { DOMWrapper, VueWrapper, mount } from '@vue/test-utils';
+import { DebounceInterval, PendingDelay } from '../../constants';
+
+import CdxMenu from '../menu/Menu.vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
 import CdxSearchInput from '../search-input/SearchInput.vue';
-import CdxMenu from '../menu/Menu.vue';
-import { DebounceInterval, PendingDelay } from '../../constants';
+import CdxTypeaheadSearch from './TypeaheadSearch.vue';
 import { SearchResult } from '../../types';
 
 const propsData = {
@@ -84,7 +85,7 @@ describe( 'TypeaheadSearch', () => {
 			[ 'With `autoExpandWidth` true and `showThumbnail` false', { ...propsData, autoExpandWidth: true, showThumbnail: false } ],
 			[ 'With `showThumbnail` and `isMobileView`', { ...propsData, showThumbnail: true, isMobileView: true } ],
 			[ 'With custom visible button label', { ...propsData, buttonLabel: 'Search Results' } ],
-			[ 'With custom visible button label using the deprecated API', { ...propsDataDeprecated, autoExpandWidth: true, showThumbnail: true } ]
+			[ 'With custom visible button label using the deprecated API', { ...propsDataDeprecated, useButton: true, autoExpandWidth: true, showThumbnail: true } ]
 		];
 
 		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {

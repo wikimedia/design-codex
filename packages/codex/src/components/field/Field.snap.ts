@@ -1017,7 +1017,7 @@ exports[`Field matches the snapshot with a TextInput control Case 1 With label i
 </div>
 `;
 
-exports[`Field matches the snapshot with a TextInput control Case 2 With optional flag using deprecated API: ({"optionalFlag": "(optional)"}) => HTML 1`] = `
+exports[`Field matches the snapshot with a TextInput control Case 2 With optional flag using deprecated API: ({"optional": true, "optionalFlag": "(optional)"}) => HTML 1`] = `
 <div
   class="cdx-field"
 >

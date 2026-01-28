@@ -59,6 +59,7 @@ describe( 'Message', () => {
 			// Set up a Message that is both auto and user dismissable.
 			const wrapper = mount( CdxMessage, { props: {
 				autoDismiss: true,
+				allowUserDismiss: true,
 				dismissButtonLabel: 'Close'
 			} } );
 
@@ -73,7 +74,7 @@ describe( 'Message', () => {
 		// DEPRECATED: eventually remove (T368444).
 		describe( 'via the deprecated API', () => {
 			it( 'provides a working dismiss button', async () => {
-				const wrapper = mount( CdxMessage, { props: { dismissButtonLabel: 'Dismiss' } } );
+				const wrapper = mount( CdxMessage, { props: { allowUserDismiss: true, dismissButtonLabel: 'Dismiss' } } );
 				await wrapper.get( 'button' ).trigger( 'click' );
 				expect( wrapper.emitted()[ 'user-dismissed' ] ).toBeTruthy();
 				expect( wrapper.vm.dismissed ).toBeTruthy();
@@ -116,6 +117,7 @@ describe( 'Message', () => {
 
 		it( 'does not allow auto-dismissal for error messages', () => {
 			jest.useFakeTimers();
+			const warnSpy = jest.spyOn( console, 'warn' ).mockImplementation( () => undefined );
 
 			const wrapper = mount( CdxMessage, { props: { type: 'error', autoDismiss: 1000 } } );
 			expect( wrapper.emitted()[ 'auto-dismissed' ] ).toBeFalsy();
@@ -124,6 +126,10 @@ describe( 'Message', () => {
 			jest.advanceTimersByTime( 1000 );
 			expect( wrapper.emitted()[ 'auto-dismissed' ] ).toBeFalsy();
 			expect( wrapper.vm.dismissed ).toBeFalsy();
+			expect( warnSpy ).toHaveBeenCalledWith(
+				expect.stringContaining( 'Message with type="error" cannot use auto-dismiss' )
+			);
+			warnSpy.mockRestore();
 		} );
 	} );
 

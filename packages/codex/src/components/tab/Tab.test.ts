@@ -1,10 +1,15 @@
-import { mount, config } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import CdxTab from './Tab.vue';
+import suppressSlotRenderWarning from '../../testutils/suppressSlotRenderWarning';
+
+let restoreWarnHandler: () => void;
 
 beforeAll( () => {
-	config.global.config.warnHandler = () => {
-		// silence warnings for this component to avoid test pollution
-	};
+	restoreWarnHandler = suppressSlotRenderWarning();
+} );
+
+afterAll( () => {
+	restoreWarnHandler();
 } );
 
 describe( 'Tab', () => {

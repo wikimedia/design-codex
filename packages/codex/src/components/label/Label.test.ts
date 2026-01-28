@@ -22,7 +22,7 @@ describe( 'Label', () => {
 		const cases: Case[] = [
 			[ 'Default', 'Label text', {} ],
 			[ 'With icon', 'Label text', { icon: cdxIconMapPin } ],
-			[ 'With optional flag using deprecated API', 'Label text', { optionalFlag: '(optional)' } ],
+			[ 'With optional flag using deprecated API', 'Label text', { optional: true, optionalFlag: '(optional)' } ],
 			[ 'With optional flag', 'Label text ', { optional: true } ],
 			[ 'With visually hidden label', 'Label text', { visuallyHidden: true } ],
 			[ 'As legend', 'Label text', { isLegend: true } ],

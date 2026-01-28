@@ -32,7 +32,7 @@ describe( 'Field', () => {
 			const cases: Case[] = [
 				[ 'Basic field', {}, 'Label text' ],
 				[ 'With label icon', { labelIcon: cdxIconMapPin }, 'Label text' ],
-				[ 'With optional flag using deprecated API', { optionalFlag: '(optional)' }, 'Label text' ],
+				[ 'With optional flag using deprecated API', { optional: true, optionalFlag: '(optional)' }, 'Label text' ],
 				[ 'With optional flag', { optional: true }, 'Label text' ],
 				[ 'With visually hidden label', { hideLabel: true }, 'Label text' ],
 				[ 'Disabled', { disabled: true }, 'Label text' ],
