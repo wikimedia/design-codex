@@ -56,7 +56,7 @@ For more information on border tokens visit the [Border](/design-tokens/border) 
 
 ## Box-shadow color
 
-For more information on border tokens visit the [Box-shadow](/design-tokens/box-shadow) page.
+For more information on box shadow tokens visit the [Box-shadow](/design-tokens/box-shadow) page.
 
 <cdx-docs-tokens-table
 	:tokens="tokens['box-shadow']['color']"
