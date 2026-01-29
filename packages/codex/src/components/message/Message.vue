@@ -19,6 +19,17 @@
 			</div>
 
 			<cdx-button
+				v-if="actionButton"
+				class="cdx-message__action-button"
+				weight="quiet"
+				type="button"
+				size="small"
+				@click="onActionButtonClick"
+			>
+				{{ actionButton }}
+			</cdx-button>
+
+			<cdx-button
 				v-if="userDismissable"
 				class="cdx-message__dismiss-button"
 				weight="quiet"
@@ -146,6 +157,14 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 			default: false,
 			validator: ( value: unknown ) => typeof value === 'boolean' ||
 				( typeof value === 'number' && value > 0 )
+		},
+
+		/**
+		 * Label text for the optional action button.
+		 */
+		actionButton: {
+			type: String,
+			default: ''
 		}
 	},
 	emits: [
@@ -156,7 +175,11 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 		/**
 		 * Emitted when the message is automatically dismissed after the display time.
 		 */
-		'auto-dismissed'
+		'auto-dismissed',
+		/**
+		 * Emitted when the action button is clicked.
+		 */
+		'action-button-click'
 	],
 	setup( props, { emit } ) {
 		const dismissed = ref( false );
@@ -223,6 +246,13 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 			emit( eventName );
 		}
 
+		/**
+		 * Handle action button click.
+		 */
+		function onActionButtonClick() {
+			emit( 'action-button-click' );
+		}
+
 		onMounted( () => {
 			if ( props.type === 'error' && props.autoDismiss !== false ) {
 				warn( 'CdxMessage: Message with type="error" cannot use auto-dismiss' );
@@ -241,6 +271,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 			leaveActiveClass,
 			computedIcon,
 			onDismiss,
+			onActionButtonClick,
 			cdxIconClose
 		};
 	}
@@ -375,6 +406,14 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 	&__content > *:last-child {
 		margin-bottom: 0;
 		padding-bottom: 0;
+	}
+
+	&__action-button.cdx-button {
+		flex-shrink: 0;
+		position: relative;
+		margin-bottom: -@spacing-50;
+		// Remove `line-height` to not overgrow button.
+		line-height: 0;
 	}
 
 	&__dismiss-button.cdx-button {

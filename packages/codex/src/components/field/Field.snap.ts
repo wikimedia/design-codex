@@ -701,6 +701,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
           
         </div>
         <!--v-if-->
+        <!--v-if-->
       </div>
     </transition-stub>
   </div>
@@ -1395,6 +1396,7 @@ exports[`Field matches the snapshot with a TextInput control Case 6 Error status
           
         </div>
         <!--v-if-->
+        <!--v-if-->
       </div>
     </transition-stub>
   </div>
@@ -1763,6 +1765,7 @@ exports[`Field matches the snapshot with a Textarea control Case 2 Error status 
           
           
         </div>
+        <!--v-if-->
         <!--v-if-->
       </div>
     </transition-stub>

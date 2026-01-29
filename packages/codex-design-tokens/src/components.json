@@ -238,6 +238,9 @@
 		"icon-css-only": {
 			"value": "{ transition-property.background-color }"
 		},
+		"toast": {
+			"value": "{ transition-property.opacity }, { transition-property.transform }"
+		},
 		"toggle-switch-grip": {
 			"value": "{ transition-property.background-color }, { transition-property.border-color }, { transition-property.transform }"
 		}

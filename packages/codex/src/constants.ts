@@ -8,10 +8,11 @@
  * site. Refer to `packages/codex-docs/docs/components/types-and-constants.md`.
  */
 
-import { ComputedRef, Ref, InjectionKey, WritableComputedRef } from 'vue';
-import { TabData, ValidationStatusType } from './types';
-import { makeStringTypeValidator } from './utils/stringTypeValidator';
+import { ComputedRef, InjectionKey, Ref, WritableComputedRef } from 'vue';
 import { Placement, Side } from '@floating-ui/vue';
+import { TabData, ValidationStatusType } from './types';
+
+import { makeStringTypeValidator } from './utils/stringTypeValidator';
 
 /**
  * String prefix for use in namespacing, etc

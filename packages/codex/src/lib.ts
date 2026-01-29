@@ -17,6 +17,50 @@
  * external use; most utility functions are internal-only and should not be exported.
  */
 
+// Utilities
+import * as stringHelpers from './utils/stringHelpers';
+
+// Types
+import type {
+	AccordionSeparation,
+	BoxDimensions,
+	ButtonAction,
+	ButtonGroupItem,
+	ButtonSize,
+	ButtonWeight,
+	ChipInputItem,
+	ChipValidator,
+	FloatingMenuOptions,
+	HTMLDirection,
+	HeadingLevel,
+	I18nFunction,
+	I18nMessageKey,
+	IconSize,
+	MenuButtonItemData,
+	MenuConfig,
+	MenuGroupData,
+	MenuItemData,
+	MenuItemDataWithId,
+	MenuItemLanguageData,
+	MenuItemValue,
+	MenuState,
+	ModalAction,
+	Placement,
+	PrimaryModalAction,
+	SearchResult,
+	SearchResultClickEvent,
+	StatusType,
+	TableColumn,
+	TableRow,
+	TableSort,
+	TableSortOption,
+	TeleportTarget,
+	TextInputType,
+	Thumbnail,
+	ValidationMessages,
+	ValidationStatusType
+} from './types';
+
 // Components
 import CdxAccordion from './components/accordion/Accordion.vue';
 import CdxButton from './components/button/Button.vue';
@@ -44,18 +88,21 @@ import CdxRadio from './components/radio/Radio.vue';
 import CdxSearchInput from './components/search-input/SearchInput.vue';
 import CdxSearchResultTitle from './components/search-result-title/SearchResultTitle.vue';
 import CdxSelect from './components/select/Select.vue';
-import CdxTable from './components/table/Table.vue';
 import CdxTab from './components/tab/Tab.vue';
+import CdxTable from './components/table/Table.vue';
 import CdxTabs from './components/tabs/Tabs.vue';
 import CdxTextArea from './components/text-area/TextArea.vue';
 import CdxTextInput from './components/text-input/TextInput.vue';
 import CdxThumbnail from './components/thumbnail/Thumbnail.vue';
+import CdxToast from './components/toast/Toast.vue';
+import CdxToastContainer from './components/toast/ToastContainer.vue';
 import CdxToggleButton from './components/toggle-button/ToggleButton.vue';
 import CdxToggleButtonGroup from './components/toggle-button-group/ToggleButtonGroup.vue';
 import CdxToggleSwitch from './components/toggle-switch/ToggleSwitch.vue';
 import CdxTooltip from './components/tooltip/Tooltip';
 import CdxTypeaheadSearch from './components/typeahead-search/TypeaheadSearch.vue';
-
+// Constants.
+import { TableRowIdentifier } from './constants';
 // Composables
 import useComputedDirection from './composables/useComputedDirection';
 import useComputedDisabled from './composables/useComputedDisabled';
@@ -69,54 +116,8 @@ import useModelWrapper from './composables/useModelWrapper';
 import useResizeObserver from './composables/useResizeObserver';
 import useSlotContents from './composables/useSlotContents';
 import useSplitAttributes from './composables/useSplitAttributes';
+import useToast from './components/toast/useToast';
 import useWarnOnce from './composables/useWarnOnce';
-
-// Utilities
-import * as stringHelpers from './utils/stringHelpers';
-
-// Types
-import type {
-	Placement,
-	I18nMessageKey,
-	I18nFunction,
-	HTMLDirection,
-	ButtonAction,
-	ButtonWeight,
-	ButtonSize,
-	ButtonGroupItem,
-	FloatingMenuOptions,
-	IconSize,
-	StatusType,
-	TextInputType,
-	MenuButtonItemData,
-	MenuConfig,
-	MenuGroupData,
-	MenuState,
-	MenuItemValue,
-	MenuItemData,
-	MenuItemDataWithId,
-	MenuItemLanguageData,
-	SearchResult,
-	SearchResultClickEvent,
-	Thumbnail,
-	ModalAction,
-	PrimaryModalAction,
-	BoxDimensions,
-	ValidationStatusType,
-	ValidationMessages,
-	HeadingLevel,
-	ChipInputItem,
-	ChipValidator,
-	TableColumn,
-	TableRow,
-	TableSort,
-	TableSortOption,
-	TeleportTarget,
-	AccordionSeparation
-} from './types';
-
-// Constants.
-import { TableRowIdentifier } from './constants';
 
 export {
 	// Components
@@ -152,6 +153,8 @@ export {
 	CdxTextArea,
 	CdxTextInput,
 	CdxThumbnail,
+	CdxToast,
+	CdxToastContainer,
 	CdxToggleButton,
 	CdxToggleButtonGroup,
 	CdxToggleSwitch,
@@ -172,6 +175,7 @@ export {
 	useSlotContents,
 	useSplitAttributes,
 	useWarnOnce,
+	useToast,
 
 	// Utilities
 	stringHelpers,

@@ -42,6 +42,7 @@ exports[`Message matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
       
     </div>
     <!--v-if-->
+    <!--v-if-->
   </div>
 </transition-stub>
 `;
@@ -87,6 +88,7 @@ exports[`Message matches the snapshot Case 1 notice message: ({"type": "notice"}
       </p>
       
     </div>
+    <!--v-if-->
     <!--v-if-->
   </div>
 </transition-stub>
@@ -134,6 +136,7 @@ exports[`Message matches the snapshot Case 2 warning message: ({"type": "warning
       
     </div>
     <!--v-if-->
+    <!--v-if-->
   </div>
 </transition-stub>
 `;
@@ -179,6 +182,7 @@ exports[`Message matches the snapshot Case 3 error message: ({"type": "error"}) 
       </p>
       
     </div>
+    <!--v-if-->
     <!--v-if-->
   </div>
 </transition-stub>
@@ -226,6 +230,7 @@ exports[`Message matches the snapshot Case 4 success message: ({"type": "success
       
     </div>
     <!--v-if-->
+    <!--v-if-->
   </div>
 </transition-stub>
 `;
@@ -272,6 +277,7 @@ exports[`Message matches the snapshot Case 5 Inline: ({"inline": true}) => HTML 
       
     </div>
     <!--v-if-->
+    <!--v-if-->
   </div>
 </transition-stub>
 `;
@@ -317,6 +323,7 @@ exports[`Message matches the snapshot Case 6 Dismissable: ({"allowUserDismiss": 
       </p>
       
     </div>
+    <!--v-if-->
     <button
       aria-label="Close"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-message__dismiss-button"
@@ -393,6 +400,7 @@ exports[`Message matches the snapshot Case 7 Dismissable, custom label: ({"allow
       </p>
       
     </div>
+    <!--v-if-->
     <button
       aria-label="Dismiss"
       class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-message__dismiss-button"
@@ -469,6 +477,7 @@ exports[`Message matches the snapshot Case 8 Custom icon: ({"icon": [Object]}) =
       </p>
       
     </div>
+    <!--v-if-->
     <!--v-if-->
   </div>
 </transition-stub>

@@ -1,7 +1,8 @@
-import { defineConfigWithTheme, DefaultTheme, HeadConfig } from 'vitepress';
+import { DefaultTheme, HeadConfig, defineConfigWithTheme } from 'vitepress';
+
+import { CustomConfig } from './types';
 import { existsSync } from 'fs';
 import path from 'path';
-import { CustomConfig } from './types';
 
 // If this isn't a tag, branch deploy, or local dev, we're on the main branch. We'll pass this var
 // to the theme config so we can use it to display a message.
@@ -316,9 +317,9 @@ export default defineConfigWithTheme<CustomConfig>( {
 								{ text: 'InfoChip', link: '/components/demos/info-chip' },
 								{ text: 'Message', link: '/components/demos/message' },
 								{ text: 'ProgressBar', link: '/components/demos/progress-bar' },
-								{ text: 'ProgressIndicator', link: '/components/demos/progress-indicator' }
+								{ text: 'ProgressIndicator', link: '/components/demos/progress-indicator' },
+								{ text: 'Toast', link: '/components/demos/toast' },
 								// Skeleton
-								// Toast
 							] )
 						},
 						{

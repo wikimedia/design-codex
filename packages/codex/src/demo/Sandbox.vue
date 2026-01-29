@@ -39,6 +39,7 @@
 			<text-area-demo />
 			<text-input-demo />
 			<thumbnail-demo />
+			<toast-demo />
 			<toggle-button-group-demo />
 			<toggle-demo />
 			<tooltip-demo />
@@ -105,6 +106,7 @@ import TooltipDemo from './TooltipDemo.vue';
 import TypeaheadSearchDemo from './TypeaheadSearchDemo.vue';
 import LinkDemo from './LinkDemo.vue';
 import TypographyDemo from './TypographyDemo.vue';
+import ToastDemo from './ToastDemo.vue';
 
 const demoSections = [
 	{ name: 'Accordion', id: '#cdx-accordion' },
@@ -141,6 +143,7 @@ const demoSections = [
 	{ name: 'TextArea', id: '#cdx-text-area' },
 	{ name: 'TextInput', id: '#cdx-text-input' },
 	{ name: 'Thumbnail', id: '#cdx-thumbnail' },
+	{ name: 'Toast', id: '#cdx-toast' },
 	{ name: 'ToggleButton and ToggleSwitch', id: '#cdx-toggle' },
 	{ name: 'ToggleButtonGroup', id: '#cdx-toggle-button-group' },
 	{ name: 'Tooltip', id: '#cdx-tooltip' },
