@@ -6,7 +6,6 @@ import MultiselectLookupWithSuggestions from '@/../component-demos/multiselect-l
 import MultiselectLookupWithInitialSelection from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupWithInitialSelection.vue';
 import MultiselectLookupField from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupField.vue';
 import MultiselectLookupWithKeepInput from '@/../component-demos/multiselect-lookup/examples/MultiselectLookupWithKeepInput.vue'
-import { CdxAccordion } from '@wikimedia/codex';
 
 const controlsConfig = [
 	{
@@ -24,6 +23,10 @@ const controlsConfig = [
 	},
 	{
 		name: 'readonly',
+		type: 'boolean'
+	},
+	{
+		name: 'highlightQuery',
 		type: 'boolean'
 	}
 ];

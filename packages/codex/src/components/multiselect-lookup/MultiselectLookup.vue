@@ -33,6 +33,7 @@
 			v-model:selected="selectedWrapper"
 			v-model:expanded="expanded"
 			:menu-items="menuItems"
+			:search-query="highlightQuery ? searchQuery : ''"
 			v-bind="menuConfig"
 			@load-more="$emit( 'load-more' )"
 		>
@@ -78,8 +79,15 @@ import useModelWrapper from '../../composables/useModelWrapper';
 import useOptionalModelWrapper from '../../composables/useOptionalModelWrapper';
 import useSplitAttributes from '../../composables/useSplitAttributes';
 
-import { ChipInputItem, MenuItemData, MenuItemValue, MenuGroupData, MenuConfig, ValidationStatusType } from '../../types';
-import { ValidationStatusTypes, AllowArbitraryKey } from '../../constants';
+import {
+	ChipInputItem,
+	MenuConfig,
+	MenuGroupData,
+	MenuItemData,
+	MenuItemValue,
+	ValidationStatusType
+} from '../../types';
+import { AllowArbitraryKey, ValidationStatusTypes } from '../../constants';
 import { makeStringTypeValidator } from '../../utils/stringTypeValidator';
 
 const statusValidator = makeStringTypeValidator( ValidationStatusTypes );
@@ -185,7 +193,14 @@ export default defineComponent( {
 		keepInputOnSelection: {
 			type: Boolean,
 			default: false
-		}
+		},
+		/**
+		 * Whether the search query should be highlighted within a search result's title.
+		 */
+		highlightQuery: {
+			type: Boolean,
+			default: false
+		},
 	},
 
 	emits: [
@@ -260,6 +275,11 @@ export default defineComponent( {
 		const expanded = ref( false );
 		const isActive = ref( false );
 
+		// Current search query. The query for which the user will see results.
+		// If highlightQuery is true, below is what will be highlighted in the menu.
+		// This is based on the inputValue.
+		const searchQuery = ref( '' );
+
 		// Tell the child ChipInput not to allow arbitrary chips.
 		provide( AllowArbitraryKey, ref( false ) );
 
@@ -314,6 +334,7 @@ export default defineComponent( {
 
 			// Emit an input event for parent components that aren't binding `inputValue`.
 			emit( 'input', newVal );
+			searchQuery.value = newVal.toString();
 		}
 
 		/**
@@ -389,6 +410,7 @@ export default defineComponent( {
 				// Clear the input when the menu closes after selection.
 				if ( !props.keepInputOnSelection ) {
 					computedInputValue.value = '';
+					searchQuery.value = '';
 					// Also emit an input event in case the inputValue prop wasn't used.
 					emit( 'input', '' );
 				}
@@ -432,6 +454,7 @@ export default defineComponent( {
 			menu,
 			menuId,
 			highlightedId,
+			searchQuery,
 			expanded,
 			computedDisabled,
 			computedStatus,
