@@ -37,6 +37,7 @@
 		"lint:eslint": "npm run lint:scripts",
 		"lint:js": "npm run lint:scripts",
 		"lint:stylelint": "npm run lint:styles",
+		"quick-build": "npm run build:vite -w @wikimedia/codex",
 		"test": "npm run lint && npm run test --workspaces --if-present && ./build/diff-css.sh"
 	},
 	"devDependencies": {
