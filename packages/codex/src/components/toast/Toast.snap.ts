@@ -440,7 +440,7 @@ exports[`Toast snapshots Case 4 success toast: ({"type": "success"}) => HTML 1`]
 </div>
 `;
 
-exports[`Toast snapshots Case 5 With action button: ({"actionButton": "Undo"}) => HTML 1`] = `
+exports[`Toast snapshots Case 5 With action button: ({"actionButtonLabel": "Undo"}) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"

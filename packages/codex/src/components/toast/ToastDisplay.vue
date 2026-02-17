@@ -19,7 +19,7 @@
 				<cdx-message
 					:type="type"
 					:icon="icon"
-					:action-button="actionButton"
+					:action-button-label="actionButtonLabel"
 					:allow-user-dismiss="!preventUserDismiss"
 					class="cdx-toast__message"
 					@user-dismissed="onDismiss( 'user-dismissed' )"
@@ -61,7 +61,7 @@ export default defineComponent( {
 			type: [ String, Object ] as PropType<Icon>,
 			default: null
 		},
-		actionButton: {
+		actionButtonLabel: {
 			type: String,
 			default: ''
 		},

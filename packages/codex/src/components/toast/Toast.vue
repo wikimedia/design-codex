@@ -3,7 +3,7 @@
 		v-if="standalone"
 		:type="type"
 		:icon="icon"
-		:action-button="actionButton"
+		:action-button-label="actionButtonLabel"
 		:prevent-user-dismiss="preventUserDismiss"
 		:auto-dismiss="autoDismiss"
 		:render-in-place="renderInPlace"
@@ -60,7 +60,7 @@ export default defineComponent( {
 		/**
 		 * Label text for the optional action button.
 		 */
-		actionButton: {
+		actionButtonLabel: {
 			type: String,
 			default: ''
 		},
@@ -141,9 +141,9 @@ export default defineComponent( {
 		const stackContentRef = ref<HTMLElement | null>( null );
 		const toastId = ref<string | null>( null );
 
-		const actionButtonConfig = computed( () => props.actionButton ?
+		const actionButtonConfig = computed( () => props.actionButtonLabel ?
 			{
-				label: props.actionButton,
+				label: props.actionButtonLabel,
 				onClick: () => emit( 'action-button-click' )
 			} :
 			undefined
@@ -176,7 +176,7 @@ export default defineComponent( {
 				() => [
 					props.type,
 					props.icon,
-					props.actionButton,
+					props.actionButtonLabel,
 					props.autoDismiss,
 					props.preventUserDismiss
 				],

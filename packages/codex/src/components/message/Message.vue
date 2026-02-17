@@ -19,14 +19,14 @@
 			</div>
 
 			<cdx-button
-				v-if="actionButton"
+				v-if="actionButtonLabel"
 				class="cdx-message__action-button"
 				weight="quiet"
 				type="button"
 				size="small"
 				@click="onActionButtonClick"
 			>
-				{{ actionButton }}
+				{{ actionButtonLabel }}
 			</cdx-button>
 
 			<cdx-button
@@ -162,7 +162,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 		/**
 		 * Label text for the optional action button.
 		 */
-		actionButton: {
+		actionButtonLabel: {
 			type: String,
 			default: ''
 		}

@@ -44,8 +44,8 @@ describe( 'ToastDisplay', () => {
 			wrapper.unmount();
 		} );
 
-		it( 'shows action button when actionButton prop is set', () => {
-			const wrapper = mountDisplay( { actionButton: 'Undo' } );
+		it( 'shows action button when actionButtonLabel prop is set', () => {
+			const wrapper = mountDisplay( { actionButtonLabel: 'Undo' } );
 			const btn = wrapper.find( '.cdx-message__action-button' );
 			expect( btn.exists() ).toBe( true );
 			expect( btn.text() ).toContain( 'Undo' );
@@ -156,7 +156,7 @@ describe( 'ToastDisplay', () => {
 
 	describe( 'action button', () => {
 		it( 'emits action-button-click when action button is clicked', async () => {
-			const wrapper = mountDisplay( { actionButton: 'Undo' } );
+			const wrapper = mountDisplay( { actionButtonLabel: 'Undo' } );
 			await wrapper.find( '.cdx-message__action-button' ).trigger( 'click' );
 			expect( wrapper.emitted( 'action-button-click' ) ).toHaveLength( 1 );
 			wrapper.unmount();

@@ -7,7 +7,7 @@
 					:key="toast.id"
 					:type="toast.type"
 					:icon="toast.icon ?? undefined"
-					:action-button="toast.actionButton?.label ?? ''"
+					:action-button-label="toast.actionButton?.label ?? ''"
 					:auto-dismiss="toast.autoDismiss"
 					:prevent-user-dismiss="toast.preventUserDismiss"
 					render-in-place

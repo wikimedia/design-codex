@@ -17,7 +17,7 @@ const controlsConfig = [
 		options: [ 'notice', 'warning', 'error', 'success' ],
 	},
 	{
-		name: 'actionButton',
+		name: 'actionButtonLabel',
 		type: 'text',
 		default: ''
 	},

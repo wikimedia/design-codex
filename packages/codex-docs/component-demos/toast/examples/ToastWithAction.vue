@@ -6,7 +6,7 @@
 		<cdx-toast
 			v-if="showToast"
 			type="notice"
-			action-button="Undo"
+			action-button-label="Undo"
 			:auto-dismiss="false"
 			@user-dismissed="showToast = false"
 			@auto-dismissed="showToast = false"

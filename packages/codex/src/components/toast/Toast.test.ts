@@ -38,7 +38,7 @@ describe( 'Toast', () => {
 			msg: string,
 			props: {
 				type?: StatusType,
-				actionButton?: string,
+				actionButtonLabel?: string,
 				preventUserDismiss?: boolean,
 				icon?: Icon,
 				autoDismiss?: boolean
@@ -53,7 +53,7 @@ describe( 'Toast', () => {
 				{ type },
 				'<p>Toast content</p>'
 			] ),
-			[ 'With action button', { actionButton: 'Undo' }, '<p>Toast content</p>' ],
+			[ 'With action button', { actionButtonLabel: 'Undo' }, '<p>Toast content</p>' ],
 			[ 'Dismissable', {}, '<p>Toast content</p>' ],
 			[ 'Not dismissable', { preventUserDismiss: true }, '<p>Toast content</p>' ],
 			[ 'Custom icon', { icon: cdxIconArticle }, '<p>Toast content</p>' ],

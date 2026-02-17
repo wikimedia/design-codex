@@ -98,7 +98,7 @@ describe( 'ToastContainer', () => {
 						<cdx-toast
 							v-if="show"
 							type="notice"
-							action-button="Undo"
+							action-button-label="Undo"
 							:auto-dismiss="false"
 							:prevent-user-dismiss="true"
 							@action-button-click="handleUndo"

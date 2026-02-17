@@ -26,7 +26,7 @@
 			<cdx-toast
 				v-if="showToast2"
 				type="notice"
-				action-button="Undo"
+				action-button-label="Undo"
 				:auto-dismiss="true"
 				@user-dismissed="showToast2 = false"
 				@auto-dismissed="showToast2 = false"
@@ -90,7 +90,7 @@
 			<cdx-toast
 				v-if="showToast7"
 				type="error"
-				action-button="Retry"
+				action-button-label="Retry"
 				:auto-dismiss="false"
 				@user-dismissed="showToast7 = false"
 				@action-button-click="handleRetry"
