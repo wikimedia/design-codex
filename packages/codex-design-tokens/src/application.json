@@ -151,6 +151,9 @@
 		"emphasized": {
 			"value": "{ color.gray1000 }"
 		},
+		"neutral": {
+			"value": "{ color.gray700 }"
+		},
 		"subtle": {
 			"value": "{ color.gray600 }"
 		},

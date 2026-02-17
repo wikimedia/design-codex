@@ -158,11 +158,11 @@ export default defineComponent( {
 	&:enabled,
 	&.cdx-button--fake-button--enabled {
 		background-color: @background-color-interactive-subtle;
-		color: @color-base;
+		color: @color-neutral;
 		border-color: @border-color-interactive;
 
 		.cdx-button__icon {
-			.cdx-mixin-button-css-icon-fallback-color( @color-base );
+			.cdx-mixin-button-css-icon-fallback-color( @color-neutral );
 		}
 
 		&:hover {
