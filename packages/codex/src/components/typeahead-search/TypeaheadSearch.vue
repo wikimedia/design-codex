@@ -33,9 +33,9 @@
 				:aria-expanded="expanded"
 				:aria-activedescendant="highlightedId"
 				@update:model-value="onUpdateInputValue"
-				@compositionstart="event => onUpdateInputValue( event.data )"
-				@compositionupdate="event => onUpdateInputValue( event.data )"
-				@compositionend="event => onUpdateInputValue( event.data )"
+				@compositionstart="onComposition"
+				@compositionupdate="onComposition"
+				@compositionend="onComposition"
 				@focus="onFocus"
 				@blur="onBlur"
 				@keydown="onKeydown"
@@ -399,6 +399,19 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/typeahead-searc
 		let pendingDelayId: ReturnType<typeof setTimeout>|undefined;
 
 		/**
+		 * Handle composition events
+		 * Ensure that on Android composition events result in updated search results
+		 *
+		 * @param e CompositionEvent
+		 */
+		function onComposition( e: CompositionEvent ) {
+			const target = e.target as HTMLInputElement;
+			// Uses the input value rather than event.data because
+			// composition event data doesn't include the full value
+			onUpdateInputValue( target.value );
+		}
+
+		/**
 		 * Handle changes to the text input.
 		 *
 		 * 'input' events with the new value will be emitted, but this will be debounced if a
@@ -720,6 +733,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/typeahead-searc
 			rootStyle,
 			otherAttrs,
 			menuConfig,
+			onComposition,
 			onUpdateInputValue,
 			onUpdateMenuSelection,
 			onFocus,
