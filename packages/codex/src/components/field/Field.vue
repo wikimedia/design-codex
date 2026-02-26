@@ -241,11 +241,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/field.html#prop
 
 	&__help-text,
 	&__validation-message {
-		margin-top: @spacing-50;
-
-		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			margin-top: @spacing-25;
-		}
+		margin-top: @spacing-25;
 	}
 
 	&:not( .cdx-field--disabled ) {

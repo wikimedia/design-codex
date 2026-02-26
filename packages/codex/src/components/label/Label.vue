@@ -266,11 +266,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/label.html#prop
 	}
 
 	&:not( .cdx-label--visually-hidden ) {
-		padding-bottom: @spacing-50;
-
-		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
-			padding-bottom: @spacing-25;
-		}
+		padding-bottom: @spacing-25;
 	}
 }
 </style>
