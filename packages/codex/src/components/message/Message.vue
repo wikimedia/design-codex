@@ -364,7 +364,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 		background-color: @background-color-transparent;
 		border: 0;
 		padding: 0;
-		font-weight: @font-weight-bold;
 
 		&.cdx-message--error {
 			color: @color-error;
