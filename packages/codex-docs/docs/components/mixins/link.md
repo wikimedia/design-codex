@@ -169,9 +169,9 @@ By default, Links are only underlined when they are interacted with (hover over 
 </template>
 </cdx-demo-wrapper>
 
-### External Link
+### Link with icon
 
-The external link icon indicates that the link will take the user to a different website. This icon cannot be replaced with other icons.
+Use an icon with the link label when you need to convey meaning through both textual and visual elements. An icon can be added to either or both sides of the label, such an external link, which takes the user to a different website.
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>

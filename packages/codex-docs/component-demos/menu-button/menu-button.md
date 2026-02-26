@@ -2,6 +2,7 @@
 import { CdxMenuButton, CdxAccordion } from '@wikimedia/codex';
 import MenuButtonConfigDemo from '@/../component-demos/menu-button/examples/MenuButtonConfigDemo.vue';
 import MenuButtonBasic from '@/../component-demos/menu-button/examples/MenuButtonBasic.vue';
+import MenuButtonWithIcon from '@/../component-demos/menu-button/examples/MenuButtonWithIcon.vue';
 import MenuButtonWithIconOnly from '@/../component-demos/menu-button/examples/MenuButtonWithIconOnly.vue';
 import MenuButtonAndMenuItemsWithIcons from '@/../component-demos/menu-button/examples/MenuButtonAndMenuItemsWithIcons.vue';
 import MenuButtonSelection from '@/../component-demos/menu-button/examples/MenuButtonSelection.vue';
@@ -105,6 +106,27 @@ MenuButton has two required props: `selected` and `menuItems`. The `selected` pr
 with `v-model`.
 
 </cdx-accordion>
+
+### With icon
+
+Use an icon with the button label when you need to convey meaning through both textual and visual elements. An icon can be added to either or both sides of the label.
+
+<cdx-demo-wrapper :force-reset="true">
+<template v-slot:demo>
+	<menu-button-with-icon />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/menu-button/examples/MenuButtonWithIconOnly.vue [NPM]
+
+<<< @/../component-demos/menu-button/examples-mw/MenuButtonWithIconOnly.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
 
 ### Icon-only
 

@@ -117,7 +117,7 @@ Use an icon with the button label when you need to convey meaning through both t
 </template>
 </cdx-demo-wrapper>
 
-### Icon-only buttons
+### Icon-only
 
 For icon-only buttons, the label will be visually hidden and available only to users of assistive technology.
 

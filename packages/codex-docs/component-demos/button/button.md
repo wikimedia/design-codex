@@ -198,6 +198,8 @@ a minimum width of `@min-size-interactive-pointer` in your own CSS.
 
 Use an icon with the button label when you need to convey meaning through both textual and visual elements.
 
+The start icon is typically used to reinforce the meaning of the label, while the end icon usually indicates directionality or an action, such as "next", "continue", or the ability to expand a menu.
+
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<button-with-icon />
@@ -216,7 +218,7 @@ Use an icon with the button label when you need to convey meaning through both t
 </template>
 </cdx-demo-wrapper>
 
-### Icon-only button
+### Icon-only
 
 Use an icon-only button for actions that can be universally recognized through the icon alone. For an icon-only Button, the label is visually hidden but available to assistive technology users.
 
@@ -244,7 +246,7 @@ The attribute `aria-label` has to be used on icon-only buttons to be understanda
 </template>
 </cdx-demo-wrapper>
 
-### Disabled button
+### Disabled
 
 Buttons may be disabled, but disabled buttons should be used sparingly.
 

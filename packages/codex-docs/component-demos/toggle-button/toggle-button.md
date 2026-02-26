@@ -152,7 +152,7 @@ Use an icon with the ToggleButton label when you need to convey meaning through 
 </template>
 </cdx-demo-wrapper>
 
-### Icon-only button
+### Icon-only
 
 When the ToggleButton includes only an icon and no text,  add an `aria-label` to the ToggleButton
 to ensure the action is understandable to those using assistive technology.
