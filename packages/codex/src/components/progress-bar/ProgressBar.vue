@@ -1,21 +1,46 @@
 <template>
-	<!-- ARIA progressbar default values are `aria-valuemin="0"` and `aria-valuemax="100"`,
-	hence omitting them here. -->
 	<div
 		class="cdx-progress-bar"
 		:class="rootClasses"
+		v-bind="$attrs"
 		role="progressbar"
+		:aria-labelledby="ariaLabelledBy"
 		:aria-hidden="computedAriaHidden"
 		:aria-disabled="disabled"
+		:aria-valuemin="hasValue ? 0 : undefined"
+		:aria-valuemax="hasValue ? max : undefined"
+		:aria-valuenow="hasValue ? clampedValue : undefined"
+		:style="hasValue ? progressStyles : undefined"
 	>
-		<div class="cdx-progress-bar__bar" />
+		<div
+			class="cdx-progress-bar__bar"
+			:class="{ 'cdx-progress-bar__bar--determinate': hasValue }"
+		/>
+	</div>
+
+	<div
+		v-if="startLabel || endLabel"
+		:id="labelsId"
+		class="cdx-progress-bar__labels"
+	>
+		<div
+			class="cdx-progress-bar__label cdx-progress-bar__label--start"
+		>
+			{{ startLabel }}
+		</div>
+		<div
+			class="cdx-progress-bar__label cdx-progress-bar__label--end"
+		>
+			{{ endLabel }}
+		</div>
 	</div>
 </template>
 
 <script lang="ts">
 import {
 	defineComponent,
-	computed
+	computed,
+	useId
 } from 'vue';
 import useWarnOnce from '../../composables/useWarnOnce';
 
@@ -30,7 +55,19 @@ import useWarnOnce from '../../composables/useWarnOnce';
  */
 export default defineComponent( {
 	name: 'CdxProgressBar',
+
+	// Disable automatic attribute inheritance so we can control where attrs go
+	inheritAttrs: false,
+
 	props: {
+		value: {
+			type: [ Number, null ],
+			default: null
+		},
+		max: {
+			type: Number,
+			default: 100
+		},
 		/**
 		 * Whether this is the smaller, inline variant.
 		 */
@@ -45,15 +82,31 @@ export default defineComponent( {
 		disabled: {
 			type: Boolean,
 			default: false
+		},
+
+		startLabel: {
+			type: String,
+			default: ''
+		},
+
+		endLabel: {
+			type: String,
+			default: ''
 		}
+
 	},
 	setup( props, { attrs } ) {
+
 		// Emit a warning if block progress bar is without the `aria-label` or
 		// `aria-hidden` attribute set, but do this only once per progress bar.
 		useWarnOnce(
 			() => !props.inline && !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ],
 			'CdxProgressBar: Progress bars require one of the following attribute, aria-label or aria-hidden. ' +
 				'See documentation on https://doc.wikimedia.org/codex/latest/components/demos/progressbar.html'
+		);
+
+		const hasValue = computed(
+			() => typeof props.value === 'number'
 		);
 
 		const rootClasses = computed( () => ( {
@@ -70,9 +123,34 @@ export default defineComponent( {
 			() => props.inline ? 'true' : undefined
 		);
 
+		const clampedValue = computed( () => {
+			if ( typeof props.value !== 'number' ) {
+				return 0;
+			}
+
+			return Math.min(
+				Math.max( props.value, 0 ),
+				props.max
+			);
+		} );
+
+		const progressStyles = computed( () => ( {
+			'--cdx-progress-value': clampedValue.value,
+			'--cdx-progress-max': props.max
+		} ) );
+
+		const labelsId = useId();
+		const hasLabels = computed( () => Boolean( props.startLabel || props.endLabel ) );
+		const ariaLabelledBy = computed( () => hasLabels.value ? labelsId : undefined );
+
 		return {
 			rootClasses,
-			computedAriaHidden
+			computedAriaHidden,
+			hasValue,
+			progressStyles,
+			clampedValue,
+			labelsId,
+			ariaLabelledBy
 		};
 	}
 } );
@@ -86,20 +164,48 @@ export default defineComponent( {
 	overflow-x: hidden;
 
 	&__bar {
+		background-color: @background-color-progressive;
 		width: @size-third;
 		height: @size-full;
 	}
 
+	&--disabled {
+		.cdx-progress-bar__bar {
+			background-color: @background-color-disabled;
+		}
+	}
+
+	// Indeterminate animation (default)
+	&:not( .cdx-progress-bar--disabled ) &__bar:not( .cdx-progress-bar__bar--determinate ) {
+		animation-name: cdx-animation-progress-bar__bar;
+		animation-duration: @animation-duration-medium;
+		animation-timing-function: @animation-timing-function-base;
+		animation-iteration-count: @animation-iteration-count-base;
+	}
+
+	// Determinate mode
+	&__bar--determinate {
+		width: calc( ( var( --cdx-progress-value, 0 ) / var( --cdx-progress-max, 100 ) ) * 100% );
+	}
+
 	&:not( .cdx-progress-bar--inline ) {
+		background-color: @background-color-base;
 		// Support Safari: Create a stacking context to prevent the bar from overflowing the
 		// `border-radius` of the component's root element by `position: relative` and
 		// `z-index` other than `auto`.
 		position: relative;
 		z-index: @z-index-stacking-1;
-		height: @size-100;
+		height: @size-75;
 		max-width: @max-width-base;
-		border-radius: @border-radius-pill;
-		box-shadow: @box-shadow-small;
+		border: @border-progressive;
+		border-width: @border-width-base;
+		border-style: @border-style-base;
+		border-color: @border-color-progressive;
+		border-radius: @border-radius-base;
+
+		&.cdx-progress-bar--disabled {
+			border-color: @border-color-disabled;
+		}
 	}
 
 	&--inline {
@@ -107,29 +213,24 @@ export default defineComponent( {
 		height: @size-25;
 	}
 
-	&:not( .cdx-progress-bar--disabled ) {
-		.cdx-progress-bar__bar {
-			background-color: @background-color-progressive;
-			animation-name: cdx-animation-progress-bar__bar;
-			animation-duration: @animation-duration-medium;
-			animation-timing-function: @animation-timing-function-base;
-			animation-iteration-count: @animation-iteration-count-base;
-		}
-
-		&.cdx-progress-bar--block {
-			background-color: @background-color-base;
-		}
+	/* Labels that appear at the ends of the bar */
+	&__label {
+		color: @color-base;
+		font-size: @font-size-small;
+		white-space: wrap;
 	}
 
-	&--disabled {
-		/* stylelint-disable-next-line no-descending-specificity */
-		.cdx-progress-bar__bar {
-			background-color: @background-color-disabled;
-		}
+	&__labels {
+		display: flex;
+		justify-content: space-between;
+	}
 
-		&:not( .cdx-progress-bar--inline ) {
-			background-color: @background-color-disabled-subtle;
-		}
+	&__label--start {
+		text-align: left;
+	}
+
+	&__label--end {
+		text-align: right;
 	}
 }
 

@@ -6,8 +6,26 @@
 		<cdx-progress-bar :inline="true" aria-label="Inline ProgressBar" />
 		<br>
 		<cdx-progress-bar aria-label="Disabled ProgressBar" :disabled="true" />
-
-		<h3>CSS-only version</h3>
+		<br>
+		<cdx-progress-bar
+			aria-label="Determinate ProgressBar example"
+			:value="40"
+		/>
+		<br>
+		<cdx-progress-bar
+			:inline="true"
+			aria-label="Determinate Inline ProgressBar"
+			:value="40"
+		/>
+		<br>
+		<cdx-progress-bar
+			aria-label="Determinate Disabled ProgressBar"
+			:disabled="true"
+			:value="40"
+		/>
+		<h3>
+			CSS-only version
+		</h3>
 		<div
 			class="cdx-progress-bar"
 			role="progressbar"
