@@ -88,7 +88,95 @@ exports[`Toast snapshots Case 0 Default props: ({}) => HTML 1`] = `
 </div>
 `;
 
-exports[`Toast snapshots Case 1 notice toast: ({"type": "notice"}) => HTML 1`] = `
+exports[`Toast snapshots Case 1 subtle toast: ({"type": "subtle"}) => HTML 1`] = `
+<div
+  class="cdx-toast cdx-toast--subtle"
+  tabindex="-1"
+>
+  <transition-stub
+    appear="false"
+    class="cdx-toast__message"
+    css="true"
+    leaveactiveclass=""
+    name="cdx-message"
+    persisted="false"
+  >
+    <div
+      aria-live="polite"
+      class="cdx-message cdx-message--block cdx-message--user-dismissable cdx-message--subtle"
+    >
+      <span
+        class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
+      >
+        <svg
+          aria-hidden="true"
+          height="20"
+          viewBox="0 0 20 20"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <!--v-if-->
+          <!-- eslint-disable vue/no-v-html -->
+          <g>
+            <path
+              d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+            />
+          </g>
+        </svg>
+      </span>
+      <div
+        class="cdx-message__content"
+      >
+        <!-- @slot Message content. -->
+        
+        <!-- @slot Toast content. -->
+        
+        
+        <p>
+          Toast content
+        </p>
+        
+        
+        
+      </div>
+      <!--v-if-->
+      <button
+        aria-label="Close"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-message__dismiss-button"
+        type="button"
+      >
+        <!-- @slot Button content -->
+        
+        <span
+          class="cdx-icon cdx-icon--medium"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g>
+              <path
+                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+              />
+              <path
+                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+              />
+            </g>
+          </svg>
+        </span>
+        
+      </button>
+    </div>
+  </transition-stub>
+</div>
+`;
+
+exports[`Toast snapshots Case 2 notice toast: ({"type": "notice"}) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"
@@ -176,7 +264,95 @@ exports[`Toast snapshots Case 1 notice toast: ({"type": "notice"}) => HTML 1`] =
 </div>
 `;
 
-exports[`Toast snapshots Case 2 warning toast: ({"type": "warning"}) => HTML 1`] = `
+exports[`Toast snapshots Case 3 progressive toast: ({"type": "progressive"}) => HTML 1`] = `
+<div
+  class="cdx-toast cdx-toast--progressive"
+  tabindex="-1"
+>
+  <transition-stub
+    appear="false"
+    class="cdx-toast__message"
+    css="true"
+    leaveactiveclass=""
+    name="cdx-message"
+    persisted="false"
+  >
+    <div
+      aria-live="polite"
+      class="cdx-message cdx-message--block cdx-message--user-dismissable cdx-message--progressive"
+    >
+      <span
+        class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
+      >
+        <svg
+          aria-hidden="true"
+          height="20"
+          viewBox="0 0 20 20"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <!--v-if-->
+          <!-- eslint-disable vue/no-v-html -->
+          <g>
+            <path
+              d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+            />
+          </g>
+        </svg>
+      </span>
+      <div
+        class="cdx-message__content"
+      >
+        <!-- @slot Message content. -->
+        
+        <!-- @slot Toast content. -->
+        
+        
+        <p>
+          Toast content
+        </p>
+        
+        
+        
+      </div>
+      <!--v-if-->
+      <button
+        aria-label="Close"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-message__dismiss-button"
+        type="button"
+      >
+        <!-- @slot Button content -->
+        
+        <span
+          class="cdx-icon cdx-icon--medium"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!--v-if-->
+            <!-- eslint-disable vue/no-v-html -->
+            <g>
+              <path
+                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+              />
+              <path
+                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+              />
+            </g>
+          </svg>
+        </span>
+        
+      </button>
+    </div>
+  </transition-stub>
+</div>
+`;
+
+exports[`Toast snapshots Case 4 warning toast: ({"type": "warning"}) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--warning"
   tabindex="-1"
@@ -264,7 +440,7 @@ exports[`Toast snapshots Case 2 warning toast: ({"type": "warning"}) => HTML 1`]
 </div>
 `;
 
-exports[`Toast snapshots Case 3 error toast: ({"type": "error"}) => HTML 1`] = `
+exports[`Toast snapshots Case 5 error toast: ({"type": "error"}) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--error"
   tabindex="-1"
@@ -352,7 +528,7 @@ exports[`Toast snapshots Case 3 error toast: ({"type": "error"}) => HTML 1`] = `
 </div>
 `;
 
-exports[`Toast snapshots Case 4 success toast: ({"type": "success"}) => HTML 1`] = `
+exports[`Toast snapshots Case 6 success toast: ({"type": "success"}) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--success"
   tabindex="-1"
@@ -440,7 +616,7 @@ exports[`Toast snapshots Case 4 success toast: ({"type": "success"}) => HTML 1`]
 </div>
 `;
 
-exports[`Toast snapshots Case 5 With action button: ({"actionButtonLabel": "Undo"}) => HTML 1`] = `
+exports[`Toast snapshots Case 7 With action button: ({"actionButtonLabel": "Undo"}) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"
@@ -536,7 +712,7 @@ exports[`Toast snapshots Case 5 With action button: ({"actionButtonLabel": "Undo
 </div>
 `;
 
-exports[`Toast snapshots Case 6 Dismissable: ({}) => HTML 1`] = `
+exports[`Toast snapshots Case 8 Dismissable: ({}) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"
@@ -624,7 +800,7 @@ exports[`Toast snapshots Case 6 Dismissable: ({}) => HTML 1`] = `
 </div>
 `;
 
-exports[`Toast snapshots Case 7 Not dismissable: ({"preventUserDismiss": true}) => HTML 1`] = `
+exports[`Toast snapshots Case 9 Not dismissable: ({"preventUserDismiss": true}) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"
@@ -682,7 +858,7 @@ exports[`Toast snapshots Case 7 Not dismissable: ({"preventUserDismiss": true}) 
 </div>
 `;
 
-exports[`Toast snapshots Case 8 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
+exports[`Toast snapshots Case 10 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"
@@ -770,7 +946,7 @@ exports[`Toast snapshots Case 8 Custom icon: ({"icon": [Object]}) => HTML 1`] = 
 </div>
 `;
 
-exports[`Toast snapshots Case 9 Auto-dismiss disabled: ({"autoDismiss": false}) => HTML 1`] = `
+exports[`Toast snapshots Case 11 Auto-dismiss disabled: ({"autoDismiss": false}) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"

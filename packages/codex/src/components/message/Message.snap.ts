@@ -47,7 +47,54 @@ exports[`Message matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 1 notice message: ({"type": "notice"}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 1 subtle message: ({"type": "subtle"}) => HTML 1`] = `
+<transition-stub
+  appear="false"
+  css="true"
+  leaveactiveclass=""
+  name="cdx-message"
+  persisted="false"
+>
+  <div
+    aria-live="polite"
+    class="cdx-message cdx-message--block cdx-message--subtle"
+  >
+    <span
+      class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
+    >
+      <svg
+        aria-hidden="true"
+        height="20"
+        viewBox="0 0 20 20"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!--v-if-->
+        <!-- eslint-disable vue/no-v-html -->
+        <g>
+          <path
+            d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+          />
+        </g>
+      </svg>
+    </span>
+    <div
+      class="cdx-message__content"
+    >
+      <!-- @slot Message content. -->
+      
+      <p>
+        Message content
+      </p>
+      
+    </div>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</transition-stub>
+`;
+
+exports[`Message matches the snapshot Case 2 notice message: ({"type": "notice"}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -94,7 +141,54 @@ exports[`Message matches the snapshot Case 1 notice message: ({"type": "notice"}
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 2 warning message: ({"type": "warning"}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 3 progressive message: ({"type": "progressive"}) => HTML 1`] = `
+<transition-stub
+  appear="false"
+  css="true"
+  leaveactiveclass=""
+  name="cdx-message"
+  persisted="false"
+>
+  <div
+    aria-live="polite"
+    class="cdx-message cdx-message--block cdx-message--progressive"
+  >
+    <span
+      class="cdx-icon cdx-icon--medium cdx-message__icon--vue"
+    >
+      <svg
+        aria-hidden="true"
+        height="20"
+        viewBox="0 0 20 20"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!--v-if-->
+        <!-- eslint-disable vue/no-v-html -->
+        <g>
+          <path
+            d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+          />
+        </g>
+      </svg>
+    </span>
+    <div
+      class="cdx-message__content"
+    >
+      <!-- @slot Message content. -->
+      
+      <p>
+        Message content
+      </p>
+      
+    </div>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</transition-stub>
+`;
+
+exports[`Message matches the snapshot Case 4 warning message: ({"type": "warning"}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -141,7 +235,7 @@ exports[`Message matches the snapshot Case 2 warning message: ({"type": "warning
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 3 error message: ({"type": "error"}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 5 error message: ({"type": "error"}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -188,7 +282,7 @@ exports[`Message matches the snapshot Case 3 error message: ({"type": "error"}) 
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 4 success message: ({"type": "success"}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 6 success message: ({"type": "success"}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -235,7 +329,7 @@ exports[`Message matches the snapshot Case 4 success message: ({"type": "success
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 5 Inline: ({"inline": true}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 7 Inline: ({"inline": true}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -282,7 +376,7 @@ exports[`Message matches the snapshot Case 5 Inline: ({"inline": true}) => HTML 
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 6 Dismissable: ({"allowUserDismiss": true}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 8 Dismissable: ({"allowUserDismiss": true}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -359,7 +453,7 @@ exports[`Message matches the snapshot Case 6 Dismissable: ({"allowUserDismiss": 
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 7 Dismissable, custom label: ({"allowUserDismiss": true, "dismissButtonLabel": "Dismiss"}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 9 Dismissable, custom label: ({"allowUserDismiss": true, "dismissButtonLabel": "Dismiss"}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -436,7 +530,7 @@ exports[`Message matches the snapshot Case 7 Dismissable, custom label: ({"allow
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 8 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
+exports[`Message matches the snapshot Case 10 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"

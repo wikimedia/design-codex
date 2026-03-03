@@ -18,7 +18,25 @@ exports[`InfoChip matches the snapshot Case 0 Default props: ({}) => HTML 1`] = 
 </div>
 `;
 
-exports[`InfoChip matches the snapshot Case 1 notice status: ({"status": "notice"}) => HTML 1`] = `
+exports[`InfoChip matches the snapshot Case 1 subtle status: ({"status": "subtle"}) => HTML 1`] = `
+<div
+  class="cdx-info-chip cdx-info-chip--subtle"
+>
+  <!--v-if-->
+  <span
+    class="cdx-info-chip__text"
+  >
+    <!-- @slot Chip content. -->
+    
+    <p>
+      Chip content
+    </p>
+    
+  </span>
+</div>
+`;
+
+exports[`InfoChip matches the snapshot Case 2 notice status: ({"status": "notice"}) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--notice"
 >
@@ -36,7 +54,25 @@ exports[`InfoChip matches the snapshot Case 1 notice status: ({"status": "notice
 </div>
 `;
 
-exports[`InfoChip matches the snapshot Case 2 warning status: ({"status": "warning"}) => HTML 1`] = `
+exports[`InfoChip matches the snapshot Case 3 progressive status: ({"status": "progressive"}) => HTML 1`] = `
+<div
+  class="cdx-info-chip cdx-info-chip--progressive"
+>
+  <!--v-if-->
+  <span
+    class="cdx-info-chip__text"
+  >
+    <!-- @slot Chip content. -->
+    
+    <p>
+      Chip content
+    </p>
+    
+  </span>
+</div>
+`;
+
+exports[`InfoChip matches the snapshot Case 4 warning status: ({"status": "warning"}) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--warning"
 >
@@ -59,7 +95,7 @@ exports[`InfoChip matches the snapshot Case 2 warning status: ({"status": "warni
 </div>
 `;
 
-exports[`InfoChip matches the snapshot Case 3 error status: ({"status": "error"}) => HTML 1`] = `
+exports[`InfoChip matches the snapshot Case 5 error status: ({"status": "error"}) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--error"
 >
@@ -82,7 +118,7 @@ exports[`InfoChip matches the snapshot Case 3 error status: ({"status": "error"}
 </div>
 `;
 
-exports[`InfoChip matches the snapshot Case 4 success status: ({"status": "success"}) => HTML 1`] = `
+exports[`InfoChip matches the snapshot Case 6 success status: ({"status": "success"}) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--success"
 >
@@ -105,7 +141,7 @@ exports[`InfoChip matches the snapshot Case 4 success status: ({"status": "succe
 </div>
 `;
 
-exports[`InfoChip matches the snapshot Case 5 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
+exports[`InfoChip matches the snapshot Case 7 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--notice"
 >

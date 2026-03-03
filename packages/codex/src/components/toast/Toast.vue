@@ -38,6 +38,8 @@ export default defineComponent( {
 	components: { CdxToastDisplay },
 	inheritAttrs: false,
 	props: {
+		// Technically, the type can be set to 'subtle' or 'progressive' too, but we do not
+		// recommend this at this time, hence its omission from the Codex docs.
 		/**
 		 * Status type of Toast.
 		 *

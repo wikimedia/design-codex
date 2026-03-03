@@ -11,7 +11,7 @@ const controlsConfig = [
 	{
 		name: 'status',
 		type: 'radio',
-		options: [ 'notice', 'warning', 'error', 'success' ],
+		options: [ 'subtle', 'notice', 'progressive', 'warning', 'error', 'success' ],
 	},
 	{
 		name: 'default',
@@ -39,12 +39,14 @@ An InfoChip is a non-interactive indicator that provides information and/or conv
 
 Use the InfoChip component to label, categorize, or organize information using keywords. This type of chip is informative so it cannot be clickable or removable.
 
-Depending on the type of feedback conveyed to the user, InfoChips can be used to convey one of four statuses.
+Depending on the type of feedback conveyed to the user, InfoChips can be used to convey one of six statuses.
 
-1. **Notice**<br>Use to convey a general, neutral, and non-urgent status.
-2. **Warning**<br>Use to convey a cautionary status.
-3. **Error**<br>Use to convey a negative status.
-4. **Success**<br>Use to convey a positive status.
+1. **Subtle**<br>Use for general information that does not need to convey "status" or the need for additional visible attention — the most basic version of a small pill of information.
+2. **Notice**<br>Use to convey a general and non-urgent status. Think of this as a neutral version of warning, error, or success.
+3. **Progressive**<br>Use to convey a progressive status that draws extra attention, such as something that is new or important.
+4. **Warning**<br>Use to convey a cautionary status.
+5. **Error**<br>Use to convey a negative status.
+6. **Success**<br>Use to convey a positive status.
 
 ### About InfoChip
 
@@ -52,11 +54,11 @@ InfoChip includes the following elements.
 
 #### Icon (optional)
 
-For notice chips, the icon is optional and customizable, while for chips providing feedback (warning, error, and success), the icon is required to communicate the feedback status effectively.
+For `subtle`, `notice`, and `progressive` chips, the icon is optional and customizable, while for chips providing feedback (warning, error, and success), the icon is required to communicate the feedback status effectively.
 
 <cdx-demo-best-practices>
 
-<cdx-demo-best-practice>Use a start icon in notice chips when needed to strengthen the text, or hide it if not required.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Use a start icon in subtle, notice, and progressive chips when needed to strengthen the text, or hide it if not required.</cdx-demo-best-practice>
 <cdx-demo-best-practice type="dont">Avoid removing or replacing the icon in warning, error, and success chips, as it reinforces the meaning of their respective statuses.</cdx-demo-best-practice>
 
 </cdx-demo-best-practices>
@@ -77,7 +79,7 @@ Use short text with the InfoChip. Long text content will be truncated with an el
 
 ### With icon
 
-For notice chips, the icon can be customized.
+For `subtle`, `notice`, and `progressive` chips, the icon can be customized.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -101,14 +103,14 @@ For notice chips, the icon can be customized.
 
 <template #title>Developer notes</template>
 
-Custom icons can only be used with the `notice` status. If they are passed with
+Custom icons can only be used with the `sublte`, `notice`, and `progressive` statuses. If they are passed with
 a different status, they will be ignored.
 
 </cdx-accordion>
 
 ### Statuses
 
-Use the `status` prop to create warning, error, and success InfoChips.
+Use the `status` prop to create subtle, progressive, warning, error, and success InfoChips.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -168,18 +170,20 @@ A simple chip with text content and no icon is straightforward.
 
 #### Status types
 
-There are four status types, "notice", "warning", "error", and "success".
+There are size status types, "subtle", "notice", "progressive", "warning", "error", and "success".
 
 Apply the following classes to the root element to define the status styles:
+- Subtle: `cdx-info-chip--subtle`
 - Notice: `cdx-info-chip--notice` (class can be omitted since this is the default)
+- Progressive: `cdx-info-chip--progressive`
 - Warning: `cdx-info-chip--warning`
 - Error: `cdx-info-chip--error`
 - Success: `cdx-info-chip--success`
 
 #### Status icons
 
-Each status has a corresponding default icon (`cdxIconInfoFilled` for "notice"
-status, `cdxIconAlert` for "warning" status, `cdxIconError` for "error" status,
+Each status has a corresponding default icon (`cdxIconInfoFilled` for "subtle", "notice", and "progressive"
+statuses, `cdxIconAlert` for "warning" status, `cdxIconError` for "error" status,
 and `cdxIconSuccess` for "success" status). Examples of the default icons can be
 found below.
 
@@ -190,13 +194,25 @@ element with the class `cdx-info-chip__icon` inside the chip element.
 <template v-slot:demo>
 	<div class="cdx-demo-flex-container">
 		<!-- Outer element is a `<div>` with the default `--notice` class. -->
-		<div class="cdx-info-chip cdx-info-chip--notice">
+		<div class="cdx-info-chip cdx-info-chip--subtle">
 			<!-- Icon element. -->
 			<span class="cdx-info-chip__icon"></span>
 			<!-- Text element. -->
 			<span class="cdx-info-chip__text">
 				<!-- Chip text -->
+				Subtle
+			</span>
+		</div>
+		<div class="cdx-info-chip cdx-info-chip--notice">
+			<span class="cdx-info-chip__icon"></span>
+			<span class="cdx-info-chip__text">
 				Notice
+			</span>
+		</div>
+		<div class="cdx-info-chip cdx-info-chip--progressive">
+			<span class="cdx-info-chip__icon"></span>
+			<span class="cdx-info-chip__text">
+				Progressive
 			</span>
 		</div>
 		<!-- Outer element is a `<div>` with the `--warning` class. -->
@@ -226,6 +242,15 @@ element with the class `cdx-info-chip__icon` inside the chip element.
 
 ```html
 	<!-- Outer element is a `<div>` with the default `--notice` class. -->
+	<div class="cdx-info-chip cdx-info-chip--subtle">
+		<!-- Icon element. -->
+		<span class="cdx-info-chip__icon"></span>
+		<!-- Text element. -->
+		<span class="cdx-info-chip__text">
+			<!-- Chip text -->
+			Subtle
+		</span>
+	</div>
 	<div class="cdx-info-chip cdx-info-chip--notice">
 		<!-- Icon element. -->
 		<span class="cdx-info-chip__icon"></span>
@@ -233,6 +258,15 @@ element with the class `cdx-info-chip__icon` inside the chip element.
 		<span class="cdx-info-chip__text">
 			<!-- Chip text -->
 			Notice
+		</span>
+	</div>
+	<div class="cdx-info-chip cdx-info-chip--progressive">
+		<!-- Icon element. -->
+		<span class="cdx-info-chip__icon"></span>
+		<!-- Text element. -->
+		<span class="cdx-info-chip__text">
+			<!-- Chip text -->
+			Progressive
 		</span>
 	</div>
 	<!-- Outer element is a `<div>` with the `--warning` class. -->
@@ -265,7 +299,7 @@ element with the class `cdx-info-chip__icon` inside the chip element.
 You can customize the icon by using the CSS-only Icon Less mixin (`.cdx-mixin-css-icon`)
 to apply the icon styles, passing the appropriate parameters to the mixin.
 
-Custom icons should only be used with "notice" status InfoChips.
+Custom icons should only be used with "subtle", "notice", and "progressive" status InfoChips.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -284,14 +318,14 @@ Custom icons should only be used with "notice" status InfoChips.
 				Photos
 			</span>
 		</div>
-		<div class="cdx-info-chip cdx-info-chip--notice">
+		<div class="cdx-info-chip cdx-info-chip--progressive">
 			<!-- Custom icon element. -->
 			<span class="cdx-demo-css-icon--user"></span>
 			<span class="cdx-info-chip__text">
 				Users
 			</span>
 		</div>
-		<div class="cdx-info-chip cdx-info-chip--notice">
+		<div class="cdx-info-chip cdx-info-chip--subtle">
 			<!-- Custom icon element. -->
 			<span class="cdx-demo-css-icon--article"></span>
 			<span class="cdx-info-chip__text">
@@ -317,14 +351,14 @@ Custom icons should only be used with "notice" status InfoChips.
 			Photos
 		</span>
 	</div>
-	<div class="cdx-info-chip cdx-info-chip--notice">
+	<div class="cdx-info-chip cdx-info-chip--progressive">
 		<!-- Custom icon element. -->
 		<span class="cdx-demo-css-icon--user"></span>
 		<span class="cdx-info-chip__text">
 			Users
 		</span>
 	</div>
-	<div class="cdx-info-chip cdx-info-chip--notice">
+	<div class="cdx-info-chip cdx-info-chip--subtle">
 		<!-- Custom icon element. -->
 		<span class="cdx-demo-css-icon--article"></span>
 		<span class="cdx-info-chip__text">
@@ -349,7 +383,7 @@ Custom icons should only be used with "notice" status InfoChips.
 }
 
 .cdx-demo-css-icon--user {
-	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-icon-notice, @size-icon-small );
+	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-icon-progressive, @size-icon-small );
 }
 
 .cdx-demo-css-icon--article {
@@ -369,7 +403,7 @@ Custom icons should only be used with "notice" status InfoChips.
 }
 
 .cdx-demo-css-icon--user {
-	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-icon-notice, @size-icon-small );
+	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-icon-progressive, @size-icon-small );
 }
 
 .cdx-demo-css-icon--article {
@@ -399,7 +433,7 @@ Custom icons should only be used with "notice" status InfoChips.
 }
 
 .cdx-demo-css-icon--user {
-	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-icon-notice, @size-icon-small );
+	.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-icon-progressive, @size-icon-small );
 }
 
 .cdx-demo-css-icon--article {

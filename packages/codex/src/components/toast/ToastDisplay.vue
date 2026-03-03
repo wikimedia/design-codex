@@ -411,6 +411,10 @@ export default defineComponent( {
 		max-width: @size-3200;
 	}
 
+	&--subtle {
+		background-color: @background-color-base;
+	}
+
 	&__message {
 		margin: 0;
 		box-shadow: @box-shadow-large;

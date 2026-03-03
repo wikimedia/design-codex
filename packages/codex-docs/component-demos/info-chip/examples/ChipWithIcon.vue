@@ -1,8 +1,20 @@
 <template>
-	<div>
-		<cdx-info-chip :icon="cdxIconCamera">
-			Photos
-		</cdx-info-chip>
+	<div class="cdx-demo-info-chips">
+		<div>
+			<cdx-info-chip status="subtle" :icon="cdxIconCamera">
+				Photos
+			</cdx-info-chip>
+		</div>
+		<div>
+			<cdx-info-chip :icon="cdxIconCamera">
+				Photos
+			</cdx-info-chip>
+		</div>
+		<div>
+			<cdx-info-chip status="progressive" :icon="cdxIconCamera">
+				Photos
+			</cdx-info-chip>
+		</div>
 	</div>
 </template>
 
@@ -23,3 +35,13 @@ export default defineComponent( {
 	}
 } );
 </script>
+
+<style lang="less">
+@import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+
+.cdx-demo-info-chips {
+	display: flex;
+	flex-direction: column;
+	gap: @spacing-100;
+}
+</style>

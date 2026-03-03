@@ -249,6 +249,9 @@
 		"icon-notice": {
 			"value": "{ color.gray500 }"
 		},
+		"icon-progressive": {
+			"value": "{ color.blue700 }"
+		},
 		"content-added": {
 			"value": "{ color.green999 }"
 		},

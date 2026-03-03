@@ -32,7 +32,9 @@ import useSlotContents from '../../composables/useSlotContents';
 import CdxTooltip from '../tooltip/Tooltip';
 
 const iconMap: Partial<StatusIconMap> = {
+	subtle: cdxIconInfoFilled,
 	notice: cdxIconInfoFilled,
+	progressive: cdxIconInfoFilled,
 	error: cdxIconError,
 	warning: cdxIconAlert,
 	success: cdxIconSuccess
@@ -51,7 +53,7 @@ export default defineComponent( {
 		/**
 		 * Status type.
 		 *
-		 * @values 'notice', 'warning', 'error', 'success'
+		 * @values 'subtle', 'notice', 'progressive', 'warning', 'error', 'success'
 		 */
 		status: {
 			type: String as PropType<StatusType>,
@@ -73,8 +75,9 @@ export default defineComponent( {
 			[ `cdx-info-chip--${ props.status }` ]: true
 		} ) );
 
-		// For notice messages, use a custom icon if provided. Otherwise, use the default icon.
-		const computedIcon = computed( () => props.status === 'notice' ? props.icon : iconMap[ props.status ]
+		// For subtle, notice, and progressive messages, use a custom icon if provided.
+		// Otherwise, use the default icon.
+		const computedIcon = computed( () => [ 'notice', 'subtle', 'progressive' ].includes( props.status ) ? props.icon : iconMap[ props.status ]
 		);
 
 		const textElement = ref<HTMLSpanElement>();
@@ -142,6 +145,24 @@ export default defineComponent( {
 
 	.cdx-info-chip__icon--vue {
 		color: @color-icon-notice;
+	}
+
+	&--subtle {
+		background-color: @background-color-transparent;
+		border-color: @border-color-base;
+	}
+
+	&--progressive {
+		background-color: @background-color-progressive-subtle;
+		border-color: @border-color-progressive;
+
+		.cdx-info-chip__icon {
+			.cdx-mixin-css-icon( @cdx-icon-info-filled, @color-icon-progressive, @size-icon-small );
+		}
+
+		.cdx-info-chip__icon--vue {
+			color: @color-icon-progressive;
+		}
 	}
 
 	&--error {

@@ -173,6 +173,9 @@
 		"notice": {
 			"value": "{ color.gray400 }"
 		},
+		"icon-progressive": {
+			"value": "{ color.blue500 }"
+		},
 		"content-added": {
 			"value": "{ color.green300 }"
 		},

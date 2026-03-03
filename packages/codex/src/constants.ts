@@ -61,7 +61,9 @@ export const IconSizes = [
 ] as const;
 
 export const StatusTypes = [
+	'subtle',
 	'notice',
+	'progressive',
 	'warning',
 	'error',
 	'success'

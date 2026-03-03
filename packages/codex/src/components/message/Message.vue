@@ -60,7 +60,9 @@ import { StatusType, StatusIconMap } from '../../types';
 import useI18nWithOverride from '../../composables/useI18nWithOverride';
 
 const iconMap: StatusIconMap = {
+	subtle: cdxIconInfoFilled,
 	notice: cdxIconInfoFilled,
+	progressive: cdxIconInfoFilled,
 	error: cdxIconError,
 	warning: cdxIconAlert,
 	success: cdxIconSuccess
@@ -76,7 +78,7 @@ export default defineComponent( {
 		/**
 		 * Status type of Message.
 		 *
-		 * @values 'notice', 'warning', 'error', 'success'
+		 * @values 'subtle', 'notice', 'progressive', 'warning', 'error', 'success'
 		 */
 		type: {
 			type: String as PropType<StatusType>,
@@ -93,7 +95,7 @@ export default defineComponent( {
 		},
 
 		/**
-		 * Custom message icon. Only allowed for notice messages.
+		 * Custom message icon. Only allowed for subtle, notice, and progressive messages.
 		 */
 		icon: {
 			type: [ String, Object ] as PropType<Icon>,
@@ -311,6 +313,24 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 
 	.cdx-message__icon--vue {
 		color: @color-icon-notice;
+	}
+
+	&--subtle {
+		background-color: @background-color-transparent;
+		border-color: @border-color-base;
+	}
+
+	&--progressive {
+		background-color: @background-color-progressive-subtle;
+		border-color: @border-color-progressive;
+
+		.cdx-message__icon {
+			.cdx-mixin-css-icon( @cdx-icon-info-filled, @color-icon-progressive );
+		}
+
+		.cdx-message__icon--vue {
+			color: @color-icon-progressive;
+		}
 	}
 
 	&--warning {

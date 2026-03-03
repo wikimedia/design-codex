@@ -1,6 +1,16 @@
 <template>
 	<div class="cdx-demo-info-chips">
 		<div>
+			<cdx-info-chip status="subtle">
+				3 tests
+			</cdx-info-chip>
+		</div>
+		<div>
+			<cdx-info-chip status="progressive">
+				Beta
+			</cdx-info-chip>
+		</div>
+		<div>
 			<cdx-info-chip status="warning">
 				1 test has not run
 			</cdx-info-chip>
