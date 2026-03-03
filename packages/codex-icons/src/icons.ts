@@ -1089,6 +1089,9 @@ export const cdxIconUserAvatar = svgUserAvatar;
 import svgUserAvatarOutline from './images/userAvatarOutline.svg';
 export const cdxIconUserAvatarOutline = svgUserAvatarOutline;
 
+import svgUserBlocked from './images/userBlocked.svg';
+export const cdxIconUserBlocked = svgUserBlocked;
+
 import svgUserContributions from './images/userContributions.svg';
 export const cdxIconUserContributions: IconFlipForRtl = {
 	ltr: svgUserContributions,
