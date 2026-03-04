@@ -24,6 +24,12 @@ export interface TextPropConfig extends BaseConfig {
 	default?: string | number,
 	initial?: string | number
 }
+
+export interface NumberPropConfig extends BaseConfig {
+	type: 'number',
+	default?: number,
+	initial?: number
+}
 export interface IconPropConfig extends BaseConfig {
 	type: 'icon',
 	default?: string,
@@ -53,6 +59,7 @@ export type ControlConfig =
 	RadioPropConfig |
 	BooleanPropConfig |
 	TextPropConfig |
+	NumberPropConfig |
 	IconPropConfig |
 	SelectPropConfig|
 	SlotConfig |
@@ -75,6 +82,7 @@ export type PropConfigWithValue =
 	DefaultToValue<RadioPropConfig> |
 	DefaultToValue<BooleanPropConfig> |
 	DefaultToValue<TextPropConfig> |
+	DefaultToValue<NumberPropConfig> |
 	DefaultToValue<IconPropConfig> |
 	DefaultToValue<SelectPropConfig>;
 export type SlotConfigWithValue = DefaultToValue<SlotConfig> | DefaultToValue<SlotIconConfig>;

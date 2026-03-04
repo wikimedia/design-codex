@@ -30,6 +30,7 @@ const controlsConfig: ControlsConfig = [
 	{ name: 'textControl', type: 'text' },
 	{ name: 'textWithStringDefault', type: 'text', default: 'Default value' },
 	{ name: 'textWithNumberDefault', type: 'text', default: 42 },
+	{ name: 'numberControl', type: 'number', default: 10 },
 	{ name: 'selectControl', type: 'select', menuItems },
 	{ name: 'selectWithDefault', type: 'select', menuItems, default: 3 },
 	{ name: 'slotControl', type: 'slot', default: 'Hello world' }
@@ -143,6 +144,7 @@ describe( 'Wrapper', () => {
 			textControl: '',
 			textWithStringDefault: 'Default value',
 			textWithNumberDefault: 42,
+			numberControl: 10,
 			selectControl: 1,
 			selectWithDefault: 3
 		};
@@ -162,6 +164,12 @@ describe( 'Wrapper', () => {
 		await radio3.trigger( 'change' );
 
 		expect( wrapper.vm.componentDemoValues.propValues.radioControl ).toBe( 'Option 3' );
+
+		// update numeric control
+		const numInput = wrapper.find( 'input[type="number"]' );
+		( numInput.element as HTMLInputElement ).value = '25';
+		await numInput.trigger( 'input' );
+		expect( wrapper.vm.componentDemoValues.propValues.numberControl ).toBe( 25 );
 	} );
 
 	it( 'can be reset', async () => {

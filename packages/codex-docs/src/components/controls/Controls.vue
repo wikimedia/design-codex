@@ -47,7 +47,9 @@
 							v-if="componentForType( propControl.type )"
 							:aria-label="'prop: ' + propControl.name"
 							:model-value="propControl.value"
+							:input-type="propControl.type === 'number' ? 'number' : undefined"
 							@update:model-value="emitControlChange( propControl.name, $event )"
+
 						/>
 					</div>
 				</td>
@@ -200,6 +202,9 @@ export default defineComponent( {
 				case 'icon':
 					return 'cdx-docs-icon-lookup';
 				case 'text':
+					return 'cdx-text-input';
+				case 'number':
+					// number controls use a text input configured for numeric entry
 					return 'cdx-text-input';
 
 				// Slots:

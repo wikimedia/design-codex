@@ -187,6 +187,7 @@ the user to control. The following control types are available:
 option.
 - `boolean`: For boolean props. Displays a true/false toggle that defaults to false.
 - `text`: For props with string or number values. Displays a text input for the value.
+- `number`: For props that specifically require numeric input. Displays a numeric text input.
 - `select`: For props with a predefined list of value options displayed in a dropdown/select menu.
 - `slot`: For slots. Displays a text input for the slot content.
 
