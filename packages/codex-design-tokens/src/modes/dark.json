@@ -212,6 +212,9 @@
 		"inverted": {
 			"value": "{ color.gray1000 }"
 		},
+		"progressive": {
+			"value": "{ color.blue500 }"
+		},
 		"progressive--hover": {
 			"value": "{ color.blue400 }"
 		},

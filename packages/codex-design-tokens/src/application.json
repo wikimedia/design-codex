@@ -668,7 +668,7 @@
 			"value": "{ color.white }"
 		},
 		"progressive": {
-			"value": "{ color.blue500 }"
+			"value": "{ color.blue700 }"
 		},
 		"progressive--hover": {
 			"value": "{ color.blue800 }"
