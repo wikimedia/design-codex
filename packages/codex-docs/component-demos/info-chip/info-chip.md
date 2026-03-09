@@ -12,6 +12,7 @@ const controlsConfig = [
 		name: 'status',
 		type: 'radio',
 		options: [ 'subtle', 'notice', 'progressive', 'warning', 'error', 'success' ],
+		default: 'notice'
 	},
 	{
 		name: 'default',
