@@ -48,7 +48,7 @@ A well-structured chart consists of the following key elements.
 
 A clear, descriptive title and any necessary subtitles or contextual information help define what the chart is showing.
 - `@color-emphasized` should be used in chart titles.
-- `@color-subtle` should be used for any necesary chart descriptions.
+- `@color-subtle` should be used for any necessary chart descriptions.
 
 #### Plot Area
 
