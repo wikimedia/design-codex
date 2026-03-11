@@ -23,7 +23,7 @@ export default function useComputedLanguage(
 		// Instead, traverse up the tree until we find an ancestor with the 'lang' attribute set
 		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 		let ancestor : HTMLElement | null = root.value!;
-		while ( ancestor && ancestor.lang === '' ) {
+		while ( ancestor?.lang === '' ) {
 			ancestor = ancestor.parentElement;
 		}
 		computedLang.value = ancestor ? ancestor.lang : null;

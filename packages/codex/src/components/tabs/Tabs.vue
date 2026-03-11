@@ -202,7 +202,7 @@ export default defineComponent( {
 				map.set( item.props.name, {
 					name: item.props.name,
 					id: useId(),
-					label: item.props.label || item.props.name,
+					label: item.props.label ?? item.props.name,
 					disabled: item.props.disabled
 				} );
 			}

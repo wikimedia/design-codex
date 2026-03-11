@@ -313,7 +313,8 @@ describe( 'TypeaheadSearch', () => {
 		afterEach( () => {
 			jest.useRealTimers();
 			assignMock.mockReset();
-			window.location = oldLocation;
+			// eslint-disable-next-line
+			(window as any).location = oldLocation;
 		} );
 
 		it( 'matches the snapshot', () => {

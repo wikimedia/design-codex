@@ -27,10 +27,8 @@ export default {
 			const firstChild = documentNode.firstChild;
 
 			if (
-				firstChild &&
-
-				firstChild.type === 'directive' &&
-				firstChild.name === '?xml'
+				firstChild?.type === 'directive' &&
+				firstChild?.name === '?xml'
 			) {
 				const versionMatch = /version="1.0"/.test( firstChild.data );
 				const encodingMatch = /encoding="UTF-8"/.test( firstChild.data );
