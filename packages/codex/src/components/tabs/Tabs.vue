@@ -730,7 +730,7 @@ export default defineComponent( {
 	&:not( .cdx-tabs--framed ) {
 		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		> .cdx-tabs__header .cdx-tabs__list__item:focus-visible {
-			box-shadow: @box-shadow-inset-medium @border-color-progressive;
+			box-shadow: @box-shadow-inset-medium @outline-color-progressive--focus;
 			outline: @outline-base--focus;
 			overflow: hidden;
 		}
