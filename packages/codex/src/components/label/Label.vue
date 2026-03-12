@@ -222,6 +222,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/label.html#prop
 	display: flex;
 	// Display the description on a separate line after the label text.
 	flex-direction: column;
+	font-family: @font-family-base;
 	font-size: @font-size-medium;
 	line-height: @line-height-small;
 

@@ -488,7 +488,7 @@ export default defineComponent( {
 		// Override border-radius styles from User Agent Stylesheet in iOS Safari
 		border-radius: inherit;
 		padding: @spacing-25 @spacing-50;
-		font-family: inherit;
+		font-family: @font-family-base;
 		font-size: @font-size-medium;
 		line-height: @line-height-small;
 

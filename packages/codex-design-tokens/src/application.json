@@ -873,8 +873,8 @@
 	},
 	"font-family": {
 		"base": {
-			"comment": "Reference Vector's default fallback sans instead of the deprecated value `font-family-sans` in WikimediaUI Base.",
-			"value": "{ font-family.sans-10 }"
+			"comment": "Use as the default for native sans-serif font-families.",
+			"value": "{ font-family.sans-100 }"
 		},
 		"sans": {
 			"deprecated": "Use `font-family-sans--fallback` instead. See T247166.",
@@ -887,6 +887,7 @@
 			"value": "{ font-family.sans-10 }"
 		},
 		"serif": {
+			"comment": "Use as the default for serif font-families.",
 			"value": "{ font-family.serif-100 }"
 		},
 		"serif--fallback": {

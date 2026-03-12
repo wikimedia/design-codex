@@ -224,6 +224,7 @@ export default defineComponent( {
 	border: @border-width-base @border-style-base @border-color-interactive;
 	border-radius: @border-radius-pill;
 	padding: 0 0 0 @spacing-35;
+	font-family: @font-family-base;
 	font-size: @font-size-small;
 
 	&:not( .cdx-input-chip--disabled ):not( .cdx-input-chip--readonly ) {

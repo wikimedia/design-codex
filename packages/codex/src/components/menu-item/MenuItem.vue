@@ -404,6 +404,7 @@ export default defineComponent( {
 	list-style: none;
 	position: relative;
 	padding: @spacing-50 @spacing-75;
+	font-family: @font-family-base;
 	font-size: @font-size-medium;
 	line-height: @line-height-small;
 	transition-property: @transition-property-base;

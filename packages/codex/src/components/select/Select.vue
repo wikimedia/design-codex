@@ -354,6 +354,7 @@ export default defineComponent( {
 	background-repeat: no-repeat;
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	background-size: calc( ~'max( @{size-icon-x-small}, @{min-size-icon-x-small} )' );
+	font-family: @font-family-base;
 
 	&:disabled {
 		.cdx-mixin-select__handle--disabled();
@@ -378,6 +379,7 @@ export default defineComponent( {
 .cdx-select-vue {
 	display: inline-block;
 	position: relative;
+	font-family: @font-family-base;
 
 	&__handle {
 		.cdx-mixin-select__handle();
