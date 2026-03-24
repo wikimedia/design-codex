@@ -367,6 +367,11 @@ export default defineComponent( {
 		.cdx-mixin-select__handle--enabled();
 		.get-select-icon-background-image( @color-base-hex );
 	}
+
+	&[ multiple ] {
+		background-image: none;
+		padding-right: @spacing-50;
+	}
 }
 
 // This is the Vue implementation.
