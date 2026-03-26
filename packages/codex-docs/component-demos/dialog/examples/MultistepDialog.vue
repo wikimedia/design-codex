@@ -8,6 +8,7 @@
 			v-model:open="open"
 			title="Onboarding dialog"
 			class="cdx-demo-onboarding-dialog"
+			:fixed-height="560"
 		>
 			<template #header>
 				<div class="cdx-demo-onboarding-dialog__header-top">

@@ -7,6 +7,7 @@ import DialogWithFormInputs from '@/../component-demos/dialog/examples/DialogWit
 import DialogStackedActions from '@/../component-demos/dialog/examples/DialogStackedActions.vue';
 import DialogCustomHeader from '@/../component-demos/dialog/examples/DialogCustomHeader.vue'
 import MultistepDialog from '@/../component-demos/dialog/examples/MultistepDialog.vue';
+import DialogFixedHeight from '@/../component-demos/dialog/examples/DialogFixedHeight.vue';
 
 const controlsConfig = [
 	{ name: 'title', type: 'text', initial: 'Dialog title' },
@@ -14,6 +15,7 @@ const controlsConfig = [
 	{ name: 'hideTitle', type: 'boolean' },
 	{ name: 'useCloseButton', type: 'boolean' },
 	{ name: 'stackedActions', type: 'boolean' },
+	{ name: 'fixedHeight', type: 'boolean' },
 	{ name: 'usePrimaryAction', type: 'boolean', initial: true },
 	{ name: 'primaryActionLabel', type: 'text', initial: 'Save' },
 	{ name: 'primaryActionType', type: 'radio', options: [ 'progressive', 'destructive' ] },
@@ -183,7 +185,7 @@ of screen size.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
-		<dialog-stacked-actions />
+	<dialog-stacked-actions />
 </template>
 <template v-slot:code>
 
@@ -203,6 +205,38 @@ of screen size.
 
 When using the default Dialog footer, use the `stackedActions` prop to force the
 action buttons to be stacked vertically, even on wide screens.
+
+</cdx-accordion>
+
+### Fixed height
+
+By default, the height of a Dialog is dependent on its content. Use the `fixedHeight` prop to force a fixed height. The default fixed height will be the height of the entire screen unless a specific value is set.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Use a fixed height when needing to maintain the actions in the same position, such as for multistep Dialogs.</cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<dialog-fixed-height />
+</template>
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/dialog/examples/DialogFixedHeight.vue [NPM]
+
+<<< @/../component-demos/dialog/examples-mw/DialogFixedHeight.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+<cdx-accordion>
+<template #title>Developer notes</template>
+
+When using the `fixedHeight` prop, the default fixed height will be the entire height of the page. To set a custom height, set the `fixedHeight` prop to a number of pixels, e.g. `:fixed-height="400"`.
 
 </cdx-accordion>
 

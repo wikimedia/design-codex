@@ -11,6 +11,7 @@
 			:hide-title="hideTitle"
 			:use-close-button="useCloseButton"
 			:stacked-actions="stackedActions"
+			:fixed-height="fixedHeight"
 			:primary-action="primaryAction"
 			:default-action="defaultAction"
 			@default="open = false"
@@ -55,6 +56,10 @@ export default defineComponent( {
 			default: false
 		},
 		stackedActions: {
+			type: Boolean,
+			default: false
+		},
+		fixedHeight: {
 			type: Boolean,
 			default: false
 		},

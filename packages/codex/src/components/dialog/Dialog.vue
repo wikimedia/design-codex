@@ -250,6 +250,17 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		},
 
 		/**
+		 * Whether the dialog should maintain a fixed maximum height on mobile screens,
+		 * rather than expanding to fit the content height.
+		 */
+		fixedHeight: {
+			type: [ Boolean, Number ],
+			default: false,
+			validator: ( value: unknown ) => typeof value === 'boolean' ||
+				( typeof value === 'number' && value > 0 )
+		},
+
+		/**
 		 * Selector or DOM element identifying the container the dialog should
 		 * be rendered in. The dialog will be `<teleport>`ed to this element.
 		 * An ID selector is recommended, e.g. `#foo-bar`, but providing an
@@ -326,8 +337,12 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 
 		const rootClasses = computed( () => ( {
 			'cdx-dialog--vertical-actions': props.stackedActions,
-			'cdx-dialog--dividers': showDividers.value
+			'cdx-dialog--dividers': showDividers.value,
+			'cdx-dialog--fixed-height': props.fixedHeight !== false,
+			'cdx-dialog--fixed-height-custom': typeof props.fixedHeight === 'number'
 		} ) );
+
+		const fixedHeightRem = computed( () => typeof props.fixedHeight === 'number' ? `${ props.fixedHeight / 16 }rem` : '' );
 
 		// Determine where to teleport the Dialog to
 		const providedTarget = inject<TeleportTarget>( 'CdxTeleportTarget', undefined );
@@ -559,7 +574,8 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			showFooterActions,
 			useCloseButtonOrLabel,
 			translatedCloseButtonLabel,
-			computedTarget
+			computedTarget,
+			fixedHeightRem
 		};
 	}
 } );
@@ -593,20 +609,28 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 	display: flex;
 	flex-direction: column;
 	box-sizing: @box-sizing-base;
-	// On narrow screens, make dialogs full screen
-	width: @size-full;
-	height: @size-full;
+	// Make dialogs full screen with some space around the sides
+	width: calc( @size-viewport-width-full - ( @size-200) );
+	height: unset;
+	max-height: calc( @size-viewport-height-full - ( @size-200 ) );
+	border: @border-base;
+	border-radius: @border-radius-base;
+	box-shadow: @box-shadow-large;
+
+	&--fixed-height {
+		// Make dialogs full screen with some space around the top and bottom
+		height: calc( @size-viewport-height-full - ( @size-200 ) );
+
+		&-custom {
+			/* stylelint-disable-next-line value-keyword-case */
+			height: v-bind( fixedHeightRem );
+		}
+	}
 
 	@media ( min-width: @min-width-breakpoint-tablet ) {
 		// On wide screens, ensure some space around the sides
 		// Dynamically size the height of the dialog to fit the content, up to a limit
-		width: calc( @size-full - ( @size-100 * 2 ) );
-		height: unset;
 		max-width: @size-3200;
-		max-height: calc( @size-viewport-height-full - @size-250 );
-		border: @border-base;
-		border-radius: @border-radius-base;
-		box-shadow: @box-shadow-large;
 	}
 
 	&__header {
