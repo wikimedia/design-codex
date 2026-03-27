@@ -9,7 +9,7 @@ const controlsConfig = [
 	{
 		name: 'type',
 		type: 'radio',
-		options: [ 'subtle', 'notice', 'progressive', 'warning', 'error', 'success' ],
+		options: [ 'notice', 'warning', 'error', 'success' ],
 		default: 'notice'
 	},
 	{
@@ -44,14 +44,12 @@ feedback.
 
 Use the Message component to display system feedback, respond to user actions, or provide information. Use inline Messages to offer feedback on the validation of form inputs.
 
-Depending on the type of feedback conveyed to the user, Messages can be used to convey one of six statuses.
+Depending on the type of feedback conveyed to the user, Messages can be used to convey one of four statuses.
 
-1. **Subtle**<br>Use for general information that does not need to convey "status" or the need for additional visible attention — the most basic version of contained information. Contrary to a [Card](./card.md), a subtle Message might be the response to an action, cannot be entirely interactive, is not usually a part of a collection, and usually does not contain media.
-2. **Notice**<br>Use to provide general and non-urgent information or recommendations. Think of this as a neutral version of warning, error, or success.
-3. **Progressive**<br>Use to provide general or progressive information that draws extra visible attention and might prompt an action to take.
-4. **Warning**<br>Use to provide important information about circumstances that require caution.
-5. **Error**<br>Use to alert the user only in situation where their immediate attention is needed. Error Messages have the strongest visual priority of all system messages.
-6. **Success**<br>Use to deliver feedback of a successful user interaction, like publishing an
+1. **Notice**<br>Use to provide general and non-urgent information or recommendations. Think of this as a neutral version of warning, error, or success.
+2. **Warning**<br>Use to provide important information about circumstances that require caution.
+3. **Error**<br>Use to alert the user only in situation where their immediate attention is needed. Error Messages have the strongest visual priority of all system messages.
+4. **Success**<br>Use to deliver feedback of a successful user interaction, like publishing an
 article.
 
 ### About Message
@@ -65,7 +63,7 @@ matched with each message type (e.g., "success") to ensure recognition.
 
 <cdx-demo-best-practices>
 
-<cdx-demo-best-practice>Customize the icon in subtle, notice, and progressive Messages, or hide it if needed.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Customize the icon in notice Messages, or hide it if needed.</cdx-demo-best-practice>
 <cdx-demo-best-practice type="dont">Avoid removing or replacing the icon in warning, error, and success Messages, as it reinforces the meaning of their respective statuses.</cdx-demo-best-practice>
 
 </cdx-demo-best-practices>
@@ -471,33 +469,19 @@ these layouts.
 
 #### Message types
 
-There are six Message types, which change the colors and icon depending on the message's purpose.
+There are four Message types, which change the colors and icon depending on the message's purpose.
 Use these classes to apply the different Message type styles:
-- Subtle: `cdx-message--subtle`
 - Notice: `cdx-message--notice` (class can be omitted since this is the default)
-- Progressive: `cdx-message--progressive`
 - Warning: `cdx-message--warning`
 - Error: `cdx-message--error`
 - Success: `cdx-message--success`
 
 <cdx-demo-wrapper :allow-link-styles="true">
 <template v-slot:demo>
-	<div class="cdx-message cdx-message--block cdx-message--subtle" aria-live="polite">
-		<span class="cdx-message__icon"></span>
-		<div class="cdx-message__content">
-			This is a subtle message.
-		</div>
-	</div>
 	<div class="cdx-message cdx-message--block cdx-message--notice" aria-live="polite">
 		<span class="cdx-message__icon"></span>
 		<div class="cdx-message__content">
 			This is a notice message.
-		</div>
-	</div>
-	<div class="cdx-message cdx-message--block cdx-message--progressive" aria-live="polite">
-		<span class="cdx-message__icon"></span>
-		<div class="cdx-message__content">
-			This is a progressive message.
 		</div>
 	</div>
 	<div class="cdx-message cdx-message--block cdx-message--warning" aria-live="polite">
@@ -522,22 +506,10 @@ Use these classes to apply the different Message type styles:
 <template v-slot:code>
 
 ```html
-<div class="cdx-message cdx-message--block cdx-message--subtle" aria-live="polite">
-	<span class="cdx-message__icon"></span>
-	<div class="cdx-message__content">
-		This is a subtle message.
-	</div>
-</div>
 <div class="cdx-message cdx-message--block cdx-message--notice" aria-live="polite">
 	<span class="cdx-message__icon"></span>
 	<div class="cdx-message__content">
 		This is a notice message.
-	</div>
-</div>
-<div class="cdx-message cdx-message--block cdx-message--progressive" aria-live="polite">
-	<span class="cdx-message__icon"></span>
-	<div class="cdx-message__content">
-		This is a progressive message.
 	</div>
 </div>
 <div class="cdx-message cdx-message--block cdx-message--warning" aria-live="polite">

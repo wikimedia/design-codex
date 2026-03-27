@@ -1,8 +1,8 @@
 <template>
 	<div class="cdx-demo-info-chips">
 		<div>
-			<cdx-info-chip status="subtle" :icon="cdxIconCamera">
-				Photos
+			<cdx-info-chip status="subtle" :icon="cdxIconLabFlask">
+				Beta
 			</cdx-info-chip>
 		</div>
 		<div>
@@ -11,8 +11,8 @@
 			</cdx-info-chip>
 		</div>
 		<div>
-			<cdx-info-chip status="progressive" :icon="cdxIconCamera">
-				Photos
+			<cdx-info-chip status="progressive" :icon="cdxIconEllipsis">
+				In progress
 			</cdx-info-chip>
 		</div>
 	</div>
@@ -21,7 +21,7 @@
 <script>
 import { defineComponent } from 'vue';
 import { CdxInfoChip } from '@wikimedia/codex';
-import { cdxIconCamera } from '@wikimedia/codex-icons';
+import { cdxIconCamera, cdxIconEllipsis, cdxIconLabFlask } from '@wikimedia/codex-icons';
 
 export default defineComponent( {
 	name: 'ChipWithIcon',
@@ -30,7 +30,9 @@ export default defineComponent( {
 	},
 	setup() {
 		return {
-			cdxIconCamera
+			cdxIconCamera,
+			cdxIconEllipsis,
+			cdxIconLabFlask
 		};
 	}
 } );

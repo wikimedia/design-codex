@@ -7,7 +7,7 @@
 		</div>
 		<div>
 			<cdx-info-chip status="progressive">
-				Beta
+				New tests running
 			</cdx-info-chip>
 		</div>
 		<div>

@@ -75,10 +75,12 @@ export default defineComponent( {
 	name: 'CdxMessage',
 	components: { CdxButton, CdxIcon },
 	props: {
+		// Technically, the type can be set to 'subtle' or 'progressive' too, but we do not
+		// recommend this at this time, hence its omission from the Codex docs.
 		/**
 		 * Status type of Message.
 		 *
-		 * @values 'subtle', 'notice', 'progressive', 'warning', 'error', 'success'
+		 * @values 'notice', 'warning', 'error', 'success'
 		 */
 		type: {
 			type: String as PropType<StatusType>,

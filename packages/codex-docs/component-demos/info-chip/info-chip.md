@@ -42,9 +42,9 @@ Use the InfoChip component to label, categorize, or organize information using k
 
 Depending on the type of feedback conveyed to the user, InfoChips can be used to convey one of six statuses.
 
-1. **Subtle**<br>Use for general information that does not need to convey "status" or the need for additional visible attention — the most basic version of a small pill of information.
+1. **Subtle**<br>Use for subtle information that does not need to convey "status" or the need for additional visible attention — the most basic version of a small pill of information.
 2. **Notice**<br>Use to convey a general and non-urgent status. Think of this as a neutral version of warning, error, or success.
-3. **Progressive**<br>Use to convey a progressive status that draws extra attention, such as something that is new or important.
+3. **Progressive**<br>Use to convey a progressive status that draws extra attention but does not communicate cautionary, negative, or positive status.
 4. **Warning**<br>Use to convey a cautionary status.
 5. **Error**<br>Use to convey a negative status.
 6. **Success**<br>Use to convey a positive status.
