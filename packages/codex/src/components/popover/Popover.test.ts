@@ -351,8 +351,8 @@ describe( 'Popover', () => {
 					slots: { default: 'Popover Content' }
 				} );
 
-				expect( wrapper.find( '.cdx-popover-bottom-sheet' ).exists() ).toBe( true );
-				expect( wrapper.find( '.cdx-popover' ).exists() ).toBe( false );
+				expect( wrapper.find( '.cdx-popover--bottom-sheet' ).exists() ).toBe( true );
+				expect( wrapper.find( '.cdx-popover' ).exists() ).toBe( true );
 			} );
 
 			it( 'renders bottom sheet with title', () => {
@@ -367,7 +367,7 @@ describe( 'Popover', () => {
 					slots: { default: 'Popover Content' }
 				} );
 
-				const header = wrapper.find( '.cdx-popover-bottom-sheet__header' );
+				const header = wrapper.find( '.cdx-popover__header' );
 				expect( header.exists() ).toBe( true );
 				expect( header.text() ).toContain( 'Bottom Sheet Title' );
 			} );
@@ -383,9 +383,9 @@ describe( 'Popover', () => {
 					slots: { default: 'Popover Content' }
 				} );
 
-				const backdrop = wrapper.find( '.cdx-popover-bottom-sheet-backdrop' );
+				const backdrop = wrapper.find( '.cdx-popover__backdrop--bottom-sheet' );
 				expect( backdrop.exists() ).toBe( true );
-				expect( backdrop.classes() ).not.toContain( 'cdx-popover-bottom-sheet-backdrop--no-backdrop' );
+				expect( backdrop.classes() ).not.toContain( 'cdx-popover__backdrop--no-backdrop' );
 			} );
 
 			it( 'renders bottom sheet without backdrop when hideBackdrop is true', () => {
@@ -400,9 +400,9 @@ describe( 'Popover', () => {
 					slots: { default: 'Popover Content' }
 				} );
 
-				const backdrop = wrapper.find( '.cdx-popover-bottom-sheet-backdrop' );
+				const backdrop = wrapper.find( '.cdx-popover__backdrop--bottom-sheet' );
 				expect( backdrop.exists() ).toBe( true );
-				expect( backdrop.classes() ).toContain( 'cdx-popover-bottom-sheet-backdrop--no-backdrop' );
+				expect( backdrop.classes() ).toContain( 'cdx-popover__backdrop--no-backdrop' );
 			} );
 
 			it( 'closes bottom sheet when Escape key is pressed', async () => {
@@ -416,12 +416,12 @@ describe( 'Popover', () => {
 					slots: { default: 'Popover Content' }
 				} );
 
-				expect( wrapper.find( '.cdx-popover-bottom-sheet' ).exists() ).toBe( true );
+				expect( wrapper.find( '.cdx-popover--bottom-sheet' ).exists() ).toBe( true );
 
 				document.dispatchEvent( new KeyboardEvent( 'keydown', { key: 'Escape' } ) );
 				await wrapper.setProps( { open: false } );
 
-				expect( wrapper.find( '.cdx-popover-bottom-sheet' ).exists() ).toBe( false );
+				expect( wrapper.find( '.cdx-popover--bottom-sheet' ).exists() ).toBe( false );
 				expect( wrapper.emitted()[ 'update:open' ][ 0 ] ).toEqual( [ false ] );
 			} );
 
@@ -436,7 +436,7 @@ describe( 'Popover', () => {
 					slots: { default: 'Popover Content' }
 				} );
 
-				const backdrop = wrapper.find( '.cdx-popover-bottom-sheet-backdrop' );
+				const backdrop = wrapper.find( '.cdx-popover__backdrop--bottom-sheet' );
 				// Simulate mousedown then click on backdrop
 				await backdrop.trigger( 'mousedown' );
 				await backdrop.trigger( 'click' );
@@ -459,8 +459,8 @@ describe( 'Popover', () => {
 					slots: { default: 'Popover Content' }
 				} );
 
-				const primaryAction = wrapper.find( '.cdx-popover-bottom-sheet__footer__primary-action' );
-				const defaultAction = wrapper.find( '.cdx-popover-bottom-sheet__footer__default-action' );
+				const primaryAction = wrapper.find( '.cdx-popover__footer__primary-action' );
+				const defaultAction = wrapper.find( '.cdx-popover__footer__default-action' );
 
 				await primaryAction.trigger( 'click' );
 				expect( wrapper.emitted() ).toHaveProperty( 'primary' );
@@ -483,8 +483,8 @@ describe( 'Popover', () => {
 					slots: { default: 'Popover Content' }
 				} );
 
-				const actions = wrapper.find( '.cdx-popover-bottom-sheet__footer__actions' );
-				expect( actions.classes() ).toContain( 'cdx-popover-bottom-sheet__footer__actions--stacked' );
+				const actions = wrapper.find( '.cdx-popover__footer__actions' );
+				expect( actions.classes() ).toContain( 'cdx-popover__footer__actions--vertical' );
 			} );
 		} );
 
@@ -508,7 +508,7 @@ describe( 'Popover', () => {
 				} );
 
 				expect( wrapper.find( '.cdx-popover' ).exists() ).toBe( true );
-				expect( wrapper.find( '.cdx-popover-bottom-sheet' ).exists() ).toBe( false );
+				expect( wrapper.find( '.cdx-popover--bottom-sheet' ).exists() ).toBe( false );
 			} );
 		} );
 
@@ -532,7 +532,7 @@ describe( 'Popover', () => {
 				} );
 
 				expect( wrapper.find( '.cdx-popover' ).exists() ).toBe( true );
-				expect( wrapper.find( '.cdx-popover-bottom-sheet' ).exists() ).toBe( false );
+				expect( wrapper.find( '.cdx-popover--bottom-sheet' ).exists() ).toBe( false );
 			} );
 		} );
 	} );

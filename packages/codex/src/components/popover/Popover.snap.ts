@@ -1,38 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Popover matches the snapshot Case 0 Basic usage 1`] = `
-<div
-  data-v-app=""
+<teleport-stub
+  disabled="true"
+  to="body"
 >
-  
-  <!-- Bottom Sheet variant for mobile (when useBottomSheet is true and on mobile) -->
-  
-  <!-- Floating Popover variant (default or when useBottomSheet is true but on desktop) -->
-  <teleport-stub
-    disabled="true"
-    to="body"
+  <!-- Focus trap start -->
+  <div
+    tabindex="0"
+  />
+  <div
+    class="cdx-popover__backdrop cdx-popover-floating-enter-from cdx-popover-floating-enter-active"
   >
-    <!-- Focus trap start -->
-    <div
-      tabindex="0"
-    />
     <div
       class="cdx-popover"
-      style="position: absolute; left: 0px; top: 0px;"
     >
-      <!--v-if-->
       <div
         class="cdx-popover-focus-trap"
         tabindex="-1"
       />
+      <!--v-if-->
       <div
-        class="cdx-popover__body"
+        class="cdx-popover__body cdx-popover__body--no-footer"
       >
         <!-- @slot Popover body content. -->
         
-        
         Popover body content
-        
         
       </div>
       <!--v-if-->
@@ -41,36 +34,33 @@ exports[`Popover matches the snapshot Case 0 Basic usage 1`] = `
         style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
       />
     </div>
-    <!-- Focus trap end -->
-    <div
-      tabindex="0"
-    />
-  </teleport-stub>
-  
-  
-</div>
+  </div>
+  <!-- Focus trap end -->
+  <div
+    tabindex="0"
+  />
+</teleport-stub>
 `;
 
 exports[`Popover matches the snapshot Case 1 With title 1`] = `
-<div
-  data-v-app=""
+<teleport-stub
+  disabled="true"
+  to="body"
 >
-  
-  <!-- Bottom Sheet variant for mobile (when useBottomSheet is true and on mobile) -->
-  
-  <!-- Floating Popover variant (default or when useBottomSheet is true but on desktop) -->
-  <teleport-stub
-    disabled="true"
-    to="body"
+  <!-- Focus trap start -->
+  <div
+    tabindex="0"
+  />
+  <div
+    class="cdx-popover__backdrop cdx-popover-floating-enter-from cdx-popover-floating-enter-active"
   >
-    <!-- Focus trap start -->
-    <div
-      tabindex="0"
-    />
     <div
       class="cdx-popover"
-      style="position: absolute; left: 0px; top: 0px;"
     >
+      <div
+        class="cdx-popover-focus-trap"
+        tabindex="-1"
+      />
       <header
         class="cdx-popover__header"
       >
@@ -90,17 +80,11 @@ exports[`Popover matches the snapshot Case 1 With title 1`] = `
         
       </header>
       <div
-        class="cdx-popover-focus-trap"
-        tabindex="-1"
-      />
-      <div
-        class="cdx-popover__body"
+        class="cdx-popover__body cdx-popover__body--no-footer"
       >
         <!-- @slot Popover body content. -->
         
-        
         Popover body content
-        
         
       </div>
       <!--v-if-->
@@ -109,36 +93,33 @@ exports[`Popover matches the snapshot Case 1 With title 1`] = `
         style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
       />
     </div>
-    <!-- Focus trap end -->
-    <div
-      tabindex="0"
-    />
-  </teleport-stub>
-  
-  
-</div>
+  </div>
+  <!-- Focus trap end -->
+  <div
+    tabindex="0"
+  />
+</teleport-stub>
 `;
 
 exports[`Popover matches the snapshot Case 2 With icon 1`] = `
-<div
-  data-v-app=""
+<teleport-stub
+  disabled="true"
+  to="body"
 >
-  
-  <!-- Bottom Sheet variant for mobile (when useBottomSheet is true and on mobile) -->
-  
-  <!-- Floating Popover variant (default or when useBottomSheet is true but on desktop) -->
-  <teleport-stub
-    disabled="true"
-    to="body"
+  <!-- Focus trap start -->
+  <div
+    tabindex="0"
+  />
+  <div
+    class="cdx-popover__backdrop cdx-popover-floating-enter-from cdx-popover-floating-enter-active"
   >
-    <!-- Focus trap start -->
-    <div
-      tabindex="0"
-    />
     <div
       class="cdx-popover"
-      style="position: absolute; left: 0px; top: 0px;"
     >
+      <div
+        class="cdx-popover-focus-trap"
+        tabindex="-1"
+      />
       <header
         class="cdx-popover__header"
       >
@@ -172,17 +153,11 @@ exports[`Popover matches the snapshot Case 2 With icon 1`] = `
         
       </header>
       <div
-        class="cdx-popover-focus-trap"
-        tabindex="-1"
-      />
-      <div
-        class="cdx-popover__body"
+        class="cdx-popover__body cdx-popover__body--no-footer"
       >
         <!-- @slot Popover body content. -->
         
-        
         Popover body content
-        
         
       </div>
       <!--v-if-->
@@ -191,36 +166,33 @@ exports[`Popover matches the snapshot Case 2 With icon 1`] = `
         style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
       />
     </div>
-    <!-- Focus trap end -->
-    <div
-      tabindex="0"
-    />
-  </teleport-stub>
-  
-  
-</div>
+  </div>
+  <!-- Focus trap end -->
+  <div
+    tabindex="0"
+  />
+</teleport-stub>
 `;
 
 exports[`Popover matches the snapshot Case 3 With close button 1`] = `
-<div
-  data-v-app=""
+<teleport-stub
+  disabled="true"
+  to="body"
 >
-  
-  <!-- Bottom Sheet variant for mobile (when useBottomSheet is true and on mobile) -->
-  
-  <!-- Floating Popover variant (default or when useBottomSheet is true but on desktop) -->
-  <teleport-stub
-    disabled="true"
-    to="body"
+  <!-- Focus trap start -->
+  <div
+    tabindex="0"
+  />
+  <div
+    class="cdx-popover__backdrop cdx-popover-floating-enter-from cdx-popover-floating-enter-active"
   >
-    <!-- Focus trap start -->
-    <div
-      tabindex="0"
-    />
     <div
       class="cdx-popover"
-      style="position: absolute; left: 0px; top: 0px;"
     >
+      <div
+        class="cdx-popover-focus-trap"
+        tabindex="-1"
+      />
       <header
         class="cdx-popover__header"
       >
@@ -266,17 +238,11 @@ exports[`Popover matches the snapshot Case 3 With close button 1`] = `
         
       </header>
       <div
-        class="cdx-popover-focus-trap"
-        tabindex="-1"
-      />
-      <div
-        class="cdx-popover__body"
+        class="cdx-popover__body cdx-popover__body--no-footer"
       >
         <!-- @slot Popover body content. -->
         
-        
         Popover body content
-        
         
       </div>
       <!--v-if-->
@@ -285,36 +251,33 @@ exports[`Popover matches the snapshot Case 3 With close button 1`] = `
         style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
       />
     </div>
-    <!-- Focus trap end -->
-    <div
-      tabindex="0"
-    />
-  </teleport-stub>
-  
-  
-</div>
+  </div>
+  <!-- Focus trap end -->
+  <div
+    tabindex="0"
+  />
+</teleport-stub>
 `;
 
 exports[`Popover matches the snapshot Case 4 With custom close button label 1`] = `
-<div
-  data-v-app=""
+<teleport-stub
+  disabled="true"
+  to="body"
 >
-  
-  <!-- Bottom Sheet variant for mobile (when useBottomSheet is true and on mobile) -->
-  
-  <!-- Floating Popover variant (default or when useBottomSheet is true but on desktop) -->
-  <teleport-stub
-    disabled="true"
-    to="body"
+  <!-- Focus trap start -->
+  <div
+    tabindex="0"
+  />
+  <div
+    class="cdx-popover__backdrop cdx-popover-floating-enter-from cdx-popover-floating-enter-active"
   >
-    <!-- Focus trap start -->
-    <div
-      tabindex="0"
-    />
     <div
       class="cdx-popover"
-      style="position: absolute; left: 0px; top: 0px;"
     >
+      <div
+        class="cdx-popover-focus-trap"
+        tabindex="-1"
+      />
       <header
         class="cdx-popover__header"
       >
@@ -360,17 +323,11 @@ exports[`Popover matches the snapshot Case 4 With custom close button label 1`] 
         
       </header>
       <div
-        class="cdx-popover-focus-trap"
-        tabindex="-1"
-      />
-      <div
-        class="cdx-popover__body"
+        class="cdx-popover__body cdx-popover__body--no-footer"
       >
         <!-- @slot Popover body content. -->
         
-        
         Popover body content
-        
         
       </div>
       <!--v-if-->
@@ -379,49 +336,40 @@ exports[`Popover matches the snapshot Case 4 With custom close button label 1`] 
         style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
       />
     </div>
-    <!-- Focus trap end -->
-    <div
-      tabindex="0"
-    />
-  </teleport-stub>
-  
-  
-</div>
+  </div>
+  <!-- Focus trap end -->
+  <div
+    tabindex="0"
+  />
+</teleport-stub>
 `;
 
 exports[`Popover matches the snapshot Case 5 With primary action 1`] = `
-<div
-  data-v-app=""
+<teleport-stub
+  disabled="true"
+  to="body"
 >
-  
-  <!-- Bottom Sheet variant for mobile (when useBottomSheet is true and on mobile) -->
-  
-  <!-- Floating Popover variant (default or when useBottomSheet is true but on desktop) -->
-  <teleport-stub
-    disabled="true"
-    to="body"
+  <!-- Focus trap start -->
+  <div
+    tabindex="0"
+  />
+  <div
+    class="cdx-popover__backdrop cdx-popover-floating-enter-from cdx-popover-floating-enter-active"
   >
-    <!-- Focus trap start -->
-    <div
-      tabindex="0"
-    />
     <div
       class="cdx-popover"
-      style="position: absolute; left: 0px; top: 0px;"
     >
-      <!--v-if-->
       <div
         class="cdx-popover-focus-trap"
         tabindex="-1"
       />
+      <!--v-if-->
       <div
         class="cdx-popover__body"
       >
         <!-- @slot Popover body content. -->
         
-        
         Popover body content
-        
         
       </div>
       <footer
@@ -449,49 +397,40 @@ exports[`Popover matches the snapshot Case 5 With primary action 1`] = `
         style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
       />
     </div>
-    <!-- Focus trap end -->
-    <div
-      tabindex="0"
-    />
-  </teleport-stub>
-  
-  
-</div>
+  </div>
+  <!-- Focus trap end -->
+  <div
+    tabindex="0"
+  />
+</teleport-stub>
 `;
 
 exports[`Popover matches the snapshot Case 6 With default action 1`] = `
-<div
-  data-v-app=""
+<teleport-stub
+  disabled="true"
+  to="body"
 >
-  
-  <!-- Bottom Sheet variant for mobile (when useBottomSheet is true and on mobile) -->
-  
-  <!-- Floating Popover variant (default or when useBottomSheet is true but on desktop) -->
-  <teleport-stub
-    disabled="true"
-    to="body"
+  <!-- Focus trap start -->
+  <div
+    tabindex="0"
+  />
+  <div
+    class="cdx-popover__backdrop cdx-popover-floating-enter-from cdx-popover-floating-enter-active"
   >
-    <!-- Focus trap start -->
-    <div
-      tabindex="0"
-    />
     <div
       class="cdx-popover"
-      style="position: absolute; left: 0px; top: 0px;"
     >
-      <!--v-if-->
       <div
         class="cdx-popover-focus-trap"
         tabindex="-1"
       />
+      <!--v-if-->
       <div
         class="cdx-popover__body"
       >
         <!-- @slot Popover body content. -->
         
-        
         Popover body content
-        
         
       </div>
       <footer
@@ -519,49 +458,40 @@ exports[`Popover matches the snapshot Case 6 With default action 1`] = `
         style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
       />
     </div>
-    <!-- Focus trap end -->
-    <div
-      tabindex="0"
-    />
-  </teleport-stub>
-  
-  
-</div>
+  </div>
+  <!-- Focus trap end -->
+  <div
+    tabindex="0"
+  />
+</teleport-stub>
 `;
 
 exports[`Popover matches the snapshot Case 7 With stacked actions 1`] = `
-<div
-  data-v-app=""
+<teleport-stub
+  disabled="true"
+  to="body"
 >
-  
-  <!-- Bottom Sheet variant for mobile (when useBottomSheet is true and on mobile) -->
-  
-  <!-- Floating Popover variant (default or when useBottomSheet is true but on desktop) -->
-  <teleport-stub
-    disabled="true"
-    to="body"
+  <!-- Focus trap start -->
+  <div
+    tabindex="0"
+  />
+  <div
+    class="cdx-popover__backdrop cdx-popover-floating-enter-from cdx-popover-floating-enter-active"
   >
-    <!-- Focus trap start -->
-    <div
-      tabindex="0"
-    />
     <div
       class="cdx-popover"
-      style="position: absolute; left: 0px; top: 0px;"
     >
-      <!--v-if-->
       <div
         class="cdx-popover-focus-trap"
         tabindex="-1"
       />
+      <!--v-if-->
       <div
         class="cdx-popover__body"
       >
         <!-- @slot Popover body content. -->
         
-        
         Popover body content
-        
         
       </div>
       <footer
@@ -596,58 +526,47 @@ exports[`Popover matches the snapshot Case 7 With stacked actions 1`] = `
         style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
       />
     </div>
-    <!-- Focus trap end -->
-    <div
-      tabindex="0"
-    />
-  </teleport-stub>
-  
-  
-</div>
+  </div>
+  <!-- Focus trap end -->
+  <div
+    tabindex="0"
+  />
+</teleport-stub>
 `;
 
 exports[`Popover matches the snapshot Case 8 With header and footer slots 1`] = `
-<div
-  data-v-app=""
+<teleport-stub
+  disabled="true"
+  to="body"
 >
-  
-  <!-- Bottom Sheet variant for mobile (when useBottomSheet is true and on mobile) -->
-  
-  <!-- Floating Popover variant (default or when useBottomSheet is true but on desktop) -->
-  <teleport-stub
-    disabled="true"
-    to="body"
+  <!-- Focus trap start -->
+  <div
+    tabindex="0"
+  />
+  <div
+    class="cdx-popover__backdrop cdx-popover-floating-enter-from cdx-popover-floating-enter-active"
   >
-    <!-- Focus trap start -->
-    <div
-      tabindex="0"
-    />
     <div
       class="cdx-popover"
-      style="position: absolute; left: 0px; top: 0px;"
     >
+      <div
+        class="cdx-popover-focus-trap"
+        tabindex="-1"
+      />
       <header
         class="cdx-popover__header"
       >
         <!-- @slot Customizable Popover header. -->
         
-        
         Custom header text
         
-        
       </header>
-      <div
-        class="cdx-popover-focus-trap"
-        tabindex="-1"
-      />
       <div
         class="cdx-popover__body"
       >
         <!-- @slot Popover body content. -->
         
-        
         Popover body content
-        
         
       </div>
       <footer
@@ -655,9 +574,7 @@ exports[`Popover matches the snapshot Case 8 With header and footer slots 1`] = 
       >
         <!-- @slot Customizable Popover footer. -->
         
-        
         Custom footer text
-        
         
       </footer>
       <div
@@ -665,12 +582,10 @@ exports[`Popover matches the snapshot Case 8 With header and footer slots 1`] = 
         style="left: 0px; top: 0px; right: 0px; bottom: 0px; transform: none;"
       />
     </div>
-    <!-- Focus trap end -->
-    <div
-      tabindex="0"
-    />
-  </teleport-stub>
-  
-  
-</div>
+  </div>
+  <!-- Focus trap end -->
+  <div
+    tabindex="0"
+  />
+</teleport-stub>
 `;

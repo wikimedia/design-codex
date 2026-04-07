@@ -36,8 +36,12 @@ export default function useScrollLock( isActive: Ref<boolean> ) {
 	let savedScrollX = 0;
 	let savedScrollY = 0;
 	let appliedFixedScrollLock = false;
+	const hasDOM = typeof window !== 'undefined' && typeof document !== 'undefined';
 
 	function lockBodyScroll() {
+		if ( !hasDOM ) {
+			return;
+		}
 		const body = document.body;
 		const scrollRoot = getScrollRoot();
 
@@ -64,6 +68,9 @@ export default function useScrollLock( isActive: Ref<boolean> ) {
 	}
 
 	function unlockBodyScroll() {
+		if ( !hasDOM ) {
+			return;
+		}
 		const body = document.body;
 		const scrollRoot = getScrollRoot();
 
