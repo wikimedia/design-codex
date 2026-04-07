@@ -4,7 +4,6 @@
 		:menu-items="menuItems"
 	>
 		<cdx-icon :icon="cdxIconHelp" />
-
 		Help
 	</cdx-menu-button>
 </template>

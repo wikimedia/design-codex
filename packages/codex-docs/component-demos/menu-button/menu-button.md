@@ -119,9 +119,9 @@ Use an icon with the button label when you need to convey meaning through both t
 
 :::code-group
 
-<<< @/../component-demos/menu-button/examples/MenuButtonWithIconOnly.vue [NPM]
+<<< @/../component-demos/menu-button/examples/MenuButtonWithIcon.vue [NPM]
 
-<<< @/../component-demos/menu-button/examples-mw/MenuButtonWithIconOnly.vue [MediaWiki]
+<<< @/../component-demos/menu-button/examples-mw/MenuButtonWithIcon.vue [MediaWiki]
 
 :::
 
