@@ -493,6 +493,7 @@ export default defineComponent( {
 		min-height: @min-size-interactive-pointer;
 		border-width: @border-width-base;
 		border-style: @border-style-base;
+		border-radius: inherit;
 		padding: @spacing-vertical-input-chip @spacing-25;
 		line-height: @line-height-small;
 	}
@@ -534,6 +535,13 @@ export default defineComponent( {
 			// Make it look like there's a 1px border between the chips container and the separate
 			// input.
 			margin-bottom: @position-offset-border-width-base;
+			border-bottom-left-radius: @border-radius-sharp;
+			border-bottom-right-radius: @border-radius-sharp;
+		}
+
+		.cdx-chip-input__separate-input {
+			border-top-left-radius: @border-radius-sharp;
+			border-top-right-radius: @border-radius-sharp;
 		}
 
 		.cdx-chip-input__input {
