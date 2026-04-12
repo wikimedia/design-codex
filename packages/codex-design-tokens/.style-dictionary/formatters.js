@@ -1,5 +1,6 @@
 /** @import { FormatFn, TransformedToken } from 'style-dictionary/types' */
 import { fileHeader, createPropertyFormatter, sortByReference, usesReferences, getReferences } from 'style-dictionary/utils';
+
 import { regExpEscape } from './utils.js';
 
 /** @typedef {( token: TransformedToken ) => boolean} OutputFilter */
@@ -74,7 +75,7 @@ export function createCustomStyleFormatter( format ) {
 		const header = await fileHeader( { file, commentStyle } );
 		let preamble = '', postamble = '';
 		if ( format === 'css' ) {
-			const selector = /** @type {string} */ ( options.selector ) || ':root';
+			const selector = /** @type {string} */ ( options.selector ) ?? ':root';
 			preamble = `${ selector } {\n`;
 			postamble = '\n}\n';
 		}

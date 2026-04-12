@@ -53,15 +53,15 @@
 	},
 	"devDependencies": {
 		"@rollup/plugin-typescript": "12.1.2",
-		"@types/estree": "1.0.6",
+		"@types/estree": "1.0.8",
 		"@types/jest": "29.5.14",
 		"glob": "11.0.0",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
 		"svglint": "4.1.0",
 		"svgo": "4.0.0",
-		"ts-jest": "29.2.5",
-		"typescript": "5.7.2",
+		"ts-jest": "29.4.9",
+		"typescript": "5.9.3",
 		"vite": "7.0.4"
 	}
 }

@@ -20,6 +20,7 @@ interface StatefulDirectiveElement extends HTMLElement {
 }
 
 class Tooltip {
+	/* eslint-disable es-x/no-class-instance-fields */
 	private referenceElement: StatefulDirectiveElement;
 
 	private tooltipElement: HTMLElement;
@@ -37,6 +38,7 @@ class Tooltip {
 	private escapeHandler: ( event: KeyboardEvent ) => void;
 
 	private timeoutId: ReturnType<typeof setTimeout>|null;
+	/* eslint-enable es-x/no-class-instance-fields */
 
 	constructor( referenceElement: StatefulDirectiveElement, options: TooltipOptions ) {
 		// Initialize tooltip instance properties

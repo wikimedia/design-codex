@@ -170,7 +170,7 @@ export default defineComponent( {
 		 * displayed when no selection has been made.
 		 */
 		defaultIcon: {
-			type: [ String, Object ] as PropType<Icon | undefined>,
+			type: [ String, Object ] as PropType<Icon>,
 			default: undefined
 		},
 

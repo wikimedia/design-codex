@@ -123,14 +123,14 @@ export default defineComponent( {
 		 * An icon at the start of the `<input>` element. Similar to a `::before` pseudo-element.
 		 */
 		startIcon: {
-			type: [ String, Object ] as PropType<Icon | undefined>,
+			type: [ String, Object ] as PropType<Icon>,
 			default: undefined
 		},
 		/**
 		 * An icon at the end of the `<input>` element. Similar to an `::after` pseudo-element.
 		 */
 		endIcon: {
-			type: [ String, Object ] as PropType<Icon | undefined>,
+			type: [ String, Object ] as PropType<Icon>,
 			default: undefined
 		},
 		/**

@@ -43,6 +43,6 @@
 		"npm-watch": "0.13.0",
 		"rimraf": "6.0.1",
 		"style-dictionary": "4.3.3",
-		"typescript": "5.7.2"
+		"typescript": "5.9.3"
 	}
 }

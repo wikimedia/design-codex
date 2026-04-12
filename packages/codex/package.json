@@ -80,7 +80,7 @@
 		"start-server-and-test": "1.14.0",
 		"ts-jest": "29.2.5",
 		"tsx": "4.19.2",
-		"typescript": "5.7.2",
+		"typescript": "5.9.3",
 		"vite": "7.0.4",
 		"vue": "3.5.17",
 		"vue-tsc": "3.0.1"

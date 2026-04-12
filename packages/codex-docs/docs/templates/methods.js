@@ -12,7 +12,7 @@ const getParams = ( params ) => {
 	let paramsString = '<ul class="cdx-docs-methods__params">';
 	params.forEach( ( p ) => {
 		const t = p.type?.name ? getTypeText( p.type.name ) : '';
-		const n = p.name ? p.name : '';
+		const n = p.name ?? '';
 		const d = typeof p.description === 'string' ? p.description : '';
 
 		// Standard format for params in other usage docs (e.g. events), with

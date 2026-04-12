@@ -74,7 +74,7 @@ function handleScroll() {
 // Color and font modes.
 const colorMode = ref( 'system' );
 const colorModeIsDark = computed( () => colorMode.value === 'dark' ||
-	( colorMode.value === 'system' && window.matchMedia && window.matchMedia( '(prefers-color-scheme: dark)' ).matches ) );
+	( colorMode.value === 'system' && window.matchMedia?.( '( prefers-color-scheme: dark )' ).matches ) );
 const fontMode = ref( 'medium' );
 
 const layoutClasses = computed( () => ( {
