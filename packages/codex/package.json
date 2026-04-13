@@ -22,7 +22,7 @@
 	"license": "GPL-2.0+",
 	"engines": {
 		"npm": ">=10.8.2",
-		"node": ">=20.19.1"
+		"node": ">=20.20.2"
 	},
 	"main": "dist/codex.cjs",
 	"module": "dist/codex.js",

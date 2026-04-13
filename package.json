@@ -16,7 +16,7 @@
 	],
 	"engines": {
 		"npm": ">=10.8.2",
-		"node": ">=20.19.1"
+		"node": ">=20.20.2"
 	},
 	"scripts": {
 		"branch-deploy": "./build/branch-deploy.sh",
