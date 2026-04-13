@@ -43,8 +43,8 @@
 		"escape-html": "1.0.3",
 		"prism-themes": "1.9.0",
 		"prismjs": "1.29.0",
-		"svglint": "4.1.0",
-		"svgo": "4.0.0",
+		"svglint": "4.2.1",
+		"svgo": "4.0.1",
 		"vue": "3.5.17"
 	},
 	"devDependencies": {

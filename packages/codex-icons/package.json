@@ -58,8 +58,8 @@
 		"glob": "11.0.0",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
-		"svglint": "4.1.0",
-		"svgo": "4.0.0",
+		"svglint": "4.2.1",
+		"svgo": "4.0.1",
 		"ts-jest": "29.4.9",
 		"typescript": "5.9.3",
 		"vite": "7.0.4"
