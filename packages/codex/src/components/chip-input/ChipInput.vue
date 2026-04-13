@@ -645,18 +645,18 @@ export default defineComponent( {
 	}
 
 	&--disabled {
-		/* stylelint-disable-next-line no-descending-specificity */
+		/* stylelint-disable no-descending-specificity */
 		.cdx-chip-input__chips,
 		.cdx-chip-input__separate-input {
 			background-color: @background-color-disabled-subtle;
 			border-color: @border-color-disabled;
 
-			/* stylelint-disable-next-line no-descending-specificity */
 			.cdx-chip-input__input {
 				color: @color-disabled;
 				-webkit-text-fill-color: @color-disabled;
 			}
 		}
+		/* stylelint-enable no-descending-specificity */
 	}
 }
 </style>

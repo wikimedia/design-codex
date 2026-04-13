@@ -305,6 +305,17 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 		flex-shrink: 0;
 	}
 
+	// Note that the height is set above for the CSS icons via the mixin, which is why the selector
+	// used here is `.cdx-message__icon` instead of `&__icon`. This allows the styles included here
+	// to override those set above.
+	// The second selector is written the same way for consistency's sake.
+	.cdx-message__icon,
+	.cdx-message__icon--vue {
+		// Setting the height of the icon to the line-height of the accompanying text
+		// to ensure centering of the icon to text
+		height: @line-height-medium;
+	}
+
 	// Set the default CSS icon to the icon for notice messages, which is the default message type.
 	// The icon and icon color will be overridden for other message types below.
 	// The color of the Vue icon for notice messages is inherited from the color rule set on
@@ -390,17 +401,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 		&.cdx-message--error {
 			color: @color-error;
 		}
-	}
-
-	// Note that the height is set above for the CSS icons via the mixin, which is why the selector
-	// used here is `.cdx-message__icon` instead of `&__icon`. This allows the styles included here
-	// to override those set above.
-	// The second selector is written the same way for consistency's sake.
-	.cdx-message__icon,
-	.cdx-message__icon--vue {
-		// Setting the height of the icon to the line-height of the accompanying text
-		// to ensure centering of the icon to text
-		height: @line-height-medium;
 	}
 
 	&__content {

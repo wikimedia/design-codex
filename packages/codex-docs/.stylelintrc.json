@@ -5,6 +5,11 @@
 			"files": [ "**/*.md" ],
 			"customSyntax": "postcss-markdown",
 			"rules": {
+				"at-rule-descriptor-no-unknown": null,
+				"at-rule-prelude-no-invalid": null,
+				"declaration-property-value-no-unknown": null,
+				"no-empty-source": null,
+				"no-invalid-position-declaration": null,
 				"selector-pseudo-class-no-unknown": [
 					true,
 					{

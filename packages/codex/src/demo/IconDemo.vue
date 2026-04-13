@@ -127,7 +127,7 @@ import { cdxIconArrowNext, cdxIconBold, cdxIconArticleCheck } from '@wikimedia/c
 
 	&--custom {
 		.cdx-mixin-css-icon( 'none', @color-progressive );
-		/* stylelint-disable-next-line plugin/no-unsupported-browser-features,function-url-quotes */
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 		mask-image: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><mask id="inner"><circle cx="10" cy="10" r="10" fill="white"/><circle cx="10" cy="10" r="6" fill="black"/></mask><circle cx="10" cy="10" r="10" fill="black" mask="url(%23inner)"/></svg>' );
 	}
 

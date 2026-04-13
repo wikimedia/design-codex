@@ -219,6 +219,7 @@ export default defineComponent( {
 		gap: @spacing-50;
 		border-radius: @border-radius-sharp;
 		padding: @spacing-75;
+		/* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated */
 		word-break: break-word;
 		white-space: normal;
 		transition-property: @transition-property-base;

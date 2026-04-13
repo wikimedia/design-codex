@@ -611,6 +611,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			}
 		}
 
+		/* stylelint-disable-next-line no-descending-specificity */
 		.cdx-dialog--dividers & {
 			border-bottom: @border-subtle;
 		}
@@ -649,10 +650,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 		margin-top: auto;
 		padding: @spacing-100 @spacing-150 @spacing-150;
 
-		.cdx-dialog--dividers & {
-			border-top: @border-subtle;
-		}
-
 		// If no custom footer content is provided, apply these styles to the
 		// `<footer>` element
 		&--default {
@@ -661,16 +658,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			flex-wrap: wrap;
 			justify-content: space-between;
 			gap: @spacing-75;
-		}
-
-		// Increased specificity to ensure that this style shows up in VitePress
-		& &__text {
-			color: @color-subtle;
-			flex: 1 0 auto;
-			width: @spacing-full;
-			margin: 0;
-			font-size: @font-size-small;
-			line-height: @line-height-small;
 		}
 
 		&__actions {
@@ -688,6 +675,20 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 					max-width: none;
 				}
 			}
+		}
+
+		.cdx-dialog--dividers & {
+			border-top: @border-subtle;
+		}
+
+		// Increased specificity to ensure that this style shows up in VitePress
+		& &__text {
+			color: @color-subtle;
+			flex: 1 0 auto;
+			width: @spacing-full;
+			margin: 0;
+			font-size: @font-size-small;
+			line-height: @line-height-small;
 		}
 	}
 

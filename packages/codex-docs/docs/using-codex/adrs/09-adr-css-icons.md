@@ -1,5 +1,5 @@
 <style>
-	/* stylelint-disable selector-class-pattern, function-url-quotes, scale-unlimited/declaration-strict-value, plugin/no-unsupported-browser-features */
+/* stylelint-disable selector-class-pattern, scale-unlimited/declaration-strict-value, plugin/no-unsupported-browser-features */
 </style>
 
 # ADR 09) CSS icons
@@ -281,5 +281,5 @@ Further reading:
 1. [Task](https://phabricator.wikimedia.org/T356540)
 
 <style>
-	/* stylelint-enable selector-class-pattern, function-url-quotes */
+/* stylelint-enable selector-class-pattern */
 </style>

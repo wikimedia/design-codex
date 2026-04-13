@@ -1336,6 +1336,7 @@ export default defineComponent( {
 			}
 		}
 
+		/* stylelint-disable no-descending-specificity */
 		&__icon {
 			// Setting the height of the icon to the line-height of the accompanying text
 			// to ensure centering of the icon to text
@@ -1351,6 +1352,7 @@ export default defineComponent( {
 			font-size: @font-size-small;
 			line-height: @line-height-small;
 		}
+		/* stylelint-enable no-descending-specificity */
 	}
 
 	&__group-wrapper {

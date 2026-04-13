@@ -1013,6 +1013,11 @@ export default defineComponent( {
 		/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 		border-collapse: collapse;
 
+		&--layout-fixed {
+			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+			table-layout: fixed;
+		}
+
 		// Note that element selectors are used here because we can predict which elements will be
 		// used inside a table, and this will simplify both the CSS-only implementation and use of
 		// the default slot to add ones own sub-table elements.
@@ -1101,6 +1106,20 @@ export default defineComponent( {
 			}
 		}
 
+		// Common styles for Vue and CSS-only sort icons. This needs to come after the application
+		// of the CSS icon mixin above so the height set here will override the height set in the
+		// CSS icon mixin.
+		/* stylelint-disable no-descending-specificity */
+		&__sort-icon--vue,
+		&__sort-icon {
+			color: @color-subtle;
+			flex-shrink: 0;
+			// Setting the height of the icon to the line-height of the accompanying text
+			// to ensure centering of the icon to text
+			height: @line-height-small;
+		}
+		/* stylelint-enable no-descending-specificity */
+
 		// CSS-only sort icons.
 		&__sort-icon {
 			&--unsorted {
@@ -1114,18 +1133,6 @@ export default defineComponent( {
 			&--desc {
 				.cdx-mixin-css-icon( @cdx-icon-down-triangle, @param-size-icon: @size-icon-small );
 			}
-		}
-
-		// Common styles for Vue and CSS-only sort icons. This needs to come after the application
-		// of the CSS icon mixin above so the height set here will override the height set in the
-		// CSS icon mixin.
-		&__sort-icon--vue,
-		&__sort-icon {
-			color: @color-subtle;
-			flex-shrink: 0;
-			// Setting the height of the icon to the line-height of the accompanying text
-			// to ensure centering of the icon to text
-			height: @line-height-small;
 		}
 
 		// Modifiers for table cells (th and td). Note that the extra class selector is needed to
@@ -1186,11 +1193,6 @@ export default defineComponent( {
 			}
 		}
 
-		&--layout-fixed {
-			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-			table-layout: fixed;
-		}
-
 		&--borders-vertical {
 			th,
 			td {
@@ -1220,6 +1222,7 @@ export default defineComponent( {
 			}
 		}
 
+		/* stylelint-disable-next-line no-descending-specificity */
 		&__empty-state {
 			border-top: @border-base;
 

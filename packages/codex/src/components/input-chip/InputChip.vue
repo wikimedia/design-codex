@@ -290,7 +290,6 @@ export default defineComponent( {
 
 	// The remove button is small and round, which is not supported within the Button component
 	// itself, so the styles are included here.
-	/* stylelint-disable-next-line no-descending-specificity */
 	&__button.cdx-button {
 		min-width: @min-size-input-chip-clear-button;
 		min-height: @min-size-input-chip-clear-button;

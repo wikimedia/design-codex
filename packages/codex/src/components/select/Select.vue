@@ -460,7 +460,6 @@ export default defineComponent( {
 				}
 			}
 
-			/* stylelint-disable-next-line no-descending-specificity */
 			&:active {
 				background-color: @background-color-error-subtle--active;
 				color: @color-error--active;
