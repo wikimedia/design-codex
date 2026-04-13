@@ -387,5 +387,5 @@ Refer to the [list of icons](../icons/all-icons.md) to know which ones include m
 ## References
 
 1. <span id="ref1">[Bidirectional text on English Wikipedia](https://en.wikipedia.org/wiki/Bidirectional_text)</span>
-2. <span id="ref2">[Directionality within Writing sytem on English Wikipedia](https://en.wikipedia.org/wiki/Writing_system#Directionality)</span>
+2. <span id="ref2">[Directionality within Writing system on English Wikipedia](https://en.wikipedia.org/wiki/Writing_system#Directionality)</span>
 3. <span id="ref3">[Right-to-left script on English Wikipedia](https://en.wikipedia.org/wiki/Right-to-left_script)</span>

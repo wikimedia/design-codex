@@ -413,7 +413,7 @@ type TableRow = Record<string, any>;
 
 ### TableRowWithIdentifier
 
-When both sorting and row selection are enabled, an extra unique idenfitier is needed for each
+When both sorting and row selection are enabled, an extra unique identifier is needed for each
 row. Check [TableRowIdentifier](#tablerowidentifier).
 
 ```ts

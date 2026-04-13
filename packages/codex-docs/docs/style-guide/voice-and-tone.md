@@ -74,6 +74,6 @@ The tone of the Wikimedia voice will shift to reflect the task you are writing f
 
 <div class="cdx-docs-example">
 
-![Warning message above a positive message, both conveying exmaples of how to write tone in a neutral voice for different severity of messages.](../assets/content-guidelines/voice-and-tone/tone.svg)
+![Warning message above a positive message, both conveying examples of how to write tone in a neutral voice for different severity of messages.](../assets/content-guidelines/voice-and-tone/tone.svg)
 
 </div>

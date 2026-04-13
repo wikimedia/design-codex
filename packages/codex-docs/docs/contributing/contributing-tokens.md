@@ -46,7 +46,7 @@ When creating new tokens, define the type of token based on the specific design 
 - **Decision token**: create when the style will be reused across multiple components. Decision tokens are based on option tokens (e.g., the decision token `color-progressive` reuses the option token `color.blue700`), so make sure the required option token already exists, or create it first if necessary.
 - **Component token**: create only in exceptional cases, when the style is specific to a single component and cannot be reused. Component tokens reuse option or decision tokens (e.g., the component token `color-link-red` reuses the decision token `color-destructive`), so ensure the necessary token exists, or create it first if needed.
 
-Make sure the new token fits within the existing token scale, and use the appropiate naming based on its category. Learn more about the different [token typologies](../design-tokens/definition-and-structure.md).
+Make sure the new token fits within the existing token scale, and use the appropriate naming based on its category. Learn more about the different [token typologies](../design-tokens/definition-and-structure.md).
 
 ::: tip
 Make sure the new token fits into the existing scale.

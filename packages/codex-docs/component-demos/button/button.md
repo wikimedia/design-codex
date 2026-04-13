@@ -253,7 +253,7 @@ Buttons may be disabled, but disabled buttons should be used sparingly.
 <cdx-demo-best-practices>
 
 <cdx-demo-best-practice>Use disabled Buttons when they are related to a single input, therefore implying what must be completed to enable the Button.</cdx-demo-best-practice>
-<cdx-demo-best-practice type="dont">Avoid using disabled Buttons to prevent a user from attmepting to continue forward. Instead, rely on providing validation as a response to what might be incomplete or incorrect.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Avoid using disabled Buttons to prevent a user from attempting to continue forward. Instead, rely on providing validation as a response to what might be incomplete or incorrect.</cdx-demo-best-practice>
 
 </cdx-demo-best-practices>
 
