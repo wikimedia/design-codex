@@ -19,7 +19,7 @@ Then pass in [observer options](https://developer.mozilla.org/en-US/docs/Web/API
 like `threshold`.
 
 ```js
-const firstTabLabel = ref(null);
+const firstTabLabel = ref( null );
 const firstLabelVisible = useIntersectionObserver( firstTabLabel, { threshold: 0.95 } );
 ```
 
@@ -55,23 +55,23 @@ In this example, the component has a video that will auto-pause if the video is 
 import { defineComponent, ref, computed, onUpdated, watch } from 'vue';
 import { useIntersectionObserver } from '@wikimedia/codex';
 
-export default defineComponent({
+export default defineComponent( {
 	components: {},
 	setup() {
-		const video = ref(null); //target element
-		const videoVisible = useIntersectionObserver (video, {threshold: 1});
+		const video = ref( null ); // target element
+		const videoVisible = useIntersectionObserver( video, { threshold: 1 } );
 
-		watch (() => {
+		watch( () => {
 			if ( !videoVisible.value && !video.value?.paused ) {
 				video.value?.pause();
-			} else if (video.value?.paused) {
+			} else if ( video.value?.paused ) {
 				video.value?.play();
 			}
-		})
+		} );
 
 		return { video };
 	},
-});
+} );
 </script>
 <style>
 body {

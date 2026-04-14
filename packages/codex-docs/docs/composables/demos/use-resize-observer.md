@@ -25,7 +25,7 @@ element and allows us to interact with the DOM element.
 Pass the template ref to the composable.
 
 ```js
-const dialogBody = ref(null); // dialog content
+const dialogBody = ref( null ); // dialog content
 const bodyDimensions = useResizeObserver( dialogBody );
 ```
 
@@ -36,11 +36,11 @@ determine whether or not to show border dividers between the three sections.
 
 The composable gets the current height of the body. If the body's client height is smaller than the body's scroll height then a CSS class is dynamically added to show the border dividers.
 
-``` vue
+```vue
 <template>
-  	<div class="cdx-docs-container" :class="rootClasses">
+  <div class="cdx-docs-container" :class="rootClasses">
     <header>
-      	<h1 class="cdx-docs-title">Title</h1>
+      <h1 class="cdx-docs-title">Title</h1>
     </header>
     <p ref="bodyContent" class="cdx-docs-body">
 		This is the body content.This is the body content.This is the body
@@ -59,27 +59,25 @@ The composable gets the current height of the body. If the body's client height 
 		content.
     </p>
     <footer class="cdx-docs-footer">
-      	<cdx-button>Continue</cdx-button>
+      <cdx-button>Continue</cdx-button>
     </footer>
-  	</div>
+  </div>
 </template>
 <script>
 import { defineComponent, ref, computed, watch } from 'vue';
 import { CdxButton, useResizeObserver } from '@wikimedia/codex';
 
-export default defineComponent({
+export default defineComponent( {
   components: { CdxButton },
   setup() {
-    const bodyContent = ref(null);
+    const bodyContent = ref( null );
     const bodyDimensions = useResizeObserver( bodyContent );
     const currentBodyHeight = computed( () => bodyDimensions.value.height ?? 0 );
 
 	const showDividers = ref( false );
-    const rootClasses = computed( () => {
-		return {
+    const rootClasses = computed( () => ( {
 			'cdx-docs-container--dividers': showDividers.value
-		};
-	} );
+		} ) );
 
     // Determine if content dividers should be displayed for overflowing content
     watch( currentBodyHeight, () => {
@@ -91,9 +89,9 @@ export default defineComponent({
     return {
 		bodyContent,
 		rootClasses
-    }
+    };
   }
-});
+} );
 </script>
 <style>
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';

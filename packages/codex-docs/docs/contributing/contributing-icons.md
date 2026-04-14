@@ -291,7 +291,6 @@ export const cdxIconBold: IconVariedByLang = {
 	// 'bold-a.svg' will be used for all other languages not listed above.
 	default: svgBoldA
 };
-
 ```
 
 ### Testing the new icon

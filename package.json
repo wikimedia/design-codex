@@ -48,6 +48,7 @@
 		"cssbeautify": "0.3.1",
 		"eslint": "8.57.0",
 		"eslint-config-wikimedia": "0.32.3",
+		"eslint-plugin-markdown": "3.0.1",
 		"jest": "29.7.0",
 		"netlify-cli": "18.0.0",
 		"postcss-html": "1.8.1",

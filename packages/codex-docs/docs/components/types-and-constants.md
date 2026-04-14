@@ -311,7 +311,7 @@ interface ModalAction {
 Codex re-exports the `Placement` type from [FloatingUI](https://floating-ui.com/) for convenience.
 
 ```ts
-type Placement = "top" | "right" | "bottom" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end";
+type Placement = 'top' | 'right' | 'bottom' | 'left' | 'top-start' | 'top-end' | 'right-start' | 'right-end' | 'bottom-start' | 'bottom-end' | 'left-start' | 'left-end';
 ```
 
 ### PrimaryModalAction

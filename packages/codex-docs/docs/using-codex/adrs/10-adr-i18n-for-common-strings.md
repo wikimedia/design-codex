@@ -99,10 +99,10 @@ And the provided function in MediaWiki core would look like this:
 
 ```js
 // MediaWiki's existing createMwApp() function, a wrapper around Vue.createApp().
-Vue.createMwApp = function( ...args ) {
+Vue.createMwApp = function ( ...args ) {
 	const app = Vue.createApp( ...args );
 	app.provide( 'CdxI18nFunction', mw.msg );
-}
+};
 ```
 
 This would be lightweight to implement, but would only work inside MediaWiki. However, the plugin

@@ -61,7 +61,9 @@ module.exports = {
 			excludedFiles: [
 				'packages/codex-docs/component-demos/**/examples/*.vue',
 				'packages/codex-docs/component-demos/**/examples-mw/*.vue',
-				'packages/codex-docs/src/lib.ts'
+				'packages/codex-docs/src/lib.ts',
+				// Markdown code block virtual files are not in any tsconfig
+				'packages/codex-docs/docs/**/*.md/**'
 			],
 			plugins: [
 				'@typescript-eslint/eslint-plugin'

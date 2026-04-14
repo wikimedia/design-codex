@@ -125,7 +125,7 @@ export default defineComponent( {
     setup() {
         return {
             cdxIconTrash
-        }
+        };
     }
 } );
 </script>

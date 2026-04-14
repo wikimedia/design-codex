@@ -301,6 +301,7 @@ The third argument to `useModelWrapper` is an event name. If that event name isn
 component's `emits` property, TypeScript will complain.
 
 For example, this code:
+<!-- eslint-skip -->
 ```ts
 emits: [ 'click', 'update:foo' ],
 setup( props, { emit } ) {
@@ -308,7 +309,7 @@ setup( props, { emit } ) {
 }
 ```
 will result in the following error, because `update:ofo` is not a valid event name:
-```ts{7}
+```text
 src/components/foo-bar/FooBar.vue:117:24 - error TS2769: No overload matches this call.
   Overload 1 of 2, '(modelValueRef: Ref<ModelValue>, emit: EmitFunc<"update:modelValue">, eventName?: "update:modelValue" | undefined): WritableComputedRef<ModelValue>', gave the following error.
     Argument of type '(event: "click" | "update:foo", ...args: any[]) => void' is not assignable to parameter of type 'EmitFunc<"update:modelValue">'.
@@ -323,6 +324,7 @@ src/components/foo-bar/FooBar.vue:117:24 - error TS2769: No overload matches thi
 events, TypeScript will also complain, but the error message will look different.
 
 For example, this code:
+<!-- eslint-skip -->
 ```ts
 emits: [ 'click', 'update:foo' ],
 setup( props, { emit } ) {

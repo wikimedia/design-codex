@@ -272,13 +272,11 @@ export default defineComponent( {
 	setup( props, context ) {
 		// Define dynamic classes internal to the component,
 		// in Vue's object syntax format.
-		const internalClasses = computed( () => {
-			return {
+		const internalClasses = computed( () => ( {
 				'cdx-text-input--has-start-icon': !!props.startIcon,
 				'cdx-text-input--has-end-icon': !!props.endIcon || props.clearable,
 				'cdx-text-input--clearable': isClearable.value
-			};
-		} );
+			} ) );
 
 		// Get helpers from the composable.
 		const {
@@ -291,7 +289,7 @@ export default defineComponent( {
 			rootClasses,
 			rootStyle,
 			otherAttrs
-		}
+		};
 	}
 } );
 </script>

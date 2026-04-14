@@ -8,4 +8,3 @@ node_modules/
 !**/.*/*
 # Turn linting on for JS and JSON configuration files
 !.*.js*
-/.git/

@@ -143,6 +143,7 @@ fly, to catch linter violations in real time.
 The lint rules produce the desired outcome the vast majority of the time, but sometimes disabling
 a lint rule is necessary. The preferred way of doing this is with a `disable-next-line` comment
 that identifies the name of the rule to be disabled, like this:
+<!-- eslint-skip -->
 ```js
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 input.value!.click();

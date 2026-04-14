@@ -41,8 +41,8 @@ CdxMenu
 ```
 
  ```js
-const handle = ref(null);
-const menu = ref(null);
+const handle = ref( null );
+const menu = ref( null );
 
  useFloatingMenu( handle, menu );
  ```
@@ -86,8 +86,8 @@ import { CdxMenu, CdxTextInput } from '@wikimedia/codex';
 // import needed because useFloatingMenu is not being exported in lib yet
 import useFloatingMenu from '../composables/useFloatingMenu';
 
-const textInput = ref(null);
-const menu = ref(null);
+const textInput = ref( null );
+const menu = ref( null );
 
 useFloatingMenu( textInput as Ref<ComponentPublicInstance>, menu );
 

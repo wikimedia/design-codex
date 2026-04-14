@@ -77,11 +77,12 @@ page for that component. This takes 2 steps:
 2. Add a link to the page in the sidebar by editing VitePress config in
    `packages/codex-docs/docs/.vitepress/config.js`:
 
+<!-- eslint-skip -->
 ```js
 // In packages/codex-docs/docs/.vitepress/config.ts
 sidebar: {
 	'/components/': [
-		...
+		// ...
 		{
 			text: 'Components',
 			items: [
@@ -90,8 +91,8 @@ sidebar: {
 				{ text: 'Button', link: '/components/demos/button' },
 				{ text: 'Radio', link: '/components/demos/radio' }
 			]
-		},
-		...
+		}
+		// ...
 	]
 }
 ```
@@ -100,6 +101,7 @@ sidebar: {
 
 You can import Codex components directly from the `@wikimedia/codex` package:
 
+<!-- eslint-skip -->
 ```js
 <script setup>
 import { CdxButton } from '@wikimedia/codex';
@@ -203,12 +205,12 @@ const controlsConfig = [
 	{
 		name: 'action',
 		type: 'radio',
-		options: [ 'default', 'progressive', 'destructive' ],
+		options: [ 'default', 'progressive', 'destructive' ]
 	},
 	{
 		name: 'type',
 		type: 'radio',
-		options: [ 'normal', 'primary', 'quiet' ],
+		options: [ 'normal', 'primary', 'quiet' ]
 	},
 	{
 		name: 'disabled',

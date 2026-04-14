@@ -27,7 +27,7 @@ and allows us to obtain the detected direction by interacting with the DOM eleme
 Pass the template ref to the composable.
 
 ```js
-const rootElement = ref(null);
+const rootElement = ref( null );
 const computedDirection = useComputedDirection( rootElement );
 ```
 
@@ -71,14 +71,14 @@ composable is used to determine the reading directionaliy which can be either `n
 import { defineComponent, ref, computed } from 'vue';
 import { CdxButton, CdxDialog, useComputedDirection } from '@wikimedia/codex';
 
-export default defineComponent({
+export default defineComponent( {
     name: 'DialogWithImage',
     components: {
         CdxButton,
         CdxDialog,
     },
     setup() {
-        const open = ref(false);
+        const open = ref( false );
 
         const primaryAction = {
             label: 'Save',
@@ -91,19 +91,17 @@ export default defineComponent({
 
         function onPrimaryAction() {
             open.value = false;
-            console.log('Primary action taken');
+            console.log( 'Primary action taken' );
         }
 
         const image = {
-            "ltr": 'https://upload.wikimedia.org/wikipedia/commons/1/13/Personal_computer%2C_exploded_4.svg',
-            "rtl": 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Personal_computer%2C_exploded.svg',
+            ltr: 'https://upload.wikimedia.org/wikipedia/commons/1/13/Personal_computer%2C_exploded_4.svg',
+            rtl: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Personal_computer%2C_exploded.svg',
         };
 
-        const rootElement = ref(null);
-        const computedDirection = useComputedDirection(rootElement);
-        const computedImageSrc = computed (() => {
-            return image[computedDirection.value] || image.ltr;
-        });
+        const rootElement = ref( null );
+        const computedDirection = useComputedDirection( rootElement );
+        const computedImageSrc = computed( () => image[ computedDirection.value ] || image.ltr );
 
         return {
             open,
@@ -114,6 +112,6 @@ export default defineComponent({
             computedImageSrc,
         };
     },
-});
+} );
 </script>
 ```

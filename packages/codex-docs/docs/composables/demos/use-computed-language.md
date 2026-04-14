@@ -26,7 +26,7 @@ and allows us to obtain the detected language by interacting with the DOM elemen
 Pass in a template ref to the composable.
 
 ```js
-const rootElement = ref(null);
+const rootElement = ref( null );
 const computedLang = useComputedLanguage( rootElement );
 ```
 When the component mounts, the computed language is updated.
@@ -41,7 +41,7 @@ The composable determines the language code. With the language code, the charact
 evaluated to determine the status of the TextArea. The status props, "default" and "error" dynamically
 apply CSS styles to the TextArea.
 
-``` vue
+```vue
 <template>
   <div lang="fr">
     <div ref="rootElement">
@@ -63,11 +63,11 @@ import { CdxTextArea, CdxLabel, useComputedLanguage } from '@wikimedia/codex';
 // this json file is not a real file but used for demo purposes
 import characterLimits from './characterLimits.json';
 
-export default defineComponent({
+export default defineComponent( {
     components: { CdxTextArea, CdxLabel },
     setup() {
-        const textareaValue = ref('');
-        const rootElement = ref(null);
+        const textareaValue = ref( '' );
+        const rootElement = ref( null );
         const computedLang = useComputedLanguage( rootElement );
 
         // imported from characterLimits.json
@@ -76,13 +76,9 @@ export default defineComponent({
             de: 35,
             is: 80,
             fr: 50,
-        }
+        };
 
-        const computedStatus = computed(() => {
-            return {
-                textareaValue.value.length >= characterLimit[computedLang.value] ? 'error' : 'default';
-            }
-        });
+        const computedStatus = computed( () => textareaValue.value.length >= characterLimit[ computedLang.value ] ? 'error' : 'default' );
 
         return {
             textareaValue,
@@ -90,6 +86,6 @@ export default defineComponent({
             computedStatus,
         };
   },
-});
+} );
 </script>
 ```

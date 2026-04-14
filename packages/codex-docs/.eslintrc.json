@@ -82,11 +82,47 @@
 				"vue/no-unused-properties": "off",
 				"max-len": "off"
 			}
+		},
+		{
+			"files": [ "docs/**/*.md" ],
+			"plugins": [ "markdown" ],
+			"processor": "markdown/markdown"
+		},
+		{
+			"files": [ "docs/**/*.md/**" ],
+			"extends": [
+				"plugin:@typescript-eslint/disable-type-checked"
+			],
+			"rules": {
+				"no-unused-vars": "off",
+				"@typescript-eslint/no-unused-vars": "off",
+				"no-undef": "off",
+				"n/no-missing-import": "off",
+				"n/no-missing-require": "off",
+				"@typescript-eslint/no-require-imports": "off",
+				"indent": "off",
+				"vue/html-indent": "off",
+				"vue/html-self-closing": "off",
+				"vue/padding-line-between-blocks": "off",
+				"vue/singleline-html-element-content-newline": "off",
+				"vue/no-unused-refs": "off",
+				"vue/no-undef-properties": "off",
+				"max-len": "off",
+				"jsdoc/require-param-type": "off",
+				"jsdoc/require-returns-type": "off",
+				"vue/no-undef-components": "off",
+				"no-console": "off",
+				"@typescript-eslint/no-explicit-any": "off",
+				"@typescript-eslint/consistent-indexed-object-style": "off",
+				"vue/max-attributes-per-line": "off",
+				"no-mixed-spaces-and-tabs": [ "error", "smart-tabs" ]
+			}
 		}
 	],
 	"ignorePatterns": [
 		"src/env.d.ts",
 		"dist/*",
-		"docs/.vitepress/cache/**/*"
+		"docs/.vitepress/cache/**/*",
+		"docs/components/demos/*.md"
 	]
 }
