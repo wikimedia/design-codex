@@ -46,7 +46,7 @@
 		"dev": "vite ${npm_config_port+--port=${npm_config_port}}",
 		"build": "npm run clean && npm run build:vite && npm run build:ts && npm run build:messageKeys",
 		"build-if-missing": "test -e dist/codex.js || npm run build",
-		"build:ts": "vue-tsc -p ./tsconfig.json --emitDeclarationOnly",
+		"build:ts": "vue-tsc -p ./tsconfig-build.json --emitDeclarationOnly",
 		"build:vite": "node ./build.mjs",
 		"build:messageKeys": "tsx src/messages.ts",
 		"clean": "rm -rf dist/",
@@ -55,7 +55,7 @@
 		"test:unit": "NODE_OPTIONS=--experimental-vm-modules jest -c .jest/jest.config.json",
 		"test:e2e": "start-server-and-test 'npm run dev' http-get://localhost:5173 'cypress run'",
 		"lint": "npm run lint:ts",
-		"lint:ts": "vue-tsc -p ./tsconfig-check.json --noEmit && vue-tsc -p ./cypress/tsconfig.json --noEmit",
+		"lint:ts": "vue-tsc -p ./tsconfig.json && vue-tsc -p ./cypress/tsconfig.json",
 		"update-snapshots": "npm run test:unit -- -u",
 		"prepack": "cp ../../CHANGELOG.md CHANGELOG.md && cp -r dist/mixins .",
 		"postpack": "rm CHANGELOG.md && rm -rf mixins/"

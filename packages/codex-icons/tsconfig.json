@@ -3,23 +3,29 @@
 		"target": "es2017",
 		"useDefineForClassFields": true,
 		"module": "ESNext",
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"strict": true,
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"lib": [ "es2017", "dom" ],
+		"types": [ "jest" ],
 		"skipLibCheck": true,
-		"declaration": true,
-		"declarationDir": "dist/types",
-		"emitDeclarationOnly": true,
-		"outDir": "dist",
 		"allowJs": true,
-		"checkJs": true
+		"checkJs": true,
+		"noEmit": true
 	},
 	"include": [
 		"src/**/*.ts",
 		"src/**/*.d.ts",
 		"src/**/*.js",
+		"src/**/*.mjs",
+		"tests/**/*.ts",
+		".jest/**/*.js",
+		"./*.js",
+		"./.*.js",
+		"./*.mjs",
+		"./*.ts",
+		"./*.d.ts",
 		"build/**/*.js"
 	]
 }

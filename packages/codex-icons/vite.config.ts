@@ -20,7 +20,7 @@ export default defineConfig( {
 			include: 'src/images/*.svg'
 		} ),
 		typescript( {
-			tsconfig: './tsconfig.json'
+			tsconfig: './tsconfig-build.json'
 		} )
 	]
 } );

@@ -73,9 +73,9 @@ module.exports = {
 				sourceType: 'module',
 				tsConfigRootDir: __dirname,
 				project: [
-					'./packages/codex/tsconfig-check.json',
+					'./packages/codex/tsconfig.json',
 					'./packages/codex/cypress/tsconfig.json',
-					'./packages/codex-icons/tsconfig-check.json',
+					'./packages/codex-icons/tsconfig.json',
 					'./packages/codex-design-tokens/tsconfig.json',
 					'./packages/codex-docs/tsconfig.json'
 				],
