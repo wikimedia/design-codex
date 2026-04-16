@@ -216,6 +216,7 @@ export default defineConfigWithTheme<CustomConfig>( {
 					items: [
 						{ text: 'Voice and tone', link: '/style-guide/voice-and-tone' },
 						{ text: 'Writing for copy', link: '/style-guide/writing-for-copy' },
+						{ text: 'Machine assistance', link: '/style-guide/machine-assistance' },
 						{ text: 'Additional resources', link: '/style-guide/additional-resources' }
 					]
 				},
