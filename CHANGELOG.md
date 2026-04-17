@@ -1,3 +1,44 @@
+# 2.5.0 / 2026-04-17
+
+## Features
+- InfoChip, Message: Add new statuses (Derek Torsani)
+- ProgressBar: Add determinate variation with updated styles and guidance (Michelle)
+- Dialog: Update responsive behavior (Derek Torsani)
+- ToggleButton: Add size property (Dillon Hardy)
+- Popover: Add focus trap logic and extract it to reusable composable (Daphne Smit)
+- Popover: Add bottom sheet variant for mobile devices (Daphne Smit)
+- Popover: refactor bottom sheet implementation (Daphne Smit)
+
+## Styles
+- TextInput, ChipInput, styles: update border-radius (Derek Torsani)
+- Tabs: Correct color use in focus:visible state (Derek Torsani)
+- Select: Remove icon and extra padding for multiselect (adarsh2406)
+
+## Tokens
+- token: Update @border-color-progressive (Derek Torsani)
+
+## Code
+- Add numeric type to component demo controls (Michelle)
+- Transform to ES2017 features consistently across the codebase (Volker E.)
+
+## Build
+- build: Update Node version to 20.20.2 in packages, not just .nvmrc (Volker E.)
+- build: upgrade eslint-config-wikimedia and typescript* dependencies (Volker E.)
+- build: Update 'svgo' and 'svglint' dependencies to latest (Volker E.)
+- build: Upgrade stylelint-config-wikimedia and stylelint deps to latest (Volker E.)
+- build: Update npm-shrinkwrap.json for the Node version change to 20.20.2 (Roan Kattouw)
+- nvmrc: Update required Node version from 20.19.5 to 20.20.2 now that CI uses it (James D. Forrester)
+- Jest: Fix test warnings because of props and other issues (Daphne Smit)
+
+## Documentation
+- components: Add more flexible guidance for using icons with actions (Derek Torsani)
+- docs: Make 'notice' type default for Message and InfoChip (Anne Tomasevich)
+- docs: Fix typo in 'data-visualization.md' (Volker E.)
+- InfoChip, Message, docs: Amend guidance on new statuses (Derek Torsani)
+- docs: Use correct MenuButtonWithIcon demo (Volker E.)
+- docs: Fix typos in documentation and Link mixin (Volker E.)
+- docs: Add writing for machine-assisted experiences guidelines (Derek Torsani)
+
 # 2.4.0 / 2026-03-03
 
 ## Features
