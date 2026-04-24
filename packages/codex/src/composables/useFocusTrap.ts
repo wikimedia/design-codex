@@ -44,6 +44,7 @@ export default function useFocusTrap(
 			return false;
 		}
 		const anchorEl = unwrapElement( anchorRef.value );
+		// Don't only check for equality, but also for descendants of the anchor (T424313).
 		return !!anchorEl?.contains( previouslyFocused );
 	}
 
