@@ -410,7 +410,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 		flex-grow: 1;
 		// Add space between icon and message content.
 		margin-left: @spacing-50;
-		font-family: @font-family-base;
 		font-size: @font-size-medium;
 		line-height: @line-height-medium;
 	}

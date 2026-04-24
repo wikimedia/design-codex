@@ -932,7 +932,6 @@ export default defineComponent( {
 		}
 
 		&__title {
-			font-family: @font-family-base;
 			font-size: @font-size-medium;
 			font-weight: @font-weight-bold;
 			line-height: @line-height-small;

@@ -511,7 +511,7 @@ export default defineComponent( {
 		flex-grow: inherit;
 		border: 0;
 		padding: 0 @spacing-25;
-		font-family: @font-family-base;
+		font-family: inherit;
 		font-size: @font-size-medium;
 		// This is necessary to ensure that the root element is the proper height. Instead of
 		// using line height to provide breathing room for the text, we use padding on the root

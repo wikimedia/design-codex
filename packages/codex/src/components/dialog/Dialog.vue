@@ -585,7 +585,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			margin: 0;
 			border: 0;
 			padding: 0;
-			font-family: @font-family-base;
+			font-family: inherit;
 			font-size: @font-size-x-large;
 			font-weight: @font-weight-bold;
 			line-height: @line-height-x-large;
@@ -596,7 +596,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			color: @color-subtle;
 			margin: 0;
 			padding: 0;
-			font-family: @font-family-base;
 			font-size: @font-size-medium;
 			line-height: @line-height-small;
 		}

@@ -235,7 +235,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/field.html#prop
 	}
 
 	&__help-text {
-		font-family: @font-family-base;
 		font-size: @font-size-medium;
 		line-height: @line-height-small;
 	}

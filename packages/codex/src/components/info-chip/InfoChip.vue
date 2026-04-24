@@ -135,7 +135,6 @@ export default defineComponent( {
 	&__text {
 		.text-overflow( @param-visible: false );
 		color: @color-base;
-		font-family: @font-family-base;
 		font-size: @font-size-small;
 	}
 
