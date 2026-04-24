@@ -673,18 +673,6 @@ export default defineComponent( {
 			}
 		}
 
-		// Focus trap
-		const anchorForFocusTrap = ref<
-			HTMLElement | ComponentPublicInstance | null | undefined
-		>( null );
-		watch(
-			reference,
-			() => {
-				anchorForFocusTrap.value = reference.value;
-			},
-			{ immediate: true }
-		);
-
 		const {
 			focusTrapStart,
 			focusTrapEnd,
@@ -696,7 +684,7 @@ export default defineComponent( {
 		} = useFocusTrap( {
 			containerRef: panel,
 			bodyRef: bodyEl,
-			anchorRef: anchorForFocusTrap,
+			anchorRef: reference,
 			preventScroll: true
 		} );
 
