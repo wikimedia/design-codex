@@ -83,12 +83,7 @@ exports[`Card matches the snapshot Case 2 Card with icon: ("Title") => HTML 1`] 
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="M10 11c-5.92 0-8 3-8 5v3h16v-3c0-2-2.08-5-8-5"
-        />
-        <circle
-          cx="10"
-          cy="5.5"
-          r="4.5"
+          d="M12 11a6 6 0 016 6v2H2v-2a6 6 0 016-6zM10 1a4 4 0 110 8 4 4 0 010-8"
         />
       </g>
     </svg>
@@ -134,10 +129,7 @@ exports[`Card matches the snapshot Case 3 Card with thumbnail: ("Title") => HTML
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
-            />
-            <path
-              d="M19 5H1V3h18zm0 12H1v-2h18z"
+              d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zM6.25 5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5"
             />
           </g>
         </svg>
@@ -193,10 +185,7 @@ exports[`Card matches the snapshot Case 4 Card with thumbnail placeholder: ("Tit
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
-            />
-            <path
-              d="M19 5H1V3h18zm0 12H1v-2h18z"
+              d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zM6.25 5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5"
             />
           </g>
         </svg>
@@ -252,12 +241,7 @@ exports[`Card matches the snapshot Case 5 Card with custom placeholder icon: ("T
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 11c-5.92 0-8 3-8 5v3h16v-3c0-2-2.08-5-8-5"
-            />
-            <circle
-              cx="10"
-              cy="5.5"
-              r="4.5"
+              d="M12 11a6 6 0 016 6v2H2v-2a6 6 0 016-6zM10 1a4 4 0 110 8 4 4 0 010-8"
             />
           </g>
         </svg>

@@ -3,5 +3,5 @@
 	<title>
 		menu
 	</title>
-	<path d="M1 3v2h18V3zm0 8h18V9H1zm0 6h18v-2H1z"/>
+	<path d="M18 16H2v-2h16v2Zm0-5H2V9h16v2Zm0-5H2V4h16v2Z"/>
 </svg>

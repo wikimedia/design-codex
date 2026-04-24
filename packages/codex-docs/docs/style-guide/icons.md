@@ -2,8 +2,6 @@
 
 Icons help convey a message visually.
 
-![Examples of Codex icons.](../assets/visual-styles/icons/01_icons-sample.png)
-
 ## Principles
 
 Wikimedia icons should be simple and neutral.[[1]](#ref1)
@@ -42,7 +40,7 @@ Avoid concepts such as gestures, animals, religion, humor, ethnicity, and gender
 ### Icon size
 
 Icons can be used inside other components, like buttons. Icons support a few different pre-defined
-size options. Right now the supported sizes are: 20px, 16px or 12px. If no size property is
+size options. Right now the supported sizes are: 20px, 16px or 12px in the default theme and modes. If no size property is
 provided, 20px size will be used by default.
 
 ### Adapt and remix
@@ -56,22 +54,18 @@ wheel icon.
 
 ## Visual style
 
-![Dimensions of Codex icons.](../assets/visual-styles/icons/02_visual-style.png)
-
 Characteristics of a Codex icon:
 - **Monochromatic**. Solid color icons.
 - **Geometric**. Comprises simple and symmetrical geometric shapes. Symmetrical icons tend to be
   more universally applicable. For example, an open book would be preferred to a closed book with
   binding on the left or right side).
-- **Front-facing**. Icons are flat and front facing, not multi-dimensional.
+- **Front-facing**. Icons are flat and front facing, not multi-dimensional unless they need to be to convey a particular meaning.
 - **20 x 20 dp default canvas**. WikimediaUI icons are put on a 20 x 20 device-independent pixel
   (dp) canvas per default.[[2]](#ref2)
-- **Rounded corners**. Corners are rounded to make shapes friendly and welcoming. For the default
-  canvas use 2 dp rounded corners. Note that rounded corners are applied only on the exterior of an
-  icon shape, not interior corners.
+- **Outline**. Icons are primarily outlined to help create visual balance across the entire library. Certain icons might have a filled version only or in addition to an outlined version in order to convey the meaning of state or to uniquely emphasize an action or message.
+- **Sharp corners**. Corners are primarily sharp to make shapes as simple and clear as possible. Rounded corners are used when the meaning of the icon is conveyed more clearly with the addition of roundness.
 - **Medium thick stroke**. Lines and outline should be visible at smaller sizes without effort, for
-  the default icon canvas use a 2 dp thick stroke as standard. Endpoints of lines are square in
-  keeping with simple geometric shapes.
+  the default icon canvas use a 2 dp thick stroke as standard. Endpoints of lines are squared or beveled depending on the angle in keeping with simple geometric shapes.
 - **Diagonal cross-out lines**. For icons that appear to be crossed-out, the cross-out line starts
   from the top-left of the icon and continues at a 45 degree angle to the bottom right (similar to
   a backslash “\”).
@@ -86,13 +80,6 @@ applied depending on the shape of the icon.
 Different shapes have different perceived sizes. A 1 dp margin for a square-shaped icon is used. A
 circle uses the full 20 x 20 dp canvas available to reach a similar perceived size.
 
-**Black icons:** Use black colored icons on a transparent background, as the boldest representation
-of an icon. The color can be changed when the icon is used (preferably done automatically by
-software).
-
-**Filled areas with no stroke outlines:** For example, a donut icon is a filled circle with a hole
-in the middle, as opposed to an unfilled circle with a thick stroke outline.
-
 **Pixel-fitting:** Ensure icon shape edges are fit to pixels as closely as possible, so that shapes
 are not distorted or fuzzy.
 
@@ -104,8 +91,6 @@ would show the “bullets” in the list on the right or left side depending on 
 RTL or LTR language context.
 
 ## Resources
-
-Find all currently available icons in the [Assets library](https://www.figma.com/file/1lT9LKOK6wiHLnpraMjP3E/%E2%9D%96-Assets-(Icons%2C-Logos%2C-Illustrations)?node-id=3295-13631&t=XsJ03mZaUOTNMw9j-0) in Figma.
 
 We provide a listing of all icons with their ids for implementation in the [Codex demo](../icons/all-icons).
 

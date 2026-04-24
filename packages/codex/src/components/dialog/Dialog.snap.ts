@@ -55,10 +55,7 @@ exports[`Dialog matches the snapshot Case 0 Basic usage 1`] = `
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -148,10 +145,7 @@ exports[`Dialog matches the snapshot Case 1 Open dialog 1`] = `
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -231,10 +225,7 @@ exports[`Dialog matches the snapshot Case 2 With hidden title 1`] = `
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -324,10 +315,7 @@ exports[`Dialog matches the snapshot Case 3 With custom close button label 1`] =
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -417,10 +405,7 @@ exports[`Dialog matches the snapshot Case 4 Using deprecated API for close butto
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -510,10 +495,7 @@ exports[`Dialog matches the snapshot Case 5 With default action 1`] = `
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -623,10 +605,7 @@ exports[`Dialog matches the snapshot Case 6 With default disabled action 1`] = `
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -737,10 +716,7 @@ exports[`Dialog matches the snapshot Case 7 With default and primary actions 1`]
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -857,10 +833,7 @@ exports[`Dialog matches the snapshot Case 8 With stacked default and primary act
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -981,10 +954,7 @@ exports[`Dialog matches the snapshot Case 9 With subtitle 1`] = `
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -1105,10 +1075,7 @@ exports[`Dialog matches the snapshot Case 10 With footer text 1`] = `
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>

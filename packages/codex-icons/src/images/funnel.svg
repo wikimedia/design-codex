@@ -3,6 +3,5 @@
 	<title>
 		funnel
 	</title>
-	<path d="M10 13 1 1h18z"/>
-	<path d="M8 9v8l4 2V9z"/>
+	<path d="M18.8 3.6 13 11.333V18H7v-6.667L1.2 3.6 2 2h16l.8 1.6ZM9 10.667V16h2v-5.333L16 4H3.999L9 10.667Z"/>
 </svg>

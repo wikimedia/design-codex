@@ -3,6 +3,5 @@
 	<title>
 		configure
 	</title>
-	<path fill-rule="evenodd" d="M3 4.17V2h2v2.17a3.001 3.001 0 0 1 0 5.66V18H3V9.83a3.001 3.001 0 0 1 0-5.66M4 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2m11 12v-6.17a3.001 3.001 0 0 1 0-5.66V2h2v4.17a3.001 3.001 0 0 1 0 5.66V18zm2-9a1 1 0 1 0-2 0 1 1 0 0 0 2 0"/>
-	<path fill-rule="evenodd" d="M11 11.17a3.001 3.001 0 0 1 0 5.66V18H9v-1.17a3.001 3.001 0 0 1 0-5.66V2h2zM10 13a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+	<path d="M5 3.5h2v6H5V19H3V9.5H1v-6h2V1h2v2.5Zm-2 4h2v-2H3v2Zm8 3h2v6h-2V19H9v-2.5H7v-6h2V1h2v9.5Zm-2 4h2V13H9v1.5Zm8-11h2v6h-2V19h-2V9.5h-2v-6h2V1h2v2.5Zm-2 4h2v-2h-2v2Z"/>
 </svg>

@@ -76,7 +76,7 @@ exports[`Breadcrumb matches the snapshot Case 2 With exact items: ({"items": [Ar
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              d="M14 9.293v1.414l-5.982 6-1.415-1.414L11.896 10 6.603 4.707l1.414-1.414z"
             />
           </g>
         </svg>
@@ -107,7 +107,7 @@ exports[`Breadcrumb matches the snapshot Case 2 With exact items: ({"items": [Ar
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              d="M14 9.293v1.414l-5.982 6-1.415-1.414L11.896 10 6.603 4.707l1.414-1.414z"
             />
           </g>
         </svg>
@@ -144,7 +144,7 @@ exports[`Breadcrumb matches the snapshot Case 2 With exact items: ({"items": [Ar
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              d="M14 9.293v1.414l-5.982 6-1.415-1.414L11.896 10 6.603 4.707l1.414-1.414z"
             />
           </g>
         </svg>
@@ -215,7 +215,7 @@ exports[`Breadcrumb matches the snapshot Case 3 With overflow: ({"items": [Array
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M11 2 9.7 3.3l6.6 6.7-6.6 6.7L11 18l8-8zM2.5 2 1 3.3 7.8 10l-6.7 6.7L2.5 18l8-8z"
+              d="M10 9.293v1.414l-5.982 6-1.415-1.414L7.896 10 2.603 4.707l1.414-1.414zm8 0v1.414l-5.982 6-1.416-1.414L15.895 10l-5.293-5.293 1.415-1.414z"
             />
           </g>
         </svg>
@@ -247,7 +247,7 @@ exports[`Breadcrumb matches the snapshot Case 3 With overflow: ({"items": [Array
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              d="M14 9.293v1.414l-5.982 6-1.415-1.414L11.896 10 6.603 4.707l1.414-1.414z"
             />
           </g>
         </svg>
@@ -284,7 +284,7 @@ exports[`Breadcrumb matches the snapshot Case 3 With overflow: ({"items": [Array
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              d="M14 9.293v1.414l-5.982 6-1.415-1.414L11.896 10 6.603 4.707l1.414-1.414z"
             />
           </g>
         </svg>
@@ -355,7 +355,7 @@ exports[`Breadcrumb matches the snapshot Case 4 With truncation and overflow: ({
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M11 2 9.7 3.3l6.6 6.7-6.6 6.7L11 18l8-8zM2.5 2 1 3.3 7.8 10l-6.7 6.7L2.5 18l8-8z"
+              d="M10 9.293v1.414l-5.982 6-1.415-1.414L7.896 10 2.603 4.707l1.414-1.414zm8 0v1.414l-5.982 6-1.416-1.414L15.895 10l-5.293-5.293 1.415-1.414z"
             />
           </g>
         </svg>
@@ -387,7 +387,7 @@ exports[`Breadcrumb matches the snapshot Case 4 With truncation and overflow: ({
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              d="M14 9.293v1.414l-5.982 6-1.415-1.414L11.896 10 6.603 4.707l1.414-1.414z"
             />
           </g>
         </svg>

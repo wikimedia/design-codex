@@ -32,7 +32,7 @@ exports[`Tabs When Tab children are provided using v-for matches the snapshot 1`
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"
+                d="M13.417 4.707 8.124 10l5.293 5.293-1.414 1.414-6-6V9.293l6-6z"
               />
             </g>
           </svg>
@@ -119,7 +119,7 @@ exports[`Tabs When Tab children are provided using v-for matches the snapshot 1`
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+                d="M14 9.293v1.414l-5.982 6-1.415-1.414L11.896 10 6.603 4.707l1.414-1.414z"
               />
             </g>
           </svg>
@@ -226,7 +226,7 @@ exports[`Tabs When Tab children have comments in between matches the snapshot 1`
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"
+                d="M13.417 4.707 8.124 10l5.293 5.293-1.414 1.414-6-6V9.293l6-6z"
               />
             </g>
           </svg>
@@ -313,7 +313,7 @@ exports[`Tabs When Tab children have comments in between matches the snapshot 1`
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+                d="M14 9.293v1.414l-5.982 6-1.415-1.414L11.896 10 6.603 4.707l1.414-1.414z"
               />
             </g>
           </svg>
@@ -423,7 +423,7 @@ exports[`Tabs When used along with child Tab components matches the snapshot 1`]
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"
+                d="M13.417 4.707 8.124 10l5.293 5.293-1.414 1.414-6-6V9.293l6-6z"
               />
             </g>
           </svg>
@@ -511,7 +511,7 @@ exports[`Tabs When used along with child Tab components matches the snapshot 1`]
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+                d="M14 9.293v1.414l-5.982 6-1.415-1.414L11.896 10 6.603 4.707l1.414-1.414z"
               />
             </g>
           </svg>

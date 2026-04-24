@@ -279,7 +279,7 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+                d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
               />
             </g>
           </svg>
@@ -431,7 +431,7 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+                d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
               />
             </g>
           </svg>
@@ -582,7 +582,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+                d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
               />
             </g>
           </svg>
@@ -684,7 +684,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M13.728 1H6.272L1 6.272v7.456L6.272 19h7.456L19 13.728V6.272zM11 15H9v-2h2zm0-4H9V5h2z"
+                d="M19 6.4v7.199L13.6 19H6.4L1 13.599v-7.2L6.4 1h7.2zM9 14v2h2v-2zm0-9v7h2V5z"
               />
             </g>
           </svg>
@@ -793,7 +793,7 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+                d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
               />
             </g>
           </svg>
@@ -935,7 +935,7 @@ exports[`Field matches the snapshot with a TextInput control Case 0 Basic field:
 </div>
 `;
 
-exports[`Field matches the snapshot with a TextInput control Case 1 With label icon: ({"labelIcon": "<path d=\\"M10 0a7.65 7.65 0 00-8 8c0 2.52 2 5 3 6s5 6 5 6 4-5 5-6 3-3.48 3-6a7.65 7.65 0 00-8-8m0 11.25A3.25 3.25 0 1113.25 8 3.25 3.25 0 0110 11.25\\"/>"}) => HTML 1`] = `
+exports[`Field matches the snapshot with a TextInput control Case 1 With label icon: ({"labelIcon": "<path d=\\"M10 6a1.5 1.5 0 110 3 1.5 1.5 0 010-3\\"/><path d=\\"M4.937 2.649a7.16 7.16 0 0110.94 9.152l-5.057 7.27H9.18L4.121 11.8a7.16 7.16 0 01.815-9.152Zm8.712 1.414a5.16 5.16 0 00-7.886 6.597L10 16.75l4.236-6.09a5.16 5.16 0 00-.587-6.597\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -963,7 +963,10 @@ exports[`Field matches the snapshot with a TextInput control Case 1 With label i
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 0a7.65 7.65 0 00-8 8c0 2.52 2 5 3 6s5 6 5 6 4-5 5-6 3-3.48 3-6a7.65 7.65 0 00-8-8m0 11.25A3.25 3.25 0 1113.25 8 3.25 3.25 0 0110 11.25"
+              d="M10 6a1.5 1.5 0 110 3 1.5 1.5 0 010-3"
+            />
+            <path
+              d="M4.937 2.649a7.16 7.16 0 0110.94 9.152l-5.057 7.27H9.18L4.121 11.8a7.16 7.16 0 01.815-9.152Zm8.712 1.414a5.16 5.16 0 00-7.886 6.597L10 16.75l4.236-6.09a5.16 5.16 0 00-.587-6.597"
             />
           </g>
         </svg>
@@ -1379,7 +1382,7 @@ exports[`Field matches the snapshot with a TextInput control Case 6 Error status
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M13.728 1H6.272L1 6.272v7.456L6.272 19h7.456L19 13.728V6.272zM11 15H9v-2h2zm0-4H9V5h2z"
+                d="M19 6.4v7.199L13.6 19H6.4L1 13.599v-7.2L6.4 1h7.2zM9 14v2h2v-2zm0-9v7h2V5z"
               />
             </g>
           </svg>
@@ -1749,7 +1752,7 @@ exports[`Field matches the snapshot with a Textarea control Case 2 Error status 
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M13.728 1H6.272L1 6.272v7.456L6.272 19h7.456L19 13.728V6.272zM11 15H9v-2h2zm0-4H9V5h2z"
+                d="M19 6.4v7.199L13.6 19H6.4L1 13.599v-7.2L6.4 1h7.2zM9 14v2h2v-2zm0-9v7h2V5z"
               />
             </g>
           </svg>

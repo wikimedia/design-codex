@@ -30,7 +30,7 @@ exports[`SearchInput matches the snapshot Case 0 Default: ({"modelValue": ""}) =
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+              d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
             />
           </g>
         </svg>
@@ -79,7 +79,7 @@ exports[`SearchInput matches the snapshot Case 1 With submit button: ({"modelVal
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+              d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
             />
           </g>
         </svg>
@@ -135,7 +135,7 @@ exports[`SearchInput matches the snapshot Case 2 With custom visible button labe
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+              d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
             />
           </g>
         </svg>
@@ -193,7 +193,7 @@ exports[`SearchInput matches the snapshot Case 3 With attributes: ({"modelValue"
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+              d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
             />
           </g>
         </svg>

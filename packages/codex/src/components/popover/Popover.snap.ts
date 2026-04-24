@@ -139,7 +139,7 @@ exports[`Popover matches the snapshot Case 2 With icon 1`] = `
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+                d="M10 1a9 9 0 110 18 9 9 0 010-18M8 9v2h1v2H8v2h4v-2h-1V9zm1-4v2h2V5z"
               />
             </g>
           </svg>
@@ -224,10 +224,7 @@ exports[`Popover matches the snapshot Case 3 With close button 1`] = `
                 <!-- eslint-disable vue/no-v-html -->
                 <g>
                   <path
-                    d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                  />
-                  <path
-                    d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                    d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                   />
                 </g>
               </svg>
@@ -309,10 +306,7 @@ exports[`Popover matches the snapshot Case 4 With custom close button label 1`] 
                 <!-- eslint-disable vue/no-v-html -->
                 <g>
                   <path
-                    d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                  />
-                  <path
-                    d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                    d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                   />
                 </g>
               </svg>

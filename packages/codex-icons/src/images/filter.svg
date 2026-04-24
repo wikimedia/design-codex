@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+	<title>
+		filter
+	</title>
+	<path d="M12 17H8v-2h4v2Zm4-5H4v-2h12v2Zm4-5H0V5h20v2Z"/>
+</svg>

@@ -316,10 +316,7 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -363,10 +360,7 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -532,10 +526,7 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -579,10 +570,7 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -691,10 +679,7 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -738,10 +723,7 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -847,10 +829,7 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -895,10 +874,7 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-                />
-                <path
-                  d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                  d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
                 />
               </g>
             </svg>

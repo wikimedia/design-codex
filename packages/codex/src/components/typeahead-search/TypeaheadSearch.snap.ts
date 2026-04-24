@@ -45,7 +45,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"formAction": "/w/index
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -151,7 +151,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -257,7 +257,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -444,7 +444,7 @@ exports[`TypeaheadSearch initial state Case 4 With custom visible button label: 
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -550,7 +550,7 @@ exports[`TypeaheadSearch initial state Case 5 With custom visible button label u
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -656,7 +656,7 @@ exports[`TypeaheadSearch with no results matches the snapshot 1`] = `
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -734,12 +734,7 @@ exports[`TypeaheadSearch with no results matches the snapshot 1`] = `
                     <!-- eslint-disable vue/no-v-html -->
                     <g>
                       <path
-                        d="M12.43 14.34A5 5 0 0110 15a5 5 0 113.95-2L17 16.09V3a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 001.45-.63z"
-                      />
-                      <circle
-                        cx="10"
-                        cy="10"
-                        r="3"
+                        d="M18 19H2V1h16zM4 17h11.586l-3.922-3.922a3.5 3.5 0 111.414-1.414L16 14.586V3H4zm6-8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3"
                       />
                     </g>
                   </svg>
@@ -843,7 +838,7 @@ exports[`TypeaheadSearch with search results matches the snapshot 1`] = `
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -905,10 +900,7 @@ exports[`TypeaheadSearch with search results matches the snapshot 1`] = `
                         <!-- eslint-disable vue/no-v-html -->
                         <g>
                           <path
-                            d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
-                          />
-                          <path
-                            d="M19 5H1V3h18zm0 12H1v-2h18z"
+                            d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zM6.25 5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5"
                           />
                         </g>
                       </svg>
@@ -981,10 +973,7 @@ exports[`TypeaheadSearch with search results matches the snapshot 1`] = `
                         <!-- eslint-disable vue/no-v-html -->
                         <g>
                           <path
-                            d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
-                          />
-                          <path
-                            d="M19 5H1V3h18zm0 12H1v-2h18z"
+                            d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zM6.25 5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5"
                           />
                         </g>
                       </svg>
@@ -1058,12 +1047,7 @@ exports[`TypeaheadSearch with search results matches the snapshot 1`] = `
                     <!-- eslint-disable vue/no-v-html -->
                     <g>
                       <path
-                        d="M12.43 14.34A5 5 0 0110 15a5 5 0 113.95-2L17 16.09V3a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 001.45-.63z"
-                      />
-                      <circle
-                        cx="10"
-                        cy="10"
-                        r="3"
+                        d="M18 19H2V1h16zM4 17h11.586l-3.922-3.922a3.5 3.5 0 111.414-1.414L16 14.586V3H4zm6-8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3"
                       />
                     </g>
                   </svg>

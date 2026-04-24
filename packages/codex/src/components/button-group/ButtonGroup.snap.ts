@@ -159,7 +159,7 @@ exports[`ButtonGroup matches the snapshot Case 2 With icons: ({"buttons": [Array
 			-->
     
     <cdx-icon-stub
-      icon="<path d="m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z"/>"
+      icon="<path d="m15.765 7.875-8.483 8.484a1 1 0 01-.253.184l-4.214 2.15-1.357-1.33L3.58 13.12q.073-.145.188-.26l8.48-8.48zm3.534-3.532-2.12 2.118-3.517-3.496 2.13-2.13z"/>"
       iconlabel=""
       size="medium"
     />
@@ -198,7 +198,7 @@ exports[`ButtonGroup matches the snapshot Case 2 With icons: ({"buttons": [Array
 			-->
     
     <cdx-icon-stub
-      icon="<path d="M7 14.17 2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"/>"
+      icon="<path d="M18.154 3.837 8.034 16.62l-1.384.18-4.8-3.6 1.2-1.6 4.02 3.015 9.517-12.02z"/>"
       iconlabel=""
       size="medium"
     />
@@ -217,7 +217,7 @@ exports[`ButtonGroup matches the snapshot Case 2 With icons: ({"buttons": [Array
 			-->
     
     <cdx-icon-stub
-      icon="<path d="M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 002 2h8a2 2 0 002-2V5H4z"/>"
+      icon="<path d="m16 8-1.087 12H5.087L4 8h2l.913 10h6.174L14 8zM13 4h5v2H2V4h5V0h6zM9 4h2V2H9z"/>"
       iconlabel=""
       size="medium"
     />
@@ -246,7 +246,7 @@ exports[`ButtonGroup matches the snapshot Case 3 Icon-only: ({"buttons": [Array]
 			-->
     
     <cdx-icon-stub
-      icon="<path d="m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z"/>"
+      icon="<path d="m15.765 7.875-8.483 8.484a1 1 0 01-.253.184l-4.214 2.15-1.357-1.33L3.58 13.12q.073-.145.188-.26l8.48-8.48zm3.534-3.532-2.12 2.118-3.517-3.496 2.13-2.13z"/>"
       iconlabel=""
       size="medium"
     />
@@ -287,7 +287,7 @@ exports[`ButtonGroup matches the snapshot Case 3 Icon-only: ({"buttons": [Array]
 			-->
     
     <cdx-icon-stub
-      icon="<path d="M7 14.17 2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"/>"
+      icon="<path d="M18.154 3.837 8.034 16.62l-1.384.18-4.8-3.6 1.2-1.6 4.02 3.015 9.517-12.02z"/>"
       iconlabel=""
       size="medium"
     />
@@ -307,7 +307,7 @@ exports[`ButtonGroup matches the snapshot Case 3 Icon-only: ({"buttons": [Array]
 			-->
     
     <cdx-icon-stub
-      icon="<path d="M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 002 2h8a2 2 0 002-2V5H4z"/>"
+      icon="<path d="m16 8-1.087 12H5.087L4 8h2l.913 10h6.174L14 8zM13 4h5v2H2V4h5V0h6zM9 4h2V2H9z"/>"
       iconlabel=""
       size="medium"
     />

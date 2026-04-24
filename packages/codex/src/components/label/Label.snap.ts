@@ -44,7 +44,7 @@ exports[`Label matches the snapshot Case 1 With icon: ("Label text") => HTML 1`]
     >
       <cdx-icon-stub
         class="cdx-label__label__icon"
-        icon="<path d="M10 0a7.65 7.65 0 00-8 8c0 2.52 2 5 3 6s5 6 5 6 4-5 5-6 3-3.48 3-6a7.65 7.65 0 00-8-8m0 11.25A3.25 3.25 0 1113.25 8 3.25 3.25 0 0110 11.25"/>"
+        icon="<path d="M10 6a1.5 1.5 0 110 3 1.5 1.5 0 010-3"/><path d="M4.937 2.649a7.16 7.16 0 0110.94 9.152l-5.057 7.27H9.18L4.121 11.8a7.16 7.16 0 01.815-9.152Zm8.712 1.414a5.16 5.16 0 00-7.886 6.597L10 16.75l4.236-6.09a5.16 5.16 0 00-.587-6.597"/>"
         iconlabel=""
         size="medium"
       />

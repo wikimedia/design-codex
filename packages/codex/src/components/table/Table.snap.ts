@@ -3083,7 +3083,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ({"columns": [Array]
                   <!-- eslint-disable vue/no-v-html -->
                   <g>
                     <path
-                      d="M10 0 3 8h14zm0 18-7-8h14z"
+                      d="M14 14.5 10 18l-4-3.5V12h8zm0-9V8H6V5.5L10 2z"
                     />
                   </g>
                 </svg>
@@ -3118,7 +3118,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ({"columns": [Array]
                   <!-- eslint-disable vue/no-v-html -->
                   <g>
                     <path
-                      d="M10 0 3 8h14zm0 18-7-8h14z"
+                      d="M14 14.5 10 18l-4-3.5V12h8zm0-9V8H6V5.5L10 2z"
                     />
                   </g>
                 </svg>
@@ -3153,7 +3153,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ({"columns": [Array]
                   <!-- eslint-disable vue/no-v-html -->
                   <g>
                     <path
-                      d="M10 0 3 8h14zm0 18-7-8h14z"
+                      d="M14 14.5 10 18l-4-3.5V12h8zm0-9V8H6V5.5L10 2z"
                     />
                   </g>
                 </svg>
@@ -3635,7 +3635,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+                  d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -3819,7 +3819,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M3 1h2v18H3zm13.5 1.5L15 1l-9 9 9 9 1.5-1.5L9 10z"
+                d="M6 17H4V3h2zM16.417 4.707 11.124 10l5.293 5.293-1.414 1.414-6-6V9.293l6-6z"
               />
             </g>
           </svg>
@@ -3847,7 +3847,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"
+                d="M13.417 4.707 8.124 10l5.293 5.293-1.414 1.414-6-6V9.293l6-6z"
               />
             </g>
           </svg>
@@ -3874,7 +3874,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+                d="M14 9.293v1.414l-5.982 6-1.415-1.414L11.896 10 6.603 4.707l1.414-1.414z"
               />
             </g>
           </svg>
@@ -3901,7 +3901,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M15 1h2v18h-2zM3.5 2.5 11 10l-7.5 7.5L5 19l9-9-9-9z"
+                d="M16 17h-2V3h2zm-5-7.707v1.414l-5.993 6-1.414-1.414L8.886 10 3.593 4.707l1.414-1.414z"
               />
             </g>
           </svg>
@@ -4317,7 +4317,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+                  d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
                 />
               </g>
             </svg>
@@ -4501,7 +4501,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M3 1h2v18H3zm13.5 1.5L15 1l-9 9 9 9 1.5-1.5L9 10z"
+                d="M6 17H4V3h2zM16.417 4.707 11.124 10l5.293 5.293-1.414 1.414-6-6V9.293l6-6z"
               />
             </g>
           </svg>
@@ -4529,7 +4529,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"
+                d="M13.417 4.707 8.124 10l5.293 5.293-1.414 1.414-6-6V9.293l6-6z"
               />
             </g>
           </svg>
@@ -4556,7 +4556,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+                d="M14 9.293v1.414l-5.982 6-1.415-1.414L11.896 10 6.603 4.707l1.414-1.414z"
               />
             </g>
           </svg>
@@ -4583,7 +4583,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M15 1h2v18h-2zM3.5 2.5 11 10l-7.5 7.5L5 19l9-9-9-9z"
+                d="M16 17h-2V3h2zm-5-7.707v1.414l-5.993 6-1.414-1.414L8.886 10 3.593 4.707l1.414-1.414z"
               />
             </g>
           </svg>

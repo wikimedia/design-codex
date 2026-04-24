@@ -301,7 +301,10 @@ exports[`MenuItem matches the snapshot Case 6 Item with icon: ({"description": "
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M9 1.28A1 1 0 008.35 1H2a1 1 0 00-1 1v6.35a1 1 0 00.28.65L11 18.72a1 1 0 001.37 0l6.38-6.38a1 1 0 00-.03-1.34zM5 7a2 2 0 112-2 2 2 0 01-2 2"
+            d="M5.5 4.003a1.5 1.5 0 110 3 1.5 1.5 0 010-3"
+          />
+          <path
+            d="m19.914 11.503-8.413 8.414L.004 8.414.003 1l1-1h7.415zM2.003 7.587l9.497 9.502 5.585-5.587-9.496-9.501L2.003 2z"
           />
         </g>
       </svg>
@@ -371,10 +374,7 @@ exports[`MenuItem matches the snapshot Case 7 Item with placeholder thumbnail: (
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
-              />
-              <path
-                d="M19 5H1V3h18zm0 12H1v-2h18z"
+                d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zM6.25 5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5"
               />
             </g>
           </svg>
@@ -656,7 +656,7 @@ exports[`MenuItem matches the snapshot Case 11 Selected item: ({"id": "test-menu
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M7 14.17 2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"
+            d="M18.154 3.837 8.034 16.62l-1.384.18-4.8-3.6 1.2-1.6 4.02 3.015 9.517-12.02z"
           />
         </g>
       </svg>
@@ -753,7 +753,7 @@ exports[`MenuItem matches the snapshot Case 13 Selected item part of multiselect
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M7 14.17 2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"
+            d="M18.154 3.837 8.034 16.62l-1.384.18-4.8-3.6 1.2-1.6 4.02 3.015 9.517-12.02z"
           />
         </g>
       </svg>

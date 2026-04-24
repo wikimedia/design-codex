@@ -48,7 +48,7 @@ exports[`Icon matches the snapshot Case 1 Simple SVG icon: ({"icon": "<path d=\\
 </span>
 `;
 
-exports[`Icon matches the snapshot Case 2 Alert icon: ({"icon": "<path d=\\"M11.53 2.3A1.85 1.85 0 0010 1.21 1.85 1.85 0 008.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z\\"/>"}) => HTML 1`] = `
+exports[`Icon matches the snapshot Case 2 Alert icon: ({"icon": "<path d=\\"M19.765 16.059 18 19H2L.235 16.059l8-15h3.53zM9 14v2h2v-2zm0-8v6h2V6z\\"/>"}) => HTML 1`] = `
 <span
   class="cdx-icon cdx-icon--medium"
 >
@@ -63,7 +63,7 @@ exports[`Icon matches the snapshot Case 2 Alert icon: ({"icon": "<path d=\\"M11.
     <!-- eslint-disable vue/no-v-html -->
     <g>
       <path
-        d="M11.53 2.3A1.85 1.85 0 0010 1.21 1.85 1.85 0 008.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z"
+        d="M19.765 16.059 18 19H2L.235 16.059l8-15h3.53zM9 14v2h2v-2zm0-8v6h2V6z"
       />
     </g>
   </svg>

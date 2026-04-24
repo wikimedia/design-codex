@@ -78,7 +78,7 @@ exports[`InfoChip matches the snapshot Case 4 warning status: ({"status": "warni
 >
   <cdx-icon-stub
     class="cdx-info-chip__icon--vue"
-    icon="<path d="M11.53 2.3A1.85 1.85 0 0010 1.21 1.85 1.85 0 008.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z"/>"
+    icon="<path d="M19.765 16.059 18 19H2L.235 16.059l8-15h3.53zM9 14v2h2v-2zm0-8v6h2V6z"/>"
     iconlabel=""
     size="medium"
   />
@@ -101,7 +101,7 @@ exports[`InfoChip matches the snapshot Case 5 error status: ({"status": "error"}
 >
   <cdx-icon-stub
     class="cdx-info-chip__icon--vue"
-    icon="<path d="M13.728 1H6.272L1 6.272v7.456L6.272 19h7.456L19 13.728V6.272zM11 15H9v-2h2zm0-4H9V5h2z"/>"
+    icon="<path d="M19 6.4v7.199L13.6 19H6.4L1 13.599v-7.2L6.4 1h7.2zM9 14v2h2v-2zm0-9v7h2V5z"/>"
     iconlabel=""
     size="medium"
   />
@@ -124,7 +124,7 @@ exports[`InfoChip matches the snapshot Case 6 success status: ({"status": "succe
 >
   <cdx-icon-stub
     class="cdx-info-chip__icon--vue"
-    icon="<path d="M10 20a10 10 0 010-20 10 10 0 110 20m-2-5 9-8.5L15.5 5 8 12 4.5 8.5 3 10z"/>"
+    icon="<path d="M10 1a9 9 0 110 18 9 9 0 010-18M8.823 11.118 6.8 9.6l-1.2 1.6 2.8 2.1 1.381-.175 4.624-5.781-1.561-1.25z"/>"
     iconlabel=""
     size="medium"
   />

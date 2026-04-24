@@ -36,7 +36,7 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
 </details>
 `;
 
-exports[`Accordion matches the snapshot Case 1 Action button is not visible when collapsed: ({"actionButtonLabel": "Edit", "actionIcon": "<path d=\\"m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z\\"/>"}) => HTML 1`] = `
+exports[`Accordion matches the snapshot Case 1 Action button is not visible when collapsed: ({"actionButtonLabel": "Edit", "actionIcon": "<path d=\\"m15.765 7.875-8.483 8.484a1 1 0 01-.253.184l-4.214 2.15-1.357-1.33L3.58 13.12q.073-.145.188-.26l8.48-8.48zm3.534-3.532-2.12 2.118-3.517-3.496 2.13-2.13z\\"/>"}) => HTML 1`] = `
 <details
   class="cdx-accordion cdx-accordion--separation-divider"
 >
@@ -72,7 +72,7 @@ exports[`Accordion matches the snapshot Case 1 Action button is not visible when
 </details>
 `;
 
-exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action button visible even when collapsed: ({"actionAlwaysVisible": true, "actionButtonLabel": "Edit", "actionIcon": "<path d=\\"m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z\\"/>"}) => HTML 1`] = `
+exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action button visible even when collapsed: ({"actionAlwaysVisible": true, "actionButtonLabel": "Edit", "actionIcon": "<path d=\\"m15.765 7.875-8.483 8.484a1 1 0 01-.253.184l-4.214 2.15-1.357-1.33L3.58 13.12q.073-.145.188-.26l8.48-8.48zm3.534-3.532-2.12 2.118-3.517-3.496 2.13-2.13z\\"/>"}) => HTML 1`] = `
 <details
   class="cdx-accordion cdx-accordion--has-icon cdx-accordion--separation-divider"
 >
@@ -118,7 +118,7 @@ exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action 
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z"
+              d="m15.765 7.875-8.483 8.484a1 1 0 01-.253.184l-4.214 2.15-1.357-1.33L3.58 13.12q.073-.145.188-.26l8.48-8.48zm3.534-3.532-2.12 2.118-3.517-3.496 2.13-2.13z"
             />
           </g>
         </svg>

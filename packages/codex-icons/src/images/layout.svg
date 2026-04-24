@@ -3,6 +3,5 @@
 	<title>
 		layout
 	</title>
-	<path d="M8 12V1H1v18h18v-7z"/>
-	<path d="M11 1v8h8V1zm6 6h-4V3h4z"/>
+	<path d="M9 18H2V2h7v16Zm-5-2h3V4H4v12Zm14 2h-7v-7h7v7Zm-5-2h3v-3h-3v3Zm5-7h-7V2h7v7Zm-5-2h3V4h-3v3Z"/>
 </svg>

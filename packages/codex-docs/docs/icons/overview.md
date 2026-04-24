@@ -17,7 +17,7 @@ const numberOfIcons = Object.keys( allIcons )
 # Icons
 
 Codex contains a collection of {{ numberOfIcons }} monochrome icons that can be used to visually
-convey actions or other information. Visit [all icons](./all-icons.md) a full list of available
+convey actions or other information. Visit [all icons](./all-icons.md) for a full list of available
 icons per directionality and language.
 
 If you're interested in adding a new icon to Codex, visit the contributing docs to learn about

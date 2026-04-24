@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 	<title>
-		user active
+		active user
 	</title>
-	<path d="M10 12.5c-5.92 0-9 3.5-9 5.5v1h18v-1c0-2-3.08-5.5-9-5.5"/>
-	<circle cx="10" cy="6" r="5"/>
+	<path d="M12 11a6 6 0 0 1 6 6v2H2v-2a6 6 0 0 1 6-6h4ZM10 1a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/>
 </svg>

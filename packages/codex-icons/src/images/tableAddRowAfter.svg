@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 	<title>
-		table add row after
+		add table row after
 	</title>
-	<path d="M3 0v8H2v12h16V8h-1V0zm8 10v3h3v2h-3v3H9v-3H6v-2h3v-3zm4-4v2H5V6zm0-4v2H5V2z"/>
+	<path d="M11 11h2v2h-2v2H9v-2H7v-2h2V9h2v2Z"/>
+	<path d="M18 5h2v14H0V5h2V1h16v4ZM2 17h16V7H2v10ZM4 5h12V3H4v2Z"/>
 </svg>

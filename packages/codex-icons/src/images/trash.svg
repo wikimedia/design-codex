@@ -3,5 +3,6 @@
 	<title>
 		trash
 	</title>
-	<path d="M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5H4z"/>
+	<path d="m16 8-1.087 12H5.087L4 8h2l.913 10h6.174L14 8h2Z"/>
+	<path d="M13 4h5v2H2V4h5V0h6v4ZM9 4h2V2H9v2Z"/>
 </svg>

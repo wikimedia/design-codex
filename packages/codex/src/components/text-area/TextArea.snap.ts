@@ -79,7 +79,7 @@ exports[`TextArea matches the snapshot Case 5 with autosize as true: ({"autosize
 </div>
 `;
 
-exports[`TextArea matches the snapshot Case 6 with start icon: ({"startIcon": "<circle cx=\\"9.85\\" cy=\\"10\\" r=\\"9\\"/>"}) => HTML 1`] = `
+exports[`TextArea matches the snapshot Case 6 with start icon: ({"startIcon": "<path d=\\"m7.478 15.49-1.141 1.976-1.733-1 1.141-1.976zm7.705.976-1.732 1-1.14-1.976 1.731-1zM10 6a4 4 0 110 8 4 4 0 010-8m-5.998 5.003H1.72v-2h2.281v2Zm14.28 0H16v-2h2.281v2ZM7.652 4.425l-1.731 1-1.14-1.976 1.73-1zm7.354-.976-1.14 1.976-1.733-1 1.14-1.976z\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-text-area cdx-text-area--status-default cdx-text-area--has-start-icon"
 >
@@ -100,10 +100,8 @@ exports[`TextArea matches the snapshot Case 6 with start icon: ({"startIcon": "<
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
       <g>
-        <circle
-          cx="9.85"
-          cy="10"
-          r="9"
+        <path
+          d="m7.478 15.49-1.141 1.976-1.733-1 1.141-1.976zm7.705.976-1.732 1-1.14-1.976 1.731-1zM10 6a4 4 0 110 8 4 4 0 010-8m-5.998 5.003H1.72v-2h2.281v2Zm14.28 0H16v-2h2.281v2ZM7.652 4.425l-1.731 1-1.14-1.976 1.73-1zm7.354-.976-1.14 1.976-1.733-1 1.14-1.976z"
         />
       </g>
     </svg>
@@ -135,7 +133,7 @@ exports[`TextArea matches the snapshot Case 7 with end icon: ({"endIcon": [Objec
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+          d="M10 1a9 9 0 110 18 9 9 0 010-18M8 9v2h1v2H8v2h4v-2h-1V9zm1-4v2h2V5z"
         />
       </g>
     </svg>
@@ -143,7 +141,7 @@ exports[`TextArea matches the snapshot Case 7 with end icon: ({"endIcon": [Objec
 </div>
 `;
 
-exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIcon": [Object], "startIcon": "<circle cx=\\"9.85\\" cy=\\"10\\" r=\\"9\\"/>"}) => HTML 1`] = `
+exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIcon": [Object], "startIcon": "<path d=\\"m7.478 15.49-1.141 1.976-1.733-1 1.141-1.976zm7.705.976-1.732 1-1.14-1.976 1.731-1zM10 6a4 4 0 110 8 4 4 0 010-8m-5.998 5.003H1.72v-2h2.281v2Zm14.28 0H16v-2h2.281v2ZM7.652 4.425l-1.731 1-1.14-1.976 1.73-1zm7.354-.976-1.14 1.976-1.733-1 1.14-1.976z\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-text-area cdx-text-area--status-default cdx-text-area--has-start-icon cdx-text-area--has-end-icon"
 >
@@ -164,10 +162,8 @@ exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIc
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
       <g>
-        <circle
-          cx="9.85"
-          cy="10"
-          r="9"
+        <path
+          d="m7.478 15.49-1.141 1.976-1.733-1 1.141-1.976zm7.705.976-1.732 1-1.14-1.976 1.731-1zM10 6a4 4 0 110 8 4 4 0 010-8m-5.998 5.003H1.72v-2h2.281v2Zm14.28 0H16v-2h2.281v2ZM7.652 4.425l-1.731 1-1.14-1.976 1.73-1zm7.354-.976-1.14 1.976-1.733-1 1.14-1.976z"
         />
       </g>
     </svg>
@@ -186,7 +182,7 @@ exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIc
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+          d="M10 1a9 9 0 110 18 9 9 0 010-18M8 9v2h1v2H8v2h4v-2h-1V9zm1-4v2h2V5z"
         />
       </g>
     </svg>

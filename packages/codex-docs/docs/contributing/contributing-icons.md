@@ -56,15 +56,17 @@ Once the task is validated and the need is clearly established, you can move for
 
 ### Follow Wikimedia’s guidelines
 
-While designing the icon, follow the principles and visual styles described in our [style guide](../style-guide/icons). Wikimedia icons should be simple, neutral, monochromatic and front-facing.
+While designing the icon, follow the principles and visual styles described in our [style guide](../style-guide/icons). Wikimedia icons should be simple, neutral, monochromatic, front-facing, and likely outlined.
 
-Icons will be designed on a `20px` canvas, and be either solid or use a `2px` stroke if they’re outlined.
+Icons will be designed on a `20px` canvas, and should use a `2px` stroke.
 
-![Designing icons in Figma](../assets/designing-icons/designing-icons-figma.png)
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>
 
-::: info
-Duplicate this [icon exploration template](https://www.figma.com/design/bCNMpuclrDREgTnCLr34Si/Icon-design--exploration-file-template-?node-id=1-3627&p=f&t=UINHzWVjmVkyFaFq-11) to work on the icon's design if needed.
-:::
+Use a filled icon style only when the icon needs a toggled state or should be further emphasized.
+
+</cdx-demo-best-practice>
+</cdx-demo-best-practices>
 
 ### Create an RTL version (if needed)
 
@@ -103,47 +105,11 @@ Share the icon proposal in the Phabricator task to gather feedback and iterate a
 
 Make sure the icon meets the following requirements before exporting it:
 
-<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
-
-1. Icon strokes are outlined and converted to vector paths (learn [how to do it](https://help.figma.com/hc/en-us/articles/360049283914-Apply-and-adjust-stroke-properties#convert))
-</div>
-<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
-
-![Export icons vector paths](../assets/designing-icons/export-icons-vector-paths.png)
-</div>
-<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
-
-2. All the shapes in the icon have been merged using [union selection](https://help.figma.com/hc/en-us/articles/360039957534-Boolean-Operations#:~:text=Union%3A%20Union%20combines%20the%20selected,segments%20which%20overlap%20each%20other.).
-</div>
-<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
-
-![Shapes union selection Figma screenshot](../assets/designing-icons/export-icons-shapes-union.png)
-</div>
-<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
-
-3. The icon is pixel perfect. You can use the pixel preview (<kbd>Ctrl</kbd> + <kbd>P</kbd>/<kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) to verify that the icon’s strokes fit within the pixel edges. This will help you verify that the icon is recognizable in low DPI resolutions.
-</div>
-<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
-
-![Pixel perfect preview Figma screenshot](../assets/designing-icons/export-icons-pixel-preview.png)
-
-</div>
-<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
-
-4. Once the icon’s strokes have been converted to vector paths, merged with union selection and checked using pixel preview, the icon can be flattened to group all shapes into a single vector.
-</div>
-<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
-
-![Flatten the icon Figma screenshot](../assets/designing-icons/export-icons-flatten.png)
-</div>
-<div class="cdx-docs-col cdx-docs-col-start cdx-docs-col-m">
-
+1. Icon strokes are outlined and converted to vector paths.
+2. Ensure any blank areas within a solid shape are removed using subtract selection.
+3. All the shapes in the icon have been merged using union selection.
+4. The resulting shape(s) are flattened.
 5. In order to ensure that the exported icon displays the right filling and empty spaces, you’ll have to use the plugin [Fill-Rule-Editor](https://www.figma.com/community/plugin/771155994770327940/Fill-Rule-Editor) to define the fill rules of the icon’s vector objects.
-</div>
-<div class="cdx-docs-col cdx-docs-col-end cdx-docs-col-m">
-
-![Fill rule plugin Figma screenshot](../assets/designing-icons/export-icons-fill-rule-plugin.png)
-</div>
 
 #### Export the icon as SVG
 

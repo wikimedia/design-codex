@@ -31,7 +31,7 @@ exports[`Toast snapshots Case 0 Default props: ({}) => HTML 1`] = `
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+              d="M10 1a9 9 0 110 18 9 9 0 010-18M8 9v2h1v2H8v2h4v-2h-1V9zm1-4v2h2V5z"
             />
           </g>
         </svg>
@@ -73,10 +73,7 @@ exports[`Toast snapshots Case 0 Default props: ({}) => HTML 1`] = `
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
               />
             </g>
           </svg>
@@ -119,7 +116,7 @@ exports[`Toast snapshots Case 1 subtle toast: ({"type": "subtle"}) => HTML 1`] =
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+              d="M10 1a9 9 0 110 18 9 9 0 010-18M8 9v2h1v2H8v2h4v-2h-1V9zm1-4v2h2V5z"
             />
           </g>
         </svg>
@@ -161,10 +158,7 @@ exports[`Toast snapshots Case 1 subtle toast: ({"type": "subtle"}) => HTML 1`] =
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
               />
             </g>
           </svg>
@@ -207,7 +201,7 @@ exports[`Toast snapshots Case 2 notice toast: ({"type": "notice"}) => HTML 1`] =
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+              d="M10 1a9 9 0 110 18 9 9 0 010-18M8 9v2h1v2H8v2h4v-2h-1V9zm1-4v2h2V5z"
             />
           </g>
         </svg>
@@ -249,10 +243,7 @@ exports[`Toast snapshots Case 2 notice toast: ({"type": "notice"}) => HTML 1`] =
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
               />
             </g>
           </svg>
@@ -295,7 +286,7 @@ exports[`Toast snapshots Case 3 progressive toast: ({"type": "progressive"}) => 
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+              d="M10 1a9 9 0 110 18 9 9 0 010-18M8 9v2h1v2H8v2h4v-2h-1V9zm1-4v2h2V5z"
             />
           </g>
         </svg>
@@ -337,10 +328,7 @@ exports[`Toast snapshots Case 3 progressive toast: ({"type": "progressive"}) => 
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
               />
             </g>
           </svg>
@@ -383,7 +371,7 @@ exports[`Toast snapshots Case 4 warning toast: ({"type": "warning"}) => HTML 1`]
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M11.53 2.3A1.85 1.85 0 0010 1.21 1.85 1.85 0 008.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z"
+              d="M19.765 16.059 18 19H2L.235 16.059l8-15h3.53zM9 14v2h2v-2zm0-8v6h2V6z"
             />
           </g>
         </svg>
@@ -425,10 +413,7 @@ exports[`Toast snapshots Case 4 warning toast: ({"type": "warning"}) => HTML 1`]
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
               />
             </g>
           </svg>
@@ -471,7 +456,7 @@ exports[`Toast snapshots Case 5 error toast: ({"type": "error"}) => HTML 1`] = `
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M13.728 1H6.272L1 6.272v7.456L6.272 19h7.456L19 13.728V6.272zM11 15H9v-2h2zm0-4H9V5h2z"
+              d="M19 6.4v7.199L13.6 19H6.4L1 13.599v-7.2L6.4 1h7.2zM9 14v2h2v-2zm0-9v7h2V5z"
             />
           </g>
         </svg>
@@ -513,10 +498,7 @@ exports[`Toast snapshots Case 5 error toast: ({"type": "error"}) => HTML 1`] = `
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
               />
             </g>
           </svg>
@@ -559,7 +541,7 @@ exports[`Toast snapshots Case 6 success toast: ({"type": "success"}) => HTML 1`]
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 20a10 10 0 010-20 10 10 0 110 20m-2-5 9-8.5L15.5 5 8 12 4.5 8.5 3 10z"
+              d="M10 1a9 9 0 110 18 9 9 0 010-18M8.823 11.118 6.8 9.6l-1.2 1.6 2.8 2.1 1.381-.175 4.624-5.781-1.561-1.25z"
             />
           </g>
         </svg>
@@ -601,10 +583,7 @@ exports[`Toast snapshots Case 6 success toast: ({"type": "success"}) => HTML 1`]
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
               />
             </g>
           </svg>
@@ -647,7 +626,7 @@ exports[`Toast snapshots Case 7 With action button: ({"actionButtonLabel": "Undo
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+              d="M10 1a9 9 0 110 18 9 9 0 010-18M8 9v2h1v2H8v2h4v-2h-1V9zm1-4v2h2V5z"
             />
           </g>
         </svg>
@@ -697,10 +676,7 @@ exports[`Toast snapshots Case 7 With action button: ({"actionButtonLabel": "Undo
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
               />
             </g>
           </svg>
@@ -743,7 +719,7 @@ exports[`Toast snapshots Case 8 Dismissable: ({}) => HTML 1`] = `
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+              d="M10 1a9 9 0 110 18 9 9 0 010-18M8 9v2h1v2H8v2h4v-2h-1V9zm1-4v2h2V5z"
             />
           </g>
         </svg>
@@ -785,10 +761,7 @@ exports[`Toast snapshots Case 8 Dismissable: ({}) => HTML 1`] = `
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
               />
             </g>
           </svg>
@@ -831,7 +804,7 @@ exports[`Toast snapshots Case 9 Not dismissable: ({"preventUserDismiss": true}) 
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+              d="M10 1a9 9 0 110 18 9 9 0 010-18M8 9v2h1v2H8v2h4v-2h-1V9zm1-4v2h2V5z"
             />
           </g>
         </svg>
@@ -889,7 +862,10 @@ exports[`Toast snapshots Case 10 Custom icon: ({"icon": [Object]}) => HTML 1`] =
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M5 1a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V3a2 2 0 00-2-2zm0 3h5v1H5zm0 2h5v1H5zm0 2h5v1H5zm10 7H5v-1h10zm0-2H5v-1h10zm0-2H5v-1h10zm0-2h-4V4h4z"
+              d="M14 15H6v-2h8zm-5-4H6V9h3zm5 0h-3V5h3zM9 7H6V5h3z"
+            />
+            <path
+              d="M18 19H2V1h16zM4 17h12V3H4z"
             />
           </g>
         </svg>
@@ -931,10 +907,7 @@ exports[`Toast snapshots Case 10 Custom icon: ({"icon": [Object]}) => HTML 1`] =
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
               />
             </g>
           </svg>
@@ -977,7 +950,7 @@ exports[`Toast snapshots Case 11 Auto-dismiss disabled: ({"autoDismiss": false})
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"
+              d="M10 1a9 9 0 110 18 9 9 0 010-18M8 9v2h1v2H8v2h4v-2h-1V9zm1-4v2h2V5z"
             />
           </g>
         </svg>
@@ -1019,10 +992,7 @@ exports[`Toast snapshots Case 11 Auto-dismiss disabled: ({"autoDismiss": false})
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
-              />
-              <path
-                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+                d="M16.707 4.707 11.414 10l5.293 5.293-1.414 1.414L10 11.414l-5.293 5.293-1.414-1.414L8.586 10 3.293 4.707l1.414-1.414L10 8.586l5.293-5.293z"
               />
             </g>
           </svg>

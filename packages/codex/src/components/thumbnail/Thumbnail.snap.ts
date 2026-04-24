@@ -21,10 +21,7 @@ exports[`Thumbnail matches the snapshot Case 0 With default placeholder icon: (%
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"
-          />
-          <path
-            d="M19 5H1V3h18zm0 12H1v-2h18z"
+            d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zM6.25 5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5"
           />
         </g>
       </svg>
@@ -41,7 +38,7 @@ exports[`Thumbnail matches the snapshot Case 0 With default placeholder icon: (%
 </span>
 `;
 
-exports[`Thumbnail matches the snapshot Case 1 With custom placeholder icon: ({"ltr": "<path d=\\"M5 1a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V3a2 2 0 00-2-2zm0 3h5v1H5zm0 2h5v1H5zm0 2h5v1H5zm10 7H5v-1h10zm0-2H5v-1h10zm0-2H5v-1h10zm0-2h-4V4h4z\\"/>", "shouldFlip": true}) => HTML 1`] = `
+exports[`Thumbnail matches the snapshot Case 1 With custom placeholder icon: ({"ltr": "<path d=\\"M14 15H6v-2h8zm-5-4H6V9h3zm5 0h-3V5h3zM9 7H6V5h3z\\"/><path d=\\"M18 19H2V1h16zM4 17h12V3H4z\\"/>", "shouldFlip": true}) => HTML 1`] = `
 <span
   class="cdx-thumbnail"
 >
@@ -62,7 +59,10 @@ exports[`Thumbnail matches the snapshot Case 1 With custom placeholder icon: ({"
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M5 1a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V3a2 2 0 00-2-2zm0 3h5v1H5zm0 2h5v1H5zm0 2h5v1H5zm10 7H5v-1h10zm0-2H5v-1h10zm0-2H5v-1h10zm0-2h-4V4h4z"
+            d="M14 15H6v-2h8zm-5-4H6V9h3zm5 0h-3V5h3zM9 7H6V5h3z"
+          />
+          <path
+            d="M18 19H2V1h16zM4 17h12V3H4z"
           />
         </g>
       </svg>

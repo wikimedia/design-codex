@@ -95,6 +95,9 @@ export const cdxIconArticlesSearch: IconVariedByDir = {
 	rtl: svgArticlesSearchRtl
 };
 
+import svgAsterisk from './images/asterisk.svg';
+export const cdxIconAsterisk = svgAsterisk;
+
 import svgAttachment from './images/attachment.svg';
 export const cdxIconAttachment = svgAttachment;
 
@@ -109,6 +112,9 @@ export const cdxIconBigger = svgBigger;
 
 import svgBlock from './images/block.svg';
 export const cdxIconBlock = svgBlock;
+
+import svgBlockOutline from './images/blockOutline.svg';
+export const cdxIconBlockOutline = svgBlockOutline;
 
 import svgBoldA from './images/bold-a.svg';
 import svgBoldArabAin from './images/bold-arab-ain.svg';
@@ -169,10 +175,7 @@ export const cdxIconBold: IconVariedByLang = {
 };
 
 import svgBook from './images/book.svg';
-export const cdxIconBook: IconFlipForRtl = {
-	ltr: svgBook,
-	shouldFlip: true
-};
+export const cdxIconBook = svgBook;
 
 import svgBookmark from './images/bookmark.svg';
 export const cdxIconBookmark = svgBookmark;
@@ -206,6 +209,18 @@ export const cdxIconCancel = svgCancel;
 
 import svgChart from './images/chart.svg';
 export const cdxIconChart = svgChart;
+
+import svgChartBar from './images/chartBar.svg';
+export const cdxIconChartBar = svgChartBar;
+
+import svgChartLine from './images/chartLine.svg';
+export const cdxIconChartLine = svgChartLine;
+
+import svgChartPie from './images/chartPie.svg';
+export const cdxIconChartPie = svgChartPie;
+
+import svgChartScatter from './images/chartScatter.svg';
+export const cdxIconChartScatter = svgChartScatter;
 
 import svgCheck from './images/check.svg';
 export const cdxIconCheck = svgCheck;
@@ -249,6 +264,13 @@ export const cdxIconDatabase = svgDatabase;
 import svgDie from './images/die.svg';
 export const cdxIconDie = svgDie;
 
+import svgDiffsLtr from './images/diffs-ltr.svg';
+import svgDiffsRtl from './images/diffs-rtl.svg';
+export const cdxIconDiffs: IconVariedByDir = {
+	ltr: svgDiffsLtr,
+	rtl: svgDiffsRtl
+};
+
 import svgDoubleChevronEnd from './images/doubleChevronEnd.svg';
 export const cdxIconDoubleChevronEnd: IconFlipForRtl = {
 	ltr: svgDoubleChevronEnd,
@@ -286,6 +308,9 @@ export const cdxIconEditUndo: IconVariedByDir = {
 import svgEllipsis from './images/ellipsis.svg';
 export const cdxIconEllipsis = svgEllipsis;
 
+import svgVerticalEllipsis from './images/verticalEllipsis.svg';
+export const cdxIconVerticalEllipsis = svgVerticalEllipsis;
+
 import svgError from './images/error.svg';
 export const cdxIconError = svgError;
 
@@ -306,6 +331,9 @@ export const cdxIconFeedback: IconFlipForRtl = {
 	ltr: svgFeedback,
 	shouldFlip: true
 };
+
+import svgFilter from './images/filter.svg';
+export const cdxIconFilter = svgFilter;
 
 import svgFlag from './images/flag.svg';
 export const cdxIconFlag: IconFlipForRtl = {
@@ -332,8 +360,11 @@ import svgFullscreen from './images/fullscreen.svg';
 export const cdxIconFullscreen = svgFullscreen;
 
 import svgFunnel from './images/funnel.svg';
-export const cdxIconFunnel: IconFlipForRtl = {
-	ltr: svgFunnel,
+export const cdxIconFunnel = svgFunnel;
+
+import svgFunnelMatch from './images/funnelMatch.svg';
+export const cdxIconFunnelMatch: IconFlipForRtl = {
+	ltr: svgFunnelMatch,
 	shouldFlip: true
 };
 
@@ -357,6 +388,9 @@ export const cdxIconHand = svgHand;
 
 import svgHeart from './images/heart.svg';
 export const cdxIconHeart = svgHeart;
+
+import svgHeartOutline from './images/heartOutline.svg';
+export const cdxIconHeartOutline = svgHeartOutline;
 
 import svgHelp from './images/help.svg';
 export const cdxIconHelp: IconFlipForRtl = {
@@ -397,8 +431,12 @@ export const cdxIconImageAdd: IconVariedByDir = {
 import svgImageBroken from './images/imageBroken.svg';
 export const cdxIconImageBroken = svgImageBroken;
 
-import svgImageGallery from './images/imageGallery.svg';
-export const cdxIconImageGallery = svgImageGallery;
+import svgImageGalleryLtr from './images/imageGallery-ltr.svg';
+import svgImageGalleryRtl from './images/imageGallery-rtl.svg';
+export const cdxIconImageGallery: IconVariedByDir = {
+	ltr: svgImageGalleryLtr,
+	rtl: svgImageGalleryRtl
+};
 
 import svgImageLayoutBasic from './images/imageLayoutBasic.svg';
 export const cdxIconImageLayoutBasic = svgImageLayoutBasic;
@@ -433,6 +471,9 @@ export const cdxIconInstance: IconFlipForRtl = {
 
 import svgLightbulb from './images/lightbulb.svg';
 export const cdxIconLightbulb = svgLightbulb;
+
+import svgLightbulbOutline from './images/lightbulbOutline.svg';
+export const cdxIconLightbulbOutline = svgLightbulbOutline;
 
 import svgLiteral from './images/literal.svg';
 export const cdxIconLiteral: IconFlipForRtl = {
@@ -534,6 +575,30 @@ export const cdxIconLayout: IconFlipForRtl = {
 	shouldFlip: true
 };
 
+import svgLevelNone from './images/levelNone.svg';
+export const cdxIconLevelNone: IconFlipForRtl = {
+	ltr: svgLevelNone,
+	shouldFlip: true
+};
+
+import svgLevelOne from './images/levelOne.svg';
+export const cdxIconLevelOne: IconFlipForRtl = {
+	ltr: svgLevelOne,
+	shouldFlip: true
+};
+
+import svgLevelThree from './images/levelThree.svg';
+export const cdxIconLevelThree: IconFlipForRtl = {
+	ltr: svgLevelThree,
+	shouldFlip: true
+};
+
+import svgLevelTwo from './images/levelTwo.svg';
+export const cdxIconLevelTwo: IconFlipForRtl = {
+	ltr: svgLevelTwo,
+	shouldFlip: true
+};
+
 import svgLink from './images/link.svg';
 export const cdxIconLink = svgLink;
 
@@ -558,6 +623,9 @@ export const cdxIconListNumbered: IconVariedByDir = {
 	ltr: svgListNumberedLtr,
 	rtl: svgListNumberedRtl
 };
+
+import svgLive from './images/live.svg';
+export const cdxIconLive = svgLive;
 
 import svgLock from './images/lock.svg';
 export const cdxIconLock = svgLock;
@@ -627,6 +695,9 @@ export const cdxIconLogoWikivoyage = svgLogoWikivoyage;
 
 import svgLogoWiktionary from './images/logo-Wiktionary.svg';
 export const cdxIconLogoWiktionary = svgLogoWiktionary;
+
+import svgMagicWand from './images/magicWand.svg';
+export const cdxIconMagicWand = svgMagicWand;
 
 import svgMap from './images/map.svg';
 export const cdxIconMap: IconFlipForRtl = {
@@ -729,6 +800,9 @@ export const cdxIconNotBright = svgNotBright;
 import svgNotice from './images/notice.svg';
 export const cdxIconNotice = svgNotice;
 
+import svgOcr from './images/ocr.svg';
+export const cdxIconOcr = svgOcr;
+
 import svgOngoingConversation from './images/ongoingConversation.svg';
 export const cdxIconOngoingConversation: IconFlipForRtl = {
 	ltr: svgOngoingConversation,
@@ -742,10 +816,7 @@ export const cdxIconOutdent: IconFlipForRtl = {
 };
 
 import svgOutline from './images/outline.svg';
-export const cdxIconOutline: IconFlipForRtl = {
-	ltr: svgOutline,
-	shouldFlip: true
-};
+export const cdxIconOutline = svgOutline;
 
 import svgPageSettings from './images/pageSettings.svg';
 export const cdxIconPageSettings = svgPageSettings;
@@ -764,6 +835,9 @@ export const cdxIconPaste: IconFlipForRtl = {
 
 import svgPause from './images/pause.svg';
 export const cdxIconPause = svgPause;
+
+import svgPictureInPicture from './images/pictureInPicture.svg';
+export const cdxIconPictureInPicture = svgPictureInPicture;
 
 import svgPlay from './images/play.svg';
 export const cdxIconPlay = svgPlay;
@@ -812,13 +886,15 @@ export const cdxIconRedo: IconFlipForRtl = {
 };
 
 import svgReference from './images/reference.svg';
-export const cdxIconReference = svgReference;
+export const cdxIconReference: IconFlipForRtl = {
+	ltr: svgReference,
+	shouldFlip: true
+};
 
-import svgReferenceExistingLtr from './images/referenceExisting-ltr.svg';
-import svgReferenceExistingRtl from './images/referenceExisting-rtl.svg';
-export const cdxIconReferenceExisting: IconVariedByDir = {
-	ltr: svgReferenceExistingLtr,
-	rtl: svgReferenceExistingRtl
+import svgReferenceExisting from './images/referenceExisting.svg';
+export const cdxIconReferenceExisting: IconFlipForRtl = {
+	ltr: svgReferenceExisting,
+	shouldFlip: true
 };
 
 import svgReferences from './images/references.svg';
@@ -830,11 +906,17 @@ export const cdxIconReferences: IconFlipForRtl = {
 import svgReload from './images/reload.svg';
 export const cdxIconReload = svgReload;
 
+import svgRestart from './images/restart.svg';
+export const cdxIconRestart = svgRestart;
+
 import svgRestore from './images/restore.svg';
 export const cdxIconRestore = svgRestore;
 
 import svgRobot from './images/robot.svg';
 export const cdxIconRobot = svgRobot;
+
+import svgRotate from './images/rotate.svg';
+export const cdxIconRotate = svgRotate;
 
 import svgSandbox from './images/sandbox.svg';
 export const cdxIconSandbox = svgSandbox;
@@ -856,6 +938,12 @@ export const cdxIconSettings = svgSettings;
 
 import svgShare from './images/share.svg';
 export const cdxIconShare = svgShare;
+
+import svgShareAndroid from './images/shareAndroid.svg';
+export const cdxIconShareAndroid = svgShareAndroid;
+
+import svgShareIOS from './images/shareIOS.svg';
+export const cdxIconShareIOS = svgShareIOS;
 
 import svgSignature from './images/signature.svg';
 export const cdxIconSignature: IconFlipForRtl = {
@@ -893,6 +981,12 @@ export const cdxIconSpeechBubbleAdd: IconFlipForRtl = {
 	shouldFlip: true
 };
 
+import svgSpeechBubbleAlert from './images/speechBubbleAlert.svg';
+export const cdxIconSpeechBubbleAlert: IconFlipForRtl = {
+	ltr: svgSpeechBubbleAlert,
+	shouldFlip: true
+};
+
 import svgSpeechBubbles from './images/speechBubbles.svg';
 export const cdxIconSpeechBubbles: IconFlipForRtl = {
 	ltr: svgSpeechBubbles,
@@ -901,6 +995,9 @@ export const cdxIconSpeechBubbles: IconFlipForRtl = {
 
 import svgStar from './images/star.svg';
 export const cdxIconStar = svgStar;
+
+import svgSticker from './images/sticker.svg';
+export const cdxIconSticker = svgSticker;
 
 import svgStop from './images/stop.svg';
 export const cdxIconStop = svgStop;
@@ -924,6 +1021,9 @@ export const cdxIconSubscript: IconFlipForRtl = {
 	ltr: svgSubscript,
 	shouldFlip: true
 };
+
+import svgSubtitle from './images/subtitle.svg';
+export const cdxIconSubtitle = svgSubtitle;
 
 import svgSubtract from './images/subtract.svg';
 export const cdxIconSubtract = svgSubtract;
@@ -987,6 +1087,12 @@ export const cdxIconTag: IconFlipForRtl = {
 	shouldFlip: true
 };
 
+import svgTabs from './images/tabs.svg';
+export const cdxIconTabs: IconFlipForRtl = {
+	ltr: svgTabs,
+	shouldFlip: true
+};
+
 import svgTemplateAdd from './images/templateAdd.svg';
 export const cdxIconTemplateAdd: IconFlipForRtl = {
 	ltr: svgTemplateAdd,
@@ -1014,6 +1120,9 @@ export const cdxIconTextSummary: IconFlipForRtl = {
 	shouldFlip: true
 };
 
+import svgThreeDimensional from './images/threeDimensional.svg';
+export const cdxIconThreeDimensional = svgThreeDimensional;
+
 import svgTrash from './images/trash.svg';
 export const cdxIconTrash = svgTrash;
 
@@ -1029,6 +1138,9 @@ export const cdxIconUnFlag: IconVariedByDir = {
 	ltr: svgUnFlagLtr,
 	rtl: svgUnFlagRtl
 };
+
+import svgUniversalDesign from './images/universalDesign.svg';
+export const cdxIconUniversalDesign = svgUniversalDesign;
 
 import svgUnLink from './images/unLink.svg';
 export const cdxIconUnLink = svgUnLink;
@@ -1092,6 +1204,12 @@ export const cdxIconUserAvatarOutline = svgUserAvatarOutline;
 import svgUserBlocked from './images/userBlocked.svg';
 export const cdxIconUserBlocked = svgUserBlocked;
 
+import svgUserChat from './images/userChat.svg';
+export const cdxIconUserChat: IconFlipForRtl = {
+	ltr: svgUserChat,
+	shouldFlip: true
+};
+
 import svgUserContributions from './images/userContributions.svg';
 export const cdxIconUserContributions: IconFlipForRtl = {
 	ltr: svgUserContributions,
@@ -1102,6 +1220,19 @@ import svgUserGroup from './images/userGroup.svg';
 export const cdxIconUserGroup: IconFlipForRtl = {
 	ltr: svgUserGroup,
 	shouldFlip: true
+};
+
+import svgUserMentor from './images/userMentor.svg';
+export const cdxIconUserMentor: IconFlipForRtl = {
+	ltr: svgUserMentor,
+	shouldFlip: true
+};
+
+import svgUserPagesLtr from './images/userPages-ltr.svg';
+import svgUserPagesRtl from './images/userPages-rtl.svg';
+export const cdxIconUserPages: IconVariedByDir = {
+	ltr: svgUserPagesLtr,
+	rtl: svgUserPagesRtl
 };
 
 import svgUserRights from './images/userRights.svg';
@@ -1169,7 +1300,10 @@ import svgWikitext from './images/wikitext.svg';
 export const cdxIconWikitext = svgWikitext;
 
 import svgWindow from './images/window.svg';
-export const cdxIconWindow = svgWindow;
+export const cdxIconWindow: IconFlipForRtl = {
+	ltr: svgWindow,
+	shouldFlip: true
+};
 
 import svgZoomIn from './images/zoomIn.svg';
 export const cdxIconZoomIn = svgZoomIn;

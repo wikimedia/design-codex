@@ -30,7 +30,10 @@ exports[`Image matches the snapshot Case 0 renders in the default state with a v
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M2 2a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V4a2 2 0 00-2-2zm-.17 13 4.09-5.25 2.92 3.51L12.92 8l5.25 7z"
+            d="M15 15H5l3.5-4 2 2L15 8zM6.25 5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5"
+          />
+          <path
+            d="M19 19H1V1h18zM3 17h14V3H3z"
           />
         </g>
       </svg>
@@ -69,7 +72,10 @@ exports[`Image matches the snapshot Case 1 renders with a custom aspect ratio: (
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M2 2a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V4a2 2 0 00-2-2zm-.17 13 4.09-5.25 2.92 3.51L12.92 8l5.25 7z"
+            d="M15 15H5l3.5-4 2 2L15 8zM6.25 5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5"
+          />
+          <path
+            d="M19 19H1V1h18zM3 17h14V3H3z"
           />
         </g>
       </svg>

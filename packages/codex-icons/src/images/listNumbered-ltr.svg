@@ -3,5 +3,5 @@
 	<title>
 		numbered list
 	</title>
-	<path d="M7 15h12v2H7zm0-6h12v2H7zm0-6h12v2H7zM2 6h1V1H1v1h1zm1 9v1H2v1h1v1H1v1h3v-5H1v1zM1 8v1h2v1H1.5a.5.5 0 0 0-.5.5V13h3v-1H2v-1h1.5a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5z"/>
+	<path d="M3 17H0v-1h2v-.5H0v-1h2V14H0v-1h3v4Zm16-1H5v-2h14v2ZM3 10.5H1v.5h2v1H0V9.5h2V9H0V8h3v2.5Zm16 .5H5V9h14v2ZM2 6h1v1H0V6h1V4H0V3h2v3Zm17 0H5V4h14v2Z"/>
 </svg>

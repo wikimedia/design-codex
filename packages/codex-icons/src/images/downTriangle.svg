@@ -3,5 +3,5 @@
 	<title>
 		down triangle
 	</title>
-	<path d="M10 15 2 5h16z"/>
+	<path d="M14 7H6v2.5l4 3.5 4-3.5V7Z"/>
 </svg>

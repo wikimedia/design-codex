@@ -3,5 +3,5 @@
 	<title>
 		fullscreen
 	</title>
-	<path d="M1 1v6h2V3h4V1zm2 12H1v6h6v-2H3zm14 4h-4v2h6v-6h-2zm0-16h-4v2h4v4h2V1z"/>
+	<path d="M3 17h5v2H1v-7h2v5Zm16 2h-7v-2h5v-5h2v7ZM8 3H3v5H1V1h7v2Zm11 5h-2V3h-5V1h7v7Z"/>
 </svg>

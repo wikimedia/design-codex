@@ -37,7 +37,7 @@ exports[`Select matches the snapshot Case 0 No selection: ({"menuItems": [Array]
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+            d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
           />
         </g>
       </svg>
@@ -236,7 +236,7 @@ exports[`Select matches the snapshot Case 0 No selection: ({"menuItems": [Array]
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -314,7 +314,7 @@ exports[`Select matches the snapshot Case 1 No selection with empty string: ({"m
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+            d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
           />
         </g>
       </svg>
@@ -513,7 +513,7 @@ exports[`Select matches the snapshot Case 1 No selection with empty string: ({"m
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -591,7 +591,7 @@ exports[`Select matches the snapshot Case 2 Menu item with label selected: ({"me
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+            d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
           />
         </g>
       </svg>
@@ -791,7 +791,7 @@ exports[`Select matches the snapshot Case 2 Menu item with label selected: ({"me
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -870,7 +870,7 @@ exports[`Select matches the snapshot Case 3 Menu item with no label selected: ({
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+            d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
           />
         </g>
       </svg>
@@ -1070,7 +1070,7 @@ exports[`Select matches the snapshot Case 3 Menu item with no label selected: ({
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -1148,7 +1148,7 @@ exports[`Select matches the snapshot Case 4 Menu item with icon selected: ({"men
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+            d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
           />
         </g>
       </svg>
@@ -1167,7 +1167,7 @@ exports[`Select matches the snapshot Case 4 Menu item with icon selected: ({"men
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+            d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
           />
         </g>
       </svg>
@@ -1367,7 +1367,7 @@ exports[`Select matches the snapshot Case 4 Menu item with icon selected: ({"men
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -1409,7 +1409,7 @@ exports[`Select matches the snapshot Case 4 Menu item with icon selected: ({"men
 </div>
 `;
 
-exports[`Select matches the snapshot Case 5 With Start icon: ({"defaultIcon": "<path d=\\"M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8\\"/>", "menuItems": [Array], "selected": null}) => HTML 1`] = `
+exports[`Select matches the snapshot Case 5 With Start icon: ({"defaultIcon": "<path d=\\"M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3\\"/>", "menuItems": [Array], "selected": null}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--has-start-icon cdx-select-vue--status-default"
@@ -1445,7 +1445,7 @@ exports[`Select matches the snapshot Case 5 With Start icon: ({"defaultIcon": "<
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+            d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
           />
         </g>
       </svg>
@@ -1464,7 +1464,7 @@ exports[`Select matches the snapshot Case 5 With Start icon: ({"defaultIcon": "<
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+            d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
           />
         </g>
       </svg>
@@ -1663,7 +1663,7 @@ exports[`Select matches the snapshot Case 5 With Start icon: ({"defaultIcon": "<
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -1701,7 +1701,7 @@ exports[`Select matches the snapshot Case 5 With Start icon: ({"defaultIcon": "<
 </div>
 `;
 
-exports[`Select matches the snapshot Case 6 With Start icon and selection: ({"defaultIcon": "<path d=\\"M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8\\"/>", "menuItems": [Array], "selected": "c"}) => HTML 1`] = `
+exports[`Select matches the snapshot Case 6 With Start icon and selection: ({"defaultIcon": "<path d=\\"M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3\\"/>", "menuItems": [Array], "selected": "c"}) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
@@ -1738,7 +1738,7 @@ exports[`Select matches the snapshot Case 6 With Start icon and selection: ({"de
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+            d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
           />
         </g>
       </svg>
@@ -1938,7 +1938,7 @@ exports[`Select matches the snapshot Case 6 With Start icon and selection: ({"de
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>
@@ -2013,7 +2013,7 @@ exports[`Select matches the snapshot Case 7 With error status: ({"menuItems": [A
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
+            d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
           />
         </g>
       </svg>
@@ -2212,7 +2212,7 @@ exports[`Select matches the snapshot Case 7 With error status: ({"menuItems": [A
               <!-- eslint-disable vue/no-v-html -->
               <g>
                 <path
-                  d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+                  d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"
                 />
               </g>
             </svg>

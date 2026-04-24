@@ -3,5 +3,5 @@
 	<title>
 		stop
 	</title>
-	<rect width="16" height="16" x="2" y="2" rx="1"/>
+	<path d="M15 15H5V5h10v10Z"/>
 </svg>

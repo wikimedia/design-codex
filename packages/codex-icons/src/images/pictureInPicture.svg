@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+	<title>
+		picture in picture
+	</title>
+	<path d="M16 14h-6V9h6v5Z"/>
+	<path d="M20 18H0V2h20v16ZM2 16h16V4H2v12Z"/>
+</svg>

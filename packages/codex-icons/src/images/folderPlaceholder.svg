@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 	<title>
-		folder placeholder
+		folder
 	</title>
-	<path d="M8 2H2a2 2 0 0 0-2 2v2h12z"/>
-	<rect width="20" height="14" y="4" rx="2"/>
+	<path d="M11.414 4H19v14H1V2h8.414l2 2ZM3 16h14V6h-6.414l-2-2H3v12Z"/>
 </svg>

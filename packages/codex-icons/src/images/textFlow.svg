@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 	<title>
-		stripe flow
+		text flow
 	</title>
-	<path d="M1 3h18v2H1zm0 4h14v2H1zm0 4h10v2H1zm0 4h18v2H1z"/>
+	<path d="M11 17H1v-2h10v2Zm8-4H1v-2h18v2Zm0-6v2H1V7h18Zm0-2H1V3h18v2Z"/>
 </svg>

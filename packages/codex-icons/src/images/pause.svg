@@ -3,6 +3,5 @@
 	<title>
 		pause
 	</title>
-	<rect width="6" height="16" x="3" y="2" rx="1"/>
-	<rect width="6" height="16" x="11" y="2" rx="1"/>
+	<path d="M8 15H5V5h3v10Zm7 0h-3V5h3v10Z"/>
 </svg>
