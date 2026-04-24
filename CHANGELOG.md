@@ -1,3 +1,11 @@
+# 2.5.1 / 2026-04-24
+
+## Code
+- useFocusTrap: Don't move focus away from elements inside the anchor (Roan Kattouw)
+
+## Documentation
+- useFocusTrap, docs: Add comment with task number for T424313 (Roan Kattouw)
+
 # 2.5.0 / 2026-04-17
 
 ## Features
