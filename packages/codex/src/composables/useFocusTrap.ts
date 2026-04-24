@@ -44,7 +44,7 @@ export default function useFocusTrap(
 			return false;
 		}
 		const anchorEl = unwrapElement( anchorRef.value );
-		return anchorEl !== null && previouslyFocused === anchorEl;
+		return !!anchorEl?.contains( previouslyFocused );
 	}
 
 	/**
