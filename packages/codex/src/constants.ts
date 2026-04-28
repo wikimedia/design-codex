@@ -199,6 +199,19 @@ export const CardThumbnailSizes = [
 export const cardThumbnailSizeValidator = makeStringTypeValidator( CardThumbnailSizes );
 
 /**
+ * The available shapes for Skeleton.
+ */
+export const SkeletonShapes = [
+	'line',
+	'rectangle'
+] as const;
+
+/**
+ * Validator for Skeleton's `shape` prop.
+ */
+export const skeletonShapeValidator = makeStringTypeValidator( SkeletonShapes );
+
+/**
  * Available options for Accordion's `separation` prop.
  */
 export const AccordionSeparations = [
@@ -284,6 +297,7 @@ export const I18nMessageKeys = [
 	'cdx-message-dismiss-button-label',
 	'cdx-popover-close-button-label',
 	'cdx-search-input-search-button-label',
+	'cdx-skeleton-label',
 	'cdx-table-pager-button-first-page',
 	'cdx-table-pager-button-last-page',
 	'cdx-table-pager-button-next-page',

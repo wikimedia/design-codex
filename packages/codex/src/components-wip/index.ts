@@ -10,8 +10,10 @@
 // and the file must stay an ES module for that to compile.
 import CdxBreadcrumb from './breadcrumb/Breadcrumb.vue';
 import CdxContainer from './container/Container.vue';
+import CdxSkeleton from './skeleton/Skeleton.vue';
 
 export {
 	CdxBreadcrumb,
-	CdxContainer
+	CdxContainer,
+	CdxSkeleton
 };

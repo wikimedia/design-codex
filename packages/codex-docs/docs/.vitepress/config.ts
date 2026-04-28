@@ -319,8 +319,8 @@ export default defineConfigWithTheme<CustomConfig>( {
 								{ text: 'Message', link: '/components/demos/message' },
 								{ text: 'ProgressBar', link: '/components/demos/progress-bar' },
 								{ text: 'ProgressIndicator', link: '/components/demos/progress-indicator' },
-								{ text: 'Toast', link: '/components/demos/toast' },
-								// Skeleton
+								{ text: 'Skeleton', link: '/components/demos/skeleton' },
+								{ text: 'Toast', link: '/components/demos/toast' }
 							] )
 						},
 						{

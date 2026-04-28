@@ -1135,6 +1135,9 @@
 		"base": {
 			"value": "{ animation-timing-function.100 }"
 		},
+		"shimmer": {
+			"value": "{ animation-timing-function.150 }"
+		},
 		"bouncing": {
 			"value": "{ animation-timing-function.200 }"
 		}

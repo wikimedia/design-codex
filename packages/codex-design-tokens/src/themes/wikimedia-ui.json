@@ -994,6 +994,9 @@
 		"100": {
 			"value": "linear"
 		},
+		"150": {
+			"value": "ease"
+		},
 		"200": {
 			"value": "ease-in-out"
 		}

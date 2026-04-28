@@ -32,7 +32,8 @@ import {
 	PopoverBottomSheetOptions,
 	CardThumbnailPositions,
 	CardSeparations,
-	CardThumbnailSizes
+	CardThumbnailSizes,
+	SkeletonShapes
 } from './constants';
 
 // Export the Placement type from FloatingUI for ease of use downstream
@@ -323,3 +324,6 @@ export type CardSeparation = typeof CardSeparations[ number ];
 
 /** @public */
 export type CardThumbnailSize = typeof CardThumbnailSizes[ number ];
+
+// TODO: Mark as @public and export in lib.ts when Skeleton leaves WIP.
+export type SkeletonShape = typeof SkeletonShapes[ number ];
