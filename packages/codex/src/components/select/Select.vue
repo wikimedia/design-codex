@@ -352,6 +352,8 @@ export default defineComponent( {
 	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 	background-position: center right @spacing-75;
 	background-repeat: no-repeat;
+	// Fallback for browsers that don't support min() or max()
+	background-size: @size-icon-x-small;
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	background-size: calc( ~'max( @{size-icon-x-small}, @{min-size-icon-x-small} )' );
 
