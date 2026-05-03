@@ -19,6 +19,15 @@ const tokens = computed( () => isMounted.value && isDark.value ? darkModeTokens 
 
 For documentation on the entire color palette, visit [Colors](../style-guide/colors.md).
 
+Most of the color tokens shipped by Codex are organized by semantic meaning (`destructive`, 
+`progressive`, and so on). However, Codex also includes an additional set of "color option" 
+tokens which are intended for presentational purposes. These tokens can be used in 
+combination with one another. For example, consider using `color-option-pink` with 
+`background-color-option-pink` instead of mixing colors. Link text can appear on top of any 
+of the background color options while maintaining enough contrast to satisfy the WCAG Level AA 
+accessibility standards. For more information, visit 
+[https://www.mediawiki.org/wiki/Codex/Design/Color](https://www.mediawiki.org/wiki/Codex/Design/Color).
+
 :::tip
 Some colors vary between light and dark modes. Use the color mode switcher in the site header to check
 the colors in the different modes. Using design tokens rather than raw hex codes will ensure you're

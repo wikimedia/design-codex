@@ -84,14 +84,41 @@
 		"content-removed": {
 			"value": "{ color.yellow900 }"
 		},
+		"target-text": {
+			"value": "{ color.orange900 }"
+		},
+		"option-red": {
+			"value": "{ color.red900 }"
+		},
+		"option-orange": {
+			"value": "{ color.orange900 }"
+		},
+		"option-yellow": {
+			"value": "{ color.yellow900 }"
+		},
+		"option-lime": {
+			"value": "{ color.lime900 }"
+		},
+		"option-green": {
+			"value": "{ color.green900 }"
+		},
+		"option-blue": {
+			"value": "{ color.blue900 }"
+		},
+		"option-purple": {
+			"value": "{ color.purple900 }"
+		},
+		"option-pink": {
+			"value": "{ color.pink900 }"
+		},
+		"option-maroon": {
+			"value": "{ color.maroon900 }"
+		},
 		"backdrop-light": {
 			"value": "{ color.opacity-medium-dark }"
 		},
 		"backdrop-dark": {
 			"value": "{ color.opacity-medium-light }"
-		},
-		"target-text": {
-			"value": "{ color.orange900 }"
 		}
 	},
 	"color": {
@@ -181,6 +208,33 @@
 		},
 		"content-removed": {
 			"value": "{ color.red400 }"
+		},
+		"option-red": {
+			"value": "{ color.red400 }"
+		},
+		"option-orange": {
+			"value": "{ color.orange400 }"
+		},
+		"option-yellow": {
+			"value": "{ color.yellow400 }"
+		},
+		"option-lime": {
+			"value": "{ color.lime400 }"
+		},
+		"option-green": {
+			"value": "{ color.green400 }"
+		},
+		"option-blue": {
+			"value": "{ color.blue400 }"
+		},
+		"option-purple": {
+			"value": "{ color.purple400 }"
+		},
+		"option-pink": {
+			"value": "{ color.pink400 }"
+		},
+		"option-maroon": {
+			"value": "{ color.maroon400 }"
 		},
 		"base--subtle": {
 			"deprecated": "Use `color-subtle` instead. Note, that `color-subtle` is using `color.gray400` instead of `color.gray500` now.",
