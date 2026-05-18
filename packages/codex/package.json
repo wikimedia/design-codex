@@ -21,8 +21,8 @@
 	"bugs": "https://phabricator.wikimedia.org/tag/codex/",
 	"license": "GPL-2.0+",
 	"engines": {
-		"npm": ">=10.8.2",
-		"node": ">=20.20.2"
+		"npm": ">=11.11.0",
+		"node": ">=24.14.1"
 	},
 	"main": "dist/codex.cjs",
 	"module": "dist/codex.js",
@@ -79,7 +79,7 @@
 		"rtlcss": "4.3.0",
 		"start-server-and-test": "1.14.0",
 		"ts-jest": "29.2.5",
-		"tsx": "4.19.2",
+		"tsx": "4.22.2",
 		"typescript": "5.9.3",
 		"vite": "7.0.4",
 		"vue": "3.5.17",

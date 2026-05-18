@@ -12,8 +12,8 @@
 	"bugs": "https://phabricator.wikimedia.org/tag/codex/",
 	"license": "GPL-2.0+",
 	"engines": {
-		"npm": ">=10.8.1",
-		"node": ">=20.20.2"
+		"npm": ">=11.10.0",
+		"node": ">=24.14.1"
 	},
 	"files": [
 		"dist",
