@@ -49,7 +49,7 @@ const searchResults : SearchResult[] = [
 		url: 'https://en.wikipedia.org/wiki/Color',
 		description: 'visual perception of light wavelengths',
 		thumbnail: {
-			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/200px-64_365_Color_Macro_%285498808099%29.jpg'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/250px-64_365_Color_Macro_%285498808099%29.jpg'
 		}
 	}
 ];

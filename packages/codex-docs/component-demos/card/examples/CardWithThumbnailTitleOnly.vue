@@ -11,7 +11,7 @@ import { defineComponent } from 'vue';
 import { CdxCard } from '@wikimedia/codex';
 
 const thumbnailData = {
-	url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/200px-Juvenile_Ragdoll.jpg'
+	url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/250px-Juvenile_Ragdoll.jpg'
 };
 
 export default defineComponent( {

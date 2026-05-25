@@ -384,7 +384,7 @@ Refer to the [CSS-only Thumbnail](./thumbnail.md#css-only-version) documentation
 
 ```less
 .cdx-demo-colored-pencils {
-	background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/200px-64_365_Color_Macro_%285498808099%29.jpg );
+	background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/250px-64_365_Color_Macro_%285498808099%29.jpg );
 }
 ```
 
@@ -455,7 +455,7 @@ Refer to the [documentation above](#card-groups) for UX guidelines.
 		<p>Nearby Pages</p>
 		<a href="https://en.wikipedia.org/wiki/Golden_Gate_National_Recreation_Area" class="cdx-card cdx-card--is-link cdx-docs-card-group-with-thumbnails__card">
 			<span class="cdx-thumbnail cdx-card__thumbnail">
-				<span style="background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg/150px-Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg );" class="cdx-thumbnail__image"></span>
+				<span style="background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg/120px-Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg );" class="cdx-thumbnail__image"></span>
 			</span>
 			<span class="cdx-card__text">
 				<span class="cdx-card__text__title">Golden Gate National Recreation Area</span>
@@ -467,7 +467,7 @@ Refer to the [documentation above](#card-groups) for UX guidelines.
 		</a>
 		<a href="https://en.wikipedia.org/wiki/Internet_Archive" class="cdx-card cdx-card--is-link cdx-docs-card-group-with-thumbnails__card">
 			<span class="cdx-thumbnail cdx-card__thumbnail">
-				<span style="background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Internet_Archive_logo_and_wordmark.svg/150px-Internet_Archive_logo_and_wordmark.svg.png );" class="cdx-thumbnail__image"></span>
+				<span style="background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Internet_Archive_logo_and_wordmark.svg/120px-Internet_Archive_logo_and_wordmark.svg.png );" class="cdx-thumbnail__image"></span>
 			</span>
 			<span class="cdx-card__text">
 				<span class="cdx-card__text__title">Internet Archive</span>
@@ -500,7 +500,7 @@ Refer to the [documentation above](#card-groups) for UX guidelines.
 	<p>Nearby Pages</p>
 	<a href="https://en.wikipedia.org/wiki/Golden_Gate_National_Recreation_Area" class="cdx-card cdx-card--is-link cdx-docs-card-group-with-thumbnails__card">
 		<span class="cdx-thumbnail cdx-card__thumbnail">
-			<span style="background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg/150px-Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg );" class="cdx-thumbnail__image"></span>
+			<span style="background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg/120px-Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg );" class="cdx-thumbnail__image"></span>
 		</span>
 		<span class="cdx-card__text">
 			<span class="cdx-card__text__title">
@@ -516,7 +516,7 @@ Refer to the [documentation above](#card-groups) for UX guidelines.
 	</a>
 	<a href="https://en.wikipedia.org/wiki/Internet_Archive" class="cdx-card cdx-card--is-link cdx-docs-card-group-with-thumbnails__card">
 		<span class="cdx-thumbnail cdx-card__thumbnail">
-			<span style="background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Internet_Archive_logo_and_wordmark.svg/150px-Internet_Archive_logo_and_wordmark.svg.png );" class="cdx-thumbnail__image"></span>
+			<span style="background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Internet_Archive_logo_and_wordmark.svg/120px-Internet_Archive_logo_and_wordmark.svg.png );" class="cdx-thumbnail__image"></span>
 		</span>
 		<span class="cdx-card__text">
 			<span class="cdx-card__text__title">
@@ -603,7 +603,7 @@ Refer to the [documentation above](#card-groups) for UX guidelines.
 @import ( reference ) '@wikimedia/codex/mixins/css-icon.less';
 
 .cdx-demo-colored-pencils {
-	background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/200px-64_365_Color_Macro_%285498808099%29.jpg );
+	background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/250px-64_365_Color_Macro_%285498808099%29.jpg );
 }
 
 .cdx-demo-css-icon {

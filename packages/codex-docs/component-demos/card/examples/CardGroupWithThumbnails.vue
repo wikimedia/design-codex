@@ -37,7 +37,7 @@ const cards = [
 		title: 'Golden Gate National Recreation Area',
 		description: 'U.S. National Recreation Area surrounding San Francisco Bay Area',
 		thumbnail: {
-			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg/150px-Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg/120px-Golden_Gate_-_Lands_End_-_Point_Lobos_2009.jpg'
 		},
 		distance: '170m'
 	},
@@ -47,7 +47,7 @@ const cards = [
 		title: 'Internet Archive',
 		description: 'American non-profit organization providing archives of digital media since 1996',
 		thumbnail: {
-			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Internet_Archive_logo_and_wordmark.svg/150px-Internet_Archive_logo_and_wordmark.svg.png'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Internet_Archive_logo_and_wordmark.svg/120px-Internet_Archive_logo_and_wordmark.svg.png'
 		},
 		distance: '300m'
 	},
@@ -64,7 +64,7 @@ const cards = [
 		title: 'Mountain Lake Park',
 		description: 'Park in San Francisco, California',
 		thumbnail: {
-			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Mountain_Lake_%28468742548%29.jpg/150px-Mountain_Lake_%28468742548%29.jpg'
+			url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Mountain_Lake_%28468742548%29.jpg/120px-Mountain_Lake_%28468742548%29.jpg'
 		},
 		distance: '570m'
 	}

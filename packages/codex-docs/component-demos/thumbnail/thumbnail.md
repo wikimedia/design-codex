@@ -132,7 +132,7 @@ span and adding the `background-image` rule in your styles.
 	<!-- Wrapper <span>. -->
 	<span class="cdx-thumbnail">
 		<!-- Image span. -->
-		<span class="cdx-thumbnail__image" style="background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/200px-64_365_Color_Macro_%285498808099%29.jpg );"></span>
+		<span class="cdx-thumbnail__image" style="background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/250px-64_365_Color_Macro_%285498808099%29.jpg );"></span>
 	</span>
 </template>
 <template v-slot:code>
@@ -141,7 +141,7 @@ span and adding the `background-image` rule in your styles.
 <!-- Wrapper <span>. -->
 <span class="cdx-thumbnail">
 	<!-- Image span. -->
-	<span class="cdx-thumbnail__image" style="background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/200px-64_365_Color_Macro_%285498808099%29.jpg );"></span>
+	<span class="cdx-thumbnail__image" style="background-image: url( https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/64_365_Color_Macro_%285498808099%29.jpg/250px-64_365_Color_Macro_%285498808099%29.jpg );"></span>
 </span>
 ```
 
