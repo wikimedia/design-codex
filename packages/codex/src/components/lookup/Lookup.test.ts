@@ -520,4 +520,27 @@ describe( 'Lookup', () => {
 			} );
 		} );
 	} );
+
+	describe( 'Public methods', () => {
+		it( 'exposes a public focus() method', () => {
+			const wrapper = mount( CdxLookup, {
+				props: defaultProps
+			} );
+
+			expect( typeof wrapper.vm.focus ).toBe( 'function' );
+		} );
+
+		it( 'focuses the internal input when focus() is called', () => {
+			const wrapper = mount( CdxLookup, {
+				props: defaultProps,
+				attachTo: document.body
+			} );
+
+			const input = wrapper.get( 'input' ).element as HTMLInputElement;
+			wrapper.vm.focus();
+			expect( document.activeElement ).toBe( input );
+
+			wrapper.unmount();
+		} );
+	} );
 } );

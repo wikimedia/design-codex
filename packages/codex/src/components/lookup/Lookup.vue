@@ -419,6 +419,21 @@ export default defineComponent( {
 			onInputFocus,
 			onKeydown
 		};
+	},
+
+	// Public methods
+	// These must be in the methods block, not in the setup function, otherwise their documentation
+	// won't be picked up by vue-docgen
+	methods: {
+		/**
+		 * Focus the component's TextInput element.
+		 *
+		 * @public
+		 */
+		focus(): void {
+			const textInput = this.$refs.textInput as InstanceType<typeof CdxTextInput>;
+			textInput.focus();
+		}
 	}
 } );
 </script>
