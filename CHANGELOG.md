@@ -1,3 +1,8 @@
+# 2.6.1 / 2026-06-11
+
+## Icons
+- icons: Amend various icons (Derek Torsani)
+
 # 2.6.0 / 2026-06-09
 
 ## Styles
