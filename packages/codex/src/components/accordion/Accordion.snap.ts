@@ -36,7 +36,7 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
 </details>
 `;
 
-exports[`Accordion matches the snapshot Case 1 Action button is not visible when collapsed: ({"actionButtonLabel": "Edit", "actionIcon": "<path d=\\"m15.765 7.875-8.483 8.484a1 1 0 01-.253.184l-4.214 2.15-1.357-1.33L3.58 13.12q.073-.145.188-.26l8.48-8.48zm3.534-3.532-2.12 2.118-3.517-3.496 2.13-2.13z\\"/>"}) => HTML 1`] = `
+exports[`Accordion matches the snapshot Case 1 Action button is not visible when collapsed: ({"actionButtonLabel": "Edit", "actionIcon": "<path d=\\"M6.547 17.679c-.11.11-.246.192-.394.242L1.91 19.335.64 18.077l1.413-4.244a1 1 0 01.242-.39L10.77 4.97l4.255 4.23-8.478 8.48Zm9.892-9.893-4.255-4.23L15.38.358 19.623 4.6 16.44 7.786Z\\"/>"}) => HTML 1`] = `
 <details
   class="cdx-accordion cdx-accordion--separation-divider"
 >
@@ -72,7 +72,7 @@ exports[`Accordion matches the snapshot Case 1 Action button is not visible when
 </details>
 `;
 
-exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action button visible even when collapsed: ({"actionAlwaysVisible": true, "actionButtonLabel": "Edit", "actionIcon": "<path d=\\"m15.765 7.875-8.483 8.484a1 1 0 01-.253.184l-4.214 2.15-1.357-1.33L3.58 13.12q.073-.145.188-.26l8.48-8.48zm3.534-3.532-2.12 2.118-3.517-3.496 2.13-2.13z\\"/>"}) => HTML 1`] = `
+exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action button visible even when collapsed: ({"actionAlwaysVisible": true, "actionButtonLabel": "Edit", "actionIcon": "<path d=\\"M6.547 17.679c-.11.11-.246.192-.394.242L1.91 19.335.64 18.077l1.413-4.244a1 1 0 01.242-.39L10.77 4.97l4.255 4.23-8.478 8.48Zm9.892-9.893-4.255-4.23L15.38.358 19.623 4.6 16.44 7.786Z\\"/>"}) => HTML 1`] = `
 <details
   class="cdx-accordion cdx-accordion--has-icon cdx-accordion--separation-divider"
 >
@@ -118,7 +118,7 @@ exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action 
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="m15.765 7.875-8.483 8.484a1 1 0 01-.253.184l-4.214 2.15-1.357-1.33L3.58 13.12q.073-.145.188-.26l8.48-8.48zm3.534-3.532-2.12 2.118-3.517-3.496 2.13-2.13z"
+              d="M6.547 17.679c-.11.11-.246.192-.394.242L1.91 19.335.64 18.077l1.413-4.244a1 1 0 01.242-.39L10.77 4.97l4.255 4.23-8.478 8.48Zm9.892-9.893-4.255-4.23L15.38.358 19.623 4.6 16.44 7.786Z"
             />
           </g>
         </svg>

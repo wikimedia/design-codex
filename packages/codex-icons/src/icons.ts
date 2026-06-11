@@ -292,6 +292,12 @@ export const cdxIconDownload = svgDownload;
 import svgDraggable from './images/draggable.svg';
 export const cdxIconDraggable = svgDraggable;
 
+import svgDraggableHorizontal from './images/draggableHorizontal.svg';
+export const cdxIconDraggableHorizontal = svgDraggableHorizontal;
+
+import svgDraggableXY from './images/draggableXY.svg';
+export const cdxIconDraggableXY = svgDraggableXY;
+
 import svgEdit from './images/edit.svg';
 export const cdxIconEdit = svgEdit;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 	<title>
-		draggable
+		draggable vertical
 	</title>
-	<path d="M12.5 16.5 10 19l-2.5-2.5v-1h5v1Zm-8-4h-1L1 10l2.5-2.5h1v5ZM19 10l-2.5 2.5h-1v-5h1L19 10Zm-7 2H8V8h4v4Zm.5-8.5v1h-5v-1L10 1l2.5 2.5Z"/>
+	<path d="M12.5 16.5 10 19l-2.5-2.5v-1h5zM18 13H2v-2h16zm0-4H2V7h16zm-5.5-5.5v1h-5v-1L10 1z"/>
 </svg>
