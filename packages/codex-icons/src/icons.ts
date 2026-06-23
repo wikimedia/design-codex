@@ -747,6 +747,9 @@ export const cdxIconMerge: IconFlipForRtl = {
 import svgMessage from './images/message.svg';
 export const cdxIconMessage = svgMessage;
 
+import svgMicrophone from './images/microphone.svg';
+export const cdxIconMicrophone = svgMicrophone;
+
 import svgMoon from './images/moon.svg';
 export const cdxIconMoon = svgMoon;
 
@@ -1234,11 +1237,10 @@ export const cdxIconUserMentor: IconFlipForRtl = {
 	shouldFlip: true
 };
 
-import svgUserPagesLtr from './images/userPages-ltr.svg';
-import svgUserPagesRtl from './images/userPages-rtl.svg';
-export const cdxIconUserPages: IconVariedByDir = {
-	ltr: svgUserPagesLtr,
-	rtl: svgUserPagesRtl
+import svgUserPages from './images/userPages.svg';
+export const cdxIconUserPages: IconFlipForRtl = {
+	ltr: svgUserPages,
+	shouldFlip: true
 };
 
 import svgUserRights from './images/userRights.svg';

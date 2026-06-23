@@ -3,5 +3,5 @@
 	<title>
 		draggable xy
 	</title>
-	<path d="M12.5 16.5 10 19l-2.5-2.5v-1h5zm-8-4h-1L1 10l2.5-2.5h1zM19 10l-2.5 2.5h-1v-5h1zm-7 2H8V8h4zm.5-8.5v1h-5v-1L10 1z"/>
+	<path d="m13 16.5-3 3-3-3V16h6zM4 13h-.5l-3-3 3-3H4zm15.5-3-3 3H16V7h.5zM12 12H8V8h4zm1-8.5V4H7v-.5l3-3z"/>
 </svg>

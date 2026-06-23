@@ -3,5 +3,5 @@
 	<title>
 		outdent
 	</title>
-	<path d="M19 17H1v-2h18v2ZM5 7v6H3.5l-3-3 3-3H5Zm14 6H7v-2h12v2Zm0-4H7V7h12v2Zm0-4H1V3h18v2Z"/>
+	<path d="M19 17H1v-2h18zM5 7v6H4l-3-3 3-3zm14 6H7v-2h12zm0-4H7V7h12zm0-4H1V3h18z"/>
 </svg>

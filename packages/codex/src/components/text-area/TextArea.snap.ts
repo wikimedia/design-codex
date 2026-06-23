@@ -79,7 +79,7 @@ exports[`TextArea matches the snapshot Case 5 with autosize as true: ({"autosize
 </div>
 `;
 
-exports[`TextArea matches the snapshot Case 6 with start icon: ({"startIcon": "<path d=\\"m7.478 15.49-1.141 1.976-1.733-1 1.141-1.976zm7.705.976-1.732 1-1.14-1.976 1.731-1zM10 6a4 4 0 110 8 4 4 0 010-8m-5.998 5.003H1.72v-2h2.281v2Zm14.28 0H16v-2h2.281v2ZM7.652 4.425l-1.731 1-1.14-1.976 1.73-1zm7.354-.976-1.14 1.976-1.733-1 1.14-1.976z\\"/>"}) => HTML 1`] = `
+exports[`TextArea matches the snapshot Case 6 with start icon: ({"startIcon": "<path d=\\"M10 6a4 4 0 110 8 4 4 0 010-8\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-text-area cdx-text-area--status-default cdx-text-area--has-start-icon"
 >
@@ -101,7 +101,7 @@ exports[`TextArea matches the snapshot Case 6 with start icon: ({"startIcon": "<
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="m7.478 15.49-1.141 1.976-1.733-1 1.141-1.976zm7.705.976-1.732 1-1.14-1.976 1.731-1zM10 6a4 4 0 110 8 4 4 0 010-8m-5.998 5.003H1.72v-2h2.281v2Zm14.28 0H16v-2h2.281v2ZM7.652 4.425l-1.731 1-1.14-1.976 1.73-1zm7.354-.976-1.14 1.976-1.733-1 1.14-1.976z"
+          d="M10 6a4 4 0 110 8 4 4 0 010-8"
         />
       </g>
     </svg>
@@ -141,7 +141,7 @@ exports[`TextArea matches the snapshot Case 7 with end icon: ({"endIcon": [Objec
 </div>
 `;
 
-exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIcon": [Object], "startIcon": "<path d=\\"m7.478 15.49-1.141 1.976-1.733-1 1.141-1.976zm7.705.976-1.732 1-1.14-1.976 1.731-1zM10 6a4 4 0 110 8 4 4 0 010-8m-5.998 5.003H1.72v-2h2.281v2Zm14.28 0H16v-2h2.281v2ZM7.652 4.425l-1.731 1-1.14-1.976 1.73-1zm7.354-.976-1.14 1.976-1.733-1 1.14-1.976z\\"/>"}) => HTML 1`] = `
+exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIcon": [Object], "startIcon": "<path d=\\"M10 6a4 4 0 110 8 4 4 0 010-8\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-text-area cdx-text-area--status-default cdx-text-area--has-start-icon cdx-text-area--has-end-icon"
 >
@@ -163,7 +163,7 @@ exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIc
       <!-- eslint-disable vue/no-v-html -->
       <g>
         <path
-          d="m7.478 15.49-1.141 1.976-1.733-1 1.141-1.976zm7.705.976-1.732 1-1.14-1.976 1.731-1zM10 6a4 4 0 110 8 4 4 0 010-8m-5.998 5.003H1.72v-2h2.281v2Zm14.28 0H16v-2h2.281v2ZM7.652 4.425l-1.731 1-1.14-1.976 1.73-1zm7.354-.976-1.14 1.976-1.733-1 1.14-1.976z"
+          d="M10 6a4 4 0 110 8 4 4 0 010-8"
         />
       </g>
     </svg>

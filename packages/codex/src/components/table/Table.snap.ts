@@ -3083,7 +3083,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ({"columns": [Array]
                   <!-- eslint-disable vue/no-v-html -->
                   <g>
                     <path
-                      d="M14 14.5 10 18l-4-3.5V12h8zm0-9V8H6V5.5L10 2z"
+                      d="m15 13-5 5-5-5v-1h10zm0-6v1H5V7l5-5z"
                     />
                   </g>
                 </svg>
@@ -3118,7 +3118,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ({"columns": [Array]
                   <!-- eslint-disable vue/no-v-html -->
                   <g>
                     <path
-                      d="M14 14.5 10 18l-4-3.5V12h8zm0-9V8H6V5.5L10 2z"
+                      d="m15 13-5 5-5-5v-1h10zm0-6v1H5V7l5-5z"
                     />
                   </g>
                 </svg>
@@ -3153,7 +3153,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ({"columns": [Array]
                   <!-- eslint-disable vue/no-v-html -->
                   <g>
                     <path
-                      d="M14 14.5 10 18l-4-3.5V12h8zm0-9V8H6V5.5L10 2z"
+                      d="m15 13-5 5-5-5v-1h10zm0-6v1H5V7l5-5z"
                     />
                   </g>
                 </svg>

@@ -3,6 +3,6 @@
 	<title>
 		add article
 	</title>
-	<path d="M11 9h3v2h-3v3H9v-3H6V9h3V6h2v3Z"/>
-	<path d="M18 1v18H2V1h16ZM4 3v14h12V3H4Z"/>
+	<path d="M11 9h3v2h-3v3H9v-3H6V9h3V6h2z"/>
+	<path d="M18 0v20H2V0zM4 2v16h12V2z"/>
 </svg>

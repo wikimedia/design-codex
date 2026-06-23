@@ -3,6 +3,6 @@
 	<title>
 		bookmark list
 	</title>
-	<path d="m13 18-1.707.707L8 15.414l-3.293 3.293L3 18V5h10v13Z"/>
-	<path d="M17 15h-2V3H6V1h11v14Z"/>
+	<path d="M14 20h-1.5L8 16l-4.5 4H2V4h12z"/>
+	<path d="M18 14h-2V2H7V0h11z"/>
 </svg>

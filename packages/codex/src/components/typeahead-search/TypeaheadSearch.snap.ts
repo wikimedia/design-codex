@@ -734,7 +734,7 @@ exports[`TypeaheadSearch with no results matches the snapshot 1`] = `
                     <!-- eslint-disable vue/no-v-html -->
                     <g>
                       <path
-                        d="M18 19H2V1h16zM4 17h11.586l-3.922-3.922a3.5 3.5 0 111.414-1.414L16 14.586V3H4zm6-8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3"
+                        d="M18 20H2V0h16zM4 18h10.969l-3.343-4.347a4 4 0 111.565-1.244L16 16.06V2H4zm6-10a2 2 0 100 4 2 2 0 000-4"
                       />
                     </g>
                   </svg>
@@ -900,7 +900,7 @@ exports[`TypeaheadSearch with search results matches the snapshot 1`] = `
                         <!-- eslint-disable vue/no-v-html -->
                         <g>
                           <path
-                            d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zM6.25 5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5"
+                            d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zm-4-8a1.5 1.5 0 100 3 1.5 1.5 0 000-3"
                           />
                         </g>
                       </svg>
@@ -973,7 +973,7 @@ exports[`TypeaheadSearch with search results matches the snapshot 1`] = `
                         <!-- eslint-disable vue/no-v-html -->
                         <g>
                           <path
-                            d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zM6.25 5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5"
+                            d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zm-4-8a1.5 1.5 0 100 3 1.5 1.5 0 000-3"
                           />
                         </g>
                       </svg>
@@ -1047,7 +1047,7 @@ exports[`TypeaheadSearch with search results matches the snapshot 1`] = `
                     <!-- eslint-disable vue/no-v-html -->
                     <g>
                       <path
-                        d="M18 19H2V1h16zM4 17h11.586l-3.922-3.922a3.5 3.5 0 111.414-1.414L16 14.586V3H4zm6-8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3"
+                        d="M18 20H2V0h16zM4 18h10.969l-3.343-4.347a4 4 0 111.565-1.244L16 16.06V2H4zm6-10a2 2 0 100 4 2 2 0 000-4"
                       />
                     </g>
                   </svg>

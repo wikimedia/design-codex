@@ -3,5 +3,5 @@
 	<title>
 		reference
 	</title>
-	<path d="M18 19H2V1h16v18ZM4 17h12V3h-2v9.5h-.914L12 11.414 10.914 12.5H10V3H4v14Z"/>
+	<path d="M18 20H2V0h16zM4 18h12V2h-2v10h-.914L12 11l-1.086 1H10V2H4z"/>
 </svg>

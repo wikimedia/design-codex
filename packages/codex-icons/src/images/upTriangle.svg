@@ -3,5 +3,5 @@
 	<title>
 		up triangle
 	</title>
-	<path d="M14 13H6v-2.5L10 7l4 3.5V13Z"/>
+	<path d="M15 12H5v-1l5-5 5 5z"/>
 </svg>

@@ -3,6 +3,6 @@
 	<title>
 		frame image layout
 	</title>
-	<path d="M15 15H5V5h10v10Zm-8-2 2-2 1.5 1.5L13 10V7H7v6Z"/>
-	<path d="M19 19H1V1h18v18ZM3 17h14V3H3v14Z"/>
+	<path d="M15 15H5V5h10zm-8-2 2-2 1.5 1.5L13 10V7H7z"/>
+	<path d="M19 19H1V1h18zM3 17h14V3H3z"/>
 </svg>

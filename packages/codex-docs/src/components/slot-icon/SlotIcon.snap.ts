@@ -53,7 +53,7 @@ exports[`SlotIcon matches the snapshot Case 2 valid icon name (cdxIconAlert) => 
       <!--v-if-->
       <g>
         <path
-          d="M19.765 16.059 18 19H2L.235 16.059l8-15h3.53zM9 14v2h2v-2zm0-8v6h2V6z"
+          d="M19 19H1v-1.8L9.444 1h1.112L19 17.2zM9 15v2h2v-2zm0-8v6h2V7z"
         />
       </g>
     </svg>

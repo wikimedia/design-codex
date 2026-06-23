@@ -129,7 +129,7 @@ exports[`Card matches the snapshot Case 3 Card with thumbnail: ("Title") => HTML
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zM6.25 5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5"
+              d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zm-4-8a1.5 1.5 0 100 3 1.5 1.5 0 000-3"
             />
           </g>
         </svg>
@@ -185,7 +185,7 @@ exports[`Card matches the snapshot Case 4 Card with thumbnail placeholder: ("Tit
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zM6.25 5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5"
+              d="M19 19H1V1h18zm-8.5-6-2-2L5 15h10V8zm-4-8a1.5 1.5 0 100 3 1.5 1.5 0 000-3"
             />
           </g>
         </svg>

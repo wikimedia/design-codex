@@ -3,6 +3,6 @@
 	<title>
 		article
 	</title>
-	<path d="M14 15H6v-2h8v2Zm-5-4H6V9h3v2Zm5 0h-3V5h3v6ZM9 7H6V5h3v2Z"/>
-	<path d="M18 19H2V1h16v18ZM4 17h12V3H4v14Z"/>
+	<path d="M14 16H6v-1h8zm0-2H6v-1h8zm0-2H6v-1h8zM9 9H6V8h3zm5 0h-4V4h4zM9 7H6V6h3zm0-2H6V4h3z"/>
+	<path d="M18 20H2V0h16zM4 18h12V2H4z"/>
 </svg>

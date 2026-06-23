@@ -3,5 +3,5 @@
 	<title>
 		move
 	</title>
-	<path d="M12.5 3.5v1H11V9h4.5V7.5h1L19 10l-2.5 2.5h-1V11H11v4.5h1.5v1L10 19l-2.5-2.5v-1H9V11H4.5v1.5h-1L1 10l2.5-2.5h1V9H9V4.5H7.5v-1L10 1l2.5 2.5Z"/>
+	<path d="M13 3.5V4h-2v5h5V7h.5l3 3-3 3H16v-2h-5v5h2v.5l-3 3-3-3V16h2v-5H4v2h-.5l-3-3 3-3H4v2h5V4H7v-.5l3-3z"/>
 </svg>

@@ -3,6 +3,6 @@
 	<title>
 		add image
 	</title>
-	<path d="M19 19H1v-8h2v6h14V3h-6V1h8v18Z"/>
-	<path d="M15 12.5V15H5l3.5-4 2 2 2.5-2.5 2 2ZM6 1v3h3v2H6v3H4V6H1V4h3V1h2Z"/>
+	<path d="M19 19H1v-8h2v6h14V3h-6V1h8z"/>
+	<path d="M15 12.5V15H5l3.5-4 2 2 2.5-2.5zM6 1v3h3v2H6v3H4V6H1V4h3V1z"/>
 </svg>

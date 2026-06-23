@@ -477,7 +477,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
 			-->
     
     <cdx-icon-stub
-      icon="<path d="M18.154 3.837 8.034 16.62l-1.384.18-4.8-3.6 1.2-1.6 4.02 3.015 9.517-12.02z"/>"
+      icon="<path d="M18.154 3.837 8 16.8H6.65l-4.8-3.6 1.2-1.6 4.02 3.015 9.517-12.02z"/>"
       iconlabel=""
       size="medium"
     />
@@ -499,7 +499,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 5 With icons, multi-select,
 			-->
     
     <cdx-icon-stub
-      icon="<path d="m16 8-1.087 12H5.087L4 8h2l.913 10h6.174L14 8zM13 4h5v2H2V4h5V0h6zM9 4h2V2H9z"/>"
+      icon="<path d="M10 0a3 3 0 013 3v1h5v2h-2v14H4V6H2V4h5V3a3 3 0 013-3M6 18h8V6H6zm4-16a1 1 0 00-1 1v1h2V3a1 1 0 00-1-1"/>"
       iconlabel=""
       size="medium"
     />
@@ -578,7 +578,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
 			-->
     
     <cdx-icon-stub
-      icon="<path d="M18.154 3.837 8.034 16.62l-1.384.18-4.8-3.6 1.2-1.6 4.02 3.015 9.517-12.02z"/>"
+      icon="<path d="M18.154 3.837 8 16.8H6.65l-4.8-3.6 1.2-1.6 4.02 3.015 9.517-12.02z"/>"
       iconlabel=""
       size="medium"
     />
@@ -601,7 +601,7 @@ exports[`ToggleButtonGroup matches the snapshot Case 6 Icon-only, single-select,
 			-->
     
     <cdx-icon-stub
-      icon="<path d="m16 8-1.087 12H5.087L4 8h2l.913 10h6.174L14 8zM13 4h5v2H2V4h5V0h6zM9 4h2V2H9z"/>"
+      icon="<path d="M10 0a3 3 0 013 3v1h5v2h-2v14H4V6H2V4h5V3a3 3 0 013-3M6 18h8V6H6zm4-16a1 1 0 00-1 1v1h2V3a1 1 0 00-1-1"/>"
       iconlabel=""
       size="medium"
     />

@@ -3,5 +3,5 @@
 	<title>
 		browser
 	</title>
-	<path d="M19 18H1V2h18v16ZM3 16h14V8H3v8ZM4 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/>
+	<path d="M20 18H0V2h20zM2 16h16V8H2zM4 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
 </svg>

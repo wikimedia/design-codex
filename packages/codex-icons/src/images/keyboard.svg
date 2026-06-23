@@ -3,5 +3,6 @@
 	<title>
 		keyboard
 	</title>
-	<path d="M17 17H3v-2h14v2ZM3 13H1v-2h2v2Zm4 0H5v-2h2v2Zm4 0H9v-2h2v2Zm4 0h-2v-2h2v2Zm4-6v6h-2V9h-2V7h4ZM5 9H1V7h4v2Zm4 0H7V7h2v2Zm4 0h-2V7h2v2ZM4 5H1V3h3v2Zm4 0H6V3h2v2Zm4 0h-2V3h2v2Zm7 0h-5V3h5v2Z"/>
+	<path d="M6 14H4v-2h2zm7 0H7v-2h6zm3 0h-2v-2h2zM5 11H3V9h2zm3 0H6V9h2zm3 0H9V9h2zm3 0h-2V9h2zm3 0h-2V9h2zM5 8H3V6h2zm3 0H6V6h2zm3 0H9V6h2zm3 0h-2V6h2zm3 0h-2V6h2z"/>
+	<path d="M20 17H0V3h20zM2 15h16V5H2z"/>
 </svg>

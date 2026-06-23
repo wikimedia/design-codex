@@ -3,5 +3,5 @@
 	<title>
 		sort vertical
 	</title>
-	<path d="M14 14.5 10 18l-4-3.5V12h8v2.5Zm0-9V8H6V5.5L10 2l4 3.5Z"/>
+	<path d="m15 13-5 5-5-5v-1h10zm0-6v1H5V7l5-5z"/>
 </svg>

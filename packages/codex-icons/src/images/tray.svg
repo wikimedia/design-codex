@@ -3,5 +3,5 @@
 	<title>
 		tray
 	</title>
-	<path d="M19 19H1V1h18v18ZM3 17h14v-5h-3.112l-1.714 2H7.826l-1.714-2H3v5Zm0-7h4.031l1.714 2h2.51l1.714-2H17V3H3v7Z"/>
+	<path d="M19 19H1V1h18zM3 13h4.031l1.714 2h2.51l1.714-2H17V3H3z"/>
 </svg>

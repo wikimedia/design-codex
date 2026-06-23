@@ -3,6 +3,6 @@
 	<title>
 		existing reference
 	</title>
-	<path d="M15 20H1V4h14v16ZM3 18h10V6h-2v8.5h-.914L9 13.414 7.914 14.5H7V6H3v12Z"/>
-	<path d="M19 16h-2V2H5V0h14v16Z"/>
+	<path d="M15 20H1V4h14zM3 18h10V6h-2v8h-.914L9 13l-1.086 1H7V6H3z"/>
+	<path d="M19 16h-2V2H5V0h14z"/>
 </svg>

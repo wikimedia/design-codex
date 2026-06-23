@@ -3,6 +3,6 @@
 	<title>
 		journal
 	</title>
-	<path d="M14 11h-4V9h4v2Zm0-4h-4V5h4v2Z"/>
-	<path d="M18 19H2V1h16v18ZM8 17h8V3H8v14Zm-4 0h2V3H4v14Z"/>
+	<path d="M12 10H9V8h3zm2-4H9V4h5z"/>
+	<path d="M18 20H2V0h16zM7 18h9V2H7z"/>
 </svg>

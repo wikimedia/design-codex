@@ -214,7 +214,7 @@ exports[`Message matches the snapshot Case 4 warning message: ({"type": "warning
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M19.765 16.059 18 19H2L.235 16.059l8-15h3.53zM9 14v2h2v-2zm0-8v6h2V6z"
+            d="M19 19H1v-1.8L9.444 1h1.112L19 17.2zM9 15v2h2v-2zm0-8v6h2V7z"
           />
         </g>
       </svg>
@@ -308,7 +308,7 @@ exports[`Message matches the snapshot Case 6 success message: ({"type": "success
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M10 1a9 9 0 110 18 9 9 0 010-18M8.823 11.118 6.8 9.6l-1.2 1.6 2.8 2.1 1.381-.175 4.624-5.781-1.561-1.25z"
+            d="M10 1a9 9 0 110 18 9 9 0 010-18M8.823 11.118 6.8 9.6l-1.2 1.6 2.8 2.1h1.1l4.905-5.956-1.561-1.25z"
           />
         </g>
       </svg>
@@ -550,10 +550,10 @@ exports[`Message matches the snapshot Case 10 Custom icon: ({"icon": [Object]}) 
         <!-- eslint-disable vue/no-v-html -->
         <g>
           <path
-            d="M14 15H6v-2h8zm-5-4H6V9h3zm5 0h-3V5h3zM9 7H6V5h3z"
+            d="M14 16H6v-1h8zm0-2H6v-1h8zm0-2H6v-1h8zM9 9H6V8h3zm5 0h-4V4h4zM9 7H6V6h3zm0-2H6V4h3z"
           />
           <path
-            d="M18 19H2V1h16zM4 17h12V3H4z"
+            d="M18 20H2V0h16zM4 18h12V2H4z"
           />
         </g>
       </svg>
