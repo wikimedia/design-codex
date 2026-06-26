@@ -106,9 +106,14 @@ function getIconId( iconData: DisplayIcon ) {
 }
 
 const searchInputValue = ref( '' );
-const filteredIcons = computed( () => displayIcons.filter(
-	( displayIcon ) => displayIcon.iconName.toLowerCase().includes( searchInputValue.value )
-) );
+const filteredIcons = computed( () => {
+	const query = searchInputValue.value.toLowerCase();
+	return displayIcons.filter(
+		( displayIcon ) => displayIcon.iconName
+			.toLowerCase()
+			.includes( query )
+	);
+} );
 </script>
 
 <style lang="less">
