@@ -171,6 +171,32 @@
 				</p>
 			</cdx-popover>
 		</div>
+
+		<!-- Button pushed to the inline-end edge to exercise viewport-edge positioning.
+			Only the button is wrapped in the flex container, so the in-place popover DOM
+			isn't affected by the layout. -->
+		<div class="cdx-demo__content__sectioning">
+			<div class="cdx-popover-demo__aligned-button">
+				<cdx-toggle-button
+					ref="toggleButton7"
+					v-model="showPopover7"
+					@update:model-value="onUpdate"
+				>
+					Open Popover (aligned)
+				</cdx-toggle-button>
+			</div>
+			<cdx-popover
+				v-model:open="showPopover7"
+				title="Popover demo"
+				:default-action
+				:primary-action
+				:use-close-button="true"
+				:render-in-place="true"
+				:anchor="toggleButton7"
+			>
+				This is the body of a Popover where text, inputs, or other elements can be.
+			</cdx-popover>
+		</div>
 	</section>
 </template>
 
@@ -185,6 +211,7 @@ const toggleButton3 = useTemplateRef<ComponentPublicInstance>( 'toggleButton3' )
 const toggleButton4 = useTemplateRef<ComponentPublicInstance>( 'toggleButton4' );
 const toggleButton5 = useTemplateRef<ComponentPublicInstance>( 'toggleButton5' );
 const toggleButton6 = useTemplateRef<ComponentPublicInstance>( 'toggleButton6' );
+const toggleButton7 = useTemplateRef<ComponentPublicInstance>( 'toggleButton7' );
 // Enable and disable the toggle button state and popover visibility.
 const showPopover = ref( false );
 const showPopover2 = ref( false );
@@ -192,6 +219,7 @@ const showPopover3 = ref( false );
 const showPopover4 = ref( false );
 const showPopover5 = ref( false );
 const showPopover6 = ref( false );
+const showPopover7 = ref( false );
 const onUpdate = function ( value: boolean ) {
 	// eslint-disable-next-line no-console
 	console.log( 'update:modelValue event emitted with value: ' + value );
@@ -201,3 +229,12 @@ const defaultAction: ModalAction = { label: 'Cancel' };
 const primaryAction: PrimaryModalAction = { label: 'Save', actionType: 'progressive' };
 
 </script>
+
+<style lang="less" scoped>
+// Push the toggle button to the inline-end edge so the popover's
+// viewport-edge positioning (Floating UI shift) can be exercised in the sandbox.
+.cdx-popover-demo__aligned-button {
+	display: flex;
+	justify-content: flex-end;
+}
+</style>

@@ -139,7 +139,7 @@ import {
 	reactive,
 	unref
 } from 'vue';
-import { useFloating, offset, flip, autoUpdate, size, arrow, Side, Placement } from '@floating-ui/vue';
+import { useFloating, offset, flip, shift, limitShift, autoUpdate, size, arrow, Side, Placement } from '@floating-ui/vue';
 import { Icon, cdxIconClose } from '@wikimedia/codex-icons';
 
 import CdxButton from '../button/Button.vue';
@@ -369,6 +369,12 @@ export default defineComponent( {
 				offset( offsetDistance ),
 				// Default flip behavior will flip floating element across the main axis
 				flip(),
+				// Shift the floating element along the cross axis so it stays within the
+				// viewport when the anchor is near an edge.
+				shift( {
+					padding: clipPadding,
+					limiter: limitShift()
+				} ),
 				size( {
 					// Spacing between the floating element and the viewport.
 					padding: clipPadding,
