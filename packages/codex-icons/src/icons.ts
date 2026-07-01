@@ -412,6 +412,13 @@ export const cdxIconHelpNotice: IconFlipForRtl = {
 	shouldFlipExceptions: [ 'he', 'yi' ]
 };
 
+import svgHelpNoticeFilled from './images/helpNoticeFilled.svg';
+export const cdxIconHelpNoticeFilled: IconFlipForRtl = {
+	ltr: svgHelpNoticeFilled,
+	shouldFlip: true,
+	shouldFlipExceptions: [ 'he', 'yi' ]
+};
+
 import svgHieroglyph from './images/hieroglyph.svg';
 export const cdxIconHieroglyph = svgHieroglyph;
 
