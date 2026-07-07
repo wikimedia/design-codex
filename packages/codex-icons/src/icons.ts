@@ -289,11 +289,14 @@ export const cdxIconDownTriangle = svgDownTriangle;
 import svgDownload from './images/download.svg';
 export const cdxIconDownload = svgDownload;
 
-import svgDraggable from './images/draggable.svg';
-export const cdxIconDraggable = svgDraggable;
-
 import svgDraggableHorizontal from './images/draggableHorizontal.svg';
 export const cdxIconDraggableHorizontal = svgDraggableHorizontal;
+
+import svgDraggableVertical from './images/draggableVertical.svg';
+export const cdxIconDraggableVertical = svgDraggableVertical;
+
+// DEPRECATED: old name for draggableVertical, kept for backwards compatibility
+export const cdxIconDraggable = cdxIconDraggableVertical;
 
 import svgDraggableXY from './images/draggableXY.svg';
 export const cdxIconDraggableXY = svgDraggableXY;
