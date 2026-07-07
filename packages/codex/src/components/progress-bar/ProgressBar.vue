@@ -102,7 +102,7 @@ export default defineComponent( {
 		useWarnOnce(
 			() => !props.inline && !attrs[ 'aria-label' ] && !attrs[ 'aria-hidden' ],
 			'CdxProgressBar: Progress bars require one of the following attribute, aria-label or aria-hidden. ' +
-				'See documentation on https://doc.wikimedia.org/codex/latest/components/demos/progressbar.html'
+				'See documentation on https://doc.wikimedia.org/codex/latest/components/demos/progress-bar.html'
 		);
 
 		const hasValue = computed(
