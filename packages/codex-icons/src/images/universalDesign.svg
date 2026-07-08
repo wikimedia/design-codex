@@ -3,5 +3,6 @@
 	<title>
 		universal design
 	</title>
-	<path d="M18 9h-5v10h-2v-5H9v5H7V9H2V7h16v2Zm-8-8a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z"/>
+	<path d="M18 9h-5v10h-2v-5H9v5H7V9H2V7h16z"/>
+	<circle cx="10" cy="3" r="2"/>
 </svg>

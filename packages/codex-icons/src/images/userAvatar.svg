@@ -3,5 +3,6 @@
 	<title>
 		user
 	</title>
-	<path d="M12 11a6 6 0 0 1 6 6v2H2v-2a6 6 0 0 1 6-6h4ZM10 1a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/>
+	<path d="M12 11a6 6 0 0 1 6 6v2H2v-2a6 6 0 0 1 6-6z"/>
+	<circle cx="10" cy="5" r="4"/>
 </svg>

@@ -3,5 +3,5 @@
 	<title>
 		watchlist
 	</title>
-	<path d="M9 17H1v-2h8zm7-6.75h3v1l-2.201 1.5L18 16.5h-1.201L14.5 14.6l-2.3 1.9H11l1.2-3.75-2.2-1.5v-1h3L14 7h.955zM8 11H1V9h7zm11-6H1V3h18z"/>
+	<path d="M1 3h18v2H1zm0 6h7v2H1zm0 6h8v2H1zm15-4.75h3v1l-2.2 1.5L18 16.5h-1.2l-2.3-1.9-2.3 1.9H11l1.2-3.75-2.2-1.5v-1h3L14 7h1z"/>
 </svg>

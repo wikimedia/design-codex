@@ -3,5 +3,5 @@
 	<title>
 		ellipses vertical
 	</title>
-	<path d="M12 20H8v-4h4zm0-8H8V8h4zm0-8H8V0h4z"/>
+	<path d="M8 0h4v4H8zm0 8h4v4H8zm0 8h4v4H8z"/>
 </svg>

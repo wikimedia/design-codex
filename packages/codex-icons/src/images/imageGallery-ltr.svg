@@ -3,7 +3,8 @@
 	<title>
 		image gallery
 	</title>
-	<path d="M12 16H4l3-3 1 1 4-4zM5.5 8a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3"/>
+	<path d="M12 16H4l3-3 1 1 4-4z"/>
 	<path d="M16 20H0V4h16zM2 18h12V6H2z"/>
 	<path d="M20 16h-2V2H6V0h14z"/>
+	<circle cx="5.5" cy="9.5" r="1.5"/>
 </svg>

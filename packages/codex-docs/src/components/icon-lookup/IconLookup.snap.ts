@@ -131,10 +131,12 @@ exports[`IconLookup matches the snapshot icon lookup (with default icon) => HTML
               <!--v-if-->
               <g>
                 <path
-                  d="M5.5 4.003a1.5 1.5 0 110 3 1.5 1.5 0 010-3"
-                />
-                <path
                   d="m19.914 11.503-8.413 8.414L.004 8.414.003 1l1-1h7.415zM2.003 7.587l9.497 9.502 5.585-5.587-9.496-9.501L2.003 2z"
+                />
+                <circle
+                  cx="5.5"
+                  cy="5.5"
+                  r="1.5"
                 />
               </g>
             </svg>

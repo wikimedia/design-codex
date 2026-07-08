@@ -3,5 +3,5 @@
 	<title>
 		compact view
 	</title>
-	<path d="M5.5 17.5h-3v-3h3v3Zm6 0h-3v-3h3v3Zm6 0h-3v-3h3v3Zm-12-6h-3v-3h3v3Zm6 0h-3v-3h3v3Zm6 0h-3v-3h3v3Zm-12-6h-3v-3h3v3Zm6 0h-3v-3h3v3Zm6 0h-3v-3h3v3Z"/>
+	<path d="M2.5 2.5h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3z"/>
 </svg>

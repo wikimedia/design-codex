@@ -3,6 +3,6 @@
 	<title>
 		camera
 	</title>
-	<path d="M10 8a3 3 0 1 1 0 6 3 3 0 0 1 0-6"/>
 	<path d="M4 4h2V2h8v2h6v14H0V4h2V2h2zm4 2H2v10h16V6h-6V4H8z"/>
+	<circle cx="10" cy="11" r="3"/>
 </svg>

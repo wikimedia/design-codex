@@ -79,7 +79,7 @@ exports[`TextArea matches the snapshot Case 5 with autosize as true: ({"autosize
 </div>
 `;
 
-exports[`TextArea matches the snapshot Case 6 with start icon: ({"startIcon": "<path d=\\"M10 6a4 4 0 110 8 4 4 0 010-8\\"/>"}) => HTML 1`] = `
+exports[`TextArea matches the snapshot Case 6 with start icon: ({"startIcon": "<circle cx=\\"10\\" cy=\\"10\\" r=\\"4\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-text-area cdx-text-area--status-default cdx-text-area--has-start-icon"
 >
@@ -100,8 +100,10 @@ exports[`TextArea matches the snapshot Case 6 with start icon: ({"startIcon": "<
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
       <g>
-        <path
-          d="M10 6a4 4 0 110 8 4 4 0 010-8"
+        <circle
+          cx="10"
+          cy="10"
+          r="4"
         />
       </g>
     </svg>
@@ -141,7 +143,7 @@ exports[`TextArea matches the snapshot Case 7 with end icon: ({"endIcon": [Objec
 </div>
 `;
 
-exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIcon": [Object], "startIcon": "<path d=\\"M10 6a4 4 0 110 8 4 4 0 010-8\\"/>"}) => HTML 1`] = `
+exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIcon": [Object], "startIcon": "<circle cx=\\"10\\" cy=\\"10\\" r=\\"4\\"/>"}) => HTML 1`] = `
 <div
   class="cdx-text-area cdx-text-area--status-default cdx-text-area--has-start-icon cdx-text-area--has-end-icon"
 >
@@ -162,8 +164,10 @@ exports[`TextArea matches the snapshot Case 8 with start and end icons: ({"endIc
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
       <g>
-        <path
-          d="M10 6a4 4 0 110 8 4 4 0 010-8"
+        <circle
+          cx="10"
+          cy="10"
+          r="4"
         />
       </g>
     </svg>

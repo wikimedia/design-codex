@@ -3,6 +3,7 @@
 	<title>
 		window
 	</title>
-	<path d="M4.5 5.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm11.5 2H6.5v-2H16v2Z"/>
-	<path d="M20 18H0V2h20v16ZM2 16h16V4H2v12Z"/>
+	<path d="M16 7.5H6.5v-2H16z"/>
+	<path d="M20 18H0V2h20zM2 16h16V4H2z"/>
+	<circle cx="4.5" cy="6.5" r="1"/>
 </svg>

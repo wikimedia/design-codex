@@ -3,6 +3,7 @@
 	<title>
 		tabs
 	</title>
-	<path d="M9.5 10.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm-5-7a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/>
-	<path d="M15 7h5v13H5v-7H0V0h15v7ZM7 18h11V9H7v9Zm-5-7h3V7h8V2H2v9Z"/>
+	<path d="M15 7h5v13H5v-7H0V0h15zM7 18h11V9H7zm-5-7h3V7h8V2H2z"/>
+	<circle cx="4.5" cy="4.5" r="1"/>
+	<circle cx="9.5" cy="11.5" r="1"/>
 </svg>
