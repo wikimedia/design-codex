@@ -91,13 +91,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </fieldset>
 `;
@@ -195,13 +189,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </fieldset>
 `;
@@ -346,13 +334,7 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -498,13 +480,7 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -649,13 +625,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <div
     class="cdx-field__validation-message"
   >
@@ -860,13 +830,7 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -924,13 +888,7 @@ exports[`Field matches the snapshot with a TextInput control Case 0 Basic field:
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -1011,13 +969,7 @@ exports[`Field matches the snapshot with a TextInput control Case 1 With label i
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -1083,13 +1035,7 @@ exports[`Field matches the snapshot with a TextInput control Case 2 With optiona
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -1155,13 +1101,7 @@ exports[`Field matches the snapshot with a TextInput control Case 3 With optiona
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -1219,13 +1159,7 @@ exports[`Field matches the snapshot with a TextInput control Case 4 With visuall
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -1285,13 +1219,7 @@ exports[`Field matches the snapshot with a TextInput control Case 5 Disabled: ({
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -1349,13 +1277,7 @@ exports[`Field matches the snapshot with a TextInput control Case 6 Error status
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <div
     class="cdx-field__validation-message"
   >
@@ -1473,13 +1395,7 @@ exports[`Field matches the snapshot with a TextInput control Case 7 With descrip
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -1537,13 +1453,7 @@ exports[`Field matches the snapshot with a TextInput control Case 8 With help te
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -1597,13 +1507,7 @@ exports[`Field matches the snapshot with a Textarea control Case 0 Basic field: 
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -1659,13 +1563,7 @@ exports[`Field matches the snapshot with a Textarea control Case 1 Disabled: ({"
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
@@ -1719,13 +1617,7 @@ exports[`Field matches the snapshot with a Textarea control Case 2 Error status 
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <div
     class="cdx-field__validation-message"
   >
@@ -1839,13 +1731,7 @@ exports[`Field matches the snapshot with a Textarea control Case 3 With descript
     </div>
     
   </div>
-  <div
-    class="cdx-field__help-text"
-  >
-    <!-- @slot Further explanation of how to use this field. -->
-    
-    
-  </div>
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;

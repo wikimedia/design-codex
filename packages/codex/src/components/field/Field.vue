@@ -32,7 +32,7 @@
 			<slot />
 		</div>
 
-		<div class="cdx-field__help-text">
+		<div v-if="$slots['help-text']" class="cdx-field__help-text">
 			<!-- @slot Further explanation of how to use this field. -->
 			<slot name="help-text" />
 		</div>
