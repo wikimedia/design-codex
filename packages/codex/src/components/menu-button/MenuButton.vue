@@ -90,7 +90,7 @@ export default defineComponent( {
 		 * Must be bound with `v-model:selected`.
 		 */
 		selected: {
-			// eslint-disable-next-line max-len
+			// eslint-disable-next-line vue/max-len
 			type: [ String, Number, Array, null ] as PropType<MenuItemValue | MenuItemValue[] | null>,
 			required: true
 		},

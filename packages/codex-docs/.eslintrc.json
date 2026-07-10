@@ -80,7 +80,8 @@
 					}
 				} ],
 				"vue/no-unused-properties": "off",
-				"max-len": "off"
+				"max-len": "off",
+				"vue/max-len": "off"
 			}
 		},
 		{
@@ -108,6 +109,7 @@
 				"vue/no-unused-refs": "off",
 				"vue/no-undef-properties": "off",
 				"max-len": "off",
+				"vue/max-len": "off",
 				"jsdoc/require-param-type": "off",
 				"jsdoc/require-returns-type": "off",
 				"vue/no-undef-components": "off",

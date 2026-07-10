@@ -282,7 +282,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 } );
 </script>
 
-<!-- eslint-disable max-len -->
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';
@@ -476,4 +475,3 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 	}
 }
 </style>
-<!-- eslint-enable max-len -->

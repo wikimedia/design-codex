@@ -1,4 +1,4 @@
-<!-- eslint-disable max-len -->
+<!-- eslint-disable vue/max-len -->
 <template>
 	<teleport :to="computedTarget" :disabled="teleportDisabled">
 		<div
@@ -107,7 +107,7 @@
 		</div>
 	</teleport>
 </template>
-<!-- eslint-enable max-len -->
+<!-- eslint-enable vue/max-len -->
 
 <script lang="ts">
 import { defineComponent, computed, ref, toRef, watch, PropType, onMounted, onUnmounted, nextTick, useId, ComponentPublicInstance, HTMLAttributes, inject, unref, MaybeRef } from 'vue';
@@ -190,7 +190,7 @@ export default defineComponent( {
 		 * multi-select) rather than using a falsy value.
 		 */
 		selected: {
-			// eslint-disable-next-line max-len
+			// eslint-disable-next-line vue/max-len
 			type: [ String, Number, Array, null ] as PropType<MenuItemValue | MenuItemValue[] | null>,
 			required: true
 		},
@@ -378,7 +378,7 @@ export default defineComponent( {
 		 */
 		watch( toRef( props, 'menuItems' ), ( newItems ) => {
 			// Helper to get all item values from a menu items array, including those in groups
-			// eslint-disable-next-line max-len
+			// eslint-disable-next-line vue/max-len
 			function getAllItemValues( items: ( MenuItemData | MenuGroupData )[] ): Set<string | number> {
 				const values = new Set<string | number>();
 

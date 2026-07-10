@@ -49,7 +49,7 @@
 				<h3>CSS-only version</h3>
 				<button-grid-table>
 					<template #default="{ action, size, weight, disabled }">
-						<!-- eslint-disable max-len -->
+						<!-- eslint-disable vue/max-len -->
 						<button
 							:class="`cdx-button ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
 							:disabled="disabled"
@@ -60,14 +60,14 @@
 							/>
 							{{ size === 'small' ? "button" : "Button" }}
 						</button>
-						<!-- eslint-enable max-len -->
+						<!-- eslint-enable vue/max-len -->
 					</template>
 				</button-grid-table>
 
 				<h3>CSS-only icon-only buttons</h3>
 				<button-grid-table>
 					<template #default="{ action, size, weight, disabled }">
-						<!-- eslint-disable max-len -->
+						<!-- eslint-disable vue/max-len -->
 						<button
 							:class="`cdx-button cdx-button--icon-only ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
 							:disabled="disabled"
@@ -78,14 +78,14 @@
 								:class="size === 'small' ? `cdx-demo-css-icon--trash--small` : 'cdx-demo-css-icon--trash'"
 							/>
 						</button>
-						<!-- eslint-enable max-len -->
+						<!-- eslint-enable vue/max-len -->
 					</template>
 				</button-grid-table>
 
 				<h3>Link buttons</h3>
 				<button-grid-table>
 					<template #default="{ action, size, weight, disabled }">
-						<!-- eslint-disable max-len -->
+						<!-- eslint-disable vue/max-len -->
 						<a :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`">
 							<span
 								class="cdx-button__icon"
@@ -93,39 +93,39 @@
 							/>
 							{{ size === 'small' ? "button" : "Button" }}
 						</a>
-						<!-- eslint-enable max-len -->
+						<!-- eslint-enable vue/max-len -->
 					</template>
 				</button-grid-table>
 
 				<h3>Icon-only link buttons</h3>
 				<button-grid-table>
 					<template #default="{ action, size, weight, disabled }">
-						<!-- eslint-disable max-len -->
+						<!-- eslint-disable vue/max-len -->
 						<a :class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`" aria-label="Button">
 							<span
 								class="cdx-button__icon"
 								:class="size === 'small' ? `cdx-demo-css-icon--trash--small` : 'cdx-demo-css-icon--trash'"
 							/>
 						</a>
-						<!-- eslint-enable max-len -->
+						<!-- eslint-enable vue/max-len -->
 					</template>
 				</button-grid-table>
 
 				<h3>Icon-only link buttons with small icon</h3>
 				<button-grid-table>
 					<template #default="{ action, size, weight, disabled }">
-						<!-- eslint-disable max-len -->
+						<!-- eslint-disable vue/max-len -->
 						<a :class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`" aria-label="Button">
 							<span class="cdx-button__icon cdx-demo-css-icon--trash--small" />
 						</a>
-						<!-- eslint-enable max-len -->
+						<!-- eslint-enable vue/max-len -->
 					</template>
 				</button-grid-table>
 
 				<h3>Checkbox hack (label buttons)</h3>
 				<button-grid-table>
 					<template #default="{ action, size, weight, disabled }">
-						<!-- eslint-disable max-len -->
+						<!-- eslint-disable vue/max-len -->
 						<label :class="`cdx-button cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`">
 							<span
 								class="cdx-button__icon"
@@ -133,14 +133,14 @@
 							/>
 							{{ size === 'small' ? "button" : "Button" }}
 						</label>
-						<!-- eslint-enable max-len -->
+						<!-- eslint-enable vue/max-len -->
 					</template>
 				</button-grid-table>
 
 				<h3>Icon-only checkbox hack (label buttons)</h3>
 				<button-grid-table>
 					<template #default="{ action, size, weight, disabled }">
-						<!-- eslint-disable max-len -->
+						<!-- eslint-disable vue/max-len -->
 						<label
 							:class="`cdx-button cdx-button--icon-only cdx-button--fake-button cdx-button--fake-button--${disabled ? 'disabled' : 'enabled'} ${action ? `cdx-button--action-${action}` : ''} ${weight ? `cdx-button--weight-${weight}` : ''} ${size ? `cdx-button--size-${size}` : ''}`"
 							aria-label="Button"
@@ -150,7 +150,7 @@
 								:class="size === 'small' ? `cdx-demo-css-icon--trash--small` : 'cdx-demo-css-icon--trash'"
 							/>
 						</label>
-						<!-- eslint-enable max-len -->
+						<!-- eslint-enable vue/max-len -->
 					</template>
 				</button-grid-table>
 
@@ -166,13 +166,13 @@
 						</cdx-button>
 					</div>
 					<div class="cdx-demo-flush-layout__content">
-						<!-- eslint-disable max-len -->
+						<!-- eslint-disable vue/max-len -->
 						<p>
 							Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
 							peppermint asian pear frosted gingerbread bites Southern Italian almond milk
 							chai latte mint golden cayenne pepper.
 						</p>
-						<!-- eslint-enable max-len -->
+						<!-- eslint-enable vue/max-len -->
 					</div>
 				</div>
 
@@ -187,13 +187,13 @@
 						</cdx-button>
 					</div>
 					<div class="cdx-demo-flush-layout__content">
-						<!-- eslint-disable max-len -->
+						<!-- eslint-disable vue/max-len -->
 						<p>
 							Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
 							peppermint asian pear frosted gingerbread bites Southern Italian almond milk
 							chai latte mint golden cayenne pepper.
 						</p>
-						<!-- eslint-enable max-len -->
+						<!-- eslint-enable vue/max-len -->
 					</div>
 				</div>
 
@@ -214,13 +214,13 @@
 						</button>
 					</div>
 					<div class="cdx-demo-flush-layout__content">
-						<!-- eslint-disable max-len -->
+						<!-- eslint-disable vue/max-len -->
 						<p>
 							Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
 							peppermint asian pear frosted gingerbread bites Southern Italian almond milk
 							chai latte mint golden cayenne pepper.
 						</p>
-						<!-- eslint-enable max-len -->
+						<!-- eslint-enable vue/max-len -->
 					</div>
 				</div>
 
@@ -243,13 +243,13 @@
 						</cdx-button>
 					</div>
 					<div class="cdx-demo-flush-layout__content">
-						<!-- eslint-disable max-len -->
+						<!-- eslint-disable vue/max-len -->
 						<p>
 							Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
 							peppermint asian pear frosted gingerbread bites Southern Italian almond milk
 							chai latte mint golden cayenne pepper.
 						</p>
-						<!-- eslint-enable max-len -->
+						<!-- eslint-enable vue/max-len -->
 					</div>
 				</div>
 
@@ -272,13 +272,13 @@
 						</cdx-button>
 					</div>
 					<div class="cdx-demo-flush-layout__content">
-						<!-- eslint-disable max-len -->
+						<!-- eslint-disable vue/max-len -->
 						<p>
 							Hemp seeds apple vinaigrette dark and stormy habanero golden coriander
 							peppermint asian pear frosted gingerbread bites Southern Italian almond milk
 							chai latte mint golden cayenne pepper.
 						</p>
-						<!-- eslint-enable max-len -->
+						<!-- eslint-enable vue/max-len -->
 					</div>
 				</div>
 

@@ -1,7 +1,7 @@
 <template>
 	<span class="cdx-search-result-title">
 		<!-- All on one line to avoid introducing unwanted whitespace into the UI. -->
-		<!--eslint-disable-next-line max-len-->
+		<!--eslint-disable-next-line vue/max-len-->
 		<bdi>{{ titleChunks[ 0 ] }}<span class="cdx-search-result-title__match">{{ titleChunks[ 1 ] }}</span>{{ titleChunks[ 2 ] }}</bdi>
 	</span>
 </template>

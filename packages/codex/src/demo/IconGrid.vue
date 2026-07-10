@@ -52,7 +52,7 @@
 									({{ iconData.langLabel }})
 								</template>
 							</th>
-							<!-- eslint-disable max-len -->
+							<!-- eslint-disable vue/max-len -->
 							<template v-for="{ size, color } in sizesAndColors" :key="`${size}-${color}`">
 								<td v-for="dir in directions" :key="dir">
 									<cdx-icon
@@ -71,7 +71,7 @@
 									<span :class="`cdx-demo-icon-css-icon--${iconData.cssIconName}${size ? `--size-${size}` : ''}${color ? `--color-${color}` : ''}`" :dir="dir" />
 								</td>
 							</template>
-							<!-- eslint-enable max-len -->
+							<!-- eslint-enable vue/max-len -->
 						</tr>
 					</tbody>
 				</table>

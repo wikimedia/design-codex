@@ -99,7 +99,7 @@
 							:href="asSearchResult( menuItem ).url"
 							@click.capture.stop="onSearchFooterClick( asSearchResult( menuItem ) )"
 						>
-							<!-- eslint-disable max-len -->
+							<!-- eslint-disable vue/max-len -->
 							<cdx-icon
 								class="cdx-menu-item__thumbnail cdx-typeahead-search__search-footer__icon"
 								:icon="articleIcon"
@@ -107,7 +107,7 @@
 							<span
 								class="cdx-menu-item__text cdx-typeahead-search__search-footer__text"
 							>
-								<!-- eslint-enable max-len -->
+								<!-- eslint-enable vue/max-len -->
 								<!--
 									@slot A slot for passing in translated search footer text.
 									@binding {string} search-query Input text entered by the user

@@ -21,7 +21,7 @@
 				</template>
 			</div>
 			<div class="cdx-table__header__content">
-				<!-- eslint-disable-next-line max-len -->
+				<!-- eslint-disable-next-line vue/max-len -->
 				<!-- @slot Header content. Not to be confused with <thead>; use the thead slot to customize that. -->
 				<slot name="header" />
 			</div>
@@ -158,7 +158,7 @@
 							</component>
 						</tr>
 					</tbody>
-					<!-- eslint-disable-next-line max-len -->
+					<!-- eslint-disable-next-line vue/max-len -->
 					<tbody v-else-if="$slots[ 'empty-state' ] && $slots[ 'empty-state' ]().length > 0">
 						<tr class="cdx-table__table__empty-state">
 							<td
@@ -199,7 +199,7 @@
 		</cdx-table-pager>
 
 		<div v-if="$slots.footer && $slots.footer().length > 0" class="cdx-table__footer">
-			<!-- eslint-disable-next-line max-len -->
+			<!-- eslint-disable-next-line vue/max-len -->
 			<!-- @slot Footer content. Not to be confused with <tfoot>; use the tfoot slot to add that. -->
 			<slot name="footer" />
 		</div>

@@ -27,7 +27,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ({"columns": [Array], "d
     <div
       class="cdx-table__header__content"
     >
-      <!-- eslint-disable-next-line max-len -->
+      <!-- eslint-disable-next-line vue/max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
@@ -297,7 +297,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ({"columns": 
     <div
       class="cdx-table__header__content"
     >
-      <!-- eslint-disable-next-line max-len -->
+      <!-- eslint-disable-next-line vue/max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
@@ -567,7 +567,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ({"columns": [Ar
     <div
       class="cdx-table__header__content"
     >
-      <!-- eslint-disable-next-line max-len -->
+      <!-- eslint-disable-next-line vue/max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
@@ -1136,7 +1136,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ({"columns": [Array
     <div
       class="cdx-table__header__content"
     >
-      <!-- eslint-disable-next-line max-len -->
+      <!-- eslint-disable-next-line vue/max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
@@ -1410,7 +1410,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ({"column
     <div
       class="cdx-table__header__content"
     >
-      <!-- eslint-disable-next-line max-len -->
+      <!-- eslint-disable-next-line vue/max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
@@ -1687,7 +1687,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ({"columns": [Arr
     <div
       class="cdx-table__header__content"
     >
-      <!-- eslint-disable-next-line max-len -->
+      <!-- eslint-disable-next-line vue/max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
@@ -2203,7 +2203,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ({"colu
     <div
       class="cdx-table__header__content"
     >
-      <!-- eslint-disable-next-line max-len -->
+      <!-- eslint-disable-next-line vue/max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       Header slot content
@@ -2446,7 +2446,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ({"colu
   <div
     class="cdx-table__footer"
   >
-    <!-- eslint-disable-next-line max-len -->
+    <!-- eslint-disable-next-line vue/max-len -->
     <!-- @slot Footer content. Not to be confused with &lt;tfoot&gt;; use the tfoot slot to add that. -->
     
     Footer slot content
@@ -2482,7 +2482,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ({"columns": [Array], "da
     <div
       class="cdx-table__header__content"
     >
-      <!-- eslint-disable-next-line max-len -->
+      <!-- eslint-disable-next-line vue/max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
@@ -2752,7 +2752,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ({"columns": [Array],
     <div
       class="cdx-table__header__content"
     >
-      <!-- eslint-disable-next-line max-len -->
+      <!-- eslint-disable-next-line vue/max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
@@ -3029,7 +3029,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ({"columns": [Array]
     <div
       class="cdx-table__header__content"
     >
-      <!-- eslint-disable-next-line max-len -->
+      <!-- eslint-disable-next-line vue/max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       Header slot content
@@ -3482,7 +3482,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ({"columns": [Array]
   <div
     class="cdx-table__footer"
   >
-    <!-- eslint-disable-next-line max-len -->
+    <!-- eslint-disable-next-line vue/max-len -->
     <!-- @slot Footer content. Not to be confused with &lt;tfoot&gt;; use the tfoot slot to add that. -->
     
     Footer slot content
@@ -3518,7 +3518,7 @@ exports[`Table matches the snapshot Case 11 With empty state: ({"columns": [Arra
     <div
       class="cdx-table__header__content"
     >
-      <!-- eslint-disable-next-line max-len -->
+      <!-- eslint-disable-next-line vue/max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       
@@ -3583,7 +3583,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
     <div
       class="cdx-table__header__content"
     >
-      <!-- eslint-disable-next-line max-len -->
+      <!-- eslint-disable-next-line vue/max-len -->
       <!-- @slot Header content. Not to be confused with &lt;thead&gt;; use the thead slot to customize that. -->
       
       

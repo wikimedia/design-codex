@@ -166,7 +166,6 @@ export default defineComponent( {
 } );
 </script>
 
-<!-- eslint-disable max-len -->
 <style lang="less">
 @import ( reference ) '@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
 @import ( reference ) '../../themes/mixins/common.less';

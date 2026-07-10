@@ -22,7 +22,18 @@
 				"vue/no-unsupported-features": [ "error", {
 					"version": "^3.5.13"
 				} ],
-				"vue/component-name-in-template-casing": [ "error", "kebab-case" ]
+				"vue/component-name-in-template-casing": [ "error", "kebab-case" ],
+				"max-len": "off",
+				"vue/max-len": [ "warn", {
+					"code": 100,
+					"template": 100,
+					"tabWidth": 4,
+					"ignorePattern": "^[\\s]*(//|<!--) (es|style)lint-.+",
+					"ignoreUrls": true,
+					"ignoreRegExpLiterals": true,
+					"ignoreStrings": true,
+					"ignoreTemplateLiterals": true
+				} ]
 			}
 		},
 		{

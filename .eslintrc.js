@@ -134,7 +134,21 @@ module.exports = {
 					version: '^3.5.13'
 				} ],
 				'vue/component-name-in-template-casing': [ 'error', 'kebab-case' ],
-				'vue/custom-event-name-casing': [ 'error', 'kebab-case' ]
+				'vue/custom-event-name-casing': [ 'error', 'kebab-case' ],
+				// The max-len rule checks every line of the raw file,
+				// including <style> blocks, since it has no concept of SFC blocks.
+				// vue/max-len only checks lines within <script> and <template>.
+				'max-len': 'off',
+				'vue/max-len': [ 'warn', {
+					code: 100,
+					template: 100,
+					tabWidth: 4,
+					ignorePattern: '^[\\s]*(//|<!--) (es|style)lint-.+',
+					ignoreUrls: true,
+					ignoreRegExpLiterals: true,
+					ignoreStrings: true,
+					ignoreTemplateLiterals: true
+				} ]
 			}
 		},
 		{

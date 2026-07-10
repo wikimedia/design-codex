@@ -1,4 +1,4 @@
-<!-- eslint-disable vue/singleline-html-element-content-newline max-len -->
+<!-- eslint-disable vue/singleline-html-element-content-newline vue/max-len -->
 <template>
 	<demo-base-layout class="cdx-demo-experiments">
 		<template #header>

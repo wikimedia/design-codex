@@ -719,7 +719,7 @@ exports[`TypeaheadSearch with no results matches the snapshot 1`] = `
                 class="cdx-menu-item__content cdx-typeahead-search__search-footer"
                 href="https://foo.org/search?query=Co"
               >
-                <!-- eslint-disable max-len -->
+                <!-- eslint-disable vue/max-len -->
                 <span
                   class="cdx-icon cdx-icon--medium cdx-menu-item__thumbnail cdx-typeahead-search__search-footer__icon"
                 >
@@ -742,7 +742,7 @@ exports[`TypeaheadSearch with no results matches the snapshot 1`] = `
                 <span
                   class="cdx-menu-item__text cdx-typeahead-search__search-footer__text"
                 >
-                  <!-- eslint-enable max-len -->
+                  <!-- eslint-enable vue/max-len -->
                   <!--
 									@slot A slot for passing in translated search footer text.
 									@binding {string} search-query Input text entered by the user
@@ -1032,7 +1032,7 @@ exports[`TypeaheadSearch with search results matches the snapshot 1`] = `
                 class="cdx-menu-item__content cdx-typeahead-search__search-footer"
                 href="https://foo.org/search?query=Co"
               >
-                <!-- eslint-disable max-len -->
+                <!-- eslint-disable vue/max-len -->
                 <span
                   class="cdx-icon cdx-icon--medium cdx-menu-item__thumbnail cdx-typeahead-search__search-footer__icon"
                 >
@@ -1055,7 +1055,7 @@ exports[`TypeaheadSearch with search results matches the snapshot 1`] = `
                 <span
                   class="cdx-menu-item__text cdx-typeahead-search__search-footer__text"
                 >
-                  <!-- eslint-enable max-len -->
+                  <!-- eslint-enable vue/max-len -->
                   <!--
 									@slot A slot for passing in translated search footer text.
 									@binding {string} search-query Input text entered by the user

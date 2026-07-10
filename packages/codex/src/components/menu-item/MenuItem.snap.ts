@@ -446,7 +446,7 @@ exports[`MenuItem matches the snapshot Case 8 Item with search query: ({"descrip
         class="cdx-search-result-title"
       >
         <!-- All on one line to avoid introducing unwanted whitespace into the UI. -->
-        <!--eslint-disable-next-line max-len-->
+        <!--eslint-disable-next-line vue/max-len-->
         <bdi>
           searchResultValue
           <span
@@ -559,7 +559,7 @@ exports[`MenuItem matches the snapshot Case 10 Item with language attributes and
         lang="en"
       >
         <!-- All on one line to avoid introducing unwanted whitespace into the UI. -->
-        <!--eslint-disable-next-line max-len-->
+        <!--eslint-disable-next-line vue/max-len-->
         <bdi>
           Menu item with lang
           <span
@@ -580,7 +580,7 @@ exports[`MenuItem matches the snapshot Case 10 Item with language attributes and
         lang="en"
       >
         <!-- All on one line to avoid introducing unwanted whitespace into the UI. -->
-        <!--eslint-disable-next-line max-len-->
+        <!--eslint-disable-next-line vue/max-len-->
         <bdi>
           (
           <span
