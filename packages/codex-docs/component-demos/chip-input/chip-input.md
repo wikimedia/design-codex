@@ -45,7 +45,7 @@ If only a single input value is anticipated, use [TextInput](./text-input.html) 
 
 Avoid using ChipInput for simple filtering processes, or when you don't need to support entering
 custom values. To provide a set of static options to choose from, use a [Checkbox](./checkbox.html)
-group or [Select](./checkbox.html) instead. To provide a long, searchable list of predefined options
+group or [Select](./select.html) instead. To provide a long, searchable list of predefined options
 to choose from, use [MultiselectLookup](./multiselect-lookup.html).
 
 ### About ChipInput
