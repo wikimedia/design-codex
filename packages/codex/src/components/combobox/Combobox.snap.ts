@@ -48,7 +48,7 @@ exports[`Combobox matches the snapshot Case 0 No selection: ({"menuItems": [Arra
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
+              d="m16.7 8-6 6H9.3l-6-6 1.4-1.4 5.3 5.3 5.3-5.3z"
             />
           </g>
         </svg>
@@ -278,7 +278,7 @@ exports[`Combobox matches the snapshot Case 1 Menu item with label selected: ({"
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
+              d="m16.7 8-6 6H9.3l-6-6 1.4-1.4 5.3 5.3 5.3-5.3z"
             />
           </g>
         </svg>
@@ -509,7 +509,7 @@ exports[`Combobox matches the snapshot Case 2 Menu item with no label selected: 
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
+              d="m16.7 8-6 6H9.3l-6-6 1.4-1.4 5.3 5.3 5.3-5.3z"
             />
           </g>
         </svg>
@@ -742,7 +742,7 @@ exports[`Combobox matches the snapshot Case 3 Disabled: ({"disabled": true, "men
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
+              d="m16.7 8-6 6H9.3l-6-6 1.4-1.4 5.3 5.3 5.3-5.3z"
             />
           </g>
         </svg>
@@ -972,7 +972,7 @@ exports[`Combobox matches the snapshot Case 4 With error status: ({"menuItems": 
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
+              d="m16.7 8-6 6H9.3l-6-6 1.4-1.4 5.3 5.3 5.3-5.3z"
             />
           </g>
         </svg>
@@ -1203,7 +1203,7 @@ exports[`Combobox matches the snapshot Case 5 With placeholder: ({"menuItems": [
           <!-- eslint-disable vue/no-v-html -->
           <g>
             <path
-              d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
+              d="m16.7 8-6 6H9.3l-6-6 1.4-1.4 5.3 5.3 5.3-5.3z"
             />
           </g>
         </svg>

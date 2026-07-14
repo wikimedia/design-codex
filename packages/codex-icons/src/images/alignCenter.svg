@@ -3,5 +3,5 @@
 	<title>
 		align center
 	</title>
-	<path d="M19 17H1v-2h18v2Zm-6-4H7V7h6v6Zm6-8H1V3h18v2Z"/>
+	<path d="M1 3h18v2H1zm0 12h18v2H1zm6-8h6v6H7z"/>
 </svg>

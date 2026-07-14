@@ -3,5 +3,5 @@
 	<title>
 		align left
 	</title>
-	<path d="M19 17H1v-2h18v2ZM7 13H1V7h6v6Zm12 0H9v-2h10v2Zm0-4H9V7h10v2Zm0-4H1V3h18v2Z"/>
+	<path d="M19 3v2H1V3zm0 4v2H9V7zm0 4v2H9v-2zm0 4v2H1v-2zM1 7h6v6H1z"/>
 </svg>

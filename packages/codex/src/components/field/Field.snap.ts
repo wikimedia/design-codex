@@ -267,7 +267,7 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
+                d="m16.7 8-6 6H9.3l-6-6 1.4-1.4 5.3 5.3 5.3-5.3z"
               />
             </g>
           </svg>
@@ -413,7 +413,7 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
+                d="m16.7 8-6 6H9.3l-6-6 1.4-1.4 5.3 5.3 5.3-5.3z"
               />
             </g>
           </svg>
@@ -558,7 +558,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
+                d="m16.7 8-6 6H9.3l-6-6 1.4-1.4 5.3 5.3 5.3-5.3z"
               />
             </g>
           </svg>
@@ -763,7 +763,7 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
             <!-- eslint-disable vue/no-v-html -->
             <g>
               <path
-                d="m16.707 8.017-6 5.983H9.293l-6-5.983 1.414-1.414L10 11.896l5.293-5.293z"
+                d="m16.7 8-6 6H9.3l-6-6 1.4-1.4 5.3 5.3 5.3-5.3z"
               />
             </g>
           </svg>

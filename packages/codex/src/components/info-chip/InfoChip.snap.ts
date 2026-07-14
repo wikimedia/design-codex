@@ -78,7 +78,7 @@ exports[`InfoChip matches the snapshot Case 4 warning status: ({"status": "warni
 >
   <cdx-icon-stub
     class="cdx-info-chip__icon--vue"
-    icon="<path d="M19 19H1v-1.8L9.444 1h1.112L19 17.2zM9 15v2h2v-2zm0-8v6h2V7z"/>"
+    icon="<path d="M9.5 1h1L19 17.2V19H1v-1.8zM9 7v6h2V7zm0 8v2h2v-2z"/>"
     iconlabel=""
     size="medium"
   />
