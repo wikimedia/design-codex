@@ -62,6 +62,6 @@
 	"ignoreFiles": [
 		"**/*.jpg",
 		"docs/using-codex/adrs/08-adr-color-modes.md",
-		"docs/assets/visual-styles/data-visualization/codex-dataviz-symbols.zip"
+		"docs/public/assets/visual-styles/data-visualization/codex-dataviz-symbols.zip"
 	]
 }
