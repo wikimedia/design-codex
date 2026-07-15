@@ -77,7 +77,7 @@
 		"postcss": "8.5.19",
 		"postcss-rtlcss": "5.7.1",
 		"rtlcss": "4.3.0",
-		"start-server-and-test": "1.14.0",
+		"start-server-and-test": "3.0.11",
 		"ts-jest": "29.2.5",
 		"tsx": "4.22.2",
 		"typescript": "5.9.3",
