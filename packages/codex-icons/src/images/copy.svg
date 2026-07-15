@@ -3,5 +3,5 @@
 	<title>
 		copy
 	</title>
-	<path d="M13 19H1V7h6V1h12v12h-6v6Zm-6-6V9H3v8h8v-4H7Zm2-2h8V3H9v8Z"/>
+	<path d="M13 19H1V7h6V1h12v12h-6zm-6-6V9H3v8h8v-4zm2-2h8V3H9z"/>
 </svg>

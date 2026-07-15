@@ -3,5 +3,5 @@
 	<title>
 		vision simulator
 	</title>
-	<path d="M20 6v6h-1v2h-7.999L10 10.083 8.999 14H1v-2H0V6h20ZM3 12h4.445l.767-3H3v3Zm9.555 0H17V9h-5.212l.767 3Z"/>
+	<path d="M20 6v6h-1v2h-7.999L10 10.083 8.999 14H1v-2H0V6zM3 12h4.445l.767-3H3zm9.555 0H17V9h-5.212z"/>
 </svg>

@@ -3,5 +3,5 @@
 	<title>
 		add template
 	</title>
-	<path d="M9 6H2v9h13v-3h2v5H0V4h9v2Zm8-2h3v2h-3v3h-2V6h-3V4h3V1h2v3Z"/>
+	<path d="M9 6H2v9h13v-3h2v5H0V4h9zm8-2h3v2h-3v3h-2V6h-3V4h3V1h2z"/>
 </svg>

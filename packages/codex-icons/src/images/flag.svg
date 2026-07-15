@@ -3,5 +3,5 @@
 	<title>
 		flag
 	</title>
-	<path d="M5 2h12v10H5v8H3V0h2v2Zm0 8h10V4H5v6Z"/>
+	<path d="M5 2h12v10H5v8H3V0h2zm0 8h10V4H5z"/>
 </svg>

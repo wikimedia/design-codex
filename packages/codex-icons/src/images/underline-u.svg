@@ -3,5 +3,5 @@
 	<title>
 		underline
 	</title>
-	<path d="M17 19H3v-2h14v2ZM7 10a3 3 0 1 0 6 0V1h2v9a5 5 0 0 1-10 0V1h2v9Z"/>
+	<path d="M17 19H3v-2h14zM7 10a3 3 0 1 0 6 0V1h2v9a5 5 0 0 1-10 0V1h2z"/>
 </svg>

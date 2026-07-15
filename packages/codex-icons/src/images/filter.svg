@@ -3,5 +3,5 @@
 	<title>
 		filter
 	</title>
-	<path d="M12 17H8v-2h4v2Zm4-5H4v-2h12v2Zm4-5H0V5h20v2Z"/>
+	<path d="M12 17H8v-2h4zm4-5H4v-2h12zm4-5H0V5h20z"/>
 </svg>

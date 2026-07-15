@@ -3,6 +3,6 @@
 	<title>
 		unlock
 	</title>
-	<path d="M11 15H9v-3h2v3Z"/>
-	<path d="M10 1a4 4 0 0 1 4 4v3h3v11H3V8h9V5a2 2 0 1 0-4 0v.5H6V5a4 4 0 0 1 4-4ZM5 17h10v-7H5v7Z"/>
+	<path d="M11 15H9v-3h2z"/>
+	<path d="M10 1a4 4 0 0 1 4 4v3h3v11H3V8h9V5a2 2 0 1 0-4 0v.5H6V5a4 4 0 0 1 4-4M5 17h10v-7H5z"/>
 </svg>

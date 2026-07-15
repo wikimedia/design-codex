@@ -3,6 +3,6 @@
 	<title>
 		external link
 	</title>
-	<path d="M8 7H3v10h10v-5h2v7H1V5h7v2Z"/>
-	<path d="M19.001 2 19 8h-2V4.415l-9 9L6.586 12l9-8.999L12 3V1h6.001l1 1Z"/>
+	<path d="M8 7H3v10h10v-5h2v7H1V5h7z"/>
+	<path d="M19.001 2 19 8h-2V4.415l-9 9L6.586 12l9-8.999L12 3V1h6.001z"/>
 </svg>

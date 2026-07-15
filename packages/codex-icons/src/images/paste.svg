@@ -3,6 +3,6 @@
 	<title>
 		paste
 	</title>
-	<path d="M11 3H9v8h8V9h2v4h-6v6H1V7h6V1h4v2ZM3 17h8v-4H7V9H3v8Z"/>
-	<path d="M16.5 3.5H19v2h-2.5V8h-2V5.5H12v-2h2.5V1h2v2.5Z"/>
+	<path d="M11 3H9v8h8V9h2v4h-6v6H1V7h6V1h4zM3 17h8v-4H7V9H3z"/>
+	<path d="M16.5 3.5H19v2h-2.5V8h-2V5.5H12v-2h2.5V1h2z"/>
 </svg>

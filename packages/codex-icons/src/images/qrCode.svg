@@ -3,8 +3,6 @@
 	<title>
 		qr code
 	</title>
-	<path d="M9 19H1v-8h8v8Zm-6-2h4v-4H3v4Z"/>
-	<path d="M13 19h-2v-2h2v2Zm6 0h-4v-2h2v-2h2v4Z"/>
-	<path d="M13 13h2v-2h4v2h-2v2h-2v2h-2v-2h-2v-4h2v2Z"/>
-	<path d="M9 9H1V1h8v8ZM3 7h4V3H3v4Zm16 2h-8V1h8v8Zm-6-2h4V3h-4v4Z"/>
+	<path d="M9 19H1v-8h8zm-6-2h4v-4H3zm10 2h-2v-2h2zm6 0h-4v-2h2v-2h2z"/>
+	<path d="M13 13h2v-2h4v2h-2v2h-2v2h-2v-2h-2v-4h2zM9 9H1V1h8zM3 7h4V3H3zm16 2h-8V1h8zm-6-2h4V3h-4z"/>
 </svg>

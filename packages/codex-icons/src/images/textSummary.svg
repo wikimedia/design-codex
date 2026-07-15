@@ -3,5 +3,5 @@
 	<title>
 		text summary
 	</title>
-	<path d="M13 13H1v-2h12v2Zm6-4H1V7h18v2Z"/>
+	<path d="M13 13H1v-2h12zm6-4H1V7h18z"/>
 </svg>

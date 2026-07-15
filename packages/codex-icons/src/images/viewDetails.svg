@@ -3,5 +3,5 @@
 	<title>
 		details view
 	</title>
-	<path d="M15 17H7v-2h8v2ZM5 15H1v-4h4v4Zm14-2H7v-2h12v2Zm-4-4H7V7h8v2ZM5 7H1V3h4v4Zm14-2H7V3h12v2Z"/>
+	<path d="M15 17H7v-2h8zM5 15H1v-4h4zm14-2H7v-2h12zm-4-4H7V7h8zM5 7H1V3h4zm14-2H7V3h12z"/>
 </svg>

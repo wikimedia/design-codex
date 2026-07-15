@@ -3,5 +3,5 @@
 	<title>
 		wikitext
 	</title>
-	<path d="M4 5H2v10h2v2H0V3h4v2Zm5 0H7v10h2v2H5V3h4v2Zm6 12h-4v-2h2V5h-2V3h4v14Zm5 0h-4v-2h2V5h-2V3h4v14Z"/>
+	<path d="M4 5H2v10h2v2H0V3h4zm5 0H7v10h2v2H5V3h4zm6 12h-4v-2h2V5h-2V3h4zm5 0h-4v-2h2V5h-2V3h4z"/>
 </svg>

@@ -3,6 +3,6 @@
 	<title>
 		bar chart
 	</title>
-	<path d="M3 17h16v2H1V1h2v16Z"/>
-	<path d="M7 15H5v-4h2v4Zm4 0H9V5h2v10Zm4 0h-2V9h2v6Zm4 0h-2V3h2v12Z"/>
+	<path d="M3 17h16v2H1V1h2z"/>
+	<path d="M7 15H5v-4h2zm4 0H9V5h2zm4 0h-2V9h2zm4 0h-2V3h2z"/>
 </svg>

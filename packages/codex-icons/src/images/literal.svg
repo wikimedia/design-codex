@@ -3,5 +3,5 @@
 	<title>
 		literal
 	</title>
-	<path d="M12 19H6v-2h2V3H6V1h6v2h-2v14h2v2ZM5 7H3v6h2v2H1V5h4v2Zm14 8h-6v-2h4V7h-4V5h6v10Z"/>
+	<path d="M12 19H6v-2h2V3H6V1h6v2h-2v14h2zM5 7H3v6h2v2H1V5h4zm14 8h-6v-2h4V7h-4V5h6z"/>
 </svg>

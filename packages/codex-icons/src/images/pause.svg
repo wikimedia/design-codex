@@ -3,5 +3,5 @@
 	<title>
 		pause
 	</title>
-	<path d="M8 15H5V5h3v10Zm7 0h-3V5h3v10Z"/>
+	<path d="M8 15H5V5h3zm7 0h-3V5h3z"/>
 </svg>

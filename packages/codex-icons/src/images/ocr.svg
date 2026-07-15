@@ -3,7 +3,7 @@
 	<title>
 		ocr
 	</title>
-	<path d="M3 17h5v2H1v-7h2v5Zm16 2h-7v-2h5v-5h2v7Z"/>
-	<path d="M15 15H5v-2h10v2Zm-2-4H7V9h6v2ZM8 3H3v5H1V1h7v2Zm11 5h-2V3h-5V1h7v7Z"/>
-	<path d="M15 7H5V5h10v2Z"/>
+	<path d="M3 17h5v2H1v-7h2zm16 2h-7v-2h5v-5h2z"/>
+	<path d="M15 15H5v-2h10zm-2-4H7V9h6zM8 3H3v5H1V1h7zm11 5h-2V3h-5V1h7z"/>
+	<path d="M15 7H5V5h10z"/>
 </svg>

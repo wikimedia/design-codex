@@ -3,6 +3,5 @@
 	<title>
 		text style
 	</title>
-	<path d="M17 19H3v-2h14v2Z"/>
-	<path d="M16 2v13h-2v-3.5H9.124L6.499 15H4l9.75-13H16Zm-5.376 7.5H14V4.999L10.624 9.5Z"/>
+	<path d="M17 19H3v-2h14zM16 2v13h-2v-3.5H9.124L6.499 15H4l9.75-13zm-5.376 7.5H14V4.999z"/>
 </svg>

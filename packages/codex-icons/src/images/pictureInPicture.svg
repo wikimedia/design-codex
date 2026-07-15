@@ -3,6 +3,6 @@
 	<title>
 		picture in picture
 	</title>
-	<path d="M16 14h-6V9h6v5Z"/>
-	<path d="M20 18H0V2h20v16ZM2 16h16V4H2v12Z"/>
+	<path d="M16 14h-6V9h6z"/>
+	<path d="M20 18H0V2h20zM2 16h16V4H2z"/>
 </svg>

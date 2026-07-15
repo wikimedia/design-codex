@@ -3,5 +3,5 @@
 	<title>
 		level none
 	</title>
-	<path d="M5.5 20H0v-8h5.5v8ZM2 18h1.5v-4H2v4Zm10.5 2H7V6h5.5v14ZM9 18h1.5V8H9v10Zm11 2h-5.5V0H20v20Zm-3.5-2H18V2h-1.5v16Z"/>
+	<path d="M5.5 20H0v-8h5.5zM2 18h1.5v-4H2zm10.5 2H7V6h5.5zM9 18h1.5V8H9zm11 2h-5.5V0H20zm-3.5-2H18V2h-1.5z"/>
 </svg>

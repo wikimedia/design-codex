@@ -3,5 +3,5 @@
 	<title>
 		configure
 	</title>
-	<path d="M5 3.5h2v6H5V19H3V9.5H1v-6h2V1h2v2.5Zm-2 4h2v-2H3v2Zm8 3h2v6h-2V19H9v-2.5H7v-6h2V1h2v9.5Zm-2 4h2V13H9v1.5Zm8-11h2v6h-2V19h-2V9.5h-2v-6h2V1h2v2.5Zm-2 4h2v-2h-2v2Z"/>
+	<path d="M5 3.5h2v6H5V19H3V9.5H1v-6h2V1h2zm-2 4h2v-2H3zm8 3h2v6h-2V19H9v-2.5H7v-6h2V1h2zm-2 4h2V13H9zm8-11h2v6h-2V19h-2V9.5h-2v-6h2V1h2zm-2 4h2v-2h-2z"/>
 </svg>
