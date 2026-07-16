@@ -27483,7 +27483,9 @@
 			}
 		},
 		"node_modules/svgo": {
-			"version": "4.0.1",
+			"version": "4.0.2",
+			"resolved": "https://registry.npmjs.org/svgo/-/svgo-4.0.2.tgz",
+			"integrity": "sha512-ekx94z1rRc5LDi6oSUaeRnYhd0UOJxdtQCL2rF8xpWxD3TPAsISWOrxezqGovqS38GRZOdpDfvQe3ts6F7nsng==",
 			"license": "MIT",
 			"dependencies": {
 				"commander": "^11.1.0",
@@ -31347,7 +31349,7 @@
 				"prism-themes": "1.9.0",
 				"prismjs": "1.30.0",
 				"svglint": "4.2.1",
-				"svgo": "4.0.1",
+				"svgo": "4.0.2",
 				"vue": "3.5.17"
 			},
 			"devDependencies": {
@@ -32051,7 +32053,7 @@
 				"jest": "29.7.0",
 				"jest-environment-jsdom": "29.7.0",
 				"svglint": "4.2.1",
-				"svgo": "4.0.1",
+				"svgo": "4.0.2",
 				"ts-jest": "29.4.9",
 				"typescript": "5.9.3",
 				"vite": "7.0.4"
