@@ -781,6 +781,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/typeahead-searc
 		padding: 0;
 
 		&__content {
+			margin: 0; // Override negative margins applied by fix of T432633.
 			padding: @spacing-50 @spacing-75;
 		}
 	}

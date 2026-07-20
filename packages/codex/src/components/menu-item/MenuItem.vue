@@ -414,6 +414,11 @@ export default defineComponent( {
 		align-items: center;
 		.break-words();
 
+		a& {
+			margin: -@spacing-50 -@spacing-75;
+			padding: @spacing-50 @spacing-75;
+		}
+
 		&,
 		&:hover {
 			text-decoration: @text-decoration-none;
