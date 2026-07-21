@@ -217,8 +217,12 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 			[ `cdx-message--${ props.type }` ]: true
 		} ) );
 
-		// For notice messages, use a custom icon if provided. Otherwise, use the default icon.
-		const computedIcon = computed( () => props.icon && props.type === 'notice' ? props.icon : iconMap[ props.type ]
+		// For notice, progressive and subtle messages, use a custom icon if provided.
+		// Otherwise, use the default icon.
+		const computedIcon = computed(
+			() => props.icon && [ 'progressive', 'subtle', 'notice' ].includes( props.type ) ?
+				props.icon :
+				iconMap[ props.type ]
 		);
 
 		// Custom class for the leave-active transition. Will be set on dismissal.
