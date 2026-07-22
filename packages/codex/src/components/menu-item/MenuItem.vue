@@ -481,10 +481,11 @@ export default defineComponent( {
 	&--enabled {
 		// We need to set the color here, so it applies to all icons and text, regardless of whether
 		// the default slot is customized or not. Then, we need to specifically target the
-		// `&__content` element, which may be an anchor element, since many sites set a color
-		// on `<a>`.
+		// `&__content` element, including its `:hover` state, since it may be an anchor element
+		// and many sites set a color on `<a>`.
 		&,
-		.cdx-menu-item__content {
+		.cdx-menu-item__content,
+		.cdx-menu-item__content:hover {
 			color: @color-base;
 		}
 
