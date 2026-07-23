@@ -52,6 +52,20 @@
 				Selected: {{ selectedWithMulti }}
 			</p>
 		</div>
+		<h3>MenuButton with load more</h3>
+		<div class="cdx-docs-menu-button">
+			<cdx-menu-button
+				v-model:selected="selectedLoadMore"
+				:menu-items="menuItemsLoadMore"
+				:menu-config="menuConfigLoadMore"
+				@load-more="onLoadMore"
+			>
+				Vegetables
+			</cdx-menu-button>
+			<p>
+				Selected: {{ selectedLoadMore }}
+			</p>
+		</div>
 	</section>
 </template>
 
@@ -60,6 +74,7 @@ import { ref } from 'vue';
 import { CdxMenuButton, CdxIcon } from '../lib-wip';
 import { cdxIconEllipsis } from '@wikimedia/codex-icons';
 import { MenuItemValue } from '../types';
+import vegetableItems from 'codex-docs/component-demos/lookup/examples/data.json';
 
 const selected = ref<string|number|null>( null );
 const menuItems = [
@@ -102,4 +117,19 @@ const menuItemsWithMulti = [
 ];
 
 const footer = ref( { label: 'Menu Footer', value: 'menu-footer' } );
+
+// MenuButton with load more
+const selectedLoadMore = ref<string|number|null>( null );
+const batchSize = 4;
+const menuItemsLoadMore = ref( vegetableItems.slice( 0, batchSize ) );
+const menuItemsOffset = ref( batchSize );
+const menuConfigLoadMore = {
+	visibleItemLimit: batchSize
+};
+
+function onLoadMore() {
+	const endIndex = menuItemsOffset.value + batchSize;
+	menuItemsLoadMore.value = vegetableItems.slice( 0, endIndex );
+	menuItemsOffset.value += batchSize;
+}
 </script>
