@@ -59,10 +59,9 @@ export function getTypeText( item ) {
 		const toIgnore = [
 			'HTMLElement',
 			'ComponentPublicInstance',
-			'Event', 'MouseEvent', 'InputEvent', 'KeyboardEvent', 'FocusEvent',
+			'Event', 'MouseEvent', 'InputEvent', 'KeyboardEvent', 'FocusEvent', 'CompositionEvent',
 			'NaN'
 		];
-
 		// If this is an array of multiple types, remove the parentheses for now.
 		if ( isArrayOfTypes ) {
 			str = str.slice( str.indexOf( '(' ) + 1, str.indexOf( ')' ) );
