@@ -4,9 +4,14 @@
 		:href="cardLink"
 		class="cdx-card"
 		:class="{
+			// eslint-disable max-len
 			'cdx-card--is-link': isLink,
 			// Include dynamic classes in the template so that $slots is reactive.
-			'cdx-card--title-only': !$slots.description && !$slots[ 'supporting-text' ]
+			'cdx-card--title-only': !$slots.description && !$slots[ 'supporting-text' ] && thumbnailPosition !== 'block-start',
+			[ `cdx-card--thumbnail-position-${ thumbnailPosition }` ]: ( thumbnail || forceThumbnail ) && thumbnailPosition !== 'inline-start',
+			[ `cdx-card--separation-${ separation }` ]: separation !== 'outline',
+			[ `cdx-card--thumbnail-size-${ thumbnailSize }` ]: ( thumbnail || forceThumbnail ) && thumbnailSize !== 'small' && thumbnailPosition !== 'block-start'
+			// eslint-enable max-len
 		}"
 	>
 		<cdx-thumbnail
@@ -45,7 +50,8 @@ import { PropType, defineComponent, computed } from 'vue';
 import { Icon } from '@wikimedia/codex-icons';
 import CdxIcon from '../icon/Icon.vue';
 import CdxThumbnail from '../thumbnail/Thumbnail.vue';
-import { Thumbnail } from '../../types';
+import { Thumbnail, CardThumbnailPosition, CardSeparation, CardThumbnailSize } from '../../types';
+import { cardThumbnailPositionValidator, cardSeparationValidator, cardThumbnailSizeValidator } from '../../constants';
 
 /**
  * An element which groups various kinds of content and is optionally clickable.
@@ -107,6 +113,52 @@ export default defineComponent( {
 		customPlaceholderIcon: {
 			type: [ String, Object ] as PropType<Icon>,
 			default: undefined
+		},
+
+		/**
+		 * Position of the thumbnail relative to the card container.
+		 *
+		 * - `inline-start` (default): thumbnail before the text (left in LTR, right in RTL).
+		 * - `inline-end`: thumbnail after the text.
+		 * - `block-start`: thumbnail spans the full width of the card, above the text.
+		 *
+		 * @values 'inline-start', 'inline-end', 'block-start'
+		 */
+		thumbnailPosition: {
+			type: String as PropType<CardThumbnailPosition>,
+			default: 'inline-start',
+			validator: cardThumbnailPositionValidator
+		},
+
+		/**
+		 * Size of the thumbnail. Only applies when `thumbnailPosition` is `inline-start`
+		 * or `inline-end`; has no effect when `thumbnailPosition` is `block-start`,
+		 * where the thumbnail already spans the full card width regardless of this prop.
+		 *
+		 * - `small` (default): 3rem (48px).
+		 * - `large`: 6rem (96px).
+		 *
+		 * @values 'small', 'large'
+		 */
+		thumbnailSize: {
+			type: String as PropType<CardThumbnailSize>,
+			default: 'small',
+			validator: cardThumbnailSizeValidator
+		},
+
+		/**
+		 * Visual separation style of the card.
+		 *
+		 * - `outline` (default): border around the entire card — the original Card appearance.
+		 * - `divider`: border and padding along the bottom edge only.
+		 * - `none`: no border or padding.
+		 *
+		 * @values 'outline', 'divider', 'none'
+		 */
+		separation: {
+			type: String as PropType<CardSeparation>,
+			default: 'outline',
+			validator: cardSeparationValidator
 		}
 	},
 
@@ -183,6 +235,69 @@ export default defineComponent( {
 		align-items: center;
 	}
 
+	&__thumbnail.cdx-thumbnail {
+		margin-right: @spacing-75;
+
+		.cdx-thumbnail__placeholder,
+		.cdx-thumbnail__image {
+			width: @size-300;
+			height: @size-300;
+		}
+	}
+
+	&--thumbnail-size-large {
+		.cdx-card__thumbnail.cdx-thumbnail {
+			.cdx-thumbnail__placeholder,
+			.cdx-thumbnail__image {
+				width: @size-600;
+				height: @size-600;
+			}
+		}
+	}
+
+	&--thumbnail-position-inline-end {
+		.cdx-card__thumbnail.cdx-thumbnail {
+			order: 1;
+			margin-right: 0;
+			margin-left: @spacing-75;
+		}
+	}
+
+	&--thumbnail-position-block-start {
+		flex-direction: column;
+
+		.cdx-card__thumbnail.cdx-thumbnail {
+			width: @size-full;
+			margin-bottom: @spacing-75;
+
+			.cdx-thumbnail__placeholder,
+			.cdx-thumbnail__image {
+				// Support: Chrome <88, Edge <88, Safari <15, Firefox <89.
+				// Use aspect-ratio if available, otherwise show a small square thumbnail.
+				/* stylelint-disable-next-line max-nesting-depth */
+				@supports ( aspect-ratio: 16 / 9 ) {
+					aspect-ratio: 16 / 9;
+					width: @size-full;
+					height: auto;
+				}
+			}
+		}
+	}
+
+	&--separation-divider,
+	&--separation-none {
+		border: 0;
+		border-radius: @border-radius-sharp;
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	&--separation-divider {
+		& + & {
+			border-top: @border-base;
+		}
+	}
+
 	&__text {
 		display: flex;
 		flex-direction: column;
@@ -211,16 +326,6 @@ export default defineComponent( {
 		&__supporting-text {
 			margin-top: @spacing-50;
 			font-size: @font-size-small;
-		}
-	}
-
-	&__thumbnail.cdx-thumbnail {
-		margin-right: @spacing-75;
-
-		.cdx-thumbnail__placeholder,
-		.cdx-thumbnail__image {
-			width: @size-300;
-			height: @size-300;
 		}
 	}
 

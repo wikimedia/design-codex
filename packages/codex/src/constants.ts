@@ -158,6 +158,47 @@ export const ObjectPositions = [
 export const imagePositionValidator = makeStringTypeValidator( ObjectPositions );
 
 /**
+ * The available positions for Card's thumbnail relative to the Card container.
+ */
+export const CardThumbnailPositions = [
+	'inline-start',
+	'inline-end',
+	'block-start'
+] as const;
+
+/**
+ * Validator for Card's `thumbnailPosition` prop.
+ */
+export const cardThumbnailPositionValidator = makeStringTypeValidator( CardThumbnailPositions );
+
+/**
+ * The available options for Card's `separation` prop.
+ */
+export const CardSeparations = [
+	'none',
+	'divider',
+	'outline'
+] as const;
+
+/**
+ * Validator for Card's `separation` prop.
+ */
+export const cardSeparationValidator = makeStringTypeValidator( CardSeparations );
+
+/**
+ * The available options for Card's `thumbnailSize` prop.
+ */
+export const CardThumbnailSizes = [
+	'small',
+	'large'
+] as const;
+
+/**
+ * Validator for Card's `thumbnailSize` prop.
+ */
+export const cardThumbnailSizeValidator = makeStringTypeValidator( CardThumbnailSizes );
+
+/**
  * Available options for Accordion's `separation` prop.
  */
 export const AccordionSeparations = [

@@ -85,6 +85,33 @@ Refer to [ButtonWeights](#buttonweights).
 type ButtonWeight = typeof ButtonWeights[ number ];
 ```
 
+### CardSeparation
+
+Refer to [CardSeparations](#cardseparations).
+
+```ts
+// Allowed values: 'outline', 'divider', 'none'
+export type CardSeparation = typeof CardSeparations[ number ];
+```
+
+### CardThumbnailPosition
+
+Refer to [CardThumbnailPositions](#cardthumbnailpositions).
+
+```ts
+// Allowed values: 'inline-start', 'inline-end', 'block-start'
+export type CardThumbnailPosition = typeof CardThumbnailPositions[ number ];
+```
+
+### CardThumbnailSize
+
+Refer to [CardThumbnailSizes](#cardthumbnailsizes).
+
+```ts
+// Allowed values: 'small', 'large'
+export type CardThumbnailSize = typeof CardThumbnailSizes[ number ];
+```
+
 ### ChipInputItem
 
 ```ts
@@ -525,6 +552,35 @@ const ButtonWeights = [
 	'normal',
 	'primary',
 	'quiet'
+];
+```
+
+### CardSeparations
+
+```ts
+const CardSeparations = [
+	'none',
+	'divider',
+	'outline'
+];
+```
+
+### CardThumbnailPositions
+
+```ts
+const CardThumbnailPositions = [
+	'inline-start',
+	'inline-end',
+	'block-start'
+];
+```
+
+### CardThumbnailSizes
+
+```ts
+const CardThumbnailSizes = [
+	'small',
+	'large'
 ];
 ```
 

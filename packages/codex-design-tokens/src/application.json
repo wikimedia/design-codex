@@ -494,6 +494,9 @@
 		"400": {
 			"value": "{ dimension.400 }"
 		},
+		"600": {
+			"value": "{ dimension.600 }"
+		},
 		"800": {
 			"value": "{ dimension.800 }"
 		},

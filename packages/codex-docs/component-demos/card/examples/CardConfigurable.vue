@@ -1,5 +1,12 @@
 <template>
-	<cdx-card :url="url" :icon="icon">
+	<cdx-card
+		:url="url"
+		:icon="icon"
+		:force-thumbnail="forceThumbnail"
+		:thumbnail-position="thumbnailPosition"
+		:thumbnail-size="thumbnailSize"
+		:separation="separation"
+	>
 		<template #title>
 			<slot name="title" />
 		</template>
@@ -27,6 +34,22 @@ export default defineComponent( {
 		icon: {
 			type: [ String, Object ],
 			default: ''
+		},
+		forceThumbnail: {
+			type: Boolean,
+			default: false
+		},
+		thumbnailPosition: {
+			type: String,
+			default: 'inline-start'
+		},
+		thumbnailSize: {
+			type: String,
+			default: 'small'
+		},
+		separation: {
+			type: String,
+			default: 'outline'
 		}
 	}
 } );

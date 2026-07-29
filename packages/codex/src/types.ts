@@ -29,7 +29,10 @@ import {
 	TablePaginationPositions,
 	I18nMessageKeys,
 	AccordionSeparations,
-	PopoverBottomSheetOptions
+	PopoverBottomSheetOptions,
+	CardThumbnailPositions,
+	CardSeparations,
+	CardThumbnailSizes
 } from './constants';
 
 // Export the Placement type from FloatingUI for ease of use downstream
@@ -312,3 +315,11 @@ export type AccordionSeparation = typeof AccordionSeparations[ number ];
 
 /** @public */
 export type PopoverBottomSheetOption = typeof PopoverBottomSheetOptions[number];
+
+export type CardThumbnailPosition = typeof CardThumbnailPositions[ number ];
+
+/** @public */
+export type CardSeparation = typeof CardSeparations[ number ];
+
+/** @public */
+export type CardThumbnailSize = typeof CardThumbnailSizes[ number ];

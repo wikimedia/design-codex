@@ -3,8 +3,11 @@ import { CdxAccordion } from '@wikimedia/codex';
 import CardConfigurable from '@/../component-demos/card/examples/CardConfigurable.vue';
 import CardDefault from '@/../component-demos/card/examples/CardDefault.vue';
 import CardWithLink from '@/../component-demos/card/examples/CardWithLink.vue';
+import CardDivider from '@/../component-demos/card/examples/CardDivider.vue';
+import CardNoSeparation from '@/../component-demos/card/examples/CardNoSeparation.vue';
 import CardWithIcon from '@/../component-demos/card/examples/CardWithIcon.vue';
 import CardWithThumbnail from '@/../component-demos/card/examples/CardWithThumbnail.vue';
+import CardWithThumbnailTop from '@/../component-demos/card/examples/CardWithThumbnailTop.vue';
 import CardWithThumbnailTitleOnly from '@/../component-demos/card/examples/CardWithThumbnailTitleOnly.vue';
 import CardGroupWithThumbnails from '@/../component-demos/card/examples/CardGroupWithThumbnails.vue';
 
@@ -12,6 +15,26 @@ const controlsConfig = [
 	{
 		name: 'icon',
 		type: 'icon'
+	},
+	{
+		name: 'forceThumbnail',
+		type: 'boolean'
+	},
+	{
+		name: 'thumbnailPosition',
+		type: 'radio',
+		options: [ 'inline-start', 'inline-end', 'block-start' ]
+	},
+	{
+		name: 'thumbnailSize',
+		type: 'radio',
+		options: [ 'small', 'large' ]
+	},
+	{
+		name: 'separation',
+		type: 'radio',
+		options: [ 'outline', 'divider', 'none' ],
+		default: 'outline'
 	},
 	{
 		name: 'url',
@@ -80,6 +103,18 @@ Use a [Thumbnail](./thumbnail.md) when you intend to showcase articles and their
 Use an [Icon](./icon.md) to help users quickly identify and associate Cards with specific actions or topics.
 
 </cdx-demo-best-practice>
+</cdx-demo-best-practices>
+
+##### Image size and layout
+
+When using an image, consider what size and layout works best for your use case.
+
+<cdx-demo-best-practices>
+<cdx-demo-best-practice>Use an image at the start when recognizing the image first feels most important, like in an article card.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Use an image at the end when the image is more supplementary to the text, like in a "Did you know?" card.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Use a small image when space is limited and it feels more important to show more cards at a time.</cdx-demo-best-practice>
+<cdx-demo-best-practice>Use a large image when space allows or when recognizing the image at a glance feels important.</cdx-demo-best-practice>
+<cdx-demo-best-practice type="dont">Avoid using multiple sizes and/or layouts in a single collection of cards.</cdx-demo-best-practice>
 </cdx-demo-best-practices>
 
 #### Title
@@ -163,8 +198,7 @@ Adding the `url` prop will make the root element of the Card an anchor element.
 
 ### Media
 
-A Card can have either a `thumbnail` or an `icon`. Card text will be aligned to the top of the media,
-unless there is only a title, which will be aligned to the center of the media.
+A Card can have either a `thumbnail` or an `icon`. For horizontal card layouts, card text will be aligned to the top of the media, unless there is only a title, which will be aligned to the center of the media.
 
 <cdx-demo-best-practices>
 
@@ -212,6 +246,38 @@ unless there is only a title, which will be aligned to the center of the media.
 </template>
 </cdx-demo-wrapper>
 
+#### Larger image
+
+Use the `block-start` thumbnail position to show a larger image.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<card-with-thumbnail-top />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/card/examples/CardWithThumbnailTop.vue [NPM]
+
+<<< @/../component-demos/card/examples-mw/CardWithThumbnailTop.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+<cdx-accordion separation="outline">
+
+<template #title>Developer notes</template>
+
+A default aspect ratio of 16/9 is applied to the image. Override the aspect ratio on the
+`cdx-thumbnail__image` and `cdx-thumbnail__placeholder` elements if needed.
+
+</cdx-accordion>
+
+
 #### Media and title only
 
 <cdx-demo-wrapper>
@@ -237,6 +303,8 @@ unless there is only a title, which will be aligned to the center of the media.
 Cards will often be displayed in groups. The height and width of cards can be customized as needed,
 and when multiple cards are aligned together, their heights should adjust to match the tallest card
 in the set.
+
+Cards are styled with a visual outline by default for further containment and separation.
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
@@ -271,6 +339,63 @@ below.
 The third item has no Thumbnail and display a placeholder Icon instead.
 
 </cdx-accordion>
+
+
+#### Divider
+
+Cards can be styled with a visual divider between them in a group for more subtle separation.
+
+<cdx-demo-best-practices>
+
+<cdx-demo-best-practice>Use a divider only for vertical groups of cards.</cdx-demo-best-practice>
+
+</cdx-demo-best-practices>
+
+<cdx-demo-wrapper :allow-link-styles="true">
+<template v-slot:demo>
+	<card-divider />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/card/examples/CardDivider.vue [NPM]
+
+<<< @/../component-demos/card/examples-mw/CardDivider.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
+#### No separation
+
+Cards can be styled without any visual separation.
+
+<cdx-demo-best-practices>
+
+<cdx-demo-best-practice>Use space only to separate cards in a group.</cdx-demo-best-practice>
+
+</cdx-demo-best-practices>
+
+<cdx-demo-wrapper :allow-link-styles="true">
+<template v-slot:demo>
+	<card-no-separation />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/card/examples/CardNoSeparation.vue [NPM]
+
+<<< @/../component-demos/card/examples-mw/CardNoSeparation.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
 
 ## Technical implementation
 
