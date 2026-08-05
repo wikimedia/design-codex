@@ -501,7 +501,7 @@ import svgInfo from './images/info.svg';
 import svgInfoFilled from './images/infoFilled.svg';
 export const cdxIconInfo: IconVariedByLang = {
 	langCodeMap: {
-		ar: svgLightbulb
+		ar: svgLightbulbOutline
 	},
 	default: svgInfo
 };
