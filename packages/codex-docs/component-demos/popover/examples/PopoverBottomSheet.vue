@@ -19,7 +19,7 @@
 		<!-- Full bottom sheet with lorem ipsum content -->
 		<cdx-popover
 			v-model:open="showPopoverFull"
-			use-bottom-sheet
+			:use-bottom-sheet="computedBottomSheetType"
 			:anchor="triggerButtonFull"
 			:render-in-place="true"
 			title="Bottom Sheet with long content"
@@ -92,7 +92,7 @@
 		<!-- Minimal bottom sheet -->
 		<cdx-popover
 			v-model:open="showPopoverMinimal"
-			use-bottom-sheet
+			:use-bottom-sheet="computedBottomSheetType"
 			:anchor="triggerButtonMinimal"
 			:render-in-place="true"
 			title="Bottom Sheet with minimal content"
@@ -107,12 +107,23 @@
 				<p>This is a minimal bottom sheet example with simple content.</p>
 			</template>
 		</cdx-popover>
+
+		<cdx-toggle-switch
+			v-model="bottomSheetTypeToggleValue"
+		>
+			<template #default>
+				Style
+			</template>
+			<template #description>
+				Toggle forcely display popover as bottom sheet in desktop
+			</template>
+		</cdx-toggle-switch>
 	</div>
 </template>
 
 <script>
-import { defineComponent, ref, useTemplateRef } from 'vue';
-import { CdxPopover, CdxButton, CdxField, CdxLabel, CdxTextInput } from '@wikimedia/codex';
+import { defineComponent, ref, useTemplateRef, computed } from 'vue';
+import { CdxPopover, CdxButton, CdxField, CdxLabel, CdxTextInput, CdxToggleSwitch } from '@wikimedia/codex';
 
 export default defineComponent( {
 	name: 'PopoverBottomSheet',
@@ -121,7 +132,8 @@ export default defineComponent( {
 		CdxButton,
 		CdxField,
 		CdxLabel,
-		CdxTextInput
+		CdxTextInput,
+		CdxToggleSwitch
 	},
 	setup() {
 		const triggerButtonFull = useTemplateRef( 'triggerButtonFull' );
@@ -152,6 +164,10 @@ export default defineComponent( {
 			showPopoverMinimal.value = false;
 		}
 
+		const bottomSheetTypeToggleValue = ref( false );
+
+		const computedBottomSheetType = computed( () => bottomSheetTypeToggleValue.value ? 'always' : true );
+
 		return {
 			triggerButtonFull,
 			triggerButtonMinimal,
@@ -162,7 +178,9 @@ export default defineComponent( {
 			primaryAction,
 			defaultAction,
 			onPrimary,
-			onPrimaryMinimal
+			onPrimaryMinimal,
+			bottomSheetTypeToggleValue,
+			computedBottomSheetType
 		};
 	}
 } );

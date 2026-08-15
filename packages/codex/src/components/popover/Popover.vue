@@ -278,9 +278,10 @@ export default defineComponent( {
 		/**
 		 * Whether to use the bottom sheet variant on mobile devices.
 		 * When true, the popover will render as a bottom sheet on mobile breakpoints.
+		 * If set to 'always', the popover will render as a bottom sheet even if user is on desktop.
 		 */
 		useBottomSheet: {
-			type: Boolean,
+			type: [ Boolean, String ] as PropType<boolean | 'always'>,
 			default: false
 		},
 
@@ -314,7 +315,10 @@ export default defineComponent( {
 
 	setup( props, { emit } ) {
 		const breakpoint = useBreakpoint();
-		const isBottomSheet = computed( () => props.useBottomSheet && breakpoint.mobile );
+		const isBottomSheet = computed(
+			() => ( props.useBottomSheet && breakpoint.mobile ) ||
+					props.useBottomSheet === 'always'
+		);
 
 		// Teleport target + labels
 		const providedTarget = inject<TeleportTarget>( 'CdxTeleportTarget', undefined );
@@ -905,6 +909,10 @@ export default defineComponent( {
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features,
 		scale-unlimited/declaration-strict-value */
 	height: 100dvh;
+
+	@media ( min-width: @min-width-breakpoint-tablet ) {
+		align-items: center;
+	}
 }
 
 .cdx-popover__backdrop--no-backdrop {
@@ -1041,6 +1049,8 @@ export default defineComponent( {
 
 	&--bottom-sheet {
 		position: static;
+		// In bottom sheet, for experience in desktop, we are limiting the max width, see T434156
+		max-width: @size-5600;
 		// Fallback for browsers without dynamic viewport units support.
 		max-height: calc( @size-full - @size-800 );
 		/* stylelint-disable-next-line plugin/no-unsupported-browser-features,
@@ -1050,12 +1060,17 @@ export default defineComponent( {
 		border-right: 0;
 		border-bottom: 0;
 		border-left: 0;
-		border-radius: 0;
 		padding: 0;
 		// Account for safe area at top (notch, status bar, etc.)
 		// @see https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/env
 		padding-top: env( safe-area-inset-top, 0 );
 		box-shadow: @box-shadow-large;
+
+		@media ( min-width: @min-width-breakpoint-tablet ) {
+			border-right: @border-base;
+			border-left: @border-base;
+			border-radius: @border-radius-base;
+		}
 
 		.cdx-popover__header {
 			margin-bottom: 0;
