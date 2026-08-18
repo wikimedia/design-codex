@@ -105,7 +105,7 @@
 						</slot>
 					</footer>
 					<div
-						v-if="!isBottomSheet"
+						v-if="!isBottomSheet && !hideArrow"
 						ref="arrowRef"
 						class="cdx-popover__arrow"
 						:style="arrowStyles"
@@ -265,6 +265,17 @@ export default defineComponent( {
 		},
 
 		/**
+		 * Whether to hide the arrow that points to the anchor element.
+		 *
+		 * Only applies in floating mode. The bottom sheet variant has no arrow. When the arrow
+		 * is hidden, the Popover is positioned closer to the anchor element.
+		 */
+		hideArrow: {
+			type: Boolean,
+			default: false
+		},
+
+		/**
 		 * Whether to use the bottom sheet variant on mobile devices.
 		 * When true, the popover will render as a bottom sheet on mobile breakpoints.
 		 */
@@ -359,14 +370,18 @@ export default defineComponent( {
 		const sideC = Math.sqrt( ( sideA ** 2 ) + ( sideB ** 2 ) );
 		const triangleHeight = sideC / 2;
 		const arrowOffset = 4;
-		const offsetDistance = triangleHeight + arrowOffset;
+		// Without an arrow, only the small gap stays between the anchor and the Popover.
+		const offsetDistance = computed( () => props.hideArrow ?
+			arrowOffset :
+			triangleHeight + arrowOffset
+		);
 
 		const computedMiddleware = computed( () => {
 			if ( isBottomSheet.value ) {
 				return [];
 			}
 			return [
-				offset( offsetDistance ),
+				offset( offsetDistance.value ),
 				// Default flip behavior will flip floating element across the main axis
 				flip(),
 				// Shift the floating element along the cross axis so it stays within the
@@ -390,7 +405,7 @@ export default defineComponent( {
 						} );
 					}
 				} ),
-				arrow( { element: arrowRef } )
+				...( props.hideArrow ? [] : [ arrow( { element: arrowRef } ) ] )
 			];
 		} );
 

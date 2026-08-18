@@ -29,6 +29,7 @@ const controlsConfig = [
 			{ value: 'left-end' }
 		]
 	},
+	{ name: 'hideArrow', type: 'boolean' },
 	{ name: 'stackedActions', type: 'boolean' },
 	{ name: 'usePrimaryAction', type: 'boolean', initial: true },
 	{ name: 'primaryActionLabel', type: 'text', initial: 'Save' },
@@ -133,6 +134,10 @@ Don't stack action buttons when they can be placed side by side.
 #### Arrow
 
 Popovers have an arrow which points to the trigger.
+
+Set the `hide-arrow` prop to `true` to remove the arrow, for example when the Popover cannot be
+placed next to its trigger. Without the arrow, the Popover is positioned closer to the trigger.
+The bottom sheet variant has no arrow.
 
 ## Examples
 

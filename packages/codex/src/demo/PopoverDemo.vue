@@ -197,6 +197,28 @@
 				This is the body of a Popover where text, inputs, or other elements can be.
 			</cdx-popover>
 		</div>
+
+		<div class="cdx-demo__content__sectioning">
+			<cdx-toggle-button
+				ref="toggleButton8"
+				v-model="showPopover8"
+				@update:model-value="onUpdate"
+			>
+				Open Popover (no arrow)
+			</cdx-toggle-button>
+			<cdx-popover
+				v-model:open="showPopover8"
+				title="Popover demo"
+				:default-action
+				:primary-action
+				:use-close-button="true"
+				:render-in-place="true"
+				:anchor="toggleButton8"
+				:hide-arrow="true"
+			>
+				This is the body of a Popover where <code>:hide-arrow="true"</code> is used.
+			</cdx-popover>
+		</div>
 	</section>
 </template>
 
@@ -212,6 +234,7 @@ const toggleButton4 = useTemplateRef<ComponentPublicInstance>( 'toggleButton4' )
 const toggleButton5 = useTemplateRef<ComponentPublicInstance>( 'toggleButton5' );
 const toggleButton6 = useTemplateRef<ComponentPublicInstance>( 'toggleButton6' );
 const toggleButton7 = useTemplateRef<ComponentPublicInstance>( 'toggleButton7' );
+const toggleButton8 = useTemplateRef<ComponentPublicInstance>( 'toggleButton8' );
 // Enable and disable the toggle button state and popover visibility.
 const showPopover = ref( false );
 const showPopover2 = ref( false );
@@ -220,6 +243,7 @@ const showPopover4 = ref( false );
 const showPopover5 = ref( false );
 const showPopover6 = ref( false );
 const showPopover7 = ref( false );
+const showPopover8 = ref( false );
 const onUpdate = function ( value: boolean ) {
 	// eslint-disable-next-line no-console
 	console.log( 'update:modelValue event emitted with value: ' + value );

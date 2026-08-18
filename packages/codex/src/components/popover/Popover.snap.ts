@@ -583,3 +583,42 @@ exports[`Popover matches the snapshot Case 8 With header and footer slots 1`] = 
   />
 </teleport-stub>
 `;
+
+exports[`Popover matches the snapshot Case 9 With hidden arrow 1`] = `
+<teleport-stub
+  disabled="true"
+  to="body"
+>
+  <!-- Focus trap start -->
+  <div
+    tabindex="0"
+  />
+  <div
+    class="cdx-popover__backdrop cdx-popover-floating-enter-from cdx-popover-floating-enter-active"
+  >
+    <div
+      class="cdx-popover"
+    >
+      <div
+        class="cdx-popover-focus-trap"
+        tabindex="-1"
+      />
+      <!--v-if-->
+      <div
+        class="cdx-popover__body cdx-popover__body--no-footer"
+      >
+        <!-- @slot Popover body content. -->
+        
+        Popover body content
+        
+      </div>
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+  </div>
+  <!-- Focus trap end -->
+  <div
+    tabindex="0"
+  />
+</teleport-stub>
+`;

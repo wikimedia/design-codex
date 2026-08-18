@@ -70,7 +70,8 @@ describe( 'Popover', () => {
 				stackedActions?: boolean,
 				target?: string,
 				renderInPlace?: boolean,
-				placement?: Placement
+				placement?: Placement,
+				hideArrow?: boolean
 			},
 			slots?: {
 				header?: string,
@@ -90,7 +91,8 @@ describe( 'Popover', () => {
 				defaultAction: { label: 'Cancel' },
 				stackedActions: true
 			} ],
-			[ 'With header and footer slots', {}, { header: 'Custom header text', footer: 'Custom footer text' } ]
+			[ 'With header and footer slots', {}, { header: 'Custom header text', footer: 'Custom footer text' } ],
+			[ 'With hidden arrow', { hideArrow: true } ]
 		];
 
 		test.each( cases )( 'Case %# %s', ( _, props, slots = {} ) => {
@@ -108,6 +110,31 @@ describe( 'Popover', () => {
 			} );
 
 			expect( wrapper.element ).toMatchSnapshot();
+		} );
+	} );
+
+	describe( 'when the hideArrow prop is used', () => {
+		it( 'shows the arrow by default', () => {
+			const wrapper = mount( CdxPopover, {
+				props: { anchor: toggleButton.vm.$el, renderInPlace: true, open: true },
+				slots: { default: 'Popover Content' }
+			} );
+
+			expect( wrapper.find( '.cdx-popover__arrow' ).exists() ).toBe( true );
+		} );
+
+		it( 'hides the arrow when hideArrow is true', () => {
+			const wrapper = mount( CdxPopover, {
+				props: {
+					anchor: toggleButton.vm.$el,
+					renderInPlace: true,
+					open: true,
+					hideArrow: true
+				},
+				slots: { default: 'Popover Content' }
+			} );
+
+			expect( wrapper.find( '.cdx-popover__arrow' ).exists() ).toBe( false );
 		} );
 	} );
 

@@ -11,6 +11,7 @@
 		:anchor="toggleButton"
 		:render-in-place="true"
 		:placement
+		:hide-arrow="hideArrow"
 		:title
 		:icon
 		:use-close-button
@@ -78,6 +79,10 @@ export default defineComponent( {
 		placement: {
 			type: String,
 			default: 'bottom'
+		},
+		hideArrow: {
+			type: Boolean,
+			default: false
 		},
 		useBottomSheet: {
 			type: Boolean,
