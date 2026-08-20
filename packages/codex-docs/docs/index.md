@@ -192,6 +192,7 @@ volunteer community. [Get in touch](./using-codex/contact.md) with us.
 			font-family: @font-family-serif;
 			font-size: @font-size-cdx-docs-title--mobile;
 			line-height: initial;
+			white-space: nowrap;
 
 			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 				font-size: @font-size-cdx-docs-title;
