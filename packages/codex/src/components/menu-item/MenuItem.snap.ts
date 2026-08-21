@@ -237,7 +237,6 @@ exports[`MenuItem matches the snapshot Case 5 Item with url that opens in new ta
   <a
     class="cdx-menu-item__content"
     href="https://example.org/test"
-    rel="noopener noreferrer"
     target="_blank"
   >
     <!-- Thumbnail, thumbnail placeholder, or icon. -->

@@ -373,8 +373,7 @@ export default defineComponent( {
 
 		// Compute link attributes for anchor tag
 		const linkAttrs = computed( () => props.url && props.urlNewTab ? {
-			target: '_blank',
-			rel: 'noopener noreferrer'
+			target: '_blank'
 		} : {} );
 
 		// Get the title, which will be passed to the Title component. Must be a string.
