@@ -145,6 +145,7 @@ interface RestResult {
 	id: number;
 	key: string;
 	title: string;
+	matched_title: string;
 	description?: string;
 	thumbnail?: {
 		url: string;
@@ -218,7 +219,8 @@ function onInput( value: string ) {
 	 * @return
 	 */
 	function adaptApiResponse( pages: RestResult[] ): SearchResult[] {
-		return pages.map( ( { id, key, title, description, thumbnail } ) => ( {
+		// eslint-disable-next-line camelcase
+		return pages.map( ( { id, key, title, matched_title, description, thumbnail } ) => ( {
 			label: title,
 			value: id,
 			description: description,
@@ -227,7 +229,9 @@ function onInput( value: string ) {
 				url: thumbnail.url,
 				width: thumbnail.width ?? undefined,
 				height: thumbnail.height ?? undefined
-			} : undefined
+			} : undefined,
+			// eslint-disable-next-line camelcase
+			supportingText: matched_title && title !== matched_title ? '(redirected from ' + matched_title + ')' : undefined
 		} ) );
 	}
 

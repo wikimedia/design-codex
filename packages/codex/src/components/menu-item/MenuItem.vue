@@ -432,6 +432,10 @@ export default defineComponent( {
 		// Make sure long words won't overflow the container.
 		max-width: @size-full;
 
+		&__supporting-text {
+			font-size: @font-size-small;
+		}
+
 		&__description {
 			display: block;
 		}
