@@ -46,6 +46,7 @@ import type {
 	MenuState,
 	ModalAction,
 	Placement,
+	PopoverBottomSheetOption,
 	PrimaryModalAction,
 	SearchResult,
 	SearchResultClickEvent,
@@ -218,7 +219,7 @@ export {
 	TableSortOption,
 	TeleportTarget,
 	AccordionSeparation,
-
+	PopoverBottomSheetOption,
 	// Constants.
 	TableRowIdentifier
 };

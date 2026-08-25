@@ -284,3 +284,9 @@ export const oppositeSides: Record<Placement, Side> = {
 	'right-start': 'left',
 	'right-end': 'left'
 } as const;
+
+export const PopoverBottomSheetOptions = [
+	'never',
+	'responsive',
+	'always'
+] as const;

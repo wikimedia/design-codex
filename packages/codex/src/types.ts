@@ -28,7 +28,8 @@ import {
 	TableRowIdentifier,
 	TablePaginationPositions,
 	I18nMessageKeys,
-	AccordionSeparations
+	AccordionSeparations,
+	PopoverBottomSheetOptions
 } from './constants';
 
 // Export the Placement type from FloatingUI for ease of use downstream
@@ -308,3 +309,6 @@ export type TeleportTarget = MaybeRef<string | HTMLElement | undefined>;
 
 /** @public */
 export type AccordionSeparation = typeof AccordionSeparations[ number ];
+
+/** @public */
+export type PopoverBottomSheetOption = typeof PopoverBottomSheetOptions[number];

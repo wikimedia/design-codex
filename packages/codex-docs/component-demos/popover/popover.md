@@ -41,7 +41,7 @@ const controlsConfig = [
 		type: 'slot',
 		default: 'Popover body content.'
 	},
-	{ name: 'useBottomSheet', type: 'boolean' },
+	{ name: 'useBottomSheet', type: 'radio', options: [ 'never', 'responsive', 'always' ] },
 	{ name: 'hideBackdrop', type: 'boolean' },
 ];
 
@@ -322,7 +322,7 @@ Use a backdrop/scrim to clearly separate the bottom sheet from the underlying co
 <cdx-accordion>
 <template #title>Developer notes</template>
 
-To enable the bottom sheet variant, set the `use-bottom-sheet` prop to `true`.
+To enable the bottom sheet on mobile, set the `use-bottom-sheet` prop to `'responsive'`.
 The bottom sheet will automatically appear on mobile devices (≤639px) and the regular
 popover will appear on larger screens.
 

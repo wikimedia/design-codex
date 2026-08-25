@@ -151,7 +151,7 @@ import useResizeObserver from '../../composables/useResizeObserver';
 import useScrollLock from '../../composables/useScrollLock';
 import useFocusTrap from '../../composables/useFocusTrap';
 import { unwrapElement } from '../../utils/unwrapElement';
-import { PrimaryModalAction, ModalAction, TeleportTarget } from '../../types';
+import { PrimaryModalAction, ModalAction, TeleportTarget, PopoverBottomSheetOption } from '../../types';
 import { oppositeSides } from '../../constants';
 
 /**
@@ -277,12 +277,15 @@ export default defineComponent( {
 
 		/**
 		 * Whether to use the bottom sheet variant on mobile devices.
-		 * When true, the popover will render as a bottom sheet on mobile breakpoints.
-		 * If set to 'always', the popover will render as a bottom sheet even if user is on desktop.
+		 *
+		 * 'responsive': Popover will render as a bottom sheet on mobile viewport sizes.
+		 * 'always': Popover will render as a bottom sheet on all viewport sizes.
+		 *
+		 * DEPRECATED: boolean values. Use 'responsive', 'always', or 'never' instead.
 		 */
 		useBottomSheet: {
-			type: [ Boolean, String ] as PropType<boolean | 'always'>,
-			default: false
+			type: [ Boolean, String ] as PropType<boolean | PopoverBottomSheetOption>,
+			default: 'never'
 		},
 
 		/**
@@ -315,10 +318,11 @@ export default defineComponent( {
 
 	setup( props, { emit } ) {
 		const breakpoint = useBreakpoint();
-		const isBottomSheet = computed(
-			() => ( props.useBottomSheet && breakpoint.mobile ) ||
-					props.useBottomSheet === 'always'
-		);
+		// DEPRECATED: Support boolean values for useBottomSheet until they're removed.
+		const isBottomSheet = computed( () => {
+			const isResponsive = props.useBottomSheet === true || props.useBottomSheet === 'responsive';
+			return ( isResponsive && breakpoint.mobile ) || props.useBottomSheet === 'always';
+		} );
 
 		// Teleport target + labels
 		const providedTarget = inject<TeleportTarget>( 'CdxTeleportTarget', undefined );
