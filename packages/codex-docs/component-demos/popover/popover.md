@@ -280,7 +280,7 @@ The Popover component can be configured to display as a bottom sheet on mobile d
 This provides a better mobile experience with touch-friendly interactions, keyboard awareness,
 and safe area support.
 
-Also, in some usage cases, it can be used on desktops.
+The Popover can also be configured to display as a bottom sheet on all viewports.
 
 <cdx-demo-best-practices>
 <cdx-demo-best-practice>
@@ -326,18 +326,13 @@ To enable the bottom sheet on mobile, set the `use-bottom-sheet` prop to `'respo
 The bottom sheet will automatically appear on mobile devices (≤639px) and the regular
 popover will appear on larger screens.
 
-If you want the bottom sheet is always using, set the prop to `always` instead.
+Set the prop to `'always'` to display the Popover as a bottom sheet for all viewport sizes.
 
 - The `hide-backdrop` prop controls whether a backdrop/scrim is hidden (defaults to `false`, so the backdrop is shown by default)
 - The bottom sheet adapts to its content size, only expanding to full viewport height when necessary (accounting for safe areas)
 - The bottom sheet automatically handles IOS keyboard visibility and adjusts its position accordingly
 - Safe area insets are automatically applied for device notches and home indicators
 - When content exceeds the available height, scrolling is automatically enabled
-
-::: tip Testing on desktop
-To test the bottom sheet functionality on desktop device, make sure the style
-toggle is on (in programmatic, make sure `use-bottom-sheet` prop is `always`).
-:::
 
 </cdx-accordion>
 
@@ -376,4 +371,3 @@ class to style the dialog and things inside it.
 | <kbd>Tab</kbd> | It moves the focus to the next interactive element in tab order within the Popover. |
 | <kbd>Shift</kbd> + <kbd>Tab</kbd> | It moves the focus to the previous interactive element within the Popover. |
 | <kbd>Esc</kbd> | It closes the Popover. |
-

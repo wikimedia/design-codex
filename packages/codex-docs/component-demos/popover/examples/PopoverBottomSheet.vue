@@ -108,15 +108,9 @@
 			</template>
 		</cdx-popover>
 
-		<cdx-toggle-switch
-			v-model="bottomSheetTypeToggleValue"
-		>
-			<template #default>
-				Style
-			</template>
-			<template #description>
-				Toggle forcely display popover as bottom sheet in desktop
-			</template>
+		<br>
+		<cdx-toggle-switch v-model="bottomSheetTypeToggleValue">
+			Use bottom sheet on desktop
 		</cdx-toggle-switch>
 	</div>
 </template>
