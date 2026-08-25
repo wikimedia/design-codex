@@ -491,6 +491,9 @@ export const cdxIconLightbulb = svgLightbulb;
 import svgLightbulbOutline from './images/lightbulbOutline.svg';
 export const cdxIconLightbulbOutline = svgLightbulbOutline;
 
+import svgLightbulbDashed from './images/lightbulbDashed.svg';
+export const cdxIconLightbulbDashed = svgLightbulbDashed;
+
 import svgLiteral from './images/literal.svg';
 export const cdxIconLiteral: IconFlipForRtl = {
 	ltr: svgLiteral,
