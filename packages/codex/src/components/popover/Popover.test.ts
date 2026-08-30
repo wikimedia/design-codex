@@ -5,7 +5,7 @@ import { nextTick, reactive, ref } from 'vue';
 
 import CdxPopover from './Popover.vue';
 import CdxToggleButton from '../../components/toggle-button/ToggleButton.vue';
-import { Placement } from '@floating-ui/vue';
+import { Placement, useFloating } from '@floating-ui/vue';
 
 // Mock `useFloating` from FloatingUI. If we use the real composable, Jest will crash in an
 // infinite loop of repositioning.
@@ -18,8 +18,8 @@ jest.mock( '@floating-ui/vue', () => ( {
 			left: '0px',
 			top: '0px'
 		},
-		middlewareData: {},
-		placement: {},
+		middlewareData: ref( {} ),
+		placement: ref( 'bottom' ),
 		x: ref(),
 		y: ref()
 	} ) )
@@ -135,6 +135,29 @@ describe( 'Popover', () => {
 			} );
 
 			expect( wrapper.find( '.cdx-popover__arrow' ).exists() ).toBe( false );
+		} );
+	} );
+
+	describe( 'when Floating UI reports the arrow position', () => {
+		// Regression test for T430987. An arrow coordinate of 0 means the arrow is
+		// clamped at the popover's edge. It was treated as a missing coordinate and
+		// the inline style was cleared, detaching the arrow from the popover.
+		it( 'renders an arrow coordinate of 0 as "left: 0px"', async () => {
+			const wrapper = mount( CdxPopover, {
+				props: { anchor: toggleButton.vm.$el, renderInPlace: true, open: true },
+				slots: { default: 'Popover Content' }
+			} );
+			const useFloatingResults = ( useFloating as jest.Mock ).mock.results;
+			const { x, middlewareData } = useFloatingResults[ useFloatingResults.length - 1 ].value;
+
+			// Simulate Floating UI placing the arrow at the popover's left edge.
+			middlewareData.value = { arrow: { x: 0 } };
+			// Arrow styles are only re-applied when the popover coordinates change.
+			x.value = 100;
+			await nextTick();
+
+			const arrowStyle = wrapper.find( '.cdx-popover__arrow' ).attributes( 'style' );
+			expect( arrowStyle ).toContain( 'left: 0px' );
 		} );
 	} );
 

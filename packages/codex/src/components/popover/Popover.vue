@@ -377,6 +377,10 @@ export default defineComponent( {
 		const sideB = 16;
 		const sideC = Math.sqrt( ( sideA ** 2 ) + ( sideB ** 2 ) );
 		const triangleHeight = sideC / 2;
+		// The rotated arrow overhangs its bounding box by triangleHeight - sideA / 2
+		// on each side. Clamp it that far inside the popover's edge, plus the 2px
+		// border radius, so it stays visually attached when the popover shifts (T430987).
+		const arrowPadding = Math.ceil( triangleHeight - ( sideA / 2 ) ) + 2;
 		const arrowOffset = 4;
 		// Without an arrow, only the small gap stays between the anchor and the Popover.
 		const offsetDistance = computed( () => props.hideArrow ?
@@ -413,7 +417,9 @@ export default defineComponent( {
 						} );
 					}
 				} ),
-				...( props.hideArrow ? [] : [ arrow( { element: arrowRef } ) ] )
+				...( props.hideArrow ?
+					[] :
+					[ arrow( { element: arrowRef, padding: arrowPadding } ) ] )
 			];
 		} );
 
@@ -446,8 +452,9 @@ export default defineComponent( {
 			}
 			const { x: arrowX, y: arrowY } = middlewareData.value.arrow;
 
-			arrowStyles.left = arrowX ? `${ arrowX }px` : '';
-			arrowStyles.top = arrowY ? `${ arrowY }px` : '';
+			// A coordinate of 0 is valid; only an absent coordinate clears the style.
+			arrowStyles.left = arrowX !== undefined ? `${ arrowX }px` : '';
+			arrowStyles.top = arrowY !== undefined ? `${ arrowY }px` : '';
 			arrowStyles.right = '';
 			arrowStyles.bottom = '';
 
