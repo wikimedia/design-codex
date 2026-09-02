@@ -70,9 +70,11 @@
 
 		<!-- Card with icon -->
 		<span class="cdx-card">
-			<span class="cdx-card__icon cdx-demo-css-icon--robot" />
 			<span class="cdx-card__text">
-				<span class="cdx-card__text__title">Card title</span>
+				<span class="cdx-card__text__title">
+					<span class="cdx-card__icon cdx-demo-css-icon--robot" />
+					Card title
+				</span>
 				<span class="cdx-card__text__description">Description</span>
 			</span>
 		</span>

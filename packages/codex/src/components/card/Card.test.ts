@@ -37,13 +37,22 @@ describe( 'Card', () => {
 			thumbnail?: Thumbnail,
 			forceThumbnail?: boolean,
 			customPlaceholderIcon?: Icon,
-			url?: string
+			url?: string,
+			headerStart?: string,
+			headerEnd?: string,
+			footer?: string
 		];
 
 		const cases: Case[] = [
 			[ 'Card with title and description', 'Title', 'Description' ],
 			[ 'Card with supporting text', 'Title', 'Description', 'Supporting text' ],
 			[ 'Card with icon', 'Title', '', '', cdxIconUserAvatar ],
+			[ 'Card with icon and thumbnail (icon should not render)', 'Title', '', '', cdxIconUserAvatar, testThumbnail ],
+			[ 'Card with icon and forceThumbnail (icon should not render)', 'Title', '', '', cdxIconUserAvatar, undefined, true ],
+			[ 'Card with header-start', 'Title', '', '', undefined, undefined, false, undefined, '', 'Chip' ],
+			[ 'Card with header-end', 'Title', '', '', undefined, undefined, false, undefined, '', '', 'More' ],
+			[ 'Card with footer', 'Title', '', '', undefined, undefined, false, undefined, '', '', '', 'Action' ],
+			[ 'Card with all slots', 'Title', 'Description', 'Supporting text', undefined, undefined, false, undefined, '', 'Chip', 'More', 'Action' ],
 			// Note that the thumbnail won't actually display since it never loads, so we can expect
 			// to see the placeholder icon instead, but we need to test that the Thumbnail component
 			// is used when a `thumbnail` prop is provided.
@@ -64,11 +73,23 @@ describe( 'Card', () => {
 				thumbnail = undefined,
 				forceThumbnail = false,
 				customPlaceholderIcon = undefined,
-				url = ''
+				url = '',
+				headerStart = undefined,
+				headerEnd = undefined,
+				footer = undefined
 			) => {
-				const slots: { title: string, description?: string, [ 'supporting-text' ]?: string } = {
+				const slots: Record<string, string> = {
 					title
 				};
+				if ( headerStart ) {
+					slots[ 'header-start' ] = headerStart;
+				}
+				if ( headerEnd ) {
+					slots[ 'header-end' ] = headerEnd;
+				}
+				if ( footer ) {
+					slots.footer = footer;
+				}
 				if ( description ) {
 					slots.description = description;
 				}

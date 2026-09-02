@@ -9,6 +9,7 @@ import CardWithIcon from '@/../component-demos/card/examples/CardWithIcon.vue';
 import CardWithThumbnail from '@/../component-demos/card/examples/CardWithThumbnail.vue';
 import CardWithThumbnailTop from '@/../component-demos/card/examples/CardWithThumbnailTop.vue';
 import CardWithThumbnailTitleOnly from '@/../component-demos/card/examples/CardWithThumbnailTitleOnly.vue';
+import CardCustomization from '@/../component-demos/card/examples/CardCustomization.vue';
 import CardGroupWithThumbnails from '@/../component-demos/card/examples/CardGroupWithThumbnails.vue';
 
 const controlsConfig = [
@@ -298,6 +299,28 @@ A default aspect ratio of 16/9 is applied to the image. Override the aspect rati
 </template>
 </cdx-demo-wrapper>
 
+### Card customization
+
+A Card can be customized to meet your needs. Below is an example including an [InfoChip](./info-chip.md), icon media, supporting text and various actions.
+
+<cdx-demo-wrapper>
+<template v-slot:demo>
+	<card-customization />
+</template>
+
+<template v-slot:code>
+
+:::code-group
+
+<<< @/../component-demos/card/examples/CardCustomization.vue [NPM]
+
+<<< @/../component-demos/card/examples-mw/CardCustomization.vue [MediaWiki]
+
+:::
+
+</template>
+</cdx-demo-wrapper>
+
 ### Card groups
 
 Cards will often be displayed in groups. The height and width of cards can be customized as needed,
@@ -518,15 +541,16 @@ Refer to the [CSS-only Thumbnail](./thumbnail.md#css-only-version) documentation
 
 ##### Icon
 
-To add an Icon, add a `<span>` element with the class `cdx-card__icon`, plus a custom class that you
-can use to add a [CSS-only Icon](./icon.md#css-only-version).
+To add an Icon, add a `<span>` element with the class `cdx-card__icon`inside the title `<span>`, plus a custom class that you can use to add a [CSS-only Icon](./icon.md#css-only-version).
 
 <cdx-demo-wrapper>
 <template v-slot:demo>
 	<span class="cdx-card">
-		<span class="cdx-card__icon cdx-demo-css-icon--robot"></span>
 		<span class="cdx-card__text">
-			<span class="cdx-card__text__title">Card title</span>
+			<span class="cdx-card__text__title">
+				<span class="cdx-card__icon cdx-demo-css-icon--robot"></span>
+				Card title
+			</span>
 			<span class="cdx-card__text__description">Description</span>
 			<span class="cdx-card__text__supporting-text">Supporting text</span>
 		</span>
@@ -535,14 +559,16 @@ can use to add a [CSS-only Icon](./icon.md#css-only-version).
 <template v-slot:code>
 
 ```html
-<span class="cdx-card">
-	<span class="cdx-card__icon cdx-demo-css-icon--robot"></span>
-	<span class="cdx-card__text">
-		<span class="cdx-card__text__title">Card title</span>
-		<span class="cdx-card__text__description">Description</span>
-		<span class="cdx-card__text__supporting-text">Supporting text</span>
+	<span class="cdx-card">
+		<span class="cdx-card__text">
+			<span class="cdx-card__text__title">
+				<span class="cdx-card__icon cdx-demo-css-icon--robot"></span>
+				Card title
+			</span>
+			<span class="cdx-card__text__description">Description</span>
+			<span class="cdx-card__text__supporting-text">Supporting text</span>
+		</span>
 	</span>
-</span>
 ```
 
 :::code-group

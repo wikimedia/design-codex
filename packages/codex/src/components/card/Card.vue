@@ -7,7 +7,12 @@
 			// eslint-disable max-len
 			'cdx-card--is-link': isLink,
 			// Include dynamic classes in the template so that $slots is reactive.
-			'cdx-card--title-only': !$slots.description && !$slots[ 'supporting-text' ] && thumbnailPosition !== 'block-start',
+			'cdx-card--title-only': !$slots.description &&
+				!$slots[ 'supporting-text' ] &&
+				!$slots[ 'header-start' ] &&
+				!$slots[ 'header-end' ] &&
+				!$slots.footer &&
+				thumbnailPosition !== 'block-start',
 			[ `cdx-card--thumbnail-position-${ thumbnailPosition }` ]: ( thumbnail || forceThumbnail ) && thumbnailPosition !== 'inline-start',
 			[ `cdx-card--separation-${ separation }` ]: separation !== 'outline',
 			[ `cdx-card--thumbnail-size-${ thumbnailSize }` ]: ( thumbnail || forceThumbnail ) && thumbnailSize !== 'small' && thumbnailPosition !== 'block-start'
@@ -20,16 +25,26 @@
 			:placeholder-icon="customPlaceholderIcon"
 			class="cdx-card__thumbnail"
 		/>
-		<cdx-icon
-			v-else-if="icon"
-			:icon="icon"
-			class="cdx-card__icon"
-		/>
 
-		<span class="cdx-card__text">
+		<span class="cdx-card__text" :class="{ 'cdx-card__text--has-header-end': $slots['header-end'] }">
+			<span v-if="$slots['header-start']" class="cdx-card__text__header-start">
+				<!-- @slot Content placed above title, e.g. an InfoChip -->
+				<slot name="header-start" />
+			</span>
+
 			<span class="cdx-card__text__title">
+				<cdx-icon
+					v-if="icon && !thumbnail && !forceThumbnail"
+					:icon="icon"
+					class="cdx-card__icon"
+				/>
 				<!-- @slot Card title -->
 				<slot name="title" />
+			</span>
+
+			<span v-if="$slots['header-end']" class="cdx-card__text__header-end">
+				<!-- @slot Content placed inline at the end of title row, e.g. icon buttons -->
+				<slot name="header-end" />
 			</span>
 
 			<span v-if="$slots.description" class="cdx-card__text__description">
@@ -37,10 +52,16 @@
 				<slot name="description" />
 			</span>
 
+			<span v-if="$slots.footer" class="cdx-card__text__footer">
+				<!-- @slot Content placed below the body, e.g. action buttons -->
+				<slot name="footer" />
+			</span>
+
 			<span v-if="$slots[ 'supporting-text' ]" class="cdx-card__text__supporting-text">
 				<!-- @slot Short supporting text -->
 				<slot name="supporting-text" />
 			</span>
+
 		</span>
 	</component>
 </template>
@@ -186,7 +207,7 @@ export default defineComponent( {
 .cdx-card {
 	background-color: @background-color-base;
 	display: flex;
-	align-items: flex-start;
+	align-items: stretch;
 	position: relative;
 	border: @border-base;
 	border-radius: @border-radius-base;
@@ -300,10 +321,29 @@ export default defineComponent( {
 
 	&__text {
 		display: flex;
+		flex: 1;
 		flex-direction: column;
+		width: @size-full;
 		font-size: @font-size-medium;
 		line-height: @line-height-small;
 		.break-words();
+
+		&--has-header-end {
+			padding-right: @size-200;
+		}
+
+		&__header-start {
+			margin-bottom: @spacing-50;
+		}
+
+		&__header-end {
+			display: flex;
+			align-items: center;
+			gap: @spacing-25;
+			position: absolute;
+			top: @spacing-50;
+			right: @spacing-50;
+		}
 
 		&__title {
 			color: @color-base;
@@ -323,8 +363,15 @@ export default defineComponent( {
 			margin-top: @spacing-25;
 		}
 
+		&__footer {
+			display: flex;
+			gap: @spacing-50;
+			margin-top: @spacing-75;
+		}
+
 		&__supporting-text {
-			margin-top: @spacing-50;
+			margin-top: auto;
+			padding-top: @spacing-50;
 			font-size: @font-size-small;
 		}
 	}
@@ -332,6 +379,7 @@ export default defineComponent( {
 	.cdx-card__icon {
 		// Make sure the icon inherits the content element's color.
 		color: @color-subtle;
+		float: left;
 		// Setting the height of the icon to the line-height of the accompanying text
 		// to ensure centering of the icon to text
 		height: @line-height-small;
