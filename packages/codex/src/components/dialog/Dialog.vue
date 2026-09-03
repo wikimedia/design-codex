@@ -628,17 +628,27 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 			padding-bottom: @spacing-150;
 		}
 
-		// Zero-out any margin or padding on the first content element that
+		// Zero-out any margin on the first and last content element that
 		// could disrupt the layout
 		> *:first-child {
 			margin-top: 0;
+		}
+
+		> *:last-child {
+			margin-bottom: 0;
+		}
+
+		// Remove padding from common text block elements only. Components
+		// such as Message keep their internal padding. `:where()` keeps
+		// specificity low.
+		// Older browsers ignore the rule and keep the padding.
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		> :where( h1, h2, h3, h4, h5, h6, p, ul, ol ):first-child {
 			padding-top: 0;
 		}
 
-		// Zero-out any margin or padding on the last content element that
-		// could disrupt the layout
-		> *:last-child {
-			margin-bottom: 0;
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+		> :where( p, ul, ol ):last-child {
 			padding-bottom: 0;
 		}
 	}
