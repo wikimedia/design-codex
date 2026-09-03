@@ -1053,6 +1053,10 @@ export const cdxIconSubtract = svgSubtract;
 import svgSuccess from './images/success.svg';
 export const cdxIconSuccess = svgSuccess;
 
+import svgSuggestedInvestigations from './images/suggestedInvestigations.svg';
+
+export const cdxIconSuggestedInvestigations = svgSuggestedInvestigations;
+
 import svgSuperscript from './images/superscript.svg';
 export const cdxIconSuperscript: IconFlipForRtl = {
 	ltr: svgSuperscript,
