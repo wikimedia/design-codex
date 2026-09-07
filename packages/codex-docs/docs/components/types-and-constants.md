@@ -351,6 +351,15 @@ interface PrimaryModalAction extends ModalAction {
 }
 ```
 
+### PopoverBottomSheetOption
+
+Refer to [PopoverBottomSheetOptions](#popoverbottomsheetoptions).
+
+```ts
+// Allowed values: 'never', 'responsive', 'always'
+type PopoverBottomSheetOption = typeof PopoverBottomSheetOptions[ number ];
+```
+
 ### SearchResult
 
 ```ts
@@ -638,6 +647,16 @@ const ObjectPositions = [
 	'left',
 	'right',
 	'center'
+];
+```
+
+### PopoverBottomSheetOptions
+
+```ts
+const PopoverBottomSheetOptions = [
+	'never',
+	'responsive',
+	'always'
 ];
 ```
 
