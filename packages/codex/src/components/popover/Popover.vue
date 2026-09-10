@@ -841,9 +841,9 @@ export default defineComponent( {
 			}
 
 			await nextTick();
-			if ( props.anchor === null ) {
+			if ( props.anchor === null && props.useBottomSheet !== 'always' ) {
 				// eslint-disable-next-line no-console
-				console.warn( '[CdxPopover]: The "anchor" prop must be provided to position the popover in floating mode.' );
+				console.warn( '[CdxPopover]: The "anchor" prop must be provided to position the popover in floating mode (useBottomSheet !== \'always\').' );
 			}
 		} );
 
