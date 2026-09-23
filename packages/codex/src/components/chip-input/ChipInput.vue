@@ -509,6 +509,7 @@ export default defineComponent( {
 		background-color: @background-color-transparent;
 		color: @color-base;
 		flex-grow: inherit;
+		box-sizing: @box-sizing-base;
 		border: 0;
 		padding: 0 @spacing-25;
 		font-family: inherit;
