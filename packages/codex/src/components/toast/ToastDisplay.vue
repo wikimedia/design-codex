@@ -237,8 +237,39 @@ export default defineComponent( {
 
 			const el = toastElement.value;
 			const dismissThresholdRatio = 0.35;
+			const slideOutDurationMs = 250;
+			// Grace period past the slide-out, in case `transitionend` never fires.
+			const slideOutFallbackMs = slideOutDurationMs + 100;
 			let touchStartX: number | null = null;
 			let currentDeltaX = 0;
+			let dismissTimer: ReturnType<typeof setTimeout> | null = null;
+
+			// Ends the current dismissal from whichever of the transition ending and the
+			// fallback timer gets here first, cancelling the other.
+			function finishDismissal() {
+				el.removeEventListener( 'transitionend', onSlideOutTransitionEnd );
+				if ( dismissTimer !== null ) {
+					clearTimeout( dismissTimer );
+					dismissTimer = null;
+				}
+				onDismiss( 'user-dismissed' );
+			}
+
+			// `transitionend` bubbles, so a transition on slotted content is not this toast's.
+			function onSlideOutTransitionEnd( event: TransitionEvent ) {
+				if ( event.target === el ) {
+					finishDismissal();
+				}
+			}
+
+			// Transitions suppressed by the host (T308979 forces the duration to 0) never
+			// fire `transitionend`, so the computed duration is the only reliable sign that
+			// waiting for the event, or for the fallback, is pointless.
+			function isTransitionSuppressed(): boolean {
+				return window.getComputedStyle( el ).transitionDuration
+					.split( ',' )
+					.every( ( duration ) => parseFloat( duration ) === 0 );
+			}
 
 			function getBaseTransform() {
 				return props.renderInPlace ? '' : 'translateX(-50%)';
@@ -256,6 +287,7 @@ export default defineComponent( {
 			}
 
 			function snapBack() {
+				// Undoes the drag for a gesture that did not pass the threshold.
 				el.style.transition = 'transform 0.2s ease-out, opacity 0.2s ease-out';
 				el.style.transform = getBaseTransform();
 				el.style.opacity = '';
@@ -272,7 +304,11 @@ export default defineComponent( {
 				const slideOutDistance = el.offsetWidth * 1.2;
 				const targetDeltaX = direction * slideOutDistance;
 
-				el.style.transition = 'transform 0.25s ease-out, opacity 0.25s ease-out';
+				// Set exactly what the slide-out animates as longhands, so the applied
+				// duration can be read back with getComputedStyle below.
+				el.style.transitionProperty = 'transform, opacity';
+				el.style.transitionDuration = `${ slideOutDurationMs }ms`;
+				el.style.transitionTimingFunction = 'ease-out';
 				el.style.opacity = '0';
 				if ( props.renderInPlace ) {
 					el.style.transform = `translateX(${ targetDeltaX }px)`;
@@ -280,11 +316,16 @@ export default defineComponent( {
 					el.style.transform = `translateX(calc(-50% + ${ targetDeltaX }px))`;
 				}
 
-				const onTransitionEnd = () => {
-					el.removeEventListener( 'transitionend', onTransitionEnd );
-					onDismiss( 'user-dismissed' );
-				};
-				el.addEventListener( 'transitionend', onTransitionEnd );
+				el.addEventListener( 'transitionend', onSlideOutTransitionEnd );
+
+				// A suppressed transition never fires `transitionend`, so finish the
+				// dismissal now instead of waiting out the fallback.
+				if ( isTransitionSuppressed() ) {
+					finishDismissal();
+					return;
+				}
+
+				dismissTimer = setTimeout( finishDismissal, slideOutFallbackMs );
 			}
 
 			function setTouching( touching: boolean ) {
@@ -293,6 +334,12 @@ export default defineComponent( {
 			}
 
 			const onTouchStart = ( e: TouchEvent ) => {
+				// A passing swipe has already committed the toast to dismissing, so new
+				// touches are ignored: they must not drag it back into view. `dismissed`
+				// covers the leave phase, after the fallback timer is gone.
+				if ( dismissTimer !== null || dismissed.value ) {
+					return;
+				}
 				touchStartX = e.touches[ 0 ].clientX;
 				currentDeltaX = 0;
 				el.style.transition = '';
@@ -340,6 +387,11 @@ export default defineComponent( {
 				el.removeEventListener( 'touchmove', onTouchMove );
 				el.removeEventListener( 'touchend', onTouchEnd );
 				el.removeEventListener( 'touchcancel', onTouchCancel );
+				el.removeEventListener( 'transitionend', onSlideOutTransitionEnd );
+				if ( dismissTimer !== null ) {
+					clearTimeout( dismissTimer );
+					dismissTimer = null;
+				}
 			};
 		}
 

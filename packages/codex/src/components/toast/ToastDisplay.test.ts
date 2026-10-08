@@ -276,5 +276,233 @@ describe( 'ToastDisplay', () => {
 			expect( wrapper.emitted( 'user-dismissed' ) ).toBeFalsy();
 			wrapper.unmount();
 		} );
+
+		it( 'ignores touches once the swipe has committed the dismissal', () => {
+			vi.useFakeTimers();
+			try {
+				const wrapper = mountDisplay();
+				const el = wrapper.find( '.cdx-toast' ).element as HTMLElement;
+				Object.defineProperty( el, 'offsetWidth', { value: 300, configurable: true } );
+
+				// Gesture 1 passes the threshold, committing the dismissal.
+				dispatchTouchEvent( el, 'touchstart', 100 );
+				dispatchTouchEvent( el, 'touchmove', 250 );
+				dispatchTouchEvent( el, 'touchend', 250 );
+				const committedTransform = el.style.transform;
+				expect( committedTransform ).not.toBe( '' );
+				expect( wrapper.vm.dismissed ).toBe( false );
+				expect( vi.getTimerCount() ).toBe( 1 );
+
+				// Gesture 2 lands while the slide-out is running and is released below the
+				// threshold. It must not drag the toast back or cancel the dismissal.
+				dispatchTouchEvent( el, 'touchstart', 100 );
+				dispatchTouchEvent( el, 'touchmove', 120 );
+				dispatchTouchEvent( el, 'touchend', 120 );
+
+				expect( wrapper.vm.dismissed ).toBe( false );
+				expect( vi.getTimerCount() ).toBe( 1 );
+				expect( el.style.transform ).toBe( committedTransform );
+				expect( el.style.opacity ).toBe( '0' );
+
+				// The committed dismissal still completes once the transition ends.
+				el.dispatchEvent( new Event( 'transitionend', { bubbles: true } ) );
+				expect( wrapper.vm.dismissed ).toBe( true );
+				expect( vi.getTimerCount() ).toBe( 0 );
+
+				wrapper.vm.onAfterLeave();
+				expect( wrapper.emitted( 'user-dismissed' ) ).toHaveLength( 1 );
+				wrapper.unmount();
+			} finally {
+				vi.useRealTimers();
+			}
+		} );
+
+		it( 'ignores touches while the dismissed toast is leaving', () => {
+			vi.useFakeTimers();
+			try {
+				const wrapper = mountDisplay();
+				const el = wrapper.find( '.cdx-toast' ).element as HTMLElement;
+				Object.defineProperty( el, 'offsetWidth', { value: 300, configurable: true } );
+
+				dispatchTouchEvent( el, 'touchstart', 100 );
+				dispatchTouchEvent( el, 'touchmove', 250 );
+				dispatchTouchEvent( el, 'touchend', 250 );
+				const committedTransform = el.style.transform;
+
+				// The transition ends and the dismissal completes, but Vue keeps the element
+				// in the DOM while the leave transition runs.
+				el.dispatchEvent( new Event( 'transitionend', { bubbles: true } ) );
+				expect( wrapper.vm.dismissed ).toBe( true );
+				expect( vi.getTimerCount() ).toBe( 0 );
+
+				// A touch in that window must not drag the dismissed toast back into view.
+				dispatchTouchEvent( el, 'touchstart', 100 );
+				dispatchTouchEvent( el, 'touchmove', 120 );
+				dispatchTouchEvent( el, 'touchend', 120 );
+
+				expect( el.style.transform ).toBe( committedTransform );
+				expect( el.style.opacity ).toBe( '0' );
+
+				wrapper.vm.onAfterLeave();
+				expect( wrapper.emitted( 'user-dismissed' ) ).toHaveLength( 1 );
+				wrapper.unmount();
+			} finally {
+				vi.useRealTimers();
+			}
+		} );
+
+		// JSDOM does not expand the `transition` shorthand, so the component sets the
+		// slide-out transition as longhands; these tests read the applied duration from them.
+		describe( 'when the transition is suppressed', () => {
+			/**
+			 * Swipe the toast far enough to dismiss it.
+			 *
+			 * @param el
+			 * @return {void}
+			 */
+			function swipeToDismiss( el: HTMLElement ): void {
+				Object.defineProperty( el, 'offsetWidth', { value: 300, configurable: true } );
+				dispatchTouchEvent( el, 'touchstart', 100 );
+				dispatchTouchEvent( el, 'touchmove', 250 );
+				dispatchTouchEvent( el, 'touchend', 250 );
+			}
+
+			beforeEach( () => {
+				vi.useFakeTimers();
+			} );
+
+			afterEach( () => {
+				vi.useRealTimers();
+			} );
+
+			it( 'completes the dismissal once the fallback delay passes', async () => {
+				const wrapper = mountDisplay();
+				const el = wrapper.find( '.cdx-toast' ).element as HTMLElement;
+				swipeToDismiss( el );
+
+				// Read the duration the component actually applied.
+				const appliedDuration = el.style.transitionDuration;
+				const durationValue = parseFloat( appliedDuration );
+				const slideOutMs = appliedDuration.endsWith( 'ms' ) ?
+					durationValue :
+					durationValue * 1000;
+				expect( slideOutMs ).toBeGreaterThan( 0 );
+
+				expect( wrapper.vm.dismissed ).toBe( false );
+
+				vi.advanceTimersByTime( slideOutMs - 1 );
+				expect( wrapper.vm.dismissed ).toBe( false );
+
+				// No transitionend here, so only the fallback can dismiss it. The fallback has
+				// a 100 ms grace past the slide-out: still pending at slide-out + 99 ms.
+				vi.advanceTimersByTime( 100 );
+				expect( wrapper.vm.dismissed ).toBe( false );
+
+				vi.advanceTimersByTime( 1 );
+				await nextTick();
+
+				expect( wrapper.vm.dismissed ).toBe( true );
+				expect( vi.getTimerCount() ).toBe( 0 );
+
+				// Vue's leave transition does not run under JSDOM, so complete it the way
+				// the surrounding tests do and assert the event the container listens for.
+				wrapper.vm.onAfterLeave();
+				expect( wrapper.emitted( 'user-dismissed' ) ).toHaveLength( 1 );
+				wrapper.unmount();
+			} );
+
+			it( 'cancels the fallback once transitionend fires', async () => {
+				const wrapper = mountDisplay();
+				const el = wrapper.find( '.cdx-toast' ).element as HTMLElement;
+				swipeToDismiss( el );
+
+				expect( vi.getTimerCount() ).toBeGreaterThan( 0 );
+
+				el.dispatchEvent( new Event( 'transitionend', { bubbles: true } ) );
+
+				expect( vi.getTimerCount() ).toBe( 0 );
+				await nextTick();
+				expect( wrapper.vm.dismissed ).toBe( true );
+				wrapper.unmount();
+			} );
+
+			it( 'cancels the fallback when the component unmounts', () => {
+				const wrapper = mountDisplay();
+				const el = wrapper.find( '.cdx-toast' ).element as HTMLElement;
+				swipeToDismiss( el );
+
+				expect( vi.getTimerCount() ).toBeGreaterThan( 0 );
+
+				wrapper.unmount();
+
+				// The swipe cleanup cleared the fallback, so it can no longer fire.
+				expect( vi.getTimerCount() ).toBe( 0 );
+			} );
+
+			it( 'dismisses immediately when the computed duration is 0', () => {
+				const style = document.createElement( 'style' );
+				style.textContent = '* { transition-duration: 0s !important; }';
+				document.head.appendChild( style );
+
+				try {
+					const wrapper = mountDisplay();
+					const el = wrapper.find( '.cdx-toast' ).element as HTMLElement;
+					swipeToDismiss( el );
+
+					// The suppressed transition never fires, so the dismissal is not deferred.
+					expect( wrapper.vm.dismissed ).toBe( true );
+					expect( vi.getTimerCount() ).toBe( 0 );
+
+					wrapper.vm.onAfterLeave();
+					expect( wrapper.emitted( 'user-dismissed' ) ).toHaveLength( 1 );
+					wrapper.unmount();
+				} finally {
+					style.remove();
+				}
+			} );
+
+			it( 'waits for the fallback when only one listed duration is 0', () => {
+				const style = document.createElement( 'style' );
+				style.textContent = '.cdx-toast { transition-duration: 0s, 0.25s !important; }';
+				document.head.appendChild( style );
+
+				try {
+					const wrapper = mountDisplay();
+					const el = wrapper.find( '.cdx-toast' ).element as HTMLElement;
+					swipeToDismiss( el );
+
+					// One transition still runs, so its event (or the fallback) is still the
+					// completion path; the fast path must not treat this as suppressed.
+					expect( wrapper.vm.dismissed ).toBe( false );
+					expect( vi.getTimerCount() ).toBe( 1 );
+					wrapper.unmount();
+				} finally {
+					style.remove();
+				}
+			} );
+
+			it( 'ignores a transitionend bubbling from slotted content', () => {
+				const wrapper = mountDisplay( {}, {
+					default: '<button class="cdx-test-slot-button">Action</button>'
+				} );
+				const el = wrapper.find( '.cdx-toast' ).element as HTMLElement;
+				// The slot's button renders inside the toast, so its event bubbles to the
+				// toast's listener, which is not its own transition.
+				const child = wrapper.find( '.cdx-test-slot-button' ).element;
+				swipeToDismiss( el );
+
+				expect( wrapper.vm.dismissed ).toBe( false );
+
+				child.dispatchEvent( new Event( 'transitionend', { bubbles: true } ) );
+
+				expect( wrapper.vm.dismissed ).toBe( false );
+				expect( vi.getTimerCount() ).toBe( 1 );
+
+				// The toast's own transition ending still completes the dismissal.
+				el.dispatchEvent( new Event( 'transitionend', { bubbles: true } ) );
+				expect( wrapper.vm.dismissed ).toBe( true );
+				wrapper.unmount();
+			} );
+		} );
 	} );
 } );
