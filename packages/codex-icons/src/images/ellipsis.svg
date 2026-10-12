@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 	<title>
-		ellipsis hortizontal
+		ellipsis horizontal
 	</title>
-	<path d="M4 11.5H1v-3h3zm7.5 0h-3v-3h3zm7.5 0h-3v-3h3z"/>
+	<path d="M1 8.5h3v3H1zm7.5 0h3v3h-3zm7.5 0h3v3h-3z"/>
 </svg>
