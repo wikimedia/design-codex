@@ -403,7 +403,7 @@ export default defineComponent( {
 .cdx-menu-item {
 	list-style: none;
 	position: relative;
-	padding: @spacing-50 @spacing-75;
+	padding: @spacing-35 @spacing-50;
 	font-size: @font-size-medium;
 	line-height: @line-height-small;
 	transition-property: @transition-property-base;
@@ -415,8 +415,8 @@ export default defineComponent( {
 		.break-words();
 
 		a& {
-			margin: -@spacing-50 -@spacing-75;
-			padding: @spacing-50 @spacing-75;
+			margin: -@spacing-35 -@spacing-50;
+			padding: @spacing-35 @spacing-50;
 		}
 
 		&,
@@ -447,10 +447,11 @@ export default defineComponent( {
 	}
 
 	&__icon {
+		flex-shrink: 0;
 		// Setting the height of the icon to the line-height of the accompanying text
 		// to ensure centering of the icon to text
 		height: @line-height-small;
-		margin-right: @spacing-50;
+		margin-right: @spacing-35;
 
 		&.cdx-icon {
 			color: @color-subtle;

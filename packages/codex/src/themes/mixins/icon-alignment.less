@@ -15,7 +15,7 @@
 // @param {px} external-padding - The external horizontal padding expected on the parent element of the icon.
 // @param {px|em|%} top - The vertical position of the icon. If set to @spacing-half, the icon will be vertically centered.
 // @param {px|em} height - The height of the icon. Only change this if that is needed to vertically align the icon when using a custom value for @param-top
-.cdx-mixin-icon( @param-align, @param-min-size-icon: @min-size-icon-medium, @param-size-icon: @size-icon-medium, @param-external-padding: @spacing-75, @param-top: @spacing-half, @param-height: @param-size-icon ) {
+.cdx-mixin-icon( @param-align, @param-min-size-icon: @min-size-icon-medium, @param-size-icon: @size-icon-medium, @param-external-padding: @spacing-50, @param-top: @spacing-half, @param-height: @param-size-icon ) {
 	// Vertically center the icon by moving it down 50% (`@spacing-half`) of the height of the handle,
 	// then moving it up by 50% of the height of the icon (translateY uses the element height
 	// while top uses the offset parent's height).
@@ -68,15 +68,15 @@
 // the same value as the `align` parameter of the icon.
 // @param {px} external-padding - The external horizontal padding expected on the parent element of the icon.
 // @param {px} size-icon - The size of the icon.
-.cdx-mixin-icon-wrapper-padding( @param-align, @param-external-padding: @spacing-75, @param-size-icon: @size-icon-medium ) {
+.cdx-mixin-icon-wrapper-padding( @param-align, @param-external-padding: @spacing-50, @param-size-icon: @size-icon-medium ) {
 	& when ( @param-align = start ) {
-		padding-left: calc( @spacing-50 + @param-external-padding + @param-size-icon );
+		padding-left: calc( @spacing-35 + @param-external-padding + @param-size-icon );
 	}
 
 	& when ( @param-align = end ) {
 		// For some reason stylelint is failing asking to remove the semicolons,
 		// but it also fails if you remove it
 		/* stylelint-disable @stylistic/no-extra-semicolons */
-		padding-right: calc( @spacing-50 + @param-external-padding + @param-size-icon );
+		padding-right: calc( @spacing-35 + @param-external-padding + @param-size-icon );
 	}
 };

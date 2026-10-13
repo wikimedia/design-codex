@@ -1326,7 +1326,7 @@ export default defineComponent( {
 		&__meta {
 			display: flex;
 			gap: @spacing-50;
-			padding: @spacing-50 @spacing-75 @spacing-35;
+			padding: @spacing-50 @spacing-50 @spacing-25;
 
 			&__text {
 				display: flex;

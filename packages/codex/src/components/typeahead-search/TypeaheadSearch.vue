@@ -782,7 +782,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/typeahead-searc
 
 		&__content {
 			margin: 0; // Override negative margins applied by fix of T432633.
-			padding: @spacing-50 @spacing-75;
+			padding: @spacing-35 @spacing-50;
 		}
 	}
 
@@ -807,7 +807,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/typeahead-searc
 
 		&__icon.cdx-icon {
 			color: @color-subtle;
-			margin-right: @spacing-50;
+			margin-right: @spacing-35;
 		}
 
 		// We cannot use a pseudo class ":active" because that does not work
@@ -847,35 +847,6 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/typeahead-searc
 		.cdx-typeahead-search__search-footer__icon {
 			// Prevent the icon container from shrinking when large text is present.
 			flex-shrink: 0;
-			// Prevent the icon container from shrinking on smaller base font sizes.
-			min-width: @min-size-search-figure;
-			width: @size-search-figure;
-		}
-	}
-
-	// Only for desktop view.
-	&--show-thumbnail:not( .cdx-typeahead-search--is-mobile-view ) {
-		&.cdx-typeahead-search--auto-expand-width:not( .cdx-typeahead-search--expanded ) {
-			margin-left: @spacing-typeahead-search-focus-addition;
-		}
-
-		&:not( .cdx-typeahead-search--auto-expand-width ),
-		&.cdx-typeahead-search--auto-expand-width.cdx-typeahead-search--expanded {
-			margin-left: 0;
-
-			.cdx-text-input__input {
-				.cdx-mixin-icon-wrapper-padding(
-					start,
-					@spacing-start-typeahead-search-figure,
-					@min-size-search-figure
-				);
-			}
-
-			.cdx-text-input__start-icon {
-				.cdx-mixin-icon(
-					start,
-					@param-external-padding: @spacing-start-typeahead-search-icon );
-			}
 		}
 	}
 

@@ -444,7 +444,7 @@ export default defineComponent( {
 		// Border width is included here and for other icon positions because the icon position will
 		// be offset from the border, not inside the border, so we need to include its width in the
 		// offset value.
-		.cdx-mixin-icon( start, @param-external-padding: @spacing-50 + @border-width-base );
+		.cdx-mixin-icon( start, @param-external-padding: @spacing-50 );
 	}
 
 	// Ensure CSS end icon is size small.
@@ -460,7 +460,7 @@ export default defineComponent( {
 			end,
 			@min-size-icon-small,
 			@size-icon-small,
-			@spacing-50 + @border-width-base
+			@spacing-50
 		);
 	}
 
@@ -472,7 +472,7 @@ export default defineComponent( {
 
 		// Move the clear icon farther left when it appears next to an end icon.
 		.cdx-text-input__end-icon.cdx-icon + & {
-			right: calc( @spacing-horizontal-input-text-two-end-icons + @border-width-base );
+			right: calc( @spacing-horizontal-input-text-two-end-icons );
 		}
 	}
 

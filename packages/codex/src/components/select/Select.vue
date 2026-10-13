@@ -350,7 +350,7 @@ export default defineComponent( {
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
 	appearance: none;
 	/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
-	background-position: center right @spacing-75;
+	background-position: center right @spacing-50;
 	background-repeat: no-repeat;
 	// Fallback for browsers that don't support min() or max()
 	background-size: @size-icon-x-small;
@@ -393,7 +393,9 @@ export default defineComponent( {
 
 	&__start-icon.cdx-icon {
 		color: @color-subtle;
-		.cdx-mixin-icon( start );
+		.cdx-mixin-icon(
+			start
+		);
 	}
 
 	&__indicator.cdx-icon {
@@ -401,8 +403,7 @@ export default defineComponent( {
 		.cdx-mixin-icon(
 			end,
 			@min-size-icon-x-small,
-			@size-icon-x-small,
-			@spacing-75
+			@size-icon-x-small
 		);
 	}
 

@@ -359,7 +359,7 @@ export default defineComponent( {
 	& &__start-icon {
 		.cdx-mixin-icon(
 			start,
-			@param-external-padding: @spacing-50 + @border-width-base,
+			@param-external-padding: @spacing-50,
 			@param-top: @spacing-25,
 			// Set the height of the icon to the line-height of the accompanying text
 			// to ensure centering of the icon to text.
@@ -373,7 +373,7 @@ export default defineComponent( {
 			end,
 			@min-size-icon-small,
 			@size-icon-small,
-			@spacing-50 + @border-width-base,
+			@spacing-50,
 			@spacing-25,
 			// Set the height of the icon to the line-height of the accompanying text
 			// to ensure centering of the icon to text.
