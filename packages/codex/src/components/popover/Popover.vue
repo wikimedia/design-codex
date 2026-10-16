@@ -1071,6 +1071,7 @@ export default defineComponent( {
 		border-right: 0;
 		border-bottom: 0;
 		border-left: 0;
+		border-radius: @border-radius-sharp;
 		padding: 0;
 		// Account for safe area at top (notch, status bar, etc.)
 		// @see https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/env
@@ -1080,7 +1081,8 @@ export default defineComponent( {
 		@media ( min-width: @min-width-breakpoint-tablet ) {
 			border-right: @border-base;
 			border-left: @border-base;
-			border-radius: @border-radius-base;
+			border-top-left-radius: @border-radius-base;
+			border-top-right-radius: @border-radius-base;
 		}
 
 		.cdx-popover__header {
