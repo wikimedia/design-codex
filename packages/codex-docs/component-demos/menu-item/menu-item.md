@@ -68,7 +68,7 @@ const controlsConfig = [
 	{
 		name: 'action',
 		type: 'radio',
-		options: [ 'default', 'destructive' ],
+		options: [ 'default', 'progressive', 'destructive'  ],
 	}
 ];
 </script>
@@ -96,6 +96,7 @@ MenuItems can have one of two functions:
 1. **Selectable options**<br>MenuItems in form elements like [Select](./select.md) or [Combobox](./combobox.md) are selectable.
 2. **Trigger actions**<br>MenuItems in [MenuButton](menu-button.md) trigger actions. There are two types of actions:
 	- **Standard actions**<br>neutral actions such as "Edit" or "Share".
+	- **Progressive actions**<br>actions that create something or move a process forward.
 	- **Destructive actions**<br>actions with potentially negative or irreversible impact, such as "Delete".
 
 MenuItem includes the following elements.

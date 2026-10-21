@@ -98,10 +98,10 @@ const menuItemsWithGroup = [
 	{
 		label: 'Group B',
 		items: [
-			{ label: 'Four', value: '4' },
+			{ label: 'Four', value: '4', action: 'progressive' },
 			{ label: 'Five', value: '5' },
 			{ label: 'Six', value: '6' },
-			{ label: 'Seven', value: '7' }
+			{ label: 'Seven', value: '7', action: 'destructive' }
 		]
 	}
 ];

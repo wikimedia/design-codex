@@ -359,6 +359,7 @@ export default defineComponent( {
 			'cdx-menu-item--active': props.active && props.highlighted,
 			'cdx-menu-item--highlighted': props.highlighted,
 			'cdx-menu-item--destructive': props.action && props.action === 'destructive',
+			'cdx-menu-item--progressive': props.action && props.action === 'progressive',
 			'cdx-menu-item--enabled': !props.disabled,
 			'cdx-menu-item--disabled': props.disabled,
 			'cdx-menu-item--highlight-query': highlightQuery.value,
@@ -620,6 +621,71 @@ export default defineComponent( {
 			.cdx-menu-item__text__description,
 			.cdx-menu-item__icon {
 				color: @color-destructive--active;
+			}
+		}
+	}
+
+	&--progressive {
+		.cdx-menu-item__content,
+		.cdx-menu-item__text__supporting-text,
+		.cdx-menu-item__text__description,
+		.cdx-menu-item__icon {
+			color: @color-progressive;
+		}
+
+		&.cdx-menu-item--highlighted {
+			background-color: @background-color-progressive-subtle--hover;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__supporting-text,
+			.cdx-menu-item__text__description,
+			.cdx-menu-item__icon {
+				color: @color-progressive--hover;
+			}
+		}
+
+		&.cdx-menu-item--active {
+			background-color: @background-color-progressive-subtle--active;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__supporting-text,
+			.cdx-menu-item__text__description,
+			.cdx-menu-item__icon {
+				color: @color-progressive--active;
+			}
+		}
+
+		&.cdx-menu-item--selected {
+			background-color: @background-color-progressive-subtle;
+			color: @color-progressive;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__supporting-text,
+			.cdx-menu-item__text__description,
+			.cdx-menu-item__icon {
+				color: @color-progressive;
+			}
+		}
+
+		&.cdx-menu-item--selected.cdx-menu-item--highlighted {
+			background-color: @background-color-progressive-subtle--hover;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__supporting-text,
+			.cdx-menu-item__text__description,
+			.cdx-menu-item__icon {
+				color: @color-progressive--hover;
+			}
+		}
+
+		&.cdx-menu-item--selected.cdx-menu-item--active {
+			background-color: @background-color-progressive-subtle--active;
+
+			.cdx-menu-item__content,
+			.cdx-menu-item__text__supporting-text,
+			.cdx-menu-item__text__description,
+			.cdx-menu-item__icon {
+				color: @color-progressive--active;
 			}
 		}
 	}
