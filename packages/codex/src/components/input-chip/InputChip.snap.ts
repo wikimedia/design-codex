@@ -25,6 +25,7 @@ exports[`InputChip matches the snapshot Case 0 Default props: ({}) => HTML 1`] =
     disabled="false"
     size="medium"
     tabindex="-1"
+    type="button"
     weight="quiet"
   />
 </div>
@@ -55,6 +56,7 @@ exports[`InputChip matches the snapshot Case 1 Disabled: ({"disabled": true}) =>
     disabled="true"
     size="medium"
     tabindex="-1"
+    type="button"
     weight="quiet"
   />
 </div>
@@ -89,6 +91,7 @@ exports[`InputChip matches the snapshot Case 2 Icon: ({"icon": [Object]}) => HTM
     disabled="false"
     size="medium"
     tabindex="-1"
+    type="button"
     weight="quiet"
   />
 </div>
@@ -119,6 +122,7 @@ exports[`InputChip matches the snapshot Case 3 CSS class: ({"className": "my-css
     disabled="false"
     size="medium"
     tabindex="-1"
+    type="button"
     weight="quiet"
   />
 </div>

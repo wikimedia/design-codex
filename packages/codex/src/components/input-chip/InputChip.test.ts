@@ -41,6 +41,14 @@ describe( 'InputChip', () => {
 		} );
 	} );
 
+	describe( 'when the chip is inside a form', () => {
+		it( 'does not render the remove button as a submit button', () => {
+			// Otherwise pressing Enter in another field of the form clicks it (T415679)
+			const wrapper = mount( CdxInputChip );
+			expect( wrapper.find( '.cdx-input-chip__button' ).attributes( 'type' ) ).toBe( 'button' );
+		} );
+	} );
+
 	describe( 'when the chip is clicked', () => {
 		it( 'emits the "click-chip" event', async () => {
 			const wrapper = shallowMount( CdxInputChip );

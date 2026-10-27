@@ -24,6 +24,7 @@
 		</span>
 		<cdx-button
 			class="cdx-input-chip__button"
+			type="button"
 			weight="quiet"
 			tabindex="-1"
 			aria-hidden="true"

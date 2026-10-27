@@ -299,6 +299,7 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
           aria-hidden="true"
           class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-input-chip__button"
           tabindex="-1"
+          type="button"
         >
           <!-- @slot Button content -->
           
@@ -343,6 +344,7 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
           aria-hidden="true"
           class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-input-chip__button"
           tabindex="-1"
+          type="button"
         >
           <!-- @slot Button content -->
           
@@ -509,6 +511,7 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
           aria-hidden="true"
           class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-input-chip__button"
           tabindex="-1"
+          type="button"
         >
           <!-- @slot Button content -->
           
@@ -553,6 +556,7 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
           aria-hidden="true"
           class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-input-chip__button"
           tabindex="-1"
+          type="button"
         >
           <!-- @slot Button content -->
           
@@ -662,6 +666,7 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
           aria-hidden="true"
           class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-input-chip__button"
           tabindex="-1"
+          type="button"
         >
           <!-- @slot Button content -->
           
@@ -706,6 +711,7 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
           aria-hidden="true"
           class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-input-chip__button"
           tabindex="-1"
+          type="button"
         >
           <!-- @slot Button content -->
           
@@ -812,6 +818,7 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
           class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-input-chip__button"
           disabled=""
           tabindex="-1"
+          type="button"
         >
           <!-- @slot Button content -->
           
@@ -857,6 +864,7 @@ exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": t
           class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only cdx-input-chip__button"
           disabled=""
           tabindex="-1"
+          type="button"
         >
           <!-- @slot Button content -->
           
